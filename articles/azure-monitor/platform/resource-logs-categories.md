@@ -4,12 +4,12 @@ description: Referencia de Azure Monitor para conocer el esquema de los eventos 
 ms.subservice: logs
 ms.topic: reference
 ms.date: 06/03/2020
-ms.openlocfilehash: 81f79b81c03e7996d7f6d45b002d8160740c3c14
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1fd6f07151c93b64c150f01e5c0b5c7f4cffed85
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87318307"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94593015"
 ---
 # <a name="supported-categories-for-azure-resource-logs"></a>Categorías admitidas en los registros de recursos de Azure
 
@@ -497,7 +497,6 @@ Si todavía falta algo, puede escribir un comentario de GitHub en la parte infer
 |Category|Nombre para mostrar de categoría|
 |---|---|
 |NetworkSecurityGroupEvent|Evento de grupo de seguridad de red|
-|NetworkSecurityGroupFlowEvent|Evento de flujo de reglas de grupo de seguridad de red|
 |NetworkSecurityGroupRuleCounter|Contador de reglas de grupo de seguridad de red|
 
 

@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 08/05/2020
 ms.author: pafarley
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: d7d66e247c6a6240bd6fde08612b8eb770bd3b92
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: b85b2d9b81e84ec6c6e09fef16c66a919aa30cd7
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92737549"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616763"
 ---
 # <a name="tutorial-recognize-azure-service-logos-in-camera-pictures"></a>Tutorial: Reconocimiento de logotipos de servicios de Azure imágenes de cámara
 
@@ -34,9 +34,9 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 ## <a name="prerequisites"></a>Requisitos previos
 
 - [Visual Studio 2017 o cualquier versión posterior](https://www.visualstudio.com/downloads/)
-- Carga de trabajo Xamarin para Visual Studio (consulte [Instalación de Xamarin](https://docs.microsoft.com/xamarin/cross-platform/get-started/installation/windows))
+- Carga de trabajo Xamarin para Visual Studio (consulte [Instalación de Xamarin](/xamarin/cross-platform/get-started/installation/windows))
 - Un emulador de iOS o de Android para Visual Studio
-- La [CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli-windows?view=azure-cli-latest) (opcional)
+- La [CLI de Azure](/cli/azure/install-azure-cli-windows?view=azure-cli-latest) (opcional)
 
 ## <a name="get-the-source-code"></a>Obtención del código fuente
 
@@ -56,7 +56,7 @@ Una vez que haya cargado las imágenes de entrenamiento, seleccione la primera e
 
 ![Logotipo de etiquetado en el sitio Web de Custom Vision](media/azure-logo-tutorial/tag-logos.png)
 
-La aplicación está configurada para trabajar con cadenas de etiqueta concretas. Encontrará las definiciones en el archivo *Source\VisualProvision\Services\Recognition\RecognitionService.cs* :
+La aplicación está configurada para trabajar con cadenas de etiqueta concretas. Encontrará las definiciones en el archivo *Source\VisualProvision\Services\Recognition\RecognitionService.cs*:
 
 [!code-csharp[Tag definitions](~/AIVisualProvision/Source/VisualProvision/Services/Recognition/RecognitionService.cs?name=snippet_constants)]
 
@@ -74,7 +74,7 @@ Una vez que el modelo esté entrenado, estará preparado para integrarlo en la a
 
 ![El sitio Web de Custom Vision con una ventana de Prediction API, que muestra una dirección URL y la clave de API](media/azure-logo-tutorial/cusvis-endpoint.png)
 
-Copie la dirección URL del punto de conexión y el valor **Prediction-Key** en los campos adecuados del archivo  *Source\VisualProvision\AppSettings.cs* :
+Copie la dirección URL del punto de conexión y el valor **Prediction-Key** en los campos adecuados del archivo  *Source\VisualProvision\AppSettings.cs*:
 
 [!code-csharp[Custom Vision fields](~/AIVisualProvision/Source/VisualProvision/AppSettings.cs?name=snippet_cusvis_keys)]
 
@@ -88,13 +88,13 @@ Este resultado adopta la forma de una instancia de **PredictionResult** que, a s
 
 [!code-csharp[Custom Vision fields](~/AIVisualProvision/Source/VisualProvision/Services/Recognition/Prediction.cs?name=snippet_prediction_class)]
 
-Para más información acerca de cómo la aplicación trata estos datos, empiece con el método **GetResourcesAsync** . Este método se define en el archivo *Source/VisualProvision/Services/Recognition/RecognitionService.cs* .  
+Para más información acerca de cómo la aplicación trata estos datos, empiece con el método **GetResourcesAsync**. Este método se define en el archivo *Source/VisualProvision/Services/Recognition/RecognitionService.cs*.  
 
 ## <a name="add-computer-vision"></a>Incorporación de Computer Vision
 
 La parte de Custom Vision del tutorial está completa. Si desea ejecutar la aplicación, deberá integrar el servicio Computer Vision también. La aplicación usa la característica de reconocimiento de texto de Computer Vision para complementar el proceso de detección del logotipo. Un logotipo de Azure puede ser reconocido por su apariencia *o* por el texto impreso cerca de ella. A diferencia de los modelos de Custom Vision, Computer Vision está entrenado previamente para realizar determinadas operaciones en las imágenes o los vídeos.
 
-Suscríbase al servicio Computer Vision para obtener una clave y una dirección URL del punto de conexión. Para obtener ayuda con este paso, consulte [Obtención de las claves de suscripción](https://docs.microsoft.com/azure/cognitive-services/computer-vision/vision-api-how-to-topics/howtosubscribe).
+Suscríbase al servicio Computer Vision para obtener una clave y una dirección URL del punto de conexión. Para obtener ayuda con este paso, consulte [Obtención de las claves de suscripción](../cognitive-services-apis-create-account.md?tabs=singleservice%2Cwindows).
 
 ![El servicio Computer Vision en Azure Portal, con el menú de inicio rápido seleccionado. Se describe un vínculo para las claves, como es la dirección URL del punto de conexión de API](media/azure-logo-tutorial/comvis-keys.png)
 
@@ -104,7 +104,7 @@ A continuación, abra el archivo *Source\VisualProvision\AppSettings.cs* y relle
 
 ## <a name="create-a-service-principal"></a>Creación de una entidad de servicio
 
-La aplicación requiere una cuenta de entidad de servicio de Azure para implementar los servicios en su suscripción de Azure. Una entidad de servicio le permite delegar permisos específicos en una aplicación mediante el control de acceso basado en roles de Azure. Si desea más información, consulte la [guía de las entidades de servicio](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-create-service-principals).
+La aplicación requiere una cuenta de entidad de servicio de Azure para implementar los servicios en su suscripción de Azure. Una entidad de servicio le permite delegar permisos específicos en una aplicación mediante el control de acceso basado en roles de Azure. Si desea más información, consulte la [guía de las entidades de servicio](/azure-stack/operator/azure-stack-create-service-principals).
 
 Las entidades de servicio se pueden crear mediante Azure Cloud Shell o mediante la CLI de Azure, como se indica aquí. Para comenzar, inicie sesión y seleccione la suscripción que desea usar.
 
@@ -132,7 +132,7 @@ Cuando se haya completado correctamente, debería ver el siguiente código JSON 
 }
 ```
 
-Tome nota de los valores de `clientId` y `tenantId`. Agréguelos a los campos pertinentes del archivo *Source\VisualProvision\AppSettings.cs* .
+Tome nota de los valores de `clientId` y `tenantId`. Agréguelos a los campos pertinentes del archivo *Source\VisualProvision\AppSettings.cs*.
 
 [!code-csharp[Computer Vision fields](~/AIVisualProvision/Source/VisualProvision/AppSettings.cs?name=snippet_serviceprincipal)]
 
@@ -146,7 +146,7 @@ Ya ha dado a la aplicación acceso a:
 
 Para ejecutar la aplicación, siga estos pasos:
 
-1. En el Explorador de soluciones de Visual Studio, seleccione el proyecto **VisualProvision.Android** o el proyecto **VisualProvision.iOS** . Elija el emulador o dispositivo móvil conectado un correspondientes en el menú desplegable, en la barra de herramientas principal. Después, ejecute la aplicación.
+1. En el Explorador de soluciones de Visual Studio, seleccione el proyecto **VisualProvision.Android** o el proyecto **VisualProvision.iOS**. Elija el emulador o dispositivo móvil conectado un correspondientes en el menú desplegable, en la barra de herramientas principal. Después, ejecute la aplicación.
 
     > [!NOTE]
     > Necesitará un dispositivo MacOS para ejecutar un emulador de iOS.
@@ -154,7 +154,7 @@ Para ejecutar la aplicación, siga estos pasos:
 1. En la primera pantalla, escriba su identificador de cliente, identificador de inquilino y contraseña de la entidad de servicio. Seleccione el botón **Login** (Inicio de sesión).
 
     > [!NOTE]
-    > En algunos emuladores, es posible que el botón **Login** (Inicio de sesión) no se active en este paso. En ese caso, detenga la aplicación, abra el archivo *Source/VisualProvision/Pages/LoginPage.xaml* , busque el elemento `Button` con la etiqueta **LOGIN BUTTON** , quite la línea y, después, ejecute de nuevo la aplicación.
+    > En algunos emuladores, es posible que el botón **Login** (Inicio de sesión) no se active en este paso. En ese caso, detenga la aplicación, abra el archivo *Source/VisualProvision/Pages/LoginPage.xaml*, busque el elemento `Button` con la etiqueta **LOGIN BUTTON**, quite la línea y, después, ejecute de nuevo la aplicación.
     >  ```xaml
     >  IsEnabled="{Binding IsValid}"
     >  ```
@@ -176,7 +176,7 @@ Para ejecutar la aplicación, siga estos pasos:
 
 Si ha seguido todos los pasos de este escenario y ha usado la aplicación para implementar los servicios de Azure en su cuenta, vaya a [Azure Portal](https://ms.portal.azure.com/). Allí, cancele los servicios que no desee utilizar.
 
-Además, si planea crear un proyecto de detección de objetos propio con Custom Vision, es posible que desee eliminar el proyecto de detección de logotipos que ha creado en este tutorial. Una suscripción gratuita de Custom Vision sirve solo para dos proyectos. Para eliminar el proyecto de detección de logotipo, en el [sitio Web de Custom Vision](https://customvision.ai), abra **Proyectos** y, a continuación, seleccione el icono de Papelera en **Mi nuevo proyecto** .
+Además, si planea crear un proyecto de detección de objetos propio con Custom Vision, es posible que desee eliminar el proyecto de detección de logotipos que ha creado en este tutorial. Una suscripción gratuita de Custom Vision sirve solo para dos proyectos. Para eliminar el proyecto de detección de logotipo, en el [sitio Web de Custom Vision](https://customvision.ai), abra **Proyectos** y, a continuación, seleccione el icono de Papelera en **Mi nuevo proyecto**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

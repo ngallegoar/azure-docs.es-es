@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: nichola
-ms.openlocfilehash: 54a1135931c2be9c6b7941c9ff740fd29f855eee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 26dd255e6edff7c339ab9766bb71889cf4e2deaa
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90601255"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94577650"
 ---
 # <a name="five-steps-for-integrating-all-your-apps-with-azure-ad"></a>Cinco pasos para la integración de todas las aplicaciones en Azure AD
 
@@ -46,7 +46,7 @@ Por último, también puede integrar las aplicaciones que desarrolla de modo int
 
 A continuación, detecte las aplicaciones que los empleados utilizan con frecuencia y priorice su trabajo para integrarlas con Azure AD.
 
-Puede comenzar con las [herramientas de Cloud Discovery](/cloud-app-security/tutorial-shadow-it) de Microsoft Cloud App Security para detectar y administrar &quot;TI en la sombra&quot; en la red (es decir, las aplicaciones no administradas por el departamento de TI). Puede utilizar [Protección contra amenazas avanzada (ATP) de Microsoft Defender](/cloud-app-security/wdatp-integration) para simplificar y ampliar el proceso de detección.
+Puede comenzar con las [herramientas de Cloud Discovery](/cloud-app-security/tutorial-shadow-it) de Microsoft Cloud App Security para detectar y administrar &quot;TI en la sombra&quot; en la red (es decir, las aplicaciones no administradas por el departamento de TI). Puede utilizar [Protección contra amenazas avanzada (ATP) de Microsoft Defender](/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection) para simplificar y ampliar el proceso de detección.
 
 Además, puede usar el [informe de actividad de la aplicación AD FS](../manage-apps/migrate-adfs-application-activity.md) en Azure Portal para detectar todas las aplicaciones de AD FS de su organización, el número de usuarios únicos que han iniciado sesión en ellas y la compatibilidad para integrarlas con Azure AD.
 

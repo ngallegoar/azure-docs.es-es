@@ -11,17 +11,17 @@ ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: a62133737d48a8ebf454b5fab83ef52ef2daad09
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: a9dba9222816ef2cc7891ff7f803e6a7409802a4
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93098440"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94593457"
 ---
 # <a name="tutorial-create-a-single-page-app-using-the-bing-image-search-api"></a>Tutorial: Crear una aplicación de una sola página con Bing Image Search API
 
 > [!WARNING]
-> Las Bing Search API se mueven de Cognitive Services a Bing Search Services. A partir del  **30 de octubre de 2020** , las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](https://aka.ms/cogsvcs/bingmove).
+> Las Bing Search API se mueven de Cognitive Services a Bing Search Services. A partir del **30 de octubre de 2020**, las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](https://aka.ms/cogsvcs/bingmove).
 > El aprovisionamiento de las Bing Search API con Cognitive Services será posible durante los próximos tres años o hasta que finalice el Contrato Enterprise, lo que antes suceda.
 > Puede encontrar instrucciones sobre la migración en [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
 
@@ -122,7 +122,7 @@ De forma predeterminada, el controlador `onsubmit` devuelve `false`, lo que impi
 
 ![[Formulario de Bing Image Search]](media/cognitive-services-bing-images-api/image-search-spa-form.png)
 
-Bing Image Search API ofrece varios [parámetros de consulta de filtro](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#filter-query-parameters) para limitar y filtrar los resultados de la búsqueda. El formulario HTML de esta aplicación usa y muestra las siguientes opciones de parámetro:
+Bing Image Search API ofrece varios [parámetros de consulta de filtro](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#filter-query-parameters) para limitar y filtrar los resultados de la búsqueda. El formulario HTML de esta aplicación usa y muestra las siguientes opciones de parámetro:
 
 | Opción | Descripción |
 |--------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

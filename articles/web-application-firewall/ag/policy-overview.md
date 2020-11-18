@@ -7,12 +7,12 @@ author: winthrop28
 ms.service: web-application-firewall
 ms.date: 10/14/2020
 ms.author: victorh
-ms.openlocfilehash: 789a60c80d14301c107824d178a3566d358d287f
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 0f7fec997ec6d0c73fe6d1039ab1033752e0cedf
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92056402"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566578"
 ---
 # <a name="azure-web-application-firewall-waf-policy-overview"></a>Introducción a las directivas de firewall de aplicaciones web (WAF) de Azure
 
@@ -57,7 +57,7 @@ En este ejemplo, tiene una directiva global que se aplica a dos sitios. Tiene un
 
 ## <a name="existing-waf-configurations"></a>Configuraciones WAF existentes
 
-Toda la nueva configuración de WAF del firewall de aplicaciones web (reglas personalizadas, configuraciones de conjunto de reglas administradas, exclusiones, etc.) se encuentra en una directiva de WAF. Si tiene una instancia de WAF existente, es posible que esta configuración siga existiendo en la configuración de WAF. Para obtener más información sobre cómo cambiar a la nueva directiva de WAF, consulte[Migración de la configuración de WAF a una directiva de WAF](https://docs.microsoft.com/azure/web-application-firewall/ag/migrate-policy). 
+Toda la nueva configuración de WAF del firewall de aplicaciones web (reglas personalizadas, configuraciones de conjunto de reglas administradas, exclusiones, etc.) se encuentra en una directiva de WAF. Si tiene una instancia de WAF existente, es posible que esta configuración siga existiendo en la configuración de WAF. Para obtener más información sobre cómo cambiar a la nueva directiva de WAF, consulte[Migración de la configuración de WAF a una directiva de WAF](./migrate-policy.md). 
 
 
 ## <a name="next-steps"></a>Pasos siguientes

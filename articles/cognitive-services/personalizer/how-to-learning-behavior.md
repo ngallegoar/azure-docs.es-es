@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: how-to
 ms.date: 05/01/2020
-ms.openlocfilehash: 10e98cd2f0ad4793aa43f9bb3316c522b44f1d2c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 57a03b107678f83200b11f408784f6455cbceffd
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91303546"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94579298"
 ---
 # <a name="configure-the-personalizer-learning-behavior"></a>Configuración del comportamiento de aprendizaje de Personalizer
 
@@ -56,10 +56,6 @@ El modo de aprendiz proporciona las siguientes **métricas de evaluación**:
 * **Línea de base: promedio de recompensa**.  Promedio de recompensas del valor predeterminado de la aplicación (línea de base).
 * **Personalizer: promedio de recompensa**. Promedio de recompensas totales que Personalizer puede haber alcanzado.
 * **Proporción de logros de recompensas en los 1000 eventos más recientes**. Proporción de recompensas de línea de base y de Personalizer, normalizados con los últimos 1000 eventos.
-
-## <a name="evaluate-apprentice-mode-features"></a>Evaluación de las características del modo de aprendiz
-
-Evalúe las características mediante una [evaluación sin conexión](how-to-offline-evaluation.md).
 
 ## <a name="switch-behavior-to-online-mode"></a>Cambio del comportamiento al modo en línea
 

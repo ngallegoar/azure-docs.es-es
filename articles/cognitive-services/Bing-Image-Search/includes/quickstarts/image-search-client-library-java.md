@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 03/04/2020
 ms.custom: devx-track-java
 ms.author: aahi
-ms.openlocfilehash: d7433da99fa1aa607b8c85ce6c8f44adcc6c6f89
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: f155868483a0b00ed5ecb6f02ad3ee5440e6e45a
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87375569"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94625501"
 ---
 Use este inicio rápido para buscar su primera imagen mediante la biblioteca cliente de Bing Image Search, un contenedor de la API y que contiene las mismas características. Esta sencilla aplicación de Java envía una consulta de búsqueda de imagen, analiza la respuesta de JSON y muestra la dirección URL de la primera imagen devuelta.
 
@@ -22,7 +22,7 @@ El código fuente de este ejemplo está disponible en [GitHub](https://github.co
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-La última versión del [Kit de desarrollo de Java (JDK)](https://aka.ms/azure-jdks)
+La última versión del [Kit de desarrollo de Java (JDK)](/azure/developer/java/fundamentals/java-jdk-long-term-support)
 
 Instale las dependencias de la biblioteca cliente de Bing Image Search con Maven, Gradle u otro sistema de administración de dependencias. El archivo POM de Maven requiere la declaración siguiente:
 
@@ -92,12 +92,12 @@ else {
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Tutorial de aplicación de una sola página de Bing Image Search](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/tutorial-bing-image-search-single-page-app)
+> [Tutorial de aplicación de una sola página de Bing Image Search](../../tutorial-bing-image-search-single-page-app.md)
 
 ## <a name="see-also"></a>Consulte también
 
-* [¿Qué es Bing Image Search?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
+* [¿Qué es Bing Image Search?](../../overview.md)  
 * [Prueba de una demostración interactiva en línea](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
 * [Ejemplos de Java para el SDK de Azure Cognitive Services](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples)
-* [Documentación de Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services)
-* [Referencia de Bing Image Search API](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)
+* [Documentación de Azure Cognitive Services](../../../index.yml)
+* [Referencia de Bing Image Search API](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)

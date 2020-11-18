@@ -5,14 +5,14 @@ description: Vea cómo habilitar el registro con la configuración de diagnósti
 author: baanders
 ms.author: baanders
 ms.date: 11/9/2020
-ms.topic: troubleshooting
+ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 0d775ffa1ce063c01fc6762d77201e5a4caaad87
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: d988617fcaf7479c7bb3356e6ef6f87824ed23a7
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94411772"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616661"
 ---
 # <a name="troubleshooting-azure-digital-twins-diagnostics-logging"></a>Solución de problemas de Azure Digital Twins: Registro de diagnóstico
 
@@ -251,7 +251,7 @@ Así es como se realizan consultas en los registros de una instancia.
     :::image type="content" source="media/troubleshoot-diagnostics/logs-query.png" alt-text="Captura de pantalla que muestra la página Registros de una instancia de Azure Digital Twins. La ventana Consultas ha desaparecido y, en su lugar, hay una lista de registros diferentes, un panel de edición que muestra el código de consulta que se puede editar y un panel que muestra el historial de consultas." lightbox="media/troubleshoot-diagnostics/logs-query.png":::
 
     En el panel izquierdo: 
-    - La pestaña *Tables* (Tablas) muestran las distintas [categorías de registro ](#log-categories) de Azure Digital Twins que están disponibles para su uso en las consultas. 
+    - La pestaña *Tables* (Tablas) muestran las distintas [categorías de registro](#log-categories) de Azure Digital Twins que están disponibles para su uso en las consultas. 
     - La pestaña *Queries* (Consultas) contiene las consultas de ejemplo que se pueden cargar en el editor.
     - La pestaña *Filter* (Filtro) permite personalizar una vista filtrada de los datos que devuelve la consulta.
 

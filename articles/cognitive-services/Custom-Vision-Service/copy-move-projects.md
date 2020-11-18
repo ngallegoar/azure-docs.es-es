@@ -9,12 +9,12 @@ ms.subservice: custom-vision
 ms.topic: how-to
 ms.date: 09/08/2020
 ms.author: pafarley
-ms.openlocfilehash: c742240cc82035b2a9af16348eaa9f2a40a32fa3
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 548d936538a909da10796d0377f119826582c420
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900334"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616066"
 ---
 # <a name="copy-and-move-your-custom-vision-projects"></a>Copia y traslado de los proyectos de Custom Vision
 
@@ -30,7 +30,7 @@ Si su aplicación o empresa dependen del uso de un proyecto de Custom Vision, se
 
 - Dos recursos de Azure Custom Vision. Si no los tiene, vaya a Azure Portal y [cree un recurso de Custom Vision](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision?azure-portal=true).
 - Las claves de entrenamiento y las direcciones URL del punto de conexión de los recursos de Custom Vision. Puede encontrar estos valores en la pestaña **Información general** del recurso en Azure Portal.
-- Un proyecto de Custom Vision ya creado. Consulte [Creación de un clasificador](https://docs.microsoft.com/azure/cognitive-services/Custom-Vision-Service/getting-started-build-a-classifier) para encontrar instrucciones sobre cómo hacerlo.
+- Un proyecto de Custom Vision ya creado. Consulte [Creación de un clasificador](./getting-started-build-a-classifier.md) para encontrar instrucciones sobre cómo hacerlo.
 
 ## <a name="process-overview"></a>Información general del proceso
 

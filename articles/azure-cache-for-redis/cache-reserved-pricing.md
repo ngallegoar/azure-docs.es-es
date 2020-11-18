@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 02/20/2020
-ms.openlocfilehash: 76da267ae14a1f58ee2cadbf48f4b2ec419312b4
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 99aa4d9ed6552075b0da4d451201f48ba6adfb1b
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92543532"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94578712"
 ---
 # <a name="prepay-for-azure-cache-for-redis-compute-resources-with-reserved-capacity"></a>Pago por adelantado de recursos de proceso de Azure Cache for Redis con capacidad reservada
 
@@ -37,8 +37,10 @@ Por ejemplo, supongamos que está ejecutando dos memorias caché (una en 13 GB 
 
 ## <a name="buy-azure-cache-for-redis-reserved-capacity"></a>Compra de capacidad reservada de Azure Cache for Redis
 
+Puede comprar una instancia reservada de máquina virtual en [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/). Pague la reserva [por adelantado o mensualmente](../cost-management-billing/reservations/monthly-payments-reservations.md).
+
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
-2. Seleccione **Todos los servicios** > **Reservations** .
+2. Seleccione **Todos los servicios** > **Reservations**.
 3. Seleccione **Agregar** y, en el panel Comprar reservas, seleccione **Azure Cache for Redis** para comprar una nueva reserva para las cachés.
 4. Rellene todos los campos obligatorios. Las bases de datos existentes o nuevas que coincidan con los atributos seleccionados serán aptas para el descuento en la capacidad reservada. El número real de instancias de Azure Cache for Redis que obtienen el descuento depende del ámbito y la cantidad que se seleccionen.
 
@@ -51,7 +53,7 @@ En la siguiente tabla se describen los campos obligatorios.
 | Campo | Descripción |
 | :------------ | :------- |
 | Suscripción   | La suscripción usada para pagar la reserva de capacidad reservada de Azure Cache for Redis. Los costos anticipados por la reserva de capacidad reservada de Azure Cache for Redis se cobran mediante el método de pago de la suscripción. El tipo de suscripción debe ser Contrato Enterprise (números de oferta: MS-AZR-0017P o MS-AZR-0148P) o un contrato individual con precios de pago por uso (números de oferta: MS-AZR-0003P o MS-AZR-0023P). Para una suscripción Enterprise, los cargos se deducen del saldo de compromiso monetario de la inscripción o se cobran como uso por encima del límite. Para una suscripción individual con precios de pago por uso, los cargos se cobran en el método de pago de la factura o la tarjeta de crédito de la suscripción.
-| Ámbito | El ámbito de la reserva puede cubrir una o varias suscripciones (ámbito compartido). Si selecciona: </br></br> **Compartido** : el descuento de la reserva se aplica a las instancias de Azure Cache for Redis que se ejecutan en cualquier suscripción en el contexto de facturación. Para los clientes Enterprise, el ámbito compartido es la inscripción e incluye todas las suscripciones que esta contiene. Para los clientes de Pago por uso, el ámbito compartido incluye todas las suscripciones de Pago por uso creadas por el administrador de la cuenta.</br></br> **Suscripción única** : el descuento de reserva se aplica a las instancias de Azure Cache for Redis de esta suscripción. </br></br> **Grupo de recursos único** : el descuento de reserva se aplica a las instancias de Azure Cache for Redis de la suscripción seleccionada y al grupo de recursos seleccionado de esa suscripción.
+| Ámbito | El ámbito de la reserva puede cubrir una o varias suscripciones (ámbito compartido). Si selecciona: </br></br> **Compartido**: el descuento de la reserva se aplica a las instancias de Azure Cache for Redis que se ejecutan en cualquier suscripción en el contexto de facturación. Para los clientes Enterprise, el ámbito compartido es la inscripción e incluye todas las suscripciones que esta contiene. Para los clientes de Pago por uso, el ámbito compartido incluye todas las suscripciones de Pago por uso creadas por el administrador de la cuenta.</br></br> **Suscripción única**: el descuento de reserva se aplica a las instancias de Azure Cache for Redis de esta suscripción. </br></br> **Grupo de recursos único**: el descuento de reserva se aplica a las instancias de Azure Cache for Redis de la suscripción seleccionada y al grupo de recursos seleccionado de esa suscripción.
 | Region | Región de Azure que abarca la reserva de capacidad reservada de Azure Cache for Redis.
 | Plan de tarifa | Nivel de servicio de los servidores de Azure Cache for Redis.
 | Término | Uno o tres años.

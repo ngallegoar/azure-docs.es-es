@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: cherylmc
-ms.openlocfilehash: 0029f3fbcf96036a247356042e4c39d59f86a224
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 29fff3a6a430e3bc1a0b3a13876b55d22f7cb545
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88208343"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566476"
 ---
 # <a name="automation-guidelines-for-virtual-wan-partners"></a>Directrices de automatización para asociados de Virtual WAN
 
@@ -33,9 +33,9 @@ Un dispositivo de la rama (un dispositivo VPN de cliente en el entorno local o S
 
 ### <a name="additional-information"></a><a name ="additional"></a>Información adicional
 
-* [API REST](https://docs.microsoft.com/rest/api/virtualwan/virtualhubs) para automatizar la creación de un centro virtual
-* [API REST](https://docs.microsoft.com/rest/api/virtualwan/vpngateways) para automatizar Azure VPN Gateway para Virtual WAN
-* [API REST](https://docs.microsoft.com/rest/api/virtualwan/vpnconnections) para conectar un sitio VPN a un centro de conectividad de VPN de Azure
+* [API REST](/rest/api/virtualwan/virtualhubs) para automatizar la creación de un centro virtual
+* [API REST](/rest/api/virtualwan/vpngateways) para automatizar Azure VPN Gateway para Virtual WAN
+* [API REST](/rest/api/virtualwan/vpnconnections) para conectar un sitio VPN a un centro de conectividad de VPN de Azure
 * [Directivas IPsec predeterminadas](#default)
 
 ## <a name="customer-experience"></a><a name ="ae"></a>Experiencia del cliente
@@ -63,11 +63,11 @@ Los clientes deben poder configurar el control de acceso adecuado para la red Vi
 
 ###  <a name="upload-branch-device-information"></a><a name="branch"></a>Cargar la información del dispositivo de la rama
 
-Debe diseñar la experiencia del usuario para cargar la información de la rama (sitio local) en Azure. Las [API REST](https://docs.microsoft.com/rest/api/virtualwan/vpnsites) de VPNSite se pueden usar para crear la información del sitio en Virtual WAN. Puede proporcionar todos los dispositivos VPN o SDWAN de la rama o seleccionar las personalizaciones de dispositivo según corresponda.
+Debe diseñar la experiencia del usuario para cargar la información de la rama (sitio local) en Azure. Las [API REST](/rest/api/virtualwan/vpnsites) de VPNSite se pueden usar para crear la información del sitio en Virtual WAN. Puede proporcionar todos los dispositivos VPN o SDWAN de la rama o seleccionar las personalizaciones de dispositivo según corresponda.
 
 ### <a name="device-configuration-download-and-connectivity"></a><a name="device"></a>Conectividad y descarga de la configuración del dispositivo
 
-Este paso implica la descarga de la configuración de Azure y la configuración de la conectividad del dispositivo de la rama en Azure Virtual WAN. En este paso, un cliente que no está usando un proveedor podría descargar la configuración de Azure manualmente y aplicarla a su dispositivo SDWAN o VPN local. Como proveedor, debería automatizar este paso. Para más información, vea las [API REST](https://docs.microsoft.com/rest/api/virtualwan/vpnsitesconfiguration/download) de descarga. El controlador del dispositivo puede llamar a la API REST "GetVpnConfiguration" para descargar la configuración de Azure.
+Este paso implica la descarga de la configuración de Azure y la configuración de la conectividad del dispositivo de la rama en Azure Virtual WAN. En este paso, un cliente que no está usando un proveedor podría descargar la configuración de Azure manualmente y aplicarla a su dispositivo SDWAN o VPN local. Como proveedor, debería automatizar este paso. Para más información, vea las [API REST](/rest/api/virtualwan/vpnsitesconfiguration/download) de descarga. El controlador del dispositivo puede llamar a la API REST "GetVpnConfiguration" para descargar la configuración de Azure.
 
 **Notas de la configuración**
 

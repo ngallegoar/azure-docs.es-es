@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/15/2020
 ms.author: Zhchia
-ms.openlocfilehash: 086f79239fd4f6b01f4b76d1385598bac52bb471
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 9a7c19e30c6c26d7bf7f11d6f03a0acaee160c9a
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94358980"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94578661"
 ---
 # <a name="tutorial-configure-alertmedia-for-automatic-user-provisioning"></a>Tutorial: Configuración de AlertMedia para el aprovisionamiento automático de usuarios
 
@@ -94,22 +94,22 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Pestaña de aprovisionamiento automático](common/provisioning-automatic.png)
 
-5. En la sección **Credenciales de administrador** , escriba la **dirección URL del inquilino** de AlertMedia como una de las siguientes opciones.
-      * (dominio no personalizado) https://dashboard.alertmedia.com/api/scim/v3
+5. En la sección **Credenciales de administrador**, escriba la **dirección URL del inquilino** de AlertMedia como una de las siguientes opciones.
+      * (dominio no personalizado) `https://dashboard.alertmedia.com/api/scim/v3`
 
-      * (dominio personalizado) https://subdomain.alertmedia.com/api/scim/v3
+      * (dominio personalizado) `https://subdomain.alertmedia.com/api/scim/v3`
 
       Escriba el **Token secreto** como se recuperó en el paso 2 anterior. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a AlertMedia. Si la conexión no se establece, asegúrese de que la cuenta de AlertMedia tiene permisos de administrador y vuelva a intentarlo.
 
       ![Token](common/provisioning-testconnection-tenanturltoken.png)
 
-6. En el campo **Correo electrónico de notificación** , escriba la dirección de correo electrónico de una persona o grupo que deba recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
+6. En el campo **Correo electrónico de notificación**, escriba la dirección de correo electrónico de una persona o grupo que deba recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
 
     ![Correo electrónico de notificación](common/provisioning-notification-email.png)
 
 7. Seleccione **Guardar**.
 
-8. En la sección **Asignaciones** , seleccione **Synchronize Azure Active Directory Users to AlertMedia** (Sincronizar usuarios de Azure Active Directory con AlertMedia).
+8. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Users to AlertMedia** (Sincronizar usuarios de Azure Active Directory con AlertMedia).
 
 9. Examine los atributos de usuario que se sincronizan entre Azure AD y AlertMedia en la sección **Asignación de atributos**. Los atributos seleccionados como propiedades de **Coincidencia** se usan para buscar coincidencias con las cuentas de usuario de AlertMedia con el objetivo de realizar operaciones de actualización. Si decide cambiar el [atributo de destino coincidente](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes), deberá asegurarse de que la API de AlertMedia admite el filtrado de usuarios basado en ese atributo. Seleccione el botón **Guardar** para confirmar los cambios.
 
@@ -143,7 +143,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
    |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:customer_user_id|String|
    |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:user_type|String|
 
-10. En la sección **Asignaciones** , seleccione **Synchronize Azure Active Directory Groups to AlertMedia** (Sincronizar grupos de Azure Active Directory con AlertMedia).
+10. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Groups to AlertMedia** (Sincronizar grupos de Azure Active Directory con AlertMedia).
 
 11. Examine los atributos de grupo que se sincronizan entre Azure AD y AlertMedia en la sección **Asignación de atributos**. Los atributos seleccionados como propiedades de **Coincidencia** se usan para establecer correspondencia con los grupos en AlertMedia con el objetivo de realizar operaciones de actualización. Seleccione el botón **Guardar** para confirmar los cambios.
 
@@ -158,7 +158,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Estado de aprovisionamiento activado](common/provisioning-toggle-on.png)
 
-14. Elija los valores deseados en **Ámbito** , en la sección **Configuración** para definir los usuarios o grupos que desea que se aprovisionen en AlertMediaAlertMedia.
+14. Elija los valores deseados en **Ámbito**, en la sección **Configuración** para definir los usuarios o grupos que desea que se aprovisionen en AlertMediaAlertMedia.
 
     ![Ámbito del aprovisionamiento](common/provisioning-scope.png)
 

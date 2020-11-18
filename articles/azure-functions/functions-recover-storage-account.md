@@ -3,12 +3,12 @@ title: 'Solución del error: No se puede acceder a Azure Functions Runtime'
 description: Aprenda a solucionar los problemas con una cuenta de almacenamiento no válida.
 ms.topic: article
 ms.date: 09/05/2018
-ms.openlocfilehash: 094f4f45be0ae4173af434be178f2eae2b21b6be
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 0b6778a08bf04367f2a0ef10f7cd4fe29a52dd61
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92054736"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94579018"
 ---
 # <a name="troubleshoot-error-azure-functions-runtime-is-unreachable"></a>Solución del error: "No se puede acceder a Azure Functions Runtime"
 
@@ -76,7 +76,7 @@ Es posible que no se pueda acceder al entorno en tiempo de ejecución de la func
 
 * La aplicación de funciones se hospeda en una [instancia de App Service Environment con equilibrio de carga interno](../app-service/environment/create-ilb-ase.md) y está configurada para bloquear el tráfico entrante de Internet.
 
-* La aplicación de funciones tiene [restricciones de IP de entrada](functions-networking-options.md#inbound-ip-restrictions) que están configuradas para bloquear el acceso a Internet. 
+* La aplicación de funciones tiene [restricciones de IP de entrada](functions-networking-options.md#inbound-access-restrictions) que están configuradas para bloquear el acceso a Internet. 
 
 Azure Portal realiza llamadas directamente a la aplicación en ejecución para obtener la lista de funciones y realiza llamadas HTTP al punto de conexión de Kudu. La configuración en el nivel de plataforma de la pestaña **Platform Features** (Características de la plataforma) sigue estando disponible.
 
