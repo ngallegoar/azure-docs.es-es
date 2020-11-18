@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 08/27/2020
 author: palma21
-ms.openlocfilehash: 260631e36d113b6ccd190f66ce61caa7ba1b187b
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 2dba9fbcbddbc7a66763636986f3d98f4f95332c
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900895"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94683138"
 ---
 # <a name="use-the-azure-disk-container-storage-interface-csi-drivers-in-azure-kubernetes-service-aks-preview"></a>Uso de los controladores de interfaz de almacenamiento de contenedores (CSI) para discos de Azure en Azure Kubernetes Service (AKS) (versión preliminar)
 Un controlador de interfaz de almacenamiento de contenedores (CSI) para discos de Azure es un controlador compatible con la [especificación CSI](https://github.com/container-storage-interface/spec/blob/master/spec.md) que usa Azure Kubernetes Service (AKS) para administrar el ciclo de vida de los discos de Azure.
@@ -275,7 +275,7 @@ Filesystem      Size  Used Avail Use% Mounted on
 
 ## <a name="shared-disk"></a>Disco compartido
 
-Los [discos compartidos de Azure](../virtual-machines/windows/disks-shared.md) son una característica de Azure Managed Disks que permite asociar un disco de Azure a nodos de agente simultáneamente. Si asocia un disco administrado a varios nodos de agente, podrá implementar nuevas aplicaciones en clúster o migrar las existentes a Azure.
+Los [discos compartidos de Azure](../virtual-machines/disks-shared.md) son una característica de Azure Managed Disks que permite asociar un disco de Azure a nodos de agente simultáneamente. Si asocia un disco administrado a varios nodos de agente, podrá implementar nuevas aplicaciones en clúster o migrar las existentes a Azure.
 
 > [!IMPORTANT] 
 > Actualmente, el controlador CSI para discos de Azure solo admite el dispositivo de bloque sin formato (`volumeMode: Block`). Las aplicaciones deben administrar la coordinación y el control de las escrituras, lecturas, bloqueos, cachés, montajes y barreras en el disco compartido, que se expone como un dispositivo de bloque sin formato.

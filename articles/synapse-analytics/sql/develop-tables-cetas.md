@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 09/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: d0805aaf694f1569e613ab74135c95e454adbdc0
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: df0198ba77e1661bb18aa72285e100ca070966a8
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93315072"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94331743"
 ---
 # <a name="cetas-with-synapse-sql"></a>CETAS con Synapse SQL
 
@@ -68,7 +68,7 @@ Especifica el nombre del objeto de origen de datos externo que contiene la ubica
 
 FILE_FORMAT = *external_file_format_name*
 
-Especifica el nombre del objeto de formato de archivo externo que contiene el formato del archivo de datos externos. Para crear un formato de archivo externo, use [CREATE EXTERNAL FILE FORMAT (Transact-SQL)](develop-tables-external-tables.md#create-external-file-format). Actualmente solo se admiten formatos de archivos externos con FORMAT_TYPE=PARQUET y FORMAT_TYPE=DELIMITEDTEXT.
+Especifica el nombre del objeto de formato de archivo externo que contiene el formato del archivo de datos externos. Para crear un formato de archivo externo, use [CREATE EXTERNAL FILE FORMAT (Transact-SQL)](develop-tables-external-tables.md#create-external-file-format). Actualmente solo se admiten formatos de archivos externos con FORMAT_TYPE=PARQUET y FORMAT_TYPE=DELIMITEDTEXT. No se admite la compresión GZip para el formato DELIMITEDTEXT.
 
 WITH *<common_table_expression>*
 
@@ -144,32 +144,30 @@ CETAS se puede usar para almacenar conjuntos de resultados con los siguientes ti
 - varbinary
 - char
 - varchar
+- NCHAR
+- NVARCHAR
+- smalldate
 - date
-- time
+- datetime
 - datetime2
+- datetimeoffset
+- time
 - Decimal
 - NUMERIC
 - FLOAT
 - real
 - bigint
-- int
-- SMALLINT
 - TINYINT
+- SMALLINT
+- int
+- bigint
 - bit
-
-> [!NOTE]
-> Las aplicaciones de línea de negocio no se pueden usar con CETAS.
-
-Los siguientes tipos de datos no se pueden usar en la parte SELECT de CETAS:
-
-- NCHAR
-- NVARCHAR
-- datetime
-- smalldatetime
-- datetimeoffset
 - money
 - SMALLMONEY
 - UNIQUEIDENTIFIER
+
+> [!NOTE]
+> Los objetos grandes mayores de 1 MB no se pueden usar con CETAS.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

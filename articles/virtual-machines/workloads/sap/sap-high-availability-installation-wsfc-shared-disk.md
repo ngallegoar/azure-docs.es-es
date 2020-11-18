@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 08/12/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5126ae94d8c751952964aaf4df0736a5e546ff36
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: c914afb3a72ccac4753a1942b6c4303850654a2e
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91963642"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94682645"
 ---
 # <a name="install-sap-netweaver-ha-on-a-windows-failover-cluster-and-shared-disk-for-an-sap-ascsscs-instance-in-azure"></a>Instalación de alta disponibilidad para SAP NetWeaver en un clúster de conmutación por error de Windows y un disco compartido para una instancia de ASCS/SCS de SAP en Azure
 
@@ -149,7 +149,7 @@ ms.locfileid: "91963642"
 
 Este artículo describe cómo instalar y configurar un sistema SAP de alta disponibilidad en Azure mediante el uso de un clúster de conmutación por error de Windows Server y un disco compartido de clúster para agrupar en clústeres una instancia de SAP ASCS/SCS. Como se describe en [Guía de arquitectura: Agrupación de una instancia de ASCS/SCS de SAP en un clúster de conmutación por error de Windows con un disco compartido de clúster][sap-high-availability-guide-wsfc-shared-disk] hay dos alternativas para el *disco compartido de clúster*:
 
-- [Discos compartidos de Azure](../../windows/disks-shared.md)
+- [Discos compartidos de Azure](../../disks-shared.md)
 - Uso de [SIOS DataKeeper Cluster Edition](https://us.sios.com/products/datakeeper-cluster/) para crear un almacenamiento reflejado, que simulará el disco compartido en clúster 
 
 ## <a name="prerequisites"></a>Requisitos previos
@@ -250,7 +250,7 @@ Use la funcionalidad de sondeo del equilibrador de carga interno para que toda l
 Sin embargo, esto no funcionará en algunas configuraciones de clúster porque solo hay una instancia activa. La otra instancia es pasiva y no puede aceptar nada de la carga de trabajo. Una funcionalidad de sondeo ayuda cuando Azure Internal Load Balancer detecta qué instancia está activa y solo tiene como destino la instancia activa.  
 
 > [!IMPORTANT]
-> En esta configuración de ejemplo, **ProbePort** se establece en 620**Nr**. En el caso de la instancia de ASCS de SAP con el número **00** es 620**00**. Tendrá que ajustar la configuración para que coincida con los números de instancia de SAP y el SID de SAP.
+> En esta configuración de ejemplo, **ProbePort** se establece en 620 **Nr**. En el caso de la instancia de ASCS de SAP con el número **00** es 620 **00**. Tendrá que ajustar la configuración para que coincida con los números de instancia de SAP y el SID de SAP.
 
 Para agregar un puerto de sondeo, ejecute este módulo de PowerShell en una de las máquinas virtuales del clúster:
 

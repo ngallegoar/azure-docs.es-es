@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 10/16/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: 6ffa7bb07ddb42946acdcef6ee3b7f2aa804f774
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: f3ed5f3940a9b02701ad2f3c779b791e128e288c
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324303"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94506352"
 ---
 # <a name="quickstart-create-a-dedicated-sql-pool-using-synapse-studio"></a>Inicio rápido: Creación de un grupo de SQL dedicado mediante Synapse Studio
 
@@ -76,6 +76,8 @@ Inicie sesión en el [Portal de Azure](https://portal.azure.com/)
 
 4. En la pestaña siguiente, **Additional settings** (Configuración adicional), seleccione **none** (no) para aprovisionar el grupo de SQL sin datos. Deje seleccionada la opción de intercalación predeterminada.
 
+    Si desea restaurar el grupo de SQL dedicado desde un punto de restauración, seleccione el **punto de restauración**. Para obtener más información sobre cómo realizar una restauración, vea [ Restauración de un grupo de SQL dedicado](backuprestore/restore-sql-pool.md)
+
     ![Flujo de creación del grupo de SQL: pestaña de configuración adicional.](media/quickstart-create-sql-pool/create-sql-pool-studio-25.png)
 
 1. Por ahora no vamos a agregar etiquetas, así que seleccione **Review + create** (Revisar y crear).
@@ -101,7 +103,7 @@ Siga los pasos que se indican a continuación para eliminar el grupo de SQL dedi
 Si está seguro de que quiere eliminar el grupo de SQL dedicado, haga lo siguiente:
 
 1. Vaya a los grupos de SQL en el centro de administración de Synapse Studio.
-1. Seleccione los puntos suspensivos en el grupo de SQL dedicado que se va a eliminar (en este caso, **contosoedw** ) para mostrar los comandos del grupo de SQL dedicado:
+1. Seleccione los puntos suspensivos en el grupo de SQL dedicado que se va a eliminar (en este caso, **contosoedw**) para mostrar los comandos del grupo de SQL dedicado:
 
     ![Lista de grupos de SQL, con el grupo creado recientemente seleccionado.](media/quickstart-create-sql-pool/create-sql-pool-studio-28.png)
 1. Presione **Eliminar**.

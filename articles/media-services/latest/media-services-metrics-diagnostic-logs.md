@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/02/2020
 ms.author: inhenkel
-ms.openlocfilehash: 33aed32c30f298fd3432f4cebcc28b9c20974545
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: ed436336b9b1f9f5815938d13315e821694e5f1c
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93309062"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94685195"
 ---
 # <a name="monitor-media-services-metrics-and-diagnostic-logs-with-azure-monitor"></a>Supervisión de métricas y registros de diagnóstico de Media Services con Azure Monitor
 
@@ -67,8 +67,8 @@ Se admiten estas métricas de [Puntos de conexión de streaming](/rest/api/media
 |Requests|Requests|Proporciona el número total de solicitudes HTTP atendidas por el punto de conexión de streaming.|
 |Salida|Salida|Bytes de salida totales por minuto por punto de conexión de streaming.|
 |SuccessE2ELatency|Latencia correcta de extremo a extremo|Tiempo que transcurre desde que el punto de conexión de streaming recibió la solicitud hasta el momento en que se envió el último byte de la respuesta.|
-|Uso de CPU| Uso de CPU para puntos de conexión de streaming prémium. Estos datos no están disponibles para los puntos de conexión de streaming estándar. |
-|Ancho de banda de salida | Ancho de banda de salida en bits por segundo.|
+|Uso de CPU| | Uso de CPU para puntos de conexión de streaming prémium. Estos datos no están disponibles para los puntos de conexión de streaming estándar. |
+|Ancho de banda de salida | | Ancho de banda de salida en bits por segundo.|
 
 ### <a name="metrics-are-useful"></a>Las métricas son útiles.
 

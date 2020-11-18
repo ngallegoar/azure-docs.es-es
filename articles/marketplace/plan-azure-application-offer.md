@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/06/2020
-ms.openlocfilehash: 61c8127941c54270b938babefaf4eb17627a15f3
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 4cb707896aa7874aa2bf287723e8a53d7d6d974c
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94369852"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94577794"
 ---
 # <a name="plan-an-azure-application-offer-for-the-commercial-marketplace"></a>Planeamiento de una oferta de Aplicación de Azure para el marketplace comercial
 
@@ -33,7 +33,7 @@ Para diseñar, compilar y probar ofertas de aplicaciones de Azure, se necesitan 
 
 Mientras prepara su oferta de Aplicación de Azure para el marketplace comercial, revise los siguientes recursos.
 
-- [Nociones sobre las plantillas de Azure Resource Manager](/azure/azure-resource-manager/templates/template-syntax.md)
+- [Nociones sobre las plantillas de Azure Resource Manager](/azure/azure-resource-manager/templates/template-syntax)
 - Guías de inicio rápido:
     - [Plantillas de inicio rápido de Azure](https://azure.microsoft.com/documentation/templates/)
     - [Guía de procedimientos recomendados para plantillas de Azure](https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md)
@@ -145,7 +145,7 @@ Para facilitar la creación de la oferta, prepare algunos de estos elementos con
 - **Descripción breve**: proporcione hasta 256 caracteres de texto sin formato. Este resumen aparecerá en la página de detalles de la oferta.
 - **Descripción**: esta descripción se mostrará en la información general de las descripciones de ofertas de Azure Marketplace. Considere la posibilidad de incluir una propuesta de valor, las ventajas principales, los compradores previstos, las asociaciones de categoría o sector, las oportunidades de compra dentro de la aplicación, las necesidades o problemas que soluciona la oferta, todas las divulgaciones necesarias y un vínculo a más información.
 
-    Este cuadro de texto tiene controles de editor de texto enriquecido que puede utilizar para que su descripción sea más atractiva. También puede usar etiquetas HTML para dar formato a la descripción. En este cuadro puede escribir hasta 3000 caracteres de texto, lo que incluye el marcado HTML y espacios. Puede encontrar otras sugerencias en [Escribir una excelente descripción de la aplicación](/windows/uwp/publish/write-a-great-app-description.md) y [Etiquetas HTML admitidas en las descripciones de las ofertas del marketplace comercial](supported-html-tags.md).
+    Este cuadro de texto tiene controles de editor de texto enriquecido que puede utilizar para que su descripción sea más atractiva. También puede usar etiquetas HTML para dar formato a la descripción. En este cuadro puede escribir hasta 3000 caracteres de texto, lo que incluye el marcado HTML y espacios. Puede encontrar otras sugerencias en [Escribir una excelente descripción de la aplicación](/windows/uwp/publish/write-a-great-app-description) y [Etiquetas HTML admitidas en las descripciones de las ofertas del marketplace comercial](supported-html-tags.md).
 
 - **Palabras clave de búsqueda** (opcional): escriba al menos tres palabras clave de búsqueda que los clientes puedan usar para buscar su oferta en la tienda en línea. Para obtener mejores resultados, intente usar también estas palabras clave en la descripción. No es necesario incluir el **nombre** y **descripción** de la oferta. Ese texto se incluye automáticamente en la búsqueda.
 - **Vínculo a la directiva de privacidad**: la dirección URL que lleva a la directiva de privacidad de su empresa. Debe proporcionar una directiva de privacidad válida y usted es responsable de garantizar que la aplicación cumple con las leyes y normativas de privacidad.
@@ -197,9 +197,9 @@ Especifique la audiencia preliminar mediante los identificadores de suscripción
 
 En el caso de las aplicaciones administradas que emiten eventos de medición mediante las [API del servicio de medición de Marketplace](partner-center-portal/marketplace-metering-service-apis.md), debe proporcionar la identidad que usará el servicio al emitir dichos eventos.
 
-Esta configuración es necesaria si quiere usar [eventos de uso de Batch](partner-center-portal/marketplace-metering-service-apis.md#metered-billing-batch-usage-event). En caso de que quiera enviar [eventos de uso](partner-center-portal/marketplace-metering-service-apis.md#metered-billing-single-usage-event), también puede emplear el [servicio de metadatos de instancia](/azure/active-directory/managed-identities-azure-resources/overview.md) para obtener el [token de portador de JSON Web Token (JWT)](partner-center-portal/pc-saas-registration.md#how-to-get-the-publishers-authorization-token).
+Esta configuración es necesaria si quiere usar [eventos de uso de Batch](partner-center-portal/marketplace-metering-service-apis.md#metered-billing-batch-usage-event). En caso de que quiera enviar [eventos de uso](partner-center-portal/marketplace-metering-service-apis.md#metered-billing-single-usage-event), también puede emplear el [servicio de metadatos de instancia](/azure/active-directory/managed-identities-azure-resources/overview) para obtener el [token de portador de JSON Web Token (JWT)](partner-center-portal/pc-saas-registration.md#how-to-get-the-publishers-authorization-token).
 
-- **Identificador de inquilino de Azure Active Directory** (obligatorio): En Azure Portal, debe [crear una aplicación de Azure Active Directory](/azure/active-directory/develop/howto-create-service-principal-portal.md) para que podamos validar que la conexión entre nuestros dos servicios está detrás de una comunicación autenticada. Para encontrar el [identificador de inquilino](/azure/active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in) de la aplicación de Azure Active Directory (Azure AD), vaya a la hoja [Registros de aplicaciones](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) de Azure Active Directory. En la columna **Nombre para mostrar**, seleccione la aplicación. A continuación, busque **Propiedades** y, luego, el **identificador de directorio (inquilino)** (por ejemplo `50c464d3-4930-494c-963c-1e951d15360e`).
+- **Identificador de inquilino de Azure Active Directory** (obligatorio): En Azure Portal, debe [crear una aplicación de Azure Active Directory](/azure/active-directory/develop/howto-create-service-principal-portal) para que podamos validar que la conexión entre nuestros dos servicios está detrás de una comunicación autenticada. Para encontrar el [identificador de inquilino](/azure/active-directory/develop/howto-create-service-principal-portal#get-tenant-and-app-id-values-for-signing-in) de la aplicación de Azure Active Directory (Azure AD), vaya a la hoja [Registros de aplicaciones](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) de Azure Active Directory. En la columna **Nombre para mostrar**, seleccione la aplicación. A continuación, busque **Propiedades** y, luego, el **identificador de directorio (inquilino)** (por ejemplo `50c464d3-4930-494c-963c-1e951d15360e`).
 - **Identificador de aplicación de Azure Active Directory** (obligatorio): También necesita su [identificador de la aplicación](/azure/active-directory/develop/howto-create-service-principal-portal#get-tenant-and-app-id-values-for-signing-in.md) y una clave de autenticación. Para encontrar el identificador de la aplicación, vaya a la hoja [Registros de aplicaciones](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) en su instancia de Azure Active Directory. En la columna **Nombre para mostrar**, seleccione la aplicación y, a continuación, busque el **identificador de aplicación (cliente)** (por ejemplo, `50c464d3-4930-494c-963c-1e951d15360e`). Para buscar la clave de autenticación, vaya a **Configuración** y seleccione **Claves**. Deberá proporcionar una descripción y una duración y, después, se proporcionara un valor numérico.
 
 > [!NOTE]
@@ -209,7 +209,7 @@ Esta configuración es necesaria si quiere usar [eventos de uso de Batch](partne
 
 Puede optar por participar en los canales de marketing y ventas respaldados por Microsoft. Al crear la oferta en el Centro de partners, verá dos pestañas hacia el final del proceso:
 
-- **Resell through CSPs** (Revender a través de los CSP): use esta opción para permitir que los asociados de los proveedores de soluciones en la nube (CSP) de Microsoft revendan la solución como parte de una oferta agrupada. Para más información, consulte [Programa del Proveedor de soluciones en la nube](/azure/marketplace/cloud-solution-providers.md).
+- **Resell through CSPs** (Revender a través de los CSP): use esta opción para permitir que los asociados de los proveedores de soluciones en la nube (CSP) de Microsoft revendan la solución como parte de una oferta agrupada. Para más información, consulte [Programa del Proveedor de soluciones en la nube](/azure/marketplace/cloud-solution-providers).
 - **Venta conjunta con Microsoft**: esta opción permite que los equipos de ventas de Microsoft consideren la solución idónea para la venta conjunta de IP al evaluar las necesidades de los clientes. Consulte [Opción de venta conjunta en el Centro de partners](partner-center-portal/commercial-marketplace-co-sell.md) para información detallada sobre cómo preparar la oferta para la evaluación. Para más información sobre cómo comercializar su oferta a través de los canales de asociados de CSP de Microsoft, consulte [Proveedores de soluciones en la nube](cloud-solution-providers.md).
 
 Para más información, consulte [Desarrollo de un negocio en la nube con Azure Marketplace](https://azuremarketplace.microsoft.com/sell).
@@ -222,14 +222,14 @@ Puede encontrar instrucciones generales sobre los planes, incluidos los modelos 
 
 ### <a name="types-of-plans"></a>Tipos de planes
 
-Hay dos tipos de planes de Aplicación de Azure: _plantilla de solución_ y _aplicación administrada_. Ambos tipos admiten la automatización de la implementación y de la configuración de una solución en más de una máquina virtual (VM). Puede automatizar el proceso de suministrar varios recursos, incluidas máquinas virtuales, redes y recursos de almacenamiento, para proporcionar soluciones complejas, como es el caso de las soluciones IaaS. Ambos tipos de planes pueden emplear muchas clases diferentes de recursos de Azure, incluidas, entre otras, máquinas virtuales.
+Hay dos tipos de planes de la Aplicación de Azure: _plantilla de solución_ y _aplicación administrada_. Ambos tipos de planes admiten la automatización de la implementación y la configuración de una solución más allá de una sola máquina virtual (VM). Puede automatizar el proceso de suministrar varios recursos, incluidas VM, redes y recursos de almacenamiento, para proporcionar soluciones complejas, como soluciones IaaS. Ambos tipos de planes pueden emplear muchos tipos diferentes de recursos de Azure, incluidas, entre otras, VM.
 
-- Los planes de **plantilla de solución** son uno de los principales mecanismos para publicar una solución en el marketplace comercial. Aunque no se pueden realizar transacciones con ellos, se pueden usar para implementar ofertas de máquina virtual de pago que se facturan mediante el marketplace comercial. Use el tipo de plan de plantilla de solución cuando el cliente administre la solución y las transacciones se facturen mediante otro plan. Para más información sobre la creación de plantillas de solución, consulte [¿Qué es Azure Resource Manager?](/azure/azure-resource-manager/resource-group-overview.md)
-- Los planes de **aplicación administrada** le permiten crear y entregar con facilidad aplicaciones llave en mano totalmente administradas para los clientes. Tienen las mismas funcionalidades que los planes de plantilla de solución, con algunas diferencias clave:
-    - Los recursos se implementan en un grupo de recursos y los administra el editor de la aplicación. El grupo de recursos está presente en la suscripción del consumidor, pero una identidad en el inquilino del editor tiene acceso al grupo de recursos. 
-    - El editor especifica el costo del soporte técnico continuo de la solución, y se admiten transacciones mediante el marketplace comercial.
+- Los planes de **plantilla de solución** son uno de los principales mecanismos para publicar una solución en el marketplace comercial. Los planes de plantilla de solución no se pueden comercializar en el marketplace comercial, pero se pueden usar para implementar ofertas de VM de pago facturadas mediante el marketplace comercial. Use el tipo de plan de plantilla de solución cuando el cliente administre la solución y las transacciones se facturan a través de otro plan. Para más información sobre la creación de plantillas de solución, consulte [¿Qué es Azure Resource Manager?](/azure/azure-resource-manager/resource-group-overview)
+- Los planes de **aplicación administrada** le permiten crear y entregar con facilidad a los clientes aplicaciones llave en mano totalmente administradas. Tienen las mismas funcionalidades que los planes de plantilla de solución, con algunas diferencias clave:
+    - Los recursos se implementan en un grupo de recursos y están administrados por el editor de la aplicación. El grupo de recursos está presente en la suscripción del consumidor, pero una identidad en el inquilino del editor tiene acceso al grupo de recursos. 
+    - Como editor, especifica el costo del soporte técnico continuo de la solución, y las transacciones se admiten a través del marketplace comercial.
  
-    Use el tipo de plan de aplicación administrada cuando usted o su cliente requieran que un asociado administre la solución, o cuando vaya a implementar una solución basada en suscripciones. Para más información sobre las ventajas y los tipos de aplicaciones administradas, consulte [Introducción a las aplicaciones administradas de Azure](/azure/managed-applications/overview.md).
+    Use el tipo de plan de aplicación administrada cuando usted o su cliente requieran que un partner administre la solución, o cuando vayan a implementar una solución basada en suscripciones. Para más información sobre las ventajas y los tipos de aplicaciones administradas, consulte [Introducción a las aplicaciones administradas de Azure](/azure/managed-applications/overview).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
