@@ -2,19 +2,19 @@
 title: 'Preguntas más frecuentes: Azure Synapse Analytics (versión preliminar de las áreas de trabajo)'
 description: Preguntas más frecuentes sobre Azure Synapse Analytics (versión preliminar de las áreas de trabajo)
 services: synapse-analytics
-author: ArnoMicrosoft
+author: saveenr
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: overview
 ms.date: 04/15/2020
-ms.author: acomet
+ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: d7e8ea231dd6db9eab6cf9115f6ce2e62893371a
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 530ebe09ee0ca44b0a5fbd4b8da2784e2c7ae7ea
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93305413"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843900"
 ---
 # <a name="azure-synapse-analytics-workspaces-preview-frequently-asked-questions"></a>Preguntas frecuentes sobre Azure Synapse Analytics (versión preliminar de las áreas de trabajo)
 
@@ -101,8 +101,6 @@ A. Sí, puede usar aplicaciones empresariales de terceros, como Tableau y Power�
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Creación de un área de trabajo](quickstart-create-workspace.md)
-- [Inicio rápido: Uso de Synapse Studio (versión preliminar)](quickstart-synapse-studio.md)
-- [Creación de un grupo de SQL dedicado](quickstart-create-sql-pool-portal.md)
-- [Uso de grupos de SQL sin servidor](quickstart-sql-on-demand.md)
-- [Creación de un grupo de Apache Spark sin servidor](quickstart-create-apache-spark-pool-portal.md) 
+* [Introducción a Azure Synapse Analytics](get-started.md)
+* [Creación de un área de trabajo](quickstart-create-workspace.md)
+* [Uso de grupos de SQL sin servidor](quickstart-sql-on-demand.md)

@@ -5,15 +5,15 @@ author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.custom: subject-armqs
+ms.custom: subject-armqs, devx-track-azurecli
 ms.author: cavoeg
 ms.date: 10/06/2020
-ms.openlocfilehash: c04bb82810bf55d6ac55b2697f5010896e0eb9b4
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 0cc31c26a71775dfdf3e9ee94852fda8af2c0cfc
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289290"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844546"
 ---
 # <a name="quickstart-use-an-arm-template-to-deploy-azure-api-for-fhir"></a>Inicio rápido: Uso de una plantilla de Resource Manager para implementar Azure API for FHIR
 
@@ -71,11 +71,11 @@ Seleccione el siguiente vínculo para implementar Azure API for FHIR con la plan
 
 [:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Implemente una instancia del servicio Azure API for FHIR con la plantilla de Resource Manager en Azure Portal.":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-azure-api-for-fhir%2fazuredeploy.json)
 
-En la página **Implementación de Azure API for FHIR** :
+En la página **Implementación de Azure API for FHIR**:
 
 1. Si lo desea, cambie el valor predeterminado de **Suscripción** a una otra suscripción.
 
-2. En **Grupo de recursos** , seleccione **Crear nuevo** y, después, especifique un nombre válido para el nuevo grupo de recursos y seleccione **Aceptar**.
+2. En **Grupo de recursos**, seleccione **Crear nuevo** y, después, especifique un nombre válido para el nuevo grupo de recursos y seleccione **Aceptar**.
 
 3. Si ha creado un grupo de recursos, seleccione un valor de **Región** para el grupo de recursos.
 

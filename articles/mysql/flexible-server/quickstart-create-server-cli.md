@@ -1,19 +1,19 @@
 ---
 title: 'Inicio rápido: Creación de un servidor mediante la CLI de Azure en Azure Database for MySQL con la opción Servidor flexible'
 description: En este inicio rápido se describe cómo usar la CLI de Azure para crear una instancia de Azure Database for MySQL con la opción Servidor flexible en un grupo de recursos de Azure.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 9/21/2020
-ms.custom: mvc
-ms.openlocfilehash: 4be295ada476e4dc41a86d06908ef1d653a3bad8
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 65cc3d2fdcbdea934e80a5f0012ca4f3da157ca3
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545028"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843441"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-flexible-server-using-azure-cli"></a>Inicio rápido: Creación de una instancia de Azure Database for MySQL con la opción Servidor flexible mediante la CLI de Azure
 
@@ -32,7 +32,7 @@ Si prefiere instalar y usar la CLI de forma local, en este inicio rápido se req
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Será preciso que inicie sesión en su cuenta mediante el comando [az login](/cli/azure/reference-index#az-login). Tenga en cuenta la propiedad **id** , que hace referencia al **identificador de suscripción** para su cuenta de Azure.
+Será preciso que inicie sesión en su cuenta mediante el comando [az login](/cli/azure/reference-index#az-login). Tenga en cuenta la propiedad **id**, que hace referencia al **identificador de suscripción** para su cuenta de Azure.
 
 ```azurecli-interactive
 az login
@@ -107,7 +107,7 @@ Para conectarse al servidor, debe proporcionar las credenciales de acceso y la i
 az mysql flexible-server show --resource-group myresourcegroup --name mydemoserver
 ```
 
-El resultado está en formato JSON. Tome nota de los valores de **fullyQualifiedDomainName** y **administratorLogin** . A continuación se muestra un ejemplo de salida de JSON: 
+El resultado está en formato JSON. Tome nota de los valores de **fullyQualifiedDomainName** y **administratorLogin**. A continuación se muestra un ejemplo de salida de JSON: 
 
 ```json
 {
