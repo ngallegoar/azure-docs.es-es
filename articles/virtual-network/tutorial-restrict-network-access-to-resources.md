@@ -16,12 +16,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 08/23/2018
 ms.author: kumud
-ms.openlocfilehash: 85fc5687b82947ed16bde0c30ca2b947514ba958
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e6716d2ad4252169cfbbf611b0dadc5b077cd362
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74186367"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042559"
 ---
 # <a name="tutorial-restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-portal"></a>Tutorial: Restricción del acceso de la red a los recursos de PaaS mediante puntos de conexión de servicio de red virtual mediante Azure Portal.
 
@@ -195,13 +195,13 @@ De forma predeterminada, las cuentas de almacenamiento aceptan conexiones de red
     |Redes virtuales|Seleccione **myVirtualNetwork** en **Redes virtuales**|
     |Subredes| Seleccione **Privada** en **Subredes**|
 
-    ![Firewalls y redes virtuales](./media/tutorial-restrict-network-access-to-resources/storage-firewalls-and-virtual-networks.png)
+    ![Captura de pantalla que muestra el panel Agregar redes donde se pueden indicar los valores especificados.](./media/tutorial-restrict-network-access-to-resources/storage-firewalls-and-virtual-networks.png)
 
 5. Seleccione **Guardar**.
 6. Cierre el cuadro **Firewalls and virtual networks** (Firewalls y redes virtuales).
 7. En la opción **Configuración** de la cuenta de almacenamiento, seleccione **Claves de acceso**, tal y como se muestra en la siguiente ilustración:
 
-      ![Firewalls y redes virtuales](./media/tutorial-restrict-network-access-to-resources/storage-access-key.png)
+      ![Captura de pantalla que muestra Teclas de acceso seleccionado en Configuración, donde se puede obtener una clave.](./media/tutorial-restrict-network-access-to-resources/storage-access-key.png)
 
 8. Anote el valor del campo **Clave**, ya que tendrá que escribirlo manualmente más adelante, cuando asigne el recurso compartido de archivos a una letra de unidad de una máquina virtual.
 

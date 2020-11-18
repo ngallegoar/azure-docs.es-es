@@ -1,18 +1,18 @@
 ---
-title: Conexión del código de dispositivo de C de ejemplo de IoT Plug and Play a IoT Hub | Microsoft Docs
-description: Compile y ejecute el código de dispositivo de C de ejemplo de IoT Plug and Play que usa varios componentes y realiza la conexión a un centro de IoT. Use la herramienta Azure IoT Explorer para ver la información enviada por el dispositivo al centro.
+title: 'Tutorial: Conexión del código de dispositivo de C de ejemplo de IoT Plug and Play a Azure IoT Hub | Microsoft Docs'
+description: 'Tutorial: Compilación y ejecución de código de un dispositivo de C de ejemplo de IoT Plug and Play que usa varios componentes y realiza la conexión a un centro de IoT. Use la herramienta Azure IoT Explorer para ver la información enviada por el dispositivo al centro.'
 author: ericmitt
 ms.author: ericmitt
 ms.date: 07/22/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: e1a2a45d0f5743874ce0c0b20190d7d396094e43
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 0bf0e45f6e9b088567dd48d3eb12ae979ba679e4
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92046390"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421488"
 ---
 # <a name="tutorial-connect-an-iot-plug-and-play-multiple-component-device-applications-running-on-linux-or-windows-to-iot-hub-c"></a>Tutorial: Conexión de una aplicación de dispositivo de varios componentes de IoT Plug and Play en Linux o Windows a IoT Hub (C)
 

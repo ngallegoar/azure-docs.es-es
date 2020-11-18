@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.custom: tutorial, mvc
 ms.topic: tutorial
 ms.date: 06/25/2019
-ms.openlocfilehash: 7af3386a618fdcc58facb1d67c26692312d30a89
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 179d4124e28abfffa83b16cfdb418d8e860192d8
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92535780"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93337139"
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>Tutorial: Diseño de una instancia de Azure Database for PostgreSQL: servidor único con Azure Portal
 
@@ -37,7 +37,7 @@ Un servidor de Azure Database for PostgreSQL se crea con un conjunto definido de
 
 Para crear un servidor de Azure Database for PostgreSQL, siga estos pasos:
 1. Haga clic en **Crear un recurso** de la esquina superior izquierda de Azure Portal.
-2. En la página **Nuevo** , seleccione **Bases de datos** y, en la página **Bases de datos** , seleccione **Azure Database for PostgreSQL**.
+2. En la página **Nuevo**, seleccione **Bases de datos** y, en la página **Bases de datos**, seleccione **Azure Database for PostgreSQL**.
    :::image type="content" source="./media/tutorial-design-database-using-azure-portal/1-create-database.png" alt-text="Azure Database for PostgreSQL: creación de la base de datos":::
 
 3. Seleccione la opción de implementación de **servidor único**.
@@ -58,7 +58,7 @@ Para crear un servidor de Azure Database for PostgreSQL, siga estos pasos:
     Contraseña |La contraseña| Una contraseña nueva para la cuenta de administrador del servidor. Debe tener entre 8 y 128 caracteres. La contraseña debe contener caracteres de tres de las siguientes categorías: Letras del alfabeto inglés mayúsculas y minúsculas, números (0 a 9) y caracteres no alfanuméricos (!, $, #, %, etc.).
     Location|Región más cercana a los usuarios| La ubicación más cercana a los usuarios.
     Versión|La versión principal más reciente| La versión principal más reciente de PostgreSQL, a menos que tenga requisitos específicos.
-    Proceso y almacenamiento | **Uso general** , **Gen 5** , **2 núcleos virtuales** , **5 GB** , **7 días** , **Redundancia geográfica** | Configuración de los recursos de proceso, almacenamiento y copia de seguridad para el nuevo servidor. Seleccione **Configurar servidor**. A continuación, seleccione la pestaña **Uso general**. *Gen 5* , *4 núcleos virtuales* , *100 GB* y *7 días* son los valores predeterminados de **Generación de procesos** , **Núcleos virtuales** , **Almacenamiento** y **Período de retención de copia de seguridad**. Puede dejar esos controles deslizantes tal como están o ajustarlos. Para habilitar las copias de seguridad del servidor en el almacenamiento con redundancia geográfica, seleccione **Redundancia geográfica** en **Opciones de redundancia de copia de seguridad**. Para guardar el plan de tarifa elegido, seleccione **Aceptar**. La captura de pantalla siguiente muestra estas opciones seleccionadas.
+    Proceso y almacenamiento | **Uso general**, **Gen 5**, **2 núcleos virtuales**, **5 GB**, **7 días**, **Redundancia geográfica** | Configuración de los recursos de proceso, almacenamiento y copia de seguridad para el nuevo servidor. Seleccione **Configurar servidor**. A continuación, seleccione la pestaña **Uso general**. *Gen 5*, *4 núcleos virtuales*, *100 GB* y *7 días* son los valores predeterminados de **Generación de procesos**, **Núcleos virtuales**, **Almacenamiento** y **Período de retención de copia de seguridad**. Puede dejar esos controles deslizantes tal como están o ajustarlos. Para habilitar las copias de seguridad del servidor en el almacenamiento con redundancia geográfica, seleccione **Redundancia geográfica** en **Opciones de redundancia de copia de seguridad**. Para guardar el plan de tarifa elegido, seleccione **Aceptar**. La captura de pantalla siguiente muestra estas opciones seleccionadas.
 
    > [!NOTE]
    > Considere la posibilidad de usar el plan de tarifa Básico si menos proceso y E/S resultan adecuados para su carga de trabajo. Tenga en cuenta que los servidores que creó en el plan de tarifa Básico no se podrán escalar más adelante a De uso general u Optimizada para memoria. Consulte la [página de precios](https://azure.microsoft.com/pricing/details/postgresql/) para más información.
@@ -71,7 +71,7 @@ Para crear un servidor de Azure Database for PostgreSQL, siga estos pasos:
 
 5. Seleccione **Review + create** (Revisar y crear) para revisar las selecciones. Seleccione **Crear** para realizar el aprovisionamiento del servidor. Esta operación puede tardar algunos minutos.
 
-6. En la barra de herramientas, seleccione el símbolo de **Notificaciones** (una campana) para supervisar el proceso de implementación. Una vez realizada la implementación, puede seleccionar **Anclar al panel** para crear un icono para este servidor en el panel de Azure Portal como un acceso directo a la página **Información general** del servidor. Al seleccionar **Ir al recurso** , se abre la página **Información general** del servidor.
+6. En la barra de herramientas, seleccione el símbolo de **Notificaciones** (una campana) para supervisar el proceso de implementación. Una vez realizada la implementación, puede seleccionar **Anclar al panel** para crear un icono para este servidor en el panel de Azure Portal como un acceso directo a la página **Información general** del servidor. Al seleccionar **Ir al recurso**, se abre la página **Información general** del servidor.
 
     :::image type="content" source="./media/quickstart-create-database-portal/3-notifications.png" alt-text="Panel Notificaciones":::
    
@@ -88,7 +88,7 @@ El servicio Azure Database for PostgreSQL usa un firewall en el nivel de servido
 
 2. En la página del servidor, seleccione **Seguridad de la conexión**. 
 
-3. Haga clic en el cuadro de texto de **Nombre de la regla,** y agregue una nueva regla de firewall para especificar el intervalo de IP para la conectividad. Escriba el intervalo IP. Haga clic en **Save** (Guardar).
+3. Haga clic en el cuadro de texto de **Nombre de la regla,** y agregue una nueva regla de firewall para especificar el intervalo de IP para la conectividad. Escriba el intervalo IP. Haga clic en **Save**(Guardar).
 
    :::image type="content" source="./media/tutorial-design-database-using-azure-portal/5-firewall-2.png" alt-text="Azure Database for PostgreSQL: creación de una regla de firewall":::
 
@@ -196,21 +196,26 @@ Imagine que eliminó accidentalmente esta tabla. No se puede recuperar con facil
 
    :::image type="content" source="./media/tutorial-design-database-using-azure-portal/10-azure-portal-restore.png" alt-text="Azure Portal: opciones del formulario de restauración":::
 
-   - **Punto de restauración** : seleccione el momento antes de que se modificara el servidor.
+   - **Punto de restauración**: seleccione el momento antes de que se modificara el servidor.
    - **Servidor de destino:** : especifique el nombre del nuevo servidor donde desea restaurar.
-   - **Ubicación** : no se puede seleccionar la región; de forma predeterminada, es la misma que la del servidor de origen.
-   - **Plan de tarifa** : no se puede cambiar este valor al restaurar un servidor. Es el mismo que el del servidor de origen. 
+   - **Ubicación**: no se puede seleccionar la región; de forma predeterminada, es la misma que la del servidor de origen.
+   - **Plan de tarifa**: no se puede cambiar este valor al restaurar un servidor. Es el mismo que el del servidor de origen. 
 3. Haga clic en **Aceptar** para [restaurar el servidor a un momento dado](./howto-restore-server-portal.md) antes de que se eliminara la tabla. Restaurar un servidor a un momento dado distinto crea un servidor nuevo duplicado como el servidor original a partir del momento dado que especifique, siempre que se encuentre dentro del período de retención para el [plan de tarifa](./concepts-pricing-tiers.md).
+
+## <a name="clean-up-resources"></a>Limpieza de recursos
+
+En los pasos anteriores, creó recursos de Azure en un grupo de servidores. Si no cree que vaya a necesitar estos recursos en el futuro, elimine el grupo de servidores. Presione el botón *Eliminar* en la página *Información general* del grupo de servidores. Cuando aparezca una página emergente en la que se le pida hacerlo, confirme el nombre del grupo de servidores y haga clic en el botón *Eliminar* final.
 
 ## <a name="next-steps"></a>Pasos siguientes
 En este tutorial, aprendió a usar Azure Portal y otras utilidades para hacer lo siguiente:
 > [!div class="checklist"]
 > * Creación de un servidor de Azure Database for PostgreSQL
 > * Configuración del firewall del servidor
-> * Uso de la utilidad [**psql**](https://www.postgresql.org/docs/9.6/static/app-psql.html) para crear una base de datos
+> * Uso de la utilidad **psql** para crear una base de datos
 > * Carga de datos de muestra
 > * Consultar datos
 > * Actualización de datos
 > * Restauración de datos
 
-Después, para aprender a usar la CLI de Azure para realizar tareas similares, consulte este tutorial: [Diseño de la primera base de datos de Azure Database for PostgreSQL con la CLI de Azure](tutorial-design-database-using-azure-cli.md)
+> [!div class="nextstepaction"]
+>[Diseño de la primera base de datos de Azure Database for PostgreSQL con la CLI de Azure](tutorial-design-database-using-azure-cli.md)

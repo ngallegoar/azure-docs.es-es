@@ -9,12 +9,12 @@ ms.date: 05/01/2020
 ms.author: cynthn
 ms.custom: mvc, devx-track-azurecli
 ms.reviewer: akjosh
-ms.openlocfilehash: 2e1f94b5a8e361a6bbd34f3f12756377dd1713f4
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 62cf7c979be83454ae2433befcdbf4f5d8e5524f
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92518720"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94516550"
 ---
 # <a name="tutorial-create-and-use-a-custom-image-for-virtual-machine-scale-sets-with-the-azure-cli"></a>Tutorial: Creación y uso de una imagen personalizada para conjuntos de escalado de máquinas virtuales con la CLI de Azure
 Al crear el conjunto de escalado, se especifica la imagen que se usará cuando se implementen las instancias de máquina virtual. Para reducir el número de tareas después de implementar las instancias de máquina virtual, puede usar una imagen de máquina virtual personalizada. Esta imagen de máquina virtual personalizada incluye la instalación o configuración de las aplicaciones necesarias. Las instancias de máquina virtual creadas en el conjunto de escalado usan la imagen de máquina virtual personalizada y están listas para atender el tráfico de la aplicación. En este tutorial, aprenderá a:
@@ -27,11 +27,11 @@ Al crear el conjunto de escalado, se especifica la imagen que se usará cuando s
 > * Compartir una galería de imágenes
 
 
-Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Si decide instalar y usar la CLI de forma local, en este tutorial es preciso que ejecute la CLI de Azure de la versión 2.4.0, u otra posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure]( /cli/azure/install-azure-cli).
+- En este artículo se necesita la versión 2.4.0 de la CLI de Azure, o cualquier versión posterior. Si usa Azure Cloud Shell, ya está instalada la versión más reciente.
 
 ## <a name="overview"></a>Información general
 
@@ -41,7 +41,7 @@ Shared Image Gallery le permite compartir sus imágenes de máquina virtual pers
 
 ## <a name="create-and-configure-a-source-vm"></a>Creación y configuración de una máquina virtual de origen
 
-En primer lugar, cree un grupo de recursos con [az group create](/cli/azure/group) y luego cree una máquina virtual con [az vm create](/cli/azure/vm). Esta máquina virtual se usa después como origen de la imagen. En el ejemplo siguiente, se crea una máquina virtual llamada *myVM* en el grupo de recursos llamado *myResourceGroup* :
+En primer lugar, cree un grupo de recursos con [az group create](/cli/azure/group) y luego cree una máquina virtual con [az vm create](/cli/azure/vm). Esta máquina virtual se usa después como origen de la imagen. En el ejemplo siguiente, se crea una máquina virtual llamada *myVM* en el grupo de recursos llamado *myResourceGroup*:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -118,7 +118,7 @@ az sig image-definition create \
 
 Cree una versión de la imagen desde la máquina virtual con [az image gallery create-image-version](/cli/azure/sig/image-version#az-sig-image-version-create).  
 
-Los caracteres permitidos para la versión de una imagen son números y puntos. Los números deben estar dentro del rango de un entero de 32 bits. Formato: *VersiónPrincipal*. *VersiónSecundaria*. *Revisión*.
+Los caracteres permitidos para la versión de una imagen son números y puntos. Los números deben estar dentro del rango de un entero de 32 bits. Formato: *VersiónPrincipal*.*VersiónSecundaria*.*Revisión*.
 
 En este ejemplo, la versión de la imagen es *1.0.0* y vamos a crear una réplica en la región *Centro-sur de EE. UU.* y otra réplica en la región *Este de EE. UU. 2*. Las regiones de replicación deben incluir la región donde se encuentra la máquina virtual de origen.
 
@@ -165,7 +165,7 @@ Se tardan unos minutos en crear y configurar todos los recursos de conjunto de e
 
 
 ## <a name="test-your-scale-set"></a>Prueba del conjunto de escalado
-Para permitir que el tráfico llegue al conjunto de escalado y comprobar que el servidor web funciona correctamente, cree una regla del equilibrador de carga con [az network lb rule create](/cli/azure/network/lb/rule). En el ejemplo siguiente, se crea una regla denominada *myLoadBalancerRuleWeb* que permite tráfico en el puerto *TCP* *80* :
+Para permitir que el tráfico llegue al conjunto de escalado y comprobar que el servidor web funciona correctamente, cree una regla del equilibrador de carga con [az network lb rule create](/cli/azure/network/lb/rule). En el ejemplo siguiente, se crea una regla denominada *myLoadBalancerRuleWeb* que permite tráfico en el puerto *TCP* *80*:
 
 ```azurecli-interactive
 az network lb rule create \

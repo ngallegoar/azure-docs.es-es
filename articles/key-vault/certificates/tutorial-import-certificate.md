@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.custom: mvc, devx-track-azurecli
 ms.date: 04/16/2020
 ms.author: sebansal
-ms.openlocfilehash: ebf687716c8898acffb5e081fbf2f6217fe0f943
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8689b6851ae219ee6f41ebf58736692e557b2344
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87503130"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289724"
 ---
 # <a name="tutorial-import-a-certificate-in-azure-key-vault"></a>Tutorial: Importación de un certificado en Azure Key Vault
 
@@ -86,7 +86,7 @@ Al agregar un certificado mediante el método **Import**, Azure Key Vault rellen
 
 Una vez recibido el mensaje de que el certificado se ha importado correctamente, puede hacer clic en él en la lista para ver sus propiedades. 
 
-![Propiedades del certificado](../media/certificates/tutorial-import-cert/current-version-hidden.png)
+![Captura de pantalla que muestra dónde ver las propiedades del certificado.](../media/certificates/tutorial-import-cert/current-version-hidden.png)
 
 ## <a name="import-a-certificate-using-azure-cli"></a>Importación de un certificado mediante la CLI de Azure
 
@@ -104,9 +104,9 @@ az keyvault certificate import --file
                                [--tags]
 ```
 
-[Más información sobre los parámetros](https://docs.microsoft.com/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-import).
+[Más información sobre los parámetros](/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-import).
 
-Después de importar el certificado, puede verlo mediante el comando para [ver el certificado](https://docs.microsoft.com/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-show).
+Después de importar el certificado, puede verlo mediante el comando para [ver el certificado](/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-show).
 
 
 ```azurecli
@@ -135,7 +135,7 @@ Import-AzureKeyVaultCertificate
       [<CommonParameters>]
 ```
 
-[Más información sobre los parámetros](https://docs.microsoft.com/powershell/module/azurerm.keyvault/import-azurekeyvaultcertificate?view=azurermps-6.13.0).
+[Más información sobre los parámetros](/powershell/module/azurerm.keyvault/import-azurekeyvaultcertificate?view=azurermps-6.13.0).
 
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
@@ -152,6 +152,6 @@ Cuando ya no lo necesite, elimine el grupo de recursos; de este modo se eliminar
 
 En este tutorial, ha creado un almacén de claves e importado un certificado en él. Para más información sobre Key Vault y cómo integrarlo con las aplicaciones, continúe con los artículos siguientes.
 
-- Más información sobre la [administración de la creación de certificados en Azure Key Vault](https://docs.microsoft.com/azure/key-vault/certificates/create-certificate-scenarios).
+- Más información sobre la [administración de la creación de certificados en Azure Key Vault](./create-certificate-scenarios.md).
 - Consulte ejemplos de [Importación de certificados mediante las API REST](/rest/api/keyvault/importcertificate/importcertificate).
 - Consulte los [procedimientos recomendados de Azure Key Vault](../general/best-practices.md).

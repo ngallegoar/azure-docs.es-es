@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 04/08/2020
 ms.author: lcozzens
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 3e6403f41d8e4b52ca64e9fa452524fa25efe870
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ff11546225a3b07cbe9f8773dab2139636af787e
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88213260"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93124822"
 ---
 # <a name="tutorial-use-key-vault-references-in-an-aspnet-core-app"></a>Tutorial: Uso de referencias de Key Vault en una aplicación de ASP.NET Core
 
@@ -51,7 +51,7 @@ Antes de iniciar este tutorial, instale el [SDK de .NET Core](https://dotnet.mic
 
 1. Seleccione la opción **Crear un recurso** en la esquina superior izquierda de Azure Portal:
 
-    ![Salida tras completarse la creación del almacén de claves](./media/quickstarts/search-services.png)
+    ![Captura de pantalla que muestra la opción Crear un recurso de Azure Portal.](./media/quickstarts/search-services.png)
 1. En el cuadro de búsqueda, escriba **Key Vault**.
 1. En la lista de resultados, seleccione **Key Vaults** a la izquierda.
 1. En **Key Vaults**, seleccione **Agregar**.
@@ -65,7 +65,7 @@ Antes de iniciar este tutorial, instale el [SDK de .NET Core](https://dotnet.mic
 
 En este momento, su cuenta de Azure es la única autorizada para acceder a este nuevo almacén.
 
-![Salida tras completarse la creación del almacén de claves](./media/quickstarts/vault-properties.png)
+![Captura de pantalla que muestra el almacén de claves.](./media/quickstarts/vault-properties.png)
 
 ## <a name="add-a-secret-to-key-vault"></a>Incorporación de un secreto a Key Vault
 

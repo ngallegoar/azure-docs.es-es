@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Introducción a los cuadernos de Jupyter Notebook (Python)'
 titleSuffix: Azure Machine Learning
-description: Tutoriales para la configuración de Jupyter Notebook. Cree un área de trabajo de Azure Machine Learning, clone los cuadernos de Jupyter Notebook en el área de trabajo y cree una instancia de proceso en la que se ejecuten los cuadernos.
+description: Tutoriales para la configuración de Jupyter Notebook. Cree un área de trabajo, clone los cuadernos en ella y cree una instancia de proceso donde ejecutarlos.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 02/10/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 601e124c1ad87724babfabffc95e9265bc962d87
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 6eb76c9d8cc8447755e045972a7aceddefd1604a
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913303"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94532977"
 ---
 # <a name="tutorial-get-started-with-azure-machine-learning-in-jupyter-notebooks"></a>Tutorial: Introducción a Azure Machine Learning en cuadernos de Jupyter Notebook
 
@@ -78,7 +78,7 @@ Complete la configuración del experimento siguiente y ejecute los pasos de Azur
 1. Abra la carpeta **tutorials** que se acaba de cerrar en la sección **User files** (Archivos de usuario).
 
     > [!IMPORTANT]
-    > Verá los cuadernos en la carpeta **samples** , pero no puede ejecutar cuadernos desde aquí. Para ejecutar un cuaderno, asegúrese de que abre la versión clonada de este en la sección **User Files** (Archivos de usuario).
+    > Verá los cuadernos en la carpeta **samples**, pero no puede ejecutar cuadernos desde aquí. Para ejecutar un cuaderno, asegúrese de que abre la versión clonada de este en la sección **User Files** (Archivos de usuario).
     
 1. Seleccione el archivo **tutorial-1st-experiment-sdk-train.ipynb** de la carpeta **tutorials/image-classification-mnist-data**.
 

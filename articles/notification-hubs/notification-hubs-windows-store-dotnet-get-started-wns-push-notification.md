@@ -15,12 +15,12 @@ ms.date: 12/05/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 12/04/2019
-ms.openlocfilehash: 07a0581cd7fe2e7a9c13f860c862e34da3cfd1ca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4f55b6eafe230f722979d535111ce45aa35981f0
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88998303"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93125044"
 ---
 # <a name="tutorial-send-notifications-to-universal-windows-platform-apps-using-azure-notification-hubs"></a>Tutorial: Envío de notificaciones a aplicaciones de Plataforma universal de Windows mediante Azure Notification Hubs
 
@@ -66,7 +66,7 @@ Para enviar notificaciones push a las aplicaciones de la plataforma universal de
 3. Expanda **Administración de productos**, seleccione **WNS/MPNS** y, a continuación, seleccione **Sitio de Servicios Live**. Iniciar sesión en su cuenta de Microsoft. La página de registro de la aplicación se abre en una nueva pestaña. Como alternativa, puede ir directamente a la página [Mis aplicaciones](https://apps.dev.microsoft.com) y seleccionar el nombre de la aplicación para llegar a esta página.
 
     ![Página de WNS MPNS](./media/notification-hubs-windows-store-dotnet-get-started/wns-mpns-page.png)
-4. Anote la contraseña de **Secretos de aplicación** y el **Identificador de seguridad de paquete (SID)** .
+4. Observe la contraseña de **Secretos de aplicación**, junto con el valor de **Identificador de seguridad de paquete (SID)** e **Identidad de la aplicación** en la sección Tienda Windows.
 
     >[!WARNING]
     >El secreto de aplicación y el SID del paquete son credenciales de seguridad importantes. No los comparta con nadie ni los distribuya con su aplicación.
@@ -149,7 +149,9 @@ El centro de notificaciones ya está configurado para funcionar con WNS. Tiene l
 
     Esta acción garantiza que el URI del canal se registra en su centro de notificaciones cada vez que se inicia la aplicación.
 
-12. Para ejecutar la aplicación, presione la tecla **F5** del teclado. Se mostrará un cuadro de diálogo que contiene la clave de registro. Para cerrar el cuadro de diálogo, haga clic en **Aceptar**.
+12. Haga clic con el botón derecho en `Package.appxmanifest` y seleccione Ver código (**F7**). Busque `<Identity .../>` y reemplace el valor por el que aparece en **Identidad de la aplicación** en el WNS que creó [anteriormente](#create-an-app-in-windows-store).
+
+13. Para ejecutar la aplicación, presione la tecla **F5** del teclado. Se mostrará un cuadro de diálogo que contiene la clave de registro. Para cerrar el cuadro de diálogo, haga clic en **Aceptar**.
 
     ![El registro se completó correctamente.](./media/notification-hubs-windows-store-dotnet-get-started/registration-successful.png)
 

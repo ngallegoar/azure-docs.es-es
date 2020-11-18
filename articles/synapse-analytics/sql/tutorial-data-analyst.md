@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Uso de SQL a petición (versión preliminar) para analizar Azure Open Datasets en Azure Synapse Studio (versión preliminar)'
-description: Este tutorial le mostrará cómo realizar con facilidad el análisis de datos exploratorios mediante la combinación de diferentes Azure Open Datasets con SQL a petición (versión preliminar) y visualizar los resultados en Azure Synapse Studio.
+title: 'Tutorial: Uso de un grupo de SQL sin servidor (versión preliminar) para analizar Azure Open Datasets en Azure Synapse Studio (versión preliminar)'
+description: Este tutorial le mostrará cómo realizar con facilidad el análisis de datos exploratorios mediante la combinación de diferentes Azure Open Datasets mediante un grupo de SQL sin servidor (versión preliminar) y visualizar los resultados en Azure Synapse Studio.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 0471bd594dcf1b0654d6b4c496e5d39ade2739fd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cec16041edd10a57088df4ae9cfe0587906919eb
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91539527"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93309278"
 ---
-# <a name="tutorial-use-sql-on-demand-to-analyze-azure-open-datasets-and-visualize-the-results-in-azure-synapse-studio"></a>Tutorial: Uso de SQL a petición para analizar Azure Open Datasets y visualizar los resultados en Azure Synapse Studio
+# <a name="tutorial-use-serverless-sql-pool-to-analyze-azure-open-datasets-and-visualize-the-results-in-azure-synapse-studio"></a>Tutorial: Uso de un grupo de SQL sin servidor para analizar Azure Open Datasets y visualizar los resultados en Azure Synapse Studio
 
-En este tutorial, aprenderá a realizar el análisis de datos exploratorios mediante la combinación de diferentes Azure Open Datasets con SQL a petición y, después, visualizando los resultados en Azure Synapse Studio.
+En este tutorial, aprenderá a realizar análisis de datos exploratorios mediante la combinación de diferentes instancias de Azure Open Datasets mediante un grupo de SQL sin servidor y, después, la visualización de los resultados en Azure Synapse Studio.
 
 En concreto, se analiza el [conjunto de datos de taxis de Nueva York (NYC)](https://azure.microsoft.com/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/) que incluye:
 
@@ -213,9 +213,9 @@ Los resultados de la consulta indican que la reducción del número de viajes de
 - Hizo frío (una temperatura inferior a cero grados Celsius).
 - Hizo viento (~ 10 m/s).
 
-En este tutorial se ha mostrado cómo el analista de datos puede realizar rápidamente análisis de datos exploratorios, combinar de forma sencilla diferentes conjuntos de datos mediante SQL a petición y visualizar los resultados con Azure Synapse Studio.
+En este tutorial se ha mostrado la forma en que un analista de datos puede realizar rápidamente análisis de datos exploratorios, combinar de forma sencilla diferentes conjuntos de datos mediante un grupo de SQL sin servidor y visualizar los resultados mediante Azure Synapse Studio.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener información sobre cómo conectar SQL a petición a Power BI Desktop y crear informes, consulte el artículo [Conexión de SQL a petición a Power BI Desktop y creación de un informe](tutorial-connect-power-bi-desktop.md).
+Para aprender a conectar un grupo de SQL sin servidor a Power BI Desktop y crear informes, consulte el artículo [Conexión de un grupo de SQL sin servidor a Power BI Desktop y creación de informes](tutorial-connect-power-bi-desktop.md).
  

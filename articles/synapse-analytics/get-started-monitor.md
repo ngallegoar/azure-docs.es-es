@@ -10,29 +10,28 @@ ms.service: synapse-analytics
 ms.subservice: monitoring
 ms.topic: tutorial
 ms.date: 10/15/2020
-ms.openlocfilehash: d497ff1a829902c0623740f01a457e6496db2401
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 2970bb58bb73d52c75729b00a8209a9c576d4ec0
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92744949"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427418"
 ---
 # <a name="monitor-your-synapse-workspace"></a>Supervisión del área de trabajo de Synapse
 
-En este tutorial, aprenderá a supervisar actividades en el área de trabajo de Synapse. Puede supervisar las actividades actuales e históricas de SQL, Apache Spark y canalizaciones. 
+En este tutorial, aprenderá a supervisar actividades en el área de trabajo de Synapse. Puede supervisar las actividades actuales e históricas de SQL, Apache Spark y Pipelines. 
 
 ## <a name="introduction-to-the-monitor-hub"></a>Introducción al centro Supervisar
 
 Abra Synapse Studio y vaya al centro **Supervisar**. Aquí, puede ver un historial de todas las actividades que se realizan en el área de trabajo y las que están activas ahora. 
 
 * En **Integration** (Integración), puede supervisar canalizaciones, desencadenadores y entornos de ejecución de integración.
-* En **Actividades** , puede supervisar las actividades de Spark y SQL. 
+* En **Actividades**, puede supervisar las actividades de Spark y SQL. 
 
 ## <a name="integration"></a>Integración
 
 1. Vaya a **Integration > Pipeline** (Integración > Canalización). En esta vista, puede ver cada vez que se ha ejecutado una canalización en el área de trabajo. 
-1. Busque la canalización que ejecutó en el paso anterior y haga clic en el **Nombre de canalización**.
-1. Ahora puede ver cómo se ejecutan las actividades individuales dentro de esa canalización.
+1. Busque la canalización que ejecutó en el paso anterior y haga clic en el **Nombre de canalización** para ver los detalles.
 1. Haga clic en **Barra de ruta de navegación** cerca de la parte superior de Synapse Studio, haga clic en **Todas las ejecuciones de la canalización** para volver a la vista anterior.
 
 ## <a name="apache-spark-activities"></a>Actividades de Apache Spark

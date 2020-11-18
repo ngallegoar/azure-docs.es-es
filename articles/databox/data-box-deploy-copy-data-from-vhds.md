@@ -7,14 +7,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 09/03/2019
+ms.date: 10/20/2019
 ms.author: alkohli
-ms.openlocfilehash: 28232981d007e7be04d520ec46739408d03d90b4
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 1394cf6511a65a0e406e51229953e8666d4d4d8d
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92124020"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337685"
 ---
 # <a name="tutorial-use-data-box-to-import-data-as-managed-disks-in-azure"></a>Tutorial: Uso de Data Box para importar datos como discos administrados en Azure
 
@@ -76,11 +76,11 @@ Si usa un equipo host Windows Server, realice los pasos siguientes para conectar
     > [!NOTE]
     > Las credenciales de todos los recursos compartidos para los discos administrados son idénticas.
 
-    ![Obtención de las credenciales de recursos compartidos](media/data-box-deploy-copy-data-from-vhds/get-share-credentials1.png)
+    ![Conexión y copia, obtención de credenciales de recurso compartido](media/data-box-deploy-copy-data-from-vhds/get-share-credentials1.png)
 
-2. En el cuadro de diálogo Access share and copy data (Acceder al recurso compartido y copiar datos), copie los valores **Username** (Nombre de usuario) y **Password** (Contraseña) del recurso compartido. Haga clic en **OK**.
+2. En el cuadro de diálogo **Acceder al recuso compartido y copiar datos**, copie los valores de **Nombre de usuario** y **Contraseña** del recurso compartido. Haga clic en **OK**.
     
-    ![Obtención de las credenciales de recursos compartidos 2](media/data-box-deploy-copy-data-from-vhds/get-share-credentials2.png)
+    ![Conexión y copia, copiar las credenciales del recurso compartido](media/data-box-deploy-copy-data-from-vhds/get-share-credentials2.png)
 
 3. Para acceder a los recursos compartidos asociados con el recurso (*mydbmdrg1* en el ejemplo siguiente) desde el equipo host, abra una ventana de comandos. En el símbolo del sistema, escriba:
 
@@ -100,13 +100,13 @@ Si usa un equipo host Windows Server, realice los pasos siguientes para conectar
     C: \>
     ```
 
-4. Presione Windows + R. En la ventana **Ejecutar**, escriba `\\<device IP address>\<ShareName>`. Haga clic en **Aceptar** para abrir el Explorador de archivos.
+5. Presione Windows + R. En la ventana **Ejecutar**, escriba `\\<device IP address>\<ShareName>`. Haga clic en **Aceptar** para abrir el Explorador de archivos.
     
     ![Conexión al recurso compartido mediante el Explorador de archivos](media/data-box-deploy-copy-data-from-vhds/connect-shares-file-explorer1.png)
 
     Ahora debería ver las siguientes carpetas creadas previamente dentro de cada recurso compartido.
     
-    ![Conexión al recurso compartido mediante el Explorador de archivos 2](media/data-box-deploy-copy-data-from-vhds/connect-shares-file-explorer2.png)
+    ![Conexión a un recurso compartido a través del Explorador de archivos, carpetas para un recurso compartido](media/data-box-deploy-copy-data-from-vhds/connect-shares-file-explorer2.png)
 
 
 ### <a name="connect-to-data-box-via-nfs"></a>Conexión a Data Box a través de NFS
@@ -119,7 +119,7 @@ Si usa un equipo host Linux, realice los pasos siguientes para configurar un dis
 
 2. Proporcione la dirección IP del cliente NFS y haga clic en **Add** (Agregar). Para configurar el acceso para varios clientes NFS, repita este paso. Haga clic en **OK**.
 
-    ![Configuración del acceso de cliente NFS 2](media/data-box-deploy-copy-data-from-vhds/nfs-client-access2.png)
+    ![Configuración de la dirección IP del cliente NFS](media/data-box-deploy-copy-data-from-vhds/nfs-client-access2.png)
 
 2. Asegúrese de que el equipo host de Linux tiene instalada una [versión admitida](data-box-system-requirements.md) del cliente NFS. Use la versión específica para su distribución de Linux.
 

@@ -1,81 +1,92 @@
 ---
-title: Configuración y uso de métricas y registros de diagnóstico con una instancia de Azure IoT Hub
-description: Aprenda a configurar y usar métricas y registros de diagnóstico con una instancia de Azure IoT Hub. Esto le proporcionará datos para su análisis que le ayudarán a diagnosticar los problemas que pueda tener el centro de conectividad.
+title: Configuración y uso de métricas y registros con un centro de IoT de Azure
+description: Aprenda a configurar y usar métricas y registros con un centro de IoT de Azure. Esto le proporcionará datos para su análisis que le ayudarán a diagnosticar los problemas que pueda tener el centro de conectividad.
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial
-ms.date: 3/13/2019
+ms.date: 10/29/2020
 ms.author: robinsh
 ms.custom:
 - mvc
 - mqtt
 - devx-track-azurecli
 - devx-track-csharp
-ms.openlocfilehash: 47cca5019277b2f4d0025ccb6743589a21dfaafa
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: d59e37cdcb6f530b08e980cf75d8834aed332252
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92480129"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93315198"
 ---
-# <a name="tutorial-set-up-and-use-metrics-and-diagnostic-logs-with-an-iot-hub"></a>Tutorial: Configuración y uso de métricas y registros de diagnóstico con una instancia de IoT Hub
+# <a name="tutorial-set-up-and-use-metrics-and-logs-with-an-iot-hub"></a>Tutorial: Configuración y uso de métricas y registros con un centro de IoT
 
-Si tiene una solución de IoT Hub que se ejecuta en producción, querrá configurar algunas métricas y habilitar los registros de diagnóstico. Luego, si se produce un problema, tiene datos para examinar que le ayudarán a diagnosticar el problema y corregirlo de manera más rápida. En este artículo, verá cómo habilitar los registros de diagnóstico y comprobarlos para ver si hay errores. También configurará algunas métricas para inspeccionar y alertas que se activarán cuando la métrica alcance un límite determinado. Por ejemplo, se le podría enviar un correo electrónico cuando el número de mensajes de telemetría enviados supere un límite específico, o cuando el número de mensajes usados se acerque a la cuota de mensajes permitidos al día para el centro de IoT. 
+Puede usar Azure Monitor para recopilar métricas y registros del centro de IoT que pueden ayudarle a supervisar el funcionamiento de la solución y a solucionar problemas cuando se produzcan. En este artículo, verá cómo crear gráficos basados en métricas, cómo crear alertas que se desencadenen en función de las métricas, cómo enviar operaciones y errores de IoT Hub a registros de Azure Monitor y cómo comprobar los errores de los registros.
 
-Un caso de uso de ejemplo es una gasolinera donde las bombas son dispositivos IoT que se comunican con un centro de IoT. Las tarjetas de crédito se validan y la transacción final se escribe en un almacén de datos. Si los dispositivos IoT dejan de conectarse al centro y de enviar mensajes, es mucho más difícil resolver esta situación si no dispone de ninguna visibilidad sobre lo que pasa.
+En este tutorial se usa el ejemplo de Azure del [inicio rápido sobre el envío de telemetría de .NET](quickstart-send-telemetry-dotnet.md) para enviar mensajes a IoT Hub. Siempre puede usar un dispositivo u otro ejemplo para enviar mensajes, pero es posible que tenga que modificar algunos pasos en consecuencia.
 
-En este tutorial se usa el ejemplo de Azure del [enrutamiento de IoT Hub](tutorial-routing.md) para enviar mensajes al centro de IoT.
+Antes de comenzar este tutorial, puede ser de ayuda estar familiarizado con algunos conceptos de Azure Monitor. Para más información, consulte [Supervisión de IoT Hub](monitor-iot-hub.md). Para más información sobre las métricas y los registros de recursos que emite IoT Hub, consulte [Supervisión de la referencia a datos](monitor-iot-hub-reference.md).
 
 En este tutorial se realizan las siguientes tareas:
 
 > [!div class="checklist"]
-> * Mediante la CLI de Azure, crear un centro de IoT, un dispositivo simulado y una cuenta de almacenamiento.  
-> * Habilitar los registros de diagnóstico.
-> * Habilitar las métricas.
-> * Configurar alertas para esas métricas. 
-> * Descargar y ejecutar una aplicación que simule un dispositivo IoT que envía mensajes al centro. 
-> * Ejecutar la aplicación hasta que empiecen a activarse las alertas. 
-> * Ver los resultados de las métricas y comprobar los registros de diagnóstico. 
+>
+> * Usar la CLI de Azure para crear un centro de IoT, registrar un dispositivo simulado y crear un área de trabajo de Log Analytics.  
+> * Enviar conexiones de IoT Hub y registros de recursos de telemetría de dispositivos a los registros de Azure Monitor en el área de trabajo de Log Analytics.
+> * Usar el explorador de métricas para crear un gráfico basado en métricas seleccionadas y anclarlo al panel.
+> * Crear alertas de métricas para recibir notificaciones por correo electrónico cuando se produzcan condiciones importantes.
+> * Descargar y ejecutar una aplicación que simule un dispositivo IoT enviando mensajes al centro de IoT.
+> * Ver las alertas cuando se produzcan las condiciones.
+> * Ver el gráfico de métricas en el panel.
+> * Ver los errores y las operaciones de IoT Hub en los registros de Azure Monitor.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
-- Suscripción a Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
+* Suscripción a Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-- Instale [Visual Studio](https://www.visualstudio.com/). 
+* Necesita el SDK de .NET Core 2.1, o una versión posterior, en la máquina de desarrollo. Puede descargar el SDK de .NET Core para varias plataformas desde [.NET](https://www.microsoft.com/net/download/all).
 
-- Una cuenta de correo electrónico capaz de recibir correo electrónico.
+  Puede verificar la versión actual de C# en el equipo de desarrollo con el comando siguiente:
 
-- Asegúrese de que está abierto el puerto 8883 del firewall. En el dispositivos de ejemplo de este tutorial se usa el protocolo MQTT, que se comunica mediante el puerto 8883. Este puerto puede estar bloqueado en algunos entornos de red corporativos y educativos. Para más información y para saber cómo solucionar este problema, consulte el artículo sobre la [conexión a IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+  ```cmd/sh
+  dotnet --version
+  ```
 
+* Una cuenta de correo electrónico capaz de recibir correo electrónico.
+
+* Asegúrese de que está abierto el puerto 8883 del firewall. En el dispositivos de ejemplo de este tutorial se usa el protocolo MQTT, que se comunica mediante el puerto 8883. Este puerto puede estar bloqueado en algunos entornos de red corporativos y educativos. Para más información y para saber cómo solucionar este problema, consulte el artículo sobre la [conexión a IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="set-up-resources"></a>Configuración de recursos
 
-Para los objetivos de este tutorial, necesita un centro de IoT, una cuenta de almacenamiento y un dispositivo IoT simulado. Todos estos recursos se pueden crear con la CLI de Azure o Azure PowerShell. Use el mismo grupo de recursos y la misma ubicación para todos los recursos. Al final, puede quitar todos los elementos en un solo paso mediante la eliminación del grupo de recursos.
+En este tutorial, necesitará un centro de IoT, un área de trabajo de Log Analytics y un dispositivo IoT simulado. Todos estos recursos se pueden crear con la CLI de Azure o Azure PowerShell. Use el mismo grupo de recursos y la misma ubicación para todos los recursos. Después, cuando haya finalizado el tutorial, puede quitar todo de una vez eliminando el grupo de recursos.
 
 Estos son los pasos necesarios.
 
-1. Cree un [grupo de recursos](../azure-resource-manager/management/overview.md). 
+1. Cree un [grupo de recursos](../azure-resource-manager/management/overview.md).
 
 2. Cree un Centro de IoT.
 
-3. Cree una cuenta de almacenamiento V1 estándar con replicación Standard_LRS.
+3. Cree un área de trabajo de Log Analytics.
 
-4. Cree una identidad de dispositivo para el dispositivo simulado que envíe mensajes al centro. Guarde la clave para la fase de pruebas.
+4. Registre una identidad de dispositivo para el dispositivo simulado que envía mensajes al centro de IoT. Guarde la cadena de conexión del dispositivo que se va a usar para configurar el dispositivo simulado.
 
 ### <a name="set-up-resources-using-azure-cli"></a>Configuración de los recursos mediante la CLI de Azure
 
-Copie y pegue este script en Cloud Shell. Suponiendo que ya haya iniciado sesión, el script se ejecutará línea a línea. Los nuevos recursos se crean en el grupo de recursos ContosoResources.
+Copie y pegue este script en Cloud Shell. Suponiendo que ya haya iniciado sesión, el script se ejecutará línea a línea. Algunos comandos pueden tardar un tiempo en ejecutarse. Los nuevos recursos se crean en el grupo de recursos *ContosoResources*.
 
-Las variables que deben ser globalmente únicas llevan concatenado `$RANDOM`. Cuando se ejecuta el script y se establecen las variables, se genera y se concatena una cadena numérica aleatoria al final de la cadena fija, lo que la convierte en única.
+El nombre de algunos recursos debe ser único en todo Azure. El script genera un valor aleatorio con la función `$RANDOM` y lo almacena en una variable. Con estos recursos, el script anexa este valor aleatorio a un nombre base del recurso, lo que hace que el nombre del recurso sea único.
+
+Solo se permite un centro de IoT gratuito por suscripción. Si ya tiene un centro de IoT gratuito en su suscripción, elimínelo antes de ejecutar el script, o modifique el script para que use su centro de IoT gratuito o un centro de IoT que utilice el nivel estándar o básico.
+
+El script imprime el nombre del centro de IoT, el nombre del área de trabajo de Log Analytics y la cadena de conexión del dispositivo que se registra. Asegúrese de anotarlos, ya que los necesitará más adelante en este artículo.
 
 ```azurecli-interactive
 
 # This is the IOT Extension for Azure CLI.
 # You only need to install this the first time.
-# You need it to create the device identity. 
+# You need it to create the device identity.
 az extension add --name azure-iot
 
 # Set the values for the resource names that don't have to be globally unique.
@@ -84,7 +95,8 @@ az extension add --name azure-iot
 #   run this script, and it will work with no conflicts.
 location=westus
 resourceGroup=ContosoResources
-iotDeviceName=Contoso-Test-Device 
+iotDeviceName=Contoso-Test-Device
+randomValue=$RANDOM
 
 # Create the resource group to be used
 #   for all the resources for this tutorial.
@@ -92,31 +104,31 @@ az group create --name $resourceGroup \
     --location $location
 
 # The IoT hub name must be globally unique, so add a random number to the end.
-iotHubName=ContosoTestHub$RANDOM
+iotHubName=ContosoTestHub$randomValue
 echo "IoT hub name = " $iotHubName
 
-# Create the IoT hub in the Free tier.
+# Create the IoT hub in the Free tier. Partition count must be 2.
 az iot hub create --name $iotHubName \
     --resource-group $resourceGroup \
+    --partition-count 2 \
     --sku F1 --location $location
 
-# The storage account name must be globally unique, so add a random number to the end.
-storageAccountName=contosostoragemon$RANDOM
-echo "Storage account name = " $storageAccountName
+# The Log Analytics workspace name must be globally unique, so add a random number to the end.
+workspaceName=contoso-la-workspace$randomValue
+echo "Log Analytics workspace name = " $workspaceName
 
-# Create the storage account.
-az storage account create --name $storageAccountName \
-    --resource-group $resourceGroup \
-    --location $location \
-    --sku Standard_LRS
+
+# Create the Log Analytics workspace
+az monitor log-analytics workspace create --resource-group $resourceGroup \
+    --workspace-name $workspaceName --location $location
 
 # Create the IoT device identity to be used for testing.
 az iot hub device-identity create --device-id $iotDeviceName \
-    --hub-name $iotHubName 
+    --hub-name $iotHubName
 
-# Retrieve the information about the device identity, then copy the primary key to
+# Retrieve the primary connection string for the device identity, then copy it to
 #   Notepad. You need this to run the device simulation during the testing phase.
-az iot hub device-identity show --device-id $iotDeviceName \
+az iot hub device-identity show-connection-string --device-id $iotDeviceName \
     --hub-name $iotHubName
 
 ```
@@ -130,263 +142,293 @@ az iot hub device-identity show --device-id $iotDeviceName \
 >az extension update --name azure-iot
 >```
 
-## <a name="enable-the-diagnostic-logs"></a>Habilitación de los registros de diagnóstico 
+## <a name="collect-logs-for-connections-and-device-telemetry"></a>Recopilación de registros de conexiones y telemetría de dispositivos
 
-Los [registros de diagnóstico](../azure-monitor/platform/platform-logs-overview.md) están deshabilitados de forma predeterminada cuando se crea un centro de IoT. En esta sección, habilitará los registros de diagnóstico para su centro.
+IoT Hub emite registros de recursos de varias categorías de operación; sin embargo, para ver estos registros, debe crear una configuración de diagnóstico que los envíe a un destino. Uno de estos destinos son los registros de Azure Monitor, que se recopilan en un área de trabajo de Log Analytics. Los registros de recursos de IoT Hub se agrupan en distintas categorías. Puede seleccionar las categorías que quiere que se envíen a los registros de Azure Monitor en la configuración de diagnóstico. En este artículo, se recopilarán registros de operaciones y errores que se producen que tienen que ver con las conexiones y la telemetría de los dispositivos. Para ver una lista completa de las categorías admitidas en IoT Hub, consulte [Registros de recursos de IoT Hub](monitor-iot-hub-reference.md#resource-logs).
 
-1. En primer lugar, si no está aún en su centro en el portal, haga clic en **Grupos de recursos** y seleccione el grupo de recursos Contoso-Resources. Seleccione el centro de la lista de recursos que se muestran. 
+Para crear una configuración de diagnóstico para enviar los registros de recursos de IoT Hub a los registros de Azure Monitor, siga estos pasos:
 
-2. Busque la sección **Supervisión** en la hoja IoT Hub. Haga clic en **Configuración de diagnóstico**. 
+1. En primer lugar, si no está aún en su centro en el portal, haga clic en **Grupos de recursos** y seleccione el grupo de recursos ContosoResources. Seleccione el centro de IoT de la lista de recursos que se muestran.
 
-   ![Captura de pantalla que resalta la opción Configuración de diagnóstico en la sección Supervisión.](./media/tutorial-use-metrics-and-diags/01-diagnostic-settings.png)
+1. Busque la sección **Supervisión** en la hoja IoT Hub. Seleccione **Configuración de diagnóstico**. Después, seleccione **Agregar configuración de diagnóstico**.
 
+   :::image type="content" source="media/tutorial-use-metrics-and-diags/open-diagnostic-settings.png" alt-text="Captura de pantalla que resalta la opción Configuración de diagnóstico en la sección Supervisión.":::
 
-3. Asegúrese de que la suscripción y el grupo de recursos sean correctos. En **Tipo de recurso** , desactive **Seleccionar todo** , luego, busque y active **IoT Hub**. (Se vuelve a colocar la marca de verificación junto a *Seleccionar todo* ; no haga caso). En **Recursos** , seleccione el nombre del centro. La pantalla debería mostrar esta imagen: 
+1. En el panel **Configuración de diagnóstico**, asigne a la configuración un nombre descriptivo, por ejemplo, "Enviar conexiones y telemetría a los registros".
 
-   ![Captura de pantalla que muestra la parte de configuración de diagnóstico de la hoja de IoT Hub.](./media/tutorial-use-metrics-and-diags/02-diagnostic-settings-start.png)
+1. En **Detalles de la categoría**, seleccione **Conexiones** y **Device Telemetry** (Telemetría de dispositivo).
 
-4. Ahora, haga clic en **Activar diagnóstico**. Se muestra el panel de configuración de diagnósticos. Especifique el nombre de la configuración de los registros de diagnóstico como "diags-hub".
+1. En **Detalles del destino**, seleccione **Enviar a Log Analytics**, y, luego, use el selector de áreas de trabajo de Log Analytics para seleccionar el área de trabajo que anotó anteriormente. Cuando haya terminado, la configuración de diagnóstico debe ser similar a la captura de pantalla siguiente:
 
-5. Seleccione **Archivar en una cuenta de almacenamiento**. 
+   :::image type="content" source="media/tutorial-use-metrics-and-diags/add-diagnostic-setting.png" alt-text="Captura de pantalla que muestra la configuración de registro de diagnóstico final.":::
 
-   ![Captura de pantalla que muestra la configuración de los diagnósticos para archivar en una cuenta de almacenamiento.](./media/tutorial-use-metrics-and-diags/03-diagnostic-settings-storage.png)
+1. Haga clic en **Save** (Guardar) para guardar la configuración. Cierre el panel **Configuración de diagnóstico**. Puede ver la nueva configuración en la lista de configuraciones de diagnóstico.
 
-    Haga clic en **Configurar** para ver la pantalla **Seleccione una cuenta de almacenamiento** , seleccione la de la derecha ( *contosostoragemon* ) y haga clic en **Aceptar** para volver al panel de configuración de diagnósticos. 
+## <a name="set-up-metrics"></a>Configuración de las métricas
 
-   ![Captura de pantalla que muestra la configuración de los registros de diagnóstico para archivar en una cuenta de almacenamiento.](./media/tutorial-use-metrics-and-diags/04-diagnostic-settings-after-storage.png)
+Ahora usaremos el explorador de métricas para crear un gráfico que muestre las métricas cuyo seguimiento desea realizar. Este gráfico se anclará al panel predeterminado en Azure Portal.
 
-6. En **LOG** , active **Conexiones** y **Telemetría de dispositivo** y establezca **Retención (días)** en 7 días para cada uno. La pantalla de configuración de diagnóstico se parecerá ahora a la de esta imagen:
+1. En el panel izquierdo del centro de IoT, en la sección **Supervisión**, seleccione **Métricas**.
 
-   ![Captura de pantalla que muestra la configuración de registro de diagnóstico final.](./media/tutorial-use-metrics-and-diags/05-diagnostic-settings-done.png)
+1. En la parte superior de la pantalla, seleccione **Last 24 hours (Automatic)** (Últimas 24 horas [Automático]). En la lista desplegable que aparece, seleccione **Últimas 4 horas** en **Intervalo de tiempo**, establezca **Granularidad de tiempo** en **1 minuto** y seleccione **Local** en **Mostrar hora como**. Seleccione **Aplicar** para guardar la configuración. La configuración debería indicar ahora **Hora local: Últimas 4 horas (1 minuto)** .
 
-7. Haga clic en **Guardar** para guardar la configuración. Cierre el panel de configuración de diagnóstico.
+   :::image type="content" source="media/tutorial-use-metrics-and-diags/metrics-select-time-range.png" alt-text="Captura de pantalla que muestra la configuración de tiempo de las métricas.":::
 
-Más adelante, cuando examine los registros de diagnóstico, podrá ver el registro de conexión y desconexión del dispositivo. 
+1. En el gráfico, hay una configuración de métrica parcial que se muestra en el ámbito del centro de IoT. Deje los valores predeterminados de **Ámbito** y **Espacio de nombres de métricas**. Seleccione la opción **Métrica** y escriba "Telemetría"; luego, seleccione **Telemetry messages sent** (Mensajes de telemetría enviados) en la lista desplegable. **Agregación** se establecerá automáticamente en **Suma**. Observe que el título del gráfico también cambia.
 
-## <a name="set-up-metrics"></a>Configuración de las métricas 
+   :::image type="content" source="media/tutorial-use-metrics-and-diags/metrics-telemetry-messages-sent.png" alt-text="Captura de pantalla que muestra la adición al gráfico de la métrica de mensajes de telemetría enviados.":::
 
-Ahora, configure algunas métricas para inspeccionar cuándo se envían los mensajes al centro. 
-
-1. En el panel de configuración del centro de IoT, haga clic en la opción **Métricas** de la sección **Supervisión**.
-
-2. En la parte superior de la pantalla, haga clic en **Last 24 hours (Automatic)** (Últimas 24 horas [Automático]). En la lista desplegable que aparece, seleccione **Últimas 4 horas** en **Intervalo de tiempo** y establezca **Granularidad de tiempo** en **1 minuto** , hora local. Haga clic en **Aplicar** para guardar la configuración. 
-
-   ![Captura de pantalla que muestra la configuración de tiempo de las métricas.](./media/tutorial-use-metrics-and-diags/06-metrics-set-time-range.png)
-
-3. Hay una entrada de métrica de forma predeterminada. Deje el grupo de recursos como predeterminado y el espacio de nombres de la métrica. En la lista desplegable **Métrica** , seleccione **Telemetry messages sent** (Mensajes de telemetría enviados). Establezca **Agregación** en **Suma**.
-
-   ![Captura de pantalla que muestra cómo se agrega una métrica para los mensajes de telemetría enviados.](./media/tutorial-use-metrics-and-diags/07-metrics-telemetry-messages-sent.png)
-
-
-4. Ahora haga clic en **Agregar métrica** para agregar otra métrica al gráfico. Seleccione el grupo de recursos ( **ContosoTestHub** ). En **Métrica** , seleccione **Total number of messages used** (Número total de mensajes usados). En **Agregación** , seleccione **Promedio**. 
+1. Ahora, seleccione **Agregar métrica** para agregar otra métrica al gráfico. En **Métrica**, seleccione **Total number of messages used** (Número total de mensajes usados). **Agregación** se establecerá automáticamente en **Media**. Observe de nuevo que el título del gráfico ha cambiado para incluir esta métrica.
 
    Ahora la pantalla muestra la métrica minimizada de *Telemetry messages sent* (Mensajes de telemetría enviados), más la nueva métrica de *Total number of messages used* (Número total de mensajes usados).
 
-   ![Captura de pantalla que resalta el botón Anclar al panel.](./media/tutorial-use-metrics-and-diags/07-metrics-num-messages-used.png)
+   :::image type="content" source="media/tutorial-use-metrics-and-diags/metrics-total-number-of-messages-used.png" alt-text="Captura de pantalla que muestra la adición al gráfico de la métrica de número total de mensajes utilizados.":::
 
-   Haga clic en **Anclar al panel**. Se anclará al panel de Azure Portal, de modo que puede acceder a ella de nuevo. Si no la ancla al panel, no se conserva su configuración.
+1. En la esquina superior derecha del gráfico, seleccione **Anclar al panel**.
 
-## <a name="set-up-alerts"></a>Configuración de alertas
+   :::image type="content" source="media/tutorial-use-metrics-and-diags/metrics-total-number-of-messages-used-pin.png" alt-text="Captura de pantalla que resalta el botón Anclar al panel.":::
 
-Vaya al centro en el portal. Haga clic en **Grupos de recursos** , seleccione *ContosoResources* y, luego, seleccione el centro de IoT *ContosoTestHub*. 
+1. En **Anclar al panel**, seleccione la pestaña **Existente**. Seleccione **Privado** y, luego, elija **Panel** en la lista desplegable de paneles. Por último, seleccione **Anclar** para anclar el gráfico al panel predeterminado de Azure Portal. Si no ancla el gráfico a un panel, la configuración no se conserva al salir del explorador de métricas.
 
-IoT Hub no se ha migrado aún a las [métricas de Azure Monitor](../azure-monitor/platform/data-platform.md#metrics); para ello, tiene que usar [alertas clásicas](../azure-monitor/platform/alerts-classic.overview.md).
+   :::image type="content" source="media/tutorial-use-metrics-and-diags/pin-to-dashboard.png" alt-text="Captura de pantalla que muestra la configuración de Anclar al panel.":::
 
-1. En **Supervisión** , haga clic en **Alertas** ; se muestra la pantalla principal de alertas. 
+## <a name="set-up-metric-alerts"></a>Configuración de alertas de métricas
 
-   ![Captura de pantalla que muestra cómo buscar alertas clásicas.](./media/tutorial-use-metrics-and-diags/08-find-classic-alerts.png)
+Ahora, vamos a configurar alertas para que se desencadenen con dos métricas: *Telemetry messages sent* (Mensajes de telemetría enviados) y *Total number of messages used* (Número total de mensajes utilizados).
 
-2. Para ir a las alertas clásicas desde aquí, haga clic en **Ver alertas clásicas**. 
+La métrica *Telemetry messages sent* (Mensajes de telemetría enviados) es adecuada para supervisar el rendimiento de los mensajes y evitar que se limiten. En el caso de un centro de IoT de nivel gratis, el límite es de 100 mensajes por segundo. Con un solo dispositivo, no se puede lograr ese tipo de rendimiento, así que, en su lugar, configuraremos la alerta para que se desencadene si el número de mensajes supera los 1000 en un período de 5 minutos. En producción, puede establecer la señal en un valor más significativo según el nivel, la edición y el número de unidades del centro de IoT.
 
-    ![Captura de pantalla que muestra la pantalla de alertas clásicas.](./media/tutorial-use-metrics-and-diags/09-view-classic-alerts.png)
+La métrica *Total number of messages used* (Número total de mensajes utilizados) realiza un seguimiento del número diario de mensajes usados. Esta métrica se restablece todos los días a las 00:00 UTC. Si supera la cuota diaria por encima de un umbral determinado, el centro de IoT dejará de aceptar mensajes. En el caso de un centro de IoT de nivel gratis, la cuota de mensajes diaria es de 8000. Configuraremos la alerta para que se desencadene si el número total de mensajes supera los 4000, el 50 % de la cuota. En la práctica, probablemente establecería este porcentaje en un valor superior. El valor de la cuota diaria depende del nivel, la edición y el número de unidades del centro de IoT.
 
-    Rellene los campos: 
+Para más información sobre los límites de cuota y las restricciones de limitación con IoT Hub, consulte [Cuotas y limitación](iot-hub-devguide-quotas-throttling.md).
 
-    **Suscripción** : deje este campo establecido en su suscripción actual.
+Para configurar alertas de métricas:
 
-    **Origen** : establezca este campo en *Métricas*.
+1. Vaya a su centro de IoT en Azure Portal.
 
-    **Grupo de recursos** : establezca este campo en su actual grupo de recursos, *ContosoResources*. 
+1. En **Supervisión**, seleccione **Alertas**. Luego, seleccione **Nueva regla de alertas**.  Se abre el panel **Crear regla de alertas**.
 
-    **Tipo de recurso** : establezca este campo en IoT Hub. 
+    :::image type="content" source="media/tutorial-use-metrics-and-diags/create-alert-rule-pane.png" alt-text="Captura de pantalla que muestra el panel Crear regla de alertas.":::
 
-    **Recursos** : seleccione su centro de IoT, *ContosoTestHub*.
+    En el panel **Crear regla de alertas**, hay cuatro secciones:
 
-3. Haga clic en **Agregar una alerta de métrica (clásica)** para configurar una nueva alerta.
+    * **Ámbito**: ya está establecido en el centro de IoT, por lo que no haremos nada.
+    * **Condición**: establece la señal y las condiciones que desencadenarán la alerta.
+    * **Acciones**: configura lo que ocurre cuando se desencadena la alerta.
+    * **Alert rule details** (Detalles de la regla de alerta): le permite establecer un nombre y una descripción para la alerta.
 
-    Rellene los campos:
+1. En primer lugar, configure la condición que desencadenará la alerta.
 
-    **Name** : proporcione un nombre para la regla de alerta, como *mensajes-telemetría*.
+    1. En **Condición**, elija **Select condition** (Seleccionar condición). En el panel **Configurar lógica señal**, escriba "telemetría" en el cuadro de búsqueda y seleccione **Telemetry messages sent** (Mensajes de telemetría enviados).
 
-    **Descripción** : proporcione una descripción de la alerta, como *avisar cuando se hayan enviado 1000 mensajes de telemetría*. 
+       :::image type="content" source="media/tutorial-use-metrics-and-diags/configure-signal-logic-telemetry-messages-sent.png" alt-text="Captura de pantalla que muestra la selección de la métrica.":::
 
-    **Origen** : establezca esta opción en *Métricas*.
+    1. En el panel **Configurar lógica de señal**, establezca o confirme los campos siguientes en **Lógica de alerta** (puede omitir el gráfico):
 
-    **Suscripción** , **Grupo de recursos** y **Recursos** se deben establecer en los valores que ha seleccionado en la pantalla **Ver alertas clásicas**. 
+       **Umbral**:  *Estática*.
 
-    Establezca **Métrica** en *Telemetry messages sent* (Mensajes de telemetría enviados).
+       **Operador**: *Mayor que*.
 
-    ![Captura de pantalla que muestra cómo configurar una alerta clásica para los mensajes de telemetría enviados.](./media/tutorial-use-metrics-and-diags/10-alerts-add-rule-telemetry-top.png)
+       **Tipo de agregación**: *Total*.
 
-4. Después del gráfico, establezca los campos siguientes:
+       **Valor del umbral**: 1000.
 
-   **Condición** : establézcalo en *Mayor que*.
+       **Granularidad de agregación (período)** : *5 minutos*.
 
-   **Umbral** : establézcalo en 1000.
+       **Frecuencia de evaluación**: *Cada minuto*
 
-   **Período** : establézcalo en *En los últimos 5 minutos*.
+        :::image type="content" source="media/tutorial-use-metrics-and-diags/configure-signal-logic-set-conditions.png" alt-text="Captura de pantalla que muestra la configuración de las condiciones de alerta.":::
 
-   **Destinatarios del correo electrónico de notificación** : ponga aquí la dirección de correo electrónico. 
+       Esta configuración establece la señal en el número total de mensajes durante un período de 5 minutos. Este total se evaluará cada minuto y, si transcurridos los 5 minutos anteriores el número de mensajes es superior a 1000, se desencadenará la alerta.
 
-   ![Captura de pantalla que muestra la mitad inferior de la pantalla de alertas.](./media/tutorial-use-metrics-and-diags/11-alerts-add-rule-bottom.png)
+       Seleccione **Listo** para guardar la lógica de señal.
 
-   Haga clic en **Aceptar** para guardar la alerta. 
+1. Ahora, configure la acción de la alerta.
 
-5. Ahora, configure otra alerta para *Total number of messages used* (Número total de mensajes usados). Esta métrica es útil si quiere enviar una alerta cuando el número de mensajes usado se aproxime a la cuota del centro de IoT; de este modo, sabrá que el centro comenzará pronto a rechazar mensajes.
+    1. De nuevo en el panel **Crear regla de alertas**, en **Acciones**, seleccione **Seleccionar el grupo de acciones**. En **Seleccionar un grupo de acciones para asociar a esta regla de alerta**, elija **Crear grupo de acciones**.
 
-   En la pantalla **Ver alertas clásicas** , haga clic en **Agregar alerta de métrica (clásica)** y, luego, rellene estos campos en el panel **Agregar regla**.
+    1. En la pestaña **Aspectos básicos** del panel **Crear grupo de acciones**, asigne un nombre al grupo de acciones y un nombre para mostrar.
 
-   **Name** : proporcione un nombre para la regla de alerta, como *número-de-mensajes-usados*.
+        :::image type="content" source="media/tutorial-use-metrics-and-diags/create-action-group-basics.png" alt-text="Captura de pantalla que muestra la pestaña Aspectos básicos del panel Crear grupo de acciones.":::
 
-   **Descripción** : proporcione una descripción de la alerta, como *avisar cuando se acerque a la cuota*.
+    1. Seleccione la pestaña **Notificaciones**. En **Tipo de notificación**, seleccione **Email/SMS message/Push/Voice** (Correo electrónico/mensaje SMS/notificación push/mensaje de voz) en la lista desplegable. Se abre el panel **Email/SMS message/Push/Voice** (Correo electrónico/mensaje SMS/notificación push/mensaje de voz).
 
-   **Origen** : establezca este campo en *Métricas*.
+    1. En el panel **Email/SMS message/Push/Voice** (Correo electrónico/mensaje SMS/notificación push/mensaje de voz), seleccione correo electrónico y escriba su dirección de correo electrónico y, luego, elija **Aceptar**.
 
-    **Suscripción** , **Grupo de recursos** y **Recursos** se deben establecer en los valores que ha seleccionado en la pantalla **Ver alertas clásicas**. 
+        :::image type="content" source="media/tutorial-use-metrics-and-diags/set-email-address.png" alt-text="Captura de pantalla que muestra la configuración de dirección de correo electrónico.":::
 
-    Establezca **Métrica** en *Total number of messages used* (Número total de mensajes usados).
+    1. De nuevo en el panel **Notificaciones**, escriba un nombre para la notificación.
 
-6. Debajo del gráfico, rellene los campos siguientes:
+        :::image type="content" source="media/tutorial-use-metrics-and-diags/create-action-group-notification-complete.png" alt-text="Captura de pantalla que muestra el panel de notificaciones completadas.":::
 
-   **Condición** : establézcalo en *Mayor que*.
+    1. (Opcional) Si selecciona la pestaña **Acciones** y, luego, elige la lista desplegable **Tipo de acción**, puede ver los tipos de acciones que puede desencadenar con una alerta. En este artículo, solo usaremos notificaciones, por lo que puede omitir la configuración de esta pestaña.
 
-   **Umbral** : establézcalo en 1000.
+        :::image type="content" source="media/tutorial-use-metrics-and-diags/action-types.png" alt-text="Captura de pantalla que muestra los tipos de acciones disponibles en el panel Acciones.":::
 
-   **Período** : establezca este campo en *En los últimos 5 minutos*. 
+    1. Seleccione la pestaña **Revisar y crear**, compruebe la configuración y elija **Crear**.
 
-   **Destinatarios del correo electrónico de notificación** : ponga aquí la dirección de correo electrónico. 
+        :::image type="content" source="media/tutorial-use-metrics-and-diags/create-action-group-review-and-create.png" alt-text="Captura de pantalla que muestra el panel Revisar y crear.":::
 
-   Haga clic en **Aceptar** para guardar la regla. 
+    1. De nuevo en el panel **Crear regla de alertas**, observe que el nuevo grupo de acciones se ha agregado a las acciones de la alerta.  
 
-5. Ahora debería ver dos alertas en el panel de alertas clásicas: 
+1. Por último, configure los detalles de la regla de alertas y guárdela.
 
-   ![Captura de pantalla que muestra la pantalla de alertas clásicas con las nuevas reglas de alerta.](./media/tutorial-use-metrics-and-diags/12-alerts-done.png)
+    1. En el panel **Crear regla de alertas**, en Detalles de la regla de alertas, escriba un nombre y una descripción para la alerta; por ejemplo, "Enviar alerta si hay más de 1000 mensajes en 5 minutos". Asegúrese de que **Enable alert rule upon creation** (Habilitar regla de alertas tras la creación) esté activada. La regla de alertas completada tendrá un aspecto similar al de esta captura de pantalla.
 
-6. Cierre el panel de alertas. 
-    
-    Con esta configuración, recibirá una alerta cuando el número de mensajes enviados sea mayor que 400 y cuando el número total de mensajes usados supere el NÚMERO.
+        :::image type="content" source="media/tutorial-use-metrics-and-diags/create-alert-rule-final.png" alt-text="Captura de pantalla que muestra el panel Crear regla de alertas completado.":::
 
-## <a name="run-simulated-device-app"></a>Ejecución de una aplicación de simulación de dispositivo
+    1. Seleccione **Crear regla de alertas** para guardar la nueva regla.
 
-Anteriormente, en la sección de configuración del script, configuró un dispositivo de simulación, para lo que usó un dispositivo IoT. En esta sección se descarga una aplicación de consola de .NET que simula un dispositivo que envía mensajes de dispositivo a nube a una instancia de IoT Hub.  
+1. Ahora, configure otra alerta para *Total number of messages used* (Número total de mensajes usados). Esta métrica es útil si quiere enviar una alerta cuando el número de mensajes utilizados se aproxime a la cuota diaria del centro de IoT; en ese momento, el centro de IoT comenzará a rechazar mensajes. Siga los pasos que hizo antes, con las siguientes diferencias.
 
-Descargue la solución para la [simulación de un dispositivo IoT](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). Este vínculo descarga un repositorio que contiene varias aplicaciones; la solución que busca está en iot-hub/Tutorials/Routing/.
+    * En el panel **Configurar lógica de señal**, seleccione **Total number of messages used** (Número total de mensajes utilizados).
 
-Haga doble clic en el archivo de la solución (SimulatedDevice.sln) para abrir el código en Visual Studio y, después, abra Program.cs. Sustituya `{iot hub hostname}` por el nombre de host de IoT Hub. El formato del nombre de host de IoT Hub es **{nombre de iot hub} .azure-devices.net**. Para este tutorial, el nombre de host del centro es **ContosoTestHub.azure devices.net**. A continuación, sustituya `{device key}` por la clave de dispositivo que guardó anteriormente al configurar el dispositivo simulado. 
+    * En el panel **Configurar lógica de señal**, establezca o confirme los campos siguientes (puede omitir el gráfico):
 
-   ```csharp
-        static string myDeviceId = "contoso-test-device";
-        static string iotHubUri = "ContosoTestHub.azure-devices.net";
-        // This is the primary key for the device. This is in the portal. 
-        // Find your IoT hub in the portal > IoT devices > select your device > copy the key. 
-        static string deviceKey = "{your device key here}";
-   ```
+       **Umbral**:  *Estática*.
 
-## <a name="run-and-test"></a>Ejecución y prueba 
+       **Operador**: *Mayor que*.
 
-En Program.cs, cambie `Task.Delay` de 1000 a 10, lo que reduce la cantidad de tiempo entre envíos de mensajes de 1 segundo a 0,01 segundos. Al acortar este retraso aumenta el número de mensajes enviados.
+       **Tipo de agregación**: *Máxima*.
 
-```csharp
-await Task.Delay(10);
-```
+       **Valor del umbral**: 4000.
 
-Ejecución de la aplicación de consola. Espere unos minutos (10-15). Puede ver los mensajes enviados desde el dispositivo simulado al centro en la pantalla de la consola de la aplicación.
+       **Granularidad de agregación (período)** : *1 minuto*.
 
-### <a name="see-the-metrics-in-the-portal"></a>Visualización de las métricas en el portal
+       **Frecuencia de evaluación**: *Cada minuto*
 
-Abra las métricas desde el panel. Cambie los valores de tiempo a *Últimos 30 minutos* con una granularidad de tiempo de *1 minuto*. Se muestran en el gráfico los mensajes de telemetría enviados y el número total de mensajes usados, con los números más recientes en la parte inferior.
+       Esta configuración establece la señal que se activará cuando el número de mensajes alcance los 4000. La métrica se evalúa cada minuto.
 
-   ![Captura de pantalla que muestra las métricas.](./media/tutorial-use-metrics-and-diags/13-metrics-populated.png)
+    * Cuando especifique la acción de la regla de alertas, seleccione el grupo de acciones que creó anteriormente.
 
-### <a name="see-the-alerts"></a>Visualización de las alertas
+    * En los detalles de la alerta, elija un nombre y una descripción diferentes a los que usó anteriormente.
 
-Vuelva a las alertas. Haga clic en **Grupos de recursos** , seleccione *ContosoResources* y, luego, seleccione el centro *ContosoTestHub*. En la página de propiedades que se muestra para el centro, seleccione **Alertas** y, luego, **Ver alertas clásicas**. 
+1. En **Supervisión**, en el panel izquierdo del centro de IoT, seleccione **Alertas**. Ahora, en el menú de la parte superior del panel **Alertas**, seleccione **Administrar reglas de alerta**. Se abre el panel **Reglas**. Ahora debería ver las dos alertas:
 
-Cuando el número de mensajes enviados supere el límite, comenzará a recibir alertas por correo electrónico. Para ver si hay alguna alerta activa, vaya al centro y seleccione **Alertas**. Se muestran las alertas que están activas, y si hay alguna advertencia. 
+   :::image type="content" source="media/tutorial-use-metrics-and-diags/rules-management.png" alt-text="Captura de pantalla que muestra el panel Reglas con las nuevas reglas de alertas.":::
 
-   ![Captura de pantalla que muestra las alertas activadas.](./media/tutorial-use-metrics-and-diags/14-alerts-firing.png)
+1. Cierre el panel **Reglas**.
 
-Haga clic en la alerta de los mensajes de telemetría. Se muestra el resultado de la métrica y un gráfico con los resultados. Además, el correo electrónico enviado para avisarle de la activación de la alerta se parece a este:
+Con esta configuración, se desencadenará una alerta y recibirá una notificación por correo electrónico cuando se envíen más de 1000 mensajes dentro de un intervalo de tiempo de 5 minutos y también cuando el número total de mensajes utilizados supere los 4000 (el 50 % de la cuota diaria de un centro de IoT en el nivel gratis).
 
-   ![Captura de pantalla del correo electrónico con las alertas activadas.](./media/tutorial-use-metrics-and-diags/15-alert-email.png)
+## <a name="run-the-simulated-device-app"></a>Ejecución de una aplicación de dispositivo simulada
 
-### <a name="see-the-diagnostic-logs"></a>Visualización de los registros de diagnóstico
+En la sección [Configurar recursos](#set-up-resources), ha registrado una identidad de dispositivo que se usará para simular el uso de un dispositivo IoT. En esta sección, descargará una aplicación de consola .NET que simula un dispositivo que envía mensajes del dispositivo a la nube a un centro de IoT, la configurará para enviar estos mensajes al centro de IoT y, luego, la ejecutará. 
 
-Configure los registros de diagnóstico que se exportarán a Blob Storage. Vaya al grupo de recursos y seleccione la cuenta de almacenamiento *contosostoragemon*. Seleccione Blobs y abra el contenedor *insights-logs-connections*. Explore en profundidad hasta llegar a la fecha actual y seleccione el archivo más reciente. 
+> [!IMPORTANT]
+>
+> Las alertas pueden tardar hasta 10 minutos en configurarse y habilitarse completamente mediante IoT Hub. Espere al menos 10 minutos entre que configura la última alerta y ejecuta la aplicación de dispositivo simulado.
 
-   ![Captura de pantalla que muestra cómo profundizar en el contenedor de almacenamiento para ver los registros de diagnóstico.](./media/tutorial-use-metrics-and-diags/16-diagnostics-logs-list.png)
+Descargue la solución para la [simulación de un dispositivo IoT](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). Este vínculo descarga un repositorio que contiene varias aplicaciones; la que busca está en iot-hub/Quickstarts/simulated-device/.
 
-Haga clic en **Descargar** para descargarlo y abrirlo. Verá los registros del dispositivo que se conecta y se desconecta a medida que envía mensajes al centro. Este es un ejemplo:
+1. En una ventana del terminal local, vaya a la carpeta raíz de la solución. A continuación, vaya a la carpeta **iot-hub\Quickstarts\simulated-device**.
 
-``` json
-{ 
-  "time": "2018-12-17T18:11:25Z", 
-  "resourceId": 
-    "/SUBSCRIPTIONS/your-subscription-id/RESOURCEGROUPS/CONTOSORESOURCES/PROVIDERS/MICROSOFT.DEVICES/IOTHUBS/CONTOSOTESTHUB", 
-  "operationName": "deviceConnect", 
-  "category": "Connections", 
-  "level": "Information", 
-  "properties": 
-      {"deviceId":"Contoso-Test-Device",
-       "protocol":"Mqtt",
-       "authType":null,
-       "maskedIpAddress":"73.162.215.XXX",
-       "statusCode":null
-       }, 
-  "location": "westus"
-}
-{ 
-   "time": "2018-12-17T18:19:25Z", 
-   "resourceId": 
-     "/SUBSCRIPTIONS/your-subscription-id/RESOURCEGROUPS/CONTOSORESOURCES/PROVIDERS/MICROSOFT.DEVICES/IOTHUBS/CONTOSOTESTHUB", 
-    "operationName": "deviceDisconnect", 
-    "category": "Connections", 
-    "level": "Error", 
-    "resultType": "404104", 
-    "resultDescription": "DeviceConnectionClosedRemotely", 
-    "properties": 
-        {"deviceId":"Contoso-Test-Device",
-         "protocol":"Mqtt",
-         "authType":null,
-         "maskedIpAddress":"73.162.215.XXX",
-         "statusCode":"404"
-         }, 
-    "location": "westus"
-}
-```
+1. Abra el archivo **SimulatedDevice.cs** en el editor de texto de su elección.
 
-## <a name="clean-up-resources"></a>Limpieza de recursos 
+    1. Reemplace el valor de la variable `s_connectionString` por la cadena de conexión del dispositivo que anotó cuando ejecutó el script para configurar los recursos.
 
-Para quitar todos los recursos que ha creado en este tutorial, elimine el grupo de recursos. Esta acción elimina también todos los recursos del grupo. En este caso, se quita el centro de IoT, la cuenta de almacenamiento y el propio grupo de recursos. Si ha anclado métricas al panel, deberá quitarlas manualmente, para lo cual, tiene que hacer clic en los tres puntos de la esquina superior derecha de cada una y seleccionar **Quitar**.
+    1. En el método `SendDeviceToCloudMessagesAsync`, cambie `Task.Delay` de 1000 a 1, lo que reduce la cantidad de tiempo entre envíos de mensajes de 1 a 0,001 segundos. Al acortar este retraso aumenta el número de mensajes enviados. (Es probable que no obtenga una tasa de 100 mensajes por segundo).
 
-Para quitar el grupo de recursos, use el comando [az group delete](/cli/azure/group?view=azure-cli-latest#az-group-delete).
+        ```csharp
+        await Task.Delay(1);
+        ```
+
+    1. Guarde los cambios en **SimulatedDevice.cs**.
+
+1. En la ventana del terminal local, ejecute el comando siguiente para instalar los paquetes necesarios para la aplicación de dispositivo simulado:
+
+    ```cmd/sh
+    dotnet restore
+    ```
+
+1. En la ventana de terminal local, ejecute el comando siguiente para compilar la aplicación de dispositivo simulado y ejecutarla:
+
+    ```cmd/sh
+    dotnet run
+    ```
+
+    La siguiente captura de pantalla muestra la salida en la que la aplicación de dispositivo simulado envía datos de telemetría a IoT Hub:
+
+    :::image type="content" source="media/tutorial-use-metrics-and-diags/simulated-device-output.png" alt-text="Captura de pantalla que muestra la salida del dispositivo simulado.":::
+
+Deje que la aplicación se ejecute durante al menos 10 o 15 minutos. Lo mejor es dejar que lo haga hasta que deje de enviar mensajes (aproximadamente 20 o 30 minutos). Este hecho se producirá cuando haya superado la cuota diaria de mensajes de su centro de IoT y haya dejado de aceptar más mensajes.
+
+> [!NOTE]
+> Si deja que la aplicación de dispositivo se ejecute durante un período prolongado después de que deje de enviar mensajes, puede que reciba una excepción. Esta excepción se puede omitir sin riesgo alguno. Luego, cierre la ventana de la aplicación.
+
+## <a name="view-metrics-chart-on-your-dashboard"></a>Visualización del gráfico de métricas en el panel
+
+1. En la esquina superior izquierda de Azure Portal, abra el menú del portal y, luego, seleccione **Panel**.
+
+   :::image type="content" source="media/tutorial-use-metrics-and-diags/select-dashboard.png" alt-text="Captura de pantalla sobre cómo seleccionar el panel.":::
+
+1. Busque el gráfico que ancló anteriormente y haga clic en cualquier lugar del icono fuera de los datos del gráfico para expandirlo. Aparecen en el gráfico los mensajes de telemetría enviados y el número total de mensajes utilizados. Los números más recientes aparecen en la parte inferior del gráfico. Puede mover el cursor en el gráfico para ver los valores de las métricas en determinados momentos. También puede cambiar el valor de tiempo y la granularidad en la parte superior del gráfico para restringir o expandir los datos a un período de tiempo de interés.
+
+   :::image type="content" source="media/tutorial-use-metrics-and-diags/metrics-on-dashboard-last-hour.png" alt-text="Captura de pantalla que muestra el gráfico de métricas.":::
+
+   En este escenario, el rendimiento de mensajes del dispositivo simulado no es lo suficientemente grande como para que IoT Hub limite sus mensajes. En un escenario que realmente conlleve limitación, puede ver que los mensajes de telemetría enviados superan el límite de su centro de IoT durante un tiempo limitado. El motivo de ello es acomodar el tráfico de ráfaga. Para más información, consulte [Modelado de tráfico](iot-hub-devguide-quotas-throttling.md#traffic-shaping).
+
+## <a name="view-the-alerts"></a>Visualización de las alertas
+
+Cuando el número de mensajes enviados supere los límites establecidos en las reglas de alertas, comenzará a recibir alertas por correo electrónico.
+
+Para ver si hay alertas activas, en **Supervisión**, en el panel izquierdo del centro de IoT, seleccione **Alertas**. En el panel **Alertas** se muestra el número de alertas que se han activado durante el intervalo de tiempo especificado, ordenadas por gravedad.
+
+   :::image type="content" source="media/tutorial-use-metrics-and-diags/view-alerts.png" alt-text="Captura de pantalla que muestra el resumen de alertas.":::
+
+Seleccione la fila de gravedad 3. Se abre el panel **Todas las alertas** con las alertas de gravedad 3 que se han activado.
+
+   :::image type="content" source="media/tutorial-use-metrics-and-diags/view-all-alerts.png" alt-text="Captura de pantalla que muestra el panel Todas las alertas.":::
+
+Seleccione una de las alertas para ver los detalles.
+
+   :::image type="content" source="media/tutorial-use-metrics-and-diags/view-individual-alert.png" alt-text="Captura de pantalla que muestra los detalles de la alerta.":::
+
+En la bandeja de entrada, busque los correos electrónicos de Microsoft Azure. En la línea de asunto se describe la alerta que se desencadenó. Por ejemplo, *Azure: Gravedad activada: 3, Enviar alerta si hay más de 1000 mensajes en 5 minutos*. El cuerpo será parecido a la siguiente imagen:
+
+   :::image type="content" source="media/tutorial-use-metrics-and-diags/alert-mail.png" alt-text="Captura de pantalla del correo electrónico con las alertas activadas.":::
+
+## <a name="view-azure-monitor-logs"></a>Visualización de registros de Azure Monitor
+
+En la sección [Recopilación de registros de conexiones y telemetría de dispositivos](#collect-logs-for-connections-and-device-telemetry), creó una configuración de diagnóstico para enviar a los registros de Azure Monitor registros de recursos emitidos por el centro de IoT sobre las operaciones de conexión y telemetría de dispositivos. En esta sección, ejecutará una consulta de Kusto en los registros de Azure Monitor para observar los errores que se produjeron.
+
+1. En Azure Portal, en **Supervisión**, en el panel izquierdo del centro de IoT, seleccione **Registros**. Si está abierta, cierre la ventana inicial de **Consultas**.
+
+1. En el panel Nueva consulta, seleccione la pestaña **Consultas** y, luego, expanda **IoT Hub** para ver la lista de consultas predeterminadas.
+
+   :::image type="content" source="media/tutorial-use-metrics-and-diags/new-query-pane.png" alt-text="Captura de pantalla de las consultas predeterminadas de IoT Hub.":::
+
+1. Seleccione la consulta *Resumen de errores*. La consulta aparece en el panel del Editor de consultas. Seleccione **Ejecutar** en el panel del editor y observe los resultados de la consulta. Expanda una de las filas para ver los detalles.
+
+   :::image type="content" source="media/tutorial-use-metrics-and-diags/logs-errors.png" alt-text="Captura de pantalla de los registros devueltos por la consulta Resumen de errores.":::
+
+   > [!NOTE]
+   > Si no ve ningún error, pruebe a ejecutar la consulta *Recently connected devices* (Dispositivos conectados recientemente). Se devolverá una fila para el dispositivo simulado.
+
+## <a name="clean-up-resources"></a>Limpieza de recursos
+
+Para quitar todos los recursos que ha creado en este tutorial, elimine el grupo de recursos. Esta acción elimina también todos los recursos del grupo. En este caso, quita el centro de IoT Hub, el área de trabajo de Log Analytics y el propio grupo de recursos. Si ha anclado gráficos de métricas al panel, deberá quitarlas manualmente, para lo cual, tiene que hacer clic en los tres puntos de la esquina superior derecha de cada uno y seleccionar **Quitar**. Después de eliminar los gráficos, asegúrese de guardar los cambios.
+
+Para quitar el grupo de recursos, use el comando [az group delete](/cli/azure/group#az-group-delete).
 
 ```azurecli-interactive
-az group delete --name $resourceGroup
+az group delete --name ContosoResources
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, aprendió a usar métricas y registros de diagnóstico mediante la realización de las siguientes tareas:
+En este tutorial, aprendió a usar métricas y registros de IoT Hub mediante las siguientes tareas:
 
 > [!div class="checklist"]
-> * Mediante la CLI de Azure, crear un centro de IoT, un dispositivo simulado y una cuenta de almacenamiento.  
-> * Habilitar los registros de diagnóstico. 
-> * Habilitar las métricas.
-> * Configurar alertas para esas métricas. 
-> * Descargar y ejecutar una aplicación que simule un dispositivo IoT que envía mensajes al centro. 
-> * Ejecutar la aplicación hasta que empiecen a activarse las alertas. 
-> * Ver los resultados de las métricas y comprobar los registros de diagnóstico. 
+>
+> * Usar la CLI de Azure para crear un centro de IoT, registrar un dispositivo simulado y crear un área de trabajo de Log Analytics.  
+> * Enviar conexiones de IoT Hub y registros de recursos de telemetría de dispositivos a los registros de Azure Monitor en el área de trabajo de Log Analytics.
+> * Usar el explorador de métricas para crear un gráfico basado en métricas seleccionadas y anclarlo al panel.
+> * Crear alertas de métricas para recibir notificaciones por correo electrónico cuando se produzcan condiciones importantes.
+> * Descargar y ejecutar una aplicación que simule un dispositivo IoT enviando mensajes al centro de IoT.
+> * Ver las alertas cuando se produzcan las condiciones.
+> * Ver el gráfico de métricas en el panel.
+> * Ver los errores y las operaciones de IoT Hub en los registros de Azure Monitor.
 
 En el siguiente tutorial aprender a administrar el estado de un dispositivo IoT. 
 

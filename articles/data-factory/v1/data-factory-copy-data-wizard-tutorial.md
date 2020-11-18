@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: d1b17a3e4556f6a963f3ecacd31472ce3f75b0fe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 93360e48dad13b9ec57175d31ecb61d32974f066
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85248554"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93128409"
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-data-factory-copy-wizard"></a>Tutorial: Creación de una canalización con la actividad de copia mediante el Asistente para copia de Data Factory
 > [!div class="op_single_selector"]
@@ -55,7 +55,7 @@ En este paso, utilizará el Portal de Azure para crear una factoría de datos de
        El nombre de la instancia de Azure Data Factory debe ser único de forma global. Si recibe el error: `Data factory name “ADFTutorialDataFactory” is not available`, cambie el nombre de la factoría de datos (por ejemplo, yournameADFTutorialDataFactoryYYYYMMDD) e intente crearla de nuevo. Consulte el tema [Factoría de datos: reglas de nomenclatura](data-factory-naming-rules.md) para las reglas de nomenclatura para los artefactos de Factoría de datos.  
       
        ![Nombre de Factoría de datos no disponible](./media/data-factory-copy-data-wizard-tutorial/getstarted-data-factory-not-available.png)    
-   2. Selección la **suscripción**de Azure.
+   2. Selección la **suscripción** de Azure.
    3. Para el grupo de recursos, realice uno de los siguientes pasos: 
       
       - Seleccione en primer lugar **Usar existente** y después un grupo de recursos existente.
@@ -91,7 +91,7 @@ En este paso, utilizará el Portal de Azure para crear una factoría de datos de
    
    1. Escriba **AzureStorageLinkedService** en **Nombre de servicio vinculado**.
    2. Confirme que la opción **De suscripciones de Azure** está seleccionada para **Método de selección de cuenta**.
-   3. Selección la **suscripción**de Azure.  
+   3. Selección la **suscripción** de Azure.  
    4. Seleccione una **cuenta de Azure Storage** en la lista de cuentas de Azure Storage disponibles en la suscripción seleccionada. También puede elegir especificar la configuración de la cuenta de almacenamiento manualmente, para lo que debe seleccionar la opción **Especificar manualmente** en **Método de selección de cuenta** y luego hacer clic en **Siguiente**. 
       
       ![Herramienta de copia: Especificar cuenta de Almacenamiento de blobs de Azure](./media/data-factory-copy-data-wizard-tutorial/copy-tool-specify-azure-blob-storage-account.png)
@@ -100,10 +100,10 @@ En este paso, utilizará el Portal de Azure para crear una factoría de datos de
    1. Haga doble clic en **adftutorial** (carpeta).
    2. Seleccione **emp.txt** y haga clic en **Elegir**.
       
-      ![Herramienta de copia: Elegir el archivo o la carpeta de entrada](./media/data-factory-copy-data-wizard-tutorial/copy-tool-choose-input-file-or-folder.png)
+      ![Captura de pantalla que muestra la opción Elegir del archivo de entrada.](./media/data-factory-copy-data-wizard-tutorial/copy-tool-choose-input-file-or-folder.png)
 6. En la página **Choose the input file or folder** (Elegir el archivo o la carpeta de entrada), haga clic en **Next** (Siguiente). No seleccione **Binary copy**(Copia binaria). 
    
-    ![Herramienta de copia: Elegir el archivo o la carpeta de entrada](./media/data-factory-copy-data-wizard-tutorial/chose-input-file-folder.png) 
+    ![Captura de pantalla que muestra la opción Binary copy (Copia binaria) de la entrada.](./media/data-factory-copy-data-wizard-tutorial/chose-input-file-folder.png) 
 7. En la página **Configuración de formato de archivo**, verá los delimitadores y el esquema que el asistente detecta automáticamente al analizar el archivo. También puede especificar los delimitadores manualmente a fin de que el Asistente para copia detenga la detección automática o proceda a la invalidación. Haga clic en **Siguiente** después de revisar los delimitadores y obtener una vista previa de los datos. 
    
     ![Herramienta de copia: Configuración de formato de archivo](./media/data-factory-copy-data-wizard-tutorial/copy-tool-file-format-settings.png)  
@@ -114,7 +114,7 @@ En este paso, utilizará el Portal de Azure para crear una factoría de datos de
    
    1. Escriba **AzureSqlLinkedService** en el campo **Nombre de la conexión**.
    2. Confirme que la opción **De suscripciones de Azure** esté seleccionada para **Método de selección de servidor y base de datos**.
-   3. Selección la **suscripción**de Azure.  
+   3. Selección la **suscripción** de Azure.  
    4. Seleccione **Nombre de servidor** y **Base de datos**.
    5. En **Nombre de usuario** y **Contraseña**, escriba los valores pertinentes.
    6. Haga clic en **Next**.  
@@ -128,10 +128,10 @@ En este paso, utilizará el Portal de Azure para crear una factoría de datos de
     ![Herramienta de copia: Asignación de esquemas](./media/data-factory-copy-data-wizard-tutorial/schema-mapping-page.png)
 12. En la página **Configuración de rendimiento**, haga clic en **Siguiente**. 
     
-    ![Herramienta de copia: Configuración de rendimiento](./media/data-factory-copy-data-wizard-tutorial/performance-settings.png)
+    ![Captura de pantalla que muestra la página Performance settings (Configuración de rendimiento), donde puede seleccionar Siguiente.](./media/data-factory-copy-data-wizard-tutorial/performance-settings.png)
 13. Revise la información de la página **Resumen** y haga clic en **Finalizar**. El asistente crea dos servicios vinculados, dos conjuntos de datos (entrada y salida) y una canalización en la factoría de datos (desde donde se inició al Asistente para copia). 
     
-    ![Herramienta de copia: Configuración de rendimiento](./media/data-factory-copy-data-wizard-tutorial/summary-page.png)
+    ![Captura de pantalla que muestra el panel Resumen, donde puede seleccionar Siguiente.](./media/data-factory-copy-data-wizard-tutorial/summary-page.png)
 
 ## <a name="launch-monitor-and-manage-application"></a>Inicio de la aplicación de supervisión y administración
 1. En la página **Implementación**, haga clic en el vínculo: `Click here to monitor copy pipeline`.

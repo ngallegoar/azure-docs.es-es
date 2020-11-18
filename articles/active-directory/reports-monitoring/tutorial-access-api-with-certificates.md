@@ -17,12 +17,12 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: bc763a99c945925b80171738f4076e6305d92df9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c3443cb73e85fc69349e7293597a5f4a723959d3
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89229466"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130058"
 ---
 # <a name="tutorial-get-data-using-the-azure-active-directory-reporting-api-with-certificates"></a>Tutorial: Obtención de datos mediante Reporting API de Azure Active Directory con certificados
 
@@ -85,15 +85,17 @@ En este tutorial, aprenderá a crear un certificado de prueba para acceder a Mic
    ``` 
 6. Ahora, puede obtener un token de acceso para MS Graph API con este certificado. Use el cmdlet **Get-MSCloudIdMSGraphAccessTokenFromCert** del módulo MSCloudIdUtils de PowerShell pasando el identificador de la aplicación y la huella digital que obtuvo en el paso anterior. 
 
-   ![Portal de Azure](./media/tutorial-access-api-with-certificates/getaccesstoken.png)
+   ![Captura de pantalla que muestra una ventana de PowerShell con un comando que crea un token de acceso.](./media/tutorial-access-api-with-certificates/getaccesstoken.png)
 
 7. Use el token de acceso del script de Powershell para consultar Graph API. Use el cmdlet **Invoke-MSCloudIdMSGraphQuery** desde MSCloudIDUtils para enumerar el punto de conexión de SignIns y DirectoryAudits. Este cmdlet controla los resultados de paginado múltiple y los envía a la canalización de PowerShell.
 
 8. Consulte el punto de conexión DirectoryAudits para recuperar los registros de auditoría. 
-   ![Azure Portal](./media/tutorial-access-api-with-certificates/query-directoryAudits.png)
+
+   ![Captura de pantalla que muestra una ventana de PowerShell con un comando para consultar el punto de conexión de DirectoryAudits mediante el token de acceso anterior en este procedimiento.](./media/tutorial-access-api-with-certificates/query-directoryAudits.png)
 
 9. Consulte el punto de conexión de SignIns para recuperar los registros de inicio de sesión.
-    ![Azure Portal](./media/tutorial-access-api-with-certificates/query-signins.png)
+
+    ![Captura de pantalla que muestra una ventana de PowerShell con un comando para consultar el punto de conexión de Signins mediante el token de acceso anterior en este procedimiento.](./media/tutorial-access-api-with-certificates/query-signins.png)
 
 10. Ahora puede exportar estos datos en un archivo CSV y guardarlos en un sistema SIEM. También puede encapsular el script en una tarea programada para obtener datos de Azure AD de su inquilino periódicamente sin tener que almacenar las claves de aplicación en el código fuente. 
 

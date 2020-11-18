@@ -4,14 +4,15 @@ description: En este tutorial, accederá a los secretos de Azure Key Vault y los
 author: ShaneBala-keyvault
 ms.author: sudbalas
 ms.service: key-vault
+ms.subservice: general
 ms.topic: tutorial
 ms.date: 09/25/2020
-ms.openlocfilehash: c101cb4eca246ee68a30ba3499981c589c564f92
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: b7d587f2be5141f7de82e9294b1fdb9fba4a6a41
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368662"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94488650"
 ---
 # <a name="tutorial-configure-and-run-the-azure-key-vault-provider-for-the-secrets-store-csi-driver-on-kubernetes"></a>Tutorial: Configuración y ejecución del proveedor de Azure Key Vault para el controlador Secrets Store CSI en Kubernetes
 
@@ -35,7 +36,7 @@ En este tutorial, aprenderá a:
 
 * Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-* Antes de iniciar este tutorial, instale la [CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli-windows?view=azure-cli-latest).
+* Antes de iniciar este tutorial, instale la [CLI de Azure](/cli/azure/install-azure-cli-windows?view=azure-cli-latest).
 
 ## <a name="create-a-service-principal-or-use-managed-identities"></a>Creación de una entidad de servicio o uso de identidades administradas
 
@@ -52,11 +53,17 @@ Esta operación devuelve una serie de pares clave-valor:
 
 Copie las credenciales **appId** y **password** para su uso posterior.
 
+## <a name="flow-for-using-managed-identity"></a>Flujo para usar Identidad administrada
+
+En este diagrama se muestra el flujo de integración de AKS y Key Vault con Identidad administrada:
+
+![Diagrama que muestra el flujo de integración de AKS y Key Vault con Identidad administrada](../media/aks-key-vault-integration-flow.png)
+
 ## <a name="deploy-an-azure-kubernetes-service-aks-cluster-by-using-the-azure-cli"></a>Implementación de un clúster de Azure Kubernetes Service (AKS) mediante la CLI de Azure
 
 No es necesario utilizar Azure Cloud Shell. El símbolo del sistema (terminal) con la CLI de Azure instalada será suficiente. 
 
-Complete las secciones "Creación de un grupo de recursos", "Creación de un clúster de AKS" y "Conexión con el clúster" de [Implementación de un clúster de Azure Kubernetes Service mediante la CLI de Azure](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough). 
+Complete las secciones "Creación de un grupo de recursos", "Creación de un clúster de AKS" y "Conexión con el clúster" de [Implementación de un clúster de Azure Kubernetes Service mediante la CLI de Azure](../../aks/kubernetes-walkthrough.md). 
 
 > [!NOTE] 
 > Si planea usar una identidad de pod en lugar de una entidad de servicio, asegúrese de habilitarla al crear el clúster de Kubernetes, como se muestra en el siguiente comando:
@@ -74,7 +81,7 @@ Complete las secciones "Creación de un grupo de recursos", "Creación de un cl�
     ```azurecli
     az aks upgrade --kubernetes-version 1.16.9 --name contosoAKSCluster --resource-group contosoResourceGroup
     ```
-1. Para mostrar los metadatos del clúster de AKS que ha creado, utilice el comando siguiente. Copie los valores de **principalId**, **clientId**, **subscriptionId**y **nodeResourceGroup** para su uso posterior. Si el clúster de ASK no se creó con las identidades administradas habilitadas, los identificadores **principalId** y **clientId** serán null. 
+1. Para mostrar los metadatos del clúster de AKS que ha creado, utilice el comando siguiente. Copie los valores de **principalId**, **clientId**, **subscriptionId** y **nodeResourceGroup** para su uso posterior. Si el clúster de ASK no se creó con las identidades administradas habilitadas, los identificadores **principalId** y **clientId** serán null. 
 
     ```azurecli
     az aks show --name contosoAKSCluster --resource-group contosoResourceGroup
@@ -103,7 +110,7 @@ Con la interfaz del controlador [Secrets Store CSI](https://github.com/Azure/sec
 
 ## <a name="create-an-azure-key-vault-and-set-your-secrets"></a>Creación de una instancia de Azure Key Vault y establecimiento de secretos
 
-Para crear su propio almacén de claves y establecer los secretos, siga las instrucciones de [Establecimiento y recuperación de un secreto desde Azure Key Vault mediante la CLI de Azure](https://docs.microsoft.com/azure/key-vault/secrets/quick-create-cli).
+Para crear su propio almacén de claves y establecer los secretos, siga las instrucciones de [Establecimiento y recuperación de un secreto desde Azure Key Vault mediante la CLI de Azure](../secrets/quick-create-cli.md).
 
 > [!NOTE] 
 > No es necesario usar Azure Cloud Shell ni crear un nuevo grupo de recursos. Puede usar el grupo de recursos creado anteriormente para el clúster de Kubernetes.
@@ -210,7 +217,7 @@ az ad sp credential reset --name contosoServicePrincipal --credential-descriptio
 
 Si usa identidades administradas, asigne roles específicos al clúster de AKS que ha creado. 
 
-1. Para crear, enumerar o leer una identidad administrada asignada por el usuario, es preciso asignar el rol [Operador de identidades administradas](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-identity-operator) al clúster de AKS. Asegúrese de que **$clientId** sea el identificador de cliente del clúster de Kubernetes. Con respecto al ámbito, estará en el servicio de suscripción de Azure, específicamente el grupo de recursos de nodo que se creó al tiempo que el clúster de AKS. Este ámbito garantizará que solo los recursos de ese grupo se vean afectados por los roles asignados a continuación. 
+1. Para crear, enumerar o leer una identidad administrada asignada por el usuario, es preciso asignar el rol [Operador de identidades administradas](../../role-based-access-control/built-in-roles.md#managed-identity-operator) al clúster de AKS. Asegúrese de que **$clientId** sea el identificador de cliente del clúster de Kubernetes. Con respecto al ámbito, estará en el servicio de suscripción de Azure, específicamente el grupo de recursos de nodo que se creó al tiempo que el clúster de AKS. Este ámbito garantizará que solo los recursos de ese grupo se vean afectados por los roles asignados a continuación. 
 
     ```azurecli
     RESOURCE_GROUP=contosoResourceGroup
@@ -355,4 +362,4 @@ Compruebe que se muestra el contenido del secreto.
 
 Para asegurarse de que el almacén de claves es recuperable, consulte:
 > [!div class="nextstepaction"]
-> [Activación de la eliminación temporal](https://docs.microsoft.com/azure/key-vault/general/soft-delete-cli)
+> [Activación de la eliminación temporal](./soft-delete-cli.md)

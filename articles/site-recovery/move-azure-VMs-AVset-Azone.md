@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: sideeksh
 ms.custom: MVC
-ms.openlocfilehash: fd541e551102b205acff28b6bc06bc88abd14763
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8224ae4a48bb4915492240c414b90edb86a4c258
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90605114"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93393139"
 ---
 # <a name="move-azure-vms-into-availability-zones"></a>Traslado de máquinas virtuales de Azure a zonas de disponibilidad
 
@@ -62,7 +62,7 @@ En un escenario en el que se implementan las máquinas virtuales como de *instan
 4. En las máquinas virtuales Linux, para obtener los últimos certificados raíz de confianza y la lista de revocación de certificados en la máquina virtual, siga las instrucciones proporcionadas por su distribuidor de Linux.
 5. Asegúrese de que no utiliza ningún proxy de autenticación para controlar la conectividad de red de las máquinas virtuales que quiere trasladar.
 
-6. Si la máquina virtual que está intentando trasladar no tiene acceso a Internet y utiliza un proxy de firewall para controlar el acceso de salida, compruebe los requisitos en [Configuración de la conectividad de red saliente](azure-to-azure-tutorial-enable-replication.md#set-up-outbound-network-connectivity-for-vms).
+6. Compruebe los [requisitos de conectividad de salida de las máquinas virtuales](azure-to-azure-tutorial-enable-replication.md#set-up-vm-connectivity).
 
 7. Identifique el diseño de la red de origen y los recursos que utiliza actualmente para la verificación, incluidos equilibradores de carga, grupos de seguridad de red y dirección IP pública.
 
@@ -99,16 +99,12 @@ Los siguientes pasos le guiarán al usar Azure Site Recovery para permitir la re
 1. En Azure Portal, seleccione **Máquinas virtuales** y elija la máquina virtual que desea trasladar a Availability Zones.
 2. En **Operaciones**, seleccione **Recuperación ante desastres**.
 3. En **Configurar la recuperación ante desastres** > **Región de destino**, seleccione la región de destino en la que quiere realizar la replicación. Asegúrese de que esta región [admita](../availability-zones/az-region.md) Availability Zones.
-
-    ![Selección de una región de destino](media/azure-vms-to-zones/enable-rep-1.PNG)
-
 4. Seleccione **Siguiente: Configuración avanzada**.
 5. Elija los valores adecuados para la suscripción de destino, el grupo de recursos de la máquina virtual de destino y la red virtual.
 6. En la sección **Disponibilidad**, elija la instancia de Availability Zones a la que desea trasladar la máquina virtual. 
    > [!NOTE]
    > Si no ve la opción para el conjunto de disponibilidad o la instancia de Availability Zones, compruebe que se cumplen los [requisitos previos](#prepare-the-source-vms) y que se ha completado la [preparación](#prepare-the-source-vms) de las máquinas virtuales de origen.
   
-    ![Selecciones para elegir una instancia de Availability Zones](media/azure-vms-to-zones/enable-rep-2.PNG)
 
 7. Seleccione **Habilitar replicación**. Esta acción inicia un trabajo para habilitar la replicación de la máquina virtual.
 
@@ -119,7 +115,6 @@ Cuando haya finalizado el trabajo de replicación, puede comprobar el estado de 
 1. En el menú de la máquina virtual, seleccione **Recuperación ante desastres**.
 2. Puede comprobar el estado de replicación, los puntos de recuperación que se han creado y las regiones de origen y destino en el mapa.
 
-   ![Estado de replicación](media/azure-to-azure-quickstart/replication-status.png)
 
 ## <a name="test-the-configuration"></a>Pruebe la configuración.
 

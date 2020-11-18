@@ -1,6 +1,6 @@
 ---
 title: 'Protección del acceso a un HSM administrado: Azure Key Vault Managed HSM'
-description: Obtenga información acerca de cómo proteger el acceso a Managed HSM mediante RBAC de Azure y RBAC del HSM administrado local.
+description: Aprenda a proteger el acceso a los dispositivos HSM administrados mediante Azure RBAC y RBAC local de HSM administrado.
 services: key-vault
 author: amitbapat
 tags: azure-resource-manager
@@ -9,18 +9,18 @@ ms.subservice: managed-hsm
 ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: ambapat
-ms.openlocfilehash: 18ffa0f878effda8888200c13ab312851aaebdcd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 99918d039052c9913400b85ac3caa4a1a5481155
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90992483"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445326"
 ---
 # <a name="secure-access-to-your-managed-hsms"></a>Protección del acceso a los HSM administrados
 
 Azure Key Vault Managed HSM es un servicio en la nube que protege las claves de cifrado. Dado que estos datos son confidenciales y críticos para la empresa, debe proteger el acceso a los HSM administrados de modo que solo se admita el acceso de las aplicaciones y los usuarios autorizados. En este artículo se proporciona información general sobre el modelo de control de acceso del HSM administrado. Se explican la autenticación y la autorización, y se describe cómo proteger el acceso a los HSM administrados.
 
-Este tutorial le guiará en un ejemplo sencillo que muestra cómo lograr la separación de tareas y el control de acceso mediante RBAC de Azure y RBAC del HSM administrado local. Consulte [Control de acceso de Managed HSM](access-control.md) para obtener información sobre el modelo de control de acceso de Managed HSM.
+Este tutorial le lleva por un ejemplo sencillo que muestra cómo lograr la separación de tareas y el control de acceso mediante Azure RBAC y RBAC local de HSM administrado. Consulte [Control de acceso de Managed HSM](access-control.md) para obtener información sobre el modelo de control de acceso de Managed HSM.
 
 ## <a name="prerequisites"></a>Requisitos previos
 

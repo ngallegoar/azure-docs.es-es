@@ -11,12 +11,12 @@ author: MarkusVi
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aaa9fa036f86fc822a4bb2175f404cdff1ca81d7
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 9e6b03a2f9dd0089b1112000804e46f3d214cd3c
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92362576"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93131299"
 ---
 # <a name="tutorial-configure-the-log-analytics-wizard"></a>Tutorial: Configuración del asistente de Log Analytics
 
@@ -96,11 +96,11 @@ La configuración de un área de trabajo de Log Analytics consta de dos pasos pr
 
 7. Busque **Azure Active Directory**.
 
-    ![Azure Active Directory](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
+    ![Captura de pantalla que muestra Azure Active Directory en Azure Search.](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
 
 8. En la sección **Supervisión**, haga clic en **Configuración de diagnóstico**.
 
-    ![Azure Active Directory](./media/tutorial-log-analytics-wizard/diagnostic-settings.png)
+    ![Captura de pantalla que muestra la opción Diagnóstico seleccionada en la sección Supervisión.](./media/tutorial-log-analytics-wizard/diagnostic-settings.png)
 
 9. En la página **Configuración de diagnóstico**, haga clic en **Agregar configuración de diagnóstico**.
 
@@ -128,7 +128,7 @@ En este procedimiento se describe cómo ejecutar consultas mediante el **lenguaj
 
 2. Busque **Azure Active Directory**.
 
-    ![Azure Active Directory](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
+    ![Captura de pantalla que muestra Azure Active Directory en Azure Search.](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
 
 3. En la sección **Supervisión**, haga clic en **Registros**.
 
@@ -210,7 +210,7 @@ Este procedimiento muestra cómo enviar alertas cuando se usa la cuenta de Break
 
 2. Busque **Azure Active Directory**.
 
-    ![Azure Active Directory](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
+    ![Captura de pantalla que muestra Azure Active Directory en Azure Search.](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
 
 3. En la sección **Supervisión**, haga clic en **Registros**.
 
@@ -301,7 +301,7 @@ En este procedimiento se muestra cómo crear un nuevo libro mediante la plantill
 
 2. Busque **Azure Active Directory**.
 
-    ![Azure Active Directory](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
+    ![Captura de pantalla que muestra Azure Active Directory en Azure Search.](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
 
 3. En la sección **Supervisión**, haga clic en **Libros**.
 
@@ -332,7 +332,7 @@ En este procedimiento se muestra cómo crear un nuevo libro mediante la plantill
 
 10. Haga clic en **Ejecutar consulta**.
 
-    ![Ejecutar consulta](./media/tutorial-log-analytics-wizard/run-workbook-query.png)
+    ![Captura de pantalla que muestra el botón Ejecutar consulta.](./media/tutorial-log-analytics-wizard/run-workbook-query.png)
 
 11. En la barra de herramientas, en **Visualización**, haga clic en **Gráfico circular**.
 
@@ -353,7 +353,7 @@ Este procedimiento muestra cómo agregar una consulta a una plantilla de libro e
 
 2. Busque **Azure Active Directory**.
 
-    ![Azure Active Directory](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
+    ![Captura de pantalla que muestra Azure Active Directory en Azure Search.](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
 
 3. En la sección **Supervisión**, haga clic en **Libros**.
 
@@ -361,11 +361,11 @@ Este procedimiento muestra cómo agregar una consulta a una plantilla de libro e
 
 4. En la sección **acceso condicional**, haga clic en **Información detallada e informes del acceso condicional**.
 
-    ![Plantilla de acceso condicional](./media/tutorial-log-analytics-wizard/conditional-access-template.png)
+    ![Captura de pantalla que muestra la opción Conditional Access Insights and Reporting (Información detallada e informes del acceso condicional).](./media/tutorial-log-analytics-wizard/conditional-access-template.png)
 
 5. En la barra de herramientas, haga clic en **Editar**.
 
-    ![Plantilla de acceso condicional](./media/tutorial-log-analytics-wizard/edit-workbook-template.png)
+    ![Captura de pantalla que muestra el botón Editar.](./media/tutorial-log-analytics-wizard/edit-workbook-template.png)
 
 6. En la barra de herramientas, haga clic en los tres puntos, luego, en **Agregar** y, finalmente, en **Agregar consulta**.
 
@@ -375,7 +375,7 @@ Este procedimiento muestra cómo agregar una consulta a una plantilla de libro e
 
 8. Haga clic en **Ejecutar consulta**.
 
-    ![Ejecutar consulta](./media/tutorial-log-analytics-wizard/run-workbook-insights-query.png)
+    ![Captura de pantalla que muestra el botón Ejecutar consulta para ejecutar esta consulta.](./media/tutorial-log-analytics-wizard/run-workbook-insights-query.png)
 
 9. Haga clic en **Intervalo de tiempo** y, después, elija **Establecer en la consulta**.
 

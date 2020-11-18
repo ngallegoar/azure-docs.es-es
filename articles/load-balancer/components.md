@@ -11,19 +11,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/04/2020
 ms.author: allensu
-ms.openlocfilehash: 97b872c5fe0a155bb6e474f327f8d0c65e22b21f
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: bf7a35e8cedbe62aafb29aa6d9dc8fcb42e90b2e
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92317447"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94693773"
 ---
 # <a name="azure-load-balancer-components"></a>Componentes de Azure Load Balancer
 
 Azure Load Balancer incluye algunos componentes clave. Puede configurar esos componentes en su suscripción mediante:
 
 * Azure portal
-* Azure CLI
+* CLI de Azure
 * Azure PowerShell
 * Plantillas de Resource Manager
 
@@ -128,7 +128,7 @@ Load Balancer Básico no admite reglas de salida.
 
 ## <a name="limitations"></a>Limitaciones
 
-- Más información sobre los [límites](https://aka.ms/lblimits) de Load Balancer 
+- Más información sobre los [límites](../azure-resource-manager/management/azure-subscription-service-limits.md) de Load Balancer 
 - Load Balancer proporciona equilibrio de carga y reenvío de puertos para protocolos TCP o UDP concretos. Las reglas de equilibrio de carga y las reglas NAT de entrada admiten TCP y UDP, pero no otros protocolos IP, incluido ICMP.
 - No se generará el flujo saliente de una máquina virtual del back-end a un front-end de un equilibrador de carga interno.
 - Una regla de equilibrador de carga no puede abarcar dos redes virtuales.  Los front-end y sus instancias de back-end deben estar ubicados en la misma red virtual.  
@@ -138,12 +138,12 @@ Load Balancer Básico no admite reglas de salida.
 
 - Consulte el artículo sobre cómo [crear una instancia de Standard Load Balancer pública](quickstart-load-balancer-standard-public-portal.md) para empezar a usar un equilibrador de carga.
 - Más información sobre [Azure Load Balancer](load-balancer-overview.md).
-- Información sobre las [direcciones IP públicas](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address)
-- Información sobre las [direcciones IP privadas](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#private-ip-addresses)
+- Información sobre las [direcciones IP públicas](../virtual-network/virtual-network-public-ip-address.md)
+- Información sobre las [direcciones IP privadas](../virtual-network/private-ip-addresses.md)
 - Más información en [Standard Load Balancer y Availability Zones](load-balancer-standard-availability-zones.md).
 - Más información acerca de los [diagnósticos de Load Balancer Estándar](load-balancer-standard-diagnostics.md).
 - Obtenga información sobre el [restablecimiento de TCP en estado inactivo](load-balancer-tcp-reset.md).
 - Más información acerca de [Standard Load Balancer con reglas de equilibrio de carga para puertos HA](load-balancer-ha-ports-overview.md).
-- Más información sobre los [grupos de seguridad de red](../virtual-network/security-overview.md).
-- Más información sobre los [límites de Load Balancer](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#load-balancer).
-- Información sobre el uso del [reenvío de puertos](https://docs.microsoft.com/azure/load-balancer/tutorial-load-balancer-port-forwarding-portal).
+- Más información sobre los [grupos de seguridad de red](../virtual-network/network-security-groups-overview.md).
+- Más información sobre los [límites de Load Balancer](../azure-resource-manager/management/azure-subscription-service-limits.md#load-balancer).
+- Información sobre el uso del [reenvío de puertos](./tutorial-load-balancer-port-forwarding-portal.md).

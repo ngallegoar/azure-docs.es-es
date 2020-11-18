@@ -8,82 +8,44 @@ ms.topic: include
 ms.date: 10/06/2020
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 164f5803b6e9e62447423735e98f6e4c36c73f13
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: de916fcbe0623185821e2f5da15a8f9cf71dfd4e
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876728"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94426784"
 ---
-### <a name="add-relationships"></a>Adición de relaciones
-
-En la plantilla de dispositivo **LVA Edge Gateway** (Puerta de enlace LVA Edge), en **Modules/LVA Edge Gateway Module** (Módulos/Módulo de puerta de enlace LVA Edge), seleccione **Relationships** (Relaciones). Seleccione **+ Add relationship** (+ Agregar relación) y agregue las dos relaciones siguientes:
-
-|Display Name (Nombre para mostrar)               |Nombre          |Destino |
-|-------------------------- |------------- |------ |
-|LVA Edge Motion Detector (Detector de movimiento LVA Edge)   |Use el valor predeterminado   |LVA Edge Motion Detector Device (Dispositivo de detección de movimiento LVA Edge) |
-|LVA Edge Object Detector (Detector de objetos LVA Edge)   |Use el valor predeterminado   |LVA Edge Object Detector Device (Dispositivo de detección de objetos LVA Edge) |
-
-Después, seleccione **Guardar**.
-
-:::image type="content" source="media/iot-central-video-analytics-part4/relationships.png" alt-text="Agregar relaciones":::
-
-### <a name="add-views"></a>Adición de vistas
-
-La plantilla de dispositivo **LVA Edge Gateway** (Puerta de enlace LVA Edge) no incluye definiciones de vistas.
-
-Para agregar una vista a la plantilla de dispositivo:
-
-1. En la plantilla de dispositivo **LVA Edge Gateway** (Puerta de enlace LVA Edge), vaya a **Views** (Vistas) y seleccione el icono **Visualizing the device** (Visualización del dispositivo).
-
-1. Escriba *LVA Edge Gateway device* (Dispositivo de puerta de enlace LVA Edge) como nombre de la vista.
-
-1. Agregue los siguientes iconos a la vista:
-
-    * Un icono con las propiedades de **Información del dispositivo**: **Device model** (Modelo del dispositivo), **Manufacturer** (Fabricante), **Operating system** (Sistema operativo), **Processor architecture** (Arquitectura del procesador), **Software version** (Versión de software), **Total memory** (Memoria total), and **Total storage** (Almacenamiento total).
-    * Un icono de gráfico de líneas con los valores de telemetría **Free Memory** (Memoria libre) y **System Heartbeat** (Latido del sistema).
-    * Un icono de historial de eventos con los siguientes eventos: **Create Camera** (Crear cámara), **Delete Camera** (Eliminar cámara), **Module Restart** (Módulo reiniciado), **Module Started** (Módulo iniciado), **Module Stopped** (Módulo detenido).
-    * Un icono de último valor conocido de tamaño 2x1 que muestre el dato de telemetría **IoT Central Client State** (Estado del cliente de IoT Central).
-    * Un icono de último valor conocido de tamaño 2x1 que muestre el dato de telemetría **Module State** (Estado del módulo).
-    * Un icono de último valor conocido de tamaño 1x1 que muestre el dato de telemetría **System Heartbeat** (Latido del sistema).
-    * Un icono de último valor conocido de tamaño 1x1 que muestre el dato de telemetría **Connected Cameras** (Cámaras conectadas).
-
-    :::image type="content" source="media/iot-central-video-analytics-part4/gateway-dashboard.png" alt-text="Agregar relaciones":::
-
-1. Seleccione **Guardar**.
-
 ### <a name="publish-the-device-template"></a>Publicación de la plantilla de dispositivo
 
 Para poder agregar un dispositivo a la aplicación, debe publicar la plantilla de dispositivo:
 
-1. En la plantilla de dispositivo **LVA Edge Gateway** (Puerta de enlace LVA Edge), seleccione **Publish** (Publicar).
+1. En la plantilla de dispositivo **LVA Edge Gateway v2** (Puerta de enlace LVA Edge v2), seleccione **Publish** (Publicar).
 
 1. En la página **Publish this device template to the application** (Publicar esta plantilla de dispositivo en la aplicación), seleccione **Publicar** (Publicar).
 
-**LVA Edge Gateway** (Puerta de enlace LVA Edge) ahora está disponible como un tipo de dispositivo que se puede usar en la página **Devices** (Dispositivos) de la aplicación.
+**LVA Edge Gateway v2** (Puerta de enlace LVA Edge v2) ahora está disponible como un tipo de dispositivo que se puede usar en la página **Devices** (Dispositivos) de la aplicación.
 
-## <a name="add-a-gateway-device"></a>Adición de un dispositivo de puerta de enlace
+## <a name="migrate-the-gateway-device"></a>Migración del dispositivo de puerta de enlace
 
-Para agregar un dispositivo **LVA Edge Gateway** (Puerta de enlace LVA Edge) a la aplicación:
+El dispositivo **gateway-001** usa la plantilla de dispositivo **LVA Edge Gateway**. Para usar el nuevo manifiesto de implementación, migre el dispositivo a la nueva plantilla de dispositivo:
 
-1. Vaya a la página **Devices** (Dispositivos) y seleccione la plantilla de dispositivo **LVA Edge Gateway** (Puerta de enlace LVA Edge).
+Para migrar el dispositivo **gateway-001**:
 
-1. Seleccione **+ Nuevo**.
+1. Vaya a la página **Devices** (Dispositivos) y seleccione el dispositivo **gateway-001** para resaltarlo en la lista.
 
-1. En el cuadro de diálogo **Create a new device** (Crear un dispositivo), cambie el nombre de dispositivo a *LVA Gateway 001* y cambie el identificador de dispositivo a *lva-gateway-001*.
+1. Seleccione **Migrar**. Si el icono **Migrate** (Migrar) no está visible, seleccione **...** para ver más opciones.
 
-    > [!NOTE]
-    > El identificador de dispositivo debe ser único en la aplicación.
+    :::image type="content" source="media/iot-central-video-analytics-part4/migrate-device.png" alt-text="Migrar el dispositivo de puerta de enlace a una nueva versión":::
 
-1. Seleccione **Crear**.
+1. En la lista del cuadro de diálogo **Migrate** (Migrar), seleccione **LVA Edge Gateway v2** y, después, seleccione **Migrate** (Migrar).
 
-El estado del dispositivo es **Registered** (Registrado).
+Pocos segundos después la migración finaliza. El dispositivo usa ahora la plantilla de dispositivo **LVA Edge Gateway v2** con el manifiesto de implementación personalizado.
 
 ### <a name="get-the-device-credentials"></a>Obtención de las credenciales del dispositivo
 
 Necesita las credenciales que permiten que el dispositivo se conecte a la aplicación de IoT Central. Para obtener las credenciales del dispositivo:
 
-1. En la página **Devices** (Dispositivos), seleccione el dispositivo **lva-gateway-001** que acaba de crear.
+1. En la página **Devices** (Dispositivos), seleccione el dispositivo **gateway-001**.
 
 1. Seleccione **Conectar**.
 

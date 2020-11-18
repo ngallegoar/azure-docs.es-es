@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Asistente para puntuación de modelos de Machine Learning en grupos de SQL'
-description: Tutorial sobre cómo usar el asistente para puntuación de modelos de Machine Learning a fin de enriquecer datos en grupos de Synapse SQL
+title: 'Tutorial: Asistente para puntuación del modelo de Machine Learning para grupos de SQL dedicados'
+description: Tutorial sobre cómo usar el asistente para puntuación de modelos de Machine Learning a fin de enriquecer datos en grupos de SQL dedicados.
 services: synapse-analytics
 ms.service: synapse-analytics
 ms.subservice: machine-learning
@@ -9,29 +9,29 @@ ms.reviewer: jrasnick, garye
 ms.date: 09/25/2020
 author: nelgson
 ms.author: negust
-ms.openlocfilehash: 8e92ff75bb6a9757c06de3561a385cbcbb7f75ba
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: f5c5edc067b3f7b525fd129462c48ca50fdafc8f
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019977"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93314038"
 ---
-# <a name="tutorial-machine-learning-model-scoring-wizard-for-synapse-sql-pools"></a>Tutorial: Asistente para puntuación de modelos de Machine Learning en grupos de Synapse SQL
+# <a name="tutorial-machine-learning-model-scoring-wizard-for-dedicated-sql-pools"></a>Tutorial: Asistente para puntuación del modelo de Machine Learning para grupos de SQL dedicados
 
-Obtenga información sobre cómo enriquecer fácilmente los datos en grupos de SQL con modelos de Machine Learning predictivos.  Ahora los profesionales de datos pueden acceder fácilmente a los modelos que crean los científicos de datos, para realizar análisis predictivos. Un profesional de datos de Synapse puede simplemente seleccionar un modelo del registro de modelos de Azure Machine Learning para su implementación en grupos de Synapse SQL e iniciar predicciones para enriquecer los datos.
+Aprenda a enriquecer fácilmente los datos en grupos de SQL dedicados con modelos de Machine Learning predictivos.  Ahora los profesionales de datos pueden acceder fácilmente a los modelos que crean los científicos de datos, para realizar análisis predictivos. Un profesional de datos de Synapse puede seleccionar un modelo del registro de modelos de Azure Machine Learning para su implementación en grupos de Synapse SQL e iniciar predicciones para enriquecer los datos.
 
 En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
-> - Entrenar un modelo de Machine Learning predictivo y registrar el modelo en el registro de modelos de Azure Machine Learning
-> - Usar el asistente para puntuación de SQL para iniciar predicciones en el grupo de Synapse SQL
+> - Entrenar un modelo de Machine Learning predictivo y registrar el modelo en el registro de modelos de Azure Machine Learning.
+> - Usar el asistente para puntuación de SQL para iniciar predicciones en el grupo de SQL dedicado.
 
 Si no tiene una suscripción a Azure, [cree una cuenta gratuita antes de empezar](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 - Un [área de trabajo de Synapse Analytics](../get-started-create-workspace.md) con una cuenta de almacenamiento de ADLS Gen2 configurada como el almacenamiento predeterminado. Debe ser el **Colaborador de datos de blobs de almacenamiento** del sistema de archivos de ADLS Gen2 con el que quiere trabajar.
-- Un grupo de Synapse SQL en el área de trabajo de Synapse Analytics. Para detalles, vea [Creación de un grupo de Synapse SQL](../quickstart-create-sql-pool-studio.md).
+- Un grupo de SQL dedicado en el área de trabajo de Synapse Analytics. Para más información, consulte [Creación de un grupo de SQL dedicado](../quickstart-create-sql-pool-studio.md).
 - Un servicio vinculado de Azure Machine Learning en el área de trabajo de Synapse Analytics. Para detalles, consulte [Creación de un servicio vinculado de Azure Machine Learning en Synapse](quickstart-integrate-azure-machine-learning.md).
 
 ## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
@@ -62,7 +62,7 @@ Antes de ejecutar todas las celdas del cuaderno, compruebe si se está ejecutand
 1. El cuaderno entrenará un modelo ONNX y lo registrará con MLFlow. Vaya a **Modelos** para comprobar si el nuevo modelo está registrado correctamente.
    ![Modelo en el registro](media/tutorial-sql-pool-model-scoring-wizard/tutorial-sql-scoring-wizard-train-00c.png)
 
-1. Al ejecutar el cuaderno también se exportarán los datos de prueba a un archivo CSV. Descargue el archivo CSV en el equipo local. Más adelante, importará el archivo CSV al grupo de SQL y usará los datos para probar el modelo.
+1. Al ejecutar el cuaderno también se exportarán los datos de prueba a un archivo CSV. Descargue el archivo CSV en el equipo local. Más adelante, importará el archivo .csv al grupo de SQL dedicado y usará los datos para probar el modelo.
 
    El archivo CSV se crea en la misma carpeta que el archivo de cuaderno. Haga clic en "Actualizar" en el explorador de archivos si no lo ve de inmediato.
 
@@ -76,7 +76,7 @@ Antes de ejecutar todas las celdas del cuaderno, compruebe si se está ejecutand
 
    ![Carga de datos](media/tutorial-sql-pool-model-scoring-wizard/tutorial-sql-scoring-wizard-00a.png)
 
-1. Vaya a **Desarrollar** -> **Scripts SQL**. Cree un nuevo script SQL para cargar `test_data.csv` en el grupo de SQL.
+1. Vaya a **Desarrollar** -> **Scripts SQL**. Cree un nuevo script SQL para cargar `test_data.csv` en el grupo de SQL dedicado.
 
    > [!NOTE]
    > Actualice la dirección URL del archivo en este script antes de ejecutarlo.
@@ -117,9 +117,9 @@ Antes de ejecutar todas las celdas del cuaderno, compruebe si se está ejecutand
    GO
    ```
 
-   ![Carga de datos en el grupo de SQL](media/tutorial-sql-pool-model-scoring-wizard/tutorial-sql-scoring-wizard-00b.png)
+   ![Carga de datos en un grupo de SQL dedicado](media/tutorial-sql-pool-model-scoring-wizard/tutorial-sql-scoring-wizard-00b.png)
 
-1. Vaya a **Datos** -> **Área de trabajo**. Para abrir el asistente para puntuación de SQL, haga clic con el botón secundario en la tabla del grupo de SQL. Seleccione **Machine Learning** -> **Enrich with existing model** (Enriquecer con modelo existente).
+1. Vaya a **Datos** -> **Área de trabajo**. Para abrir el asistente para puntuación de SQL, haga clic con el botón secundario en la tabla del grupo de SQL dedicado. Seleccione **Machine Learning** -> **Enrich with existing model** (Enriquecer con modelo existente).
 
    > [!NOTE]
    > La opción Machine Learning no aparece a menos que haya creado un servicio vinculado para Azure Machine Learning (consulte **Requisitos previos** al principio de este tutorial).
@@ -138,7 +138,7 @@ Antes de ejecutar todas las celdas del cuaderno, compruebe si se está ejecutand
 
    ![Asignación de tabla a modelo](media/tutorial-sql-pool-model-scoring-wizard/tutorial-sql-scoring-wizard-00e.png)
 
-1. El código T-SQL generado se encapsula dentro de un procedimiento almacenado. Este es el motivo por el que debe proporcionar un nombre a un procedimiento almacenado. El binario del modelo que incluye los metadatos (versión, descripción, etc.) se copiará físicamente de Azure Machine Learning en una tabla de grupo de SQL. Por lo tanto, debe especificar en qué tabla se debe guardar el modelo. Puede elegir "Usar una tabla existente" o "Crear una nueva tabla". Una vez hecho esto, haga clic en **Deploy model + open editor** (Implementar modelo + abrir editor) para implementar el modelo y generar un script de predicción de T-SQL.
+1. El código T-SQL generado se encapsula dentro de un procedimiento almacenado. Este es el motivo por el que debe proporcionar un nombre a un procedimiento almacenado. El binario del modelo que incluye los metadatos (versión, descripción, etc.) se copiará físicamente de Azure Machine Learning en una tabla de grupo de SQL dedicado. Por lo tanto, debe especificar en qué tabla se debe guardar el modelo. Puede elegir "Usar una tabla existente" o "Crear una nueva tabla". Una vez hecho esto, haga clic en **Deploy model + open editor** (Implementar modelo + abrir editor) para implementar el modelo y generar un script de predicción de T-SQL.
 
    ![Creación de procedimiento](media/tutorial-sql-pool-model-scoring-wizard/tutorial-sql-scoring-wizard-00f.png)
 

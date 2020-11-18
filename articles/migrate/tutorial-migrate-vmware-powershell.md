@@ -7,12 +7,12 @@ manager: bsiva
 ms.topic: tutorial
 ms.date: 10/1/2020
 ms.author: rahugup
-ms.openlocfilehash: eed10f13b9495ab2cccfd9c57ae14ccc5d8e4a63
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 185979fcc0eeaebbe1c3b09d74050e05899737af
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92043551"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93376806"
 ---
 # <a name="migrate-vmware-vms-to-azure-agentless---powershell"></a>Migración de máquinas virtuales de VMware a Azure (sin agente): PowerShell
 
@@ -87,6 +87,9 @@ Azure Migrate usa un [dispositivo de Azure Migrate](migrate-appliance-architectu
 
 Para recuperar una máquina virtual de VMware específica en un proyecto de Azure Migrate, especifique el nombre del proyecto de Azure Migrate (`ProjectName`), el grupo de recursos del proyecto (`ResourceGroupName`) y el nombre de la máquina virtual (`DisplayName`). 
 
+> [!NOTE]
+> **El valor del parámetro (`DisplayName`) de nombre de la máquina virtual distingue mayúsculas de minúsculas**.
+
 ```azurepowershell
 # Get a specific VMware VM in an Azure Migrate project
 $DiscoveredServer = Get-AzMigrateDiscoveredServer -ProjectName $MigrateProject.Name -ResourceGroupName $ResourceGroup.ResourceGroupName -DisplayName "MyTestVM"
@@ -146,7 +149,7 @@ Puede especificar las propiedades de replicación como se indica a continuación
 - **Red y subred virtuales de destino**: especifique el identificador de la red virtual de Azure y el nombre de la subred donde debe migrarse la máquina virtual mediante los parámetros `TargetNetworkId` y `TargetSubnetName` respectivamente. 
 - **Nombre de máquina virtual de destino**: especifique el nombre de la máquina virtual de Azure que se va a crear mediante el parámetro `TargetVMName`.
 - **Tamaño de máquina virtual de destino**: especifique el tamaño de máquina virtual de Azure que se usará para la replicación con el parámetro `TargetVMSize`. Por ejemplo, para migrar una máquina virtual a una máquina virtual D2_v2 de Azure, especifique el valor de `TargetVMSize` como "Standard_D2_v2".  
-- **Licencia**: para usar Ventaja híbrida de Azure para las máquinas con Windows Server que se incluyen en las suscripciones activas de Software Assurance o Windows Server, especifique el valor del parámetro `LicenseType` como "AHUB". En otros casos, especifique el valor del parámetro `LicenseType` como "NoLicenseType".
+- **Licencia**: para usar Ventaja híbrida de Azure en las máquinas con Windows Server que se incluyen en las suscripciones activas de Software Assurance o Windows Server, especifique el valor del parámetro `LicenseType` como "WindowsServer". En otros casos, especifique el valor del parámetro `LicenseType` como "NoLicenseType".
 - **Disco de sistema operativo**: especifique el identificador único del disco que tiene el cargador de arranque y el instalador del sistema operativo. El identificador de disco que se va a usar es la propiedad de identificador único (UUID) del disco recuperado mediante el cmdlet `Get-AzMigrateServer`.
 - **Tipo de disco**: especifique el valor para el parámetro `DiskType` como se indica a continuación.
     - Para usar discos administrados Premium, especifique "Premium_LRS" como valor del parámetro `DiskType`. 
@@ -156,7 +159,8 @@ Puede especificar las propiedades de replicación como se indica a continuación
     - La zona de disponibilidad para anclar la máquina migrada a una zona de disponibilidad específica de la región. Use esta opción para distribuir los servidores que forman una capa de aplicación de varios nodos en Availability Zones. Esta opción solo está disponible si la región de destino seleccionada para la migración admite Availability Zones. Para usar zonas de disponibilidad, especifique el valor de zona de disponibilidad para el parámetro `TargetAvailabilityZone`.
     - El conjunto de disponibilidad para colocar la máquina migrada en un conjunto de disponibilidad. Para usar esta opción, el grupo de recursos de destino seleccionado debe tener uno o varios conjuntos de disponibilidad. Para usar el conjunto de disponibilidad, especifique el identificador del conjunto de disponibilidad para el parámetro `TargetAvailabilitySet`. 
 
-En este tutorial se replicarán todos los discos de la máquina virtual detectada y se especificará un nombre nuevo para la máquina virtual en Azure. Especificamos el primer disco del servidor detectado como disco del sistema operativo y migraremos todos los discos como HDD estándar. Este es el disco que tiene el cargador de arranque y el instalador del sistema operativo.
+### <a name="replicate-vms-with-all-disks"></a>Replicación de máquinas virtuales con todos los discos
+En este tutorial se replicarán todos los discos de la máquina virtual detectada y se especificará un nombre nuevo para la máquina virtual en Azure. Especificamos el primer disco del servidor detectado como disco del sistema operativo y migraremos todos los discos como HDD estándar. Este es el disco que tiene el cargador de arranque y el instalador del sistema operativo. El cmdlet devuelve un trabajo cuyo seguimiento se puede realizar para supervisar el estado de la operación. 
 
 ```azurepowershell
 # Retrieve the resource group that you want to migrate to
@@ -178,6 +182,7 @@ while (($MigrateJob.State -eq "InProgress") -or ($MigrateJob.State -eq "NotStart
 Write-Output $MigrateJob.State
 ```
 
+### <a name="replicate-vms-with-select-disks"></a>Replicación de máquinas virtuales con discos seleccionados
 También puede replicar discos seleccionados de la máquina virtual detectada mediante el cmdlet `New-AzMigrateDiskMapping` y proporcionar esto como entrada para el parámetro `DiskToInclude` en el cmdlet `New-AzMigrateServerReplication`. También puede usar el cmdlet `New-AzMigrateDiskMapping` para especificar diferentes tipos de discos de destino para cada disco que se va a replicar. 
 
 Especifique valores para los siguientes parámetros del cmdlet `New-AzMigrateDiskMapping`.
@@ -186,7 +191,7 @@ Especifique valores para los siguientes parámetros del cmdlet `New-AzMigrateDis
 - **IsOSDisk**: especifique "true" si el disco que se va a migrar es el disco del sistema operativo de la máquina virtual, de lo contrario, elija "false".
 - **DiskType**: especifique el tipo de disco que se va a usar en Azure. 
 
-En el ejemplo siguiente replicaremos solo dos discos de la máquina virtual detectada. Especificaremos el disco del sistema operativo y usaremos diferentes tipos de disco para cada replicación.
+En el ejemplo siguiente replicaremos solo dos discos de la máquina virtual detectada. Especificaremos el disco del sistema operativo y usaremos diferentes tipos de disco para cada replicación. El cmdlet devuelve un trabajo cuyo seguimiento se puede realizar para supervisar el estado de la operación. 
 
 ```azurepowershell
 # View disk details of the discovered server
@@ -308,9 +313,18 @@ La replicación se produce de la manera siguiente:
 - Durante la replicación inicial, se crea una instantánea de la máquina virtual. Los datos de disco de la instantánea se replican en los discos administrados de réplica en Azure.
 - Cuando finaliza esta replicación inicial, comienza la replicación diferencial. Los cambios incrementales de los discos locales se replican periódicamente en los discos de réplica de Azure.
 
+## <a name="retrieve-the-status-of-a-job"></a>Recuperación del estado de un trabajo
+
+Puede supervisar el estado de un trabajo mediante el cmdlet `Get-AzMigrateJob`. 
+
+```azurepowershell
+# Retrieve the updated status for a job
+$job = Get-AzMigrateJob -InputObject $job
+```
+
 ## <a name="update-properties-of-a-replicating-vm"></a>Actualización de las propiedades de una máquina virtual de replicación
 
-[Azure Migrate:Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool) permite cambiar las propiedades de destino, como el nombre, el tamaño, el grupo de recursos, la configuración de NIC, etc., para una máquina virtual de replicación. 
+[Azure Migrate:Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool) permite cambiar las propiedades de destino, como el nombre, el tamaño, el grupo de recursos, la configuración de NIC, etc., para una máquina virtual de replicación. El cmdlet devuelve un trabajo cuyo seguimiento se puede realizar para supervisar el estado de la operación. 
 
 ```azurepowershell
 # Retrieve the replicating VM details by using the discovered VM identifier
@@ -348,6 +362,15 @@ $NicMapping += $NicMapping2
 
 # Update the name, size and NIC configuration of a replicating server
 $UpdateJob = Set-AzMigrateServerReplication -InputObject $ReplicatingServer -TargetVMSize "Standard_DS13_v2" -TargetVMName "MyMigratedVM" -NicToUpdate $NicMapping
+
+# Track job status to check for completion
+while (($UpdateJob.State -eq "InProgress") -or ($UpdateJob.State -eq "NotStarted")){
+        #If the job hasn't completed, sleep for 10 seconds before checking the job status again
+        sleep 10;
+        $UpdateJob = Get-AzMigrateJob -InputObject $UpdateJob
+}
+#Check if the Job completed successfully. The updated job state of a successfully completed job should be "Succeeded"
+Write-Output $UpdateJob.State
 ```
 
 También puede enumerar todos los servidores de replicación en un proyecto de Azure Migrate y usar el identificador de la máquina virtual de replicación para actualizar las propiedades de la máquina virtual.
@@ -363,7 +386,7 @@ $ReplicatingServer = Get-AzMigrateServerReplication -TargetObjectID $Replicating
 
 ## <a name="run-a-test-migration"></a>Ejecutar una migración de prueba
 
-Cuando comienza la replicación diferencial, puede ejecutar una migración de prueba para las máquinas virtuales antes de ejecutar una migración completa a Azure. Se recomienda encarecidamente al menos una migración de prueba en cada máquina antes de migrarla.
+Cuando comienza la replicación diferencial, puede ejecutar una migración de prueba para las máquinas virtuales antes de ejecutar una migración completa a Azure. Se recomienda encarecidamente al menos una migración de prueba en cada máquina antes de migrarla. El cmdlet devuelve un trabajo cuyo seguimiento se puede realizar para supervisar el estado de la operación. 
 
 - Durante la ejecución de la migración de prueba se comprueba que funciona según lo previsto. La migración de prueba no afecta a la máquina local, que sigue operativa y continúa la replicación. 
 - Para simular la migración, la migración de prueba crea una máquina virtual de Azure usando datos replicados (normalmente, con una migración a una red virtual que no es de producción en la suscripción a Azure).
@@ -377,32 +400,69 @@ $TestVirtualNetwork = Get-AzVirtualNetwork -Name MyTestVirtualNetwork
 
 # Start test migration for a replicating server
 $TestMigrationJob = Start-AzMigrateTestMigration -InputObject $ReplicatingServer -TestNetworkID $TestVirtualNetwork.Id
+
+# Track job status to check for completion
+while (($TestMigrationJob.State -eq "InProgress") -or ($TestMigrationJob.State -eq "NotStarted")){
+        #If the job hasn't completed, sleep for 10 seconds before checking the job status again
+        sleep 10;
+        $TestMigrationJob = Get-AzMigrateJob -InputObject $TestMigrationJob
+}
+#Check if the Job completed successfully. The updated job state of a successfully completed job should be "Succeeded"
+Write-Output $TestMigrationJob.State
 ```
 
-Una vez completadas las pruebas, limpie la migración de prueba con el cmdlet `Start-AzMigrateTestMigrationCleanup`.
+Una vez completadas las pruebas, limpie la migración de prueba con el cmdlet `Start-AzMigrateTestMigrationCleanup`. El cmdlet devuelve un trabajo cuyo seguimiento se puede realizar para supervisar el estado de la operación. 
 
 ```azurepowershell
 # Clean-up test migration for a replicating server
 $CleanupTestMigrationJob = Start-AzMigrateTestMigrationCleanup -InputObject $ReplicatingServer
+
+# Track job status to check for completion
+while (($CleanupTestMigrationJob.State -eq "InProgress") -or ($CleanupTestMigrationJob.State -eq "NotStarted")){
+        #If the job hasn't completed, sleep for 10 seconds before checking the job status again
+        sleep 10;
+        $CleanupTestMigrationJob = Get-AzMigrateJob -InputObject $CleanupTestMigrationJob
+}
+#Check if the Job completed successfully. The updated job state of a successfully completed job should be "Succeeded"
+Write-Output $CleanupTestMigrationJob.State
 ```
 
 ## <a name="migrate-vms"></a>Migración de máquinas virtuales
 
-Después de comprobar que la migración de prueba funciona según lo previsto, puede migrar el servidor de replicación con el cmdlet siguiente.
+Después de comprobar que la migración de prueba funciona según lo previsto, puede migrar el servidor de replicación con el cmdlet siguiente. El cmdlet devuelve un trabajo cuyo seguimiento se puede realizar para supervisar el estado de la operación. 
+
+Si no desea desactivar el servidor de origen, no utilice el parámetro `TurnOffSourceServer`.
 
 ```azurepowershell
 # Start migration for a replicating server and turn off source server as part of migration
 $MigrateJob = Start-AzMigrateServerMigration -InputObject $ReplicatingServer -TurnOffSourceServer 
+
+# Track job status to check for completion
+while (($MigrateJob.State -eq "InProgress") -or ($MigrateJob.State -eq "NotStarted")){
+        #If the job hasn't completed, sleep for 10 seconds before checking the job status again
+        sleep 10;
+        $MigrateJob = Get-AzMigrateJob -InputObject $MigrateJob
+}
+#Check if the Job completed successfully. The updated job state of a successfully completed job should be "Succeeded"
+Write-Output $MigrateJob.State
 ```
-Si no desea desactivar el servidor de origen, no utilice el parámetro `TurnOffSourceServer`.
 
 ## <a name="complete-the-migration"></a>Completar la migración
 
-1. Una vez finalizada la migración, detenga la replicación de la máquina local y limpie la información del estado de replicación de la máquina virtual con el siguiente cmdlet.
+1. Una vez finalizada la migración, detenga la replicación de la máquina local y limpie la información del estado de replicación de la máquina virtual con el siguiente cmdlet. El cmdlet devuelve un trabajo cuyo seguimiento se puede realizar para supervisar el estado de la operación. 
 
 ```azurepowershell
 # Stop replication for a migrated server
 $StopReplicationJob = Remove-AzMigrateServerReplication -InputObject $ReplicatingServer 
+
+# Track job status to check for completion
+while (($StopReplicationJob.State -eq "InProgress") -or ($StopReplicationJob.State -eq "NotStarted")){
+        #If the job hasn't completed, sleep for 10 seconds before checking the job status again
+        sleep 10;
+        $StopReplicationJob = Get-AzMigrateJob -InputObject $StopReplicationJob
+}
+#Check if the Job completed successfully. The updated job state of a successfully completed job should be "Succeeded"
+Write-Output $StopReplicationJob.State
 ```
 
 2. Instale el agente de [Windows](../virtual-machines/extensions/agent-windows.md) o [Linux](../virtual-machines/extensions/agent-linux.md) de la máquina virtual de Azure en las máquinas migradas.

@@ -4,12 +4,12 @@ description: Obtenga información acerca de cómo detectar servidores físicos l
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
-ms.openlocfilehash: e7cbd7939248686a251fdf56bf1a5f1acc952a3a
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 83ff63392c6cbcaa6a2ea011eb60199f61844bb1
+ms.sourcegitcommit: 8ad5761333b53e85c8c4dabee40eaf497430db70
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92314077"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "93148344"
 ---
 # <a name="tutorial-discover-physical-servers-with-server-assessment"></a>Tutorial: Detección de servidores físicos con Server Assessment
 
@@ -75,11 +75,15 @@ Si acaba de crear una cuenta de Azure gratuita, es el propietario de la suscripc
 
 Configure una cuenta que el dispositivo pueda usar para acceder a los servidores físicos.
 
-- En los servidores Windows, configure una cuenta de usuario local en todos los servidores de Windows que desee incluir en la detección. Agregue la cuenta de usuario a estos grupos: Usuarios de escritorio remoto, Usuarios de Monitor de rendimiento y Usuarios del registro de rendimiento.
-- Para los servidores Linux, necesita una cuenta raíz en los servidores Linux que desee detectar. Como alternativa, establezca el acceso como se indica a continuación:
-    - setcap CAP_DAC_READ_SEARCH+eip /usr/sbin/fdisk
-    - setcap CAP_DAC_READ_SEARCH+eip /sbin/fdisk (if /usr/sbin/fdisk is not present)<br/> - setcap "cap_dac_override, cap_dac_read_search, cap_fowner,cap_fsetid, cap_setuid, cap_setpcap, cap_net_bind_service, cap_net_admin, cap_sys_chroot, cap_sys_admin, cap_sys_resource, cap_audit_control, cap_setfcap=+eip" /sbin/lvm
-    - setcap CAP_DAC_READ_SEARCH+eip /usr/sbin/dmidecode chmod a+r /sys/class/dmi/id/product_uuid
+- Para servidores Windows, use una cuenta de dominio para las máquinas unidas a un dominio y una cuenta local para las máquinas no unidas a un dominio. Debe agregar la cuenta de usuario a estos grupos: Usuarios de administración remota, Usuarios de Monitor de rendimiento y Usuarios del registro de rendimiento.
+- Para los servidores Linux, necesita una cuenta raíz en los servidores Linux que desee detectar. Como alternativa, puede establecer una cuenta que no sea raíz con las funcionalidades necesarias mediante los siguientes comandos:
+
+**Comando** | **Propósito**
+--- | --- |
+setcap CAP_DAC_READ_SEARCH+eip /usr/sbin/fdisk <br></br> setcap CAP_DAC_READ_SEARCH+eip /sbin/fdisk _(si /usr/sbin/fdisk no está presente)_ | Recopilar datos de configuración del disco
+setcap "cap_dac_override,cap_dac_read_search,cap_fowner,cap_fsetid,cap_setuid,<br>cap_setpcap,cap_net_bind_service,cap_net_admin,cap_sys_chroot,cap_sys_admin,<br>cap_sys_resource,cap_audit_control,cap_setfcap=+eip" /sbin/lvm | Recopilar datos de rendimiento del disco
+setcap CAP_DAC_READ_SEARCH+eip /usr/sbin/dmidecode | Recopilar el número de serie del BIOS
+chmod a+r /sys/class/dmi/id/product_uuid | Recopilar el GUID del BIOS
 
 
 ## <a name="set-up-a-project"></a>Configuración de un proyecto
@@ -137,13 +141,13 @@ Compruebe que el archivo comprimido es seguro, antes de implementarlo.
 3.  Compruebe las versiones más recientes del dispositivo y los valores hash:
     - Para la nube pública:
 
-        **Escenario** | **Descargar*** | **Valor del código hash**
+        **Escenario** | **Descargar*** | *Valor hash**
         --- | --- | ---
         Físico (85,8 MB) | [La versión más reciente](https://go.microsoft.com/fwlink/?linkid=2140334) | ce5e6f0507936def8020eb7b3109173dad60fc51dd39c3bd23099bc9baaabe29
 
     - Para Azure Government:
 
-        **Escenario** | **Descargar*** | **Valor del código hash**
+        **Escenario** | **Descargar*** | *Valor hash**
         --- | --- | ---
         Físico (85,8 MB) | [La versión más reciente](https://go.microsoft.com/fwlink/?linkid=2140338) | ae132ebc574caf231bf41886891040ffa7abbe150c8b50436818b69e58622276
  

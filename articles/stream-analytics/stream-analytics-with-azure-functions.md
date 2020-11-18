@@ -7,18 +7,21 @@ ms.service: stream-analytics
 ms.topic: tutorial
 ms.custom: mvc, devx-track-csharp
 ms.date: 01/27/2020
-ms.openlocfilehash: 70ea5ec9ee91fdba8023b9c6af1ce65b691a17fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 291586bc2e34784a7bbf29016ea1da35d51e844b
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89006897"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94489954"
 ---
 # <a name="tutorial-run-azure-functions-from-azure-stream-analytics-jobs"></a>Tutorial: Ejecución de Azure Functions desde trabajos de Azure Stream Analytics 
 
 Puede ejecutar Azure Functions desde Azure Stream Analytics mediante la configuración de Functions como uno de los receptores de salida para el trabajo de Stream Analytics. Functions es una experiencia de procesos a petición orientada a eventos que permite implementar el código desencadenado por los eventos que se producen en servicios de Azure o en servicios de terceros. Esta capacidad que tiene Functions para responder a los desencadenadores hace que sea una salida natural para los trabajos de Stream Analytics.
 
 Stream Analytics llama a Functions mediante desencadenadores HTTP. El adaptador de salida de Functions permite a los usuarios conectar instancias de Functions a Stream Analytics, de manera que los eventos se puedan desencadenar basándose en consultas de Stream Analytics. 
+
+> [!NOTE]
+> No de admite la conexión a Azure Functions dentro de una red virtual (VNet) desde un trabajo de Stream Analytics que se ejecute en un clúster de varios inquilinos.
 
 En este tutorial, aprenderá a:
 
@@ -130,11 +133,11 @@ Siga el tutorial [Detección de fraudes en tiempo real](stream-analytics-real-ti
  
 4. Vuelva a Azure Portal. Desde la pestaña **Características de la plataforma**, vaya a la función. En **Herramientas de desarrollo**, seleccione **Editor de App Service**. 
  
-   ![Captura de pantalla del editor de App Service](./media/stream-analytics-with-azure-functions/image3.png)
+   ![Captura de pantalla que muestra la pestaña Características de la plataforma con Editor de App Service seleccionado.](./media/stream-analytics-with-azure-functions/image3.png)
 
 5. En Editor de App Service, haga clic con el botón derecho en el directorio raíz y cargue el archivo **project.json**. Cuando la carga se haya realizado correctamente, actualice la página. Ahora debería ver un archivo generado automáticamente llamado **project.lock.json**. El archivo generado automáticamente contiene referencias a los archivos .dll que se especifican en el archivo project.json.  
 
-   ![Captura de pantalla del editor de App Service](./media/stream-analytics-with-azure-functions/image4.png)
+   ![Captura de pantalla que muestra la opción Cargar archivos seleccionada en el menú.](./media/stream-analytics-with-azure-functions/image4.png)
 
 ## <a name="update-the-stream-analytics-job-with-the-function-as-output"></a>Actualización del trabajo de Stream Analytics con la función como salida
 
@@ -198,7 +201,7 @@ Si se produce algún error al enviar eventos a Azure Functions, Stream Analytics
 
 En Azure Portal, al intentar restablecer el valor de Tamaño máximo de lotes o Número máximo de lotes en valor vacío (predeterminado), el valor vuelve a cambiar al valor especificado anteriormente al guardar. Especifique manualmente los valores predeterminados para estos campos en este caso.
 
-El uso de [enrutamiento HTTP](https://docs.microsoft.com/sandbox/functions-recipes/routes?tabs=csharp) en Azure Functions actualmente no es compatible con Stream Analytics.
+El uso de [enrutamiento HTTP](/sandbox/functions-recipes/routes?tabs=csharp) en Azure Functions actualmente no es compatible con Stream Analytics.
 
 No está habilitada la compatibilidad con la conexión a Azure Functions hospedado en una red virtual.
 

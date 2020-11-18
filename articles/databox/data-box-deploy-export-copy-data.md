@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/10/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: fb1415874c42e3913d98d4a674732a4d9b98a0c5
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: ecc6e1e1a543f3190e9f73512ca0b9ae45cc3fe9
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92123915"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94335220"
 ---
 # <a name="tutorial-copy-data-from-azure-data-box-via-smb-preview"></a>Tutorial: Copia de datos de Azure Data Box a través de SMB (versión preliminar)
 
@@ -54,7 +54,7 @@ Si usa un equipo host Windows Server, realice los pasos siguientes para conectar
 
 2. En el cuadro de diálogo Access share and copy data (Acceder al recurso compartido y copiar datos), copie los valores de **Username** (Nombre de usuario) y **Password** (Contraseña) del recurso compartido. Seleccione **Aceptar**.
     
-    ![Obtención de las credenciales de recursos compartidos 2](media/data-box-deploy-export-copy-data/get-share-credentials-2.png)
+    ![Obtener credenciales del recurso compartido, acceder a recursos compartidos y copiar datos](media/data-box-deploy-export-copy-data/get-share-credentials-2.png)
 
 3. Para acceder a los recursos compartidos asociados con la cuenta de almacenamiento (*exportbvtdataset2* en el ejemplo siguiente) desde el equipo host, abra una ventana de comandos. En el símbolo del sistema, escriba:
 
@@ -73,13 +73,13 @@ Si usa un equipo host Windows Server, realice los pasos siguientes para conectar
     The command completed successfully.
     ```
 
-4. Presione Windows + R. En la ventana **Ejecutar**, escriba `\\<device IP address>`. Seleccione **Aceptar** para abrir el Explorador de archivos.
+5. Presione Windows + R. En la ventana **Ejecutar**, escriba `\\<device IP address>`. Seleccione **Aceptar** para abrir el Explorador de archivos.
     
-    ![Conexión a un recurso compartido de archivos mediante el Explorador de archivos](media/data-box-deploy-export-copy-data/connect-shares-file-explorer-1.png)
+    ![Conectar a un recurso compartido de archivos mediante el Explorador de archivos y especificar la IP del dispositivo](media/data-box-deploy-export-copy-data/connect-shares-file-explorer-1.png)
 
     Ahora debería ver los recursos compartidos como carpetas.
     
-    ![Conexión al recurso compartido mediante el Explorador de archivos 2](media/data-box-deploy-export-copy-data/connect-shares-file-explorer-2.png)
+    ![Conectar a un recurso compartido de archivos mediante el Explorador de archivos y ver los recursos compartidos de archivos](media/data-box-deploy-export-copy-data/connect-shares-file-explorer-2.png)
 
     
 Si usa un cliente Linux, utilice el siguiente comando para montar el recurso compartido SMB. El parámetro "vers" siguiente es la versión de SMB compatible con el host Linux. Conecte la versión adecuada en el siguiente comando. Para ver las versiones de SMB compatibles con Data Box, consulte [Sistemas de archivos compatibles para clientes Linux](./data-box-system-requirements.md#supported-file-transfer-protocols-for-clients). 

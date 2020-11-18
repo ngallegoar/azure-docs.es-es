@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Herramientas Spark y Hive para VSCode (aplicación Spark)'
-description: 'Tutorial: Uso de las herramientas Spark y Hive para VSCode con el fin de desarrollar aplicaciones Spark escritas en Python y enviarlas a un grupo de Apache Spark (versión preliminar).'
+description: 'Tutorial: Uso de las herramientas Spark y Hive para VSCode con el fin de desarrollar aplicaciones Spark escritas en Python y enviarlas a un grupo de Apache Spark sin servidor (versión preliminar).'
 services: synapse-analytics
 author: hrasheed-msft
 ms.author: jejiang
@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
 ms.date: 09/03/2020
-ms.openlocfilehash: 6778d78ff5e342d97c1c9bc477c1a88eca42a10a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 99b2b04d0f29d92b503cc0bed2460b79cfa6c354
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91338109"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93315657"
 ---
 # <a name="tutorial-create-an-apache-spark-applications-with-vscode-using-a-synapse-workspace"></a>Tutorial: Creación de aplicaciones de Apache Spark con VSCode mediante un área de trabajo de Synapse
 
@@ -26,7 +26,7 @@ Las herramientas Spark y Hive se pueden instalar en todas las plataformas compat
 
 Los elementos siguientes son necesarios para completar los pasos indicados en este artículo:
 
-- Un grupo de Apache Spark. Para crear un grupo de Apache Spark, consulte [Creación de grupos de Apache Spark mediante Azure Portal](../../synapse-analytics/quickstart-create-apache-spark-pool-portal.md).
+- Un grupo de Apache Spark sin servidor. Para crear un grupo de Apache Spark sin servidor, consulte [Creación de grupos de Apache Spark mediante Azure Portal](../../synapse-analytics/quickstart-create-apache-spark-pool-portal.md).
 - [Visual Studio Code](https://code.visualstudio.com/).
 - [Mono](https://www.mono-project.com/docs/getting-started/install/). Mono solo es obligatorio para Linux y macOS.
 - [Un entorno interactivo de PySpark para Visual Studio Code](../../hdinsight/set-up-pyspark-interactive-environment.md).

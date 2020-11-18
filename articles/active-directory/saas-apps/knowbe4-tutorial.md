@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/02/2019
+ms.date: 10/22/2020
 ms.author: jeedes
-ms.openlocfilehash: 083c454390327972da2c2e63175021f2d9c2bd8f
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 7bc2ebf394eb5b20e5f0a7d3722f8bcc2a9127a6
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92459006"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92928032"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-knowbe4-security-awareness-training"></a>Tutorial: Integración de Azure Active Directory con KnowBe4 Security Awareness Training
 
@@ -27,10 +27,7 @@ La integración de KnowBe4 Security Awareness Training con Azure AD le proporcio
 * Puede permitir que los usuarios inicien sesión automáticamente en KnowBe4 Security Awareness Training (inicio de sesión único) con sus cuentas de Azure AD.
 * Puede administrar sus cuentas en una ubicación central: Azure Portal.
 
-Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
-Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
-
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Requisitos previos
 
 Para configurar la integración de Azure AD con KnowBe4 Security Awareness Training, necesita los siguientes elementos:
 
@@ -45,75 +42,52 @@ En este tutorial, puede configurar y probar el inicio de sesión único de Azure
 
 * KnowBe4 Security Awareness Training admite el aprovisionamiento de usuarios **Just-In-Time**
 
-## <a name="adding-knowbe4-security-awareness-training-from-the-gallery"></a>Incorporación de KnowBe4 Security Awareness Training desde la galería
+> [!NOTE]
+> El identificador de esta aplicación es un valor de cadena fijo, por lo que solo se puede configurar una instancia en un inquilino.
 
-Para configurar la integración de KnowBe4 Security Awareness Training en Azure AD, es preciso agregar KnowBe4 Security Awareness Training desde la galería a la lista de aplicaciones SaaS administradas.
+## <a name="adding-knowbe4-from-the-gallery"></a>Incorporación de KnowBe4 desde la galería
 
-**Para agregar KnowBe4 Security Awareness Training desde la galería, realice los pasos siguientes:**
+Para configurar la integración de KnowBe4 en Azure AD, es preciso agregar KnowBe4 desde la galería a la lista de aplicaciones SaaS administradas.
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)** , haga clic en el icono de **Azure Active Directory** .
+1. Inicie sesión en Azure Portal con una cuenta personal, profesional o educativa de Microsoft.
+1. En el panel de navegación de la izquierda, seleccione el servicio **Azure Active Directory**.
+1. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones**.
+1. Para agregar una nueva aplicación, seleccione **Nueva aplicación**.
+1. En la sección **Agregar desde la galería**, escriba **KnowBe4** en el cuadro de búsqueda.
+1. Seleccione **KnowBe4** en el panel de resultados y agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
 
-    ![Botón Azure Active Directory](common/select-azuread.png)
+## <a name="configure-and-test-azure-ad-sso"></a>Configuración y prueba del inicio de sesión único de Azure AD
 
-2. Vaya a **Aplicaciones empresariales** y seleccione la opción **Todas las aplicaciones** .
+En esta sección podrá configurar y probar el inicio de sesión único de Azure AD con KnowBe4 con un usuario de prueba llamado **B.Simon**.
+Para que el inicio de sesión único funcione, es preciso establecer una relación de vínculo entre un usuario de Azure AD y el usuario correspondiente de KnowBe4.
 
-    ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
+Para configurar el inicio de sesión único de Azure AD con KnowBe4, realice los pasos siguientes:
 
-3. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
+    * **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** : para probar el inicio de sesión único de Azure AD con el usuario B.Simon.
+    * **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** : para permitir que B.Simon use el inicio de sesión único de Azure AD.
+2. **[Configuración del inicio de sesión único en KnowBe4 Security Awareness Training](#configure-knowbe4-security-awareness-training-sso)** : para configurar el inicio de sesión único en la aplicación.
+    * **[Creación de un usuario de prueba de KnowBe4 Security Awareness Training](#create-knowbe4-security-awareness-training-test-user)**: para tener un homólogo de Britta Simon en KnowBe4 Security Awareness Training que esté vinculado a la representación de ella en Azure AD.
+3. **[Prueba del inicio de sesión único](#test-sso)** : para comprobar si la configuración funciona.
 
-    ![Botón Nueva aplicación](common/add-new-app.png)
+### <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD
 
-4. En el cuadro de búsqueda, escriba  **KnowBe4 Security Awareness Training** , seleccione  **KnowBe4 Security Awareness Training** desde el panel de resultados, a continuación, haga clic en el botón **Agregar** para agregar el aplicación.
+Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azure Portal.
 
-     ![KnowBe4 Security Awareness Training en la lista de resultados](common/search-new-app.png)
+1. En Azure Portal, en la página de integración de la aplicación **KnowBe4**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
+1. En la página **Seleccione un método de inicio de sesión único**, elija **SAML**.
+1. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono de edición o con forma de lápiz para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración.
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
+   ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-En esta sección, configurará y probará el inicio de sesión único de Azure AD con KnowBe4 Security Awareness Training con un usuario de prueba llamado **Britta Simon** .
-Para que el inicio de sesión único funcione, es preciso establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de KnowBe4 Security Awareness Training.
+1. En la sección **Configuración básica de SAML**, especifique los valores de los siguientes campos:
 
-Para configurar y probar el inicio de sesión único de Azure AD con KnowBe4 Security Awareness Training, es preciso completar los siguientes bloques de creación:
-
-1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)** : para que los usuarios puedan usar esta característica.
-2. **[Configuración del inicio de sesión único de KnowBe4 Security Awareness Training Single Sign-On](#configure-knowbe4-security-awareness-training-single-sign-on)** : para configurar el Inicio de sesión único en la aplicación.
-3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con Britta Simon.
-4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Creación de un usuario de prueba de KnowBe4 Security Awareness Training](#create-knowbe4-security-awareness-training-test-user)** : para tener un homólogo de Britta Simon en KnowBe4 Security Awareness Training que esté vinculado a la representación de ella en Azure AD.
-6. **[Prueba del inicio de sesión único](#test-single-sign-on)** : para comprobar si la configuración funciona.
-
-### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
-
-En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal.
-
-Para configurar el inicio de sesión único de Azure AD con KnowBe4 Security Awareness Training, siga estos pasos:
-
-1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **KnowBe4 Security Awareness Training** , seleccione **Inicio de sesión único** .
-
-    ![Vínculo Configurar inicio de sesión único](common/select-sso.png)
-
-2. En el cuadro de diálogo **Seleccionar un método de inicio de sesión único** , seleccione el modo **SAML/WS-Fed** para habilitar el inicio de sesión único.
-
-    ![Modo de selección de inicio de sesión único](common/select-saml-option.png)
-
-3. En la página **Configurar el inicio de sesión único con SAML** , haga clic en el icono **Editar** para abrir el cuadro de diálogo **Configuración básica de SAML** .
-
-    ![Edición de la configuración básica de SAML](common/edit-urls.png)
-
-4. En la sección **Configuración básica de SAML** , siga estos pasos:
-
-    ![Información acerca del inicio de sesión único de dominio y direcciones URL de KnowBe4 Security Awareness Training](common/sp-identifier.png)
-
-    a. En el cuadro de texto **URL de inicio de sesión** , escriba una dirección URL con el siguiente patrón: `https://<companyname>.KnowBe4.com/auth/saml/<instancename>`
+    En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<companyname>.KnowBe4.com/auth/saml/<instancename>`
 
     > [!NOTE]
     > El valor de la dirección URL de inicio de sesión no es real. Actualícelo con la dirección URL de inicio de sesión real. Póngase en contacto con el [equipo de soporte técnico de KnowBe4 Security Awareness Training](mailto:support@KnowBe4.com) para obtener dicho valor. También puede ver el patrón que se muestra en la sección **Configuración básica de SAML** de Azure Portal.
 
-    b. En el cuadro de texto **Identificador (id. de entidad)** , escriba el valor de la cadena: `KnowBe4`
-
-    > [!NOTE]
-    > Distingue mayúsculas de minúsculas.
-
-5. En la página **Configurar el inicio de sesión único con SAML** , en la sección **Certificado de firma de SAML** , haga clic en **Descargar** para descargar el **certificado (sin procesar)** de las opciones proporcionadas según sus requisitos y guárdelo en el equipo.
+5. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en **Descargar** para descargar el **certificado (sin procesar)** de las opciones proporcionadas según sus requisitos y guárdelo en el equipo.
 
     ![Vínculo de descarga del certificado](common/certificateraw.png)
 
@@ -121,86 +95,49 @@ Para configurar el inicio de sesión único de Azure AD con KnowBe4 Security Awa
 
     ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
 
-    a. URL de inicio de sesión
+### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD 
 
-    b. Identificador de Azure AD
+En esta sección, va a crear un usuario de prueba llamado B.Simon en Azure Portal.
 
-    c. URL de cierre de sesión
-
-### <a name="configure-knowbe4-security-awareness-training-single-sign-on"></a>Configuración del inicio de sesión único en KnowBe4 Security Awareness Training
-
-Para configurar el inicio de sesión único en **KnowBe4 Security Awareness Training** , es preciso enviar el **certificado (sin procesar)** descargado y las direcciones URL copiadas pertinentes de Azure Portal al [equipo de soporte técnico de KnowBe4 Security Awareness Training](mailto:support@KnowBe4.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
-
-### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
-
-El objetivo de esta sección es crear un usuario de prueba en Azure Portal llamado "Britta Simon".
-
-1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory** , **Usuarios** y **Todos los usuarios** .
-
-    ![Vínculos "Usuarios y grupos" y "Todos los usuarios"](common/users.png)
-
-2. Seleccione **Nuevo usuario** en la parte superior de la pantalla.
-
-    ![Botón Nuevo usuario](common/new-user.png)
-
-3. En las propiedades Usuario, siga estos pasos.
-
-    ![Cuadro de diálogo Usuario](common/user-properties.png)
-
-    a. En el campo **Nombre** , escriba **BrittaSimon** .
-  
-    b. En el campo **Nombre de usuario** , escriba **brittasimon\@yourcompanydomain.extension** .  
-    Por ejemplo: BrittaSimon@contoso.com
-
-    c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.
-
-    d. Haga clic en **Crear** .
+1. En el panel izquierdo de Azure Portal, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
+1. Seleccione **Nuevo usuario** en la parte superior de la pantalla.
+1. En las propiedades del **usuario**, siga estos pasos:
+   1. En el campo **Nombre**, escriba `B.Simon`.  
+   1. En el campo **Nombre de usuario**, escriba username@companydomain.extension. Por ejemplo, `B.Simon@contoso.com`.
+   1. Active la casilla **Show password** (Mostrar contraseña) y, después, anote el valor que se muestra en el cuadro **Contraseña**.
+   1. Haga clic en **Crear**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
-En esta sección, concederá acceso a Britta Simon a nowBe4 Security Awareness Training para que use el inicio de sesión único de Azure.
+En esta sección va a permitir que B.Simon acceda a KnowBe4 mediante el inicio de sesión único de Azure.
 
-1. En Azure Portal, seleccione **Aplicaciones empresariales** , **Todas las aplicaciones** y **KnowBe4 Security Awareness Training** .
+1. En Azure Portal, seleccione sucesivamente **Aplicaciones empresariales** y **Todas las aplicaciones**.
+1. En la lista de aplicaciones, seleccione **KnowBe4**.
+1. En la página de información general de la aplicación, busque la sección **Administrar** y seleccione **Usuarios y grupos**.
+1. Seleccione **Agregar usuario**. A continuación, en el cuadro de diálogo **Agregar asignación**, seleccione **Usuarios y grupos**.
+1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **B.Simon** de la lista de usuarios y haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
+1. Si espera que se asigne un rol a los usuarios, puede seleccionarlo en la lista desplegable **Seleccionar un rol**. Si no se ha configurado ningún rol para esta aplicación, verá seleccionado el rol "Acceso predeterminado".
+1. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
 
-    ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
+## <a name="configure-knowbe4-security-awareness-training-sso"></a>Configuración del inicio de sesión único en KnowBe4 Security Awareness Training
 
-2. En la lista de aplicaciones, seleccione **KnowBe4 Security Awareness Training** .
-
-    ![KnowBe4 Security Awareness Training en la lista de aplicaciones](common/all-applications.png)
-
-3. En el menú de la izquierda, seleccione **Usuarios y grupos** .
-
-    ![Vínculo "Usuarios y grupos"](common/users-groups-blade.png)
-
-4. Haga clic en el botón **Agregar usuario** y, después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación** .
-
-    ![Panel Agregar asignación](common/add-assign-user.png)
-
-5. En el cuadro de diálogo **Usuarios y grupos** , seleccione **Britta Simon** en la lista Usuarios y, luego, haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
-
-6. Si espera cualquier valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol** seleccione en la lista el rol adecuado para el usuario y, después, haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
-
-7. En el cuadro de diálogo **Agregar asignación** , haga clic en el botón **Asignar** .
+Para configurar el inicio de sesión único en **KnowBe4 Security Awareness Training**, es preciso enviar el **certificado (sin procesar)** descargado y las direcciones URL copiadas pertinentes de Azure Portal al [equipo de soporte técnico de KnowBe4 Security Awareness Training](mailto:support@KnowBe4.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
 ### <a name="create-knowbe4-security-awareness-training-test-user"></a>Creación de un usuario de prueba en KnowBe4 Security Awareness Training
 
-El objetivo de esta sección es crear un usuario llamado Britta Simon en KnowBe4 Security Awareness Training. KnowBe4 Security Awareness Training admite el aprovisionamiento Just-In-Time, que está habilitado de forma predeterminada.
+En esta sección se crea un usuario llamado a B.Simon en KnowBe4. KnowBe4 admite el aprovisionamiento de usuarios Just-In-Time, habilitado de forma predeterminada. No hay ningún elemento de acción para usted en esta sección. Si aún no existe aún un usuario en KnowBe4, se crea uno después de la autenticación.
 
-No hay ningún elemento de acción para usted en esta sección. Al intentar acceder a KnowBe4 Security Awareness Training, si aún no existe, se crea un usuario.
+### <a name="test-sso"></a>Prueba de SSO
 
-> [!NOTE]
-> Si necesita crear un usuario manualmente, es preciso que se ponga en contacto con el [equipo de soporte técnico de KnowBe4 Security Awareness Training](mailto:support@KnowBe4.com).
+En esta sección, probará la configuración de inicio de sesión único de Azure AD con las siguientes opciones. 
 
-### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
+1. Haga clic en **Probar esta aplicación** en Azure Portal. Esto le redirigirá a la dirección URL de inicio de sesión de KnowBe4, donde podrá iniciar el flujo de inicio de sesión. 
 
-En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
+2. Vaya directamente a la dirección URL de inicio de sesión de KnowBe4 e inicie el flujo de inicio de sesión desde allí.
 
-Al hacer clic en el icono de KnowBe4 Security Awareness Training del panel de acceso, debería iniciar sesión automáticamente en la versión de KnowBe4 Security Awareness Training para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/my-apps-portal-end-user-access.md).
+3. Puede usar el Panel de acceso de Microsoft. Al hacer clic en el icono de KnowBe4 en el panel de acceso, se le redirigirá a la dirección URL de inicio de sesión de KnowBe4. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Recursos adicionales
+## <a name="next-steps"></a>Pasos siguientes
 
-- [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](./tutorial-list.md)
+Una vez configurada la aplicación KnowBe4, podrá aplicar el control de sesión, que protege a su organización en tiempo real frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
-- [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-
-- [¿Qué es el acceso condicional en Azure Active Directory?](../conditional-access/overview.md)

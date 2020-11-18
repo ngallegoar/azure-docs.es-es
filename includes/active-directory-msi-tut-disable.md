@@ -8,13 +8,13 @@ ms.topic: include
 ms.date: 01/14/2020
 ms.author: markvi
 ms.custom: include file
-ms.openlocfilehash: 6a50faee2d557c39e9bd371caa98a4bcb2016e0f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b907eb1f9240156cdb1d9c9cf44d77d4738aff1a
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75971846"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93135882"
 ---
 Para deshabilitar la identidad asignada por el sistema en la máquina virtual, establezca el estado de la identidad asignada por el sistema en **desactivado**. 
 
-![Creación de una nueva cuenta de almacenamiento](./media/active-directory-msi-tut-disable/identity.png)
+![Captura de pantalla de la pestaña Asignado por el sistema de una máquina virtual en la que se puede desactivar el estado asignado por el sistema.](./media/active-directory-msi-tut-disable/identity.png)

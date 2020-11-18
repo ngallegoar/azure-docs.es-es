@@ -9,12 +9,12 @@ ms.reviewer: dseven
 ms.author: matjazl
 author: matjazl
 ms.date: 02/07/2019
-ms.openlocfilehash: f8b5e344fc963d466571e75ff16f17367dc32971
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 37086a925d65a80f219c8e0a3358c834a2691701
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87844854"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145657"
 ---
 # <a name="access-azure-api-for-fhir-with-postman"></a>Acceso a Azure API for FHIR con Postman
 
@@ -121,7 +121,7 @@ Ahora ya tiene un token de acceso válido. Con ello puede insertar un nuevo paci
 
 Presione "Send" (Enviar) y verá que el paciente se ha creado correctamente:
 
-![Paciente creado](media/tutorial-postman/postman-patient-created.png)
+![Captura de pantalla que muestra que el paciente se ha creado correctamente.](media/tutorial-postman/postman-patient-created.png)
 
 Si repite la búsqueda de pacientes, ahora debería ver el registro del paciente:
 

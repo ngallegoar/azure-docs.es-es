@@ -1,76 +1,86 @@
 ---
-title: Depuración de las API con el seguimiento de solicitudes en Azure API Management | Microsoft Docs
-description: Siga los pasos de este tutorial para aprender a supervisar los pasos del procesamiento de solicitudes en Azure API Management.
+title: 'Tutorial: Depuración de API en Azure API Management mediante el seguimiento de solicitudes'
+description: Siga los pasos de este tutorial para habilitar los pasos de seguimiento e inspección del procesamiento de solicitudes en Azure API Management.
 services: api-management
 documentationcenter: ''
 author: vladvino
-manager: cfowler
 editor: ''
 ms.service: api-management
-ms.workload: mobile
-ms.tgt_pltfrm: na
-ms.custom: mvc
 ms.topic: tutorial
-ms.date: 06/15/2018
+ms.date: 10/30/2020
 ms.author: apimpm
-ms.openlocfilehash: fc5e8c7a7aa0d4693d96c3405ec0e180a6d13f8e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 531e346569b85ababc382f997fd7764a92b3d05f
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75768541"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542321"
 ---
-# <a name="debug-your-apis-using-request-tracing"></a>Depuración de las API con el seguimiento de solicitudes
+# <a name="tutorial-debug-your-apis-using-request-tracing"></a>Tutorial: Depuración de las API con el seguimiento de solicitudes
 
-Este tutorial describe cómo inspeccionar el procesamiento de solicitudes para ayudarle con la depuración y la solución de problemas de una API. 
+En este tutorial se describe cómo inspeccionar (realizar un seguimiento) del procesamiento de solicitudes en Azure API Management para ayudarle a depurar y solucionar los problemas de la API. 
 
 En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
-> * Realizar el seguimiento de una llamada
+> * Realizar el seguimiento de una llamada de ejemplo
+> * Revisar los pasos del procesamiento de solicitudes
 
-![API inspector](media/api-management-howto-api-inspector/api-inspector001.PNG)
+:::image type="content" source="media/api-management-howto-api-inspector/api-inspector-001.png" alt-text="API Inspector":::
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Requisitos previos
 
 + Conocer la [terminología de API Management de Azure](api-management-terminology.md).
-+ Completar la guía de inicio rápido siguiente: [Creación de una instancia de Azure API Management](get-started-create-service-instance.md).
-+ Además, completar el tutorial siguiente: [Importación y publicación de la primera API](import-and-publish.md).
++ Complete el siguiente inicio rápido: [Creación de una instancia de Azure API Management](get-started-create-service-instance.md).
++ Realice el siguiente tutorial: [Importación y publicación de la primera API](import-and-publish.md).
+
+## <a name="verify-allow-tracing-setting"></a>Comprobación del valor Permitir seguimiento 
+
+Se debe habilitar el valor **Permitir seguimiento** para la suscripción que se usa para la API. Si usa la suscripción integrada de acceso a todo, este valor está habilitado de forma predeterminada. Para comprobarlo en el portal, vaya a la instancia de API Management y seleccione **Suscripciones**.
+
+   :::image type="content" source="media/api-management-howto-api-inspector/allow-tracing.png" alt-text="Permitir seguimiento de la suscripción":::
 
 ## <a name="trace-a-call"></a>Realizar el seguimiento de una llamada
 
-![Seguimiento de API](media/api-management-howto-api-inspector/06-DebugYourAPIs-01-TraceCall.png)
-
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) y vaya a la instancia de API Management.
 1. Seleccione **API**.
-2. Haga clic en **Demo Conference API** (API de conferencia de demostración) en la lista de API.
-3. Cambie a la pestaña **Prueba**.
-4. Seleccione la operación **GetSpeakers**.
-5. Asegúrese de incluir un encabezado HTTP denominado **Ocp-Apim-Trace** con el valor establecido en **true**.
+1. Seleccione **Demo Conference API** en la lista de API.
+1. Seleccione la pestaña **Prueba**.
+1. Seleccione la operación **GetSpeakers**.
+1. Confirme que el encabezado de la solicitud HTTP incluye **Ocp-Apim-Trace: True** y un valor válido para **Ocp-Apim-Subscription-Key**. Si no es así, seleccione **+ Agregar encabezado** para agregar el encabezado.
+1. Seleccione **Enviar** para realizar una llamada API.
 
-   > [!NOTE]
-   > * Si Ocp-Apim-Subscription-Key no se rellena automáticamente, puede recuperar el valor del Portal para desarrolladores y exponer las claves en la página de perfil.
-   > * Para realizar un seguimiento cuando se use el encabezado HTTP Apim-Trace, se debe habilitar la opción **Permitir seguimiento** para la clave de suscripción. Para configurar la opción **Permitir seguimiento**, en **Administración de API** en el menú de la izquierda, seleccione **Suscripciones**.
-   >   ![Permitir seguimiento en el panel Suscripciones de Administración de API](media/api-management-howto-api-inspector/allowtracing.png)
+  :::image type="content" source="media/api-management-howto-api-inspector/06-debug-your-apis-01-trace-call.png" alt-text="Configuración del seguimiento de API":::
 
-6. Haga clic en **Enviar** para realizar una llamada API. 
-7. Espere a que se complete la llamada. 
-8. Vaya a la pestaña de **seguimiento** en el **consola de la API**. Puede hacer clic en cualquiera de los siguientes vínculos para saltar a la información de seguimiento detallada: **entrada**, **back-end**, **salida**.
+> [!TIP]
+> Si **Ocp-Apim-Subscription-Key** no se rellena automáticamente en la solicitud HTTP, puede recuperarla en el portal. Seleccione **Suscripciones** y abra el menú contextual ( **...** ) de la suscripción. Seleccione **Mostrar u ocultar claves**. También puede regenerar claves si es necesario. Después, agregue una clave al encabezado.
 
-    En la sección de **entrada**, verá la solicitud original que API Management recibió del autor de la llamada y todas las directivas aplicadas a la solicitud, que incluyen directivas de límite de velocidad y de set-header que se agregaron en el paso 2.
+## <a name="review-trace-information"></a>Revisión de la información de seguimiento
 
-    En la sección **back-end**, verá las solicitudes que API Management envió al back-end de la API y la respuesta que recibió.
+1. Una vez finalizada la llamada, vaya a la pestaña **Seguimiento** en **Respuesta HTTP**.
+1. Seleccione cualquiera de los siguientes vínculos para saltar a la información de seguimiento detallada: **entrada**, **back-end**, **salida**.
 
-    En la sección de **salida**, verá todas las directivas que se aplican a la respuesta antes de enviarla de vuelta al autor de la llamada.
+     :::image type="content" source="media/api-management-howto-api-inspector/response-trace.png" alt-text="Revisión del seguimiento de respuestas":::
+
+    * **Entrada**: muestra la solicitud original API Management recibida del autor de llamada y las directivas aplicadas a la solicitud. Por ejemplo, si agregó directivas en [Tutorial: Transformación y protección de una API](transform-api.md), aparecerán aquí.
+
+    * **Back-end**: muestra las solicitudes que API Management envió al back-end de la API y la respuesta que recibió.
+
+    * **Salida**: muestra todas las directivas que se aplican a la respuesta antes de enviarla de vuelta al autor de llamada.
 
     > [!TIP]
     > Cada paso muestra también el tiempo transcurrido desde que API Management recibe la solicitud.
 
+1. En la pestaña **Mensaje**, el encabezado **ocp-apim-trace-location** muestra la ubicación de los datos de seguimiento almacenados en Azure Blob Storage. Si es necesario, vaya a esta ubicación para recuperar el seguimiento.
+
+     :::image type="content" source="media/api-management-howto-api-inspector/response-message.png" alt-text="Ubicación de seguimiento en Azure Storage":::
 ## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial, ha aprendido a:
 
 > [!div class="checklist"]
-> * Realizar el seguimiento de una llamada
+> * Realizar el seguimiento de una llamada de ejemplo
+> * Revisar los pasos del procesamiento de solicitudes
 
 Avance hasta el siguiente tutorial:
 

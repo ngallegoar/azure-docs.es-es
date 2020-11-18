@@ -1,18 +1,18 @@
 ---
-title: Conexión del código del dispositivo del componente de Java de ejemplo de IoT Plug and Play a IoT Hub | Microsoft Docs
-description: Compile y ejecute el código de dispositivo de Java de ejemplo de IoT Plug and Play que usa varios componentes y se conecta a un centro de IoT. Use la herramienta Azure IoT Explorer para ver la información enviada por el dispositivo al centro.
+title: 'Tutorial: Creación de código para conectar un dispositivo componente de Java de ejemplo de IoT Plug and Play a Azure IoT Hub | Microsoft Docs'
+description: 'Tutorial: Compilación y ejecución de código de un dispositivo de Java de ejemplo de IoT Plug and Play que usa varios componentes y se conecta a un centro de IoT. Use la herramienta Azure IoT Explorer para ver la información enviada por el dispositivo al centro.'
 author: ericmitt
 ms.author: ericmitt
 ms.date: 07/14/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: fce6477313cb7fb917c0fb81d03a73eec4714915
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 92732eee94a17aa59257ce2894775b2f881632d4
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92046407"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421432"
 ---
 # <a name="tutorial-connect-a-sample-iot-plug-and-play-multiple-component-device-application-to-iot-hub-java"></a>Tutorial: Conexión de una aplicación de dispositivo de varios componentes de ejemplo de IoT Plug and Play a IoT Hub (Java)
 

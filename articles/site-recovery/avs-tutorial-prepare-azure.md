@@ -1,5 +1,5 @@
 ---
-title: Preparación de recursos de Azure para la recuperación ante desastres de Azure VMware Solution con Azure Site Recovery
+title: Preparación de recursos de Azure Site Recovery para la recuperación ante desastres de máquinas virtuales de Azure VMware Solution
 description: Aprenda a preparar recursos de Azure para la recuperación ante desastres de máquinas de Azure VMware Solution mediante Azure Site Recovery.
 services: site-recovery
 author: Harsha-CS
@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.date: 09/29/2020
 ms.author: harshacs
 ms.custom: MVC
-ms.openlocfilehash: 83e2c46e1ce1977d0dd136e821c90843ce2de481
-ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
+ms.openlocfilehash: 2bd305e3760a8c3d743037e7d90b71f5e9579eda
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91814307"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93395485"
 ---
-# <a name="prepare-azure-resources-for-disaster-recovery-of-azure-vmware-solution-to-azure"></a>Preparación de recursos de Azure para la recuperación ante desastres de Azure VMware Solution en Azure
+# <a name="prepare-azure-site-recovery-resources-for-disaster-recovery-of-azure-vmware-solution-vms"></a>Preparación de recursos de Azure Site Recovery para la recuperación ante desastres de máquinas virtuales de Azure VMware Solution
 
 En este artículo, se describe cómo preparar los recursos y componentes de Azure para poder configurar una recuperación ante desastres de máquinas virtuales de Azure VMware Solution mediante el servicio [Azure Site Recovery](site-recovery-overview.md). [Azure VMware Solution](../azure-vmware/introduction.md) proporciona nubes privadas en Azure. Estas nubes privadas contienen clústeres de vSphere, creados a partir de una infraestructura de Azure sin sistema operativo dedicada.
 

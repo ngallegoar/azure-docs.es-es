@@ -1,5 +1,5 @@
 ---
-title: Personalización de asignaciones de atributos de Azure AD | Microsoft Docs
+title: 'Tutorial: Personalización de las asignaciones de atributos de Azure Active Directory'
 description: Conozca cuáles son las asignaciones de atributos para aplicaciones SaaS en Azure Active Directory y cómo puede modificarlas para satisfacer sus necesidades empresariales.
 services: active-directory
 author: kenwith
@@ -7,17 +7,17 @@ manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.topic: how-to
-ms.date: 10/26/2020
+ms.topic: tutorial
+ms.date: 11/10/2020
 ms.author: kenwith
-ms.openlocfilehash: cac7b169232bb43ba1b1893b59dac81ce4c39c49
-ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
+ms.openlocfilehash: 42ec826ab95363c2599be541fe451473be5ca08d
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93233890"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94441960"
 ---
-# <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Personalización de asignaciones de atributos de aprovisionamiento de usuarios para aplicaciones SaaS en Azure Active Directory
+# <a name="tutorial---customize-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Tutorial: Personalización de las asignaciones de atributos de aprovisionamiento de usuarios para aplicaciones SaaS en Azure Active Directory
 
 Microsoft Azure AD proporciona soporte técnico para el aprovisionamiento de usuarios en aplicaciones SaaS de terceros como Salesforce, Google Apps y otras. Si habilita el aprovisionamiento de usuarios para una aplicación SaaS de terceros, Azure Portal controla sus valores de atributo en forma de una asignación de atributos.
 
@@ -37,7 +37,7 @@ Siga estos pasos para acceder a la característica **Asignaciones** del aprovisi
 
    ![Uso de asignaciones para ver y editar atributos de usuario](./media/customize-application-attributes/21.png)
 
-1. Al seleccionar una configuración de **Asignaciones** , se abre la pantalla relacionada **Asignación de atributos**. Hay algunas asignaciones de atributos que una aplicación SaaS necesita para funcionar correctamente. Para los atributos necesarios, la característica **Eliminar** no está disponible.
+1. Al seleccionar una configuración de **Asignaciones**, se abre la pantalla relacionada **Asignación de atributos**. Hay algunas asignaciones de atributos que una aplicación SaaS necesita para funcionar correctamente. Para los atributos necesarios, la característica **Eliminar** no está disponible.
 
    ![Uso de la asignación de atributos para configurar asignaciones de atributos para aplicaciones](./media/customize-application-attributes/22.png)
 
@@ -53,7 +53,7 @@ Con asignaciones de atributos, puede controlar cómo se rellenan los atributos e
 Se admiten cuatro tipos de asignaciones diferentes:
 
 - **Directa** : el atributo de destino se rellena con el valor de un atributo del objeto vinculado en Azure AD.
-- **Constante** : el atributo de destino se rellena con una cadena específica que se ha especificado.
+- **Constante**: el atributo de destino se rellena con una cadena específica que se ha especificado.
 - **Expresión** : el atributo de destino se rellena según el resultado de una expresión similar a un script.
   Para más información, consulte [Escritura de expresiones para la asignación de atributos en Azure Active Directory](../app-provisioning/functions-for-customizing-application-data.md).
 - **Ninguno** : el atributo de destino se deja sin modificar. Sin embargo, si el atributo de destino está vacío, se rellena con el valor predeterminado que especifique.
@@ -65,14 +65,14 @@ Además de estos cuatro tipos básicos, las asignaciones de atributos personaliz
 En la sección anterior, ya ha introducido la propiedad de tipo de asignación de atributos.
 Además de esta propiedad, las asignaciones de atributos también admiten los siguientes atributos:
 
-- **Atributo de origen** : especifica el atributo de usuario del sistema de origen (por ejemplo, Azure Active Directory).
-- **Atributo de destino** : especifica el atributo de usuario del sistema de destino (por ejemplo, ServiceNow).
+- **Atributo de origen**: especifica el atributo de usuario del sistema de origen (por ejemplo, Azure Active Directory).
+- **Atributo de destino**: especifica el atributo de usuario del sistema de destino (por ejemplo, ServiceNow).
 - **Valor predeterminado si es nulo (opcional)** : valor que se enviará al sistema de destino si el atributo de origen es NULL. Este valor solo se aprovisionará cuando se cree un usuario. El "valor predeterminado si es nulo" no se aprovisionará al actualizar un usuario existente. Si, por ejemplo, quiere aprovisionar todos los usuarios existentes en el sistema de destino con un puesto determinado (cuando es NULL en el sistema de origen), puede usar la siguiente [expresión](../app-provisioning/functions-for-customizing-application-data.md): Switch(IsPresent([jobTitle]), "DefaultValue", "True", [jobTitle]). Asegúrese de reemplazar el "valor predeterminado" con lo que le gustaría aprovisionar cuando sea NULL en el sistema de origen. 
-- **Hacer coincidir objetos con este atributo** : especifica si se debe usar o no esta asignación para identificar de forma unívoca a los usuarios entre los sistemas de origen y de destino. Normalmente esto se establece en el atributo userPrincipalName o mail en Azure AD, que se suele asignar a un campo de nombre de usuario en una aplicación de destino.
-- **Precedencia de coincidencia** : se pueden establecer varios atributos coincidentes. Si hay varios, se evalúan en el orden definido por este campo. En el momento en que se encuentre una coincidencia, no se evaluarán más atributos coincidentes. Aunque puede establecer tantos atributos coincidentes como desee, considere si los atributos que usa como atributos coincidentes son realmente únicos y deben ser atributos coincidentes. Normalmente, los clientes tienen 1 o 2 atributos coincidentes en su configuración. 
+- **Hacer coincidir objetos con este atributo**: especifica si se debe usar o no esta asignación para identificar de forma unívoca a los usuarios entre los sistemas de origen y de destino. Normalmente esto se establece en el atributo userPrincipalName o mail en Azure AD, que se suele asignar a un campo de nombre de usuario en una aplicación de destino.
+- **Precedencia de coincidencia**: se pueden establecer varios atributos coincidentes. Si hay varios, se evalúan en el orden definido por este campo. En el momento en que se encuentre una coincidencia, no se evaluarán más atributos coincidentes. Aunque puede establecer tantos atributos coincidentes como desee, considere si los atributos que usa como atributos coincidentes son realmente únicos y deben ser atributos coincidentes. Normalmente, los clientes tienen 1 o 2 atributos coincidentes en su configuración. 
 - **Aplicar esta asignación**
-  - **Siempre** : esta asignación se aplica a las acciones de creación y actualización de usuarios.
-  - **Solo durante la creación** : esta asignación se aplica solo a las acciones de creación de usuarios.
+  - **Siempre**: esta asignación se aplica a las acciones de creación y actualización de usuarios.
+  - **Solo durante la creación**: esta asignación se aplica solo a las acciones de creación de usuarios.
 
 ## <a name="matching-users-in-the-source-and-target--systems"></a>Emparejamiento de usuarios en los sistemas de origen y destino
 El servicio de aprovisionamiento de Azure AD se puede implementar en escenarios Greenfield (donde los usuarios no existen en el sistema de destino) y Brownfield (donde los usuarios ya existen en el sistema de destino). Para admitir ambos escenarios, el servicio de aprovisionamiento usa el concepto de atributos coincidentes. Los atributos coincidentes permiten determinar la forma de identificar de forma única a un usuario en el origen y emparejarlo en el destino. Como parte de la planeación de la implementación, identifique el atributo que se puede usar para identificar de forma única a un usuario en los sistemas de origen y destino. Cosas que hay que tener en cuenta:
@@ -110,7 +110,7 @@ Las aplicaciones y sistemas que admiten la personalización de la lista de atrib
 - Workday para Active Directory / Workday para Azure Active Directory
 - SuccessFactors para Active Directory / SuccessFactors para Azure Active Directory
 - Azure Active Directory (se admiten los [atributos predeterminados de Azure AD Graph API](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#user-entity) y las extensiones de directorios personalizadas)
-- Aplicaciones que admiten [SCIM 2.0](https://tools.ietf.org/html/rfc7643), donde es necesario agregar los atributos definidos en el [esquema principal](https://tools.ietf.org/html/rfc7643)
+- Aplicaciones que admiten [SCIM 2.0](https://tools.ietf.org/html/rfc7643)
 - En el caso de la escritura diferida de Azure Active Directory en Workday o SuccessFactors, se pueden actualizar los metadatos correspondientes a los atributos admitidos (XPATH y JSONPath), pero no se pueden agregar nuevos atributos de Workday o SuccessFactors más allá de los incluidos en el esquema predeterminado.
 
 
@@ -119,25 +119,25 @@ Las aplicaciones y sistemas que admiten la personalización de la lista de atrib
 
 Al editar la lista de atributos admitidos, se proporcionan las siguientes propiedades:
 
-- **Nombre** : el nombre del sistema del atributo, tal como se define en el esquema del objeto de destino.
-- **Tipo** : el tipo de datos que almacena el atributo, tal como se define en el esquema del objeto de destino, que puede ser uno de los siguientes:
-  - *Binario* : el atributo contiene datos binarios.
-  - *Booleano* : el atributo contiene un valor True o False.
-  - *DateTime* : el atributo contiene una cadena de fecha.
-  - *Entero* : al atributo contiene un entero.
-  - *Referencia* : el atributo contiene un identificador que hace referencia a un valor almacenado en otra tabla en la aplicación de destino.
-  - *Cadena* : el atributo contiene una cadena de texto.
+- **Nombre**: el nombre del sistema del atributo, tal como se define en el esquema del objeto de destino.
+- **Tipo**: el tipo de datos que almacena el atributo, tal como se define en el esquema del objeto de destino, que puede ser uno de los siguientes:
+  - *Binario*: el atributo contiene datos binarios.
+  - *Booleano*: el atributo contiene un valor True o False.
+  - *DateTime*: el atributo contiene una cadena de fecha.
+  - *Entero*: al atributo contiene un entero.
+  - *Referencia*: el atributo contiene un identificador que hace referencia a un valor almacenado en otra tabla en la aplicación de destino.
+  - *Cadena*: el atributo contiene una cadena de texto.
 - **¿Clave principal?** : si el atributo se define como un campo de clave principal en el esquema del objeto de destino.
 - **¿Necesario?** : si el atributo se debe rellenar en la aplicación o sistema de destino.
 - **¿Varios valores?** : si el atributo admite varios valores.
 - **¿Coincidir mayúsculas y minúsculas?** : si los valores de atributo se evalúan según el uso de mayúsculas o minúsculas.
-- **Expresión de API** : no se usa, salvo que así se indique en la documentación de un conector de aprovisionamiento específico (como Workday).
-- **Atributo de objeto con referencia** : si este es un atributo de tipo referencia, este menú le permite seleccionar la tabla y el atributo de la aplicación de destino que contiene el valor asociado al atributo. Por ejemplo, si tiene un atributo llamado "Department" cuyo valor almacenado hace referencia a un objeto de una tabla "Departments" independiente, seleccionaría "Departments.Name". Las tablas de referencia y los campos de identificador principal admitidos en una determinada aplicación están preconfigurados y actualmente no se pueden editar mediante Azure Portal, pero se pueden modificar con [Microsoft Graph API](/graph/api/resources/synchronization-configure-with-custom-target-attributes).
+- **Expresión de API**: no se usa, salvo que así se indique en la documentación de un conector de aprovisionamiento específico (como Workday).
+- **Atributo de objeto con referencia**: si este es un atributo de tipo referencia, este menú le permite seleccionar la tabla y el atributo de la aplicación de destino que contiene el valor asociado al atributo. Por ejemplo, si tiene un atributo llamado "Department" cuyo valor almacenado hace referencia a un objeto de una tabla "Departments" independiente, seleccionaría "Departments.Name". Las tablas de referencia y los campos de identificador principal admitidos en una determinada aplicación están preconfigurados y actualmente no se pueden editar mediante Azure Portal, pero se pueden modificar con [Microsoft Graph API](/graph/api/resources/synchronization-configure-with-custom-target-attributes).
 
 #### <a name="provisioning-a-custom-extension-attribute-to-a-scim-compliant-application"></a>Aprovisionamiento de un atributo de extensión personalizado para una aplicación compatible con SCIM
 El RFC de SCIM define un esquema principal de grupo y usuario, a la vez que permite que las extensiones del esquema cumplan los requisitos de la aplicación. Para agregar un atributo personalizado a una aplicación de SCIM:
-   1. Inicie sesión en el [portal de Azure Active Directory](https://aad.portal.azure.com), seleccione **Aplicaciones empresariales** , seleccione la aplicación y, a continuación, **Aprovisionamiento**.
-   2. En **Asignaciones** , seleccione el objeto (usuario o grupo) al que quiere agregar un atributo personalizado.
+   1. Inicie sesión en el [portal de Azure Active Directory](https://aad.portal.azure.com), seleccione **Aplicaciones empresariales**, seleccione la aplicación y, a continuación, **Aprovisionamiento**.
+   2. En **Asignaciones**, seleccione el objeto (usuario o grupo) al que quiere agregar un atributo personalizado.
    3. En la parte inferior de la página, seleccione **Mostrar opciones avanzadas**.
    4. Seleccione **Editar lista de atributos para AppName**.
    5. En la parte inferior de la lista de atributos, escriba la información sobre el atributo personalizado en los campos proporcionados. Después, seleccione **Agregar atributo**.
@@ -146,7 +146,7 @@ En el caso de las aplicaciones de SCIM, el nombre del atributo debe seguir el pa
 
 Estas instrucciones solo se aplican a las aplicaciones habilitadas para SCIM. Las aplicaciones como ServiceNow y Salesforce no se integran con Azure AD mediante SCIM y, por lo tanto, no requieren este espacio de nombres específico al agregar un atributo personalizado.
 
-Los atributos personalizados no pueden ser atributos referenciales ni atributos de varios valores. Los atributos de extensión personalizados de varios valores solo se admiten actualmente para las aplicaciones de la galería.  
+Los atributos personalizados no pueden ser atributos referenciales, atributos de varios valores ni atributos de tipos complejos. Los atributos de extensión personalizados de varios valores y de tipos complejos solo se admiten actualmente para las aplicaciones de la galería.  
  
 **Representación de ejemplo de un usuario con un atributo de extensión:**
 

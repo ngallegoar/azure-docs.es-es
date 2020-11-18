@@ -6,18 +6,18 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: 0598f21cddbaeef6b3cd10cd77250eeae8bd34bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f83ff3d1d03354daef3466c1f48eaa505e378634
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84808710"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94693756"
 ---
 # <a name="move-an-external-load-balancer-to-another-region-by-using-the-azure-portal"></a>Traslado de un equilibrador de carga externo a otra región mediante Azure Portal
 
 Hay varios escenarios en los que quizá quiera trasladar un equilibrador de carga externo de una región a otra. Por ejemplo, puede que quiera crear otro equilibrador de carga externo con la misma configuración para realizar pruebas. También es posible que quiera trasladar un equilibrador de carga externo a otra región como parte del planeamiento para la recuperación ante desastres.
 
-En un sentido literal, no se puede trasladar un equilibrador de carga externo de Azure de una región a otra. Aunque se puede usar una plantilla de Azure Resource Manager para exportar la configuración y dirección IP pública actuales de un equilibrador de carga externo. Después, puede preparar el recurso para otra región al exportar el equilibrador de carga y la dirección IP pública a una plantilla, modificar los parámetros para que coincidan con la región de destino y, a continuación, implementar la plantilla en la nueva región. Para más información sobre Resource Manager y sus plantillas, consulte [Exportación de grupos de recursos a plantillas](https://docs.microsoft.com/azure/azure-resource-manager/manage-resource-groups-powershell#export-resource-groups-to-templates).
+En un sentido literal, no se puede trasladar un equilibrador de carga externo de Azure de una región a otra. Aunque se puede usar una plantilla de Azure Resource Manager para exportar la configuración y dirección IP pública actuales de un equilibrador de carga externo. Después, puede preparar el recurso para otra región al exportar el equilibrador de carga y la dirección IP pública a una plantilla, modificar los parámetros para que coincidan con la región de destino y, a continuación, implementar la plantilla en la nueva región. Para más información sobre Resource Manager y sus plantillas, consulte [Exportación de grupos de recursos a plantillas](../azure-resource-manager/management/manage-resource-groups-powershell.md#export-resource-groups-to-templates).
 
 
 ## <a name="prerequisites"></a>Prerequisites
@@ -32,7 +32,7 @@ En un sentido literal, no se puede trasladar un equilibrador de carga externo de
 
 - Compruebe que la suscripción a Azure permite crear equilibradores de carga externos en la región de destino. Para habilitar la cuota necesaria, póngase en contacto con el soporte técnico.
 
-- Asegúrese de que la suscripción tiene suficientes recursos para admitir la adición de equilibradores de carga. Vea [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits).
+- Asegúrese de que la suscripción tiene suficientes recursos para admitir la adición de equilibradores de carga. Vea [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits).
 
 ## <a name="prepare-and-move"></a>Preparación y traslado
 En los procedimientos siguientes se muestra cómo preparar el equilibrador de carga externo para el traslado mediante una plantilla de Resource Manager y cómo trasladar la configuración del equilibrador de carga externo a la región de destino mediante Azure Portal. En primer lugar, debe exportar la configuración de IP pública del equilibrador de carga externo.
@@ -110,7 +110,7 @@ En los procedimientos siguientes se muestra cómo preparar el equilibrador de ca
             },
         ```
 
-        Para obtener información sobre las diferencias entre las IP públicas de la SKU básica y estándar, consulte [Creación, modificación o eliminación de una dirección IP pública](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address).
+        Para obtener información sobre las diferencias entre las IP públicas de la SKU básica y estándar, consulte [Creación, modificación o eliminación de una dirección IP pública](../virtual-network/virtual-network-public-ip-address.md).
 
     * **Método de asignación de IP pública** y **Tiempo de espera de inactividad**. Puede cambiar el método de asignación de IP pública cambiando la propiedad **publicIPAllocationMethod** de **Dynamic** a **Static** o de **Static** a **Dynamic**. Puede cambiar el tiempo de espera de inactividad cambiando la propiedad **idleTimeoutInMinutes** al valor deseado. El valor predeterminado es **4**.
 
@@ -136,7 +136,7 @@ En los procedimientos siguientes se muestra cómo preparar el equilibrador de ca
 
         ```
 
-        Para obtener información sobre los métodos de asignación y los valores de tiempo de espera de inactividad, consulte [Creación, modificación o eliminación de una dirección IP pública](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address).
+        Para obtener información sobre los métodos de asignación y los valores de tiempo de espera de inactividad, consulte [Creación, modificación o eliminación de una dirección IP pública](../virtual-network/virtual-network-public-ip-address.md).
 
  
 13. Seleccione **Guardar** en el editor en línea.
@@ -257,7 +257,7 @@ En los procedimientos siguientes se muestra cómo preparar el equilibrador de ca
                 "tier": "Regional"
             },
         ```
-      Para obtener información sobre las diferencias entre los equilibradores de carga de la SKU básica y estándar, consulte [Introducción a Azure Standard Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview).
+      Para obtener información sobre las diferencias entre los equilibradores de carga de la SKU básica y estándar, consulte [Introducción a Azure Standard Load Balancer](./load-balancer-overview.md).
 
     * **Reglas de equilibrio de carga**. Puede agregar o quitar reglas de equilibrio de carga de la configuración agregando o quitando entradas en la sección **loadBalancingRules** del archivo template.json:
 
@@ -385,7 +385,7 @@ En los procedimientos siguientes se muestra cómo preparar el equilibrador de ca
                 ]
         ```
 
-         Para más información, consulte [Reglas de salida de Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-rules-overview).
+         Para más información, consulte [Reglas de salida de Load Balancer](./load-balancer-outbound-connections.md#outboundrules).
 
 12. Seleccione **Guardar** en el editor en línea.
 
@@ -414,5 +414,5 @@ Para confirmar los cambios y completar el traslado de la dirección IP pública 
 En este tutorial, ha migrado un equilibrador de carga externo de Azure de una región a otra y ha limpiado los recursos de origen. Para más información sobre el traslado de recursos entre regiones y la recuperación ante desastres en Azure, consulte:
 
 
-- [Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)
-- [Traslado de máquinas virtuales de Azure a otra región](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-migrate)
+- [Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción](../azure-resource-manager/management/move-resource-group-and-subscription.md)
+- [Traslado de máquinas virtuales de Azure a otra región](../site-recovery/azure-to-azure-tutorial-migrate.md)

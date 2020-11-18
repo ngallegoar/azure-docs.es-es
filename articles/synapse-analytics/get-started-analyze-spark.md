@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Introducción al análisis con Spark'
+title: 'Inicio rápido: Introducción al análisis con Spark'
 description: En este tutorial aprenderá a analizar datos con Apache Spark
 services: synapse-analytics
 author: saveenr
@@ -10,16 +10,16 @@ ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: tutorial
 ms.date: 07/20/2020
-ms.openlocfilehash: ec6af7c23f781d25114794066a228adbfe7528d0
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 89bc2723a0d7c99160c651fb433db6f8892ee676
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093623"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321081"
 ---
 # <a name="analyze-with-apache-spark"></a>Análisis con Apache Spark
 
-## <a name="analyze-nyc-taxi-data-in-blob-storage--using-spark"></a>Análisis de los datos de NYC Taxi en Blob Storage con Spark
+## <a name="analyze-nyc-taxi-data-in-blob-storage-using-spark"></a>Análisis de los datos de taxis de Nueva York en Blob Storage con Spark
 
 En este tutorial, aprenderá los pasos básicos para cargar y analizar datos con Apache Spark para Azure Synapse.
 
@@ -32,8 +32,8 @@ En este tutorial, aprenderá los pasos básicos para cargar y analizar datos con
     data_df = data.to_spark_dataframe()
     display(data_df.limit(10))
     ```
-1. En el cuaderno, elija un grupo de Spark del menú **Attach to** (Adjuntar a).
-1. Haga clic en **Run** (Ejecutar) en la celda.
+1. En el cuaderno, elija un grupo de Spark sin servidor del menú **Adjuntar a**.
+1. Seleccione **Ejecutar** en la celda.
 
 ## <a name="load-the-nyc-taxi-data-into-the-spark-nyctaxi-database"></a>Carga de los datos de los taxis de Nueva York en la base de datos nyctaxi de Spark
 
@@ -53,8 +53,8 @@ Los datos están disponibles en una tabla en **SQLDB1**. Cárguelos en una base 
 
 1. Vaya al centro **Data** (Datos), haga clic con el botón derecho en **Databases** (Bases de datos) y seleccione **Refresh** (Actualizar). Debería ver estas bases de datos:
 
-    - **SQLDB1** (grupo de SQL)
-    - **nyctaxi** (Spark)
+    - **SQLDB1** (grupo de SQL dedicado)
+    - **nyctaxi** (grupo de Apache Spark sin servidor)
 
 ## <a name="analyze-the-nyc-taxi-data-using-spark-and-notebooks"></a>Análisis de los datos de los taxis de Nueva York mediante Spark y cuadernos
 
@@ -67,7 +67,7 @@ Los datos están disponibles en una tabla en **SQLDB1**. Cárguelos en una base 
    display(df)
    ```
 
-1. Ejecute el código siguiente para realizar el mismo análisis que hicimos anteriormente con el grupo de SQL **SQLDB1**. Este código guarda los resultados del análisis en una tabla denominada **nyctaxi.passengercountstats** y visualiza los resultados.
+1. Ejecute el código siguiente para realizar el mismo análisis que hicimos anteriormente con el grupo de SQL dedicado **SQLDB1**. Este código guarda los resultados del análisis en una tabla denominada **nyctaxi.passengercountstats** y visualiza los resultados.
 
    ```py
    %%pyspark
@@ -105,11 +105,11 @@ matplotlib.pyplot.show()
 
 
 
-## <a name="load-data-from-a-spark-table-into-a-sql-pool-table"></a>Carga de datos de una tabla de Spark en una tabla de grupos de SQL
+## <a name="load-data-from-a-spark-table-into-a-dedicated-sql-pool-table"></a>Carga de datos de una tabla de Spark en una tabla de grupos de SQL dedicado
 
-Anteriormente copiamos datos de la tabla del grupo de SQL **SQLDB1.dbo.Trip** en la tabla de Spark **nyctaxi.trip**. Luego, mediante Spark, agregamos los datos a la tabla de Spark **nyctaxi.passengercountstats**. Ahora se copiarán los datos de **nyctaxi.passengercountstats** en una tabla de grupo de SQL denominada **SQLDB1.dbo.PassengerCountStats**.
+Anteriormente copiamos datos de la tabla de grupos de SQL dedicados **SQLDB1.dbo.Trip** en la tabla de Spark **nyctaxi.trip**. Luego, mediante Spark, agregamos los datos a la tabla de Spark **nyctaxi.passengercountstats**. Ahora se copiarán los datos de **nyctaxi.passengercountstats** en una tabla de grupos de SQL dedicados denominada **SQLDB1.dbo.PassengerCountStats**.
 
-Ejecute la siguiente celda en el cuaderno. Esta copia la tabla de Spark agregada en la tabla de grupos de SQL.
+Ejecute la siguiente celda en el cuaderno. Esta copia la tabla de Spark agregada en la tabla de grupos de SQL dedicados.
 
 ```scala
 %%spark
@@ -120,6 +120,6 @@ df.write.sqlanalytics("SQLDB1.dbo.PassengerCountStats", Constants.INTERNAL )
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Análisis de datos con SQL a petición](get-started-analyze-sql-on-demand.md)
+> [Análisis de datos con un grupo de SQL sin servidor](get-started-analyze-sql-on-demand.md)
 
 

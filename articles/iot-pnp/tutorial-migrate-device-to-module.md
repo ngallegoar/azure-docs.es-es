@@ -1,18 +1,18 @@
 ---
-title: Conexión a un módulo IoT Plug and Play genérico | Microsoft Docs
-description: Use un ejemplo en C# de código de dispositivo IoT Plug and Play en un módulo genérico.
+title: 'Tutorial: Conexión de un módulo de Azure IoT Plug and Play genérico | Microsoft Docs'
+description: 'Tutorial: Uso de código de un dispositivo de ejemplo de C# de IoT Plug and Play en un módulo genérico.'
 author: ericmitt
 ms.author: ericmitt
 ms.date: 9/22/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: d425152f83821e1d157065370bd02e2d990ec876
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: dc86340026ec7b85afc9e5208ea8ef8c32d8bac6
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426936"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421471"
 ---
 # <a name="tutorial-connect-an-iot-plug-and-play-module-c"></a>Tutorial: Conexión de un módulo IoT Plug and Play (C#)
 
@@ -33,7 +33,7 @@ Para completar este tutorial en Windows, instale el siguiente software en el ent
 
 Use la herramienta del explorador de Azure IoT para agregar un nuevo dispositivo denominado **my-module-device** en el centro de IoT.
 
-Agregue un módulo denominado **my-module** a **my-module-device** :
+Agregue un módulo denominado **my-module** a **my-module-device**:
 
 1. En la herramienta del explorador de Azure IoT, vaya hasta el dispositivo **my-module-device**.
 
@@ -187,7 +187,7 @@ Los SDK del servicio le permiten recuperar el id. de modelo de los dispositivos 
     CloudToDeviceMethodResult result = await s_serviceClient.InvokeDeviceMethodAsync(s_deviceId, "my-module", commandInvocation);
     ```
 
-1. En el archivo *Program.cs* , modifique la línea que recupera el dispositivo gemelo de la manera siguiente:
+1. En el archivo *Program.cs*, modifique la línea que recupera el dispositivo gemelo de la manera siguiente:
 
     ```csharp
     Twin twin = await s_registryManager.GetTwinAsync(s_deviceId, "my-module");

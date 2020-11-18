@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/31/2020
-ms.openlocfilehash: aa4ddfc773e2226fe155b563c237f1c533d52311
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 23173432db9364f25901e6e9b285d390c6a63a34
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127035"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94426552"
 ---
 # <a name="tutorial-create-an-iot-edge-instance-for-video-analytics-linux-vm"></a>Tutorial: Creación de una instancia de IoT Edge para análisis de vídeo (máquina virtual Linux)
 
@@ -55,7 +55,7 @@ Utilice la información de la tabla siguiente para completar el formulario de **
 | Nombre de usuario administrador | *AzureUser* |
 | Contraseña de administrador | Escriba una contraseña. Tome nota de la contraseña en el archivo *scratchpad.txt*, la utilizará más adelante. |
 | El identificador de ámbito | **Identificador de ámbito** que anotó en el archivo *scratchpad.txt* en el tutorial anterior al agregar el dispositivo de puerta de enlace. |
-| Id. de dispositivo | *lva-gateway-001*: dispositivo de puerta de enlace que creó en el tutorial anterior. |
+| Id. de dispositivo | *gateway-001*: dispositivo de puerta de enlace que creó en el tutorial anterior. |
 | Clave de dispositivo | Clave principal del dispositivo que anotó en el archivo *scratchpad.txt* en el tutorial anterior al agregar el dispositivo de puerta de enlace. |
 | Host de la aplicación de IoT Central | **Dirección URL de la aplicación** que anotó en el archivo *scratchpad.txt* en el tutorial anterior. Por ejemplo, *traders.azureiotcentral.com*. |
 | Token de la API de la aplicación de IoT Central | Token de la API del operador que anotó en el tutorial anterior. |

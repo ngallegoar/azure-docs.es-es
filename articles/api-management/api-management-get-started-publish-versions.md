@@ -1,28 +1,24 @@
 ---
-title: Publicar versiones de la API con Azure API Management | Microsoft Docs
-description: Siga los pasos de este tutorial para obtener información sobre cómo publicar varias versiones en API Management.
-services: api-management
-documentationcenter: ''
+title: 'Tutorial: Publicación de versiones de la API con Azure API Management'
+description: Siga los pasos de este tutorial para aprender a publicar varias versiones de la API en API Management.
 author: vladvino
-manager: cfowler
-editor: ''
 ms.service: api-management
-ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 11/04/2019
+ms.date: 10/30/2020
 ms.author: apimpm
-ms.openlocfilehash: b683910180e597cb8cbfa642bb2d9ac3200b42ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e6afa26c65f097683a5b471dc34621cca38c01e6
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86255037"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93377436"
 ---
-# <a name="publish-multiple-versions-of-your-api"></a>Publicación de varias versiones de la API 
+# <a name="tutorial-publish-multiple-versions-of-your-api"></a>Tutorial: Publicación de varias versiones de la API 
 
-A veces resulta poco práctico que todos los que llaman a la API usen exactamente la misma versión. Si alguien que llama a una API quiere actualizarla a una versión posterior, querrá hacerlo con un método que sea fácil de comprender. Esto se puede hacer en Azure API Management con las **versiones**. Para más información, consulte [Versions & revisions](https://azure.microsoft.com/blog/versions-revisions/) (Versiones y revisiones).
+A veces resulta poco práctico que todos los autores de llamadas que llaman a la API usen exactamente la misma versión. Si los autores de llamadas quieren actualizarla a una versión posterior, querrán hacerlo con un enfoque que sea fácil de comprender. Como se muestra en este tutorial, es posible proporcionar varias *versiones* en Azure API Management. 
+
+Para obtener información general, consulte [Versiones y revisiones](https://azure.microsoft.com/blog/versions-revisions/).
 
 En este tutorial, aprenderá a:
 
@@ -32,7 +28,7 @@ En este tutorial, aprenderá a:
 > * Agregar la versión a un producto
 > * Examinar el portal para desarrolladores para ver la versión
 
-![Versión que se muestra en el portal para desarrolladores](media/api-management-getstarted-publish-versions/azure_portal.PNG)
+:::image type="content" source="media/api-management-getstarted-publish-versions/azure-portal.png" alt-text="Versión que se muestra en Azure portal":::
 
 ## <a name="prerequisites"></a>Prerequisites
 
@@ -42,66 +38,69 @@ En este tutorial, aprenderá a:
 
 ## <a name="add-a-new-version"></a>Agregar una nueva versión
 
-![Menú contextual de la API: agregar versión](media/api-management-getstarted-publish-versions/AddVersionMenu.png)
+1. Vaya a la instancia de API Management en [Azure Portal](https://portal.azure.com).
+1. Seleccione **API**.
+1. Seleccione **Demo Conference API** en la lista de API. 
+1. Seleccione el menú contextual ( **...** ) junto a **Demo Conference API**.
+1. Seleccione **Agregar versión**.
 
-1. Seleccione **Demo Conference API** en la lista de API.
-2. Seleccione el menú contextual ( **...** ) junto a ella.
-3. Seleccione **+ Agregar versión**.
+:::image type="content" source="media/api-management-getstarted-publish-versions/add-version-menu.png" alt-text="Menú contextual de la API: agregar versión":::
+
 
 > [!TIP]
-> Las versiones también se pueden habilitar al crear una API desde cero (para ello, seleccione **¿Definir versión de esta API?** en la pantalla **Agregar API**).
+> También se pueden habilitar las versiones cuando se crea una nueva API. En la pantalla **Agregar API**, seleccione **¿Definir versión de esta API?** .
 
 ## <a name="choose-a-versioning-scheme"></a>Elegir un esquema de control de versiones
 
-Con Azure API Management, puede elegir la forma en la que quiere que quienes llamen a una API puedan especificar qué versión de dicha API quieren. Especifique qué versión de la API va a usar, para lo que seleccionará un **esquema de control de versiones**. Este esquema puede ser una **ruta de acceso, un encabezado o una cadena de consulta**. En el ejemplo siguiente, la ruta de acceso se utiliza para seleccionar el esquema de control de versiones.
+En Azure API Management, elija cómo los autores de llamadas especifican la versión de la API seleccionando un *esquema de control de versiones*: **ruta, encabezado** o **cadena de consulta**. En el ejemplo siguiente, la *ruta de acceso* se utiliza como esquema del control de versiones.
 
-![Pantalla Agregar versión](media/api-management-getstarted-publish-versions/AddVersion.PNG)
+Escriba los valores de la tabla siguiente. Luego, seleccione **Crear** para crear la versión.
 
-1. Deje **ruta de acceso** seleccionada como **esquema de control de versiones**.
-2. Escriba **demo-conference-api-v1** en el campo **Nombre**.
+:::image type="content" source="media/api-management-getstarted-publish-versions/add-version.png" alt-text="Ventana Agregar versión":::
 
-    > [!NOTE]
-    > Una versión, de hecho, es una nueva API que se basa en la revisión de otra API. **Nombre** es el nuevo nombre de la API y debe ser único en la instancia de API Management.
 
-3. Escriba **v1** en el campo **Identificador de la versión**.
 
-    > [!TIP]
-    > Si selecciona **encabezado** o **cadena de consulta** como esquema de control de versiones, debe proporcionar un valor más: el nombre del parámetro de encabezado o de cadena de consulta.
+|Configuración   |Value  |Descripción  |
+|---------|---------|---------|
+|**Nombre**     |  *demo-conference-api-v1*       |  Nombre único de su instancia de API Management.<br/><br/>Dado que una versión es en realidad una nueva API basada en una [revisión](api-management-get-started-revise-api.md) de la API, este valor es el nombre de la nueva API.   |
+|**Esquema de control de versiones**     |  **Path**       |  La forma en que los autores de llamadas especifican la versión de la API.     |
+|**Identificador de versión**     |  *v1*       |  Indicador específico del esquema de la versión. Para **Ruta de acceso**, el sufijo de la ruta de acceso de la URL de la API. <br/><br/> Si selecciona **Encabezado** o **Cadena de consulta**, proporcione un valor más: el nombre del parámetro de encabezado o de la cadena de consulta.<br/><br/> Se muestra un ejemplo de uso.        |
+|**Productos**     |  **Sin límite**       |  Opcionalmente, uno o varios productos a los que está asociada la versión de la API. Para publicar la API, debe asociarla a un producto. También puede [agregar la versión a un producto](#add-the-version-to-a-product) más adelante.      |
 
-4. Seleccione **Crear** para configurar la nueva versión.
-5. Debajo de la directiva **Demo Conference API** en la lista de API, ahora verá dos API distintas: **Original** y **v1**.
+Después de crear la versión, ahora aparece debajo de **Demo Conference API** en la lista de API. Ahora verá dos API: **Original** y **v1**.
 
-    ![Versiones que aparecen en una API en Azure Portal](media/api-management-getstarted-publish-versions/VersionList.PNG)
+![Versiones que aparecen en una API en Azure Portal](media/api-management-getstarted-publish-versions/version-list.png)
 
-    > [!Note]
-    > Si agrega una versión a una API sin control de versiones, se creará automáticamente un **Original** (que responde a la dirección URL predeterminada). Esto garantiza que quienes estén llamando en ese momento no sufran ninguna interrupción a causa del proceso de adición de la versión. Si crea una API con las versiones habilitadas desde el principio, no se creará un original.
+Ahora puede modificar y configurar **v1** como una API independiente de **Original**. Los cambios en una versión no afectan a otra.
 
-6. Ahora puede modificar y configurar **v1** como una API independiente de **Original**. Los cambios en una versión no afectan a otra.
+> [!Note]
+> Si agrega una versión a una API sin control de versiones, se creará automáticamente una API **Original**. Esta versión responde en la dirección URL predeterminada. La creación de una versión Original garantiza que los autores de llamadas no sufran ninguna interrupción a causa del proceso de adición de la versión. Si crea una API con las versiones habilitadas desde el principio, no se creará un original.
 
 ## <a name="add-the-version-to-a-product"></a>Agregar la versión a un producto
 
-Para que quienes realizan las llamadas vean la versión nueva, debe agregarse a un **producto**.
+Para que quienes realizan las llamadas vean la versión nueva, debe agregarse a un *producto*. Si aún no ha agregado la versión a un producto, puede hacerlo en cualquier momento.
 
-![Productos de API Management](media/api-management-getstarted-publish-versions/08-AddMultipleVersions-03-AddVersionToProduct.png)
+Por ejemplo, para agregar la versión al producto **Ilimitado**:
+1. Vaya a la instancia de API Management en Azure Portal.
+1. Seleccione **Productos** > **Ilimitado** > **API** >  **+ Agregar**.
+1. Seleccione **Demo Conference API**, versión **v1**.
+1. Haga clic en **Seleccionar**.
 
-1. Seleccione **Productos** en la página del modelo de implementación clásica.
-2. Seleccione **Ilimitado**.
-3. Seleccione **API**.
-4. Seleccione **Agregar**.
-5. Seleccione **Demo Conference API, versión v1**.
-6. Haga clic en **Seleccionar**.
+:::image type="content" source="media/api-management-getstarted-publish-versions/08-add-multiple-versions-03-add-version-product.png" alt-text="Agregar versión al producto":::
 
 ## <a name="browse-the-developer-portal-to-see-the-version"></a>Examinar el portal para desarrolladores para ver la versión
 
+Si ha probado el [portal para desarrolladores](api-management-howto-developer-portal-customize.md), puede ver las versiones de la API allí.
+
 1. Seleccione **Portal para desarrolladores** en el menú superior.
-2. Seleccione **API** y haga clic en **Demo Conference API**.
+2. Seleccione **API** y, después, **Demo Conference API**.
 3. Debe ver una lista desplegable con varias versiones junto al nombre de la API.
 4. Seleccione **v1**.
 5. Fíjese en la **Dirección URL de la solicitud** de la primera operación de la lista. Refleja que la ruta de acceso de la dirección URL de la API incluye **v1**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, aprenderá a:
+En este tutorial, ha aprendido a:
 
 > [!div class="checklist"]
 > * Agregar una nueva versión a una API existente

@@ -7,12 +7,12 @@ ms.date: 08/10/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: 1437ef8675d0ddc96eb7fc641b3663b66c3ea11b
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: f9bbf6e9d1d932f7225807613b789821c1462932
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93285232"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94441858"
 ---
 # <a name="troubleshooting-azure-key-vault-access-policy-issues"></a>Solución de problemas de las directivas de acceso de Azure Key Vault
 
@@ -53,7 +53,7 @@ La aplicación también necesita al menos un rol de Administración de identidad
 
 Actualmente, al volver a implementar Key Vault, eliminará todas las directivas de acceso en Key Vault y las reemplazará por la directiva de acceso de la plantilla de ARM. No hay ninguna opción incremental para las directivas de acceso de Key Vault. Para conservar las directivas de acceso en Key Vault, necesita leer las directivas de acceso existentes en Key Vault y rellenar la plantilla de ARM con esas directivas a fin de evitar interrupciones en el acceso.
 
-Otra opción que puede ayudarle en esta situación es usar roles de RBAC como alternativa a las directivas de acceso. Con RBAC, puede volver a implementar el almacén de claves sin necesidad de especificar la directiva de nuevo. Para más información acerca de esta solución, vaya [aquí](./rbac-guide.md).
+Otra opción que puede ayudar en este escenario es usar RBAC de Azure y roles como alternativa a las directivas de acceso. Con RBAC de Azure, puede volver a implementar el almacén de claves sin especificar la directiva de nuevo. Para más información acerca de esta solución, vaya [aquí](./rbac-guide.md).
 
 ### <a name="recommended-troubleshooting-steps-for-following-error-types"></a>Pasos de solución de problemas recomendados para los tipos de errores
 

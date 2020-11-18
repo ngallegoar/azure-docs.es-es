@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/20/2020
+ms.date: 10/28/2020
 ms.author: jeedes
-ms.openlocfilehash: a5e7e46041e339646e4813a4cce61046f2a57e5e
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 2102ea1ef4afb6d7f3ce96e4cd7ead0e7af08bf0
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92319065"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129446"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-8x8"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con 8x8
 
@@ -26,9 +26,7 @@ En este tutorial, aprenderá a integrar 8x8 con Azure Active Directory (Azure 
 * Permitir que los usuarios inicien sesión automáticamente en 8x8 con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -44,8 +42,6 @@ En este tutorial, va a configurar y probar el inicio de sesión único de Azure�
 
 * 8x8 admite el inicio de sesión único iniciado por **SP e IDP**.
 
-* Una vez configurado 8x8, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
-
 > [!NOTE]
 > El identificador de esta aplicación es un valor de cadena fijo, por lo que solo se puede configurar una instancia en un inquilino.
 
@@ -53,7 +49,7 @@ En este tutorial, va a configurar y probar el inicio de sesión único de Azure�
 
 Para configurar la integración de 8x8 en Azure AD, será preciso agregar 8x8 desde la galería a la lista de aplicaciones SaaS administradas.
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta personal, profesional o educativa de Microsoft.
+1. Inicie sesión en Azure Portal con una cuenta personal, profesional o educativa de Microsoft.
 1. En el panel de navegación de la izquierda, seleccione el servicio **Azure Active Directory**.
 1. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones**.
 1. Para agregar una nueva aplicación, seleccione **Nueva aplicación**.
@@ -64,7 +60,7 @@ Para configurar la integración de 8x8 en Azure AD, será preciso agregar 8x8 d
 
 Configure y pruebe el inicio de sesión único de Azure AD con 8x8 mediante un usuario de prueba llamado **B.Simon**. Para que el inicio de sesión único funcione, es preciso establecer una relación de vinculación entre un usuario de Azure AD y el usuario relacionado de 8x8.
 
-Para configurar y probar el inicio de sesión único de Azure AD con 8x8, es preciso completar los siguientes bloques de creación:
+Para configurar y probar el inicio de sesión único de Azure AD con 8x8, lleve a cabo los siguientes pasos:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
     1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
@@ -77,7 +73,7 @@ Para configurar y probar el inicio de sesión único de Azure AD con 8x8, es pr
 
 Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azure Portal.
 
-1. En [Azure Portal](https://portal.azure.com/), en la página de integración de aplicaciones de **8x8**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
+1. En Azure Portal, en la página de integración de aplicaciones de **8x8**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
 1. En la página **Seleccione un método de inicio de sesión único**, elija **SAML**.
 1. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono de edición o con forma de lápiz para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración.
 
@@ -130,10 +126,10 @@ En esta sección, va a permitir que B.Simon acceda a 8x8 mediante el inicio de s
 
 La siguiente parte del tutorial depende del tipo de suscripción que tenga de 8x8.
 
-* En el caso de los clientes de 8x8 Editions y X Series que utilizan Configuration Manager para la administración, consulte [Configuración de Configuration Manager de 8x8](#configure-8x8-configuration-manager).
+* En el caso de los clientes de 8x8 Editions y X Series que utilizan Configuration Manager para la administración, consulte [Configuración de la consola de administración de 8x8](#configure-8x8-admin-console).
 * En el caso de los clientes de Virtual Office que utilizan Account Manager para la administración, consulte [Configuración de Account Manager de 8x8](#configure-8x8-account-manager).
 
-### <a name="configure-8x8-configuration-manager"></a>Configuración de Configuration Manager de 8x8
+### <a name="configure-8x8-admin-console"></a>Configuración de la consola de administración de 8x8
 
 1. Para automatizar la configuración en 8x8, debe instalar la **extensión del explorador de inicio de sesión seguro de Mis aplicaciones**. Para ello, haga clic en **Instalar la extensión**.
 
@@ -143,7 +139,7 @@ La siguiente parte del tutorial depende del tipo de suscripción que tenga de 8x
 
     ![Configuración](common/setup-sso.png)
 
-1. Si desea configurar 8x8 manualmente, inicie sesión en el [administrador de configuración](https://vo-cm.8x8.com/) de 8x8 como administrador.
+1. Si desea configurar 8x8 manualmente, inicie sesión en la [consola de administración](https://admin.8x8.com/) de 8x8 como administrador.
 
 1. En la página principal, haga clic en **Identity Management** (Administración de identidades).
 
@@ -153,9 +149,9 @@ La siguiente parte del tutorial depende del tipo de suscripción que tenga de 8x
 
     ![Captura de pantalla que resalta las opciones de inicio de sesión único (SSO) y Microsoft Azure AD.](./media/8x8virtualoffice-tutorial/configure2.png)
 
-1. Copie las tres direcciones URL y el certificado de firma de la página **Configurar inicio de sesión único con SAML** de Azure AD en la sección **Microsoft Azure AD SAML Settings** (Configuración de SAML de Microsoft Azure AD) de Configuration Manager de 8x8.
+1. Copie las tres direcciones URL y el certificado de firma de la página **Configurar inicio de sesión único con SAML** de Azure AD en la sección **Microsoft Azure AD SAML Settings** (Configuración de SAML de Microsoft Azure AD) de la consola de administración de 8x8.
 
-    ![8x8 Configuration Manager](./media/8x8virtualoffice-tutorial/configure3.png)
+    ![Consola de administración de 8x8](./media/8x8virtualoffice-tutorial/configure3.png)
 
     a. Copie **Dirección URL de inicio de sesión** en **IDP Login URL** (Dirección URL de inicio de sesión de IDP).
 
@@ -211,20 +207,21 @@ En esta sección, creará un usuario llamado Britta Simon en 8x8. Trabaje con el
 
 ## <a name="test-sso"></a>Prueba de SSO
 
-En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
+En esta sección, probará la configuración de inicio de sesión único de Azure AD con las siguientes opciones. 
 
-Al hacer clic en el icono de 8x8 en el panel de acceso, debería iniciar sesión automáticamente en la instancia de 8x8 para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/my-apps-portal-end-user-access.md).
+#### <a name="sp-initiated"></a>Iniciado por SP:
 
-## <a name="additional-resources"></a>Recursos adicionales
+* Haga clic en **Probar esta aplicación** en Azure Portal. Esto le redirigirá a la dirección URL de inicio de sesión de 8x8, donde puede iniciar el flujo de inicio de sesión.  
 
-- [Lista de tutoriales acerca de cómo integrar aplicaciones SaaS con Azure Active Directory](./tutorial-list.md)
+* Vaya directamente a la dirección URL de inicio de sesión de 8x8 e inicie el flujo de inicio de sesión desde allí.
 
-- [¿Qué es el acceso a las aplicaciones y el inicio de sesión único con Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
+#### <a name="idp-initiated"></a>Iniciado por IDP:
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](../conditional-access/overview.md)
+* Haga clic en **Probar esta aplicación** en Azure Portal; debería iniciar sesión automáticamente en la instancia de 8x8 para la que configuró el inicio de sesión único. 
 
-- [Prueba de 8x8 con Azure AD](https://aad.portal.azure.com/)
+También puede usar el Panel de acceso de Microsoft para probar la aplicación en cualquier modo. Al hacer clic en el icono de 8x8 en el Panel de acceso, si está configurado en modo SP, se le redirigirá a la página de inicio de sesión de la aplicación para iniciar el flujo de inicio de sesión y, si está configurado en modo IDP, debería iniciar sesión automáticamente en la instancia de 8x8 para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-- [¿Qué es el control de sesiones en Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
 
-- [Protección de 8x8 con controles y visibilidad avanzados](/cloud-app-security/proxy-intro-aad)
+## <a name="next-steps"></a>Pasos siguientes
+
+Una vez configurado 8x8, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

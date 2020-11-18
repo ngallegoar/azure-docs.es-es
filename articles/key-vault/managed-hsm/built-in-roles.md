@@ -8,16 +8,16 @@ ms.subservice: managed-hsm
 ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: ambapat
-ms.openlocfilehash: 6b39c1d6fe2e84055e7c94dde076514d04a24f36
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a5ecd8f13a3255a565168f62f358a6a38e3cbab4
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90992439"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445224"
 ---
 # <a name="managed-hsm-local-rbac-built-in-roles"></a>Roles integrados de RBAC local de Managed HSM
 
-El control de acceso basado en roles (RBAC) local de Managed HSM tiene varios roles integrados que se pueden asignar a usuarios, entidades de servicio, grupos e identidades administradas. Para permitir que una entidad de seguridad realice una operación, debe asignarle un rol que le conceda permiso para llevar a cabo esa operación. Todos estos roles y operaciones solo le permiten administrar el permiso de operaciones del plano de datos. Para administrar permisos del plano de control para el recurso de HSM administrado (por ejemplo, para crear un nuevo HSM administrado o actualizar, trasladar o eliminar uno existente), debe usar el [control de acceso basado en rol (RBAC) de Azure](../../role-based-access-control/overview.md).
+El control de acceso basado en roles (RBAC) local de Managed HSM tiene varios roles integrados que se pueden asignar a usuarios, entidades de servicio, grupos e identidades administradas. Para permitir que una entidad de seguridad realice una operación, debe asignarle un rol que le conceda permiso para llevar a cabo esa operación. Todos estos roles y operaciones solo le permiten administrar el permiso de operaciones del plano de datos. Para administrar los permisos de plano de control del recurso de HSM administrado (por ejemplo, para crear un HSM administrado o actualizar, trasladar o eliminar uno existente), debe usar el [control de acceso basado en rol (Azure RBAC)](../../role-based-access-control/overview.md).
 
 ## <a name="built-in-roles"></a>Roles integrados
 
@@ -77,5 +77,5 @@ El control de acceso basado en roles (RBAC) local de Managed HSM tiene varios ro
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Obtenga información general del [control de acceso basado en roles (RBAC) de Azure](../../role-based-access-control/overview.md).
+- Consulte la información general sobre el [control de acceso basado en rol de Azure (Azure RBAC)](../../role-based-access-control/overview.md).
 - Consulte un tutorial sobre la [Administración de roles de HSM administrado](role-management.md).

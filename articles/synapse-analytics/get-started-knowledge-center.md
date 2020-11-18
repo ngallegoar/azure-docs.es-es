@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 09/15/2020
-ms.openlocfilehash: dd055eecaef00a2f3b555034f44f3c04684a1722
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 461fabd0dd9948e8967ac61919f77e3e23a981b9
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92171860"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94331964"
 ---
 # <a name="explore-the-synapse-knowledge-center"></a>Exploración del Centro de conocimientos de Synapse
 
@@ -37,9 +37,9 @@ El **Centro de conocimientos** le permite hacer tres cosas:
 * **Examinar ejemplo disponible**. Esta opción le permite vincular conjuntos de datos de ejemplo y agregar código de ejemplo en forma de scripts de SQL, cuadernos y canalizaciones.
 * **Visita por Synapse Studio**. Esta opción le permite realizar una breve visita por las partes básicas de Synapse Studio. Resulta útil si nunca ha usado Synapse Studio.
 
-## <a name="exploring-blob-storage-with-sql-on-demand"></a>Exploración de Blob Storage con SQL a petición
+## <a name="exploring-blob-storage-with-serverless-sql-pool"></a>Exploración del almacenamiento de blobs con un grupo de SQL sin servidor
 
-1. En el **Centro de conocimientos**, haga clic en **Usar ejemplos inmediatamente**.
+1. Vaya al **Centro de conocimientos**, haga clic en **Usar ejemplos inmediatamente**.
 1. Seleccione **Consultar datos con SQL**. 
 1. Haga clic en **Usar ejemplos inmediatamente**.
 1. Se creará un nuevo script de SQL.
@@ -47,7 +47,7 @@ El **Centro de conocimientos** le permite hacer tres cosas:
 1. Haga clic en Ejecutar. Se ejecutará el texto seleccionado.
 
 ## <a name="loading-more-nyc-taxi-data"></a>Carga de más datos de taxis de Nueva York
-1. En el **Centro de conocimientos**, haga clic en **Examinar ejemplos disponibles**. 
+1. Vaya al **Centro de conocimientos**, haga clic en **Examinar ejemplos disponibles**. 
 1. Seleccione la pestaña **Scripts de SQL** en la parte superior.
 1. Seleccione **Carga de conjunto de datos de taxis de Nueva York**
 1. En **Entradas**, elija **Seleccione un grupo existente** y seleccione **SQLDB1**.
@@ -60,4 +60,4 @@ El **Centro de conocimientos** le permite hacer tres cosas:
 
 * [Introducción a Azure Synapse Analytics](get-started.md)
 * [Creación de un área de trabajo](quickstart-create-workspace.md)
-* [Uso de SQL a petición](quickstart-sql-on-demand.md)
+* [Uso de grupos de SQL sin servidor](quickstart-sql-on-demand.md)

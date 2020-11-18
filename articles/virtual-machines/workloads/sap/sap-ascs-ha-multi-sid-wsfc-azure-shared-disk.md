@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 08/12/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c8116f3e00d13c0bd1e5f075a7fbe3264f337079
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: df611e01fefacd22f4dc026a819d4c71ede6e7e3
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91970408"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94686096"
 ---
 # <a name="sap-ascsscs-instance-multi-sid-high-availability-with-windows-server-failover-clustering-and-azure-shared-disk"></a>Alta disponibilidad de varios SID de una instancia de ASCS/SCS de SAP con clústeres de conmutación por error de Windows Server y disco compartido de Azure
 
@@ -35,12 +35,12 @@ En este artículo nos centraremos en cómo pasar de una sola instalación de ASC
 Actualmente, puede usar discos SSD Premium de Azure como discos compartidos de Azure para la instancia de ASCS/SCS de SAP. Existen las limitaciones siguientes:
 
 -  No se admite el [disco Ultra de Azure](../../disks-types.md#ultra-disk) como disco compartido de Azure para cargas de trabajo de SAP. Actualmente no es posible colocar máquinas virtuales de Azure, con disco Ultra de Azure, en el conjunto de disponibilidad.
--  El [disco compartido de Azure](../../windows/disks-shared.md) con discos SSD Premium solo se admite con máquinas virtuales en el conjunto de disponibilidad. No se admite en la implementación de Availability Zones. 
+-  El [disco compartido de Azure](../../disks-shared.md) con discos SSD Premium solo se admite con máquinas virtuales en el conjunto de disponibilidad. No se admite en la implementación de Availability Zones. 
 -  El valor de disco compartido de Azure [maxShares](../../disks-shared-enable.md?tabs=azure-cli#disk-sizes) determina cuántos nodos de clúster pueden usar el disco compartido. Normalmente, para la instancia de ASCS/SCS de SAP, se configuran dos nodos en el clúster de conmutación por error de Windows, por lo que el valor de `maxShares` debe establecerse en dos.
 -  Todas las máquinas virtuales de clúster de ASCS/SCS de SAP deben implementarse en el mismo [grupo con ubicación por proximidad de Azure](../../windows/proximity-placement-groups.md).   
    Aunque puede implementar máquinas virtuales de clúster de Windows en un conjunto de disponibilidad con disco compartido de Azure sin PPG, PPG garantizará una proximidad física cercana de los discos compartidos de Azure y las máquinas virtuales del clúster, con lo que se conseguirá una menor latencia entre las máquinas virtuales y la capa de almacenamiento.    
 
-Para más información sobre las limitaciones del disco compartido de Azure, repase minuciosamente la sección [Limitaciones](../../linux/disks-shared.md#limitations) de la documentación del disco compartido de Azure.  
+Para más información sobre las limitaciones del disco compartido de Azure, repase minuciosamente la sección [Limitaciones](../../disks-shared.md#limitations) de la documentación del disco compartido de Azure.  
 
 > [!IMPORTANT]
 > Al implementar un clúster de conmutación por error de Windows de ASCS/SCS de SAP con disco compartido de Azure, tenga en cuenta que la implementación funcionará con un solo disco compartido en un clúster de almacenamiento. La instancia de ASCS/SCS de SAP se verá afectada, en el caso de problemas con el clúster de almacenamiento, donde se implementa el disco compartido de Azure.  
@@ -121,17 +121,17 @@ Tendrá que agregar la configuración al equilibrador de carga existente para la
 - Configuración de back-end  
     Ya en vigor: las máquinas virtuales ya se han agregado al grupo de back-end, mientras se configura para el SID de SAP **PR1**
 - Puerto de sondeo
-    - Puerto 620**nr** [**62002**] Deje la opción predeterminada para Protocolo (TCP), Intervalo (5), Umbral incorrecto (2)
+    - Puerto 620 **nr** [**62002**] Deje la opción predeterminada para Protocolo (TCP), Intervalo (5), Umbral incorrecto (2)
 - Reglas de equilibrio de carga.
     - Si usa Standard Load Balancer, seleccione Puertos HA
     - Si usa Basic Load Balancer, cree reglas de equilibrio de carga para los puertos siguientes
-        - 32**nr** TCP [**3202**]
-        - 36**nr** TCP [**3602**]
-        - 39**nr** TCP [**3902**]
-        - 81**nr** TCP [**8102**]
-        - 5**nr**13 TCP [**50213**]
-        - 5**nr**14 TCP [**50214**]
-        - 5**nr**16 TCP [**50216**]
+        - 32 **nr** TCP [**3202**]
+        - 36 **nr** TCP [**3602**]
+        - 39 **nr** TCP [**3902**]
+        - 81 **nr** TCP [**8102**]
+        - 5 **nr** 13 TCP [**50213**]
+        - 5 **nr** 14 TCP [**50214**]
+        - 5 **nr** 16 TCP [**50216**]
         - Asocie con la IP de front-end de ASCS **PR2**, el sondeo de estado y el grupo de back-end existente.  
 
     - Asegúrese de que el tiempo de expiración de inactividad (minutos) esté establecido en el valor máximo de 30 y que la dirección IP flotante (Direct Server Return) esté habilitada.
@@ -146,16 +146,16 @@ Como Enqueue Replication Server 2 (ERS2) también es un clúster, la dirección 
   Las máquinas virtuales ya se han agregado al grupo de back-end de ILB.  
 
 - Nuevo puerto de sondeo
-    - Puerto 621**nr** [**62112**] Deje la opción predeterminada para Protocolo (TCP), Intervalo (5), Umbral incorrecto (2)
+    - Puerto 621 **nr** [**62112**] Deje la opción predeterminada para Protocolo (TCP), Intervalo (5), Umbral incorrecto (2)
 
 - Nuevas reglas de equilibrio de carga
     - Si usa Standard Load Balancer, seleccione Puertos HA
     - Si usa Basic Load Balancer, cree reglas de equilibrio de carga para los puertos siguientes
-        - 32**nr** TCP [**3212**]
-        - 33**nr** TCP [**3312**]
-        - 5**nr**13 TCP [**51212**]
-        - 5**nr**14 TCP [**51212**]
-        - 5**nr**16 TCP [**51212**]
+        - 32 **nr** TCP [**3212**]
+        - 33 **nr** TCP [**3312**]
+        - 5 **nr** 13 TCP [**51212**]
+        - 5 **nr** 14 TCP [**51212**]
+        - 5 **nr** 16 TCP [**51212**]
         - Asocie con la IP de front-end de ERS2 **PR2**, el sondeo de estado y el grupo de back-end existente.  
 
     - Asegúrese de que el tiempo de expiración de inactividad (minutos) esté establecido en el valor máximo de 30, por ejemplo, y que la dirección IP flotante (Direct Server Return) esté habilitada.
@@ -293,7 +293,7 @@ Use la funcionalidad de sondeo del equilibrador de carga interno para que toda l
 Sin embargo, esto no funcionará en algunas configuraciones de clúster porque solo hay una instancia activa. La otra instancia es pasiva y no puede aceptar nada de la carga de trabajo. Una funcionalidad de sondeo ayuda cuando Azure Internal Load Balancer detecta qué instancia está activa y solo tiene como destino la instancia activa.  
 
 > [!IMPORTANT]
-> En esta configuración de ejemplo, **ProbePort** se establece en 620**Nr**. En el caso de la instancia de ASCS de SAP con el número **02** es 620**02**.
+> En esta configuración de ejemplo, **ProbePort** se establece en 620 **Nr**. En el caso de la instancia de ASCS de SAP con el número **02** es 620 **02**.
 > Tendrá que ajustar la configuración para que coincida con los números de instancia de SAP y el SID de SAP.
 
 Para agregar un puerto de sondeo, ejecute este módulo de PowerShell en una de las máquinas virtuales del clúster:

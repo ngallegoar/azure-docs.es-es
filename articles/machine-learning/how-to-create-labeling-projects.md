@@ -1,19 +1,19 @@
 ---
 title: Creación de un proyecto de etiquetado de datos
 titleSuffix: Azure Machine Learning
-description: Aprenda a crear y ejecutar proyectos para etiquetar los datos del aprendizaje automático.  Las herramientas incluyen el etiquetado con asistencia de ML o el etiquetado con intervención humana para ayudar con la tarea.
+description: Aprenda a crear y ejecutar proyectos para etiquetar los datos del aprendizaje automático.  Para ayudar con la tarea, use el etiquetado asistido por ML o el etiquetado con intervención humana.
 author: sdgilley
 ms.author: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
-ms.openlocfilehash: e30140dc23e64bfc733a0a51fa77fe811ba8fbc7
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: da046fd633120944231ee440605367bdb730cbff
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91776126"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94543228"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>Creación de un proyecto de etiquetado de datos y exportación de etiquetas 
 
@@ -189,7 +189,7 @@ Para pausar o reiniciar el proyecto, alterne el estado **En ejecución** en la p
 
 En la pestaña **Panel** se muestra el progreso de la tarea de etiquetado.
 
-:::image type="content" source="media/how-to-create-labeling-projects/labeling-dashboard.png" alt-text="Asistente para la creación de proyectos de etiquetado":::
+:::image type="content" source="media/how-to-create-labeling-projects/labeling-dashboard.png" alt-text="Panel de etiquetado de datos":::
 
 El gráfico de progreso muestra cuántos elementos se han etiquetado y cuántos no todavía.  Es posible que los elementos pendientes:
 
@@ -260,4 +260,4 @@ El archivo COCO se crea en el almacén de blobs predeterminado del área de trab
 
 * [Tutorial: Creación de un proyecto de etiquetado para la clasificación de imágenes](tutorial-labeling.md).
 * Etiquetado de imágenes para la [clasificación de imágenes o la detección de objetos](how-to-label-images.md)
-* Obtenga más información sobre [Azure Machine Learning y Machine Learning Studio (clásico)](compare-azure-ml-to-studio-classic.md)
+* Obtenga más información sobre [Azure Machine Learning y Machine Learning Studio (clásico)](./overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)

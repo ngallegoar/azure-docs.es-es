@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 10/24/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 0ece14fb1a96ac8cc66f4d35d027b9d93d1f800e
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 8b66a8ea3fcc6af62c872a6df6196b97ece2f55a
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92792827"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93240926"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Tutorial: Adición de una aplicación local para el acceso remoto mediante el proxy de aplicación en Azure Active Directory
 
@@ -116,7 +116,7 @@ Permita el acceso a las siguientes direcciones URL:
 | login.windows.net<br>secure.aadcdn.microsoftonline-p.com<br>&ast;.microsoftonline.com<br>&ast;.microsoftonline-p.com<br>&ast;.msauth.net<br>&ast;.msauthimages.net<br>&ast;.msecnd.net<br>&ast;.msftauth.net<br>&ast;.msftauthimages.net<br>&ast;.phonefactor.net<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net<br>ctldl.windowsupdate.com | 443/HTTPS |El conector utiliza estas direcciones URL durante el proceso de registro. |
 | ctldl.windowsupdate.com | 80/HTTP |El conector usa esta dirección URL durante el proceso de registro. |
 
-Puede permitir conexiones a &ast;.msappproxy.net y &ast;.servicebus.windows.net si el firewall o el proxy le permiten configurar listas de DNS permitidos. Si no es así, deberá permitir acceso a [Intervalos IP de Azure y etiquetas de servicio: nube pública](https://www.microsoft.com/download/details.aspx?id=56519). Los intervalos IP se actualizan cada semana.
+Puede permitir conexiones a &ast;.msappproxy.net, &ast;.servicebus.windows.net y las otras direcciones URL anteriores si el firewall o el servidor proxy le permiten configurar listas de DNS permitidos. Si no es así, deberá permitir acceso a [Intervalos IP de Azure y etiquetas de servicio: nube pública](https://www.microsoft.com/download/details.aspx?id=56519). Los intervalos IP se actualizan cada semana.
 
 ## <a name="install-and-register-a-connector"></a>Instalación y registro de un conector
 
@@ -128,7 +128,7 @@ Para instalar el conector:
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/) como administrador de aplicaciones del directorio que usa el proxy de aplicación. Por ejemplo, si el dominio del inquilino es contoso.com, el administrador debe ser admin@contoso.com o cualquier otro alias de administrador de ese dominio.
 1. En la esquina superior derecha, seleccione su nombre de usuario. Compruebe que ha iniciado sesión en el directorio que usa Application Proxy. Si necesita cambiar directorios, seleccione **Cambiar directorio** y elija un directorio que use Application Proxy.
 1. En el panel de navegación izquierdo, seleccione **Azure Active Directory**.
-1. En **Administrar** , seleccione **Application proxy**.
+1. En **Administrar**, seleccione **Application proxy**.
 1. Seleccione **Descargar servicio de conector**.
 
     ![Descargue el servicio de conector para ver los términos del servicio.](./media/application-proxy-add-on-premises-application/application-proxy-download-connector-service.png)
@@ -136,7 +136,7 @@ Para instalar el conector:
 1. Lea los términos del servicio. Cuando esté listo, seleccione **Aceptar las condiciones y descargar**.
 1. En la parte inferior de la ventana, seleccione **Ejecutar** para instalar el conector. Se abre un asistente para la instalación.
 1. Siga las instrucciones del asistente para instalar el servicio. Cuando se le pida que registre el conector en el proxy de aplicación para el inquilino de Azure AD, proporcione las credenciales del administrador de la aplicación.
-    - En Internet Explorer (IE), si la opción **Configuración de seguridad mejorada de IE**  está **activada** , puede que no aparezca la pantalla de registro. Para acceder, siga las instrucciones del mensaje de error. Asegúrese de que la **configuración de seguridad mejorada de Internet Explorer** está **desactivada**.
+    - En Internet Explorer (IE), si la opción **Configuración de seguridad mejorada de IE**  está **activada**, puede que no aparezca la pantalla de registro. Para acceder, siga las instrucciones del mensaje de error. Asegúrese de que la **configuración de seguridad mejorada de Internet Explorer** está **desactivada**.
 
 ### <a name="general-remarks"></a>Observaciones generales
 
@@ -175,7 +175,7 @@ Para confirmar que el conector se ha instalado y registrado correctamente:
 
      ![Servicios de conector del proxy de la aplicación (captura de pantalla)](./media/application-proxy-add-on-premises-application/app_proxy_services.png)
 
-1. Si el estado de los servicios no es **En ejecución** , haga clic con el botón derecho en cada servicio y elija **Iniciar**.
+1. Si el estado de los servicios no es **En ejecución**, haga clic con el botón derecho en cada servicio y elija **Iniciar**.
 
 ## <a name="add-an-on-premises-app-to-azure-ad"></a>Adición de una aplicación local a Azure AD
 
@@ -184,15 +184,15 @@ Ahora que ya ha preparado el entorno y ha instalado un conector, está listo par
 1. Inicie sesión como administrador en [Azure Portal](https://portal.azure.com/).
 2. En el panel de navegación izquierdo, seleccione **Azure Active Directory**.
 3. Seleccione **Aplicaciones empresariales** y, después, **Nueva aplicación**.
-4. En la sección **Aplicaciones locales** , seleccione **Incorporación de una aplicación local**.
-5. En la sección **Agregar aplicación local propia** , proporcione la siguiente información sobre la aplicación:
+4. En la sección **Aplicaciones locales**, seleccione **Incorporación de una aplicación local**.
+5. En la sección **Agregar aplicación local propia**, proporcione la siguiente información sobre la aplicación:
 
     | Campo | Descripción |
     | :---- | :---------- |
     | **Nombre** | El nombre de la aplicación que va a aparecer en Aplicaciones y en Azure Portal. |
     | **Dirección URL interna** | La dirección URL para acceder a la aplicación desde la red privada. Puede especificar una ruta de acceso específica en el servidor back-end para publicar, mientras que el resto del servidor no se publica. De esta forma, puede publicar sitios diferentes en el mismo servidor como aplicaciones diferentes y dar a cada uno un nombre y unas reglas de acceso propios.<br><br>Si publica una ruta de acceso, asegúrese de que incluye todas las imágenes, los scripts y las hojas de estilos necesarias para la aplicación. Por ejemplo, si la aplicación está en https:\//yourapp/app y usa las imágenes que se encuentran en https:\//yourapp/media, debe publicar https:\//yourapp/ como la ruta de acceso. Esta dirección URL interna no tiene que ser la página de inicio que verán los usuarios. Para más información, consulte [Establecimiento de una página principal personalizada para aplicaciones publicadas mediante el proxy de aplicación de Azure AD](application-proxy-configure-custom-home-page.md). |
     | **Dirección URL externa** | La dirección para que los usuarios accedan a la aplicación desde fuera de la red. Si no desea usar el dominio del proxy de aplicación predeterminado, lea sobre el [uso de dominios personalizados en el proxy de aplicación de Azure AD](application-proxy-configure-custom-domain.md).|
-    | **Autenticación previa** | La forma en que el proxy de aplicación verifica los usuarios antes de concederles acceso a la aplicación.<br><br>**Azure Active Directory** : el proxy de la aplicación redirige a los usuarios para que inicien sesión en Azure AD, que autentica sus permisos para el directorio y la aplicación. Se recomienda mantener esta opción como predeterminada, para que pueda aprovechar las características de seguridad de Azure AD como el acceso condicional y Multi-Factor Authentication. Se necesita **Azure Active Directory** para la supervisión de la aplicación con Microsoft Cloud Application Security.<br><br>**Acceso directo** : los usuarios no tienen que autenticarse en Azure AD para tener acceso a la aplicación. Esto no impide que pueda configurar los requisitos de autenticación en el back-end. |
+    | **Autenticación previa** | La forma en que el proxy de aplicación verifica los usuarios antes de concederles acceso a la aplicación.<br><br>**Azure Active Directory**: el proxy de la aplicación redirige a los usuarios para que inicien sesión en Azure AD, que autentica sus permisos para el directorio y la aplicación. Se recomienda mantener esta opción como predeterminada, para que pueda aprovechar las características de seguridad de Azure AD como el acceso condicional y Multi-Factor Authentication. Se necesita **Azure Active Directory** para la supervisión de la aplicación con Microsoft Cloud Application Security.<br><br>**Acceso directo**: los usuarios no tienen que autenticarse en Azure AD para tener acceso a la aplicación. Esto no impide que pueda configurar los requisitos de autenticación en el back-end. |
     | **Grupo de conectores** | Los conectores procesan el acceso remoto a la aplicación, y los grupos de conectores le ayudan a organizar los conectores y las aplicaciones por región, red o finalidad. Si no tiene ningún grupo de conectores creado todavía, la aplicación se asigna al **predeterminado**.<br><br>Si la aplicación usa WebSockets para conectarse, todos los conectores del grupo deben tener la versión 1.5.612.0 o posterior.|
 
 6. Si es necesario, realice otras configuraciones en **Configuración adicional**. En la mayoría de las aplicaciones, debe mantener esta configuración en su estado predeterminado. 
@@ -220,8 +220,8 @@ Para agregar un usuario de prueba:
 
 1. Seleccione **Aplicaciones empresariales** y, después, seleccione la aplicación que desea probar.
 2. Seleccione **Introducción** y, a continuación, seleccione **Assign a user for testing** (Asignar un usuario de prueba).
-3. En **Usuarios y grupos** , seleccione **Agregar usuario**.
-4. En **Agregar asignación** , seleccione **Usuarios y grupos**. Aparece la sección **Usuario y grupos**.
+3. En **Usuarios y grupos**, seleccione **Agregar usuario**.
+4. En **Agregar asignación**, seleccione **Usuarios y grupos**. Aparece la sección **Usuario y grupos**.
 5. Elija la cuenta que desea agregar.
 6. Elija **Seleccionar** y, a continuación, seleccione **Asignar**.
 

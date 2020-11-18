@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Conexión de SQL a petición a Power BI Desktop y creación de informes'
-description: En este tutorial, aprenderá a conectar SQL a petición de Azure Synapse Analytics a Power BI Desktop y a crear informes de demostración basados en una vista.
+title: 'Tutorial: Conexión de un grupo de SQL sin servidor a Power BI Desktop y creación de informes'
+description: En este tutorial, aprenderá a conectar un grupo de SQL sin servidor de Azure Synapse Analytics a Power BI Desktop y a crear informes de demostración basados en una vista.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,14 +9,14 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 5c86825d6dce8681e114ec930add751b6beae085
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dc2b068dd7c5e7fb3f9e3505f93245515d90ae23
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91539561"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93317190"
 ---
-# <a name="tutorial-use-sql-on-demand-with-power-bi-desktop--create-a-report"></a>Tutorial: Uso de SQL a petición con Power BI Desktop y creación de informes
+# <a name="tutorial-use-serverless-sql-pool-with-power-bi-desktop--create-a-report"></a>Tutorial: Uso de un grupo de SQL sin servidor con Power BI Desktop y creación de un informe
 
 En este tutorial, aprenderá a:
 
@@ -24,7 +24,7 @@ En este tutorial, aprenderá a:
 >
 > - Crear una base de datos de demostración
 > - Crear una vista usada para el informe
-> - Conectar Power BI Desktop a SQL a petición
+> - Conectar Power BI Desktop a un grupo de SQL sin servidor
 > - Crear un informe basado en el conjunto de datos
 
 ## <a name="prerequisites"></a>Requisitos previos
@@ -42,8 +42,8 @@ Valores de estos parámetros:
 
 | Parámetro                                 | Descripción                                                   |
 | ----------------------------------------- | ------------------------------------------------------------- |
-| Dirección de un punto de conexión del servicio de SQL a petición.    | Se usa como nombre de servidor.                                   |
-| Región de punto de conexión del servicio de SQL a petición.     | Se utiliza para determinar el almacenamiento usado en los ejemplos. |
+| Dirección del punto de conexión de servicio del grupo de SQL sin servidor    | Se usa como nombre de servidor.                                   |
+| Región del punto de conexión de servicio del grupo de SQL sin servidor     | Se utiliza para determinar el almacenamiento usado en los ejemplos. |
 | Nombre de usuario y contraseña para el acceso al punto de conexión. | Se usa para acceder al punto de conexión.                               |
 | La base de datos que se va a usar para crear vistas.     | La base de datos utilizada como punto de partida en los ejemplos.       |
 
@@ -65,7 +65,7 @@ GO
 
 ## <a name="2---create-data-source"></a>2\. Creación de un origen de datos
 
-Se necesita un origen de datos para que el servicio SQL On-Demand acceda a los archivos del almacenamiento. Cree el origen de datos para una cuenta de almacenamiento que se encuentre en la misma región que el punto de conexión. Aunque SQL a petición puede acceder a las cuentas de almacenamiento de distintas regiones, tener el almacenamiento y el punto de conexión en la misma región proporciona un mejor rendimiento.
+Se necesita un origen de datos para que el servicio grupo de SQL sin servidor acceda a los archivos del almacenamiento. Cree el origen de datos para una cuenta de almacenamiento que se encuentre en la misma región que el punto de conexión. Aunque el grupo de SQL sin servidor puede acceder a las cuentas de almacenamiento de distintas regiones, tener el almacenamiento y el punto de conexión en la misma región proporciona un mejor rendimiento.
 
 Para crear el origen de datos, ejecute el siguiente script de Transact-SQL (T-SQL):
 

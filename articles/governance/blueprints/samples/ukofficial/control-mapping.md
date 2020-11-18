@@ -1,14 +1,14 @@
 ---
 title: Controles del ejemplo de plano técnico de UK OFFICIAL y UK NHS
 description: Asignación de controles de los ejemplos de planos técnicos de UK OFFICIAL y UK NHS. Cada control se corresponde a una o varias definiciones de Azure Policy que ayudan en la evaluación.
-ms.date: 07/13/2020
+ms.date: 11/05/2020
 ms.topic: sample
-ms.openlocfilehash: b798ac98e057b85cce0faa835575dbb0d50f9c8c
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 352ba30a21c638c68401e2f8e471096a777fbde9
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91931279"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420264"
 ---
 # <a name="control-mapping-of-the-uk-official-and-uk-nhs-blueprint-samples"></a>Asignación de controles de los ejemplos de planos técnicos de UK OFFICIAL y UK NHS.
 
@@ -26,7 +26,6 @@ El plano técnico ayuda a garantizar que la transferencia de información con lo
 - Solo se deben habilitar las conexiones seguras a Redis Cache
 - Se debe habilitar la transferencia segura a las cuentas de almacenamiento
 - Mostrar los resultados de las auditorías de los servidores web de Windows que no estén usando los protocolos de comunicación segura
-- Implementación de los requisitos previos para auditar los servidores web de Windows que no estén usando los protocolos de comunicación segura
 - Acceso a la aplicación web solo a través de HTTPS
 - Acceso a Function App solo a través de HTTPS
 - Acceso a API App solo a través de HTTPS
@@ -55,19 +54,19 @@ Este plano técnico ayuda a administrar las vulnerabilidades del sistema de info
 - Se deben corregir las vulnerabilidades de las bases de datos SQL
 - Se deben corregir las vulnerabilidades mediante una solución de evaluación de vulnerabilidades
 - La evaluación de vulnerabilidades debe estar activada en sus servidores de SQL Server.
-- La evaluación de vulnerabilidad debe estar habilitada en las instancias administradas de SQL.
+- La evaluación de vulnerabilidades debe estar habilitada en la instancia administrada de SQL.
 - Se deben corregir las vulnerabilidades en la configuración de seguridad de los conjuntos de escalado de máquinas virtuales
-- La opción Advanced Data Security debe estar habilitada en las instancias administradas de SQL
+- La opción Advanced Data Security debe estar habilitada en la instancia administrada de SQL.
 - La seguridad avanzada de datos debe estar habilitada en los servidores SQL Server
 
 ## <a name="53-protective-monitoring"></a>5.3. Supervisión de protección
 
 Este plano técnico ayuda a proteger los recursos del sistema de información mediante la asignación de definiciones de [Azure Policy](../../../policy/overview.md) que proporcionan supervisión de protección para el acceso sin restricciones, la actividad de la lista de permitidos y las amenazas.
 
-- Auditar el acceso de red sin restricciones a cuentas de almacenamiento
-- Deben habilitarse los controles de aplicaciones adaptables en las máquinas virtuales
+- Se debe restringir el acceso de red a las cuentas de almacenamiento.
+- Las máquinas deben tener habilitados controles de aplicaciones adaptables para definir aplicaciones seguras.
 - Auditoría de máquinas virtuales sin la recuperación ante desastres configurada
-- Se debe habilitar DDoS Protection estándar
+- Azure DDoS Protection Estándar debe estar habilitado.
 - Los tipos de Advanced Threat Protection deben estar establecidos en "Todos" en la configuración de Advanced Data Security de la instancia administrada de SQL Server
 - Los tipos de Advanced Threat Protection deben estar establecidos en "Todos" en la configuración de Advanced Data Security de SQL Server
 - Implementación de la detección de amenazas en servidores SQL Server.
@@ -115,11 +114,6 @@ Este plano técnico también asigna una definición de Azure Policy que audita l
 
 Este plano técnico ayuda a instaurar contraseñas seguras mediante la asignación de definiciones de Azure Policy que auditan las máquinas virtuales Windows que no tienen unos requisitos mínimos de seguridad de contraseña y de otros tipos. Conocer las máquinas virtuales que infringen la directiva de seguridad de las contraseñas ayuda a tomar medidas correctivas para garantizar que las contraseñas de todas las cuentas de usuario de máquina virtual cumplen la directiva.
 
-- implementar los requisitos previos para auditar las máquinas virtuales que no tengan habilitada la configuración de complejidad de la contraseña
-- implementar los requisitos previos para auditar las máquinas virtuales Windows cuyas contraseñas no tengan una vigencia máxima de 70 días
-- implementar los requisitos previos para auditar las máquinas virtuales Windows cuyas contraseñas no tengan una vigencia mínima de 1 día
-- implementar los requisitos previos para auditar las máquinas virtuales Windows que no restrinjan la longitud mínima de las contraseñas a 14 caracteres
-- implementar los requisitos previos para auditar las máquinas virtuales Windows que permitan volver a usar las 24 contraseñas anteriores
 - mostrar los resultados de las auditorías de las máquinas virtuales Windows que no tengan habilitada la configuración de complejidad de la contraseña
 - mostrar los resultados de las auditorías de las máquinas virtuales Windows cuyas contraseñas no tengan una vigencia máxima de 70 días
 - mostrar los resultados de las auditorías de las máquinas virtuales Windows cuyas contraseñas no tengan una vigencia mínima de 1 día
@@ -128,8 +122,6 @@ Este plano técnico ayuda a instaurar contraseñas seguras mediante la asignaci�
 
 Este plano técnico también ayuda a controlar el acceso a los recursos de Azure mediante la asignación de definiciones de Azure Policy. Estas directivas auditan el uso de los tipos de recursos y las configuraciones que pueden permitir un acceso más flexible a los recursos. Conocer los recursos que infringen estas directivas ayuda a tomar medidas correctivas para garantizar que el acceso a los recursos de Azure se limita a los usuarios autorizados.
 
-- implementación de los requisitos para auditar las máquinas virtuales Linux que tengan cuentas sin contraseña
-- implementación de los requisitos para auditar máquinas virtuales Linux que permitan conexiones remotas desde cuentas sin contraseña
 - mostrar los resultados de las auditorías de las máquinas virtuales Linux que tengan cuentas sin contraseña
 - mostrar los resultados de las auditorías de máquinas virtuales Linux que permitan conexiones remotas desde cuentas sin contraseña
 - Se deben migrar las cuentas de almacenamiento a los nuevos recursos de Azure Resource Manager
@@ -141,15 +133,15 @@ Este plano técnico también ayuda a controlar el acceso a los recursos de Azure
 Además de usar más de 25 directivas para garantizar una administración segura de usuarios adecuada, este plano técnico ayuda a proteger las interfaces de servicio contra el acceso no autorizado mediante la asignación de una definición de [Azure Policy](../../../policy/overview.md) que supervisa las cuentas de almacenamiento sin restricciones.
 Las cuentas de almacenamiento con acceso sin restricciones pueden permitir el acceso no deseado a la información contenida en el sistema de información. Este plano técnico también asigna una directiva que habilita controles de aplicación adaptables en máquinas virtuales.
 
-- Auditar el acceso de red sin restricciones a cuentas de almacenamiento
-- Deben habilitarse los controles de aplicaciones adaptables en las máquinas virtuales
+- Se debe restringir el acceso de red a las cuentas de almacenamiento.
+- Las máquinas deben tener habilitados controles de aplicaciones adaptables para definir aplicaciones seguras.
 - Debe restringirse el acceso a través de un punto de conexión accesible desde Internet
 - Las recomendaciones de protección de red adaptable se deben aplicar en las máquinas virtuales accesibles desde Internet
 - La solución de protección del punto de conexión debe instalarse en las máquinas virtuales
-- El control de acceso de red Just-In-Time se debe aplicar en las máquinas virtuales.
-- Recomendación de desactivación de la depuración remota para Function App
-- Recomendación de desactivación de la depuración remota para aplicaciones web
-- Se debe desactivar la depuración remota para aplicaciones de API
+- Los puertos de administración de las máquinas virtuales deben protegerse con el control de acceso de red Just-In-Time.
+- Se debe desactivar la depuración remota para Function App
+- Se debe desactivar la depuración remota para las aplicaciones web
+- Se debe desactivar la depuración remota para API Apps
 
 ## <a name="13-audit-information-for-users"></a>13. Información de auditoría para los usuarios
 
@@ -161,6 +153,7 @@ Una directiva asignada también audita si las máquinas virtuales no envían reg
 - \[Versión preliminar\]: Implementar el agente de Log Analytics en máquinas virtuales Linux
 - \[Versión preliminar\]: Implementar el agente de Log Analytics en máquinas virtuales Windows
 - Implementar Network Watcher al crear redes virtuales.
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

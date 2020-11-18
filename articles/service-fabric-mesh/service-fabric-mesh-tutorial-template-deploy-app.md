@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 01/11/2019
 ms.author: gwallace
 ms.custom: mvc, devcenter, devx-track-azurecli
-ms.openlocfilehash: 3727e9a83827261bf9e8a526ffedb6d3fc644afa
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: b02c16c63d83fc33be5512d26eafb0ca0d6c9b98
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92745977"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145895"
 ---
 # <a name="tutorial-deploy-an-application-to-service-fabric-mesh-using-a-template"></a>Tutorial: implementar una aplicación en Service Fabric Mesh mediante una plantilla
 
@@ -61,7 +61,7 @@ az account set --subscription "<subscriptionName>"
 
 ### <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
-Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure. Utilice el comando siguiente para crear un grupo de recursos denominado *myResourceGroup* en la ubicación *eastus* .
+Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure. Utilice el comando siguiente para crear un grupo de recursos denominado *myResourceGroup* en la ubicación *eastus*.
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
@@ -69,7 +69,7 @@ az group create --name myResourceGroup --location eastus
 
 ### <a name="create-the-container-registry"></a>Creación de un registro de contenedor
 
-Cree una instancia de ACR mediante el comando `az acr create`. El nombre del registro debe ser único dentro de Azure y contener entre 5 y 50 caracteres alfanuméricos. En el ejemplo siguiente, se usa el nombre *myContainerRegistry* . Si se produce un error que el nombre del registro está en uso, elija un nombre diferente.
+Cree una instancia de ACR mediante el comando `az acr create`. El nombre del registro debe ser único dentro de Azure y contener entre 5 y 50 caracteres alfanuméricos. En el ejemplo siguiente, se usa el nombre *myContainerRegistry*. Si se produce un error que el nombre del registro está en uso, elija un nombre diferente.
 
 ```azurecli
 az acr create --resource-group myResourceGroup --name myContainerRegistry --sku Basic
@@ -103,6 +103,11 @@ Al crearse el registro, verá un resultado similar al siguiente:
 En este tutorial, la aplicación de ejemplo de lista de tareas pendientes se utiliza como ejemplo.  El contenedor de imágenes para los servicios [WebFrontEnd](https://hub.docker.com/r/seabreeze/azure-mesh-todo-webfrontend/) y [ToDoService](https://hub.docker.com/r/seabreeze/azure-mesh-todo-service/) puede encontrarse en Docker Hub. Para obtener información acerca de cómo compilar la aplicación en Visual Studio, consulte [Compilación de una aplicación web de Service Fabric Mesh](service-fabric-mesh-tutorial-create-dotnetcore.md). Service Fabric Mesh puede ejecutar contenedores Docker de Linux o Windows.  Si está trabajando con contenedores de Linux, seleccione **Cambiar a contenedores de Linux** en Docker.  Si está trabajando con contenedores de Windows, seleccione **Cambiar a contenedores de Windows** en Docker.
 
 Para insertar una imagen en una instancia de ACR, primero debe tener una imagen de contenedor. Si aún no tiene ninguna imagen de contenedor local, use el comando [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) para extraer las imágenes [WebFrontEnd](https://hub.docker.com/r/seabreeze/azure-mesh-todo-webfrontend/) y [ToDoService](https://hub.docker.com/r/seabreeze/azure-mesh-todo-service/) de Docker Hub.
+
+>[!NOTE]
+> Desde el 2 de noviembre de 2020, [se aplican límites de frecuencia de descarga](https://docs.docker.com/docker-hub/download-rate-limit/) a las solicitudes anónimas y autenticadas a Docker Hub desde las cuentas del plan gratuito de Docker. Estos se aplican por la dirección IP. 
+> 
+> Estos comandos utilizan imágenes públicas de Docker Hub. Tenga en cuenta que puede tener una limitación de frecuencia. Para obtener más información, consulte [Autenticación con Docker Hub](https://docs.microsoft.com/azure/container-registry/buffer-gate-public-content#authenticate-with-docker-hub).
 
 Extraiga las imágenes de Windows:
 
@@ -156,7 +161,7 @@ seabreeze/azure-mesh-todo-webfrontend
 seabreeze/azure-mesh-todo-service
 ```
 
-En el ejemplo siguiente se muestran las etiquetas del repositorio **azure-mesh-todo-service** .
+En el ejemplo siguiente se muestran las etiquetas del repositorio **azure-mesh-todo-service**.
 
 ```azurecli
 az acr repository show-tags --name myContainerRegistry --repository seabreeze/azure-mesh-todo-service --output table
@@ -196,9 +201,9 @@ Una aplicación de Service Fabric Mesh es un recurso de Azure que puede implemen
 En este tutorial, el ejemplo de la lista de tareas pendientes se utiliza como ejemplo.  En lugar de crear los nuevos archivos de plantilla y parámetros, descargue los archivos [mesh_rp.windows.json deployment template](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.json) y [mesh_rp.windows.parameter.json parameters](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.parameters.json).
 
 ### <a name="parameters"></a>Parámetros
-Cuando haya valores en la plantilla que prevea cambiar una vez implementada la aplicación o si le gustaría tener la opción de cambiar a una base según implementación (si tiene previsto volver a usar esta plantilla para otras implementaciones), el procedimiento recomendado es parametrizar los valores. La manera adecuada de hacerlo es crear una sección "Parámetros" en la parte superior de la plantilla de implementación, donde puede especificar los nombres y las propiedades de los parámetros, a los que se hace referencia más adelante en la plantilla de implementación. La definición de cada parámetro incluye las secciones *type* , *defaultValue* y *metadata* , esta última opcional, con una *descripción* .
+Cuando haya valores en la plantilla que prevea cambiar una vez implementada la aplicación o si le gustaría tener la opción de cambiar a una base según implementación (si tiene previsto volver a usar esta plantilla para otras implementaciones), el procedimiento recomendado es parametrizar los valores. La manera adecuada de hacerlo es crear una sección "Parámetros" en la parte superior de la plantilla de implementación, donde puede especificar los nombres y las propiedades de los parámetros, a los que se hace referencia más adelante en la plantilla de implementación. La definición de cada parámetro incluye las secciones *type*, *defaultValue* y *metadata*, esta última opcional, con una *descripción*.
 
-La sección de parámetros se define en la parte superior de la plantilla de implementación, justo antes de la sección *Recursos* :
+La sección de parámetros se define en la parte superior de la plantilla de implementación, justo antes de la sección *Recursos*:
 
 ```json
 {
@@ -408,4 +413,4 @@ En esta parte del tutorial, ha aprendido a:
 
 Avance hasta el siguiente tutorial:
 > [!div class="nextstepaction"]
-> [Escalar una aplicación que se ejecuta en Service Fabric Mesh](service-fabric-mesh-tutorial-template-scale-services.md)
+> [Escala de una aplicación que se ejecuta en Service Fabric Mesh](service-fabric-mesh-tutorial-template-scale-services.md)

@@ -1,19 +1,19 @@
 ---
-title: Conexión del código del dispositivo del componente de Node.js de ejemplo de IoT Plug and Play a IoT Hub | Microsoft Docs
-description: Compile y ejecute el código de dispositivo de Node.js de ejemplo de IoT Plug and Play que usa varios componentes y se conecta a un centro de IoT. Use la herramienta Azure IoT Explorer para ver la información enviada por el dispositivo al centro.
+title: 'Tutorial: Creación de código para conectar un dispositivo componente de ejemplo de Node.js de IoT Plug and Play a Azure IoT Hub | Microsoft Docs'
+description: 'Tutorial: Compilación y ejecución de código de un dispositivo de Node.js de ejemplo de IoT Plug and Play que usa varios componentes y se conecta a un centro de IoT. Use la herramienta Azure IoT Explorer para ver la información enviada por el dispositivo al centro.'
 author: olivakar
 ms.author: olkar
 ms.date: 07/10/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.custom: devx-track-js, devx-track-azurecli
-ms.openlocfilehash: 2f0bf3b4b6e7091222b98e1743f0fb4f431fdd12
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.custom: devx-track-js
+ms.openlocfilehash: 70fa10f5319de072ee8ea7dad4e73c58d4bdeede
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92736050"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421437"
 ---
 # <a name="tutorial-connect-a-sample-iot-plug-and-play-multiple-component-device-application-to-iot-hub-nodejs"></a>Tutorial: Conexión de una aplicación de dispositivo de varios componentes de ejemplo de IoT Plug and Play a IoT Hub (Node.js)
 
@@ -47,7 +47,7 @@ git clone https://github.com/Azure/azure-iot-sdk-node
 
 Para compilar el código de ejemplo incluido, se usa el SDK del dispositivo. La aplicación que compila simula un dispositivo Plug and Play con varios componentes que se conecta a un centro de IoT. La aplicación envía datos de telemetría y propiedades, y recibe comandos.
 
-1. En una ventana del terminal local, vaya a la carpeta del repositorio clonado y luego a la carpeta */azure-iot-sdk-node/device/samples/pnp* . Después, ejecute el siguiente comando para instalar las bibliotecas necesarias:
+1. En una ventana del terminal local, vaya a la carpeta del repositorio clonado y luego a la carpeta */azure-iot-sdk-node/device/samples/pnp*. Después, ejecute el siguiente comando para instalar las bibliotecas necesarias:
 
 ```cmd/sh
 npm install
@@ -57,7 +57,7 @@ Con esto, se instalarán los archivos NPM pertinentes necesarios para ejecutar l
 
 ## <a name="review-the-code"></a>Revisión del código
 
-Vaya a la carpeta *azure-iot-sdk-node\device\samples\pnp* .
+Vaya a la carpeta *azure-iot-sdk-node\device\samples\pnp*.
 
 La carpeta *azure-iot-sdk-node\device\samples\pnp* contiene el código de ejemplo para el dispositivo controlador de temperatura IoT Plug and Play.
 
@@ -105,7 +105,7 @@ Abra el archivo *pnpTemperatureController.js* en un editor de código de su elec
 
   - Usa `desiredPropertyPatchListener` para escuchar las actualizaciones de propiedades.
 
-  - Deshabilita todos los agentes de escucha y las tareas, y sale del bucle al presionar **Q** o **q** .
+  - Deshabilita todos los agentes de escucha y las tareas, y sale del bucle al presionar **Q** o **q**.
 
 [!INCLUDE [iot-pnp-environment](../../includes/iot-pnp-environment.md)]
 

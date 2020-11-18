@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 09/28/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 1ef24522f688c5ae1176630a2f370cd7ee7c3cd7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 59c489fac8bf02263cc51833675af414d5de6a52
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448059"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94686011"
 ---
 # <a name="monitor-azure-file-sync"></a>Supervisión de Azure File Sync
 
@@ -28,7 +28,7 @@ Esta guía abarca los siguientes escenarios:
 
 ## <a name="azure-monitor"></a>Azure Monitor
 
-Use [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) para ver las métricas y configurar alertas para la sincronización, nube por niveles y conectividad del servidor.  
+Use [Azure Monitor](../../azure-monitor/overview.md) para ver las métricas y configurar alertas para la sincronización, nube por niveles y conectividad del servidor.  
 
 ### <a name="metrics"></a>Métricas
 
@@ -56,7 +56,7 @@ Las siguientes métricas para Azure File Sync están disponibles en Azure Monito
 
 ### <a name="alerts"></a>Alertas
 
-Las alertas le informan de forma proactiva cuando se detectan condiciones importantes en los datos que supervisa. Para obtener más información sobre cómo configurar alertas en Azure Monitor, consulte [Introducción sobre las alertas en Microsoft Azure](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview).
+Las alertas le informan de forma proactiva cuando se detectan condiciones importantes en los datos que supervisa. Para obtener más información sobre cómo configurar alertas en Azure Monitor, consulte [Introducción sobre las alertas en Microsoft Azure](../../azure-monitor/platform/alerts-overview.md).
 
 **Creación de alertas para Azure File Sync**
 
@@ -101,7 +101,7 @@ Para ver en el portal el **estado del servidor registrado**, vaya a la sección 
 ![Captura de pantalla del estado de los servidores registrados](media/storage-sync-files-troubleshoot/file-sync-registered-servers.png)
 
 - Si el estado del **Servidor registrado** es **En línea**, el servidor se está comunicando correctamente con el servicio.
-- Si el estado del **Servidor registrado** es **Aparece sin conexión**, el proceso del monitor de sincronización de almacenamiento (AzureStorageSyncMonitor.exe) o el servidor no puede acceder al servicio Azure File Sync. Para obtener una guía, consulte la [documentación para la solución de problemas](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#server-endpoint-noactivity).
+- Si el estado del **Servidor registrado** es **Aparece sin conexión**, el proceso del monitor de sincronización de almacenamiento (AzureStorageSyncMonitor.exe) o el servidor no puede acceder al servicio Azure File Sync. Para obtener una guía, consulte la [documentación para la solución de problemas](./storage-sync-files-troubleshoot.md?tabs=portal1%252cazure-portal#server-endpoint-noactivity).
 
 ### <a name="server-endpoint-health"></a>Estado del punto de conexión del servidor
 
@@ -109,10 +109,10 @@ Para ver el estado de un **punto de conexión del servidor** en el portal, vaya 
 
 ![Captura de pantalla del estado del punto de conexión del servidor](media/storage-sync-files-troubleshoot/file-sync-server-endpoint-health.png)
 
-- El **estado del punto de conexión del servidor** y la **actividad de sincronización** en el portal se basan en los eventos de sincronización que se registran en el registro de eventos de telemetría en el servidor (identificadores 9102 y 9302). Si se produce un error en una sesión de sincronización debido a un error transitorio como, por ejemplo, un error cancelado, el punto de conexión del servidor seguirá apareciendo en el portal como **correcto**, siempre y cuando la sesión de sincronización actual esté en curso (se aplican los archivos). El identificador de evento 9302 es el evento del progreso de la sincronización y el 9102 se registra una vez que se completa la sesión de sincronización.  Para obtener más información, consulte [estado de la sincronización](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#broken-sync) y [progreso de la sincronización](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-monitor-the-progress-of-a-current-sync-session). Si el estado del punto de conexión del servidor muestra el estado **Error** o **Sin actividad**, consulte la [documentación de solución de problemas](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#common-sync-errors) para obtener instrucciones.
-- El recuento de **archivos que no se están sincronizando** en el portal se basa en el identificador de evento 9121, que se registra en el registro de eventos de telemetría del servidor. Este evento se registra en cada error por elemento una vez que se completa la sesión de sincronización. Para resolver los errores por elemento, consulte el apartado [¿Cómo puedo ver si hay archivos o carpetas específicos que no se están sincronizando?](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing)
-- Para ver la **eficiencia de la nube por niveles** en el portal, vaya a **Propiedades del punto de conexión de servidor** y vaya a la sección **Nube por niveles**. Los datos que se proporcionan para la eficiencia de la nube por niveles se basan en el identificador de evento 9071, que se registra en el registro de eventos de telemetría del servidor. Para obtener más información, consulte la [información general de nube por niveles](https://docs.microsoft.com/azure/storage/files/storage-sync-cloud-tiering).
-- Para ver **archivos que no se organizan por niveles** y **errores de recuperación** en el portal, vaya a **Propiedades del punto de conexión de servidor** y vaya a la sección **Nube por niveles**. Los **archivos que no se organizan por niveles** están basados en el identificador de evento 9003, que se registra en el registro de eventos de telemetría del servidor y los **errores de recuperación** están basados en el 9006. Para investigar los archivos que no se organizan por niveles o se recuperan, consulte [Solución de problemas de archivos que no se organizan por niveles](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#how-to-troubleshoot-files-that-fail-to-tier) y [Solución de problemas de archivos que no se recuperan](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#how-to-troubleshoot-files-that-fail-to-be-recalled).
+- El **estado del punto de conexión del servidor** y la **actividad de sincronización** en el portal se basan en los eventos de sincronización que se registran en el registro de eventos de telemetría en el servidor (identificadores 9102 y 9302). Si se produce un error en una sesión de sincronización debido a un error transitorio como, por ejemplo, un error cancelado, el punto de conexión del servidor seguirá apareciendo en el portal como **correcto**, siempre y cuando la sesión de sincronización actual esté en curso (se aplican los archivos). El identificador de evento 9302 es el evento del progreso de la sincronización y el 9102 se registra una vez que se completa la sesión de sincronización.  Para obtener más información, consulte [estado de la sincronización](./storage-sync-files-troubleshoot.md?tabs=server%252cazure-portal#broken-sync) y [progreso de la sincronización](./storage-sync-files-troubleshoot.md?tabs=server%252cazure-portal#how-do-i-monitor-the-progress-of-a-current-sync-session). Si el estado del punto de conexión del servidor muestra el estado **Error** o **Sin actividad**, consulte la [documentación de solución de problemas](./storage-sync-files-troubleshoot.md?tabs=portal1%252cazure-portal#common-sync-errors) para obtener instrucciones.
+- El recuento de **archivos que no se están sincronizando** en el portal se basa en el identificador de evento 9121, que se registra en el registro de eventos de telemetría del servidor. Este evento se registra en cada error por elemento una vez que se completa la sesión de sincronización. Para resolver los errores por elemento, consulte el apartado [¿Cómo puedo ver si hay archivos o carpetas específicos que no se están sincronizando?](./storage-sync-files-troubleshoot.md?tabs=server%252cazure-portal#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing)
+- Para ver la **eficiencia de la nube por niveles** en el portal, vaya a **Propiedades del punto de conexión de servidor** y vaya a la sección **Nube por niveles**. Los datos que se proporcionan para la eficiencia de la nube por niveles se basan en el identificador de evento 9071, que se registra en el registro de eventos de telemetría del servidor. Para obtener más información, consulte la [información general de nube por niveles](./storage-sync-cloud-tiering.md).
+- Para ver **archivos que no se organizan por niveles** y **errores de recuperación** en el portal, vaya a **Propiedades del punto de conexión de servidor** y vaya a la sección **Nube por niveles**. Los **archivos que no se organizan por niveles** están basados en el identificador de evento 9003, que se registra en el registro de eventos de telemetría del servidor y los **errores de recuperación** están basados en el 9006. Para investigar los archivos que no se organizan por niveles o se recuperan, consulte [Solución de problemas de archivos que no se organizan por niveles](./storage-sync-files-troubleshoot.md?tabs=portal1%252cazure-portal#how-to-troubleshoot-files-that-fail-to-tier) y [Solución de problemas de archivos que no se recuperan](./storage-sync-files-troubleshoot.md?tabs=portal1%252cazure-portal#how-to-troubleshoot-files-that-fail-to-be-recalled).
 
 ### <a name="metric-charts"></a>Gráficos de métricas
 
@@ -126,7 +126,7 @@ Para ver el estado de un **punto de conexión del servidor** en el portal, vaya 
   | Archivos sincronizados | Recuento de los ficheros transferidos (carga y descarga) | Grupo de sincronización,punto de conexión de servidor |
   | Estado en línea del servidor | Recuento de latidos recibido del servidor | Servidores registrados |
 
-- Para obtener más información, consulte [Azure Monitor](https://docs.microsoft.com/azure/storage/files/storage-sync-files-monitoring#azure-monitor).
+- Para obtener más información, consulte [Azure Monitor](#azure-monitor).
 
   > [!Note]  
   > Los gráficos del portal del servicio de sincronización de almacenamiento tienen un intervalo de tiempo de 24 horas. Para ver los diferentes intervalos de tiempo o dimensiones, use Azure Monitor.
@@ -141,18 +141,18 @@ Usar el registro Eventos de telemetría en el servidor para supervisar el servid
 
 Estado de la sincronización
 
-- El id. de evento 9102 se registra una vez finalizada una sesión de sincronización. Use este evento para determinar si las sesiones de sincronización son correctas (**HResult = 0**) y si hay errores de sincronización por elemento (**PerItemErrorCount**). Para obtener más información, consulte la documentación [estado de la sincronización](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#broken-sync) y [errores por elemento](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing).
+- El id. de evento 9102 se registra una vez finalizada una sesión de sincronización. Use este evento para determinar si las sesiones de sincronización son correctas (**HResult = 0**) y si hay errores de sincronización por elemento (**PerItemErrorCount**). Para obtener más información, consulte la documentación [estado de la sincronización](./storage-sync-files-troubleshoot.md?tabs=server%252cazure-portal#broken-sync) y [errores por elemento](./storage-sync-files-troubleshoot.md?tabs=server%252cazure-portal#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing).
 
   > [!Note]  
   > A veces, las sesiones de sincronización producen un error general o tienen un elemento PerItemErrorCount distinto de cero. Sin embargo, aún así hacen progresos y algunos archivos se sincronizan correctamente. Se puede observar esto en campos Applied como, por ejemplo, AppliedFileCount, AppliedDirCount, AppliedTombstoneCount y AppliedSizeBytes. Estos campos indican qué parte de la sesión se ha realizado correctamente. Si ve varias sesiones de sincronización seguidas que producen un error pero que tienen un número cada vez mayor de campos Applied, debe dar tiempo para que se vuelva a intentar la sincronización antes de abrir una incidencia de soporte técnico.
 
-- El identificador de evento 9121 se registra en cada error por elemento una vez que se completa la sesión. Utilice este evento para determinar el número de archivos que no se sincronizan con este error (**PersistentCount** y **TransientCount**). Los errores por elemento persistentes deben investigarse, consulte el apartado [¿Cómo puedo ver si hay archivos o carpetas específicos que no se están sincronizando?](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing)
+- El identificador de evento 9121 se registra en cada error por elemento una vez que se completa la sesión. Utilice este evento para determinar el número de archivos que no se sincronizan con este error (**PersistentCount** y **TransientCount**). Los errores por elemento persistentes deben investigarse, consulte el apartado [¿Cómo puedo ver si hay archivos o carpetas específicos que no se están sincronizando?](./storage-sync-files-troubleshoot.md?tabs=server%252cazure-portal#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing)
 
-- El id. de evento 9302 se registra cada 5 a 10 minutos si hay una sesión de sincronización activa. Use este evento para determinar cuántos elementos se van a sincronizar (**TotalItemCount**), el número de elementos que se han sincronizado hasta el momento (**AppliedItemCount**) y el número de elementos que no se han podido sincronizar debido a un error por elemento (**PerItemErrorCount**). Si la sincronización no avanza (**AppliedItemCount=0**), la sesión de sincronización finalmente generará un error y se registrará el id. de evento 9102 con el error. Para obtener más información, consulte la [documentación sobre progreso de la sincronización](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-monitor-the-progress-of-a-current-sync-session).
+- El id. de evento 9302 se registra cada 5 a 10 minutos si hay una sesión de sincronización activa. Use este evento para determinar cuántos elementos se van a sincronizar (**TotalItemCount**), el número de elementos que se han sincronizado hasta el momento (**AppliedItemCount**) y el número de elementos que no se han podido sincronizar debido a un error por elemento (**PerItemErrorCount**). Si la sincronización no avanza (**AppliedItemCount=0**), la sesión de sincronización finalmente generará un error y se registrará el id. de evento 9102 con el error. Para obtener más información, consulte la [documentación sobre progreso de la sincronización](./storage-sync-files-troubleshoot.md?tabs=server%252cazure-portal#how-do-i-monitor-the-progress-of-a-current-sync-session).
 
 Estado del servidor registrado
 
-- El id. de evento 9301 se registra cada 30 segundos, cuando un servidor consulta al servicio por los trabajos. Si GetNextJob se completa con **status = 0**, el servidor puede comunicarse con el servicio. Si GetNextJob se completa con un error, compruebe la [documentación de solución de problemas](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#server-endpoint-noactivity) para obtener instrucciones.
+- El id. de evento 9301 se registra cada 30 segundos, cuando un servidor consulta al servicio por los trabajos. Si GetNextJob se completa con **status = 0**, el servidor puede comunicarse con el servicio. Si GetNextJob se completa con un error, compruebe la [documentación de solución de problemas](./storage-sync-files-troubleshoot.md?tabs=portal1%252cazure-portal#server-endpoint-noactivity) para obtener instrucciones.
 
 Estado de la nube por niveles
 
@@ -229,7 +229,7 @@ En esta sección se proporcionan varias alertas de ejemplo para Azure File Sync.
 7. Vaya a **Lógica de alerta** y complete los siguientes valores: 
      - Umbral establecido en **Estático** 
      - Operador: **Mayor que** 
-     - Tipo de agregación: **Total**  
+     - Tipo de agregación: **Promedio**  
      - Valor del umbral: **100** 
      - Se evaluó basándose en: Granularidad de agregación = **5 minutos** | Frecuencia de evaluación = **Cada 5 minutos** 
      - Haga clic en **Listo**. 

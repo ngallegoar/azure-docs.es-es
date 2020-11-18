@@ -1,6 +1,6 @@
 ---
 title: Conexión a Synapse SQL con Power BI Professional
-description: En este tutorial, veremos los pasos para conectar Power BI Desktop a SQL a petición (versión preliminar).
+description: En este tutorial, veremos los pasos para conectar Power BI Desktop a un grupo de SQL sin servidor (versión preliminar).
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,14 +9,14 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: d88406646099a136d196a104f9cf4352a367f6d2
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 97b611c449302c95d4b24c305ce50ee7683e85ea
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92899111"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93316468"
 ---
-# <a name="connect-to-synapse-sql-with-power-bi-professional"></a>Conexión a Synapse SQL con Power BI Professional
+# <a name="connect-to-serverless-sql-pool-with-power-bi-professional"></a>Conexión a un grupo de SQL sin servidor con Power BI Professional
 
 > [!div class="op_single_selector"]
 >
@@ -26,7 +26,7 @@ ms.locfileid: "92899111"
 > - [sqlcmd](../sql/get-started-connect-sqlcmd.md)
 > - [SSMS](get-started-ssms.md)
 
-En este tutorial, examinaremos los pasos para conectar Power BI Desktop a SQL a petición (versión preliminar).
+En este tutorial, examinaremos los pasos para conectar Power BI Desktop a un grupo de SQL sin servidor (versión preliminar).
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -43,17 +43,17 @@ Parámetros:
 
 | Parámetro                                 | Descripción                                                   |
 | ----------------------------------------- | ------------------------------------------------------------- |
-| Dirección de un punto de conexión del servicio de SQL a petición.    | Se usará como nombre de servidor.                                   |
-| Región de punto de conexión del servicio de SQL a petición.     | Se usará para determinar qué almacenamiento se utilizará en los ejemplos. |
+| Dirección del punto de conexión de servicio del grupo de SQL sin servidor    | Se usará como nombre de servidor.                                   |
+| Región del punto de conexión de servicio del grupo de SQL sin servidor     | Se usará para determinar qué almacenamiento se utilizará en los ejemplos. |
 | Nombre de usuario y contraseña para el acceso al punto de conexión. | Se usará para acceder al punto de conexión.                               |
-| La base de datos que se va a usar para crear vistas.     | Esta base de datos se utilizará como punto de partida en los ejemplos.       |
+| La base de datos que se va a usar para crear vistas.       | Esta base de datos se utilizará como punto de partida en los ejemplos.       |
 
 ## <a name="first-time-setup"></a>Primera configuración
 
 Hay dos pasos antes de usar los ejemplos:
 
 1. Crear la base de datos para las vistas
-2. Crear las credenciales que usará SQL a petición para acceder a los archivos en el almacenamiento
+2. Crear las credenciales que va a usar el grupo de SQL sin servidor para acceder a los archivos en el almacenamiento.
 
 ### <a name="create-database"></a>Crear base de datos
 
@@ -70,12 +70,12 @@ DROP DATABASE IF EXISTS demo;
 
 ### <a name="create-credentials"></a>Crear credenciales
 
-Antes de ejecutar las consultas, es necesario crear las credenciales. El servicio de SQL a petición usará esta credencial para acceder a los archivos del almacenamiento.
+Antes de ejecutar las consultas, es necesario crear las credenciales. El servicio de grupo de SQL sin servidor usará esta credencial para acceder a los archivos del almacenamiento.
 
 > [!NOTE]
-> Debe crear credenciales para el acceso a la cuenta de almacenamiento. Aunque con SQL a petición se puede acceder al almacenamiento desde distintas regiones, tener el almacenamiento y el área de trabajo de Azure Synapse en la misma región proporcionará una mejor experiencia de rendimiento.
+> Debe crear credenciales para el acceso a la cuenta de almacenamiento. Aunque con un grupo de SQL sin servidor se puede acceder al almacenamiento desde distintas regiones, tener el almacenamiento y el área de trabajo de Azure Synapse en la misma región proporcionará una mejor experiencia de rendimiento.
 
-**Fragmento de código sobre cómo crear credenciales para contenedores de datos de censo** , ejecute:
+**Fragmento de código sobre cómo crear credenciales para contenedores de datos de censo**, ejecute:
 
 ```sql
 IF EXISTS (SELECT * FROM sys.credentials WHERE name = 'https://azureopendatastorage.blob.core.windows.net/censusdatacontainer')
@@ -92,13 +92,13 @@ GO
 
 ## <a name="create-a-power-bi-desktop-report"></a>Creación de un informe de Power BI Desktop
 
-Abra la aplicación Power BI Desktop y seleccione la opción **Obtener datos** .
+Abra la aplicación Power BI Desktop y seleccione la opción **Obtener datos**.
 
 ![Abra la aplicación Power BI Desktop y seleccione Obtener datos.](./media/get-started-power-bi-professional/step-0-open-powerbi.png)
 
 ### <a name="step-1---select-data-source"></a>Paso 1: Selección del origen de datos
 
-Seleccione **Azure** en el menú y, luego, **Azure SQL Database** .
+Seleccione **Azure** en el menú y, luego, **Azure SQL Database**.
 ![Seleccione el origen de datos.](./media/get-started-power-bi-professional/step-1-select-data-source.png)
 
 ### <a name="step-2---select-database"></a>Paso 2: Selección de la base de datos
@@ -108,5 +108,4 @@ Escriba la dirección URL de la base de datos y el nombre de la base de datos do
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Vaya a [Consulta de los archivos de almacenamiento](get-started-azure-data-studio.md) para aprender a conectarse a SQL a petición mediante Azure Data Studio.
- 
+Vaya a [Consulta de los archivos de almacenamiento](get-started-azure-data-studio.md) para aprender a conectarse a un grupo de SQL sin servidor mediante Azure Data Studio.
