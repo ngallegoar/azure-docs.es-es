@@ -4,12 +4,12 @@ description: Opciones de configuración de Application Insights Java de Azure Mo
 ms.topic: conceptual
 ms.date: 11/04/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: f951048da753a0ba38d6c10dc65bdca5205727f4
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: b703a708af564b9dafc8c1409333a2cfed6d2653
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94577369"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427707"
 ---
 # <a name="configuration-options-for-azure-monitor-application-insights-java"></a>Opciones de configuración de Application Insights Java de Azure Monitor
 
@@ -173,7 +173,7 @@ Esta característica se encuentra en su versión preliminar.
 
 Permite configurar reglas que se aplicarán a la telemetría de solicitudes, dependencias y seguimientos; por ejemplo:
  * Enmascarar datos confidenciales
- * Agregan dimensiones personalizadas condicionalmente
+ * Agregar dimensiones personalizadas condicionalmente
  * Actualizar el nombre de telemetría que se usa para la agregación y visualización
 
 Para obtener más información, consulte la documentación del [procesador de telemetría](./java-standalone-telemetry-processors.md).
@@ -200,7 +200,7 @@ También puede establecer el umbral mediante la variable de entorno `APPLICATION
 
 A continuación se muestran los valores `level` válidos que puede especificar en el archivo `applicationinsights.json` y cómo se corresponden con los niveles de registro en diferentes plataformas de registro:
 
-| Nivel             | Log4j  | Logback | JUL     |
+| level             | Log4j  | Logback | JUL     |
 |-------------------|--------|---------|---------|
 | Apagado               | Apagado    | Apagado     | Apagado     |
 | FATAL             | FATAL  | ERROR   | SEVERE  |
@@ -336,7 +336,7 @@ Configure opciones específicas en función de sus necesidades.
       "enabled": true
     }
   },
-  "proxy": {
+  "httpProxy": {
   },
   "preview": {
     "processors": [

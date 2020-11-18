@@ -3,12 +3,12 @@ title: Límites y cuotas de suscripción de Azure
 description: Se proporciona una lista de límites, cuotas y restricciones de suscripción y servicio comunes de Azure. Este artículo incluye información acerca de cómo aumentar los límites junto con los valores máximos.
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 54eb25e302d49be9e3ab1febeb5c636d267d7e4f
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: b95c056a8885998c3ca5b5c62cb13049c3a8c66d
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94577845"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94412938"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure
 
@@ -155,10 +155,6 @@ Los valores más recientes para las cuotas de Proceso de Machine Learning pueden
 ### <a name="action-groups"></a>Grupos de acciones
 
 [!INCLUDE [monitoring-limits](../../../includes/azure-monitor-limits-action-groups.md)]
-
-### <a name="autoscale"></a>Escalado automático
-
-[!INCLUDE [monitoring-limits](../../../includes/azure-monitor-limits-autoscale.md)]
 
 ### <a name="log-queries-and-language"></a>Consultas de registro y lenguaje
 

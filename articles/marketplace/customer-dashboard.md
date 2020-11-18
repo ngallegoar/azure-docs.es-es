@@ -5,14 +5,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 11/09/2020
-author: sayantanroy83
-ms.author: sroy
-ms.openlocfilehash: 9821cc8905caa9576662a192fc704c53b35af82d
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+author: shganesh-dev
+ms.author: shganesh
+ms.openlocfilehash: 08a889a0a26f90798f3ac8524cceb6ca83d4955a
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94564878"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413819"
 ---
 # <a name="customers-dashboard-in-commercial-marketplace-analytics"></a>Panel Clientes de los análisis de marketplace comercial
 
@@ -21,7 +21,7 @@ En este artículo se proporciona información sobre el panel Clientes del Centro
 Para obtener acceso al panel Clientes en el Centro de partners, vaya a **Marketplace comercial** y seleccione **[Analizar](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)**  > **Clientes**.
 
 >[!NOTE]
-> Para obtener definiciones detalladas de la terminología de análisis, consulte [Terminología de análisis y preguntas comunes de Marketplace comercial](./partner-center-portal/faq-terminology.md).
+> Para definiciones detalladas de la terminología de análisis, consulte [Terminología de análisis y preguntas comunes de Marketplace comercial](./partner-center-portal/faq-terminology.md).
 
 ## <a name="customers-dashboard"></a>Panel Clientes
 
@@ -151,12 +151,12 @@ _**Tabla 1: diccionario de términos de datos**_
 | Correo electrónico del proveedor | Correo electrónico del proveedor | Dirección de correo electrónico del proveedor que participa en la relación entre Microsoft y el cliente. Si el cliente es una empresa a través de un revendedor, será el revendedor. Si participa un proveedor de soluciones en la nube (CSP), será el CSP. |
 | Nombre | Customer First Name (Nombre del cliente) | Nombre proporcionado por el cliente. El nombre podría ser diferente del nombre proporcionado en la suscripción a Azure del cliente. |
 | Apellidos | Customer Last Name (Apellidos del cliente) | Apellidos proporcionados por el cliente. El nombre podría ser diferente del nombre proporcionado en la suscripción a Azure del cliente. |
-| Correo electrónico | Customer Email (Correo electrónico del cliente) | Dirección de correo electrónico proporcionada por el cliente final. El correo electrónico podría ser diferente de la dirección de correo electrónico de la suscripción a Azure del cliente. |
+| Email | Customer Email (Correo electrónico del cliente) | Dirección de correo electrónico proporcionada por el cliente final. El correo electrónico podría ser diferente de la dirección de correo electrónico de la suscripción a Azure del cliente. |
 | Customer Company Name (Nombre de la empresa del cliente) | Customer Company Name (Nombre de la empresa del cliente) | Nombre de empresa proporcionado por el cliente. El nombre podría ser diferente de la ciudad de la suscripción a Azure del cliente. |
 | Ciudad del cliente | Ciudad del cliente | Nombre de ciudad proporcionado por el cliente. La ciudad podría ser diferente de la ciudad de la suscripción a Azure del cliente. |
 | Customer Postal Code (Código postal del cliente) | Customer Postal Code (Código postal del cliente) | Código postal proporcionado por el cliente. El código podría ser diferente del código postal proporcionado en la suscripción a Azure del cliente. |
 | Cultura de comunicación del cliente | Customer Communication Language (Idioma de comunicación del cliente) | Idioma preferido por el cliente para la comunicación. |
-| Región del país del cliente | País o región del cliente. | Nombre del país o región proporcionado por el cliente. Podría ser diferente del país o región de la suscripción a Azure del cliente. |
+| Región del país del cliente | País o región del cliente. | Nombre del país o región proporcionado por el cliente. El país o región podría ser diferente del país o región de la suscripción a Azure del cliente. |
 | AzureLicenseType | Azure License Type (Tipo de licencia de Azure) | Tipo de contrato de licencia que los clientes utilizan para comprar Azure. También se conoce como _canal_. Los valores posibles son:<ul><li>Proveedor de soluciones en la nube</li><li>Enterprise</li><li>Enterprise a través de revendedor</li><li>Pago por uso</li></ul> |
 | PromotionalCustomers | Participación de contacto promocional | El valor le permitirá saber si el cliente ha optado de manera proactiva por el contacto promocional de los anunciantes. En este momento, no presentamos la opción a los clientes, por lo que hemos indicado "No" de forma general. Una vez implementada esta característica, comenzaremos a actualizarla en consecuencia. |
 | CustomerState | Customer State (Estado del cliente) | Estado de residencia proporcionado por el cliente. El estado podría ser diferente del estado proporcionado en la suscripción a Azure del cliente. |

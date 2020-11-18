@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: conceptual
 ms.date: 08/13/2020
 ms.author: victorh
-ms.openlocfilehash: 3e6ea6692a81a06bbf3180904dfb465a88b105d1
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 8b94b71993285a61042be3c6cd9e4708315fab9f
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94653426"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413010"
 ---
 # <a name="azure-firewall-faq"></a>Preguntas frecuentes sobre Azure Firewall
 
@@ -50,7 +50,7 @@ Azure Firewall es compatible con el filtrado entrante y saliente. La protección
 
 ## <a name="which-logging-and-analytics-services-are-supported-by-the-azure-firewall"></a>¿Qué servicios de registro y análisis son compatibles con Azure Firewall?
 
-Azure Firewall se integra con Azure Monitor para ver y analizar los registros de firewall. Los registros se pueden enviar a Log Analytics, Azure Storage o Event Hubs. Puede analizarse en Log Analytics o usando distintas herramientas, como Excel y Power BI. Para más información, consulte el [Tutorial: Supervisión de los registros de Azure Firewall](./firewall-diagnostics.md).
+Azure Firewall se integra con Azure Monitor para ver y analizar los registros de firewall. Los registros se pueden enviar a Log Analytics, Azure Storage o Event Hubs. Puede analizarse en Log Analytics o usando distintas herramientas, como Excel y Power BI. Para más información, consulte el [Tutorial: Supervisión de los registros de Azure Firewall](tutorial-diagnostics.md).
 
 ## <a name="how-does-azure-firewall-work-differently-from-existing-services-such-as-nvas-in-the-marketplace"></a>¿Cómo Azure Firewall funciona distinto de servicios existentes como NVA que ya están en el mercado?
 
@@ -217,7 +217,7 @@ No, actualmente no se permite mover un grupo de direcciones IP a otro grupo de 
 
 ## <a name="what-is-the-tcp-idle-timeout-for-azure-firewall"></a>¿Cuál es el tiempo de espera de inactividad de TCP para Azure Firewall?
 
-Un comportamiento estándar de un firewall de red es asegurarse de que las conexiones TCP se mantengan activas y cerrarlas de inmediato si no hay ninguna actividad. El tiempo de espera de inactividad de TCP de Azure Firewall es de cuatro minutos. Este valor no se puede configurar. Si un período de inactividad es mayor que el valor de tiempo de espera, no hay ninguna garantía de que todavía exista la sesión TCP o HTTP. Una práctica común es usar TCP Keep-alive. Esta práctica mantiene la conexión activa durante un periodo más largo. Para más información, consulte estos [ejemplos de .NET](/dotnet/api/system.net.servicepoint.settcpkeepalive?view=netcore-3.1#System_Net_ServicePoint_SetTcpKeepAlive_System_Boolean_System_Int32_System_Int32_).
+Un comportamiento estándar de un firewall de red es asegurarse de que las conexiones TCP se mantengan activas y cerrarlas de inmediato si no hay ninguna actividad. El tiempo de espera de inactividad de TCP de Azure Firewall es de cuatro minutos. Este valor no se puede configurar. Si un período de inactividad es mayor que el valor de tiempo de espera, no hay ninguna garantía de que todavía exista la sesión TCP o HTTP. Una práctica común es usar TCP Keep-alive. Esta práctica mantiene la conexión activa durante un periodo más largo. Para más información, consulte estos [ejemplos de .NET](https://docs.microsoft.com/dotnet/api/system.net.servicepoint.settcpkeepalive?redirectedfrom=MSDN&view=netcore-3.1#System_Net_ServicePoint_SetTcpKeepAlive_System_Boolean_System_Int32_System_Int32_).
 
 ## <a name="can-i-deploy-azure-firewall-without-a-public-ip-address"></a>¿Puedo implementar Azure Firewall sin una dirección IP pública?
 
