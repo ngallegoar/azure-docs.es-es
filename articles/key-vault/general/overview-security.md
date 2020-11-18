@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.author: mbaldwin
-ms.openlocfilehash: c3dd4e5138741a3c035507358830f3572cf92751
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dc08df7390285f9b6e4701bb1ca5c4227b19f1da
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91739697"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445037"
 ---
 # <a name="azure-key-vault-security"></a>Seguridad de Azure Key Vault
 
@@ -25,7 +25,7 @@ Puede usar Azure Key Vault para proteger las claves de cifrado y los secretos, c
 Cuando se crea un almacén de claves en una suscripción de Azure, se asocia automáticamente al inquilino de Azure AD de dicha suscripción. Cualquier persona que intente administrar o recuperar el contenido desde un almacén debe autenticarse con Azure AD.
 
 - La autenticación establece la identidad del llamador.
-- La autorización determina las operaciones que puede realizar quien envía la llamada. La autorización en Key Vault usa una combinación de [control de acceso basado en roles](../../role-based-access-control/overview.md) (RBAC) y directivas de acceso de Azure Key Vault.
+- La autorización determina las operaciones que puede realizar quien envía la llamada. La autorización en Key Vault usa una combinación de [control de acceso basado en roles de Azure ](../../role-based-access-control/overview.md) (Azure RBAC) y directivas de acceso de Azure Key Vault.
 
 ### <a name="access-model-overview"></a>Introducción al modelo acceso
 
@@ -34,7 +34,7 @@ El acceso a los almacenes se realiza a través de dos interfaces o planos. Estos
 - El *plano de administración* es donde se administra Key Vault y es la interfaz utilizada para crear y eliminar almacenes. También puede leer las propiedades del almacén de claves y administrar las directivas de acceso.
 - El *plano de datos* es donde se trabaja con los datos almacenados en un almacén de claves. Puede agregar, eliminar y modificar claves, secretos y certificados.
 
-Para obtener acceso a un almacén de claves en cualquier plano, quienes realizan la llamada (usuarios o aplicaciones) deben estar autenticados y autorizados. Ambos planos usan Azure Active Directory (Azure AD) para la autenticación. Para la autorización, el plano de administración usa el control de acceso basado en rol (RBAC) y el plano de datos utiliza la directiva de acceso de Key Vault.
+Para obtener acceso a un almacén de claves en cualquier plano, quienes realizan la llamada (usuarios o aplicaciones) deben estar autenticados y autorizados. Ambos planos usan Azure Active Directory (Azure AD) para la autenticación. Para la autorización, el plano de administración usa el control de acceso basado en rol de Azure (Azure RBAC) y el plano de datos utiliza una directiva de acceso de Key Vault.
 
 El modelo de un único mecanismo de autenticación para ambos planos tiene varias ventajas:
 
@@ -50,7 +50,7 @@ Cuando crea un almacén de claves en un grupo de recursos, administra el acceso 
 - **Grupo de recursos**: Un rol de Azure asignado al nivel de grupo de recursos se aplica a todos los recursos de dicho grupo de recursos.
 - **Recurso específico**: un rol de Azure asignado a un recurso concreto se aplica a dicho recurso. En este caso, el recurso es un almacén de claves específico.
 
-Existen varios roles predefinidos. Si un rol predefinido no se ajusta a sus necesidades, puede definir uno propio. Para más información, vea [RBAC: roles integrados](../../role-based-access-control/built-in-roles.md).
+Existen varios roles predefinidos. Si un rol predefinido no se ajusta a sus necesidades, puede definir uno propio. Para más información, consulte [Azure RBAC: roles integrados](../../role-based-access-control/built-in-roles.md).
 
 > [!IMPORTANT]
 > Si un usuario tiene permisos `Contributor` en un plano de administración de Key Vault, se puede conceder a sí mismo acceso al plano de datos estableciendo una directiva de acceso de Key Vault. Debe controlar estrechamente quién tiene el rol de acceso `Contributor` a los almacenes de claves. Asegúrese de que solo las personas autorizadas pueden acceder a los almacenes de claves, las claves, los secretos y los certificados y administrarlos.
@@ -91,4 +91,4 @@ Para obtener recomendaciones sobre la administración segura de las cuentas de a
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Puntos de conexión de servicio de red virtual para Azure Key Vault](overview-vnet-service-endpoints.md)
-- [RBAC: roles integrados](../../role-based-access-control/built-in-roles.md)
+- [RBAC de Azure: roles integrados](../../role-based-access-control/built-in-roles.md)
