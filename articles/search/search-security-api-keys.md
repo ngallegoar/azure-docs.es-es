@@ -8,18 +8,18 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/22/2020
-ms.openlocfilehash: 5935bc3f59585b19fc3b45bdfd567bb1f9404234
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 0e209e8114d8f1791a00e87894fa12206edcf34e
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675580"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94700229"
 ---
 # <a name="create-and-manage-api-keys-for-an-azure-cognitive-search-service"></a>Creación y administración de claves de API para un servicio de Azure Cognitive Search
 
 Todas las solicitudes que se realizan a un servicio de búsqueda necesitan una clave `api-key` de solo lectura generada de forma específica para el servicio. Dicha clave `api-key` es el único mecanismo para autenticar el acceso del punto de conexión de su servicio de búsqueda y se debe incluir en todas las solicitudes. 
 
-+ En las [soluciones de REST](search-get-started-postman.md), la clave de API se especifica normalmente en un encabezado de solicitud.
++ En las [soluciones de REST](search-get-started-rest.md), la clave de API se especifica normalmente en un encabezado de solicitud.
 
 + En las [soluciones de .NET](search-howto-dotnet-sdk.md), una clave suele especificarse como un valor de configuración y pasarse como un valor [AzureKeyCredential](/dotnet/api/azure.azurekeycredential).
 
@@ -76,7 +76,7 @@ Restringir el acceso y las operaciones en las aplicaciones cliente es esencial p
 
 Se crean dos claves de administración para cada servicio para que pueda rotar una clave principal mediante la clave secundaria para la continuidad empresarial.
 
-1. En la página **Configuración** >**Claves** , copie la clave secundaria.
+1. En la página **Configuración** >**Claves**, copie la clave secundaria.
 2. Para todas las aplicaciones, actualice la configuración de la clave de API para usar la clave secundaria.
 3. Regenere la clave principal
 4. Actualice todas las aplicaciones para usar la nueva clave principal.

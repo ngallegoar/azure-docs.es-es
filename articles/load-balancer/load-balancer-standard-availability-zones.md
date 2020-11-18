@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/07/2020
 ms.author: allensu
-ms.openlocfilehash: 541aa7da3e804931c1793e455bcbfca83c809dae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fca6b40f4bd871041d14d119eb44e8366d8562ee
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89669186"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94700467"
 ---
 # <a name="standard-load-balancer-and-availability-zones"></a>Load Balancer Estándar y zonas de disponibilidad
 
@@ -151,11 +151,11 @@ Los recursos de las zonas que no sean afectados por el error estarán disponible
   - Cuando se produce un error en una zona, ¿el servicio lo comprende? Y si se pierde el estado, ¿cómo se recuperará?
   - Cuando vuelve la disponibilidad de una zona, ¿la aplicación sabe cómo realizar una recuperación de forma segura?
 
-Revise [los patrones de diseño en la nube de Azure](https://docs.microsoft.com/azure/architecture/patterns/) para mejorar la resistencia de la aplicación a los escenarios de error.
+Revise [los patrones de diseño en la nube de Azure](/azure/architecture/patterns/) para mejorar la resistencia de la aplicación a los escenarios de error.
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Aprenda más sobre [zonas de disponibilidad](../availability-zones/az-overview.md).
-- Más información sobre [Load Balancer Estándar](load-balancer-standard-overview.md)
-- Obtenga información sobre cómo [equilibrar la carga de las máquinas virtuales dentro de una zona con Load Balancer estándar con un front-end de zona](load-balancer-standard-public-zonal-cli.md)
-- Obtenga información sobre cómo [equilibrar la carga de las máquinas virtuales en distintas zonas con Load Balancer estándar con un front-end con redundancia de zona](load-balancer-standard-public-zone-redundant-cli.md)
-- Más información sobre [los patrones de diseño en la nube de Azure](https://docs.microsoft.com/azure/architecture/patterns/) para mejorar la resistencia de la aplicación a los escenarios de error.
+- Más información sobre [Load Balancer Estándar](./load-balancer-overview.md)
+- Obtenga información sobre cómo [equilibrar la carga de las máquinas virtuales dentro de una zona con Load Balancer estándar con un front-end de zona](./quickstart-load-balancer-standard-public-cli.md)
+- Obtenga información sobre cómo [equilibrar la carga de las máquinas virtuales en distintas zonas con Load Balancer estándar con un front-end con redundancia de zona](./quickstart-load-balancer-standard-public-cli.md)
+- Más información sobre [los patrones de diseño en la nube de Azure](/azure/architecture/patterns/) para mejorar la resistencia de la aplicación a los escenarios de error.

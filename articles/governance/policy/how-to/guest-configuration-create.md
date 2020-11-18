@@ -3,12 +3,12 @@ title: Creación de directivas de Configuración de invitado para Windows
 description: Aprenda a crear una directiva de Configuración de invitado de Azure Policy para Windows.
 ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: 325b00ac1cc747555d38b4c250709638f5e74d95
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: ea9b40006deefbac2c253082eda4ef2da12149a4
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348889"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94700688"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-windows"></a>Creación de directivas de Configuración de invitado para Windows
 
@@ -169,7 +169,7 @@ Algunos ejemplos son los repositorios de GitHub, un repositorio de Azure o Azure
 
 ## <a name="step-by-step-creating-a-custom-guest-configuration-audit-policy-for-windows"></a>Creación de una directiva de auditoría de Configuración de invitado personalizada para Windows, paso a paso
 
-Cree una configuración de DSC para la configuración de auditoría. En el ejemplo siguiente de script de PowerShell se crea una configuración denominada **AuditBitLocker** , se importa el módulo de recursos **PsDscResources** y se usa el recurso `Service` para auditar un servicio en ejecución. El script de configuración se puede ejecutar desde una máquina Windows o macOS.
+Cree una configuración de DSC para la configuración de auditoría. En el ejemplo siguiente de script de PowerShell se crea una configuración denominada **AuditBitLocker**, se importa el módulo de recursos **PsDscResources** y se usa el recurso `Service` para auditar un servicio en ejecución. El script de configuración se puede ejecutar desde una máquina Windows o macOS.
 
 ```powershell
 # Add PSDscResources module to environment
@@ -202,9 +202,9 @@ Una vez compilado el MOF, los archivos auxiliares deben empaquetarse juntos. La 
 
 El cmdlet `New-GuestConfigurationPackage` crea el paquete. Los módulos necesarios para la configuración deben estar disponibles en `$Env:PSModulePath`. Parámetros del cmdlet `New-GuestConfigurationPackage` al crear el contenido de Windows:
 
-- **Name** : nombre del paquete de configuración de invitados.
-- **Configuración** : ruta de acceso completa del documento de configuración de DSC compilado.
-- **Ruta de acceso** : ruta de acceso de la carpeta de salida. Este parámetro es opcional. Si no se especifica, el paquete se crea en el directorio actual.
+- **Name**: nombre del paquete de configuración de invitados.
+- **Configuración**: ruta de acceso completa del documento de configuración de DSC compilado.
+- **Ruta de acceso**: ruta de acceso de la carpeta de salida. Este parámetro es opcional. Si no se especifica, el paquete se crea en el directorio actual.
 
 Ejecute el siguiente comando para crear un paquete con la configuración proporcionada en el paso anterior:
 
@@ -220,9 +220,9 @@ Dado que el agente en realidad está evaluando el entorno local, en la mayoría 
 
 Parámetros del cmdlet `Test-GuestConfigurationPackage`:
 
-- **Name** : Nombre de la directiva de Configuración de invitado.
-- **Parámetro** : Parámetros de directiva proporcionados en formato de tabla hash.
-- **Ruta de acceso** : ruta de acceso completa del paquete de configuración de invitados.
+- **Name**: Nombre de la directiva de Configuración de invitado.
+- **Parámetro**: Parámetros de directiva proporcionados en formato de tabla hash.
+- **Ruta de acceso**: ruta de acceso completa del paquete de configuración de invitados.
 
 Ejecute el siguiente comando para probar el paquete creado en el paso anterior:
 
@@ -247,13 +247,13 @@ Una vez que se ha creado y cargado un paquete de directivas personalizadas de Co
 
 Parámetros del cmdlet `New-GuestConfigurationPolicy`:
 
-- **ContentUri** : Uri de http(s) público del paquete de contenido de configuración de invitados.
-- **DisplayName** : Nombre para mostrar de la directiva.
-- **Descripción** : Descripción de la directiva.
-- **Parámetro** : Parámetros de directiva proporcionados en formato de tabla hash.
-- **Versión** : Versión de la directiva.
-- **Ruta de acceso** : Ruta de acceso de destino donde se crean las definiciones de directiva.
-- **Plataforma** : Plataforma de destino (Windows/Linux) para la directiva de configuración de invitados y el paquete de contenido.
+- **ContentUri**: Uri de http(s) público del paquete de contenido de configuración de invitados.
+- **DisplayName**: Nombre para mostrar de la directiva.
+- **Descripción**: Descripción de la directiva.
+- **Parámetro**: Parámetros de directiva proporcionados en formato de tabla hash.
+- **Versión**: Versión de la directiva.
+- **Ruta de acceso**: Ruta de acceso de destino donde se crean las definiciones de directiva.
+- **Plataforma**: Plataforma de destino (Windows/Linux) para la directiva de configuración de invitados y el paquete de contenido.
 - **Tag** agrega uno o varios filtros de etiquetas a la definición de directiva.
 - **Category** establece el campo de metadatos de categoría en la definición de directiva.
 
@@ -474,10 +474,10 @@ Los archivos auxiliares deben empaquetarse juntos. La configuración de invitado
 
 El cmdlet `New-GuestConfigurationPackage` crea el paquete. En el caso de contenido de terceros, use el parámetro **FilesToInclude** para agregar el contenido de InSpec al paquete. No es necesario especificar **ChefProfilePath** en lo que respecta a los paquetes de Linux.
 
-- **Name** : nombre del paquete de configuración de invitados.
-- **Configuración** : Ruta de acceso completa del documento de configuración compilado.
-- **Ruta de acceso** : ruta de acceso de la carpeta de salida. Este parámetro es opcional. Si no se especifica, el paquete se crea en el directorio actual.
-- **FilesoInclude** : ruta de acceso completa al perfil de InSpec.
+- **Name**: nombre del paquete de configuración de invitados.
+- **Configuración**: Ruta de acceso completa del documento de configuración compilado.
+- **Ruta de acceso**: ruta de acceso de la carpeta de salida. Este parámetro es opcional. Si no se especifica, el paquete se crea en el directorio actual.
+- **FilesoInclude**: ruta de acceso completa al perfil de InSpec.
 
 Ejecute el siguiente comando para crear un paquete con la configuración proporcionada en el paso anterior:
 
@@ -496,9 +496,9 @@ Si desea publicar una actualización de la directiva, hay tres campos que requie
 > [!NOTE]
 > La propiedad `version` de la asignación de configuración de invitado solo afecta a los paquetes hospedados por Microsoft. El procedimiento recomendado para el control de versiones del contenido personalizado es incluir la versión en el nombre de archivo.
 
-- **Versión** : al ejecutar el cmdlet `New-GuestConfigurationPolicy`, debe especificar un número de versión mayor que el que se ha publicado actualmente.
-- **contentUri** : Al ejecutar el cmdlet `New-GuestConfigurationPolicy`, debe especificar un URI para la ubicación del paquete. La inclusión de una versión del paquete en el nombre de archivo garantiza que el valor de esta propiedad cambie en cada versión.
-- **contentHash** : el cmdlet `New-GuestConfigurationPolicy` actualiza automáticamente esta propiedad. Es un valor hash del paquete que creó `New-GuestConfigurationPackage`. La propiedad debe ser correcta para el archivo `.zip` que se publica. Si solo se actualiza la propiedad **contentUri** , la extensión no aceptará el paquete de contenido.
+- **Versión**: al ejecutar el cmdlet `New-GuestConfigurationPolicy`, debe especificar un número de versión mayor que el que se ha publicado actualmente.
+- **contentUri**: Al ejecutar el cmdlet `New-GuestConfigurationPolicy`, debe especificar un URI para la ubicación del paquete. La inclusión de una versión del paquete en el nombre de archivo garantiza que el valor de esta propiedad cambie en cada versión.
+- **contentHash**: el cmdlet `New-GuestConfigurationPolicy` actualiza automáticamente esta propiedad. Es un valor hash del paquete que creó `New-GuestConfigurationPackage`. La propiedad debe ser correcta para el archivo `.zip` que se publica. Si solo se actualiza la propiedad **contentUri**, la extensión no aceptará el paquete de contenido.
 
 La manera más fácil de publicar un paquete actualizado es repetir el proceso que se describe en este artículo y proporcionar un número de versión actualizado. Este proceso garantiza que todas las propiedades se hayan actualizado correctamente.
 
@@ -518,8 +518,8 @@ Protect-GuestConfigurationPackage -Path .\package\AuditWindowsService\AuditWindo
 
 Parámetros del cmdlet `Protect-GuestConfigurationPackage`:
 
-- **Ruta de acceso** : ruta de acceso completa del paquete de configuración de invitados.
-- **Certificate** : certificado de firma de código para firmar el paquete. Este parámetro solo se admite cuando se firma contenido para Windows.
+- **Ruta de acceso**: ruta de acceso completa del paquete de configuración de invitados.
+- **Certificate**: certificado de firma de código para firmar el paquete. Este parámetro solo se admite cuando se firma contenido para Windows.
 
 El agente GuestConfiguration espera que la clave pública del certificado esté presente en la opción "Entidades de certificación raíz de confianza" de las máquinas Windows y en la ruta de acceso `/usr/local/share/ca-certificates/extra` de las máquinas Linux. Para que el nodo compruebe el contenido firmado, instale la clave pública del certificado en la máquina antes de aplicar la directiva personalizada. Este proceso se puede realizar con cualquier técnica dentro de la máquina virtual o mediante Azure Policy. [Aquí se proporciona](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-push-certificate-windows) una plantilla de ejemplo.
 La directiva de acceso de Key Vault debe permitir que el proveedor de recursos del proceso obtenga acceso a los certificados durante las implementaciones. Para obtener los pasos detallados, consulte [Configuración de Key Vault para máquinas virtuales en Azure Resource Manager](../../../virtual-machines/windows/key-vault-setup.md#use-templates-to-set-up-key-vault).
@@ -532,12 +532,6 @@ $Cert | Export-Certificate -FilePath "$env:temp\DscPublicKey.cer" -Force
 ```
 
 Una vez publicado el contenido, anexe una etiqueta con el nombre `GuestConfigPolicyCertificateValidation` y el valor `enabled` a todas las máquinas virtuales en las que se debe solicitar la firma de código. Consulte los [ejemplos de etiqueta](../samples/built-in-policies.md#tags) sobre cómo se pueden entregar etiquetas a escala mediante Azure Policy. Una vez que esta etiqueta esté en su lugar, la definición de la directiva que se genera mediante el cmdlet `New-GuestConfigurationPolicy` habilita el requisito a través de la extensión de configuración de invitados.
-
-## <a name="troubleshooting-guest-configuration-policy-assignments-preview"></a>Solución de problemas de asignaciones de directivas de configuración de invitados (versión preliminar)
-
-Hay una herramienta disponible en versión preliminar para ayudarle a solucionar problemas en las asignaciones de configuración de invitados de Azure Policy. La herramienta se encuentra en versión preliminar y se ha publicado en la Galería de PowerShell con el nombre de módulo [Guest Configuration Troubleshooter](https://www.powershellgallery.com/packages/GuestConfigurationTroubleshooter/) (Solucionador de problemas de configuración de invitados).
-
-Para más información sobre los cmdlets de esta herramienta, use el comando Get-Help en PowerShell para mostrar la guía integrada. Como la herramienta tiene actualizaciones frecuentes, es la mejor manera de obtener la información más reciente.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

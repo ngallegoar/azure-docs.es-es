@@ -13,21 +13,21 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/24/2018
 ms.author: allensu
-ms.openlocfilehash: 443e8c09ea46c0c20b557d77d6ed7bd63db00085
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4061a3dbf4dc92d6d412528115d46edc36d20d5e
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90058757"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94700698"
 ---
 # <a name="overview-of-ipv6-for-azure-load-balancer"></a>Información general de IPv6 para Azure Load Balancer
 
 
 >[!NOTE] 
->Se ha reemplazado este contenido por [I0nformación general de IPv6 para Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/ipv6-overview). Azure recomienda que las nuevas implementaciones de IPv6 usen las nuevas características de IPv6 para Azure Virtual Network.
+>Se ha reemplazado este contenido por [I0nformación general de IPv6 para Azure Virtual Network](../virtual-network/ipv6-overview.md). Azure recomienda que las nuevas implementaciones de IPv6 usen las nuevas características de IPv6 para Azure Virtual Network.
 
 >[!NOTE]
->Azure Load Balancer admite dos tipos diferentes: Básico y Estándar. En este artículo se describe Load Balancer Básico. Para más información sobre Load Balancer Estándar, consulte [Introducción a Azure Load Balancer Estándar (versión preliminar)](load-balancer-standard-overview.md).
+>Azure Load Balancer admite dos tipos diferentes: Básico y Estándar. En este artículo se describe Load Balancer Básico. Para más información sobre Load Balancer Estándar, consulte [Introducción a Azure Load Balancer Estándar (versión preliminar)](./load-balancer-overview.md).
 
 Los equilibradores de carga con conexión a Internet de la SKU básica pueden implementarse con una dirección IPv6. Además de la conectividad de IPv4, esto permite las siguientes capacidades:
 
