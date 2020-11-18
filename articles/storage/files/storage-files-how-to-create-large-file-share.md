@@ -8,12 +8,12 @@ ms.date: 05/29/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 5acb8e347046780c84f0aa324b997abb5e2aa840
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 6c611d65c30cceba5fd6ff409ef71b906cd8674c
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629230"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94330315"
 ---
 # <a name="enable-and-create-large-file-shares"></a>Habilitación y creación de recursos compartidos de archivos grandes
 
@@ -22,8 +22,8 @@ Al habilitar recursos compartidos de archivos de gran tamaño en la cuenta de al
 ## <a name="prerequisites"></a>Requisitos previos
 
 - Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
-- Si planea usar la CLI de Azure, [instale la versión más reciente](/cli/azure/install-azure-cli?view=azure-cli-latest).
-- Si planea usar el módulo de Azure PowerShell, [instale la versión más reciente](/powershell/azure/install-az-ps?view=azps-4.6.0).
+- Si planea usar la CLI de Azure, [instale la versión más reciente](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+- Si planea usar el módulo de Azure PowerShell, [instale la versión más reciente](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-4.6.0).
 
 ## <a name="restrictions"></a>Restricciones
 
@@ -65,7 +65,7 @@ La habilitación de recursos compartidos de archivos grandes en una cuenta es un
 
 # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
-En primer lugar, [instale la versión más reciente de la CLI de Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) para que pueda habilitar recursos compartidos de archivos grandes.
+En primer lugar, [instale la versión más reciente de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) para que pueda habilitar recursos compartidos de archivos grandes.
 
 Para crear una cuenta de almacenamiento que tenga habilitados recursos compartidos de archivos grandes, use el siguiente comando. Reemplace `<yourStorageAccountName>`, `<yourResourceGroup>` y `<yourDesiredRegion>` por su información.
 
@@ -76,7 +76,7 @@ az storage account create --name <yourStorageAccountName> -g <yourResourceGroup>
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-En primer lugar, [instale la versión más reciente de PowerShell](/powershell/azure/install-az-ps?view=azps-3.0.0) para poder habilitar recursos compartidos de archivos grandes.
+En primer lugar, [instale la versión más reciente de PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.0.0) para poder habilitar recursos compartidos de archivos grandes.
 
 Para crear una cuenta de almacenamiento que tenga habilitados recursos compartidos de archivos grandes, use el siguiente comando. Reemplace `<yourStorageAccountName>`, `<yourResourceGroup>` y `<yourDesiredRegion>` por su información.
 

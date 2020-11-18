@@ -1,19 +1,19 @@
 ---
 title: Administración de puntos de conexión de red virtual de Azure Database for MariaDB mediante la CLI de Azure
 description: En este artículo se describe cómo crear y administrar reglas y puntos de conexión de servicio de red virtual de Azure Database for MariaDB mediante la línea de comandos de la CLI de Azure.
-author: savjani
-ms.author: pariks
+author: ajlam
+ms.author: andrela
 ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 3/18/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 43d1b7700395bd06960737eae4f318d61aa03717
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: b7efa9a6ae6dda41a5503da389b59880c448bc76
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94635252"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94515479"
 ---
 # <a name="create-and-manage-azure-database-for-mariadb-vnet-service-endpoints-using-azure-cli"></a>Creación y administración de puntos de conexión de servicio de red virtual de Azure Database for MariaDB mediante la CLI de Azure
 
@@ -32,9 +32,9 @@ Las reglas y los puntos de conexión de los servicios de red virtual (VNet) ampl
 
 ## <a name="configure-vnet-service-endpoints"></a>Configuración de los puntos de conexión de servicio de red virtual
 
-Los comandos [az network vnet](/cli/azure/network/vnet) se usan para configurar redes virtuales.
+Los comandos [az network vnet](/cli/azure/network/vnet?view=azure-cli-latest) se usan para configurar redes virtuales.
 
-Si tiene varias suscripciones, elija la suscripción adecuada en la que se debe facturar el recurso. Seleccione el identificador de suscripción específico en su cuenta mediante el comando [az account set](/cli/azure/account#az-account-set). Sustituya la propiedad **id** de la salida **az login** para su suscripción en el marcador de posición de id. de suscripción.
+Si tiene varias suscripciones, elija la suscripción adecuada en la que se debe facturar el recurso. Seleccione el identificador de suscripción específico en su cuenta mediante el comando [az account set](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-set). Sustituya la propiedad **id** de la salida **az login** para su suscripción en el marcador de posición de id. de suscripción.
 
 - La cuenta debe tener todos los permisos necesarios para crear una red virtual y un punto de conexión de servicio.
 

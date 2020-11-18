@@ -12,20 +12,20 @@ ms.date: 02/18/2019
 ms.author: kenwith
 ms.reviewer: luleon, asteen
 ms.custom: contperfq2
-ms.openlocfilehash: e75669c70c67d55c94642a0f6dbe3c9dbc3376e6
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 12b11d6283bbed4e43daf52a65c0c259c476e73f
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94651556"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357919"
 ---
 # <a name="problems-signing-in-to-saml-based-single-sign-on-configured-apps"></a>Problemas al iniciar sesión en aplicaciones configuradas con inicio de sesión único basado en SAML
 Para solucionar estos problemas de inicio de sesión, se recomienda que siga los siguientes consejos para obtener un mejor diagnóstico y automatizar los pasos de resolución:
 
-- Instale la [extensión del explorador seguro de Mis aplicaciones](./access-panel-deployment-plan.md) para ayudar a Azure Active Directory (Azure AD) a proporcionar mejores diagnósticos y resoluciones al usar la experiencia de pruebas en Azure Portal.
-- Reproduzca el error mediante la experiencia de pruebas en la página de configuración de aplicaciones en Azure Portal. Obtenga más información en [Depuración del inicio de sesión único basado en SAML en aplicaciones](./debug-saml-sso-issues.md).
+- Instale la [extensión del explorador seguro de Mis aplicaciones](access-panel-extension-problem-installing.md) para ayudar a Azure Active Directory (Azure AD) a proporcionar mejores diagnósticos y resoluciones al usar la experiencia de pruebas en Azure Portal.
+- Reproduzca el error mediante la experiencia de pruebas en la página de configuración de aplicaciones en Azure Portal. Obtenga más información en [Depuración del inicio de sesión único basado en SAML en aplicaciones](../azuread-dev/howto-v1-debug-saml-sso-issues.md).
 
-Si usa la [experiencia de pruebas](./debug-saml-sso-issues.md) de Azure Portal con la extensión del explorador seguro de Aplicaciones, no tiene que seguir los siguientes pasos manualmente para abrir la página de configuración del inicio de sesión único basado en SAML.
+Si usa la [experiencia de pruebas](../azuread-dev/howto-v1-debug-saml-sso-issues.md) de Azure Portal con la extensión del explorador seguro de Aplicaciones, no tiene que seguir los siguientes pasos manualmente para abrir la página de configuración del inicio de sesión único basado en SAML.
 
 Para abrir la página de configuración del inicio de sesión único basado en SAML:
 1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global** o **coadministrador**.
@@ -88,7 +88,7 @@ Azure AD no admite la solicitud SAML enviada por la aplicación para el inicio 
 
 **Resolución**
 
-1. Capture la solicitud SAML. Siga el tutorial de [Cómo depurar el inicio de sesión único basado en SAML en aplicaciones de Azure AD](./debug-saml-sso-issues.md) para obtener información sobre cómo capturar la solicitud SAML.
+1. Capture la solicitud SAML. Siga el tutorial de [Cómo depurar el inicio de sesión único basado en SAML en aplicaciones de Azure AD](../azuread-dev/howto-v1-debug-saml-sso-issues.md) para obtener información sobre cómo capturar la solicitud SAML.
 1. Póngase en contacto con el proveedor de la aplicación y comparta la información siguiente:
     - La solicitud SAML
     - [Los requisitos del protocolo SAML de inicio de sesión único de Azure AD](../develop/single-sign-on-saml-protocol.md)
@@ -174,5 +174,5 @@ Compare el recurso del que está solicitando acceso mediante código con los per
 
 ## <a name="next-steps"></a>Pasos siguientes
 - [Serie de guías de inicio rápido sobre la administración de aplicaciones](add-application-portal-assign-users.md)
-- [Cómo depurar el inicio de sesión único basado en SAML en aplicaciones de Azure AD](./debug-saml-sso-issues.md)
-- [Los requisitos del protocolo SAML de inicio de sesión único de Azure AD](../develop/single-sign-on-saml-protocol.md)
+- [Cómo depurar el inicio de sesión único basado en SAML en aplicaciones de Azure AD](../azuread-dev/howto-v1-debug-saml-sso-issues.md)
+- [Los requisitos del protocolo SAML de inicio de sesión único de Azure AD](../develop/active-directory-single-sign-on-protocol-reference.md)

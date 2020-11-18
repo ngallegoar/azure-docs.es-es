@@ -1,17 +1,17 @@
 ---
 title: 'Registros de consultas lentas: Azure Database for MySQL'
 description: Describe los registros de consultas lentas disponibles en Azure Database for MySQL y los parámetros disponibles para habilitar diferentes niveles de registro.
-author: savjani
-ms.author: pariks
+author: ajlam
+ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 11/6/2020
-ms.openlocfilehash: 0b00db8e89afda8682ddedccfec7e5a6147b7125
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 1e967c77bc41f0f91674fe55bc622adaf5046f6d
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94534983"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359007"
 ---
 # <a name="slow-query-logs-in-azure-database-for-mysql"></a>Registros de consultas lentas en Azure Database for MySQL
 En Azure Database for MySQL, el registro de consultas lentas está disponible para los usuarios. No se admite el acceso al registro de transacciones. El registro de consultas lentas puede utilizarse para identificar cuellos de botella que afectan al rendimiento a fin de solucionar el problema.
