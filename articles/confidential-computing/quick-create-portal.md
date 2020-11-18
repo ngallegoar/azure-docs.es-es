@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: quickstart
 ms.date: 04/23/2020
 ms.author: JenCook
-ms.openlocfilehash: 4723bce8f3721833ae80b233f7b346fe69363b0b
-ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
+ms.openlocfilehash: 1e417563b463d7033072b27bec505d10ef1adb47
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91409551"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94695748"
 ---
 # <a name="quickstart-deploy-an-azure-confidential-computing-vm-in-the-azure-portal"></a>Inicio rápido: Implementación de una máquina virtual de computación confidencial de Azure en Azure Portal
 
@@ -62,7 +62,7 @@ Si no tiene una suscripción a Azure, [cree una cuenta](https://azure.microsoft.
 
     * **Elija una imagen**: en este tutorial, seleccione Ubuntu 18.04 LTS. También puede seleccionar Windows Server 2019, Windows Server 2016 y Ubuntu 16.04 LTS. Si decide hacerlo, se le proporcionará la información adecuada en este tutorial.
     
-    * **Alterne la imagen de Gen 2**: las máquinas virtuales de computación confidencial solo se ejecutan en imágenes de la [Generación 2](../virtual-machines/linux/generation-2.md). Asegúrese de que la imagen que selecciona es una imagen de esta generación. Haga clic en la pestaña **Avanzado** que está encima de donde está configurando la máquina virtual. Desplácese hacia abajo hasta que encuentre la sección denominada "Generación de VM". Seleccione Gen 2 y, a continuación, vuelva a la pestaña **Básico**.
+    * **Alterne la imagen de Gen 2**: las máquinas virtuales de computación confidencial solo se ejecutan en imágenes de la [Generación 2](../virtual-machines/generation-2.md). Asegúrese de que la imagen que selecciona es una imagen de esta generación. Haga clic en la pestaña **Avanzado** que está encima de donde está configurando la máquina virtual. Desplácese hacia abajo hasta que encuentre la sección denominada "Generación de VM". Seleccione Gen 2 y, a continuación, vuelva a la pestaña **Básico**.
     
 
         ![Pestaña Avanzadas](media/quick-create-portal/advanced-tab-virtual-machine.png)
@@ -168,7 +168,7 @@ wget -qO - https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add 
 ```bash
 sudo apt update
 sudo apt -y install dkms
-wget https://download.01.org/intel-sgx/sgx-dcap/1.4/linux/distro/ubuntuServer18.04/sgx_linux_x64_driver_1.21.bin -O sgx_linux_x64_driver.bin
+wget https://download.01.org/intel-sgx/sgx-dcap/1.9/linux/distro/ubuntu18.04-server/sgx_linux_x64_driver_1.36.2.bin -O sgx_linux_x64_driver.bin
 chmod +x sgx_linux_x64_driver.bin
 sudo ./sgx_linux_x64_driver.bin
 ```

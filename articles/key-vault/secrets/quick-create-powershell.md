@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc, devx-track-azurepowershell
 ms.date: 09/30/2020
 ms.author: mbaldwin
-ms.openlocfilehash: d8375b4a47df8454ceb4aba4cb2e695255161409
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: c28dbc25abfd701450cf9f232ea1a4b5e16841aa
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324754"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94686198"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-powershell"></a>Inicio rápido: Establecimiento y recuperación de un secreto de Azure Key Vault mediante PowerShell
 
@@ -45,9 +45,9 @@ A continuación, puede crear una instancia de Key Vault. Cuando se realiza este 
 
 Aunque aquí hemos usado "Contoso KeyVault2" como el nombre de la instancia de Key Vault a lo largo de este inicio rápido, usted tiene que utilizar un nombre único.
 
-- **Nombre del almacén** : Contoso-Vault2.
-- **Nombre del grupo de recursos** : ContosoResourceGroup.
-- **Ubicación** : Este de EE. UU.
+- **Nombre del almacén**: Contoso-Vault2.
+- **Nombre del grupo de recursos**: ContosoResourceGroup.
+- **Ubicación**: Este de EE. UU.
 
 ```azurepowershell-interactive
 New-AzKeyVault -Name 'Contoso-Vault2' -ResourceGroupName 'ContosoResourceGroup' -Location 'East US'
@@ -55,8 +55,8 @@ New-AzKeyVault -Name 'Contoso-Vault2' -ResourceGroupName 'ContosoResourceGroup' 
 
 La salida de este cmdlet muestra las propiedades del almacén de claves que acaba de crear. Tome nota de las dos propiedades siguientes:
 
-* **Nombre del almacén** : en este ejemplo es **Contoso-Vault2**. Utilizará este nombre para otros cmdlets de Key Vault.
-* **URI de almacén** : en este ejemplo, es https://Contoso-Vault2.vault.azure.net/. Las aplicaciones que utilizan el almacén a través de su API de REST deben usar este identificador URI.
+* **Nombre del almacén**: en este ejemplo es **Contoso-Vault2**. Utilizará este nombre para otros cmdlets de Key Vault.
+* **URI de almacén**: en este ejemplo, es https://Contoso-Vault2.vault.azure.net/. Las aplicaciones que utilizan el almacén a través de su API de REST deben usar este identificador URI.
 
 Después de la creación del almacén, la cuenta de Azure es la única cuenta a la que se permite realizar cualquier acción en este nuevo almacén.
 
@@ -77,11 +77,14 @@ Primero, para convertir el valor de **hVFkk965BuUv** en una cadena segura, escri
 $secretvalue = ConvertTo-SecureString 'hVFkk965BuUv' -AsPlainText -Force
 ```
 
-A continuación, escriba los siguientes comandos de PowerShell para crear un secreto en Key Vault denominado **ExamplePassword** con el valor **hVFkk965BuUv** :
+A continuación, escriba los siguientes comandos de PowerShell para crear un secreto en Key Vault denominado **ExamplePassword** con el valor **hVFkk965BuUv**:
+
 
 ```azurepowershell-interactive
 $secret = Set-AzKeyVaultSecret -VaultName 'Contoso-Vault2' -Name 'ExamplePassword' -SecretValue $secretvalue
 ```
+
+## <a name="retrieve-a-secret-from-key-vault"></a>Recuperar un secreto del almacén de claves
 
 Para ver el valor contenido en el secreto como texto sin formato:
 

@@ -10,12 +10,12 @@ ms.date: 9/1/2020
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: 994f2829d260223567dcb5aed859812aa1fef3d1
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: a76c6467dac69fd3d21aa659c52227046c166938
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91828824"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94816820"
 ---
 ## <a name="prerequisites"></a>Prerrequisitos
 Antes de comenzar, compruebe lo siguiente:
@@ -46,7 +46,7 @@ dotnet build
 Instale la biblioteca cliente de chat de comunicación de Azure para .NET
 
 ```PowerShell
-dotnet add package Azure.Communication.Chat --version 1.0.0-beta.2
+dotnet add package Azure.Communication.Chat --version 1.0.0-beta.3
 ``` 
 
 ## <a name="object-model"></a>Modelo de objetos
@@ -77,7 +77,7 @@ ChatClient chatClient = new ChatClient(endpoint, communicationUserCredential);
 
 Use el método `createChatThread` para crear un subproceso de chat.
 - Use `topic` para proporcionar un tema a este chat; el tema puede actualizarse después de crear el subproceso de chat mediante la función `UpdateThread`.
-- Utilice la propiedad `members` para pasar una lista de objetos `ChatThreadMember` que se van a agregar al subproceso de chat. El objeto `ChatThreadMember` se inicializó con un objeto `CommunicationUser`. Para obtener un objeto `CommunicationUser`, deberá pasar un id. de acceso creado siguiendo las instrucciones de [Creación de un usuario](../../access-tokens.md#create-a-user).
+- Utilice la propiedad `members` para pasar una lista de objetos `ChatThreadMember` que se van a agregar al subproceso de chat. El objeto `ChatThreadMember` se inicializó con un objeto `CommunicationUser`. Para obtener un objeto `CommunicationUser`, deberá pasar un id. de acceso creado siguiendo las instrucciones de [Creación de un usuario](../../access-tokens.md#create-an-identity).
 
 La respuesta `chatThreadClient` se usa para realizar operaciones en el subproceso de chat creado: agregar miembros al subproceso de chat, enviar o eliminar un mensaje, etc. Contiene el atributo `Id`, que es el id. único del subproceso de chat. 
 

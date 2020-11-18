@@ -5,15 +5,15 @@ services: load-balancer
 author: asudbring
 ms.service: load-balancer
 ms.topic: quickstart
-ms.custom: subject-armqs
+ms.custom: subject-armqs, devx-track-azurecli
 ms.author: allensu
 ms.date: 09/14/2020
-ms.openlocfilehash: 41c90bb58e6ece968f8e2bf211a14e4e4e98211f
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 749b233b827c27d2c998cfd6be66cf79cf48089d
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92910872"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94831657"
 ---
 # <a name="quickstart-create-an-internal-load-balancer-to-load-balance-vms-by-using-an-arm-template"></a>Inicio rápido: Creación de un equilibrador de carga interno para equilibrar la carga de las máquinas virtuales mediante una plantilla de ARM
 
@@ -90,4 +90,4 @@ Cuando ya no lo necesite, puede usar el comando [az group delete](/cli/azure/gro
 Para obtener un tutorial paso a paso que le guíe en el proceso de creación de una plantilla, consulte:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Creación e implementación de su primera plantilla de Resource Manager](/azure/azure-resource-manager/templates/template-tutorial-create-first-template)
+> [Tutorial: Creación e implementación de su primera plantilla de Resource Manager](../azure-resource-manager/templates/template-tutorial-create-first-template.md)

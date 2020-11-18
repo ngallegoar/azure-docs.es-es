@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 10/05/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 53deb7dc853de969ad6b6679ee728a3f132b6309
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: f3e43a6b72d8de25de3220a9a6ac4e0b3986a467
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91759104"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701813"
 ---
 # <a name="quickstart-create-a-search-index-using-the-azuresearchdocuments-client-library"></a>Inicio rápido: Creación de un índice de búsqueda mediante la biblioteca cliente Azure.Search.Documents
 
@@ -52,7 +52,7 @@ Las llamadas al servicio requieren un punto de conexión de URL y una clave de a
 
 2. En **Configuración** > **Claves**, obtenga una clave de administración para los derechos completos en el servicio, esta es necesaria si va a crear o eliminar objetos. Hay dos claves intercambiables una principal y otra secundaria. Puede usar cualquiera de ellas.
 
-   ![Obtención de una clave de acceso y un punto de conexión HTTP](media/search-get-started-postman/get-url-key.png "Obtención de una clave de acceso y un punto de conexión HTTP")
+   ![Obtención de una clave de acceso y un punto de conexión HTTP](media/search-get-started-rest/get-url-key.png "Obtención de una clave de acceso y un punto de conexión HTTP")
 
 Todas las solicitudes requieren una clave de API en cada solicitud enviada al servicio. Tener una clave válida genera la confianza, solicitud a solicitud, entre la aplicación que envía la solicitud y el servicio que se encarga de ella.
 
@@ -66,7 +66,7 @@ Una vez creado el proyecto, agregue la biblioteca de cliente. El [paquete Azure.
 
 1. Busque `Azure.Search.Documents` y seleccione la versión 11.0 ou otra posterior.
 
-1. Haga clic a la derecha en **Instalar**para agregar el ensamblado al proyecto y la solución.
+1. Haga clic a la derecha en **Instalar** para agregar el ensamblado al proyecto y la solución.
 
 ### <a name="create-a-search-client"></a>Creación de un cliente de búsqueda
 

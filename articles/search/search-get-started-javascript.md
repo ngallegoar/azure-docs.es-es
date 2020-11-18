@@ -10,12 +10,12 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 10/26/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 5ccbe1035c5cc73993e069c7683d6b15ae18e21c
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 0e1b7aa0eb56d5668b6561b36a0f63e719974573
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92795543"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94698903"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-using-the-javascript-sdk"></a>Inicio rápido: Creación de un índice de Azure Cognitive Search mediante el SDK de JavaScript
 > [!div class="op_single_selector"]
@@ -24,10 +24,10 @@ ms.locfileid: "92795543"
 > * [Portal](search-get-started-portal.md)
 > * [PowerShell](./search-get-started-powershell.md)
 > * [Python](search-get-started-python.md)
-> * [Postman](search-get-started-postman.md)
+> * [REST](search-get-started-rest.md)
 
 
-Use el [SDK de JavaScript/TypeScript para Azure Cognitive Search](https://docs.microsoft.com/javascript/api/overview/azure/search-documents-readme?view=azure-node-latest) para crear una aplicación de Node.js en JavaScript que cree, cargue y consulte un indice de búsqueda.
+Use el [SDK de JavaScript/TypeScript para Azure Cognitive Search](https://docs.microsoft.com/javascript/api/overview/azure/search-documents-readme) para crear una aplicación de Node.js en JavaScript que cree, cargue y consulte un indice de búsqueda.
 
 En este artículo se muestra cómo crear la aplicación paso a paso. También puede [descargar el código fuente y los datos](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/master/quickstart/v11) y ejecutar la aplicación desde la línea de comandos.
 
@@ -56,9 +56,9 @@ Las llamadas al servicio requieren un punto de conexión de URL y una clave de a
 
 1. [Inicie sesión en Azure Portal](https://portal.azure.com/) y en la página **Introducción** del servicio de búsqueda, obtenga la dirección URL. Un punto de conexión de ejemplo podría ser similar a `https://mydemo.search.windows.net`.
 
-2. En **Configuración** > **Claves** , obtenga una clave de administración para los derechos completos en el servicio, esta es necesaria si va a crear o eliminar objetos. Hay dos claves intercambiables una principal y otra secundaria. Puede usar cualquiera de ellas.
+2. En **Configuración** > **Claves**, obtenga una clave de administración para los derechos completos en el servicio, esta es necesaria si va a crear o eliminar objetos. Hay dos claves intercambiables una principal y otra secundaria. Puede usar cualquiera de ellas.
 
-   ![Obtención de una clave de acceso y un punto de conexión HTTP](media/search-get-started-postman/get-url-key.png "Obtención de una clave de acceso y un punto de conexión HTTP")
+   ![Obtención de una clave de acceso y un punto de conexión HTTP](media/search-get-started-rest/get-url-key.png "Obtención de una clave de acceso y un punto de conexión HTTP")
 
 Todas las solicitudes requieren una clave de API en cada solicitud enviada al servicio. Tener una clave válida genera la confianza, solicitud a solicitud, entre la aplicación que envía la solicitud y el servicio que se encarga de ella.
 
@@ -80,7 +80,7 @@ Para empezar, abra VS Code y su [terminal integrado](https://code.visualstudio.
     ```
      Acepte los valores predeterminados, excepto la licencia, que tiene que establecerse en “MIT”. 
 
-3. Instale `@azure/search-documents`, el [SDK de JavaScript/TypeScript para Azure Cognitive Search](https://docs.microsoft.com/javascript/api/overview/azure/search-documents-readme?view=azure-node-latest).
+3. Instale `@azure/search-documents`, el [SDK de JavaScript/TypeScript para Azure Cognitive Search](https://docs.microsoft.com/javascript/api/overview/azure/search-documents-readme).
 
     ```cmd
     npm install @azure/search-documents
@@ -126,7 +126,7 @@ Reemplace el valor `<search-service-name>` por el nombre del servicio de búsque
 
 ### <a name="create-indexjs-file"></a>Creación del archivo index.js
 
-A continuación, se crea un archivo **index.js** , que es el archivo principal que hospedará el código.
+A continuación, se crea un archivo **index.js**, que es el archivo principal que hospedará el código.
 
 Al principio de este archivo, se importa la biblioteca `@azure/search-documents`:
 
@@ -171,7 +171,7 @@ A continuación, se puede crear un índice.
 
 Cree el archivo **hotels_quickstart_index.json**.  Este archivo define la forma en que Azure Cognitive Search funciona con los documentos que cargará en el paso siguiente. Cada campo se identificará mediante un elemento `name` y tendrá un elemento especificado `type`. Cada campo también tiene una serie de atributos del índice que especifican si Azure Cognitive Search puede buscar, filtrar, ordenar y cambiar las facetas del campo. La mayoría de los campos son tipos de datos simples; pero algunos, como `AddressType`, son tipos complejos que le permiten crear estructuras de datos enriquecidos en el índice.  Puede obtener más información sobre los [tipos de datos admitidos](/rest/api/searchservice/supported-data-types) y los [atributos del índice](./search-what-is-an-index.md#index-attributes). 
 
-Agregue lo siguiente a **hotels_quickstart_index.json** , o bien [descargue el archivo](https://github.com/Azure-Samples/azure-search-javascript-samples/blob/master/quickstart/v11/hotels_quickstart_index.json). 
+Agregue lo siguiente a **hotels_quickstart_index.json**, o bien [descargue el archivo](https://github.com/Azure-Samples/azure-search-javascript-samples/blob/master/quickstart/v11/hotels_quickstart_index.json). 
 
 ```json
 {
@@ -305,7 +305,7 @@ Agregue lo siguiente a **hotels_quickstart_index.json** , o bien [descargue el a
 }
 ```
 
-Con la definición del índice implementada, hay que importar **hotels_quickstart_index.json** al principio de **index.js** , con el fin de que la función principal pueda acceder a la definición del índice.
+Con la definición del índice implementada, hay que importar **hotels_quickstart_index.json** al principio de **index.js**, con el fin de que la función principal pueda acceder a la definición del índice.
 
 ```javascript
 const indexDefinition = require('./hotels_quickstart_index.json');
@@ -450,7 +450,7 @@ Las entradas de documentos pueden ser filas de una base de datos, blobs en Blob 
 }
 ```
 
-De forma parecida a como se hizo con indexDefinition, también es preciso importar `hotels.json` al principio de **index.js** , con el fin de que se pueda acceder a los datos en la función principal.
+De forma parecida a como se hizo con indexDefinition, también es preciso importar `hotels.json` al principio de **index.js**, con el fin de que se pueda acceder a los datos en la función principal.
 
 ```javascript
 const hotelData = require('./hotels.json');

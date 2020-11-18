@@ -7,14 +7,14 @@ ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: ''
 ms.date: 04/15/2020
-ms.author: v-stazar
+ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 4337d6bb108042a909250b3d87d13ab60357cfec
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 4239b5400e919621dfff001ca7e6cb9de1626658
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93311126"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94686215"
 ---
 # <a name="connect-to-synapse-sql-with-sql-server-management-studio-ssms"></a>Conexión a Synapse SQL con SQL Server Management Studio (SSMS)
 > [!div class="op_single_selector"]
@@ -50,13 +50,13 @@ Asegúrese de que cumple los siguientes requisitos previos antes de empezar:
 Para conectarse a Synapse SQL mediante el grupo de SQL dedicado, siga estos pasos: 
 
 1. Abra SQL Server Management Studio (SSMS). 
-1. En el cuadro de diálogo **Conectar al servidor** , rellene los campos y seleccione **Conectar** : 
+1. En el cuadro de diálogo **Conectar al servidor**, rellene los campos y seleccione **Conectar**: 
   
     ![Conectar al servidor 1](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/connect-object-explorer1.png)
    
-   * **Nombre del servidor** : Escriba el **nombre del servidor** definido anteriormente.
-   * **Autenticación** :  Elija un tipo de autenticación como, por ejemplo, **Autenticación de SQL Server** o **Autenticación integrada de Active Directory**.
-   * **Nombre de usuario** y **contraseña** : Escriba su nombre de usuario y la contraseña si la autenticación de SQL Server se seleccionó anteriormente.
+   * **Nombre del servidor**: Escriba el **nombre del servidor** definido anteriormente.
+   * **Autenticación**:  Elija un tipo de autenticación como, por ejemplo, **Autenticación de SQL Server** o **Autenticación integrada de Active Directory**.
+   * **Nombre de usuario** y **contraseña**: Escriba su nombre de usuario y la contraseña si la autenticación de SQL Server se seleccionó anteriormente.
 
 1. Expanda el servidor de Azure SQL Server en **Explorador de objetos**. Puede ver las bases de datos asociadas al servidor, como la base de datos AdventureWorksDW de ejemplo. Puede expandir la base de datos para ver las tablas:
    
@@ -68,13 +68,13 @@ Para conectarse a Synapse SQL mediante el grupo de SQL dedicado, siga estos paso
 Para conectarse a Synapse SQL mediante el grupo de SQL sin servidor, siga estos pasos: 
 
 1. Abra SQL Server Management Studio (SSMS).
-1. En el cuadro de diálogo **Conectar al servidor** , rellene los campos y seleccione **Conectar** : 
+1. En el cuadro de diálogo **Conectar al servidor**, rellene los campos y seleccione **Conectar**: 
    
     ![Conectar al servidor 2](./media/get-started-ssms/connect-object-explorer1.png)
    
-   * **Nombre del servidor** : Escriba el **nombre del servidor** definido anteriormente.
-   * **Autenticación** : Elija un tipo de autenticación como, por ejemplo, **Autenticación de SQL Server** o **Autenticación integrada de Active Directory** :
-   * **Nombre de usuario** y **contraseña** : Escriba su nombre de usuario y la contraseña si la autenticación de SQL Server se seleccionó anteriormente.
+   * **Nombre del servidor**: Escriba el **nombre del servidor** definido anteriormente.
+   * **Autenticación**: Elija un tipo de autenticación como, por ejemplo, **Autenticación de SQL Server** o **Autenticación integrada de Active Directory**:
+   * **Nombre de usuario** y **contraseña**: Escriba su nombre de usuario y la contraseña si la autenticación de SQL Server se seleccionó anteriormente.
    * Seleccione **Conectar**.
 
 4. Para explorar, expanda su Azure SQL Server. Puede ver las bases de datos asociadas al servidor. Expanda *demo* para ver el contenido de la base de datos de ejemplo.

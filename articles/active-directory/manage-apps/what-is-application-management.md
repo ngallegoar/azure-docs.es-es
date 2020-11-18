@@ -12,12 +12,12 @@ ms.date: 07/01/2020
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: abe222ff783032c5d6d19a42bfb3d8aeffc284a1
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: a157396318075522d5b3263c9cf0f749eafc2476
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90604128"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658815"
 ---
 # <a name="what-is-application-management"></a>¿Qué es la administración de aplicaciones?
 
@@ -57,7 +57,7 @@ Azure AD simplifica la manera de administrar las aplicaciones, porque proporcio
 
 Hay cuatro tipos principales de aplicaciones que se pueden agregar a las **aplicaciones empresariales** y administrar con Azure AD:
 
-- **Aplicaciones de la galería de Azure AD**: Azure AD tiene una galería que contiene miles de aplicaciones que se han integrado previamente para el inicio de sesión único con Azure AD. Algunas de las aplicaciones que su organización usa probablemente estén en la galería. [Aprenda sobre cómo planear la integración de la aplicación](plan-an-application-integration.md) u obtenga pasos detallados de la integración para aplicaciones individuales en los [tutoriales de aplicaciones SaaS](https://docs.microsoft.com/azure/active-directory/saas-apps/).
+- **Aplicaciones de la galería de Azure AD**: Azure AD tiene una galería que contiene miles de aplicaciones que se han integrado previamente para el inicio de sesión único con Azure AD. Algunas de las aplicaciones que su organización usa probablemente estén en la galería. [Aprenda sobre cómo planear la integración de la aplicación](plan-an-application-integration.md) u obtenga pasos detallados de la integración para aplicaciones individuales en los [tutoriales de aplicaciones SaaS](/azure/active-directory/saas-apps/).
 
 - **Aplicaciones locales con Application Proxy**: con Azure AD Application Proxy, puede integrar las aplicaciones web locales con Azure AD para admitir el inicio de sesión único. Después, los usuarios finales pueden acceder a sus aplicaciones web locales de la misma manera que acceden a Microsoft 365 y a otras aplicaciones de SaaS. Consulte [Acceso remoto a aplicaciones locales mediante Azure Active Directory Application Proxy](application-proxy.md).
 

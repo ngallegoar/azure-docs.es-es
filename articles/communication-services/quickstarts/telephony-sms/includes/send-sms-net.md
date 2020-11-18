@@ -10,12 +10,12 @@ ms.date: 07/28/2020
 ms.topic: include
 ms.custom: include file
 ms.author: dademath
-ms.openlocfilehash: c8bce6afd914a22be80a57ae234e39161d182b7f
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: a084295aec2cafadd07d47e85a0116a89d37c985
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92499115"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94816762"
 ---
 Para empezar a usar Azure Communication Services, utilice la biblioteca cliente de SMS de C# de Communication Services para enviar mensajes SMS.
 
@@ -41,7 +41,7 @@ Este inicio rápido supone un pequeño costo en su cuenta de Azure.
 
 ### <a name="create-a-new-c-application"></a>Creación de una aplicación de C#
 
-En una ventana de consola (por ejemplo, cmd, PowerShell o Bash), use el comando `dotnet new` para crear una nueva aplicación de consola con el nombre `SmsQuickstart`. Este comando crea un sencillo proyecto "Hola mundo" de C# con un solo archivo de origen: **Program.cs** .
+En una ventana de consola (por ejemplo, cmd, PowerShell o Bash), use el comando `dotnet new` para crear una nueva aplicación de consola con el nombre `SmsQuickstart`. Este comando crea un sencillo proyecto "Hola mundo" de C# con un solo archivo de origen: **Program.cs**.
 
 ```console
 dotnet new console -o SmsQuickstart
@@ -59,7 +59,7 @@ dotnet build
 Mientras sigue en el directorio de aplicaciones, instale el paquete de la biblioteca cliente de SMS de Azure Communication Services para .NET con el comando `dotnet add package`.
 
 ```console
-dotnet add package Azure.Communication.Sms --version 1.0.0-beta.2
+dotnet add package Azure.Communication.Sms --version 1.0.0-beta.3
 ```
 
 Agregue la directiva `using` a la parte superior de **Program.cs** para incluir el espacio de nombres `Azure.Communication`.
@@ -95,7 +95,7 @@ SmsClient smsClient = new SmsClient(connectionString);
 
 ## <a name="send-an-sms-message"></a>Enviar un mensaje SMS
 
-Envíe un mensaje SMS con una llamada al método Enviar. Agregue este código al final del método `Main` en **Program.cs** :
+Envíe un mensaje SMS con una llamada al método Enviar. Agregue este código al final del método `Main` en **Program.cs**:
 
 ```csharp
 smsClient.Send(

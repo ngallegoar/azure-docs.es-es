@@ -7,15 +7,15 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: managed-hsm
 ms.topic: quickstart
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ms.date: 09/15/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 4d1488d6dd2e5d08ae774ca88b7ab41b2020efe5
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d47935f76347b2d5272b386942a85643a732e643
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90998509"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94831759"
 ---
 # <a name="quickstart-create-an-key-vault-managed-hsm-using-an-azure-resource-manager-template"></a>Inicio rápido: Creación de un HSM administrado de Key Vault mediante una plantilla de Azure Resource Manager
 
@@ -79,7 +79,6 @@ También puede necesitar su identificador de inquilino. Para encontrarla, use el
     - **Grupo de recursos**: Seleccione **Crear nuevo**, escriba un nombre único para el grupo de recursos y haga clic en **Aceptar**.
     - **Ubicación**: Seleccione una ubicación. Por ejemplo, **Centro-sur de EE. UU.**
     - **managedHSMName**: escriba un nombre para el HSM administrado.
-    - **SKU**: escriba el nombre y la familia del HSM administrado que desea crear.  Para este inicio rápido, escriba "Standard_B1" como nombre y "B" como familia.
     - **Id. de inquilino**: la función de la plantilla recupera automáticamente el identificador del inquilino; no cambie el valor predeterminado.  Si no hay ningún valor, escriba el identificador de inquilino que recuperó en [Requisitos previos](#prerequisites).
     * **initialAdminObjectIds**: escriba el identificador de objeto que recuperó en [Requisitos previos](#prerequisites).
 

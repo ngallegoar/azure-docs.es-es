@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc, fasttrack-edit
 ms.date: 09/16/2020
 ms.author: yelevin
-ms.openlocfilehash: affefb302d602e9069a903fa5f6a0fbae78992b9
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 26a29524e0bf329a368b3cd2281dd9b070b42a14
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92516960"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660821"
 ---
 # <a name="quickstart-get-started-with-azure-sentinel"></a>Inicio rápido: Introducción a Azure Sentinel
 
@@ -38,15 +38,15 @@ Para visualizar y obtener análisis de lo que sucede en su entorno, primero eche
 
 El cuerpo principal de la página de información general ofrece conclusiones de un vistazo sobre el estado de seguridad del área de trabajo:
 
-- **Eventos y alertas con el tiempo** : muestra el número de eventos y cuántas alertas se crearon a partir de ellos. Si observa un pico inusual, examine las alertas al respecto; si hay algo raro donde hay un pico en los eventos, pero no hay alertas, podría ser motivo de preocupación.
+- **Eventos y alertas con el tiempo**: muestra el número de eventos y cuántas alertas se crearon a partir de ellos. Si observa un pico inusual, examine las alertas al respecto; si hay algo raro donde hay un pico en los eventos, pero no hay alertas, podría ser motivo de preocupación.
 
-- **Posibles eventos malintencionados** : cuando se detecta tráfico desde orígenes que se sabe que son malintencionados, Azure Sentinel le avisa en el mapa. Si la alerta es naranja, se trata del tráfico entrante: alguien está intentando acceder a su organización desde una dirección IP malintencionada conocida. Si observa actividad saliente (rojo), significa que los datos de la red se están transmitiendo fuera de la organización a una dirección IP malintencionada conocida.
+- **Posibles eventos malintencionados**: cuando se detecta tráfico desde orígenes que se sabe que son malintencionados, Azure Sentinel le avisa en el mapa. Si la alerta es naranja, se trata del tráfico entrante: alguien está intentando acceder a su organización desde una dirección IP malintencionada conocida. Si observa actividad saliente (rojo), significa que los datos de la red se están transmitiendo fuera de la organización a una dirección IP malintencionada conocida.
 
    ![Mapa de tráfico malintencionado](./media/qs-get-visibility/map.png)
 
-- **Incidentes recientes** : para ver los incidentes recientes, su gravedad y el número de alertas asociadas con el incidente. Si observa un pico repentino en un tipo de alerta específico, podría significar que hay un ataque activado actualmente en ejecución. Por ejemplo, si tiene un pico repentino de 20 eventos Pass-the-hash procedentes de Microsoft Defender for Identity (anteriormente, Azure ATP), es posible que alguien esté intentando atacarle.
+- **Incidentes recientes**: para ver los incidentes recientes, su gravedad y el número de alertas asociadas con el incidente. Si observa un pico repentino en un tipo de alerta específico, podría significar que hay un ataque activado actualmente en ejecución. Por ejemplo, si tiene un pico repentino de 20 eventos Pass-the-hash procedentes de Microsoft Defender for Identity (anteriormente, Azure ATP), es posible que alguien esté intentando atacarle.
 
-- **Anomalías del origen de datos** : los analistas de datos de Microsoft crean modelos que examinan constantemente los datos de los orígenes de datos en busca de anomalías. Si no hay ninguna anomalía, no se muestra nada. Si se detectan anomalías, debe analizarlas a fondo para ver lo que ha sucedido. Por ejemplo, haga clic en el pico de actividad de Azure. Puede hacer clic en **Chart** (Gráfico) para ver el pico que ha ocurrido y, luego, filtrar por las actividades que se han producido durante ese período de tiempo para ver la causa.
+- **Anomalías del origen de datos**: los analistas de datos de Microsoft crean modelos que examinan constantemente los datos de los orígenes de datos en busca de anomalías. Si no hay ninguna anomalía, no se muestra nada. Si se detectan anomalías, debe analizarlas a fondo para ver lo que ha sucedido. Por ejemplo, haga clic en el pico de actividad de Azure. Puede hacer clic en **Chart** (Gráfico) para ver el pico que ha ocurrido y, luego, filtrar por las actividades que se han producido durante ese período de tiempo para ver la causa.
 
    ![Orígenes de datos anómalos](./media/qs-get-visibility/anomolies.png)
 
@@ -54,19 +54,19 @@ El cuerpo principal de la página de información general ofrece conclusiones de
 
 Los libros integrados proporcionan datos integrados procedentes de orígenes de datos conectados y permiten analizar en profundidad los eventos generados en dichos servicios. Los libros integrados incluyen Azure AD, eventos de actividad de Azure y locales, que pueden ser datos de eventos de Windows de servidores, de alertas de primera entidad o de terceros, incluidos los registros de tráfico del firewall, Office 365 y protocolos poco seguros basados en eventos de Windows. Los libros se basan en Azure Monitor Workbooks para proporcionar una mayor flexibilidad y capacidad de personalización al diseñar su propio libro. Para más información, consulte [Libros](../azure-monitor/platform/workbooks-overview.md).
 
-1. En **Configuración** , seleccione **Libros**. En **Instalados** , puede ver todos los libros instalados. En **Todos** , puede ver toda la galería entera de libros integrados disponibles para su instalación. 
+1. En **Configuración**, seleccione **Libros**. En **Instalados**, puede ver todos los libros instalados. En **Todos**, puede ver toda la galería entera de libros integrados disponibles para su instalación. 
 2. Busque un libro específico ver la lista completa y una descripción de lo que ofrece cada uno. 
 3. Suponiendo que usa Azure AD, para comenzar a trabajar con Azure Sentinel, se recomienda que instale al menos los libros siguientes:
-   - **Azure AD** : use uno de estos paneles o ambos:
-       - **Inicios de sesión de Azure AD** : analiza los inicios de sesión con el tiempo para ver si hay anomalías. Este libro proporciona los errores de inicio de sesión de aplicaciones, dispositivos y ubicaciones de forma que pueda advertir de un vistazo si sucede algo inusual. Preste atención cuando se producen varios errores de inicio de sesión. 
-       - **Registros de auditoría de Azure AD** : analiza las actividades de administración, como los cambios en los usuarios (agregar, quitar, etc.), la creación de grupos y las modificaciones.  
+   - **Azure AD**: use uno de estos paneles o ambos:
+       - **Inicios de sesión de Azure AD**: analiza los inicios de sesión con el tiempo para ver si hay anomalías. Este libro proporciona los errores de inicio de sesión de aplicaciones, dispositivos y ubicaciones de forma que pueda advertir de un vistazo si sucede algo inusual. Preste atención cuando se producen varios errores de inicio de sesión. 
+       - **Registros de auditoría de Azure AD**: analiza las actividades de administración, como los cambios en los usuarios (agregar, quitar, etc.), la creación de grupos y las modificaciones.  
 
    - Agregue un libro para el firewall. Por ejemplo, agregue el libro Palo Alto. El libro analiza el tráfico del firewall, lo que proporciona correlaciones entre los datos del firewall y los eventos de amenazas, y resalta los eventos sospechosos de las distintas entidades. Los libros proporcionan información sobre las tendencias en el tráfico y permite explorar en profundidad los resultados y filtrarlos. 
 
       ![Panel Palo Alto](./media/qs-get-visibility/palo-alto-week-query.png)
 
 
-Puede personalizar los libros mediante la edición de la consulta principal ![botón Editar consulta](./media/qs-get-visibility/edit-query-button.png). Puede hacer clic en el botón ![botón Log Analytics](./media/qs-get-visibility/go-to-la-button.png) para ir a [Log Analytics y editar ahí la consulta](../azure-monitor/log-query/get-started-portal.md), y puede seleccionar el botón de puntos suspensivos (...) y, después, **Personalizar los datos del icono** , que le permite editar el filtro de tiempo principal o quitar iconos concretos del libro.
+Puede personalizar los libros mediante la edición de la consulta principal ![botón Editar consulta](./media/qs-get-visibility/edit-query-button.png). Puede hacer clic en el botón ![botón Log Analytics](./media/qs-get-visibility/go-to-la-button.png) para ir a [Log Analytics y editar ahí la consulta](../azure-monitor/log-query/log-analytics-tutorial.md), y puede seleccionar el botón de puntos suspensivos (...) y, después, **Personalizar los datos del icono**, que le permite editar el filtro de tiempo principal o quitar iconos concretos del libro.
 
 Para más información sobre cómo trabajar con consultas, consulte [Tutorial: Visualización de datos en Log Analytics](../azure-monitor/learn/tutorial-logs-dashboards.md)
 
@@ -74,7 +74,7 @@ Para más información sobre cómo trabajar con consultas, consulte [Tutorial: V
 
 Si desea agregar un icono, puede agregarlo a un libro existente (uno que cree o uno integrado en Azure Sentinel). 
 1. En Log Analytics, cree un icono mediante las instrucciones que encontrará en [Tutorial: Visualización de datos en Log Analytics](../azure-monitor/learn/tutorial-logs-dashboards.md). 
-2. Después de crear el icono, en **Anclar** , seleccione el libro en el que desee que aparezca.
+2. Después de crear el icono, en **Anclar**, seleccione el libro en el que desee que aparezca.
 
 ## <a name="create-new-workbooks"></a>Creación de libros
 Puede crear un libro desde cero o usar un libro integrado como base para un nuevo libro.
@@ -129,4 +129,3 @@ Para más información sobre cómo obtener detecciones estándar, consulte [Tuto
 En este inicio rápido, ha aprendido cómo empezar a usar Azure Sentinel. Siga con el tutorial sobre [cómo detectar amenazas](tutorial-detect-threats-built-in.md).
 > [!div class="nextstepaction"]
 > [Cree reglas de detección de amenazas personalizadas](tutorial-detect-threats-custom.md) para automatizar las respuestas a las amenazas.
-

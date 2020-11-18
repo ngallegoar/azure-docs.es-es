@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: quickstart
 ms.date: 02/03/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 91c88d1084329ea3681ef39c1d8d755ed31d9ddd
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 7ccfec516abc17d4cb6dd338574721c6afb2508e
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490890"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94657574"
 ---
 # <a name="quickstart-create-apache-spark-cluster-in-azure-hdinsight-using-azure-cli"></a>Inicio rápido: Creación de un clúster de Apache Spark en Azure HDInsight mediante la CLI de Azure
 
@@ -21,12 +21,9 @@ En este inicio rápido, aprenderá a crear un clúster de Apache Spark en Azure 
 
 Si usa varios clústeres juntos, querrá crear una red virtual y, si está usando un clúster de Spark, también querrá usar Hive Warehouse Connector. Para más información, consulte [Planificación de una red virtual para Azure HDInsight](../hdinsight-plan-virtual-network-deployment.md) e [Integración de Apache Spark y Apache Hive con el conector de Hive Warehouse](../interactive-query/apache-hive-warehouse-connector.md).
 
-## <a name="prerequisites"></a>Prerrequisitos
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-- Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- La [CLI de Azure](/cli/azure/install-azure-cli), si no desea usar Azure Cloud Shell.
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
 ## <a name="create-an-apache-spark-cluster"></a>Creación de un clúster de Apache Spark
 

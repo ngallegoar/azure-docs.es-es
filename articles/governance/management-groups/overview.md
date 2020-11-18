@@ -1,15 +1,15 @@
 ---
 title: 'Organización de los recursos con grupos de administración: Servicios de gobernanza de Azure'
 description: Más información sobre los grupos de administración, el funcionamiento de sus permisos y cómo utilizarlos.
-ms.date: 09/22/2020
+ms.date: 11/17/2020
 ms.topic: overview
 ms.custom: contperfq1
-ms.openlocfilehash: be3369369f28930fd1ecad295a4dad4d14e75cd3
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: c48361e7f3d67c6d3eec40d5acb47917f7835db5
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951883"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94699600"
 ---
 # <a name="what-are-azure-management-groups"></a>¿Qué son los grupos de administración de Azure?
 
@@ -150,7 +150,7 @@ Las definiciones de roles son un ámbito asignable en cualquier parte de la jera
 
 Por ejemplo, examinemos una pequeña sección de una jerarquía en un objeto visual.
 
-:::image type="complex" source="./media/subtree.png" alt-text="Diagrama de una jerarquía de grupos de administración de ejemplo." border="false":::
+:::image type="complex" source="./media/subtree.png" alt-text="Diagrama de un subconjunto de la jerarquía de grupos de administración de ejemplo." border="false":::
    El diagrama se centra en el grupo de administración raíz con los grupos de administración secundarios Marketing e IT. El grupo de administración IT tiene un único grupo de administración secundario denominado Production, mientras que el grupo de administración Marketing tiene dos suscripciones secundarias de evaluación gratuita.
 :::image-end:::
 
@@ -171,7 +171,11 @@ Existen limitaciones al usar roles personalizados en grupos de administración.
  - En los ámbitos asignables de un nuevo rol no se puede definir más de un grupo de administración. Esta limitación se ha establecido para reducir el número de situaciones en las que las definiciones de roles y las asignaciones de roles están desconectadas. Esta situación se produce cuando una suscripción o un grupo de administración con una asignación de roles se mueven a un elemento primario diferente que no tiene la definición de roles.  
  - Las acciones del plano de datos del proveedor de recursos no se pueden definir acciones en los roles personalizados del grupo de administración. Esta restricción se ha establecido porque hay un problema de latencia al actualizar los proveedores de recursos del plano de datos.
    Se está trabajando en dicho problema y estas acciones se deshabilitarán de la definición de roles para reducir los riesgos.
- - Azure Resource Manager no valida la existencia del grupo de administración en el ámbito asignable de la definición de roles. Aunque haya algún error de escritura o un identificador de grupo de administración incorrecto en la lista, se creará la definición de roles.  
+ - Azure Resource Manager no valida la existencia del grupo de administración en el ámbito asignable de la definición de roles. Aunque haya algún error de escritura o un identificador de grupo de administración incorrecto en la lista, se creará la definición de roles.
+
+> [!IMPORTANT]
+> La adición de un grupo de administración a `AssignableScopes` está actualmente en versión preliminar. Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción.
+> Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="moving-management-groups-and-subscriptions"></a>Movimiento de grupos de administración y suscripciones 
 
@@ -194,7 +198,7 @@ Si el rol de propietario de la suscripción se hereda del grupo de administraci�
 
 Se admiten grupos de administración en el [registro de actividad de Azure](../../azure-monitor/platform/platform-logs-overview.md). Puede buscar todos los eventos que se producen en un grupo de administración en la misma ubicación central que otros recursos de Azure. Por ejemplo, puede ver todos los cambios de asignaciones de roles o de asignación de directiva efectuados en un grupo de administración concreto.
 
-:::image type="content" source="./media/al-mg.png" alt-text="Diagrama de una jerarquía de grupos de administración de ejemplo." border="false":::
+:::image type="content" source="./media/al-mg.png" alt-text="Captura de pantalla de los registros de actividad y las operaciones relacionadas con el grupo de administración seleccionado." border="false":::
 
 Si observa las consultas en los grupos de administración fuera de Azure Portal, el ámbito de destino de los grupos de administración se parece a **"/providers/Microsoft.Management/managementGroups/{yourMgID}"** .
 

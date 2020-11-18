@@ -7,12 +7,12 @@ ms.topic: overview
 author: cjgronlund
 ms.author: cgronlun
 ms.date: 05/06/2020
-ms.openlocfilehash: 24f5a671076a44db382ac37e2f6532e5f0f2a3ae
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 2ab713da87bd67053505289f5c9c8e7b747fd6bd
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "82930393"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94654854"
 ---
 # <a name="what-are-azure-open-datasets-and-how-can-you-use-them"></a>¿Qué es Azure Open Datasets y cómo puede usarse?
 
@@ -59,5 +59,5 @@ Si no encuentra los datos que quiere, envíenos un correo electrónico para [sol
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Cuaderno de ejemplo](samples.md)
-* [Tutorial: Regression modeling with NY taxi data](/azure/machine-learning/tutorial-auto-train-models?context=azure/open-datasets/context/open-datasets-context) (Tutorial: Modelado de regresión con datos de taxis de Nueva York)
-* [SDK de Python para Open Datasets](/python/api/azureml-opendatasets/?view=azure-ml-py)
+* [Tutorial: Regression modeling with NY taxi data](../machine-learning/tutorial-auto-train-models.md?context=azure%252fopen-datasets%252fcontext%252fopen-datasets-context) (Tutorial: Modelado de regresión con datos de taxis de Nueva York)
+* [SDK de Python para Open Datasets](/python/api/azureml-opendatasets/)

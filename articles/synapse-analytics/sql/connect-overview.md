@@ -7,15 +7,15 @@ ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: ''
 ms.date: 04/15/2020
-ms.author: v-stazar
+ms.author: stefanazaric
 ms.reviewer: jrasnick
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 532ada430e7ff2ae76eb0cfbc389792bb0d98209
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 0897ca35dd5ae1b7209a36aee4bd5335d4ea4d25
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322659"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94681540"
 ---
 # <a name="connect-to-synapse-sql"></a>Conexión a Synapse SQL
 Conéctese a la funcionalidad de Synapse SQL en Azure Synapse Analytics.
@@ -92,7 +92,7 @@ Synapse SQL normaliza algunos valores de configuración durante la conexión y l
 
 ## <a name="recommendations"></a>Recomendaciones
 
-Para ejecutar consultas del **grupo de SQL sin servidor** , se recomienda usar estas dos herramientas: [Azure Data Studio](get-started-azure-data-studio.md) y Azure Synapse Studio.
+Para ejecutar consultas del **grupo de SQL sin servidor**, se recomienda usar estas dos herramientas: [Azure Data Studio](get-started-azure-data-studio.md) y Azure Synapse Studio.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para conectarse y realizar consultas con Visual Studio, consulte [Realización de consultas con Visual Studio](../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). Para más información sobre las opciones de autenticación, consulte [Autenticación en Synapse SQL](../sql-data-warehouse/sql-data-warehouse-authentication.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).

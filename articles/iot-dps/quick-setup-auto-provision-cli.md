@@ -8,24 +8,24 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 157bd0a0a40ce6a935d13bb10a84c814ba1018bf
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 611068fa020321be88be6e1d6da663266029c658
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91330254"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660192"
 ---
 # <a name="quickstart-set-up-the-iot-hub-device-provisioning-service-with-azure-cli"></a>Inicio rápido: Configuración del servicio Azure IoT Hub Device Provisioning con la CLI de Azure
 
 La CLI de Azure se usa para crear y administrar recursos de Azure desde la línea de comandos o en scripts. En este inicio rápido se detalla cómo usar la CLI de Azure para crear un centro de IoT y una instancia de IoT Hub Device Provisioning Service y para vincular los dos servicios entre sí. 
 
-Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 > [!IMPORTANT]
 > Tanto el centro de IoT como el servicio de aprovisionamiento que se crean en este inicio rápido se podrán detectar públicamente como puntos de conexión de DNS. Asegúrese de evitar cualquier información confidencial si decide cambiar que se usan para estos recursos.
 >
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos

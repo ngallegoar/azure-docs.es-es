@@ -7,14 +7,14 @@ ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: ''
 ms.date: 04/15/2020
-ms.author: v-stazar
+ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: fb4c7f8ba49cf701ef13cb57ab2b323a94c928cc
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 3af28ef575f770a5b8c3fb73ade1f9c53be66843
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323832"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94685756"
 ---
 # <a name="connect-to-synapse-sql-with-azure-data-studio-preview"></a>Conexión a Synapse SQL con Azure Data Studio (versión preliminar)
 
@@ -46,26 +46,26 @@ La cadena de conexión requiere los siguientes parámetros:
 >
 > - `<Azure Synapse workspace name>`-ondemand.sql.azuresynapse.net.
 >
-> Si desea usar el **grupo de SQL dedicado** , la dirección URL debe ser similar a la siguiente:
+> Si desea usar el **grupo de SQL dedicado**, la dirección URL debe ser similar a la siguiente:
 >
 > - `<Azure Synapse workspace name>`.sql.azuresynapse.net
 
-Elija **Autenticación de Windows** , **Azure Active Directory** o **Inicio de sesión de SQL** como **Tipo de autenticación**.
+Elija **Autenticación de Windows**, **Azure Active Directory** o **Inicio de sesión de SQL** como **Tipo de autenticación**.
 
 Para utilizar **Inicio de sesión SQL** como tipo de autenticación, agregue los parámetros de nombre de usuario y contraseña:
 
-* **Usuario** : usuario del servidor con el formato `<User>`
+* **Usuario**: usuario del servidor con el formato `<User>`
 * **Contraseña:** contraseña asociada con el usuario.
 
 Para usar Azure Active Directory, debe elegir el tipo de autenticación necesario.
 
 ![Autenticación de AAD](./media/get-started-azure-data-studio/3-aad-auth.png)
 
-En la siguiente captura de pantalla se muestran los **detalles de conexión** de la **autenticación de Windows** :
+En la siguiente captura de pantalla se muestran los **detalles de conexión** de la **autenticación de Windows**:
 
 ![Autenticación de Windows](./media/get-started-azure-data-studio/3-windows-auth.png)
 
-En la siguiente captura de pantalla se muestran los **detalles de conexión** con el **inicio de sesión de SQL** :
+En la siguiente captura de pantalla se muestran los **detalles de conexión** con el **inicio de sesión de SQL**:
 
 ![Inicio de sesión SQL](./media/get-started-azure-data-studio/2-database-details.png)
 

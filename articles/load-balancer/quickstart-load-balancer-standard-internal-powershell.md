@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 08/27/2020
 ms.author: allensu
 ms:custom: seodec18
-ms.openlocfilehash: 12190a50579bf5b87685fc4b19ec7b2907e5ee9c
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: e1fa97fb8a3dcae3a78ba0bc85cf59db2c167dea
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547051"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696802"
 ---
 # <a name="quickstart-create-an-internal-load-balancer-to-load-balance-vms-using-azure-powershell"></a>Inicio rápido: Creación de un equilibrador de carga interno para equilibrar la carga de las máquinas virtuales mediante Azure PowerShell
 
@@ -75,7 +75,7 @@ Cree una red virtual con [New-AzVirtualNetwork](/powershell/module/az.network/ne
 * Red virtual **10.0.0.0/16**.
 * Subred **10.0.0.0/24**.
 * Subred llamada **AzureBastionSubnet**.
-* Subred  **10.0.1.0/24**.
+* Subred **10.0.1.0/24**.
 
 ```azurepowershell-interactive
 ## Variables for the command ##
@@ -281,7 +281,7 @@ Cree una regla del equilibrador de carga con [Add-AzLoadBalancerRuleConfig](/pow
 * Que envíe el tráfico de red con equilibrio de carga al grupo de direcciones de back-end **myBackEndPool** a través del **Puerto 80**. 
 * Mediante el sondeo de estado **myHealthProbe**.
 * Protocolo **TCP**.
-* Un tiempo de espera de inactividad de  **15 minutos**.
+* Un tiempo de espera de inactividad de **15 minutos**.
 * Habilite el restablecimiento de TCP.
 
 ```azurepowershell-interactive
@@ -297,7 +297,7 @@ $rule =
 New-AzLoadBalancerRuleConfig -Name $lbr -Protocol $pro -Probe $probe -FrontendPort $port -BackendPort $port -FrontendIpConfiguration $feip -BackendAddressPool $bePool -DisableOutboundSNAT -IdleTimeoutInMinutes $idl -EnableTcpReset
 ```
 >[!NOTE]
->Las máquinas virtuales del grupo de back-end no tendrán conectividad de salida a Internet con esta configuración. </br> Para más información acerca de cómo proporcionar conectividad de salida, consulte: </br> **[Conexiones salientes en Azure](load-balancer-outbound-connections.md)**</br> Opciones para proporcionar conectividad: </br> **[Configuración del equilibrador de carga solo de salida](egress-only.md)** </br> **[¿Qué es NAT de Virtual Network?](https://docs.microsoft.com/azure/virtual-network/nat-overview)**
+>Las máquinas virtuales del grupo de back-end no tendrán conectividad de salida a Internet con esta configuración. </br> Para más información acerca de cómo proporcionar conectividad de salida, consulte: </br> **[Conexiones salientes en Azure](load-balancer-outbound-connections.md)**</br> Opciones para proporcionar conectividad: </br> **[Configuración del equilibrador de carga solo de salida](egress-only.md)** </br> **[¿Qué es NAT de Virtual Network?](../virtual-network/nat-overview.md)**
 
 
 ### <a name="create-load-balancer-resource"></a>Creación de un recurso de equilibrador de carga
@@ -399,7 +399,7 @@ New-AzNetworkInterface -ResourceGroupName $rg -Location $loc -Name $nic2 -LoadBa
 
 ### <a name="create-virtual-machines"></a>Creación de máquinas virtuales
 
-Establezca un nombre de usuario de administrador y una contraseña para las máquinas virtuales con [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
+Establezca un nombre de usuario de administrador y una contraseña para las máquinas virtuales con [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential):
 
 ```azurepowershell
 $cred = Get-Credential
@@ -494,7 +494,7 @@ Cree una red virtual con [New-AzVirtualNetwork](/powershell/module/az.network/ne
 * Red virtual **10.0.0.0/16**.
 * Subred **10.0.0.0/24**.
 * Subred llamada **AzureBastionSubnet**.
-* Subred  **10.0.1.0/24**.
+* Subred **10.0.1.0/24**.
 
 ```azurepowershell-interactive
 ## Variables for the command ##
@@ -633,7 +633,7 @@ En esta sección se detalla cómo se pueden crear y configurar los componentes s
 Cree una dirección IP de front-end con [New-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/new-azloadbalancerfrontendipconfig):
 
 * Denominada **mi FrontEnd**.
-* Dirección IP privada de  **10.0.0.4**.
+* Dirección IP privada de **10.0.0.4**.
 
 ```azurepowershell-interactive
 ## Variables for the commands ##
@@ -701,7 +701,7 @@ Cree una regla del equilibrador de carga con [Add-AzLoadBalancerRuleConfig](/pow
 * Que envíe el tráfico de red con equilibrio de carga al grupo de direcciones de back-end **myBackEndPool** a través del **Puerto 80**. 
 * Mediante el sondeo de estado **myHealthProbe**.
 * Protocolo **TCP**.
-* Un tiempo de espera de inactividad de  **15 minutos**.
+* Un tiempo de espera de inactividad de **15 minutos**.
 
 ```azurepowershell-interactive
 ## Variables for the command ##
@@ -832,7 +832,7 @@ New-AzAvailabilitySet -ResourceGroupName $rg -Name $avs -Location $loc
 
 ### <a name="create-virtual-machines"></a>Creación de máquinas virtuales
 
-Establezca un nombre de usuario de administrador y una contraseña para las máquinas virtuales con [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
+Establezca un nombre de usuario de administrador y una contraseña para las máquinas virtuales con [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential):
 
 ```azurepowershell
 $cred = Get-Credential
@@ -914,7 +914,7 @@ Se tarda unos minutos en crear y configurar las tres máquinas virtuales.
 
 ## <a name="install-iis"></a>Instalación de IIS
 
-Use [Set-AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension?view=latest) para instalar la extensión de script personalizado. 
+Use [Set-AzVMExtension](/powershell/module/az.compute/set-azvmextension?view=latest) para instalar la extensión de script personalizado. 
 
 La extensión ejecuta Add-WindowsFeature Web-Server de PowerShell para instalar el servidor web IIS y después actualiza la página Default.htm para mostrar el nombre de host de la máquina virtual:
 
@@ -986,7 +986,7 @@ New-AzNetworkInterface -ResourceGroupName $rg -Location $loc -Name $nic1 -Networ
 
 ### <a name="create-virtual-machine"></a>Crear máquina virtual
 
-Establezca un nombre de usuario de administrador y una contraseña para la máquina virtual con [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
+Establezca un nombre de usuario de administrador y una contraseña para la máquina virtual con [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential):
 
 ```azurepowershell
 $cred = Get-Credential
@@ -1035,11 +1035,11 @@ New-AzVM -ResourceGroupName $rg -Location $loc -VM $vmConfig
 
 1. Busque la dirección IP privada del equilibrador de carga en la pantalla **Información general**. Seleccione **Todos los servicios** en el menú de la izquierda, **Todos los recursos** y, después, **myLoadBalancer**.
 
-2. Tome nota o copie la dirección que encontrará junto a **Dirección IP privada** , en la pestaña **Información general** de **myLoadBalancer**.
+2. Tome nota o copie la dirección que encontrará junto a **Dirección IP privada**, en la pestaña **Información general** de **myLoadBalancer**.
 
-3. Seleccione **Todos los servicios** en el menú de la izquierda, seleccione **Todos los recursos** y, después, en la lista de recursos, seleccione **myTestVM** , que se encuentra en el grupo de recursos **CreateIntLBQS-rg**.
+3. Seleccione **Todos los servicios** en el menú de la izquierda, seleccione **Todos los recursos** y, después, en la lista de recursos, seleccione **myTestVM**, que se encuentra en el grupo de recursos **CreateIntLBQS-rg**.
 
-4. En la página **Introducción** , seleccione **Conectar** y después **Instancia de Bastion**.
+4. En la página **Introducción**, seleccione **Conectar** y después **Instancia de Bastion**.
 
 6. Escriba el nombre de usuario y la contraseña especificados durante la creación de la máquina virtual.
 
@@ -1074,5 +1074,3 @@ En esta guía de inicio rápido
 Para más información acerca de Azure Load Balancer, continúe con
 > [!div class="nextstepaction"]
 > [¿Qué es Azure Load Balancer?](load-balancer-overview.md)
-
-

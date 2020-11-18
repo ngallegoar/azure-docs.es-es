@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 10/29/2019
 ms.author: kenwith
-ms.openlocfilehash: 2946590cbb4c5e8f495a1f6ee4aac65929cd4d0e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: fd81e5f87aaf4a28676b79863df60b71707849e9
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91305774"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94656520"
 ---
 # <a name="quickstart-add-an-application-to-your-azure-active-directory-azure-ad-tenant"></a>Inicio rápido: Incorporación de una aplicación al inquilino de Azure Active Directory (Azure AD)
 
@@ -55,10 +55,10 @@ Para agregar una aplicación a un inquilino de Azure AD:
     :::image type="content" source="media/add-application-portal/sso-types.png" alt-text="Captura de pantalla que muestra el selector de tipos de inicio de sesión único." lightbox="media/add-application-portal/sso-types.png":::
 
     - Si el desarrollador de la aplicación usó el **estándar OIDC** para el inicio de sesión único, seleccione **Registrarse**. Aparece una página de instalación. A continuación, vaya al inicio rápido sobre cómo configurar el inicio de sesión único basado en OIDC.
-    :::image type="content" source="media/add-application-portal/sign-up-oidc-sso.png" alt-text="Captura de pantalla que muestra el selector de tipos de inicio de sesión único.":::
+    :::image type="content" source="media/add-application-portal/sign-up-oidc-sso.png" alt-text="Captura de pantalla que muestra cómo agregar una aplicación de inicio de sesión único basado en OIDC.":::
 
     - Si el desarrollador de la aplicación usó el **estándar SAML** para el inicio de sesión único, seleccione **Crear**. Aparece una página de introducción con las opciones para configurar la aplicación para su organización. En el formulario, puede editar el nombre de la aplicación para que se ajuste a las necesidades de su organización. A continuación, vaya al inicio rápido sobre cómo configurar el inicio de sesión único basado en SAML.
-    :::image type="content" source="media/add-application-portal/create-application.png" alt-text="Captura de pantalla que muestra el selector de tipos de inicio de sesión único.":::
+    :::image type="content" source="media/add-application-portal/create-application.png" alt-text="Captura de pantalla que muestra cómo agregar una aplicación de inicio de sesión único basado en SAML.":::
 
 
 > [!IMPORTANT]
@@ -69,7 +69,7 @@ Si la aplicación que busca no está en la galería, puede hacer clic en el vín
 Ha terminado de agregar una aplicación. El siguiente inicio rápido muestra cómo cambiar el logotipo y modificar otras propiedades de la aplicación.
 
 > [!TIP]
-> La administración de aplicaciones se puede automatizar mediante Graph API, consulte el artículo sobre la [automatización de la administración de aplicaciones con Microsoft Graph API](https://docs.microsoft.com/graph/application-saml-sso-configure-api).
+> La administración de aplicaciones se puede automatizar mediante Graph API, consulte el artículo sobre la [automatización de la administración de aplicaciones con Microsoft Graph API](/graph/application-saml-sso-configure-api).
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
