@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
-ms.openlocfilehash: ef6677b6f1103c26bd719a3585800765a029f7fb
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: d788219e36ac94b1d13b2f4819c3e546622ddff1
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92056845"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94655262"
 ---
 # <a name="connect-zscaler-internet-access-to-azure-sentinel"></a>Conectar Zscaler Internet Access a Azure Sentinel
 
@@ -46,7 +46,5 @@ En este artículo se explica cómo conectar el dispositivo Zscaler Internet Acce
 ## <a name="next-steps"></a>Pasos siguientes
 En este documento, ha aprendido a conectar Zscaler Internet Access a Azure Sentinel. Para más información sobre Azure Sentinel, consulte los siguientes artículos:
 - Aprenda a [obtener visibilidad de los datos y de posibles amenazas](quickstart-get-visibility.md).
-- Empiece a [detectar amenazas con Azure Sentinel](tutorial-detect-threats.md).
+- Empiece a [detectar amenazas con Azure Sentinel](./tutorial-detect-threats-built-in.md).
 - [Use libros](tutorial-monitor-your-data.md) para supervisar los datos.
-
-

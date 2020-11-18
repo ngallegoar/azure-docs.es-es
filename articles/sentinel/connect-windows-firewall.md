@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/05/2020
 ms.author: yelevin
-ms.openlocfilehash: 5518da7d22d14de105c07e88b14e94d4b184269b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cf7e389fc4a8a8dfa88691dc034611cae3471731
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90883817"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94655347"
 ---
 # <a name="connect-windows-defender-firewall-with-advanced-security-to-azure-sentinel"></a>Conexión de Firewall de Windows Defender con seguridad avanzada a Azure Sentinel
 
-El conector [Firewall de Windows Defender con seguridad avanzada](https://docs.microsoft.com/windows/security/threat-protection/windows-firewall/windows-firewall-with-advanced-security) permite que Azure Sentinel ingiera de manera sencilla registros de Firewall de Windows Defender con seguridad avanzada desde cualquier máquina Windows del área de trabajo. Esta conexión le permite ver y analizar los eventos de Firewall de Windows en los libros, para usarlos en la creación de alertas personalizadas y para incorporarlos en sus investigaciones de seguridad, lo que le proporciona más información sobre la red de la organización y mejora las funcionalidades de las operaciones de seguridad. 
+El conector [Firewall de Windows Defender con seguridad avanzada](/windows/security/threat-protection/windows-firewall/windows-firewall-with-advanced-security) permite que Azure Sentinel ingiera de manera sencilla registros de Firewall de Windows Defender con seguridad avanzada desde cualquier máquina Windows del área de trabajo. Esta conexión le permite ver y analizar los eventos de Firewall de Windows en los libros, para usarlos en la creación de alertas personalizadas y para incorporarlos en sus investigaciones de seguridad, lo que le proporciona más información sobre la red de la organización y mejora las funcionalidades de las operaciones de seguridad. 
 
 La solución recopila eventos de firewall de Windows de las máquinas de Windows en las que está instalado un agente de Log Analytics. 
 
@@ -81,10 +81,9 @@ La solución recopila eventos de firewall de Windows de las máquinas de Windows
 
 ## <a name="validate-connectivity"></a>Validar conectividad
  
-Dado que los registros del Firewall de Windows se envían a Azure Sentinel solo cuando el archivo de registro local alcanza la capacidad, lo más probable es que dejar el registro con su tamaño predeterminado de 4096 KB genere una latencia de colección alta. Puede reducir la latencia si reduce el tamaño del archivo de registro. Consulte las instrucciones para [configurar el registro de Firewall de Windows](https://docs.microsoft.com/windows/security/threat-protection/windows-firewall/configure-the-windows-firewall-log). Tenga en cuenta que definir el tamaño mínimo posible del registro (1 KB) prácticamente eliminará la latencia de la colección y también podría afectar negativamente el rendimiento de la máquina local. 
+Dado que los registros del Firewall de Windows se envían a Azure Sentinel solo cuando el archivo de registro local alcanza la capacidad, lo más probable es que dejar el registro con su tamaño predeterminado de 4096 KB genere una latencia de colección alta. Puede reducir la latencia si reduce el tamaño del archivo de registro. Consulte las instrucciones para [configurar el registro de Firewall de Windows](/windows/security/threat-protection/windows-firewall/configure-the-windows-firewall-log). Tenga en cuenta que definir el tamaño mínimo posible del registro (1 KB) prácticamente eliminará la latencia de la colección y también podría afectar negativamente el rendimiento de la máquina local. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 En este documento, ha aprendido a conectar Firewall de Windows a Azure Sentinel. Para más información sobre Azure Sentinel, consulte los siguientes artículos:
 - Aprenda a [obtener visibilidad de los datos y de posibles amenazas](quickstart-get-visibility.md).
 - Empiece a [detectar amenazas con Azure Sentinel](tutorial-detect-threats-built-in.md).
-

@@ -7,12 +7,12 @@ services: firewall
 ms.topic: how-to
 ms.date: 05/06/2020
 ms.author: victorh
-ms.openlocfilehash: ae33d763bda49756e9f90a05feda5089b63ef28b
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: ad4f42d0e33f6d70c75abfcd1daab4f5aa9a515f
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91400169"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94654990"
 ---
 # <a name="use-azure-firewall-to-protect-window-virtual-desktop-deployments"></a>Uso de Azure Firewall para proteger las implementaciones de Windows Virtual Desktop
 
@@ -63,7 +63,7 @@ Las máquinas virtuales de Azure que cree para Windows Virtual Desktop deben ten
 
 En función de las necesidades de su organización, es posible que desee habilitar el acceso de salida a Internet seguro para los usuarios finales. En los casos en los que la lista de destinos permitidos está bien definida (por ejemplo, en el [acceso a Microsoft 365](/microsoft-365/enterprise/microsoft-365-ip-web-service)), puede usar reglas de red y de aplicación de Azure Firewall para configurar el acceso necesario. De esta forma, enruta el tráfico del usuario final directamente a Internet para obtener el mejor rendimiento.
 
-Si quiere filtrar el tráfico saliente de Internet de los usuarios mediante una puerta de enlace web segura local existente, puede configurar exploradores web u otras aplicaciones que se ejecuten en el grupo de hosts de Windows Virtual Desktop con una configuración de proxy explícita. Por ejemplo, consulte [Cómo usar las opciones de línea de comandos de Microsoft Edge para establecer la configuración de proxy](https://docs.microsoft.com/deployedge/edge-learnmore-cmdline-options-proxy-settings). Esta configuración de proxy solo afecta al acceso a Internet del usuario final, de modo que permite el tráfico saliente de la plataforma Windows Virtual Desktop directamente mediante Azure Firewall.
+Si quiere filtrar el tráfico saliente de Internet de los usuarios mediante una puerta de enlace web segura local existente, puede configurar exploradores web u otras aplicaciones que se ejecuten en el grupo de hosts de Windows Virtual Desktop con una configuración de proxy explícita. Por ejemplo, consulte [Cómo usar las opciones de línea de comandos de Microsoft Edge para establecer la configuración de proxy](/deployedge/edge-learnmore-cmdline-options-proxy-settings). Esta configuración de proxy solo afecta al acceso a Internet del usuario final, de modo que permite el tráfico saliente de la plataforma Windows Virtual Desktop directamente mediante Azure Firewall.
 
 ## <a name="additional-considerations"></a>Consideraciones adicionales
 

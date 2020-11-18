@@ -1,17 +1,17 @@
 ---
 title: 'Parámetros del servidor: Azure Database for MySQL'
 description: En este tema se proporcionan instrucciones para configurar parámetros del servidor en Azure Database for MySQL.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/25/2020
-ms.openlocfilehash: b5b171941a3da42d2f5b385303c51285ff793599
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.openlocfilehash: 0fddc1e8f80e257548d0dda91758273eb8c8ac78
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94376781"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94534915"
 ---
 # <a name="server-parameters-in-azure-database-for-mysql"></a>Parámetros del servidor en Azure Database for MySQL
 
@@ -117,7 +117,7 @@ Consulte la [documentación de MySQL](https://dev.mysql.com/doc/refman/5.7/en/se
 |**Plan de tarifa**|**Núcleos virtuales**|**Valor predeterminado (bytes)**|**Valor mínimo (bytes)**|**Valor máximo (bytes)**|
 |---|---|---|---|---|
 |Básico|1|No se puede configurar en el nivel Básico|N/D|N/D|
-|Básica|2|No se puede configurar en el nivel Básico|N/D|N/D|
+|Básico|2|No se puede configurar en el nivel Básico|N/D|N/D|
 |De uso general|2|262 144|128|268435455|
 |De uso general|4|262 144|128|536870912|
 |De uso general|8|262 144|128|1073741824|
@@ -135,7 +135,7 @@ Consulte la [documentación de MySQL](https://dev.mysql.com/doc/refman/5.7/en/se
 |**Plan de tarifa**|**Núcleos virtuales**|**Valor predeterminado**|**Valor mínimo**|**Valor máximo**|
 |---|---|---|---|---|
 |Básico|1|50|10|50|
-|Básica|2|100|10|100|
+|Básico|2|100|10|100|
 |De uso general|2|300|10|600|
 |De uso general|4|625|10|1250|
 |De uso general|8|1250|10|2.500|
@@ -166,7 +166,7 @@ Consulte la [documentación de MySQL](https://dev.mysql.com/doc/refman/5.7/en/se
 |**Plan de tarifa**|**Núcleos virtuales**|**Valor predeterminado (bytes)**|**Valor mínimo (bytes)**|**Valor máximo (bytes)**|
 |---|---|---|---|---|
 |Básico|1|No se puede configurar en el nivel Básico|N/D|N/D|
-|Básica|2|No se puede configurar en el nivel Básico|N/D|N/D|
+|Básico|2|No se puede configurar en el nivel Básico|N/D|N/D|
 |De uso general|2|16777216|16384|268435455|
 |De uso general|4|16777216|16384|536870912|
 |De uso general|8|16777216|16384|1073741824|
@@ -191,7 +191,7 @@ Consulte la [documentación de MySQL](https://dev.mysql.com/doc/refman/5.7/en/se
 |**Plan de tarifa**|**Núcleos virtuales**|**Valor predeterminado (bytes)**|**Valor mínimo (bytes)**|**Valor máximo **|
 |---|---|---|---|---|
 |Básico|1|No se puede configurar en el nivel Básico|N/D|N/D|
-|Básica|2|No se puede configurar en el nivel Básico|N/D|N/D|
+|Básico|2|No se puede configurar en el nivel Básico|N/D|N/D|
 |De uso general|2|0|0|16777216|
 |De uso general|4|0|0|33554432|
 |De uso general|8|0|0|67108864|
@@ -229,7 +229,7 @@ Consulte la [documentación de MySQL](https://dev.mysql.com/doc/refman/5.7/en/se
 |**Plan de tarifa**|**Núcleos virtuales**|**Valor predeterminado (bytes)**|**Valor mínimo (bytes)**|**Valor máximo (bytes)**|
 |---|---|---|---|---|
 |Básico|1|No se puede configurar en el nivel Básico|N/D|N/D|
-|Básica|2|No se puede configurar en el nivel Básico|N/D|N/D|
+|Básico|2|No se puede configurar en el nivel Básico|N/D|N/D|
 |De uso general|2|524 288|32 768|4 194 304|
 |De uso general|4|524 288|32 768|8388608|
 |De uso general|8|524 288|32 768|16777216|
@@ -249,7 +249,7 @@ Consulte la [documentación de MySQL](https://dev.mysql.com/doc/refman/5.7/en/se
 |**Plan de tarifa**|**Núcleos virtuales**|**Valor predeterminado (bytes)**|**Valor mínimo (bytes)**|**Valor máximo (bytes)**|
 |---|---|---|---|---|
 |Básico|1|No se puede configurar en el nivel Básico|N/D|N/D|
-|Básica|2|No se puede configurar en el nivel Básico|N/D|N/D|
+|Básico|2|No se puede configurar en el nivel Básico|N/D|N/D|
 |De uso general|2|16777216|1024|67108864|
 |De uso general|4|16777216|1024|134217728|
 |De uso general|8|16777216|1024|268435456|

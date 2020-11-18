@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/06/2020
 ms.author: yelevin
-ms.openlocfilehash: 5ac72c9861e06773ffab87dcbf4e730562b798fe
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: d5140bcd85606213f00185d4ba1f50dbe70dba63
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91340276"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94655501"
 ---
 # <a name="connect-alerts-from-microsoft-defender-for-office-365"></a>Conexión de alertas de Microsoft Defender para Office 365 
 
@@ -31,7 +31,7 @@ ms.locfileid: "91340276"
 >
 > - La ingesta de alertas de Microsoft Defender para Office 365 se encuentra actualmente en versión preliminar pública. Esta característica se ofrece sin contrato de nivel de servicio y no se recomienda para cargas de trabajo de producción. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
  
-[Microsoft Defender para Office 365 ](https://docs.microsoft.com/office365/servicedescriptions/office-365-advanced-threat-protection-service-description) protege su organización contra las amenazas de día cero y otras amenazas avanzadas planteadas por malware desconocido en mensajes de correo electrónico, vínculos URL malintencionados y herramientas de colaboración. Al ingerir las alertas de Microsoft Defender para Office 365 en Azure Sentinel, podrá usar información sobre el correo electrónico, el uso compartido de archivos y las amenazas basadas en direcciones URL en las operaciones de seguridad. Después, puede analizar de manera más exhaustiva los eventos de seguridad en su organización y crear cuadernos de estrategias para obtener una respuesta efectiva e inmediata.
+[Microsoft Defender para Office 365 ](/office365/servicedescriptions/office-365-advanced-threat-protection-service-description) protege su organización contra las amenazas de día cero y otras amenazas avanzadas planteadas por malware desconocido en mensajes de correo electrónico, vínculos URL malintencionados y herramientas de colaboración. Al ingerir las alertas de Microsoft Defender para Office 365 en Azure Sentinel, podrá usar información sobre el correo electrónico, el uso compartido de archivos y las amenazas basadas en direcciones URL en las operaciones de seguridad. Después, puede analizar de manera más exhaustiva los eventos de seguridad en su organización y crear cuadernos de estrategias para obtener una respuesta efectiva e inmediata.
 
 El conector importa las siguientes alertas:
 
@@ -55,7 +55,7 @@ Los clientes de Office pueden ver estas alertas en el **Centro de seguridad y cu
 
 - Debe ser administrador global o de seguridad en el inquilino del área de trabajo de Azure Sentinel.
 
-- Debe tener una licencia válida para [Office 365 ATP Plan 2](https://docs.microsoft.com/microsoft-365/security/office-365-security/office-365-atp#office-365-atp-plan-1-and-plan-2) (incluida con las licencias de Office 365 E5, Office 365 A5 y Microsoft 365 E5, y disponible para su compra por separado). 
+- Debe tener una licencia válida para [Office 365 ATP Plan 2](/microsoft-365/security/office-365-security/office-365-atp#office-365-atp-plan-1-and-plan-2) (incluida con las licencias de Office 365 E5, Office 365 A5 y Microsoft 365 E5, y disponible para su compra por separado). 
 
 ## <a name="connect-to-microsoft-defender-for-office-365"></a>Conexión con Microsoft Defender para Office 365
 
@@ -65,7 +65,7 @@ Si se implementa Microsoft Defender para Office 365 y se han configurado las d
 
 1. Seleccione **Microsoft Defender para Office 365** (es posible que se le siga llamando *Protección contra amenazas avanzada de Office 365*) en la galería de conectores y seleccione **Open connector page** (Abrir página del conector).
 
-1. En la sección **Configuration** (Configuración), haga clic en**Connect** (Conectar). 
+1. En la sección **Configuration** (Configuración), haga clic en **Connect** (Conectar). 
 
 1. En la sección **Create incidents** (Crear incidentes), haga clic en **Enable** (Habilitar).
 
@@ -77,4 +77,4 @@ Si se implementa Microsoft Defender para Office 365 y se han configurado las d
 
 En este documento, ha aprendido a conectar Microsoft Defender para Office 365 con Azure Sentinel. Para más información sobre Azure Sentinel, consulte los siguientes artículos:
 - Aprenda a [obtener visibilidad de los datos y de posibles amenazas](quickstart-get-visibility.md).
-- Empiece a [detectar amenazas con Azure Sentinel](tutorial-detect-threats.md).
+- Empiece a [detectar amenazas con Azure Sentinel](./tutorial-detect-threats-built-in.md).

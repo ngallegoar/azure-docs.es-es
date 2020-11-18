@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/16/2020
 ms.author: yelevin
-ms.openlocfilehash: d1de9270534a3550d8db043fdd6bcfe56ec31bda
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 72b2ba0ea444fb14ef9fc1bc3ea6aea3654677df
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90895601"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94655534"
 ---
 # <a name="connect-alerts-from-microsoft-defender-for-endpoint-formerly-microsoft-defender-atp"></a>Conexión de alertas de Microsoft Defender para Endpoint (anteriormente Microsoft Defender ATP)
 
@@ -33,15 +33,15 @@ ms.locfileid: "90895601"
 > Esta característica se ofrece sin contrato de nivel de servicio y no se recomienda para cargas de trabajo de producción.
 > Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-El conector de [Microsoft Defender para Endpoint](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection) permite transmitir alertas de Microsoft Defender para Endpoint a Azure Sentinel. Esto le permitirá analizar de manera más exhaustiva los eventos de seguridad en su organización y crear cuadernos de estrategias para obtener una respuesta efectiva e inmediata.
+El conector de [Microsoft Defender para Endpoint](/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection) permite transmitir alertas de Microsoft Defender para Endpoint a Azure Sentinel. Esto le permitirá analizar de manera más exhaustiva los eventos de seguridad en su organización y crear cuadernos de estrategias para obtener una respuesta efectiva e inmediata.
 
 > [!NOTE]
 >
-> Para ingerir los registros nuevos de datos sin procesar de la [búsqueda avanzada](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/advanced-hunting-overview) de Microsoft Defender para Endpoint, use el conector nuevo para Microsoft 365 Defender (anteriormente Protección contra amenazas de Microsoft; [vea la documentación](./connect-microsoft-365-defender.md)).
+> Para ingerir los registros nuevos de datos sin procesar de la [búsqueda avanzada](/windows/security/threat-protection/microsoft-defender-atp/advanced-hunting-overview) de Microsoft Defender para Endpoint, use el conector nuevo para Microsoft 365 Defender (anteriormente Protección contra amenazas de Microsoft; [vea la documentación](./connect-microsoft-365-defender.md)).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- Debe tener una licencia válida de Microsoft Defender para Endpoint, tal como se describe en [Configuración de la implementación de Microsoft Defender para Endpoint](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/licensing). 
+- Debe tener una licencia válida de Microsoft Defender para Endpoint, tal como se describe en [Configuración de la implementación de Microsoft Defender para Endpoint](/windows/security/threat-protection/microsoft-defender-atp/licensing). 
 
 - Debe ser administrador global o de seguridad en el inquilino de Azure Sentinel.
 
@@ -58,4 +58,4 @@ Si Microsoft Defender para Endpoint ya está implementado e ingiriendo datos, l
 ## <a name="next-steps"></a>Pasos siguientes
 En este documento, ha descubierto cómo conectar Microsoft Defender para Endpoint a Azure Sentinel. Para más información sobre Azure Sentinel, consulte los siguientes artículos:
 - Aprenda a [obtener visibilidad de los datos y de posibles amenazas](quickstart-get-visibility.md).
-- Empiece a [detectar amenazas con Azure Sentinel](tutorial-detect-threats.md).
+- Empiece a [detectar amenazas con Azure Sentinel](./tutorial-detect-threats-built-in.md).

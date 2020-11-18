@@ -16,12 +16,12 @@ ms.date: 09/10/2018
 ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8942a55d880132313e1cdac6bfc025e0b153b410
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 57deed9d7fb178ba1cdc8d6e954d751752532de4
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90707958"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94654412"
 ---
 # <a name="problems-signing-in-to-a-microsoft-application"></a>Problemas de inicio de sesión en una aplicación de Microsoft
 
@@ -63,7 +63,7 @@ Estos son algunos problemas comunes que pueden surgir cuando los usuarios no pue
 
   * Que la cuenta del usuario está **habilitada** para los inicios de sesión. [Comprobar el estado de la cuenta de un usuario](#problems-with-the-users-account)
 
-  * Que la **contraseña del usuario no ha expirado o se ha olvidado**. [Restablecer la contraseña del usuario](#reset-a-users-password) o [habilitar el autoservicio de restablecimiento de contraseña](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started)
+  * Que la **contraseña del usuario no ha expirado o se ha olvidado**. [Restablecer la contraseña del usuario](#reset-a-users-password) o [habilitar el autoservicio de restablecimiento de contraseña](../authentication/tutorial-enable-sspr.md)
 
   * Que **Multi-Factor Authentication** no bloquea el acceso del usuario. [Comprobar el estado de la autenticación multifactor de un usuario](#check-a-users-multi-factor-authentication-status) o [comprobar la información de contacto de autenticación de un usuario](#check-a-users-authentication-contact-info)
 
@@ -179,9 +179,9 @@ Para restablecer la contraseña de un usuario, siga estos pasos:
 
 Para habilitar el autoservicio de restablecimiento de contraseña, siga estos pasos de implementación:
 
--   [Permitir que los usuarios restablezcan sus contraseñas de Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started)
+-   [Permitir que los usuarios restablezcan sus contraseñas de Azure AD](../authentication/tutorial-enable-sspr.md)
 
--   [Permitir que los usuarios restablezcan o cambien sus contraseñas de AD locales](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started)
+-   [Permitir que los usuarios restablezcan o cambien sus contraseñas de AD locales](../authentication/tutorial-enable-sspr.md)
 
 ### <a name="check-a-users-multi-factor-authentication-status"></a>Comprobar el estado de la autenticación multifactor de un usuario
 
@@ -508,26 +508,25 @@ El acceso a la aplicación se puede bloquear porque no se haya producido la oper
 
 -   Para cualquier aplicación compatible con Open ID Connect que solicite permisos, al navegar a la pantalla de inicio de sesión de la aplicación se realiza un consentimiento de nivel de usuario a la aplicación para el usuario que inició sesión.
 
--   Si desea realizar esto mediante programación, consulte [Solicitud de consentimiento de usuario individual](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes#requesting-individual-user-consent).
+-   Si desea realizar esto mediante programación, consulte [Solicitud de consentimiento de usuario individual](../develop/v2-permissions-and-consent.md#requesting-individual-user-consent).
 
 ### <a name="perform-administrator-level-consent-operation-for-any-application"></a>Realizar la operación de consentimiento de nivel de administrador para cualquier aplicación
 
 -   **Solo para las aplicaciones desarrolladas mediante el modelo de aplicación V1**, puede forzar que se produzca el consentimiento de nivel de administrador si agrega " **?prompt=admin\_consent**" al final de la dirección URL de inicio de sesión de una aplicación.
 
--   Para **todas las aplicaciones desarrolladas mediante el modelo de aplicación V2**, puede forzar que se produzca este consentimiento de nivel de administrador si sigue las instrucciones de la sección **Solicitud de los permisos de un administrador de directorios** de [Uso del punto de conexión de consentimiento del administrador](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint).
+-   Para **todas las aplicaciones desarrolladas mediante el modelo de aplicación V2**, puede forzar que se produzca este consentimiento de nivel de administrador si sigue las instrucciones de la sección **Solicitud de los permisos de un administrador de directorios** de [Uso del punto de conexión de consentimiento del administrador](../develop/v2-permissions-and-consent.md#using-the-admin-consent-endpoint).
 
 ### <a name="perform-administrator-level-consent-for-a-single-tenant-application"></a>Realizar el consentimiento de nivel de administrador para una aplicación de un único inquilino
 
 -   Con las **aplicaciones de un único inquilino** que solicitan permisos (por ejemplo, las que desarrolla o posee su organización), puede realizar una operación de **consentimiento de nivel administrativo** en nombre de todos los usuarios. Para ello, inicie sesión como administrador global y haga clic en el botón **Conceder permisos** de la parte superior del panel **Registro de aplicación -&gt; Todas las aplicaciones -&gt; Seleccionar una aplicación - &gt; Permisos necesarios**.
 
--   Para **todas las aplicaciones desarrolladas mediante el modelo de aplicación V1 o V2**, puede forzar que se produzca este consentimiento de nivel de administrador si sigue las instrucciones de la sección **Solicitud de los permisos de un administrador de directorios** de [Uso del punto de conexión de consentimiento del administrador](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint).
+-   Para **todas las aplicaciones desarrolladas mediante el modelo de aplicación V1 o V2**, puede forzar que se produzca este consentimiento de nivel de administrador si sigue las instrucciones de la sección **Solicitud de los permisos de un administrador de directorios** de [Uso del punto de conexión de consentimiento del administrador](../develop/v2-permissions-and-consent.md#using-the-admin-consent-endpoint).
 
 ### <a name="perform-administrator-level-consent-for-a-multi-tenant-application"></a>Realizar el consentimiento de nivel de administrador para una aplicación multiinquilino
 
 -   Para **aplicaciones multiinquilino** que solicitan permisos (como una aplicación que desarrolla un tercero o Microsoft), puede realizar una operación de **consentimiento de nivel administrativo**. Inicie sesión como administrador global y haga clic en el botón **Conceder permisos** situado en el panel **Aplicaciones empresariales -&gt; Todas las aplicaciones -&gt; Seleccionar una aplicación -&gt; Permisos** (disponible pronto).
 
--   También puede exigir que se produzca este consentimiento de nivel de administrador si sigue las instrucciones que aparecen en la sección **Solicitud de los permisos de un administrador de directorios** de [Uso del punto de conexión de consentimiento del administrador](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint).
+-   También puede exigir que se produzca este consentimiento de nivel de administrador si sigue las instrucciones que aparecen en la sección **Solicitud de los permisos de un administrador de directorios** de [Uso del punto de conexión de consentimiento del administrador](../develop/v2-permissions-and-consent.md#using-the-admin-consent-endpoint).
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Uso del punto de conexión de consentimiento del administrador](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint)
-
+[Uso del punto de conexión de consentimiento del administrador](../develop/v2-permissions-and-consent.md#using-the-admin-consent-endpoint)

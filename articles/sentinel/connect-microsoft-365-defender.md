@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2019
 ms.author: yelevin
-ms.openlocfilehash: e9e892ae08c65ee5c5008bbdc1b419d8dec30183
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 756c245fe06ae81545a125dd98f30fb27fdff2dd
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90932101"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94655586"
 ---
 # <a name="connect-data-from-microsoft-365-defender-to-azure-sentinel"></a>Conexión de datos de Microsoft 365 Defender con Azure Sentinel
 
@@ -33,9 +33,9 @@ ms.locfileid: "90932101"
 
 ## <a name="background"></a>Fondo
 
-El nuevo conector [Microsoft 365 Defender](https://docs.microsoft.com/microsoft-365/security/mtp/microsoft-threat-protection) le permite transmitir registros de **búsqueda avanzada**, un tipo de datos de eventos sin procesar, desde Microsoft 365 Defender hasta Azure Sentinel. 
+El nuevo conector [Microsoft 365 Defender](/microsoft-365/security/mtp/microsoft-threat-protection) le permite transmitir registros de **búsqueda avanzada**, un tipo de datos de eventos sin procesar, desde Microsoft 365 Defender hasta Azure Sentinel. 
 
-Con la integración de [Microsoft Defender para punto de conexión (MDATP)](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection) en el paraguas de seguridad de Microsoft 365 Defender, ahora puede recopilar los eventos de [búsqueda avanzada](https://aka.ms/mdatpAH) de Microsoft Defender para punto de conexión mediante el conector Microsoft 365 Defender y transmitirlos directamente a nuevas tablas creadas específicamente en el área de trabajo de Azure Sentinel. Estas tablas se basan en el mismo esquema que se usa en el portal de Microsoft 365 Defender, lo que le ofrece acceso pleno al conjunto completo de registros de búsqueda avanzada y le permite hacer lo siguiente:
+Con la integración de [Microsoft Defender para punto de conexión (MDATP)](/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection) en el paraguas de seguridad de Microsoft 365 Defender, ahora puede recopilar los eventos de [búsqueda avanzada](/windows/security/threat-protection/microsoft-defender-atp/advanced-hunting-overview) de Microsoft Defender para punto de conexión mediante el conector Microsoft 365 Defender y transmitirlos directamente a nuevas tablas creadas específicamente en el área de trabajo de Azure Sentinel. Estas tablas se basan en el mismo esquema que se usa en el portal de Microsoft 365 Defender, lo que le ofrece acceso pleno al conjunto completo de registros de búsqueda avanzada y le permite hacer lo siguiente:
 
 - Copiar fácilmente las consultas de búsqueda avanzada de ATP de Microsoft Defender existentes en Azure Sentinel.
 
@@ -49,7 +49,7 @@ Con la integración de [Microsoft Defender para punto de conexión (MDATP)](http
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- Debe tener una licencia válida de Microsoft Defender para punto de conexión, como se describe en [Configuración de la implementación de Microsoft Defender para punto de conexión](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/licensing). 
+- Debe tener una licencia válida de Microsoft Defender para punto de conexión, como se describe en [Configuración de la implementación de Microsoft Defender para punto de conexión](/windows/security/threat-protection/microsoft-defender-atp/licensing). 
 
 - El usuario debe tener asignado el rol de administrador global en el inquilino (en Azure Active Directory).
 
@@ -101,4 +101,4 @@ En la pestaña **Pasos siguientes**, encontrará algunas consultas de ejemplo qu
 ## <a name="next-steps"></a>Pasos siguientes
 En este documento, aprendió a obtener datos de eventos sin procesar de Microsoft Defender para punto de conexión en Azure Sentinel mediante el conector Microsoft 365 Defender. Para más información sobre Azure Sentinel, consulte los siguientes artículos:
 - Aprenda a [obtener visibilidad de los datos y de posibles amenazas](quickstart-get-visibility.md).
-- Empiece a [detectar amenazas con Azure Sentinel](tutorial-detect-threats.md).
+- Empiece a [detectar amenazas con Azure Sentinel](./tutorial-detect-threats-built-in.md).

@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: article
 ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: ed34bf755023ab866e95c51aca6d1bfb1dd7bf71
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: c0bd2f6a021baae80dafcc3d544e1062d8e022e8
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93099460"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94653341"
 ---
 # <a name="fqdn-tags-overview"></a>Información general de las etiquetas FQDN
 
@@ -30,8 +30,8 @@ En la siguiente tabla se muestran las etiquetas FQDN actuales que puede usar. Mi
 
 |Etiqueta FQDN  |Descripción  |
 |---------|---------|
-|Windows Update     |Permite el acceso saliente a Microsoft Update como se describe en [How to Configure a Firewall for Software Updates](https://docs.microsoft.com/mem/configmgr/sum/get-started/install-a-software-update-point) (Cómo configurar el firewall para las actualizaciones de software).|
-|Diagnósticos de Windows|Permite el acceso saliente a todos los [puntos de conexión de Diagnósticos de Windows](https://docs.microsoft.com/windows/privacy/configure-windows-diagnostic-data-in-your-organization#endpoints).|
+|Windows Update     |Permite el acceso saliente a Microsoft Update como se describe en [How to Configure a Firewall for Software Updates](/mem/configmgr/sum/get-started/install-a-software-update-point) (Cómo configurar el firewall para las actualizaciones de software).|
+|Diagnósticos de Windows|Permite el acceso saliente a todos los [puntos de conexión de Diagnósticos de Windows](/windows/privacy/configure-windows-diagnostic-data-in-your-organization#endpoints).|
 |Microsoft Active Protection Service (MAPS)|Permite el acceso saliente a [MAPS](https://cloudblogs.microsoft.com/enterprisemobility/2016/05/31/important-changes-to-microsoft-active-protection-service-maps-endpoint/).|
 |App Service Environment (ASE)|Permite el acceso saliente hacia el tráfico de la plataforma de ASE. Esta etiqueta no incluye los puntos de conexión de SQL y Storage específicos del cliente creados por ASE. Dichos puntos de conexión deben habilitarse a través de los [puntos de conexión de servicio](../virtual-network/tutorial-restrict-network-access-to-resources.md) o se deben agregar manualmente.<br><br>Para obtener más información acerca de cómo integrar Azure Firewall con ASE, consulte [Bloqueo de una instancia de App Service Environment](../app-service/environment/firewall-integration.md#configuring-azure-firewall-with-your-ase).|
 |Azure Backup|Permite el acceso saliente a los servicios de Azure Backup.|

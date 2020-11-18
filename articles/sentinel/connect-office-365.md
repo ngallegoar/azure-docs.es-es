@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/30/2020
 ms.author: yelevin
-ms.openlocfilehash: d6b59de048cdf00d352c4f488ecb51bfdf83640f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4d3e3615ede7406a3b581171ae759ec0ec53f13e
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89178933"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94655377"
 ---
 # <a name="connect-office-365-logs-to-azure-sentinel"></a>Conexión de registros de Office 365 a Azure Sentinel
 
-El conector de registro de [Office 365](https://docs.microsoft.com/office/) incluye información de Azure Sentinel sobre las actividades de usuario y administración continuas en **Exchange** y **SharePoint** (incluido **OneDrive**) y ahora también en **Teams**. Esta información incluye detalles de acciones como descargas de archivos, solicitudes de acceso enviadas, cambios en eventos de grupo, operaciones de buzón de correo, eventos de Teams (como chat, equipo, miembro y eventos de canal), así como los detalles del usuario que realizó las acciones. La conexión de registros de Office 365 a Azure Sentinel le permite ver y analizar estos datos en los libros, consultarlos para crear alertas personalizadas e incorporarlas para mejorar el proceso de investigación, lo que le proporciona más información sobre la seguridad de Office 365.
+El conector de registro de [Office 365](/office/) incluye información de Azure Sentinel sobre las actividades de usuario y administración continuas en **Exchange** y **SharePoint** (incluido **OneDrive**) y ahora también en **Teams**. Esta información incluye detalles de acciones como descargas de archivos, solicitudes de acceso enviadas, cambios en eventos de grupo, operaciones de buzón de correo, eventos de Teams (como chat, equipo, miembro y eventos de canal), así como los detalles del usuario que realizó las acciones. La conexión de registros de Office 365 a Azure Sentinel le permite ver y analizar estos datos en los libros, consultarlos para crear alertas personalizadas e incorporarlas para mejorar el proceso de investigación, lo que le proporciona más información sobre la seguridad de Office 365.
 
 > [!IMPORTANT]
 > **La extensión de registros para Microsoft Teams** del conector de registro de Office 365 se encuentra actualmente en versión preliminar pública.
@@ -38,9 +38,9 @@ El conector de registro de [Office 365](https://docs.microsoft.com/office/) inc
 - La implementación de Office 365 debe estar en el mismo inquilino que el área de trabajo de Azure Sentinel.
 
 > [!IMPORTANT]
-> - Para que el conector pueda acceder a los datos a través de la API de Actividad de administración de Office 365, debe tener el **registro de auditoría unificado** habilitado en la implementación de Office 365. En función del tipo de licencia de Office 365/Microsoft 365 que tenga, puede estar habilitada o deshabilitada de forma predeterminada. Consulte el [Centro de seguridad y cumplimiento de Office 365](https://docs.microsoft.com/office365/servicedescriptions/office-365-platform-service-description/office-365-securitycompliance-center) para comprobar el estado del registro de auditoría unificado según el tipo de licencia.
-> - También puede habilitar, deshabilitar y comprobar manualmente el estado actual del registro de auditoría unificado de Office 365. Para obtener instrucciones, consulte [Activar o desactivar la búsqueda de registros de auditoría de Office 365](https://docs.microsoft.com/office365/securitycompliance/turn-audit-log-search-on-or-off).
-> - Para más información, consulte [Referencia de la API de Actividad de administración de Office 365](https://docs.microsoft.com/office/office-365-management-api/office-365-management-activity-api-reference).
+> - Para que el conector pueda acceder a los datos a través de la API de Actividad de administración de Office 365, debe tener el **registro de auditoría unificado** habilitado en la implementación de Office 365. En función del tipo de licencia de Office 365/Microsoft 365 que tenga, puede estar habilitada o deshabilitada de forma predeterminada. Consulte el [Centro de seguridad y cumplimiento de Office 365](/office365/servicedescriptions/office-365-platform-service-description/office-365-securitycompliance-center) para comprobar el estado del registro de auditoría unificado según el tipo de licencia.
+> - También puede habilitar, deshabilitar y comprobar manualmente el estado actual del registro de auditoría unificado de Office 365. Para obtener instrucciones, consulte [Activar o desactivar la búsqueda de registros de auditoría de Office 365](/office365/securitycompliance/turn-audit-log-search-on-or-off).
+> - Para más información, consulte [Referencia de la API de Actividad de administración de Office 365](/office/office-365-management-api/office-365-management-activity-api-reference).
 
 
    > [!NOTE]
@@ -52,7 +52,7 @@ El conector de registro de [Office 365](https://docs.microsoft.com/office/) inc
 
 1. En el menú de navegación de Azure Sentinel, seleccione **Data connectors** (Conectores de datos).
 
-1. En la Galería **Data Connectors**, seleccione **Office 365**y, a continuación, seleccione **página Open Connector** (Abrir conector) en el panel de vista previa.
+1. En la Galería **Data Connectors**, seleccione **Office 365** y, a continuación, seleccione **página Open Connector** (Abrir conector) en el panel de vista previa.
 
 1. En la sección con la etiqueta **Configuración**, active las casillas de los registros de actividad de Office 365 que desea conectar a Azure Sentinel y haga clic en **Aplicar cambios**. 
 
@@ -70,4 +70,3 @@ El conector de registro de [Office 365](https://docs.microsoft.com/office/) inc
 En este documento, ha aprendido a conectar Office 365 a Azure Sentinel. Para más información sobre Azure Sentinel, consulte los siguientes artículos:
 - Aprenda a [obtener visibilidad de los datos y de posibles amenazas](quickstart-get-visibility.md).
 - Empiece a detectar amenazas con Azure Sentinel mediante las reglas [integradas](tutorial-detect-threats-built-in.md) o [personalizadas](tutorial-detect-threats-custom.md).
-

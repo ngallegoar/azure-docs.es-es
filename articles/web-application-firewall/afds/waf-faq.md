@@ -8,12 +8,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/05/2020
 ms.author: victorh
-ms.openlocfilehash: 0ba0cbbccd1f4a9bc8ff8a4895e238c9150c9b17
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 5b60082db53b458adc53ac23d98731ad1c97b52b
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94413078"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94563654"
 ---
 # <a name="frequently-asked-questions-for-azure-web-application-firewall-on-azure-front-door-service"></a>Preguntas más frecuentes sobre el Firewall de aplicaciones web de Azure en Azure Front Door Service
 
@@ -55,7 +55,7 @@ Puede configurar la lista de control de acceso de IP en el back-end para permiti
 
 ## <a name="which-azure-waf-options-should-i-choose"></a>¿Qué opciones de WAF de Azure debería elegir?
 
-Hay dos opciones al aplicar las directivas de WAF en Azure. WAF con Azure Front Door es una solución de seguridad de borde distribuida globalmente. WAF con Application Gateway es una solución regional y dedicada. Le recomendamos que elija una solución basada en los requisitos de seguridad y rendimiento generales. Para obtener más información, consulte [Equilibrio de carga con el conjunto de entrega de aplicaciones de Azure](https://docs.microsoft.com/azure/frontdoor/front-door-lb-with-azure-app-delivery-suite).
+Hay dos opciones al aplicar las directivas de WAF en Azure. WAF con Azure Front Door es una solución de seguridad de borde distribuida globalmente. WAF con Application Gateway es una solución regional y dedicada. Le recomendamos que elija una solución basada en los requisitos de seguridad y rendimiento generales. Para obtener más información, consulte [Equilibrio de carga con el conjunto de entrega de aplicaciones de Azure](../../frontdoor/front-door-lb-with-azure-app-delivery-suite.md).
 
 
 ## <a name="do-you-support-same-waf-features-in-all-integrated-platforms"></a>¿Se admiten las mismas características de WAF en todas las plataformas integradas?

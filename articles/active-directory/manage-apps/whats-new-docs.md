@@ -9,13 +9,12 @@ ms.workload: identity
 ms.author: kenwith
 author: kenwith
 manager: CelesteDG
-services: active-directory
-ms.openlocfilehash: 257057c4688fcf75651df4250c601eb1f1a2e8a3
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 10861438334bc804d1b1e4b9a669280f7e09ffde
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422610"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94654016"
 ---
 # <a name="azure-active-directory-application-management-whats-new"></a>Administración de aplicaciones en Azure Active Directory: Novedades
 
@@ -71,7 +70,7 @@ Le damos la bienvenida a las novedades sobre la documentación de administració
 - [¿Qué es el inicio de sesión único (SSO)?](what-is-single-sign-on.md)
 - [Adopción de medidas ante una aplicación con privilegios excesivos o sospechosa en Azure Active Directory](manage-application-permissions.md)
 - [Inicio rápido: Configuración de las propiedades de una aplicación en el inquilino de Azure Active Directory (Azure AD)](add-application-portal-configure.md)
-- [Automatización de la configuración de aplicaciones SSO basadas en SAML con Microsoft Graph API](application-saml-sso-configure-api.md)
+- [Automatización de la configuración de aplicaciones SSO basadas en SAML con Microsoft Graph API](/graph/application-saml-sso-configure-api)
 
 
 ## <a name="july-2020"></a>Julio de 2020
