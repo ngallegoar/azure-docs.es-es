@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/08/2020
-ms.openlocfilehash: faa98f1c52cfe2dd0e19f085f4d33dedb6f01851
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ac2690a5f18bb58c29b433f4a07e52096bbd268b
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88934895"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701592"
 ---
 # <a name="fuzzy-search-to-correct-misspellings-and-typos"></a>Búsqueda aproximada para corregir errores ortográficos y tipográficos
 
@@ -73,7 +73,7 @@ En Azure Cognitive Search, además del término y la distancia (2 como máximo),
 
 ## <a name="testing-fuzzy-search"></a>Prueba de la búsqueda aproximada
 
-Para realizar pruebas sencillas, se recomienda el [Explorador de búsqueda](search-explorer.md) o [Postman](search-get-started-postman.md) para recorrer en iteración una expresión de consulta. Ambas herramientas son interactivas, lo que significa que puede recorrer rápidamente varias variantes de un término y evaluar las respuestas que se devuelven.
+Para realizar pruebas sencillas, se recomienda el [Explorador de búsqueda](search-explorer.md) o [Postman](search-get-started-rest.md) para recorrer en iteración una expresión de consulta. Ambas herramientas son interactivas, lo que significa que puede recorrer rápidamente varias variantes de un término y evaluar las respuestas que se devuelven.
 
 Cuando los resultados son ambiguos, el [resaltado de referencias](search-pagination-page-layout.md#hit-highlighting) puede ayudarle a identificar la coincidencia en la respuesta. 
 

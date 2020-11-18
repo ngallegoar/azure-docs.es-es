@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/05/2020
-ms.openlocfilehash: 84db7f58c292cf0a9d01cf90da4b847691f601fb
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 0c1e84695ce40b489fb1005325d501ea241cdaf1
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491637"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94738108"
 ---
 # <a name="monitoring-azure-virtual-machines-with-azure-monitor"></a>Supervisión de máquinas virtuales de Azure con Azure Monitor
 En este artículo se describe cómo usar Azure Monitor para recopilar y analizar datos de supervisión de máquinas virtuales de Azure para mantener su estado. Las máquinas virtuales se pueden supervisar en términos de disponibilidad y rendimiento con Azure Monitor como cualquier [otro](monitor-azure-resource.md) recurso de Azure, pero se diferencian de otros recursos en cuanto que también debe supervisar el sistema operativo invitado y las cargas de trabajo que se ejecutan en él. 
@@ -170,7 +170,7 @@ Azure Monitor para VM habilita la recopilación de un conjunto predeterminado de
 
 
 > [!NOTE]
-> Los datos de rendimiento recopilados por el agente de Log Analytics escriben en la tabla *Perf* , mientras que Azure Monitor para VM los recopilará en la tabla *InsightsMetrics*. Se trata de los mismos datos, pero las tablas tienen una estructura diferente. Si tiene consultas existentes basadas en *Perf* , deberá volver a escribirlas para usar *InsightsMetrics*.
+> Los datos de rendimiento recopilados por el agente de Log Analytics escriben en la tabla *Perf*, mientras que Azure Monitor para VM los recopilará en la tabla *InsightsMetrics*. Se trata de los mismos datos, pero las tablas tienen una estructura diferente. Si tiene consultas existentes basadas en *Perf*, deberá volver a escribirlas para usar *InsightsMetrics*.
 
 
 ## <a name="alerts"></a>Alertas
@@ -207,7 +207,7 @@ Por ejemplo, para crear una alerta que compruebe si una máquina virtual de un g
 
 ```kusto
 Heartbeat
-| where TimeGenerated < ago(10m)
+| where TimeGenerated > ago(10m)
 | where ResourceGroup == "my-resource-group"
 | summarize max(TimeGenerated) by Computer
 ```
@@ -218,7 +218,7 @@ Para crear una alerta si se ha producido un número excesivo de inicios de sesi�
 
 ```kusto
 Event
-| where TimeGenerated < ago(1hr)
+| where TimeGenerated > ago(1hr)
 | where EventID == 4625
 ```
 

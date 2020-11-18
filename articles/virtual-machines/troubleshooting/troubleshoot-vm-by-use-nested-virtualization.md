@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: genli
-ms.openlocfilehash: e1acfc3216ccfaeac035f1ff31e82c7b67c17daf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f950cb63b5083a85ab5420434abdd9a720115b1a
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76119625"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94734555"
 ---
 # <a name="troubleshoot-a-faulty-azure-vm-by-using-nested-virtualization-in-azure"></a>Solución de problemas de una máquina virtual defectuosa de Azure mediante la virtualización anidada en Azure
 
@@ -111,7 +111,7 @@ Para montar la máquina virtual defectuosa, la máquina virtual de rescate debe 
 
 1.  Cuando la máquina virtual vuelva a estar en línea, apáguela en el administrador de Hyper-V.
 
-2.  [Desmonte y desconecte el disco del sistema operativo reparado](troubleshoot-recovery-disks-portal-windows.md#unmount-and-detach-original-virtual-hard-disk
+2.  [Desmonte y desconecte el disco del sistema operativo reparado](troubleshoot-recovery-disks-portal-windows.md#unmount-and-detach-the-original-virtual-hard-disk
 ).
 3.  [Reemplace el disco del sistema operativo que usa la VM con el disco del SO reparado](troubleshoot-recovery-disks-portal-windows.md#swap-the-os-disk-for-the-vm
 ).
