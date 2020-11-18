@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: cherylmc
-ms.openlocfilehash: 78165e9c14d4a83dbc20cbccd2f31dc8ac4c79ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 53b8d74d6eb35347d6ac5b27d12fa5b5eaed2582
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91440859"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566374"
 ---
 # <a name="azure-virtual-wan-logs-and-metrics"></a>Registros y métricas de Azure Virtual WAN
 
@@ -66,7 +66,7 @@ Los siguientes pasos le ayudarán a ubicar y ver las métricas:
 
 4. En la página **Métricas**, puede ver las métricas que le interesen.
 
-   :::image type="content" source="./media/logs-metrics/metrics-page.png" alt-text="Captura de pantalla que muestra el panel VPN de sitio a sitio con la opción Ver en Azure Monitor seleccionada.":::
+   :::image type="content" source="./media/logs-metrics/metrics-page.png" alt-text="Captura de pantalla que muestra la página &quot;Métricas&quot; con las categorías resaltadas.":::
 
 ## <a name="diagnostic-logs"></a><a name="diagnostic"></a>Registros de diagnóstico
 
@@ -93,15 +93,15 @@ Los siguientes pasos le ayudarán a localizar y ver los diagnósticos:
 
 1. En el portal, navegue hasta el recurso de Virtual WAN. En la sección **Información general** de la página Virtual WAN del portal, seleccione **Información esencial** para expandir la vista y obtener la información del grupo de recursos. Copie la información del grupo de recursos.
 
-   :::image type="content" source="./media/logs-metrics/3.png" alt-text="Captura de pantalla que muestra el panel VPN de sitio a sitio con la opción Ver en Azure Monitor seleccionada.":::
+   :::image type="content" source="./media/logs-metrics/3.png" alt-text="Captura de pantalla que muestra la sección &quot;Información general&quot; con una flecha que apunta al botón &quot;Copiar&quot;.":::
 
 2. En la sección Supervisión, navegue hasta el grupo de recursos. Seleccione **Configuración de diagnóstico** y, a continuación, especifique la información de recursos. Esta es la información de recursos que copió en el paso 2 de la sección [Visualización de métricas de puerta de enlace](#metrics-steps) anteriormente en este artículo.
 
-   :::image type="content" source="./media/logs-metrics/4.png" alt-text="Captura de pantalla que muestra el panel VPN de sitio a sitio con la opción Ver en Azure Monitor seleccionada.":::
+   :::image type="content" source="./media/logs-metrics/4.png" alt-text="Captura de pantalla que muestra la sección &quot;Supervisión&quot; con una flecha que apunta a la lista desplegable &quot;Recurso&quot;.":::
 
 3. En la página de resultados, seleccione **+ Agregar configuración de diagnóstico** y, después, seleccione una opción. Puede optar por enviar a Log Analytics, transmitir a un centro de eventos o simplemente archivar en una cuenta de almacenamiento.
 
-   :::image type="content" source="./media/logs-metrics/5.png" alt-text="Captura de pantalla que muestra el panel VPN de sitio a sitio con la opción Ver en Azure Monitor seleccionada.":::
+   :::image type="content" source="./media/logs-metrics/5.png" alt-text="página Métricas":::
 
 ### <a name="log-analytics-sample-query"></a><a name="sample-query"></a>Consulta de ejemplo de Log Analytics
 
@@ -123,5 +123,5 @@ Las entradas del **registro de actividad** están habilitadas de forma predeterm
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para obtener información sobre cómo supervisar las métricas y los registros de Azure Firewall, consulte [Tutorial: Supervisión de los registros de Azure Firewall](../firewall/tutorial-diagnostics.md).
+* Para obtener información sobre cómo supervisar las métricas y los registros de Azure Firewall, consulte [Tutorial: Supervisión de los registros de Azure Firewall](../firewall/firewall-diagnostics.md).
 * Para más información sobre las métricas en Azure Monitor, consulte [Métricas en Azure monitor](../azure-monitor/platform/data-platform-metrics.md).

@@ -10,21 +10,21 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
-ms.openlocfilehash: 52819caeb833eb475c8ea2c476ef5ba27681a50c
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: e8747b822916ba2c9ef7b45cc3cbbaa88d16dcb1
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94367563"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94565796"
 ---
 # <a name="configure-your-bing-custom-search-experience"></a>Configuración de la experiencia de Bing Custom Search
 
 > [!WARNING]
-> Bing Search APIs se mueve de Cognitive Services a Bing Search Services. A partir del **30 de octubre de 2020** , las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](https://aka.ms/cogsvcs/bingmove).
+> Bing Search APIs se mueve de Cognitive Services a Bing Search Services. A partir del **30 de octubre de 2020**, las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](https://aka.ms/cogsvcs/bingmove).
 > El aprovisionamiento de Bing Search APIs con Cognitive Services será posible durante los próximos tres años o hasta que finalice el Contrato Enterprise, lo que suceda primero.
 > Puede encontrar instrucciones sobre la migración en [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
 
-Una instancia de Custom Search le permite adaptar la experiencia de búsqueda para incluir contenido solo de sitios web que interesan a los usuarios. En lugar de realizar una búsqueda en toda la web, Bing solo busca en el sector de la web que le interesa. Para crear la vista personalizada de la web, use el [portal](https://customsearch.ai) de Bing Custom Search.
+Una instancia de Custom Search le permite adaptar la experiencia de búsqueda para incluir contenido solo de sitios web que interesan a los usuarios. En lugar de realizar una búsqueda en toda la web, Bing solo busca en el sector de la web que le interesa. Para crear la vista personalizada de la web, use el [portal](https://www.customsearch.ai) de Bing Custom Search.
 
 El portal le permite crear una instancia de búsqueda que especifica los sectores de la web: dominios, subpáginas y páginas web en los que quiere que busque Bing y aquellos en los que no quiere que busque. El portal también puede sugerir contenido que puede que quiera incluir.
 
@@ -62,7 +62,7 @@ Para obtener acceso a la lista de sectores activos y bloqueados, haga clic en la
 
 Para especificar los sectores de la web que quiera que busque Bing, haga clic en la pestaña **Active** (Activos) y agregue una o varias direcciones URL. Para editar o eliminar direcciones URL, use las opciones de la columna **Controls** (Controles). 
 
-Al agregar direcciones URL a la lista de **activos** , puede agregar direcciones URL únicas o varias direcciones URL a la vez mediante la carga de un archivo de texto con el icono de carga.
+Al agregar direcciones URL a la lista de **activos**, puede agregar direcciones URL únicas o varias direcciones URL a la vez mediante la carga de un archivo de texto con el icono de carga.
 
 ![Pestaña Active (Activos) de Bing Custom Search](media/file-upload-icon.png)
 
@@ -75,7 +75,7 @@ Para cargar un archivo, cree un archivo de texto y especifique un único dominio
 
 ### <a name="get-website-suggestions-for-your-search-experience"></a>Obtención de sugerencias de sitio web para la experiencia de búsqueda
 
-Después de agregar sectores de la web a la lista de **activos** , el portal de Bing Custom Search generará sugerencias de sitio web y subpágina en la parte inferior de la pestaña. Estos son los sectores que Bing Custom Search cree que quiere incluir. Haga clic en **Actualizar** para obtener sugerencias actualizadas después de actualizar la configuración de la instancia de Custom Search. Esta sección solo está visible si hay sugerencias disponibles.
+Después de agregar sectores de la web a la lista de **activos**, el portal de Bing Custom Search generará sugerencias de sitio web y subpágina en la parte inferior de la pestaña. Estos son los sectores que Bing Custom Search cree que quiere incluir. Haga clic en **Actualizar** para obtener sugerencias actualizadas después de actualizar la configuración de la instancia de Custom Search. Esta sección solo está visible si hay sugerencias disponibles.
 
 ## <a name="search-for-images-and-videos"></a>Búsqueda de imágenes y vídeos
 
@@ -89,7 +89,7 @@ Puede probar la instancia de búsqueda mediante el panel de vista previa situado
 
 1. Debajo del cuadro de búsqueda, seleccione **My Instance** (Mi instancia). Puede comparar los resultados de la experiencia de búsqueda con Bing seleccionando **Bing**. 
 2. Seleccione un filtro de búsqueda seguro y el mercado en el que buscar (consulte [Query Parameters](/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters) [Parámetros de consulta]).
-3. Escriba una consulta y presione Entrar o haga clic en el icono de búsqueda para ver los resultados de la configuración actual. Puede cambiar el tipo de búsqueda que realiza haciendo clic en **Web** , **Imagen** o **Vídeo** para obtener los resultados correspondientes. 
+3. Escriba una consulta y presione Entrar o haga clic en el icono de búsqueda para ver los resultados de la configuración actual. Puede cambiar el tipo de búsqueda que realiza haciendo clic en **Web**, **Imagen** o **Vídeo** para obtener los resultados correspondientes. 
 
 <a name="adjustrank"></a>
 
@@ -125,7 +125,7 @@ Puede anclar una página web al principio de dos maneras:
 
 * En la pestaña **Pinned** (Anclado), escriba la dirección URL de la página web que se va a anclar al principio y su consulta correspondiente.
 
-* En el panel **Vista previa** , escriba una consulta de búsqueda y haga clic en el botón de búsqueda. Busque la página web que quiere anclar para la consulta y haga clic en **Anclar al principio**. La página web y la consulta se agregarán a la lista **Anclado**.
+* En el panel **Vista previa**, escriba una consulta de búsqueda y haga clic en el botón de búsqueda. Busque la página web que quiere anclar para la consulta y haga clic en **Anclar al principio**. La página web y la consulta se agregarán a la lista **Anclado**.
 
 ### <a name="specify-the-pins-match-condition"></a>Especificación de la condición de coincidencia de anclaje
 

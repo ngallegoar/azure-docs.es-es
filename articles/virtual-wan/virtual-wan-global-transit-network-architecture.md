@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: cherylmc
-ms.openlocfilehash: e3a0eaeebbc0659b217051c6e98d67803896f2e1
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 59e60dadda7c0de37cfabadbc36ca53bc3c2b336
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92102330"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94563739"
 ---
 # <a name="global-transit-network-architecture-and-virtual-wan"></a>Arquitectura de red de tránsito global y Virtual WAN
 
@@ -127,7 +127,7 @@ Esta marca está visible cuando el usuario edita una conexión de red virtual, u
 
 Los centros de Azure Virtual WAN interconectan todos los puntos de conexión de red a través de la red híbrida y pueden ver todo el tráfico de red de tránsito. Los centros de Virtual WAN se pueden convertir en centros virtuales protegidos si implementa Azure Firewall dentro de los centros de Virtual WAN para habilitar la seguridad, el acceso y el control de directivas basados en la nube. Azure Firewall Manager puede realizar la orquestación de Azure Firewall en los centros de WAN virtual.
 
-[Azure Firewall Manager](https://go.microsoft.com/fwlink/?linkid=2107683) proporciona las funcionalidades para administrar y escalar la seguridad de las redes de tránsito global. Azure Firewall Manager ofrece la posibilidad de administrar de forma centralizada el enrutamiento, la administración global de directivas y los servicios de seguridad de Internet avanzados a través de terceros junto con Azure Firewall.
+[Azure Firewall Manager](../firewall-manager/index.yml) proporciona las funcionalidades para administrar y escalar la seguridad de las redes de tránsito global. Azure Firewall Manager ofrece la posibilidad de administrar de forma centralizada el enrutamiento, la administración global de directivas y los servicios de seguridad de Internet avanzados a través de terceros junto con Azure Firewall.
 
 ![centro virtual protegido con Azure Firewall](./media/virtual-wan-global-transit-network-architecture/figure5.png)
 
@@ -177,4 +177,4 @@ Cree una conexión mediante Virtual WAN e implemente Azure Firewall en los centr
 
 * [Creación de una conexión de sitio a sitio mediante Azure Virtual WAN](virtual-wan-site-to-site-portal.md)
 * [Conexiones de ExpressRoute con Virtual WAN](virtual-wan-expressroute-portal.md)
-* [Azure Firewall Manager para implementar Azure Firewall en WAN virtual](https://go.microsoft.com/fwlink/?linkid=2107683)
+* [Azure Firewall Manager para implementar Azure Firewall en WAN virtual](../firewall-manager/index.yml)

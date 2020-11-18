@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 12/09/2019
 ms.author: madsd
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: dbf38c303f024884971e95f7be9d4dfc50d118de
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 954e94063ec91cd2a6d67d154dfd7da553e0935a
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93127831"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94560900"
 ---
 # <a name="application-gateway-integration-with-service-endpoints"></a>Integración de Application Gateway con puntos de conexión de servicio
 Hay tres variaciones de App Service que requieren una configuración ligeramente diferente de la integración con Azure Application Gateway. Por ejemplo, la versión normal de App Service, también conocida como "multiinquilino", el equilibrador de carga interno (ILB) y el ASE externo. En este artículo se explica cómo configurarlo con App Service (multiinquilino) y se explican las consideraciones sobre ILB y el ASE externo.
@@ -36,7 +36,7 @@ Con Azure Portal, siga estos cuatro pasos para aprovisionar y realizar la confi
 1. Creación de una instancia de App Service con uno de los inicios rápidos de la documentación de App Service, por ejemplo, [Inicio rápido de .NET Core](../quickstart-dotnetcore.md)
 2. Cree una instancia de Application Gateway mediante el [inicio rápido del portal](../../application-gateway/quick-create-portal.md), pero sáltese la sección para agregar destinos de back-end.
 3. Configure [App Service como back-end en Application Gateway](../../application-gateway/configure-web-app-portal.md), pero sáltese la sección de restricción del acceso.
-4. Por último, cree la [restricción de acceso usando puntos de conexión de servicio](../../app-service/app-service-ip-restrictions.md#service-endpoints).
+4. Por último, cree la [restricción de acceso usando puntos de conexión de servicio](../../app-service/app-service-ip-restrictions.md#use-service-endpoints).
 
 Ahora puede acceder a App Service a través de Application Gateway, pero si trata de obtener acceso a App Service directamente, debería recibir un error HTTP 403 que indica que el sitio web está detenido.
 

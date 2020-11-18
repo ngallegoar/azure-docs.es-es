@@ -7,12 +7,12 @@ ms.service: web-application-firewall
 ms.topic: article
 ms.date: 09/05/2019
 ms.author: victorh
-ms.openlocfilehash: 40f0195ced375da09891eb577bd81f36b2f37cba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9a0e262db9f5c37189a589eefc451a88dd5ea8c6
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87005555"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94563416"
 ---
 # <a name="configure-a-web-application-firewall-policy-using-azure-powershell"></a>Configuración de una directiva del firewall de aplicaciones web con Azure PowerShell
 
@@ -27,9 +27,9 @@ Antes de empezar a configurar una directiva de limitación de velocidad, configu
 
 ### <a name="set-up-your-powershell-environment"></a>Configuración del entorno de PowerShell
 
-Azure PowerShell ofrece un conjunto de cmdlets que usan el modelo [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) para administrar los recursos de Azure. 
+Azure PowerShell ofrece un conjunto de cmdlets que usan el modelo [Azure Resource Manager](../../azure-resource-manager/management/overview.md) para administrar los recursos de Azure. 
 
-Puede instalar [Azure PowerShell](https://docs.microsoft.com/powershell/azure/) en el equipo local y usarlo en cualquier sesión de PowerShell. Siga las instrucciones de la página para iniciar sesión con sus credenciales de Azure e instalar el módulo Az de PowerShell.
+Puede instalar [Azure PowerShell](/powershell/azure/) en el equipo local y usarlo en cualquier sesión de PowerShell. Siga las instrucciones de la página para iniciar sesión con sus credenciales de Azure e instalar el módulo Az de PowerShell.
 
 #### <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 

@@ -7,12 +7,12 @@ ms.service: web-application-firewall
 ms.topic: article
 ms.date: 03/26/2020
 ms.author: tyao
-ms.openlocfilehash: f41dc688996b2431060a3cde209ca1ed4a21fe8c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f260bfc7b097931cc1a978e790c1d9dd966703ac
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87005623"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94563518"
 ---
 # <a name="configure-an-ip-restriction-rule-with-a-web-application-firewall-for-azure-front-door"></a>Configuración de una regla de restricción de IP con un firewall de aplicaciones web para Azure Front Door
 
@@ -76,7 +76,7 @@ Para crear un perfil de Azure Front Door, siga las instrucciones que se describe
 1. Una vez finalizada la implementación de la directiva WAF, busque el nombre del host de front-end de Front Door.
 2. Debería ver el mensaje de bloque personalizado.
 
-   :::image type="content" source="../media/waf-front-door-configure-ip-restriction/waf-rule-test.png" alt-text="Regla personalizada":::
+   :::image type="content" source="../media/waf-front-door-configure-ip-restriction/waf-rule-test.png" alt-text="Prueba de regla de WAF":::
 
    > [!NOTE]
    > Se usó una dirección IP privada deliberadamente en la regla personalizada para garantizar que la regla se desencadene. En una implementación real, cree las reglas *allow* y *deny* mediante direcciones IP para su situación concreta.
@@ -166,9 +166,9 @@ En este ejemplo, la directiva de WAF se aplica a **FrontendEndpoints [0]** . Pue
 Antes de empezar a configurar una directiva de restricción de IP, configure el entorno de PowerShell y cree un perfil de Azure Front Door.
 
 #### <a name="set-up-your-powershell-environment"></a>Configuración del entorno de PowerShell
-Azure PowerShell proporciona un conjunto de cmdlets que usan el modelo de [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) para administrar los recursos de Azure.
+Azure PowerShell proporciona un conjunto de cmdlets que usan el modelo de [Azure Resource Manager](../../azure-resource-manager/management/overview.md) para administrar los recursos de Azure.
 
-Puede instalar [Azure PowerShell](https://docs.microsoft.com/powershell/azure/) en el equipo local y usarlo en cualquier sesión de PowerShell. Siga las instrucciones de la página para iniciar sesión en PowerShell con las credenciales de Azure y, después, instale el módulo Az.
+Puede instalar [Azure PowerShell](/powershell/azure/) en el equipo local y usarlo en cualquier sesión de PowerShell. Siga las instrucciones de la página para iniciar sesión en PowerShell con las credenciales de Azure y, después, instale el módulo Az.
 
 1. Utilice el siguiente comando para conectarse a Azure y, después, use un cuadro de diálogo interactivo para iniciar sesión.
     ```

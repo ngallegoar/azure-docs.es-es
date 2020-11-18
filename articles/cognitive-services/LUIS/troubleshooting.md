@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: troubleshooting
 ms.date: 05/06/2020
-ms.openlocfilehash: 8eb37b993ee5bc3944228cba72be0557b52e3dc6
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 17b070fea422268ec12e0ccd3357ae0549a78916
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92149251"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566272"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Preguntas más frecuentes de Language Understanding
 
@@ -91,11 +91,11 @@ Recibirá los códigos de estado HTTP 403 y 429 cuando supere las transacciones 
 
 Al usar las 1000 consultas de punto de conexión gratuitas o al superar la cuota mensual de transacciones de su plan de tarifa, recibirá un código de estado de error HTTP 403.
 
-Para corregir este error, tendrá que [cambiar su plan de tarifa](luis-how-to-azure-subscription.md#change-pricing-tier) a un nivel superior o [crear un nuevo recurso](get-started-portal-deploy-app.md#create-the-endpoint-resource) y [asignarlo a la aplicación](get-started-portal-deploy-app.md#assign-the-resource-key-to-the-luis-app-in-the-luis-portal).
+Para corregir este error, tendrá que [cambiar su plan de tarifa](luis-how-to-azure-subscription.md#change-the-pricing-tier) a un nivel superior o [crear un nuevo recurso](get-started-portal-deploy-app.md#create-the-endpoint-resource) y [asignarlo a la aplicación](get-started-portal-deploy-app.md#assign-the-resource-key-to-the-luis-app-in-the-luis-portal).
 
 Las soluciones para este error incluyen:
 
-* En [Azure Portal](https://portal.azure.com), en su recurso Language Understanding, en **Administración de recursos -> Plan de tarifa** , cambie su plan de tarifa a un nivel superior de TPS. No es necesario hacer nada en el portal de Language Understanding si el recurso ya está asignado a la aplicación Language Understanding.
+* En [Azure Portal](https://portal.azure.com), en su recurso Language Understanding, en **Administración de recursos -> Plan de tarifa**, cambie su plan de tarifa a un nivel superior de TPS. No es necesario hacer nada en el portal de Language Understanding si el recurso ya está asignado a la aplicación Language Understanding.
 *  Si el uso supera el plan de tarifa más alto, agregue más recursos de Language Understanding con un equilibrador de carga delante. El [contenedor de Language Understanding](luis-container-howto.md) con Kubernetes o Docker Compose puede ayudarle en esto.
 
 ### <a name="i-received-an-http-429-error-status-code-how-do-i-fix-it"></a>He recibido un código de estado de error HTTP 429. ¿Cómo puedo corregirlo?
@@ -106,7 +106,7 @@ Este código de estado se devuelve cuando las transacciones por segundo superan 
 
 Entre las soluciones, se incluyen las siguientes:
 
-* También puede [aumentar el plan de tarifa](luis-how-to-azure-subscription.md#change-pricing-tier), si no está en el nivel más alto.
+* También puede [aumentar el plan de tarifa](luis-how-to-azure-subscription.md#change-the-pricing-tier), si no está en el nivel más alto.
 * Si el uso supera el plan de tarifa más alto, agregue más recursos de Language Understanding con un equilibrador de carga delante. El [contenedor de Language Understanding](luis-container-howto.md) con Kubernetes o Docker Compose puede ayudarle en esto.
 * También puede programar las solicitudes de la aplicación cliente con una [directiva de reintentos](https://docs.microsoft.com/azure/architecture/best-practices/transient-faults#general-guidelines) que implemente al recibir este código de estado.
 
@@ -132,7 +132,7 @@ El sistema debe utilizar la intención de mayor puntuación independientemente d
 ### <a name="why-dont-i-see-my-endpoint-hits-in-my-apps-dashboard"></a>¿Por qué no son visibles las visitas del punto de conexión en el panel de información de la aplicación?
 Las visitas totales del punto de conexión se actualizan periódicamente en el panel de información de la aplicación, pero las métricas asociadas con su clave de punto de conexión de LUIS en Azure Portal se actualizan con mayor frecuencia.
 
-Si las visitas del punto de conexión no están actualizadas en el panel de información, inicie sesión en Azure Portal, busque el recurso asociado a su clave de punto de conexión de LUIS y abra **Métrica** para seleccionar la métrica del **Total de llamadas** . Si la clave de punto de conexión se utiliza para más de una aplicación de LUIS, la métrica en Azure Portal muestra el número agregado de llamadas de todas las aplicaciones de LUIS que la usan.
+Si las visitas del punto de conexión no están actualizadas en el panel de información, inicie sesión en Azure Portal, busque el recurso asociado a su clave de punto de conexión de LUIS y abra **Métrica** para seleccionar la métrica del **Total de llamadas**. Si la clave de punto de conexión se utiliza para más de una aplicación de LUIS, la métrica en Azure Portal muestra el número agregado de llamadas de todas las aplicaciones de LUIS que la usan.
 
 ### <a name="is-there-a-powershell-command-get-to-the-endpoint-quota"></a>¿Existe un comando get de PowerShell para la cuota de punto de conexión?
 
@@ -190,7 +190,7 @@ Vea [Entrenamiento con todos los datos](luis-how-to-train.md#train-with-all-data
 ## <a name="app-publishing"></a>Publicación de la aplicación
 
 ### <a name="what-is-the-tenant-id-in-the-add-a-key-to-your-app-window"></a>¿Qué es el identificador de inquilino de la ventana Add a key to your app (Agregar una clave a la aplicación)?
-En Azure, un inquilino representa al cliente o a la organización que están asociados con un servicio. Para encontrar el identificador de inquilino en Azure Portal en el cuadro **Id. de directorio** , seleccione **Azure Active Directory** > **Administrar** > **Propiedades** .
+En Azure, un inquilino representa al cliente o a la organización que están asociados con un servicio. Para encontrar el identificador de inquilino en Azure Portal en el cuadro **Id. de directorio**, seleccione **Azure Active Directory** > **Administrar** > **Propiedades**.
 
 ![Identificador de inquilino en Azure Portal](./media/luis-manage-keys/luis-assign-key-tenant-id.png)
 
@@ -268,7 +268,7 @@ Lo primero que hay que hacer es determinar si el problema está solo relacionado
 #### <a name="resolve-issue-in-luis"></a>Solución del problema en LUIS
 Pase la misma expresión a LUIS desde el [punto de conexión de LUIS](luis-get-started-create-app.md#query-the-v2-api-prediction-endpoint). Si recibe un error, resuelva el problema en LUIS hasta que deje de devolverse este. Estos son algunos de los errores comunes:
 
-* `Out of call volume quota. Quota will be replenished in <time>.`: este problema indica que debe cambiar de una clave de creación a una [clave de punto de conexión](luis-how-to-azure-subscription.md) o que debe cambiar de [nivel de servicio](luis-how-to-azure-subscription.md#change-pricing-tier).
+* `Out of call volume quota. Quota will be replenished in <time>.`: este problema indica que debe cambiar de una clave de creación a una [clave de punto de conexión](luis-how-to-azure-subscription.md) o que debe cambiar de [nivel de servicio](luis-how-to-azure-subscription.md#change-the-pricing-tier).
 
 #### <a name="resolve-issue-in-azure-bot-service"></a>Solución del problema en Azure Bot Service
 
@@ -278,7 +278,7 @@ Si utiliza Azure Bot Service y el problema es que las **pruebas en el chat web**
 1. Abra el editor de código en línea.
 1. En la barra de navegación superior azul, seleccione el nombre del bot (el segundo elemento a la derecha).
 1. En la lista desplegable resultante, seleccione **Open Kudu Console** (Abrir la consola de Kudu).
-1. Seleccione **LogFiles** y **Aplicación** . Revise todos los archivos de registro. Si no ve el error en la carpeta de la aplicación, revise todos los archivos de registro en **LogFiles** .
+1. Seleccione **LogFiles** y **Aplicación**. Revise todos los archivos de registro. Si no ve el error en la carpeta de la aplicación, revise todos los archivos de registro en **LogFiles**.
 1. Recuerde recompilar el proyecto si está utilizando un lenguaje compilado como C#.
 
 > [!Tip]

@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 8/12/2020
 ms.author: JenCook
-ms.openlocfilehash: 235f4eb236e144d41ffb9958b09dab0cf5c269b6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b2c266d31a3aacc5bc97434de2246bfb1285a1ee
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89462435"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94565711"
 ---
 # <a name="how-to-run-an-application-with-fortanix-enclave-manager"></a>Instrucciones: Ejecución de una aplicación con Fortanix Enclave Manager 
 
@@ -120,7 +120,7 @@ Al crear una instancia de Fortanix Node Agent se implementará una máquina virt
 1. En esta página, especificará información para implementar una máquina virtual. En concreto, esta máquina virtual es una máquina virtual habilitada para Intel SGX de la serie DCsv2 de Azure con el software de Fortanix Node Agent instalado. Node Agent permitirá que la imagen convertida se ejecute de forma segura en los nodos de Intel SGX en Azure.  Seleccione la **suscripción** y el **grupo de recursos** en los que quiere implementar la máquina virtual y los recursos asociados. 
  
     > [!NOTE]
-    > Existen restricciones al implementar máquinas virtuales de la serie DCsv2 en Azure. Quizá deba solicitar la cuota para núcleos adicionales. Para más información, consulte [Soluciones de computación confidencial en máquinas virtuales de Azure](https://docs.microsoft.com/azure/confidential-computing/virtual-machine-solutions). 
+    > Existen restricciones al implementar máquinas virtuales de la serie DCsv2 en Azure. Quizá deba solicitar la cuota para núcleos adicionales. Para más información, consulte [Soluciones de computación confidencial en máquinas virtuales de Azure](./virtual-machine-solutions.md). 
 
 1. Seleccione una región disponible.
 1. Escriba un nombre para la máquina virtual en el campo **Nombre de nodo**. 
@@ -174,4 +174,4 @@ En esta guía de inicio rápido, ha usado las herramientas de Fortanix para conv
 
 Para más información sobre las ofertas de computación confidencial de Azure, consulte [Introducción a la computación confidencial de Azure](overview.md).
 
- Más información sobre cómo completar tareas similares con otras ofertas de terceros en Azure, como [Anjuna](https://azuremarketplace.microsoft.com/marketplace/apps/anjuna-5229812.aee-az-v1) y [Scone](https://sconedocs.github.io).  
+ Más información sobre cómo completar tareas similares con otras ofertas de terceros en Azure, como [Anjuna](https://azuremarketplace.microsoft.com/marketplace/apps/anjuna-5229812.aee-az-v1) y [Scone](https://sconedocs.github.io).

@@ -7,14 +7,14 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 04/01/2020
+ms.date: 11/11/2020
 ms.author: aahi
-ms.openlocfilehash: 348fb301d1a36c8df405c641f7644889417b11ba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bb9b0da609169288521d21ee6d5e412a786c7549
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91545360"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94574120"
 ---
 ## <a name="azure-cognitive-services-container-security"></a>Protección de los contenedores en Azure Cognitive Services
 
@@ -33,7 +33,7 @@ Como método alternativo y *seguro*, los consumidores de contenedores de Cogniti
 
 ### <a name="container-networking"></a>Redes de contenedores
 
-Los contenedores de Cognitive Services son necesarios para enviar información de medición con fines de facturación. La única excepción es *Contenedores sin conexión*, ya que siguen otra metodología de facturación. Si no se permite la enumeración de varios canales de red en los que se basan los contenedores de Cognitive Services, el contenedor no funcionará.
+Los contenedores de Cognitive Services son necesarios para enviar información de medición con fines de facturación. Si no se permite la enumeración de varios canales de red en los que se basan los contenedores de Cognitive Services, el contenedor no funcionará.
 
 #### <a name="allow-list-cognitive-services-domains-and-ports"></a>Permiso para enumerar los dominios y puertos de Cognitive Services
 

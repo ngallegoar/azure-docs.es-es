@@ -7,22 +7,22 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: chenyl
-ms.openlocfilehash: 04059ac1feae04cb6fa8b09f7b7077b7e11bac4c
-ms.sourcegitcommit: 94ca9e89501e65f4dcccc3789249357c7d5e27e5
+ms.openlocfilehash: 84b83c1dd541418c446a89a6f51be668cb41e54e
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92170370"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94562651"
 ---
 # <a name="how-to-send-events-from-azure-signalr-service-to-event-grid"></a>Cómo enviar eventos de Azure SignalR Service a Event Grid
 
 Azure Event Grid es un servicio de enrutamiento de eventos completamente administrado que ofrece un consumo de eventos uniforme mediante un modelo de publicación-suscripción. En esta guía, usará la CLI de Azure para crear una instancia de Azure SignalR Service, suscribirse a eventos de conexión e implementar una aplicación web de ejemplo para recibir los eventos. Por último, puede conectar y desconectar y ver la carga del evento en la aplicación de ejemplo.
 
-Si no tiene una suscripción a Azure, cree una [cuenta gratuita][azure-account] antes de empezar.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Los comandos de la CLI de Azure que aparecen en este artículo tienen un formato para la shell de **Bash**. Si usa un shell diferente, como PowerShell o el símbolo del sistema, puede que tenga que ajustar los caracteres de continuación de línea o las líneas de asignación de variable según corresponda. En este artículo se usan variables para minimizar la edición de comandos necesaria.
+ - Los comandos de la CLI de Azure que aparecen en este artículo tienen un formato para la shell de **Bash**. Si usa un shell diferente, como PowerShell o el símbolo del sistema, puede que tenga que ajustar los caracteres de continuación de línea o las líneas de asignación de variable según corresponda. En este artículo se usan variables para minimizar la edición de comandos necesaria.
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 

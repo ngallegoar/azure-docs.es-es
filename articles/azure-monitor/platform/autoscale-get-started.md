@@ -4,12 +4,12 @@ description: Obtenga información sobre cómo escalar Web Apps, Cloud Services, 
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: 3662f6007049a5531e11c193adf71e8f8442dcdb
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 543ecc80abeb9a437a895224de6ade679698c4d7
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93377027"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94565643"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Introducción al escalado automático en Azure
 Este artículo describe cómo configurar el escalado automático de recursos en Microsoft Azure Portal.
@@ -127,7 +127,7 @@ La ruta de acceso de comprobación de estado debe comprobar los componentes crí
 
 #### <a name="security"></a>Seguridad 
 
-A menudo, los equipos de desarrollo de grandes empresas necesitan cumplir los requisitos de seguridad de las API expuestas. Para proteger el punto de conexión de HealthCheck, primero debe usar características como [restricciones de IP](../../app-service/app-service-ip-restrictions.md#adding-ip-address-rules), [certificados de cliente](../../app-service/app-service-ip-restrictions.md#adding-ip-address-rules) o una red virtual para restringir el acceso a la aplicación. Puede proteger el punto de conexión de HealthCheck requiriendo que `User-Agent` de la solicitud entrante coincida con `ReadyForRequest/1.0`. El agente de usuario no se puede suplantar porque la solicitud ya estaba protegida por las características de seguridad anteriores.
+A menudo, los equipos de desarrollo de grandes empresas necesitan cumplir los requisitos de seguridad de las API expuestas. Para proteger el punto de conexión de HealthCheck, primero debe usar características como [restricciones de IP](../../app-service/app-service-ip-restrictions.md#set-an-ip-address-based-rule), [certificados de cliente](../../app-service/app-service-ip-restrictions.md#set-an-ip-address-based-rule) o una red virtual para restringir el acceso a la aplicación. Puede proteger el punto de conexión de HealthCheck requiriendo que `User-Agent` de la solicitud entrante coincida con `ReadyForRequest/1.0`. El agente de usuario no se puede suplantar porque la solicitud ya estaba protegida por las características de seguridad anteriores.
 
 ### <a name="behavior"></a>Comportamiento
 

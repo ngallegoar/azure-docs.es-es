@@ -1,17 +1,17 @@
 ---
 title: 'Parámetros del servidor: Azure Database for MariaDB'
 description: En este tema se proporcionan instrucciones para configurar parámetros del servidor en Azure Database for MariaDB.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 6/25/2020
-ms.openlocfilehash: b5064e3cef7def1aca5aa0c97d031d519fd610cf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4432178d5908d4360cda05a62b62d05687be4235
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91626401"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541137"
 ---
 # <a name="server-parameters-in-azure-database-for-mariadb"></a>Parámetros del servidor en Azure Database for MariaDB
 
@@ -91,7 +91,7 @@ Consulte la [documentación de MariaDB](https://mariadb.com/kb/en/server-system-
 |**Plan de tarifa**|**Núcleos virtuales**|**Valor predeterminado (bytes)**|**Valor mínimo (bytes)**|**Valor máximo (bytes)**|
 |---|---|---|---|---|
 |Básico|1|No se puede configurar en el nivel Básico|N/D|N/D|
-|Básica|2|No se puede configurar en el nivel Básico|N/D|N/D|
+|Básico|2|No se puede configurar en el nivel Básico|N/D|N/D|
 |De uso general|2|262 144|128|268435455|
 |De uso general|4|262 144|128|536870912|
 |De uso general|8|262 144|128|1073741824|
@@ -108,8 +108,8 @@ Consulte la [documentación de MariaDB](https://mariadb.com/kb/en/server-system-
 
 |**Plan de tarifa**|**Núcleos virtuales**|**Valor predeterminado**|**Valor mínimo**|**Valor máximo**|
 |---|---|---|---|---|
-|Básica|1|50|10|50|
-|Básica|2|100|10|100|
+|Básico|1|50|10|50|
+|Básico|2|100|10|100|
 |De uso general|2|300|10|600|
 |De uso general|4|625|10|1250|
 |De uso general|8|1250|10|2.500|
@@ -140,7 +140,7 @@ Consulte la [documentación de MariaDB](https://mariadb.com/kb/en/server-system-
 |**Plan de tarifa**|**Núcleos virtuales**|**Valor predeterminado (bytes)**|**Valor mínimo (bytes)**|**Valor máximo (bytes)**|
 |---|---|---|---|---|
 |Básico|1|No se puede configurar en el nivel Básico|N/D|N/D|
-|Básica|2|No se puede configurar en el nivel Básico|N/D|N/D|
+|Básico|2|No se puede configurar en el nivel Básico|N/D|N/D|
 |De uso general|2|16777216|16384|268435455|
 |De uso general|4|16777216|16384|536870912|
 |De uso general|8|16777216|16384|1073741824|
@@ -162,7 +162,7 @@ Consulte la [documentación de MariaDB](https://mariadb.com/kb/en/server-system-
 |**Plan de tarifa**|**Núcleos virtuales**|**Valor predeterminado (bytes)**|**Valor mínimo (bytes)**|**Valor máximo **|
 |---|---|---|---|---|
 |Básico|1|No se puede configurar en el nivel Básico|N/D|N/D|
-|Básica|2|No se puede configurar en el nivel Básico|N/D|N/D|
+|Básico|2|No se puede configurar en el nivel Básico|N/D|N/D|
 |De uso general|2|0|0|16777216|
 |De uso general|4|0|0|33554432|
 |De uso general|8|0|0|67108864|
@@ -182,7 +182,7 @@ Consulte la [documentación de MariaDB](https://mariadb.com/kb/en/server-system-
 |**Plan de tarifa**|**Núcleos virtuales**|**Valor predeterminado (bytes)**|**Valor mínimo (bytes)**|**Valor máximo (bytes)**|
 |---|---|---|---|---|
 |Básico|1|No se puede configurar en el nivel Básico|N/D|N/D|
-|Básica|2|No se puede configurar en el nivel Básico|N/D|N/D|
+|Básico|2|No se puede configurar en el nivel Básico|N/D|N/D|
 |De uso general|2|524 288|32 768|4 194 304|
 |De uso general|4|524 288|32 768|8388608|
 |De uso general|8|524 288|32 768|16777216|
@@ -202,7 +202,7 @@ Consulte la [documentación de MariaDB](https://mariadb.com/kb/en/server-system-
 |**Plan de tarifa**|**Núcleos virtuales**|**Valor predeterminado (bytes)**|**Valor mínimo (bytes)**|**Valor máximo (bytes)**|
 |---|---|---|---|---|
 |Básico|1|No se puede configurar en el nivel Básico|N/D|N/D|
-|Básica|2|No se puede configurar en el nivel Básico|N/D|N/D|
+|Básico|2|No se puede configurar en el nivel Básico|N/D|N/D|
 |De uso general|2|16777216|1024|67108864|
 |De uso general|4|16777216|1024|134217728|
 |De uso general|8|16777216|1024|268435456|

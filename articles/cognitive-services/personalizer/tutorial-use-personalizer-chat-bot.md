@@ -6,12 +6,12 @@ ms.subservice: personalizer
 ms.topic: tutorial
 ms.date: 07/17/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3ae22294d86ab65be0f09b734735885177c1cf63
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7c4920eaa7a5619be37d38afd763e7be416d3124
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91777316"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94565728"
 ---
 # <a name="tutorial-use-personalizer-in-net-chat-bot"></a>Tutorial: Uso de Personalizer en un bot de chat de .NET
 
@@ -130,7 +130,7 @@ git clone https://github.com/Azure-Samples/cognitive-services-personalizer-sampl
 
 Para usar este bot de chat, debe crear recursos de Azure para Personalizer y Language Understanding (LUIS).
 
-* [Cree recursos de LUIS](../luis/luis-how-to-azure-subscription.md#create-luis-resources-in-azure-portal). Seleccione **ambos** en el paso de creación porque necesita tanto recursos de creación como de predicción.
+* [Cree recursos de LUIS](../luis/luis-how-to-azure-subscription.md#create-luis-resources-in-the-azure-portal). Seleccione **ambos** en el paso de creación porque necesita tanto recursos de creación como de predicción.
 * [Cree el recurso de Personalizer](how-to-create-resource.md) y, a continuación, copie la clave y el punto de conexión de Azure Portal. Deberá establecer estos valores en el archivo `appsettings.json` del proyecto de .NET.
 
 ### <a name="create-luis-app"></a>Creación de una aplicación de LUIS
@@ -178,18 +178,18 @@ Deje el sitio web en ejecución, ya que en el tutorial se explica qué está hac
 
 1. Abra Bot Framework Emulator y seleccione **Open Bot** (Abrir bot).
 
-    :::image type="content" source="media/tutorial-chat-bot/bot-emulator-startup.png" alt-text="Captura de pantalla del explorador que muestra el sitio web del bot de chat.":::
+    :::image type="content" source="media/tutorial-chat-bot/bot-emulator-startup.png" alt-text="Captura de la pantalla de inicio del emulador de bot.":::
 
 
 1. Configure el bot con la siguiente **dirección URL del bot** y seleccione **Connect** (Conectar):
 
     `http://localhost:3978/api/messages`
 
-    :::image type="content" source="media/tutorial-chat-bot/bot-emulator-open-bot-settings.png" alt-text="Captura de pantalla del explorador que muestra el sitio web del bot de chat.":::
+    :::image type="content" source="media/tutorial-chat-bot/bot-emulator-open-bot-settings.png" alt-text="Captura de pantalla de la configuración de bot abierta en el emulador de bot.":::
 
     El emulador se conecta al bot de chat y muestra el texto informativo, junto con información de registro y depuración que resulta útil para el desarrollo local.
 
-    :::image type="content" source="media/tutorial-chat-bot/bot-emulator-bot-conversation-first-turn.png" alt-text="Captura de pantalla del explorador que muestra el sitio web del bot de chat.":::
+    :::image type="content" source="media/tutorial-chat-bot/bot-emulator-bot-conversation-first-turn.png" alt-text="Captura de pantalla del emulador de bot en el primer turno de la conversación.":::
 
 ## <a name="use-the-bot-in-the-bot-emulator"></a>Uso del bot en el emulador de bot
 

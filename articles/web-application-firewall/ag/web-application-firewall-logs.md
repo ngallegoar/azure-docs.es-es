@@ -7,12 +7,12 @@ ms.service: web-application-firewall
 ms.topic: article
 ms.date: 10/25/2019
 ms.author: victorh
-ms.openlocfilehash: a84e48c7fbb6d63a4bf8946b66bd35f354643ccb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 262987b5d5cdccec967193d855b17c5c74e16575
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84753601"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94563399"
 ---
 # <a name="resource-logs-for-azure-web-application-firewall"></a>Registros de recursos para el firewall de aplicaciones web de Azure
 
@@ -285,7 +285,7 @@ El registro de firewall solo se genera si lo habilitó para cada instancia de Ap
 Puede ver y analizar los datos del registro de actividades con cualquiera de los métodos siguientes:
 
 * **Herramientas de Azure**: permiten recuperar información de los registros de actividades mediante Azure PowerShell, la CLI de Azure, la API REST de Azure o Azure Portal. En el artículo [Operaciones de actividades con Resource Manager](../../azure-resource-manager/management/view-activity-logs.md) se detallan instrucciones paso a paso de cada método.
-* **Power BI**: si todavía no tiene una cuenta de [Power BI](https://powerbi.microsoft.com/pricing), puede probarlo gratis. Las [aplicaciones de plantilla de Power BI](https://docs.microsoft.com/power-bi/service-template-apps-overview) permiten analizar los datos.
+* **Power BI**: si todavía no tiene una cuenta de [Power BI](https://powerbi.microsoft.com/pricing), puede probarlo gratis. Las [aplicaciones de plantilla de Power BI](/power-bi/service-template-apps-overview) permiten analizar los datos.
 
 ### <a name="view-and-analyze-the-access-performance-and-firewall-logs"></a>Visualización y análisis de los registros de acceso, rendimiento y firewall
 

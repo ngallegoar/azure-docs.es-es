@@ -8,36 +8,36 @@ ms.topic: article
 ms.date: 06/10/2020
 ms.author: victorh
 ms.reviewer: tyao
-ms.openlocfilehash: a995460793686d8293d77965e74e2cbf916925a0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8fc6e71494df36cd6f823661b18e4a3d8ce2938c
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87005606"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94563688"
 ---
 # <a name="configure-a-custom-response-for-azure-web-application-firewall-waf"></a>Configuración de una respuesta personalizada para el Firewall de aplicaciones web de Azure (WAF)
 
-De forma predeterminada, cuando WAF bloquea una solicitud debido a una regla coincidente, devuelve un código de estado 403 con el mensaje **La solicitud está bloqueada**. El mensaje predeterminado también incluye la cadena de referencia de seguimiento que se puede usar para vincular [entradas de registro](https://docs.microsoft.com/azure/web-application-firewall/afds/waf-front-door-monitor) para la solicitud.  Puede configurar un código de estado de respuesta personalizada y un mensaje personalizado con una cadena de referencia para el caso de uso. En este artículo se describe cómo configurar una página de respuesta personalizada cuando WAF bloquea una solicitud.
+De forma predeterminada, cuando WAF bloquea una solicitud debido a una regla coincidente, devuelve un código de estado 403 con el mensaje **La solicitud está bloqueada**. El mensaje predeterminado también incluye la cadena de referencia de seguimiento que se puede usar para vincular [entradas de registro](./waf-front-door-monitor.md) para la solicitud.  Puede configurar un código de estado de respuesta personalizada y un mensaje personalizado con una cadena de referencia para el caso de uso. En este artículo se describe cómo configurar una página de respuesta personalizada cuando WAF bloquea una solicitud.
 
 ## <a name="configure-custom-response-status-code-and-message-use-portal"></a>Configuración del código de estado de respuesta personalizada y el portal de uso de mensajes
 
 Puede configurar un cuerpo y un código de estado de respuesta personalizados en "Configuración de directiva", en el portal de WAF.
 
-:::image type="content" source="../media/waf-front-door-configure-custom-response-code/custom-response-settings.png" alt-text="Configuración de directiva de WAF&quot;:::
+:::image type="content" source="../media/waf-front-door-configure-custom-response-code/custom-response-settings.png" alt-text="Configuración de directiva de WAF":::
 
-En el ejemplo anterior, conservamos el código de respuesta como 403 y configuramos un breve mensaje &quot;Póngase en contacto con nosotros" como se muestra en la siguiente imagen:
+En el ejemplo anterior, conservamos el código de respuesta como 403 y configuramos un breve mensaje "Póngase en contacto con nosotros" como se muestra en la siguiente imagen:
 
-:::image type="content" source="../media/waf-front-door-configure-custom-response-code/custom-response.png" alt-text="Configuración de directiva de WAF&quot;:::
+:::image type="content" source="../media/waf-front-door-configure-custom-response-code/custom-response.png" alt-text="Ejemplo de respuesta de personalizada":::
 
-En el ejemplo anterior, conservamos el código de respuesta como 403 y configuramos un breve mensaje &quot;Póngase en contacto con nosotros" inserta la cadena de referencia única en el cuerpo de la respuesta. El valor coincide con el campo TrackingReference de los registros `FrontdoorAccessLog` y `FrontdoorWebApplicationFirewallLog`.
+"{{azure-ref}}" inserta la cadena de referencia única en el cuerpo de la respuesta. El valor coincide con el campo TrackingReference de los registros `FrontdoorAccessLog` y `FrontdoorWebApplicationFirewallLog`.
 
 ## <a name="configure-custom-response-status-code-and-message-use-powershell"></a>Configuración del código de estado de respuesta personalizada y el PowerShell de uso de mensajes
 
 ### <a name="set-up-your-powershell-environment"></a>Configuración del entorno de PowerShell
 
-Azure PowerShell ofrece un conjunto de cmdlets que usan el modelo [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) para administrar los recursos de Azure. 
+Azure PowerShell ofrece un conjunto de cmdlets que usan el modelo [Azure Resource Manager](../../azure-resource-manager/management/overview.md) para administrar los recursos de Azure. 
 
-Puede instalar [Azure PowerShell](https://docs.microsoft.com/powershell/azure/) en el equipo local y usarlo en cualquier sesión de PowerShell. Siga las instrucciones de la página para iniciar sesión con sus credenciales de Azure e instalar el módulo Az.PowerShell.
+Puede instalar [Azure PowerShell](/powershell/azure/) en el equipo local y usarlo en cualquier sesión de PowerShell. Siga las instrucciones de la página para iniciar sesión con sus credenciales de Azure e instalar el módulo Az.PowerShell.
 
 ### <a name="connect-to-azure-with-an-interactive-dialog-for-sign-in"></a>Conexión a Azure con un cuadro de diálogo interactivo para el inicio de sesión
 

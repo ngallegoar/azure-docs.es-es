@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d9a7d7db93e00b9fcccab08522b3363935badf26
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 003203ef1a25102f9fd3c50001603dbd5d33ce5a
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92203847"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94565977"
 ---
 # <a name="tutorial-manipulating-models"></a>Tutorial: Manipulación de modelos
 
@@ -308,7 +308,7 @@ MRTK llama al método `OnPointerClicked` de **RemoteRayCastPointerHandler** cuan
 
 El envío de solicitudes para la proyección de rayos al hacer clic es una estrategia eficaz para consultar objetos remotos. Sin embargo, no es una experiencia de usuario idónea porque el cursor colisiona con el colisionador de cuadros y no con el modelo en sí.
 
-También puede crear un puntero de MRTK que proyecte sus rayos en la sesión remota con mayor frecuencia. Aunque se trata de un enfoque más complejo, la experiencia del usuario sería mejor. Esta estrategia escapa del ámbito de este tutorial, pero se puede ver un ejemplo de este enfoque en la aplicación de presentación que se encuentra en el [repositorio de muestras de ARR](https://github.com/Azure/azure-remote-rendering/tree/master/Unity/AzureRemoteRenderingShowcase).
+También puede crear un puntero de MRTK que proyecte sus rayos en la sesión remota con mayor frecuencia. Aunque se trata de un enfoque más complejo, la experiencia del usuario sería mejor. Esta estrategia escapa del ámbito de este tutorial, pero se puede ver un ejemplo de este enfoque en la aplicación de presentación que se encuentra en el [repositorio de muestras de ARR](https://github.com/Azure/azure-remote-rendering/tree/master/Unity/Showcase).
 
 Cuando una proyección de rayos se completa correctamente en **RemoteRayCastPointerHandler**, el elemento `Entity` afectado se emite desde el evento de Unity `OnRemoteEntityClicked`. Para responder a ese evento, crearemos un script auxiliar que acepte el elemento `Entity` y realice una acción en él. Para comenzar, vamos a obtener el script para imprimir el nombre del elemento `Entity` en el registro de depuración.
 

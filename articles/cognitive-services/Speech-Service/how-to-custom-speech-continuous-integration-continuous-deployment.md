@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/09/2020
 ms.author: kaprochi
-ms.openlocfilehash: 46bdc314e7aa0002937e808d7982f43c8e725d6f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: de0065abaf5669859e864186fc9a3fb88219414b
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91357478"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555828"
 ---
 # <a name="cicd-for-custom-speech"></a>CI/CD para Habla personalizada
 
@@ -31,13 +31,13 @@ Es posible obtener soluciones de CI/CD personalizadas; no obstante, para una sol
 
 El objetivo de estos flujos de trabajo es garantizar que cada modelo de Habla personalizada tenga una mejor precisión de reconocimiento que la versión anterior. Si las actualizaciones de los datos de entrenamiento o pruebas mejoran la precisión, estos flujos de trabajo crean un nuevo punto de conexión de Habla personalizada.
 
-Los servidores Git, como GitHub y Azure DevOps, pueden ejecutar flujos de trabajo automatizados cuando se producen eventos Git específicos, como fusiones mediante combinación o solicitudes de incorporación de cambios. Por ejemplo, se puede desencadenar un flujo de trabajo de CI cuando las actualizaciones de los datos de prueba se envían a la rama*master*. Los distintos servidores Git tendrán herramientas diferentes, pero permitirán la creación de scripts con comandos de la interfaz de línea de comandos (CLI) para que puedan ejecutarse en un servidor de compilación.
+Los servidores Git, como GitHub y Azure DevOps, pueden ejecutar flujos de trabajo automatizados cuando se producen eventos Git específicos, como fusiones mediante combinación o solicitudes de incorporación de cambios. Por ejemplo, se puede desencadenar un flujo de trabajo de CI cuando las actualizaciones de los datos de prueba se envían a la rama *master*. Los distintos servidores Git tendrán herramientas diferentes, pero permitirán la creación de scripts con comandos de la interfaz de línea de comandos (CLI) para que puedan ejecutarse en un servidor de compilación.
 
 Durante el proceso, los flujos de trabajo deben asignar un nombre a los datos, pruebas, archivos de prueba, modelos y puntos de conexión, así como almacenarlos, de modo que se puedan rastrear de vuelta a su confirmación o versión de origen. También resulta útil asignar un nombre a estos recursos para facilitar la identificación de cuáles se crearon después de actualizar los datos de prueba frente a los datos de entrenamiento.
 
 ### <a name="ci-workflow-for-testing-data-updates"></a>Flujo de trabajo de CI para actualizaciones de datos de prueba
 
-El principal objetivo de los flujos de trabajo de CI/CD es crear un nuevo modelo con los datos de entrenamiento y probar dicho modelo con los datos de prueba para determinar si la métrica [Word Error Rate](how-to-custom-speech-evaluate-data.md#what-is-word-error-rate-wer) (WER) ha mejorado en comparación con el modelo de mejor rendimiento anterior (el "modelo de referencia"). Si el nuevo modelo funciona mejor, se convierte en el nuevo modelo de pruebas con el que se comparan los modelos futuros.
+El principal objetivo de los flujos de trabajo de CI/CD es crear un nuevo modelo con los datos de entrenamiento y probar dicho modelo con los datos de prueba para determinar si la métrica [Word Error Rate](how-to-custom-speech-evaluate-data.md#evaluate-custom-speech-accuracy) (WER) ha mejorado en comparación con el modelo de mejor rendimiento anterior (el "modelo de referencia"). Si el nuevo modelo funciona mejor, se convierte en el nuevo modelo de pruebas con el que se comparan los modelos futuros.
 
 El flujo de trabajo de CI para las actualizaciones de datos de pruebas debe volver a probar el modelo de referencia actual con los datos de prueba actualizados para calcular el WER revisado. Esto garantiza que, cuando el WER de un modelo nuevo se compare con el WER del banco de pruebas, ambos modelos se habrán probado con los mismos datos de prueba y se estarán comparando elementos semejantes.
 
@@ -85,7 +85,7 @@ El [repositorio de plantillas de DevOps para Voz](https://github.com/Azure-Sampl
 - Copiar el repositorio de plantillas en su cuenta de GitHub y, a continuación, crear los recursos de Azure y una [entidad de servicio](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) para los flujos de trabajo de CI/CD de Acciones de GitHub.
 - Realizar el "[bucle interno de desarrollo](https://mitchdenny.com/the-inner-loop/)". Actualizar los datos de entrenamiento y prueba desde una rama de características, probar los cambios con un modelo de desarrollo temporal y generar una solicitud de incorporación de cambios para proponer y revisar los cambios.
 - Entrenar modelos con el flujo de trabajo de CI mediante Acciones de GitHub cuando se actualizan los datos de entrenamiento en una solicitud de incorporación de cambios para la rama *master*.
-- Realizar pruebas de precisión automatizadas para establecer la métrica [Word Error Rate](how-to-custom-speech-evaluate-data.md#what-is-word-error-rate-wer) (WER) de un modelo. Almacenar los resultados de pruebas en el Blob de Azure.
+- Realizar pruebas de precisión automatizadas para establecer la métrica [Word Error Rate](how-to-custom-speech-evaluate-data.md#evaluate-custom-speech-accuracy) (WER) de un modelo. Almacenar los resultados de pruebas en el Blob de Azure.
 - Ejecutar el flujo de trabajo de CD para crear un punto de conexión cuando mejore el valor de WER.
 
 ## <a name="next-steps"></a>Pasos siguientes
