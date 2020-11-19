@@ -121,10 +121,10 @@
           href: tag-support.md
     - name: Administración de grupos de recursos
       items:
-        - name: Azure portal
+        - name: Azure Portal
           displayName: 'create,list,open,delete,deploy,move,lock,tag,export'
           href: manage-resource-groups-portal.md
-        - name: CLI de Azure
+        - name: Azure CLI
           displayName: 'create,list,open,delete,deploy,move,lock,tag,export'
           href: manage-resource-groups-cli.md
         - name: Azure PowerShell
@@ -132,10 +132,10 @@
           href: manage-resource-groups-powershell.md
     - name: Administrar recursos
       items:
-        - name: Azure portal
+        - name: Azure Portal
           displayName: 'open,delete,deploy,move,lock,tag,monitor'
           href: manage-resources-portal.md
-        - name: CLI de Azure
+        - name: Azure CLI
           displayName: 'open,delete,deploy,move,lock,tag'
           href: manage-resources-cli.md
         - name: Azure PowerShell
@@ -144,7 +144,7 @@
     - name: Suscripciones de EA
       items:
         - name: Crear
-          href: ../../cost-management-billing/manage/programmatically-create-subscription.md?toc=/azure/azure-resource-manager/management/toc.json
+          href: ../../cost-management-billing/manage/programmatically-create-subscription-enterprise-agreement.md?toc=/azure/azure-resource-manager/management/toc.json
         - name: Concesión de acceso para la creación
           href: ../../cost-management-billing/manage/grant-access-to-create-subscription.md?toc=/azure/azure-resource-manager/management/toc.json
     - name: Tipos y proveedores de recursos
@@ -167,7 +167,7 @@
       href: /rest/api/resources/
     - name: Azure PowerShell
       href: /powershell/module/az.resources
-    - name: CLI de Azure
+    - name: Azure CLI
       href: /cli/azure/resource
     - name: .NET
       href: /dotnet/api/microsoft.azure.management.resourcemanager

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 1/22/2020
 ms.author: normesta
 ms.reviewer: dineshm
-ms.openlocfilehash: 03850315a05f569d2c6ba9405b6ec38bb6b1305d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 36cdaa813e0eccb23563301052aee268ab61533a
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "78330402"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888511"
 ---
 <!---Customer intent: I want to host files for a static website in Blob storage and access the website from an Azure endpoint.--->
 
@@ -77,14 +77,24 @@ A continuación, cree una página web de Hola mundo con Visual Studio Code e imp
 1. Abra *index.html* en el editor, pegue el siguiente texto en el archivo y guárdelo:
 
     ```
-    <h1>Hello World!</h1>
+    <!DOCTYPE html>
+    <html>
+      <body>
+        <h1>Hello World!</h1>
+      </body>
+    </html>
     ```
 
 1. Cree el archivo de error predeterminado y asígnele el nombre *404.html*.
 1. Abra *404.html* en el editor, pegue el siguiente texto en el archivo y guárdelo:
 
     ```
-    <h1>404</h1>
+    <!DOCTYPE html>
+    <html>
+      <body>
+        <h1>404</h1>
+      </body>
+    </html>
     ```
 
 1. Haga clic con el botón derecho en la carpeta *mywebsite* en el panel **Explorador** y seleccione **Implementar en el sitio web estático...**  para implementar el sitio web. Se le pedirá que inicie sesión en Azure para recuperar una lista de suscripciones.
