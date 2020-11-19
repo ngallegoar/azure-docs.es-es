@@ -28,7 +28,7 @@
       href: network-watcher-nsg-flow-logging-portal.md
 - name: Conceptos
   items:
-    - name: Monitor de conexión (versión preliminar)
+    - name: Monitor de conexión
       href: connection-monitor-overview.md
     - name: Diagnóstico de problemas de filtro de tráfico de red de máquinas virtuales
       href: network-watcher-ip-flow-verify-overview.md
@@ -58,7 +58,7 @@
   items:
     - name: Configuración de Network Watcher
       href: network-watcher-create.md
-    - name: Creación de una instancia de Connection Monitor (versión preliminar)
+    - name: Crear un monitor de conexión
       items:
         - name: Uso de Azure Portal
           href: connection-monitor-create-using-portal.md
@@ -66,11 +66,11 @@
           href: connection-monitor-create-using-template.md
         - name: Usar PowerShell
           href: connection-monitor-create-using-powershell.md
-    - name: Migración a Connection Monitor (versión preliminar)
+    - name: Migración a Connection Monitor
       items:
         - name: Desde Network Performance Monitor
           href: migrate-to-connection-monitor-preview-from-network-performance-monitor.md
-        - name: Desde Connection Monitor
+        - name: Desde Connection Monitor (clásico)
           href: migrate-to-connection-monitor-preview-from-connection-monitor.md
     - name: Diagnóstico de problemas de red de máquinas virtuales
       items:

@@ -287,6 +287,10 @@
           items:
             - name: Detención o inicio de servidor MySQL
               href: how-to-stop-start-server.md
+        - name: Actualización de versión principal
+          items:
+            - name: Actualización de versión principal
+              href: how-to-major-version-upgrade.md
         - name: Almacenamiento de crecimiento automático
           items:
             - name: Azure portal
@@ -303,7 +307,7 @@
             - name: Azure portal
               href: howto-configure-server-logs-in-portal.md
               displayName: 'debug, slow query log , performance'
-            - name: Azure CLI
+            - name: CLI de Azure
               href: howto-configure-server-logs-in-cli.md
               displayName: 'debug, slow query log , performance'
         - name: Registros de auditoría

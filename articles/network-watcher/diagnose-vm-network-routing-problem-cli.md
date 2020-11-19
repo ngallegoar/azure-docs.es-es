@@ -17,22 +17,24 @@ ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: damendo
 ms.custom: ''
-ms.openlocfilehash: 5fa083626135170a05844a5e4434b608a1fabe60
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 2d5f6f9cfaff722245f6105b5e86390b8aeb769f
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91302279"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94539726"
 ---
 # <a name="diagnose-a-virtual-machine-network-routing-problem---azure-cli"></a>Diagnosticar problemas de enrutamiento en una red de máquinas virtuales: CLI de Azure
 
 En este artículo implementará una máquina virtual (VM) y comprobará las comunicaciones hacia una dirección IP y una dirección URL. Además, va a determinar la causa de un error de comunicación y cómo puede resolverlo.
 
-Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Si decide instalar y usar la CLI de Azure localmente, para este artículo es preciso que ejecute la versión 2.0.28 o posterior de la CLI de Azure. Ejecute `az --version` para ver cuál es la versión instalada. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli). Después de verificar la versión de la CLI de Azure, ejecute `az login` para crear una conexión con Azure. Los comandos de la CLI de Azure que aparecen en este artículo tienen un formato que permite ejecutarlos en un shell de Bash.
+- This article requires version 2.0 or later of the Azure CLI. Si usa Azure Cloud Shell, ya está instalada la versión más reciente. 
+
+- Los comandos de la CLI de Azure que aparecen en este artículo tienen un formato que permite ejecutarlos en un shell de Bash.
 
 ## <a name="create-a-vm"></a>Crear una VM
 
@@ -113,7 +115,7 @@ az network nic show-effective-route-table \
 
 El siguiente texto se incluye en el resultado devuelto:
 
-```
+```console
 {
   "additionalProperties": {
     "disableBgpRoutePropagation": false
@@ -133,7 +135,7 @@ Cuando usó el comando `az network watcher show-next-hop` para probar la comunic
 
 Sin embargo, cuando usó el comando `az network watcher show-next-hop` para probar la comunicación saliente a 172.31.0.100, el resultado le informó de que no había ningún tipo de salto siguiente. En el resultado devuelto puede ver el siguiente texto:
 
-```
+```console
 {
   "additionalProperties": {
     "disableBgpRoutePropagation": false

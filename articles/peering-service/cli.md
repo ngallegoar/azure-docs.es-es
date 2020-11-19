@@ -10,22 +10,18 @@ ms.tgt_pltfrm: na
 ms.workload: Infrastructure-services
 ms.date: 05/2/2020
 ms.author: derekol
-ms.openlocfilehash: ef573817927cf732da3426d802f8f26e2e9cd4ec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e7b696ba052b2aca9e14628327c07275845607ad
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91399030"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540593"
 ---
 # <a name="register-a-peering-service-connection-by-using-the-azure-cli"></a>Registro de una conexión de Peering Service mediante la CLI de Azure
 
 Azure Peering Service es un servicio de red que mejora la conectividad de los clientes a los servicios en la nube de Microsoft, como Microsoft 365, Dynamics 365, servicios de software como servicio (SaaS), Azure o cualquier otro servicio de Microsoft accesible a través de la red pública de Internet. En este artículo, aprenderá a registrar una conexión de Peering Service mediante la CLI de Azure.
 
-Si no tiene una suscripción a Azure, [cree una cuenta](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) ahora.
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-Si decide instalar y usar la CLI localmente, para este artículo es preciso la versión 2.0.28 o posterior de la CLI de Azure. Para encontrar la versión, ejecute `az --version`. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli).
+- This article requires version 2.0.28 or later of the Azure CLI. Ejecute [az version](/cli/azure/reference-index#az_version) para buscar cuál es la versión y las bibliotecas dependientes que están instaladas. Para realizar la actualización a la versión más reciente, ejecute [az upgrade](/cli/azure/reference-index#az_upgrade).
 
 ## <a name="prerequisites"></a>Requisitos previos 
 
@@ -41,19 +37,11 @@ Puede trabajar con un proveedor de servicios Internet o con un asociado de inter
 
 Asegúrese de que los proveedores de conectividad se asocien con Microsoft.
 
-### <a name="1-sign-in-to-your-azure-account-and-select-your-subscription"></a>1. Inicie sesión en la cuenta de Azure y seleccione su suscripción.
+[!INCLUDE [azure-cli-prepare-your-environment-h3.md](../../includes/azure-cli-prepare-your-environment-h3.md)]
 
-Para empezar la configuración, inicie sesión en la cuenta de Azure. Si usa la opción **Try It** de CloudShell, iniciará sesión de manera automática. Use los siguientes ejemplos para conectarse.
+- This article requires version 2.0.28 or later of the Azure CLI. Si usa Azure Cloud Shell, ya está instalada la versión más reciente.
 
-```azurecli-interactive
-az login
-```
-
-Compruebe las suscripciones para la cuenta.
-
-```azurecli-interactive
-az account list
-```
+### <a name="1-select-your-subscription"></a>Seleccione su suscripción.
 
 Seleccione la suscripción para la que desea registrar la conexión de Peering Service.
 

@@ -5,15 +5,15 @@ services: data-factory
 author: chez-charlie
 ms.service: data-factory
 ms.topic: include
-ms.date: 10/28/2020
+ms.date: 11/16/2020
 ms.author: chez
 ms.custom: include file
-ms.openlocfilehash: 4cbe179d015c71094e6813666a6fd0cee3e5e3c2
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 1e8d13e7cf302c486bab291ef6482216122b62a3
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92909053"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94680689"
 ---
 Azure Data Factory es un servicio multiinquilino que tiene los siguientes límites predeterminados para asegurarse de que las suscripciones de cliente están protegidas frente a las cargas de trabajo de los demás. Para elevar los límites al máximo de la suscripción, póngase en contacto con el servicio de soporte técnico.
 
@@ -40,6 +40,7 @@ Azure Data Factory es un servicio multiinquilino que tiene los siguientes límit
 | Número máximo de tiempos de expiración de ejecuciones de actividad de canalización | 7 días | 7 días |
 | Bytes por objeto para objetos de canalización<sup>3</sup> | 200 KB | 200 KB |
 | Bytes por objeto para objetos de conjunto de datos y de servicio vinculados<sup>3</sup> | 100 KB | 2000 KB |
+| Bytes por carga para cada ejecución de actividad<sup>4</sup> | 896 KB | 896 KB |
 | Unidades de integración de datos<sup>1</sup> por ejecución de la actividad de copia | 256 | 256 |
 | Llamadas API de escritura | 1200/h | 1200/h<br/><br/> Este límite lo impone Azure Resource Manager, no Azure Data Factory. |
 | Llamadas API de lectura | 12 500/h | 12 500/h<br/><br/> Este límite lo impone Azure Resource Manager, no Azure Data Factory. |
@@ -60,6 +61,8 @@ Azure Data Factory es un servicio multiinquilino que tiene los siguientes límit
 | Grupo de regiones 3 | Centro de Canadá, Este de Asia, Centro de Francia, Centro de Corea del Sur, Sur de Reino Unido |
 
 <sup>3</sup> Los objetos de canalización, de conjunto de datos y de servicio vinculado representan una agrupación lógica de la carga de trabajo. Los límites de estos objetos no se corresponden con la cantidad de datos que se pueden mover y procesar con Azure Data Factory. Data Factory está diseñado para escalarse a fin de manejar petabytes de datos.
+
+<sup>4</sup> La carga de cada ejecución de actividad incluye la configuración de la actividad, las configuraciones de los conjuntos de datos asociados y los servicios vinculados (si los hay), y una pequeña parte de las propiedades del sistema que se generan por tipo de actividad. Los límites de tamaño de esta carga no se corresponden con la cantidad de datos que se pueden mover y procesar con Azure Data Factory. Obtenga más información sobre los [síntomas y recomendaciones](../articles/data-factory/data-factory-troubleshoot-guide.md#payload-is-too-large) si se alcanza este límite.
 
 ### <a name="version-1"></a>versión 1
 

@@ -944,14 +944,28 @@
           href: insights/vminsights-maps.md
         - name: Supervisión del rendimiento
           href: insights/vminsights-performance.md
-        - name: Supervisión de cambios
-          href: insights/vminsights-change-analysis.md
+        - name: Supervisión del estado de invitados (versión preliminar)
+          items:
+            - name: Información general
+              href: insights/vminsights-health-overview.md
+            - name: Habilitar
+              href: insights/vminsights-health-enable.md
+            - name: Alertas
+              href: insights/vminsights-health-alerts.md
+            - name: Configuración de monitores en el portal
+              href: insights/vminsights-health-configure.md
+            - name: Configuración de monitores a gran escala
+              href: insights/vminsights-health-configure-dcr.md
+            - name: Solucionar problemas
+              href: insights/vminsights-health-troubleshoot.md
         - name: Análisis de datos con consultas de registros
           href: insights/vminsights-log-search.md
+        - name: Supervisión del rendimiento
+          href: insights/vminsights-alerts.md
+        - name: Supervisión de cambios
+          href: insights/vminsights-change-analysis.md
         - name: Visualización de datos con libros
           href: insights/vminsights-workbooks.md
-        - name: Creación de reglas de alerta
-          href: insights/vminsights-alerts.md
         - name: Deshabilitar la supervisión
           href: insights/vminsights-optout.md
     - name: Azure Monitor para contenedores

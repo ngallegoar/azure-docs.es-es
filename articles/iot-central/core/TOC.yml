@@ -10,6 +10,8 @@
       href: overview-iot-central-developer.md
     - name: Actualizaciones recientes
       items:
+        - name: "Características nuevas y actualizadas de octubre de\_2020"
+          href: 'https://azure.microsoft.com/updates/azure-iot-central-feature-upadates-october-2020/'
         - name: "Características nuevas y actualizadas de septiembre de\_2020"
           href: 'https://azure.microsoft.com/updates/azure-iot-central-feature-updates-september-2020/'
         - name: "Característica nuevas y actualizadas de agosto de\_2020"

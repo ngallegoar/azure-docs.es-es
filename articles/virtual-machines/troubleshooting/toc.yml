@@ -109,12 +109,14 @@
           href: unresponsive-vm-apply-group-policy.md
         - name: La máquina virtual no responde al aplicar una directiva de seguridad
           href: unresponsive-vm-apply-security-policy.md
-        - name: La máquina virtual no responde mientras espera al administrador de sesión local
+        - name: La máquina virtual no responde mientras espera al administrador de sesiones local
           href: vm-unresponsive-wait-local-session-manager.md
         - name: 'Error del administrador de arranque de Windows: hash de imagen en estado no válido'
           href: windows-boot-error-invalid-image-hash.md
         - name: 'Error de detención de Windows: la información de configuración del sistema no es correcta'
           href: windows-stop-error-bad-system-config-info.md
+        - name: 'Error de detención de Windows: error de funcionamiento del hardware'
+          href: windows-stop-error-hardware-malfunction.md
         - name: 'Error de detención de Windows: estado, Sin memoria'
           href: troubleshoot-windows-stop-error.md
         - name: 'Error de detención de Windows: proceso del sistema terminado'
@@ -196,13 +198,13 @@
           items:
             - name: PowerShell
               href: troubleshoot-recovery-disks-windows.md
-            - name: Azure Portal
+            - name: Azure portal
               href: troubleshoot-recovery-disks-portal-windows.md
         - name: Linux
           items:
             - name: CLI
               href: troubleshoot-recovery-disks-linux.md
-            - name: Azure Portal
+            - name: Azure portal
               href: troubleshoot-recovery-disks-portal-linux.md
         - name: Se cambian los nombres de dispositivos
           href: troubleshoot-device-names-problems.md
