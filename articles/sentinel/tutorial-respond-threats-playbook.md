@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/18/2019
 ms.author: yelevin
-ms.openlocfilehash: 0e7d790fa9c5d4052ddb1e20defed1d1cc457a2e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b6fd26b4965b92f5f06a008d67e2d585fd1b41b7
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91840207"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94652083"
 ---
 # <a name="tutorial-set-up-automated-threat-responses-in-azure-sentinel"></a>Tutorial: Configuración de respuestas automatizadas frente a amenazas en Azure Sentinel
 
@@ -39,7 +39,7 @@ Este tutorial le ayuda a usar cuadernos de estrategias de seguridad en Azure Sen
 
 ## <a name="what-is-a-security-playbook-in-azure-sentinel"></a>¿Qué es un cuaderno de estrategias de seguridad en Azure Sentinel?
 
-Un cuaderno de estrategias de seguridad es una colección de procedimientos que se pueden ejecutar desde Azure Sentinel en respuesta a una alerta. Un cuaderno de estrategias de seguridad puede ayudar a automatizar y orquestar la respuesta y se puede ejecutar manualmente o establecerse para que se ejecute automáticamente cuando se desencadenan alertas específicas. Los cuadernos de estrategias de seguridad de Azure Sentinel se basan en [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-what-are-logic-apps), lo que significa que obtendrá toda la versatilidad, personalización y plantillas integradas de Logic Apps. Cada cuaderno de estrategias se crea para la suscripción específica que elija, pero cuando observe la página Cuadernos de estrategias, verá todos los cuadernos de estrategias en las suscripciones seleccionadas.
+Un cuaderno de estrategias de seguridad es una colección de procedimientos que se pueden ejecutar desde Azure Sentinel en respuesta a una alerta. Un cuaderno de estrategias de seguridad puede ayudar a automatizar y orquestar la respuesta y se puede ejecutar manualmente o establecerse para que se ejecute automáticamente cuando se desencadenan alertas específicas. Los cuadernos de estrategias de seguridad de Azure Sentinel se basan en [Azure Logic Apps](../logic-apps/logic-apps-overview.md), lo que significa que obtendrá toda la versatilidad, personalización y plantillas integradas de Logic Apps. Cada cuaderno de estrategias se crea para la suscripción específica que elija, pero cuando observe la página Cuadernos de estrategias, verá todos los cuadernos de estrategias en las suscripciones seleccionadas.
 
 > [!NOTE]
 > Los cuadernos de estrategias aprovechan Azure Logic Apps, por lo que se aplican cargos. Visite la página de precios de [Azure Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps/) para más información.
@@ -70,7 +70,7 @@ Para crear un nuevo cuaderno de estrategias de seguridad en Azure Sentinel, siga
 
 4. En la página **Crear aplicación lógica**, escriba la información solicitada para crear la nueva aplicación lógica y haga clic en el **Crear**. 
 
-5. En [**Diseñador de aplicación lógica** ](../logic-apps/logic-apps-overview.md), seleccione la plantilla que desea usar. Si selecciona una plantilla que necesite credenciales, tendrá que proporcionarlas. Como alternativa, puede crear un nuevo cuaderno de estrategias en blanco desde cero. Seleccione **Aplicación lógica en blanco**. 
+5. En [**Diseñador de aplicación lógica**](../logic-apps/logic-apps-overview.md), seleccione la plantilla que desea usar. Si selecciona una plantilla que necesite credenciales, tendrá que proporcionarlas. Como alternativa, puede crear un nuevo cuaderno de estrategias en blanco desde cero. Seleccione **Aplicación lógica en blanco**. 
 
    ![Captura de pantalla que muestra el panel Aplicación lógica en blanco.](./media/tutorial-respond-threats-playbook/playbook-template.png)
 
@@ -105,7 +105,7 @@ Muchas de estas alertas, si no la mayoría, se ajustan a los patrones recurrente
 Para automatizar las respuestas:
 
 1. Seleccione la alerta para la que quiere automatizar la respuesta.
-1. En la página**Editar regla de alerta**, en **Real-time automation** (Automatización en tiempo real), elija el **Triggered playbook** (Cuaderno de estrategias desencadenado) que quiera ejecutar cuando se cumpla esta regla de alerta.
+1. En la página **Editar regla de alerta**, en **Real-time automation** (Automatización en tiempo real), elija el **Triggered playbook** (Cuaderno de estrategias desencadenado) que quiera ejecutar cuando se cumpla esta regla de alerta.
 1. Seleccione **Guardar**.
 
    ![automatización en tiempo real](./media/tutorial-detect-threats/rt-configuration.png)
@@ -118,5 +118,3 @@ Para automatizar las respuestas:
 ## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial, aprendió cómo ejecutar un cuaderno de estrategias en Azure Sentinel. Continúe con la sección sobre [cómo buscar proactivamente amenazas](hunting.md) mediante Azure Sentinel.
-
-

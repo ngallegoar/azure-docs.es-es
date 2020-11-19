@@ -7,12 +7,12 @@ ms.topic: sample
 author: cjgronlund
 ms.author: cgronlun
 ms.date: 05/06/2020
-ms.openlocfilehash: c24363caac1db8dd8ce21b690ef989b2beb97f2d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 470ed0ea4b129c12041007487b61929843b1de34
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88506063"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94654803"
 ---
 # <a name="example-jupyter-notebooks-show-how-to-enrich-data-with-open-datasets"></a>Los cuadernos de Jupyter de ejemplo muestran cómo enriquecer los datos con Open Datasets 
 Los cuadernos de Jupyter de ejemplo para Azure Open Datasets le muestran cómo cargar conjuntos de datos abiertos y usarlos para enriquecer los datos de demostración. Las técnicas incluyen el uso de Apache Spark y Pandas para procesar los datos.
@@ -40,7 +40,7 @@ Los cuadernos de Jupyter de ejemplo para Azure Open Datasets le muestran cómo c
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Tutorial: Regression modeling with automated machine learning and an open dataset](/azure/machine-learning/tutorial-auto-train-models?context=azure/open-datasets/context/open-datasets-context) (Tutorial: Modelado de regresión con aprendizaje automático automatizado y un conjunto de datos abierto)
-* [SDK de Python para Open Datasets](/python/api/azureml-opendatasets/azureml.opendatasets?view=azure-ml-py)
+* [Tutorial: Regression modeling with automated machine learning and an open dataset](../machine-learning/tutorial-auto-train-models.md?context=azure%252fopen-datasets%252fcontext%252fopen-datasets-context) (Tutorial: Modelado de regresión con aprendizaje automático automatizado y un conjunto de datos abierto)
+* [SDK de Python para Open Datasets](/python/api/azureml-opendatasets/azureml.opendatasets)
 * [Catálogo de Azure Open Datasets](https://azure.microsoft.com/services/open-datasets/catalog/)
 * [Creación de conjuntos de datos de Azure Machine Learning a partir de Open Dataset](how-to-create-azure-machine-learning-dataset-from-open-dataset.md)

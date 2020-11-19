@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: tutorial
 ms.date: 10/13/2020
 ms.author: cherylmc
-ms.openlocfilehash: 91004b9cb545275746f75dbd6ad46981fe4b04d5
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: b70a3fe4884ef209e57fbb954c27aa83486b5c98
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461165"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94661008"
 ---
 # <a name="tutorial-create-and-manage-a-vpn-gateway-using-powershell"></a>Tutorial: Creación y administración de una puerta de enlace de VPN con PowerShell
 
@@ -133,7 +133,7 @@ Cuando haya completado la creación de la puerta de enlace, puede crear una cone
 
 ## <a name="view-the-gateway-public-ip-address"></a>Visualización de la dirección IP pública de la puerta de enlace
 
-Si conoce el nombre de la dirección IP pública, use [Get-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress) para mostrar la dirección IP pública asignada a la puerta de enlace.
+Si conoce el nombre de la dirección IP pública, use [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) para mostrar la dirección IP pública asignada a la puerta de enlace.
 
 Si la sesión ha agotado el tiempo de espera, copie los parámetros de red comunes que aparecen al principio de este tutorial en la nueva sesión y continúe.
 
@@ -162,11 +162,11 @@ $gateway = Get-AzVirtualNetworkGateway -Name $Gw1 -ResourceGroup $RG1
 Reset-AzVirtualNetworkGateway -VirtualNetworkGateway $gateway
 ```
 
-Para más información, consulte [Restablecimiento de una puerta de enlace](vpn-gateway-resetgw-classic.md).
+Para más información, consulte [Restablecimiento de una puerta de enlace](./reset-gateway.md).
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Si va a avanzar al [siguiente tutorial](vpn-gateway-tutorial-vpnconnection-powershell.md), querrá mantener estos recursos porque son los requisitos previos.
+Si va a avanzar al [siguiente tutorial](./vpn-gateway-create-site-to-site-rm-powershell.md), querrá mantener estos recursos porque son los requisitos previos.
 
 Sin embargo, si la puerta de enlace es parte de la implementación de un prototipo, una evaluación o una prueba de concepto, puede usar el comando [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) para quitar el grupo de recursos, la puerta de enlace de VPN y todos los recursos relacionados.
 

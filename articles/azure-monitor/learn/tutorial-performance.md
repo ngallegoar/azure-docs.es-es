@@ -3,16 +3,16 @@ title: Diagnóstico de problemas de rendimiento mediante Azure Application Insig
 description: Tutorial para buscar y diagnosticar problemas de rendimiento en un aplicación mediante Azure Application Insights.
 ms.subservice: application-insights
 ms.topic: tutorial
-author: mrbullwinkle
-ms.author: mbullwin
+author: lgayhardt
+ms.author: lagayhar
 ms.date: 06/15/2020
 ms.custom: mvc
-ms.openlocfilehash: 3c7185e07190895dfcc97555c6603049ed41c18c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: df7cfff7d5bf1b89f88105f79c072d1d7e731b31
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87322506"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94592573"
 ---
 # <a name="find-and-diagnose-performance-issues-with-azure-application-insights"></a>Búsqueda y diagnóstico de problemas de rendimiento con Azure Application Insights
 
@@ -102,11 +102,6 @@ Al igual que los datos recopilados relativos al rendimiento del servidor, Applic
 2. Los registros se abren con una consulta en cada una de las vistas del panel. La primera consulta muestra la duración de distintas vistas de la página a lo largo del tiempo.
 
     ![consulta de registros](media/tutorial-performance/10-page-view-logs.png)
-
-3.  Smart Diagnostics es una característica de Registros que identifica patrones únicos en los datos. Al hacer clic en el punto de Smart Diagnostics en el gráfico de líneas, la misma consulta se ejecuta sin los registros que causaron las anomalías. Los detalles de dichos registros se muestran en la sección de comentarios de consulta para que pueda identificar las propiedades de las vistas de página que provocan que la duración sea excesiva.
-
-    ![Registros con Smart Diagnostics](media/tutorial-performance/11-page-view-logs-dsmart.png)
-
 
 ## <a name="next-steps"></a>Pasos siguientes
 Ahora que ha aprendido a identificar las excepciones en tiempo de ejecución, pase al siguiente tutorial, donde aprenderá a crear alertas en respuesta a errores.

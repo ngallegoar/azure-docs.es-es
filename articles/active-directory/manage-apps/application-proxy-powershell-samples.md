@@ -12,19 +12,19 @@ ms.date: 12/05/2019
 ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 57efd88b9d194442920496107d4c37ba2baf94d3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: efe71fd77e9e4edb7fc7df4c633ae8f81177097b
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85554983"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94657827"
 ---
 # <a name="azure-ad-powershell-examples-for-azure-ad-application-proxy"></a>Ejemplos de Azure AD PowerShell para Azure AD Application Proxy
 
-En la tabla siguiente se incluyen vínculos a ejemplos de scripts de PowerShell para Azure AD Application Proxy. Estos ejemplos requieren el [módulo Azure AD V2 PowerShell para Graph](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0) o la [versión preliminar del módulo Azure AD V2 PowerShell para Graph](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview), a menos que se indique lo contrario.
+En la tabla siguiente se incluyen vínculos a ejemplos de scripts de PowerShell para Azure AD Application Proxy. Estos ejemplos requieren el [módulo Azure AD V2 PowerShell para Graph](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0) o la [versión preliminar del módulo Azure AD V2 PowerShell para Graph](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview), a menos que se indique lo contrario.
 
 
-Para obtener más información sobre los cmdlets que se usan en estos ejemplos, consulte [Administración de aplicaciones de Application Proxy](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#application_proxy_application_management) y [Administración de conectores de Application Proxy](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#application_proxy_connector_management).
+Para obtener más información sobre los cmdlets que se usan en estos ejemplos, consulte [Administración de aplicaciones de Application Proxy](/powershell/module/azuread/?view=azureadps-2.0#application_proxy_application_management) y [Administración de conectores de Application Proxy](/powershell/module/azuread/?view=azureadps-2.0#application_proxy_connector_management).
 
 | Vínculo | Descripción |
 |---|---|
@@ -32,7 +32,7 @@ Para obtener más información sobre los cmdlets que se usan en estos ejemplos, 
 | [Mostrar información básica de todas las aplicaciones de Application Proxy](scripts/powershell-get-all-app-proxy-apps-basic.md) | Muestra información básica (AppId, DisplayName y ObjId) sobre todas las aplicaciones de Application Proxy en el directorio. |
 | [Mostrar información ampliada de todas las aplicaciones de Application Proxy](scripts/powershell-get-all-app-proxy-apps-extended.md) | Muestra información ampliada (AppId, DisplayName, ExternalUrl, InternalUrl y ExternalAuthenticationType) sobre todas las aplicaciones de Application Proxy en el directorio.  |
 | [Mostrar todas las aplicaciones de Application Proxy por grupo de conectores](scripts/powershell-get-all-app-proxy-apps-by-connector-group.md) | Muestra información sobre todas las aplicaciones de Application Proxy en el directorio y los grupos de conectores a los que están asignadas las aplicaciones. |
-| [Obtener todas las aplicaciones de Application Proxy con una directiva de vigencia del token](scripts/powershell-get-all-app-proxy-apps-with-policy.md) | Muestra todas las aplicaciones de Application Proxy en el directorio con una directiva de vigencia del token y sus detalles. Este ejemplo requiere la [versión preliminar del módulo Azure AD V2 PowerShell para Graph](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview). |
+| [Obtener todas las aplicaciones de Application Proxy con una directiva de vigencia del token](scripts/powershell-get-all-app-proxy-apps-with-policy.md) | Muestra todas las aplicaciones de Application Proxy en el directorio con una directiva de vigencia del token y sus detalles. Este ejemplo requiere la [versión preliminar del módulo Azure AD V2 PowerShell para Graph](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview). |
 |**Grupos de conectores**||
 | [Obtener todos los grupos de conectores y conectores del directorio](scripts/powershell-get-all-connectors.md) | Obtiene todos los grupos de conectores y conectores del directorio. |
 | [Mover todas las aplicaciones asignadas a un grupo de conectores a otro grupo de conectores](scripts/powershell-move-all-apps-to-connector-group.md) | Mueve todas las aplicaciones asignadas a un grupo de conectores a otro grupo de conectores. |
