@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc, devx-track-js, devx-track-azurecli
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: ef362b34fe99212ee6648830ac442e507515719f
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 678955970f3eeb87a10c43cd43effc3464db7794
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92747532"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94832014"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-nodejs-via-iot-hub-device-streams-preview"></a>Inicio rápido: Comunicación con una aplicación de dispositivo en Node.js mediante flujos de dispositivo de IoT Hub (versión preliminar)
 
@@ -30,13 +30,17 @@ En este inicio rápido, se ejecuta una aplicación del lado del servicio y se co
 
 * [Node.js 10+](https://nodejs.org).
 
+    Puede verificar la versión actual de Node.js en el equipo de desarrollo con el comando siguiente:
+
+    ```cmd/sh
+    node --version
+    ```
+
 * [Un proyecto de Node.js de ejemplo](https://github.com/Azure-Samples/azure-iot-samples-node/archive/streams-preview.zip).
 
-Puede verificar la versión actual de Node.js en el equipo de desarrollo con el comando siguiente:
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-```cmd/sh
-node --version
-```
+[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
 Microsoft Azure IoT Hub actualmente admite flujos de dispositivos como una [versión preliminar](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -48,35 +52,23 @@ Microsoft Azure IoT Hub actualmente admite flujos de dispositivos como una [ve
 > * Norte de Europa
 > * Sudeste de Asia
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-### <a name="add-azure-iot-extension"></a>Adición de la extensión IoT de Azure
-
-Ejecute el siguiente comando para agregar la extensión IoT de Microsoft Azure para la CLI de Azure a la instancia de Cloud Shell. La extensión IoT agrega comandos de IoT Hub, IoT Edge e IoT Device Provisioning Service (DPS) a la CLI de Azure.
-
-```azurecli-interactive
-az extension add --name azure-iot
-```
-
-[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
-
 ## <a name="create-an-iot-hub"></a>Crear un centro de IoT
 
-Si ha completado la anterior [Guía de inicio rápido: Envío de telemetría desde un dispositivo a un centro de IoT](quickstart-send-telemetry-node.md) puede omitir este paso.
+Si ha completado el anterior [Quickstart: Send telemetry from a device to an IoT hub](quickstart-send-telemetry-node.md) (Inicio rápido: enviar datos de telemetría desde un dispositivo a IoT Hub), puede omitir este paso.
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
 ## <a name="register-a-device"></a>Registrar un dispositivo
 
-Si ha completado la anterior [Guía de inicio rápido: Envío de telemetría desde un dispositivo a un centro de IoT](quickstart-send-telemetry-node.md) puede omitir este paso.
+Si ha completado el anterior [Quickstart: Send telemetry from a device to an IoT hub](quickstart-send-telemetry-node.md) (Inicio rápido: enviar datos de telemetría desde un dispositivo a IoT Hub), puede omitir este paso.
 
 Debe registrar un dispositivo con IoT Hub antes de poder conectarlo. En esta guía de inicio rápido, usará Azure Cloud Shell para registrar un dispositivo simulado.
 
 1. Ejecute los siguientes comandos en Azure Cloud Shell para crear la identidad del dispositivo.
 
-   **YourIoTHubName** : reemplace este marcador de posición por el nombre elegido para el centro de IoT.
+   **YourIoTHubName**: reemplace este marcador de posición por el nombre elegido para el centro de IoT.
 
-   **MyDevice** : es el nombre del dispositivo que va a registrar. Se recomienda usar **MyDevice** como se muestra. Si elige otro nombre distinto para el dispositivo, tendrá que usarlo en todo el artículo y actualizar el nombre del dispositivo en las aplicaciones de ejemplo antes de ejecutarlas.
+   **MyDevice**: es el nombre del dispositivo que va a registrar. Se recomienda usar **MyDevice** como se muestra. Si elige otro nombre distinto para el dispositivo, tendrá que usarlo en todo el artículo y actualizar el nombre del dispositivo en las aplicaciones de ejemplo antes de ejecutarlas.
 
     ```azurecli-interactive
     az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyDevice
@@ -84,7 +76,7 @@ Debe registrar un dispositivo con IoT Hub antes de poder conectarlo. En esta gu�
 
 2. También necesita una *cadena de conexión de servicio* para permitir que la aplicación back-end se conecte a IoT Hub y recupere los mensajes. El comando siguiente recupera la cadena de conexión del servicio de su instancia de IoT Hub:
 
-    **YourIoTHubName** : reemplace este marcador de posición por el nombre elegido para el centro de IoT.
+    **YourIoTHubName**: reemplace este marcador de posición por el nombre elegido para el centro de IoT.
 
     ```azurecli-interactive
     az iot hub show-connection-string --policy-name service --name {YourIoTHubName} --output table
@@ -131,7 +123,7 @@ Si se da por hecho que la aplicación del dispositivo está en ejecución, reali
    SET STREAMING_TARGET_DEVICE=MyDevice
    ```
   
-   Cambie el marcador de posición ServiceConnectionString para que coincida con la cadena de conexión del servicio y **MyDevice**  para que coincida con el identificador del dispositivo, si ha asignado otro nombre al suyo.
+   Cambie el marcador de posición ServiceConnectionString para que coincida con la cadena de conexión del servicio y **MyDevice** para que coincida con el identificador del dispositivo, si ha asignado otro nombre al suyo.
 
 * Vaya a `Quickstarts/device-streams-service` en la carpeta del proyecto descomprimida y ejecute el ejemplo que usa el nodo.
 

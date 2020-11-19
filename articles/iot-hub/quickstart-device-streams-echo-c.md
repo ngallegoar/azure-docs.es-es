@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc, devx-track-azurecli
 ms.date: 08/20/2019
 ms.author: robinsh
-ms.openlocfilehash: ad31eb04f53197c4c3ccdd173cd57564c65d5a35
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: de310846ad0449a0dac7eccd60d82d4c68ef519b
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92747454"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94832218"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-c-via-iot-hub-device-streams-preview"></a>Inicio rápido: Comunicación con una aplicación de dispositivo en C mediante flujos de dispositivo de IoT Hub (versión preliminar)
 
@@ -36,11 +36,9 @@ La aplicación de C del lado del dispositivo de este artículo de inicio rápido
 
 El código mostrará el proceso de inicio de un flujo de dispositivo y cómo usarlo para enviar y recibir datos.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
-
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Los siguientes requisitos previos son necesarios:
 
@@ -48,13 +46,9 @@ Los siguientes requisitos previos son necesarios:
 
 * Instale la última versión de [Git](https://git-scm.com/download/).
 
-* Ejecute el siguiente comando para agregar la extensión IoT de Azure para la CLI de Azure a la instancia de Cloud Shell. La extensión IOT agrega comandos específicos de IoT Hub, IoT Edge e IoT Device Provisioning Service (DPS) a la CLI de Azure.
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-   ```azurecli-interactive
-   az extension add --name azure-iot
-   ```
-
-   [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
+[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
 La versión preliminar de los flujos de dispositivo solo se admite en este momento en instancias de IoT Hub creadas en las siguientes regiones:
 
@@ -68,7 +62,7 @@ La versión preliminar de los flujos de dispositivo solo se admite en este momen
 En este inicio rápido, va a usar el [SDK de dispositivo IoT de Azure para C](iot-hub-device-sdk-c-intro.md). Va a preparar un entorno de desarrollo utilizado para clonar y compilar el [SDK de IoT de Azure para C](https://github.com/Azure/azure-iot-sdk-c) desde GitHub. El SDK de GitHub incluye el código de ejemplo usado en este inicio rápido.
 
    > [!NOTE]
-   > Antes de comenzar este procedimiento, asegúrese de que Visual Studio está instalado con la carga de trabajo **Desarrollo para el escritorio con C++** .
+   > Antes de comenzar este procedimiento, asegúrese de que Visual Studio está instalado con la carga de trabajo **Desarrollo para el escritorio con C++**.
 
 1. Instale el [sistema de compilación CMake](https://cmake.org/download/) tal como se describe en la página de descarga.
 
@@ -82,7 +76,7 @@ En este inicio rápido, va a usar el [SDK de dispositivo IoT de Azure para C](io
 
     Esta operación puede tardar algunos minutos.
 
-1. Cree el subdirectorio *cmake* en el directorio raíz del repositorio de Git y vaya a esa carpeta. Ejecute los siguientes comandos desde el directorio  *azure-iot-sdk-c* :
+1. Cree el subdirectorio *cmake* en el directorio raíz del repositorio de Git y vaya a esa carpeta. Ejecute los siguientes comandos desde el directorio *azure-iot-sdk-c*:
 
     ```cmd/sh
     mkdir cmake
@@ -98,7 +92,7 @@ En este inicio rápido, va a usar el [SDK de dispositivo IoT de Azure para C](io
       make -j
       ```
 
-   * En Windows, abra un [Símbolo del sistema para desarrolladores para Visual Studio](/dotnet/framework/tools/developer-command-prompt-for-vs). Ejecute el comando para su versión de Visual Studio. En este inicio rápido se utiliza Visual Studio 2019. Estos comandos crean una solución de Visual Studio para el dispositivo simulado en el directorio *cmake* .
+   * En Windows, abra un [Símbolo del sistema para desarrolladores para Visual Studio](/dotnet/framework/tools/developer-command-prompt-for-vs). Ejecute el comando para su versión de Visual Studio. En este inicio rápido se utiliza Visual Studio 2019. Estos comandos crean una solución de Visual Studio para el dispositivo simulado en el directorio *cmake*.
 
       ```cmd
       rem For VS2015
@@ -126,7 +120,7 @@ Debe registrar un dispositivo con IoT Hub antes de poder conectarlo. En esta sec
 
    > [!NOTE]
    > * Reemplace el marcador de posición *YourIoTHubName* por el nombre que eligió para su centro de IoT.
-   > * Para el nombre del dispositivo que va a registrar se recomienda usar *MyDevice* , tal como se muestra. Si elige otro nombre para el dispositivo, úselo en todo el artículo y actualice el nombre del dispositivo en las aplicaciones de ejemplo antes de ejecutarlas.
+   > * Para el nombre del dispositivo que va a registrar se recomienda usar *MyDevice*, tal como se muestra. Si elige otro nombre para el dispositivo, úselo en todo el artículo y actualice el nombre del dispositivo en las aplicaciones de ejemplo antes de ejecutarlas.
 
     ```azurecli-interactive
     az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyDevice

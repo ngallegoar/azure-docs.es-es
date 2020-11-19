@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc, devx-track-azurecli
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: 3e53937122b8721aff5db435ac447b686ea16643
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: adf0f42b34a4bd7e5df2d2994408dbc175c5e01b
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748678"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94831929"
 ---
 # <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-c-proxy-application-preview"></a>Inicio rápido: Habilitar SSH y RDP mediante un flujo de dispositivo de IoT Hub con una aplicación proxy en C# (versión preliminar)
 
@@ -43,11 +43,9 @@ En la siguiente ilustración se muestra cómo configurar las aplicaciones de pro
 > [!NOTE]
 > El tráfico de SSH que se envía en un flujo de dispositivo se tuneliza mediante el punto de conexión de streaming de IoT Hub en lugar de enviarse directamente entre el servicio y el dispositivo. Para más información, consulte las [ventajas que aporta el uso de los flujos de dispositivo de IoT Hub](iot-hub-device-streams-overview.md#benefits).
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
-
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * La versión preliminar de los flujos de dispositivo solo se admite en este momento en instancias de IoT Hub creadas en las siguientes regiones:
 
@@ -58,28 +56,21 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 * Las dos aplicaciones de ejemplo que se ejecutan en este inicio rápido se escriben en C#. Necesita el SDK de .NET Core 2.1.0 o una versión posterior en la máquina de desarrollo.
 
-  Puede descargar el [SDK de .NET Core para varias plataformas desde .NET](https://www.microsoft.com/net/download/all).
+    Puede descargar el [SDK de .NET Core para varias plataformas desde .NET](https://www.microsoft.com/net/download/all).
 
-* Verifique la versión actual de C# en la máquina de desarrollo con el comando siguiente:
+    Verifique la versión actual de C# en la máquina de desarrollo con el comando siguiente:
 
     ```
     dotnet --version
     ```
 
-* Ejecute el siguiente comando para agregar la extensión IoT de Azure para la CLI de Azure a la instancia de Cloud Shell. La extensión IOT agrega comandos específicos de IoT Hub, IoT Edge e IoT Device Provisioning Service (DPS) a la CLI de Azure.
-
-   ```azurecli-interactive
-   az extension add --name azure-iot
-   ```
-
-   ```azurecli-interactive
-   az extension add --name azure-iot
-   ```
-[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
-
 * [Descargue los ejemplos de C# de Azure IoT](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip) y extraiga el archivo ZIP.
 
 * Una cuenta de usuario y credenciales válidas en el dispositivo (Windows o Linux) que se usan para autenticar al usuario.
+
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
 ## <a name="create-an-iot-hub"></a>Crear un centro de IoT
 
@@ -93,7 +84,7 @@ Debe registrar un dispositivo con IoT Hub antes de poder conectarlo. En este ini
 
    > [!NOTE]
    > * Reemplace el marcador de posición *YourIoTHubName* por el nombre que eligió para su centro de IoT.
-   > * Para el nombre del dispositivo que va a registrar se recomienda usar *MyDevice* , tal como se muestra. Si elige otro nombre para el dispositivo, úselo en todo el artículo y actualice el nombre del dispositivo en las aplicaciones de ejemplo antes de ejecutarlas.
+   > * Para el nombre del dispositivo que va a registrar se recomienda usar *MyDevice*, tal como se muestra. Si elige otro nombre para el dispositivo, úselo en todo el artículo y actualice el nombre del dispositivo en las aplicaciones de ejemplo antes de ejecutarlas.
 
     ```azurecli-interactive
     az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyDevice
@@ -195,7 +186,7 @@ Salida de la consola en el lado del servicio (la aplicación de proxy local de s
 
 ![Salida de la aplicación de proxy local de servicio](./media/quickstart-device-streams-proxy-csharp/service-console-output.png)
 
-Salida de la consola en la aplicación de proxy local de dispositivo que conecta con el demonio de SSH en *IP_address:22* :
+Salida de la consola en la aplicación de proxy local de dispositivo que conecta con el demonio de SSH en *IP_address:22*:
 
 ![Salida de la aplicación de proxy local de dispositivo](./media/quickstart-device-streams-proxy-csharp/device-console-output.png)
 

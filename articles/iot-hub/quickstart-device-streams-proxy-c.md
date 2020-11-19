@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc, devx-track-azurecli
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: 35c120b6d7715ac6fefe0e8712040108568ee8de
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 037ff64f4811515e7ce64d66a36e08e71de54058
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92747419"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94831997"
 ---
 # <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-c-proxy-application-preview"></a>Inicio rápido: Habilitar SSH y RDP mediante un flujo de dispositivo de IoT Hub con una aplicación proxy en C (versión preliminar)
 
@@ -46,11 +46,9 @@ En la siguiente ilustración se muestra cómo configurar los programas de proxy 
 > [!NOTE]
 > El tráfico de SSH que se envía en un flujo de dispositivo se tuneliza mediante el punto de conexión de streaming de IoT Hub en lugar de enviarse directamente entre el servicio y el dispositivo. Para más información, consulte las [ventajas que aporta el uso de los flujos de dispositivo de IoT Hub](iot-hub-device-streams-overview.md#benefits). Además, en la ilustración se muestra que el demonio de SSH se ejecuta en el mismo dispositivo (o máquina) que el proxy local de dispositivo. En este inicio rápido, como se proporciona la dirección IP del demonio de SSH, el proxy local de dispositivo y el demonio se pueden ejecutar también en máquinas diferentes.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
-
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * La versión preliminar de los flujos de dispositivo solo se admite en este momento en instancias de IoT Hub creadas en las siguientes regiones:
 
@@ -62,11 +60,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 * Instale [Visual Studio 2019](https://www.visualstudio.com/vs/) con la carga de trabajo [Desarrollo para el escritorio con C++](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) habilitada.
 * Instale la última versión de [Git](https://git-scm.com/download/).
 
-* Ejecute el siguiente comando para agregar la extensión IoT de Azure para la CLI de Azure a la instancia de Cloud Shell. La extensión IOT agrega comandos específicos de IoT Hub, IoT Edge e IoT Device Provisioning Service (DPS) a la CLI de Azure.
-
-   ```azurecli-interactive
-   az extension add --name azure-iot
-   ```
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
@@ -76,7 +70,7 @@ En este inicio rápido, va a usar el [SDK de dispositivo IoT de Azure para C](io
 
 1. Descargue el [sistema de compilación CMake](https://cmake.org/download/).
 
-    Es importante que los requisitos previos de Visual Studio (Visual Studio y la carga de trabajo *Desarrollo para el escritorio con C++* ) estén instalados en la máquina, *antes* de comenzar la instalación de CMake. Cuando estén dispuestos los requisitos previos y haya comprobado la descarga, puede instalar el sistema de compilación de CMake.
+    Es importante que los requisitos previos de Visual Studio (Visual Studio y la carga de trabajo *Desarrollo para el escritorio con C++*) estén instalados en la máquina, *antes* de comenzar la instalación de CMake. Cuando estén dispuestos los requisitos previos y haya comprobado la descarga, puede instalar el sistema de compilación de CMake.
 
 1. Abra un símbolo del sistema o el shell de Bash de Git. Ejecute los siguientes comandos para clonar el repositorio de GitHub del [SDK de Azure IoT para C](https://github.com/Azure/azure-iot-sdk-c):
 
@@ -88,7 +82,7 @@ En este inicio rápido, va a usar el [SDK de dispositivo IoT de Azure para C](io
 
     Esta operación puede tardar algunos minutos.
 
-1. Cree el subdirectorio *cmake* en el directorio raíz del repositorio de Git y vaya a esa carpeta. Ejecute los siguientes comandos desde el directorio  *azure-iot-sdk-c* :
+1. Cree el subdirectorio *cmake* en el directorio raíz del repositorio de Git y vaya a esa carpeta. Ejecute los siguientes comandos desde el directorio *azure-iot-sdk-c*:
 
     ```cmd/sh
     mkdir cmake
@@ -104,7 +98,7 @@ En este inicio rápido, va a usar el [SDK de dispositivo IoT de Azure para C](io
       make -j
       ```
 
-   * En Windows, ejecute los siguientes comandos en el símbolo del sistema para desarrolladores correspondiente a Visual Studio 2015 o 2017. Se generará una solución de Visual Studio para el dispositivo simulado en el directorio *cmake* .
+   * En Windows, ejecute los siguientes comandos en el símbolo del sistema para desarrolladores correspondiente a Visual Studio 2015 o 2017. Se generará una solución de Visual Studio para el dispositivo simulado en el directorio *cmake*.
 
       ```cmd
       rem For VS2015
@@ -132,7 +126,7 @@ Debe registrar un dispositivo con IoT Hub antes de poder conectarlo. En esta sec
 
    > [!NOTE]
    > * Reemplace el marcador de posición *YourIoTHubName* por el nombre que eligió para su centro de IoT.
-   > * Para el nombre del dispositivo que va a registrar se recomienda usar *MyDevice* , tal como se muestra. Si elige otro nombre para el dispositivo, úselo en todo el artículo y actualice el nombre del dispositivo en las aplicaciones de ejemplo antes de ejecutarlas.
+   > * Para el nombre del dispositivo que va a registrar se recomienda usar *MyDevice*, tal como se muestra. Si elige otro nombre para el dispositivo, úselo en todo el artículo y actualice el nombre del dispositivo en las aplicaciones de ejemplo antes de ejecutarlas.
 
     ```azurecli-interactive
     az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyDevice

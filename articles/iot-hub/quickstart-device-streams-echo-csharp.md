@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc, devx-track-azurecli
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: 4d825d2e4daee5778c7f8e3ef216c3e72d89b1c4
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 8a8e6f12a8709935a6fa9551261c56fc8f2aabbd
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92747480"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94832082"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-c-via-iot-hub-device-streams-preview"></a>Inicio rápido: Comunicación con una aplicación de dispositivo en C# mediante flujos de dispositivo de IoT Hub (versión preliminar)
 
@@ -24,11 +24,9 @@ Azure IoT Hub admite actualmente flujos de dispositivos como una [característic
 
 [Los flujos de dispositivo de IoT Hub](./iot-hub-device-streams-overview.md) permiten que las aplicaciones de servicio y de dispositivo se comuniquen de forma segura y apta para el firewall. En este inicio rápido se trabaja con dos aplicaciones de C# que aprovechan los flujos de dispositivo para enviar datos de un lado a otro (eco).
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
-
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * La versión preliminar de los flujos de dispositivo solo se admite en este momento en instancias de IoT Hub creadas en las siguientes regiones:
   * Centro de EE. UU.
@@ -37,22 +35,20 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
   * Sudeste de Asia
 
 * Las dos aplicaciones de ejemplo que se ejecutan en este inicio rápido se escriben en C#. Necesita el SDK de .NET Core 2.1.0 o una versión posterior en la máquina de desarrollo.
-  * Descargue el [SDK de .NET Core para varias plataformas desde .NET](https://www.microsoft.com/net/download/all).
-  * Verifique la versión actual de C# en la máquina de desarrollo con el comando siguiente:
 
-   ```
-   dotnet --version
-   ```
+    Descargue el [SDK de .NET Core para varias plataformas desde .NET](https://www.microsoft.com/net/download/all).
 
-* Ejecute el siguiente comando para agregar la extensión IoT de Azure para la CLI de Azure a la instancia de Cloud Shell. La extensión IOT agrega comandos específicos de IoT Hub, IoT Edge e IoT Device Provisioning Service (DPS) a la CLI de Azure.
+    Verifique la versión actual de C# en la máquina de desarrollo con el comando siguiente:
 
-    ```azurecli-interactive
-    az extension add --name azure-iot
+    ```
+    dotnet --version
     ```
 
-[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
-
 * [Descargue los ejemplos de C# de Azure IoT](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip) y extraiga el archivo ZIP. Lo necesitará en el lado del dispositivo y el lado del servicio.
+
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
 ## <a name="create-an-iot-hub"></a>Crear un centro de IoT
 
@@ -66,7 +62,7 @@ Debe registrar un dispositivo con IoT Hub antes de poder conectarlo. En esta sec
 
    > [!NOTE]
    > * Reemplace el marcador de posición *YourIoTHubName* por el nombre que eligió para su centro de IoT.
-   > * Para el nombre del dispositivo que va a registrar se recomienda usar *MyDevice* , tal como se muestra. Si elige otro nombre para el dispositivo, úselo en todo el artículo y actualice el nombre del dispositivo en las aplicaciones de ejemplo antes de ejecutarlas.
+   > * Para el nombre del dispositivo que va a registrar se recomienda usar *MyDevice*, tal como se muestra. Si elige otro nombre para el dispositivo, úselo en todo el artículo y actualice el nombre del dispositivo en las aplicaciones de ejemplo antes de ejecutarlas.
 
     ```azurecli-interactive
     az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyDevice
