@@ -386,5 +386,7 @@
       href: partner-center-portal/commercial-marketplace-co-sell-countries.md
     - name: Códigos de estado de venta conjunta
       href: partner-center-portal/commercial-marketplace-co-sell-states.md
+    - name: Categorías y subcategorías
+      href: categories.md
     - name: Etiquetas HTML que se admiten
       href: supported-html-tags.md

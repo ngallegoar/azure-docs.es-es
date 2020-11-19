@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/11/2020
 ms.author: Zhchia
-ms.openlocfilehash: 69a9b9401f25893ec94b282f52730d92d372268d
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: b12a595c9b59b40ee6982f123baddaa818dd87ef
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94355709"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836298"
 ---
 # <a name="tutorial-configure-cofense-recipient-sync-for-automatic-user-provisioning"></a>Tutorial: Configuración de Cofense Recipient Sync para el aprovisionamiento automático de usuarios
 
@@ -93,24 +93,24 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Pestaña de aprovisionamiento automático](common/provisioning-automatic.png)
 
-5. En la sección **Credenciales de administrador** , escriba los valores de **URL base de SCIM 2.0 y token de autenticación SCIM** que obtuvo anteriormente en el paso 2. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a Cofense Recipient Sync. Si la conexión no se establece, asegúrese de que la cuenta de Cofense Recipient Sync tenga permisos de administrador y vuelva a intentarlo.
+5. En la sección **Credenciales de administrador**, escriba los valores de **URL base de SCIM 2.0 y token de autenticación SCIM** que obtuvo anteriormente en el paso 2. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a Cofense Recipient Sync. Si la conexión no se establece, asegúrese de que la cuenta de Cofense Recipient Sync tenga permisos de administrador y vuelva a intentarlo.
 
     ![Token de URL de inquilino](common/provisioning-testconnection-tenanturltoken.png)
 
-6. En el campo **Correo electrónico de notificación** , escriba la dirección de correo electrónico de una persona o grupo que deba recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
+6. En el campo **Correo electrónico de notificación**, escriba la dirección de correo electrónico de una persona o grupo que deba recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
 
     ![Correo electrónico de notificación](common/provisioning-notification-email.png)
 
 7. Seleccione **Guardar**.
 
-8. En la sección **Asignaciones** , seleccione **Synchronize Azure Active Directory Users to Coda** (Sincronizar usuarios de Azure Active Directory con Cofense Recipient Sync).
+8. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Users to Coda** (Sincronizar usuarios de Azure Active Directory con Cofense Recipient Sync).
 
 9. Examine los atributos de usuario que se sincronizan entre Azure AD y Cofense Recipient Sync en la sección **Asignación de atributos**. Los atributos seleccionados como propiedades **Coincidentes** se usan para hacer coincidir las cuentas de usuario de Cofense Recipient Sync a fin de realizar operaciones de actualización.  Seleccione el botón **Guardar** para confirmar los cambios.
 
-   |Atributo|Tipo|
-   |---|---|
+   |Atributo|Tipo|Compatible con el filtrado|
+   |---|---|---|
+   |externalId|String|&check;|
    |userName|String|
-   |externalId|String|
    |active|Boolean|
    |DisplayName|String|
    |name.formatted|String|
@@ -152,7 +152,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Estado de aprovisionamiento activado](common/provisioning-toggle-on.png)
 
-12. Elija los valores deseados en **Ámbito** , en la sección **Configuración** , para definir los usuarios o grupos que quiere que se aprovisionen en Cofense Recipient Sync.
+12. Elija los valores deseados en **Ámbito**, en la sección **Configuración**, para definir los usuarios o grupos que quiere que se aprovisionen en Cofense Recipient Sync.
 
     ![Ámbito del aprovisionamiento](common/provisioning-scope.png)
 

@@ -4,13 +4,13 @@ description: En este tutorial de Azure Kubernetes Service (AKS), aprenderá a ac
 services: container-service
 ms.topic: tutorial
 ms.date: 09/30/2020
-ms.custom: mvc
-ms.openlocfilehash: 6619d7c9f7d2b0cd78f3941ce431e80342b6f563
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: c8401a81a36d86b871df9fc428c393007b97c400
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91576445"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94833918"
 ---
 # <a name="tutorial-update-an-application-in-azure-kubernetes-service-aks"></a>Tutorial: Actualización de una aplicación en Azure Kubernetes Service (AKS)
 
@@ -145,7 +145,7 @@ kubectl get service azure-vote-front
 
 Ahora, abra un explorador web local en la dirección IP del servicio:
 
-:::image type="content" source="media/container-service-kubernetes-tutorials/vote-app-updated-external.png" alt-text="Captura de pantalla que muestra un ejemplo de la imagen de contenedor actualizada de la aplicación Azure Voting App abierta, con un explorador web local y un host local.":::
+:::image type="content" source="media/container-service-kubernetes-tutorials/vote-app-updated-external.png" alt-text="Captura de pantalla que muestra un ejemplo de la aplicación Azure Voting App actualizada y abierta en un explorador web local.":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

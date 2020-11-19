@@ -13,6 +13,10 @@
         - name: Plantilla ARM
           displayName: Resource Manager
           href: advisor-alerts-arm.md
+- name: Conceptos
+  items:
+    - name: Línea de base de seguridad
+      href: security-baseline.md
 - name: Tutoriales
   items:
     - name: Introducción a Advisor
