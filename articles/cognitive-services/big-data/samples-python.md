@@ -86,7 +86,7 @@ display(sentiment.transform(df).select("text", col("sentiment")[0].getItem("sent
 | text                                      | opinión                                             |
 |:------------------------------------------|:------------------------------------------------------|
 | I am so happy today, its sunny! (Hoy estoy muy feliz, el día está soleado)           | positiva                                              |
-| I am frustrated by this rush hour traffic (Estoy frustrado por el tráfico de la hora punta) | negative                                              |
+| I am frustrated by this rush hour traffic (Estoy frustrado por el tráfico de la hora punta) | negativa                                              |
 | The cognitive services on spark aint bad (Cognitive Services en Spark no está nada mal)  | positiva                                              |
 
 ## <a name="computer-vision-sample"></a>Ejemplo de Computer Vision

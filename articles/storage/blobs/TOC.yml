@@ -17,7 +17,7 @@
       items:
         - name: Uso de blobs
           items:
-            - name: Azure portal
+            - name: Azure Portal
               href: storage-quickstart-blobs-portal.md
             - name: Explorador de Storage
               href: storage-quickstart-blobs-storage-explorer.md
@@ -733,8 +733,10 @@
           items:
             - name: Migración desde Data Lake Storage Gen1
               href: data-lake-storage-migrate-gen1-to-gen2.md
-            - name: Migración de un almacén HDFS local
+            - name: Migración de un almacén de HDFS sin conexión
               href: data-lake-storage-migrate-on-premises-HDFS-cluster.md
+            - name: Migración de un almacén de HDFS en línea
+              href: migrate-gen2-wandisco-live-data-platform.md
         - name: Administrar
           items:
             - name: .NET

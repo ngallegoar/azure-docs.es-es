@@ -37,7 +37,7 @@ En este inicio rápido, aprenderá a administrar blobs mediante código JavaScri
 
 Para que la aplicación web pueda acceder a un almacenamiento de blobs desde el cliente, debe configurar la cuenta para habilitar el [uso compartido de recursos entre orígenes](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services), o CORS.
 
-Vuelva a Azure Portal y seleccione la cuenta de almacenamiento. Para definir una nueva regla de CORS, vaya a la sección **Configuración** y haga clic en el vínculo **CORS** . A continuación, haga clic en el botón **Agregar** para abrir la ventana **Agregar regla de CORS** . En esta guía de inicio rápido, se crea una regla de CORS abierta:
+Vuelva a Azure Portal y seleccione la cuenta de almacenamiento. Para definir una nueva regla de CORS, vaya a la sección **Configuración** y haga clic en el vínculo **CORS**. A continuación, haga clic en el botón **Agregar** para abrir la ventana **Agregar regla de CORS**. En esta guía de inicio rápido, se crea una regla de CORS abierta:
 
 ![Configuración de CORS de la cuenta de Azure Blob Storage](media/storage-quickstart-blobs-javascript-client-libraries-v10/azure-blob-storage-cors-settings.png)
 
@@ -86,9 +86,9 @@ Puede encontrar un poco críptica la serie de valores después de cada parámetr
 
 | Parámetro        | Value   | Descripción  |
 |------------------|---------|---------|
-| *permissions*    | racwdl  | Esta firma de acceso compartido permite *leer* , *anexar* , *crear* , *escribir* , *eliminar* y *enumerar* . |
-| *resource-types* | sco     | Los recursos afectados por las firmas de acceso compartido son *servicio* , *contenedor* y *objeto* . |
-| *services*       | b       | El servicio afectado por la firma de acceso compartido es el servicio *blob* . |
+| *permissions*    | racwdl  | Esta firma de acceso compartido permite *leer*, *anexar*, *crear*, *escribir*, *eliminar* y *enumerar*. |
+| *resource-types* | sco     | Los recursos afectados por las firmas de acceso compartido son *servicio*, *contenedor* y *objeto*. |
+| *services*       | b       | El servicio afectado por la firma de acceso compartido es el servicio *blob*. |
 
 Ahora que se genera la SAS, copie el valor devuelto y guárdelo en alguna parte para usarlo en un próximo paso. Si ha generado la SAS con un método distinto de la CLI de Azure, deberá quitar el signo `?` inicial en caso de que esté presente. Este carácter es un separador de dirección URL que ya se ha proporcionado en la plantilla de dirección URL más adelante en este tema donde se usa la SAS.
 
@@ -101,7 +101,7 @@ En esta sección, creará una página web básica y configurará VS Code para i
 
 ### <a name="set-up-the-web-application"></a>Configuración de la aplicación web
 
-En primer lugar, cree una carpeta llamada *azure-blobs-javascript* y ábrala en VS Code. Luego, cree un archivo en VS Code, agregue el siguiente código HTML y guárdelo como *index.html* en la carpeta *azure-blobs-javascript* .
+En primer lugar, cree una carpeta llamada *azure-blobs-javascript* y ábrala en VS Code. Luego, cree un archivo en VS Code, agregue el siguiente código HTML y guárdelo como *index.html* en la carpeta *azure-blobs-javascript*.
 
 ```html
 <!DOCTYPE html>
@@ -127,7 +127,7 @@ En primer lugar, cree una carpeta llamada *azure-blobs-javascript* y ábrala en 
 
 ### <a name="configure-the-debugger"></a>Configuración del depurador
 
-Para configurar la extensión del depurador en VS Code, seleccione **Debug > Add Configuration...**  (Depurar > Agregar configuración...) y, luego, **Chrome** o **Edge** , según la extensión que haya instalado anteriormente en la sección anterior de requisitos previos. Esta acción crea un archivo *launch.json* y lo abre en el editor.
+Para configurar la extensión del depurador en VS Code, seleccione **Debug > Add Configuration...**  (Depurar > Agregar configuración...) y, luego, **Chrome** o **Edge**, según la extensión que haya instalado anteriormente en la sección anterior de requisitos previos. Esta acción crea un archivo *launch.json* y lo abre en el editor.
 
 A continuación, modifique el archivo *launch.json* para que el valor `url` incluya `/index.html`, tal como se muestra:
 
@@ -167,11 +167,11 @@ Para iniciar *index.html* en el explorador con el depurador de VS Code asociado,
 
 La interfaz de usuario que se muestra no hace nada aún, pero agregará código de JavaScript en la sección siguiente para implementar cada una de las funciones mostradas. Liego, puede establecer puntos de interrupción e interactuar con el depurador cuando haga una pausa en el código.
 
-Cuando realice cambios en *index.html* , no olvide volver a cargar la página para verlos en el explorador. En VS Code, también puede seleccionar **Debug > Restart Debugging** (Depurar > Reiniciar depuración) o presionar CTRL + MAYÚS + F5.
+Cuando realice cambios en *index.html*, no olvide volver a cargar la página para verlos en el explorador. En VS Code, también puede seleccionar **Debug > Restart Debugging** (Depurar > Reiniciar depuración) o presionar CTRL + MAYÚS + F5.
 
 ### <a name="add-the-blob-storage-client-library"></a>Adición de la biblioteca de clientes de almacenamiento de blobs
 
-Para permitir llamadas a la API de almacenamiento de blobs, primero [descargue el SDK de Azure Storage para JavaScript: biblioteca cliente de blob](https://aka.ms/downloadazurestoragejsblob), extraiga el contenido del archivo ZIP y coloque el archivo *azure-storage-blob.js* en la carpeta *azure-blobs-javascript* .
+Para permitir llamadas a la API de almacenamiento de blobs, primero [descargue el SDK de Azure Storage para JavaScript: biblioteca cliente de blob](https://aka.ms/downloadazurestoragejsblob), extraiga el contenido del archivo ZIP y coloque el archivo *azure-storage-blob.js* en la carpeta *azure-blobs-javascript*.
 
 A continuación, pegue el siguiente código HTML en *index.html* tras la etiqueta de cierre `</body>` y reemplace el comentario del marcador de posición.
 
@@ -261,7 +261,7 @@ Este código llama a las funciones [create](https://docs.microsoft.com/javascrip
 
 ### <a name="list-blobs"></a>Enumeración de blobs
 
-A continuación, agregue código para mostrar el contenido del contenedor de almacenamiento cuando se presiona el botón **Enumerar archivos** .
+A continuación, agregue código para mostrar el contenido del contenedor de almacenamiento cuando se presiona el botón **Enumerar archivos**.
 
 ```javascript
 const listFiles = async () => {
@@ -293,7 +293,7 @@ const listFiles = async () => {
 listButton.addEventListener("click", listFiles);
 ```
 
-Este código llama a la función [ContainerURL.listBlobFlatSegment](https://docs.microsoft.com/javascript/api/@azure/storage-blob/containerclient#listblobsflat-containerlistblobsoptions-) en un bucle para garantizar que se recuperan todos los segmentos. Para cada segmento, se recorre en iteración la lista de elementos de blob que contiene y se actualiza la lista **Archivos** .
+Este código llama a la función [ContainerURL.listBlobFlatSegment](https://docs.microsoft.com/javascript/api/@azure/storage-blob/containerclient#listblobsflat-containerlistblobsoptions-) en un bucle para garantizar que se recuperan todos los segmentos. Para cada segmento, se recorre en iteración la lista de elementos de blob que contiene y se actualiza la lista **Archivos**.
 
 ### <a name="upload-blobs"></a>Cargar blobs
 
@@ -349,7 +349,7 @@ const deleteFiles = async () => {
 deleteButton.addEventListener("click", deleteFiles);
 ```
 
-Este código llama a la función [BlobURL.delete](https://docs.microsoft.com/javascript/api/@azure/storage-blob/BlobURL#delete-aborter--iblobdeleteoptions-) para quitar todos los archivos seleccionado de la lista. Luego, llama a la función `listFiles` mostrada anteriormente para actualizar el contenido de la lista **Archivos** .
+Este código llama a la función [BlobURL.delete](https://docs.microsoft.com/javascript/api/@azure/storage-blob/BlobURL#delete-aborter--iblobdeleteoptions-) para quitar todos los archivos seleccionado de la lista. Luego, llama a la función `listFiles` mostrada anteriormente para actualizar el contenido de la lista **Archivos**.
 
 ### <a name="run-and-test-the-web-application"></a>Ejecución y prueba de la aplicación web
 

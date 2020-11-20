@@ -113,7 +113,7 @@ Siga estos pasos en Azure Portal para crear un recurso de Azure Stack Edge.
 
     ![Creación de un recurso 1](media/azure-stack-edge-gpu-deploy-prep/create-resource-1.png)
 
-4. Seleccione el tipo de dispositivo. En **Azure Stack Edge Pro** , elija **Azure Stack Edge Pro con GPU** y, luego, elija **Seleccionar**. Si ve algún problema o no puede seleccionar el tipo de dispositivo, vaya a [Solución de problemas de pedidos](azure-stack-edge-troubleshoot-ordering.md).
+4. Seleccione el tipo de dispositivo. En **Azure Stack Edge Pro**, elija **Azure Stack Edge Pro con GPU** y, luego, elija **Seleccionar**. Si ve algún problema o no puede seleccionar el tipo de dispositivo, vaya a [Solución de problemas de pedidos](azure-stack-edge-troubleshoot-ordering.md).
 
     ![Creación de un recurso 3](media/azure-stack-edge-gpu-deploy-prep/create-resource-3.png)
 
@@ -121,7 +121,7 @@ Siga estos pasos en Azure Portal para crear un recurso de Azure Stack Edge.
 
     ![Creación de un recurso 4](media/azure-stack-edge-gpu-deploy-prep/create-resource-4.png)
 
-6. En la pestaña **Datos básicos** , escriba o seleccione los siguientes **detalles del proyecto**.
+6. En la pestaña **Datos básicos**, escriba o seleccione los siguientes **detalles del proyecto**.
     
     |Configuración  |Valor  |
     |---------|---------|
@@ -149,7 +149,7 @@ Siga estos pasos en Azure Portal para crear un recurso de Azure Stack Edge.
 
 9. Seleccione **Siguiente: Etiquetas**. También tiene la opción de proporcionar etiquetas para clasificar los recursos y consolidar la facturación. Seleccione **Siguiente: Review + create** (Revisar y crear).
 
-10. En la pestaña **Revisar y crear** , revise la información de **Detalles de precios** , **Términos de uso** y los detalles de su recurso. Seleccione el cuadro combinado **I have reviewed the privacy terms** (He revisado los términos de privacidad).
+10. En la pestaña **Revisar y crear**, revise la información de **Detalles de precios**, **Términos de uso** y los detalles de su recurso. Seleccione el cuadro combinado **I have reviewed the privacy terms** (He revisado los términos de privacidad).
 
     ![Creación de un recurso 8](media/azure-stack-edge-gpu-deploy-prep/create-resource-8.png) 
 
@@ -180,7 +180,7 @@ Cuando el recurso de Azure Stack Edge esté en funcionamiento, tendrá que obten
 
     ![Selección de instalación del dispositivo](media/azure-stack-edge-gpu-deploy-prep/azure-stack-edge-resource-2.png)
 
-2. En el icono **Activar** , proporcione un nombre para Azure Key Vault o acepte el nombre predeterminado. El nombre puede tener entre 3 y 24 caracteres. 
+2. En el icono **Activar**, proporcione un nombre para Azure Key Vault o acepte el nombre predeterminado. El nombre puede tener entre 3 y 24 caracteres. 
 
     Se crea un almacén de claves para cada recurso de Azure Stack Edge que se activa con el dispositivo. El almacén de claves permite almacenar los secretos y acceder a ellos; por ejemplo, la clave de integridad del canal (CIK) del servicio se almacena en el almacén de claves. 
 

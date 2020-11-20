@@ -97,7 +97,7 @@ Una vez que se cargue el esquema de datos y se muestre como se ve a continuació
 |**Omitir**     | Omite la columna seleccionada.        |         |
 
 
-:::image type="content" source="../media/schema-configuration.png" alt-text="Configuración de conexión" lightbox="../media/schema-configuration.png":::
+:::image type="content" source="../media/schema-configuration.png" alt-text="Configuración del esquema" lightbox="../media/schema-configuration.png":::
 
 ### <a name="automatic-roll-up-settings"></a>Configuración de la acumulación automática
 
@@ -117,7 +117,7 @@ Cuando se aplique la detección, haga clic en una de las métricas que aparecen 
 - Actualización de la configuración de detección para cumplir los resultados esperados
 - Configuración de la notificación de anomalías detectadas
 
-:::image type="content" source="../media/metric-details.png" alt-text="Configuración de conexión" lightbox="../media/metric-details.png":::
+:::image type="content" source="../media/metric-details.png" alt-text="Detalles de la métrica" lightbox="../media/metric-details.png":::
 
 ## <a name="view-the-diagnostic-insights"></a>Visualización de la información de diagnóstico
 
@@ -125,13 +125,13 @@ Después de ajustar la configuración de detección, las anomalías encontradas 
 
 Para ver la información de diagnóstico, haga clic en los puntos rojos de las visualizaciones de la serie temporal, que representan las anomalías detectadas. Aparecerá una ventana con un vínculo a la página de análisis de incidentes. 
 
-:::image type="content" source="../media/incident-link.png" alt-text="Configuración de conexión" lightbox="../media/incident-link.png":::
+:::image type="content" source="../media/incident-link.png" alt-text="Vínculo del incidente" lightbox="../media/incident-link.png":::
 
 Después de hacer clic en el vínculo, se mostrará la página de análisis de incidentes, en la que se analiza la anomalía correspondiente con abundante información de diagnóstico. En la parte superior, se muestran estadísticas sobre el incidente, como la **gravedad**, las **anomalías implicadas** y la **hora de inicio** y **hora de finalización** afectadas. 
 
 A continuación, verá la anomalía antecesora del incidente y el consejo de la causa principal automatizado. Este consejo de la causa principal automatizado se genera al analizar el árbol de incidentes de todas las anomalías relacionadas, incluidas la desviación, distribución y contribución a las anomalías principales. 
 
-:::image type="content" source="../media/incident-diagnostic.png" alt-text="Configuración de conexión" lightbox="../media/incident-diagnostic.png":::
+:::image type="content" source="../media/incident-diagnostic.png" alt-text="Diagnóstico de incidentes" lightbox="../media/incident-diagnostic.png":::
 
 Sobre esta base, ya puede obtener una vista clara de lo que está ocurriendo y del impacto del incidente, así como de la causa principal potencial. De este modo, podrá tomar medidas inmediatas para resolver el incidente lo antes posible. 
 

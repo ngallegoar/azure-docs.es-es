@@ -154,12 +154,12 @@ En la tabla siguiente se contrastan los valores de tipo de entidad de Mapas de B
 |-----------------------|-------------------------------------------------|--------------------------------------------|
 | `Address`             |                                                 | *Dirección*                                  |
 | `Neighborhood`        | `Neighbourhood`                                 | *Vecindario*                             |
-| `PopulatedPlace`      | `Municipality` o `MunicipalitySubdivision`     | *Ciudad* , *población o periferia* o *megalópolis*     |
+| `PopulatedPlace`      | `Municipality` o `MunicipalitySubdivision`     | *Ciudad*, *población o periferia* o *megalópolis*     |
 | `Postcode1`           | `PostalCodeArea`                                | *Código postal*                |
 | `AdminDivision1`      | `CountrySubdivision`                            | *Estado* o *provincia*                      |
 | `AdminDivision2`      | `CountrySecondarySubdivison`                    | *Municipio* o *distritos*                    |
 | `CountryRegion`       | `Country`                                       | *Nombre del país*                             |
-|                       | `CountryTertiarySubdivision`                    | *Barrios* , *cantones* , *comunidades*          |
+|                       | `CountryTertiarySubdivision`                    | *Barrios*, *cantones*, *comunidades*          |
 
 ## <a name="get-location-suggestions-autosuggest"></a>Obtención de sugerencias de ubicación (sugerencia automática)
 
@@ -528,7 +528,7 @@ En la siguiente tabla se contrastan los parámetros de API de Mapas de Bing con 
 En Mapas de Bing, los datos de punto de interés se pueden buscar mediante las siguientes API:
 
 -   **Local Search:** busca puntos de interés cercanos (búsqueda radial), por nombre o por tipo de entidad (categoría). [POI Search API](/rest/api/maps/search/getsearchpoi) y [POI Category Search API](/rest/api/maps/search/getsearchpoicategory) de Azure Maps son muy parecidas a esta API.
--   **Reconocimiento de ubicación** : se buscan los puntos de interés que están a una determinada distancia de una ubicación. [Nearby Search API](/rest/api/maps/search/getsearchnearby) de Azure Maps es muy parecida a esta API.
+-   **Reconocimiento de ubicación**: se buscan los puntos de interés que están a una determinada distancia de una ubicación. [Nearby Search API](/rest/api/maps/search/getsearchnearby) de Azure Maps es muy parecida a esta API.
 -   **Información local:** busca los puntos de interés que se encuentran dentro del tiempo de conducción o la distancia máximos especificados desde una coordenada concreta. Esto se puede hacer con Azure Maps, para lo cual primero se calcula una isócrona y, luego, se pasa a [Search Within Geometry API](/rest/api/maps/search/postsearchinsidegeometry).
 
 Azure Maps proporciona varias API de búsqueda de puntos de interés:
@@ -547,8 +547,8 @@ Asegúrese de revisar la documentación de [procedimientos recomendados de búsq
 
 Azure Maps proporciona varias API para recuperar los datos de tráfico. Hay dos tipos de datos de tráfico disponibles:
 
--   **Datos de flujo** : proporcionan métricas sobre el flujo de tráfico en secciones de carreteras. Se suele usar para codificar por colores las carreteras. Estos datos se actualizan cada dos minutos.
--   **Datos de incidentes** : proporcionan información sobre construcción, cierres de carreteras, accidentes y otros incidentes que pueden afectar al tráfico. Estos datos se actualizan cada minuto.
+-   **Datos de flujo**: proporcionan métricas sobre el flujo de tráfico en secciones de carreteras. Se suele usar para codificar por colores las carreteras. Estos datos se actualizan cada dos minutos.
+-   **Datos de incidentes**: proporcionan información sobre construcción, cierres de carreteras, accidentes y otros incidentes que pueden afectar al tráfico. Estos datos se actualizan cada minuto.
 
 Mapas de Bing proporciona datos de los incidentes y del flujo de tráfico en sus controles de mapa interactivos, y también permite que los datos de incidentes estén disponibles como servicio.
 

@@ -60,15 +60,15 @@ Para estimar los costos de hacer una copia de seguridad de VM de Azure o servido
 
     - Esta opción permite restaurar desde siete días atrás de forma rápida con las instantáneas almacenadas en discos.
 
-- **Opcional** : Copia de seguridad de disco selectiva
+- **Opcional**: Copia de seguridad de disco selectiva
 
   - Si usa la opción **Copia de seguridad de disco selectiva** al hacer una copia de seguridad de VM de Azure, elija la opción **Exclude Disk** (Excluir disco) y escriba el porcentaje de discos que se excluirá de la copia de seguridad en términos de tamaño. Por ejemplo, si tiene una máquina virtual conectada a tres discos con 200 GB usados en cada disco y quiere excluir dos de ellos de la copia de seguridad, escriba 66,7 %.
 
-- **Opcional** : Redundancia de almacenamiento de copia de seguridad
+- **Opcional**: Redundancia de almacenamiento de copia de seguridad
 
   - Esto indica la redundancia de la cuenta de almacenamiento a la que van a ir los datos de copia de seguridad. Se recomienda usar **GRS** para obtener la máxima disponibilidad. Dado que garantiza que una copia de los datos de copia de seguridad se mantiene en otra región, ayuda a cumplir con varios estándares de cumplimiento. Cambie la redundancia a **LRS** si está haciendo una copia de seguridad de entornos de desarrollo o prueba que no necesitan una copia de seguridad de nivel empresarial. Seleccione la opción **RAGRS** en la hoja si quiere conocer los costos cuando la opción [Restauración entre regiones](backup-azure-arm-restore-vms.md#cross-region-restore) está habilitada para las copias de seguridad.
 
-- **Opcional** : Modificación de precios regionales o aplicación de tarifas con descuento
+- **Opcional**: Modificación de precios regionales o aplicación de tarifas con descuento
 
   - Si quiere comprobar las estimaciones de una región distinta o tarifas con descuento, seleccione **Sí** en la opción **Try estimates for a different region?** (¿Quiere intentar estimaciones para otra región?) y escriba las tarifas con las que quiere ejecutar las estimaciones.
 
@@ -82,7 +82,7 @@ Para estimar los costos de hacer una copia de seguridad de servidores SQL Serve
 
 - ¿Cuál es la compresión esperada para los datos de copia de seguridad de los servidores SQL Server?
 
-  - La mayoría de los clientes de Azure Backup ve que los datos de copia de seguridad tienen un 80 % de compresión en comparación con el tamaño del servidor SQL Server cuando la compresión de SQL está **habilitada** .
+  - La mayoría de los clientes de Azure Backup ve que los datos de copia de seguridad tienen un 80 % de compresión en comparación con el tamaño del servidor SQL Server cuando la compresión de SQL está **habilitada**.
 
   - Si espera ver una compresión diferente, escriba el número en este campo
 
@@ -114,11 +114,11 @@ Para estimar los costos de hacer una copia de seguridad de servidores SQL Serve
 
   - ¿Cuánto tiempo espera conservar las copias de seguridad "anuales"? (en años)
 
-- **Opcional** : Redundancia de almacenamiento de copia de seguridad
+- **Opcional**: Redundancia de almacenamiento de copia de seguridad
 
   - Esto indica la redundancia de la cuenta de almacenamiento a la que van a ir los datos de copia de seguridad. Se recomienda usar **GRS** para obtener la máxima disponibilidad. Dado que garantiza que una copia de los datos de copia de seguridad se mantiene en otra región, ayuda a cumplir con varios estándares de cumplimiento. Cambie la redundancia a **LRS** si está haciendo una copia de seguridad de entornos de desarrollo o prueba que no necesitan una copia de seguridad de nivel empresarial.
 
-- **Opcional** : Modificación de precios regionales o aplicación de tarifas con descuento
+- **Opcional**: Modificación de precios regionales o aplicación de tarifas con descuento
 
   - Si quiere comprobar las estimaciones de una región distinta o tarifas con descuento, seleccione **Sí** en la opción **Try estimates for a different region?** (¿Quiere intentar estimaciones para otra región?) y escriba las tarifas con las que quiere ejecutar las estimaciones.
 
@@ -137,17 +137,17 @@ Para estimar los costos de hacer una copia de seguridad de servidores SAP HANA 
   - Si conoce el porcentaje de renovación **churn%** , puede usar la opción **Enter your own%** (Escriba su propio porcentaje)
 - Elija la directiva de copia de seguridad
   - Tipo de copia de seguridad
-    - La directiva más efectiva que puede elegir es **Diferenciales diarios** con copias de seguridad completas **semanales, mensuales o anuales** . Azure Backup puede realizar restauraciones a partir de diferenciales también con un solo clic.
-    - También puede elegir tener una directiva con copias de seguridad completas **diarias, semanales, mensuales o anuales** . Esta opción usará un almacenamiento algo mayor que la primera opción.
+    - La directiva más efectiva que puede elegir es **Diferenciales diarios** con copias de seguridad completas **semanales, mensuales o anuales**. Azure Backup puede realizar restauraciones a partir de diferenciales también con un solo clic.
+    - También puede elegir tener una directiva con copias de seguridad completas **diarias, semanales, mensuales o anuales**. Esta opción usará un almacenamiento algo mayor que la primera opción.
   - ¿Cuánto tiempo espera conservar las copias de seguridad de "registros"? (en días) [de 7 a 35]
   - ¿Cuánto tiempo espera conservar las copias de seguridad "diarias"? (en días)
   - ¿Cuánto tiempo espera conservar las copias de seguridad "semanales"? (en semanas)
   - ¿Cuánto tiempo espera conservar las copias de seguridad "mensuales"? (en meses)
   - ¿Cuánto tiempo espera conservar las copias de seguridad "anuales"? (en años)
-- **Opcional** : Redundancia de almacenamiento de copia de seguridad
+- **Opcional**: Redundancia de almacenamiento de copia de seguridad
   
   - Esto indica la redundancia de la cuenta de almacenamiento a la que van a ir los datos de copia de seguridad. Se recomienda usar **GRS** para obtener la máxima disponibilidad. Dado que garantiza que una copia de los datos de copia de seguridad se mantiene en otra región, ayuda a cumplir con varios estándares de cumplimiento. Cambie la redundancia a **LRS** si está haciendo una copia de seguridad de entornos de desarrollo o prueba que no necesitan una copia de seguridad de nivel empresarial.
-- **Opcional** : Modificación de precios regionales o aplicación de tarifas con descuento
+- **Opcional**: Modificación de precios regionales o aplicación de tarifas con descuento
   
   - Si quiere comprobar las estimaciones de una región distinta o tarifas con descuento, seleccione **Sí** en la opción **Try estimates for a different region?** (¿Quiere intentar estimaciones para otra región?) y escriba las tarifas con las que quiere ejecutar las estimaciones.
   
@@ -155,7 +155,7 @@ Para estimar los costos de hacer una copia de seguridad de servidores SAP HANA 
 
 Para calcular los costos de copia de seguridad de los recursos compartidos de archivos de Azure con la [solución de copia de seguridad basada en instantáneas](azure-file-share-backup-overview.md) ofrecida por Azure Backup, necesitará los siguientes parámetros:
 
-- Tamaño ( **en GB** ) de los recursos compartidos de archivos de los que desea realizar una copia de seguridad.
+- Tamaño (**en GB**) de los recursos compartidos de archivos de los que desea realizar una copia de seguridad.
 
 - Si desea realizar una copia de seguridad de los recursos compartidos de archivos distribuidos entre varias cuentas de almacenamiento, especifique el número de cuentas de almacenamiento que hospedan los recursos compartidos de archivos con el tamaño anterior.
 
@@ -174,7 +174,7 @@ Para calcular los costos de copia de seguridad de los recursos compartidos de ar
 
   Vea la [matriz de compatibilidad de los recursos compartidos de archivos de Azure](azure-file-share-support-matrix.md#retention-limits) para saber cuáles son los valores de retención máximos admitidos en cada categoría.
 
-- **Opcional** : modificación de precios regionales o aplicación de tarifas con descuento.
+- **Opcional**: modificación de precios regionales o aplicación de tarifas con descuento.
   - Los valores predeterminados establecidos para el costo de almacenamiento de instantáneas por GB y el costo de las instancias protegidas del estimador son para la región Este de EE. UU. Si quiere comprobar las estimaciones de una región distinta o tarifas con descuento, seleccione **Sí** en la opción **Try estimates for a different region?** (¿Quiere intentar estimaciones para otra región?) y escriba las tarifas con las que quiere ejecutar las estimaciones.
 
 ## <a name="next-steps"></a>Pasos siguientes

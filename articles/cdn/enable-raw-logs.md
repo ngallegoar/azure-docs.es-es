@@ -40,7 +40,7 @@ Para configurar los registros sin procesar para Azure CDN desde el perfil de Mi
 
 1. En el menú de Azure Portal, seleccione **Todos los recursos** >>  **\<your-CDN-profile>** .
 
-2. En **Supervisión** , seleccione **Configuración de diagnóstico**.
+2. En **Supervisión**, seleccione **Configuración de diagnóstico**.
 
 3. Seleccione **+ Agregar configuración de diagnóstico**.
 
@@ -49,7 +49,7 @@ Para configurar los registros sin procesar para Azure CDN desde el perfil de Mi
     > [!IMPORTANT]
     > Los registros sin procesar solo están disponibles en el nivel de perfil, mientras que los registros de código de estado HTTP agregados están disponibles en el nivel de punto de conexión.
 
-4. En **Configuración de diagnóstico** , escriba un nombre para la configuración de diagnóstico en **Nombre de la configuración de diagnóstico**.
+4. En **Configuración de diagnóstico**, escriba un nombre para la configuración de diagnóstico en **Nombre de la configuración de diagnóstico**.
 
 5. Seleccione **AzureCdnAccessLog** y establezca la retención en días.
 
@@ -59,7 +59,7 @@ Para configurar los registros sin procesar para Azure CDN desde el perfil de Mi
     * **Archivar en una cuenta de almacenamiento**
         * Seleccione la **Suscripción** y la **Cuenta de almacenamiento**.
     * **Transmisión a un centro de eventos**
-        * Seleccione la **Suscripción** , el **Espacio de nombres del centro de eventos** , el **Nombre del centro de eventos (opcional)** y el **Nombre de la directiva del centro de eventos**.
+        * Seleccione la **Suscripción**, el **Espacio de nombres del centro de eventos**, el **Nombre del centro de eventos (opcional)** y el **Nombre de la directiva del centro de eventos**.
 
     :::image type="content" source="./media/cdn-raw-logs/raw-logs-02.png" alt-text="Configuración del destino para la configuración de registro." border="true":::
 
@@ -233,7 +233,7 @@ Escenarios excluidos en el cálculo de la proporción de aciertos de bytes:
 
 1. En el menú de Azure Portal, seleccione **Todos los recursos** >>  **\<your-CDN-profile>** .
 
-2. En **Supervisión** , seleccione **Métricas** :
+2. En **Supervisión**, seleccione **Métricas**:
 
     :::image type="content" source="./media/cdn-raw-logs/raw-logs-03.png" alt-text="Métricas para el perfil de CDN." border="true":::
 
@@ -272,7 +272,7 @@ Puede habilitar métricas adicionales con Azure Log Analytics y registros sin pr
 
     :::image type="content" source="./media/cdn-raw-logs/raw-logs-09.png" alt-text="Selección de un área de trabajo de Log Analytics" border="true":::   
 
-3. Seleccione **Registros** en **General** en el área de trabajo de Log Analytics.  Luego seleccione **Tareas iniciales** :
+3. Seleccione **Registros** en **General** en el área de trabajo de Log Analytics.  Luego seleccione **Tareas iniciales**:
 
     :::image type="content" source="./media/cdn-raw-logs/raw-logs-10.png" alt-text="Área de trabajo de recursos de Log Analytics." border="true":::   
  

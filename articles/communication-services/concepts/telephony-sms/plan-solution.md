@@ -29,7 +29,7 @@ Azure Communication Services le permite usar números de teléfono para realizar
 
 ## <a name="phone-number-types-in-azure-communication-services"></a>Tipos de número de teléfono en Azure Communication Services
  
-Communication Services ofrece dos tipos de número de teléfono: **local** y **gratuito** . 
+Communication Services ofrece dos tipos de número de teléfono: **local** y **gratuito**. 
 
 ### <a name="local-numbers"></a>Números locales
 Los números locales (geográficos) son números de teléfono de 10 dígitos que se componen de los códigos de área locales de Estados Unidos. Por ejemplo, `+1 (206) XXX-XXXX` es un número local con el código de área `206`. Este código de área está asignado a la ciudad de Seattle. Estos números de teléfono suelen ser usados por personas y empresas locales. Azure Communication Services ofrece números locales de Estados Unidos. Estos números se pueden usar para realizar llamadas telefónicas, pero no para enviar mensajes SMS. 
@@ -48,7 +48,7 @@ En la tabla siguiente se resumen estos tipos de números de teléfono:
 | Tipo de número de teléfono | Ejemplo                              | Disponibilidad de país    | Funcionalidad del número de teléfono |Caso de uso común                                                                                                     |
 | ----------------- | ------------------------------------ | ----------------------- | ------------------------|------------------------------------------------------------------------------------------------------------------- |
 | Local (geográfico)        | +1 (código de área local) XXX XX XX  | US                      | Llamadas (salientes) | Asignación de números de teléfono a los usuarios de las aplicaciones  |
-| Gratuito         | \+ 1 ( *código* de área gratuito) XXX XX XX | US                      | Llamadas (salientes), SMS (entrantes y salientes)| Asignación de números de teléfono a sistemas o bots de respuesta interactiva de voz (IVR) y aplicaciones de SMS                                        |
+| Gratuito         | \+ 1 (*código* de área gratuito) XXX XX XX | US                      | Llamadas (salientes), SMS (entrantes y salientes)| Asignación de números de teléfono a sistemas o bots de respuesta interactiva de voz (IVR) y aplicaciones de SMS                                        |
 
 
 ## <a name="phone-number-features-in-azure-communication-services"></a>Características de los números de teléfono en Azure Communication Services 

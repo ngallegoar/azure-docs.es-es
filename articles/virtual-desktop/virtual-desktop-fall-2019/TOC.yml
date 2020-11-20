@@ -72,7 +72,7 @@
           href: diagnostics-log-analytics-2019.md
     - name: Publicación de aplicaciones integradas
       href: publish-apps-2019.md
-    - name: Configuración de Azure Multi-Factor Authentication
+    - name: Configuración de Azure AD Multi-Factor Authentication
       href: ../set-up-mfa.md
 - name: Conceptos
   items:

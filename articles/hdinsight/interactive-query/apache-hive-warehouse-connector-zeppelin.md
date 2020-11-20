@@ -19,7 +19,7 @@ ms.locfileid: "92426949"
 Los clústeres de HDInsight Spark incluyen cuadernos de Apache Zeppelin con distintos intérpretes. Este artículo se centrará solo en el intérprete Livy para acceder a tablas de Hive desde Spark mediante Hive Warehouse Connector.
 
 > [!NOTE]
-> Este artículo contiene referencias al término *lista blanca* , un término que Microsoft ya no usa. Cuando se elimine el término del software, se eliminará también de este artículo.
+> Este artículo contiene referencias al término *lista blanca*, un término que Microsoft ya no usa. Cuando se elimine el término del software, se eliminará también de este artículo.
 
 ## <a name="prerequisite"></a>Requisito previo
 

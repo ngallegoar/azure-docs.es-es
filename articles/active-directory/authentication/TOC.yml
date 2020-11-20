@@ -9,7 +9,7 @@
   items:
     - name: Habilitar el autoservicio de restablecimiento de contraseña
       href: tutorial-enable-sspr.md
-    - name: Habilitación de Azure Multi-Factor Authentication
+    - name: "Habilitación de Azure\_AD Multi-Factor Authentication"
       href: tutorial-enable-azure-mfa.md
     - name: Habilitación de escritura diferida de contraseñas en un entorno local
       href: tutorial-enable-sspr-writeback.md
@@ -80,7 +80,7 @@
           href: howto-sspr-authenticationdata.md
         - name: SSPR para clientes Windows
           href: howto-sspr-windows.md
-    - name: Azure Multi-Factor Authentication
+    - name: "Azure\_AD Multi-Factor Authentication"
       items:
         - name: Guía de implementación
           href: howto-mfa-getstarted.md
@@ -108,7 +108,7 @@
               href: howto-mfa-nps-extension.md
             - name: Configuración avanzada para extensión NPS
               href: howto-mfa-nps-extension-advanced.md
-            - name: Azure VPN y Azure MFA
+            - name: "Azure VPN y Azure\_AD MFA"
               href: ../../vpn-gateway/vpn-gateway-radius-mfa-nsp.md
             - name: Puerta de enlace de escritorio remoto
               href: howto-mfa-nps-extension-rdg.md
