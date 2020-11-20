@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: seodec18
-ms.openlocfilehash: a864717304dacaf6cf4c77c92050827af619ed39
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: cfd28171524ada5f5feea9e18e4b88a291254e88
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92736685"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616797"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Compatibilidad con idiomas y voces en el servicio de voz
 
@@ -36,7 +36,7 @@ To get pronunciation bits:
 https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronunciation Datasets" -> Click on Import -> Locale: the list of locales there correspond to the supported locales
 -->
 
-| Idioma                          | Configuración regional | Personalizaciones                                   |
+| Idioma                          | Configuración regional (BCP-47) | Personalizaciones                                   |
 |-----------------------------------|--------|--------------------------------------------------|
 |Árabe (Bahréin), estándar moderno  |`ar-BH` | Modelo de lenguaje                                   |
 |Árabe (Egipto)                     |`ar-EG` | Modelo de lenguaje                                   |
@@ -136,7 +136,7 @@ Las voces neuronales se pueden usar para que las interacciones con los bots de c
 
 Para más información acerca de la disponibilidad regional, consulte las [regiones](regions.md#standard-and-neural-voices).
 
-|Idioma  | Configuración regional           | Sexo | Nombre de voz | Compatibilidad de estilo |
+|Idioma  | Configuración regional (BCP-47)          | Sexo | Nombre de voz | Compatibilidad de estilo |
 |--|--|--|--|--|
 | Árabe (Egipto) | `ar-EG` | Female | `ar-EG-SalmaNeural` | General |
 | Árabe (Arabia Saudí) | `ar-SA` | Female | `ar-SA-ZariyahNeural` | General |
@@ -219,7 +219,7 @@ Para obtener información sobre cómo configurar y ajustar las voces neuronales,
 
 Hay más de 75 voces estándar disponibles en más de 45 idiomas y configuraciones regionales, lo que le permite convertir texto en voz sintetizada. Para más información acerca de la disponibilidad regional, consulte las [regiones](regions.md#standard-and-neural-voices).
 
-| Idioma | Configuración regional | Sexo | Nombre de voz |
+| Idioma | Configuración regional (BCP-47) | Sexo | Nombre de voz |
 |--|--|--|--|
 | Árabe (árabe)  |  `ar-EG`  |  Female  |  `ar-EG-Hoda`|
 | Árabe (Arabia Saudí)  |  `ar-SA`  |  Male  |  `ar-SA-Naayf`|
@@ -397,7 +397,7 @@ La personalización de la voz está disponible para `de-DE`, `en-GB`, `en-IN`, `
 
 Consulte la tabla siguiente para ver los idiomas compatibles con las distintas API de Speaker Recognition. Consulte la [introducción](speaker-recognition-overview.md) para obtener información adicional sobre Speaker Recognition.
 
-| Idioma | Configuración regional | Comprobación dependiente del texto | Comprobación independiente del texto | Identificación independiente del texto |
+| Idioma | Configuración regional (BCP-47) | Comprobación dependiente del texto | Comprobación independiente del texto | Identificación independiente del texto |
 |----|----|----|----|----|
 |Inglés (EE.UU.)  |  es-ES  |  sí  |  sí  |  sí |
 |Chino (mandarín, simplificado) | zh-CN     |     N/D |     sí |     sí|
