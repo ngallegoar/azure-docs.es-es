@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2020
 ms.author: terrylan
-ms.openlocfilehash: 3113216b2d8a7572bcb864819a379de6823ee444
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 90aafad2a17b9535bde29f811e630112ccbd02e3
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94409882"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696105"
 ---
 # <a name="azure-security-technical-capabilities"></a>Funcionalidades técnicas de seguridad de Azure
 Este artículo sirve de introducción a los servicios de seguridad de Azure que ayudan a proteger los datos, recursos y aplicaciones en la nube, así como a satisfacer las necesidades de seguridad de su negocio.
@@ -156,9 +156,9 @@ Las empresas de seguridad deben centrarse en conceder a los empleados los permis
 
 ![Acceso protegido a los recursos](./media/technical-capabilities/azure-security-technical-capabilities-fig4.png)
 
-También podrá repartir las tareas entre el equipo y conceder a los usuarios únicamente el nivel de acceso que necesitan para realizar su trabajo. En lugar de proporcionar a todos los empleados permisos no restringidos en los recursos o la suscripción de Azure, puede permitir solo determinadas acciones. Por ejemplo, utilice RBAC para dejar que un empleado administre máquinas virtuales en una suscripción, y que otro pueda administrar bases de datos SQL en la misma suscripción.
+Con Azure RBAC, puede repartir las tareas entre el equipo y conceder a los usuarios únicamente el nivel de acceso que necesitan para realizar su trabajo. En lugar de proporcionar a todos los empleados permisos no restringidos en los recursos o la suscripción de Azure, puede permitir solo determinadas acciones. Por ejemplo, use RBAC de Azure para permitir que un empleado administre las máquinas virtuales de una suscripción mientras otro administra las bases de datos SQL de la misma suscripción.
 
-![Acceso protegido a los recursos de Azure (RBAC)](./media/technical-capabilities/azure-security-technical-capabilities-fig5.png)
+![Acceso protegido a los recursos mediante RBAC de Azure](./media/technical-capabilities/azure-security-technical-capabilities-fig5.png)
 
 ## <a name="data-security-and-encryption"></a>Seguridad y cifrado de datos
 
@@ -390,11 +390,11 @@ Supervisa:
 
 - **Tasas de dependencia, tiempos de respuesta y tasa de error** - Averigüe si los servicios externos le ralentizan.
 
-- **Excepciones** : - Analice las estadísticas agregadas o seleccione instancias concretas y profundice en el seguimiento de la pila y las solicitudes relacionadas. Se notifican tanto las excepciones de servidor como las de explorador.
+- **Excepciones**: - Analice las estadísticas agregadas o seleccione instancias concretas y profundice en el seguimiento de la pila y las solicitudes relacionadas. Se notifican tanto las excepciones de servidor como las de explorador.
 
 - **Vistas de página y rendimiento de carga** - Notificados por los exploradores de los usuarios.
 
-- **Llamadas AJAX desde páginas web** : Tasas, tiempos de respuesta y tasas de error.
+- **Llamadas AJAX desde páginas web**: Tasas, tiempos de respuesta y tasas de error.
 
 - **Número de usuarios y sesiones**.
 
@@ -422,7 +422,7 @@ Administrador de recursos ofrece varias ventajas:
 
 - Puede definir las dependencias entre recursos de modo que se implementen en el orden correcto.
 
-- Puede aplicar control de acceso a todos los servicios del grupo de recursos al integrarse de forma nativa Control de acceso basado en rol (RBAC) en la plataforma de administración.
+- Puede aplicar control de acceso a todos los servicios del grupo de recursos porque el control de acceso basado en rol de Azure (RBAC de Azure) está integrado de forma nativa en la plataforma de administración.
 
 - Puede aplicar etiquetas a los recursos para organizar de manera lógica todos los recursos de la suscripción.
 

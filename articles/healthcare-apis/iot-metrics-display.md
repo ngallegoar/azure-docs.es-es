@@ -6,14 +6,14 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: how-to
-ms.date: 10/29/2020
+ms.date: 11/13/2020
 ms.author: jasteppe
-ms.openlocfilehash: 9a4e2c4dfe8a9de28688afe0dd036cecb7ce2b39
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: 79a7b18986f4bed503cd5493a7d74325a13fe535
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94381225"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630522"
 ---
 # <a name="display-and-configure-azure-iot-connector-for-fhir-preview-metrics"></a>Visualización y configuración de las métricas de Azure IoT Connector for FHIR (versión preliminar) 
 
@@ -41,6 +41,9 @@ En este artículo, aprenderá a mostrar y configurar el conector de Azure IoT pa
    :::image type="content" source="media/iot-metrics-display/iot-metrics-select-time.png" alt-text="Captura de pantalla del panel &quot;Conector de IoT&quot;, que muestra un gráfico de líneas del período de tiempo &quot;1 hora&quot; para &quot;conector 1&quot;." lightbox="media/iot-metrics-display/iot-metrics-select-time.png"::: 
  
 ## <a name="metric-types-for-azure-iot-connector-for-fhir-preview"></a>Tipos de métricas para el conector de Azure IoT para FHIR (versión preliminar) 
+
+> [!TIP]
+> Para obtener información sobre el flujo de datos en el conector de Azure IoT para FHIR, vea [Flujo de datos del conector de Azure IoT para FHIR (versión preliminar)](./iot-data-flow.md), y [Guía de solución de problemas del conector de Azure IoT para FHIR (versión preliminar)](./iot-troubleshoot-guide.md) para obtener más información sobre los mensajes de error y las correcciones.
 
 Las métricas del conector de IoT que se pueden mostrar se enumeran en la tabla siguiente:
 
