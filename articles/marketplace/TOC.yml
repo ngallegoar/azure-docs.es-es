@@ -15,7 +15,7 @@
       href: partner-center-portal/account-migration-from-cpp-to-pc.md
 - name: Conceptos
   items:
-    - name: Publicación de opciones y consideraciones
+    - name: Opciones de publicación
       href: determine-your-listing-type.md
     - name: Transacciones en Marketplace comercial
       href: marketplace-commercial-transaction-capabilities-and-considerations.md
@@ -349,15 +349,14 @@
       items:
         - name: Introducción a API de suministro de SaaS
           href: partner-center-portal/pc-saas-fulfillment-apis.md
-          items:
-            - name: Registro de una aplicación SaaS
-              href: partner-center-portal/pc-saas-registration.md
-            - name: API de suministro de SaaS v2
-              href: partner-center-portal/pc-saas-fulfillment-api-v2.md
-            - name: API de suministro de SaaS v1 (en desuso)
-              href: partner-center-portal/pc-saas-fulfillment-api-v1.md
-            - name: Preguntas más frecuentes sobre las API de suministro de SaaS
-              href: partner-center-portal/saas-fulfillment-apis-faq.md
+        - name: Registro de una aplicación SaaS
+          href: partner-center-portal/pc-saas-registration.md
+        - name: API de suministro de SaaS v2
+          href: partner-center-portal/pc-saas-fulfillment-api-v2.md
+        - name: API de suministro de SaaS v1 (en desuso)
+          href: partner-center-portal/pc-saas-fulfillment-api-v1.md
+        - name: Preguntas más frecuentes sobre las API de suministro de SaaS
+          href: partner-center-portal/saas-fulfillment-apis-faq.md
 - name: Recursos
   items:
     - name: Preguntas frecuentes de Marketplace comercial

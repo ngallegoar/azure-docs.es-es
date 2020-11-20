@@ -69,17 +69,17 @@
     - name: Migración a Connection Monitor
       items:
         - name: Desde Network Performance Monitor
-          href: migrate-to-connection-monitor-preview-from-network-performance-monitor.md
+          href: migrate-to-connection-monitor-from-network-performance-monitor.md
         - name: Desde Connection Monitor (clásico)
-          href: migrate-to-connection-monitor-preview-from-connection-monitor.md
+          href: migrate-to-connection-monitor-from-connection-monitor-classic.md
     - name: Diagnóstico de problemas de red de máquinas virtuales
       items:
         - name: Instalación de la extensión de máquina virtual
           items:
             - name: Windows
-              href: ../virtual-machines/windows/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json
+              href: ../virtual-machines/extensions/network-watcher-windows.md?toc=%252fazure%252fnetwork-watcher%252ftoc.json
             - name: Linux
-              href: ../virtual-machines/linux/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json
+              href: ../virtual-machines/extensions/network-watcher-linux.md?toc=%252fazure%252fnetwork-watcher%252ftoc.json
         - name: Diagnóstico de un problema de enrutamiento
           items:
             - name: Azure PowerShell
@@ -88,7 +88,7 @@
               href: diagnose-vm-network-routing-problem-cli.md
         - name: Diagnóstico de problemas de conexión de salida
           items:
-            - name: Azure portal
+            - name: Azure Portal
               href: network-watcher-connectivity-portal.md
             - name: Azure PowerShell
               href: network-watcher-connectivity-powershell.md
@@ -100,7 +100,7 @@
           items:
             - name: Administración de una captura de paquetes
               items:
-                - name: Azure portal
+                - name: Azure Portal
                   href: network-watcher-packet-capture-manage-portal.md
                 - name: Azure PowerShell
                   href: network-watcher-packet-capture-manage-powershell.md
@@ -184,14 +184,14 @@
     - name: Determinación de la latencia relativa entre una ubicación y una región de Azure
       href: view-relative-latencies.md
     - name: Supervisión del rendimiento de la red
-      href: ../log-analytics/log-analytics-network-performance-monitor.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json
+      href: ../azure-monitor/insights/network-performance-monitor.md?toc=%252fazure%252fnetwork-watcher%252ftoc.json
     - name: Traslado de recursos
       items:
         - name: Traslado de recursos de Network Watcher
           href: resource-move.md
 - name: Referencia
   items:
-    - name: CLI de Azure
+    - name: Azure CLI
       href: /cli/azure/network/watcher
     - name: Azure PowerShell
       href: /powershell/module/az.network/#network_watcher
@@ -214,7 +214,7 @@
     - name: Azure Roadmap
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Página de preguntas y respuestas de Microsoft
-      href: 'https://docs.microsoft.com/answers/topics/azure-virtual-network.html'
+      href: /answers/topics/azure-virtual-network.html
     - name: Precios
       href: 'https://azure.microsoft.com/pricing/details/network-watcher/'
     - name: Actualizaciones del servicio

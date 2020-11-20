@@ -88,7 +88,7 @@
           href: dns-alias-appservice.md
         - name: Administración de zonas DNS
           items:
-            - name: Azure portal
+            - name: Azure Portal
               href: dns-operations-dnszones-portal.md
             - name: Azure PowerShell
               href: dns-operations-dnszones.md
@@ -173,7 +173,7 @@
     - name: Solicitudes de características
       href: 'https://feedback.azure.com/forums/217313-networking/category/77466-domain-name-service-dns-traffic-manager'
     - name: Página de preguntas y respuestas de Microsoft
-      href: 'https://docs.microsoft.com/en-us/answers/topics/azure-virtual-network.html'
+      href: /answers/topics/azure-virtual-network.html
     - name: Blog de redes
       href: 'https://azure.microsoft.com/blog/topics/networking'
     - name: Precios

@@ -36,6 +36,10 @@
     - name: Azure Lighthouse y Azure Managed Applications
       displayName: 'managed apps, ama'
       href: ./concepts/managed-applications.md
+    - name: Seguridad
+      items:
+        - name: Línea de base de seguridad
+          href: security-baseline.md
 - name: Guías paso a paso
   items:
     - name: Incorporación de un cliente a Azure Lighthouse

@@ -96,7 +96,7 @@
           items:
             - name: Azure portal
               href: tutorial-design-database-using-portal.md
-            - name: CLI de Azure
+            - name: Azure CLI
               href: tutorial-design-database-using-cli.md
             - name: Azure PowerShell
               href: tutorial-design-database-using-powershell.md
@@ -116,8 +116,6 @@
           href: sample-scripts-azure-cli.md
         - name: Agrupación de conexiones de Java
           href: sample-scripts-java-connection-pooling.md
-        - name: Elementos integrados de Azure Policy
-          href: ./policy-reference.md
     - name: Conceptos
       items:
         - name: Servidores
@@ -156,6 +154,9 @@
               href: concepts-azure-ad-authentication.md
             - name: Cifrado doble de infraestructura
               href: concepts-infrastructure-double-encryption.md
+            - name: Controles de seguridad de Azure Policy
+              displayName: 'regulatory, compliance, standards, domains'
+              href: ./security-controls-policy.md
             - name: Línea de base de seguridad
               href: security-baseline.md
         - name: Mantenimiento planeado
@@ -227,7 +228,7 @@
               displayName: 'manage, reset password, scale'
             - name: Reglas de firewall
               items:
-                - name: Azure portal
+                - name: Azure Portal
                   href: howto-manage-firewall-using-portal.md
                   displayName: firewall
                 - name: CLI de Azure
@@ -243,10 +244,10 @@
               displayName: 'managed identity, msi'
         - name: Restauración de un servidor
           items:
-            - name: Azure portal
+            - name: Azure Portal
               href: howto-restore-server-portal.md
               displayName: 'restore server,backup'
-            - name: CLI de Azure
+            - name: Azure CLI
               href: howto-restore-server-cli.md
               displayName: 'restore server, backup'
             - name: Azure PowerShell
@@ -274,10 +275,10 @@
               displayName: 'development, redirection , php'
         - name: Configuración de parámetros del servidor
           items:
-            - name: Azure portal
+            - name: Azure Portal
               href: howto-server-parameters.md
               displayName: server parameters
-            - name: CLI de Azure
+            - name: Azure CLI
               href: howto-configure-server-parameters-using-cli.md
               displayName: 'server parameters, cli'
             - name: Azure PowerShell
@@ -293,10 +294,10 @@
               href: how-to-major-version-upgrade.md
         - name: Almacenamiento de crecimiento automático
           items:
-            - name: Azure portal
+            - name: Azure Portal
               href: howto-auto-grow-storage-portal.md
               displayName: 'storage, business continuity , downtime, portal'
-            - name: CLI de Azure
+            - name: Azure CLI
               href: howto-auto-grow-storage-cli.md
               displayName: 'storage, business continuity , downtime, cli'
             - name: Azure PowerShell
@@ -304,18 +305,18 @@
               displayName: 'storage, business continuity , downtime, powershell'
         - name: Registros de consultas lentos
           items:
-            - name: Azure portal
+            - name: Azure Portal
               href: howto-configure-server-logs-in-portal.md
               displayName: 'debug, slow query log , performance'
-            - name: CLI de Azure
+            - name: Azure CLI
               href: howto-configure-server-logs-in-cli.md
               displayName: 'debug, slow query log , performance'
         - name: Registros de auditoría
           items:
-            - name: Azure portal
+            - name: Azure Portal
               href: howto-configure-audit-logs-portal.md
               displayName: 'debug, audit log'
-            - name: CLI de Azure
+            - name: Azure CLI
               href: howto-configure-audit-logs-cli.md
               displayName: 'debug, audit log'
         - name: Supervisión
@@ -364,7 +365,7 @@
               displayName: 'atp, advanced thread, security'
             - name: Virtual Network
               items:
-                - name: Azure portal
+                - name: Azure Portal
                   href: howto-manage-vnet-using-portal.md
                   displayName: 'vnet, virtual network, service endpoint'
                 - name: CLI de Azure
@@ -396,15 +397,15 @@
               displayName: 'infrastructure encryption, security'
         - name: Denegación del acceso a una red pública
           items:
-            - name: Azure portal
+            - name: Azure Portal
               href: howto-deny-public-network-access.md
               displayName: 'security, public access'
         - name: Reinicio del servidor
           items:
-            - name: Azure portal
+            - name: Azure Portal
               href: howto-restart-server-portal.md
               displayName: restart
-            - name: CLI de Azure
+            - name: Azure CLI
               href: howto-restart-server-cli.md
               displayName: restart
             - name: Azure PowerShell
@@ -491,7 +492,7 @@
       items:
         - name: Administración de un servicio
           items:
-            - name: Azure portal
+            - name: Azure Portal
               href: flexible-server/how-to-manage-server-portal.md
             - name: CLI de Azure
               href: flexible-server/how-to-manage-server-cli.md
@@ -531,7 +532,7 @@
                   href: flexible-server/how-to-connect-tls-ssl.md
         - name: Configuración de parámetros del servidor
           items:
-            - name: Azure portal
+            - name: Azure Portal
               href: flexible-server/how-to-configure-server-parameters-portal.md
               displayName: server parameters
             - name: CLI de Azure
@@ -547,11 +548,11 @@
                   href: flexible-server/how-to-configure-slow-query-logs-portal.md
             - name: Registros de auditoría
               items:
-                - name: Azure portal
+                - name: Azure Portal
                   href: flexible-server/how-to-configure-audit-logs-portal.md
         - name: Reinicio del servidor
           items:
-            - name: Azure portal
+            - name: Azure Portal
               href: flexible-server/how-to-restart-server-portal.md
         - name: Replicación
           items:
@@ -573,6 +574,9 @@
       href: /azure/templates/microsoft.dbformysql/allversions
     - name: Procedimientos almacenados de administración
       href: reference-stored-procedures.md
+    - name: Elementos integrados de Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Recursos
   items:
     - name: Plantillas de implementación

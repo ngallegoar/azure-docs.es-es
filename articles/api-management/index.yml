@@ -10,12 +10,12 @@ metadata:
   author: georgewallace
   ms.author: gwallace
   ms.date: 03/08/2020
-  ms.openlocfilehash: 6813a3cb284f83c599344c7673f1a5d148adef0b
-  ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+  ms.openlocfilehash: ba4e1c4d1083894b5de2df635414cc30ca3745c0
+  ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 10/15/2020
-  ms.locfileid: "92071173"
+  ms.lasthandoff: 11/19/2020
+  ms.locfileid: "94917756"
 landingContent:
 - title: Acerca de API Management
   linkLists:
@@ -31,7 +31,7 @@ landingContent:
     links:
     - text: CLI de Azure
       url: get-started-create-service-instance-cli.md
-    - text: Azure portal
+    - text: Azure Portal
       url: get-started-create-service-instance.md
     - text: Azure PowerShell
       url: powershell-create-service-instance.md
@@ -60,7 +60,7 @@ landingContent:
     - text: 8. Publicación de varias versiones de la API
       url: api-management-get-started-publish-versions.md
     - text: 9. Personalización del estilo de las páginas del portal para desarrolladores
-      url: api-management-customize-styles.md
+      url: api-management-howto-developer-portal-customize.md
 - title: Ejemplos
   linkLists:
   - linkListType: sample
