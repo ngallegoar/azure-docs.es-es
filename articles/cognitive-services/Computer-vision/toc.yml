@@ -116,19 +116,19 @@
         - name: Nota de transparencia
           items:
             - name: Introducción al análisis espacial
-              href: 'https://docs.microsoft.com/legal/cognitive-services/computer-vision/intro-to-spatial-analysis-public-preview?context=/azure/cognitive-services/Computer-vision/context/context'
+              href: /legal/cognitive-services/computer-vision/intro-to-spatial-analysis-public-preview?context=%252fazure%252fcognitive-services%252fComputer-vision%252fcontext%252fcontext
             - name: Características y limitaciones
-              href: 'https://docs.microsoft.com/legal/cognitive-services/computer-vision/accuracy-and-limitations?context=/azure/cognitive-services/Computer-vision/context/context'
+              href: /legal/cognitive-services/computer-vision/accuracy-and-limitations?context=%252fazure%252fcognitive-services%252fComputer-vision%252fcontext%252fcontext
         - name: Instrucciones de implementación
           items:
             - name: Uso responsable en la implementación de IA
-              href: 'https://docs.microsoft.com/legal/cognitive-services/computer-vision/responsible-use-deployment?context=/azure/cognitive-services/Computer-vision/context/context'
+              href: /legal/cognitive-services/computer-vision/responsible-use-deployment?context=%252fazure%252fcognitive-services%252fComputer-vision%252fcontext%252fcontext
             - name: Directrices de diseño de divulgación de información
-              href: 'https://docs.microsoft.com/legal/cognitive-services/computer-vision/disclosure-design?context=/azure/cognitive-services/Computer-vision/context/context'
+              href: /legal/cognitive-services/computer-vision/disclosure-design?context=%252fazure%252fcognitive-services%252fComputer-vision%252fcontext%252fcontext
             - name: Investigación de la información
-              href: 'https://docs.microsoft.com/legal/cognitive-services/computer-vision/research-insights?context=/azure/cognitive-services/Computer-vision/context/context'
+              href: /legal/cognitive-services/computer-vision/research-insights?context=%252fazure%252fcognitive-services%252fComputer-vision%252fcontext%252fcontext
         - name: 'Cumplimiento, privacidad y seguridad'
-          href: 'https://docs.microsoft.com/legal/cognitive-services/computer-vision/compliance-privacy-security-2?context=/azure/cognitive-services/Computer-vision/context/context'
+          href: /legal/cognitive-services/computer-vision/compliance-privacy-security-2?context=%252fazure%252fcognitive-services%252fComputer-vision%252fcontext%252fcontext
 - name: Containers
   items:
     - name: Lectura de contenedor de API
@@ -171,10 +171,10 @@
       href: Vision-API-How-to-Topics/HowtoAnalyzeVideo_Vision.md
 - name: Referencia
   items:
-    - name: CLI de Azure
-      href: 'https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list'
+    - name: Azure CLI
+      href: /cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list
     - name: Azure PowerShell
-      href: 'https://aka.ms/azure-powershell-cognitiveservices'
+      href: /powershell/module/azurerm.cognitiveservices/
     - name: "Computer Vision API\_v3.2, versión preliminar"
       href: 'https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-1/operations/5d986960601faab4bf452005'
     - name: "Computer Vision API\_v3.1"
@@ -188,15 +188,15 @@
     - name: SDK
       items:
         - name: .NET
-          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/computervision?view=azure-dotnet'
+          href: /dotnet/api/overview/azure/cognitiveservices/client/computervision?view=azure-dotnet
         - name: Node.js
-          href: 'https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-computervision/?view=azure-node-latest'
+          href: /javascript/api/@azure/cognitiveservices-computervision/?view=azure-node-latest
         - name: Python
-          href: 'https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/computervision?view=azure-python'
+          href: /python/api/overview/azure/cognitiveservices/computervision?view=azure-python
         - name: Go
           href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision'
         - name: Java
-          href: 'https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/computervision?view=azure-java-stable'
+          href: /java/api/overview/azure/cognitiveservices/client/computervision?view=azure-java-stable
 - name: Recursos
   items:
     - name: Opciones de ayuda y soporte técnico

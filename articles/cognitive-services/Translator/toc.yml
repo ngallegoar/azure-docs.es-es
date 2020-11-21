@@ -4,7 +4,7 @@
   items:
     - name: ¿Qué es Traductor?
       href: translator-info-overview.md
-    - name: Inicio rápido
+    - name: Guía de inicio rápido
       href: quickstart-translator.md
     - name: Compatibilidad con idiomas
       href: language-support.md
@@ -23,7 +23,7 @@
     - name: Guías paso a paso
       items:
         - name: Suscripción en Traductor
-          href: translator-text-how-to-signup.md
+          href: ./translator-how-to-signup.md
         - name: Migrar a Text API V3
           href: migrate-to-v3.md
         - name: Agregar filtrado de palabras soeces

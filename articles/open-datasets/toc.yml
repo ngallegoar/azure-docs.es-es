@@ -9,9 +9,9 @@
 - name: Tutorial
   items:
     - name: Regresión con aprendizaje automático automatizado
-      href: ../machine-learning/tutorial-auto-train-models.md?bc=%252fazure%252fopen-datasets%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fopen-datasets%252ftoc.json
+      href: ../machine-learning/tutorial-auto-train-models.md?bc=%2fazure%2fopen-datasets%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fopen-datasets%2ftoc.json
     - name: Enriquecimiento de un modelo de clasificación de imágenes
-      href: ../machine-learning/tutorial-train-models-with-aml.md?bc=%252fazure%252fopen-datasets%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fopen-datasets%252ftoc.json
+      href: ../machine-learning/tutorial-train-models-with-aml.md?bc=%2fazure%2fopen-datasets%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fopen-datasets%2ftoc.json
 - name: Guías paso a paso
   items:
     - name: Conjuntos de datos en Azure Machine Learning

@@ -93,7 +93,7 @@
       displayName: 'example, examples, studio, pipelines, data sets, modules'
       href: samples-designer.md
     - name: Open Datasets (público)
-      href: ../open-datasets/samples.md?context=azure%252fmachine-learning%252fcontext%252fml-context
+      href: ../open-datasets/samples.md?context=%2fazure%2fmachine-learning%2fcontext%2fml-context
 - name: Conceptos
   items:
     - name: Planificación y administración de costos
@@ -449,7 +449,7 @@
             - name: Uso de una imagen personalizada de Docker
               href: how-to-deploy-custom-docker-image.md
             - name: IoT Edge
-              href: ../iot-edge/tutorial-deploy-machine-learning.md?context=azure%252fmachine-learning%252fservice%252fcontext%252fml-context
+              href: ../iot-edge/tutorial-deploy-machine-learning.md?context=%2fazure%2fmachine-learning%2fservice%2fcontext%2fml-context
             - name: Inferencia de FPGA
               href: how-to-deploy-fpga-web-service.md
         - name: Solución de problemas y depuración
@@ -530,7 +530,7 @@
           href: how-to-debug-parallel-run-step.md
     - name: Canalizaciones de Azure para CI/CD
       displayName: 'continuous, integration, delivery'
-      href: /azure/devops/pipelines/targets/azure-machine-learning?context=azure/machine-learning/context/ml-context
+      href: /azure/devops/pipelines/targets/azure-machine-learning?context=%2fazure/machine-learning/context/ml-context
     - name: Acciones de GitHub para CI/CD
       href: how-to-github-actions-machine-learning.md
     - name: Administración de cuotas de recursos
@@ -595,7 +595,7 @@
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-machine-learning-service'
     - name: Comparación entre nuestros productos de aprendizaje automático
-      href: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure/machine-learning/context/ml-context
+      href: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=%2fazure/machine-learning/context/ml-context
     - name: ¿Qué le ha ocurrido a Workbench?
       displayName: 'desktop, ui, Workbench, upgrade, update, transfer'
       href: overview-what-happened-to-workbench.md
