@@ -100,6 +100,8 @@
           href: concept-enable-rbac.md
         - name: Asignación de una identidad administrada de Azure
           href: overview-managed-identity.md
+        - name: Línea de base de seguridad
+          href: security-baseline.md
     - name: Alta disponibilidad
       items:
         - name: Resistencia y recuperación ante desastres
