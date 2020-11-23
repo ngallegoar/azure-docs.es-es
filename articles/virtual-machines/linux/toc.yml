@@ -397,7 +397,7 @@
               href: dedicated-hosts-cli.md
             - name: Portal
               href: ../dedicated-hosts-portal.md
-        - name: Implementación de máquinas virtuales de Spot
+        - name: Implementación de máquinas virtuales de acceso puntual
           items:
             - name: CLI
               href: spot-cli.md

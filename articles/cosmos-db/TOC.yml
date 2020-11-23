@@ -123,7 +123,7 @@
         - name: Recursos de Cosmos DB
           expanded: true
           items:
-            - name: Azure portal
+            - name: Azure Portal
               href: create-cosmosdb-resources-portal.md
             - name: Plantilla ARM
               displayName: Resource Manager
@@ -945,6 +945,8 @@
               href: oracle-migrate-cosmos-db-blitzz.md
             - name: Migración de Apache Cassandra a Cassandra API mediante Blitzz
               href: cassandra-migrate-cosmos-db-blitzz.md
+            - name: Migración de Apache Cassandra a Cassandra API mediante Databricks
+              href: cassandra-migrate-cosmos-db-databricks.md
         - name: Fuente de cambios
           href: cassandra-change-feed.md
         - name: 'Creación de un contenedor: Cassandra API'
