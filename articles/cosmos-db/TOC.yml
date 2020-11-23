@@ -123,7 +123,7 @@
         - name: Recursos de Cosmos DB
           expanded: true
           items:
-            - name: Azure Portal
+            - name: Azure portal
               href: create-cosmosdb-resources-portal.md
             - name: Plantilla ARM
               displayName: Resource Manager
@@ -839,9 +839,9 @@
             - name: Azure Event Hubs y Azure Storage
               href: 'https://github.com/hdinsight/hdinsight-storm-examples/blob/master/IotExample/README.md'
             - name: Uso de Spring Boot Starter
-              href: /azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db?context=%252fazure%252fcosmos-db%252fcontext%252fcontext
+              href: /azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db?context=%2fazure%2fcosmos-db%2fcontext%2fcontext
             - name: Guía del desarrollador de Spring Data
-              href: /azure/developer/java/spring-framework/how-to-guides-spring-data-cosmosdb?context=%252fazure%252fcosmos-db%252fcontext%252fcontext
+              href: /azure/developer/java/spring-framework/how-to-guides-spring-data-cosmosdb?context=%2fazure%2fcosmos-db%2fcontext%2fcontext
             - name: Controlador ODBC
               href: odbc-driver.md
     - name: Referencia
@@ -958,7 +958,7 @@
           displayName: 'request units, RUs, RU, charge, consumption'
           href: find-request-unit-charge-cassandra.md
         - name: Almacenamiento y administración de datos de Spring
-          href: /azure/developer/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db?context=%252fazure%252fcosmos-db%252fcontext%252fcontext
+          href: /azure/developer/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db?context=%2fazure%2fcosmos-db%2fcontext%2fcontext
         - name: Cassandra y Spark
           items:
             - name: Introducción
@@ -1094,7 +1094,7 @@
         - name: Solución de problemas del rendimiento de las consultas
           href: mongodb-troubleshoot-query.md
         - name: Almacenamiento y administración de datos de Spring
-          href: /azure/developer/java/spring-framework/configure-spring-data-mongodb-with-cosmos-db?context=%252fazure%252fcosmos-db%252fcontext%252fcontext
+          href: /azure/developer/java/spring-framework/configure-spring-data-mongodb-with-cosmos-db?context=%2fazure%2fcosmos-db%2fcontext%2fcontext
         - name: Comandos de extensión de MongoDB
           href: mongodb-custom-commands.md
           displayName: custom commands
@@ -1175,7 +1175,7 @@
         - name: Visualización de datos de gráficos
           href: graph-visualization.md
         - name: Almacenamiento y administración de datos de Spring
-          href: /azure/developer/java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db?context=%252fazure%252fcosmos-db%252fcontext%252fcontext
+          href: /azure/developer/java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db?context=%2fazure%2fcosmos-db%2fcontext%2fcontext
         - name: Administración mediante plantillas de Resource Manager
           href: templates-samples-gremlin.md
           displayName: ARM
