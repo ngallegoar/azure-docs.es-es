@@ -8,47 +8,45 @@
 - name: Tutoriales
   expanded: true
   items:
-    - name: "1: Creación de un clúster de Red Hat OpenShift en Azure\_4"
+    - name: 1 - Creación de un clúster de ARO
       href: tutorial-create-cluster.md
-    - name: "2: Conexión a un clúster de Red Hat OpenShift en Azure\_4"
+    - name: 2 - Conexión a un clúster de ARO
       href: tutorial-connect-cluster.md
-    - name: "3: Eliminación de un clúster de Red Hat OpenShift en Azure\_4"
+    - name: 3 - Eliminación de un clúster de ARO
       href: tutorial-delete-cluster.md
 - name: Guías paso a paso
   items:
-    - name: "Creación de un clúster de Red Hat OpenShift en Azure\_4 privado"
-      href: howto-create-private-cluster-4x.md
-    - name: "Creación de una clase StorageClass de Azure Files en Red Hat OpenShift en Azure\_4"
-      href: howto-create-a-storageclass.md
-    - name: "Actualización de secreto de extracción de un clúster de Red Hat OpenShift en Azure\_4"
-      href: howto-add-update-pull-secret.md
-    - name: "Configuración del reenvío de DNS para un clúster de Red Hat OpenShift en Azure\_4"
-      href: dns-forwarding.md
-    - name: "Configuración del registro de contenedor integrado para Red Hat OpenShift\_4 en Azure"
-      href: built-in-container-registry.md
-    - name: "Configuración de la autenticación de Azure\_Active\_Directory para un clúster de Red Hat OpenShift en Azure\_4"
+    - name: Redes
+      items:
+        - name: Creación de un clúster privado de ARO
+          href: howto-create-private-cluster-4x.md
+        - name: Configuración del reenvío de DNS
+          href: dns-forwarding.md
+    - name: Seguridad y autenticación
       items:
         - name: "Configuración de la autenticación de Azure\_Active\_Directory (CLI)"
           href: configure-azure-ad-cli.md
         - name: "Configuración de la autenticación de Azure\_Active\_Directory (Azure Portal)"
           href: configure-azure-ad-ui.md
-    - name: Creación de una copia de seguridad de una aplicación y restauración de la misma con Velero
+        - name: Actualización de secreto de extracción de un clúster de ARO
+          href: howto-add-update-pull-secret.md
+    - name: Copia de seguridad y restauración
       items:
         - name: Creación de una copia de seguridad de una aplicación de clúster con Velero
           href: howto-create-a-backup.md
         - name: Creación de una restauración de una aplicación de clúster con Velero
           href: howto-create-a-restore.md
-    - name: "Supervisión y registro de Red Hat OpenShift en Azure\_4"
+    - name: Supervisión y registro
       items:
-        - name: "Azure Monitor para contenedores en Red Hat OpenShift en Azure\_4 (versión preliminar)"
+        - name: Azure Monitor para contenedores
           items:
-            - name: "Configuración de Azure Monitor para contenedores en Red Hat OpenShift en Azure\_4 (versión preliminar)"
+            - name: Configuración de Azure Monitor para contenedores para ARO 4 (versión preliminar)
               href: ../azure-monitor/insights/container-insights-azure-redhat4-setup.md
-            - name: "Deshabilitación de Azure Monitor para contenedores en Red Hat OpenShift en Azure\_3.11 (versión preliminar)"
+            - name: Deshabilitación de Azure Monitor para contenedores en ARO 4 (versión preliminar)
               href: ../azure-monitor/insights/container-insights-optout-openshift-v4.md
-    - name: "Open Liberty/WebSphere Liberty en un clúster de Red Hat OpenShift\_4 en Azure"
+    - name: Desarrollo y ejecución de aplicaciones
       items:
-        - name: "Implementación de una aplicación Open Liberty/WebSphere Liberty en un clúster de Red Hat OpenShift\_4 en Azure"
+        - name: Implementación de una aplicación de Open Liberty/WebSphere Liberty
           href: howto-deploy-java-liberty-app.md
     - name: "Red Hat OpenShift en Azure\_3.11"
       items:
@@ -85,9 +83,9 @@
               href: cluster-administration-security-context-constraints.md
 - name: Conceptos
   items:
-    - name: "Redes en clústeres de Red Hat OpenShift en Azure\_4"
+    - name: Redes
       href: concepts-networking.md
-    - name: "Migración de Azure Red Hat OpenShift\_3.11 a Azure Red Hat OpenShift\_4"
+    - name: "Migración de ARO\_3.11 a ARO\_4"
       href: migration.md
 - name: Referencia
   items:
@@ -101,17 +99,15 @@
       href: openshift-faq.md
     - name: Solución de problemas
       href: troubleshoot.md
-    - name: "Recursos compatibles con Red Hat OpenShift en Azure\_3.11"
-      href: supported-resources.md
-    - name: "Recursos compatibles con Red Hat OpenShift en Azure\_4.3"
+    - name: "Directivas de soporte técnico de ARO\_4"
       href: support-policies-v4.md
-    - name: "Ciclo de vida del soporte técnico de Red Hat OpenShift en Azure\_4"
+    - name: "Ciclo de vida del soporte técnico de ARO\_4"
       href: support-lifecycle.md
     - name: Disponibilidad regional
       href: 'https://azure.microsoft.com/regions/services/'
-    - name: "Documentación de la versión\_4.3 de Red Hat OpenShift en Azure"
+    - name: "Documentación de la versión\_4 de Red Hat OpenShift"
       href: 'https://docs.openshift.com/aro/4/welcome/index.html'
-    - name: "Documentación de la versión\_3.11 de Red Hat OpenShift en Azure"
-      href: 'https://docs.openshift.com/aro/3/welcome/index.html'
     - name: Azure Roadmap
       href: 'https://azure.microsoft.com/roadmap/'
+    - name: Hoja de ruta de ARO
+      href: 'https://github.com/Azure/OpenShift/projects/1'

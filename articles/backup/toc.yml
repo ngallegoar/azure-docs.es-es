@@ -4,6 +4,8 @@
   items:
     - name: Introducción a Azure Backup
       href: backup-overview.md
+    - name: Novedades de Azure Backup
+      href: whats-new.md
     - name: Precios
       href: 'https://azure.microsoft.com/pricing/details/backup/'
 - name: Guías de inicio rápido
