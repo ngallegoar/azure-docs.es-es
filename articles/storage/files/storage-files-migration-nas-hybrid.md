@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 03/19/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: fd8e845734169bcd73fa0e087c30c0f2fd6ef4f6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0d8d19256dfca21cc805c2689557099a6785f76b
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85510312"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629213"
 ---
 # <a name="migrate-from-network-attached-storage-nas-to-a-hybrid-cloud-deployment-with-azure-file-sync"></a>Migración desde un almacenamiento conectado a la red (NAS) a una implementación de nube híbrida con Azure File Sync
 
@@ -208,13 +208,13 @@ Ha terminado de migrar un recurso compartido o un grupo de recursos compartidos 
 Puede intentar ejecutar algunas de estas copias en paralelo. Se recomienda procesar el ámbito de un recurso compartido de archivos de Azure a la vez.
 
 > [!WARNING]
-> Cuando haya movido todos los datos de su ubicación de NAS a Windows Server y se haya completado la migración: Vuelva a ***todos*** los grupos de sincronización de Azure Portal y ajuste el valor porcentual de espacio libre en el volumen de la nube por niveles a un valor más adecuado para el uso de la memoria caché, como un 20 %. 
+> Cuando haya movido todos los datos de su ubicación de NAS a Windows Server y se haya completado la migración: Vuelva a ***todos** los grupos de sincronización de Azure Portal y ajuste el valor porcentual de espacio libre en el volumen de la nube por niveles a un valor más adecuado para el uso de la memoria caché, por ejemplo, un 20 %. 
 
 La directiva de espacio libre en el volumen de la nube por niveles actúa en un nivel de volumen desde el que se pueden sincronizar varios puntos de conexión de servidor. Si olvida ajustar el espacio disponible en un punto de conexión del servidor, la sincronización seguirá aplicando la regla más restrictiva e intentará mantener un 99 % de espacio libre en disco, lo que hará que la memoria caché local no funcione según lo previsto. A menos que el objetivo sea tener solamente el espacio de nombres para un volumen que solo contiene datos de archivo a los que se accede con poca frecuencia y reserve el resto del espacio de almacenamiento para otro escenario.
 
 ## <a name="troubleshoot"></a>Solución de problemas
 
-El problema que puede experimentar más probablemente, es que el comando de RoboCopy produzca el error *"Volumen lleno"* en el lado de Windows Server. La nube por niveles actúa una vez cada hora para evacuar el contenido del disco local de Windows Server, que se ha sincronizado. Su objetivo es alcanzar el 99 % de espacio libre en el volumen.
+El problema que puede experimentar más probablemente es que el comando de RoboCopy produzca el error "Volumen lleno" en el lado de Windows Server. La nube por niveles actúa una vez cada hora para evacuar el contenido del disco local de Windows Server, que se ha sincronizado. Su objetivo es alcanzar el 99 % de espacio libre en el volumen.
 
 Permita que el progreso de la sincronización y la nube por niveles liberen espacio en disco. Puede observarlo en el Explorador de archivos en Windows Server.
 
@@ -226,6 +226,6 @@ Consulte el vínculo de la sección siguiente para solucionar problemas de Azure
 
 Hay más información sobre los recursos compartidos de archivos de Azure y Azure File Sync. Los artículos siguientes lo ayudarán a comprender las opciones avanzadas, los procedimientos recomendados y también contienen ayuda para la solución de problemas. Estos artículos se vinculan a la [documentación de recursos compartidos de archivos de Azure](storage-files-introduction.md) según corresponda.
 
-* [Información general sobre AFS](https://aka.ms/AFS)
+* [Información general sobre AFS](./storage-sync-files-planning.md)
 * [Guía de implementación de AFS](storage-files-deployment-guide.md)
 * [Solución de problemas de AFS](storage-sync-files-troubleshoot.md)

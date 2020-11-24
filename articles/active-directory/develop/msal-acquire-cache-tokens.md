@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/28/2020
+ms.date: 11/04/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 47af4015fa5c6d9a73ee597146890a29b4b9ef9d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: da79a74121318993f807ec3bde101b652a8b49da
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88119902"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94628142"
 ---
 # <a name="acquire-and-cache-tokens-using-the-microsoft-authentication-library-msal"></a>Adquisición y almacenamiento en caché de tokens con la biblioteca de autenticación de Microsoft (MSAL)
 
@@ -115,6 +115,10 @@ Cuando el cliente solicita un token de acceso, Azure AD también devuelve un re
 - El identificador de inquilino indica el inquilino en el que se encontró el usuario. Para los usuarios invitados (escenarios de Azure AD B2B), el identificador de inquilino es el inquilino invitado, no el inquilino único. Cuando el token se entrega en nombre de un usuario, el resultado de la autenticación también contiene información sobre este usuario. Para los flujos de cliente confidenciales en los que se solicitan tokens sin usuario (para la aplicación), esta información de usuario está vacía.
 - Los ámbitos para los que el token se emitió.
 - El identificador único del usuario.
+
+## <a name="advanced-accessing-the-users-cached-tokens-in-background-apps-and-services"></a>(Avanzado) Acceso a los tokens almacenados en caché del usuario en aplicaciones y servicios en segundo plano
+
+[!INCLUDE [advanced-token-caching](../../../includes/advanced-token-cache.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 

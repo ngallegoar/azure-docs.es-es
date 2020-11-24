@@ -1,6 +1,6 @@
 ---
 title: Tipos de aplicaciones para la Plataforma de identidad de Microsoft | Azure
-description: Los tipos de aplicaciones y escenarios que admite el punto de conexión de la Plataforma de identidad de Microsoft (versión 2.0).
+description: Los tipos de aplicaciones y escenarios que admite el punto de conexión de la plataforma de identidad de Microsoft.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -8,20 +8,20 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 11/13/2020
 ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur
-ms.custom: aaddev, fasttrack-edit
-ms.openlocfilehash: d04dd0ec7c6d3166e2170001d6ff341d203c0d6b
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.custom: aaddev, fasttrack-edit, contperfq2
+ms.openlocfilehash: 4c72d1b4b78c0b7ca9e7fa1f6468beb6fdd4b247
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92103159"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94628091"
 ---
 # <a name="application-types-for-microsoft-identity-platform"></a>Tipos de aplicaciones para la Plataforma de identidad de Microsoft
 
-El punto de conexión de la Plataforma de identidad de Microsoft (versión 2.0) admite la autenticación de una variedad de arquitecturas de aplicaciones modernas, todas ellas basadas en los protocolos estándar del sector [OAuth 2.0 u OpenID Connect](active-directory-v2-protocols.md). En este artículo se describen los tipos de aplicaciones que puede compilar mediante la Plataforma de identidad de Microsoft, independientemente de su plataforma o idioma preferidos. La información está diseñada para ayudarlo a entender los escenarios de alto nivel antes de [empezar a trabajar con el código](v2-overview.md#getting-started).
+El punto de conexión de la plataforma de identidad de Microsoft admite la autenticación de diversas arquitecturas de aplicaciones modernas, todas ellas basadas en los protocolos estándar del sector [OAuth 2.0 u OpenID Connect](active-directory-v2-protocols.md). En este artículo se describen los tipos de aplicaciones que puede compilar mediante la Plataforma de identidad de Microsoft, independientemente de su plataforma o idioma preferidos. La información está diseñada para ayudarlo a entender los escenarios de alto nivel antes de empezar a trabajar con el código en los [escenarios de las aplicaciones](authentication-flows-app-scenarios.md#application-scenarios).
 
 ## <a name="the-basics"></a>Conceptos básicos
 
@@ -81,10 +81,9 @@ En las aplicaciones de servidor web, el flujo de autenticación de inicio de ses
 
 Puede confirmar la identidad del usuario mediante la validación del token de id. con una clave de firma pública recibida por el punto de conexión de la Plataforma de identidad de Microsoft. Se establece una cookie de sesión, que puede usarse para identificar al usuario en las sucesivas solicitudes de página.
 
-Para ver este escenario en acción, pruebe uno de los ejemplos de código de inicio de sesión de aplicaciones web en la sección de [introducción a la Plataforma de identidad de Microsoft](v2-overview.md#getting-started).
+Para ver este escenario en acción, pruebe los ejemplos de código del [escenario de la aplicación web que inicia la sesión de los usuarios](scenario-web-app-sign-user-overview.md).
 
 Además del inicio de sesión sencillo, una aplicación web de servidor podría tener la necesidad de acceder a otros servivio web, como una API de REST. En este caso, la aplicación de servidor web participa en un flujo combinado de OpenID Connect y OAuth 2.0, mediante el [flujo de código de autorización de OAuth 2.0](v2-oauth2-auth-code-flow.md). Para más información sobre este escenario, lea acerca de cómo [comenzar con aplicaciones web y API web](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-WebAPI-OpenIDConnect-DotNet).
-
 
 ## <a name="web-apis"></a>API web
 
@@ -106,9 +105,9 @@ Una API web puede recibir tokens de acceso de todos los tipos de aplicaciones, i
 
 ![Muestra el flujo de autenticación de API web](./media/v2-app-types/convergence-scenarios-webapi.svg)
 
-Para aprender a proteger una API web con tokens de acceso de OAuth2, consulte los ejemplos de código de API web en la sección de [introducción a la Plataforma de identidad de Microsoft](v2-overview.md#getting-started).
+Para aprender a proteger una API web con tokens de acceso de OAuth2, consulte los ejemplos de código de API web del [escenario de API web protegida](scenario-protected-web-api-overview.md).
 
-En muchos casos, las API web también tienen que realizar solicitudes salientes a otras API web de bajada protegidas por la Plataforma de identidad de Microsoft. Para ello, las API web pueden aprovechar las ventajas del flujo **con derechos delegados** , que permite a la API web intercambiar un token de acceso entrante por otro token de acceso que se usará en las solicitudes salientes. Para más información, consulte [Plataforma de identidad de Microsoft y flujo con derechos delegados de OAuth 2.0](v2-oauth2-on-behalf-of-flow.md).
+En muchos casos, las API web también tienen que realizar solicitudes salientes a otras API web de bajada protegidas por la Plataforma de identidad de Microsoft. Para ello, las API web pueden aprovechar las ventajas del flujo **con derechos delegados**, que permite a la API web intercambiar un token de acceso entrante por otro token de acceso que se usará en las solicitudes salientes. Para más información, consulte [Plataforma de identidad de Microsoft y flujo con derechos delegados de OAuth 2.0](v2-oauth2-on-behalf-of-flow.md).
 
 ## <a name="mobile-and-native-apps"></a>Aplicaciones móviles y nativas
 

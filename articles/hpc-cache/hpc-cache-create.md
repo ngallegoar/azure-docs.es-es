@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: v-erkel
-ms.openlocfilehash: 867cfa1321106c24354b29ea803a4fb914a6778d
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 77bd5e3b7a258ef83e5de4ec645ea70578fb9dfb
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92341387"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94657098"
 ---
 # <a name="create-an-azure-hpc-cache"></a>Creación de una instancia de Azure HPC Cache
 
@@ -102,7 +102,7 @@ Cuando finaliza la creación, aparece una notificación con un vínculo a la nue
 
 ## <a name="create-the-cache-with-azure-cli"></a>Creación de la memoria caché con la CLI de Azure
 
-[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+[Configuración de la CLI de Azure para Azure HPC Cache](./az-cli-prerequisites.md).
 
 > [!NOTE]
 > Actualmente, la CLI de Azure no admite la creación de una caché con claves de cifrado administradas por el cliente. Use Azure Portal.
@@ -132,11 +132,11 @@ nets/<cache_subnet_name>"``
 
   | Tamaño de memoria caché | Standard_2G | Standard_4G | Standard_8G |
   |------------|-------------|-------------|-------------|
-  | 3072 GB    | sí         | no          | No          |
+  | 3072 GB    | sí         | No          | No          |
   | 6144 GB    | sí         | sí         | No          |
   | 12288 GB   | sí         | sí         | sí         |
   | 24576 GB   | No          | sí         | sí         |
-  | 49152 GB   | No          | No          | sí         |
+  | 49152 GB   | No          | no          | sí         |
 
   Lea la sección **Establecimiento de la capacidad de la memoria caché** en la pestaña de instrucciones del portal para obtener información importante sobre los precios, el rendimiento y la definición del tamaño adecuado de la caché para su flujo de trabajo.
 
@@ -235,7 +235,7 @@ nets/<cache_subnet_name>"`
 
   | Tamaño de memoria caché | Standard_2G | Standard_4G | Standard_8G |
   |------------|-------------|-------------|-------------|
-  | 3072 GB    | sí         | no          | No          |
+  | 3072 GB    | sí         | No          | No          |
   | 6144 GB    | sí         | sí         | no          |
   | 12,288 GB   | sí         | sí         | sí         |
   | 24,576 GB   | no          | sí         | sí         |

@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein, danil
-ms.date: 09/26/2019
-ms.openlocfilehash: 334495eeef410c42fb45445c400a86ff1b777061
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.date: 11/13/2020
+ms.openlocfilehash: 415c9fdcbf0e8bfecaa48b8199702d4159bc32d9
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790345"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629196"
 ---
 # <a name="recover-using-automated-database-backups---azure-sql-database--sql-managed-instance"></a>Recuperación de una base de datos de Azure SQL Database o Instancia administrada de Azure SQL mediante copias de seguridad automatizadas
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -108,15 +108,18 @@ Puede restaurar una base de datos eliminada al momento en que se eliminó o a un
 
 La restauración de bases de datos eliminadas de Azure Portal se realiza desde el servidor o el recurso de instancia administrada.
 
+> [!TIP]
+> Las bases de datos eliminadas recientemente pueden tardar varios minutos en aparecer en la página **Bases de datos eliminadas** de Azure Portal, o al mostrar las bases de datos eliminadas [mediante programación](#programmatic-recovery-using-automated-backups).
+
 #### <a name="sql-database"></a>SQL Database
 
-Para recuperar una base de datos eliminada al momento de eliminación con Azure Portal, abra la página de información general del servidor y seleccione **Bases de datos eliminadas** . Seleccione la base de datos eliminada que desea restaurar y escriba el nombre de la nueva base de datos que se creará con los datos restaurados desde la copia de seguridad.
+Para recuperar una base de datos eliminada al momento de eliminación con Azure Portal, abra la página de información general del servidor y seleccione **Bases de datos eliminadas**. Seleccione la base de datos eliminada que desea restaurar y escriba el nombre de la nueva base de datos que se creará con los datos restaurados desde la copia de seguridad.
 
   ![Captura de pantalla de restaurar base de datos eliminada](./media/recovery-using-backups/restore-deleted-sql-database-annotated.png)
 
 #### <a name="sql-managed-instance"></a>Instancia administrada de SQL
 
-Para recuperar una base de datos administrada mediante Azure Portal, abra la página información general de instancia administrada y seleccione bases de datos **eliminadas** . Seleccione la base de datos eliminada que desea restaurar y escriba el nombre de la nueva base de datos que se creará con los datos restaurados desde la copia de seguridad.
+Para recuperar una base de datos administrada mediante Azure Portal, abra la página información general de instancia administrada y seleccione bases de datos **eliminadas**. Seleccione la base de datos eliminada que desea restaurar y escriba el nombre de la nueva base de datos que se creará con los datos restaurados desde la copia de seguridad.
 
   ![Captura de pantalla de restauración de base de datos de Instancia administrada de Azure SQL eliminada](./media/recovery-using-backups/restore-deleted-sql-managed-instance-annotated.png)
 
@@ -154,9 +157,9 @@ En Azure Portal, cree una nueva base de datos de instancia única o administrada
 
 Para realizar una restauración geográfica de una base de datos única a partir de Azure Portal en la región y el servidor de su elección, siga estos pasos:
 
-1. En **Panel** , seleccione **Agregar** > **Crear base de datos SQL** . En la pestaña **Aspectos básicos** , escriba la información necesaria.
-2. Seleccione **Configuración adicional** .
-3. Para **Usar datos existentes** , seleccione **Copia de seguridad** .
+1. En **Panel**, seleccione **Agregar** > **Crear base de datos SQL**. En la pestaña **Aspectos básicos**, escriba la información necesaria.
+2. Seleccione **Configuración adicional**.
+3. Para **Usar datos existentes**, seleccione **Copia de seguridad**.
 4. En **Copia de seguridad** en la lista desplegable de copias de seguridad de restauración geográfica disponibles seleccione una.
 
     ![Captura de pantalla de las opciones de Crear base de datos SQL](./media/recovery-using-backups/geo-restore-azure-sql-database-list-annotated.png)
@@ -167,9 +170,9 @@ Complete el proceso de creación de una nueva base de datos desde la copia de se
 
 Para realizar la restauración geográfica de una base de datos de instancia administrada de Azure Portal en una instancia administrada ya existente de una región de su elección, seleccione la instancia administrada en la que desea que se restaure la base de datos. Siga estos pasos:
 
-1. Seleccione **Nueva base de datos** .
+1. Seleccione **Nueva base de datos**.
 2. Escriba el nombre que desee para la base de datos.
-3. En **Usar datos existentes** , seleccione **Copia de seguridad** .
+3. En **Usar datos existentes**, seleccione **Copia de seguridad**.
 4. En la lista desplegable de copias de seguridad de restauración geográfica disponibles seleccione una.
 
     ![Captura de pantalla de las opciones de Nueva base de datos](./media/recovery-using-backups/geo-restore-sql-managed-instance-list-annotated.png)

@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, rarayudu, logicappspm
 ms.topic: conceptual
 ms.date: 03/11/2020
-ms.openlocfilehash: d9f25fc419a92d125dffe5c14b9b4c19cd795c6e
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 30b09d43cbe510318ac4f48e0655d5483491c215
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92318449"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94682781"
 ---
 # <a name="set-up-customer-managed-keys-to-encrypt-data-at-rest-for-integration-service-environments-ises-in-azure-logic-apps"></a>Configure claves administradas por el cliente para cifrar los datos en reposo para los entornos de servicio de integración (ISE) en Azure Logic Apps
 
@@ -39,7 +39,7 @@ En este tema se muestra cómo configurar y especificar su propia clave de cifrad
 
 * Un almacén de claves de Azure con las propiedades **Soft Delete** y **Do Not Purge**
 
-  Para obtener más información acerca de cómo habilitar estas propiedades, consulte [Información general sobre la eliminación temporal Azure Key Vault ](../key-vault/general/soft-delete-overview.md) y [Configurar las claves administradas por el cliente con Azure Key Vault](../storage/common/customer-managed-keys-configure-key-vault.md). Si no está familiarizado con Azure Key Vault, obtenga información acerca de [cómo crear un almacén de claves](../key-vault/secrets/quick-create-portal.md#create-a-vault) mediante el Azure Portal o mediante el comando de Azure PowerShell, [New-AzKeyVault](/powershell/module/az.keyvault/new-azkeyvault).
+  Para obtener más información acerca de cómo habilitar estas propiedades, consulte [Información general sobre la eliminación temporal Azure Key Vault ](../key-vault/general/soft-delete-overview.md) y [Configurar las claves administradas por el cliente con Azure Key Vault](../storage/common/customer-managed-keys-configure-key-vault.md). Si no está familiarizado con [Azure Key Vault](../key-vault/general/overview.md), aprenda a crear un almacén de claves con [Azure Portal](../key-vault/general/quick-create-portal.md), la [CLI de Azure](../key-vault/general/quick-create-cli.md) o [Azure PowerShell](../key-vault/general/quick-create-powershell.md).
 
 * En el almacén de claves, una clave se crea con estos valores de propiedad:
 

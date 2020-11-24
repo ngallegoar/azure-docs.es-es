@@ -4,7 +4,7 @@ description: Creación y administración de grupos de seguridad o grupos de Micr
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.workload: identity
@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d4651d15fb765182c788733c0542480805387871
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 6425809cfa6dde20b8ef2b1f6d4cfaf04cbef6e6
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92373597"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647093"
 ---
 # <a name="set-up-self-service-group-management-in-azure-active-directory"></a>Configuración de la administración de grupos de autoservicio en Azure Active Directory 
 
@@ -44,15 +44,15 @@ Grupos creados en | Comportamiento predeterminado del grupo de seguridad | Compo
 ## <a name="make-a-group-available-for-user-self-service"></a>Puesta a disposición de un grupo para el autoservicio del usuario
 
 1. Inicie sesión en el [Centro de administración de Azure AD](https://aad.portal.azure.com) con una cuenta que tenga el rol de administrador global en el directorio.
-1. Seleccione **Grupos** y, a continuación, seleccione el valor **General** .
-1. Establezca **Los propietarios pueden administrar solicitudes de pertenencia a grupos en el Panel de acceso** en **Sí** .
-1. Establezca **Restringir el acceso a grupos en el Panel de acceso** en **No** .
+1. Seleccione **Grupos** y, a continuación, seleccione el valor **General**.
+1. Establezca **Los propietarios pueden administrar solicitudes de pertenencia a grupos en el Panel de acceso** en **Sí**.
+1. Establezca **Restringir el acceso a grupos en el Panel de acceso** en **No**.
 1. Si establece **Los usuarios pueden crear grupos de seguridad en los portales de Azure** o **Los usuarios pueden crear grupos de Microsoft 365 en los portales de Azure** en
 
-    - **Sí** : todos los usuarios de la organización de Azure AD pueden crear nuevos grupos de seguridad y agregar miembros a estos grupos. Estos grupos nuevos también se muestran en el Panel de acceso para los restantes usuarios. Si la configuración de la directiva en el grupo lo permite, otros usuarios pueden crear solicitudes para unirse a estos grupos.
-    - **No** : los usuarios no pueden crear grupos ni cambiar los grupos existentes de los que sean propietarios. Sin embargo, pueden administrar la pertenencia a dichos grupos y aprobar las solicitudes de otros usuarios para unirse a ellos.
+    - **Sí**: todos los usuarios de la organización de Azure AD pueden crear nuevos grupos de seguridad y agregar miembros a estos grupos. Estos grupos nuevos también se muestran en el Panel de acceso para los restantes usuarios. Si la configuración de la directiva en el grupo lo permite, otros usuarios pueden crear solicitudes para unirse a estos grupos.
+    - **No**: los usuarios no pueden crear grupos ni cambiar los grupos existentes de los que sean propietarios. Sin embargo, pueden administrar la pertenencia a dichos grupos y aprobar las solicitudes de otros usuarios para unirse a ellos.
 
-También puede usar **Propietarios que pueden asignar miembros como propietarios de grupos en los portales de Azure** y **Propietarios que pueden asignar miembros como propietarios de grupos en los portales de Azure** para lograr un control de acceso más pormenorizado sobre la administración de grupos de autoservicio para los usuarios.
+También puede usar **Owners who can assign members as group owners in the Azure portal** (Los propietarios pueden asignar miembros como propietarios de grupos en Azure Portal) para conseguir un control más pormenorizado sobre la administración de grupos de autoservicio para los usuarios.
 
 Cuando los usuarios puedan crear grupos, todos los usuarios de su organización podrán crear nuevos grupos y, a continuación, podrán, como propietarios predeterminados, agregarles miembros. No puede especificar a personas que puedan crear sus propios grupos. Solo puede especificar a personas para convertir a otro miembro del grupo en propietario del grupo.
 

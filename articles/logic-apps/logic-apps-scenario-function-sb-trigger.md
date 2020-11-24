@@ -1,22 +1,22 @@
 ---
 title: Llamada a aplicaciones lógicas con Azure Functions
-description: Creación de funciones de Azure que llaman a aplicaciones lógicas o las desencadenan mediante la escucha a Azure Service Bus
+description: Llamada o desencadenamiento de aplicaciones lógicas con Azure Functions y Azure Service Bus
 services: logic-apps
 ms.suite: integration
 ms.reviewer: jehollan, klam, logicappspm
 ms.topic: article
 ms.date: 11/08/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: fcf7f1a27633c978c10f541d0a341225fbcb126d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 25f761d85ebfd0ac16f182941c5b5c29636066bf
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89013782"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629740"
 ---
 # <a name="call-or-trigger-logic-apps-by-using-azure-functions-and-azure-service-bus"></a>Llamada o desencadenamiento de aplicaciones lógicas con Azure Functions y Azure Service Bus
 
-Puede utilizar [Azure Functions](../azure-functions/functions-overview.md) para desencadenar una aplicación lógica cuando necesite implementar una tarea o un cliente de escucha de ejecución prolongada. Por ejemplo, puede crear una función de Azure que escuche en una cola de [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) y que active inmediatamente una aplicación lógica como desencadenador de push.
+Puede utilizar [Azure Functions](../azure-functions/functions-overview.md) para desencadenar una aplicación lógica cuando necesite implementar una tarea o un cliente de escucha de ejecución prolongada. Por ejemplo, puede crear una función que escuche en una cola de [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) y que active inmediatamente una aplicación lógica como desencadenador de push.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -24,7 +24,7 @@ Puede utilizar [Azure Functions](../azure-functions/functions-overview.md) para 
 
 * Un espacio de nombres de Azure Service Bus. Si no tiene un espacio de nombres [creélo primero](../service-bus-messaging/service-bus-create-namespace-portal.md).
 
-* Una aplicación de función de Azure, que es un contenedor para las funciones de Azure. Si no tiene una aplicación de función, [créela primero](../azure-functions/functions-create-first-azure-function.md) y asegúrese de seleccionar .NET como la pila en tiempo de ejecución.
+* Una aplicación de función, que es un contenedor de las funciones. Si no tiene una aplicación de función, [créela primero](../azure-functions/functions-create-first-azure-function.md) y asegúrese de seleccionar .NET como la pila en tiempo de ejecución.
 
 * Conocimientos básicos acerca de [cómo crear aplicaciones lógicas](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
@@ -94,7 +94,7 @@ En este escenario, tiene una función que ejecuta cada aplicación lógica que d
 
    ![Generación de la dirección URL de devolución de llamada para el desencadenador](./media/logic-apps-scenario-function-sb-trigger/callback-URL-for-trigger.png)
 
-## <a name="create-azure-function"></a>Creación de una función de Azure
+## <a name="create-a-function"></a>Creación de una función
 
 A continuación, cree la función que actúa como desencadenador y escuche la cola.
 
