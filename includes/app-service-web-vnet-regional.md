@@ -2,14 +2,14 @@
 author: ccompy
 ms.service: app-service-web
 ms.topic: include
-ms.date: 06/08/2020
+ms.date: 10/21/2020
 ms.author: ccompy
-ms.openlocfilehash: 54f80310f274b757d118f34542c1aa2e838ca7b9
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 1a9f468b8e2f9fff20b9b26b8890d485e426b691
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92082212"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94523902"
 ---
 Cuando se utiliza la versión regional de Integración con red virtual, la aplicación puede acceder a:
 
@@ -18,7 +18,7 @@ Cuando se utiliza la versión regional de Integración con red virtual, la aplic
 * Servicios protegidos mediante puntos de conexión de servicio.
 * Recursos de diferentes conexiones de Azure ExpressRoute.
 * Recursos de la VNet con la que está integrado.
-* Recursos de diferentes conexiones emparejadas, lo que incluye conexiones de Azure ExpressRoute.
+* Recursos en conexiones emparejadas, lo que incluye conexiones de Azure ExpressRoute.
 * Puntos de conexión privados 
 
 Si Integración con red virtual se utiliza con redes virtuales de la misma región, se pueden usar las siguientes características de redes de Azure:
@@ -42,10 +42,10 @@ De forma predeterminada, su aplicación solo enruta el tráfico de RFC 1918 a s
 Existen algunas limitaciones cuando se la característica Integración con red virtual se utiliza con redes virtuales que están en la misma región:
 
 * No se puede acceder a los recursos en las conexiones de emparejamiento global.
-* La característica solo está disponible en las unidades de escalado de Azure App Service más recientes que admiten planes PremiumV2 de App Service. Tenga en cuenta que *esto no significa que la aplicación deba ejecutarse con una tarifa de precios PremiumV2*, solo que se debe ejecutar en un plan de App Service en el que esté disponible la opción PremiumV2 (lo que implica que se trata de una unidad de escalado más reciente donde también está disponible esta característica de integración con la red virtual).
+* La característica está disponible en todas las unidades de escalado de App Service de nivel Premium V2 y Premium V3. También está disponible en Estándar, pero solo desde las unidades de escalado de App Service más recientes. Si está en una unidad de escalado anterior, solo puede usar la característica desde un plan de App Service Premium V2. Si quiere estar seguro de que puede usar la característica en un plan de App Service Estándar, cree la aplicación en un plan de App Service Premium V3. Estos planes solo se admiten en las unidades de escalado más recientes. Si quiere, después puede reducir verticalmente.  
 * La subred de integración solo puede usarla un plan de App Service.
 * Las aplicaciones del plan Aislado que estén en una instancia de App Service Environment no pueden usar la característica.
-* La característica requiere una subred sin usar que sea /27 con un mínimo de 32 direcciones en una VNet de Azure Resource Manager.
+* La característica requiere una subred sin usar que sea /28 o mayor en una red virtual de Azure Resource Manager.
 * La aplicación y la VNet deben estar en la misma región.
 * No puede eliminar una VNet con una aplicación integrada. Quite la integración antes de eliminar la VNet.
 * Solo puede integrar con redes virtuales de la misma suscripción que la aplicación.
@@ -53,7 +53,21 @@ Existen algunas limitaciones cuando se la característica Integración con red v
 * No se puede cambiar la suscripción de una aplicación o un plan mientras haya una aplicación que use Integración con red virtual regional.
 * La aplicación no puede resolver direcciones en Azure DNS Private Zones sin que se realicen cambios en la configuración
 
-Se usa una dirección para cada instancia del plan. Si escala la aplicación a cinco instancias, se utilizarán cinco direcciones. Puesto que el tamaño de la subred no se puede cambiar después de la asignación, debe usar una subred lo suficientemente grande como para dar cabida a cualquier escala que pueda alcanzar la aplicación. Un tamaño de /26 con 64 direcciones es el recomendado. Un tamaño de /26 con 64 direcciones da cabida a un plan Premium con 30 instancias. Al escalar o reducir verticalmente un plan, necesita el doble de direcciones durante un breve período de tiempo.
+La integración con red virtual depende del uso de una subred dedicada.  Al aprovisionar una subred, la subred de Azure pierde 5 direcciones IP desde el inicio. Se usa una dirección de la subred de integración para cada instancia del plan. Si escala la aplicación a cuatro instancias, se usan cuatro direcciones. El débito de 5 direcciones del tamaño de la subred significa que el número máximo de direcciones disponibles por bloque CIDR es:
+
+- /28 tiene 11 direcciones
+- /27 tiene 27 direcciones
+- /26 tiene 59 direcciones
+
+Si escala o reduce verticalmente el tamaño, necesita doblar la necesidad de la dirección durante un breve período de tiempo. Los límites de tamaño significan que las instancias compatibles reales disponibles por tamaño de subred son:
+
+- Si la subred es /28, la escala horizontal máxima es de 5 instancias
+- Si la subred es /27, la escala horizontal máxima es de 13 instancias
+- Si la subred es /26, la escala horizontal máxima es de 29 instancias
+
+Los límites indicados en la escala horizontal máxima dan por hecho que va a necesitar escalar o reducir verticalmente el tamaño o la SKU en algún momento. 
+
+Puesto que el tamaño de la subred no se puede cambiar después de la asignación, use una subred lo suficientemente grande como para dar cabida a cualquier escala que pueda alcanzar la aplicación. Para evitar problemas con la capacidad de la subred, el tamaño recomendado es /26 con 64 direcciones.  
 
 Si quiere que las aplicaciones de otro plan lleguen a una VNet a la que ya están conectadas aplicaciones de otro plan, debe seleccionar una subred distinta a la usada por la característica Integración con VNet ya existente.
 
@@ -82,16 +96,15 @@ Las rutas del Protocolo de puerta de enlace de borde (BGP) también afectan al t
 
 ### <a name="azure-dns-private-zones"></a>Azure DNS Private Zones 
 
-Una vez que la aplicación se integra con la red virtual, usa el mismo servidor DNS que el configurado para la red virtual. De forma predeterminada, la aplicación no funcionará con Azure DNS Private Zones. Para que lo haga es preciso agregar la siguiente configuración de la aplicación:
-
-1. WEBSITE_DNS_SERVER con el valor 168.63.129.16 
-1. WEBSITE_VNET_ROUTE_ALL con el valor 1
-
-Esta configuración enviará todas las llamadas salientes desde la aplicación a la red virtual, además de permitir que la aplicación use Azure DNS Private Zones.
+Una vez que la aplicación se integra con la red virtual, usa el mismo servidor DNS que el configurado para la red virtual. Para invalidar este comportamiento en la aplicación, configure el valor de la aplicación WEBSITE_DNS_SERVER con la dirección del servidor DNS que quiera. Si tiene un servidor DNS personalizado configurado con la red virtual, pero quiere que la aplicación use zonas privadas de Azure DNS, debe establecer WEBSITE_DNS_SERVER con el valor 168.63.129.16. 
 
 ### <a name="private-endpoints"></a>Puntos de conexión privados
 
-Si desea realizar llamadas a [puntos de conexión privados][privateendpoints], es preciso que se integre con Azure DNS Private Zones o que administre el punto de conexión privado en el servidor DNS que usa la aplicación. 
+Si quiere realizar llamadas a [Puntos de conexión privados][privateendpoints], debe asegurarse de que las búsquedas de DNS se resuelvan en el punto de conexión privado. Para asegurarse de que las búsquedas de DNS de la aplicación apunten a los puntos de conexión privados, puede:
+
+* realizar la integración con Azure DNS Private Zones. Si la red virtual no tiene un servidor DNS personalizado, esto es automático
+* administrar el punto de conexión privado en el servidor DNS que usa la aplicación. Para ello, debe conocer la dirección del punto de conexión privado y, a continuación, apuntar el punto de conexión al que está intentando acceder a esa dirección con un registro A
+* configurar su propio servidor DNS para reenviarlo a Azure DNS Private Zones
 
 <!--Image references-->
 [4]: ../includes/media/web-sites-integrate-with-vnet/vnetint-appsetting.png

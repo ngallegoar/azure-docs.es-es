@@ -3,29 +3,27 @@ title: Administración de copias de seguridad de recursos compartidos de archivo
 description: Obtenga información sobre cómo usar la CLI de Azure para administrar y supervisar los recursos compartidos de archivos de Azure de los que Azure Backup ha realizado una copia de seguridad.
 ms.topic: conceptual
 ms.date: 01/15/2020
-ms.openlocfilehash: 44c095d58e2da5a74985ce216268aab15922ed1e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5a8a785016845b836a102663a959e4b2f28696b6
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91332753"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566459"
 ---
 # <a name="manage-azure-file-share-backups-with-the-azure-cli"></a>Administración de copias de seguridad de recursos compartidos de archivos de Azure con la CLI de Azure
 
 La CLI de Azure es la forma de usar la línea de comandos para administrar los recursos de Azure. Es una herramienta excelente para personalizar la automatización del uso de los recursos de Azure. En este artículo se explica cómo realizar tareas para administrar y supervisar los recursos compartidos de archivos de Azure de los que se ha realizado una copia de seguridad mediante [Azure Backup](./backup-overview.md). También puede llevar a cabo estos pasos en [Azure Portal](https://portal.azure.com/).
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-Para instalar y usar la CLI localmente, debe ejecutar la versión 2.0.18 de la CLI de Azure o una posterior. Para averiguar la versión de la CLI, ejecute `az --version`. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli).
-
 ## <a name="prerequisites"></a>Prerrequisitos
 
 En este artículo se da por supuesto que ya tiene una copia de seguridad de un recurso compartido de archivos de Azure realizada por [Azure Backup](./backup-overview.md). Si no la tiene, consulte [Copia de seguridad de recursos compartidos de archivos de Azure con la CLI](backup-afs-cli.md) para configurar la copia de seguridad para los recursos compartidos de archivos. En este artículo, se usarán los siguientes recursos:
-
-* **Grupo de recursos**: *azurefiles*
-* **Almacén de Recovery Services**: *azurefilesvault*
-* **Cuenta de almacenamiento**: *afsaccount*
-* **Recurso compartido de archivos**: *azurefiles*
+   -  **Grupo de recursos**: *azurefiles*
+   -  **Almacén de Recovery Services**: *azurefilesvault*
+   -  **Cuenta de almacenamiento**: *afsaccount*
+   -  **Recurso compartido de archivos**: *azurefiles*
+  
+  [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+   - Este tutorial requiere la versión 2.0.18 o posterior de la CLI de Azure. Si usa Azure Cloud Shell, ya está instalada la versión más reciente.
 
 ## <a name="monitor-jobs"></a>Supervisión de trabajos
 

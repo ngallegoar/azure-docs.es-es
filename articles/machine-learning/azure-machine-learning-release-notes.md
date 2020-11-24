@@ -9,12 +9,12 @@ ms.topic: reference
 ms.author: jmartens
 author: j-martens
 ms.date: 09/10/2020
-ms.openlocfilehash: 0afd1f2f8dd06c3c224d64304eec2e18489a7e81
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 54b15d5865b1abb0d624628ed4b5c9892ab04d41
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94489138"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542140"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notas de la versión de Azure Machine Learning
 
@@ -107,6 +107,16 @@ Obtenga más información sobre el [etiquetado de segmentación de instancias de
   + **azureml-train-automl-client**
     + Se corrigió un problema por el que get_output puede generar un error de tipo XGBoostError.
 
+### <a name="azure-machine-learning-studio-notebooks-experience-october-update"></a>Experiencia con Notebooks de Azure Machine Learning Studio (actualización de octubre)
++ **Nuevas características:**
+  + [Compatibilidad completa con redes virtuales](https://docs.microsoft.com/azure/machine-learning/how-to-enable-studio-virtual-network)
+  + [Modo de enfoque](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#focus-mode)
+  + Guardado de cuadernos Ctrl-S
+  + Números de línea
+
++ **Mejoras y correcciones de errores**
+  + Mejora de la velocidad y la confiabilidad del kernel
+  + Actualizaciones de la interfaz de usuario de los widgets de Jupyter
 
 ## <a name="2020-10-12"></a>12-10-2020
 

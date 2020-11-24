@@ -4,12 +4,12 @@ description: Análisis del rendimiento y diagnóstico de aplicaciones web durant
 ms.topic: conceptual
 ms.date: 03/17/2017
 ms.custom: vs-azure
-ms.openlocfilehash: a3937719fd47ba988cf1e0a93f4c06fcc8112d3e
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: d2de29d897c84496fd44d74d88d58decbc64b7f8
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91932216"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94532909"
 ---
 # <a name="debug-your-applications-with-azure-application-insights-in-visual-studio"></a>Depure sus aplicaciones con Azure Application Insights en Visual Studio
 En Visual Studio (2015 y versiones posteriores), se pueden diagnosticar y analizar los problemas de rendimiento de las aplicaciones web, tanto en tiempo de depuración como en producción, mediante los datos de telemetría de [Azure Application Insights](./app-insights-overview.md).
@@ -53,12 +53,12 @@ Informes de excepciones en la ventana de búsqueda. (En algunos tipos anteriores
 
 Haga clic en una excepción para obtener un seguimiento de la pila. Si el código de la aplicación es abierto en Visual Studio, puede hacer clic para recorrer el seguimiento de la pila hasta dar con la línea correspondiente del código.
 
-![Seguimiento de la pila de excepción](./media/visual-studio/17.png)
+![Captura de pantalla que muestra el objeto About en un seguimiento de la pila.](./media/visual-studio/17.png)
 
 ## <a name="view-request-and-exception-summaries-in-the-code"></a>Ver resúmenes de solicitudes y excepciones en el código
 En la línea de Code Lens, encima de cada método de controlador, puede ver un recuento de las solicitudes y excepciones registradas por Application Insights en las últimas 24 horas.
 
-![Seguimiento de la pila de excepción](./media/visual-studio/21.png)
+![Captura de pantalla que muestra una excepción en un cuadro de diálogo de contexto.](./media/visual-studio/21.png)
 
 > [!NOTE] 
 > Code Lens muestra los datos de Application Insights solo si tiene [configurada la aplicación para enviar telemetría al portal de Application Insights](./asp-net.md).

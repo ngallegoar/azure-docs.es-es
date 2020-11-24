@@ -4,25 +4,25 @@ description: archivo de inclusión
 services: digital-twins
 ms.service: digital-twins
 ms.topic: include
-ms.date: 07/09/2020
+ms.date: 11/11/2020
 author: deepakpalled
 ms.author: dpalled
 manager: diviso
 ms.custom: include file
-ms.openlocfilehash: 7259e1981f873c8385a02fe4f353dcdda495f823
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 5ec1f71d13d5d2fb3af86c1c63d5e61ce13d2c82
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91287427"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94553081"
 ---
 ### <a name="property-limits"></a>Límites de propiedad
 
-Los límites de propiedad de Azure Time Series Insights han aumentado a 1000 desde un límite máximo de 800 en Gen1. Las propiedades de evento proporcionadas tienen columnas JSON, CSV y de gráfico correspondientes que puede ver en el [explorador de Azure Time Series Insights Gen2](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-quickstart).
+Los límites de propiedad de Azure Time Series Insights han aumentado a 1000 para el almacenamiento intermedio y ningún límite de propiedad para el almacenamiento en reposo. Las propiedades de evento proporcionadas tienen columnas JSON, CSV y de gráfico correspondientes que puede ver en el [explorador de Azure Time Series Insights Gen2](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-quickstart).
 
 | SKU | Propiedades máximas |
 | --- | --- |
-| Gen2 (L1) | Propiedades de 1000 (columnas) |
+| Gen2 (L1) | 1000 propiedades (columnas) para almacenamiento intermedio e ilimitadas para almacenamiento en reposo|
 | Gen1 (S1) | 600 propiedades (columnas) |
 | Gen1 (S2) | 800 propiedades (columnas) |
 

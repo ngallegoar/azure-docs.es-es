@@ -3,17 +3,17 @@ title: 'Supervisión del rendimiento de la aplicación web de Java en Linux: Azu
 description: Supervisión del rendimiento de aplicaciones extendida de sitios web de Java con el complemento CollectD para Application Insights.
 ms.topic: conceptual
 ms.date: 03/14/2019
-ms.openlocfilehash: 63b64226c9e788e060298050a74d9009c8035b89
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: a4ce1ad6a8248680b8bdeec8a98195c3dbfe31a1
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93379016"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94532875"
 ---
-# <a name="collectd-linux-performance-metrics-in-application-insights"></a>collectd: métricas de rendimiento de Linux en Application Insights
+# <a name="collectd-linux-performance-metrics-in-application-insights-deprecated"></a>collectd: Métricas de rendimiento de Linux en Application Insights [en desuso]
 
 > [!IMPORTANT]
-> El enfoque recomendado para supervisar aplicaciones Java es utilizar la instrumentación automática sin cambiar el código. Siga las instrucciones para el [agente de Java 3.0 de Application Insights](./java-in-process-agent.md).
+> El **enfoque recomendado** para supervisar aplicaciones Java es usar la instrumentación automática sin cambiar el código. Siga las instrucciones del **[agente de Java 3.0 de Application Insights](./java-in-process-agent.md)** .
 
 Para explorar las métricas de rendimiento del sistema de Linux en [Application Insights](./app-insights-overview.md), instale [collectd](https://collectd.org/) junto con su complemento Application Insights. Esta solución de código abierto recopila diversas estadísticas de red y del sistema.
 

@@ -1,7 +1,7 @@
 ---
 title: Uso de Studio para implementar modelos entrenados en el diseñador
 titleSuffix: Azure Machine Learning
-description: Use Azure Machine Learning Studio para implementar modelos entrenados en el diseñador.
+description: Use Azure Machine Learning Studio para implementar modelos de Machine Learning sin escribir una sola línea de código.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ ms.reviewer: peterlu
 ms.date: 10/29/2020
 ms.topic: conceptual
 ms.custom: how-to, deploy, studio
-ms.openlocfilehash: 0d98d5103e26eb0b4ee0d31b95f1d07cdaa396ae
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 23c6417741d0753fcdaaf30c89c8f51348cc5dc5
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92927590"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94554689"
 ---
 # <a name="use-the-studio-to-deploy-models-trained-in-the-designer"></a>Uso de Studio para implementar modelos entrenados en el diseñador
 
@@ -67,14 +67,14 @@ Después de registrar el modelo, puede encontrarlo en la página de recursos de 
 
 Necesita los siguientes archivos para implementar un modelo en Azure Machine Learning Studio:
 
-- **Archivo de script de entrada** : carga el modelo entrenado, procesa los datos de entrada de las solicitudes, realiza inferencias en tiempo real y devuelve el resultado. El diseñador genera automáticamente un archivo de script de entrada `score.py` cuando se completa el módulo **Entrenar modelo**.
+- **Archivo de script de entrada**: carga el modelo entrenado, procesa los datos de entrada de las solicitudes, realiza inferencias en tiempo real y devuelve el resultado. El diseñador genera automáticamente un archivo de script de entrada `score.py` cuando se completa el módulo **Entrenar modelo**.
 
-- **Archivo de dependencias de Conda** : especifica de qué paquetes de PIP y Conda depende su servicio web. El diseñador crea automáticamente un archivo `conda_env.yaml` cuando se completa el módulo **Entrenar modelo**.
+- **Archivo de dependencias de Conda**: especifica de qué paquetes de PIP y Conda depende su servicio web. El diseñador crea automáticamente un archivo `conda_env.yaml` cuando se completa el módulo **Entrenar modelo**.
 
-Puede descargar estos dos archivos en el panel derecho del módulo **Entrenar modelo** :
+Puede descargar estos dos archivos en el panel derecho del módulo **Entrenar modelo**:
 
 1. Seleccione el módulo **Train Model** (Entrenar modelo).
-1. En la pestaña **Resultados y registros** , seleccione la carpeta `trained_model_outputs`.
+1. En la pestaña **Resultados y registros**, seleccione la carpeta `trained_model_outputs`.
 1. Descargue los archivos `conda_env.yaml` y `score.py`.
 
     ![Captura de pantalla de archivos de descarga para la implementación en el panel derecho](./media/how-to-deploy-model-designer/download-artifacts-in-right-pane.png)
@@ -98,7 +98,7 @@ Como alternativa, puede descargar los archivos desde la página de recursos de *
 
 Después de descargar los archivos necesarios, ya puede implementar el modelo.
 
-1. En la página de recursos de **Modelos** , seleccione el modelo registrado.
+1. En la página de recursos de **Modelos**, seleccione el modelo registrado.
 1. Seleccione el botón **Implementar**.
 1. En el menú de configuración, escriba la siguiente información:
 
@@ -108,7 +108,7 @@ Después de descargar los archivos necesarios, ya puede implementar el modelo.
     - Cargue `conda_env.yml` para el **archivo de dependencias de Conda**. 
 
     >[!TIP]
-    > En la configuración **avanzada** , puede establecer la capacidad de CPU y memoria y otros parámetros para la implementación. Esta configuración es importante para ciertos modelos, como los modelos PyTorch, que consumen una cantidad considerable de memoria (aproximadamente 4 GB).
+    > En la configuración **avanzada**, puede establecer la capacidad de CPU y memoria y otros parámetros para la implementación. Esta configuración es importante para ciertos modelos, como los modelos PyTorch, que consumen una cantidad considerable de memoria (aproximadamente 4 GB).
 
 1. Seleccione **Implementar** para implementar el modelo como un punto de conexión en tiempo real.
 
@@ -261,12 +261,12 @@ def run(data):
     return json.dumps(result_df.to_dict("list"))
 ```
 
-En el caso de los modelos de **Recomendador Wide & Deep** y **Vowpal Wabbit** , puede configurar el parámetro de modo de puntuación mediante los métodos siguientes:
+En el caso de los modelos de **Recomendador Wide & Deep** y **Vowpal Wabbit**, puede configurar el parámetro de modo de puntuación mediante los métodos siguientes:
 
 - Los nombres de parámetro son las combinaciones de minúsculas y caracteres de subrayado de los nombres de parámetro de [puntuación del modelo de Vowpal Wabbit](./algorithm-module-reference/score-vowpal-wabbit-model.md) y [puntuación del recomendador Wide and Deep](./algorithm-module-reference/score-wide-and-deep-recommender.md).
 - Los valores de parámetro de tipo de modo son cadenas de los nombres de opción correspondientes. Tome como ejemplo el **tipo de predicción de recomendador** en los códigos anteriores. El valor puede ser `'Rating Prediction'`o `'Item Recommendation'`. No se permiten otros valores.
 
-Para el modelo entrenado **Recomendador SVD** , los nombres y valores de parámetro quizás sean menos obvios. Puede buscar las tablas siguientes para decidir cómo establecer los parámetros.
+Para el modelo entrenado **Recomendador SVD**, los nombres y valores de parámetro quizás sean menos obvios. Puede buscar las tablas siguientes para decidir cómo establecer los parámetros.
 
 | Nombre del parámetro de [Puntuación del recomendador SVD](./algorithm-module-reference/score-svd-recommender.md)                           | Nombre del parámetro del archivo de script de entrada |
 | ------------------------------------------------------------ | --------------------------------------- |

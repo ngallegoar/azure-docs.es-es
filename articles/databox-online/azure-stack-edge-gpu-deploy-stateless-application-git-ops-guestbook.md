@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/25/2020
 ms.author: alkohli
-ms.openlocfilehash: 3200cfe290cbba208c61e914b17ffa6cd65e6eee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d323504a46cd35525c889a94d2d044193c1471ac
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90899560"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94535952"
 ---
 # <a name="deploy-a-php-guestbook-stateless-application-with-redis-on-arc-enabled-kubernetes-cluster-on-azure-stack-edge-pro-gpu"></a>Implementación de una aplicación sin estado de libro de visitas PHP con Redis en un clúster de Kubernetes habilitado para Arc en Azure Stack Edge Pro con GPU
 
@@ -79,7 +79,7 @@ Siga estos pasos para configurar el recurso de Azure Arc para implementar una co
 
 1. Vaya a **Configuraciones** y seleccione **+Agregar configuración**.
 
-    ![Ir a Configuraciones](media/azure-stack-edge-gpu-connect-powershell-interface/select-configurations-1.png)
+    ![Captura de pantalla que muestra el clúster de Kubernetes habilitado para Azure Arc con la opción Agregar configuración seleccionada.](media/azure-stack-edge-gpu-connect-powershell-interface/select-configurations-1.png)
 
 1. En **Agregar configuración**, escriba los valores adecuados para los campos y seleccione **Aplicar**.
 
@@ -100,11 +100,11 @@ Siga estos pasos para configurar el recurso de Azure Arc para implementar una co
 
 1. Se inicia la implementación de la configuración y **Operator state** (Estado del operador) aparece como **Pendiente**. 
 
-    ![Ir a Configuraciones](media/azure-stack-edge-gpu-connect-powershell-interface/view-configurations-1.png)
+    ![Captura de pantalla que muestra el clúster de Kubernetes habilitado para Azure Arc en un estado pendiente cuando se actualiza.](media/azure-stack-edge-gpu-connect-powershell-interface/view-configurations-1.png)
 
 1. La implementación tarda un par de minutos. Una vez finalizada, **Operator state** (Estado del operador) se muestra como **Instalado**.
 
-    ![Ir a Configuraciones](media/azure-stack-edge-gpu-connect-powershell-interface/view-configurations-2.png)
+    ![Captura de pantalla que muestra el clúster de Kubernetes habilitado para Azure Arc en un estado instalado.](media/azure-stack-edge-gpu-connect-powershell-interface/view-configurations-2.png)
 
 
 ## <a name="verify-deployment"></a>Comprobación de la implementación

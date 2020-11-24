@@ -1,7 +1,7 @@
 ---
 title: Creación y administración de una instancia de proceso
 titleSuffix: Azure Machine Learning
-description: Aprenda a crear y administrar una instancia de proceso en el área de trabajo de Azure Machine Learning. Use la instancia de proceso como entorno de desarrollo o para fines de entrenamiento e inferencia de desarrollo/pruebas.
+description: Información sobre la creación y administración de una instancia de proceso de Azure Machine Learning. Se puede usar como entorno de desarrollo o como destino de proceso para desarrollo y pruebas.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: 6e0d80c35a4822ad46973c94b32cf71b129ad1e1
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: bdae8d77dc5e51cf4a181459ab2e159f31f06e31
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93318018"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94543109"
 ---
 # <a name="create-and-manage-an-azure-machine-learning-compute-instance"></a>Creación y administración de una instancia de proceso de Azure Machine Learning
 
@@ -42,7 +42,7 @@ Las instancias de proceso pueden ejecutar trabajos de manera segura en un [entor
 
 ## <a name="create"></a>Crear
 
-**Tiempo estimado** : Aproximadamente 5 minutos.
+**Tiempo estimado**: Aproximadamente 5 minutos.
 
 La creación de una instancia de proceso es un proceso único en el área de trabajo. Puede volver a usar este proceso como una estación de trabajo de desarrollo o como un destino de proceso para el entrenamiento. Puede tener varias instancias de proceso asociadas al área de trabajo.
 
@@ -241,7 +241,7 @@ Azure RBAC puede controlar estas acciones:
 
 Abra la ventana de terminal de la instancia de proceso de cualquiera de estas maneras:
 
-* RStudio: seleccione la pestaña **Terminal** , situada en la parte superior izquierda.
+* RStudio: seleccione la pestaña **Terminal**, situada en la parte superior izquierda.
 * Jupyter Lab:  seleccione el icono **Terminal** en el encabezado **Otros** de la pestaña Iniciador.
 * Jupyter:  seleccione **Nuevo>Terminal** en la parte superior derecha de la pestaña Archivos.
 * SSH en la máquina, si habilitó el acceso SSH cuando se creó la instancia de proceso.
@@ -252,13 +252,13 @@ Use la ventana de terminal para instalar paquetes y crear más kernels.
 
 Puede instalar paquetes directamente en Jupyter Notebook o en RStudio:
 
-* RStudio: use la pestaña **Paquetes** , situada en la parte inferior derecha, o la pestaña **Consola** , situada en la parte superior izquierda.  
+* RStudio: use la pestaña **Paquetes**, situada en la parte inferior derecha, o la pestaña **Consola**, situada en la parte superior izquierda.  
 * Python: agregue el código de instalación y ejecútelo en una celda de Jupyter Notebook.
 
 O bien, puede realizar la instalación desde una ventana de terminal. Instale los paquetes de Python en el entorno de **Python 3.6: AzureML**.  Instale los paquetes de R en el entorno de **R**.
 
 > [!NOTE]
-> Para la administración de paquetes en un cuaderno, use las funciones magic **%pip** o **%conda** para instalar paquetes automáticamente en el **kernel que actualmente está en ejecución** , en lugar de **!pip** o **!conda** que hacen referencia a todos los paquetes (incluidos los paquetes que se encuentran fuera del kernel que actualmente está en ejecución)
+> Para la administración de paquetes en un cuaderno, use las funciones magic **%pip** o **%conda** para instalar paquetes automáticamente en el **kernel que actualmente está en ejecución**, en lugar de **!pip** o **!conda** que hacen referencia a todos los paquetes (incluidos los paquetes que se encuentran fuera del kernel que actualmente está en ejecución)
 
 ## <a name="add-new-kernels"></a>Incorporación de nuevos kernels
 

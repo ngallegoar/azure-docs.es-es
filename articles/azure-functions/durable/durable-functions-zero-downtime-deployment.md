@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: azfuncdf
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 11bbc30179cc27f4799b1fd2869cb312dfa34473
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2c96f2cc37c47c77b82ca86d5fd0295f0c66a896
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87093075"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94553699"
 ---
 # <a name="zero-downtime-deployment-for-durable-functions"></a>Implementación sin tiempo de inactividad en Durable Functions
 
@@ -54,7 +54,7 @@ Use el procedimiento siguiente para configurar este escenario.
 
 1. Para cada espacio, cree un nuevo valor para la aplicación; por ejemplo, `DurableManagementStorage`. Establezca su valor en la cadena de conexión de distintas cuentas de almacenamiento. La extensión de Durable Functions usa estas cuentas de almacenamiento para una [ejecución confiable](./durable-functions-orchestrations.md). Use una cuenta de almacenamiento independiente para cada espacio. No marque este valor como un valor de ranura de implementación.
 
-1. En la [sección durableTask del archivo host.json](durable-functions-bindings.md#hostjson-settings) de la aplicación de funciones, especifique `azureStorageConnectionStringName` como nombre del valor de aplicación que creó en el paso 3.
+1. En la [sección durableTask del archivo host.json](durable-functions-bindings.md#hostjson-settings) de la aplicación de funciones, especifique `connectionStringName` (Durable 2.x) o `azureStorageConnectionStringName` (Durable 1.x) como nombre del valor de aplicación que ha creado en el paso 3.
 
 En el diagrama siguiente se muestra la configuración descrita de las ranuras de implementación y las cuentas de almacenamiento. En este posible escenario anterior a la implementación, la versión 2 de una aplicación de funciones se ejecuta en el espacio de producción, mientras que la versión 1 permanece en el espacio de ensayo.
 
@@ -71,7 +71,10 @@ Los siguientes fragmentos JSON son ejemplos del valor de la cadena de conexión 
   "version": 2.0,
   "extensions": {
     "durableTask": {
-      "azureStorageConnectionStringName": "DurableManagementStorage"
+      "hubName": "MyTaskHub",
+      "storageProvider": {
+        "connectionStringName": "DurableManagementStorage"
+      }
     }
   }
 }

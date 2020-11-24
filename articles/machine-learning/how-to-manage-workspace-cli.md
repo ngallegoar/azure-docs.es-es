@@ -10,12 +10,12 @@ author: Blackmist
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-azurecli
-ms.openlocfilehash: 9b55c4873c4d7ee430e7d9ce84d2782a37e522ae
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 7de78a52482b2f07cb4e5e036509e0f9e402a3f4
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94442147"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94576281"
 ---
 # <a name="create-a-workspace-for-azure-machine-learning-with-azure-cli"></a>Creación de un área de trabajo para Azure Machine Learning con la CLI de Azure
 
@@ -26,7 +26,7 @@ En este artículo aprenderá a crear un área de trabajo de Azure Machine Learni
 
 * Una **suscripción de Azure**. Si no tiene una ya, pruebe la [versión gratuita o de pago de Azure Machine Learning](https://aka.ms/AMLFree).
 
-* Para usar los comandos de la CLI de este documento desde su **entorno local** , necesita la [CLI de Azure](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
+* Para usar los comandos de la CLI de este documento desde su **entorno local**, necesita la [CLI de Azure](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
 
     Si usa el [Azure Cloud Shell](https://azure.microsoft.com//features/cloud-shell/), la CLI es accesible a través del explorador y reside en la nube.
 
@@ -103,11 +103,11 @@ La respuesta de este comando será similar al siguiente JSON:
 }
 ```
 
-Para obtener más información sobre cómo trabajar con grupos de recursos, consulte [az group](//cli/azure/group?preserve-view=true&view=azure-cli-latest).
+Para obtener más información sobre cómo trabajar con grupos de recursos, consulte [az group](/cli/azure/group?preserve-view=true&view=azure-cli-latest).
 
 ### <a name="automatically-create-required-resources"></a>Creación automática de los recursos necesarios
 
-Para crear una nueva área de trabajo en la que __los servicios se creen automáticamente__ , use el siguiente comando:
+Para crear una nueva área de trabajo en la que __los servicios se creen automáticamente__, use el siguiente comando:
 
 ```azurecli-interactive
 az ml workspace create -w <workspace-name> -g <resource-group-name>
@@ -156,9 +156,12 @@ Para obtener más información sobre el uso de un punto de conexión privado y u
 
 ### <a name="customer-managed-key-and-high-business-impact-workspace"></a>Clave administrada por el cliente y área de trabajo de alto impacto de negocio
 
-De forma predeterminada, las métricas y los metadatos del área de trabajo se almacenan en una instancia de Azure Cosmos DB que Microsoft mantiene. Estos datos se cifran con claves administradas por Microsoft. 
+De manera predeterminada, los metadatos del área de trabajo se almacenan en una instancia de Azure Cosmos DB que Microsoft mantiene. Estos datos se cifran con claves administradas por Microsoft.
 
-En lugar de usar la clave administrada por Microsoft, puede proporcionar su propia clave. Así, se crea la instancia de Azure Cosmos DB que almacena las métricas y los metadatos en la suscripción de Azure. Use el parámetro `--cmk-keyvault` para especificar la instancia de Azure Key Vault que contiene la clave y `--resource-cmk-uri` para especificar la dirección URL de la clave en el almacén.
+> [!NOTE]
+> Azure Cosmos DB __no__ se usa para almacenar información como el rendimiento del modelo, la información registrada por los experimentos ni la información registrada desde las implementaciones del modelo. Para obtener más información sobre la supervisión de estos elementos, vea la sección [Supervisión y registro](concept-azure-machine-learning-architecture.md) del artículo de arquitectura y conceptos.
+
+En lugar de usar la clave administrada por Microsoft, puede proporcionar su propia clave. Así, se crea la instancia de Azure Cosmos DB que almacena metadatos en la suscripción de Azure. Use el parámetro `--cmk-keyvault` para especificar la instancia de Azure Key Vault que contiene la clave y `--resource-cmk-uri` para especificar la dirección URL de la clave en el almacén.
 
 Para usar los parámetros `--cmk-keyvault` y `--resource-cmk-uri`, primero debe realizar las siguientes acciones:
 
@@ -186,7 +189,7 @@ Para crear un área de trabajo que use los recursos existentes, debe proporciona
 > [!IMPORTANT]
 > No es necesario especificar todos los recursos existentes. Puede especificar uno o varios. Por ejemplo, puede especificar una cuenta de almacenamiento existente y el área de trabajo creará los demás recursos.
 
-+ **Cuenta de Azure Storage** : `az storage account show --name <storage-account-name> --query "id"`
++ **Cuenta de Azure Storage**: `az storage account show --name <storage-account-name> --query "id"`
 
     La respuesta de este comando es similar al siguiente texto y es el Id. de la cuenta de almacenamiento:
 
@@ -195,7 +198,7 @@ Para crear un área de trabajo que use los recursos existentes, debe proporciona
     > [!IMPORTANT]
     > Si quiere usar una cuenta de Azure Storage existente, no puede ser una cuenta prémium (Premium_LRS o Premium_GRS). Tampoco puede tener un espacio de nombres jerárquico (usado con Azure Data Lake Storage Gen2). No se admite Premium Storage ni el espacio de nombres jerárquico con la cuenta de almacenamiento _predeterminada_ del área de trabajo. Puede usar Premium Storage o el espacio de nombres jerárquico con cuentas de almacenamiento _no predeterminadas_.
 
-+ **Azure Application Insights** :
++ **Azure Application Insights**:
 
     1. Instale la extensión de Application Insights:
 
@@ -213,13 +216,13 @@ Para crear un área de trabajo que use los recursos existentes, debe proporciona
 
         `"/subscriptions/<service-GUID>/resourceGroups/<resource-group-name>/providers/microsoft.insights/components/<application-insight-name>"`
 
-+ **Azure Key Vault** : `az keyvault show --name <key-vault-name> --query "ID"`
++ **Azure Key Vault**: `az keyvault show --name <key-vault-name> --query "ID"`
 
     La respuesta de este comando es similar al siguiente texto y es el Id. del almacén de claves:
 
     `"/subscriptions/<service-GUID>/resourceGroups/<resource-group-name>/providers/Microsoft.KeyVault/vaults/<key-vault-name>"`
 
-+ **Azure Container Registry** : `az acr show --name <acr-name> -g <resource-group-name> --query "id"`
++ **Azure Container Registry**: `az acr show --name <acr-name> -g <resource-group-name> --query "id"`
 
     La respuesta de este comando es similar al siguiente texto y es el Id. del registro de contenedor:
 

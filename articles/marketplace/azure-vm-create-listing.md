@@ -7,37 +7,37 @@ ms.topic: how-to
 author: emuench
 ms.author: mingshen
 ms.date: 10/19/2020
-ms.openlocfilehash: 2af96c0c2e850d8e1be67c23e71aa677773c1e03
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 7030ffeb49c0a3919894f6dcf81e7252777267c5
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92283401"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629604"
 ---
 # <a name="how-to-configure-virtual-machine-offer-listing-details"></a>Procedimientos para configurar los detalles las propiedades de la lista de ofertas de máquinas virtuales
 
-En la página **Offer listing** (Descripción de la oferta), define los detalles de la oferta, como el nombre, la descripción, los vínculos y los contactos.
+En la página **Descripción de la oferta** (seleccione en el menú de navegación izquierdo del Centro de partners), defina los detalles de la oferta, como el nombre, la descripción, los vínculos y los contactos.
 
 > [!NOTE]
-> No es necesario que el contenido de la descripción de la oferta, por ejemplo, la descripción, los documentos, las capturas de pantallas y los términos de uso, esté en inglés si la descripción de la oferta comienza por la frase "Esta aplicación solo está disponible en \<non-English language>." También puede proporcionar una dirección URL que vincule a un sitio que ofrezca contenido en un idioma distinto del que se usa en el contenido de la descripción de la oferta.
+> No es necesario que el contenido de la descripción de la oferta, por ejemplo, la descripción, los documentos, las capturas de pantallas y los términos de uso, esté en inglés si la descripción de la oferta comienza por la frase "Esta aplicación solo está disponible en \<non-English language>." También puede proporcionar una dirección web que vincule a un sitio que ofrezca contenido en un idioma distinto del que se usa en el contenido de la descripción de la oferta.
 
 ## <a name="marketplace-details"></a>Detalles del marketplace
 
 ### <a name="name"></a>Nombre
 
-El nombre que escriba aquí se muestra a los clientes como el título de la descripción de la oferta. Este campo se rellena automáticamente con el texto que escribió en el cuadro **Offer alias** (Alias de la oferta) al crear la oferta. Puede cambiar este nombre más adelante. El nombre:
+El nombre que escriba aquí se muestra a los clientes como el título de la descripción de la oferta. Este campo se rellena automáticamente con el texto que se ha escrito en el cuadro **Alias de oferta** al crear la oferta. El nombre:
 
-- Puede ser una marca comercial. Puede incluir símbolos de marca comercial y copyright.
-- No puede contener más de 50 caracteres.
+- puede incluir símbolos de marca comercial y copyright.
+- Debe tener 50 caracteres o menos.
 - No puede incluir emojis.
 
 ### <a name="search-results-summary"></a>Resumen de los resultados de la búsqueda
 
-Especifique una descripción breve de la oferta que se mostrará en los resultados de búsqueda de Azure Marketplace. Puede contener un máximo de 100 caracteres.
+Especifique una descripción breve de la oferta para que aparezca en los resultados de búsqueda de Azure Marketplace. Puede contener un máximo de 100 caracteres.
 
-### <a name="long-summary"></a>Resumen largo
+### <a name="short-description"></a>Descripción breve
 
-Especifique una descripción larga de la oferta que se va a mostrar en los resultados de búsqueda de Azure Marketplace. Puede contener un máximo de 256 caracteres.
+Especifique una descripción más extensa de la oferta para que aparezca en los resultados de búsqueda de Azure Marketplace. Puede contener un máximo de 256 caracteres.
 
 ### <a name="description"></a>Descripción
 
@@ -49,14 +49,14 @@ Use etiquetas HTML para formatear la descripción y hacer que sea más atractiva
 
 ### <a name="privacy-policy-link"></a>Vínculo de la directiva de privacidad
 
-Escriba la dirección web (URL) de la directiva de privacidad de la organización. Asegúrese de que la oferta cumpla con las leyes y regulaciones de privacidad. También debe publicar una directiva de privacidad válida en su sitio web.
+Escriba la dirección web (URL) de la directiva de privacidad de la organización. Asegúrese de que la oferta cumple con las leyes y regulaciones de privacidad. También debe publicar una directiva de privacidad válida en su sitio web.
 
 ## <a name="useful-links"></a>Vínculos útiles
 
-Proporcione documentos en línea complementarios sobre su oferta. Para agregar un vínculo, seleccione **Add a link** (Agregar un vínculo) y, a continuación, rellene los campos siguientes:
+Proporcione documentos en línea complementarios sobre su oferta. Para agregar un vínculo, seleccione **Agregar un vínculo** y rellene los campos siguientes:
 
-- **Name** : los clientes verán el nombre en la página de detalles.
-- **Dirección URL del vínculo** : escriba un vínculo para que los clientes vean el documento en línea.
+- **Name**: los clientes verán el nombre en la página de detalles.
+- **Vínculo**: escriba una dirección web para que los clientes vean el documento en línea.
 
 ## <a name="customer-support-links"></a>Vínculos de soporte al cliente
 
@@ -67,21 +67,17 @@ Proporcione el sitio web de soporte técnico en el que los clientes pueden poner
 
 ## <a name="partner-support-contact"></a>Contacto de soporte técnico del asociado
 
-Proporcione información de contacto para que los asociados de Microsoft la usen cuando los clientes abran una incidencia de soporte técnico. Esta información no aparece en Azure Marketplace.
-
-- Nombre
-- Email
-- Teléfono
+Proporcione el **Nombre**, **Correo electrónico** y **Teléfono** para que los asociados de Microsoft los usen cuando los clientes abran una incidencia de soporte técnico. Esta información no aparece en Azure Marketplace.
 
 ## <a name="engineering-contact"></a>Contacto de ingeniería
 
-Proporcione información de contacto para que Microsoft la use en caso de problemas con la oferta, incluidos los problemas de certificación. Esta información no aparece en Azure Marketplace.
+Proporcione el **Nombre**, **Correo electrónico** y **Teléfono** para que Microsoft los use en caso de problemas con la oferta, incluidos problemas de certificación. Esta información no aparece en Azure Marketplace.
 
-- Nombre
-- Email
-- Teléfono
+## <a name="cloud-solution-provider-program-contact"></a>Contacto del programa Proveedor de soluciones en la nube
 
-## <a name="azure-marketplace-media"></a>Elementos multimedia de Azure Marketplace
+Proporcione el **Nombre**, **Correo electrónico** y **Teléfono** de la persona que administra el programa CSP (si procede). Esta información no aparece en Azure Marketplace. En **Materiales de marketing del programa CSP**, escriba la dirección web en la que los asociados de este programa pueden ver los materiales de marketing.
+
+## <a name="marketplace-media"></a>Elementos multimedia del marketplace
 
 Proporcione logotipos e imágenes para usarlos con la oferta. Todas las imágenes deben estar en formato PNG. Las imágenes borrosas harán que se rechace el envío.
 
@@ -90,12 +86,12 @@ Proporcione logotipos e imágenes para usarlos con la oferta. Todas las imágene
 >[!NOTE]
 >Si tiene problemas al cargar archivos, asegúrese de que la red local no bloquee el servicio https://upload.xboxlive.com que usa el Centro de partners.
 
-### <a name="azure-marketplace-logos"></a>Logotipos de Azure Marketplace
+### <a name="logos"></a>Logotipos
 
-Proporcione un archivo PNG para el logotipo de tamaño **Grande** . El Centro de partners lo usará para crear un logotipo **Pequeño** y un logotipo **Mediano** . Opcionalmente, puede reemplazarlos por imágenes diferentes más adelante.
+Proporcione un archivo PNG para el logotipo de tamaño **Grande**. El Centro de partners lo usará para crear un logotipo **Pequeño** y un logotipo **Mediano**. Opcionalmente, puede reemplazarlos por imágenes diferentes más adelante.
 
 - **Grande** (de 216 x 216 a 350 x 350 píxeles, obligatorio)
-- **Mediano** (90 x 90 píxeles, opcional)
+- **Mediano** (90 x 90 píxeles, opcional)
 - **Pequeño** (48 x 48 píxeles, opcional)
 
 Estos logotipos se usan en distintos lugares de la publicación:
@@ -114,8 +110,8 @@ Agregue hasta cinco vídeos que muestren la oferta. Los vídeos se deben hospeda
 
 Para ver más recursos sobre las listas de marketplace, consulte [Procedimientos recomendados para las listas de ofertas de marketplace](gtm-offer-listing-best-practices.md).
 
-Seleccione **Guardar borrador** antes de continuar.
+Seleccione **Guardar borrador** antes de pasar a la siguiente pestaña del menú de navegación izquierdo, **Vista previa de la audiencia**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Creación de un plan en Azure Stack Hub](azure-vm-create-plans.md)
+- [Creación de una audiencia preliminar](azure-vm-create-preview.md)

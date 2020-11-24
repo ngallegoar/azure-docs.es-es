@@ -1,6 +1,6 @@
 ---
 title: Autenticación basada en contraseñas con Azure Active Directory
-description: Guía arquitectónica para lograr este patrón de autenticación
+description: Guía de arquitectura para lograr la autenticación basada en contraseñas con Azure Active Directory.
 services: active-directory
 author: BarbaraSelden
 manager: daveba
@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f05bf8f5f7ec4907c2cd61ff48e3438dfa1e097a
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 74815976036abafc56f97e622351a1018fe30504
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92114015"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94576939"
 ---
 # <a name="password-based-authentication-with-azure-active-directory"></a>Autenticación basada en contraseñas con Azure Active Directory
 
@@ -35,13 +35,13 @@ Debe protegerse con la autenticación previa y proporcionar inicio de sesión ú
 
 ## <a name="components-of-system"></a>Componentes del sistema
 
-* **Usuario** : accede a una aplicación basada en formularios desde Aplicaciones o visitando directamente el sitio. 
+* **Usuario**: accede a una aplicación basada en formularios desde Aplicaciones o visitando directamente el sitio. 
 
 * **Explorador web** : el componente con el que el usuario interactúa para acceder a la dirección URL externa de la aplicación. El usuario accede a la aplicación basada en formularios a través de la extensión MyApps. 
 
-* **Extensión MyApps** : identifica la aplicación de SSO basada en contraseñas configurada y proporciona las credenciales al formulario de inicio de sesión. La extensión MyApps se instala en el explorador web. 
+* **Extensión MyApps**: identifica la aplicación de SSO basada en contraseñas configurada y proporciona las credenciales al formulario de inicio de sesión. La extensión MyApps se instala en el explorador web. 
 
-* **Azure AD** : autentica al usuario.
+* **Azure AD**: autentica al usuario.
 
 ## <a name="implement-password-based-sso-with-azure-ad"></a>Implementación de SSO basado en contraseñas con Azure AD
 

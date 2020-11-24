@@ -1,7 +1,7 @@
 ---
 title: Desencadenamiento de la canalización de ML para datos nuevos
 titleSuffix: Azure Machine Learning
-description: Aprenda a desencadenar la ejecución de una canalización de aprendizaje automático mediante Azure Logic Apps.
+description: Aprenda a desencadenar la ejecución de una canalización de Azure Machine Learning mediante Azure Logic Apps para responder a los nuevos datos.
 services: machine-learning
 author: NilsPohlmann
 ms.author: nilsp
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.date: 02/07/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4
-ms.openlocfilehash: dabcf30488e45fbe6c7c5b9e5aa0c8bd57f28fd8
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 119436cbe03e619b0d09df30ab2c5dc34126b0ce
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94443507"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629400"
 ---
 # <a name="trigger-a-run-of-a-machine-learning-pipeline-from-a-logic-app"></a>Desencadenamiento de una ejecución de una canalización de Machine Learning desde una aplicación lógica
 

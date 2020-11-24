@@ -6,18 +6,18 @@ author: ms-puneet-nagpal
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: conceptual
-ms.date: 07/31/2020
+ms.date: 11/13/2020
 ms.author: punagpal
-ms.openlocfilehash: 3cae648e3c2bddbafec555621d97575a007cfeb4
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 310be095af10f5ed5860c4f627caa0373be55835
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93394873"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629672"
 ---
 # <a name="azure-iot-connector-for-fhir-preview-data-flow"></a>Flujo de datos del conector de Azure IoT para FHIR (versión preliminar)
 
-En este artículo se proporciona información general sobre el flujo de datos en el conector de Azure IoT para FHIR*. Aprenderá las diferentes fases de procesamiento de datos en el conector de Azure IoT para FHIR que transforman los datos del dispositivo en recursos [Observación](https://www.hl7.org/fhir/observation.html) basados en FHIR.
+En este artículo se proporciona información general sobre el flujo de datos del conector de Azure IoT para Recursos Rápidos de Interoperabilidad en Salud (FHIR&#174;)*. Aprenderá las diferentes fases de procesamiento de datos en el conector de Azure IoT para FHIR que transforman los datos del dispositivo en recursos [Observación](https://www.hl7.org/fhir/observation.html) basados en FHIR.
 
 ![Flujo de datos del conector de Azure IoT para FHIR](media/concepts-iot-data-flow/iot-connector-data-flow.png)
 
@@ -64,6 +64,4 @@ Haga clic en el siguiente paso para aprender a crear plantillas de asignación d
 >[!div class="nextstepaction"]
 >[Plantillas de asignación del conector de Azure IoT para FHIR (versión preliminar)](iot-mapping-templates.md)
 
-*En Azure Portal, el conector de Azure IoT para FHIR se conoce como conector de IoT (versión preliminar).
-
-FHIR es la marca registrada de HL7 y se usa con su permiso.
+*En Azure Portal, el conector de Azure IoT para FHIR se conoce como conector de IoT (versión preliminar). FHIR es una marca registrada de HL7 y se usa con el permiso de HL7. 

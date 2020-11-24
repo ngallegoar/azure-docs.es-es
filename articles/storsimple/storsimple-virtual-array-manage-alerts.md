@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/12/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5f32ec82c2b4c6d8b902195782b286cca82befb0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a24890f42b795bb4b9a7d187f74ceb9a4f8557f5
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85507643"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94539233"
 ---
 # <a name="use-storsimple-device-manager-to-manage-alerts-for-the-storsimple-virtual-array"></a>Use de StorSimple Device Manager para administrar alertas de la matriz virtual de StorSimple
 
@@ -48,25 +48,25 @@ Después de habilitar la notificación por correo electrónico para una matriz v
     ![Configuración de alertas](./media/storsimple-virtual-array-manage-alerts/alerts2.png)
 2. Se abrirá la hoja **Configuración**. En la sección **Configuración del dispositivo**, seleccione **General**. Se abrirá la hoja **Configuración general**.
    
-    ![configuración de notificaciones de alerta](./media/storsimple-virtual-array-manage-alerts/alerts4.png)
+    ![Captura de pantalla que muestra el panel Configuración del dispositivo con el área Configuración de alertas resaltada.](./media/storsimple-virtual-array-manage-alerts/alerts4.png)
 3. En la hoja **Configuración general**, vaya a la sección **Configuración de alertas** y establezca lo siguiente:
    
    1. En el campo **Habilitar notificación por correo electrónico**, seleccione **SÍ**.
    2. En el campo **Administradores del servicio de correo electrónico**, seleccione **SÍ** si desea que el administrador de servicios y todos los coadministradores reciban las notificaciones de alerta.
    3. En el campo **Destinatarios de correo electrónico adicionales**, escriba las direcciones de correo electrónico de los demás destinatarios que deben recibir las notificaciones de alerta. Escriba los nombres con el formato *someone\@somewhere.com*. Utilice punto y coma para separar las direcciones de correo electrónico. Puede configurar un máximo de 20 direcciones de correo electrónico por dispositivo virtual.
       
-       ![configuración de notificaciones de alerta](./media/storsimple-virtual-array-manage-alerts/alerts6.png)
+       ![Captura de pantalla que muestra los detalles de Configuración de alertas con los ajustes descritos en este paso.](./media/storsimple-virtual-array-manage-alerts/alerts6.png)
    4. Para enviar una notificación de correo electrónico de prueba, haga clic en **Enviar correo electrónico de prueba**. El servicio StorSimple Device Manager mostrará mensajes de estado mientras envía la notificación de prueba.
       
-       ![Correo electrónico de notificación de alertas de prueba enviado](./media/storsimple-virtual-array-manage-alerts/alerts7.png)
+       ![Captura de pantalla que muestra un cuadro de diálogo informativo que comprueba el correo electrónico de prueba.](./media/storsimple-virtual-array-manage-alerts/alerts7.png)
       
       > [!NOTE]
-      > Si el mensaje de notificación de prueba no puede enviarse, el servicio StorSimple Device Manager mostrará un mensaje adecuado. Haga clic en **Aceptar**y, después de algunos minutos, intente volver a enviar el mensaje de notificación de prueba.
+      > Si el mensaje de notificación de prueba no puede enviarse, el servicio StorSimple Device Manager mostrará un mensaje adecuado. Haga clic en **Aceptar** y, después de algunos minutos, intente volver a enviar el mensaje de notificación de prueba.
       >
       >
    5. Haga clic en **Guardar** en la parte inferior de la página para guardar la configuración. Cuando se le pida confirmación, haga clic en **Sí**.
       
-      ![Correo electrónico de notificación de alertas de prueba enviado](./media/storsimple-virtual-array-manage-alerts/alerts10.png)
+      ![Captura de pantalla que muestra el panel de configuración con el botón Guardar seleccionado.](./media/storsimple-virtual-array-manage-alerts/alerts10.png)
 
 ## <a name="common-alert-conditions"></a>Condiciones de alerta comunes
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 10/19/2020
-ms.openlocfilehash: a14ccb74e6f0ac2454255d609662706cb53ede31
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 433875e52e77a8992197b47fe0424cd0b7e9f50c
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129599"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94628295"
 ---
 # <a name="how-to-plan-a-virtual-machine-offer"></a>Planeación de una oferta de máquina virtual
 
@@ -47,7 +47,7 @@ Las ofertas de máquina virtual tienen los siguientes requisitos técnicos:
 
 Una VM contiene dos componentes:
 
-- **Disco duro virtual del sistema operativo** : contiene el sistema operativo y la solución que se implementa con la oferta. El proceso de preparación del disco duro virtual es diferente en función de si se basa en Linux, en Windows o una máquina virtual personalizada.
+- **Disco duro virtual del sistema operativo**: contiene el sistema operativo y la solución que se implementa con la oferta. El proceso de preparación del disco duro virtual es diferente en función de si se basa en Linux, en Windows o una máquina virtual personalizada.
 - **Discos duros virtuales de discos de datos** (opcional): el almacenamiento persistente dedicado para una máquina virtual. No use el disco duro virtual del sistema operativo (por ejemplo, la unidad C:) para almacenar la información persistente. 
     - Puede incluir hasta 16 discos de datos.
     - Use un VHD por cada disco de datos, incluso si el disco está vacío.
@@ -59,7 +59,7 @@ Para obtener instrucciones detalladas sobre la preparación de los activos técn
 
 ## <a name="preview-audience"></a>Público preliminar
 
-Una audiencia preliminar puede tener acceso a la oferta de la VM antes de publicarla en Azure Marketplace a fin de probar la funcionalidad completa. En la página **Audiencia preliminar** , puede definir una audiencia preliminar limitada. 
+Una audiencia preliminar puede tener acceso a la oferta de la VM antes de publicarla en Azure Marketplace a fin de probar la funcionalidad completa. En la página **Audiencia preliminar**, puede definir una audiencia preliminar limitada. 
 
 > [!NOTE]
 > Una audiencia preliminar no es lo mismo que un plan privado. Un plan privado es el que solo está disponible para una audiencia determinada de su elección. Esto le permite negociar un plan personalizado con clientes específicos. Para obtener más información, vea la próxima sección: Planes
@@ -100,7 +100,7 @@ En el ejemplo siguiente se muestra una oferta de máquina virtual en Azure Marke
 
 Puede restringir la detección y la implementación de su VM para un conjunto de clientes específico. Para ello, publique la imagen y los precios como un plan privado. Los planes privados le ofrecen la posibilidad de crear ofertas exclusivas para sus clientes más próximos y proporcionan software y términos personalizados. Los términos personalizados le permiten resaltar una gran variedad de escenarios, incluidas las ofertas sobre el terreno con precios y términos especializados, así como acceso anticipado a software de versión limitada. Los planes privados permiten ofrecer precios o productos específicos a un conjunto limitado de clientes.
 
-Para obtener más información, consulte planes de [Planes y precios de las ofertas del marketplace comercial](plans-pricing.md) y [Ofertas privadas en Azure Marketplace](https://azure.microsoft.com/blog/private-offers-on-azure-marketplace).
+Para obtener más información, vea [Planes y precios de las ofertas del marketplace comercial](plans-pricing.md) y [Ofertas privadas en el marketplace comercial de Microsoft](private-offers.md).
 
 ## <a name="test-drives"></a>Versiones de prueba
 
