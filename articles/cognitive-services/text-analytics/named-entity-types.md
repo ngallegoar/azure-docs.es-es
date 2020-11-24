@@ -35,8 +35,8 @@ Use este artículo para buscar las categorías de entidad que [Reconocimiento de
 
 [!INCLUDE [biomedical entity types](./includes/entity-types/health-entities.md)]
 
-***
+Pasos siguientes
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>[Uso del reconocimiento de entidades con nombre en Text Analytics](how-tos/text-analytics-how-to-entity-linking.md)
 
-* [Uso del reconocimiento de entidades con nombre en Text Analytics](how-tos/text-analytics-how-to-entity-linking.md)
+_ <bpt id="p1">[</bpt>How to use Named Entity Recognition in Text Analytics<ept id="p1">](how-tos/text-analytics-how-to-entity-linking.md)</ept>

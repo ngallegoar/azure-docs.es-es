@@ -6,18 +6,17 @@ metadata:
   description: Aprenda a usar grupos, nombres de dominio y licencias para administrar la autenticación de usuarios en un organización de Azure AD.
   services: active-directory
   ms.service: active-directory
-  ms.subservice: enterprise-users
   manager: daveba
   ms.topic: landing-page
   ms.date: 10/19/2020
   author: curtand
   ms.author: curtand
-  ms.openlocfilehash: c6f9f80e9aecb68e1bd88f04a6aa032cf87470d7
-  ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+  ms.openlocfilehash: a919a9785163776cfbcfb52a378405c0ac870035
+  ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 11/20/2020
-  ms.locfileid: "94986035"
+  ms.lasthandoff: 11/23/2020
+  ms.locfileid: "95503037"
 landingContent:
 - title: Acerca de la administración de usuarios empresariales
   linkLists:
@@ -33,7 +32,7 @@ landingContent:
       url: licensing-directory-independence.md
     - text: Administración del acceso mediante grupos
       url: ../fundamentals/active-directory-manage-groups.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
-- title: Primeros pasos
+- title: Introducción
   linkLists:
   - linkListType: quickstart
     links:
