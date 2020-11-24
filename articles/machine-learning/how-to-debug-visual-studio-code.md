@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: luisquintanilla
 ms.author: luquinta
 ms.date: 09/30/2020
-ms.openlocfilehash: e042fd62d99c9fdf88a144c93739bf1f3f08a78c
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 12163419ad779acfa116f1dee66284623e2d45fb
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325579"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616117"
 ---
 # <a name="interactive-debugging-with-visual-studio-code"></a>Depuración interactiva con Visual Studio Code
 
@@ -58,7 +58,7 @@ Use la extensión de Azure Machine Learning para validar, ejecutar y depurar los
     1. Proporcione el nombre del script que quiere ejecutar. La ruta de acceso es relativa al directorio abierto en VS Code.
     1. Elija si quiere usar un conjunto de datos de Azure Machine Learning o no. Puede crear [conjuntos de datos de Azure Machine Learning](how-to-manage-resources-vscode.md#create-dataset) mediante la extensión.
     1. La herramienta debugpy es necesaria para asociar el depurador al contenedor que ejecuta el experimento. Para agregar debugpy como dependencia, seleccione **Add Debugpy** (Agregar debugpy). De lo contrario, seleccione **Skip** (Omitir). Si no se agrega debugpy como dependencia, el experimento se ejecuta sin asociarse al depurador.
-    1. En el editor, se abre un archivo de configuración que contiene los valores de configuración de ejecución. Si está satisfecho con la configuración, seleccione **Submit experiment** (Enviar experimento). Como alternativa, abra la paleta de comandos ( **View > Command Palette** [Ver > Paleta de comandos]) en la barra de menús y escriba el comando `Azure ML: Submit experiment` en el cuadro de texto.
+    1. En el editor, se abre un archivo de configuración que contiene los valores de configuración de ejecución. Si está satisfecho con la configuración, seleccione **Submit experiment** (Enviar experimento). Como alternativa, abra la paleta de comandos (**View > Command Palette** [Ver > Paleta de comandos]) en la barra de menús y escriba el comando `Azure ML: Submit experiment` en el cuadro de texto.
 1. Una vez enviado el experimento, se crea una imagen de Docker que contiene el script y las configuraciones especificadas en la configuración de ejecución.
 
     Cuando se inicia el proceso de compilación de la imagen de Docker, el contenido del archivo `60_control_log.txt` se transmite a la consola de salida en VS Code.
@@ -294,7 +294,7 @@ Guarde el valor de `ip_address`. Se usa en la siguiente sección.
 
     1. En VS Code, seleccione el menú __Depurar__ y, luego, seleccione __Abrir configuraciones__. Se abre un archivo denominado __launch.json__.
 
-    1. En el archivo __launch.json__ , busque la línea que contiene `"configurations": [` e inserte el texto siguiente después de ella. Cambie la entrada `"host": "<IP-ADDRESS>"` a la dirección IP devuelta en los registros de la sección anterior. Cambie la entrada `"localRoot": "${workspaceFolder}/code/step"` a un directorio local que contenga una copia del script que se está depurando:
+    1. En el archivo __launch.json__, busque la línea que contiene `"configurations": [` e inserte el texto siguiente después de ella. Cambie la entrada `"host": "<IP-ADDRESS>"` a la dirección IP devuelta en los registros de la sección anterior. Cambie la entrada `"localRoot": "${workspaceFolder}/code/step"` a un directorio local que contenga una copia del script que se está depurando:
 
         ```json
         {
@@ -357,7 +357,7 @@ Las implementaciones de servicios web locales requieren una instalación de Dock
 
     1. En VS Code, seleccione el menú __Depurar__ y, luego, seleccione __Abrir configuraciones__. Se abre un archivo denominado __launch.json__.
 
-    1. En el archivo __launch.json__ , busque la línea que contiene `"configurations": [` e inserte el texto siguiente después de ella:
+    1. En el archivo __launch.json__, busque la línea que contiene `"configurations": [` e inserte el texto siguiente después de ella:
 
         ```json
         {

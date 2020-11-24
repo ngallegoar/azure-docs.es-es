@@ -1,6 +1,6 @@
 ---
 title: Delegación restringida de Kerberos con Azure Active Directory
-description: Guía arquitectónica para lograr este patrón de autenticación
+description: Guía de arquitectura para lograr la delegación restringida de Kerberos con Azure Active Directory.
 services: active-directory
 author: BarbaraSelden
 manager: daveba
@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 77f90cd7aa8d972226a8f134eaa7b3abfe7bea66
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 62c8f230ca2b2d0db1170cde9b24f9e4819889bb
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92114031"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94577131"
 ---
 # <a name="windows-authentication---kerberos-constrained-delegation-with-azure-active-directory"></a>Autenticación de Windows: Delegación restringida de Kerberos con Azure Active Directory
 
@@ -36,19 +36,19 @@ Existe la necesidad de proporcionar acceso remoto, proteger con autenticación p
 
 ## <a name="components-of-system"></a>Componentes del sistema
 
-* **Usuario** : Accede a la aplicación heredada atendida por Application Proxy.
+* **Usuario**: Accede a la aplicación heredada atendida por Application Proxy.
 
-* **Explorador web** : Componente con el que el usuario interactúa para acceder a la dirección URL externa de la aplicación.
+* **Explorador web**: Componente con el que el usuario interactúa para acceder a la dirección URL externa de la aplicación.
 
-* **Azure AD** : Autentica al usuario. 
+* **Azure AD**: Autentica al usuario. 
 
-* **Servicio Application Proxy** : Actúa como proxy inverso para enviar la solicitud del usuario a la aplicación local. Se basa en Azure AD. Application Proxy también puede aplicar directivas de acceso condicional.
+* **Servicio Application Proxy**: Actúa como proxy inverso para enviar la solicitud del usuario a la aplicación local. Se basa en Azure AD. Application Proxy también puede aplicar directivas de acceso condicional.
 
-* **Conector de Application Proxy** : Se instala de forma local en servidores Windows para proporcionar conectividad a la aplicación. Devuelve la respuesta a Azure AD. Realiza la negociación de KCD con Active Directory, suplantando al usuario para obtener un token de Kerberos para la aplicación.
+* **Conector de Application Proxy**: Se instala de forma local en servidores Windows para proporcionar conectividad a la aplicación. Devuelve la respuesta a Azure AD. Realiza la negociación de KCD con Active Directory, suplantando al usuario para obtener un token de Kerberos para la aplicación.
 
-* **Active Directory** : Envía el token de Kerberos para la aplicación al conector de Application Proxy.
+* **Active Directory**: Envía el token de Kerberos para la aplicación al conector de Application Proxy.
 
-* **Aplicaciones heredadas** : Aplicaciones que reciben solicitudes de usuario de Application Proxy. Las aplicaciones heredadas devuelven la respuesta al conector de Application Proxy.
+* **Aplicaciones heredadas**: Aplicaciones que reciben solicitudes de usuario de Application Proxy. Las aplicaciones heredadas devuelven la respuesta al conector de Application Proxy.
 
 ## <a name="implement-windows-authentication-kcd-with-azure-ad"></a>Implementación de la autenticación de Windows (KCD) con Azure AD
 

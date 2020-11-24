@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.date: 07/28/2020
 ms.author: cynthn
 ms.reviewer: zivr
-ms.openlocfilehash: 3b407ae18316071d77cc87992a70a4fba857ab64
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 0b0e198075455f697c87ad48741a770e6f78b5a5
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91979026"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542157"
 ---
 # <a name="azure-dedicated-hosts"></a>Hosts dedicados de Azure
 
@@ -84,7 +84,6 @@ Incidencias y limitaciones conocidas cuando se usa la selección automática de 
 
 - No se podrán aplicar las Ventajas híbridas de Azure en los hosts dedicados.
 - No se podrá reimplementar la máquina virtual. 
-- No se podrá controlar el mantenimiento de los hosts dedicados.
 - No se podrán usar máquinas virtuales de las series Lsv2, NVasv4, NVsv3, Msv2 o M con hosts dedicados. 
 
 
@@ -118,9 +117,9 @@ No todas las configuraciones de orquestación y optimización de conjunto de esc
 
 ## <a name="maintenance-control"></a>Control de mantenimiento
 
-En ocasiones, es posible que la infraestructura que da soporte a las máquinas virtuales se actualice para mejorar la confiabilidad, el rendimiento, la seguridad y para iniciar nuevas características. La plataforma Azure intenta minimizar el impacto del mantenimiento de la plataforma siempre que sea posible, pero los clientes con cargas de trabajo*sensibles al mantenimiento* no pueden tolerar los pocos segundos en los que la máquina virtual debe estar sin funcionamiento o congelada para realizar el mantenimiento.
+En ocasiones, es posible que la infraestructura que da soporte a las máquinas virtuales se actualice para mejorar la confiabilidad, el rendimiento, la seguridad y para iniciar nuevas características. La plataforma Azure intenta minimizar el impacto del mantenimiento de la plataforma siempre que sea posible, pero los clientes con cargas de trabajo *sensibles al mantenimiento* no pueden tolerar los pocos segundos en los que la máquina virtual debe estar sin funcionamiento o congelada para realizar el mantenimiento.
 
-El **control del mantenimiento** proporciona a los clientes una opción para omitir las actualizaciones de plataforma normales programadas en sus hosts dedicados y, después, aplicarlas en el momento que prefieran en un periodo acumulado de 35 días.
+El **control del mantenimiento** proporciona a los clientes una opción para omitir las actualizaciones de plataforma normales programadas en sus hosts dedicados y, después, aplicarlas en el momento que prefieran en un periodo acumulado de 35 días. Dentro de la ventana de mantenimiento, puede aplicar el mantenimiento directamente en el nivel de host, en cualquier orden. Una vez finalizada la ventana de mantenimiento, Microsoft avanzará y aplicará el mantenimiento pendiente a los hosts en un orden que puede no seguir los dominios de error definidos por el usuario.
 
 Para obtener más información, consulte [Administración de las actualizaciones de la plataforma con el control de mantenimiento](./maintenance-control.md).
 

@@ -1,7 +1,7 @@
 ---
 title: Compatibilidad con inicio de sesión único y directivas de protección de aplicaciones en el desarrollo de aplicaciones móviles | Azure
 titleSuffix: Microsoft identity platform
-description: Explicación e información general de la creación de aplicaciones móviles que admiten inicio de sesión único y directivas de protección de aplicaciones
+description: Explicación e información general sobre la creación de aplicaciones móviles que admiten el inicio de sesión único y directivas de protección de aplicaciones con la plataforma de identidad de Microsoft y la integración con Azure Active Directory.
 services: active-directory
 author: knicholasa
 manager: CelesteDG
@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/14/2020
 ms.author: nichola
-ms.openlocfilehash: 09fc29b54951d2f33acc725c734e01e3d3364ff0
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.openlocfilehash: 4a9282882d23ecbdc3c03ca158ea3de5566143e7
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94331613"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94634861"
 ---
 # <a name="support-single-sign-on-and-app-protection-policies-in-mobile-apps-you-develop"></a>Compatibilidad con inicio de sesión único y directivas de protección de aplicaciones en el desarrollo de aplicaciones móviles
 
-El inicio de sesión único (SSO) proporciona inicios de sesión sencillos y seguros para los usuarios de la aplicación. Las directivas de protección de aplicaciones (APP) permiten respaldar las directivas de seguridad principales que mantienen seguros los datos del usuario. Juntas, estas características permiten inicios de sesión de usuario seguros y la administración de los datos de la aplicación.
+El inicio de sesión único (SSO) es una oferta clave de la plataforma de identidad de Microsoft y Azure Active Directory, que proporciona inicios de sesión sencillos y seguros para los usuarios de la aplicación. Además, las directivas de protección de aplicaciones (APP) permiten respaldar las directivas de seguridad principales que mantienen seguros los datos del usuario. Juntas, estas características permiten inicios de sesión de usuario seguros y la administración de los datos de la aplicación.
 
 En este artículo se explica por qué SSO y APP son importantes, y se proporcionan instrucciones de alto nivel para la creación de aplicaciones móviles que admitan estas características. Es aplicable tanto a aplicaciones de teléfonos como de tabletas. Si es un administrador de TI que quiere implementar el inicio de sesión único en el inquilino de Azure Active Directory de la organización, consulte nuestra [guía para planear una implementación de inicio de sesión único](../manage-apps/plan-sso-deployment.md).
 

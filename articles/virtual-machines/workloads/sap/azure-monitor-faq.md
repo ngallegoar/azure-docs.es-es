@@ -1,23 +1,23 @@
 ---
 title: 'Preguntas frecuentes: Azure Monitor para soluciones de SAP | Microsoft Docs'
-description: En este artículo, obtendrá respuestas a las preguntas más frecuentes (P+F) sobre Azure Monitor para soluciones de SAP.
+description: En este artículo, obtendrá respuestas a preguntas frecuentes sobre las soluciones de Azure Monitor para SAP.
 author: rdeltcheva
 ms.service: virtual-machines
 ms.topic: article
 ms.date: 06/30/2020
 ms.author: radeltch
 ms.reviewer: cynthn
-ms.openlocfilehash: f584601c2dcbea989f1b68d9fbac5a7f53a59d86
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: f872264d5f7bdf4abded516412fe55c417a92e1e
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91994222"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566119"
 ---
-# <a name="azure-monitor-for-sap-solutions-faq-preview"></a>Preguntas frecuentes acerca de Azure Monitor para soluciones de SAP (versión preliminar)
+# <a name="azure-monitor-for-sap-solutions-faq-preview"></a>Preguntas frecuentes acerca de las soluciones de Azure Monitor para SAP (versión preliminar)
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
 
-En este artículo se ofrecen respuestas a las preguntas más frecuentes (P+F) sobre Azure Monitor para soluciones de SAP.  
+En este artículo se ofrecen respuestas a preguntas frecuentes (P+F) sobre soluciones de Azure Monitor para SAP.  
 
  - **¿Tengo que pagar por Azure Monitor para soluciones de SAP?**  
 No hay ninguna cuota de licencias para Azure Monitor para soluciones de SAP.  

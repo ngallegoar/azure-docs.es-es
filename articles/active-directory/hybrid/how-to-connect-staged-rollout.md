@@ -10,12 +10,12 @@ ms.date: 06/03/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f800c11bb878ca1788c7258cde25266847e2a90
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 24eb7ac7c4490c8d27d141f6417ae157a7a9c65b
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89278588"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94646583"
 ---
 # <a name="migrate-to-cloud-authentication-using-staged-rollout-preview"></a>Migración a la autenticación en la nube mediante un lanzamiento preconfigurado (versión preliminar)
 
@@ -45,7 +45,7 @@ Para información general sobre la característica, vea este vídeo "Azure Acti
 
 -   Ha configurado todas las directivas adecuadas de acceso condicional y personalización de marca del inquilino que necesita para los usuarios que se van a migrar a la autenticación en la nube.
 
--   Si tiene previsto usar Azure Multi-Factor Authentication, le recomendamos que use el [registro combinado para el autoservicio de restablecimiento de contraseña (SSPR) y Multi-Factor Authentication](../authentication/concept-registration-mfa-sspr-combined.md) para que los usuarios registren sus métodos de autenticación una sola vez.
+-   Si tiene previsto usar Azure Multi-Factor Authentication, le recomendamos que use el [registro combinado para el autoservicio de restablecimiento de contraseña (SSPR) y Multi-Factor Authentication](../authentication/concept-registration-mfa-sspr-combined.md) para que los usuarios registren sus métodos de autenticación una sola vez. Nota: cuando se usa SSPR para restablecer la contraseña o cambiar la contraseña mediante la página MyProfile en el lanzamiento preconfigurado, Azure AD Connect necesita sincronizar el nuevo hash de contraseña, lo que puede tardar hasta dos minutos después del restablecimiento.
 
 -   Para usar la característica de lanzamiento preconfigurado, debe ser administrador global en el inquilino.
 
@@ -95,7 +95,7 @@ Para información sobre qué cmdlets de PowerShell usar, consulte la [versión p
 
 ## <a name="pre-work-for-password-hash-sync"></a>Trabajo previo para la sincronización de hash de contraseña
 
-1. Para habilitar la *sincronización de hash de contraseña* , vaya a la página [Características opcionales](how-to-connect-install-custom.md#optional-features) de Azure AD Connect. 
+1. Habilite *Sincronización de hash de contraseña* en la página [Características opcionales](how-to-connect-install-custom.md#optional-features) de Azure AD Connect. 
 
    ![Captura de pantalla de la página "Características opcionales" de Azure Active Directory Connect](media/how-to-connect-staged-rollout/sr1.png)
 
@@ -109,11 +109,11 @@ Si quiere probar el inicio de sesión de *autenticación de paso a través* con 
 
 1. Identifique un servidor que ejecute Windows Server 2012 R2 o posterior en el que quiera ejecutar el agente de *autenticación de paso a través*. 
 
-   *No* elija el servidor de Azure AD Connect. Asegúrese de que el servidor esté unido a un dominio, que pueda autenticar a los usuarios seleccionados con Active Directory y que pueda comunicarse con Azure AD en los puertos y direcciones URL de salida. Para más información, consulte la sección "Paso 1: Comprobación de requisitos previos" del [Inicio rápido: Inicio de sesión único de conexión directa de Azure AD](how-to-connect-sso-quick-start.md).
+   *No* elija el servidor de Azure AD Connect.  Asegúrese de que el servidor esté unido a un dominio, que pueda autenticar a los usuarios seleccionados con Active Directory y que pueda comunicarse con Azure AD en los puertos y direcciones URL de salida. Para más información, consulte la sección "Paso 1: Comprobación de requisitos previos" del [Inicio rápido: Inicio de sesión único de conexión directa de Azure AD](how-to-connect-sso-quick-start.md).
 
-1. [Descargue el agente de autenticación de Azure AD Connect](https://aka.ms/getauthagent) e instálelo en el servidor. 
+1. [Descargue el agente de autenticación de Azure AD Connect](https://aka.ms/getauthagent) e instálelo en el servidor. 
 
-1. Para permitir  [alta disponibilidad](how-to-connect-sso-quick-start.md), instale agentes de autenticación adicionales en otros servidores.
+1. Para permitir [alta disponibilidad](how-to-connect-sso-quick-start.md), instale agentes de autenticación adicionales en otros servidores.
 
 1. Asegúrese de que ha [configurado el bloqueo inteligente](../authentication/howto-password-smart-lockout.md) adecuadamente. De este forma se garantiza que individuos infiltrados no bloqueen las cuentas de Active Directory locales de los usuarios.
 
@@ -121,25 +121,25 @@ Se recomienda habilitar el *inicio de sesión único de conexión directa* con i
 
 ## <a name="pre-work-for-seamless-sso"></a>Trabajo previo para el inicio de sesión único de conexión directa
 
-Habilite el *inicio de sesión único de conexión directa* en los bosques de Active Directory mediante PowerShell. Si tiene más de un bosque de Active Directory, habilítelo de forma individual para cada bosque. El *inicio de sesión único de conexión directa* solo se desencadena para los usuarios seleccionados para el lanzamiento preconfigurado. No afecta a la configuración de federación existente.
+Habilite el *inicio de sesión único de conexión directa* en los bosques de Active Directory mediante PowerShell. Si tiene más de un bosque de Active Directory, habilítelo individualmente para cada uno. El *SSO de conexión directa* solo se desencadena en los usuarios seleccionados para el lanzamiento preconfigurado. No afecta a la configuración de federación existente.
 
 Para habilitar el *inicio de sesión único de conexión directa*, haga lo siguiente:
 
 1. Inicie sesión en el servidor de Azure AD Connect.
 
-2. Vaya a la carpeta *%programfiles%\\Microsoft Azure Active Directory Connect* .
+2. Vaya a la carpeta *%ProgramFiles%\\Microsoft Azure Active Directory Connect*.
 
-3. Importe el módulo de PowerShell de *inicio de sesión único de conexión directa* mediante la ejecución del siguiente comando: 
+3. Importe el módulo de PowerShell de *inicio de sesión único de conexión directa* mediante la ejecución del siguiente comando: 
 
    `Import-Module .\AzureADSSO.psd1`
 
-4. Ejecute PowerShell como administrador. En PowerShell, llame a `New-AzureADSSOAuthenticationContext`. Este comando abre un panel en el que puede especificar las credenciales de administrador global del inquilino.
+4. Ejecute PowerShell como administrador. En PowerShell, llame a `New-AzureADSSOAuthenticationContext`. Este comando abre un panel en el que puede especificar las credenciales de administrador global del inquilino.
 
-5. Llame a `Get-AzureADSSOStatus | ConvertFrom-Json`. Este comando muestra una lista de bosques de Active Directory (consulte la lista "Dominios") en los que se ha habilitado esta característica. De forma predeterminada, se establece en False en el nivel de inquilino.
+5. Llame a `Get-AzureADSSOStatus | ConvertFrom-Json`. Este comando muestra una lista de bosques de Active Directory (consulte la lista "Dominios") en los que se ha habilitado esta característica. De forma predeterminada, se establece en False en el nivel de inquilino.
 
    ![Ejemplo de la salida de Windows PowerShell](./media/how-to-connect-staged-rollout/sr3.png)
 
-6. Llame a `$creds = Get-Credential`. Cuando se le pida, escriba las credenciales del administrador de dominio correspondientes al bosque de Active Directory deseado.
+6. Llame a `$creds = Get-Credential`. Cuando se le pida, escriba las credenciales del administrador de dominio correspondientes al bosque de Active Directory deseado.
 
 7. Llame a `Enable-AzureADSSOForest -OnPremCredentials $creds`. Este comando crea la cuenta de equipo AZUREADSSOACC del controlador de dominio local para este bosque de Active Directory que se necesita para el *inicio de sesión único de conexión directa*.
 
@@ -178,6 +178,7 @@ Haga lo siguiente:
    >[!NOTE]
    >Los miembros de un grupo se habilitan automáticamente para el lanzamiento preconfigurado. No se admiten grupos anidados y dinámicos en el lanzamiento preconfigurado.
    >Al agregar un nuevo grupo, los usuarios del grupo (hasta 200 usuarios para un grupo nuevo) se actualizarán para usar la autenticación administrada de forma inmediata. Al editar un grupo (agregar o eliminar usuarios), los cambios pueden tardar hasta 24 horas en surtir efecto.
+   >El inicio de sesión único de conexión directa solo se aplicará si los usuarios están en el grupo de SSO de conexión directa y también en un grupo de PTA o de PHS.
 
 ## <a name="auditing"></a>Auditoría
 
@@ -239,7 +240,7 @@ A. Sí, esta característica se puede usar en el inquilino de producción, pero 
 
 **P: ¿Se puede usar esta característica para mantener una "coexistencia" permanente, en la que algunos usuarios usan la autenticación federada y otros la autenticación en la nube?**
 
-A. No, esta característica está diseñada para migrar de la autenticación federada a la autenticación en la nube por fases para finalmente usar esta última. No se recomienda un estado mixto permanente, ya que este enfoque podría llevar a flujos de autenticación inesperados.
+A. No, esta característica está diseñada para probar la autenticación en la nube. Después de probar con éxito algunos grupos de usuarios, debe pasar a la autenticación en la nube. No se recomienda un estado mixto permanente, ya que este enfoque podría llevar a flujos de autenticación inesperados.
 
 **P: ¿Se puede usar PowerShell para realizar el lanzamiento preconfigurado?**
 

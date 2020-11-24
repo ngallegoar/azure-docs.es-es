@@ -3,18 +3,30 @@ title: 'Azure Event Grid: solución de problemas de validación de suscripciones
 description: En este artículo se muestra cómo se pueden solucionar los problemas de las validaciones de suscripciones.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 48844859013507ab684ef8879b7b85dd6b6fe8cd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 857760182675d5673a3b09495c2faaf7372a4164
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86118994"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94592947"
 ---
 # <a name="troubleshoot-azure-event-grid-subscription-validations"></a>Solución de problemas de validación de suscripciones de Azure Event Grid
-En este artículo se proporciona información sobre la solución de problemas de validaciones de las suscripciones a eventos. 
+Durante la creación de suscripciones a eventos, si ve un mensaje de error como `The attempt to validate the provided endpoint https://your-endpoint-here failed. For more details, visit https://aka.ms/esvalidation`, indica que hay un error en el protocolo de enlace de la validación. Para resolver este error, compruebe los siguientes aspectos:
+
+- Realice una solicitud HTTP POST a la dirección URL de webhook con un cuerpo de la solicitud [sample SubscriptionValidationEvent](webhook-event-delivery.md#validation-details) mediante Postman, Curl o una herramienta similar.
+- Si el webhook está implementando un mecanismo de enlace de validación sincrónica, compruebe que ValidationCode se devuelve como parte de la respuesta.
+- Si el webhook está implementando un mecanismo del protocolo de enlace de validación asincrónica, compruebe que la solicitud HTTP POST devuelve 200 OK.
+- Si el webhook devuelve `403 (Forbidden)` en la respuesta, compruebe si el webhook está detrás de una puerta de enlace de aplicaciones de Azure o del firewall de aplicaciones web. Si es así, tendrá que deshabilitar estas reglas de firewall y volver a realizar una solicitud HTTP POST:
+    - 920300 (falta un encabezado de aceptación en la solicitud)
+    - 942430 (restringe la detección de anomalías de caracteres de SQL [args]: número de caracteres especiales que se han excedido [12])
+    - 920230 (varias codificaciones de direcciones URL detectadas)
+    - 942130 (ataque por inyección de código SQL: tautología de SQL detectada)
+    - 931130 (posible ataque remoto de inclusión de archivos [RFI] = Referencia o vínculo fuera del dominio)
 
 > [!IMPORTANT]
 > Para más información sobre la validación de los puntos de conexión para webhooks, consulte [Entrega de eventos de webhook](webhook-event-delivery.md).
+
+En las secciones siguientes se muestra cómo validar las suscripciones a un evento mediante Postman y Curl.  
 
 ## <a name="validate-event-grid-event-subscription-using-postman"></a>Validación de suscripciones a eventos de Event Grid mediante Postman
 Este es un ejemplo del uso de Postman para validar una suscripción de webhook de un evento de Event Grid: 
@@ -65,14 +77,7 @@ Este es un ejemplo de uso de Postman para validar una suscripción de webhook de
 
 Use el método **HTTP OPTIONS** para la validación con eventos de nube. Para más información sobre la validación de eventos de nube para webhooks, consulte [Validación de puntos de conexión con eventos de nube](webhook-event-delivery.md#endpoint-validation-with-event-grid-events).
 
-## <a name="error-code-403"></a>Código de error: 403
-Si el webhook devuelve 403 (Prohibido) en la respuesta, compruebe si el webhook está detrás de una puerta de enlace de aplicaciones de Azure o del firewall de aplicaciones web. Si es así, tiene que deshabilitar las siguientes reglas de firewall y volver a realizar una solicitud HTTP POST:
-
-  - 920300 [Falta un encabezado de aceptación (Accept) en la solicitud; se puede corregir]
-  - 942430 [Restringe la detección de anomalías de caracteres de SQL (args): número de caracteres especiales que se han excedido (12)]
-  - 920230 (Varias codificaciones de direcciones URL detectadas)
-  - 942130 (Ataque por inyección de código SQL: Tautología de SQL detectada).
-  - 931130 [Posible ataque remoto de inclusión de archivos (RFI) = Referencia o vínculo fuera del dominio]
+## <a name="troubleshoot-event-subscription-validation"></a>Solución de problemas de validación de suscripciones a eventos
 
 ## <a name="next-steps"></a>Pasos siguientes
 Si necesita más ayuda, publique su problema en el [foro de Stack Overflow](https://stackoverflow.com/questions/tagged/azure-eventgrid) o abra una [incidencia de soporte técnico](https://azure.microsoft.com/support/options/). 

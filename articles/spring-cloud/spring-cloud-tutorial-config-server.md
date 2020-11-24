@@ -7,12 +7,12 @@ ms.author: brendm
 author: bmitchell287
 ms.date: 10/18/2019
 ms.custom: devx-track-java
-ms.openlocfilehash: 06d5196e612bcf20e11f17634b32db028cd5bc88
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 3033be3a793c318135f8150b86114b6fee55fac7
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93378098"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94655227"
 ---
 # <a name="set-up-a-spring-cloud-config-server-instance-for-your-service"></a>Configuración de una instancia de Config Server en Spring Cloud para su servicio
 
@@ -133,13 +133,25 @@ Una vez que los archivos de configuración se han guardado en un repositorio, es
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 
-1. Vaya a la página **Información general** de Azure Spring Cloud.
+2. Vaya a la página **Información general** de Azure Spring Cloud.
 
-1. Seleccione el servicio que desea configurar.
+3. Seleccione **Config Server** en el panel de navegación izquierdo.
 
-1. En el panel izquierdo de la página del servicio, en **Settings** (Configuración), seleccione la pestaña **Config Server** (Servidor de configuraciones).
+4. En la sección **Default repository** (Repositorio predeterminado), en **URI** seleccione "https://github.com/Azure-Samples/piggymetrics-config".
 
-![Ventana de Config Server](media/spring-cloud-tutorial-config-server/portal-config-server.png)
+5. Haga clic en **Validar**.
+
+    ![Ir al servidor de configuración](media/spring-cloud-quickstart-launch-app-portal/portal-config.png)
+
+6. Cuando finalice la validación, haga clic en **Aplicar** para guardar los cambios.
+
+    ![Validación del servidor de configuración](media/spring-cloud-quickstart-launch-app-portal/validate-complete.png)
+
+7. La actualización de la configuración puede tardar unos minutos.
+ 
+    ![Actualización del servidor de configuración](media/spring-cloud-quickstart-launch-app-portal/updating-config.png) 
+
+8. Cuando se haya completado la configuración, debería recibir una notificación.
 
 ### <a name="enter-repository-information-directly-to-the-azure-portal"></a>Especificación de la información del repositorio directamente en Azure Portal
 

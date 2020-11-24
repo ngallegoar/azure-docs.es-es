@@ -1,6 +1,6 @@
 ---
-title: Restauración de un grupo de SQL dedicado
-description: Guía para la restauración de un grupo de SQL dedicado eliminado.
+title: Restauración de un grupo de SQL dedicado existente en Azure Synapse Analytics
+description: Guía de procedimientos para restaurar un grupo de SQL dedicado existente en Azure Synapse Analytics.
 services: synapse-analytics
 author: anumjs
 manager: craigg
@@ -11,12 +11,12 @@ ms.date: 08/29/2018
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 3b5ced43e1277ffbb1c9988af08ee032ab93a15e
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 0c3fd0aee0a70743db721f469d91f269b9764e5e
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93313494"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94577556"
 ---
 # <a name="restore-an-existing-dedicated-sql-pool-in-azure-synapse-analytics"></a>Restauración de un grupo de SQL dedicado existente en Azure Synapse Analytics
 
@@ -97,7 +97,7 @@ $RestoredDatabase.status
 
     ![ Introducción a la restauración](./media/sql-data-warehouse-restore-active-paused-dw/restoring-01.png)
 
-4. Seleccione **Puntos de restauración automáticos** o **Puntos de restauración definidos por el usuario**. Si el grupo de SQL dedicado no tiene ningún punto de restauración automática, espere unas horas o cree un punto de restauración definido por el usuario antes de llevar a cabo la restauración. En el caso de los puntos de restauración definidos por el usuario, seleccione uno existente o cree uno nuevo. En **Servidor** , puede elegir un servidor de otro grupo de recursos y región, o bien crear uno nuevo. Después de proporcionar todos los parámetros, haga clic en **Revisar y restaurar**.
+4. Seleccione **Puntos de restauración automáticos** o **Puntos de restauración definidos por el usuario**. Si el grupo de SQL dedicado no tiene ningún punto de restauración automática, espere unas horas o cree un punto de restauración definido por el usuario antes de llevar a cabo la restauración. En el caso de los puntos de restauración definidos por el usuario, seleccione uno existente o cree uno nuevo. En **Servidor**, puede elegir un servidor de otro grupo de recursos y región, o bien crear uno nuevo. Después de proporcionar todos los parámetros, haga clic en **Revisar y restaurar**.
 
     ![Puntos de restauración automáticos](./media/sql-data-warehouse-restore-active-paused-dw/restoring-11.png)
 

@@ -270,9 +270,13 @@
     - name: Creación de transformaciones y trabajos
       items:
         - name: Creación de transformaciones
-          href: cli-create-transform.md
+          href: how-to-create-transform.md
         - name: Creación de una transformación de audio básica con REST
           href: how-to-create-basic-audio-transform.md
+        - name: Creación de una transformación de copyAllBitrateNonInterleaved con REST
+          href: how-to-create-copyallbitratenoninterleaved-transform.md
+        - name: Copia de vídeos sin codificación con REST
+          href: how-to-create-copy-video-audio-transform.md
         - name: Creación de trabajos
           href: cli-create-jobs.md
         - name: Creación de una entrada de trabajo con un archivo local y .NET

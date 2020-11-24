@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/25/2020
+ms.date: 11/15/2020
 ms.author: memildin
-ms.openlocfilehash: 315183040515110a6a21afcd00e12d1b12313170
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 2ea9fdcb11bd88755c0972fa166d1d94068ce60e
+ms.sourcegitcommit: 18046170f21fa1e569a3be75267e791ca9eb67d0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92341845"
+ms.lasthandoff: 11/16/2020
+ms.locfileid: "94638821"
 ---
 # <a name="faq---questions-about-data-collection-agents-and-workspaces"></a>Preguntas frecuentes: preguntas sobre recopilación de datos, agentes y áreas de trabajo
 
@@ -109,14 +109,19 @@ Puede seleccionar un área de trabajo de Log Analytics existente para almacenar 
 
 Para seleccionar un área de trabajo de Log Analytics existente:
 
-1. En **Security policy – Data Collection** (Directiva de seguridad: recopilación de datos), seleccione **Use another workspace** (Usar otro área de trabajo).
+1. En el menú de Security Center, seleccione **Precios y configuración**.
+1. Seleccione la suscripción correspondiente.
+1. Abra la página **Aprovisionamiento automático**.
+1. Para el agente de Log Analytics, seleccione **Editar configuración**. 
 
-    ![Usar otro área de trabajo][4]
+    :::image type="content" source="./media/security-center-enable-data-collection/edit-configuration-auto-deploy-agent.png" alt-text="La configuración del agente de Log Analytics que se va a usar cuando se utilice la implementación automática" lightbox="./media/security-center-enable-data-collection/edit-configuration-auto-deploy-agent.png":::
 
-1. En el menú desplegable, seleccione un área de trabajo para almacenar los datos recopilados.
+1. Seleccione **Connect Azure VMs to a different workspace** (Conectar máquinas virtuales de Azure a otra área de trabajo) y elija el área de trabajo existente.
 
-    > [!NOTE]
-    > En el menú desplegable solo se muestran las áreas de trabajo a las que tiene acceso y las que están en su suscripción a Azure.
+    :::image type="content" source="./media/security-center-enable-data-collection/choose-workspace.png" alt-text="Selección de un área de trabajo no predeterminada a la enviará notificaciones el agente de Log Analytics" lightbox="./media/security-center-enable-data-collection/choose-workspace.png":::
+
+    > [!TIP]
+    > La lista solo incluye las áreas de trabajo a las que tiene acceso y que se encuentran en su suscripción de Azure.
 
 1. Seleccione **Guardar**. Se le pregunta si quiere volver a configurar las máquinas virtuales supervisadas.
 
@@ -126,7 +131,6 @@ Para seleccionar un área de trabajo de Log Analytics existente:
     > [!NOTE]
     > Si selecciona **Sí**, no elimine las áreas de trabajo creadas por Security Center hasta que todas las máquinas virtuales se hayan vuelto a conectar a la nueva área de trabajo de destino. Esta operación no se lleva a cabo si se elimina un área de trabajo demasiado pronto.
 
-    - Para cancelar la operación, seleccione **Cancelar**.
 
 ## <a name="what-if-the-log-analytics-agent-was-already-installed-as-an-extension-on-the-vm"></a>¿Qué ocurre si el agente de Log Analytics ya estaba instalado como una extensión en la VM?<a name="mmaextensioninstalled"></a>
 
@@ -162,14 +166,19 @@ Si quita la extensión de Microsoft Monitoring, Security Center no será capaz d
 
 ## <a name="how-do-i-stop-the-automatic-agent-installation-and-workspace-creation"></a>¿Cómo detengo la instalación automática del agente y la creación del área de trabajo?
 
-Puede desactivar el aprovisionamiento automático en las suscripciones en la directiva de seguridad, pero no es recomendable. La desactivación del aprovisionamiento automático limita las recomendaciones y las alertas de Security Center. Para deshabilitar el aprovisionamiento automático:
+Puede desactivar el aprovisionamiento automático en las suscripciones en la directiva de seguridad, pero no es recomendable. La desactivación del aprovisionamiento automático limita las recomendaciones y alertas de Security Center. Para deshabilitar el aprovisionamiento automático:
 
-1. Si su suscripción tiene habilitado Azure Defender, abra la directiva de seguridad de esa suscripción y seleccione **Azure Defender está desactivado**.
+1. En el menú de Security Center, seleccione **Precios y configuración**.
+1. Seleccione la suscripción correspondiente.
+1. Si su suscripción tiene habilitado Azure Defender, abra los **planes de Azure Defender** y seleccione **Azure Defender off** (Azure Defender desactivado).
 
     :::image type="content" source="./media/security-center-platform-migration-faq/pricing-tier.png" alt-text="Habilitación o deshabilitación de Azure Defender":::
 
-1. Después, desactive el aprovisionamiento automático seleccionando **Desactivar** en la página **Directiva de seguridad: Recopilación de datos**.
-   ![Recopilación de datos][2]
+1. En la página de **aprovisionamiento automático**, seleccione el lápiz y luego desactive el aprovisionamiento automático en la página **Directiva de seguridad: recopilación de datos**.
+
+    :::image type="content" source="./media/security-center-enable-data-collection/agent-toggles.png" alt-text="Habilitar la implementación automática para el agente de Log Analytics":::
+
+1. Seleccione **Guardar**.
 
 
 ## <a name="should-i-opt-out-of-the-automatic-agent-installation-and-workspace-creation"></a>¿Debo rechazar la instalación del agente y la creación del área de trabajo automáticas?
@@ -232,13 +241,11 @@ El aprovisionamiento automático es muy recomendable para poder obtener alertas 
 
 Si lo ha habilitado, pero ahora desea deshabilitarlo:
 
-1. En [Azure Portal](https://portal.azure.com), abra **Security Center** y seleccione **Directiva de seguridad**.
+1. En [Azure Portal](https://portal.azure.com), abra **Security Center** y seleccione **Precios y configuración**.
 
 1. Seleccione la suscripción en la que quiere deshabilitar el aprovisionamiento automático.
 
-    Se abre **Directiva de seguridad: Recopilación de datos**.
-
-1. En **Autoaprovisionamiento**, seleccione **Desactivar**.
+1. En **Aprovisionamiento automático**, desactive la alternancia del agente de Log Analytics.
 
 
 ## <a name="how-do-i-enable-data-collection"></a>¿Cómo se puede habilitar la recolección de datos?

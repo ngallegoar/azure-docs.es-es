@@ -4,12 +4,12 @@ description: Disponibilidad de recursos de proceso y memoria para el servicio Az
 ms.topic: article
 ms.date: 04/27/2020
 ms.custom: references_regions
-ms.openlocfilehash: e4fbf1023863f9f4c46e6bd2266f72ff2f7d7adc
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 2a833c93c80d932305f47b6e292e5e5df4d0cb95
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93395876"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94576621"
 ---
 # <a name="resource-availability-for-azure-container-instances-in-azure-regions"></a>Disponibilidad de recursos para Azure Container Instances en las regiones de Azure
 
@@ -55,6 +55,9 @@ Están disponibles las siguientes regiones y recursos máximos para los grupos d
 
 Los recursos máximos siguientes están disponibles para un grupo de contenedores implementado con [recursos de GPU](container-instances-gpu.md) (versión preliminar).
 
+> [!IMPORTANT]
+> En este momento, las implementaciones con recursos de GPU no se admiten en una implementación de Azure Virtual Network y solo están disponibles en grupos de contenedores de Linux.
+
 | SKU de GPU | Recuento de GPU | Uso máximo de CPU | Memoria máxima (GB) | Almacenamiento (GB) |
 | --- | --- | --- | --- | --- |
 | K80 | 1 | 6 | 56 | 50 |
@@ -67,6 +70,9 @@ Los recursos máximos siguientes están disponibles para un grupo de contenedore
 ## <a name="windows-container-groups"></a>Grupos de contenedor de Windows
 
 Las siguientes regiones y recursos máximos están disponibles para los grupos de contenedores con contenedores de Windows Server [admitidos y en versión preliminar](container-instances-faq.md#what-windows-base-os-images-are-supported).
+
+> [!IMPORTANT]
+> En este momento, las implementaciones con grupos de contenedores de Windows no se admiten en una implementación de Azure Virtual Network.
 
 ###  <a name="windows-server-2016"></a>Windows Server 2016
 
@@ -88,7 +94,7 @@ Las siguientes regiones y recursos máximos están disponibles para los grupos d
 | Centro-Norte de EE. UU | 4 | 16 | 4 | 16 | 20 |
 | Norte de Europa | 2 | 3,5 | 2 | 8 | 20 |
 | Centro-sur de EE. UU. | 2 | 3,5 | 2 | 3,5 | 20 |
-| Sudeste de Asia | No aplicable | No aplicable | 2 | 3,5 | 20 |
+| Sudeste de Asia | N/D | N/D | 2 | 3,5 | 20 |
 | Sur de la India | 2 | 3,5 | 2 | 3,5 | 20 |
 | Sur de Reino Unido | 2 | 8 | 2 | 3,5 | 20 |
 | Centro-Oeste de EE. UU. | 4 | 16 | 4 | 16 | 20 |
@@ -113,7 +119,7 @@ Las siguientes regiones y recursos máximos están disponibles para los grupos d
 | Este de EE. UU. | 4 | 16 | 4 | 16 | 20 |
 | Este de EE. UU. 2 | 2 | 3,5 | 2 | 3,5 | 20 |
 | Centro de Francia | 4 | 16 | 4 | 16 | 20 |
-| Japón Oriental | No aplicable | N/D | 4 | 16 | 20 |
+| Japón Oriental | N/D | N/D | 4 | 16 | 20 |
 | Centro de Corea del Sur | 4 | 16 | 4 | 16 | 20 |
 | Centro-Norte de EE. UU | 4 | 16 | 4 | 16 | 20 |
 | Norte de Europa | 4 | 16 | 4 | 16 | 20 |

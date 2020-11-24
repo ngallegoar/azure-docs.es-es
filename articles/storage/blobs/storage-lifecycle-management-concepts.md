@@ -9,12 +9,12 @@ ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
 ms.custom: devx-track-azurepowershell, references_regions
-ms.openlocfilehash: a4a338a4d13715ba1ff7cb30c011757d5050ba05
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 85577a428f803e31aa33468496d7efca77933835
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93100076"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94579318"
 ---
 # <a name="optimize-costs-by-automating-azure-blob-storage-access-tiers"></a>Optimización de los costos mediante la automatización de los niveles de acceso de Azure Blob Storage
 
@@ -70,11 +70,11 @@ Hay dos formas de agregar una directiva en Azure Portal.
 
 1. En Azure Portal, busque y seleccione su cuenta de almacenamiento. 
 
-1. En **Blob service** , seleccione **Administración del ciclo de vida** para ver o cambiar las reglas.
+1. En **Blob service**, seleccione **Administración del ciclo de vida** para ver o cambiar las reglas.
 
 1. Seleccione la pestaña **Vista de lista**.
 
-1. Seleccione **Agregar una regla** y asigne un nombre a la regla en el formulario **Detalles**. También puede establecer valores en **Ámbito de la regla** , **Tipo de blob** y **Subtipo de blob**. En el ejemplo siguiente se establece el ámbito para filtrar los blobs. Esto hace que se agregue la pestaña **Conjunto de filtros**.
+1. Seleccione **Agregar una regla** y asigne un nombre a la regla en el formulario **Detalles**. También puede establecer valores en **Ámbito de la regla**, **Tipo de blob** y **Subtipo de blob**. En el ejemplo siguiente se establece el ámbito para filtrar los blobs. Esto hace que se agregue la pestaña **Conjunto de filtros**.
 
    :::image type="content" source="media/storage-lifecycle-management-concepts/lifecycle-management-details.png" alt-text="Página de detalles de agregar una regla en la administración del ciclo de vida de Azure Portal":::
 
@@ -91,9 +91,9 @@ Hay dos formas de agregar una directiva en Azure Portal.
    > [!IMPORTANT]
    > La versión preliminar de seguimiento de la hora del último acceso solo está pensada para su uso en entornos que no son el de producción. En este momento no hay contratos de nivel de servicio de producción disponibles.
    
-   Para usar la opción **Último acceso** , seleccione **Seguimiento de acceso habilitado** en la página **Administración del ciclo de vida** de Azure Portal. Para obtener más información acerca de la opción **Último acceso** , consulte la sección sobre [traslado de datos en función de la fecha de último acceso (versión preliminar)](#move-data-based-on-last-accessed-date-preview).
+   Para usar la opción **Último acceso**, seleccione **Seguimiento de acceso habilitado** en la página **Administración del ciclo de vida** de Azure Portal. Para obtener más información acerca de la opción **Último acceso**, consulte la sección sobre [traslado de datos en función de la fecha de último acceso (versión preliminar)](#move-data-based-on-last-accessed-date-preview).
 
-1. Si seleccionó **Limitar blobs con filtros** en la página **Detalles** , seleccione **Conjunto de filtros** para agregar un filtro opcional. En el ejemplo siguiente se filtran los blobs del contenedor *mylifecyclecontainer* que comienzan por "log".
+1. Si seleccionó **Limitar blobs con filtros** en la página **Detalles**, seleccione **Conjunto de filtros** para agregar un filtro opcional. En el ejemplo siguiente se filtran los blobs del contenedor *mylifecyclecontainer* que comienzan por "log".
 
    :::image type="content" source="media/storage-lifecycle-management-concepts/lifecycle-management-filter-set.png" alt-text="Página del conjunto de filtros de administración del ciclo de vida en Azure Portal":::
 
@@ -104,7 +104,7 @@ Hay dos formas de agregar una directiva en Azure Portal.
 
 1. En Azure Portal, busque y seleccione su cuenta de almacenamiento.
 
-1. En **Blob service** , seleccione **Administración del ciclo de vida** para ver o cambiar la directiva.
+1. En **Blob service**, seleccione **Administración del ciclo de vida** para ver o cambiar la directiva.
 
 1. El siguiente JSON es un ejemplo de una directiva que se puede pegar en la pestaña **Vista de código**.
 
@@ -322,7 +322,7 @@ Entre los filtros están los siguientes:
 | blobIndexMatch | Una matriz de valores de diccionario que se compone de las condiciones de clave y valor de la etiqueta de índice de blobs con las que debe haber coincidencias. Cada regla puede definir hasta 10 condiciones de etiqueta de índice de blobs. Por ejemplo, si quiere que todos los blobs coincidan con `Project = Contoso` en `https://myaccount.blob.core.windows.net/` en relación a una regla, el valor de blobIndexMatch es `{"name": "Project","op": "==","value": "Contoso"}`. | Si no define blobIndexMatch, la regla se aplica a todos los blobs de la cuenta de almacenamiento. | No |
 
 > [!NOTE]
-> El índice de blobs está en versión preliminar pública y se encuentra disponible en las regiones **Centro de Canadá** , **Este de Canadá** , **Centro de Francia** y **Sur de Francia**. Para más información sobre esta característica junto con las limitaciones y los problemas conocidos, consulte [Administración y búsqueda de datos en Azure Blob Storage con el Índice de blobs (versión preliminar)](storage-manage-find-blobs.md).
+> El índice de blobs está en versión preliminar pública y se encuentra disponible en las regiones **Centro de Canadá**, **Este de Canadá**, **Centro de Francia** y **Sur de Francia**. Para más información sobre esta característica junto con las limitaciones y los problemas conocidos, consulte [Administración y búsqueda de datos en Azure Blob Storage con el Índice de blobs (versión preliminar)](storage-manage-find-blobs.md).
 
 ### <a name="rule-actions"></a>Acciones de regla
 
@@ -393,7 +393,7 @@ La opción **Último acceso** está disponible en versión preliminar en las sig
 > [!IMPORTANT]
 > La versión preliminar de seguimiento de la hora del último acceso solo está pensada para su uso en entornos que no son el de producción. En este momento no hay contratos de nivel de servicio de producción disponibles.
 
-Para usar la opción **Último acceso** , seleccione **Seguimiento de acceso habilitado** en la página **Administración del ciclo de vida** de Azure Portal.
+Para usar la opción **Último acceso**, seleccione **Seguimiento de acceso habilitado** en la página **Administración del ciclo de vida** de Azure Portal.
 
 #### <a name="how-last-access-time-tracking-works"></a>Funcionamiento del seguimiento de la hora del último acceso
 
@@ -439,7 +439,7 @@ El seguimiento de la hora del último acceso está disponible para los siguiente
 
 Si la cuenta de almacenamiento es una cuenta de uso general v1, use Azure Portal para realizar la actualización a una cuenta de uso general v2.
 
-Todavía no se admiten las cuentas de almacenamiento con un espacio de nombres jerárquico habilitado para usarse con Azure Data Lake Storage Gen2.
+Ahora se admiten las cuentas de almacenamiento con un espacio de nombres jerárquico habilitado para usarse con Azure Data Lake Storage Gen2.
 
 #### <a name="pricing-and-billing"></a>Precios y facturación
 

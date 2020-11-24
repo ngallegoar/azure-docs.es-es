@@ -4,12 +4,12 @@ description: En este artículo se proporciona información general sobre la admi
 ms.topic: conceptual
 ms.date: 10/21/2019
 ms.custom: sfrev
-ms.openlocfilehash: 7ad0d4f6d92ba8d85383df281bd14681f43bb6d4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3968fde0222dcee8047e7490dba78879ab6110e2
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86258740"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94681693"
 ---
 # <a name="service-fabric-application-resource-model"></a>Modelo de recurso de aplicación de Service Fabric
 
@@ -55,7 +55,7 @@ Después de crear la cuenta de almacenamiento cree un contenedor de blobs en el 
 Para proteger los recursos del clúster es preciso establecer el nivel de acceso público en **privado**. Hay varias formas de conceder acceso:
 
 * Autorizar el acceso a blobs y colas mediante [Azure Active Directory](../storage/common/storage-auth-aad-app.md).
-* Conceder acceso a los datos de los blobs y las colas de Azure mediante [RBAC en Azure Portal](../storage/common/storage-auth-aad-rbac-portal.md).
+* Conceder acceso a los datos de los blobs y las colas de Azure mediante [RBAC de Azure en Azure Portal](../storage/common/storage-auth-aad-rbac-portal.md).
 * [Delegar el acceso mediante una firma de acceso compartido](/rest/api/storageservices/delegate-access-with-shared-access-signature).
 
 El ejemplo de la siguiente captura de pantalla usa acceso de lectura anónimo para los blobs.

@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/22/2019
-ms.openlocfilehash: 5fe1c3e344705b6cde9791f889b22be53a9e8c76
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.date: 11/13/2020
+ms.openlocfilehash: 69d27c102ca059974da87224e44f0ad7aa103fff
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91372602"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94592641"
 ---
 # <a name="import-data-module"></a>Módulo Importación de datos
 
@@ -58,6 +58,14 @@ Si cambian los datos de origen, puede actualizar el conjunto de datos y agregar 
 
     Si elige almacén de datos, puede seleccionar los almacenes de datos existentes que ya están registrados en el área de trabajo Azure Machine Learning o crear un nuevo almacén de datos. A continuación, defina la ruta a los datos que se van a importar en el almacén de datos. Puede examinar fácilmente la ruta de acceso haciendo clic en **Examinar ruta** ![Captura de pantalla que muestra el vínculo Examinar ruta de acceso que abre el cuadro de diálogo de selección de ruta de acceso.](media/module/import-data-path.png)
 
+    > [!NOTE]
+    > El módulo **Import Data** (Importación de datos) es solo para datos **tabulares**.
+    > Si quiere importar varios archivos de datos tabulares a la vez, se necesitan las siguientes condiciones, o se producirán errores:
+    > 1. Para incluir todos los archivos de datos en la carpeta, debe especificar `folder_name/**` en **Path** (Ruta de acceso).
+    > 2. Todos los archivos de datos deben estar codificados en Unicode-8.
+    > 3. Todos los archivos de datos deben tener los mismos números y nombres de columna.
+    > 4. El resultado de la importación de varios archivos de datos es la concatenación de todas las filas de varios archivos en orden.
+
 1. Seleccione el esquema de vista previa para filtrar las columnas que desea incluir. También puede definir la configuración avanzada, como el delimitador en las opciones del análisis.
 
     ![import-data-preview](media/module/import-data.png)
@@ -79,9 +87,9 @@ Si cambian los datos de origen, puede actualizar el conjunto de datos y agregar 
 
 ## <a name="results"></a>Results
 
-Cuando haya terminado la importación, haga clic en el conjunto de datos de salida y seleccione **Visualizar** para ver si los datos se han importado correctamente.
+Cuando haya terminado la importación, haga clic con el botón derecho en el conjunto de datos de salida y seleccione **Visualize** (Visualizar) para ver si los datos se han importado correctamente.
 
-Si desea guardar los datos para su reutilización, en lugar de importar un nuevo conjunto de datos cada vez que se ejecute la canalización, seleccione el icono **Register dataset** (Registrar conjunto de datos) en la pestaña **Outputs** (Resultados) del panel derecho del módulo. Escriba un nombre para el conjunto de datos. El conjunto de datos guardado conserva los datos del momento en que se guarda y el conjunto de datos no se actualizan cuando se vuelve a ejecutar la canalización, aunque el conjunto de datos cambie en la canalización, lo que puede ser útil para tomar instantáneas de los datos.
+Si quiere guardar los datos para usarlos de nuevo, en lugar de importar un nuevo conjunto de datos cada vez que se ejecute la canalización, seleccione el icono **Register dataset** (Registrar conjunto de datos) en la pestaña **Outputs+Logs** (Salidas y registros) del panel derecho del módulo. Escriba un nombre para el conjunto de datos. El conjunto de datos guardado conserva los datos del momento en que se guarda y el conjunto de datos no se actualizan cuando se vuelve a ejecutar la canalización, aunque el conjunto de datos cambie en la canalización, lo que puede ser útil para tomar instantáneas de los datos.
 
 Después de importar los datos, es posible que tenga que realizar algunos preparativos adicionales para el modelado y análisis:
 

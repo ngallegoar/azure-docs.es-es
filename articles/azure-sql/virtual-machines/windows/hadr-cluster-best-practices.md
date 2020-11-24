@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: b385d6dfb5beba481ad92403d69f5d0988f3bce3
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 86db8c88fae7a5fd1ec4828d8936c6cb8172a61c
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92786435"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94564572"
 ---
 # <a name="cluster-configuration-best-practices-sql-server-on-azure-vms"></a>Procedimientos recomendados para la configuración de clústeres (SQL Server en máquinas virtuales de Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -30,6 +30,10 @@ En este artículo se proporcionan procedimientos recomendados de configuración 
 ## <a name="networking"></a>Redes
 
 Use una sola NIC por servidor (nodo de clúster) y una sola subred. La red de Azure tiene redundancia física, lo que hace que las NIC y subredes adicionales sean innecesarias en un clúster invitado de máquina virtual de Azure. El informe de validación de clúster le avisará de que solo se puede tener acceso a los nodos en una sola red. Puede omitir esta advertencia en los clústeres de conmutación por error invitados de máquinas virtuales de Azure.
+
+### <a name="tuning-failover-cluster-network-thresholds"></a>Ajuste de los umbrales de red de clústeres de conmutación por error
+
+Al ejecutar nodos de clúster de conmutación por error Windows en máquinas virtuales de Azure con AlwaysOn para SQL Server, se recomienda cambiar la configuración del clúster a un estado de supervisión más flexible.  Esto hará que el clúster sea mucho más estable y confiable.  Para más información sobre esto, consulte [IaaS con SQL AlwaysOn: Ajuste de los umbrales de red de clústeres de conmutación por error](/windows-server/troubleshoot/iaas-sql-failover-cluser).
 
 ## <a name="quorum"></a>Quorum
 
@@ -56,7 +60,7 @@ Configure un disco compartido de Azure como el testigo de disco.
 Para empezar, consulte [Configuración de un testigo de disco](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum).
 
 
-**Sistema operativo compatible** : All   
+**Sistema operativo compatible**: All   
 
 
 ### <a name="cloud-witness"></a>Testigo en la nube
@@ -66,7 +70,7 @@ Se trata de un tipo de testigo de cuórum de clúster de conmutación por error 
 Para empezar, consulte [Configuración de un testigo en la nube](/windows-server/failover-clustering/deploy-cloud-witness#CloudWitnessSetUp).
 
 
-**Sistema operativo compatible** : Windows Server 2016 y posteriores   
+**Sistema operativo compatible**: Windows Server 2016 y posteriores   
 
 
 ### <a name="file-share-witness"></a>Testigo de recurso compartido de archivos
@@ -78,7 +82,7 @@ Si va a usar un recurso compartido de archivos de Azure, puede montarlo con el m
 Para empezar, consulte [Configuración de un testigo de recurso compartido de archivos](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum).
 
 
-**Sistema operativo compatible** : Windows Server 2012 y posteriores   
+**Sistema operativo compatible**: Windows Server 2012 y posteriores   
 
 ## <a name="connectivity"></a>Conectividad
 
@@ -104,9 +108,9 @@ Hay un ligero retraso en la conmutación por error cuando se usa el equilibrador
 
 Para empezar, aprenda a configurar Azure Load Balancer para una [instancia de clúster de conmutación por error](failover-cluster-instance-vnn-azure-load-balancer-configure.md) o un [grupo de disponibilidad](availability-group-vnn-azure-load-balancer-configure.md).
 
-**Sistema operativo compatible** : All   
-**Versión de SQL compatible** : All   
-**Solución HADR admitida** : Instancia del clúster de conmutación por error y grupo de disponibilidad   
+**Sistema operativo compatible**: All   
+**Versión de SQL compatible**: All   
+**Solución HADR admitida**: Instancia del clúster de conmutación por error y grupo de disponibilidad   
 
 
 ### <a name="distributed-network-name-dnn"></a>Nombre de red distribuida (DNN)
@@ -124,9 +128,9 @@ La mayoría de las características de SQL Server funcionan de manera transparen
 
 Para empezar, aprenda a configurar un recurso de nombre de red distribuida para una [instancia de clúster de conmutación por error](failover-cluster-instance-distributed-network-name-dnn-configure.md) o un [grupo de disponibilidad](availability-group-distributed-network-name-dnn-listener-configure.md)
 
-**Sistema operativo compatible** : Windows Server 2016 y posteriores   
-**Versión de SQL compatible** : SQL Server 2019 CU2 (FCI) y SQL Server 2019 CU8 (AG)   
-**Solución HADR admitida** : Instancia del clúster de conmutación por error y grupo de disponibilidad   
+**Sistema operativo compatible**: Windows Server 2016 y posteriores   
+**Versión de SQL compatible**: SQL Server 2019 CU2 (FCI) y SQL Server 2019 CU8 (AG)   
+**Solución HADR admitida**: Instancia del clúster de conmutación por error y grupo de disponibilidad   
 
 
 ## <a name="limitations"></a>Limitaciones

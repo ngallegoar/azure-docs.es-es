@@ -1,4 +1,4 @@
-- name: "Azure Synapse (SQL\_DW)"
+- name: Azure Synapse (anteriormente SQL DW)
   href: index.yml
 - name: Cambio a Azure Synapse (versión preliminar para áreas de trabajo)
   href: ../overview-what-is.md

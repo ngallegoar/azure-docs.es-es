@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 09/01/2019
-ms.openlocfilehash: d512a691b76cb7cbc72b4cbcb1fc821e928ea1b0
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.date: 11/16/2020
+ms.openlocfilehash: 366b30df677a5b74bc7d70e1aea60e05b4df0152
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93421233"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659314"
 ---
 # <a name="preprocess-text"></a>preprocesamiento de texto
 
@@ -53,7 +53,7 @@ El módulo **Preprocess Text** solo admite actualmente texto en inglés.
 
     Este módulo usa una serie de tres caracteres de barra vertical `|||` para representar el terminador de frase.
 
-1. Realice operaciones opcionales de búsqueda y reemplazo mediante expresiones regulares.
+1. Realice operaciones opcionales de búsqueda y reemplazo mediante expresiones regulares. La expresión regular se procesará al principio, antes de todas las demás opciones integradas.
 
     * **Custom regular expression** (Personalizar expresión regular): defina el texto que está buscando.
     * **Custom replacement string** (Personalizar cadena de sustitución): defina un único valor de sustitución.
@@ -64,7 +64,7 @@ El módulo **Preprocess Text** solo admite actualmente texto en inglés.
 
 1. También puede eliminar los siguientes tipos de caracteres o secuencias de caracteres del texto de salida procesado:
 
-    * **Remove numbers** (Quitar números): seleccione esta opción para quitar todos los caracteres numéricos del idioma especificado. Los números de identificación dependen del dominio y dependen del idioma. Si los caracteres numéricos forman parte integral de una palabra conocida, es posible que no se quite el número.
+    * **Remove numbers** (Quitar números): seleccione esta opción para quitar todos los caracteres numéricos del idioma especificado. Los números de identificación dependen del dominio y dependen del idioma. Si los caracteres numéricos forman parte integral de una palabra conocida, es posible que no se quite el número. Obtenga más información en [Notas técnicas](#technical-notes).
     
     * **Remove special characters** (Quitar caracteres especiales): utilice esta opción para quitar los caracteres especiales no alfanuméricos.
     
@@ -84,6 +84,25 @@ El módulo **Preprocess Text** solo admite actualmente texto en inglés.
     Por ejemplo, la cadena `MS---WORD` se dividiría en tres tokens `MS`, `-` y `WORD`.
 
 1. Envíe la canalización.
+
+## <a name="technical-notes"></a>Notas técnicas
+
+El módulo **preprocess-Text** en Studio (clásico) y el diseñador usan modelos de lenguaje diferentes. El diseñador usa un modelo multitarea entrenado en CNN de [spaCy](https://spacy.io/models/en). Los diferentes modelos proporcionan diferentes tokenizadores y etiquetadores de la parte de voz, lo que conduce a resultados diferentes.
+
+A continuación se muestran algunos ejemplos:
+
+| Configuración | Resultado de salida |
+| --- | --- |
+|Con todas las opciones seleccionadas </br> Explicación: </br> En los casos como "3test" en "WC-3 3test 4test", el diseñador quita toda la palabra "3test", ya que en este contexto, el etiquetador de la parte de voz especifica el token "3Test" como numérico y, según la parte de la voz, el módulo lo quita.| :::image type="content" source="./media/module/preprocess-text-all-options-selected.png" alt-text="Con todas las opciones seleccionadas" border="True"::: |
+|Con solo `Removing number` seleccionado </br> Explicación: </br> En los casos como "3test", "4-EC", la dosis de tokenizador del diseñador no divide estos casos y los trata como los tokens completos. Por lo tanto, no quitará los números de estas palabras.| :::image type="content" source="./media/module/preprocess-text-removing-numbers-selected.png" alt-text="Con solo &quot;Removing number&quot; (Quitar número) seleccionado" border="True"::: |
+
+También puede usar una expresión regular para generar resultados personalizados:
+
+| Configuración | Resultado de salida |
+| --- | --- |
+|Con todas las opciones seleccionadas </br> Expresión regular personalizada: `(\s+)*(-|\d+)(\s+)*` </br> Cadena de sustitución personalizada: `\1 \2 \3`| :::image type="content" source="./media/module/preprocess-text-regular-expression-all-options-selected.png" alt-text="Con todas las opciones seleccionadas y expresión regular" border="True"::: |
+|Con solo `Removing number` seleccionado </br> Expresión regular personalizada: `(\s+)*(-|\d+)(\s+)*` </br> Cadena de sustitución personalizada: `\1 \2 \3`| :::image type="content" source="./media/module/preprocess-text-regular-expression-removing-numbers-selected.png" alt-text="Con la eliminación de números seleccionada y expresión regular" border="True"::: |
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

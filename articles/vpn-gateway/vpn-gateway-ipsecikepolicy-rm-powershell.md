@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: yushwang
-ms.openlocfilehash: 6039eeed2e1bcb348920be986e72089164c614ae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 96931d2dd94a8a31021ebe62caaefc54f643b007
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89392657"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94649269"
 ---
 # <a name="configure-ipsecike-policy-for-s2s-vpn-or-vnet-to-vnet-connections"></a>Configurar una directiva de IPsec o IKE para conexiones VPN de sitio a sitio o de red virtual a red virtual
 
@@ -34,9 +34,8 @@ En este artículo se proporcionan instrucciones para crear y configurar una dire
 
 > [!IMPORTANT]
 > 1. Tenga en cuenta que la directiva de IPsec/IKE solo funciona en las SKU de puerta de enlace siguiente:
->    * ***VpnGw1, VpnGw2, VpnGw3*** (basadas en enrutamiento)
->    * ***Standard*** y ***HighPerformance*** (basadas en enrutamiento)
-> 2. Solo se puede especificar ***una*** combinación de directivas para una conexión dada.
+>    * ***VpnGw1, VpnGw2, VpnGw3** _ (basado en ruta) _ ***Standard** _ y _*_HighPerformance_*_ (basado en ruta)
+> 2. Solo se puede especificar _*_una_*_ combinación de directivas para una conexión dada.
 > 3. Es preciso especificar todos los algoritmos y parámetros de IKE (modo principal) e IPsec (modo rápido). No se permite la especificación de una directiva parcial.
 > 4. Consulte las especificaciones del proveedor de dispositivos VPN para asegurarse de que los dispositivos VPN locales admiten la directiva. No se pueden establecer conexiones de sitio a sitio o de red virtual a red virtual si las directivas son incompatibles.
 
@@ -56,7 +55,7 @@ Las instrucciones incluidas en este artículo le ayudan a instalar y configurar 
 
 En la tabla siguiente se enumeran los algoritmos criptográficos y los niveles de las claves admitidos que pueden configurar los clientes:
 
-| **IPsec o IKEv2**  | **Opciones**    |
+| _ *IPsec/IKEv2**  | **Opciones**    |
 | ---  | --- 
 | Cifrado IKEv2 | AES256, AES192, AES128, DES3, DES  
 | Integridad de IKEv2  | SHA384, SHA256, SHA1, MD5  |
@@ -120,7 +119,7 @@ Consulte [Creación de una conexión VPN de sitio a sitio](vpn-gateway-create-si
 * Compruebe que tiene una suscripción a Azure. Si todavía no la tiene, puede activar sus [ventajas como suscriptor de MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) o registrarse para obtener una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * Instale los cmdlets de PowerShell de Azure Resource Manager. Vea [Información general sobre Azure PowerShell](/powershell/azure/) para obtener más información sobre la instalación de los cmdlets de PowerShell.
 
-### <a name="step-1---create-the-virtual-network-vpn-gateway-and-local-network-gateway"></a><a name="createvnet1"></a>Paso 1: Creación de la red virtual, VPN Gateway y la puerta de enlace de red local
+### <a name="step-1---create-the-virtual-network-vpn-gateway-and-local-network-gateway"></a><a name="createvnet1"></a>Paso 1: crear la red virtual, la puerta de enlace de VPN y la puerta de enlace de red local
 
 #### <a name="1-declare-your-variables"></a>1. Declaración de las variables
 
@@ -153,7 +152,7 @@ $LNGIP6        = "131.107.72.22"
 
 #### <a name="2-connect-to-your-subscription-and-create-a-new-resource-group"></a>2. Conexión a su suscripción y creación de un nuevo grupo de recursos
 
-Asegúrese de cambiar el modo de PowerShell para que use los cmdlets del Administrador de recursos. Para obtener más información, consulte [Uso de Windows PowerShell con el Administrador de recursos](../powershell-azure-resource-manager.md).
+Asegúrese de cambiar el modo de PowerShell para que use los cmdlets del Administrador de recursos. Para obtener más información, consulte [Uso de Windows PowerShell con el Administrador de recursos](../azure-resource-manager/management/manage-resources-powershell.md).
 
 Abre la consola de PowerShell y conéctate a tu cuenta. Use el siguiente ejemplo para ayudarle a conectarse:
 
@@ -224,7 +223,7 @@ Los pasos necesarios para crear una conexión de red virtual a red virtual con u
 
 Consulte [Creación de una conexión de red virtual a red virtual](vpn-gateway-vnet-vnet-rm-ps.md) para conocer los pasos detallados para crear una conexión de red virtual a red virtual. Tiene que completar la [parte 3](#crossprem) para crear y configurar TestVNet1 y VPN Gateway.
 
-### <a name="step-1---create-the-second-virtual-network-and-vpn-gateway"></a><a name="createvnet2"></a>Paso 1: Creación de la segunda red virtual y VPN Gateway
+### <a name="step-1---create-the-second-virtual-network-and-vpn-gateway"></a><a name="createvnet2"></a>Paso 1: crear la segunda red virtual y la puerta de enlace de VPN
 
 #### <a name="1-declare-your-variables"></a>1. Declaración de las variables
 
@@ -277,7 +276,7 @@ De forma similar a la conexión VPN de sitio a sitio, cree una directiva de IPse
 
 El script de ejemplo siguiente crea una directiva de IPsec o IKE diferente con los algoritmos y parámetros siguientes:
 * IKEv2: AES128, SHA1, DHGroup14
-* IPsec: GCMAES128, GCMAES128, PFS14, 14 400 segundos de vigencia de SA y 102 400 000 KB
+* IPsec: GCMAES128, GCMAES128, PFS14, vigencia de SA de 14 400 segundos y 102 400 000 KB
 
 ```powershell
 $ipsecpolicy2 = New-AzIpsecPolicy -IkeEncryption AES128 -IkeIntegrity SHA1 -DhGroup DHGroup14 -IpsecEncryption GCMAES128 -IpsecIntegrity GCMAES128 -PfsGroup PFS14 -SALifeTimeSeconds 14400 -SADataSizeKilobytes 102400000

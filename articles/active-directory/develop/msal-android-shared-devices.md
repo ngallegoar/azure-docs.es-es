@@ -13,19 +13,17 @@ ms.date: 03/31/2020
 ms.author: marsma
 ms.reviewer: hahamil
 ms.custom: aaddev, identitypla | Azuretformtop40
-ms.openlocfilehash: c1bf6b33176bf7942fbd76fa86ecd61b4f24e154
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: fc32b4f583aea2fa9a34ab8b235f3f99fe4def9d
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92366010"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94562175"
 ---
 # <a name="shared-device-mode-for-android-devices"></a>Modo de dispositivo compartido para dispositivos Android
 
-> [!NOTE]
-> Esta característica está en versión preliminar pública.
-> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
-> Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>[!IMPORTANT]
+> Esta característica [!INCLUDE [PREVIEW BOILERPLATE](../../../includes/active-directory-develop-preview.md)]
 
 Los trabajadores de primera línea, como los asociados comerciales, los miembros de la tripulación de vuelos y los trabajadores de servicio de campo, suelen usar un dispositivo móvil compartido para realizar su trabajo. Esto resulta problemático cuando comienzan a compartir las contraseñas o los números PIN para acceder a los datos de clientes y empresas en el dispositivo compartido.
 
@@ -36,7 +34,7 @@ El modo de dispositivo compartido también proporciona la administración del di
 Para crear una aplicación en modo de dispositivo compartido, los desarrolladores y los administradores de dispositivos en la nube trabajan juntos:
 
 - Los desarrolladores escriben una aplicación de una sola cuenta (las aplicaciones de varias cuentas no se admiten en el modo de dispositivo compartido), agregan `"shared_device_mode_supported": true` a la configuración de la aplicación y escriben código para controlar aspectos como el cierre de sesión del dispositivo compartido.
-- Los administradores de dispositivos preparan el dispositivo que se va a compartir mediante la instalación de la aplicación de autenticación y el establecimiento del dispositivo en modo compartido mediante dicha aplicación. Solo los usuarios que se encuentran en el rol [administrador de dispositivos en la nube](../roles/permissions-reference.md#cloud-device-administrator-permissions) pueden poner un dispositivo en modo compartido mediante la [aplicación de autenticación](../user-help/user-help-auth-app-overview.md). Puede configurar la pertenencia de los roles de la organización en Azure Portal mediante: **Azure Active Directory** > **Roles y administradores**  > **Administrador de dispositivos en la nube** .
+- Los administradores de dispositivos preparan el dispositivo que se va a compartir mediante la instalación de la aplicación de autenticación y el establecimiento del dispositivo en modo compartido mediante dicha aplicación. Solo los usuarios que se encuentran en el rol [administrador de dispositivos en la nube](../roles/permissions-reference.md#cloud-device-administrator-permissions) pueden poner un dispositivo en modo compartido mediante la [aplicación de autenticación](../user-help/user-help-auth-app-overview.md). Puede configurar la pertenencia de los roles de la organización en Azure Portal mediante: **Azure Active Directory** > **Roles y administradores**  > **Administrador de dispositivos en la nube**.
 
  Este artículo se centra principalmente en lo que los desarrolladores deben considerar.
 
@@ -44,7 +42,7 @@ Para crear una aplicación en modo de dispositivo compartido, los desarrolladore
 
 Las aplicaciones escritas mediante el SDK de la Biblioteca de autenticación de Microsoft (MSAL) pueden administrar una sola cuenta o varias cuentas. Para más información, consulte [el modo de una sola cuenta o el modo de varias cuentas](single-multi-account.md). Las características de la plataforma de identidad de Microsoft disponibles para la aplicación varían en función de si la aplicación se ejecuta en modo de una sola cuenta o en modo de varias cuentas.
 
-**Las aplicaciones en modo de dispositivo compartido solo funcionan en el modo de una sola cuenta** .
+**Las aplicaciones en modo de dispositivo compartido solo funcionan en el modo de una sola cuenta**.
 
 > [!IMPORTANT]
 > Las aplicaciones que solo admiten el modo de varias cuentas no se pueden ejecutar en un dispositivo compartido. Si un empleado carga una aplicación que no admite el modo de una sola cuenta, no se ejecutará en el dispositivo compartido.

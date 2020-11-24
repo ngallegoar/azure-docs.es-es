@@ -11,15 +11,14 @@ ms.reviewer: nibaccam
 ms.date: 03/09/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, data4ml
-ms.openlocfilehash: b4dc222ed0fc350b680d2696c1faa16d44b84a02
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 496a38e43c7bd624c42f5c7a43ad9cf16f85d166
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93358344"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94579579"
 ---
 # <a name="version-and-track-datasets-in-experiments"></a>Versión y seguimiento de conjuntos de valores en experimentos
-
 
 En este artículo, aprenderá a controlar versiones y realizar un seguimiento de los conjuntos de datos de Azure Machine Learning para fines de reproducibilidad. El control de versiones del conjunto de datos es una manera de delimitar el estado de los datos, con el fin de que pueda aplicar una versión específica del conjunto de datos para futuros experimentos.
 
@@ -116,11 +115,11 @@ dataset2.register(workspace = workspace,
 
 <a name="pipeline"></a>
 
-## <a name="version-a-pipeline-output-dataset"></a>Controlar la versión de un conjunto de datos de salida de canalización
+## <a name="version-an-ml-pipeline-output-dataset"></a>Control de versiones de un conjunto de datos de salida de canalización de ML
 
-Puede usar un conjunto de datos como entrada y salida de cada paso de canalización de Machine Learning. Al volver a ejecutar las canalizaciones, la salida de cada paso de la canalización se registra como una nueva versión del conjunto de datos.
+Puede usar un conjunto de datos como entrada y salida de cada paso de [canalización de ML](concept-ml-pipelines.md). Al volver a ejecutar las canalizaciones, la salida de cada paso de la canalización se registra como una nueva versión del conjunto de datos.
 
-Dado que las canalizaciones de Machine Learning rellenan la salida de cada paso en una nueva carpeta cada vez que se vuelve a ejecutar la canalización, los conjuntos de datos de salida con versión se pueden reproducir. Más información sobre los [conjuntos de datos en canalizaciones](how-to-create-your-first-pipeline.md#steps).
+Las canalizaciones de ML rellenan la salida de cada paso en una nueva carpeta cada vez que se vuelve a ejecutar la canalización. Este comportamiento permite que los conjuntos de datos de salida con versión sean reproducibles. Más información sobre los [conjuntos de datos en canalizaciones](how-to-create-your-first-pipeline.md#steps).
 
 ```Python
 from azureml.core import Dataset
@@ -154,9 +153,36 @@ prep_step = PythonScriptStep(script_name="prepare.py",
 
 <a name="track"></a>
 
-## <a name="track-datasets-in-experiments"></a>Seguimiento de conjuntos de valores en experimentos
+## <a name="track-datas-in-your-experiments"></a>Seguimiento de los datos de los experimentos
 
-Para cada experimento de Machine Learning, puede realizar fácilmente el seguimiento de los conjuntos de datos que se usan como entrada mediante el objeto `Run` del experimento.
+Azure Machine Learning realiza un seguimiento de los datos a lo largo del experimento como conjuntos de datos de entrada y salida.  
+
+Estos son los escenarios en los que se realiza un seguimiento de los datos como **conjunto de datos de entrada**. 
+
+* Como objeto `DatasetConsumptionConfig` mediante el parámetro `inputs` o `arguments` del objeto `ScriptRunConfig` al enviar la ejecución del experimento. 
+
+* Cuando se llama a métodos, como, get_by_name () o get_by_id (), en el script. En este escenario, el nombre que se asigna al conjunto de datos al registrarlo en el área de trabajo es el nombre que se muestra. 
+
+Estos son los escenarios en los que se realiza un seguimiento de los datos como **conjunto de datos de salida**.  
+
+* Pasar un objeto `OutputFileDatasetConfig` mediante el parámetro `outputs` o el parámetro `arguments` al enviar una ejecución del experimento. Los objetos `OutputFileDatasetConfig` también se pueden usar para conservar los datos entre los pasos de una canalización. Consulte [Movimiento de datos entre los pasos de canalización de ML.](how-to-move-data-in-out-of-pipelines.md)
+    > [!TIP]
+    > [`OutputFileDatasetConfig`](/python/api/azureml-core/azureml.data.outputfiledatasetconfig?preserve-view=true&view=azure-ml-py) es una clase en versión preliminar pública que contiene [características experimentales](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py#&preserve-view=truestable-vs-experimental) en versión preliminar que pueden cambiar en cualquier momento.
+
+* Registrar un conjunto de datos en el script. En este escenario, el nombre que se asigna al conjunto de datos al registrarlo en el área de trabajo es el nombre que se muestra. En el ejemplo siguiente, `training_ds` es el nombre que se mostraría.
+
+    ```Python
+   training_ds = unregistered_ds.register(workspace = workspace,
+                                     name = 'training_ds',
+                                     description = 'training data'
+                                     )
+    ```
+
+* Enviar una ejecución secundaria con un conjunto de datos no registrado en el script. El resultado es un conjunto de datos guardado anónimo.
+
+### <a name="trace-datasets-in-experiment-runs"></a>Seguimiento de conjuntos de datos en ejecuciones de experimentos
+
+Para cada experimento de Machine Learning, puede realizar fácilmente el seguimiento de los conjuntos de datos que se usan como entrada con el objeto `Run` del experimento.
 
 El código siguiente usa el método [`get_details()`](/python/api/azureml-core/azureml.core.run.run?preserve-view=true&view=azure-ml-py#&preserve-view=trueget-details--) para realizar un seguimiento de los conjuntos de datos de entrada que se utilizaron en la ejecución del experimento:
 
@@ -169,7 +195,7 @@ input_dataset = inputs[0]['dataset']
 input_dataset.to_path()
 ```
 
-También encontrará los `input_datasets` en los experimentos con https://ml.azure.com/. 
+También puede encontrar los elementos `input_datasets` de los experimentos con [Azure Machine Learning Studio](). 
 
 En la imagen siguiente se muestra dónde encontrar el conjunto de datos de entrada de un experimento en Azure Machine Learning Studio. En este ejemplo, vaya al panel **Experimentos** y abra la pestaña **Propiedades** para una ejecución concreta del experimento, `keras-mnist`.
 
@@ -183,7 +209,7 @@ model = run.register_model(model_name='keras-mlp-mnist',
                            datasets =[('training data',train_dataset)])
 ```
 
-Después del registro, puede ver la lista de modelos registrados con el conjunto de datos mediante Python o ir a https://ml.azure.com/.
+Después del registro, puede ver la lista de modelos registrados con el conjunto de datos mediante Python o ir a [Studio](https://ml.azure.com/).
 
 La siguiente vista es del panel **Conjunto de datos** en **Activos**. Seleccione el conjunto de datos y, después, seleccione la pestaña **Modelos** para obtener una lista de modelos registrados el conjunto de datos. 
 

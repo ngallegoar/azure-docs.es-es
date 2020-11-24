@@ -4,12 +4,12 @@ description: Aprenda a proteger el clúster mediante un intervalo de direcciones
 services: container-service
 ms.topic: article
 ms.date: 09/21/2020
-ms.openlocfilehash: 99c6b173d96bbd54f12a0edc501d49e8c65caf01
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9828682fa71d023356b174d528c2137ed29f368d
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91613737"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94682509"
 ---
 # <a name="secure-access-to-the-api-server-using-authorized-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Protección del acceso al servidor de API con intervalos de direcciones IP autorizadas en Azure Kubernetes Service (AKS)
 
@@ -21,7 +21,7 @@ En este artículo se muestra cómo usar los intervalos IP autorizados por el ser
 
 En este artículo se muestra cómo utilizar la CLI de Azure para crear un clúster de AKS.
 
-Es preciso que esté instalada y configurada la versión 2.0.76 de la CLI de Azure, o cualquier otra posterior. Ejecute  `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte  [Install Azure CLI][install-azure-cli] (Instalación de la CLI de Azure).
+Es preciso que esté instalada y configurada la versión 2.0.76 de la CLI de Azure, o cualquier otra posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure][install-azure-cli].
 
 ### <a name="limitations"></a>Limitaciones
 
@@ -31,9 +31,9 @@ La característica de intervalos IP autorizados por el servidor de la API tiene 
 
 ## <a name="overview-of-api-server-authorized-ip-ranges"></a>Información general sobre los intervalos de direcciones IP autorizadas por el servidor de API
 
-El servidor de API de Kubernetes es el modo en el que se exponen las API de Kubernetes subyacentes. Este componente proporciona la interacción de las herramientas de administración, como `kubectl` o el panel de Kubernetes. AKS proporciona un plano de control de inquilino único con un servidor de API dedicado, etc. El servidor de API se asigna de forma predeterminada a una dirección IP pública, y el usuario debe regular el acceso mediante el control de acceso basado en rol (RBAC).
+El servidor de API de Kubernetes es el modo en el que se exponen las API de Kubernetes subyacentes. Este componente proporciona la interacción de las herramientas de administración, como `kubectl` o el panel de Kubernetes. AKS proporciona un plano de control de inquilino único con un servidor de API dedicado, etc. El servidor de API se asigna de forma predeterminada a una dirección IP pública, y el usuario debe regular el acceso mediante el control de acceso basado en rol de Kubernetes (RBAC de Kubernetes) o RBAC de Azure.
 
-Para proteger el acceso al panel de control de AKS y al servidor de API (que, de lo contrario, serían accesibles al público), puede habilitar y usar intervalos de direcciones IP autorizadas. De esta manera, solo se permite la comunicación con el servidor de API a los intervalos de direcciones IP definidas. Las solicitudes al servidor de API procedentes de direcciones IP que no formen parte de este intervalo se bloquean. Siga usando RBAC para autorizar a los usuarios y las acciones que soliciten.
+Para proteger el acceso al panel de control de AKS y al servidor de API (que, de lo contrario, serían accesibles al público), puede habilitar y usar intervalos de direcciones IP autorizadas. De esta manera, solo se permite la comunicación con el servidor de API a los intervalos de direcciones IP definidas. Las solicitudes al servidor de API procedentes de direcciones IP que no formen parte de este intervalo se bloquean. Siga usando RBAC de Kubernetes o RBAC de Azure para autorizar a los usuarios y las acciones que soliciten.
 
 Para más información sobre el servidor de API y otros componentes del clúster, consulte los [conceptos clave de Kubernetes para AKS][concepts-clusters-workloads].
 

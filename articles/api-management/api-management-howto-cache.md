@@ -11,18 +11,21 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 11/13/2020
 ms.author: apimpm
-ms.openlocfilehash: 0a3aa0c26ddb515b8096cce909ca074f6f24a333
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 732abed830afdb759ed52fd933673edd8e5cade6
+ms.sourcegitcommit: 18046170f21fa1e569a3be75267e791ca9eb67d0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86250488"
+ms.lasthandoff: 11/16/2020
+ms.locfileid: "94638740"
 ---
 # <a name="add-caching-to-improve-performance-in-azure-api-management"></a>Incorporación del almacenamiento en caché para mejorar el rendimiento en Azure API Management
 
-En Administración de API, las operaciones se pueden configurar para el almacenamiento en caché de respuestas. El almacenamiento en caché de respuestas puede reducir significativamente la latencia de la API, el consumo de ancho de banda y la carga del servicio web en cuanto a datos que no cambian con frecuencia.
+Las API y operaciones de API Management pueden configurarse con almacenamiento en caché de respuesta. El almacenamiento en caché de respuesta puede reducir considerablemente la latencia de los llamadores de API y la carga de back-end de los proveedores de API.
+
+> [!IMPORTANT]
+> La caché integrada es volátil y se comparte entre todas las unidades de la misma región del mismo servicio de API Management.
 
 Para más información acerca del almacenamiento en caché, consulte [Directivas de almacenamiento en caché de API Management](api-management-caching-policies.md) y [Almacenamiento en caché personalizado en Azure API Management](api-management-sample-cache-by-key.md).
 
@@ -39,12 +42,12 @@ Temas que se abordarán:
 > [!NOTE]
 > La memoria caché interna no está disponible en el nivel **Consumo** de Azure API Management. Puede [usar una instancia externa de Azure Redis Cache](api-management-howto-cache-external.md) en su lugar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Requisitos previos
 
 Para completar este tutorial:
 
 + [Creación de una instancia de Azure API Management](get-started-create-service-instance.md)
-+ [Incorpore y publique una API](import-and-publish.md)
++ [Importación y publicación de una API](import-and-publish.md)
 
 ## <a name="add-the-caching-policies"></a><a name="caching-policies"> </a>Adición de las directivas de almacenamiento en caché
 

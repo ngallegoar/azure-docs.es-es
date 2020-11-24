@@ -7,19 +7,20 @@ ms.service: private-link
 ms.topic: how-to
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 2cfc746d883b565fe7a082a316ce314f385225df
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: 87fe02aed19ae7e5858715748a2b4c4da87a07b3
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91358209"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658577"
 ---
 # <a name="create-a-private-link-service-using-azure-cli"></a>Creación de un servicio Private Link mediante la CLI de Azure
 En este artículo se muestra cómo crear un servicio Private Link en Azure mediante la CLI de Azure.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Si, en su lugar, decide instalar y usar la CLI de Azure en un entorno local, para este inicio rápido debe utilizar la versión más reciente de la CLI de Azure. Ejecute `az --version` para buscar la versión instalada. Consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli) para obtener información sobre la instalación o actualización.
+- En este artículo se necesita la versión más reciente de la CLI de Azure. Si usa Azure Cloud Shell, ya está instalada la versión más reciente.
+
 ## <a name="create-a-private-link-service"></a>Creación de un servicio Private Link
 ### <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
@@ -78,7 +79,7 @@ Una regla de equilibrador de carga define la configuración de la dirección IP 
 ```
 ### <a name="create-backend-servers"></a>Creación de servidores back-end
 
-En este ejemplo no se trata la creación de máquinas virtuales. Puede seguir los pasos descritos [Creación de un equilibrador de carga interno para equilibrar la carga de las máquinas virtuales con la CLI de Azure](../load-balancer/load-balancer-get-started-ilb-arm-cli.md#create-servers-for-the-backend-address-pool) para crear dos máquinas virtuales que se usarán como servidores de back-end para el equilibrador de carga. 
+En este ejemplo no se trata la creación de máquinas virtuales. Puede seguir los pasos descritos en [Inicio rápido: Creación de un equilibrador de carga interno para equilibrar la carga de las máquinas virtuales con la CLI de Azure](/load-balancer/quickstart-load-balancer-standard-internal-cli#create-backend-servers) para crear dos máquinas virtuales que se usarán como servidores de back-end para el equilibrador de carga. 
 
 
 ### <a name="disable-private-link-service-network-policies-on-subnet"></a>Deshabilitación de las directivas de red de un servicio Private Link en una subred 

@@ -6,12 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: a89ff56eb9e0f0a29b5b1fed7543c5f718425e51
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: a56922c972efeb21c188413522bd05f83b74ca12
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92325949"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94681829"
 ---
 # <a name="bring-your-own-key-customer-managed-keys-with-media-services"></a>Bring Your Own Key (claves administradas por el cliente) con Media Services
 
@@ -37,9 +37,11 @@ Puede especificar un nombre de clave y una versión de clave, o simplemente un n
 > [!WARNING]
 > Media Services supervisa el acceso a la clave de cliente. Si la clave de cliente deja de estar accesible (por ejemplo, se ha eliminado la clave, se ha eliminado el almacén Key Vault o se ha quitado la concesión de acceso), Media Services pasará la cuenta al estado inaccesible de la clave de cliente (con lo que se deshabilitará la cuenta). Sin embargo, la cuenta se puede eliminar en este estado. Las únicas operaciones admitidas en la cuenta son GET, LIST y DELETE; todas las demás solicitudes (codificación, streaming, etc.) producirán un error hasta que se restaure el acceso a la clave de cuenta.
 
-## <a name="tutorial"></a>Tutorial
-Pruebe el tutorial [Uso de claves administradas por el cliente o Bring Your Own Key (BYOK) con Media Services](tutorial-byok.md) para obtener información sobre la configuración y el uso de claves administradas por el cliente con Postman y la API REST de Azure.
+## <a name="tutorials"></a>Tutoriales
+
+- [Uso de Azure Portal para usar claves administradas por el cliente o BYOK con Media Services](tutorial-byok-portal.md)
+- [Uso de claves administradas por el cliente o BYOK con la API de REST de Media Services](tutorial-byok-postman.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Tutorial: Uso de claves administradas por el cliente o Bring Your Own Key (BYOK) con Media Services](tutorial-byok.md)
+[Protección del contenido mediante el cifrado dinámico de Media Services](content-protection-overview.md)

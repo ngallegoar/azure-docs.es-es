@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: e5eff13c9ec672937258cf35274d2f5f7bc66f18
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: a9289fad6f7ae1030628bedcf1a62cacc0b1e23a
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92164251"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94564487"
 ---
 # <a name="prepare-virtual-machines-for-an-fci-sql-server-on-azure-vms"></a>Preparación de máquinas virtuales para una FCI (SQL Server en máquinas virtuales de Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -58,6 +58,8 @@ Seleccione cuidadosamente la opción de disponibilidad de la máquina virtual qu
 
 Después de configurar la disponibilidad de la máquina virtual, está preparado para crear máquinas virtuales. Puede optar por utilizar una imagen de Azure Marketplace, ya tenga o no SQL Server instalado. Sin embargo, si elige una imagen para SQL Server en máquinas virtuales de Azure, deberá desinstalar SQL Server de la máquina virtual antes de configurar la instancia de clúster de conmutación por error. 
 
+### <a name="considerations"></a>Consideraciones
+En un clúster de conmutación por error invitado de máquinas virtuales de IaaS de Azure, se recomienda una sola NIC por servidor (nodo de clúster) y una sola subred. La red de Azure tiene redundancia física, que hace que las NIC y subredes adicionales sean innecesarias en un clúster invitado de VM de IaaS de Azure. Aunque el informe de validación del clúster emita una advertencia acerca de que los nodos solo son accesibles en una única red, esta advertencia puede omitirse en los clústeres de conmutación por error invitados de VM de IaaS de Azure.
 
 Coloque ambas máquinas virtuales:
 
@@ -71,15 +73,15 @@ Puede crear una máquina virtual de Azure mediante una imagen [con](sql-vm-creat
 
 ## <a name="uninstall-sql-server"></a>Desinstalar SQL Server
 
-Como parte del proceso de creación de la FCI, instalará SQL Server como una instancia en clúster en el clúster de conmutación por error. *Si ha implementado una máquina virtual con una imagen de Azure Marketplace sin SQL Server, puede omitir este paso.* Si ha implementado una imagen con SQL Server preinstalado, tendrá que anular el registro de la máquina virtual con SQL Server en el proveedor de recursos de máquina virtual con SQL y, a continuación, desinstalar SQL Server. 
+Como parte del proceso de creación de la FCI, instalará SQL Server como una instancia en clúster en el clúster de conmutación por error. *Si ha implementado una máquina virtual con una imagen de Azure Marketplace sin SQL Server, puede omitir este paso.* Si ha implementado una imagen con SQL Server preinstalado, tendrá que anular el registro de la máquina virtual con SQL Server en la extensión Agente de IaaS de SQL y, a continuación, desinstalar SQL Server. 
 
-### <a name="unregister-from-the-sql-vm-resource-provider"></a>Anulación del registro en el proveedor de recursos de máquina virtual con SQL
+### <a name="unregister-from-the-sql-iaas-agent-extension"></a>Anulación del registro de la extensión Agente de IaaS de SQL
 
-Las imágenes de máquinas virtuales con SQL Server de Azure Marketplace se registran automáticamente con el proveedor de recursos de máquina virtual con SQL. Antes de desinstalar la instancia con SQL Server preinstalado, primero debe [anular el registro de cada máquina virtual con SQL Server en el proveedor de recursos de máquina virtual de SQL](sql-vm-resource-provider-register.md#unregister-from-rp). 
+Las imágenes de máquinas virtuales con SQL Server de Azure Marketplace se registran automáticamente con la extensión Agente de IaaS de SQL. Antes de desinstalar la instancia con SQL Server preinstalado, debe [anular el registro de cada máquina virtual con SQL Server en la extensión Agente de IaaS de SQL](sql-agent-extension-manually-register-single-vm.md#unregister-from-extension). 
 
 ### <a name="uninstall-sql-server"></a>Desinstalar SQL Server
 
-Después de anular el registro del proveedor de recursos, puede desinstalar SQL Server. Siga estos pasos en cada máquina virtual: 
+Después de anular el registro dela extensión, puede desinstalar SQL Server. Siga estos pasos en cada máquina virtual: 
 
 1. Conéctese a la máquina virtual mediante RDP.
 

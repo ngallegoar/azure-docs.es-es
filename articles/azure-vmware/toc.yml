@@ -6,7 +6,7 @@
       href: introduction.md
 - name: Inicio rápido
   items:
-    - name: 0- Planificación de la implementación
+    - name: 0 - Planeamiento de la implementación
       href: production-ready-deployment-steps.md
     - name: 1 - Implementación de Azure VMware Solution
       href: deploy-azure-vmware-solution.md

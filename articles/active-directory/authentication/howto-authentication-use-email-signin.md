@@ -10,14 +10,17 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calui
-ms.openlocfilehash: c822aaebb2451d709f6afcdeba959f39c4d491cb
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: c3fcff5673f4498e92f5d66fe96d806a08527197
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964543"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94576026"
 ---
 # <a name="sign-in-to-azure-active-directory-using-email-as-an-alternate-login-id-preview"></a>Iniciar sesión en Azure mediante el correo electrónico como id. de inicio de sesión alternativo (versión preliminar)
+
+> [!NOTE]
+> Iniciar sesión en Azure AD con el correo electrónico como id. de inicio de sesión alternativo es una característica en vista previa (GB) pública de Azure Active Directory. Para más información sobre las versiones preliminares, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Muchas organizaciones desean que los usuarios puedan iniciar sesión en Azure Active Directory (Azure AD) con las mismas credenciales que su entorno de directorio local. Con este enfoque, conocido como autenticación híbrida, los usuarios solo necesitan recordar un conjunto de credenciales.
 
@@ -32,7 +35,7 @@ Para facilitar la adopción de la autenticación híbrida, ahora puede configura
 En este artículo se muestra cómo habilitar y usar el correo electrónico como id. de inicio de sesión alternativo. Esta característica está disponible en la edición Azure AD Free y en versiones posteriores.
 
 > [!NOTE]
-> Iniciar sesión en Azure AD con el correo electrónico como id. de inicio de sesión alternativo es una característica en vista previa (GB) pública de Azure Active Directory. Para más información sobre las versiones preliminares, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Esta característica es solo para usuarios de Azure AD autenticados en la nube.
 
 ## <a name="overview-of-azure-ad-sign-in-approaches"></a>Información general de los métodos de inicio de sesión Azure AD
 
@@ -169,6 +172,72 @@ Una vez que se aplica la directiva, puede tardar hasta una hora en propagarse y 
 
 Para probar que los usuarios pueden iniciar sesión con el correo electrónico, vaya a [https://myprofile.microsoft.com][my-profile] e inicie sesión con una cuenta de usuario basada en su dirección de correo electrónico, como `balas@fabrikam.com`, no su UPN, como `balas@contoso.com`. La experiencia de inicio de sesión debe verse y sentirse igual que con un evento de inicio de sesión basado en UPN.
 
+## <a name="enable-staged-rollout-to-test-user-sign-in-with-an-email-address"></a>Habilitación del lanzamiento preconfigurado para probar el inicio de sesión de usuario con una dirección de correo electrónico  
+
+El [lanzamiento preconfigurado][staged-rollout] permite a los administradores de inquilinos habilitar características para grupos específicos. Se recomienda que los administradores de inquilinos usen esta característica para probar el inicio de sesión de usuario con una dirección de correo electrónico. Cuando los administradores están preparados para implementar el lanzamiento preconfigurado en todo el inquilino, deberán usar una directiva de detección del dominio de inicio.  
+
+
+Necesita permiso de *administrador de inquilinos* para completar los siguientes pasos:
+
+1. Abra una sesión de PowerShell como administrador e instale el módulo *AzureADPreview* con el cmdlet [Install-Module][Install-Module]:
+
+    ```powershell
+    Install-Module AzureADPreview
+    ```
+
+    Si se le solicita, seleccione **Y** para instalar NuGet o para instalar desde un repositorio que no es de confianza.
+
+2. Ingrese a su inquilino Azure AD como *administrador de inquilinos* mediante el cmdlet [Conecta-AzureAD][Connect-AzureAD]:
+
+    ```powershell
+    Connect-AzureAD
+    ```
+
+    El comando devuelve información acerca de su cuenta, entorno e id. de inquilino.
+
+3. Enumere todas las directivas de lanzamiento preconfigurado existentes con el siguiente cmdlet:
+   
+   ```powershell
+   Get-AzureADMSFeatureRolloutPolicy
+   ``` 
+
+4. Si no hay directivas de lanzamiento preconfigurado para esta característica, cree una nueva directiva y tome nota de su identificador:
+
+   ```powershell
+   New-AzureADMSFeatureRolloutPolicy -Feature EmailAsAlternateId -DisplayName "EmailAsAlternateId Rollout Policy" -IsEnabled $true
+   ```
+
+5. Busque el identificador de directoryObject correspondiente al grupo que se va a agregar a la directiva de lanzamiento preconfigurado. Tome nota del valor devuelto para el parámetro *Id*, porque se usará en el paso siguiente.
+   
+   ```powershell
+   Get-AzureADMSGroup -SearchString "Name of group to be added to the staged rollout policy"
+   ```
+
+6. Agregue el grupo a la directiva de lanzamiento preconfigurado, tal como se muestra en el ejemplo siguiente. Reemplace el valor del parámetro *-Id* por el valor devuelto de identificador de directiva en el paso 4 y reemplace el valor del parámetro *-RefObjectId* por el valor de *Id* anotado en el paso 5. Puede pasar hasta 1 hora antes de que los usuarios del grupo puedan usar sus direcciones de proxy para iniciar sesión.
+
+   ```powershell
+   Add-AzureADMSFeatureRolloutPolicyDirectoryObject -Id "ROLLOUT_POLICY_ID" -RefObjectId "GROUP_OBJECT_ID"
+   ```
+   
+En el caso de los nuevos miembros agregados al grupo, pueden transcurrir hasta 24 horas antes de que puedan usar sus direcciones de proxy para iniciar sesión.
+
+### <a name="removing-groups"></a>Eliminación de grupos
+
+Para quitar un grupo de una directiva de lanzamiento preconfigurado, ejecute el siguiente comando:
+
+```powershell
+Remove-AzureADMSFeatureRolloutPolicyDirectoryObject -Id "ROLLOUT_POLICY_ID" -ObjectId "GROUP_OBJECT_ID" 
+```
+
+### <a name="removing-policies"></a>Eliminación de directivas
+
+Para quitar una directiva de lanzamiento preconfigurado, deshabilite primero la directiva y después quítela del sistema:
+
+```powershell
+Set-AzureADMSFeatureRolloutPolicy -Id "ROLLOUT_POLICY_ID" -IsEnabled $false 
+Remove-AzureADMSFeatureRolloutPolicy -Id "ROLLOUT_POLICY_ID"
+```
+
 ## <a name="troubleshoot"></a>Solución de problemas
 
 Si los usuarios tienen problemas con los eventos de inicio de sesión que usan su dirección de correo electrónico, revise los siguientes pasos de solución de problemas:
@@ -202,4 +271,5 @@ Para obtener más información sobre las operaciones de identidad híbrida, cons
 [Get-AzureADPolicy]: /powershell/module/azuread/get-azureadpolicy
 [New-AzureADPolicy]: /powershell/module/azuread/new-azureadpolicy
 [Set-AzureADPolicy]: /powershell/module/azuread/set-azureadpolicy
+[staged-rollout]: /powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true#staged-rollout
 [my-profile]: https://myprofile.microsoft.com

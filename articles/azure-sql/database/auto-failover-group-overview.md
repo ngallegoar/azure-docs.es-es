@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
-ms.date: 08/28/2020
-ms.openlocfilehash: c64112e30bdaf0da2218177bd2737c3ebe688b0c
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.date: 11/16/2020
+ms.openlocfilehash: 35856a0d414e288fcd184164733e9430a6bee296
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675297"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94653749"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Uso de grupos de conmutación por error automática para permitir la conmutación por error de varias bases de datos de manera transparente y coordinada
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -97,14 +97,17 @@ Para lograr una verdadera continuidad empresarial, agregar redundancia de base d
 
 - **Directiva de conmutación por error automática**
 
-  De manera predeterminada, un grupo de conmutación por error se configura con una directiva de conmutación por error automática. Azure desencadena la conmutación por error cuando se detecta el error y el período de gracia ha expirado. El sistema debe comprobar que la interrupción no se pueda mitigar mediante la [infraestructura de alta disponibilidad](high-availability-sla.md) integrada debido a la escala del impacto. Si desea controlar el flujo de trabajo de la conmutación por error desde la aplicación, puede desactivar la conmutación por error automática.
+  De manera predeterminada, un grupo de conmutación por error se configura con una directiva de conmutación por error automática. Azure desencadena la conmutación por error cuando se detecta el error y el período de gracia ha expirado. El sistema debe comprobar que la interrupción no se pueda mitigar mediante la [infraestructura de alta disponibilidad](high-availability-sla.md) integrada debido a la escala del impacto. Si desea controlar el flujo de trabajo de la conmutación por error desde la aplicación o manualmente, puede desactivar la conmutación por error automática.
   
   > [!NOTE]
   > Dado que la comprobación de la escala de la interrupción y la rapidez con que se puede mitigar conllevan acciones humanas por parte del equipo de operaciones, el período de gracia no se puede establecer por debajo de una hora. Esta limitación se aplica a todas las bases de datos del grupo de conmutación por error, independientemente de su estado de sincronización de datos.
 
 - **Directiva de conmutación por error de solo lectura**
 
-  De forma predeterminada, se deshabilita la conmutación por error del agente de escucha de solo lectura. Se asegura de que el rendimiento de la réplica principal no se ve afectado cuando la base de datos secundaria está sin conexión. En cambio, también significa que las sesiones de solo lectura no podrán conectarse hasta que se recupere la base de datos secundaria. Si no puede tolerar tiempo de inactividad en las sesiones de solo lectura y le parece correcto usar temporalmente la base de datos principal para el tráfico de solo lectura y el de lectura y escritura a costa de la posible degradación del rendimiento de esta, puede habilitar la conmutación por error para el agente de escucha de solo lectura mediante la configuración de la propiedad `AllowReadOnlyFailoverToPrimary`. En ese caso, el tráfico de solo lectura se redirigirá automáticamente a la base de datos principal si la secundaria no está disponible.
+  De forma predeterminada, se deshabilita la conmutación por error del agente de escucha de solo lectura. Se asegura de que el rendimiento de la réplica principal no se ve afectado cuando la base de datos secundaria está sin conexión. En cambio, también significa que las sesiones de solo lectura no podrán conectarse hasta que se recupere la base de datos secundaria. Si no puede tolerar tiempo de inactividad en las sesiones de solo lectura pero sí, usar la base de datos principal para el tráfico de solo lectura y el de lectura y escritura a costa de la posible degradación del rendimiento de esta, puede habilitar la conmutación por error para el agente de escucha de solo lectura mediante la configuración de la propiedad `AllowReadOnlyFailoverToPrimary`. En ese caso, el tráfico de solo lectura se redirigirá automáticamente a la base de datos principal si la secundaria no está disponible.
+
+  > [!NOTE]
+  > La propiedad `AllowReadOnlyFailoverToPrimary` solo surte efecto si la directiva de conmutación automática por error está habilitada y Azure ha desencadenado una conmutación por error automática. En ese caso, si la propiedad se establece en true, la nueva base de datos principal atenderá a las sesiones de lectura y escritura, y de solo lectura.
 
 - **Conmutación por error planeada**
 
@@ -128,7 +131,7 @@ Para lograr una verdadera continuidad empresarial, agregar redundancia de base d
 
 - **Varios grupos de conmutación por error**
 
-  Puede configurar varios grupos de conmutación por error para el mismo par de servidores a fin de controlar la escala de conmutaciones por error. Cada grupo realiza la conmutación por error por separado. Si la aplicación multiinquilino usa grupos elásticos, puede usar esta funcionalidad para combinar bases de datos principales y secundarias en cada grupo. De este modo, puede reducir el impacto de una interrupción a solo la mitad de los inquilinos.
+  Puede configurar varios grupos de conmutación por error para el mismo par de servidores con el fin de controlar el ámbito de las conmutaciones por error. Cada grupo realiza la conmutación por error por separado. Si la aplicación multiinquilino usa grupos elásticos, puede usar esta funcionalidad para combinar bases de datos principales y secundarias en cada grupo. De este modo, puede reducir el impacto de una interrupción a solo la mitad de los inquilinos.
 
   > [!NOTE]
   > Instancia administrada de SQL no admite varios grupos de conmutación por error.
@@ -173,7 +176,7 @@ Al realizar operaciones OLTP, use `<fog-name>.database.windows.net` como direcci
 
 ### <a name="using-read-only-listener-for-read-only-workload"></a>Uso del agente de escucha de solo lectura para la carga de trabajo de solo lectura
 
-Si tiene una carga de trabajo de solo lectura que es tolerante a una cierta obsolescencia de los datos, puede usar la base de datos secundaria en la aplicación. Para las sesiones de solo lectura, use `<fog-name>.secondary.database.windows.net` como dirección URL del servidor y la conexión se redirigirá automáticamente a la base de datos secundaria. También se recomienda indicar en la cadena de conexión la intención de lectura mediante `ApplicationIntent=ReadOnly`. Si quiere asegurarse de que la carga de trabajo de solo lectura se puede volver a conectar después de la conmutación por error o en caso de que el servidor secundario se quede sin conexión, asegúrese de configurar la propiedad `AllowReadOnlyFailoverToPrimary` de la directiva de conmutación por error.
+Si tiene una carga de trabajo de solo lectura que es tolerante a una cierta obsolescencia de los datos, puede usar la base de datos secundaria en la aplicación. Para las sesiones de solo lectura, use `<fog-name>.secondary.database.windows.net` como dirección URL del servidor y la conexión se redirigirá automáticamente a la base de datos secundaria. También se recomienda indicar en la cadena de conexión la intención de lectura mediante `ApplicationIntent=ReadOnly`.
 
 ### <a name="preparing-for-performance-degradation"></a>Preparación para la degradación del rendimiento
 
@@ -264,20 +267,20 @@ Al realizar operaciones OLTP, use `<fog-name>.zone_id.database.windows.net` como
 Si tiene una carga de trabajo de solo lectura que es tolerante a una cierta obsolescencia de los datos, puede usar la base de datos secundaria en la aplicación. Para conectarse directamente a la base de datos secundaria con replicación geográfica, use `<fog-name>.secondary.<zone_id>.database.windows.net` como dirección URL del servidor y la conexión se realizará directamente a dicha base de datos.
 
 > [!NOTE]
-> En determinados niveles de servicio, SQL Database admite el uso de [réplicas de solo lectura](read-scale-out.md) para equilibrar las cargas de trabajo de consultas de solo lectura mediante la capacidad de una réplica de solo lectura y el uso del parámetro `ApplicationIntent=ReadOnly` en la cadena de conexión. Cuando se ha configurado una base de datos secundaria con replicación geográfica, puede usar esta funcionalidad para conectarse a una réplica de solo lectura de la ubicación principal o de la ubicación con replicación geográfica.
+> En los niveles de servicio prémium, crítico para la empresa e hiperescala, SQL Database admite el uso de [réplicas de solo lectura](read-scale-out.md) para ejecutar las cargas de trabajo de consultas de solo lectura mediante la capacidad de una réplica de solo lectura (o más), con el uso del parámetro `ApplicationIntent=ReadOnly` en la cadena de conexión. Cuando se ha configurado una base de datos secundaria con replicación geográfica, puede usar esta funcionalidad para conectarse a una réplica de solo lectura de la ubicación principal o de la ubicación con replicación geográfica.
 >
-> - Para conectarse a una réplica de solo lectura en la ubicación principal, use `<fog-name>.<zone_id>.database.windows.net`.
-> - Para conectarse a una réplica de solo lectura en la ubicación secundaria, use `<fog-name>.secondary.<zone_id>.database.windows.net`.
+> - Para conectarse a una réplica de solo lectura en la ubicación principal, use `ApplicationIntent=ReadOnly` y `<fog-name>.<zone_id>.database.windows.net`.
+> - Para conectarse a una réplica de solo lectura en la ubicación secundaria, use `ApplicationIntent=ReadOnly`y `<fog-name>.secondary.<zone_id>.database.windows.net`.
 
 ### <a name="preparing-for-performance-degradation"></a>Preparación para la degradación del rendimiento
 
-Una aplicación de Azure típica usa varios servicios de Azure y consta de varios componentes. La conmutación por error automatizada del grupo de conmutación por error se desencadena en función del estado de los componentes de Azure SQL. Es posible que otros servicios de Azure de la región primaria no se vean afectados por la interrupción y que sus componentes sigan estando disponibles en esa región. Una vez que las bases de datos principales cambien a la región de DR, la latencia entre los componentes dependientes puede aumentar. Para evitar el impacto de una mayor latencia en el rendimiento de la aplicación, compruebe la redundancia de todos los componentes de la aplicación en la región de DR y siga estas [instrucciones de seguridad de red](#failover-groups-and-network-security).
+Una aplicación de Azure típica usa varios servicios de Azure y consta de varios componentes. La conmutación por error automatizada del grupo de conmutación por error se desencadena en función del estado de los componentes de Azure SQL. Es posible que otros servicios de Azure de la región primaria no se vean afectados por la interrupción y que sus componentes sigan estando disponibles en esa región. Una vez que las bases de datos principales cambien a la región secundaria, la latencia entre los componentes dependientes puede aumentar. Para evitar que la mayor latencia afecte al rendimiento de la aplicación, compruebe la redundancia de todos los componentes de la aplicación en la región secundaria y realice la conmutación por error de los componentes junto con la de la base de datos. En el momento de la configuración, siga las [instrucciones de seguridad de red](#failover-groups-and-network-security) para garantizar la conectividad a la base de datos en la región secundaria.
 
 ### <a name="preparing-for-data-loss"></a>Preparación para la pérdida de datos
 
-Si se detecta una interrupción, se desencadena automáticamente una conmutación por error de lectura/escritura si nos consta que hay cero pérdida de datos. En caso contrario, espera el período especificado. En caso contrario, espera el período especificado por `GracePeriodWithDataLossHours`. Si especificó `GracePeriodWithDataLossHours`, prepárese para la pérdida de datos. Por lo general, durante las interrupciones, Azure favorece la disponibilidad. Si no puede permitirse perder datos, asegúrese de establecer GracePeriodWithDataLossHours en un número lo suficientemente grande, por ejemplo, 24 horas.
+Si se detecta una interrupción, se desencadena automáticamente una conmutación por error de lectura/escritura si nos consta que hay cero pérdida de datos. De lo contrario, la conmutación por error se aplazará durante el período que especifique mediante `GracePeriodWithDataLossHours`. Si especificó `GracePeriodWithDataLossHours`, prepárese para la pérdida de datos. Por lo general, durante las interrupciones, Azure favorece la disponibilidad. Si no puede permitirse perder datos, asegúrese de establecer GracePeriodWithDataLossHours en un número lo suficientemente grande, por ejemplo, 24 horas, o deshabilite la conmutación automática por error.
 
-La actualización de DNS del agente de escucha de lectura y escritura sucederá inmediatamente después de que se inicie la conmutación por error. Esta operación no ocasionará pérdida de datos. Sin embargo, el proceso de conmutación de roles de base de datos puede tardar hasta 5 minutos en condiciones normales. Hasta que se complete, algunas bases de datos de la nueva instancia principal seguirán siendo de solo lectura. Si se inicia la conmutación por error mediante PowerShell, toda la operación es sincrónica. Si se inicia mediante Azure Portal, la interfaz de usuario indicará el estado de finalización. Si se inicia mediante la API REST, use el mecanismo de sondeo estándar de Azure Resource Manager para supervisar la finalización.
+La actualización de DNS del agente de escucha de lectura y escritura sucederá inmediatamente después de que se inicie la conmutación por error. Esta operación no ocasionará pérdida de datos. Sin embargo, el proceso de conmutación de roles de base de datos puede tardar hasta 5 minutos en condiciones normales. Hasta que se complete, algunas bases de datos de la nueva instancia principal seguirán siendo de solo lectura. Si se inicia una conmutación por error mediante PowerShell, la operación para cambiar el rol de la réplica principal es sincrónica. Si se inicia mediante Azure Portal, la interfaz de usuario indicará el estado de finalización. Si se inicia mediante la API REST, use el mecanismo de sondeo estándar de Azure Resource Manager para supervisar la finalización.
 
 > [!IMPORTANT]
 > Use un grupo de conmutación por error manual para mover las bases de datos principales de vuelta a la ubicación original. Cuando se corrija la interrupción que causó la conmutación por error, puede mover las bases de datos principales a la ubicación original. Para ello, debe iniciar la conmutación por error manual del grupo.

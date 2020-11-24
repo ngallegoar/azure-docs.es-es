@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 01/09/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 45f5a7e66c80dff5e78e575463becd95bcc7fca1
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: b8aaebdd37f835201ef549e3f97e0c0b657e4fe9
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93242218"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94636221"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-postgresql---single-server-using-cli"></a>Creación y administración de Private Link para Azure Database for PostgreSQL: servidor único con la CLI
 
@@ -33,14 +33,14 @@ Si, en su lugar, decide instalar y usar la CLI de Azure en un entorno local, par
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
-Para poder crear un recurso, debe crear un grupo de recursos que hospede la red virtual. Cree un grupo de recursos con [az group create](/cli/azure/group). En este ejemplo, se crea un grupo de recursos denominado *myResourceGroup* en la ubicación *westeurope* :
+Para poder crear un recurso, debe crear un grupo de recursos que hospede la red virtual. Cree un grupo de recursos con [az group create](/cli/azure/group). En este ejemplo, se crea un grupo de recursos denominado *myResourceGroup* en la ubicación *westeurope*:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location westeurope
 ```
 
 ## <a name="create-a-virtual-network"></a>Creación de una red virtual
-Cree la red virtual con [az network vnet create](/cli/azure/network/vnet). En este ejemplo se crea una red virtual predeterminada denominada *myVirtualNetwork* con una subred denominada *mySubnet* :
+Cree la red virtual con [az network vnet create](/cli/azure/network/vnet). En este ejemplo se crea una red virtual predeterminada denominada *myVirtualNetwork* con una subred denominada *mySubnet*:
 
 ```azurecli-interactive
 az network vnet create \
@@ -60,13 +60,14 @@ az network vnet subnet update \
  --disable-private-endpoint-network-policies true
 ```
 ## <a name="create-the-vm"></a>Creación de la máquina virtual 
-Cree la máquina virtual con az vm create. Cuando se le solicite, proporcione una contraseña que se usará como credenciales de inicio de sesión para la VM. En este ejemplo se crea una máquina virtual llamada *myVm* : 
+Cree la máquina virtual con az vm create. Cuando se le solicite, proporcione una contraseña que se usará como credenciales de inicio de sesión para la VM. En este ejemplo se crea una máquina virtual llamada *myVm*: 
 ```azurecli-interactive
 az vm create \
   --resource-group myResourceGroup \
   --name myVm \
   --image Win2019Datacenter
 ```
+
  Anote la dirección IP pública de la máquina virtual. Usará esta dirección para conectarse a la máquina virtual desde Internet en el paso siguiente.
 
 ## <a name="create-an-azure-database-for-postgresql---single-server"></a>Creación de Azure Database for PostgreSQL: servidor único 
@@ -99,6 +100,7 @@ az network private-endpoint create \
 
 ## <a name="configure-the-private-dns-zone"></a>Configuración de la zona DNS privada 
 Cree una zona DNS privada para el dominio del servidor PostgreSQL y cree un vínculo de asociación con la instancia de Virtual Network. 
+
 ```azurecli-interactive
 az network private-dns zone create --resource-group myResourceGroup \ 
    --name  "privatelink.postgres.database.azure.com" 
@@ -126,7 +128,7 @@ az network private-dns record-set a add-record --record-set-name myserver --zone
 
 > [!NOTE]
 > En algunos casos, Azure Database for PostgreSQL y la subred de red virtual se encuentran en distintas suscripciones. En estos casos debe garantizar las siguientes configuraciones:
-> - Asegúrese de que ambas suscripciones tengan el proveedor de recursos **Microsoft.DBforPostgreSQL** registrado. Para más información, consulte [resource-manager-registration][resource-manager-portal].
+> - Asegúrese de que ambas suscripciones tengan el proveedor de recursos **Microsoft.DBforPostgreSQL** registrado. Para más información, consulte [Proveedores de recursos](../azure-resource-manager/management/resource-providers-and-types.md).
 
 ## <a name="connect-to-a-vm-from-the-internet"></a>Conexión a una máquina virtual desde Internet
 
@@ -134,9 +136,9 @@ Conéctese a la máquina virtual *myVm* desde Internet de la siguiente manera:
 
 1. En la barra de búsqueda del portal, escriba *myVm*.
 
-1. Seleccione el botón **Conectar**. Después de seleccionar el botón **Conectar** , se abre **Conectar a máquina virtual**.
+1. Seleccione el botón **Conectar**. Después de seleccionar el botón **Conectar**, se abre **Conectar a máquina virtual**.
 
-1. Seleccione **Descargar archivo RDP**. Azure crea un archivo de Protocolo de Escritorio remoto ( *.rdp* ) y lo descarga en su equipo.
+1. Seleccione **Descargar archivo RDP**. Azure crea un archivo de Protocolo de Escritorio remoto ( *.rdp*) y lo descarga en su equipo.
 
 1. Abra el archivo *downloaded.rdp*.
 
@@ -155,31 +157,32 @@ Conéctese a la máquina virtual *myVm* desde Internet de la siguiente manera:
 
 ## <a name="access-the-postgresql-server-privately-from-the-vm"></a>Acceso al servidor PostgreSQL de forma privada desde la VM
 
-1. En el Escritorio remoto de *myVm* , abra PowerShell.
+1. En el Escritorio remoto de *myVm*, abra PowerShell.
 
 2. Escriba  `nslookup mydemopostgresserver.privatelink.postgres.database.azure.com`. 
 
-    Recibirá un mensaje similar a este:
-    ```azurepowershell
-    Server:  UnKnown
-    Address:  168.63.129.16
-    Non-authoritative answer:
-    Name:    mydemopostgresserver.privatelink.postgres.database.azure.com
-    Address:  10.1.3.4
-    ```
+   Recibirá un mensaje similar a este:
 
-3. Pruebe la conexión de Private Link del servidor PostgreSQL con cualquier cliente disponible. En el ejemplo siguiente se ha usado [Azure Data Studio](/sql/azure-data-studio/download?view=sql-server-ver15) para realizar la operación.
+   ```azurepowershell
+   Server:  UnKnown
+   Address:  168.63.129.16
+   Non-authoritative answer:
+   Name:    mydemopostgresserver.privatelink.postgres.database.azure.com
+   Address:  10.1.3.4
+   ```
 
-4. En **Nueva conexión** , escriba o seleccione esta información:
+3. Pruebe la conexión de Private Link del servidor PostgreSQL con cualquier cliente disponible. En el ejemplo siguiente se usa [Azure Data Studio](/sql/azure-data-studio/download?view=sql-server-ver15&preserve-view=true) para realizar la operación.
 
-    | Configuración | Value |
-    | ------- | ----- |
-    | Tipo de servidor| Seleccione **PostgreSQL**.|
-    | Nombre de servidor| Seleccione *mydemopostgresserver.privatelink.postgres.database.azure.com*. |
-    | Nombre de usuario | Escriba el nombre de usuario como username@servername, que se proporciona durante la creación del servidor PostgreSQL. |
-    |Contraseña |Escriba una contraseña proporcionada durante la creación del servidor PostgreSQL. |
-    |SSL|Seleccione **Requerido**.|
-    ||
+4. En **Nueva conexión**, escriba o seleccione esta información:
+
+   | Configuración | Value |
+   | ------- | ----- |
+   | Tipo de servidor| Seleccione **PostgreSQL**.|
+   | Nombre de servidor| Seleccione *mydemopostgresserver.privatelink.postgres.database.azure.com*. |
+   | Nombre de usuario | Escriba el nombre de usuario como username@servername, que se proporciona durante la creación del servidor PostgreSQL. |
+   |Contraseña |Escriba una contraseña proporcionada durante la creación del servidor PostgreSQL. |
+   |SSL|Seleccione **Requerido**.|
+   ||
 
 5. Seleccione Conectar.
 
@@ -198,6 +201,3 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Más información sobre [Qué es un punto de conexión privado de Azure](../private-link/private-endpoint-overview.md)
-
-<!-- Link references, to text, Within this same GitHub repo. -->
-[resource-manager-portal]: ../azure-resource-manager/management/resource-providers-and-types.md

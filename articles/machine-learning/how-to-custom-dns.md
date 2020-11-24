@@ -8,19 +8,19 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
-ms.date: 10/05/2020
+ms.date: 11/13/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 168dc342eaf61a9ede632fb429311f6f5c1d4be4
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: e3d95be52215b03a30dc4b5c7f251357f163b24a
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93311566"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616100"
 ---
 # <a name="how-to-use-your-workspace-with-a-custom-dns-server"></a>Uso de un área de trabajo con un servidor DNS personalizado
 
-Al usar Azure Machine Learning con una red virtual, hay [varias maneras de controlar la resolución de nombres DNS](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md). De manera predeterminada, Azure controla automáticamente la resolución de nombres para el área de trabajo y el punto de conexión privado. Sin embargo, __al usar su propio servidor DNS personalizado__ , debe crear manualmente las entradas DNS para el área de trabajo.
+Al usar Azure Machine Learning con una red virtual, hay [varias maneras de controlar la resolución de nombres DNS](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md). De manera predeterminada, Azure controla automáticamente la resolución de nombres para el área de trabajo y el punto de conexión privado. Si, en cambio, _usa su propio servidor DNS personalizado_, debe crear manualmente entradas DNS para el área de trabajo.
 
 > [!IMPORTANT]
 > En este artículo solo se explica cómo buscar el nombre de dominio completo (FQDN) y las direcciones IP para estas entradas; NO se proporciona información sobre cómo configurar los registros DNS para estos elementos. Consulte la documentación del software de DNS para obtener información sobre cómo agregar registros.
@@ -40,13 +40,14 @@ Al usar Azure Machine Learning con una red virtual, hay [varias maneras de contr
 La lista siguiente contiene los nombres de dominio completos (FQDN) que usa el área de trabajo y el punto de conexión privado:
 
 * `<workspace-GUID>.workspace.<region>.api.azureml.ms`
-* `<workspace-GUID>.studio.workspace.<region>.api.azureml.ms`
-* `cert-<workspace-GUID>.workspace.<region>.api.azureml.ms`
 * `<workspace-GUID>.workspace.<region>.experiments.azureml.net`
 * `<workspace-GUID>.workspace.<region>.modelmanagement.azureml.net`
 * `<workspace-GUID>.workspace.<region>.aether.ms`
 * `ml-<workspace-name>-<region>-<workspace-guid>.notebooks.azure.ml`
-* Si crea una instancia de proceso, también debe agregar una entrada para `<instance-name>.<region>.instances.azureml.ms` con la dirección IP privada del punto de conexión privado del área de trabajo. Tenga en cuenta que solo se puede acceder a la instancia de proceso desde dentro de la red virtual.
+* Si crea una instancia de proceso, también debe agregar una entrada para `<instance-name>.<region>.instances.azureml.ms` con la dirección IP privada del punto de conexión privado del área de trabajo.
+
+    > [!NOTE]
+    > Solo se puede acceder a la instancia de proceso desde dentro de la red virtual.
 
 Para buscar las direcciones IP internas de los FQDN en la red virtual, use uno de los métodos siguientes:
 
@@ -69,7 +70,7 @@ $workspaceDns.CustomDnsConfigs | format-table
 # <a name="azure-portal"></a>[Azure Portal](#tab/azure-portal)
 
 1. En [Azure Portal](https://portal.azure.com), seleccione el __área de trabajo__ de Azure Machine Learning.
-1. En la sección __Configuración__ , seleccione __Conexiones de punto de conexión privado__.
+1. En la sección __Configuración__, seleccione __Conexiones de punto de conexión privado__.
 1. Seleccione el vínculo en la columna __Punto de conexión privado__ que se muestra.
 1. Al final de la página se muestra una lista de los nombres de dominio completos (FQDN) y las direcciones IP del punto de conexión privado del área de trabajo.
 
@@ -82,8 +83,6 @@ La información devuelta por todos los métodos es la misma; una lista de los FQ
 | FQDN | Dirección IP |
 | ----- | ----- |
 | `fb7e20a0-8891-458b-b969-55ddb3382f51.workspace.eastus.api.azureml.ms` | `10.1.0.5` |
-| `fb7e20a0-8891-458b-b969-55ddb3382f51.studio.workspace.eastus.api.azureml.ms` | `10.1.0.5` |
-| `cert-fb7e20a0-8891-458b-b969-55ddb3382f51.workspace.eastus.api.azureml.ms` | `10.1.0.5` |
 | `ml-myworkspace-eastus-fb7e20a0-8891-458b-b969-55ddb3382f51.notebooks.azure.net` | `10.1.0.6` |
 
 > [!IMPORTANT]

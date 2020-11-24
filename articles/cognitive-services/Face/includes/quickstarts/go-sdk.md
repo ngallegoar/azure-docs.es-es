@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: include
 ms.date: 10/26/2020
 ms.author: pafarley
-ms.openlocfilehash: 8dee3d9c91ac2b4fe97ada6069591f8f474c8c24
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 65f7af56e7f0042b8d4c312d17641a537f5fd908
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92918717"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94816750"
 ---
 Comience a usar el reconocimiento facial con la biblioteca cliente de Face para Go. Siga estos pasos para instalar el paquete y probar el código de ejemplo para realizar tareas básicas. El servicio Face le proporciona acceso a algoritmos avanzados para detectar y reconocer rostros humanas en imágenes.
 
@@ -49,9 +49,9 @@ cd my-app
 
 El área de trabajo contendrá tres carpetas:
 
-* **src** : este directorio contendrá código fuente y paquetes. Todos los paquetes instalados con el comando `go get` se encontrarán en esta carpeta.
-* **pkg** : este directorio contendrá objetos de paquete de Go compilados. Todos estos archivos tienen la extensión `.a`.
-* **bin** : este directorio contendrá los archivos ejecutables binarios que se crean al ejecutar `go install`.
+* **src**: este directorio contendrá código fuente y paquetes. Todos los paquetes instalados con el comando `go get` se encontrarán en esta carpeta.
+* **pkg**: este directorio contendrá objetos de paquete de Go compilados. Todos estos archivos tienen la extensión `.a`.
+* **bin**: este directorio contendrá los archivos ejecutables binarios que se crean al ejecutar `go install`.
 
 > [!TIP]
 > Para más información sobre la estructura de un área de trabajo de Go, consulte la [documentación del lenguaje Go](https://golang.org/doc/code.html#Workspaces). En esta guía se incluye información para establecer `$GOPATH` y `$GOROOT`.
@@ -194,9 +194,12 @@ Una vez asignadas las caras, entrene el objeto **PersonGroup** para que identifi
 
 [!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_pg_train)]
 
+> [!TIP]
+> API Face se ejecuta en un conjunto de modelos precompilados que son estáticos por naturaleza (el rendimiento del modelo no empeorará ni mejorará si se ejecuta el servicio). Los resultados que genera el modelo pueden cambiar si Microsoft actualiza su back-end sin migrar a una versión de modelo completamente nueva. Para aprovechar las ventajas de una versión más reciente de un modelo, puede volver a entrenar **PersonGroup**, pero especifique el modelo más reciente como un parámetro con las mismas imágenes de inscripción.
+
 ## <a name="identify-a-face"></a>Identificar una cara
 
-La operación de identificación toma una imagen de una persona (o de varias) y busca la identidad de cada una de las caras de la imagen (búsqueda de reconocimiento facial). Compara cada cara detectada con un objeto **PersonGroup** , una base de datos con distintos objetos **Person** cuyos rasgos faciales se conocen.
+La operación de identificación toma una imagen de una persona (o de varias) y busca la identidad de cada una de las caras de la imagen (búsqueda de reconocimiento facial). Compara cada cara detectada con un objeto **PersonGroup**, una base de datos con distintos objetos **Person** cuyos rasgos faciales se conocen.
 
 > [!IMPORTANT]
 > Para ejecutar este ejemplo, primero debe ejecutar el código de [Creación y entrenamiento de un grupo de personas](#create-and-train-a-person-group).
@@ -226,7 +229,7 @@ Este código imprime los resultados detallados de las coincidencias en la consol
 
 ## <a name="verify-faces"></a>Comprobar caras
 
-La operación Verificar toma dos identificadores de caras o un objeto **Person** , y determina si pertenecen a la misma persona.
+La operación Verificar toma dos identificadores de caras o un objeto **Person**, y determina si pertenecen a la misma persona.
 
 En el código siguiente se detectan caras en dos imágenes de origen y, a continuación, se compara cada una con una cara detectada a partir de una imagen de destino.
 

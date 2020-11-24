@@ -5,15 +5,15 @@ services: data-factory
 author: nabhishek
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 09/01/2020
+ms.date: 11/16/2020
 ms.author: abnarain
 ms.reviewer: craigg
-ms.openlocfilehash: 6f16e4b1f9728ae8d9cb36ab442603083e83eb92
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.openlocfilehash: c9dd39ffa68d8261f5c5d301d4c351c52b3f27c1
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94331386"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94654599"
 ---
 # <a name="troubleshoot-azure-data-factory"></a>Solución de problemas de Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -1008,7 +1008,16 @@ Para más información, consulte [Introducción a Fiddler](https://docs.telerik.
 ## <a name="general"></a>General
 
 ### <a name="activity-stuck-issue"></a>Problema de bloqueo de actividad
+
 Si observa que la actividad tarda mucho más tiempo en ejecutarse que sus ejecuciones normales sin apenas progreso, es posible que se haya bloqueado. Puede intentar cancelarla y volver a intentarlo para ver si sirve. Si se trata de una actividad de copia, puede obtener información sobre la solución de problemas y la supervisión de rendimiento en [Solución de problemas de rendimiento de la actividad de copia](copy-activity-performance-troubleshooting.md); si se trata de un flujo de datos, obtenga información en Guía de optimización y [rendimiento de la asignación de instancias de Data Flow](concepts-data-flow-performance.md).
+
+### <a name="payload-is-too-large"></a>La carga es demasiado grande
+
+**Mensaje de error:** `The payload including configurations on activity/dataSet/linked service is too large. Please check if you have settings with very large value and try to reduce its size.`
+
+**Causa:** La carga de cada ejecución de actividad incluye la configuración de la actividad, las configuraciones de los conjuntos de datos asociados y los servicios vinculados (si los hay), y una pequeña parte de las propiedades del sistema que se generan por tipo de actividad. El límite de este tamaño de carga es 896 KB, tal y como se menciona en la sección [Límites de Data Factory](../azure-resource-manager/management/azure-subscription-service-limits.md#data-factory-limits).
+
+**Recomendación:** Probablemente se alcanza este límite porque se pasan uno o más valores grandes de parámetro desde una salida de actividad ascendente o de forma externa, especialmente si se pasan datos reales entre actividades en el flujo de control. Compruebe si puede reducir el tamaño de los valores de parámetros grandes, o bien ajuste la lógica de canalización para evitar pasar estos valores entre las actividades y administrarlos dentro de la actividad en su lugar.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

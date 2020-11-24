@@ -5,19 +5,19 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 07/05/2020
-ms.openlocfilehash: 86d647a79b7babc2780cb0db904e689f3916673f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/12/2020
+ms.openlocfilehash: 19c9ec39d85bfc56b118498aba62c3752d6d771c
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89500392"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616933"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>Acceso a recursos de Azure Virtual Network desde Azure Logic Apps mediante entornos de servicio de integración (ISE)
 
 En ocasiones, las aplicaciones lógicas necesitan acceder a recursos protegidos, como máquinas virtuales y otros sistemas o servicios que están dentro de una [red virtual de Azure](../virtual-network/virtual-networks-overview.md) o conectados a ella. Para configurar este acceso, puede [crear un *entorno del servicio de integración* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment.md). Un ISE es una instancia del servicio Logic Apps que usa recursos dedicados y se ejecuta de forma independiente al servicio Logic Apps multiinquilino "global".
 
-Por ejemplo, algunas redes virtuales de Azure usan puntos de conexión privados (que se pueden configurar mediante [Azure Private Link](../private-link/private-link-overview.md)) para proporcionar acceso a los servicios de PaaS de Azure, como Azure Storage, Azure Cosmos DB o Azure SQL Database, servicios de asociados o servicios de clientes que se hospedan en Azure. Si las aplicaciones lógicas necesitan acceder a redes virtuales que usan puntos de conexión privados, debe crear, implementar y ejecutar esas aplicaciones lógicas dentro de un ISE.
+Por ejemplo, algunas redes virtuales de Azure usan puntos de conexión privados (que se pueden configurar mediante [Azure Private Link](../private-link/private-link-overview.md)) para proporcionar acceso a los servicios PaaS de Azure, como Azure Storage, Azure Cosmos DB o Azure SQL Database, servicios de asociados o servicios de clientes que se hospedan en Azure. Si las aplicaciones lógicas necesitan acceder a redes virtuales que usan puntos de conexión privados, debe crear, implementar y ejecutar esas aplicaciones lógicas dentro de un ISE.
 
 Cuando se crea un ISE, Azure *inserta* o implementa dicho ISE en su red virtual de Azure. A continuación, puede usar ese ISE como la ubicación de las aplicaciones lógicas y cuentas de integración que necesitan acceso.
 
@@ -47,7 +47,7 @@ La ejecución de aplicaciones lógicas en una instancia dedicada e individual ay
 
 ## <a name="dedicated-versus-multi-tenant"></a>Diferencias entre dedicado y multiinquilino
 
-Cuando se crean y ejecutan aplicaciones lógicas en un ISE, se proporcionan las mismas experiencias de usuario y funcionalidades similares que el servicio multiinquilino de Logic Apps. Puede usar los mismos desencadenadores, acciones y conectores administrados integrados que están disponibles en el servicio multiinquilino de Logic Apps. Algunos conectores administrados ofrecen versiones de ISE adicionales. La diferencia entre los conectores de ISE y los que no son de ISE radica en la ubicación en la que se ejecutan y las etiquetas que tienen en el diseñador de aplicación lógica cuando se trabaja en un ISE.
+Cuando se crean y ejecutan aplicaciones lógicas en un ISE, se proporcionan las mismas experiencias de usuario y funcionalidades similares que el servicio multiinquilino de Logic Apps. Puede usar los mismos desencadenadores, acciones y conectores administrados integrados que están disponibles en el servicio multiinquilino de Logic Apps. Algunos conectores administrados ofrecen versiones de ISE adicionales. La diferencia entre los conectores de ISE y los que no son de ISE radica en la ubicación en la que se ejecutan y las etiquetas que tienen en el Diseñador de aplicación lógica cuando se trabaja en un ISE.
 
 ![Conectores con y sin etiquetas en un ISE](./media/connect-virtual-network-vnet-isolated-environment-overview/labeled-trigger-actions-integration-service-environment.png)
 
@@ -87,7 +87,7 @@ Las aplicaciones lógicas que se ejecutan dentro de un ISE pueden acceder direct
 
   * Los conectores personalizados que cree *dentro de un ISE* no funcionan con la puerta de enlace de datos local. Pero estos conectores pueden acceder directamente a orígenes de datos y sistemas locales que están dentro de la red virtual en la que se hospeda el ISE o conectados a ella. Por tanto, las aplicaciones lógicas que se encuentran dentro de un ISE normalmente no necesitan la puerta de enlace de datos al acceder a esos recursos.
 
-Para acceder a los sistemas y orígenes de datos locales que no tienen conectores ISE, que están fuera de la red virtual o que no están conectados a ella, seguirá teniendo que usar la puerta de enlace de datos local. Las aplicaciones lógicas dentro un ISE pueden seguir usando conectores sin la etiqueta **CORE** o **ISE**. Estos conectores solo se ejecutan en el servicio Logic Apps multiinquilino, en lugar de hacerlo en el ISE. 
+Para acceder a los sistemas y orígenes de datos locales que no tienen conectores ISE, que están fuera de la red virtual o que no están conectados a ella, seguirá teniendo que usar la puerta de enlace de datos local. Las aplicaciones lógicas dentro un ISE pueden seguir usando conectores sin la etiqueta **CORE** o **ISE**. Esos conectores solo se ejecutan en el servicio Logic Apps multiinquilino, en lugar de hacerlo en el ISE. 
 
 <a name="ise-level"></a>
 
@@ -120,7 +120,15 @@ Al crear el ISE, puede optar por usar puntos de conexión de acceso internos o e
 * **Internas**: Los puntos de conexión privados permiten las llamadas a aplicaciones lógicas del ISE, donde puede ver las entradas y salidas del historial de ejecuciones de las aplicaciones lógicas, así como acceder a dichas entradas y salidas, *solo desde dentro de la red virtual*.
 
   > [!IMPORTANT]
-  > Asegúrese de tener conectividad de red entre los puntos de conexión privados y el equipo desde el que desea acceder al historial de ejecuciones. De lo contrario, cuando intente ver el historial de ejecución de la aplicación lógica, recibirá un error que indica "Error inesperado. No se pudo capturar".
+  > Si necesita usar estos desencadenadores basados en webhook, utilice puntos de conexión externos *no* puntos de conexión internos cuando cree su ISE:
+  > 
+  > * Azure DevOps
+  > * Azure Event Grid
+  > * Common Data Service
+  > * Office 365
+  > * SAP (versión ISE)
+  > 
+  > Además, asegúrese de tener conectividad de red entre los puntos de conexión privados y el equipo desde el que quiere acceder al historial de ejecución. De lo contrario, cuando intente ver el historial de ejecución de la aplicación lógica, recibirá un error que indica "Error inesperado. No se pudo capturar".
   >
   > ![Error de acción de Azure Storage debido a la imposibilidad de enviar tráfico a través del firewall](./media/connect-virtual-network-vnet-isolated-environment-overview/integration-service-environment-error.png)
   >

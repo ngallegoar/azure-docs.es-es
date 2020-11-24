@@ -1,7 +1,7 @@
 ---
 title: Dónde se guardan y escriben los archivos de experimentos
 titleSuffix: Azure Machine Learning
-description: Aprenda dónde se guardan los archivos de entrada de los experimentos y dónde se escriben los archivos de salida para evitar errores de limitación del almacenamiento y la latencia de los experimentos.
+description: Conozca dónde guardar los archivos de entrada y salida para evitar errores de limitación de almacenamiento y latencia de los experimentos.
 services: machine-learning
 author: rastala
 ms.author: roastala
@@ -12,12 +12,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 03/10/2020
-ms.openlocfilehash: 0dab99c902269f7d598eedb8c2fa23bbed3948c4
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 49e1e9efbd6f59bd037a8033f83836bf7fc71c43
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325364"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630335"
 ---
 # <a name="where-to-save-and-write-files-for-azure-machine-learning-experiments"></a>Dónde guardar y escribir los archivos para los experimentos de Azure Machine Learning
 
@@ -69,7 +69,7 @@ Al escribir los cambios, se recomienda escribir los archivos en un almacén de d
 Si no necesita un almacén de datos, escriba los archivos en la carpeta `./outputs` o `./logs`.
 
 >[!Important]
-> Dos carpetas, *outputs* y *logs* , reciben un tratamiento especial por parte de Azure Machine Learning. Durante el entrenamiento, si escribe archivos en las carpetas llamadas `./outputs` y `./logs`, los archivos se cargarán automáticamente en su historial de ejecución, por lo que tendrá acceso a ellos una vez completada su ejecución.
+> Dos carpetas, *outputs* y *logs*, reciben un tratamiento especial por parte de Azure Machine Learning. Durante el entrenamiento, si escribe archivos en las carpetas llamadas `./outputs` y `./logs`, los archivos se cargarán automáticamente en su historial de ejecución, por lo que tendrá acceso a ellos una vez completada su ejecución.
 
 * **Si la salida son los mensajes de estado o los resultados de puntuación,** escriba los archivos en la carpeta `./outputs`, de modo que se conserven como artefactos en el historial de ejecución. Esté atento al número y tamaño de los archivos escritos en esta carpeta, ya que puede producirse cierta latencia cuando el contenido se cargue en el historial de ejecución. Si la latencia es un problema, se recomienda escribir los archivos en un almacén de datos.
 

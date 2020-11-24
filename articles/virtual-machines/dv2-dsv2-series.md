@@ -1,5 +1,5 @@
 ---
-title: 'Serie Dv2 y Dsv2: máquinas virtuales de Azure'
+title: 'Serie Dv2 y DSv2: máquinas virtuales de Azure'
 description: Especificaciones de las máquinas virtuales de la serie Dv2 y Dsv2.
 author: joelpelley
 ms.service: virtual-machines
@@ -7,16 +7,16 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 785e72a47d68bf368e160b1f3bf2a6d762d1f100
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b1bd2e0360b064a71dd91241d40513d8c37447bb
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91649701"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94635643"
 ---
 # <a name="dv2-and-dsv2-series"></a>Series Dv2 y DSv2
 
-Las series Dv2 y Dsv2, una continuación de la serie D original, presentan una CPU más potente y una configuración óptima de la CPU a la memoria, lo que las hace adecuadas para la mayoría de las cargas de trabajo de producción. La serie Dv2 es un 35 % aproximadamente más rápida que la serie D. La serie Dv2 se ejecuta en procesadores Intel® Xeon® Platinum 8272CL (Cascade Lake), Intel® Xeon® 8171M 2,1 GHz (Skylake), Intel® Xeon® E5-2673 v4 2,3 GHz (Broadwell) o Intel® Xeon® E5-2673 v3 2,4 GHz (Haswell) con la tecnología Intel Turbo Boost 2.0. La serie Dv2 tiene las mismas configuraciones de disco y memoria que la serie D.
+Las series Dv2 y DSv2, una continuación de la serie D original, presentan una CPU más potente y una configuración óptima de la CPU a la memoria, lo que las hace adecuadas para la mayoría de las cargas de trabajo de producción. La serie Dv2 es un 35 % aproximadamente más rápida que la serie D. La serie Dv2 se ejecuta en procesadores Intel® Xeon® Platinum 8272CL (Cascade Lake), Intel® Xeon® 8171M 2,1 GHz (Skylake), Intel® Xeon® E5-2673 v4 2,3 GHz (Broadwell) o Intel® Xeon® E5-2673 v3 2,4 GHz (Haswell) con la tecnología Intel Turbo Boost 2.0. La serie Dv2 tiene las mismas configuraciones de disco y memoria que la serie D.
 
 ## <a name="dv2-series"></a>Serie Dv2
 

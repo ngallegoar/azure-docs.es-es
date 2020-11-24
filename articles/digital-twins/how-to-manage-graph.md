@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 11/03/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 78e0bfb0af494ecae2865fcc42679b8fcce44916
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 73aa6f8f6ee36aeeb41fbc54afe217ac776a4ebc
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94359585"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94533900"
 ---
 # <a name="manage-a-graph-of-digital-twins-using-relationships"></a>Administración de un grafo de gemelos digitales con relaciones
 
@@ -25,7 +25,13 @@ Este artículo está centrado en la administración de las relaciones y el grafo
 ## <a name="prerequisites"></a>Requisitos previos
 
 [!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
-    
+
+## <a name="ways-to-manage-graph"></a>Formas de administrar grafos
+
+[!INCLUDE [digital-twins-ways-to-manage.md](../../includes/digital-twins-ways-to-manage.md)]
+
+También puede realizar cambios en el grafo mediante el ejemplo del explorador de Azure Digital Twins (ADT), que permite visualizar los gemelos y el grafo, y hace uso del SDK en segundo plano. En la sección siguiente se describe este ejemplo en detalle.
+
 [!INCLUDE [visualizing with Azure Digital Twins explorer](../../includes/digital-twins-visualization.md)]
 
 ## <a name="create-relationships"></a>Crear relaciones
@@ -219,7 +225,8 @@ Ahora puede llamar a este método para eliminar una relación de la siguiente fo
 ```csharp
 await DeleteRelationship(client, srcId, relId);
 ```
-## <a name="create-a-twin-graph"></a>Creación de un grafo de gemelos 
+
+## <a name="runnable-twin-graph-sample"></a>Ejemplo de grafo de gemelos ejecutable
 
 En el siguiente fragmento de código ejecutable se usan las operaciones de relación de este artículo para crear un grafo de gemelos a partir de gemelos digitales y relaciones.
 
@@ -575,9 +582,6 @@ namespace creating_twin_graph_from_csv
 }
 
 ```
-## <a name="manage-relationships-with-cli"></a>Administrar relaciones con la CLI
-
-Los gemelos y sus relaciones también se pueden administrar mediante la CLI de Azure Digital Twins. Los comandos se pueden encontrar en [*Procedimiento: Uso de la CLI de Azure Digital Twins*](how-to-use-cli.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

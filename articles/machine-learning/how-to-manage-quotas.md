@@ -1,7 +1,7 @@
 ---
 title: Administración de recursos y cuotas
 titleSuffix: Azure Machine Learning
-description: Obtenga información sobre las cuotas de los recursos de Azure Machine Learning y cómo solicitar aumentos de cuota.
+description: Obtenga información sobre las cuotas y límites de los recursos de Azure Machine Learning y cómo solicitar aumentos de cuota.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ ms.author: nigup
 ms.date: 10/13/2020
 ms.topic: conceptual
 ms.custom: troubleshooting,contperfq4, contperfq2
-ms.openlocfilehash: 9bcf6ac9991c1ad070f823c97b5bd0460eff07c2
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: d82cbafbbdeb379c8eb97494ca8d3243f356b7a1
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93309077"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542123"
 ---
 # <a name="manage-and-increase-quotas-for-resources-with-azure-machine-learning"></a>Administración y aumento de las cuotas de los recursos con Azure Machine Learning
 
@@ -141,7 +141,7 @@ La cuota de proceso de Azure Machine Learning de la suscripción se administra d
 
 1. Vaya al área de trabajo de **Azure Machine Learning** en Azure Portal.
 
-2. En el panel izquierdo, en la sección **Soporte técnico y solución de problemas** , seleccione **Uso y cuotas** para ver el uso y los límites de cuota actuales.
+2. En el panel izquierdo, en la sección **Soporte técnico y solución de problemas**, seleccione **Uso y cuotas** para ver el uso y los límites de cuota actuales.
 
 3. Seleccione una suscripción para ver los límites de cuota. Filtre por la región que le interesa.
 
@@ -172,7 +172,7 @@ Azure Machine Learning crea recursos en la suscripción (cliente), pero algunos 
 
 Para solicitar una asignación para dichos casos, siga estos pasos:
 
-1. [Cree una solicitud de soporte técnico de Azure](../azure-portal/supportability/how-to-create-azure-support-request.md#create-a-support-request) y seleccione las siguientes opciones en la sección __Conceptos básicos__ :
+1. [Cree una solicitud de soporte técnico de Azure](../azure-portal/supportability/how-to-create-azure-support-request.md#create-a-support-request) y seleccione las siguientes opciones en la sección __Conceptos básicos__:
 
     | Campo | Selección |
     | ----- | ----- |
@@ -181,7 +181,7 @@ Para solicitar una asignación para dichos casos, siga estos pasos:
     | Tipo de problema | **Seguridad y configuración del área de trabajo** |
     | Subtipo de problema | **Solicitud de concesión de punto de conexión privado y de zona DNS privada** |
 
-2. En la sección __Detalles__ , use el campo __Descripción__ para proporcionar la región de Azure y el escenario que piensa usar. Si necesita solicitar aumentos de cuota para varias suscripciones, especifique los identificadores de suscripción en este campo.
+2. En la sección __Detalles__, use el campo __Descripción__ para proporcionar la región de Azure y el escenario que piensa usar. Si necesita solicitar aumentos de cuota para varias suscripciones, especifique los identificadores de suscripción en este campo.
 
 3. Para crear la solicitud, seleccione __Crear__.
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.author: sausin
-ms.openlocfilehash: 6ab3e1e063409832de839da26eba80efd8b3f4d5
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 8c7cb1e9f39b1de7897da29467a607953b42bb24
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92344783"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94565745"
 ---
 # <a name="export-custom-commands-application-as-a-remote-skill"></a>Exportación de la aplicación Comandos personalizados como una aptitud remota
 
@@ -53,7 +53,7 @@ Tiene la opción de elegir qué comandos quiere exponer mediante las aptitudes r
 
 1. Para exponer un comando mediante las aptitudes, seleccione **Enable a new command** (Habilitar un nuevo comando) en **Enable commands for skills** (Habilitar comandos para aptitudes).
 1. En la lista desplegable, seleccione el comando que desea agregar.
-1. Seleccione **Guardar** .
+1. Seleccione **Guardar**.
 
 ### <a name="configure-triggering-utterances-for-commands"></a>Configuración de la activación de expresiones para comandos
 Comandos personalizados usa las frases de ejemplo que están configuradas para los comandos con el fin de generar las aptitudes que desencadenan expresiones. Estas **expresiones desencadenadoras** se usarán para generar la sección de **distribuidor** [**manifiesto de aptitud**](https://microsoft.github.io/botframework-solutions/skills/handbook/manifest/).
@@ -68,11 +68,11 @@ Como autor, es posible que desee controlar cuál de sus **frases de ejemplo** se
     > [!div class="mx-imgBorder"]
     > ![Deshabilitación de ejemplos](media/custom-commands/skill-disable-example-sentences.png)
 
-1. Seleccione **Guardar** .
-1. Observará que no puede agregar un nuevo ejemplo en esta ventana. Si es necesario hacerlo, continúe a la salida de la sección de configuración y seleccione el comando correspondiente en el acordeón de **comandos** . Llegados a este punto, puede agregar la nueva entrada en la sección **Example sentences** (Frases de ejemplo). Este cambio se reflejará automáticamente en el valor de configuración de las aptitudes remotas del comando.
+1. Seleccione **Guardar**.
+1. Observará que no puede agregar un nuevo ejemplo en esta ventana. Si es necesario hacerlo, continúe a la salida de la sección de configuración y seleccione el comando correspondiente en el acordeón de **comandos**. Llegados a este punto, puede agregar la nueva entrada en la sección **Example sentences** (Frases de ejemplo). Este cambio se reflejará automáticamente en el valor de configuración de las aptitudes remotas del comando.
 
 > [!IMPORTANT]
-> En caso de que las frases de ejemplo existentes tengan referencias al tipo de datos **Cadena > Catálogo** , esas frases se omitirán automáticamente en la lista de aptitudes que desencadenan expresiones. 
+> En caso de que las frases de ejemplo existentes tengan referencias al tipo de datos **Cadena > Catálogo**, esas frases se omitirán automáticamente en la lista de aptitudes que desencadenan expresiones. 
 
 ## <a name="download-skill-manifest"></a>Descarga del manifiesto de aptitudes
 1. Después de haber **publicado** la aplicación, puede descargar el archivo de manifiesto de aptitudes.
@@ -88,4 +88,4 @@ Como autor, es posible que desee controlar cuál de sus **frases de ejemplo** se
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Habilite un proceso de CI/CD para su aplicación de Comandos personalizados](./how-to-custom-commands-deploy-cicd.md)
+> [Actualizar un comando desde el cliente](./how-to-custom-commands-update-command-from-client.md)

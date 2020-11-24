@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 629c27602df14c0b35e2063d8db2d0b13bbff99a
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: b31931af7b8d1442a66333622a23d017ab7fb5a9
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92635905"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658696"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Integración y entrega continuas en Azure Data Factory
 
@@ -82,9 +82,9 @@ A continuación se ofrece una guía para configurar una versión de Azure Pipeli
 
     ![Selección de Trabajo vacío](media/continuous-integration-deployment/continuous-integration-image13.png)
 
-1.  En el cuadro **Nombre de la fase** , escriba el nombre del entorno.
+1.  En el cuadro **Nombre de la fase**, escriba el nombre del entorno.
 
-1.  Seleccione **Agregar artefacto** y después el mismo repositorio de Git configurado con la factoría de datos de desarrollo. Seleccione la [rama de publicación](source-control.md#configure-publishing-settings) del repositorio en **Rama predeterminada**. De forma predeterminada, esta rama de publicación es `adf_publish`. En **Versión predeterminada** , seleccione **Más reciente de la rama predeterminada**.
+1.  Seleccione **Agregar artefacto** y después el mismo repositorio de Git configurado con la factoría de datos de desarrollo. Seleccione la [rama de publicación](source-control.md#configure-publishing-settings) del repositorio en **Rama predeterminada**. De forma predeterminada, esta rama de publicación es `adf_publish`. En **Versión predeterminada**, seleccione **Más reciente de la rama predeterminada**.
 
     ![Agregar un artefacto](media/continuous-integration-deployment/continuous-integration-image7.png)
 
@@ -98,7 +98,7 @@ A continuación se ofrece una guía para configurar una versión de Azure Pipeli
 
     c.  En la tarea de implementación, seleccione la suscripción, el grupo de recursos y la ubicación de la factoría de datos de destino. Proporcione las credenciales si es necesario.
 
-    d.  En la lista **Acción** , seleccione **Create or update resource group** (Crear o actualizar grupo de recursos).
+    d.  En la lista **Acción**, seleccione **Create or update resource group** (Crear o actualizar grupo de recursos).
 
     e.  Seleccione el botón de puntos suspensivos ( **...** ) situado junto al cuadro **Plantilla**. Busque la plantilla de Azure Resource Manager que se ha generado en la rama de publicación del repositorio de Git configurado. Busque el archivo `ARMTemplateForFactory.json` en la carpeta <FactoryName> de la rama adf_publish.
 
@@ -153,7 +153,7 @@ Hay dos formas de administrar los secretos:
 
 1. Agregue una [tarea de Azure Key Vault](/azure/devops/pipelines/tasks/deploy/azure-key-vault) antes de la tarea de implementación de Azure Resource Manager que se ha descrito en la sección anterior:
 
-    1.  En la pestaña **Tareas** , cree una tarea. Busque **Azure Key Vault** y agréguelo.
+    1.  En la pestaña **Tareas**, cree una tarea. Busque **Azure Key Vault** y agréguelo.
 
     1.  En la tarea de Key Vault, seleccione la suscripción en la que haya creado el almacén de claves. Proporcione credenciales si es necesario y, después, seleccione el almacén de claves.
 
@@ -185,7 +185,7 @@ El equipo de Data Factory ha proporcionado un [script de ejemplo anterior y post
 
 ## <a name="manually-promote-a-resource-manager-template-for-each-environment"></a>Promoción manual de una plantilla de Resource Manager para cada entorno
 
-1. En la lista **Plantilla de ARM** , seleccione **Export ARM Template** (Exportar plantilla de ARM) para exportar la plantilla de Resource Manager de la factoría de datos en el entorno de desarrollo.
+1. En la lista **Plantilla de ARM**, seleccione **Export ARM Template** (Exportar plantilla de ARM) para exportar la plantilla de Resource Manager de la factoría de datos en el entorno de desarrollo.
 
    ![Exportación de una plantilla de Resource Manager](media/continuous-integration-deployment/continuous-integration-image1.png)
 
@@ -632,6 +632,10 @@ Si implementa una factoría en producción y se da cuenta de que hay un error qu
 9.    Implemente la versión de revisión en las factorías de prueba y producción. Esta versión contiene la carga de producción anterior más la revisión realizada en el paso 5.
 
 10.   Agregue los cambios de la revisión a la rama de desarrollo para que las versiones posteriores no incluyan el mismo error.
+
+Vea el siguiente vídeo de un tutorial detallado sobre cómo corregir de modo urgente los entornos. 
+
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4I7fi]
 
 ## <a name="best-practices-for-cicd"></a>Procedimientos recomendados para CI/CD
 

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 929181f9a4d159892956274a7958b1daa95cbc10
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 9e00e0e5a34eecd6974e8919ce0d0e16f48757f3
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360078"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540976"
 ---
 # <a name="manage-digital-twins"></a>Administración de Digital Twins
 
@@ -26,6 +26,10 @@ Este artículo se centra en la administración de gemelos digitales; para trabaj
 ## <a name="prerequisites"></a>Requisitos previos
 
 [!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
+
+## <a name="ways-to-manage-twins"></a>Formas de administrar gemelos
+
+[!INCLUDE [digital-twins-ways-to-manage.md](../../includes/digital-twins-ways-to-manage.md)]
 
 ## <a name="create-a-digital-twin"></a>Creación de un gemelo digital
 
@@ -113,7 +117,7 @@ Solo se devuelven las propiedades que se han establecido al menos una vez cuando
 
 Para recuperar varios gemelos mediante una única llamada API, consulte los ejemplos de la API de consulta en [*Procedimiento: Consulta del grafo de gemelos*](how-to-query-graph.md).
 
-Tenga en cuenta el siguiente modelo, escrito en el [lenguaje de definición de gemelos digitales (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/tree/master/DTDL), que define un objeto *Moon* :
+Tenga en cuenta el siguiente modelo, escrito en el [lenguaje de definición de gemelos digitales (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/tree/master/DTDL), que define un objeto *Moon*:
 
 ```json
 {
@@ -187,6 +191,17 @@ foreach (string prop in twin.Contents.Keys)
 ```
 
 Puede obtener más información sobre las clases auxiliares de serialización en [*Procedimiento: las API y los SDK de Azure Digital Twins*](how-to-use-apis-sdks.md).
+
+## <a name="view-all-digital-twins"></a>Visualización de todos los gemelos digitales
+
+Para ver todos los gemelos digitales de la instancia, use una [consulta](how-to-query-graph.md). Puede ejecutar una consulta con las [API de consulta](/rest/api/digital-twins/dataplane/query) o los [comandos de la CLI](how-to-use-cli.md).
+
+Este es el cuerpo de la consulta básica que devolverá una lista de todos los gemelos digitales en la instancia:
+
+```sql
+SELECT *
+FROM DIGITALTWINS
+``` 
 
 ## <a name="update-a-digital-twin"></a>Actualización de un gemelo digital
 
@@ -360,7 +375,7 @@ async Task FindAndDeleteIncomingRelationshipsAsync(string dtId)
 
 Para obtener un ejemplo de cómo eliminar todos los gemelos a la vez, descargue la aplicación de ejemplo que se usa en [Tutorial: Exploración de los conceptos básicos con una aplicación cliente de ejemplo](tutorial-command-line-app.md). El archivo *CommandLoop.cs* realiza esta acción en una función `CommandDeleteAllTwins()`.
 
-## <a name="manage-twins-using-runnable-code-sample"></a>Administración de gemelos mediante el ejemplo de código ejecutable
+## <a name="runnable-digital-twin-code-sample"></a>Ejemplo de código de gemelo digital ejecutable
 
 Puede usar el ejemplo de código ejecutable siguiente para crear un gemelo, actualizar sus detalles y eliminar el gemelo. 
 
@@ -535,22 +550,6 @@ Esta es la salida de consola del programa anterior:
 
 :::image type="content" source="./media/how-to-manage-twin/console-output-manage-twins.png" alt-text="Salida de consola que muestra que el gemelo se crea, se actualiza y se elimina" lightbox="./media/how-to-manage-twin/console-output-manage-twins.png":::
 
-## <a name="manage-twins-with-cli"></a>Administración de gemelos con la CLI
-
-Los gemelos también se pueden administrar con la CLI de Azure Digital Twins. Los comandos se pueden encontrar en [Procedimiento: Uso de la CLI de Azure Digital Twins](how-to-use-cli.md).
-
-## <a name="view-all-digital-twins"></a>Visualización de todos los gemelos digitales
-
-Para ver todos los gemelos digitales de la instancia, use una [consulta](how-to-query-graph.md). Puede ejecutar una consulta con las [API de consulta](/rest/api/digital-twins/dataplane/query) o los [comandos de la CLI](how-to-use-cli.md).
-
-Este es el cuerpo de la consulta básica que devolverá una lista de todos los gemelos digitales en la instancia:
-
-```sql
-SELECT *
-FROM DIGITALTWINS
-``` 
-
 ## <a name="next-steps"></a>Pasos siguientes
 
-Consulte cómo crear y administrar relaciones entre los gemelos digitales:
-* [*Procedimiento: Administración del grafo de gemelos con relaciones*](how-to-manage-graph.md)
+Consulte cómo crear y administrar relaciones entre los gemelos digitales: _ [*Paso a paso: Administración del grafo de gemelos con relaciones*](how-to-manage-graph.md)

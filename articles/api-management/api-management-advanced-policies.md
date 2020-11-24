@@ -10,14 +10,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 01/10/2020
+ms.date: 11/13/2020
 ms.author: apimpm
-ms.openlocfilehash: 01d50f6228d63801f62ae933a8367f842d89ef97
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 46bcdac41497eea91b5af0c512a7118e33d5d7c3
+ms.sourcegitcommit: 18046170f21fa1e569a3be75267e791ca9eb67d0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92071377"
+ms.lasthandoff: 11/16/2020
+ms.locfileid: "94638910"
 ---
 # <a name="api-management-advanced-policies"></a>Directivas avanzadas de API Management
 
@@ -156,7 +156,7 @@ La directiva `forward-request` reenvía la solicitud entrante al servicio back-e
 ### <a name="policy-statement"></a>Instrucción de la directiva
 
 ```xml
-<forward-request timeout="time in seconds" follow-redirects="false | true" buffer-request-body="false | true" fail-on-error-status-code="false | true"/>
+<forward-request timeout="time in seconds" follow-redirects="false | true" buffer-request-body="false | true" buffer-response="true | false" fail-on-error-status-code="false | true"/>
 ```
 
 ### <a name="examples"></a>Ejemplos
@@ -255,6 +255,7 @@ Esta directiva de nivel de operación no reenvía solicitudes al servicio back-e
 | timeout="entero"                             | La cantidad de tiempo en segundos de espera a que el servicio back-en devuelva los encabezados de respuesta HTTP antes de que se genere un error de tiempo de expiración. El valor mínimo es 0segundos. Puede que los valores mayores de 240 segundos no se respeten dado que la infraestructura de red subyacente puede eliminar las conexiones inactivas después de este tiempo. | No       | None    |
 | follow-redirects="false &#124; true"          | Especifica si la puerta de enlace sigue los redireccionamientos desde el servicio back-end o si estos se devuelven al autor de la llamada.                                                                                                                                                                                                    | No       | false   |
 | buffer-request-body="false &#124; true"       | Cuando se establece en "true", la solicitud se almacena en búfer y se volverá a usar al [reintentar](api-management-advanced-policies.md#Retry).                                                                                                                                                                                               | No       | false   |
+| buffer-response="false &#124; true" | Afecta al procesamiento de respuestas fragmentadas. Cuando se establece en "false", cada fragmento recibido del back-end se devuelve inmediatamente al llamador. Cuando se establece en "true", los fragmentos se almacenan en búfer (8 KB, a menos que se detecte el final de la secuencia) y solo entonces se devuelven al llamador. | No | true |
 | fail-on-error-status-code="false &#124; true" | Cuando se establece en true, se desencadena la sección [on-error](api-management-error-handling-policies.md) para los códigos de respuesta incluidos en el intervalo de 400 a 599 (ambos incluidos).                                                                                                                                                                      | No       | false   |
 
 ### <a name="usage"></a>Uso

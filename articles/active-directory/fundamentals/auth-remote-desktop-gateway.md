@@ -1,6 +1,6 @@
 ---
 title: Servicios de puerta de enlace de Escritorio remoto con Azure Active Directory
-description: Guía arquitectónica para lograr este patrón de autenticación
+description: Guía de arquitectura para lograr servicios de puerta de enlace de Escritorio remoto con Azure Active Directory.
 services: active-directory
 author: BarbaraSelden
 manager: daveba
@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ff099d41970ad4d78d5c6035a60f448f29ab24b1
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 57466cccb71444d5711a9221c324a107757c5e82
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92114014"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94576802"
 ---
 # <a name="remote-desktop-gateway-services"></a>Servicios de puerta de enlace de Escritorio remoto
 
@@ -32,15 +32,15 @@ Debe proporcionar acceso remoto y proteger la implementación de Servicios de Es
 
 ## <a name="components-of-system"></a>Componentes del sistema
 
-* **Usuario** : Accede a RDS atendido por Application Proxy.
+* **Usuario**: Accede a RDS atendido por Application Proxy.
 
-* **Explorador web** : Componente con el que el usuario interactúa para acceder a la dirección URL externa de la aplicación.
+* **Explorador web**: Componente con el que el usuario interactúa para acceder a la dirección URL externa de la aplicación.
 
-* **Azure AD** : Autentica el usuario. 
+* **Azure AD**: Autentica el usuario. 
 
-* **Servicio Application Proxy** : Actúa como proxy inverso para reenviar la solicitud del usuario a RDS. Application Proxy también puede aplicar directivas de acceso condicional. 
+* **Servicio Application Proxy**: Actúa como proxy inverso para reenviar la solicitud del usuario a RDS. Application Proxy también puede aplicar directivas de acceso condicional. 
 
-* **Servicios de Escritorio remoto** : Actúa como plataforma para las aplicaciones virtualizadas individuales, lo que proporciona un acceso seguro al escritorio remoto y móvil, y proporciona a los usuarios finales la capacidad de ejecutar sus aplicaciones y equipos de escritorio desde la nube. 
+* **Servicios de Escritorio remoto**: Actúa como plataforma para las aplicaciones virtualizadas individuales, lo que proporciona un acceso seguro al escritorio remoto y móvil, y proporciona a los usuarios finales la capacidad de ejecutar sus aplicaciones y equipos de escritorio desde la nube. 
 
 ## <a name="implement-remote-desktop-gateway-services-with-azure-ad"></a>Implementación de servicios de puerta de enlace de Escritorio remoto con Azure AD
 

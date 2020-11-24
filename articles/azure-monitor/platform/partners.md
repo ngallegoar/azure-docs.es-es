@@ -4,12 +4,12 @@ description: Obtenga información sobre los asociados de Azure Monitor y sobre c
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: b56b2386422d9f7f2fa598ff804a2206bf4b4d83
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d603e130d4e65667edb34121a4c89b7b0e02b819
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91460105"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94636748"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Integraciones de asociados de Azure Monitor
 
@@ -46,6 +46,16 @@ Application Performance Management (APM) de AppDynamics permite a los propietari
 Puede crear incidencias JIRA de alertas de Azure Monitor.
 
 [Documentación de Atlassian para Azure Monitor](https://azure.microsoft.com/blog/automated-notifications-from-azure-monitor-for-atlassian-jira/)
+
+## <a name="bmc-helix"></a>BMC Helix
+
+![Logotipo de BMC Helix](./media/partners/BMCHelix.png)
+
+BMC Helix es un servicio empresarial autónomo y una plataforma SaaS de operaciones. Integrado con inteligencia total, ayuda a las empresas a detectar, supervisar, poner en servicio, corregir, optimizar y entregar experiencias en todos los canales para TI y las líneas de negocio de manera proactiva y predictiva.
+Además, al integrar ITSM y la administración de operaciones de TI (ITOM) sin problemas, BMC Helix permite a los usuarios de TI y de la empresa eliminar silos de TI, tomar decisiones empresariales controladas por datos y ofrecer experiencias de cliente líderes del sector.
+Los clientes pueden implementar la plataforma de BMC Helix con la nube de su elección: pública, privada o híbrida. Además, los clientes pueden aprovechar distintas soluciones de inteligencia artificial y aprendizaje automático de los proveedores líderes del sector.
+
+[Más información sobre BMC Helix](https://www.bmc.com/it-solutions/bmc-helix.html?vu=helix)
 
 ## <a name="botmetric"></a>Botmetric
 
@@ -300,6 +310,7 @@ Sumo Logic es un servicio de análisis de datos de máquinas seguro y nativo en 
 Turbonomic ofrece automatización de cargas de trabajo en nubes híbridas, ya que optimiza simultáneamente el rendimiento, costo y cumplimiento en tiempo real. Turbonomic ayuda a aumentar la elasticidad del estado de Azure de las organizaciones mediante la optimización continua del estado para garantizar que las aplicaciones obtienen constantemente los recursos que necesitan para cumplir su Acuerdo de Nivel de Servicio y nada más en relación con el proceso, el almacenamiento y la red para la capa de IaaS y PaaS. Las organizaciones pueden simular migraciones, escalar cargas de trabajo correctamente y retirar recursos del centro de datos para realizar responsablemente la migración a Azure de forma puntual y sin salirse del presupuesto, al mismo tiempo que se garantizan el rendimiento y el cumplimiento. Turbonomic es un producto controlado por API y se ejecuta como una VM sin agente en Azure y en local.
 
 [Introducción a Turbonomic](https://turbonomic.com/)
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

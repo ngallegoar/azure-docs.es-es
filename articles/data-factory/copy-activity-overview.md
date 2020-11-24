@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/12/2020
 ms.author: jingwang
-ms.openlocfilehash: 8a84c9979bdfac1165d44d03572567ab1ea7ab1f
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: ef7f7ba659d874d4514c45e9391912f3027e2265
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91995344"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94592063"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Actividad de copia en Azure Data Factory
 
@@ -262,6 +262,13 @@ Esta característica se acepta cuando se copian datos desde cualquier origen en 
 ## <a name="fault-tolerance"></a>Tolerancia a errores
 
 De forma predeterminada, la actividad de copia detiene la copia de datos y devuelve un error cuando las filas de datos de origen no son compatibles con las filas de datos del receptor. Para que la copia se realice correctamente, puede configurar la actividad de copia para omitir y registrar las filas incompatibles y copiar solo los datos compatibles. Para más información, consulte [Tolerancia a errores de la actividad de copia en Azure Data Factory](copy-activity-fault-tolerance.md).
+
+## <a name="data-consistency-verification"></a>Comprobación de la coherencia de los datos
+
+Cuando se mueven datos del almacén de origen al de destino, la actividad de copia de Azure Data Factory proporciona una opción para realizar la comprobación de la coherencia de datos adicionales con el fin de garantizar que los datos no solo se copian correctamente del almacén de origen al de destino, así como la coherencia entre el almacén de origen y el de destino. Si se encuentran archivos incoherentes durante el movimiento de datos, puede anular la actividad de copia o habilitar la opción de configuración de tolerancia a errores para seguir copiando el resto y omitir los archivos incoherentes. Para obtener los nombres de los archivos omitidos, habilite la configuración del registro de sesión en la actividad de copia. Consulte [Comprobación de la coherencia de los datos en la actividad de copia](copy-activity-data-consistency.md) para más información.
+
+## <a name="session-log"></a>Registro de la sesión
+Puede registrar los nombres de archivo copiados, lo que puede ayudarle a asegurarse de que los datos no se copian correctamente del almacén de origen al de destino, sino que también son coherentes entre el almacén de origen y el de destino mediante la revisión de los registros de sesión de la actividad de copia. Consulte [Registro de sesión en la actividad de copia](copy-activity-log.md) para más información.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Consulte las guías de inicio rápido, los tutoriales y los ejemplos siguientes:

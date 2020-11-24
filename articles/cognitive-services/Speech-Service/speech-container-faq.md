@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/24/2020
+ms.date: 11/12/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b13a6944290f58f5ede239dee60610d67fff8b1c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0e4a6d9180d2a9949cebc40cf30edffac73ef9d0
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88918475"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94653545"
 ---
 # <a name="speech-service-containers-frequently-asked-questions-faq"></a>Preguntas frecuentes sobre los contenedores del servicio de voz
 
@@ -43,7 +43,7 @@ Además, se han empaquetado previamente ejecutables para las máquinas con el co
 Cannot find Scan4_llvm__mcpu_skylake_avx512 in cache, using JIT...
 ```
 
-Por último, puede establecer el número de descodificadores que desee dentro de un *único* contenedor con la variable `DECODER MAX_COUNT`. Por tanto, básicamente, debemos empezar con su SKU (CPU/memoria) y podemos sugerir cómo sacar el máximo partido de ella. Un buen punto de partida es referirse a las especificaciones de recursos recomendados de la máquina host.
+Puede establecer el número de descodificadores que desee dentro de un *único* contenedor con la variable `DECODER MAX_COUNT`. Por tanto, básicamente, debemos empezar con su SKU (CPU/memoria) y podemos sugerir cómo sacar el máximo partido de ella. Un buen punto de partida es referirse a las especificaciones de recursos recomendados de la máquina host.
 
 <br>
 </details>
@@ -419,7 +419,7 @@ El documento indica que exponga un puerto diferente; lo hago, pero el contenedor
 |-----------------------|---------------------|---------------------|
 | Conversión de texto a voz personalizada | 1 núcleo, 2 GB de memoria | 2 núcleo, 3 GB de memoria |
 
-***
+**_
 
 - Cada núcleo debe ser de 2,6 GHz como mínimo.
 - Para los archivos, la limitación se encontrará en el SDK de voz, al doble (los primeros cinco segundos del audio no están limitados).
@@ -438,7 +438,7 @@ Por ejemplo, para controlar 1000 horas/24 horas, hemos intentado configurar tres
 <b>¿Admite el contenedor de voz la puntuación?</b>
 </summary>
 
-**Respuesta:** En el contenedor local está disponible la capitalización (ITN). La puntuación depende del idioma y no se admite en algunos idiomas, como el idioma chino y el japonés.
+_ *Respuesta:* * En el contenedor local está disponible la capitalización (ITN). La puntuación depende del idioma y no se admite en algunos idiomas, como el idioma chino y el japonés.
 
 *Admitimos* la puntuación implícita y básica con los contenedores existentes, pero está `off` de forma predeterminada. Esto significa que puede obtener el carácter `.` en el ejemplo, pero no el carácter `。`. Para habilitar esta lógica implícita, este es un ejemplo de cómo hacerlo en Python con nuestro SDK de voz (sería similar en otros lenguajes):
 
@@ -480,6 +480,16 @@ Content-Length: 0
 
 **Respuesta:** No se admite la API REST en el contenedor de conversión de voz en texto, solo se admiten websockets mediante el SDK de voz. Consulte siempre la documentación oficial, como [Consulta del punto de conexión de predicción del contenedor](speech-container-howto.md#query-the-containers-prediction-endpoint).
 
+<br>
+</details>
+
+
+<details>
+<summary>
+<b> ¿Por qué el contenedor se ejecuta como un usuario no raíz? ¿Qué situaciones pueden producirse en este caso?</b>
+</summary>
+
+**Respuesta:** Tenga en cuenta que el usuario predeterminado dentro del contenedor es un usuario que no es raíz. Esto proporciona protección contra procesos que escapan el contenedor y obtienen permisos escalados en el nodo de host. De forma predeterminada, algunas plataformas como OpenShift Container Platform ya lo consiguen, mediante la ejecución de los contenedores con un identificador de usuario asignado arbitrariamente. En estas plataformas, el usuario que no es raíz deberá tener permisos para escribir en cualquier volumen asignado externamente que requiera escrituras. Por ejemplo, una carpeta de registro o una carpeta de descarga de modelos personalizados.
 <br>
 </details>
 

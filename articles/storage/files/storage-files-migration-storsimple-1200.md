@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 03/09/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: d9cf7b3cf996e41f90e3a40a6ee08d0fd51c8457
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 78c7953ef6432d37542a7a8b06f226a07f2b701f
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85510334"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630488"
 ---
 # <a name="storsimple-1200-migration-to-azure-file-sync"></a>Migración de StorSimple 1200 a Azure File Sync
 
@@ -32,7 +32,7 @@ Azure File Sync es un servicio en la nube de Microsoft, que se basa en dos compo
 
 Este artículo se centra en los pasos de migración. Si antes de la migración desea obtener más información sobre Azure File Sync, se recomienda consultar los siguientes artículos:
 
-* [Introducción a Azure File Sync](https://aka.ms/AFS "Información general")
+* [Introducción a Azure File Sync](./storage-sync-files-planning.md "Información general")
 * [Guía de implementación de Azure File Sync](storage-sync-files-deployment-guide.md)
 
 ## <a name="migration-goals"></a>Objetivos de la migración
@@ -210,13 +210,13 @@ Ha terminado de migrar un recurso compartido o un grupo de recursos compartidos 
 Puede intentar ejecutar algunas de estas copias en paralelo. Se recomienda procesar el ámbito de un recurso compartido de archivos de Azure a la vez.
 
 > [!WARNING]
-> Cuando haya movido todos los datos de su aplicación StorSimple a Windows Server y se haya completado la migración: Vuelva a ***todos*** los grupos de sincronización de Azure Portal y ajuste el valor porcentual de espacio libre en el volumen de la nube por niveles a un valor más adecuado para el uso de la memoria caché, como un 20 %. 
+> Cuando haya movido todos los datos de su aplicación StorSimple a Windows Server y se haya completado la migración: Vuelva a ***todos** los grupos de sincronización de Azure Portal y ajuste el valor porcentual de espacio libre en el volumen de la nube por niveles a un valor más adecuado para el uso de la memoria caché, por ejemplo, un 20 %. 
 
 La directiva de espacio libre en el volumen de la nube por niveles actúa en un nivel de volumen desde el que se pueden sincronizar varios puntos de conexión de servidor. Si olvida ajustar el espacio disponible en un punto de conexión del servidor, la sincronización seguirá aplicando la regla más restrictiva e intentará mantener un 99 % de espacio libre en disco, lo que hará que la memoria caché local no funcione según lo previsto. A menos que sea su objetivo tener solamente el espacio de nombres para un volumen que solo contiene datos de archivo a los que se accede con poca frecuencia.
 
 ## <a name="troubleshoot"></a>Solución de problemas
 
-El problema que puede experimentar más probablemente, es que el comando de RoboCopy produzca el error *"Volumen lleno"* en el lado de Windows Server. En ese caso, es probable que la velocidad de descarga sea mejor que la de carga. La nube por niveles actúa una vez cada hora para evacuar el contenido del disco local de Windows Server, que se ha sincronizado.
+El problema que puede experimentar más probablemente es que el comando de RoboCopy produzca el error "Volumen lleno" en el lado de Windows Server. En ese caso, es probable que la velocidad de descarga sea mejor que la de carga. La nube por niveles actúa una vez cada hora para evacuar el contenido del disco local de Windows Server, que se ha sincronizado.
 
 Permita que el progreso de la sincronización y la nube por niveles liberen espacio en disco. Puede observarlo en el Explorador de archivos en Windows Server.
 
@@ -233,6 +233,6 @@ Contenido de migración:
 
 Contenido de Azure File Sync:
 
-* [Información general sobre AFS](https://aka.ms/AFS)
+* [Información general sobre AFS](./storage-sync-files-planning.md)
 * [Guía de implementación de AFS](storage-files-deployment-guide.md)
 * [Solución de problemas de AFS](storage-sync-files-troubleshoot.md)

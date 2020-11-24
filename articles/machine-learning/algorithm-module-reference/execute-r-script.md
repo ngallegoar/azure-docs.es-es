@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/21/2020
-ms.openlocfilehash: 3e94172096daf5fd06549f8645d05b874948a917
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 1e71d3883b8dacefa9b501ee3a9a0533d5c7d515
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93420825"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94592675"
 ---
 # <a name="execute-r-script-module"></a>Módulo Execute R Script
 
@@ -121,10 +121,10 @@ Una vez que termina la ejecución de la canalización, se puede obtener una vist
 
 ## <a name="access-to-registered-dataset"></a>Acceso al conjunto de datos registrado
 
-Puede consultar el siguiente código de ejemplo para [acceder a los conjuntos de datos registrados](../how-to-create-register-datasets.md) en el área de trabajo:
+Puede consultar el siguiente código de ejemplo para acceder a los [conjuntos de datos registrados](../how-to-create-register-datasets.md) en el área de trabajo:
 
 ```R
-        azureml_main <- function(dataframe1, dataframe2){
+    azureml_main <- function(dataframe1, dataframe2){
   print("R script run.")
   run = get_current_run()
   ws = run$experiment$workspace

@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/18/2019
+ms.date: 11/13/2020
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
-ms.openlocfilehash: 54014a0d76130b82788a1ae432e42baec28df2c2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 39fdde572e269bb4f5648e91bf85539d02236ff6
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87448337"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658560"
 ---
 # <a name="store-business-critical-blob-data-with-immutable-storage"></a>Almacenamiento de datos de blobs críticos para la empresa con almacenamiento inmutable
 
@@ -102,17 +102,21 @@ Los límites siguientes se aplican a las suspensiones legales:
 - Para un contenedor, se conservan hasta 10 registros de auditoría de directiva de suspensión legal lo que dura la directiva.
 
 ## <a name="scenarios"></a>Escenarios
+
 La tabla siguiente muestra los tipos de operaciones de almacenamiento de blobs que se deshabilitan para los diferentes escenarios de inmutabilidad. Para obtener más información, vea la documentación de la [API REST de servicios Azure Blob](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api).
 
-|Escenario  |Estado del blob  |Operaciones de blob denegadas  |Protección de contenedores y cuentas
-|---------|---------|---------|---------|
-|El intervalo de retención efectivo del blob no ha expirado todavía o se ha establecido una retención legal     |Inmutable: protegido frente a eliminación y escritura         | Put Blob<sup>1</sup>, Put Block<sup>1</sup>, Put Block List<sup>1</sup>, Delete Container, Delete Blob, Set Blob Metadata, Put Page, Set Blob Properties,  Snapshot Blob, Incremental Copy Blob, Append Block<sup>2</sup>         |Eliminación de contenedor denegada; Eliminación de la cuenta de almacenamiento denegada         |
-|El intervalo de retención efectivo del blob ha expirado y no se ha establecido una suspensión legal    |Protegido contra escritura únicamente (están permitidas las operaciones de eliminación)         |Put Blob<sup>1</sup>, Put Block<sup>1</sup>, Put Block List<sup>1</sup>, Set Blob Metadata, Put Page, Set Blob Properties,  Snapshot Blob, Incremental Copy Blob, Append Block<sup>2</sup>         |Eliminación de contenedor denegada si existe al menos un blob en el contenedor protegido; Eliminación de la cuenta de almacenamiento denegada solo para las directivas de duración definida *bloqueadas*         |
-|No se aplica ninguna directiva WORM (sin retención de duración definida ni etiqueta de suspensión legal)     |Mutable         |None         |None         |
+| Escenario | Estado del blob | Operaciones de blob denegadas | Protección de contenedores y cuentas |
+|--|--|--|--|
+| El intervalo de retención efectivo del blob no ha expirado todavía o se ha establecido una retención legal | Inmutable: protegido frente a eliminación y escritura | Put Blob<sup>1</sup>, Put Block<sup>1</sup>, Put Block List<sup>1</sup>, Delete Container, Delete Blob, Set Blob Metadata, Put Page, Set Blob Properties,  Snapshot Blob, Incremental Copy Blob, Append Block<sup>2</sup> | Eliminación de contenedor denegada; Eliminación de la cuenta de almacenamiento denegada |
+| El intervalo de retención efectivo del blob ha expirado y no se ha establecido una suspensión legal | Protegido contra escritura únicamente (están permitidas las operaciones de eliminación) | Put Blob<sup>1</sup>, Put Block<sup>1</sup>, Put Block List<sup>1</sup>, Set Blob Metadata, Put Page, Set Blob Properties,  Snapshot Blob, Incremental Copy Blob, Append Block<sup>2</sup> | Eliminación de contenedor denegada si existe al menos un blob en el contenedor protegido; Eliminación de la cuenta de almacenamiento denegada solo para las directivas de duración definida *bloqueadas* |
+| No se aplica ninguna directiva WORM (sin retención de duración definida ni etiqueta de suspensión legal) | Mutable | None | None |
 
 <sup>1</sup> El servicio de blob permite que estas operaciones creen un blob una vez. Todas las sucesivas operaciones de sobrescritura en una ruta de acceso de blob existente en un contenedor inmutable no se permiten.
 
 <sup>2</sup> Solo se permite Anexar bloque para las directivas de retención de duración definida con la propiedad `allowProtectedAppendWrites` habilitada. Para más información, vea la sección [Permitir la escritura de blobs en anexos protegidos](#allow-protected-append-blobs-writes).
+
+> [!IMPORTANT]
+> Algunas cargas de trabajo, como [Copia de seguridad de SQL a URL](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url), cree un y agréguela. Si el contenedor tiene una directiva de retención basada en tiempo activa o una retención legal vigente, este patrón no funcionará.
 
 ## <a name="pricing"></a>Precios
 

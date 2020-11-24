@@ -8,21 +8,21 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: alkohli
-ms.openlocfilehash: 0880ae64520997fc6b41ba4a7e8508d927235a8a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 9a9625dcf40ae7d11e1154fc89b7f04652c8ca16
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91320819"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94635847"
 ---
-# <a name="kubernetes-role-based-access-control-on-your-azure-stack-edge-pro-gpu-device"></a>Control de acceso basado en roles de Kubernetes en un dispositivo Azure Stack Edge Pro con GPU
+# <a name="kubernetes-role-based-access-control-on-your-azure-stack-edge-pro-gpu-device"></a>Control de acceso basado en rol de Kubernetes en un dispositivo Azure Stack Edge Pro con GPU
 
 
-En el dispositivo Azure Stack Edge Pro, se crea un clúster de Kubernetes al configurar el rol de proceso. Puede usar el control de acceso basado en roles (RBAC) de Kubernetes para limitar el acceso a los recursos del clúster en el dispositivo.
+En el dispositivo Azure Stack Edge Pro, se crea un clúster de Kubernetes al configurar el rol de proceso. Puede usar el control de acceso basado en rol (Kubernetes RBAC) de Kubernetes para limitar el acceso a los recursos del clúster en el dispositivo.
 
-En este artículo se proporciona información general sobre el sistema RBAC proporcionado por Kubernetes y cómo se implementa en un dispositivo Azure Stack Edge Pro. 
+En este artículo se proporciona información general sobre el sistema Kubernetes RBAC proporcionado por Kubernetes y cómo se implementa en un dispositivo Azure Stack Edge Pro. 
 
-## <a name="rbac-for-kubernetes"></a>Control de acceso basado en roles para Kubernetes
+## <a name="kubernetes-rbac"></a>RBAC de Kubernetes
 
 Este control de Kubernetes permite asignar a usuarios o grupos de usuarios permiso para realizar acciones como crear o modificar recursos, o ver registros de cargas de trabajo de aplicaciones en ejecución. Estos permisos se pueden limitar a un único espacio de nombres o conceder en todo el clúster. 
 
@@ -73,9 +73,9 @@ En Kubernetes se utilizan los conceptos de rol y enlace de rol, que permiten con
 
 Este enfoque permite separar de forma lógica un único clúster de Kubernetes, de modo que los usuarios solo puedan acceder a los recursos de la aplicación en su espacio de nombres asignado. 
 
-## <a name="rbac-on-azure-stack-edge-pro"></a>RBAC en Azure Stack Edge Pro
+## <a name="kubernetes-rbac-on-azure-stack-edge-pro"></a>Kubernetes RBAC en Azure Stack Edge Pro
 
-En la implementación actual del control de acceso basado en rol, Azure Stack Edge Pro permite realizar las siguientes acciones desde un espacio de ejecución de PowerShell restringido:
+En la implementación actual del control de acceso basado en rol de Kubernetes, Azure Stack Edge Pro permite realizar las siguientes acciones desde un espacio de ejecución de PowerShell restringido:
 
 - Crear espacios de nombres.  
 - Crear usuarios adicionales.
@@ -85,9 +85,9 @@ En la implementación actual del control de acceso basado en rol, Azure Stack Ed
 
 El dispositivo Azure Stack Edge Pro tiene varios espacios de nombres de sistema y permite crear espacios de nombres de usuario con archivos `kubeconfig` para acceder a esos espacios de nombres. Los usuarios tienen control total sobre estos espacios de nombres y pueden crear o modificar usuarios, o conceder acceso a los usuarios. Solo el administrador del clúster tiene acceso total a los espacios de nombres de sistema y a los recursos de todo el clúster. El tipo `aseuser` tiene acceso de solo lectura a los espacios de nombres de sistema.
 
-A continuación, encontrará un diagrama que muestra la implementación del control de acceso basado en rol en un dispositivo Azure Stack Edge Pro.
+A continuación encontrará un diagrama que muestra la implementación del control de acceso basado en rol de Kubernetes en un dispositivo Azure Stack Edge Pro.
 
-![RBAC en un dispositivo Azure Stack Edge Pro](./media/azure-stack-edge-gpu-kubernetes-rbac/rbac-view-1.png)
+![Kubernetes RBAC en un dispositivo Azure Stack Edge Pro](./media/azure-stack-edge-gpu-kubernetes-rbac/rbac-view-1.png)
 
 En este diagrama, Alice, Bob y Chuck solo tienen acceso a los espacios de nombres de usuario asignados, que en este caso son `ns1`, `ns2` y `ns3`, respectivamente. Dentro de estos espacios de nombres, tienen acceso de administrador. Por otra parte, el administrador del clúster tiene acceso de administrador a los espacios de nombres de sistema y a los recursos de todo el clúster.
 

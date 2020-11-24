@@ -1,6 +1,6 @@
 - name: Documentación de Data Lake Analytics
   href: index.yml
-- name: Introducción
+- name: Información general
   items:
     - name: ¿Qué es Data Lake Analytics?
       href: data-lake-analytics-overview.md
@@ -139,7 +139,7 @@
           href: understand-spark-code-concepts.md
     - name: Solución de problemas de los trabajos de U-SQL
       items:
-        - name: Solución de problemas del runtime de U-SQL
+        - name: Solución de errores y problemas conocidos del runtime de U-SQL
           href: runtime-troubleshoot.md
         - name: Solución de problemas de las actualizaciones de .NET
           href: dotnet-upgrade-troubleshoot.md

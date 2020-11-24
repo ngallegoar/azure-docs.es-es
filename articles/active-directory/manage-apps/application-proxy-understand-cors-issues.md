@@ -11,16 +11,16 @@ ms.topic: troubleshooting
 ms.date: 05/23/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 2019802725e36c2400f57952fedf7af40877c8c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8836295e9f54260c4e9ff6c1da333ef2a86d58fb
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84759936"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94651862"
 ---
 # <a name="understand-and-solve-azure-active-directory-application-proxy-cors-issues"></a>Descripción y solución de los problemas de los conectores de CORS en Azure Active Directory Application Proxy
 
-El [uso compartido de recursos entre orígenes (CORS)](https://www.w3.org/TR/cors/) a veces puede presentar desafíos para las aplicaciones y API que publica a través de Azure Active Directory Application Proxy. En este artículo se describen problemas y soluciones de CORS en Azure Active Directory Application Proxy.
+El [uso compartido de recursos entre orígenes (CORS)](https://www.w3.org/TR/cors/) a veces puede presentar desafíos para las aplicaciones y API que publica a través de Azure Active Directory Application Proxy. En este artículo se describen problemas y soluciones de CORS en Azure Active Directory Application Proxy.
 
 En general, la seguridad del explorador impide que una página web realice solicitudes AJAX a otro dominio. Esta restricción se conoce como *directiva de mismo origen* y evita que un sitio malintencionado lea información confidencial de otro sitio. Sin embargo, a veces es posible que quiera permitir que otros llamen a su API web. CORS es una norma de W3C que permite que un servidor se relaje con la directiva del mismo origen, de forma que permita algunas solicitudes entre orígenes y rechace otras.
 
@@ -66,7 +66,7 @@ Puede resolver el problema anterior de CORS de varias maneras.
 
 ### <a name="option-1-set-up-a-custom-domain"></a>Opción 1: Configurar un dominio personalizado
 
-Use un [dominio personalizado](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-custom-domains) de Azure AD Application Proxy para publicar desde el mismo origen, sin tener que realizar cambios en los orígenes de aplicación, el código ni los encabezados. 
+Use un [dominio personalizado](./application-proxy-configure-custom-domain.md) de Azure AD Application Proxy para publicar desde el mismo origen, sin tener que realizar cambios en los orígenes de aplicación, el código ni los encabezados. 
 
 ### <a name="option-2-publish-the-parent-directory"></a>Opción 2: Publicar en el directorio primario
 
@@ -117,4 +117,4 @@ Algunos problemas de CORS no se pueden resolver, por ejemplo, cuando la aplicaci
 ## <a name="see-also"></a>Consulte también
 - [Tutorial: Adición de una aplicación local para el acceso remoto mediante el proxy de aplicación en Azure Active Directory](application-proxy-add-on-premises-application.md) 
 - [Planear una implementación de Azure AD Application Proxy](application-proxy-deployment-plan.md) 
-- [Acceso remoto a aplicaciones locales mediante Azure Active Directory Application Proxy](application-proxy.md) 
+- [Acceso remoto a aplicaciones locales mediante Azure Active Directory Application Proxy](application-proxy.md)

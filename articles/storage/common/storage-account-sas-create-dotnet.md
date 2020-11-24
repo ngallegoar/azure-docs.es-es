@@ -6,17 +6,17 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 08/06/2019
+ms.date: 11/12/2020
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d2c21d85d1b88f33ff696ba1d230d34bbd6945d1
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 1cb882ac1051c41f4d887a9ff4dd8cd64bc9f56c
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92091685"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94593610"
 ---
 # <a name="create-an-account-sas-with-net"></a>Creación de una SAS de cuenta con .NET
 
@@ -25,6 +25,14 @@ ms.locfileid: "92091685"
 En este artículo se muestra cómo usar la clave de cuenta de almacenamiento para crear una SAS de cuenta con la [biblioteca cliente de Azure Storage para .NET](/dotnet/api/overview/azure/storage).
 
 ## <a name="create-an-account-sas"></a>Creación de una SAS de cuenta
+
+### <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
+
+Se firma una SAS de una cuenta con la clave de acceso de la cuenta. Use la clase [StorageSharedKeyCredential](/dotnet/api/azure.storage.storagesharedkeycredential) para crear la credencial que se usa para firmar la SAS. A continuación, cree un objeto [AccountSasBuilder](/dotnet/api/azure.storage.sas.accountsasbuilder) y llame al elemento [ToSasQueryParameters](/dotnet/api/azure.storage.sas.accountsasbuilder.tosasqueryparameters) para obtener la cadena de token de SAS.
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Security.cs" id="Snippet_GetAccountSASToken":::
+
+### <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
 
 Para crear una SAS de cuenta para un contenedor, llame al método [CloudStorageAccount.GetSharedAccessSignature](/dotnet/api/microsoft.azure.storage.cloudstorageaccount.getsharedaccesssignature).
 
@@ -52,9 +60,21 @@ static string GetAccountSASToken()
 }
 ```
 
+---
+
 ## <a name="use-an-account-sas-from-a-client"></a>Uso de una SAS de cuenta desde un cliente
 
-Para usar la SAS de cuenta a fin de acceder a las API de nivel de servicio para Blob service, construya un objeto de cliente de Blob service con la SAS y el punto de conexión de Blob Storage para la cuenta de almacenamiento. No olvide reemplazar los valores del marcador de posición entre corchetes angulares por sus propios valores:
+Para usar la SAS de cuenta a fin de acceder a las API de nivel de servicio para Blob service, construya un objeto de cliente de Blob service con la SAS y el punto de conexión de Blob Storage para la cuenta de almacenamiento.
+
+### <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
+
+
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Security.cs" id="Snippet_UseAccountSAS":::
+
+### <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
+
+En este fragmento de código, reemplace el marcador de posición `<storage-account>` por el nombre de la cuenta de almacenamiento.
 
 ```csharp
 static void UseAccountSAS(string sasToken)
@@ -95,6 +115,8 @@ static void UseAccountSAS(string sasToken)
     Console.WriteLine(serviceProperties.HourMetrics.Version);
 }
 ```
+
+---
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/19/2019
-ms.openlocfilehash: fdd43a017e584a07d61d41e1af06d30db2f30ac7
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 3ed55387034a383e402d027fd5cab60c4a59c23c
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92542784"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94657047"
 ---
 # <a name="set-up-backup-and-replication-for-apache-hbase-and-apache-phoenix-on-hdinsight"></a>Configuración de la copia de seguridad y la replicación de Apache HBase y Apache Phoenix en HDInsight
 
@@ -173,7 +173,7 @@ En el ejemplo:
 
 ## <a name="snapshots"></a>Instantáneas
 
-Las [instantáneas](https://hbase.apache.org/book.html#ops.snapshots) le permiten crear una copia de seguridad de los datos de un momento dato en el almacén de datos de HBase. Las instantáneas tienen una sobrecarga mínima y se completan en cuestión de segundos, porque una operación de instantánea es efectivamente una operación de metadatos que captura los nombres de todos los archivos que están en almacenamiento en ese instante. En el momento de una instantánea, no se copia ningún dato real. Las instantáneas se basan en la naturaleza inalterable de los datos almacenados en HDFS, en que todas las actualizaciones, eliminaciones e inserciones se representan como datos nuevos. Puede restaurar ( *clonar* ) una instantánea en el mismo clúster o exportar una instantánea a otro clúster.
+Las [instantáneas](https://hbase.apache.org/book.html#ops.snapshots) le permiten crear una copia de seguridad de los datos de un momento dato en el almacén de datos de HBase. Las instantáneas tienen una sobrecarga mínima y se completan en cuestión de segundos, porque una operación de instantánea es efectivamente una operación de metadatos que captura los nombres de todos los archivos que están en almacenamiento en ese instante. En el momento de una instantánea, no se copia ningún dato real. Las instantáneas se basan en la naturaleza inalterable de los datos almacenados en HDFS, en que todas las actualizaciones, eliminaciones e inserciones se representan como datos nuevos. Puede restaurar (*clonar*) una instantánea en el mismo clúster o exportar una instantánea a otro clúster.
 
 Para crear una instantánea, establezca una conexión SSH al nodo principal del clúster de HDInsight HBase e inicie el shell `hbase`:
 
@@ -217,6 +217,12 @@ Si no tiene una cuenta de Azure Storage secundaria conectada al clúster de orig
 
 ```console
 hbase org.apache.hadoop.hbase.snapshot.ExportSnapshot -Dfs.azure.account.key.myaccount.blob.core.windows.net=mykey -snapshot 'Snapshot1' -copy-to 'wasbs://secondcluster@myaccount.blob.core.windows.net/hbase'
+```
+
+Si el clúster de destino es un clúster de ADLS Gen 2, cambie el comando anterior para ajustarse a las configuraciones que ADLS Gen 2 usa:
+
+```console
+hbase org.apache.hadoop.hbase.snapshot.ExportSnapshot -Dfs.azure.account.key.<account_name>.dfs.core.windows.net=<key> -Dfs.azure.account.auth.type.<account_name>.dfs.core.windows.net=SharedKey -Dfs.azure.always.use.https.<account_name>.dfs.core.windows.net=false -Dfs.azure.account.keyprovider.<account_name>.dfs.core.windows.net=org.apache.hadoop.fs.azurebfs.services.SimpleKeyProvider -snapshot 'Snapshot1' -copy-to 'abfs://<container>@<account_name>.dfs.core.windows.net/hbase'
 ```
 
 Una vez que se exporta la instantánea, establezca una conexión SSH al nodo principal del clúster de destino y restaure la instantánea con el comando `restore_snapshot`, tal como se describió anteriormente.

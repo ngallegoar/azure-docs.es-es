@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 05/01/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 6fd0ba19739b75e72541ac84d6b1696ab2819dee
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: ddf9d689316d3c95c322aa3a967af53621a2e00f
+ms.sourcegitcommit: 18046170f21fa1e569a3be75267e791ca9eb67d0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93317421"
+ms.lasthandoff: 11/16/2020
+ms.locfileid: "94638876"
 ---
 # <a name="best-practices-for-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Procedimientos recomendados para el grupo de SQL sin servidor (versión preliminar) en Azure Synapse Analytics
 
@@ -61,7 +61,7 @@ Los tipos de datos que se usan en la consulta afectan al rendimiento. Puede obte
 - Usa el tamaño de datos más pequeño que se adapte al mayor valor posible.
   - Si la longitud máxima de caracteres es de 30, utilice un tipo de datos de caracteres de esa longitud.
   - Si todos los valores de columnas de caracteres tienen un tamaño fijo, use **char** o **nchar**. De lo contrario, use **varchar** o **nvarchar**.
-  - Si el valor máximo de la columna de enteros es 500, use **smallint** , ya que es el menor tipo de datos que puede contener este valor. Puede encontrar intervalos de tipos de datos enteros en [este artículo](/sql/t-sql/data-types/int-bigint-smallint-and-tinyint-transact-sql?view=azure-sqldw-latest&preserve-view=true).
+  - Si el valor máximo de la columna de enteros es 500, use **smallint**, ya que es el menor tipo de datos que puede contener este valor. Puede encontrar intervalos de tipos de datos enteros en [este artículo](/sql/t-sql/data-types/int-bigint-smallint-and-tinyint-transact-sql?view=azure-sqldw-latest&preserve-view=true).
 - Si es posible, use **varchar** y **char** en lugar de **nvarchar** y **nchar**.
 - Utilice tipos de datos basados en enteros si es posible. Las operaciones SORT, JOIN y GROUP BY se realizan más rápidamente en números enteros que en datos de caracteres.
 - Si usa la inferencia de esquemas, [compruebe los tipos de datos inferidos](#check-inferred-data-types).
@@ -127,13 +127,17 @@ Si los datos almacenados no tienen particiones, considere la posibilidad de crea
 
 Puede usar el analizador optimizado para rendimiento al consultar archivos CSV. Para más información, consulte [PARSER_VERSION](develop-openrowset.md).
 
+## <a name="manually-create-statistics-for-csv-files"></a>Creación manual de estadísticas para archivos .csv
+
+El grupo de SQL sin servidor se basa en las estadísticas para generar planes de ejecución de consulta óptimos. Se crearán automáticamente estadísticas de las columnas de los archivos Parquet cuando sea necesario. En este momento, no se crean automáticamente para las columnas de los archivos .csv, por lo que debe crear manualmente estadísticas para las columnas que se usan en las consultas, especialmente las que se usan en DISTINCT, JOIN, WHERE, ORDER BY y GROUP BY. Para más información, consulte [Estadísticas en un grupo de SQL sin servidor](develop-tables-statistics.md#statistics-in-serverless-sql-pool-preview).
+
 ## <a name="use-cetas-to-enhance-query-performance-and-joins"></a>Uso de CETAS para mejorar el rendimiento de las consultas y las combinaciones
 
 [CETAS](develop-tables-cetas.md) es una de las características más importantes que están disponibles en el grupo de SQL sin servidor. CETAS es una operación en paralelo que crea metadatos de tabla externa y exporta los resultados de la consulta SELECT a un conjunto de archivos de la cuenta de almacenamiento.
 
 Puede usar CETAS para almacenar en un nuevo conjunto de archivos las partes más frecuentemente usadas de las consultas, como las tablas de referencia combinadas. A continuación, puede realizar combinaciones con esta tabla externa única, en lugar de repetir combinaciones comunes en varias consultas.
 
-Cuando CETAS genera archivos Parquet, las estadísticas se crean automáticamente cuando la primera consulta selecciona como destino a esta tabla externa, lo que mejora el rendimiento.
+Si CETAS genera archivos Parquet, se crearán automáticamente estadísticas cuando la primera consulta selecciona como destino a esta tabla externa, lo que mejora el rendimiento de las consultas posteriores cuyo destino es la tabla generada con CETAS.
 
 ## <a name="azure-ad-pass-through-performance"></a>Rendimiento de paso a través de Azure AD
 

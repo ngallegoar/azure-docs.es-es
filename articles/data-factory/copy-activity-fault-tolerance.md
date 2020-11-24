@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: yexu
-ms.openlocfilehash: caec9b802bb347333dd861ebe499f72249d75aa2
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: e64f4ab31aed5c4c3e70ef10faf2049027525014
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92634784"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94593655"
 ---
 #  <a name="fault-tolerance-of-copy-activity-in-azure-data-factory"></a>Tolerancia a errores de la actividad de copia en Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -27,7 +27,7 @@ ms.locfileid: "92634784"
 
 Al copiar datos desde el almacén de origen al de destino, la actividad de copia de Azure Data Factory proporciona cierto nivel de tolerancia a errores para evitar la interrupción ocasionada por errores en medio del movimiento de datos. Por ejemplo, imagine que está copiando millones de filas del almacén de origen al de destino y que se ha creado una clave principal en la base de datos de destino, pero la base de datos de origen no tiene ninguna clave principal definida. Cuando copie filas duplicadas del origen al destino, aparecerá un error de infracción de clave primaria en la base de datos de destino. En este momento, la actividad de copia ofrece dos formas de controlar estos errores: 
 - Puede anular la actividad de copia cuando se produzca un error. 
-- Puede continuar copiando el resto habilitando la tolerancia a errores para omitir los datos incompatibles. Por ejemplo, omitir la fila duplicada en este caso. Además, puede registrar los datos omitidos habilitando el registro de sesión dentro de la actividad de copia. 
+- Puede continuar copiando el resto habilitando la tolerancia a errores para omitir los datos incompatibles. Por ejemplo, omitir la fila duplicada en este caso. Además, puede registrar los datos omitidos habilitando el registro de sesión dentro de la actividad de copia. Puede consultar [Registro de sesión en la actividad de copia](copy-activity-log.md) para más detalles.
 
 ## <a name="copying-binary-files"></a>Copia de archivos binarios 
 
@@ -61,13 +61,20 @@ Al copiar archivos binarios entre los almacenes, puede habilitar la tolerancia a
         "dataInconsistency": true 
     }, 
     "validateDataConsistency": true, 
-    "logStorageSettings": { 
-        "linkedServiceName": { 
-            "referenceName": "ADLSGen2", 
-            "type": "LinkedServiceReference" 
-            }, 
-        "path": "sessionlog/" 
-     } 
+    "logSettings": {
+        "enableCopyActivityLog": true,
+        "copyActivityLogSettings": {            
+            "logLevel": "Warning",
+            "enableReliableLogging": false
+        },
+        "logLocationSettings": {
+            "linkedServiceName": {
+               "referenceName": "ADLSGen2",
+               "type": "LinkedServiceReference"
+            },
+            "path": "sessionlog/"
+        }
+    }
 } 
 ```
 Propiedad | Descripción | Valores permitidos | Obligatorio
@@ -76,7 +83,7 @@ skipErrorFile | Un grupo de propiedades para especificar los tipos de errores qu
 fileMissing | Uno de los pares clave-valor dentro del contenedor de propiedades de skipErrorFile para determinar si desea omitir los archivos que se están eliminando en otras aplicaciones mientras ADF realiza la copia. <br/> -True: desea copiar el resto omitiendo los archivos que eliminan otras aplicaciones. <br/> -False: desea anular la actividad de copia una vez que se eliminan los archivos del almacén de origen en medio del movimiento de datos. <br/>Tenga en cuenta que esta propiedad está establecida en true como valor predeterminado. | True (valor predeterminado) <br/>False | No
 fileForbidden | Uno de los pares clave-valor dentro del contenedor de propiedades de skipErrorFile para determinar si desea omitir los archivos concretos, cuando los ACL de esos archivos o carpetas requieren un nivel de permiso superior al de la conexión configurada en ADF. <br/> -True: desea copiar el resto omitiendo los archivos. <br/> -False: desea anular la actividad de copia una vez que recibe el problema de los permisos en las carpetas o los archivos. | True <br/>False (valor predeterminado) | No
 dataInconsistency | Uno de los pares clave-valor dentro del contenedor de propiedades de skipErrorFile para determinar si desea omitir los datos incoherentes entre el almacén de origen y el de destino. <br/> -True: desea copiar el resto omitiendo los datos incoherentes. <br/> - False: desea anular la actividad de copia una vez que se encuentren datos incoherentes. <br/>Tenga en cuenta que esta propiedad solo es válida cuando se establece validateDataConsistency como True. | True <br/>False (valor predeterminado) | No
-logStorageSettings  | Un grupo de propiedades que puede especificarse cuando quiere registrar los nombres de los objetos omitidos. | &nbsp; | No
+logSettings  | Un grupo de propiedades que puede especificarse cuando quiere registrar los nombres de los objetos omitidos. | &nbsp; | No
 linkedServiceName | El servicio vinculado de [Azure Blob Storage](connector-azure-blob-storage.md#linked-service-properties) o [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) para almacenar los archivos de registro de sesión. | Nombre de un servicio vinculado de tipo `AzureBlobStorage` o `AzureBlobFS`, que hace referencia a la instancia que usa para almacenar el archivo de registro. | No
 path | Ruta de acceso de los archivos de registro. | Especifique la ruta de acceso que se utiliza para almacenar los archivos de registro. Si no se proporciona una ruta de acceso, el servicio creará un contenedor para usted. | No
 
@@ -108,7 +115,7 @@ Puede obtener el número de archivos que se van a leer, escribir y omitir a trav
             "filesWritten": 1, 
             "filesSkipped": 2, 
             "throughput": 297,
-            "logPath": "https://myblobstorage.blob.core.windows.net//myfolder/a84bf8d4-233f-4216-8cb5-45962831cd1b/",
+            "logFilePath": "myfolder/a84bf8d4-233f-4216-8cb5-45962831cd1b/",
             "dataConsistencyVerification": 
            { 
                 "VerificationResult": "Verified", 
@@ -146,15 +153,15 @@ En el registro anterior, puede ver que bigfile.csv se ha omitido debido a que ot
 ### <a name="supported-scenarios"></a>Escenarios admitidos
 La actividad de copia admite tres escenarios para detectar, omitir y registrar datos tabulares incompatibles:
 
-- **Incompatibilidad entre el tipo de datos de origen y el tipo nativo de receptor** . 
+- **Incompatibilidad entre el tipo de datos de origen y el tipo nativo de receptor**. 
 
     Por ejemplo: Copie datos desde un archivo CSV en Blob Storage a una base de datos SQL con una definición de esquema que contenga tres columnas de tipo INT. Las filas del archivo CSV que contienen datos numéricos, como 123 456 789, se copian correctamente en el almacén de receptor. Pero las filas que contienen valores no numéricos, como 123 456 abc, se detectan como incompatibles y se omiten.
 
-- **Error de coincidencia en el número de columnas entre el origen y el receptor** .
+- **Error de coincidencia en el número de columnas entre el origen y el receptor**.
 
     Por ejemplo: Copie datos desde un archivo CSV en Blob Storage a una base de datos SQL con una definición de esquema que contenga seis columnas. Las filas del archivo CSV que contiene seis columnas se copian correctamente en el almacén de receptor. Las filas del archivo CSV que contienen más de seis columnas se detectan como incompatibles y se omiten.
 
-- **Infracción de clave principal al escribir en SQL Server, Azure SQL Database o Azure Cosmos DB** .
+- **Infracción de clave principal al escribir en SQL Server, Azure SQL Database o Azure Cosmos DB**.
 
     Por ejemplo: Copie datos desde un servidor SQL a una base de datos SQL. Se define una clave principal en la base de datos SQL de receptor, pero no se define en el servidor SQL de origen. Las filas duplicadas que existen en el origen no se pueden copiar en el receptor. La actividad de copia solo copia la primera fila de los datos de origen en el receptor. Las filas de origen subsiguientes que contienen el valor de clave principal duplicado se detectan como incompatibles y se omiten.
 
@@ -175,12 +182,19 @@ En el ejemplo siguiente se proporciona una definición JSON para configurar la o
         "type": "AzureSqlSink" 
     }, 
     "enableSkipIncompatibleRow": true, 
-    "logStorageSettings": { 
-    "linkedServiceName": { 
-        "referenceName": "ADLSGen2", 
-        "type": "LinkedServiceReference" 
-        }, 
-    "path": "sessionlog/" 
+    "logSettings": {
+        "enableCopyActivityLog": true,
+        "copyActivityLogSettings": {            
+            "logLevel": "Warning",
+            "enableReliableLogging": false
+        },
+        "logLocationSettings": {
+            "linkedServiceName": {
+               "referenceName": "ADLSGen2",
+               "type": "LinkedServiceReference"
+            },
+            "path": "sessionlog/"
+        }
     } 
 }, 
 ```
@@ -188,7 +202,7 @@ En el ejemplo siguiente se proporciona una definición JSON para configurar la o
 Propiedad | Descripción | Valores permitidos | Obligatorio
 -------- | ----------- | -------------- | -------- 
 enableSkipIncompatibleRow | Especifica si se deben omitir las filas incompatibles durante la copia o no. | True<br/>False (valor predeterminado) | No
-logStorageSettings | Un grupo de propiedades que puede especificarse cuando quiere registrar las filas incompatibles. | &nbsp; | No
+logSettings | Un grupo de propiedades que puede especificarse cuando quiere registrar las filas incompatibles. | &nbsp; | No
 linkedServiceName | Servicio vinculado de [Azure Blob Storage](connector-azure-blob-storage.md#linked-service-properties) o [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) para almacenar el registro que contiene las filas que se omiten. | Nombre de un servicio vinculado de tipo `AzureBlobStorage` o `AzureBlobFS`, que hace referencia a la instancia que usa para almacenar el archivo de registro. | No
 path | La ruta de acceso de los archivos de registro que contiene las filas que se omiten. | Especifique la ruta de acceso que quiere usar para registrar los datos incompatibles. Si no se proporciona una ruta de acceso, el servicio creará un contenedor para usted. | No
 
@@ -203,7 +217,7 @@ Una vez finalizada la ejecución de la actividad de copia, puede ver el número 
             "rowsSkipped": 2,
             "copyDuration": 16,
             "throughput": 0.01,
-            "logPath": "https://myblobstorage.blob.core.windows.net//myfolder/a84bf8d4-233f-4216-8cb5-45962831cd1b/",
+            "logFilePath": "myfolder/a84bf8d4-233f-4216-8cb5-45962831cd1b/",
             "errors": []
         },
 

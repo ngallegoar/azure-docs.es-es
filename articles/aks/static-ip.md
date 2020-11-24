@@ -4,13 +4,13 @@ titleSuffix: Azure Kubernetes Service
 description: Aprenda a crear y usar una dirección IP estática con el equilibrador de carga de Azure Kubernetes Service (AKS).
 services: container-service
 ms.topic: article
-ms.date: 03/09/2020
-ms.openlocfilehash: 3055b5d32055d0ed0e3870f16f6af95407a68cd9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/14/2020
+ms.openlocfilehash: 22fd099633556fa9ddce575c2ac238b4950667cb
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86243943"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94651896"
 ---
 # <a name="use-a-static-public-ip-address-and-dns-label-with-the-azure-kubernetes-service-aks-load-balancer"></a>Uso de una dirección IP pública estática y una etiqueta DNS con el equilibrador de carga de Azure Kubernetes Service (AKS)
 
@@ -22,7 +22,7 @@ En este artículo se muestra cómo crear una dirección IP pública estática y 
 
 En este artículo se supone que ya tiene un clúster de AKS. Si necesita un clúster de AKS, consulte el inicio rápido de AKS [mediante la CLI de Azure][aks-quickstart-cli] o [mediante Azure Portal][aks-quickstart-portal].
 
-También es preciso que esté instalada y configurada la versión 2.0.59 de la CLI de Azure u otra versión posterior. Ejecute  `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte  [Install Azure CLI][install-azure-cli] (Instalación de la CLI de Azure).
+También es preciso que esté instalada y configurada la versión 2.0.59 de la CLI de Azure u otra versión posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure][install-azure-cli].
 
 En este artículo se describe el uso de una dirección IP de SKU *Estándar* con un equilibrador de carga de SKU *Estándar*. Para más información, consulte [Tipos de direcciones IP y métodos de asignación en Azure][ip-sku].
 
@@ -73,6 +73,9 @@ az role assignment create \
 ```
 
 De forma alternativa, puede usar la identidad administrada asignada por el sistema en los permisos en lugar de la entidad de servicio. Para más información, consulte [Uso de identidades administradas](use-managed-identity.md).
+
+> [!IMPORTANT]
+> Si ha personalizado la dirección IP de salida, asegúrese de que la identidad del clúster tenga permisos tanto para la dirección IP pública de salida como para esta dirección IP pública de entrada.
 
 Para crear un servicio *LoadBalancer* con la dirección IP pública estática, agregue la propiedad `loadBalancerIP` y el valor de la dirección IP pública estática al manifiesto YAML. Cree un archivo denominado `load-balancer-service.yaml` y cópielo en el siguiente código YAML. Indique su propia dirección IP pública que creó en el paso anterior. En el ejemplo siguiente también se establece el grupo de recursos denominado *myResourceGroup*. Indique su propio nombre del grupo de recursos.
 

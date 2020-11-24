@@ -3,14 +3,14 @@ title: Copia de seguridad de recursos compartidos de archivos de Azure con la CL
 description: Aprenda a utilizar la CLI de Azure para hacer copias de seguridad de recursos compartidos de archivos de Azure en el almacén de Recovery Services.
 ms.topic: conceptual
 ms.date: 01/14/2020
-ms.openlocfilehash: 12d258a3242530745cc8ce31afae18f622323488
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 34eea8daa6a0a8920c842178664055838b06a78a
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91293295"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94565898"
 ---
-# <a name="back-up-azure-file-shares-with-cli"></a>Copia de seguridad de recursos compartidos de archivos de Azure con la CLI
+# <a name="back-up-azure-file-shares-with-azure-cli"></a>Copia de seguridad de recursos compartidos de archivos de Azure con la CLI de Azure
 
 La interfaz de la línea de comandos (CLI) de Azure ofrece una experiencia de línea de comandos para administrar los recursos de Azure. Es una herramienta excelente para personalizar la automatización del uso de los recursos de Azure. En este artículo se detalla cómo realizar una copia de seguridad de los recursos compartidos de archivos de Azure con la CLI de Azure. Estos pasos también se pueden llevar a cabo con [Azure PowerShell](./backup-azure-afs-automation.md) o en [Azure Portal](backup-afs.md).
 
@@ -20,9 +20,9 @@ Al final de este tutorial, habrá aprendido a realizar las siguientes operacione
 * Habilitación de la copia de seguridad de los recursos compartidos de archivos de Azure
 * Desencadenamiento de una copia de seguridad a petición para recursos compartidos de archivos
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Para instalar y usar la CLI localmente, debe ejecutar la versión 2.0.18 de la CLI de Azure o una posterior. Para averiguar la versión de la CLI, `run az --version`. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli).
+ - Este tutorial requiere la versión 2.0.18 o posterior de la CLI de Azure. Si usa Azure Cloud Shell, ya está instalada la versión más reciente.
 
 ## <a name="create-a-recovery-services-vault"></a>Creación de un almacén de Recovery Services
 

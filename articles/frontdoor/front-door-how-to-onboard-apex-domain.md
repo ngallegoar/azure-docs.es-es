@@ -5,21 +5,21 @@ services: front-door
 author: duongau
 ms.service: frontdoor
 ms.topic: how-to
-ms.date: 09/30/2020
+ms.date: 11/13/2020
 ms.author: duau
-ms.openlocfilehash: 44813a7662420ab4dedcd0bf99cc1eec7e9d9d2d
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 55eefe7a7490df050aa7ebc2bb41fbadcc8d8279
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91819074"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94646345"
 ---
 # <a name="onboard-a-root-or-apex-domain-on-your-front-door"></a>Incorporación de un dominio raíz o de vértice a una instancia de Front Door
 Azure Front Door usa registros CNAME a fin de validar la propiedad del dominio para la incorporación de dominios personalizados. Front Door no expone la dirección IP de front-end asociada a su perfil de Front Door. Por lo tanto, no puede asignar el dominio de vértice a una dirección IP si su intención es incorporarlo a Azure Front Door.
 
 El protocolo DNS evita la asignación de registros CNAME en el vértice de zona. Por ejemplo, si el dominio es `contoso.com`, puede crear registros CNAME para `somelabel.contoso.com`, pero no puede crear CNAME para `contoso.com`. Esta restricción presenta un problema para los propietarios de aplicaciones que tienen aplicaciones con equilibrio de carga detrás de Azure Front Door. Puesto que el uso de un perfil de Front Door requiere la creación de un registro CNAME, no es posible apuntar al perfil de Front Door desde el vértice de la zona.
 
-Este problema se puede resolver mediante el uso de registros de alias en Azure DNS. A diferencia de los registros CNAME, los registros de alias se crean en el vértice de zona. Los propietarios de aplicaciones pueden usarlo para apuntar su registro de vértice de zona a un perfil de Front Door que tenga puntos de conexión públicos. Los propietarios de aplicaciones pueden apuntar al mismo perfil de Front Door que se use para cualquier otro dominio dentro de su zona DNS. Por ejemplo, `contoso.com` y `www.contoso.com` pueden apuntar al mismo perfil de Front Door. 
+Este problema se puede resolver mediante registros de alias en Azure DNS. A diferencia de los registros CNAME, los registros de alias se crean en el vértice de zona. Los propietarios de aplicaciones pueden usarlo para apuntar su registro de vértice de zona a un perfil de Front Door que tenga puntos de conexión públicos. Los propietarios de aplicaciones pueden apuntar al mismo perfil de Front Door que se use para cualquier otro dominio dentro de su zona DNS. Por ejemplo, `contoso.com` y `www.contoso.com` pueden apuntar al mismo perfil de Front Door. 
 
 La asignación del dominio de vértice o raíz a su perfil de Front Door requiere básicamente el acoplamiento de CNAME o el seguimiento de DNS. Mecanismo en el que el proveedor de DNS resuelve de forma recursiva la entrada CNAME hasta que encuentra una dirección IP. Esta funcionalidad es compatible con Azure DNS para puntos de conexión de Front Door. 
 
@@ -40,9 +40,9 @@ Puede usar Azure Portal para incorporar un dominio de vértice en Front Door y h
 
 1. Seleccione **Aceptar** para enviar los cambios.
 
-    :::image type="content" source="./media/front-door-apex-domain/front-door-apex-alias-record.png" alt-text="Registro de alias para el vértice de la zona&quot;:::
+    :::image type="content" source="./media/front-door-apex-domain/front-door-apex-alias-record.png" alt-text="Registro de alias para el vértice de la zona":::
 
-1. El paso anterior creará un registro de vértice de zona que apunta al recurso de Front Door y también una asignación de registros CNAME &quot;afdverify" (por ejemplo, `afdverify.contosonews.com`) que se usará para la incorporación del dominio en el perfil de Front Door.
+1. El paso anterior creará un registro de vértice de zona que apunta al recurso de Front Door y también una asignación de registros CNAME "afdverify" (por ejemplo, `afdverify.contosonews.com`) que se usará para la incorporación del dominio en el perfil de Front Door.
 
 ## <a name="onboard-the-custom-domain-on-your-front-door"></a>Incorporación del dominio personalizado a la instancia de Front Door
 
@@ -54,9 +54,7 @@ Puede usar Azure Portal para incorporar un dominio de vértice en Front Door y h
 
 1. Seleccione **Guardar** para enviar los cambios.
 
-   :::image type="content" source="./media/front-door-apex-domain/front-door-onboard-apex-domain.png" alt-text="Registro de alias para el vértice de la zona&quot;:::
-
-1. El paso anterior creará un registro de vértice de zona que apunta al recurso de Front Door y también una asignación de registros CNAME &quot;afdverify":::
+   :::image type="content" source="./media/front-door-apex-domain/front-door-onboard-apex-domain.png" alt-text="Menú Dominio personalizado":::
 
 ## <a name="enable-https-on-your-custom-domain"></a>Habilitación de HTTPS en el dominio personalizado
 
@@ -64,9 +62,7 @@ Puede usar Azure Portal para incorporar un dominio de vértice en Front Door y h
 
 1. En **Tipo de administración de certificados**, seleccione *Usar mi propio certificado*.
 
-   :::image type="content" source="./media/front-door-apex-domain/front-door-onboard-apex-custom-domain.png" alt-text="Registro de alias para el vértice de la zona&quot;:::
-
-1. El paso anterior creará un registro de vértice de zona que apunta al recurso de Front Door y también una asignación de registros CNAME &quot;afdverify":::    
+   :::image type="content" source="./media/front-door-apex-domain/front-door-onboard-apex-custom-domain.png" alt-text="Configuración de HTTPS de dominio personalizado":::    
 
    > [!WARNING]
    > Actualmente no se admite el tipo de administración de certificados Front Door administrado para dominios raíz o de vértice. La única opción disponible para habilitar HTTPS en un dominio raíz o de vértice para Front Door consiste en usar su propio certificado TLS/SSL personalizado hospedado en Azure Key Vault.

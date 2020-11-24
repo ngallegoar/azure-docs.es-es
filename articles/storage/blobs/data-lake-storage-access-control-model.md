@@ -5,14 +5,14 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/16/2020
+ms.date: 11/10/2020
 ms.author: normesta
-ms.openlocfilehash: 099d79e63795a88a66ef1ec65aa1bfd97037191e
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: a5cdeba654440e666bc79df361b3f90db8a73b0a
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92134118"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94578655"
 ---
 # <a name="access-control-model-in-azure-data-lake-storage-gen2"></a>Modelo de control de acceso de Azure Data Lake Storage Gen2
 
@@ -43,11 +43,11 @@ Los roles siguientes permiten que una entidad de seguridad acceda a los datos de
 | [Colaborador de datos de blobs de almacenamiento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner) | Acceso de lectura, escritura y eliminación a blobs y contenedores de Blob Storage. Este acceso no permite que la entidad de seguridad establezca la propiedad de un elemento, pero puede modificar la lista de control de acceso de los elementos que pertenecen a la entidad de seguridad. |
 | [Lector de datos de blobs de almacenamiento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader) | Lee y enumera blobs y contenedores de Blob Storage. |
 
-Los roles como [Propietario](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner), [Colaborador](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor), [Lector](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader) y [Colaborador de la cuenta de almacenamiento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor) permiten que una entidad de seguridad administre una cuenta de almacenamiento, pero no proporcionan acceso a los datos dentro de esa cuenta. Sin embargo, estos roles (excepto el rol **Lector** ) pueden obtener acceso a claves de almacenamiento que se pueden usar en diversas herramientas de cliente para acceder a los datos.
+Los roles como [Propietario](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner), [Colaborador](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor), [Lector](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader) y [Colaborador de la cuenta de almacenamiento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor) permiten que una entidad de seguridad administre una cuenta de almacenamiento, pero no proporcionan acceso a los datos dentro de esa cuenta. Sin embargo, estos roles (excepto el rol **Lector**) pueden obtener acceso a claves de almacenamiento que se pueden usar en diversas herramientas de cliente para acceder a los datos.
 
 ## <a name="access-control-lists-acls"></a>Listas de control de acceso (ACL)
 
-Las ACL le ofrecen la posibilidad de aplicar un nivel de acceso más "específico" a los directorios y archivos. Una *ACL* es una construcción de permisos que contiene una serie de *entradas de ACL* . Cada entrada de ACL asocia una entidad de seguridad a un nivel de acceso.  Para más información, consulte [Listas de control de acceso (ACL) en Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
+Las ACL le ofrecen la posibilidad de aplicar un nivel de acceso más "específico" a los directorios y archivos. Una *ACL* es una construcción de permisos que contiene una serie de *entradas de ACL*. Cada entrada de ACL asocia una entidad de seguridad a un nivel de acceso.  Para más información, consulte [Listas de control de acceso (ACL) en Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
 
 ## <a name="how-permissions-are-evaluated"></a>Evaluación de los permisos
 
@@ -71,7 +71,7 @@ En el diagrama siguiente se muestra el flujo de permisos para tres operaciones c
 
 ## <a name="permissions-table-combining-azure-rbac-and-acl"></a>Tabla de permisos: combinación de RBAC de Azure y ACL
 
-En la tabla siguiente se muestra cómo combinar roles RBAC de Azure y entradas de ACL para que una entidad de seguridad pueda realizar las operaciones que se muestran en la columna **Operación** . En esta tabla se muestra una columna que representa cada nivel de una jerarquía de directorios ficticia. Hay una columna para el directorio raíz del contenedor (`/`), un subdirectorio denominado **Oregón** , un subdirectorio del directorio Oregón denominado **Portland** y un archivo de texto en el directorio Portland denominado **Data.txt** . En esas columnas se muestran representaciones [abreviadas](data-lake-storage-access-control.md#short-forms-for-permissions) de la entrada de ACL que se necesita para conceder permisos. En la columna aparece **N/A** ( _No aplicable_ ) si no se necesita ninguna entrada de ACL para realizar la operación.
+En la tabla siguiente se muestra cómo combinar roles RBAC de Azure y entradas de ACL para que una entidad de seguridad pueda realizar las operaciones que se muestran en la columna **Operación**. En esta tabla se muestra una columna que representa cada nivel de una jerarquía de directorios ficticia. Hay una columna para el directorio raíz del contenedor (`/`), un subdirectorio denominado **Oregón**, un subdirectorio del directorio Oregón denominado **Portland** y un archivo de texto en el directorio Portland denominado **Data.txt**. En esas columnas se muestran representaciones [abreviadas](data-lake-storage-access-control.md#short-forms-for-permissions) de la entrada de ACL que se necesita para conceder permisos. En la columna aparece **N/A** (_No aplicable_) si no se necesita ninguna entrada de ACL para realizar la operación.
 
 |    Operación             | Rol RBAC asignado               |    /        | Oregón/     | Portland/ | Data.txt |             
 |--------------------------|----------------------------------|-------------|-------------|-----------|----------|

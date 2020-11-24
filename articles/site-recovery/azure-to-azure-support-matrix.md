@@ -4,12 +4,12 @@ description: Resume la compatibilidad con la recuperación ante desastres de má
 ms.topic: article
 ms.date: 07/14/2020
 ms.author: raynew
-ms.openlocfilehash: b73a6b8c024cfa5ed7188bbf3fed2bbb7142a2a0
-ms.sourcegitcommit: 7a7b6c7ac0aa9dac678c3dfd4b5bcbc45dc030ca
+ms.openlocfilehash: c54c4608f04c8f98e21309ca531452ae0a34fdf2
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2020
-ms.locfileid: "93186644"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94646379"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Matriz de soporte para la recuperación ante desastres de máquinas virtuales de Azure entre regiones de Azure
 
@@ -54,7 +54,7 @@ Regiones restringidas reservadas para la recuperación ante desastres dentro de 
 
 >[!NOTE]
 >
-> - En la región **Sur de Brasil** , puede replicar y conmutar por error en las siguientes regiones: Centro-sur de EE. UU., Centro-oeste de EE. UU., Este de EE. UU., Este de EE. UU. 2, Oeste de EE. UU., Oeste de EE. UU. 2 y Centro-norte de EE. UU.
+> - En la región **Sur de Brasil**, puede replicar y conmutar por error en las siguientes regiones: Centro-sur de EE. UU., Centro-oeste de EE. UU., Este de EE. UU., Este de EE. UU. 2, Oeste de EE. UU., Oeste de EE. UU. 2 y Centro-norte de EE. UU.
 > - La región Sur de Brasil solo puede utilizarse como la región de origen desde la que las máquinas virtuales replican mediante Site Recovery. No puede ser una región de destino. Esto se debe a problemas de latencia provocados por las distancias geográficas. Tenga en cuenta que si realiza la conmutación por error desde Sur de Brasil como región de origen a un destino, se admite la conmutación por recuperación a Sur de Brasil desde la región de destino.
 > - Puede trabajar dentro de las regiones para las que tenga un acceso adecuado.
 > - Si la región donde quiere crear un almacén no aparece, asegúrese de que su suscripción tiene acceso para crear recursos en esa región.
@@ -100,12 +100,12 @@ Windows 7 (x64) con SP1 en adelante | Desde la versión [9.30](https://support.m
 --- | ---
 Red Hat Enterprise Linux | 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6,[7.7](https://support.microsoft.com/help/4528026/update-rollup-41-for-azure-site-recovery), [7.8](https://support.microsoft.com/help/4564347/), [7.9](https://support.microsoft.com/help/4578241/), [8.0](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery), 8.1, [8.2](https://support.microsoft.com/help/4570609/)
 CentOS | 6.5, 6.6, 6.7, 6.8, 6.9, 6.10 </br> 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, 7.7, [7.8](https://support.microsoft.com/help/4564347/), [versión 7.9 anterior a la disponibilidad general](https://support.microsoft.com/help/4578241/), la versión 7.9 anterior a la disponibilidad general se admite a partir de la revisión urgente 9.37** </br> 8.0, 8.1, [8.2](https://support.microsoft.com/en-us/help/4570609)
-Servidor Ubuntu 14.04 LTS | Incluye compatibilidad con todas las versiones 14.04. *x* ; [versiones de kernel compatibles](#supported-ubuntu-kernel-versions-for-azure-virtual-machines). 
-Servidor Ubuntu 16.04 LTS | Incluye compatibilidad con todas las versiones 16.04. *x* ; [versión de kernel compatible](#supported-ubuntu-kernel-versions-for-azure-virtual-machines).<br/><br/> Los servidores Ubuntu que usan un inicio de sesión y una autenticación mediante contraseña y que usan el paquete cloud-init para configurar máquinas virtuales en la nube pueden tener el inicio de sesión mediante contraseña deshabilitado tras una conmutación por error (en función de la configuración de cloudinit). Para volver a habilitar el inicio de sesión mediante contraseña en la máquina virtual, restablezca la contraseña desde el menú Soporte > Solución de problemas > Configuración (de la máquina virtual conmutada por error en Azure Portal).
-Servidor Ubuntu 18.04 LTS | Incluye compatibilidad con todas las versiones 18.04. *x* ; [versión de kernel compatible](#supported-ubuntu-kernel-versions-for-azure-virtual-machines). |
-Servidor Ubuntu 20.04 LTS | Incluye compatibilidad con todas las versiones 20.04. *x* ; [versión de kernel compatible](#supported-ubuntu-kernel-versions-for-azure-virtual-machines).
-Debian 7 | Incluye compatibilidad para todas las versiones 7. *x* ). [Versiones de kernel admitidas](#supported-debian-kernel-versions-for-azure-virtual-machines)
-Debian 8 | Incluye compatibilidad para todas las versiones 8. *x* ). [Versiones de kernel admitidas](#supported-debian-kernel-versions-for-azure-virtual-machines)
+Servidor Ubuntu 14.04 LTS | Incluye compatibilidad con todas las versiones 14.04.*x*; [versiones de kernel compatibles](#supported-ubuntu-kernel-versions-for-azure-virtual-machines). 
+Servidor Ubuntu 16.04 LTS | Incluye compatibilidad con todas las versiones 16.04.*x*; [versión de kernel compatible](#supported-ubuntu-kernel-versions-for-azure-virtual-machines).<br/><br/> Los servidores Ubuntu que usan un inicio de sesión y una autenticación mediante contraseña y que usan el paquete cloud-init para configurar máquinas virtuales en la nube pueden tener el inicio de sesión mediante contraseña deshabilitado tras una conmutación por error (en función de la configuración de cloudinit). Para volver a habilitar el inicio de sesión mediante contraseña en la máquina virtual, restablezca la contraseña desde el menú Soporte > Solución de problemas > Configuración (de la máquina virtual conmutada por error en Azure Portal).
+Servidor Ubuntu 18.04 LTS | Incluye compatibilidad con todas las versiones 18.04.*x*; [versión de kernel compatible](#supported-ubuntu-kernel-versions-for-azure-virtual-machines). |
+Servidor Ubuntu 20.04 LTS | Incluye compatibilidad con todas las versiones 20.04.*x*; [versión de kernel compatible](#supported-ubuntu-kernel-versions-for-azure-virtual-machines).
+Debian 7 | Incluye compatibilidad para todas las versiones 7. *x*). [Versiones de kernel admitidas](#supported-debian-kernel-versions-for-azure-virtual-machines)
+Debian 8 | Incluye compatibilidad para todas las versiones 8. *x*). [Versiones de kernel admitidas](#supported-debian-kernel-versions-for-azure-virtual-machines)
 Debian 9 | Incluye compatibilidad con las versiones 9.1 a 9.13. Debian 9.0 es incompatible. [Versiones de kernel admitidas](#supported-debian-kernel-versions-for-azure-virtual-machines)
 SUSE Linux Enterprise Server 12 | SP1, SP2, SP3, SP4, SP5 [(versiones de kernel admitidas)](#supported-suse-linux-enterprise-server-12-kernel-versions-for-azure-virtual-machines)
 SUSE Linux Enterprise Server 15 | 15, SP1, SP2[(versiones kernel admitidas)](#supported-suse-linux-enterprise-server-15-kernel-versions-for-azure-virtual-machines)
@@ -131,7 +131,7 @@ Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5,
 18.04 LTS | [9.36](https://support.microsoft.com/help/4578241/) | 4.15.0-20-generic a 4.15.0-112-generic </br> De 4.18.0-13-generic a 4.18.0-25-generic </br> 5.0.0-15-generic a 5.0.0-58-generic </br> 5.3.0-19-generic a 5.3.0-65-generic </br> 5.4.0-37-generic a 5.4.0-42-generic</br> 4.15.0-1009-azure a 4.15.0-1092-azure </br> De 4.18.0-1006-azure a 4.18.0-1025-azure </br> 5.0.0-1012-azure a 5.0.0-1036-azure </br> 5.3.0-1007-azure a 5.3.0-1032-azure </br> 5.4.0-1020-azure a 5.4.0-1022-azure </br> 5.0.0-60-generic y 5.3.0-1035-azure a la revisión de corrección urgente 9.36**|
 18.04 LTS | [9.34](https://support.microsoft.com/help/4570609), [9.35](https://support.microsoft.com/help/4573888/) | 4.15.0-20-generic a 4.15.0-108-generic </br> De 4.18.0-13-generic a 4.18.0-25-generic </br> 5.0.0-15-generic a 5.0.0-52-generic </br> 5.3.0-19-generic a 5.3.0-61-generic </br> 4.15.0-1009-azure a 4.15.0-1089-azure </br> De 4.18.0-1006-azure a 4.18.0-1025-azure </br> 5.0.0-1012-azure a 5.0.0-1036-azure </br> 5.3.0-1007-azure a 5.3.0-1031-azure </br> 4.15.0-109-generic, 5.0.0-53-generic, 5.3.0-62-generic, 4.15.0-1091-azure & 5.3.0-1032-azure through 9.35 hot fix patch**|
 |||
-20.04 LTS |[9.38](https://support.microsoft.com/help/4590304/) | 5.4.0-26-generic a 5.4.0-48 </br> -generic 5.4.0-1010-azure a 5.4.0-1026-azure </br> 5.4.0-51-generic, 5.4.0-52-generic, 5.8.0-23-generic, 5.4.0-1031-azure mediante la revisión urgente 9.38**
+20.04 LTS |[9.38](https://support.microsoft.com/help/4590304/) | 5.4.0-26-generic a 5.4.0-48 </br> -generic 5.4.0-1010-azure a 5.4.0-1026-azure </br> 5.4.0-51-generic, 5.4.0-52-generic, 5.8.0-23-generic, 5.8.0-25-generic, 5.4.0-1031-azure through 9.38 hot fix patch**
 20.04 LTS |[9.37](https://support.microsoft.com/help/4582666/) | 5.4.0-26-generic a 5.4.0-45 </br> -generic 5.4.0-1010-azure a 5.4.0-1023-azure </br> 5.4.0-47-generic, 5.4.0-48-generic, 5.4.0-1025-azure, 5.4.0-1026-azure mediante la revisión urgente 9.37**
 20.04 LTS |[9.36](https://support.microsoft.com/help/4578241/) | 5.4.0-26-generic a 5.4.0-42 </br> -generic 5.4.0-1010-azure a 5.4.0-1022-azure
 
@@ -146,7 +146,7 @@ Debian 7 |  [9.34](https://support.microsoft.com/help/4570609), [9.35](https://s
 Debian 8 | [9.35](https://support.microsoft.com/help/4573888/, ), [9.36](https://support.microsoft.com/help/4578241/), [9.37](https://support.microsoft.com/help/4582666/), [9.38](https://support.microsoft.com/help/4590304/) | 3.16.0-4-amd64 a 3.16.0-11-amd64, 4.9.0-0.bpo.4-amd64 a 4.9.0-0.bpo.11-amd64 |
 Debian 8 | [9.34](https://support.microsoft.com/help/4570609) | 3.16.0-4-amd64 a 3.16.0-10-amd64, 4.9.0-0.bpo.4-amd64 a 4.9.0-0.bpo.11-amd64 |
 |||
-Debian 9.1 | [9.38](https://support.microsoft.com/help/4590304/) | 4.9.0-1-amd64 a 4.9.0-13-amd64 </br> 4.19.0-0.bpo.1-amd64 a 4.19.0-0.bpo.11-amd64 </br> 4.19.0-0.bpo.1-cloud-amd64 a 4.19.0-0.bpo.11-cloud-amd64 </br> 
+Debian 9.1 | [9.38](https://support.microsoft.com/help/4590304/) | 4.9.0-1-amd64 a 4.9.0-13-amd64 </br> 4.19.0-0.bpo.1-amd64 a 4.19.0-0.bpo.11-amd64 </br> 4.19.0-0.bpo.1-cloud-amd64 a 4.19.0-0.bpo.11-cloud-amd64 </br> 4.9.0-14-amd64, 4.19.0-0.bpo.12-amd64, 4.19.0-0.bpo.12-cloud-amd64 through 9.38 hot fix patch**
 Debian 9.1 | [9.37](https://support.microsoft.com/help/4582666/) | 4.9.0-3-amd64 a 4.9.0-13-amd64, 4.19.0-0.bpo.6-amd64 a 4.19.0-0.bpo.10-amd64, 4.19.0-0.bpo.6-cloud-amd64 a 4.19.0-0.bpo.10-cloud-amd64
 
 #### <a name="supported-suse-linux-enterprise-server-12-kernel-versions-for-azure-virtual-machines"></a>Versiones de kernel admitidas de SUSE Linux Enterprise Server 12 para máquinas virtuales de Azure

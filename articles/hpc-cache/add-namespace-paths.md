@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: v-erkel
-ms.openlocfilehash: 090e3f93d025fe87ad5b89a98193574595f3d632
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a39b6973767b72e69a82750ab8d0d487c733eda0
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91614524"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94657115"
 ---
 # <a name="set-up-the-aggregated-namespace"></a>Configuración del espacio de nombres agregado
 
@@ -57,7 +57,7 @@ En Azure Portal, cargue la página de configuración **Namespace** (Espacio de n
 
 ### <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
-[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+[Configurar la CLI de Azure para Azure HPC Cache](./az-cli-prerequisites.md).
 
 Cuando usa la CLI de Azure, debe agregar una ruta de acceso de espacio de nombres al crear el destino de almacenamiento. Lea [Incorporación de un nuevo destino de almacenamiento de Azure Blob Storage](hpc-cache-add-storage.md?tabs=azure-cli#add-a-new-azure-blob-storage-target) para obtener más información.
 
@@ -119,7 +119,7 @@ Rellene estos valores para cada ruta de acceso del espacio de nombres:
 
 ### <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
-[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+[Configurar la CLI de Azure para Azure HPC Cache](./az-cli-prerequisites.md).
 
 Cuando usa la CLI de Azure, debe agregar al menos una ruta de acceso de espacio de nombres al crear el destino de almacenamiento. Lea [Incorporación de un nuevo destino de almacenamiento NFS](hpc-cache-add-storage.md?tabs=azure-cli#add-a-new-nfs-storage-target) para obtener más información.
 

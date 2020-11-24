@@ -13,16 +13,19 @@ ms.custom: aaddev
 ms.topic: conceptual
 ms.workload: identity
 ROBOTS: NOINDEX
-ms.openlocfilehash: 1075cce9b9e3bc3267756bba84691788293fa8d2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 378dab95d8fb3519bb2fc5c934a760e051a18d29
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88116322"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94575890"
 ---
 # <a name="developer-guidance-for-the-azure-active-directory-conditional-access-feature"></a>Guía para desarrolladores de la característica Acceso condicional de Azure Active Directory
 
 [!INCLUDE [active-directory-azuread-dev](../../../includes/active-directory-azuread-dev.md)]
+
+> [!NOTE]
+> Puede consultar la versión para la Plataforma de identidad de Microsoft de este artículo en [Instrucciones para desarrolladores para el acceso condicional de Azure Active Directory](/azure/active-directory/develop/v2-conditional-access-dev-guide).
 
 La característica de acceso condicional en Azure Active Directory (Azure AD) ofrece una de las varias maneras que hay para proteger la aplicación y un servicio. El acceso condicional permite que los desarrolladores y clientes empresariales protejan los servicios de diversas formas, entre las que se incluyen las siguientes:
 
@@ -40,7 +43,7 @@ En él se supone que tiene conocimientos sobre aplicaciones de [inquilino único
 
 ### <a name="app-types-impacted"></a>Tipos de aplicación afectados
 
-En los casos más comunes, el acceso condicional no cambia el comportamiento de una aplicación ni requiere ningún cambio por parte del desarrollador. Solo en ciertos casos en los que una aplicación, de manera indirecta o silenciosa, solicita un token para un servicio, una aplicación requiere cambios en el código para controlar los "desafíos" del acceso condicional. Puede ser tan sencillo como realizar una solicitud de inicio de sesión interactiva.
+En los casos más comunes, el acceso condicional no cambia el comportamiento de una aplicación ni requiere ningún cambio por parte del desarrollador.  Solo en ciertos casos en los que una aplicación, de manera indirecta o silenciosa, solicita un token para un servicio, una aplicación requiere cambios en el código para controlar los "desafíos" del acceso condicional.  Puede ser tan sencillo como realizar una solicitud de inicio de sesión interactiva.
 
 En concreto, los escenarios siguientes requieren código para controlar los "desafíos" del acceso condicional:
 

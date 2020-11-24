@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 2bbdbc7a0ed71634522bd68dbf0807264a409525
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 1d63d21f4c49e3c7aef035208477ac9fc79f2e51
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93101738"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94637190"
 ---
 # <a name="configure-access-to-azure-cosmos-db-from-virtual-networks-vnet"></a>Configuración del acceso a Azure Cosmos DB desde redes virtuales (VNet)
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -38,11 +38,11 @@ En las secciones siguientes se describe cómo configurar un punto de conexión d
 
 ### <a name="configure-a-service-endpoint-for-an-existing-azure-virtual-network-and-subnet"></a>Configuración de un punto de conexión de servicio para una subred y red virtual de Azure existentes
 
-1. En la hoja **Todos los recursos** , busque la cuenta de Azure Cosmos DB que desea proteger.
+1. En la hoja **Todos los recursos**, busque la cuenta de Azure Cosmos DB que desea proteger.
 
 1. Seleccione **Firewalls y redes virtuales** en el menú de configuración y elija Permitir el acceso en **Redes seleccionadas**.
 
-1. Para conceder acceso a la subred de una red virtual existente, en **Redes virtuales** , seleccione **Add existing Azure virtual network** (Agregar red virtual de Azure existente).
+1. Para conceder acceso a la subred de una red virtual existente, en **Redes virtuales**, seleccione **Add existing Azure virtual network** (Agregar red virtual de Azure existente).
 
 1. Seleccione la **suscripción** en la que quiere agregar una red virtual de Azure. Seleccione las **redes virtuales** y las **subredes** de Azure a las que desea conceder acceso a la cuenta de Azure Cosmos DB. A continuación, seleccione **Habilitar** para habilitar las redes seleccionadas con los puntos de conexión de servicio para "Microsoft.AzureCosmosDB". Cuando haya finalizado, seleccione **Agregar**.
 
@@ -62,11 +62,11 @@ Estas son las instrucciones para registrar la suscripción con el proveedor de r
 
 ### <a name="configure-a-service-endpoint-for-a-new-azure-virtual-network-and-subnet"></a>Configuración de un punto de conexión de servicio para una subred y red virtual de Azure nuevas
 
-1. En la hoja **Todos los recursos** , busque la cuenta de Azure Cosmos DB que desea proteger.  
+1. En la hoja **Todos los recursos**, busque la cuenta de Azure Cosmos DB que desea proteger.  
 
 1. Seleccione **Firewalls y redes virtuales de Azure** en el menú de configuración y elija Permitir el acceso en **Redes seleccionadas**.  
 
-1. Para conceder acceso a una red virtual de Azure nueva, en **Redes virtuales** , seleccione **Agregar nueva red virtual**.  
+1. Para conceder acceso a una red virtual de Azure nueva, en **Redes virtuales**, seleccione **Agregar nueva red virtual**.  
 
 1. Proporcione los detalles necesarios para crear una red virtual y, a continuación, seleccione **Crear**. La subred se creará con un punto de conexión de servicio para "Microsoft.AzureCosmosDB" habilitado.
 
@@ -78,7 +78,7 @@ Para garantizar el acceso a las métricas de Azure Cosmos DB desde el portal, de
 
 ## <a name="remove-a-virtual-network-or-subnet"></a><a id="remove-vnet-or-subnet"></a>Eliminación de una red virtual o subred
 
-1. En la hoja **Todos los recursos** , busque la cuenta de Azure Cosmos DB a la que ha asignado los puntos de conexión de servicio.  
+1. En la hoja **Todos los recursos**, busque la cuenta de Azure Cosmos DB a la que ha asignado los puntos de conexión de servicio.  
 
 1. Seleccione **Firewalls y redes virtuales** en el menú de configuración.  
 
@@ -322,7 +322,7 @@ En este momento, no se admite ninguna de estas integraciones: [shell de Mongo](h
 
 ### <a name="can-i-specify-both-virtual-network-service-endpoint-and-ip-access-control-policy-on-an-azure-cosmos-account"></a>¿Puedo especificar un punto de conexión de servicio de red virtual y una directiva de control de acceso de IP en una cuenta de Azure Cosmos? 
 
-Puede habilitar el punto de conexión de servicio de red virtual y una directiva de control de acceso de IP (anteriormente conocida como firewall) en la cuenta de Azure Cosmos. Estas dos características son complementarias y aseguran de forma colectiva el aislamiento y seguridad de la cuenta de Azure Cosmos. El uso del firewall para las direcciones IP garantiza que las direcciones IP estáticas puedan acceder a la cuenta. 
+Puede habilitar el punto de conexión de servicio de red virtual y una directiva de control de acceso de IP (también conocida como firewall) en la cuenta de Azure Cosmos. Estas dos características son complementarias y aseguran de forma colectiva el aislamiento y seguridad de la cuenta de Azure Cosmos. El uso del firewall para las direcciones IP garantiza que las direcciones IP estáticas puedan acceder a la cuenta. 
 
 ### <a name="how-do-i-limit-access-to-subnet-within-a-virtual-network"></a>¿Cómo se puede limitar el acceso a la subred dentro de una red virtual? 
 
@@ -336,7 +336,7 @@ Cuando se agregan reglas de acceso al firewall para direcciones IP o a la red vi
 
 Una vez que se habilita el punto de conexión de servicio para Azure Cosmos DB en una subred, el origen del tráfico que llega a Azure Cosmos DB cambia de una dirección IP pública a la red virtual y la subred. Si la cuenta de Azure Cosmos tiene solo un firewall basado en IP, el tráfico de la subred habilitada para el servicio ya no coincidirá con las reglas de firewall de IP y, por tanto, se rechazará. Recorra cada uno de los pasos para migrar fácilmente desde un firewall basado en IP a un control de acceso basado en redes virtuales.
 
-### <a name="are-additional-rbac-permissions-needed-for-azure-cosmos-accounts-with-vnet-service-endpoints"></a>¿Son los permisos RBAC adicionales necesarios para las cuentas de Azure Cosmos con puntos de conexión de servicio de red virtual?
+### <a name="are-additional-azure-rbac-permissions-needed-for-azure-cosmos-accounts-with-vnet-service-endpoints"></a>¿Son los permisos Azure RBAC adicionales necesarios para las cuentas de Azure Cosmos con puntos de conexión de servicio de red virtual?
 
 Después de agregar los puntos de conexión de servicio de red virtual a una cuenta de Azure Cosmos, para realizar cambios en la configuración de la cuenta, debe acceder a la acción `Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action` para todas las redes virtuales configuradas en su cuenta de Azure Cosmos. Este permiso es necesario porque el proceso de autorización valida el acceso a los recursos (como los recursos de la base de datos y de la red virtual) antes de evaluar las propiedades.
  

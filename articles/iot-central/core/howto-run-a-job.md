@@ -7,12 +7,12 @@ author: philmea
 ms.author: philmea
 ms.date: 09/30/2020
 ms.topic: how-to
-ms.openlocfilehash: 2b5fc349ae7d92bf36cfe9b1f3272cc1f4f7446b
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: b8106c154a91d1e823a124a90f7571b7f52ae8cb
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92017954"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94682156"
 ---
 # <a name="create-and-run-a-job-in-your-azure-iot-central-application"></a>Crear y ejecutar trabajos en la aplicación de Azure IoT Central
 
@@ -38,23 +38,52 @@ En el ejemplo siguiente se muestra cómo crear y ejecutar un trabajo para config
 
     Seleccione **Guardar y salir** para agregar el trabajo a la lista de trabajos guardados en la página **Trabajos**. Más adelante puede volver a un trabajo desde la lista de trabajos guardados.
 
-    Seleccione **Siguiente** para ir a la página **Opciones de entrega**. La página **Opciones de entrega** permite establecer las opciones de entrega para este trabajo: **Lotes** y **Umbral de cancelación**.
+1. Seleccione **Siguiente** para ir a la página **Opciones de entrega**. La página **Opciones de entrega** permite establecer las opciones de entrega para este trabajo: **Lotes** y **Umbral de cancelación**.
 
     Los lotes permiten escalonar los trabajos para un gran número de dispositivos. El trabajo se divide en varios lotes, y cada lote contiene un subconjunto de dispositivos. Los lotes se ponen en cola y se ejecutan en secuencia.
 
     El umbral de cancelación permite cancelar automáticamente un trabajo si el número de errores supera el límite establecido. El umbral se puede aplicar a todos los dispositivos del trabajo o a lotes individuales.
 
-    :::image type="content" source="media/howto-run-a-job/job-wizard-delivery-options.png" alt-text="Captura de pantalla que muestra las selecciones para crear un trabajo de propiedad denominado Set Light Threshold":::
+    :::image type="content" source="media/howto-run-a-job/job-wizard-delivery-options.png" alt-text="Captura de pantalla de la página de opciones de entrega del asistente para trabajos":::
 
-    Seleccione **Siguiente** para ir a la página **Revisar**. En la página **Revisar** se muestran los detalles de configuración del trabajo. Seleccione **Ejecutar** para enviar el trabajo.
+1. Seleccione **Siguiente** para ir a la página **Programación**. La página **Programación** permite habilitar una programación para ejecutar el trabajo en el futuro:
 
-    :::image type="content" source="media/howto-run-a-job/job-wizard-review.png" alt-text="Captura de pantalla que muestra las selecciones para crear un trabajo de propiedad denominado Set Light Threshold":::
+    Elija una opción de periodicidad para la programación. Puede configurar un trabajo para que se ejecute:
+
+    * Una sola vez
+    * Diario
+    * Semanal
+
+    Defina una fecha y hora de inicio para un trabajo programado. La fecha y la hora son específicas de su zona horaria y no de la hora local del dispositivo.
+
+    Para finalizar una programación periódica, elija:
+
+    * **Este día** para establecer una fecha de finalización para la programación.
+    * **Después** para establecer el número de veces que se debe ejecutar el trabajo.
+
+    Los trabajos programados siempre se ejecutan en los dispositivos de un grupo de dispositivos, aunque la pertenencia al grupo cambie con el tiempo.
+
+    :::image type="content" source="media/howto-run-a-job/job-wizard-schedule.png" alt-text="Captura de pantalla de la página de opciones de programación del asistente para trabajos":::
+
+1. Seleccione **Siguiente** para ir a la página **Revisar**. En la página **Revisar** se muestran los detalles de configuración del trabajo. Seleccione **Programación** para programar el trabajo:
+
+    :::image type="content" source="media/howto-run-a-job/job-wizard-schedule-review.png" alt-text="Captura de pantalla de la página de revisión del asistente para trabajos programados":::
+
+1. En la página de detalles del trabajo se muestra información sobre los trabajos programados. Cuando se ejecute el trabajo programado, verá una lista de las instancias del trabajo. La ejecución del trabajo programado también forma parte de la lista de trabajos **Últimos 30 días**.
+
+    En esta página, puede **Desprogramar** el trabajo o **Editar** el trabajo programado. Puede volver a un trabajo programado de la lista de trabajos programados.
+
+    :::image type="content" source="media/howto-run-a-job/job-schedule-details.png" alt-text="Captura de pantalla de la página de detalles de trabajos programados":::
+
+1. En el asistente para trabajos, puede elegir no programar un trabajo y ejecutarlo inmediatamente. En la captura de pantalla siguiente se muestra un trabajo sin una programación que está listo para ejecutarse inmediatamente. Seleccione **Ejecutar** para ejecutar el trabajo:
+
+    :::image type="content" source="media/howto-run-a-job/job-wizard-schedule-immediate.png" alt-text="Captura de pantalla de la página de revisión del Asistente para trabajos":::
 
 1. Un trabajo pasa por las fases *pendiente*, *en ejecución* y *completado*. Los detalles de ejecución del trabajo contienen métricas de resultados, detalles de duración y una cuadrícula de lista de dispositivos.
 
     Una vez completado el trabajo, puede seleccionar **Registro de resultados** para descargar un archivo CSV de los detalles del trabajo, incluidos los dispositivos y sus valores de estado. Esta información puede ser útil para solucionar problemas.
 
-    :::image type="content" source="media/howto-run-a-job/download-details.png" alt-text="Captura de pantalla que muestra las selecciones para crear un trabajo de propiedad denominado Set Light Threshold":::.
+    :::image type="content" source="media/howto-run-a-job/download-details.png" alt-text="Captura de pantalla que muestra el estado del dispositivo":::.
 
 1. El trabajo aparece ahora en la lista **Últimos 30 días** de la página **Trabajos**. En esta página, se muestran los trabajos en ejecución actualmente y el historial de los trabajos ejecutados o guardados anteriormente.
 
@@ -65,17 +94,17 @@ En el ejemplo siguiente se muestra cómo crear y ejecutar un trabajo para config
 
 Para detener un trabajo en ejecución, ábralo y seleccione **Detener**. El estado del trabajo cambia para reflejar que el trabajo se ha detenido. En la sección **Resumen**, se muestran los dispositivos que se han completado, con errores o aún pendientes.
 
-:::image type="content" source="media/howto-run-a-job/manage-job.png" alt-text="Captura de pantalla que muestra las selecciones para crear un trabajo de propiedad denominado Set Light Threshold":::
+:::image type="content" source="media/howto-run-a-job/manage-job.png" alt-text="Captura de pantalla que muestra un trabajo en ejecución y el botón para detener un trabajo":::
 
 Una vez que un trabajo se encuentra detenido, puede seleccionar **Continuar** para reanudar la ejecución del trabajo. El estado del trabajo cambia para reflejar que el trabajo está de nuevo en ejecución. La sección **Resumen** continúa actualizándose con el progreso más reciente.
 
-:::image type="content" source="media/howto-run-a-job/stopped-job.png" alt-text="Captura de pantalla que muestra las selecciones para crear un trabajo de propiedad denominado Set Light Threshold":::
+:::image type="content" source="media/howto-run-a-job/stopped-job.png" alt-text="Captura de pantalla que muestra un trabajo detenido y el botón para continuar un trabajo":::
 
 ## <a name="copy-a-job"></a>Copia de un trabajo
 
 Para copiar un trabajo existente, seleccione un trabajo ejecutado. Seleccione **Copiar** en la página de resultados del trabajo o en la página de detalles de los trabajos:
 
-:::image type="content" source="media/howto-run-a-job/job-details-copy.png" alt-text="Captura de pantalla que muestra las selecciones para crear un trabajo de propiedad denominado Set Light Threshold":::
+:::image type="content" source="media/howto-run-a-job/job-details-copy.png" alt-text="Captura de pantalla que muestra el botón Copiar":::
 
 Se abrirá una copia de la configuración del trabajo para editarla y se anexará **Copia** al nombre del trabajo.
 
@@ -113,13 +142,13 @@ Para descargar un archivo CSV que incluye los detalles del trabajo y la lista de
 
 Puede filtrar la lista de dispositivos en la página **Detalles del trabajo** seleccionando el icono de filtro. Puede filtrar por los campos **Id. de dispositivo** o **Estado**:
 
-:::image type="content" source="media/howto-run-a-job/filter.png" alt-text="Captura de pantalla que muestra las selecciones para crear un trabajo de propiedad denominado Set Light Threshold":::.
+:::image type="content" source="media/howto-run-a-job/filter.png" alt-text="Captura de pantalla que muestra las selecciones para filtrar una lista de dispositivos":::.
 
 ## <a name="customize-columns-in-the-device-list"></a>Personalización de las columnas en la lista de dispositivos
 
 Puede agregar columnas a la lista de dispositivos; para ello, seleccione el icono de opciones de columna:
 
-:::image type="content" source="media/howto-run-a-job/column-options.png" alt-text="Captura de pantalla que muestra las selecciones para crear un trabajo de propiedad denominado Set Light Threshold":::.
+:::image type="content" source="media/howto-run-a-job/column-options.png" alt-text="Captura de pantalla que muestra el icono de las opciones de columna":::.
 
 Use el cuadro de diálogo **Opciones de columna** para elegir las columnas de la lista de dispositivos. Seleccione las columnas que desea mostrar, seleccione la flecha derecha y después **Aceptar**. Para seleccionar todas las columnas disponibles, elija **Seleccionar todo**. Las columnas seleccionadas aparecen en la lista de dispositivos.
 
@@ -129,7 +158,7 @@ Las columnas seleccionadas se conservan en una sesión de usuario o en las sesio
 
 Puede volver a ejecutar un trabajo que tenga dispositivos con errores. Seleccione **Volver a ejecutar en dispositivos con error**:
 
-:::image type="content" source="media/howto-run-a-job/rerun.png" alt-text="Captura de pantalla que muestra las selecciones para crear un trabajo de propiedad denominado Set Light Threshold":::.
+:::image type="content" source="media/howto-run-a-job/rerun.png" alt-text="Captura de pantalla que muestra el botón para volver a ejecutar un trabajo en los dispositivos con errores":::.
 
 Escriba el nombre y la descripción del trabajo y, a continuación, seleccione **Volver a ejecutar el trabajo**. Se envía un nuevo trabajo para volver a intentar la acción en los dispositivos con errores.
 

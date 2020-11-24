@@ -11,12 +11,12 @@ services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: c08e03e6ff77613c0950f17fe5225bccb706524c
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 83e8089073f7e7e7634ddf00f7276e12aaf645b0
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94444384"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94536445"
 ---
 # <a name="how-an-iot-edge-device-can-be-used-as-a-gateway"></a>Uso de un dispositivo IoT Edge como puerta de enlace
 
@@ -45,21 +45,21 @@ Todos los patrones de puerta de enlace proporcionan las siguientes ventajas:
 
 En un patrón de puerta de enlace transparente, los dispositivos que teóricamente podrían conectarse a IoT Hub pueden conectarse en su lugar a un dispositivo de puerta de enlace. Los dispositivos de nivel inferior tienen sus propias identidades de IoT Hub y se conectan mediante protocolos MQTT o AMQP. La puerta de enlace simplemente pasa las comunicaciones entre los dispositivos e IoT Hub. Tanto los dispositivos como los usuarios que interactúan con ellos mediante IoT Hub no saben que una puerta de enlace está arbitrando sus comunicaciones. Esta falta de conocimiento significa que la puerta de enlace se considera *transparente*.
 
-<!-- 1.2.0 -->
-::: moniker range=">=iotedge-2020-11"
-
-Los dispositivos IoT Edge se pueden conectar a través de puertas de enlace transparentes, así como dispositivos IoT normales.
-
-<!-- TODO add a downstream IoT Edge device to graphic -->
-
-::: moniker-end
-
 <!-- 1.0.10 -->
 ::: moniker range="iotedge-2018-06"
 
 Aunque un dispositivo IoT Edge no puede ser inferior a una puerta de enlace de IoT Edge.
 
 ![Diagrama sobre el patrón de puerta de enlace transparente](./media/iot-edge-as-gateway/edge-as-gateway-transparent.png)
+
+::: moniker-end
+
+<!-- 1.2.0 -->
+::: moniker range=">=iotedge-2020-11"
+
+A partir de la versión 1.2.0, los dispositivos IoT Edge se pueden conectar a través de puertas de enlace transparentes.
+
+<!-- TODO add a downstream IoT Edge device to graphic -->
 
 ::: moniker-end
 
@@ -102,10 +102,22 @@ Cuando varias puertas de enlace de IoT Edge se conectan entre sí en una jerarqu
 
 ### <a name="device-capabilities-behind-transparent-gateways"></a>Funcionalidades del dispositivo detrás de puertas de enlace transparentes
 
-
 Todos los elementos primitivos de IoT Hub que funcionan con la canalización de mensajería de IoT Edge también admiten escenarios de puerta de enlace transparente. Cada puerta de enlace de IoT Edge tiene funcionalidades de almacenamiento y reenvío para los mensajes que pasan a través de ella.
 
 Use la siguiente tabla para ver cómo se admiten las diferentes funcionalidades de IoT Hub en los dispositivos, en comparación con los dispositivos que se encuentran detrás de las puertas de enlace.
+
+<!-- 1.0.10 -->
+::: moniker range="iotedge-2018-06"
+
+| Capacidad | Dispositivo IoT | IoT detrás de una puerta de enlace |
+| ---------- | ---------- | -------------------- |
+| [Mensajes del dispositivo a la nube (D2C)](../iot-hub/iot-hub-devguide-messages-d2c.md) |  ![Sí: D2C de IoT](./media/iot-edge-as-gateway/check-yes.png) | ![Sí: D2C de IoT secundario](./media/iot-edge-as-gateway/check-yes.png) |
+| [Mensajes de la nube al dispositivo (C2D)](../iot-hub/iot-hub-devguide-messages-c2d.md) | ![Sí: C2D de IoT](./media/iot-edge-as-gateway/check-yes.png) | ![Sí: C2D de IoT secundario](./media/iot-edge-as-gateway/check-yes.png) |
+| [Métodos directos](../iot-hub/iot-hub-devguide-direct-methods.md) | ![Sí: método directo de IoT](./media/iot-edge-as-gateway/check-yes.png) | ![Sí: método directo de IoT secundario](./media/iot-edge-as-gateway/check-yes.png) |
+| [Dispositivos gemelos](../iot-hub/iot-hub-devguide-device-twins.md) y [módulos gemelos](../iot-hub/iot-hub-devguide-module-twins.md) | ![Sí: gemelos de IoT](./media/iot-edge-as-gateway/check-yes.png) | ![Sí: gemelos de IoT secundario](./media/iot-edge-as-gateway/check-yes.png) |
+| [Carga de archivos](../iot-hub/iot-hub-devguide-file-upload.md) | ![Sí: carga de archivos de IoT](./media/iot-edge-as-gateway/check-yes.png) | ![Sí: carga de archivos de IoT secundario](./media/iot-edge-as-gateway/crossout-no.png) |
+
+::: moniker-end
 
 <!-- 1.2.0 -->
 ::: moniker range=">=iotedge-2020-11"
@@ -123,19 +135,6 @@ Use la siguiente tabla para ver cómo se admiten las diferentes funcionalidades 
 Las **imágenes de contenedor** se pueden descargar, almacenar y entregar de dispositivos primarios a dispositivos secundarios.
 
 Los **blobs**, incluidos los paquetes de soporte y los registros, se pueden cargar de dispositivos secundarios a dispositivos primarios.
-
-::: moniker-end
-
-<!-- 1.0.10 -->
-::: moniker range="iotedge-2018-06"
-
-| Capacidad | Dispositivo IoT | IoT detrás de una puerta de enlace |
-| ---------- | ---------- | -------------------- |
-| [Mensajes del dispositivo a la nube (D2C)](../iot-hub/iot-hub-devguide-messages-d2c.md) |  ![Sí: D2C de IoT](./media/iot-edge-as-gateway/check-yes.png) | ![Sí: D2C de IoT secundario](./media/iot-edge-as-gateway/check-yes.png) |
-| [Mensajes de la nube al dispositivo (C2D)](../iot-hub/iot-hub-devguide-messages-c2d.md) | ![Sí: C2D de IoT](./media/iot-edge-as-gateway/check-yes.png) | ![Sí: C2D de IoT secundario](./media/iot-edge-as-gateway/check-yes.png) |
-| [Métodos directos](../iot-hub/iot-hub-devguide-direct-methods.md) | ![Sí: método directo de IoT](./media/iot-edge-as-gateway/check-yes.png) | ![Sí: método directo de IoT secundario](./media/iot-edge-as-gateway/check-yes.png) |
-| [Dispositivos gemelos](../iot-hub/iot-hub-devguide-device-twins.md) y [módulos gemelos](../iot-hub/iot-hub-devguide-module-twins.md) | ![Sí: gemelos de IoT](./media/iot-edge-as-gateway/check-yes.png) | ![Sí: gemelos de IoT secundario](./media/iot-edge-as-gateway/check-yes.png) |
-| [Carga de archivos](../iot-hub/iot-hub-devguide-file-upload.md) | ![Sí: carga de archivos de IoT](./media/iot-edge-as-gateway/check-yes.png) | ![Sí: carga de archivos de IoT secundario](./media/iot-edge-as-gateway/crossout-no.png) |
 
 ::: moniker-end
 

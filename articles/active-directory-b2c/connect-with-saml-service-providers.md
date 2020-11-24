@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/26/2020
+ms.date: 11/16/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: c59a104796e11b15af805e34f9cd14b2ce8bd075
-ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
+ms.openlocfilehash: 80ecd02f9aebbca66169d64d6c6d0302d58ca439
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92628854"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647671"
 ---
 # <a name="register-a-saml-application-in-azure-ad-b2c"></a>Registrar una aplicación SAML en Azure AD B2C
 
@@ -99,9 +99,9 @@ Si aún no tiene un certificado, puede usar un certificado autofirmado para este
 A continuación, cargue el certificado de firma de respuesta y aserción de SAML en Azure AD B2C.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) y vaya al inquilino de Azure AD B2C.
-1. En **Directivas** , seleccione **Identity Experience Framework** y, posteriormente, **Claves de directiva**.
+1. En **Directivas**, seleccione **Identity Experience Framework** y, posteriormente, **Claves de directiva**.
 1. Seleccione **Agregar** y, posteriormente, **Opciones** > **Cargar**.
-1. Escriba un **Nombre** , por ejemplo, *SamlIdpCert*. El prefijo *B2C_1A_* se agrega automáticamente al nombre de la clave.
+1. Escriba un **Nombre**, por ejemplo, *SamlIdpCert*. El prefijo *B2C_1A_* se agrega automáticamente al nombre de la clave.
 1. Use el control de archivos de carga para cargar el certificado.
 1. Escriba la contraseña del certificado.
 1. Seleccione **Crear**.
@@ -131,7 +131,7 @@ Puede cambiar el valor de los metadatos de `IssuerUri`. Este es el URI del emiso
       <OutputTokenFormat>SAML2</OutputTokenFormat>
       <Metadata>
         <!-- The issuer contains the policy name; it should be the same name as configured in the relying party application. B2C_1A_signup_signin_SAML is used below. -->
-        <!--<Item Key="IssuerUri">https://tenant-name.b2clogin.com/tenant-name.onmicrosoft.com/B2C_1A_signup_signin_SAML</Item>-->
+        <!--<Item Key="IssuerUri">https://tenant-name.b2clogin.com/tenant-name.onmicrosoft.com/B2C_1A_signup_signin_saml</Item>-->
       </Metadata>
       <CryptographicKeys>
         <Key Id="MetadataSigning" StorageReferenceId="B2C_1A_SamlIdpCert"/>
@@ -260,7 +260,7 @@ El archivo de directiva de usuario de confianza final debe tener un aspecto simi
 
 Guarde los cambios y cargue el nuevo archivo de directiva. Una vez que haya cargado ambas directivas (la extensión y los archivos de usuario de confianza), abra un explorador web y vaya a los metadatos de la directiva.
 
-Los metadatos de IDP de directivas de Azure AD B2C son información que se usa en el protocolo SAML para exponer la configuración de un proveedor de entidades SAML. Los metadatos definen la ubicación de los servicios, como el inicio y el cierre de sesión, los certificados, el método de inicio de sesión y mucho más. Los metadatos de la directiva de Azure AD B2C están disponibles en la siguiente dirección URL. Reemplace `tenant-name` por el nombre de su inquilino de Azure AD B2C y `policy-name` por el nombre (ID) de la directiva:
+Los metadatos de IDP de directivas de Azure AD B2C son información que se usa en el protocolo SAML para exponer la configuración de un proveedor de entidades SAML. Los metadatos definen la ubicación de los servicios, como el inicio y el cierre de sesión, los certificados, el método de inicio de sesión y mucho más. Los metadatos de la directiva de Azure AD B2C están disponibles en la siguiente dirección URL. Reemplace `tenant-name` por el nombre de su inquilino de Azure AD B2C y `policy-name` por el nombre (ID) de la directiva, como, por ejemplo, .../B2C_1A_signup_signin_saml/samlp/metadata:
 
 `https://tenant-name.b2clogin.com/tenant-name.onmicrosoft.com/policy-name/Samlp/metadata`
 
@@ -275,8 +275,8 @@ La directiva personalizada y el inquilino de Azure AD B2C ya están listos. A co
 1. En el menú de la izquierda, seleccione **Azure AD B2C**. O bien, seleccione **Todos los servicios** y busque y seleccione **Azure AD B2C**.
 1. Seleccione **Registros de aplicaciones** y luego **Nuevo registro**.
 1. Escriba un **Nombre** para la aplicación. Por ejemplo, *SAMLApp1*.
-1. En **Tipos de cuenta admitidos** , seleccione **Solo las cuentas de este directorio organizativo**.
-1. En **URI de redirección** , seleccione **Web** y escriba `https://localhost`. Modificará este valor más adelante en el manifiesto del registro de aplicación.
+1. En **Tipos de cuenta admitidos**, seleccione **Solo las cuentas de este directorio organizativo**.
+1. En **URI de redirección**, seleccione **Web** y escriba `https://localhost`. Modificará este valor más adelante en el manifiesto del registro de aplicación.
 1. Seleccione **Registrar**.
 
 ### <a name="42-update-the-app-manifest"></a>4.2 Actualizar el manifiesto de la aplicación
@@ -284,7 +284,7 @@ La directiva personalizada y el inquilino de Azure AD B2C ya están listos. A co
 En el caso de las aplicaciones SAML, hay varias propiedades que debe configurar en el manifiesto del registro de aplicación.
 
 1. En [Azure Portal](https://portal.azure.com), vaya al registro de aplicación que creó en la sección anterior.
-1. En **Administrar** , seleccione **Manifiesto** para abrir el editor de manifiestos. Modificará varias propiedades en las secciones siguientes.
+1. En **Administrar**, seleccione **Manifiesto** para abrir el editor de manifiestos. Modificará varias propiedades en las secciones siguientes.
 
 #### <a name="identifieruris"></a>identifierUris
 
@@ -339,10 +339,10 @@ Los metadatos se pueden configurar en el proveedor de servicio como "Metadatos e
 
 Normalmente se requieren algunos o todos los siguientes elementos:
 
-* **Metadatos** : `https://tenant-name.b2clogin.com/tenant-name.onmicrosoft.com/policy-name/Samlp/metadata`
-* **Emisor** :  El valor `issuer` de la solicitud SAML debe coincidir con uno de los URI configurados en el elemento `identifierUris` del manifiesto de registro de la aplicación. Si el nombre `issuer` de la solicitud SAML no existe en el elemento `identifierUris`, [agréguelo al manifiesto de registro de la aplicación](#identifieruris). Por ejemplo, `https://contoso.onmicrosoft.com/app-name`. 
-* **Dirección URL de inicio de sesión/Punto de conexión SAML/Dirección URL de SAML** : Compruebe el valor en el archivo de metadatos de la directiva SAML de Azure AD B2C para el elemento XML `<SingleSignOnService>`
-* **Certificate** : es *B2C_1A_SamlIdpCert* , pero sin la clave privada. Para obtener la clave pública del certificado:
+* **Metadatos**: `https://tenant-name.b2clogin.com/tenant-name.onmicrosoft.com/policy-name/Samlp/metadata`
+* **Emisor**:  El valor `issuer` de la solicitud SAML debe coincidir con uno de los URI configurados en el elemento `identifierUris` del manifiesto de registro de la aplicación. Si el nombre `issuer` de la solicitud SAML no existe en el elemento `identifierUris`, [agréguelo al manifiesto de registro de la aplicación](#identifieruris). Por ejemplo, `https://contoso.onmicrosoft.com/app-name`. 
+* **Dirección URL de inicio de sesión/Punto de conexión SAML/Dirección URL de SAML**: Compruebe el valor en el archivo de metadatos de la directiva SAML de Azure AD B2C para el elemento XML `<SingleSignOnService>`
+* **Certificate**: es *B2C_1A_SamlIdpCert*, pero sin la clave privada. Para obtener la clave pública del certificado:
 
     1. Vaya a la dirección URL de metadatos especificada anteriormente.
     1. Copie el valor en el elemento `<X509Certificate>`.
@@ -357,7 +357,7 @@ Para completar este tutorial con la [aplicación de prueba SAML][samltest]:
 * Actualice el nombre de la directiva, por ejemplo *B2C_1A_signup_signin_saml*
 * Especifique el URI de este emisor. Use uno de los URI que se encuentran en el elemento `identifierUris` del manifiesto de registro de la aplicación, por ejemplo `https://contoso.onmicrosoft.com/app-name`.
 
-Seleccione **Iniciar sesión** ; debe aparecer una pantalla de inicio de sesión de usuario. Tras el inicio de sesión, se vuelve a emitir una aserción de SAML a la aplicación de ejemplo.
+Seleccione **Iniciar sesión**; debe aparecer una pantalla de inicio de sesión de usuario. Tras el inicio de sesión, se vuelve a emitir una aserción de SAML a la aplicación de ejemplo.
 
 ## <a name="enable-encrypted-assertions-optional"></a>Habilitación de aserciones cifradas (opcional)
 
@@ -428,7 +428,7 @@ Se proporciona una directiva de ejemplo completa que se puede usar para realizar
 
 1. Descargue la [directiva de ejemplo de inicio de sesión iniciada por el SP de SAML](https://github.com/azure-ad-b2c/saml-sp/tree/master/policy/SAML-SP-Initiated)
 1. Actualice `TenantId` para que coincida con el nombre del inquilino, por ejemplo  *contoso.b2clogin.com*
-1. Mantenga el nombre de la directiva: *B2C_1A_SAML2_signup_signin*
+1. Mantenga el nombre de la directiva *B2C_1A_signup_signin_saml*
 
 ## <a name="supported-and-unsupported-saml-modalities"></a>Modalidades de SAML admitidas y no admitidas
 

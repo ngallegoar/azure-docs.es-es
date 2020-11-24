@@ -3,12 +3,12 @@ title: Implementación de Traffic Manager para equilibrar las cargas de trabajo 
 description: Aprenda a integrar Traffic Manager con Azure VMware Solution (AVS) para equilibrar las cargas de trabajo de aplicaciones en varios puntos de conexión de distintas regiones.
 ms.topic: how-to
 ms.date: 08/14/2020
-ms.openlocfilehash: d461cc444c60e1907a34a08c68139446301c133c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 076d9c77d68df3d8acb7b531b3dfbea40fb3cedd
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91579406"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94593143"
 ---
 # <a name="deploy-traffic-manager-to-balance-azure-vmware-solution-avs-workloads"></a>Implementación de Traffic Manager para equilibrar las cargas de trabajo de Azure VMware Solution (AVS)
 
@@ -30,7 +30,7 @@ Como se muestra en la figura siguiente, Azure Traffic Manager proporciona equili
 
 La conexión a través de la red virtual entre las dos regiones de la nube privada de AVS, Oeste de EE. UU. y Oeste de Europa, y un servidor local en la región Este de EE. UU., usa una puerta de enlace de ExpressRoute.   
 
-![Integración de Traffic Manager con AVS](media/traffic-manager/traffic-manager-topology.png)
+![Diagrama de la arquitectura de la integración de Traffic Manager con Azure VMware Solution](media/traffic-manager/traffic-manager-topology.png)
  
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -55,15 +55,15 @@ En los pasos siguientes se comprueba la configuración correcta de las puertas d
     - AVS-GW-EUS (local)
     - AVS-GW-WEU
 
-    :::image type="content" source="media/traffic-manager/app-gateways-list-1.png" alt-text="Lista de puertas de enlace de aplicación." lightbox="media/traffic-manager/app-gateways-list-1.png":::
+    :::image type="content" source="media/traffic-manager/app-gateways-list-1.png" alt-text="Captura de pantalla de la página de Application Gateway que muestra la lista de puertas de enlace de aplicaciones configuradas." lightbox="media/traffic-manager/app-gateways-list-1.png":::
 
 2. Seleccione una de las puertas de enlace de aplicación previamente implementadas. Se abre una ventana que muestra diversa información sobre la puerta de enlace de aplicación. Seleccione **Grupos de back-end** para comprobar la configuración de uno de los grupos de back-end.
 
-   :::image type="content" source="media/traffic-manager/backend-pool-config.png" alt-text="Lista de puertas de enlace de aplicación." lightbox="media/traffic-manager/backend-pool-config.png":::
+   :::image type="content" source="media/traffic-manager/backend-pool-config.png" alt-text="Captura de pantalla de la página de Application Gateway que muestra los detalles de la puerta de enlace de aplicaciones seleccionada." lightbox="media/traffic-manager/backend-pool-config.png":::
  
 3. En este caso, vemos un miembro de un grupo de back-end de máquina virtual configurado como servidor web con una dirección IP de 172.29.1.10.
  
-    :::image type="content" source="media/traffic-manager/backend-pool-ip-address.png" alt-text="Lista de puertas de enlace de aplicación.":::
+    :::image type="content" source="media/traffic-manager/backend-pool-ip-address.png" alt-text="Captura de pantalla de la página Editar un grupo de back-end con la dirección IP de destino resaltada.":::
 
     De manera similar, puede comprobar la configuración de las otras puertas de enlace de aplicación y los miembros del grupo de back-end. 
 
@@ -75,15 +75,15 @@ En nuestro escenario, se configura un segmento NSX-T en el entorno de AVS al que
 
 1. Seleccione **Segmentos** para ver los segmentos configurados. En este caso, vemos que Contoso-segment1 está conectado a la puerta de enlace Contoso-T01, un enrutador flexible de nivel 1.
 
-    :::image type="content" source="media/traffic-manager/nsx-t-segment-avs.png" alt-text="Lista de puertas de enlace de aplicación.":::    
+    :::image type="content" source="media/traffic-manager/nsx-t-segment-avs.png" alt-text="Captura de pantalla que muestra perfiles de segmento en NSX-T Manager.":::    
 
 2. Seleccione **Tier-1 Gateways** (Puertas de enlace de nivel 1) para ver una lista de las puertas de enlace de nivel 1 con el número de segmentos vinculados. Seleccione el segmento vinculado a Contoso-T01. Se abre una ventana que muestra la interfaz lógica configurada en el enrutador de nivel 01. Esto sirve como puerta de enlace a la máquina virtual miembro del grupo de back-end conectada al segmento.
 
-   :::image type="content" source="media/traffic-manager/nsx-t-segment-linked-2.png" alt-text="Lista de puertas de enlace de aplicación.":::    
+   :::image type="content" source="media/traffic-manager/nsx-t-segment-linked-2.png" alt-text="Captura de pantalla que muestra la dirección de puerta de enlace del segmento seleccionado.":::    
 
 3. En el cliente de vSphere de la máquina virtual, seleccione la máquina virtual para ver sus detalles. Tenga en cuenta que su dirección IP coincide con lo que vimos en el paso 3 de la sección anterior: 172.29.1.10.
 
-    :::image type="content" source="media/traffic-manager/nsx-t-vm-details.png" alt-text="Lista de puertas de enlace de aplicación.":::    
+    :::image type="content" source="media/traffic-manager/nsx-t-vm-details.png" alt-text="Captura de pantalla que muestra los detalles de la máquina virtual en el cliente VSphere.":::    
 
 4. Seleccione la máquina virtual y haga clic en **ACCIONES > Editar configuración** para comprobar la conexión con el segmento NSX-T.
 
@@ -99,29 +99,23 @@ En nuestro escenario, se configura un segmento NSX-T en el entorno de AVS al que
 
 1. Seleccione el perfil de Traffic Manager en el panel de resultados de la búsqueda, seleccione **Puntos de conexión** y, a continuación, **+ Agregar**.
 
-2. Escriba los detalles necesarios: Tipo, Nombre, Nombre de dominio completo (FQDN) o Dirección IP y Peso (en este escenario, asignamos un peso de 1 a cada punto de conexión). Seleccione **Agregar**.
-
-   :::image type="content" source="media/traffic-manager/traffic-manager-profile.png" alt-text="Lista de puertas de enlace de aplicación.":::  
- 
-   Esto crea el punto de conexión externo. El estado del monitor debe ser **En línea**. 
-
-   Repita los mismos pasos para crear dos puntos de conexión externos, uno en una región distinta y el otro, en el entorno local. Una vez creados, los tres se mostrarán en el perfil de Traffic Manager y el estado de los tres deben ser **En línea**.
+2. Escriba los detalles necesarios: Tipo, Nombre, Nombre de dominio completo (FQDN) o Dirección IP y Peso (en este escenario, asignamos un peso de 1 a cada punto de conexión). Seleccione **Agregar**. Esto crea el punto de conexión externo. El estado del monitor debe ser **En línea**. Repita los mismos pasos para crear dos puntos de conexión externos, uno en una región distinta y el otro, en el entorno local. Una vez creados, los tres se mostrarán en el perfil de Traffic Manager y el estado de los tres deben ser **En línea**.
 
 3. Seleccione **Información general**. Copie la dirección URL en **Nombre DNS**.
 
-   :::image type="content" source="media/traffic-manager/traffic-manager-endpoints.png" alt-text="Lista de puertas de enlace de aplicación."::: 
+   :::image type="content" source="media/traffic-manager/traffic-manager-endpoints.png" alt-text="Captura de pantalla que muestra información general del punto de conexión de Traffic Manager con el nombre DNS resaltado."::: 
 
 4. Pegue la dirección URL del nombre DNS en un explorador. En la captura de pantalla siguiente se muestra el tráfico que se dirige a la región Oeste de Europa.
 
-   :::image type="content" source="media/traffic-manager/traffic-to-west-europe.png" alt-text="Lista de puertas de enlace de aplicación."::: 
+   :::image type="content" source="media/traffic-manager/traffic-to-west-europe.png" alt-text="Captura de pantalla de la ventana del explorador que muestra el tráfico enrutado a la región Oeste de Europa."::: 
 
 5. Actualice el explorador. En la captura de pantalla siguiente se muestra el tráfico que ahora se dirige a otro conjunto de miembros del grupo de back-end en la región Oeste de EE. UU.
 
-   :::image type="content" source="media/traffic-manager/traffic-to-west-us.png" alt-text="Lista de puertas de enlace de aplicación."::: 
+   :::image type="content" source="media/traffic-manager/traffic-to-west-us.png" alt-text="Captura de pantalla de la ventana del explorador que muestra el tráfico enrutado a la región Oeste de EE. UU."::: 
 
 6. Vuelva a actualizar el explorador. En la captura de pantalla siguiente se muestra el tráfico que ahora se dirige al conjunto final de miembros del grupo de back-end en el entorno local.
 
-   :::image type="content" source="media/traffic-manager/traffic-to-on-premises.png" alt-text="Lista de puertas de enlace de aplicación.":::
+   :::image type="content" source="media/traffic-manager/traffic-to-on-premises.png" alt-text="Captura de pantalla de la ventana del explorador que muestra el tráfico enrutado a la región local.":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

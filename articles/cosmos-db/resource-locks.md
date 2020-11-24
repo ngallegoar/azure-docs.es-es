@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/06/2020
 ms.author: mjbrown
-ms.openlocfilehash: 5243419d8e2c4780708e9bdee0d57f2734fe78b2
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 1c8c766208132aec115e1fbeb15af3a057c3de3e
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93341967"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94636714"
 ---
 # <a name="prevent-azure-cosmos-db-resources-from-being-deleted-or-changed"></a>Prevención de que se eliminen o cambien recursos de Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -26,7 +26,7 @@ Como administrador, puede que tenga que bloquear una cuenta, base de datos o con
 
 Cuando se aplica un bloqueo en un ámbito primario, todos los recursos heredan el mismo bloqueo. Incluso los recursos que agregue posteriormente heredan el bloqueo del elemento primario. El bloqueo más restrictivo de toda la herencia tiene prioridad.
 
-Al diferencia del control de acceso basado en rol, los bloqueos de administración se usan para aplicar una restricción a todos los usuarios y roles. Para obtener información acerca del RBAC para Azure Cosmos DB, vea [Control de acceso basado en roles en Azure Cosmos DB](role-based-access-control.md).
+A diferencia del control de acceso basado en rol de Azure, los bloqueos de administración se usan para aplicar una restricción a todos los usuarios y roles. Para obtener información acerca de Azure RBAC para Azure Cosmos DB, vea [Control de acceso basado en rol en Azure Cosmos DB](role-based-access-control.md).
 
 Los bloqueos de Resource Manager solo se aplican a las operaciones que se producen en el plano de administración, que se compone de las operaciones enviadas a https://management.azure.com. Los bloqueos no restringen cómo los recursos realizan sus propias funciones. Los cambios de recursos están restringidos, pero las operaciones de recursos no lo están. Por ejemplo, un bloqueo ReadOnly en un contenedor de Azure Cosmos impide que lo elimine o modifique. Pero no le impide crear, actualizar o eliminar datos de este. Se permiten las transacciones de datos porque esas operaciones no se envían a https://management.azure.com.
 

@@ -11,15 +11,15 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 10/06/2020
+ms.date: 11/16/2020
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: 04c532ceb5f40e9a5b7fa5fd5b75f60182f54580
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 71a4fba177f5bbbaf9f8d991222b071d0da66d4d
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427792"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660396"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Administrar el uso y los costos con los registros de Azure Monitor    
 
@@ -32,7 +32,7 @@ En este artículo se revisa cómo supervisar de forma activa el crecimiento del 
 
 ## <a name="pricing-model"></a>Modelo de precios
 
-Los precios predeterminados de Log Analytics son de un modelo de **Pago por uso** , que se basa en el volumen de datos ingeridos y, opcionalmente, permite obtener una mayor retención de datos. El volumen de datos se mide como el tamaño de los datos que se almacenarán, en GB (10^9 bytes). Cada área de trabajo de Log Analytics se cobra como un servicio independiente y contribuye a la factura de la suscripción a Azure. La cantidad de ingesta de datos puede ser considerable dependiendo de los factores siguientes: 
+Los precios predeterminados de Log Analytics son de un modelo de **Pago por uso**, que se basa en el volumen de datos ingeridos y, opcionalmente, permite obtener una mayor retención de datos. El volumen de datos se mide como el tamaño de los datos que se almacenarán, en GB (10^9 bytes). Cada área de trabajo de Log Analytics se cobra como un servicio independiente y contribuye a la factura de la suscripción a Azure. La cantidad de ingesta de datos puede ser considerable dependiendo de los factores siguientes: 
 
   - Número de soluciones de administración habilitadas y su configuración
   - Número de máquinas virtuales supervisadas
@@ -52,9 +52,9 @@ El nivel de reserva de capacidad del clúster se configura mediante programació
 
 Hay dos modos de facturación para el uso en un clúster. Estos pueden especificarse mediante el parámetro `billingType` al [configurar el clúster](customer-managed-keys.md#customer-managed-key-operations). Los dos modos son: 
 
-1. **Clúster** : en este caso (que es el modo predeterminado), la facturación de los datos ingeridos se realiza en el nivel de clúster. Las cantidades de datos ingeridas desde cada área de trabajo asociada a un clúster se suman para calcular la factura diaria del clúster. Tenga en cuenta las asignaciones por nodo de [Azure Security Center](../../security-center/index.yml) que se aplican en el nivel de área de trabajo antes de esta agregación de datos agregados en todas las áreas de trabajo del clúster. 
+1. **Clúster**: en este caso (que es el modo predeterminado), la facturación de los datos ingeridos se realiza en el nivel de clúster. Las cantidades de datos ingeridas desde cada área de trabajo asociada a un clúster se suman para calcular la factura diaria del clúster. Tenga en cuenta las asignaciones por nodo de [Azure Security Center](../../security-center/index.yml) que se aplican en el nivel de área de trabajo antes de esta agregación de datos agregados en todas las áreas de trabajo del clúster. 
 
-2. **Áreas de trabajo** : los costos de reserva de capacidad para el clúster se atribuyen proporcionalmente a las áreas de trabajo del clúster (después de tener en cuenta las asignaciones por nodo de [Azure Security Center](../../security-center/index.yml) para cada área de trabajo). Si el volumen total de datos ingeridos en un área de trabajo durante un día es menor que la reserva de capacidad, cada área de trabajo se factura por sus datos ingeridos con la tasa de reserva de capacidad por GB efectiva y la facturación de una fracción de la reserva de capacidad. La parte sin usar de la reserva de capacidad se factura al recurso de clúster. Si el volumen total de datos ingeridos en un área de trabajo durante un día es superior al de la reserva de capacidad, se factura a cada área de trabajo una fracción de la reserva de capacidad en función de su fracción de la cantidad de datos ingeridos ese día, y también una fracción de los datos ingeridos por encima de la reserva de capacidad. No se factura nada al recurso de clúster si el volumen total de datos ingeridos en un área de trabajo durante un día supera la reserva de capacidad.
+2. **Áreas de trabajo**: los costos de reserva de capacidad para el clúster se atribuyen proporcionalmente a las áreas de trabajo del clúster (después de tener en cuenta las asignaciones por nodo de [Azure Security Center](../../security-center/index.yml) para cada área de trabajo). Si el volumen total de datos ingeridos en un área de trabajo durante un día es menor que la reserva de capacidad, cada área de trabajo se factura por sus datos ingeridos con la tasa de reserva de capacidad por GB efectiva y la facturación de una fracción de la reserva de capacidad. La parte sin usar de la reserva de capacidad se factura al recurso de clúster. Si el volumen total de datos ingeridos en un área de trabajo durante un día es superior al de la reserva de capacidad, se factura a cada área de trabajo una fracción de la reserva de capacidad en función de su fracción de la cantidad de datos ingeridos ese día, y también una fracción de los datos ingeridos por encima de la reserva de capacidad. No se factura nada al recurso de clúster si el volumen total de datos ingeridos en un área de trabajo durante un día supera la reserva de capacidad.
 
 En las opciones de facturación del clúster, la retención de datos se factura por área de trabajo. Tenga en cuenta que la facturación del clúster comienza cuando se crea este, independientemente de si las áreas de trabajo se han asociado al clúster. Además, tenga en cuenta que las áreas de trabajo asociadas a un clúster ya no tienen un plan de tarifa.
 
@@ -98,7 +98,7 @@ También puede [establecer el plan de tarifa mediante Azure Resource Manager](..
 
 ## <a name="legacy-pricing-tiers"></a>Planes de tarifa heredados
 
-Las suscripciones que contenían un área de trabajo de Log Analytics o un recurso de Application Insights antes del 2 de abril de 2018, o que están vinculadas a un Contrato Enterprise que comenzó antes del 1 de febrero de 2019, continuarán teniendo acceso a los planes de tarifa heredados: **Gratuito** , **Independiente (por GB)** y **Por nodo (OMS)** .  Las áreas de trabajo en el plan de tarifa Gratis tendrán una ingesta diaria de datos limitada a 500 MB (excepto los tipos de datos de seguridad que recopile [Azure Security Center](../../security-center/index.yml)) y la retención de datos se limitará a 7 días. El plan de tarifa gratuito está destinado solo para fines de evaluación. Las áreas de trabajo en los planes de tarifa independientes o por nodo tienen una retención configurable para el usuario de 30 a 730 días.
+Las suscripciones que contenían un área de trabajo de Log Analytics o un recurso de Application Insights antes del 2 de abril de 2018, o que están vinculadas a un Contrato Enterprise que comenzó antes del 1 de febrero de 2019, continuarán teniendo acceso a los planes de tarifa heredados: **Gratuito**,**Independiente (por GB)** y **Por nodo (OMS)** .  Las áreas de trabajo en el plan de tarifa Gratis tendrán una ingesta diaria de datos limitada a 500 MB (excepto los tipos de datos de seguridad que recopile [Azure Security Center](../../security-center/index.yml)) y la retención de datos se limitará a 7 días. El plan de tarifa gratuito está destinado solo para fines de evaluación. Las áreas de trabajo en los planes de tarifa independientes o por nodo tienen una retención configurable para el usuario de 30 a 730 días.
 
 El uso en el plan de tarifa independiente se factura por el volumen de datos ingerido. Se indica en el servicio **Log Analytics** y el medidor se denomina "Datos analizados". 
 
@@ -109,9 +109,9 @@ Los cargos del plan de tarifa por nodo y por VM supervisada (nodo) en una granul
 3. Data Included per Node (Datos incluidos por nodo): es la cantidad de datos ingeridos incluidos en la asignación de datos agregados. Este medidor también se usa cuando el área de trabajo está en todos los planes de tarifa para mostrar la cantidad de datos incluidos en Azure Security Center.
 
 > [!TIP]
-> Si el área de trabajo tiene acceso al plan de tarifa **por nodo** , pero se pregunta si sería menos costoso un plan de tarifa de pago por uso, puede [usar la siguiente consulta](#evaluating-the-legacy-per-node-pricing-tier) para obtener fácilmente una recomendación. 
+> Si el área de trabajo tiene acceso al plan de tarifa **por nodo**, pero se pregunta si sería menos costoso un plan de tarifa de pago por uso, puede [usar la siguiente consulta](#evaluating-the-legacy-per-node-pricing-tier) para obtener fácilmente una recomendación. 
 
-Las áreas de trabajo creadas antes de abril de 2016 también tienen acceso a los planes de tarifa **Estándar** y **Premium** originales, que tienen una retención de datos fija de 30 y 365 días, respectivamente. No se pueden crear áreas de trabajo en los planes de tarifa **Estándar** o **Premium** , y si un área de trabajo se saca de estos niveles, no puede regresar a ellos. Los medidores de ingesta de datos para estos niveles heredados se denominan "Datos analizados".
+Las áreas de trabajo creadas antes de abril de 2016 también tienen acceso a los planes de tarifa **Estándar** y **Premium** originales, que tienen una retención de datos fija de 30 y 365 días, respectivamente. No se pueden crear áreas de trabajo en los planes de tarifa **Estándar** o **Premium**, y si un área de trabajo se saca de estos niveles, no puede regresar a ellos. Los medidores de ingesta de datos para estos niveles heredados se denominan "Datos analizados".
 
 También hay algunos comportamientos entre el uso de los niveles de Log Analytics heredados y cómo se factura el uso en [Azure Security Center](../../security-center/index.yml). 
 
@@ -139,8 +139,8 @@ Los pasos siguientes describen cómo configurar cuánto tiempo se conservan los 
 Para establecer la retención predeterminada del área de trabajo, 
  
 1. En Azure Portal, en el área de trabajo, seleccione **Uso y costos estimados** en el panel izquierdo.
-2. En la página **Uso y costos estimados** , haga clic en **Retención de datos** en la parte superior de la página.
-3. En el panel, mueva el control deslizante para aumentar o disminuir el número de días y, luego, haga clic en **Aceptar**.  Si el nivel es *gratuito* , no podrá modificar el período de retención de datos y tendrá que actualizar al nivel de pago para controlar esta configuración.
+2. En la página **Uso y costos estimados**, haga clic en **Retención de datos** en la parte superior de la página.
+3. En el panel, mueva el control deslizante para aumentar o disminuir el número de días y, luego, haga clic en **Aceptar**.  Si el nivel es *gratuito*, no podrá modificar el período de retención de datos y tendrá que actualizar al nivel de pago para controlar esta configuración.
 
     ![Cambio de la configuración de retención de datos del área de trabajo](media/manage-cost-storage/manage-cost-change-retention-01.png)
 
@@ -210,10 +210,10 @@ Puede configurar un límite diario y limitar la ingesta diaria para el área de 
 
 A cada área de trabajo se le aplica su límite diario en una hora diferente del día. La hora de restablecimiento se muestra en la página **Límite diario** (consulte más adelante). Esta hora de restablecimiento no se puede configurar. 
 
-Poco después de alcanzar el límite diario, la recopilación de tipos de datos facturables se detiene durante el resto del día. La latencia inherente a la aplicación del límite diario significa que el límite no se aplica con precisión al nivel de límite diario especificado. Un mensaje emergente de advertencia aparece en la parte superior de la página del área de trabajo de Log Analytics seleccionada, y se envía un evento de operación para la tabla *Operación* en la categoría **LogManagement**. La recopilación de datos se reanuda después de que se restablezca el tiempo definido en *Daily limit will be set at* (El límite diario se establecerá en). Se recomienda definir una regla de alerta en función de este evento de operación que esté configurada para notificar cuando se ha alcanzado el límite diario de datos. 
+Poco después de alcanzar el límite diario, la recopilación de tipos de datos facturables se detiene durante el resto del día. La latencia inherente a la aplicación del límite diario significa que el límite no se aplica con precisión al nivel de límite diario especificado. Un mensaje emergente de advertencia aparece en la parte superior de la página del área de trabajo de Log Analytics seleccionada, y se envía un evento de operación para la tabla *Operación* en la categoría **LogManagement**. La recopilación de datos se reanuda después de que se restablezca el tiempo definido en *Daily limit will be set at* (El límite diario se establecerá en). Se recomienda definir una regla de alerta basada en este evento de operación, configurada para notificar cuando se ha alcanzado el límite diario de datos (consulte [a continuación](#alert-when-daily-cap-reached)). 
 
 > [!NOTE]
-> El límite diario no puede detener la recopilación de datos con la misma precisión que el nivel de límite especificado y pueden esperarse datos sobrantes, especialmente si el área de trabajo recibe grandes volúmenes de datos.  
+> El límite diario no puede detener la recopilación de datos con la misma precisión que el nivel de límite especificado y pueden esperarse datos sobrantes, especialmente si el área de trabajo recibe grandes volúmenes de datos. Vea [a continuación](#view-the-effect-of-the-daily-cap) una consulta que resulta útil para estudiar el comportamiento del límite diario. 
 
 > [!WARNING]
 > El límite diario no detiene la recopilación de datos de Azure Sentinel o Azure Security Center, excepto en el caso de las áreas de trabajo en las que Azure Security Center se instaló antes del 19 de junio de 2017. 
@@ -233,6 +233,20 @@ Los pasos siguientes describen cómo configurar un límite para administrar el v
     ![Configuración del límite de datos con Log Analytics](media/manage-cost-storage/set-daily-volume-cap-01.png)
     
 El límite diario se puede configurar mediante ARM si se establece el parámetro `dailyQuotaGb` en `WorkspaceCapping`, como se describe en [Áreas de trabajo: creación o actualización](/rest/api/loganalytics/workspaces/createorupdate#workspacecapping). 
+
+### <a name="view-the-effect-of-the-daily-cap"></a>Visualización del efecto del límite diario
+
+Para ver el efecto del límite diario, es importante tener en cuenta los tipos de datos de seguridad no incluidos en el límite diario y la hora de restablecimiento del área de trabajo. La hora de restablecimiento del límite diario se muestra en la página **Límite diario**.  La siguiente consulta se puede usar para realizar el seguimiento de los volúmenes de datos sujetos al límite diario entre restablecimientos del límite diario. En este ejemplo, la hora de restablecimiento del área de trabajo es las 14:00 horas.  Deberá actualizarla para el área de trabajo.
+
+```kusto
+let DailyCapResetHour=14;
+Usage
+| where Type !in ("SecurityAlert", "SecurityBaseline", "SecurityBaselineSummary", "SecurityDetection", "SecurityEvent", "WindowsFirewall", "MaliciousIPCommunication", "LinuxAuditLog", "SysmonEvent", "ProtectionStatus", "WindowsEvent")
+| extend TimeGenerated=datetime_add("hour",-1*DailyCapResetHour,TimeGenerated)
+| where TimeGenerated > startofday(ago(31d))
+| where IsBillable
+| summarize IngestedGbBetweenDailyCapResets=sum(_BilledSize)/1000. by day=bin(TimeGenerated, 1d) | render areachart  
+```
 
 ### <a name="alert-when-daily-cap-reached"></a>Alerta cuando se alcanza el límite diario
 
@@ -307,11 +321,11 @@ El número de unidades de la factura está en unidades de nodo*meses, que se rep
 
 
 > [!TIP]
-> Use estas consultas `find` con moderación, ya que la ejecución de exámenes entre tipos de datos [consume muchos recursos](../log-query/query-optimization.md#query-performance-pane). Si no necesita resultados **por equipo** , consulte el tipo de datos Usage (vea a continuación).
+> Use estas consultas `find` con moderación, ya que la ejecución de exámenes entre tipos de datos [consume muchos recursos](../log-query/query-optimization.md#query-performance-pane). Si no necesita resultados **por equipo**, consulte el tipo de datos Usage (vea a continuación).
 
 ## <a name="understanding-ingested-data-volume"></a>Descripción del volumen de datos ingeridos
 
-En la página **Uso y costos estimados** , el gráfico *Ingesta de datos por solución*  muestra el volumen total de los datos enviados y la cantidad que envía cada solución. Esto le permite determinar tendencias tales como si el uso global de los datos (o el uso de una solución en particular) crece, permanece constante o disminuye. 
+En la página **Uso y costos estimados**, el gráfico *Ingesta de datos por solución*  muestra el volumen total de los datos enviados y la cantidad que envía cada solución. Esto le permite determinar tendencias tales como si el uso global de los datos (o el uso de una solución en particular) crece, permanece constante o disminuye. 
 
 ### <a name="data-volume-for-specific-events"></a>Volumen de datos para eventos específicos
 
@@ -389,11 +403,11 @@ find where TimeGenerated > ago(24h) project _IsBillable, Computer
 ```
 
 > [!TIP]
-> Use estas consultas `find` con moderación, ya que la ejecución de exámenes entre tipos de datos [consume muchos recursos](../log-query/query-optimization.md#query-performance-pane). Si no necesita resultados **por equipo** , consulte el tipo de datos Usage.
+> Use estas consultas `find` con moderación, ya que la ejecución de exámenes entre tipos de datos [consume muchos recursos](../log-query/query-optimization.md#query-performance-pane). Si no necesita resultados **por equipo**, consulte el tipo de datos Usage.
 
 ### <a name="data-volume-by-azure-resource-resource-group-or-subscription"></a>Volumen de datos por recurso de Azure, grupo de recursos o suscripción
 
-Para los datos de los nodos hospedados en Azure, puede obtener el **tamaño** de los eventos ingeridos __por cada equipo__ ; para ello, use la [propiedad](./log-standard-columns.md#_resourceid) _ResourceId, que proporciona la ruta completa al recurso:
+Para los datos de los nodos hospedados en Azure, puede obtener el **tamaño** de los eventos ingeridos __por cada equipo__; para ello, use la [propiedad](./log-standard-columns.md#_resourceid) _ResourceId, que proporciona la ruta completa al recurso:
 
 ```kusto
 find where TimeGenerated > ago(24h) project _ResourceId, _BilledSize, _IsBillable
@@ -401,7 +415,7 @@ find where TimeGenerated > ago(24h) project _ResourceId, _BilledSize, _IsBillabl
 | summarize BillableDataBytes = sum(_BilledSize) by _ResourceId | sort by BillableDataBytes nulls last
 ```
 
-Para los datos de los nodos hospedados en Azure, puede obtener el **tamaño** de los datos ingeridos __por cada suscripción de Azure__ ; obtenga el id. de suscripción de la propiedad `_ResourceId` como:
+Para los datos de los nodos hospedados en Azure, puede obtener el **tamaño** de los datos ingeridos __por cada suscripción de Azure__; obtenga el id. de suscripción de la propiedad `_ResourceId` como:
 
 ```kusto
 find where TimeGenerated > ago(24h) project _ResourceId, _BilledSize, _IsBillable
@@ -432,7 +446,7 @@ Además, de ser necesario, puede analizar la propiedad `_ResourceId` más atenta
 > Use estas consultas `find` con moderación, ya que la ejecución de exámenes entre tipos de datos [consume muchos recursos](../log-query/query-optimization.md#query-performance-pane). Si no necesita resultados por suscripción, grupo de recursos ni nombre de recurso, consulte el tipo de datos Usage.
 
 > [!WARNING]
-> Algunos de los campos del tipo de datos de uso, aunque siguen en el esquema, han quedado en desuso y ya no se rellenarán sus valores. Estos son **Computer** , además de los campos relacionados con la ingesta ( **TotalBatches** , **BatchesWithinSla** , **BatchesOutsideSla** , **BatchesCapped** y **AverageProcessingTimeMs**.
+> Algunos de los campos del tipo de datos de uso, aunque siguen en el esquema, han quedado en desuso y ya no se rellenarán sus valores. Estos son **Computer**, además de los campos relacionados con la ingesta (**TotalBatches**, **BatchesWithinSla**, **BatchesOutsideSla**, **BatchesCapped** y **AverageProcessingTimeMs**.
 
 
 ### <a name="querying-for-common-data-types"></a>Consulta de los tipos de datos comunes
@@ -597,13 +611,13 @@ En esta sección se describe cómo crear una alerta si el volumen de datos en la
 
 Para generar una alerta si la ingesta del volumen de datos facturable en las últimas 24 horas fue superior a 50 GB, siga estos pasos: 
 
-- **Definición de la condición de alerta** : especifique el área de trabajo de Log Analytics como el destino del recurso.
-- **Criterios de alerta** : especifique lo siguiente:
-   - **Nombre de señal** : seleccione **Custom log search** (Búsqueda de registros personalizada)
+- **Definición de la condición de alerta**: especifique el área de trabajo de Log Analytics como el destino del recurso.
+- **Criterios de alerta**: especifique lo siguiente:
+   - **Nombre de señal**: seleccione **Custom log search** (Búsqueda de registros personalizada)
    - **Consulta de búsqueda** en `Usage | where IsBillable | summarize DataGB = sum(Quantity / 1000.) | where DataGB > 50`. Si desea otro 
-   - El valor de **Lógica de alerta** está **Basado en** el *número de resultados* , mientras que el valor de **Condición** es *Mayor que* un **Umbral**  de *0*.
+   - El valor de **Lógica de alerta** está **Basado en** el *número de resultados*, mientras que el valor de **Condición** es *Mayor que* un **Umbral**  de *0*.
    - **Período de tiempo** de *1440* minutos y **Frecuencia de alerta** cada *1440* minutos para ejecutarse una vez al día.
-- **Definición de los detalles de la alerta** : especifique lo siguiente:
+- **Definición de los detalles de la alerta**: especifique lo siguiente:
    - **Nombre** en *Billable data volume greater than 50 GB in 24 hours* (Volumen de datos facturable mayor que 50 GB en 24 horas)
    - **Gravedad** en *Advertencia*
 

@@ -10,12 +10,12 @@ ms.custom: devx-track-dotnet, devx-track-azurecli
 ms.topic: how-to
 ms.date: 04/27/2020
 ms.author: avgupta
-ms.openlocfilehash: b48adfdfda4b3e120b2246e67a70000d25c25f3a
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 04edf2eeb231ff1444c732840def2b78b1373e79
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92737086"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94565932"
 ---
 # <a name="back-up-app-configuration-stores-automatically"></a>Copia de seguridad automática de almacenes de App Configuration
 
@@ -37,14 +37,17 @@ El motivo de crear copias de seguridad de los almacenes de App Configuration es 
 
 En este tutorial, creará un almacén secundario en la región `centralus`, y todos los demás recursos en la región `westus`.
 
-## <a name="prerequisites"></a>Requisitos previos
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)].
 
-- Suscripción de Azure. [cree una de forma gratuita](https://azure.microsoft.com/free/). 
+## <a name="prerequisites"></a>Requisitos previos 
+
 - [Visual Studio 2019](https://visualstudio.microsoft.com/vs) con la carga de trabajo de desarrollo de Azure.
-- [SDK de .NET Core](https://dotnet.microsoft.com/download).
-- La versión más reciente de la CLI de Azure (2.3.1 o posterior). Para encontrar la versión, ejecute `az --version`. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure](/cli/azure/install-azure-cli). Si usa la CLI de Azure, primero debe iniciar sesión con `az login`. También puede usar Azure Cloud Shell.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+- [SDK de .NET Core](https://dotnet.microsoft.com/download).
+
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+- Este tutorial requiere la versión 2.3.1 o posterior de la CLI de Azure. Si usa Azure Cloud Shell, ya está instalada la versión más reciente.
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
@@ -213,7 +216,7 @@ Para probar que todo funciona, puede crear, actualizar o eliminar un valor de cl
 az appconfig kv set --name $primaryAppConfigName --key Foo --value Bar --yes
 ```
 
-Ha desencadenado el evento. En unos instantes, Event Grid enviará la notificación de eventos a la cola. *Después de la siguiente ejecución programada de la función* , consulte los valores de configuración en el almacén secundario para comprobar si este contiene el valor de clave actualizado del almacén primario.
+Ha desencadenado el evento. En unos instantes, Event Grid enviará la notificación de eventos a la cola. *Después de la siguiente ejecución programada de la función*, consulte los valores de configuración en el almacén secundario para comprobar si este contiene el valor de clave actualizado del almacén primario.
 
 > [!NOTE]
 > Puede [desencadenar manualmente la función](../azure-functions/functions-manually-run-non-http.md) durante las pruebas y la solución de problemas sin necesidad de esperar al desencadenador de temporizador programado.

@@ -5,18 +5,18 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/11/2020
 ms.topic: article
-ms.openlocfilehash: 76e7b3d0b0dd514feb7d16a6bc23d1b908be683f
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: f2e63903546e173e17f2b457b78eb41bcdf65dbd
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207213"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555573"
 ---
 # <a name="pbr-materials"></a>Materiales de PBR
 
 Los *materiales de PBR* son uno de los [tipos de material](../../concepts/materials.md) admitidos en Azure Remote Rendering. Se usan para [mallas](../../concepts/meshes.md) que deben recibir una iluminación realista.
 
-PBR son las siglas de **P**hysically **B**ased **R**endering y significan que el material describe las propiedades visuales de una superficie de forma física plausible, de modo que se puedan obtener resultados realistas en todas las condiciones de iluminación. La mayoría de los motores de juegos y las herramientas de creación de contenido actuales admiten materiales de PBR porque se consideran la mejor aproximación de escenarios del mundo real para la representación en tiempo real.
+PBR son las siglas de **P** hysically **B** ased **R** endering y significan que el material describe las propiedades visuales de una superficie de forma física plausible, de modo que se puedan obtener resultados realistas en todas las condiciones de iluminación. La mayoría de los motores de juegos y las herramientas de creación de contenido actuales admiten materiales de PBR porque se consideran la mejor aproximación de escenarios del mundo real para la representación en tiempo real.
 
 ![Modelo de ejemplo glTF de casco representado por ARR](media/helmet.png)
 
@@ -43,9 +43,15 @@ Estas propiedades son comunes para todos los materiales:
 
 * **TransparencyWritesDepth:** Si la marca TransparencyWritesDepth se establece en el material y el material es transparente, los objetos que usen este material también contribuirán al búfer de profundidad final. Vea la marca de material de PBR *transparente* en la sección siguiente. La habilitación de esta característica se recomienda si el caso de uso necesita una [reproyección en fase más tardía](late-stage-reprojection.md) más plausible de escenas completamente transparentes. En el caso de escenas transparentes u opacas mixtas, este valor puede presentar artefactos de reproyección o un comportamiento de reproyección improbable. Por esta razón, la configuración predeterminada y recomendada para el caso de uso general es deshabilitar esta marca. Los valores de profundidad escritos se toman de la capa de profundidad por píxel del objeto más cercano a la cámara.
 
+* **FresnelEffect:** Esta marca de material habilita el efecto [Fresnel](../../overview/features/fresnel-effect.md) aditivo en el material correspondiente. La apariencia del efecto se rige por los otros parámetros de Fresnel que se explican a continuación. 
+
+* **FresnelEffectColor:** Color de Fresnel utilizado para este material. Solo es importante si se ha establecido el bit de efecto Fresnel en este material (consulte más arriba). Esta propiedad controla el color base del brillo de Fresnel (consulte una explicación completa en [Efecto Fresnel](../../overview/features/fresnel-effect.md)). Actualmente, solo son importantes los valores de canal RGB; se omitirá el valor alfa.
+
+* **FresnelEffectExponent:** El exponente de Fresnel utilizado para este material. Solo es importante si se ha establecido el bit de efecto Fresnel en este material (consulte más arriba). Esta propiedad controla la distribución del brillo de Fresnel. El valor mínimo 0,01 provoca que el brillo se aplique por todo el objeto. El valor máximo 10,0 limita el brillo solo a los bordes visibles más oblicuos.
+
 ## <a name="pbr-material-properties"></a>Propiedades de los materiales de PBR
 
-La idea principal de la representación basada en la física es usar las propiedades *BaseColor*, *Metalness*y *Roughness* para simular una amplia gama de materiales reales. Una descripción detallada de PBR queda fuera del ámbito de este artículo. Para obtener más información acerca de PBR, consulte [otras fuentes](http://www.pbr-book.org). Las propiedades siguientes son específicas de los materiales de PBR:
+La idea principal de la representación basada en la física es usar las propiedades *BaseColor*, *Metalness* y *Roughness* para simular una amplia gama de materiales reales. Una descripción detallada de PBR queda fuera del ámbito de este artículo. Para obtener más información acerca de PBR, consulte [otras fuentes](http://www.pbr-book.org). Las propiedades siguientes son específicas de los materiales de PBR:
 
 * **baseColor:** en los materiales de PBR, el *color de albedo* se conoce como *color base*. En Azure Remote Rendering, la propiedad de *color de albedo* ya está presente a través de las propiedades de materiales comunes, por lo que no hay ninguna propiedad de color base adicional.
 

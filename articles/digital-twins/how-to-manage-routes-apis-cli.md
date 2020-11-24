@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 10/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 88828d6dea05c530d20fe378a108df2bd0dcd5b9
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.openlocfilehash: 0b8bd9006482daf7c9218f0f3dbb16d2e08359bf
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93279463"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94533759"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-apis-and-cli"></a>Administración de puntos de conexión y rutas en Azure Digital Twins (API y CLI)
 
@@ -20,9 +20,9 @@ ms.locfileid: "93279463"
 
 En Azure Digital Twins, se pueden enrutar [notificaciones de eventos](how-to-interpret-event-data.md) a los servicios de bajada o recursos de proceso conectados. Para ello, primero se configuran los **puntos de conexión** que pueden recibir los eventos. Después, puede crear [**rutas de eventos**](concepts-route-events.md) que especifiquen qué eventos generados por Azure Digital Twins se entregan a los puntos de conexión.
 
-Los puntos de conexión y las rutas se pueden administrar con las [API Event Routes](/rest/api/digital-twins/dataplane/eventroutes), el [SDK para .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true) o la [CLI de Azure Digital Twins](how-to-use-cli.md). Este artículo le guiará a través del proceso de creación de puntos de conexión y rutas a través de estos mecanismos.
+Este artículo le guiará a través del proceso de creación de puntos de conexión y rutas con las [API de Event Routes](/rest/api/digital-twins/dataplane/eventroutes), el [SDK para .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true) y la [CLI de Azure Digital Twins](how-to-use-cli.md).
 
-También se pueden administrar a través de [Azure Portal](https://portal.azure.com). Para obtener una versión de este artículo que usa el portal en su lugar, consulte [*Procedimiento: Administración de puntos de conexión y rutas (portal)*](how-to-manage-routes-portal.md).
+También puede administrar los puntos de conexión y las rutas con [Azure Portal](https://portal.azure.com). Para obtener una versión de este artículo que usa el portal en su lugar, consulte [*Procedimiento: Administración de puntos de conexión y rutas (portal)*](how-to-manage-routes-portal.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -64,15 +64,15 @@ Una vez creado el tema, se puede vincular a Azure Digital Twins con el [comando 
 az dt endpoint create eventgrid --endpoint-name <Event-Grid-endpoint-name> --eventgrid-resource-group <Event-Grid-resource-group-name> --eventgrid-topic <your-Event-Grid-topic-name> -n <your-Azure-Digital-Twins-instance-name>
 ```
 
-Ahora, el tema de Event Grid está disponible como punto de conexión dentro de Azure Digital Twins, con el nombre especificado con el argumento `--endpoint-name`. Normalmente usará ese nombre como destino de una **ruta de evento** , que se creará [más tarde en este artículo](#create-an-event-route) con la API del servicio Azure Digital Twins.
+Ahora, el tema de Event Grid está disponible como punto de conexión dentro de Azure Digital Twins, con el nombre especificado con el argumento `--endpoint-name`. Normalmente usará ese nombre como destino de una **ruta de evento**, que se creará [más tarde en este artículo](#create-an-event-route) con la API del servicio Azure Digital Twins.
 
 ### <a name="create-an-event-hubs-or-service-bus-endpoint"></a>Creación de un punto de conexión de Event Hubs o Service Bus
 
 El proceso de creación de puntos de conexión de Event Hubs o Service Bus es similar al proceso de Event Grid que se muestra anteriormente.
 
 En primer lugar, cree los recursos que usará como punto de conexión. A continuación, si indica lo que se necesita:
-* Service Bus: un _espacio de nombres de Service Bus_ , un _tema de Service Bus_ y una _regla de autorización_.
-* Event Hubs: un _espacio de nombres de Event Hubs_ , un _centro de eventos_ y una _regla de autorización_.
+* Service Bus: un _espacio de nombres de Service Bus_, un _tema de Service Bus_ y una _regla de autorización_.
+* Event Hubs: un _espacio de nombres de Event Hubs_, un _centro de eventos_ y una _regla de autorización_.
 
 A continuación, use los siguientes comandos para crear los puntos de conexión en Azure Digital Twins: 
 
@@ -156,7 +156,7 @@ Para enviar datos de Azure Digital Twins a un punto de conexión, debe definir u
 
 Los ejemplos de esta sección usan el [SDK de .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true).
 
-**Requisito previo** : Debe crear puntos de conexión como se describió anteriormente en este artículo para poder continuar con la creación de una ruta. Puede continuar con la creación de una ruta de evento una vez finalizada la configuración de los puntos de conexión.
+**Requisito previo**: Debe crear puntos de conexión como se describió anteriormente en este artículo para poder continuar con la creación de una ruta. Puede continuar con la creación de una ruta de evento una vez finalizada la configuración de los puntos de conexión.
 
 >[!NOTE]
 >Si ha implementado recientemente los puntos de conexión, compruebe que se haya completado la implementación **antes** de intentar usarlos para una nueva ruta de evento. Si se produce un error en la implementación de la ruta porque los puntos de conexión no están listos, espere unos minutos y vuelva a intentarlo.

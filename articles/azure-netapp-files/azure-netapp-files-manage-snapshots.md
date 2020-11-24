@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 11/10/2020
+ms.date: 11/12/2020
 ms.author: b-juche
-ms.openlocfilehash: e578e377e322e6b6a23f0990ca1fa0285a4ec87d
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: c64bc8bf265a8e3cc3c490827bdbd79661e3528a
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491654"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94591750"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>Administración de instantáneas mediante Azure NetApp Files
 
@@ -144,6 +144,17 @@ Puede eliminar una directiva de instantánea que ya no desee conservar.
 
     ![Confirmación de la eliminación de una directiva de instantánea](../media/azure-netapp-files/snapshot-policy-delete-confirm.png) 
 
+## <a name="edit-the-hide-snapshot-path-option"></a>Edición de la opción Ocultar la ruta de acceso de la instantánea
+La opción Ocultar la ruta de acceso de la instantánea controla si está visible la ruta de acceso de la instantánea de un volumen. Durante la creación de un volumen de [NFS](azure-netapp-files-create-volumes.md#create-an-nfs-volume) o [SMB](azure-netapp-files-create-volumes-smb.md#add-an-smb-volume), puede especificar si se debe ocultar la ruta de acceso de la instantánea. Posteriormente, puede editar esta opción según proceda.  
+
+> [!NOTE]
+> En el caso de un [volumen de destino](cross-region-replication-create-peering.md#create-the-data-replication-volume-the-destination-volume) en la replicación entre regiones, la opción Ocultar la ruta de acceso de la instantánea está habilitada de forma predeterminada y no se puede modificar. 
+
+1. Para ver la opción Ocultar la ruta de acceso de la instantánea de un volumen, seleccione el volumen. En el campo **Ocultar la ruta de acceso de la instantánea** se muestra si la opción está habilitada.   
+    ![Captura de pantalla que describe el campo Ocultar la ruta de acceso de la instantánea.](../media/azure-netapp-files/hide-snapshot-path-field.png) 
+2. Para editar la opción Ocultar la ruta de acceso de la instantánea, haga clic en **Editar** en la página del volumen y modifique la opción **Ocultar la ruta de acceso de la instantánea** como proceda.   
+    ![Captura de pantalla que describe la opción de edición de la instantánea de volumen.](../media/azure-netapp-files/volume-edit-snapshot-options.png) 
+
 ## <a name="restore-a-snapshot-to-a-new-volume"></a>Restauración de una instantánea a un nuevo volumen
 
 Actualmente, puede restaurar una instantánea solo a un nuevo volumen. 
@@ -173,11 +184,7 @@ Si no desea [restaurar la instantánea completa en un volumen](#restore-a-snapsh
 
 El volumen montado contiene un directorio de instantáneas denominado `.snapshot` (en clientes NFS) o `~snapshot` (en clientes SMB) que es accesible para el cliente. El directorio de instantáneas contiene subdirectorios correspondientes a las instantáneas del volumen. Cada subdirectorio contiene los archivos de la instantánea. Si elimina o sobrescribe accidentalmente un archivo, puede restaurarlo en el directorio principal de lectura y escritura copiando el archivo de un subdirectorio de instantánea en el directorio de lectura y escritura. 
 
-Si ha activado la casilla Ocultar la ruta de acceso de la instantánea al crear el volumen, se ocultará el directorio de instantáneas. Puede ver el estado de Ocultar la ruta de acceso de la instantánea del volumen seleccionando este último. Para editar la opción Ocultar la ruta de acceso de la instantánea, haga clic en **Editar** en la página del volumen.  
-
-En el caso de un volumen de destino en la replicación entre regiones, la opción Ocultar la ruta de acceso de la instantánea está habilitada de forma predeterminada y no se puede modificar.
-
-![Edición de opciones de instantánea de volumen](../media/azure-netapp-files/volume-edit-snapshot-options.png) 
+Si no ve el directorio de instantáneas, puede estar oculto si la opción Ocultar la ruta de acceso de la instantánea está habilitada. Puede [editar la opción Ocultar la ruta de acceso de la instantánea](#edit-the-hide-snapshot-path-option) para deshabilitarla.  
 
 ### <a name="restore-a-file-by-using-a-linux-nfs-client"></a>Restauración de un archivo mediante un cliente NFS de Linux 
 

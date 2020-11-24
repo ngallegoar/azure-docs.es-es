@@ -1,6 +1,6 @@
 ---
 title: Sincronización de SCIM con Azure Active Directory
-description: Guía arquitectónica para lograr este patrón de sincronización
+description: Guía de arquitectura para lograr la sincronización de SCIM con Azure Active Directory.
 services: active-directory
 author: BarbaraSelden
 manager: daveba
@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d1dda465dd675e0f5f519f86289df2621be0b9bb
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: f957070ec94fc4c61089f31fe91261a2f52c4ee4
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92367863"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94578865"
 ---
 # <a name="scim-synchronization-with-azure-active-directory"></a>Sincronización de SCIM con Azure Active Directory
 
@@ -35,13 +35,13 @@ Quiere aprovisionar automáticamente la información de los usuarios de un siste
 
 ## <a name="components-of-system"></a>Componentes del sistema 
 
-* **Sistema HCM** : Aplicaciones y tecnologías que permiten el proceso y las prácticas de administración de capital humano que admiten y automatizan los procesos de recursos humanos a lo largo del ciclo de vida de los empleados. 
+* **Sistema HCM**: Aplicaciones y tecnologías que permiten el proceso y las prácticas de administración de capital humano que admiten y automatizan los procesos de recursos humanos a lo largo del ciclo de vida de los empleados. 
 
-* **Servicio de aprovisionamiento de Azure AD** : Usa el protocolo SCIM 2.0 para el aprovisionamiento automático. El servicio se conecta al punto de conexión de SCIM para la aplicación y usa el esquema de objetos de usuario SCIM y las API de REST para automatizar el aprovisionamiento y el desaprovisionamiento de usuarios y grupos.  
+* **Servicio de aprovisionamiento de Azure AD**: Usa el protocolo SCIM 2.0 para el aprovisionamiento automático. El servicio se conecta al punto de conexión de SCIM para la aplicación y usa el esquema de objetos de usuario SCIM y las API de REST para automatizar el aprovisionamiento y el desaprovisionamiento de usuarios y grupos.  
 
-* **Azure AD** : Repositorio de usuarios usado para administrar el ciclo de vida de las identidades y sus derechos. 
+* **Azure AD**: Repositorio de usuarios usado para administrar el ciclo de vida de las identidades y sus derechos. 
 
-* **Sistema de destino** : Aplicación o sistema que tiene el punto de conexión de SCIM y funciona con el aprovisionamiento de Azure AD para habilitar el aprovisionamiento automático de usuarios y grupos.  
+* **Sistema de destino**: Aplicación o sistema que tiene el punto de conexión de SCIM y funciona con el aprovisionamiento de Azure AD para habilitar el aprovisionamiento automático de usuarios y grupos.  
 
 ## <a name="implement-scim-with-azure-ad"></a>Implementación de SCIM con Azure AD 
 

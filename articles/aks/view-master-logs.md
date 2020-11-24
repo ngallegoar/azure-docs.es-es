@@ -4,12 +4,12 @@ description: Aprenda a habilitar y ver los registros del nodo maestro de Kuberne
 services: container-service
 ms.topic: article
 ms.date: 10/14/2020
-ms.openlocfilehash: 82570606aee294aafe7da5ffaf581b11b6775073
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: a0e58174c38ec19d42f524b9bc94247e05296467
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92899940"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94682237"
 ---
 # <a name="enable-and-review-kubernetes-master-node-logs-in-azure-kubernetes-service-aks"></a>Habilitación y revisión de los registros del nodo maestro de Kubernetes en Azure Kubernetes Service (AKS)
 
@@ -17,7 +17,7 @@ Con Azure Kubernetes Service (AKS), los componentes principales, como *kube-apis
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-En este artículo se requiere un clúster de AKS existente que se ejecute en su cuenta de Azure. Si todavía no tiene un clúster de AKS, cree uno con la [CLI de Azure][cli-quickstart] o [Azure Portal][portal-quickstart]. Registros de Azure Monitor funciona tanto con clústeres de AKS habilitados para RBAC como no habilitados para RBAC.
+En este artículo se requiere un clúster de AKS existente que se ejecute en su cuenta de Azure. Si todavía no tiene un clúster de AKS, cree uno con la [CLI de Azure][cli-quickstart] o [Azure Portal][portal-quickstart]. Los registros de Azure Monitor funcionan tanto con clústeres de AKS habilitados para RBAC de Kubernetes, RBAC de Azure y no habilitados para RBAC.
 
 ## <a name="enable-resource-logs"></a>Habilitación de registros de recursos
 
@@ -27,19 +27,19 @@ Los registros de Azure Monitor se habilitan y administran en Azure Portal. Para 
 
 1. Seleccione el grupo de recursos del clúster de AKS, como *myResourceGroup*. No seleccione el grupo de recursos que contiene los recursos del clúster de AKS individuales, como *MC_myResourceGroup_myAKSCluster_eastus*.
 1. En la parte izquierda, elija **Configuración de diagnóstico**.
-1. Seleccione el clúster de AKS, como *myAKSCluster* , y elija **Agregar configuración de diagnóstico**.
+1. Seleccione el clúster de AKS, como *myAKSCluster*, y elija **Agregar configuración de diagnóstico**.
 1. Escriba un nombre, como *myAKSClusterLogs* y seleccione la opción **Send to Log Analytics** (Enviar a Log Analytics).
 1. Seleccione un área de trabajo existente o cree uno. Al crear un área de trabajo, proporciónele un nombre, un grupo de recursos y una ubicación.
-1. En la lista de registros disponibles, seleccione los que desea habilitar. En este ejemplo, habilite los registros *kube-audit* y *kube-audit-admin*. Los registros típicos incluyen *kube-apiserver* , *kube-controller-manager* y *kube-scheduler*. Puede volver y cambiar los registros recopilados una vez que las áreas de trabajo de Log Analytics está habilitadas.
+1. En la lista de registros disponibles, seleccione los que desea habilitar. En este ejemplo, habilite los registros *kube-audit* y *kube-audit-admin*. Los registros típicos incluyen *kube-apiserver*, *kube-controller-manager* y *kube-scheduler*. Puede volver y cambiar los registros recopilados una vez que las áreas de trabajo de Log Analytics está habilitadas.
 1. Cuando esté listo, seleccione **Guardar** para habilitar la recopilación de los registros seleccionados.
 
 ## <a name="log-categories"></a>Categorías de registro
 
 Además de las entradas escritas por Kubernetes, los registros de auditoría del proyecto también tienen entradas de AKS.
 
-Los registros de auditoría se registran en tres categorías: *kube-audit* , *kube-audit-admin* y *guard*.
+Los registros de auditoría se registran en tres categorías: *kube-audit*, *kube-audit-admin* y *guard*.
 
-- La categoría *kube-audit* contiene todos los datos de registro de auditoría para cada evento de auditoría, los que incluyen *get* , *list* , *create* , *update* , *delete* , *patch* y *post*.
+- La categoría *kube-audit* contiene todos los datos de registro de auditoría para cada evento de auditoría, los que incluyen *get*, *list*, *create*, *update*, *delete*, *patch* y *post*.
 - La categoría *kube-audit-admin* es un subconjunto de la categoría de registro *kube-audit*. *kube-audit-admin* reduce considerablemente el número de registros al excluir los eventos de auditoría *get* y *list* del registro.
 - La categoría *guard* está administrada por Azure AD y las auditorías de Azure RBAC. En el caso de estar administrada por Azure AD: el token debe estar dentro y la información de usuario fuera. Para Azure RBAC: revisiones de acceso dentro y fuera.
 
@@ -84,7 +84,7 @@ Los registros de diagnóstico pueden tardar hasta 10 minutos en habilitarse y a
 
 En Azure Portal, vaya al clúster de AKS y seleccione **Registros** en el lado izquierdo. Si aparece, cierre la ventana *Consultas de ejemplo*.
 
-En el lado izquierdo, elija **Registros**. Para ver los registros de *kube-audit* , escriba la siguiente consulta en el cuadro de texto:
+En el lado izquierdo, elija **Registros**. Para ver los registros de *kube-audit*, escriba la siguiente consulta en el cuadro de texto:
 
 ```
 AzureDiagnostics
@@ -92,7 +92,7 @@ AzureDiagnostics
 | project log_s
 ```
 
-Es probable que se devuelvan muchos registros. Para reducir el ámbito de la consulta y ver los registros sobre el pod de NGINX creado en el paso anterior, agregue una instrucción *where* adicional para buscar *nginx* , como se muestra en la consulta de ejemplo siguiente:
+Es probable que se devuelvan muchos registros. Para reducir el ámbito de la consulta y ver los registros sobre el pod de NGINX creado en el paso anterior, agregue una instrucción *where* adicional para buscar *nginx*, como se muestra en la consulta de ejemplo siguiente:
 
 ```
 AzureDiagnostics
@@ -101,7 +101,7 @@ AzureDiagnostics
 | project log_s
 ```
 
-Para ver los registros de *kube-audit-admin* , escriba la consulta siguiente en el cuadro de texto:
+Para ver los registros de *kube-audit-admin*, escriba la consulta siguiente en el cuadro de texto:
 
 ```
 AzureDiagnostics
@@ -109,7 +109,7 @@ AzureDiagnostics
 | project log_s
 ```
 
-En este ejemplo, la consulta muestra todos los trabajos de creación en *kube-audit-admin*. Es posible que se devuelvan muchos resultados y, para reducir el ámbito de la consulta y ver los registros sobre el pod de NGINX creado en el paso anterior, agregue una instrucción *where* adicional para buscar *nginx* , como se muestra en la consulta de ejemplo siguiente.
+En este ejemplo, la consulta muestra todos los trabajos de creación en *kube-audit-admin*. Es posible que se devuelvan muchos resultados y, para reducir el ámbito de la consulta y ver los registros sobre el pod de NGINX creado en el paso anterior, agregue una instrucción *where* adicional para buscar *nginx*, como se muestra en la consulta de ejemplo siguiente.
 
 ```
 AzureDiagnostics

@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: asteen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4c6fc9a4716f1427257b3bbf18e5fa653567e141
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c208da657d30d4a0f5b6f171693c5c6abc2b358b
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84763387"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94649192"
 ---
 # <a name="disable-user-sign-ins-for-an-enterprise-app-in-azure-active-directory"></a>Deshabilitación de los inicios de sesión de usuario de una aplicación empresarial en Azure Active Directory
 
@@ -31,15 +31,15 @@ Deshabilitar una aplicación empresarial para que ningún usuario pueda iniciar 
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta que tenga el rol de administrador global en el directorio.
 1. Seleccione **Todos los servicios**, escriba **Azure Active Directory** en el cuadro de texto y, después, seleccione **Entrar**.
-1. En el panel **Azure Active Directory** -  ***nombreDelDirectorio*** (es decir, el panel de Azure AD del directorio que está administrando), seleccione **Aplicaciones empresariales**.
+1. En el panel **Azure Active Directory** -  **_nombreDelDirectorio_ *_ (es decir, el panel de Azure AD del directorio que está administrando), seleccione _* Aplicaciones empresariales**.
 1. En el panel **Aplicaciones empresariales - Todas las aplicaciones**, verá una lista de las aplicaciones que puede administrar. Seleccione una aplicación.
-1. En el panel ***nombreDeLaAplicación*** (es decir, el panel con el nombre de la aplicación seleccionada en el título), seleccione **Propiedades**.
-1. En el panel ***nombreDeLaAplicación*** - **Propiedades**, en **¿Habilitado para que los usuarios inicien sesión?** , seleccione **No**.
+1. En el panel **_nombreDeLaAplicación_ *_ (es decir, el panel con el nombre de la aplicación seleccionada en el título), seleccione _* Propiedades**.
+1. En el panel **_nombreDeLaAplicación_ *_ - _* Propiedades**, en **¿Habilitado para que los usuarios inicien sesión?** , seleccione **No**.
 1. Haga clic en el comando **Guardar** .
 
 ## <a name="use-azure-ad-powershell-to-disable-an-unlisted-app"></a>Uso de Azure AD PowerShell para deshabilitar una aplicación que no está en la lista
 
-Si conoce el AppId de una aplicación que no aparece en la lista de aplicaciones empresariales (por ejemplo, porque eliminó la aplicación o porque la entidad de servicio todavía no se ha creado debido a que la aplicación está autorizada previamente por Microsoft), puede crear manualmente la entidad de servicio para la aplicación y, a continuación, deshabilitarla mediante el [cmdlet de AzureAD PowerShell](https://docs.microsoft.com/powershell/module/azuread/New-AzureADServicePrincipal?view=azureadps-2.0).
+Si conoce el AppId de una aplicación que no aparece en la lista de aplicaciones empresariales (por ejemplo, porque eliminó la aplicación o porque la entidad de servicio todavía no se ha creado debido a que la aplicación está autorizada previamente por Microsoft), puede crear manualmente la entidad de servicio para la aplicación y, a continuación, deshabilitarla mediante el [cmdlet de AzureAD PowerShell](/powershell/module/azuread/New-AzureADServicePrincipal?view=azureadps-2.0).
 
 ```PowerShell
 # The AppId of the app to be disabled
@@ -60,5 +60,5 @@ if ($servicePrincipal) {
 
 * [Ver todos mis grupos](../fundamentals/active-directory-groups-view-azure-portal.md)
 * [Asignar un usuario o grupo a una aplicación empresarial](assign-user-or-group-access-portal.md)
-* [Quitar una asignación de usuario o grupo de una aplicación empresarial](remove-user-or-group-access-portal.md)
-* [Cambio del nombre o el logotipo de una aplicación empresarial](change-name-or-logo-portal.md)
+* [Quitar una asignación de usuario o grupo de una aplicación empresarial](./assign-user-or-group-access-portal.md)
+* [Cambio del nombre o el logotipo de una aplicación empresarial](./add-application-portal-configure.md)

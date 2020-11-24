@@ -1,6 +1,6 @@
 ---
 title: Autenticación basada en encabezados con Azure Active Directory
-description: Guía arquitectónica para lograr este patrón de autenticación
+description: Guía de arquitectura para lograr la autenticación basada en encabezados con Azure Active Directory.
 services: active-directory
 author: BarbaraSelden
 manager: daveba
@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f364e4e14dd1b7c60cb81f06051d9dedd94396a
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: bb54410fb314376b68d7297a3452f0990762343d
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92114030"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94577165"
 ---
 # <a name="header-based-authentication-with-azure-active-directory"></a>Autenticación basada en encabezados con Azure Active Directory
 
@@ -34,17 +34,17 @@ Los usuarios remotos necesitan un inicio de sesión único (SSO) de forma segura
 
 ## <a name="components-of-system"></a>Componentes del sistema
 
-* **Usuario** : Accede a las aplicaciones heredadas atendidas por Application Proxy.
+* **Usuario**: Accede a las aplicaciones heredadas atendidas por Application Proxy.
 
-* **Explorador web** : Componente con el que el usuario interactúa para acceder a la dirección URL externa de la aplicación.
+* **Explorador web**: Componente con el que el usuario interactúa para acceder a la dirección URL externa de la aplicación.
 
-* **Azure AD** : Autentica al usuario. 
+* **Azure AD**: Autentica al usuario. 
 
-* **Servicio Application Proxy** : Actúa como proxy inverso para enviar la solicitud del usuario a la aplicación local. Reside en Azure AD y también puede aplicar directivas de acceso condicional.
+* **Servicio Application Proxy**: Actúa como proxy inverso para enviar la solicitud del usuario a la aplicación local. Reside en Azure AD y también puede aplicar directivas de acceso condicional.
 
-* **Conector de Application Proxy** : Se instala de forma local en servidores Windows para proporcionar conectividad a las aplicaciones. Solo usa conexiones salientes. Devuelve la respuesta a Azure AD.
+* **Conector de Application Proxy**: Se instala de forma local en servidores Windows para proporcionar conectividad a las aplicaciones. Solo usa conexiones salientes. Devuelve la respuesta a Azure AD.
 
-* **Aplicaciones heredadas** : Aplicaciones que reciben solicitudes de usuario de Application Proxy. La aplicación heredada recibe los encabezados HTTP necesarios para configurar una sesión y devolver una respuesta. 
+* **Aplicaciones heredadas**: Aplicaciones que reciben solicitudes de usuario de Application Proxy. La aplicación heredada recibe los encabezados HTTP necesarios para configurar una sesión y devolver una respuesta. 
 
 ## <a name="implement-header-based-authentication-with-azure-ad"></a>Implementación de la autenticación basada en encabezados con Azure AD
 

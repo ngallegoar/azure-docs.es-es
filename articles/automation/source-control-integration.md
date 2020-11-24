@@ -3,20 +3,20 @@ title: Uso de la integración del control de código fuente en Azure Automation
 description: En este artículo se describe cómo sincronizar el control de código fuente de Azure Automation con otros repositorios.
 services: automation
 ms.subservice: process-automation
-ms.date: 12/10/2019
+ms.date: 11/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: eea4de106fe566b55ae30330d4c9d101f7126bbf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c2ddb0143bb9cba0dc2fc48ff9b9df94dc55c29c
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86229625"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94579460"
 ---
 # <a name="use-source-control-integration"></a>Uso de la integración del control de código fuente
 
  La integración del control de código fuente en Azure Automation permite la sincronización en una sola dirección desde el repositorio de control de código fuente. El control de código fuente permite mantener actualizados los runbooks de la cuenta de Automation con los scripts del repositorio de control de código fuente de GitHub o de Azure Repos. Esta característica facilita la promoción de código que se ha probado en el entorno de desarrollo a la cuenta de Automation de producción.
- 
- La integración del control de código fuente permite colaborar fácilmente con el equipo, realizar el seguimiento de los cambios y revertir a versiones anteriores de los runbooks. Por ejemplo, el control de código fuente permite sincronizar distintas ramas de control de código fuente con las cuentas de Automation de desarrollo, prueba o producción. 
+
+ La integración del control de código fuente permite colaborar fácilmente con el equipo, realizar el seguimiento de los cambios y revertir a versiones anteriores de los runbooks. Por ejemplo, el control de código fuente permite sincronizar distintas ramas de control de código fuente con las cuentas de Automation de desarrollo, prueba o producción.
 
 ## <a name="source-control-types"></a>Tipos de control de código fuente
 
@@ -47,11 +47,11 @@ Utilice este procedimiento para configurar el control de código fuente mediante
 
     ![Seleccionar control de código fuente](./media/source-control-integration/select-source-control.png)
 
-2. Elija **Tipo de control de código fuente** y, a continuación, haga clic en **Autenticar**. 
+2. Elija **Tipo de control de código fuente** y, a continuación, haga clic en **Autenticar**.
 
 3. Se abre una ventana del explorador y se le pide que inicie sesión. Siga las indicaciones para completar la autenticación.
 
-4. En la página Resumen del control de código fuente, utilice los campos para rellenar las propiedades del control de código fuente definidas a continuación. Haga clic en **Guardar** cuando termine. 
+4. En la página Resumen del control de código fuente, utilice los campos para rellenar las propiedades del control de código fuente definidas a continuación. Haga clic en **Guardar** cuando termine.
 
     |Propiedad  |Descripción  |
     |---------|---------|
@@ -73,9 +73,9 @@ Utilice este procedimiento para configurar el control de código fuente mediante
 
 ### <a name="configure-source-control-in-powershell"></a>Configuración del control de código fuente en PowerShell
 
-También puede usar PowerShell para configurar el control de código fuente en Azure Automation. Para usar cmdlets de PowerShell para esta operación, necesita un token de acceso personal (PAT). Utilice el cmdlet [New-AzAutomationSourceControl](/powershell/module/az.automation/new-azautomationsourcecontrol?view=azps-3.5.0) para crear la conexión al control de código fuente. Este cmdlet requiere una cadena segura para el PAT. Para obtener información sobre cómo crear una cadena segura, consulte [ConvertTo-SecureString](/powershell/module/microsoft.powershell.security/convertto-securestring?view=powershell-6).
+También puede usar PowerShell para configurar el control de código fuente en Azure Automation. Para usar cmdlets de PowerShell para esta operación, necesita un token de acceso personal (PAT). Utilice el cmdlet [New-AzAutomationSourceControl](/powershell/module/az.automation/new-azautomationsourcecontrol) para crear la conexión al control de código fuente. Este cmdlet requiere una cadena segura para el PAT. Para obtener información sobre cómo crear una cadena segura, consulte [ConvertTo-SecureString](/powershell/module/microsoft.powershell.security/convertto-securestring).
 
-En las subsecciones siguientes se muestra la creación de PowerShell de la conexión del control de código fuente para GitHub, Azure Repos (Git) y Azure Repos (TFVC). 
+En las subsecciones siguientes se muestra la creación de PowerShell de la conexión del control de código fuente para GitHub, Azure Repos (Git) y Azure Repos (TFVC).
 
 #### <a name="create-source-control-connection-for-github"></a>Creación de la conexión del control de código fuente para GitHub
 
@@ -116,13 +116,15 @@ En la tabla siguiente se definen los permisos mínimos necesarios de PAT para Gi
 |`repo:status`     | Acceder al estado de confirmación         |
 |`repo_deployment`      | Acceder al estado de implementación         |
 |`public_repo`     | Acceder a los repositorios públicos         |
+|`repo:invite` | Acceder a invitaciones de repositorio |
+|`security_events` | Leer y escribir eventos de seguridad |
 |**`admin:repo_hook`**     |         |
 |`write:repo_hook`     | Escribir los enlaces de repositorio         |
 |`read:repo_hook`|Leer los enlaces de repositorio|
 
 ##### <a name="minimum-pat-permissions-for-azure-repos"></a>Permisos mínimos de PAT para Azure Repos
 
-En la tabla siguiente se definen los permisos mínimos necesarios de PAT para Azure Repos. Para más información sobre cómo crear un token de acceso personal en Azure Repos, consulte [Autenticación del acceso con tokens de acceso personal](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=azure-devops&tabs=preview-page).
+En la tabla siguiente se definen los permisos mínimos necesarios de PAT para Azure Repos. Para más información sobre cómo crear un token de acceso personal en Azure Repos, consulte [Autenticación del acceso con tokens de acceso personal](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate).
 
 | Ámbito  |  Tipo de acceso  |
 |---------| ----------|
@@ -137,13 +139,13 @@ En la tabla siguiente se definen los permisos mínimos necesarios de PAT para Az
 
 ## <a name="synchronize-with-source-control"></a>Sincronización con el control de código fuente
 
-Siga estos pasos para sincronizar con el control de código fuente. 
+Siga estos pasos para sincronizar con el control de código fuente.
 
-1. Seleccione el código fuente en la tabla de la página Control de código fuente. 
+1. Seleccione el código fuente en la tabla de la página Control de código fuente.
 
-2. Haga clic en **Iniciar sincronización** para iniciar el proceso de sincronización. 
+2. Haga clic en **Iniciar sincronización** para iniciar el proceso de sincronización.
 
-3. Para ver el estado del trabajo de sincronización actual o de los anteriores, haga clic en la pestaña **Trabajos de sincronización**. 
+3. Para ver el estado del trabajo de sincronización actual o de los anteriores, haga clic en la pestaña **Trabajos de sincronización**.
 
 4. En el menú desplegable **Control de código fuente**, seleccione un mecanismo de control de código fuente.
 
@@ -189,13 +191,13 @@ Para desconectarse de un repositorio de control de código fuente:
 
 1. Abra **Control de código fuente** en **Configuración de la cuenta** de la cuenta de Automation.
 
-2. Seleccione el mecanismo de control de código fuente que desea eliminar. 
+2. Seleccione el mecanismo de control de código fuente que desea eliminar.
 
 3. En la página Resumen del trabajo de sincronización del control de código fuente, haga clic en **Eliminar**.
 
 ## <a name="handle-encoding-issues"></a>Control de los problemas de codificación
 
-Si varias personas editan runbooks en el repositorio de control de código fuente con diferentes editores, pueden darse problemas de codificación. Para más información sobre esta situación, consulte [Causas comunes de problemas de codificación](/powershell/scripting/components/vscode/understanding-file-encoding?view=powershell-7#common-causes-of-encoding-issues).
+Si varias personas editan runbooks en el repositorio de control de código fuente con diferentes editores, pueden darse problemas de codificación. Para más información sobre esta situación, consulte [Causas comunes de problemas de codificación](/powershell/scripting/components/vscode/understanding-file-encoding#common-causes-of-encoding-issues).
 
 ## <a name="update-the-pat"></a>Actualización del token de acceso personal
 

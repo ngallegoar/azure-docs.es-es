@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
 ms.date: 09/04/2020
-ms.openlocfilehash: 3910b6ffcce6c5bc4a8d565071c4b07db9e3ff63
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: dff2488094bd9abde44b8d8a8d7a44d4f79a12e0
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92279017"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94592692"
 ---
 # <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-power-automate"></a>Guía de referencia para usar las funciones en las expresiones para Azure Logic Apps y Power Automate
 
@@ -3925,12 +3925,12 @@ substring('<text>', <startIndex>, <length>)
 | --------- | -------- | ---- | ----------- |
 | <*texto*> | Sí | String | Cadena cuyos caracteres se toman |
 | <*startIndex*> | Sí | Entero | Un número positivo igual o mayor que 0 que desea utilizar como el valor de índice o la posición inicial |
-| <*longitud*> | Sí | Entero | Número positivo de caracteres que desea incluir en la subcadena |
+| <*longitud*> | No | Entero | Número positivo de caracteres que desea incluir en la subcadena |
 |||||
 
 > [!NOTE]
 > Asegúrese de que la suma de agregar los valores de parámetro *startIndex* y *length* sea menor que la longitud de la cadena que se proporciona para el parámetro *text*.
-> De lo contrario, recibirá un error, a diferencia de funciones similares en otros lenguajes, donde el resultado es la subcadena de *startIndex* al final de la cadena.
+> De lo contrario, recibirá un error, a diferencia de funciones similares en otros lenguajes, donde el resultado es la subcadena de *startIndex* al final de la cadena. El parámetro *length* es opcional y, si no se proporciona, la función **substring()** toma todos los caracteres comprendidos entre *startIndex* y el final de la cadena.
 
 | Valor devuelto | Tipo | Descripción |
 | ------------ | ---- | ----------- |

@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: include
 ms.date: 10/26/2020
 ms.author: pafarley
-ms.openlocfilehash: 44c1e55d60fb35ba510d99535c50c7919b29253e
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 1299cbf1b837315a1a95c8a2ec2e4ed0706d959c
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92918716"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94816920"
 ---
 Comience a usar el reconocimiento facial con la biblioteca cliente de Face para .NET. Siga estos pasos para instalar el paquete y probar el código de ejemplo para realizar tareas básicas. El servicio Face le proporciona acceso a algoritmos avanzados para detectar y reconocer rostros humanas en imágenes.
 
@@ -135,11 +135,11 @@ En un nuevo método, cree una instancia de un cliente con la clave y el punto de
 
 ### <a name="declare-helper-fields"></a>Declaración de campos auxiliares
 
-Los siguientes campos son necesarios para algunas de las operaciones de Face que agregará más adelante. En la raíz de la clase **Program** , defina la siguiente cadena de dirección URL. Esta dirección URL señala a una carpeta de imágenes de ejemplo.
+Los siguientes campos son necesarios para algunas de las operaciones de Face que agregará más adelante. En la raíz de la clase **Program**, defina la siguiente cadena de dirección URL. Esta dirección URL señala a una carpeta de imágenes de ejemplo.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_image_url)]
 
-En el método **Main** , defina cadenas que apunten a los diferentes tipos de modelos de reconocimiento. Más adelante, podrá especificar qué modelo de reconocimiento desea usar para la detección de caras. Consulte [Especificación de un modelo de reconocimiento](../../Face-API-How-to-Topics/specify-recognition-model.md) para información sobre estas opciones.
+En el método **Main**, defina cadenas que apunten a los diferentes tipos de modelos de reconocimiento. Más adelante, podrá especificar qué modelo de reconocimiento desea usar para la detección de caras. Consulte [Especificación de un modelo de reconocimiento](../../Face-API-How-to-Topics/specify-recognition-model.md) para información sobre estas opciones.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_detect_models)]
 
@@ -184,7 +184,7 @@ El siguiente código imprime los detalles coincidentes en la consola:
 
 ## <a name="identify-a-face"></a>Identificar una cara
 
-La operación de identificación toma una imagen de una persona (o de varias) y busca la identidad de cada una de las caras de la imagen (búsqueda de reconocimiento facial). Compara cada cara detectada con un objeto **PersonGroup** , una base de datos con distintos objetos **Person** cuyos rasgos faciales se conocen. Para realizar la operación de identificación, primero debe crear y entrenar un objeto **PersonGroup**.
+La operación de identificación toma una imagen de una persona (o de varias) y busca la identidad de cada una de las caras de la imagen (búsqueda de reconocimiento facial). Compara cada cara detectada con un objeto **PersonGroup**, una base de datos con distintos objetos **Person** cuyos rasgos faciales se conocen. Para realizar la operación de identificación, primero debe crear y entrenar un objeto **PersonGroup**.
 
 ### <a name="create-a-person-group"></a>Creación de un grupo de personas
 
@@ -212,6 +212,9 @@ A continuación, agregue el código siguiente para crear un objeto **Person** pa
 Una vez que haya extraído los datos faciales de las imágenes y los haya ordenado en objetos **Person** diferentes, debe entrenar el objeto **PersonGroup** para identificar las características visuales asociadas a cada uno de sus objetos **Person**. El siguiente código llama al método **train** asincrónico, sondea los resultados e imprime el estado en la consola.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_persongroup_train)]
+
+> [!TIP]
+> API Face se ejecuta en un conjunto de modelos precompilados que son estáticos por naturaleza (el rendimiento del modelo no empeorará ni mejorará si se ejecuta el servicio). Los resultados que genera el modelo pueden cambiar si Microsoft actualiza su back-end sin migrar a una versión de modelo completamente nueva. Para aprovechar las ventajas de una versión más reciente de un modelo, puede volver a entrenar **PersonGroup**, pero especifique el modelo más reciente como parámetro con las mismas imágenes de inscripción.
 
 Este grupo de objetos **Person** y sus objetos **Person** asociados ya están listos para usarse en las operaciones de comprobación, identificación o agrupación.
 

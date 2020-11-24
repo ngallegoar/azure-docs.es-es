@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 21188f473cbd5a6fd2a1ee549f47ad9b0e5b8af3
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.openlocfilehash: 083d868f2d2652be9480227c29dfb289564056d6
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93279490"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94533793"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-portal"></a>Administración de puntos de conexión y rutas en Azure Digital Twins (portal)
 
@@ -22,7 +22,7 @@ En Azure Digital Twins, se pueden enrutar [notificaciones de eventos](how-to-int
 
 Este artículo le guía por el proceso de creación de puntos de conexión y rutas mediante [Azure Portal](https://portal.azure.com).
 
-También puede administrar los puntos de conexión y las rutas con las [API Event Routes](/rest/api/digital-twins/dataplane/eventroutes), el [SDK para .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true) o la [CLI de Azure Digital Twins](how-to-use-cli.md). Se puede encontrar una versión de este artículo donde se usan estos mecanismos en lugar del portal en [*Procedimiento: Administración de puntos de conexión y rutas (API y CLI)*](how-to-manage-routes-apis-cli.md).
+También puede administrar los puntos de conexión y las rutas con las [API de Event Routes](/rest/api/digital-twins/dataplane/eventroutes), los [SDK](how-to-use-apis-sdks.md#overview-data-plane-apis) o la [CLI de Azure Digital Twins](how-to-use-cli.md). Se puede encontrar una versión de este artículo donde se usan estos mecanismos en lugar del portal en [*Procedimiento: Administración de puntos de conexión y rutas (API y CLI)*](how-to-manage-routes-apis-cli.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -52,7 +52,7 @@ Para vincular un punto de conexión a Azure Digital Twins, es necesario que ya e
 
 ### <a name="create-an-event-grid-endpoint"></a>Creación de un punto de conexión de Event Grid
 
-**Requisito previo** : Cree un tema de Event Grid siguiendo los pasos descritos en [la sección *Creación de un tema personalizado*](../event-grid/custom-event-quickstart-portal.md#create-a-custom-topic) del inicio rápido *Eventos personalizados* de Event Grid.
+**Requisito previo**: Cree un tema de Event Grid siguiendo los pasos descritos en [la sección *Creación de un tema personalizado*](../event-grid/custom-event-quickstart-portal.md#create-a-custom-topic) del inicio rápido *Eventos personalizados* de Event Grid.
 
 Después de crear el tema, puede vincularlo a Azure Digital Twins desde la página de la instancia de este servicio en [Azure Portal](https://portal.azure.com) (para encontrar la instancia, escriba su nombre en la barra de búsqueda del portal).
 
@@ -72,11 +72,11 @@ También se puede ver el punto de conexión que se ha creado de vuelta en la pá
 
 Si se produce un error en la creación del punto de conexión, observe el mensaje de error y vuelva a intentarlo al cabo de unos minutos.
 
-Ahora, el tema de Event Grid está disponible como punto de conexión dentro de Azure Digital Twins, con el nombre especificado en el campo _Name_ (Nombre). Normalmente se usará ese nombre como destino de una **ruta de evento** , que se creará [más tarde en este artículo](#create-an-event-route).
+Ahora, el tema de Event Grid está disponible como punto de conexión dentro de Azure Digital Twins, con el nombre especificado en el campo _Name_ (Nombre). Normalmente se usará ese nombre como destino de una **ruta de evento**, que se creará [más tarde en este artículo](#create-an-event-route).
 
 ### <a name="create-an-event-hubs-endpoint"></a>Creación de un punto de conexión de Event Hubs
 
-**Requisitos previos** : 
+**Requisitos previos**: 
 * Se necesita un _espacio de nombres de Event Hubs_ y un _centro de eventos_. Para crearlos, siga los pasos del inicio rápido [*Creación de un centro de eventos*](../event-hubs/event-hubs-create.md) de Event Hubs.
 * Se necesita una _regla de autorización_. Para crearla, consulte el artículo [*Autorización del acceso a recursos de Event Hubs mediante firmas de acceso compartido*](../event-hubs/authorize-access-shared-access-signature.md) de Event Hubs.
 
@@ -94,11 +94,11 @@ Para comprobar que el punto de conexión se ha creado correctamente, examine el 
 
 Si se produce un error en la creación del punto de conexión, observe el mensaje de error y vuelva a intentarlo al cabo de unos minutos.
 
-Ahora, el centro de eventos está disponible como punto de conexión dentro de Azure Digital Twins, con el nombre especificado en el campo _Name_ (Nombre). Normalmente se usará ese nombre como destino de una **ruta de evento** , que se creará [más tarde en este artículo](#create-an-event-route).
+Ahora, el centro de eventos está disponible como punto de conexión dentro de Azure Digital Twins, con el nombre especificado en el campo _Name_ (Nombre). Normalmente se usará ese nombre como destino de una **ruta de evento**, que se creará [más tarde en este artículo](#create-an-event-route).
 
 ### <a name="create-a-service-bus-endpoint"></a>Creación de un punto de conexión de Service Bus
 
-**Requisitos previos** : 
+**Requisitos previos**: 
 * Se necesita un _espacio de nombres de Service Bus_ y un _tema de Service Bus_. Para crear ambos, siga los pasos del inicio rápido [*Creación de temas y suscripciones*](../service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal.md) de Service Bus. No es necesario completar la sección [*Crear suscripciones al tema*](../service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal.md#create-subscriptions-to-the-topic).
 * Se necesita una _regla de autorización_. Para crearla, consulte el artículo [*Autenticación y autorización*](../service-bus-messaging/service-bus-authentication-and-authorization.md#shared-access-signature) de Service Bus.
 
@@ -116,7 +116,7 @@ Para comprobar que el punto de conexión se ha creado correctamente, examine el 
 
 Si se produce un error en la creación del punto de conexión, observe el mensaje de error y vuelva a intentarlo al cabo de unos minutos.
 
-Ahora, el tema de Service Bus está disponible como punto de conexión dentro de Azure Digital Twins, con el nombre especificado en el campo _Name_ (Nombre). Normalmente se usará ese nombre como destino de una **ruta de evento** , que se creará [más tarde en este artículo](#create-an-event-route).
+Ahora, el tema de Service Bus está disponible como punto de conexión dentro de Azure Digital Twins, con el nombre especificado en el campo _Name_ (Nombre). Normalmente se usará ese nombre como destino de una **ruta de evento**, que se creará [más tarde en este artículo](#create-an-event-route).
 
 ### <a name="create-an-endpoint-with-dead-lettering"></a>Creación de un punto de conexión con colas de mensajes fallidos
 
@@ -130,7 +130,7 @@ Para obtener instrucciones sobre cómo hacerlo con las API, vea la versión [*AP
 
 Para enviar datos de Azure Digital Twins a un punto de conexión, debe definir una **ruta de eventos**. Estas rutas permiten a los desarrolladores conectar el flujo de eventos a lo largo del sistema y a los servicios de nivel inferior. Obtenga más información sobre las rutas de eventos en [*Conceptos: Enrutamiento de eventos de Azure Digital Twins*](concepts-route-events.md).
 
-**Requisito previo** : Debe crear puntos de conexión como se describió anteriormente en este artículo para poder continuar con la creación de una ruta. Puede continuar con la creación de una ruta de evento una vez finalizada la configuración de los puntos de conexión.
+**Requisito previo**: Debe crear puntos de conexión como se describió anteriormente en este artículo para poder continuar con la creación de una ruta. Puede continuar con la creación de una ruta de evento una vez finalizada la configuración de los puntos de conexión.
 
 >[!NOTE]
 >Si ha implementado recientemente los puntos de conexión, compruebe que se haya completado la implementación **antes** de intentar usarlos para una nueva ruta de evento. Si no puede configurar la ruta porque los puntos de conexión no están listos, espere unos minutos y vuelva a intentarlo.

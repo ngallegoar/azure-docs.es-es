@@ -3,12 +3,12 @@ title: Restauración de recursos compartidos de archivos de Azure con la CLI de 
 description: Aprenda a usar la CLI de Azure para restaurar recursos compartidos de archivos de Azure con copia de seguridad en almacenes de Recovery Services
 ms.topic: conceptual
 ms.date: 01/16/2020
-ms.openlocfilehash: be744fdb79f442eaf0ef632952d9c0b9e709d908
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a025de7bfb9db037b2008d69be7782feabb482f3
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91325018"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94562328"
 ---
 # <a name="restore-azure-file-shares-with-the-azure-cli"></a>Restauración de recursos compartidos de archivos de Azure con la CLI de Azure
 
@@ -23,20 +23,20 @@ Al acabar este tutorial, habrá aprendido cómo realizar las siguientes operacio
 >[!NOTE]
 > Azure Backup admite ahora la restauración de varios archivos o carpetas en la ubicación original o alternativa mediante la CLI de Azure. Consulte la sección [Restauración de varios archivos o carpetas en una ubicación original o alternativa](#restore-multiple-files-or-folders-to-original-or-alternate-location) de este documento para obtener más información.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-Para instalar y usar la CLI localmente, debe ejecutar la versión 2.0.18 de la CLI de Azure o una posterior. Para averiguar la versión de la CLI, ejecute `az --version`. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli).
-
 ## <a name="prerequisites"></a>Prerrequisitos
 
 En este artículo se presupone que ya tiene un recurso compartido de archivos de Azure con una copia de seguridad hecha con Azure Backup. Si no la tiene, consulte [Copia de seguridad de recursos compartidos de archivos de Azure con la CLI](backup-afs-cli.md) para configurar la copia de seguridad para los recursos compartidos de archivos. En este artículo, se usarán los siguientes recursos:
 
-| Recurso compartido de archivos  | Cuenta de almacenamiento | Region | Detalles                                                      |
-| ----------- | --------------- | ------ | ------------------------------------------------------------ |
-| *azurefiles*  | *afsaccount*      | EastUS | Copia de seguridad de origen hecha con Azure Backup                 |
-| *azurefiles1* | *afaccount1*      | EastUS | Origen de destino para la recuperación de ubicación alternativa |
+| Recurso compartido de archivos | Cuenta de almacenamiento | Region | Detalles |
+|---|---|---|---|
+| *azurefiles* | *afsaccount* | EastUS | Copia de seguridad de origen hecha con Azure Backup |
+| *azurefiles1* | *afaccount1* | EastUS | Origen de destino para la recuperación de ubicación alternativa |
 
 Puede usar una estructura similar para los recursos compartidos de archivos para probar los distintos tipos de restauraciones que se explican en este artículo.
+
+[!INCLUDE [azure-cli-prepare-your-environment-h3.md](../../includes/azure-cli-prepare-your-environment-h3.md)]
+
+ - Este tutorial requiere la versión 2.0.18 o posterior de la CLI de Azure. Si usa Azure Cloud Shell, ya está instalada la versión más reciente.
 
 ## <a name="fetch-recovery-points-for-the-azure-file-share"></a>Captura de puntos de recuperación para el recurso compartido de archivos de Azure
 

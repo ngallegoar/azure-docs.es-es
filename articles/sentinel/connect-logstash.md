@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/10/2020
 ms.author: yelevin
-ms.openlocfilehash: 7fe47289dcc6b6d6af4d13b36b5c3b1dae3baaf5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 247abafd7abec38e43794b76268ee52538aee508
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89663397"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94655687"
 ---
 # <a name="use-logstash-to-connect-data-sources-to-azure-sentinel"></a>Uso de Logstash para conectar orígenes de datos a Azure Sentinel
 
@@ -48,8 +48,8 @@ El motor de Logstash consta de tres componentes:
 
 El complemento de salida de Azure Sentinel para Logstash envía datos con formato JSON al área de trabajo de Log Analytics, mediante la API REST de recopilación de datos HTTP de Log Analytics. Los datos se ingieren en los registros personalizados.
 
-- Más información sobre la [API REST de Log Analytics](https://docs.microsoft.com/rest/api/loganalytics/create-request).
-- Más información sobre los [registros personalizados](https://docs.microsoft.com/azure/azure-monitor/platform/data-sources-custom-logs).
+- Más información sobre la [API REST de Log Analytics](/rest/api/loganalytics/create-request).
+- Más información sobre los [registros personalizados](../azure-monitor/platform/data-sources-custom-logs.md).
 
 ## <a name="deploy-the-azure-sentinel-output-plugin-in-logstash"></a>Implementación del complemento de salida de Azure Sentinel en Logstash
 
@@ -57,7 +57,7 @@ El complemento de salida de Azure Sentinel para Logstash envía datos con format
 
 El complemento de salida de Azure Sentinel está disponible en la colección de Logstash.
 
-- Siga las instrucciones que aparecen en el documento de Logstash sobre cómo [usar los complementos](https://www.elastic.co/guide/en/logstash/current/working-with-plugins.html) para instalar el complemento ***microsoft-logstash-output-azure-loganalytics***.
+- Siga las instrucciones que aparecen en el documento de Logstash sobre cómo [usar los complementos](https://www.elastic.co/guide/en/logstash/current/working-with-plugins.html) para instalar el complemento **_microsoft-logstash-output-azure-loganalytics_*.
    
 - Si el sistema de Logstash no tiene acceso a Internet, siga las instrucciones del documento de Logstash sobre [administración de complementos sin conexión](https://www.elastic.co/guide/en/logstash/current/offline-plugins.html) para preparar y usar un paquete de complementos sin conexión. Para ello, hay que compilar otro sistema de Logstash con acceso a Internet.
 
@@ -67,7 +67,7 @@ Use la información del documento [Estructura de un archivo de configuración](h
 
 | Nombre del campo | Tipo de datos | Descripción |
 |----------------|---------------|-----------------|
-| `workspace_id` | string | Escriba el GUID del identificador del área de trabajo. * |
+| `workspace_id` | string | Escriba el GUID del identificador del área de trabajo. _ |
 | `workspace_key` | string | Escriba el GUID de la clave principal del área de trabajo. * |
 | `custom_log_table_name` | string | Establezca el nombre de la tabla en la que se van a ingerir los registros. Solo se puede configurar un nombre de tabla por complemento de salida. La tabla de registros aparecerá en Azure Sentinel en **Registros**, en **Tablas**, categoría **Registros personalizados**, con un sufijo `_CL`. |
 | `endpoint` | string | Campo opcional. De forma predeterminada, es el punto de conexión de Log Analytics. Utilice este campo para establecer un punto de conexión alternativo. |
@@ -162,7 +162,7 @@ Estas son algunas configuraciones de ejemplo que usan algunas opciones diferente
 
 1. Para ver los registros de la tabla, consulte la tabla usando su nombre como esquema.
 
-   :::image type="content" source="./media/connect-logstash/logstash-custom-logs-query.png" alt-text="Captura de pantalla de registros personalizados de Logstash.":::
+   :::image type="content" source="./media/connect-logstash/logstash-custom-logs-query.png" alt-text="Captura de pantalla de una consulta de registros personalizados de Logstash.":::
 
 ## <a name="monitor-output-plugin-audit-logs"></a>Supervisión de registros de auditoría de complementos de salida
 

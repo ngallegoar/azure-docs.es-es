@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/30/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 0f147a317b16a4a581fad18bd48dbd38059e9a8c
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: a6f53d6ce41085b2348857ccb5b45c06132d6a99
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93146077"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94655466"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-schedule"></a>Creación de un desencadenador que ejecuta una canalización en una programación
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -50,13 +50,13 @@ Puede crear un **programador de desencadenador** para programar la ejecución de
 
     1. Asegúrese de que **Programación** está seleccionado para **Tipo**.
     1. Especifique la fecha y hora de inicio del desencadenador para **Fecha de inicio**. De forma predeterminada, se establece la fecha y hora actuales en la hora universal coordinada (UTC).
-    1. Especifique la zona horaria en la que se creará el desencadenador. La configuración de zona horaria se aplicará a **Fecha de inicio** , **Fecha de finalización** y **Programar tiempos de ejecución** en las opciones avanzadas de periodicidad. Al cambiar la configuración de la zona horaria no se cambiará automáticamente la fecha de inicio. Asegúrese de que la fecha de inicio es correcta en la zona horaria especificada.
+    1. Especifique la zona horaria en la que se creará el desencadenador. La configuración de zona horaria se aplicará a **Fecha de inicio**, **Fecha de finalización** y **Programar tiempos de ejecución** en las opciones avanzadas de periodicidad. Al cambiar la configuración de la zona horaria no se cambiará automáticamente la fecha de inicio. Asegúrese de que la fecha de inicio es correcta en la zona horaria especificada. Tenga en cuenta que el tiempo de ejecución programado del desencadenador se considerará posterior a la fecha de inicio (asegúrese de que la fecha de inicio es de al menos 1 minuto menos que el tiempo de ejecución; de lo contrario, se desencadenará la canalización en la siguiente periodicidad). 
 
         > [!NOTE]
         > En el caso de las zonas horarias que se adaptan a la hora de verano, la hora del desencadenador se ajustará automáticamente en los dos cambios que se producen al año. Para no cambiar en función del horario de verano, seleccione una zona horaria que no se adapte al horario de verano, como UTC.
 
     1. Especifique **Periodicidad** para el desencadenador. Seleccione uno de los valores de la lista desplegable (cada minuto, cada hora, diariamente, semanalmente y mensualmente). Introduzca el multiplicador en el cuadro de texto. Por ejemplo, si desea que el desencadenador se ejecute una vez para cada 15 minutos, seleccione **Cada minuto** y escriba **15** en el cuadro de texto. 
-    1. Para especificar una fecha y hora de finalización, seleccione **Especificar una fecha de finalización** , especifique _Termina el_ y luego seleccione **Aceptar**. Hay un costo asociado a cada ejecución de canalización. Si está realizando pruebas, es posible que quiera asegurarse de que la canalización se desencadena solo un par de veces. No obstante, asegúrese de que hay tiempo suficiente para que la canalización se ejecute entre la hora de publicación y la hora de finalización. El desencadenador entra en vigor después de publicar la solución en Data Factory, no cuando se guarda el desencadenador en la interfaz de usuario.
+    1. Para especificar una fecha y hora de finalización, seleccione **Especificar una fecha de finalización**, especifique _Termina el_ y luego seleccione **Aceptar**. Hay un costo asociado a cada ejecución de canalización. Si está realizando pruebas, es posible que quiera asegurarse de que la canalización se desencadena solo un par de veces. No obstante, asegúrese de que hay tiempo suficiente para que la canalización se ejecute entre la hora de publicación y la hora de finalización. El desencadenador entra en vigor después de publicar la solución en Data Factory, no cuando se guarda el desencadenador en la interfaz de usuario.
 
         ![Configuración del desencadenador](./media/how-to-create-schedule-trigger/trigger-settings-01.png)
 
@@ -129,32 +129,32 @@ En esta sección se muestra cómo usar Azure PowerShell para crear, iniciar y su
     - El elemento **endTime** es una hora después del valor del elemento **startTime**. Por lo tanto, el desencadenador ejecuta la canalización 15 minutos, 30 minutos y 45 minutos después de la hora de inicio. No se olvide de actualizar el valor de start_time a la hora UTC actual y end_time a una hora posterior a la hora de inicio. 
 
         > [!IMPORTANT]
-        > En el caso de la zona horaria UTC, los valores de startTime y endTime deben seguir el formato "aaaa-MM-ddTHH:mm:SS **Z** ", mientras que para otras zonas horarias, startTime y endTime siguen "aaaa-MM-ddTHH:mm:ss". 
+        > En el caso de la zona horaria UTC, los valores de startTime y endTime deben seguir el formato "aaaa-MM-ddTHH:mm:SS **Z**", mientras que para otras zonas horarias, startTime y endTime siguen "aaaa-MM-ddTHH:mm:ss". 
         > 
         > De acuerdo con la norma ISO 8601, el sufijo _Z_ añadido a la marca de tiempo señala la fecha y hora en la zona horaria UTC y hace innecesario el campo de zona horaria. Si falta el sufijo _Z_ para la zona horaria UTC, se producirá un error en la _activación_ del desencadenador.
 
     - El desencadenador está asociado con la canalización **Adfv2QuickStartPipeline**. Para asociar varias canalizaciones con un desencadenador, agregue más secciones **pipelineReference**.
-    - La canalización de la guía de inicio rápido toma dos valores de **parámetros** : **inputPath** y **outputPath**. Y debe pasar valores para esos parámetros desde el desencadenador.
+    - La canalización de la guía de inicio rápido toma dos valores de **parámetros**: **inputPath** y **outputPath**. Y debe pasar valores para esos parámetros desde el desencadenador.
 
-1. Cree un desencadenador mediante el cmdlet **Set-AzDataFactoryV2Trigger** :
+1. Cree un desencadenador mediante el cmdlet **Set-AzDataFactoryV2Trigger**:
 
     ```powershell
     Set-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger" -DefinitionFile "C:\ADFv2QuickStartPSH\MyTrigger.json"
     ```
 
-1. Confirme que el estado del desencadenador es **Detenido** mediante el cmdlet **Get-AzDataFactoryV2Trigger** :
+1. Confirme que el estado del desencadenador es **Detenido** mediante el cmdlet **Get-AzDataFactoryV2Trigger**:
 
     ```powershell
     Get-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
 
-1. Inicie el desencadenador mediante el cmdlet **Start-AzDataFactoryV2Trigger** :
+1. Inicie el desencadenador mediante el cmdlet **Start-AzDataFactoryV2Trigger**:
 
     ```powershell
     Start-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
 
-1. Confirme que el estado del desencadenador es **Iniciado** mediante el cmdlet **Get-AzDataFactoryV2Trigger** :
+1. Confirme que el estado del desencadenador es **Iniciado** mediante el cmdlet **Get-AzDataFactoryV2Trigger**:
 
     ```powershell
     Get-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
@@ -287,7 +287,7 @@ Para supervisar las ejecuciones del desencadenador y de la canalización en Azur
 Puede usar una plantilla de Azure Resource Manager para crear un desencadenador. Para obtener instrucciones detalladas, consulte [Creación de una instancia de Azure Data Factory mediante una plantilla de Resource Manager](quickstart-create-data-factory-resource-manager-template.md).  
 
 ## <a name="pass-the-trigger-start-time-to-a-pipeline"></a>Transmisión de la hora de inicio del desencadenador a una canalización
-La versión 1 de Azure Data Factory admite la lectura y la escritura de datos con particiones por medio de las variables del sistema **SliceStart** , **SliceEnd** , **WindowStart** y **WindowEnd**. En la versión actual de Azure Data Factory, puede lograr este comportamiento con un parámetro de la canalización. La hora de inicio y la hora programada para el desencadenador se establecen como el valor del parámetro de la canalización. En el siguiente ejemplo, la hora programada del desencadenador se pasa como un valor al parámetro de canalización **scheduledRunTime**.
+La versión 1 de Azure Data Factory admite la lectura y la escritura de datos con particiones por medio de las variables del sistema **SliceStart**, **SliceEnd**, **WindowStart** y **WindowEnd**. En la versión actual de Azure Data Factory, puede lograr este comportamiento con un parámetro de la canalización. La hora de inicio y la hora programada para el desencadenador se establecen como el valor del parámetro de la canalización. En el siguiente ejemplo, la hora programada del desencadenador se pasa como un valor al parámetro de canalización **scheduledRunTime**.
 
 ```json
 "parameters": {
@@ -353,14 +353,14 @@ En la tabla siguiente se muestra una descripción general de los elementos del e
 |:--- |:--- |
 | **startTime** | Valor de fecha y hora. Para las programaciones simples, se aplica el valor de la propiedad **startTime** al primer caso. Para las programaciones complejas, el desencadenador no se inicia antes del valor de **startTime** especificado. <br> En el caso de la zona horaria UTC, el formato es `'yyyy-MM-ddTHH:mm:ssZ'`, para otra zona horaria, el formato es `'yyyy-MM-ddTHH:mm:ss'`. |
 | **endTime** | Fecha y hora de finalización para el desencadenador. El desencadenador no se ejecuta después de la fecha y hora de finalización especificadas. El valor de la propiedad no puede estar en el pasado. Esta propiedad es opcional.  <br> En el caso de la zona horaria UTC, el formato es `'yyyy-MM-ddTHH:mm:ssZ'`, para otra zona horaria, el formato es `'yyyy-MM-ddTHH:mm:ss'`. |
-| **timeZone** | Zona horaria en la que se crea el desencadenador. Esta configuración afecta a **startTime** , **endTime** y **schedule**. Vea la [lista de zonas horarias admitidas](#time-zone-option). |
-| **recurrence** | Objeto que especifica las reglas de periodicidad para el desencadenador. El objeto recurrence admite los elementos **frequency** , **interval** , **endTime** , **count** y **schedule**. Cuando se define un objeto recurrence, es necesario el elemento **frequency**. Los demás elementos del objeto recurrence son opcionales. |
+| **timeZone** | Zona horaria en la que se crea el desencadenador. Esta configuración afecta a **startTime**, **endTime** y **schedule**. Vea la [lista de zonas horarias admitidas](#time-zone-option). |
+| **recurrence** | Objeto que especifica las reglas de periodicidad para el desencadenador. El objeto recurrence admite los elementos **frequency**, **interval**, **endTime**, **count** y **schedule**. Cuando se define un objeto recurrence, es necesario el elemento **frequency**. Los demás elementos del objeto recurrence son opcionales. |
 | **frequency** | Unidad de frecuencia a la que se repite el desencadenador. Los valores admitidos son "minute", "hour", "day", "week" y "month". |
-| **interval** | Un entero positivo que indica el intervalo para el valor **frequency** , que determina la frecuencia con la que se ejecuta el desencadenador. Por ejemplo, si **interval** es 3 y **frequency** es “week”, el desencadenador se repite cada tres semanas. |
+| **interval** | Un entero positivo que indica el intervalo para el valor **frequency**, que determina la frecuencia con la que se ejecuta el desencadenador. Por ejemplo, si **interval** es 3 y **frequency** es “week”, el desencadenador se repite cada tres semanas. |
 | **schedule** | La programación de periodicidad para el desencadenador. Un desencadenador con valor de **frequency** especificado modifica su periodicidad según una programación periódica. La propiedad **schedule** contiene modificaciones de la periodicidad basadas en minutos, horas, días de la semana, días del mes y número de semana.
 
 > [!IMPORTANT]
-> En el caso de la zona horaria UTC, los valores de startTime y endTime deben seguir el formato "aaaa-MM-ddTHH:mm:SS **Z** ", mientras que para otras zonas horarias, startTime y endTime siguen "aaaa-MM-ddTHH:mm:ss". 
+> En el caso de la zona horaria UTC, los valores de startTime y endTime deben seguir el formato "aaaa-MM-ddTHH:mm:SS **Z**", mientras que para otras zonas horarias, startTime y endTime siguen "aaaa-MM-ddTHH:mm:ss". 
 > 
 > De acuerdo con la norma ISO 8601, el sufijo _Z_ añadido a la marca de tiempo señala la fecha y hora en la zona horaria UTC y hace innecesario el campo de zona horaria. Si falta el sufijo _Z_ para la zona horaria UTC, se producirá un error en la _activación_ del desencadenador.
 
@@ -413,7 +413,7 @@ Por un lado, el uso de una programación puede limitar el número de ejecuciones
 
 En cambio, una programación también puede ampliar el número de ejecuciones de desencadenadores. Por ejemplo, un desencadenador con una frecuencia mensual programado para ejecutarse en los días 1 y 2 del mes, se ejecuta el primer y segundo día del mes, en lugar de una vez al mes.
 
-Si se especifican varios elementos de **schedule** , el orden de evaluación es de la configuración de programación mayor a menor. La evaluación empieza por el número de semana y, después, el día del mes, el día de la semana, la hora y, finalmente, los minutos.
+Si se especifican varios elementos de **schedule**, el orden de evaluación es de la configuración de programación mayor a menor. La evaluación empieza por el número de semana y, después, el día del mes, el día de la semana, la hora y, finalmente, los minutos.
 
 En la siguiente tabla se describen los elementos de **schedule** con detalle:
 
@@ -423,7 +423,7 @@ En la siguiente tabla se describen los elementos de **schedule** con detalle:
 | **minutes** | Minutos de la hora en la que se ejecuta el desencadenador. | <ul><li>Entero</li><li>Matriz de enteros</li></ul>
 | **hours** | Horas del día en la que se ejecuta el desencadenador. | <ul><li>Entero</li><li>Matriz de enteros</li></ul> |
 | **weekDays** | Días de la semana en los que se ejecuta el desencadenador. El valor solo se puede especificar con una frecuencia semanal. | <ul><li>Lunes, martes, miércoles, jueves, viernes, sábado, domingo</li><li>Matriz de valores de día (el tamaño máximo de la matriz es 7)</li><li>Los valores de día no distinguen mayúsculas de minúsculas.</li></ul> |
-| **monthlyOccurrences** | Días del mes en los que se ejecuta el desencadenador. El valor solo se puede especificar con una frecuencia mensual. | <ul><li>Matriz de objetos de **monthlyOccurrence** : `{ "day": day,  "occurrence": occurrence }`.</li><li>El atributo **day** es el día de la semana en el que se ejecuta el desencadenador. Por ejemplo, una propiedad **monthlyOccurrences** con un valor de **day** de `{Sunday}` significa todos los domingos del mes. Se necesita un atributo **day**.</li><li>El atributo **occurrence** es la repetición del elemento **day** especificado durante el mes. Por ejemplo, una propiedad **monthlyOccurrences** valores de **day** y **occurrence** de `{Sunday, -1}` implica el último domingo del mes. El atributo **occurrence** es opcional.</li></ul> |
+| **monthlyOccurrences** | Días del mes en los que se ejecuta el desencadenador. El valor solo se puede especificar con una frecuencia mensual. | <ul><li>Matriz de objetos de **monthlyOccurrence**: `{ "day": day,  "occurrence": occurrence }`.</li><li>El atributo **day** es el día de la semana en el que se ejecuta el desencadenador. Por ejemplo, una propiedad **monthlyOccurrences** con un valor de **day** de `{Sunday}` significa todos los domingos del mes. Se necesita un atributo **day**.</li><li>El atributo **occurrence** es la repetición del elemento **day** especificado durante el mes. Por ejemplo, una propiedad **monthlyOccurrences** valores de **day** y **occurrence** de `{Sunday, -1}` implica el último domingo del mes. El atributo **occurrence** es opcional.</li></ul> |
 | **monthDays** | Día del mes en el que se ejecuta el desencadenador. El valor solo se puede especificar con una frecuencia mensual. | <ul><li>Cualquier valor <= -1 y >= -31</li><li>Cualquier valor >= 1 y <= 31</li><li>Matriz de valores</li></ul> |
 
 
@@ -439,7 +439,7 @@ Los ejemplos asumen que el valor de **interval** es 1 y que el valor de **freque
 | `{"minutes":[15], "hours":[5,17]}` | Se ejecuta a las 5:15 a. m. y 5:15 p. m. todos los días. |
 | `{"minutes":[15,45], "hours":[5,17]}` | Se ejecuta a las 5:15 a. m., 5:45 a. m., 5:15 p. m. y 5:45 p. m. todos los días. |
 | `{"minutes":[0,15,30,45]}` | Se ejecuta cada 15 minutos. |
-| `{hours":[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]}` | Se ejecuta cada hora. Este desencadenador se ejecuta cada hora. Los minutos se controlan mediante el valor de **startTime** , cuando se especifica un valor. Si no se especifica un valor, los minutos los controla el tiempo de creación. Por ejemplo, si la hora de inicio o la hora de creación (lo que corresponda) es 12:25 p. m., el desencadenador se ejecuta a las 00:25, 01:25, 02:25… y 23:25.<br/><br/>Su programación equivale a tener un desencadenador con un valor de **frequency** de "hour", un valor de **interval** de 1 y ningún valor de **schedule**.  Esta programación puede usarse con diferentes valores en **frequency** e **interval** para crear otros desencadenadores. Por ejemplo, cuando el valor de **frequency** es "month", la ejecución de la programación se ejecuta solo una vez al mes, en lugar de cada día, cuando el valor de **frequency** es "day". |
+| `{hours":[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]}` | Se ejecuta cada hora. Este desencadenador se ejecuta cada hora. Los minutos se controlan mediante el valor de **startTime**, cuando se especifica un valor. Si no se especifica un valor, los minutos los controla el tiempo de creación. Por ejemplo, si la hora de inicio o la hora de creación (lo que corresponda) es 12:25 p. m., el desencadenador se ejecuta a las 00:25, 01:25, 02:25… y 23:25.<br/><br/>Su programación equivale a tener un desencadenador con un valor de **frequency** de "hour", un valor de **interval** de 1 y ningún valor de **schedule**.  Esta programación puede usarse con diferentes valores en **frequency** e **interval** para crear otros desencadenadores. Por ejemplo, cuando el valor de **frequency** es "month", la ejecución de la programación se ejecuta solo una vez al mes, en lugar de cada día, cuando el valor de **frequency** es "day". |
 | `{"minutes":[0]}` | Se ejecuta cada hora durante la hora. Este desencadenador se ejecuta cada hora a partir de las 12:00 a. m., 1:00 a. m., 2:00 a. m., y así sucesivamente.<br/><br/>Esta programación es equivalente a un desencadenador con un valor de **frequency** de "hour" y un valor de **startTime** de cero minutos, o sin valor de **schedule** pero con un valor de **frequency** de "day". Si el valor de **frequency** es "week" o "month", la programación ejecuta únicamente un día a la semana o un día al mes, respectivamente. |
 | `{"minutes":[15]}` | Se ejecuta 15 minutos después de cada hora en punto. Este desencadenador se ejecuta cada hora 15 minutos después de la hora en punto desde las 00:15 a. m., 1:15 a. m., 2:15 a. m. y así sucesivamente, y finalizando a las 11:15 p. m. |
 | `{"hours":[17], "weekDays":["saturday"]}` | Se ejecuta a las 5:00 p. m. los sábados de cada semana. |

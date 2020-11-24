@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: b31e3d44cc66e97506b29b81cef5b8d981d05e39
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.openlocfilehash: ca56c285baff9982ff465b0d4115d15eadedb8c9
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93279414"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94534762"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Administración de modelos de Azure Digital Twins
 
@@ -23,6 +23,10 @@ Las operaciones de administración incluyen la carga, validación, recuperación
 ## <a name="prerequisites"></a>Requisitos previos
 
 [!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
+
+## <a name="ways-to-manage-models"></a>Formas de administrar los modelos
+
+[!INCLUDE [digital-twins-ways-to-manage.md](../../includes/digital-twins-ways-to-manage.md)]
 
 ## <a name="create-models"></a>Crear modelos
 
@@ -65,7 +69,7 @@ El primer paso para la solución consiste en crear modelos para representar aspe
 > [!NOTE]
 > Se trata de un cuerpo de ejemplo de un archivo .json en el que se define y se guarda un modelo, que se va a cargar como parte de un proyecto de cliente. La llamada a la API de REST, por otro lado, adopta una matriz de definiciones de modelo como la anterior (que se asigna a un atributo `IEnumerable<string>` en el SDK de .NET). Por lo tanto, para usar este modelo en la API de REST directamente, inclúyalo entre corchetes.
 
-Este modelo define un nombre y un identificador único para la habitación del paciente, y las propiedades para representar el número de visitantes y el estado del lavado de mano (estos contadores se actualizarán a partir de sensores de movimiento y dispensadores de jabón inteligentes, y se usarán juntos para calcular una propiedad de *porcentaje de lavado de manos* ). El modelo también define una relación *hasDevices* , que se usará para conectar cualquier instancia de [Digital Twins](concepts-twins-graph.md) basada este modelo de *Habitación* con los dispositivos reales.
+Este modelo define un nombre y un identificador único para la habitación del paciente, y las propiedades para representar el número de visitantes y el estado del lavado de mano (estos contadores se actualizarán a partir de sensores de movimiento y dispensadores de jabón inteligentes, y se usarán juntos para calcular una propiedad de *porcentaje de lavado de manos*). El modelo también define una relación *hasDevices*, que se usará para conectar cualquier instancia de [Digital Twins](concepts-twins-graph.md) basada este modelo de *Habitación* con los dispositivos reales.
 
 Siguiendo este método, puede continuar con la definición de modelos para las salas y las zonas del hospital, o bien para todo el hospital.
 
@@ -73,17 +77,7 @@ Siguiendo este método, puede continuar con la definición de modelos para las s
 
 [!INCLUDE [Azure Digital Twins: validate models info](../../includes/digital-twins-validate.md)]
 
-## <a name="manage-models-with-apis"></a>Administración de modelos con API
-
-En las secciones siguientes se muestra cómo completar diferentes operaciones de administración de modelos mediante los [SDK y las API de Azure Digital Twins](how-to-use-apis-sdks.md).
-
-> [!NOTE]
-> Los ejemplos siguientes no incluyen el control de errores para mayor brevedad. Sin embargo, se recomienda encarecidamente en los proyectos encapsular las llamadas de servicio en bloques try/catch.
-
-> [!TIP] 
-> Recuerde que todos los métodos del SDK cuentan con versiones sincrónicas y asincrónicas. En las llamadas de paginación, los métodos asincrónicos devuelven `AsyncPageable<T>`, mientras que las versiones sincrónicas devuelven `Pageable<T>`.
-
-### <a name="upload-models"></a>Carga de modelos
+## <a name="upload-models"></a>Carga de modelos
 
 Una vez creados los modelos, puede cargarlos en la instancia de Azure Digital Twins.
 
@@ -136,7 +130,7 @@ Los archivos de modelo pueden contener más de un modelo. En este caso, los mode
  
 En la carga, el servicio valida los archivos de modelo.
 
-### <a name="retrieve-models"></a>Recuperación de modelos
+## <a name="retrieve-models"></a>Recuperación de modelos
 
 Puede mostrar y recuperar los modelos almacenados en la instancia de Azure Digital Twins. 
 
@@ -166,13 +160,13 @@ La llamada a `RetrieveModelWithDependencies` devuelve no solo el modelo solicita
 
 Los modelos no se devuelven necesariamente con el formato de documento exacto con el que se cargaron. Azure Digital Twins solo garantiza que el formato devuelvo será equivalente desde el punto de vista semántico. 
 
-### <a name="update-models"></a>Actualización de modelos
+## <a name="update-models"></a>Actualización de modelos
 
 Una vez que se carga un modelo en la instancia de Azure Digital Twins, toda la interfaz del modelo es inmutable. Esto significa que no hay ninguna "edición" tradicional de los modelos. Azure Digital Twins tampoco permite volver a cargar el mismo modelo.
 
 En su lugar, si desea realizar cambios en un modelo, como cargar `displayName` o `description`, la manera de hacerlo es cargar una **versión más reciente** del modelo. 
 
-#### <a name="model-versioning"></a>Control de versiones de los modelos
+### <a name="model-versioning"></a>Control de versiones de los modelos
 
 Para crear una nueva versión de un modelo existente, empiece con el DTDL del modelo original. Actualice, agregue o quite los campos que quiera cambiar.
 
@@ -194,7 +188,7 @@ A continuación, cargue la nueva versión del modelo en la instancia.
 
 Esta versión del modelo estará disponible en su instancia para usarse con gemelos digitales. **No** sobrescriba versiones anteriores del modelo, por lo que varias versiones del modelo coexistirán en la instancia hasta que las [quite](#remove-models).
 
-#### <a name="impact-on-twins"></a>Impacto en gemelos
+### <a name="impact-on-twins"></a>Impacto en gemelos
 
 Cuando se crea un gemelo, dado que la nueva versión del modelo y la versión del modelo anterior coexisten, el nuevo gemelo puede usar la nueva versión del modelo o la versión anterior.
 
@@ -202,15 +196,15 @@ Esto también significa que la carga de una nueva versión de un modelo no afect
 
 Puede actualizar estos gemelos a la nueva versión del modelo aplicándole revisiones, tal como se describe en la sección [*Actualización de un modelo de gemelo digital*](how-to-manage-twin.md#update-a-digital-twins-model) de *Procedimientos: Administración de Digital Twins*. Dentro de la misma revisión, debe actualizar los **identificadores de modelo** (a la nueva versión) y los **campos que deben modificarse para que se ajusten al nuevo modelo**.
 
-### <a name="remove-models"></a>Eliminación de modelos
+## <a name="remove-models"></a>Eliminación de modelos
 
 Los modelos también se pueden quitar del servicio, de alguna de estas dos maneras:
-* **Retirada** : una vez que se retira un modelo, ya no se puede usar para crear instancias de Digital Twins. Las instancias existentes de Digital Twins que ya usan este modelo no se ven afectadas, por lo que todavía se pueden actualizar con elementos como cambios de propiedades y con la adición o eliminación de relaciones.
-* **Eliminación** : el modelo se eliminará definitivamente de la solución. Todas las instancias de Digital Twins que utilicen este modelo dejarán de estar asociadas con cualquier modelo válido, por lo que se tratarán como si no tuvieran ningún modelo. Todavía puede leer estas instancias de Digital Twins, pero no podrá actualizarlas hasta que se reasignen a un modelo diferente.
+* **Retirada**: una vez que se retira un modelo, ya no se puede usar para crear instancias de Digital Twins. Las instancias existentes de Digital Twins que ya usan este modelo no se ven afectadas, por lo que todavía se pueden actualizar con elementos como cambios de propiedades y con la adición o eliminación de relaciones.
+* **Eliminación**: el modelo se eliminará definitivamente de la solución. Todas las instancias de Digital Twins que utilicen este modelo dejarán de estar asociadas con cualquier modelo válido, por lo que se tratarán como si no tuvieran ningún modelo. Todavía puede leer estas instancias de Digital Twins, pero no podrá actualizarlas hasta que se reasignen a un modelo diferente.
 
 Se trata de características independientes que no se ven afectadas entre sí, aunque se pueden usar juntas para quitar un modelo gradualmente. 
 
-#### <a name="decommissioning"></a>Retirada
+### <a name="decommissioning"></a>Retirada
 
 Este es el código para retirar un modelo:
 
@@ -223,7 +217,7 @@ client.DecommissionModel(dtmiOfPlanetInterface);
 
 El estado de retirada de un modelo se incluye en los registros `ModelData` devueltos por las API de recuperación del modelo.
 
-#### <a name="deletion"></a>Eliminación
+### <a name="deletion"></a>Eliminación
 
 Puede eliminar todos los modelos de la instancia a la vez o de manera individual.
 
@@ -231,7 +225,7 @@ Para un ejemplo de cómo eliminar todos los modelos, descargue la aplicación de
 
 En el resto de esta sección se desglosa la eliminación del modelo para obtener más detalles, y se explica el proceso de eliminación individual.
 
-##### <a name="before-deletion-deletion-requirements"></a>Antes de la eliminación: Requisitos para la eliminación
+#### <a name="before-deletion-deletion-requirements"></a>Antes de la eliminación: Requisitos para la eliminación
 
 Por lo general, los modelos se pueden eliminar en cualquier momento.
 
@@ -239,7 +233,7 @@ La excepción son los modelos de los que dependen otros modelos, ya sea con una 
 
 Para ello, puede actualizar el modelo dependiente para quitar las dependencias o eliminarlo por completo.
 
-##### <a name="during-deletion-deletion-process"></a>Durante la eliminación: Proceso de eliminación
+#### <a name="during-deletion-deletion-process"></a>Durante la eliminación: Proceso de eliminación
 
 Incluso si un modelo cumple los requisitos para eliminarlo inmediatamente, es posible que quiera seguir unos cuantos pasos para evitar consecuencias no deseadas en las instancias de Digital Twins dependientes. Estos son algunos de los pasos que pueden facilitar la administración del proceso:
 1. En primer lugar, retire el modelo.
@@ -255,7 +249,7 @@ Para eliminar un modelo, use esta llamada:
 await client.DeleteModelAsync(IDToDelete);
 ```
 
-##### <a name="after-deletion-twins-without-models"></a>Después de la eliminación: Instancias de Digital Twins sin modelos
+#### <a name="after-deletion-twins-without-models"></a>Después de la eliminación: Instancias de Digital Twins sin modelos
 
 Una vez eliminado un modelo, ahora se considerará que todas las instancias de Digital Twins que usaban dicho modelo ya no tendrán ningún modelo. Tenga en cuenta que no hay ninguna consulta que pueda proporcionar una lista de todas las instancias de Digital Twins con este estado, aunque *puede* seguir consultando las instancias de Digital Twins del modelo eliminado para saber qué instancias se ven afectadas.
 
@@ -274,17 +268,13 @@ Cosas que **no puede** hacer:
 * Editar las relaciones de salida (de la misma forma, las relaciones *de* esta instancia de Digital Twins con otras)
 * Modificar propiedades
 
-##### <a name="after-deletion-re-uploading-a-model"></a>Después de la eliminación: volver a cargar un modelo
+#### <a name="after-deletion-re-uploading-a-model"></a>Después de la eliminación: volver a cargar un modelo
 
 Una vez eliminado un modelo, puede decidir más tarde si cargar un nuevo modelo con el mismo identificador que el que ha eliminado. Esto es lo que sucede en ese caso.
 * Desde la perspectiva del almacén de soluciones, es lo mismo que cargar un modelo completamente nuevo. El servicio no recuerda si el anterior se cargó alguna vez.   
 * Si hay otras instancias de Digital Twins en el grafo que hacen referencia al modelo eliminado, dejarán de estar huérfanas; este identificador de modelo vuelve a ser válido con la nueva definición. Sin embargo, si la nueva definición del modelo es diferente de la definición del modelo que se eliminó, estas instancias de Digital Twins pueden tener propiedades y relaciones que coincidan con la definición eliminada y que no sean válidas con la nueva.
 
 Azure Digital Twins no impide este estado, por lo que debe asegurarse de revisar detenidamente las instancias de Digital Twins para comprobar que siguen siendo válidas para el cambio de la definición del modelo.
-
-## <a name="manage-models-with-cli"></a>Administración de modelos con la CLI
-
-Los modelos también se pueden administrar con la CLI de Azure Digital Twins. Los comandos se pueden encontrar en [*Procedimiento: Uso de la CLI de Azure Digital Twins*](how-to-use-cli.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

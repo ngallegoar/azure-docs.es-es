@@ -6,18 +6,18 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: how-to
-ms.date: 10/30/2020
+ms.date: 11/13/2020
 ms.author: jasteppe
-ms.openlocfilehash: 5a57b13cdb8c7c1144815543e03b970de32b4369
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 14fd5378f37ebfc20b2d7084c08f15ea8f7a00b2
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93394261"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630539"
 ---
 # <a name="export-azure-iot-connector-for-fhir-preview-metrics-through-diagnostic-settings"></a>Exportación de las métricas de Azure IoT Connector for FHIR (versión preliminar) mediante la configuración de diagnóstico
 
-En este artículo, aprenderá a exportar registros de métricas de Azure IoT Connector for FHIR*. La característica que permite el registro de métricas es la [**configuración de diagnóstico**](../azure-monitor/platform/diagnostic-settings.md) de Azure Portal. 
+En este artículo, aprenderá a exportar el Conector de Azure IoT para registros de métricas de Recursos Rápidos de Interoperabilidad en Salud (FHIR&#174;)*. La característica que permite el registro de métricas es la [**configuración de diagnóstico**](../azure-monitor/platform/diagnostic-settings.md) de Azure Portal. 
 
 > [!TIP]
 > Para configurar el registro de auditoría, siga las instrucciones que se indican en [Habilitación del registro de diagnóstico en Azure API for FHIR y Azure IoT Connector for FHIR](enable-diagnostic-logging.md#enable-diagnostic-logging-in-azure-api-for-fhir).
@@ -60,6 +60,4 @@ Consulte las preguntas más frecuentes sobre el conector de Azure IoT para FHIR
 >[!div class="nextstepaction"]
 >[P+ del conector de Azure IoT para FHIR](fhir-faq.md)
 
-*En Azure Portal, el conector de Azure IoT para FHIR se conoce como conector de IoT (versión preliminar).
-
-FHIR es la marca registrada de HL7 y se usa con su permiso.
+*En Azure Portal, el Conector de Azure IoT para FHIR se conoce como Conector de IoT (versión preliminar). FHIR es una marca registrada de HL7 y se usa con el permiso de HL7.

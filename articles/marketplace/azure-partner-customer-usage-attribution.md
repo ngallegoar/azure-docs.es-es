@@ -3,17 +3,17 @@ title: Atribución de uso de partners y clientes de marketplace comercial
 description: Obtenga información general sobre el seguimiento del uso de clientes de las soluciones de Azure Marketplace.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
+ms.topic: article
 author: vikrambmsft
 ms.author: vikramb
 ms.date: 11/4/2020
 ms.custom: devx-track-terraform
-ms.openlocfilehash: 95ac1abc1f286330bc5e7036f01faa6cf1b22d70
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 2c2b7de65e7ac22ebe648ce98633d5ae88818324
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337906"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94628397"
 ---
 # <a name="commercial-marketplace-partner-and-customer-usage-attribution"></a>Atribución de uso de partners y clientes de marketplace comercial
 
@@ -74,9 +74,9 @@ Después de agregar un GUID a la plantilla o en el agente de usuario, y registra
    * Los asociados pueden registrar varios identificadores únicos globales.
    * Los partners pueden registrar los GUID para las plantillas de solución que no son de marketplace y las ofertas.
 
-1. En la esquina superior derecha, seleccione el icono de engranaje de la configuración y, a continuación, **Configuración de desarrollador**.
+1. Seleccione **Configuración** (icono de engranaje) en la esquina superior derecha > **Configuración de cuenta**.
 
-1. En la **página de configuración de la cuenta**, seleccione **Add Tracking GUID** (Agregar GUID de seguimiento).
+1. En **Perfil de la organización** > **Identificadores**, seleccione **Agregar GUID de seguimiento**.
 
 1. En el cuadro **GUID**, escriba su identificador único global de seguimiento. Escriba solo el GUID, sin el prefijo `pid-`. En el cuadro **Descripción**, escriba el nombre o la descripción de la oferta.
 
@@ -183,9 +183,10 @@ Si implementa recursos a través de Azure PowerShell, use el siguiente método p
 
 Cuando use la CLI de Azure para anexar un identificador único global, establezca la variable de entorno **AZURE_HTTP_USER_AGENT**. Dicha variable se puede establecer en el ámbito de un script. Pero también se puede establecer globalmente para el ámbito de una shell:
 
-```
+```powershell
 export AZURE_HTTP_USER_AGENT='pid-eb7927c8-dd66-43e1-b0cf-c346a422063'
 ```
+
 Para más información, consulte [Azure SDK para Go](/azure/developer/go/).
 
 ## <a name="use-terraform"></a>Uso de Terraform
@@ -206,7 +207,6 @@ Los asociados que deseen que la implementación mediante Terraform tenga un segu
 
 * Crear un identificador único global (que se debe agregar para cada oferta o SKU).
 * Actualizar el proveedor de Azure para establecer el valor de *partner_id* con el identificador único global (NO añadir el prefijo "pid-" al identificador único global, simplemente establecerlo con el valor real).
-
 
 ## <a name="verify-the-guid-deployment"></a>Comprobación de la implementación de GUID
 
@@ -263,11 +263,11 @@ Los asociados deben informar a sus clientes de las implementaciones que usan atr
 
 ### <a name="notification-for-resource-manager-template-deployments"></a>Notificación de implementaciones de plantillas de Resource Manager
 
-Al implementar esta plantilla, Microsoft puede identificar la instalación del software de \<PARTNER> con los recursos de Azure que se implementan. Microsoft puede correlacionar los recursos de Azure que se usan para admitir el software. Microsoft recopila esta información para proporcionar las mejores experiencias con sus productos y conseguir que sus negocios funcionen. Los datos se recopilan en función de las directivas de privacidad de Microsoft, que se encuentran en https://www.microsoft.com/trustcenter, y se rigen por ellas.
+Al implementar esta plantilla, Microsoft puede identificar la instalación del software de \<PARTNER> con los recursos de Azure que se implementan. Microsoft puede correlacionar los recursos de Azure que se usan para admitir el software. Microsoft recopila esta información para proporcionar las mejores experiencias con sus productos y conseguir que sus negocios funcionen. Los datos se recopilan en función de las directivas de privacidad de Microsoft, que se encuentran en [https://www.microsoft.com/trustcenter](https://www.microsoft.com/trustcenter), y se rigen por ellas.
 
 ### <a name="notification-for-sdk-or-api-deployments"></a>Notificación para las implementaciones de SDK o API
 
-Al implementar el software de \<PARTNER>, Microsoft puede identificar la instalación del software de \<PARTNER> con los recursos de Azure que se implementan. Microsoft puede correlacionar los recursos de Azure que se usan para admitir el software. Microsoft recopila esta información para proporcionar las mejores experiencias con sus productos y conseguir que sus negocios funcionen. Los datos se recopilan en función de las directivas de privacidad de Microsoft, que se encuentran en https://www.microsoft.com/trustcenter, y se rigen por ellas.
+Al implementar el software de \<PARTNER>, Microsoft puede identificar la instalación del software de \<PARTNER> con los recursos de Azure que se implementan. Microsoft puede correlacionar los recursos de Azure que se usan para admitir el software. Microsoft recopila esta información para proporcionar las mejores experiencias con sus productos y conseguir que sus negocios funcionen. Los datos se recopilan en función de las directivas de privacidad de Microsoft, que se encuentran en [https://www.microsoft.com/trustcenter](https://www.microsoft.com/trustcenter), y se rigen por ellas.
 
 ## <a name="get-support"></a>Obtención de soporte técnico
 
@@ -282,6 +282,7 @@ Descubra las opciones de soporte técnico en el Marketplace comercial en [Soport
     * Complete/revise la información de contacto.
     * Los detalles de la consulta pueden haberse rellenado previamente o quizá deba seleccionar de las listas desplegables.
     * Escriba un título y la descripción del problema (proporcione el máximo de detalle).
+
 1. Haga clic en Enviar.
 
 Vea instrucciones paso a paso con capturas de pantallas en [Uso de los servicios de preventas e implementación técnicos](https://aka.ms/TechConsultInstructions).

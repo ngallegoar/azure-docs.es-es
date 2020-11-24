@@ -1,6 +1,6 @@
 ---
 title: Autenticación de OAuth 2.0 con Azure Active Directory
-description: Guía arquitectónica para lograr este patrón de autenticación
+description: Guía de arquitectura para lograr la autenticación de OAUTH 2.0 con Azure Active Directory.
 services: active-directory
 author: BarbaraSelden
 manager: daveba
@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ea22c4e5b363eaa3ecc2a736dfef714666310062
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: daf40a2ced3f753619e9c4723dbe78cd7e51ff21
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92114017"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94577913"
 ---
 # <a name="oauth-20-authentication-with-azure-active-directory"></a>Autenticación de OAuth 2.0 con Azure Active Directory
 
@@ -34,13 +34,13 @@ En escenarios de aplicaciones modernas y clientes enriquecidos y acceso a la API
 
 ## <a name="components-of-system"></a>Componentes del sistema
 
-* **Usuario** : solicita un servicio a la aplicación web (aplicación). Por lo general, el usuario es el propietario del recurso que posee los datos y tiene la capacidad de permitir que los clientes accedan a los datos o al recurso. 
+* **Usuario**: solicita un servicio a la aplicación web (aplicación). Por lo general, el usuario es el propietario del recurso que posee los datos y tiene la capacidad de permitir que los clientes accedan a los datos o al recurso. 
 
-* **Explorador web** : el explorador web con el que interactúa el usuario es el cliente OAuth. 
+* **Explorador web**: el explorador web con el que interactúa el usuario es el cliente OAuth. 
 
-* **Aplicación web** : la aplicación web o el servidor de recursos es donde residen los datos o el recurso. Confía en el servidor de autorizaciones para autenticar y autorizar de forma segura al cliente OAuth. 
+* **Aplicación web**: la aplicación web o el servidor de recursos es donde residen los datos o el recurso. Confía en el servidor de autorizaciones para autenticar y autorizar de forma segura al cliente OAuth. 
 
-* **Azure AD** : Azure AD es el servidor de autorización, también conocido como el proveedor de identidades (IdP). Controla de forma segura todo lo que se debe hacer con la información del usuario, su acceso y la relación de confianza. Es responsable de emitir los tokens que conceden y revocan el acceso a los recursos.
+* **Azure AD**: Azure AD es el servidor de autorización, también conocido como el proveedor de identidades (IdP). Controla de forma segura todo lo que se debe hacer con la información del usuario, su acceso y la relación de confianza. Es responsable de emitir los tokens que conceden y revocan el acceso a los recursos.
 
 ## <a name="implement-oauth-20-with-azure-ad"></a>Implementación de OAuth 2.0 con Azure AD
 
