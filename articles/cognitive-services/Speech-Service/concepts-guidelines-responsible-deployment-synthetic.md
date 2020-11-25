@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/11/2019
 ms.author: benoah
-ms.openlocfilehash: a529ac8b7ce16d3ee4463f1b4bc2e8007e5b79b5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7d80ffb575c6aa15695279584b58288cbc16be43
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "73836774"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024983"
 ---
 # <a name="guidelines-for-responsible-deployment-of-synthetic-voice-technology"></a>Directrices para la implementación responsable de la tecnología de voz sintética
 A continuación se presentan las directrices generales de diseño de Microsoft para usar la tecnología de voz sintética. Se desarrollaron en estudios que Microsoft llevó a cabo con actores de voz, consumidores e incluso personas con trastornos del lenguaje para guiar el desarrollo responsable de la voz sintética.
@@ -39,7 +39,7 @@ En escenarios transaccionales ambiguos (por ejemplo, un centro telefónico de so
 Al trabajar con actores de voz, como actores de doblaje, para crear voces sintéticas, se aplica la directriz siguiente.
 
 ### <a name="obtain-meaningful-consent-from-voice-talent"></a>Obtención del consentimiento significativo del actor de voz
-Los actores de voz esperan tener control sobre su fuente de voz (cómo y dónde se usará), así como ser compensados siempre que esta se use. Por lo tanto, los propietarios del sistema deben obtener el permiso explícito por escrito del actor de voz y tener claras especificaciones contractuales sobre los casos de uso, la duración de uso, la compensación, etc. Algunos actores de voz no saben cuáles son los posibles usos malintencionados de la tecnología y los propietarios del sistema deben instruirlos sobre las funcionalidades de la tecnología. Para obtener más información sobre los actores de voz y el consentimiento, consulte [Divulgación de talento de voz](https://aka.ms/disclosure-voice-talent).
+Los actores de voz esperan tener control sobre su fuente de voz (cómo y dónde se usará), así como ser compensados siempre que esta se use. Por lo tanto, los propietarios del sistema deben obtener el permiso explícito por escrito del actor de voz y tener claras especificaciones contractuales sobre los casos de uso, la duración de uso, la compensación, etc. Algunos actores de voz no saben cuáles son los posibles usos malintencionados de la tecnología y los propietarios del sistema deben instruirlos sobre las funcionalidades de la tecnología. Para obtener más información sobre los actores de voz y el consentimiento, consulte [Divulgación de talento de voz](/legal/cognitive-services/speech-service/disclosure-voice-talent).
 
 
 ## <a name="considerations-for-those-with-speech-disorders"></a>Consideraciones para las personas con trastornos del habla
@@ -57,13 +57,13 @@ Las personas con trastornos del habla quieren hacer actualizaciones en su voz si
 
 ## <a name="reference-docs"></a>Documentos de referencia
 
-* [Divulgación de talento de voz](https://aka.ms/disclosure-voice-talent)
+* [Divulgación de talento de voz](/legal/cognitive-services/speech-service/disclosure-voice-talent)
 * [Información general sobre control](concepts-gating-overview.md)
 * [Procedimiento de divulgación](concepts-disclosure-guidelines.md)
 * [Modelos de diseño de divulgación](concepts-disclosure-patterns.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Divulgación de talento de voz](https://aka.ms/disclosure-voice-talent)
+* [Divulgación de talento de voz](/legal/cognitive-services/speech-service/disclosure-voice-talent)
 * [Procedimiento de divulgación](concepts-disclosure-guidelines.md)
 * [Modelos de diseño de divulgación](concepts-disclosure-patterns.md)

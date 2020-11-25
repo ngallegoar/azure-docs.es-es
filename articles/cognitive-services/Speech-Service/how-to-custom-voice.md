@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: trbye
-ms.openlocfilehash: 272367d5311952b45c73febe0e05b1ec2d225261
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6ae164b1300119481e495e647dd491beafdd5241
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88056693"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025085"
 ---
 # <a name="get-started-with-custom-voice"></a>Introducción a voz personalizada
 
@@ -42,7 +42,7 @@ En el diagrama siguiente se resaltan los pasos necesarios para crear un modelo d
 La funcionalidad de personalización de voz neuronal se encuentra actualmente en versión preliminar, limitada a clientes seleccionados. Rellene este [formulario de aplicación](https://go.microsoft.com/fwlink/?linkid=2108737) para empezar.
 
 > [!NOTE]
-> Como parte del compromiso de Microsoft de diseñar inteligencia artificial responsable, nuestra intención es proteger los derechos de los individuos y la sociedad, y fomentar unas interacciones transparentes de personas y equipos. Por esta razón, Voz neuronal personalizada no está disponible con carácter general para todos los clientes. Es posible que obtenga acceso a la tecnología solo tras la revisión de sus aplicaciones y después de que se haya comprometido a usarla en consonancia con nuestros principios éticos. Obtenga más información sobre nuestro [proceso de acceso según la aplicación](https://aka.ms/custom-neural-gating-overview).
+> Como parte del compromiso de Microsoft de diseñar inteligencia artificial responsable, nuestra intención es proteger los derechos de los individuos y la sociedad, y fomentar unas interacciones transparentes de personas y equipos. Por esta razón, Voz neuronal personalizada no está disponible con carácter general para todos los clientes. Es posible que obtenga acceso a la tecnología solo tras la revisión de sus aplicaciones y después de que se haya comprometido a usarla en consonancia con nuestros principios éticos. Obtenga más información sobre nuestro [proceso de acceso según la aplicación](./concepts-gating-overview.md).
 
 ## <a name="set-up-your-azure-account"></a>Configuración de la cuenta de Azure
 

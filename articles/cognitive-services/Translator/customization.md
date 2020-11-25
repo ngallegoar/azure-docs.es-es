@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 05/26/2020
 ms.author: swmachan
-ms.openlocfilehash: 95cb4aa5827190abf125669f2423c808cf8c92a5
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 9c4410cb2b9550bc111da96204ada15313867fb1
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94368940"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95238095"
 ---
 # <a name="customize-your-text-translations"></a>Personalización de las traducciones de texto
 
@@ -38,28 +38,6 @@ A partir de ese momento, el sistema personalizado está disponible con una llama
 Si se proporcionan el tipo y la cantidad apropiados de datos de aprendizaje, no es extraño que con Custom Translator la calidad de la traducción mejore entre 5 y 10 puntos BLEU, o incluso más.
 
 Puede encontrar más detalles acerca de los diferentes niveles de personalización en función de los datos disponibles en el [Manual del usuario de Custom Translator](./custom-translator/overview.md).
-
-
-## <a name="microsoft-translator-hub"></a>Microsoft Translator Hub
-
-> [!NOTE]
-> Microsoft Translator Hub (heredado) se retirará el 17 de mayo de 2019. [Ver información importante y fechas de migración](https://www.microsoft.com/translator/business/hub/).  
-
-## <a name="custom-translator-versus-hub"></a>Custom Translator frente a Hub
-
-| Característica | Hub | Custom Translator |
-| ------- | :-: | :---------------: |
-|Estado de la característica de personalización    | Disponibilidad general    | Disponibilidad general |
-| Versión de Text API    | Solo v2    | Solo v3 |
-| Personalización de SMT    | Sí    | No |
-| Personalización de NMT    | No    | Sí |
-| Nueva personalización unificada de servicios de voz    | No    | Sí |
-| [Sin seguimiento](https://www.aka.ms/notrace) | Sí    | Sí |
-
-## <a name="collaborative-translations-framework"></a>Marco de traducciones en colaboración
-
-> [!NOTE]
-> A partir del 1 de febrero de 2018, AddTranslation() y AddTranslationArray() no se pueden usar con la versión 2.0 de Traductor. Estos métodos generarán un error y no se escribirá nada. La versión 3.0 de Traductor no admite estos métodos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

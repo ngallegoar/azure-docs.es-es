@@ -1,20 +1,20 @@
 ---
 title: Autenticación y autorización
 description: Obtenga información sobre las distintas formas en que puede autenticar una aplicación o servicio para Azure Spatial Anchors y los niveles de control para los que tiene que obtener acceso para Spatial Anchors.
-author: craigktreasure
-manager: vriveras
+author: msftradford
+manager: MehranAzimi-msft
 services: azure-spatial-anchors
-ms.author: crtreasu
-ms.date: 10/08/2020
+ms.author: parkerra
+ms.date: 11/20/2020
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a3d88c8d5d42e3dec2142df1ede7a9ee50898e92
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: 0166a3b6031f9e1d364a37db99be5bc5a65267df
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93242354"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95484617"
 ---
 # <a name="authentication-and-authorization-to-azure-spatial-anchors"></a>Autenticación y autorización en Azure Spatial Anchors
 
@@ -37,7 +37,7 @@ Los tokens de autenticación de Azure AD pueden obtenerse de dos maneras:
 
 ## <a name="account-keys"></a>Claves de cuenta
 
-La manera más sencilla de empezar es usar claves de cuenta para obtener acceso a la cuenta de Azure Spatial Anchors. Puede obtener las claves de cuenta en Azure Portal. Vaya a la cuenta y seleccione la pestaña **Claves** :
+La manera más sencilla de empezar es usar claves de cuenta para obtener acceso a la cuenta de Azure Spatial Anchors. Puede obtener las claves de cuenta en Azure Portal. Vaya a la cuenta y seleccione la pestaña **Claves**:
 
 ![Captura de pantalla en la que se muestra la pestaña "Claves" con el botón "Copiar" de la clave principal resaltado.](../../../includes/media/spatial-anchors-get-started-create-resource/view-account-key.png)
 
@@ -109,15 +109,15 @@ En el caso de las aplicaciones que tienen como destino los usuarios de Azure Ac
    2.    Vaya a la pestaña **Control de acceso (IAM)** .
    3.    Seleccione **Agregar asignación de roles**.
    1.    [Seleccione un rol](#azure-role-based-access-control).
-   2.    En el campo **Seleccionar** , escriba el nombre de los usuarios, grupos o aplicaciones a los que quiere asignar el acceso.
+   2.    En el campo **Seleccionar**, escriba el nombre de los usuarios, grupos o aplicaciones a los que quiere asignar el acceso.
    3.    Seleccione **Guardar**.
 
 **En el código**
 1.    Asegúrese de usar el id. de aplicación y el URI de redirección de la propia aplicación de Azure AD como parámetros de **Id. de cliente** y **RedirectUri** de MSAL.
 2.    Establezca la información del inquilino:
-        1.    Si la aplicación admite **Solo mi organización** , reemplace este valor por el **id. de inquilino** o el **nombre de inquilino**. Por ejemplo, contoso.microsoft.com.
-        2.    Si la aplicación admite las **cuentas de cualquier directorio organizativo** , reemplace este valor por **Organizations**.
-        3.    Si la aplicación admite **Todos los usuarios de cuentas Microsoft** , reemplace este valor por **Común**.
+        1.    Si la aplicación admite **Solo mi organización**, reemplace este valor por el **id. de inquilino** o el **nombre de inquilino**. Por ejemplo, contoso.microsoft.com.
+        2.    Si la aplicación admite las **cuentas de cualquier directorio organizativo**, reemplace este valor por **Organizations**.
+        3.    Si la aplicación admite **Todos los usuarios de cuentas Microsoft**, reemplace este valor por **Común**.
 3.    En la solicitud de token, establezca el **ámbito** en **"`https://sts.<account-domain>//.default`"** , donde `<account-domain>` se reemplaza por el **dominio de la cuenta** de Azure Spatial Anchors. Un ámbito de ejemplo de una cuenta de Azure Spatial Anchors en el dominio de la cuenta del este de EE. UU. 2 es **"`https://sts.mixedreality.azure.com//.default`"** . Este ámbito indicará a Azure AD que la aplicación solicita un token para el servicio de token de seguridad (STS) de Mixed Reality.
 
 Después de completar estos pasos, la aplicación debe poder obtener desde MSAL un token de Azure AD. Puede establecer ese token de Azure AD como `authenticationToken` en el objeto de configuración de sesiones en la nube:
@@ -183,10 +183,10 @@ El token de acceso de Azure AD se recupera mediante [MSAL](../../active-directo
         2.    Vaya a la pestaña **Control de acceso (IAM)** .
         3.    Seleccione **Agregar asignación de roles**.
         4.    [Seleccione un rol](#azure-role-based-access-control).
-        5.    En el campo **Seleccionar** , escriba los nombres de las aplicaciones a las que quiere asignar el acceso. Si quiere que los usuarios de la aplicación tengan distintos roles en la cuenta de Spatial Anchors, debe registrar varias aplicaciones en Azure AD y asignar a cada una un rol independiente. A continuación, implemente la lógica de autorización para usar el rol correcto para los usuarios.
+        5.    En el campo **Seleccionar**, escriba los nombres de las aplicaciones a las que quiere asignar el acceso. Si quiere que los usuarios de la aplicación tengan distintos roles en la cuenta de Spatial Anchors, debe registrar varias aplicaciones en Azure AD y asignar a cada una un rol independiente. A continuación, implemente la lógica de autorización para usar el rol correcto para los usuarios.
 
               > [!NOTE]
-              > En el panel **Agregar asignación de roles** de la opción **Asignar acceso a** , seleccione **Usuario, grupo o entidad de servicio de Azure AD**.
+              > En el panel **Agregar asignación de roles** de la opción **Asignar acceso a**, seleccione **Usuario, grupo o entidad de servicio de Azure AD**.
 
         6.    Seleccione **Guardar**.
 
@@ -195,7 +195,7 @@ El token de acceso de Azure AD se recupera mediante [MSAL](../../active-directo
 >[!NOTE]
 > Puede usar el ejemplo de servicio que está disponible en GitHub.
 
-1.    Asegúrese de usar el id. de aplicación, el secreto de aplicación y el URI de redirección de la propia aplicación de Azure AD como parámetros de **id. de cliente** , **secreto** y **RedirectUri** de MSAL.
+1.    Asegúrese de usar el id. de aplicación, el secreto de aplicación y el URI de redirección de la propia aplicación de Azure AD como parámetros de **id. de cliente**, **secreto** y **RedirectUri** de MSAL.
 2.    Establezca el id. de inquilino en su propio id. de inquilino de Azure AD en el parámetro de **autoridad** de MSAL.
 3.    En la solicitud de token, establezca el **ámbito** en **"`https://sts.<account-domain>//.default`"** , donde `<account-domain>` se reemplaza por el **dominio de la cuenta** de Azure Spatial Anchors. Un ámbito de ejemplo de una cuenta de Azure Spatial Anchors en el dominio de la cuenta del este de EE. UU. 2 es **"`https://sts.mixedreality.azure.com//.default`"** .
 

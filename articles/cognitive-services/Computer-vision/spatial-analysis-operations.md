@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 09/01/2020
 ms.author: aahi
-ms.openlocfilehash: 80f0d29de6b3013ad02ed1a5d34bebdf81a8766b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9d1b6e20bf2decfe051e79e073736f71181260fa
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91628220"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95014550"
 ---
 # <a name="spatial-analysis-operations"></a>Operaciones de análisis espacial
 
@@ -39,7 +39,7 @@ Todas las operaciones anteriores también están disponibles en la versión `.de
 | cognitiveservices.vision.spatialanalysis-personcrossingpolygon.debug | Hace un seguimiento de cuando una persona cruza una línea designada en el campo visual de la cámara. <br> Emite un evento _personLineEvent_ cuando la persona cruza la zona y proporciona información direccional. |
 | cognitiveservices.vision.spatialanalysis-persondistance.debug | Hace un seguimiento de cuando las personas infringen una regla de distancia. <br> Emite un evento _personDistanceEvent_ de manera periódica con la ubicación de cada infracción de distancia. |
 
-El análisis espacial también se puede ejecutar con [Live Video Analytics](https://aka.ms/lva-spatial-analysis) como su módulo de IA de vídeo. 
+El análisis espacial también se puede ejecutar con [Live Video Analytics](../../media-services/live-video-analytics-edge/spatial-analysis-tutorial.md) como su módulo de IA de vídeo. 
 
 <!--more details on the setup can be found in the [LVA Setup page](LVA-Setup.md). Below is the list of the operations supported with Live Video Analytics. -->
 
@@ -638,8 +638,8 @@ Ejemplo de JSON para las detecciones generadas por esta operación.
 
 Puede que quiera integrar eventos o la detección del análisis espacial en la aplicación. Estos son algunos de los enfoques que se deben tener en cuenta: 
 
-* Use el SDK del Centro de eventos de Azure del lenguaje de programación elegido para conectarse al punto de conexión de Azure IoT Hub y recibir los eventos. Para más información, consulte [Leer mensajes del dispositivo a la nube desde el punto de conexión integrado](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-read-builtin). 
-* Configure **Enrutamiento de mensajes** en la instancia de Azure IoT Hub para enviar los eventos a otros puntos de conexión o guardar los eventos en el almacenamiento de datos. Para más información, consulte [Enrutamiento de mensajes de IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c). 
+* Use el SDK del Centro de eventos de Azure del lenguaje de programación elegido para conectarse al punto de conexión de Azure IoT Hub y recibir los eventos. Para más información, consulte [Leer mensajes del dispositivo a la nube desde el punto de conexión integrado](../../iot-hub/iot-hub-devguide-messages-read-builtin.md). 
+* Configure **Enrutamiento de mensajes** en la instancia de Azure IoT Hub para enviar los eventos a otros puntos de conexión o guardar los eventos en el almacenamiento de datos. Para más información, consulte [Enrutamiento de mensajes de IoT Hub](../../iot-hub/iot-hub-devguide-messages-d2c.md). 
 * Configure un trabajo de Azure Stream Analytics para procesar los eventos en tiempo real a medida que llegan y crear visualizaciones. 
 
 ## <a name="deploying-spatial-analysis-operations-at-scale-multiple-cameras"></a>Implementación de operaciones de análisis espacial a escala (varias cámaras)

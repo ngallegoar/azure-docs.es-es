@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/09/2019
 ms.author: shlo
-ms.openlocfilehash: 73e6e4e69a245485ca473f048bbeafef21dbbf37
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4d66c02b58da295c74a38fb921a081cc4036763a
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "73836786"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95021922"
 ---
 # <a name="custom-neural-voice-gating-overview"></a>Introducción al control de voz neuronal personalizada
 
@@ -28,7 +28,7 @@ Como parte del compromiso de Microsoft con el diseño de IA responsable, se ha p
 ### <a name="guidance-for-deploying-custom-neural-voice"></a>Instrucciones para implementar la voz neuronal personalizada
 
 - [Directrices para la implementación responsable](concepts-guidelines-responsible-deployment-synthetic.md): nuestras recomendaciones principales basadas en nuestra investigación.
-- [Divulgación de talento de voz](https://aka.ms/disclosure-voice-talent): lo que necesita saber e informar al actor de voz sobre la tecnología para su uso responsable
+- [Divulgación de talento de voz](/legal/cognitive-services/speech-service/disclosure-voice-talent): lo que necesita saber e informar al actor de voz sobre la tecnología para su uso responsable
 - [Diseño de divulgación](concepts-disclosure-guidelines.md): cómo diseñar experiencias para que los usuarios sepan cuándo se utiliza una voz sintética y confíen en su servicio
 
 ### <a name="why-custom-neural-voice-is-a-gated-technology"></a>Motivo por el que la voz neuronal personalizada es una tecnología controlada
@@ -41,11 +41,11 @@ Para obtener acceso a la voz neuronal personalizada, deberá rellenar el formula
 
 El acceso al servicio de voz neuronal personalizado está sujeto a la exclusiva discreción de Microsoft en función de los criterios de idoneidad, el proceso de investigación y la disponibilidad para admitir un número limitado de clientes durante esta versión preliminar controlada.
 
-Como parte del proceso de solicitud, deberá comprometerse a obtener el permiso explícito por escrito del actor de voz antes de crear una fuente de voz, lo que incluye compartir la [Divulgación de talento de voz](https://aka.ms/disclosure-voice-talent). También debe aceptar que, cuando implemente la fuente de voz, su implementación [divulgará la naturaleza sintética](concepts-disclosure-guidelines.md) del servicio a los usuarios, proporcionará la atribución al servicio de voz sintética de Microsoft en sus condiciones de servicio y admitirá un canal de comentarios que permita a los usuarios del servicio informar de problemas y compartir detalles con Microsoft. Obtenga más información sobre las condiciones de uso [aquí](https://aka.ms/custom-neural-code-of-conduct).
+Como parte del proceso de solicitud, deberá comprometerse a obtener el permiso explícito por escrito del actor de voz antes de crear una fuente de voz, lo que incluye compartir la [Divulgación de talento de voz](/legal/cognitive-services/speech-service/disclosure-voice-talent). También debe aceptar que, cuando implemente la fuente de voz, su implementación [divulgará la naturaleza sintética](concepts-disclosure-guidelines.md) del servicio a los usuarios, proporcionará la atribución al servicio de voz sintética de Microsoft en sus condiciones de servicio y admitirá un canal de comentarios que permita a los usuarios del servicio informar de problemas y compartir detalles con Microsoft. Obtenga más información sobre las condiciones de uso [aquí](/legal/cognitive-services/speech-service/tts-code-of-conduct).
 
 ## <a name="reference-docs"></a>Documentos de referencia
 
-* [Divulgación de talento de voz](https://aka.ms/disclosure-voice-talent)
+* [Divulgación de talento de voz](/legal/cognitive-services/speech-service/disclosure-voice-talent)
 * [Directrices para la implementación responsable de la tecnología de voz sintética](concepts-guidelines-responsible-deployment-synthetic.md)
 * [Procedimiento de divulgación](concepts-disclosure-guidelines.md)
 

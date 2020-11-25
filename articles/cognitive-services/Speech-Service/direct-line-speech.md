@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: trbye
-ms.openlocfilehash: 2b0bb997ecea55d25748152bab7bb6963d67657f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e8c7e21b0784aacc85bd02e3c1702e1a710e76ab
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91357648"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95021888"
 ---
 # <a name="what-is-direct-line-speech"></a>¿Qué es Direct Line Speech?
 
@@ -37,9 +37,9 @@ También se ofrecen inicios rápidos diseñados para que ejecute código y conoz
 
 | Guía de inicio rápido | Plataforma | Referencia de API |
 |------------|----------|---------------|
-| C#, UWP | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
-| Java | Windows, macOS, Linux | [Browse](https://aka.ms/csspeech/javaref) |
-| Java | Android | [Browse](https://aka.ms/csspeech/javaref) |
+| C#, UWP | Windows | [Browse](/dotnet/api/microsoft.cognitiveservices.speech) |
+| Java | Windows, macOS, Linux | [Browse](/java/api/com.microsoft.cognitiveservices.speech) |
+| Java | Android | [Browse](/java/api/com.microsoft.cognitiveservices.speech) |
 
 ## <a name="sample-code"></a>Código de ejemplo
 
@@ -50,21 +50,21 @@ El código de ejemplo para crear un asistente de voz está disponible en GitHub.
 
 ## <a name="customization"></a>Personalización
 
-Los asistentes de voz creados mediante el servicio de voz pueden usar la amplia variedad de opciones de personalización disponibles para la [conversión de voz en texto](speech-to-text.md), la [conversión de texto en voz](text-to-speech.md) y la [selección de palabras claves personalizadas](speech-devices-sdk-create-kws.md).
+Los asistentes de voz creados mediante el servicio de voz pueden usar la amplia variedad de opciones de personalización disponibles para la [conversión de voz en texto](speech-to-text.md), la [conversión de texto en voz](text-to-speech.md) y la [selección de palabras claves personalizadas](./custom-keyword-basics.md).
 
 > [!NOTE]
-> Las opciones de personalización varían según el idioma o la configuración regional (consulte los [idiomas admitidos](supported-languages.md)).
+> Las opciones de personalización varían según el idioma o la configuración regional (consulte los [idiomas admitidos](./language-support.md)).
 
-Direct Line Speech y su funcionalidad asociada para los asistentes de voz constituyen un complemento perfecto para la [solución Virtual Assistant y la plantilla empresarial](https://docs.microsoft.com/azure/bot-service/bot-builder-enterprise-template-overview). Aunque Direct Line Speech puede funcionar con cualquier bot compatible, estos recursos ofrecen una línea de base reutilizable para experiencias conversacionales de alta calidad, así como habilidades y modelos complementarios comunes para comenzar rápidamente.
+Direct Line Speech y su funcionalidad asociada para los asistentes de voz constituyen un complemento perfecto para la [solución Virtual Assistant y la plantilla empresarial](/azure/bot-service/bot-builder-enterprise-template-overview). Aunque Direct Line Speech puede funcionar con cualquier bot compatible, estos recursos ofrecen una línea de base reutilizable para experiencias conversacionales de alta calidad, así como habilidades y modelos complementarios comunes para comenzar rápidamente.
 
 ## <a name="reference-docs"></a>Documentos de referencia
 
-* [Acerca del SDK de Voz](speech-sdk-reference.md)
-* [Azure Bot Service](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-4.0)
+* [Acerca del SDK de Voz](./speech-sdk.md)
+* [Azure Bot Service](/azure/bot-service/?view=azure-bot-service-4.0)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Obtenga una clave de suscripción gratuita a los servicios de Voz](overview.md#try-the-speech-service-for-free)
 * [Obtención del SDK de voz](speech-sdk.md)
-* [Creación e implementación de un bot básico](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0)
+* [Creación e implementación de un bot básico](/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0)
 * [Obtención de la solución Virtual Assistant y la plantilla empresarial](https://github.com/Microsoft/AI)

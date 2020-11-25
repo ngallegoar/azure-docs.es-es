@@ -10,17 +10,17 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.author: erhopf
-ms.openlocfilehash: c55d69e99715a0c646c4e836df06cf105f9770bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a3ff2a1f92cabb61f58d70b732738e613afa7cd9
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91319141"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025640"
 ---
 # <a name="inspect-custom-speech-data"></a>Inspección de los datos de Habla personalizada
 
 > [!NOTE]
-> En esta página se supone que ha leído [Preparación de los datos de Habla personalizada](how-to-custom-speech-test-data.md) y que ha cargado un conjunto de datos para su inspección.
+> En esta página se supone que ha leído [Preparación de los datos de Habla personalizada](./how-to-custom-speech-test-and-train.md) y que ha cargado un conjunto de datos para su inspección.
 
 Habla personalizada proporciona herramientas que le permiten inspeccionar visualmente la calidad del reconocimiento de un modelo mediante la comparación de los datos de audio con el resultado de reconocimiento correspondiente. Desde el [portal de Habla personalizada](https://speech.microsoft.com/customspeech), puede reproducir el audio cargado y determinar si el resultado de reconocimiento proporcionada es correcto. Esta herramienta le ayuda a inspeccionar la calidad del modelo de conversión de voz a texto de línea de base de Microsoft, a inspeccionar un modelo personalizado entrenado o a comparar la transcripción con dos modelos.
 
@@ -104,4 +104,4 @@ Los archivos exportados a Datos se utilizarán como un conjunto de datos complet
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-- [Preparación de los datos de prueba para Habla personalizada](how-to-custom-speech-test-data.md)
+- [Preparación de los datos de prueba para Habla personalizada](./how-to-custom-speech-test-and-train.md)

@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 09/11/2020
 ms.author: pafarley
-ms.openlocfilehash: e4c56700e75eb5bc7e5e7faec073fe7157e5df88
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 1ef317ee3917172d0de204adafe5d5bf21a2a9ac
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91976375"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95014516"
 ---
 # <a name="whats-new-in-computer-vision"></a>Novedades de Computer Vision
 
@@ -80,7 +80,7 @@ Ahora tiene la opción de usar la versión 3.0 de Read API para extraer texto im
 * Puntuación de confianza para cada palabra extraída
 * Compatibilidad con español e inglés con el parámetro de idioma adicional.
 
-Siga las indicaciones de una de las guías de [inicio rápido de extracción de texto](https://docs.microsoft.com/azure/cognitive-services/computer-vision/quickstarts/csharp-hand-text?tabs=version-3) para empezar a usar la API 3.0.
+Siga las indicaciones de una de las guías de [inicio rápido de extracción de texto](./quickstarts/csharp-hand-text.md?tabs=version-3) para empezar a usar la API 3.0.
 
 ## <a name="cognitive-service-updates"></a>Actualizaciones de Cognitive Service
 

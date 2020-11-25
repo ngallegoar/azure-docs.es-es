@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
-ms.openlocfilehash: 0cbc57922b31f1b3879bb2cad8a988a1ba4cc368
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 40c5e3474d3992108ef61d34e745bc63c1f7a713
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85307336"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95020953"
 ---
 # <a name="add-language-generation-templates-for-speech-responses"></a>Adición de plantillas de generación de idioma para respuestas de voz
 
@@ -34,7 +34,7 @@ Debe haber completado los pasos descritos en los siguientes artículos:
 
 ## <a name="language-generation-templates-overview"></a>Introducción a las plantillas de generación de idioma
 
-Las plantillas de Comandos personalizados están basadas en las [plantillas LG](https://aka.ms/speech/cc-lg-format) de Bot Framework. Dado que los Comandos personalizados crean una nueva plantilla LG cuando es necesario (es decir, para las respuestas de voz de los parámetros o acciones), no es necesario especificar el nombre de la plantilla LG. Por lo tanto, en lugar de definir la plantilla como:
+Las plantillas de Comandos personalizados están basadas en las [plantillas LG](/azure/bot-service/file-format/bot-builder-lg-file-format#templates) de Bot Framework. Dado que los Comandos personalizados crean una nueva plantilla LG cuando es necesario (es decir, para las respuestas de voz de los parámetros o acciones), no es necesario especificar el nombre de la plantilla LG. Por lo tanto, en lugar de definir la plantilla como:
 
  ```
     # CompletionAction
@@ -51,7 +51,7 @@ Solo debe definir el cuerpo de la plantilla sin el nombre, como se indica a cont
 
 Este cambio ofrece variedad a las respuestas de voz que se envían al cliente. Por lo tanto, para la misma experiencia, la respuesta de voz correspondiente se elegirá de forma aleatoria de las opciones proporcionadas.
 
-Al aprovechar las plantillas LG, también podrá definir respuestas de voz complejas para los comandos mediante expresiones adaptables. Para obtener más información, puede consultar el [formato de plantillas LG](https://aka.ms/speech/cc-lg-format). De forma predeterminada, los Comandos personalizados admiten todas sus funcionalidades, con las siguientes variaciones mínimas:
+Al aprovechar las plantillas LG, también podrá definir respuestas de voz complejas para los comandos mediante expresiones adaptables. Para obtener más información, puede consultar el [formato de plantillas LG](/azure/bot-service/file-format/bot-builder-lg-file-format#templates). De forma predeterminada, los Comandos personalizados admiten todas sus funcionalidades, con las siguientes variaciones mínimas:
 
 * En las plantillas LG, las entidades se representan como ${nombreDeEntidad}. En Comandos personalizados, no se usan entidades, aunque los parámetros se pueden usar como variables con una de estas representaciones: ${nombreDeParámetro} o {nombreDeParámetro}.
 * La redacción y expansión de las plantillas no son compatibles con Comandos personalizados. Esto se debe a que nunca se modifica directamente el archivo `.lg`, sino solo las respuestas de las plantillas creadas automáticamente.
@@ -110,7 +110,7 @@ Otra manera de personalizar las respuestas de Comandos personalizados consiste e
 > ![Oraciones de ejemplo con parámetros](media/custom-commands/select-custom-voice.png)
 
 > [!NOTE]
-> - Para **Public voices** (Voces públicas), **Neural types** (Tipos neuronales) solo está disponible para regiones específicas. Para comprobar la disponibilidad, consulte las [voces estándar y neuronales por región o punto de conexión](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#standard-and-neural-voices).
+> - Para **Public voices** (Voces públicas), **Neural types** (Tipos neuronales) solo está disponible para regiones específicas. Para comprobar la disponibilidad, consulte las [voces estándar y neuronales por región o punto de conexión](./regions.md#standard-and-neural-voices).
 > - Para **Custom voices** (Voces personalizadas), se pueden crear desde la página de proyecto Custom Voice (Voz personalizada). Consulte [Introducción a Voz personalizada](./how-to-custom-voice.md).
 
 Ahora la aplicación responderá en la voz seleccionada, en lugar de en la voz predeterminada.

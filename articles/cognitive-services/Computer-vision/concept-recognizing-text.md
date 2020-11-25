@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/11/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 4eb2835bd09e6548149ee90cb7232bf230de0300
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 73887515eea344e920455e3c24f3eae3d5ad515a
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94538757"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95013749"
 ---
 # <a name="optical-character-recognition-ocr"></a>Reconocimiento óptico de caracteres (OCR)
 
@@ -138,7 +138,7 @@ Comience con las [guías de inicio rápido del SDK de OCR de Read en Computer Vi
 ## <a name="supported-languages-for-print-text"></a>Idiomas compatibles con el texto impreso
 [Read API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005) admite la extracción de texto impreso en inglés, español, alemán, francés, italiano, portugués y neerlandés.
 
-Para obtener una lista completa de los idiomas admitidos para OCR, consulte los [idiomas admitidos](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#optical-character-recognition-ocr).
+Para obtener una lista completa de los idiomas admitidos para OCR, consulte los [idiomas admitidos](./language-support.md#optical-character-recognition-ocr).
 
 ### <a name="read-32-preview-adds-simplified-chinese-and-japanese"></a>Read 3.2 en versión preliminar incorpora chino simplificado y japonés.
 La [API de Read 3.2 en versión preliminar pública](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-1/operations/5d986960601faab4bf452005) agrega compatibilidad con chino simplificado y japonés. Si para su escenario se requieren más idiomas, consulte la sección de la [API de OCR](#ocr-api). 
@@ -150,7 +150,7 @@ Actualmente, la operación de lectura admite la extracción de texto manuscrito 
 La [API REST Read 3.x](./QuickStarts/CSharp-hand-text.md) es la opción preferida para la mayoría de los clientes debido a su facilidad de integración y su inmediata productividad. Azure y el servicio Computer Vision controlan las necesidades de escalado, rendimiento, seguridad de los datos y cumplimiento, lo que le permite centrarse en satisfacer las necesidades de los clientes.
 
 ## <a name="deploy-on-premise-with-docker-containers"></a>Implementación local con contenedores de Docker
-La [versión preliminar de contenedor de Docker de Read](https://docs.microsoft.com/azure/cognitive-services/computer-vision/computer-vision-how-to-install-containers) le permite implementar las nuevas funcionalidades de OCR en su entorno local. Los contenedores son excelentes para requisitos específicos de control de datos y seguridad.
+La [versión preliminar de contenedor de Docker de Read](./computer-vision-how-to-install-containers.md) le permite implementar las nuevas funcionalidades de OCR en su entorno local. Los contenedores son excelentes para requisitos específicos de control de datos y seguridad.
 
 ## <a name="example-outputs"></a>Salidas de ejemplo
 
@@ -186,7 +186,7 @@ Read API admite imágenes y documentos que contienen varios idiomas, conocidos c
 
 ## <a name="ocr-api"></a>API de OCR
 
-La [API de OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f20d) usa un modelo de reconocimiento anterior, solo admite imágenes y se ejecuta de forma sincrónica, así que devuelve el texto detectado inmediatamente. Consulte los [idiomas admitidos por OCR](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#optical-character-recognition-ocr) y Read API.
+La [API de OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f20d) usa un modelo de reconocimiento anterior, solo admite imágenes y se ejecuta de forma sincrónica, así que devuelve el texto detectado inmediatamente. Consulte los [idiomas admitidos por OCR](./language-support.md#optical-character-recognition-ocr) y Read API.
 
 ## <a name="data-privacy-and-security"></a>Seguridad y privacidad de datos
 

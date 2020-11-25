@@ -5,21 +5,21 @@ ms.topic: include
 ms.date: 04/04/2020
 ms.author: travisw
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e2d43290946969643b10d2ecad2f076df208a5d0
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ea7ea08fc07a895bc038b27701d7038a5f76c26f
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88925452"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95095332"
 ---
 ## <a name="prerequisites"></a>Requisitos previos
 
 Antes de comenzar, compruebe lo siguiente:
 
 > [!div class="checklist"]
-> * [Ha creado un recurso de Voz de Azure](~/articles/cognitive-services/speech-service/get-started.md)
+> * [Ha creado un recurso de Voz de Azure](../../../../overview.md#try-the-speech-service-for-free)
 > * [Ha configurado el entorno de desarrollo y ha creado un proyecto vacío](~/articles/cognitive-services/speech-service/quickstarts/setup-platform.md?tabs=uwp&pivots=programming-language-csharp)
-> * Ha creado un bot conectado al [canal Direct Line Speech](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
+> * Ha creado un bot conectado al [canal Direct Line Speech](/azure/bot-service/bot-service-channel-connect-directlinespeech)
 > * Asegúrese de que tiene acceso a un micrófono para capturar el audio.
 > 
   > [!NOTE]
@@ -277,7 +277,7 @@ La vista Diseño se actualiza para mostrar la interfaz de usuario de la aplicaci
    > Consulte [la lista de regiones admitidas para los asistentes de voz ](~/articles/cognitive-services/speech-service/regions.md#voice-assistants) y asegúrese de que sus recursos se implementan en una de esas regiones.
 
    > [!NOTE]
-   > Para obtener información sobre la configuración de un bot, consulte la documentación de Bot Framework para el [canal Direct Line Speech](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech).
+   > Para obtener información sobre la configuración de un bot, consulte la documentación de Bot Framework para el [canal Direct Line Speech](/azure/bot-service/bot-service-channel-connect-directlinespeech).
 
 1. Reemplace las cadenas `YourSpeechSubscriptionKey` y `YourServiceRegion` por sus valores para la suscripción de voz y la [región](~/articles/cognitive-services/speech-service/regions.md).
 

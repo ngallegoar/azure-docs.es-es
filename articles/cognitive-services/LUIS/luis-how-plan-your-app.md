@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/14/2020
-ms.openlocfilehash: 69f2048da0b4690d9de72e96e296edbd55c4cd9f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 66df23466694fe8b9caea4e56565cde6d8fd7416
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91309462"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018963"
 ---
 # <a name="plan-your-luis-app-schema-with-subject-domain-and-data-extraction"></a>Planeamiento del esquema de aplicación de LUIS con el dominio de sujeto y la extracción de datos
 
@@ -21,7 +21,7 @@ Un esquema de aplicación de LUIS contiene [intenciones](luis-glossary.md#intent
 Una aplicación de LUIS se centra en un dominio de sujeto. Por ejemplo, podría darse el caso de que tuviera una aplicación de viajes que controla la reserva de billetes, vuelos, hoteles y alquiler de vehículos. Otra aplicación podría proporcionar contenido relacionado con el ejercicio, el seguimiento de resultados de fitness y el establecimiento de objetivos. Identificar el dominio le ayuda a buscar palabras o frases que son importantes para su dominio.
 
 > [!TIP]
-> LUIS ofrece [dominios creados previamente](luis-how-to-use-prebuilt-domains.md) para muchos escenarios comunes. Compruebe si puede usar un dominio creado previamente como punto de partida para su aplicación.
+> LUIS ofrece [dominios creados previamente](./howto-add-prebuilt-models.md) para muchos escenarios comunes. Compruebe si puede usar un dominio creado previamente como punto de partida para su aplicación.
 
 ## <a name="identify-your-intents"></a>Identificar las intenciones
 
@@ -49,7 +49,7 @@ En las expresiones de ejemplo, identifique las entidades que desea extraer. Para
 A la hora de determinar las entidades que va a usar en la aplicación, tenga en cuenta que hay distintos tipos de entidades para capturar las relaciones entre los tipos de objetos. [Las entidades de LUIS](luis-concept-entity-types.md) proporcionan más detalles sobre los distintos tipos.
 
 > [!TIP]
-> LUIS ofrece [entidades pregeneradas](luis-prebuilt-entities.md) para escenarios comunes de usuarios de conversación. Considere la posibilidad de usar entidades pregeneradas como punto de partida para el desarrollo de aplicaciones.
+> LUIS ofrece [entidades pregeneradas](./howto-add-prebuilt-models.md) para escenarios comunes de usuarios de conversación. Considere la posibilidad de usar entidades pregeneradas como punto de partida para el desarrollo de aplicaciones.
 
 ## <a name="resolution-with-intent-or-entity"></a>¿Resolución con intención o entidad?
 
@@ -79,4 +79,3 @@ Para ayudar con la extracción, agregue características a las subentidades. Eli
 
 > [!div class="nextstepaction"]
 > [Aprendizaje del ciclo de desarrollo de LUIS](luis-concept-app-iteration.md)
-

@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 09/11/2020
 ms.author: aahi
-ms.openlocfilehash: 8154ef7a90011da8c15f52870eebb6c80ebaebca
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: dd1b6d216f6225a13d86aa2435b5b1c807547ec3
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92496110"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95014584"
 ---
 # <a name="telemetry-and-troubleshooting"></a>Telemetría y solución de problemas
 
@@ -51,7 +51,7 @@ Entradas:
 Salidas:
 1. Azure Monitor
 
-El módulo Telegraf de análisis espacial proporcionado publicará todos los datos de telemetría emitidos por el contenedor de análisis espacial en Azure Monitor. Consulte [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) para más información sobre cómo agregar Azure Monitor a su suscripción.
+El módulo Telegraf de análisis espacial proporcionado publicará todos los datos de telemetría emitidos por el contenedor de análisis espacial en Azure Monitor. Consulte [Azure Monitor](../../azure-monitor/overview.md) para más información sobre cómo agregar Azure Monitor a su suscripción.
 
 Después de configurar Azure Monitor, tendrá que crear credenciales que habiliten el módulo para enviar telemetría. Puede usar Azure Portal para crear una entidad de servicio o usar el siguiente comando de la CLI de Azure para crear una.
 
@@ -216,7 +216,7 @@ Los registros se cargan a petición con el método `getRTCVLogs` de IoT Edge, en
 
 
 1. Vaya a la página del portal de IoT Hub, seleccione **dispositivos perimetrales** y elija el dispositivo y el módulo de diagnóstico. 
-2. Vaya a la página de detalles del módulo y haga clic en la pestaña * *_método directo_*.
+2. Vaya a la página de detalles del módulo y haga clic en la pestaña **_método directo_*.
 3. Escriba `getRTCVLogs` como Nombre del método y una cadena de formato JSON en la carga. Puede escribir `{}`, que es una carga vacía. 
 4. Establezca los tiempos de espera de conexión y método y haga clic en *Invocar método**.
 5. Seleccione el contenedor de destino y cree una cadena JSON de carga con los parámetros descritos en la sección **Sintaxis de registro**. Haga clic en **Invocar método** para realizar la solicitud.
@@ -245,7 +245,7 @@ En la tabla siguiente se muestran los atributos de la respuesta de la consulta.
 
 | Palabra clave | Descripción|
 |--|--|
-|DoPost| Puede ser *true* o *false*. Indica si los registros se han cargado o no. Cuando elige no cargar los registros, la API devuelve información * **sincrónicamente**. Cuando elige cargar registros, la API devuelve 200, si la solicitud es válida, e inicia la carga de registros _*_asincrónicamente_*_.|
+|DoPost| Puede ser *true* o *false*. Indica si los registros se han cargado o no. Cuando elige no cargar los registros, la API devuelve información ***sincrónicamente**. Cuando elige cargar registros, la API devuelve 200, si la solicitud es válida, e inicia la carga de registros _*_asincrónicamente_*_.|
 |TimeFilter| Filtro de tiempo aplicado a los registros.|
 |ValueFilters| Filtros de palabra clave aplicados a los registros. |
 |TimeStamp| Hora de inicio de ejecución del método. |
@@ -316,8 +316,8 @@ La siguiente sección se ofrece como ayuda con la depuración y comprobación de
 
 ### <a name="access-the-kubernetes-api-endpoint"></a>Acceda al punto de conexión de API de Kubernetes. 
 
-1. En la interfaz de usuario local del dispositivo, vaya a la página *Dispositivos* *. 
-2. En **Puntos de conexión del dispositivo** , copie el punto de conexión de servicio API de Kubernetes. Este punto de conexión es una cadena en el formato siguiente: `https://compute..[device-IP-address]`.
+1. En la interfaz de usuario local del dispositivo, vaya a la página *Dispositivos**. 
+2. En **Puntos de conexión del dispositivo**, copie el punto de conexión de servicio API de Kubernetes. Este punto de conexión es una cadena en el formato siguiente: `https://compute..[device-IP-address]`.
 3. Guarde la cadena de punto de conexión. La usará más adelante al configurar `kubectl` para acceder al clúster de Kubernetes.
 
 ### <a name="connect-to-powershell-interface"></a>Conexión a la interfaz de PowerShell
@@ -326,7 +326,7 @@ Conéctese de forma remota desde un cliente de Windows. Una vez creado el clúst
 
 > [!TIP]
 > * Antes de comenzar, asegúrese de que el cliente de Windows ejecuta Windows PowerShell 5.0 o posterior.
-> * PowerShell también está [disponible en Linux](https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-linux).
+> * PowerShell también está [disponible en Linux](/powershell/scripting/install/installing-powershell-core-on-linux).
 
 1. Ejecute una sesión de Windows PowerShell como administrador. 
     1. Asegúrese de que el servicio Administración remota de Windows se ejecuta en el cliente. En el símbolo del sistema, escriba `winrm quickconfig`.

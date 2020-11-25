@@ -9,18 +9,18 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 04/02/2019
-ms.openlocfilehash: e1e9ac4ceef843712cc2e39f26ff0aca5341e201
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 867ae2cc7567077786bb0840cd11c47b786be423
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541329"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018759"
 ---
 # <a name="api-v1-to-v2-migration-guide-for-luis-apps"></a>Guía de migración la API v1 a v2 para las aplicaciones de LUIS
 La versión 1 de las API de [punto de conexión](https://aka.ms/v1-endpoint-api-docs) y [creación](https://aka.ms/v1-authoring-api-docs) va a quedar en desuso. Use esta guía para comprender cómo migrar a la versión 2 de las API de [punto de conexión](https://go.microsoft.com/fwlink/?linkid=2092356) y [creación](https://go.microsoft.com/fwlink/?linkid=2092087).
 
 ## <a name="new-azure-regions"></a>Nuevas regiones de Azure
-LUIS tiene nuevas [regiones](https://aka.ms/LUIS-regions) que proporciona para las API de LUIS. LUIS proporciona otro portal para grupos de regiones. La aplicación se debe crear en la misma región que espera consultar. Las aplicaciones no migran las regiones de forma automática. Exporte la aplicación de una región y, luego, impórtela en otra para que esté disponible en una nueva región.
+LUIS tiene nuevas [regiones](./luis-reference-regions.md) que proporciona para las API de LUIS. LUIS proporciona otro portal para grupos de regiones. La aplicación se debe crear en la misma región que espera consultar. Las aplicaciones no migran las regiones de forma automática. Exporte la aplicación de una región y, luego, impórtela en otra para que esté disponible en una nueva región.
 
 ## <a name="authoring-route-changes"></a>Cambios de la ruta de creación
 La ruta de API de creación ha pasado de usar la ruta **prog** a usar la ruta **api**.
@@ -143,7 +143,7 @@ LUIS sugiere expresiones a partir de [expresiones de punto de conexión](luis-ho
 
 
 ## <a name="create-app-from-prebuilt-domains"></a>Crear la aplicación a partir de dominios creados previamente
-Los [dominios creados previamente](luis-how-to-use-prebuilt-domains.md) proporcionan un modelo de dominio predefinido. Los dominios creados previamente permiten desarrollar rápidamente la aplicación de LUIS para dominios comunes. Esta API permite crear una aplicación basada en un dominio creado previamente. La respuesta es el nuevo valor de appID.
+Los [dominios creados previamente](./howto-add-prebuilt-models.md) proporcionan un modelo de dominio predefinido. Los dominios creados previamente permiten desarrollar rápidamente la aplicación de LUIS para dominios comunes. Esta API permite crear una aplicación basada en un dominio creado previamente. La respuesta es el nuevo valor de appID.
 
 |Ruta de la v2|Verbo|
 |--|--|
@@ -154,7 +154,7 @@ Los [dominios creados previamente](luis-how-to-use-prebuilt-domains.md) proporci
 El JSON de la aplicación 1.x exportada tiene algunas áreas que debe cambiar antes de importarla en [LUIS][LUIS]2.0.
 
 ### <a name="prebuilt-entities"></a>Entidades precompiladas
-Las [entidades creadas previamente](luis-prebuilt-entities.md) han cambiado. Asegúrese de que está usando las entidades creadas previamente de la v2. Esto incluye el uso de [datetimeV2](luis-reference-prebuilt-datetimev2.md), en lugar de datetime.
+Las [entidades creadas previamente](./howto-add-prebuilt-models.md) han cambiado. Asegúrese de que está usando las entidades creadas previamente de la v2. Esto incluye el uso de [datetimeV2](luis-reference-prebuilt-datetimev2.md), en lugar de datetime.
 
 ### <a name="actions"></a>Acciones
 La propiedad actions ya no es válida. Debería estar vacía.
@@ -169,4 +169,4 @@ Vea [LUIS API response codes](luis-reference-response-codes.md) (Códigos de res
 
 Use la documentación de la v2 de la API para actualizar las llamadas de REST existentes a las API de [punto de conexión](https://go.microsoft.com/fwlink/?linkid=2092356) y [creación](https://go.microsoft.com/fwlink/?linkid=2092087) de LUIS.
 
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions
+[LUIS]: ./luis-reference-regions.md

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: trbye
-ms.openlocfilehash: 15b69e664ae9a01635afb44d7b6b7c24d7551ce9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3c2dbaf8f65208126c52617d4b89d901b3670dac
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87921425"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025181"
 ---
 # <a name="what-is-multi-device-conversation-preview"></a>¿Qué es la conversación entre varios dispositivos (versión preliminar)?
 
@@ -105,7 +105,7 @@ Al crear una conversación o unirse a ella, cada usuario debe elegir un **idioma
 Hay dos clases de idiomas: los que admiten la conversión de **voz a texto** y los que admiten **solo texto**:
 - Si el usuario elige la opción de **voz a texto** como opción principal, podrá usar la entrada de texto y de voz en la conversación.
 
-- Si el usuario elige la opción de **solo texto**, solo podrá usar la entrada de texto y enviar mensajes instantáneos en la conversación. Los idiomas que admiten solo texto son aquellos que admiten la traducción de texto, pero no la conversión de voz a texto. Puede ver los idiomas disponibles en la página [Compatibilidad con idiomas](supported-languages.md).
+- Si el usuario elige la opción de **solo texto**, solo podrá usar la entrada de texto y enviar mensajes instantáneos en la conversación. Los idiomas que admiten solo texto son aquellos que admiten la traducción de texto, pero no la conversión de voz a texto. Puede ver los idiomas disponibles en la página [Compatibilidad con idiomas](./language-support.md).
 
 Además de su idioma principal, cada participante también puede especificar idiomas adicionales para traducir la conversación.
 
@@ -119,7 +119,7 @@ A continuación se muestra un resumen de lo que el usuario podrá hacer en una c
 | Traducir la conversación | ✔️ | ✔️ |
 
 > [!NOTE]
-> Si desea obtener una lista completa de los idiomas disponibles para la conversión de voz a texto y para la traducción de texto, consulte [Compatibilidad con idiomas](supported-languages.md).
+> Si desea obtener una lista completa de los idiomas disponibles para la conversión de voz a texto y para la traducción de texto, consulte [Compatibilidad con idiomas](./language-support.md).
 
 
 

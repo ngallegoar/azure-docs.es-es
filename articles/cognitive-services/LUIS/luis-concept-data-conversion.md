@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.openlocfilehash: b305be693f59b65a62570f656a0132f4f03cf099
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 42a9caff0433808734ee853cbad90a2088bf4e1e
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541805"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95019252"
 ---
 # <a name="convert-data-format-of-utterances"></a>Conversión del formato de datos de expresiones
 LUIS proporciona las siguientes conversiones de una expresión de usuario antes de la predicción.
@@ -26,7 +26,7 @@ LUIS proporciona las siguientes conversiones de una expresión de usuario antes 
 La conversión de voz en texto se proporciona como una integración con LUIS.
 
 ### <a name="intent-conversion-concepts"></a>Conceptos de la conversión en intención
-La conversión de voz en texto en LUIS permite enviar expresiones de voz a un punto de conexión y recibir una respuesta de predicción de LUIS. El proceso consiste en integrar el servicio [Speech](https://docs.microsoft.com/azure/cognitive-services/Speech) con LUIS. Más información sobre la conversión de voz en intención con un [tutorial](../speech-service/how-to-recognize-intents-from-speech-csharp.md).
+La conversión de voz en texto en LUIS permite enviar expresiones de voz a un punto de conexión y recibir una respuesta de predicción de LUIS. El proceso consiste en integrar el servicio [Speech](/azure/cognitive-services/Speech) con LUIS. Más información sobre la conversión de voz en intención con un [tutorial](../speech-service/how-to-recognize-intents-from-speech-csharp.md).
 
 ### <a name="key-requirements"></a>Requisitos principales
 No es necesario crear una clave de **Bing Speech API** para esta integración. Para esta integración, solo servirá una clave de **Language Understanding** creada en Azure Portal. No utilice la clave de inicio de LUIS.
@@ -41,4 +41,3 @@ Vea los [Límites clave](luis-limits.md#key-limits) para obtener información.
 
 > [!div class="nextstepaction"]
 > [Extracción de datos](luis-concept-data-extraction.md)
-

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/11/2020
 ms.author: trbye
-ms.openlocfilehash: affbf57fcda5ff9fb56e148c2fa8769e7aa775e6
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: b8b3a0aa6d9790dbb5900eac2d79074f44a749d2
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555811"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025657"
 ---
 # <a name="evaluate-and-improve-custom-speech-accuracy"></a>Evaluación y mejora de la precisión de Habla personalizada
 
@@ -136,5 +136,5 @@ En la tabla siguiente se muestran escenarios de reconocimiento de voz y se enume
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-* [Preparación y prueba de los datos](how-to-custom-speech-test-data.md)
+* [Preparación y prueba de los datos](./how-to-custom-speech-test-and-train.md)
 * [Inspección de los datos](how-to-custom-speech-inspect-data.md)

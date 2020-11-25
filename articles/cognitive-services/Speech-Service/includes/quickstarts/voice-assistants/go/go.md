@@ -4,21 +4,21 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/25/2020
 ms.author: trrwilson
-ms.openlocfilehash: b05e63dc549fdf1fec4485e27086bb32251b41d8
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: c37637ba1cb5154bbd56f7fd22bbbca62b8c3438
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93135782"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95096813"
 ---
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Antes de comenzar:
 
 > [!div class="checklist"]
 > * [Ha creado un recurso de Voz de Azure](../../../../overview.md#try-the-speech-service-for-free)
 > * [Configuración del entorno de desarrollo y creación de un proyecto vacío](../../../../quickstarts/setup-platform.md)
-> * Ha creado un bot conectado al [canal Direct Line Speech](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
+> * Ha creado un bot conectado al [canal Direct Line Speech](/azure/bot-service/bot-service-channel-connect-directlinespeech)
 > * Asegúrese de que tiene acceso a un micrófono para capturar el audio.
 >
   > [!NOTE]
@@ -101,14 +101,14 @@ Reemplace los valores `YOUR_SUBSCRIPTION_KEY` y `YOUR_BOT_REGION` por los valore
 - Vaya a Azure Portal y abra el recurso Voz.
 - En **Keys and Endpoint** (Claves y puntos de conexión), a la izquierda, hay dos claves de suscripción disponibles.
     - Use cualquiera de ellas como reemplazo del valor `YOUR_SUBSCRIPTION_KEY`
-- En **Información general** , a la izquierda, anote la región y asígnela al identificador de región.
+- En **Información general**, a la izquierda, anote la región y asígnela al identificador de región.
     - Use el identificador de región como reemplazo del valor `YOUR_BOT_REGION`. Por ejemplo, `"westus"` para **Oeste de EE. UU**.
 
    > [!NOTE]
    > Consulte [la lista de regiones admitidas para los asistentes de voz ](~/articles/cognitive-services/speech-service/regions.md#voice-assistants) y asegúrese de que sus recursos se implementan en una de esas regiones.
 
    > [!NOTE]
-   > Para obtener información sobre la configuración de un bot, consulte la documentación de Bot Framework para el [canal Direct Line Speech](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech).
+   > Para obtener información sobre la configuración de un bot, consulte la documentación de Bot Framework para el [canal Direct Line Speech](/azure/bot-service/bot-service-channel-connect-directlinespeech).
 
 ## <a name="code-explanation"></a>Explicación del código
 Se necesita la clave y la región de la suscripción de Voz para crear un objeto de configuración de voz. El objeto de configuración es necesario para crear una instancia de un objeto del reconocedor de voz.

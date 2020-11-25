@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/13/2020
-ms.openlocfilehash: 12693fb11556380e62df277be093ce20c02ff372
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: fd7499bd5e216f2a625d87ea13996da851a1889e
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92018039"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95019218"
 ---
 # <a name="data-storage-and-removal-in-language-understanding-luis-cognitive-services"></a>Almacenamiento y eliminación de datos en Cognitive Services de Language Understanding (LUIS)
 LUIS almacena datos cifrados en un almacén de datos de Azure correspondiente a la región especificada por la clave. Estos datos se almacenan durante 30 días. 
@@ -55,7 +55,7 @@ Si no ha realizado la migración, puede eliminar la cuenta. Se eliminarán todas
 Para eliminar la cuenta debe ir a la página **Configuración**. Seleccione el nombre de la cuenta en la barra de navegación situada en la parte superior derecha para ir a la página **Configuración**.
 
 ## <a name="delete-an-authoring-resource"></a>Eliminación de un recurso de creación
-Si ha realizado la [migración a un recurso de creación](https://docs.microsoft.com/azure/cognitive-services/luis/luis-migration-authoring), al eliminar de Azure Portal el recurso se eliminarán todas las aplicaciones asociadas a este, junto con sus registros y expresiones de ejemplo. Los datos se conservan durante 90 días antes de eliminarse permanentemente.    
+Si ha realizado la [migración a un recurso de creación](./luis-migration-authoring.md), al eliminar de Azure Portal el recurso se eliminarán todas las aplicaciones asociadas a este, junto con sus registros y expresiones de ejemplo. Los datos se conservan durante 90 días antes de eliminarse permanentemente.    
 
 Para eliminar el recurso, vaya a [Azure Portal](https://ms.portal.azure.com/#home) y seleccione el recurso de creación de LUIS. Vaya a la pestaña **Información general** y haga clic en el botón **Eliminar** de la parte superior de la página. Después, confirme que el recurso se ha eliminado. 
 

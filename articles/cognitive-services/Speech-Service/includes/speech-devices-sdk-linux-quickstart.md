@@ -5,18 +5,18 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 02/20/2020
 ms.author: trbye
-ms.openlocfilehash: 5766eb821800568b567350e1360ca4cf5403be6d
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 3c093539301f3f4e3309094f0b53a1f0e8393150
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93135666"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95098363"
 ---
-En este inicio rápido, aprenderá a usar Speech Devices SDK para Linux para crear un producto habilitado para voz o para utilizarlo como un dispositivo de [transcripción de conversaciones](../conversation-transcription-service.md). Actualmente, solo se admite [Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/).
+En este inicio rápido, aprenderá a usar Speech Devices SDK para Linux para crear un producto habilitado para voz o para utilizarlo como un dispositivo de [transcripción de conversaciones](../conversation-transcription.md). Actualmente, solo se admite [Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/).
 
 La aplicación se crea con el paquete del SDK de voz y el entorno de desarrollo integrado Java de Eclipse (v4) en Linux de 64 bits (Ubuntu 16.04, Ubuntu 18.04, Debian 9, RHEL 7/8 y CentOS 7/8). Se ejecuta en un entorno de tiempo de ejecución de Java 8 (JRE) de 64 bits.
 
-Para esta guía se requiere una cuenta de [Azure Cognitive Services](../get-started.md) con un recurso del servicio de voz. 
+Para esta guía se requiere una cuenta de [Azure Cognitive Services](../overview.md#try-the-speech-service-for-free) con un recurso del servicio de voz. 
 
 El código fuente de la [aplicación de ejemplo](https://aka.ms/sdsdk-download-JRE) se incluye con Speech Devices SDK. También está [disponible en GitHub](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK).
 
@@ -28,7 +28,7 @@ Esta guía de inicio rápido requiere:
 * [Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/)
 * [IDE de Java de Eclipse](https://www.eclipse.org/downloads/)
 * Solo [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) o [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html).
-* Una clave de suscripción de Azure para el servicio Voz. [Obtenga una gratis](../get-started.md).
+* Una clave de suscripción de Azure para el servicio Voz. [Obtenga una gratis](../overview.md#try-the-speech-service-for-free).
 * Descargue la versión más reciente de [Speech Devices SDK](https://aka.ms/sdsdk-download-JRE) para Java y extraiga el archivo .zip en el directorio de trabajo.
    > [!NOTE]
    > En este inicio rápido se supone que la aplicación se extrae en /home/wcaltest/JRE-Sample-Release.
@@ -62,13 +62,13 @@ Asegúrese de que estén instaladas estas dependencias antes de iniciar Eclipse.
 
 Actualmente, la característica de transcripción de conversaciones solo está disponible en "en-US" y "zh-CN", en las regiones de "centralus" y "eastasia". Debe tener una clave de voz en una de esas regiones para usar Transcripción de conversaciones.
 
-Si tiene previsto usar intenciones necesitará una suscripción a [Language Understanding Service (LUIS)](https://docs.microsoft.com/azure/cognitive-services/luis/azureibizasubscription). Para más información acerca de LUIS y el reconocimiento de intenciones, consulte [Reconocimiento de las intenciones de voz con LUIS, C#](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-recognize-intents-from-speech-csharp). Hay un [modelo de ejemplo de LUIS](https://aka.ms/sdsdk-luis) disponible para esta aplicación.
+Si tiene previsto usar intenciones necesitará una suscripción a [Language Understanding Service (LUIS)](../../luis/luis-how-to-azure-subscription.md). Para más información acerca de LUIS y el reconocimiento de intenciones, consulte [Reconocimiento de las intenciones de voz con LUIS, C#](../how-to-recognize-intents-from-speech-csharp.md). Hay un [modelo de ejemplo de LUIS](https://aka.ms/sdsdk-luis) disponible para esta aplicación.
 
 ## <a name="create-and-configure-the-project"></a>Creación y configuración del proyecto
 
 1. Inicie Eclipse.
 
-1. En el **selector de IDE de Eclipse** , en el campo **Workspace** (Área de trabajo), escriba el nombre de un nuevo directorio de área de trabajo. Luego, seleccione **Launch** (Iniciar).
+1. En el **selector de IDE de Eclipse**, en el campo **Workspace** (Área de trabajo), escriba el nombre de un nuevo directorio de área de trabajo. Luego, seleccione **Launch** (Iniciar).
 
    ![Captura de pantalla que muestra el selector de Eclipse.](../media/speech-devices-sdk/eclipse-launcher-linux.png)
 
@@ -80,7 +80,7 @@ Si tiene previsto usar intenciones necesitará una suscripción a [Language Unde
 
    ![Captura de pantalla del asistente de nuevo proyecto de Java](../media/speech-devices-sdk/eclipse-new-java-project-linux.png)
 
-1. En el **Explorador de paquetes** , haga clic con el botón derecho en el proyecto. Elija **Configure (Configurar)**  > **Convert to Maven Project (Convertir en proyecto de Maven)** en el menú contextual. Seleccione **Finalizar**.
+1. En el **Explorador de paquetes**, haga clic con el botón derecho en el proyecto. Elija **Configure (Configurar)**  > **Convert to Maven Project (Convertir en proyecto de Maven)** en el menú contextual. Seleccione **Finalizar**.
 
    ![Captura de pantalla del Explorador de paquetes](../media/speech-devices-sdk/eclipse-convert-to-maven.png)
 
@@ -105,13 +105,13 @@ Si tiene previsto usar intenciones necesitará una suscripción a [Language Unde
     </dependencies>
    ```
 
-1. En el **Explorador de paquetes** , haga clic con el botón derecho en el proyecto. Elija **Propiedades** y, a continuación, **Configuración de depuración/ejecución** > **Nuevo...** > **Aplicación Java**. 
+1. En el **Explorador de paquetes**, haga clic con el botón derecho en el proyecto. Elija **Propiedades** y, a continuación, **Configuración de depuración/ejecución** > **Nuevo...** > **Aplicación Java**. 
 
 1. Aparecerá la ventana **Edit configuration** (Editar configuración). En el campo **Nombre** escriba **Principal** y use **Búsqueda** para **Clase principal** para buscar y seleccionar **com.microsoft.cognitiveservices.speech.samples.FunctionsList**.
 
    ![Captura de pantalla de Edit Launch Configuration (Editar configuración de inicio)](../media/speech-devices-sdk/eclipse-edit-launch-configuration-linux.png)
 
-1. Copie los archivos binarios de audio de la arquitectura de destino, ya sea desde **Linux-arm** o desde **Linux-x64** , en la ubicación del proyecto de Java, por ejemplo: **/home/wcaltest/JRE-Sample-Release**
+1. Copie los archivos binarios de audio de la arquitectura de destino, ya sea desde **Linux-arm** o desde **Linux-x64**, en la ubicación del proyecto de Java, por ejemplo: **/home/wcaltest/JRE-Sample-Release**
 
 1. También en la ventana **Edit configuration** (Editar configuración), seleccione la página **Entorno** y **Nuevo**. Aparecerá la ventana **New Environment Variable** (Nueva variable de entorno). En el campo **Nombre** escriba **LD_LIBRARY_PATH** y en el campo **Valor** especifique la carpeta que contiene los archivos *.so, por ejemplo **/home/wcaltest/JRE-Sample-Release**
 
@@ -143,7 +143,7 @@ Si tiene previsto usar intenciones necesitará una suscripción a [Language Unde
 1. La palabra clave predeterminada (palabra clave) es "Equipo". Además, puede probar una de las otras palabras clave proporcionadas, como "Máquina" o "Asistente". Los archivos de recursos de estas palabras clave alternativas pueden encontrarse en Speech Devices SDK en la carpeta de palabras clave. Por ejemplo, `/home/wcaltest/JRE-Sample-Release/keyword/Computer` contiene los archivos utilizados para la palabra clave "Equipo".
 
    > [!TIP]
-   > También puede [crear una palabra clave personalizada](../speech-devices-sdk-create-kws.md).
+   > También puede [crear una palabra clave personalizada](../custom-keyword-basics.md).
 
     Para usar una nueva palabra clave, actualice la línea siguiente en `FunctionsList.java`, y copie la palabra clave en la aplicación. Por ejemplo, para usar la palabra clave "Máquina" desde el paquete de palabras clave `machine.zip`:
 
@@ -163,13 +163,13 @@ Si tiene previsto usar intenciones necesitará una suscripción a [Language Unde
 
    ![Captura de pantalla que muestra opciones y una aplicación de ejemplo del SDK de dispositivos de Voz.](../media/speech-devices-sdk/java-sample-app-linux.png)
 
-1. Pruebe la nueva demostración de **Transcripción de conversaciones**. Empiece a transcribir con **Sesión** > **Iniciar**. De forma predeterminada, todos los usuarios son invitados. Sin embargo, si dispone de las firmas de voz del participante, se pueden colocar en `participants.properties` la carpeta del proyecto **target/classes**. Para generar la firma de voz, consulte [Transcripción de conversaciones (SDK)](../how-to-use-conversation-transcription-service.md).
+1. Pruebe la nueva demostración de **Transcripción de conversaciones**. Empiece a transcribir con **Sesión** > **Iniciar**. De forma predeterminada, todos los usuarios son invitados. Sin embargo, si dispone de las firmas de voz del participante, se pueden colocar en `participants.properties` la carpeta del proyecto **target/classes**. Para generar la firma de voz, consulte [Transcripción de conversaciones (SDK)](../how-to-use-conversation-transcription.md).
 
    ![Captura de pantalla que muestra una aplicación de demostración de transcripción de conversaciones.](../media/speech-devices-sdk/cts-sample-app-linux.png)
 
 ## <a name="create-and-run-standalone-the-application"></a>Creación y ejecución de una aplicación independiente
 
-1. En el **Explorador de paquetes** , haga clic con el botón derecho en el proyecto. Seleccione **Exportar**. 
+1. En el **Explorador de paquetes**, haga clic con el botón derecho en el proyecto. Seleccione **Exportar**. 
 1. Aparecerá la ventana **Exportar**. Expanda **Java** y seleccione **Runnable JAR file** (Archivo JAR ejecutable) y, a continuación, seleccione **Siguiente**.
 
    ![Captura de pantalla que muestra la ventana Export (Exportar).](../media/speech-devices-sdk/eclipse-export-linux.png) 

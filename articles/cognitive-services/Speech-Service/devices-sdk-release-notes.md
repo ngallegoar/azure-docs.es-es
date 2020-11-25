@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: wellsi
-ms.openlocfilehash: a2fe1c7c1ac8799d615c26fdaee40b92bf3e294b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: af66f2ec56551a5177cd9323d216e9bf4b0c41be
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85212503"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95021854"
 ---
 # <a name="release-notes-speech-devices-sdk"></a>Notas de la versión: SDK de dispositivos de voz
 
@@ -27,13 +27,13 @@ En las siguientes secciones se indican los cambios en las versiones más recient
 - Compatibilidad con [Urbetter DDK](http://www.urbetter.com/products_56/278.html).
 - Se han publicado los binarios para [GGEC Speaker](https://aka.ms/sdsdk-download-speaker) usados en nuestro [ejemplo del Asistente de voz](https://aka.ms/sdsdk-speaker).
 - Se han publicado los binarios para [Linux ARM32](https://aka.ms/sdsdk-download-linux-arm32) y [Linux ARM 64](https://aka.ms/sdsdk-download-linux-arm64) para Raspberry Pi y dispositivos similares.
-- Se ha actualizado el componente [SDK de Voz](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) a la versión 1.11.0. Para más información, consulte sus [notas de la versión](https://aka.ms/csspeech/whatsnew).
+- Se ha actualizado el componente [SDK de Voz](./speech-sdk.md) a la versión 1.11.0. Para más información, consulte sus [notas de la versión](./releasenotes.md).
 
 ## <a name="speech-devices-sdk-190"></a>SDK de dispositivos de voz 1.9.0:
 
 - Se proporcionan archivos binarios iniciales para [Urbetter DDK](https://aka.ms/sdsdk-download-urbetter) (Linux ARM64).
 - Ahora, Roobo v1 utiliza Maven para Speech SDK
-- Se ha actualizado el componente [SDK de Voz](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) a la versión 1.9.0. Para más información, consulte sus [notas de la versión](https://aka.ms/csspeech/whatsnew).
+- Se ha actualizado el componente [SDK de Voz](./speech-sdk.md) a la versión 1.9.0. Para más información, consulte sus [notas de la versión](./releasenotes.md).
 
 ## <a name="speech-devices-sdk-170"></a>SDK de dispositivos de voz 1.7.0:
 
@@ -44,22 +44,22 @@ En las siguientes secciones se indican los cambios en las versiones más recient
 - Compatibilidad con el reconocimiento de múltiples turnos mediante el mismo objeto reconocedor de voz/intención.
 - Corrige un problema ocasional en el que el proceso dejaba de responder y se detenía el reconocimiento.
 - Las aplicaciones de ejemplo ahora contienen un archivo participants.properties de ejemplo para demostrar el formato del archivo.
-- Se ha actualizado el componente [SDK de Voz](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) a la versión 1.7.0. Para más información, consulte sus [notas de la versión](https://aka.ms/csspeech/whatsnew).
+- Se ha actualizado el componente [SDK de Voz](./speech-sdk.md) a la versión 1.7.0. Para más información, consulte sus [notas de la versión](./releasenotes.md).
 
 ## <a name="speech-devices-sdk-160"></a>SDK de dispositivos de voz 1.6.0:
 
-- Compatibilidad con [Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/) en Windows y Linux con una [aplicación de ejemplo](https://aka.ms/sdsdk-download) común
-- Se ha actualizado el componente [Speech SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) a la versión 1.6.0. Para más información, consulte sus [notas de la versión](https://aka.ms/csspeech/whatsnew).
+- Compatibilidad con [Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/) en Windows y Linux con una [aplicación de ejemplo](./speech-devices-sdk.md) común
+- Se ha actualizado el componente [Speech SDK](./speech-sdk.md) a la versión 1.6.0. Para más información, consulte sus [notas de la versión](./releasenotes.md).
 
 ## <a name="speech-devices-sdk-151"></a>SDK de dispositivos de voz 1.5.1:
 
-- Incluya [transcripción de conversaciones](conversation-transcription-service.md) en la aplicación de ejemplo.
-- Se ha actualizado el componente [Speech SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) a la versión 1.5.1. Para más información, consulte sus [notas de la versión](https://aka.ms/csspeech/whatsnew).
+- Incluya [transcripción de conversaciones](./conversation-transcription.md) en la aplicación de ejemplo.
+- Se ha actualizado el componente [Speech SDK](./speech-sdk.md) a la versión 1.5.1. Para más información, consulte sus [notas de la versión](./releasenotes.md).
 
 ## <a name="speech-devices-sdk-150-2019-may-release"></a>SDK de dispositivos de voz 1.5.0: Versión de mayo de 2019
 
 - SDK de dispositivos de voz es ahora disponibilidad general y ya no está en versión preliminar controlada.
-- Se ha actualizado el componente [Speech SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) a la versión 1.5.0. Para más información, consulte sus [notas de la versión](https://aka.ms/csspeech/whatsnew).
+- Se ha actualizado el componente [Speech SDK](./speech-sdk.md) a la versión 1.5.0. Para más información, consulte sus [notas de la versión](./releasenotes.md).
 - La nueva tecnología de palabra clave proporciona importantes mejoras de calidad; consulte Cambios importantes.
 - Nueva canalización de procesamiento de audio para el reconocimiento mejorado de campo lejano.
 
@@ -70,30 +70,30 @@ En las siguientes secciones se indican los cambios en las versiones más recient
 
 ## <a name="speech-devices-sdk-140-2019-apr-release"></a>SDK de dispositivos de voz 1.4.0: Versión de abril de 2019
 
-- Se ha actualizado el componente [Speech SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) a la versión 1.4.0. Para más información, consulte sus [notas de la versión](https://aka.ms/csspeech/whatsnew).
+- Se ha actualizado el componente [Speech SDK](./speech-sdk.md) a la versión 1.4.0. Para más información, consulte sus [notas de la versión](./releasenotes.md).
 
 ## <a name="speech-devices-sdk-131-2019-mar-release"></a>SDK de dispositivos de voz 1.3.1: Versión de marzo de 2019
 
-- Se ha actualizado el componente [Speech SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) a la versión 1.3.1. Para más información, consulte sus [notas de la versión](https://aka.ms/csspeech/whatsnew).
+- Se ha actualizado el componente [Speech SDK](./speech-sdk.md) a la versión 1.3.1. Para más información, consulte sus [notas de la versión](./releasenotes.md).
 - Administración de palabras clave; consulte Cambios importantes.
 - La aplicación de ejemplo agrega la opción de idioma para el reconocimiento y la traducción de voz.
 
 **Cambios importantes**
 
-- La [instalación de una palabra clave](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-create-kws) se ha simplificado, y ahora es parte de la aplicación (no necesita una instalación independiente en el dispositivo).
+- La [instalación de una palabra clave](./custom-keyword-basics.md) se ha simplificado, y ahora es parte de la aplicación (no necesita una instalación independiente en el dispositivo).
 - El reconocimiento de la palabra clave ha cambiado, y se admiten dos eventos.
   - `RecognizingKeyword,` indica que el resultado de voz contiene texto de palabras clave (sin verificar).
   - `RecognizedKeyword` indica que el reconocimiento de la palabra clave terminó de reconocer la palabra clave especificada.
 
 ## <a name="speech-devices-sdk-110-2018-nov-release"></a>SDK de dispositivos de voz 1.1.0: Versión de noviembre de 2018
 
-- Se ha actualizado el componente [Speech SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) a la versión 1.1.0. Para más información, consulte sus [notas de la versión](https://aka.ms/csspeech/whatsnew).
+- Se ha actualizado el componente [Speech SDK](./speech-sdk.md) a la versión 1.1.0. Para más información, consulte sus [notas de la versión](./releasenotes.md).
 - Ha aumentado la precisión del reconocimiento de voz a gran distancia gracias a nuestro algoritmo mejorado de procesamiento de audio.
 - La aplicación de ejemplo ahora es compatible con el reconocimiento de voz en chino.
 
 ## <a name="speech-devices-sdk-101-2018-oct-release"></a>SDK de dispositivos de voz 1.0.1: versión de octubre de 2018
 
-- Se ha actualizado el componente [Speech SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) a la versión 1.0.1. Para más información, consulte sus [notas de la versión](https://aka.ms/csspeech/whatsnew).
+- Se ha actualizado el componente [Speech SDK](./speech-sdk.md) a la versión 1.0.1. Para más información, consulte sus [notas de la versión](./releasenotes.md).
 - La precisión del reconocimiento de voz se verá mejorada gracias a nuestro algoritmo mejorado de procesamiento de audio.
 - Se ha corregido un error en la sesión de audio de reconocimiento continuo.
 
@@ -105,7 +105,7 @@ En las siguientes secciones se indican los cambios en las versiones más recient
 ## <a name="speech-devices-sdk-050-2018-aug-release"></a>SDK de dispositivos de voz 0.5.0: versión de agosto de 2018
 
 - Se ha mejorado la precisión del reconocimiento de voz mediante la corrección de un error en el código de procesamiento de audio.
-- Se ha actualizado el componente [Speech SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) a la versión 0.5.0. Para más información, consulte sus [notas de la versión](releasenotes.md#cognitive-services-speech-sdk-050-2018-july-release).
+- Se ha actualizado el componente [Speech SDK](./speech-sdk.md) a la versión 0.5.0. Para más información, consulte sus [notas de la versión](releasenotes.md#cognitive-services-speech-sdk-050-2018-july-release).
 
 ## <a name="speech-devices-sdk-0212733-2018-may-release"></a>SDK de dispositivos de voz 0.2.12733: Versión de mayo de 2018
 

@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/04/2020
-ms.openlocfilehash: 5c3ac14af6eb863daa9eadd32727f4fb53d2185f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 46e9ece70d9f980065c719ee1205eb46591b45c0
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91322864"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025249"
 ---
 # <a name="upgrade-composite-entity-to-machine-learning-entity"></a>Actualización de la entidad compuesta en la entidad de aprendizaje automático
 
@@ -29,7 +29,7 @@ El proceso de actualización consiste en lo siguiente:
     * Si la entidad secundaria se usa en la compuesta _y_ como una entidad independiente (etiquetada en las expresiones de ejemplo), se agregará a la versión como una entidad y a la nueva entidad de aprendizaje automático como una subentidad.
     * Si la entidad secundaria usa un rol, cada rol se convertirá en una subentidad con el mismo nombre.
     * Si la entidad secundaria es una entidad que no es de aprendizaje automático (expresión regular, entidad de lista o entidad precompilada), se crea una nueva subentidad con el mismo nombre, y la nueva subentidad tiene una característica que usa la entidad que no es de aprendizaje automático con la característica necesaria agregada.
-* Los nombres se conservan, pero deben ser únicos en el mismo nivel o en la misma subentidad. Consulte [Límites de los nombres únicos](luis-boundaries.md#name-uniqueness).
+* Los nombres se conservan, pero deben ser únicos en el mismo nivel o en la misma subentidad. Consulte [Límites de los nombres únicos](./luis-limits.md#name-uniqueness).
 * Las etiquetas de las expresiones de ejemplo se cambian a la nueva entidad de aprendizaje automático con subentidades.
 
 Use el gráfico siguiente para comprender cómo cambia el modelo:

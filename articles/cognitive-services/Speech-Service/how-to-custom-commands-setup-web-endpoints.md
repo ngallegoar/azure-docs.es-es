@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: 0e2406cd35fb2d4dd99da4f5139a9f0f80697912
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: e50d7aba5cc5b3d5d620d844cc9ad169ad8b3bf6
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94566255"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025898"
 ---
 # <a name="set-up-web-endpoints"></a>Configuración de puntos de conexión web
 
@@ -49,10 +49,10 @@ En este artículo, aprenderá a configurar los puntos de conexión web en una ap
    | encabezados | Clave: app. Valor: tomar los primeros 8 dígitos de applicationId | Parámetros de encabezado que se incluirán en el encabezado de solicitud.|
 
     > [!NOTE]
-    > - El punto de conexión web de ejemplo que se creó con [Azure Functions](https://docs.microsoft.com/azure/azure-functions/), que establece un enlace con la base de datos que guarda el estado del dispositivo tanto del televisor como del ventilador.
+    > - El punto de conexión web de ejemplo que se creó con [Azure Functions](../../azure-functions/index.yml), que establece un enlace con la base de datos que guarda el estado del dispositivo tanto del televisor como del ventilador.
     > - El encabezado sugerido solo es necesario para el punto de conexión de ejemplo.
     > - Para asegurarnos de que el valor del encabezado es único en nuestro punto de conexión de ejemplo, tome los primeros 8 dígitos de applicationId.
-    > - En realidad, el punto de conexión web puede ser el punto de conexión a la instancia de [IoT Hub](https://docs.microsoft.com/azure/iot-hub/about-iot-hub) que administra los dispositivos.
+    > - En realidad, el punto de conexión web puede ser el punto de conexión a la instancia de [IoT Hub](../../iot-hub/about-iot-hub.md) que administra los dispositivos.
 
 1. Haga clic en **Save**(Guardar).
 

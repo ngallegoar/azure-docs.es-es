@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: travisw
-ms.openlocfilehash: 4bdca8921a99db764cbc8ee1edfdad8cf8b8568f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa885b1dcff59ec1b89d9a0bcf4ac5578cb5e8ea
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91360946"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024915"
 ---
 # <a name="what-is-a-voice-assistant"></a>¿Qué es un asistente de voz?
 
@@ -32,7 +32,7 @@ El primer paso para crear un asistente de voz es decidir qué se debe hacer. El 
 |Conversación abierta con integración de sólidas aptitudes y control completo de la implementación | El bot de Azure Bot Service con el canal [Direct Line Speech](direct-line-speech.md) | <ul><li>"Tengo que ir a Seattle"</li><li>"¿Qué tipo de pizza puedo pedir?"</li></ul>
 |Comandos de voz o conversaciones sencillas orientadas a tareas con creación y hospedaje simplificados | [Comandos personalizados](custom-commands.md) | <ul><li>"Encender la luz superior"</li><li>"Subir la temperatura 5 grados"</li><li>Hay otros ejemplos [disponibles aquí](https://speech.microsoft.com/customcommands)</li></ul>
 
-Se recomienda [Direct Line Speech](direct-line-speech.md) como mejor opción predeterminada si aún no está seguro de lo que le gustaría que controlara el asistente. Ofrece integración con un completo conjunto de herramientas y ayudas de creación, como la [solución de asistente virtual y de plantilla de empresa](https://docs.microsoft.com/azure/bot-service/bot-builder-enterprise-template-overview) y el [servicio de QnA Maker](https://docs.microsoft.com/azure/cognitive-services/QnAMaker/Overview/overview) para crear patrones comunes y usar los orígenes de conocimiento existentes.
+Se recomienda [Direct Line Speech](direct-line-speech.md) como mejor opción predeterminada si aún no está seguro de lo que le gustaría que controlara el asistente. Ofrece integración con un completo conjunto de herramientas y ayudas de creación, como la [solución de asistente virtual y de plantilla de empresa](/azure/bot-service/bot-builder-enterprise-template-overview) y el [servicio de QnA Maker](../qnamaker/overview/overview.md) para crear patrones comunes y usar los orígenes de conocimiento existentes.
 
 [Comandos personalizados](custom-commands.md) facilita la creación de aplicaciones de comandos de voz enriquecidas y optimizadas para las experiencias de interacción que priorizan la voz. Proporcionan una experiencia de creación unificada, un modelo de hospedaje automático y una complejidad relativamente inferior, lo que ayuda a centrarse en la creación de la mejor solución para sus escenarios de comandos de voz.
 
@@ -49,7 +49,7 @@ Tanto si elige [Direct Line Speech](direct-line-speech.md) o [Comandos personali
 
 | Category | Características |
 |----------|----------|
-|[Palabra clave personalizada](speech-devices-sdk-create-kws.md) | Los usuarios pueden iniciar conversaciones con los asistentes mediante una palabra clave personalizada como "Hola, Contoso". Una aplicación lo lleva a cabo con un motor de palabras clave personalizadas en el SDK de Voz, que puede configurarse con una palabra clave [que puede generar aquí](speech-devices-sdk-create-kws.md). Los asistentes de voz pueden utilizar la comprobación de palabras clave del lado del servicio para mejorar la precisión de la activación de palabras clave (frente al dispositivo por sí solo).
+|[Palabra clave personalizada](./custom-keyword-basics.md) | Los usuarios pueden iniciar conversaciones con los asistentes mediante una palabra clave personalizada como "Hola, Contoso". Una aplicación lo lleva a cabo con un motor de palabras clave personalizadas en el SDK de Voz, que puede configurarse con una palabra clave [que puede generar aquí](./custom-keyword-basics.md). Los asistentes de voz pueden utilizar la comprobación de palabras clave del lado del servicio para mejorar la precisión de la activación de palabras clave (frente al dispositivo por sí solo).
 |[Speech to Text](speech-to-text.md) | Los asistentes de voz convierten audio en tiempo real en texto reconocido mediante la [Conversión de voz en texto](speech-to-text.md) del servicio de voz. Este texto está disponible, a medida que se escribe, tanto para la implementación del asistente como para la aplicación cliente.
 |[Texto a voz](text-to-speech.md) | Las respuestas textuales desde el asistente se sintetizan mediante [Texto a voz](text-to-speech.md) del servicio de voz. A continuación, esta síntesis se pone a disposición de la aplicación cliente como una secuencia de audio. Microsoft ofrece la posibilidad de crear su propia voz TTS neuronal personalizada de alta calidad que le pone voz a su marca. Para obtener más información, [póngase en contacto con nosotros](mailto:mstts@microsoft.com).
 

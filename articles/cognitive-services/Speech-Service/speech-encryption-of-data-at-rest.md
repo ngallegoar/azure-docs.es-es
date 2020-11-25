@@ -9,12 +9,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: egeaney
-ms.openlocfilehash: b9b76b2eb5e9536561f73a92b6911a2f82122a1b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa0fe33dff0161767b74546aad49003d8fc70c16
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89078102"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015263"
 ---
 # <a name="speech-service-encryption-of-data-at-rest"></a>Cifrado de datos en reposo del servicio de voz
 
@@ -33,11 +33,11 @@ Cuando se usan Custom Speech y Voz personalizada, el servicio de voz puede almac
 
 De forma predeterminada, los datos se guardan en el almacenamiento de Microsoft y la suscripción usa claves de cifrado administradas por Microsoft. También tiene la opción de preparar su propia cuenta de almacenamiento. El acceso a la tienda lo administra la identidad administrada y el servicio de voz no puede acceder directamente a sus propios datos, como los datos de seguimiento de voz, datos de entrenamiento de personalización y modelos personalizados.
 
-Para más información sobre la identidad administrada, consulte [¿Qué son las identidades administradas?](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
+Para más información sobre la identidad administrada, consulte [¿Qué son las identidades administradas?](../../active-directory/managed-identities-azure-resources/overview.md)
 
 ## <a name="bring-your-own-storage-byos-for-customization-and-logging"></a>Traiga su propio almacenamiento (BYOS) para la personalización y el registro
 
-Para solicitar acceso para traer su propio almacenamiento, rellene y envíe el  [formulario de solicitud del servicio de voz: traiga su propia cuenta de almacenamiento (BYOS)](https://aka.ms/cogsvc-cmk). Una vez que reciba la aprobación, será preciso que cree su propia cuenta de almacenamiento para almacenar los datos necesarios para la personalización y el registro. Al agregar una cuenta de almacenamiento, el recurso del servicio de voz habilitará una identidad administrada asignada por el sistema. Después de que se habilite la identidad administrada asignada por el sistema, este recurso se registrará con Azure Active Directory (AAD). Tras su registro, se concederá acceso a la identidad administrada a la cuenta de almacenamiento. Aquí puede obtener más información acerca de las identidades administradas. Para más información sobre la identidad administrada, consulte [¿Qué son las identidades administradas?](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
+Para solicitar acceso para traer su propio almacenamiento, rellene y envíe el  [formulario de solicitud del servicio de voz: traiga su propia cuenta de almacenamiento (BYOS)](https://aka.ms/cogsvc-cmk). Una vez que reciba la aprobación, será preciso que cree su propia cuenta de almacenamiento para almacenar los datos necesarios para la personalización y el registro. Al agregar una cuenta de almacenamiento, el recurso del servicio de voz habilitará una identidad administrada asignada por el sistema. Después de que se habilite la identidad administrada asignada por el sistema, este recurso se registrará con Azure Active Directory (AAD). Tras su registro, se concederá acceso a la identidad administrada a la cuenta de almacenamiento. Aquí puede obtener más información acerca de las identidades administradas. Para más información sobre la identidad administrada, consulte [¿Qué son las identidades administradas?](../../active-directory/managed-identities-azure-resources/overview.md)
 
 > [!IMPORTANT]
 > Si deshabilita identidades administradas asignadas por el sistema, se quitará el acceso a la cuenta de almacenamiento. Esto hará que las partes del servicio de voz que requieran acceso a la cuenta de almacenamiento dejen de funcionar.  
@@ -50,4 +50,4 @@ El servicio de voz no admite actualmente la Caja de seguridad del cliente. Sin e
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Formulario de solicitud del servicio de voz: traiga su propia cuenta de almacenamiento (BYOS)](https://aka.ms/cogsvc-cmk)
-* [¿Qué son las identidades administradas?](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
+* [¿Qué son las identidades administradas?](../../active-directory/managed-identities-azure-resources/overview.md)

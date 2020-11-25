@@ -4,21 +4,21 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/04/2020
 ms.author: travisw
-ms.openlocfilehash: 38e6bae69710dc9e1dbc8789ee9ccb636193c7f7
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 8ee14b94977b3152e0aab853fa3919a739d0dfdd
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "80671584"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95096614"
 ---
 ## <a name="prerequisites"></a>Prerrequisitos
 
 Antes de comenzar, compruebe lo siguiente:
 
 > [!div class="checklist"]
-> * [Ha creado un recurso de Voz de Azure](~/articles/cognitive-services/speech-service/get-started.md)
+> * [Ha creado un recurso de Voz de Azure](../../../../overview.md#try-the-speech-service-for-free)
 > * [Ha configurado el entorno de desarrollo y ha creado un proyecto vacío](~/articles/cognitive-services/speech-service/quickstarts/setup-platform.md?tabs=jre&pivots=programming-language-java)
-> * Ha creado un bot conectado al [canal Direct Line Speech](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
+> * Ha creado un bot conectado al [canal Direct Line Speech](/azure/bot-service/bot-service-channel-connect-directlinespeech)
 > * Asegúrese de que tiene acceso a un micrófono para capturar el audio.
 
   > [!NOTE]
@@ -115,7 +115,7 @@ Además, para habilitar el registro, actualice el archivo _pom.xml_ para incluir
 
 1. En el método `main`, primero configurará el `DialogServiceConfig` y lo utilizará para crear una instancia de `DialogServiceConnector`. Esta instancia se conecta al canal de Direct Line Speech para interactuar con el bot. También se utiliza una instancia de `AudioConfig` para especificar el origen de la entrada de audio. En este ejemplo, se usa el micrófono predeterminado con `AudioConfig.fromDefaultMicrophoneInput()`.
 
-   - Reemplace la cadena `YourSubscriptionKey` por la clave de suscripción, que puede obtener en [este sitio web](~/articles/cognitive-services/speech-service/get-started.md).
+   - Reemplace la cadena `YourSubscriptionKey` por la clave de suscripción, que puede obtener en [este sitio web](../../../../overview.md#try-the-speech-service-for-free).
    - Reemplace la cadena `YourServiceRegion` por la [región](~/articles/cognitive-services/speech-service/regions.md) asociada a su suscripción.
 
    > [!NOTE]

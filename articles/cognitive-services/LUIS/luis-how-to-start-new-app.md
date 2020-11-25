@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/18/2020
-ms.openlocfilehash: fcc803e87b2efd3e94b90eb17258ab3bb156359f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2dd06a7b4c8e6296cda747d17fd3d5be5db0af6b
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541446"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018895"
 ---
 # <a name="create-a-new-luis-app-in-the-luis-portal"></a>Creación de una aplicación de LUIS en el portal de LUIS
 Hay un par de formas de crear aplicaciones de LUIS. Puede crear una aplicación de LUIS en el portal de LUIS o a través de las [API](developer-reference-resource.md) de creación de LUIS.
@@ -24,7 +24,7 @@ Hay un par de formas de crear aplicaciones de LUIS. Puede crear una aplicación 
 Puede crear una aplicación nueva en el portal de varias maneras:
 
 * Comience con una aplicación vacía y cree intenciones, expresiones y entidades.
-* Comience con una aplicación vacía y agregue un [dominio creado previamente](luis-how-to-use-prebuilt-domains.md).
+* Comience con una aplicación vacía y agregue un [dominio creado previamente](./howto-add-prebuilt-models.md).
 * Importe una aplicación de LUIS desde un archivo `.lu` o `.json` que ya contenga intenciones, expresiones y entidades.
 
 ## <a name="using-the-authoring-apis"></a>Mediante las API de creación
@@ -75,4 +75,4 @@ La barra de herramientas de contexto ofrece otras acciones:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Si el diseño de la aplicación incluye la detección de intenciones, [cree otros intentos](luis-how-to-add-intents.md) y agregue expresiones de ejemplo. Si el diseño de la aplicación solo corresponde a extracción de datos, agregue expresiones de ejemplo la intención None, [cree entidades](luis-how-to-add-example-utterances.md) y etiquete las expresiones de ejemplo con esas entidades.
+Si el diseño de la aplicación incluye la detección de intenciones, [cree otros intentos](luis-how-to-add-intents.md) y agregue expresiones de ejemplo. Si el diseño de la aplicación solo corresponde a extracción de datos, agregue expresiones de ejemplo la intención None, [cree entidades](./luis-how-to-add-entities.md) y etiquete las expresiones de ejemplo con esas entidades.

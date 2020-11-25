@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: 4c3b5674fe039a89eb97b915d13b5d472a6a0568
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 96b9754908f437ccf81e002e9e9dd17af0bab4e3
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91316399"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95019082"
 ---
 # <a name="understand-what-good-utterances-are-for-your-luis-app"></a>Comprender cuáles son las expresiones correctas para la aplicación de LUIS
 
@@ -29,7 +29,7 @@ Recopile expresiones que crea que los usuarios pueden escribir. Incluya expresio
 
 ## <a name="how-to-choose-varied-utterances"></a>Cómo elegir expresiones variadas
 
-Cuando empiece por primera vez a [agregar expresiones de ejemplo](luis-how-to-add-example-utterances.md) al modelo de LUIS, debe tener en cuenta algunos de los principios siguientes.
+Cuando empiece por primera vez a [agregar expresiones de ejemplo](./luis-how-to-add-entities.md) al modelo de LUIS, debe tener en cuenta algunos de los principios siguientes.
 
 ### <a name="utterances-arent-always-well-formed"></a>Las expresiones no siempre tienen el formato correcto
 
@@ -78,11 +78,11 @@ La configuración de la normalización de expresiones está desactivada de forma
 * Marcas diacríticas
 * Signos de puntuación
 
-Si activa la configuración de normalización, las puntuaciones del panel **Prueba** , las pruebas por lotes y las consultas de puntos de conexión cambiarán en todas las expresiones que usen esa configuración de normalización.
+Si activa la configuración de normalización, las puntuaciones del panel **Prueba**, las pruebas por lotes y las consultas de puntos de conexión cambiarán en todas las expresiones que usen esa configuración de normalización.
 
 Al clonar una versión en el portal de LUIS, la configuración de la versión continúa con la nueva versión clonada.
 
-Establezca la configuración de la versión a través del portal LUIS, en la sección **Administrar** , en la página **Configuración de la aplicación** o en la [Actualización de la configuración de la versión de la API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings). Obtenga más información sobre estos cambios de normalización en la [Referencia](luis-reference-application-settings.md).
+Establezca la configuración de la versión a través del portal LUIS, en la sección **Administrar**, en la página **Configuración de la aplicación** o en la [Actualización de la configuración de la versión de la API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings). Obtenga más información sobre estos cambios de normalización en la [Referencia](luis-reference-application-settings.md).
 
 ### <a name="word-forms"></a>Formas de las palabras
 
@@ -147,5 +147,4 @@ Si quiere que una entidad de evento busque todos los datos de eventos, etiquete 
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-Consulte [Agregar expresiones de ejemplo](luis-how-to-add-example-utterances.md) para información sobre cómo entrenar una aplicación de LUIS para comprender las expresiones del usuario.
-
+Consulte [Agregar expresiones de ejemplo](./luis-how-to-add-entities.md) para información sobre cómo entrenar una aplicación de LUIS para comprender las expresiones del usuario.

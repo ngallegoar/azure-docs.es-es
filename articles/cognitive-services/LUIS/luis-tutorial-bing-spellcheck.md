@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 11/19/2019
-ms.openlocfilehash: 120852c3e66594b1cf5cd28bb52ce06634211060
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9d2a1702ea131e9b1b4bf5e586f4290db3aff7ff
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541106"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018776"
 ---
 # <a name="correct-misspelled-words-with-bing-spell-check"></a>Corregir palabras incorrectas con Bing Spell Check
 
@@ -97,4 +97,4 @@ Hay dos soluciones:
 La página de [publicación](luis-how-to-publish-app.md) contiene una casilla **Enable Bing spell checker** (Habilitar el corrector ortográfico de Bing). Se trata de una comodidad para crear la clave y comprender cómo cambia la dirección URL del punto de conexión. Tendrá que seguir usando los parámetros de punto de conexión correctos para que se corrija la ortografía de cada expresión.
 
 > [!div class="nextstepaction"]
-> [Más información sobre las expresiones de ejemplo](luis-how-to-add-example-utterances.md)
+> [Más información sobre las expresiones de ejemplo](./luis-how-to-add-entities.md)

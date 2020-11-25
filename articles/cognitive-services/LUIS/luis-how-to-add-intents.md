@@ -9,12 +9,12 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/17/2020
 ms.service: cognitive-services
-ms.openlocfilehash: c2802f1b41ed2842e12c808a8c380ebd646ffa03
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f2401c032f0fc90024e0049fad5f696b8a184544
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91540938"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018946"
 ---
 # <a name="add-intents-to-determine-user-intention-of-utterances"></a>Adición de intenciones para determinar la intención de las expresiones del usuario
 
@@ -81,4 +81,4 @@ Después de agregar, editar o quitar intenciones, [entrene](luis-how-to-train.md
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Más información sobre la incorporación de [expresiones de ejemplo](luis-how-to-add-example-utterances.md) con entidades.
+Más información sobre la incorporación de [expresiones de ejemplo](./luis-how-to-add-entities.md) con entidades.

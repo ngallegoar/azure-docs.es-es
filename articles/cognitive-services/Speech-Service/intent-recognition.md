@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 10/13/2020
 ms.author: v-demjoh
 keywords: reconocimiento de la intención
-ms.openlocfilehash: 0d718459e0fd0ea410232d3a165b560aa8c59cd1
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 215b25e440b8cad76e0656e47d32b184edf4ac66
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92174625"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018708"
 ---
 # <a name="what-is-intent-recognition"></a>¿Qué es el reconocimiento de intenciones?
 
@@ -29,7 +29,7 @@ Con el reconocimiento de intenciones, las aplicaciones, herramientas y dispositi
 
 * LUIS se integra con el servicio Voz para reconocer las intenciones a partir de contenido de voz. No necesita una suscripción al servicio Voz, solo LUIS.
 * El reconocimiento de intenciones de Voz se integra con el SDK. Puede usar una clave de LUIS con el servicio de voz.
-* El reconocimiento de intenciones mediante el SDK de Voz se [ofrece en un subconjunto de regiones admitidas por LUIS](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#intent-recognition).
+* El reconocimiento de intenciones mediante el SDK de Voz se [ofrece en un subconjunto de regiones admitidas por LUIS](./regions.md#intent-recognition).
 
 ## <a name="get-started"></a>Introducción
 
@@ -39,8 +39,8 @@ Consulte el [inicio rápido](quickstarts/intent-recognition.md) para empezar a u
 
 Código de ejemplo para el reconocimiento de intenciones:
 
-* [Inicio rápido: Uso de automatización del hogar compilada previamente](https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-create-app)
-* [Reconocimiento de intenciones a partir de contenido de voz mediante el SDK de Voz para C#](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-recognize-intents-from-speech-csharp)
+* [Inicio rápido: Uso de automatización del hogar compilada previamente](../luis/luis-get-started-create-app.md)
+* [Reconocimiento de intenciones a partir de contenido de voz mediante el SDK de Voz para C#](./how-to-recognize-intents-from-speech-csharp.md)
 * [Reconocimiento de la intención y otros servicios de Voz con Unity en C#](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/unity/speechrecognizer)
 * [Reconocimiento de la intención con el SDK de Voz para Python](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/python/console)
 * [Reconocimiento de la intención y otros servicios de Voz con el SDK de Voz para C++ en Windows](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/cpp/windows/console)
@@ -49,7 +49,7 @@ Código de ejemplo para el reconocimiento de intenciones:
 
 ## <a name="reference-docs"></a>Documentos de referencia
 
-* [Acerca del SDK de Voz](speech-sdk-reference.md)
+* [Acerca del SDK de Voz](./speech-sdk.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

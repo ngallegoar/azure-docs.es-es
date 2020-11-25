@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: shlo
-ms.openlocfilehash: 7df082cd5044f142d8d5900ec1fff6c182262bd9
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 348277d42c543bc45cf98bfeaf7ea8313afe8f6f
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425124"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95021990"
 ---
 # <a name="disclosure-design-patterns"></a>Modelos de diseño de divulgación
 Tras determinar el [nivel de divulgación](concepts-disclosure-guidelines.md#disclosure-assessment) adecuado para su experiencia de voz sintética, es un buen momento para explorar posibles modelos de diseño.
@@ -241,17 +241,17 @@ Use la divulgación como una oportunidad para que se produzcan errores con graci
 
 ## <a name="additional-resources"></a>Recursos adicionales
 - [Directrices de bot de Microsoft](https://www.microsoft.com/research/uploads/prod/2018/11/Bot_Guidelines_Nov_2018.pdf)
-- [Directrices sobre el diseño de Cortana](https://docs.microsoft.com/cortana/voice-commands/voicecommand-design-guidelines)
-- [Directrices para el diseño de voz de UWP de Microsoft Windows](https://docs.microsoft.com/windows/uwp/design/input/speech-interactions)
-- [Directrices de comandos de voz de Microsoft Windows Mixed Reality](https://docs.microsoft.com/windows/mixed-reality/voice-design#top-things-users-should-know-about-speech-in-mixed-reality)
+- [Directrices sobre el diseño de Cortana](/cortana/voice-commands/voicecommand-design-guidelines)
+- [Directrices para el diseño de voz de UWP de Microsoft Windows](/windows/uwp/design/input/speech-interactions)
+- [Directrices de comandos de voz de Microsoft Windows Mixed Reality](/windows/mixed-reality/voice-design#top-things-users-should-know-about-speech-in-mixed-reality)
 
 ## <a name="reference-docs"></a>Documentos de referencia
 
-* [Divulgación de talento de voz](https://aka.ms/disclosure-voice-talent)
+* [Divulgación de talento de voz](/legal/cognitive-services/speech-service/disclosure-voice-talent)
 * [Directrices para la implementación responsable de la tecnología de voz sintética](concepts-guidelines-responsible-deployment-synthetic.md)
 * [Información general sobre control](concepts-gating-overview.md)
 * [Procedimiento de divulgación](concepts-disclosure-guidelines.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Divulgación de talento de voz](https://aka.ms/disclosure-voice-talent)
+* [Divulgación de talento de voz](/legal/cognitive-services/speech-service/disclosure-voice-talent)

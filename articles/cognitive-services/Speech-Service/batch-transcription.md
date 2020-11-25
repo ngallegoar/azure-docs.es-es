@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/03/2020
 ms.author: wolfma
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f89dd6b7926baf6c1c64cff81e8b613461a3e925
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: b9ed43019e7af0cb810c3e0fc849281a458a43e1
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93345506"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023640"
 ---
 # <a name="how-to-use-batch-transcription"></a>Uso de la transcripción por lotes
 
@@ -46,7 +46,7 @@ Como sucede con todas las características del servicio Voz, puede crear una cla
 >[!NOTE]
 > Se requiere una suscripción estándar (S0) para el servicio de voz para usar la transcripción de lotes. Las claves de suscripción gratuita (F0) no funcionarán. Para obtener más información, consulte los [precios y límites](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
-Si tiene previsto personalizar los modelos, siga los pasos descritos en [Personalización acústica](how-to-customize-acoustic-models.md) y [Personalización de idioma](how-to-customize-language-model.md). Para usar los modelos creados en la transcripción por lotes, necesita sus ubicaciones. Puede recuperar la ubicación del modelo al inspeccionar los detalles del modelo (propiedad `self`). *No es necesario* un punto de conexión personalizado implementado para el servicio de transcripción por lotes.
+Si tiene previsto personalizar los modelos, siga los pasos descritos en [Personalización acústica](./how-to-custom-speech-train-model.md) y [Personalización de idioma](./how-to-custom-speech-train-model.md). Para usar los modelos creados en la transcripción por lotes, necesita sus ubicaciones. Puede recuperar la ubicación del modelo al inspeccionar los detalles del modelo (propiedad `self`). *No es necesario* un punto de conexión personalizado implementado para el servicio de transcripción por lotes.
 
 >[!NOTE]
 > Al formar arte de la API REST, Batch Transcription tiene un conjunto de [cuotas y límites](speech-services-quotas-and-limits.md#batch-transcription), y es aconsejable examinarlos. Para sacar el máximo partido de la capacidad de Batch Transcription para transcribir eficazmente un gran número de archivos de audio, se recomienda enviar siempre varios archivos por solicitud o apuntar los archivos de audio que se van a transcribir a un contenedor de Blob Storage. El servicio transcribirá los archivos de forma concurrente, lo que reducirá el tiempo de respuesta. El uso de varios archivos en una sola solicitud es una operación sencilla y directa (consulte la sección [Configuración](#configuration)). 
@@ -182,7 +182,7 @@ Utilice estas propiedades opcionales para configurar la transcripción:
 
 ### <a name="storage"></a>Storage
 
-La transcripción por lotes puede leer audio desde un URI de Internet visible públicamente, además de leer transcripciones de audio o de escritura mediante un URI de SAS con [Azure Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview).
+La transcripción por lotes puede leer audio desde un URI de Internet visible públicamente, además de leer transcripciones de audio o de escritura mediante un URI de SAS con [Azure Blob Storage](../../storage/blobs/storage-blobs-overview.md).
 
 ## <a name="batch-transcription-result"></a>Resultado de la transcripción por lotes
 

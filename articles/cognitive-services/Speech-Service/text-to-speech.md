@@ -12,12 +12,12 @@ ms.date: 09/01/2020
 ms.author: trbye
 ms.custom: cog-serv-seo-aug-2020
 keywords: texto a voz
-ms.openlocfilehash: 5d60279a2e3cb6aa7226f518783d53a1a38ddaa8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: af0c9338cb9661402c3a76bab55f34b01304c7b6
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91357461"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024524"
 ---
 # <a name="what-is-text-to-speech"></a>¿Qué es el texto a voz?
 
@@ -31,7 +31,7 @@ En esta introducción, encontrará información sobre las ventajas y las funcion
 
 ## <a name="core-features"></a>Características principales
 
-* Síntesis de voz: use el [SDK de voz](quickstarts/text-to-speech-audio-file.md) o la [API de REST](rest-text-to-speech.md) para convertir texto a voz mediante las voces estándar, neuronal o personalizada.
+* Síntesis de voz: use el [SDK de voz](./get-started-text-to-speech.md) o la [API de REST](rest-text-to-speech.md) para convertir texto a voz mediante las voces estándar, neuronal o personalizada.
 
 * Síntesis asincrónica de audio de larga duración: use [Long Audio API](long-audio-api.md) para sintetizar asincrónicamente archivos de texto a voz de más de 10 minutos (por ejemplo, audiolibros o audioconferencias). A diferencia de la síntesis realizada mediante el SDK de voz o la API de REST de voz a texto, las respuestas no se devuelven en tiempo real. La expectativa es que las solicitudes se envíen de forma asincrónica, se sondeen las respuestas y el audio sintetizado se descargue cuando esté disponible en el servicio. Solo se admiten las voces neuronales personalizadas.
 

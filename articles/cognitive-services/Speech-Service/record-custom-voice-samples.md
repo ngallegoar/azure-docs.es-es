@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/13/2020
 ms.author: erhopf
-ms.openlocfilehash: 2897fe2e0cc8aeb929b0a33f5cdaba9c60f2a244
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dae7b8e0485c1a2456b85e0910f60b2164d4e41c
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81261591"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026325"
 ---
 # <a name="record-voice-samples-to-create-a-custom-voice"></a>Grabación de muestras de voz para crear una voz personalizada
 
@@ -211,7 +211,7 @@ Escuche atentamente cada archivo. En esta fase, puede editar pequeños sonidos n
 
 Convierta todos los archivos a 16 bits y una velocidad de muestreo de 16 kHz antes de guardar y, si graba la charla del estudio, quite el segundo canal. Guarde cada archivo en formato WAV y nombre los archivos con el número de enunciado del guion.
 
-Por último, cree la *transcripción* que asocia cada archivo WAV con una versión de texto del enunciado correspondiente. En [Crear fuentes de voz personalizada](how-to-customize-voice-font.md) se incluye información detallada del formato requerido. Puede copiar el texto directamente del guion. Después, cree un archivo ZIP de los archivos WAV y de la transcripción de texto.
+Por último, cree la *transcripción* que asocia cada archivo WAV con una versión de texto del enunciado correspondiente. En [Crear fuentes de voz personalizada](./how-to-custom-voice-create-voice.md) se incluye información detallada del formato requerido. Puede copiar el texto directamente del guion. Después, cree un archivo ZIP de los archivos WAV y de la transcripción de texto.
 
 Archive las grabaciones originales en un lugar seguro en caso de que las necesite más adelante. También, conserve el guion y las notas.
 
@@ -220,4 +220,4 @@ Archive las grabaciones originales en un lugar seguro en caso de que las necesit
 Está listo para cargar las grabaciones y crear la voz personalizada.
 
 > [!div class="nextstepaction"]
-> [Creación de fuentes de voz personalizadas](how-to-customize-voice-font.md)
+> [Creación de fuentes de voz personalizadas](./how-to-custom-voice-create-voice.md)

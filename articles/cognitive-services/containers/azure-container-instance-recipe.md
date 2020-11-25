@@ -10,16 +10,16 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: f247465c7e2c0a212df2821ebc7165d3ee5b15f3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8ddaed181d017e3167694a9d7edf53c7c09fd5e9
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80876664"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94968526"
 ---
 # <a name="deploy-and-run-container-on-azure-container-instance"></a>Implementación y ejecución de un contenedor en Azure Container Instance
 
-Con los pasos siguientes, escale aplicaciones de Azure Cognitive Services en la nube fácilmente con [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/). La creación de contenedores permite centrarse en la compilación de aplicaciones en lugar de en la administración de la infraestructura. Para más información sobre el uso de contenedores, consulte [Características y ventajas](../cognitive-services-container-support.md#features-and-benefits).
+Con los pasos siguientes, escale aplicaciones de Azure Cognitive Services en la nube fácilmente con [Azure Container Instances](../../container-instances/index.yml). La creación de contenedores permite centrarse en la compilación de aplicaciones en lugar de en la administración de la infraestructura. Para más información sobre el uso de contenedores, consulte [Características y ventajas](../cognitive-services-container-support.md#features-and-benefits).
 
 ## <a name="prerequisites"></a>Requisitos previos
 

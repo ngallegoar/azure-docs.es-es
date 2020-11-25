@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/10/2019
-ms.openlocfilehash: cf138248e878b21531df2035dfeda1b90162ea99
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bf5ab7361c84fb787366c7c361829e52362fe427
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91536110"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025915"
 ---
 # <a name="intents-in-your-luis-app"></a>Intenciones en la aplicación de LUIS
 
@@ -32,7 +32,7 @@ Intenciones de la aplicación de viajes   |   Expresiones de ejemplo   |
 Todas las aplicaciones vienen con la intención predefinida "[None](#none-intent)", que es la intención de reserva.
 
 ## <a name="prebuilt-domains-provide-intents"></a>Los dominios creados previamente proporcionan intenciones
-Además de las intenciones que defina, puede usar intenciones creadas previamente desde uno de los [dominios creados previamente](luis-how-to-use-prebuilt-domains.md).
+Además de las intenciones que defina, puede usar intenciones creadas previamente desde uno de los [dominios creados previamente](./howto-add-prebuilt-models.md).
 
 ## <a name="return-all-intents-scores"></a>Devolver las puntuaciones de todas las intenciones
 Asigne una expresión a una única intención. Cuando LUIS recibe una expresión en el punto de conexión, de manera predeterminada, devuelve la intención superior para esa expresión.
@@ -59,7 +59,7 @@ Cree una intención cuando la _intención_ del usuario desencadenaría una acci�
 
 ## <a name="prebuilt-domain-intents"></a>Intenciones de dominio creados previamente
 
-Los [dominios creados previamente](luis-how-to-use-prebuilt-domains.md) proporcionan intenciones con expresiones.
+Los [dominios creados previamente](./howto-add-prebuilt-models.md) proporcionan intenciones con expresiones.
 
 ## <a name="none-intent"></a>Intención None
 

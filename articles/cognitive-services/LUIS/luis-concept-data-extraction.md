@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: 9bcc3d08fa29109cf4178f8eb0c3efe661323ef0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e6f01354bb5aa2b78d3c9962bac49be39dd2c81f
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541788"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026000"
 ---
 # <a name="extract-data-from-utterance-text-with-intents-and-entities"></a>Extracción de datos de texto de expresiones con intenciones y entidades
 LUIS ofrece la capacidad de obtener información de expresiones de lenguaje natural de un usuario. La información se extrae de manera que pueda ser usada por un programa, una aplicación o un bot de chat para tomar medidas. En las secciones siguientes, obtendrá información sobre qué datos se devuelven de las intenciones y entidades con ejemplos de JSON.
@@ -232,9 +232,9 @@ Las entidades [PersonName](luis-reference-prebuilt-person.md) y [GeographyV2](lu
 
 ### <a name="names-of-people"></a>Nombres de personas
 
-Los nombres de personas pueden tener un pequeño formato en función del idioma y la referencia cultural. Use una entidad **[personName](luis-reference-prebuilt-person.md)** precompilada o una **[entidad sencilla](luis-concept-entity-types.md#simple-entity)** con [roles](luis-concept-roles.md) de nombre y apellido.
+Los nombres de personas pueden tener un pequeño formato en función del idioma y la referencia cultural. Use una entidad **[personName](luis-reference-prebuilt-person.md)** precompilada o una **[entidad sencilla](luis-concept-entity-types.md)** con roles de nombre y apellido.
 
-Si usa la entidad sencilla, asegúrese de proporcionar ejemplos que usen el nombre y el apellido en diferentes partes de la expresión, en expresiones de distintas longitudes y expresiones en todas las intenciones, incluida la intención None. [Revise](luis-how-to-review-endoint-utt.md) las expresiones del punto de conexión de forma regular para etiquetar los nombres que no se predijeron correctamente.
+Si usa la entidad sencilla, asegúrese de proporcionar ejemplos que usen el nombre y el apellido en diferentes partes de la expresión, en expresiones de distintas longitudes y expresiones en todas las intenciones, incluida la intención None. [Revise](./luis-how-to-review-endpoint-utterances.md) las expresiones del punto de conexión de forma regular para etiquetar los nombres que no se predijeron correctamente.
 
 ### <a name="names-of-places"></a>Nombres de lugares
 
@@ -242,17 +242,17 @@ Los nombres de ubicaciones se establecen y conocen, por ejemplo, ciudades, conda
 
 ### <a name="new-and-emerging-names"></a>Nombres nuevos y emergentes
 
-Algunas aplicaciones necesitan poder encontrar nombres nuevos y emergentes, como productos o empresas. Estos tipos de nombres son el tipo más difícil de extracción de datos. Empiece con una **[entidad simple](luis-concept-entity-types.md#simple-entity)** y agregue una [lista de frases](luis-concept-feature.md). [Revise](luis-how-to-review-endoint-utt.md) las expresiones del punto de conexión de forma regular para etiquetar los nombres que no se predijeron correctamente.
+Algunas aplicaciones necesitan poder encontrar nombres nuevos y emergentes, como productos o empresas. Estos tipos de nombres son el tipo más difícil de extracción de datos. Empiece con una **[entidad simple](luis-concept-entity-types.md#simple-entity)** y agregue una [lista de frases](luis-concept-feature.md). [Revise](./luis-how-to-review-endpoint-utterances.md) las expresiones del punto de conexión de forma regular para etiquetar los nombres que no se predijeron correctamente.
 
 ## <a name="patternany-entity-data"></a>Datos de la entidad Pattern.any
 
 [Pattern.any](reference-entity-pattern-any.md) es un marcador de posición de longitud variable que solo se usa en la expresión de plantilla de un patrón para marcar dónde empieza y acaba la entidad. Debe encontrarse la entidad que se usa en el patrón para poder aplicar el patrón.
 
 ## <a name="sentiment-analysis"></a>análisis de opiniones
-Si está configurado el análisis de sentimiento durante la [publicación](luis-how-to-publish-app.md#sentiment-analysis), la respuesta JSON de LUIS incluye el análisis de sentimiento. Obtenga más información sobre el análisis de sentimiento en la documentación de [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/).
+Si está configurado el análisis de sentimiento durante la [publicación](luis-how-to-publish-app.md#sentiment-analysis), la respuesta JSON de LUIS incluye el análisis de sentimiento. Obtenga más información sobre el análisis de sentimiento en la documentación de [Text Analytics](../text-analytics/index.yml).
 
 ## <a name="key-phrase-extraction-entity-data"></a>Datos de entidad de extracción de frases clave
-La [entidad de extracción de frases clave](luis-reference-prebuilt-keyphrase.md) devuelve frases clave en la expresión, proporcionadas por [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/).
+La [entidad de extracción de frases clave](luis-reference-prebuilt-keyphrase.md) devuelve frases clave en la expresión, proporcionadas por [Text Analytics](../text-analytics/index.yml).
 
 ## <a name="data-matching-multiple-entities"></a>Datos que coinciden con varias entidades
 

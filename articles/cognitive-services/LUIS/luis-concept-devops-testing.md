@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 06/3/2020
-ms.openlocfilehash: c41e9fe1f197334bce27241ab9f28309c92f7e0a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3017d0dec5acd3494600c42bef410ed346fead1a
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91316552"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025949"
 ---
 # <a name="testing-for-luis-devops"></a>Pruebas de DevOps de LUIS
 
@@ -25,10 +25,10 @@ Las pruebas son una parte fundamental de los [flujos de trabajo de CI/CD](luis-c
 En los flujos de trabajo de integración continua se deben realizar dos tipos diferentes de pruebas para una aplicación de LUIS:
 
 - **Pruebas unitarias**: pruebas relativamente simples que comprueban la funcionalidad clave de la aplicación de LUIS. Una prueba unitaria se supera cuando se devuelven la intención esperada y las entidades esperadas para una expresión de prueba determinada. Se deben superar todas las pruebas unitarias para que la ejecución de prueba se complete correctamente.  
-Este tipo de pruebas son similares a las [pruebas interactivas](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-test) que puede realizar en el [portal de LUIS](https://www.luis.ai/).
+Este tipo de pruebas son similares a las [pruebas interactivas](./luis-concept-test.md) que puede realizar en el [portal de LUIS](https://www.luis.ai/).
 
 - **Pruebas por lotes**: las pruebas por lotes son una prueba completa sobre el modelo entrenado actual para medir su rendimiento. A diferencia de las pruebas unitarias, las pruebas por lotes no consisten en superar o no superar. La expectativa con las pruebas por lotes no es que todas las pruebas devuelvan la intención esperada y las entidades esperadas. En su lugar, una prueba por lotes ayuda a ver la precisión de cada intención y entidad de la aplicación y ayuda a comparar a lo largo del tiempo a medida que se realizan mejoras.  
-Estas pruebas son del mismo tipo que las [pruebas por lotes](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-batch-test) que puede realizar de forma interactiva en el portal de LUIS.
+Estas pruebas son del mismo tipo que las [pruebas por lotes](./luis-concept-batch-test.md) que puede realizar de forma interactiva en el portal de LUIS.
 
 Puede emplear pruebas unitarias desde el principio del proyecto. Las pruebas por lotes solo son realmente de valor una vez que se ha desarrollado el esquema de la aplicación de LUIS y se trabaja para mejorar su precisión.
 
@@ -42,7 +42,7 @@ Al escribir un conjunto de pruebas, para cada prueba debe definir:
 * Intención esperada
 * Entidades esperadas.
 
-Use la [sintaxis de archivo por lotes](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-batch-test#batch-syntax-template-for-intents-with-entities) de LUIS para definir un grupo de pruebas en un archivo con formato JSON. Por ejemplo:
+Use la [sintaxis de archivo por lotes](./luis-concept-batch-test.md#batch-syntax-template-for-intents-with-entities) de LUIS para definir un grupo de pruebas en un archivo con formato JSON. Por ejemplo:
 
 ```JSON
 [
@@ -76,7 +76,7 @@ En cada prueba unitaria, para una expresión de prueba determinada, puede realiz
 
 * Probar que se devuelve la intención correcta
 * Probar que se devuelven las entidades "clave": aquellas que son críticas para la solución.
-* Probar que la [puntuación de predicción](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-prediction-score) de la intención y las entidades supera un umbral definido por el usuario. Por ejemplo, puede decidir que solo se considerará que se ha superado una prueba si la puntuación de predicción para la intención y las entidades clave supera 0,75.
+* Probar que la [puntuación de predicción](./luis-concept-prediction-score.md) de la intención y las entidades supera un umbral definido por el usuario. Por ejemplo, puede decidir que solo se considerará que se ha superado una prueba si la puntuación de predicción para la intención y las entidades clave supera 0,75.
 
 En las pruebas unitarias, es una buena idea probar que se han devuelto las entidades clave en la respuesta de la predicción, pero para omitir los falsos positivos. Los *falsos positivos* son entidades que se encuentran en la respuesta de la predicción, pero que no se han definido en los resultados esperados de la prueba. Al omitir los falsos positivos es menos oneroso crear pruebas unitarias, a la vez que le permite centrarse en probar que se devuelven en la respuesta de la predicción los datos que resultan clave para la solución.
 
@@ -85,15 +85,15 @@ En las pruebas unitarias, es una buena idea probar que se han devuelto las entid
 
 #### <a name="designing-batch-tests"></a>Diseño de pruebas por lotes
 
-Los conjuntos de pruebas por lotes deben contener un gran número de casos de prueba, diseñados para probar en todas las intenciones y todas las entidades de la aplicación de LUIS. Consulte [Pruebas por lotes en el portal de LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-batch-test) para obtener información sobre cómo definir un conjunto de pruebas por lotes.
+Los conjuntos de pruebas por lotes deben contener un gran número de casos de prueba, diseñados para probar en todas las intenciones y todas las entidades de la aplicación de LUIS. Consulte [Pruebas por lotes en el portal de LUIS](./luis-concept-batch-test.md) para obtener información sobre cómo definir un conjunto de pruebas por lotes.
 
 ### <a name="running-tests"></a>Ejecución de las pruebas
 
 El portal de LUIS ofrece características para ayudar con las pruebas interactivas:
 
-* Las [**pruebas interactivas**](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-test) le permiten enviar una expresión de ejemplo y obtener una respuesta de las intenciones y las entidades reconocidas por LUIS. Se comprueba que la prueba se ha realizado correctamente mediante una inspección visual.
+* Las [**pruebas interactivas**](./luis-concept-test.md) le permiten enviar una expresión de ejemplo y obtener una respuesta de las intenciones y las entidades reconocidas por LUIS. Se comprueba que la prueba se ha realizado correctamente mediante una inspección visual.
 
-* Las [**pruebas por lotes**](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-batch-test) utilizan un archivo de pruebas por lotes como entrada para validar la versión entrenada actual con el fin de medir la precisión de su predicción. Una prueba por lotes ayuda a ver la precisión de cada intención y entidad en la versión activa, mostrando los resultados en un gráfico.
+* Las [**pruebas por lotes**](./luis-concept-batch-test.md) utilizan un archivo de pruebas por lotes como entrada para validar la versión entrenada actual con el fin de medir la precisión de su predicción. Una prueba por lotes ayuda a ver la precisión de cada intención y entidad en la versión activa, mostrando los resultados en un gráfico.
 
 #### <a name="running-tests-in-an-automated-build-workflow"></a>Ejecución de pruebas en un flujo de trabajo de compilación automatizada
 
@@ -109,7 +109,7 @@ Las funcionalidades de prueba que están disponibles en el portal de LUIS no req
 
 > [!TIP]
 > * Si va a implementar su propia solución de pruebas y escribir código para enviar expresiones de prueba a un punto de conexión, recuerde que si usa la clave de creación de LUIS, la tasa de transacciones permitida se limita a 5 TPS. Limite la velocidad de envío o use una clave de predicción en su lugar.
-> * Al enviar consultas de prueba a un punto de conexión, no olvide usar `log=false` en la cadena de consulta de la solicitud de predicción. Esto garantiza que las expresiones de prueba no se registran en LUIS ni se incluyen en la lista de revisión de expresiones del punto de conexión presentada por la característica de [aprendizaje activo](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-review-endpoint-utterances) de LUIS y, como resultado, se agreguen accidentalmente a las expresiones de entrenamiento de la aplicación.
+> * Al enviar consultas de prueba a un punto de conexión, no olvide usar `log=false` en la cadena de consulta de la solicitud de predicción. Esto garantiza que las expresiones de prueba no se registran en LUIS ni se incluyen en la lista de revisión de expresiones del punto de conexión presentada por la característica de [aprendizaje activo](./luis-concept-review-endpoint-utterances.md) de LUIS y, como resultado, se agreguen accidentalmente a las expresiones de entrenamiento de la aplicación.
 
 #### <a name="running-unit-tests-at-the-command-line-and-in-cicd-workflows"></a>Ejecución de pruebas unitarias en la línea de comandos y en flujos de trabajo de CI/CD
 
@@ -123,13 +123,13 @@ Puede usar el paquete [NLU.DevOps](https://github.com/microsoft/NLU.DevOps) para
 También puede usar el paquete NLU.DevOps para ejecutar pruebas por lotes en la línea de comandos.
 
 * Use el [comando test](https://github.com/microsoft/NLU.DevOps/blob/master/docs/Test.md) de NLU.DevOps para enviar pruebas desde un archivo de pruebas a un punto de conexión y capturar los resultados de predicción reales en un archivo, igual que en el caso de las pruebas unitarias.
-* Use el [comando compare](https://github.com/microsoft/NLU.DevOps/blob/master/docs/Analyze.md) de NLU.DevOps en [modo de prueba de rendimiento](https://github.com/microsoft/NLU.DevOps/blob/master/docs/Analyze.md#performance-test-mode) para medir el rendimiento de la aplicación. También puede comparar el rendimiento de la aplicación con una prueba comparativa de rendimiento de línea base, por ejemplo, los resultados de la última confirmación en la versión principal o en la versión actual. En el modo de prueba de rendimiento, el comando `compare` genera la salida de la prueba NUnit y los [resultados de las pruebas por lotes](https://docs.microsoft.com/azure/cognitive-services/luis/luis-glossary#batch-test) en formato JSON.
+* Use el [comando compare](https://github.com/microsoft/NLU.DevOps/blob/master/docs/Analyze.md) de NLU.DevOps en [modo de prueba de rendimiento](https://github.com/microsoft/NLU.DevOps/blob/master/docs/Analyze.md#performance-test-mode) para medir el rendimiento de la aplicación. También puede comparar el rendimiento de la aplicación con una prueba comparativa de rendimiento de línea base, por ejemplo, los resultados de la última confirmación en la versión principal o en la versión actual. En el modo de prueba de rendimiento, el comando `compare` genera la salida de la prueba NUnit y los [resultados de las pruebas por lotes](./luis-glossary.md#batch-test) en formato JSON.
 
 ## <a name="luis-non-deterministic-training-and-the-effect-on-testing"></a>Entrenamiento no determinista de LUIS y su efecto en las pruebas
 
 Cuando LUIS entrena un modelo, como una intención, necesita tanto datos positivos, que son las expresiones de entrenamiento etiquetadas que ha proporcionado para entrenar la aplicación para el modelo, como datos negativos, que son aquellos datos que *no* son ejemplos válidos del uso de ese modelo. Durante el entrenamiento, LUIS crea los datos negativos de un modelo a partir de todos los datos positivos que ha proporcionado para los otros modelos, pero en algunos casos se puede producir un desequilibrio de datos. Para evitar este desequilibrio, LUIS muestrea un subconjunto de los datos negativos de un modo no determinista para su optimización para un conjunto de entrenamiento mejor equilibrado, un mejor rendimiento del modelo y un tiempo de entrenamiento más rápido.
 
-El resultado de este entrenamiento no determinista es que puede obtener una [respuesta de predicción ligeramente distinta entre las distintas sesiones de entrenamiento](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-prediction-score), normalmente para las intenciones y entidades en las que la [puntuación de predicción](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-prediction-score) no es alta.
+El resultado de este entrenamiento no determinista es que puede obtener una [respuesta de predicción ligeramente distinta entre las distintas sesiones de entrenamiento](./luis-concept-prediction-score.md), normalmente para las intenciones y entidades en las que la [puntuación de predicción](./luis-concept-prediction-score.md) no es alta.
 
 Si desea deshabilitar el entrenamiento no determinista para aquellas versiones de la aplicación de LUIS que se crean con el fin de realizar pruebas, use la [API de configuración de versiones](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) con la opción `UseAllTrainingData` establecida en `true`.
 

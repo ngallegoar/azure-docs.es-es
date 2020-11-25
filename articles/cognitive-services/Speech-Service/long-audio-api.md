@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/11/2020
 ms.author: trbye
-ms.openlocfilehash: be38d3e78108a15c9f7875a15156e0eeba5a6211
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0a538deb3b7da19261e1bc2b7c0d29f35315f786
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88167766"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015420"
 ---
 # <a name="long-audio-api-preview"></a>Long Audio API (versión preliminar)
 
@@ -27,7 +27,7 @@ Ventajas adicionales de Long Audio API:
 * No es necesario implementar un punto de conexión de voz ya que no sintetiza las voces en ningún modo por lotes en tiempo real.
 
 > [!NOTE]
-> Long Audio API admite ahora [voces neuronales públicas](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#neural-voices) y [voces neuronales personalizadas](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-custom-voice#custom-neural-voices).
+> Long Audio API admite ahora [voces neuronales públicas](./language-support.md#neural-voices) y [voces neuronales personalizadas](./how-to-custom-voice.md#custom-neural-voices).
 
 ## <a name="workflow"></a>Flujo de trabajo
 
@@ -44,7 +44,7 @@ Cuando prepare el archivo de texto, asegúrese de lo siguiente:
 * Se trata de texto sin formato (.txt) o texto SSML (.txt).
 * Está codificado como [UTF-8 con marca BOM](https://www.w3.org/International/questions/qa-utf8-bom.en#bom).
 * Es un solo archivo, no un archivo ZIP.
-* Contiene más de 400 caracteres para texto sin formato o 400 [caracteres facturables](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech#pricing-note) para texto SSML y menos de 10 000 párrafos
+* Contiene más de 400 caracteres para texto sin formato o 400 [caracteres facturables](./text-to-speech.md#pricing-note) para texto SSML y menos de 10 000 párrafos
   * En el caso de texto sin formato, cada párrafo se separa al presionar **Entrar**: consulte un [ejemplo de entrada de texto sin formato](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/en-US.txt).
   * En el caso de texto SSML, cada fragmento de SSML se considera un párrafo. Los fragmentos de SSML se deben separar con párrafos distintos: consulte un [ejemplo de entrada de texto SSML](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/SSMLTextInputSample.txt).
 > [!NOTE]
@@ -114,7 +114,7 @@ Si el parámetro **PublicVoice** es **True**, se trata de una voz neuronal públ
 Prepare un archivo de texto de entrada en texto sin formato o texto SSML y, a continuación, agregue el código a `voice_synthesis_client.py`:
 
 > [!NOTE]
-> "concatenateResult" es un parámetro opcional. Si este parámetro no se establece, las salidas de audio se generarán por párrafo. También puede concatenar los audios en una salida si establece el parámetro. De forma predeterminada, la salida de audio se establece en riff-16khz-16bit-mono-pcm. Para más información sobre las salidas de audio compatibles, vea [Formatos de salida de audio](https://docs.microsoft.com/azure/cognitive-services/speech-service/long-audio-api#audio-output-formats).
+> "concatenateResult" es un parámetro opcional. Si este parámetro no se establece, las salidas de audio se generarán por párrafo. También puede concatenar los audios en una salida si establece el parámetro. De forma predeterminada, la salida de audio se establece en riff-16khz-16bit-mono-pcm. Para más información sobre las salidas de audio compatibles, vea [Formatos de salida de audio](#audio-output-formats).
 
 ```python
 parser.add_argument('--submit', action="store_true", default=False, help='submit a synthesis request')

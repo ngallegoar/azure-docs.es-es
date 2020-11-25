@@ -10,26 +10,26 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: trbye
-ms.openlocfilehash: 5d95525c7dfecd44758c86903ca4a96c2290df52
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: c27493748381a3aced92aab41745f352f228c50e
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487793"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025000"
 ---
 # <a name="what-is-conversation-transcription-in-meetings-preview"></a>¿Qué es la transcripción de conversaciones en reuniones (versión preliminar)?
 
-La transcripción de conversaciones es una solución de [conversión de voz a texto](speech-to-text.md) que combina el reconocimiento de voz, la identificación del hablante y la atribución de oraciones a cada hablante (lo que también se conoce como _diarización_ ) para proporcionar la transcripción asincrónica o en tiempo real de cualquier conversación. La transcripción de conversaciones distingue a los hablantes de una conversación para determinar quién dijo qué y cuándo, y facilita a los desarrolladores la tarea de agregar conversión de voz a texto a sus aplicaciones que realizan la diarización de varios hablantes.
+La transcripción de conversaciones es una solución de [conversión de voz a texto](speech-to-text.md) que combina el reconocimiento de voz, la identificación del hablante y la atribución de oraciones a cada hablante (lo que también se conoce como _diarización_) para proporcionar la transcripción asincrónica o en tiempo real de cualquier conversación. La transcripción de conversaciones distingue a los hablantes de una conversación para determinar quién dijo qué y cuándo, y facilita a los desarrolladores la tarea de agregar conversión de voz a texto a sus aplicaciones que realizan la diarización de varios hablantes.
 
 ## <a name="key-features"></a>Principales características
 
-- **Marcas de tiempo** : cada expresión del hablante tiene una marca de tiempo, por lo que puede encontrar fácilmente cuándo se dijo una frase.
-- **Transcripciones legibles** : el formato y la puntuación de las transcripciones se agregan automáticamente para garantizar que el texto coincide lo más posible con lo que se ha dicho.
-- **Perfiles de usuario** : los perfiles de usuario se generan mediante la recopilación de muestras de voz de usuarios y el envío de estas a la generación de firmas.
-- **Identificación del hablante** : los hablantes se identifican mediante perfiles de usuario; a cada hablante se le asigna un _identificador de hablante_.
-- **Diarización de varios hablantes** : determine quién dijo qué mediante la sintetización de la secuencia de audio con cada identificador de hablante.
-- **Transcripción en tiempo real** : proporcione transcripciones en directo de quién dice qué y en qué momento mientras tiene lugar la conversación.
-- **Transcripción asincrónica** : proporcione transcripciones con una mayor precisión mediante una secuencia de audio de varios canales.
+- **Marcas de tiempo**: cada expresión del hablante tiene una marca de tiempo, por lo que puede encontrar fácilmente cuándo se dijo una frase.
+- **Transcripciones legibles**: el formato y la puntuación de las transcripciones se agregan automáticamente para garantizar que el texto coincide lo más posible con lo que se ha dicho.
+- **Perfiles de usuario**: los perfiles de usuario se generan mediante la recopilación de muestras de voz de usuarios y el envío de estas a la generación de firmas.
+- **Identificación del hablante**: los hablantes se identifican mediante perfiles de usuario; a cada hablante se le asigna un _identificador de hablante_.
+- **Diarización de varios hablantes**: determine quién dijo qué mediante la sintetización de la secuencia de audio con cada identificador de hablante.
+- **Transcripción en tiempo real**: proporcione transcripciones en directo de quién dice qué y en qué momento mientras tiene lugar la conversación.
+- **Transcripción asincrónica**: proporcione transcripciones con una mayor precisión mediante una secuencia de audio de varios canales.
 
 > [!NOTE]
 > Aunque la transcripción de conversaciones no impone un límite sobre el número de hablantes en la sala, está optimizada para entre 2 y 10 hablantes por sesión.
@@ -54,8 +54,8 @@ Así es a grandes rasgos cómo funciona la transcripción de conversaciones.
 
 ## <a name="expected-inputs"></a>Entradas esperadas
 
-- **Secuencia de audio de varios canales** : para especificaciones y detalles de diseño, consulte [Micrófono del SDK de dispositivos de voz de Microsoft](https://aka.ms/cts/microphone). Para más información o comprar un kit de desarrollo, consulte cómo [obtener Microsoft Speech Devices SDK](https://aka.ms/cts/getsdk).
-- **Muestras de voz de usuarios** : la transcripción de conversaciones necesita perfiles de usuario antes de la conversación. Deberá recopilar grabaciones de audio de cada usuario y, luego, enviarlas al [servicio de generación de firmas](https://aka.ms/cts/signaturegenservice) para validar el audio y generar los perfiles de usuario.
+- **Secuencia de audio de varios canales**: para especificaciones y detalles de diseño, consulte [Micrófono del SDK de dispositivos de voz de Microsoft](./speech-devices-sdk-microphone.md). Para más información o comprar un kit de desarrollo, consulte cómo [obtener Microsoft Speech Devices SDK](./get-speech-devices-sdk.md).
+- **Muestras de voz de usuarios**: la transcripción de conversaciones necesita perfiles de usuario antes de la conversación. Deberá recopilar grabaciones de audio de cada usuario y, luego, enviarlas al [servicio de generación de firmas](https://aka.ms/cts/signaturegenservice) para validar el audio y generar los perfiles de usuario.
 
 > [!NOTE]
 > Las muestras de voz de usuarios son opcionales. Sin esta entrada, la transcripción mostrará los distintos oradores, pero se muestran como "Speaker1", "Speaker2", etc., en lugar de reconocerlos como nombres específicos de oradores inscritos previamente.

@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.openlocfilehash: d8c88883b839ff47ef57a17378f43918e9ecf7e2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2e2165b81c7cd634fe79ec4438a550ad365f5a30
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91536127"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95019184"
 ---
 # <a name="enterprise-strategies-for-a-luis-app"></a>Estrategias de Enterprise para una aplicación de LUIS
 Revise estas estrategias de diseño de la aplicación de empresa.
@@ -29,7 +29,7 @@ Si la frecuencia de las solicitudes de la aplicación de LUIS supera la [tasa de
 * Crear y [asignar varias claves](#assign-multiple-luis-keys-to-same-app) a la aplicación. 
 
 ### <a name="use-multiple-apps-with-same-app-definition"></a>Usar varias aplicaciones con la misma definición de aplicación
-Exporte la aplicación de LUIS original y luego vuelva a importar la aplicación en aplicaciones independientes. Cada aplicación tiene su propio identificador de aplicación. Cuando se publica, en lugar de usar la misma clave en todas las aplicaciones, cree una clave independiente para cada aplicación. Equilibrar la carga entre todas las aplicaciones para que ninguna aplicación única se colapse. Adición de [Application Insights](luis-tutorial-bot-csharp-appinsights.md) para supervisar el uso. 
+Exporte la aplicación de LUIS original y luego vuelva a importar la aplicación en aplicaciones independientes. Cada aplicación tiene su propio identificador de aplicación. Cuando se publica, en lugar de usar la misma clave en todas las aplicaciones, cree una clave independiente para cada aplicación. Equilibrar la carga entre todas las aplicaciones para que ninguna aplicación única se colapse. Adición de [Application Insights](./luis-csharp-tutorial-bf-v4.md) para supervisar el uso. 
 
 Para obtener la misma intención principal entre todas las aplicaciones, asegúrese de que la predicción de intención entre la primera y la segunda intención sea lo suficientemente amplia para que LUIS no se confunda y dé resultados diferentes entre aplicaciones con pequeñas variaciones en las expresiones. 
 
@@ -48,10 +48,10 @@ Si la aplicación se ha diseñado para predecir una amplia variedad de expresion
 Programe una [revisión de expresiones de punto de conexión](luis-how-to-review-endpoint-utterances.md) periódica para obtener un aprendizaje activo, por ejemplo, cada dos semanas, luego vuelva a entrenar y a publicar. 
 
 ## <a name="when-you-need-to-have-more-than-500-intents"></a>Si necesita tener más de 500 intenciones
-Suponga que está desarrollando un asistente de oficina que tiene más de 500 intenciones. Si 200 intenciones se refieren a la programación de reuniones, 200 son de recordatorios, 200 para obtener información sobre compañeros de trabajo y 200 para el envío de correo electrónico, agrupe las intenciones de forma que cada grupo esté en una única aplicación, y luego cree una aplicación de nivel superior que contenga cada intención. Use el [modelo de distribución](#dispatch-tool-and-model) para compilar la aplicación de nivel superior. Después, cambie el bot para que use la llamada en cascada como se muestra en el [tutorial del modelo de distribución](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-dispatch?view=azure-bot-service-4.0&branch=master&tabs=cs). 
+Suponga que está desarrollando un asistente de oficina que tiene más de 500 intenciones. Si 200 intenciones se refieren a la programación de reuniones, 200 son de recordatorios, 200 para obtener información sobre compañeros de trabajo y 200 para el envío de correo electrónico, agrupe las intenciones de forma que cada grupo esté en una única aplicación, y luego cree una aplicación de nivel superior que contenga cada intención. Use el [modelo de distribución](#dispatch-tool-and-model) para compilar la aplicación de nivel superior. Después, cambie el bot para que use la llamada en cascada como se muestra en el [tutorial del modelo de distribución](/azure/bot-service/bot-builder-tutorial-dispatch?branch=master&tabs=cs&view=azure-bot-service-4.0). 
 
 ## <a name="when-you-need-to-combine-several-luis-and-qna-maker-apps"></a>Si necesita combinar varias aplicaciones de LUIS y QnA Maker
-Si tiene varias aplicaciones de LUIS y QnA Maker que necesitan responder a un bot, use el [modelo de distribución](#dispatch-tool-and-model) para compilar la aplicación de nivel superior.  Después, cambie el bot para que use la llamada en cascada como se muestra en el [tutorial del modelo de distribución](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-dispatch?view=azure-bot-service-4.0&branch=master&tabs=cs). 
+Si tiene varias aplicaciones de LUIS y QnA Maker que necesitan responder a un bot, use el [modelo de distribución](#dispatch-tool-and-model) para compilar la aplicación de nivel superior.  Después, cambie el bot para que use la llamada en cascada como se muestra en el [tutorial del modelo de distribución](/azure/bot-service/bot-builder-tutorial-dispatch?branch=master&tabs=cs&view=azure-bot-service-4.0). 
 
 ## <a name="dispatch-tool-and-model"></a>Modelo y herramienta de distribución
 Use la herramienta de línea de comandos [Dispatch][dispatch-tool] que se encuentra en las [herramientas de BotBuilder](https://github.com/Microsoft/botbuilder-tools) para combinar varias aplicaciones de LUIS o QnA Maker en una aplicación principal de LUIS. Este enfoque permite disponer de un dominio primario que incluya todos los asuntos y dominios de sujeto secundarios diferentes en aplicaciones independientes. 
@@ -62,7 +62,7 @@ El dominio principal se indica en LUIS con una versión denominada `Dispatch` en
 
 El bot de chat recibe la expresión y después la envía a la aplicación principal de LUIS para la predicción. La intención de predicción superior de la aplicación principal determina a qué aplicación secundaria de LUIS se llama a continuación. El bot de chat envía la expresión a la aplicación secundaria para una predicción más específica.
 
-Comprenda cómo se lleva a cabo esta jerarquía de llamadas con el [tutorial de la aplicación Dispatcher](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-dispatch?view=azure-bot-service-4.0&branch=master&tabs=cs) de Bot Builder v4.  
+Comprenda cómo se lleva a cabo esta jerarquía de llamadas con el [tutorial de la aplicación Dispatcher](/azure/bot-service/bot-builder-tutorial-dispatch?branch=master&tabs=cs&view=azure-bot-service-4.0) de Bot Builder v4.  
 
 ### <a name="intent-limits-in-dispatch-model"></a>Límites de intención en el modelo de distribución
 Una aplicación de distribución tiene 500 orígenes de envío, que equivalen a un máximo de 500 intenciones. 
@@ -70,7 +70,7 @@ Una aplicación de distribución tiene 500 orígenes de envío, que equivalen a 
 ## <a name="more-information"></a>Más información
 
 * [SDK Bot Framework](https://github.com/Microsoft/botframework)
-* [Tutorial de los modelos de distribución](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-dispatch?view=azure-bot-service-4.0&branch=master&tabs=cs)
+* [Tutorial de los modelos de distribución](/azure/bot-service/bot-builder-tutorial-dispatch?branch=master&tabs=cs&view=azure-bot-service-4.0)
 * [CLI de distribución](https://github.com/Microsoft/botbuilder-tools)
 * Ejemplo del bot del modelo de distribución: [.NET](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/csharp_dotnetcore/14.nlp-with-dispatch) y [Node.js](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/javascript_nodejs/14.nlp-with-dispatch)
 
@@ -78,5 +78,5 @@ Una aplicación de distribución tiene 500 orígenes de envío, que equivalen a 
 
 * Obtenga información sobre cómo [probar un lote](luis-how-to-batch-test.md).
 
-[dispatcher-application-tutorial]: https://aka.ms/bot-dispatch
+[dispatcher-application-tutorial]: /azure/bot-service/bot-builder-tutorial-dispatch?branch=master
 [dispatch-tool]: https://aka.ms/dispatch-tool

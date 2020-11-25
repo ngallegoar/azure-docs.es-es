@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.author: sausin
-ms.openlocfilehash: 8c7cb1e9f39b1de7897da29467a607953b42bb24
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 77ade17803a35491712ec6df70aed9eb7b4883eb
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94565745"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025881"
 ---
 # <a name="export-custom-commands-application-as-a-remote-skill"></a>Exportación de la aplicación Comandos personalizados como una aptitud remota
 
@@ -23,9 +23,9 @@ En este artículo, aprenderá cómo exportar una aplicación Comandos personaliz
 
 ## <a name="prerequisites"></a>Requisitos previos
 > [!div class="checklist"]
-> * [Descripción de las aptitudes de Bot Framework](https://aka.ms/speech/cc-skill-overview)
+> * [Descripción de las aptitudes de Bot Framework](/azure/bot-service/skills-conceptual)
 > * [Descripción del manifiesto de aptitudes](https://aka.ms/speech/cc-skill-manifest)
-> * [Cómo invocar una aptitud desde un bot de Bot Framework](https://aka.ms/speech/cc-skill-consumer)
+> * [Cómo invocar una aptitud desde un bot de Bot Framework](/azure/bot-service/skills-about-skill-consumers)
 > * Una aplicación Comandos personalizados existente. En caso de que no tenga ninguna aplicación Comandos personalizados, pruebe con [Inicio rápido: Creación de un asistente de voz mediante Comandos personalizados](quickstart-custom-commands-application.md)
 
 ## <a name="custom-commands-as-remote-skills"></a>Comandos personalizados como aptitudes remotas

@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 11/06/2020
 ms.author: aahi
-ms.openlocfilehash: 6ebc1831b990b540bcb9a3856c380c28142af536
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 2f03746a6a5afc388db2beeff84b3ab4cbd393b5
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357120"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95014601"
 ---
 # <a name="install-and-run-the-spatial-analysis-container-preview"></a>Instalación y ejecución del contenedor de análisis espacial (versión preliminar)
 
@@ -34,7 +34,7 @@ Para ejecutar el contenedor de análisis espacial se necesita un dispositivo de 
 
 #### <a name="azure-stack-edge-device"></a>[Dispositivo Azure Stack Edge](#tab/azure-stack-edge)
 
-Azure Stack Edge es una solución de hardware como servicio y un dispositivo informático perimetral habilitado para inteligencia artificial que cuenta con funcionalidades de transferencia de datos de red. Para instrucciones detalladas sobre la preparación y configuración, consulte la [documentación de Azure Stack Edge](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-deploy-prep).
+Azure Stack Edge es una solución de hardware como servicio y un dispositivo informático perimetral habilitado para inteligencia artificial que cuenta con funcionalidades de transferencia de datos de red. Para instrucciones detalladas sobre la preparación y configuración, consulte la [documentación de Azure Stack Edge](../../databox-online/azure-stack-edge-deploy-prep.md).
 
 #### <a name="desktop-machine"></a>[Máquina de escritorio](#tab/desktop-machine)
 
@@ -59,7 +59,7 @@ En este artículo, descargará e instalará los paquetes de software siguientes.
 * [Controladores de gráficos de NVIDIA](https://docs.nvidia.com/datacenter/tesla/tesla-installation-notes/index.html) y [NVIDIA CUDA Toolkit](https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html)
 * Configuraciones para [NVIDIA MPS](https://docs.nvidia.com/deploy/pdf/CUDA_Multi_Process_Service_Overview.pdf) (servicio multiproceso).
 * [Docker CE](https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-docker-engine---community-1) y [NVIDIA-Docker2](https://github.com/NVIDIA/nvidia-docker) 
-* Entorno de ejecución de [Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux).
+* Entorno de ejecución de [Azure IoT Edge](../../iot-edge/how-to-install-iot-edge.md).
 
 ---
 
@@ -93,7 +93,7 @@ Se recomienda usar un dispositivo Azure Stack Edge para el equipo host. Haga cli
  
 El análisis espacial usa las características de proceso de Azure Stack Edge para ejecutar una solución de inteligencia artificial. Para habilitar las características de proceso, asegúrese de que se cumple lo siguiente: 
 
-* [Conectó y activó](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-deploy-connect-setup-activate) el dispositivo Azure Stack Edge. 
+* [Conectó y activó](../../databox-online/azure-stack-edge-deploy-connect-setup-activate.md) el dispositivo Azure Stack Edge. 
 * Tiene un sistema cliente de Windows que ejecuta PowerShell 5.0 o posterior para acceder al dispositivo.  
 * Para implementar un clúster de Kubernetes, debe configurar el dispositivo Azure Stack Edge mediante la **UI local** en [Azure Portal](https://portal.azure.com/): 
   1. Habilite la característica de proceso en el dispositivo Azure Stack Edge. Para habilitar el proceso, vaya a la página **Proceso** en la interfaz web del dispositivo. 
@@ -117,7 +117,7 @@ Cuando el rol de proceso de Edge está configurado en el dispositivo de Edge, es
 
 > [!NOTE]
 > * Actualmente, solo la plataforma Linux está disponible para los dispositivos IoT Edge. Si necesita ayuda para solucionar problemas con el dispositivo Azure Stack Edge, consulte el artículo sobre [registro y solución de problemas](spatial-analysis-logging.md).
-> * Para obtener más información sobre cómo configurar un dispositivo IoT Edge para comunicarse a través de un servidor proxy, consulte [Configuración de un dispositivo IoT Edge para comunicarse a través de un servidor proxy](https://docs.microsoft.com/azure/iot-edge/how-to-configure-proxy-support#azure-portal).
+> * Para obtener más información sobre cómo configurar un dispositivo IoT Edge para comunicarse a través de un servidor proxy, consulte [Configuración de un dispositivo IoT Edge para comunicarse a través de un servidor proxy](../../iot-edge/how-to-configure-proxy-support.md#azure-portal).
 
 ###  <a name="enable-mps-on-azure-stack-edge"></a>Habilitación de MPS en Azure Stack Edge 
 
@@ -129,7 +129,7 @@ Cuando el rol de proceso de Edge está configurado en el dispositivo de Edge, es
     winrm quickconfig
     ```
     
-    Si ve advertencias sobre una excepción del firewall, revise el tipo de conexión de red y consulte la documentación sobre la [Administración remota de Windows](https://docs.microsoft.com/windows/win32/winrm/installation-and-configuration-for-windows-remote-management).
+    Si ve advertencias sobre una excepción del firewall, revise el tipo de conexión de red y consulte la documentación sobre la [Administración remota de Windows](/windows/win32/winrm/installation-and-configuration-for-windows-remote-management).
 
 3. Asigne una variable a la dirección IP del dispositivo. 
     
@@ -246,7 +246,7 @@ sudo systemctl --now enable nvidia-mps.service
 
 ## <a name="configure-azure-iot-edge-on-the-host-computer"></a>Configuración de Azure IoT Edge en el equipo host
 
-Para implementar el contenedor de análisis espacial en el equipo host, cree una instancia de un servicio [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-create-through-portal) con el plan de tarifa Estándar (S1) o Gratis (F0). Si el equipo host es del tipo Azure Stack Edge, use la misma suscripción y el mismo grupo de recursos que usa el recurso de Azure Stack Edge.
+Para implementar el contenedor de análisis espacial en el equipo host, cree una instancia de un servicio [Azure IoT Hub](../../iot-hub/iot-hub-create-through-portal.md) con el plan de tarifa Estándar (S1) o Gratis (F0). Si el equipo host es del tipo Azure Stack Edge, use la misma suscripción y el mismo grupo de recursos que usa el recurso de Azure Stack Edge.
 
 Use la CLI de Azure para crear una instancia de Azure IoT Hub. Reemplace los parámetros cuando sea necesario. También puede crear la instancia de Azure IoT Hub en [Azure Portal](https://portal.azure.com/).
 
@@ -261,7 +261,7 @@ az iot hub create --name "test-iot-hub-123" --sku S1 --resource-group "test-reso
 az iot hub device-identity create --hub-name "test-iot-hub-123" --device-id "my-edge-device" --edge-enabled
 ```
 
-Si el equipo host no es un dispositivo Azure Stack Edge, deberá instalar la versión 1.0.9 de [Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux). Siga estos pasos para descargar la versión correcta:
+Si el equipo host no es un dispositivo Azure Stack Edge, deberá instalar la versión 1.0.9 de [Azure IoT Edge](../../iot-edge/how-to-install-iot-edge.md). Siga estos pasos para descargar la versión correcta:
 
 Ubuntu Server 18.04:
 ```bash
@@ -292,7 +292,7 @@ Instale la versión 1.0.9:
 sudo apt-get install iotedge=1.0.9* libiothsm-std=1.0.9*
 ```
 
-A continuación, registre el equipo host como dispositivo IoT Edge en la instancia de IoT Hub mediante una [cadena de conexión](https://docs.microsoft.com/azure/iot-edge/how-to-register-device#register-in-the-azure-portal).
+A continuación, registre el equipo host como dispositivo IoT Edge en la instancia de IoT Hub mediante una [cadena de conexión](../../iot-edge/how-to-manual-provision-symmetric-key.md?view=iotedge-2018-06).
 
 Debe conectar el dispositivo IoT Edge a la instancia de Azure IoT Hub. Debe copiar la cadena de conexión del dispositivo IoT Edge que creó anteriormente. También puede ejecutar el comando siguiente en la CLI de Azure.
 
@@ -306,7 +306,7 @@ En el equipo host, abra `/etc/iotedge/config.yaml` para su edición. Reemplace `
 sudo systemctl restart iotedge
 ```
 
-Implemente el contenedor de análisis espacial como módulo de IoT en el equipo host, ya sea desde [Azure Portal](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-portal) o desde la [CLI de Azure](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-cli). Si usa el portal, establezca el URI de imagen en la ubicación de la instancia de Azure Container Registry. 
+Implemente el contenedor de análisis espacial como módulo de IoT en el equipo host, ya sea desde [Azure Portal](../../iot-edge/how-to-deploy-modules-portal.md) o desde la [CLI de Azure](../../iot-edge/how-to-deploy-modules-cli.md). Si usa el portal, establezca el URI de imagen en la ubicación de la instancia de Azure Container Registry. 
 
 Use los pasos siguientes para implementar el contenedor mediante la CLI de Azure.
 
@@ -335,7 +335,7 @@ En la tabla siguiente se muestran las distintas variables de entorno que usa el 
 > [!IMPORTANT]
 > Para poder ejecutar el contenedor, las opciones `Eula`, `Billing` y `ApiKey` deben estar especificadas; de lo contrario, el contenedor no se iniciará.  Para obtener más información, vea [Facturación](#billing).
 
-Una vez que actualice el manifiesto de implementación de los [dispositivos de Azure Stack Edge](https://go.microsoft.com/fwlink/?linkid=2142179) o de [una máquina de escritorio](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json) con su propia configuración y selección de operaciones, puede usar el comando de la [CLI de Azure](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-cli) siguiente para implementar el contenedor en el equipo host, como un módulo IoT Edge.
+Una vez que actualice el manifiesto de implementación de los [dispositivos de Azure Stack Edge](https://go.microsoft.com/fwlink/?linkid=2142179) o de [una máquina de escritorio](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json) con su propia configuración y selección de operaciones, puede usar el comando de la [CLI de Azure](../../iot-edge/how-to-deploy-modules-cli.md) siguiente para implementar el contenedor en el equipo host, como un módulo IoT Edge.
 
 ```azurecli
 az login
@@ -366,14 +366,14 @@ Tendrá que usar [operaciones de análisis espacial](spatial-analysis-operations
 
 ## <a name="redeploy-or-delete-the-deployment"></a>Nueva implementación o eliminación de la implementación
 
-Si necesita actualizar la implementación, debe asegurarse de que las implementaciones anteriores se completaron correctamente o debe eliminar las implementaciones de dispositivos IoT Edge que no se completaron. De lo contrario, esas implementaciones continuarán, dejando el sistema con un estado no correcto. Puede usar Azure Portal o la [CLI de Azure](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/edge/deployment).
+Si necesita actualizar la implementación, debe asegurarse de que las implementaciones anteriores se completaron correctamente o debe eliminar las implementaciones de dispositivos IoT Edge que no se completaron. De lo contrario, esas implementaciones continuarán, dejando el sistema con un estado no correcto. Puede usar Azure Portal o la [CLI de Azure](/cli/azure/ext/azure-cli-iot-ext/iot/edge/deployment).
 
 ## <a name="use-the-output-generated-by-the-container"></a>Uso de la salida generada por el contenedor
 
 Si quiere empezar a usar la salida generada por el contenedor, consulte los artículos siguientes:
 
-*   Use el SDK del Centro de eventos de Azure del lenguaje de programación elegido para conectarse al punto de conexión de Azure IoT Hub y recibir los eventos. Para más información, consulte [Leer mensajes del dispositivo a la nube desde el punto de conexión integrado](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-read-builtin). 
-*   Configure el enrutamiento de mensajes en la instancia de Azure IoT Hub para enviar los eventos a otros puntos de conexión o guardar los eventos en Azure Blob Storage, etc. Para más información, consulte [Enrutamiento de mensajes de IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c). 
+*   Use el SDK del Centro de eventos de Azure del lenguaje de programación elegido para conectarse al punto de conexión de Azure IoT Hub y recibir los eventos. Para más información, consulte [Leer mensajes del dispositivo a la nube desde el punto de conexión integrado](../../iot-hub/iot-hub-devguide-messages-read-builtin.md). 
+*   Configure el enrutamiento de mensajes en la instancia de Azure IoT Hub para enviar los eventos a otros puntos de conexión o guardar los eventos en Azure Blob Storage, etc. Para más información, consulte [Enrutamiento de mensajes de IoT Hub](../../iot-hub/iot-hub-devguide-messages-d2c.md). 
 
 ## <a name="running-spatial-analysis-with-a-recorded-video-file"></a>Ejecución de un análisis espacial con un archivo de vídeo grabado
 
@@ -381,7 +381,7 @@ Puede usar el análisis espacial tanto con vídeo grabado como con vídeo en dir
     1. Cambie **Se requiere transferencia segura** a **Deshabilitado**.
     2. Cambie **Permitir acceso público a blobs** a **Habilitado**.
 
-Vaya a la sección **Contenedor** y cree un contenedor nuevo o use uno existente. Luego, cargue el archivo de vídeo en el contenedor. Expanda la configuración del archivo cargado y seleccione **Generar SAS**. Asegúrese de establecer una **Fecha de expiración** que abarque el período de prueba. Establezca los **Protocolos permitidos** en *HTTP* (no se admite *HTTPS* ).
+Vaya a la sección **Contenedor** y cree un contenedor nuevo o use uno existente. Luego, cargue el archivo de vídeo en el contenedor. Expanda la configuración del archivo cargado y seleccione **Generar SAS**. Asegúrese de establecer una **Fecha de expiración** que abarque el período de prueba. Establezca los **Protocolos permitidos** en *HTTP* (no se admite *HTTPS*).
 
 Haga clic en **Generar URL y token de SAS** y copie la dirección URL de SAS de blob. Reemplace el `https` inicial por `http` y pruebe la dirección URL en un explorador que admita la reproducción de vídeo.
 

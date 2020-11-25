@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: erhopf
-ms.openlocfilehash: 560c156c8e2c3d69c099b2ad573fa0d214f3f80b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0309329b37436022dc88f8951853c4bb09a2c080
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91355081"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015280"
 ---
 # <a name="what-is-the-speech-devices-sdk"></a>¿Qué es Speech Devices SDK?
 
@@ -29,9 +29,9 @@ El SDK de dispositivos de voz puede ayudarle a:
 
 El SDK de dispositivos de voz consume el [SDK de voz](speech-sdk.md). Uso de nuestros algoritmos avanzados de procesamiento de audio con la matriz del micrófono del dispositivo para enviar el audio al [servicio de voz](overview.md). Ofrece un [reconocimiento de voz](speech-to-text.md) de campo lejano preciso mediante la supresión de ruido, la cancelación del eco, la formación de haces y la eliminación de la reverberación.
 
-También puede usar el SDK de dispositivos de voz para crear dispositivos de ambiente que tengan su propia [palabra clave personalizada](speech-devices-sdk-create-kws.md). Una palabra clave personalizada proporciona una indicación de inicio de una interacción del usuario única para su marca.
+También puede usar el SDK de dispositivos de voz para crear dispositivos de ambiente que tengan su propia [palabra clave personalizada](./custom-keyword-basics.md). Una palabra clave personalizada proporciona una indicación de inicio de una interacción del usuario única para su marca.
 
-El SDK de dispositivos de voz permite diversos escenarios habilitados para voz, como [asistentes de voz](https://aka.ms/bots/speech/va), sistemas de pedidos de comida para llevar, [transcripción de conversaciones](conversation-transcription-service.md) y altavoces inteligentes. Puede responder a los usuarios con texto, hablarles con una voz predeterminada o [personalizada](how-to-customize-voice-font.md), proporcionar resultados de búsqueda, [traducir](speech-translation.md) a otros idiomas y mucho más. Estamos deseando ver lo que ha compilado.
+El SDK de dispositivos de voz permite diversos escenarios habilitados para voz, como [asistentes de voz](./voice-assistants.md), sistemas de pedidos de comida para llevar, [transcripción de conversaciones](./conversation-transcription.md) y altavoces inteligentes. Puede responder a los usuarios con texto, hablarles con una voz predeterminada o [personalizada](./how-to-custom-voice-create-voice.md), proporcionar resultados de búsqueda, [traducir](speech-translation.md) a otros idiomas y mucho más. Estamos deseando ver lo que ha compilado.
 
 ## <a name="get-the-speech-devices-sdk"></a>Obtener el SDK de dispositivos de voz
 

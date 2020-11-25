@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: travisw
-ms.openlocfilehash: fbcb262fee6a2cc62bfe64e8a8589c92b4fe2b17
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9e8b009ecc2181edfaad5da3d8d05ad0c1909051
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82997303"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024762"
 ---
 # <a name="voice-assistants-on-windows"></a>Asistentes de voz en Windows
 
@@ -37,7 +37,7 @@ Cuando el usuario pronuncia una palabra clave, el observador de palabra clave de
 
 ### <a name="registration"></a>Registro
 
-La primera vez que se ejecuta una aplicación activada por voz, se registra su identificador de la aplicación y la información de palabras clave a través de las API ConversationalAgent. AAR registra todas las configuraciones de la asignación global con el observador de palabra clave de hardware o software en el sistema, lo que permite detectar la palabra clave de la aplicación. La aplicación también [se registra con el servicio en segundo plano](https://docs.microsoft.com/windows/uwp/launch-resume/register-a-background-task).
+La primera vez que se ejecuta una aplicación activada por voz, se registra su identificador de la aplicación y la información de palabras clave a través de las API ConversationalAgent. AAR registra todas las configuraciones de la asignación global con el observador de palabra clave de hardware o software en el sistema, lo que permite detectar la palabra clave de la aplicación. La aplicación también [se registra con el servicio en segundo plano](/windows/uwp/launch-resume/register-a-background-task).
 
 Tenga en cuenta que esto significa que una aplicación no se puede activar por voz hasta que se ha ejecutado una vez y se ha permitido completar el registro.
 

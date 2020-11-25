@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/31/2020
 ms.author: trbye
-ms.openlocfilehash: 5685a2553b95308a1c18c3e490737338f609b594
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.openlocfilehash: 7d4d1acac591bfe6ce40efcf6166357d43718363
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94330944"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024966"
 ---
 # <a name="improve-synthesis-with-the-audio-content-creation-tool"></a>Mejora de la síntesis con la herramienta Audio Content Creation
 
@@ -33,13 +33,13 @@ Creación de contenido de audio es una herramienta gratuita, pero pagará por el
 
 ### <a name="step-1---create-an-azure-account"></a>Paso 1: Creación de una cuenta de Azure
 
-Para trabajar con Creación de contenido de audio, debe tener una [cuenta de Microsoft](https://account.microsoft.com/account) y una [cuenta de Azure](https://azure.microsoft.com/free/ai/). Siga estas instrucciones para [configurar la cuenta](get-started.md#new-resource). 
+Para trabajar con Creación de contenido de audio, debe tener una [cuenta de Microsoft](https://account.microsoft.com/account) y una [cuenta de Azure](https://azure.microsoft.com/free/ai/). Siga estas instrucciones para [configurar la cuenta](./overview.md#try-the-speech-service-for-free). 
 
 [Azure Portal](https://portal.azure.com/) es el lugar centralizado para que administre su cuenta de Azure. Puede crear el recurso de voz, administrar el acceso al producto y supervisar todo, desde aplicaciones web sencillas hasta implementaciones complejas en la nube. 
 
 ### <a name="step-2---create-a-speech-resource"></a>Paso 2: Creación de un recurso de voz
 
-Después de registrarse para obtener la cuenta de Azure, debe crear un recurso de voz en su cuenta de Azure para acceder a los servicios de voz. Consulte las instrucciones para [crear un recurso de voz](https://docs.microsoft.com/azure/cognitive-services/speech-service/overview#create-the-azure-resource). 
+Después de registrarse para obtener la cuenta de Azure, debe crear un recurso de voz en su cuenta de Azure para acceder a los servicios de voz. Consulte las instrucciones para [crear un recurso de voz](./overview.md#create-the-azure-resource). 
 
 La implementación del recurso de voz nuevo puede tardar unos instantes. Una vez completada la implementación, puede iniciar el recorrido de creación de contenido de audio. 
 
@@ -63,7 +63,7 @@ En este diagrama se muestran los pasos necesarios para ajustar las salidas de te
 2. [Creación de un archivo de ajuste de audio](#create-an-audio-tuning-file) con texto sin formato o scripts SSML. Escriba o cargue el contenido en Creación de contenido de audio.
 3. Elija la voz y el lenguaje del contenido del script. Audio Content Creation incluye todas las [voces de texto a voz de Microsoft](language-support.md#text-to-speech). Puede usar voces estándar, neuronales o una propia personalizada.
    >[!NOTE]
-   > El acceso controlado está disponible para las voces neuronales personalizadas, que le permiten crear voces de alta definición similares a una voz natural. Para obtener más información, consulte [Proceso de acceso controlado](https://aka.ms/ignite2019/speech/ethics).
+   > El acceso controlado está disponible para las voces neuronales personalizadas, que le permiten crear voces de alta definición similares a una voz natural. Para obtener más información, consulte [Proceso de acceso controlado](./text-to-speech.md).
 
 4. Haga clic en el icono de **reproducción** (un triángulo) para obtener una vista previa de la salida de síntesis predeterminada. A continuación, mejore la salida mediante el ajuste de la pronunciación, las interrupciones, el tono, la velocidad, la entonación, el estilo de voz, etc. Para obtener una lista completa de opciones, consulte [Lenguaje de marcado de síntesis de voz](speech-synthesis-markup.md). En este [vídeo](https://www.youtube.com/watch?v=O1wIJ7mts_w) se muestra cómo ajustar la salida de voz con Audio Content Creation. 
 5. Guarde y [exporte el audio optimizado](#export-tuned-audio). Cuando guarde la pista de ajuste en el sistema, podrá seguir trabajando e iterar en la salida. Cuando esté satisfecho con el resultado, puede crear una tarea de creación de audio con la característica de exportación. Puede observar el estado de la tarea de exportación y descargar la salida para usarla con sus aplicaciones y productos.
@@ -160,7 +160,7 @@ Si desea que uno de los usuarios proporcione acceso a otros usuarios, debe conce
 
 ## <a name="see-also"></a>Consulte también
 
-* [Long Audio API](https://aka.ms/long-audio-api)
+* [Long Audio API](./long-audio-api.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

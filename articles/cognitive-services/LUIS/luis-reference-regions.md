@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 11/09/2020
-ms.openlocfilehash: a591a8d0df751c071a17b1d77febdb3607a1b53d
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: f7c6c3f9c3f468c7b55baf2b0cc45c094d693de5
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555777"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018657"
 ---
 # <a name="authoring-and-publishing-regions-and-the-associated-keys"></a>Creación y publicación de regiones y las claves asociadas
 
@@ -27,7 +27,7 @@ Hay tres portales de creación de LUIS, en función de la región. Debe crear y 
 |[au.luis.ai][au.luis.ai] |Australia| `australiaeast`|
 |[eu.luis.ai][eu.luis.ai] |Europa|`westeurope`|
 
-Las regiones de creación tienen [regiones de conmutación por error emparejadas](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
+Las regiones de creación tienen [regiones de conmutación por error emparejadas](../../best-practices-availability-paired-regions.md).
 
 <a name="regions-and-azure-resources"></a>
 
@@ -102,7 +102,7 @@ Más información sobre la [creación y predicción de puntos de conexión](deve
 
 Cada región tiene una región secundaria a la que conmutar por error. Europa conmuta por error dentro de Europa y Australia conmuta por error dentro de Australia.
 
-Las regiones de creación tienen [regiones de conmutación por error emparejadas](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
+Las regiones de creación tienen [regiones de conmutación por error emparejadas](../../best-practices-availability-paired-regions.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

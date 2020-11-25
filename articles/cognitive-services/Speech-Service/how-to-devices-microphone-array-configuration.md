@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/01/2020
 ms.author: wellsi
-ms.openlocfilehash: a2652bed6c8e7dec0a6fe8f9471793c3873646bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cf0580c96f5bf78f0444b2bb39088f2a417fd658
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82781747"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025068"
 ---
 # <a name="how-to-configure-a-microphone-array"></a>Configuración de una matriz de micrófonos
 
-En este artículo aprenderá a configurar una [matriz de micrófonos](https://aka.ms/sdsdk-microphone). Incluye la configuración del ángulo de trabajo y cómo seleccionar qué micrófono se usa para el SDK de dispositivos de voz.
+En este artículo aprenderá a configurar una [matriz de micrófonos](./speech-devices-sdk-microphone.md). Incluye la configuración del ángulo de trabajo y cómo seleccionar qué micrófono se usa para el SDK de dispositivos de voz.
 
-El SDK de dispositivos de voz funciona mejor con una matriz de micrófonos diseñada según [nuestras pautas](https://aka.ms/sdsdk-microphone). La configuración de la matriz de micrófonos la puede proporcionar el sistema operativo o uno de los métodos siguientes.
+El SDK de dispositivos de voz funciona mejor con una matriz de micrófonos diseñada según [nuestras pautas](./speech-devices-sdk-microphone.md). La configuración de la matriz de micrófonos la puede proporcionar el sistema operativo o uno de los métodos siguientes.
 
 El SDK de dispositivos de voz inicialmente admitía matrices de micrófonos realizando la selección a partir de un conjunto fijo de configuraciones.
 
@@ -49,7 +49,7 @@ Si se especifica una matriz de micrófonos mediante `AudioConfig::FromMicrophone
 La pila de audio de Microsoft en el SDK de dispositivos de voz solo admite reducción de muestreo para frecuencias de muestreo que sean múltiplos enteros de 16 KHz. Además, se admiten los siguientes formatos: flotante little endian IEEE de 32 bits, entero con signo little endian de 32 bits, entero con signo little endian de 24 bits, entero con signo little endian de 16 bits y entero con signo de 8 bits.
 
 ## <a name="android"></a>Android
-Actualmente, el SDK de dispositivos de voz solo admite [Roobo v1](speech-devices-sdk-android-quickstart.md). El comportamiento es el mismo que el de las versiones anteriores, excepto que, ahora, la propiedad `MicArrayGeometryConfigFile` se puede usar para especificar el archivo JSON que contiene el intervalo de formación de haces.
+Actualmente, el SDK de dispositivos de voz solo admite [Roobo v1](./speech-devices-sdk-quickstart.md?pivots=platform-android%253fpivots%253dplatform-android). El comportamiento es el mismo que el de las versiones anteriores, excepto que, ahora, la propiedad `MicArrayGeometryConfigFile` se puede usar para especificar el archivo JSON que contiene el intervalo de formación de haces.
 
 ## <a name="microphone-array-configuration-json"></a>JSON para la configuración de matrices de micrófonos
 

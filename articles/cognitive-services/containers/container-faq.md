@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: aahi
-ms.openlocfilehash: 3d35a1f6913d0b657956489d0e57836a05f9eb1d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 188a348b497a485be0a8091b50a3f2c11b6493c0
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90900057"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94960757"
 ---
 # <a name="azure-cognitive-services-containers-frequently-asked-questions-faq"></a>Preguntas frecuentes acerca de los contenedores de Azure Cognitive Services
 
@@ -50,7 +50,7 @@ Los clientes controlan las configuraciones de contenedores de Cognitive Services
 
 **R:** No todo el mundo está familiarizado con el término "nube soberana", por tanto, empecemos por definirlo:
 
-> La "nube soberana" consta de las nubes [Azure Government](../../azure-government/documentation-government-welcome.md), [Azure Alemania](../../germany/germany-welcome.md) y [Azure China 21Vianet](https://docs.microsoft.com/azure/china/overview-operations).
+> La "nube soberana" consta de las nubes [Azure Government](../../azure-government/documentation-government-welcome.md), [Azure Alemania](../../germany/germany-welcome.md) y [Azure China 21Vianet](/azure/china/overview-operations).
 
 Desafortunadamente, los contenedores de Cognitive Services *no* se admiten de forma nativa en las nubes soberanas. Los contenedores se pueden ejecutar en estas nubes, pero se extraerán de la nube pública y tendrán que enviar datos de uso al punto de conexión público.
 

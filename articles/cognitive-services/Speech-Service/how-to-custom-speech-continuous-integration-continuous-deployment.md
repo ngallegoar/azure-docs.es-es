@@ -10,20 +10,20 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/09/2020
 ms.author: kaprochi
-ms.openlocfilehash: de0065abaf5669859e864186fc9a3fb88219414b
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: f82ea154d5949f4d229ac76e7a7ce2a89d15ac13
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555828"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025674"
 ---
 # <a name="cicd-for-custom-speech"></a>CI/CD para Habla personalizada
 
 Implemente procesos automáticos de entrenamiento, pruebas y administración de versiones para permitir una mejora continua de los modelos de Habla personalizada a medida que se aplican actualizaciones a los datos de entrenamiento y pruebas. A través de una implementación eficaz de los flujos de trabajo de CI/CD, puede asegurarse de que el punto de conexión siempre esté disponible para el modelo de Habla personalizada de mejor rendimiento.
 
-La [integración continua](https://docs.microsoft.com/azure/devops/learn/what-is-continuous-integration) (CI) es la práctica de ingeniería que consiste en confirmar con frecuenta las actualizaciones en un repositorio compartido y realizar una compilación automatizada con él. Los flujos de trabajo de CI para Habla personalizada entrenan un nuevo modelo a partir de sus orígenes de datos y realizan pruebas automatizadas en ese nuevo modelo para asegurarse de que funciona mejor que el modelo anterior.
+La [integración continua](/azure/devops/learn/what-is-continuous-integration) (CI) es la práctica de ingeniería que consiste en confirmar con frecuenta las actualizaciones en un repositorio compartido y realizar una compilación automatizada con él. Los flujos de trabajo de CI para Habla personalizada entrenan un nuevo modelo a partir de sus orígenes de datos y realizan pruebas automatizadas en ese nuevo modelo para asegurarse de que funciona mejor que el modelo anterior.
 
-La [entrega continua](https://docs.microsoft.com/azure/devops/learn/what-is-continuous-delivery) (CD) usa los modelos del proceso de CI y crea un punto de conexión para cada modelo de Habla personalizada mejorado. La CD facilita la integración de los puntos de conexión en las soluciones.
+La [entrega continua](/azure/devops/learn/what-is-continuous-delivery) (CD) usa los modelos del proceso de CI y crea un punto de conexión para cada modelo de Habla personalizada mejorado. La CD facilita la integración de los puntos de conexión en las soluciones.
 
 Es posible obtener soluciones de CI/CD personalizadas; no obstante, para una solución sólida y precompilada, use el [repositorio de plantillas de DevOps para Voz](https://github.com/Azure-Samples/Speech-Service-DevOps-Template), que ejecuta flujos de trabajo de CI/CD mediante Acciones de GitHub.
 
@@ -73,7 +73,7 @@ La mayoría de los equipos requieren un proceso de revisión y aprobación manua
 
 Use las siguientes herramientas de flujos de trabajo de automatización de CI/CD para Habla personalizada:
 
-- [CLI de Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) para crear una autenticación de la entidad de servicio de Azure, consultar las suscripciones a Azure y almacenar los resultados de las pruebas en el Blob de Azure.
+- [CLI de Azure](/cli/azure/?view=azure-cli-latest) para crear una autenticación de la entidad de servicio de Azure, consultar las suscripciones a Azure y almacenar los resultados de las pruebas en el Blob de Azure.
 - [CLI de Azure Speech](spx-overview.md) para interactuar con el servicio de voz desde la línea de comandos o desde un flujo de trabajo automatizado.
 
 ## <a name="devops-solution-for-custom-speech-using-github-actions"></a>Solución de DevOps para Habla personalizada mediante Acciones de GitHub

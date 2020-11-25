@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: 1c9b0b48c7862990cfa2c8ba38bde0851058a228
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 49d9b91df896646da7bf36e077d9f3c9187137dd
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86023030"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95021803"
 ---
 # <a name="debug-errors-when-running-a-custom-commands-application"></a>Depuración de errores durante la ejecución de una aplicación de Comandos personalizados
 
@@ -92,7 +92,7 @@ Language Understanding (LUIS) tiene límites sobre el uso de recursos. Normalmen
 
     Si está en un recurso de predicción de F0, tiene un límite de 10 mil por mes y 5 consultas por segundo.
 
-Para obtener más información sobre los límites de recursos de LUIS, consulte [Uso y límites de recursos de Language Understanding](https://docs.microsoft.com/azure/cognitive-services/luis/luis-limits#resource-usage-and-limits).
+Para obtener más información sobre los límites de recursos de LUIS, consulte [Uso y límites de recursos de Language Understanding](../luis/luis-limits.md#resource-usage-and-limits).
 
 ### <a name="connection-to-the-recognizer-failed"></a>No se pudo establecer la conexión con el reconocedor
 Normalmente, significa que hay un error de conexión transitorio con el reconocedor de Language Understanding (LUIS). Inténtelo de nuevo y el problema debería resolverse.
@@ -123,7 +123,7 @@ Las respuestas inesperadas pueden tener varias causas. Puede comenzar con alguna
 
     La precisión del reconocimiento de LUIS puede verse afectada cuando dos comandos comparten oraciones de ejemplo e intenciones similares. Debe tratar de crear funcionalidades de comando y oraciones de ejemplo lo más distintas posible.
 
-    Para obtener un procedimiento recomendado para mejorar la precisión del reconocimiento, consulte el [procedimiento recomendado de LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-best-practices).
+    Para obtener un procedimiento recomendado para mejorar la precisión del reconocimiento, consulte el [procedimiento recomendado de LUIS](../luis/luis-concept-best-practices.md).
 
 - Diálogo cancelado
     

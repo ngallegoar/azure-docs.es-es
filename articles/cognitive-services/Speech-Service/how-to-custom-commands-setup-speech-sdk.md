@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 49922599adb30e6c631f29b4831fda60cc000a40
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fa3a6d16b79800043bdcd3f183dd86fa278dd1a9
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91360130"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026034"
 ---
 # <a name="integrate-with-a-client-application-using-speech-sdk"></a>Integración con una aplicación cliente mediante el SDK de Voz
 
@@ -35,7 +35,7 @@ También necesitará:
 > [!div class = "checklist"]
 > * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) o cualquier versión posterior. Esta guía se basa en Visual Studio 2019.
 > * Una clave de suscripción de Azure para los servicios de Voz. [Obtenga una gratis](overview.md#try-the-speech-service-for-free) o créela en [Azure Portal](https://portal.azure.com).
-> * [Habilitar el dispositivo para el desarrollo](https://docs.microsoft.com/windows/uwp/get-started/enable-your-device-for-development)
+> * [Habilitar el dispositivo para el desarrollo](/windows/uwp/get-started/enable-your-device-for-development)
 
 ## <a name="step-1-publish-custom-commands-application"></a>Paso 1: Publicación de la aplicación de comandos personalizados
 
@@ -43,7 +43,7 @@ También necesitará:
 1. Vaya a **Configuración** y seleccione **LUIS resource** (Recurso de LUIS).
 1. Si **Recurso de predicción** no está asignado, seleccione una clave de predicción de consultas o cree una.
 
-    La clave de predicción de consultas siempre es necesaria para poder publicar una aplicación. Para más información sobre los recursos de LUIS, vea [Creación de recursos de LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-azure-subscription).
+    La clave de predicción de consultas siempre es necesaria para poder publicar una aplicación. Para más información sobre los recursos de LUIS, vea [Creación de recursos de LUIS](../luis/luis-how-to-azure-subscription.md).
 
 1. Vuelva a la aplicación de Comandos que está editando y seleccione **Publicar**.
 

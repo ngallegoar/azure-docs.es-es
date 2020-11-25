@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 06/5/2020
 ms.author: anwigley
-ms.openlocfilehash: 6df65040277ac61cca5fb4bf7fce5b5a7b2f3afe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b733e90b69be4e2bd458be5486564747ed4cca78
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84783663"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018878"
 ---
 # <a name="apply-devops-to-luis-app-development-using-github-actions"></a>Aplicación de DevOps al desarrollo de aplicaciones de LUIS mediante Acciones de GitHub
 
@@ -27,7 +27,7 @@ Vaya al [repositorio de plantillas de DevOps para LUIS](https://github.com/Azure
 En el [repositorio de plantillas de DevOps para LUIS](https://github.com/Azure-Samples/LUIS-DevOps-Template) se explican los procedimientos para realizar lo siguiente:
 
 * **Clonar el repositorio de plantillas**: copie la plantilla en su propio repositorio de GitHub.
-* **Configurar los recursos de LUIS**: cree los [recursos de creación y predicción de LUIS en Azure](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-azure-subscription#create-resources-in-azure-cli) que usarán los flujos de trabajo de integración continua.
+* **Configurar los recursos de LUIS**: cree los [recursos de creación y predicción de LUIS en Azure](./luis-how-to-azure-subscription.md) que usarán los flujos de trabajo de integración continua.
 * **Configurar los flujos de trabajo de CI/CD**: configure los parámetros de los flujos de trabajo de CI/CD y almacénelos en [Secretos de GitHub](https://help.github.com/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets).
 * **Comprender el [bucle interno de desarrollo](https://mitchdenny.com/the-inner-loop/)** : el desarrollador realiza actualizaciones en una aplicación de LUIS de ejemplo mientras trabaja en una rama de desarrollo, prueba las actualizaciones y, a continuación, genera una solicitud de incorporación de cambios para proponer cambios y para buscar la aprobación de la revisión.
 * **Ejecutar flujos de trabajo de CI/CD**: ejecute [flujos de trabajo de integración continua para compilar y probar una aplicación de LUIS](luis-concept-devops-automation.md) mediante Acciones de GitHub.

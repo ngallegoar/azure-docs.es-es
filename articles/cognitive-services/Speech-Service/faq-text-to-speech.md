@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: panosper
-ms.openlocfilehash: f06fda777cbebd8034ac4fd9254a4bd172d011a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 89ddbca7a216421aad7240890a697f861d14fd1f
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88661510"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026359"
 ---
 # <a name="text-to-speech-frequently-asked-questions"></a>Preguntas más frecuentes sobre Text to Speech
 
-Si no encuentra respuestas a sus preguntas en estas P+F, [consulte otras opciones de soporte técnico](support.md).
+Si no encuentra respuestas a sus preguntas en estas P+F, [consulte otras opciones de soporte técnico](../cognitive-services-support-options.md?context=%252fazure%252fcognitive-services%252fspeech-service%252fcontext%252fcontext%253fcontext%253d%252fazure%252fcognitive-services%252fspeech-service%252fcontext%252fcontext).
 
 ## <a name="general"></a>General
 
@@ -29,11 +29,11 @@ Si no encuentra respuestas a sus preguntas en estas P+F, [consulte otras opcione
 
 **P: ¿Dónde empiezo si quiero usar un modelo de voz estándar?**
 
-**R.** : Hay más de 80 modelos de voz estándar en más de 45 idiomas disponibles mediante solicitudes HTTP. Primero, obtenga una [clave suscripción](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started). Para realizar llamadas REST a los modelos de voz ya implementados, consulte la [API de REST](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis).
+**R.** : Hay más de 80 modelos de voz estándar en más de 45 idiomas disponibles mediante solicitudes HTTP. Primero, obtenga una [clave suscripción](./overview.md#try-the-speech-service-for-free). Para realizar llamadas REST a los modelos de voz ya implementados, consulte la [API de REST](./overview.md#reference-docs).
 
 **P: Si quiero usar un modelo de voz personalizado, ¿es la API la misma que la usada para las voces estándar?**
 
-**R.** : Cuando se crea e implementa un modelo de voz personalizado, obtiene un punto de conexión único para el modelo. Para usar la voz para hablar en las aplicaciones, deberá especificar el punto de conexión en las solicitudes HTTP. La misma funcionalidad que está disponible a través de la API de REST para el servicio Text to Speech está disponible para el punto de conexión personalizado. Aprenda a [crear y usar el punto de conexión personalizado](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-customize-voice-font#create-and-use-a-custom-voice-endpoint).
+**R.** : Cuando se crea e implementa un modelo de voz personalizado, obtiene un punto de conexión único para el modelo. Para usar la voz para hablar en las aplicaciones, deberá especificar el punto de conexión en las solicitudes HTTP. La misma funcionalidad que está disponible a través de la API de REST para el servicio Text to Speech está disponible para el punto de conexión personalizado. Aprenda a [crear y usar el punto de conexión personalizado](./how-to-custom-voice-create-voice.md#create-and-use-a-custom-voice-endpoint).
 
 **P: ¿Es necesario preparar los datos de entrenamiento para crear modelos de voz personalizados por mi cuenta?**
 
@@ -41,7 +41,7 @@ Si no encuentra respuestas a sus preguntas en estas P+F, [consulte otras opcione
 
 Se requiere una colección de datos de voz para crear un modelo de voz personalizado. Esta colección se compone de un conjunto de archivos de audio de las grabaciones de voz y un archivo de texto de la transcripción de cada uno de los archivos de audio. El resultado de su voz digital se basa principalmente en la calidad de los datos de entrenamiento. Para generar una buena voz de texto a voz, es importante que las grabaciones se realicen en una sala silenciosa con un micrófono de pedestal de alta calidad. El volumen constante, la velocidad de la conversación, el tono al hablar e incluso la coherencia en las particularidades expresivas del habla son esenciales para compilar una gran voz digital. Se recomienda encarecidamente grabar las voces en un estudio de grabación.
 
-Actualmente, no proporcionamos compatibilidad con la grabación en línea ni tenemos ninguna recomendación sobre estudios de grabación. Si quiere conocer el requisito de formato, consulte [cómo preparar las grabaciones y transcripciones](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-custom-voice-create-voice).
+Actualmente, no proporcionamos compatibilidad con la grabación en línea ni tenemos ninguna recomendación sobre estudios de grabación. Si quiere conocer el requisito de formato, consulte [cómo preparar las grabaciones y transcripciones](./how-to-custom-voice-create-voice.md).
 
 **P: ¿Qué guiones debo usar para grabar los datos de voz para el entrenamiento de voz personalizado?**
 

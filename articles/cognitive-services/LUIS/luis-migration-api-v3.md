@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 06/30/2020
-ms.openlocfilehash: a5760db2d6e453d631680d6154e6d9a03ce55cd6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 59cf250a9db5a1f6759495c1b5a3c48cb07cde15
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541346"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018794"
 ---
 # <a name="prediction-endpoint-changes-for-v3"></a>Cambios de punto de conexión para predicciones para la versión 3
 
@@ -60,7 +60,7 @@ Si sabe que ninguna de las aplicaciones cliente o integraciones (Bot Framework y
 
 ### <a name="bing-spell-check"></a>Bing Spell Check
 
-Esta API no es compatible en la versión 3 del punto de conexión para predicciones. Siga usando la versión 2 de la API del punto de conexión para predicciones para las correcciones ortográficas. Si necesita una corrección ortográfica mientras usa la versión 3 de la API, haga que la aplicación cliente llame a la API [Bing Spell Check](https://docs.microsoft.com/azure/cognitive-services/bing-spell-check/overview) y cambie el texto para que tenga la ortografía correcta antes de enviarlo a API LUIS.
+Esta API no es compatible en la versión 3 del punto de conexión para predicciones. Siga usando la versión 2 de la API del punto de conexión para predicciones para las correcciones ortográficas. Si necesita una corrección ortográfica mientras usa la versión 3 de la API, haga que la aplicación cliente llame a la API [Bing Spell Check](../bing-spell-check/overview.md) y cambie el texto para que tenga la ortografía correcta antes de enviarlo a API LUIS.
 
 ## <a name="bot-framework-and-azure-bot-service-client-applications"></a>Aplicaciones cliente de Azure Bot Service y Bot Framework
 

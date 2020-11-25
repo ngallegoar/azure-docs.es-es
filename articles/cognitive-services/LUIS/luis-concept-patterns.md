@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/11/2019
-ms.openlocfilehash: 44a7a89740be3d6d502c5d22c79b46582034d88a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cda71c6e825ff27ba9b03e1306ccb287663e8613
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91535972"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025966"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>Los patrones mejoran la precisión de las predicciones
 Los patrones están diseñados para mejorar la precisión cuando varias expresiones son muy parecidas.  Un patrón permite lograr más precisión en una intención sin proporcionar muchas más expresiones.
@@ -48,7 +48,7 @@ La única finalidad de un patrón es ayudar a la predicción de intenciones y ro
 No espere ver una predicción de entidad mejorada si contrae varias expresiones en un patrón único. Para que las entidades simples se activen, tendrá que agregar expresiones o usar entidades de la lista; de lo contrario, no se activará el patrón.
 
 ## <a name="patterns-use-entity-roles"></a>Los patrones usan roles de entidad
-Si dos o más entidades de un patrón están relacionadas por el contexto, los patrones usan los [roles](luis-concept-roles.md) de entidad para extraer información contextual sobre las entidades.
+Si dos o más entidades de un patrón están relacionadas por el contexto, los patrones usan los [roles](./luis-concept-entity-types.md) de entidad para extraer información contextual sobre las entidades.
 
 ## <a name="prediction-scores-with-and-without-patterns"></a>Puntuaciones de predicción con y sin patrones
 Dadas suficientes expresiones de ejemplo, LUIS podría aumentar la confianza de la predicción sin patrones. Los patrones aumentan la puntuación de confianza sin tener que proporcionar tantas expresiones.

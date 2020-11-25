@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/06/2020
 ms.author: erhopf
-ms.openlocfilehash: 87832057e955f8408b369e2f55096a713780e965
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 5c4f02eff06c08f1829f9f1c74d1dcb09ee57905
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94410783"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024796"
 ---
 # <a name="speech-service-whats-new-in-docs"></a>Servicio Voz: novedades de la documentación
 
@@ -38,17 +38,17 @@ Si quiere obtener información sobre las actualizaciones del servicio de voz, el
 
 * [Acerca de Audio Input Stream API del SDK de Voz](how-to-use-audio-input-streams.md): se ha actualizado el número de muestras permitidas por segundo.
 * [Detección automática de idioma para la conversión de voz en texto](how-to-automatic-language-detection.md): se han agregado instrucciones de Objective-C a la documentación.
-* [Elección de un modo de reconocimiento de voz](how-to-choose-recognition-mode.md): se han agregado instrucciones de JavaScript a la documentación.
+* [Elección de un modo de reconocimiento de voz](./get-started-speech-to-text.md): se han agregado instrucciones de JavaScript a la documentación.
 * [Configuración de RHEL/CentOS 7 para el SDK de voz](how-to-configure-rhel-centos-7.md): se han mejorado las instrucciones de configuración.
-* [Listas de frases para reconocimiento de voz a texto](how-to-phrase-lists.md): se han agregado instrucciones de JavaScript a la documentación.
-* [Inicio rápido: síntesis asincrónica para audio de formato largo en Python (versión preliminar)](quickstarts/text-to-speech/async-synthesis-long-form-audio.md): se ha actualizado con la compatibilidad con las voces neuronales públicas y los parámetros asociados.
-* [Inicio rápido: Reconocimiento de voz de un archivo de audio](quickstarts/speech-to-text-from-file.md): se han agregado instrucciones de JavaScript a la documentación.
-* [Inicio rápido: Reconocimiento de voz a través de un micrófono](quickstarts/speech-to-text-from-microphone.md ): se han agregado instrucciones de Go y JavaScript a la documentación.
+* [Listas de frases para reconocimiento de voz a texto](./get-started-speech-to-text.md): se han agregado instrucciones de JavaScript a la documentación.
+* [Inicio rápido: síntesis asincrónica para audio de formato largo en Python (versión preliminar)](./long-audio-api.md): se ha actualizado con la compatibilidad con las voces neuronales públicas y los parámetros asociados.
+* [Inicio rápido: Reconocimiento de voz de un archivo de audio](./get-started-speech-to-text.md): se han agregado instrucciones de JavaScript a la documentación.
+* [Inicio rápido: Reconocimiento de voz a través de un micrófono](./get-started-speech-to-text.md): se han agregado instrucciones de Go y JavaScript a la documentación.
 * [Inicio rápido: Reconocimiento de voz almacenada en Blob Storage](quickstarts/from-blob.md): se han agregado instrucciones de JavaScript a la documentación.
 * [Inicio rápido: Reconocimiento de voz, intenciones y entidades con Language Understanding (LUIS)](quickstarts/intent-recognition.md)
 * [Inicio rápido: Configuración del entorno de desarrollo](quickstarts/setup-platform.md): se han agregado instrucciones de JavaScript a la documentación.
-* [Inicio rápido: Síntesis de voz en un archivo de audio](quickstarts/text-to-speech-audio-file.md): se han agregado instrucciones de JavaScript a la documentación.
-* [Inicio rápido: Síntesis de voz en un altavoz](quickstarts/text-to-speech.md): se han agregado instrucciones de JavaScript a la documentación.
+* [Inicio rápido: Síntesis de voz en un archivo de audio](./get-started-text-to-speech.md): se han agregado instrucciones de JavaScript a la documentación.
+* [Inicio rápido: Síntesis de voz en un altavoz](./get-started-text-to-speech.md): se han agregado instrucciones de JavaScript a la documentación.
 * [¿Qué es una palabra clave?](custom-keyword-overview.md): se han actualizado el contenido y los vínculos de la introducción.
 * [Especificación del lenguaje fuente para la conversión de voz en texto](how-to-specify-source-language.md): se han agregado instrucciones de JavaScript y Objective-C a la documentación.
 

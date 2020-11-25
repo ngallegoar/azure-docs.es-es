@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: 9c84b35318637f5b89e6c88c0ebb3fd6616533fc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aeb90e8e064c44f4d17f920261ed58310f0e55f0
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86023132"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025708"
 ---
 # <a name="debug-errors-when-authoring-a-custom-commands-application"></a>Depuración de errores durante la creación de una aplicación de Comandos personalizados
 
@@ -24,7 +24,7 @@ En este artículo se describe cómo realizar una depuración cuando se ven error
 ## <a name="errors-when-creating-an-application"></a>Errores durante la creación de una aplicación
 Comandos personalizados también crea una aplicación en [LUIS](https://www.luis.ai/) cuando se crea una aplicación de Comandos personalizados. 
 
-[LUIS tiene un límite de 500 aplicaciones por recurso de creación](https://docs.microsoft.com/azure/cognitive-services/luis/luis-limits). Podría producirse un error en la creación de la aplicación LUIS si usa un recurso de creación que ya tiene 500 aplicaciones. 
+[LUIS tiene un límite de 500 aplicaciones por recurso de creación](../luis/luis-limits.md). Podría producirse un error en la creación de la aplicación LUIS si usa un recurso de creación que ya tiene 500 aplicaciones. 
 
 Asegúrese de que el recurso de creación LUIS seleccionado tiene menos de 500 aplicaciones. De lo contrario, puede crear un nuevo recurso de creación de LUIS, cambiar a otro o intentar limpiar las aplicaciones de LUIS.  
 
@@ -61,7 +61,7 @@ Comandos personalizados no permite las oraciones de ejemplo comunes que se compa
 
 Asegúrese de que no tiene oraciones de muestra comunes compartidos entre distintos comandos. 
 
-Para una práctica recomendada para equilibrar las oraciones de muestra en distintos comandos, consulte [procedimiento recomendado de LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-best-practices).
+Para una práctica recomendada para equilibrar las oraciones de muestra en distintos comandos, consulte [procedimiento recomendado de LUIS](../luis/luis-concept-best-practices.md).
 
 ### <a name="empty-sample-sentences"></a>Oraciones de ejemplo vacías
 Debe tener al menos una oración de muestra para cada comando.
@@ -82,7 +82,7 @@ Por ejemplo, puede definir un parámetro {vehículo} para las oraciones de ejemp
 | Reservar un vuelo | Reservar un {vehículo} |
 | Reservar un taxi | Reservar un {vehículo} |
 
-Para un procedimiento recomendado de aprendizaje de LUIS, consulte [procedimiento recomendado de LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-best-practices).
+Para un procedimiento recomendado de aprendizaje de LUIS, consulte [procedimiento recomendado de LUIS](../luis/luis-concept-best-practices.md).
 
 ## <a name="cant-update-luis-key"></a>No se puede actualizar la clave de LUIS
 ### <a name="reassign-to-e0-authoring-resource"></a>Reasignación de un recurso de creación de E0
