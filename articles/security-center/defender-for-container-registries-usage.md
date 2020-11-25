@@ -7,12 +7,12 @@ ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 2471a19cf795d969644cb92e23b7a2926f2ee1a9
-ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
+ms.openlocfilehash: a5d66e43485ec66b6297ef11ed382e8fb82b7cb3
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94372615"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96014588"
 ---
 # <a name="use-azure-defender-for-container-registries-to-scan-your-images-for-vulnerabilities"></a>Uso de Azure Defender para registros de contenedor para examinar las imágenes en busca de vulnerabilidades
 
@@ -22,17 +22,7 @@ Cuando **Azure Defender para registros de contenedor** está habilitado, cualqui
 
 Cuando en detector notifica vulnerabilidades a Security Center, este presenta los resultados y la información relacionada como recomendaciones. Además, los resultados incluyen información relacionada, como pasos de corrección, CVE pertinentes, puntuaciones de CVSS, etc. Se pueden ver las vulnerabilidades identificadas para una o varias suscripciones, o para un registro específico.
 
-## <a name="availability"></a>Disponibilidad
-
-|Aspecto|Detalles|
-|----|:----|
-|Estado de la versión:|Disponible con carácter general|
-|Precios:|**Azure Defender para registros de contenedor** se factura como se muestra en la [página de precios](security-center-pricing.md).|
-|Registros e imágenes compatibles:|Imágenes de Linux en registros de ACR accesibles desde la red pública de Internet con acceso al shell|
-|Registros e imágenes no compatibles:|Imágenes de Windows<br>Registros "privados"<br>Registros con acceso limitado con un firewall, un punto de conexión de servicio o puntos de conexión privados, como Azure Private Link.<br>Imágenes excesivamente minimalistas, como las imágenes [base de Docker](https://hub.docker.com/_/scratch/) o imágenes "sin distribución" que solo contienen una aplicación y sus dependencias en tiempo de ejecución sin un administrador de paquetes, shell o sistema operativo.|
-|Roles y permisos necesarios:|**Rol de lector de seguridad** y [de lector Azure Container Registry](../container-registry/container-registry-roles.md)|
-|Nubes:|![Sí](./media/icons/yes-icon.png) Nubes comerciales<br>![Sí](./media/icons/yes-icon.png) US Gov: actualmente solo se admite el examen en la característica de inserción. Más información en [¿Cuándo se examinan las imágenes?](defender-for-container-registries-introduction.md#when-are-images-scanned)<br>![No](./media/icons/no-icon.png) China Gov, otros gobiernos|
-|||
+[!INCLUDE [Defender for container registries availability info](../../includes/security-center-availability-defender-for-container-registries.md)]
 
 
 ## <a name="identify-vulnerabilities-in-images-in-azure-container-registries"></a>Identificación de vulnerabilidades en las imágenes de los registros de contenedor de Azure 
@@ -142,7 +132,7 @@ Puede utilizar cualquiera de los criterios siguientes:
 
 Para crear una regla:
 
-1. En la página de detalles de recomendaciones de **Las vulnerabilidades de las imágenes de Azure Container Registry deben corregirse** , seleccione **Deshabilitar regla**.
+1. En la página de detalles de recomendaciones de **Las vulnerabilidades de las imágenes de Azure Container Registry deben corregirse**, seleccione **Deshabilitar regla**.
 1. Seleccione el ámbito pertinente.
 1. Defina los criterios.
 1. Seleccione **Aplicar regla**.

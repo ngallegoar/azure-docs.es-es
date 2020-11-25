@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.service: iot-edge
 ms.reviewer: arduppal
 ms.openlocfilehash: 12f0af5f051d02945eeb9b1f7d4bfc50ef98f281
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93027642"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96014693"
 ---
 # <a name="deploy-the-azure-blob-storage-on-iot-edge-module-to-your-device"></a>Implementación del módulo de Azure Blob Storage en IoT Edge en el dispositivo
 
@@ -40,25 +40,25 @@ Azure Portal le guía en la creación de un manifiesto de implementación y la i
 
 ### <a name="configure-a-deployment-manifest"></a>Configuración de un manifiesto de implementación
 
-Un manifiesto de implementación es un documento JSON que describe qué módulos se van a implementar, cómo fluyen los datos entre los módulos y las propiedades deseadas de los módulos gemelos. Azure Portal cuenta con un asistente que le guía en la creación de un manifiesto de implementación. Presenta tres pasos organizados en pestañas: **Módulos** , **Rutas** y **Revisar y crear**.
+Un manifiesto de implementación es un documento JSON que describe qué módulos se van a implementar, cómo fluyen los datos entre los módulos y las propiedades deseadas de los módulos gemelos. Azure Portal cuenta con un asistente que le guía en la creación de un manifiesto de implementación. Presenta tres pasos organizados en pestañas: **Módulos**, **Rutas** y **Revisar y crear**.
 
 #### <a name="add-modules"></a>Adición de módulos
 
 1. En la sección **Módulos IoT Edge** de la página, haga clic en la lista desplegable **Agregar** y seleccione **Agregar módulo IoT Edge** para mostrar la página **Agregar módulo IoT Edge**.
 
-2. En la pestaña **Configuración del módulo** , proporcione un nombre para el módulo y especifique el URI de imagen del contenedor:
+2. En la pestaña **Configuración del módulo**, proporcione un nombre para el módulo y especifique el URI de imagen del contenedor:
 
    Ejemplos:
   
-   - **Nombre del módulo IoT Edge** : `azureblobstorageoniotedge`
-   - **URI de imagen** : `mcr.microsoft.com/azure-blob-storage:latest`
+   - **Nombre del módulo IoT Edge**: `azureblobstorageoniotedge`
+   - **URI de imagen**: `mcr.microsoft.com/azure-blob-storage:latest`
 
    ![Captura de pantalla que muestra la pestaña Configuración del módulo de la página Agregar módulo IoT Edge.](./media/how-to-deploy-blob/addmodule-tab1.png)
 
-   No seleccione **Agregar** hasta que haya especificado los valores en las pestañas **Configuración del módulo** , **Opciones de creación del contenedor** y **Configuración de módulos gemelos** , como se describe en este procedimiento.
+   No seleccione **Agregar** hasta que haya especificado los valores en las pestañas **Configuración del módulo**, **Opciones de creación del contenedor** y **Configuración de módulos gemelos**, como se describe en este procedimiento.
 
    > [!IMPORTANT]
-   > Azure IoT Edge distingue mayúsculas y minúsculas al realizar llamadas a los módulos y el SDK de Storage también toma como valor predeterminado la minúsculas. Aunque el nombre del módulo en [Azure Marketplace](how-to-deploy-modules-portal.md#deploy-modules-from-azure-marketplace) es **AzureBlobStorageonIoTEdge** , cambiar el nombre a minúsculas ayuda a garantizar que las conexiones al módulo Azure Blob Storage en IoT Edge no se interrumpan.
+   > Azure IoT Edge distingue mayúsculas y minúsculas al realizar llamadas a los módulos y el SDK de Storage también toma como valor predeterminado la minúsculas. Aunque el nombre del módulo en [Azure Marketplace](how-to-deploy-modules-portal.md#deploy-modules-from-azure-marketplace) es **AzureBlobStorageonIoTEdge**, cambiar el nombre a minúsculas ayuda a garantizar que las conexiones al módulo Azure Blob Storage en IoT Edge no se interrumpan.
 
 3. Abra la pestaña **Opciones de creación del contenedor**.
 
@@ -102,7 +102,7 @@ Un manifiesto de implementación es un documento JSON que describe qué módulos
      > [!IMPORTANT]
      > No cambie la segunda mitad del valor de montaje de almacenamiento, que señala a una ubicación específica en Blob Storage en el módulo de IoT Edge. El montaje de almacenamiento siempre debe terminar con **:/blobroot** para contenedores Linux y **:C:/BlobRoot** para contenedores Windows.
 
-5. En la pestaña **Configuración de módulos gemelos** , copie el siguiente código JSON y péguelo en el cuadro.
+5. En la pestaña **Configuración de módulos gemelos**, copie el siguiente código JSON y péguelo en el cuadro.
 
    ![Captura de pantalla que muestra la pestaña Configuración de módulos gemelos de la página Agregar módulo IoT Edge.](./media/how-to-deploy-blob/addmodule-tab4.png)
 
@@ -178,7 +178,7 @@ Azure IoT Edge proporciona plantillas de Visual Studio Code que facilitan el des
 
 1. Abra *deployment.template.json* en el área de trabajo de la solución nueva y busque la sección **modules**. Realice los cambios de configuración siguientes:
 
-   1. Elimine el módulo **SimulatedTemperatureSensor** , ya que no es necesario para esta implementación.
+   1. Elimine el módulo **SimulatedTemperatureSensor**, ya que no es necesario para esta implementación.
 
    1. Copie y pegue el código siguiente en el campo `createOptions`:
 
@@ -282,7 +282,7 @@ Además, un módulo de almacenamiento de blobs también requiere el valor HTTPS_
 
 1. En la sección **Módulos de IoT Edge** de la página, seleccione el módulo de almacenamiento de blobs.
 
-1. En la página **Actualizar módulo IoT Edge** , seleccione la pestaña **Variables de entorno**.
+1. En la página **Actualizar módulo IoT Edge**, seleccione la pestaña **Variables de entorno**.
 
 1. Agregue `HTTPS_PROXY` para el **Nombre** y la dirección URL para el **Valor**.
 
@@ -292,7 +292,7 @@ Además, un módulo de almacenamiento de blobs también requiere el valor HTTPS_
 
 1. Observe que el proxy se agrega al módulo en el manifiesto de implementación y seleccione **Crear**.
 
-1. Para comprobar la configuración, seleccione el módulo en la página de detalles del dispositivo y, en la parte inferior de la página de **Detalles de los módulos de IoT Edge** , seleccione la pestaña **Variables de entorno**.
+1. Para comprobar la configuración, seleccione el módulo en la página de detalles del dispositivo y, en la parte inferior de la página de **Detalles de los módulos de IoT Edge**, seleccione la pestaña **Variables de entorno**.
 
       ![Captura de pantalla que muestra la pestaña Variables de entorno.](./media/how-to-deploy-blob/verify-proxy-config.png)
 

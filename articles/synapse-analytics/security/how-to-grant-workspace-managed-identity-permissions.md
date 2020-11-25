@@ -9,11 +9,11 @@ ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
 ms.openlocfilehash: 54612bee5715cdb78141a8aacfa5d24c814269d1
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93312377"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96014727"
 ---
 # <a name="grant-permissions-to-workspace-managed-identity-preview"></a>Concesión de permisos a una identidad administrada de área de trabajo (versión preliminar)
 
@@ -40,7 +40,7 @@ Azure Synapse intentará conceder el rol de colaborador de datos de Blob Storage
 
 ![Pestaña Aspectos básicos en el flujo de creación de áreas de trabajo](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-1.png)
 
-Elija la cuenta de almacenamiento de ADLS Gen2 y el sistema de archivos en **Nombre de cuenta** y **Nombre del sistema de archivos** , respectivamente.
+Elija la cuenta de almacenamiento de ADLS Gen2 y el sistema de archivos en **Nombre de cuenta** y **Nombre del sistema de archivos**, respectivamente.
 
 ![Suministro de los detalles de una cuenta de almacenamiento de ADLS Gen2](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-2.png)
 
@@ -92,7 +92,7 @@ Seleccione el rol **Colaborador de datos de Storage Blob**.
 
 #### <a name="step-6-select-the-azure-ad-security-principal"></a>Paso 6: Selección de la entidad de seguridad de Azure AD
 
-En la lista desplegable **Asignar acceso a** , seleccione **Usuario, grupo o entidad de servicio de Azure AD**.
+En la lista desplegable **Asignar acceso a**, seleccione **Usuario, grupo o entidad de servicio de Azure AD**.
 
 ![Selección de la entidad de seguridad de AAD](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-11.png)
 

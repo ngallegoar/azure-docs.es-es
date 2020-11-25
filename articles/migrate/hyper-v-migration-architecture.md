@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: raynew
 ms.openlocfilehash: 390a8a49e9a47ee5e6845d85fe4fe02f514708e8
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91362204"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013622"
 ---
 # <a name="how-does-hyper-v-replication-work"></a>Funcionamiento de la replicación de Hyper-V
 

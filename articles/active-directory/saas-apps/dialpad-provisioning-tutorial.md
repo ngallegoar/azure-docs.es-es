@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 06/28/2019
 ms.author: zhchia
 ms.openlocfilehash: b88e618da3f8a23c0517aaeb251e54bf559fc468
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94358497"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96014523"
 ---
 # <a name="tutorial-configure-dialpad-for-automatic-user-provisioning"></a>Tutorial: Configuración de Dialpad para el aprovisionamiento automático de usuarios
 
@@ -125,17 +125,17 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Captura de pantalla de la lista desplegable Modo de aprovisionamiento con la opción Automático seleccionada.](common/provisioning-automatic.png)
 
-5. En la sección **Credenciales de administrador** , escriba `https://dialpad.com/scim` en la **URL de inquilino**. Escriba el valor que recuperó y guardó anteriormente de Dialpad en **Token secreto**. Haga clic en **Prueba de conexión** para asegurarse de que Azure AD puede conectarse a Dialpad. Si la conexión no se establece, asegúrese de que la cuenta de Dialpad tiene permisos de administrador y pruebe de nuevo.
+5. En la sección **Credenciales de administrador**, escriba `https://dialpad.com/scim` en la **URL de inquilino**. Escriba el valor que recuperó y guardó anteriormente de Dialpad en **Token secreto**. Haga clic en **Prueba de conexión** para asegurarse de que Azure AD puede conectarse a Dialpad. Si la conexión no se establece, asegúrese de que la cuenta de Dialpad tiene permisos de administrador y pruebe de nuevo.
 
     ![URL de inquilino + Token](common/provisioning-testconnection-tenanturltoken.png)
 
-6. En el campo **Correo electrónico de notificación** , escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
+6. En el campo **Correo electrónico de notificación**, escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
 
     ![Correo electrónico de notificación](common/provisioning-notification-email.png)
 
-7. Haga clic en **Save** (Guardar).
+7. Haga clic en **Save**(Guardar).
 
-8. En la sección **Asignaciones** , seleccione **Synchronize Azure Active Directory Users to Dialpad** (Sincronizar usuarios de Azure Active Directory con Dialpad).
+8. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Users to Dialpad** (Sincronizar usuarios de Azure Active Directory con Dialpad).
 
     ![Asignaciones de usuarios en Dialpad](media/dialpad-provisioning-tutorial/dialpad-user-mappings-new.png)
 
@@ -149,7 +149,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Estado de aprovisionamiento activado](common/provisioning-toggle-on.png)
 
-12. Elija los valores deseados en **Ámbito** , en la sección **Configuración** , para definir los usuarios o grupos que desea que se aprovisionen en Dialpad.
+12. Elija los valores deseados en **Ámbito**, en la sección **Configuración**, para definir los usuarios o grupos que desea que se aprovisionen en Dialpad.
 
     ![Ámbito del aprovisionamiento](common/provisioning-scope.png)
 

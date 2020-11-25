@@ -11,11 +11,11 @@ ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
 ms.openlocfilehash: 087679c49c3cc025268e6f895757ae5f5c47c917
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93309116"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96014217"
 ---
 # <a name="machine-learning-and-data-science-tools-on-azure-data-science-virtual-machines"></a>Herramientas de aprendizaje automático y ciencia de datos en Azure Data Science Virtual Machines
 Azure Data Science Virtual Machine (DSVM) tiene un amplio conjunto de herramientas y bibliotecas para el aprendizaje automático, disponibles en lenguajes conocidos como Python, R o Julia.

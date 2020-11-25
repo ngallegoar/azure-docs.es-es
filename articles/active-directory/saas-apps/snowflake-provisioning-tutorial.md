@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: zhchia
 ms.openlocfilehash: fcbfd3eb805e046647a2c28cef8c378b44026bd0
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94355450"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013197"
 ---
 # <a name="tutorial-configure-snowflake-for-automatic-user-provisioning"></a>Tutorial: Configuración de Snowflake para el aprovisionamiento automático de usuarios
 
@@ -103,13 +103,13 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![URL de inquilino + Token](common/provisioning-testconnection-tenanturltoken.png)
 
-7. En el campo **Correo electrónico de notificación** , escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
+7. En el campo **Correo electrónico de notificación**, escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
 
     ![Correo electrónico de notificación](common/provisioning-notification-email.png)
 
-8. Haga clic en **Save** (Guardar).
+8. Haga clic en **Save**(Guardar).
 
-9. En la sección **Asignaciones** , seleccione **Synchronize Azure Active Directory Users to Snowflake** (Sincronizar usuarios de Azure Active Directory con Snowflake).
+9. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Users to Snowflake** (Sincronizar usuarios de Azure Active Directory con Snowflake).
 
 10. Revise los atributos de usuario que se sincronizan entre Azure AD y Snowflake en la sección **Asignación de atributos**. Los atributos seleccionados como propiedades de **Coincidencia** se usan para buscar coincidencias con las cuentas de usuario de Snowflake con el objetivo de realizar operaciones de actualización. Seleccione el botón **Guardar** para confirmar los cambios.
 
@@ -124,7 +124,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:defaultRole|String|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:defaultWarehouse|String|
 
-11. En la sección **Asignaciones** , seleccione **Synchronize Azure Active Directory Groups to Snowflake** (Sincronizar grupos de Azure Active Directory con Snowflake).
+11. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Groups to Snowflake** (Sincronizar grupos de Azure Active Directory con Snowflake).
 
 12. Revise los atributos de grupo que se sincronizan entre Azure AD y Snowflake en la sección **Asignación de atributos**. Los atributos seleccionados como propiedades de **Coincidencia** se usan para buscar coincidencias con los grupos de Snowflake con el objetivo de realizar operaciones de actualización. Seleccione el botón **Guardar** para confirmar los cambios.
 
@@ -139,7 +139,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Estado de aprovisionamiento activado](common/provisioning-toggle-on.png)
 
-15. Elija los valores deseados en **Ámbito** , en la sección **Configuración** , para definir los usuarios o grupos que desea que se aprovisionen en Snowflake. Si esta opción no está disponible, configure los campos obligatorios en Credenciales de administrador, haga clic en **Guardar** y actualice la página. 
+15. Elija los valores deseados en **Ámbito**, en la sección **Configuración**, para definir los usuarios o grupos que desea que se aprovisionen en Snowflake. Si esta opción no está disponible, configure los campos obligatorios en Credenciales de administrador, haga clic en **Guardar** y actualice la página. 
 
     ![Ámbito del aprovisionamiento](common/provisioning-scope.png)
 

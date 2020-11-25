@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: chlound
 ms.openlocfilehash: 1766705e73afab5d15cdb5aa2c5bb1487ad3d7c5
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92634290"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013894"
 ---
 # <a name="use-azure-key-vault-secrets-in-pipeline-activities"></a>Uso de secretos de Azure Key Vault en actividades de canalización
 
@@ -39,7 +39,7 @@ Esta característica se basa en la identidad administrada de Data Factory.  Obte
 
     ![Directivas de acceso de Key Vault](media/how-to-use-azure-key-vault-secrets-pipeline-activities/akvaccesspolicies-2.png)
 
-    Haga clic en **Agregar** y luego en **Guardar** .
+    Haga clic en **Agregar** y luego en **Guardar**.
 
 3. Navegue hasta el secreto de Key Vault y copie el identificador secreto.
 
@@ -65,7 +65,7 @@ Esta característica se basa en la identidad administrada de Data Factory.  Obte
     > [!CAUTION]
     > Establezca la opción Salida segura en true para evitar que el valor de secreto se registre en texto sin formato.  Todas las actividades adicionales que consuman este valor deben tener la opción Entrada segura establecida en true.
 
-5. Para usar el valor en otra actividad, utilice la expresión de código siguiente **@activity("Web1").output.value** .
+5. Para usar el valor en otra actividad, utilice la expresión de código siguiente **@activity("Web1").output.value**.
 
     ![Expresión de código](media/how-to-use-azure-key-vault-secrets-pipeline-activities/usewebactivity.png)
 

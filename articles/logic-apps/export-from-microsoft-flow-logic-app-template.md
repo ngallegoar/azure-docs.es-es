@@ -7,11 +7,11 @@ ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 06/03/2020
 ms.openlocfilehash: 1c2f0a2c54be7adbc7b8babd596f18e08c67a024
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91269563"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96014421"
 ---
 # <a name="export-flows-from-power-automate-and-deploy-to-azure-logic-apps"></a>Exportación de flujos desde Power Automate y su implementación en Azure Logic Apps
 
@@ -58,7 +58,7 @@ Para más información, consulte [Crecer hasta Azure Logic Apps](https://flow.mi
 
 1. Vaya a la ubicación donde ha guardado el archivo de plantilla JSON que ha exportado de Power Automate. Seleccione el archivo de plantilla > **Abrir**.
 
-1. Después de que el editor muestre el archivo JSON, los parámetros y los recursos de la plantilla, seleccione**Guardar**.
+1. Después de que el editor muestre el archivo JSON, los parámetros y los recursos de la plantilla, seleccione **Guardar**.
 
    ![Guardar plantilla](./media/export-from-microsoft-flow-logic-app-template/save-template.png)
 

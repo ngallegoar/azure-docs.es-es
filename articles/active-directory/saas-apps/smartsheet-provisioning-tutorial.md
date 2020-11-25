@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 06/07/2019
 ms.author: jeedes
 ms.openlocfilehash: 79fa480e0cca590446a0251f43c45b2e04c97cd5
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94359347"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013163"
 ---
 # <a name="tutorial-configure-smartsheet-for-automatic-user-provisioning"></a>Tutorial: Configuración de Smartsheet para el aprovisionamiento automático de usuarios
 
@@ -123,17 +123,17 @@ Esta sección le guiará por los pasos necesarios para configurar el servicio de
 
     ![Captura de pantalla de la lista desplegable Modo de aprovisionamiento con la opción Automático seleccionada.](common/provisioning-automatic.png)
 
-5. En la sección **Credenciales de administrador** , escriba los valores de **URL base de SCIM 2.0 y token de acceso** que recuperó anteriormente desde Smartsheet en **URL de inquilino** y **Token secreto** respectivamente. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a Smartsheet. Si la conexión no se establece, asegúrese de que la cuenta de Smartsheet tiene permisos de administrador del sistema e inténtelo de nuevo.
+5. En la sección **Credenciales de administrador**, escriba los valores de **URL base de SCIM 2.0 y token de acceso** que recuperó anteriormente desde Smartsheet en **URL de inquilino** y **Token secreto** respectivamente. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a Smartsheet. Si la conexión no se establece, asegúrese de que la cuenta de Smartsheet tiene permisos de administrador del sistema e inténtelo de nuevo.
 
     ![Token](common/provisioning-testconnection-tenanturltoken.png)
 
-6. En el campo **Correo electrónico de notificación** , escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
+6. En el campo **Correo electrónico de notificación**, escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
 
     ![Correo electrónico de notificación](common/provisioning-notification-email.png)
 
-7. Haga clic en **Save** (Guardar).
+7. Haga clic en **Save**(Guardar).
 
-8. En la sección **Asignaciones** , seleccione **Synchronize Azure Active Directory Users to Smartsheet** (Sincronizar usuarios de Azure Active Directory con Smartsheet).
+8. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Users to Smartsheet** (Sincronizar usuarios de Azure Active Directory con Smartsheet).
 
 9. Revise los atributos de usuario que se sincronizan entre Azure AD y Smartsheet en la sección **Attribute Mapping** (Asignación de atributos). Los atributos seleccionados como propiedades **Matching** se usan para buscar coincidencias con las cuentas de usuario de Smartsheet con el objetivo de realizar operaciones de actualización. Seleccione el botón **Guardar** para confirmar los cambios.
 
@@ -164,7 +164,7 @@ Esta sección le guiará por los pasos necesarios para configurar el servicio de
 
     ![Estado de aprovisionamiento activado](common/provisioning-toggle-on.png)
 
-12. Elija los valores deseados en **Ámbito** , en la sección **Configuración** , para definir los usuarios o grupos que desea que se aprovisionen en Smartsheet.
+12. Elija los valores deseados en **Ámbito**, en la sección **Configuración**, para definir los usuarios o grupos que desea que se aprovisionen en Smartsheet.
 
     ![Ámbito del aprovisionamiento](common/provisioning-scope.png)
 

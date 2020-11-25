@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 10/24/2019
 ms.author: Zhchia
 ms.openlocfilehash: 10b7b79ba5081e6133f2e5e94840eddfe403caef
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357171"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013184"
 ---
 # <a name="tutorial-configure-ideo-for-automatic-user-provisioning"></a>Tutorial: Configuración de IDEO para el aprovisionamiento automático de usuarios
 
@@ -53,7 +53,7 @@ En el escenario descrito en este tutorial se supone que ya cuenta con los requis
 
 Antes de configurar IDEO para el aprovisionamiento automático de usuarios con Azure AD, debe recuperar alguna información de aprovisionamiento de IDEO.
 
-* Para el **Token secreto** , ponte en contacto con el equipo de soporte técnico de IDEO en productsupport@ideo.com. Este valor se escribirá en el campo **Token secreto** de la pestaña Aprovisionamiento de la aplicación IDEO en Azure Portal. 
+* Para el **Token secreto**, ponte en contacto con el equipo de soporte técnico de IDEO en productsupport@ideo.com. Este valor se escribirá en el campo **Token secreto** de la pestaña Aprovisionamiento de la aplicación IDEO en Azure Portal. 
 
 ## <a name="step-3-add-ideo-from-the-azure-ad-application-gallery"></a>Paso 3. Adición de IDEO desde la galería de aplicaciones de Azure AD
 
@@ -90,17 +90,17 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Captura de pantalla de la lista desplegable Modo de aprovisionamiento con la opción Automático seleccionada.](common/provisioning-automatic.png)
 
-5. En la sección **Credenciales de administrador** , escriba los valores de **URL base de SCIM 2.0 y token de acceso** , que recuperó anteriormente del equipo de soporte técnico de IDEO, en los campos **URL de inquilino** y **Token secreto** , respectivamente. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a IDEO. Si la conexión no se establece, asegúrese de que la cuenta de IDEO tenga permisos de administrador y pruebe de nuevo.
+5. En la sección **Credenciales de administrador**, escriba los valores de **URL base de SCIM 2.0 y token de acceso**, que recuperó anteriormente del equipo de soporte técnico de IDEO, en los campos **URL de inquilino** y **Token secreto**, respectivamente. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a IDEO. Si la conexión no se establece, asegúrese de que la cuenta de IDEO tenga permisos de administrador y pruebe de nuevo.
 
     ![URL de inquilino + Token](common/provisioning-testconnection-tenanturltoken.png)
 
-6. En el campo **Correo electrónico de notificación** , escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
+6. En el campo **Correo electrónico de notificación**, escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
 
     ![Correo electrónico de notificación](common/provisioning-notification-email.png)
 
-7. Haga clic en **Save** (Guardar).
+7. Haga clic en **Save**(Guardar).
 
-8. En la sección **Asignaciones** , seleccione **Synchronize Azure Active Directory Users to IDEO** (Sincronizar usuarios de Azure Active Directory con IDEO).
+8. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Users to IDEO** (Sincronizar usuarios de Azure Active Directory con IDEO).
 
 9. Examine los atributos de grupo que se sincronizan entre Azure AD e IDEO en la sección **Asignación de atributos**. Los atributos seleccionados como propiedades de **Coincidencia** se usan para buscar coincidencias con las cuentas de usuario de IDEO con el objetivo de realizar operaciones de actualización. Seleccione el botón **Guardar** para confirmar los cambios.
 
@@ -112,7 +112,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
    |name.givenName|String|
    |name.familyName|String|
 
-10. En la sección **Asignaciones** , seleccione **Sincronizar grupos de Azure Active Directory con IDEO**.
+10. En la sección **Asignaciones**, seleccione **Sincronizar grupos de Azure Active Directory con IDEO**.
    
 11. Examine los atributos de grupo que se sincronizan entre Azure AD e IDEO en la sección **Asignación de atributos**. Los atributos seleccionados como propiedades de **Coincidencia** se usan para establecer correspondencia con los grupos de IDEO a fin de realizar operaciones de actualización. Seleccione el botón **Guardar** para confirmar los cambios.
 
@@ -127,7 +127,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Estado de aprovisionamiento activado](common/provisioning-toggle-on.png)
 
-14. Elija los valores deseados en **Ámbito** , en la sección **Configuración** , para definir los usuarios o grupos que desea que se aprovisionen en IDEO.
+14. Elija los valores deseados en **Ámbito**, en la sección **Configuración**, para definir los usuarios o grupos que desea que se aprovisionen en IDEO.
 
     ![Ámbito del aprovisionamiento](common/provisioning-scope.png)
 

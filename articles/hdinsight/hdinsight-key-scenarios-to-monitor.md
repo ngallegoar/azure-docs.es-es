@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 03/09/2020
 ms.openlocfilehash: 1da86e36cf20dc15152aea74be6c43a4cb43d3b4
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92539775"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96014251"
 ---
 # <a name="monitor-cluster-performance-in-azure-hdinsight"></a>Supervisión del rendimiento de un clúster en Azure HDInsight
 
@@ -25,7 +25,7 @@ En las secciones siguientes se describe cómo supervisar y optimizar la carga en
 
 Los clústeres de Hadoop pueden ofrecer el rendimiento más óptimo cuando la carga del clúster se distribuye uniformemente entre todos los nodos. Esto permite que las tareas de procesamiento se ejecuten sin estar limitadas por la memoria RAM, la CPU o los recursos de disco en los nodos individuales.
 
-Para obtener una visión de alto nivel de los nodos de un clúster y su carga, inicie sesión en la [interfaz de usuario web de Ambari](hdinsight-hadoop-manage-ambari.md) y seleccione la pestaña **Hosts** . Los hosts se enumeran por sus nombres de dominio completos. El estado de funcionamiento de cada host se muestra mediante un indicador de mantenimiento de color:
+Para obtener una visión de alto nivel de los nodos de un clúster y su carga, inicie sesión en la [interfaz de usuario web de Ambari](hdinsight-hadoop-manage-ambari.md) y seleccione la pestaña **Hosts**. Los hosts se enumeran por sus nombres de dominio completos. El estado de funcionamiento de cada host se muestra mediante un indicador de mantenimiento de color:
 
 | Color | Descripción |
 | --- | --- |
@@ -62,7 +62,7 @@ La página YARN Queue Manager (Administrador de colas de YARN) muestra una lista
 
 ![Página de detalles de YARN Queue Manager (Administrador de colas de YARN)](./media/hdinsight-key-scenarios-to-monitor/yarn-queue-manager-details.png)
 
-Para obtener una visión más detallada de las colas, seleccione en el panel de Ambari el servicio **YARN** en la lista de la izquierda. Después, en el menú desplegable **Vínculos rápidos** , seleccione **ResourceManager UI** (Interfaz de usuario de ResourceManager) debajo del nodo activo.
+Para obtener una visión más detallada de las colas, seleccione en el panel de Ambari el servicio **YARN** en la lista de la izquierda. Después, en el menú desplegable **Vínculos rápidos**, seleccione **ResourceManager UI** (Interfaz de usuario de ResourceManager) debajo del nodo activo.
 
 ![Vínculos del menú de la interfaz de usuario del Administrador de recursos](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui-menu-link.png)
 
@@ -72,7 +72,7 @@ En la interfaz de usuario de Resource Manager, seleccione **Scheduler** (Program
 
 ## <a name="storage-throttling"></a>Limitación del almacenamiento
 
-Se puede producir un cuello de botella de rendimiento de un clúster a nivel de almacenamiento. Con mucha frecuencia, este tipo de cuello de botella se debe al *bloqueo* de operaciones de entrada y salida (E/S), que se produce cuando las tareas en ejecución envían más operaciones de E/S de las que el servicio de almacenamiento puede controlar. Este bloqueo crea una cola de solicitudes de E/S que esperan a que se procesen las E/S actuales para procesarse. Los bloqueos se deben a una *limitación del almacenamiento* , que no es un límite físico, sino más bien un límite que impone el servicio de almacenamiento mediante un Acuerdo de Nivel de Servicio (SLA). Este límite garantiza que ningún cliente o inquilino individuales pueden monopolizar el servicio. El Acuerdo de Nivel de Servicio limita el número de operaciones de E/S por segundo (IOPS) de Azure Storage (para más información, consulte [Objetivos de escalabilidad y rendimiento para cuentas de almacenamiento estándar](../storage/common/scalability-targets-standard-account.md)).
+Se puede producir un cuello de botella de rendimiento de un clúster a nivel de almacenamiento. Con mucha frecuencia, este tipo de cuello de botella se debe al *bloqueo* de operaciones de entrada y salida (E/S), que se produce cuando las tareas en ejecución envían más operaciones de E/S de las que el servicio de almacenamiento puede controlar. Este bloqueo crea una cola de solicitudes de E/S que esperan a que se procesen las E/S actuales para procesarse. Los bloqueos se deben a una *limitación del almacenamiento*, que no es un límite físico, sino más bien un límite que impone el servicio de almacenamiento mediante un Acuerdo de Nivel de Servicio (SLA). Este límite garantiza que ningún cliente o inquilino individuales pueden monopolizar el servicio. El Acuerdo de Nivel de Servicio limita el número de operaciones de E/S por segundo (IOPS) de Azure Storage (para más información, consulte [Objetivos de escalabilidad y rendimiento para cuentas de almacenamiento estándar](../storage/common/scalability-targets-standard-account.md)).
 
 Si usa Azure Storage, para información acerca de la supervisión de problemas relacionados con el almacenamiento, incluida la limitación, consulte el artículo [Supervisión, diagnóstico y solución de problemas de Microsoft Azure Storage](../storage/common/storage-monitoring-diagnosing-troubleshooting.md).
 

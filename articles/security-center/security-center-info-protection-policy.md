@@ -14,11 +14,11 @@ ms.workload: na
 ms.date: 11/04/2020
 ms.author: memildin
 ms.openlocfilehash: 0a487f778693e87e680033edd0d80c55d1a85f66
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348634"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013792"
 ---
 # <a name="sql-information-protection-policy-in-azure-security-center"></a>Directiva de SQL Information Protection en Azure Security Center
  
@@ -26,8 +26,8 @@ El [mecanismo de clasificación y detección de datos](../azure-sql/database/dat
 
 El mecanismo de clasificación se basa en los siguientes dos elementos:
 
-- **Etiquetas** : Son los atributos principales de clasificación, que se usan para definir el *nivel de confidencialidad de los datos* almacenados en la columna. 
-- **Tipos de información** : Proporciona una granularidad adicional en el *tipo de datos* almacenados en la columna.
+- **Etiquetas**: Son los atributos principales de clasificación, que se usan para definir el *nivel de confidencialidad de los datos* almacenados en la columna. 
+- **Tipos de información**: Proporciona una granularidad adicional en el *tipo de datos* almacenados en la columna.
 
 Las opciones de la directiva de protección de la información dentro de Security Center proporcionan un conjunto predefinido de etiquetas y tipos de información que sirven como valores predeterminados para el motor de clasificación. Puede personalizar la directiva según las necesidades de su organización, tal y como se describe a continuación.
 
@@ -92,7 +92,7 @@ Use la recomendación de Security Center, "Los datos confidenciales de las bases
 
 1. Seleccione cualquier base de datos.
 
-1. En el área **Seguridad** del menú, abra la página **Clasificación y de detección de datos**  (1) y seleccione **Configurar**  (2).
+1. En el área **Seguridad** del menú, abra la página **Clasificación y de detección de datos** (1) y seleccione **Configurar** (2).
 
     :::image type="content" source="./media/security-center-info-protection-policy/access-policy-from-azure-sql.png" alt-text="Apertura de la directiva de SQL Information Protection desde Azure SQL":::
 

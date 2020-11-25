@@ -10,11 +10,11 @@ ms.author: gopalv
 ms.date: 09/11/2019
 ms.topic: reference
 ms.openlocfilehash: 6fb7b7c2e9022b6b629a039a48bb559b36393f79
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94334999"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013860"
 ---
 # <a name="reference-ubuntu-linux-data-science-virtual-machine"></a>Referencia: Data Science Virtual Machine de Ubuntu
 
@@ -97,7 +97,7 @@ También hay un script de R para que pueda instalar los [20 paquetes principales
 
 ## <a name="python"></a>Python
 
-Anaconda Python se instala con los entornos Python 2.7 y 3.5. El entorno 2.7 se denomina _root_ , y el entorno 3.5 se denomina _py35_. Esta distribución contiene Python base, junto con aproximadamente 300 de los paquetes de matemáticas, ingeniería y análisis de datos más populares.
+Anaconda Python se instala con los entornos Python 2.7 y 3.5. El entorno 2.7 se denomina _root_, y el entorno 3.5 se denomina _py35_. Esta distribución contiene Python base, junto con aproximadamente 300 de los paquetes de matemáticas, ingeniería y análisis de datos más populares.
 
 El entorno py35 es el predeterminado. Para activar el entorno root (2.7), use este comando:
 
@@ -206,11 +206,11 @@ Para obtener más información, consulte [SQuirrel SQL](http://squirrel-sql.sour
 
 El paquete de controladores ODBC para SQL Server también incluye dos herramientas de línea de comandos:
 
-- **bcp** : la herramienta bcp copia datos de forma masiva entre una instancia de Microsoft SQL Server y un archivo de datos en un formato especificado por el usuario. Puede usarla para importar grandes cantidades de filas nuevas en tablas de SQL Server o para exportar datos de tablas a archivos de datos. Para importar datos en una tabla, debe usar un archivo de formato creado para esa tabla. O bien, debe comprender la estructura de la tabla y los tipos de datos que son válidos para sus columnas.
+- **bcp**: la herramienta bcp copia datos de forma masiva entre una instancia de Microsoft SQL Server y un archivo de datos en un formato especificado por el usuario. Puede usarla para importar grandes cantidades de filas nuevas en tablas de SQL Server o para exportar datos de tablas a archivos de datos. Para importar datos en una tabla, debe usar un archivo de formato creado para esa tabla. O bien, debe comprender la estructura de la tabla y los tipos de datos que son válidos para sus columnas.
 
   Puede encontrar más información en [Conexión con bcp](/sql/connect/odbc/linux-mac/connecting-with-bcp).
 
-- **sqlcmd** : esta herramienta le permite escribir instrucciones Transact-SQL. También puede especificar procedimientos del sistema y archivos de script en el símbolo del sistema. Esta herramienta usa ODBC para ejecutar lotes de Transact-SQL.
+- **sqlcmd**: esta herramienta le permite escribir instrucciones Transact-SQL. También puede especificar procedimientos del sistema y archivos de script en el símbolo del sistema. Esta herramienta usa ODBC para ejecutar lotes de Transact-SQL.
 
   Puede encontrar más información en [Conexión con sqlcmd](/sql/connect/odbc/linux-mac/connecting-with-sqlcmd).
 
@@ -228,13 +228,13 @@ En R y Python dispone de bibliotecas de acceso a las bases de datos:
 
 En la VM se instalan las siguientes herramientas de Azure:
 
-* **CLI de Azure** : puede usar la interfaz de la línea de comandos de Azure para crear y administrar recursos de Azure mediante comandos de shell. Para abrir las herramientas de Azure, escriba **azure help**. Para obtener más información, consulte la [página de documentación de la CLI de Azure](/cli/azure/get-started-with-az-cli2).
+* **CLI de Azure**: puede usar la interfaz de la línea de comandos de Azure para crear y administrar recursos de Azure mediante comandos de shell. Para abrir las herramientas de Azure, escriba **azure help**. Para obtener más información, consulte la [página de documentación de la CLI de Azure](/cli/azure/get-started-with-az-cli2).
 * **Explorador de Azure Storage** el Explorador de Azure Storage es una herramienta gráfica que se usa para examinar los objetos que se han almacenado en la cuenta de Azure Storage y para cargar y descargar datos con los blobs de Azure como origen y destino. Puede acceder al Explorador de Storage desde el icono de acceso directo del escritorio. También puede abrirlo desde un símbolo del sistema del shell si escribe **StorageExplorer**. Debe haber iniciado sesión desde un cliente X2Go o tener la configuración de reenvío de X11.
-* **Bibliotecas de Azure** : a continuación, figuran algunas de las bibliotecas preinstaladas.
+* **Bibliotecas de Azure**: a continuación, figuran algunas de las bibliotecas preinstaladas.
   
-  * **Python** : las bibliotecas relacionadas con Azure en Python son *azure* , *azureml* , *pydocumentdb* y *pyodbc*. Las tres primeras bibliotecas permiten acceder a los servicios de Azure Storage, a Azure Machine Learning y a Azure Cosmos DB (una base de datos NoSQL en Azure). La cuarta biblioteca, pyodbc (junto con el controlador ODBC de Microsoft para SQL Server), permite el acceso a SQL Server, Azure SQL Database y Azure Synapse Analytics desde Python mediante una interfaz ODBC. Escriba **pip list** para ver todas las bibliotecas enumeradas. Asegúrese de ejecutar este comando en los entornos de Python 2.7 y 3.5.
-  * **R** : las bibliotecas relacionadas con Azure en R son AzureML y RODBC.
-  * **Java** : la lista de bibliotecas de Java para Azure se puede encontrar en el directorio /dsvm/sdk/AzureSDKJava de la máquina virtual. Las bibliotecas principales son Azure Storage y las API de administración, Azure Cosmos DB y los controladores JDBC para SQL Server.  
+  * **Python**: las bibliotecas relacionadas con Azure en Python son *azure*, *azureml*, *pydocumentdb* y *pyodbc*. Las tres primeras bibliotecas permiten acceder a los servicios de Azure Storage, a Azure Machine Learning y a Azure Cosmos DB (una base de datos NoSQL en Azure). La cuarta biblioteca, pyodbc (junto con el controlador ODBC de Microsoft para SQL Server), permite el acceso a SQL Server, Azure SQL Database y Azure Synapse Analytics desde Python mediante una interfaz ODBC. Escriba **pip list** para ver todas las bibliotecas enumeradas. Asegúrese de ejecutar este comando en los entornos de Python 2.7 y 3.5.
+  * **R**: las bibliotecas relacionadas con Azure en R son AzureML y RODBC.
+  * **Java**: la lista de bibliotecas de Java para Azure se puede encontrar en el directorio /dsvm/sdk/AzureSDKJava de la máquina virtual. Las bibliotecas principales son Azure Storage y las API de administración, Azure Cosmos DB y los controladores JDBC para SQL Server.  
 
 Puede acceder a [Azure Portal](https://portal.azure.com) desde el explorador Firefox instalado previamente. En Azure Portal, puede crear, administrar y supervisar los recursos de Azure.
 
@@ -246,7 +246,7 @@ Después de iniciar sesión en Azure Machine Learning Studio, puede usar un lien
 
 Haga que los modelos de aprendizaje automático que ha creado estén operativos encapsulándolos en una interfaz de servicio web. El funcionamiento de modelos de aprendizaje automático permite a los clientes escritos en cualquier lenguaje invocar predicciones a partir de esos modelos. Para obtener más información, consulte la [documentación sobre Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/).
 
-También puede crear los modelos en R o en Python en la máquina virtual y, después, implementarlos en producción en Azure Machine Learning. Hemos instalado bibliotecas en R ( **AzureML** ) y en Python ( **azureml** ) para habilitar esta funcionalidad.
+También puede crear los modelos en R o en Python en la máquina virtual y, después, implementarlos en producción en Azure Machine Learning. Hemos instalado bibliotecas en R (**AzureML**) y en Python (**azureml**) para habilitar esta funcionalidad.
 
 > [!NOTE]
 > Estas instrucciones se han escrito para la versión de Windows de Data Science Virtual Machine. Sin embargo, la información proporcionada sobre la implementación de modelos en Azure Machine Learning es aplicable a la máquina virtual Linux.
@@ -255,12 +255,12 @@ También puede crear los modelos en R o en Python en la máquina virtual y, desp
 
 La máquina virtual incluye herramientas y algoritmos de aprendizaje automático que ya se han compilado e instalado de forma local. Entre ellas se incluyen las siguientes:
 
-* **Vowpal Wabbit** : algoritmo de aprendizaje rápido en línea.
-* **xgboost** : herramienta que proporciona los algoritmos de árbol ampliados y optimizados.
-* **Rattle** : herramienta gráfica basada en R para facilitar el modelado y la exploración de datos.
-* **Python** : Anaconda Python integra algoritmos de aprendizaje automático con bibliotecas como Scikit-learn. Puede instalar otras bibliotecas con el comando `pip install` .
-* **LightGBM** : entorno de potenciación de gradientes rápido, distribuido y de alto rendimiento basado en algoritmos de árbol de decisión.
-* **R** : una amplia biblioteca de funciones de aprendizaje automático está disponible para R. Las bibliotecas preinstaladas incluyen lm, glm, randomForest y rpart. Puede instalar otras bibliotecas mediante la ejecución de este comando:
+* **Vowpal Wabbit**: algoritmo de aprendizaje rápido en línea.
+* **xgboost**: herramienta que proporciona los algoritmos de árbol ampliados y optimizados.
+* **Rattle**: herramienta gráfica basada en R para facilitar el modelado y la exploración de datos.
+* **Python**: Anaconda Python integra algoritmos de aprendizaje automático con bibliotecas como Scikit-learn. Puede instalar otras bibliotecas con el comando `pip install` .
+* **LightGBM**: entorno de potenciación de gradientes rápido, distribuido y de alto rendimiento basado en algoritmos de árbol de decisión.
+* **R**: una amplia biblioteca de funciones de aprendizaje automático está disponible para R. Las bibliotecas preinstaladas incluyen lm, glm, randomForest y rpart. Puede instalar otras bibliotecas mediante la ejecución de este comando:
 
     ```r
     install.packages(<lib name>)
@@ -330,7 +330,7 @@ Se abrirá una interfaz gráfica con un conjunto de pestañas. Siga estos pasos 
 > [!NOTE]
 > Si no tiene acceso para instalar el paquete en el directorio del sistema (valor predeterminado), puede que aparezca un aviso en la ventana de la consola de R para instalar los paquetes en su biblioteca personal. Si ve estos avisos, responda **y** .
 
-1. Seleccione **Execute** (Ejecutar).
+1. Seleccione **Execute**(Ejecutar).
 1. Aparece un cuadro de diálogo que le pregunta si desea utilizar el conjunto de datos meteorológicos de ejemplo. Haga clic en **Yes** (Sí) para cargar el ejemplo.
 1. Seleccione la pestaña **Model** (Modelo).
 1. Seleccione **Execute** (Ejecutar) para crear un árbol de decisión.

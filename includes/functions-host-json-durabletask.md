@@ -7,14 +7,14 @@ ms.topic: include
 ms.date: 03/14/2019
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 24dc2cad8d299d150adddc03de5e9006fc831fc6
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 6a862a051d0040ac99746d81f10ae63d5af7545f
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93061657"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013738"
 ---
-Configuración de [Durable Functions](../articles/azure-functions/durable-functions-overview.md).
+Configuración de [Durable Functions](../articles/azure-functions/durable/durable-functions-overview.md).
 
 > [!NOTE]
 > Todas las versiones principales de Durable Functions son compatibles con todas las versiones del runtime de Azure Functions. Sin embargo, el esquema de la configuración de host.json es ligeramente diferente en función de la versión del runtime de Azure Functions y de la versión de la extensión de Durable Functions que se use. Los ejemplos siguientes son para Azure Functions 2.0 y 3.0. En ambos ejemplos, si se usa Azure Functions 1.0, la configuración disponible es la misma, pero la sección "durableTask" de host.json debería ir en la raíz de la configuración del archivo, en lugar de como un campo de "extensions".
@@ -97,11 +97,11 @@ Configuración de [Durable Functions](../articles/azure-functions/durable-functi
 }
 ```
 
-Los nombres de la central de tareas deben empezar por una letra y estar formados únicamente por letras y números. Si no se especifica, el nombre predeterminado de la central de tareas de la aplicación de función es **DurableFunctionsHub**. Para más información, consulte el artículo sobre las [centrales de tareas](../articles/azure-functions/durable-functions-task-hubs.md).
+Los nombres de la central de tareas deben empezar por una letra y estar formados únicamente por letras y números. Si no se especifica, el nombre predeterminado de la central de tareas de la aplicación de función es **DurableFunctionsHub**. Para más información, consulte el artículo sobre las [centrales de tareas](../articles/azure-functions/durable/durable-functions-task-hubs.md).
 
 |Propiedad  |Valor predeterminado | Descripción |
 |---------|---------|---------|
-|hubName|DurableFunctionsHub|Se pueden usar nombres de [central de tareas](../articles/azure-functions/durable-functions-task-hubs.md) alternativos para aislar varias aplicaciones de Durable Functions unas de otras, incluso si usan el mismo back-end de almacenamiento.|
+|hubName|DurableFunctionsHub|Se pueden usar nombres de [central de tareas](../articles/azure-functions/durable/durable-functions-task-hubs.md) alternativos para aislar varias aplicaciones de Durable Functions unas de otras, incluso si usan el mismo back-end de almacenamiento.|
 |controlQueueBatchSize|32|El número de mensajes que se van a extraer a la vez de la cola de control.|
 |controlQueueBufferThreshold|256|Número de mensajes de la cola de control que se pueden almacenar en búfer en la memoria a la vez, momento en que el distribuidor esperará para quitar cualquier mensaje adicional de la cola.|
 |partitionCount |4|El recuento de particiones para la cola de control. Puede ser un entero positivo comprendido entre 1 y 16.|
@@ -124,4 +124,4 @@ Los nombres de la central de tareas deben empezar por una letra y estar formados
 |useLegacyPartitionManagement|true|Cuando se establece en `false`, usa un algoritmo de administración de particiones que reduce la posibilidad de que se ejecute la función duplicada al realizar un escalado horizontal.  Disponible a partir de la versión 2.3.0. En una fase posterior, el valor predeterminado se cambiará a `false`.|
 |useGracefulShutdown|false|(Versión preliminar) Habilite el apagado correcto para reducir la posibilidad de que se produzcan errores de apagado del host en las ejecuciones de función en proceso.|
 
-Muchos de estos valores son para optimizar el rendimiento. Para obtener más información, vea [Rendimiento y escalabilidad](../articles/azure-functions/durable-functions-perf-and-scale.md).
+Muchos de estos valores son para optimizar el rendimiento. Para obtener más información, vea [Rendimiento y escalabilidad](../articles/azure-functions/durable/durable-functions-perf-and-scale.md).

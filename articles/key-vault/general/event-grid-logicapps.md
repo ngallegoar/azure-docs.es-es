@@ -11,11 +11,11 @@ ms.topic: how-to
 ms.date: 11/11/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 9c522d870a25b3df34ab6a0cf1c1e944a6462685
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93284487"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013996"
 ---
 # <a name="use-logic-apps-to-receive-email-about-status-changes-of-key-vault-secrets"></a>Uso de Logic Apps para recibir correo electrónico sobre los cambios de estado de los secretos en el almacén de claves
 
@@ -41,11 +41,11 @@ Para crear una suscripción de Azure Event Grid, siga estos pasos:
     
     ![Key Vault: página de eventos](../media/eventgrid-logicapps-kvsubs.png)
 
-1. En **Diseñador de aplicaciones lógicas** , valide la conexión y haga clic en **Continuar**. 
+1. En **Diseñador de aplicaciones lógicas**, valide la conexión y haga clic en **Continuar**. 
  
     ![Diseñador de aplicaciones lógicas: conexión](../media/eventgrid-logicappdesigner1.png)
 
-1. En la pantalla **Cuando se produce un evento de recursos** , lleve a cabo las siguientes acciones:
+1. En la pantalla **Cuando se produce un evento de recursos**, lleve a cabo las siguientes acciones:
     - Deje **Suscripción** y **Nombre de recurso** con los valores predeterminados.
     - Seleccione **Microsoft.KeyVault.vaults** en **Tipo de recurso**.
     - Seleccione **Microsoft.KeyVault.SecretNewVersionCreated** en **Event Type Item - 1** (Elemento de tipo de evento - 1).
@@ -59,8 +59,8 @@ Para crear una suscripción de Azure Event Grid, siga estos pasos:
    ![Diseñador de aplicación lógica: envío de correo electrónico](../media/eventgrid-logicappdesigner3.png)
 
 1. Cree la plantilla de correo electrónico:
-    - **Para** : escriba la dirección de correo electrónico en la que desea recibir los correos electrónicos de notificación. En este tutorial, use una cuenta de correo electrónico a la que pueda acceder para realizar pruebas.
-    - **Asunto** y **Cuerpo** : escriba el texto del correo electrónico. Seleccione propiedades JSON en la herramienta de selección para incluir contenido dinámico en función de los datos del evento. Puede recuperar los datos del evento mediante `@{triggerBody()?['Data']}`.
+    - **Para**: escriba la dirección de correo electrónico en la que desea recibir los correos electrónicos de notificación. En este tutorial, use una cuenta de correo electrónico a la que pueda acceder para realizar pruebas.
+    - **Asunto** y **Cuerpo**: escriba el texto del correo electrónico. Seleccione propiedades JSON en la herramienta de selección para incluir contenido dinámico en función de los datos del evento. Puede recuperar los datos del evento mediante `@{triggerBody()?['Data']}`.
 
     La plantilla de correo electrónico puede tener un aspecto similar al de este ejemplo.
 
@@ -81,7 +81,7 @@ Para crear una suscripción de Azure Event Grid, siga estos pasos:
 
     ![Key Vault: crear secreto](../media/eventgrid-logicapps-kv-create-secret.png)
 
-1. En la pantalla **Crear un secreto** , indique cualquier nombre, cualquier valor y seleccione **Crear**.
+1. En la pantalla **Crear un secreto**, indique cualquier nombre, cualquier valor y seleccione **Crear**.
 
 Cuando se cree el secreto, se recibirá un correo electrónico en las direcciones configuradas.
 

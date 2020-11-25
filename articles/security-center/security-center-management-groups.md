@@ -14,11 +14,11 @@ ms.workload: na
 ms.date: 12/19/2018
 ms.author: memildin
 ms.openlocfilehash: 7252a6ccd77212f75f5db54e5f3fcad7aa2df50a
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92339737"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013809"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Obtención de visibilidad de todos los inquilinos en Azure Security Center
 En este artículo se explica cómo administrar la posición de seguridad de la organización a escala mediante la aplicación de directivas de seguridad a todas las suscripciones vinculadas al inquilino de Azure Active Directory.
