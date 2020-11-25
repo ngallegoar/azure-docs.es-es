@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 10abd1065fe47556109ed69d36493c165dec1418
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 177215775c9e83286aa98872eed0ab211a8f36ff
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84738233"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94948755"
 ---
 # <a name="automate-nsg-auditing-with-azure-network-watcher-security-group-view"></a>Automatización de la auditoría de grupos de seguridad de red con la vista de grupo de seguridad de Azure Network Watcher
 
 Los clientes a menudo se enfrentan al desafío de comprobar la posición de seguridad de su infraestructura. Este desafío es similar para sus máquinas virtuales en Azure. Es importante contar con un perfil de seguridad similar basado en las reglas del grupo de seguridad de red (NSG) aplicadas. Mediante la vista de grupo de seguridad, ahora puede obtener la lista de reglas que se aplican a una máquina virtual dentro de un NSG. Puede definir un perfil de seguridad principal del NSG e iniciar la vista del grupo de seguridad con un ritmo semanal, comparar el resultado con el perfil principal y crear un informe. De este modo puede identificar con facilidad todas las máquinas virtuales que no cumplen con el perfil de seguridad recomendado.
 
-Si no está familiarizado con los grupos de seguridad de red, consulte el artículo de [información general sobre seguridad de red](../virtual-network/security-overview.md).
+Si no está familiarizado con los grupos de seguridad de red, consulte el artículo de [información general sobre seguridad de red](../virtual-network/network-security-groups-overview.md).
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -189,16 +189,3 @@ SideIndicator            : <=
 ## <a name="next-steps"></a>Pasos siguientes
 
 Si se cambió la configuración, consulte [Administración de grupos de seguridad de red](../virtual-network/manage-network-security-group.md) para realizar un seguimiento de los grupos de seguridad de red y las reglas de seguridad que pueden estar afectados.
-
-
-
-
-
-
-
-
-
-
-
-
-

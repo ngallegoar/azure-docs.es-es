@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 757b297d3d74365928cda0934485c0018f28ffee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3a7ca8236307bbf8a419d2988e1a6dc1e4c40597
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88225655"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94964871"
 ---
 # <a name="preview-create-an-image-from-a-vm"></a>Vista previa: Creación de una imagen a partir de una máquina virtual
 
@@ -105,7 +105,7 @@ Los caracteres permitidos para la versión de una imagen son números y puntos. 
 
 En este ejemplo, la versión de imagen es *1.0.0* y se replica en los centros de datos *Centro-oeste de EE. UU.* y *Centro-sur de EE. UU..* Al elegir las regiones de destino de la replicación, recuerde que también debe incluir la región de *origen* como destino de la replicación.
 
-Para crear una versión de la imagen a partir de la máquina virtual, use `$vm.Id.ToString()` como `-Source`.
+Para crear una versión de la imagen a partir de la máquina virtual, use `$vm.Id.ToString()` como `-SourceImageId`.
 
 ```azurepowershell-interactive
    $region1 = @{Name='South Central US';ReplicaCount=1}
@@ -119,7 +119,7 @@ $job = $imageVersion = New-AzGalleryImageVersion `
    -ResourceGroupName $gallery.ResourceGroupName `
    -Location $gallery.Location `
    -TargetRegion $targetRegions  `
-   -Source $sourceVm.Id.ToString() `
+   -SourceImageId $sourceVm.Id.ToString() `
    -PublishingProfileEndOfLifeDate '2020-12-01' `  
    -asJob 
 ```

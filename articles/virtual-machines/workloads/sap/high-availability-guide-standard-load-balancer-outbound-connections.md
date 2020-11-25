@@ -9,18 +9,19 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-windows
+ms.subservice: workloads
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/16/2020
 ms.author: radeltch
-ms.openlocfilehash: d4d21ac0fc0f218b9168adfad3e1b2ec42092b42
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: a6b62e9c894c25b2c3cd064524881ae5db51ec5a
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92544756"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94968543"
 ---
 # <a name="public-endpoint-connectivity-for-virtual-machines-using-azure-standard-load-balancer-in-sap-high-availability-scenarios"></a>Conectividad del punto de conexión público para las máquinas virtuales que usan Azure Standard Load Balancer en escenarios de alta disponibilidad de SAP
 
@@ -110,7 +111,7 @@ La configuración sería similar a la siguiente:
    1. Navegue al grupo de seguridad de red.
    1. Haga clic en Reglas de seguridad de salida.
    1. Agregue una regla a **Denegar** todo el acceso saliente a **Internet**.
-   1. Agregue una regla a **Permitir** el acceso a **AzureCloud** , con una prioridad inferior a la prioridad de la regla para denegar todo el acceso a Internet.
+   1. Agregue una regla a **Permitir** el acceso a **AzureCloud**, con una prioridad inferior a la prioridad de la regla para denegar todo el acceso a Internet.
 
 
    Las reglas de seguridad de salida tendrían el siguiente aspecto: 
@@ -153,7 +154,7 @@ La arquitectura tendría este aspecto:
    1. Dirección IP pública: Haga clic en crear y escriba un nombre. Por ejemplo, **MyFirewallPublicIP**.  
 4. Cree una regla de Azure Firewall para permitir la conectividad saliente a los puntos de conexión públicos especificados. En el ejemplo se muestra cómo permitir el acceso al punto de conexión público de la API de administración de Azure.  
    1. Haga clic en Reglas, Colección de reglas de red y después en Agregar colección de reglas de red.  
-   1. Nombre: **MyOutboundRule** , escriba Prioridad y seleccione Acción **Permitir**.  
+   1. Nombre: **MyOutboundRule**, escriba Prioridad y seleccione Acción **Permitir**.  
    1. Servicio: Nombre **ToAzureAPI**.  Protocolo: Seleccione **Todo**. Dirección de origen: especifique el intervalo de la subred en la que están implementadas las máquinas virtuales y la instancia de Standard Load Balancer. Por ejemplo: **11.97.0.0/24**. Puertos de destino: escriba <b>*</b>.  
    1. Save
    1. Mientras está en Azure Firewall, seleccione Información general. Escriba la dirección IP privada de Azure Firewall.  

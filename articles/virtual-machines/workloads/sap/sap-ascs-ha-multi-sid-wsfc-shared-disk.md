@@ -10,18 +10,19 @@ tags: azure-resource-manager
 keywords: ''
 ms.assetid: cbf18abe-41cb-44f7-bdec-966f32c89325
 ms.service: virtual-machines-windows
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/16/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cf306fd5675e07fb4eb6c9fd56760aaebd960b7b
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 9998c4a9c37d30a35acaad8972b9345c5e251e42
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167379"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94950540"
 ---
 # <a name="sap-ascsscs-instance-multi-sid-high-availability-with-windows-server-failover-clustering-and-shared-disk-on-azure"></a>Alta disponibilidad con varios identificadores de seguridad de instancia de ASCS/SCS de SAP para los clústeres de conmutación por error de Windows Server y el disco compartido en Azure
 
@@ -49,7 +50,7 @@ Para más información sobre los límites del equilibrador de carga, consulte la
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Ya ha configurado un clúster de WSFC que se utiliza para una instancia de ASCS/SCS de SAP con un **recurso compartido de archivos** , tal y como se muestra en este diagrama.
+Ya ha configurado un clúster de WSFC que se utiliza para una instancia de ASCS/SCS de SAP con un **recurso compartido de archivos**, tal y como se muestra en este diagrama.
 
 ![Instancia de ASCS/SCS de SAP de alta disponibilidad][sap-ha-guide-figure-6001]
 

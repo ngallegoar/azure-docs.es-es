@@ -6,13 +6,13 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/16/2020
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: c64e01253652ea3b49ad6221f161bb78f499b6ed
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: c38fa77951aaeb5559dc2030f1401a896d7c238d
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150540"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94841927"
 ---
 # <a name="monitoring-solutions-in-azure-monitor"></a>Soluciones de supervisión en Azure Monitor
 
@@ -20,7 +20,7 @@ Las soluciones de supervisión de Azure Monitor proporcionan análisis del funci
 
 ## <a name="use-monitoring-solutions"></a>Uso de soluciones de supervisión
 
-La página de **información general** de soluciones de Azure Monitor muestra un icono para cada solución instalada en un área de trabajo de Log Analytics. Para abrir esta página, vaya a **Azure Monitor** en [Azure Portal](https://ms.portal.azure.com). En el menú **Conclusiones** , seleccione **Más** para abrir el **Centro de conclusiones** y haga clic en **Áreas de trabajo de Log Analytics** .
+La página de **información general** de soluciones de Azure Monitor muestra un icono para cada solución instalada en un área de trabajo de Log Analytics. Para abrir esta página, vaya a **Azure Monitor** en [Azure Portal](https://ms.portal.azure.com). En el menú **Conclusiones**, seleccione **Más** para abrir el **Centro de conclusiones** y haga clic en **Áreas de trabajo de Log Analytics**.
 
 [![Centro de conclusiones](media/solutions/insights-hub.png)](media/solutions/insights-hub.png#lightbox)
 
@@ -37,7 +37,7 @@ Las soluciones de supervisión pueden contener varios tipos de recursos de Azure
 
 Utilice el procedimiento siguiente para enumerar las soluciones de supervisión instaladas en su suscripción.
 
-1. Vaya a [Azure Portal](https://ms.portal.azure.com). Busque y seleccione **Soluciones** .
+1. Vaya a [Azure Portal](https://ms.portal.azure.com). Busque y seleccione **Soluciones**.
 1. Se mostrarán las soluciones instaladas en todas las áreas de trabajo. Al nombre de la solución le sigue el nombre del área de trabajo donde está instalada.
 1. Use los cuadros de lista desplegable de la parte superior de la pantalla para filtrar por suscripción o grupo de recursos.
 
@@ -85,7 +85,7 @@ Get-AzMonitorLogAnalyticsSolution -ResourceGroupName MyResourceGroup
 
 Las soluciones de supervisión de Microsoft y asociados están disponibles en [Azure Marketplace](https://azuremarketplace.microsoft.com). Puede buscar las soluciones disponibles e instalarlas mediante el procedimiento siguiente. Al instalar una solución, debe seleccionar un [área de trabajo de Log Analytics](../platform/manage-access.md) donde se instalará la solución y se recopilarán los datos.
 
-1. Desde la [lista de soluciones para la suscripción](#list-installed-monitoring-solutions), haga clic en **Agregar** .
+1. Desde la [lista de soluciones para la suscripción](#list-installed-monitoring-solutions), haga clic en **Agregar**.
 1. Examine o busque una solución. También puede examinar las soluciones desde [este vínculo de búsqueda](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/management-tools?page=1&subcategories=management-solutions).
 1. Localice la solución de supervisión que quiere y lea su descripción.
 1. Haga clic en **Crear** para iniciar el proceso de instalación.
@@ -238,7 +238,7 @@ Puede comprobar el vínculo entre un área de trabajo de Log Analytics y una cue
 
 ### <a name="portal"></a>[Portal](#tab/portal)
 
-Para quitar una solución instalada mediante el portal, busque en la [lista de soluciones instaladas](#list-installed-monitoring-solutions). Haga clic en el nombre de la solución para abrir su página de resumen y haga clic en **Eliminar** .
+Para quitar una solución instalada mediante el portal, busque en la [lista de soluciones instaladas](#list-installed-monitoring-solutions). Haga clic en el nombre de la solución para abrir su página de resumen y haga clic en **Eliminar**.
 
 ### <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 

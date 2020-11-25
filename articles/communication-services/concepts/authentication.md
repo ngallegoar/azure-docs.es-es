@@ -9,18 +9,18 @@ ms.author: marobert
 ms.date: 07/24/2020
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 939c36cd62dab4362232aef0da8701b34a88c6ff
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 96e10bc19d59b60824a908c67816a21ca80326d0
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92202963"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94832813"
 ---
 # <a name="authenticate-to-azure-communication-services"></a>Autenticación en Azure Communication Services
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
-En este artículo se proporciona información sobre la autenticación de clientes en Azure Communication Services mediante *claves de acceso* y *tokens de acceso de usuario* . Se debe autenticar cada interacción del cliente con Azure Communication Services.
+En este artículo se proporciona información sobre la autenticación de clientes en Azure Communication Services mediante *claves de acceso* y *tokens de acceso de usuario*. Se debe autenticar cada interacción del cliente con Azure Communication Services.
 
 En la tabla siguiente se describen las opciones de autenticación que son compatibles con las bibliotecas cliente de Azure Communication Services:
 
@@ -72,11 +72,11 @@ Si no usa una biblioteca cliente para hacer solicitudes HTTP a las API REST de A
 
 Los tokens de acceso de usuario permiten que las aplicaciones cliente se autentiquen directamente en Azure Communication Services. Para ello, debe configurar un servicio de confianza que autentique a los usuarios de la aplicación y emita tokens de acceso de usuario con la biblioteca cliente de administración. Visite la documentación conceptual sobre la [arquitectura de cliente y servidor](./client-and-server-architecture.md) para obtener más información sobre nuestras consideraciones de arquitectura.
 
-La clase `CommunicationClientCredential` contiene la lógica para proporcionar credenciales de token de acceso de usuario a las bibliotecas cliente y administrar su ciclo de vida.
+La clase `CommunicationUserCredential` contiene la lógica para proporcionar credenciales de token de acceso de usuario a las bibliotecas cliente y administrar su ciclo de vida.
 
 ### <a name="initialize-the-client-libraries"></a>Inicialización del objeto cliente
 
-Para inicializar las bibliotecas cliente de Azure Communication Services que requieren la autenticación de token de acceso de usuario, primero debe crear una instancia de la clase `CommunicationClientCredential` y, a continuación, usarla para inicializar un cliente de API.
+Para inicializar las bibliotecas cliente de Azure Communication Services que requieren la autenticación de token de acceso de usuario, primero debe crear una instancia de la clase `CommunicationUserCredential` y, a continuación, usarla para inicializar un cliente de API.
 
 En los fragmentos de código siguientes se muestra cómo inicializar la biblioteca cliente de chat con un token de acceso de usuario:
 

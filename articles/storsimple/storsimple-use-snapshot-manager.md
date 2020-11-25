@@ -15,12 +15,12 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: alkohli
 ms.custom: ''
-ms.openlocfilehash: ead24b89dba889a4bb8f11d57eb687e7790aebfb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 35fa0fc134045585eebd21324352f9b4ff272e87
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90055918"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94954246"
 ---
 # <a name="use-storsimple-snapshot-manager-user-interface-to-manage-backup-jobs-and-backup-catalog"></a>Uso de la interfaz de usuario de StorSimple Snapshot Manager para administrar trabajos de copia de seguridad y el catálogo de copia de seguridad
 
@@ -46,7 +46,7 @@ Además, Administrador de instantáneas StorSimple es compatible con la [navegac
 La interfaz de usuario de Administrador de instantáneas StorSimple es compatible con las características de accesibilidad proporcionadas por el sistema operativo Windows y Microsoft Management Console (MMC), así como con algunos métodos abreviados de teclado específicos de Administrador de instantáneas StorSimple. 
 
 * Para obtener una descripción de las características de accesibilidad de Windows, vaya a [Métodos abreviados de teclado de Windows](https://support.microsoft.com/kb/126449). 
-* Para obtener una descripción de las características de accesibilidad MMC, vaya a [Accesibilidad para MMC 3.0](https://technet.microsoft.com/library/cc766075.aspx)
+* Para obtener una descripción de las características de accesibilidad MMC, vaya a [Accesibilidad para MMC 3.0](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc766075(v=ws.11))
 * Para obtener una descripción de las características de accesibilidad de Administrador de instantáneas StorSimple, vaya a [Métodos abreviados y navegación mediante el teclado](#keyboard-navigation-and-shortcuts).
 
 ## <a name="menu-bar"></a>Barra de menús
@@ -73,7 +73,7 @@ La tabla siguiente describe los elementos que aparecen en el menú **Archivo** .
 | Abrir |Haga clic en **Abrir** para abrir una consola existente. |
 | Save |Haga clic en **Guardar** para guardar la consola actual. |
 | Guardar como |Haga clic en **Guardar como** para crear una nueva instancia de la consola actual con un nombre diferente. Utilice la opción **Guardar como** para personalizar una vista y guardarla para su recuperación posterior. Por ejemplo, puede crear complementos de Administrador de instantáneas StorSimple que apunten a servidores específicos. |
-| Agregar o quitar complemento |Haga clic en **Agregar o quitar complemento** para agregar o quitar complementos y organizar los nodos en el panel **Ámbito**. Para obtener más información, vaya a [Agregar, quitar y organizar complementos y extensiones en MMC 3.0](https://technet.microsoft.com/library/cc722035.aspx). |
+| Agregar o quitar complemento |Haga clic en **Agregar o quitar complemento** para agregar o quitar complementos y organizar los nodos en el panel **Ámbito**. Para obtener más información, vaya a [Agregar, quitar y organizar complementos y extensiones en MMC 3.0](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc722035(v=ws.11)). |
 | Opciones |Haga clic en **Opciones** para cambiar el icono de la consola, especificar los modos de acceso y permisos del usuario o eliminar archivos de consola para aumentar el espacio en disco disponible. |
 | Lista de rutas de acceso |Haga clic en una ruta de acceso en la lista numerada para volver a abrir un archivo que haya abierto recientemente. |
 | Salir |Haga clic en **Salir** para cerrar el menú **Archivo**. |
@@ -450,4 +450,3 @@ Las siguientes tablas muestran las combinaciones de teclas de método abreviado 
 ## <a name="next-steps"></a>Pasos siguientes
 * Obtenga más información sobre el [uso de Snapshot Manager de StorSimple para administrar la solución de StorSimple](storsimple-snapshot-manager-admin.md).
 * Aprenda a [usar StorSimple Snapshot Manager para conectarse y administrar dispositivos](storsimple-snapshot-manager-manage-devices.md).
-

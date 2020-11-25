@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: alkohli
-ms.openlocfilehash: a56610dd81d6e50da11bbd65bcf0682e399b1783
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2c9feb1131f6d2d0eb75ac71e27dc46c226c52c1
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84707402"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94961063"
 ---
 # <a name="deploy-your-on-premises-storsimple-device-update-3-and-later"></a>Implementación del dispositivo StorSimple local (Update 3 u otra posterior)
 
@@ -166,7 +166,7 @@ Ahora ya acabó de configurar el dispositivo.
 ## <a name="configure-a-new-storage-account-for-the-service"></a>Configurar una nueva cuenta de almacenamiento para el servicio
 Se trata de un paso opcional que debe llevar a cabo únicamente si no habilitó la creación automática de una cuenta de almacenamiento con su servicio. Se requiere una cuenta de almacenamiento de Microsoft Azure para crear un contenedor de volúmenes de StorSimple.
 
-Si necesita crear una cuenta de Azure Storage en una región distinta, vea [Acerca de las cuentas de Azure Storage](../storage/common/storage-create-storage-account.md) para obtener instrucciones paso a paso.
+Si necesita crear una cuenta de Azure Storage en una región distinta, vea [Acerca de las cuentas de Azure Storage](../storage/common/storage-account-create.md) para obtener instrucciones paso a paso.
 
 Siga estos pasos en Azure Portal, en la página **Servicio Administrador de dispositivos de StorSimple**.
 
@@ -207,4 +207,3 @@ Se considera que la punta del conector estéreo es PIN 3 RX, la parte central es
 ## <a name="next-steps"></a>Pasos siguientes
 * [Configuración de una instancia de StorSimple Cloud Appliance](storsimple-8000-cloud-appliance-u2.md).
 * Use el [servicio de Administrador de dispositivos de StorSimple](storsimple-8000-manager-service-administration.md) para administrar el dispositivo StorSimple.
-

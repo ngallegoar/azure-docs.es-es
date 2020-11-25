@@ -10,24 +10,24 @@ ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: cdd7f4957b22eb4c87d60e3d57b0cec675659963
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 7ba0604c0fb1a51c5276f2a28fb0e39b878b7639
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131809"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94949571"
 ---
 # <a name="localize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Localización de la interfaz de usuario de la aplicación con una directiva personalizada en Azure Active Directory B2C.
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-La personalización de idioma en Azure Active Directory B2C (Azure AD B2C) permite que albergue distintos idiomas para satisfacer las necesidades de los clientes. Microsoft proporciona las traducciones de [36 idiomas](https://docs.microsoft.com/azure/active-directory-b2c/user-flow-language-customization#supported-languages), pero el usuario también puede proporcionar sus propias traducciones para cualquier idioma. Incluso si su experiencia se proporciona únicamente para un idioma, puede personalizar cualquier texto de las páginas. 
+La personalización de idioma en Azure Active Directory B2C (Azure AD B2C) permite que albergue distintos idiomas para satisfacer las necesidades de los clientes. Microsoft proporciona las traducciones de [36 idiomas](./user-flow-language-customization.md#supported-languages), pero el usuario también puede proporcionar sus propias traducciones para cualquier idioma. Incluso si su experiencia se proporciona únicamente para un idioma, puede personalizar cualquier texto de las páginas. 
 
 En este artículo, se muestra cómo admitir varios idiomas o configuraciones regionales en la directiva para los recorridos del usuario. La localización necesita tres pasos: configurar la lista explícita de idiomas admitidos; proporcionar las colecciones y cadenas específicas del idioma; y editar la [definición de contenido](contentdefinitions.md) de la página. 
 
 ## <a name="set-up-the-list-of-supported-languages"></a>Configuración de una lista de los idiomas admitidos
 
-Abra el archivo de extensiones de la directiva. Por ejemplo, <em>`SocialAndLocalAccounts/` **`TrustFrameworkExtensions.xml`** </em>.
+Abra el archivo de extensiones de la directiva. Por ejemplo, <em>`SocialAndLocalAccounts/` **`TrustFrameworkExtensions.xml`**</em>.
 
 1. Busque el elemento [BuildingBlocks](buildingblocks.md). Si el elemento no existe, agréguelo.
 1. Agregue el elemento `Localization` con los idiomas admitidos: Inglés (predeterminado) y español.  
@@ -265,4 +265,3 @@ https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1A_signup_s
 
 - Más información sobre el elemento [localization](localization.md) en la referencia de IEF.
 - Consulte la lista de [identificadores de cadena de localización](localization-string-ids.md) disponibles en Azure AD B2C.
-

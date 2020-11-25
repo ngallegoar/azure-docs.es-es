@@ -11,12 +11,12 @@ ms.date: 05/25/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 3e1d76c5ef1f003fe9e01b866343ef7de7ab4166
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 16b5814835ec5cad6b66087fee37676155196339
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92214930"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94952087"
 ---
 # <a name="the-new-app-registrations-experience-for-azure-active-directory-b2c"></a>La nueva experiencia Registros de aplicaciones para Azure Active Directory B2C
 
@@ -35,11 +35,11 @@ La experiencia Registros de aplicaciones de Azure AD B2C se basa en la [experi
 - Las aplicaciones y las configuraciones relacionadas se pueden encontrar tal y como están en la nueva experiencia. No es necesario volver a registrar las aplicaciones y los usuarios de las aplicaciones no tendrán que iniciar sesión de nuevo.
 
 > [!NOTE]
-> Para ver todas las aplicaciones creadas anteriormente, vaya a la hoja **Registros de aplicaciones** y seleccione la pestaña **Todas las aplicaciones** . Se mostrarán las aplicaciones creadas en la experiencia heredada, la experiencia nueva y las creadas en el servicio Azure AD.
+> Para ver todas las aplicaciones creadas anteriormente, vaya a la hoja **Registros de aplicaciones** y seleccione la pestaña **Todas las aplicaciones**. Se mostrarán las aplicaciones creadas en la experiencia heredada, la experiencia nueva y las creadas en el servicio Azure AD.
 
 ## <a name="key-new-features"></a>Nuevas características clave
 
--   En una **lista de aplicaciones unificadas** se muestran todas las aplicaciones que se autentican con Azure AD B2C y Azure AD en un solo lugar para su comodidad. Además, puede aprovechar las características que ya están disponibles para las aplicaciones de Azure AD, incluidas la fecha **Creada el** , el estado **Certificados y secretos** , la barra de búsqueda y muchas más.
+-   En una **lista de aplicaciones unificadas** se muestran todas las aplicaciones que se autentican con Azure AD B2C y Azure AD en un solo lugar para su comodidad. Además, puede aprovechar las características que ya están disponibles para las aplicaciones de Azure AD, incluidas la fecha **Creada el**, el estado **Certificados y secretos**, la barra de búsqueda y muchas más.
 
 -   El **registro de aplicaciones combinado** permite registrar rápidamente una aplicación, con independencia de que esté orientada al cliente o sirva para acceder a Microsoft Graph.
 
@@ -91,21 +91,21 @@ Las plataformas **iOS/macOS** y **Android** son un tipo de cliente público. Pro
 
 ## <a name="application-certificates--secrets"></a>Certificados y secretos de aplicación
 
-En la experiencia nueva, en lugar de **Claves** , se usa la hoja **Certificados y secretos** para administrar los certificados y los secretos. Los certificados y secretos permiten a las aplicaciones identificarse en el servicio de autenticación al recibir tokens en una ubicación de dirección web (mediante un esquema HTTPS). Al autenticarse en Azure AD, se recomienda usar un certificado en lugar de un secreto de cliente para los escenarios de credenciales de cliente. No se pueden usar certificados para autenticarse en Azure AD B2C.
+En la experiencia nueva, en lugar de **Claves**, se usa la hoja **Certificados y secretos** para administrar los certificados y los secretos. Los certificados y secretos permiten a las aplicaciones identificarse en el servicio de autenticación al recibir tokens en una ubicación de dirección web (mediante un esquema HTTPS). Al autenticarse en Azure AD, se recomienda usar un certificado en lugar de un secreto de cliente para los escenarios de credenciales de cliente. No se pueden usar certificados para autenticarse en Azure AD B2C.
 
 
 ## <a name="features-not-applicable-in-azure-ad-b2c-tenants"></a>Características no aplicables en inquilinos de Azure AD B2C
 Las funcionalidades de registros de aplicaciones de Azure AD siguientes no son aplicables o no están disponibles en los inquilinos de Azure AD B2C:
-- **Roles y administradores** : no disponibles actualmente para Azure AD B2C.
-- **Personalización de marca** : la personalización de la interfaz de usuario o la experiencia del usuario se configura en la experiencia **Personalización de marca de empresa** o como parte de un flujo de usuario. Aprenda a [personalizar la interfaz de usuario en Azure Active Directory B2C](customize-ui-overview.md).
-- **Comprobación del dominio del publicador** : la aplicación está registrada en *.onmicrosoft.com* , que no es un dominio comprobado. Además, el dominio del publicador se usa principalmente para conceder el consentimiento del usuario, que no se aplica a las aplicaciones de Azure AD B2C para la autenticación de usuarios. [Más información sobre el dominio de publicador](https://docs.microsoft.com/azure/active-directory/develop/howto-configure-publisher-domain).
-- **Configuración de token** : el token se configura como parte de un flujo de usuario en lugar de una aplicación.
+- **Roles y administradores**: no disponibles actualmente para Azure AD B2C.
+- **Personalización de marca**: la personalización de la interfaz de usuario o la experiencia del usuario se configura en la experiencia **Personalización de marca de empresa** o como parte de un flujo de usuario. Aprenda a [personalizar la interfaz de usuario en Azure Active Directory B2C](customize-ui-overview.md).
+- **Comprobación del dominio del publicador**: la aplicación está registrada en *.onmicrosoft.com*, que no es un dominio comprobado. Además, el dominio del publicador se usa principalmente para conceder el consentimiento del usuario, que no se aplica a las aplicaciones de Azure AD B2C para la autenticación de usuarios. [Más información sobre el dominio de publicador](../active-directory/develop/howto-configure-publisher-domain.md).
+- **Configuración de token**: el token se configura como parte de un flujo de usuario en lugar de una aplicación.
 - Actualmente, la experiencia **Inicios rápidos** no está disponible para inquilinos de Azure AD B2C.
 <!-- - The **Integration assistant** blade is currently not available for Azure AD B2C tenants. -->
 
 ## <a name="limitations"></a>Limitaciones
 La nueva experiencia tiene las siguientes limitaciones:
-- En la actualidad, Azure AD B2C no distingue entre poder emitir tokens de acceso o de identificador para flujos implícitos; los dos tipos de tokens están disponibles para el flujo de concesión implícita si la opción **Tokens de id.** está seleccionada en la hoja **Autenticación** .
+- En la actualidad, Azure AD B2C no distingue entre poder emitir tokens de acceso o de identificador para flujos implícitos; los dos tipos de tokens están disponibles para el flujo de concesión implícita si la opción **Tokens de id.** está seleccionada en la hoja **Autenticación**.
 <!-- - Azure AD B2C doesn't currently support the single-page application "SPA" app type.  -->
 - En la interfaz de usuario no se admite el cambio del valor para las cuentas admitidas. Tendrá que usar el manifiesto de aplicación, a menos que cambie entre Azure AD de inquilino único y multiinquilino.
 

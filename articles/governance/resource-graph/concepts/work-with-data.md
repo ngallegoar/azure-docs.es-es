@@ -3,13 +3,13 @@ title: Trabajo con grandes conjuntos de datos
 description: Aprenda a obtener, paginar, omitir y aplicar formato a registros de grandes conjuntos de datos mientras trabaja con Azure Resource Graph.
 ms.date: 09/30/2020
 ms.topic: conceptual
-ms.custom: devx-track-csharp
-ms.openlocfilehash: ee552908696aa652931bf3555391adcfec0fc6d3
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.custom: devx-track-csharp, devx-track-azurecli
+ms.openlocfilehash: 6054d2cd2cf012c21f451ece87db672897fa0398
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91578502"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843356"
 ---
 # <a name="working-with-large-azure-resource-data-sets"></a>Trabajo con grandes conjuntos de datos de recursos de Azure
 

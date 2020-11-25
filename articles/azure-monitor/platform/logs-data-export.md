@@ -3,16 +3,16 @@ title: Exportación de datos del área de trabajo de Log Analytics en Azure Moni
 description: La exportación de datos de Log Analytics permite exportar continuamente los datos de las tablas seleccionadas del área de trabajo de Log Analytics en una cuenta de Azure Storage o Azure Event Hubs a medida que se recopilan.
 ms.subservice: logs
 ms.topic: conceptual
-ms.custom: references_regions
+ms.custom: references_regions, devx-track-azurecli
 author: bwren
 ms.author: bwren
 ms.date: 10/14/2020
-ms.openlocfilehash: 19d464f0148572f30ecd0c3ab1dcee7bd0315b87
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 1813da8a8a812eeded235d71c351ec352c42707c
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427809"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94920090"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Exportación de datos del área de trabajo de Log Analytics en Azure Monitor (versión preliminar)
 La exportación de datos del área de trabajo de Log Analytics en Azure Monitor permite exportar continuamente los datos de las tablas seleccionadas del área de trabajo de Log Analytics en una cuenta de Azure Storage o Azure Event Hubs a medida que se recopilan. En este artículo se ofrecen detalles sobre esta característica y pasos para configurar la exportación de datos en las áreas de trabajo.
@@ -117,7 +117,11 @@ Si ha configurado la cuenta de almacenamiento para permitir el acceso desde las 
 ### <a name="create-or-update-data-export-rule"></a>Creación o actualización de una regla de exportación de datos
 Una regla de exportación de datos define los datos que se van a exportar para un conjunto de tablas a un único destino. Puede crear una regla para cada destino.
 
+
+# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+
 Use el siguiente comando de la CLI para ver las tablas en el área de trabajo. Puede resultar útil copiar las tablas que quiere e incluirlas en la regla de exportación de datos.
+
 ```azurecli
 az monitor log-analytics workspace table list -resource-group resourceGroupName --workspace-name workspaceName --query [].name --output table
 ```
@@ -133,6 +137,8 @@ Use el siguiente comando para crear una regla de exportación de datos en un cen
 ```azurecli
 az monitor log-analytics workspace data-export create --resource-group resourceGroupName --workspace-name workspaceName --name ruleName --tables SecurityEvent Heartbeat --destination $eventHubsNamespacesId
 ```
+
+# <a name="rest"></a>[REST](#tab/rest)
 
 Use la siguiente solicitud para crear una regla de exportación de datos mediante la API REST. La solicitud debe usar la autorización del token de portador y el tipo de contenido aplicación/json.
 
@@ -193,26 +199,38 @@ El siguiente es un cuerpo de ejemplo para la solicitud REST para un centro de ev
   }
 }
 ```
+---
 
 ## <a name="view-data-export-configuration"></a>Consulta de la configuración de la exportación de datos
+
+# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+
 Use el siguiente comando para ver la configuración de una regla de exportación de datos mediante la CLI.
 
 ```azurecli
 az monitor log-analytics workspace data-export show --resource-group resourceGroupName --workspace-name workspaceName --name ruleName
 ```
 
+# <a name="rest"></a>[REST](#tab/rest)
+
 Use la siguiente solicitud para ver la configuración de una regla de exportación de datos mediante la API REST. La solicitud debe utilizar la autorización del token de portador.
 
 ```rest
 GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.operationalInsights/workspaces/<workspace-name>/dataexports/<data-export-name>?api-version=2020-08-01
 ```
+---
 
 ## <a name="disable-an-export-rule"></a>Deshabilitación de una regla de exportación
+
+# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+
 Las reglas de exportación se pueden deshabilitar para permitir que se detenga la exportación cuando no sea necesario conservar los datos durante un período determinado, como al realizar pruebas. Use el siguiente comando para deshabilitar una regla de exportación de datos mediante la CLI.
 
 ```azurecli
 az monitor log-analytics workspace data-export update --resource-group resourceGroupName --workspace-name workspaceName --name ruleName --enable false
 ```
+
+# <a name="rest"></a>[REST](#tab/rest)
 
 Use la siguiente solicitud para deshabilitar una regla de exportación de datos mediante la API REST. La solicitud debe utilizar la autorización del token de portador.
 
@@ -234,32 +252,45 @@ Content-type: application/json
     }
 }
 ```
+---
 
 ## <a name="delete-an-export-rule"></a>Eliminación de una regla de exportación
+
+# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+
 Use el siguiente comando para eliminar una regla de exportación de datos mediante la CLI.
 
 ```azurecli
 az monitor log-analytics workspace data-export delete --resource-group resourceGroupName --workspace-name workspaceName --name ruleName
 ```
 
+# <a name="rest"></a>[REST](#tab/rest)
+
 Use la siguiente solicitud para eliminar una regla de exportación de datos mediante la API REST. La solicitud debe utilizar la autorización del token de portador.
 
 ```rest
 DELETE https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.operationalInsights/workspaces/<workspace-name>/dataexports/<data-export-name>?api-version=2020-08-01
 ```
+---
 
 ## <a name="view-all-data-export-rules-in-a-workspace"></a>Consulta de todas las reglas de exportación de datos en un área de trabajo
+
+# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+
 Use el siguiente comando para ver todas las reglas de exportación de datos en un área de trabajo mediante la CLI.
 
 ```azurecli
 az monitor log-analytics workspace data-export list --resource-group resourceGroupName --workspace-name workspaceName
 ```
 
+# <a name="rest"></a>[REST](#tab/rest)
+
 Use la siguiente solicitud para ver todas las reglas de exportación de datos en un área de trabajo mediante la API REST. La solicitud debe utilizar la autorización del token de portador.
 
 ```rest
 GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.operationalInsights/workspaces/<workspace-name>/dataexports?api-version=2020-08-01
 ```
+---
 
 ## <a name="unsupported-tables"></a>Tablas no admitidas
 Si la regla de exportación de datos incluye una tabla no admitida, la configuración se realizará correctamente, pero no se exportará ningún dato de esa tabla. Si la tabla se admite posteriormente, sus datos se exportarán en ese momento.

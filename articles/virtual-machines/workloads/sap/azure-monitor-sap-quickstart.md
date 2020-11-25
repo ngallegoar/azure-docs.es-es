@@ -5,14 +5,15 @@ author: sameeksha91
 ms.author: sakhare
 ms.topic: how-to
 ms.service: virtual-machines
+ms.subservice: workloads
 ms.date: 08/17/2020
 ms.reviewer: cynthn
-ms.openlocfilehash: 4b0e54c434f68a8a26f49b6ba0c1010e93d36ad6
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: c3b3848e4e4f7b0445f882265dbe66bb10b48833
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92739895"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94968594"
 ---
 # <a name="deploy-azure-monitor-for-sap-solutions-with-azure-portal"></a>Implementación de Azure Monitor para soluciones de SAP con Azure Portal
 
@@ -28,7 +29,7 @@ Inicie sesión en Azure Portal en https://portal.azure.com.
 
    :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-1.png" alt-text="La imagen muestra la selección de la oferta Azure Monitor para soluciones de SAP en Azure Marketplace." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-1.png":::
 
-2. En la pestaña **Aspectos básicos** , proporcione los valores necesarios. Si corresponde, puede usar un área de trabajo de Log Analytics existente.
+2. En la pestaña **Aspectos básicos**, proporcione los valores necesarios. Si corresponde, puede usar un área de trabajo de Log Analytics existente.
 
    :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-2.png" alt-text="Visualización de las opciones de configuración de Azure Portal." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-2.png":::
 

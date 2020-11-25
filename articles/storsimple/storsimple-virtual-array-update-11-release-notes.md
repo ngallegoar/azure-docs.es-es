@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/22/2018
 ms.author: alkohli
-ms.openlocfilehash: 55103d6307614f8796c41c35d6345e1fc3aca261
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: df4722a4232686b0d981c190bdc154f0d1bec62e
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "60789644"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94960211"
 ---
 # <a name="storsimple-virtual-array-update-11-release-notes"></a>Notas de la versión de StorSimple Virtual Array Update 1.1
 
@@ -91,4 +91,4 @@ En la tabla siguiente se muestra un resumen de los problemas conocidos de la mat
 * [Notas de la versión de StorSimple Virtual Array Update 0.4](storsimple-virtual-array-update-04-release-notes.md)
 * [Notas de la versión de StorSimple Virtual Array Update 0.3](storsimple-ova-update-03-release-notes.md)
 * [Notas de la versión de la matriz virtual de StorSimple Update 0.1 y 0.2](storsimple-ova-update-01-release-notes.md)
-* [Notas de la versión de disponibilidad general de la matriz Virtual de StorSimple](storsimple-ova-pp-release-notes.md)
+* [Notas de la versión de disponibilidad general de la matriz Virtual de StorSimple](./storsimple-virtual-array-update-06-release-notes.md)

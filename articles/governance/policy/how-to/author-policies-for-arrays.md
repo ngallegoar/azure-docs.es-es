@@ -3,12 +3,12 @@ title: Creación de directivas para propiedades de matriz en recursos
 description: Aprenda a trabajar con parámetros de matriz y expresiones de lenguaje de matriz, evaluar el alias [*] y anexar elementos con las reglas de definición de Azure Policy.
 ms.date: 10/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 92339a6da4fd2061d66935cc8d04428c69822862
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 60044d4a599c14088ea923a6a14cb46543646995
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323232"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94920464"
 ---
 # <a name="author-policies-for-array-properties-on-azure-resources"></a>Creación de directivas para propiedades de matriz en recursos de Azure
 
@@ -17,7 +17,7 @@ Las propiedades de Azure Resource Manager se suelen definir como cadenas y valor
 - Tipo de un [parámetro de definición](../concepts/definition-structure.md#parameters), para proporcionar varias opciones
 - Parte de una [regla de directiva](../concepts/definition-structure.md#policy-rule) con las condiciones **in** o **notIn**
 - Parte de una regla de directiva que evalúa el [alias \[\*\]](../concepts/definition-structure.md#understanding-the--alias) para evaluar:
-  - Escenarios como **Ninguno** , **Cualquiera** o **Todo**
+  - Escenarios como **Ninguno**, **Cualquiera** o **Todo**
   - Escenarios complejos con **count**
 - En el [efecto append](../concepts/effects.md#append), para reemplazar o agregar a una matriz existente
 
@@ -28,7 +28,7 @@ En este artículo se explica cada uso por parte de Azure Policy y proporciona va
 ### <a name="define-a-parameter-array"></a>Definir una matriz de parámetros
 
 Definir un parámetro como una matriz, permite la flexibilidad de la directiva cuando se necesita más de un valor.
-Esta definición de directiva permite cualquier ubicación única para el parámetro **allowedLocations** y el valor predeterminado es _eastus2_ :
+Esta definición de directiva permite cualquier ubicación única para el parámetro **allowedLocations** y el valor predeterminado es _eastus2_:
 
 ```json
 "parameters": {
@@ -44,7 +44,7 @@ Esta definición de directiva permite cualquier ubicación única para el parám
 }
 ```
 
-Como **type** es _string_ , solo se puede establecer un único valor al asignar la directiva. Si se asigna esta directiva, los recursos del ámbito solo se permiten en una única región de Azure. La mayoría de las definiciones de directivas deben permitir una lista de opciones aprobadas, como permitir _eastus2_ , _eastus_ y _westus2_.
+Como **type** es _string_, solo se puede establecer un único valor al asignar la directiva. Si se asigna esta directiva, los recursos del ámbito solo se permiten en una única región de Azure. La mayoría de las definiciones de directivas deben permitir una lista de opciones aprobadas, como permitir _eastus2_, _eastus_ y _westus2_.
 
 Para crear la definición de directiva a fin de permitir varias opciones, utilice el elemento **type** _array_. La misma directiva se puede reescribir del siguiente modo:
 
@@ -75,7 +75,7 @@ Esta nueva definición de parámetro toma más de un valor durante la asignació
 
 ### <a name="pass-values-to-a-parameter-array-during-assignment"></a>Pasar valores a una matriz de parámetros durante la asignación
 
-Al asignar la directiva a través de Azure Portal, un parámetro de **type** _array_ se muestra como un único cuadro de texto. La sugerencia indica "Use ; para separar los valores (por ejemplo, Londres;Nueva York)". Para pasar los valores de ubicación permitidos _eastus2_ , _eastus_ y _westus2_ al parámetro, use la siguiente cadena:
+Al asignar la directiva a través de Azure Portal, un parámetro de **type** _array_ se muestra como un único cuadro de texto. La sugerencia indica "Use ; para separar los valores (por ejemplo, Londres;Nueva York)". Para pasar los valores de ubicación permitidos _eastus2_, _eastus_ y _westus2_ al parámetro, use la siguiente cadena:
 
 `eastus2;eastus;westus2`
 
@@ -95,7 +95,7 @@ El formato para el valor del parámetro es distinto cuando se usa la CLI de Azur
 
 Para usar esta cadena con cada SDK, use los siguientes comandos:
 
-- CLI de Azure: Comando [az policy assignment create](/cli/azure/policy/assignment#az-policy-assignment-create) con el parámetro **params**
+- CLI de Azure: Comando [az policy assignment create](/cli/azure/policy/assignment#az_policy_assignment_create) con el parámetro **params**
 - Azure PowerShell: Cmdlet [New AzPolicyAssignment](/powershell/module/az.resources/New-Azpolicyassignment) con el parámetro **PolicyParameter**
 - API REST: en la operación _PUT_ [create](/rest/api/resources/policyassignments/create) como parte del cuerpo de la solicitud, como el valor de la propiedad **properties.parameters**
 
@@ -134,7 +134,7 @@ Al intentar crear esta definición de directiva a través de Azure Portal genera
 
 - "No se pudo parametrizar la directiva '{GUID}' por errores de validación. Compruebe si los parámetros de la directiva están definidos correctamente. La excepción interna 'El resultado de la evaluación de la expresión de lenguaje '[parameters('allowedLocations')]' es de tipo 'Matriz'. El tipo esperado es 'String'".
 
-El elemento **type** esperado de la condición `equals` es _string_. Puesto que **allowedLocations** se define como **type** _array_ , el motor de directiva evalúa la expresión de lenguaje y genera el error. Con la condición `in` y `notIn`, el motor de directiva espera el elemento **type** _array_ en la expresión de lenguaje. Para resolver este mensaje de error, cambie `equals` a `in` o `notIn`.
+El elemento **type** esperado de la condición `equals` es _string_. Puesto que **allowedLocations** se define como **type** _array_, el motor de directiva evalúa la expresión de lenguaje y genera el error. Con la condición `in` y `notIn`, el motor de directiva espera el elemento **type** _array_ en la expresión de lenguaje. Para resolver este mensaje de error, cambie `equals` a `in` o `notIn`.
 
 ## <a name="referencing-array-resource-properties"></a>Referencia a las propiedades de recursos de matriz
 
@@ -201,7 +201,7 @@ Con la función `field()`, el valor devuelto es la matriz del contenido de la so
 
 #### <a name="referencing-the-array-members-collection"></a>Referencia a una colección de miembros de matriz
 
-Los alias que usan la sintaxis `[*]` representan una **colección de valores de propiedad seleccionados de una propiedad de matriz** , que es diferente de seleccionar la propiedad de la matriz. En el caso de `Microsoft.Test/resourceType/stringArray[*]`, devuelve una colección que tiene todos los miembros de `stringArray`. Como se mencionó anteriormente, una condición `field` comprueba que todas las propiedades de recursos seleccionadas cumplan la condición; por lo tanto, la siguiente condición solo es verdadera si **todos** los miembros de `stringArray` son iguales al "valor".
+Los alias que usan la sintaxis `[*]` representan una **colección de valores de propiedad seleccionados de una propiedad de matriz**, que es diferente de seleccionar la propiedad de la matriz. En el caso de `Microsoft.Test/resourceType/stringArray[*]`, devuelve una colección que tiene todos los miembros de `stringArray`. Como se mencionó anteriormente, una condición `field` comprueba que todas las propiedades de recursos seleccionadas cumplan la condición; por lo tanto, la siguiente condición solo es verdadera si **todos** los miembros de `stringArray` son iguales al "valor".
 
 ```json
 {
@@ -311,7 +311,7 @@ Este comportamiento también funciona con matrices anidadas. Por ejemplo, la sig
 }
 ```
 
-La eficacia de `count` reside en la condición `where`. Cuando esta se especifica, Azure Policy enumera los miembros de la matriz y los evalúa con la condición, de modo que cuenta el número de miembros de la matriz que se han evaluado como `true`. En concreto, en cada iteración de la evaluación de la condición `where`, Azure Policy selecciona un único miembro de la matriz * **i** _ y evalúa el contenido del recurso con la condición `where` _*como si * *_i_*_ fuera el único miembro de la matriz_*. Disponer de un solo miembro de la matriz en cada iteración proporciona una manera de aplicar condiciones complejas en cada miembro de la matriz individual.
+La eficacia de `count` reside en la condición `where`. Cuando esta se especifica, Azure Policy enumera los miembros de la matriz y los evalúa con la condición, de modo que cuenta el número de miembros de la matriz que se han evaluado como `true`. En concreto, en cada iteración de la evaluación de la condición `where`, Azure Policy selecciona un único miembro de la matriz ***i** _ y evalúa el contenido del recurso con la condición `where` _*como si **_i_*_ fuera el único miembro de la matriz_*. Disponer de un solo miembro de la matriz en cada iteración proporciona una manera de aplicar condiciones complejas en cada miembro de la matriz individual.
 
 Ejemplo:
 ```json

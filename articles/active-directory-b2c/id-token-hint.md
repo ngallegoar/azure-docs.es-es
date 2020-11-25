@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 10/16/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 708ec35524f25314ca568944b738ba2cdf60d55c
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 79a99d9f0ca117d8f47d56d76399210a72b91bb7
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132081"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94951662"
 ---
 # <a name="define-an-id-token-hint-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definición de un perfil técnico de sugerencias de token de id. en una directiva personalizada de Azure Active Directory B2C
 
@@ -129,15 +129,15 @@ Debe crearse la misma clave que usa el emisor del token, en las claves de la dir
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 1. Seleccione el icono **Directorio y suscripción** en la barra de herramientas del portal y, luego, elija el directorio que contiene el inquilino de Azure AD B2C.
-1. En Azure Portal, busque y seleccione **Azure AD B2C** .
-1. En la página de información general, en **Directivas** , seleccione **Identity Experience Framework** .
-1. Seleccione **Claves de directiva** . 
-1. Seleccione **Manual** .
-1. En **Nombre** , use `IdTokenHintKey`.  
+1. En Azure Portal, busque y seleccione **Azure AD B2C**.
+1. En la página de información general, en **Directivas**, seleccione **Identity Experience Framework**.
+1. Seleccione **Claves de directiva**. 
+1. Seleccione **Manual**.
+1. En **Nombre**, use `IdTokenHintKey`.  
    Es posible que se agregue automáticamente el prefijo `B2C_1A_`.
-1. En el cuadro **Secreto** , escriba la clave de inicio de sesión que ha generado anteriormente.
-1. En **Uso de claves** , use **Cifrado** .
-1. Seleccione **Crear** .
+1. En el cuadro **Secreto**, escriba la clave de inicio de sesión que ha generado anteriormente.
+1. En **Uso de claves**, use **Cifrado**.
+1. Seleccione **Crear**.
 1. Confirme que ha creado la clave `B2C_1A_IdTokenHintKey`.
 
 
@@ -189,7 +189,7 @@ Vea el ejemplo de controlador MVC de .net [TokenMetadataController.cs](https://g
 
 #### <a name="step-1-prepare-a-self-signed-certificate"></a>Paso 1. Preparación de un certificado autofirmado
 
-Si aún no tiene un certificado, puede usar un certificado autofirmado para esta guía paso a paso. En Windows, puede usar el cmdlet [New-SelfSignedCertificate](https://docs.microsoft.com/powershell/module/pkiclient/new-selfsignedcertificate) de PowerShell para generar un certificado.
+Si aún no tiene un certificado, puede usar un certificado autofirmado para esta guía paso a paso. En Windows, puede usar el cmdlet [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) de PowerShell para generar un certificado.
 
 Ejecute este comando de PowerShell para generar un certificado autofirmado. Modifique el argumento `-Subject` según corresponda para su aplicación y el nombre del inquilino de Azure AD B2C. También puede ajustar la fecha de `-NotAfter` para especificar una expiración diferente para el certificado.
 

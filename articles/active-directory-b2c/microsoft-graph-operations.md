@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d8d898d3825fa40cbfd13337067c24cf14f9a544
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 9db46d13c9a798204958a7c295df9cca169fc08f
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92102024"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94954042"
 ---
 # <a name="microsoft-graph-operations-available-for-azure-ad-b2c"></a>Operaciones de Microsoft Graph disponibles para Azure AD B2C
 
@@ -26,11 +26,11 @@ Cada vínculo de las secciones siguientes se dirige a la página correspondiente
 
 ## <a name="user-management"></a>Administración de usuarios
 
-- [Enumerar usuarios](https://docs.microsoft.com/graph/api/user-list)
-- [Crear usuario](https://docs.microsoft.com/graph/api/user-post-users)
-- [Obtener un usuario](https://docs.microsoft.com/graph/api/user-get)
-- [Actualizar usuario](https://docs.microsoft.com/graph/api/user-update)
-- [Eliminar un usuario](https://docs.microsoft.com/graph/api/user-delete)
+- [Enumerar usuarios](/graph/api/user-list)
+- [Crear usuario](/graph/api/user-post-users)
+- [Obtener un usuario](/graph/api/user-get)
+- [Actualizar usuario](/graph/api/user-update)
+- [Eliminar un usuario](/graph/api/user-delete)
 
 Para más información sobre la administración de cuentas de usuario de Azure AD B2C, consulte [Azure AD B2C: Usar Graph API de Azure AD](manage-user-accounts-graph-api.md).
 
@@ -47,70 +47,70 @@ Para obtener más información sobre cómo administrar el número de teléfono d
 
 Administre los proveedores de identidades disponibles para los flujos de usuarios en el inquilino de Azure AD B2C.
 
-- [Enumerar proveedores de identidades en el inquilino de Azure AD B2C](https://docs.microsoft.com/graph/api/identityprovider-list)
-- [Crear proveedores de identidades](https://docs.microsoft.com/graph/api/identityprovider-post-identityproviders)
-- [Obtener proveedores de identidades](https://docs.microsoft.com/graph/api/identityprovider-get)
-- [Actualizar proveedores de identidades](https://docs.microsoft.com/graph/api/identityprovider-update)
-- [Eliminar proveedores de identidades](https://docs.microsoft.com/graph/api/identityprovider-delete)
+- [Enumerar proveedores de identidades en el inquilino de Azure AD B2C](/graph/api/identityprovider-list)
+- [Crear proveedores de identidades](/graph/api/identityprovider-post-identityproviders)
+- [Obtener proveedores de identidades](/graph/api/identityprovider-get)
+- [Actualizar proveedores de identidades](/graph/api/identityprovider-update)
+- [Eliminar proveedores de identidades](/graph/api/identityprovider-delete)
 
 ## <a name="user-flow"></a>Flujo de usuario
 
 Configure las directivas predefinidas para el registro, el inicio de sesión, el registro y el inicio de sesión combinados, el restablecimiento de contraseña y la actualización del perfil.
 
-- [Enumerar flujos de usuario](https://docs.microsoft.com/graph/api/identityuserflow-list)
-- [Crear flujos de usuario](https://docs.microsoft.com/graph/api/identityuserflow-post-userflows)
-- [Obtener flujos de usuario](https://docs.microsoft.com/graph/api/identityuserflow-get)
-- [Eliminar flujos de usuario](https://docs.microsoft.com/graph/api/identityuserflow-delete)
+- [Enumerar flujos de usuario](/graph/api/identityuserflow-list)
+- [Crear flujos de usuario](/graph/api/identityuserflow-post-userflows)
+- [Obtener flujos de usuario](/graph/api/identityuserflow-get)
+- [Eliminar flujos de usuario](/graph/api/identityuserflow-delete)
 
 ## <a name="custom-policies"></a>Directivas personalizadas
 
 Las siguientes operaciones permiten administrar las directivas del marco de confianza de Azure AD B2C, conocidas como [directivas personalizadas](custom-policy-overview.md).
 
-- [Enumerar directivas de marco de confianza](https://docs.microsoft.com/graph/api/trustframework-list-trustframeworkpolicies)
-- [Crear directivas de marco de confianza](https://docs.microsoft.com/graph/api/trustframework-post-trustframeworkpolicy)
-- [Obtener directivas de marco de confianza](https://docs.microsoft.com/graph/api/trustframeworkpolicy-get)
-- [Actualizar o crear directivas de marco de confianza](https://docs.microsoft.com/graph/api/trustframework-put-trustframeworkpolicy)
-- [Eliminar directivas de marco de confianza](https://docs.microsoft.com/graph/api/trustframeworkpolicy-delete)
+- [Enumerar directivas de marco de confianza](/graph/api/trustframework-list-trustframeworkpolicies)
+- [Crear directivas de marco de confianza](/graph/api/trustframework-post-trustframeworkpolicy)
+- [Obtener directivas de marco de confianza](/graph/api/trustframeworkpolicy-get)
+- [Actualizar o crear directivas de marco de confianza](/graph/api/trustframework-put-trustframeworkpolicy)
+- [Eliminar directivas de marco de confianza](/graph/api/trustframeworkpolicy-delete)
 
 ## <a name="policy-keys"></a>Claves de directiva
 
-Identity Experience Framework almacena los secretos a los que se hace referencia en una directiva personalizada para establecer la confianza entre los componentes. Estos secretos pueden ser claves/valores simétricos o asimétricos. En Azure Portal, estas entidades se muestran como **claves de directiva** .
+Identity Experience Framework almacena los secretos a los que se hace referencia en una directiva personalizada para establecer la confianza entre los componentes. Estos secretos pueden ser claves/valores simétricos o asimétricos. En Azure Portal, estas entidades se muestran como **claves de directiva**.
 
-El recurso de nivel superior para las claves de directiva de Microsoft Graph API es el [conjunto de claves del marco de confianza](https://docs.microsoft.com/graph/api/resources/trustframeworkkeyset). Cada **conjunto de claves** contiene al menos una **clave** . Para crear una clave, primero debe crear un conjunto de claves vacío y, a continuación, generar una clave en el conjunto de claves. Puede crear un secreto manual, cargar un certificado o una clave PKCS12. La clave puede ser un secreto generado, una cadena que defina (como el secreto de aplicación de Facebook) o un certificado que cargue. Si un conjunto de claves tiene varias claves, solo una de las claves está activa.
+El recurso de nivel superior para las claves de directiva de Microsoft Graph API es el [conjunto de claves del marco de confianza](/graph/api/resources/trustframeworkkeyset). Cada **conjunto de claves** contiene al menos una **clave**. Para crear una clave, primero debe crear un conjunto de claves vacío y, a continuación, generar una clave en el conjunto de claves. Puede crear un secreto manual, cargar un certificado o una clave PKCS12. La clave puede ser un secreto generado, una cadena que defina (como el secreto de aplicación de Facebook) o un certificado que cargue. Si un conjunto de claves tiene varias claves, solo una de las claves está activa.
 
 ### <a name="trust-framework-policy-keyset"></a>Conjunto de claves de directiva de marco de confianza
 
-- [Enumerar conjuntos de claves de confianza](https://docs.microsoft.com/graph/api/trustframework-list-keysets)
-- [Crear conjuntos de claves de confianza](https://docs.microsoft.com/graph/api/trustframework-post-keysets)
-- [Obtener conjuntos de claves de confianza](https://docs.microsoft.com/graph/api/trustframeworkkeyset-get)
-- [Actualizar conjuntos de claves de confianza](https://docs.microsoft.com/graph/api/trustframeworkkeyset-update)
-- [Eliminar conjuntos de claves de confianza](https://docs.microsoft.com/graph/api/trustframeworkkeyset-delete)
+- [Enumerar conjuntos de claves de confianza](/graph/api/trustframework-list-keysets)
+- [Crear conjuntos de claves de confianza](/graph/api/trustframework-post-keysets)
+- [Obtener conjuntos de claves de confianza](/graph/api/trustframeworkkeyset-get)
+- [Actualizar conjuntos de claves de confianza](/graph/api/trustframeworkkeyset-update)
+- [Eliminar conjuntos de claves de confianza](/graph/api/trustframeworkkeyset-delete)
 
 ### <a name="trust-framework-policy-key"></a>Clave de directiva de marco de confianza
 
-- [Obtener clave activa](https://docs.microsoft.com/graph/api/trustframeworkkeyset-getactivekey)
-- [Generar clave](https://docs.microsoft.com/graph/api/trustframeworkkeyset-generatekey)
-- [Cargar secreto](https://docs.microsoft.com/graph/api/trustframeworkkeyset-uploadsecret)
-- [Cargar certificado X.509](https://docs.microsoft.com/graph/api/trustframeworkkeyset-uploadcertificate)
-- [Cargar certificado PKCS12](https://docs.microsoft.com/graph/api/trustframeworkkeyset-uploadpkcs12)
+- [Obtener clave activa](/graph/api/trustframeworkkeyset-getactivekey)
+- [Generar clave](/graph/api/trustframeworkkeyset-generatekey)
+- [Cargar secreto](/graph/api/trustframeworkkeyset-uploadsecret)
+- [Cargar certificado X.509](/graph/api/trustframeworkkeyset-uploadcertificate)
+- [Cargar certificado PKCS12](/graph/api/trustframeworkkeyset-uploadpkcs12)
 
 ## <a name="applications"></a>APLICACIONES
 
-- [Lista de aplicaciones](https://docs.microsoft.com/graph/api/application-list)
-- [Crear aplicación](https://docs.microsoft.com/graph/api/resources/application)
-- [Actualizar aplicación](https://docs.microsoft.com/graph/api/application-update)
-- [Tipo de recurso servicePrincipal](https://docs.microsoft.com/graph/api/resources/serviceprincipal)
-- [Tipo de recurso oAuth2PermissionGrant](https://docs.microsoft.com/graph/api/resources/oauth2permissiongrant)
-- [Eliminar aplicación](https://docs.microsoft.com/graph/api/application-delete)
+- [Lista de aplicaciones](/graph/api/application-list)
+- [Crear aplicación](/graph/api/resources/application)
+- [Actualizar aplicación](/graph/api/application-update)
+- [Tipo de recurso servicePrincipal](/graph/api/resources/serviceprincipal)
+- [Tipo de recurso oAuth2PermissionGrant](/graph/api/resources/oauth2permissiongrant)
+- [Eliminar aplicación](/graph/api/application-delete)
 
 ## <a name="application-extension-properties"></a>Propiedades de extensión de aplicación
 
-- [Enumerar propiedades de extensión](https://docs.microsoft.com/graph/api/application-list-extensionproperty)
+- [Enumerar propiedades de extensión](/graph/api/application-list-extensionproperty)
 
 Azure AD B2C proporciona un directorio que puede contener 100 atributos personalizados por usuario. En el caso de los flujos de usuarios, estas propiedades de extensión se [administran mediante Azure Portal](custom-policy-custom-attributes.md). En el caso de las directivas personalizadas, Azure AD B2C crea la propiedad automáticamente la primera vez que la directiva escribe un valor en la propiedad de extensión.
 
 ## <a name="audit-logs"></a>Registros de auditoría
 
-- [Enumerar auditorías de auditorio](https://docs.microsoft.com/graph/api/directoryaudit-list)
+- [Enumerar auditorías de auditorio](/graph/api/directoryaudit-list)
 
 Para más información sobre cómo obtener acceso a los registros de auditoría de Azure AD B2C con Microsoft Graph API, consulte [Acceso a los registros de auditoría de Azure AD B2C](view-audit-logs.md).

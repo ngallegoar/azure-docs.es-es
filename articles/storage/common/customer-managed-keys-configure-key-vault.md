@@ -10,13 +10,13 @@ ms.date: 09/16/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 219fe82f16dd9bbc887c9b17b067c706230c63dd
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: 02661c9c2a581ab21a2ae9dc31e5da95426c0edd
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92782389"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843390"
 ---
 # <a name="configure-encryption-with-customer-managed-keys-stored-in-azure-key-vault"></a>Configuración del cifrado con claves administradas por el cliente almacenadas en Azure Key Vault
 
@@ -35,15 +35,15 @@ El uso de claves administradas del cliente con el cifrado de Azure Storage requi
 
 # <a name="azure-portal"></a>[Azure Portal](#tab/portal)
 
-Para obtener información sobre cómo crear un almacén de claves con Azure Portal, consulte [Inicio rápido: Creación de un almacén de claves mediante Azure Portal](../../key-vault/general/quick-create-portal.md). Al crear el almacén de claves, seleccione **Habilitar protección de purga** , como se muestra en la siguiente imagen.
+Para obtener información sobre cómo crear un almacén de claves con Azure Portal, consulte [Inicio rápido: Creación de un almacén de claves mediante Azure Portal](../../key-vault/general/quick-create-portal.md). Al crear el almacén de claves, seleccione **Habilitar protección de purga**, como se muestra en la siguiente imagen.
 
 :::image type="content" source="media/customer-managed-keys-configure-key-vault/configure-key-vault-portal.png" alt-text="Captura de pantalla que muestra cómo habilitar la protección de purga al crear un almacén de claves":::
 
 Para habilitar la protección de purga en un almacén de claves existente, siga estos pasos:
 
 1. Vaya al almacén de claves en Azure Portal.
-1. En **Configuración** , elija **Propiedades**.
-1. En la sección **Protección de purga** , elija **Habilitar protección de purga**.
+1. En **Configuración**, elija **Propiedades**.
+1. En la sección **Protección de purga**, elija **Habilitar protección de purga**.
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
@@ -175,7 +175,7 @@ Azure Storage puede actualizar automáticamente la clave administrada por el cli
 Para configurar las claves administradas por el cliente con la actualización automática de la versión de clave en Azure Portal, siga estos pasos:
 
 1. Vaya a la cuenta de almacenamiento.
-1. En la hoja **Configuración** de la cuenta de almacenamiento, haga clic en **Cifrado**. Seleccione la opción **Claves administradas de cliente** , como se muestra en la siguiente imagen.
+1. En la hoja **Configuración** de la cuenta de almacenamiento, haga clic en **Cifrado**. Seleccione la opción **Claves administradas de cliente**, como se muestra en la siguiente imagen.
 
     ![Captura de pantalla del portal que muestra la opción de cifrado](./media/customer-managed-keys-configure-key-vault/portal-configure-encryption-keys.png)
 
@@ -241,7 +241,7 @@ Si prefiere actualizar manualmente la versión de la clave, especifique de maner
 Para configurar las claves administradas por el cliente con la actualización manual de la versión de clave en Azure Portal, especifique el URI de la clave, incluida la versión. Para especificar una clave como URI, siga estos pasos:
 
 1. Para buscar el URI de la clave en Azure Portal, vaya al almacén de claves y seleccione la opción de configuración **Claves**. Seleccione la clave que desee y luego haga clic en ella para ver sus versiones. Seleccione cualquiera de las versiones de clave para ver su configuración.
-1. Copie el valor del campo **Identificador de clave** , que proporciona el URI.
+1. Copie el valor del campo **Identificador de clave**, que proporciona el URI.
 
     ![Captura de pantalla en que se muestra el URI de la clave del almacén de claves](media/customer-managed-keys-configure-key-vault/portal-copy-key-identifier.png)
 

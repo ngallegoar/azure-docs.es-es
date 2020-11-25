@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 718ccbaa57ffe9f4ebaf4e8df448b602ba8cc3fa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d1b2c7513562e951e1098cf327780387ddf6a495
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89293158"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94953549"
 ---
 # <a name="tutorial-for-configuring-whoiam-with-azure-active-directory-b2c"></a>Tutorial para configurar WhoIAM con Azure Active Directory B2C
 
@@ -30,7 +30,7 @@ Para empezar, necesitará lo siguiente:
 
 - Una suscripción de Azure AD. Si no tiene una suscripción, puede crear una [cuenta gratuita](https://azure.microsoft.com/free/).
 
-- [Un inquilino de Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant) vinculado a la suscripción de Azure.
+- [Un inquilino de Azure AD B2C](./tutorial-create-tenant.md) vinculado a la suscripción de Azure.
 
 - Una [cuenta de prueba](https://www.whoiam.ai/contact-us/) de WhoIAM.
 
@@ -72,7 +72,7 @@ En el siguiente diagrama de arquitectura se muestra la implementación.
 
     - [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/): se usa para almacenar y recuperar la configuración.
 
-    - [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview#:~:text=Application%20Insights%2C%20a%20feature%20of%20Azure%20Monitor%2C%20is,professionals.%20Use%20it%20to%20monitor%20your%20live%20applications) (opcional): se usa para iniciar sesión tanto en la API como en el portal de administración.
+    - [Application Insights](../azure-monitor/app/app-insights-overview.md) (opcional): se usa para iniciar sesión tanto en la API como en el portal de administración.
 
 3. Implemente la API de BRIMS y el portal de administración de BRIMS en su entorno de Azure.
 
@@ -102,6 +102,6 @@ Para más información sobre BRIMS de WhoIAM, consulte la [documentación del pr
 
 Para más información, consulte los artículos siguientes:
 
-- [Directivas personalizadas de Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview)
+- [Directivas personalizadas de Azure AD B2C](./custom-policy-overview.md)
 
-- [Introducción a las directivas personalizadas en Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications)
+- [Introducción a las directivas personalizadas en Azure AD B2C](./custom-policy-get-started.md?tabs=applications)

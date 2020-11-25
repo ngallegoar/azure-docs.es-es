@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 02/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 0dba5f96d90304418d7ebd297419c1f36244f868
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 4dd9f98f174144cef455157162694a470aa1065f
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92363936"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94951771"
 ---
 # <a name="deploy-custom-policies-with-azure-pipelines"></a>Implementar directivas personalizadas con Azure Pipelines
 
@@ -29,7 +29,7 @@ Son necesarios tres pasos principales para permitir que Azure Pipelines administ
 1. Configurar una canalización de Azure
 
 > [!IMPORTANT]
-> La administración de las directivas personalizadas de Azure AD B2C con una canalización de Azure usa actualmente la **vista previa** de las operaciones de disponibles en el punto de conexión `/beta` de Microsoft Graph API. No se admite su uso en aplicaciones de producción. Para obtener más información, consulte [Referencia del punto de conexión de la API de REST Microsoft Graph beta](https://docs.microsoft.com/graph/api/overview?toc=./ref/toc.json&view=graph-rest-beta).
+> La administración de las directivas personalizadas de Azure AD B2C con una canalización de Azure usa actualmente la **vista previa** de las operaciones de disponibles en el punto de conexión `/beta` de Microsoft Graph API. No se admite su uso en aplicaciones de producción. Para obtener más información, consulte [Referencia del punto de conexión de la API de REST Microsoft Graph beta](/graph/api/overview?toc=.%252fref%252ftoc.json&view=graph-rest-beta).
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -40,7 +40,7 @@ Son necesarios tres pasos principales para permitir que Azure Pipelines administ
 
 ## <a name="client-credentials-grant-flow"></a>Flujo de concesión de credenciales del cliente
 
-El escenario que se describe aquí usa las llamadas de servicio a servicio entre Azure Pipelines y Azure AD B2C mediante el [flujo de concesión de credenciales de cliente](../active-directory/develop/v1-oauth2-client-creds-grant-flow.md) de OAuth 2.0. Este flujo de concesión permite que un servicio web como Azure Pipelines (cliente confidencial) use sus propias credenciales para autenticarse al llamar a otro servicio web, en lugar de suplantar a un usuario (Microsoft Graph API, en este caso). Azure Pipelines obtiene un token de forma no interactiva y, a continuación, realiza solicitudes a Microsoft Graph API.
+El escenario que se describe aquí usa las llamadas de servicio a servicio entre Azure Pipelines y Azure AD B2C mediante el [flujo de concesión de credenciales de cliente](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md) de OAuth 2.0. Este flujo de concesión permite que un servicio web como Azure Pipelines (cliente confidencial) use sus propias credenciales para autenticarse al llamar a otro servicio web, en lugar de suplantar a un usuario (Microsoft Graph API, en este caso). Azure Pipelines obtiene un token de forma no interactiva y, a continuación, realiza solicitudes a Microsoft Graph API.
 
 ## <a name="register-an-application-for-management-tasks"></a>Registrar una aplicación para tareas de administración
 
@@ -58,7 +58,7 @@ Una vez registrada la aplicación de administración, está listo para configura
 1. [Cree un nuevo proyecto][devops-create-project] o seleccione uno existente.
 1. En el proyecto, navegue hasta **Repos** y seleccione la página **Archivos**. Seleccione un repositorio existente o cree uno para este ejercicio.
 1. Cree una carpeta denominada *B2CAssets*. Asigne al archivo de marcador de posición necesario el nombre *README.md* y **confirme** el archivo. Puede quitar este archivo más adelante, si lo desea.
-1. Agregue los archivos de directiva de Azure AD B2C a la carpeta *B2CAssets*. Entre ellos se incluyen *TrustFrameworkBase.xml* , *TrustFrameworkExtensions.xml* , *SignUpOrSignin.xml* , *ProfileEdit.xml* y *PasswordReset.xml* y otras directivas que ha creado. Registre el nombre de archivo de cada archivo de directiva de Azure AD B2C para usarlo en un paso posterior (se usan como argumentos de script de PowerShell).
+1. Agregue los archivos de directiva de Azure AD B2C a la carpeta *B2CAssets*. Entre ellos se incluyen *TrustFrameworkBase.xml*, *TrustFrameworkExtensions.xml*, *SignUpOrSignin.xml*, *ProfileEdit.xml* y *PasswordReset.xml* y otras directivas que ha creado. Registre el nombre de archivo de cada archivo de directiva de Azure AD B2C para usarlo en un paso posterior (se usan como argumentos de script de PowerShell).
 1. Cree una carpeta denominada *Scripts* en el directorio raíz del repositorio, asigne al archivo de marcador de posición el nombre *DeployToB2c.ps1*. No confirme el archivo en este momento, lo hará en un paso posterior.
 1. Pegue el siguiente script de PowerShell en *DeployToB2c.ps1* y, después, **confirme** el archivo. El script adquiere un token de Azure AD y llama a Microsoft Graph API para cargar las directivas dentro de la carpeta *B2CAssets* en el inquilino de Azure AD B2C.
 
@@ -115,9 +115,9 @@ Con el repositorio inicializado y rellenado con los archivos de directivas perso
 
 1. Inicie sesión en su organización de Azure DevOps Services y vaya a su proyecto.
 1. En el proyecto, seleccione **Canalizaciones** > **Versiones** > **Nueva canalización**.
-1. En **Seleccionar una plantilla** , seleccione **Empty job** (Trabajo vacío).
-1. Escriba un **Nombre de fase** , por ejemplo, *DeployCustomPolicies* , y luego cierre el panel.
-1. Seleccione **Agregar un artefacto** y, en **Tipo de origen** , seleccione **Azure Repository** (Repositorio de Azure).
+1. En **Seleccionar una plantilla**, seleccione **Empty job** (Trabajo vacío).
+1. Escriba un **Nombre de fase**, por ejemplo, *DeployCustomPolicies*, y luego cierre el panel.
+1. Seleccione **Agregar un artefacto** y, en **Tipo de origen**, seleccione **Azure Repository** (Repositorio de Azure).
     1. Elija el repositorio de origen que contiene la carpeta *Scripts* que ha rellenado con el script de PowerShell.
     1. Seleccione una **Rama predeterminada**. Si ha creado un nuevo repositorio en la sección anterior, la rama predeterminada es *maestro*.
     1. Deje la configuración de **Versión predeterminada** en *Más reciente desde la rama predeterminada*.
@@ -148,11 +148,11 @@ A continuación, agregue una tarea para implementar un archivo de directiva.
 1. Busque y seleccione **PowerShell**. No seleccione "Azure PowerShell", "PowerShell en equipos de destino" ni otra entrada de PowerShell.
 1. Seleccione la tarea **Script de PowerShell** recién agregada.
 1. Escriba los siguientes valores para la tarea Script de PowerShell:
-    * **Versión de la tarea** : 2.*
-    * **Nombre para mostrar** : El nombre de la directiva que debe cargar esta tarea. Por ejemplo, *B2C_1A_TrustFrameworkBase*.
-    * **Tipo** : Ruta del archivo
-    * **Ruta de acceso del script** : Seleccione los puntos suspensivos (* *_..._* _), vaya a la carpeta _Scripts* y, a continuación, seleccione el archivo *DeployToB2C.ps1*.
-    * **Argumentos** :
+    * **Versión de la tarea**: 2.*
+    * **Nombre para mostrar**: El nombre de la directiva que debe cargar esta tarea. Por ejemplo, *B2C_1A_TrustFrameworkBase*.
+    * **Tipo**: Ruta del archivo
+    * **Ruta de acceso del script**: Seleccione los puntos suspensivos (**_..._* _), vaya a la carpeta _Scripts* y, a continuación, seleccione el archivo *DeployToB2C.ps1*.
+    * **Argumentos**:
 
         Escriba los siguientes valores para **Argumentos**. Reemplace `{alias-name}` por el alias que especificó en la sección anterior.
 
@@ -161,7 +161,7 @@ A continuación, agregue una tarea para implementar un archivo de directiva.
         -ClientID $(clientId) -ClientSecret $(clientSecret) -TenantId $(tenantId) -PolicyId B2C_1A_TrustFrameworkBase -PathToFile $(System.DefaultWorkingDirectory)/{alias-name}/B2CAssets/TrustFrameworkBase.xml
         ```
 
-        Por ejemplo, si el alias especificado es *policyRepo* , la línea de argumento debe ser:
+        Por ejemplo, si el alias especificado es *policyRepo*, la línea de argumento debe ser:
 
         ```PowerShell
         # After
@@ -170,11 +170,11 @@ A continuación, agregue una tarea para implementar un archivo de directiva.
 
 1. Seleccione **Guardar** para guardar el trabajo de agente.
 
-La tarea que acaba de agregar carga *un* archivo de directiva en Azure AD B2C. Antes de continuar, desencadene manualmente el trabajo ( **Crear versión** ) para asegurarse de que se completa correctamente antes de crear tareas adicionales.
+La tarea que acaba de agregar carga *un* archivo de directiva en Azure AD B2C. Antes de continuar, desencadene manualmente el trabajo (**Crear versión**) para asegurarse de que se completa correctamente antes de crear tareas adicionales.
 
 Si la tarea se completa correctamente, agregue tareas de implementación siguiendo los pasos anteriores para cada uno de los archivos de directiva personalizada. Modifique los valores de los argumentos `-PolicyId` y `-PathToFile` para cada directiva.
 
-`PolicyId` es un valor que se encuentra al principio de un archivo de directiva XML dentro del nodo TrustFrameworkPolicy. Por ejemplo, `PolicyId` en el siguiente XML de directiva es *B2C_1A_TrustFrameworkBase* :
+`PolicyId` es un valor que se encuentra al principio de un archivo de directiva XML dentro del nodo TrustFrameworkPolicy. Por ejemplo, `PolicyId` en el siguiente XML de directiva es *B2C_1A_TrustFrameworkBase*:
 
 ```xml
 <TrustFrameworkPolicy
@@ -211,10 +211,10 @@ Debería ver un banner de notificación que indica que una versión se ha puesto
 
 Más información sobre:
 
-* [Llamadas entre servicios mediante las credenciales del cliente](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow)
-* [Azure DevOps Services](https://docs.microsoft.com/azure/devops/user-guide/?view=azure-devops)
+* [Llamadas entre servicios mediante las credenciales del cliente](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md)
+* [Azure DevOps Services](/azure/devops/user-guide/?view=azure-devops)
 
 <!-- LINKS - External -->
-[devops]: https://docs.microsoft.com/azure/devops/?view=azure-devops
-[devops-create-project]:  https://docs.microsoft.com/azure/devops/organizations/projects/create-project?view=azure-devops
-[devops-pipelines]: https://docs.microsoft.com/azure/devops/pipelines
+[devops]: /azure/devops/?view=azure-devops
+[devops-create-project]:  /azure/devops/organizations/projects/create-project?view=azure-devops
+[devops-pipelines]: /azure/devops/pipelines

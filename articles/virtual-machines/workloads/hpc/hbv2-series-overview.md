@@ -3,27 +3,27 @@ title: 'Introducción a las máquinas virtuales de la serie HBv2: Azure Virtual 
 description: Obtenga información sobre el tamaño de las máquinas virtuales de la serie HBv2 en Azure.
 services: virtual-machines
 author: vermagit
-manager: gwallace
 tags: azure-resource-manager
 ms.service: virtual-machines
+ms.subservice: workloads
 ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 09/28/2020
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 48366f205ed8eb2d179bdc39c8da3d673f066a69
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: be66f29881250843f70ba85b8ef7c80ae8b31aa6
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92332597"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966945"
 ---
 # <a name="hbv2-series-virtual-machine-overview"></a>Introducción a las máquinas virtuales de la serie HBv2 
 
  
 Maximizar el rendimiento de la aplicación de proceso de alto rendimiento (HPC) en AMD EPYC requiere un enfoque bien meditado con respecto a la ubicación de los procesos y de la memoria. A continuación se describen la arquitectura de AMD EPYC y nuestra implementación de la misma en Azure para aplicaciones HPC. Vamos a utilizar el término **pNUMA** para referirnos a un dominio físico de NUMA y **vNUMA** para referirnos a un dominio virtualizado de NUMA. 
 
-Físicamente, los servidores de la [serie HBv2](../../hbv2-series.md) tienen dos CPU EPYC 7742 con 64 núcleos cada una, lo que hace un total de 128 núcleos físicos. Estos 128 núcleos se dividen en 32 dominios de pNUMA (16 por socket), cada uno de los cuales tiene cuatro núcleos y AMD lo denomina **Complejo de núcleo** (Core Complex, o **CCX** ). Cada CCX tiene su propia memoria caché L3, que es el modo en que un sistema operativo verá un límite pNUMA/vNUMA. Cuatro CCX adyacentes comparten acceso a dos canales de DRAM física. 
+Físicamente, los servidores de la [serie HBv2](../../hbv2-series.md) tienen dos CPU EPYC 7742 con 64 núcleos cada una, lo que hace un total de 128 núcleos físicos. Estos 128 núcleos se dividen en 32 dominios de pNUMA (16 por socket), cada uno de los cuales tiene cuatro núcleos y AMD lo denomina **Complejo de núcleo** (Core Complex, o **CCX**). Cada CCX tiene su propia memoria caché L3, que es el modo en que un sistema operativo verá un límite pNUMA/vNUMA. Cuatro CCX adyacentes comparten acceso a dos canales de DRAM física. 
 
 Para dejar margen suficiente para que el hipervisor de Azure trabaje sin interferir en la máquina virtual, reservamos los dominios 0 y 16 físicos de pNUMA (es decir, el primer CCX de todos los sockets de la CPU). Los treinta dominios restantes de pNUMA se asignan a la máquina virtual en la que se convierten en vNUMA. Por lo tanto, la máquina virtual verá:
 

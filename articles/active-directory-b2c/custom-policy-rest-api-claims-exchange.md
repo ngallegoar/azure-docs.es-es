@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b34d5cdd95f44082d05153390209de5145e56d3f
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 84053df34ffda0d4686ad80a9e5f3af00ac53d72
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92089577"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94949503"
 ---
 # <a name="walkthrough-add-rest-api-claims-exchanges-to-custom-policies-in-azure-active-directory-b2c"></a>Tutorial: Agregue los intercambios de notificaciones de la API de REST a directivas personalizadas de Azure Active Directory B2C.
 
@@ -53,7 +53,7 @@ Una vez que la API REST valide los datos, debe devolver un código HTTP 200 (cor
 }
 ```
 
-La configuración del punto de conexión de API REST está fuera del ámbito de este artículo. Hemos creado una muestra de [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-reference). Puede acceder al código completo de la función de Azure en [GitHub](https://github.com/azure-ad-b2c/rest-api/tree/master/source-code/azure-function).
+La configuración del punto de conexión de API REST está fuera del ámbito de este artículo. Hemos creado una muestra de [Azure Functions](../azure-functions/functions-reference.md). Puede acceder al código completo de la función de Azure en [GitHub](https://github.com/azure-ad-b2c/rest-api/tree/master/source-code/azure-function).
 
 ## <a name="define-claims"></a>Definición de notificaciones
 
@@ -62,7 +62,7 @@ Una notificación proporciona un almacenamiento temporal de datos durante la eje
 1. Abra el archivo de extensiones de la directiva. Por ejemplo, <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em>.
 1. Busque el elemento [BuildingBlocks](buildingblocks.md). Si el elemento no existe, agréguelo.
 1. Busque el elemento [ClaimsSchema](claimsschema.md). Si el elemento no existe, agréguelo.
-1. Agregue las notificaciones siguientes al elemento **ClaimsSchema** .  
+1. Agregue las notificaciones siguientes al elemento **ClaimsSchema**.  
 
 ```xml
 <ClaimType Id="balance">
@@ -116,10 +116,10 @@ En este ejemplo, `userLanguage` se enviará al servicio REST como `lang` desde l
 
 Después de implementar la API REST, configure los metadatos del perfil técnico `REST-ValidateProfile` para que reflejen su propia API REST, incluidos:
 
-- **ServiceUrl** . Establezca la dirección URL del punto de conexión de la API REST.
-- **SendClaimsIn** . Especifique cómo se envían las notificaciones de entrada al proveedor de notificaciones RESTful.
-- **AuthenticationType** . Establezca el tipo de autenticación realizada por el proveedor de notificaciones RESTful. 
-- **AllowInsecureAuthInProduction** . En un entorno de producción, asegúrese de establecer estos metadatos en `true`.
+- **ServiceUrl**. Establezca la dirección URL del punto de conexión de la API REST.
+- **SendClaimsIn**. Especifique cómo se envían las notificaciones de entrada al proveedor de notificaciones RESTful.
+- **AuthenticationType**. Establezca el tipo de autenticación realizada por el proveedor de notificaciones RESTful. 
+- **AllowInsecureAuthInProduction**. En un entorno de producción, asegúrese de establecer estos metadatos en `true`.
     
 Consulte los [metadatos del perfil técnico de RESTful](restful-technical-profile.md#metadata) para obtener más configuraciones.
 
@@ -155,7 +155,7 @@ Los [recorridos del usuario](userjourneys.md) especifican rutas de acceso explí
     <OrchestrationStep Order="8" Type="SendClaims" CpimIssuerTechnicalProfileReferenceId="JwtIssuer" />
     ```
 
-1. Repita los dos últimos pasos para los recorridos del usuario **ProfileEdit** y **PasswordReset** .
+1. Repita los dos últimos pasos para los recorridos del usuario **ProfileEdit** y **PasswordReset**.
 
 
 ## <a name="include-a-claim-in-the-token"></a>Incorporación de una notificación en el token 
@@ -183,18 +183,18 @@ Para devolver la notificación `balance` a la aplicación de usuario de confianz
 </RelyingParty>
 ```
 
-Repita este paso para los recorridos del usuario **ProfileEdit.xml** y **PasswordReset.xml** .
+Repita este paso para los recorridos del usuario **ProfileEdit.xml** y **PasswordReset.xml**.
 
-Guarde los archivos que ha cambiado: *TrustFrameworkBase.xml* y *TrustFrameworkExtensions.xml* , *SignUpOrSignin.xml* , *ProfileEdit.xml* y *PasswordReset.xml* . 
+Guarde los archivos que ha cambiado: *TrustFrameworkBase.xml* y *TrustFrameworkExtensions.xml*, *SignUpOrSignin.xml*, *ProfileEdit.xml* y *PasswordReset.xml*. 
 
 ## <a name="test-the-custom-policy"></a>Prueba de la directiva personalizada
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD. Para ello, seleccione el filtro **Directorio y suscripción** que se encuentra en el menú superior y elija el directorio que contiene el inquilino de Azure AD.
-1. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, y busque y seleccione **Registros de aplicaciones** .
-1. Seleccione **Marco de experiencia de identidad** .
-1. Seleccione **Cargar directiva personalizada** y cargue los archivos de directiva modificados: *TrustFrameworkBase.xml* y *TrustFrameworkExtensions.xml* , *SignUpOrSignin.xml* , *ProfileEdit.xml* y *PasswordReset.xml* . 
-1. Seleccione la directiva de registro o inicio de sesión que cargó y haga clic en el botón **Ejecutar ahora** .
+1. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, y busque y seleccione **Registros de aplicaciones**.
+1. Seleccione **Marco de experiencia de identidad**.
+1. Seleccione **Cargar directiva personalizada** y cargue los archivos de directiva modificados: *TrustFrameworkBase.xml* y *TrustFrameworkExtensions.xml*, *SignUpOrSignin.xml*, *ProfileEdit.xml* y *PasswordReset.xml*. 
+1. Seleccione la directiva de registro o inicio de sesión que cargó y haga clic en el botón **Ejecutar ahora**.
 1. Debe poder suscribirse con una dirección de correo electrónico o una cuenta de Facebook.
 1. El token enviado de vuelta a la aplicación contiene la notificación `balance`.
 

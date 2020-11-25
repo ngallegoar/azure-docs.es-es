@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 11/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 12d11cddf077d4d07732490255d44e89ddaf3217
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 73b9ecd03875b60ed2d9b9d4c8e8a3a0c8de3cfa
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "60531027"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94956609"
 ---
 # <a name="storsimple-8000-series-update-22-release-notes"></a>Notas de la versión de la serie StorSimple 8000 Update 2.2
 
@@ -70,7 +70,7 @@ En la tabla siguiente se proporciona un resumen de los problemas conocidos de es
 | 3 |Cuentas de almacenamiento |El uso del servicio de almacenamiento para eliminar la cuenta de almacenamiento es un escenario no admitido. Esto provocará una situación en la que no se pueden recuperar los datos de usuario. | |Sí |Sí |
 | 4 |Conmutación por error del dispositivo |No se admiten varias conmutaciones por error de un contenedor de volúmenes del mismo dispositivo de origen a diferentes dispositivos de destino. La conmutación por error de un único dispositivo inactivo a varios dispositivos hará que los contenedores de volúmenes del primer dispositivo conmutado por error pierdan la propiedad de los datos. Después de este tipo de conmutación por error, estos contenedores de volúmenes aparecerán o se comportarán de forma diferente cuando se visualicen en el Portal de Azure clásico. | |Sí |No |
 | 5 |Instalación |Durante la instalación del adaptador de StorSimple para SharePoint, deberá proporcionar una dirección IP de dispositivo para que la instalación finalice correctamente. | |Sí |No |
-| 6 |Proxy web |Si la configuración de proxy web tiene HTTPS como protocolo especificado, la comunicación de dispositivo a servicio se verá afectada y el dispositivo se desconectará. También se generarán paquetes de compatibilidad en el proceso, que consumen muchos recursos en el dispositivo. |Asegúrese de que la dirección URL del proxy web tiene HTTP como protocolo especificado. Para obtener más información, vaya a [Configurar el proxy web para el dispositivo](storsimple-configure-web-proxy.md). |Sí |No |
+| 6 |Proxy web |Si la configuración de proxy web tiene HTTPS como protocolo especificado, la comunicación de dispositivo a servicio se verá afectada y el dispositivo se desconectará. También se generarán paquetes de compatibilidad en el proceso, que consumen muchos recursos en el dispositivo. |Asegúrese de que la dirección URL del proxy web tiene HTTP como protocolo especificado. Para obtener más información, vaya a [Configurar el proxy web para el dispositivo](./storsimple-8000-configure-web-proxy.md). |Sí |No |
 | 7 |Proxy web |Si configura y habilita el proxy web en un dispositivo registrado, será necesario reiniciar el controlador activo en el dispositivo. | |Sí |No |
 | 8 |Latencia alta de la nube y alta carga de trabajo de E/S |Cuando el dispositivo StorSimple encuentra una combinación de latencias muy altas de la nube (del orden de segundos) y alta carga de trabajo de E/S, los volúmenes del dispositivo pasan a un estado degradado y las operaciones de E/S pueden fallar con el error «el dispositivo no está listo». |Necesitará reiniciar los controladores de dispositivo de forma manual o realizar una conmutación por error del dispositivo para recuperarse de esta situación. |Sí |No |
 | 9 |Azure PowerShell |Cuando se usa el cmdlet de StorSimple **Get-AzureStorSimpleStorageAccountCredential &#124; Select-Object -First 1 -Wait** para seleccionar el primer objeto y crear un nuevo objeto **VolumeContainer**, el cmdlet devuelve todos los objetos. |Encapsule el cmdlet entre paréntesis, como se indica a continuación: **(Get-Azure-StorSimpleStorageAccountCredential) &#124; Select-Object -First 1 -Wait** |Sí |Sí |
@@ -90,11 +90,10 @@ En la tabla siguiente se proporciona un resumen de los problemas conocidos de es
 ## <a name="controller-and-firmware-updates-in-update-22"></a>Actualizaciones de firmware y de controlador en Update 2.2
 Esta versión incluye únicamente actualizaciones del software. Sin embargo, si está actualizando desde una versión anterior de la actualización 2, tendrá que instalar el controlador, Storport, Spaceport y, en algunos casos las actualizaciones de firmware del disco en el dispositivo.
 
-Para más información sobre cómo instalar el controlador, Storport, Spaceport y las actualizaciones de firmware del disco, consulte [Instalación de Update 2.2](storsimple-install-update-21.md) en el dispositivo StorSimple.
+Para más información sobre cómo instalar el controlador, Storport, Spaceport y las actualizaciones de firmware del disco, consulte [Instalación de Update 2.2](./storsimple-8000-install-update-5.md) en el dispositivo StorSimple.
 
 ## <a name="virtual-device-updates-in-update-22"></a>Actualizaciones de dispositivo virtual en Update 2.2
 No se puede aplicar esta actualización al dispositivo virtual. Deben crearse nuevos dispositivos virtuales. 
 
 ## <a name="next-step"></a>Paso siguiente
-Obtenga información sobre cómo [instalar Update 2.2](storsimple-install-update-21.md) en el dispositivo StorSimple.
-
+Obtenga información sobre cómo [instalar Update 2.2](./storsimple-8000-install-update-5.md) en el dispositivo StorSimple.

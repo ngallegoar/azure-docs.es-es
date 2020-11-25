@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 09/28/2017
 ms.author: alkohli
-ms.openlocfilehash: 3032585c6f0a5cc6143eee06b12b6def50cd7cd0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6dcaa83980210a1f5449e8a2e0982cb8e39ff03d
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80297706"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966197"
 ---
 # <a name="storsimple-8000-series-software-high-availability-and-networking-requirements"></a>Software de la serie StorSimple 8000, alta disponibilidad y requisitos de red
 
@@ -122,7 +122,7 @@ Se recomienda que establezca las reglas de firewall para el tráfico saliente, b
 
 Una métrica de enrutamiento se asocia con las interfaces y con la puerta de enlace que enruta los datos a las redes específicas. La métrica de enrutamiento la usa el protocolo de enrutamiento para calcular la mejor ruta a un destino determinado, si aprende que existen varias rutas al mismo destino. Cuanto más bajo sea el valor de la métrica de enrutamiento, mayor será la preferencia.
 
-En el contexto de StorSimple, si se configuran varias puertas de enlace e interfaces de red para el tráfico del canal, la métrica de enrutamiento entra en juego para determinar el orden relativo en que se usarán las interfaces. El usuario no puede cambiar las métricas de enrutamiento. Sin embargo, puede usar el cmdlet `Get-HcsRoutingTable` para imprimir la tabla de enrutamiento (y las métricas) en el dispositivo de StorSimple. Para más información sobre el cmdlet Get-HcsRoutingTable, consulte [Solución de problemas de implementación de dispositivos de StorSimple](storsimple-troubleshoot-deployment.md).
+En el contexto de StorSimple, si se configuran varias puertas de enlace e interfaces de red para el tráfico del canal, la métrica de enrutamiento entra en juego para determinar el orden relativo en que se usarán las interfaces. El usuario no puede cambiar las métricas de enrutamiento. Sin embargo, puede usar el cmdlet `Get-HcsRoutingTable` para imprimir la tabla de enrutamiento (y las métricas) en el dispositivo de StorSimple. Para más información sobre el cmdlet Get-HcsRoutingTable, consulte [Solución de problemas de implementación de dispositivos de StorSimple](./storsimple-8000-troubleshoot-deployment.md).
 
 El algoritmo de métrica de enrutamiento usado en Update 2 y versiones posteriores puede explicarse de la manera siguiente.
 
@@ -250,4 +250,4 @@ Revise cuidadosamente estos procedimientos recomendados para garantizar la alta 
 * [Obtenga más información sobre cómo implementar la solución StorSimple](storsimple-8000-deployment-walkthrough-u2.md).
 
 <!--Reference links-->
-[1]: https://technet.microsoft.com/library/cc731844(v=WS.10).aspx
+[1]: /previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731844(v=ws.10)

@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019, devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 02/20/2020
-ms.openlocfilehash: a2d0ff6810326f7f375595e8dcebbe81b55055ca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 87505557653e70aab7f1392aeea8dbdf505327e0
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91330356"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94962763"
 ---
 # <a name="migrate-a-sql-server-database-to-azure-sql-database-using-azure-powershell"></a>Migración de una base de datos de SQL Server a Azure SQL Database mediante Azure PowerShell
 
@@ -36,26 +36,26 @@ En este artículo aprenderá a:
 Para completar estos pasos, necesitará lo siguiente:
 
 * [SQL Server 2016 o posterior](https://www.microsoft.com/sql-server/sql-server-downloads) (cualquier edición).
-* Para habilitar el protocolo TCP/IP, que se deshabilita de forma predeterminada con la instalación de SQL Server Express. Habilite el protocolo TCP/IP siguiendo el artículo [Habilitar o deshabilitar un protocolo de red de servidor](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-or-disable-a-server-network-protocol#SSMSProcedure).
-* Configurar [Firewall de Windows para el acceso al motor de base de datos](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
-* Una base de datos de Azure SQL. Puede crear una instancia de Azure SQL Database mediante la información del artículo [Creación de una base de datos de Azure SQL Database en Azure Portal](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal).
+* Para habilitar el protocolo TCP/IP, que se deshabilita de forma predeterminada con la instalación de SQL Server Express. Habilite el protocolo TCP/IP siguiendo el artículo [Habilitar o deshabilitar un protocolo de red de servidor](/sql/database-engine/configure-windows/enable-or-disable-a-server-network-protocol#SSMSProcedure).
+* Configurar [Firewall de Windows para el acceso al motor de base de datos](/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
+* Una base de datos de Azure SQL. Puede crear una instancia de Azure SQL Database mediante la información del artículo [Creación de una base de datos de Azure SQL Database en Azure Portal](../azure-sql/database/single-database-create-quickstart.md).
 * [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) (versión 3.3 o posterior).
-* Haber creado una instancia de Microsoft Azure Virtual Network con el modelo de implementación de Azure Resource Manager, que proporciona a Azure Database Migration Service conectividad de sitio a sitio a los servidores de origen locales a través de [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) o [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
-* Haber completado la evaluación de su base de datos local y la migración de esquemas con Data Migration Assistant, tal y como se describe en el artículo [Realizar una evaluación de migración de SQL Server con Data Migration Assistant](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem).
-* Descargar e instalar el módulo Az.DataMigration de la Galería de PowerShell con el [cmdlet Install-Module de PowerShell](https://docs.microsoft.com/powershell/module/powershellget/Install-Module?view=powershell-5.1); asegurarse de abrir la ventana Comandos de PowerShell ejecutándola como administrador.
-* Asegurarse de que las credenciales usadas para conectarse a la instancia de SQL Server de origen tenga el permiso [CONTROL SERVER](https://docs.microsoft.com/sql/t-sql/statements/grant-server-permissions-transact-sql).
+* Haber creado una instancia de Microsoft Azure Virtual Network con el modelo de implementación de Azure Resource Manager, que proporciona a Azure Database Migration Service conectividad de sitio a sitio a los servidores de origen locales a través de [ExpressRoute](../expressroute/expressroute-introduction.md) o [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md).
+* Haber completado la evaluación de su base de datos local y la migración de esquemas con Data Migration Assistant, tal y como se describe en el artículo [Realizar una evaluación de migración de SQL Server con Data Migration Assistant](/sql/dma/dma-assesssqlonprem).
+* Descargar e instalar el módulo Az.DataMigration de la Galería de PowerShell con el [cmdlet Install-Module de PowerShell](/powershell/module/powershellget/Install-Module?view=powershell-5.1); asegurarse de abrir la ventana Comandos de PowerShell ejecutándola como administrador.
+* Asegurarse de que las credenciales usadas para conectarse a la instancia de SQL Server de origen tenga el permiso [CONTROL SERVER](/sql/t-sql/statements/grant-server-permissions-transact-sql).
 * Asegurarse de que las credenciales usadas para conectarse a la instancia de Azure SQL DB de destino tenga el permiso CONTROL DATABASE en las bases de datos de Azure SQL de destino.
 * Suscripción a Azure. Si no tiene una, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
 ## <a name="log-in-to-your-microsoft-azure-subscription"></a>Inicio de sesión en la suscripción de Microsoft Azure
 
-Utilice las instrucciones que aparecen en el artículo [Inicio de sesión con Azure PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps) para iniciar sesión en su suscripción de Azure mediante PowerShell.
+Utilice las instrucciones que aparecen en el artículo [Inicio de sesión con Azure PowerShell](/powershell/azure/authenticate-azureps) para iniciar sesión en su suscripción de Azure mediante PowerShell.
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
 Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure. Cree un grupo de recursos para poder crear una máquina virtual.
 
-Cree un grupo de recursos de Azure con el comando [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup).
+Cree un grupo de recursos de Azure con el comando [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup).
 
 En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroup* en la región *EastUS*.
 
@@ -67,11 +67,11 @@ New-AzResourceGroup -ResourceGroupName myResourceGroup -Location EastUS
 
 Puede crear una instancia nueva de Azure Database Migration Service mediante el cmdlet `New-AzDataMigrationService`. Este cmdlet espera los siguientes parámetros requeridos:
 
-* *Nombre del grupo de recursos de Azure*. Puede usar el comando [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) para crear el grupo de recursos de Azure como se mostró anteriormente y proporcionar su nombre como un parámetro.
+* *Nombre del grupo de recursos de Azure*. Puede usar el comando [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) para crear el grupo de recursos de Azure como se mostró anteriormente y proporcionar su nombre como un parámetro.
 * *Nombre del servicio*. Cadena que se corresponde con el nombre de servicio único para Azure Database Migration Service. 
 * *Ubicación*. Especifica la ubicación del servicio. Especifique una ubicación de centro de datos de Azure, por ejemplo, Oeste de EE. UU. o Sudeste de Asia.
 * *SKU*. Este parámetro corresponde al nombre de SKU de DMS. El nombre de SKU admitido actualmente es *GeneralPurpose_4vCores*.
-* *Identificador de subred virtual*. Puede usar el cmdlet [New-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworksubnetconfig) para crear una subred. 
+* *Identificador de subred virtual*. Puede usar el cmdlet [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) para crear una subred. 
 
 En el ejemplo siguiente se crea un servicio de nombre *MyDMS* en el grupo de recursos *MyDMSResourceGroup* que se encuentra en la región *Este de EE. UU.* con una red virtual denominada *MyVNET* y una subred llamada *MySubnet*.
 
@@ -151,7 +151,7 @@ Por último, cree e inicie la tarea de Azure Database Migration. La tarea de Azu
 
 ### <a name="create-credential-parameters-for-source-and-target"></a>Creación de parámetros de credenciales de origen y de destino
 
-Las credenciales de seguridad de conexión pueden crearse como un objeto [PSCredential](https://docs.microsoft.com/dotnet/api/system.management.automation.pscredential?redirectedfrom=MSDN&view=powershellsdk-1.1.0).
+Las credenciales de seguridad de conexión pueden crearse como un objeto [PSCredential](/dotnet/api/system.management.automation.pscredential?view=powershellsdk-1.1.0).
 
 En el ejemplo siguiente se muestra la creación de objetos *PSCredential* para las conexiones de origen y destino proporcionando contraseñas como variables de cadena *$sourcePassword* y *$targetPassword*.
 
@@ -195,8 +195,8 @@ Utilice el cmdlet `New-AzDataMigrationTask` para crear e iniciar una tarea de mi
 * *TaskName*. Nombre de la tarea que se va a crear. 
 * *SourceConnection*. Objeto AzDmsConnInfo que representa la conexión de origen de SQL Server.
 * *TargetConnection*. Objeto AzDmsConnInfo que representa la conexión de destino de Azure SQL Database.
-* *SourceCred*. Objeto [PSCredential](https://docs.microsoft.com/dotnet/api/system.management.automation.pscredential?redirectedfrom=MSDN&view=powershellsdk-1.1.0) para la conexión al servidor de origen.
-* *TargetCred*. Objeto [PSCredential](https://docs.microsoft.com/dotnet/api/system.management.automation.pscredential?redirectedfrom=MSDN&view=powershellsdk-1.1.0) para la conexión al servidor de destino.
+* *SourceCred*. Objeto [PSCredential](/dotnet/api/system.management.automation.pscredential?view=powershellsdk-1.1.0) para la conexión al servidor de origen.
+* *TargetCred*. Objeto [PSCredential](/dotnet/api/system.management.automation.pscredential?view=powershellsdk-1.1.0) para la conexión al servidor de destino.
 * *SelectedDatabase*. Objeto AzDataMigrationSelectedDB que representa la asignación de base de datos de origen y de destino.
 * *SchemaValidation*. (opcional, parámetro de modificador) Tras la migración, realiza una comparación de la información del esquema entre el origen y el destino.
 * *DataIntegrityValidation*. (opcional, parámetro de modificador) Tras la migración, realiza una validación de la integridad de los datos basada en la suma de comprobación entre el origen y el destino.

@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 9/24/2019
 ms.author: rohink
-ms.openlocfilehash: 9181ef93dfedbc28b297bef48a0bc37ba6d69798
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5e43ad35cdaad89d5b9f43007bad8782f358c1a6
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75646768"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94954348"
 ---
 # <a name="what-is-a-virtual-network-link"></a>¿Qué es un vínculo de red virtual?
 
@@ -23,7 +23,7 @@ Puede vincular una red virtual a una zona DNS privada como red virtual de regist
 
 ## <a name="registration-virtual-network"></a>Red virtual de registro
 
-Cuando [crea un vínculo](https://docs.microsoft.com/azure/dns/private-dns-getstarted-portal#link-the-virtual-network) entre una zona DNS privada y una red virtual, tiene la opción de activar el [registro automático](./private-dns-autoregistration.md) de los registros DNS para las máquinas virtuales. Si elige esta opción, la red virtual se convierte en una red virtual de registro para la zona DNS privada. Se crea automáticamente un registro DNS para las máquinas virtuales que se implementan en la red. Los registros DNS se crean para las máquinas virtuales que ya se han implementado en la red virtual. Desde la perspectiva de la red virtual, la zona DNS privada se convierte en la zona de registro de esa red virtual.
+Cuando [crea un vínculo](./private-dns-getstarted-portal.md#link-the-virtual-network) entre una zona DNS privada y una red virtual, tiene la opción de activar el [registro automático](./private-dns-autoregistration.md) de los registros DNS para las máquinas virtuales. Si elige esta opción, la red virtual se convierte en una red virtual de registro para la zona DNS privada. Se crea automáticamente un registro DNS para las máquinas virtuales que se implementan en la red. Los registros DNS se crean para las máquinas virtuales que ya se han implementado en la red virtual. Desde la perspectiva de la red virtual, la zona DNS privada se convierte en la zona de registro de esa red virtual.
 Una zona DNS privada puede tener varias redes virtuales de registro; sin embargo, cada red virtual puede tener exactamente una zona de registro asociada.
 
 ## <a name="resolution-virtual-network"></a>Resolución de una red virtual
@@ -33,7 +33,7 @@ Una zona DNS privada puede tener varias redes virtuales de resolución y una red
 
 ## <a name="limits"></a>límites
 
-Para conocer el número de redes de registro y de resolución que puede vincular a zonas DNS privadas, consulte [Límites de Azure DNS](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-dns-limits)
+Para conocer el número de redes de registro y de resolución que puede vincular a zonas DNS privadas, consulte [Límites de Azure DNS](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-dns-limits)
 
 ## <a name="other-considerations"></a>Otras consideraciones
 
@@ -49,7 +49,7 @@ Para conocer el número de redes de registro y de resolución que puede vincular
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Obtenga información sobre cómo vincular una red virtual a una zona DNS privada mediante [Azure Portal](https://docs.microsoft.com/azure/dns/private-dns-getstarted-portal#link-the-virtual-network)
+* Obtenga información sobre cómo vincular una red virtual a una zona DNS privada mediante [Azure Portal](./private-dns-getstarted-portal.md#link-the-virtual-network)
 
 * Obtenga información sobre cómo crear una zona privada en Azure DNS mediante [Azure PowerShell](./private-dns-getstarted-powershell.md) o la [CLI de Azure](./private-dns-getstarted-cli.md).
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 219e2b77a0f6f30307c43f006fcdd3828d3c8fbf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d78051c1a5af82a986152c8244d25b68dd65d552
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87021382"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94968849"
 ---
 # <a name="deploy-and-manage-a-storsimple-cloud-appliance-in-azure-update-3-and-later"></a>Implementación y administración de una instancia de StorSimple Cloud Appliance en Azure (Update 3 y versiones posteriores)
 
@@ -47,7 +47,7 @@ StorSimple Cloud Appliance está disponible en dos modelos, el 8010 estándar (a
 | **Capacidad máxima** |30 TB |64 TB |
 | **MV de Azure** |Standard_A3 (4 núcleos, 7 GB de memoria)| Standard_DS3 (4 núcleos, 14 GB de memoria)|
 | **Disponibilidad en regiones** |Todas las regiones de Azure |Regiones de Azure que admiten Premium Storage y máquinas virtuales de Azure DS3<br></br>Use [esta lista](https://azure.microsoft.com/regions/services/) para ver si las dos opciones **Virtual Machines > Serie DS** y **Storage > Almacenamiento en disco** están disponibles en su región. |
-| **Tipo de almacenamiento** |Azure Standard Storage para discos locales<br></br> Infórmese de cómo [crear una cuenta de Standard Storage](../storage/common/storage-create-storage-account.md) |Usa Azure Premium Storage para discos locales<sup>2</sup> <br></br> |
+| **Tipo de almacenamiento** |Azure Standard Storage para discos locales<br></br> Infórmese de cómo [crear una cuenta de Standard Storage](../storage/common/storage-account-create.md) |Usa Azure Premium Storage para discos locales<sup>2</sup> <br></br> |
 | **Guía de la carga de trabajo** |Recuperación a nivel de elemento de archivos de copias de seguridad |Escenarios de desarrollo y pruebas de la nube <br></br>Baja latencia y cargas de trabajo de rendimiento más elevado<br></br>Dispositivo secundario para recuperación ante desastres |
 
 <sup>1</sup> *Anteriormente conocido como 1100*.
@@ -96,7 +96,7 @@ Antes de aprovisionar el dispositivo de nube, debe realizar los siguientes prepa
 Realice las siguientes actualizaciones de su servicio StorSimple Device Manager antes de crear un dispositivo de nube:
 
 * Agregue [registros de control de acceso](storsimple-8000-manage-acrs.md) para las máquinas virtuales que vayan a ser servidores host para el dispositivo de nube.
-* Use una [cuenta de almacenamiento](storsimple-8000-manage-storage-accounts.md#add-a-storage-account) de la misma región que el dispositivo de nube. Las cuentas de almacenamiento en regiones diferentes pueden causar un bajo rendimiento. Puede usar una cuenta de Standard Storage o Premium Storage con el dispositivo de nube. Más información sobre cómo crear una [cuenta de almacenamiento estándar](../storage/common/storage-create-storage-account.md).
+* Use una [cuenta de almacenamiento](storsimple-8000-manage-storage-accounts.md#add-a-storage-account) de la misma región que el dispositivo de nube. Las cuentas de almacenamiento en regiones diferentes pueden causar un bajo rendimiento. Puede usar una cuenta de Standard Storage o Premium Storage con el dispositivo de nube. Más información sobre cómo crear una [cuenta de almacenamiento estándar](../storage/common/storage-account-create.md).
 * Use una cuenta de almacenamiento diferente para la creación del dispositivo de nube a partir de la que ha usado para sus datos. Utilizar la misma cuenta de almacenamiento puede causar un bajo rendimiento.
 
 Asegúrese de que tiene la siguiente información antes de empezar:
@@ -267,7 +267,7 @@ Para detener todos los cargos, debe eliminar el dispositivo de nube. Para elimin
 ## <a name="troubleshoot-internet-connectivity-errors"></a>Solucionar errores de conexión a Internet
 Durante la creación del dispositivo de nube, si no hay conexión a Internet, el paso de creación dará error. Para solucionar problemas debidos a la conexión a Internet, realice los pasos siguientes en Azure Portal:
 
-1. [Cree una máquina virtual Windows en Azure Portal](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal). Esta máquina virtual debe usar la misma cuenta de almacenamiento, red virtual y subred que usa el dispositivo de nube. Si ya tiene un host de Windows Server en Azure con la misma cuenta de almacenamiento, red virtual y subred, también puede usarlo para solucionar los problemas de conexión a Internet.
+1. [Cree una máquina virtual Windows en Azure Portal](../virtual-machines/windows/quick-create-portal.md). Esta máquina virtual debe usar la misma cuenta de almacenamiento, red virtual y subred que usa el dispositivo de nube. Si ya tiene un host de Windows Server en Azure con la misma cuenta de almacenamiento, red virtual y subred, también puede usarlo para solucionar los problemas de conexión a Internet.
 2. Inicie sesión de forma remota en la máquina virtual creada en el paso anterior.
 3. Abra una ventana de comandos en la máquina virtual (Win + R y, después, escriba `cmd`).
 4. En el símbolo del sistema, ejecute el siguiente comando.

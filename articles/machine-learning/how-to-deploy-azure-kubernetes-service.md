@@ -6,17 +6,17 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.custom: how-to, contperfq1, deploy
+ms.custom: how-to, contperfq1, deploy, devx-track-azurecli
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 09/01/2020
-ms.openlocfilehash: b98d3ea69286fe7c23b6c2978b71699ba7eb0e00
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: e041b69d8fc256ff5fe759be9716db032540f2cb
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325193"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94873801"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Implementación de un modelo en un clúster de Azure Kubernetes Service
 
@@ -29,7 +29,7 @@ Aprenda a usar Azure Machine Learning para implementar un modelo como un servici
 - __Recopilación de datos de modelos__
 - __Autenticación__
 - __Finalización de TLS__
-- Opciones de __aceleración de hardware__ , como GPU y matrices de puertas programables (FPGA)
+- Opciones de __aceleración de hardware__, como GPU y matrices de puertas programables (FPGA)
 
 En Azure Kubernetes Service, la implementación se realiza en un clúster de AKS que está __conectado a su área de trabajo__. Para obtener información sobre cómo conectar un clúster de AKS al área de trabajo, consulte [Creación y conexión de un clúster de Azure Kubernetes Service](how-to-create-attach-kubernetes.md).
 
@@ -87,7 +87,7 @@ En Azure Machine Learning, "implementación" se usa en el sentido general de pon
 El componente de front-end (azureml-fe) que enruta las solicitudes de inferencia entrantes a los servicios implementados se escala automáticamente según sea necesario. El escalado de azureml-fe se basa en el propósito y el tamaño (número de nodos) del clúster de AKS. El propósito y los nodos del clúster se configuran cuando se [crea o conecta un clúster de AKS](how-to-create-attach-kubernetes.md). Hay un servicio azureml-fe por clúster, que puede ejecutarse en varios pods.
 
 > [!IMPORTANT]
-> Al usar un clúster configurado como __Desarrollo y pruebas__ , el escalador automático está **deshabilitado**.
+> Al usar un clúster configurado como __Desarrollo y pruebas__, el escalador automático está **deshabilitado**.
 
 Azureml-fe escala tanto verticalmente para usar más núcleos cono horizontalmente para usar más pods. Al tomar la decisión de escalar verticalmente, se utiliza el tiempo que se tarda en enrutar las solicitudes de inferencia entrantes. Si este tiempo supera el umbral, se produce una escalabilidad vertical. Si el tiempo para enrutar las solicitudes entrantes sigue superando el umbral, se produce una escalabilidad horizontal.
 
@@ -95,7 +95,7 @@ Al reducir vertical y horizontalmente, se emplea el uso de la CPU. Si se cumple 
 
 ## <a name="deploy-to-aks"></a>Implementación en AKS
 
-Para implementar un modelo en Azure Kubernetes Service, cree una __configuración de implementación__ que describa los recursos de proceso necesarios. Por ejemplo, el número de núcleos y la memoria. También necesita una __configuración de inferencia__ , que describe el entorno necesario para hospedar el modelo y el servicio web. Para más información sobre cómo crear la configuración de inferencia, consulte [Cómo y dónde implementar modelos](how-to-deploy-and-where.md).
+Para implementar un modelo en Azure Kubernetes Service, cree una __configuración de implementación__ que describa los recursos de proceso necesarios. Por ejemplo, el número de núcleos y la memoria. También necesita una __configuración de inferencia__, que describe el entorno necesario para hospedar el modelo y el servicio web. Para más información sobre cómo crear la configuración de inferencia, consulte [Cómo y dónde implementar modelos](how-to-deploy-and-where.md).
 
 > [!NOTE]
 > El número de modelos que se implementará se limita a 1000 modelos por implementación (por contenedor).
@@ -154,7 +154,7 @@ El componente que controla el escalado automático para las implementaciones de 
 > [!IMPORTANT]
 > * **No habilite el Escalador horizontal automático de pods (HPA) de Kubernetes para las implementaciones de modelos**. Si lo hace, los dos componentes de escalado automático competirán entre sí. Azureml-fe está diseñado para el escalado automático de modelos implementados por Azure ML, donde HPA tendría que adivinar o aproximar el uso del modelo a partir de una métrica genérica, como el uso de la CPU o una configuración de métricas personalizada.
 > 
-> * **Azureml-fe no escala el número de nodos en un clúster de AKS** , ya que esto podría provocar un aumento inesperado en los costos. En su lugar, **escala el número de réplicas para el modelo** dentro de los límites del clúster físico. Si necesita escalar el número de nodos dentro del clúster, puede escalar manualmente el clúster o [configurar el escalador automático del clúster de AKS](../aks/cluster-autoscaler.md).
+> * **Azureml-fe no escala el número de nodos en un clúster de AKS**, ya que esto podría provocar un aumento inesperado en los costos. En su lugar, **escala el número de réplicas para el modelo** dentro de los límites del clúster físico. Si necesita escalar el número de nodos dentro del clúster, puede escalar manualmente el clúster o [configurar el escalador automático del clúster de AKS](../aks/cluster-autoscaler.md).
 
 Para controlar el escalado automático, se puede establecer `autoscale_target_utilization`, `autoscale_min_replicas` y `autoscale_max_replicas` para el servicio web de AKS. En el ejemplo siguiente se muestra cómo habilitar el escalado automático:
 
@@ -333,6 +333,7 @@ Azure Security Center proporciona administración unificada de la seguridad y pr
 
 ## <a name="next-steps"></a>Pasos siguientes
 
+* [Uso de Azure RBAC para la autorización de Kubernetes](../aks/manage-azure-rbac.md)
 * [Protección del entorno de inferencia con Azure Virtual Network](how-to-secure-inferencing-vnet.md)
 * [Cómo implementar un modelo con una imagen personalizada de Docker](how-to-deploy-custom-docker-image.md)
 * [Solución de problemas de implementación](how-to-troubleshoot-deployment.md)

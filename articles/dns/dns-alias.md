@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 08/09/2019
 ms.author: rohink
-ms.openlocfilehash: 3378036c4800b274d879743abf937c7860e63ded
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8b2576669357aae7e5fe423515933c2ce4a23a7d
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82926238"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94954484"
 ---
 # <a name="azure-dns-alias-records-overview"></a>Introducción a los registros de alias de Azure DNS
 
@@ -79,4 +79,4 @@ Para más información sobre los registros de alias, consulte los artículos sig
 
 - [Tutorial: Configuración de un registro de alias para hacer referencia a una dirección IP pública de Azure](tutorial-alias-pip.md)
 - [Tutorial: Configuración de un registro de alias para admitir nombres de dominio de Apex con Traffic Manager](tutorial-alias-tm.md)
-- [Preguntas más frecuentes sobre DNS](https://docs.microsoft.com/azure/dns/dns-faq#alias-records)
+- [Preguntas más frecuentes sobre DNS](./dns-faq.md#alias-records)

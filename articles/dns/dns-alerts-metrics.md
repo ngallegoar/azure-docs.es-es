@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/17/2018
 ms.author: rohink
-ms.openlocfilehash: a27c4519024d6d3d2f3852534619b5f8c2bb5e43
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 85b681cbeb1b06784529e321c9e907ab2bdecb73
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489615"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94954654"
 ---
 # <a name="azure-dns-metrics-and-alerts"></a>Métricas y alertas de Azure DNS
 Azure DNS es un servicio de hospedaje para dominios DNS que ofrece resolución de nombres mediante la infraestructura de Microsoft Azure. En este artículo se describen las métricas y alertas del servicio Azure DNS.
@@ -47,7 +47,7 @@ Para ver esta métrica, seleccione la experiencia del Explorador de métricas (v
 *Figura: Métrica de volumen de consultas de Azure DNS*
 
 ### <a name="record-set-count"></a>Recuento de conjunto de registros
-La métrica *Record Set Count* (Número de conjuntos de registros) muestra el número de conjuntos de registros de Azure DNS para la zona DNS. Se cuentan todos los conjuntos de registros definidos en la zona. La unidad de medida es Recuento y la agregación es el número máximo de conjuntos de registros. Para ver esta métrica, seleccione la experiencia del **Explorador de métricas (versión preliminar)** en la pestaña **Supervisar** de Azure Portal. Seleccione la zona DNS de la lista desplegable **Recursos** , elija la métrica **Record Set Count** (Número de conjuntos de registros) y luego **Máx.** como **Agregación**. Para obtener más información sobre la experiencia y los gráficos del Explorador de métricas, vea [Explorador de métricas de Azure Monitor](../azure-monitor/platform/metrics-charts.md). 
+La métrica *Record Set Count* (Número de conjuntos de registros) muestra el número de conjuntos de registros de Azure DNS para la zona DNS. Se cuentan todos los conjuntos de registros definidos en la zona. La unidad de medida es Recuento y la agregación es el número máximo de conjuntos de registros. Para ver esta métrica, seleccione la experiencia del **Explorador de métricas (versión preliminar)** en la pestaña **Supervisar** de Azure Portal. Seleccione la zona DNS de la lista desplegable **Recursos**, elija la métrica **Record Set Count** (Número de conjuntos de registros) y luego **Máx.** como **Agregación**. Para obtener más información sobre la experiencia y los gráficos del Explorador de métricas, vea [Explorador de métricas de Azure Monitor](../azure-monitor/platform/metrics-charts.md). 
 
 ![Recuento de conjunto de registros](./media/dns-alerts-metrics/dns-metrics-record-set-count.png)
 
@@ -62,7 +62,7 @@ La métrica *Record Set Capacity Utilization* (Uso de capacidad de conjunto de r
 *Figura: Métricas de uso de capacidad de conjunto de registros de Azure DNS*
 
 ## <a name="alerts-in-azure-dns"></a>Alertas de Azure DNS
-Azure Monitor ofrece la capacidad de alertar con respecto a los valores de métricas disponibles. Las métricas DNS están disponibles en la nueva experiencia de Configuración de alertas. Tal y como se describe detalladamente en la [documentación de alertas de Azure Monitor](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md), puede seleccionar Zona DNS como recurso, elegir el tipo de señal Métrica y configurar la lógica de alertas y otros parámetros como **Período** y **Frecuencia**. Puede definir más específicamente un [Grupo de acciones](../azure-monitor/platform/action-groups.md) para que, si se cumple la condición de alerta, esta se entregue por medio de las acciones elegidas. Para obtener más información sobre cómo configurar alertas para métricas de Azure Monitor, vea [Creación, visualización y administración de alertas mediante Azure Monitor](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md). 
+Azure Monitor ofrece la capacidad de alertar con respecto a los valores de métricas disponibles. Las métricas DNS están disponibles en la nueva experiencia de Configuración de alertas. Tal y como se describe detalladamente en la [documentación de alertas de Azure Monitor](../azure-monitor/platform/alerts-metric.md), puede seleccionar Zona DNS como recurso, elegir el tipo de señal Métrica y configurar la lógica de alertas y otros parámetros como **Período** y **Frecuencia**. Puede definir más específicamente un [Grupo de acciones](../azure-monitor/platform/action-groups.md) para que, si se cumple la condición de alerta, esta se entregue por medio de las acciones elegidas. Para obtener más información sobre cómo configurar alertas para métricas de Azure Monitor, vea [Creación, visualización y administración de alertas mediante Azure Monitor](../azure-monitor/platform/alerts-metric.md). 
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Obtenga más información sobre [Azure DNS](dns-overview.md).

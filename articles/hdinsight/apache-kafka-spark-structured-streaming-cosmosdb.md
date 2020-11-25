@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive, devx-track-azurecli
 ms.date: 11/18/2019
-ms.openlocfilehash: 20045ce914a340ac36e4df8cbd0df38e872a1d38
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 387eb4f4c73b2103a7461c0d06c4d0e0562ec9db
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487337"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842471"
 ---
 # <a name="use-apache-spark-structured-streaming-with-apache-kafka-and-azure-cosmos-db"></a>Uso del flujo estructurado de Apache Spark con Apache Kafka y Azure Cosmos DB
 
@@ -62,14 +62,14 @@ Aunque puede crear manualmente la red virtual de Azure y los clústeres Kafka y 
     > [!IMPORTANT]  
     > El cuaderno de flujo estructurado que se utiliza en este ejemplo requiere Spark en HDInsight 3.6. Si usa una versión anterior de Spark en HDInsight, recibirá errores al usar dicho cuaderno.
 
-1. Utilice los datos siguientes para rellenar las entradas de la sección **Implementación personalizada** :
+1. Utilice los datos siguientes para rellenar las entradas de la sección **Implementación personalizada**:
 
     |Propiedad |Value |
     |---|---|
     |Subscription|Seleccione su suscripción a Azure.|
     |Resource group|cree un grupo o seleccione uno existente. Este grupo contiene el clúster de HDInsight.|
     |Nombre de cuenta de Cosmos DB|este valor se utiliza como nombre para la cuenta de Cosmos DB. El nombre solo puede contener letras minúsculas, números y el carácter de guion (-). Debe tener una longitud de entre 3 y 31 caracteres.|
-    |Nombre del clúster base|este valor se utiliza como nombre base en los clústeres Spark y Kafka. Por ejemplo, si especifica **myhdi** , creará un clúster de Spark denominado __spark-myhdi__ y un clúster de Kafka denominado **kafka-myhdi** .|
+    |Nombre del clúster base|este valor se utiliza como nombre base en los clústeres Spark y Kafka. Por ejemplo, si especifica **myhdi**, creará un clúster de Spark denominado __spark-myhdi__ y un clúster de Kafka denominado **kafka-myhdi**.|
     |Versión del clúster|versión del clúster de HDInsight. Este ejemplo se ha probado con HDInsight 3.6 y podría no funcionar con otros tipos de clúster.|
     |Cluster Login User Name (Nombre de usuario de inicio de sesión del clúster)|nombre de usuario del administrador de los clústeres Spark y Kafka.|
     |Cluster Login Password (Contraseña de inicio de sesión del clúster)|contraseña de usuario del administrador de los clústeres Spark y Kafka.|
@@ -78,9 +78,9 @@ Aunque puede crear manualmente la red virtual de Azure y los clústeres Kafka y 
 
     ![Valores de implementación personalizada de HDInsight](./media/apache-kafka-spark-structured-streaming-cosmosdb/hdi-custom-parameters.png)
 
-1. Consulte los **Términos y condiciones** y seleccione **Acepto los términos y condiciones indicados anteriormente** .
+1. Consulte los **Términos y condiciones** y seleccione **Acepto los términos y condiciones indicados anteriormente**.
 
-1. Por último, seleccione **Adquirir** . Puede tardar hasta 45 minutos en crear los clústeres, la red virtual y la cuenta de Cosmos DB.
+1. Por último, seleccione **Adquirir**. Puede tardar hasta 45 minutos en crear los clústeres, la red virtual y la cuenta de Cosmos DB.
 
 ## <a name="create-the-cosmos-db-database-and-collection"></a>Creación de la base de datos y la colección de Cosmos DB
 
@@ -134,7 +134,7 @@ El código para el ejemplo descrito en este documento está disponible en [https
 
 Siga estos pasos para cargar los cuadernos del proyecto en el clúster de Spark en HDInsight:
 
-1. En el explorador web, conéctese al cuaderno de Jupyter Notebook en el clúster de Spark. En la siguiente URL, reemplace `CLUSTERNAME` por el nombre del clúster de __Spark__ :
+1. En el explorador web, conéctese al cuaderno de Jupyter Notebook en el clúster de Spark. En la siguiente URL, reemplace `CLUSTERNAME` por el nombre del clúster de __Spark__:
 
     ```http
     https://CLUSTERNAME.azurehdinsight.net/jupyter
@@ -146,7 +146,7 @@ Siga estos pasos para cargar los cuadernos del proyecto en el clúster de Spark 
 
 3. Busque la entrada __Stream-taxi-data-to-kafka.ipynb__ en la lista de cuadernos y seleccione el botón __Cargar__ que está junto a ella.
 
-4. Repita los pasos del 1 al 3 para cargar el cuaderno __Stream-data-from-Kafka-to-Cosmos-DB.ipynb__ .
+4. Repita los pasos del 1 al 3 para cargar el cuaderno __Stream-data-from-Kafka-to-Cosmos-DB.ipynb__.
 
 ## <a name="load-taxi-data-into-kafka"></a>Cargar los datos del taxi en Kafka
 
@@ -154,7 +154,7 @@ Cuando se hayan cargado los archivos, seleccione la entrada __Stream-taxi-data-t
 
 ## <a name="process-taxi-data-using-spark-structured-streaming"></a>Procesamiento de datos de taxi mediante el flujo estructurado de Spark
 
-En la página principal de [Jupyter Notebook](https://jupyter.org/), seleccione la entrada __Stream-data-from-Kafka-to-Cosmos-DB.ipynb__ . Siga los pasos descritos en el cuaderno para transmitir datos en secuencia de Kafka y en Azure Cosmos DB mediante el flujo estructurado de Spark.
+En la página principal de [Jupyter Notebook](https://jupyter.org/), seleccione la entrada __Stream-data-from-Kafka-to-Cosmos-DB.ipynb__. Siga los pasos descritos en el cuaderno para transmitir datos en secuencia de Kafka y en Azure Cosmos DB mediante el flujo estructurado de Spark.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

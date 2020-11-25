@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec45ce7634b7bc0a8f38f354112cdc2e172f1e17
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 58f0ffa8bd43a8428603334b6c89fa1cf36315b5
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93288374"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94987344"
 ---
 # <a name="frequently-asked-questions-identity-protection-in-azure-active-directory"></a>Preguntas más frecuentes sobre Identity Protection en Azure Active Directory
 
@@ -76,7 +76,7 @@ Todas las detecciones de riesgo se documentan en el artículo [¿Qué es el ries
 - Además, se proporcionará la información a los sistemas de aprendizaje automático para futuras mejoras en la evaluación de riesgos.
 
     > [!NOTE]
-    > Si el usuario ya se ha corregido, no haga clic en **Confirmar que se encuentra en peligro** , ya que pasará el estado de riesgo del inicio de sesión y del usuario a **Confirmado (en peligro)** y el nivel de riesgo a **Alto**.
+    > Si el usuario ya se ha corregido, no haga clic en **Confirmar que se encuentra en peligro**, ya que pasará el estado de riesgo del inicio de sesión y del usuario a **Confirmado (en peligro)** y el nivel de riesgo a **Alto**.
 
 **Confirmar que es seguro** (en un inicio de sesión): informa a Azure AD Identity Protection de que el inicio de sesión lo realizó el propietario de la identidad y no indica un peligro.
 
@@ -95,6 +95,4 @@ Dado que el riesgo del usuario es de naturaleza acumulativa y no expira, un usua
 
 La puntuación agregada de riesgo alto podría basarse en otras características del inicio de sesión, o en el hecho de que se desencadenó más de una detección para ese inicio de sesión. Y a la inversa, un inicio de sesión puede tener un riesgo de inicio de sesión (agregado) de nivel Medio, incluso si las detecciones asociadas con el inicio de sesión son de riesgo alto. 
 
-### <a name="why-is-the-detection-which-is-linked-to-a-risky-sign-in-have-a-different-risk-level-than-the-sign-in-risk-level-real-time"></a>¿Por qué la detección vinculada a un inicio de sesión de riesgo tiene un nivel de riesgo diferente que el nivel de riesgo de inicio de sesión (en tiempo real)? 
 
-Recientemente hicimos mejoras en el modo en que se calcula el riesgo de inicio de sesión en tiempo real. Las discrepancias observadas entre el nivel de detección de riesgos y el nivel de riesgo de inicio de sesión son consecuencia de estos cambios. Tenga en cuenta que el riesgo de inicio de sesión en tiempo real es el valor que se usa durante la aplicación de la directiva. 

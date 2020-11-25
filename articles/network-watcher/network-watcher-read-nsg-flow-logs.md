@@ -11,18 +11,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/13/2017
 ms.author: damendo
-ms.openlocfilehash: 18023f5a5b36dd971080d7a62fdd44698a205bb4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1f9b9e91cda93a986fdaaf0f53d8987544e783a2
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88272542"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966471"
 ---
 # <a name="read-nsg-flow-logs"></a>Lectura de registros de flujos de NSG
 
 Aprenda a leer las entradas de los registros de flujos de NSG con PowerShell.
 
-Los registros de flujos de NSG se almacenan en una cuenta de almacenamiento de [blobs en bloques](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs). Los blobs en bloques se componen de bloques más pequeños. Cada registro es un blob en bloques independiente que se genera cada hora. Cada hora se generan registros nuevos, que se actualizan con entradas nuevas cada pocos minutos con los datos más recientes. En este artículo aprenderá a leer las secciones de los registros de flujos.
+Los registros de flujos de NSG se almacenan en una cuenta de almacenamiento de [blobs en bloques](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs). Los blobs en bloques se componen de bloques más pequeños. Cada registro es un blob en bloques independiente que se genera cada hora. Cada hora se generan registros nuevos, que se actualizan con entradas nuevas cada pocos minutos con los datos más recientes. En este artículo aprenderá a leer las secciones de los registros de flujos.
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -37,7 +37,7 @@ Antes de empezar, tiene que tener el registro de flujo de grupo de seguridad de 
 
 ## <a name="retrieve-the-block-list"></a>Recuperación de la lista de bloques
 
-En el siguiente PowerShell se configuran las variables necesarias para consultar el blob del registro de flujos de NSG y mostrar los bloques del blob en bloques [CloudBlockBlob](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.cloudblockblob). Actualice el script para que contenga valores válidos para su entorno.
+En el siguiente PowerShell se configuran las variables necesarias para consultar el blob del registro de flujos de NSG y mostrar los bloques del blob en bloques [CloudBlockBlob](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob). Actualice el script para que contenga valores válidos para su entorno.
 
 ```powershell
 function Get-NSGFlowLogCloudBlockBlob {
@@ -189,6 +189,6 @@ Este escenario es un ejemplo de cómo leer las entradas de registros de flujos d
 
 Visite [Uso de Elastic Stack](network-watcher-visualize-nsg-flow-logs-open-source-tools.md), [Uso de Grafana](network-watcher-nsg-grafana.md) y [Uso de Graylog](network-watcher-analyze-nsg-flow-logs-graylog.md) para obtener más información sobre cómo ver los registros de flujos de NSG. Puede encontrar un enfoque de la función de Azure de código abierto para consumir los blobs directamente y emitir a varios consumidores de Log Analytics aquí: [Conector de registros de flujo de NSG para Azure Network Watcher](https://github.com/Microsoft/AzureNetworkWatcherNSGFlowLogsConnector).
 
-Puede usar [Análisis de tráfico de Azure](https://docs.microsoft.com/azure/network-watcher/traffic-analytics) para sacar conclusiones sobre los flujos de tráfico. Análisis de tráfico usa [Log Analytics](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal) para permitir las consultas en el flujo de tráfico.
+Puede usar [Análisis de tráfico de Azure](./traffic-analytics.md) para sacar conclusiones sobre los flujos de tráfico. Análisis de tráfico usa [Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md) para permitir las consultas en el flujo de tráfico.
 
 Para obtener más información sobre los blobs de almacenamiento, visite: [Enlaces de Azure Blob Storage para Azure Functions](../azure-functions/functions-bindings-storage-blob.md)

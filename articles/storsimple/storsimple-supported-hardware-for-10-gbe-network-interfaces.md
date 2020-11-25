@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 09/21/2016
 ms.author: alkohli
-ms.openlocfilehash: 7fafe177ea0c6c618dc4ab0727ba14c83cbb0102
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fd30c7ec15eadd3d7945349a8aae4ac824bfdc7f
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "68965011"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94954093"
 ---
 # <a name="supported-hardware-for-the-10-gbe-network-interfaces-on-your-storsimple-device"></a>Hardware compatible para interfaces de red de 10 GbE en el dispositivo StorSimple
 
@@ -125,5 +125,4 @@ En la tabla siguiente se enumeran los conmutadores y módulos compatibles con Me
 | 7. |1 GbE |6120G |Conmutador Blade HP ProCurve 6120G/XG 1 GbE |HP |
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Obtenga más información sobre los componentes de hardware de StorSimple y su estado](storsimple-monitor-hardware-status.md).
-
+[Obtenga más información sobre los componentes de hardware de StorSimple y su estado](./storsimple-8000-monitor-hardware-status.md).

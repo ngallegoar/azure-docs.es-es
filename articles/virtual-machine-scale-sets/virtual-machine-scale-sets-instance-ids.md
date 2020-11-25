@@ -8,13 +8,13 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: management
 ms.date: 02/22/2018
 ms.reviewer: jushiman
-ms.custom: mimckitt
-ms.openlocfilehash: 07f72d54c0d62748196302ed1b77ea750dede8ff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mimckitt, devx-track-azurecli
+ms.openlocfilehash: a32a5a04c5c71cc06d60f3d2f21946f5361a2afd
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87080461"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843254"
 ---
 # <a name="understand-instance-ids-for-azure-vm-scale-set-vms"></a>Identificadores de instancia de máquinas virtuales del conjunto de escalado de máquinas virtuales de Azure
 En este artículo se describen los identificadores de instancia de los conjuntos de escalado y las distintas formas en que se muestran.

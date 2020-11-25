@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: eliotgra
-ms.openlocfilehash: 2a030d9ca5422e12856dcb81b29f8327e684c97e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d6b6649d03da319171b24baa24983972bf270679
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90528660"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94954552"
 ---
 # <a name="use-azure-iot-hub-device-provisioning-service-auto-provisioning-to-register-the-mxchip-iot-devkit-with-iot-hub"></a>Registro del MXChip IoT DevKit con IoT Hub mediante el aprovisionamiento automático con el servicio Azure IoT Hub Device Provisioning
 
@@ -30,9 +30,9 @@ En este artículo se describe el uso de Azure IoT Hub Device Provisioning Servic
 
 Para completar los pasos de este tutorial, deberá realizar las siguientes tareas:
 
-* Configure la red Wi-Fi de DevKit y prepare el entorno de desarrollo siguiendo los pasos en la sección "Preparación del entorno de desarrollo" de [Conexión de IoT DevKit AZ3166 a Azure IoT Hub en la nube](/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started#prepare-the-development-environment).
+* Configure la red Wi-Fi de DevKit y prepare el entorno de desarrollo siguiendo los pasos en la sección "Preparación del entorno de desarrollo" de [Conexión de IoT DevKit AZ3166 a Azure IoT Hub en la nube](../iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started.md#prepare-the-development-environment).
 * Actualice al firmware más reciente (1.3.0 o posterior) con el tutorial de [actualización del firmware de DevKit](https://microsoft.github.io/azure-iot-developer-kit/docs/firmware-upgrading/).
-* Cree y vincule una instancia de IoT Hub con una instancia del servicio Device Provisioning mediante los pasos que se indican en [Configuración de Azure IoT Hub Device Provisioning Service con Azure Portal](/azure/iot-dps/quick-setup-auto-provision).
+* Cree y vincule una instancia de IoT Hub con una instancia del servicio Device Provisioning mediante los pasos que se indican en [Configuración de Azure IoT Hub Device Provisioning Service con Azure Portal](./quick-setup-auto-provision.md).
 
 ## <a name="open-sample-project"></a>Abra el proyecto de ejemplo
 
@@ -74,7 +74,7 @@ Para guardar un UDS en DevKit:
 
 ## <a name="update-the-global-device-endpoint-and-id-scope"></a>Actualizar el punto de conexión global del dispositivo y el ámbito de Id.
 
-En el código de dispositivo, deberá especificar el [punto de conexión de aprovisionamiento de dispositivos](/azure/iot-dps/concepts-service#device-provisioning-endpoint) y el ámbito de Id. para garantizar el aislamiento del inquilino.
+En el código de dispositivo, deberá especificar el [punto de conexión de aprovisionamiento de dispositivos](./concepts-service.md#device-provisioning-endpoint) y el ámbito de Id. para garantizar el aislamiento del inquilino.
 
 1. En Azure Portal, seleccione el panel **Información general** del servicio Device Provisioning y anote los valores de **Punto de conexión global del dispositivo** e **Ámbito de id**.
   ![Punto de conexión global y ámbito de id. del servicio Device Provisioning](media/how-to-connect-mxchip-iot-devkit/dps-global-endpoint.png)
@@ -90,7 +90,7 @@ En el código de dispositivo, deberá especificar el [punto de conexión de apro
 
 ## <a name="generate-x509-certificate"></a>Generación de certificado X.509
 
-El certificado X.509 se usa como [mecanismo de atestación](/azure/iot-dps/concepts-device#attestation-mechanism) en este ejemplo. Deberá usar una utilidad para generarlo.
+El certificado X.509 se usa como [mecanismo de atestación](./concepts-service.md#attestation-mechanism) en este ejemplo. Deberá usar una utilidad para generarlo.
 
 1. En VS Code, presione `F1`, escriba y seleccione **Abrir nuevo terminal** para abrir la ventana de terminal.
 
@@ -141,4 +141,3 @@ En resumen, ha aprendido a:
 > * Comprobar que el dispositivo está registrado.
 
 Aprenda cómo [crear y aprovisionar un dispositivo simulado](./quick-create-simulated-device.md).
-

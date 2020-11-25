@@ -7,18 +7,19 @@ author: saghorpa
 manager: juergent
 editor: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 11/21/2017
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0967c5e354c3b0e433753cf89d830dc2101741af
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b34a7665770308b45732711f5d8328eb1d0a785f
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91363127"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965075"
 ---
 # <a name="high-availability-set-up-in-suse-using-the-stonith"></a>Configuración de alta disponibilidad en SUSE mediante STONITH
 Este documento proporciona instrucciones paso a paso para configurar la alta disponibilidad en el sistema operativo SUSE mediante el dispositivo STONITH.

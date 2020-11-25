@@ -7,12 +7,12 @@ ms.date: 09/14/2020
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 3e06c79b9cbd5643d119974a4ed8628ea1b1cd4f
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: 9eee315aac28847710662b463add7d6e68d8d505
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92096766"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967302"
 ---
 # <a name="x509-certificate-attestation"></a>Atestación de certificados de cliente X.509
 
@@ -26,7 +26,7 @@ Los certificados X.509 se pueden almacenar en un HSM de módulo de seguridad de 
 
 ## <a name="x509-certificates"></a>Certificados X.509
 
-El uso de certificados X.509 como un mecanismo de atestación es una manera excelente para escalar la producción y simplificar el aprovisionamiento de dispositivos. Los certificados X.509 normalmente están organizados en una cadena de certificados de confianza en la que cada certificado de la cadena está firmado por la clave privada del certificado superior siguiente y así sucesivamente, terminando en un certificado raíz autofirmado. Esta opción establece una cadena de confianza delegada a partir del certificado raíz que generó una entidad de certificación (CA) raíz de confianza, a través de cada entidad de certificación intermedia y hasta el certificado "de hoja" de entidad final instalado en un dispositivo. Para más información consulte [Autenticación de dispositivos mediante certificados de entidades de certificación X.509](/azure/iot-hub/iot-hub-x509ca-overview). 
+El uso de certificados X.509 como un mecanismo de atestación es una manera excelente para escalar la producción y simplificar el aprovisionamiento de dispositivos. Los certificados X.509 normalmente están organizados en una cadena de certificados de confianza en la que cada certificado de la cadena está firmado por la clave privada del certificado superior siguiente y así sucesivamente, terminando en un certificado raíz autofirmado. Esta opción establece una cadena de confianza delegada a partir del certificado raíz que generó una entidad de certificación (CA) raíz de confianza, a través de cada entidad de certificación intermedia y hasta el certificado "de hoja" de entidad final instalado en un dispositivo. Para más información consulte [Autenticación de dispositivos mediante certificados de entidades de certificación X.509](../iot-hub/iot-hub-x509ca-overview.md). 
 
 A menudo la cadena de certificados representa alguna jerarquía lógica o física asociada con los dispositivos. Por ejemplo, un fabricante puede:
 - emitir un certificado raíz de entidad de certificación autofirmado
@@ -34,11 +34,11 @@ A menudo la cadena de certificados representa alguna jerarquía lógica o físic
 - usar el certificado de cada fábrica para generar un certificado de entidad de certificación intermedia único para cada línea de producción en la planta
 - y, por último, utilizar el certificado de la línea de producción para generar un certificado de dispositivo único (entidades finales) para cada dispositivo que se fabrica en la línea. 
 
-Para más información consulte [Explicación de los conceptos de certificados de entidad de certificación X.509 en el sector de IoT](/azure/iot-hub/iot-hub-x509ca-concept). 
+Para más información consulte [Explicación de los conceptos de certificados de entidad de certificación X.509 en el sector de IoT](../iot-hub/iot-hub-x509ca-concept.md). 
 
 ### <a name="root-certificate"></a>Certificado raíz
 
-Un certificado raíz es un certificado X.509 autofirmado que representa una entidad de certificación (CA). Es el término o anclaje de veracidad de la cadena de certificados. Una organización puede emitir sus propios certificados raíz o puede adquirirlos a través de una entidad de certificación raíz. Para más información, consulte [Obtención de certificados de entidad de certificación X.509](/azure/iot-hub/iot-hub-security-x509-get-started#get-x509-ca-certificates). También se puede hacer referencia al certificado raíz como un certificado de CA raíz.
+Un certificado raíz es un certificado X.509 autofirmado que representa una entidad de certificación (CA). Es el término o anclaje de veracidad de la cadena de certificados. Una organización puede emitir sus propios certificados raíz o puede adquirirlos a través de una entidad de certificación raíz. Para más información, consulte [Obtención de certificados de entidad de certificación X.509](../iot-hub/iot-hub-security-x509-get-started.md#get-x509-ca-certificates). También se puede hacer referencia al certificado raíz como un certificado de CA raíz.
 
 ### <a name="intermediate-certificate"></a>Certificado intermedio
 
@@ -47,7 +47,7 @@ Un certificado intermedio es un certificado X.509 que ha sido firmado por el cer
 ##### <a name="why-are-intermediate-certs-useful"></a>¿Por qué son útiles los certificados intermedios?
 Los certificados intermedios se utilizan de varias maneras. Por ejemplo, se pueden usar para agrupar dispositivos en función de líneas de producto, clientes que adquieran dispositivos, divisiones de la empresa o fábricas. 
 
-Supongamos que Contoso es una gran corporación con su propia infraestructura de clave pública (PKI) que usa el certificado raíz denominado *ContosoRootCert* . Cada subsidiaria de Contoso tiene su propio certificado intermedio que está firmado por *ContosoRootCert* . Posteriormente, cada subsidiaria usará su certificado intermedio para firmar sus certificados de hoja para cada dispositivo. En este escenario, Contoso puede usar una única instancia de DPS en la que *ContosoRootCert* se ha comprobado mediante una [prueba de posesión](./how-to-verify-certificates.md). Puede haber un grupo de inscripción para cada subsidiaria. De esta forma, cada subsidiaria individual no tendrá que ocuparse de comprobar los certificados.
+Supongamos que Contoso es una gran corporación con su propia infraestructura de clave pública (PKI) que usa el certificado raíz denominado *ContosoRootCert*. Cada subsidiaria de Contoso tiene su propio certificado intermedio que está firmado por *ContosoRootCert*. Posteriormente, cada subsidiaria usará su certificado intermedio para firmar sus certificados de hoja para cada dispositivo. En este escenario, Contoso puede usar una única instancia de DPS en la que *ContosoRootCert* se ha comprobado mediante una [prueba de posesión](./how-to-verify-certificates.md). Puede haber un grupo de inscripción para cada subsidiaria. De esta forma, cada subsidiaria individual no tendrá que ocuparse de comprobar los certificados.
 
 
 ### <a name="end-entity-leaf-certificate"></a>Certificado de entidad final "de hoja"
@@ -56,7 +56,7 @@ El certificado de hoja, o certificado de entidad final, identifica al titular de
 
 Los certificados de hoja usados con una entrada de [inscripción Individual](./concepts-service.md#individual-enrollment) requieren que el **nombre del sujeto** se establezca en el identificador de registro de la entrada de la inscripción individual. Los certificados de hoja utilizados con una entrada de [grupo de inscripción](./concepts-service.md#enrollment-group) deben tener configurado como **nombre del firmante** el identificador del dispositivo deseado que se mostrará en **Entradas de registro** para el dispositivo autenticado en el grupo de inscripción.
 
-Para más información consulte [Autenticación de dispositivos firmados con certificados de entidad de certificación X.509](/azure/iot-hub/iot-hub-x509ca-overview#authenticating-devices-signed-with-x509-ca-certificates).
+Para más información consulte [Autenticación de dispositivos firmados con certificados de entidad de certificación X.509](../iot-hub/iot-hub-x509ca-overview.md#authenticating-devices-signed-with-x509-ca-certificates).
 
 ## <a name="controlling-device-access-to-the-provisioning-service-with-x509-certificates"></a>Control del acceso de dispositivo al servicio de aprovisionamiento con certificados X.509
 
@@ -79,7 +79,7 @@ Solo se comprueba el certificado raíz, y el certificado *intermediate2* se carg
 
 ![Ejemplo de certificado raíz comprobado](./media/concepts-x509-attestation/example-root-verified.png) 
 
-Si el dispositivo solo envía la siguiente cadena de dispositivo durante el aprovisionamiento, se producirá un error de autenticación. Esto se debe a que el servicio DPS no puede intentar la autenticación basándose en la supuesta validez del certificado *intermediate1* .
+Si el dispositivo solo envía la siguiente cadena de dispositivo durante el aprovisionamiento, se producirá un error de autenticación. Esto se debe a que el servicio DPS no puede intentar la autenticación basándose en la supuesta validez del certificado *intermediate1*.
 
 ![Ejemplo de cadena de certificados que genera error](./media/concepts-x509-attestation/example-fail-cert-chain.png) 
 
@@ -103,10 +103,10 @@ Cuando un dispositivo se conecta al servicio de aprovisionamiento, el servicio d
 
 Este mecanismo y la estructura jerárquica de las cadenas de certificados proporciona una flexibilidad eficaz en la forma de controlar el acceso de dispositivos individuales, así como el de grupos de dispositivos. Por ejemplo, imagine cinco dispositivos con las siguientes cadenas de certificado: 
 
-- *Dispositivo 1* : certificado raíz -> certificado A -> certificado de dispositivo 1
-- *Dispositivo 2* : certificado raíz -> certificado A -> certificado de dispositivo 2
-- *Dispositivo 3* : certificado raíz -> certificado A -> certificado de dispositivo 3
-- *Dispositivo 4* : certificado raíz -> certificado B -> certificado de dispositivo 4
-- *Dispositivo 5* : certificado raíz -> certificado B -> certificado de dispositivo 5
+- *Dispositivo 1*: certificado raíz -> certificado A -> certificado de dispositivo 1
+- *Dispositivo 2*: certificado raíz -> certificado A -> certificado de dispositivo 2
+- *Dispositivo 3*: certificado raíz -> certificado A -> certificado de dispositivo 3
+- *Dispositivo 4*: certificado raíz -> certificado B -> certificado de dispositivo 4
+- *Dispositivo 5*: certificado raíz -> certificado B -> certificado de dispositivo 5
 
-En principio, puede crear una única entrada de inscripción de grupo habilitada para el certificado raíz para habilitar el acceso para los cinco dispositivos. Si más adelante el certificado B se pone en peligro, puede crear una entrada de grupo de inscripción deshabilitada para el certificado B para evitar que el *Dispositivo 4* y el *Dispositivo 5* se inscriban. Si después el *Dispositivo 3* se pone en peligro, puede crear una entrada de inscripción individual deshabilitada para su certificado. Esto revoca el acceso del *Dispositivo 3* , pero sigue permitiendo que el *Dispositivo 1* y el *Dispositivo 2* se inscriban.
+En principio, puede crear una única entrada de inscripción de grupo habilitada para el certificado raíz para habilitar el acceso para los cinco dispositivos. Si más adelante el certificado B se pone en peligro, puede crear una entrada de grupo de inscripción deshabilitada para el certificado B para evitar que el *Dispositivo 4* y el *Dispositivo 5* se inscriban. Si después el *Dispositivo 3* se pone en peligro, puede crear una entrada de inscripción individual deshabilitada para su certificado. Esto revoca el acceso del *Dispositivo 3*, pero sigue permitiendo que el *Dispositivo 1* y el *Dispositivo 2* se inscriban.

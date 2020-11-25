@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 4e5becdd026b0a1c9e848b183ebeee5833654461
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f3a8881b9fe44727caf07b3cc0d5ee19f0444e98
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91259278"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94953668"
 ---
 # <a name="tutorial-for-configuring-jumio-with-azure-active-directory-b2c"></a>Tutorial para configurar Jumio con Azure Active Directory B2C
 
@@ -28,7 +28,7 @@ Para empezar, necesitará lo siguiente:
 
 - Una suscripción de Azure AD. Si no tiene una suscripción, puede crear una [cuenta gratuita](https://azure.microsoft.com/free/).
 
-- Un [inquilino de Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant) vinculado a la suscripción de Azure.
+- Un [inquilino de Azure AD B2C](./tutorial-create-tenant.md) vinculado a la suscripción de Azure.
 
 ## <a name="scenario-description"></a>Descripción del escenario
 
@@ -65,7 +65,7 @@ Después de crear una cuenta de Jumio, use la cuenta para configurar Azure AD 
 
 ### <a name="deploy-the-api"></a>Implementación de la API
 
-Implemente el [código de la API](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/Jumio/API/Jumio.Api) proporcionado en un servicio de Azure. El código se puede publicar desde Visual Studio. Para hacerlo, siga [estas instrucciones](https://docs.microsoft.com/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019).
+Implemente el [código de la API](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/Jumio/API/Jumio.Api) proporcionado en un servicio de Azure. El código se puede publicar desde Visual Studio. Para hacerlo, siga [estas instrucciones](/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019).
 
 >[!NOTE]
 >Necesitará la dirección URL del servicio implementado para configurar Azure AD con la configuración necesaria.
@@ -85,7 +85,7 @@ Implemente el [código de la API](https://github.com/azure-ad-b2c/partner-integr
 
    A continuación, el certificado se exportará a la ubicación especificada para ``{your-local-path}``.
 
-3. Para importar el certificado a Azure App Service, siga las instrucciones de [este artículo](https://docs.microsoft.com/azure/app-service/configure-ssl-certificate#upload-a-private-certificate).
+3. Para importar el certificado a Azure App Service, siga las instrucciones de [este artículo](../app-service/configure-ssl-certificate.md#upload-a-private-certificate).
 
 ### <a name="create-a-signingencryption-key"></a>Creación de una clave de firma o cifrado
 
@@ -102,7 +102,7 @@ Use el siguiente script de PowerShell para crear la cadena:
 
 ### <a name="configure-the-api"></a>Configuración de la API
 
-Puede [configurar las opciones de la aplicación en Azure App Service](https://docs.microsoft.com/azure/app-service/configure-common#configure-app-settings). Con este método, los valores se pueden configurar de forma segura sin registrarlos en un repositorio. Debe especificar la configuración siguiente para la API de REST:
+Puede [configurar las opciones de la aplicación en Azure App Service](../app-service/configure-common.md#configure-app-settings). Con este método, los valores se pueden configurar de forma segura sin registrarlos en un repositorio. Debe especificar la configuración siguiente para la API de REST:
 
 | Configuración de la aplicación | Source | Notas |
 | :-------- | :------------| :-----------|
@@ -118,7 +118,7 @@ Puede [configurar las opciones de la aplicación en Azure App Service](https://d
 
 ### <a name="deploy-the-ui"></a>Implementación de la interfaz de usuario
 
-1. Configure un [contenedor de blobs en la cuenta de almacenamiento](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container).
+1. Configure un [contenedor de blobs en la cuenta de almacenamiento](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container).
 
 2. Almacene los archivos de la interfaz de usuario de la [carpeta de la interfaz de usuario](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/Jumio/UI) en el contenedor de blobs.
 
@@ -139,7 +139,7 @@ Puede [configurar las opciones de la aplicación en Azure App Service](https://d
 
 1. Vaya a la [directiva de Azure AD B2C](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/Jumio/Policies) en la carpeta Directivas.
 
-2. Siga [este artículo](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications#custom-policy-starter-pack) para descargar el [paquete de inicio de LocalAccounts](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/LocalAccounts).
+2. Siga [este artículo](./custom-policy-get-started.md?tabs=applications#custom-policy-starter-pack) para descargar el [paquete de inicio de LocalAccounts](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/LocalAccounts).
 
 3. Configure la directiva para el inquilino de Azure AD B2C.
 
@@ -168,6 +168,6 @@ Puede [configurar las opciones de la aplicación en Azure App Service](https://d
 
 Para más información, consulte los artículos siguientes:
 
-- [Directivas personalizadas de Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview)
+- [Directivas personalizadas de Azure AD B2C](./custom-policy-overview.md)
 
-- [Introducción a las directivas personalizadas en Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications)
+- [Introducción a las directivas personalizadas en Azure AD B2C](./custom-policy-get-started.md?tabs=applications)

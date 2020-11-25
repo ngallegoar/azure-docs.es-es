@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: how-to
 ms.date: 2/20/2020
 ms.author: allensu
-ms.openlocfilehash: 52cb1f144608202739dc46f2053950b38d810631
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 8163fcb3b349e298bc89f06523e3e784bdc4ed49
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92330162"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965683"
 ---
 # <a name="how-to-protect-dns-zones-and-records"></a>Cómo proteger registros y zonas DNS
 
@@ -34,7 +34,7 @@ El grupo de recursos *myResourceGroup* contiene cinco zonas de Contoso Corporati
 
 La manera más sencilla de asignar permisos de Azure RBAC es [a través de Azure Portal](../role-based-access-control/role-assignments-portal.md).  
 
-Abra **Control de acceso (IAM)** del grupo de recursos, seleccione **Agregar** y, luego, seleccione el rol **Colaborador de zona DNS** . Seleccione los usuarios o grupos necesarios para conceder permisos.
+Abra **Control de acceso (IAM)** del grupo de recursos, seleccione **Agregar** y, luego, seleccione el rol **Colaborador de zona DNS**. Seleccione los usuarios o grupos necesarios para conceder permisos.
 
 ![Permiso de Azure RBAC de nivel de grupo de recursos a través de Azure Portal](./media/dns-protect-zones-recordsets/rbac1.png)
 
@@ -65,7 +65,7 @@ az role assignment create \
 
 Las reglas de RBAC de Azure pueden aplicarse a una suscripción, a un grupo de recursos o a un recurso individual. Ese recurso puede ser una zona DNS individual o un conjunto de registros individual.
 
-Por ejemplo, el grupo de recursos *myResourceGroup* contiene la zona *contoso.com* y una subzona *customers.contoso.com* . Para cada cuenta de cliente se crean registros CNAME. La cuenta de administrador que se usa para administrar los registros CNAME recibe permisos para crear registros en la zona *customers.contoso.com* . La cuenta solo puede administrar *customers.contoso.com* .
+Por ejemplo, el grupo de recursos *myResourceGroup* contiene la zona *contoso.com* y una subzona *customers.contoso.com*. Para cada cuenta de cliente se crean registros CNAME. La cuenta de administrador que se usa para administrar los registros CNAME recibe permisos para crear registros en la zona *customers.contoso.com*. La cuenta solo puede administrar *customers.contoso.com*.
 
 Los permisos de Azure RBAC de nivel de zona se pueden conceder a través de Azure Portal.  Abra **Control de acceso (IAM)** para la zona, seleccione **Agregar** y, a continuación, seleccione el rol **Colaborador de zona DNS** y los usuarios o grupos a los que necesita conceder permisos.
 
@@ -192,17 +192,17 @@ Para obtener más información sobre cómo crear, administrar y asignar roles pe
 
 Azure Resource Manager admite otro tipo de control de seguridad: la posibilidad de bloquear recursos. Los bloqueos de recursos se aplican al recurso y están en vigor en todos los usuarios y roles. Para obtener más información, consulte [Bloqueo de recursos con el Administrador de recursos de Azure](../azure-resource-manager/management/lock-resources.md).
 
-Existen dos tipos de bloqueos de recursos: **CanNotDelete** y **ReadOnly** . Estos tipos de bloqueos pueden aplicarse a una zona DNS privada o a un conjunto de registros individual. En las secciones siguientes se describen varios escenarios comunes y cómo mantenerlos con bloqueos de recursos.
+Existen dos tipos de bloqueos de recursos: **CanNotDelete** y **ReadOnly**. Estos tipos de bloqueos pueden aplicarse a una zona DNS privada o a un conjunto de registros individual. En las secciones siguientes se describen varios escenarios comunes y cómo mantenerlos con bloqueos de recursos.
 
 ### <a name="protecting-against-all-changes"></a>Protección contra todos los cambios
 
 Para evitar que se realicen cambios, aplique un bloqueo ReadOnly a la zona. Este bloqueo impide que se creen otros conjuntos de registros y que se modifiquen o eliminen conjuntos de registros existentes.
 
-Pueden crearse bloqueos de recursos de nivel de zona a través de Azure Portal.  En la página de la zona DNS, seleccione **Bloqueos** y después seleccione **+ Agregar** :
+Pueden crearse bloqueos de recursos de nivel de zona a través de Azure Portal.  En la página de la zona DNS, seleccione **Bloqueos** y después seleccione **+ Agregar**:
 
 ![Bloqueos de recursos de nivel de zona a través de Azure Portal](./media/dns-protect-zones-recordsets/locks1.png)
 
-También pueden crearse bloqueos de recursos de nivel de zona a través de [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcelock?view=latest):
+También pueden crearse bloqueos de recursos de nivel de zona a través de [Azure PowerShell](/powershell/module/az.resources/new-azresourcelock?view=latest):
 
 ```azurepowershell
 # Lock a DNS zone
@@ -216,7 +216,7 @@ $rsg = "<resource group name>"
 New-AzResourceLock -LockLevel $lvl -LockName $lnm -ResourceName $rsc -ResourceType $rty -ResourceGroupName $rsg
 ```
 
-El comando equivalente también está [disponible a través de la CLI de Azure](https://docs.microsoft.com/cli/azure/lock?view=azure-cli-latest#az-lock-create):
+El comando equivalente también está [disponible a través de la CLI de Azure](/cli/azure/lock?view=azure-cli-latest#az-lock-create):
 
 ```azurecli
 # Lock a DNS zone

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 3/20/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 1e6965e15b7482935148ae7fcd2edf0f3cc722b2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 98c33d4b9e749e804f70d9dccb7198884c80dfe7
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83738565"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94952711"
 ---
 # <a name="user-profile-attributes"></a>Atributos de perfil de usuario
 
@@ -26,7 +26,7 @@ El perfil de usuario del directorio de Azure Active Directory (Azure AD) B2C in
 
 También pueden integrarse con sistemas externos. Por ejemplo, puede usar Azure AD B2C para la autenticación, pero delegar en una base de datos externa de administración de las relaciones con el cliente (CRM) o de fidelización de clientes como el origen de autoridad de los datos de los clientes. Para obtener más información, consulte la solución de [perfil remoto](https://github.com/azure-ad-b2c/samples/tree/master/policies/remote-profile).
 
-En la tabla siguiente se enumeran los atributos de [tipo de recurso de usuario](https://docs.microsoft.com/graph/api/resources/user) que son compatibles con el perfil de usuario del directorio de Azure AD B2C. En la tabla siguiente se proporciona información sobre cada atributo:
+En la tabla siguiente se enumeran los atributos de [tipo de recurso de usuario](/graph/api/resources/user) que son compatibles con el perfil de usuario del directorio de Azure AD B2C. En la tabla siguiente se proporciona información sobre cada atributo:
 
 - El nombre de atributo que usa Azure AD B2C (seguido del nombre de Microsoft Graph entre paréntesis, si es diferente).
 - El tipo de datos del atributo.
@@ -94,7 +94,7 @@ A menudo, necesitará crear sus propios atributos, como en los siguientes casos:
 - Un proveedor de identidades tiene un identificador de usuario único como **uniqueUserGUID** que se debe guardar.
 - Un recorrido del usuario personalizado debe persistir en un estado de un usuario como **migrationStatus**.
 
-Azure AD B2C extiende el conjunto de atributos almacenado en cada cuenta de usuario. Los atributos de extensión [extienden el esquema](https://docs.microsoft.com/graph/extensibility-overview#schema-extensions) de los objetos de usuario en el directorio. Los atributos de extensión solo se pueden registrar en un objeto de aplicación, aunque podrían contener datos de un usuario. El atributo de extensión se adjunta a la aplicación denominada b2c-extensions-app. No modifique esta aplicación, ya que la usa Azure AD B2C para almacenar los datos de usuario. Puede encontrar esta aplicación en los registros de aplicaciones de Azure Active Directory.
+Azure AD B2C extiende el conjunto de atributos almacenado en cada cuenta de usuario. Los atributos de extensión [extienden el esquema](/graph/extensibility-overview#schema-extensions) de los objetos de usuario en el directorio. Los atributos de extensión solo se pueden registrar en un objeto de aplicación, aunque podrían contener datos de un usuario. El atributo de extensión se adjunta a la aplicación denominada b2c-extensions-app. No modifique esta aplicación, ya que la usa Azure AD B2C para almacenar los datos de usuario. Puede encontrar esta aplicación en los registros de aplicaciones de Azure Active Directory.
 
 > [!NOTE]
 > - Se pueden escribir hasta 100 atributos de extensión en cualquier cuenta de usuario.
@@ -113,6 +113,6 @@ Se admiten los siguientes tipos de datos al definir una propiedad en una extensi
 
 ## <a name="next-steps"></a>Pasos siguientes
 Obtenga más información sobre los atributos de extensión:
-- [Extensiones de esquema](https://docs.microsoft.com/graph/extensibility-overview#schema-extensions)
+- [Extensiones de esquema](/graph/extensibility-overview#schema-extensions)
 - [Definición de atributos personalizados con flujos de usuario](user-flow-custom-attributes.md)
 - [Definición de atributos personalizados con directivas personalizadas](custom-policy-custom-attributes.md)

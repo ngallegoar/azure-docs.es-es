@@ -16,12 +16,13 @@ ms.custom:
 - 'Role: Operations'
 - devx-track-js
 - devx-track-csharp
-ms.openlocfilehash: 93b692574588396f776c4d62bd24072382ae8471
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+- devx-track-azurecli
+ms.openlocfilehash: 8627681d843d15658882529424375486a4cdb1b9
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92912147"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94845176"
 ---
 # <a name="control-access-to-iot-hub"></a>Control del acceso a IoT Hub
 
@@ -144,13 +145,13 @@ Estos son los valores esperados:
 
 | Value | Descripción |
 | --- | --- |
-| {signature} |Una cadena de firma HMAC-SHA256 con el formato: `{URL-encoded-resourceURI} + "\n" + expiry`. **Importante** : La clave se descodifica en base64 y se utiliza para realizar el cálculo de HMAC-SHA256. |
+| {signature} |Una cadena de firma HMAC-SHA256 con el formato: `{URL-encoded-resourceURI} + "\n" + expiry`. **Importante**: La clave se descodifica en base64 y se utiliza para realizar el cálculo de HMAC-SHA256. |
 | {resourceURI} |Prefijo del identificador URI (por segmento) de los puntos de conexión a los que se puede obtener acceso con este token, que comienza por un nombre de host de IoT Hub (sin protocolo) Por ejemplo: `myHub.azure-devices.net/devices/device1` |
 | {expiry} |Cadenas UTF8 para el número de segundos transcurridos desde el tiempo 00:00:00 UTC el 1 de enero de 1970. |
 | {URL-encoded-resourceURI} |Codificación de dirección URL en minúsculas del URI del recurso en minúsculas |
 | {policyName} |El nombre de la directiva de acceso compartido a la que hace referencia este token. Ausente en caso de que el token haga referencia a las credenciales del registro de dispositivos. |
 
-**Nota sobre el prefijo** : el prefijo URI se calcula por segmento y no por carácter. Por ejemplo `/a/b` es un prefijo de `/a/b/c` pero `/a/bc`.
+**Nota sobre el prefijo**: el prefijo URI se calcula por segmento y no por carácter. Por ejemplo `/a/b` es un prefijo de `/a/b/c` pero `/a/bc`.
 
 El siguiente fragmento de Node.js muestra una función denominada **generateSasToken** que calcula el token de las entradas `resourceUri, signingKey, policyName, expiresInMins`. Las secciones siguientes detallan cómo inicializar las entradas diferentes para los distintos casos de uso de token.
 

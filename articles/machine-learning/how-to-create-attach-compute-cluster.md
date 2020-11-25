@@ -6,17 +6,17 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.custom: how-to
+ms.custom: how-to, devx-track-azurecli
 ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: ce80c6bbd3e4a5154e80317c3918776c771e67fb
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 0bbf70016dc9b93120b3158e8954c336095ea211
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93318219"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94832694"
 ---
 # <a name="create-an-azure-machine-learning-compute-cluster"></a>Creación de un clúster de proceso de Azure Machine Learning
 
@@ -60,7 +60,7 @@ Los clústeres de proceso pueden ejecutar trabajos de manera segura en un [entor
 
 ## <a name="create"></a>Crear
 
-**Tiempo estimado** : Aproximadamente 5 minutos.
+**Tiempo estimado**: Aproximadamente 5 minutos.
 
 Se puede reutilizar una instancia de Proceso de Azure Machine Learning entre trabajos. El proceso puede compartirse con otros usuarios del área de trabajo y se conserva entre ejecuciones, escalando o reduciendo automáticamente los nodos verticalmente según el número de ejecuciones enviadas y el valor de max_nodes establecido en el clúster. La configuración min_nodes controla los nodos mínimos disponibles.
 
@@ -74,8 +74,8 @@ El proceso se reduce verticalmente a cero nodos cuando no se utiliza.   Se crean
 
 para crear un recurso de Proceso de Azure Machine Learning persistente en Python, especifique las propiedades **vm_size** y **max_nodes**. Azure Machine Learning usará valores predeterminados inteligentes para las demás propiedades. 
     
-* **vm_size** : la familia máquina virtual de los nodos creados por el Proceso de Azure Machine Learning.
-* **max_nodes** : el número máximo de nodos hasta los que se aumenta automáticamente cuando ejecuta un trabajo en Proceso de Azure Machine Learning.
+* **vm_size**: la familia máquina virtual de los nodos creados por el Proceso de Azure Machine Learning.
+* **max_nodes**: el número máximo de nodos hasta los que se aumenta automáticamente cuando ejecuta un trabajo en Proceso de Azure Machine Learning.
 
 
 [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/amlcompute2.py?name=cpu_cluster)]

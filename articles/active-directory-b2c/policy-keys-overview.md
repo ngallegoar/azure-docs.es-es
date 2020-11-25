@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 02294d4832224f1c94a4c586f3dcc455255bfbbf
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 30348d7ca12ded2d1f4b0522a7cabeadf0553a07
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92670115"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94953362"
 ---
 # <a name="overview-of-policy-keys-in-azure-active-directory-b2c"></a>Introducción a las claves de directiva en Azure Active Directory B2C
 
@@ -28,9 +28,9 @@ Azure Active Directory B2C (Azure AD B2C) almacena secretos y certificados en
  En este artículo se explica lo que necesita saber sobre las claves de directiva que usa Azure AD B2C.
 
 > [!NOTE]
-> Actualmente, la configuración de las claves de directiva solo se limita a las [directivas personalizadas](active-directory-b2c-get-started-custom.md).
+> Actualmente, la configuración de las claves de directiva solo se limita a las [directivas personalizadas](./custom-policy-get-started.md).
 
-Puede configurar secretos y certificados para establecer la confianza entre servicios en Azure Portal, en el menú **Claves de directiva**. Las claves pueden ser simétricas o asimétricas. La criptografía *simétrica* , o criptografía de clave privada, es donde se usa un secreto compartido para cifrar y descifrar los datos. La criptografía *asimétrica* , o la criptografía de clave pública, es un sistema de cifrado que usa pares de claves, que se componen de claves públicas que se comparten con la aplicación de usuario de confianza y las claves privadas que solo conoce Azure AD B2C.
+Puede configurar secretos y certificados para establecer la confianza entre servicios en Azure Portal, en el menú **Claves de directiva**. Las claves pueden ser simétricas o asimétricas. La criptografía *simétrica*, o criptografía de clave privada, es donde se usa un secreto compartido para cifrar y descifrar los datos. La criptografía *asimétrica*, o la criptografía de clave pública, es un sistema de cifrado que usa pares de claves, que se componen de claves públicas que se comparten con la aplicación de usuario de confianza y las claves privadas que solo conoce Azure AD B2C.
 
 ## <a name="policy-keyset-and-keys"></a>Claves y conjunto de claves de directiva
 
@@ -46,11 +46,11 @@ Se recomienda establecer los valores de activación y expiración de claves de a
 
 Para crear una clave, puede elegir uno de los métodos siguientes:
 
-- **Manual** : cree un secreto con una cadena que defina. El secreto es una clave simétrica. Puede establecer las fechas de activación y expiración.
-- **Generado** : se genera automáticamente una clave. Puede establecer fechas de activación y de expiración. Hay dos opciones:
-  - **Secreto** : genera una clave simétrica.
-  - **RSA** : genera un par de claves (claves asimétricas).
-- **Cargar** : cargue un certificado o una clave PKCS12. El certificado debe contener las claves públicas y privadas (claves asimétricas).
+- **Manual**: cree un secreto con una cadena que defina. El secreto es una clave simétrica. Puede establecer las fechas de activación y expiración.
+- **Generado**: se genera automáticamente una clave. Puede establecer fechas de activación y de expiración. Hay dos opciones:
+  - **Secreto**: genera una clave simétrica.
+  - **RSA**: genera un par de claves (claves asimétricas).
+- **Cargar**: cargue un certificado o una clave PKCS12. El certificado debe contener las claves públicas y privadas (claves asimétricas).
 
 ## <a name="key-rollover"></a>Sustitución de claves
 
@@ -63,18 +63,18 @@ Si un conjunto de claves de Azure AD B2C tiene varias claves, solo una de ella
   - Cuando la fecha y hora actuales es mayor que la fecha de activación de una clave, Azure AD B2C activará la clave y dejará de usar la clave activa anterior.
 - Cuando ha transcurrido el tiempo de expiración de la clave actual y el contenedor de claves contiene una nueva clave con tiempos *no anteriores a una fecha* y de *expiración* válidos, la nueva clave se activará automáticamente.
 - Cuando ha transcurrido el tiempo de expiración de la clave actual y el contenedor de claves *no* contiene una nueva clave con *tiempos no anteriores a una fecha* y de *expiración* válidos, Azure AD B2C no podrá usar la clave expirada. Azure AD B2C generará un mensaje de error en un componente dependiente de la directiva personalizada. Para evitar este problema, puede crear una clave predeterminada sin fechas de activación ni expiración a modo de red de seguridad.
-- El punto de conexión de la clave (URI de JWKS) del punto de conexión de configuración conocido de OpenId Connect refleja las claves configuradas en el contenedor de claves, cuando se hace referencia a la clave en el [perfil técnico de JwtIssuer](https://docs.microsoft.com/azure/active-directory-b2c/jwt-issuer-technical-profile). Una aplicación que use una biblioteca OIDC capturará automáticamente estos metadatos para asegurarse de que use las claves correctas para validar los tokens. Para obtener más información, aprenda a usar la [Biblioteca de autenticación de Microsoft](https://docs.microsoft.com/azure/active-directory/develop/msal-b2c-overview), que siempre captura las claves de firma de tokens más recientes automáticamente.
+- El punto de conexión de la clave (URI de JWKS) del punto de conexión de configuración conocido de OpenId Connect refleja las claves configuradas en el contenedor de claves, cuando se hace referencia a la clave en el [perfil técnico de JwtIssuer](./jwt-issuer-technical-profile.md). Una aplicación que use una biblioteca OIDC capturará automáticamente estos metadatos para asegurarse de que use las claves correctas para validar los tokens. Para obtener más información, aprenda a usar la [Biblioteca de autenticación de Microsoft](../active-directory/develop/msal-b2c-overview.md), que siempre captura las claves de firma de tokens más recientes automáticamente.
 
 ## <a name="policy-key-management"></a>Administración de claves de directiva
 
-Para obtener la clave activa actual dentro de un contenedor de claves, use el punto de conexión [getActiveKey](https://docs.microsoft.com/graph/api/trustframeworkkeyset-getactivekey) de Microsoft Graph API.
+Para obtener la clave activa actual dentro de un contenedor de claves, use el punto de conexión [getActiveKey](/graph/api/trustframeworkkeyset-getactivekey) de Microsoft Graph API.
 
 Para agregar o eliminar claves de cifrado y firma, siga estos pasos:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 1. Seleccione el icono **Directorio y suscripción** en la barra de herramientas del portal y, luego, elija el directorio que contiene el inquilino de Azure AD B2C.
 1. En Azure Portal, busque y seleccione **Azure AD B2C**.
-1. En la página de información general, en **Directivas** , seleccione **Identity Experience Framework**.
+1. En la página de información general, en **Directivas**, seleccione **Identity Experience Framework**.
 1. Seleccione **Claves de directiva**. 
     1. Para agregar una nueva clave, seleccione **Agregar**.
     1. Para quitar una nueva clave, seleccione la clave y, a continuación, seleccione **Eliminar**. Para eliminar la clave, escriba el nombre del contenedor de claves que se va a eliminar. Azure AD B2C eliminará la clave y creará una copia de la clave con el sufijo .bak.
@@ -89,10 +89,3 @@ Las claves de un conjunto de claves no se pueden reemplazar ni quitar. Si tiene 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Obtenga información sobre cómo usar Microsoft Graph para automatizar una implementación de [claves de directiva](microsoft-graph-operations.md#trust-framework-policy-key) y [conjuntos de claves](microsoft-graph-operations.md#trust-framework-policy-keyset).
-
-
-
-
-
-
-

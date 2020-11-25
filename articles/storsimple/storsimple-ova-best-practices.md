@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/25/2019
 ms.author: alkohli
-ms.openlocfilehash: bdf69a9ff7b3260b47042f296a47826e3c52387b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 71b018da6b54ebf2b45a261378ea521a397159e5
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81460654"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94964990"
 ---
 # <a name="storsimple-virtual-array-best-practices"></a>Procedimientos recomendados de la matriz virtual de StorSimple
 
@@ -119,7 +119,7 @@ Si la matriz virtual está unido a un dominio, los GPO se pueden aplicar a él. 
 Por consiguiente, es recomendable que:
 
 * Se asegure de que su matriz virtual está en su propia unidad organizativa (UO) de Active Directory.
-* Se asegure de que no se aplican objetos de directiva de grupo (GPO) a su matriz virtual. Pueda bloquear la herencia para asegurarse de que la matriz virtual (nodo secundario) no herede automáticamente los GPO del nodo primario. Para más información, vaya a [Bloquear herencia](https://technet.microsoft.com/library/cc731076.aspx).
+* Se asegure de que no se aplican objetos de directiva de grupo (GPO) a su matriz virtual. Pueda bloquear la herencia para asegurarse de que la matriz virtual (nodo secundario) no herede automáticamente los GPO del nodo primario. Para más información, vaya a [Bloquear herencia](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731076(v=ws.11)).
 
 ### <a name="networking"></a>Redes
 La configuración de red de cualquier matriz virtual se realiza a través de la interfaz de usuario web local. Una interfaz de red virtual se habilita a través del hipervisor en el que se ha aprovisionado la matriz virtual. Utilice la página [Configuración de red](storsimple-virtual-array-deploy3-fs-setup.md) para configurar la dirección IP, subred y puerta de enlace de la interfaz de red virtual.  También puede configurar el servidor DNS principal y secundario, la configuración horaria y la configuración de proxy opcional del dispositivo. La mayor parte de la configuración de red se realiza una sola vez. Revise los [requisitos de red de StorSimple](storsimple-ova-system-requirements.md#networking-requirements) antes de implementar la matriz virtual.
@@ -289,4 +289,3 @@ Es posible que haya que implementar varias matrices virtuales en una cuenta para
 
 ## <a name="see-also"></a>Consulte también
 Aprenda a [administrar una matriz virtual de StorSimple](storsimple-virtual-array-manager-service-administration.md) mediante el servicio StorSimple Manager.
-

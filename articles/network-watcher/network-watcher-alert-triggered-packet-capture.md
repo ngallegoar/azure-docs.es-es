@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: eefd67d4d150c0c8d152002a174c62d31fcb8b5f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3b6cb195f44bf6c868402481480d9b10802c4d59
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90975064"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965687"
 ---
 # <a name="use-packet-capture-for-proactive-network-monitoring-with-alerts-and-azure-functions"></a>Uso de capturas de paquetes para realizar la supervisión proactiva de la red con alertas y Azure Functions
 
@@ -39,7 +39,7 @@ Con Network Watcher, la característica de alertas y las funciones del ecosistem
 
 * La versión más reciente de [Azure PowerShell](/powershell/azure/install-Az-ps).
 * Una instancia existente de Network Watcher. [Cree una instancia de Network Watcher](network-watcher-create.md) si aún no tiene una.
-* Una máquina virtual en la misma región que la instancia de Network Watcher con la [extensión Windows](../virtual-machines/windows/extensions-nwa.md) o la [extensión de máquina virtual Linux](../virtual-machines/linux/extensions-nwa.md).
+* Una máquina virtual en la misma región que la instancia de Network Watcher con la [extensión Windows](../virtual-machines/extensions/network-watcher-windows.md) o la [extensión de máquina virtual Linux](../virtual-machines/extensions/network-watcher-linux.md).
 
 ## <a name="scenario"></a>Escenario
 
@@ -340,7 +340,7 @@ Se pueden configurar alertas para que avisen a los usuarios cuando una métrica 
 
 ### <a name="create-the-alert-rule"></a>Creación de la regla de alerta
 
-Vaya a una máquina virtual existente y agregue una regla de alerta. Se puede encontrar documentación más detallada sobre la configuración de alertas en [Creación de alertas en Azure Monitor para servicios de Azure (Azure Portal)](../monitoring-and-diagnostics/insights-alerts-portal.md). Escriba los siguientes valores en la hoja **Regla de alertas** y, a continuación, seleccione **Aceptar**.
+Vaya a una máquina virtual existente y agregue una regla de alerta. Se puede encontrar documentación más detallada sobre la configuración de alertas en [Creación de alertas en Azure Monitor para servicios de Azure (Azure Portal)](../azure-monitor/platform/alerts-classic-portal.md). Escriba los siguientes valores en la hoja **Regla de alertas** y, a continuación, seleccione **Aceptar**.
 
   |**Configuración** | **Valor** | **Detalles** |
   |---|---|---|
@@ -353,7 +353,7 @@ Vaya a una máquina virtual existente y agregue una regla de alerta. Se puede en
   |**Webhook**|[Dirección URL del webhook de la aplicación de función]| La dirección URL del webhook de la aplicación de función que se creó en los pasos anteriores.|
 
 > [!NOTE]
-> De manera predeterminada, la métrica de los segmentos TCP no está habilitada. Para más información acerca de cómo habilitar métricas adicionales, visite [Habilitación de supervisión y diagnóstico](../monitoring-and-diagnostics/insights-how-to-use-diagnostics.md).
+> De manera predeterminada, la métrica de los segmentos TCP no está habilitada. Para más información acerca de cómo habilitar métricas adicionales, visite [Habilitación de supervisión y diagnóstico](../azure-monitor/overview.md).
 
 ## <a name="review-the-results"></a>Revisión del resultado
 
@@ -363,11 +363,11 @@ Después de que se cumplan los criterios que desencadenen la alerta, se creará 
 
 Si el archivo de captura se almacena localmente, puede iniciar sesión en la máquina virtual para recuperarlo.
 
-Para obtener instrucciones sobre cómo descargar archivos desde cuentas de Azure Storage, consulte [Introducción a Azure Blob Storage mediante .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Otra herramienta que puede usar es el [Explorador de Storage](https://storageexplorer.com/).
+Para obtener instrucciones sobre cómo descargar archivos desde cuentas de Azure Storage, consulte [Introducción a Azure Blob Storage mediante .NET](../storage/blobs/storage-quickstart-blobs-dotnet.md). Otra herramienta que puede usar es el [Explorador de Storage](https://storageexplorer.com/).
 
 Después de que se ha descargado la captura, puede verla con cualquier herramienta que pueda leer un archivo **.cap**. A continuación se muestran vínculos a dos de estas herramientas:
 
-- [Analizador de mensajes de Microsoft](https://technet.microsoft.com/library/jj649776.aspx).
+- [Analizador de mensajes de Microsoft](/message-analyzer/microsoft-message-analyzer-operating-guide).
 - [WireShark](https://www.wireshark.org/)
 
 ## <a name="next-steps"></a>Pasos siguientes

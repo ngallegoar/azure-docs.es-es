@@ -3,13 +3,13 @@ title: Uso de un grupo dedicado para ejecutar tareas - Tasks
 description: Configure un grupo de proceso dedicado (grupo de agentes) en el registro para ejecutar una tarea de Azure Container Registry.
 ms.topic: article
 ms.date: 10/12/2020
-ms.custom: references_regions
-ms.openlocfilehash: 86c539c3b34ca0e54d65f15c4d9d01a99f9b31c6
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.custom: references_regions, devx-track-azurecli
+ms.openlocfilehash: 94956af14aad2b62e6455f443329bcd3232095c0
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91997172"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844921"
 ---
 # <a name="run-an-acr-task-on-a-dedicated-agent-pool"></a>Ejecución de una tarea de ACR en un grupo de agentes dedicado
 
@@ -19,7 +19,7 @@ Un grupo de agentes proporciona:
 
 - **Compatibilidad con redes virtuales**: asigne un grupo de agentes a una red virtual de Azure, lo que proporciona acceso a los recursos de la red virtual, como un registro de contenedor, un almacén de claves o almacenamiento.
 - **Escale según sea necesario**: aumente el número de instancias de un grupo de agentes para tareas de proceso intensivo o escale a cero. La facturación se basa en la asignación de grupos. Para obtener información detallada, vea [Precios](https://azure.microsoft.com/pricing/details/container-registry/).
-- **Opciones flexibles**: elija entre distintos [niveles de grupo ](#pool-tiers) y opciones de escalado para satisfacer sus necesidades de carga de trabajo de tareas.
+- **Opciones flexibles**: elija entre distintos [niveles de grupo](#pool-tiers) y opciones de escalado para satisfacer sus necesidades de carga de trabajo de tareas.
 - **Administración de Azure**: los grupos de tareas se revisan y mantienen en Azure, lo que proporciona una asignación reservada sin necesidad de mantener las VM individuales.
 
 Esta característica está disponible en el nivel de servicio de un registro de contenedor **Premium**. Para obtener información sobre los límites y niveles de servicio de registro, consulte [SKU de Azure Container Registry][acr-tiers].

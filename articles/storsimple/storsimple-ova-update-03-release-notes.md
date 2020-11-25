@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/15/2016
 ms.author: alkohli
-ms.openlocfilehash: f56c36f18379449409f4989eab9510da1f686d0d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8301b45fe778bd3df7fc665db2662ba81d3e644f
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80397801"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966112"
 ---
 # <a name="storsimple-virtual-array-update-03-release-notes"></a>Notas de la versión de Update 0.3 de la matriz virtual de StorSimple
 ## <a name="overview"></a>Información general
@@ -66,11 +66,10 @@ En la tabla siguiente se muestra un resumen de los problemas conocidos de la mat
 | **14.** |Servidor de archivos |Si un archivo de una carpeta tiene una secuencia de datos alternativa (ADS) asociada, no se hará una copia de seguridad de dicha secuencia ni se restaurará a través de la recuperación ante desastres, la clonación o la recuperación a nivel de elemento. | |
 
 ## <a name="next-step"></a>Paso siguiente
-[Instale la actualización 0.3](storsimple-ova-install-update-01.md) en la matriz virtual de StorSimple.
+[Instale la actualización 0.3](./storsimple-virtual-array-install-update-06.md) en la matriz virtual de StorSimple.
 
 ## <a name="references"></a>Referencias
 ¿Busca una nota de la versión anterior? Vaya a: 
 
 * [Notas de la versión de la matriz virtual de StorSimple Update 0.1 y 0.2](storsimple-ova-update-01-release-notes.md)
-* [Notas de la versión de disponibilidad general de la matriz Virtual de StorSimple](storsimple-ova-pp-release-notes.md)
-
+* [Notas de la versión de disponibilidad general de la matriz Virtual de StorSimple](./storsimple-virtual-array-update-06-release-notes.md)

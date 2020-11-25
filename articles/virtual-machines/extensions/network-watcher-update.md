@@ -8,16 +8,17 @@ manager: balar
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-windows
+ms.subservice: extensions
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 09/23/2020
 ms.author: damendo
-ms.openlocfilehash: 23520a0249e22b3f81c7f7c598ef10d8c3acb550
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: c427a206e0422e66cb526a29a462d8b6bdf6818e
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900187"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965942"
 ---
 # <a name="update-the-network-watcher-extension-to-the-latest-version"></a>Actualización de la extensión Network Watcher a la versión más reciente
 
@@ -45,7 +46,7 @@ Puede comprobar la versión de la extensión mediante Azure Portal, la CLI de Az
 
 1. Vaya al panel **Extensiones** de la máquina virtual en Azure Portal.
 1. Seleccione la extensión **AzureNetworkWatcher** para ver el panel de detalles.
-1. Busque el número de versión en el campo **Versión** .  
+1. Busque el número de versión en el campo **Versión**.  
 
 #### <a name="use-the-azure-cli"></a>Uso de la CLI de Azure
 
@@ -82,7 +83,8 @@ Ejecute los comandos siguientes:
 Set-AzVMExtension -ResourceGroupName "myResourceGroup1" -Location "WestUS" -VMName "myVM1" -Name "AzureNetworkWatcherExtension" -Publisher "Microsoft.Azure.NetworkWatcher" -Type "NetworkWatcherAgentLinux"
 
 #Windows command
-Set-AzVMExtension -ResourceGroupName "myResourceGroup1" -Location "WestUS" -VMName "myVM1" -Name "AzureNetworkWatcherExtension" -Publisher "Microsoft.Azure.NetworkWatcher" -Type "NetworkWatcherAgentWindows"
+Set-AzVMExtension -ResourceGroupName "myResourceGroup1" -Location "WestUS" -VMName "myVM1" -Name "NetworkWatcherAgentWindows" -Publisher "Microsoft.Azure.NetworkWatcher" -Type "NetworkWatcherAgentWindows" -ForceRerun "True"
+
 ```
 
 Si esto no funciona. Quite e instale la extensión de nuevo siguiendo los pasos que se indican a continuación. Esto agregará automáticamente la versión más reciente.
@@ -143,4 +145,4 @@ Si tiene la actualización automática establecida en verdadero para la extensi�
 
 ## <a name="support"></a>Soporte técnico
 
-Si necesita más ayuda en cualquier punto de este artículo, consulte la documentación de la extensión Network Watcher para [Linux](./network-watcher-linux.md) o [Windows](./network-watcher-windows.md). También puede ponerse en contacto con los expertos de Azure en los [foros de MSDN Azure y Stack Overflow](https://azure.microsoft.com/support/forums/). Como alternativa, puede registrar un incidente de soporte técnico de Azure. Vaya al [sitio de soporte técnico de Azure](https://azure.microsoft.com/support/options/) y seleccione **Obtener soporte técnico** . Para obtener información sobre el uso del soporte técnico, lea las [Preguntas más frecuentes de soporte técnico de Microsoft Azure](https://azure.microsoft.com/support/faq/).
+Si necesita más ayuda en cualquier punto de este artículo, consulte la documentación de la extensión Network Watcher para [Linux](./network-watcher-linux.md) o [Windows](./network-watcher-windows.md). También puede ponerse en contacto con los expertos de Azure en los [foros de MSDN Azure y Stack Overflow](https://azure.microsoft.com/support/forums/). Como alternativa, puede registrar un incidente de soporte técnico de Azure. Vaya al [sitio de soporte técnico de Azure](https://azure.microsoft.com/support/options/) y seleccione **Obtener soporte técnico**. Para obtener información sobre el uso del soporte técnico, lea las [Preguntas más frecuentes de soporte técnico de Microsoft Azure](https://azure.microsoft.com/support/faq/).

@@ -10,17 +10,18 @@ tags: azure-resource-manager
 keywords: ''
 ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
 ms.service: virtual-machines-windows
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/15/2020
 ms.author: radeltch
-ms.openlocfilehash: 9978137edb7874a8b93e0c9a5f1f9979ce449277
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f4693af9c29a36aad60b7b525fec024509a4d586
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88893177"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94958760"
 ---
 # <a name="deploy-a-sap-hana-scale-out-system-with-standby-node-on-azure-vms-by-using-azure-netapp-files-on-red-hat-enterprise-linux"></a>Implementación de un sistema de escalabilidad horizontal de SAP HANA con nodo en espera en VM de Azure mediante Azure NetApp Files en Red Hat Enterprise Linux 
 
@@ -531,7 +532,7 @@ En este ejemplo para implementar SAP HANA en la configuración de escalabilidad 
     yum install libgcc_s1 libstdc++6 compat-sap-c++-7 libatomic1 
     </code></pre>
 
-4. **[2], [3]** Cambie la propiedad de los directorios `data` y `log` de SAP HANA a **hn1**adm.   
+4. **[2], [3]** Cambie la propiedad de los directorios `data` y `log` de SAP HANA a **hn1** adm.   
 
     <pre><code>
     # Execute as root
@@ -730,7 +731,7 @@ En este ejemplo para implementar SAP HANA en la configuración de escalabilidad 
 
 1. Haga una simulación del bloqueo de nodos en un nodo de trabajo de SAP HANA. Haga lo siguiente: 
 
-   a. Antes de simular el bloqueo del nodo, ejecute los siguientes comandos como **hn1**adm para capturar el estado del entorno:  
+   a. Antes de simular el bloqueo del nodo, ejecute los siguientes comandos como **hn1** adm para capturar el estado del entorno:  
 
    <pre><code>
     # Check the landscape status
@@ -786,7 +787,7 @@ En este ejemplo para implementar SAP HANA en la configuración de escalabilidad 
 
 2. Termine el servidor de nombres. Para ello, haga lo siguiente:
 
-   a. Antes de la prueba, ejecute los siguientes comandos como **hn1**adm para comprobar el estado del entorno:  
+   a. Antes de la prueba, ejecute los siguientes comandos como **hn1** adm para comprobar el estado del entorno:  
 
    <pre><code>
     #Landscape status 
@@ -808,7 +809,7 @@ En este ejemplo para implementar SAP HANA en la configuración de escalabilidad 
     hanadb1, 3, 50313, 50314, 0.3, HDB|HDB_WORKER, GREEN
    </code></pre>
 
-   b. Ejecute los siguientes comandos como **hn1**adm en el nodo principal activo, que en este caso es **hanadb1**:  
+   b. Ejecute los siguientes comandos como **hn1** adm en el nodo principal activo, que en este caso es **hanadb1**:  
 
     <pre><code>
         hn1adm@hanadb1:/usr/sap/HN1/HDB03> HDB kill

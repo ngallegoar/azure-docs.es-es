@@ -4,12 +4,12 @@ description: En este artículo se describen diferentes maneras de autenticar a l
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d38d4ffc868d442980cda576ea158704231f9efb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2c415b7e1bb6bd7a2116da82c7d8f1de205009d0
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91856337"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94886267"
 ---
 # <a name="authenticate-publishing-clients-azure-event-grid"></a>Autenticación de clientes que hacen publicaciones (Azure Event Grid).
 En este artículo se proporciona información sobre la autenticación de clientes que publican eventos en temas o dominios de Azure Event Grid mediante **clave de acceso** o token de **Firma de acceso compartido (SAS)** . Se recomienda el uso de SAS, pero la autenticación de clave proporciona programación simple y es compatible con muchos editores de webhook existentes.  
@@ -82,7 +82,7 @@ def generate_sas_token(uri, key, expiry=3600):
 ```
 
 ### <a name="using-aeg-sas-token-header"></a>Uso del encabezado de token AEG-SAS
-Este es un ejemplo de cómo pasar el token de SAS como un valor para el encabezado `aeg-sas-toke`. 
+Este es un ejemplo de cómo pasar el token de SAS como un valor para el encabezado `aeg-sas-token`. 
 
 ```http
 aeg-sas-token: r=https%3a%2f%2fmytopic.eventgrid.azure.net%2fapi%2fevents&e=6%2f15%2f2017+6%3a20%3a15+PM&s=XXXXXXXXXXXXX%2fBPjdDLOrc6THPy3tDcGHw1zP4OajQ%3d

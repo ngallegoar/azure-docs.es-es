@@ -7,12 +7,12 @@ ms.service: storsimple
 ms.topic: conceptual
 ms.date: 07/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 020208a8b67d248c02fc659d4dc48fa22d333839
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5970e82619667a47ba160c84df2cdeb145b0dab8
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80298823"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966180"
 ---
 # <a name="storsimple-virtual-array-system-requirements"></a>Requisitos del sistema de la matriz virtual de StorSimple
 
@@ -29,7 +29,7 @@ Los requisitos del sistema incluyen:
 
 La información acerca de los requisitos de sistema de StorSimple publicada en este artículo solo se aplica a las matrices virtuales de StorSimple.
 
-* En cuanto a los dispositivos de la serie 8000, consulte [Requisitos de sistema de los dispositivos de la serie 8000 de StorSimple](storsimple-system-requirements.md).
+* En cuanto a los dispositivos de la serie 8000, consulte [Requisitos de sistema de los dispositivos de la serie 8000 de StorSimple](./storsimple-8000-system-requirements.md).
 * Para los dispositivos de la serie 7000, consulte [Requisitos de sistema de los dispositivos de la serie 5000-7000 de StorSimple](http://onlinehelp.storsimple.com/1_StorSimple_System_Requirements).
 
 ## <a name="software-requirements"></a>Requisitos de software
@@ -84,12 +84,12 @@ Los siguientes requisitos de software son para los iniciadores de SMB con acceso
 
 
 ### <a name="supported-storage-format"></a>Formato de almacenamiento compatible.
-Se admite solo Blob Storage en bloques de Azure. No se admiten los blobs en páginas. Más información sobre [blobs en bloques y blobs en páginas](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
+Se admite solo Blob Storage en bloques de Azure. No se admiten los blobs en páginas. Más información sobre [blobs en bloques y blobs en páginas](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
 
 ## <a name="networking-requirements"></a>Requisitos de red
 La siguiente tabla enumera los puertos que deben abrirse en el firewall para permitir el tráfico de administración, de nube, de SMB o de iSCSI. En esta tabla, *dentro* o *entrante* hace referencia a la dirección desde la que el cliente entrante solicita acceso al dispositivo. *Fuera* o *saliente* hace referencia a la dirección en la que el dispositivo StorSimple envía datos externamente, más allá de la implementación: por ejemplo, saliente a Internet.
 
-| **Nº de puerto<sup>1</sup>** | **Dentro o fuera** | **Ámbito de puerto** | **Obligatorio** | **Notas** |
+| **Nº de puerto <sup>1</sup>** | **Dentro o fuera** | **Ámbito de puerto** | **Obligatorio** | **Notas** |
 | --- | --- | --- | --- | --- |
 | TCP 80 (HTTP) |Fuera |WAN |No |El puerto de salida se usa para obtener acceso a Internet para así recuperar las actualizaciones. <br></br>El usuario puede configurar el proxy web de salida. |
 | TCP 443 (HTTPS) |Fuera |WAN |Sí |El puerto de salida se usa para tener acceso a los datos en la nube. <br></br>El usuario puede configurar el proxy web de salida. |

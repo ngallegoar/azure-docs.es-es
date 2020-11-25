@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: damendo
-ms.openlocfilehash: ae87771e8a557ad7cb58c9cad9231784606cdd74
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 25f4ae0dbfd7827a36dede6a889c342ea490e273
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426538"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94948483"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Preguntas frecuentes sobre Análisis de tráfico
 
@@ -58,7 +58,7 @@ Para comprobar los roles asignados a un usuario para una suscripción:
 
 3. Para enumerar todos los roles asignados a un usuario específico, use **Get-AzRoleAssignment -SignInName [correo electrónico del usuario] -IncludeClassicAdministrators**. 
 
-Si no se muestra ninguna salida, póngase en contacto con el administrador de la suscripción correspondiente para acceder para ejecutar los comandos. Para más detalles, consulte [Incorporación o eliminación de asignaciones de roles de Azure mediante Azure PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell).
+Si no se muestra ninguna salida, póngase en contacto con el administrador de la suscripción correspondiente para acceder para ejecutar los comandos. Para más detalles, consulte [Incorporación o eliminación de asignaciones de roles de Azure mediante Azure PowerShell](../role-based-access-control/role-assignments-powershell.md).
 
 
 ## <a name="in-which-azure-regions-is-traffic-analytics-available"></a>¿En qué regiones de Azure está disponible Análisis de tráfico?
@@ -126,7 +126,7 @@ Sí.
 
 ## <a name="can-i-use-an-existing-workspace"></a>¿Puedo usar un área de trabajo existente?
 
-Sí. Si selecciona un área de trabajo existente, asegúrese de que se ha migrado al nuevo lenguaje de consulta. Si no quiere actualizar el área de trabajo, debe crear una nueva. Para más información acerca del nuevo lenguaje de consulta, consulte el tema sobre la [actualización de registros de Azure Monitor para la nueva búsqueda de registros](../log-analytics/log-analytics-log-search-upgrade.md).
+Sí. Si selecciona un área de trabajo existente, asegúrese de que se ha migrado al nuevo lenguaje de consulta. Si no quiere actualizar el área de trabajo, debe crear una nueva. Para más información acerca del nuevo lenguaje de consulta, consulte el tema sobre la [actualización de registros de Azure Monitor para la nueva búsqueda de registros](../azure-monitor/log-query/log-query-overview.md).
 
 ## <a name="can-my-azure-storage-account-be-in-one-subscription-and-my-log-analytics-workspace-be-in-a-different-subscription"></a>¿La cuenta de Azure Storage y el área de trabajo de Log Analytics pueden estar en suscripciones diferentes?
 
@@ -176,7 +176,7 @@ Puede ver información sobre los recursos en el panel; sin embargo, no aparece n
 
 ## <a name="can-i-configure-traffic-analytics-using-powershell-or-an-azure-resource-manager-template-or-client"></a>¿Puedo configurar Análisis de tráfico mediante PowerShell o una plantilla o cliente de Azure Resource Manager?
 
-Puede configurar Análisis de tráfico con Windows PowerShell desde la versión 6.2.1 en adelante. Para configurar un registro de flujo y Análisis de tráfico para un grupo de seguridad de red específico mediante el cmdlet Set, consulte [Set-AzNetworkWatcherConfigFlowLog](https://docs.microsoft.com/powershell/module/az.network/set-aznetworkwatcherconfigflowlog). Para obtener el estado de un registro de flujo y Análisis de tráfico de un grupo de seguridad de red específico, consulte [Get-AzNetworkWatcherFlowLogStatus](https://docs.microsoft.com/powershell/module/az.network/get-aznetworkwatcherflowlogstatus).
+Puede configurar Análisis de tráfico con Windows PowerShell desde la versión 6.2.1 en adelante. Para configurar un registro de flujo y Análisis de tráfico para un grupo de seguridad de red específico mediante el cmdlet Set, consulte [Set-AzNetworkWatcherConfigFlowLog](/powershell/module/az.network/set-aznetworkwatcherconfigflowlog). Para obtener el estado de un registro de flujo y Análisis de tráfico de un grupo de seguridad de red específico, consulte [Get-AzNetworkWatcherFlowLogStatus](/powershell/module/az.network/get-aznetworkwatcherflowlogstatus).
 
 En la actualidad, no puede usar una plantilla de Azure Resource Manager para configurar Análisis de tráfico.
 
@@ -250,7 +250,7 @@ Por ejemplo, según el [plan de precios](https://azure.microsoft.com/pricing/det
 
 ## <a name="how-frequently-does-traffic-analytics-process-data"></a>¿Con qué frecuencia procesa datos Análisis de tráfico?
 
-Consulte la [sección de agregación de datos](https://docs.microsoft.com/azure/network-watcher/traffic-analytics-schema#data-aggregation) en el documento Esquema y agregación de datos de Análisis de tráfico.
+Consulte la [sección de agregación de datos](./traffic-analytics-schema.md#data-aggregation) en el documento Esquema y agregación de datos de Análisis de tráfico.
 
 ## <a name="how-does-traffic-analytics-decide-that-an-ip-is-malicious"></a>¿Cómo decide Análisis de tráfico si una dirección IP es malintencionada? 
 
@@ -262,7 +262,7 @@ Análisis de tráfico no ofrece compatibilidad integrada para las alertas. Sin e
 - Puede usar el vínculo corto de Log Analytics en Análisis de tráfico. 
 - Use el [esquema que se documenta aquí](traffic-analytics-schema.md) para escribir las consultas. 
 - Haga clic en "Nueva regla de alertas" para crear una nueva alerta.
-- Consulte la [documentación de alertas de registro](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log) para crear la alerta.
+- Consulte la [documentación de alertas de registro](../azure-monitor/platform/alerts-log.md) para crear la alerta.
 
 ## <a name="how-do-i-check-which-vms-are-receiving-most-on-premises-traffic"></a>¿Cómo puedo comprobar cuáles máquinas virtuales reciben más tráfico local?
 
@@ -333,8 +333,8 @@ destIPs = iif(isempty(DestIP_s), split(DestPublicIPs_s," ") , pack_array(DestIP_
 
 La página del mapa geográfico se compone de dos secciones principales:
     
-- **Banner** : el banner de la parte superior del mapa geográfico proporciona botones para seleccionar los filtros de distribución de tráfico (por ejemplo, Implementación, Tráfico de países o regiones y Malintencionado). Si selecciona un botón, se aplica el filtro correspondiente en el mapa. Por ejemplo, si selecciona el botón Activo, el mapa resalta los centros de datos activos de la implementación.
-- **Mapa** : la sección del mapa situada bajo el banner muestra la distribución del tráfico entre los centros de datos y los países o regiones de Azure.
+- **Banner**: el banner de la parte superior del mapa geográfico proporciona botones para seleccionar los filtros de distribución de tráfico (por ejemplo, Implementación, Tráfico de países o regiones y Malintencionado). Si selecciona un botón, se aplica el filtro correspondiente en el mapa. Por ejemplo, si selecciona el botón Activo, el mapa resalta los centros de datos activos de la implementación.
+- **Mapa**: la sección del mapa situada bajo el banner muestra la distribución del tráfico entre los centros de datos y los países o regiones de Azure.
     
 ### <a name="keyboard-navigation-on-the-banner"></a>Navegación por el banner con el teclado
     
@@ -345,11 +345,11 @@ La página del mapa geográfico se compone de dos secciones principales:
         
 ### <a name="keyboard-navigation-on-the-map"></a>Navegación por el mapa con el teclado
     
-- Si hay un filtro seleccionado en el banner y se presiona `Ctrl+F6`, el foco se mueve a uno de los nodos resaltados ( **Centro de datos de Azure** o **País o región** ) de la vista del mapa.
+- Si hay un filtro seleccionado en el banner y se presiona `Ctrl+F6`, el foco se mueve a uno de los nodos resaltados (**Centro de datos de Azure** o **País o región**) de la vista del mapa.
 - Para moverse a otros nodos resaltados del mapa, use la tecla `Tab` o `Right arrow` para avanzar hacia delante. Use la tecla `Shift+Tab` o `Left arrow` para el volver hacia atrás.
 - Para seleccionar un nodo resaltado del mapa, utilice la tecla `Enter` o `Down arrow`.
-- Cuando se selecciona uno de estos nodos, el foco se desplaza al **cuadro de herramientas de información** del nodo. De forma predeterminada, el foco se desplaza al botón Cerrar del **cuadro de herramientas de información**. Si desea moverse dentro de la vista del **cuadro** , utilice las teclas `Right arrow` y `Left arrow` para moverse hacia delante y hacia atrás, respectivamente. Si presiona `Enter`, conseguirá el mismo efecto que si selecciona el botón con el foco en el **cuadro de herramientas de información**.
-- Si presiona `Tab` mientras el foco se encuentra en el **cuadro de herramientas de información** , el foco se desplazará a los puntos de conexión que están en el mismo continente que el nodo seleccionado. Use las teclas `Right arrow` y `Left arrow` para moverse por estos puntos de conexión.
+- Cuando se selecciona uno de estos nodos, el foco se desplaza al **cuadro de herramientas de información** del nodo. De forma predeterminada, el foco se desplaza al botón Cerrar del **cuadro de herramientas de información**. Si desea moverse dentro de la vista del **cuadro**, utilice las teclas `Right arrow` y `Left arrow` para moverse hacia delante y hacia atrás, respectivamente. Si presiona `Enter`, conseguirá el mismo efecto que si selecciona el botón con el foco en el **cuadro de herramientas de información**.
+- Si presiona `Tab` mientras el foco se encuentra en el **cuadro de herramientas de información**, el foco se desplazará a los puntos de conexión que están en el mismo continente que el nodo seleccionado. Use las teclas `Right arrow` y `Left arrow` para moverse por estos puntos de conexión.
 - Si desea moverse a otros puntos de conexión del flujo o a otros clústeres del continente, utilice `Tab` para moverse hacia delante y `Shift+Tab` para moverse hacia atrás.
 - Una vez que el foco esté en los **clústeres de continentes** utilice las teclas de dirección `Enter` o `Down` para resaltar los puntos de conexión del clúster de continentes. Si desea moverse por los puntos de conexión y el botón Cerrar del cuadro informativo del clúster de continentes, utilice la tecla `Right arrow` o `Left arrow` para moverse hacia delante y hacia atrás, respectivamente. Puede utilizar `Shift+L` en cualquier punto de conexión para cambiar a la línea de conexión que une el nodo seleccionado con el punto de conexión. Puede presionar `Shift+L` de nuevo para moverse al punto de conexión seleccionado.
         
@@ -363,8 +363,8 @@ La página del mapa geográfico se compone de dos secciones principales:
 
 La página de topología de redes virtuales contiene dos secciones principales:
     
-- **Banner** : el banner situado en la parte superior de la topología de redes virtuales proporciona botones para seleccionar los filtros de distribución de tráfico (por ejemplo, Redes virtuales conectadas, Redes virtuales desconectadas y Direcciones IP públicas). Si selecciona un botón, se aplica el filtro correspondiente en la topología. Por ejemplo, si selecciona el botón Activo, la topología resalta las redes virtuales activas de la implementación.
-- **Topología** : la sección de topología, situada por debajo del banner, muestra la distribución del tráfico entre redes virtuales.
+- **Banner**: el banner situado en la parte superior de la topología de redes virtuales proporciona botones para seleccionar los filtros de distribución de tráfico (por ejemplo, Redes virtuales conectadas, Redes virtuales desconectadas y Direcciones IP públicas). Si selecciona un botón, se aplica el filtro correspondiente en la topología. Por ejemplo, si selecciona el botón Activo, la topología resalta las redes virtuales activas de la implementación.
+- **Topología**: la sección de topología, situada por debajo del banner, muestra la distribución del tráfico entre redes virtuales.
     
 ### <a name="keyboard-navigation-on-the-banner"></a>Navegación por el banner con el teclado
     
@@ -375,9 +375,9 @@ La página de topología de redes virtuales contiene dos secciones principales:
         
 ### <a name="keyboard-navigation-on-the-topology"></a>Navegación por la topología con el teclado
     
-- Si hay un filtro seleccionado en el banner y se presiona `Ctrl+F6`, el foco se mueve a uno de los nodos resaltados ( **Red virtual** ) de la vista de la topología.
+- Si hay un filtro seleccionado en el banner y se presiona `Ctrl+F6`, el foco se mueve a uno de los nodos resaltados (**Red virtual**) de la vista de la topología.
 - Para moverse a otros nodos resaltados de la vista de topología, use la tecla `Shift+Right arrow` para avanzar hacia delante. 
-- Cuando se selecciona uno de estos nodos, el foco se desplaza al **cuadro de herramientas de información** del nodo. De forma predeterminada, el foco se desplaza al botón **Más información** del **cuadro de herramientas de información**. Si desea moverse dentro de la vista del **cuadro** , utilice las teclas `Right arrow` y `Left arrow` para moverse hacia delante y hacia atrás, respectivamente. Si presiona `Enter`, conseguirá el mismo efecto que si selecciona el botón con el foco en el **cuadro de herramientas de información**.
+- Cuando se selecciona uno de estos nodos, el foco se desplaza al **cuadro de herramientas de información** del nodo. De forma predeterminada, el foco se desplaza al botón **Más información** del **cuadro de herramientas de información**. Si desea moverse dentro de la vista del **cuadro**, utilice las teclas `Right arrow` y `Left arrow` para moverse hacia delante y hacia atrás, respectivamente. Si presiona `Enter`, conseguirá el mismo efecto que si selecciona el botón con el foco en el **cuadro de herramientas de información**.
 - En la selección de cualquiera de estos nodos, puede visitar todas sus conexiones, una a una, presionando la tecla `Shift+Left arrow`. El foco se mueve al **cuadro de herramientas de información** de esa conexión. En cualquier momento, el foco se puede desplazar hacia el nodo presionando `Shift+Right arrow` de nuevo.
     
 
@@ -385,8 +385,8 @@ La página de topología de redes virtuales contiene dos secciones principales:
 
 La página de topología de subredes virtuales contiene dos secciones principales:
     
-- **Banner** : el banner de la parte superior de la topología de subredes virtuales proporciona botones para seleccionar filtros de distribución de tráfico (por ejemplo, Activo, Medio y Subredes de puerta de enlace). Si selecciona un botón, se aplica el filtro correspondiente en la topología. Por ejemplo, si selecciona el botón Activo, la topología resalta las subredes virtuales activas de la implementación.
-- **Topología** : la sección de topología, situada por debajo del banner, muestra la distribución del tráfico entre subredes virtuales.
+- **Banner**: el banner de la parte superior de la topología de subredes virtuales proporciona botones para seleccionar filtros de distribución de tráfico (por ejemplo, Activo, Medio y Subredes de puerta de enlace). Si selecciona un botón, se aplica el filtro correspondiente en la topología. Por ejemplo, si selecciona el botón Activo, la topología resalta las subredes virtuales activas de la implementación.
+- **Topología**: la sección de topología, situada por debajo del banner, muestra la distribución del tráfico entre subredes virtuales.
     
 ### <a name="keyboard-navigation-on-the-banner"></a>Navegación por el banner con el teclado
     
@@ -397,7 +397,7 @@ La página de topología de subredes virtuales contiene dos secciones principale
         
 ### <a name="keyboard-navigation-on-the-topology"></a>Navegación por la topología con el teclado
     
-- Si hay un filtro seleccionado en el banner y se presiona `Ctrl+F6`, el foco se mueve a uno de los nodos resaltados ( **Subred** ) de la vista de la topología.
+- Si hay un filtro seleccionado en el banner y se presiona `Ctrl+F6`, el foco se mueve a uno de los nodos resaltados (**Subred**) de la vista de la topología.
 - Para moverse a otros nodos resaltados de la vista de topología, use la tecla `Shift+Right arrow` para avanzar hacia delante. 
-- Cuando se selecciona uno de estos nodos, el foco se desplaza al **cuadro de herramientas de información** del nodo. De forma predeterminada, el foco se desplaza al botón **Más información** del **cuadro de herramientas de información**. Si desea moverse dentro de la vista del **cuadro** , utilice las teclas `Right arrow` y `Left arrow` para moverse hacia delante y hacia atrás, respectivamente. Si presiona `Enter`, conseguirá el mismo efecto que si selecciona el botón con el foco en el **cuadro de herramientas de información**.
-- En la selección de cualquiera de estos nodos, puede visitar todas sus conexiones, una a una, presionando la tecla `Shift+Left arrow`. El foco se mueve al **cuadro de herramientas de información** de esa conexión. En cualquier momento, el foco se puede desplazar hacia el nodo presionando `Shift+Right arrow` de nuevo.    
+- Cuando se selecciona uno de estos nodos, el foco se desplaza al **cuadro de herramientas de información** del nodo. De forma predeterminada, el foco se desplaza al botón **Más información** del **cuadro de herramientas de información**. Si desea moverse dentro de la vista del **cuadro**, utilice las teclas `Right arrow` y `Left arrow` para moverse hacia delante y hacia atrás, respectivamente. Si presiona `Enter`, conseguirá el mismo efecto que si selecciona el botón con el foco en el **cuadro de herramientas de información**.
+- En la selección de cualquiera de estos nodos, puede visitar todas sus conexiones, una a una, presionando la tecla `Shift+Left arrow`. El foco se mueve al **cuadro de herramientas de información** de esa conexión. En cualquier momento, el foco se puede desplazar hacia el nodo presionando `Shift+Right arrow` de nuevo.

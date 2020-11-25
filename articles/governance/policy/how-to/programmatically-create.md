@@ -3,12 +3,12 @@ title: Creación de directivas mediante programación
 description: Este artículo le guiará a través de la creación y administración de directivas para Azure Policy mediante programación con la CLI de Azure, Azure PowerShell y API REST.
 ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: 2bf2b1864331fd785ecdd70be4af79be01f1e5e0
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 86c1b60608780cba4d8ae27e3c82ace458f09a26
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491807"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94920022"
 ---
 # <a name="programmatically-create-policies"></a>Creación de directivas mediante programación
 
@@ -74,8 +74,8 @@ El primer paso hacia una mejor visibilidad de los recursos es crear y asignar di
 
    Cuando se llama sin parámetros de ubicación, `New-AzPolicyDefinition` elige de forma predeterminada guardar la definición de directiva en la suscripción seleccionada del contexto de sesiones. Para guardar la definición en una ubicación diferente, use los siguientes parámetros:
 
-   - **SubscriptionId** : se guarda en una suscripción diferente. Requiere un valor de _GUID_.
-   - **ManagementGroupName** : se guarda en un grupo de administración. Requiere un valor de _cadena_.
+   - **SubscriptionId**: se guarda en una suscripción diferente. Requiere un valor de _GUID_.
+   - **ManagementGroupName**: se guarda en un grupo de administración. Requiere un valor de _cadena_.
 
 1. Después de crear la definición de directiva, puede crear una asignación de directiva mediante la ejecución de los siguientes comandos:
 
@@ -203,12 +203,12 @@ Use el procedimiento siguiente para crear una definición de directiva:
    ```
 
    El comando crea una definición de directiva denominada _Audit Storage Accounts Open to Public Networks_ (Auditoría de cuentas de almacenamiento abiertas a las redes públicas).
-   Para más información acerca de otros parámetros que puede utilizar, consulte [creación de la definición de directivas az](/cli/azure/policy/definition#az-policy-definition-create).
+   Para más información acerca de otros parámetros que puede utilizar, consulte [creación de la definición de directivas az](/cli/azure/policy/definition#az_policy_definition_create).
 
    Cuando se llama sin parámetros de ubicación, `az policy definition creation` elige de forma predeterminada guardar la definición de directiva en la suscripción seleccionada del contexto de sesiones. Para guardar la definición en una ubicación diferente, use los siguientes parámetros:
 
-   - **subscription** : se guarda en otra suscripción. Requiere un valor de _GUID_ como identificador de suscripción o un valor de _cadena_ como nombre.
-   - **management-group** : se guarda en un grupo de administración. Requiere un valor de _cadena_.
+   - **subscription**: se guarda en otra suscripción. Requiere un valor de _GUID_ como identificador de suscripción o un valor de _cadena_ como nombre.
+   - **management-group**: se guarda en un grupo de administración. Requiere un valor de _cadena_.
 
 1. Use el siguiente comando para crear una asignación de directiva. Reemplace la información de ejemplo de los símbolos &lt;&gt; por sus propios valores.
 

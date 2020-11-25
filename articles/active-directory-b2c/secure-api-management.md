@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 0e8802d612f2497cc58c90856e9a5a5572a142f1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 60b7bb33dfbf29b7e448887ce992d03009133b2e
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87482845"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94953498"
 ---
 # <a name="secure-an-azure-api-management-api-with-azure-ad-b2c"></a>Protección de una API de Azure API Management con Azure AD B2C
 
@@ -35,7 +35,7 @@ Necesitará los siguientes recursos antes de continuar con los pasos de este art
 
 Cuando se protege una API en Azure API Management con Azure AD B2C, se necesitan varios valores para la [directiva de entrada](../api-management/api-management-howto-policies.md) que se crea en APIM. En primer lugar, anote el identificador de una aplicación que haya creado anteriormente en el inquilino de Azure AD B2C. Si usa la aplicación que creó en los requisitos previos, utilice el identificador de aplicación de *webbapp1*.
 
-Para registrar una aplicación en su inquilino de Azure AD B2C, puede usar la nueva experiencia unificada **Registros de aplicaciones**, o bien la experiencia anterior **Aplicaciones (heredado)** . [Más información acerca de la nueva experiencia](https://aka.ms/b2cappregtraining).
+Para registrar una aplicación en su inquilino de Azure AD B2C, puede usar la nueva experiencia unificada **Registros de aplicaciones**, o bien la experiencia anterior **Aplicaciones (heredado)** . [Más información acerca de la nueva experiencia](./app-registrations-training-guide.md).
 
 #### <a name="app-registrations"></a>[Registros de aplicaciones](#tab/app-reg-ga/)
 
@@ -60,7 +60,7 @@ Para registrar una aplicación en su inquilino de Azure AD B2C, puede usar la n
 A continuación, obtenga la conocida dirección URL de configuración de uno de los flujos de usuario de Azure AD B2C. También necesita el identificador URI del punto de conexión del emisor del token que desea admitir en Azure API Management.
 
 1. Vaya al inquilino de Azure AD B2C en [Azure Portal](https://portal.azure.com).
-1. En **Directivas**, seleccione**Flujos de usuario**.
+1. En **Directivas**, seleccione **Flujos de usuario**.
 1. Seleccione una directiva existente, por ejemplo *B2C_1_signupsignin1* y, luego, seleccione **Ejecutar flujo de usuario**.
 1. Anote la dirección URL del hipervínculo que aparece en el encabezado **Ejecutar flujo de usuario** situado cerca de la parte superior de la página. Esta dirección URL es el conocido punto de conexión de detección de OpenID Connect del flujo de usuario y se usa en la sección siguiente cuando se configura la directiva de entrada en Azure API Management.
 
@@ -126,7 +126,7 @@ Para llamar a la API, necesita un token de acceso emitido por Azure AD B2C y u
 En primer lugar, necesita un token emitido por Azure AD B2C para usarlo en el encabezado `Authorization` de Postman. Puede obtener uno mediante la característica **Ejecutar ahora** del flujo de usuario de registro o de inicio de sesión que debe haber creado como uno de los requisitos previos.
 
 1. Vaya al inquilino de Azure AD B2C en [Azure Portal](https://portal.azure.com).
-1. En **Directivas**, seleccione**Flujos de usuario**.
+1. En **Directivas**, seleccione **Flujos de usuario**.
 1. Seleccione un flujo de usuario de registro o de inicio de sesión existente, por ejemplo *B2C_1_signupsignin1*.
 1. En **Aplicación**, seleccione *webapp1*.
 1. Para **Dirección URL de respuesta**, elija `https://jwt.ms`.

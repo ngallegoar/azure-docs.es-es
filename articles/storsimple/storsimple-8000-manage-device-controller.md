@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/19/2017
 ms.author: alkohli
-ms.openlocfilehash: baa035269f4a5b2f39263264f23183b308264ead
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 090797549cc61aa27945114e5ef8b666226b66e2
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85513945"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94957000"
 ---
 # <a name="manage-your-storsimple-device-controllers"></a>Administrar controladores de su dispositivo StorSimple
 
@@ -117,7 +117,7 @@ Lleve a cabo los siguientes pasos para restablecer su dispositivo Microsoft Azur
    
     `Reset-HcsFactoryDefault`
    
-    Para restablecer un único controlador, utilice el cmdlet [Reset-HcsFactoryDefault](https://technet.microsoft.com/library/dn688132.aspx) con el parámetro `-scope`).
+    Para restablecer un único controlador, utilice el cmdlet [Reset-HcsFactoryDefault](/previous-versions/windows/powershell-scripting/dn688132(v=wps.630)) con el parámetro `-scope`).
    
     El sistema se reiniciará varias veces. Se le notificará cuando el restablecimiento  se haya completado correctamente. Según el modelo del sistema, un dispositivo 8100 puede tardar de 45 a 60 minutos y un 8600 de 60 a 90 minutos en finalizar este proceso.
    
@@ -161,4 +161,3 @@ En esta sección, hemos resumido algunas de las preguntas más frecuentes sobre 
 ## <a name="next-steps"></a>Pasos siguientes
 * Si tiene algún problema con los controladores de su dispositivo StorSimple que no pueda resolver mediante el uso de los procedimientos descritos en este tutorial, [póngase en contacto con el servicio técnico de Microsoft](storsimple-8000-contact-microsoft-support.md).
 * Para aprender más sobre el uso del servicio StorSimple Device Manager service, vaya a [Uso del servicio StorSimple Device Manager service para administrar el dispositivo StorSimple](storsimple-8000-manager-service-administration.md).
-

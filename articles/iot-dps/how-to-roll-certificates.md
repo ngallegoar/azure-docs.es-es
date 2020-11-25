@@ -7,12 +7,12 @@ ms.date: 08/06/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: fbcb3656bc824e2fd352f92314652bd04167b4d8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bf8b1e04e11dee4e636826430838a467fe034e3f
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90531413"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94951135"
 ---
 # <a name="how-to-roll-x509-device-certificates"></a>Implementación de certificados de dispositivo X.509
 
@@ -51,7 +51,7 @@ Cuando un dispositivo se ha aprovisionado inicialmente con el aprovisionamiento 
 
 Una vez que se ha implementado un nuevo certificado de hoja en el dispositivo, ya no puede conectarse al centro de IoT porque está usando un nuevo certificado para conectarse. El centro de IoT solo reconoce el dispositivo con el certificado antiguo. El resultado del intento de conexión del dispositivo será un error de conexión "no autorizado". Para resolver este error, debe actualizar la entrada de inscripción del dispositivo para tener en cuenta el nuevo certificado de hoja del dispositivo. A continuación, el servicio de aprovisionamiento puede actualizar la información de registro del dispositivo de IoT Hub según sea necesario cuando se vuelve a aprovisionar el dispositivo. 
 
-Una posible excepción a este error de conexión sería un escenario donde ha creado un [grupo de inscripción](concepts-service.md#enrollment-group) para el dispositivo en el servicio de aprovisionamiento. En este caso, si no implementa los certificados raíz o intermedios en la cadena de certificados del dispositivo de confianza, el dispositivo se reconocerá si el nuevo certificado forma parte de la cadena de confianza definida en el grupo de inscripción. Si este escenario se produce como respuesta a una infracción de seguridad, al menos debe denegar los certificados de dispositivo específicos en el grupo que se consideran que infringen la seguridad. Para más información, consulte [Denegación de dispositivos específicos en un grupo de inscripción](https://docs.microsoft.com/azure/iot-dps/how-to-revoke-device-access-portal#disallow-specific-devices-in-an-enrollment-group).
+Una posible excepción a este error de conexión sería un escenario donde ha creado un [grupo de inscripción](concepts-service.md#enrollment-group) para el dispositivo en el servicio de aprovisionamiento. En este caso, si no implementa los certificados raíz o intermedios en la cadena de certificados del dispositivo de confianza, el dispositivo se reconocerá si el nuevo certificado forma parte de la cadena de confianza definida en el grupo de inscripción. Si este escenario se produce como respuesta a una infracción de seguridad, al menos debe denegar los certificados de dispositivo específicos en el grupo que se consideran que infringen la seguridad. Para más información, consulte [Denegación de dispositivos específicos en un grupo de inscripción](./how-to-revoke-device-access-portal.md#disallow-specific-devices-in-an-enrollment-group).
 
 La actualización de las entradas de inscripción para certificados implementados se realiza en la página **Administrar inscripciones**. Para acceder a esa página, siga estos pasos:
 

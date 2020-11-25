@@ -14,12 +14,12 @@ ms.custom:
 - seo-dt-2019
 ms.topic: troubleshooting
 ms.date: 02/20/2020
-ms.openlocfilehash: 14722f46f06351504583da7231179d206f7a3c26
-ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
+ms.openlocfilehash: db2f6e95153610e0a1b79cf5d30cea3c917333d3
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91893737"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94962576"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-from-postgresql-to-azure-db-for-postgresql"></a>Problemas conocidos y limitaciones de migración con las migraciones en línea de PostgreSQL a Azure DB for PostgreSQL
 
@@ -96,13 +96,13 @@ Al intentar realizar una migración en línea desde AWS RDS PostgreSQL a Azure D
 - **Error**: El valor predeterminado de la columna "{column}" de la tabla "{table}" de la base de datos "{database}" es diferente en los servidores de origen y destino. Es "{valor en origen}" en el origen y "{valor en destino}" en el destino.
 
   **Limitación**: este error se produce cuando el valor predeterminado de un esquema de columna es diferente entre las bases de datos de origen y de destino.
-  **Solución alternativa**: asegúrese de que el esquema en el destino coincide con el esquema en el origen. Para obtener detalles sobre la migración de esquemas, consulte la [documentación sobre la migración en línea de Azure PostgreSQL](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online#migrate-the-sample-schema).
+  **Solución alternativa**: asegúrese de que el esquema en el destino coincide con el esquema en el origen. Para obtener detalles sobre la migración de esquemas, consulte la [documentación sobre la migración en línea de Azure PostgreSQL](./tutorial-postgresql-azure-postgresql-online.md#migrate-the-sample-schema).
 
 - **Error**: La base de datos de destino "{database}" tiene "{número de tablas}" tablas mientras que la base de datos de origen "{database}" tiene "{número de tablas}" tablas. El número de tablas en las bases de datos de origen y de destino deben coincidir.
 
   **Limitación**: este error se produce cuando el número de tablas es diferente entre las bases de datos de origen y de destino.
 
-  **Solución alternativa**: asegúrese de que el esquema en el destino coincide con el esquema en el origen. Para obtener detalles sobre la migración de esquemas, consulte la [documentación sobre la migración en línea de Azure PostgreSQL](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online#migrate-the-sample-schema).
+  **Solución alternativa**: asegúrese de que el esquema en el destino coincide con el esquema en el origen. Para obtener detalles sobre la migración de esquemas, consulte la [documentación sobre la migración en línea de Azure PostgreSQL](./tutorial-postgresql-azure-postgresql-online.md#migrate-the-sample-schema).
 
 - **Error:** la base de datos de origen {database} está vacía.
 
@@ -113,7 +113,7 @@ Al intentar realizar una migración en línea desde AWS RDS PostgreSQL a Azure D
 - **Error:** la base de datos de destino {database} está vacía. Migre el esquema.
 
   **Limitación**: este error se produce cuando no hay ningún esquema en la base de datos de destino. Asegúrese de que el esquema en el destino coincide con el esquema en el origen.
-  **Solución alternativa**: asegúrese de que el esquema en el destino coincide con el esquema en el origen. Para obtener detalles sobre la migración de esquemas, consulte la [documentación sobre la migración en línea de Azure PostgreSQL](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online#migrate-the-sample-schema).
+  **Solución alternativa**: asegúrese de que el esquema en el destino coincide con el esquema en el origen. Para obtener detalles sobre la migración de esquemas, consulte la [documentación sobre la migración en línea de Azure PostgreSQL](./tutorial-postgresql-azure-postgresql-online.md#migrate-the-sample-schema).
 
 ## <a name="other-limitations"></a>Otras limitaciones
 

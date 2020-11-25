@@ -7,18 +7,19 @@ author: saghorpa
 manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 89da6935d85628b5ce4ff762ad31d3f280682921
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 7f0782738a8aa57b2bc0b87e1378972e3fa5d31c
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424253"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967863"
 ---
 # <a name="disaster-recovery-principles"></a>Principios de la recuperación ante desastres
 
@@ -76,8 +77,8 @@ El equipo de operaciones establece la relación de replicación entre los volúm
 >El volumen /hana/log no se replica porque no es necesario para restaurar la base de datos de SAP HANA replicada a un estado coherente en el sitio de recuperación ante desastres.
 
 A continuación, configure o ajuste la programación de copia de seguridad de instantánea de almacenamiento para acceder a su RTO y RPO en caso de desastre. Para minimizar el objetivo de punto de recuperación, establezca los siguientes intervalos de replicación en el servicio de instancias grandes de HANA:
-- En el caso de los volúmenes que cubre la instantánea combinada (tipo de instantánea **hana** ), establezca que se repliquen cada 15 minutos en los destinos de volúmenes de almacenamiento equivalentes del sitio de recuperación ante desastres.
-- En cuanto al volumen de la copia de seguridad del registro de transacciones (tipo de instantánea **logs** ), establezca que se replique cada 3 minutos en los destinos de volúmenes de almacenamiento equivalentes del sitio de recuperación ante desastres.
+- En el caso de los volúmenes que cubre la instantánea combinada (tipo de instantánea **hana**), establezca que se repliquen cada 15 minutos en los destinos de volúmenes de almacenamiento equivalentes del sitio de recuperación ante desastres.
+- En cuanto al volumen de la copia de seguridad del registro de transacciones (tipo de instantánea **logs**), establezca que se replique cada 3 minutos en los destinos de volúmenes de almacenamiento equivalentes del sitio de recuperación ante desastres.
 
 Para minimizar el objetivo de punto de recuperación, configure lo siguiente:
 - Realice una instantánea de almacenamiento de tipo **hana** (consulte el "Paso 7: Realizar instantáneas") entre cada treinta minutos y una hora.

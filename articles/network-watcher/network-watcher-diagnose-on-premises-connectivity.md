@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 632a1eb7b7ac53bd3d7df3f2722d6e53277c7926
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9014f24918013872ce102d094f62fd5703594ddc
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84738760"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94961881"
 ---
 # <a name="diagnose-on-premises-connectivity-via-vpn-gateways"></a>Diagnóstico de la conectividad local a través de puertas de enlace de VPN
 
@@ -35,7 +35,7 @@ Quiere configurar una conexión de sitio a sitio entre Azure y la red local con 
 
 1. Puerta de enlace de red virtual: la instancia de VPN Gateway en Azure
 1. Puerta de enlace de red local: la representación de la[ instancia de VPN Gateway local (FortiGate](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md#LocalNetworkGateway)) en la nube de Azure
-1. Conexión de sitio a sitio (basada en rutas): [conexión entre la puerta de enlace de VPN y el enrutador local](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal#CreateConnection)
+1. Conexión de sitio a sitio (basada en rutas): [conexión entre la puerta de enlace de VPN y el enrutador local](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md#CreateConnection)
 1. [Configuración de FortiGate](https://github.com/Azure/Azure-vpn-config-samples/blob/master/Fortinet/Current/Site-to-Site_VPN_using_FortiGate.md)
 
 Encontrará instrucciones paso a paso para definir una configuración de sitio a sitio si visita: [Creación de una red virtual con una conexión de sitio a sitio mediante Azure Portal](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md).

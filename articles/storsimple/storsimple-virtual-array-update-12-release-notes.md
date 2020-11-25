@@ -7,12 +7,12 @@ ms.service: storsimple
 ms.topic: article
 ms.date: 05/29/2019
 ms.author: alkohli
-ms.openlocfilehash: ea7e4801dfaad533403c0f927a03735ae409cc52
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1118dfcec67a49365f1f6e5e522e98b97694d052
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "66420609"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94960202"
 ---
 # <a name="storsimple-virtual-array-update-12-release-notes"></a>Notas de la versión de StorSimple Virtual Array Update 1.2
 
@@ -69,4 +69,4 @@ Descargar KB4502035 y [aplicar la actualización a través de la interfaz de usu
 * [Notas de la versión de StorSimple Virtual Array Update 0.4](storsimple-virtual-array-update-04-release-notes.md)
 * [Notas de la versión de StorSimple Virtual Array Update 0.3](storsimple-ova-update-03-release-notes.md)
 * [Notas de la versión de la matriz virtual de StorSimple Update 0.1 y 0.2](storsimple-ova-update-01-release-notes.md)
-* [Notas de la versión de disponibilidad general de la matriz Virtual de StorSimple](storsimple-ova-pp-release-notes.md)
+* [Notas de la versión de disponibilidad general de la matriz Virtual de StorSimple](./storsimple-virtual-array-update-06-release-notes.md)

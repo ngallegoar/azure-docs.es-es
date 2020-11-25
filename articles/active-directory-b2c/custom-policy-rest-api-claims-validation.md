@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 30273c0103d8a0fde12b1b7c6f66d16dd4ea84cb
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 761bc4db7760ef5e84e3fc3c8a5deea5d4508f51
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92089526"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94951934"
 ---
 # <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-to-validate-user-input"></a>Tutorial: Integrar intercambios de notificaciones de API REST en el recorrido del usuario de Azure AD B2C para validar la entrada del usuario
 
@@ -65,7 +65,7 @@ Si se produce un error en la validación, la API REST debe devolver un código H
 }
 ```
 
-La configuración del punto de conexión de API REST está fuera del ámbito de este artículo. Hemos creado una muestra de [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-reference). Puede acceder al código completo de la función de Azure en [GitHub](https://github.com/azure-ad-b2c/rest-api/tree/master/source-code/azure-function).
+La configuración del punto de conexión de API REST está fuera del ámbito de este artículo. Hemos creado una muestra de [Azure Functions](../azure-functions/functions-reference.md). Puede acceder al código completo de la función de Azure en [GitHub](https://github.com/azure-ad-b2c/rest-api/tree/master/source-code/azure-function).
 
 ## <a name="define-claims"></a>Definición de notificaciones
 
@@ -74,7 +74,7 @@ Una notificación proporciona un almacenamiento temporal de datos durante la eje
 1. Abra el archivo de extensiones de la directiva. Por ejemplo, <em>`SocialAndLocalAccounts/` **`TrustFrameworkExtensions.xml`**</em>.
 1. Busque el elemento [BuildingBlocks](buildingblocks.md). Si el elemento no existe, agréguelo.
 1. Busque el elemento [ClaimsSchema](claimsschema.md). Si el elemento no existe, agréguelo.
-1. Agregue las notificaciones siguientes al elemento **ClaimsSchema** .  
+1. Agregue las notificaciones siguientes al elemento **ClaimsSchema**.  
 
 ```xml
 <ClaimType Id="loyaltyId">
@@ -135,10 +135,10 @@ En este ejemplo, `userLanguage` se enviará al servicio REST como `lang` desde l
 
 Después de implementar la API REST, configure los metadatos del perfil técnico `REST-ValidateProfile` para que reflejen su propia API REST, incluidos:
 
-- **ServiceUrl** . Establezca la dirección URL del punto de conexión de la API REST.
-- **SendClaimsIn** . Especifique cómo se envían las notificaciones de entrada al proveedor de notificaciones RESTful.
-- **AuthenticationType** . Establezca el tipo de autenticación realizada por el proveedor de notificaciones RESTful. 
-- **AllowInsecureAuthInProduction** . En un entorno de producción, asegúrese de establecer estos metadatos en `true`.
+- **ServiceUrl**. Establezca la dirección URL del punto de conexión de la API REST.
+- **SendClaimsIn**. Especifique cómo se envían las notificaciones de entrada al proveedor de notificaciones RESTful.
+- **AuthenticationType**. Establezca el tipo de autenticación realizada por el proveedor de notificaciones RESTful. 
+- **AllowInsecureAuthInProduction**. En un entorno de producción, asegúrese de establecer estos metadatos en `true`.
     
 Consulte los [metadatos del perfil técnico de RESTful](restful-technical-profile.md#metadata) para obtener más configuraciones.
 
@@ -150,7 +150,7 @@ Para obtener el número de fidelidad del usuario durante el registro, debe permi
 
 Agregue la referencia del perfil técnico de validación al perfil técnico de registro, que llama a `REST-ValidateProfile`. El nuevo perfil técnico de validación se agregará al principio de la colección `<ValidationTechnicalProfiles>` definida en la directiva base. Este comportamiento significa que, solo después de la validación correcta, Azure AD B2C pasa a crear la cuenta en el directorio.   
 
-1. Busque el elemento **ClaimsProviders** . Agregue un nuevo proveedor de notificaciones como se muestra a continuación:
+1. Busque el elemento **ClaimsProviders**. Agregue un nuevo proveedor de notificaciones como se muestra a continuación:
 
     ```xml
     <ClaimsProvider>
@@ -231,14 +231,14 @@ Para devolver la notificación del código de promoción a la aplicación de usu
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD. Para ello, seleccione el filtro **Directorio y suscripción** que se encuentra en el menú superior y elija el directorio que contiene el inquilino de Azure AD.
-1. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, y busque y seleccione **Registros de aplicaciones** .
-1. Seleccione **Marco de experiencia de identidad** .
-1. Seleccione **Cargar directiva personalizada** y cargue los archivos de directiva modificados: *TrustFrameworkExtensions.xml* y *SignUpOrSignin.xml* . 
-1. Seleccione la directiva de registro o inicio de sesión que cargó y haga clic en el botón **Ejecutar ahora** .
+1. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, y busque y seleccione **Registros de aplicaciones**.
+1. Seleccione **Marco de experiencia de identidad**.
+1. Seleccione **Cargar directiva personalizada** y cargue los archivos de directiva modificados: *TrustFrameworkExtensions.xml* y *SignUpOrSignin.xml*. 
+1. Seleccione la directiva de registro o inicio de sesión que cargó y haga clic en el botón **Ejecutar ahora**.
 1. Debe poder registrarse con una dirección de correo electrónico.
-1. Haga clic en el vínculo **Registrarse ahora** .
-1. En **Your loyalty ID** (Id. de fidelidad), escriba 1234 y haga clic en **Continuar** . Llegados a este punto, debería obtener un mensaje de error de validación.
-1. Cambie a otro valor y haga clic en **Continuar** .
+1. Haga clic en el vínculo **Registrarse ahora**.
+1. En **Your loyalty ID** (Id. de fidelidad), escriba 1234 y haga clic en **Continuar**. Llegados a este punto, debería obtener un mensaje de error de validación.
+1. Cambie a otro valor y haga clic en **Continuar**.
 1. El token enviado de vuelta a la aplicación contiene la notificación `promoCode`.
 
 ```json

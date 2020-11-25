@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/06/2020
 ms.author: vinigam
-ms.openlocfilehash: 31d0de63185c56eafda8c42efbe44d8e7ffcaf1f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: be69e7fc0c836257b92aa8573826fe1e8a36d770
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87022470"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94948449"
 ---
 # <a name="sample-queries-with-new-fields-in-the-traffic-analytics-schema-august-2019-schema-update"></a>Consultas de ejemplo con nuevos campos en el esquema de Análisis de tráfico (actualización del esquema de agosto de 2019)
 
-El [esquema de registro del Análisis de tráfico](https://docs.microsoft.com/azure/network-watcher/traffic-analytics-schema) incluye estos campos nuevos: **SrcPublicIPs_s**, **DestPublicIPs_s**, **NSGRule_s**. Los nuevos campos proporcionan información sobre las direcciones IP de origen y de destino y simplifican las consultas.
+El [esquema de registro del Análisis de tráfico](./traffic-analytics-schema.md) incluye estos campos nuevos: **SrcPublicIPs_s**, **DestPublicIPs_s**, **NSGRule_s**. Los nuevos campos proporcionan información sobre las direcciones IP de origen y de destino y simplifican las consultas.
 
 En los próximos meses, los siguientes campos más antiguos van a quedar en desuso: **VMIP_s**, **Subscription_g**, **Region_s**, **NSGRules_s**, **Subnet_s**, **VM_s**, **NIC_s**, **PublicIPs_s**, **FlowCount_d**.
 

@@ -9,18 +9,19 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/01/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 19abb3f12dc1a0fd2a3dff548ecdc9e7fff47659
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 2ce9ab371c0ed1e81cf1dfb53fca7e359e1aeb35
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92927675"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967506"
 ---
 # <a name="sap-hana-infrastructure-configurations-and-operations-on-azure"></a>Configuraciones y operaciones de infraestructura de SAP HANA en Azure
 En este documento se proporcionan instrucciones para configurar la infraestructura de Azure y sobre el funcionamiento de los sistemas SAP HANA que se implementaron en máquinas virtuales nativas de Azure. En el documento también se incluye información sobre la configuración de la escalabilidad horizontal de SAP HANA para la SKU de máquinas virtuales M128s. Este documento no pretende reemplazar ninguna documentación estándar de SAP, incluido el contenido siguiente:
@@ -139,7 +140,7 @@ El diseño básico habitual de un solo nodo en una configuración de escalabilid
 
 La configuración básica de un nodo de máquina virtual para escalabilidad horizontal de SAP HANA presenta este aspecto:
 
-- Con **/hana/shared** , usará el servicio NFS nativo que se proporciona mediante Azure NetApp Files. 
+- Con **/hana/shared**, usará el servicio NFS nativo que se proporciona mediante Azure NetApp Files. 
 - Todos los demás volúmenes de disco no se comparten entre los diferentes nodos y no se basan en NFS. Más adelante en este documento se proporcionan las configuraciones de instalación y los pasos para la escalabilidad horizontal de instalaciones HANA con los recursos no compartidos **/hana/data** y **/hana/log**. Para conocer el almacenamiento certificado para HANA que se puede usar, consulte el artículo [Configuraciones de almacenamiento de máquinas virtuales de Azure en SAP HANA](./hana-vm-operations-storage.md).
 
 

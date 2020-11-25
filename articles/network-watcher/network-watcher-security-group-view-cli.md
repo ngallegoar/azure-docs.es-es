@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 854fe3ab8ad20e13f864b9fb5419628664985dd8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b3aa963c4da7802a9db714f25e7b544b3a132d4b
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87022674"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94948653"
 ---
 # <a name="analyze-your-virtual-machine-security-with-security-group-view-using-azure-cli"></a>Analice la seguridad de una máquina virtual con la vista de grupos de seguridad mediante la CLI de Azure
 
@@ -27,7 +27,7 @@ ms.locfileid: "87022674"
 > - [REST API](network-watcher-security-group-view-rest.md)
 
 > [!NOTE]
-> La API de vista de grupo de seguridad ya no se mantiene y caerá en desuso pronto. Use la [característica Reglas de seguridad vigentes](https://docs.microsoft.com/azure/network-watcher/network-watcher-security-group-view-overview), que proporciona la misma funcionalidad.
+> La API de vista de grupo de seguridad ya no se mantiene y caerá en desuso pronto. Use la [característica Reglas de seguridad vigentes](./network-watcher-security-group-view-overview.md), que proporciona la misma funcionalidad.
 
 
 La vista de grupos de seguridad devuelve las reglas de seguridad de red configuradas y vigentes que se aplican a una máquina virtual. Esta funcionalidad resulta útil para auditar y diagnosticar los grupos de seguridad de red y las reglas que están configuradas en una máquina virtual para asegurarse de que el tráfico se está permitiendo o denegando correctamente. En este artículo, se muestra cómo recuperar las reglas de seguridad configuradas y vigentes para una máquina virtual mediante la CLI de Azure

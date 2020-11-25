@@ -9,18 +9,19 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/15/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 887adb3e8b0a5f0410fc9a7732e2220049b7ba6c
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 550e22ac861b92994f2695594d09fc2935d273d1
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92927199"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967761"
 ---
 # <a name="azure-hana-large-instances-control-through-azure-portal"></a>Control de instancias grandes de HANA en Azure mediante Azure Portal
 En este documento se describe la manera en que se presenta [HANA (instancias grandes)](./hana-overview-architecture.md) en [Azure Portal](https://portal.azure.com) y qué actividades se pueden realizar en este portal con las unidades de HANA (instancias grandes) que se implementan. La visibilidad de HANA (instancias grandes) en Azure Portal la proporciona un proveedor de recursos de Azure específico que actualmente está en versión preliminar pública.
@@ -151,7 +152,7 @@ En la lista de servicios, puede encontrar el servicio **SAP HANA (instancias gra
 
 ![Seleccionar tipo de problema en Azure Portal](./media/hana-li-portal/portal-select-problem-class.png)
 
-En cada uno de los diferentes tipos de problemas, se le ofrece una selección de subtipos de problemas que debe seleccionar para especificar aún más su problema. Después de seleccionar el subtipo, ahora puede asignar un nombre al asunto. Cuando haya terminado con el proceso de selección, puede continuar con el siguiente paso de la creación. En la sección **Soluciones** , se le dirige a documentación sobre HANA (instancias grandes) que podría facilitar información para encontrar una solución al problema. Si no puede encontrar una solución para su problema en la documentación sugerida, vaya al paso siguiente. En el siguiente paso, se le preguntará si el problema está relacionado con máquinas virtuales o con unidades de HANA (instancias grandes). Esta información le ayudará a dirigir la solicitud de soporte técnico a los especialistas adecuados. 
+En cada uno de los diferentes tipos de problemas, se le ofrece una selección de subtipos de problemas que debe seleccionar para especificar aún más su problema. Después de seleccionar el subtipo, ahora puede asignar un nombre al asunto. Cuando haya terminado con el proceso de selección, puede continuar con el siguiente paso de la creación. En la sección **Soluciones**, se le dirige a documentación sobre HANA (instancias grandes) que podría facilitar información para encontrar una solución al problema. Si no puede encontrar una solución para su problema en la documentación sugerida, vaya al paso siguiente. En el siguiente paso, se le preguntará si el problema está relacionado con máquinas virtuales o con unidades de HANA (instancias grandes). Esta información le ayudará a dirigir la solicitud de soporte técnico a los especialistas adecuados. 
 
 ![Detalles de una incidencia de soporte técnico en Azure Portal](./media/hana-li-portal/portal-support-request-details.png)
 

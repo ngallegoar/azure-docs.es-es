@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 2d3f04777983d24d5219c55c5309b7d12c214594
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 2d0157f3e7ab0ef373235fcc6e188f9caa36eff4
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92070697"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94833306"
 ---
 # <a name="azure-security-baseline-for-automation"></a>Base de referencia de seguridad de Azure para Automation
 
@@ -284,7 +284,7 @@ Como alternativa, puede habilitar e incorporar datos en Azure Sentinel o en una 
 
 Como alternativa, puede habilitar e incorporar datos en Azure Sentinel.
 
-* [Incoporación de Azure Sentinel](../sentinel/quickstart-onboard.md)
+* [Incorporación de Azure Sentinel](../sentinel/quickstart-onboard.md)
 
 * [Administración de alertas de seguridad en Azure Security Center](../security-center/security-center-managing-and-responding-alerts.md)
 
@@ -1040,7 +1040,7 @@ Cuando use la característica Hybrid Runbook Worker, use State Configuration de 
 
 * [Uso de la autenticación de runbooks con identidades administradas](./automation-hrw-run-runbooks.md#runbook-auth-managed-identities)
 
-* [Creación de un almacén de claves](../key-vault/secrets/quick-create-portal.md)
+* [Creación de un almacén de claves](../key-vault/general/quick-create-portal.md)
 
 * [Autenticación en Key Vault](../key-vault/general/authentication.md)
 
@@ -1052,7 +1052,7 @@ Cuando use la característica Hybrid Runbook Worker, use State Configuration de 
 
 ### <a name="712-manage-identities-securely-and-automatically"></a>7.12: Administre las identidades de forma segura y automática
 
-**Guía**: Use las identidades administradas para proporcionar a los servicios de Azure una identidad administrada automáticamente en Azure AD. Las identidades administradas le permiten autenticarse en cualquier servicio que admita la autenticación de Azure AD, incluyendo Key Vault, sin necesidad de credenciales en el código.
+**Instrucciones**: Use las identidades administradas para proporcionar a los servicios de Azure una identidad administrada automáticamente en Azure AD. Las identidades administradas le permiten autenticarse en cualquier servicio que admita la autenticación de Azure AD, incluyendo Key Vault, sin necesidad de credenciales en el código.
 
 * [Configuración de las identidades administradas](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md)
 

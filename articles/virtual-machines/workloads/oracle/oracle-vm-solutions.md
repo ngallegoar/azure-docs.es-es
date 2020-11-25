@@ -3,16 +3,17 @@ title: Soluciones de Oracle en máquinas virtuales de Azure | Microsoft Docs
 description: Obtenga información sobre las configuraciones admitidas y las limitaciones de las imágenes de máquinas virtuales de Oracle en Microsoft Azure.
 author: dbakevlar
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.date: 05/12/2020
 ms.author: kegorman
 ms.reviewer: cynthn
-ms.openlocfilehash: 32e79e12eae9997df8163401d2abc5f06bc02fc0
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 093d3c0da0b40f2a287b1cb451a419f71ce4b8d7
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91993493"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94957595"
 ---
 # <a name="oracle-vm-images-and-their-deployment-on-microsoft-azure"></a>Imágenes de máquinas virtuales de Oracle y su implementación en Microsoft Azure
 
@@ -109,10 +110,6 @@ Microsoft Azure es un entorno de nube autorizado para ejecutar Oracle Database.
 Las bases de datos de Oracle suelen requerir una mayor cantidad de memoria y E/S. Por esta razón, se recomienda usar [máquinas virtuales optimizadas para memoria](../../sizes-memory.md) en estas cargas de trabajo. A fin de optimizar aún más las cargas de trabajo, se recomiendan las [CPU virtuales restringidas en núcleos](../../constrained-vcpu.md) para las cargas de trabajo Oracle Database que requieran gran cantidad de memoria, almacenamiento y ancho de banda de E/S, pero no un gran número de núcleos.
 
 Al migrar el software y las cargas de trabajo de Oracle del entorno local a Microsoft Azure, Oracle ofrece movilidad de licencias, tal como se indica en las [Preguntas más frecuentes sobre Oracle en Azure](https://www.oracle.com/cloud/technologies/oracle-azure-faq.html).
-
-## <a name="oracle-real-application-cluster-oracle-rac"></a>Oracle Real Application Cluster (Oracle RAC)
-
-Oracle Real Application Clusters (Oracle RAC) se ha diseñado para mitigar el error de un nodo individual en una configuración local de clúster de varios nodos. Se basa en dos tecnologías locales que no son nativas para los entornos de nube pública de hiperescala: multidifusión y disco compartido de red. Si la solución de base de datos requiere Oracle RAC en Azure, se necesita software de terceros para habilitar estas tecnologías. Para obtener más información sobre Oracle RAC, vea la [página de FlashGrid SkyCluster](https://www.flashgrid.io/oracle-rac-in-azure/).
 
 ## <a name="high-availability-and-disaster-recovery-considerations"></a>Consideraciones sobre la alta disponibilidad y la recuperación ante desastres
 

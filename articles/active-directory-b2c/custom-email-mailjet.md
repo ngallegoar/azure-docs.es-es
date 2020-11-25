@@ -11,18 +11,18 @@ ms.topic: how-to
 ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 6f2608dafb77aeba98f188ec04f78649656ef969
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: b74de2bdf1f6239f1006c820579a336946939421
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92089662"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94949588"
 ---
 # <a name="custom-email-verification-with-mailjet"></a>Verificación de correo electrónico personalizado con Mailjet
 
 Use el correo electrónico personalizado en Azure Active Directory B2C (Azure AD B2C) para enviar mensajes personalizados a los usuarios que se registran para usar las aplicaciones. Mediante el uso de elementos [DisplayControl](display-controls.md) (actualmente en versión preliminar) y el proveedor de correo electrónico de terceros Mailjet, puede usar su propia plantilla de correo electrónico, dirección *De:* y asunto, además de admitir la localización y la configuración personalizada de la contraseña de un solo uso (OTP).
 
-La verificación del correo electrónico personalizado requiere el uso de un proveedor de correo electrónico de terceros, como [Mailjet](https://Mailjet.com), [SendGrid](custom-email.md) o [SparkPost](https://sparkpost.com), una API REST personalizada o cualquier proveedor de correo electrónico basado en HTTP (incluido el suyo propio). En este artículo se describe cómo configurar una solución que usa Mailjet.
+La verificación del correo electrónico personalizado requiere el uso de un proveedor de correo electrónico de terceros, como [Mailjet](https://Mailjet.com), [SendGrid](./custom-email-sendgrid.md) o [SparkPost](https://sparkpost.com), una API REST personalizada o cualquier proveedor de correo electrónico basado en HTTP (incluido el suyo propio). En este artículo se describe cómo configurar una solución que usa Mailjet.
 
 [!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
@@ -40,20 +40,20 @@ A continuación, almacene la clave de API de Mailjet en una clave de directiva d
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el filtro **Directorio + suscripción** en el menú superior y elija el directorio de Azure AD B2C.
-1. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, y busque y seleccione **Azure AD B2C** .
-1. En la página de **introducción** , seleccione **Identity Experience Framework** .
-1. Seleccione **Claves de directiva** y, luego, **Agregar** .
-1. En **Opciones** , elija **Manual** .
+1. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, y busque y seleccione **Azure AD B2C**.
+1. En la página de **introducción**, seleccione **Identity Experience Framework**.
+1. Seleccione **Claves de directiva** y, luego, **Agregar**.
+1. En **Opciones**, elija **Manual**.
 1. Escriba un **nombre** para la clave de directiva. Por ejemplo, `MailjetApiKey`. Se agregará el prefijo `B2C_1A_` automáticamente al nombre de la clave.
-1. En **Secreto** , escriba la **clave de la API** de Mailjet que guardó previamente.
-1. En **Uso de claves** , seleccione **Firma** .
-1. Seleccione **Crear** .
-1. Seleccione **Claves de directiva** y luego **Agregar** .
-1. En **Opciones** , elija **Manual** .
+1. En **Secreto**, escriba la **clave de la API** de Mailjet que guardó previamente.
+1. En **Uso de claves**, seleccione **Firma**.
+1. Seleccione **Crear**.
+1. Seleccione **Claves de directiva** y luego **Agregar**.
+1. En **Opciones**, elija **Manual**.
 1. Escriba un **nombre** para la clave de directiva. Por ejemplo, `MailjetSecretKey`. Se agregará el prefijo `B2C_1A_` automáticamente al nombre de la clave.
-1. En **Secreto** , escriba la **clave secreta** de Mailjet que guardó previamente.
-1. En **Uso de claves** , seleccione **Firma** .
-1. Seleccione **Crear** .
+1. En **Secreto**, escriba la **clave secreta** de Mailjet que guardó previamente.
+1. En **Uso de claves**, seleccione **Firma**.
+1. Seleccione **Crear**.
 
 ## <a name="create-a-mailjet-template"></a>Creación de una plantilla de Mailjet
 
@@ -162,7 +162,7 @@ Con la cuenta de Mailjet creada y la clave de API de Mailjet almacenada en una c
     1. En **Subject** (Asunto), escriba un valor predeterminado para el asunto. Mailjet usa este valor cuando la API no contiene un parámetro de asunto.
     1. En **Name** (Nombre), escriba el nombre de la empresa.
     1. En **Address** (Dirección), seleccione su dirección de correo electrónico.
-    1. Seleccione **Guardar** .
+    1. Seleccione **Guardar**.
 1. En la parte superior derecha, seleccione **Save & Publish** (Guardar y publicar) y después **Yes, publish changes** (Sí, publicar cambios).
 1. Anote el valor de **Template ID** (Identificador de la plantilla) de la plantilla que creó para usarlo en un paso posterior. Este identificador se especifica al [agregar la transformación de notificaciones](#add-the-claims-transformation).
 

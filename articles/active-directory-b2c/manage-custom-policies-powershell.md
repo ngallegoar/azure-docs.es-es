@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 02/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 888e2287c869200434e198204881d5bd5014f87d
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 29db2214ddabeb6df2aa937c4ccd1f9938143969
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92363868"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94949452"
 ---
 # <a name="manage-azure-ad-b2c-custom-policies-with-azure-powershell"></a>Administración de las directivas personalizadas de Azure AD B2C con Azure PowerShell
 
@@ -31,7 +31,7 @@ Azure PowerShell proporciona varios cmdlets para la administración de directiva
 
 * [Inquilino de Azure AD B2C](tutorial-create-tenant.md) y credenciales para un usuario en el directorio con el rol [Administrador de directivas IEF de B2C](../active-directory/roles/permissions-reference.md#b2c-ief-policy-administrator)
 * [Directivas personalizadas](custom-policy-get-started.md) cargadas en el inquilino
-* [**Módulo de versión preliminar** de Azure AD PowerShell for Graph](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0)
+* [**Módulo de versión preliminar** de Azure AD PowerShell for Graph](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0)
 
 ## <a name="connect-powershell-session-to-b2c-tenant"></a>Conexión de la sesión de PowerShell con el inquilino de B2C
 
@@ -191,15 +191,15 @@ Message: Validation failed: 1 validation error(s) found in policy "B2C_1A_SIGNUP
 ...
 ```
 
-Para información sobre la solución de problemas de directivas personalizadas, consulte [Solución de problemas de directivas personalizadas de Azure AD B2C e Identity Experience Framework](active-directory-b2c-guide-troubleshooting-custom.md).
+Para información sobre la solución de problemas de directivas personalizadas, consulte [Solución de problemas de directivas personalizadas de Azure AD B2C e Identity Experience Framework](./troubleshoot-custom-policies.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para información sobre el uso de PowerShell para implementar directivas personalizadas como parte de una canalización de integración o entrega continuas (CI/CD), consulte [Implementación de directivas personalizadas desde una canalización de Azure DevOps](deploy-custom-policies-devops.md).
 
 <!-- LINKS - External -->
-[Connect-AzureAD]: https://docs.microsoft.com/powershell/module/azuread/get-azureadmstrustframeworkpolicy
-[Get-AzureADMSTrustFrameworkPolicy]: https://docs.microsoft.com/powershell/module/azuread/get-azureadmstrustframeworkpolicy
-[New-AzureADMSTrustFrameworkPolicy]: https://docs.microsoft.com/powershell/module/azuread/new-azureadmstrustframeworkpolicy
-[Remove-AzureADMSTrustFrameworkPolicy]: https://docs.microsoft.com/powershell/module/azuread/remove-azureadmstrustframeworkpolicy
-[Set-AzureADMSTrustFrameworkPolicy]: https://docs.microsoft.com/powershell/module/azuread/set-azureadmstrustframeworkpolicy
+[Connect-AzureAD]: /powershell/module/azuread/get-azureadmstrustframeworkpolicy
+[Get-AzureADMSTrustFrameworkPolicy]: /powershell/module/azuread/get-azureadmstrustframeworkpolicy
+[New-AzureADMSTrustFrameworkPolicy]: /powershell/module/azuread/new-azureadmstrustframeworkpolicy
+[Remove-AzureADMSTrustFrameworkPolicy]: /powershell/module/azuread/remove-azureadmstrustframeworkpolicy
+[Set-AzureADMSTrustFrameworkPolicy]: /powershell/module/azuread/set-azureadmstrustframeworkpolicy

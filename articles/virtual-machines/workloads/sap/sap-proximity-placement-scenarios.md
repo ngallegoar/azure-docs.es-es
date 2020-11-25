@@ -9,18 +9,19 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/29/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7b48e4223e4e5fc5100de250d85441fcb96d50a3
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: aae822665702300064e82e80d74b5c2256423ea1
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977245"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94957289"
 ---
 # <a name="azure-proximity-placement-groups-for-optimal-network-latency-with-sap-applications"></a>Grupos de selección de ubicación de proximidad de Azure para una latencia de red óptima con aplicaciones SAP
 Las aplicaciones SAP basadas en la arquitectura SAP NetWeaver o SAP S/4HANA son sensibles a la latencia de red entre la capa de aplicación de SAP y el nivel de base de datos de SAP. Esta sensibilidad es el resultado de la mayor parte de la lógica de negocios que se ejecuta en el nivel de aplicación. Dado que el nivel de aplicación de SAP ejecuta la lógica de negocios, emite consultas al nivel de base de datos con una elevada frecuencia a una velocidad de miles o decenas de miles de consultas por segundo. En la mayoría de los casos, la naturaleza de estas consultas es sencilla. A menudo, se pueden ejecutar en el nivel de base de datos en 500 microsegundos o menos.

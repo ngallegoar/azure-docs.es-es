@@ -12,12 +12,12 @@ ms.date: 02/20/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 4fc25edb873a2dfe84f6ca716a71cf028c74cb2f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9485fb09d3ac7684ba91bcd37720a0e55603404b
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85383944"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94952733"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Acceso a los registros de auditoría de Azure AD B2C
 
@@ -84,7 +84,7 @@ Para descargar la lista de eventos de actividad en un archivo de valores separad
 
 ## <a name="get-audit-logs-with-the-azure-ad-reporting-api"></a>Obtención de registros de auditoría con la API de generación de informes de Azure AD
 
-Los registros de auditoría se publican en la misma canalización que otras actividades de Azure Active Directory, por lo que son accesibles a través de la [API de informes de Azure Active Directory](https://docs.microsoft.com/graph/api/directoryaudit-list). Para más información, consulte [Introducción a la API de generación de informes de Azure Active Directory](../active-directory/reports-monitoring/concept-reporting-api.md).
+Los registros de auditoría se publican en la misma canalización que otras actividades de Azure Active Directory, por lo que son accesibles a través de la [API de informes de Azure Active Directory](/graph/api/directoryaudit-list). Para más información, consulte [Introducción a la API de generación de informes de Azure Active Directory](../active-directory/reports-monitoring/concept-reporting-api.md).
 
 ### <a name="enable-reporting-api-access"></a>Habilitación del acceso a la API de generación de informes
 

@@ -9,18 +9,19 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/27/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: dcabd01cfbda8cd892c82b391bf649b2b464d6fb
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: e522e358a1b76cea08dac550b33d7a2dfa7d926d
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92927777"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94950234"
 ---
 # <a name="sap-hana-availability-within-one-azure-region"></a>Disponibilidad de SAP HANA dentro de una región de Azure
 En este artículo se describen varios escenarios de disponibilidad dentro de una región de Azure. Azure tiene muchas regiones repartidas por todo el mundo. Para obtener la lista de las regiones de Azure, consulte [Regiones de Azure](https://azure.microsoft.com/regions/). Para implementar SAP HANA en máquinas virtuales dentro de una región de Azure, Microsoft ofrece la implementación de una única máquina virtual con una instancia de HANA. Para una mayor disponibilidad, puede implementar dos máquinas virtuales con dos instancias de HANA dentro de un [conjunto de disponibilidad de Azure](../../windows/tutorial-availability-sets.md) que usen la replicación del sistema HANA para la disponibilidad. 

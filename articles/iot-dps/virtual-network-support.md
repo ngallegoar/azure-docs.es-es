@@ -7,12 +7,12 @@ ms.service: iot-dps
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.author: wesmc
-ms.openlocfilehash: d90b18094a26830ee6909251d46837eff95a812a
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: f1409a931195d236b2729e629e4603c606137593
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91998588"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94959788"
 ---
 # <a name="azure-iot-hub-device-provisioning-service-dps-support-for-virtual-networks"></a>Compatibilidad de Azure IoT Hub Device Provisioning Service (DPS) con redes virtuales
 
@@ -38,7 +38,7 @@ Por varios motivos, es posible que los clientes deseen restringir la conectivida
 
 Entre los enfoques comunes para restringir la conectividad se incluyen [las reglas de filtro de direcciones IP de DPS](./iot-dps-ip-filtering.md) y la red virtual (VNET) con [puntos de conexión privados](../private-link/private-endpoint-overview.md). El objetivo de este artículo es describir el enfoque de la red virtual para DPS con puntos de conexión privados. 
 
-Los dispositivos que operan en redes locales pueden usar el emparejamiento privado de [red privada virtual (VPN)](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) o [ExpressRoute](https://azure.microsoft.com/services/expressroute/) para conectarse a una red virtual en Azure y acceder a los recursos de DPS a través de puntos de conexión privados. 
+Los dispositivos que operan en redes locales pueden usar el emparejamiento privado de [red privada virtual (VPN)](../vpn-gateway/vpn-gateway-about-vpngateways.md) o [ExpressRoute](https://azure.microsoft.com/services/expressroute/) para conectarse a una red virtual en Azure y acceder a los recursos de DPS a través de puntos de conexión privados. 
 
 Un punto de conexión privado es una dirección IP privada asignada en una red virtual propiedad de un cliente a través de la cual se puede acceder a un recurso de Azure. Al tener un punto de conexión privado para el recurso de DPS, podrá permitir que los dispositivos que funcionan dentro de la red virtual soliciten el aprovisionamiento por el recurso de DPS sin permitir el tráfico al punto de conexión público.
 
@@ -51,7 +51,7 @@ Antes de continuar, asegúrese de que se cumplen los requisitos previos siguient
 
 * Ha aprovisionado una red virtual de Azure con una subred en la que se creará el punto de conexión privado. Para más información, consulte [Creación de una red virtual mediante la CLI de Azure](../virtual-network/quick-create-cli.md).
 
-* En el caso de los dispositivos que operan en redes locales, configure la [red privada virtual (VPN)](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) o el emparejamiento privado de [ExpressRoute](https://azure.microsoft.com/services/expressroute/) en su red virtual de Azure.
+* En el caso de los dispositivos que operan en redes locales, configure la [red privada virtual (VPN)](../vpn-gateway/vpn-gateway-about-vpngateways.md) o el emparejamiento privado de [ExpressRoute](https://azure.microsoft.com/services/expressroute/) en su red virtual de Azure.
 
 ## <a name="private-endpoint-limitations"></a>Limitaciones del punto de conexión privado
 
@@ -154,5 +154,5 @@ Para más información sobre los precios, consulte [Precios de Azure Private Lin
 
 Use los vínculos siguientes para obtener más información sobre las características de seguridad de DPS:
 
-* [Seguridad](concepts-security.md)
+* [Seguridad](./concepts-service.md#attestation-mechanism)
 * [Compatibilidad con TLS 1.2](tls-support.md)

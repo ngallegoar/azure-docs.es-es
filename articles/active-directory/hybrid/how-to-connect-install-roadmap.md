@@ -13,12 +13,12 @@ ms.date: 09/18/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 244456298e9a85f7cf7a5bdc175f1df5397ca207
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ae575aa6544a174a70eb8ea4749566e8660280e2
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89662149"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94873274"
 ---
 # <a name="azure-ad-connect-and-azure-ad-connect-health-installation-roadmap"></a>Guía de instalación de Azure AD Connect y Azure AD Connect Health
 
@@ -143,12 +143,12 @@ Para empezar a usar Azure AD Connect Health, siga estos pasos:
 * Asegúrese de que [cumple los requisitos](how-to-connect-health-agent-install.md#requirements) de Azure AD Connect Health.
 * Introducción a Azure AD Connect Health para AD FS
     * [Descargue el agente de Azure AD Connect Health para AD FS.](https://go.microsoft.com/fwlink/?LinkID=518973)
-    * [Consulte las instrucciones de instalación](how-to-connect-health-agent-install.md#installing-the-azure-ad-connect-health-agent-for-ad-fs).
+    * [Consulte las instrucciones de instalación](how-to-connect-health-agent-install.md#install-the-agent-for-ad-fs).
 * Introducción al uso de Azure AD Connect Health para la sincronización
     * [Descargue e instale la versión más reciente de Azure AD Connect](https://go.microsoft.com/fwlink/?linkid=615771). El agente de Health para la sincronización se instalará como parte de la instalación de Azure AD Connect (versión 1.0.9125.0 o superior).
 * Introducción a Azure AD Connect Health para AD DS
     * [Descargue el agente de Azure AD Connect Health para AD DS](https://go.microsoft.com/fwlink/?LinkID=820540).
-    * [Consulte las instrucciones de instalación](how-to-connect-health-agent-install.md#installing-the-azure-ad-connect-health-agent-for-ad-ds).
+    * [Consulte las instrucciones de instalación](how-to-connect-health-agent-install.md#install-the-agent-for-azure-ad-ds).
 
 
 ## <a name="azure-ad-connect-health-portal"></a>Portal de Azure AD Connect Health

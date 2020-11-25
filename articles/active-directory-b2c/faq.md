@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 4db3c58da791a5cad5fc3b9c98f245202d8119e2
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 384f178481f7a6ff202d5363ba09c242b1fc366d
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92054770"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94951798"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: Preguntas más frecuentes
 
@@ -90,7 +90,7 @@ Puede usar Microsoft Graph API para escribir la herramienta de migración. Consu
 
 ### <a name="what-password-user-flow-is-used-for-local-accounts-in-azure-ad-b2c"></a>¿Qué flujo de usuario de contraseñas se usa para las cuentas locales en Azure AD B2C?
 
-El flujo de usuario de Azure AD B2C para cuentas locales se basa en la directiva para Azure AD. Los flujos de usuario de restablecimiento de la contraseña, inicio de sesión, registro e inicio de sesión de Azure AD B2C usan la seguridad de la contraseña "segura" y las contraseñas no caducan. Para más detalles, consulte [Restricciones y directivas de contraseñas en Azure Active Directory](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-policy).
+El flujo de usuario de Azure AD B2C para cuentas locales se basa en la directiva para Azure AD. Los flujos de usuario de restablecimiento de la contraseña, inicio de sesión, registro e inicio de sesión de Azure AD B2C usan la seguridad de la contraseña "segura" y las contraseñas no caducan. Para más detalles, consulte [Restricciones y directivas de contraseñas en Azure Active Directory](../active-directory/authentication/concept-sspr-policy.md).
 
 Para información sobre los bloqueos de cuentas y las contraseñas, consulte [Administración de amenazas para recursos y datos de Azure Active Directory B2C](threat-management.md).
 
@@ -104,7 +104,7 @@ No, por motivos de seguridad, las páginas de Azure AD B2C no se pueden abrir de
 
 ### <a name="does-azure-ad-b2c-work-with-crm-systems-such-as-microsoft-dynamics"></a>¿Funciona Azure AD B2C con sistemas CRM, como Microsoft Dynamics?
 
-La integración básica con el portal de Microsoft Dynamics 365 está disponible. Consulte [Configuración del proveedor Azure AD B2C para portales](https://docs.microsoft.com/dynamics365/customer-engagement/portals/azure-ad-b2c).
+La integración básica con el portal de Microsoft Dynamics 365 está disponible. Consulte [Configuración del proveedor Azure AD B2C para portales](/dynamics365/customer-engagement/portals/azure-ad-b2c).
 
 ### <a name="does-azure-ad-b2c-work-with-sharepoint-on-premises-2016-or-earlier"></a>¿Funciona Azure AD B2C con SharePoint local 2016 o una versión anterior?
 
@@ -112,7 +112,7 @@ Azure AD B2C no se ha diseñado para escenarios de uso compartido con asociados 
 
 ### <a name="should-i-use-azure-ad-b2c-or-b2b-to-manage-external-identities"></a>¿Debo utilizar Azure AD B2C o B2B para administrar identidades externas?
 
-Lea [Comparación de la colaboración B2B y B2C de Azure Active Directory](../active-directory/b2b/compare-with-b2c.md) para obtener más información sobre cómo aplicar las características apropiadas a los escenarios de identidades externas.
+Lea [Comparación de la colaboración B2B y B2C de Azure Active Directory](../active-directory/external-identities/compare-with-b2c.md) para obtener más información sobre cómo aplicar las características apropiadas a los escenarios de identidades externas.
 
 ### <a name="what-reporting-and-auditing-features-does-azure-ad-b2c-provide-are-they-the-same-as-in-azure-ad-premium"></a>¿Qué características de auditoría e informes proporciona Azure AD B2C? ¿Son las mismas que en Azure AD Premium?
 
@@ -134,7 +134,7 @@ Actualmente, no. Esta característica está en nuestro mapa de ruta. Comprobar e
 
 Siga estos pasos para eliminar el inquilino de Azure AD B2C.
 
-Puede usar la nueva experiencia **Registros de aplicaciones** unificada o nuestra experiencia **Applications (Legacy)** (Aplicaciones [heredadas]) anterior. [Más información acerca de la nueva experiencia](https://aka.ms/b2cappregtraining).
+Puede usar la nueva experiencia **Registros de aplicaciones** unificada o nuestra experiencia **Applications (Legacy)** (Aplicaciones [heredadas]) anterior. [Más información acerca de la nueva experiencia](./app-registrations-training-guide.md).
 
 #### <a name="app-registrations"></a>[Registros de aplicaciones](#tab/app-reg-ga/)
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: ab266e1a94a647c4c1f0c42cc75fe6b6a68d9afa
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: f9835a0bb67fd276096153c54a569ebb58161799
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92205156"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842420"
 ---
 # <a name="azure-security-baseline-for-linux-virtual-machines"></a>Base de referencia de seguridad de Azure para Linux Virtual Machines
 
@@ -978,7 +978,7 @@ En la mayoría de los escenarios, las plantillas de máquina virtual base de Mic
 
 * [Integración con identidades administradas de Azure](../../azure-app-configuration/howto-integrate-azure-managed-service-identity.md)
 
-* [Creación de un almacén de claves](../../key-vault/secrets/quick-create-portal.md)
+* [Creación de un almacén de claves](../../key-vault/general/quick-create-portal.md)
 
 * [Autenticación en Key Vault](../../key-vault/general/authentication.md)
 
@@ -990,7 +990,7 @@ En la mayoría de los escenarios, las plantillas de máquina virtual base de Mic
 
 ### <a name="712-manage-identities-securely-and-automatically"></a>7.12: Administre las identidades de forma segura y automática
 
-**Guía**: Use las identidades administradas para proporcionar a los servicios de Azure una identidad administrada automáticamente en Azure AD. Las identidades administradas le permiten autenticarse en cualquier servicio que admita la autenticación de Azure AD, incluyendo Key Vault, sin necesidad de credenciales en el código.
+**Instrucciones**: Use las identidades administradas para proporcionar a los servicios de Azure una identidad administrada automáticamente en Azure AD. Las identidades administradas le permiten autenticarse en cualquier servicio que admita la autenticación de Azure AD, incluyendo Key Vault, sin necesidad de credenciales en el código.
 
 * [Configuración de las identidades administradas](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md)
 

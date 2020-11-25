@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 51a66d74750afa6c46dba7fa442477e85effb2d6
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: fadc739f16ce9690a735be22758f58857ff8b9ff
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92102058"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94951628"
 ---
 # <a name="manage-user-access-in-azure-active-directory-b2c"></a>Administración del acceso de usuario en Azure Active Directory B2C
 
@@ -34,11 +34,11 @@ Las aplicaciones y organizaciones pueden decidir impedir a los menores el uso de
 
 Si se identifica a un usuario como un menor, puede establecer el flujo de usuario de Azure AD B2C en una de estas tres opciones:
 
-- **Enviar un elemento id_token de JWT firmado a la aplicación** : el usuario se registra en el directorio y se devuelve un token a la aplicación. A continuación, la aplicación empieza a aplicar reglas de negocio. Por ejemplo, la aplicación puede continuar con un proceso de consentimiento de los padres. Para usar este método, elija recibir las notificaciones **ageGroup** y **consentProvidedForMinor** de la aplicación.
+- **Enviar un elemento id_token de JWT firmado a la aplicación**: el usuario se registra en el directorio y se devuelve un token a la aplicación. A continuación, la aplicación empieza a aplicar reglas de negocio. Por ejemplo, la aplicación puede continuar con un proceso de consentimiento de los padres. Para usar este método, elija recibir las notificaciones **ageGroup** y **consentProvidedForMinor** de la aplicación.
 
-- **Enviar un token JSON sin firmar a la aplicación** : Azure AD B2C notifica a la aplicación que el usuario es un menor y proporciona el estado del consentimiento parental del usuario. A continuación, la aplicación empieza a aplicar reglas de negocio. Un token JSON no completa una autenticación correcta con la aplicación. La aplicación debe procesar al usuario no autenticado según las notificaciones incluidas en el token JSON, entre las cuales puede que se incluyan **name** , **email** , **ageGroup** y **consentProvidedForMinor** .
+- **Enviar un token JSON sin firmar a la aplicación**: Azure AD B2C notifica a la aplicación que el usuario es un menor y proporciona el estado del consentimiento parental del usuario. A continuación, la aplicación empieza a aplicar reglas de negocio. Un token JSON no completa una autenticación correcta con la aplicación. La aplicación debe procesar al usuario no autenticado según las notificaciones incluidas en el token JSON, entre las cuales puede que se incluyan **name**, **email**, **ageGroup** y **consentProvidedForMinor**.
 
-- **Bloquear al usuario** : si un usuario es menor de edad y no se ha proporcionado el consentimiento parental, Azure AD B2C puede notificar al usuario que está bloqueado. No se emite ningún token, el acceso está bloqueado y no se crea la cuenta de usuario durante una operación de registro. Para implementar esta notificación, puede proporcionar una página de contenido HTML/CSS adecuada para informar al usuario y ofrecer las opciones apropiadas. La aplicación no necesita ninguna otra acción adicional para los nuevos registros.
+- **Bloquear al usuario**: si un usuario es menor de edad y no se ha proporcionado el consentimiento parental, Azure AD B2C puede notificar al usuario que está bloqueado. No se emite ningún token, el acceso está bloqueado y no se crea la cuenta de usuario durante una operación de registro. Para implementar esta notificación, puede proporcionar una página de contenido HTML/CSS adecuada para informar al usuario y ofrecer las opciones apropiadas. La aplicación no necesita ninguna otra acción adicional para los nuevos registros.
 
 ## <a name="get-parental-consent"></a>Obtención del consentimiento de los padres
 
@@ -46,7 +46,7 @@ En función de la normativa de la aplicación, puede que un usuario verificado c
 
 El siguiente es un ejemplo de flujo de usuario para recopilar el consentimiento de los padres:
 
-1. Una operación de [Microsoft Graph API](https://docs.microsoft.com/graph/use-the-api) identifica al usuario como un menor y devuelve los datos del usuario a la aplicación como un token JSON sin firmar.
+1. Una operación de [Microsoft Graph API](/graph/use-the-api) identifica al usuario como un menor y devuelve los datos del usuario a la aplicación como un token JSON sin firmar.
 
 2. La aplicación procesa el token JSON y muestra una pantalla al menor que le notifica que necesita consentimiento parental y le solicita el consentimiento de uno de los padres en línea.
 
@@ -54,9 +54,9 @@ El siguiente es un ejemplo de flujo de usuario para recopilar el consentimiento 
 
 4. La aplicación ofrece una opción al menor para revocar el consentimiento.
 
-5. Si el menor o el adulto revoca el consentimiento, se puede usar Microsoft Graph API para cambiar **consentProvidedForMinor** a **denegado** . Alternativamente, la aplicación puede elegir eliminar a un menor cuyo consentimiento se haya revocado. También es posible personalizar el flujo de usuario de modo que el menor autenticado (o el padre que usa la cuenta del menor) pueda revocar el consentimiento. Azure AD B2C registra **consentProvidedForMinor** como **denegado** .
+5. Si el menor o el adulto revoca el consentimiento, se puede usar Microsoft Graph API para cambiar **consentProvidedForMinor** a **denegado**. Alternativamente, la aplicación puede elegir eliminar a un menor cuyo consentimiento se haya revocado. También es posible personalizar el flujo de usuario de modo que el menor autenticado (o el padre que usa la cuenta del menor) pueda revocar el consentimiento. Azure AD B2C registra **consentProvidedForMinor** como **denegado**.
 
-Para más información sobre **legalAgeGroupClassification** , **consentProvidedForMinor** y **ageGroup** , consulte el artículo [User resource type](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/user) (Tipo de recurso del usuario). Para más información acerca de los atributos personalizados, consulte [Uso de atributos personalizados para recopilar información sobre los consumidores](user-flow-custom-attributes.md). Al dirigirse a atributos extendidos mediante Microsoft Graph API, se debe usar la versión extendida del atributo, como *extension_18b70cf9bb834edd8f38521c2583cd86_dateOfBirth* : *2011-01-01T00:00:00Z* .
+Para más información sobre **legalAgeGroupClassification**, **consentProvidedForMinor** y **ageGroup**, consulte el artículo [User resource type](/graph/api/resources/user) (Tipo de recurso del usuario). Para más información acerca de los atributos personalizados, consulte [Uso de atributos personalizados para recopilar información sobre los consumidores](user-flow-custom-attributes.md). Al dirigirse a atributos extendidos mediante Microsoft Graph API, se debe usar la versión extendida del atributo, como *extension_18b70cf9bb834edd8f38521c2583cd86_dateOfBirth*: *2011-01-01T00:00:00Z*.
 
 ## <a name="gather-date-of-birth-and-countryregion-data"></a>Recopilación de datos sobre la fecha y el país o región de nacimiento
 
@@ -66,7 +66,7 @@ Un flujo de usuario personalizado puede recopilar la información sobre la fecha
 
 Los pasos siguientes muestran la lógica que se usa para calcular **ageGroup** a partir de la fecha de nacimiento del usuario:
 
-1. Intente buscar el país o la región por su código en la lista. Si no se encuentra el país o la región, revierta a la opción **Predeterminado** .
+1. Intente buscar el país o la región por su código en la lista. Si no se encuentra el país o la región, revierta a la opción **Predeterminado**.
 
 2. Si el nodo **MinorConsent** existe en el elemento de país o región, haga lo siguiente:
 
@@ -74,14 +74,14 @@ Los pasos siguientes muestran la lógica que se usa para calcular **ageGroup** a
 
     b. Compare la fecha de nacimiento mínima con la fecha de nacimiento real. Si la fecha de nacimiento mínima es anterior a la fecha de nacimiento del usuario, el cálculo devuelve **Menor** como grupo de edad.
 
-3. Si el nodo **MinorNoConsentRequired** se encuentra en el elemento de país o región, repita los pasos 2a y 2b utilizando el valor de **MinorNoConsentRequired** . La salida de 2b devuelve **MinorNoConsentRequired** si la fecha de nacimiento mínima es anterior a la fecha de nacimiento del usuario.
+3. Si el nodo **MinorNoConsentRequired** se encuentra en el elemento de país o región, repita los pasos 2a y 2b utilizando el valor de **MinorNoConsentRequired**. La salida de 2b devuelve **MinorNoConsentRequired** si la fecha de nacimiento mínima es anterior a la fecha de nacimiento del usuario.
 
-4. Si ninguno de los cálculos devuelve true, el cálculo devuelve **Adult** .
+4. Si ninguno de los cálculos devuelve true, el cálculo devuelve **Adult**.
 
 Si una aplicación ha recopilado de forma confiable la información sobre la fecha de nacimiento y el país o región con otros métodos, puede usar Graph API para actualizar el registro del usuario con esta información. Por ejemplo:
 
-- Si se sabe que un usuario es un adulto, actualice el atributo del directorio **ageGroup** con un valor de **Adulto** .
-- Si se sabe que un usuario es menor, actualice el atributo del directorio **ageGroup** con un valor de **Minor** y establezca **consentProvidedForMinor** , según corresponda.
+- Si se sabe que un usuario es un adulto, actualice el atributo del directorio **ageGroup** con un valor de **Adulto**.
+- Si se sabe que un usuario es menor, actualice el atributo del directorio **ageGroup** con un valor de **Minor** y establezca **consentProvidedForMinor**, según corresponda.
 
 Para más información acerca de la recopilación de datos sobre la fecha de nacimiento, consulte [Usar el acceso según la edad en Azure AD B2C](basic-age-gating.md).
 
@@ -93,15 +93,15 @@ Los **términos de uso** también pueden incluir la opción "Consent to share da
 
 En los pasos siguientes se describe cómo puede administrar los términos de uso:
 
-1. Registre la aceptación de los términos de uso y la fecha de esta mediante Graph API y los atributos extendidos. Para ello, use los flujos de usuario integrados y personalizados. Recomendamos que cree y use los atributos **extension_termsOfUseConsentDateTime** y **extension_termsOfUseConsentVersion** .
+1. Registre la aceptación de los términos de uso y la fecha de esta mediante Graph API y los atributos extendidos. Para ello, use los flujos de usuario integrados y personalizados. Recomendamos que cree y use los atributos **extension_termsOfUseConsentDateTime** y **extension_termsOfUseConsentVersion**.
 
 2. Cree una casilla obligatoria que tenga la etiqueta "Aceptar términos de uso" y registre el resultado durante el proceso de registro. Para ello, use los flujos de usuario integrados y personalizados.
 
-3. Azure AD B2C almacena el contrato de términos de uso y la aceptación del usuario. Puede usar Graph API para consultar el estado de cualquier usuario mediante la lectura del atributo de extensión que se usó para registrar la respuesta (por ejemplo, la lectura de **termsOfUseTestUpdateDateTime** ). Para ello, use los flujos de usuario integrados y personalizados.
+3. Azure AD B2C almacena el contrato de términos de uso y la aceptación del usuario. Puede usar Graph API para consultar el estado de cualquier usuario mediante la lectura del atributo de extensión que se usó para registrar la respuesta (por ejemplo, la lectura de **termsOfUseTestUpdateDateTime**). Para ello, use los flujos de usuario integrados y personalizados.
 
-4. Solicite la aceptación de los términos de uso actualizados mediante la comparación de la fecha de aceptación con la fecha de la última versión de los términos de uso. Puede comparar las fechas mediante un flujo de usuario personalizado. Utilice el atributo extendido **extension_termsOfUseConsentDateTime** y compare el valor con la notificación de **termsOfUseTextUpdateDateTime** . Si la aceptación es antigua, cree una nueva aceptación. Para ello, muestre una pantalla autoafirmada. En caso contrario, bloquee el acceso mediante la lógica de directiva.
+4. Solicite la aceptación de los términos de uso actualizados mediante la comparación de la fecha de aceptación con la fecha de la última versión de los términos de uso. Puede comparar las fechas mediante un flujo de usuario personalizado. Utilice el atributo extendido **extension_termsOfUseConsentDateTime** y compare el valor con la notificación de **termsOfUseTextUpdateDateTime**. Si la aceptación es antigua, cree una nueva aceptación. Para ello, muestre una pantalla autoafirmada. En caso contrario, bloquee el acceso mediante la lógica de directiva.
 
-5. Solicite la aceptación de términos de uso actualizados comparando el número de versión de la aceptación con el número de versión más reciente aceptado. Puede comparar números de versión solo mediante un flujo de usuario personalizado. Utilice el atributo extendido **extension_termsOfUseConsentDateTime** y compare el valor de la notificación de **extension_termsOfUseConsentVersion** . Si la aceptación es antigua, cree una nueva aceptación. Para ello, muestre una pantalla autoafirmada. En caso contrario, bloquee el acceso mediante la lógica de directiva.
+5. Solicite la aceptación de términos de uso actualizados comparando el número de versión de la aceptación con el número de versión más reciente aceptado. Puede comparar números de versión solo mediante un flujo de usuario personalizado. Utilice el atributo extendido **extension_termsOfUseConsentDateTime** y compare el valor de la notificación de **extension_termsOfUseConsentVersion**. Si la aceptación es antigua, cree una nueva aceptación. Para ello, muestre una pantalla autoafirmada. En caso contrario, bloquee el acceso mediante la lógica de directiva.
 
 Puede obtener la aceptación de los términos de uso en los siguientes escenarios:
 

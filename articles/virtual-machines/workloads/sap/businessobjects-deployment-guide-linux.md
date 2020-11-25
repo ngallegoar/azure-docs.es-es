@@ -9,17 +9,18 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/05/2020
 ms.author: depadia
-ms.openlocfilehash: 1f15a3b4d8f51ec79fffce09bc006942d08096a6
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 17b978d3f4faebd3870868bceeea4572288ecb07
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427469"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965364"
 ---
 # <a name="sap-businessobjects-bi-platform-deployment-guide-for-linux-on-azure"></a>Guía de implementación de la plataforma de inteligencia empresarial SAP BusinessObjects para Linux en Azure
 
@@ -196,7 +197,7 @@ En los pasos de esta sección se usan los siguientes prefijos:
 
    **Comprobación de la configuración del dominio NFS**
 
-   Asegúrese de que el dominio esté configurado como dominio predeterminado de Azure NetApp Files, es decir, **defaultv4iddomain.com** , y de que la asignación se haya establecido en **nobody**.
+   Asegúrese de que el dominio esté configurado como dominio predeterminado de Azure NetApp Files, es decir, **defaultv4iddomain.com**, y de que la asignación se haya establecido en **nobody**.
 
    ```bash
    sudo cat /etc/idmapd.conf
@@ -401,9 +402,9 @@ En los pasos de esta sección se usan los siguientes prefijos:
 
 2. **[A]** Asegúrese de que la zona horaria de la máquina está configurada correctamente. Consulte la [sección Requisitos adicionales de UNIX y Linux](https://help.sap.com/viewer/65018c09dbe04052b082e6fc4ab60030/4.3/en-US/46b143336e041014910aba7db0e91070.html) del manual de instalación.
 
-3. **[A]** Cree una cuenta de usuario ( **bl1** adm) y un grupo (sapsys) en el que se puedan ejecutar los procesos en segundo plano del software. Use esta cuenta para ejecutar la instalación y el software. La cuenta no requiere privilegios de raíz.
+3. **[A]** Cree una cuenta de usuario (**bl1** adm) y un grupo (sapsys) en el que se puedan ejecutar los procesos en segundo plano del software. Use esta cuenta para ejecutar la instalación y el software. La cuenta no requiere privilegios de raíz.
 
-4. **[A]** Establezca el entorno de cuenta de usuario ( **bl1** adm) para usar una configuración regional UTF-8 compatible y asegúrese de que el software de la consola admite juegos de caracteres UTF-8. Para asegurarse de que el sistema operativo usa la configuración regional correcta, establezca las variables de entorno LC_ALL y LANG en su configuración regional preferida en el entorno de usuario ( **bl1** adm).
+4. **[A]** Establezca el entorno de cuenta de usuario (**bl1** adm) para usar una configuración regional UTF-8 compatible y asegúrese de que el software de la consola admite juegos de caracteres UTF-8. Para asegurarse de que el sistema operativo usa la configuración regional correcta, establezca las variables de entorno LC_ALL y LANG en su configuración regional preferida en el entorno de usuario (**bl1** adm).
 
    ```bash
    # This configuration is for bash shell. If you are using any other shell for sidadm, kindly set environment variable accordingly.
@@ -413,7 +414,7 @@ En los pasos de esta sección se usan los siguientes prefijos:
    export LC_ALL=en_US.utf8
    ```
 
-5. **[A]** Configure la cuenta de usuario ( **bl1** adm).
+5. **[A]** Configure la cuenta de usuario (**bl1** adm).
 
    ```bash
    # Set ulimit for bl1adm to unlimited
@@ -461,11 +462,11 @@ Vaya a medios de la plataforma de inteligencia empresarial SAP BusinessObjects y
 
 Siga el manual de instalación de la [plataforma SAP BOBI](https://help.sap.com/viewer/product/SAP_BUSINESSOBJECTS_BUSINESS_INTELLIGENCE_PLATFORM) de UNIX específico de su versión. Hay algunos puntos a tener en cuenta durante la instalación de la plataforma SAP BOBI.
 
-- En la pantalla **Configurar el registro del producto** , puede usar una clave de licencia temporal para las soluciones de SAP BusinessObjects de la nota de SAP [1288121](https://launchpad.support.sap.com/#/notes/1288121) o puede generar la clave de licencia en el marketplace de servicios de SAP.
+- En la pantalla **Configurar el registro del producto**, puede usar una clave de licencia temporal para las soluciones de SAP BusinessObjects de la nota de SAP [1288121](https://launchpad.support.sap.com/#/notes/1288121) o puede generar la clave de licencia en el marketplace de servicios de SAP.
 
-- En la pantalla **Seleccionar tipo de instalación** , seleccione instalación **completa** en el primer servidor (azusbosl1). Para el resto del servidor (azusbosl2), seleccione la opción **Personalizar/Expandir** , que expandirá el programa de configuración de BOBI existente.
+- En la pantalla **Seleccionar tipo de instalación**, seleccione instalación **completa** en el primer servidor (azusbosl1). Para el resto del servidor (azusbosl2), seleccione la opción **Personalizar/Expandir**, que expandirá el programa de configuración de BOBI existente.
 
-- En **Seleccionar base de datos predeterminada o existente** , seleccione **Configurar una base de datos existente** , que le solicitará que seleccione base de datos CMS y de auditoría. Seleccione **MySQL** para el tipo de base de datos CMS y el tipo de base de datos de auditoría.
+- En **Seleccionar base de datos predeterminada o existente**, seleccione **Configurar una base de datos existente**, que le solicitará que seleccione base de datos CMS y de auditoría. Seleccione **MySQL** para el tipo de base de datos CMS y el tipo de base de datos de auditoría.
 
   También puede seleccionar Ninguna base de datos de auditoría si no quiere configurar la auditoría durante la instalación.
 
@@ -481,7 +482,7 @@ Siga el manual de instalación de la [plataforma SAP BOBI](https://help.sap.com/
 
 - Siga las instrucciones e introduzca las entradas necesarias para completar la instalación.
 
-Para la implementación de varias instancias, ejecute la configuración de instalación en el segundo host (azusbosl2). En la pantalla **Seleccionar tipo de instalación** , seleccione **Personalizar/Expandir** , opción que expandirá la configuración de BOBI existente.
+Para la implementación de varias instancias, ejecute la configuración de instalación en el segundo host (azusbosl2). En la pantalla **Seleccionar tipo de instalación**, seleccione **Personalizar/Expandir**, opción que expandirá la configuración de BOBI existente.
 
 En la oferta de Azure Database for MySQL, se usa una puerta de enlace para redirigir las conexiones a las instancias de servidor. Una vez establecida la conexión, el cliente de MySQL muestra la versión de MySQL establecida en la puerta de enlace, no la versión real que se ejecuta en la instancia del servidor MySQL. Para determinar la versión de la instancia del servidor MySQL, use el comando `SELECT VERSION();` en el símbolo del sistema de MySQL. Por lo tanto, en la consola de administración central (CMC), encontrará una versión de base de datos diferente, que es básicamente la versión establecida en la puerta de enlace. Consulte [Versiones admitidas de servidores de Azure Database for MySQL](../../../mysql/concepts-supported-versions.md) para obtener más detalles.
 
@@ -557,7 +558,7 @@ Como parte del proceso de copia de seguridad, se realiza una instantánea y los 
 
 #### <a name="backup--restore-for-file-repository-server"></a>Copia de seguridad y restauración del servidor de repositorio de archivos
 
-Para **Azure NetApp Files** , puede crear instantáneas a petición y programar la creación automática de instantáneas mediante el uso de directivas de instantáneas. Las copias de instantáneas proporcionan una copia de un momento dado del volumen de ANF. Para obtener más información, consulte [Administración de instantáneas mediante Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-manage-snapshots.md).
+Para **Azure NetApp Files**, puede crear instantáneas a petición y programar la creación automática de instantáneas mediante el uso de directivas de instantáneas. Las copias de instantáneas proporcionan una copia de un momento dado del volumen de ANF. Para obtener más información, consulte [Administración de instantáneas mediante Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-manage-snapshots.md).
 
 La copia de seguridad de **Azure Files** se integra con el servicio nativo de [Azure Backup](../../../backup/backup-overview.md), que centraliza la función de copia de seguridad y restauración junto con la copia de seguridad de las máquinas virtuales y simplifica el trabajo de las operaciones. Para obtener más información, vea [Copia de seguridad de recursos compartidos de archivos de Azure](../../../backup/azure-file-share-backup-overview.md) y [Preguntas acerca de la copia de seguridad de archivos de Azure](../../../backup/backup-azure-files-faq.md).
 

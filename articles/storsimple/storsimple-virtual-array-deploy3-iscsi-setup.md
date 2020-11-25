@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 81799e6ec366c7429fdb29b85b4ff65d353a8fba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6289f335234c9b7efec02a18e12b40a1140c1b3f
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91742424"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94956558"
 ---
 # <a name="deploy-storsimple-virtual-array--set-up-as-an-iscsi-server-via-azure-portal"></a>Implementación de una matriz virtual de StorSimple: configurar como un servidor iSCSI mediante Azure Portal
 
@@ -37,7 +37,7 @@ Los procedimientos descritos aquí demoran aproximadamente de 30 minutos a 1 hor
 
 Antes de instalar y configurar StorSimple Virtual Array, asegúrese de que:
 
-* Ha aprovisionado una matriz virtual y se ha conectado a ella como se describe en [Implementación de una matriz virtual de StorSimple: aprovisionar una matriz virtual en Hyper-V](storsimple-ova-deploy2-provision-hyperv.md) o en [Implementación de una matriz virtual de StorSimple: aprovisionar una matriz virtual en VMware](storsimple-virtual-array-deploy2-provision-vmware.md).
+* Ha aprovisionado una matriz virtual y se ha conectado a ella como se describe en [Implementación de una matriz virtual de StorSimple: aprovisionar una matriz virtual en Hyper-V](./storsimple-virtual-array-deploy2-provision-hyperv.md) o en [Implementación de una matriz virtual de StorSimple: aprovisionar una matriz virtual en VMware](storsimple-virtual-array-deploy2-provision-vmware.md).
 * Tiene la clave de registro del servicio StorSimple Device Manager que creó para administrar instancias de StorSimple Virtual Array. Para más información, consulte **Paso 2: Obtener la clave de registro del servicio** en [Implementar una matriz virtual de StorSimple: Preparar el portal](storsimple-virtual-array-deploy1-portal-prep.md#step-2-get-the-service-registration-key).
 * Si este es la segunda o subsiguiente matriz virtual que registra en un servicio StorSimple Device Manager existente, debe tener la clave de cifrado de datos del servicio. Esta clave se generó cuando el primer dispositivo se registró correctamente en este servicio. Si perdió esta clave, consulte la sección **Obtener la clave de cifrado de datos del servicio** en [Utilizar la interfaz de usuario web para administrar la matriz virtual de StorSimple](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key).
 
@@ -245,7 +245,4 @@ Siga estos pasos para obtener el nombre completo del iSCSI (IQN) de un host de W
 3. Guarde esta cadena.
 
 <!--Reference link-->
-[1]: https://technet.microsoft.com/library/ee338480(WS.10).aspx
-
-
-
+[1]: /previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee338480(v=ws.10)

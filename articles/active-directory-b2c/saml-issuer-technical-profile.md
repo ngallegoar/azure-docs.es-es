@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 10/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f52111fbbbd90f3d2f39f538c4bf1a2672cd504b
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 73c381624b69acb6fe7a6296a3153160812818bf
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91961245"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94886420"
 ---
 # <a name="define-a-technical-profile-for-a-saml-token-issuer-in-an-azure-active-directory-b2c-custom-policy"></a>Definición de un perfil técnico para un emisor de tokens de SAML en una directiva personalizada de Azure Active Directory B2C
 
@@ -26,7 +26,7 @@ Azure Active Directory B2C (Azure AD B2C) emite varios tipos de tokens de seg
 
 ## <a name="protocol"></a>Protocolo
 
-El atributo **Name** del elemento **Protocol** tiene que establecerse en `None`. Establezca el elemento **OutputTokenFormat** en `SAML2`.
+El atributo **Name** del elemento **Protocol** tiene que establecerse en `SAML2`. Establezca el elemento **OutputTokenFormat** en `SAML2`.
 
 En el ejemplo siguiente se muestra un perfil técnico de `Saml2AssertionIssuer`:
 

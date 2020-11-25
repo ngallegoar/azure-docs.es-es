@@ -6,17 +6,17 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.custom: how-to
+ms.custom: how-to, devx-track-azurecli
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 09/30/2020
-ms.openlocfilehash: cfa6dcb0b1fc173bdf3612308227b8309491e9fa
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 2953f85a5c21cdd670d6e133d09ffacf06f178ef
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93312733"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842709"
 ---
 # <a name="configure-azure-private-link-for-an-azure-machine-learning-workspace"></a>Configuración de Azure Private Link para un área de trabajo de Azure Machine Learning
 
@@ -39,7 +39,7 @@ El uso de un área de trabajo Azure Machine Learning con un vínculo privado no 
 
 ## <a name="create-a-workspace-that-uses-a-private-endpoint"></a>Creación de un área de trabajo que usa un punto de conexión privado
 
-Siga uno de los métodos a continuación para crear un área de trabajo con un punto de conexión privado. Cada uno de estos métodos __requiere una red virtual existente__ :
+Siga uno de los métodos a continuación para crear un área de trabajo con un punto de conexión privado. Cada uno de estos métodos __requiere una red virtual existente__:
 
 > [!TIP]
 > Si quiere crear un área de trabajo, un punto de conexión privado y una red virtual al mismo tiempo, consulte [Uso de una plantilla de Azure Resource Manager para crear un área de trabajo para Azure Machine Learning](how-to-create-workspace-template.md).
@@ -115,8 +115,8 @@ az ml workspace private-endpoint add -w myworkspace  --pe-name myprivateendpoint
 
 Desde el área de trabajo de Azure Machine Learning en el portal, seleccione __Conexiones de punto de conexión privado__ y, a continuación, seleccione __+ Punto de conexión privado__. Use los campos para crear un punto de conexión privado.
 
-* Al seleccionar la __Región__ , seleccione la misma región que la red virtual. 
-* Al seleccionar __Tipo de recurso__ , use __Microsoft.MachineLearningServices/workspaces__. 
+* Al seleccionar la __Región__, seleccione la misma región que la red virtual. 
+* Al seleccionar __Tipo de recurso__, use __Microsoft.MachineLearningServices/workspaces__. 
 * Establezca __Recurso__ en el nombre del área de trabajo.
 
 Por último, seleccione __Crear__ para crear el punto de conexión privado.

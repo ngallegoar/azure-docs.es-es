@@ -6,12 +6,12 @@ manager: andneil
 ms.author: getroyer
 ms.topic: how-to
 ms.date: 06/13/2019
-ms.openlocfilehash: 291f1ac093568f50ad6146b70fa1ef69263b7b5b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7d65a39c1a1d302e565b59db1644af2c08befb6b
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85830320"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843169"
 ---
 # <a name="use-azure-data-science-virtual-machines"></a>Uso de Data Science Virtual Machines de Azure
 
@@ -24,7 +24,7 @@ De forma predeterminada, los proyectos se ejecutan en el nivel **Free Compute** 
 
 ## <a name="create-a-dsvm-instance"></a>Creación de una instancia de DSVM
 
-Para crear una nueva instancia de DSVM, siga las instrucciones de la sección [Create an Ubuntu Data Science VM](/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro) (Creación de un entorno de Data Science VM de Ubuntu). Para obtener más información, incluidos los detalles sobre los precios, consulte [Data Science Virtual Machines](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/).
+Para crear una nueva instancia de DSVM, siga las instrucciones de la sección [Create an Ubuntu Data Science VM](../machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro.md) (Creación de un entorno de Data Science VM de Ubuntu). Para obtener más información, incluidos los detalles sobre los precios, consulte [Data Science Virtual Machines](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/).
 
 ## <a name="connect-to-the-dsvm"></a>Conexión a la DSVM
 
@@ -68,4 +68,4 @@ Si varios usuarios comparten un DSVM, puede evitar que se bloqueen entre sí si 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Obtenga más información sobre DSVM en [Introducción a Data Science Virtual Machine de Azure](/azure/machine-learning/data-science-virtual-machine/overview).
+Obtenga más información sobre DSVM en [Introducción a Data Science Virtual Machine de Azure](../machine-learning/data-science-virtual-machine/overview.md).

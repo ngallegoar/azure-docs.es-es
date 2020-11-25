@@ -7,13 +7,13 @@ ms.subservice: security
 ms.topic: how-to
 ms.author: jofrance
 ms.date: 03/17/2020
-ms.custom: seodec18
-ms.openlocfilehash: c8ffe78e885eedd84c4cf6948954a7d3477a5cff
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.custom: seodec18, devx-track-azurecli
+ms.openlocfilehash: 46d2c039806e4e6a72e091458d44e7b21b3dfa70
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92911824"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843526"
 ---
 # <a name="configure-lvm-and-raid-on-encrypted-devices"></a>Configuración de LVM y RAID en dispositivos cifrados
 
@@ -370,11 +370,11 @@ df -h
 ```
 ![Captura de pantalla que muestra una ventana de consola con sistemas de archivos montados como data0 y data1.](./media/disk-encryption/lvm-raid-on-crypt/018-lvm-raid-lsblk-after-lvm.png)
 
-En esta variación de **lsblk** , se enumeran los dispositivos que muestran las dependencias en orden inverso. Esta opción ayuda a identificar los dispositivos agrupados por el volumen lógico, en lugar de los nombres de dispositivo de /dev/sd[disk] originales.
+En esta variación de **lsblk**, se enumeran los dispositivos que muestran las dependencias en orden inverso. Esta opción ayuda a identificar los dispositivos agrupados por el volumen lógico, en lugar de los nombres de dispositivo de /dev/sd[disk] originales.
 
 Es importante asegurarse de que se agrega la opción **nofail** a las opciones de punto de montaje de los volúmenes LVM creados sobre un dispositivo cifrado mediante Azure Disk Encryption. Esto evita que el sistema operativo se bloquee durante el proceso de arranque (o en modo de mantenimiento).
 
-Si no utiliza la opción **nofail** :
+Si no utiliza la opción **nofail**:
 
 - El sistema operativo nunca llegará a la fase en la que se inicia Azure Disk Encryption y los discos de datos se desbloquean y se montan. 
 - Los discos cifrados se desbloquearán al final del proceso de arranque. Los volúmenes de LVM y los sistemas de archivos estarán montados automáticamente hasta que Azure Disk Encryption los desbloquee. 
@@ -441,7 +441,7 @@ df -h
 
 Es importante asegurarse de que se agrega la opción **nofail** a las opciones de punto de montaje de los volúmenes RAID creados sobre un dispositivo cifrado mediante Azure Disk Encryption. Esto evita que el sistema operativo se bloquee durante el proceso de arranque (o en modo de mantenimiento).
 
-Si no utiliza la opción **nofail** :
+Si no utiliza la opción **nofail**:
 
 - El sistema operativo nunca llegará a la fase en la que se inicia Azure Disk Encryption y los discos de datos se desbloquean y se montan.
 - Los discos cifrados se desbloquearán al final del proceso de arranque. Los volúmenes de RAID y los sistemas de archivos estarán montados automáticamente hasta que Azure Disk Encryption los desbloquee.

@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.date: 11/27/2018
 ms.author: cynthn
 ms.topic: conceptual
-ms.openlocfilehash: 06d71713075b401c876edd87f0ec884bcb252589
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 83d291ae72e79ec3600015fac07ee4ab80fe5df4
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977755"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843560"
 ---
 # <a name="secure-and-use-policies-on-virtual-machines-in-azure"></a>Protección y uso de directivas en máquinas virtuales en Azure
 
@@ -67,7 +67,7 @@ Las identidades administradas para recursos de Azure con las que cuenta Azure Ac
 
 Las [directivas de Azure](../governance/policy/overview.md) pueden utilizarse para definir el comportamiento deseado de las [máquinas virtuales Windows](./windows/policy.md) y de las [máquinas virtuales Linux](./linux/policy.md) en su organización. Mediante las directivas, una organización puede aplicar varias convenciones y reglas en toda la empresa. La aplicación del comportamiento deseado puede ayudar a reducir el riesgo a la vez que se contribuye al éxito de la organización.
 
-## <a name="role-based-access-control"></a>Control de acceso basado en rol
+## <a name="azure-role-based-access-control"></a>Control de acceso basado en roles de Azure
 
 Mediante el [control de acceso basado en roles de Azure (RBAC de Azure)](../role-based-access-control/overview.md), puede repartir las tareas entre el equipo y conceder a los usuarios únicamente el nivel de acceso que necesitan en la máquina virtual para realizar su trabajo. En lugar de proporcionar a todos los empleados permisos no restringidos en la máquina virtual, puede permitir solo determinadas acciones. Puede configurar el control de acceso para la máquina virtual en [Azure Portal](../role-based-access-control/role-assignments-portal.md), usando la [CLI de Azure](/cli/azure/role) o [Azure PowerShell](../role-based-access-control/role-assignments-powershell.md).
 

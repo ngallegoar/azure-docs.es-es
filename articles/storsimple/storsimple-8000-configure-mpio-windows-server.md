@@ -14,18 +14,18 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/26/2018
 ms.author: alkohli
-ms.openlocfilehash: cc88d5b7a458c3666cdb4469d7021917d27115f3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3d44fada1eddf2d3f80bec085d8a5bf751197eb1
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85514339"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94968815"
 ---
 # <a name="configure-multipath-io-for-your-storsimple-device"></a>Configurar E/S de múltiples rutas para el dispositivo StorSimple
 
 En este tutorial se describen los pasos que hay que seguir para instalar y usar la característica E/S de múltiples rutas (MPIO) en un host que ejecuta Windows Server 2012 R2 y que está conectado a un dispositivo físico StorSimple. Las instrucciones de este artículo se aplican solo a los dispositivos físicos de la serie StorSimple 8000. Actualmente, MPIO no se admite en StorSimple Cloud Appliance.
 
-Microsoft incorporó a Windows Server la compatibilidad con la característica de E/S de múltiples rutas (MPIO) para que sea más fácil crear configuraciones de red iSCSI de alta disponibilidad y tolerancia a errores. MPIO usa componentes de ruta de acceso físicas redundantes (es decir, adaptadores, cables y conmutadores) para crear rutas de acceso lógicas entre el servidor y el dispositivo de almacenamiento. Si se produce un error de componente, lo que haría que la ruta de acceso lógica no funcionara, la lógica de múltiples rutas usa una ruta alternativa para E/S a fin de que las aplicaciones puedan seguir teniendo acceso a los datos. Además, en función de la configuración, MPIO puede mejorar el rendimiento al volver a equilibrar la carga entre estas rutas de acceso. Para más información, consulte [Introducción a MPIO](https://technet.microsoft.com/library/cc725907.aspx "Información general y características de MPIO").
+Microsoft incorporó a Windows Server la compatibilidad con la característica de E/S de múltiples rutas (MPIO) para que sea más fácil crear configuraciones de red iSCSI de alta disponibilidad y tolerancia a errores. MPIO usa componentes de ruta de acceso físicas redundantes (es decir, adaptadores, cables y conmutadores) para crear rutas de acceso lógicas entre el servidor y el dispositivo de almacenamiento. Si se produce un error de componente, lo que haría que la ruta de acceso lógica no funcionara, la lógica de múltiples rutas usa una ruta alternativa para E/S a fin de que las aplicaciones puedan seguir teniendo acceso a los datos. Además, en función de la configuración, MPIO puede mejorar el rendimiento al volver a equilibrar la carga entre estas rutas de acceso. Para más información, consulte [Introducción a MPIO](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc725907(v=ws.11) "Información general y características de MPIO").
 
 Para conseguir una alta disponibilidad de la solución StorSimple, es necesario que MPIO esté configurado en el dispositivo StorSimple. Cuando MPIO se instala en los servidores host que ejecutan Windows Server 2012 R2, dichos servidores tendrán tolerancia a errores de vínculo, red e interfaz.
 
@@ -191,4 +191,3 @@ Con el siguiente procedimiento explicamos cómo agregar las sesiones cuando un d
 ## <a name="next-steps"></a>Pasos siguientes
 
 Obtenga más información sobre el [uso del servicio StorSimple Device Manager para modificar la configuración del dispositivo StorSimple](storsimple-8000-modify-device-config.md).
-

@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-nov-2020
 ms.topic: tutorial
 ms.date: 09/25/2019
-ms.openlocfilehash: 1c27d02bb5b02c71d45408e6bbe320d86cc50729
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 6a13d0a0ac0b37b5faf59e19cd13e5c3c2ee94dc
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94354689"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965568"
 ---
 # <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-online-using-dms"></a>Tutorial: Migración de MongoDB a la API de Azure Cosmos DB para MongoDB en línea mediante DMS
 
@@ -36,7 +36,7 @@ En este tutorial se muestran los pasos asociados al uso de Azure Database Migrat
 > * Compruebe los datos en Azure Cosmos DB. 
 > * Completar la migración cuando esté listo. 
 
-En este tutorial, migrará un conjunto de datos de MongoDB hospedado en una máquina virtual de Azure a la API de Azure Cosmos DB para MongoDB con un tiempo de inactividad mínimo mediante Azure Database Migration Service. Si no tiene un origen de MongoDB ya configurado, vea el artículo [Instalación y configuración de MongoDB en una máquina virtual Windows en Azure](https://docs.microsoft.com/azure/virtual-machines/windows/install-mongodb).
+En este tutorial, migrará un conjunto de datos de MongoDB hospedado en una máquina virtual de Azure a la API de Azure Cosmos DB para MongoDB con un tiempo de inactividad mínimo mediante Azure Database Migration Service. Si no tiene un origen de MongoDB ya configurado, vea el artículo [Instalación y configuración de MongoDB en una máquina virtual Windows en Azure](../virtual-machines/windows/install-mongodb.md).
 
 > [!NOTE]
 > El uso de Azure Database Migration Service para realizar una migración en línea requiere la creación de una instancia basada en el plan de tarifa Premium.
@@ -54,10 +54,10 @@ Para completar este tutorial, necesita:
 
 * [Realizar los pasos previos a la migración](../cosmos-db/mongodb-pre-migration.md) como son estimar el rendimiento, elegir una clave de partición y seleccionar la directiva de indexación.
 * [Crear una cuenta para la API de Azure Cosmos DB para MongoDB](https://ms.portal.azure.com/#create/Microsoft.DocumentDB).
-* Crear una instancia de Microsoft Azure Virtual Network para Azure Database Migration Service con el modelo de implementación de Azure Resource Manager, que proporciona conectividad de sitio a sitio a los servidores de origen local mediante [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) o [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
+* Crear una instancia de Microsoft Azure Virtual Network para Azure Database Migration Service con el modelo de implementación de Azure Resource Manager, que proporciona conectividad de sitio a sitio a los servidores de origen local mediante [ExpressRoute](../expressroute/expressroute-introduction.md) o [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 
     > [!NOTE]
-    > Durante la configuración de la red virtual, si usa ExpressRoute con emparejamiento de red a Microsoft, agregue los siguientes [puntos de conexión](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) de servicio a la subred en la que se aprovisionará el servicio:
+    > Durante la configuración de la red virtual, si usa ExpressRoute con emparejamiento de red a Microsoft, agregue los siguientes [puntos de conexión](../virtual-network/virtual-network-service-endpoints-overview.md) de servicio a la subred en la que se aprovisionará el servicio:
     >
     > * Punto de conexión de base de datos de destino (por ejemplo, punto de conexión de SQL, punto de conexión de Cosmos DB, etc.)
     > * Punto de conexión de Storage
@@ -65,7 +65,7 @@ Para completar este tutorial, necesita:
     >
     > Esta configuración es necesaria porque Azure Database Migration Service no tiene conexión a Internet.
 
-* Asegúrese de que las reglas del grupo de seguridad de red (NSG) de la red virtual no bloquean los siguientes puertos de comunicación: 53, 443, 445, 9354 y 10000-20000. Para más información sobre el filtrado del tráfico con grupos de seguridad de red para redes virtuales, vea el artículo [Filtrado del tráfico de red con grupos de seguridad de red](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
+* Asegúrese de que las reglas del grupo de seguridad de red (NSG) de la red virtual no bloquean los siguientes puertos de comunicación: 53, 443, 445, 9354 y 10000-20000. Para más información sobre el filtrado del tráfico con grupos de seguridad de red para redes virtuales, vea el artículo [Filtrado del tráfico de red con grupos de seguridad de red](../virtual-network/virtual-network-vnet-plan-design-arm.md).
 * Abra el Firewall de Windows para permitir que Azure Database Migration Service acceda al servidor de MongoDB de origen que, de manera predeterminada, es el puerto TCP 27017.
 * Cuando se usa un dispositivo de firewall frente a las bases de datos de origen, puede que sea necesario agregar reglas de firewall para permitir que Azure Database Migration Service acceda a las bases de datos de origen para realizar la migración.
 
@@ -101,7 +101,7 @@ Para completar este tutorial, necesita:
 
    La red virtual proporciona a Azure Database Migration Service acceso a la instancia de MongoDB de origen y a la cuenta de Azure Cosmos DB de destino.
 
-   Para más información sobre cómo crear una red virtual en Azure Portal, consulte el artículo [Creación de una red virtual con Azure Portal](https://aka.ms/DMSVnet).
+   Para más información sobre cómo crear una red virtual en Azure Portal, consulte el artículo [Creación de una red virtual con Azure Portal](../virtual-network/quick-create-portal.md).
 
 6. Seleccione una SKU del plan de tarifa Premium.
 
@@ -190,7 +190,7 @@ Después de crear el servicio, búsquelo en Azure Portal, ábralo y cree un proy
 
    Si la cadena **Crear** aparece junto al nombre de la base de datos, indica que Azure Database Migration Service no encontró la base de datos de destino, y el servicio creará la base de datos automáticamente.
 
-   En este momento de la migración, si se desea capacidad de proceso para uso compartido en la base de datos, especifique las unidades de solicitud de capacidad de proceso. En Cosmos DB, puede aprovisionar rendimiento a nivel de base de datos o individualmente para cada colección. El rendimiento se mide en [unidades de solicitud](https://docs.microsoft.com/azure/cosmos-db/request-units) (RU). Obtenga más información sobre los [precios de Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/).
+   En este momento de la migración, si se desea capacidad de proceso para uso compartido en la base de datos, especifique las unidades de solicitud de capacidad de proceso. En Cosmos DB, puede aprovisionar rendimiento a nivel de base de datos o individualmente para cada colección. El rendimiento se mide en [unidades de solicitud](../cosmos-db/request-units.md) (RU). Obtenga más información sobre los [precios de Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/).
 
    ![Asignación a bases de datos de destino](media/tutorial-mongodb-to-cosmosdb-online/dms-map-target-databases1.png)
 
@@ -205,7 +205,7 @@ Después de crear el servicio, búsquelo en Azure Portal, ábralo y cree un proy
     > [!NOTE]
     > Realice la migración de base de datos y la colección en paralelo mediante múltiples instancias de Azure Database Migration Service, si es necesario, para acelerar la ejecución.
 
-   También puede especificar una clave de partición para aprovechar las ventajas de la [creación de particiones en Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/partitioning-overview) para una escalabilidad óptima. No olvide revisar los [procedimientos recomendados para seleccionar una clave de partición](https://docs.microsoft.com/azure/cosmos-db/partitioning-overview#choose-partitionkey). Si no tiene una clave de partición, siempre puede usar **_id** como clave de partición para mejorar el rendimiento.
+   También puede especificar una clave de partición para aprovechar las ventajas de la [creación de particiones en Azure Cosmos DB](../cosmos-db/partitioning-overview.md) para una escalabilidad óptima. No olvide revisar los [procedimientos recomendados para seleccionar una clave de partición](../cosmos-db/partitioning-overview.md#choose-partitionkey). Si no tiene una clave de partición, siempre puede usar **_id** como clave de partición para mejorar el rendimiento.
 
    ![Selección de tablas de colecciones](media/tutorial-mongodb-to-cosmosdb-online/dms-collection-setting1.png)
 

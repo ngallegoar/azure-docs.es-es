@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 10/08/2020
 ms.author: peshultz
 ms.custom: references_regions
-ms.openlocfilehash: fcc0538dfef1581a244ae5fd9a3515be3470026c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 09a5632f969117e69e68bbe0df2bfbab9a8a102b
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91850938"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842142"
 ---
 # <a name="create-an-azure-batch-pool-without-public-ip-addresses"></a>Creación de un grupo de Azure Batch sin direcciones IP públicas
 
@@ -34,7 +34,7 @@ Para restringir el acceso a estos nodos y reducir la detectabilidad de estos nod
 - **Una red virtual de Azure**. Si va a crear el grupo en una [red virtual](batch-virtual-network.md), siga estos requisitos y configuraciones. Para preparar una red virtual con una o varias subredes previamente, puede usar Azure Portal, Azure PowerShell, la interfaz de línea de comandos (CLI) de Azure u otros métodos.
   - La red virtual debe estar en la misma región y suscripción que la cuenta de Batch que se utiliza para crear el grupo.
   - La subred especificada para el grupo debe tener suficientes direcciones IP sin asignar para acoger el número de VM destinadas al grupo; esto es, la suma de las propiedades `targetDedicatedNodes` y `targetLowPriorityNodes` del grupo. Si la subred no tiene suficientes direcciones IP sin asignar, el grupo asigna parcialmente los nodos de proceso y se produce un error de cambio de tamaño.
-  - Debe deshabilitar las directivas de red de punto de conexión y el servicio de vínculo privado. Esto se puede hacer mediante la CLI de Azure: ```az network vnet subnet update --vnet-name <vnetname> -n <subnetname> --disable-private-endpoint-network-policies --disable-private-link-service-network-policies```
+  - Debe deshabilitar las directivas de red de punto de conexión y el servicio de vínculo privado. Esto se puede hacer mediante la CLI de Azure: ```az network vnet subnet update --vnet-name <vnetname> -n <subnetname> --resouce-group <resourcegroup> --disable-private-endpoint-network-policies --disable-private-link-service-network-policies```
 
 > [!IMPORTANT]
 > Para cada 100 nodos dedicados o de baja prioridad, Batch asigna un servicio de vínculo privado y un equilibrador de carga. Estos recursos están limitados por las [cuotas de recursos](../azure-resource-manager/management/azure-subscription-service-limits.md) de la suscripción. En el caso de los grupos grandes, es posible que deba [solicitar un aumento de la cuota](batch-quota-limit.md#increase-a-quota) de uno o varios de estos recursos. Además, no se deben aplicar bloqueos de recursos a ningún recurso creado por Batch, ya que esto impide la limpieza de recursos como consecuencia de las acciones iniciadas por el usuario, como la eliminación de un grupo o el cambio de tamaño a cero.

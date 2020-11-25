@@ -11,12 +11,12 @@ ms.date: 11/30/2018
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 1d631c47225fac7d8a95541313593333a1399e07
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2233dbd7b0e669c23397b4bc6a84f2bfdc208391
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87115962"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94952818"
 ---
 # <a name="define-custom-attributes-in-azure-active-directory-b2c"></a>Definición de atributos personalizados en Azure Active Directory B2C
 
@@ -52,4 +52,4 @@ El atributo personalizado ahora está disponible en la lista de **Atributos de u
 1. Seleccione **Notificaciones de aplicación** y, después, seleccione el atributo personalizado.
 1. Haga clic en **Save**(Guardar).
 
-Después de crear un usuario mediante un flujo de usuario que usa el atributo personalizado recién creado, el objeto se puede consultar en el [Explorador de Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer). Como alternativa, puede usar la característica [Ejecutar flujo de usuario](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-user-flows) del flujo de usuario para comprobar la experiencia del cliente. Ahora debe ver **ShoeSize** en la lista de atributos que se recopilan durante el viaje de suscripción y en el token enviado de vuelta a la aplicación.
+Después de crear un usuario mediante un flujo de usuario que usa el atributo personalizado recién creado, el objeto se puede consultar en el [Explorador de Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer). Como alternativa, puede usar la característica [Ejecutar flujo de usuario](./tutorial-create-user-flows.md) del flujo de usuario para comprobar la experiencia del cliente. Ahora debe ver **ShoeSize** en la lista de atributos que se recopilan durante el viaje de suscripción y en el token enviado de vuelta a la aplicación.

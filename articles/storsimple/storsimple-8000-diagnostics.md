@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: ca674f38b5c327123bc1d13dd284f84f614881b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bf0570cd62a2c329407cfb6dd087020f53cdc991
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91300452"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94954076"
 ---
 # <a name="use-the-storsimple-diagnostics-tool-to-troubleshoot-8000-series-device-issues"></a>Use la herramienta de diagnóstico de StorSimple para solucionar los problemas de los dispositivos de la serie 8000.
 
@@ -332,7 +332,7 @@ Esta es la salida de ejemplo del dispositivo 8100. En la salida, puede apreciar 
 * Las interfaces de DATA 2 a 5 no están habilitadas en el portal.
 * La configuración del servidor DNS es válida y el dispositivo puede conectarse mediante el servidor DNS.
 * La conectividad del servidor NTP también es correcta.
-* Los puertos 80 y 443 están abiertos. Sin embargo, el puerto 9354 está bloqueado. En función de los [requisitos de red del sistema](storsimple-system-requirements.md), deberá abrir este puerto para la comunicación del bus de servicio.
+* Los puertos 80 y 443 están abiertos. Sin embargo, el puerto 9354 está bloqueado. En función de los [requisitos de red del sistema](./storsimple-8000-system-requirements.md), deberá abrir este puerto para la comunicación del bus de servicio.
 * La certificación TLS/SSL es válida.
 * El dispositivo puede conectarse a la cuenta de almacenamiento: _myss8000storageacct_.
 * La conectividad a los servidores de actualización es válida.
@@ -388,7 +388,7 @@ Para usar esta herramienta, realice los siguientes pasos:
 
     Si las latencias de lectura y escritura detectadas por la herramienta de diagnóstico son demasiado elevadas:
 
-    1. Configure Storage Analytics para los servicios de blob y analice la salida para comprender las latencias de la cuenta de Azure Storage. Para obtener instrucciones detalladas, vaya a [Habilitación y configuración de Storage Analytics](../storage/common/storage-enable-and-view-metrics.md). Si esas latencias también son altas y comparables a las cifras que recibió con la herramienta de diagnóstico de StorSimple, debe registrar una solicitud de servicio con Azure Storage.
+    1. Configure Storage Analytics para los servicios de blob y analice la salida para comprender las latencias de la cuenta de Azure Storage. Para obtener instrucciones detalladas, vaya a [Habilitación y configuración de Storage Analytics](../storage/blobs/monitor-blob-storage.md). Si esas latencias también son altas y comparables a las cifras que recibió con la herramienta de diagnóstico de StorSimple, debe registrar una solicitud de servicio con Azure Storage.
 
     2. Si las latencias de la cuenta de almacenamiento son demasiado bajas, póngase en contacto con su administrador de red para que investigue los problemas de latencia de su red.
 
@@ -440,6 +440,6 @@ Esta es una tabla que describe cuáles, de los diversos parámetros de Windows P
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Conozca acerca de la [sintaxis del cmdlet Invoke-HcsDiagnostics](https://technet.microsoft.com/library/mt795371.aspx).
+* Conozca acerca de la [sintaxis del cmdlet Invoke-HcsDiagnostics](/previous-versions/windows/powershell-scripting/mt795371(v=wps.630)).
 
-* Más información sobre cómo [solucionar problemas de implementación](storsimple-troubleshoot-deployment.md) en el dispositivo de StorSimple.
+* Más información sobre cómo [solucionar problemas de implementación](./storsimple-8000-troubleshoot-deployment.md) en el dispositivo de StorSimple.

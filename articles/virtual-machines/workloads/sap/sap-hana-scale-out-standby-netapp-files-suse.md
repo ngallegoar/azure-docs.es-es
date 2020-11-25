@@ -10,17 +10,18 @@ tags: azure-resource-manager
 keywords: ''
 ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
 ms.service: virtual-machines-windows
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/24/2020
 ms.author: radeltch
-ms.openlocfilehash: 21d4af6985dbe246e60fe95f8f03de7f8aa0501b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1383db44922a044f5e51075b6e1feafa70c78009
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91314069"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94958766"
 ---
 # <a name="deploy-a-sap-hana-scale-out-system-with-standby-node-on-azure-vms-by-using-azure-netapp-files-on-suse-linux-enterprise-server"></a>Implementación de un sistema de escalabilidad horizontal de SAP HANA con nodo en espera en VM de Azure mediante Azure NetApp Files en SUSE Linux Enterprise Server 
 
@@ -139,7 +140,7 @@ En las siguientes instrucciones se supone que ya ha implementado la [red virtual
 
    Cuando vaya a implementar los volúmenes, asegúrese de seleccionar la versión **NFSv 4.1**. Actualmente, el acceso a NFS, versión 4.1, debe agregarse a una lista de permitidos. Implemente los volúmenes en la [subred](/rest/api/virtualnetwork/subnets) de Azure NetApp Files designada. Las direcciones IP de los volúmenes de Azure NetApp se asignan automáticamente. 
    
-   Tenga en cuenta que los recursos de Azure NetApp Files y las VM de Azure deben estar en la misma red virtual de Azure o en redes virtuales de Azure emparejadas. Por ejemplo**HN1**-data-mnt00001, **HN1**-log-mnt00001, etc. son los nombres de los volúmenes y nfs://10.23.1.5/**HN1**-data-mnt00001, nfs://10.23.1.4/**HN1**-log-mnt00001, etc. son las rutas de acceso para los volúmenes de Azure NetApp Files.  
+   Tenga en cuenta que los recursos de Azure NetApp Files y las VM de Azure deben estar en la misma red virtual de Azure o en redes virtuales de Azure emparejadas. Por ejemplo **HN1**-data-mnt00001, **HN1**-log-mnt00001, etc. son los nombres de los volúmenes y nfs://10.23.1.5/**HN1**-data-mnt00001, nfs://10.23.1.4/**HN1**-log-mnt00001, etc. son las rutas de acceso para los volúmenes de Azure NetApp Files.  
 
    * volumen **HN1**-data-mnt00001 (nfs://10.23.1.5/**HN1**-data-mnt00001)
    * volumen **HN1**-data-mnt00002 (nfs://10.23.1.6/**HN1**-data-mnt00002)
@@ -435,7 +436,7 @@ Configure y prepare el sistema operativo. Para ello, siga estos pasos:
     echo "options nfs nfs4_disable_idmapping=Y" >> /etc/modprobe.d/nfs.conf
     </code></pre>
 
-5. **[A]** Cree el grupo de SAP HANA y el usuario manualmente. Los identificadores del grupo **hn1**adm del usuario y de sapsys deben establecerse en los mismos identificadores que se proporcionan durante la incorporación. (En este ejemplo, los identificadores se establecen en **1001**). Si los identificadores no se configuran correctamente, no podrá acceder a los volúmenes. Los identificadores del grupo sapsys y las cuentas de usuario **hn1**adm y sapadm deben ser los mismos en todas las máquinas virtuales.  
+5. **[A]** Cree el grupo de SAP HANA y el usuario manualmente. Los identificadores del grupo **hn1** adm del usuario y de sapsys deben establecerse en los mismos identificadores que se proporcionan durante la incorporación. (En este ejemplo, los identificadores se establecen en **1001**). Si los identificadores no se configuran correctamente, no podrá acceder a los volúmenes. Los identificadores del grupo sapsys y las cuentas de usuario **hn1** adm y sapadm deben ser los mismos en todas las máquinas virtuales.  
 
     <pre><code>
     # Create user group 
@@ -533,7 +534,7 @@ En este ejemplo para implementar SAP HANA en la configuración de escalabilidad 
     sudo zypper install libgcc_s1 libstdc++6 libatomic1 
     </code></pre>
 
-4. **[2], [3]** Cambie la propiedad de los directorios `data` y `log` de SAP HANA a **hn1**adm.   
+4. **[2], [3]** Cambie la propiedad de los directorios `data` y `log` de SAP HANA a **hn1** adm.   
 
     <pre><code>
     # Execute as root
@@ -657,7 +658,7 @@ En este ejemplo para implementar SAP HANA en la configuración de escalabilidad 
 
 1. Haga una simulación del bloqueo de nodos en un nodo de trabajo de SAP HANA. Haga lo siguiente: 
 
-   a. Antes de simular el bloqueo del nodo, ejecute los siguientes comandos como **hn1**adm para capturar el estado del entorno:  
+   a. Antes de simular el bloqueo del nodo, ejecute los siguientes comandos como **hn1** adm para capturar el estado del entorno:  
 
    <pre><code>
     # Check the landscape status
@@ -712,7 +713,7 @@ En este ejemplo para implementar SAP HANA en la configuración de escalabilidad 
 
 2. Termine el servidor de nombres. Para ello, haga lo siguiente:
 
-   a. Antes de la prueba, ejecute los siguientes comandos como **hn1**adm para comprobar el estado del entorno:  
+   a. Antes de la prueba, ejecute los siguientes comandos como **hn1** adm para comprobar el estado del entorno:  
 
    <pre><code>
     #Landscape status 
@@ -734,7 +735,7 @@ En este ejemplo para implementar SAP HANA en la configuración de escalabilidad 
     hanadb3, 3, 50313, 50314, 0.3, HDB|HDB_STANDBY, GRAY
    </code></pre>
 
-   b. Ejecute los siguientes comandos como **hn1**adm en el nodo principal activo, que en este caso es **hanadb1**:  
+   b. Ejecute los siguientes comandos como **hn1** adm en el nodo principal activo, que en este caso es **hanadb1**:  
 
     <pre><code>
         hn1adm@hanadb1:/usr/sap/HN1/HDB03> HDB kill

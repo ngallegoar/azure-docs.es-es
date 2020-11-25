@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/24/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 2f99c5b9362380690badce832c3dd540137d35ac
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 07897823a3ba3b83e240e8e8dc005ea13b036fce
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92215411"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94952053"
 ---
 # <a name="application-types-that-can-be-used-in-active-directory-b2c"></a>Tipos de aplicaciones que se pueden usar en Active Directory B2C
  
@@ -83,7 +83,7 @@ Azure AD B2C ofrece **dos** opciones para que las aplicaciones de página únic
 ### <a name="authorization-code-flow-with-pkce"></a>Flujo de códigos de autorización (con PKCE)
 - [Flujo de códigos de autorización de OAuth 2.0 (con PKCE)](./authorization-code-flow.md) El flujo del código de autorización permite a la aplicación intercambiar un código de autorización para los tokens de **identificador** para representar al usuario autenticado y también los tokens de **acceso** necesarios para llamar a las API protegidas. Además, devuelve tokens de **actualización** que proporcionan acceso a largo plazo a los recursos en nombre de los usuarios sin necesidad de interacción con estos. 
 
-Este es el enfoque **recomendado** . Contar con tokens de actualización de duración limitada ayuda a que la aplicación se adapte a las [limitaciones de privacidad de cookies de los exploradores modernos](../active-directory/develop/reference-third-party-cookies-spas.md), como ITP de Safari.
+Este es el enfoque **recomendado**. Contar con tokens de actualización de duración limitada ayuda a que la aplicación se adapte a las [limitaciones de privacidad de cookies de los exploradores modernos](../active-directory/develop/reference-third-party-cookies-spas.md), como ITP de Safari.
 
 Para aprovechar este flujo, la aplicación puede usar una biblioteca de autenticación que lo admita, como [MSAL.js 2.x](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-browser).
 
@@ -91,7 +91,7 @@ Para aprovechar este flujo, la aplicación puede usar una biblioteca de autentic
 ![Aplicaciones de página única: autorización](./media/tutorial-single-page-app/active-directory-oauth-code-spa.png)
 
 ### <a name="implicit-grant-flow"></a>Flujo de concesión implícito
-- [Flujo implícito de OAuth 2.0](implicit-flow-single-page-application.md). Algunos marcos, como [MSAL.js 1.x](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-core), solo admiten el flujo de concesión implícita. El flujo de concesión implícita permite a la aplicación obtener tokens de **identificador** y de **acceso** . A diferencia del flujo del código de autorización, el flujo de concesión implícita no devuelve un **token de actualización** . 
+- [Flujo implícito de OAuth 2.0](implicit-flow-single-page-application.md). Algunos marcos, como [MSAL.js 1.x](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-core), solo admiten el flujo de concesión implícita. El flujo de concesión implícita permite a la aplicación obtener tokens de **identificador** y de **acceso**. A diferencia del flujo del código de autorización, el flujo de concesión implícita no devuelve un **token de actualización**. 
 
 Este flujo de autenticación no incluye escenarios de aplicaciones que usan marcos de JavaScript multiplataforma, como Electron y React Native, ya que requieren más funcionalidades para la interacción con las plataformas nativas.
 
@@ -141,7 +141,7 @@ Las aplicaciones que contienen procesos de larga duración o que funcionan sin l
 
 Aunque actualmente el flujo de concesión de credenciales de cliente de OAuth 2.0 no es compatible directamente con el servicio de autenticación de Azure AD B2C, puede configurar el flujo de credenciales de cliente mediante Azure AD y el punto de conexión de token o la plataforma de identidad de Microsoft para una aplicación en su inquilino de Azure AD B2C. Un inquilino de Azure AD B2C comparte algunas funcionalidades con los inquilinos empresariales de Azure AD.
 
-Para configurar el flujo de credenciales de cliente, consulte [Azure Active Directory v2.0 y el flujo de credenciales de cliente de OAuth 2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-protocols-oauth-client-creds). Una autenticación correcta genera la recepción de un token con formato para que Azure AD lo pueda usar tal como se describe en [Referencia de tokens de Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims).
+Para configurar el flujo de credenciales de cliente, consulte [Azure Active Directory v2.0 y el flujo de credenciales de cliente de OAuth 2.0](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md). Una autenticación correcta genera la recepción de un token con formato para que Azure AD lo pueda usar tal como se describe en [Referencia de tokens de Azure AD](../active-directory/develop/id-tokens.md).
 
 Para obtener instrucciones sobre cómo registrar una aplicación de administración, consulte [Administrar Azure AD B2C con Microsoft Graph](microsoft-graph-get-started.md).
 
@@ -155,7 +155,7 @@ Este escenario de API web encadenadas puede admitirse mediante la concesión de 
 
 No edite las aplicaciones de Azure AD B2C de ninguna de estas maneras:
 
-- En otros portales de administración de aplicaciones, como el  [Portal de registro de aplicaciones](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade).
+- En otros portales de administración de aplicaciones, como el [Portal de registro de aplicaciones](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade).
 - Con Graph API o PowerShell.
 
 Si edita la aplicación de Azure AD B2C fuera de Azure Portal, se convierte en una aplicación con errores y ya no se puede usar con Azure AD B2C. Elimine la aplicación y vuelva a crearla.

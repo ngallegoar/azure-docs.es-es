@@ -7,22 +7,22 @@ ms.service: dns
 ms.topic: how-to
 ms.date: 10/6/2018
 ms.author: rohink
-ms.openlocfilehash: 111d94db1cbec658daabfb1a4c38c8160d6f50b6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 22ceba69ecf865d906021068a39a9d273b842ca2
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84696838"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965738"
 ---
 # <a name="manage-dns-records-and-record-sets-by-using-the-azure-portal"></a>Administración de registros y conjuntos de registros DNS mediante el Portal de Azure
 
 En este artículo se explica cómo administrar conjuntos de registros y registros para la zona DNS mediante el Portal de Azure.
 
-Es importante comprender la diferencia entre los conjuntos de registros de DNS y los registros DNS individuales. Un conjunto de registros es una colección de registros de una zona con el mismo nombre y el mismo tipo. Para más información, consulte [Creación de registros y conjuntos de registros de DNS mediante el Portal de Azure](dns-getstarted-create-recordset-portal.md).
+Es importante comprender la diferencia entre los conjuntos de registros de DNS y los registros DNS individuales. Un conjunto de registros es una colección de registros de una zona con el mismo nombre y el mismo tipo. Para más información, consulte [Creación de registros y conjuntos de registros de DNS mediante el Portal de Azure](./dns-getstarted-portal.md).
 
 ## <a name="create-a-new-record-set-and-record"></a>Creación de un nuevo conjunto de registros y un registro
 
-Para crear un conjunto de registros en el Portal de Azure, consulte [Creación de registros y conjuntos de registros de DNS mediante el Portal de Azure](dns-getstarted-create-recordset-portal.md).
+Para crear un conjunto de registros en el Portal de Azure, consulte [Creación de registros y conjuntos de registros de DNS mediante el Portal de Azure](./dns-getstarted-portal.md).
 
 ## <a name="view-a-record-set"></a>Visualización de un conjunto de registros
 

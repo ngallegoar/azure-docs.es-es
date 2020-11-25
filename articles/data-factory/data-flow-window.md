@@ -7,13 +7,13 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 01/30/2019
-ms.openlocfilehash: 896254a5577dad1bdcf474b963b9544029a4c81a
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.date: 11/16/2020
+ms.openlocfilehash: 8f0d10b6ed69cd31249447b59114c590bdbeb078
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93040110"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94832377"
 ---
 # <a name="window-transformation-in-mapping-data-flow"></a>Transformación Ventana en el flujo de datos de asignación
 
@@ -22,6 +22,8 @@ ms.locfileid: "93040110"
 En la transformación Ventana se definen las agregaciones basadas en ventanas de las columnas de las secuencias de datos. En el Generador de expresiones, puede definir diferentes tipos de agregaciones basadas en ventanas de datos o tiempo (cláusula OVER de SQL), como LEAD, LAG, NTILE, CUMEDIST, RANK, etc.). Se generará un nuevo campo en la salida que incluya estas agregaciones. También puede incluir campos de agrupación opcionales.
 
 ![Captura de pantalla que muestra las ventanas seleccionadas en el menú.](media/data-flow/windows1.png "ventanas 1")
+
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4IAVu]
 
 ## <a name="over"></a>Over
 Establezca las particiones de los datos de columna para la transformación Ventana. El equivalente en SQL es ```Partition By``` en la cláusula Over de SQL. Si desea crear un cálculo o una expresión para usarlos en la creación de las particiones, desplace el cursor por encima del nombre de la columna y seleccione "Columna calculada".

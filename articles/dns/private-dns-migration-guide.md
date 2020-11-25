@@ -8,12 +8,12 @@ ms.service: dns
 ms.topic: how-to
 ms.date: 06/18/2019
 ms.author: rohink
-ms.openlocfilehash: 9302e922d509f3145fd7913835ce896a6da860fd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 63bd1d01adf66f33a8ee5349f35063473429b007
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84699473"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94964786"
 ---
 # <a name="migrating-legacy-azure-dns-private-zones-to-new-resource-model"></a>Migración de zonas privadas de Azure DNS heredadas al nuevo modelo de recursos
 
@@ -107,10 +107,10 @@ Este paso eliminarán las zonas DNS heredadas y solo se debe ejecutar después c
 ## <a name="update-your-automation"></a>Actualización de la automatización
 
 Si está usando automatización que incluye plantillas, scripts de PowerShell o código personalizado desarrollado con el SDK, debe actualizar la automatización para que use el nuevo modelo de recursos para las zonas DNS privadas. A continuación se incluyen los vínculos a la documentación de los nuevos CLI, PowerShell y SDK de DNS privados.
-* [API REST de zonas privadas de Azure DNS](https://docs.microsoft.com/rest/api/dns/privatedns/privatezones)
-* [CLI de zonas privadas de Azure DNS](https://docs.microsoft.com/cli/azure/ext/privatedns/network/private-dns?view=azure-cli-latest)
-* [PowerShell de zonas privadas de Azure DNS](https://docs.microsoft.com/powershell/module/az.privatedns/?view=azps-2.3.2)
-* [SDK de zonas privadas de Azure DNS](https://docs.microsoft.com/dotnet/api/overview/azure/privatedns/management?view=azure-dotnet-preview)
+* [API REST de zonas privadas de Azure DNS](/rest/api/dns/privatedns/privatezones)
+* [CLI de zonas privadas de Azure DNS](/cli/azure/ext/privatedns/network/private-dns?view=azure-cli-latest)
+* [PowerShell de zonas privadas de Azure DNS](/powershell/module/az.privatedns/?view=azps-2.3.2)
+* [SDK de zonas privadas de Azure DNS](/dotnet/api/overview/azure/privatedns/management?view=azure-dotnet-preview)
 
 ## <a name="need-further-help"></a>Ayuda adicional
 

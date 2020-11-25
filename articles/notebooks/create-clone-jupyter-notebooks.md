@@ -3,12 +3,12 @@ title: 'Creación y clonación de cuadernos de Jupyter: Azure Notebooks Preview'
 description: Los proyectos de Azure Notebooks Preview administran una colección de cuadernos y archivos relacionados, que puede crear o clonar desde otro origen.
 ms.topic: how-to
 ms.date: 02/25/2019
-ms.openlocfilehash: 4a51f9b12ca24d16858b41357627ff26d233357f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8e5930178b7951ff5f701228cee4ea7cb5f0e6da
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86181510"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844393"
 ---
 # <a name="create-and-clone-projects-in-azure-notebooks-preview"></a>Creación y clonación de proyectos en Azure Notebooks Preview
 
@@ -138,4 +138,4 @@ Para clonar un proyecto:
 - [Cómo: Presentación con diapositivas](present-jupyter-notebooks-slideshow.md)
 - [Cómo: con archivos de datos en proyectos de Azure Notebooks](work-with-project-data-files.md)
 - [Cómo: Access data resources](access-data-resources-jupyter-notebooks.md) (Acceso a los recursos de datos)
-- [Cómo: Uso de Azure Machine Learning](use-machine-learning-services-jupyter-notebooks.md)
+- [Cómo: Uso de Azure Machine Learning](../machine-learning/samples-notebooks.md)

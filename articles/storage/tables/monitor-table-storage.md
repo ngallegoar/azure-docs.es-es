@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.date: 10/26/2020
 ms.author: normesta
 ms.reviewer: fryu
-ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: 13540f6a4c2e80da390298f7deaf050cd913487f
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.custom: monitoring, devx-track-csharp, devx-track-azurecli
+ms.openlocfilehash: e5b54f0eb3f068e1697b8541373ed84692448a59
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93320053"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844836"
 ---
 # <a name="monitoring-azure-table-storage"></a>Supervisión de Azure Table Storage
 
@@ -77,7 +77,7 @@ Para obtener instrucciones generales, consulte [Creación de una configuración 
 
 2. Vaya a la cuenta de almacenamiento.
 
-3. En la sección **Supervisión** , seleccione **Configuración de diagnóstico (versión preliminar)** .
+3. En la sección **Supervisión**, seleccione **Configuración de diagnóstico (versión preliminar)** .
 
    > [!div class="mx-imgBorder"]
    > ![Portal: Registros de diagnóstico](media/monitor-table-storage/diagnostic-logs-settings-pane.png)   
@@ -103,7 +103,7 @@ Para obtener instrucciones generales, consulte [Creación de una configuración 
    > [!div class="mx-imgBorder"]   
    > ![Almacenamiento de archivos en la página de configuración de diagnóstico ](media/monitor-table-storage/diagnostic-logs-settings-pane-archive-storage.png)
 
-2. En la lista desplegable de la **Cuenta de almacenamiento** , seleccione la cuenta de almacenamiento en la que quiera archivar los registros, haga clic en el botón **Aceptar** y, a continuación, haga clic en el botón **Guardar**.
+2. En la lista desplegable de la **Cuenta de almacenamiento**, seleccione la cuenta de almacenamiento en la que quiera archivar los registros, haga clic en el botón **Aceptar** y, a continuación, haga clic en el botón **Guardar**.
 
    > [!NOTE]
    > Antes de elegir una cuenta de almacenamiento como destino de exportación, consulte [Archivar registros de recursos de Azure](../../azure-monitor/platform/resource-logs.md#send-to-azure-storage) para comprender los requisitos previos de la cuenta de almacenamiento.
@@ -112,7 +112,7 @@ Para obtener instrucciones generales, consulte [Creación de una configuración 
 
 1. Seleccione la casilla **Transmitir a un centro de eventos** y haga clic en **Configurar**.
 
-2. En el panel para **Seleccionar un centro de eventos** , elija el espacio de nombres, el nombre y el nombre de la directiva del centro de eventos al que quiere transmitir los registros. 
+2. En el panel para **Seleccionar un centro de eventos**, elija el espacio de nombres, el nombre y el nombre de la directiva del centro de eventos al que quiere transmitir los registros. 
 
    > [!div class="mx-imgBorder"]
    > ![Centro de eventos en la página de configuración de diagnóstico](media/monitor-table-storage/diagnostic-logs-settings-pane-event-hub.png)
@@ -121,7 +121,7 @@ Para obtener instrucciones generales, consulte [Creación de una configuración 
 
 #### <a name="send-logs-to-azure-log-analytics"></a>Envío de registros a Azure Log Analytics
 
-1. Seleccione la casilla **Enviar a Log Analytics** , seleccione un área de trabajo de Log Analytics y, a continuación, haga clic en el botón **Guardar**.
+1. Seleccione la casilla **Enviar a Log Analytics**, seleccione un área de trabajo de Log Analytics y, a continuación, haga clic en el botón **Guardar**.
 
    > [!div class="mx-imgBorder"]   
    > ![Instancia de Log Analytics de la página de configuración de diagnóstico](media/monitor-table-storage/diagnostic-logs-settings-pane-log-analytics.png)
@@ -480,7 +480,7 @@ Las entradas del registro se crean solo si se presentan solicitudes al punto de 
 - Solicitudes correctas
 - Solicitudes erróneas, incluidos errores de tiempo de espera, de limitación, de red, de autorización y de otro tipo
 - Solicitudes que usan una firma de acceso compartido (SAS) u OAuth, incluidas las solicitudes correctas como con error
-- Solicitudes de datos de análisis (datos de registro clásicos en el contenedor **$logs** , y datos de métricas de clase en las tablas **$metric** )
+- Solicitudes de datos de análisis (datos de registro clásicos en el contenedor **$logs**, y datos de métricas de clase en las tablas **$metric**)
 
 Las solicitudes realizadas por el propio servicio Table Storage, como la creación o eliminación de registros, no se registran. Para encontrar una lista completa de los datos registrados, consulte [Operaciones y mensajes de estado registrados por Storage](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) y [Formato del registro de Storage](monitor-table-storage-reference.md).
 

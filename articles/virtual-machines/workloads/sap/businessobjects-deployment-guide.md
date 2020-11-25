@@ -9,17 +9,18 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-windows
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/05/2020
 ms.author: depadia
-ms.openlocfilehash: 9d1759e5b809bc40e63fb6024fb7f107ad347da6
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: ee7cc1c81bd35bf2b51c712c3a60a046435ee700
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92094167"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94951290"
 ---
 # <a name="sap-businessobjects-bi-platform-planning-and-implementation-guide-on-azure"></a>Guía de planificación e implementación de la plataforma de inteligencia empresarial SAP BusinessObjects en Azure
 
@@ -137,7 +138,7 @@ La plataforma de inteligencia empresarial necesita una base de datos para CMS y 
 
 - MaxDB
 
-En este documento se muestran las instrucciones para implementar la **plataforma SAP BOBI en Windows con Azure SQL Database** y la **plataforma SAP BOBI en Linux con Azure Database for MySQL** . También recomendamos este enfoque para ejecutar la plataforma SAP BusinessObjects BI en Azure.
+En este documento se muestran las instrucciones para implementar la **plataforma SAP BOBI en Windows con Azure SQL Database** y la **plataforma SAP BOBI en Linux con Azure Database for MySQL**. También recomendamos este enfoque para ejecutar la plataforma SAP BusinessObjects BI en Azure.
 
 ## <a name="sizing"></a>Ajuste de tamaño
 

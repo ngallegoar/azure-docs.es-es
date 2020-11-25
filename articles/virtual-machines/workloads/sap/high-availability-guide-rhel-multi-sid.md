@@ -9,17 +9,18 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-windows
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/16/2020
 ms.author: radeltch
-ms.openlocfilehash: 1319b1b7a53303bad78c0b8e6701676755aa1484
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: b6365e9488dc00ae1bec3217b52fefa534bb0671
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167855"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94956320"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-red-hat-enterprise-linux-for-sap-applications-multi-sid-guide"></a>Alta disponibilidad para SAP NetWeaver en VM de Azure en Red Hat Enterprise Linux para SAP Applications: guía de varios SID
 
@@ -52,9 +53,9 @@ ms.locfileid: "92167855"
 En este artículo se describe cómo implementar varios sistemas de alta disponibilidad de SAP NetWeaver (es decir, varios SID) en un clúster de dos nodos en VM de Azure con Red Hat Enterprise Linux para SAP Applications.  
 
 En las configuraciones de ejemplo, los comandos de instalación, etc., se implementan tres sistemas SAP NetWeaver 7.50 en un único clúster de alta disponibilidad de dos nodos. Los SID de los sistemas SAP son los siguientes:
-* **NW1** : Número de instancia de ASCS **00** y nombre de host virtual **msnw1ascs** ; número de instancia de ERS **02** y nombre de host virtual **msnw1ers** .  
-* **NW2** : Número de instancia de ASCS **10** y nombre de host virtual **msnw2ascs** ; número de instancia de ERS **12** y nombre de host virtual **msnw2ers** .  
-* **NW3** : Número de instancia de ASCS **20** y nombre de host virtual **msnw3ascs** ; número de instancia de ERS **22** y nombre de host virtual **msnw3ers** .  
+* **NW1**: Número de instancia de ASCS **00** y nombre de host virtual **msnw1ascs**; número de instancia de ERS **02** y nombre de host virtual **msnw1ers**.  
+* **NW2**: Número de instancia de ASCS **10** y nombre de host virtual **msnw2ascs**; número de instancia de ERS **12** y nombre de host virtual **msnw2ers**.  
+* **NW3**: Número de instancia de ASCS **20** y nombre de host virtual **msnw3ascs**; número de instancia de ERS **22** y nombre de host virtual **msnw3ers**.  
 
 El artículo no trata la capa de base de datos ni la implementación de los recursos compartidos NFS de SAP. En los ejemplos de este artículo, usamos el volumen **sapMSID** de [Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-create-volumes.md) para los recursos compartidos de NFS, suponiendo que el volumen ya está implementado. También suponemos que el volumen de Azure NetApp Files se ha implementado en el protocolo NFSv3 y que las siguientes rutas de acceso existen para los recursos de clúster para las instancias de ASCS y ERS de los sistemas SAP NW1, NW2 y NW3:  
 
@@ -128,7 +129,7 @@ En la lista siguiente se muestra la configuración del equilibrador de carga (A)
   * Dirección IP de NW3:  10.3.1.54
 
 * Puertos de sondeo
-  * Puerto 620 <strong>&lt;nr&gt;</strong>, por lo tanto, los puertos de sondeo 620 **00** , 620 **10** y 620 **20** para NW1, NW2 y NW3
+  * Puerto 620 <strong>&lt;nr&gt;</strong>, por lo tanto, los puertos de sondeo 620 **00**, 620 **10** y 620 **20** para NW1, NW2 y NW3
 * Reglas de equilibrio de carga: cree una para cada instancia, es decir, NW1/ASCS, NW2/ASCS y NW3/ASCS.
   * Si usa Standard Load Balancer, seleccione **Puertos HA**
   * Si usa Basic Load Balancer, cree reglas de equilibrio de carga para los puertos siguientes
@@ -148,7 +149,7 @@ En la lista siguiente se muestra la configuración del equilibrador de carga (A)
   * Dirección IP de NW3 10.3.1.55
 
 * Puerto de sondeo
-  * Puerto 621 <strong>&lt;nr&gt;</strong>, por lo tanto, los puertos de sondeo 621 **02** , 621 **12** y 621 **22** para NW1, NW2 y N3
+  * Puerto 621 <strong>&lt;nr&gt;</strong>, por lo tanto, los puertos de sondeo 621 **02**, 621 **12** y 621 **22** para NW1, NW2 y N3
 * Reglas de equilibrio de carga: cree una para cada instancia, es decir, NW1/ERS, NW2/ERS y NW3/ERS.
   * Si usa Standard Load Balancer, seleccione **Puertos HA**
   * Si usa Basic Load Balancer, cree reglas de equilibrio de carga para los puertos siguientes
@@ -168,7 +169,7 @@ En la lista siguiente se muestra la configuración del equilibrador de carga (A)
 > Cuando las máquinas virtuales sin direcciones IP públicas se colocan en el grupo de back-end de Standard Load Balancer interno (sin dirección IP pública), no hay conectividad saliente de Internet, a menos que se realice una configuración adicional para permitir el enrutamiento a puntos de conexión públicos. Para obtener más información sobre cómo obtener conectividad saliente, vea [Conectividad de punto de conexión público para máquinas virtuales con Azure Standard Load Balancer en escenarios de alta disponibilidad de SAP](./high-availability-guide-standard-load-balancer-outbound-connections.md).  
 
 > [!IMPORTANT]
-> No habilite las marcas de tiempo TCP en VM de Azure que se encuentren detrás de Azure Load Balancer. Si habilita las marcas de tiempo TCP provocará un error en los sondeos de estado. Establezca el parámetro **net.ipv4.tcp_timestamps** a **0** . Consulte [Sondeos de estado de Load Balancer](../../../load-balancer/load-balancer-custom-probe-overview.md) para obtener más información.
+> No habilite las marcas de tiempo TCP en VM de Azure que se encuentren detrás de Azure Load Balancer. Si habilita las marcas de tiempo TCP provocará un error en los sondeos de estado. Establezca el parámetro **net.ipv4.tcp_timestamps** a **0**. Consulte [Sondeos de estado de Load Balancer](../../../load-balancer/load-balancer-custom-probe-overview.md) para obtener más información.
 
 ## <a name="sap-shares"></a>Recursos compartidos de SAP
 
@@ -190,7 +191,7 @@ Los documentos mostrados anteriormente le guiarán por los pasos de preparación
 
 ## <a name="deploy-additional-sap-systems-in-the-cluster"></a>Implementación de sistemas SAP adicionales en el clúster
 
-En este ejemplo se supone que el sistema **NW1** ya se ha implementado en el clúster. Le mostraremos cómo realizar la implementación en los sistemas SAP de clúster **NW2** y **NW3** . 
+En este ejemplo se supone que el sistema **NW1** ya se ha implementado en el clúster. Le mostraremos cómo realizar la implementación en los sistemas SAP de clúster **NW2** y **NW3**. 
 
 Los elementos siguientes tienen el prefijo **[A]** : aplicable a todos los nodos, **[1]** : aplicable solo al nodo 1 o **[2]** : aplicable solo al nodo 2.
 
@@ -207,7 +208,7 @@ En esta documentación se supone que:
 
 ### <a name="prepare-for-sap-netweaver-installation"></a>Preparación de la instalación de SAP NetWeaver
 
-1. Agregue la configuración del sistema recién implementado (es decir, **NW2** , **NW3** ) a la instancia existente de Azure Load Balancer, siguiendo las instrucciones de [implementación de Azure Load Balancer manualmente a través de Azure Portal](./high-availability-guide-rhel-netapp-files.md#deploy-linux-manually-via-azure-portal). Ajuste las direcciones IP, los puertos de sondeo de estado y las reglas de equilibrio de carga para la configuración.  
+1. Agregue la configuración del sistema recién implementado (es decir, **NW2**, **NW3**) a la instancia existente de Azure Load Balancer, siguiendo las instrucciones de [implementación de Azure Load Balancer manualmente a través de Azure Portal](./high-availability-guide-rhel-netapp-files.md#deploy-linux-manually-via-azure-portal). Ajuste las direcciones IP, los puertos de sondeo de estado y las reglas de equilibrio de carga para la configuración.  
 
 2. **[A]** Configure la resolución de nombres para los sistemas SAP adicionales. Puede usar un servidor DNS o modificar `/etc/hosts` en todos los nodos. En este ejemplo se muestra cómo utilizar el archivo `/etc/hosts`.  Adapte las direcciones IP y los nombres de host a su entorno. 
 
@@ -246,7 +247,7 @@ En esta documentación se supone que:
     sudo chattr +i /usr/sap/NW3/ERS22
    ```
 
-4. **[A]** Agregue las entradas de montaje para los sistemas de archivos /sapmnt/SID y /usr/sap/SID/SYS para los sistemas SAP adicionales que va a implementar en el clúster. En este ejemplo, **NW2** y **NW3** .  
+4. **[A]** Agregue las entradas de montaje para los sistemas de archivos /sapmnt/SID y /usr/sap/SID/SYS para los sistemas SAP adicionales que va a implementar en el clúster. En este ejemplo, **NW2** y **NW3**.  
 
    Actualice el objeto `/etc/fstab` del archivo con los sistemas de archivos de los sistemas SAP adicionales que va a implementar en el clúster.  
 
@@ -255,7 +256,7 @@ En esta documentación se supone que:
 
 ### <a name="install-ascs--ers"></a>Instalación de ASCS/ERS
 
-1. Cree la IP virtual y los recursos del clúster de sondeo para la instancia de ASCS del sistema SAP adicional que va a implementar en el clúster. El ejemplo que se muestra aquí es para ASCS de **NW2** y **NW3** , mediante NFS en volúmenes de Azure NetApp Files con el protocolo NFSv3.  
+1. Cree la IP virtual y los recursos del clúster de sondeo para la instancia de ASCS del sistema SAP adicional que va a implementar en el clúster. El ejemplo que se muestra aquí es para ASCS de **NW2** y **NW3**, mediante NFS en volúmenes de Azure NetApp Files con el protocolo NFSv3.  
 
     ```
     sudo pcs resource create fs_NW2_ASCS Filesystem device='10.42.0.4:/sapMSIDR/usrsapNW2ascs' \
@@ -287,7 +288,7 @@ En esta documentación se supone que:
 
 2. **[1]** Instale SAP NetWeaver ASCS  
 
-   Instale SAP NetWeaver ASCS como raíz con un nombre de host virtual que se asigna a la dirección IP de la configuración de front-end del equilibrador de carga para ASCS. Por ejemplo, para el sistema **NW2** , el nombre de host virtual es <b>msnw2ascs</b>, <b>10.3.1.52</b> y el número de instancia que usó para el sondeo del equilibrador de carga, por ejemplo <b>10</b>. Para el sistema **NW3** , el nombre de host virtual es <b>msnw3ascs</b>, <b>10.3.1.54</b> y el número de instancia que usó para el sondeo del equilibrador de carga, por ejemplo <b>20</b>. Anote en qué nodo de clúster instala ASCS para cada SID de SAP.  
+   Instale SAP NetWeaver ASCS como raíz con un nombre de host virtual que se asigna a la dirección IP de la configuración de front-end del equilibrador de carga para ASCS. Por ejemplo, para el sistema **NW2**, el nombre de host virtual es <b>msnw2ascs</b>, <b>10.3.1.52</b> y el número de instancia que usó para el sondeo del equilibrador de carga, por ejemplo <b>10</b>. Para el sistema **NW3**, el nombre de host virtual es <b>msnw3ascs</b>, <b>10.3.1.54</b> y el número de instancia que usó para el sondeo del equilibrador de carga, por ejemplo <b>20</b>. Anote en qué nodo de clúster instala ASCS para cada SID de SAP.  
 
    Puede usar el parámetro de sapinst SAPINST_REMOTE_ACCESS_USER para permitir que un usuario no raíz se conecta a sapinst. Puede usar el parámetro SAPINST_USE_HOSTNAME para instalar SAP con el nombre de host virtual.  
 
@@ -297,9 +298,9 @@ En esta documentación se supone que:
     sudo swpm/sapinst SAPINST_REMOTE_ACCESS_USER=sapadmin SAPINST_USE_HOSTNAME=virtual_hostname
     ```
 
-   Si se produce un error en la instalación para crear una subcarpeta en /usr/sap/ **SID** /ASCS **Instance#** , pruebe a establecer el propietario en **sid** adm y el grupo en sapsys de la ASCS **Instance#** e inténtelo de nuevo.
+   Si se produce un error en la instalación para crear una subcarpeta en /usr/sap/**SID**/ASCS **Instance#** , pruebe a establecer el propietario en **sid** adm y el grupo en sapsys de la ASCS **Instance#** e inténtelo de nuevo.
 
-3. **[1]** Cree la IP virtual y los recursos del clúster de sondeo para la instancia de ERS del sistema SAP adicional que va a implementar en el clúster. El ejemplo que se muestra aquí es para ERS de **NW2** y **NW3** , mediante NFS en volúmenes de Azure NetApp Files con el protocolo NFSv3.  
+3. **[1]** Cree la IP virtual y los recursos del clúster de sondeo para la instancia de ERS del sistema SAP adicional que va a implementar en el clúster. El ejemplo que se muestra aquí es para ERS de **NW2** y **NW3**, mediante NFS en volúmenes de Azure NetApp Files con el protocolo NFSv3.  
 
     ```
     sudo pcs resource create fs_NW2_AERS Filesystem device='10.42.0.4:/sapMSIDR/usrsapNW2ers' \
@@ -337,7 +338,7 @@ En esta documentación se supone que:
 
 4. **[2]** Instale SAP NetWeaver ERS
 
-   Instale SAP NetWeaver ERS como raíz en el otro nodo con un nombre de host virtual que se asigna a la dirección IP de la configuración de front-end del equilibrador de carga para ERS. Por ejemplo, para el sistema **NW2** , el nombre de host virtual es <b>msnw2ers</b>, <b>10.3.1.53</b> y el número de instancia que usó para el sondeo del equilibrador de carga, por ejemplo <b>12</b>. En el caso del sistema **NW3** , el nombre de host virtual es <b>msnw3ers</b>, <b>10.3.1.55</b> y el número de instancia que usó para el sondeo del equilibrador de carga, por ejemplo <b>22</b>. 
+   Instale SAP NetWeaver ERS como raíz en el otro nodo con un nombre de host virtual que se asigna a la dirección IP de la configuración de front-end del equilibrador de carga para ERS. Por ejemplo, para el sistema **NW2**, el nombre de host virtual es <b>msnw2ers</b>, <b>10.3.1.53</b> y el número de instancia que usó para el sondeo del equilibrador de carga, por ejemplo <b>12</b>. En el caso del sistema **NW3**, el nombre de host virtual es <b>msnw3ers</b>, <b>10.3.1.55</b> y el número de instancia que usó para el sondeo del equilibrador de carga, por ejemplo <b>22</b>. 
 
    Puede usar el parámetro de sapinst SAPINST_REMOTE_ACCESS_USER para permitir que un usuario no raíz se conecta a sapinst. Puede usar el parámetro SAPINST_USE_HOSTNAME para instalar SAP con el nombre de host virtual.  
 
@@ -350,9 +351,9 @@ En esta documentación se supone que:
    > [!NOTE]
    > Use SWPM SP 20 PL 05 o superior. Las versiones inferiores no establecen correctamente los permisos y se producirá un error de instalación.
 
-   Si se produce un error en la instalación para crear una subcarpeta en /usr/sap/ **NW2** /ERS **Instance#** , pruebe a establecer el propietario en **sid** adm y el grupo en sapsys de la ERS **Instance#** e inténtelo de nuevo.
+   Si se produce un error en la instalación para crear una subcarpeta en /usr/sap/**NW2**/ERS **Instance#** , pruebe a establecer el propietario en **sid** adm y el grupo en sapsys de la ERS **Instance#** e inténtelo de nuevo.
 
-   Si fuera necesario migrar el grupo ERS del sistema SAP recién implementado a otro nodo de clúster, no olvide quitar la restricción de ubicación para el grupo de ERS. Puede quitar la restricción ejecutando el comando siguiente (el ejemplo se da para los sistemas SAP **NW2** y **NW3** ). Asegúrese de quitar las restricciones temporales del mismo grupo que uso en el comando para mover el grupo de clúster de ERS.
+   Si fuera necesario migrar el grupo ERS del sistema SAP recién implementado a otro nodo de clúster, no olvide quitar la restricción de ubicación para el grupo de ERS. Puede quitar la restricción ejecutando el comando siguiente (el ejemplo se da para los sistemas SAP **NW2** y **NW3**). Asegúrese de quitar las restricciones temporales del mismo grupo que uso en el comando para mover el grupo de clúster de ERS.
 
     ```
       pcs resource clear fs_NW2_AERS
@@ -391,7 +392,7 @@ En esta documentación se supone que:
 
 6. **[A]** Actualización del archivo /usr/sap/sapservices
 
-   Para evitar que el script de arranque sapinit inicie las instancias, todas las que sean administradas por Pacemaker se deben marcar como comentario en el archivo `/usr/sap/sapservices`.  El ejemplo que se muestra a continuación corresponde a los sistemas SAP **NW2** y **NW3** .  
+   Para evitar que el script de arranque sapinit inicie las instancias, todas las que sean administradas por Pacemaker se deben marcar como comentario en el archivo `/usr/sap/sapservices`.  El ejemplo que se muestra a continuación corresponde a los sistemas SAP **NW2** y **NW3**.  
 
    ```
     # On the node where ASCS was installed, comment out the line for the ASCS instacnes
@@ -450,7 +451,7 @@ En esta documentación se supone que:
     ```
 
    SAP introdujo una opción de compatibilidad con el servidor 2 de puesta en cola, incluida la replicación, a partir de la versión de SAP NW 7.52. A partir de la plataforma ABAP (versión 1809), el servidor 2 de puesta en cola está instalado de forma predeterminada. Consulte la nota de SAP [2630416](https://launchpad.support.sap.com/#/notes/2630416) para consultar la compatibilidad con el servidor 2 de puesta en cola.
-   Si usa la arquitectura de servidor 2 de puesta en cola ( [ENSA2](https://help.sap.com/viewer/cff8531bc1d9416d91bb6781e628d4e0/1709%20001/en-US/6d655c383abf4c129b0e5c8683e7ecd8.html)), defina los recursos para los sistemas SAP **NW2** y **NW3** tal como se indica:
+   Si usa la arquitectura de servidor 2 de puesta en cola ([ENSA2](https://help.sap.com/viewer/cff8531bc1d9416d91bb6781e628d4e0/1709%20001/en-US/6d655c383abf4c129b0e5c8683e7ecd8.html)), defina los recursos para los sistemas SAP **NW2** y **NW3** tal como se indica:
 
     ```
      sudo pcs property set maintenance-mode=true
@@ -542,7 +543,7 @@ En esta documentación se supone que:
         rsc_sap_NW3_ERS22  (ocf::heartbeat:SAPInstance):   Started rhelmsscl1
     ```
 
-8. **[A]** Agregue reglas de firewall para ASCS y ERS en ambos nodos.  En el ejemplo siguiente se muestran las reglas de firewall para los sistemas SAP **NW2** y **NW3** .  
+8. **[A]** Agregue reglas de firewall para ASCS y ERS en ambos nodos.  En el ejemplo siguiente se muestran las reglas de firewall para los sistemas SAP **NW2** y **NW3**.  
 
    ```
     # NW2 - ASCS

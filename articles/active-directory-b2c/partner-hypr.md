@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 08/27/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 4f6b09061a4aa98824e176af55efcedfab3df48c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b80b1a4b3f9bcde6cf01b0e0e59425c6783bd5d9
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89051874"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94953770"
 ---
 # <a name="tutorial-for-configuring-hypr-with-azure-active-directory-b2c"></a>Tutorial para configurar HYPR con Azure Active Directory B2C
 
@@ -28,7 +28,7 @@ Para empezar, necesitará lo siguiente:
 
 - Una suscripción de Azure AD. Si no tiene una suscripción, puede crear una [cuenta gratuita](https://azure.microsoft.com/free/).
 
-- Un [inquilino de Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant). El inquilino está vinculado a la suscripción de Azure.
+- Un [inquilino de Azure AD B2C](./tutorial-create-tenant.md). El inquilino está vinculado a la suscripción de Azure.
 
 - Un inquilino en la nube de HYPR; obtenga una [cuenta de prueba](https://get.hypr.com/free-trial) gratuita.
 
@@ -62,7 +62,7 @@ En el siguiente diagrama de arquitectura se muestra la implementación.
 
 1. Vaya a la [directiva de HYPR de Azure AD B2C](https://github.com/HYPR-Corp-Public/Azure-AD-B2C-HYPR-Sample/tree/master/policy) en la carpeta Directiva.
 
-2. Siga este [documento](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications#custom-policy-starter-pack) para descargar el [paquete de inicio de LocalAccounts](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/LocalAccounts).
+2. Siga este [documento](./custom-policy-get-started.md?tabs=applications#custom-policy-starter-pack) para descargar el [paquete de inicio de LocalAccounts](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/LocalAccounts).
 
 3. Configure la directiva para el inquilino de Azure AD B2C.
 
@@ -91,6 +91,6 @@ En el siguiente diagrama de arquitectura se muestra la implementación.
 
 Para más información, consulte los artículos siguientes:
 
-- [Directivas personalizadas de Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview)
+- [Directivas personalizadas de Azure AD B2C](./custom-policy-overview.md)
 
-- [Introducción a las directivas personalizadas en Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications)
+- [Introducción a las directivas personalizadas en Azure AD B2C](./custom-policy-get-started.md?tabs=applications)

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/27/2020
 ms.author: damendo
-ms.openlocfilehash: 97349071fee6a95623e5b5efdc0c9818cfe7b811
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 84764e73ec5b4ada8c204147def310326a3c7bdd
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87388339"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94948432"
 ---
 # <a name="moving-azure-network-watcher-resources-across-regions"></a>Traslado de recursos de Azure Network Watcher entre regiones
 
@@ -29,5 +29,5 @@ El recurso de Network Watcher representa el servicio back-end para Network Watch
 Actualmente no se admite el traslado de recursos entre regiones para ningún recurso secundario del tipo de recurso `*networkWatcher*`.
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Lea la [introducción a Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview).
-* Consulte las [Preguntas frecuentes de Network Watcher](https://docs.microsoft.com/azure/network-watcher/frequently-asked-questions).
+* Lea la [introducción a Network Watcher](./network-watcher-monitoring-overview.md).
+* Consulte las [Preguntas frecuentes de Network Watcher](./frequently-asked-questions.md).

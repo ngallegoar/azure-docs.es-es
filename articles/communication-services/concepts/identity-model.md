@@ -9,12 +9,12 @@ ms.author: tchladek
 ms.date: 10/26/2020
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: f172bfcb6e4f11520eb9082052968626efe6fecb
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: dd2ffacb176ed3733acba8699d4e870b15dd3c42
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94651250"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888715"
 ---
 # <a name="identity-model"></a>Modelo de identidad
 
@@ -83,6 +83,6 @@ Si almacena en caché los tokens de acceso en una memoria auxiliar, se recomiend
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para una introducción a la administración de tokens de acceso, consulte [Creación y administración de tokens de acceso](https://docs.microsoft.com/azure/communication-services/quickstarts/access-tokens).
-* Para una introducción a la autenticación, consulte [Autenticación en Azure Communication Services](https://docs.microsoft.com/azure/communication-services/concepts/authentication).
-* Para una introducción a la residencia y la privacidad de los datos, consulte [Disponibilidad de regiones y residencia de datos](https://docs.microsoft.com/azure/communication-services/concepts/privacy).
+* Para una introducción a la administración de tokens de acceso, consulte [Creación y administración de tokens de acceso](../quickstarts/access-tokens.md).
+* Para una introducción a la autenticación, consulte [Autenticación en Azure Communication Services](./authentication.md).
+* Para una introducción a la residencia y la privacidad de los datos, consulte [Disponibilidad de regiones y residencia de datos](./privacy.md).

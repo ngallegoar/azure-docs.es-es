@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/01/2020
 ms.author: damendo
-ms.openlocfilehash: a603f55bd5bff7b2ed68623e9c712faaf8ac766f
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 54b87da73d4427234e65e406d183525d55c6c00d
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876848"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94948551"
 ---
 # <a name="quickstart-deploy-and-manage-nsg-flow-logs-using-azure-policy"></a>Inicio rápido: Implementación y administración de registros de flujo de NSG con Azure Policy 
 
@@ -25,8 +25,8 @@ ms.locfileid: "91876848"
 Azure Policy ayuda a aplicar los estándares de la organización y a evaluar el cumplimiento a escala. Entre los casos de uso comunes de Azure Policy se incluye la implementación de la gobernanza para la coherencia de los recursos, el cumplimiento normativo, la seguridad, el costo y la administración. En este artículo, usaremos dos directivas integradas disponibles en los registros de flujo de NSG, y así poder administrar la configuración de los registros de flujo. La primera directiva marca cualquier grupo de seguridad de red que no tenga registros de flujo habilitados. La segunda directiva implementa automáticamente los registros de flujo de los grupos de seguridad de red que no tengan registros de flujo habilitados. 
 
 Si va a crear una directiva de Azure por primera vez, puede leer lo siguiente: 
-- [Introducción a Azure Policy](https://docs.microsoft.com/azure/governance/policy/overview). 
-- [Tutorial para crear directivas](https://docs.microsoft.com/azure/governance/policy/assign-policy-portal#create-a-policy-assignment).
+- [Introducción a Azure Policy](../governance/policy/overview.md). 
+- [Tutorial para crear directivas](../governance/policy/assign-policy-portal.md#create-a-policy-assignment).
 
 
 ## <a name="locate-the-policies"></a>Búsqueda de las directivas
@@ -134,5 +134,5 @@ Debería ver algo parecido a la siguiente captura de pantalla de la directiva. E
 
 ## <a name="next-steps"></a>Pasos siguientes 
 
--   Use este [tutorial](https://docs.microsoft.com/azure/network-watcher/quickstart-configure-network-security-group-flow-logs-from-arm-template) para profundizar en el uso de plantillas de ARM para implementar registros de flujo y el Análisis de tráfico.
--   Obtenga más información sobre [Network Watcher](https://docs.microsoft.com/azure/network-watcher/).
+-   Use este [tutorial](./quickstart-configure-network-security-group-flow-logs-from-arm-template.md) para profundizar en el uso de plantillas de ARM para implementar registros de flujo y el Análisis de tráfico.
+-   Obtenga más información sobre [Network Watcher](./index.yml).

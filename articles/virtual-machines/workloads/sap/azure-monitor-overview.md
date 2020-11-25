@@ -3,16 +3,17 @@ title: Información general y arquitectura de Azure Monitor para soluciones de S
 description: En este artículo se ofrecen respuestas a las preguntas más frecuentes sobre Azure Monitor para soluciones de SAP.
 author: rdeltcheva
 ms.service: virtual-machines
+ms.subservice: workloads
 ms.topic: article
 ms.date: 06/30/2020
 ms.author: radeltch
 ms.reviewer: cynthn
-ms.openlocfilehash: d9730324b2557c8f0bb203f7badbd00e0e7e704e
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 5bb40ec930731b58d457500d83b66c7a187b44d8
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91994252"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94957442"
 ---
 # <a name="azure-monitor-for-sap-solutions-preview"></a>Azure Monitor para soluciones de SAP (versión preliminar)
 

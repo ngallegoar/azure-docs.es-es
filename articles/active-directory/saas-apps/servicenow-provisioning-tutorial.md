@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/10/2019
 ms.author: jeedes
-ms.openlocfilehash: 1d6213d49c98f5e09f22e7310183315800d0c6f6
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: fe2d09315dcb2a0958f8a1b8efe7532c64c111d8
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94359789"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966554"
 ---
 # <a name="tutorial-configure-servicenow-for-automatic-user-provisioning"></a>Tutorial: Configuración de ServiceNow para el aprovisionamiento automático de usuarios
 
@@ -56,13 +56,6 @@ En el escenario descrito en este tutorial se supone que ya cuenta con los requis
 
    ![Rol de administrador de ServiceNow](media/servicenow-provisioning-tutorial/servicenow-admin-role.png)
 
-3. Asegúrese de que la siguiente configuración está **deshabilitada** en ServiceNow:
-
-   1. Seleccione **System Security (Seguridad del sistema)**  > **High security settings (Configuración de alta seguridad)**  > **Require basic authentication for incoming SCHEMA requests (Requerir autenticación básica para solicitudes SCHEMA entrantes)** .
-   2. Seleccione **System Properties (Propiedades del sistema)**  > **Web Services (Servicios web)**  > **Require basic authorization for incoming SOAP requests (Requerir autenticación básica para solicitudes SOAP entrantes)** .
-     
-   > [!IMPORTANT]
-   > Si esta configuración está *habilitada* , el motor de aprovisionamiento no podrá comunicarse con ServiceNow.
 
 ## <a name="step-3-add-servicenow-from-the-azure-ad-application-gallery"></a>Paso 3. Agregar ServiceNow desde la galería de aplicaciones de Azure AD
 
@@ -99,23 +92,23 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Captura de pantalla de la lista desplegable Modo de aprovisionamiento con la opción Automático seleccionada.](common/provisioning-automatic.png)
 
-5. En la sección **Credenciales de administrador** , escriba sus credenciales de administrador y su nombre de usuario de ServiceNow. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a ServiceNow. Si la conexión no se establece, asegúrese de que la cuenta de ServiceNow tiene permisos de administrador e inténtelo de nuevo.
+5. En la sección **Credenciales de administrador**, escriba sus credenciales de administrador y su nombre de usuario de ServiceNow. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a ServiceNow. Si la conexión no se establece, asegúrese de que la cuenta de ServiceNow tiene permisos de administrador e inténtelo de nuevo.
 
     ![Captura de pantalla que muestra la página de aprovisionamiento del servicio, donde puede especificar las credenciales de administrador.](./media/servicenow-provisioning-tutorial/provisioning.png)
 
-6. En el campo **Correo electrónico de notificación** , escriba la dirección de correo electrónico de una persona o grupo que deba recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
+6. En el campo **Correo electrónico de notificación**, escriba la dirección de correo electrónico de una persona o grupo que deba recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
 
     ![Correo electrónico de notificación](common/provisioning-notification-email.png)
 
 7. Seleccione **Guardar**.
 
-8. En la sección **Asignaciones** , seleccione **Synchronize Azure Active Directory Users to** (Sincronizar usuarios de Azure Active Directory con ServiceNow).
+8. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Users to** (Sincronizar usuarios de Azure Active Directory con ServiceNow).
 
-9. En la sección **Asignaciones de atributos** , revise los atributos de usuario que se sincronizan entre Azure AD y ServiceNow. Los atributos seleccionados como propiedades **Matching** se usan para buscar coincidencias con las cuentas de usuario de ServiceNow con el objetivo de realizar operaciones de actualización. Si decide cambiar el [atributo de destino coincidente](../app-provisioning/customize-application-attributes.md), deberá asegurarse de que la API de ServiceNow admite el filtrado de usuarios basado en ese atributo. Seleccione el botón **Guardar** para confirmar los cambios.
+9. En la sección **Asignaciones de atributos**, revise los atributos de usuario que se sincronizan entre Azure AD y ServiceNow. Los atributos seleccionados como propiedades **Matching** se usan para buscar coincidencias con las cuentas de usuario de ServiceNow con el objetivo de realizar operaciones de actualización. Si decide cambiar el [atributo de destino coincidente](../app-provisioning/customize-application-attributes.md), deberá asegurarse de que la API de ServiceNow admite el filtrado de usuarios basado en ese atributo. Seleccione el botón **Guardar** para confirmar los cambios.
 
-10. En la sección **Asignaciones** , seleccione **Synchronize Azure Active Directory Groups to SmartFile** (Sincronizar grupos de Azure Active Directory con ServiceNow).
+10. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Groups to SmartFile** (Sincronizar grupos de Azure Active Directory con ServiceNow).
 
-11. En la sección **Asignaciones de atributos** , revise los atributos de grupo que se sincronizan entre Azure AD y ServiceNow. Los atributos seleccionados como propiedades de **Coincidencia** se usan para buscar coincidencias con los grupos de ServiceNow con el objetivo de realizar operaciones de actualización. Seleccione el botón **Guardar** para confirmar los cambios.
+11. En la sección **Asignaciones de atributos**, revise los atributos de grupo que se sincronizan entre Azure AD y ServiceNow. Los atributos seleccionados como propiedades de **Coincidencia** se usan para buscar coincidencias con los grupos de ServiceNow con el objetivo de realizar operaciones de actualización. Seleccione el botón **Guardar** para confirmar los cambios.
 
 12. Para configurar filtros de ámbito, consulte las siguientes instrucciones, que se proporcionan en el artículo [Aprovisionamiento de aplicaciones basado en atributos con filtros de ámbito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
@@ -123,7 +116,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Estado de aprovisionamiento activado](common/provisioning-toggle-on.png)
 
-14. Elija los valores deseados en **Ámbito** , en la sección **Configuración** , para definir los usuarios o grupos que desea que se aprovisionen en ServiceNow.
+14. Elija los valores deseados en **Ámbito**, en la sección **Configuración**, para definir los usuarios o grupos que desea que se aprovisionen en ServiceNow.
 
     ![Ámbito del aprovisionamiento](common/provisioning-scope.png)
 

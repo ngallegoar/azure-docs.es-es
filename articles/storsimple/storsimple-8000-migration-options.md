@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/15/2019
 ms.author: alkohli
-ms.openlocfilehash: 181f5433de6653c8b6a2cda085f04e21c64082b9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 316b513f761aa422f87c83658e6c50efec25efb4
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85514652"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94961148"
 ---
 # <a name="options-to-migrate-data-from-storsimple-5000-7000-series"></a>Opciones para migrar datos desde la serie 5000-7000 de StorSimple 
 
@@ -43,7 +43,7 @@ Para obtener más información sobre cómo migrar datos mediante la serie 8000 d
 
 Esta nueva opción de migración permite a los clientes almacenar los recursos compartidos de archivos de su organización en Azure Files. Estos recursos compartidos de archivos se pueden centralizar luego para acceder a ellos de forma local mediante Azure File Sync (AFS). AFS puede implementarse en un host de Windows Server. La migración de datos real se realiza entonces como una copia de host o mediante la herramienta de migración.
 
-Para obtener más información sobre cómo migrar datos a Azure File Sync, vaya a [Migrate data from StorSimple 5000-7000 series to Azure File Sync](storsimple-5000-7000-afs-migration.md) (Migración de datos desde la serie 5000-7000 de StorSimple a Azure File Sync).
+Para obtener más información sobre cómo migrar datos a Azure File Sync, vaya a [Migrate data from StorSimple 5000-7000 series to Azure File Sync](../storage/files/storage-files-migration-storsimple-8000.md) (Migración de datos desde la serie 5000-7000 de StorSimple a Azure File Sync).
 
 ### <a name="third-party-options"></a>Opciones de terceros
 
@@ -127,4 +127,4 @@ A. La fecha final del soporte técnico para la serie 8000 de StorSimple está pu
 
 ## <a name="next-steps"></a>Pasos siguientes
  - [Migración de datos del dispositivo de la serie 5000-7000 de StorSimple a la serie 8000](storsimple-8000-migrate-from-5000-7000.md)
- - [Migrate data from a StorSimple 5000-7000 series to Azure File Sync](storsimple-5000-7000-afs-migration.md) (Migración de datos de la serie 5000-7000 de StorSimple a Azure File Sync)
+ - [Migrate data from a StorSimple 5000-7000 series to Azure File Sync](../storage/files/storage-files-migration-storsimple-8000.md) (Migración de datos de la serie 5000-7000 de StorSimple a Azure File Sync)

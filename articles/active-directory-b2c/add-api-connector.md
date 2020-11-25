@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.custom: it-pro
-ms.openlocfilehash: 857429ab5fd2e2ea9a0cb0173015ceba4bb0bacb
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 47885e64b40db07ca3b4a7380389967a36abbd9e
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92504118"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94949843"
 ---
 # <a name="add-an-api-connector-to-a-sign-up-user-flow-preview"></a>Adición de un conector de API a un flujo de usuario de registro (versión preliminar)
 
@@ -27,7 +27,7 @@ Para usar un [conector de API](api-connectors-overview.md), primero debe crear e
 ## <a name="create-an-api-connector"></a>Creación de un conector de API
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
-2. En **Servicios de Azure** , seleccione **Azure AD B2C**.
+2. En **Servicios de Azure**, seleccione **Azure AD B2C**.
 4. Seleccione **API connectors (Preview)** (Conectores de API [versión preliminar]) y, después, seleccione **New API connector** (Nuevo conector de API).
 
    ![Adición de un conector de API nuevo](./media/add-api-connector/api-connector-new.png)
@@ -42,7 +42,7 @@ Para usar un [conector de API](api-connectors-overview.md), primero debe crear e
 8. Seleccione **Guardar**.
 
 ## <a name="the-request-sent-to-your-api"></a>Solicitud enviada a la API
-Un conector de API se materializa como una solicitud **HTTP POST** y envía los atributos de usuario ("claims") como pares de clave y valor en un cuerpo JSON. Los atributos se serializan de forma similar a las propiedades de usuario de [Microsoft Graph](https://docs.microsoft.com/graph/api/resources/user#properties). 
+Un conector de API se materializa como una solicitud **HTTP POST** y envía los atributos de usuario ("claims") como pares de clave y valor en un cuerpo JSON. Los atributos se serializan de forma similar a las propiedades de usuario de [Microsoft Graph](/graph/api/resources/user#properties). 
 
 **Solicitud de ejemplo**
 ```http
@@ -83,14 +83,14 @@ Además, en todas las solicitudes se envía de forma predeterminada la notificac
 > Si una notificación no tiene un valor en el momento en que se llama al punto de conexión de la API, la notificación no se enviará a la API. La API debe estar diseñada para comprobar y controlar explícitamente el caso en el que una notificación no está en la solicitud.
 
 > [!TIP] 
-> La API puede utilizar notificaciones de [**identidades ("identities")**](https://docs.microsoft.com/graph/api/resources/objectidentity) y de **dirección de correo electrónico ("email")** para identificar a un usuario antes de que tenga una cuenta en el inquilino. 
+> La API puede utilizar notificaciones de [**identidades ("identities")**](/graph/api/resources/objectidentity) y de **dirección de correo electrónico ("email")** para identificar a un usuario antes de que tenga una cuenta en el inquilino. 
 
 ## <a name="enable-the-api-connector-in-a-user-flow"></a>Habilitación del conector de API en un flujo de usuario
 
 Siga estos pasos para agregar el conector de API a un flujo de usuario de registro.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
-2. En **Servicios de Azure** , seleccione **Azure AD B2C**.
+2. En **Servicios de Azure**, seleccione **Azure AD B2C**.
 4. Seleccione **Flujos de usuario** y, después, seleccione el flujo de usuario para el que desea habilitar el conector de API.
 5. Seleccione **Conectores de API** y, después, seleccione los puntos de conexión de API que desea invocar en los pasos siguientes del flujo de usuario:
 
@@ -103,7 +103,7 @@ Siga estos pasos para agregar el conector de API a un flujo de usuario de regist
 
 ## <a name="after-signing-in-with-an-identity-provider"></a>Después de iniciar sesión con un proveedor de identidades
 
-Inmediatamente después de que el usuario se autentique con un proveedor de identidades (como Google, Facebook o Azure AD), se invoca un conector de API en este paso del proceso de registro. Este paso precede a la * *_página de recopilación de atributos_* _, que es el formulario que se muestra al usuario para recopilar los atributos de usuario. Este paso no se invoca si un usuario se registra con una cuenta local.
+Inmediatamente después de que el usuario se autentique con un proveedor de identidades (como Google, Facebook o Azure AD), se invoca un conector de API en este paso del proceso de registro. Este paso precede a la **_página de recopilación de atributos_* _, que es el formulario que se muestra al usuario para recopilar los atributos de usuario. Este paso no se invoca si un usuario se registra con una cuenta local.
 
 ### <a name="example-request-sent-to-the-api-at-this-step"></a>Solicitud de ejemplo enviada a la API en este paso
 ```http

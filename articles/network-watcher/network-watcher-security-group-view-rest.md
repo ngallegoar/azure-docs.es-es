@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 156da7504a1a5e2a704e52a783fcd3e437a59867
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2efd3e9c9ca97ea3d94b03bd5e440cd24d5da5da
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90986277"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94960613"
 ---
 # <a name="analyze-your-virtual-machine-security-with-security-group-view-using-rest-api"></a>Análisis de la seguridad de una máquina virtual con la vista de grupos de seguridad mediante la API de REST
 
@@ -27,7 +27,7 @@ ms.locfileid: "90986277"
 > - [REST API](network-watcher-security-group-view-rest.md)
 
 > [!NOTE]
-> La API de vista de grupo de seguridad ya no se mantiene y dejará de utilizarse pronto. Use la [característica Reglas de seguridad vigentes](https://docs.microsoft.com/azure/network-watcher/network-watcher-security-group-view-overview) que proporciona la misma funcionalidad. 
+> La API de vista de grupo de seguridad ya no se mantiene y dejará de utilizarse pronto. Use la [característica Reglas de seguridad vigentes](./network-watcher-security-group-view-overview.md) que proporciona la misma funcionalidad. 
 
 La vista de grupos de seguridad devuelve las reglas de seguridad de red configuradas y vigentes que se aplican a una máquina virtual. Esta funcionalidad resulta útil para auditar y diagnosticar los grupos de seguridad de red y las reglas que están configuradas en una máquina virtual para asegurarse de que el tráfico se está permitiendo o denegando correctamente. En este artículo se muestra cómo recuperar las reglas de seguridad configuradas y vigentes para una máquina virtual mediante la API de REST.
 
@@ -186,5 +186,3 @@ El ejemplo siguiente es la respuesta devuelta por el comando anterior. Los resul
 ## <a name="next-steps"></a>Pasos siguientes
 
 Visite [Automate NSG auditing with Azure Network Watcher Security group view](network-watcher-security-group-view-powershell.md) (Automatización de la auditoría de grupos de seguridad de red (NSG) con la vista de grupos de seguridad de Azure Network Watcher) para aprender a automatizar la validación de grupos de seguridad de red.
-
-

@@ -12,12 +12,12 @@ ms.date: 11/16/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 80ecd02f9aebbca66169d64d6c6d0302d58ca439
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 4426a305d72fdd86ee58b3f4a05153593515d4b5
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94647671"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94949656"
 ---
 # <a name="register-a-saml-application-in-azure-ad-b2c"></a>Registrar una aplicación SAML en Azure AD B2C
 
@@ -73,7 +73,7 @@ Puede usar un certificado emitido por una entidad de certificación pública o, 
 
 ### <a name="11-prepare-a-self-signed-certificate"></a>1.1 Preparar un certificado autofirmado
 
-Si aún no tiene un certificado, puede usar un certificado autofirmado para este tutorial. En Windows, puede usar el cmdlet [New-SelfSignedCertificate](https://docs.microsoft.com/powershell/module/pkiclient/new-selfsignedcertificate) de PowerShell para generar un certificado.
+Si aún no tiene un certificado, puede usar un certificado autofirmado para este tutorial. En Windows, puede usar el cmdlet [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) de PowerShell para generar un certificado.
 
 1. Ejecute este comando de PowerShell para generar un certificado autofirmado. Modifique el argumento `-Subject` según corresponda para su aplicación y el nombre del inquilino de Azure AD B2C. También puede ajustar la fecha de `-NotAfter` para especificar una expiración diferente para el certificado.
 

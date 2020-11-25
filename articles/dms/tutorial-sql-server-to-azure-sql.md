@@ -12,16 +12,16 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 01/08/2020
-ms.openlocfilehash: 7eaf311a8e8c3fb3c3699b8624def4923bead420
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 7710cac7920ef62dfdd638bb8dc177bc765becb6
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93043067"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94955011"
 ---
 # <a name="tutorial-migrate-sql-server-to-azure-sql-database-offline-using-dms"></a>Tutorial: Migración de SQL Server a Azure SQL Database sin conexión mediante DMS
 
-Puede usar Azure Database Migration Service para migrar las bases de datos de una instancia de SQL Server a [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/). En este tutorial migrará la base de datos **Adventureworks2012** restaurada en una instancia local de SQL Server 2016 (o posterior) a una base de datos única o agrupada de Azure SQL Database mediante Azure Database Migration Service.
+Puede usar Azure Database Migration Service para migrar las bases de datos de una instancia de SQL Server a [Azure SQL Database](/azure/sql-database/). En este tutorial migrará la base de datos **Adventureworks2012** restaurada en una instancia local de SQL Server 2016 (o posterior) a una base de datos única o agrupada de Azure SQL Database mediante Azure Database Migration Service.
 
 En este tutorial, aprenderá a:
 > [!div class="checklist"]
@@ -43,17 +43,17 @@ En este artículo se describe una migración sin conexión desde SQL Server a un
 Para completar este tutorial, necesita:
 
 - Descargar e instalar [SQL Server 2016 o una versión posterior](https://www.microsoft.com/sql-server/sql-server-downloads).
-- Habilitar el protocolo TCP/IP, que se deshabilita de forma predeterminada durante la instalación de SQL Server Express, siguiendo las instrucciones del artículo [Habilitar o deshabilitar un protocolo de red de servidor](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-or-disable-a-server-network-protocol#SSMSProcedure).
-- Crear una base de datos en Azure SQL Database, para lo que debe seguir la información del artículo [Creación de una base de datos única de Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-single-database-get-started).
+- Habilitar el protocolo TCP/IP, que se deshabilita de forma predeterminada durante la instalación de SQL Server Express, siguiendo las instrucciones del artículo [Habilitar o deshabilitar un protocolo de red de servidor](/sql/database-engine/configure-windows/enable-or-disable-a-server-network-protocol#SSMSProcedure).
+- Crear una base de datos en Azure SQL Database, para lo que debe seguir la información del artículo [Creación de una base de datos única de Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md).
 
     > [!NOTE]
-    > Si usa SQL Server Integration Services (SSIS) y desea migrar la base de datos de catálogo para los proyectos y paquetes SSIS (SSISDB) de SQL Server a Azure SQL Database, la SSISDB de destino se creará y administrará automáticamente en su nombre cuando aprovisione SSIS en Azure Data Factory (ADF). Para más información acerca de la migración de paquetes de SSIS, consulte el artículo [Migración de paquetes de SQL Server Integration Services a Azure](https://docs.microsoft.com/azure/dms/how-to-migrate-ssis-packages).
+    > Si usa SQL Server Integration Services (SSIS) y desea migrar la base de datos de catálogo para los proyectos y paquetes SSIS (SSISDB) de SQL Server a Azure SQL Database, la SSISDB de destino se creará y administrará automáticamente en su nombre cuando aprovisione SSIS en Azure Data Factory (ADF). Para más información acerca de la migración de paquetes de SSIS, consulte el artículo [Migración de paquetes de SQL Server Integration Services a Azure](./how-to-migrate-ssis-packages.md).
   
 - Descargar e instalar [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) versión 3.3 o posterior.
-- Cree una instancia de Azure Virtual Network para Azure Database Migration Service mediante el modelo de implementación de Azure Resource Manager, que proporciona conectividad de sitio a sitio a los servidores de origen local mediante [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) o [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). Para más información sobre la creación de una red virtual, consulte la documentación de [Virtual Network](https://docs.microsoft.com/azure/virtual-network/)y, especialmente, los artículos de inicio rápido con detalles paso a paso.
+- Cree una instancia de Azure Virtual Network para Azure Database Migration Service mediante el modelo de implementación de Azure Resource Manager, que proporciona conectividad de sitio a sitio a los servidores de origen local mediante [ExpressRoute](../expressroute/expressroute-introduction.md) o [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md). Para más información sobre la creación de una red virtual, consulte la documentación de [Virtual Network](../virtual-network/index.yml)y, especialmente, los artículos de inicio rápido con detalles paso a paso.
 
     > [!NOTE]
-    > Durante la configuración de la red virtual, si usa ExpressRoute con emparejamiento de red a Microsoft, agregue los siguientes [puntos de conexión](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) de servicio a la subred en la que se aprovisionará el servicio:
+    > Durante la configuración de la red virtual, si usa ExpressRoute con emparejamiento de red a Microsoft, agregue los siguientes [puntos de conexión](../virtual-network/virtual-network-service-endpoints-overview.md) de servicio a la subred en la que se aprovisionará el servicio:
     >
     > - Punto de conexión de base de datos de destino (por ejemplo, punto de conexión de SQL, punto de conexión de Cosmos DB, etc.)
     > - Punto de conexión de Storage
@@ -61,23 +61,23 @@ Para completar este tutorial, necesita:
     >
     > Esta configuración es necesaria porque Azure Database Migration Service no tiene conexión a Internet.
     >
-    >Si no dispone de conectividad de sitio a sitio entre la red local y Azure, o si el ancho de banda de conectividad de sitio a sitio es limitado, considere la posibilidad de usar Azure Database Migration Service en modo híbrido (versión preliminar). El modo híbrido hace uso de un trabajo de migración local junto con una instancia de Azure Database Migration Service que se ejecuta en la nube. Para crear una instancia de Azure Database Migration Service en el modo híbrido, consulte el artículo [Creación de una instancia de Azure Database Migration Service en modo híbrido mediante Azure Portal](https://aka.ms/dms-hybrid-create).
+    >Si no dispone de conectividad de sitio a sitio entre la red local y Azure, o si el ancho de banda de conectividad de sitio a sitio es limitado, considere la posibilidad de usar Azure Database Migration Service en modo híbrido (versión preliminar). El modo híbrido hace uso de un trabajo de migración local junto con una instancia de Azure Database Migration Service que se ejecuta en la nube. Para crear una instancia de Azure Database Migration Service en el modo híbrido, consulte el artículo [Creación de una instancia de Azure Database Migration Service en modo híbrido mediante Azure Portal](./quickstart-create-data-migration-service-portal.md).
 
-- Asegúrese de que las reglas del grupo de seguridad de red de la red virtual no bloqueen los siguientes puertos de comunicación de entrada a Azure Database Migration Service: 443, 53, 9354, 445, 12000. Para más información sobre el filtrado del tráfico con grupos de seguridad de red para redes virtuales de Azure, consulte [Filtrado del tráfico de red con grupos de seguridad de red](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
-- Configurar su [Firewall de Windows para acceder al motor de base de datos](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
+- Asegúrese de que las reglas del grupo de seguridad de red de la red virtual no bloqueen los siguientes puertos de comunicación de entrada a Azure Database Migration Service: 443, 53, 9354, 445, 12000. Para más información sobre el filtrado del tráfico con grupos de seguridad de red para redes virtuales de Azure, consulte [Filtrado del tráfico de red con grupos de seguridad de red](../virtual-network/virtual-network-vnet-plan-design-arm.md).
+- Configurar su [Firewall de Windows para acceder al motor de base de datos](/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 - Abra el firewall de Windows para que Azure Database Migration Service pueda acceder al servidor SQL Server de origen; de forma predeterminada, es el puerto TCP 1433. Si la instancia predeterminada está escuchando en otro puerto, agréguelo al firewall.
 - Si se ejecutan varias instancias con nombre de SQL Server con puertos dinámicos, puede ser conveniente habilitar el servicio SQL Browser y permitir el acceso al puerto UDP 1434 mediante los firewalls para que Azure Database Migration Service pueda conectarse a una instancia con nombre en el servidor de origen.
 - Cuando se usa un dispositivo de firewall frente a las bases de datos de origen, puede que sea necesario agregar reglas de firewall para permitir que Azure Database Migration Service acceda a las bases de datos de origen para realizar la migración.
-- Crear una [regla de firewall](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) de dirección IP en el nivel de servidor para que Azure SQL Database permita a Azure Database Migration Service acceder a las bases de datos de destino. Proporcione el rango de subred de la red virtual que se usa para Azure Database Migration Service.
-- Asegurarse de que las credenciales usadas para conectarse a la instancia de SQL Server de origen tenga permisos [CONTROL SERVER](https://docs.microsoft.com/sql/t-sql/statements/grant-server-permissions-transact-sql).
+- Crear una [regla de firewall](../azure-sql/database/firewall-configure.md) de dirección IP en el nivel de servidor para que Azure SQL Database permita a Azure Database Migration Service acceder a las bases de datos de destino. Proporcione el rango de subred de la red virtual que se usa para Azure Database Migration Service.
+- Asegurarse de que las credenciales usadas para conectarse a la instancia de SQL Server de origen tenga permisos [CONTROL SERVER](/sql/t-sql/statements/grant-server-permissions-transact-sql).
 - Asegurarse de que las credenciales usadas para conectarse a la base de datos de Azure SQL de destino tengan permisos CONTROL DATABASE en las bases de datos de destino.
 
 ## <a name="assess-your-on-premises-database"></a>Evaluación de una base de datos local
 
-Antes de poder migrar datos de una instancia de SQL Server a una base de datos única o agrupada de Azure SQL Database, debe evaluar la base de datos de SQL Server por si hay cualquier error de bloqueo que impida que se realice la migración. Con Data Migration Assistant v3.3 o una versión posterior, siga los pasos descritos en el artículo sobre cómo [llevar a cabo una evaluación de migración de SQL Server](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem) para completar la evaluación de la base de datos local. A continuación, se muestra un resumen de los pasos necesarios:
+Antes de poder migrar datos de una instancia de SQL Server a una base de datos única o agrupada de Azure SQL Database, debe evaluar la base de datos de SQL Server por si hay cualquier error de bloqueo que impida que se realice la migración. Con Data Migration Assistant v3.3 o una versión posterior, siga los pasos descritos en el artículo sobre cómo [llevar a cabo una evaluación de migración de SQL Server](/sql/dma/dma-assesssqlonprem) para completar la evaluación de la base de datos local. A continuación, se muestra un resumen de los pasos necesarios:
 
 1. En Data Migration Assistant, seleccione el icono de Nuevo (+) y, luego, seleccione el tipo de proyecto **Evaluación**.
-2. Especifique un nombre de proyecto. Después, en el cuadro de texto **Source server type** (Tipo de servidor de origen), seleccione **SQL Server** ; en el cuadro de texto **Target server type** (Tipo de servidor de destino), seleccione **Azure SQL Database** y, después, seleccione **Create** (Crear) para crear el proyecto.
+2. Especifique un nombre de proyecto. Después, en el cuadro de texto **Source server type** (Tipo de servidor de origen), seleccione **SQL Server**; en el cuadro de texto **Target server type** (Tipo de servidor de destino), seleccione **Azure SQL Database** y, después, seleccione **Create** (Crear) para crear el proyecto.
 
     Cuando esté evaluando la base de datos de SQL Server de origen que se migrará a una base de datos única o agrupada de Azure SQL Database, puede elegir uno o ambos de los siguientes tipos de informes de evaluación:
 
@@ -86,12 +86,12 @@ Antes de poder migrar datos de una instancia de SQL Server a una base de datos �
 
     De forma predeterminada, se seleccionan los dos tipos de informes.
 
-3. En Data Migration Assistant, en la pantalla **Opciones** , seleccione **Siguiente**.
-4. En la pantalla **Seleccionar orígenes** , cuadro de diálogo **Conectar a un servidor** , proporcione los detalles de conexión en su instancia de SQL Server y, luego, seleccione **Conectar**.
-5. En el cuadro de diálogo **Agregar orígenes** , seleccione **AdventureWorks2012** , seleccione **Agregar** y, por último, seleccione **Iniciar evaluación**.
+3. En Data Migration Assistant, en la pantalla **Opciones**, seleccione **Siguiente**.
+4. En la pantalla **Seleccionar orígenes**, cuadro de diálogo **Conectar a un servidor**, proporcione los detalles de conexión en su instancia de SQL Server y, luego, seleccione **Conectar**.
+5. En el cuadro de diálogo **Agregar orígenes**, seleccione **AdventureWorks2012**, seleccione **Agregar** y, por último, seleccione **Iniciar evaluación**.
 
     > [!NOTE]
-    > Si usa SSIS, DMA no admite actualmente la valoración de la SSISDB de origen. De todas formas, los proyectos y paquetes SSIS se evaluarán/validarán a medida que se vuelven a implementar en la SSISDB de destino hospedada por Azure SQL Database. Para más información acerca de la migración de paquetes de SSIS, consulte el artículo [Migración de paquetes de SQL Server Integration Services a Azure](https://docs.microsoft.com/azure/dms/how-to-migrate-ssis-packages).
+    > Si usa SSIS, DMA no admite actualmente la valoración de la SSISDB de origen. De todas formas, los proyectos y paquetes SSIS se evaluarán/validarán a medida que se vuelven a implementar en la SSISDB de destino hospedada por Azure SQL Database. Para más información acerca de la migración de paquetes de SSIS, consulte el artículo [Migración de paquetes de SQL Server Integration Services a Azure](./how-to-migrate-ssis-packages.md).
 
     Una vez completada la evaluación, los resultados se muestran tal y como se muestra en el siguiente gráfico:
 
@@ -109,14 +109,14 @@ Antes de poder migrar datos de una instancia de SQL Server a una base de datos �
 Cuando se haya familiarizado con la evaluación y piense que la base de datos seleccionada es una candidata viable para la migración a una base de datos única o agrupada de Azure SQL Database, use Data Migration Assistant para migrar el esquema a Azure SQL Database.
 
 > [!NOTE]
-> Antes de crear un proyecto de migración en Data Migration Assistant, asegúrese de que ya ha aprovisionado una base de datos en Azure, tal y como se mencionó en los requisitos previos. Para los fines de este tutorial, se da por hecho que el nombre de Azure SQL Database es **AdventureWorksAzure** , pero puede asignarle otro si lo desea.
+> Antes de crear un proyecto de migración en Data Migration Assistant, asegúrese de que ya ha aprovisionado una base de datos en Azure, tal y como se mencionó en los requisitos previos. Para los fines de este tutorial, se da por hecho que el nombre de Azure SQL Database es **AdventureWorksAzure**, pero puede asignarle otro si lo desea.
 
 > [!IMPORTANT]
-> Si usa SSIS, DMA no admite actualmente la migración de la SSISDB de origen, pero puede volver a implementar sus proyectos y paquetes SSIS en la SSISDB de destino hospedada por Azure SQL Database. Para más información acerca de la migración de paquetes de SSIS, consulte el artículo [Migración de paquetes de SQL Server Integration Services a Azure](https://docs.microsoft.com/azure/dms/how-to-migrate-ssis-packages).
+> Si usa SSIS, DMA no admite actualmente la migración de la SSISDB de origen, pero puede volver a implementar sus proyectos y paquetes SSIS en la SSISDB de destino hospedada por Azure SQL Database. Para más información acerca de la migración de paquetes de SSIS, consulte el artículo [Migración de paquetes de SQL Server Integration Services a Azure](./how-to-migrate-ssis-packages.md).
 
 Para migrar el esquema de **AdventureWorks2012** a una base de datos única o agrupada de Azure SQL Database, siga estos pasos:
 
-1. En Data Migration Assistant, seleccione el icono de Nuevo (+) y, en **Tipo de proyecto** , seleccione el tipo de proyecto **Migración**.
+1. En Data Migration Assistant, seleccione el icono de Nuevo (+) y, en **Tipo de proyecto**, seleccione el tipo de proyecto **Migración**.
 2. Especifique un nombre de proyecto. En el cuadro de texto **Source server type** (Tipo de servidor de origen), seleccione **SQL Server** y, luego, en el cuadro de texto **Target server type** (Tipo de servidor de destino), elija **Azure SQL Database**.
 3. En **Migration Scope** (Ámbito de la migración), seleccione **Solo esquema**.
 
@@ -133,7 +133,7 @@ Para migrar el esquema de **AdventureWorks2012** a una base de datos única o ag
 
     ![Detalles de conexión de destino en Data Migration Assistant](media/tutorial-sql-server-to-azure-sql/dma-target-connect.png)
 
-7. Seleccione **Siguiente** para avanzar a la pantalla **Seleccionar objetos** , en la que puede especificar los objetos de esquema de la base de datos **AdventureWorks2012** que deben implementarse en Azure SQL Database.
+7. Seleccione **Siguiente** para avanzar a la pantalla **Seleccionar objetos**, en la que puede especificar los objetos de esquema de la base de datos **AdventureWorks2012** que deben implementarse en Azure SQL Database.
 
     De forma predeterminada, se seleccionan todos los objetos.
 
@@ -163,15 +163,15 @@ Para migrar el esquema de **AdventureWorks2012** a una base de datos única o ag
 
 ## <a name="create-an-instance"></a>Creación de una instancia
 
-1. En el menú de Azure Portal o en la página **principal** , seleccione **Crear un recurso**. Busque y seleccione **Azure Database Migration Service**.
+1. En el menú de Azure Portal o en la página **principal**, seleccione **Crear un recurso**. Busque y seleccione **Azure Database Migration Service**.
 
     ![Azure Marketplace](media/tutorial-sql-server-to-azure-sql/portal-marketplace.png)
 
-2. En la pantalla **Azure Database Migration Service** , seleccione **Crear**.
+2. En la pantalla **Azure Database Migration Service**, seleccione **Crear**.
 
     ![Creación de una instancia de Azure Database Migration Service](media/tutorial-sql-server-to-azure-sql/dms-create1.png)
   
-3. En la pantalla **Crear el servicio de migración** , especifique un nombre para el servicio, la suscripción y un grupo de recursos nuevo o existente.
+3. En la pantalla **Crear el servicio de migración**, especifique un nombre para el servicio, la suscripción y un grupo de recursos nuevo o existente.
 
 4. Seleccione la ubicación en la que quiere crear la instancia de Azure Database Migration Service.
 
@@ -179,7 +179,7 @@ Para migrar el esquema de **AdventureWorks2012** a una base de datos única o ag
 
     La red virtual proporciona a Azure Database Migration Service acceso al servidor SQL Server de origen y a la instancia de Azure SQL Database de destino.
 
-    Para más información sobre cómo crear una red virtual en Azure Portal, consulte el artículo [Creación de una red virtual con Azure Portal](https://aka.ms/DMSVnet).
+    Para más información sobre cómo crear una red virtual en Azure Portal, consulte el artículo [Creación de una red virtual con Azure Portal](../virtual-network/quick-create-portal.md).
 
 6. Seleccione un plan de tarifa.
 
@@ -197,13 +197,13 @@ Después de crear el servicio, búsquelo en Azure Portal, ábralo y cree un proy
 
      ![Búsqueda de todas las instancias de Azure Database Migration Service](media/tutorial-sql-server-to-azure-sql/dms-search.png)
 
-2. En la pantalla **Azure Database Migration Services** , seleccione el nombre de la instancia de Azure Database Migration Service que creó.
+2. En la pantalla **Azure Database Migration Services**, seleccione el nombre de la instancia de Azure Database Migration Service que creó.
 
 3. Seleccione **Nuevo proyecto de migración**.
 
      ![Buscar una instancia de Azure Database Migration Service](media/tutorial-sql-server-to-azure-sql/dms-instance-search.png)
 
-4. En la pantalla **Nuevo proyecto de migración** , especifique un nombre para el proyecto. En el cuadro de texto **Source server type** (Tipo de servidor de origen), seleccione **SQL Server** , en el cuadro de texto **Target server type** (Tipo de servidor de destino), seleccione **Azure SQL Database** y, finalmente, en **Elegir tipo de actividad** , seleccione **Migración de datos sin conexión**.
+4. En la pantalla **Nuevo proyecto de migración**, especifique un nombre para el proyecto. En el cuadro de texto **Source server type** (Tipo de servidor de origen), seleccione **SQL Server**, en el cuadro de texto **Target server type** (Tipo de servidor de destino), seleccione **Azure SQL Database** y, finalmente, en **Elegir tipo de actividad**, seleccione **Migración de datos sin conexión**.
 
     ![Creación de un proyecto de Database Migration Service](media/tutorial-sql-server-to-azure-sql/dms-create-project2.png)
 
@@ -211,7 +211,7 @@ Después de crear el servicio, búsquelo en Azure Portal, ábralo y cree un proy
 
 ## <a name="specify-source-details"></a>Especificación de los detalles de origen
 
-1. En la pantalla **Detalles del origen de la migración** , especifique los detalles de conexión de la instancia de SQL Server de origen.
+1. En la pantalla **Detalles del origen de la migración**, especifique los detalles de conexión de la instancia de SQL Server de origen.
 
     Asegúrese de usar un nombre de dominio completo (FQDN) para el nombre de la instancia de SQL Server de origen. También puede usar la dirección IP en los casos en que no sea posible la resolución de nombres de DNS.
 
@@ -225,33 +225,33 @@ Después de crear el servicio, búsquelo en Azure Portal, ábralo y cree un proy
    ![Detalles del origen](media/tutorial-sql-server-to-azure-sql/dms-source-details2.png)
 
     > [!IMPORTANT]
-    > Si usa SSIS, DMS no admite actualmente la migración de la SSISDB de origen, pero puede volver a implementar sus proyectos y paquetes SSIS en la SSISDB de destino hospedada por Azure SQL Database. Para más información acerca de la migración de paquetes de SSIS, consulte el artículo [Migración de paquetes de SQL Server Integration Services a Azure](https://docs.microsoft.com/azure/dms/how-to-migrate-ssis-packages).
+    > Si usa SSIS, DMS no admite actualmente la migración de la SSISDB de origen, pero puede volver a implementar sus proyectos y paquetes SSIS en la SSISDB de destino hospedada por Azure SQL Database. Para más información acerca de la migración de paquetes de SSIS, consulte el artículo [Migración de paquetes de SQL Server Integration Services a Azure](./how-to-migrate-ssis-packages.md).
 
 ## <a name="specify-target-details"></a>Especificación de los detalles de destino
 
-1. Seleccione **Guardar** y después, en la pantalla **Detalles del destino de la migración** , especifique los detalles de conexión de Azure SQL Database de destino, que es la base de datos de Azure SQL que se aprovisionó previamente y en la que se implementó el esquema de **AdventureWorks2012** mediante Data Migration Assistant.
+1. Seleccione **Guardar** y después, en la pantalla **Detalles del destino de la migración**, especifique los detalles de conexión de Azure SQL Database de destino, que es la base de datos de Azure SQL que se aprovisionó previamente y en la que se implementó el esquema de **AdventureWorks2012** mediante Data Migration Assistant.
 
     ![Selección del destino](media/tutorial-sql-server-to-azure-sql/dms-select-target2.png)
 
-2. Seleccione **Guardar** y, en la pantalla **Asignar a las bases de datos de destino** , asigne la base de datos de origen y de destino para la migración.
+2. Seleccione **Guardar** y, en la pantalla **Asignar a las bases de datos de destino**, asigne la base de datos de origen y de destino para la migración.
 
     Si la base de datos de destino contiene el mismo nombre de base de datos que la de origen, Azure Database Migration Service selecciona la base de datos de destino de forma predeterminada.
 
     ![Asignación a bases de datos de destino](media/tutorial-sql-server-to-azure-sql/dms-map-targets-activity2.png)
 
-3. Seleccione **Guardar** y, en la pantalla **Seleccionar tablas** , expanda la lista de tablas y revise la lista de campos afectados.
+3. Seleccione **Guardar** y, en la pantalla **Seleccionar tablas**, expanda la lista de tablas y revise la lista de campos afectados.
 
     Azure Database Migration Service selecciona automáticamente todas las tablas de origen vacías que existen en la base de datos de Azure SQL de destino. Si quiere volver a migrar tablas que ya contienen datos, deberá seleccionar de forma explícita las tablas de esta hoja.
 
     ![Selección de tablas](media/tutorial-sql-server-to-azure-sql/dms-configure-setting-activity2.png)
 
-4. Seleccione **Guardar** , en la pantalla **Migration summary** (Resumen de migración) y, en el cuadro de texto **Nombre de actividad** , especifique un nombre para la actividad de migración.
+4. Seleccione **Guardar**, en la pantalla **Migration summary** (Resumen de migración) y, en el cuadro de texto **Nombre de actividad**, especifique un nombre para la actividad de migración.
 
-5. Expanda la sección **Opción de validación** para que se muestre la pantalla **Elegir la opción de validación** , especifique si quiere validar las bases de datos migradas de **Comparación de esquemas** , **Coherencia de los datos** y **Exactitud de la consulta**.
+5. Expanda la sección **Opción de validación** para que se muestre la pantalla **Elegir la opción de validación**, especifique si quiere validar las bases de datos migradas de **Comparación de esquemas**, **Coherencia de los datos** y **Exactitud de la consulta**.
 
     ![Selección de la opción de validación](media/tutorial-sql-server-to-azure-sql/dms-configuration2.png)
 
-6. Seleccione **Guardar** , y revise el resumen para asegurarse de que los detalles de origen y de destino coinciden con los especificado anteriormente.
+6. Seleccione **Guardar**, y revise el resumen para asegurarse de que los detalles de origen y de destino coinciden con los especificado anteriormente.
 
     ![Resumen de migración](media/tutorial-sql-server-to-azure-sql/dms-run-migration2.png)
 
@@ -277,5 +277,5 @@ Después de crear el servicio, búsquelo en Azure Portal, ábralo y cree un proy
 
 - Laboratorio práctico sobre la [migración de SQL mediante Azure Data Migration Service](https://www.microsoft.com/handsonlabs/SelfPacedLabs/?storyGuid=3b671509-c3cd-4495-8e8f-354acfa09587).
 - Para más información sobre problemas y limitaciones conocidos al realizar migraciones en línea a Azure SQL Database, consulte el artículo [Problemas conocidos y soluciones para las migraciones en línea a Azure SQL Database](known-issues-azure-sql-online.md).
-- Para más información acerca de Azure Database Migration Service, consulte el artículo [¿Qué es Azure Database Migration Service?](https://docs.microsoft.com/azure/dms/dms-overview)
-- Para más información sobre Azure SQL Database, consulte el artículo [¿Qué es el servicio Azure SQL Database?](https://docs.microsoft.com/azure/sql-database/sql-database-technical-overview)
+- Para más información acerca de Azure Database Migration Service, consulte el artículo [¿Qué es Azure Database Migration Service?](./dms-overview.md)
+- Para más información sobre Azure SQL Database, consulte el artículo [¿Qué es el servicio Azure SQL Database?](../azure-sql/database/sql-database-paas-overview.md)

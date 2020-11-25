@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 03/18/2020
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: c294079663630e71581f08227fbdb9ae4640cab5
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: f26f3e6e80bf854ff4f57503aa43de2558f07a1e
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92102432"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888562"
 ---
 # <a name="client-libraries-and-rest-apis"></a>Bibliotecas cliente y API REST
 
@@ -50,7 +50,7 @@ A continuación se detallan las ubicaciones de publicación para los paquetes de
 | Documentación de referencia     | [docs](https://azure.github.io/azure-sdk-for-js/communication.html)         | [docs](https://azure.github.io/azure-sdk-for-net/communication.html)      | -      | [docs](http://azure.github.io/azure-sdk-for-java/communication.html)     | (Obj-C) ✔️     | ✔️            | -                              |
 ## <a name="rest-apis"></a>API de REST
 
-Las API de Communication Services están documentadas junto con otras API REST de Azure en [docs.microsoft.com](https://docs.microsoft.com/rest/api/azure/). Esta documentación le indicará cómo estructurar los mensajes HTTP y ofrece instrucciones para el uso de Postman. Esta documentación también se ofrece en formato Swagger en [GitHub](https://github.com/Azure/azure-rest-api-specs).
+Las API de Communication Services están documentadas junto con otras API REST de Azure en [docs.microsoft.com](/rest/api/azure/). Esta documentación le indicará cómo estructurar los mensajes HTTP y ofrece instrucciones para el uso de Postman. Esta documentación también se ofrece en formato Swagger en [GitHub](https://github.com/Azure/azure-rest-api-specs).
 
 ## <a name="additional-support-details"></a>Detalles adicionales de compatibilidad
 
