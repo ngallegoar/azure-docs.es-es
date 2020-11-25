@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/10/2017
 ms.author: timlt
-ms.openlocfilehash: 64f91263154f7e65238acdcef9d97e5f2d09aad5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f9c7a2df83e9d630ce2b4635a830fb941180c758
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87006031"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021848"
 ---
 # <a name="storsimple-8000-series-a-hybrid-cloud-storage-solution"></a>Serie StorSimple 8000: una solución de almacenamiento en la nube híbrida
 
@@ -48,7 +48,7 @@ En la tabla siguiente se describen algunas de las ventajas principales que propo
 | Movilidad de datos |Es posible tener acceso a los datos cargados a los servicios en la nube de Microsoft Azure desde otros sitios para fines de recuperación y migración. Además, puede usar StorSimple para configurar StorSimple Cloud Appliances en máquinas virtuales (VM) que se ejecutan en Microsoft Azure. Luego, las máquinas virtuales pueden utilizar dispositivos virtuales para obtener acceso a los datos almacenados para fines de prueba o recuperación. |
 | Continuidad empresarial |Permite a los usuarios de la serie 5000-7000 de StorSimple migrar sus datos a un dispositivo StorSimple de la serie 8000. |
 | Disponibilidad en el Portal de administración de Azure |StorSimple ya está disponible en el Portal de Azure Government. Para obtener más información, consulte [Implementación del dispositivo StorSimple local en el Portal de Government](storsimple-8000-deployment-walkthrough-gov-u2.md). |
-| Disponibilidad y protección de datos |La serie 8000 de StorSimple admite el almacenamiento con redundancia de zona (ZRS), además del almacenamiento con redundancia local (LRS) y del almacenamiento con redundancia geográfica (GRS). Para obtener información detallada sobre ZRS, consulte [este artículo sobre las opciones de redundancia de Azure Storage](https://azure.microsoft.com/documentation/articles/storage-redundancy/) . |
+| Disponibilidad y protección de datos |La serie 8000 de StorSimple admite el almacenamiento con redundancia de zona (ZRS), además del almacenamiento con redundancia local (LRS) y del almacenamiento con redundancia geográfica (GRS). Para obtener información detallada sobre ZRS, consulte [este artículo sobre las opciones de redundancia de Azure Storage](../storage/common/storage-redundancy.md) . |
 | Compatibilidad para las aplicaciones críticas |StorSimple le permite identificar los volúmenes apropiados como anclados localmente, lo que a su vez garantiza que los datos que requieren las aplicaciones críticas no están organizados en capas en la nube. Los volúmenes anclados localmente no están sujetos a las latencias de la nube ni a los problemas de conectividad. Para más información sobre los volúmenes anclados localmente, consulte [Usar el servicio de Administrador de StorSimple para administrar volúmenes (Update 2)](storsimple-8000-manage-volumes-u2.md). |
 | Baja latencia y alto rendimiento |Puede crear aplicaciones en la nube que se beneficien de las características de baja latencia y alto rendimiento del almacenamiento premium de Azure. Para más información sobre aplicaciones en la nube premium StorSimple, consulte [Implementar y administrar un dispositivo virtual StorSimple en Azure](storsimple-8000-cloud-appliance-u2.md). |
 
@@ -315,4 +315,3 @@ Antes de implementar la solución Microsoft Azure StorSimple, se recomienda que 
 
 ## <a name="next-steps"></a>Pasos siguientes
 Obtenga más información acerca de la [Seguridad de StorSimple](storsimple-8000-security.md).
-

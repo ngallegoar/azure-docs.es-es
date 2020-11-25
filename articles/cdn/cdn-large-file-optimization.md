@@ -15,11 +15,11 @@ ms.topic: how-to
 ms.date: 05/01/2018
 ms.author: allensu
 ms.openlocfilehash: ed5768e89482d32bb140e9ba7064de2d20809892
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148716"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96020728"
 ---
 # <a name="large-file-download-optimization-with-azure-cdn"></a>Optimización de descarga de archivos grandes con Azure CDN
 
@@ -60,7 +60,7 @@ La característica de relleno de la memoria caché completa predeterminada permi
 
 El relleno de la memoria caché completa es más útil para los recursos grandes. Normalmente, los usuarios no los descargan de principio a fin. Usan la descarga progresiva. El comportamiento predeterminado fuerza al servidor perimetral para que inicie una captura de fondo del recurso desde el servidor de origen. Después, el recurso está en la caché local del servidor perimetral. Después de que el objeto completo se encuentre en caché, el servidor perimetral acepta las solicitudes de intervalo de bytes en la red CDN para el objeto almacenado en caché.
 
-El comportamiento predeterminado se puede deshabilitar mediante el motor de reglas en **Azure CDN Premium de Verizon** .
+El comportamiento predeterminado se puede deshabilitar mediante el motor de reglas en **Azure CDN Premium de Verizon**.
 
 ### <a name="peer-cache-fill-hot-filing"></a>Creación de archivos activos de llenado de la caché del mismo nivel
 
@@ -81,13 +81,13 @@ La optimización de archivos grandes es efectiva cuando se cumplen determinadas 
 
 ### <a name="configure-an-akamai-cdn-endpoint-to-optimize-delivery-of-large-files"></a>Configuración de un punto de conexión de CDN de Akamai para optimizar la entrega de archivos grandes
 
-Puede configurar el punto de conexión **Azure CDN Estándar de Akamai** para optimizar la entrega de archivos grandes mediante Azure Portal. También puede usar las API de REST o cualquiera de los SDK de cliente para hacer esto. En los pasos siguientes se muestra el proceso a través de Azure Portal para un perfil de **Azure CDN Estándar de Akamai** :
+Puede configurar el punto de conexión **Azure CDN Estándar de Akamai** para optimizar la entrega de archivos grandes mediante Azure Portal. También puede usar las API de REST o cualquiera de los SDK de cliente para hacer esto. En los pasos siguientes se muestra el proceso a través de Azure Portal para un perfil de **Azure CDN Estándar de Akamai**:
 
-1. Para agregar un nuevo punto de conexión, en la página **Perfil de CDN** , seleccione **Punto de conexión** .
+1. Para agregar un nuevo punto de conexión, en la página **Perfil de CDN**, seleccione **Punto de conexión**.
 
     ![Nuevo punto de conexión](./media/cdn-large-file-optimization/cdn-new-akamai-endpoint.png)    
  
-2. En la lista desplegable **Optimizado para** , seleccione **Descarga de archivos grandes** .
+2. En la lista desplegable **Optimizado para**, seleccione **Descarga de archivos grandes**.
 
     ![Optimización de archivos grandes seleccionada](./media/cdn-large-file-optimization/cdn-large-file-select.png)
 

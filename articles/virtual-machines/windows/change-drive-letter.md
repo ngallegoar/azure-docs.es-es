@@ -10,11 +10,11 @@ ms.topic: how-to
 ms.date: 01/02/2018
 ms.author: cynthn
 ms.openlocfilehash: cae29954211e62601debb35d76f938fb6a92779e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87284615"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019810"
 ---
 # <a name="use-the-d-drive-as-a-data-drive-on-a-windows-vm"></a>Uso de la unidad de disco D: como unidad de datos en una máquina virtual Windows
 Si su aplicación necesita usar la unidad D para almacenar datos, siga estas instrucciones para usar una unidad distinta para el disco temporal. Nunca use el disco temporal para almacenar los datos que desee conservar.
@@ -40,11 +40,11 @@ En primer lugar, deberá conectar el disco de datos a la máquina virtual. Para 
 
 ## <a name="change-the-drive-letters"></a>Cambiar las letras de las unidades
 1. Una vez que se reinicia la máquina virtual, vuelva a iniciar sesión en ella.
-2. Haga clic en el menú **Inicio**, escriba**diskmgmt.msc** y presione Entrar. Se iniciará la Administración de discos.
+2. Haga clic en el menú **Inicio**, escriba **diskmgmt.msc** y presione Entrar. Se iniciará la Administración de discos.
 3. Haga clic con el botón derecho en **D**, la unidad de almacenamiento temporal, y seleccione **Cambiar la letra y rutas de acceso de unidad**.
-4. En Letra de unidad, seleccione una unidad nueva como, por ejemplo, **T** y haga clic en**Aceptar**. 
+4. En Letra de unidad, seleccione una unidad nueva como, por ejemplo, **T** y haga clic en **Aceptar**. 
 5. Haga clic con el botón derecho en el disco de datos y seleccione **Cambiar la letra y rutas de acceso de unidad**.
-6. En Letra de unidad, seleccione la unidad **D** y haga clic en**Aceptar**. 
+6. En Letra de unidad, seleccione la unidad **D** y haga clic en **Aceptar**. 
 
 ## <a name="move-pagefilesys-back-to-the-temporary-storage-drive"></a>Devolver el archivo pagefile.sys a la unidad de almacenamiento temporal
 1. Haga clic con el botón derecho en el menú **Inicio** y seleccione **Sistema**.

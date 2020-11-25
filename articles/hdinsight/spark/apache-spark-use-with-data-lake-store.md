@@ -9,11 +9,11 @@ ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 06/13/2019
 ms.openlocfilehash: 6abdb3cc6981a4fbdd52b88a75457c37709597f5
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92534335"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96020796"
 ---
 # <a name="use-hdinsight-spark-cluster-to-analyze-data-in-data-lake-storage-gen1"></a>Uso de un clúster de HDInsight Spark para analizar los datos en Data Lake Storage Gen1
 
@@ -58,24 +58,24 @@ Si ha creado un clúster de HDInsight con Data Lake Storage como almacenamiento 
     Copy Completed. 1 file copied.
     ```
 
-    El archivo de datos ( **HVAC.csv** ) se copiará en una carpeta **/hvac** en la cuenta de Data Lake Storage.
+    El archivo de datos (**HVAC.csv**) se copiará en una carpeta **/hvac** en la cuenta de Data Lake Storage.
 
 ## <a name="use-an-hdinsight-spark-cluster-with-data-lake-storage-gen1"></a>Uso de un clúster de HDInsight Spark con Data Lake Storage Gen1
 
-1. En [Azure Portal](https://portal.azure.com/), en el panel de inicio, haga clic en el icono del clúster de Apache Spark (si lo ancló al panel de inicio). También puede navegar hasta el clúster en **Examinar todo** > **Clústeres de HDInsight** .
+1. En [Azure Portal](https://portal.azure.com/), en el panel de inicio, haga clic en el icono del clúster de Apache Spark (si lo ancló al panel de inicio). También puede navegar hasta el clúster en **Examinar todo** > **Clústeres de HDInsight**.
 
-2. En la hoja del clúster Spark, haga clic en **Vínculos rápidos** y, luego, en la hoja **Panel de clúster** , haga clic en **Jupyter Notebook** . Cuando se le pida, escriba las credenciales del clúster.
+2. En la hoja del clúster Spark, haga clic en **Vínculos rápidos** y, luego, en la hoja **Panel de clúster**, haga clic en **Jupyter Notebook**. Cuando se le pida, escriba las credenciales del clúster.
 
    > [!NOTE]  
    > También puede comunicarse con el equipo Jupyter Notebook en el clúster si abre la siguiente dirección URL en el explorador. Reemplace **CLUSTERNAME** por el nombre del clúster:
    >
    > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
 
-3. Cree un nuevo notebook. Haga clic en **Nuevo** y, luego, en **PySpark** .
+3. Cree un nuevo notebook. Haga clic en **Nuevo** y, luego, en **PySpark**.
 
     ![Crear un nuevo cuaderno de Jupyter](./media/apache-spark-use-with-data-lake-store/hdinsight-create-jupyter-notebook.png "Crear un nuevo cuaderno de Jupyter")
 
-4. Dado que creó un cuaderno con el kernel PySpark, no necesitará crear ningún contexto explícitamente. Los contextos Spark y Hive se crearán automáticamente al ejecutar la primera celda de código. Puede empezar por importar los tipos necesarios para este escenario. Para ello, pegue el siguiente fragmento de código en una celda y presione **MAYÚS + ENTRAR** .
+4. Dado que creó un cuaderno con el kernel PySpark, no necesitará crear ningún contexto explícitamente. Los contextos Spark y Hive se crearán automáticamente al ejecutar la primera celda de código. Puede empezar por importar los tipos necesarios para este escenario. Para ello, pegue el siguiente fragmento de código en una celda y presione **MAYÚS + ENTRAR**.
 
     ```scala
     from pyspark.sql.types import *
@@ -105,7 +105,7 @@ Si ha creado un clúster de HDInsight con Data Lake Storage como almacenamiento 
         adl://<data_lake_store_name>.azuredatalakestore.net/<path_to_file>
         ```
 
-     En una celda vacía, pegue el siguiente ejemplo de código, reemplace **MYDATALAKESTORE** por el nombre de su cuenta de Azure Data Lake Storage y presione **MAYÚS+ENTRAR** . Este ejemplo de código registra los datos en una tabla temporal llamada **hvac** .
+     En una celda vacía, pegue el siguiente ejemplo de código, reemplace **MYDATALAKESTORE** por el nombre de su cuenta de Azure Data Lake Storage y presione **MAYÚS+ENTRAR**. Este ejemplo de código registra los datos en una tabla temporal llamada **hvac**.
 
       ```scala
       # Load the data. The path below assumes Data Lake Storage is   default storage for the Spark cluster
@@ -138,7 +138,7 @@ Si ha creado un clúster de HDInsight con Data Lake Storage como almacenamiento 
 
      ![Gráfico de área del resultado de la consulta](./media/apache-spark-use-with-data-lake-store/jupyter-area-output1.png "Gráfico de área del resultado de la consulta")
 
-8. Cuando haya terminado de ejecutar la aplicación, debe cerrar el cuaderno para liberar los recursos. Para ello, en el menú **Archivo** del cuaderno, haga clic en **Cerrar y detener** . De esta manera se apagará y se cerrará el cuaderno.
+8. Cuando haya terminado de ejecutar la aplicación, debe cerrar el cuaderno para liberar los recursos. Para ello, en el menú **Archivo** del cuaderno, haga clic en **Cerrar y detener**. De esta manera se apagará y se cerrará el cuaderno.
 
 
 ## <a name="next-steps"></a>Pasos siguientes

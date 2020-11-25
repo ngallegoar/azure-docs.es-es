@@ -12,11 +12,11 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=weig, previous-ms.author=weig
 ms.openlocfilehash: bcebc568db4a0d2b4b287045ba0a67c88d9b8c92
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93312694"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96020609"
 ---
 # <a name="data-science-code-testing-on-azure-with-the-team-data-science-process-and-azure-devops-services"></a>Prueba del código de ciencia de datos en Azure con el proceso de ciencia de datos en equipo y Azure DevOps Services
 En este artículo se proporcionan instrucciones preliminares para probar el código en un flujo de trabajo de ciencia de datos. Estas pruebas ofrecen a los científicos de datos una manera sistemática y eficiente de comprobar la calidad y el resultado esperado de su código. Se utiliza el [proyecto de proceso de ciencia de datos en equipo (TDSP), que utiliza el conjunto de datos de ingresos de adultos UCI,](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome) que publicamos con anterioridad para mostrar cómo se pueden realizar pruebas de código. 
@@ -89,7 +89,7 @@ Siga estos pasos para configurar y ejecutar pruebas de código y una compilació
 
       ![Código para comprobar los valores de predicción](./media/code-test/check_prediction_values.PNG)
 
-1. Coloque todas las funciones de prueba juntas en un script de Python denominado **test_funcs.py** :
+1. Coloque todas las funciones de prueba juntas en un script de Python denominado **test_funcs.py**:
 
     ![Script de Python para las funciones de prueba](./media/code-test/create_file_test_func.PNG)
 
@@ -134,7 +134,7 @@ Siga estos pasos para configurar y ejecutar pruebas de código y una compilació
 
     f. En los detalles de PowerShell, rellene la información necesaria, como el nombre y la versión de PowerShell. Elija **Script en línea** como el tipo. 
     
-    En el cuadro **Script en línea** , puede escribir **python test1.py**. Asegúrese de que la variable de entorno está configurada correctamente para Python. Si necesita un kernel o una versión diferente de Python, puede especificar explícitamente la ruta de acceso, tal como se muestra en la figura: 
+    En el cuadro **Script en línea**, puede escribir **python test1.py**. Asegúrese de que la variable de entorno está configurada correctamente para Python. Si necesita un kernel o una versión diferente de Python, puede especificar explícitamente la ruta de acceso, tal como se muestra en la figura: 
     
     ![Detalles de PowerShell](./media/code-test/powershell_scripts.PNG)
 

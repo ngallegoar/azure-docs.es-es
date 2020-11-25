@@ -9,17 +9,17 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 02/10/2020
 ms.openlocfilehash: 0941e3d5141b5b8841f5d37e3db0d0b1b1474547
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130279"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019827"
 ---
 # <a name="real-time-twitter-sentiment-analysis-in-azure-stream-analytics"></a>Análisis de sentimiento en tiempo real de Twitter en Azure Stream Analytics
 
 En este artículo se enseña a crear una solución de análisis de sentimiento para análisis de redes sociales, para lo cual se ponen eventos de Twitter en tiempo real en Azure Event Hubs. Escriba una consulta de Azure Stream Analytics para analizar los datos y almacenar los resultados para usarlos más tarde, o bien cree un panel de [Power BI](https://powerbi.com/) para ofrecer información en tiempo real.
 
-Las herramientas de análisis de las redes sociales ayudan a las organizaciones a comprender temas populares. Los temas populares son cuestiones y actitudes que tienen un gran volumen de entradas en las redes sociales. Por su parte, los análisis de sentimiento, denominados también *minería de opinión* , usan las herramientas de análisis de las redes sociales para determinar las actitudes hacia un producto o una idea. 
+Las herramientas de análisis de las redes sociales ayudan a las organizaciones a comprender temas populares. Los temas populares son cuestiones y actitudes que tienen un gran volumen de entradas en las redes sociales. Por su parte, los análisis de sentimiento, denominados también *minería de opinión*, usan las herramientas de análisis de las redes sociales para determinar las actitudes hacia un producto o una idea. 
 
 El análisis de tendencias de Twitter en tiempo real es un buen ejemplo de herramienta de análisis, porque el modelo de suscripción por hashtags permite escuchar palabras clave específicas (hashtags) y desarrollar el análisis de sentimiento de la fuente.
 
@@ -50,7 +50,7 @@ En esta sección, se crea un espacio de nombres del centro de eventos y, luego, 
 
 1. Inicie sesión en Azure Portal y seleccione **Crear un recurso**. Luego, busque **Event Hubs** y seleccione **Crear**.
 
-2. En la página **Crear espacio de nombres** , escriba el nombre del espacio de nombres. Puede utilizar cualquier nombre, pero debe ser válido para una dirección URL y ser único en Azure. 
+2. En la página **Crear espacio de nombres**, escriba el nombre del espacio de nombres. Puede utilizar cualquier nombre, pero debe ser válido para una dirección URL y ser único en Azure. 
     
 3. Seleccione un plan de tarifa y una suscripción, y cree o elija un grupo de recursos. Luego, elija una ubicación y seleccione **Crear**. 
  
@@ -66,9 +66,9 @@ En esta sección, se crea un espacio de nombres del centro de eventos y, luego, 
 
 Para que un proceso pueda enviar datos a un centro de eventos, este necesita una directiva que permita el acceso. La directiva de acceso genera una cadena de conexión que incluye la información de autorización.
 
-1.  En la barra de navegación del lado izquierdo del espacio de nombres de Event Hubs, seleccione **Event Hubs** , que se encuentra en la sección **Entidades**. Luego, seleccione el centro de eventos que acaba de crear.
+1.  En la barra de navegación del lado izquierdo del espacio de nombres de Event Hubs, seleccione **Event Hubs**, que se encuentra en la sección **Entidades**. Luego, seleccione el centro de eventos que acaba de crear.
 
-2.  En la barra de navegación de la izquierda, seleccione **Directivas de acceso compartido** , que se encuentra en **Configuración**.
+2.  En la barra de navegación de la izquierda, seleccione **Directivas de acceso compartido**, que se encuentra en **Configuración**.
 
     >[!NOTE]
     >Hay una opción Directivas de acceso compartido debajo para el espacio de nombres del centro de eventos y para el centro de eventos. Asegúrese de que usa el contexto de su centro de eventos, no el espacio de nombres del centro de eventos general.
@@ -172,7 +172,7 @@ Stream Analytics admite un modelo de consulta declarativa simple que describe la
 
 Para comparar el número de menciones entre temas, se usa una [ventana de saltos de tamaño constante](/stream-analytics-query/tumbling-window-azure-stream-analytics) para obtener el recuento de menciones por tema cada cinco segundos.
 
-1. En la **Información general** del trabajo, seleccione **Editar consulta** , cerca de la parte superior derecha del cuadro Consulta. Azure enumera las entradas y salidas que están configuradas para el trabajo, y permite crear una consulta para transformar el flujo de entrada a medida que se envía a la salida.
+1. En la **Información general** del trabajo, seleccione **Editar consulta**, cerca de la parte superior derecha del cuadro Consulta. Azure enumera las entradas y salidas que están configuradas para el trabajo, y permite crear una consulta para transformar el flujo de entrada a medida que se envía a la salida.
 
 2. En el editor de código, cambie la consulta por lo siguiente:
 
@@ -181,11 +181,11 @@ Para comparar el número de menciones entre temas, se usa una [ventana de saltos
    FROM TwitterStream
    ```
 
-3. Los datos de eventos de los mensajes deberían aparecer en la ventana **Vista previa de entrada** , debajo de la consulta. Asegúrese de que en **Vista** se ha seleccionado **JSON**. Si no ve datos, asegúrese de que el generador de datos está enviando eventos al centro de eventos y que ha seleccionado **GZip** como tipo de compresión para la entrada.
+3. Los datos de eventos de los mensajes deberían aparecer en la ventana **Vista previa de entrada**, debajo de la consulta. Asegúrese de que en **Vista** se ha seleccionado **JSON**. Si no ve datos, asegúrese de que el generador de datos está enviando eventos al centro de eventos y que ha seleccionado **GZip** como tipo de compresión para la entrada.
 
-4. Seleccione **Consulta de prueba** y fíjese en los resultados que aparecen en la ventana **Resultados de prueba** , que está debajo de la consulta.
+4. Seleccione **Consulta de prueba** y fíjese en los resultados que aparecen en la ventana **Resultados de prueba**, que está debajo de la consulta.
 
-5. En el editor de código, cambie la consulta por la siguiente y seleccione **Consulta de prueba** :
+5. En el editor de código, cambie la consulta por la siguiente y seleccione **Consulta de prueba**:
 
    ```sql
    SELECT System.Timestamp as Time, text
@@ -205,10 +205,10 @@ En esta guía paso a paso va a escribir los eventos Tweet agregados de nuestra c
 
 1. En la sección **Topología de trabajo** del menú de navegación de la izquierda, seleccione **Salidas**. 
 
-2. En la página **Salidas** , haga clic en **+&nbsp;Agregar** y **Blob Storage/Data Lake Storage Gen2** :
+2. En la página **Salidas**, haga clic en **+&nbsp;Agregar** y **Blob Storage/Data Lake Storage Gen2**:
 
-   * **Alias de salida** : Use el nombre `TwitterStream-Output`. 
-   * **Opciones de importación** : Seleccione **Seleccionar almacenamiento de las suscripciones**.
+   * **Alias de salida**: Use el nombre `TwitterStream-Output`. 
+   * **Opciones de importación**: Seleccione **Seleccionar almacenamiento de las suscripciones**.
    * **Cuenta de almacenamiento**. Seleccione la cuenta de almacenamiento.
    * **Contenedor**. Seleccione **Crear nuevo** y escriba `socialtwitter`.
    
@@ -222,7 +222,7 @@ Se especifican una entrada de trabajo, la consulta y la salida. Está listo para
 
 2. En la información general del trabajo, seleccione **Iniciar**.
 
-3. En la página **Iniciar trabajo** , en **Hora de inicio de la salida del trabajo** , seleccione **Ahora** y, después, **Iniciar**.
+3. En la página **Iniciar trabajo**, en **Hora de inicio de la salida del trabajo**, seleccione **Ahora** y, después, **Iniciar**.
 
 ## <a name="get-support"></a>Obtención de soporte técnico
 Para más ayuda, pruebe nuestra [Página de preguntas y respuestas de Microsoft sobre Azure Stream Analytics](/answers/topics/azure-stream-analytics.html).

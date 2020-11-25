@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-azurecli
 ms.date: 12/10/2019
 ms.openlocfilehash: 3ce104e9340c3e93d64b68dcab6f5bd6d2f62493
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748728"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96020641"
 ---
 # <a name="create-apache-hadoop-clusters-using-the-azure-rest-api"></a>Creación de clústeres de Apache Hadoop mediante la API de REST de Azure
 
@@ -227,7 +227,7 @@ Siga los pasos documentados en [Introducción a la CLI de Azure](/cli/azure/get-
    az account list --query '[].{Subscription_ID:id,Tenant_ID:tenantId,Name:name}'  --output table
    ```
 
-    En la lista, seleccione la suscripción que desee usar y anote las columnas **Subscription_ID** y __Tenant_ID__ . Copie estos valores.
+    En la lista, seleccione la suscripción que desee usar y anote las columnas **Subscription_ID** y __Tenant_ID__. Copie estos valores.
 
 2. Use los comandos siguientes para crear una aplicación en Azure Active Directory.
 
@@ -242,15 +242,15 @@ Siga los pasos documentados en [Introducción a la CLI de Azure](/cli/azure/get-
 
    El valor devuelto por este comando es el __Id. de aplicación__ para la nueva aplicación. Guarde esta cadena.
 
-3. Use el siguiente comando para crear una entidad de servicio con el **Id. de aplicación** .
+3. Use el siguiente comando para crear una entidad de servicio con el **Id. de aplicación**.
 
    ```azurecli
    az ad sp create --id <App ID> --query 'objectId'
    ```
 
-     El valor devuelto por este comando es el __Id. de objeto__ . Guarde esta cadena.
+     El valor devuelto por este comando es el __Id. de objeto__. Guarde esta cadena.
 
-4. Asigne el rol **Propietario** a la entidad de servicio mediante el valor de **Id. de objeto** . Utilice el **identificador de suscripción** que obtuvo anteriormente.
+4. Asigne el rol **Propietario** a la entidad de servicio mediante el valor de **Id. de objeto**. Utilice el **identificador de suscripción** que obtuvo anteriormente.
 
    ```azurecli
    az role assignment create --assignee <Object ID> --role Owner --scope /subscriptions/<Subscription ID>/
@@ -274,7 +274,7 @@ Establezca `$TENANTID`, `$APPID` y `$PASSWORD` en los valores obtenidos o usados
 
 Si esta solicitud se realiza correctamente, recibirá una respuesta 200 serie y el cuerpo de respuesta contendrá un documento JSON.
 
-El documento JSON que devuelve esta solicitud contiene un elemento denominado " **access_token** ". El valor de **access_token** se utiliza para las solicitudes de autenticación a la API de REST.
+El documento JSON que devuelve esta solicitud contiene un elemento denominado "**access_token**". El valor de **access_token** se utiliza para las solicitudes de autenticación a la API de REST.
 
 ```json
 {

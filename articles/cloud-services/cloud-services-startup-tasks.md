@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: tagore
 ms.openlocfilehash: f2417389de98f9998c189e7cbbbcdae77fbb8840
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92075066"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96020711"
 ---
 # <a name="how-to-configure-and-run-startup-tasks-for-a-cloud-service"></a>Configuración y ejecución de tareas de inicio para un servicio en la nube
 Puede usar las tareas de inicio para realizar operaciones antes de que se inicie un rol. Estas operaciones incluyen la instalación de un componente, el registro de componentes COM, el establecimiento de las claves del registro o el inicio de un proceso de ejecución largo.
@@ -31,7 +31,7 @@ La tarea de inicio puede registrar información y errores en el directorio espec
 
 Las tareas de inicio también se puede ejecutar varias veces entre reinicios. Por ejemplo, se ejecutará la tarea de inicio cada vez que el rol se recicla y los reciclajes de rol pueden no incluir siempre un reinicio. Las tareas de inicio deben escribirse de forma que les sea posible ejecutarse varias veces sin problemas.
 
-Las tareas de inicio tienen que terminar con un **errorlevel** (o código de salida) de cero para que el proceso de inicio se complete. Si una tarea de inicio finaliza con un **errorlevel**distinto de cero, el rol no se iniciará.
+Las tareas de inicio tienen que terminar con un **errorlevel** (o código de salida) de cero para que el proceso de inicio se complete. Si una tarea de inicio finaliza con un **errorlevel** distinto de cero, el rol no se iniciará.
 
 ## <a name="role-startup-order"></a>Orden de inicio de rol
 A continuación se enumera el procedimiento de inicio de rol en Azure:

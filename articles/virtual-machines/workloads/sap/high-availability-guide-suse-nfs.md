@@ -9,17 +9,18 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-windows
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/16/2020
 ms.author: radeltch
-ms.openlocfilehash: d121430452e0ed445af19f9b1ac89cfdfccdcdae
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 05bcb0aebd44dee60fa3f323e1f109e4c0761ec8
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167328"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96022020"
 ---
 # <a name="high-availability-for-nfs-on-azure-vms-on-suse-linux-enterprise-server"></a>Alta disponibilidad para NFS en máquinas virtuales de Azure en SUSE Linux Enterprise Server
 
@@ -51,7 +52,7 @@ ms.locfileid: "92167328"
 [sap-hana-ha]:sap-hana-high-availability.md
 
 En este artículo se describe cómo implementar y configurar las máquinas virtuales, instalar el marco de trabajo del clúster e instalar un servidor NFS de alta disponibilidad que se puede usar para almacenar los datos compartidos de un sistema SAP con alta disponibilidad.
-En esta guía se describe cómo configurar un servidor NFS de alta disponibilidad que se usa en dos sistemas SAP: NW1 y NW2. En los nombres de los recursos (por ejemplo, máquinas virtuales, redes virtuales) del ejemplo se da por supuesto que ha usado la [plantilla del servidor de archivos de SAP][template-file-server] con el prefijo de recursos **prod** .
+En esta guía se describe cómo configurar un servidor NFS de alta disponibilidad que se usa en dos sistemas SAP: NW1 y NW2. En los nombres de los recursos (por ejemplo, máquinas virtuales, redes virtuales) del ejemplo se da por supuesto que ha usado la [plantilla del servidor de archivos de SAP][template-file-server] con el prefijo de recursos **prod**.
 
 Lea primero las notas y los documentos de SAP siguientes:
 
@@ -141,15 +142,15 @@ En primer lugar, debe crear las máquinas virtuales de este clúster NFS. Despu�
       1. Creación de las direcciones IP de front-end
          1. Dirección IP 10.0.0.4 de NW1
             1. Abra el equilibrador de carga, seleccione el grupo de direcciones IP de front-end y haga clic en Agregar
-            1. Escriba el nombre del nuevo grupo IP de direcciones front-end (por ejemplo, **nw1-frontend** ).
-            1. Configure la asignación como estática y escriba la dirección IP (por ejemplo **10.0.0.4** ).
+            1. Escriba el nombre del nuevo grupo IP de direcciones front-end (por ejemplo, **nw1-frontend**).
+            1. Configure la asignación como estática y escriba la dirección IP (por ejemplo **10.0.0.4**).
             1. Haga clic en Aceptar
          1. Dirección IP 10.0.0.5 de NW2
             * Repita los pasos anteriores con NW2.
       1. Creación de los grupos de servidores back-end
          1. Se conecta a interfaces de red principales de todas las máquinas que deben ser parte del clúster NFS
             1. Abra el equilibrador de carga, seleccione los grupos de back-end y haga clic en Agregar
-            1. Escriba el nombre del nuevo grupo de servidores back-end (por ejemplo, **nw-backend** ).
+            1. Escriba el nombre del nuevo grupo de servidores back-end (por ejemplo, **nw-backend**).
             1. Seleccione Virtual Network.
             1. Haga clic en Agregar una máquina virtual
             1. Seleccione las máquinas virtuales del clúster NFS y sus direcciones IP.
@@ -157,16 +158,16 @@ En primer lugar, debe crear las máquinas virtuales de este clúster NFS. Despu�
       1. Creación de los sondeos de estado
          1. Puerto 61000 de NW1
             1. Abra el equilibrador de carga, seleccione los sondeos de estado y haga clic en Agregar
-            1. Escriba el nombre del nuevo sondeo de estado (por ejemplo, **nw1-hp** ).
-            1. Seleccione TCP como protocolo, puerto 610 **00** , y mantenga el intervalo de 5 y el umbral incorrecto 2.
+            1. Escriba el nombre del nuevo sondeo de estado (por ejemplo, **nw1-hp**).
+            1. Seleccione TCP como protocolo, puerto 610 **00**, y mantenga el intervalo de 5 y el umbral incorrecto 2.
             1. Haga clic en Aceptar
          1. Puerto 61001 de NW2
             * Repita los pasos anteriores para crear un sondeo de estado para NW2.
       1. Reglas de equilibrio de carga
          1. Abra el equilibrador de carga, seleccione las reglas de equilibrio de carga y haga clic en Agregar.
-         1. Escriba el nombre de la nueva regla del equilibrador de carga (por ejemplo, **nw1-lb** ).
-         1. Seleccione la dirección IP de front-end, el grupo de servidores back-end y el sondeo de estado que creó anteriormente (por ejemplo, **nw1-front-end** , **nw-backend** y **nw1-hp** )
-         1. Seleccione **Puertos HA** .
+         1. Escriba el nombre de la nueva regla del equilibrador de carga (por ejemplo, **nw1-lb**).
+         1. Seleccione la dirección IP de front-end, el grupo de servidores back-end y el sondeo de estado que creó anteriormente (por ejemplo, **nw1-front-end**, **nw-backend** y **nw1-hp**)
+         1. Seleccione **Puertos HA**.
          1. Aumente el tiempo de espera de inactividad a 30 minutos
          1. **Asegúrese de habilitar la dirección IP flotante**
          1. Haga clic en Aceptar
@@ -175,15 +176,15 @@ En primer lugar, debe crear las máquinas virtuales de este clúster NFS. Despu�
       1. Creación de las direcciones IP de front-end
          1. Dirección IP 10.0.0.4 de NW1
             1. Abra el equilibrador de carga, seleccione el grupo de direcciones IP de front-end y haga clic en Agregar
-            1. Escriba el nombre del nuevo grupo IP de direcciones front-end (por ejemplo, **nw1-frontend** ).
-            1. Configure la asignación como estática y escriba la dirección IP (por ejemplo **10.0.0.4** ).
+            1. Escriba el nombre del nuevo grupo IP de direcciones front-end (por ejemplo, **nw1-frontend**).
+            1. Configure la asignación como estática y escriba la dirección IP (por ejemplo **10.0.0.4**).
             1. Haga clic en Aceptar
          1. Dirección IP 10.0.0.5 de NW2
             * Repita los pasos anteriores con NW2.
       1. Creación de los grupos de servidores back-end
          1. Se conecta a interfaces de red principales de todas las máquinas que deben ser parte del clúster NFS
             1. Abra el equilibrador de carga, seleccione los grupos de back-end y haga clic en Agregar
-            1. Escriba el nombre del nuevo grupo de servidores back-end (por ejemplo, **nw-backend** ).
+            1. Escriba el nombre del nuevo grupo de servidores back-end (por ejemplo, **nw-backend**).
             1. Haga clic en Agregar una máquina virtual
             1. Seleccione el conjunto de disponibilidad que creó anteriormente
             1. Seleccione las máquinas virtuales del clúster NFS.
@@ -191,17 +192,17 @@ En primer lugar, debe crear las máquinas virtuales de este clúster NFS. Despu�
       1. Creación de los sondeos de estado
          1. Puerto 61000 de NW1
             1. Abra el equilibrador de carga, seleccione los sondeos de estado y haga clic en Agregar
-            1. Escriba el nombre del nuevo sondeo de estado (por ejemplo, **nw1-hp** ).
-            1. Seleccione TCP como protocolo, puerto 610 **00** , y mantenga el intervalo de 5 y el umbral incorrecto 2.
+            1. Escriba el nombre del nuevo sondeo de estado (por ejemplo, **nw1-hp**).
+            1. Seleccione TCP como protocolo, puerto 610 **00**, y mantenga el intervalo de 5 y el umbral incorrecto 2.
             1. Haga clic en Aceptar
          1. Puerto 61001 de NW2
             * Repita los pasos anteriores para crear un sondeo de estado para NW2.
       1. Reglas de equilibrio de carga
          1. TCP 2049 de NW1
             1. Abra el equilibrador de carga, seleccione las reglas de equilibrio de carga y haga clic en Agregar
-            1. Escriba el nombre de la nueva regla del equilibrador de carga (por ejemplo, **nw1-lb-2049** ).
-            1. Seleccione la dirección IP de front-end, el grupo de servidores back-end y el sondeo de estado que creó anteriormente (por ejemplo, **nw1-front-end** ).
-            1. Conserve el protocolo **TCP** y escriba el puerto **2049** .
+            1. Escriba el nombre de la nueva regla del equilibrador de carga (por ejemplo, **nw1-lb-2049**).
+            1. Seleccione la dirección IP de front-end, el grupo de servidores back-end y el sondeo de estado que creó anteriormente (por ejemplo, **nw1-front-end**).
+            1. Conserve el protocolo **TCP** y escriba el puerto **2049**.
             1. Aumente el tiempo de espera de inactividad a 30 minutos
             1. **Asegúrese de habilitar la dirección IP flotante**
             1. Haga clic en Aceptar
@@ -219,7 +220,7 @@ En primer lugar, debe crear las máquinas virtuales de este clúster NFS. Despu�
 > Cuando las máquinas virtuales sin direcciones IP públicas se colocan en el grupo de back-end de Standard Load Balancer interno (sin dirección IP pública), no hay conectividad saliente de Internet, a menos que se realice una configuración adicional para permitir el enrutamiento a puntos de conexión públicos. Para obtener más información sobre cómo obtener conectividad saliente, vea [Conectividad de punto de conexión público para máquinas virtuales con Azure Standard Load Balancer en escenarios de alta disponibilidad de SAP](./high-availability-guide-standard-load-balancer-outbound-connections.md).  
 
 > [!IMPORTANT]
-> No habilite las marcas de tiempo TCP en VM de Azure que se encuentren detrás de Azure Load Balancer. Si habilita las marcas de tiempo TCP provocará un error en los sondeos de estado. Establezca el parámetro **net.ipv4.tcp_timestamps** a **0** . Consulte [Sondeos de estado de Load Balancer](../../../load-balancer/load-balancer-custom-probe-overview.md) para obtener más información.
+> No habilite las marcas de tiempo TCP en VM de Azure que se encuentren detrás de Azure Load Balancer. Si habilita las marcas de tiempo TCP provocará un error en los sondeos de estado. Establezca el parámetro **net.ipv4.tcp_timestamps** a **0**. Consulte [Sondeos de estado de Load Balancer](../../../load-balancer/load-balancer-custom-probe-overview.md) para obtener más información.
 
 ### <a name="create-pacemaker-cluster"></a>Creación del clúster de Pacemaker
 
