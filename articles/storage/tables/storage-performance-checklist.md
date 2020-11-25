@@ -10,11 +10,11 @@ ms.date: 10/10/2019
 ms.subservice: tables
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 71b1f3cfa1df86b417c468d56f67cd7fe8d71d73
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93316180"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96004711"
 ---
 # <a name="performance-and-scalability-checklist-for-table-storage"></a>Lista de comprobación de rendimiento y de escalabilidad para Table Storage
 
@@ -273,10 +273,10 @@ Las transacciones por lotes se conocen como transacciones de grupos de entidades
 
 #### <a name="upsert"></a>Upsert
 
-Use operaciones **Upsert** de tabla siempre que sea posible. Hay dos tipos de operaciones **Upsert** ; ambos pueden ser más eficientes que las operaciones **Insert** y **Update** tradicionales:  
+Use operaciones **Upsert** de tabla siempre que sea posible. Hay dos tipos de operaciones **Upsert**; ambos pueden ser más eficientes que las operaciones **Insert** y **Update** tradicionales:  
 
-- **InsertOrMerge** : Use esta operación cuando quiera cargar un subconjunto de propiedades de la entidad, pero no está seguro de si la entidad ya existe. Si la entidad ya existe, esta llamada actualiza las propiedades incluidas en la operación **Upsert** y deja todas las propiedades existentes tal y como están; si la entidad no existe, inserta la nueva entidad. Esto es similar a usar proyección en una consulta, donde solamente necesita actualizar las propiedades que cambian.
-- **InsertOrReplace** : Use esta operación cuando quiera cargar una entidad completamente nueva, pero no está seguro de si ya existe. Use esta operación cuando sepa que la entidad recién cargada es totalmente correcta porque sobrescribe completamente la entidad antigua. Por ejemplo, desea actualizar la entidad que almacena la ubicación actual de un usuario independientemente de si la aplicación ha almacenado los datos de ubicación del usuario anteriormente; la entidad de la nueva ubicación está completa y no necesita información de ninguna otra entidad anterior.
+- **InsertOrMerge**: Use esta operación cuando quiera cargar un subconjunto de propiedades de la entidad, pero no está seguro de si la entidad ya existe. Si la entidad ya existe, esta llamada actualiza las propiedades incluidas en la operación **Upsert** y deja todas las propiedades existentes tal y como están; si la entidad no existe, inserta la nueva entidad. Esto es similar a usar proyección en una consulta, donde solamente necesita actualizar las propiedades que cambian.
+- **InsertOrReplace**: Use esta operación cuando quiera cargar una entidad completamente nueva, pero no está seguro de si ya existe. Use esta operación cuando sepa que la entidad recién cargada es totalmente correcta porque sobrescribe completamente la entidad antigua. Por ejemplo, desea actualizar la entidad que almacena la ubicación actual de un usuario independientemente de si la aplicación ha almacenado los datos de ubicación del usuario anteriormente; la entidad de la nueva ubicación está completa y no necesita información de ninguna otra entidad anterior.
 
 #### <a name="storing-data-series-in-a-single-entity"></a>Almacenamiento de series de datos en una sola entidad
 

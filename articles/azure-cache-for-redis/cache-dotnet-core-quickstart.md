@@ -9,11 +9,11 @@ ms.custom: devx-track-csharp, mvc
 ms.topic: quickstart
 ms.date: 06/18/2020
 ms.openlocfilehash: 945d4a3d2bba84bf8f5973fd8dec092c66794c11
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93077088"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96004303"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-in-net-core"></a>Inicio rápido: Uso de Azure Cache for Redis con .NET Core
 
@@ -82,7 +82,7 @@ En la ventana Comandos, ejecute el siguiente comando para almacenar un secreto n
 dotnet user-secrets set CacheConnection "<cache name>.redis.cache.windows.net,abortConnect=false,ssl=true,password=<primary-access-key>"
 ```
 
-Agregue la siguiente instrucción `using` a *Program.cs* :
+Agregue la siguiente instrucción `using` a *Program.cs*:
 
 ```csharp
 using Microsoft.Extensions.Configuration;
@@ -107,7 +107,7 @@ private static void InitializeConfiguration()
 
 En esta sección, configurará la aplicación de consola para utilizar el cliente [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) para .NET.
 
-En la ventana Comandos, ejecute el siguiente comando en el directorio del proyecto *Redistest* :
+En la ventana Comandos, ejecute el siguiente comando en el directorio del proyecto *Redistest*:
 
 ```
 dotnet add package StackExchange.Redis
@@ -118,7 +118,7 @@ Una vez completada la instalación, el cliente de caché *StackExchange.Redis* e
 
 ## <a name="connect-to-the-cache"></a>Conexión a la memoria caché
 
-Agregue la siguiente instrucción `using` a *Program.cs* :
+Agregue la siguiente instrucción `using` a *Program.cs*:
 
 ```csharp
 using StackExchange.Redis;
@@ -126,7 +126,7 @@ using StackExchange.Redis;
 
 La clase `ConnectionMultiplexer` administra la conexión con Azure Redis Cache. Esta clase debe compartirse y reutilizarse en toda la aplicación cliente. No cree una nueva conexión para cada operación. 
 
-En *Program.cs* , agregue los siguientes miembros a la clase `Program` de la aplicación de consola:
+En *Program.cs*, agregue los siguientes miembros a la clase `Program` de la aplicación de consola:
 
 ```csharp
 private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
@@ -150,7 +150,7 @@ Se accede al valor del secreto *CacheConnection* mediante el proveedor de config
 
 ## <a name="executing-cache-commands"></a>Ejecución de comandos de caché
 
-En *Program.cs* , agregue el código siguiente al procedimiento `Main` de la clase `Program` de la aplicación de consola:
+En *Program.cs*, agregue el código siguiente al procedimiento `Main` de la clase `Program` de la aplicación de consola:
 
 ```csharp
 static void Main(string[] args)
@@ -228,13 +228,13 @@ Ejecute el siguiente comando para agregar el paquete *Newtonsoft.json* a la apli
 dotnet add package Newtonsoft.json
 ```
 
-Agregue la siguiente instrucción `using` al principio del archivo *Program.cs* :
+Agregue la siguiente instrucción `using` al principio del archivo *Program.cs*:
 
 ```csharp
 using Newtonsoft.Json;
 ```
 
-Agregue la siguiente definición de clase `Employee` a *Program.cs* :
+Agregue la siguiente definición de clase `Employee` a *Program.cs*:
 
 ```csharp
 class Employee
@@ -252,7 +252,7 @@ class Employee
 }
 ```
 
-En la parte inferior del procedimiento `Main()` de *Program.cs* , antes de llamar a `Dispose()`, agregue las siguientes líneas de código para almacenar en caché y recuperar un objeto .NET serializado:
+En la parte inferior del procedimiento `Main()` de *Program.cs*, antes de llamar a `Dispose()`, agregue las siguientes líneas de código para almacenar en caché y recuperar un objeto .NET serializado:
 
 ```csharp
     // Store .NET object to cache

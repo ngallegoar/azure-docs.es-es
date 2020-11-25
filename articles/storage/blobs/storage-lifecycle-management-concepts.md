@@ -9,12 +9,12 @@ ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
 ms.custom: devx-track-azurepowershell, references_regions
-ms.openlocfilehash: 85577a428f803e31aa33468496d7efca77933835
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 1b568687ffe646a91544c1bb75d26d552a23f49c
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94579318"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96005289"
 ---
 # <a name="optimize-costs-by-automating-azure-blob-storage-access-tiers"></a>Optimización de los costos mediante la automatización de los niveles de acceso de Azure Blob Storage
 
@@ -39,7 +39,7 @@ Considere un escenario donde los datos tienen acceso frecuente durante las prime
 
 La característica de administración del ciclo de vida está disponible en todas las regiones de Azure para cuentas de almacenamiento de uso general v2 (GPv2), de almacenamiento de blobs, de blob en bloques prémium y de Azure Data Lake Storage Gen2. En Azure Portal, puede convertir una cuenta existente de uso general (GPv1) en una cuenta de GPv2. Para más información sobre las cuentas de almacenamiento, vea [Introducción a las cuentas de Azure Storage](../common/storage-account-overview.md).
 
-La característica de administración del ciclo de vida es gratuita. A los clientes se les cobra el costo operativo habitual para las llamadas API [Establecer el nivel del blob](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier). La operación de eliminación es gratuita. Para más información sobre los precios, consulte [Precios de los blobs en bloques](https://azure.microsoft.com/pricing/details/storage/blobs/).
+La característica de administración del ciclo de vida es gratuita. A los clientes se les cobra el costo operativo habitual para las llamadas API [Establecer el nivel del blob](/rest/api/storageservices/set-blob-tier). La operación de eliminación es gratuita. Para más información sobre los precios, consulte [Precios de los blobs en bloques](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
 ## <a name="add-or-remove-a-policy"></a>Incorporación o eliminación de una directiva
 
@@ -47,13 +47,13 @@ Puede agregar, editar o quitar una directiva mediante cualquiera de los métodos
 
 * [Azure Portal](https://portal.azure.com)
 * [Azure PowerShell](https://github.com/Azure/azure-powershell/releases)
-* [CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli)
-* [API de REST](https://docs.microsoft.com/rest/api/storagerp/managementpolicies)
+* [CLI de Azure](/cli/azure/install-azure-cli)
+* [API de REST](/rest/api/storagerp/managementpolicies)
 
 Una directiva se puede leer o escribir en su totalidad. No se admiten las actualizaciones parciales. 
 
 > [!NOTE]
-> Si habilita reglas de firewall para la cuenta de almacenamiento, puede que se bloqueen las solicitudes de administración del ciclo de vida. Puede desbloquear estas solicitudes proporcionando excepciones para los servicios de confianza de Microsoft. Para más información, consulte la sección Excepciones en [Configuración de firewalls y redes virtuales](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
+> Si habilita reglas de firewall para la cuenta de almacenamiento, puede que se bloqueen las solicitudes de administración del ciclo de vida. Puede desbloquear estas solicitudes proporcionando excepciones para los servicios de confianza de Microsoft. Para más información, consulte la sección Excepciones en [Configuración de firewalls y redes virtuales](../common/storage-network-security.md#exceptions).
 
 En este artículo se muestra cómo administrar la directiva mediante el portal y los métodos de PowerShell.
 
@@ -450,7 +450,7 @@ Cada actualización de la hora del último acceso se considera [otra operación]
 Algunos datos permanecen inactivos en la nube y, una vez almacenados, no se accede a ellos prácticamente nunca. La siguiente directiva del ciclo de vida está configurada para archivar los datos poco después de que se ingieran. En este ejemplo se realiza la transición de los blobs en bloques en la cuenta de almacenamiento en el contenedor `archivecontainer` a un nivel de archivo. La transición se realiza al actuar en los blobs 0 días después de la hora de la última modificación:
 
 > [!NOTE] 
-> Se recomienda cargar los blobs directamente en el nivel de archivo para que sea más eficaz. Puede usar el encabezado x-ms-access-tier para [PutBlob](https://docs.microsoft.com/rest/api/storageservices/put-blob) o [PutBlockList](https://docs.microsoft.com/rest/api/storageservices/put-block-list) con la versión de REST 2018-11-09 y versiones más recientes o las bibliotecas de cliente de Blob Storage más recientes. 
+> Se recomienda cargar los blobs directamente en el nivel de archivo para que sea más eficaz. Puede usar el encabezado x-ms-access-tier para [PutBlob](/rest/api/storageservices/put-blob) o [PutBlockList](/rest/api/storageservices/put-block-list) con la versión de REST 2018-11-09 y versiones más recientes o las bibliotecas de cliente de Blob Storage más recientes. 
 
 ```json
 {
@@ -592,7 +592,7 @@ Cuando se mueve un blob desde un nivel de acceso a otro, su hora de última modi
 
 Obtenga información sobre cómo recuperar datos tras la eliminación accidental:
 
-- [Eliminación temporal de blobs de Azure Storage](../blobs/storage-blob-soft-delete.md)
+- [Eliminación temporal de blobs de Azure Storage](./soft-delete-blob-overview.md)
 
 Aprenda a administrar y buscar datos con el índice de blobs:
 

@@ -10,11 +10,11 @@ ms.date: 04/21/2020
 ms.author: acomet
 ms.reviewer: jrasnick
 ms.openlocfilehash: 3434953de3460d3eff066768474f03aa0e14165e
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92668600"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005000"
 ---
 # <a name="connect-to-azure-synapse-link-preview-for-azure-cosmos-db"></a>Conexión a Azure Synapse Link (versión preliminar) para Azure Cosmos DB
 
@@ -55,11 +55,11 @@ En Data Object Explorer (Explorador de objetos de datos), puede conectarse direc
 
 Las bases de datos de Azure Cosmos DB aparecen en la pestaña **Linked** (Vinculado) en la sección **Azure Cosmos DB**. Con Azure Cosmos DB, puede diferenciar un contenedor habilitado para HTAP de un contenedor solo de OLTP mediante los iconos siguientes:
 
-**Contenedor solo de OLTP** :
+**Contenedor solo de OLTP**:
 
 ![Visualización que muestra el icono del contenedor OLTP.](../media/quickstart-connect-synapse-link-cosmosdb/oltp-container.png)
 
-**Contenedor habilitado para HTAP** :
+**Contenedor habilitado para HTAP**:
 
 ![Visualización que muestra el icono del contenedor HTAP.](../media/quickstart-connect-synapse-link-cosmosdb/htap-container.png)
 

@@ -14,11 +14,11 @@ ms.date: 11/08/2019
 ms.author: sumi
 ms.custom: ''
 ms.openlocfilehash: 7d937542201792c0d1c0be69df9bd1c2b34edea3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89434476"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96004949"
 ---
 # <a name="virtual-network-service-endpoints"></a>Puntos de conexión de servicio de red virtual
 
@@ -77,7 +77,7 @@ Los puntos de conexión de servicio proporcionan las siguientes ventajas:
 
   De forma predeterminada, a los recursos de los servicios de Azure protegidos en las redes virtuales no se puede acceder desde redes locales. Si quiere permitir el tráfico desde el entorno local, también debe permitir las direcciones IP públicas (normalmente NAT) desde el entorno local o ExpressRoute. Estas direcciones IP se pueden agregar mediante la configuración del firewall de IP para los recursos de los servicios de Azure.
 
-  ExpressRoute: Si usa [ExpressRoute](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) para el emparejamiento público o el emparejamiento de Microsoft desde un entorno local, tendrá que identificar las direcciones IP de NAT que va a usar. En el caso del emparejamiento público, cada circuito ExpressRoute usa de forma predeterminada dos direcciones IP de NAT que se aplican al tráfico del servicio de Azure cuando entra en la red troncal de Microsoft Azure. En el caso del emparejamiento de Microsoft, las direcciones IP de NAT que se utilizan las proporcionan el cliente o el proveedor de servicios. Para permitir el acceso a los recursos de servicio, tiene que permitir estas direcciones IP públicas en la configuración del firewall de IP de recursos. Para encontrar las direcciones de IP de circuito de ExpressRoute de los pares públicos, [abra una incidencia de soporte técnico con ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) en Azure Portal. Para más información sobre NAT tanto para el emparejamiento de Microsoft como para el emparejamiento público de ExpresRoute, consulte [Requisitos de NAT de ExpressRoute](../expressroute/expressroute-nat.md?toc=%2fazure%2fvirtual-network%2ftoc.json#nat-requirements-for-azure-public-peering).
+  ExpressRoute: Si usa [ExpressRoute](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) para el emparejamiento público o el emparejamiento de Microsoft desde un entorno local, tendrá que identificar las direcciones IP de NAT que va a usar. En el caso del emparejamiento público, cada circuito ExpressRoute usa de forma predeterminada dos direcciones IP de NAT que se aplican al tráfico del servicio de Azure cuando entra en la red troncal de Microsoft Azure. En el caso del emparejamiento de Microsoft, las direcciones IP de NAT que se utilizan las proporcionan el cliente o el proveedor de servicios.  Para permitir el acceso a los recursos de servicio, tiene que permitir estas direcciones IP públicas en la configuración del firewall de IP de recursos. Para encontrar las direcciones de IP de circuito de ExpressRoute de los pares públicos, [abra una incidencia de soporte técnico con ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) a través de Azure Portal. Para más información sobre NAT tanto para el emparejamiento de Microsoft como para el emparejamiento público de ExpresRoute, consulte [Requisitos de NAT de ExpressRoute](../expressroute/expressroute-nat.md?toc=%2fazure%2fvirtual-network%2ftoc.json#nat-requirements-for-azure-public-peering).
 
 ![Protección de servicios de Azure para las redes virtuales](./media/virtual-network-service-endpoints-overview/VNet_Service_Endpoints_Overview.png)
 
