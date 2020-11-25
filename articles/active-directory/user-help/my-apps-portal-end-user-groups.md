@@ -13,15 +13,15 @@ ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.openlocfilehash: cff1298f12d26b1260213d75701c282e0a82511d
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93124159"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96004165"
 ---
 # <a name="update-your-groups-info-on-the-my-apps-portal"></a>Actualización de la información de los grupos en el portal Mis aplicaciones
 
-Puede usar su cuenta profesional o educativa con el portal **Aplicaciones** basado en web para ver e iniciar muchas de las aplicaciones de su organización basadas en la nube, actualizar información de su perfil y cuenta, ver su información de **Grupos** y realizar **revisiones de acceso** para sus aplicaciones y grupos. Si no tiene acceso al portal **Aplicaciones** , debe ponerse en contacto con su departamento de soporte técnico para obtener permiso.
+Puede usar su cuenta profesional o educativa con el portal **Aplicaciones** basado en web para ver e iniciar muchas de las aplicaciones de su organización basadas en la nube, actualizar información de su perfil y cuenta, ver su información de **Grupos** y realizar **revisiones de acceso** para sus aplicaciones y grupos. Si no tiene acceso al portal **Aplicaciones**, debe ponerse en contacto con su departamento de soporte técnico para obtener permiso.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-portal.md)]
 
@@ -30,11 +30,11 @@ Puede usar su cuenta profesional o educativa con el portal **Aplicaciones** basa
 
 ## <a name="view-your-groups-information"></a>Visualización de la información de los grupos
 
-Si el administrador le ha dado permiso para ver el icono **Grupos** , puede:
+Si el administrador le ha dado permiso para ver el icono **Grupos**, puede:
 
-- **Como miembro de un grupo** , ver los detalles o abandonar cualquier grupo.
+- **Como miembro de un grupo**, ver los detalles o abandonar cualquier grupo.
 
-- **Como propietario de un grupo** , ver los detalles, crear uno nuevo, agregar o eliminar usuarios, o eliminar el grupo.
+- **Como propietario de un grupo**, ver los detalles, crear uno nuevo, agregar o eliminar usuarios, o eliminar el grupo.
 
 ### <a name="to-view-your-groups-information"></a>Para ver la información de los grupos
 
@@ -42,7 +42,7 @@ Si el administrador le ha dado permiso para ver el icono **Grupos** , puede:
 
 2. Abra el explorador web y vaya a https://myapps.microsoft.com o use el vínculo proporcionado por su organización. Por ejemplo, quizá se le redirija a una página personalizada para la organización, como https://myapps.microsoft.com/contoso.com.
 
-    Aparecerá la página **Aplicaciones** , que muestra todas las aplicaciones basadas en la nube disponibles para su uso y propiedad de su organización.
+    Aparecerá la página **Aplicaciones**, que muestra todas las aplicaciones basadas en la nube disponibles para su uso y propiedad de su organización.
 
     ![Página de aplicaciones en el portal Mis aplicaciones](media/my-apps-portal-end-user-groups/my-apps-home-large.png)
 
@@ -68,7 +68,7 @@ Si el administrador le ha dado permiso para ver el icono **Grupos** , puede:
 
 ## <a name="create-a-new-group"></a>Creación de un grupo nuevo
 
-1. En la página **Grupos** , seleccione **Crear un grupo** desde el área **Grupos de mi propiedad**.
+1. En la página **Grupos**, seleccione **Crear un grupo** desde el área **Grupos de mi propiedad**.
 
     Aparecerá el cuadro **Crear grupo**.
 
@@ -148,13 +148,13 @@ Puede eliminar cualquiera de los grupos de su propiedad en cualquier momento. Si
 
 Puede unirse a un grupo existente o abandonarlo desde la página **Grupos**.
 
-1. En la página **Grupos** , seleccione **Unirse a un grupo** desde el área **Grupos en los que estoy**.
+1. En la página **Grupos**, seleccione **Unirse a un grupo** desde el área **Grupos en los que estoy**.
 
     La página **Unirse a grupos** aparecerá.
 
     ![Página Unirse a grupos con el botón Unirse a un grupo resaltado](media/my-apps-portal/my-apps-portal-join-group-link.png)
 
-2. En la página **Unirse a grupos** , seleccione el nombre del grupo al que desee unirse, consulte los detalles del grupo y, si está disponible, seleccione **Unirse al grupo**.
+2. En la página **Unirse a grupos**, seleccione el nombre del grupo al que desee unirse, consulte los detalles del grupo y, si está disponible, seleccione **Unirse al grupo**.
 
     Si el grupo requiere que el propietario del grupo apruebe la incorporación, se le pedirá que escriba una justificación comercial de por qué necesita para unirse al grupo; a continuación, seleccione **Solicitar**. Si el grupo no requiere aprobación, se le agregará inmediatamente como miembro y el grupo aparecerá en su lista **Grupos en los que estoy**.
 

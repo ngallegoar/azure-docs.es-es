@@ -10,11 +10,11 @@ author: likebupt
 ms.author: keli19
 ms.date: 10/26/2020
 ms.openlocfilehash: a5db3935ae445ee7dcf8129eb1d4c75fcb64302f
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92739232"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96003912"
 ---
 # <a name="apply-transformation-module"></a>Módulo Aplicar transformación
 
@@ -22,7 +22,7 @@ En este artículo se describe un módulo del diseñador de Azure Machine Learnin
 
 Utilice este módulo para modificar un conjunto de datos de entrada basado en una transformación calculada previamente. Este módulo es necesario si tiene que actualizar transformaciones en canalizaciones de inferencia.
 
-Por ejemplo, si usa puntuaciones z para normalizar los datos de aprendizaje utilizando el nódulo **Normalizar datos** , tendrá que usar el valor de puntuación z que se calculó para el aprendizaje durante la fase de puntuación. En Azure Machine Learning, puede guardar el método de normalización como una transformación y después usar **Aplicar transformación** para aplicar la puntuación z a los datos de entrada antes de la puntuación.
+Por ejemplo, si usa puntuaciones z para normalizar los datos de aprendizaje utilizando el nódulo **Normalizar datos**, tendrá que usar el valor de puntuación z que se calculó para el aprendizaje durante la fase de puntuación. En Azure Machine Learning, puede guardar el método de normalización como una transformación y después usar **Aplicar transformación** para aplicar la puntuación z a los datos de entrada antes de la puntuación.
 
 ## <a name="how-to-save-transformations"></a>Procedimiento para guardar transformaciones
 

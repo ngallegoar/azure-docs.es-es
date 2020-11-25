@@ -7,11 +7,11 @@ ms.date: 04/01/2020
 ms.topic: conceptual
 ms.author: ramamill
 ms.openlocfilehash: 74870d10348421bf726b9bdc58504a74cf4105a9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86129931"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96004218"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>Habilitación de máquinas virtuales de VMware en Azure
 
@@ -73,16 +73,16 @@ Para habilitar la replicación, siga estos pasos:
 
    Seleccione **Configurar ahora para las máquinas seleccionadas** para aplicar la configuración de red a todas las máquinas virtuales que seleccione para protección. Seleccione **Configurar más tarde** para seleccionar la red de Azure por máquina virtual. Si no dispone de una red, debe crear una. Para crear una red mediante Azure Resource Manager, seleccione **Crear nueva**. Seleccione una subred si es aplicable y luego **Aceptar**.
 
-   :::image type="content" source="./media/vmware-azure-enable-replication/enable-rep3.png" alt-text="Ventana Habilitar replicación: Origen":::
+   :::image type="content" source="./media/vmware-azure-enable-replication/enable-rep3.png" alt-text="Ventana Habilitar la replicación: Destino":::
 
 1. En **Máquinas virtuales** > **Seleccionar máquinas virtuales**, seleccione cada máquina virtual que quiera replicar. Solo puede seleccionar aquellas máquinas virtuales para las que se pueda habilitar la replicación. Después, seleccione **Aceptar**. Si no puede ver o seleccionar una máquina virtual concreta, vea [La máquina de origen no aparece en Azure Portal](vmware-azure-troubleshoot-replication.md#step-3-troubleshoot-source-machines-that-arent-available-for-replication) para resolver el problema.
 
-   :::image type="content" source="./media/vmware-azure-enable-replication/enable-replication5.png" alt-text="Ventana Habilitar replicación: Origen":::
+   :::image type="content" source="./media/vmware-azure-enable-replication/enable-replication5.png" alt-text="Ventana Habilitar la replicación: Seleccionar máquinas virtuales":::
 
 1. En **Propiedades** > **Configurar propiedades**, seleccione la cuenta que usa el servidor de procesos para instalar automáticamente Mobility Service de Site Recovery en la máquina virtual. Además, elija el tipo de disco administrado de destino que se usará para la replicación según los patrones de frecuencia de modificación de los datos.
 1. De forma predeterminada, se replican todos los discos de una máquina virtual de origen. Para excluir discos de la replicación, desactive la casilla **Incluir** de aquellos discos que no quiera replicar. Después, seleccione **Aceptar**. Puede establecer propiedades adicionales más adelante. [Obtenga más información](vmware-azure-exclude-disk.md) sobre cómo excluir discos.
 
-   :::image type="content" source="./media/vmware-azure-enable-replication/enable-replication6.png" alt-text="Ventana Habilitar replicación: Origen":::
+   :::image type="content" source="./media/vmware-azure-enable-replication/enable-replication6.png" alt-text="Ventana Habilitar la replicación: Configurar propiedades":::
 
 1. En **Configuración de replicación** > **Establecer configuración de replicación**, compruebe que se haya seleccionado la directiva de replicación correcta. Puede modificar la configuración de la directiva de replicación en **Configuración** > **Directivas de replicación** > _nombre de directiva_ > **Editar configuración**. Los cambios aplicados a una directiva también se aplican a las máquinas virtuales nuevas y replicadas.
 1. Si quiere recopilar las máquinas virtuales en un grupo de replicación, habilite **Coherencia con múltiples máquinas virtuales**. Especifique un nombre para el grupo y seleccione **Aceptar**.
@@ -91,7 +91,7 @@ Para habilitar la replicación, siga estos pasos:
    > - Las máquinas virtuales de un grupo de replicación se replican al mismo tiempo y comparten puntos de recuperación coherentes con los bloqueos y coherentes con la aplicación cuando conmutan por error.
    > - Recopile las máquinas virtuales y los servidores físicos juntos para que reflejen las cargas de trabajo. La habilitación de la coherencia entre varias VM puede afectar al rendimiento de la carga de trabajo. Hágalo únicamente si las máquinas virtuales ejecutan la misma carga de trabajo y necesita coherencia.
 
-   :::image type="content" source="./media/vmware-azure-enable-replication/enable-replication7.png" alt-text="Ventana Habilitar replicación: Origen":::
+   :::image type="content" source="./media/vmware-azure-enable-replication/enable-replication7.png" alt-text="Ventana Habilitar la replicación":::
 
 1. Seleccione **Habilitar replicación**. Puede hacer un seguimiento del progreso del trabajo **Habilitar protección** en **Configuración** > **Trabajos** > **Trabajos de Site Recovery**. La máquina virtual estará preparada para la conmutación por error después de que finalice el trabajo de **Finalizar protección**.
 
@@ -103,7 +103,7 @@ Después, compruebe las propiedades de la máquina virtual de origen. Recuerde q
 1. En **Propiedades** puede ver la información de replicación y conmutación por error de la máquina virtual.
 1. En **Proceso y red** > **Propiedades de Compute**, puede cambiar varias propiedades de la máquina virtual.
 
-   :::image type="content" source="./media/vmware-azure-enable-replication/vmproperties.png" alt-text="Ventana Habilitar replicación: Origen":::
+   :::image type="content" source="./media/vmware-azure-enable-replication/vmproperties.png" alt-text="Ventana Propiedades de proceso y red":::
 
    - **Nombre de la máquina virtual de Azure**: modifique el nombre en caso necesario para que cumpla los requisitos de Azure.
    - **Tamaño de la VM de destino o Tipo de máquina virtual**: el tamaño predeterminado de la máquina virtual se elige según unos parámetros que incluyen el número de discos, el número de tarjetas NIC, el recuento de núcleos de CPU, la memoria y los tamaños de rol de máquina virtual disponibles en la región de Azure de destino. Azure Site Recovery elige el primer tamaño de máquina virtual disponible que satisface todos los criterios. Puede seleccionar otro tamaño de máquina virtual según sea necesario en cualquier momento anterior a la conmutación por error. El tamaño del disco de la máquina virtual también se basa en el tamaño del disco de origen y solo puede modificarse después de la conmutación por error. Obtenga más información sobre los tamaños de disco y las tasas de IOPS en [Objetivos de escalabilidad y rendimiento para discos de máquinas virtuales con Windows](../virtual-machines/windows/disk-scalability-targets.md).

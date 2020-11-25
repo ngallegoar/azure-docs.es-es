@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.custom: devx-track-csharp
 ms.openlocfilehash: c9dce90b0dc563fb0fa7ecaaa0882167eef444a0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89019902"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96003640"
 ---
 # <a name="create-monitor-and-manage-azure-data-factories-using-azure-data-factory-net-sdk"></a>Creación, supervisión y administración de factorías de datos de Azure mediante el SDK de .NET de Azure Data Factory
 > [!NOTE]
