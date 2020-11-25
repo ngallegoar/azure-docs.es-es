@@ -13,11 +13,11 @@ ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: a77a4808390f816bc3a6646520f4b542bee89d4c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89438541"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001763"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-using-azure-data-factory"></a>Copia de datos hacia Azure Blob Storage o desde él con Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -188,7 +188,7 @@ Vamos a ver cómo copiar rápidamente datos a y desde una instancia de Azure Blo
 2. Haga clic en **Crear un recurso** en la esquina superior izquierda, después en **Inteligencia y análisis** y en **Data Factory**.
 3. En el panel **Nueva factoría de datos**:  
     1. Escriba **ADFBlobConnectorDF** como **nombre**. El nombre de la instancia de Azure Data Factory debe ser único de forma global. Si recibe el siguiente error: `*Data factory name “ADFBlobConnectorDF” is not available`, cambie el nombre de la factoría de datos (por ejemplo, yournameADFBlobConnectorDF) e intente crearla de nuevo. Consulte el tema [Factoría de datos: reglas de nomenclatura](data-factory-naming-rules.md) para las reglas de nomenclatura para los artefactos de Factoría de datos.
-    2. Selección la **suscripción**de Azure.
+    2. Selección la **suscripción** de Azure.
     3. Para Grupo de recursos, seleccione **Usar el existente** para seleccionar un grupo de recursos existente (o) seleccione **Crear nuevo** para escribir un nombre para un grupo de recursos.
     4. Seleccione una **ubicación** para la factoría de datos.
     5. Seleccione la casilla **Anclar al panel** en la parte inferior de la hoja.
@@ -247,7 +247,7 @@ Vamos a ver cómo copiar rápidamente datos a y desde una instancia de Azure Blo
 9. En la página **Specify the Azure Blob storage account** (Especificar cuenta de Azure Blob Storage):  
     1. Escriba **AzureStorageLinkedService** en el campo **Nombre de la conexión**.
     2. Confirme que la opción **De suscripciones de Azure** está seleccionada para **Método de selección de cuenta**.
-    3. Selección la **suscripción**de Azure.
+    3. Selección la **suscripción** de Azure.
     4. Seleccione su cuenta de almacenamiento de Azure.
     5. Haga clic en **Next**.
 10. En la página **Choose the output file or folder** (Elegir el archivo o la carpeta de salida):  

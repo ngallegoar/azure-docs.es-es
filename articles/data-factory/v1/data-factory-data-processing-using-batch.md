@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 2abc04a6a4ad6ee1c3e910db0a6be11b8150d52e
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92631927"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001701"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Procesamiento de conjuntos de datos a gran escala mediante Data Factory y Batch
 > [!NOTE]
@@ -72,20 +72,20 @@ La lista siguiente proporciona los pasos básicos del proceso. La solución incl
 
 * **Cree una instancia de Data Factory** que esté configurada con entidades que representen Blob Storage, el servicio de proceso de Batch, los datos de entrada y salida y un flujo de trabajo o una canalización con las actividades que mueven y transforman datos.
 
-* **Cree una actividad personalizada de .NET en la canalización de Data Factory** . La actividad es el código de usuario que se ejecutará en el grupo de Batch.
+* **Cree una actividad personalizada de .NET en la canalización de Data Factory**. La actividad es el código de usuario que se ejecutará en el grupo de Batch.
 
-* **Almacene grandes cantidades de datos de entrada como blobs en Azure Storage** . Los datos se dividen en segmentos lógicos (normalmente, en función de la fecha y la hora).
+* **Almacene grandes cantidades de datos de entrada como blobs en Azure Storage**. Los datos se dividen en segmentos lógicos (normalmente, en función de la fecha y la hora).
 
 * **Data Factory copia los datos que se procesan en paralelo** en la ubicación secundaria.
 
-* **Data Factory ejecuta la actividad personalizada con el grupo que asigna Batch** . Además, puede ejecutar actividades al mismo tiempo. Cada actividad procesa un segmento de datos. Los resultados se almacenan en Storage.
+* **Data Factory ejecuta la actividad personalizada con el grupo que asigna Batch**. Además, puede ejecutar actividades al mismo tiempo. Cada actividad procesa un segmento de datos. Los resultados se almacenan en Storage.
 
 * **Data Factory mueve los resultados finales a una tercera ubicación** para que se distribuyan con una aplicación o para que se sigan procesando con otras herramientas.
 
 ## <a name="implementation-of-the-sample-solution"></a>Implementación de la solución de ejemplo
 La solución de ejemplo es sencilla a propósito. Se ha diseñado para mostrar cómo usar Data Factory y Batch de forma conjunta para procesar conjuntos de datos. La solución cuenta el número de repeticiones del término de búsqueda "Microsoft" en los archivos de entrada que están organizados en una serie temporal. Luego genera el recuento en archivos de salida.
 
-**Tiempo** : si está familiarizado con los aspectos básicos de Azure, Data Factory y Batch, y cumple los requisitos previos que se indican a continuación, esta solución tardará entre una y dos horas en completarse.
+**Tiempo**: si está familiarizado con los aspectos básicos de Azure, Data Factory y Batch, y cumple los requisitos previos que se indican a continuación, esta solución tardará entre una y dos horas en completarse.
 
 ### <a name="prerequisites"></a>Requisitos previos
 #### <a name="azure-subscription"></a>Suscripción de Azure
@@ -102,23 +102,23 @@ La solución de ejemplo usa Batch (de forma indirecta mediante una canalización
 #### <a name="azure-batch-pool-of-virtual-machines"></a>Grupo de máquinas virtuales de Azure Batch
 Cree un grupo de Batch con al menos dos nodos de ejecución.
 
-1. En [Azure Portal](https://portal.azure.com), seleccione **Examinar** en el menú izquierdo y, luego, **Cuentas de Batch** .
+1. En [Azure Portal](https://portal.azure.com), seleccione **Examinar** en el menú izquierdo y, luego, **Cuentas de Batch**.
 
-1. Seleccione la cuenta de Batch para abrir la hoja **Cuenta de Batch** .
+1. Seleccione la cuenta de Batch para abrir la hoja **Cuenta de Batch**.
 
-1. Seleccione el icono **Grupos** .
+1. Seleccione el icono **Grupos**.
 
-1. En la hoja **Grupos** , seleccione el botón **Agregar** en la barra de herramientas para agregar un grupo.
+1. En la hoja **Grupos**, seleccione el botón **Agregar** en la barra de herramientas para agregar un grupo.
 
-   a. Especifique un identificador para el grupo ( **Identificador del grupo** ). Anote el identificador del grupo. Lo necesitará para crear la solución de Data Factory.
+   a. Especifique un identificador para el grupo (**Identificador del grupo**). Anote el identificador del grupo. Lo necesitará para crear la solución de Data Factory.
 
-   b. Especifique **Windows Server 2012 R2** en **Familia del sistema operativo** .
+   b. Especifique **Windows Server 2012 R2** en **Familia del sistema operativo**.
 
-   c. Seleccione un **plan de tarifa de nodos** .
+   c. Seleccione un **plan de tarifa de nodos**.
 
-   d. Escriba **2** como valor en la configuración **Dedicada a destino** .
+   d. Escriba **2** como valor en la configuración **Dedicada a destino**.
 
-   e. Escriba **2** como valor en la configuración **Máximo de tareas por nodo** .
+   e. Escriba **2** como valor en la configuración **Máximo de tareas por nodo**.
 
    f. Seleccione **Aceptar** para crear el grupo.
 
@@ -135,13 +135,13 @@ Use el [Explorador de Azure Storage 6](https://azurestorageexplorer.codeplex.com
 
    Si usa el Explorador de Storage, en el paso siguiente, cargue archivos con los nombres siguientes: `inputfolder/2015-11-16-00/file.txt`, `inputfolder/2015-11-16-01/file.txt`, etc. Este paso creará automáticamente las carpetas.
 
-1. Cree un archivo de texto **file.txt** en el equipo con contenido que incluya la palabra clave **Microsoft** . Un ejemplo es "test custom activity Microsoft test custom activity Microsoft".
+1. Cree un archivo de texto **file.txt** en el equipo con contenido que incluya la palabra clave **Microsoft**. Un ejemplo es "test custom activity Microsoft test custom activity Microsoft".
 
 1. Cargue el archivo a las siguientes carpetas de entrada en Blob Storage:
 
    ![Carpetas de entrada](./media/data-factory-data-processing-using-batch/image4.png)
 
-   Si usa el Explorador de Storage, cargue el archivo **file.txt** en **mycontainer** . Seleccione **Copiar** en la barra de herramientas para crear una copia del blob. En el cuadro de diálogo **Copy Blob** (Copiar blob), cambie el **nombre del blob de destino** a `inputfolder/2015-11-16-00/file.txt`. Repita este paso para crear `inputfolder/2015-11-16-01/file.txt`, `inputfolder/2015-11-16-02/file.txt`, `inputfolder/2015-11-16-03/file.txt`, `inputfolder/2015-11-16-04/file.txt`, etc. Esta acción crea automáticamente las carpetas.
+   Si usa el Explorador de Storage, cargue el archivo **file.txt** en **mycontainer**. Seleccione **Copiar** en la barra de herramientas para crear una copia del blob. En el cuadro de diálogo **Copy Blob** (Copiar blob), cambie el **nombre del blob de destino** a `inputfolder/2015-11-16-00/file.txt`. Repita este paso para crear `inputfolder/2015-11-16-01/file.txt`, `inputfolder/2015-11-16-02/file.txt`, `inputfolder/2015-11-16-03/file.txt`, `inputfolder/2015-11-16-04/file.txt`, etc. Esta acción crea automáticamente las carpetas.
 
 1. Cree otro contenedor denominado `customactivitycontainer`. Cargue el archivo ZIP de actividad personalizada a este contenedor.
 
@@ -170,10 +170,10 @@ El método tiene algunos componentes clave que debe conocer:
 
 * El método toma cuatro parámetros:
 
-  * **linkedServices** . Este parámetro es una lista enumerable de servicios vinculados que vincula los orígenes de datos de entrada y salida (por ejemplo: Blob Storage) a la factoría de datos. En este ejemplo, hay solo un servicio vinculado del tipo Azure Storage que se utilice como entrada y salida.
-  * **datasets** . Este parámetro es una lista enumerable de conjuntos de datos. Este parámetro se puede usar para obtener las ubicaciones y esquemas que definen los conjuntos de datos de entrada y salida.
-  * **activity** . Este parámetro representa la entidad de proceso actual. En este caso, es un servicio de Batch.
-  * **logger** . Puede usar el parámetro logger para escribir comentarios de depuración que se muestran como el registro de "User" en la canalización.
+  * **linkedServices**. Este parámetro es una lista enumerable de servicios vinculados que vincula los orígenes de datos de entrada y salida (por ejemplo: Blob Storage) a la factoría de datos. En este ejemplo, hay solo un servicio vinculado del tipo Azure Storage que se utilice como entrada y salida.
+  * **datasets**. Este parámetro es una lista enumerable de conjuntos de datos. Este parámetro se puede usar para obtener las ubicaciones y esquemas que definen los conjuntos de datos de entrada y salida.
+  * **activity**. Este parámetro representa la entidad de proceso actual. En este caso, es un servicio de Batch.
+  * **logger**. Puede usar el parámetro logger para escribir comentarios de depuración que se muestran como el registro de "User" en la canalización.
 * El método devuelve un diccionario que se puede usar para encadenar actividades personalizadas en el futuro. Esta característica todavía no está implementada, así que solo devuelva un diccionario vacío en el método.
 
 #### <a name="procedure-create-the-custom-activity"></a>Procedimiento: Creación de la actividad personalizada
@@ -187,13 +187,13 @@ El método tiene algunos componentes clave que debe conocer:
 
    d. Seleccione **Biblioteca de clases** en la lista de tipos de proyecto de la derecha.
 
-   e. Escriba **MyDotNetActivity** for the **Nombre** .
+   e. Escriba **MyDotNetActivity** for the **Nombre**.
 
-   f. Seleccione **C:\\ADF** para **Ubicación** . Cree la carpeta **ADF** si no existe.
+   f. Seleccione **C:\\ADF** para **Ubicación**. Cree la carpeta **ADF** si no existe.
 
    g. Seleccione **Aceptar** para crear el proyecto.
 
-1. Seleccione **Herramientas** > **Administrador de paquetes NuGet** > **Consola del Administrador de paquetes** .
+1. Seleccione **Herramientas** > **Administrador de paquetes NuGet** > **Consola del Administrador de paquetes**.
 
 1. En la Consola del Administrador de paquetes, ejecute el siguiente comando para importar Microsoft.Azure.Management.DataFactories:
 
@@ -219,7 +219,7 @@ El método tiene algunos componentes clave que debe conocer:
     using Microsoft.WindowsAzure.Storage;
     using Microsoft.WindowsAzure.Storage.Blob;
     ```
-1. Cambie el nombre del espacio de nombres por **MyDotNetActivityNS** .
+1. Cambie el nombre del espacio de nombres por **MyDotNetActivityNS**.
 
     ```csharp
     namespace MyDotNetActivityNS
@@ -229,7 +229,7 @@ El método tiene algunos componentes clave que debe conocer:
     ```csharp
     public class MyDotNetActivity : IDotNetActivity
     ```
-1. Implemente (agregue) el método **Execute** de la interfaz **IDotNetActivity** en la clase **MyDotNetActivity** . Copie el siguiente código de ejemplo en el método. Consulte la sección [Método Execute](#execute-method) para obtener una explicación de la lógica usada en este método.
+1. Implemente (agregue) el método **Execute** de la interfaz **IDotNetActivity** en la clase **MyDotNetActivity**. Copie el siguiente código de ejemplo en el método. Consulte la sección [Método Execute](#execute-method) para obtener una explicación de la lógica usada en este método.
 
     ```csharp
     /// <summary>
@@ -395,11 +395,11 @@ El método tiene algunos componentes clave que debe conocer:
 
     El método Calculate calcula el número de instancias de la palabra clave "Microsoft" en los archivos de entrada (los blobs de la carpeta). El término de búsqueda "Microsoft" está codificado de forma rígida en el código.
 
-1. Compile el proyecto. Seleccione **Compilar** en el menú y después seleccione **Compilar solución** .
+1. Compile el proyecto. Seleccione **Compilar** en el menú y después seleccione **Compilar solución**.
 
-1. Inicie el Explorador de Windows y vaya a la carpeta **bin\\debug** o **bin\\release** . La elección de la carpeta depende del tipo de compilación.
+1. Inicie el Explorador de Windows y vaya a la carpeta **bin\\debug** o **bin\\release**. La elección de la carpeta depende del tipo de compilación.
 
-1. Cree un archivo ZIP **MyDotNetActivity.zip** que contenga todos los archivos binarios en la carpeta **\\bin\\Debug** . Puede incluir el archivo MyDotNetActivity. **pdb** para obtener detalles adicionales, como el número de línea en el código fuente que causó el problema, en caso de error.
+1. Cree un archivo ZIP **MyDotNetActivity.zip** que contenga todos los archivos binarios en la carpeta **\\bin\\Debug**. Puede incluir el archivo MyDotNetActivity.**pdb** para obtener detalles adicionales, como el número de línea en el código fuente que causó el problema, en caso de error.
 
    ![Lista de la carpeta bin\Debug](./media/data-factory-data-processing-using-batch/image5.png)
 
@@ -408,7 +408,7 @@ El método tiene algunos componentes clave que debe conocer:
 #### <a name="execute-method"></a>Método Execute
 En esta sección se proporcionan más detalles sobre el código del método Execute.
 
-1. Los miembros para procesar una iteración en la colección de entrada se encuentran en el espacio de nombres [Microsoft.WindowsAzure.Storage.Blob](/java/api/com.microsoft.azure.storage.blob) . El procesamiento de una iteración en la colección de blobs requiere el uso de la clase **BlobContinuationToken** . En esencia, es preciso usar un bucle do-while con el token como mecanismo para salir del bucle. Para más información, vea [Uso de Blob Storage de .NET](../../storage/blobs/storage-quickstart-blobs-dotnet.md). Aquí se muestra un bucle básico:
+1. Los miembros para procesar una iteración en la colección de entrada se encuentran en el espacio de nombres [Microsoft.WindowsAzure.Storage.Blob](/java/api/com.microsoft.azure.storage.blob) . El procesamiento de una iteración en la colección de blobs requiere el uso de la clase **BlobContinuationToken**. En esencia, es preciso usar un bucle do-while con el token como mecanismo para salir del bucle. Para más información, vea [Uso de Blob Storage de .NET](../../storage/blobs/storage-quickstart-blobs-dotnet.md). Aquí se muestra un bucle básico:
 
     ```csharp
     // Initialize the continuation token.
@@ -433,9 +433,9 @@ En esta sección se proporcionan más detalles sobre el código del método Exec
     ```
    Para más información, vea la documentación del método [ListBlobsSegmented](/java/api/com.microsoft.azure.storage.blob.cloudblobcontainer.listblobssegmented).
 
-1. Lógicamente, el código para trabajar en el conjunto de blobs lógicamente está dentro del bucle do-while. En el método **Execute** , el bucle do-while pasa la lista de blobs a un método denominado **Calculate** . El método devuelve una variable de cadena denominada **output** que es el resultado de haber procesado una iteración en todos los blobs del segmento.
+1. Lógicamente, el código para trabajar en el conjunto de blobs lógicamente está dentro del bucle do-while. En el método **Execute**, el bucle do-while pasa la lista de blobs a un método denominado **Calculate**. El método devuelve una variable de cadena denominada **output** que es el resultado de haber procesado una iteración en todos los blobs del segmento.
 
-   Devuelve el número de apariciones del término de búsqueda "Microsoft" en el blob que se pasa al método **Calculate** .
+   Devuelve el número de apariciones del término de búsqueda "Microsoft" en el blob que se pasa al método **Calculate**.
 
     ```csharp
     output += string.Format("{0} occurrences of the search term \"{1}\" were found in the file {2}.\r\n", wordCount, searchTerm, inputBlob.Name);
@@ -529,21 +529,21 @@ En el siguiente tutorial, se proporcionan más detalles.
 
    a. Seleccione **NUEVO** en el menú de la izquierda.
 
-   b. Seleccione **Datos y análisis** en la hoja **Nuevo** .
+   b. Seleccione **Datos y análisis** en la hoja **Nuevo**.
 
-   c. Haga clic en **Data Factory** en la hoja **Análisis de datos** .
+   c. Haga clic en **Data Factory** en la hoja **Análisis de datos**.
 
-1. En la hoja **Nueva factoría de datos** , escriba **CustomActivityFactory** en el campo Nombre. El nombre de la factoría de datos debe ser globalmente único. Si aparece el error "El nombre CustomActivityFactory de factoría de datos no está disponible", cambie dicho nombre. Por ejemplo, use sunombreCustomActivityFactory y vuelva a crear la factoría de datos.
+1. En la hoja **Nueva factoría de datos**, escriba **CustomActivityFactory** en el campo Nombre. El nombre de la factoría de datos debe ser globalmente único. Si aparece el error "El nombre CustomActivityFactory de factoría de datos no está disponible", cambie dicho nombre. Por ejemplo, use sunombreCustomActivityFactory y vuelva a crear la factoría de datos.
 
 1. Seleccione **NOMBRE DEL GRUPO DE RECURSOS** y seleccione un grupo de recursos existente o cree uno.
 
 1. Compruebe que la suscripción y la región en las que desea que se cree la factoría de datos son correctas.
 
-1. Seleccione **Crear** en la hoja **Nueva factoría de datos** .
+1. Seleccione **Crear** en la hoja **Nueva factoría de datos**.
 
 1. La factoría de datos se crea en el panel del portal.
 
-1. Tras crear correctamente la factoría de datos, se ve la página de **Data Factory** , que muestra el contenido de la misma.
+1. Tras crear correctamente la factoría de datos, se ve la página de **Data Factory**, que muestra el contenido de la misma.
 
    ![Página Data Factory](./media/data-factory-data-processing-using-batch/image6.png)
 
@@ -551,9 +551,9 @@ En el siguiente tutorial, se proporcionan más detalles.
 Los servicios vinculados vinculan almacenes de datos o servicios de proceso con una factoría de datos. En este paso, vinculará la cuenta de almacenamiento y la cuenta de Batch con su factoría de datos.
 
 #### <a name="create-an-azure-storage-linked-service"></a>Creación de un servicio vinculado de Azure Storage
-1. Seleccione el icono **Crear e implementar** de la hoja **Data Factory** de **CustomActivityFactory** . Aparece Data Factory Editor.
+1. Seleccione el icono **Crear e implementar** de la hoja **Data Factory** de **CustomActivityFactory**. Aparece Data Factory Editor.
 
-1. Seleccione **Nuevo almacén de datos** en la barra de comandos y elija **Azure Storage** . El script JSON que usa para crear un servicio vinculado de Storage aparece en el editor.
+1. Seleccione **Nuevo almacén de datos** en la barra de comandos y elija **Azure Storage**. El script JSON que usa para crear un servicio vinculado de Storage aparece en el editor.
 
    ![Nuevo almacén de datos](./media/data-factory-data-processing-using-batch/image7.png)
 
@@ -566,7 +566,7 @@ Los servicios vinculados vinculan almacenes de datos o servicios de proceso con 
 #### <a name="create-an-azure-batch-linked-service"></a>Creación de un servicio vinculado de Azure Batch
 En este paso, creará un servicio vinculado para su cuenta de Batch que se usará para ejecutar la actividad personalizada de Data Factory.
 
-1. Seleccione **Nuevo proceso** en la barra de comandos y elija **Azure Batch** . El script JSON que usa para crear un servicio vinculado de Batch aparece en el editor.
+1. Seleccione **Nuevo proceso** en la barra de comandos y elija **Azure Batch**. El script JSON que usa para crear un servicio vinculado de Batch aparece en el editor.
 
 1. En el script JSON:
 
@@ -574,7 +574,7 @@ En este paso, creará un servicio vinculado para su cuenta de Batch que se usar�
 
    b. Reemplace **access key** por la clave de acceso de la cuenta de Batch.
 
-   c. Escriba el identificador del grupo de la propiedad **poolName** . Para esta propiedad, puede especificar cualquier nombre de grupo o identificador de grupo.
+   c. Escriba el identificador del grupo de la propiedad **poolName**. Para esta propiedad, puede especificar cualquier nombre de grupo o identificador de grupo.
 
    d. Escriba el identificador URI de lote para la propiedad **batchUri** de JSON.
 
@@ -585,7 +585,7 @@ En este paso, creará un servicio vinculado para su cuenta de Batch que se usar�
 
       ![Hoja Cuenta de Batch](./media/data-factory-data-processing-using-batch/image9.png)
 
-      En la propiedad **poolName** , también puede especificar el identificador del grupo, en lugar del nombre del grupo.
+      En la propiedad **poolName**, también puede especificar el identificador del grupo, en lugar del nombre del grupo.
 
       > [!NOTE]
       > El servicio Data Factory no admite una opción a petición para Batch como lo hace para HDInsight. Puede usar solo su propio grupo de Batch en una factoría de datos.
@@ -660,7 +660,7 @@ En este paso, crea conjuntos de datos que representan los datos de entrada y sal
     }
     ```
 
-    Más adelante, en este mismo tutorial, creará una canalización cuya hora de inicio es 2015-11-16T00:00:00Z, y cuya hora de finalización es 2015-11-16T05:00:00Z. Está programada para generar datos cada hora, por lo que hay cinco segmentos de entrada o salida (entre **00** :00:00 -\> **05** :00:00).
+    Más adelante, en este mismo tutorial, creará una canalización cuya hora de inicio es 2015-11-16T00:00:00Z, y cuya hora de finalización es 2015-11-16T05:00:00Z. Está programada para generar datos cada hora, por lo que hay cinco segmentos de entrada o salida (entre **00**:00:00 -\> **05**:00:00).
 
     Los valores de **frequency** e **interval** del conjunto de datos de entrada se establecen en **Hour** y **1** respectivamente, lo que significa que el segmento de entrada está disponible cada hora.
 
@@ -668,23 +668,23 @@ En este paso, crea conjuntos de datos que representan los datos de entrada y sal
 
     | **Segmento** | **Hora de inicio**          |
     |-----------|-------------------------|
-    | 1         | 2015-11-16T **00** :00:00 |
-    | 2         | 2015-11-16T **01** :00:00 |
-    | 3         | 2015-11-16T **02** :00:00 |
-    | 4         | 2015-11-16T **03** :00:00 |
-    | 5         | 2015-11-16T **04** :00:00 |
+    | 1         | 2015-11-16T **00**:00:00 |
+    | 2         | 2015-11-16T **01**:00:00 |
+    | 3         | 2015-11-16T **02**:00:00 |
+    | 4         | 2015-11-16T **03**:00:00 |
+    | 5         | 2015-11-16T **04**:00:00 |
 
-    La propiedad **folderPath** se calcula usando la parte de año, mes, día y hora de la hora de inicio del segmento ( **SliceStart** ). Aquí se muestra cómo se asigna una carpeta de entrada a un segmento.
+    La propiedad **folderPath** se calcula usando la parte de año, mes, día y hora de la hora de inicio del segmento (**SliceStart**). Aquí se muestra cómo se asigna una carpeta de entrada a un segmento.
 
     | **Segmento** | **Hora de inicio**          | **Carpeta de entrada**  |
     |-----------|-------------------------|-------------------|
-    | 1         | 2015-11-16T **00** :00:00 | 2015-11-16- **00** |
-    | 2         | 2015-11-16T **01** :00:00 | 2015-11-16- **01** |
-    | 3         | 2015-11-16T **02** :00:00 | 2015-11-16- **02** |
-    | 4         | 2015-11-16T **03** :00:00 | 2015-11-16- **03** |
-    | 5         | 2015-11-16T **04** :00:00 | 2015-11-16- **04** |
+    | 1         | 2015-11-16T **00**:00:00 | 2015-11-16-**00** |
+    | 2         | 2015-11-16T **01**:00:00 | 2015-11-16-**01** |
+    | 3         | 2015-11-16T **02**:00:00 | 2015-11-16-**02** |
+    | 4         | 2015-11-16T **03**:00:00 | 2015-11-16-**03** |
+    | 5         | 2015-11-16T **04**:00:00 | 2015-11-16-**04** |
 
-1. Seleccione **Implementar** en la barra de herramientas para crear e implementar la tabla **InputDataset** .
+1. Seleccione **Implementar** en la barra de herramientas para crear e implementar la tabla **InputDataset**.
 
 #### <a name="create-the-output-dataset"></a>Creación del conjunto de datos de salida
 En este paso, creará otro conjunto de datos de tipo AzureBlob para representar los datos de salida.
@@ -725,21 +725,21 @@ En este paso, creará otro conjunto de datos de tipo AzureBlob para representar 
 
     | **Segmento** | **Hora de inicio**          | **Archivo de salida**       |
     |-----------|-------------------------|-----------------------|
-    | 1         | 2015-11-16T **00** :00:00 | 2015-11-16- **00.txt** |
-    | 2         | 2015-11-16T **01** :00:00 | 2015-11-16- **01.txt** |
-    | 3         | 2015-11-16T **02** :00:00 | 2015-11-16- **02.txt** |
-    | 4         | 2015-11-16T **03** :00:00 | 2015-11-16- **03.txt** |
-    | 5         | 2015-11-16T **04** :00:00 | 2015-11-16- **04.txt** |
+    | 1         | 2015-11-16T **00**:00:00 | 2015-11-16-**00.txt** |
+    | 2         | 2015-11-16T **01**:00:00 | 2015-11-16-**01.txt** |
+    | 3         | 2015-11-16T **02**:00:00 | 2015-11-16-**02.txt** |
+    | 4         | 2015-11-16T **03**:00:00 | 2015-11-16-**03.txt** |
+    | 5         | 2015-11-16T **04**:00:00 | 2015-11-16-**04.txt** |
 
     Recuerde que todos los archivos de una carpeta de entrada (por ejemplo, 2015-11-16-00) forman parte de un segmento con la hora de inicio 2015-11-16-00. Cuando se procesa este segmento, la actividad personalizada examinan todos los archivos y produce una línea en el archivo de salida con el número de apariciones del término de búsqueda "Microsoft". Si hay tres archivos en la carpeta 2015-11-16-00, habrá tres líneas en el archivo de salida 2015-11-16-00.txt.
 
-1. Seleccione **Implementar** en la barra de herramientas para crear e implementar **OutputDataset** .
+1. Seleccione **Implementar** en la barra de herramientas para crear e implementar **OutputDataset**.
 
 #### <a name="step-4-create-and-run-the-pipeline-with-a-custom-activity"></a>Paso 4: Creación y ejecución de la canalización con una actividad personalizada
 En este paso, creará una canalización con la actividad personalizada que creó antes.
 
 > [!IMPORTANT]
-> Si no ha cargado **file.txt** a las carpetas de entrada en el contenedor de blobs, hágalo antes de crear la canalización. La propiedad **isPaused** está establecida en false en el código JSON de la canalización, por lo que esta se ejecutará de inmediato, porque la fecha de inicio ( **start** ) ya ha pasado.
+> Si no ha cargado **file.txt** a las carpetas de entrada en el contenedor de blobs, hágalo antes de crear la canalización. La propiedad **isPaused** está establecida en false en el código JSON de la canalización, por lo que esta se ejecutará de inmediato, porque la fecha de inicio (**start**) ya ha pasado.
 >
 >
 
@@ -792,28 +792,28 @@ En este paso, creará una canalización con la actividad personalizada que creó
     ```
    Tenga en cuenta los siguientes puntos:
 
-   * Solo hay una actividad en la canalización y es del tipo **DotNetActivity** .
-   * **AssemblyName** se establece en el nombre del archivo DLL **MyDotNetActivity.dll** .
-   * **EntryPoint** se establece **MyDotNetActivityNS.MyDotNetActivity** . Es básicamente \<namespace\>.\<classname\> en el código.
-   * **PackageLinkedService** está establecido en **StorageLinkedService** , que apunta a la instancia de Blob Storage que contiene el archivo ZIP de la actividad personalizada. Si usa diferentes cuentas de almacenamiento para los archivos de entrada y salida y el archivo ZIP de actividad personalizada, tendrá que crear otro servicio vinculado de Storage. En este artículo se asume que usa la misma cuenta de almacenamiento.
-   * **PackageFile** se establece en **customactivitycontainer/MyDotNetActivity.zip** . Está en el formato \<containerforthezip\>/\<nameofthezip.zip\>.
+   * Solo hay una actividad en la canalización y es del tipo **DotNetActivity**.
+   * **AssemblyName** se establece en el nombre del archivo DLL **MyDotNetActivity.dll**.
+   * **EntryPoint** se establece **MyDotNetActivityNS.MyDotNetActivity**. Es básicamente \<namespace\>.\<classname\> en el código.
+   * **PackageLinkedService** está establecido en **StorageLinkedService**, que apunta a la instancia de Blob Storage que contiene el archivo ZIP de la actividad personalizada. Si usa diferentes cuentas de almacenamiento para los archivos de entrada y salida y el archivo ZIP de actividad personalizada, tendrá que crear otro servicio vinculado de Storage. En este artículo se asume que usa la misma cuenta de almacenamiento.
+   * **PackageFile** se establece en **customactivitycontainer/MyDotNetActivity.zip**. Está en el formato \<containerforthezip\>/\<nameofthezip.zip\>.
    * La actividad personalizada toma **InputDataset** como entrada y **OutputDataset** como salida.
-   * La propiedad **linkedServiceName** de la actividad personalizada apunta a **AzureBatchLinkedService** , que indica a Data Factory que la actividad personalizada debe ejecutarse en Batch.
+   * La propiedad **linkedServiceName** de la actividad personalizada apunta a **AzureBatchLinkedService**, que indica a Data Factory que la actividad personalizada debe ejecutarse en Batch.
    * La configuración **concurrency** es importante. Si usa el valor predeterminado, que es 1, aunque tenga dos o más nodos de ejecución en el grupo de Batch, los segmentos se procesarán uno tras otro. Por lo tanto, no se aprovecha la ventaja de la funcionalidad de procesamiento paralelo de Batch. Si establece **concurrency** en un valor mayor, por ejemplo 2, significa que se pueden procesar dos segmentos (que se corresponden con dos tareas en Batch) al mismo tiempo. En este caso,se usan ambas máquinas virtuales en el grupo de Batch. Establezca la propiedad concurrency correctamente.
    * De manera predeterminada, solo se ejecuta una tarea (segmento) en una máquina virtual en un momento dado. De forma predeterminada, la opción **Maximum tasks per VM** (Máximo de tareas por máquina virtual) está establecida en 1 para un grupo de Batch. Como parte de los requisitos previos, creó un grupo con esta propiedad establecida en 2. Por lo tanto, dos segmentos de la factoría de datos se pueden ejecutar en una máquina virtual al mismo tiempo.
      - La propiedad **isPaused** se establece en false de forma predeterminada. La canalización se ejecuta inmediatamente en este ejemplo, ya que los segmentos se inician en el pasado. Esta propiedad se puede establecer en **true** para pausar la canalización y se puede volver a establecer en **false** para reiniciarla.
-     -   Las horas de inicio ( **start** ) y fin ( **end** ) se separan por un intervalo de cinco horas. Los segmentos se generan cada hora, por lo que la canalización crea cinco segmentos.
+     -   Las horas de inicio (**start**) y fin (**end**) se separan por un intervalo de cinco horas. Los segmentos se generan cada hora, por lo que la canalización crea cinco segmentos.
 
 1. Seleccione **Implementar** en la barra de comandos para implementar la canalización.
 
 #### <a name="step-5-test-the-pipeline"></a>Paso 5: Prueba de la canalización
 En este paso, probará la canalización colocando archivos en las carpetas de entrada. Empiece por probar la canalización con un archivo por cada carpeta de entrada.
 
-1. En la hoja **Data Factory** de Azure Portal, seleccione **Diagrama** .
+1. En la hoja **Data Factory** de Azure Portal, seleccione **Diagrama**.
 
    ![Diagrama](./media/data-factory-data-processing-using-batch/image10.png)
 
-1. En la vista de **diagrama** , haga doble clic en el conjunto de datos de entrada **InputDataset** .
+1. En la vista de **diagrama**, haga doble clic en el conjunto de datos de entrada **InputDataset**.
 
    ![InputDataset](./media/data-factory-data-processing-using-batch/image11.png)
 
@@ -821,7 +821,7 @@ En este paso, probará la canalización colocando archivos en las carpetas de en
 
    ![Horas de inicio y finalización del segmento de entrada](./media/data-factory-data-processing-using-batch/image12.png)
 
-1. En la vista **Diagrama** , seleccione **OutputDataset** .
+1. En la vista **Diagrama**, seleccione **OutputDataset**.
 
 1. Los cinco segmentos de salida aparecen con el estado **Listo** si se han generado.
 
@@ -842,15 +842,15 @@ En este paso, probará la canalización colocando archivos en las carpetas de en
 
    ![Diagrama de asignación de segmentos](./media/data-factory-data-processing-using-batch/image16.png)
 
-1. Ahora, pruebe con varios archivos en una carpeta. Cree los archivos **file2.txt** , **file3.txt** , **file4.txt** y **file5.txt** con el mismo contenido que file.txt en la carpeta **2015-11-06-01** .
+1. Ahora, pruebe con varios archivos en una carpeta. Cree los archivos **file2.txt**, **file3.txt**, **file4.txt** y **file5.txt** con el mismo contenido que file.txt en la carpeta **2015-11-06-01**.
 
-1. En la carpeta de salida, elimine el archivo de salida **2015-11-16-01.txt** .
+1. En la carpeta de salida, elimine el archivo de salida **2015-11-16-01.txt**.
 
-1. En la hoja **OutputDataset** , haga clic con el botón derecho en el segmento con el valor de **HORA DE INICIO DE SEGMENTO** establecido en **11/16/2015 01:00:00 AM** . Seleccione **Ejecutar** para volver a ejecutar o procesar el segmento. Ahora, el segmento tiene cinco archivos en lugar de uno.
+1. En la hoja **OutputDataset**, haga clic con el botón derecho en el segmento con el valor de **HORA DE INICIO DE SEGMENTO** establecido en **11/16/2015 01:00:00 AM**. Seleccione **Ejecutar** para volver a ejecutar o procesar el segmento. Ahora, el segmento tiene cinco archivos en lugar de uno.
 
     ![Ejecute](./media/data-factory-data-processing-using-batch/image17.png)
 
-1. Una vez que se ejecuta el segmento y su estado es **Listo** , compruebe el contenido del archivo de salida para este segmento ( **2015-11-16-01.txt** ). El archivo de salida aparece en `mycontainer` en `outputfolder` en Blob Storage. Debería aparecer una línea para cada archivo del segmento.
+1. Una vez que se ejecuta el segmento y su estado es **Listo**, compruebe el contenido del archivo de salida para este segmento (**2015-11-16-01.txt**). El archivo de salida aparece en `mycontainer` en `outputfolder` en Blob Storage. Debería aparecer una línea para cada archivo del segmento.
 
     ```
     2 occurrences(s) of the search term "Microsoft" were found in the file inputfolder/2015-11-16-01/file.txt.
@@ -881,19 +881,19 @@ Use el portal para ver el trabajo de Batch y las tareas que están asociadas con
 ### <a name="debug-the-pipeline"></a>Depuración de la canalización
 La depuración se compone de varias técnicas básicas.
 
-1. Si el segmento de entrada no está establecido en **Listo** , confirme que la estructura de la carpeta de entrada es correcta y que file.txt se encuentra en las carpetas de entrada.
+1. Si el segmento de entrada no está establecido en **Listo**, confirme que la estructura de la carpeta de entrada es correcta y que file.txt se encuentra en las carpetas de entrada.
 
    ![Estructura de carpetas de entrada](./media/data-factory-data-processing-using-batch/image3.png)
 
 1. En el método **Execute** de la actividad personalizada, use el objeto **IActivityLogger** para registrar información que ayude a solucionar problemas. Los mensajes registrados se mostrarán en el archivo user\_0.log.
 
-   En la hoja **OutputDataset** , seleccione el segmento para ver la hoja **Segmento de datos** de dicho segmento. En **Ejecuciones de actividad** , debe aparecer una ejecución de actividad del segmento. Si selecciona **Ejecutar** en la barra de comandos, podrá iniciar otra ejecución de actividad en el mismo segmento.
+   En la hoja **OutputDataset**, seleccione el segmento para ver la hoja **Segmento de datos** de dicho segmento. En **Ejecuciones de actividad**, debe aparecer una ejecución de actividad del segmento. Si selecciona **Ejecutar** en la barra de comandos, podrá iniciar otra ejecución de actividad en el mismo segmento.
 
    Al seleccionar la ejecución de actividad, verá la hoja **Detalles de la ejecución de actividad** con una lista de archivos de registro. Los mensajes registrados se encuentran en el archivo user\_0.log. Si se produce un error, verá tres ejecuciones de actividad, ya que el número de reintentos está establecido en 3 en la canalización o actividad JSON. Al seleccionar la ejecución de actividad, verá los archivos de registro que puede revisar para solucionar el error.
 
    ![Hojas OutputDataset y Segmento de datos](./media/data-factory-data-processing-using-batch/image18.png)
 
-   En la lista de archivos de registro, seleccione **user-0.log** . En el panel derecho, aparecen los resultados del uso del método **IActivityLogger.Write** .
+   En la lista de archivos de registro, seleccione **user-0.log**. En el panel derecho, aparecen los resultados del uso del método **IActivityLogger.Write**.
 
    ![Hoja Detalles de la ejecución de actividad](./media/data-factory-data-processing-using-batch/image19.png)
 
@@ -916,7 +916,7 @@ La depuración se compone de varias técnicas básicas.
 
 1. Asegúrese de que en **assemblyName** (MyDotNetActivity.dll), **entryPoint** (MyDotNetActivityNS.MyDotNetActivity), **packageFile** (customactivitycontainer/MyDotNetActivity.zip) y **packageLinkedService** (debe apuntar a la instancia de Blob Storage que contiene el archivo ZIP) se han establecido los valores correctos.
 
-1. Si corrigió algún error y desea volver a procesar el segmento, haga clic con el botón derecho en el segmento en la hoja **OutputDataset** y seleccione **Ejecutar** .
+1. Si corrigió algún error y desea volver a procesar el segmento, haga clic con el botón derecho en el segmento en la hoja **OutputDataset** y seleccione **Ejecutar**.
 
    ![Opción Ejecutar de la hoja OutputDataset](./media/data-factory-data-processing-using-batch/image21.png)
 
@@ -931,13 +931,13 @@ La depuración se compone de varias técnicas básicas.
 #### <a name="extend-the-sample"></a>Extensión del ejemplo
 Puede extender este ejemplo para obtener más información sobre las características Data Factory y Batch. Por ejemplo, para procesar los segmentos de un intervalo de tiempo diferente, realice los siguientes pasos:
 
-1. Agregue las siguientes subcarpetas en `inputfolder`: 2015-11-16-05, 2015-11-16-06, 201-11-16-07, 2011-11-16-08 y 2015-11-16-09. Coloque los archivos de entrada en esas carpetas. Cambie la hora de finalización de la canalización de `2015-11-16T05:00:00Z` a `2015-11-16T10:00:00Z`. En la vista **Diagrama** , haga doble clic en **InputDataset** y confirme que los segmentos de entrada están listos. Haga doble clic en **OuptutDataset** para ver el estado de los segmentos de salida. Si se encuentran en el estado **Listo** , compruebe si los archivos de salida se encuentran en la carpeta de salida.
+1. Agregue las siguientes subcarpetas en `inputfolder`: 2015-11-16-05, 2015-11-16-06, 201-11-16-07, 2011-11-16-08 y 2015-11-16-09. Coloque los archivos de entrada en esas carpetas. Cambie la hora de finalización de la canalización de `2015-11-16T05:00:00Z` a `2015-11-16T10:00:00Z`. En la vista **Diagrama**, haga doble clic en **InputDataset** y confirme que los segmentos de entrada están listos. Haga doble clic en **OuptutDataset** para ver el estado de los segmentos de salida. Si se encuentran en el estado **Listo**, compruebe si los archivos de salida se encuentran en la carpeta de salida.
 
-1. Aumente o disminuya la configuración de **concurrency** para saber cómo afecta al rendimiento de la solución, especialmente el procesamiento que se produce en Batch. Para más información sobre la **simultaneidad** , consulte "Paso 4: Creación y ejecución de la canalización con una actividad personalizada".
+1. Aumente o disminuya la configuración de **concurrency** para saber cómo afecta al rendimiento de la solución, especialmente el procesamiento que se produce en Batch. Para más información sobre la **simultaneidad**, consulte "Paso 4: Creación y ejecución de la canalización con una actividad personalizada".
 
-1. Cree un grupo con un valor mayor o menor en **Máximo de tareas por máquina virtual** . Actualice el servicio vinculado Batch en la solución de Data Factory para que use el nuevo grupo que creó. Para más información sobre el **Máximo de tareas por máquina virtual** , consulte "Paso 4: Creación y ejecución de la canalización con una actividad personalizada".
+1. Cree un grupo con un valor mayor o menor en **Máximo de tareas por máquina virtual**. Actualice el servicio vinculado Batch en la solución de Data Factory para que use el nuevo grupo que creó. Para más información sobre el **Máximo de tareas por máquina virtual**, consulte "Paso 4: Creación y ejecución de la canalización con una actividad personalizada".
 
-1. Cree un grupo de Batch con la característica de **escalado automático** . El escalado automático de los nodos de ejecución de un grupo de Batch es el ajuste dinámico de la potencia de procesamiento que usa su aplicación.
+1. Cree un grupo de Batch con la característica de **escalado automático**. El escalado automático de los nodos de ejecución de un grupo de Batch es el ajuste dinámico de la potencia de procesamiento que usa su aplicación.
 
     La fórmula del ejemplo obtiene el comportamiento siguiente. Cuando el grupo se crea inicialmente, se inicia con una máquina virtual. La métrica $PendingTasks define el número de tareas que están en ejecución y activas (en cola). La fórmula busca el número promedio de tareas pendientes en los últimos 180 segundos y establece TargetDedicated en consecuencia. Garantiza que TargetDedicated nunca supera las 25 VM. El grupo crece automáticamente a medida que se envían nuevas tareas. Cuando las tareas finalizan, las máquinas virtuales quedan libres una a una y el escalado automático reduce esas máquinas virtuales. Puede adaptar startingNumberOfVMs y maxNumberofVMs a sus necesidades.
 

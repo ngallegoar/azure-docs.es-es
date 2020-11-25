@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
 ms.openlocfilehash: e015c6761b920ef37af2bbfd67ced5fc3218d532
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91290694"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002245"
 ---
 # <a name="configure-the-connected-factory-solution-accelerator"></a>Configuración del acelerador de soluciones de factoría conectada
 
@@ -88,7 +88,7 @@ El siguiente fragmento de código muestra un esquema del archivo de configuraci�
 }
 ```
 
-Las propiedades comunes de  `<global_configuration>`, `<factory_configuration>`, `<production_line_configuration>` y `<station_configuration>` son:
+Las propiedades comunes de `<global_configuration>`, `<factory_configuration>`, `<production_line_configuration>` y `<station_configuration>` son:
 
 * **Name** (tipo cadena)
 

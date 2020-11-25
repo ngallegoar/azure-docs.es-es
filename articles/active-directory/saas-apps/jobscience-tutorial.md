@@ -11,11 +11,11 @@ ms.topic: tutorial
 ms.date: 07/12/2017
 ms.author: jeedes
 ms.openlocfilehash: 5a104dcd6ccf500c115359a1b72c67b85359a802
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94355165"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002194"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jobscience"></a>Tutorial: Integración de Azure Active Directory con Jobscience
 
@@ -96,24 +96,24 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
 **Para configurar el inicio de sesión único de Azure AD con Jobscience, realice los pasos siguientes:**
 
-1. En Azure Portal, en la página de integración de la aplicación **Jobscience** , haga clic en **Inicio de sesión único**.
+1. En Azure Portal, en la página de integración de la aplicación **Jobscience**, haga clic en **Inicio de sesión único**.
 
     ![Captura de pantalla que muestra que se ha seleccionado Inicio de sesión único en Administrar en Azure Portal.][4]
 
-1. En el cuadro de diálogo **Inicio de sesión único** , en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
+1. En el cuadro de diálogo **Inicio de sesión único**, en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
  
     ![La captura de pantalla muestra el modo de inicio de sesión basado en SAML seleccionado.](./media/jobscience-tutorial/tutorial_jobscience_samlbase.png)
 
-1. En la sección **Dominio y direcciones URL de Jobscience** , lleve a cabo los pasos siguientes:
+1. En la sección **Dominio y direcciones URL de Jobscience**, lleve a cabo los pasos siguientes:
 
     ![Captura de pantalla que muestra la dirección URL de inicio de sesión.](./media/jobscience-tutorial/tutorial_jobscience_url.png)
 
-    En el cuadro de texto **URL de inicio de sesión** , escriba una dirección URL con el siguiente patrón: `http://<company name>.my.salesforce.com`
+    En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `http://<company name>.my.salesforce.com`
     
     > [!NOTE] 
     > Este valor no es real. Actualícelo con la dirección URL de inicio de sesión real. Puede obtener este valor con el [equipo de soporte técnico del cliente de Jobscience](http://www.jobscience.com/support) o en el perfil de SSO que va a crear, lo que se explica más adelante en el tutorial. 
  
-1. En la sección **Certificado de firma de SAML** , haga clic en **Certificado (Base64)** y, luego, guarde el archivo de certificado en el equipo.
+1. En la sección **Certificado de firma de SAML**, haga clic en **Certificado (Base64)** y, luego, guarde el archivo de certificado en el equipo.
 
     ![Captura de pantalla que muestra el panel Certificado de firma de SAML, donde puede descargar un certificado.](./media/jobscience-tutorial/tutorial_jobscience_certificate.png) 
 
@@ -121,13 +121,13 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Captura de pantalla que muestra el botón Guardar.](./media/jobscience-tutorial/tutorial_general_400.png)
 
-1. En la sección **Configuración de Jobscience** , haga clic en **Configurar Jobscience** para abrir la ventana **Configurar inicio de sesión**. Copie la **URL del servicio de inicio de sesión único de SAML, el identificador de entidad de SAML y la dirección URL de cierre de sesión** de la sección **Referencia rápida**.
+1. En la sección **Configuración de Jobscience**, haga clic en **Configurar Jobscience** para abrir la ventana **Configurar inicio de sesión**. Copie la **URL del servicio de inicio de sesión único de SAML, el identificador de entidad de SAML y la dirección URL de cierre de sesión** de la sección **Referencia rápida**.
 
     ![Captura de pantalla que muestra la ventana Configuración de Jobscience.](./media/jobscience-tutorial/tutorial_jobscience_configure.png) 
 
 1. Inicie sesión como administrador en el sitio de la compañía de Jobscience.
 
-1. Acceda a **Setup** (Configuración).
+1. Acceda a **Setup**(Configuración).
    
    ![Captura de pantalla que muestra el elemento Setup (Configuración) para la empresa.](./media/jobscience-tutorial/IC784358.png "Configurar")
 
@@ -135,7 +135,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
    
    ![Mi dominio](./media/jobscience-tutorial/ic767825.png "Mi dominio")
 
-1. Para comprobar que el dominio se configuró correctamente, asegúrese de que está en " **Step 4 Deployed to Users** " (Paso 4. Dominio implementado para usuarios) y revise la sección " **My Domain Settings** " (Mi configuración de dominio).
+1. Para comprobar que el dominio se configuró correctamente, asegúrese de que está en "**Step 4 Deployed to Users**" (Paso 4. Dominio implementado para usuarios) y revise la sección "**My Domain Settings**" (Mi configuración de dominio).
 
     ![Dominio implementado para el usuario](./media/jobscience-tutorial/ic784377.png "Dominio implementado para el usuario")
 
@@ -157,9 +157,9 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     
     a. En el cuadro de texto **Name** (Nombre), escriba el nombre de la configuración.
 
-    b. En el cuadro de texto **Emisor** , pegue el valor de **SAML Entity ID** (Identificador de entidad de SAML) que ha copiado de Azure Portal.
+    b. En el cuadro de texto **Emisor**, pegue el valor de **SAML Entity ID** (Identificador de entidad de SAML) que ha copiado de Azure Portal.
 
-    c. En el cuadro de texto **Id. de identidad** , escriba `https://salesforce-jobscience.com`
+    c. En el cuadro de texto **Id. de identidad**, escriba `https://salesforce-jobscience.com`
 
     d. Haga clic en **Examinar** para cargar el certificado de Azure AD.
 
@@ -167,11 +167,11 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     f. Para **///SAML Identity Location** (Ubicación de identidad SAML), seleccione **///Identity is in the NameIdentfier element of the Subject statement** (La identidad está en el elemento NameIdentifier de la instrucción Subject).
 
-    g. En el cuadro de texto **Identity Provider Login URL** (Dirección URL de inicio de sesión del proveedor de identidades), pegue el valor de **dirección URL del servicio de inicio de sesión único de SAML** , que ha copiado de Azure Portal.
+    g. En el cuadro de texto **Identity Provider Login URL** (Dirección URL de inicio de sesión del proveedor de identidades), pegue el valor de **dirección URL del servicio de inicio de sesión único de SAML**, que ha copiado de Azure Portal.
 
-    h. En el cuadro de texto **Identity Provider Logout URL** (Dirección URL de cierre de sesión del proveedor de identidades), pegue el valor de **dirección URL de cierre de sesión** , que ha copiado de Azure Portal.
+    h. En el cuadro de texto **Identity Provider Logout URL** (Dirección URL de cierre de sesión del proveedor de identidades), pegue el valor de **dirección URL de cierre de sesión**, que ha copiado de Azure Portal.
 
-    i. Haga clic en **Save** (Guardar).
+    i. Haga clic en **Save**(Guardar).
 
 1. En el panel de navegación izquierdo, en la sección **Administer** (Administrar), haga clic en **Domain Management** (Administración de dominios) para expandir la sección relacionada y, luego, haga clic en **My Domain** (Mi dominio) para abrir la página **My Domain** (Mi dominio). 
     
@@ -181,7 +181,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     
     ![Captura de pantalla que muestra la sección Login Page Branding (Personalización de marca de la página de inicio de sesión) con el botón Edit (Editar).](./media/jobscience-tutorial/ic767826.png "Personalización de marca de la página de inicio de sesión")
 
-1. En la página **Login Page Branding** (Personalización de marca de la página de inicio de sesión), en la sección **Authentication Service** (Servicio de autenticación), se muestra el nombre de su **SAML SSO Settings** (Configuración de SSO de SAML). Selecciónelo y luego haga clic en **Save** (Guardar).
+1. En la página **Login Page Branding** (Personalización de marca de la página de inicio de sesión), en la sección **Authentication Service** (Servicio de autenticación), se muestra el nombre de su **SAML SSO Settings** (Configuración de SSO de SAML). Selecciónelo y luego haga clic en **Save**(Guardar).
     
     ![Captura de pantalla que muestra la sección Login Page Branding (Personalización de marca de la página de inicio de sesión) con la casilla PPE y el botón Save (Guardar) seleccionados.](./media/jobscience-tutorial/ic784366.png "Personalización de marca de la página de inicio de sesión")
 
@@ -192,7 +192,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     Haga clic en el perfil SSO creado en el paso anterior. En esta página se muestra la dirección URL de inicio de sesión único de su empresa; por ejemplo, `https://companyname.my.salesforce.com?so=companyid`.    
 
 > [!TIP]
-> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales** , simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más aquí sobre la característica de documentación insertada: [Documentación insertada de Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más aquí sobre la característica de documentación insertada: [Documentación insertada de Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
@@ -202,7 +202,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
 **Siga estos pasos para crear un usuario de prueba en Azure AD:**
 
-1. En el panel de navegación izquierdo de **Azure Portal** , haga clic en el icono de **Azure Active Directory**.
+1. En el panel de navegación izquierdo de **Azure Portal**, haga clic en el icono de **Azure Active Directory**.
 
     ![La captura de pantalla muestra el icono de Azure AD en Azure Portal.](./media/jobscience-tutorial/create_aaduser_01.png) 
 
@@ -210,17 +210,17 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
     
     ![Captura de pantalla que muestra los usuarios y grupos seleccionados en el menú Administrar, con la opción Todos los usuarios seleccionada.](./media/jobscience-tutorial/create_aaduser_02.png) 
 
-1. Para abrir el cuadro de diálogo **Usuario** , haga clic en **Agregar** en la parte superior del cuadro de diálogo.
+1. Para abrir el cuadro de diálogo **Usuario**, haga clic en **Agregar** en la parte superior del cuadro de diálogo.
  
     ![Captura de pantalla que muestra el botón Agregar para abrir el cuadro de diálogo Usuario.](./media/jobscience-tutorial/create_aaduser_03.png) 
 
-1. En la página de diálogo **Usuario** , realice los siguientes pasos:
+1. En la página de diálogo **Usuario**, realice los siguientes pasos:
  
     ![Captura de pantalla que muestra el cuadro de diálogo Usuario, donde puede especificar los valores en este paso.](./media/jobscience-tutorial/create_aaduser_04.png) 
 
-    a. En el cuadro de texto **Nombre** , escriba **BrittaSimon**.
+    a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
 
-    b. En el cuadro de texto **Nombre de usuario** , escriba la **dirección de correo electrónico** de Britta Simon.
+    b. En el cuadro de texto **Nombre de usuario**, escriba la **dirección de correo electrónico** de Britta Simon.
 
     c. Seleccione **Mostrar contraseña** y anote el valor del cuadro **Contraseña**.
 
@@ -251,19 +251,19 @@ Para permitir que los usuarios de Azure AD inicien sesión en Jobscience, deben 
    
    ![Edición de usuarios](./media/jobscience-tutorial/ic784371.png "Edición de usuarios")
    
-   a. En el cuadro de texto **Nombre** , escriba el nombre del usuario, en este caso, Britta.
+   a. En el cuadro de texto **Nombre**, escriba el nombre del usuario, en este caso, Britta.
    
-   b. En el cuadro de texto **Apellidos** , escriba el apellido del usuario, en este caso, Simon.
+   b. En el cuadro de texto **Apellidos**, escriba el apellido del usuario, en este caso, Simon.
    
-   c. En el cuadro de texto **Alias** , escriba el nombre del alias del usuario, como brittas.
+   c. En el cuadro de texto **Alias**, escriba el nombre del alias del usuario, como brittas.
 
-   d. En el cuadro de texto **Correo electrónico** , escriba la dirección de correo electrónico de un usuario, por ejemplo, Brittasimon@contoso.com.
+   d. En el cuadro de texto **Correo electrónico**, escriba la dirección de correo electrónico de un usuario, por ejemplo, Brittasimon@contoso.com.
 
-   e. En el cuadro de texto **Nombre de usuario** , escriba un nombre de usuario como Brittasimon@contoso.com.
+   e. En el cuadro de texto **Nombre de usuario**, escriba un nombre de usuario como Brittasimon@contoso.com.
 
-   f. En el cuadro de texto **Sobrenombre** , escriba un sobrenombre del usuario, como Simon.
+   f. En el cuadro de texto **Sobrenombre**, escriba un sobrenombre del usuario, como Simon.
 
-   g. Haga clic en **Save** (Guardar).
+   g. Haga clic en **Save**(Guardar).
 
     
 > [!NOTE]
@@ -293,7 +293,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
     ![Captura de pantalla que muestra el botón Agregar, que se usa para agregar asignaciones.][203]
 
-1. En el cuadro de diálogo **Usuarios y grupos** , seleccione **Britta Simon** en la lista de usuarios.
+1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista de usuarios.
 
 1. Haga clic en el botón **Seleccionar** del cuadro de diálogo **Usuarios y grupos**.
 

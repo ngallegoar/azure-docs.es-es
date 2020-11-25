@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: dc759bb9af852fab5313686ebaffefda9220f45a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d80d97a609aa3a464b9b114439fe7f4058e287c3
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91614247"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001837"
 ---
 # <a name="create-a-reference-data-set-for-your-azure-time-series-insights-gen1-environment-using-the-azure-portal"></a>Creación de un conjunto de datos de referencia para el entorno de Azure Time Series Insights Gen1 mediante Azure Portal
 
@@ -121,4 +121,4 @@ Los datos de referencia no se combinan de manera retroactiva. Por lo tanto, solo
 
 - [Administración de datos de referencia](time-series-insights-manage-reference-data-csharp.md) mediante programación.
 
-- Para obtener una referencia completa de la API, lea el documento [API de datos de referencia](https://docs.microsoft.com/rest/api/time-series-insights/gen1-reference-data-api).
+- Para obtener una referencia completa de la API, lea el documento [API de datos de referencia](/rest/api/time-series-insights/gen1-reference-data-api).

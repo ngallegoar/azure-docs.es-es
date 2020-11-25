@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 07/03/2019
 ms.author: ramamill
 ms.openlocfilehash: 327e995a8fe2f66903548fba054804768d2538ab
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92534301"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001576"
 ---
 # <a name="set-up-the-configuration-server-for-disaster-recovery-of-physical-servers-to-azure"></a>Configuración del servidor de configuración para la recuperación ante desastres de servidores físicos en Azure
 
@@ -39,16 +39,16 @@ En la siguiente tabla se muestran los requisitos mínimos de hardware, software 
 2. En el menú de **Recurso** del almacén, haga clic en **Introducción** > **Site Recovery** > **Paso 1: Preparar la infraestructura** > **Objetivo de protección**.
 
     ![Captura de pantalla que muestra dónde seleccionar el objetivo de protección.](./media/physical-azure-set-up-source/choose-goals.png)
-3. En **Objetivo de protección** , seleccione **To Azure** (En Azure) y, luego, **No virtualizado/otro** ; después haga clic en **Aceptar**.
+3. En **Objetivo de protección**, seleccione **To Azure** (En Azure) y, luego, **No virtualizado/otro**; después haga clic en **Aceptar**.
 
     ![Elegir objetivos](./media/physical-azure-set-up-source/physical-protection-goal.png)
 
 ## <a name="set-up-the-source-environment"></a>Configuración del entorno de origen
 
-1. En **Preparar origen** , si no tiene un servidor de configuración, haga clic en **+Servidor de configuración** para agregar uno.
+1. En **Preparar origen**, si no tiene un servidor de configuración, haga clic en **+Servidor de configuración** para agregar uno.
 
    ![Captura de pantalla que muestra cómo seleccionar el servidor de configuración.](./media/physical-azure-set-up-source/plus-config-srv.png)
-2. En la hoja **Agregar servidor** , compruebe que **Servidor de configuración** aparezca en **Tipo de servidor**.
+2. En la hoja **Agregar servidor**, compruebe que **Servidor de configuración** aparezca en **Tipo de servidor**.
 4. Descargue el archivo de instalación unificada de Site Recovery.
 5. Descargue la clave de registro del almacén. Necesita la clave de registro cuando ejecuta la instalación unificada. La clave será válida durante cinco días a partir del momento en que se genera.
 

@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 02/21/2020
 ms.author: cshoe
-ms.openlocfilehash: 78836ca4e51875be4237267b3bb9256cc4541fe2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 11ad3bdcaa40c479c9358fd623edf0e6fdafa0d6
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81791707"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002089"
 ---
 Use el enlace de salida de Event Hubs para escribir eventos en una secuencia. Debe tener permiso de envío a un centro de eventos para escribir eventos en él.
 
@@ -235,7 +235,7 @@ Python no admite atributos.
 
 # <a name="java"></a>[Java](#tab/java)
 
-En la [biblioteca en tiempo de ejecución de funciones de Java](https://docs.microsoft.com/java/api/overview/azure/functions/runtime), utilice la anotación [EventHubOutput](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.eventhuboutput) en los parámetros cuyo valor se publicaría en el centro de eventos. El parámetro debe ser de tipo `OutputBinding<T>`, donde `T` es un tipo POJO o cualquier tipo nativo de Java.
+En la [biblioteca en tiempo de ejecución de funciones de Java](/java/api/overview/azure/functions/runtime), utilice la anotación [EventHubOutput](/java/api/com.microsoft.azure.functions.annotation.eventhuboutput) en los parámetros cuyo valor se publicaría en el centro de eventos. El parámetro debe ser de tipo `OutputBinding<T>`, donde `T` es un tipo POJO o cualquier tipo nativo de Java.
 
 ---
 
@@ -274,15 +274,15 @@ Hay dos opciones para la generación de un mensaje del centro de eventos desde u
 
 - **Valor devuelto**: Establezca la propiedad `name` de *function.json* en `$return`. Con esta configuración, el valor devuelto de la función se conserva como mensaje del centro de eventos.
 
-- **Imperativa**: Pase un valor al método [set](https://docs.microsoft.com/python/api/azure-functions/azure.functions.out?view=azure-python#set-val--t-----none) del parámetro declarado como tipo [Out](https://docs.microsoft.com/python/api/azure-functions/azure.functions.out?view=azure-python). El valor pasado a `set` se conserva como mensaje del centro de eventos.
+- **Imperativa**: Pase un valor al método [set](/python/api/azure-functions/azure.functions.out?view=azure-python#set-val--t-----none) del parámetro declarado como tipo [Out](/python/api/azure-functions/azure.functions.out?view=azure-python). El valor pasado a `set` se conserva como mensaje del centro de eventos.
 
 # <a name="java"></a>[Java](#tab/java)
 
-Hay dos opciones para la generación de un mensaje del centro de eventos desde una función mediante la anotación [EventHubOutput](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.eventhuboutput):
+Hay dos opciones para la generación de un mensaje del centro de eventos desde una función mediante la anotación [EventHubOutput](/java/api/com.microsoft.azure.functions.annotation.eventhuboutput):
 
 - **Valor devuelto**: Al aplicar la anotación a la propia función, el valor devuelto de la función se conserva como un mensaje del centro de eventos.
 
-- **Imperativa**: Para establecer explícitamente el valor del mensaje, aplique la anotación a un parámetro específico del tipo [`OutputBinding<T>`](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.OutputBinding), donde `T` es un POJO o cualquier tipo de Java nativo. Con esta configuración, pasar un valor al método `setValue` conserva el valor como un mensaje del centro de eventos.
+- **Imperativa**: Para establecer explícitamente el valor del mensaje, aplique la anotación a un parámetro específico del tipo [`OutputBinding<T>`](/java/api/com.microsoft.azure.functions.OutputBinding), donde `T` es un POJO o cualquier tipo de Java nativo. Con esta configuración, pasar un valor al método `setValue` conserva el valor como un mensaje del centro de eventos.
 
 ---
 
@@ -290,4 +290,4 @@ Hay dos opciones para la generación de un mensaje del centro de eventos desde u
 
 | Enlace | Referencia |
 |---|---|
-| Centro de eventos | [Guía de operaciones](https://docs.microsoft.com/rest/api/eventhub/publisher-policy-operations) |
+| Centro de eventos | [Guía de operaciones](/rest/api/eventhub/publisher-policy-operations) |

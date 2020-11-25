@@ -14,11 +14,11 @@ ms.date: 10/26/2020
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 55a27dbb6c2ec3569bae9d6fb96fcd8087f08daf
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637673"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001684"
 ---
 # <a name="azure-data-factory-copy-wizard"></a>Asistente para copia de Azure Data Factory
 
@@ -74,7 +74,7 @@ Supongamos que tiene carpetas de entrada con el siguiente formato:
 ...
 ```
 
-Haga clic en el botón **Examinar** de **Archivo o carpeta** , vaya a una de estas carpetas (por ejemplo, 2016->03->01->02) y haga clic en **Elegir**. En el cuadro de texto, debería aparecer `2016/03/01/02`. Sustituya **2016** por **{year}** , **03** por **{month}** , **01** por **{day}** y **02** por **{hour}** y presione la tecla **Tabulación**. Aparecerán listas desplegables en las que podrá seleccionar el formato de estas cuatro variables:
+Haga clic en el botón **Examinar** de **Archivo o carpeta**, vaya a una de estas carpetas (por ejemplo, 2016->03->01->02) y haga clic en **Elegir**. En el cuadro de texto, debería aparecer `2016/03/01/02`. Sustituya **2016** por **{year}** , **03** por **{month}** , **01** por **{day}** y **02** por **{hour}** y presione la tecla **Tabulación**. Aparecerán listas desplegables en las que podrá seleccionar el formato de estas cuatro variables:
 
 ![Uso de variables del sistema](./media/data-factory-copy-wizard/blob-standard-variables-in-folder-path.png)   
 
@@ -98,8 +98,8 @@ En esta sección se exploran métodos comunes de solución de problemas del Asis
 
 ### <a name="error-code-unable-to-validate-in-copy-wizard"></a>Código de error: No se puede validar en el Asistente para copia
 
-- **Síntomas** : en el primer paso del Asistente para copia, aparece el mensaje de advertencia "No se puede validar".
-- **Causas** : Esto puede ocurrir si todas las cookies de terceros están deshabilitadas.
+- **Síntomas**: en el primer paso del Asistente para copia, aparece el mensaje de advertencia "No se puede validar".
+- **Causas**: Esto puede ocurrir si todas las cookies de terceros están deshabilitadas.
 - **Solución:** 
     - Use Internet Explorer o Microsoft Edge.
     - Si usa el explorador Chrome, siga las instrucciones que se indican a continuación para agregar una excepción de cookies para *microsoftonline.com* y *windows.net*.
@@ -115,8 +115,8 @@ En esta sección se exploran métodos comunes de solución de problemas del Asis
         8.  Cierre el explorador y vuelva a abrirlo.
     - Si usa el explorador Firefox, siga las instrucciones que se indican a continuación para agregar excepciones de cookies.
         1. En el menú de Firefox, vaya a **Herramientas** > **Opciones**.
-        2. En **Privacidad** > **Historial** , es posible que el valor actual sea **Usar una configuración personalizada para el historial**.
-        3. En **Aceptar cookies de terceros** , es posible que el valor actual sea **Nunca**. En tal caso, debe hacer clic en **Excepciones** a la derecha para agregar los sitios siguientes.
+        2. En **Privacidad** > **Historial**, es posible que el valor actual sea **Usar una configuración personalizada para el historial**.
+        3. En **Aceptar cookies de terceros**, es posible que el valor actual sea **Nunca**. En tal caso, debe hacer clic en **Excepciones** a la derecha para agregar los sitios siguientes.
             - https://login.microsoftonline.com
             - https://login.windows.net
         4.  Cierre el explorador y vuelva a abrirlo. 
@@ -124,8 +124,8 @@ En esta sección se exploran métodos comunes de solución de problemas del Asis
 
 ### <a name="error-code-unable-to-open-login-page-and-enter-password"></a>Código de error: No se puede abrir la página de inicio de sesión e introducir la contraseña
 
-- **Síntomas** : El Asistente para copia le redirige a la página de inicio de sesión, pero la página no se muestra correctamente.
-- **Causas** : Este problema puede producirse si ha cambiado el entorno de red de una red de oficina a una red doméstica. Hay algunas cachés en exploradores. 
+- **Síntomas**: El Asistente para copia le redirige a la página de inicio de sesión, pero la página no se muestra correctamente.
+- **Causas**: Este problema puede producirse si ha cambiado el entorno de red de una red de oficina a una red doméstica. Hay algunas cachés en exploradores. 
 - **Solución:** 
     1.  Cierre el explorador e inténtelo de nuevo. Si el problema persiste, vaya al paso siguiente.   
     2.  Si usa Internet Explorer, intente abrirla en modo privado (presione "Ctrl" + "Mayús" + "P"). Si usa Chrome, intente abrirla en modo de incógnito (presione "Ctrl" + "Mayús" + "N"). Si el problema persiste, vaya al paso siguiente. 

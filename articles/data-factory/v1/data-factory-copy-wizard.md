@@ -14,11 +14,11 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 28169e43d0e6949a16cc56c7e7d5d91d6db1ef57
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636925"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96003045"
 ---
 # <a name="copy-or-move-data-easily-with-azure-data-factory-copy-wizard"></a>Copia o movimiento sencillos de datos con el Asistente para copia de Azure Data Factory
 > [!NOTE]
@@ -73,7 +73,7 @@ Supongamos que tiene carpetas de entrada con el siguiente formato:
 ...
 ```
 
-Haga clic en el botón **Examinar** de **Archivo o carpeta** , vaya a una de estas carpetas (por ejemplo, 2016->03->01->02) y haga clic en **Elegir** . En el cuadro de texto, debería aparecer `2016/03/01/02`. Sustituya **2016** por **{year}** , **03** por **{month}** , **01** por **{day}** y **02** por **{hour}** y presione la tecla TAB. Aparecerán listas desplegables en las que podrá seleccionar el formato de estas cuatro variables:
+Haga clic en el botón **Examinar** de **Archivo o carpeta**, vaya a una de estas carpetas (por ejemplo, 2016->03->01->02) y haga clic en **Elegir**. En el cuadro de texto, debería aparecer `2016/03/01/02`. Sustituya **2016** por **{year}** , **03** por **{month}** , **01** por **{day}** y **02** por **{hour}** y presione la tecla TAB. Aparecerán listas desplegables en las que podrá seleccionar el formato de estas cuatro variables:
 
 ![Uso de variables del sistema](./media/data-factory-copy-wizard/blob-standard-variables-in-folder-path.png)   
 

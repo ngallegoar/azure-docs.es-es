@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 05/08/2017
 ms.author: duau
 ms.openlocfilehash: fc6e8bcda17f9d788a430ed763bd9f8702eaf250
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89392925"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96003555"
 ---
 # <a name="add-disable-enable-or-delete-endpoints"></a>Incorporación, deshabilitación, habilitación o eliminación de puntos de conexión
 
@@ -53,7 +53,7 @@ También puede deshabilitar los extremos individuales que forman parte de un per
 2. En la barra de búsqueda, busque el nombre del **perfil de Traffic Manager** que desea modificar y haga clic en él en los resultados que se muestran.
 3. En la hoja **Perfil de Traffic Manager**, en la sección **Configuración**, haga clic en **Puntos de conexión**. 
 4. Haga clic en el punto de conexión que desea deshabilitar.
-5. En la hoja **Punto de conexión**, cambie el estado del punto de conexión a **Deshabilitado**y haga clic en **Guardar**.
+5. En la hoja **Punto de conexión**, cambie el estado del punto de conexión a **Deshabilitado** y haga clic en **Guardar**.
 6. Los clientes siguen enviando tráfico al punto de conexión durante el período de vida (TTL). Puede cambiar el valor de TTL en la página Configuración del perfil de Traffic Manager.
 
 ## <a name="to-enable-an-endpoint"></a>Para habilitar un extremo
@@ -62,7 +62,7 @@ También puede deshabilitar los extremos individuales que forman parte de un per
 2. En la barra de búsqueda, busque el nombre del **perfil de Traffic Manager** que desea modificar y haga clic en él en los resultados que se muestran.
 3. En la hoja **Perfil de Traffic Manager**, en la sección **Configuración**, haga clic en **Puntos de conexión**. 
 4. Haga clic en el punto de conexión que desea habilitar.
-5. En la hoja **Punto de conexión**, cambie el estado del punto de conexión a **Habilitado**y haga clic en **Guardar**.
+5. En la hoja **Punto de conexión**, cambie el estado del punto de conexión a **Habilitado** y haga clic en **Guardar**.
 6. Los clientes siguen enviando tráfico al punto de conexión durante el período de vida (TTL). Puede cambiar el valor de TTL en la página Configuración del perfil de Traffic Manager.
 
 ## <a name="to-delete-an-endpoint"></a>Para eliminar un punto de conexión

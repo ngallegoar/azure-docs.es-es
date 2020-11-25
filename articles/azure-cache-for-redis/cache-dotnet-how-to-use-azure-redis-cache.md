@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.custom: devx-track-csharp, mvc
 ms.date: 06/18/2020
 ms.openlocfilehash: 762fdf0aab0077cfbf8beceeb432dc85695e4176
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93077071"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002479"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-in-net-framework"></a>Inicio rápido: Uso de Azure Cache for Redis con .NET Framework
 
@@ -83,7 +83,7 @@ En Visual Studio, abra el archivo *App.config* y actualícelo para incluir un a
 
 En el Explorador de soluciones, haga clic con el botón derecho en **Referencias** y haga clic en **Agregar una referencia**. Agregue una referencia al ensamblado **System.Configuration**.
 
-Agregue las siguientes instrucciones `using` a *Program.cs* :
+Agregue las siguientes instrucciones `using` a *Program.cs*:
 
 ```csharp
 using StackExchange.Redis;
@@ -94,7 +94,7 @@ La clase `ConnectionMultiplexer` administra la conexión con Azure Redis Cache. 
 
 Nunca almacene credenciales en el código fuente. Para simplificar este ejemplo, solo se usa un archivo de configuración externo llamado secrets. Un enfoque más adecuado sería utilizar [Azure Key Vault con certificados](/rest/api/keyvault/certificate-scenarios).
 
-En *Program.cs* , agregue los siguientes miembros a la clase `Program` de la aplicación de consola:
+En *Program.cs*, agregue los siguientes miembros a la clase `Program` de la aplicación de consola:
 
 ```csharp
 private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
@@ -192,13 +192,13 @@ En Visual Studio, haga clic en **Herramientas** > **Administrador de paquetes Nu
 Install-Package Newtonsoft.Json
 ```
 
-Agregue la siguiente instrucción `using` al principio del archivo *Program.cs* :
+Agregue la siguiente instrucción `using` al principio del archivo *Program.cs*:
 
 ```csharp
 using Newtonsoft.Json;
 ```
 
-Agregue la siguiente definición de clase `Employee` a *Program.cs* :
+Agregue la siguiente definición de clase `Employee` a *Program.cs*:
 
 ```csharp
 class Employee
@@ -216,7 +216,7 @@ class Employee
 }
 ```
 
-En la parte inferior del procedimiento `Main()` de *Program.cs* , antes de llamar a `Dispose()`, agregue las siguientes líneas de código para almacenar en caché y recuperar un objeto .NET serializado:
+En la parte inferior del procedimiento `Main()` de *Program.cs*, antes de llamar a `Dispose()`, agregue las siguientes líneas de código para almacenar en caché y recuperar un objeto .NET serializado:
 
 ```csharp
     // Store .NET object to cache

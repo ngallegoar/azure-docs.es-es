@@ -10,12 +10,12 @@ ms.date: 11/09/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 48078ed06e36a33b10ee2d761a249159d14c6220
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: e2d74519b9adf9a74e5af180a3da28918a9a8dab
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94444510"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96001888"
 ---
 # <a name="blob-versioning"></a>Control de versiones de blobs
 
@@ -128,7 +128,7 @@ En el diagrama siguiente se muestra cómo se crea un blob sin versiones cuando s
 
 ## <a name="blob-versioning-and-soft-delete"></a>Control de versiones de blobs y eliminación temporal
 
-El control de versiones y la eliminación temporal de blobs funcionan de forma conjunta para proporcionarle una protección de datos óptima. Al habilitar la eliminación temporal, debe especificar el tiempo durante el que Azure Storage debe conservar un blob eliminado temporalmente. Cualquier versión de un blob eliminada temporalmente permanece en el sistema y se puede recuperar dentro del período de retención de eliminación temporal. Para obtener más información sobre la eliminación temporal, consulte [Eliminación temporal de blobs de Azure Storage](storage-blob-soft-delete.md).
+El control de versiones y la eliminación temporal de blobs funcionan de forma conjunta para proporcionarle una protección de datos óptima. Al habilitar la eliminación temporal, debe especificar el tiempo durante el que Azure Storage debe conservar un blob eliminado temporalmente. Cualquier versión de un blob eliminada temporalmente permanece en el sistema y se puede recuperar dentro del período de retención de eliminación temporal. Para obtener más información sobre la eliminación temporal, consulte [Eliminación temporal de blobs de Azure Storage](./soft-delete-blob-overview.md).
 
 ### <a name="deleting-a-blob-or-version"></a>Eliminación de un blob o una versión
 
@@ -297,4 +297,4 @@ En la tabla siguiente se describe el comportamiento de facturación de un blob q
 
 - [Habilitar y administrar las versiones de blob](versioning-enable.md)
 - [Creación de una instantánea de un blob](/rest/api/storageservices/creating-a-snapshot-of-a-blob)
-- [Eliminación temporal de blobs de Azure Storage](storage-blob-soft-delete.md)
+- [Eliminación temporal de blobs de Azure Storage](./soft-delete-blob-overview.md)

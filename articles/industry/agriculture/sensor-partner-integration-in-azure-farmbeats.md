@@ -6,11 +6,11 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
 ms.openlocfilehash: ef74c4b799c3a24636f88a8e704bf726104b034f
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92674318"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001599"
 ---
 # <a name="sensor-partner-integration"></a>Integración de partners de sensores
 
@@ -126,10 +126,10 @@ JSON es un formato de datos común independiente del lenguaje que proporciona un
 
 El centro de datos de FarmBeats tiene las siguientes API que permiten a los asociados de dispositivo crear y administrar los metadatos de dispositivos o sensores.
 
-- /**DeviceModel** : DeviceModel se corresponde con los metadatos del dispositivo, como el fabricante o el tipo de dispositivo, que es puerta de enlace o nodo.
-- /**Device** : Device se corresponde con un dispositivo físico presente en la granja.
-- /**SensorModel** : SensorModel se corresponde con los metadatos del sensor, por ejemplo, el fabricante, el tipo de sensor (analógico o digital) o la medida de sensor (como temperatura ambiente y presión).
-- /**Sensor** : El sensor corresponde a un sensor físico que registra valores. Un sensor normalmente se conecta a un dispositivo con un identificador de dispositivo.
+- /**DeviceModel**: DeviceModel se corresponde con los metadatos del dispositivo, como el fabricante o el tipo de dispositivo, que es puerta de enlace o nodo.
+- /**Device**: Device se corresponde con un dispositivo físico presente en la granja.
+- /**SensorModel**: SensorModel se corresponde con los metadatos del sensor, por ejemplo, el fabricante, el tipo de sensor (analógico o digital) o la medida de sensor (como temperatura ambiente y presión).
+- /**Sensor**: El sensor corresponde a un sensor físico que registra valores. Un sensor normalmente se conecta a un dispositivo con un identificador de dispositivo.
 
   DeviceModel | Descripción |
   --- | ---

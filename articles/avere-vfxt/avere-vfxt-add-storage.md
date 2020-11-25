@@ -7,11 +7,11 @@ ms.topic: how-to
 ms.date: 01/13/2020
 ms.author: rohogue
 ms.openlocfilehash: c17d3c7cd2cf6fe5bca725cf94344b2d2cb50bf2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88271148"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001531"
 ---
 # <a name="configure-storage"></a>Configuración del almacenamiento
 
@@ -149,7 +149,7 @@ Para agregar Blob Storage después de crear el clúster, siga estos pasos.
    * En **Service type** (Tipo de servicio), elija **Azure Storage**.
    * Elija la credencial que creó anteriormente.
    * Establezca el **contenido de cubo** como **Empty** (Vacío).
-   * Cambie la**comprobación del certificado** a **Disabled** (Deshabilitado).
+   * Cambie la **comprobación del certificado** a **Disabled** (Deshabilitado).
    * Cambie el **modo de compresión** a **None** (Ninguno).
    * Haga clic en **Next**.
    * En la cuarta página, escriba el nombre del contenedor en **Bucket name (Nombre de cubo)** como *storage_account_name*/*container_name*.
