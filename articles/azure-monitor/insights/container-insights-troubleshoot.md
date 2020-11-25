@@ -4,11 +4,11 @@ description: En este artículo se describe cómo se pueden detectar y solucionar
 ms.topic: conceptual
 ms.date: 07/21/2020
 ms.openlocfilehash: 5727702ff973523ce7ab6400c1c7748e0584acbf
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92890367"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010595"
 ---
 # <a name="troubleshooting-azure-monitor-for-containers"></a>Solución de problemas de Azure Monitor para contenedores
 
@@ -23,10 +23,10 @@ Durante el proceso de incorporación o de actualización, se intenta la asignaci
 También puede conceder este rol de forma manual desde Azure Portal siguiendo estos pasos:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
-2. En Azure Portal, haga clic en **Todos los servicios** , en la esquina superior izquierda. En la lista de recursos, escriba **Kubernetes**. Cuando comience a escribir, la lista se filtrará en función de la entrada. Seleccione **Azure Kubernetes**.
+2. En Azure Portal, haga clic en **Todos los servicios**, en la esquina superior izquierda. En la lista de recursos, escriba **Kubernetes**. Cuando comience a escribir, la lista se filtrará en función de la entrada. Seleccione **Azure Kubernetes**.
 3. En la lista de clústeres de Kubernetes, seleccione uno.
 2. En el menú de la izquierda, haga clic en **Control de acceso (IAM)** .
-3. Seleccione **+ Agregar** para agregar una asignación de roles, seleccione el cuadro **Publicador de métricas de supervisión** y, en el cuadro **Seleccionar** , escriba **AKS** para filtrar los resultados en las entidades de servicio de clústeres definidas en la suscripción. Seleccione aquella en la lista que sea específica de ese clúster.
+3. Seleccione **+ Agregar** para agregar una asignación de roles, seleccione el cuadro **Publicador de métricas de supervisión** y, en el cuadro **Seleccionar**, escriba **AKS** para filtrar los resultados en las entidades de servicio de clústeres definidas en la suscripción. Seleccione aquella en la lista que sea específica de ese clúster.
 4. Haga clic en **Guardar** para finalizar la asignación del rol.
 
 ## <a name="azure-monitor-for-containers-is-enabled-but-not-reporting-any-information"></a>Azure Monitor para contenedores está habilitado, pero no proporciona ninguna información
@@ -112,7 +112,7 @@ Los pods del agente de Azure Monitor para contenedores usan el punto de conexió
 
 ## <a name="non-azure-kubernetes-cluster-are-not-showing-in-azure-monitor-for-containers"></a>No se muestran los clústeres de Kubernetes que no son de Azure en Azure Monitor para contenedores.
 
-Para ver el clúster de Kubernetes que no es de Azure en Azure Monitor para contenedores, se necesita acceso de lectura en el área de trabajo de Log Analytics que admite esta información y en el recurso de la solución de Container Insights **ContainerInsights ( *área de trabajo* )** .
+Para ver el clúster de Kubernetes que no es de Azure en Azure Monitor para contenedores, se necesita acceso de lectura en el área de trabajo de Log Analytics que admite esta información y en el recurso de la solución de Container Insights **ContainerInsights (*área de trabajo*)** .
 
 ## <a name="next-steps"></a>Pasos siguientes
 

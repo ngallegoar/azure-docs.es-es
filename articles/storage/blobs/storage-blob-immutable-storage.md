@@ -9,12 +9,12 @@ ms.date: 11/13/2020
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
-ms.openlocfilehash: 39fdde572e269bb4f5648e91bf85539d02236ff6
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: acb2ebb0d7ce70c6b5963a8a6c3e392091e4bb1e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658560"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010068"
 ---
 # <a name="store-business-critical-blob-data-with-immutable-storage"></a>Almacenamiento de datos de blobs críticos para la empresa con almacenamiento inmutable
 
@@ -76,7 +76,7 @@ Los límites siguientes se aplican a las directivas de retención:
 
 ### <a name="allow-protected-append-blobs-writes"></a>Permitir escrituras de blobs en anexos protegidos
 
-Los blobs en anexos se componen de bloques de datos y se optimizan para las operaciones de anexión de datos necesarias en escenarios de auditoría y registro. Por diseño, los blobs en anexos solo permiten agregar nuevos bloques al final del blob. Con independencia de la inmutabilidad, la modificación o eliminación de los bloques existentes en un blob en anexos básicamente no se permite. Para más información sobre los blobs en anexos, vea [Acerca de los blobs en anexos](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs).
+Los blobs en anexos se componen de bloques de datos y se optimizan para las operaciones de anexión de datos necesarias en escenarios de auditoría y registro. Por diseño, los blobs en anexos solo permiten agregar nuevos bloques al final del blob. Con independencia de la inmutabilidad, la modificación o eliminación de los bloques existentes en un blob en anexos básicamente no se permite. Para más información sobre los blobs en anexos, vea [Acerca de los blobs en anexos](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs).
 
 Solo las directivas de retención de duración definida tienen una configuración `allowProtectedAppendWrites` que permite escribir nuevos bloques en un blob en anexos al tiempo que se mantiene la protección y el cumplimiento de inmutabilidad. Si se habilita este valor, puede crear un blob en anexos directamente en el contenedor protegido mediante la directiva y continuar agregando nuevos bloques de datos al final de los blobs en anexos existentes mediante la API *AppendBlock*. Solo se pueden agregar nuevos bloques y los bloques existentes no se pueden modificar ni eliminar. Se sigue aplicando la protección de inmutabilidad de retención de tiempo, lo que impide la eliminación del blob en anexos hasta que haya transcurrido el período de retención vigente. La habilitación de esta configuración no afecta al comportamiento de inmutabilidad de los blobs en bloques ni los blobs en páginas.
 
@@ -103,7 +103,7 @@ Los límites siguientes se aplican a las suspensiones legales:
 
 ## <a name="scenarios"></a>Escenarios
 
-La tabla siguiente muestra los tipos de operaciones de almacenamiento de blobs que se deshabilitan para los diferentes escenarios de inmutabilidad. Para obtener más información, vea la documentación de la [API REST de servicios Azure Blob](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api).
+La tabla siguiente muestra los tipos de operaciones de almacenamiento de blobs que se deshabilitan para los diferentes escenarios de inmutabilidad. Para obtener más información, vea la documentación de la [API REST de servicios Azure Blob](/rest/api/storageservices/blob-service-rest-api).
 
 | Escenario | Estado del blob | Operaciones de blob denegadas | Protección de contenedores y cuentas |
 |--|--|--|--|
@@ -116,7 +116,7 @@ La tabla siguiente muestra los tipos de operaciones de almacenamiento de blobs q
 <sup>2</sup> Solo se permite Anexar bloque para las directivas de retención de duración definida con la propiedad `allowProtectedAppendWrites` habilitada. Para más información, vea la sección [Permitir la escritura de blobs en anexos protegidos](#allow-protected-append-blobs-writes).
 
 > [!IMPORTANT]
-> Algunas cargas de trabajo, como [Copia de seguridad de SQL a URL](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url), cree un y agréguela. Si el contenedor tiene una directiva de retención basada en tiempo activa o una retención legal vigente, este patrón no funcionará.
+> Algunas cargas de trabajo, como [Copia de seguridad de SQL a URL](/sql/relational-databases/backup-restore/sql-server-backup-to-url), cree un y agréguela. Si el contenedor tiene una directiva de retención basada en tiempo activa o una retención legal vigente, este patrón no funcionará.
 
 ## <a name="pricing"></a>Precios
 
@@ -170,11 +170,11 @@ Sí. Cuando se crea por primera vez una directiva de retención con duración de
 
 **¿Se puede usar la eliminación temporal junto con las directivas de blob inmutables?**
 
-Sí, si los requisitos de cumplimiento permiten habilitar la eliminación temporal. La [eliminación temporal para Azure Blob Storage](storage-blob-soft-delete.md) se aplica a todos los contenedores dentro de una cuenta de almacenamiento, con independencia de que exista una directiva de retención con duración definida o una suspensión legal. Se recomienda habilitar la eliminación temporal para mayor protección antes de aplicar y confirmar las directivas WORM inmutables.
+Sí, si los requisitos de cumplimiento permiten habilitar la eliminación temporal. La [eliminación temporal para Azure Blob Storage](./soft-delete-blob-overview.md) se aplica a todos los contenedores dentro de una cuenta de almacenamiento, con independencia de que exista una directiva de retención con duración definida o una suspensión legal. Se recomienda habilitar la eliminación temporal para mayor protección antes de aplicar y confirmar las directivas WORM inmutables.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Establecimiento y administración de directivas de inmutabilidad para el almacenamiento de blobs](storage-blob-immutability-policies-manage.md)
 - [Establecimiento de reglas para organizar y eliminar automáticamente datos de blob con administración del ciclo de vida](storage-lifecycle-management-concepts.md)
-- [Eliminación temporal de blobs de Azure Storage](../blobs/storage-blob-soft-delete.md)
+- [Eliminación temporal de blobs de Azure Storage](./soft-delete-blob-overview.md)
 - [Protección de suscripciones, grupos de recursos y recursos con bloqueos de Azure Resource Manager](../../azure-resource-manager/management/lock-resources.md).

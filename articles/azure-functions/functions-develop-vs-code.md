@@ -5,11 +5,11 @@ ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 08/21/2019
 ms.openlocfilehash: c851f5284b87f224932b027fd10ce720327639c2
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167906"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010511"
 ---
 # <a name="develop-azure-functions-by-using-visual-studio-code"></a>Desarrollo de Azure Functions con Visual Studio Code
 
@@ -60,11 +60,11 @@ Otros recursos que necesita, como una cuenta de Azure Storage, se crean en su su
 
 La extensión de Functions le permite crear un proyecto de aplicación de funciones, junto con su primera función. Los pasos siguientes muestran cómo crear una función desencadenada por HTTP en un nuevo proyecto de funciones. [Desencadenador HTTP](functions-bindings-http-webhook.md) es la plantilla de desencadenador de función más sencilla de mostrar.
 
-1. En **Azure: Functions** , seleccione el icono **Crear función** :
+1. En **Azure: Functions**, seleccione el icono **Crear función**:
 
     ![Creación de una función](./media/functions-develop-vs-code/create-function.png)
 
-1. Seleccione la carpeta para el proyecto de aplicación de funciones y, a continuación, **seleccione un lenguaje para el proyecto de función** .
+1. Seleccione la carpeta para el proyecto de aplicación de funciones y, a continuación, **seleccione un lenguaje para el proyecto de función**.
 
 1. Si aún no ha instalado las herramientas principales, se le pedirá que **seleccione una versión** de estas para instalar. Elija la versión 2.x o una posterior. 
 
@@ -72,7 +72,7 @@ La extensión de Functions le permite crear un proyecto de aplicación de funcio
 
     ![Elegir la plantilla del desencadenador HTTP](./media/functions-develop-vs-code/create-function-choose-template.png)
 
-1. Escriba **HttpExample** como nombre de la función, seleccione Entrar y, después, seleccione la autorización de **Función** . Este nivel de autorización requiere que proporcione un valor para la [clave de función](functions-bindings-http-webhook-trigger.md#authorization-keys) al llamar al punto de conexión de la función.
+1. Escriba **HttpExample** como nombre de la función, seleccione Entrar y, después, seleccione la autorización de **Función**. Este nivel de autorización requiere que proporcione un valor para la [clave de función](functions-bindings-http-webhook-trigger.md#authorization-keys) al llamar al punto de conexión de la función.
 
     ![Selección de la autorización de función](./media/functions-develop-vs-code/create-function-auth.png)
 
@@ -84,9 +84,9 @@ La extensión de Functions le permite crear un proyecto de aplicación de funcio
 
 La plantilla de proyecto crea un proyecto en el lenguaje elegido e instala las dependencias necesarias. Para cualquier lenguaje, el proyecto nuevo contiene los archivos siguientes:
 
-* **host.json** : permite configurar el host de Functions. Esta configuración se aplica cuando se ejecutan funciones localmente y cuando se ejecutan en Azure. Para más información, consulte la [referencia sobre host.json](functions-host-json.md).
+* **host.json**: permite configurar el host de Functions. Esta configuración se aplica cuando se ejecutan funciones localmente y cuando se ejecutan en Azure. Para más información, consulte la [referencia sobre host.json](functions-host-json.md).
 
-* **local.settings.json** : mantiene la configuración que se usa al ejecutar localmente las funciones. Esta configuración solo se utiliza al ejecutar las funciones de forma local. Para más información, consulte [Archivo de configuración local](#local-settings-file).
+* **local.settings.json**: mantiene la configuración que se usa al ejecutar localmente las funciones. Esta configuración solo se utiliza al ejecutar las funciones de forma local. Para más información, consulte [Archivo de configuración local](#local-settings-file).
 
     >[!IMPORTANT]
     >Debido a que el archivo local.settings.json puede contener secretos, tiene que excluirlo del control de origen del proyecto.
@@ -141,7 +141,7 @@ dotnet add package Microsoft.Azure.WebJobs.Extensions.Storage --version 3.0.4
 
 ## <a name="add-a-function-to-your-project"></a>Incorporación de una función al proyecto
 
-Puede agregar una nueva función a un proyecto existente mediante una de las plantillas de desencadenador de funciones predefinidas. Para agregar un nuevo desencadenador de función, seleccione la tecla F1 para abrir la paleta de comandos, después, busque y ejecute el comando **Azure Functions: Create Function** . Siga las indicaciones para elegir el tipo de desencadenador y definir los atributos necesarios del desencadenador. Si el desencadenador requiere una clave de acceso o cadena de conexión para conectarse a un servicio, prepárela antes de crear el desencadenador de la función.
+Puede agregar una nueva función a un proyecto existente mediante una de las plantillas de desencadenador de funciones predefinidas. Para agregar un nuevo desencadenador de función, seleccione la tecla F1 para abrir la paleta de comandos, después, busque y ejecute el comando **Azure Functions: Create Function**. Siga las indicaciones para elegir el tipo de desencadenador y definir los atributos necesarios del desencadenador. Si el desencadenador requiere una clave de acceso o cadena de conexión para conectarse a un servicio, prepárela antes de crear el desencadenador de la función.
 
 Los resultados de esta acción dependen del lenguaje del proyecto:
 
@@ -181,7 +181,7 @@ Para más información, consulte la documentación de [Enlace de salida de Queue
 
 # <a name="javascript"></a>[JavaScript](#tab/nodejs)
 
-Visual Studio Code le permite agregar enlaces a su archivo function.json siguiendo un conjunto práctico de mensajes. Para crear un enlace, haga clic con el botón derecho (Ctrl + clic en macOS) en el **archivo function.json** de la carpeta de función y seleccione **Agregar enlace** :
+Visual Studio Code le permite agregar enlaces a su archivo function.json siguiendo un conjunto práctico de mensajes. Para crear un enlace, haga clic con el botón derecho (Ctrl + clic en macOS) en el **archivo function.json** de la carpeta de función y seleccione **Agregar enlace**:
 
 ![Incorporación de un enlace a una función de JavaScript existente ](media/functions-develop-vs-code/function-add-binding.png)
 
@@ -192,7 +192,7 @@ Los siguientes son mensajes de ejemplo para definir un nuevo enlace de salida de
 | **Select binding direction** (Seleccionar dirección de enlace) | `out` | El enlace es un enlace de salida. |
 | **Select binding with direction** (Seleccionar enlace con dirección) | `Azure Queue Storage` | El enlace es un enlace de cola de Azure Storage. |
 | **The name used to identify this binding in your code** (Nombre identificativo del enlace en el código) | `msg` | Nombre que identifica el parámetro de enlace al que se hace referencia en el código. |
-| **The queue to which the message will be sent** (Cola donde se enviará el mensaje) | `outqueue` | El nombre de la cola en la que escribe el enlace. Cuando no existe *queueName* , el enlace lo crea durante el primer uso. |
+| **The queue to which the message will be sent** (Cola donde se enviará el mensaje) | `outqueue` | El nombre de la cola en la que escribe el enlace. Cuando no existe *queueName*, el enlace lo crea durante el primer uso. |
 | **Seleccione la configuración en "local.settings.json"** | `MyStorageConnection` | El nombre de una configuración de la aplicación que contiene la cadena de conexión de la cuenta de almacenamiento. El valor `AzureWebJobsStorage` contiene la cadena de conexión de la cuenta de almacenamiento que creó con la aplicación de función. |
 
 En este ejemplo, se agrega el siguiente enlace a la matriz `bindings` en el archivo function.json:
@@ -241,11 +241,11 @@ Si desea proporcionar nombres explícitos a los recursos creados, debe elegir la
 
 Los pasos siguientes publican el proyecto en una nueva aplicación de funciones que se creó con opciones de creación avanzadas.
 
-1. En el área **Azure: Functions** , seleccione el icono de **implementación en Function App** .
+1. En el área **Azure: Functions**, seleccione el icono de **implementación en Function App**.
 
     ![Configuración de Function App](./media/functions-develop-vs-code/function-app-publish-project.png)
 
-1. Se le pedirá que **inicie sesión en Azure** si todavía no lo ha hecho. También puede **crear una cuenta de Azure gratis** . Después de iniciar sesión en el explorador, vuelva a Visual Studio Code.
+1. Se le pedirá que **inicie sesión en Azure** si todavía no lo ha hecho. También puede **crear una cuenta de Azure gratis**. Después de iniciar sesión en el explorador, vuelva a Visual Studio Code.
 
 1. Si tiene varias suscripciones, **seleccione una suscripción** para la aplicación de funciones y, después, elija **+ Create New Function App in Azure... _Advanced_** (+ Crear una aplicación de función en Azure... Avanzado). Esta opción _avanzada_ le proporciona más control sobre los recursos que crea en Azure. 
 
@@ -311,7 +311,7 @@ En esta sección se utiliza la [extensión de Azure Storage para Visual Studio 
 
 Para establecer la cadena de conexión de cuenta de almacenamiento:
 
-1. En Visual Studio, abra **Cloud Explorer** , expanda **Cuenta de almacenamiento** > **Su cuenta de almacenamiento** y seleccione **Propiedades** y copie el valor de **Cadena de conexión principal** .
+1. En Visual Studio, abra **Cloud Explorer**, expanda **Cuenta de almacenamiento** > **Su cuenta de almacenamiento** y seleccione **Propiedades** y copie el valor de **Cadena de conexión principal**.
 
 2. En el proyecto, abra el archivo local.settings.json y establezca el valor de la clave **AzureWebJobsStorage** en la cadena de conexión que copió.
 
@@ -359,13 +359,13 @@ También puede publicar la configuración mediante el comando **Azure Functions:
 
 Si el archivo local está cifrado, se descifra, se publica y se cifra de nuevo. Si hay configuraciones con valores en conflicto en las dos ubicaciones, se le pedirá que elija cómo proceder.
 
-Visualice la configuración de la aplicación en el área **Azure: Funciones** expandiendo su suscripción, la aplicación de funciones, y **Configuración de aplicaciones** .
+Visualice la configuración de la aplicación en el área **Azure: Funciones** expandiendo su suscripción, la aplicación de funciones, y **Configuración de aplicaciones**.
 
 ![Visualización de la configuración de la aplicación de funciones en Visual Studio Code](./media/functions-develop-vs-code/view-app-settings.png)
 
 ### <a name="download-settings-from-azure"></a>Descarga de configuración desde Azure
 
-Si ha creado la configuración de la aplicación en Azure, puede descargarla en el archivo local.settings.json mediante el comando **Azure Functions: Descargar configuración remota** .
+Si ha creado la configuración de la aplicación en Azure, puede descargarla en el archivo local.settings.json mediante el comando **Azure Functions: Descargar configuración remota**.
 
 Como en el caso de las cargas, si el archivo local está cifrado, se descifra, se actualiza y se cifra de nuevo. Si hay configuraciones con valores en conflicto en las dos ubicaciones, se le pedirá que elija cómo proceder.
 
@@ -396,11 +396,11 @@ Para obtener más información sobre la supervisión mediante Application Insigh
 
 De forma predeterminada, todos los proyectos C# se crean como [proyectos de biblioteca de clases de C# compilados](functions-dotnet-class-library.md). Si prefiere en su lugar trabajar con proyectos de script de C#, tiene que seleccionar script de C# como el lenguaje predeterminado en la configuración de la extensión de Azure Functions.
 
-1. Seleccione **Archivo** > **Preferencias** > **Configuración** .
+1. Seleccione **Archivo** > **Preferencias** > **Configuración**.
 
-1. Vaya a **Configuración de usuario** > **Extensiones** > **Azure Functions** .
+1. Vaya a **Configuración de usuario** > **Extensiones** > **Azure Functions**.
 
-1. Elija **Script de C#** en **Función de Azure: Lenguaje del proyecto** .
+1. Elija **Script de C#** en **Función de Azure: Lenguaje del proyecto**.
 
 Después de haber completado estos pasos, las llamadas realizadas a la instancia subyacente de Core Tools incluyen la opción `--csx`, que genera y publica archivos de proyecto de script de C# (.csx). Cuando tenga el lenguaje predeterminado especificado, todos los proyectos creados son, de forma predeterminada, proyectos de script de C#. Cuando hay establecido un lenguaje predeterminado, no se le va a pedir que elija un lenguaje de proyecto. Para crear proyectos con otros lenguajes, tiene que cambiar esta configuración o quitarla del archivo de usuario settings.json. Después de quitar esta configuración, al crear un proyecto, se le volverá a pedir que elija su lenguaje.
 
@@ -417,7 +417,7 @@ La extensión de Azure Functions proporciona una interfaz gráfica útil en el �
 | **Create function app in Azure** (Creación de una aplicación de funciones en Azure) | Crea una nueva aplicación de funciones en su suscripción de Azure. Para más información, consulte [cómo publicar una nueva aplicación de funciones en Azure](#publish-to-azure).        |
 | **Decrypt Settings** (Descifrar la configuración) | Descifra la [configuración local](#local-settings-file) que se ha cifrado mediante **Azure Functions: Encrypt settings** (Cifrar configuración).  |
 | **Delete Function App** (Eliminar aplicación de funciones) | Quita una aplicación de funciones existente de la suscripción de Azure. Cuando no hay ninguna otra aplicación en el plan de App Service, se le da la opción de eliminar este también. Otros recursos, como las cuentas de almacenamiento y grupos de recursos, no se eliminan. Para quitar todos los recursos, en su lugar debe [eliminar el grupo de recursos](functions-add-output-binding-storage-queue-vs-code.md#clean-up-resources). El proyecto local no se verá afectado. |
-|**Delete Function** (Eliminar función)  | Quita una función existente de una aplicación de funciones en Azure. Dado que esta eliminación no afecta al proyecto local, en su lugar, considere la posibilidad de quitar la función localmente y después [volver a publicar el proyecto](#republish-project-files). |
+|**Delete Function**(Eliminar función)  | Quita una función existente de una aplicación de funciones en Azure. Dado que esta eliminación no afecta al proyecto local, en su lugar, considere la posibilidad de quitar la función localmente y después [volver a publicar el proyecto](#republish-project-files). |
 | **Delete Proxy** (Eliminar proxy) | Quita a un servidor proxy de Azure Functions desde la aplicación de funciones en Azure. Para más información sobre servidores proxy, consulte [Uso de Azure Functions Proxies](functions-proxies.md). |
 | **Delete Setting** (Eliminar opción) | Elimina una configuración de aplicación de funciones de Azure. Esta eliminación no afecta a la configuración del archivo local.settings.json. |
 | **Disconnect from Repo** (Desconectar del repositorio)  | Quita la conexión de [implementación continua](functions-continuous-deployment.md) entre una aplicación de funciones en Azure y un repositorio de control de código fuente. |

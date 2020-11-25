@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: maquaran
 ms.openlocfilehash: 329c4b40f11b36de80581d4a1396813bc8de5c73
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097335"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010323"
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>Redes sociales y Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -253,7 +253,7 @@ Con el tiempo, el tráfico crecerá y su consumo de recursos (que se mide en [RU
 
 ¿Qué ocurre si las cosas siguen mejorando? Supongamos que los usuarios de otro continente, país o región descubren su plataforma y empiecen a usarla. ¡Qué fantástica sorpresa!
 
-Pero espere un momento. Pronto se dará cuenta de que su experiencia con la plataforma no es óptima. Están tan lejos de su región operativa que la latencia es enorme. Obviamente, no quiere que abandonen su red social. ¡Si tan solo hubiese una forma sencilla de **extender su alcance global** ! Y la hay.
+Pero espere un momento. Pronto se dará cuenta de que su experiencia con la plataforma no es óptima. Están tan lejos de su región operativa que la latencia es enorme. Obviamente, no quiere que abandonen su red social. ¡Si tan solo hubiese una forma sencilla de **extender su alcance global**! Y la hay.
 
 Cosmos DB le permite [replicar los datos global](../cosmos-db/tutorial-global-distribution-sql-api.md) y transparentemente con un par de clics y seleccionar de forma automática entre las regiones disponibles del [código de cliente](../cosmos-db/tutorial-global-distribution-sql-api.md). Este proceso también significa que tiene [varias regiones de conmutación por error](high-availability.md).
 

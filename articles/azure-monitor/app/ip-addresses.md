@@ -4,11 +4,11 @@ description: Excepciones para el firewall del servidor requeridas por Applicatio
 ms.topic: conceptual
 ms.date: 09/15/2020
 ms.openlocfilehash: bf81cc863ab795ce9be5a9166d7dc68aeb3caeed
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94565847"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96009966"
 ---
 # <a name="ip-addresses-used-by-application-insights-and-log-analytics"></a>Direcciones IP que emplean Application Insights y Log Analytics
 El servicio [Azure Application Insights](./app-insights-overview.md) usa diversas direcciones IP. Quizás deba conocer estas direcciones si la aplicación que está supervisando se hospeda bajo el amparo de un firewall.

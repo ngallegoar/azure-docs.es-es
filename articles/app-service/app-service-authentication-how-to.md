@@ -5,11 +5,11 @@ ms.topic: article
 ms.date: 07/08/2020
 ms.custom: seodec18, devx-track-azurecli
 ms.openlocfilehash: ad83e7ad5e1ffc03bf7c62df9b28512e19a62100
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92739790"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010204"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Uso avanzado de la autenticación y autorización en Azure App Service
 
@@ -170,21 +170,21 @@ Desde el código de cliente (por ejemplo, una aplicación móvil o JavaScript en
 
 Cuando el token de acceso de su proveedor (no el [token de sesión](#extend-session-token-expiration-grace-period)) expire, debe volver a autenticar al usuario antes de volver a usar ese token. Puede evitar la expiración del token mediante la realización de una llamada `GET` al punto de conexión `/.auth/refresh` de la aplicación. Cuando se llama, App Service actualiza automáticamente los tokens de acceso en el [almacén de tokens](overview-authentication-authorization.md#token-store) para el usuario autenticado. Las solicitudes posteriores para los tokens por código de aplicación obtienen los tokens actualizados. Sin embargo, para que la actualización de token funcione, el almacén de tokens debe contener [tokens de actualización](https://auth0.com/learn/refresh-tokens/) para el proveedor. Cada proveedor documenta la manera de obtener tokens de actualización, pero en la lista siguiente se muestra un breve resumen:
 
-- **Google** : anexe un parámetro de cadena de consulta `access_type=offline` en su llamada API `/.auth/login/google`. Si usa el SDK de Mobile Apps, puede agregar el parámetro a una de las sobrecargas `LogicAsync` (vea [Google Refresh Tokens](https://developers.google.com/identity/protocols/OpenIDConnect#refresh-tokens) (Tokens de actualización de Google)).
-- **Facebook** : no proporciona tokens de actualización. Los tokens de larga duración expiran en 60 días (vea [Facebook Expiration and Extension of Access Tokens](https://developers.facebook.com/docs/facebook-login/access-tokens/expiration-and-extension) (Expiración y extensión de tokens de acceso de Facebook)).
-- **Twitter** : los tokens de acceso no expiran [vea [Twitter OAuth FAQ](https://developer.twitter.com/en/docs/basics/authentication/FAQ) (Preguntas más frecuentes sobre Twitter OAuth)].
-- **Cuenta Microsoft** : cuando [defina la configuración de autenticación de Cuenta Microsoft](configure-authentication-provider-microsoft.md), seleccione el ámbito `wl.offline_access`.
-- **Azure Active Directory** : en [https://resources.azure.com](https://resources.azure.com), siga estos pasos:
-    1. En la parte superior de la página, seleccione **Lectura y escritura** .
-    2. En el explorador de la izquierda, vaya a **subscriptions** > ** _\<subscription\_name_** > **resourceGroups** > **_ \<resource\_group\_name> _** > **providers** > **Microsoft.Web** > **sites** > **_ \<app\_name>_** > **config** > **authsettings** . 
-    3. Haga clic en **Editar** .
+- **Google**: anexe un parámetro de cadena de consulta `access_type=offline` en su llamada API `/.auth/login/google`. Si usa el SDK de Mobile Apps, puede agregar el parámetro a una de las sobrecargas `LogicAsync` (vea [Google Refresh Tokens](https://developers.google.com/identity/protocols/OpenIDConnect#refresh-tokens) (Tokens de actualización de Google)).
+- **Facebook**: no proporciona tokens de actualización. Los tokens de larga duración expiran en 60 días (vea [Facebook Expiration and Extension of Access Tokens](https://developers.facebook.com/docs/facebook-login/access-tokens/expiration-and-extension) (Expiración y extensión de tokens de acceso de Facebook)).
+- **Twitter**: los tokens de acceso no expiran [vea [Twitter OAuth FAQ](https://developer.twitter.com/en/docs/basics/authentication/FAQ) (Preguntas más frecuentes sobre Twitter OAuth)].
+- **Cuenta Microsoft**: cuando [defina la configuración de autenticación de Cuenta Microsoft](configure-authentication-provider-microsoft.md), seleccione el ámbito `wl.offline_access`.
+- **Azure Active Directory**: en [https://resources.azure.com](https://resources.azure.com), siga estos pasos:
+    1. En la parte superior de la página, seleccione **Lectura y escritura**.
+    2. En el explorador de la izquierda, vaya a **subscriptions** > ** _\<subscription\_name_** > **resourceGroups** > **_ \<resource\_group\_name> _** > **providers** > **Microsoft.Web** > **sites** > **_ \<app\_name>_** > **config** > **authsettings**. 
+    3. Haga clic en **Editar**.
     4. Modifique la siguiente propiedad. Reemplace _\<app\_id>_ por el identificador de aplicación de Azure Active Directory del servicio al que desea acceder.
 
         ```json
         "additionalLoginParams": ["response_type=code id_token", "resource=<app_id>"]
         ```
 
-    5. Haga clic en **Put** . 
+    5. Haga clic en **Put**. 
 
 Una vez configurado el proveedor, puede [buscar el token de actualización y el tiempo de expiración para el token de acceso](#retrieve-tokens-in-app-code) en el almacén de tokens. 
 
@@ -221,11 +221,11 @@ az webapp auth update --resource-group <group_name> --name <app_name> --token-re
 
 ## <a name="limit-the-domain-of-sign-in-accounts"></a>Limitación del dominio de cuentas de inicio de sesión
 
-Cuenta Microsoft y Azure Active Directory le permiten iniciar sesión desde varios dominios. Por ejemplo, Cuenta Microsoft permite cuentas de _outlook.com_ , _live.com_ y _hotmail.com_ . Azure AD permite cualquier número de dominios personalizados para las cuentas de inicio de sesión. Sin embargo, puede que quiera acelerar el proceso para que los usuarios accedan directamente a su propia página de inicio de sesión personalizada de Azure AD (por ejemplo, `contoso.com`). Para sugerir el nombre de dominio de las cuentas de inicio de sesión, siga estos pasos.
+Cuenta Microsoft y Azure Active Directory le permiten iniciar sesión desde varios dominios. Por ejemplo, Cuenta Microsoft permite cuentas de _outlook.com_, _live.com_ y _hotmail.com_. Azure AD permite cualquier número de dominios personalizados para las cuentas de inicio de sesión. Sin embargo, puede que quiera acelerar el proceso para que los usuarios accedan directamente a su propia página de inicio de sesión personalizada de Azure AD (por ejemplo, `contoso.com`). Para sugerir el nombre de dominio de las cuentas de inicio de sesión, siga estos pasos.
 
-En [https://resources.azure.com](https://resources.azure.com), vaya a **subscriptions** > ** _\<subscription\_name_** > **resourceGroups** > **_ \<resource\_group\_name> _** > **providers** > **Microsoft.Web** > **sites** > **_ \<app\_name> _** > **config** > **authsettings** . 
+En [https://resources.azure.com](https://resources.azure.com), vaya a **subscriptions** > ** _\<subscription\_name_** > **resourceGroups** > **_ \<resource\_group\_name> _** > **providers** > **Microsoft.Web** > **sites** > **_ \<app\_name> _** > **config** > **authsettings**. 
 
-Haga clic en **Editar** , modifique la propiedad siguiente y luego haga clic en **Put** . Asegúrese de reemplazar _\<domain\_name>_ por el dominio que desee.
+Haga clic en **Editar**, modifique la propiedad siguiente y luego haga clic en **Put**. Asegúrese de reemplazar _\<domain\_name>_ por el dominio que desee.
 
 ```json
 "additionalLoginParams": ["domain_hint=<domain_name>"]
@@ -247,13 +247,13 @@ Si bien App Service se encarga del caso de autorización más sencillo (es decir
 
 ### <a name="server-level-windows-apps-only"></a>Nivel de servidor (solo aplicaciones de Windows)
 
-En cualquier aplicación de Windows, puede definir el comportamiento de la autorización del servidor web de IIS editando el archivo *Web.config* . Las aplicaciones de Linux no usan IIS y no se pueden configurar a través de *Web. config* .
+En cualquier aplicación de Windows, puede definir el comportamiento de la autorización del servidor web de IIS editando el archivo *Web.config*. Las aplicaciones de Linux no usan IIS y no se pueden configurar a través de *Web. config*.
 
 1. Vaya a `https://<app-name>.scm.azurewebsites.net/DebugConsole`.
 
-1. En el explorador de archivos de App Service, vaya a *site/wwwroot* . Si no existe un archivo *Web.config* , créelo seleccionando **+**  > **Nuevo archivo** . 
+1. En el explorador de archivos de App Service, vaya a *site/wwwroot*. Si no existe un archivo *Web.config*, créelo seleccionando **+**  > **Nuevo archivo**. 
 
-1. Seleccione el lápiz de *Web. config* para editarlo. Agregue el código de configuración siguiente y haga clic en **Guardar** . Si ya existe *Web.config* , simplemente agregue el elemento `<authorization>` con todo lo que contiene. Agregue las cuentas que desea permitir al elemento `<allow>`.
+1. Seleccione el lápiz de *Web. config* para editarlo. Agregue el código de configuración siguiente y haga clic en **Guardar**. Si ya existe *Web.config*, simplemente agregue el elemento `<authorization>` con todo lo que contiene. Agregue las cuentas que desea permitir al elemento `<allow>`.
 
     ```xml
     <?xml version="1.0" encoding="utf-8"?>

@@ -9,17 +9,17 @@ ms.topic: include
 ms.date: 08/19/2020
 ms.custom: include file
 ms.openlocfilehash: efdd4a065e1eab55f5af420585a44754d42a43e9
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94503993"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010386"
 ---
-1. En el menú de Azure Portal o en la **página principal** , seleccione **Crear un recurso**.
+1. En el menú de Azure Portal o en la **página principal**, seleccione **Crear un recurso**.
 
-1. En la página **Nuevos** , busque y seleccione **Azure Cosmos DB**.
+1. En la página **Nuevos**, busque y seleccione **Azure Cosmos DB**.
 
-1. En la página **Azure Cosmos DB** , seleccione **Crear**.
+1. En la página **Azure Cosmos DB**, seleccione **Crear**.
 
 1. En la página **Creación de una cuenta de Azure Cosmos DB** , especifique la configuración básica de la nueva cuenta de Azure Cosmos. 
 

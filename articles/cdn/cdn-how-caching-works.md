@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/30/2018
 ms.author: allensu
 ms.openlocfilehash: a226682c2580a871e1b2fc4db71f369f3bcc3abb
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92778619"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010170"
 ---
 # <a name="how-caching-works"></a>Cómo funciona el almacenamiento en caché
 
@@ -65,7 +65,7 @@ Se pueden utilizar dos encabezados para definir la actualización del almacenami
 ## <a name="cache-directive-headers"></a>Encabezados de la directiva de caché
 
 > [!IMPORTANT]
-> Un punto de conexión de red Azure CDN que está optimizado para DSA omite los encabezados de la directiva de caché y omite el almacenamiento en caché de forma predeterminada. En el caso de los perfiles de **Azure CDN Standard de Verizon** y **Azure CDN Standard de Akamai** , puede ajustar el modo en que un punto de conexión de red de Azure CDN trata estos encabezados utilizando las [reglas de caché de la red CDN](cdn-caching-rules.md) para habilitar el almacenamiento en caché. Si son solo perfiles de **Azure CDN Premium de Verizon** , use el [motor de reglas](./cdn-verizon-premium-rules-engine.md) para habilitar el almacenamiento en caché.
+> Un punto de conexión de red Azure CDN que está optimizado para DSA omite los encabezados de la directiva de caché y omite el almacenamiento en caché de forma predeterminada. En el caso de los perfiles de **Azure CDN Standard de Verizon** y **Azure CDN Standard de Akamai**, puede ajustar el modo en que un punto de conexión de red de Azure CDN trata estos encabezados utilizando las [reglas de caché de la red CDN](cdn-caching-rules.md) para habilitar el almacenamiento en caché. Si son solo perfiles de **Azure CDN Premium de Verizon**, use el [motor de reglas](./cdn-verizon-premium-rules-engine.md) para habilitar el almacenamiento en caché.
 
 Azure CDN admite los siguientes encabezados de directiva de caché HTTP, que definen la duración de la memoria caché y el uso compartido de la memoria caché:
 
@@ -104,13 +104,13 @@ Cuando la memoria caché está obsoleta, los validadores de almacenamiento en ca
 - Una memoria caché valida un archivo que usa `ETag` mediante el envío de un encabezado `If-None-Match` con uno o varios validadores `ETag` en la solicitud. Por ejemplo, `If-None-Match: "17f0ddd99ed5bbe4edffdd6496d7131f"`. Si la versión del servidor coincide con un validador `ETag` de la lista, envía el código de estado 304 (no modificado) en la respuesta. Si la versión es diferente, el servidor responde con el código de estado 200 (OK) y el recurso actualizado.
 
 **Last-Modified:**
-- Solo con **Azure CDN Estándar/Premium de Verizon** , se usa `Last-Modified` si `ETag` no forma parte de la respuesta HTTP. 
+- Solo con **Azure CDN Estándar/Premium de Verizon**, se usa `Last-Modified` si `ETag` no forma parte de la respuesta HTTP. 
 - Especifica la fecha y hora en la que el servidor de origen determina que se modificó por última vez el recurso. Por ejemplo, `Last-Modified: Thu, 19 Oct 2017 09:28:00 GMT`.
 - Una memoria caché valida un archivo mediante `Last-Modified` enviando un encabezado `If-Modified-Since` con una fecha y hora en la solicitud. El servidor de origen compara esa fecha con el encabezado `Last-Modified` del recurso más reciente. Si el recurso no se ha modificado desde la hora especificada, el servidor devuelve el código de estado 304 (no modificado) en la respuesta. Si se ha modificado el recurso, el servidor devuelve el código de estado 200 (OK) y el recurso actualizado.
 
 ## <a name="determining-which-files-can-be-cached"></a>Determinación de los archivos que pueden almacenarse en caché
 
-No todos los recursos se pueden almacenar en caché. La siguiente tabla muestra los recursos que pueden almacenarse en caché, según el tipo de respuesta HTTP. No se almacenarán en caché los recursos entregados con respuestas HTTP que no cumplen todas estas condiciones. Solo con **Azure CDN Premium de Verizon** , puede usar el motor de reglas para personalizar algunas de estas condiciones.
+No todos los recursos se pueden almacenar en caché. La siguiente tabla muestra los recursos que pueden almacenarse en caché, según el tipo de respuesta HTTP. No se almacenarán en caché los recursos entregados con respuestas HTTP que no cumplen todas estas condiciones. Solo con **Azure CDN Premium de Verizon**, puede usar el motor de reglas para personalizar algunas de estas condiciones.
 
 |                       | Azure CDN de Microsoft          | Azure CDN de Verizon | Azure CDN de Akamai        |
 |-----------------------|-----------------------------------|------------------------|------------------------------|
@@ -129,9 +129,9 @@ En la tabla siguiente se describe el valor predeterminado del comportamiento del
 | **Respetar origen**       | Sí    | Sí   | No   | Sí    | No   | Sí   | Sí    |
 | **Duración de la caché de la red CDN** | 2 días |7 días | None | 7 días | None | 1 día | 1 año |
 
-**Respetar origen** : especifica si se respetan los encabezados de la directiva de caché admitidos, en caso de que existan en la respuesta HTTP del servidor de origen.
+**Respetar origen**: especifica si se respetan los encabezados de la directiva de caché admitidos, en caso de que existan en la respuesta HTTP del servidor de origen.
 
-**Duración de la caché de la red CDN** : especifica el periodo durante el que se almacena en caché un recurso en Azure CDN. Sin embargo, si **Respetar origen** es "Sí" y la respuesta HTTP del servidor de origen incluye el encabezado de la directiva de caché `Expires` o `Cache-Control: max-age`, Azure CDN usa el valor de duración especificado por el encabezado en su lugar. 
+**Duración de la caché de la red CDN**: especifica el periodo durante el que se almacena en caché un recurso en Azure CDN. Sin embargo, si **Respetar origen** es "Sí" y la respuesta HTTP del servidor de origen incluye el encabezado de la directiva de caché `Expires` o `Cache-Control: max-age`, Azure CDN usa el valor de duración especificado por el encabezado en su lugar. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
