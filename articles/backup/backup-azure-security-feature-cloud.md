@@ -3,12 +3,12 @@ title: Eliminación temporal de Azure Backup
 description: Aprenda a usar las características de seguridad de Azure Backup para que las copias de seguridad sean más seguras.
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: d7998c7f9def6ce9965ded3b6ec700f7975891eb
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: da473b1d886ec2fe95a7baae76b09aff38fb3cd7
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91271552"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95254056"
 ---
 # <a name="soft-delete-for-azure-backup"></a>Eliminación temporal de Azure Backup
 
@@ -87,11 +87,11 @@ Siga estos pasos:
 
 5. Elija **Eliminar datos de la copia de seguridad** para eliminar los datos de copia de seguridad de forma permanente.
 
-   ![Elegir Eliminar datos de la copia de seguridad](/azure/backup/media/backup-azure-manage-vms/delete-backup-buttom.png)
+   ![Elegir Eliminar datos de la copia de seguridad](./media/backup-azure-manage-vms/delete-backup-button.png)
 
 6. Escriba el nombre del elemento de copia de seguridad para confirmar que desea eliminar los puntos de recuperación.
 
-   ![Escritura del nombre del elemento de copia de seguridad](/azure/backup/media/backup-azure-manage-vms/delete-backup-data1.png)
+   ![Escritura del nombre del elemento de copia de seguridad](./media/backup-azure-manage-vms/delete-backup-data.png)
 
 7. Para eliminar los datos de copia de seguridad para el elemento, seleccione **Eliminar**. Un mensaje de notificación le confirma que se han eliminado los datos de copia de seguridad.
 

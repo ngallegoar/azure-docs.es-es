@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.author: b-juche
-ms.openlocfilehash: 4df96f1c508df22e98a9c611ed04fecf6734970a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: db1e8ce2e4fe9ae81bc2299ae70e9ff83941b5b4
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91278301"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95245881"
 ---
 # <a name="cross-region-replication-of-azure-netapp-files-volumes"></a>Replicación entre regiones de volúmenes de Azure NetApp Files
 
@@ -111,10 +111,11 @@ El cargo normal de la capacidad de almacenamiento de Azure NetApp Files del mes 
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Requisitos y consideraciones del uso de la replicación entre regiones](cross-region-replication-requirements-considerations.md)
-* [Creación de emparejamiento de replicación](cross-region-replication-create-peering.md)
+* [Creación de replicación de volumen](cross-region-replication-create-peering.md)
 * [Visualización del estado de mantenimiento de la relación de la replicación](cross-region-replication-display-health-status.md)
 * [Administración de la recuperación ante desastres](cross-region-replication-manage-disaster-recovery.md)
 * [Métricas de replicación de volúmenes](azure-netapp-files-metrics.md#replication)
+* [Eliminación de volúmenes o replicaciones de volúmenes](cross-region-replication-delete.md)
 * [Solución de problemas de la replicación entre regiones](troubleshoot-cross-region-replication.md)
 
 

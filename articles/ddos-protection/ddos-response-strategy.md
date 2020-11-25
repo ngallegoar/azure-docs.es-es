@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/08/2020
 ms.author: yitoh
-ms.openlocfilehash: 23822ce5b311dc479824128d66bc18a15473862d
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 0a80f03ee82e8d1216353482dc867402adcf7d09
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92904966"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94992240"
 ---
 # <a name="components-of-a-ddos-response-strategy"></a>Componentes de una estrategia de respuesta a DDoS
 
@@ -44,9 +44,9 @@ Es fundamental conocer el alcance del riesgo de un ataque de DDoS de forma conti
 
 - ¿Estás mis servicios activos o activos con conmutación por error en varias regiones?
 
-Es fundamental que comprenda el comportamiento normal de una aplicación y se prepare para actuar si la aplicación no se comporta de la manera esperada durante un ataque DDoS. Tenga monitores configurados para las aplicaciones críticas para la empresa que imitan el comportamiento del cliente y le notifican cuando se detectan anomalías relevantes. Consulte [Procedimientos recomendados de supervisión y diagnósticos](https://docs.microsoft.com/azure/architecture/best-practices/monitoring#monitoring-and-diagnostics-scenarios) para obtener información sobre el estado de la aplicación.
+Es fundamental que comprenda el comportamiento normal de una aplicación y se prepare para actuar si la aplicación no se comporta de la manera esperada durante un ataque DDoS. Tenga monitores configurados para las aplicaciones críticas para la empresa que imitan el comportamiento del cliente y le notifican cuando se detectan anomalías relevantes. Consulte [Procedimientos recomendados de supervisión y diagnósticos](/azure/architecture/best-practices/monitoring#monitoring-and-diagnostics-scenarios) para obtener información sobre el estado de la aplicación.
 
-[Azure Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview) es un servicio de Application Performance Management (APM) extensible para desarrolladores web en varias plataformas. Use Application Insights para supervisar la aplicación web en vivo. Se detectan automáticamente las anomalías de rendimiento. Incluye herramientas de análisis que le ayudan a diagnosticar problemas y a comprender lo que hacen los usuarios con la aplicación. Está diseñado para ayudarle a mejorar continuamente el rendimiento y la facilidad de uso.
+[Azure Application Insights](../azure-monitor/app/app-insights-overview.md) es un servicio de Application Performance Management (APM) extensible para desarrolladores web en varias plataformas. Use Application Insights para supervisar la aplicación web en vivo. Se detectan automáticamente las anomalías de rendimiento. Incluye herramientas de análisis que le ayudan a diagnosticar problemas y a comprender lo que hacen los usuarios con la aplicación. Está diseñado para ayudarle a mejorar continuamente el rendimiento y la facilidad de uso.
 
 ## <a name="customer-ddos-response-team"></a>Equipo de respuesta a DDoS del cliente
 

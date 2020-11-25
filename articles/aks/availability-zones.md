@@ -5,12 +5,12 @@ services: container-service
 ms.custom: fasttrack-edit, references_regions, devx-track-azurecli
 ms.topic: article
 ms.date: 09/04/2020
-ms.openlocfilehash: 2f7132ffa1fa55d1dfd8043677bf9695a589b7af
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 43b57d0b58c9268482ca27fd51040c7152ecdc25
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93043027"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026059"
 ---
 # <a name="create-an-azure-kubernetes-service-aks-cluster-that-uses-availability-zones"></a>Creación de un clúster de Azure Kubernetes Service (AKS) que use zonas de disponibilidad
 
@@ -31,11 +31,14 @@ Los clústeres de AKS se pueden crear actualmente mediante zonas de disponibilid
 * Este de Australia
 * Centro de Canadá
 * Centro de EE. UU.
+* Este de EE. UU. 
 * Este de EE. UU. 2
-* Este de EE. UU.
 * Centro de Francia
+* Centro-oeste de Alemania
 * Japón Oriental
 * Norte de Europa
+* Norte de Sudáfrica
+* Centro-sur de EE. UU.
 * Sudeste de Asia
 * Sur de Reino Unido
 * Oeste de Europa
@@ -72,7 +75,7 @@ Cuando crea un clúster con el comando [az aks create][az-aks-create], el parám
 
 Si no se define ninguna zona para el grupo de agentes predeterminado al crear un clúster de AKS, no se garantiza que los componentes del plano de control se distribuyan entre zonas de disponibilidad. Puede agregar grupos de nodos adicionales mediante el comando [az aks nodepool add][az-aks-nodepool-add] y especificar `--zones` para los nuevos nodos, pero esto no cambia la forma en que se ha distribuido el plano de control entre zonas. La configuración de zonas de disponibilidad solo se puede definir en el momento de la creación del clúster o el grupo de nodos.
 
-En el ejemplo siguiente se crea un clúster de AKS denominado *myAKSCluster* en el grupo de recursos denominado *myResourceGroup*. Se crean un total de *3* nodos: un agente en la zona *1* , uno en la *2* y otro en la *3*.
+En el ejemplo siguiente se crea un clúster de AKS denominado *myAKSCluster* en el grupo de recursos denominado *myResourceGroup*. Se crean un total de *3* nodos: un agente en la zona *1*, uno en la *2* y otro en la *3*.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus2

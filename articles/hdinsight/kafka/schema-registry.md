@@ -7,12 +7,12 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/18/2020
-ms.openlocfilehash: 7e17cdca508db81551d988c795bd1235fa729e82
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: bb46bc18469638416ff76f84516498e0076c85fd
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94636867"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95500329"
 ---
 # <a name="apache-kafka-with-confluent-schema-registry-in-azure-hdinsight"></a>Apache Kafka con el registro de esquema de Confluent en Azure HDInsight
 
@@ -34,7 +34,7 @@ En esta sección, se implementa un clúster de Kafka administrado por HDInsight 
 
 1. Seleccione el botón **Implementar en Azure** siguiente para iniciar sesión en Azure y abrir la plantilla de Resource Manager.
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Farnabganguly%2FKafkaschemaregistry%2Fmaster%2Fazuredeploy.json" target="_blank">:::image type="icon" source="media/schema-registry/hdi-deploy-to-azure1.png":::</a>
+    [![Implementación en Azure](./media/schema-registry/hdi-deploy-to-azure1.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Farnabganguly%2FKafkaschemaregistry%2Fmaster%2Fazuredeploy.json)
 
 1. En la plantilla de implementación personalizada, rellene los campos tal y como se describe a continuación:
 

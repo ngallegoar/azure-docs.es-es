@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: how-to
 ms.date: 09/08/2020
 ms.author: raynew
-ms.openlocfilehash: 716928761d23c2cf04ebcc72e253ad7884408065
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 34064fe3fe88a34b0dd2430d7adec3ebcb17ebcc
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90061856"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95528234"
 ---
 # <a name="move-resources-across-regions-from-resource-group"></a>Traslado de recursos entre regiones (desde un grupo de recursos)
 
@@ -27,7 +27,7 @@ En este artículo, aprenderá a trasladar recursos de un grupo de recursos espec
 - Necesita el acceso de *propietario* en la suscripción en la que se encuentran los recursos que se van a trasladar.
     - La primera vez que agregue un recurso de una asignación de origen y destino específicas a una suscripción de Azure, Azure Resource Mover creará una [identidad administrada asignada por el sistema](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types), anteriormente llamada identidad de servicio administrado (MSI), en la que confiará la suscripción.
     - Para crear la identidad y asignarle el rol requerido (Colaborador o Administrador de acceso de usuario en la suscripción de origen), la cuenta que utilice para agregar recursos necesita permisos de *propietario* para la suscripción. [Obtenga más información](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles) sobre los roles de Azure.
-- La suscripción necesita tener cuota suficiente para crear los recursos de origen de la región de destino. De lo contrario, hay que solicitar límites adicionales. [Más información](/azure/azure-resource-manager/management/azure-subscription-service-limits).
+- La suscripción necesita tener cuota suficiente para crear los recursos de origen de la región de destino. De lo contrario, hay que solicitar límites adicionales. [Más información](../azure-resource-manager/management/azure-subscription-service-limits.md).
 - Compruebe los precios y los cargos asociados con la región de destino a la que va a trasladar las máquinas virtuales. El uso de la [calculadora de precios](https://azure.microsoft.com/pricing/calculator/) le resultará útil.
 - Compruebe que los recursos que desea trasladar son compatibles con Resource Mover:
     - Máquinas virtuales de Azure y discos asociados

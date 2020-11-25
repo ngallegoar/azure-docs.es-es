@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 10/08/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: cf96906b0dab9a94febe83468f813c7cae0675b0
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 1c957330fbd54660367fa350d6985929f0bbd3d1
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91874822"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95531396"
 ---
 # <a name="optimize-costs-for-blob-storage-with-reserved-capacity"></a>Optimización de los costos de almacenamiento de blobs con capacidad reservada
 
@@ -38,7 +38,7 @@ La capacidad reservada de Azure Storage está disponible en una suscripción ún
 
 Al comprar la capacidad reservada de Azure Storage, puede usar la reserva para los datos de blobs en bloques y de Azure Data Lake Storage Gen2. Una reserva se aplica al uso dentro del ámbito adquirido y no se puede limitar a una cuenta de almacenamiento, un contenedor o un objeto específico de la suscripción.
 
-Una reserva de Azure Storage solo cubre la cantidad de datos que se almacenan en una suscripción o un grupo de recursos compartidos. Los cargos iniciales por transferencia de datos, ancho de banda, operaciones y eliminación no se incluyen en la reserva. En cuanto se compra una reserva, los cargos de capacidad que coincidan con los atributos de reserva se cobran según las tarifas de descuento en lugar de las tarifas de pago por uso. Para más información sobre las reservas de Azure, consulte [¿Qué es Azure Reservations?](/azure/billing/billing-save-compute-costs-reservations).
+Una reserva de Azure Storage solo cubre la cantidad de datos que se almacenan en una suscripción o un grupo de recursos compartidos. Los cargos iniciales por transferencia de datos, ancho de banda, operaciones y eliminación no se incluyen en la reserva. En cuanto se compra una reserva, los cargos de capacidad que coincidan con los atributos de reserva se cobran según las tarifas de descuento en lugar de las tarifas de pago por uso. Para más información sobre las reservas de Azure, consulte [¿Qué es Azure Reservations?](../../cost-management-billing/reservations/save-compute-costs-reservations.md).
 
 ### <a name="supported-account-types-tiers-and-redundancy-options"></a>Opciones de redundancia, niveles y tipos de cuentas compatibles
 
@@ -67,7 +67,7 @@ Las reservas están disponibles hoy para bloques de 100 TiB o 1 PiB, con descu
 
 ## <a name="purchase-azure-storage-reserved-capacity"></a>Compra de capacidad reservada de Azure Storage
 
-Puede adquirir capacidad reservada de Azure Storage a través de [Azure Portal](https://portal.azure.com). Pague la reserva por adelantado o de manera mensual. Para más información sobre cómo comprar con pagos mensuales, consulte [Compra de reservas de Azure con pagos por adelantado o mensuales](/azure/billing/billing-monthly-payments-reservations).
+Puede adquirir capacidad reservada de Azure Storage a través de [Azure Portal](https://portal.azure.com). Pague la reserva por adelantado o de manera mensual. Para más información sobre cómo comprar con pagos mensuales, consulte [Compra de reservas de Azure con pagos por adelantado o mensuales](../../cost-management-billing/reservations/prepare-buy-reservation.md).
 
 Para ayudar a identificar los términos de reserva adecuados para su escenario, consulte el artículo sobre cómo [entender el descuento para la capacidad reservada de Azure Storage](../../cost-management-billing/reservations/understand-storage-charges.md).
 

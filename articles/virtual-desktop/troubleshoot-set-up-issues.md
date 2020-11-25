@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 09/14/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: d02642b49951b4b116eaae6dbea490ef2720c15d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 126a8e48a8db1c41299a7cb7a34f172342110667
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90084420"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023129"
 ---
 # <a name="host-pool-creation"></a>Creación de grupos de hosts
 
@@ -57,9 +57,9 @@ Solución: Deberá volver a asignar los usuarios a los grupos de aplicaciones.
 
 Siga estas instrucciones para solucionar problemas de implementaciones incorrectas de DSC de PowerShell y plantillas de Azure Resource Manager.
 
-1. Revise los errores en la implementación mediante [Ver operaciones de implementación con Azure Resource Manager](../azure-resource-manager/resource-manager-deployment-operations.md).
-2. Si no hay ningún error en la implementación, revise los errores en el registro de actividad mediante [Ver registros de actividad para auditar las acciones sobre los recursos](../azure-resource-manager/resource-group-audit.md).
-3. Una vez identificado el error, utilice el mensaje de error y los recursos de [Solucionar errores comunes de implementación de Azure con Azure Resource Manager](../azure-resource-manager/resource-manager-common-deployment-errors.md) para solucionar el problema.
+1. Revise los errores en la implementación mediante [Ver operaciones de implementación con Azure Resource Manager](../azure-resource-manager/templates/deployment-history.md).
+2. Si no hay ningún error en la implementación, revise los errores en el registro de actividad mediante [Ver registros de actividad para auditar las acciones sobre los recursos](../azure-resource-manager/management/view-activity-logs.md).
+3. Una vez identificado el error, utilice el mensaje de error y los recursos de [Solucionar errores comunes de implementación de Azure con Azure Resource Manager](../azure-resource-manager/templates/common-deployment-errors.md) para solucionar el problema.
 4. Elimine los recursos creados durante la implementación anterior y vuelva a intentar implementar la plantilla.
 
 ### <a name="error-your-deployment-failedhostnamejoindomain"></a>Error: La implementación no se pudo…\<hostname>/joindomain

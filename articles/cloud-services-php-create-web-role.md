@@ -13,12 +13,12 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 04/11/2018
 ms.author: msangapu
-ms.openlocfilehash: 1bf0ea35c51b063a7720a1542a23a49fbcdbc557
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0b02662658b2199a13f117ad95c6402f9b2974f9
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88892990"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95519853"
 ---
 # <a name="create-php-web-and-worker-roles"></a>Creación de roles web y de trabajo para PHP
 
@@ -189,9 +189,9 @@ Para publicar la aplicación, primero tiene que importar la configuración de la
 Para obtener más información, consulte el [Centro para desarrolladores de PHP](https://azure.microsoft.com/develop/php/).
 
 [install ps and emulators]: https://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409
-[definición del servicio (.csdef)]: https://msdn.microsoft.com/library/windowsazure/ee758711.aspx
-[configuración del servicio (.cscfg)]: https://msdn.microsoft.com/library/windowsazure/ee758710.aspx
+[definición del servicio (.csdef)]: /previous-versions/azure/reference/ee758711(v=azure.100)
+[configuración del servicio (.cscfg)]: /previous-versions/azure/reference/ee758710(v=azure.100)
 [iis.net]: https://www.iis.net/
-[sql native client]: https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation
+[sql native client]: /sql/sql-server/sql-server-technical-documentation
 [sqlsrv drivers]: https://php.net/sqlsrv
 [instalador sqlncli.msi x64]: https://go.microsoft.com/fwlink/?LinkID=239648

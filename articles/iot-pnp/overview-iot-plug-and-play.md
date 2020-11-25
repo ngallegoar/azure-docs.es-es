@@ -9,19 +9,19 @@ ms.service: iot-pnp
 services: iot-pnp
 manager: eliotgra
 ms.custom: references_regions
-ms.openlocfilehash: 4fd7a24edffbfb63adc830ddb83b45997743ad42
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: d6cba4bcb76094ed156ef35b1ea76cea7001c372
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93421641"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95486303"
 ---
 # <a name="what-is-iot-plug-and-play"></a>¿Qué es IoT Plug and Play?
 
 IoT Plug and Play permite a los creadores de soluciones integrar dispositivos inteligentes en sus soluciones sin necesidad de configuración manual. IoT Plug and Play se basa en un modelo de _dispositivos_ que un dispositivo usa para anunciar sus funcionalidades a una aplicación compatible con IoT Plug and Play. Este modelo se estructura como un conjunto de elementos que definen:
 
 - _Propiedades_ que representan el estado de solo lectura y grabable de un dispositivo o de otra entidad. Por ejemplo, el número de serie de un dispositivo puede ser una propiedad de solo lectura, y la temperatura objetivo de un termostato puede ser una propiedad grabable.
-- _Datos de telemetría_ , que son los datos que emite un dispositivo, independientemente de que sean una secuencia normal de lecturas de un sensor, un error ocasional o un mensaje informativo.
+- _Datos de telemetría_, que son los datos que emite un dispositivo, independientemente de que sean una secuencia normal de lecturas de un sensor, un error ocasional o un mensaje informativo.
 - _Comandos_ que describen una función u operación que se puede realizar en un dispositivo. Por ejemplo, un comando puede reiniciar una puerta de enlace o tomar una imagen mediante una cámara remota.
 
 Puede agrupar estos elementos en interfaces para reutilizarlos en los distintos modelos para facilitar la colaboración y acelerar el desarrollo.
@@ -72,5 +72,5 @@ El [programa de certificación de dispositivos IoT Plug and Play](howto-certify-
 
 Ahora que tiene una visión general de IoT Plug and Play, el siguiente paso que se recomienda es probar uno de los tutoriales de inicio rápido:
 
-- [Conexión de un dispositivo a IoT Hub (C)](./quickstart-connect-device-c.md)
-- [Interacción con un dispositivo desde su solución (Node.js)](./quickstart-service-node.md)
+- [Conexión de un dispositivo a IoT Hub](./quickstart-connect-device.md)
+- [Interacción con un dispositivo desde su solución](./quickstart-service.md)

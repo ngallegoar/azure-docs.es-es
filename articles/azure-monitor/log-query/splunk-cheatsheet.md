@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/21/2018
-ms.openlocfilehash: 00fdaf93553c97112c67caa66cb2246756b63c33
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c59b5646e011afa6b8487e8145a1cb07e6e2a8ff
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86207479"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015599"
 ---
 # <a name="splunk-to-azure-monitor-log-query"></a>Consulta de registro de Splunk en Azure Monitor
 
@@ -123,7 +123,7 @@ Splunk no parece tener un operador similar a `project-away`. Puede usar la inter
 | **Azure Monitor** | **project**<br>**project-away** | <code>Office_Hub_OHubBGTaskError<br>&#124; project exception, state</code> |
 
 ### <a name="aggregation"></a>Agregación
-Consulte [Agregaciones en consultas de registros de Azure Monitor](aggregations.md) para conocer las distintas funciones de agregación.
+Consulte [Agregaciones en consultas de registros de Azure Monitor](/azure/data-explorer/kusto/query/samples?&pivots=azuremonitor#aggregations) para conocer las distintas funciones de agregación.
 
 | | Operator | Ejemplo |
 |:---|:---|:---|

@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: cb12777a6a4fa1e75cd65bc597c87442d592aad5
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.openlocfilehash: c8d96d7b5952c020493af278ee1ea8ad5ff46716
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91598107"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95016792"
 ---
 # <a name="plan-your-azure-time-series-insights-gen2-environment"></a>Planeamiento del entorno de Azure Time Series Insights Gen2
 
@@ -45,7 +45,7 @@ Como parte del proceso de aprovisionamiento, especifique si desea habilitar un a
 Las consultas que están en el almacenamiento intermedio son gratuitas, mientras que las del almacenamiento en reposo generan costos. Es importante comprender los modelos de consulta y planear la configuración del almacenamiento intermedio correspondiente. Se recomienda que los análisis interactivos de los datos más recientes residan en el almacenamiento intermedio y el análisis de patrones y las tendencias a largo plazo residan en reposo.
 
 > [!NOTE]
-> Para obtener más información sobre cómo consultar los datos semiactivos, lea la [referencia de API](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#uri-parameters).
+> Para obtener más información sobre cómo consultar los datos semiactivos, lea la [referencia de API](/rest/api/time-series-insights/dataaccessgen2/query/execute#uri-parameters).
 
 Para empezar, necesita tres elementos adicionales:
 
@@ -64,7 +64,7 @@ Para crear un nuevo entorno de Azure Time Series Insights, seleccione un identif
 > [!IMPORTANT]
 > Los identificadores de serie temporal *no se pueden cambiar más adelante*. Compruebe cada uno de ellos antes de pasar a la selección final y el primer uso.
 
-Puede seleccionar hasta tres claves para diferenciar los recursos de forma única. Para más información, consulte [Procedimientos recomendados para elegir un identificador de serie temporal](./time-series-insights-update-how-to-id.md) y [Almacenamiento y entrada](concepts-json-flattening-escaping-rules.md).
+Puede seleccionar hasta tres claves para diferenciar los recursos de forma única. Para más información, consulte [Procedimientos recomendados para elegir un identificador de serie temporal](./how-to-select-tsid.md) y [Almacenamiento y entrada](concepts-json-flattening-escaping-rules.md).
 
 La propiedad **Timestamp** también es importante. Esta propiedad se puede designar al agregar orígenes de eventos. Cada origen de eventos tiene una propiedad Timestamp opcional que se usa para realizar el seguimiento de los orígenes de eventos con el tiempo. Los valores de Timestamp distinguen mayúsculas de minúsculas y su formato debe seguir la especificación de cada origen de evento.
 
@@ -74,7 +74,7 @@ Cuando se deja en blanco, la hora en que el evento se puso en cola en IoT Hub o 
 
 Ahora puede configurar el modelo de serie temporal del entorno de Azure Time Series Insights. El nuevo modelo facilita la búsqueda y el análisis de los datos de IoT. Además, permite la protección, el mantenimiento y el enriquecimiento de datos de serie temporal y ayuda a preparar los conjuntos de datos listos para el consumidor. El modelo usa identificadores de Time Series, que se asignan a una instancia que asocia el recurso único con variables, conocidas como tipos, y jerarquías. Lea la información general sobre el [modelo de serie temporal](./concepts-model-overview.md) para más detalles.
 
-El modelo es dinámico, por lo que se puede compilar en cualquier momento. Para empezar a trabajar rápidamente, compílelo y cárguelo antes de insertar datos en Azure Time Series Insights. Para compilar el modelo, lea [Modelado de datos en la versión preliminar de Azure Time Series Insights](/azure/time-series-insights/concepts-model-overview).
+El modelo es dinámico, por lo que se puede compilar en cualquier momento. Para empezar a trabajar rápidamente, compílelo y cárguelo antes de insertar datos en Azure Time Series Insights. Para compilar el modelo, lea [Modelado de datos en la versión preliminar de Azure Time Series Insights](./concepts-model-overview.md).
 
 Para muchos clientes, el modelo de serie temporal se asigna a un modelo de recursos existente o a un sistema ERP ya implantado. Si no tiene un modelo existente, se [proporciona](https://github.com/Microsoft/tsiclient) una experiencia de usuario ya creada para ponerse en marcha rápidamente. Para saber cómo puede ayudarle un modelo, vea el [entorno de demostración de ejemplo](https://insights.timeseries.azure.com/preview/demo).
 

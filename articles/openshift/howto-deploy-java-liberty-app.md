@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 10/30/2020
 keywords: java, jakartaee, javaee, microprofile, open-liberty, websphere-liberty, aro, openshift, red hat
-ms.openlocfilehash: ee4baf8eed26a43728fa52289bce86108c9e8c4a
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 41891b58942efbfd705747cc16219185f2a2daa2
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94413756"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018399"
 ---
 # <a name="deploy-a-java-application-with-open-libertywebsphere-liberty-on-an-azure-red-hat-openshift-4-cluster"></a>Implementación de una aplicación Java con Open Liberty/WebSphere Liberty en un clúster de Red Hat OpenShift en Azure 4
 
@@ -126,7 +126,7 @@ Para ejecutar la aplicación en Open Liberty, debe crear un archivo de configur
    [INFO] Source compilation was successful.
    ```
 
-1. Abra [http://localhost:9080/](http://localhost:9080/) en el explorador para ir a la página principal de la aplicación. La aplicación tendrá un aspecto similar a la imagen siguiente:
+1. Abra `http://localhost:9080/` en el explorador para ir a la página principal de la aplicación. La aplicación tendrá un aspecto similar a la imagen siguiente:
 
    ![Interfaz de usuario web de JavaEE Cafe](./media/howto-deploy-java-liberty-app/javaee-cafe-web-ui.png)
 1. Presione **Control-C** para detener la aplicación y el servidor Open Liberty.
@@ -164,7 +164,7 @@ Antes de implementar la aplicación en contenedor en un clúster remoto, ejecút
 
 1. Ejecute `docker run -it --rm -p 9080:9080 javaee-cafe-simple:1.0.0` en la consola.
 2. Espere a que el servidor Liberty se inicie y la aplicación se implemente correctamente.
-3. Abra [http://localhost:9080/](http://localhost:9080/) en el explorador para ir a la página principal de la aplicación.
+3. Abra `http://localhost:9080/` en el explorador para ir a la página principal de la aplicación.
 4. Presione **Control-C** para detener la aplicación y el servidor Liberty.
 
 ### <a name="push-the-image-to-the-container-image-registry"></a>Inserción de la imagen en el registro de imágenes de contenedor

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 78a882378becda8c381ac036d786b32a2b42a5f1
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 6ac568e56d201ef43e40428085b226608e83973a
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93379475"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024575"
 ---
 # <a name="azure-security-baseline-for-api-management"></a>Línea de base de seguridad de Azure para API Management
 
@@ -506,7 +506,7 @@ Los administradores pueden crear grupos personalizados o aprovechar los grupos e
 
 * [Administración de cuentas de usuario en Azure API Management](./api-management-howto-create-or-invite-developers.md)
 
-* [Obtención de una lista de usuarios de API Management](/powershell/module/az.apimanagement/get-azapimanagementuse)
+* [Obtención de una lista de usuarios de API Management](/powershell/module/az.apimanagement/get-azapimanagementuser)
 
 * [Creación y uso de grupos para administrar cuentas de desarrollador en Azure API Management](./api-management-howto-create-groups.md)
 

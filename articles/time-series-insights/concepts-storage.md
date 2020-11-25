@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 09/28/2020
 ms.custom: seodec18
-ms.openlocfilehash: b186c2d2c4b5efc8e1e052a63505549e860b5619
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1b512a80fcfc26efbe5c008884509aebfd86ed3e
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91460835"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95020851"
 ---
 # <a name="data-storage"></a>Almacenamiento de datos
 
@@ -27,7 +27,7 @@ Al crear un entorno de Azure Time Series Insights Gen2, tiene las siguientes opc
 
 * Almacenamiento de datos en reposo:
   * Cree un nuevo recurso de Azure Storage en la suscripción y la región que ha elegido para el entorno.
-  * Conecte una cuenta de Azure Storage existente. Esta opción solo está disponible si se implementa desde una [plantilla](https://docs.microsoft.com/azure/templates/microsoft.timeseriesinsights/allversions) de Azure Resource Manager y no está visible en Azure Portal.
+  * Conecte una cuenta de Azure Storage existente. Esta opción solo está disponible si se implementa desde una [plantilla](/azure/templates/microsoft.timeseriesinsights/allversions) de Azure Resource Manager y no está visible en Azure Portal.
 * Almacenamiento intermedio de datos:
   * El almacenamiento intermedio de datos es opcional y se puede habilitar o deshabilitar durante o después del momento del aprovisionamiento. Si decide habilitar el almacenamiento intermedio en un momento posterior y ya hay datos en el almacenamiento en reposo, consulte [esta](concepts-storage.md#warm-store-behavior) sección a continuación para comprender el comportamiento esperado. El tiempo de retención de datos del almacenamiento intermedio se puede configurar entre 7 y 31 días, y esto también se puede ajustar según sea necesario.
 
@@ -40,14 +40,14 @@ Cuando se ingiere un evento, se indexa en el almacenamiento intermedio (si está
 
 ## <a name="data-availability"></a>Disponibilidad de los datos
 
-Azure Time Series Insights Gen2 crea particiones de los datos y los indexa para lograr un rendimiento óptimo de las consultas. Los datos están disponibles para realizar consultas tanto en almacenamiento parcialmente activo (si está habilitado) como en almacenamiento en reposo. La cantidad de datos que se ingieren y la tasa de rendimiento por partición pueden afectar a la disponibilidad. Consulte las [limitaciones de rendimiento](./concepts-streaming-ingress-throughput-limits.md) y los [procedimientos recomendados](./concepts-streaming-ingestion-event-sources.md#streaming-ingestion-best-practices) del origen de eventos para obtener el mejor rendimiento. También puede configurar una [alerta](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-environment-mitigate-latency#monitor-latency-and-throttling-with-alerts) de retraso para recibir una notificación si el entorno experimenta problemas al procesar los datos.
+Azure Time Series Insights Gen2 crea particiones de los datos y los indexa para lograr un rendimiento óptimo de las consultas. Los datos están disponibles para realizar consultas tanto en almacenamiento parcialmente activo (si está habilitado) como en almacenamiento en reposo. La cantidad de datos que se ingieren y la tasa de rendimiento por partición pueden afectar a la disponibilidad. Consulte las [limitaciones de rendimiento](./concepts-streaming-ingress-throughput-limits.md) y los [procedimientos recomendados](./concepts-streaming-ingestion-event-sources.md#streaming-ingestion-best-practices) del origen de eventos para obtener el mejor rendimiento. También puede configurar una [alerta](./time-series-insights-environment-mitigate-latency.md#monitor-latency-and-throttling-with-alerts) de retraso para recibir una notificación si el entorno experimenta problemas al procesar los datos.
 
 > [!IMPORTANT]
 > Es posible que experimente un período de hasta 60 segundos hasta que los datos estén disponibles. Si experimenta una latencia considerable de más de 60 segundos, envíe una incidencia de soporte técnico a través de Azure Portal.
 
 ## <a name="warm-store"></a>Almacenamiento intermedio
 
-Los datos del almacenamiento intermedio solo están disponibles mediante las [API de consulta de Time Series](./time-series-insights-update-tsq.md), el [explorador de Azure Time Series Insights TSI](./time-series-insights-update-explorer.md) o el [conector de Power BI](./how-to-connect-power-bi.md). Las consultas al almacenamiento intermedio son gratuitas y no hay ninguna cuota, pero hay un [límite de 30](https://docs.microsoft.com/rest/api/time-series-insights/reference-api-limits#query-apis---limits) solicitudes simultáneas.
+Los datos del almacenamiento intermedio solo están disponibles mediante las [API de consulta de Time Series](./concepts-query-overview.md), el [explorador de Azure Time Series Insights TSI](./concepts-ux-panels.md) o el [conector de Power BI](./how-to-connect-power-bi.md). Las consultas al almacenamiento intermedio son gratuitas y no hay ninguna cuota, pero hay un [límite de 30](/rest/api/time-series-insights/reference-api-limits#query-apis---limits) solicitudes simultáneas.
 
 ### <a name="warm-store-behavior"></a>Comportamiento del almacenamiento intermedio
 
@@ -77,9 +77,9 @@ Para garantizar el rendimiento de las consultas y la disponibilidad de los datos
 
 #### <a name="accessing-cold-store-data"></a>Acceso a datos de almacenamiento en reposo
 
-Además de acceder a los datos desde el [explorador de Azure Time Series Insights](./time-series-insights-update-explorer.md) y las [API Time Series Query](./time-series-insights-update-tsq.md), puede que también desee acceder a los datos directamente desde los archivos Parquet almacenados en el almacenamiento en reposo. Por ejemplo, puede leer, transformar y limpiar los datos en un cuaderno de Jupyter y luego usarlo para entrenar el modelo de Azure Machine Learning en el mismo flujo de trabajo de Spark.
+Además de acceder a los datos desde el [explorador de Azure Time Series Insights](./concepts-ux-panels.md) y las [API Time Series Query](./concepts-query-overview.md), puede que también desee acceder a los datos directamente desde los archivos Parquet almacenados en el almacenamiento en reposo. Por ejemplo, puede leer, transformar y limpiar los datos en un cuaderno de Jupyter y luego usarlo para entrenar el modelo de Azure Machine Learning en el mismo flujo de trabajo de Spark.
 
-Para acceder a los datos directamente desde su cuenta de Azure Storage, necesita acceso de lectura a la cuenta usada para almacenar los datos de Azure Time Series Insights Gen2. A continuación, puede leer los datos seleccionados en función de la hora de creación del archivo de Parquet que se encuentra en la carpeta `PT=Time` que se describe a continuación en la sección [Formato de archivo de Parquet](#parquet-file-format-and-folder-structure).  Para más información sobre cómo habilitar el acceso de lectura a su cuenta de almacenamiento, consulte [Administración del acceso a los recursos de la cuenta de almacenamiento](../storage/blobs/storage-manage-access-to-resources.md).
+Para acceder a los datos directamente desde su cuenta de Azure Storage, necesita acceso de lectura a la cuenta usada para almacenar los datos de Azure Time Series Insights Gen2. A continuación, puede leer los datos seleccionados en función de la hora de creación del archivo de Parquet que se encuentra en la carpeta `PT=Time` que se describe a continuación en la sección [Formato de archivo de Parquet](#parquet-file-format-and-folder-structure).  Para más información sobre cómo habilitar el acceso de lectura a su cuenta de almacenamiento, consulte [Administración del acceso a los recursos de la cuenta de almacenamiento](../storage/blobs/anonymous-read-access-configure.md).
 
 #### <a name="data-deletion"></a>Eliminación de datos
 
@@ -123,6 +123,6 @@ Los eventos de Azure Time Series Insights Gen2 se asignan al contenido de los ar
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Lea sobre el [modelado de datos](./time-series-insights-update-tsm.md).
+* Lea sobre el [modelado de datos](./concepts-model-overview.md).
 
-* Planeamiento del [entorno de Azure Time Series Insights Gen2](./time-series-insights-update-plan.md).
+* Planeamiento del [entorno de Azure Time Series Insights Gen2](./how-to-plan-your-environment.md).

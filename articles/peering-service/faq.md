@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: Infrastructure-services
 ms.date: 05/18/2020
 ms.author: derekol
-ms.openlocfilehash: 55c5e6c5b718dc2de295b9b4418ddc8607a69f8f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 95ce90dbbf47ffe527fe6f25704d9cd28b834ea9
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84871365"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026702"
 ---
 # <a name="peering-service-faq"></a>Preguntas frecuentes sobre Peering Service
 
@@ -36,7 +36,7 @@ A. Sí, los clientes pueden hacerlo. Seleccione el ISP del asociado por región 
 
 **P. ¿Qué es un PoP de Microsoft Edge?**
 
-A. Es una ubicación física en la que Microsoft se interconecta con otras redes. En la ubicación PoP de Microsoft Edge, se hospedan servicios como Azure Front Door y Azure CDN. Para más información, consulte [Azure CDN](https://docs.microsoft.com/azure/cdn/cdn-features).
+A. Es una ubicación física en la que Microsoft se interconecta con otras redes. En la ubicación PoP de Microsoft Edge, se hospedan servicios como Azure Front Door y Azure CDN. Para más información, consulte [Azure CDN](../cdn/cdn-features.md).
 
 ## <a name="peering-service-unique-characteristics"></a>Peering Service: Características singulares
 

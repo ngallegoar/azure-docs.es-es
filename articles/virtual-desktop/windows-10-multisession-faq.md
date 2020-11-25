@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 02/19/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 91c7c19fddab2a4372f183c90532b24e774277d1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 24d27859aad7642392a5702ab7ddbb727b538d51
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88008056"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025017"
 ---
 # <a name="windows-10-enterprise-multi-session-faq"></a>Preguntas frecuentes sobre la sesión múltiple de Windows 10 Enterprise
 
@@ -80,8 +80,8 @@ Esto sucede porque usa la sesión múltiple de Windows 10 Enterprise con una s
 La mayoría de los entornos virtualizados están configurados de forma predeterminada para evitar que los usuarios instalen aplicaciones adicionales en sus perfiles. Si quiere asegurarse de que una aplicación no desaparece cuando el usuario cierra sesión en Windows Virtual Desktop, tiene que aprovisionar la aplicación para todos los perfiles de usuario de su entorno. Para más información sobre cómo aprovisionar las aplicaciones, consulte estos recursos.
 
 - [Publicar aplicaciones integradas en Windows Virtual Desktop](publish-apps.md)
-- [Opciones de la línea de comandos de mantenimiento de paquetes de aplicaciones DISM](https://docs.microsoft.com/windows-hardware/manufacture/desktop/dism-app-package--appx-or-appxbundle--servicing-command-line-options)
-- [Add-AppxProvisionedPackage](https://docs.microsoft.com/powershell/module/dism/add-appxprovisionedpackage?view=win10-ps)
+- [Opciones de la línea de comandos de mantenimiento de paquetes de aplicaciones DISM](/windows-hardware/manufacture/desktop/dism-app-package--appx-or-appxbundle--servicing-command-line-options)
+- [Add-AppxProvisionedPackage](/powershell/module/dism/add-appxprovisionedpackage?view=win10-ps)
 
 ## <a name="how-do-i-make-sure-users-dont-download-and-install-apps-from-the-microsoft-store"></a>¿Cómo asegurarse de que los usuarios no descarguen e instalen aplicaciones de Microsoft Store?
 

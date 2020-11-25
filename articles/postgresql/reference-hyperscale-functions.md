@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: reference
 ms.date: 08/10/2020
-ms.openlocfilehash: 16c3a45e0d88a0546772b3fdc855c90f2e450d14
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: f324ef44d002f50bf27c08072e904c1d92b5512f
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91250338"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026240"
 ---
 # <a name="functions-in-the-hyperscale-citus-sql-api"></a>Funciones de la API de SQL de Hiperescala (Citus)
 
@@ -40,7 +40,7 @@ Esta función reemplaza el uso de master\_create\_distributed\_table() seguido d
 
 **colocate\_with**: (opcional) incluir la tabla actual en el grupo de coubicación de otra tabla. De forma predeterminada, las tablas se coubican cuando se distribuyen según columnas del mismo tipo, tienen el mismo recuento de particiones y tienen el mismo factor de replicación. Los valores posibles para `colocate_with` son `default` y `none` para iniciar un nuevo grupo de coubicación, o bien el nombre de otra tabla que se coubicará con esa tabla.  (Vea [Coubicación en tabla](concepts-hyperscale-colocation.md)).
 
-Tenga en cuenta que el valor predeterminado de `colocate_with` realiza la coubicación implícita. La [coubicación](concepts-hyperscale-colocation.md) puede resultar ideal cuando las tablas están relacionadas o si se van a combinar.  Sin embargo, cuando dos tablas no están relacionadas, pero se usa el mismo tipo de datos para sus columnas de distribución, coubicarlas accidentalmente puede reducir el rendimiento durante el [reequilibrio de particiones](howto-hyperscale-scaling.md#rebalance-shards).  Las particiones de tabla se moverán juntas innecesariamente \"en cascada\".
+Tenga en cuenta que el valor predeterminado de `colocate_with` realiza la coubicación implícita. La [coubicación](concepts-hyperscale-colocation.md) puede resultar ideal cuando las tablas están relacionadas o si se van a combinar.  Sin embargo, cuando dos tablas no están relacionadas, pero se usa el mismo tipo de datos para sus columnas de distribución, coubicarlas accidentalmente puede reducir el rendimiento durante el [reequilibrio de particiones](howto-hyperscale-scale-rebalance.md).  Las particiones de tabla se moverán juntas innecesariamente \"en cascada\".
 
 Si una nueva tabla distribuida no está relacionada con otras tablas, es mejor especificar `colocate_with => 'none'`.
 

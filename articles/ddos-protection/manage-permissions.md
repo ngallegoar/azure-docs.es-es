@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/08/2020
 ms.author: yitoh
-ms.openlocfilehash: 10b10309e438bab3c99cb2ed7202eaa272d24abe
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: dec2c845780b62e9a595c73504037142c511c0e6
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92904997"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94989418"
 ---
 # <a name="manage-ddos-protection-plans-permissions-and-restrictions"></a>Administración de planes de DDoS Protection: permisos y restricciones
 
@@ -37,7 +37,7 @@ Para trabajar con planes de protección contra DDoS, su cuenta debe estar asigna
 | Microsoft.Network/ddosProtectionPlans/delete      | Eliminación de un plan de protección contra DDoS            |
 | Microsoft.Network/ddosProtectionPlans/join/action | Unión a un plan de protección contra DDoS              |
 
-Para habilitar la protección contra DDoS para una red virtual, su cuenta también debe estar asignada a las [acciones para redes virtuales](https://docs.microsoft.com/azure/virtual-network/manage-virtual-network#permissions) adecuadas.
+Para habilitar la protección contra DDoS para una red virtual, su cuenta también debe estar asignada a las [acciones para redes virtuales](../virtual-network/manage-virtual-network.md#permissions) adecuadas.
 
 ## <a name="azure-policy"></a>Azure Policy
 

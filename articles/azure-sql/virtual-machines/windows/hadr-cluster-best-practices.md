@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: 86db8c88fae7a5fd1ec4828d8936c6cb8172a61c
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 446731e084084ca301b350f6fec0c4065485a40f
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94564572"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026631"
 ---
 # <a name="cluster-configuration-best-practices-sql-server-on-azure-vms"></a>Procedimientos recomendados para la configuración de clústeres (SQL Server en máquinas virtuales de Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -33,7 +33,7 @@ Use una sola NIC por servidor (nodo de clúster) y una sola subred. La red de Az
 
 ### <a name="tuning-failover-cluster-network-thresholds"></a>Ajuste de los umbrales de red de clústeres de conmutación por error
 
-Al ejecutar nodos de clúster de conmutación por error Windows en máquinas virtuales de Azure con AlwaysOn para SQL Server, se recomienda cambiar la configuración del clúster a un estado de supervisión más flexible.  Esto hará que el clúster sea mucho más estable y confiable.  Para más información sobre esto, consulte [IaaS con SQL AlwaysOn: Ajuste de los umbrales de red de clústeres de conmutación por error](/windows-server/troubleshoot/iaas-sql-failover-cluser).
+Al ejecutar nodos de clúster de conmutación por error Windows en máquinas virtuales de Azure con AlwaysOn para SQL Server, se recomienda cambiar la configuración del clúster a un estado de supervisión más flexible.  Esto hará que el clúster sea mucho más estable y confiable.  Para más información sobre esto, consulte [IaaS con SQL AlwaysOn: Ajuste de los umbrales de red de clústeres de conmutación por error](/windows-server/troubleshoot/iaas-sql-failover-cluster).
 
 ## <a name="quorum"></a>Quorum
 

@@ -10,16 +10,16 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.custom: dpalled
-ms.openlocfilehash: c3948a5bdfce583384992fb87bf40e9e7251974d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0d02a6e3eb2aef4a02c90360b2016e64af579081
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91340207"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95014737"
 ---
 # <a name="model-synchronization-between-azure-digital-twins-and-time-series-insights-gen2"></a>Sincronización de modelos entre Azure Digital Twins y Time Series Insights Gen2
 
-En este artículo se explican los procedimientos recomendados y las herramientas que se usan para traducir el modelo de recursos de Azure Digital Twins (ADT) al modelo de recursos de Azure Time Series Insights (TSI).  Este artículo es la segunda parte de una serie de tutoriales de dos partes que explica la integración de Azure Digital Twins con Azure Time Series Insights. La integración de Azure Digital Twins con Time Series Insights permite archivar y realizar un seguimiento del historial de datos de telemetría y de las propiedades calculadas de Digital Twins. Esta serie de tutoriales está dirigida a los desarrolladores que trabajan para integrar Time Series Insights con Azure Digital Twins. La parte 1 explica el [establecimiento de la canalización de datos que lleva los datos de series temporales reales desde Azure Digital Twins a Time Series Insights](https://docs.microsoft.com/azure/digital-twins/how-to-integrate-time-series-insights), y en esta segunda parte de la serie de tutoriales se explica la sincronización del modelo de recursos entre Azure Digital Twins y Time Series Insights. En este tutorial se explican los procedimientos recomendados para elegir y establecer la convención de nomenclatura para identificadores de series temporales (TS ID) y el establecimiento manual de jerarquías en el modelo de series temporales (TSM).
+En este artículo se explican los procedimientos recomendados y las herramientas que se usan para traducir el modelo de recursos de Azure Digital Twins (ADT) al modelo de recursos de Azure Time Series Insights (TSI).  Este artículo es la segunda parte de una serie de tutoriales de dos partes que explica la integración de Azure Digital Twins con Azure Time Series Insights. La integración de Azure Digital Twins con Time Series Insights permite archivar y realizar un seguimiento del historial de datos de telemetría y de las propiedades calculadas de Digital Twins. Esta serie de tutoriales está dirigida a los desarrolladores que trabajan para integrar Time Series Insights con Azure Digital Twins. La parte 1 explica el [establecimiento de la canalización de datos que lleva los datos de series temporales reales desde Azure Digital Twins a Time Series Insights](../digital-twins/how-to-integrate-time-series-insights.md), y en esta segunda parte de la serie de tutoriales se explica la sincronización del modelo de recursos entre Azure Digital Twins y Time Series Insights. En este tutorial se explican los procedimientos recomendados para elegir y establecer la convención de nomenclatura para identificadores de series temporales (TS ID) y el establecimiento manual de jerarquías en el modelo de series temporales (TSM).
 
 ## <a name="choosing-a-time-series-id"></a>Elección de un identificador de serie temporal
 
@@ -29,7 +29,7 @@ El identificador de serie temporal es un identificador único que se usa para id
 
 ## <a name="contextualizing-time-series"></a>Contextualización de series temporales
 
-La contextualización de los datos (principalmente de naturaleza espacial) de Time Series Insights se logra mediante las jerarquías de recursos y se usa para facilitar la navegación por los datos a través de una vista de árbol en el explorador de Time Series Insights. Los tipos de series temporales y las jerarquías se definen mediante el modelo de series temporales (TSM) en Time Series Insights. Los tipos de TSM ayudan a definir variables, mientras que los niveles de la jerarquía y los valores de campo de la instancia se usan para construir la vista de árbol en el explorador de Time Series Insights. Para más información sobre el TSM, consulte la [documentación en línea de Time Series Insights](https://docs.microsoft.com/azure/time-series-insights/concepts-model-overview).
+La contextualización de los datos (principalmente de naturaleza espacial) de Time Series Insights se logra mediante las jerarquías de recursos y se usa para facilitar la navegación por los datos a través de una vista de árbol en el explorador de Time Series Insights. Los tipos de series temporales y las jerarquías se definen mediante el modelo de series temporales (TSM) en Time Series Insights. Los tipos de TSM ayudan a definir variables, mientras que los niveles de la jerarquía y los valores de campo de la instancia se usan para construir la vista de árbol en el explorador de Time Series Insights. Para más información sobre el TSM, consulte la [documentación en línea de Time Series Insights](./concepts-model-overview.md).
 
 En Azure Digital Twins, la conexión entre los recursos se expresa mediante relaciones gemelas. Las relaciones gemelas son simplemente un grafo de recursos conectados. Sin embargo, en Time Series Insights, las relaciones entre los recursos son jerárquicas por naturaleza. Es decir, los recursos comparten una relación de tipo principal-secundario y se representan mediante una estructura de árbol. Para traducir la información de la relación de Azure Digital Twins a las jerarquías de Time Series Insights, es necesario elegir las relaciones jerárquicas pertinentes de Azure Digital Twins. Azure Digital Twins usa un lenguaje de modelado estándar abierto denominado lenguaje de definición de gemelos digitales (DTDL). Los modelos de DTDL se describen mediante una variante de JSON denominada JSON-LD. Consulte la [documentación sobre DTDL](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md) para obtener una información completa sobre la especificación.
 
@@ -82,7 +82,7 @@ En el fragmento de código siguiente se muestra cómo la aplicación cliente pud
 
 > [!Note]
 >
-> En este ejemplo de fragmento de código se da por supuesto que los lectores están familiarizados con la [parte 01](https://docs.microsoft.com/azure/digital-twins/tutorial-end-to-end#set-up-the-sample-function-app) del tutorial y este cambio de código se realizó dentro de la función "ProcessHubToDTEvents".
+> En este ejemplo de fragmento de código se da por supuesto que los lectores están familiarizados con la [parte 01](../digital-twins/tutorial-end-to-end.md#set-up-the-sample-function-app) del tutorial y este cambio de código se realizó dentro de la función "ProcessHubToDTEvents".
 
 ```csharp
 if (propertyPath.Equals("/Flow"))
@@ -114,7 +114,7 @@ relationship for " + twinId);
 
 ## <a name="updating-instance-fields-using-apis"></a>Actualización de los campos de la instancia mediante API
 
-En esta sección del tutorial se explica la escucha de los cambios de los modelos de Azure Digital Twins como, por ejemplo, la creación o eliminación de gemelos, o el cambio en las relaciones entre estos, y la actualización de los campos de instancia y de las jerarquías mediante programación con las API de modelos de Time Series Insights. Este método de actualización del modelo de Time Series Insights normalmente se logra mediante funciones de Azure. En Azure Digital Twins, las notificaciones de eventos, como la adición o eliminación de gemelos, se pueden enrutar hacia servicios descendentes como Event Hubs que, a su vez, pueden alimentar a las funciones de Azure. [Aquí](https://docs.microsoft.com/azure/digital-twins/how-to-manage-routes-portal) encontrará más información sobre el enrutamiento y el filtrado de eventos.  En lo que resta de esta sección se explica el uso de las API de modelo de Time Series Insights en funciones de Azure para actualizar el modelo de Time Series Insights en respuesta a la adición de un gemelo (un tipo de cambio de modelo) en Azure Digital Twins.
+En esta sección del tutorial se explica la escucha de los cambios de los modelos de Azure Digital Twins como, por ejemplo, la creación o eliminación de gemelos, o el cambio en las relaciones entre estos, y la actualización de los campos de instancia y de las jerarquías mediante programación con las API de modelos de Time Series Insights. Este método de actualización del modelo de Time Series Insights normalmente se logra mediante funciones de Azure. En Azure Digital Twins, las notificaciones de eventos, como la adición o eliminación de gemelos, se pueden enrutar hacia servicios descendentes como Event Hubs que, a su vez, pueden alimentar a las funciones de Azure. [Aquí](../digital-twins/how-to-manage-routes-portal.md) encontrará más información sobre el enrutamiento y el filtrado de eventos.  En lo que resta de esta sección se explica el uso de las API de modelo de Time Series Insights en funciones de Azure para actualizar el modelo de Time Series Insights en respuesta a la adición de un gemelo (un tipo de cambio de modelo) en Azure Digital Twins.
 
 ### <a name="receiving-and-identifying-twin-addition-event-notification"></a>Recepción e identificación de la notificación de eventos de adición de un gemelo
 
@@ -227,4 +227,4 @@ private async Task<TimeSeriesInstance> AddHierarchyToInstanceAsync(TimeSeriesIns
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En la tercera parte de la serie de tutoriales se mostrará cómo consultar datos históricos de Azure Digital Twins mediante las API de Time Series Insights. Este es un trabajo en curso y la sección se actualizará cuando esté preparado. Mientras tanto, se anima a los lectores a consultar la [documentación sobre las API de consulta de datos de Time Series Insights](https://docs.microsoft.com/azure/time-series-insights/concepts-query-overview).
+En la tercera parte de la serie de tutoriales se mostrará cómo consultar datos históricos de Azure Digital Twins mediante las API de Time Series Insights. Este es un trabajo en curso y la sección se actualizará cuando esté preparado. Mientras tanto, se anima a los lectores a consultar la [documentación sobre las API de consulta de datos de Time Series Insights](./concepts-query-overview.md).

@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: c7f811991cdc325a3901a696216af21883f02fdb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7d672da30a4d81ead9115fc6b829c35aeab3ee6a
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91596237"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95016826"
 ---
 # <a name="add-an-event-hub-event-source-to-your-azure-time-series-insights-environment"></a>Incorporación de un origen de eventos de Event Hubs al entorno de Azure Time Series Insights
 
@@ -27,7 +27,7 @@ Este artículo describe cómo usar Azure Portal para agregar un origen de evento
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- Cree un entorno de Azure Time Series Insights según lo explicado en [Creación de un entorno de Azure Time Series Insights](./time-series-insights-update-create-environment.md).
+- Cree un entorno de Azure Time Series Insights según lo explicado en [Creación de un entorno de Azure Time Series Insights](./tutorials-set-up-tsi-environment.md).
 - Cree un centro de eventos. Lea [Creación de un espacio de nombres de Event Hubs y un centro de eventos con Azure Portal](../event-hubs/event-hubs-create.md).
 - El centro de eventos tiene que tener eventos de mensajes activos que se le hayan enviado. Encontrará más información en [Envío de eventos a Azure Event Hubs mediante .NET Framework](../event-hubs/event-hubs-dotnet-framework-getstarted-send.md).
 - Cree un grupo de consumidores dedicado en el centro de eventos para que el entorno de Azure Time Series Insights los consuma. Cada origen del evento de Azure Time Series Insights debe tener su propio grupo de consumidores dedicado que no se comparte con otros consumidores. Si varios lectores consumen eventos desde el mismo grupo de consumidores, es probable que todos los lectores exhiban errores. Hay un límite de 20 grupos de consumidores por centro de eventos. Si desea información más detallada, lea la [Guía de programación de Event Hubs](../event-hubs/event-hubs-programming-guide.md).
@@ -113,7 +113,7 @@ Para agregar un nuevo grupo de consumidores al centro de eventos:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Defina las directivas de acceso a datos](time-series-insights-data-access.md) para proteger los datos.
+- [Defina las directivas de acceso a datos](./concepts-access-policies.md) para proteger los datos.
 
 - Realice el [envío de eventos](time-series-insights-send-events.md) al origen del evento.
 

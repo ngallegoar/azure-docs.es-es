@@ -8,12 +8,12 @@ services: time-series-insights
 ms.service: time-series-insights
 ms.topic: conceptual
 ms.date: 09/28/2020
-ms.openlocfilehash: a04712a22536b5811b2465e56995d7b161a15c6b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2b6631415c32358cf445fab534b9524c88b6432e
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91460890"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95020885"
 ---
 # <a name="connect-azure-time-series-insights-gen-2-to-power-bi"></a>Conexión de Azure Time Series Insights Gen 2 con Power BI  
 
@@ -65,4 +65,4 @@ Para disfrutar de funciones avanzadas de consulta y edición en Power BI, use e
 
 * Descargue [Power BI Desktop](https://powerbi.microsoft.com/desktop/) y empiece a conectar los datos.
 
-* Más información sobre [Power BI](https://docs.microsoft.com/power-bi/).
+* Más información sobre [Power BI](/power-bi/).

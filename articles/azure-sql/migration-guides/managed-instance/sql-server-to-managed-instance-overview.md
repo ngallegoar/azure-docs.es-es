@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: 211ad590ab01d0be26d799064e1227accc619585
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 2c143c299cec1d48dd5438d5350c818d5cc93800
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94496459"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023725"
 ---
 # <a name="migration-overview-sql-server-to-sql-managed-instance"></a>Información general sobre la migración: SQL Server a Instancia administrada de SQL
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -63,7 +63,7 @@ Algunas directrices generales que le ayudarán a elegir el nivel de servicio ade
 Puede seleccionar recursos de almacenamiento y proceso durante la implementación y, posteriormente, cambiarlos con [Azure Portal](../../database/scale-resources.md) sin provocar tiempo de inactividad de la aplicación. 
 
 > [!IMPORTANT]
-> Cualquier discrepancia en los [requisitos de red virtual de instancia administrada](/../../managed-instance/connectivity-architecture-overview.md#network-requirements) puede impedir la creación de nuevas instancias o el uso de las existentes. Obtenga más información acerca de la [creación de redes nuevas](/../../managed-instance/virtual-network-subnet-create-arm-template?branch=release-ignite-arc-data) y la [configuración de las existentes](/../../managed-instance/vnet-existing-add-subnet?branch=release-ignite-arc-data) . 
+> Cualquier discrepancia en los [requisitos de red virtual de instancia administrada](/azure/azure-sql/managed-instance/connectivity-architecture-overview#network-requirements) puede impedir la creación de nuevas instancias o el uso de las existentes. Obtenga más información acerca de la [creación de redes nuevas](/azure/azure-sql/managed-instance/virtual-network-subnet-create-arm-template?branch=release-ignite-arc-data) y la [configuración de las existentes](/azure/azure-sql/managed-instance/vnet-existing-add-subnet?branch=release-ignite-arc-data) . 
 
 ### <a name="sql-server-vm-alternative"></a>Alternativa a las VM con SQL Server
 

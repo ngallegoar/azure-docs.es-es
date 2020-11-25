@@ -11,19 +11,19 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 09/29/2020
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: fb0c29fb68d0bcd2405cc031008c1c8e5035476f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d6f0e5230fb3c59cab690620e837f476f3392a48
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91569382"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95020085"
 ---
 # <a name="manage-reference-data-for-an-azure-time-series-insights-gen-1-environment-using-c-sharp"></a>Administración de los datos de referencia para un entorno de Azure Time Series Insights Gen1 con C Sharp
 
 > [!CAUTION]
 > Este es un artículo de Gen1.
 
-En este artículo se muestra cómo combinar C#, [MSAL.net](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) y Azure Active Directory para llevar a cabo solicitudes de API de programación a la [API de administración de datos de referencia](https://docs.microsoft.com/rest/api/time-series-insights/gen1-reference-data-api) de Azure Time Series Insights Gen 1.
+En este artículo se muestra cómo combinar C#, [MSAL.net](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) y Azure Active Directory para llevar a cabo solicitudes de API de programación a la [API de administración de datos de referencia](/rest/api/time-series-insights/gen1-reference-data-api) de Azure Time Series Insights Gen 1.
 
 > [!TIP]
 > Consulte ejemplos de código C# de disponibilidad general en [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/gen1-sample/csharp-tsi-gen1-sample).
@@ -33,8 +33,8 @@ En este artículo se muestra cómo combinar C#, [MSAL.net](https://github.com/Az
 En el código de ejemplo siguiente se muestran las siguientes características:
 
 * Adquisición de un token de acceso mediante [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) **PublicClientApplication**.
-* Las operaciones secuenciales CREATE, READ, UPDATE y DELETE en la [API de administración de datos de referencia](https://docs.microsoft.com/rest/api/time-series-insights/gen1-reference-data-api) de Gen 1.
-* Entre los códigos de respuesta comunes se incluyen [códigos de error comunes](https://docs.microsoft.com/rest/api/time-series-insights/gen1-reference-data-api#validation-and-error-handling).
+* Las operaciones secuenciales CREATE, READ, UPDATE y DELETE en la [API de administración de datos de referencia](/rest/api/time-series-insights/gen1-reference-data-api) de Gen 1.
+* Entre los códigos de respuesta comunes se incluyen [códigos de error comunes](/rest/api/time-series-insights/gen1-reference-data-api#validation-and-error-handling).
 
     La API de administración de datos de referencia procesa cada elemento de forma individual y un error con un elemento no impide que los demás se completen correctamente. Por ejemplo, si la solicitud tiene 100 elementos y uno de ellos tiene un error, se escriben 99 elementos y se rechaza uno.
 
@@ -42,7 +42,7 @@ En el código de ejemplo siguiente se muestran las siguientes características:
 
 Realice los pasos siguientes antes de compilar y ejecutar el código de ejemplo:
 
-1. [Aprovisione un entorno de Azure Time Series Insights Gen 1](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-get-started
+1. [Aprovisione un entorno de Azure Time Series Insights Gen 1](./time-series-insights-get-started.md
 ).
 
 1. [Cree un conjunto de datos de referencia](time-series-insights-add-reference-data-set.md) en su entorno. Use el siguiente esquema de datos de referencia:
@@ -313,4 +313,4 @@ namespace CsharpTsiMsalGaSample
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Lea la documentación de referencia de la [API de administración de datos de referencia](https://docs.microsoft.com/rest/api/time-series-insights/gen1-reference-data-api) Gen 1.
+* Lea la documentación de referencia de la [API de administración de datos de referencia](/rest/api/time-series-insights/gen1-reference-data-api) Gen 1.

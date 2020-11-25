@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 0896df301718c74e63a9e18c74615130fa80c952
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aca8c75f262e472cbc770c052b86d6e760ee449a
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90986252"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026478"
 ---
 # <a name="visualize-azure-network-watcher-nsg-flow-logs-using-open-source-tools"></a>Visualización de registros de flujo de grupo de seguridad de red de Azure Network Watcher con herramientas de código abierto
 
@@ -41,7 +41,7 @@ Mediante la conexión de los registros de flujo de grupo de seguridad con Elasti
 
 #### <a name="install-elasticsearch"></a>Instalación de Elasticsearch
 
-1. La versión 5.0 y superiores de Elastic Stack requieren Java 8. Ejecute el comando `java -version` para comprobar la versión. Si no tiene instalado Java, consulte la documentación en los [JDK compatibles con Azure](https://aka.ms/azure-jdks).
+1. La versión 5.0 y superiores de Elastic Stack requieren Java 8. Ejecute el comando `java -version` para comprobar la versión. Si no tiene instalado Java, consulte la documentación en los [JDK compatibles con Azure](/azure/developer/java/fundamentals/java-jdk-long-term-support).
 2. Descargue el paquete binario correcto para su sistema:
 
    ```bash
@@ -207,7 +207,7 @@ Descargue el [archivo de panel](https://aka.ms/networkwatchernsgflowlogdashboard
 
 En la pestaña **Management** (Administración) de Kibana, vaya a **Saved Objects** (Objetos guardados) e importe los tres archivos. A continuación, en la pestaña **Dashboard** (Panel), puede abrir y cargar el panel de ejemplo.
 
-También puede crear visualizaciones y paneles propios que se adapten a las métricas que le interesen. Puede leer más sobre la creación de visualizaciones de Kibana en la [documentación oficial](https://www.elastic.co/guide/en/kibana/current/visualize.html) de Kibana.
+También puede crear visualizaciones y paneles propios que se adapten a las métricas que le interesen. Puede leer más sobre la creación de visualizaciones de Kibana en la [documentación oficial](https://www.tutorialspoint.com/kibana/kibana_create_visualization.htm) de Kibana.
 
 ### <a name="visualize-nsg-flow-logs"></a>Visualización de registros de flujo de grupo de seguridad de red
 

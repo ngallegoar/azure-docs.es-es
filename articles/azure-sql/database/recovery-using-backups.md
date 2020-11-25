@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein, danil
 ms.date: 11/13/2020
-ms.openlocfilehash: 415c9fdcbf0e8bfecaa48b8199702d4159bc32d9
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 138cd03989008aa4fbd7d6ca3e06aff94fa76e33
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629196"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94989486"
 ---
 # <a name="recover-using-automated-database-backups---azure-sql-database--sql-managed-instance"></a>Recuperación de una base de datos de Azure SQL Database o Instancia administrada de Azure SQL mediante copias de seguridad automatizadas
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -60,7 +60,7 @@ Para una única suscripción, existen limitaciones en el número de solicitudes 
 No hay ningún método integrado para restaurar todo el servidor. Para obtener un ejemplo de cómo realizar esta tarea, consulte [Azure SQL Database: Recuperación completa del servidor](https://gallery.technet.microsoft.com/Azure-SQL-Database-Full-82941666).
 
 > [!IMPORTANT]
-> Para poder efectuar una recuperación con copias de seguridad automatizadas, tiene que ser miembro del rol de colaborador de SQL Server o de Instancia administrada de SQL (en función del destino de recuperación) en la suscripción, o debe ser el propietario de la suscripción. Para más información, vea [RBAC: roles integrados](../../role-based-access-control/built-in-roles.md). Las recuperaciones se pueden realizar a través de Azure Portal, PowerShell o la API REST. No se puede utilizar Transact-SQL.
+> Para poder efectuar una recuperación con copias de seguridad automatizadas, tiene que ser miembro del rol de colaborador de SQL Server o de Instancia administrada de SQL (en función del destino de recuperación) en la suscripción, o debe ser el propietario de la suscripción. Para más información, consulte [Azure RBAC: roles integrados](../../role-based-access-control/built-in-roles.md). Las recuperaciones se pueden realizar a través de Azure Portal, PowerShell o la API REST. No se puede utilizar Transact-SQL.
 
 ## <a name="point-in-time-restore"></a>Restauración a un momento dado
 

@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/02/2020
 ms.custom: seodec18
-ms.openlocfilehash: 28a1990155e1406bf9b79572b3e5307cadfb8076
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 09ee98bf8bbe0067f9c79ce4767f3cf68b83fb43
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91665929"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95016809"
 ---
 # <a name="add-an-iot-hub-event-source-to-your-azure-time-series-insight-environment"></a>Adición de un origen del evento de IoT Hub a su entorno de Azure Time Series Insights
 
@@ -27,7 +27,7 @@ Este artículo describe cómo usar Azure Portal para agregar un origen de evento
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Creación de un [entorno de Azure Time Series Insights](time-series-insights-update-create-environment.md).
+* Creación de un [entorno de Azure Time Series Insights](./tutorials-set-up-tsi-environment.md).
 * [Creación de una instancia de IoT Hub mediante Azure Portal](../iot-hub/iot-hub-create-through-portal.md).
 * El centro de IoT Hub debe tener eventos de mensajes activos en proceso de envío.
 * Cree un grupo de consumidores dedicado en IoT Hub del que el entorno de Time Series Insight pueda consumir. Cada origen del evento de Azure Time Series Insights debe tener su propio grupo de consumidores dedicado que no se comparte con otros consumidores. Si varios lectores consumen eventos desde el mismo grupo de consumidores, es probable que todos los lectores exhiban errores. Para más información, lea la [Guía para desarrolladores de IoT Hub](../iot-hub/iot-hub-devguide.md).
@@ -107,7 +107,7 @@ Para agregar un nuevo grupo de consumidores a la instancia de IoT Hub:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Defina las directivas de acceso a datos](time-series-insights-data-access.md) para proteger los datos.
+* [Defina las directivas de acceso a datos](./concepts-access-policies.md) para proteger los datos.
 
 * Realice el [envío de eventos](time-series-insights-send-events.md) al origen del evento.
 

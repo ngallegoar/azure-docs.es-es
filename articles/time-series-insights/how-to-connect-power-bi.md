@@ -8,12 +8,12 @@ services: time-series-insights
 ms.service: time-series-insights
 ms.topic: conceptual
 ms.date: 10/01/2020
-ms.openlocfilehash: 105faf796583eb0f272eea7a316648993fdafd0d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 680b3c5a9548fa06d0139bd441b5583c27427a77
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91653781"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95020783"
 ---
 # <a name="visualize-data-from-azure-time-series-insights-in-power-bi"></a>Visualización de datos de Azure Time Series Insights en Power BI
 
@@ -32,7 +32,7 @@ Asegúrese de que se registra para obtener una [suscripción gratuita a Azure](h
 ## <a name="prerequisites"></a>Requisitos previos
 
 * Descargar e instalar la versión más reciente de [Power BI Desktop](https://powerbi.microsoft.com/downloads/)
-* Tener o crear un [entorno de Azure Time Series Insights Gen2](time-series-insights-update-how-to-manage.md)
+* Tener o crear un [entorno de Azure Time Series Insights Gen2](./how-to-provision-manage.md)
 
 > [!IMPORTANT]
 >
@@ -130,7 +130,7 @@ Una vez creado el informe, puede publicarlo en Reporting Services de Power BI.
 
 ## <a name="advanced-editing"></a>Edición avanzada
 
-Si ya ha cargado un conjunto de datos en Power BI pero desea modificar la consulta (por ejemplo, los parámetros de fecha y hora o del identificador del entorno), puede hacerlo a través de la funcionalidad Editor avanzado de Power BI. Para más información, consulte la [documentación de Power BI](https://docs.microsoft.com/power-bi/desktop-query-overview).
+Si ya ha cargado un conjunto de datos en Power BI pero desea modificar la consulta (por ejemplo, los parámetros de fecha y hora o del identificador del entorno), puede hacerlo a través de la funcionalidad Editor avanzado de Power BI. Para más información, consulte la [documentación de Power BI](/power-bi/desktop-query-overview).
 
 A modo de información general:
 
@@ -146,6 +146,6 @@ Ahora, en la interfaz se reflejarán los cambios que haya aplicado.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Más información acerca de los [conceptos de Power BI Connector](https://docs.microsoft.com/power-bi/desktop-query-overview) para Azure Time Series Insights.
+* Más información acerca de los [conceptos de Power BI Connector](/power-bi/desktop-query-overview) para Azure Time Series Insights.
 
-* Más información acerca de [Power BI Desktop](https://docs.microsoft.com/power-bi/desktop-query-overview).
+* Más información acerca de [Power BI Desktop](/power-bi/desktop-query-overview).

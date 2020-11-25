@@ -1,18 +1,18 @@
 ---
 title: Definiciones de directivas integradas para Azure API Management
 description: En este artículo se enumeran las definiciones de directivas integradas de Azure Policy para Azure API Management. Estas definiciones de directivas integradas proporcionan enfoques para administrar los recursos de Azure.
-ms.date: 11/17/2020
+ms.date: 11/20/2020
 author: georgewallace
 ms.author: gwallace
 ms.service: api-management
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: bbbec42fbfa11043733111707e70bfc4ddeb9811
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: 95258ca84fd786e7b3f4f5d718bf40165ad3125b
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94738036"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94988156"
 ---
 # <a name="azure-policy-built-in-policy-definitions-for-azure-api-management"></a>Definiciones de directivas integradas de Azure Policy para Azure API Management
 

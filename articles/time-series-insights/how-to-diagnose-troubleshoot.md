@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 10/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: b994e8ce34319da4827d389b49e23ed6e5bcde95
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.openlocfilehash: 3d26a0ef86ab96940f3d5bb96d87340b77f1faca
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91653764"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95016843"
 ---
 # <a name="diagnose-and-troubleshoot-an-azure-time-series-insights-gen2-environment"></a>Diagnóstico y solución de problemas de un entorno de Azure Time Series Insights Gen2
 
@@ -39,7 +39,7 @@ Hay varias razones por las cuales es posible que los datos no aparezcan en el [e
 
 - Los datos de origen del evento no tienen formato JSON.
 
-    Time Series Insights solo admite datos JSON. Para ver ejemplos de JSON, lea [Formas de JSON admitidas](./how-to-shape-query-json.md).
+    Time Series Insights solo admite datos JSON. Para ver ejemplos de JSON, lea [Formas de JSON admitidas](./concepts-json-flattening-escaping-rules.md).
 
 - A la clave de origen del evento le falta un permiso necesario.
 
@@ -61,13 +61,13 @@ Hay varias razones por las cuales es posible que los datos no aparezcan en el [e
 
 - La propiedad Time Series ID especificada en el momento del aprovisionamiento es incorrecta, falta o es nula.
 
-    Este problema puede producirse si la propiedad Time Series ID se configura incorrectamente en el momento de aprovisionamiento del entorno. Para más información, lea [Procedimientos recomendados para elegir un identificador de Time Series](./time-series-insights-update-how-to-id.md). En la actualidad, no se puede actualizar un entorno de Time Series Insights existente para usar un identificador de Time Series distinto.
+    Este problema puede producirse si la propiedad Time Series ID se configura incorrectamente en el momento de aprovisionamiento del entorno. Para más información, lea [Procedimientos recomendados para elegir un identificador de Time Series](./how-to-select-tsid.md). En la actualidad, no se puede actualizar un entorno de Time Series Insights existente para usar un identificador de Time Series distinto.
 
 ## <a name="problem-some-data-shows-but-some-is-missing"></a>Problema: Se muestran algunos datos, pero faltan otros
 
 Podría estar enviando datos sin el identificador de Time Series.
 
-- Este problema puede producirse cuando se envían los eventos sin el campo de identificador de Time Series en la carga útil. Para más información, lea el artículo sobre las [formas compatibles de JSON](./how-to-shape-query-json.md).
+- Este problema puede producirse cuando se envían los eventos sin el campo de identificador de Time Series en la carga útil. Para más información, lea el artículo sobre las [formas compatibles de JSON](./concepts-json-flattening-escaping-rules.md).
 - Este problema puede producirse porque se está limitando su entorno.
 
     > [!NOTE]
@@ -111,7 +111,7 @@ Si no se especifica explícitamente la propiedad Timestamp, se utiliza como marc
 
 - Puede que esté accediendo a un entorno Time Series Insights S1 o S2.
 
-   Los modelos de Time Series solo se admiten en entornos de pago por uso. Para más información sobre cómo acceder a su entorno S1 o S2 desde el explorador de Time Series Insights Gen2, lea [Visualización de datos en el explorador](./time-series-insights-update-explorer.md).
+   Los modelos de Time Series solo se admiten en entornos de pago por uso. Para más información sobre cómo acceder a su entorno S1 o S2 desde el explorador de Time Series Insights Gen2, lea [Visualización de datos en el explorador](./concepts-ux-panels.md).
 
    [![No hay eventos en el entorno.](media/preview-troubleshoot/troubleshoot-no-events.png)](media/preview-troubleshoot/troubleshoot-no-events.png#lightbox)
 
@@ -121,7 +121,7 @@ Si no se especifica explícitamente la propiedad Timestamp, se utiliza como marc
 
 ## <a name="problem-all-my-instances-in-the-gen2-explorer-lack-a-parent"></a>Problema: todas las instancias del explorador de Gen2 carecen de un elemento primario
 
-Este problema puede producirse si el entorno no tiene una jerarquía de modelo de Time Series definida. Para más información, consulte cómo [trabajar con modelos de Time Series](/azure/time-series-insights/time-series-insights-overview).
+Este problema puede producirse si el entorno no tiene una jerarquía de modelo de Time Series definida. Para más información, consulte cómo [trabajar con modelos de Time Series](./time-series-insights-overview.md).
 
   [![Las instancias no primarias mostrarán una advertencia.](media/preview-troubleshoot/unparented-instances.png)](media/preview-troubleshoot/unparented-instances.png#lightbox)
 
@@ -135,8 +135,8 @@ Este problema se puede producir si no usa la versión más reciente del conector
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Información sobre cómo [trabajar con modelos de Time Series](/azure/time-series-insights/time-series-insights-overview).
+- Información sobre cómo [trabajar con modelos de Time Series](./time-series-insights-overview.md).
 
-- Más información sobre las [formas JSON admitidas](./how-to-shape-query-json.md).
+- Más información sobre las [formas JSON admitidas](./concepts-json-flattening-escaping-rules.md).
 
-- Revise el [planeamiento y los límites](./time-series-insights-update-plan.md) en Azure Time Series Insights Gen2.
+- Revise el [planeamiento y los límites](./how-to-plan-your-environment.md) en Azure Time Series Insights Gen2.

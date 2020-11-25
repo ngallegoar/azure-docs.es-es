@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 8/10/2020
-ms.openlocfilehash: 628944f9763dc79148e0b64c97158064208412bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cf9f9ca5b8690a38c6e5aa6f519378c0a2e3a4f2
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88136692"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026444"
 ---
 # <a name="distribute-and-modify-tables"></a>Distribución y modificación de tablas
 
@@ -140,7 +140,7 @@ Cuando una tabla nueva no está relacionada con otras de su supuesto grupo de co
 SELECT create_distributed_table('A', 'foo', colocate_with => 'none');
 ```
 
-La división de tablas no relacionadas en sus propios grupos de coubicación mejorará el rendimiento de [reequilibrio de particiones](howto-hyperscale-scaling.md#rebalance-shards), ya que las particiones del mismo grupo deben moverse juntas.
+La división de tablas no relacionadas en sus propios grupos de coubicación mejorará el rendimiento de [reequilibrio de particiones](howto-hyperscale-scale-rebalance.md), ya que las particiones del mismo grupo deben moverse juntas.
 
 Cuando las tablas sí están relacionadas (por ejemplo, cuando se van a combinar), puede tener sentido coubicarlas de manera explícita. Las ventajas de la coubicación adecuada son más importantes que cualquier sobrecarga de reequilibrio.
 

@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 10/14/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 175b2268727364040640b319c24019bdf9b48df9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9e4cb4fe8a701600290d24c055e2be5187a711c5
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89433711"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023401"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>Preparación y personalización de una imagen de disco duro virtual maestro
 
@@ -189,7 +189,7 @@ Las siguientes instrucciones le indicarán cómo cargar la imagen maestra en una
 
 1. Si aún no lo ha hecho, convierta la imagen de máquina virtual (VHD) en fija. Si no lo hace, no podrá crear la imagen correctamente.
 
-2. Cargue la VHD en un contenedor de blobs en la cuenta de almacenamiento. Puede hacerlo rápidamente con la [herramienta Explorador de Storage](https://azure.microsoft.com/features/storage-explorer/). Para obtener más información sobre la herramienta Explorador de Storage, vea [este artículo](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows).
+2. Cargue la VHD en un contenedor de blobs en la cuenta de almacenamiento. Puede hacerlo rápidamente con la [herramienta Explorador de Storage](https://azure.microsoft.com/features/storage-explorer/). Para obtener más información sobre la herramienta Explorador de Storage, vea [este artículo](../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows).
 
     > [!div class="mx-imgBorder"]
     > ![Captura de pantalla de la ventana de búsqueda de la herramienta Explorador de Microsoft Azure Storage. La casilla "Cargar archivos .vhd/vhdx como blobs en páginas (recomendado)" está activada.](media/897aa9a9b6acc0aa775c31e7fd82df02.png)

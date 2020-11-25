@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: ff82986b27d038c536872b07e1308b0d48fadaef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 404999cfac5037702eb61fdf74b2c5245ce9eb30
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74270218"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95526126"
 ---
 # <a name="performance-tiers-for-block-blob-storage"></a>Niveles de rendimiento para el almacenamiento de blobs en bloques
 
@@ -83,6 +83,6 @@ Los datos que se almacenan en una cuenta de almacenamiento de blobs en bloques d
 Evaluación de los niveles de acceso frecuente, esporádico y de archivo en cuentas de GPv2 y Blob Storage.
 
 - [Obtenga información sobre la rehidratación de datos de blob desde el nivel de archivo](storage-blob-rehydration.md)
-- [Evaluación del uso de las cuentas de almacenamiento actuales mediante la habilitación de las métricas de Azure Storage](../common/storage-enable-and-view-metrics.md)
+- [Evaluación del uso de las cuentas de almacenamiento actuales mediante la habilitación de las métricas de Azure Storage](./monitor-blob-storage.md)
 - [Comprobación de los precios de los niveles de acceso frecuente, esporádico y de archivo en cuentas de Blob Storage y de GPv2 por región](https://azure.microsoft.com/pricing/details/storage/)
 - [Detalles de precios de Transferencias de datos](https://azure.microsoft.com/pricing/details/data-transfers/)

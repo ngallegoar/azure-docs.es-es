@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: f7536034eeac8548304f6a7f861910a99cd72a27
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 894398d63e326db3c6ee9de9bebc426a6e621600
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94447517"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024677"
 ---
 # <a name="configure-the-api-proxy-module-for-your-gateway-hierarchy-scenario-preview"></a>Configuración del módulo de proxy de API para el escenario de jerarquías de puertas de enlace (versión preliminar)
 
@@ -263,7 +263,7 @@ Cuando el módulo de proxy de API analiza una configuración de proxy, primero r
 
 Para actualizar la configuración del proxy dinámicamente, siga estos pasos:
 
-1. Escriba el archivo de configuración. Puede usar esta plantilla predeterminada como referencia: [nginx_default_config.conf](hhttps://github.com/Azure/iotedge/blob/master/edge-modules/api-proxy-module/templates/nginx_default_config.conf)
+1. Escriba el archivo de configuración. Puede usar esta plantilla predeterminada como referencia: [nginx_default_config.conf](https://github.com/Azure/iotedge/blob/master/edge-modules/api-proxy-module/templates/nginx_default_config.conf)
 1. Copie el texto del archivo de configuración y conviértalo en base64.
 1. Pegue el archivo de configuración codificado como valor de la propiedad `proxy_config` deseada en el módulo gemelo.
 

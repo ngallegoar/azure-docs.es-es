@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 00a3c1d0a2a905e6435b811d5f2611c16a5de502
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: b60a6e53e8fecd71885204690231776ff69fc08f
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92328886"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018382"
 ---
 # <a name="configure-device-redirections"></a>Configuración de redireccionamientos de dispositivos
 
@@ -19,11 +19,11 @@ La configuración de redireccionamientos de dispositivos para el entorno de Wind
 
 ## <a name="supported-device-redirections"></a>Redireccionamientos de dispositivos admitidos
 
-Cada cliente admite diferentes redireccionamientos de dispositivos. Consulte [Comparar los clientes](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-app-compare) para obtener la lista completa de redireccionamientos de dispositivos compatibles para cada cliente.
+Cada cliente admite diferentes redireccionamientos de dispositivos. Consulte [Comparar los clientes](/windows-server/remote/remote-desktop-services/clients/remote-desktop-app-compare) para obtener la lista completa de redireccionamientos de dispositivos compatibles para cada cliente.
 
 ## <a name="customizing-rdp-properties-for-a-host-pool"></a>Personalización de las propiedades de RDP para un grupo de hosts
 
-Para obtener más información sobre cómo personalizar las propiedades de RDP para un grupo de hosts mediante PowerShell o Azure Portal, consulte las [Propiedades de RDP](customize-rdp-properties.md). Para obtener la lista completa de propiedades de RDP compatibles, consulte la [Configuración de archivos de RDP compatibles](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/rdp-files?context=/azure/virtual-desktop/context/context).
+Para obtener más información sobre cómo personalizar las propiedades de RDP para un grupo de hosts mediante PowerShell o Azure Portal, consulte las [Propiedades de RDP](customize-rdp-properties.md). Para obtener la lista completa de propiedades de RDP compatibles, consulte la [Configuración de archivos de RDP compatibles](/windows-server/remote/remote-desktop-services/clients/rdp-files?context=%2fazure%2fvirtual-desktop%2fcontext%2fcontext).
 
 ## <a name="setup-device-redirections"></a>Configuración de redireccionamientos de dispositivos
 
@@ -78,10 +78,10 @@ En primer lugar, establezca la siguiente propiedad RDP para habilitar el redirec
 
 En segundo lugar, establezca la siguiente directiva de grupo en el dispositivo local del usuario:
 
-- Vaya a **Configuración del equipo** > **Directivas**> **Plantillas administrativas** > **Componentes de Windows** > **Servicios de Escritorio remoto** > **Cliente de conexión a Escritorio remoto** > **Redireccionamiento del dispositivo USB RemoteFX** .
-- Seleccione **Permitir el redireccionamiento RDP de otros dispositivos USB RemoteFX compatibles desde este equipo** .
+- Vaya a **Configuración del equipo** > **Directivas**> **Plantillas administrativas** > **Componentes de Windows** > **Servicios de Escritorio remoto** > **Cliente de conexión a Escritorio remoto** > **Redireccionamiento del dispositivo USB RemoteFX**.
+- Seleccione **Permitir el redireccionamiento RDP de otros dispositivos USB RemoteFX compatibles desde este equipo**.
 - Seleccione la opción **Habilitado** y, a continuación, seleccione el cuadro **Administrators and Users in RemoteFX USB Redirection Access Rights** (Administradores y usuarios en los derechos de acceso del redireccionamiento de dispositivos USB RemoteFX).
-- Seleccione **Aceptar** .
+- Seleccione **Aceptar**.
 
 ### <a name="plug-and-play-device-redirection"></a>Redireccionamiento del dispositivo Plug and Play
 

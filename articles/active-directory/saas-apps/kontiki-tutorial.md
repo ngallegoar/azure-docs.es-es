@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
-ms.openlocfilehash: bad9757bb62d5175e725bfe8e005155040dccf36
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 9e0b438e0cfa729300099463086248780c69484c
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92458951"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95019847"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kontiki"></a>Tutorial: Integración de Azure Active Directory con Kontiki
 
@@ -56,21 +56,21 @@ Para integrar Kontiki con Azure AD, debe agregar Kontiki a la lista de aplicacio
 
     ![Opción de Azure Active Directory](common/select-azuread.png)
 
-1. Seleccione **Aplicaciones empresariales** > **Todas las aplicaciones** .
+1. Seleccione **Aplicaciones empresariales** > **Todas las aplicaciones**.
 
     ![Panel Aplicaciones empresariales](common/enterprise-applications.png)
 
-1. Para agregar una aplicación, seleccione **Nueva aplicación** .
+1. Para agregar una aplicación, seleccione **Nueva aplicación**.
 
     ![Opción Nueva aplicación](common/add-new-app.png)
 
-1. En el cuadro de búsqueda, escriba **Kontiki** . En los resultados de búsqueda, seleccione **Kontiki** y, luego, **Agregar** .
+1. En el cuadro de búsqueda, escriba **Kontiki**. En los resultados de búsqueda, seleccione **Kontiki** y, luego, **Agregar**.
 
     ![Kontiki en la lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
 
-En esta sección, podrá configurar y probar el inicio de sesión único de Azure AD con Kontiki con un usuario de prueba llamado **Britta Simon** . Para que el inicio de sesión único funcione, es preciso establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Kontiki.
+En esta sección, podrá configurar y probar el inicio de sesión único de Azure AD con Kontiki con un usuario de prueba llamado **Britta Simon**. Para que el inicio de sesión único funcione, es preciso establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Kontiki.
 
 Para configurar y probar el inicio de sesión único de Azure AD con Kontiki, es preciso completar los siguientes bloques de creación:
 
@@ -87,30 +87,30 @@ Para configurar y probar el inicio de sesión único de Azure AD con Kontiki, es
 
 En esta sección, configurará el inicio de sesión único de Azure AD con Kontiki en Azure Portal.
 
-1. En [Azure Portal](https://portal.azure.com/), en el panel de integración de la aplicación **Kontiki** , seleccione **Inicio de sesión único** .
+1. En [Azure Portal](https://portal.azure.com/), en el panel de integración de la aplicación **Kontiki**, seleccione **Inicio de sesión único**.
 
     ![Configuración de la opción de inicio de sesión único](common/select-sso.png)
 
-1. En el panel **Seleccionar un método de inicio de sesión único** , seleccione el modo **SAML** o **SAML/WS-Fed** para habilitar el inicio de sesión único.
+1. En el panel **Seleccionar un método de inicio de sesión único**, seleccione el modo **SAML** o **SAML/WS-Fed** para habilitar el inicio de sesión único.
 
     ![Modo de selección de inicio de sesión único](common/select-saml-option.png)
 
-1. En el panel **Configurar el inicio de sesión único con SAML** , seleccione **Editar** (icono de lápiz) para abrir el panel **Configuración básica de SAML** .
+1. En el panel **Configurar el inicio de sesión único con SAML**, seleccione **Editar** (icono de lápiz) para abrir el panel **Configuración básica de SAML**.
 
     ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-1. En el panel **Configuración básica de SAML** , en el cuadro de texto **Dirección URL de inicio de sesión** , escriba una dirección URL con el patrón siguiente: `https://<companyname>.mc.eval.kontiki.com`
+1. En el panel **Configuración básica de SAML**, en el cuadro de texto **Dirección URL de inicio de sesión**, escriba una dirección URL con el patrón siguiente: `https://<companyname>.mc.eval.kontiki.com`
 
     ![Información sobre dominio y direcciones URL de inicio de sesión único de Kontiki](common/sp-signonurl.png)
 
     > [!NOTE]
-    > Póngase en contacto con el [equipo de soporte técnico de Kontiki](https://customersupport.kontiki.com/enterprise/contactsupport.html) para obtener el valor adecuado que se debe usar. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
+    > Póngase en contacto con el [equipo de soporte técnico de Kontiki](https://kollective.com/support/) para obtener el valor adecuado que se debe usar. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
-1. En el panel **Configurar el inicio de sesión único con SAML** , en la sección **Certificado de firma de SAML** , seleccione **Descargar** junto a **XML de metadatos de federación** . Seleccione una opción de descarga según sus requisitos. Guarde el certificado en el equipo.
+1. En el panel **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, seleccione **Descargar** junto a **XML de metadatos de federación**. Seleccione una opción de descarga según sus requisitos. Guarde el certificado en el equipo.
 
     ![Opción de descarga del certificado del XML de metadatos de federación](common/metadataxml.png)
 
-1. En la sección **Configurar Kontiki** , copie las direcciones URL siguientes según sus necesidades:
+1. En la sección **Configurar Kontiki**, copie las direcciones URL siguientes según sus necesidades:
 
     * URL de inicio de sesión
     * Identificador de Azure AD
@@ -120,29 +120,29 @@ En esta sección, configurará el inicio de sesión único de Azure AD con Konti
 
 ### <a name="configure-kontiki-single-sign-on"></a>Configuración del inicio de sesión único de Kontiki
 
-Para configurar el inicio de sesión único en Kontiki, envíe el archivo del XML de metadatos de federación descargado y las direcciones URL apropiadas que copió de Azure Portal al [equipo de soporte técnico de Kontiki](https://customersupport.kontiki.com/enterprise/contactsupport.html). El equipo de soporte técnico de Kontiki usa la información que les envíe para asegurarse de que la conexión de inicio de sesión único de SAML está configurada correctamente en ambos lados.
+Para configurar el inicio de sesión único en Kontiki, envíe el archivo del XML de metadatos de federación descargado y las direcciones URL apropiadas que copió de Azure Portal al [equipo de soporte técnico de Kontiki](https://kollective.com/support/). El equipo de soporte técnico de Kontiki usa la información que les envíe para asegurarse de que la conexión de inicio de sesión único de SAML está configurada correctamente en ambos lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD 
 
 En esta sección, creará un usuario de prueba llamado Britta Simon en Azure Portal.
 
-1. En Azure Portal, seleccione **Azure Active Directory** > **Usuarios** > **Todos los usuarios** .
+1. En Azure Portal, seleccione **Azure Active Directory** > **Usuarios** > **Todos los usuarios**.
 
     ![Opciones Usuarios y Todos los usuarios](common/users.png)
 
-1. Seleccione **Nuevo usuario** .
+1. Seleccione **Nuevo usuario**.
 
     ![Opción Nuevo usuario](common/new-user.png)
 
-1. En el panel **Usuario** , siga estos pasos:
+1. En el panel **Usuario**, siga estos pasos:
 
-    1. En el cuadro **Nombre** , escriba **BrittaSimon** .
+    1. En el cuadro **Nombre**, escriba **BrittaSimon**.
   
-    1. En el cuadro **Nombre de usuario** , escriba **brittasimon\@\<your-company-domain>.\<extension>** . Por ejemplo, **brittasimon\@contoso.com** .
+    1. En el cuadro **Nombre de usuario**, escriba **brittasimon\@\<your-company-domain>.\<extension>** . Por ejemplo, **brittasimon\@contoso.com**.
 
-    1. Active la casilla de verificación **Mostrar contraseña** . Anote el valor que se muestra en el cuadro **Contraseña** .
+    1. Active la casilla de verificación **Mostrar contraseña**. Anote el valor que se muestra en el cuadro **Contraseña**.
 
-    1. Seleccione **Crear** .
+    1. Seleccione **Crear**.
 
     ![Panel Usuario](common/user-properties.png)
 
@@ -150,27 +150,27 @@ En esta sección, creará un usuario de prueba llamado Britta Simon en Azure Por
 
 En esta sección, concederá acceso a Britta Simon a Kontiki para que use el inicio de sesión único de Azure.
 
-1. En Azure Portal, seleccione **Aplicaciones empresariales** > **Todas las aplicaciones** > **Kontiki** .
+1. En Azure Portal, seleccione **Aplicaciones empresariales** > **Todas las aplicaciones** > **Kontiki**.
 
     ![Panel Aplicaciones empresariales](common/enterprise-applications.png)
 
-1. En la lista de aplicaciones, seleccione **Kontiki** .
+1. En la lista de aplicaciones, seleccione **Kontiki**.
 
     ![Kontiki en la lista de aplicaciones](common/all-applications.png)
 
-1. En el menú, seleccione **Usuarios y grupos** .
+1. En el menú, seleccione **Usuarios y grupos**.
 
     ![Opción Usuarios y grupos](common/users-groups-blade.png)
 
-1. Seleccione **Agregar usuario** . Después, en el panel **Agregar asignación** , seleccione **Usuarios y grupos** .
+1. Seleccione **Agregar usuario**. Después, en el panel **Agregar asignación**, seleccione **Usuarios y grupos**.
 
     ![El panel Agregar asignación](common/add-assign-user.png)
 
-1. En el panel **Usuarios y grupos** , en la lista de usuarios, seleccione **Britta Simon** . Elija **Seleccionar** .
+1. En el panel **Usuarios y grupos**, en la lista de usuarios, seleccione **Britta Simon**. Elija **Seleccionar**.
 
-1. Si espera algún valor de rol en la aserción de SAML, en el panel **Seleccionar rol** , seleccione el rol adecuado para el usuario de la lista. Elija **Seleccionar** .
+1. Si espera algún valor de rol en la aserción de SAML, en el panel **Seleccionar rol**, seleccione el rol adecuado para el usuario de la lista. Elija **Seleccionar**.
 
-1. En el panel **Agregar asignación** , seleccione **Asignar** .
+1. En el panel **Agregar asignación**, seleccione **Asignar**.
 
 ### <a name="create-a-kontiki-test-user"></a>Creación de un usuario de prueba de Kontiki
 

@@ -3,12 +3,12 @@ title: Incorporación de un cliente a Azure Lighthouse
 description: Obtenga información sobre cómo incorporar un cliente a Azure Lighthouse, lo que permite administrar sus recursos y acceder a ellos desde su propio inquilino mediante la administración de recursos delegados de Azure.
 ms.date: 09/24/2020
 ms.topic: how-to
-ms.openlocfilehash: d80fef21e4b7cf1705b67df3c8d08f91bac589bf
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 43f28073c996167c82e241476020bdc341486b26
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93042849"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024303"
 ---
 # <a name="onboard-a-customer-to-azure-lighthouse"></a>Incorporación de un cliente a Azure Lighthouse
 
@@ -142,7 +142,7 @@ La plantilla que elija dependerá de si se incorpora una suscripción completa, 
 > [!TIP]
 > Aunque no se puede incorporar un grupo de administración completo en una implementación, es posible [implementar una directiva en el nivel de grupo de administración](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/policy-delegate-management-groups). La directiva comprobará si cada suscripción del grupo de administración se ha delegado en el inquilino de administración especificado y, en caso contrario, creará la asignación en función de los valores proporcionados.
 
-En el ejemplo siguiente se muestra un archivo **delegatedResourceManagement.parameters.json** , que se usará para incorporar una suscripción. Los archivos de parámetros del grupo de recursos (situados en la carpeta [rg-delegated-resource-management](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/rg-delegated-resource-management)) son similares, pero también incluyen un parámetro **rgName** para identificar los grupos de recursos específicos que se incorporarán.
+En el ejemplo siguiente se muestra un archivo **delegatedResourceManagement.parameters.json**, que se usará para incorporar una suscripción. Los archivos de parámetros del grupo de recursos (situados en la carpeta [rg-delegated-resource-management](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/rg-delegated-resource-management)) son similares, pero también incluyen un parámetro **rgName** para identificar los grupos de recursos específicos que se incorporarán.
 
 ```json
 {
@@ -286,6 +286,11 @@ En el inquilino del cliente:
 # Log in first with Connect-AzAccount if you're not using Cloud Shell
 
 Get-AzContext
+
+# Confirm successful onboarding for Azure Lighthouse
+
+Get-AzManagedServicesDefinition
+Get-AzManagedServicesAssignment
 ```
 
 ### <a name="azure-cli"></a>Azure CLI
@@ -299,5 +304,5 @@ az account list
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Más información sobre las [experiencias de administración entre inquilinos](../concepts/cross-tenant-management-experience.md).
-- Puede [ver y administrar clientes](view-manage-customers.md) desde **Mis clientes** , en Azure Portal.
+- Puede [ver y administrar clientes](view-manage-customers.md) desde **Mis clientes**, en Azure Portal.
 - Obtenga información sobre cómo [quitar el acceso a una delegación](remove-delegation.md) que se incorporó previamente.

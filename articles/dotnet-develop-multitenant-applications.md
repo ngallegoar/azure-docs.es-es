@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/05/2015
 ms.author: wpickett
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 71114b6663d010437e5778d288eacf4e120b3da5
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: d36a2804519e5728dd068cc6c06ad005244e8c95
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91395981"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95524103"
 ---
 # <a name="multitenant-applications-in-azure"></a>Aplicaciones multiempresa en Azure
 Una aplicación multiinquilino es un recurso compartido que permite a los "usuarios en inquilinos independientes" ver la aplicación como si fuera propia. Un escenario típico de una aplicación multiinquilino es aquel en el que todos los usuarios de la aplicación de inquilinos diferentes pueden querer personalizar la experiencia de usuario pero, por otra parte, tienen los mismos requisitos empresariales básicos. Microsoft 365, Outlook.com y visualstudio.com son ejemplos de grandes aplicaciones multiinquilino.
@@ -43,7 +43,7 @@ Una aplicación multiempresa correctamente implementada ofrece los siguientes be
 
 En resumen, si bien hay muchas consideraciones que debe tener en cuenta para ofrecer un servicio de alta escalabilidad, también hay una serie de objetivos y requisitos comunes a muchas aplicaciones multiempresa. Algunos pueden no resultar pertinentes en escenarios específicos y la importancia de los objetivos y requisitos individuales variará en cada escenario. Como proveedor de la aplicación multiempresa, también tendrá objetivos y requisitos como satisfacer los requisitos y los objetivos del inquilino, rentabilidad, facturación, varios niveles de servicio, aprovisionamiento, mantenimiento, supervisión y automatización.
 
-Para obtener más información acerca de las consideraciones de diseño adicionales de una aplicación multiempresa, consulte [Hospedaje de una aplicación multiempresa en Azure][Hosting a Multi-Tenant Application on Azure]. Para más información sobre los patrones comunes de la arquitectura de datos de aplicaciones de base de datos de software como servicio (SaaS) multiinquilino, consulte [Modelos de diseño para las aplicaciones SaaS multiinquilino y Azure SQL Database](sql-database/sql-database-design-patterns-multi-tenancy-saas-applications.md). 
+Para obtener más información acerca de las consideraciones de diseño adicionales de una aplicación multiempresa, consulte [Hospedaje de una aplicación multiempresa en Azure][Hosting a Multi-Tenant Application on Azure]. Para más información sobre los patrones comunes de la arquitectura de datos de aplicaciones de base de datos de software como servicio (SaaS) multiinquilino, consulte [Modelos de diseño para las aplicaciones SaaS multiinquilino y Azure SQL Database](./azure-sql/database/saas-tenancy-app-design-patterns.md). 
 
 Azure ofrece muchas características que le permiten solucionar los principales problemas detectados al diseñar un sistema multiempresa.
 
@@ -92,5 +92,5 @@ Azure ofrece diferentes formas de aprovisionar nuevos inquilinos para la aplicac
 
 <!--links-->
 
-[Hosting a Multi-Tenant Application on Azure]: https://msdn.microsoft.com/library/hh534480.aspx
+[Hosting a Multi-Tenant Application on Azure]: /previous-versions/msp-n-p/hh534480(v=pandp.10)
 [Designing Multitenant Applications on Azure]: https://msdn.microsoft.com/library/windowsazure/hh689716

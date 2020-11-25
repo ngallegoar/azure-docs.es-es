@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 09/29/2020
 ms.custom: seodec18
-ms.openlocfilehash: 49a763af8d936ec9fd15c59c908ba9015f803930
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 639f2ef12d190a56e04a9b48d96ea0a6537d243c
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91568649"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95020119"
 ---
 # <a name="azure-time-series-insights-gen1-explorer"></a>Explorador de Azure Time Series Insights Gen1
 
@@ -45,8 +45,8 @@ Azure Time Series Insights es un servicio de análisis, almacenamiento y adminis
 Antes de poder usar el Explorador de Azure Time Series Insights, debe hacer lo siguiente:
 
 - Creación de un entorno de Azure Time Series Insights. Para más información, lea [Introducción a Azure Time Series Insights](./time-series-insights-get-started.md).
-- [Proporcionar acceso](time-series-insights-data-access.md) a la cuenta en el entorno.
-- Agregarle como origen de evento un [centro de IoT](time-series-insights-how-to-add-an-event-source-iothub.md) o un [centro de eventos](time-series-insights-how-to-add-an-event-source-eventhub.md).
+- [Proporcionar acceso](./concepts-access-policies.md) a la cuenta en el entorno.
+- Agregarle como origen de evento un [centro de IoT](./how-to-ingest-data-iot-hub.md) o un [centro de eventos](./how-to-ingest-data-event-hub.md).
 
 ## <a name="explore-and-query-data"></a>Explorar y consultar los datos
 

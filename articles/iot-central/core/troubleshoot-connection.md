@@ -7,13 +7,13 @@ ms.author: dobett
 ms.date: 08/13/2020
 ms.topic: troubleshooting
 ms.service: iot-central
-ms.custom: device-developer
-ms.openlocfilehash: 6438b938dc007e8d157f6549b3ed164cd2a723e8
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.custom: device-developer, devx-track-azurecli
+ms.openlocfilehash: 2bbf400840c968587de3a0a0951d28c7c35b210f
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424462"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94990897"
 ---
 # <a name="troubleshoot-why-data-from-your-devices-isnt-showing-up-in-azure-iot-central"></a>Solucione los problemas por los que no se muestran los datos de los dispositivos en Azure IoT Central.
 
@@ -135,7 +135,7 @@ https://aka.ms/iotcentral-docs-dps-SAS",
 | aprovisionado | No hay ningún problema reconocible inmediatamente. | N/D |
 | Registrado | El dispositivo aún no se ha conectado a IoT Central. | Compruebe si hay problemas de conectividad en los registros del dispositivo. |
 | Bloqueado | El dispositivo no se puede conectar a IoT Central. | El dispositivo está bloqueado y no se pudo conectar a la aplicación IoT Central. Desbloquee el dispositivo en IoT Central e inténtelo de nuevo. Para más información, consulte [Bloqueo de dispositivos](concepts-get-connected.md#device-status-values). |
-| No aprobado | El dispositivo no está aprobado. | El dispositivo no tiene aprobación para conectarse a la aplicación IoT Central. Apruebe el dispositivo en IoT Central e inténtelo de nuevo. Para más información, consulte [Aprobación de dispositivos](concepts-get-connected.md#connect-without-registering-devices). |
+| No aprobado | El dispositivo no está aprobado. | El dispositivo no tiene aprobación para conectarse a la aplicación IoT Central. Apruebe el dispositivo en IoT Central e inténtelo de nuevo. Para más información, consulte [Aprobación de dispositivos](concepts-get-connected.md#device-registration). |
 | Sin asociar | El dispositivo no está asociado a una plantilla de dispositivo. | Asócielo a una plantilla de dispositivo para que IoT Central sepa cómo analizar los datos. |
 
 Más información acerca de [códigos de estado de dispositivo](concepts-get-connected.md#device-status-values).

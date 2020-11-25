@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/02/2020
 ms.custom: seodec18, has-adal-ref
-ms.openlocfilehash: 7408e3fb279536f61dd2e5cf1858476da57219d4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d1bd3c5796658663b6111723829cbe620346002c
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91665824"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95016248"
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Autenticación y autorización para la API de Azure Time Series Insights
 
@@ -73,7 +73,7 @@ Según el **paso 3**, distinguir entre las credenciales de la aplicación y las 
 1. Seleccione **Aceptar** para guardar la directiva.
 
    > [!TIP]
-   > Para más información sobre las opciones avanzadas de acceso a datos, lea [Conceder acceso a datos](./time-series-insights-data-access.md).
+   > Para más información sobre las opciones avanzadas de acceso a datos, lea [Conceder acceso a datos](./concepts-access-policies.md).
 
 ### <a name="client-app-initialization"></a>Inicialización de la aplicación cliente
 
@@ -90,18 +90,18 @@ Según el **paso 3**, distinguir entre las credenciales de la aplicación y las 
    1. Luego el token se puede pasar en el encabezado `Authorization` cuando la aplicación llame a la API de Azure Time Series Insights.
 
 > [!IMPORTANT]
-> Si usa la [Biblioteca de autenticación de Azure Active Directory (ADAL)](https://docs.microsoft.com/azure/active-directory/azuread-dev/active-directory-authentication-libraries), lea acerca de la [migración a MSAL](https://docs.microsoft.com/azure/active-directory/develop/msal-net-migration).
+> Si usa la [Biblioteca de autenticación de Azure Active Directory (ADAL)](../active-directory/azuread-dev/active-directory-authentication-libraries.md), lea acerca de la [migración a MSAL](../active-directory/develop/msal-net-migration.md).
 
 ## <a name="common-headers-and-parameters"></a>Parámetros y encabezados comunes
 
-En esta sección, se describen los encabezados y parámetros comunes de la solicitud HTTP que se usan para realizar consultas frente a las API de Azure Time Series Insights Gen1 y Gen2. Los requisitos específicos de las API se describen con mayor detalle en la [documentación de referencia de la API de REST de Azure Time Series Insights](https://docs.microsoft.com/rest/api/time-series-insights/).
+En esta sección, se describen los encabezados y parámetros comunes de la solicitud HTTP que se usan para realizar consultas frente a las API de Azure Time Series Insights Gen1 y Gen2. Los requisitos específicos de las API se describen con mayor detalle en la [documentación de referencia de la API de REST de Azure Time Series Insights](/rest/api/time-series-insights/).
 
 > [!TIP]
-> Lea la [Referencia de la API de REST de Azure](https://docs.microsoft.com/rest/api/azure/) para obtener más información sobre cómo usar las API de REST, realizar solicitudes HTTP y manipular las respuestas HTTP.
+> Lea la [Referencia de la API de REST de Azure](/rest/api/azure/) para obtener más información sobre cómo usar las API de REST, realizar solicitudes HTTP y manipular las respuestas HTTP.
 
 ### <a name="authentication"></a>Authentication
 
-Para realizar consultas autenticadas en las [API de REST de Azure Time Series Insights](https://docs.microsoft.com/rest/api/time-series-insights/), se debe pasar un token de portador OAuth 2.0 válido en el [Encabezado de autorización](/rest/api/apimanagement/2019-12-01/authorizationserver/createorupdate) mediante un cliente de REST de su elección (Postman, JavaScript, C#).
+Para realizar consultas autenticadas en las [API de REST de Azure Time Series Insights](/rest/api/time-series-insights/), se debe pasar un token de portador OAuth 2.0 válido en el [Encabezado de autorización](/rest/api/apimanagement/2019-12-01/authorizationserver/createorupdate) mediante un cliente de REST de su elección (Postman, JavaScript, C#).
 
 > [!TIP]
 > Lea la [visualización de muestra del SDK de cliente](https://tsiclientsample.azurewebsites.net/) hospedado de Azure Time Series Insights para aprender a autenticarse con las API de Azure Time Series Insights mediante programación, usando el [SDK de cliente de JavaScript](https://github.com/microsoft/tsiclient/blob/master/docs/API.md) junto con gráficos.
@@ -140,7 +140,7 @@ A continuación se describen los encabezados de respuesta opcionales, pero recom
 ### <a name="http-parameters"></a>Parámetros de HTTP
 
 > [!TIP]
-> Encontrará más detalles sobre la información de consulta necesaria y opcional en la [documentación de referencia](https://docs.microsoft.com/rest/api/time-series-insights/).
+> Encontrará más detalles sobre la información de consulta necesaria y opcional en la [documentación de referencia](/rest/api/time-series-insights/).
 
 Los parámetros de la cadena de consulta de la URL obligatorios dependen de la versión de la API.
 
@@ -157,7 +157,7 @@ Los parámetros de cadena de consulta de dirección URL opcionales incluyen esta
 
 | Parámetro de consulta opcional | Descripción | Versión |
 | --- |  --- | --- |
-| `timeout=<timeout>` | Tiempo de espera del lado servidor para la ejecución de la solicitud. Esto es aplicable solo a las API [Get Environment Events](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/getavailability) y [Get Environment Aggregates](https://docs.microsoft.com/rest/api/time-series-insights/gen1-query-api#get-environment-aggregates-api). El valor del tiempo de espera debe estar en un formato de duración de tipo ISO 8601, por ejemplo `"PT20S"`, y debe estar en el intervalo `1-30 s`. El valor predeterminado es `30 s`. | Gen1 |
+| `timeout=<timeout>` | Tiempo de espera del lado servidor para la ejecución de la solicitud. Esto es aplicable solo a las API [Get Environment Events](/rest/api/time-series-insights/dataaccess(preview)/query/getavailability) y [Get Environment Aggregates](/rest/api/time-series-insights/gen1-query-api#get-environment-aggregates-api). El valor del tiempo de espera debe estar en un formato de duración de tipo ISO 8601, por ejemplo `"PT20S"`, y debe estar en el intervalo `1-30 s`. El valor predeterminado es `30 s`. | Gen1 |
 | `storeType=<storeType>` | En el caso de los entornos de Gen2 con almacenamiento intermedio habilitado, la consulta se puede ejecutar en `WarmStore` o `ColdStore`. Este parámetro de la consulta define en qué almacén debe ejecutarse la consulta. Si no se define, la consulta se ejecutará en el almacén frío. Para consultar la tienda en caliente, **storeType** debe establecerse en `WarmStore`. Si no se define, la consulta se ejecutará en el almacén frío. | Gen2 |
 
 ## <a name="next-steps"></a>Pasos siguientes
@@ -166,6 +166,6 @@ Los parámetros de cadena de consulta de dirección URL opcionales incluyen esta
 
 * Para obtener código de ejemplo que llama a la API de Azure Time Series Insights Gen2, lea [Consulta de datos de Gen2 mediante C#](./time-series-insights-update-query-data-csharp.md).
 
-* Para información de referencia de la API, lea la documentación de [referencia sobre la API de consulta](https://docs.microsoft.com/rest/api/time-series-insights/gen1-query-api).
+* Para información de referencia de la API, lea la documentación de [referencia sobre la API de consulta](/rest/api/time-series-insights/gen1-query-api).
 
 * Sepa cómo [crear una entidad de servicio](../active-directory/develop/howto-create-service-principal-portal.md).

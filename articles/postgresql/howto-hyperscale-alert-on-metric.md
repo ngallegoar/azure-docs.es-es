@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 3/16/2020
-ms.openlocfilehash: 7e455565a0cd5e1fc96a6fe7d9e0502da3214fcf
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 73705434aef3ee438c02fbfd6502d30e7620b695
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92909920"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026461"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql---hyperscale-citus"></a>Use Azure Portal para configurar alertas métricas en Azure Database for PostgreSQL - Hiperescala (Citus)
 
@@ -33,17 +33,17 @@ Puede obtener información sobre las reglas de alerta y configurarlas mediante:
 ## <a name="create-an-alert-rule-on-a-metric-from-the-azure-portal"></a>Creación de una regla de alerta sobre una métrica desde Azure Portal
 1. En [Azure Portal](https://portal.azure.com/), seleccione el servidor de Azure Database for PostgreSQL que quiera supervisar.
 
-2. En la sección **Supervisión** de la barra lateral, seleccione **Alertas** , tal y como se muestra a continuación:
+2. En la sección **Supervisión** de la barra lateral, seleccione **Alertas**, tal y como se muestra a continuación:
 
    :::image type="content" source="./media/howto-hyperscale-alert-on-metric/2-alert-rules.png" alt-text="Selección de Reglas de alerta":::
 
 3. Seleccione **Nueva regla de alertas** (icono +).
 
-4. Se abre la página **Crear regla** , tal y como se muestra a continuación. Rellene la información necesaria:
+4. Se abre la página **Crear regla**, tal y como se muestra a continuación. Rellene la información necesaria:
 
    :::image type="content" source="./media/howto-hyperscale-alert-on-metric/4-add-rule-form.png" alt-text="Formulario de adición de alerta de métrica":::
 
-5. En la sección de **Condición** , seleccione **Agregar**.
+5. En la sección de **Condición**, seleccione **Agregar**.
 
 6. Seleccione una métrica de la lista de señales sobre las que desea recibir alertas. En este ejemplo, seleccione "Porcentaje de almacenamiento".
    
@@ -60,7 +60,7 @@ Puede obtener información sobre las reglas de alerta y configurarlas mediante:
 
    :::image type="content" source="./media/howto-hyperscale-alert-on-metric/7-set-threshold-time.png" alt-text="Captura de pantalla en la que se muestra el panel donde puede configurar la lógica de alertas.":::
 
-8. En la sección **Grupos de acciones** , seleccione **Crear nuevo** para crear un grupo en el que recibir las notificaciones sobre la alerta.
+8. En la sección **Grupos de acciones**, seleccione **Crear nuevo** para crear un grupo en el que recibir las notificaciones sobre la alerta.
 
 9. Rellene el formulario "Agregar grupo de acciones" con un nombre, un nombre corto, la suscripción y el grupo de recursos.
 
@@ -101,8 +101,8 @@ Se recomienda establecer alertas de espacio en disco en cada nodo de cada grupo 
 A medida que el disco se aproxime al límite de espacio, pruebe estas técnicas para tener más espacio libre:
 
 * Revise la directiva de retención de datos. Mueva los datos más antiguos al almacenamiento en frío, si es factible.
-* Considere la posibilidad de [agregar nodos](howto-hyperscale-scaling.md#add-worker-nodes) al grupo de servidores y reequilibrar las particiones. El reequilibrio distribuye los datos entre más equipos.
-* Considere la posibilidad de [aumentar la capacidad](howto-hyperscale-scaling.md#increase-or-decrease-vcores-on-nodes) de los nodos de trabajo. Cada trabajo puede tener hasta 2 TiB de almacenamiento. Sin embargo, se deben intentar agregar nodos antes de cambiar el tamaño de los nodos, ya que la adición de nodos se completa más rápidamente.
+* Considere la posibilidad de [agregar nodos](howto-hyperscale-scale-grow.md#add-worker-nodes) al grupo de servidores y reequilibrar las particiones. El reequilibrio distribuye los datos entre más equipos.
+* Considere la posibilidad de [aumentar la capacidad](howto-hyperscale-scale-grow.md#increase-or-decrease-vcores-on-nodes) de los nodos de trabajo. Cada trabajo puede tener hasta 2 TiB de almacenamiento. Sin embargo, se deben intentar agregar nodos antes de cambiar el tamaño de los nodos, ya que la adición de nodos se completa más rápidamente.
 
 ### <a name="cpu-usage"></a>Uso de CPU
 

@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: how-to
 ms.date: 10/11/2020
 ms.author: raynew
-ms.openlocfilehash: b59bc33698be516ec5a2e289b52dafcb9e9efcbe
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 4da707ab698599c8ea5dd8e1ea8647f543eb2a68
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93341865"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95524256"
 ---
 # <a name="support-for-moving-azure-vms-between-azure-regions"></a>Compatibilidad con la migración de máquinas virtuales de Azure entre regiones de Azure
 
@@ -121,11 +121,11 @@ Esta tabla resume la compatibilidad con el disco del sistema operativo, el disco
 
 **Componente** | **Soporte técnico** | **Detalles**
 --- | --- | ---
-Tamaño máximo del disco de sistema operativo | 2048 GB | [Más información](../virtual-machines/windows/managed-disks-overview.md) sobre discos de máquina virtual.
-Disco temporal | No compatible | El disco temporal siempre se excluye del proceso de preparación.<br/><br/> No almacene los datos persistentes en el disco temporal. [Más información](../virtual-machines/windows/managed-disks-overview.md#temporary-disk).
+Tamaño máximo del disco de sistema operativo | 2048 GB | [Más información](../virtual-machines/managed-disks-overview.md) sobre discos de máquina virtual.
+Disco temporal | No compatible | El disco temporal siempre se excluye del proceso de preparación.<br/><br/> No almacene los datos persistentes en el disco temporal. [Más información](../virtual-machines/managed-disks-overview.md#temporary-disk).
 Tamaño máximo del disco de datos | 8192 GB para discos administrados
 Tamaño mínimo del disco de datos |  2 GB en discos administrados |
-Número máximo de discos de datos | Hasta 64, según la compatibilidad con un tamaño específico de máquina virtual de Azure | [Más información](../virtual-machines/windows/sizes.md) sobre tamaños de máquina virtual.
+Número máximo de discos de datos | Hasta 64, según la compatibilidad con un tamaño específico de máquina virtual de Azure | [Más información](../virtual-machines/sizes.md) sobre tamaños de máquina virtual.
 Tasa de cambio de disco de datos | Máximo de 10 MBps por disco para el almacenamiento Premium. Máximo de 2 MBps por disco para el almacenamiento Estándar. | Si la tasa media de cambio de datos en el disco sobrepasa el máximo continuamente, la preparación no se recupera.<br/><br/>  Pero si se supera el máximo esporádicamente, la preparación sí se recupera, aunque se podrían observar puntos de recuperación ligeramente retrasados.
 Disco de datos (cuenta de almacenamiento Estándar) | No compatible. | Cambie el tipo de almacenamiento a disco administrado e intente migrar la máquina virtual.
 Disco de datos (cuenta de almacenamiento Premium) | No compatible | Cambie el tipo de almacenamiento a disco administrado e intente migrar la máquina virtual.

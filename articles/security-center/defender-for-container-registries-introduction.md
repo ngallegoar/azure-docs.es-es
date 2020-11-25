@@ -7,18 +7,20 @@ ms.date: 9/22/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 989115224489ff8fff360a34b27c338ea3e33058
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: d587c4dbdd8f46d6e098ff96f464d456fffc9ccf
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93145827"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95529995"
 ---
 # <a name="introduction-to-azure-defender-for-container-registries"></a>Introducción a Azure Defender para registros de contenedor
 
 Azure Container Registry (ACR) es un servicio de registro de Docker privado y administrado que almacena y administra las imágenes de contenedor de las implementaciones de Azure en un registro central. Se basa en el registro 2.0 de Docker de código abierto.
 
 Para proteger todos los registros basados en Azure Resource Manager de su suscripción, habilite **Azure Defender para registros de contenedor** en el nivel de suscripción. A continuación, Security Center examinará las imágenes insertadas en el registro o importadas en el registro, así como las imágenes extraídas en los últimos 30 días. Esta característica se cobra por imagen.
+
+[!INCLUDE [Defender for container registries availability info](../../includes/security-center-availability-defender-for-container-registries.md)]
 
 ## <a name="what-are-the-benefits-of-azure-defender-for-container-registries"></a>¿Cuáles son las ventajas de Azure Defender para registros de contenedor?
 
@@ -43,11 +45,11 @@ Al enviar notificaciones solo cuando hay problemas, Security Center reduce las a
 
 Hay tres desencadenadores para un examen de imagen:
 
-- **Al insertar** : cada vez que se inserta una imagen en el registro, Security Center la examina de forma automática. Para desencadenar el examen de una imagen, insértela en el repositorio.
+- **Al insertar**: cada vez que se inserta una imagen en el registro, Security Center la examina de forma automática. Para desencadenar el examen de una imagen, insértela en el repositorio.
 
-- **Extraído recientemente** : dado que se detectan nuevas vulnerabilidades cada día, **Azure Defender para registros de contenedor** también examina cualquier imagen que se haya extraído en los últimos 30 días. No hay ningún cargo adicional por un nuevo examen; como se mencionó anteriormente, se le facturará una vez por imagen.
+- **Extraído recientemente**: dado que se detectan nuevas vulnerabilidades cada día, **Azure Defender para registros de contenedor** también examina cualquier imagen que se haya extraído en los últimos 30 días. No hay ningún cargo adicional por un nuevo examen; como se mencionó anteriormente, se le facturará una vez por imagen.
 
-- **Al importar** : Azure Container Registry tiene herramientas de importación para incorporar imágenes al registro desde Docker Hub, Microsoft Container Registry u otro registro de contenedor de Azure. **Azure Defender para registros de contenedor** examina las imágenes admitidas que importe. Obtenga más información en [Importación de imágenes de contenedor en un registro de contenedor](../container-registry/container-registry-import-images.md).
+- **Al importar**: Azure Container Registry tiene herramientas de importación para incorporar imágenes al registro desde Docker Hub, Microsoft Container Registry u otro registro de contenedor de Azure. **Azure Defender para registros de contenedor** examina las imágenes admitidas que importe. Obtenga más información en [Importación de imágenes de contenedor en un registro de contenedor](../container-registry/container-registry-import-images.md).
  
 El análisis se completa normalmente en 2 minutos, pero puede tardar hasta 15 minutos. Los resultados se publican como recomendaciones de Security Center, como en este caso:
 

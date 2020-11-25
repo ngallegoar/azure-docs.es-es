@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 6a7b4d8c3d2e2b33d8e2a9936670992b1c922b6a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6834f9cc8202f49f53c20f3941945bba4a4b2efd
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84737366"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026753"
 ---
 # <a name="perform-network-intrusion-detection-with-network-watcher-and-open-source-tools"></a>Realización de detección de intrusiones en la red con Azure Network Watcher y herramientas de código abierto
 
@@ -80,7 +80,7 @@ Si bien los registros que produce Suricata contienen información valiosa sobre 
 
 #### <a name="install-elasticsearch"></a>Instalación de Elasticsearch
 
-1. La versión 5.0 y superiores de Elastic Stack requieren Java 8. Ejecute el comando `java -version` para comprobar la versión. Si no tiene instalado Java, consulte la documentación en los [JDK compatibles con Azure](https://aka.ms/azure-jdks).
+1. La versión 5.0 y superiores de Elastic Stack requieren Java 8. Ejecute el comando `java -version` para comprobar la versión. Si no tiene instalado Java, consulte la documentación en los [JDK compatibles con Azure](/azure/developer/java/fundamentals/java-jdk-long-term-support).
 
 1. Descargue el paquete binario correcto para su sistema:
 
@@ -246,7 +246,7 @@ En este artículo, se proporciona un panel de ejemplo para que vea tendencias y 
 
 1. En la pestaña **Management** (Administración) de Kibana, vaya a **Saved Objects** (Objetos guardados) e importe los tres archivos. A continuación, en la pestaña **Dashboard** (Panel), puede abrir y cargar el panel de ejemplo.
 
-También puede crear visualizaciones y paneles propios que se adapten a las métricas que le interesen. Puede leer más sobre la creación de visualizaciones de Kibana en la [documentación oficial](https://www.elastic.co/guide/en/kibana/current/visualize.html) de Kibana.
+También puede crear visualizaciones y paneles propios que se adapten a las métricas que le interesen. Puede leer más sobre la creación de visualizaciones de Kibana en la [documentación oficial](https://www.tutorialspoint.com/kibana/kibana_create_visualization.htm) de Kibana.
 
 ![panel de kibana][2]
 

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2020
 ms.author: yitoh
-ms.openlocfilehash: 36e61c8d1e0e41fd981f5483eff1f30814b22b92
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 3655b117b641a6179bd6539aaf3f75af07f21a1a
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92904967"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94992376"
 ---
 # <a name="azure-ddos-rapid-response"></a>Respuesta rápida de Azure DDoS
 
@@ -43,7 +43,7 @@ Solo debe interaccionar con DRR si:
 
     ![Elección de recurso](./media/ddos-rapid-response/choose-resource.png)
 
-4. En la página siguiente **Problema** , seleccione A - Impacto crítico para **Gravedad** y "Under attack" (Bajo ataque) para **Tipo de problema**.
+4. En la página siguiente **Problema**, seleccione A - Impacto crítico para **Gravedad** y "Under attack" (Bajo ataque) para **Tipo de problema**.
 
     ![Gravedad y tipo de problema](./media/ddos-rapid-response/severity-and-problem-type.png)
 
@@ -51,7 +51,7 @@ Solo debe interaccionar con DRR si:
 
 DRR sigue el modelo de soporte técnico de Azure Rapid Response. Consulte [Ámbito de soporte técnico y capacidad de respuesta](https://azure.microsoft.com/en-us/support/plans/response/) para obtener más información sobre la respuesta rápida.
 
-Para más información, lea la [documentación sobre DDoS Protection Standard](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview).
+Para más información, lea la [documentación sobre DDoS Protection Standard](./ddos-protection-overview.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

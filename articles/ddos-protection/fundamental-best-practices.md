@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/08/2020
 ms.author: yitoh
-ms.openlocfilehash: 594a7e2a6977cc2a7052a15e1a007c68c08da259
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 66c1ab1cb5ed478aa34825fb6903e4d06f834097
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92904965"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94989480"
 ---
 # <a name="fundamental-best-practices"></a>Procedimientos recomendados fundamentales
 
@@ -35,16 +35,16 @@ Es de vital importancia garantizar que una aplicación sea lo suficientemente re
 
 La escalabilidad representa el grado en que un sistema puede controlar el aumento de la carga. Debe diseñar sus aplicaciones de modo que se puedan [escalar horizontalmente](/azure/architecture/guide/design-principles/scale-out) para satisfacer la demanda de una carga mayor, específicamente en caso de un ataque de DDoS. Si la aplicación depende de una única instancia de un servicio, crea un único punto de error. El aprovisionamiento de varias instancias hace que el sistema sea más resistente y más escalable.
 
-Para [Azure App Service](/azure/app-service/app-service-value-prop-what-is), seleccione un [Plan de App Service](/azure/app-service/overview-hosting-plans) que ofrezca varias instancias. Para Azure Cloud Services, configure cada uno de los roles para utilizar [varias instancias](/azure/cloud-services/cloud-services-choose-me). En el caso de [Azure Virtual Machines](../virtual-machines/index.yml), asegúrese de que la arquitectura de las máquinas virtuales incluya más de una máquina virtual y que cada una de ellas se incluya en un [conjunto de disponibilidad](../virtual-machines/windows/tutorial-availability-sets.md). Se recomienda usar [conjuntos de escalado de máquinas virtuales](../virtual-machine-scale-sets/overview.md) para contar con funcionalidades de escalado automático.
+Para [Azure App Service](../app-service/overview.md), seleccione un [Plan de App Service](../app-service/overview-hosting-plans.md) que ofrezca varias instancias. Para Azure Cloud Services, configure cada uno de los roles para utilizar [varias instancias](../cloud-services/cloud-services-choose-me.md). En el caso de [Azure Virtual Machines](../virtual-machines/index.yml), asegúrese de que la arquitectura de las máquinas virtuales incluya más de una máquina virtual y que cada una de ellas se incluya en un [conjunto de disponibilidad](../virtual-machines/windows/tutorial-availability-sets.md). Se recomienda usar [conjuntos de escalado de máquinas virtuales](../virtual-machine-scale-sets/overview.md) para contar con funcionalidades de escalado automático.
 
 ## <a name="defense-in-depth"></a>Defensa en profundidad
 
 La idea que subyace a la defensa en profundidad es administrar los riesgos con diversas estrategias defensivas. Disponer en niveles la defensa de la seguridad en una aplicación reduce las probabilidades de éxito de un ataque. Se recomienda que implemente diseños seguros para sus aplicaciones con las funcionalidades integradas de la plataforma Azure.
 
-Por ejemplo, el riesgo de ataques aumenta con el tamaño ( *área expuesta* ) de la aplicación. Puede reducir el área expuesta mediante una lista de aprobación para cerrar el espacio de direcciones IP expuesto y los puertos de escucha que no sean necesarios en los equilibradores de carga ([Azure Load Balancer](/azure/load-balancer/load-balancer-get-started-internet-portal) y [Azure Application Gateway](/azure/application-gateway/application-gateway-create-probe-portal)). Los [grupos de seguridad de red (NSG)](/azure/virtual-network/security-overview) constituyen otra manera de reducir el área expuesta a ataques.
-Puede usar [etiquetas de servicio](/azure/virtual-network/security-overview#service-tags) y [grupos de seguridad de la aplicación](/azure/virtual-network/security-overview#application-security-groups) para minimizar la complejidad de la creación de reglas de seguridad y configurar la seguridad de la red como una extensión natural de la estructura de una aplicación.
+Por ejemplo, el riesgo de ataques aumenta con el tamaño (*área expuesta*) de la aplicación. Puede reducir el área expuesta mediante una lista de aprobación para cerrar el espacio de direcciones IP expuesto y los puertos de escucha que no sean necesarios en los equilibradores de carga ([Azure Load Balancer](../load-balancer/quickstart-load-balancer-standard-public-portal.md) y [Azure Application Gateway](../application-gateway/application-gateway-create-probe-portal.md)). Los [grupos de seguridad de red (NSG)](../virtual-network/network-security-groups-overview.md) constituyen otra manera de reducir el área expuesta a ataques.
+Puede usar [etiquetas de servicio](../virtual-network/network-security-groups-overview.md#service-tags) y [grupos de seguridad de la aplicación](../virtual-network/network-security-groups-overview.md#application-security-groups) para minimizar la complejidad de la creación de reglas de seguridad y configurar la seguridad de la red como una extensión natural de la estructura de una aplicación.
 
-Debe implementar los servicios de Azure en una [red virtual](/azure/virtual-network/virtual-networks-overview) siempre que sea posible. Este procedimiento permite que los recursos del servicio se comuniquen mediante direcciones IP privadas. De forma predeterminada, el tráfico de los servicios Azure desde una red virtual usa direcciones IP públicas como direcciones IP de origen. Con los [puntos de conexión de servicio](/azure/virtual-network/virtual-network-service-endpoints-overview), el tráfico del servicio cambia para usar direcciones privadas de red virtual como direcciones IP de origen al acceder al servicio de Azure desde una red virtual.
+Debe implementar los servicios de Azure en una [red virtual](../virtual-network/virtual-networks-overview.md) siempre que sea posible. Este procedimiento permite que los recursos del servicio se comuniquen mediante direcciones IP privadas. De forma predeterminada, el tráfico de los servicios Azure desde una red virtual usa direcciones IP públicas como direcciones IP de origen. Con los [puntos de conexión de servicio](../virtual-network/virtual-network-service-endpoints-overview.md), el tráfico del servicio cambia para usar direcciones privadas de red virtual como direcciones IP de origen al acceder al servicio de Azure desde una red virtual.
 
 Con frecuencia vemos ataques a los recursos locales de un cliente, además de a los recursos en Azure. Si conecta un entorno local a Azure, se recomienda que reduzca al mínimo la exposición de los recursos locales a la red pública de Internet. Para usar las funcionalidades de escalado y protección contra DDoS de Azure puede implementar entidades públicas bien conocidas en Azure. Como estas entidades de acceso público suelen ser destinatarias de ataques de DDoS, al colocarlas en Azure se reduce el impacto en los recursos locales.
 

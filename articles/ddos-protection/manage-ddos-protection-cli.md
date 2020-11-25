@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/28/2020
 ms.author: yitoh
-ms.openlocfilehash: 47733f4b141b0064e966d0c083fd6414405f65f9
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: e2f5528fde977520dc0aa0215a480a40ef8f1e7d
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93095550"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94989622"
 ---
 # <a name="quickstart-create-and-configure-azure-ddos-protection-standard-using-azure-cli"></a>Inicio rápido: Creación y configuración de Azure DDoS Protection Estándar mediante la CLI de Azure
 
@@ -39,7 +39,7 @@ Si decide instalar y usar la CLI localmente, para esta guía de inicio rápido s
 
 En Azure, puede asignar recursos relacionados a un grupo de recursos. Puede usar un grupo de recursos existente o crear uno nuevo.
 
-Para crear un grupo de recursos, use [az group create](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-create&preserve-view=true). En este ejemplo, se asignará el nombre _MyResourceGroup_ al grupo de recursos y se usará la ubicación _Este de EE. UU._ :
+Para crear un grupo de recursos, use [az group create](/cli/azure/group?preserve-view=true&view=azure-cli-latest#az-group-create). En este ejemplo, se asignará el nombre _MyResourceGroup_ al grupo de recursos y se usará la ubicación _Este de EE. UU._ :
 
 ```azurecli-interactive
 az group create \
@@ -47,7 +47,7 @@ az group create \
     --location eastus
 ```
 
-Ahora, cree un plan de protección contra DDoS denominado _MyDdosProtectionPlan_ :
+Ahora, cree un plan de protección contra DDoS denominado _MyDdosProtectionPlan_:
 
 ```azurecli-interactive
 az network ddos-protection create \
@@ -73,7 +73,7 @@ No puede mover una red virtual a otro grupo de recursos ni a otra suscripción s
 
 ### <a name="enable-ddos-protection-for-an-existing-virtual-network"></a>Habilitación de la protección contra DDoS para una red virtual existente
 
-Al [crear un plan de protección contra DDoS](#create-a-ddos-protection-plan), puede asociarle una o varias redes virtuales. Para agregar más de una red virtual, solo tiene que enumerar los nombres o los identificadores, separados por espacios. En este ejemplo se agregará _MyVnet_ :
+Al [crear un plan de protección contra DDoS](#create-a-ddos-protection-plan), puede asociarle una o varias redes virtuales. Para agregar más de una red virtual, solo tiene que enumerar los nombres o los identificadores, separados por espacios. En este ejemplo se agregará _MyVnet_:
 
 ```azurecli-interactive
 az group create \
@@ -111,7 +111,7 @@ Compruebe que el comando devuelve los detalles correctos del plan de protección
 
 Puede mantener los recursos para el tutorial siguiente. Si ya no lo necesita, elimine el grupo de recursos _MyResourceGroup_. Al eliminar el grupo de recursos, también elimina el plan de protección contra DDoS y todos sus recursos relacionados. 
 
-Para eliminar el grupo de recursos, use [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az_group_delete&preserve-view=true):
+Para eliminar el grupo de recursos, use [az group delete](/cli/azure/group?preserve-view=true&view=azure-cli-latest#az_group_delete):
 
 ```azurecli-interactive
 az group delete \

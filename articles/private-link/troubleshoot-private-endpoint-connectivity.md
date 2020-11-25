@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/31/2020
 ms.author: rdhillon
-ms.openlocfilehash: fcc482e6231bbd925fd500a37989052765dede58
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f861f9efa6ecc1886647ed6c460b6718ff97e8a1
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77538541"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95522335"
 ---
 # <a name="troubleshoot-azure-private-endpoint-connectivity-problems"></a>Solución de problemas de conectividad de puntos de conexión privados de Azure
 
@@ -56,7 +56,7 @@ Revise estos pasos para asegurarse de que todas las configuraciones habituales s
     
        ![Configuración de red virtual y DNS](./media/private-endpoint-tsg/vnet-dns-configuration.png)
     
-1. Use [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) para ver si los datos fluyen.
+1. Use [Azure Monitor](../azure-monitor/overview.md) para ver si los datos fluyen.
 
     a. En el recurso de punto de conexión privado, seleccione **Supervisión**.
      - Seleccione **Datos de entrada** o **Datos de salida**. 
@@ -93,7 +93,7 @@ Revise estos pasos para asegurarse de que todas las configuraciones habituales s
        - Compruebe que existe el registro de la zona DNS privada. Si no existe, créelo.
      - Si usa DNS personalizado:
        - Revise la configuración personalizada de DNS y compruebe que esta sea correcta.
-       Para más información, consulte [Introducción al punto de conexión privado: Configuración de DNS](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration).
+       Para más información, consulte [Introducción al punto de conexión privado: Configuración de DNS](./private-endpoint-overview.md#dns-configuration).
 
     b. Si se produce un error de conectividad debido a grupos de seguridad de red o rutas definidas por el usuario:
      - Revise las reglas de salida del grupo de seguridad de red y cree las reglas de salida adecuadas para permitir el tráfico.
@@ -107,5 +107,5 @@ Revise estos pasos para asegurarse de que todas las configuraciones habituales s
 
 ## <a name="next-steps"></a>Pasos siguientes
 
- * [Creación de un punto de conexión privado en la subred actualizada (Azure Portal)](https://docs.microsoft.com/azure/private-link/create-private-endpoint-portal)
+ * [Creación de un punto de conexión privado en la subred actualizada (Azure Portal)](./create-private-endpoint-portal.md)
  * [Guía de solución de problemas de Azure Private Link](troubleshoot-private-link-connectivity.md)

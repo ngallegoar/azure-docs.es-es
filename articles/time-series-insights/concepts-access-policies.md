@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: 3528ff790f16b5ec759989966ab35b8bad6565a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 86b465d0b3c28c50a8aa85247a14e189d4586a47
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91629461"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95016282"
 ---
 # <a name="grant-data-access-to-an-environment"></a>Concesión de acceso a datos en un entorno
 
@@ -60,7 +60,7 @@ Siga estos pasos para conceder acceso a datos a una entidad de seguridad de usua
 
 ## <a name="provide-guest-access-from-another-azure-ad-tenant"></a>Proporcionar acceso de invitado desde otro inquilino de Azure AD
 
-El rol `Guest` no es un rol de administración. Se trata de un término que se usa para una cuenta a la que se ha invitado desde un inquilino a otro. Después de que la cuenta de invitado se haya invitado al directorio del inquilino, se le puede aplicar el mismo control de acceso que a cualquier otra cuenta. Puede conceder acceso de administración a un entorno de Azure Time Series Insights mediante la hoja Control de acceso (IAM). O puede conceder acceso a los datos del entorno utilizando la hoja Directivas de acceso a datos. Para más información sobre el acceso de invitado de inquilino de Azure Active Directory (Azure AD), consulte [Incorporación de usuarios de colaboración B2B de Azure Active Directory en Azure Portal](https://docs.microsoft.com/azure/active-directory/b2b/add-users-administrator).
+El rol `Guest` no es un rol de administración. Se trata de un término que se usa para una cuenta a la que se ha invitado desde un inquilino a otro. Después de que la cuenta de invitado se haya invitado al directorio del inquilino, se le puede aplicar el mismo control de acceso que a cualquier otra cuenta. Puede conceder acceso de administración a un entorno de Azure Time Series Insights mediante la hoja Control de acceso (IAM). O puede conceder acceso a los datos del entorno utilizando la hoja Directivas de acceso a datos. Para más información sobre el acceso de invitado de inquilino de Azure Active Directory (Azure AD), consulte [Incorporación de usuarios de colaboración B2B de Azure Active Directory en Azure Portal](../active-directory/external-identities/add-users-administrator.md).
 
 Siga estos pasos para conceder acceso de invitado a un entorno de Time Series Insights a un usuario de Azure AD desde otro inquilino.
 
@@ -124,4 +124,4 @@ Siga estos pasos para conceder acceso de invitado a un entorno de Time Series In
 
 * Lea [Autenticación y autorización](time-series-insights-authentication-and-authorization.md) para más información sobre los pasos de registro de aplicaciones de Azure Active Directory.
 
-* Vea [su entorno en el Explorador de Azure Time Series Insights](./time-series-insights-update-explorer.md).
+* Vea [su entorno en el Explorador de Azure Time Series Insights](./concepts-ux-panels.md).

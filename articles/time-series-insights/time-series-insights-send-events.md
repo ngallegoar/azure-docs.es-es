@@ -11,23 +11,23 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: 2b83433a135fec486701b4538793f0c3e0a6fa6e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9a9115b5400cc6d6c1ecc5740af796d831f5dee3
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91611833"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023265"
 ---
 # <a name="send-events-to-an-azure-time-series-insights-gen1-environment-by-using-an-event-hub"></a>Envío de eventos a un entorno de Azure Time Series Insights Gen1 mediante un centro de eventos
 
 > [!CAUTION]
 > Este es un artículo de Gen1.
 
-En este artículo se explica cómo crear y configurar un centro de eventos en Azure Event Hubs. También se describe cómo ejecutar una aplicación de ejemplo para insertar eventos en Azure Time Series Insights desde Event Hubs. Si tiene un centro de eventos con eventos en formato JSON, pase por alto este tutorial y vea su entorno en [Azure Time Series Insights](./time-series-insights-update-create-environment.md).
+En este artículo se explica cómo crear y configurar un centro de eventos en Azure Event Hubs. También se describe cómo ejecutar una aplicación de ejemplo para insertar eventos en Azure Time Series Insights desde Event Hubs. Si tiene un centro de eventos con eventos en formato JSON, pase por alto este tutorial y vea su entorno en [Azure Time Series Insights](./tutorials-set-up-tsi-environment.md).
 
 ## <a name="configure-an-event-hub"></a>Configuración de un centro de eventos
 
-1. Para aprender a crear un centro de eventos, lea la [documentación de Event Hubs](https://docs.microsoft.com/azure/event-hubs/).
+1. Para aprender a crear un centro de eventos, lea la [documentación de Event Hubs](../event-hubs/index.yml).
 1. En el cuadro de búsqueda, busque **Event Hubs**. Haga clic en **Event Hubs** en la lista devuelta.
 1. Seleccione su centro de eventos.
 1. Cuando se crea un centro de eventos, se crea un espacio de nombres del centro de eventos. Si todavía no ha creado un centro de eventos en el espacio de nombres, vaya al menú y, en **Entities** (Entidades), cree un centro de eventos.  
@@ -62,7 +62,7 @@ En Azure Time Series Insights Gen2 se pueden agregar datos contextuales a la tel
 
 ### <a name="create-an-azure-time-series-insights-event-source"></a>Creación de un origen del evento de Azure Time Series Insights
 
-1. Complete los pasos para [crear un origen de eventos](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-eventhub) si aún no ha creado uno.
+1. Complete los pasos para [crear un origen de eventos](./how-to-ingest-data-event-hub.md) si aún no ha creado uno.
 
 1. Establezca el valor de `timeSeriesId`. Para más información sobre el **id. de serie temporal**, lea [Modelos de Time Series](./concepts-model-overview.md).
 
@@ -84,7 +84,7 @@ En Azure Time Series Insights Gen2 se pueden agregar datos contextuales a la tel
 1. Seleccione **Click to start** (Haga clic para iniciar).
 
     > [!TIP]
-    > El simulador de molino de viento también crea código JSON que se puede usar como carga útil con las [API de consulta de Azure Time Series Insights GA](https://docs.microsoft.com/rest/api/time-series-insights/gen1-query).
+    > El simulador de molino de viento también crea código JSON que se puede usar como carga útil con las [API de consulta de Azure Time Series Insights GA](/rest/api/time-series-insights/gen1-query).
 
     > [!NOTE]
     > El simulador seguirá enviando datos hasta que se cierre la pestaña del explorador.
@@ -208,4 +208,4 @@ En Azure Time Series Insights Gen2 se pueden agregar datos contextuales a la tel
 
 * [Vea el entorno](https://insights.timeseries.azure.com) en el explorador de Azure Time Series Insights.
 
-* Más información sobre los [mensajes del dispositivo de IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct)
+* Más información sobre los [mensajes del dispositivo de IoT Hub](../iot-hub/iot-hub-devguide-messages-construct.md)

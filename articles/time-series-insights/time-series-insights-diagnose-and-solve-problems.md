@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 09/29/2020
 ms.custom: seodec18
-ms.openlocfilehash: 231f2e4df1445c60378ac06aab0d0e56f410c1c8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 15f2ff5aaa1d731c13125d0a3ab4ac32acb9276c
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91530143"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023282"
 ---
 # <a name="diagnose-and-solve-issues-in-your-azure-time-series-insights-gen1-environment"></a>Diagnóstico y solución de problemas en el entorno de Azure Time Series Insights Gen1
 
@@ -37,7 +37,7 @@ Si no aparece ningún dato en el [explorador de Azure Time Series Insights](http
 
 ### <a name="cause-a-event-source-data-isnt-in-json-format"></a>Causa A: los datos de origen del evento no tienen formato JSON
 
-Azure Time Series Insights solo admite datos JSON. Para ver ejemplos de JSON, consulte [Formas de JSON admitidas](./how-to-shape-query-json.md).
+Azure Time Series Insights solo admite datos JSON. Para ver ejemplos de JSON, consulte [Formas de JSON admitidas](./concepts-json-flattening-escaping-rules.md).
 
 ### <a name="cause-b-the-event-source-key-is-missing-a-required-permission"></a>Causa B: a la clave de origen del evento le falta un permiso necesario
 
@@ -85,7 +85,7 @@ Imagine un entorno que ingiere mensajes de un centro de eventos. Tiene una tasa 
 
 Un entorno de SKU S1 que tiene una capacidad de 3 solo puede admitir la entrada de 2100 eventos por minuto (1 millón de eventos por día = 700 eventos por minuto por 3 unidades = 2100 eventos por minuto).
 
-Para comprender de una manera más profunda cómo funciona la lógica de aplanamiento, consulte [Formas JSON admitidas](./how-to-shape-query-json.md).
+Para comprender de una manera más profunda cómo funciona la lógica de aplanamiento, consulte [Formas JSON admitidas](./concepts-json-flattening-escaping-rules.md).
 
 #### <a name="recommended-resolutions-for-excessive-throttling"></a>Resoluciones recomendadas para la limitación excesiva
 

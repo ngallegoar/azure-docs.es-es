@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 10/02/2020
 ms.custom: seodec18
-ms.openlocfilehash: cac4234d5bd93de8b059ea53a4697dae1bf5c64c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 89efc1d4f34b250d211f9fd7492588bd2896eb6e
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91667886"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95016860"
 ---
 # <a name="data-modeling-in-azure-time-series-insights-gen2"></a>Modelado de datos en Azure Time Series Insights Gen2
 
@@ -24,7 +24,7 @@ En este artículo se describe cómo usar el modelo de serie temporal de Azure Ti
 > [!TIP]
 >
 > * Obtenga más información sobre el [modelo de serie temporal](concepts-model-overview.md).
-> * Obtenga más información acerca de la navegación por el [Explorador de Azure Time Series Insights Gen2](./time-series-insights-update-explorer.md).
+> * Obtenga más información acerca de la navegación por el [Explorador de Azure Time Series Insights Gen2](./concepts-ux-panels.md).
 
 ## <a name="instances"></a>Instancias
 
@@ -171,6 +171,6 @@ Para comenzar, seleccione la vista **Modelo** en la vista **Analizar** del explo
 
 * Para más información sobre el modelo de serie temporal, consulte [Modelado de datos](./concepts-model-overview.md).
 
-* Para obtener más información acerca de la versión Gen2, consulte [Visualización de datos en el explorador de Azure Time Series Insights Gen2](./time-series-insights-update-explorer.md).
+* Para obtener más información acerca de la versión Gen2, consulte [Visualización de datos en el explorador de Azure Time Series Insights Gen2](./concepts-ux-panels.md).
 
 * Para obtener información sobre las formas JSON admitidas, consulte [Formas JSON admitidas](./time-series-insights-send-events.md#supported-json-shapes).

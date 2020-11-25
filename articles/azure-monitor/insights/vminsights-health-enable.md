@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/16/2020
-ms.openlocfilehash: 6033ca5b0eaf6845d14407832c776dd8e006226b
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 647256949d1f8f13439a0a5db87f3b02d697d32b
+ms.sourcegitcommit: 5ae2f32951474ae9e46c0d46f104eda95f7c5a06
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94686551"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95318140"
 ---
 # <a name="enable-azure-monitor-for-vms-guest-health-preview"></a>Habilitación del estado de invitado de Azure Monitor para VM (versión preliminar)
 El estado de invitado de Azure Monitor para VM permite ver el estado de una máquina virtual conforme a la definición de un conjunto de medidas de rendimiento que se muestrean a intervalos regulares. En este artículo se explica cómo habilitar esta característica en la suscripción, así como la supervisión de invitado en cada máquina virtual.
@@ -24,12 +24,18 @@ El estado de invitado de Azure Monitor para VM tiene las siguientes limitaciones
   - Ubuntu 16.04 LTS, Ubuntu 18.04 LTS
   - Windows Server 2012 o superior
 - La máquina virtual debe encontrarse en una de las siguientes regiones:
+  - Este de Australia
   - Sudeste de Australia
+  - Centro de la India
   - Centro de EE. UU.
   - Este de EE. UU.
   - Este de EE. UU. 2
   - EUAP de Este de EE. UU. 2
+  - Centro-oeste de Alemania
+  - Japón Oriental
+  - Centro-Norte de EE. UU
   - Norte de Europa
+  - Centro-sur de EE. UU.
   - Sudeste de Asia
   - Sur de Reino Unido
   - Oeste de Europa

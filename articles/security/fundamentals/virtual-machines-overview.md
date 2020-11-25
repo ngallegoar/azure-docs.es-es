@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/2/2019
 ms.author: terrylan
-ms.openlocfilehash: d22ce3941b00903be8532caaa36a9ce55e2f2c6f
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 91dfb3cb07cca8ec89c77dea43f1cd075db11bbf
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94409797"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95014771"
 ---
 # <a name="azure-virtual-machines-security-overview"></a>Información general de seguridad de Azure Virtual Machines
 Este artículo ofrece una introducción a las principales características de seguridad de Azure que pueden usarse con máquinas virtuales.
@@ -108,16 +108,16 @@ Una parte importante de la estrategia de BCDR de la organización es averiguar c
 
 Site Recovery:
 
-* **Simplificar su estrategia de BCDR** : Site Recovery facilita el control de la replicación, la conmutación por error y la recuperación de varias cargas de trabajo y aplicaciones de negocios desde una única ubicación. Site Recovery organiza la replicación y la conmutación por error pero no intercepta los datos de la aplicación ni obtiene información alguna sobre ella.
-* **Proporcionar replicación flexible** : con Site Recovery puede replicar las cargas de trabajo que se ejecutan en máquinas virtuales de Hyper-V, máquinas virtuales de VMware y servidores físicos con Windows o Linux.
-* **Admite recuperación y conmutación por error** : Site Recovery proporciona conmutaciones por error de prueba que admiten maniobras de recuperación ante desastres sin que los entornos de producción se vean afectados. También puede ejecutar conmutaciones por error planeadas sin pérdidas de datos para interrupciones previstas o conmutaciones por error con una pérdida de datos mínima (según la frecuencia de replicación) ante desastres inesperados. Después de la conmutación por error puede ejecutar una conmutación por recuperación a los sitios principales. Site Recovery proporciona planes de recuperación que pueden incluir scripts y libros de Azure Automation para que pueda personalizar la conmutación por error y la recuperación de aplicaciones de varios niveles.
-* **Eliminar centros de datos secundarios** : puede replicar en un sitio local secundario o en Azure. Usar Azure como destino de la recuperación ante desastres elimina el costo y la complejidad de mantener un sitio secundario. Los datos replicados se almacenan en Azure Storage.
-* **Se integra con tecnologías de BCDR existentes** : Site Recovery se asocia con otras características de BCDR de las aplicaciones. Por ejemplo, puede usar Site Recovery para proteger el back-end de SQL Server de las cargas de trabajo corporativas. Esto incluye la compatibilidad nativa con SQL Server AlwaysOn para administrar la conmutación por error de los grupos de disponibilidad.
+* **Simplificar su estrategia de BCDR**: Site Recovery facilita el control de la replicación, la conmutación por error y la recuperación de varias cargas de trabajo y aplicaciones de negocios desde una única ubicación. Site Recovery organiza la replicación y la conmutación por error pero no intercepta los datos de la aplicación ni obtiene información alguna sobre ella.
+* **Proporcionar replicación flexible**: con Site Recovery puede replicar las cargas de trabajo que se ejecutan en máquinas virtuales de Hyper-V, máquinas virtuales de VMware y servidores físicos con Windows o Linux.
+* **Admite recuperación y conmutación por error**: Site Recovery proporciona conmutaciones por error de prueba que admiten maniobras de recuperación ante desastres sin que los entornos de producción se vean afectados. También puede ejecutar conmutaciones por error planeadas sin pérdidas de datos para interrupciones previstas o conmutaciones por error con una pérdida de datos mínima (según la frecuencia de replicación) ante desastres inesperados. Después de la conmutación por error puede ejecutar una conmutación por recuperación a los sitios principales. Site Recovery proporciona planes de recuperación que pueden incluir scripts y libros de Azure Automation para que pueda personalizar la conmutación por error y la recuperación de aplicaciones de varios niveles.
+* **Eliminar centros de datos secundarios**: puede replicar en un sitio local secundario o en Azure. Usar Azure como destino de la recuperación ante desastres elimina el costo y la complejidad de mantener un sitio secundario. Los datos replicados se almacenan en Azure Storage.
+* **Se integra con tecnologías de BCDR existentes**: Site Recovery se asocia con otras características de BCDR de las aplicaciones. Por ejemplo, puede usar Site Recovery para proteger el back-end de SQL Server de las cargas de trabajo corporativas. Esto incluye la compatibilidad nativa con SQL Server AlwaysOn para administrar la conmutación por error de los grupos de disponibilidad.
 
 Más información:
 
 * [¿Qué es Azure Site Recovery?](../../site-recovery/site-recovery-overview.md)
-* [¿Cómo funciona Azure Site Recovery?](/azure/security/fundamentals/azure-to-azure-architecture)
+* [¿Cómo funciona Azure Site Recovery?](/azure/site-recovery/azure-to-azure-architecture)
 * [¿Qué cargas de trabajo se pueden proteger con Azure Site Recovery?](../../site-recovery/site-recovery-workload.md)
 
 ## <a name="virtual-networking"></a>Redes virtuales

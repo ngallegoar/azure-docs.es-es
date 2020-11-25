@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/22/2020
-ms.openlocfilehash: cb673efb3e5d14e72e945bcf8c23d57495823720
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 56d5eb981aa02d9da83973d49e8df79fcd9c7e9c
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93394958"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95021021"
 ---
 # <a name="securing-azure-sql-edge"></a>Protección de Azure SQL Edge
 
@@ -34,14 +34,14 @@ La implementación de la seguridad de la plataforma comienza por mantener a los 
 - La especificación y la restricción de los puertos de host que se usan para Azure SQL Edge.
 - Garantiza que el control de acceso adecuado se aplica a todos los volúmenes de datos que hospedan datos de Azure SQL Edge. 
 
-Para más información sobre los protocolos de red de Azure SQL Edge y los puntos de conexión TDS, consulte [Protocolos de red y puntos de conexión TDS](//previous-versions/sql/sql-server-2008-r2/ms191220(v=sql.105)).
+Para más información sobre los protocolos de red de Azure SQL Edge y los puntos de conexión TDS, consulte [Protocolos de red y puntos de conexión TDS](/previous-versions/sql/sql-server-2008-r2/ms191220(v=sql.105)).
 
 ## <a name="authentication-and-authorization"></a>Autenticación y autorización 
 
 ### <a name="authentication"></a>Authentication  
 La autenticación es el proceso por el cual se demuestra que el usuario es quien dice ser. Azure SQL Edge actualmente solo admite el mecanismo `SQL Authentication`.
 
-- *Autenticación de SQL* :
+- *Autenticación de SQL*:
 
     hace referencia a la autenticación de un usuario al conectarse a Azure SQL Edge con el nombre de usuario y la contraseña. Debe especificarse la contraseña de inicio de sesión de SQL **sa** durante la implementación de SQL Edge. Después de eso, pueden crearse inicios de sesión SQL y usuarios adicionales mediante el administrador del servidor, lo que permite a los usuarios conectarse usando el nombre de usuario y contraseña.
 

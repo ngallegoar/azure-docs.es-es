@@ -5,12 +5,12 @@ author: gundarev
 ms.topic: how-to
 ms.date: 05/06/2019
 ms.author: denisgun
-ms.openlocfilehash: 7599a0c7b48bdc371d851ec20282af82e77783bf
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: c3a23276ce19f6d7b4cf341bac155ec84363fe5f
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94505315"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018348"
 ---
 # <a name="configure-graphics-processing-unit-gpu-acceleration-for-windows-virtual-desktop"></a>Configuración de la aceleración por la unidad de procesamiento gráfico (GPU) para Windows Virtual Desktop
 
@@ -23,27 +23,27 @@ Siga las instrucciones de este artículo para crear una máquina virtual de Azur
 
 ## <a name="select-an-appropriate-gpu-optimized-azure-virtual-machine-size"></a>Selección de un tamaño de máquina virtual de Azure optimizada para la GPU adecuada
 
-Seleccione uno de los tamaños de máquina virtual de la [serie NV](/azure/virtual-machines/nv-series), [serie NVv3](/azure/virtual-machines/nvv3-series) o [serie NVv4](/azure/virtual-machines/nvv4-series). Se adaptan a la virtualización de la aplicación y el escritorio, y permiten que las aplicaciones y la interfaz de usuario de Windows se aceleren por GPU. La elección correcta para el grupo host depende de una serie de factores, incluidas las cargas de trabajo de la aplicación en cuestión, la calidad de la experiencia del usuario deseada y el costo. En general, las GPU más grandes y más aptas ofrecen una mejor experiencia de usuario en una densidad de usuario determinada, mientras que los tamaños de GPU más pequeños y fraccionarios permiten un control más específico sobre el costo y la calidad.
+Seleccione uno de los tamaños de máquina virtual de la [serie NV](../virtual-machines/nv-series.md), [serie NVv3](../virtual-machines/nvv3-series.md) o [serie NVv4](../virtual-machines/nvv4-series.md). Se adaptan a la virtualización de la aplicación y el escritorio, y permiten que las aplicaciones y la interfaz de usuario de Windows se aceleren por GPU. La elección correcta para el grupo host depende de una serie de factores, incluidas las cargas de trabajo de la aplicación en cuestión, la calidad de la experiencia del usuario deseada y el costo. En general, las GPU más grandes y más aptas ofrecen una mejor experiencia de usuario en una densidad de usuario determinada, mientras que los tamaños de GPU más pequeños y fraccionarios permiten un control más específico sobre el costo y la calidad.
 
 >[!NOTE]
 >Las máquinas virtuales de la serie NC, NCv2, NCv3, ND y NDv2 de Azure no suelen ser adecuadas para los hosts de sesión de Windows Virtual Desktop. Estas máquinas virtuales se adaptan a las herramientas especializadas de aprendizaje automático o de proceso de alto rendimiento, como las creadas con NVIDIA CUDA. La aceleración general de la aplicación y el escritorio con GPU de NVIDIA requiere la licencia de NVIDIA GRID. Esto lo proporciona Azure para los tamaños de máquina virtual recomendados, pero debe organizarse por separado para las máquinas virtuales de la serie NC/ND.
 
 ## <a name="create-a-host-pool-provision-your-virtual-machine-and-configure-an-app-group"></a>Creación de un grupo host, aprovisionamiento de la máquina virtual y configuración de un grupo de aplicaciones
 
-Cree un nuevo grupo host con una máquina virtual del tamaño que ha seleccionado. Para obtener instrucciones, consulte: [Tutorial: Creación de un grupo de hosts con Azure Portal](/azure/virtual-desktop/create-host-pools-azure-marketplace).
+Cree un nuevo grupo host con una máquina virtual del tamaño que ha seleccionado. Para obtener instrucciones, consulte: [Tutorial: Creación de un grupo de hosts con Azure Portal](./create-host-pools-azure-marketplace.md).
 
 Windows Virtual Desktop admite la representación y la codificación de la aceleración de GPU en los siguientes sistemas operativos:
 
 * Windows 10, versión 1511 o posterior
 * Windows Server 2016 o posterior
 
-También debe configurar un grupo de aplicaciones o usar el grupo de aplicaciones de escritorio predeterminado (denominado "Grupo de aplicaciones de escritorio") que se crea automáticamente cuando se crea un nuevo grupo host. Para obtener instrucciones, consulte: [Tutorial: Administración de grupos de aplicaciones para Windows Virtual Desktop](/azure/virtual-desktop/manage-app-groups).
+También debe configurar un grupo de aplicaciones o usar el grupo de aplicaciones de escritorio predeterminado (denominado "Grupo de aplicaciones de escritorio") que se crea automáticamente cuando se crea un nuevo grupo host. Para obtener instrucciones, consulte: [Tutorial: Administración de grupos de aplicaciones para Windows Virtual Desktop](./manage-app-groups.md).
 
 ## <a name="install-supported-graphics-drivers-in-your-virtual-machine"></a>Instalación de los controladores de gráficos admitidos en la máquina virtual
 
-Para aprovechar las funcionalidades de GPU de las máquinas virtuales de la serie N de Azure en Windows Virtual Desktop, es preciso instalar los controladores de gráficos adecuados. Siga las instrucciones que se indican en [Sistemas operativos y controladores compatibles](/azure/virtual-machines/windows/sizes-gpu#supported-operating-systems-and-drivers) para instalar los controladores del proveedor de gráficos adecuado, ya sea manualmente o mediante una extensión de máquina virtual de Azure.
+Para aprovechar las funcionalidades de GPU de las máquinas virtuales de la serie N de Azure en Windows Virtual Desktop, es preciso instalar los controladores de gráficos adecuados. Siga las instrucciones que se indican en [Sistemas operativos y controladores compatibles](../virtual-machines/sizes-gpu.md#supported-operating-systems-and-drivers) para instalar los controladores del proveedor de gráficos adecuado, ya sea manualmente o mediante una extensión de máquina virtual de Azure.
 
-Solo se admiten los controladores distribuidos por Azure para Windows Virtual Desktop. En el caso de las máquinas virtuales de la serie NV de Azure con GPU de NVIDIA, solo los [controladores de NVIDIA GRID](/azure/virtual-machines/windows/n-series-driver-setup#nvidia-grid-drivers), y no los controladores de NVIDIA Tesla (CUDA), admiten la aceleración de GPU para aplicaciones y escritorios de uso general.
+Solo se admiten los controladores distribuidos por Azure para Windows Virtual Desktop. En el caso de las máquinas virtuales de la serie NV de Azure con GPU de NVIDIA, solo los [controladores de NVIDIA GRID](../virtual-machines/windows/n-series-driver-setup.md#nvidia-grid-drivers), y no los controladores de NVIDIA Tesla (CUDA), admiten la aceleración de GPU para aplicaciones y escritorios de uso general.
 
 Tras instalar los controladores, es necesario reiniciar la máquina virtual. Utilice los pasos de comprobación en las instrucciones anteriores para confirmar que los controladores de gráficos se han instalado correctamente.
 
@@ -92,7 +92,7 @@ Si suele usar aplicaciones que producen un contenido de velocidad de fotogramas 
 
 Para comprobar que las aplicaciones usan la GPU para la representación, lleve a cabo cualquiera de las siguientes acciones:
 
-* Para las máquinas virtuales de Azure y GPU de NVIDIA, use la utilidad `nvidia-smi` tal y como se describe en [Comprobar la instalación del controlador](/azure/virtual-machines/windows/n-series-driver-setup#verify-driver-installation) para comprobar la utilización de la GPU al ejecutar las aplicaciones.
+* Para las máquinas virtuales de Azure y GPU de NVIDIA, use la utilidad `nvidia-smi` tal y como se describe en [Comprobar la instalación del controlador](../virtual-machines/windows/n-series-driver-setup.md#verify-driver-installation) para comprobar la utilización de la GPU al ejecutar las aplicaciones.
 * En las versiones de sistema operativo admitidas, puede usar el Administrador de tareas para comprobar la utilización de la GPU. Seleccione la GPU en la pestaña "Rendimiento" para ver si las aplicaciones usan la GPU.
 
 ## <a name="verify-gpu-accelerated-frame-encoding"></a>Comprobación de la codificación de marcos de aceleración por GPU
@@ -115,5 +115,5 @@ Para comprobar que Escritorio remoto utiliza la codificación de vídeo de panta
 
 Con estas instrucciones debería poder configurar y ejecutar la aceleración por GPU en un host de sesión (una máquina virtual). A continuación se indican algunas consideraciones adicionales para habilitar la aceleración por GPU en un grupo host más grande:
 
-* Considere la posibilidad de usar la [extensión de máquina virtual](/azure/virtual-machines/extensions/overview) para simplificar la instalación de controladores y las actualizaciones en múltiples máquinas virtuales. Use la [extensión de controlador de GPU NVIDIA](/azure/virtual-machines/extensions/hpccompute-gpu-windows) para las VM con GPU NVIDIA y use la [extensión de controlador de GPU AMD](/azure/virtual-machines/extensions/hpccompute-amd-gpu-windows) para las VM con GPU AMD.
-* Considere la posibilidad de usar la directivas de Active Directory para simplificar la configuración de directivas de grupo en varias máquinas virtuales. Para obtener información sobre cómo implementar la directiva de grupo en el dominio de Active Directory, consulte [Trabajar con objetos de directiva de grupo](https://go.microsoft.com/fwlink/p/?LinkId=620889).
+* Considere la posibilidad de usar la [extensión de máquina virtual](../virtual-machines/extensions/overview.md) para simplificar la instalación de controladores y las actualizaciones en múltiples máquinas virtuales. Use la [extensión de controlador de GPU NVIDIA](../virtual-machines/extensions/hpccompute-gpu-windows.md) para las VM con GPU NVIDIA y use la [extensión de controlador de GPU AMD](../virtual-machines/extensions/hpccompute-amd-gpu-windows.md) para las VM con GPU AMD.
+* Considere la posibilidad de usar la directivas de Active Directory para simplificar la configuración de directivas de grupo en varias máquinas virtuales. Para obtener información sobre cómo implementar la directiva de grupo en el dominio de Active Directory, consulte [Trabajar con objetos de directiva de grupo](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731212(v=ws.11)).

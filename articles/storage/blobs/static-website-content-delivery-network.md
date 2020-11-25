@@ -7,12 +7,12 @@ ms.subservice: blobs
 ms.topic: how-to
 ms.author: normesta
 ms.date: 04/07/2020
-ms.openlocfilehash: 02b7e02c33161db33420e2efe1ef4b70a138d127
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e458f98d82c910ec845ebf951b7f6470b6aba10d
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84465225"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95527333"
 ---
 # <a name="integrate-a-static-website-with-azure-cdn"></a>Integración de un sitio web estático con Azure CDN
 
@@ -30,7 +30,7 @@ Puede habilitar Azure CDN para su sitio web estático directamente desde su cuen
 
     ![Creación de un punto de conexión de CDN](media/storage-blob-static-website-custom-domain/cdn-storage-new.png)
 
-1. En la sección**Perfil de CDN**, especifique si desea crear un nuevo perfil de CDN o usar uno existente. Un perfil de CDN es una colección de puntos de conexión de CDN que comparten el mismo plan de tarifa y proveedor. A continuación, escriba un nombre para la red CDN que sea único dentro de su suscripción.
+1. En la sección **Perfil de CDN**, especifique si desea crear un nuevo perfil de CDN o usar uno existente. Un perfil de CDN es una colección de puntos de conexión de CDN que comparten el mismo plan de tarifa y proveedor. A continuación, escriba un nombre para la red CDN que sea único dentro de su suscripción.
 
 1. Especifique un plan de tarifa para el punto de conexión de CDN. Para más información sobre los precios, consulte [Precios de Content Delivery Network](https://azure.microsoft.com/pricing/details/cdn/). Para obtener información sobre las características disponibles en cada nivel de servicio, consulte [Comparación de las características de los productos de Azure CDN](../../cdn/cdn-features.md).
 
@@ -63,7 +63,7 @@ Puede habilitar Azure CDN para su sitio web estático directamente desde su cuen
 
 Si ya no desea almacenar en caché un objeto en Azure CDN, puede realizar uno de los siguientes pasos:
 
-* Convierta el contenedor en privado en lugar de público. Para más información, consulte [Administración del acceso de lectura anónimo a contenedores y blobs](storage-manage-access-to-resources.md).
+* Convierta el contenedor en privado en lugar de público. Para más información, consulte [Administración del acceso de lectura anónimo a contenedores y blobs](./anonymous-read-access-configure.md).
 * Deshabilite o elimine el punto de conexión de CDN mediante Azure Portal.
 * Modifique su servicio hospedado para no seguir respondiendo a las solicitudes del objeto.
 

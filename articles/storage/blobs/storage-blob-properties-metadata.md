@@ -9,12 +9,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 19d20a208672667e5a4354fd1b7d185d0c00f8d9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 984fb00e163a090534da1fb41850dcfef6c5d516
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91399132"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95521536"
 ---
 # <a name="manage-blob-properties-and-metadata-with-net"></a>Administración de propiedades y metadatos de blobs con .NET
 
@@ -126,7 +126,7 @@ Puede especificar metadatos como uno o más pares nombre-valor en un recurso de 
 - [SetMetadataAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.setmetadataasync)
 ---
 
-Los pares de nombre/valor de metadatos son encabezados HTTP válidos y deben cumplir todas las restricciones que gobiernan los encabezados HTTP. Los nombres de los metadatos deben ser nombres válidos de encabezado HTTP e identificadores de C# válidos, y solo pueden contener caracteres ASCII y no distinguir entre mayúsculas y minúsculas. Los valores de los metadatos que contengan caracteres distintos de ASCII deben estar [codificados en Base64](https://docs.microsoft.com/dotnet/api/system.convert.tobase64string) o con [direcciones URL](https://docs.microsoft.com/dotnet/api/system.web.httputility.urlencode).
+Los pares de nombre/valor de metadatos son encabezados HTTP válidos y deben cumplir todas las restricciones que gobiernan los encabezados HTTP. Los nombres de los metadatos deben ser nombres válidos de encabezado HTTP e identificadores de C# válidos, y solo pueden contener caracteres ASCII y no distinguir entre mayúsculas y minúsculas. Los valores de los metadatos que contengan caracteres distintos de ASCII deben estar [codificados en Base64](/dotnet/api/system.convert.tobase64string) o con [direcciones URL](/dotnet/api/system.web.httputility.urlencode).
 
 El nombre de los metadatos debe cumplir las convenciones de nomenclatura para los identificadores de C#. Los nombres de los metadatos conservan las mayúsculas y minúsculas con las que se crearon, pero no las distinguen cuando se establecen o se leen. Si se envían dos o más encabezados de metadatos con el mismo nombre para un recurso, Azure Blob Storage devuelve el código de error HTTP 400 (solicitud incorrecta).
 

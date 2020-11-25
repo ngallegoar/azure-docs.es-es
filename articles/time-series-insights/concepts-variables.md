@@ -6,12 +6,12 @@ ms.author: shresha
 ms.service: time-series-insights
 ms.topic: conceptual
 ms.date: 10/01/2020
-ms.openlocfilehash: dc03a74bfad5b1417eb9cc20b5f211718cc08646
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f1c394bb1a568d59e0821b61e7acfcf8f25290f7
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91653713"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95020766"
 ---
 # <a name="time-series-model-variables"></a>Variables del modelo de serie temporal
 
@@ -34,7 +34,7 @@ En la tabla siguiente se muestran las propiedades que son relevantes para cada t
 | Filtro de variables | Los filtros son cláusulas opcionales condicionales para restringir el número de filas que se tienen en cuenta para el cálculo. |
 | Valor variable | Valores de telemetría usados para el cálculo procedentes del dispositivo o los sensores, o transformados mediante expresiones de serie temporal. Las variables de tipo numérico deben ser del tipo *Double*.|
 | Interpolación de variable | La interpolación especifica cómo reconstruir una señal mediante los datos existentes. Para las variables numéricas están disponibles las opciones de interpolación *Escalonada* y *Lineal*. |
-| Agregación de la variable | Realice cálculos a través de las [funciones de agregación admitidas para los tipos de variables numéricas](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax#numeric-variable-kind). |
+| Agregación de la variable | Realice cálculos a través de las [funciones de agregación admitidas para los tipos de variables numéricas](/rest/api/time-series-insights/reference-time-series-expression-syntax#numeric-variable-kind). |
 
 Las variables se ajustan al ejemplo JSON siguiente:
 
@@ -102,7 +102,7 @@ Las variables se ajustan al ejemplo JSON siguiente:
 | Propiedad de variable | Descripción |
 | --- | ---|
 | Filtro de variables | Los filtros son cláusulas opcionales condicionales para restringir el número de filas que se tienen en cuenta para el cálculo. |
-| Agregación de la variable | Realice cálculos a través de las [funciones de agregación admitidas para los tipos de variables de agregado](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax#aggregate-variable-kind). |
+| Agregación de la variable | Realice cálculos a través de las [funciones de agregación admitidas para los tipos de variables de agregado](/rest/api/time-series-insights/reference-time-series-expression-syntax#aggregate-variable-kind). |
 
 Las variables se ajustan al ejemplo JSON siguiente:
 

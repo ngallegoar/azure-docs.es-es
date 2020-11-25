@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 10/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: 5810bea7920dbfe91a836814124cbe4c7f6f3bee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: edfbbdd1b30cba74cf4f63d6b5e84c2e616e1a0f
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91653798"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95020987"
 ---
 # <a name="azure-time-series-insights-explorer"></a>Explorador de Azure Time Series Insights
 
@@ -25,11 +25,11 @@ En este artículo se describen las distintas características y opciones disponi
 
 Para empezar a usar el Explorador de Azure Time Series Insights, debe hacer lo siguiente:
 
-* Tener aprovisionado un entorno de Azure Time Series Insights Gen2. Lea el tutorial de [Azure Time Series Insights Gen2](./time-series-insights-update-create-environment.md) para más información sobre el aprovisionamiento de una instancia.
-* [Proporcionar acceso a datos](./time-series-insights-data-access.md) al entorno de Azure Time Series Insights Gen2 que creó para la cuenta. Puede proporcionar acceso al resto de usuarios y a usted mismo.
+* Tener aprovisionado un entorno de Azure Time Series Insights Gen2. Lea el tutorial de [Azure Time Series Insights Gen2](./tutorials-set-up-tsi-environment.md) para más información sobre el aprovisionamiento de una instancia.
+* [Proporcionar acceso a datos](./concepts-access-policies.md) al entorno de Azure Time Series Insights Gen2 que creó para la cuenta. Puede proporcionar acceso al resto de usuarios y a usted mismo.
 * Agregar un origen de eventos al entorno de Azure Time Series Insights Gen2 para insertar datos en el entorno:
-  * Aprenda a [conectarse a un centro de eventos](./time-series-insights-how-to-add-an-event-source-eventhub.md)
-  * Aprenda a [conectarse a un centro de IoT](./time-series-insights-how-to-add-an-event-source-iothub.md)
+  * Aprenda a [conectarse a un centro de eventos](./how-to-ingest-data-event-hub.md)
+  * Aprenda a [conectarse a un centro de IoT](./how-to-ingest-data-iot-hub.md)
 
 ## <a name="explore-the-azure-time-series-insights-explorer"></a>Explore el Explorador de Azure Time Series Insights
 
@@ -221,7 +221,7 @@ El panel del editor de términos de Azure Time Series Insights Gen2 acepta los p
 | `IN` | String, Bool, Double, DateTime, TimeSpan, NULL | Todos los operandos deben ser del mismo tipo o deben ser una constante NULL. |
 | `HAS` | String | En el lado derecho solo se permiten literales de cadenas constantes. No se permiten cadenas vacías ni NULL. |
 
-Para obtener más información sobre las operaciones de consulta y los tipos de datos admitidos, lea [Expresión de serie temporal (TSX)](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax).
+Para obtener más información sobre las operaciones de consulta y los tipos de datos admitidos, lea [Expresión de serie temporal (TSX)](/rest/api/time-series-insights/reference-time-series-expression-syntax).
 
 ### <a name="examples-of-where-clauses"></a>Ejemplos de cláusulas Where
 
@@ -245,4 +245,4 @@ Puede mostrar y ocultar elementos en el panel del gráfico si selecciona el icon
 
 * Lea sobre el [modelado de datos](./concepts-model-overview.md) en Azure Time Series Insights Gen2.
 
-* Aprenda a [diagnosticar y solucionar problemas](./time-series-insights-update-how-to-troubleshoot.md) del entorno.
+* Aprenda a [diagnosticar y solucionar problemas](./how-to-diagnose-troubleshoot.md) del entorno.

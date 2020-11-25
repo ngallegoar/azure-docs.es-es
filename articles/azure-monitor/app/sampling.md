@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.reviewer: vitalyg
 ms.custom: fasttrack-edit
-ms.openlocfilehash: e4c5000adb2339d3fd0f828781a60f75c75894b5
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 87e33940d927fc9116c03345011e21398384d484
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168603"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024422"
 ---
 # <a name="sampling-in-application-insights"></a>Muestreo en Application Insights.
 
@@ -25,7 +25,7 @@ Cuando los recuentos de métrica se presentan en el portal, se vuelven a normali
 * El muestreo de frecuencia fija está disponible en las versiones recientes de los SDK de Application Insights para ASP.NET, ASP.NET Core, Java (tanto el agente como el SDK) y Python.
 * El muestreo de ingesta funciona en el punto de conexión de servicio de Application Insights. Solo se aplica cuando no hay ningún otro muestreo en vigor. Si el SDK muestrea los datos de telemetría, el muestreo de ingesta está deshabilitado.
 * Para aplicaciones web, si registra eventos personalizados y necesita asegurarse de que un conjunto de eventos se conserva o descarta en conjunto, los eventos deben tener el mismo valor de `OperationId`.
-* Si escribe consultas de Analytics, debería [tener en cuenta el muestreo](../log-query/aggregations.md). En concreto, en lugar de simplemente contar registros, debería usar `summarize sum(itemCount)`.
+* Si escribe consultas de Analytics, debería [tener en cuenta el muestreo](/azure/data-explorer/kusto/query/samples?&pivots=azuremonitor#aggregations). En concreto, en lugar de simplemente contar registros, debería usar `summarize sum(itemCount)`.
 * Algunos tipos de telemetría, incluidas las métricas de rendimiento y las métricas personalizadas, siempre se conservan independientemente de si el muestreo está habilitado o no.
 
 En la tabla siguiente se resumen los tipos de muestreo disponibles para cada SDK y tipo de aplicación:
@@ -78,7 +78,7 @@ En [`ApplicationInsights.config`](./configuration-with-applicationinsights-confi
 
 * `<MaxTelemetryItemsPerSecond>5</MaxTelemetryItemsPerSecond>`
   
-    La velocidad de destino de las [operaciones lógicas ](./correlation.md#data-model-for-telemetry-correlation) que el algoritmo adaptativo pretende recopilar **en cada host de servidor**. Si la aplicación web se ejecuta en varios hosts, reduzca este valor para que se mantenga dentro de la velocidad objetivo de tráfico en el portal de Application Insights.
+    La velocidad de destino de las [operaciones lógicas](./correlation.md#data-model-for-telemetry-correlation) que el algoritmo adaptativo pretende recopilar **en cada host de servidor**. Si la aplicación web se ejecuta en varios hosts, reduzca este valor para que se mantenga dentro de la velocidad objetivo de tráfico en el portal de Application Insights.
 
 * `<EvaluationInterval>00:00:15</EvaluationInterval>` 
   

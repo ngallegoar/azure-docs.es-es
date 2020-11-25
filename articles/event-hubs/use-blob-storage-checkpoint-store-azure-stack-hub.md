@@ -3,17 +3,17 @@ title: Uso de Blob Storage como almacén de puntos de comprobación en Azure Sta
 description: En este artículo se describe cómo usar Blob Storage como almacén de puntos de comprobación en Event Hubs en Azure Stack Hub (versión preliminar).
 ms.topic: how-to
 ms.date: 06/23/2020
-ms.openlocfilehash: 1c876ed36be6aec9395a1acba3a1deb25a47de2c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9da525decfb7b972f05af17c259836d0b17bb21e
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87039232"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95021242"
 ---
 # <a name="use-blob-storage-as-checkpoint-store---event-hubs-on-azure-stack-hub-preview"></a>Uso de Blob Storage como almacén de puntos de comprobación: Event Hubs en Azure Stack Hub (versión preliminar)
 Si usa Azure Blob Storage como almacén de puntos de comprobación en un entorno que admite una versión diferente del SDK de blobs de almacenamiento que las que normalmente están disponibles en Azure, tendrá que utilizar código para cambiar la versión de la API del servicio de almacenamiento a la versión admitida por ese entorno. Por ejemplo, si ejecuta [Event Hubs en una instancia de Azure Stack Hub versión 2002](/azure-stack/user/event-hubs-overview), la versión más alta disponible para el servicio de almacenamiento es la 2017-11-09. En este caso, tendrá que usar código para establecer como destino la versión de la API del servicio de almacenamiento en 2017-11-09. Para obtener un ejemplo de cómo establecer como destino una versión específica de la API de almacenamiento, vea estos ejemplos en GitHub: 
 
-- [.NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/Sample10_RunningWithDifferentStorageVersion.cs)
+- [.NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/)
 - [Java](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/src/samples/java/com/azure/messaging/eventhubs/checkpointstore/blob/EventProcessorWithCustomStorageVersion.java). 
 - [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/javascript/receiveEventsWithApiSpecificStorage.js) o [TypeScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/typescript/src/receiveEventsWithApiSpecificStorage.ts) 
 - Python: [sincrónico](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob/samples/receive_events_using_checkpoint_store_storage_api_version.py), [asincrónico](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob-aio/samples/receive_events_using_checkpoint_store_storage_api_version_async.py)

@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 11/25/2014
 ms.author: gwallace
 ms.custom: devx-track-java
-ms.openlocfilehash: 9a28677063c6f6dd7bb7bcf6746dbc541308891f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cad25990d0ba7e27f4a90adc587f0c8a0a2c551a
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87305914"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95521077"
 ---
 # <a name="how-to-make-a-phone-call-using-twilio-in-a-java-application-on-azure"></a>Realización de una llamada telefónica con Twilio en una aplicación Java en Azure
 El siguiente ejemplo muestra cómo se puede usar Twilio para realizar una llamada desde una página web hospedada en Azure. La aplicación resultante le pedirá al usuario los valores de una llamada telefónica, como se muestra en la siguiente captura de pantalla.
@@ -177,7 +177,7 @@ A continuación se indican los pasos de alto nivel necesarios para ejecutar la a
 3. Compile la aplicación para el emulador de proceso.
 4. Comience su implementación en el emulador de proceso.
 5. Abra un explorador y ejecute `http://localhost:8080/TwilioCloud/callform.jsp`.
-6. Escriba valores en el formulario, haga clic en **Make this call**y, a continuación, vea los resultados en makecall.jsp.
+6. Escriba valores en el formulario, haga clic en **Make this call** y, a continuación, vea los resultados en makecall.jsp.
 
 Cuando esté listo para implementar en Azure, recompile para su implementación en la nube, implemente en Azure y ejecute http://*your_hosted_name*.cloudapp.net/TwilioCloud/callform.jsp en el explorador (reemplace su valor por *your_hosted_name*).
 
@@ -203,12 +203,12 @@ Para obtener más información sobre Twilio, vea [https://www.twilio.com/docs][t
 [twimlet_message_url]: https://twimlets.com/message
 [twiml]: https://www.twilio.com/docs/api/twiml
 [twilio_api_service]: https://api.twilio.com
-[add_ca_cert]: java-add-certificate-ca-store.md
-[azure_java_eclipse_hello_world]: https://docs.microsoft.com/java/azure/eclipse/azure-toolkit-for-eclipse-create-hello-world-web-app 
+[add_ca_cert]: /azure/developer/java/sdk/java-sdk-add-certificate-ca-store
+[azure_java_eclipse_hello_world]: /java/azure/eclipse/azure-toolkit-for-eclipse-create-hello-world-web-app
 [howto_twilio_voice_sms_java]: partner-twilio-java-how-to-use-voice-sms.md
 [howto_blob_storage_java]: https://www.windowsazure.com/develop/java/how-to-guides/blob-storage/
 [howto_sql_azure_java]: https://msdn.microsoft.com/library/windowsazure/hh749029.aspx
-[azure_runtime_jsp]: https://msdn.microsoft.com/library/windowsazure/hh690948.aspx
+[azure_runtime_jsp]: /previous-versions/azure/hh690948(v=azure.100)
 [twilio_docs_security]: https://www.twilio.com/docs/security
 [twilio_docs]: https://www.twilio.com/docs
 [twilio_say]: https://www.twilio.com/docs/api/twiml/say
