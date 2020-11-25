@@ -8,12 +8,12 @@ ms.author: manoskow
 ms.date: 10/23/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: ff3e7fee87661fb89ba930b7368bd54e71ad57bf
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 775075765c8c8eaa94541c0f094c1f7743fe59d9
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93357630"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94886794"
 ---
 # <a name="troubleshooting-in-azure-communication-services"></a>Solución de problemas en Azure Communication Services
 
@@ -23,7 +23,7 @@ Este documento le ayudará a solucionar los problemas que pueda experimentar en 
 
 Animamos a los desarrolladores a enviar sus preguntas, sugerir características e informar de problemas como problemas en el [repositorio de GitHub](https://github.com/Azure/communication) de Communication Services. Otros foros incluyen:
 
-* [Preguntas y respuestas de Microsoft](https://docs.microsoft.com/answers/questions/topics/single/101418.html)
+* [Preguntas y respuestas de Microsoft](/answers/questions/topics/single/101418.html)
 * [Stackoverflow](https://stackoverflow.com/questions/tagged/azure+communication)
 
 En función del [plan de soporte técnico](https://azure.microsoft.com/support/plans/) de la suscripción a Azure, se puede enviar una incidencia de soporte técnico directamente a través de [Azure Portal](https://azure.microsoft.com/support/create-ticket/).

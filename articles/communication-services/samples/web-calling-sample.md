@@ -9,12 +9,12 @@ ms.author: mariusu
 ms.date: 10/15/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: e6fc3441fac5fe037e9a268d26012761d1fece70
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 8faa6533ba4dc7fad61c045278c5504c5f78d900
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92463228"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888970"
 ---
 # <a name="get-started-with-the-web-calling-sample"></a>Introducción al ejemplo de llamada web
 
@@ -58,7 +58,7 @@ Ya está listo para empezar a realizar llamadas mediante el recurso de Communica
 
 ## <a name="placing-and-receiving-calls"></a>Realización y recepción de llamadas
 
-El SDK de llamada web de Communication Services permite llamadas **1:1** , **1: N** y **grupales**.
+El SDK de llamada web de Communication Services permite llamadas **1:1**, **1: N** y **grupales**.
 
 En el caso de las llamadas salientes 1:1 o 1:N, puede especificar varias identidades de usuario de Communication Services a las que llamar mediante valores separados por comas. También puede especificar números de teléfono tradicionales (RTC) a los que llamar mediante valores separados por comas. 
 
@@ -95,7 +95,7 @@ Para más información, consulte los siguientes artículos.
 
 - Familiarícese con [el uso de la biblioteca cliente de llamada](../quickstarts/voice-video-calling/calling-client-samples.md)
 - Más información sobre [cómo funciona la llamada](../concepts/voice-video-calling/about-call-types.md)
-- Examine la [documentación de referencia de la API](https://docs.microsoft.com/javascript/api/azure-communication-services/@azure/communication-calling/?view=azure-communication-services-js)
+- Examine la [documentación de referencia de la API](/javascript/api/azure-communication-services/@azure/communication-calling/?view=azure-communication-services-js)
 
 ## <a name="additional-reading"></a>Lecturas adicionales
 
@@ -103,4 +103,4 @@ Para más información, consulte los siguientes artículos.
 - [Redux](https://redux.js.org/): Administración de estado del lado cliente
 - [FluentUI](https://aka.ms/fluent-ui): Biblioteca de interfaz de usuario con tecnología de Microsoft
 - [React](https://reactjs.org/): Biblioteca para compilar interfaces de usuario
-- [ASP.NET Core](https://docs.microsoft.com/aspnet/core/introduction-to-aspnet-core?view=aspnetcore-3.1&preserve-view=true): Marco para compilar aplicaciones web
+- [ASP.NET Core](/aspnet/core/introduction-to-aspnet-core?preserve-view=true&view=aspnetcore-3.1): Marco para compilar aplicaciones web

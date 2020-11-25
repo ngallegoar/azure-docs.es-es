@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 10/07/2020
+ms.date: 11/19/2020
 ms.author: aahi
-ms.openlocfilehash: b13d82780a01771c6bb8e87091a7808ea22ca111
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: b90fe6b7e0937a9ac3b300e904085122610d5645
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371192"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94957085"
 ---
 # <a name="text-analytics-api-v3-language-support"></a>Idiomas admitidos en Text Analytics API v3 
 
@@ -35,12 +35,13 @@ ms.locfileid: "92371192"
 | Francés                |     `fr`      |     ✓      |     ✓      |         2019-10-01         |                    |
 | Alemán                |     `de`      |     ✓      |     ✓      |         2019-10-01         |                    |
 | Griego                 |     `el`      |     ✓      |            |                            |                    |
-| Hindi                 |     `hi`      |           |      ✓      |          2020-04-01                  |                    |
+| Hindi                 |     `hi`      |            |      ✓     |          2020-04-01        |                    |
 | Italiano               |     `it`      |     ✓      |     ✓      |         2019-10-01         |                    |
 | Japonés              |     `ja`      |     ✓      |     ✓      |         2019-10-01         |                    |
 | Coreano                |     `ko`      |            |     ✓      |         2019-10-01         |                    |
-| Noruego (Bokmål)   |     `no`      |     ✓      |     ✓       |        01-07-2020         |                    |
+| Noruego (Bokmål)   |     `no`      |     ✓      |     ✓      |         01-07-2020         |                    |
 | Polaco                |     `pl`      |     ✓      |            |                            |                    |
+| Portugués (Brasil)   |    `pt-BR`    |            |     ✓      |         2020-04-01         |                    |
 | Portugués (Portugal) |    `pt-PT`    |     ✓      |     ✓      |         2019-10-01         | También se acepta `pt` |
 | Ruso               |     `ru`      |     ✓      |            |                            |                    |
 | Español               |     `es`      |     ✓      |     ✓      |         2019-10-01         |                    |

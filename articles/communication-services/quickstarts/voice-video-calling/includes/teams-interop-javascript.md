@@ -5,17 +5,17 @@ ms.author: mikben
 ms.date: 10/10/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 0559a9b763d273579373bb57922606f14ff6e6db
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: ab13e02c9154dbfc1bd28872f1bd6f993019a604
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94574382"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94915256"
 ---
 ## <a name="prerequisites"></a>Requisitos previos
 
 - Una [aplicación de llamadas de Communication Services](../getting-started-with-calling.md) operativa.
-- Una [implementación de Teams](https://docs.microsoft.com/deployoffice/teams-install).
+- Una [implementación de Teams](/deployoffice/teams-install).
 
 ## <a name="enable-teams-interoperability"></a>Habilitación de la interoperabilidad de Teams
 
@@ -98,7 +98,7 @@ meetingButton.addEventListener("click", () => {
 
 ## <a name="get-the-meeting-context"></a>Obtención del contexto de la reunión
 
-El contexto de Teams se puede recuperar mediante las API de Graph. Esto se detalla en la [documentación de Graph](https://docs.microsoft.com/graph/api/onlinemeeting-createorget?view=graph-rest-beta&tabs=http).
+El contexto de Teams se puede recuperar mediante las API de Graph. Esto se detalla en la [documentación de Graph](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta).
 
 También puede obtener la información de la reunión necesaria en la dirección URL **Join Meeting** (Unirse a la reunión) de la propia invitación de la reunión.
 
@@ -115,4 +115,3 @@ Abra el explorador web y vaya a http://localhost:8080/. Verá lo siguiente:
 :::image type="content" source="../media/javascript/calling-javascript-app.png" alt-text="Captura de pantalla de la aplicación JavaScript completada.":::
 
 Inserte el contexto de Teams en el cuadro de texto y presione *Join Teams Meeting* (Unirse a la reunión de Teams) para unirse a la reunión de Teams desde dentro de la aplicación de Communication Services.
-

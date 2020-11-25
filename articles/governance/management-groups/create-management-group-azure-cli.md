@@ -4,12 +4,12 @@ description: En este inicio rápido, se usa la CLI de Azure para crear un grupo 
 ms.date: 08/31/2020
 ms.topic: quickstart
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: f07ae46c95f9ab9cc1ad973204ac5c50320fdf46
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 54d7afbaa4bfe2799ca0d68927394a38d9845c53
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89237136"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94920668"
 ---
 # <a name="quickstart-create-a-management-group-with-the-azure-cli"></a>Inicio rápido: creación de un grupo de administración con la CLI de Azure
 
@@ -29,7 +29,7 @@ El primer grupo de administración creado en el directorio puede tardar hasta 15
 
 ### <a name="create-in-the-azure-cli"></a>Creación en la CLI de Azure
 
-Para la CLI de Azure, use el comando [az account management-group create](/cli/azure/account/management-group#az-account-management-group-create) para crear un nuevo grupo de administración. En este ejemplo, el **nombre** del grupo de administración es _Contoso_.
+Para la CLI de Azure, use el comando [az account management-group create](/cli/azure/account/management-group#az_account_management_group_create) para crear un nuevo grupo de administración. En este ejemplo, el **nombre** del grupo de administración es _Contoso_.
 
 ```azurecli-interactive
 az account management-group create --name 'Contoso'
@@ -51,7 +51,7 @@ az account management-group create --name 'ContosoSubGroup' --parent 'Contoso'
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Para quitar el grupo de administración que ha creado anteriormente, use el comando [az account management-group delete](/cli/azure/account/management-group#az-account-management-group-delete):
+Para quitar el grupo de administración que ha creado anteriormente, use el comando [az account management-group delete](/cli/azure/account/management-group#az_account_management_group_delete):
 
 ```azurecli-interactive
 az account management-group delete --name 'Contoso'

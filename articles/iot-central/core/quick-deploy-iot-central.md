@@ -3,18 +3,17 @@ title: 'Inicio rápido: Creación de una aplicación de Azure IoT Central | Micr
 description: 'Inicio rápido: Creación de una nueva aplicación de Azure IoT Central. Cree la aplicación mediante el plan de precios gratuito o uno de los planes de precios estándar.'
 author: viv-liu
 ms.author: viviali
-ms.date: 07/30/2020
+ms.date: 11/16/2020
 ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
-ms.custom: mvc
 manager: corywink
-ms.openlocfilehash: 477da41bab48ee49727ec2a8c029e748d6e7f863
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: afe3e9812271f4b8e049fb2a53efd45fe746e514
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90987376"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94992818"
 ---
 # <a name="quickstart---create-an-azure-iot-central-application"></a>Inicio rápido: Creación de una aplicación de Azure IoT Central
 
@@ -43,11 +42,11 @@ Para crear una aplicación de Azure IoT Central a partir de la plantilla **Aplic
     ![Información acerca de la facturación de Azure IoT Central](media/quick-deploy-iot-central/iotcentralcreate-billinginfo.png)
 
     > [!NOTE]
-    > Si ha eligió **Aplicación personalizada** en la página anterior, verá la lista desplegable **Plantilla de aplicación**. Es posible que la muestre otras plantillas que la organización ha puesto a su disposición. 
+    > Si ha eligió **Aplicación personalizada** en la página anterior, verá la lista desplegable **Plantilla de aplicación**. Es posible que la muestre otras plantillas que la organización ha puesto a su disposición.
 
     >[!IMPORTANT]
-    >La plantilla **Aplicación personalizada (heredada)** (V2) se ha retirado, ya que todas las funcionalidades disponibles previamente en la plantilla de aplicación heredada ya están disponibles en la plantilla **Aplicación personalizada** (V3), que es más reciente. 
-    
+    >La plantilla **Aplicación personalizada (heredada)** (V2) se ha retirado, ya que todas las funcionalidades disponibles previamente en la plantilla de aplicación heredada ya están disponibles en la plantilla **Aplicación personalizada** (V3), que es más reciente.
+
 1. Elija si desea crear esta aplicación mediante el plan de precios de evaluación gratuita durante siete días o uno de los planes de precios Estándar:
 
     - Las aplicaciones que se crean mediante el plan *gratuito* no tienen costo durante siete días y admiten un máximo de cinco dispositivos. En cualquier momento antes de que expiren puede convertirlas para que usen un plan de precios estándar.

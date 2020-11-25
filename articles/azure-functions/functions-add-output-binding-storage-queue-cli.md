@@ -5,20 +5,18 @@ ms.date: 02/07/2020
 ms.topic: quickstart
 ms.custom: devx-track-python
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: c7d41d889692856a9818aacd265e67b0c2d3d1ad
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 6d0d559579e841553e04c26bf4dcc78934de3e95
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422875"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94920209"
 ---
 # <a name="connect-azure-functions-to-azure-storage-using-command-line-tools"></a>Conexión de Azure Functions a Azure Storage mediante herramientas de línea de comandos
 
 En este artículo, integrará una cola de Azure Storage con la función y la cuenta de almacenamiento que creó en el artículo de inicio rápido anterior. Para lograr esta integración se usa un *enlace de salida* que escribe los datos de una solicitud HTTP en un mensaje de la cola. Completar este artículo no supone ningún costo adicional sobre el pequeño importe del inicio rápido anterior. Para más información acerca de los enlaces, consulte [Conceptos básicos sobre los enlaces y desencadenadores de Azure Functions](functions-triggers-bindings.md).
 
 ## <a name="configure-your-local-environment"></a>Configuración del entorno local
-
-Antes de empezar, debe completar el artículo [Inicio rápido: Creación de un proyecto de Azure Functions desde la línea de comandos][previous-quickstart]. Si ya ha limpiado los recursos al final de ese artículo, vuelva a recorrer los pasos para crear de nuevo la aplicación de función y los recursos relacionados en Azure.
 
 ::: zone pivot="programming-language-csharp"  
 Antes de empezar, debe completar el artículo [Inicio rápido: Creación de un proyecto de Azure Functions desde la línea de comandos](create-first-function-cli-csharp.md). Si ya ha limpiado los recursos al final de ese artículo, vuelva a recorrer los pasos para crear de nuevo la aplicación de función y los recursos relacionados en Azure.  

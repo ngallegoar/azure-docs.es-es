@@ -3,12 +3,12 @@ title: 'Inicio rápido: Creación de un plano técnico con la CLI de Azure'
 description: En este inicio rápido se usa Azure Blueprints para crear, definir e implementar artefactos mediante la CLI de Azure.
 ms.date: 10/14/2020
 ms.topic: quickstart
-ms.openlocfilehash: 790e23897a24ea06565572163b8226af88e0bb7c
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 88ccd3fe6271a79d201007954e7997b68d2dc69b
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057967"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94920566"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-azure-cli"></a>Inicio rápido: Definición y asignación de un plano técnico de Azure Blueprint con la CLI de Azure
 
@@ -116,7 +116,7 @@ El primer paso para definir un patrón estándar de cumplimiento es elaborar un 
 
      > [!NOTE]
      > Use el nombre de archivo _blueprint.json_ al importar las definiciones de plano técnico.
-     > Este nombre de archivo se usa al llamar a [az blueprint import](/cli/azure/ext/blueprint/blueprint#ext-blueprint-az-blueprint-import).
+     > Este nombre de archivo se usa al llamar a [az blueprint import](/cli/azure/ext/blueprint/blueprint#ext_blueprint_az_blueprint_import).
 
      El objeto blueprint se crea en la suscripción predeterminada de forma predeterminada. Para especificar el grupo de administración, use el parámetro **managementgroup**. Para especificar la suscripción, use el parámetro **subscription**.
 

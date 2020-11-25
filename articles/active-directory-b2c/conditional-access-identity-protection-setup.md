@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fb585e2ccf8c8ed071b5156961adf48d4e4b108d
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 2472183673e5f06f5664a306a69d14c2eaf5f82d
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92309788"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94949775"
 ---
 # <a name="set-up-identity-protection-and-conditional-access-in-azure-ad-b2c"></a>Configuración de Identity Protection y el acceso condicional en Azure AD B2C
 
@@ -26,7 +26,7 @@ Identity Protection proporciona detección continua de riesgos para el inquilino
 ## <a name="prerequisites"></a>Requisitos previos
 
 - El inquilino de Azure AD B2C debe estar [vinculado a una suscripción de Azure AD](billing.md#link-an-azure-ad-b2c-tenant-to-a-subscription).
-- Se requiere Azure AD B2C Premium P2 para usar el acceso condicional basado en el riesgo de inicio de sesión y el usuario. Si es necesario, [cambie el plan de tarifa de Azure AD B2C a Premium P2](https://aka.ms/exid-pricing-tier). 
+- Se requiere Azure AD B2C Premium P2 para usar el acceso condicional basado en el riesgo de inicio de sesión y el usuario. Si es necesario, [cambie el plan de tarifa de Azure AD B2C a Premium P2](./billing.md). 
 - Para administrar Identity Protection y el acceso condicional en el inquilino de B2C, necesitará una cuenta que tenga asignado el rol Administrador global o el rol Administrador de seguridad.
 - Para usar estas características en el inquilino, primero debe cambiar el plan de tarifa de Azure AD B2C a Premium P2.
 
@@ -54,13 +54,13 @@ Actualmente se admiten las siguientes detecciones de riesgo para Azure AD B2C:
 
 1. Seleccione el icono **Directorio y suscripción** en la barra de herramientas del portal y, luego, elija el directorio que contiene el inquilino de Azure AD B2C.
 
-1. En Azure Portal, busque y seleccione **Azure AD B2C** .
+1. En Azure Portal, busque y seleccione **Azure AD B2C**.
 
-1. En **Seguridad** , seleccione **Usuarios de riesgo (versión preliminar)** .
+1. En **Seguridad**, seleccione **Usuarios de riesgo (versión preliminar)** .
 
    ![Usuarios de riesgo](media/conditional-access-identity-protection-setup/risky-users.png)
 
-1. En **Seguridad** , seleccione **Detecciones de riesgos (versión preliminar)** .
+1. En **Seguridad**, seleccione **Detecciones de riesgos (versión preliminar)** .
 
    ![Detecciones de riesgo](media/conditional-access-identity-protection-setup/risk-detections.png)
 
@@ -74,9 +74,9 @@ Para agregar una directiva de acceso condicional basada en las detecciones de ri
 
 2. Seleccione el icono **Directorio y suscripción** en la barra de herramientas del portal y, luego, elija el directorio que contiene el inquilino de Azure AD B2C.
 
-3. En Azure Portal, busque y seleccione **Azure Active Directory** .
+3. En Azure Portal, busque y seleccione **Azure Active Directory**.
 
-4. Seleccione **Propiedades** y, a continuación, seleccione **Administrar valores predeterminados de seguridad** .
+4. Seleccione **Propiedades** y, a continuación, seleccione **Administrar valores predeterminados de seguridad**.
 
    ![Deshabilitar los valores predeterminados de seguridad](media/conditional-access-identity-protection-setup/disable-security-defaults.png)
 
@@ -90,29 +90,29 @@ Para agregar una directiva de acceso condicional basada en las detecciones de ri
 
 1. Seleccione el icono **Directorio y suscripción** en la barra de herramientas del portal y, luego, elija el directorio que contiene el inquilino de Azure AD B2C.
 
-1. En Azure Portal, busque y seleccione **Azure AD B2C** .
+1. En Azure Portal, busque y seleccione **Azure AD B2C**.
 
-1. En **Seguridad** , seleccione **Acceso condicional (versión preliminar)** . Se abre la página **Directivas de acceso condicional** . 
+1. En **Seguridad**, seleccione **Acceso condicional (versión preliminar)** . Se abre la página **Directivas de acceso condicional**. 
 
 1. Seleccione **Nueva directiva** y siga la documentación del acceso condicional de Azure AD para crear una nueva directiva. A continuación se muestra un ejemplo:
 
    - [Acceso condicional basado en el riesgo de inicio de sesión: habilitación con la directiva de acceso condicional](../active-directory/conditional-access/howto-conditional-access-policy-risk.md#enable-with-conditional-access-policy)
 
    > [!IMPORTANT]
-   > Al seleccionar los usuarios a los que desea aplicar la directiva, no seleccione **Todos los usuarios** , ya que podría bloquear su propio inicio de sesión.
+   > Al seleccionar los usuarios a los que desea aplicar la directiva, no seleccione **Todos los usuarios**, ya que podría bloquear su propio inicio de sesión.
 
 ## <a name="test-the-conditional-access-policy"></a>Prueba de la directiva de acceso condicional
 
 1. Cree una directiva de acceso condicional tal y como se indicó anteriormente, con la siguiente configuración:
    
-   - En **Usuarios y grupos** , seleccione el usuario de prueba. No seleccione **Todos los usuarios** o bloqueará su propio inicio de sesión.
-   - Para **Aplicaciones en la nube o acciones** , elija **Seleccionar aplicaciones** y, después, elija la aplicación de usuario de confianza.
-   - En Condiciones, seleccione **Riesgo de inicio de sesión** y los niveles de riesgo **Alto** , **Medio** y **Bajo** .
-   - En **Conceder** , elija **Bloquear acceso** .
+   - En **Usuarios y grupos**, seleccione el usuario de prueba. No seleccione **Todos los usuarios** o bloqueará su propio inicio de sesión.
+   - Para **Aplicaciones en la nube o acciones**, elija **Seleccionar aplicaciones** y, después, elija la aplicación de usuario de confianza.
+   - En Condiciones, seleccione **Riesgo de inicio de sesión** y los niveles de riesgo **Alto**, **Medio** y **Bajo**.
+   - En **Conceder**, elija **Bloquear acceso**.
 
       ![Elegir Bloquear acceso](media/conditional-access-identity-protection-setup/test-conditional-access-policy.png)
 
-1. Habilite la directiva de acceso condicional de prueba; para ello, seleccione **Crear** .
+1. Habilite la directiva de acceso condicional de prueba; para ello, seleccione **Crear**.
 
 1. Simule un inicio de sesión de riesgo con el [explorador Tor](https://www.torproject.org/download/). 
 
@@ -128,18 +128,18 @@ Para revisar el resultado de un evento de acceso condicional:
 
 2. Seleccione el icono **Directorio y suscripción** en la barra de herramientas del portal y, luego, elija el directorio que contiene el inquilino de Azure AD B2C.
 
-3. En Azure Portal, busque y seleccione **Azure AD B2C** .
+3. En Azure Portal, busque y seleccione **Azure AD B2C**.
 
-4. En **Actividades** , seleccione **Registros de auditoría** .
+4. En **Actividades**, seleccione **Registros de auditoría**.
 
-5. Filtre el registro de auditoría; para ello, establezca **Categoría** en **B2C** y establezca **Tipo de recurso de actividad** en **IdentityProtection** . Luego, seleccione **Aplicar** .
+5. Filtre el registro de auditoría; para ello, establezca **Categoría** en **B2C** y establezca **Tipo de recurso de actividad** en **IdentityProtection**. Luego, seleccione **Aplicar**.
 
 6. Revise la actividad de auditoría de los últimos 7 días. Se incluyen los siguientes tipos de actividad:
 
-   - **Evaluar directivas de acceso condicional** : esta entrada del registro de auditoría indica que se ha realizado una evaluación de acceso condicional durante una autenticación.
-   - **Corregir usuario** : esta entrada indica que el usuario final cumplió la concesión o los requisitos de una directiva de acceso condicional y que esta actividad se comunicó al motor de riesgo para reducir el riesgo (mitigar) del usuario.
+   - **Evaluar directivas de acceso condicional**: esta entrada del registro de auditoría indica que se ha realizado una evaluación de acceso condicional durante una autenticación.
+   - **Corregir usuario**: esta entrada indica que el usuario final cumplió la concesión o los requisitos de una directiva de acceso condicional y que esta actividad se comunicó al motor de riesgo para reducir el riesgo (mitigar) del usuario.
 
-7. Seleccione una entrada de registro de tipo **Evaluar directivas de acceso condicional** en la lista para abrir la página **Detalles de la actividad: registro de auditoría** , que muestra los identificadores del registro de auditoría, junto con esta información, en la sección **Detalles adicionales** :
+7. Seleccione una entrada de registro de tipo **Evaluar directivas de acceso condicional** en la lista para abrir la página **Detalles de la actividad: registro de auditoría**, que muestra los identificadores del registro de auditoría, junto con esta información, en la sección **Detalles adicionales**:
 
    - ConditionalAccessResult: concesión requerida por la evaluación de la directiva condicional.
    - AppliedPolicies: lista de todas las directivas de acceso condicional en las que se cumplieron las condiciones y las directivas están activadas.

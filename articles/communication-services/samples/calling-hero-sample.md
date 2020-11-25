@@ -9,12 +9,12 @@ ms.author: dademath
 ms.date: 07/20/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 799c46ad2715e1edd3d2fba24a8350fd2608d3d8
-ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
+ms.openlocfilehash: c872c2a2799eee3ae9e39653b0046b70ca5d7e8b
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93233940"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94887542"
 ---
 # <a name="get-started-with-the-group-calling-hero-sample"></a>Introducción al ejemplo de elementos principales de una llamada
 
@@ -50,9 +50,9 @@ Una vez que configure el nombre para mostrar y los dispositivos, puede unirse a 
 
 Componentes de la pantalla principal de llamada:
 
-1. **Galería multimedia** : la fase principal en la que se muestran los participantes. Si un participante tiene habilitada la cámara, aquí se muestra su fuente de vídeo. Cada participante tiene un icono individual que muestra su nombre para mostrar y la transmisión de vídeo (si hay alguna).
-2. **Encabezado** : aquí es donde se encuentran los controles de llamada principales para ajustar la configuración y la barra lateral de participantes, activar o desactivar el vídeo y mezclas, compartir la pantalla y abandonar la llamada.
-3. **Barra lateral** : aquí es donde se muestran los participantes y la información de configuración cuando se ajustan con los controles del encabezado. El componente se puede descartar con la "X" de la esquina superior derecha. En la barra lateral de participantes se mostrará una lista de participantes y un vínculo para invitar a más usuarios a conversar. La barra lateral de configuración permite configurar las opciones del micrófono y la cámara.
+1. **Galería multimedia**: la fase principal en la que se muestran los participantes. Si un participante tiene habilitada la cámara, aquí se muestra su fuente de vídeo. Cada participante tiene un icono individual que muestra su nombre para mostrar y la transmisión de vídeo (si hay alguna).
+2. **Encabezado**: aquí es donde se encuentran los controles de llamada principales para ajustar la configuración y la barra lateral de participantes, activar o desactivar el vídeo y mezclas, compartir la pantalla y abandonar la llamada.
+3. **Barra lateral**: aquí es donde se muestran los participantes y la información de configuración cuando se ajustan con los controles del encabezado. El componente se puede descartar con la "X" de la esquina superior derecha. En la barra lateral de participantes se mostrará una lista de participantes y un vínculo para invitar a más usuarios a conversar. La barra lateral de configuración permite configurar las opciones del micrófono y la cámara.
 
 A continuación encontrará más información sobre los requisitos previos y los pasos para configurar el ejemplo.
 
@@ -116,4 +116,4 @@ Para más información, consulte los siguientes artículos.
 - [Redux](https://redux.js.org/): Administración de estado del lado cliente
 - [FluentUI](https://aka.ms/fluent-ui): Biblioteca de interfaz de usuario con tecnología de Microsoft
 - [React](https://reactjs.org/): Biblioteca para compilar interfaces de usuario
-- [ASP.NET Core](https://docs.microsoft.com/aspnet/core/introduction-to-aspnet-core?view=aspnetcore-3.1&preserve-view=true): Marco para compilar aplicaciones web
+- [ASP.NET Core](/aspnet/core/introduction-to-aspnet-core?preserve-view=true&view=aspnetcore-3.1): Marco para compilar aplicaciones web

@@ -9,12 +9,12 @@ ms.author: dademath
 ms.date: 07/20/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 8349654650ff0c85fb7c9c1af6ab5dabc4f5c3ac
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: fc757e1310369c48de24c0cc9253c668ca27495c
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677411"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888579"
 ---
 # <a name="get-started-with-the-group-chat-hero-sample"></a>Introducción al ejemplo de elementos principales de un chat grupal
 
@@ -52,9 +52,9 @@ Una vez que configure el nombre para mostrar y el emoji, puede unirse a la sesi�
 
 Componentes de la pantalla principal de chat:
 
-- **Área de chat principal** : Aquí se encuentra la experiencia de chat principal, donde los usuarios pueden enviar y recibir mensajes. Para enviar mensajes, puede usar el área de entrada y presionar Entrar (o usar el botón de envío). Los mensajes de chat recibidos se clasifican por remitente con el nombre y el emoji correctos. Verá dos tipos de notificaciones en el área de chat: 1) notificaciones de escritura cuando un usuario esté escribiendo y 2) notificaciones de envío y lectura para los mensajes.
-- **Encabezado** : Aquí es donde el usuario verá el título del hilo de chat y los controles para alternar las barras laterales de participantes y de configuración, y un botón Leave para salir de la sesión de chat.
-- **Barra lateral** : Aquí es donde se muestran los participantes y la información de configuración cuando se alternan con los controles del encabezado. La barra lateral de participantes contiene una lista de participantes en el chat y un vínculo para invitar a los participantes a la sesión de chat. La barra lateral de configuración permite configurar el título del hilo de chat. 
+- **Área de chat principal**: Aquí se encuentra la experiencia de chat principal, donde los usuarios pueden enviar y recibir mensajes. Para enviar mensajes, puede usar el área de entrada y presionar Entrar (o usar el botón de envío). Los mensajes de chat recibidos se clasifican por remitente con el nombre y el emoji correctos. Verá dos tipos de notificaciones en el área de chat: 1) notificaciones de escritura cuando un usuario esté escribiendo y 2) notificaciones de envío y lectura para los mensajes.
+- **Encabezado**: Aquí es donde el usuario verá el título del hilo de chat y los controles para alternar las barras laterales de participantes y de configuración, y un botón Leave para salir de la sesión de chat.
+- **Barra lateral**: Aquí es donde se muestran los participantes y la información de configuración cuando se alternan con los controles del encabezado. La barra lateral de participantes contiene una lista de participantes en el chat y un vínculo para invitar a los participantes a la sesión de chat. La barra lateral de configuración permite configurar el título del hilo de chat. 
 
 A continuación encontrará más información sobre los requisitos previos y los pasos para configurar el ejemplo.
 
@@ -118,4 +118,4 @@ Para más información, consulte los siguientes artículos.
 - [Redux](https://redux.js.org/): Administración de estado del lado cliente
 - [FluentUI](https://aka.ms/fluent-ui): Biblioteca de interfaz de usuario con tecnología de Microsoft
 - [React](https://reactjs.org/): Biblioteca para compilar interfaces de usuario
-- [ASP.NET Core](https://docs.microsoft.com/aspnet/core/introduction-to-aspnet-core?view=aspnetcore-3.1&preserve-view=true): Marco para compilar aplicaciones web
+- [ASP.NET Core](/aspnet/core/introduction-to-aspnet-core?preserve-view=true&view=aspnetcore-3.1): Marco para compilar aplicaciones web
