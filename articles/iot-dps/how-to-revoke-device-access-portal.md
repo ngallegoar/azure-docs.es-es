@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: f5bedde9e5e095b1b8637a09263bf18b06bcddea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 120446472038076e34f62b47ba79348e5de8b972
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90532348"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010935"
 ---
 # <a name="how-to-disenroll-a-device-from-azure-iot-hub-device-provisioning-service"></a>Baja del servicio Azure IoT Hub Device Provisioning para un dispositivo
 
@@ -56,7 +56,7 @@ Una vez completado el procedimiento, debe ver que la entrada se ha eliminado de 
 
 ## <a name="disallow-an-x509-intermediate-or-root-ca-certificate-by-using-an-enrollment-group"></a>Denegación de un certificado de entidad de certificación X.509 intermedia o raíz usando un grupo de inscripción
 
-Los certificados X.509 normalmente están organizados en una cadena de certificados de confianza. Si un certificado en cualquier fase de una cadena está en peligro, se rompe la confianza. Se debe denegar el certificado para evitar que el servicio Device Provisioning aprovisione dispositivos en un nivel inferior de cualquier cadena que contiene ese certificado. Para más información sobre los certificados X.509 y cómo se utilizan con el servicio de aprovisionamiento, consulte [certificados X.509](./concepts-security.md#x509-certificates). 
+Los certificados X.509 normalmente están organizados en una cadena de certificados de confianza. Si un certificado en cualquier fase de una cadena está en peligro, se rompe la confianza. Se debe denegar el certificado para evitar que el servicio Device Provisioning aprovisione dispositivos en un nivel inferior de cualquier cadena que contiene ese certificado. Para más información sobre los certificados X.509 y cómo se utilizan con el servicio de aprovisionamiento, consulte [certificados X.509](./concepts-x509-attestation.md#x509-certificates). 
 
 Un grupo de inscripción es una entrada para dispositivos que comparten un mecanismo de atestación común de certificados X.509, firmados por la misma entidad de certificación intermedia o raíz. La entrada del grupo de inscripción se configura con el certificado X.509 asociado con la entidad de certificación intermedia o raíz. La entrada también se configura con cualquiera de los valores de configuración, como estado gemelo y conexión de IoT Hub compartidos por los dispositivos con ese certificado en su cadena de certificados. Para denegar el certificado, puede deshabilitar o eliminar su grupo de inscripción.
 
@@ -110,4 +110,4 @@ Al crear la inscripción correctamente, debería ver que la inscripción del dis
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-La baja también forma parte del proceso global de desaprovisionamiento. El desaprovisionamiento de un dispositivo incluye tanto la baja del servicio de aprovisionamiento como la cancelación del registro en IoT Hub. Para información sobre el proceso completo, consulte [Desaprovisionamiento de dispositivos aprovisionados automáticamente](how-to-unprovision-devices.md) 
+La baja también forma parte del proceso global de desaprovisionamiento. El desaprovisionamiento de un dispositivo incluye tanto la baja del servicio de aprovisionamiento como la cancelación del registro en IoT Hub. Para información sobre el proceso completo, consulte [Desaprovisionamiento de dispositivos aprovisionados automáticamente](how-to-unprovision-devices.md)

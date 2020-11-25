@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 04/22/2020
 ms.author: apimpm
 ms.openlocfilehash: 81ded79ee72fb7c2d89898595602cb3e6d7ae5e2
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93146984"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011071"
 ---
 # <a name="import-soap-api"></a>Importación de una API de SOAP
 
@@ -42,7 +42,7 @@ Complete el siguiente inicio rápido: [Creación de una instancia de Azure API M
 2. Seleccione **WSDL** en la lista **Add a new API** (Agregar una nueva API).
 
     ![API de SOAP](./media/import-soap-api/wsdl-api.png)
-3. En la **especificación WSDL** , escriba la dirección URL donde reside la API de SOAP.
+3. En la **especificación WSDL**, escriba la dirección URL donde reside la API de SOAP.
 4. El botón de radio **Paso a través de SOAP** está seleccionado de forma predeterminada. Con esta selección, la API se va a exponer como SOAP. El consumidor tiene que utilizar reglas SOAP. Si desea usar Restify en la API, siga los pasos descritos en [Import a SOAP API and convert it to REST](restify-soap-api.md) (Importación de una API de SOAP y conversión a REST).
 
     ![La captura de pantalla muestra el cuadro de diálogo de creación desde WSDL, en el que puede incluir una especificación de WSDL.](./media/import-soap-api/pass-through.png)
@@ -50,7 +50,7 @@ Complete el siguiente inicio rápido: [Creación de una instancia de Azure API M
 
     Los siguientes campos se rellenan con la información de la API de SOAP: Nombre para mostrar, Nombre y Descripción.
 6. Agregue un sufijo URL de API. El sufijo es un nombre que identifica esta API específica en esta instancia de API Management. Tiene que ser único en esta instancia de API Management.
-7. Publique la API asociándola a un producto. En este caso, se usa el producto " *Unlimited* ".  Si desea que la API se publique y esté disponible para los desarrolladores, agréguela a un producto. Puede hacerlo durante la creación de la API o configurarla más adelante.
+7. Publique la API asociándola a un producto. En este caso, se usa el producto "*Unlimited*".  Si desea que la API se publique y esté disponible para los desarrolladores, agréguela a un producto. Puede hacerlo durante la creación de la API o configurarla más adelante.
 
     Los productos son asociaciones de una o varias API. Puede incluir varias API y ofrecerlas a los desarrolladores mediante el portal para desarrolladores. En primer lugar, los desarrolladores deben suscribirse a un producto para acceder a la API. Al suscribirse, obtienen una clave de suscripción que funciona con cualquier API de ese producto. Si creó la instancia de API Management, ya es un administrador, así que de forma predeterminada está suscrito a todos los productos.
 

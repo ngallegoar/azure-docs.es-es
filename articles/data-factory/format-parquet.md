@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 09/27/2020
 ms.author: jingwang
 ms.openlocfilehash: c99225b53266fc74ea357151de824cd8d8ed2088
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91946151"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011615"
 ---
 # <a name="parquet-format-in-azure-data-factory"></a>Formato Parquet en Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -66,7 +66,7 @@ Si desea ver una lista completa de las secciones y propiedades disponibles para 
 
 ### <a name="parquet-as-source"></a>Parquet como origen
 
-En la sección ***\*source\**** de la actividad de copia se admiten las siguientes propiedades.
+En la sección **_\_source\*** * de la actividad de copia se admiten las siguientes propiedades.
 
 | Propiedad      | Descripción                                                  | Obligatorio |
 | ------------- | ------------------------------------------------------------ | -------- |
@@ -75,7 +75,7 @@ En la sección ***\*source\**** de la actividad de copia se admiten las siguient
 
 ### <a name="parquet-as-sink"></a>Parquet como receptor
 
-En la sección ***\*sink\**** de la actividad de copia se admiten las siguientes propiedades.
+En la sección **_\_sink\*** * de la actividad de copia se admiten las siguientes propiedades.
 
 | Propiedad      | Descripción                                                  | Obligatorio |
 | ------------- | ------------------------------------------------------------ | -------- |

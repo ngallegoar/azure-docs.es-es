@@ -9,11 +9,11 @@ ms.date: 11/04/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: a3ae2a876d6a3772d941fec0b8a1ea3f537e60c3
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424368"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010862"
 ---
 Puede usar el cmdlet de PowerShell `Resize-AzVirtualNetworkGateway` para actualizar o cambiar a una versión anterior una SKU de Generation1 o Generation2 (se puede cambiar el tamaño de todas las SKU de VpnGw excepto las SKU básicas). Si usa la SKU de puerta de enlace Basic, [siga estas instrucciones](../articles/vpn-gateway/vpn-gateway-about-skus-legacy.md#resize) para cambiar el tamaño de la puerta de enlace.
 

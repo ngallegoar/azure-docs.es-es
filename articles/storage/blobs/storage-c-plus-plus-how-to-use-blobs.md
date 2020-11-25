@@ -7,12 +7,12 @@ ms.date: 07/16/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
-ms.openlocfilehash: 332d6da35af0eaae9d9d15258a152734f0a9eba6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 64069292ea0059216d06bfc41316c2aed7484dd0
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88033638"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011105"
 ---
 # <a name="how-to-use-blob-storage-from-c"></a>Uso de Blob Storage en C++
 
@@ -51,7 +51,7 @@ Agregue las siguientes instrucciones include en la parte superior del archivo C+
 ```
 
 ## <a name="setup-an-azure-storage-connection-string"></a>Configuración de una cadena de conexión de almacenamiento de Azure
-Un cliente de almacenamiento de Azure utiliza una cadena de conexión de almacenamiento para almacenar extremos y credenciales con el fin de obtener acceso a los servicios de administración de datos. Al ejecutarse en una aplicación cliente, debe proporcionar la cadena de conexión de almacenamiento en el siguiente formato, usando el nombre de su cuenta de almacenamiento y la clave de acceso de almacenamiento de la cuenta de almacenamiento que se muestra en [Azure Portal](https://portal.azure.com) para los valores *AccountName* y *AccountKey*. Para obtener información sobre las cuentas de almacenamiento y las claves de acceso, consulte [Acerca de las cuentas de Azure Storage](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). En este ejemplo se muestra cómo puede declarar un campo estático para mantener la cadena de conexión:
+Un cliente de almacenamiento de Azure utiliza una cadena de conexión de almacenamiento para almacenar extremos y credenciales con el fin de obtener acceso a los servicios de administración de datos. Al ejecutarse en una aplicación cliente, debe proporcionar la cadena de conexión de almacenamiento en el siguiente formato, usando el nombre de su cuenta de almacenamiento y la clave de acceso de almacenamiento de la cuenta de almacenamiento que se muestra en [Azure Portal](https://portal.azure.com) para los valores *AccountName* y *AccountKey*. Para obtener información sobre las cuentas de almacenamiento y las claves de acceso, consulte [Acerca de las cuentas de Azure Storage](../common/storage-account-create.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). En este ejemplo se muestra cómo puede declarar un campo estático para mantener la cadena de conexión:
 
 ```cpp
 // Define the connection-string with your values.
@@ -184,7 +184,7 @@ for (auto it = container.list_blobs(); it != end_of_results; ++it)
 }
 ```
 
-Para obtener más información sobre cómo enumerar las operaciones, consulte [Enumeración de recursos de Azure Storage en C++](../storage-c-plus-plus-enumeration.md).
+Para obtener más información sobre cómo enumerar las operaciones, consulte [Enumeración de recursos de Azure Storage en C++](../common/storage-c-plus-plus-enumeration.md).
 
 ## <a name="how-to-download-blobs"></a>Procedimientos: Descargar blobs
 Para descargar blobs, primero recupere una referencia de blob y, a continuación, llame al método **download_to_stream**. En el siguiente ejemplo, se usa el método **download_to_stream** para transferir el contenido del blob a un objeto de flujo que, a continuación, puede guardar en un archivo local.
@@ -257,10 +257,9 @@ blockBlob.delete_blob();
 ## <a name="next-steps"></a>Pasos siguientes
 Ahora que está familiarizado con los aspectos básicos del almacenamiento de blobs, siga estos vínculos para obtener más información sobre Azure Storage.
 
-- [Cómo usar Queue Storage de C++](../storage-c-plus-plus-how-to-use-queues.md)
+- [Cómo usar Queue Storage de C++](../queues/storage-c-plus-plus-how-to-use-queues.md)
 - [Cómo usar Table Storage de C++](../../cosmos-db/table-storage-how-to-use-c-plus.md)
-- [Enumeración de los recursos de Azure Storage en C++](../storage-c-plus-plus-enumeration.md)
+- [Enumeración de los recursos de Azure Storage en C++](../common/storage-c-plus-plus-enumeration.md)
 - [Referencia de la biblioteca de clientes de almacenamiento para C++](https://azure.github.io/azure-storage-cpp)
 - [Documentación de Azure Storage](https://azure.microsoft.com/documentation/services/storage/)
-- [Introducción a la utilidad de línea de comandos AzCopy](../storage-use-azcopy.md)
-
+- [Introducción a la utilidad de línea de comandos AzCopy](../common/storage-use-azcopy-v10.md)

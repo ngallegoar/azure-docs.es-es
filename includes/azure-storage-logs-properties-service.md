@@ -4,12 +4,12 @@ ms.service: storage
 ms.topic: include
 ms.date: 09/28/2020
 ms.author: normesta
-ms.openlocfilehash: 6d90b4b68f1f9f4a0fcd20c1d371a32759449fab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9b18687c0a6f3e48d94431e88be8ae8137c9dcdb
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91711078"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011151"
 ---
 | Propiedad | Descripción |
 |:--- |:---|
@@ -33,8 +33,8 @@ ms.locfileid: "91711078"
 |**contentLengthHeader** | Valor del encabezado Content-Length de la solicitud enviada al servicio de almacenamiento. Si la solicitud se ha realizado correctamente, este valor es igual a requestBodySize. Si la solicitud no se ha realizado correctamente, este valor puede no ser igual a requestBodySize, o puede estar vacío. |
 |**tlsVersion** | Versión de TLS usada en la conexión de la solicitud. Por ejemplo: `TLS 1.2`. |
 |**smbTreeConnectID** | **treeConnectId** del Bloque de mensajes del servidor (SMB) establecido en el momento de la conexión del árbol. Por ejemplo: `0x3` |
-|**smbPersistentHandleID** | Identificador de manipulador persistente de una solicitud CREATE de SMB2 que sobrevive a las reconexiones de red.  Con referencia en [MS-SMB2](https://docs.microsoft.com/openspecs/windows_protocols/ms-smb2/f1d9b40d-e335-45fc-9d0b-199a31ede4c3) 2.2.14.1 como **SMB2_FILEID.Persistent**. Por ejemplo: `0x6003f` |
-|**smbVolatileHandleID** | Identificador de manipulador volátil de una solicitud CREATE de SMB2 que se recicla en las reconexiones de red.  Con referencia en [MS-SMB2](https://docs.microsoft.com/openspecs/windows_protocols/ms-smb2/f1d9b40d-e335-45fc-9d0b-199a31ede4c3) 2.2.14.1 como **SMB2_FILEID.Volatile**. Por ejemplo: `0xFFFFFFFF00000065` |
+|**smbPersistentHandleID** | Identificador de manipulador persistente de una solicitud CREATE de SMB2 que sobrevive a las reconexiones de red.  Con referencia en [MS-SMB2](/openspecs/windows_protocols/ms-smb2/f1d9b40d-e335-45fc-9d0b-199a31ede4c3) 2.2.14.1 como **SMB2_FILEID.Persistent**. Por ejemplo: `0x6003f` |
+|**smbVolatileHandleID** | Identificador de manipulador volátil de una solicitud CREATE de SMB2 que se recicla en las reconexiones de red.  Con referencia en [MS-SMB2](/openspecs/windows_protocols/ms-smb2/f1d9b40d-e335-45fc-9d0b-199a31ede4c3) 2.2.14.1 como **SMB2_FILEID.Volatile**. Por ejemplo: `0xFFFFFFFF00000065` |
 |**smbMessageID** | Conexión con respecto a **MessageId**. Por ejemplo: `0x3b165` |
 |**smbCreditsConsumed** | Entrada o salida consumida por la solicitud, en unidades de 64 k. Por ejemplo: `0x3` |
 |**smbCommandDetail** | Más información sobre esta solicitud específica en lugar del tipo general de solicitud. Por ejemplo: `0x2000 bytes at offset 0xf2000` |

@@ -10,17 +10,18 @@ tags: azure-resource-manager
 keywords: ''
 ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
 ms.service: virtual-machines-windows
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/22/2020
 ms.author: radeltch
-ms.openlocfilehash: 63adf2b1ca7ae795e35e8245440093fe0f6e6c49
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 508fff16f96d0dfddb77b219bb545fb8580b4048
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92486181"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96012380"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications"></a>Alta disponibilidad para SAP NetWeaver en máquinas virtuales de Azure en SUSE Linux Enterprise Server para SAP Applications
 
@@ -180,14 +181,14 @@ En primer lugar, debe crear las máquinas virtuales de este clúster NFS. Despu�
    1. Creación de las direcciones IP de front-end
       1. Dirección IP 10.0.0.7 de ASCS
          1. Abra el equilibrador de carga, seleccione el grupo de direcciones IP de front-end y haga clic en Agregar
-         1. Escriba el nombre del nuevo grupo de direcciones IP de front-end (por ejemplo, **nw1-ascs-frontend** ).
-         1. Configure la asignación como estática y escriba la dirección IP (por ejemplo **10.0.0.7** ).
+         1. Escriba el nombre del nuevo grupo de direcciones IP de front-end (por ejemplo, **nw1-ascs-frontend**).
+         1. Configure la asignación como estática y escriba la dirección IP (por ejemplo **10.0.0.7**).
          1. Haga clic en Aceptar
       1. Dirección IP 10.0.0.8 para ASCS ERS
-         * Repita los pasos anteriores para crear una dirección IP para el ERS (por ejemplo, **10.0.0.8** y **nw1-aers-backend** ).
+         * Repita los pasos anteriores para crear una dirección IP para el ERS (por ejemplo, **10.0.0.8** y **nw1-aers-backend**).
    1. Creación del grupo de servidores back-end
       1. Abra el equilibrador de carga, seleccione los grupos de back-end y haga clic en Agregar
-      1. Escriba el nombre del nuevo grupo de servidores back-end (por ejemplo, **nw1-backend** ).
+      1. Escriba el nombre del nuevo grupo de servidores back-end (por ejemplo, **nw1-backend**).
       1. Haga clic en Agregar una máquina virtual.
       1. Seleccione Máquina virtual.
       1. Seleccione las máquinas virtuales del clúster de (A)SCS y sus direcciones IP.
@@ -195,33 +196,33 @@ En primer lugar, debe crear las máquinas virtuales de este clúster NFS. Despu�
    1. Creación de los sondeos de estado
       1. Puerto 620 **00** para ASCS
          1. Abra el equilibrador de carga, seleccione los sondeos de estado y haga clic en Agregar
-         1. Escriba el nombre del nuevo sondeo de estado (por ejemplo, **nw1-ascs-hp** ).
-         1. Seleccione TCP como protocolo, puerto 620 **00** , y mantenga el intervalo de 5 y el umbral incorrecto 2.
+         1. Escriba el nombre del nuevo sondeo de estado (por ejemplo, **nw1-ascs-hp**).
+         1. Seleccione TCP como protocolo, puerto 620 **00**, y mantenga el intervalo de 5 y el umbral incorrecto 2.
          1. Haga clic en Aceptar
       1. Puerto 621 **02** para ASCS ERS
-         * Repita los pasos anteriores para crear un sondeo de estado para ERS (por ejemplo 621 **02** y **nw1-aers-hp** ).
+         * Repita los pasos anteriores para crear un sondeo de estado para ERS (por ejemplo 621 **02** y **nw1-aers-hp**).
    1. Reglas de equilibrio de carga.
       1. Reglas de equilibrio de carga para ASCS
          1. Abra el equilibrador de carga, seleccione las reglas de equilibrio de carga y haga clic en Agregar.
-         1. Escriba el nombre de la nueva regla del equilibrador de carga (por ejemplo, **nw1-lb-ascs** )
-         1. Seleccione la dirección IP de front-end, el grupo de servidores back-end y el sondeo de estado creados anteriormente (por ejemplo, **nw1-ascs-frontend** , **nw1-backend** y **nw1-ascs-hp** ).
+         1. Escriba el nombre de la nueva regla del equilibrador de carga (por ejemplo, **nw1-lb-ascs**)
+         1. Seleccione la dirección IP de front-end, el grupo de servidores back-end y el sondeo de estado creados anteriormente (por ejemplo, **nw1-ascs-frontend**, **nw1-backend** y **nw1-ascs-hp**).
          1. Seleccione **Puertos HA**
          1. Aumente el tiempo de espera de inactividad a 30 minutos
          1. **Asegúrese de habilitar la dirección IP flotante**
          1. Haga clic en Aceptar
-         * Repita los pasos anteriores para crear reglas de equilibrio de carga para ERS (por ejemplo **nw1-lb-ers** )
+         * Repita los pasos anteriores para crear reglas de equilibrio de carga para ERS (por ejemplo **nw1-lb-ers**)
 1. Como alternativa, si el escenario requiere un equilibrador de carga básico (interno), siga estos pasos:  
    1. Creación de las direcciones IP de front-end
       1. Dirección IP 10.0.0.7 de ASCS
          1. Abra el equilibrador de carga, seleccione el grupo de direcciones IP de front-end y haga clic en Agregar
-         1. Escriba el nombre del nuevo grupo de direcciones IP de front-end (por ejemplo, **nw1-ascs-frontend** ).
-         1. Configure la asignación como estática y escriba la dirección IP (por ejemplo **10.0.0.7** ).
+         1. Escriba el nombre del nuevo grupo de direcciones IP de front-end (por ejemplo, **nw1-ascs-frontend**).
+         1. Configure la asignación como estática y escriba la dirección IP (por ejemplo **10.0.0.7**).
          1. Haga clic en Aceptar
       1. Dirección IP 10.0.0.8 para ASCS ERS
-         * Repita los pasos anteriores para crear una dirección IP para el ERS (por ejemplo, **10.0.0.8** y **nw1-aers-frontend** ).
+         * Repita los pasos anteriores para crear una dirección IP para el ERS (por ejemplo, **10.0.0.8** y **nw1-aers-frontend**).
    1. Creación del grupo de servidores back-end
       1. Abra el equilibrador de carga, seleccione los grupos de back-end y haga clic en Agregar
-      1. Escriba el nombre del nuevo grupo de servidores back-end (por ejemplo, **nw1-backend** ).
+      1. Escriba el nombre del nuevo grupo de servidores back-end (por ejemplo, **nw1-backend**).
       1. Haga clic en Agregar una máquina virtual.
       1. Seleccione el conjunto de disponibilidad que creó anteriormente
       1. Seleccione las máquinas virtuales del clúster (A)SCS.
@@ -229,24 +230,24 @@ En primer lugar, debe crear las máquinas virtuales de este clúster NFS. Despu�
    1. Creación de los sondeos de estado
       1. Puerto 620 **00** para ASCS
          1. Abra el equilibrador de carga, seleccione los sondeos de estado y haga clic en Agregar
-         1. Escriba el nombre del nuevo sondeo de estado (por ejemplo, **nw1-ascs-hp** ).
-         1. Seleccione TCP como protocolo, puerto 620 **00** , y mantenga el intervalo de 5 y el umbral incorrecto 2.
+         1. Escriba el nombre del nuevo sondeo de estado (por ejemplo, **nw1-ascs-hp**).
+         1. Seleccione TCP como protocolo, puerto 620 **00**, y mantenga el intervalo de 5 y el umbral incorrecto 2.
          1. Haga clic en Aceptar
       1. Puerto 621 **02** para ASCS ERS
-         * Repita los pasos anteriores para crear un sondeo de estado para ERS (por ejemplo 621 **02** y **nw1-aers-hp** ).
+         * Repita los pasos anteriores para crear un sondeo de estado para ERS (por ejemplo 621 **02** y **nw1-aers-hp**).
    1. Reglas de equilibrio de carga.
       1. TCP 32 **00** para ASCS
          1. Abra el equilibrador de carga, seleccione las reglas de equilibrio de carga y haga clic en Agregar.
-         1. Escriba el nombre de la nueva regla del equilibrador de carga (por ejemplo, **nw1-lb-3200** ).
-         1. Seleccione la dirección IP de front-end, el grupo de servidores back-end y el sondeo de estado que creó anteriormente (por ejemplo, **nw1-ascs-frontend** ).
+         1. Escriba el nombre de la nueva regla del equilibrador de carga (por ejemplo, **nw1-lb-3200**).
+         1. Seleccione la dirección IP de front-end, el grupo de servidores back-end y el sondeo de estado que creó anteriormente (por ejemplo, **nw1-ascs-frontend**).
          1. Conserve el protocolo **TCP** y escriba el puerto **3200**.
          1. Aumente el tiempo de espera de inactividad a 30 minutos
          1. **Asegúrese de habilitar la dirección IP flotante**
          1. Haga clic en Aceptar
       1. Puertos adicionales para ASCS
-         * Repita los pasos anteriores para los puertos 36 **00** , 39 **00** , 81 **00** , 5 **00** 13, 5 **00** 14, 5 **00** 16 y TCP para ASCS.
+         * Repita los pasos anteriores para los puertos 36 **00**, 39 **00**, 81 **00**, 5 **00** 13, 5 **00** 14, 5 **00** 16 y TCP para ASCS.
       1. Puertos adicionales para ASCS ERS
-         * Repita los pasos anteriores para los puertos 33 **02** , 5 **02** 13, 5 **02** 14, 5 **02** 16 y TCP para ASCS ERS
+         * Repita los pasos anteriores para los puertos 33 **02**, 5 **02** 13, 5 **02** 14, 5 **02** 16 y TCP para ASCS ERS
 
 > [!IMPORTANT]
 > La dirección IP flotante no se admite en una configuración de IP secundaria de NIC para los escenarios de equilibrio de carga. Para obtener más información, consulte [Limitaciones de Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-multivip-overview#limitations). Si necesita una dirección IP adicional para la VM, implemente una segunda NIC.  
@@ -450,7 +451,7 @@ Los elementos siguientes tienen el prefijo **[A]** : aplicable a todos los nodos
    <pre><code>sudo &lt;swpm&gt;/sapinst SAPINST_REMOTE_ACCESS_USER=<b>sapadmin</b>
    </code></pre>
 
-   Si se produce un error en la instalación para crear una subcarpeta en/usr/sap/ **NW1** /ASCS **00** , pruebe a establecer el propietario y el grupo de la carpeta ASCS **00** e inténtelo de nuevo.
+   Si se produce un error en la instalación para crear una subcarpeta en/usr/sap/**NW1**/ASCS **00**, pruebe a establecer el propietario y el grupo de la carpeta ASCS **00** e inténtelo de nuevo.
 
    <pre><code>chown nw1adm /usr/sap/<b>NW1</b>/ASCS<b>00</b>
    chgrp sapsys /usr/sap/<b>NW1</b>/ASCS<b>00</b>
@@ -507,7 +508,7 @@ Los elementos siguientes tienen el prefijo **[A]** : aplicable a todos los nodos
    > [!NOTE]
    > Use SWPM SP 20 PL 05 o superior. Las versiones inferiores no establecen correctamente los permisos y se producirá un error de instalación.
 
-   Si se produce un error en la instalación para crear una subcarpeta en/usr/sap/ **NW1** /ERS **00** , pruebe a establecer el propietario y el grupo de la carpeta ERS **02** e inténtelo de nuevo.
+   Si se produce un error en la instalación para crear una subcarpeta en/usr/sap/**NW1**/ERS **00**, pruebe a establecer el propietario y el grupo de la carpeta ERS **02** e inténtelo de nuevo.
 
    <pre><code>chown nw1adm /usr/sap/<b>NW1</b>/ERS<b>02</b>
    chgrp sapsys /usr/sap/<b>NW1</b>/ERS<b>02</b>
@@ -794,7 +795,7 @@ Siga estos pasos para instalar un servidor de aplicaciones de SAP.
      DATABASE: <b>HN1</b>
    </code></pre>
 
-   El resultado muestra que la dirección IP de la entrada predeterminada apunta a la máquina virtual y no a la dirección IP del equilibrador de carga. Esta entrada debe modificarse para que apunte al nombre de host virtual del equilibrador de carga. Asegúrese de usar el mismo puerto ( **30313** en la salida anterior) y el mismo nombre de base de datos ( **HN1** en la salida anterior).
+   El resultado muestra que la dirección IP de la entrada predeterminada apunta a la máquina virtual y no a la dirección IP del equilibrador de carga. Esta entrada debe modificarse para que apunte al nombre de host virtual del equilibrador de carga. Asegúrese de usar el mismo puerto (**30313** en la salida anterior) y el mismo nombre de base de datos (**HN1** en la salida anterior).
 
    <pre><code>su - <b>nw1</b>adm
    hdbuserstore SET DEFAULT <b>nw1-db:30313@HN1</b> <b>SAPABAP1</b> <b>&lt;password of ABAP schema&gt;</b>

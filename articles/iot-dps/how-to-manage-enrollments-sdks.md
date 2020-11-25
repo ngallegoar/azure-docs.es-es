@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 ms.custom: fasttrack-edit, iot
 services: iot-dps
-ms.openlocfilehash: 1dc97f92e6139475d0d5ac5ea1201d6ff6b8d470
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 45a2b7a64006ab6963290be3ac86a3a5d1e4916d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90532331"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010986"
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-device-provisioning-service-sdks"></a>Cómo administrar inscripciones de dispositivos con los SDK del servicio Azure Device Provisioning
 La *inscripción de un dispositivo* crea un registro de un único dispositivo o de grupo de ellos que, en algún momento, pueden registrarse en el servicio Device Provisioning. El registro de inscripción contiene la configuración inicial preferida para los dispositivos como parte de la inscripción, incluida la instancia de IoT. En este artículo se muestra cómo administrar inscripciones de dispositivos para el servicio de aprovisionamiento mediante programación con los SDK del servicio de aprovisionamiento de Azure IoT.  Los SDK están disponibles en GitHub en el mismo repositorio que los SDK de Azure IoT.
@@ -21,12 +21,12 @@ La *inscripción de un dispositivo* crea un registro de un único dispositivo o 
 ## <a name="prerequisites"></a>Prerequisites
 * Obtenga la cadena de conexión de la instancia del servicio Device Provisioning.
 * Obtenga los artefactos de seguridad del dispositivo del [mecanismo de atestación](concepts-service.md#attestation-mechanism) correspondiente:
-    * [**Módulo de plataforma segura (TPM)** ](/azure/iot-dps/concepts-security#trusted-platform-module):
+    * [**Módulo de plataforma segura (TPM)**](./concepts-tpm-attestation.md):
         * Inscripción individual: identificador de registro y clave de aprobación de TPM desde el dispositivo físico o el simulador de TPM.
         * El grupo de inscripción no se aplica a la atestación de TPM.
-    * [**X.509**](/azure/iot-dps/concepts-security):
-        * Inscripción individual: el [certificado de hoja](/azure/iot-dps/concepts-security) del dispositivo físico o el emulador de [DICE](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) del SDK.
-        * Grupo de inscripción: el [certificado raíz/de entidad de certificación](/azure/iot-dps/concepts-security#root-certificate) o el [certificado intermedio](/azure/iot-dps/concepts-security#intermediate-certificate), que se usan para generar el certificado de dispositivo en un dispositivo físico.  También puede generarse desde el emulador de DICE del SDK.
+    * [**X.509**](./concepts-service.md#attestation-mechanism):
+        * Inscripción individual: el [certificado de hoja](./concepts-service.md#attestation-mechanism) del dispositivo físico o el emulador de [DICE](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) del SDK.
+        * Grupo de inscripción: el [certificado raíz/de entidad de certificación](./concepts-x509-attestation.md#root-certificate) o el [certificado intermedio](./concepts-x509-attestation.md#intermediate-certificate), que se usan para generar el certificado de dispositivo en un dispositivo físico.  También puede generarse desde el emulador de DICE del SDK.
 * Las llamadas API exactas pueden ser diferentes debido a diferencias del lenguaje. Revise los ejemplos que se proporcionan en GitHub para más información:
    * [Ejemplos de cliente del servicio de aprovisionamiento de Java](https://github.com/Azure/azure-iot-sdk-java/tree/master/provisioning/provisioning-samples)
    * [Ejemplos de cliente del servicio de aprovisionamiento de Node.js](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/service/samples)
@@ -35,7 +35,7 @@ La *inscripción de un dispositivo* crea un registro de un único dispositivo o 
 ## <a name="create-a-device-enrollment"></a>Creación de una inscripción de dispositivos
 Hay dos maneras de inscribir los dispositivos con el servicio de aprovisionamiento:
 
-* Un **grupo de inscripción** es una entrada para un grupo de dispositivos que comparten un mecanismo de atestación común de certificados X.509, firmados por el [certificado raíz](https://docs.microsoft.com/azure/iot-dps/concepts-security#root-certificate) o el [certificado intermedio](https://docs.microsoft.com/azure/iot-dps/concepts-security#intermediate-certificate). Se recomienda usar un grupo de inscripción para un gran número de dispositivos que compartan la configuración inicial deseada o para dispositivos que vayan todos al mismo inquilino. Tenga en cuenta que solo se pueden inscribir los dispositivos que usen el mecanismo de atestación de X.509 como *grupos de inscripción*. 
+* Un **grupo de inscripción** es una entrada para un grupo de dispositivos que comparten un mecanismo de atestación común de certificados X.509, firmados por el [certificado raíz](./concepts-x509-attestation.md#root-certificate) o el [certificado intermedio](./concepts-x509-attestation.md#intermediate-certificate). Se recomienda usar un grupo de inscripción para un gran número de dispositivos que compartan la configuración inicial deseada o para dispositivos que vayan todos al mismo inquilino. Tenga en cuenta que solo se pueden inscribir los dispositivos que usen el mecanismo de atestación de X.509 como *grupos de inscripción*. 
 
     Puede crear un grupo de inscripción con los SDK mediante este flujo de trabajo:
 

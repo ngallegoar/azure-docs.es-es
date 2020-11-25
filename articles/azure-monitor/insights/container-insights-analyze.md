@@ -4,11 +4,11 @@ description: En este artículo se describe cómo puede ver y analizar el rendimi
 ms.topic: conceptual
 ms.date: 03/26/2020
 ms.openlocfilehash: de61e8e5b2716a3ca212a0a830a4d48b8bd2c3ef
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92368764"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011088"
 ---
 # <a name="monitor-your-kubernetes-cluster-performance-with-azure-monitor-for-containers"></a>Supervisión del rendimiento del clúster de Kubernetes con Azure Monitor para contenedores
 
@@ -34,16 +34,16 @@ Para ver el estado de mantenimiento de todos los clústeres de Kubernetes implem
 
 Puede limitar el ámbito de los resultados presentados en la cuadrícula para mostrar los clústeres en función de su pertenencia:
 
-* **Azure** : clústeres de AKS y de AKS-Engine hospedados en Azure Kubernetes Service
+* **Azure**: clústeres de AKS y de AKS-Engine hospedados en Azure Kubernetes Service
 * **Azure Stack (versión preliminar)** : clústeres de AKS-Engine hospedados en Azure Stack
 * **No Azure (versión preliminar)** : clústeres de Kubernetes hospedados de forma local
-* **Todos** : vea todos los clústeres de Kubernetes hospedados en Azure, Azure Stack y entornos locales que se incorporan a Azure Monitor para contenedores
+* **Todos**: vea todos los clústeres de Kubernetes hospedados en Azure, Azure Stack y entornos locales que se incorporan a Azure Monitor para contenedores
 
-Para ver los clústeres de un entorno específico, selecciónelo en **Entornos** , en la esquina superior izquierda de la página.
+Para ver los clústeres de un entorno específico, selecciónelo en **Entornos**, en la esquina superior izquierda de la página.
 
 ![Ejemplo de selector de entorno](./media/container-insights-analyze/clusters-multiview-environment-pill.png)
 
-En la pestaña **Clústeres supervisados** , aprenderá lo siguiente:
+En la pestaña **Clústeres supervisados**, aprenderá lo siguiente:
 
 - Cuántos clústeres se encuentran en un estado crítico o incorrecto, frente a cuántos están en buen estado o no se notifican (es decir, tienen un estado desconocido).
 - Si todas las implementaciones de [Azure Kubernetes Engine (motor de AKS)](https://github.com/Azure/aks-engine) están en buen estado.
@@ -52,15 +52,15 @@ En la pestaña **Clústeres supervisados** , aprenderá lo siguiente:
 
 Los estados de mantenimiento incluidos son:
 
-* **Correcto** : no se detectó ningún problema para la VM y funciona adecuadamente.
-* **Crítico** : se detectan uno o varios problemas críticos que deben solucionarse para restaurar el estado de funcionamiento normal según lo previsto.
-* **Advertencia** : se detectan uno o varios problemas que deben solucionarse o el estado puede volverse crítico.
-* **Desconocido** : si el servicio no pudo establecer ninguna conexión con el nodo o el pod, el estado se cambia a un estado desconocido.
-* **No se encuentra** : se eliminó el área de trabajo, el grupo de recursos o la suscripción que contiene el área de trabajo para esta solución.
-* **No autorizado** : el usuario no tiene los permisos necesarios para leer los datos del área de trabajo.
-* **Error** : al intentar leer los datos del área de trabajo.
-* **Configuración errónea** : Azure Monitor para contenedores no se configuró correctamente en el área de trabajo especificada.
-* **No hay datos** : no se han notificado los datos en el área de trabajo durante los últimos 30 minutos.
+* **Correcto**: no se detectó ningún problema para la VM y funciona adecuadamente.
+* **Crítico**: se detectan uno o varios problemas críticos que deben solucionarse para restaurar el estado de funcionamiento normal según lo previsto.
+* **Advertencia**: se detectan uno o varios problemas que deben solucionarse o el estado puede volverse crítico.
+* **Desconocido**: si el servicio no pudo establecer ninguna conexión con el nodo o el pod, el estado se cambia a un estado desconocido.
+* **No se encuentra**: se eliminó el área de trabajo, el grupo de recursos o la suscripción que contiene el área de trabajo para esta solución.
+* **No autorizado**: el usuario no tiene los permisos necesarios para leer los datos del área de trabajo.
+* **Error**: al intentar leer los datos del área de trabajo.
+* **Configuración errónea**: Azure Monitor para contenedores no se configuró correctamente en el área de trabajo especificada.
+* **No hay datos**: no se han notificado los datos en el área de trabajo durante los últimos 30 minutos.
 
 El estado de mantenimiento calcula el estado general del clúster como *el peor* de los tres estados con una excepción. Si alguno de los tres estados es desconocido, el estado general del clúster se muestra como **Unknown** (Desconocido).
 
@@ -104,10 +104,10 @@ Se abre la página predeterminada y se muestran cuatro gráficos de rendimiento 
 
 Los gráficos de rendimiento muestran cuatro métricas de rendimiento:
 
-- **Uso de la CPU del nodo&nbsp;%** : Una perspectiva agregada del uso de la CPU para todo el clúster. Para filtrar los resultados según el intervalo de tiempo, seleccione **Promedio** , **Mínimo** , **50.º** , **90.º** , **95.º** o **Máximo** en el selector de percentiles situado encima del gráfico. Los filtros se pueden usar de forma individual o combinada.
-- **Node memory utilization&nbsp;%** (Utilización de memoria del nodo): Una perspectiva agregada del uso de la memoria para todo el clúster. Para filtrar los resultados según el intervalo de tiempo, seleccione **Promedio** , **Mínimo** , **50.º** , **90.º** , **95.º** o **Máximo** en el selector de percentiles situado encima del gráfico. Los filtros se pueden usar de forma individual o combinada.
+- **Uso de la CPU del nodo&nbsp;%** : Una perspectiva agregada del uso de la CPU para todo el clúster. Para filtrar los resultados según el intervalo de tiempo, seleccione **Promedio**, **Mínimo**, **50.º**, **90.º**, **95.º** o **Máximo** en el selector de percentiles situado encima del gráfico. Los filtros se pueden usar de forma individual o combinada.
+- **Node memory utilization&nbsp;%** (Utilización de memoria del nodo): Una perspectiva agregada del uso de la memoria para todo el clúster. Para filtrar los resultados según el intervalo de tiempo, seleccione **Promedio**, **Mínimo**, **50.º**, **90.º**, **95.º** o **Máximo** en el selector de percentiles situado encima del gráfico. Los filtros se pueden usar de forma individual o combinada.
 - **Node count** (Número de nodos): Número y estado de los nodos de Kubernetes. Los estados de los nodos de clúster que se representan son Total, Ready (Listo) y Not Ready (No está listo). Se pueden filtrar de forma individual o combinada en el selector situado encima del gráfico.
-- **Número de pods activos** : Número y estado de los pods de Kubernetes. Los estados de los pods se representan como Total, Pending (Pendiente), Running (En ejecución), Unknown (Desconocido), Succeeded (Correcto) o Failed (Con errores). Se pueden filtrar de forma individual o combinada en el selector situado encima del gráfico.
+- **Número de pods activos**: Número y estado de los pods de Kubernetes. Los estados de los pods se representan como Total, Pending (Pendiente), Running (En ejecución), Unknown (Desconocido), Succeeded (Correcto) o Failed (Con errores). Se pueden filtrar de forma individual o combinada en el selector situado encima del gráfico.
 
 Use las teclas de dirección izquierda y derecha para desplazarse por los puntos de datos del gráfico. Use las teclas de dirección arriba y abajo para desplazarse por las líneas de percentil. Seleccione el icono de anclaje en la esquina superior derecha de uno de los gráficos para anclarlo en el último panel de Azure que haya visto. En el panel, puede cambiar el tamaño y la posición del gráfico. Al seleccionar el gráfico en el panel, se le redirige a Azure Monitor para contenedores y se cargan el ámbito y la vista correctos.
 
@@ -139,15 +139,15 @@ Puede [dividir](../platform/metrics-charts.md#apply-splitting-to-a-chart) una m�
 
 ## <a name="analyze-nodes-controllers-and-container-health"></a>Análisis de nodos, controladores y mantenimiento de contenedores
 
-Cuando cambie a las pestañas **Nodos** , **Controladores** y **Contenedores** , se muestra automáticamente un panel de propiedades en el lado derecho de la página. Este muestra las propiedades del elemento seleccionado, incluidas las etiquetas que haya definido para organizar los objetos de Kubernetes. Cuando se selecciona un nodo de Linux, la sección **Local Disk Capacity** (Capacidad de disco local) también muestra el espacio en disco disponible y el porcentaje usado en todos los discos presentes en el nodo. Seleccione el vínculo **>>** en el panel para verlo u ocultarlo.
+Cuando cambie a las pestañas **Nodos**, **Controladores** y **Contenedores**, se muestra automáticamente un panel de propiedades en el lado derecho de la página. Este muestra las propiedades del elemento seleccionado, incluidas las etiquetas que haya definido para organizar los objetos de Kubernetes. Cuando se selecciona un nodo de Linux, la sección **Local Disk Capacity** (Capacidad de disco local) también muestra el espacio en disco disponible y el porcentaje usado en todos los discos presentes en el nodo. Seleccione el vínculo **>>** en el panel para verlo u ocultarlo.
 
 A medida que expande los objetos en la jerarquía, el panel de propiedades se actualiza según el objeto seleccionado. En el panel, también puede ver registros de contenedor de Kubernetes (stdout/stderror), eventos y métricas de pod seleccionando el vínculo **Ver datos en directo (versión preliminar)** en la parte superior del panel. Para obtener más información sobre la configuración necesaria para conceder y controlar el acceso para ver estos datos, consulte [Configuración de los datos en directo (versión preliminar)](container-insights-livedata-setup.md). Mientras examina los recursos del clúster, puede ver estos datos del contenedor en tiempo real. Para obtener más información sobre esta característica, consulte [Visualización de registros de Kubernetes, eventos y métricas de pod en tiempo real](container-insights-livedata-overview.md). Para ver los datos de registro de Kubernetes almacenados en el área de trabajo basándose en búsquedas de registros predefinidas, seleccione **Ver registros del contenedor** en la lista desplegable **Ver en Analytics**. Para más información acerca de este tema, consulte [Búsquedas de registros para analizar datos](container-insights-log-search.md#search-logs-to-analyze-data).
 
-Use la opción **+ Agregar filtro** en la parte superior de la página para filtrar los resultados de la vista por **Servicio** , **Nodo** , **Espacio de nombres** o **Grupo de nodos**. Después de seleccionar el ámbito de filtro, seleccione uno de los valores que se muestran en el campo **Seleccionar valores**. Una vez se configura el filtro, se aplica globalmente mientras se visualiza cualquier perspectiva del clúster de AKS. La fórmula solo admite el signo igual. Puede agregar filtros adicionales que complementen el primero para restringir aún más los resultados. Por ejemplo, si especifica un filtro por **Nodo** , solo puede seleccionar **Servicio** o **Espacio de nombres** como segundo filtro.
+Use la opción **+ Agregar filtro** en la parte superior de la página para filtrar los resultados de la vista por **Servicio**, **Nodo**, **Espacio de nombres** o **Grupo de nodos**. Después de seleccionar el ámbito de filtro, seleccione uno de los valores que se muestran en el campo **Seleccionar valores**. Una vez se configura el filtro, se aplica globalmente mientras se visualiza cualquier perspectiva del clúster de AKS. La fórmula solo admite el signo igual. Puede agregar filtros adicionales que complementen el primero para restringir aún más los resultados. Por ejemplo, si especifica un filtro por **Nodo**, solo puede seleccionar **Servicio** o **Espacio de nombres** como segundo filtro.
 
 Si especifica un filtro en una pestaña, seguirá aplicándose cuando seleccione otra. Se elimina después de seleccionar el símbolo **x** situado junto al filtro especificado.
 
-Al cambiar a la pestaña **Nodos** , la jerarquía de filas sigue el modelo de objetos de Kubernetes que inicia con un nodo del clúster. Expanda el nodo para ver uno o varios de los pods que se ejecutan en el nodo. Si hay más de un contenedor agrupado en un pod, se muestran como la última fila de la jerarquía. También puede ver cuántas cargas de trabajo no relacionadas con pods se ejecutan en el host si el host tiene presión de memoria o procesador.
+Al cambiar a la pestaña **Nodos**, la jerarquía de filas sigue el modelo de objetos de Kubernetes que inicia con un nodo del clúster. Expanda el nodo para ver uno o varios de los pods que se ejecutan en el nodo. Si hay más de un contenedor agrupado en un pod, se muestran como la última fila de la jerarquía. También puede ver cuántas cargas de trabajo no relacionadas con pods se ejecutan en el host si el host tiene presión de memoria o procesador.
 
 ![Ejemplo de la jerarquía de nodos de Kubernetes en la vista de rendimiento](./media/container-insights-analyze/containers-nodes-view.png)
 
@@ -163,21 +163,21 @@ En un nodo expandido, puede explorar en profundidad desde el pod o contenedor qu
 
 ![Captura de pantalla que muestra la exploración en profundidad del nodo al controlador en la vista de rendimiento](./media/container-insights-analyze/drill-down-node-controller.png)
 
-Seleccione los controladores o los contenedores en la parte superior de la página para revisar el estado y el uso de recursos de dichos objetos. Para revisar el uso de memoria, en la lista desplegable **Métrica** , seleccione **RSS de memoria** o **Espacio de trabajo de memoria**. **RSS de memoria** solo se admite en Kubernetes versión 1.8, y en las versiones posteriores. En caso contrario, verá los valores de **Min&nbsp;%** (Porcentaje mínimo) como *NaN&nbsp;%* (Porcentaje de NaN), que es un valor de tipo de datos numérico que representa un valor no definido o no representable.
+Seleccione los controladores o los contenedores en la parte superior de la página para revisar el estado y el uso de recursos de dichos objetos. Para revisar el uso de memoria, en la lista desplegable **Métrica**, seleccione **RSS de memoria** o **Espacio de trabajo de memoria**. **RSS de memoria** solo se admite en Kubernetes versión 1.8, y en las versiones posteriores. En caso contrario, verá los valores de **Min&nbsp;%** (Porcentaje mínimo) como *NaN&nbsp;%* (Porcentaje de NaN), que es un valor de tipo de datos numérico que representa un valor no definido o no representable.
 
 ![Vista de rendimiento de los nodos del contenedor](./media/container-insights-analyze/containers-node-metric-dropdown.png)
 
-El **espacio de trabajo de memoria** muestra la memoria residente y la memoria virtual (caché) incluida, y es el total de lo que está usando la aplicación. En **RSS de memoria** , solo se indica la memoria principal (en otras palabras, la memoria residente). Esta métrica muestra la capacidad real de la memoria disponible. ¿Cuál es la diferencia entre la memoria residente y la memoria virtual?
+El **espacio de trabajo de memoria** muestra la memoria residente y la memoria virtual (caché) incluida, y es el total de lo que está usando la aplicación. En **RSS de memoria**, solo se indica la memoria principal (en otras palabras, la memoria residente). Esta métrica muestra la capacidad real de la memoria disponible. ¿Cuál es la diferencia entre la memoria residente y la memoria virtual?
 
 - La memoria residente o la memoria principal es la cantidad real de memoria de la máquina disponible para los nodos del clúster.
 
 - La memoria virtual es el espacio en disco duro (caché) reservado que usa el sistema operativo para intercambiar datos de la memoria al disco cuando se está bajo presión de la memoria y, a continuación, volver a capturar la memoria cuando sea necesario.
 
-De forma predeterminada, los datos de rendimiento se basan en las últimas seis horas, pero puede cambiar el período con la opción **Intervalo de tiempo** de la parte superior izquierda. También puede filtrar los resultados del intervalo de tiempo si selecciona **Mínimo** , **Promedio** , **50.º** , **90.º** , **95.º** y **Máximo** en el selector de percentiles.
+De forma predeterminada, los datos de rendimiento se basan en las últimas seis horas, pero puede cambiar el período con la opción **Intervalo de tiempo** de la parte superior izquierda. También puede filtrar los resultados del intervalo de tiempo si selecciona **Mínimo**, **Promedio**, **50.º**, **90.º**, **95.º** y **Máximo** en el selector de percentiles.
 
 ![Selección de percentil para el filtrado de datos](./media/container-insights-analyze/containers-metric-percentile-filter.png)
 
-Cuando mueve el puntero sobre el gráfico de barras en la columna **Tendencia** , cada barra muestra el uso de CPU o de memoria, según la métrica seleccionada, dentro de un período de muestreo de 15 minutos. Después de seleccionar el gráfico de tendencias con el teclado, use las teclas Alt + Re Pág o Alt + Av Pág para recorrer cada barra por separado. Obtendrá los mismos detalles que si moviera el puntero sobre la barra.
+Cuando mueve el puntero sobre el gráfico de barras en la columna **Tendencia**, cada barra muestra el uso de CPU o de memoria, según la métrica seleccionada, dentro de un período de muestreo de 15 minutos. Después de seleccionar el gráfico de tendencias con el teclado, use las teclas Alt + Re Pág o Alt + Av Pág para recorrer cada barra por separado. Obtendrá los mismos detalles que si moviera el puntero sobre la barra.
 
 ![Ejemplo de gráfico de barras de tendencias por el que se pasa el puntero](./media/container-insights-analyze/containers-metric-trend-bar-01.png)
 
@@ -301,18 +301,18 @@ Los libros combinan texto, [consultas de registros](/azure/data-explorer/kusto
 
 Azure Monitor para contenedores incluye cuatro libros introductorios:
 
-- **Capacidad de disco** : Presenta gráficos interactivos del uso de cada uno de los discos que se presenta en el nodo dentro de un contenedor por las siguientes perspectivas:
+- **Capacidad de disco**: Presenta gráficos interactivos del uso de cada uno de los discos que se presenta en el nodo dentro de un contenedor por las siguientes perspectivas:
 
     - Porcentaje de uso de disco (para todos los discos).
     - Espacio libre en disco (para todos los discos).
     - Una cuadrícula que muestra el disco de cada nodo, su porcentaje de espacio usado, la tendencia del porcentaje de espacio usado, el espacio libre en el disco (GiB) y la tendencia de espacio libre en el disco (GiB). Cuando se selecciona una fila de la tabla, a continuación se muestran debajo de dicha fila el porcentaje de espacio usado y el espacio libre en el disco (GiB).
 
-- **E/S de disco** : Presenta gráficos interactivos del uso de cada uno de los discos que se presenta en el nodo dentro de un contenedor por las siguientes perspectivas:
+- **E/S de disco**: Presenta gráficos interactivos del uso de cada uno de los discos que se presenta en el nodo dentro de un contenedor por las siguientes perspectivas:
 
     - Resumen de E/S de disco en todos los discos por bytes de lectura por segundo, bytes de escritura por segundo y tendencias de lectura y escritura en bytes por segundo.
     - Ocho gráficos de rendimiento que muestran indicadores clave de rendimiento que le ayudarán a medir e identificar los cuellos de botella de E/S de disco.
 
-- **Kubelet** : incluye dos cuadrículas que muestran las estadísticas operativas del nodo principal:
+- **Kubelet**: incluye dos cuadrículas que muestran las estadísticas operativas del nodo principal:
 
     - La información general sobre la cuadrícula de nodos resume el número total de operaciones, errores y operaciones correctas en porcentaje, junto con la tendencia de cada nodo.
     - La información general por tipo de operación resume para cada operación el número total de operaciones, de errores y de operaciones correctas en porcentaje, y la tendencia.

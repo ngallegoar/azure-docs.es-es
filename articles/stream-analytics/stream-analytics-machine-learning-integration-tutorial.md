@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.date: 08/12/2020
 ms.custom: seodec18
 ms.openlocfilehash: 9b08b59090d9dd23405f8a0ba86ce608e3a64902
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93123768"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011394"
 ---
 # <a name="do-sentiment-analysis-with-azure-stream-analytics-and-azure-machine-learning-studio-classic"></a>Realización de análisis de opinión con Azure Stream Analytics y Azure Machine Learning Studio (clásico)
 
@@ -59,7 +59,7 @@ En este paso, cargará un archivo CSV en el contenedor de almacenamiento.
 
 3. Seleccione **Revisar + crear**. A continuación, seleccione **Crear** para implementar la cuenta de almacenamiento.
 
-4. Una vez finalizada la implementación, vaya a la cuenta de almacenamiento. En **Blob service** , seleccione **Contenedores**. Luego, seleccione **+ Contenedor** para crear un contenedor.
+4. Una vez finalizada la implementación, vaya a la cuenta de almacenamiento. En **Blob service**, seleccione **Contenedores**. Luego, seleccione **+ Contenedor** para crear un contenedor.
 
    ![Creación de un contenedor de almacenamiento de blobs para entrada](./media/stream-analytics-machine-learning-integration-tutorial/create-storage-account2.png)
 
@@ -99,7 +99,7 @@ Ahora que los datos de ejemplo están en un blob, puede habilitar el modelo de a
 
    ![Resultados de la prueba en Studio (versión clásica)](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-test-results.png)  
 
-7. En la columna **Aplicaciones** , seleccione el vínculo **Libro de Excel 2010 o anterior** para descargar un libro de Excel. El libro contiene una clave de API y la dirección URL que se necesitan más adelante para configurar el trabajo de Stream Analytics.
+7. En la columna **Aplicaciones**, seleccione el vínculo **Libro de Excel 2010 o anterior** para descargar un libro de Excel. El libro contiene una clave de API y la dirección URL que se necesitan más adelante para configurar el trabajo de Stream Analytics.
 
     ![Stream Analytics Azure Machine Learning Studio (versión clásica), vistazo rápido](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-quick-glance.png)  
 
@@ -115,7 +115,7 @@ Vaya a [Azure Portal](https://portal.azure.com) y cree un trabajo de Stream Anal
 
 El trabajo obtiene su entrada del archivo CSV cargado anteriormente en el almacenamiento de blobs.
 
-1. Vaya a su trabajo de Stream Analytics. En **Topología de trabajo** , seleccione la opción **Entradas**. Seleccione **Agregar entrada de flujo** >**Blob Storage**.
+1. Vaya a su trabajo de Stream Analytics. En **Topología de trabajo**, seleccione la opción **Entradas**. Seleccione **Agregar entrada de flujo** >**Blob Storage**.
 
 2. Rellene la página **Blob Storage** con los siguientes valores:
 
@@ -133,7 +133,7 @@ El trabajo obtiene su entrada del archivo CSV cargado anteriormente en el almace
 
 El trabajo envía los resultados al mismo almacenamiento de blobs del que obtiene la entrada.
 
-1. Vaya a su trabajo de Stream Analytics. En **Topología de trabajo** , seleccione la opción **Salidas**. Seleccione **Agregar** > **Blob Storage**.
+1. Vaya a su trabajo de Stream Analytics. En **Topología de trabajo**, seleccione la opción **Salidas**. Seleccione **Agregar** > **Blob Storage**.
 
 2. Rellene el formulario de **Blob Storage** con estos valores:
 
@@ -161,7 +161,7 @@ En esta sección, se define una función en el trabajo de Stream Analytics. Se p
 
    |Campo  |Value  |
    |---------|---------|
-   | Alias de función | Use el nombre `sentiment` y seleccione **Proporcionar la configuración de la función de Azure Machine Learning manualmente** , que proporciona una opción para especificar la dirección URL y la clave.      |
+   | Alias de función | Use el nombre `sentiment` y seleccione **Proporcionar la configuración de la función de Azure Machine Learning manualmente**, que proporciona una opción para especificar la dirección URL y la clave.      |
    | URL| Pegue la dirección URL del servicio web.|
    |Clave | Pegue la clave de API. |
 
@@ -173,7 +173,7 @@ Stream Analytics usa una consulta declarativa basada en SQL para examinar la ent
 
 1. Vuelva a la información general del trabajo de Stream Analytics.
 
-2. En **Topología de trabajo** , seleccione **Consulta**.
+2. En **Topología de trabajo**, seleccione **Consulta**.
 
 3. Escriba la siguiente consulta:
 
@@ -202,7 +202,7 @@ Ya se puede iniciar el trabajo de Stream Analytics.
 
 2. En la parte superior de la página, seleccione **Iniciar**.
 
-3. En **Iniciar trabajo** , seleccione **Personalizado** y, luego, seleccione un día antes de la fecha de carga del archivo CSV en el almacenamiento de blobs. Cuando finalice, seleccione **Guardar**.  
+3. En **Iniciar trabajo**, seleccione **Personalizado** y, luego, seleccione un día antes de la fecha de carga del archivo CSV en el almacenamiento de blobs. Cuando finalice, seleccione **Guardar**.  
 
 ### <a name="check-the-output"></a>Consulta de la salida
 

@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 09/19/2019
 ms.author: Zhchia
 ms.openlocfilehash: f43d7b2a858c5047c40157429dc5c50b467c8efc
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94353142"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96012397"
 ---
 # <a name="tutorial-configure-sap-cloud-platform-identity-authentication-for-automatic-user-provisioning"></a>Tutorial: Configuración de SAP Cloud Platform Identity Authentication para el aprovisionamiento automático de usuarios
 
@@ -85,7 +85,7 @@ Antes de configurar SAP Cloud Platform Identity Authentication para el aprovisio
 
     ![Botón Nueva aplicación](common/add-new-app.png)
 
-4. En el cuadro de búsqueda, escriba **SAP Cloud Platform Identity Authentication** , seleccione **SAP Cloud Platform Identity Authentication** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
+4. En el cuadro de búsqueda, escriba **SAP Cloud Platform Identity Authentication**, seleccione **SAP Cloud Platform Identity Authentication** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
 
     ![SAP Cloud Platform Identity Authentication en la lista de resultados](common/search-new-app.png)
 
@@ -114,17 +114,17 @@ Esta sección le guiará por los pasos necesarios para configurar el servicio de
 
     ![Captura de pantalla de la lista desplegable Modo de aprovisionamiento con la opción Automático seleccionada.](common/provisioning-automatic.png)
 
-5. En la sección **Credenciales de administrador** , escriba `https://<tenantID>.accounts.ondemand.com/service/scim ` en la **URL de inquilino**. Escriba el **identificador de usuario** y la **contraseña** recuperados antes en **Nombre de usuario administrador** y **Contraseña de administrador** , respectivamente. Haga clic en **Probar conexión** para asegurarse de que Azure AD pueda conectarse a SAP Cloud Platform Identity Authentication. Si la conexión no se establece, asegúrese de que la cuenta de SAP Cloud Platform Identity Authentication tiene permisos de administrador y pruébelo de nuevo.
+5. En la sección **Credenciales de administrador**, escriba `https://<tenantID>.accounts.ondemand.com/service/scim ` en la **URL de inquilino**. Escriba el **identificador de usuario** y la **contraseña** recuperados antes en **Nombre de usuario administrador** y **Contraseña de administrador**, respectivamente. Haga clic en **Probar conexión** para asegurarse de que Azure AD pueda conectarse a SAP Cloud Platform Identity Authentication. Si la conexión no se establece, asegúrese de que la cuenta de SAP Cloud Platform Identity Authentication tiene permisos de administrador y pruébelo de nuevo.
 
     ![URL de inquilino + Token](media/sap-cloud-platform-identity-authentication-provisioning-tutorial/testconnection.png)
 
-6. En el campo **Correo electrónico de notificación** , escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
+6. En el campo **Correo electrónico de notificación**, escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
 
     ![Correo electrónico de notificación](common/provisioning-notification-email.png)
 
-7. Haga clic en **Save** (Guardar).
+7. Haga clic en **Save**(Guardar).
 
-8. En la sección **Asignaciones** , seleccione **Synchronize Azure Active Directory Users to SAP Cloud Platform Identity Authentication** (Sincronizar usuarios de Azure Active Directory con SAP Cloud Platform Identity Authentication).
+8. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Users to SAP Cloud Platform Identity Authentication** (Sincronizar usuarios de Azure Active Directory con SAP Cloud Platform Identity Authentication).
 
     ![Asignaciones de usuario de SAP Cloud Platform Identity Authentication](media/sap-cloud-platform-identity-authentication-provisioning-tutorial/mapping.png)
 
@@ -138,7 +138,7 @@ Esta sección le guiará por los pasos necesarios para configurar el servicio de
 
     ![Estado de aprovisionamiento activado](common/provisioning-toggle-on.png)
 
-12. Defina los usuarios y grupos que desearía aprovisionar en SAP Cloud Platform Identity Authentication; para ello, elija los valores que desee en **Ámbito** , en la sección **Configuración**.
+12. Defina los usuarios y grupos que desearía aprovisionar en SAP Cloud Platform Identity Authentication; para ello, elija los valores que desee en **Ámbito**, en la sección **Configuración**.
 
     ![Ámbito del aprovisionamiento](common/provisioning-scope.png)
 

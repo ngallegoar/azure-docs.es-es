@@ -8,11 +8,11 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 11/13/2019
 ms.openlocfilehash: bcc0faa8fdbd61ab3e3e0886256f7c796e5a98e2
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92534692"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011513"
 ---
 # <a name="migrate-azure-hdinsight-36-hive-workloads-to-hdinsight-40"></a>Migración de cargas de trabajo de Hive de Azure HDInsight 3.6 a HDInsight 4.0
 
@@ -117,7 +117,7 @@ Los clústeres de HDInsight 3.6 y 4.0 deben usar la misma cuenta de almacenamie
 
 1. Conéctese al clúster de HDInsight 3.6 con un [cliente Secure Shell (SSH)](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-1. Desde la sesión SSH abierta, descargue el siguiente archivo de script para generar un archivo llamado **alltables.hql** .
+1. Desde la sesión SSH abierta, descargue el siguiente archivo de script para generar un archivo llamado **alltables.hql**.
 
     ```bash
     wget https://hdiconfigactions.blob.core.windows.net/hivemetastoreschemaupgrade/exporthive_hdi_3_6.sh
@@ -147,13 +147,13 @@ Los clústeres de HDInsight 3.6 y 4.0 deben usar la misma cuenta de almacenamie
     scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:alltables.hql c:/hdi
     ```
 
-1. Cargue **alltables.hql** al clúster de HDInsight *nuevo* .
+1. Cargue **alltables.hql** al clúster de HDInsight *nuevo*.
 
     ```bash
     scp c:/hdi/alltables.hql sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/home/sshuser/
     ```
 
-1. Después, use SSH para conectarse al clúster de HDInsight 4.0 *nuevo* . Ejecute el siguiente código desde una sesión de SSH en el clúster:
+1. Después, use SSH para conectarse al clúster de HDInsight 4.0 *nuevo*. Ejecute el siguiente código desde una sesión de SSH en el clúster:
 
     Sin ESP:
 

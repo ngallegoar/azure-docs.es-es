@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.date: 06/21/2019
 ms.custom: seodec18
 ms.openlocfilehash: 47afaea03e58cf6a24382727c6fc7193fde5abe4
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93123820"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96012108"
 ---
 # <a name="rotate-login-credentials-for-inputs-and-outputs-of-a-stream-analytics-job"></a>Rotación de las credenciales de inicio de sesión para entradas y salidas de un trabajo de Stream Analytics
 
@@ -38,7 +38,7 @@ En esta sección se le guía en la regeneración de credenciales para Blob Stora
 ### <a name="event-hubs"></a>Centros de eventos
 
 1. Inicie sesión en Azure Portal y busque el centro de eventos que usó como entrada/salida para el trabajo de Stream Analytics.    
-2. En la sección de configuración, abra **Directivas de acceso compartido** y seleccione la directiva de acceso necesaria. Entre la **clave primaria** y la **clave secundaria** , seleccione la que no se usa en el trabajo y vuelva a generarla:  
+2. En la sección de configuración, abra **Directivas de acceso compartido** y seleccione la directiva de acceso necesaria. Entre la **clave primaria** y la **clave secundaria**, seleccione la que no se usa en el trabajo y vuelva a generarla:  
    ![Regeneración de claves para Event Hubs](media/stream-analytics-login-credentials-inputs-outputs/regenerate-event-hub-keys.png)
 3. Copie la clave recién generada:    
 4. En Azure Portal, busque el trabajo de Stream Analytics, seleccione **Detener** y espere a que el trabajo se detenga.    
@@ -52,7 +52,7 @@ En esta sección se le guía en la regeneración de credenciales para Blob Stora
 Debe conectarse a la instancia de SQL Database para actualizar las credenciales de inicio de sesión de un usuario existente. Para ello, puede usar Azure Portal o una herramienta de cliente, como SQL Server Management Studio. En esta sección se demuestra el proceso de actualizar las credenciales mediante Azure Portal.
 
 1. Inicie sesión en Azure Portal y busque la base de datos SQL que usó como salida para el trabajo de Stream Analytics.    
-2. En el **Explorador de datos** , inicie sesión o conéctese a la base de datos, seleccione el tipo de autorización **Autenticación de SQL Server** , escriba sus detalles de **Inicio de sesión** y **Contraseña** y seleccione **Aceptar**.  
+2. En el **Explorador de datos**, inicie sesión o conéctese a la base de datos, seleccione el tipo de autorización **Autenticación de SQL Server**, escriba sus detalles de **Inicio de sesión** y **Contraseña** y seleccione **Aceptar**.  
    ![Regeneración de credenciales para SQL Database](media/stream-analytics-login-credentials-inputs-outputs/regenerate-sql-credentials.png)
 
 3. En la pestaña de consulta, modifique la contraseña de uno de los usuarios mediante la ejecución de la siguiente consulta (asegúrese de reemplazar `<user_name>` por el nombre de usuario y `<new_password>` por la nueva contraseña):  

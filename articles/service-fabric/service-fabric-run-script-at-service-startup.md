@@ -6,16 +6,16 @@ ms.topic: conceptual
 ms.date: 03/21/2018
 ms.author: atsenthi
 ms.openlocfilehash: a25f16f08ab8ae9564363f179d19d4b30c5315fa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75464275"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96012534"
 ---
 # <a name="run-a-service-startup-script-as-a-local-user-or-system-account"></a>Ejecución de un script de inicio de servicio como cuenta de usuario local o del sistema
 Antes de que se inicie el ejecutable de un servicio de Service Fabric, puede ser necesario llevar a cabo algún trabajo de configuración o instalación.  Por ejemplo, configurar las variables de entorno. Antes de que se inicie el ejecutable del servicio, puede especificar que se ejecute un script en el manifiesto del servicio. Mediante la configuración de una directiva RunAs para el punto de entrada del programa de instalación del servicio, puede cambiar la cuenta con la que se ejecuta el ejecutable de instalación.  Un punto de entrada del programa de instalación independiente le permite ejecutar una configuración con privilegios elevados durante un corto período de tiempo, de forma que no hay necesidad de ejecutar el ejecutable del host de servicios con privilegios elevados durante períodos de tiempo prolongados.
 
-El punto de entrada del programa de instalación (**SetupEntryPoint** en el [manifiesto del servicio](service-fabric-application-and-service-manifests.md)) es un punto de entrada con privilegios que, de forma predeterminada, se ejecuta con las mismas credenciales que Service Fabric (normalmente la cuenta *NetworkService*) antes de cualquier otro punto de entrada. El archivo ejecutable que se especifica con **EntryPoint** suele ser el host de servicio de ejecución prolongada. El ejecutable **EntryPoint** se ejecuta después de que el ejecutable **SetupEntryPoint** se cierre correctamente. El proceso resultante se supervisa y reinicia, comenzando de nuevo con **SetupEntryPoint**si alguna vez finaliza o se bloquea. 
+El punto de entrada del programa de instalación (**SetupEntryPoint** en el [manifiesto del servicio](service-fabric-application-and-service-manifests.md)) es un punto de entrada con privilegios que, de forma predeterminada, se ejecuta con las mismas credenciales que Service Fabric (normalmente la cuenta *NetworkService*) antes de cualquier otro punto de entrada. El archivo ejecutable que se especifica con **EntryPoint** suele ser el host de servicio de ejecución prolongada. El ejecutable **EntryPoint** se ejecuta después de que el ejecutable **SetupEntryPoint** se cierre correctamente. El proceso resultante se supervisa y reinicia, comenzando de nuevo con **SetupEntryPoint** si alguna vez finaliza o se bloquea. 
 
 ## <a name="configure-the-service-setup-entry-point"></a>Configuración del punto de entrada de instalación del servicio
 El siguiente es un ejemplo de manifiesto de servicio simple para un servicio sin estado que especifica un script de instalación *MySetup.bat* en el servicio **SetupEntryPoint**.  **Arguments** se usa para pasar argumentos al script cuando se ejecuta.
