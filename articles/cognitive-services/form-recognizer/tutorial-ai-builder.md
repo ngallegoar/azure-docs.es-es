@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: tutorial
-ms.date: 10/23/2020
+ms.date: 11/23/2020
 ms.author: pafarley
-ms.openlocfilehash: bb4b69902f73a22cbd2b0fd5ad97c547ceb76a5c
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 3ba08f11fb52fc0ffe3acda5e81e21b7e7629628
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92912334"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95757427"
 ---
 # <a name="tutorial-create-a-form-processing-app-with-ai-builder"></a>Tutorial: Creación de una aplicación de procesamiento de formularios con AI Builder
 
@@ -47,7 +47,7 @@ En este tutorial, aprenderá a:
 
 ## <a name="upload-and-analyze-documents"></a>Carga y análisis de documentos
 
-En la página **Agregar documentos** , debe proporcionar documentos de ejemplo para entrenar el modelo según el tipo de formulario del que quiera extraer información. Después de cargar los documentos, AI Builder los analiza para comprobar que son suficientes para entrenar un modelo.
+En la página **Agregar documentos**, debe proporcionar documentos de ejemplo para entrenar el modelo según el tipo de formulario del que quiera extraer información. Después de cargar los documentos, AI Builder los analiza para comprobar que son suficientes para entrenar un modelo.
 
 > [!NOTE]
 > AI Builder no admite actualmente los siguientes tipos de datos de entrada de procesamiento de formularios:
@@ -61,7 +61,7 @@ En la página **Agregar documentos** , debe proporcionar documentos de ejemplo p
 
 ### <a name="upload-your-documents"></a>Carga de los documentos
 
-1. Seleccione **Agregar documentos** , seleccione cinco documentos como mínimo y, luego, elija **Cargar**.
+1. Seleccione **Agregar documentos**, seleccione cinco documentos como mínimo y, luego, elija **Cargar**.
 1. Una vez finalizada la carga, seleccione **Cerrar**.
 1. Luego, seleccione **Analizar**.
 
@@ -89,8 +89,8 @@ En la página de selección de campos, elija los campos que le interesan:
 
     Al hacer clic en un campo detectado, aparece la siguiente información:
 
-    - **Nombre del campo** : nombre de la etiqueta del campo detectado.
-    - **Valor de campo** : valor del campo detectado.
+    - **Nombre del campo**: nombre de la etiqueta del campo detectado.
+    - **Valor de campo**: valor del campo detectado.
 
 > [!div class="mx-imgBorder"]
 > ![página de etiquetado](./media/tutorial-ai-builder/select-fields-page.png)

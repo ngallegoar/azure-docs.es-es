@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 06/25/2020
 ms.author: erhopf
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5e861182ee57a0b49d3e62a858fc97dbf0890ea3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 48cde51ee9941f705aa848d121c419a8f0c9ad1a
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91399710"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95013712"
 ---
 # <a name="tutorial-create-a-tenant-model-preview"></a>Tutorial: Creación de un modelo de inquilino (versión preliminar)
 
@@ -105,7 +105,7 @@ Cuando la instancia del modelo de inquilino esté lista, siga estos pasos para i
 
 Ahora que ha implementado el modelo, puede usarlo con el SDK de Voz. En esta sección, se usa un código de ejemplo para llamar al servicio de voz mediante la autenticación de Azure Active Directory (Azure AD).
 
-Echemos un vistazo al código que usará para llamar al SDK de Voz en C#. En este ejemplo, el reconocimiento de voz se realiza mediante un modelo de inquilino. En esta guía se da por supuesto que la plataforma ya está configurada. Si necesita ayuda para el programa de configuración, consulte [Inicio rápido: Reconocimiento de voz, C# (.NET Core)](quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnetcore).
+Echemos un vistazo al código que usará para llamar al SDK de Voz en C#. En este ejemplo, el reconocimiento de voz se realiza mediante un modelo de inquilino. En esta guía se da por supuesto que la plataforma ya está configurada. Si necesita ayuda para el programa de configuración, consulte [Inicio rápido: Reconocimiento de voz, C# (.NET Core)](./get-started-speech-to-text.md?pivots=programming-language-csharp&tabs=dotnetcore).
 
 Copie este código en el proyecto:
 

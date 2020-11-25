@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 05/26/2020
 ms.author: swmachan
 ms.custom: devx-track-python, devx-track-js
-ms.openlocfilehash: 41d7fe8e22b39d8755f86e5ee490aa6e7dff97fc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1cbe4d44f5e1c8b34a3d7bb9d05b9546f320b81c
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91330628"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023483"
 ---
 # <a name="tutorial-build-a-flask-app-with-azure-cognitive-services"></a>Tutorial: Compilación de una aplicación de Flask con Azure Cognitive Services
 
@@ -64,7 +64,7 @@ Como se ha indicado anteriormente, se necesitarán tres claves de suscripción p
 * Text Analytics
 * Speech Services
 
-Use [Creación de una cuenta de Cognitive Services en Azure Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para obtener instrucciones paso a paso para crear recursos.
+Use [Creación de una cuenta de Cognitive Services en Azure Portal](../cognitive-services-apis-create-account.md) para obtener instrucciones paso a paso para crear recursos.
 
 > [!IMPORTANT]
 > Para este tutorial, cree los recursos en la región Oeste de EE. UU. Si usa una región distinta, deberá ajustar la URL base en cada uno de los archivos de Python.
@@ -475,7 +475,7 @@ Presione **CTRL + C** para terminar la aplicación y, después, vaya a la secci�
 
 ## <a name="analyze-sentiment"></a>Análisis de opinión
 
-[Text Analytics API](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview) puede usarse para realizar análisis de opinión, extraer frases clave del texto o detectar el idioma de origen. En esta aplicación, vamos a usar análisis de opinión para determinar si el texto proporcionado es negativo, neutral o positivo. La API devuelve una puntuación numérica entre 0 y 1. Las puntuaciones próximas a 1 indican una opinión positiva y las puntuaciones próximas a 0 indican una opinión negativa.
+[Text Analytics API](../text-analytics/overview.md) puede usarse para realizar análisis de opinión, extraer frases clave del texto o detectar el idioma de origen. En esta aplicación, vamos a usar análisis de opinión para determinar si el texto proporcionado es negativo, neutral o positivo. La API devuelve una puntuación numérica entre 0 y 1. Las puntuaciones próximas a 1 indican una opinión positiva y las puntuaciones próximas a 0 indican una opinión negativa.
 
 En esta sección, realizará lo siguiente:
 
@@ -659,7 +659,7 @@ Presione **CTRL + C** para terminar la aplicación y, después, vaya a la secci�
 
 ## <a name="convert-text-to-speech"></a>Conversión de texto a voz
 
-[Text-to-Speech API](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech) permite a la aplicación convertir texto en voz sintetizada natural similar a la humana. El servicio admite voces neuronales, estándares y personalizadas. Nuestra aplicación de ejemplo usa varias de las voces disponibles; para ver una lista completa, consulte los [idiomas admitidos](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#text-to-speech).
+[Text-to-Speech API](../speech-service/text-to-speech.md) permite a la aplicación convertir texto en voz sintetizada natural similar a la humana. El servicio admite voces neuronales, estándares y personalizadas. Nuestra aplicación de ejemplo usa varias de las voces disponibles; para ver una lista completa, consulte los [idiomas admitidos](../speech-service/language-support.md#text-to-speech).
 
 En esta sección, realizará lo siguiente:
 
@@ -954,7 +954,7 @@ Vaya a la dirección del servidor proporcionada. Escriba texto en el área de en
 > [!TIP]
 > Si no se muestran los cambios realizados o la aplicación no funciona de la forma esperada, pruebe a borrar la caché o a abrir una ventana privada o de incógnito.
 
-Eso es todo. Ya tiene una aplicación funcional que realiza traducciones, analiza opiniones y genera voz sintetizada. Presione **Ctrl + C** para terminar la aplicación. No olvide consultar los demás recursos de [Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/).
+Eso es todo. Ya tiene una aplicación funcional que realiza traducciones, analiza opiniones y genera voz sintetizada. Presione **Ctrl + C** para terminar la aplicación. No olvide consultar los demás recursos de [Azure Cognitive Services](../index.yml).
 
 ## <a name="get-the-source-code"></a>Obtención del código fuente
 
@@ -962,6 +962,6 @@ El código fuente de este proyecto está disponible en [GitHub](https://github.c
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Referencia de Translator](https://docs.microsoft.com/azure/cognitive-services/Translator/reference/v3-0-reference)
+* [Referencia de Translator](./reference/v3-0-reference.md)
 * [Referencia de Text Analytics API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7)
-* [Referencia de Text-to-speech API](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-text-to-speech)
+* [Referencia de Text-to-speech API](../speech-service/rest-text-to-speech.md)

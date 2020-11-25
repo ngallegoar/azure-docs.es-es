@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 05/08/2020
-ms.openlocfilehash: 1f85ba0c64db23e156f384fadcc5ca7bf84a58d4
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: aa2783abe86b90a907510dec8d7eb40162820ad5
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130771"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025266"
 ---
 # <a name="tutorial-extract-structured-data-from-user-utterance-with-machine-learning-entities-in-language-understanding-luis"></a>Tutorial: Extracción de datos estructurados de una expresión de usuario con entidades de aprendizaje automático en Language Understanding (LUIS)
 
@@ -64,7 +64,7 @@ Descargue y guarde el [archivo JSON de la aplicación](https://raw.githubusercon
 
 Para extraer detalles sobre un pedido de pizza, cree un nivel superior, una entidad `Order` de aprendizaje automático.
 
-1. En la página **Intenciones** , seleccione la intención **OrderPizza**.
+1. En la página **Intenciones**, seleccione la intención **OrderPizza**.
 
 1. En la lista de expresiones de ejemplo, seleccione la expresión siguiente.
 
@@ -100,7 +100,7 @@ En los pasos anteriores se ha creado la entidad y la subentidad. Para mejorar la
 
 1. Seleccione **Crear nueva lista de frases** en el menú desplegable.
 
-1. En el cuadro **Crear lista de frases** , escriba el nombre `SizePhraselist` y, a continuación, los valores `small`, `medium` y `large`. Cuando se rellene el cuadro **Sugerencias** , seleccione `extra large` y `xl`. Seleccione **Crear** para crear la nueva lista de frases.
+1. En el cuadro **Crear lista de frases**, escriba el nombre `SizePhraselist` y, a continuación, los valores `small`, `medium` y `large`. Cuando se rellene el cuadro **Sugerencias**, seleccione `extra large` y `xl`. Seleccione **Crear** para crear la nueva lista de frases.
 
     Esta característica lista de frases ayuda a la subentidad `Size` a buscar palabras relacionadas con el tamaño al proporcionarle palabras de ejemplo. Esta lista de frases no necesita incluir cada palabra de tamaño, pero debe incluir palabras que se espera que indiquen tamaño.
 
@@ -173,7 +173,7 @@ Se crea la entidad de aprendizaje automático, y las subentidades tienen caracte
 
 1. Seleccione **Intenciones** desde el panel de navegación de la izquierda y, a continuación, seleccione la intención **OrderPizza**.
 
-1. Para abrir la **Paleta de entidades** , seleccione el símbolo **@** en la barra de herramientas contextual.
+1. Para abrir la **Paleta de entidades**, seleccione el símbolo **@** en la barra de herramientas contextual.
 
 1. Seleccione cada fila de entidad en la paleta y, a continuación, use el cursor de la paleta para seleccionar la entidad en cada expresión de ejemplo. Cuando haya terminado, la lista de entidades debe tener un aspecto similar al de la siguiente imagen.
 
@@ -236,7 +236,7 @@ Para recibir una predicción de LUIS en un bot de chat u otra aplicación client
 
     ![Captura de pantalla del botón de publicación en el punto de conexión de LUIS del menú superior derecho](./media/howto-publish/publish-button.png)
 
-1. Seleccione el espacio de **Producción** y luego **Cambiar la configuración** , seleccione **Análisis de sentimiento** y, a continuación, **Listo**.
+1. Seleccione el espacio de **Producción** y luego **Cambiar la configuración**, seleccione **Análisis de sentimiento** y, a continuación, **Listo**.
 
     > [!div class="mx-imgBorder"]
     > ![Captura de pantalla de la publicación de LUIS en el punto de conexión](./media/tutorial-machine-learned-entity/publish-with-sentiment-analysis.png)
@@ -297,7 +297,7 @@ Para recibir una predicción de LUIS en un bot de chat u otra aplicación client
 
 ## <a name="related-information"></a>Información relacionada
 
-* [Tutorial: Intenciones](luis-quickstart-intents-only.md)
+* [Tutorial: Intenciones](./tutorial-intents-only.md)
 * [Concepto: Entidades](luis-concept-entity-types.md) información conceptual
 * [Concepto: Características](luis-concept-feature.md) información conceptual
 * [Cómo se realiza el entrenamiento](luis-how-to-train.md)
@@ -309,4 +309,4 @@ Para recibir una predicción de LUIS en un bot de chat u otra aplicación client
 En este tutorial, la aplicación usa una entidad de aprendizaje automático para encontrar la intención de una expresión de usuario y extraer los detalles de esa expresión. El uso de la entidad de aprendizaje automático permite descomponer los detalles de la entidad.
 
 > [!div class="nextstepaction"]
-> [Incorporación de una entidad keyphrase precompilada](luis-quickstart-intent-and-key-phrase.md)
+> [Incorporación de una entidad keyphrase precompilada](./luis-reference-prebuilt-keyphrase.md)
