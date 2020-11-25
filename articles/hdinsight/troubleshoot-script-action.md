@@ -9,11 +9,11 @@ ms.topic: troubleshooting
 ms.custom: seoapr2020
 ms.date: 04/21/2020
 ms.openlocfilehash: ef9322c17a20ab5bfcf348649a1272dd4f301c5c
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93284469"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000681"
 ---
 # <a name="troubleshoot-script-actions-in-azure-hdinsight"></a>Solución de problemas de acciones de script en Azure HDInsight
 
@@ -35,7 +35,7 @@ Puede usar la interfaz de usuario web de Apache Ambari para ver la información 
 
     ![Operaciones de acción de script de Apache Ambari](./media/troubleshoot-script-action/ambari-script-action.png)
 
-    Para ver la salida **STDOUT** y **STDERR** , seleccione la entrada **run\customscriptaction** y profundice mediante los vínculos. Esta salida se genera cuando se ejecuta el script y puede contener información útil.
+    Para ver la salida **STDOUT** y **STDERR**, seleccione la entrada **run\customscriptaction** y profundice mediante los vínculos. Esta salida se genera cuando se ejecuta el script y puede contener información útil.
 
 ### <a name="default-storage-account"></a>Cuenta de almacenamiento predeterminada
 
@@ -45,13 +45,13 @@ Si se produce un error al crear el clúster debido a un error de script, los reg
 
     ![Registros de acción de script](./media/troubleshoot-script-action/script-action-logs-in-storage.png)
 
-    En este directorio, los registros se organizan por separado para el **nodo principal** , el **nodo de trabajo** y el **nodo de Zookeeper**. Consulte los siguientes ejemplos:
+    En este directorio, los registros se organizan por separado para el **nodo principal**, el **nodo de trabajo** y el **nodo de Zookeeper**. Consulte los siguientes ejemplos:
 
-    * **Nodo principal** : `<ACTIVE-HEADNODE-NAME>.cloudapp.net`
+    * **Nodo principal**: `<ACTIVE-HEADNODE-NAME>.cloudapp.net`
 
-    * **Nodo de trabajo** : `<ACTIVE-WORKERNODE-NAME>.cloudapp.net`
+    * **Nodo de trabajo**: `<ACTIVE-WORKERNODE-NAME>.cloudapp.net`
 
-    * **Nodo de Zookeeper** : `<ACTIVE-ZOOKEEPERNODE-NAME>.cloudapp.net`
+    * **Nodo de Zookeeper**: `<ACTIVE-ZOOKEEPERNODE-NAME>.cloudapp.net`
 
 * Todos los **stdout** y **stderr** del host correspondiente se cargan en la cuenta de almacenamiento. Hay un archivo **output-\*.txt** y **errors-\*.txt** para cada acción de script. El archivo **output-*.txt** contiene información sobre el identificador URI del script que se ejecutó en el host. El siguiente texto es un ejemplo de esta información:
 
@@ -59,7 +59,7 @@ Si se produce un error al crear el clúster debido a un error de script, los reg
     'Start downloading script locally: ', u'https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh'
     ```
 
-* Es posible crear repetidamente un clúster de la acción de script con el mismo nombre. En tal caso, puede distinguir los registros pertinentes según el nombre de la carpeta de **fecha**. Por ejemplo, la estructura de carpetas de un clúster ( **mycluster** ) creado en diferentes fechas es similar a las siguientes entradas de registro:
+* Es posible crear repetidamente un clúster de la acción de script con el mismo nombre. En tal caso, puede distinguir los registros pertinentes según el nombre de la carpeta de **fecha**. Por ejemplo, la estructura de carpetas de un clúster (**mycluster**) creado en diferentes fechas es similar a las siguientes entradas de registro:
 
     `\STORAGE_ACCOUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\mycluster\2015-10-04` `\STORAGE_ACCOUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\mycluster\2015-10-05`
 

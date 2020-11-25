@@ -3,16 +3,17 @@ title: Implementación de Oracle Golden Gate en máquinas virtuales Linux de Azu
 description: Ponga en funcionamiento rápidamente una base de datos de Oracle Golden Gate en el entorno de Azure.
 author: dbakevlar
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.date: 08/02/2018
 ms.author: kegorman
 ms.reviewer: cynthn
-ms.openlocfilehash: c480de6da0427b8eda212e02e08c7b3f5426941c
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 3fff58c240341776a3bb99c059c179cc4f9d96e9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92534148"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95999151"
 ---
 # <a name="implement-oracle-golden-gate-on-an-azure-linux-vm"></a>Implementación de Oracle Golden Gate en máquinas virtuales Linux de Azure 
 
@@ -347,7 +348,7 @@ SQL> EXIT;
 ### <a name="download-golden-gate-software"></a>Descargar el software de Golden Gate
 Para descargar y preparar el software Oracle Golden Gate, complete los pasos siguientes:
 
-1. Descargue el archivo **fbo_ggs_Linux_x64_shiphome.zip** desde la [página de descarga de Oracle Golden Gate](https://www.oracle.com/technetwork/middleware/goldengate/downloads/index.html). En el título de descarga **Oracle GoldenGate 12.x.x.x for Oracle Linux x86-64** , debe haber un conjunto de archivos .zip para descargar.
+1. Descargue el archivo **fbo_ggs_Linux_x64_shiphome.zip** desde la [página de descarga de Oracle Golden Gate](https://www.oracle.com/technetwork/middleware/goldengate/downloads/index.html). En el título de descarga **Oracle GoldenGate 12.x.x.x for Oracle Linux x86-64**, debe haber un conjunto de archivos .zip para descargar.
 
 2. Después de descargar los archivos .zip en el equipo cliente, use el protocolo de copia segura (SCP) para copiar los archivos a la máquina virtual.
 
@@ -389,7 +390,7 @@ Se trata de un paso opcional. Puede omitir este paso si está utilizando un clie
 3. En PuTTY Key Generator:
 
    - Para generar una clave, seleccione el botón **Generate** (Generar).
-   - Copie el contenido de la clave ( **Ctrl+C** ).
+   - Copie el contenido de la clave (**Ctrl+C**).
    - Seleccione el botón **Save private key** (Guardar clave privada).
    - Pase por alto la advertencia que aparece y seleccione **OK** (Aceptar).
 

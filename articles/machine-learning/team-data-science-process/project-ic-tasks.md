@@ -11,11 +11,11 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 4ecb5fef9c9b14bde72de29a45e29d7e16131bd1
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321911"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001004"
 ---
 # <a name="tasks-for-an-individual-contributor-in-the-team-data-science-process"></a>Tareas para un colaborador individual en el proceso de ciencia de datos en equipos
 
@@ -47,7 +47,7 @@ Para clonar los repositorios y modificar su contenido en la máquina local o en 
 - Suscripción a Azure.
 - Git instalado en la máquina. Si usa una DSVM, GIT está preinstalado. En caso contrario, consulte el [apéndice de plataformas y herramientas](platforms-and-tools.md#appendix).
 - Si desea usar la DSVM, la DSVM de Windows o Linux creada y configurada en Azure. Para más información e instrucciones, consulte la [documentación de Data Science Virtual Machine](../data-science-virtual-machine/index.yml).
-- Para una DSVM de Windows, debe tener [Git Credential Manager (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) instalado en la máquina. En el archivo *README.md* , desplácese a la sección **Descargar e instalar** y haga clic en el **instalador más reciente**. Descargue el instalador *.exe* desde la página del instalador y ejecútelo. 
+- Para una DSVM de Windows, debe tener [Git Credential Manager (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) instalado en la máquina. En el archivo *README.md*, desplácese a la sección **Descargar e instalar** y haga clic en el **instalador más reciente**. Descargue el instalador *.exe* desde la página del instalador y ejecútelo. 
 - En el caso de una DSVM de Linux, se configura una clave pública SSH en la DSVM y se agrega en Azure DevOps. Para más información e instrucciones, consulte la sección acerca de cómo **crear una clave pública SSH** en el [apéndice de plataformas y herramientas](platforms-and-tools.md#appendix). 
 - La información de Azure Files Storage para cualquier almacenamiento de archivos de Azure que necesite montar en la DSVM. 
 
@@ -61,7 +61,7 @@ Para trabajar con repositorios de forma local e insertar los cambios en los repo
    
 1. En la página de repositorios, seleccione **Clonar** en la esquina superior derecha.
    
-1. En el cuadro de diálogo **Clonar repositorio** , seleccione **HTTPS** para una conexión HTTP o **SSH** para una conexión SSH y copie la dirección URL de clonación en la **Línea de comandos** del Portapapeles.
+1. En el cuadro de diálogo **Clonar repositorio**, seleccione **HTTPS** para una conexión HTTP o **SSH** para una conexión SSH y copie la dirección URL de clonación en la **Línea de comandos** del Portapapeles.
    
    ![Clonación de repositorio](./media/project-ic-tasks/clone.png)
    

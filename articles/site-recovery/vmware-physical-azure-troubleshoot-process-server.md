@@ -8,11 +8,11 @@ ms.topic: troubleshooting
 ms.date: 09/09/2019
 ms.author: raynew
 ms.openlocfilehash: ad1bec66edaa3fcc6049f4911684f6e6d6c3e366
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369410"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95999200"
 ---
 # <a name="troubleshoot-the-process-server"></a>Solucionar problemas del servidor de procesos
 
@@ -85,7 +85,7 @@ Si no hay ningún latido del servidor de procesos (código de error 806), realic
 1. Compruebe que la máquina virtual del servidor de procesos esté en funcionamiento.
 2. Compruebe estos registros en busca errores.
 
-    C:\ProgramData\ASR\home\svsystems\eventmanager *.log C\ProgramData\ASR\home\svsystems\monitor_protection* .log
+    C:\ProgramData\ASR\home\svsystems\eventmanager *.log C\ProgramData\ASR\home\svsystems\monitor_protection*.log
 
 ## <a name="check-connectivity-and-replication"></a>Comprobar la conectividad y replicación
 
@@ -167,8 +167,8 @@ El problema del bloqueo de cargas de datos desde máquinas de origen al servicio
 Compruebe si el servidor de procesos está insertando datos activamente en Azure.
 
   1. En el servidor de procesos, abra el Administrador de tareas (presione Ctrl+Mayús+Esc).
-  2. Seleccione la pestaña **Rendimiento** > **Abrir el Monitor de recursos** .
-  3. En la página **Monitor de recursos** , seleccione la pestaña **Red** . En **Procesos con actividad de red** , compruebe si cbengine.exe está enviando un gran volumen de datos.
+  2. Seleccione la pestaña **Rendimiento** > **Abrir el Monitor de recursos**.
+  3. En la página **Monitor de recursos**, seleccione la pestaña **Red**. En **Procesos con actividad de red**, compruebe si cbengine.exe está enviando un gran volumen de datos.
 
        ![Captura de pantalla que muestra un gran número de volúmenes en procesos con actividad de red.](./media/vmware-physical-azure-troubleshoot-process-server/cbengine.png)
 
@@ -176,8 +176,8 @@ Compruebe si el servidor de procesos está insertando datos activamente en Azure
 
 ## <a name="step-9-check-the-process-server-connection-to-azure-blob-storage"></a>Paso 9: Comprobar la conexión entre el servidor de procesos y Azure Blob Storage
 
-1. En el monitor de recursos, seleccione **cbengine.exe** .
-2. En **Conexiones TCP** , compruebe si hay conectividad entre el servidor de procesos y Azure Storage.
+1. En el monitor de recursos, seleccione **cbengine.exe**.
+2. En **Conexiones TCP**, compruebe si hay conectividad entre el servidor de procesos y Azure Storage.
 
   ![Captura de pantalla que muestra la conectividad entre cbengine.exe y la dirección URL de Azure Blob Storage.](./media/vmware-physical-azure-troubleshoot-process-server/rmonitor.png)
 
@@ -185,7 +185,7 @@ Compruebe si el servidor de procesos está insertando datos activamente en Azure
 
 Si no hay conectividad entre el servidor de procesos y la dirección URL de Azure Blob Storage, compruebe si los servicios están en ejecución.
 
-1. En el Panel de Control, seleccione **Servicios** .
+1. En el Panel de Control, seleccione **Servicios**.
 2. Compruebe que los siguientes servicios se están ejecutando:
 
     - cxprocessserver
@@ -199,8 +199,8 @@ Si no hay conectividad entre el servidor de procesos y la dirección URL de Azur
 
 ## <a name="step-10-check-the-process-server-connection-to-azure-public-ip-address"></a>Paso 10: comprobar la conexión entre el servidor de procesos y la dirección IP pública de Azure
 
-1. En el servidor de procesos, en **%programfiles%\Microsoft Azure Recovery Services Agent\Temp** , abra el archivo CBEngineCurr.errlog más reciente.
-2. En el archivo, busque **443** o la cadena **Error en el intento de conexión** .
+1. En el servidor de procesos, en **%programfiles%\Microsoft Azure Recovery Services Agent\Temp**, abra el archivo CBEngineCurr.errlog más reciente.
+2. En el archivo, busque **443** o la cadena **Error en el intento de conexión**.
 
   ![Registros de errores en la carpeta Temp](./media/vmware-physical-azure-troubleshoot-process-server/logdetails1.png)
 
@@ -230,14 +230,14 @@ Compruebe si el firewall basado en la dirección IP en el servidor de procesos b
 
 ## <a name="step-12-verify-process-server-proxy-settings"></a>Paso 12: Comprobar la configuración de proxy del servidor de procesos 
 
-1. Si usa un servidor proxy, asegúrese de que el servidor DNS resuelva el nombre de dicho servidor. Compruebe el valor que proporcionó al configurar el servidor de configuración en la clave del Registro **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure Site Recovery\ProxySettings** .
+1. Si usa un servidor proxy, asegúrese de que el servidor DNS resuelva el nombre de dicho servidor. Compruebe el valor que proporcionó al configurar el servidor de configuración en la clave del Registro **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure Site Recovery\ProxySettings**.
 2. Asegúrese de que el agente de Azure Site Recovery usa la misma configuración para enviar datos.
 
-    a) Busque **Microsoft Azure Backup** .
+    a) Busque **Microsoft Azure Backup**.
 
-    b) Abra **Microsoft Azure Backup** y seleccione **Acción** > **Cambiar propiedades** .
+    b) Abra **Microsoft Azure Backup** y seleccione **Acción** > **Cambiar propiedades**.
 
-    c) En la pestaña **Configuración de proxy** , la dirección del proxy debe ser igual que la que se muestra en la configuración del Registro. Si no es así, cámbiela por la misma dirección.
+    c) En la pestaña **Configuración de proxy**, la dirección del proxy debe ser igual que la que se muestra en la configuración del Registro. Si no es así, cámbiela por la misma dirección.
 
 ## <a name="step-13-check-bandwidth"></a>Paso 13: Comprobar ancho de banda
 

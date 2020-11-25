@@ -7,11 +7,11 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/08/2020
 ms.openlocfilehash: c98ee8f747975d4237c2906be2060eddbc7b9990
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92123276"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000953"
 ---
 # <a name="configure-tls-connectivity-in-azure-database-for-postgresql---single-server"></a>Configuración de la conectividad de TSL en Azure Database for PostgreSQL: un solo servidor
 
@@ -38,11 +38,11 @@ Si lo desea, puede deshabilitar el establecimiento de la conectividad TLS. Micro
 
 ### <a name="using-the-azure-portal"></a>Uso de Azure Portal
 
-Visite el servidor de Azure Database for PostgreSQL y haga clic en **Seguridad de conexión** . Use el botón de alternancia para habilitar o deshabilitar la opción **Aplicar conexión SSL** . A continuación, haga clic en **Guardar** .
+Visite el servidor de Azure Database for PostgreSQL y haga clic en **Seguridad de conexión**. Use el botón de alternancia para habilitar o deshabilitar la opción **Aplicar conexión SSL**. A continuación, haga clic en **Guardar**.
 
 :::image type="content" source="./media/concepts-ssl-connection-security/1-disable-ssl.png" alt-text="Seguridad de conexión - Deshabilitar el establecimiento de TLS/SSL":::
 
-Para confirmar la configuración, consulte la página **Información general** para ver el indicador **Estado de aplicación de SSL** .
+Para confirmar la configuración, consulte la página **Información general** para ver el indicador **Estado de aplicación de SSL**.
 
 ### <a name="using-azure-cli"></a>Uso de la CLI de Azure
 
@@ -81,7 +81,7 @@ El servidor único de Azure Database for PostgreSQL admite el cifrado de los cli
 
 ### <a name="tls-settings"></a>Configuración de TLS
 
-El único servidor de Azure Database for PostgreSQL proporciona la capacidad de aplicar la versión de TLS para las conexiones cliente. Para aplicar la versión de TLS, use el valor de la opción **Versión de TLS mínima** . Se permiten los siguientes valores para esta configuración de opción:
+El único servidor de Azure Database for PostgreSQL proporciona la capacidad de aplicar la versión de TLS para las conexiones cliente. Para aplicar la versión de TLS, use el valor de la opción **Versión de TLS mínima**. Se permiten los siguientes valores para esta configuración de opción:
 
 |  Versión de TLS mínima             | Versión de TLS compatible con el cliente                |
 |:---------------------------------|-------------------------------------:|

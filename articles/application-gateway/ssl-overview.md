@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 08/21/2020
 ms.author: victorh
 ms.openlocfilehash: c39401289ffc6f27c292168adaa15c5163a3967b
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93396930"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001293"
 ---
 # <a name="overview-of-tls-termination-and-end-to-end-tls-with-application-gateway"></a>Introducción a la terminación TLS y a TLS de extremo a extremo con Application Gateway
 
@@ -22,10 +22,10 @@ Seguridad de la capa de transporte (TLS), antes conocido como Capa de sockets se
 
 Application Gateway admite la terminación TLS en la puerta de enlace, tras lo cual el tráfico fluye normalmente sin cifrar a los servidores back-end. Llevar a cabo la terminación TLS en la puerta de enlace de aplicaciones tiene una serie de ventajas:
 
-- **Rendimiento mejorado** : el mayor rendimiento al realizar el descifrado TLS es el protocolo de enlace inicial. Para mejorar el rendimiento, el servidor que realiza el descifrado almacena en caché los identificadores de sesión TLS y administra los vales de sesión TLS. Si esto se hace en la puerta de enlace de aplicaciones, todas las solicitudes del mismo cliente pueden usar los valores almacenados en caché. Si se hace en los servidores back-end, cada vez que las solicitudes del cliente vayan a un servidor diferente, el cliente tendrá que volver a autenticarse. El uso de tickets TLS puede ayudar a mitigar este problema, pero no todos los clientes los admiten y pueden resultar difícil de configurar y administrar.
-- **Mejor utilización de los servidores back-end** : el procesamiento SSL/TLS hace un uso intensivo de CPU, y este uso cada vez es mayor a medida que aumentan los tamaños de clave. La eliminación de este trabajo de los servidores back-end les permite centrarse en aquello en lo que son más eficientes: entregar contenido.
-- **Enrutamiento inteligente** : mediante el descifrado del tráfico, la puerta de enlace de aplicaciones tiene acceso al contenido de la solicitud, como encabezados, URI, etc., y puede utilizar estos datos para enrutar las solicitudes.
-- **Administración de certificados** : los certificados solo se deben comprar e instalar en la puerta de enlace de aplicaciones y no en todos los servidores back-end. Esto ahorra tiempo y dinero.
+- **Rendimiento mejorado**: el mayor rendimiento al realizar el descifrado TLS es el protocolo de enlace inicial. Para mejorar el rendimiento, el servidor que realiza el descifrado almacena en caché los identificadores de sesión TLS y administra los vales de sesión TLS. Si esto se hace en la puerta de enlace de aplicaciones, todas las solicitudes del mismo cliente pueden usar los valores almacenados en caché. Si se hace en los servidores back-end, cada vez que las solicitudes del cliente vayan a un servidor diferente, el cliente tendrá que volver a autenticarse. El uso de tickets TLS puede ayudar a mitigar este problema, pero no todos los clientes los admiten y pueden resultar difícil de configurar y administrar.
+- **Mejor utilización de los servidores back-end**: el procesamiento SSL/TLS hace un uso intensivo de CPU, y este uso cada vez es mayor a medida que aumentan los tamaños de clave. La eliminación de este trabajo de los servidores back-end les permite centrarse en aquello en lo que son más eficientes: entregar contenido.
+- **Enrutamiento inteligente**: mediante el descifrado del tráfico, la puerta de enlace de aplicaciones tiene acceso al contenido de la solicitud, como encabezados, URI, etc., y puede utilizar estos datos para enrutar las solicitudes.
+- **Administración de certificados**: los certificados solo se deben comprar e instalar en la puerta de enlace de aplicaciones y no en todos los servidores back-end. Esto ahorra tiempo y dinero.
 
 Para configurar la terminación TLS, debe agregar un certificado TLS/SSL al cliente de escucha para permitir a Application Gateway derivar una clave simétrica según la especificación del protocolo TLS/SSL. A continuación, la clave simétrica se usa para cifrar y descifrar el tráfico que se envía a la puerta de enlace. El certificado TLS/SSL debe tener el formato Personal Information Exchange (PFX). Este formato de archivo permite la exportación de la clave privada, lo que es necesario para que la puerta de enlace de aplicaciones pueda realizar el cifrado y descifrado del tráfico.
 

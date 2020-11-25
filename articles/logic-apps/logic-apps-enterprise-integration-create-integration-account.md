@@ -9,11 +9,11 @@ ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
 ms.date: 11/04/2020
 ms.openlocfilehash: 191832ab227e854b40938183e335c1b6ea52199c
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93347852"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000067"
 ---
 # <a name="create-and-manage-integration-accounts-for-b2b-enterprise-integrations-in-azure-logic-apps"></a>Creación y administración de cuentas de integración para la integración empresarial B2B en Azure Logic Apps
 
@@ -49,7 +49,7 @@ Para esta tarea, puede usar Azure Portal si sigue los pasos de esta sección, [A
 
    ![Creación de una cuenta de integración](./media/logic-apps-enterprise-integration-create-integration-account/create-integration-account.png)
 
-1. En **Cuenta de integración** , seleccione **Crear**.
+1. En **Cuenta de integración**, seleccione **Crear**.
 
    ![Elija "Agregar" para crear una cuenta de integración](./media/logic-apps-enterprise-integration-create-integration-account/add-integration-account.png)
 
@@ -63,7 +63,7 @@ Para esta tarea, puede usar Azure Portal si sigue los pasos de esta sección, [A
    | **Suscripción** | Sí | <*Azure-subscription-name*> | El nombre de la suscripción a Azure |
    | **Grupos de recursos** | Sí | <*nombre del grupo de recursos de Azure*> | Nombre del [grupo de recursos de Azure](../azure-resource-manager/management/overview.md) que se va a usar para organizar recursos relacionados. Para este ejemplo, cree un grupo de recursos con el nombre "FabrikamIntegration-RG". |
    | **Plan de tarifa** | Sí | <*pricing-level*> | Plan de tarifa de la cuenta de integración, que puede cambiar más adelante. En este ejemplo, seleccione **Gratis**. Para más información, consulte los temas siguientes: <p>- [Modelo de precios de Logic Apps](../logic-apps/logic-apps-pricing.md#integration-accounts) <p>- [Límites y configuración de Logic Apps](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits) <p>- [Precios de Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps/) |
-   | **Ubicación** | Sí | <*Azure-region*> | Región en la que quiere almacenar los metadatos de la cuenta de integración. Seleccione la misma ubicación que la aplicación lógica o cree las aplicaciones lógicas en la misma ubicación que la cuenta de integración. En este ejemplo, use "Oeste de EE. UU.". <p>**Nota** : Para crear una cuenta de integración en un [entorno de servicio de integración (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), seleccione ese ISE como ubicación. Para obtener más información, consulte [Creación de cuentas de integración en un ISE](../logic-apps/add-artifacts-integration-service-environment-ise.md#create-integration-account-environment). |
+   | **Ubicación** | Sí | <*Azure-region*> | Región en la que quiere almacenar los metadatos de la cuenta de integración. Seleccione la misma ubicación que la aplicación lógica o cree las aplicaciones lógicas en la misma ubicación que la cuenta de integración. En este ejemplo, use "Oeste de EE. UU.". <p>**Nota**: Para crear una cuenta de integración en un [entorno de servicio de integración (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), seleccione ese ISE como ubicación. Para obtener más información, consulte [Creación de cuentas de integración en un ISE](../logic-apps/add-artifacts-integration-service-environment-ise.md#create-integration-account-environment). |
    | **Log Analytics** | No | Activado, desactivado | Mantenga el valor **Activado** para este ejemplo. |
    |||||
 
@@ -160,7 +160,7 @@ Para que las aplicaciones lógicas accedan a una cuenta de integración que cont
 
 1. En [Azure Portal](https://portal.azure.com), abra una aplicación lógica existente o cree una.
 
-1. En el menú de la aplicación lógica, en **Configuración** , seleccione **Configuración de flujo de trabajo**. En **Cuenta de integración** , abra la lista **Seleccione una cuenta de integración**. Seleccione la cuenta de integración que quiere vincular a la aplicación lógica.
+1. En el menú de la aplicación lógica, en **Configuración**, seleccione **Configuración de flujo de trabajo**. En **Cuenta de integración**, abra la lista **Seleccione una cuenta de integración**. Seleccione la cuenta de integración que quiere vincular a la aplicación lógica.
 
    ![Selección de la cuenta de integración](./media/logic-apps-enterprise-integration-create-integration-account/select-integration-account.png)
 
@@ -199,11 +199,11 @@ Para realizar este cambio, puede usar Azure Portal o la CLI de Azure.
 
    Azure muestra todas las cuentas de integración en las suscripciones de Azure.
 
-1. En **Cuentas de integración** , seleccione la cuenta de integración que quiera mover. En el menú de la cuenta de integración, seleccione **Información general**.
+1. En **Cuentas de integración**, seleccione la cuenta de integración que quiera mover. En el menú de la cuenta de integración, seleccione **Información general**.
 
    ![En el menú de la cuenta de integración, seleccione "Información general".](./media/logic-apps-enterprise-integration-create-integration-account/integration-account-overview.png)
 
-1. En el panel Información general, seleccione **Actualizar plan de tarifa** , donde se enumeran todos los niveles superiores disponibles. Al seleccionar un nivel, el cambio surte efecto de inmediato.
+1. En el panel Información general, seleccione **Actualizar plan de tarifa**, donde se enumeran todos los niveles superiores disponibles. Al seleccionar un nivel, el cambio surte efecto de inmediato.
 
 <a name="upgrade-tier-azure-cli"></a>
 
@@ -269,7 +269,7 @@ Si quiere vincular la aplicación lógica a otra cuenta de integración o dejar 
 
    ![Activar el modo de "lectura/escritura"](./media/logic-apps-enterprise-integration-create-integration-account/resource-explorer-select-read-write.png)
 
-1. En la pestaña **Datos** , seleccione **Editar**.
+1. En la pestaña **Datos**, seleccione **Editar**.
 
    ![En la pestaña "Datos", seleccione "Editar".](./media/logic-apps-enterprise-integration-create-integration-account/resource-explorer-select-edit.png)
 
@@ -289,7 +289,7 @@ Si quiere vincular la aplicación lógica a otra cuenta de integración o dejar 
 
    ![Búsqueda del objeto "integrationAccount"](./media/logic-apps-enterprise-integration-create-integration-account/resource-explorer-delete-integration-account.png)
 
-1. En la pestaña **Datos** , seleccione **Colocar** para guardar los cambios.
+1. En la pestaña **Datos**, seleccione **Colocar** para guardar los cambios.
 
    ![Para guardar los cambios, seleccione "Colocar".](./media/logic-apps-enterprise-integration-create-integration-account/resource-explorer-save-changes.png)
 
@@ -311,11 +311,11 @@ Para esta tarea, puede usar Azure Portal si sigue los pasos de esta sección o l
 
    Azure muestra todas las cuentas de integración en las suscripciones de Azure.
 
-1. En **Cuentas de integración** , seleccione la cuenta de integración que quiera mover. En el menú de la cuenta de integración, seleccione **Información general**.
+1. En **Cuentas de integración**, seleccione la cuenta de integración que quiera mover. En el menú de la cuenta de integración, seleccione **Información general**.
 
    ![En el menú de la cuenta de integración, seleccione "Información general".](./media/logic-apps-enterprise-integration-create-integration-account/integration-account-overview.png)
 
-1. Junto a **Grupo de recursos** o **Nombre de la suscripción** , seleccione **cambiar**.
+1. Junto a **Grupo de recursos** o **Nombre de la suscripción**, seleccione **cambiar**.
 
    ![Cambio del grupo de recursos o la suscripción](./media/logic-apps-enterprise-integration-create-integration-account/change-resource-group-subscription.png)
 
@@ -323,9 +323,9 @@ Para esta tarea, puede usar Azure Portal si sigue los pasos de esta sección o l
 
 1. En función de lo que seleccione, siga estos pasos para cambiar el grupo de recursos o la suscripción:
 
-   * Grupo de recursos: En la lista **Grupo de recursos** , seleccione el grupo de recursos de destino. O bien, para crear otro grupo de recursos, seleccione **Crear un nuevo grupo de recursos**.
+   * Grupo de recursos: En la lista **Grupo de recursos**, seleccione el grupo de recursos de destino. O bien, para crear otro grupo de recursos, seleccione **Crear un nuevo grupo de recursos**.
 
-   * Suscripción: En la lista **Suscripción** , seleccione la suscripción de destino. En la lista **Grupo de recursos** , seleccione el grupo de recursos de destino. O bien, para crear otro grupo de recursos, seleccione **Crear un nuevo grupo de recursos**.
+   * Suscripción: En la lista **Suscripción**, seleccione la suscripción de destino. En la lista **Grupo de recursos**, seleccione el grupo de recursos de destino. O bien, para crear otro grupo de recursos, seleccione **Crear un nuevo grupo de recursos**.
 
 1. Para confirmar que comprende que los scripts o las herramientas asociados a los recursos que se han movido no funcionarán hasta que los actualice con los nuevos identificadores de recurso, seleccione el cuadro de confirmación y después seleccione **Aceptar**.
 
@@ -343,7 +343,7 @@ Para esta tarea, puede usar Azure Portal si sigue los pasos de esta sección, la
 
    Azure muestra todas las cuentas de integración en las suscripciones de Azure.
 
-1. En **Cuentas de integración** , seleccione la cuenta de integración que quiera eliminar. En el menú de la cuenta de integración, seleccione **Información general**.
+1. En **Cuentas de integración**, seleccione la cuenta de integración que quiera eliminar. En el menú de la cuenta de integración, seleccione **Información general**.
 
    ![En el menú de la cuenta de integración, seleccione "Información general".](./media/logic-apps-enterprise-integration-create-integration-account/integration-account-overview.png)
 

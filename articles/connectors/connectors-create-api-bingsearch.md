@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 05/21/2018
 tags: connectors
 ms.openlocfilehash: 52bf42434640dc965999895549b4fa12a139dcce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87284071"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95999610"
 ---
 # <a name="find-results-in-bing-search-by-using-azure-logic-apps"></a>Buscar resultados en Bing Search mediante Azure Logic Apps
 
@@ -89,7 +89,7 @@ En Azure Logic Apps, una [acción](../logic-apps/logic-apps-overview.md#logic-ap
    Seleccione el signo más ( **+** ) que aparece y, luego, seleccione **Agregar una acción**.
 
 3. En el cuadro de búsqueda, escriba "Bing Search" como filtro.
-En la lista de acciones, seleccione la que desee.
+En la lista de acciones, seleccione la acción que desee.
 
    Este ejemplo utiliza esta acción:
 

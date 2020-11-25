@@ -9,11 +9,11 @@ ms.topic: troubleshooting
 ms.custom: seoapr2020
 ms.date: 04/22/2020
 ms.openlocfilehash: 2e9f6898dba559f557f49cc0ee9ff39644da243f
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93287340"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000698"
 ---
 # <a name="troubleshoot-resource-creation-failures-in-azure-hdinsight"></a>Solución de problemas de creación de recursos en Azure HDInsight
 
@@ -37,11 +37,11 @@ Para solicitar un aumento de la cuota, siga estos pasos:
 
 1. Seleccione **Nueva solicitud de soporte técnico**.
 
-1. En la página **Nueva solicitud de soporte técnico** , en la pestaña **Datos básicos** , proporcione la información siguiente:
+1. En la página **Nueva solicitud de soporte técnico**, en la pestaña **Datos básicos**, proporcione la información siguiente:
 
-   * **Tipo de problema** : Seleccione **Límites de servicio y suscripción (cuotas)** .
+   * **Tipo de problema**: Seleccione **Límites de servicio y suscripción (cuotas)** .
    * **Subscription** (Suscripción): Seleccione la suscripción que desea modificar.
-   * **Tipo de cuota** : Seleccione **HDInsight**.
+   * **Tipo de cuota**: Seleccione **HDInsight**.
 
 Para más información, consulte [Creación de una incidencia de soporte técnico para aumentar el núcleo](hdinsight-capacity-planning.md#quotas).
 

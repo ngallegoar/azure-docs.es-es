@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.openlocfilehash: fce4da9cc9577bc9805289473d3df7647b1b0934
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92670921"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000477"
 ---
 # <a name="integrate-the-remote-monitoring-solution-with-azure-data-lake-store"></a>Integración de la solución de supervisión remota con Azure Data Lake Store
 
@@ -57,7 +57,7 @@ az iot hub consumer-group create --hub-name contoso-rm30263 --name streamanalyti
 
 Cree un trabajo de Azure Stream Analytics para transmitir los datos desde el centro de IoT a la instancia de Azure Data Lake Store.
 
-1. Haga clic en **Crear un recurso** , seleccione Internet de las cosas en Marketplace y haga clic en **Trabajo de Stream Analytics**.
+1. Haga clic en **Crear un recurso**, seleccione Internet de las cosas en Marketplace y haga clic en **Trabajo de Stream Analytics**.
 
     ![Nuevo trabajo de Stream Analytics](./media/iot-accelerators-integrate-data-lake/new-stream-analytics-job.png)
 
@@ -89,7 +89,7 @@ Cree un trabajo de Azure Stream Analytics para transmitir los datos desde el cen
 
     ![Selección de entradas](./media/iot-accelerators-integrate-data-lake/stream-analytics-new-input.png)
 
-1. Haga clic en **Save** (Guardar).
+1. Haga clic en **Save**(Guardar).
 
 1. En la página de información general, haga clic en **Salidas**.
 
@@ -118,7 +118,7 @@ Cree un trabajo de Azure Stream Analytics para transmitir los datos desde el cen
     > [!NOTE]
     > Si ve un error en la ventana emergente, abra una nueva ventana del explorador en modo de incógnito y vuelva a intentarlo.
 
-1. Haga clic en **Save** (Guardar).
+1. Haga clic en **Save**(Guardar).
 
 ## <a name="edit-the-stream-analytics-query"></a>Edición de consultas de Stream Analytics
 
@@ -141,7 +141,7 @@ Azure Stream Analytics usa un lenguaje de consulta similar a SQL para especifica
 
     ![Consulta de Stream Analytics](./media/iot-accelerators-integrate-data-lake/stream-analytics-query.png)
 
-1. Haga clic en **Save** (Guardar).
+1. Haga clic en **Save**(Guardar).
 1. Haga clic en **Sí** para aceptar los cambios.
 
 ## <a name="start-the-stream-analytics-job"></a>Inicio del trabajo de Stream Analytics

@@ -5,11 +5,11 @@ services: container-service
 ms.topic: article
 ms.date: 06/03/2019
 ms.openlocfilehash: 58c2c597c7a75c801af91cd735561071250bda2c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89426153"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000579"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>Configuración de redes de Azure CNI en Azure Kubernetes Service (AKS)
 
@@ -57,7 +57,7 @@ El plan de direcciones IP de un clúster AKS consta de una red virtual, al menos
 
 ## <a name="maximum-pods-per-node"></a>Pods máximos por nodo
 
-El número máximo de pods por nodo en un clúster de AKS es 250. El número máximo *predeterminado* de pods por nodo varía entre las redes de *kubenet*y de *Azure CNI*, y el método de implementación del clúster.
+El número máximo de pods por nodo en un clúster de AKS es 250. El número máximo *predeterminado* de pods por nodo varía entre las redes de *kubenet* y de *Azure CNI*, y el método de implementación del clúster.
 
 | Método de implementación | Kubenet predeterminado | Azure CNI predeterminado | Configurable en la implementación |
 | -- | :--: | :--: | -- |

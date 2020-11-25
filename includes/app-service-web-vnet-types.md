@@ -4,12 +4,12 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 10/01/2020
 ms.author: ccompy
-ms.openlocfilehash: 481bd4f50eb527bcad2ba79b5ba4b9df4b872bfc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 93b92da999c15255f543abca346fc2bf8840006c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91739922"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95999466"
 ---
 * Los sistemas multiinquilino que admiten todos los planes de precios, excepto Aislado.
 * App Service Environment, que se implementa en la VNet y admite aplicaciones de planes de precios aislados.
@@ -38,5 +38,5 @@ Cuando Integración con red virtual necesita una puerta de enlace, solo proporci
 Independientemente de la versión que se use, Integración con red virtual ofrece a la aplicación el acceso a los recursos de la VNet, pero no concede el acceso privado de entrada a la aplicación desde la VNet. El acceso privado a sitios se refiere a que solo se puede acceder a la aplicación desde una red privada (por ejemplo, desde dentro de una VNet de Azure). Integración con red virtual solo sirve para realizar llamadas salientes desde la aplicación hacia la red virtual.
 
 <!--Links-->
-[ASEintro]: https://docs.microsoft.com/azure/app-service/environment/intro
-[Networkingfeatures]: https://docs.microsoft.com/azure/app-service/networking-features
+[ASEintro]: ../articles/app-service/environment/intro.md
+[Networkingfeatures]: ../articles/app-service/networking-features.md

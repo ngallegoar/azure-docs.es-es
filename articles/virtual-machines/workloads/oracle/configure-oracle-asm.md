@@ -3,16 +3,17 @@ title: Configuración de ASM de Oracle en una máquina virtual Linux en Azure | 
 description: Ponga en funcionamiento rápidamente ASM de Oracle en el entorno de Azure.
 author: dbakevlar
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.date: 08/02/2018
 ms.author: kegorman
 ms.reviewer: cynthn
-ms.openlocfilehash: b9653cded11edd36602caea0ecd50cfb8dd05ebe
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: e5593d530891e39404e0b9760861f2f22ae333d3
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547187"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000001"
 ---
 # <a name="set-up-oracle-asm-on-an-azure-linux-virtual-machine"></a>Configuración de ASM de Oracle en una máquina virtual Linux en Azure  
 
@@ -191,7 +192,7 @@ Para este tutorial, el usuario predeterminado es *grid* y el grupo predeterminad
    11       0       1152 sr0
    ```
 
-3. Para dar formato al disco */dev/sdc* , ejecute el siguiente comando y responda a los mensajes con:
+3. Para dar formato al disco */dev/sdc*, ejecute el siguiente comando y responda a los mensajes con:
    - *n* para la nueva partición
    - *p* para la partición principal
    - *1* para seleccionar la primera partición

@@ -5,16 +5,16 @@ ms.topic: include
 ms.date: 02/27/2020
 ms.author: ccompy
 ms.openlocfilehash: cec44bbabdb7d528c30a8d3396b819f2eb3c5386
-ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93235888"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95999467"
 ---
 La característica es fácil de configurar, aunque eso no quiere decir que no presente problemas con el uso. Si encuentra problemas para acceder al punto de conexión que quiere, existen varias utilidades que sirven para probar la conectividad desde la consola de la aplicación. Dispone de dos consolas que puede usar. Una es la consola Kudu y la otra es la consola a la que se accede en Azure Portal. Para acceder a la consola Kudu desde la aplicación, vaya a **Herramientas** > **Kudu**. También puede tener acceso a la consola de Kudo en [sitename].scm.azurewebsites.net. Después de que se cargue el sitio web, vaya a la pestaña **Consola de depuración**. Para llegar a la consola hospedada en Azure Portal desde su aplicación, vaya a **Herramientas** > **Consola**.
 
 #### <a name="tools"></a>Herramientas
-En las aplicaciones nativas de Windows, las herramientas **ping** , **nslookup** y **tracert** no funcionarán a través de la consola debido a las restricciones de seguridad (funcionan en [contenedores de Windows personalizados](../articles/app-service/quickstart-custom-container.md)). Para suplir esta carencia, se agregaron dos herramientas diferentes. Para probar la funcionalidad de DNS, se agregó una herramienta denominada **nameresolver.exe**. La sintaxis es:
+En las aplicaciones nativas de Windows, las herramientas **ping**, **nslookup** y **tracert** no funcionarán a través de la consola debido a las restricciones de seguridad (funcionan en [contenedores de Windows personalizados](../articles/app-service/quickstart-custom-container.md)). Para suplir esta carencia, se agregaron dos herramientas diferentes. Para probar la funcionalidad de DNS, se agregó una herramienta denominada **nameresolver.exe**. La sintaxis es:
 
 ```console
 nameresolver.exe hostname [optional: DNS Server]

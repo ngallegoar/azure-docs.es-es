@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 12/1/2016
 ms.author: alkohli
 ms.openlocfilehash: 6bea9c9b7807ffb32b6071c968d3186965477009
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85513045"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000936"
 ---
 # <a name="use-the-web-ui-to-administer-your-storsimple-virtual-array"></a>Usar la interfaz de usuario web para administrar la matriz virtual de StorSimple
 ![flujo del proceso de instalación](./media/storsimple-ova-web-ui-admin/manage4.png)
