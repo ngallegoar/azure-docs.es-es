@@ -4,14 +4,14 @@ description: Alerta a escala mediante una sola regla de alerta para varias serie
 author: harelbr
 ms.author: harelbr
 ms.topic: conceptual
-ms.date: 10/04/2020
+ms.date: 11/12/2020
 ms.subservice: alerts
-ms.openlocfilehash: 81e09e6d9c6a57339f1d6f1eb5ce4f494555fa19
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 66987a28acc8a2c9ae71d89ff5760fa508e32963
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91704487"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566510"
 ---
 # <a name="monitor-multiple-time-series-in-a-single-metric-alert-rule"></a>Supervisión de varias series temporales en una sola regla de alerta de métrica
 
@@ -163,6 +163,7 @@ En esta regla de alerta, seis series temporales de métricas se supervisan por s
 1.  **Seleccionar todas las dimensiones actuales y futuras**: puede optar por supervisar todos los valores posibles de una dimensión, incluidos los valores futuros. Este tipo de regla de alerta se escalará automáticamente para supervisar todos los valores de la dimensión sin necesidad de modificar la regla de alerta cada vez que se agregue o se quite un valor de dimensión.
 2.  **Excluir dimensiones**: la selección del operador "≠" (excluir) para un valor de dimensión equivale a seleccionar todos los demás valores de esa dimensión, incluidos los valores futuros.
 3.  **Dimensiones nuevas y personalizadas**: los valores de dimensión que se muestran en Azure Portal se basan en los datos de métrica recopilados en los últimos tres días. Si aún no se ha emitido el valor de dimensión que está buscando, puede agregar un valor de dimensión personalizada.
+4. **Dimensiones coincidentes con un prefijo**: puede optar por supervisar todos los valores de dimensión que comienzan por un patrón específico; para ello, seleccione el operador "Empieza por" y escriba un prefijo personalizado.
 
 ![Características avanzadas de varias dimensiones](media/alerts-metric-multiple-time-series-single-rule/advanced-features.png)
 

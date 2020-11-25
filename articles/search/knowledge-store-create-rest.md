@@ -7,13 +7,13 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 08/02/2020
-ms.openlocfilehash: 1745a2bf83cb704c8cc73e9d3bf0eba8245329b3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/18/2020
+ms.openlocfilehash: 6af9b8f97d622ae10cfdbcaa8ca50abb42ec7332
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88924272"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94889061"
 ---
 # <a name="create-a-knowledge-store-using-rest-and-postman"></a>Creación de un almacén de conocimiento mediante REST y Postman
 
@@ -84,7 +84,7 @@ Para obtener el valor de `admin-key`, vaya al servicio Azure Cognitive Search y 
 | `index-name` | Déjela como **hotel-reviews-ix**. | 
 | `search-service-name` | Nombre del servicio Azure Cognitive Search. La dirección URL es `https://{{search-service-name}}.search.windows.net`. | 
 | `skillset-name` | Déjela como **hotel-reviews-ss**. | 
-| `storage-account-name` | El nombre de la cuenta de almacenamiento. | 
+| `storage-account-name` | El nombre de la cuenta de Azure Storage. | 
 | `storage-connection-string` | En la cuenta de almacenamiento, en la pestaña **Claves de acceso**, seleccione **key1** > **Cadena de conexión**. | 
 | `storage-container-name` | Déjela como **hotel-reviews**. | 
 

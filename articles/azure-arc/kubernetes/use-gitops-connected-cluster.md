@@ -8,12 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: Uso de GitOps para una configuración de clúster habilitada para Azure Arc (versión preliminar)
 keywords: GitOps, Kubernetes, K8s, Azure, Arc, Azure Kubernetes Service, contenedores
-ms.openlocfilehash: 1a8839c2463494ba0e165bf9e1a5d22245fac8df
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: ce6c754c308d2979db9b1b8eb36e7858e8a91c3c
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371263"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659801"
 ---
 # <a name="deploy-configurations-using-gitops-on-arc-enabled-kubernetes-cluster-preview"></a>Implementación de configuraciones mediante GitOps en clústeres de Kubernetes habilitados para Arc (versión preliminar)
 
@@ -99,7 +99,7 @@ Estos son los escenarios admitidos para el valor del parámetro --repository-url
 | Escenario | Formato | Descripción |
 | ------------- | ------------- | ------------- |
 | Repositorio público de Git | http[s]://server/repo.git o git://server/repo.git   | Repositorio público de Git  |
-| Repositorio de Git privado - SSH - claves creadas por Flux | ssh://[user@]server/repo.git o [user@]server:repo.git | La clave pública generada por Flux se debe agregar a la cuenta de usuario o repositorio en el proveedor de servicios de Git. [aquí](#apply-configuration-from-a-private-git-repository) |
+| Repositorio de Git privado - SSH - claves creadas por Flux | ssh://[user@]server/repo.git o [user@]server:repo.git | La clave pública generada por Flux se debe agregar a la cuenta de usuario del proveedor de servicios de Git. Si la clave de implementación se agrega al repositorio en lugar de a la cuenta de usuario, use `git@` en lugar de `user@`. [aquí](#apply-configuration-from-a-private-git-repository) |
 
 Estos escenarios son compatibles con Flux pero todavía no lo son con sourceControlConfiguration.
 
@@ -222,21 +222,31 @@ Command group 'k8sconfiguration' is in preview. It may be changed/removed in a f
 3. Seleccione la configuración que usa el repositorio de Git privado.
 4. En la parte inferior de la ventana contextual que se abre, copie la **clave pública del repositorio**.
 
-**Adición de la clave pública como clave de implementación al repositorio de Git**
+Si usa GitHub, use alguna de las dos opciones siguientes:
+
+**Opción 1: Adición de la clave pública a la cuenta de usuario**
+
+1. Abra GitHub y haga clic en el icono del perfil en la esquina superior derecha de la página.
+2. Haga clic en **Configuración**.
+3. Haga clic en **SSH and GPG keys** (Claves SSH y GPG).
+4. Haga clic en **New SSH key** (Nueva clave SSH).
+5. Proporcione un título.
+6. Pegue la clave pública (menos las comillas).
+7. Haga clic en **Add SSH key** (Agregar clave SSH).
+
+**Opción 2: Adición de la clave pública como clave de implementación al repositorio de Git**
 
 1. Abra GitHub, navegue hasta repositorio, después a **Settings** (Configuración) y luego a **Deploy keys** (Implementar claves).
 2. Haga clic en **Add deploy key** (Agregar clave de implementación).
 3. Proporcione un título.
 4. Active **Allow write access** (Permitir acceso de escritura).
 5. Pegue la clave pública (menos las comillas).
-6. Haga clic en **Add key** (Agregar clave).
-
-Vea la documentación de GitHub para obtener más información sobre cómo administrar estas claves.
+6. Haga clic en **Agregar clave**.
 
 **Si usa un repositorio de Azure DevOps, agregue la clave a las claves SSH**
 
 1. En **User Settings** (Configuración de usuario) en la parte superior derecha (junto a la imagen de perfil), haga clic en **SSH public keys** (Claves públicas de SSH).
-1. Seleccione **+ New Key** (+ Nueva clave).
+1. Seleccione **+ New Key**(+ Nueva clave).
 1. Proporcione un nombre.
 1. Pegue la clave pública sin las comillas.
 1. Haga clic en **Agregar**.

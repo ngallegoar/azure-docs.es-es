@@ -5,26 +5,34 @@ author: bandersmsft
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 10/29/2020
+ms.date: 11/17/2020
 ms.reviewer: andalmia
 ms.author: banders
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 3ffdeb0add8622e1b9f28f9603dc146b78f742cd
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: 68d890386d53b4115c773b128f8678bac9579e53
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93043301"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844359"
 ---
 # <a name="programmatically-create-azure-subscriptions-with-preview-apis"></a>Creación de suscripciones de Azure mediante programación con las versiones preliminares de las API
 
-Este artículo le ayuda a crear mediante programación suscripciones de Azure con nuestra API en versión preliminar más antigua. Se ha publicado una [versión más reciente de esta API](programmatically-create-subscription.md). La información de este artículo no es válida para esta última versión. En este artículo, se ofrece información sobre cómo crear suscripciones mediante programación con Azure Resource Manager.
+Este artículo le ayuda a crear mediante programación suscripciones de Azure con nuestra API en versión preliminar más antigua. En este artículo, se ofrece información sobre cómo crear suscripciones mediante programación con Azure Resource Manager.
+
+Tenemos nuevos artículos sobre la versión más reciente de la API que se usan con los diferentes tipos de suscripción de los contratos de Azure:
+
+- [Creación de suscripciones al Contrato Enterprise mediante programación con la API más reciente](programmatically-create-subscription-enterprise-agreement.md)
+- [Creación de suscripciones a MCA mediante programación con la API más reciente](programmatically-create-subscription-microsoft-customer-agreement.md)
+- [Creación de suscripciones a MPA mediante programación con la API más reciente](Programmatically-create-subscription-microsoft-customer-agreement.md)
+
+Sin embargo, puede seguir usando la información de este artículo si no desea utilizar la versión de API más reciente.
 
 Los clientes de Azure con una cuenta de facturación para los siguientes tipos de contrato pueden crear suscripciones mediante programación:
 
-- [Contrato Enterprise (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/)
-- [Contrato de cliente de Microsoft (MCA)](https://azure.microsoft.com/pricing/purchase-options/microsoft-customer-agreement/)
-- [Microsoft Partner Agreement (MPA)](https://www.microsoft.com/licensing/news/introducing-microsoft-partner-agreement)
+- Contrato Enterprise
+- Contrato de cliente de Microsoft (MCA).
+- Microsoft Partner Agreement (MPA)
 
 Si se crea una suscripción a Azure mediante programación, esta se rige por el contrato en cuyo marco ha obtenido los servicios de Azure de Microsoft o de cualquier distribuidor autorizado. Para más información, consulte [Información legal de Microsoft Azure](https://azure.microsoft.com/support/legal/).
 

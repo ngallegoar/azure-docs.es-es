@@ -1,7 +1,7 @@
 ---
 title: Supervisión y recopilación de datos de los puntos de conexión del servicio web Machine Learning
 titleSuffix: Azure Machine Learning
-description: Supervisión de los servicios web implementados con Azure Machine Learning mediante Azure App Insights
+description: Aprenda a recopilar datos de modelos implementados en puntos de conexión de servicio en Azure Kubernetes Service (AKS) o Azure Container Instances (ACI).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ author: blackmist
 ms.date: 09/15/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, data4ml
-ms.openlocfilehash: 1f02c9b080b87b4fbffcd1870dd139b9d32de0c7
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 5d49a88b89f9e2f4e2c2e6fa8ef18a01c803e3f7
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93357678"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94536598"
 ---
 # <a name="monitor-and-collect-data-from-ml-web-service-endpoints"></a>Supervisión y recopilación de datos de los puntos de conexión del servicio web ML
 
@@ -178,11 +178,11 @@ Azure Application Insights almacena los registros del servicio en el mismo grupo
 
     [![Localizar la dirección URL de Application Insights](./media/how-to-enable-app-insights/appinsightsloc.png)](././media/how-to-enable-app-insights/appinsightsloc.png#lightbox)
 
-1. En Application Insights, en la pestaña **Información general** o en la sección __Supervisión__ , seleccione __Registros__.
+1. En Application Insights, en la pestaña **Información general** o en la sección __Supervisión__, seleccione __Registros__.
 
     [![Pestaña Información general de supervisión](./media/how-to-enable-app-insights/overview.png)](./media/how-to-enable-app-insights/overview.png#lightbox)
 
-1. Para ver la información registrada en el archivo score.py, examine la tabla de __seguimientos__. La siguiente consulta busca registros en los que se registró el valor de __entrada__ :
+1. Para ver la información registrada en el archivo score.py, examine la tabla de __seguimientos__. La siguiente consulta busca registros en los que se registró el valor de __entrada__:
 
     ```kusto
     traces

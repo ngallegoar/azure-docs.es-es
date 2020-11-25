@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 07/15/2020
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: d6f72231e84650a17850932979b43c21dd045f30
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e73f11ec178c067941ee33e02f37c96605460ee0
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89069330"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658594"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Tutorial: Implementación y configuración de Azure Firewall mediante Azure Portal
 
@@ -28,7 +28,7 @@ El tráfico está sujeto a las reglas de firewall configuradas cuando enruta el 
 
 En este tutorial, creará una red virtual única simplificada con dos subredes para facilitar la implementación.
 
-Para las implementaciones de producción, se recomienda un [modelo de concentrador y radio](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke), en el que el firewall está en su propia red virtual. Los servidores de las cargas de trabajo están en redes virtuales emparejadas en la misma región con una o varias subredes.
+Para las implementaciones de producción, se recomienda un [modelo de concentrador y radio](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke), en el que el firewall está en su propia red virtual. Los servidores de las cargas de trabajo están en redes virtuales emparejadas en la misma región con una o varias subredes.
 
 * **AzureFirewallSubnet**: el firewall está en esta subred.
 * **Workload-SN**: el servidor de carga de trabajo está en esta subred. El tráfico de red de esta subred va a través del firewall.
@@ -105,7 +105,7 @@ Ahora cree la máquina virtual de la carga de trabajo y colóquela en la subred 
 3. **Windows Server 2016 Datacenter** en la lista de destacados.
 4. Especifique estos valores para la máquina virtual:
 
-   |Configuración  |Valor  |
+   |Configuración  |Value  |
    |---------|---------|
    |Resource group     |**Test-FW-RG**|
    |Nombre de la máquina virtual     |**Srv-Work**|
@@ -132,7 +132,7 @@ Implemente el firewall en la red virtual.
 3. Seleccione **Firewall** y después **Crear**.
 4. En la página **Creación de un firewall**, utilice la tabla siguiente para configurar el firewall:
 
-   |Configuración  |Valor  |
+   |Configuración  |Value  |
    |---------|---------|
    |Suscripción     |\<your subscription\>|
    |Resource group     |**Test-FW-RG** |
@@ -160,7 +160,7 @@ En la subred **Workload-SN**, configure la ruta predeterminada de salida que pas
 6. En **Grupo de recursos**, seleccione **Test-FW-RG**.
 7. En **Ubicación**, seleccione la misma ubicación que usó anteriormente.
 8. Seleccione **Crear**.
-9. Seleccione **Actualizar**y, después, seleccione la tabla de rutas **Firewall-route**.
+9. Seleccione **Actualizar** y, después, seleccione la tabla de rutas **Firewall-route**.
 10. Seleccione **Subredes** y, después, seleccione **Asociar**.
 11. Seleccione **Red virtual** > **FW-Test-VN**.
 12. En **Subred**, seleccione **Workload-SN**. Asegúrese de seleccionar únicamente la subred **Workload-SN** para esta ruta o el firewall no funcionará correctamente.
@@ -179,7 +179,7 @@ En la subred **Workload-SN**, configure la ruta predeterminada de salida que pas
 
 Esta es la regla de aplicación que permite el acceso de salida a `www.google.com`.
 
-1. Abra **Test-FW-RG**y seleccione el firewall **Test-FW01**.
+1. Abra **Test-FW-RG** y seleccione el firewall **Test-FW01**.
 2. En la página **Test-FW01**, en **Configuración**, seleccione **Reglas**.
 3. Seleccione la pestaña **Recopilación de reglas de aplicación**.
 4. Seleccione **Agregar una colección de reglas de aplicación**.
@@ -226,8 +226,8 @@ Esta regla le permite conectar un escritorio remoto a la máquina virtual Srv-Wo
 5. En **Reglas**, en **Nombre**, escriba **rdp-nat**.
 6. En **Protocolo**, seleccione **TCP**.
 7. Como **Tipo de origen**, seleccione **Dirección IP**.
-8. Para **Origen**, escriba **\*** .
-9. En **Dirección de destino**, escriba la dirección IP pública del firewall.
+8. Para **Origen**, escriba * *\** .
+9. En Dirección de destino, escriba la dirección IP pública del firewall.
 10. En **Puertos de destino**, escriba **3389**.
 11. En **Dirección traducida**, escriba la dirección IP privada de **Srv-Work**.
 12. En **Puerto traducido**, escriba **3389**.
@@ -272,4 +272,4 @@ Puede conservar los recursos relacionados con el firewall para el siguiente tuto
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Tutorial: Supervisión de los registros de Azure Firewall](./tutorial-diagnostics.md)
+> [Tutorial: Supervisión de los registros de Azure Firewall](./firewall-diagnostics.md)

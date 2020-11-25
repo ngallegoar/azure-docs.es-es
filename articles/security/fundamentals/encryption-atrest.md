@@ -1,6 +1,6 @@
 ---
-title: Cifrado en reposo de datos de Microsoft Azure | Microsoft Docs
-description: Este artículo proporciona información general sobre el cifrado en reposo de datos de Microsoft Azure, funcionalidades y consideraciones.
+title: 'Cifrado en reposo de datos de Azure: seguridad de Azure'
+description: Este artículo proporciona información general sobre el cifrado en reposo de datos de Azure, sus funcionalidades globles y consideraciones generales.
 services: security
 documentationcenter: na
 author: msmbaldwin
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/13/2020
 ms.author: mbaldwin
-ms.openlocfilehash: dafc55656be2d8ef2c0f52d633c7db7eeee83534
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: c9a68661a89f53c5aa27bdd046b5bc09a47db400
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94412789"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94556631"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Cifrado de datos en reposo de Azure
 
@@ -128,7 +128,7 @@ Todos los servicios de Azure Storage (Blob Storage, Queue Storage, Table Storage
 
 Azure SQL Database admite actualmente el cifrado en reposo para escenarios de cifrado en el lado cliente y en el lado servicio administrados por Microsoft.
 
-Actualmente, la compatibilidad con el cifrado del servidor se proporciona a través de una característica de SQL denominada Cifrado de datos transparente. Una vez que un cliente de Azure SQL Database habilita la clave TDE, se crea y administra automáticamente para él. El cifrado en reposo puede habilitarse en los niveles de base de datos y servidor. Desde junio de 2017, el [cifrado de datos transparente (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption) se habilita de forma predeterminada en las bases de datos recién creadas. Azure SQL Database admite claves RSA de 2048 bits administradas por el cliente en Azure Key Vault. Para más información, consulte [Cifrado de datos transparente con BYOK (Bring Your Own Key) para Azure SQL Database y Azure SQL Data Warehouse](/sql/relational-databases/security/encryption/transparent-data-encryption-byok-azure-sql?view=azuresqldb-current).
+Actualmente, la compatibilidad con el cifrado del servidor se proporciona a través de una característica de SQL denominada Cifrado de datos transparente. Una vez que un cliente de Azure SQL Database habilita la clave TDE, se crea y administra automáticamente para él. El cifrado en reposo puede habilitarse en los niveles de base de datos y servidor. Desde junio de 2017, el [cifrado de datos transparente (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption) se habilita de forma predeterminada en las bases de datos recién creadas. Azure SQL Database admite claves RSA de 2048 bits administradas por el cliente en Azure Key Vault. Para más información, consulte [Cifrado de datos transparente con BYOK (Bring Your Own Key) para Azure SQL Database y Azure SQL Data Warehouse](/sql/relational-databases/security/encryption/transparent-data-encryption-byok-azure-sql).
 
 Se admite el cifrado del lado cliente de los datos de Azure SQL Database a través de la característica [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine). Always Encrypted utiliza una clave que el cliente crea y almacena. Los clientes pueden almacenar la clave maestra en el almacén de certificados de Windows, Azure Key Vault, o un módulo de seguridad de hardware. Al usar SQL Server Management Studio, los usuarios de SQL eligen qué clave les gustaría usar para cifrar cada columna.
 
@@ -140,3 +140,4 @@ La protección de datos del cliente almacenados dentro de los servicios de Azure
 
 - Consulte los [modelos de cifrado de datos](encryption-models.md) para obtener más información sobre las claves administradas por el servicio y las claves administradas por el cliente.
 - Obtenga información sobre cómo usa Azure el [cifrado doble](double-encryption.md) para mitigar las amenazas que incluye el cifrado de datos.
+- Conozca lo que hace Microsoft para garantizar la [integridad y seguridad de la plataforma](platform.md) de los hosts que atraviesan las canalizaciones de compilación, integración, operacionalización y reparación de hardware y firmware.

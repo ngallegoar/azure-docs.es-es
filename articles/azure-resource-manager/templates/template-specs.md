@@ -2,15 +2,15 @@
 title: Introducción a las especificaciones de plantilla
 description: Describe cómo crear especificaciones de plantilla y compartirlas con otros usuarios de la organización.
 ms.topic: conceptual
-ms.date: 10/02/2020
+ms.date: 11/17/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: b0dfc41bddccc6b5c5c924168044cffc0aa5e2b5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 83d5a210a5af538173ad0ca5e4c718363639c40a
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91728478"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94747407"
 ---
 # <a name="azure-resource-manager-template-specs-preview"></a>Especificaciones de plantilla de Azure Resource Manager (versión preliminar)
 
@@ -21,7 +21,7 @@ Una especificación de plantilla es un tipo de recurso para almacenar una planti
 Para implementar la especificación de plantilla, use herramientas estándar de Azure como PowerShell, la CLI de Azure, Azure Portal, REST, y otros SDK y clientes compatibles. Utilice los mismos comandos que utilizaría para la plantilla.
 
 > [!NOTE]
-> Las especificaciones de plantilla se encuentran actualmente en versión preliminar. Para usarlas, debe [regístrese para la lista de espera](https://aka.ms/templateSpecOnboarding).
+> Las especificaciones de plantilla se encuentran actualmente en versión preliminar. Para usarlas, debe instalar la última versión de PowerShell o la CLI de Azure. En Azure PowerShell, use la [versión 5.0.0 o posterior](/powershell/azure/install-az-ps). En la CLI de Azure, use la [versión 2.14.2 o posterior](/cli/azure/install-azure-cli).
 
 ## <a name="why-use-template-specs"></a>¿Por qué usar especificaciones de plantilla?
 

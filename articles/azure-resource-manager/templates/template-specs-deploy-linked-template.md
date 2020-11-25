@@ -2,13 +2,13 @@
 title: Implementación de una especificación de plantilla como una plantilla vinculada
 description: Obtenga información sobre cómo implementar una especificación de plantilla existente en una implementación vinculada.
 ms.topic: conceptual
-ms.date: 11/03/2020
-ms.openlocfilehash: 9755774f79ee4901c8aa691054da749f37756742
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.date: 11/17/2020
+ms.openlocfilehash: 65ad5767817457133d0fbc34c7735cf52ff2c3f3
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321571"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94747475"
 ---
 # <a name="tutorial-deploy-a-template-spec-as-a-linked-template-preview"></a>Tutorial: Implementación de una especificación de plantilla como una plantilla vinculada (versión preliminar)
 
@@ -19,7 +19,7 @@ Obtenga información sobre cómo implementar una [especificación de plantilla](
 Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 > [!NOTE]
-> Las especificaciones de plantilla se encuentran actualmente en versión preliminar. Para usarlo, debe [registrarse en la versión preliminar](https://aka.ms/templateSpecOnboarding).
+> Las especificaciones de plantilla se encuentran actualmente en versión preliminar. Para usarlas, debe instalar la última versión de PowerShell o la CLI de Azure. En Azure PowerShell, use la [versión 5.0.0 o posterior](/powershell/azure/install-az-ps). En la CLI de Azure, use la [versión 2.14.2 o posterior](/cli/azure/install-azure-cli).
 
 ## <a name="create-a-template-spec"></a>Creación de una especificación de plantilla
 
@@ -27,7 +27,7 @@ Consulte [Inicio rápido: Creación e implementación de la especificación de p
 
 ## <a name="create-the-main-template"></a>Creación de la plantilla principal
 
-Para crear una especificación de plantilla en una plantilla de ARM, agregue un [recurso de implementaciones](/azure/templates/microsoft.resources/deployments) a la plantilla principal. En la propiedad `templateLink`, especifique el identificador de recurso de una especificación de plantilla. Cree una plantilla con el siguiente código JSON denominado **azuredeploy.json**. En este tutorial se da por supuesto que se ha guardado en la ruta de acceso **c:\Templates\deployTS\azuredeploy.json** , pero puede usar cualquier ruta de acceso.
+Para crear una especificación de plantilla en una plantilla de ARM, agregue un [recurso de implementaciones](/azure/templates/microsoft.resources/deployments) a la plantilla principal. En la propiedad `templateLink`, especifique el identificador de recurso de una especificación de plantilla. Cree una plantilla con el siguiente código JSON denominado **azuredeploy.json**. En este tutorial se da por supuesto que se ha guardado en la ruta de acceso **c:\Templates\deployTS\azuredeploy.json**, pero puede usar cualquier ruta de acceso.
 
 ```json
 {

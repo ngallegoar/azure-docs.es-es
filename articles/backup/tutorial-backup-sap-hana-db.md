@@ -3,12 +3,12 @@ title: 'Tutorial: Copia de seguridad de bases de datos de SAP HANA en máquinas 
 description: En este tutorial, aprenderá a hacer una copia de seguridad de una base de datos de SAP HANA que se ejecuta en una máquina virtual de Azure en un almacén de Azure Backup Recovery Services.
 ms.topic: tutorial
 ms.date: 02/24/2020
-ms.openlocfilehash: 8de567b9f895ea0b3fa4a0f85a8bbad8bf82588f
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 31a0a773096ec0f69e87bfd4a05f8ba98185e6cf
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173774"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94695221"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm"></a>Tutorial: Copia de seguridad de bases de datos de SAP HANA en una máquina virtual de Azure
 
@@ -107,9 +107,10 @@ La ejecución del script de registro previo realiza las funciones siguientes:
 * Realiza comprobaciones de conectividad de red saliente con los servidores de Azure Backup y servicios dependientes, como Azure Active Directory y Azure Storage.
 * Inicia sesión en el sistema HANA con la clave de usuario que se enumera como parte de los [requisitos previos](#prerequisites). Esta clave se usa para crear un usuario de copia de seguridad (AZUREWLBACKUPHANAUSER) en el sistema HANA y **se puede eliminar después de que el script de registro previo se ejecute correctamente**.
 * A AZUREWLBACKUPHANAUSER se le asignan estos roles y permisos necesarios:
-  * ADMINISTRADOR DE BASE DE DATOS (en el caso de MDC) y ADMINISTRADOR DE COPIAS DE SEGURIDAD (en el caso de SDC): para crear nuevas bases de datos durante la restauración.
+  * Para MDC: DATABASE ADMIN y BACKUP ADMIN (desde HANA 2.0 SPS05 en adelante): para crear nuevas bases de datos durante la restauración.
+  * Para SDC: BACKUP ADMIN: para crear nuevas bases de datos durante la restauración.
   * CATALOG READ: para leer el catálogo de copia de seguridad.
-  * SAP_INTERNAL_HANA_SUPPORT: para acceder a algunas tablas privadas.
+  * SAP_INTERNAL_HANA_SUPPORT: para acceder a algunas tablas privadas. Solo es necesario para las versiones de SDC y MDC anteriores a HANA 2.0 SPS04 rev. 46. Esto no es necesario para HANA 2.0 SPS04 rev. 46 y versiones posteriores, ya que vamos a obtener la información necesaria de las tablas públicas ahora con la corrección del equipo de HANA.
 * El script agrega una clave a **hdbuserstore** para que el complemento de copias de seguridad de HANA, AZUREWLBACKUPHANAUSER, controle todas las operaciones (consultas de base de datos, operaciones de restauración, configuración y ejecución de copias de seguridad).
 
 >[!NOTE]
@@ -226,11 +227,16 @@ Especifique la configuración de la directiva como se muestra a continuación:
    ![Directiva de copia de seguridad diferencial](./media/tutorial-backup-sap-hana-db/differential-backup-policy.png)
 
    >[!NOTE]
-   >Las copias de seguridad incrementales no se admiten en la actualidad.
+   >Las copias de seguridad incrementales ya están disponibles en versión preliminar pública. Puede elegir si la copia de seguridad diaria es diferencial o incremental, pero no ambas.
    >
+7. En **Directiva de copias de seguridad incrementales**, seleccione **Habilitar** para abrir los controles de retención y frecuencia.
+    * A lo sumo, puede desencadenar una única copia de seguridad incremental al día.
+    * Como máximo, las copias de seguridad incrementales se pueden retener durante 180 días. Si necesita más tiempo de retención, debe usar copias de seguridad completas.
 
-7. Seleccione **Aceptar** para guardar la directiva y volver al menú principal de la **directiva de copia de seguridad**.
-8. Para agregar una directiva de copia de seguridad del registro de transacciones, seleccione **Copia de seguridad de registros**.
+    ![Directiva de copias de seguridad incrementales](./media/backup-azure-sap-hana-database/incremental-backup-policy.png)
+
+8. Seleccione **Aceptar** para guardar la directiva y volver al menú principal de la **directiva de copia de seguridad**.
+9. Para agregar una directiva de copia de seguridad del registro de transacciones, seleccione **Copia de seguridad de registros**.
    * La **Copia de seguridad de registros** está establecida de forma predeterminada en **Habilitar**. No se puede deshabilitar, ya que SAP HANA administra todas las copias de seguridad de registros.
    * Hemos establecido **2 horas** como programación de copia de seguridad y **15 días** de período de retención.
 
@@ -240,8 +246,8 @@ Especifique la configuración de la directiva como se muestra a continuación:
    > Las copias de seguridad de registros comienzan el flujo solo después de que se haya completado correctamente una copia de seguridad completa.
    >
 
-9. Seleccione **Aceptar** para guardar la directiva y volver al menú principal de la **directiva de copia de seguridad**.
-10. Al acabar de definir la directiva de copia de seguridad, seleccione **Aceptar**.
+10. Seleccione **Aceptar** para guardar la directiva y volver al menú principal de la **directiva de copia de seguridad**.
+11. Al acabar de definir la directiva de copia de seguridad, seleccione **Aceptar**.
 
 Ahora ha configurado correctamente las copias de seguridad de las bases de datos de SAP HANA.
 

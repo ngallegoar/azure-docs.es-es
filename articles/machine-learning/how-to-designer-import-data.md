@@ -1,21 +1,21 @@
 ---
 title: Importación de datos en el diseñador
 titleSuffix: Azure Machine Learning
-description: Aprenda a importar los datos en el diseñador de Azure Machine Learning desde varios orígenes de datos.
+description: Aprenda a importar datos en el diseñador de Azure Machine Learning a través de conjuntos de datos de Azure Machine Learning y el módulo Importar datos.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 author: likebupt
 ms.author: keli19
-ms.date: 09/09/2020
+ms.date: 11/13/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: 15fca48327c46480546764be1b2ab40c1635e874
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5569b625b8f0c4ba890c0cd5b1700ca6fe83d968
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90985604"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94591995"
 ---
 # <a name="import-data-into-azure-machine-learning-designer"></a>Importación de datos en el diseñador de Azure Machine Learning
 
@@ -53,6 +53,8 @@ Si los datos de salida del módulo están en formato tabular, debe optar por reg
 ### <a name="use-a-dataset"></a>Uso de un conjunto de datos
 
 Sus conjuntos de datos registrados se pueden encontrar en la paleta del módulo, en **Conjuntos de datos**. Para usar un conjunto de datos, arrástrelo y suéltelo en el lienzo de la canalización. Luego, conecte el puerto de salida del conjunto de datos a otros módulos del lienzo. 
+
+Si registra un conjunto de datos de archivo, el tipo de puerto de salida del conjunto de datos es **AnyDirectory**. Si registra un conjunto de datos tabulares, el tipo de puerto de salida del conjunto de datos es **DataFrameDirectory**. Tenga en cuenta que si conecta el puerto de salida del conjunto de datos a otros módulos del diseñador, necesita alinear el tipo de puerto de los conjuntos de datos y los módulos.
 
 ![Captura de pantalla que muestra la ubicación de los conjuntos de datos guardados en la paleta del diseñador](media/how-to-designer-import-data/use-datasets-designer.png)
 

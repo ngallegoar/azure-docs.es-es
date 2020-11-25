@@ -2,15 +2,15 @@
 title: Creación e implementación de una especificación de plantilla
 description: Obtenga información sobre cómo crear una especificación de plantilla a partir de una plantilla de Resource Manager. A continuación, implemente la especificación de plantilla en un grupo de recursos de su suscripción.
 author: tfitzmac
-ms.date: 11/10/2020
+ms.date: 11/17/2020
 ms.topic: quickstart
 ms.author: tomfitz
-ms.openlocfilehash: 96ef5796aac1d0ee02e6bbafc40b7d3bcdea4e2f
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 8439b1de5a69b3e5bfc22e10f089938da921c1cb
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94506369"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94747509"
 ---
 # <a name="quickstart-create-and-deploy-template-spec-preview"></a>Inicio rápido: Creación e implementación de una especificación de plantilla (versión preliminar)
 
@@ -21,9 +21,7 @@ En esta guía de inicio rápido se muestra cómo empaquetar una plantilla de Azu
 Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 > [!NOTE]
-> Las especificaciones de plantilla se encuentran actualmente en versión preliminar. Para usarlas, debe [registrarse para la lista de espera](https://aka.ms/templateSpecOnboarding).
->
-> Después de obtener la aprobación de la lista de espera, recibirá instrucciones para instalar la versión preliminar del módulo de PowerShell y del módulo de la CLI.
+> Las especificaciones de plantilla se encuentran actualmente en versión preliminar. Para usarlo, debe instalar la versión más reciente de PowerShell o la CLI de Azure. En Azure PowerShell, use la [versión 5.0.0 o posterior](/powershell/azure/install-az-ps). En la CLI de Azure, use la [versión 2.14.2 o posterior](/cli/azure/install-azure-cli).
 
 ## <a name="create-template-spec"></a>Creación de una especificación de plantilla
 

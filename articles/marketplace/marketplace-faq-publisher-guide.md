@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
 ms.date: 09/11/2020
-ms.openlocfilehash: e72acb532a33d0b3751bb8ad5051b1a3df4d7514
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 584e1e943f215aa4a69368fb71cb3053b1444a01
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491484"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660226"
 ---
 # <a name="common-questions-about-the-microsoft-commercial-marketplace"></a>Preguntas habituales sobre el marketplace comercial de Microsoft
 
@@ -87,7 +87,7 @@ El marketplace comercial trabaja siguiendo un modelo de agencia. El cliente firm
 
 Como editor, se encarga de establecer las condiciones de uso de su solución de software, condiciones que los clientes deben aceptar como parte del flujo de compra. Para simplificar y acelerar las cosas, ofrecemos un Contrato estándar que puede incluir en los términos y condiciones. Esto permite a los clientes revisar este Contrato estándar una sola vez, conseguir la aprobación de los equipos legal y de compra y centrarse en las modificaciones de cada oferta.
 
-Puede crear cambios que se apliquen a todos los clientes o puede adaptarlos a determinados clientes. También puede personalizar por completo los términos y condiciones, que se pueden escribir en un cuadro de texto u hospedarse en un sitio web que se mostrarán como una dirección web.
+Puede crear cambios que se apliquen a todos los clientes o puede adaptarlos a determinados clientes. También puede personalizar por completo los términos y condiciones, que se pueden escribir en un cuadro de texto del Centro de partners.
 
 Para más información en [Contrato estándar para el Marketplace comercial de Microsoft](standard-contract.md).
 
@@ -99,10 +99,10 @@ Sí, el marketplace de Azure Government está disponible en regiones de Azure Go
 
 Hay cuatro roles pertinentes que controlan el acceso al Centro de partners.
 
-- *Administrador* : proporciona permisos para administrar usuarios del Centro de partners en el directorio y para crear y actualizar ofertas.
-- *Desarrollador* : permite a un usuario crear y actualizar ofertas.
-- *Colaborador financiero* : proporciona permisos para ver los informes de pago.
-- *Propietario* : puede configurar la cuenta de pago y el perfil fiscal. El usuario que aceptó el contrato de editor se convierte en el propietario de forma predeterminada.
+- *Administrador*: proporciona permisos para administrar usuarios del Centro de partners en el directorio y para crear y actualizar ofertas.
+- *Desarrollador*: permite a un usuario crear y actualizar ofertas.
+- *Colaborador financiero*: proporciona permisos para ver los informes de pago.
+- *Propietario*: puede configurar la cuenta de pago y el perfil fiscal. El usuario que aceptó el contrato de editor se convierte en el propietario de forma predeterminada.
 
 Se necesitan permisos de *Administrador global* de Azure Active Directory (Azure AD) para crear nuevas cuentas de usuario o invitar a cuentas de invitado del directorio subyacente. El Centro de partners aplica Azure AD al modelo de identidad y, a menudo, los equipos de seguridad y TI administran y controlan la instancia de Azure AD de la organización.
 

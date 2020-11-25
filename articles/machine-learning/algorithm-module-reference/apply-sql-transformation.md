@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 09/09/2019
-ms.openlocfilehash: 9a195497b4376633bd3c767d7d0ea029109fdf9d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/12/2020
+ms.openlocfilehash: c66fbe59fd5b2660d02bfca285f78666d64569fe
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76314545"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555607"
 ---
 # <a name="apply-sql-transformation"></a>Aplicación de transformaciones de SQL
 
@@ -29,11 +29,26 @@ Con el módulo Apply SQL Transformation (Aplicar transformación SQL), puede:
 -   Ejecutar instrucciones de consulta SQL para filtrar o modificar datos y devolver los resultados de la consulta como una tabla de datos.  
 
 > [!IMPORTANT]
-> El motor de SQL que se usa en este módulo es **SQLite**. Para obtener más información sobre la sintaxis de SQLite, consulte [SQL como lo entiende SQLite](https://www.sqlite.org/index.html).  
+> El motor de SQL que se usa en este módulo es **SQLite**. Para obtener más información sobre la sintaxis de SQLite, consulte [SQL como lo entiende SQLite](https://www.sqlite.org/index.html).
+> Este módulo enviará datos a SQLite, que se encuentra en la base de datos de memoria, por lo que la ejecución del módulo requiere mucha más memoria y puede generar un error `Out of memory`. Asegúrese de que el equipo tiene suficiente RAM.
 
 ## <a name="how-to-configure-apply-sql-transformation"></a>Configuración del módulo de aplicación de transformaciones de SQL  
 
 El módulo puede tardar hasta tres conjuntos de datos como entradas. Al hacer referencia a los conjuntos de datos conectados a cada puerto de entrada, debe utilizar los nombres `t1`, `t2` y `t3`. El número de la tabla indica el índice del puerto de entrada.  
+
+A continuación se muestra código de ejemplo para mostrar cómo combinar dos tablas. t1 and t2 son dos conjuntos de datos conectados a los puertos de entrada izquierdo y medio de **Aplicar transformación SQL**:
+
+```sql
+SELECT t1.*
+    , t3.Average_Rating
+FROM t1 join
+    (SELECT placeID
+        , AVG(rating) AS Average_Rating
+    FROM t2
+    GROUP BY placeID
+    ) as t3
+on t1.placeID = t3.placeID
+```
   
 El parámetro restante es una consulta SQL, que utiliza la sintaxis de SQLite. Al escribir varias líneas en el cuadro de texto **SQL Script** (Script de SQL), utilice un punto y coma para terminar cada instrucción. De lo contrario, los saltos de línea se convierten en espacios.  
 

@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: tutorial
 ms.date: 06/17/2020
 ms.author: sebansal
-ms.openlocfilehash: a85656909df5538f9f57e05d79ae768623d7eba6
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: c8f11f17c9e110509dcbcda291194f9b8d928c50
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289611"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658968"
 ---
 # <a name="creating-and-merging-csr-in-key-vault"></a>Creación y combinación de solicitudes de firma de certificado en Key Vault
 
@@ -25,7 +25,15 @@ Para más información general acerca de los certificados, consulte [Certificado
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="adding-certificate-in-key-vault-issued-by-a-non-trusted-ca"></a>Incorporación de un certificado en Key Vault emitido por una entidad de certificación que no es de confianza
+## <a name="adding-certificate-in-key-vault-issued-by-partnered-ca"></a>Incorporación de un certificado en Key Vault emitido por una entidad de certificación asociada
+Key Vault se asocia con las dos entidades de certificación siguientes para simplificar la creación de certificados. 
+
+|Proveedor|Tipo de certificado|Configuración  
+|--------------|----------------------|------------------|  
+|DigiCert|Key Vault ofrece certificados SSL OV o EV con DigiCert| [Guía de integración](./how-to-integrate-certificate-authority.md)
+|GlobalSign|Key Vault ofrece certificados SSL OV o EV con GlobalSign| [Guía de integración](https://support.globalsign.com/digital-certificates/digital-certificate-installation/generating-and-importing-certificate-microsoft-azure-key-vault)
+
+## <a name="adding-certificate-in-key-vault-issued-by-non-partnered-ca"></a>Incorporación de un certificado en Key Vault emitido por una entidad de certificación no asociada
 
 Los pasos siguientes le ayudarán a crear un certificado procedente de entidades de certificación que no están asociadas con Key Vault (por ejemplo, GoDaddy no es una entidades de certificación de confianza en Key Vault). 
 

@@ -1,6 +1,6 @@
 ---
 title: Copia incremental de una tabla mediante Azure Portal
-description: En este tutorial, creará una instancia de Azure Data Factory con una canalización que carga los datos diferenciales de una tabla de Azure SQL Database en Azure Blob Storage.
+description: En este tutorial, creará una instancia de Azure Data Factory con una canalización que carga los datos diferenciales de una tabla de Azure SQL Database a una instancia de Azure Blob Storage.
 services: data-factory
 author: dearandyxu
 ms.author: yexu
@@ -10,19 +10,19 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-dt-2019
-ms.date: 06/10/2020
-ms.openlocfilehash: 6567651f76ff19a8105158b243de7582256e0375
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/09/2020
+ms.openlocfilehash: 6dba148f0cde81905bc66f7750ff5e04edc948aa
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91320921"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566402"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-the-azure-portal"></a>Carga de datos incremental de Azure SQL Database a Azure Blob Storage mediante Azure Portal
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-En este tutorial, creará una instancia de Azure Data Factory con una canalización que carga los datos diferenciales de una tabla de Azure SQL Database en Azure Blob Storage.
+En este tutorial, creará una instancia de Azure Data Factory con una canalización que carga los datos diferenciales de una tabla de Azure SQL Database a una instancia de Azure Blob Storage.
 
 En este tutorial, realizará los siguientes pasos:
 
@@ -153,20 +153,20 @@ END
 ## <a name="create-a-data-factory"></a>Crear una factoría de datos
 
 1. Inicie el explorador web **Microsoft Edge** o **Google Chrome**. Actualmente, la interfaz de usuario de Data Factory solo se admite en los exploradores web Microsoft Edge y Google Chrome.
-2. En el menú de la izquierda, seleccione **Crear un recurso** > **Analytics** > **Data Factory**:
+2. En el menú de la izquierda, seleccione **Crear un recurso** > **Integración** > **Data Factory**:
 
    ![Selección de la factoría de datos en el panel Nuevo](./media/doc-common-process/new-azure-data-factory-menu.png)
 
 3. En la página **Nueva factoría de datos**, escriba **ADFIncCopyTutorialDF** para el **nombre**.
 
-   El nombre de la instancia de Azure Data Factory debe ser **único de forma global**. Si ve un signo de exclamación rojo con el siguiente error, cambie el nombre de la factoría de datos (por ejemplo, yournameADFIncCopyTutorialDF) e intente crearla de nuevo. Consulte el artículo [Azure Data Factory: reglas de nomenclatura](naming-rules.md) para conocer las reglas de nomenclatura de los artefactos de Data Factory.
+   El nombre de la instancia de Azure Data Factory debe ser **único globalmente**. Si ve un signo de exclamación rojo con el siguiente error, cambie el nombre de la factoría de datos (por ejemplo, yournameADFIncCopyTutorialDF) e intente crearla de nuevo. Consulte el artículo [Azure Data Factory: reglas de nomenclatura](naming-rules.md) para conocer las reglas de nomenclatura de los artefactos de Data Factory.
 
     *El nombre "ADFIncCopyTutorialDF" de factoría de datos no está disponible.*
 4. Seleccione la **suscripción** de Azure donde desea crear la factoría de datos.
 5. Para el **grupo de recursos**, realice uno de los siguientes pasos:
 
-      - Seleccione en primer lugar **Usar existente**y después un grupo de recursos de la lista desplegable.
-      - Seleccione **Crear nuevo**y escriba el nombre de un grupo de recursos.   
+      - Seleccione en primer lugar **Usar existente** y después un grupo de recursos de la lista desplegable.
+      - Seleccione **Crear nuevo** y escriba el nombre de un grupo de recursos.   
          
         Para obtener más información sobre los grupos de recursos, consulte [Uso de grupos de recursos para administrar los recursos de Azure](../azure-resource-manager/management/overview.md).  
 6. Seleccione **V2** para la **versión**.

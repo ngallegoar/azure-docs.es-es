@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/23/2019
 ms.author: thweiss
 ms.custom: devx-track-js
-ms.openlocfilehash: ef999d4b452f3f31942e1fb2ddb46efe760acff0
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: c3cdc0a9fb9fa236fae37a52194f446278a42f72
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93342154"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616253"
 ---
 # <a name="how-to-model-and-partition-data-on-azure-cosmos-db-using-a-real-world-example"></a>Procedimientos para modelar y crear particiones de datos en Azure Cosmos DB mediante un ejemplo real
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -22,12 +22,14 @@ Este artículo se basa en varios conceptos de Azure Cosmos DB como el [modelado 
 
 Si suele trabajar con bases de datos relacionales, es probable que haya desarrollado hábitos e intuiciones acerca de cómo diseñar un modelo de datos. Dadas no solo las restricciones específicas, sino también los puntos fuertes exclusivos de Azure Cosmos DB, la mayoría de estos procedimientos recomendados no se traduce bien y es posible que le lleve a soluciones que no llegan a ser óptimas. El objetivo de este artículo es guiarle por todo el proceso de modelado de un caso de uso real en Azure Cosmos DB, desde el modelado de elementos a la colocación de entidades y la creación de particiones en contenedores.
 
+[Descargue o vea un código fuente generado por la comunidad](https://github.com/jwidmer/AzureCosmosDbBlogExample) que ilustre los conceptos de este artículo. Este ejemplo de código lo aportó un colaborador de la comunidad y el equipo de Azure Cosmos DB no respalda su mantenimiento.
+
 ## <a name="the-scenario"></a>El escenario
 
 Para este ejercicio, vamos a tener en cuenta el dominio de una plataforma de blogs en las que los *usuarios* puede crear *publicaciones*. Los usuarios también pueden indicar que dichas publicaciones les *gustan* y agregarles *comentarios*.
 
 > [!TIP]
-> Hemos resaltado algunas palabras en *cursiva* ; dichas palabras identifican el tipo de "cosas" que nuestro modelo va a tener que manipular.
+> Hemos resaltado algunas palabras en *cursiva*; dichas palabras identifican el tipo de "cosas" que nuestro modelo va a tener que manipular.
 
 Incorporación de más requisitos a la especificación:
 

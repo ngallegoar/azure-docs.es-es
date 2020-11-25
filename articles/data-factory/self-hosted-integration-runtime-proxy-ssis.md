@@ -11,13 +11,13 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
 ms.custom: seo-lt-2019
-ms.date: 09/09/2020
-ms.openlocfilehash: 867f12b026a56b7cab8530ef30c4a2f2c325f6b1
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.date: 11/15/2020
+ms.openlocfilehash: 48bd32569b7eb7fa09f83f81190bf96baa42fae0
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637792"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659988"
 ---
 # <a name="configure-a-self-hosted-ir-as-a-proxy-for-an-azure-ssis-ir-in-azure-data-factory"></a>Configuración de IR autohospedado como proxy para Azure-SSIS IR en Azure Data Factory
 
@@ -28,8 +28,8 @@ En este artículo se describe cómo ejecutar paquetes de SQL Server Integration 
 Con esta característica, puede acceder a los datos locales sin tener que [unir la instancia de Azure-SSIS IR a una red virtual](./join-azure-ssis-integration-runtime-virtual-network.md). La característica resulta útil cuando la configuración de la red corporativa es demasiado compleja o una directiva es demasiado restrictiva para que pueda insertar la instancia de Azure-SSIS IR en ella.
 
 Esta característica divide la tarea Flujo de datos de SSIS en dos tareas de almacenamiento provisional siempre que sea aplicable: 
-* **Tarea de almacenamiento provisional en el entorno local** : esta tarea ejecuta el componente de flujo de datos que se conecta a un almacén de datos local en el IR autohospedado. Migra los datos del almacén de datos local a un área de almacenamiento provisional en su instancia de Azure Blob Storage o viceversa.
-* **Tarea de almacenamiento provisional en la nube** : esta tarea ejecuta el componente de flujo de datos que no se conecta a un almacén de datos local en su instancia de Azure-SSIS IR. Migra los datos del área de almacenamiento provisional en su instancia de Azure Blob Storage a un almacén de datos en la nube o viceversa.
+* **Tarea de almacenamiento provisional en el entorno local**: esta tarea ejecuta el componente de flujo de datos que se conecta a un almacén de datos local en el IR autohospedado. Migra los datos del almacén de datos local a un área de almacenamiento provisional en su instancia de Azure Blob Storage o viceversa.
+* **Tarea de almacenamiento provisional en la nube**: esta tarea ejecuta el componente de flujo de datos que no se conecta a un almacén de datos local en su instancia de Azure-SSIS IR. Migra los datos del área de almacenamiento provisional en su instancia de Azure Blob Storage a un almacén de datos en la nube o viceversa.
 
 Si la tarea de flujo de datos migra datos del entorno local a la nube, la primera y la segunda tarea de almacenamiento provisional serán una tarea en de almacenamiento provisional el entorno local y una en la nube, respectivamente. Si la tarea de flujo de datos migra datos de la nube al entorno local, la primera y la segunda tarea de almacenamiento provisional serán una tarea de almacenamiento provisional en la nube y una en el entorno local, respectivamente. Si la tarea de flujo de datos migra datos de un entorno local a otro, la primera y la segunda tarea de almacenamiento provisional serán ambas en el entorno local. Si la tarea de flujo de datos migra datos de una instancia en la nube a otra, esta característica no aplica.
 
@@ -43,24 +43,34 @@ A continuación, configure la instancia de IR autohospedado en la misma factorí
 
 Por último, descargue e instale la versión más reciente de IR autohospedado, así como los controladores y el entorno de ejecución adicionales, en la máquina virtual de Azure o en el equipo local, tal como se indica a continuación:
 - Descargue e instale la versión más reciente de [IR autohospedado](https://www.microsoft.com/download/details.aspx?id=39717).
-- Si usa conectores de base de datos de vinculación e incrustación de objetos (OLEDB) o de conectividad abierta de bases de datos (ODBC) en los paquetes, descargue e instale los controladores apropiados en el mismo equipo en el que está instalada la instancia de IR autohospedado, si aún no lo ha hecho.  
+- Si usa conectores de base de datos de vinculación e incrustación de objetos (OLEDB), de conectividad abierta de bases de datos (ODBC) o de ADO.NET en los paquetes, descargue e instale los controladores apropiados en el mismo equipo en el que está instalada la instancia de IR autohospedado, si aún no lo ha hecho.  
 
   Si usa la versión anterior del controlador OLEDB para SQL Server (SQL Server Native Client [SQLNCLI]), [descargue la versión de 64 bits](https://www.microsoft.com/download/details.aspx?id=50402).  
 
   Si usa la versión más reciente del controlador OLEDB para SQL Server (MSOLEDBSQL), [descargue la versión de 64 bits](https://www.microsoft.com/download/details.aspx?id=56730).  
   
-  Si usa controladores OLEDB/ODBC para otros sistemas de base de datos, como PostgreSQL, MySQL, Oracle, etc., puede descargar las versiones de 64 bits de sus sitios web.
+  Si usa controladores OLEDB/ODBC/ADO.NET para otros sistemas de base de datos, como PostgreSQL, MySQL, Oracle, etc., puede descargar las versiones de 64 bits de sus sitios web.
 - Si aún no lo ha hecho, [descargue e instale la versión de 64 bits del entorno de ejecución de Visual C++ (VC)](https://www.microsoft.com/download/details.aspx?id=40784) en la misma máquina en la que está instalada la instancia de IR autohospedado.
+
+### <a name="enable-windows-authentication-for-on-premises-staging-tasks"></a>Habilitación de la autenticación de Windows en tareas de almacenamiento provisional en el entorno local
+
+Si las tareas de almacenamiento provisional en el entorno local de IR autohospedado requieren la autenticación de Windows, [configure los paquetes SSIS para que usen la misma autenticación de Windows](/sql/integration-services/lift-shift/ssis-azure-connect-with-windows-auth?view=sql-server-ver15). 
+
+Las tareas de almacenamiento provisional en el entorno local se invocarán con la cuenta de servicio de IR autohospedado (*NT SERVICE\DIAHostService* de manera predeterminada) y se tendrá acceso a los almacenes de datos con la cuenta de autenticación de Windows. Ambas cuentas requieren que se les asignen determinadas directivas de seguridad. En el equipo de IR autohospedado, vaya a **Directiva de seguridad local** > **Directivas locales** > **Asignación de derechos de usuario** y haga lo siguiente:
+
+1. Asigne las directivas *Ajustar las cuotas de la memoria para un proceso* y *Reemplazar un símbolo (token) de nivel de proceso* a la cuenta del servicio de IR autohospedado. Esto debe producirse automáticamente al instalar el IR autohospedado con la cuenta de servicio predeterminada. Si no es así, asigne esas directivas de forma manual. Si utiliza una cuenta de servicio diferente, asígnele las mismas directivas.
+
+1. Asigne la directiva *Iniciar sesión como servicio* a la cuenta de autenticación de Windows.
 
 ## <a name="prepare-the-azure-blob-storage-linked-service-for-staging"></a>Preparación del servicio vinculado de Azure Blob Storage para almacenamiento provisional
 
-Si aún no lo ha hecho, cree un servicio vinculado de Azure Blob Storage en la misma factoría de datos en la que está configurada la instancia de Azure-SSIS IR. Para ello, consulte [Creación de un servicio vinculado de Azure Data Factory](./quickstart-create-data-factory-portal.md#create-a-linked-service). Asegúrese de hacer lo siguiente:
-- En **Almacén de datos** , seleccione **Azure Blob Storage**.  
+Si aún no lo ha hecho, cree un servicio vinculado de Azure Blob Storage en la misma factoría de datos en la que está configurada la instancia de Azure-SSIS IR. Para ello, consulte [Creación de un servicio vinculado de Azure Data Factory](./quickstart-create-data-factory-portal.md#create-a-linked-service). Asegúrese de hacer lo siguiente:
+- En **Almacén de datos**, seleccione **Azure Blob Storage**.  
 - En **Connect via integration runtime** (Conectar mediante el entorno de ejecución de integración), seleccione **AutoResolveIntegrationRuntime** (no su Azure-SSIS IR ni su IR autohospedado), ya que usamos la instancia predeterminada de Azure IR para capturar las credenciales de acceso de su instancia de Azure Blob Storage.
-- En **Método de autenticación** , seleccione **Clave de cuenta** , **SAS URI** (URI de SAS) o **Entidad de servicio**.  
+- En **Método de autenticación**, seleccione **Clave de cuenta**, **SAS URI** (URI de SAS), **Entidad de servicio** o **Identidad administrada**.  
 
-    >[!TIP]
-    >Si selecciona el método **Entidad de servicio** , conceda a la entidad de servicio al menos el rol *Colaborador de datos de Storage Blob*. Para más información, consulte[Conector de Azure Blob Storage](connector-azure-blob-storage.md#linked-service-properties).
+>[!TIP]
+>Si selecciona el método **Entidad de servicio**, conceda a la entidad de servicio al menos el rol *Colaborador de datos de Storage Blob*. Para más información, vea el [conector de Azure Blob Storage](connector-azure-blob-storage.md#linked-service-properties). Si selecciona el método **Identidad administrada**, conceda los roles apropiados de la identidad administrada de ADF para acceder a Azure Blob Storage. Para más información, vea [Acceso a Azure Blob Storage mediante la autenticación de Azure Active Directory con la identidad administrada de ADF](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-storage-connection-manager?view=sql-server-ver15#managed-identities-for-azure-resources-authentication).
 
 ![Preparación del servicio vinculado de Azure Blob Storage para almacenamiento provisional](media/self-hosted-integration-runtime-proxy-ssis/shir-azure-blob-storage-linked-service.png)
 
@@ -70,7 +80,7 @@ Cuando haya preparado el servicio vinculado de Azure Blob Storage e IR autohospe
 
 1. En el panel **Integration runtime setup** (Configuración del entorno de ejecución de integración), omita las secciones **Configuración general** y **Configuración de SQL** seleccionando **Siguiente**. 
 
-1. En la sección **Configuración avanzada** , haga lo siguiente:
+1. En la sección **Configuración avanzada**, haga lo siguiente:
 
    1. Active la casilla **Set up Self-Hosted Integration Runtime as a proxy for your Azure-SSIS Integration Runtime** (Configurar el entorno de ejecución de integración autohospedado como proxy para su instancia de Azure-SSIS Integration Runtime). 
 
@@ -78,7 +88,7 @@ Cuando haya preparado el servicio vinculado de Azure Blob Storage e IR autohospe
 
    1. En la lista desplegable **Staging Storage Linked Service** (Servicio vinculado de almacenamiento provisional), seleccione el servicio vinculado de Azure Blob Storage existente o cree uno para el almacenamiento provisional.
 
-   1. En **Ruta de acceso provisional** , especifique un contenedor de blobs de la cuenta seleccionada de Azure Blob Storage o deje este campo vacío para usar uno predeterminado como almacenamiento provisional.
+   1. En **Ruta de acceso provisional**, especifique un contenedor de blobs de la cuenta seleccionada de Azure Blob Storage o deje este campo vacío para usar uno predeterminado como almacenamiento provisional.
 
    1. Seleccione **Continuar**.
 
@@ -129,7 +139,7 @@ Al diseñar paquetes nuevos que contienen tareas Flujo de datos con componentes 
 ![Habilitación de la propiedad ConnectByProxy](media/self-hosted-integration-runtime-proxy-ssis/shir-connection-manager-properties.png)
 
 También puede habilitar esta propiedad al ejecutar paquetes existentes sin tener que cambiarlos manualmente uno a uno.  Hay dos opciones:
-- **Opción A** : Abrir, recompilar y volver a implementar el proyecto que contiene los paquetes con la extensión SSDT más reciente para ejecutarla en Azure-SSIS IR. A continuación, puede habilitar la propiedad estableciéndola en *True* para los administradores de conexiones pertinentes. Cuando ejecute paquetes de SSMS, los administradores de conexiones aparecen en la pestaña **Administrador de conexiones** de la ventana emergente **Ejecutar paquete**.
+- **Opción A**: Abrir, recompilar y volver a implementar el proyecto que contiene los paquetes con la extensión SSDT más reciente para ejecutarla en Azure-SSIS IR. A continuación, puede habilitar la propiedad estableciéndola en *True* para los administradores de conexiones pertinentes. Cuando ejecute paquetes de SSMS, los administradores de conexiones aparecen en la pestaña **Administrador de conexiones** de la ventana emergente **Ejecutar paquete**.
 
   ![Habilitación de la propiedad ConnectByProxy 2](media/self-hosted-integration-runtime-proxy-ssis/shir-connection-managers-tab-ssms.png)
 
@@ -147,19 +157,11 @@ También puede habilitar esta propiedad al ejecutar paquetes existentes sin tene
 
 ## <a name="debug-the-on-premises-and-cloud-staging-tasks"></a>Depuración de tareas de almacenamiento provisional en el entorno local y en la nube
 
-En la instancia de IR autohospedado, puede encontrar los registros del entorno de ejecución en la carpeta *C:\ProgramData\SSISTelemetry* y los registros de ejecución de las tareas de almacenamiento provisional en el entorno local en la carpeta *C:\ProgramData\SSISTelemetry\ExecutionLog*.  Puede encontrar los registros de ejecución de las tareas de almacenamiento provisional en la nube en la instancia de SSISDB o en las rutas de acceso de registro especificadas, en función de si los paquetes se almacenan en SSISDB o no. También puede encontrar los identificadores únicos de las tareas de almacenamiento provisional en el entorno local en los registros de ejecución de las tareas de almacenamiento provisional en la nube. 
+En la instancia de IR autohospedado, puede encontrar los registros del entorno de ejecución en la carpeta *C:\ProgramData\SSISTelemetry* y los registros de ejecución de las tareas de almacenamiento provisional en el entorno local en la carpeta *C:\ProgramData\SSISTelemetry\ExecutionLog*.  Puede encontrar los registros de ejecución de las tareas de almacenamiento provisional en la nube en la instancia de SSISDB, en las rutas de acceso de registro especificadas o en Azure Monitor, en función de si los paquetes se almacenan en SSISDB, si se habilita la [integración de Azure Monitor](https://docs.microsoft.com/azure/data-factory/monitor-using-azure-monitor#monitor-ssis-operations-with-azure-monitor), etc. También puede encontrar los identificadores únicos de las tareas de almacenamiento provisional en el entorno local en los registros de ejecución de las tareas de almacenamiento provisional en la nube. 
 
 ![Identificador único de la primera tarea de almacenamiento provisional](media/self-hosted-integration-runtime-proxy-ssis/shir-first-staging-task-guid.png)
 
-## <a name="use-windows-authentication-in-on-premises-staging-tasks"></a>Uso de la autenticación de Windows en tareas de almacenamiento provisional en el entorno local
-
-Si las tareas de almacenamiento provisional en el entorno local de IR autohospedado requieren la autenticación de Windows, [configure los paquetes SSIS para que usen la misma autenticación de Windows](/sql/integration-services/lift-shift/ssis-azure-connect-with-windows-auth?view=sql-server-ver15). 
-
-Las tareas de almacenamiento provisional en el entorno local se invocarán con la cuenta de servicio de IR autohospedado ( *NT SERVICE\DIAHostService* de manera predeterminada) y se tendrá acceso a los almacenes de datos con la cuenta de autenticación de Windows. Ambas cuentas requieren que se les asignen determinadas directivas de seguridad. En el equipo de IR autohospedado, vaya a **Directiva de seguridad local** > **Directivas locales** > **Asignación de derechos de usuario** y haga lo siguiente:
-
-1. Asigne las directivas *Ajustar las cuotas de la memoria para un proceso* y *Reemplazar un símbolo (token) de nivel de proceso* a la cuenta del servicio de IR autohospedado. Esto debe producirse automáticamente al instalar el IR autohospedado con la cuenta de servicio predeterminada. Si no es así, asigne esas directivas de forma manual. Si utiliza una cuenta de servicio diferente, asígnele las mismas directivas.
-
-1. Asigne la directiva *Iniciar sesión como servicio* a la cuenta de autenticación de Windows.
+Si ha generado incidencias de soporte técnico, puede seleccionar el botón **Enviar registros** en la pestaña **Diagnósticos** de **Microsoft Integration Runtime Configuration Manager** que está instalado en el entorno de ejecución de integración autohospedado para enviar los registros de operaciones y ejecuciones recientes para que se investiguen.
 
 ## <a name="billing-for-the-on-premises-and-cloud-staging-tasks"></a>Facturación de las tareas de almacenamiento provisional en el entorno local y en la nube
 
@@ -167,7 +169,25 @@ Las tareas de almacenamiento provisional en el entorno local que se ejecutan en 
 
 Las tareas de almacenamiento provisional en la nube que se ejecutan en la instancia de Azure-SSIS IR no se facturan por separado, pero la instancia de Azure-SSIS IR en ejecución se factura tal como se especifica en el artículo sobre [Precios de Azure-SSIS IR](https://azure.microsoft.com/pricing/details/data-factory/ssis/).
 
-## <a name="enabling-tls-12"></a>Habilitación de TLS 1.2
+## <a name="enable-custom3rd-party-components"></a>Habilitación de componentes personalizados o de terceros 
+
+Para habilitar componentes personalizados o de terceros para acceder a los datos locales mediante IR autohospedado como un proxy para Azure-SSIS IR, siga estas instrucciones:
+
+1. Instale los componentes personalizados o de terceros que tengan como destino SQL Server 2017 en Azure-SSIS IR mediante las [instalaciones personalizadas estándar/rápidas](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup).
+
+1. Cree las siguientes claves del Registro DTSPath en IR autohospedado si aún no existen: `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft SQL Server\140\SSIS\Setup\DTSPath` y `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Microsoft SQL Server\140\SSIS\Setup\DTSPath`.
+ 
+1. Instale los componentes personalizados o de terceros que tengan como destino SQL Server 2017 en IR autohospedado en el registro DTSPath anterior y asegúrese de que el proceso de instalación realice lo siguiente:
+
+   1. Crear las carpetas `<DTSPath>`, `<DTSPath>/Connections`, `<DTSPath>/PipelineComponents` y `<DTSPath>/UpgradeMappings` si aún no existen.
+   
+   1. Crear su propio archivo XML para las asignaciones de extensiones en la carpeta `<DTSPath>/UpgradeMappings`.
+   
+   1. Instalar todos los ensamblados a los que hacen referencia los ensamblados de componentes personalizados o de terceros en la caché global de ensamblados (GAC).
+
+A continuación, se muestra un [ejemplo de un componente de terceros](https://www.aecorsoft.com/blog/2020/11/8/using-azure-data-factory-to-bring-sap-data-to-azure-via-self-hosted-ir-and-ssis-ir) que usa una instalación personalizada rápida y el entorno de ejecución de integración autohospedado como un proxy para Azure-SSIS IR.
+
+## <a name="enforce-tls-12"></a>Aplicación de TLS 1.2
 
 Si necesita usar un protocolo de red de alta seguridad y cifrado seguro (TLS 1.2) y deshabilitar las versiones anteriores de SSL/TLS en el entorno de ejecución de integración autohospedado, puede descargar y ejecutar el script *main.cmd* que se encuentra en la carpeta *CustomSetupScript/UserScenarios/TLS 1.2* del contenedor en versión preliminar pública.  Con el [Explorador de Azure Storage](https://storageexplorer.com/), puede conectarse al contenedor en versión preliminar pública; para ello, escriba el siguiente URI de SAS:
 
@@ -175,8 +195,10 @@ Si necesita usar un protocolo de red de alta seguridad y cifrado seguro (TLS 1.2
 
 ## <a name="current-limitations"></a>Limitaciones actuales
 
-- Actualmente, solo se admiten las tareas Flujo de datos con orígenes de OLEDB/ODBC/archivo plano o destinos OLEDB.
-- Solo se admiten actualmente los servicios vinculados de Azure Blob Storage configurados con la autenticación de *clave de cuenta* , *URI de firma de acceso compartido (SAS)* o *entidad de servicio*.
+- Actualmente, solo son compatibles los componentes de flujo de datos que están integrados o preinstalados en Azure-SSIS IR Standard Edition, excepto los componentes de Hadoop/HDFS/DQS; vea [todos los componentes integrados y preinstalados en Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/built-in-preinstalled-components-ssis-integration-runtime).
+- Actualmente, solo son compatibles los componentes de flujo de datos personalizados o de terceros que se escriben en código administrado (.NET Framework). Sin embargo, no se admiten actualmente los que se escriben en código nativo (C++).
+- Actualmente, no se admite el cambio de valores de variables en las tareas locales y de almacenamiento provisional en la nube.
+- El cambio de valores de variables del objeto type en las tareas de almacenamiento provisional locales no se reflejará en otras tareas.
 - Actualmente no se admite *ParameterMapping* en el origen de OLEDB. Como solución alternativa, use *Comando SQL de variable* como *AccessMode* y *Expresión* para insertar las variables o los parámetros en un comando SQL. Como ejemplo, vea el paquete *ParameterMappingSample.dtsx* que se puede encontrar en la carpeta *SelfHostedIRProxy/Limitations* del contenedor en versión preliminar pública. Con el Explorador de Azure Storage, puede conectarse al contenedor en versión preliminar pública especificando el URI de SAS anterior.
 
 ## <a name="next-steps"></a>Pasos siguientes

@@ -5,14 +5,14 @@ author: jimzim
 ms.author: jzim
 ms.service: container-service
 ms.topic: overview
-ms.date: 04/24/2020
+ms.date: 11/13/2020
 ms.custom: mvc
-ms.openlocfilehash: a3bdc3673474b778aa7c1003e48e215bac6d05bf
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 1bf3141876ee56ee1361f19a67689ca3b2f4f89a
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "82628527"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94685297"
 ---
 # <a name="azure-red-hat-openshift"></a>Red Hat OpenShift en Azure
 
@@ -28,11 +28,15 @@ Para comenzar, complete el tutorial [Create an Azure Red Hat OpenShift cluster](
 
 ## <a name="access-security-and-monitoring"></a>Acceso, seguridad y supervisión
 
-Para una seguridad y administración mejoradas, Red Hat OpenShift en Azure le permite integrarse con Azure Active Directory (Azure AD) y usar el control de acceso basado en rol (RBAC) de Kubernetes. También puede supervisar el mantenimiento del clúster y recursos.
+Para una seguridad y administración mejoradas, Red Hat OpenShift en Azure le permite integrarse con Azure Active Directory (Azure AD) y usar el control de acceso basado en rol de Kubernetes. También puede supervisar el mantenimiento del clúster y recursos.
 
 ## <a name="cluster-and-node"></a>Clúster y nodo
 
 Los nodos de Red Hat OpenShift en Azure se ejecutan en máquinas virtuales de Azure. El almacenamiento se puede conectar a nodos y pods, y actualizar los componentes de clúster.
+
+## <a name="service-level-agreement"></a>Acuerdo de Nivel de Servicio
+
+Red Hat OpenShift en Azure ofrece un Acuerdo de Nivel de Servicio para garantizar que el servicio estará disponible el 99,95 % del tiempo. Para más información sobre el Acuerdo de Nivel de Servicio, consulte el [Acuerdo de Nivel de Servicio de Red Hat OpenShift en Azure](https://azure.microsoft.com/en-au/support/legal/sla/openshift/v1_0/).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

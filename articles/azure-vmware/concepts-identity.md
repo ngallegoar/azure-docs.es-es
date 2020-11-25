@@ -2,25 +2,25 @@
 title: Conceptos sobre identidad y acceso
 description: Obtenga información sobre los conceptos de identidad y acceso de Azure VMware Solution
 ms.topic: conceptual
-ms.date: 05/04/2020
-ms.openlocfilehash: 7127109801d92d2177f6edac3efcaf76ddf217e6
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.date: 11/11/2020
+ms.openlocfilehash: e9c0d62968d94e2b018186f67072b6ae7078db02
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92674651"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94536105"
 ---
 # <a name="azure-vmware-solution-identity-concepts"></a>Conceptos de identidad en Azure VMware Solution
 
-Cuando se implementa una nube privada, se aprovisionan un servidor vCenter y NSX-T Manager. vCenter se usa para administrar cargas de trabajo de máquina virtual (VM). NSX-T Manager se usa para ampliar la red definida por software de la nube privada.
+Las nubes privadas de Azure VMware Solution se aprovisionan con un servidor vCenter y NSX-T Manager. vCenter se usa para administrar cargas de trabajo de máquina virtual (VM). Use NSX-T Manager para ampliar la nube privada.
 
-Administración de acceso e identidad usa los privilegios del grupo CloudAdmin para vCenter y derechos de administrador restringidos para NSX-T Manager. Garantiza que la plataforma de nube privada se actualiza automáticamente con las características y revisiones más recientes.  Para obtener más información, vea el [artículo sobre conceptos de actualización de nube privada][concepts-upgrades].
+En la administración de identidades y acceso se usan los privilegios del grupo CloudAdmin para vCenter y derechos de administrador restringidos para NSX-T Manager. Garantiza que la plataforma de nube privada se actualiza automáticamente con las características y revisiones más recientes.  Para obtener más información, vea el [artículo sobre conceptos de actualización de nube privada][concepts-upgrades].
 
 ## <a name="vcenter-access-and-identity"></a>Acceso e identidad de vCenter
 
-Los privilegios en vCenter se proporcionan a través del grupo CloudAdmin. Ese grupo se puede administrar localmente en vCenter, o a través de la integración del inicio de sesión único de vCenter LDAP con Azure Active Directory. Se le proporciona la capacidad de habilitar esa integración después de implementar una nube privada.
+El grupo CloudAdmin proporciona los privilegios en vCenter. El grupo se administra localmente en vCenter. Otra opción es mediante la integración del inicio de sesión único LDAP de vCenter con Azure Active Directory. Puede habilitar esa integración después de implementar la nube privada. 
 
-Los privilegios de CloudAdmin y CloudGlobalAdmin se muestran en la tabla siguiente.
+En la tabla se muestran los privilegios **CloudAdmin** y **CloudGlobalAdmin**.
 
 |  Conjunto de privilegios           | CloudAdmin | CloudGlobalAdmin | Comentario |
 | :---                     |    :---:   |       :---:      |   :--:  |

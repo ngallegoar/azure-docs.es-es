@@ -4,12 +4,12 @@ description: Proporciona un resumen de opciones de compatibilidad y limitaciones
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.custom: references_regions
-ms.openlocfilehash: ee37e994c9e72c3d3c98455360dc68746f49d278
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: ae2eb97f214204b813564b6373c4e9dc176f483c
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92743122"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555443"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Matriz de compatibilidad para Azure Backup
 
@@ -25,7 +25,7 @@ Otras matrices de compatibilidad están disponibles:
 
 ## <a name="vault-support"></a>Compatibilidad con almacenes
 
-Azure Backup usa almacenes de Recovery Services para organizar y administrar las copias de seguridad, y para almacenar los datos con copia de seguridad realizada.
+Azure Backup usa almacenes de Recovery Services para coordinar y administrar las copias de seguridad de los siguientes tipos de carga de trabajo: máquinas virtuales de Azure, SQL en máquinas virtuales de Azure, SAP HANA en máquinas virtuales de Azure, recursos compartidos de archivos de Azure y cargas de trabajo locales con el Agente de Azure Backup, Azure Backup Server y System Center DPM. También utiliza almacenes de Recovery Services para almacenar los datos de copia de seguridad de estas cargas de trabajo.
 
 En esta tabla se describen las características de los almacenes de Recovery Services:
 

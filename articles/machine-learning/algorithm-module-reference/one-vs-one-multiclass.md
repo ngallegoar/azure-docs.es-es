@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/16/2019
-ms.openlocfilehash: 1c08ba51b815386783c3412e9238d2e96da03ff9
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.date: 11/13/2020
+ms.openlocfilehash: 92ef5b372113d0d226335b8ec464a75a5a684bc3
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94377046"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94592913"
 ---
 # <a name="one-vs-one-multiclass"></a>Uno frente a uno multiclase
 
@@ -31,6 +31,8 @@ Este módulo implementa el método uno frente a uno, en el que se crea un modelo
 En esencia, el módulo crea un conjunto de modelos individuales, y luego combina los resultados para crear un único modelo que predice todas las clases. Cualquier clasificador binario se puede utilizar como base para un modelo uno frente a uno.  
 
 Por ejemplo, supongamos que configura un modelo de [Máquina de vectores de soporte de dos clases](two-class-support-vector-machine.md) y lo proporciona como entrada al módulo Uno frente a uno multiclase. El módulo creará modelos de máquina de vectores de soporte de dos clases para todos los miembros de la clase de salida. A continuación, aplicará el método uno frente a uno para combinar los resultados de todas las clases.  
+
+El módulo usa OneVsOneClassifier de sklearn. Puede consultar información más detallada [aquí](https://scikit-learn.org/stable/modules/generated/sklearn.multiclass.OneVsOneClassifier.html).
 
 ## <a name="how-to-configure-the-one-vs-one-multiclass-classifier"></a>Configuración del clasificador Uno frente a uno multiclase  
 

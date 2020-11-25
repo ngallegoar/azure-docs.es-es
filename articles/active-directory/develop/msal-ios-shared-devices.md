@@ -13,19 +13,17 @@ ms.date: 03/31/2020
 ms.author: brandwe
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 949ddae903a53957f62b89a01ce477edb92917c1
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: a97e14bcb68629f5f175a4913146187949af08be
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92365920"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94561070"
 ---
 # <a name="shared-device-mode-for-ios-devices"></a>Modo de dispositivo compartido para dispositivos iOS
 
-> [!NOTE]
-> Esta característica está en versión preliminar pública.
-> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
-> Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>[!IMPORTANT]
+> Esta característica [!INCLUDE [PREVIEW BOILERPLATE](../../../includes/active-directory-develop-preview.md)]
 
 Los trabajadores de primera línea, como los asociados comerciales, los miembros de la tripulación de vuelos y los trabajadores de servicios de campo, suelen usar un dispositivo móvil compartido para realizar su trabajo. Estos dispositivos compartidos pueden presentar riesgos para la seguridad si los usuarios comparten sus contraseñas o PIN, intencionalmente o no, para acceder a los datos de clientes y empresariales en el dispositivo compartido.
 
@@ -43,7 +41,7 @@ Para crear una aplicación en modo de dispositivo compartido, los desarrolladore
 
 1. Los **administradores de dispositivos** preparan el dispositivo para que se comparta mediante un proveedor de administración de dispositivos móviles (MDM) como Microsoft Intune para administrar los dispositivos de la organización. MDM envía la aplicación Microsoft Authenticator a los dispositivos y activa el "modo compartido" para cada dispositivo mediante una actualización de perfil en el dispositivo. Esta configuración de modo compartido es lo que cambia el comportamiento de las aplicaciones compatibles en el dispositivo. Esta configuración del proveedor de MDM establece el modo de dispositivo compartido para el dispositivo y habilita el complemento [Microsoft Enterprise SSO para dispositivos Apple](apple-sso-plugin.md) que es necesario para el modo de dispositivo compartido.
 
-1. [ **Necesario solo durante la versión preliminar pública** ] Un usuario con el rol de [administrador de dispositivos en la nube](../roles/permissions-reference.md#cloud-device-administrator) debe iniciar la [aplicación Microsoft Authenticator](../user-help/user-help-auth-app-overview.md) y unir el dispositivo a la organización.
+1. [**Necesario solo durante la versión preliminar pública**] Un usuario con el rol de [administrador de dispositivos en la nube](../roles/permissions-reference.md#cloud-device-administrator) debe iniciar la [aplicación Microsoft Authenticator](../user-help/user-help-auth-app-overview.md) y unir el dispositivo a la organización.
 
     Para configurar la pertenencia de los roles de la organización en Azure Portal: **Azure Active Directory** > **Roles y administradores**  > **Administrador de dispositivos en la nube**
 
@@ -58,10 +56,10 @@ El dispositivo debe estar configurado para admitir el modo de dispositivo compar
 
 1. En el portal de configuración de Intune, indique al dispositivo que habilite el [complemento Microsoft Enterprise SSO para dispositivos Apple](apple-sso-plugin.md) con la configuración siguiente:
 
-    - **Tipo** : Redirigir
-    - **Identificador de extensión** : com.microsoft.azureauthenticator.ssoextension
-    - **Id. de equipo** : (este campo no es necesario en iOS).
-    - **URL** :   
+    - **Tipo**: Redirigir
+    - **Identificador de extensión**: com.microsoft.azureauthenticator.ssoextension
+    - **Id. de equipo**: (este campo no es necesario en iOS).
+    - **URL**:   
         - `https://login.microsoftonline.com`
         - `https://login.microsoft.com`
         - `https://sts.windows.net`
@@ -71,7 +69,7 @@ El dispositivo debe estar configurado para admitir el modo de dispositivo compar
         - `https://login.microsoftonline.us`
         - `https://login.usgovcloudapi.net`
         - `https://login-us.microsoftonline.com`
-    - **Datos adicionales que se deben configurar** :
+    - **Datos adicionales que se deben configurar**:
       - Clave: sharedDeviceMode
       - Escriba:  Boolean
       - Valor: true

@@ -4,12 +4,12 @@ description: Cree una aplicación de funciones de Python sin servidor y montarí
 ms.topic: sample
 ms.date: 03/01/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 63ab9ba3219dc600187e73bbf124d62d3f51317a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bdcaeaca7c063f0532167077bba63f7e52a3d491
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87498215"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94565065"
 ---
 # <a name="mount-a-file-share-to-a-python-function-app-using-azure-cli"></a>Montaje de un recurso compartido de archivos en una aplicación de funciones de Python mediante la CLI de Azure
 
@@ -20,9 +20,9 @@ Este script de ejemplo de Azure Functions crea una aplicación de funciones y cr
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
-Si decide instalar y usar la CLI localmente, para este artículo es preciso que ejecute la versión 2.0 o posterior de la CLI de Azure. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure]( /cli/azure/install-azure-cli). Los ejemplos se escriben para la shell de Bash y se debe modificar para ejecutarse en un símbolo del sistema de Windows. 
+ - Este tutorial requiere la versión 2.0 de la CLI de Azure o cualquier versión posterior. Si usa Azure Cloud Shell, ya está instalada la versión más reciente. 
 
 ## <a name="sample-script"></a>Script de ejemplo
 

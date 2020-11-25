@@ -3,18 +3,18 @@ title: Introducción a Azure Cost Management para los asociados
 description: En este artículo se explica cómo los asociados usan las características de Azure Cost Management y cómo permiten a sus clientes el acceso a Cost Management.
 author: bandersmsft
 ms.author: banders
-ms.date: 08/04/2020
+ms.date: 11/16/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: 0076c70f64ec5cea8b92cb2b9ed27de05406316d
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: d2b90db18a31fff4190be4f84625ad52fcaae578
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91827575"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94657319"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>Introducción a Azure Cost Management para los asociados
 
@@ -126,7 +126,7 @@ Independientemente de la directiva, los administradores globales y los agentes d
 
 Debe ser miembro del grupo **agentes administradores** para ver y actualizar la directiva. Utilice la siguiente información para habilitar la directiva y permitir a los clientes ver los cargos de uso de Azure.
 
-En Azure Portal, inicie sesión en el inquilino del asociado y seleccione **Administración de costos + facturación**. Seleccione el ámbito de facturación pertinente en el área Ámbito de facturación y, a continuación, seleccione **Clientes**. La lista de clientes está asociada a la cuenta de facturación.
+En Azure Portal, inicie sesión en el *inquilino del asociado* y seleccione **Administración de costos + facturación**. Seleccione el ámbito de facturación pertinente en el área Ámbito de facturación y, a continuación, seleccione **Clientes**. La lista de clientes está asociada a la cuenta de facturación. *Si inicia sesión por error en el inquilino del cliente, no verá la lista **Clientes**.*
 
 En la lista de clientes, seleccione el que quiere que vea los costos.
 
@@ -188,7 +188,7 @@ Los siguientes campos de datos se encuentran en los archivos de detalles de uso 
 | costCenter | Centro de costo asociado a la suscripción. | N/D |
 | billingPeriodStartDate | Fecha de inicio del período de facturación, como se muestra en la factura. | N/D |
 | billingPeriodEndDate | Fecha de finalización del período de facturación, como se muestra en la factura. | N/D |
-| servicePeriodStartDate | Fecha de inicio del período de valoración en que se han valorado los cargos por el uso del servicio. Los precios de los servicios de Azure se determinan según el período de valoración. | ChargeStartDate en el Centro de partners. Fecha de inicio del ciclo de facturación, excepto cuando se presentan fechas de datos de uso latente que no se hayan cobrado anteriormente de un ciclo de facturación anterior. La hora es siempre el principio del día, 00:00. |
+| servicePeriodStartDate | Fecha de inicio del período de valoración en que se han valorado los cargos por el uso del servicio. Los precios de los servicios de Azure se determinan según el período de valoración. | ChargeStartDate en el Centro de partners.  Fecha de inicio del ciclo de facturación, excepto cuando se presentan fechas de datos de uso latente que no se hayan cobrado anteriormente de un ciclo de facturación anterior. La hora es siempre el principio del día, 00:00. |
 | servicePeriodEndDate | Fecha de finalización del período en que se han valorado los cargos por el uso del servicio. Los precios de los servicios de Azure se determinan en función del período de valoración. | N/D |
 | date | En el caso de los datos de consumo de Azure, muestra la fecha de uso. En el caso de la instancia reservada, muestra la fecha de compra. En el caso de cargos periódicos y cargos puntuales como Marketplace y soporte técnico, muestra la fecha de compra. | N/D |
 | productID | Identificador del producto que ha acumulado cargos por consumo o compra. Es la clave concatenada de productID y SKuID, como se muestra en el Centro de partners. | Identificador del producto. |

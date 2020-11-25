@@ -3,12 +3,12 @@ title: 'Preguntas frecuentes: copia de seguridad de bases de datos de SAP HANA e
 description: En este artículo, descubra las respuestas a preguntas comunes sobre la copia de seguridad de bases de datos de SAP HANA con el servicio Azure Backup.
 ms.topic: conceptual
 ms.date: 11/7/2019
-ms.openlocfilehash: dcbf1bf6b39b2afa3fb5aaf2a7f18c5d0e8e4afb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 24eb4abaaabe166ceb3e6bdb99f9446d398d03a1
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86513513"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94686113"
 ---
 # <a name="frequently-asked-questions--back-up-sap-hana-databases-on-azure-vms"></a>Preguntas frecuentes: copia de seguridad de bases de datos de SAP HANA en máquinas virtuales de Azure
 
@@ -26,7 +26,7 @@ No. Los trabajos de copia de seguridad correctos no generan alertas. Las alertas
 
 ### <a name="can-i-see-scheduled-backup-jobs-in-the-backup-jobs-menu"></a>¿Se pueden ver los trabajos de copia de seguridad programados en el menú de Trabajos de copia de seguridad?
 
-El menú Trabajo de copia de seguridad solo muestra los trabajos de copia de seguridad ad hoc. Para los trabajos programados, use [Azure Monitor](./backup-azure-monitoring-use-azuremonitor.md).
+En el menú de Trabajo de copia de seguridad solo se mostrarán los trabajos de copia de seguridad a petición. Para los trabajos programados, use [Azure Monitor](./backup-azure-monitoring-use-azuremonitor.md).
 
 ### <a name="are-future-databases-automatically-added-for-backup"></a>¿Las bases de datos futuras se agregan automáticamente para copia de seguridad?
 
@@ -124,6 +124,43 @@ Consulte la Nota [1642148](https://launchpad.support.sap.com/#/notes/1642148) de
 ### <a name="can-i-use-a-backup-of-a-database-running-on-sles-to-restore-to-an-rhel-hana-system-or-vice-versa"></a>¿Puedo usar una copia de seguridad de una base de datos que se ejecuta en SLES para la restauración a un sistema RHEL HANA o viceversa?
 
 Sí, puede usar las copias de seguridad de streaming desencadenadas en una base de datos de HANA que se ejecuta en SLES para restaurarla en un sistema RHEL HANA y viceversa. Es decir, la restauración entre sistemas operativos es posible mediante copias de seguridad de streaming. Sin embargo, tendrá que asegurarse de que el sistema HANA en el que desea realizar la restauración y el sistema HANA que usará para la restauración sean compatibles con la restauración de acuerdo con SAP. Consulte la nota [1642148](https://launchpad.support.sap.com/#/notes/1642148) de SAP HANA para ver qué tipos de restauración son compatibles.
+
+## <a name="policy"></a>Directiva
+
+### <a name="different-options-available-during-creation-of-a-new-policy-for-sap-hana-backup"></a>Diferentes opciones disponibles durante la creación de una directiva para la copia de seguridad de SAP HANA
+
+Antes de crear una directiva, debe tener claros los requisitos de RPO y RTO, así como sus costos asociados pertinentes.
+
+El RPO (objetivo de punto de recuperación) indica cuánta pérdida de datos es aceptable para el usuario o el cliente. Esto lo determina la frecuencia de copia de seguridad de registros. Las copias de seguridad de registros más frecuentes indican un RPO inferior, y el valor mínimo admitido por el servicio Azure Backup es de 15 minutos. Por lo tanto, la frecuencia de copia de seguridad de registros puede ser de 15 minutos o más.
+
+El RTO (objetivo de punto de recuperación) indica la rapidez con la que se deben restaurar los datos al último momento disponible después de un escenario de pérdida de datos. Esto depende de la estrategia de recuperación empleada por HANA, que suele depender del número de archivos necesarios para la restauración. Esto también genera costos asociados, y la tabla siguiente debería ayudarle a comprender todos los escenarios y sus implicaciones.
+
+|Directiva de copia de seguridad  |RTO  |Coste  |
+|---------|---------|---------|
+|Completa diaria + registros     |   Lo más rápido, ya que solo necesitamos una copia completa más los registros necesarios para la restauración a un momento dado      |    Lo más económico, ya que se realiza una copia completa diariamente y, por tanto, se acumulan más datos en el back-end hasta el tiempo de retención   |
+|Completa semanal + diaria diferencial + registros     |   Se trata de una opción más lenta que la anterior, pero más rápida que la siguiente, ya que se requiere una copia completa + una copia diferencial + registros para la restauración a un momento dado      |    Opción menos costosa, ya que la copia diferencial diaria suele ser más pequeña que la completa, y la copia completa se realiza solo una vez a la semana      |
+|Completa semanal + incremental diaria + registros     |  Lo más lento, ya que necesitamos una copia completa + "n" incrementales + registros para la restauración a un momento dado       |     Opción más costosa, ya que la copia incremental diaria será más pequeña que la diferencial, y una copia completa se realiza solo cada semana    |
+
+> [!NOTE]
+> Las opciones anteriores son las más comunes, pero no las únicas. Por ejemplo, puede tener una copia de seguridad completa semanal + diferenciales dos veces a la semana + registros.
+
+Por lo tanto, puede seleccionar la variante de directiva en función de los objetivos de RPO y RTO y las consideraciones de costos.
+
+### <a name="impact-of-modifying-a-policy"></a>Impacto de la modificación de una directiva
+
+Deben tenerse en cuenta algunos principios a la hora de determinar el impacto de cambiar la directiva de un elemento de copia de seguridad de la directiva 1 (P1) a la directiva 2 (P2), o de la directiva de edición 1 (P1).
+
+- Todos los cambios también se aplican de forma retroactiva. La directiva de copia de seguridad más reciente se aplica también a los puntos de recuperación que se realizaron anteriormente. Por ejemplo, supongamos que la retención completa diaria es de 30 días y que se realizaron 10 puntos de recuperación según la directiva activa actualmente. Si la retención diaria completa se cambia a 10 días, la hora de expiración del punto anterior también se vuelve a calcular como la hora de inicio + 10 días, y se elimina si ha expirado.
+- El ámbito del cambio también incluye el día de la copia de seguridad y el tipo de copia de seguridad junto con la retención. Por ejemplo: Si se cambia una directiva de completa diaria a completa semanal todos los domingos, todas las copias completas anteriores no realizadas en domingo se marcarán para su eliminación.
+- No se elimina un elemento primario hasta que el elemento secundario está activo o no haya expirado. Cada tipo de copia de seguridad tiene una hora de expiración de acuerdo con la directiva activa actualmente. Sin embargo, un tipo de copia de seguridad completa se considera como primario para las copias "diferenciales", "incrementales" y los "registros" posteriores. Una copia "diferencial" y un "registro" no son elementos primarios de ningún otro. Una copia "incremental" puede ser un elemento primario de la copia "incremental" posterior. Incluso si un elemento "primario" está marcado para su eliminación, no se elimina realmente si las copias "diferenciales" o los "registros" secundarios no han expirado. Por ejemplo, si se cambia una directiva de completa diaria a completa semanal todos los domingos, todas las copias completas anteriores no realizadas en domingo se marcarán para su eliminación. Sin embargo, no se eliminan realmente hasta que no expiran los registros diarios realizados anteriormente. En otras palabras, se conservan en función de la duración del último registro. Una vez que expiren los registros, se eliminarán los registros y las copias completas.
+
+Con estos principios, puede leer la siguiente tabla para comprender las implicaciones de un cambio de directiva.
+
+|Directiva anterior/directiva nueva  |Completas diarias + registros  | Completas semanales + diferenciales diarias + registros  |Completas semanales + incrementales diarias + registros  |
+|---------|---------|---------|---------|
+|Completas diarias + registros     |   -      |    Las copias completas anteriores no realizadas el mismo día de la semana se marcan para su eliminación, pero se mantienen hasta el período de retención del registro     |    Las copias completas anteriores no realizadas el mismo día de la semana se marcan para su eliminación, pero se mantienen hasta el período de retención del registro     |
+|Completas semanales + diferenciales diarias + registros     |   La retención de las copias completas semanales anteriores se vuelve a calcular según la última directiva. Las copias diferenciales anteriores se eliminan inmediatamente      |    -     |    Las copias diferenciales anteriores se eliminan inmediatamente     |
+|Completas semanales + incrementales diarias + registros     |     La retención de las copias completas semanales anteriores se vuelve a calcular según la última directiva. Las copias incrementales anteriores se eliminan inmediatamente    |     Las copias incrementales anteriores se eliminan inmediatamente    |    -     |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

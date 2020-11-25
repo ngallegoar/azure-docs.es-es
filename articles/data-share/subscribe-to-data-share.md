@@ -5,13 +5,13 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: tutorial
-ms.date: 08/14/2020
-ms.openlocfilehash: 9031ea2d862a23df5d597b790fffc49e624e53fb
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.date: 11/12/2020
+ms.openlocfilehash: a225989f0670e9b62b00a35bac719c9357c8a130
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491926"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659614"
 ---
 # <a name="tutorial-accept-and-receive-data-using-azure-data-share"></a>Tutorial: Aceptación y recepción de datos con Azure Data Share  
 
@@ -32,19 +32,24 @@ Asegúrese de que se cumplen todos los requisitos previos antes de aceptar una i
 * Una invitación de Azure Data Share: Una invitación de Microsoft Azure con el asunto "Azure Data Share invitation from **<yourdataprovider@domain.com>** " (Invitación para Azure Data Share de yourdataprovider@domain.com).
 * Registre el [proveedor de recursos Microsoft.DataShare](concepts-roles-permissions.md#resource-provider-registration) en la suscripción de Azure en la que va a crear un recurso de Data Share y la suscripción de Azure en la que se encuentran los almacenes de datos de Azure de destino.
 
-### <a name="receive-data-into-a-storage-account"></a>Recepción de los datos en una cuenta de almacenamiento: 
+### <a name="receive-data-into-a-storage-account"></a>Recepción de los datos en una cuenta de almacenamiento
 
 * Una cuenta de Azure Storage: si no la tiene, puede crear una cuenta de [Azure Storage](../storage/common/storage-account-create.md). 
 * Permisos para escribir en la cuenta de almacenamiento, que se encuentra en *Microsoft.Storage/storageAccounts/write*. Este permiso existe en el rol de colaborador. 
 * Permisos para agregar la asignación de roles a la cuenta de almacenamiento, que se encuentra en *Microsoft.Authorization/role assignments/write*. Este permiso existe en el rol de propietario.  
 
-### <a name="receive-data-into-a-sql-based-target"></a>Recepción de datos en un destino basado en SQL:
+### <a name="receive-data-into-a-sql-based-target"></a>Recepción de datos en un destino basado en SQL
+Si opta por recibir datos en Azure SQL Database, Azure Synapse Analytics, esta es la lista de requisitos previos. 
 
-* Permisos para escribir en las bases de datos de SQL Server, que se encuentra en *Microsoft.Sql/servers/databases/write*. Este permiso existe en el rol de colaborador. 
-* Permisos para que la identidad administrada del recurso compartido de datos acceda a Azure SQL Database o Azure Synapse Analytics. Esto se puede hacer mediante los siguientes pasos: 
-    1. Establézcase como administrador de Azure Active Directory para SQL Server.
-    1. Conéctese a Azure SQL Database o Data Warehouse mediante Azure Active Directory.
-    1. Use el editor de consultas (versión preliminar) para ejecutar el siguiente script para agregar la identidad administrada de Data Share como "db_datareader, db_datawriter, db_ddladmin". Debe conectarse mediante Active Directory y no con la autenticación de SQL Server. 
+#### <a name="prerequisites-for-receiving-data-into-azure-sql-database-or-azure-synapse-analytics-formerly-azure-sql-dw"></a>Requisitos previos para recibir datos en Azure SQL Database o Azure Synapse Analytics (anteriormente Azure SQL DW)
+Puede seguir la [demostración paso a paso](https://youtu.be/aeGISgK1xro) para configurar los requisitos previos.
+
+* Una instancia de Azure SQL Database o Azure Synapse Analytics (anteriormente Azure SQL DW).
+* Permisos para escribir en las bases de datos de SQL Server, que se encuentra en *Microsoft.Sql/servers/databases/write*. Este permiso existe en el rol de **colaborador**. 
+* Permiso para que la identidad administrada del recurso compartido de Data Share tenga acceso a Azure SQL Database o Azure Synapse Analytics. Esto se puede hacer mediante los siguientes pasos: 
+    1. En Azure Portal, vaya al servidor SQL Server y establézcase como **administrador de Azure Active Directory**.
+    1. Conéctese a Azure SQL Database/Data Warehouse con el [Editor de consultas](../azure-sql/database/connect-query-portal.md#connect-using-azure-active-directory) o SQL Server Management Studio mediante la autenticación de Azure Active Directory. 
+    1. Ejecute el siguiente script para agregar la identidad administrada de Data Share como "db_datareader, db_datawriter o db_ddladmin". Debe conectarse mediante Active Directory y no con la autenticación de SQL Server. 
 
         ```sql
         create user "<share_acc_name>" from external provider; 
@@ -54,11 +59,34 @@ Asegúrese de que se cumplen todos los requisitos previos antes de aceptar una i
         ```      
         Tenga en cuenta que *<share_acc_name>* es el nombre del recurso de Data Share. Si aún no ha creado un recurso de Data Share, puede volver a este requisito previo más adelante.         
 
-* Acceso al firewall de SQL Server desde la dirección IP del cliente. Esto se puede hacer mediante los siguientes pasos: 
+* Acceso al firewall de SQL Server. Esto se puede hacer mediante los siguientes pasos: 
     1. En SQL Server en Azure Portal, vaya a *Firewalls y redes virtuales*.
-    1. Haga clic en la alternancia **activado** para permitir el acceso a los servicios de Azure.
-    1. Haga clic en **+Agregar dirección IP de cliente** y haga clic en **Guardar**. La dirección IP del cliente está sujeta a cambios. Es posible que se tenga repetir este proceso la próxima vez que reciba datos en un destino SQL desde Azure Portal. También puede agregar un intervalo de direcciones IP. 
+    1. Haga clic en **Sí** en *Permitir que los servicios y recursos de Azure accedan a este servidor*.
+    1. Haga clic en **+Agregar IP de cliente**. La dirección IP del cliente está sujeta a cambios. Es posible que se tenga repetir este proceso la próxima vez que comparta datos de SQL desde Azure Portal. También puede agregar un intervalo de direcciones IP.
+    1. Haga clic en **Save**(Guardar). 
+ 
+#### <a name="prerequisites-for-receiving-data-into-azure-synapse-analytics-workspace-sql-pool"></a>Requisitos previos para recibir datos en el grupo de SQL de Azure Synapse Analytics (área de trabajo)
 
+* Un grupo de SQL dedicado de Azure Synapse Analytics (área de trabajo). Actualmente, no se admite la recepción de datos en un grupo de SQL sin servidor.
+* Permiso para escribir en el grupo de SQL en el área de trabajo de Synapse, que se encuentra en *Microsoft.Synapse/workspaces/sqlPools/write*. Este permiso existe en el rol de **colaborador**.
+* Permiso para que la identidad administrada del recurso de Data Share tenga acceso al grupo de SQL del área de trabajo de Synapse. Esto se puede hacer mediante los siguientes pasos: 
+    1. En Azure Portal, vaya al área de trabajo de Synapse. Seleccione el administrador de Active Directory de SQL desde el panel de navegación izquierdo y establézcase como **administración de Azure Active Directory**.
+    1. Abra Synapse Studio y seleccione *Administrar* en el panel de navegación izquierdo. En Seguridad, seleccione *Control de acceso*. Debe asignarse el rol **administrador de SQL** o **administrador del área de trabajo**.
+    1. En Synapse Studio, seleccione *Desarrollar* en el panel de navegación izquierdo. Ejecute el siguiente script en el grupo de SQL para agregar la identidad administrada del recurso de Data Share como "db_datareader, db_datawriter o db_ddladmin". 
+    
+        ```sql
+        create user "<share_acc_name>" from external provider; 
+        exec sp_addrolemember db_datareader, "<share_acc_name>"; 
+        exec sp_addrolemember db_datawriter, "<share_acc_name>"; 
+        exec sp_addrolemember db_ddladmin, "<share_acc_name>";
+        ```                   
+       Tenga en cuenta que *<share_acc_name>* es el nombre del recurso de Data Share. Si aún no ha creado un recurso de Data Share, puede volver a este requisito previo más adelante.  
+
+* Acceso al firewall del área de trabajo de Synapse. Esto se puede hacer mediante los siguientes pasos: 
+    1. En Azure Portal, vaya al área de trabajo de Synapse. Seleccione *Firewalls* en el panel de navegación izquierdo.
+    1. En **Permitir que los servicios y recursos de Azure accedan a esta área de trabajo**, haga clic en *Activado*.
+    1. Haga clic en **+Agregar IP de cliente**. La dirección IP del cliente está sujeta a cambios. Es posible que se tenga repetir este proceso la próxima vez que comparta datos de SQL desde Azure Portal. También puede agregar un intervalo de direcciones IP.
+    1. Haga clic en **Save**(Guardar). 
 
 ### <a name="receive-data-into-an-azure-data-explorer-cluster"></a>Recibir datos en un clúster de Azure Data Explorer: 
 
@@ -72,17 +100,40 @@ Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
 ## <a name="open-invitation"></a>Apertura de una invitación
 
+### <a name="portal"></a>[Portal](#tab/azure-portal)
+
 1. Puede abrir la invitación desde el correo electrónico o directamente en Azure Portal. 
 
    Para abrir la invitación desde el correo electrónico, compruebe la bandeja de entrada para ver si hay una invitación de su proveedor de datos. La invitación es de Microsoft Azure y su título es **Azure Data Share invitation from <yourdataprovider@domain.com>** (Invitación para Azure Data Share de yourdataprovider@domain.com). Haga clic en **Ver invitación** para ver su invitación en Azure. 
 
-   Para abrir la invitación desde Azure Portal directamente, busque **Invitaciones de recurso compartido de datos** en Azure Portal. Este paso le lleva a la lista de invitaciones de Data Share.
+   Para abrir la invitación desde Azure Portal directamente, busque **Invitaciones de recurso compartido de datos** en Azure Portal. Esta acción le lleva a la lista de invitaciones de Data Share.
 
    ![Lista de invitaciones](./media/invitations.png "Lista de invitaciones") 
 
 1. Seleccione el recurso compartido que desea ver. 
 
+### <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+
+Prepare el entorno de la CLI de Azure y, a continuación, vea las invitaciones.
+
+Empiece por preparar el entorno para la CLI de Azure:
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+Ejecute el comando [az datashare consumer invitation list](/cli/azure/ext/datashare/datashare/consumer/invitation#ext_datashare_az_datashare_consumer_invitation_list) para ver las invitaciones actuales:
+
+```azurecli
+az datashare consumer invitation list --subscription 11111111-1111-1111-1111-111111111111
+```
+
+Copie el identificador de invitación para usarlo en la sección siguiente.
+
+---
+
 ## <a name="accept-invitation"></a>Aceptación de la invitación
+
+### <a name="portal"></a>[Portal](#tab/azure-portal)
+
 1. Asegúrese de que se han revisado todos los campos, incluido el de **condiciones de uso**. Si acepta las condiciones de uso, se le solicitará que seleccione la casilla para indicarlo. 
 
    ![Condiciones de uso](./media/terms-of-use.png "Términos de uso") 
@@ -97,11 +148,27 @@ Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
    ![Opciones de aceptación](./media/accept-options.png "Opciones de aceptación") 
 
-   Esta opción le lleva al recurso compartido recibido en la cuenta de Data Share. 
+   Esta acción le lleva al recurso compartido recibido en la cuenta de Data Share. 
 
    Si no desea aceptar la invitación, seleccione *Reject* (Rechazar). 
 
+### <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+
+Use el comando [az datashare consumer share-subscription create](/cli/azure/ext/datashare/datashare/consumer/share-subscription#ext_datashare_az_datashare_consumer_share_subscription_create) para crear la instancia de Data Share.
+
+```azurecli
+az datashare consumer share-subscription create --resource-group share-rg \
+  --name "Fabrikam Solutions" --account-name FabrikamDataShareAccount \
+  --invitation-id 89abcdef-0123-4567-89ab-cdef01234567 \
+  --source-share-location "East US 2" --subscription 11111111-1111-1111-1111-111111111111
+```
+
+---
+
 ## <a name="configure-received-share"></a>Configuración del recurso compartido recibido
+
+### <a name="portal"></a>[Portal](#tab/azure-portal)
+
 Siga los pasos que se indican a continuación para configurar dónde quiere recibir los datos.
 
 1. Seleccione la pestaña **Conjuntos de datos**. Active la casilla situada junto al conjunto de datos al que desearía asignar un destino. Seleccione **+ Asignar a destino** para elegir un almacén de datos de destino. 
@@ -118,7 +185,97 @@ Siga los pasos que se indican a continuación para configurar dónde quiere reci
 
    ![Habilitación de la programación de instantáneas](./media/enable-snapshot-schedule.png "Habilitación de la programación de instantáneas")
 
+### <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+
+Use estos comandos para configurar dónde quiere recibir los datos.
+
+1. Ejecute el comando [az datashare consumer share-subscription list-source-dataset](/cli/azure/ext/datashare/datashare/consumer/share-subscription#ext_datashare_az_datashare_consumer_share_subscription_list_source_dataset) para obtener el identificador del conjunto de datos:
+
+   ```azurecli
+   az datashare consumer share-subscription list-source-dataset \
+     --resource-group "share-rg" --account-name "FabrikamDataShareAccount" \
+     --share-subscription-name "Fabrikam Solutions" \
+     --subscription 11111111-1111-1111-1111-111111111111 --query "[0].dataSetId"
+   ```
+
+1. Para crear una cuenta de almacenamiento para esta instancia de Data Share, ejecute el comando [az storage account create](/cli/azure/storage/account#az_storage_account_create):
+
+   ```azurecli
+   az storage account create --resource-group "share-rg" --name "FabrikamDataShareAccount" \
+     --subscription 11111111-1111-1111-1111-111111111111
+   ```
+
+1. Use el comando [az storage account show](/cli/azure/storage/account#az_storage_account_show) para obtener el identificador de la cuenta de almacenamiento:
+
+   ```azurecli
+   az storage account show --resource-group "share-rg" --name "FabrikamDataShareAccount" \
+     --subscription 11111111-1111-1111-1111-111111111111 --query "id"
+   ```
+
+1. Use el siguiente comando para obtener el identificador de la entidad de seguridad de la cuenta:
+
+   ```azurecli
+   az datashare account show --resource-group "share-rg" --name "cli_test_consumer_account" \
+     --subscription 11111111-1111-1111-1111-111111111111 --query "identity.principalId"
+   ```
+
+1. Use el comando [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create) para crear una asignación de roles para la entidad de seguridad de la cuenta:
+
+   ```azurecli
+   az role assignment create --role "01234567-89ab-cdef-0123-456789abcdef" \
+     --assignee-object-id 6789abcd-ef01-2345-6789-abcdef012345 
+     --assignee-principal-type ServicePrincipal --scope 456789ab-cdef-0123-4567-89abcdef0123 \
+     --subscription 11111111-1111-1111-1111-111111111111
+   ```
+
+1. Cree una variable para la asignación basada en el identificador del conjunto de datos:
+
+   ```azurecli
+   $mapping='{\"data_set_id\":\"' + $dataset_id + '\",\"container_name\":\"newcontainer\",
+     \"storage_account_name\":\"datashareconsumersa\",\"kind\":\"BlobFolder\",\"prefix\":\"consumer\"}'
+   ```
+
+1. Use el comando [az datashare consumer dataset-mapping create](/cli/azure/ext/datashare/datashare/consumer/dataset-mapping#ext_datashare_az_datashare_consumer_dataset_mapping_create) para crear la asignación del conjunto de datos:
+
+   ```azurecli
+   az datashare consumer dataset-mapping create --resource-group "share-rg" \
+     --name "consumer-data-set-mapping" --account-name "FabrikamDataShareAccount" \
+     --share-subscription-name "Fabrikam Solutions" --mapping $mapping \
+     --subscription 11111111-1111-1111-1111-111111111111
+   ```
+
+1. Ejecute el comando [az datashare consumer share-subscription synchronization start](/cli/azure/ext/datashare/datashare/consumer/share-subscription/synchronization#ext_datashare_az_datashare_consumer_share_subscription_synchronization_start) para iniciar la sincronización del conjunto de datos.
+
+   ```azurecli
+   az datashare consumer share-subscription synchronization start \
+     --resource-group "share-rg" --account-name "FabrikamDataShareAccount"  \
+     --share-subscription-name "Fabrikam Solutions" --synchronization-mode "Incremental" \
+     --subscription 11111111-1111-1111-1111-111111111111
+   ```
+
+   Ejecute el comando [az datashare consumer share-subscription synchronization list](/cli/azure/ext/datashare/datashare/consumer/share-subscription/synchronization#ext_datashare_az_datashare_consumer_share_subscription_synchronization_list) para ver una lista de las sincronizaciones:
+
+   ```azurecli
+   az datashare consumer share-subscription synchronization list \
+     --resource-group "share-rg" --account-name "FabrikamDataShareAccount" \
+     --share-subscription-name "Fabrikam Solutions" \
+     --subscription 11111111-1111-1111-1111-111111111111
+   ```
+
+   Use el comando [az datashare consumer share-subscription list-source-share-synchronization-setting](/cli/azure/ext/datashare/datashare/consumer/share-subscription#ext_datashare_az_datashare_consumer_share_subscription_list_source_share_synchronization_setting) para ver la configuración de sincronización establecida en el recurso compartido.
+
+   ```azurecli
+   az datashare consumer share-subscription list-source-share-synchronization-setting \
+     --resource-group "share-rg" --account-name "FabrikamDataShareAccount" \
+     --share-subscription-name "Fabrikam Solutions" --subscription 11111111-1111-1111-1111-111111111111
+   ```
+
+---
+
 ## <a name="trigger-a-snapshot"></a>Desencadenamiento de una instantánea
+
+### <a name="portal"></a>[Portal](#tab/azure-portal)
+
 Estos pasos solo se aplican al uso compartido basado en instantáneas.
 
 1. Para desencadenar una instantánea, seleccione la pestaña **Detalles** y, luego, **Desencadenar instantánea**. En este caso, puede desencadenar una instantánea completa o incremental de los datos. Si es la primera vez que recibe datos del proveedor de datos, seleccione una copia completa. 
@@ -128,6 +285,23 @@ Estos pasos solo se aplican al uso compartido basado en instantáneas.
 1. Cuando el estado de la última ejecución sea *correcto*, vaya al almacén de datos de destino para ver los datos recibidos. Seleccione **Conjuntos de datos** y haga clic en el vínculo de la ruta de acceso de destino. 
 
    ![Conjuntos de datos de consumidor](./media/consumer-datasets.png "Asignación de conjunto de datos de consumidor") 
+
+### <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+
+Ejecute el comando [az datashare consumer trigger create](/cli/azure/ext/datashare/datashare/consumer/trigger#ext_datashare_az_datashare_consumer_trigger_create) para desencadenar una instantánea:
+
+```azurecli
+az datashare consumer trigger create --resource-group "share-rg" \
+  --name "share_test_trigger" --account-name "FabrikamDataShareAccount" \
+  --share-subscription-name "Fabrikam Solutions" --recurrence-interval "Day" \
+  --synchronization-time "2020-04-23 18:00:00 +00:00" --kind ScheduleBased \
+  --subscription 11111111-1111-1111-1111-111111111111
+```
+
+> [!NOTE]
+> Use este comando solo para el uso compartido basado en instantáneas.
+
+---
 
 ## <a name="view-history"></a>Visualización del historial
 Este paso solo se aplica al uso compartido basado en instantáneas. Para ver el historial de las instantáneas, seleccione la pestaña **Historial**. Aquí encontrará un historial de todas las instantáneas que se generaron en los últimos 30 días.

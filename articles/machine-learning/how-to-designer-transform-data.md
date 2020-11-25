@@ -1,7 +1,7 @@
 ---
 title: Transformación de datos en el diseñador
 titleSuffix: Azure Machine Learning
-description: Aprenda a transformar datos en el diseñador de Azure Machine Learning para crear sus propios conjuntos de datos.
+description: Aprenda a importar y transformar datos en el diseñador de Azure Machine Learning para crear sus propios conjuntos de datos.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ ms.author: peterlu
 ms.date: 06/28/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: f08d0f1be166630d9cf4b0b9236d78228fd78aae
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: be2921f88ad2ecf88c555daf8385f1bd6733e836
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93312808"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94554022"
 ---
 # <a name="transform-data-in-azure-machine-learning-designer"></a>Transformación de datos en el diseñador de Azure Machine Learning
 
@@ -74,7 +74,7 @@ En esta sección, usará el [módulo Split Data](algorithm-module-reference/spli
 
 1. En el panel de detalles del módulo que se encuentra a la derecha del lienzo, establezca **Splitting mode** (Modo de división) en **Expresión regular**.
 
-1. Escriba la **expresión regular** : `\"native-country" United-States`.
+1. Escriba la **expresión regular**: `\"native-country" United-States`.
 
     El modo **Expresión regular** prueba una columna con respecto a un valor. Para más información sobre el módulo Split Data (Dividir datos), consulte la [página de referencia del módulo de algoritmo](algorithm-module-reference/split-data.md).
 
@@ -103,13 +103,13 @@ Ahora que la canalización está configurada para dividir los datos, debe especi
 
 1. En el panel de detalles del módulo que se encuentra a la derecha del lienzo, establezca estas opciones:
     
-    **Tipo de almacén de datos** : Azure Blob Storage
+    **Tipo de almacén de datos**: Azure Blob Storage
 
-    **Almacén de datos** : Seleccione un almacén de datos existente o seleccione "Nuevo almacén de datos" para crear uno ahora.
+    **Almacén de datos**: Seleccione un almacén de datos existente o seleccione "Nuevo almacén de datos" para crear uno ahora.
 
-    **Ruta de acceso** : `/data/us-income`
+    **Ruta de acceso**: `/data/us-income`
 
-    **Formato de archivo** : csv
+    **Formato de archivo**: csv
 
     > [!NOTE]
     > En este artículo se da por supuesto que tiene acceso a un almacén de datos registrado en el área de trabajo de Azure Machine Learning actual. Para instrucciones sobre cómo configurar un almacén de datos, consulte [Conexión con los servicios de Azure Storage](how-to-connect-data-ui.md#create-datastores).
@@ -120,13 +120,13 @@ Ahora que la canalización está configurada para dividir los datos, debe especi
 
 1. En el panel de detalles del módulo que se encuentra a la derecha del lienzo, establezca estas opciones:
     
-    **Tipo de almacén de datos** : Azure Blob Storage
+    **Tipo de almacén de datos**: Azure Blob Storage
 
-    **Almacén de datos** : seleccione el mismo almacén de datos que antes
+    **Almacén de datos**: seleccione el mismo almacén de datos que antes
 
-    **Ruta de acceso** : `/data/non-us-income`
+    **Ruta de acceso**: `/data/non-us-income`
 
-    **Formato de archivo** : csv
+    **Formato de archivo**: csv
 
 1. Confirme que el módulo **Export Data** (Exportar datos) conectado al puerto izquierdo del módulo **Split Data** (Dividir datos) tiene la **ruta de acceso** `/data/us-income`.
 
@@ -142,7 +142,7 @@ Ahora que la canalización está configurada para dividir y exportar los datos, 
 
 1. En la parte superior del lienzo, seleccione **Enviar**.
 
-1. En el cuadro de diálogo **Configurar ejecución de canalización** , seleccione **Crear nuevo** para crear un experimento.
+1. En el cuadro de diálogo **Configurar ejecución de canalización**, seleccione **Crear nuevo** para crear un experimento.
 
     Los experimentos agrupan de manera lógica las ejecuciones de canalizaciones relacionadas. Si ejecuta esta canalización en el futuro, debe usar el mismo experimento con fines de registro y seguimiento.
 

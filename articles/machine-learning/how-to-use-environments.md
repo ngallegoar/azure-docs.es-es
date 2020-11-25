@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/23/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 32748a996e0622c4b75d887aebf8a1805c5368bd
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 67b2dacb9debae1990d51be8ca47c76b7342cf67
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93319073"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660124"
 ---
 # <a name="create--use-software-environments-in-azure-machine-learning"></a>Creación y uso de entornos de software en Azure Machine Learning
 
@@ -95,7 +95,7 @@ myenv = Environment.from_conda_specification(name = "myenv",
                                              file_path = "path-to-conda-specification-file")
 
 # From a pip requirements file
-myenv = Environment.from_pip_requirements(name = "myenv"
+myenv = Environment.from_pip_requirements(name = "myenv",
                                           file_path = "path-to-pip-requirements-file")                                          
 ```
 
@@ -110,11 +110,11 @@ Cuando se habilita Docker, Azure Machine Learning crea una imagen de Docker y u
 myenv.docker.enabled = True
 ```
 
-De manera predeterminada, la imagen de Docker recién creada aparece en el registro de contenedor que está asociado al área de trabajo.  El nombre del repositorio tiene el formato *azureml/azureml_\<uuid\>* . La parte del identificador único ( *uuid* ) del nombre corresponde a un hash calculado a partir de la configuración del entorno. Esta correspondencia permite que el servicio determine si ya existe para reutilizar una imagen del entorno dado.
+De manera predeterminada, la imagen de Docker recién creada aparece en el registro de contenedor que está asociado al área de trabajo.  El nombre del repositorio tiene el formato *azureml/azureml_\<uuid\>* . La parte del identificador único (*uuid*) del nombre corresponde a un hash calculado a partir de la configuración del entorno. Esta correspondencia permite que el servicio determine si ya existe para reutilizar una imagen del entorno dado.
 
 #### <a name="use-a-prebuilt-docker-image"></a>Uso de una imagen de Docker precompilada
 
-De forma predeterminada, el servicio usa automáticamente una de las [imágenes base](https://github.com/Azure/AzureML-Containers) basadas en Ubuntu Linux, en particular la definida por `azureml.core.environment.DEFAULT_CPU_IMAGE`. A continuación, instala los paquetes de Python especificados definidos por el entorno de Azure ML proporcionado. También es posible usar una [imagen base de Docker personalizada](./how-to-deploy-custom-docker-image.md#create-a-custom-base-image).
+De forma predeterminada, el servicio usa automáticamente una de las [imágenes base](https://github.com/Azure/AzureML-Containers) basadas en Ubuntu Linux, en particular la definida por `azureml.core.environment.DEFAULT_CPU_IMAGE`. A continuación, instala los paquetes de Python especificados definidos por el entorno de Azure ML proporcionado. Hay otras imágenes base de GPU y CPU de Azure ML disponibles en el [repositorio](https://github.com/Azure/AzureML-Containers) de contenedor. También es posible usar una [imagen base de Docker personalizada](./how-to-deploy-custom-docker-image.md#create-a-custom-base-image).
 
 ```python
 # Specify custom Docker base image and registry, if you don't want to use the defaults

@@ -1,6 +1,6 @@
 ---
 title: Pausa, reanudación y escalado con API REST
-description: Administre la potencia de proceso del almacenamiento de datos de Azure Synapse Analytics mediante las API de REST.
+description: Administre la potencia de proceso de un grupo de SQL dedicado (anteriormente SQL DW) en Azure Synapse Analytics a través de las API REST.
 services: synapse-analytics
 author: antvgski
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 03/29/2019
 ms.author: anvang
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: bbb8e82710b4c8ca7736b53d427b3880faf2be05
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 49702051b5399d5079aacc97c00233a23ba8712d
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85213285"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94556019"
 ---
-# <a name="rest-apis-for-azure-synapse-analytics-data-warehouse"></a>API REST para el almacenamiento de datos de Azure Synapse Analytics
+# <a name="rest-apis-for-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>API REST para el grupo de SQL dedicado (anteriormente SQL DW) en Azure Synapse Analytics
 
-API de REST para administrar el proceso del almacenamiento de datos de Azure Synapse Analytics.
+API REST para administrar la potencia de proceso de un grupo de SQL dedicado (anteriormente SQL DW) en Azure Synapse Analytics.
 
 ## <a name="scale-compute"></a>Escalado de proceso
 
@@ -64,7 +64,7 @@ GET https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/
 
 ## <a name="get-maintenance-schedule"></a>Obtención de la programación de mantenimiento
 
-Se comprueba la programación de mantenimiento que se ha establecido para un almacén de datos.
+Compruebe la programación de mantenimiento que se ha establecido para un grupo de SQL dedicado (anteriormente SQL DW).
 
 ```
 GET https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}/maintenanceWindows/current?maintenanceWindowName=current&api-version=2017-10-01-preview HTTP/1.1
@@ -73,7 +73,7 @@ GET https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/
 
 ## <a name="set-maintenance-schedule"></a>Establecimiento de la programación de mantenimiento
 
-Para establecer y actualizar una programación de mantenimiento en un almacén de datos existente.
+Para establecer y actualizar una programación de mantenimiento en un grupo de SQL dedicado (anteriormente SQL DW).
 
 ```
 PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}/maintenanceWindows/current?maintenanceWindowName=current&api-version=2017-10-01-preview HTTP/1.1

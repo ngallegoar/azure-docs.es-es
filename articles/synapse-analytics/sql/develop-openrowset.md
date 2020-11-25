@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: b08e834233e1ce12392d940cb0ccc0bef7e96158
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 20003a91726e5ccee7f73d85b7c9a9389801e0ad
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337753"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701762"
 ---
 # <a name="how-to-use-openrowset-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Uso de OPENROWSET con el grupo de SQL sin servidor (versión preliminar) en Azure Synapse Analytics
 
@@ -84,7 +84,7 @@ OPENROWSET
     FORMAT = 'CSV'
     [ <bulk_options> ] }  
 )  
-WITH ( {'column_name' 'column_type' [ 'column_ordinal'] })  
+WITH ( {'column_name' 'column_type' [ 'column_ordinal' | 'json_path'] })  
 [AS] table_alias(column_alias,...n)
  
 <bulk_options> ::=  
@@ -156,7 +156,7 @@ La cláusula WITH le permite especificar las columnas que desea leer de los arch
     > Los nombres de columna de los archivos con formato Parquet distinguen mayúsculas de minúsculas. Si especifica el nombre de columna con un tratamiento de distinción de mayúsculas y minúsculas diferente del que se hace en el nombre de columna del archivo con formato Parquet, se devolverán valores NULL para esa columna.
 
 
-column_name = Nombre de la columna de salida. Si se especifica, este nombre anula el nombre de la columna del archivo de origen.
+column_name = Nombre de la columna de salida. Si se especifica, este nombre reemplaza el nombre de columna del archivo de origen fuente y el nombre de columna especificado en la ruta de acceso JSON, en caso de que haya. Si no se proporciona json_path, se agregará automáticamente como "$.column_name". Compruebe el comportamiento del argumento json_path.
 
 column_type = Tipo de datos de la columna de salida. La conversión implícita del tipo de datos tendrá lugar aquí.
 
@@ -170,6 +170,11 @@ WITH (
     --[population] bigint
 )
 ```
+
+json_path = [ruta de acceso de JSON](https://docs.microsoft.com/sql/relational-databases/json/json-path-expressions-sql-server?view=sql-server-ver15) para la columna o propiedad anidada. El [modo de ruta de acceso](https://docs.microsoft.com/sql/relational-databases/json/json-path-expressions-sql-server?view=sql-server-ver15#PATHMODE) predeterminado es lax.
+
+> [!NOTE]
+> En el modo strict, la consulta generará un error si la ruta de acceso especificada no existe. En el modo lax, la consulta se realizará correctamente y la expresión de la ruta de acceso de JSON se evaluará como NULL.
 
 **\<bulk_options>**
 
@@ -359,6 +364,32 @@ WITH (
     [stateName] VARCHAR (50),
     [population] bigint
 ) AS [r]
+```
+
+### <a name="specify-columns-using-json-paths"></a>Especificación de columnas mediante rutas de acceso JSON
+
+En el ejemplo siguiente se muestra cómo usar [expresiones de ruta de acceso de JSON](https://docs.microsoft.com/sql/relational-databases/json/json-path-expressions-sql-server?view=sql-server-ver15) en una cláusula WITH y se muestra la diferencia entre los modos de ruta de acceso strict y lax: 
+
+```sql
+SELECT 
+    TOP 1 *
+FROM  
+    OPENROWSET(
+        BULK 'https://azureopendatastorage.blob.core.windows.net/censusdatacontainer/release/us_population_county/year=20*/*.parquet',
+        FORMAT='PARQUET'
+    )
+WITH (
+    --lax path mode samples
+    [stateName] VARCHAR (50), -- this one works as column name casing is valid - it targets the same column as the next one
+    [stateName_explicit_path] VARCHAR (50) '$.stateName', -- this one works as column name casing is valid
+    [COUNTYNAME] VARCHAR (50), -- STATEname column will contain NULLs only because of wrong casing - it targets the same column as the next one
+    [countyName_explicit_path] VARCHAR (50) '$.COUNTYNAME', -- STATEname column will contain NULLS only because of wrong casing and default path mode being lax
+
+    --strict path mode samples
+    [population] bigint 'strict $.population' -- this one works as column name casing is valid
+    --,[population2] bigint 'strict $.POPULATION' -- this one fails because of wrong casing and strict path mode
+)
+AS [r]
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes

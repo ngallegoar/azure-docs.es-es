@@ -1,17 +1,17 @@
 ---
 title: Creación de una aplicación de funciones sin servidor con la CLI de Azure
-description: Creación de una aplicación de funciones para la ejecución sin servidor en Azure mediante la CLI de Azure
+description: Creación de una aplicación de funciones para la ejecución sin servidor en Azure mediante la CLI de Azure.
 ms.assetid: 0e221db6-ee2d-4e16-9bf6-a456cd05b6e7
 ms.topic: sample
 ms.date: 07/03/2018
 ms.author: glenga
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: f94048014f18c584637b9863bb59982f9143661e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e5fa6b5a25b07585e3c0ea07fb4a361ab82a9815
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87498255"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94565110"
 ---
 # <a name="create-a-function-app-for-serverless-code-execution"></a>Creación de una aplicación de función para la ejecución de código sin servidor 
 
@@ -19,9 +19,9 @@ Este script de ejemplo de Azure Functions crea una aplicación de función, que 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
-Si decide instalar y usar la CLI localmente, para este artículo es preciso que ejecute la versión 2.0 o posterior de la CLI de Azure. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure]( /cli/azure/install-azure-cli). 
+ - Este tutorial requiere la versión 2.0 de la CLI de Azure o cualquier versión posterior. Si usa Azure Cloud Shell, ya está instalada la versión más reciente. 
 
 ## <a name="sample-script"></a>Script de ejemplo
 

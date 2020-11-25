@@ -11,13 +11,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 06/08/2020
-ms.openlocfilehash: 424d5a7ade04c2b72a0bc8ec379a6fad09216f39
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.date: 11/09/2020
+ms.openlocfilehash: ca9ca495f2b3449b5aeb933bbd8d312fc9341fd9
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93042680"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94554141"
 ---
 # <a name="load-data-into-azure-data-lake-storage-gen2-with-azure-data-factory"></a>Carga de datos en Azure Data Lake Storage Gen2 con Azure Data Factory
 
@@ -42,21 +42,21 @@ En este artículo se muestra cómo utilizar la herramienta Copiar datos de Data 
 
 ## <a name="create-a-data-factory"></a>Crear una factoría de datos
 
-1. En el menú de la izquierda, seleccione **Crear un recurso** > **Datos y análisis** > **Data Factory** :
+1. En el menú de la izquierda, seleccione **Crear un recurso** > **Integración** > **Data Factory**:
    
    ![Selección de la factoría de datos en el panel Nuevo](./media/doc-common-process/new-azure-data-factory-menu.png)
 
 2. En la página **New data factory** (Nueva factoría de datos), proporcione valores para los siguientes campos:
  
-    * **Name** : escriba un nombre único global para la factoría de datos de Azure. Si recibe el error "Data factory name *SuNombreDeFactoríaDeDatos* is not available" (El nombre de la factoría de datos SuNombreDeFactoríaDeDatos no está disponible), escriba otro nombre. Por ejemplo, podría utilizar el nombre _**suNombre**_**ADFTutorialDataFactory**. Intente crear de nuevo la factoría de datos. Para conocer las reglas de nomenclatura de los artefactos de Data Factory, consulte [Data Factory: reglas de nomenclatura](naming-rules.md).
-    * **Suscripción** : seleccione la suscripción de Azure donde desea crear la factoría de datos. 
-    * **Grupo de recursos** : seleccione un grupo de recursos existente en la lista desplegable o seleccione la opción **Crear nuevo** y escriba el nombre de un grupo de recursos. Para obtener más información sobre los grupos de recursos, consulte [Uso de grupos de recursos para administrar los recursos de Azure](../azure-resource-manager/management/overview.md).  
-    * **Versión** : seleccione **V2**.
-    * **Ubicación** : Seleccione la ubicación de la factoría de datos. Solo las ubicaciones admitidas se muestran en la lista desplegable. Los almacenes de datos que las factorías de datos usan pueden estar en otras ubicaciones y regiones. 
+    * **Name**: escriba un nombre único global para la factoría de datos de Azure. Si recibe el error "Data factory name *SuNombreDeFactoríaDeDatos* is not available" (El nombre de la factoría de datos SuNombreDeFactoríaDeDatos no está disponible), escriba otro nombre. Por ejemplo, podría utilizar el nombre _**suNombre**_**ADFTutorialDataFactory**. Intente crear de nuevo la factoría de datos. Para conocer las reglas de nomenclatura de los artefactos de Data Factory, consulte [Data Factory: reglas de nomenclatura](naming-rules.md).
+    * **Suscripción**: seleccione la suscripción de Azure donde desea crear la factoría de datos. 
+    * **Grupo de recursos**: seleccione un grupo de recursos existente en la lista desplegable o seleccione la opción **Crear nuevo** y escriba el nombre de un grupo de recursos. Para obtener más información sobre los grupos de recursos, consulte [Uso de grupos de recursos para administrar los recursos de Azure](../azure-resource-manager/management/overview.md).  
+    * **Versión**: seleccione **V2**.
+    * **Ubicación**: Seleccione la ubicación de la factoría de datos. Solo las ubicaciones admitidas se muestran en la lista desplegable. Los almacenes de datos que las factorías de datos usan pueden estar en otras ubicaciones y regiones. 
 
 3. Seleccione **Crear**.
 
-4. Una vez completada la creación, vaya a la factoría de datos. Verá la página principal de **Factoría de datos** , tal y como se muestra en la siguiente imagen: 
+4. Una vez completada la creación, vaya a la factoría de datos. Verá la página principal de **Factoría de datos**, tal y como se muestra en la siguiente imagen: 
    
    ![Página principal Factoría de datos](./media/doc-common-process/data-factory-home-page.png)
 
@@ -64,12 +64,12 @@ En este artículo se muestra cómo utilizar la herramienta Copiar datos de Data 
 
 ## <a name="load-data-into-azure-data-lake-storage-gen2"></a>Carga de datos en Azure Data Lake Storage Gen2
 
-1. En la página **Introducción** , seleccione el icono **Copiar datos** para iniciar la herramienta para copiar datos.
+1. En la página **Introducción**, seleccione el icono **Copiar datos** para iniciar la herramienta para copiar datos.
 
 2. En la página **Properties** (Propiedades), especifique **CopyFromAmazonS3ToADLS** en el campo **Task name** (Nombre de la tarea) y seleccione **Next** (Siguiente).
 
     ![Página de propiedades](./media/load-azure-data-lake-storage-gen2/copy-data-tool-properties-page.png)
-3. En la página **Almacén de datos de origen** , haga clic en **+ Crear nueva conexión**. Seleccione **Amazon S3** en la galería de conectores y seleccione **Continue** (Continuar).
+3. En la página **Almacén de datos de origen**, haga clic en **+ Crear nueva conexión**. Seleccione **Amazon S3** en la galería de conectores y seleccione **Continue** (Continuar).
     
     ![Página del almacén de datos de origen S3](./media/load-azure-data-lake-storage-gen2/source-data-store-page-s3.png)
     
@@ -109,7 +109,7 @@ En este artículo se muestra cómo utilizar la herramienta Copiar datos de Data 
 
     ![Página Configuración](./media/load-azure-data-lake-storage-gen2/copy-settings.png)
 
-11. En la página **Resumen** , revise la configuración y seleccione **Siguiente**.
+11. En la página **Resumen**, revise la configuración y seleccione **Siguiente**.
 
     ![Página de resumen](./media/load-azure-data-lake-storage-gen2/copy-summary.png)
 

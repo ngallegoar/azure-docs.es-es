@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/29/2018
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: ee30e9bba35ad39606fbe201c49e4eed3e656c97
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fdee5420fa6a50974250c45260a3727755bfcba7
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88548281"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542599"
 ---
 # <a name="open-a-support-ticket-for-an-importexport-job"></a>Abra un vale de soporte para un trabajo de Import/Export
 
@@ -74,15 +74,15 @@ Después de crear una incidencia de soporte técnico, puede administrar el ciclo
 
 1. Para tener acceso a la página de ayuda y soporte técnico, vaya a **Examinar > Ayuda y soporte técnico**.
 
-    ![Administrar solicitudes de soporte técnico](./media/storage-import-export-contact-microsoft-support/manage-support-ticket2.png)   
+    ![Captura de pantalla que muestra el cuadro de diálogo Ayuda.](./media/storage-import-export-contact-microsoft-support/manage-support-ticket2.png)   
 
 2. Se muestra una lista tabular de **Solicitudes de soporte técnico recientes** en **Ayuda y soporte técnico**.
 
-    ![Administrar solicitudes de soporte técnico](./media/storage-import-export-contact-microsoft-support/manage-support-ticket1.png) 
+    ![Captura de pantalla que muestra la página Ayuda y soporte técnico con la solicitud de soporte técnico en estado abierto.](./media/storage-import-export-contact-microsoft-support/manage-support-ticket1.png) 
 
 3. Seleccione una solicitud de soporte técnico y haga clic en ella. Puede ver el estado y los detalles de esta solicitud. Seleccione **+ Nuevo mensaje** si desea realizar un seguimiento de esta solicitud.
 
-    ![Administrar solicitudes de soporte técnico](./media/storage-import-export-contact-microsoft-support/manage-support-ticket3.png) 
+    ![Captura de pantalla que muestra la opción Nuevo mensaje seleccionada para esta solicitud.](./media/storage-import-export-contact-microsoft-support/manage-support-ticket3.png) 
 
 
 ## <a name="next-steps"></a>Pasos siguientes

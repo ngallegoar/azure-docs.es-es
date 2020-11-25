@@ -1,6 +1,6 @@
 ---
 title: Copia incremental de varias tablas mediante PowerShell
-description: En este tutorial, creará una factoría de datos de Azure con una canalización que carga los datos diferenciales de varias tablas de una base de datos de SQL Server en Azure SQL Database.
+description: En este tutorial, creará una instancia de Azure Data Factory con una canalización que carga los datos diferenciales de varias tablas de una base de datos de SQL Server a Azure SQL Database.
 services: data-factory
 ms.author: yexu
 author: dearandyxu
@@ -11,18 +11,18 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 06/10/2020
-ms.openlocfilehash: be98ff2a31e3216088fb9197fab477d9b1088f26
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 54dea3ba7bbc3339b7b044b476c321fd95138ac2
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92634103"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566425"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-azure-sql-database-using-powershell"></a>Carga incremental de datos de varias tablas de SQL Server en Azure SQL Database mediante PowerShell
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-En este tutorial, creará una factoría de datos de Azure con una canalización que carga los datos diferenciales de varias tablas de una base de datos de SQL Server en Azure SQL Database.    
+En este tutorial, creará una instancia de Azure Data Factory con una canalización que carga los datos diferenciales de varias tablas de una base de datos de SQL Server a Azure SQL Database.    
 
 En este tutorial, realizará los siguientes pasos:
 
@@ -42,11 +42,11 @@ En este tutorial, realizará los siguientes pasos:
 ## <a name="overview"></a>Información general
 Estos son los pasos importantes para crear esta solución: 
 
-1. **Seleccione la columna de marca de agua** .
+1. **Seleccione la columna de marca de agua**.
 
     Seleccione una columna de cada tabla del almacén de datos de origen que pueda usarse para identificar los registros nuevos o actualizados de cada ejecución. Normalmente, los datos de esta columna seleccionada (por ejemplo, last_modify_time o id.) siguen aumentando cuando se crean o se actualizan las filas. El valor máximo de esta columna se utiliza como una marca de agua.
 
-2. **Prepare el almacén de datos para almacenar el valor de marca de agua** .
+2. **Prepare el almacén de datos para almacenar el valor de marca de agua**.
 
     En este tutorial, el valor de marca de agua se almacena en una base de datos SQL.
 
@@ -69,14 +69,14 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* **SQL Server** . En este tutorial, usará una base de datos de SQL Server como almacén de datos de origen. 
-* **Azure SQL Database** . Se usa una base de datos de Azure SQL Database como almacén de datos receptor. Si no tiene ninguna, consulte [Creación de una base de datos en Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md) para ver los pasos y crear una. 
+* **SQL Server**. En este tutorial, usará una base de datos de SQL Server como almacén de datos de origen. 
+* **Azure SQL Database**. Se usa una base de datos de Azure SQL Database como almacén de datos receptor. Si no tiene ninguna, consulte [Creación de una base de datos en Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md) para ver los pasos y crear una. 
 
 ### <a name="create-source-tables-in-your-sql-server-database"></a>Creación de tablas de origen en la base de datos de SQL Server
 
 1. Abra [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) o [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio) y conéctese a la base de datos de SQL Server.
 
-2. En **Explorador de servidores (SSMS)** o en el **Panel Conexiones (Azure Data Studio)** , haga clic con el botón derecho en la base de datos y elija **Nueva consulta** .
+2. En **Explorador de servidores (SSMS)** o en el **Panel Conexiones (Azure Data Studio)** , haga clic con el botón derecho en la base de datos y elija **Nueva consulta**.
 
 3. Ejecute el siguiente comando SQL en la base de datos para crear las tablas denominadas `customer_table` y `project_table`:
 
@@ -115,7 +115,7 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
 
 1. Abra [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) o [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio) y conéctese a la base de datos de SQL Server.
 
-2. En **Explorador de servidores (SSMS)** o en el **Panel Conexiones (Azure Data Studio)** , haga clic con el botón derecho en la base de datos y elija **Nueva consulta** .
+2. En **Explorador de servidores (SSMS)** o en el **Panel Conexiones (Azure Data Studio)** , haga clic con el botón derecho en la base de datos y elija **Nueva consulta**.
 
 3. Ejecute el siguiente comando SQL en la base de datos para crear las tablas denominadas `customer_table` y `project_table`:  
 
@@ -265,7 +265,7 @@ Instale los módulos más recientes de Azure PowerShell siguiendo las instruccio
     ```powershell
     $dataFactoryName = "ADFIncMultiCopyTutorialFactory";
     ```
-5. Para crear la factoría de datos, ejecute el siguiente cmdlet, **Set-AzDataFactoryV2** : 
+5. Para crear la factoría de datos, ejecute el siguiente cmdlet, **Set-AzDataFactoryV2**: 
     
     ```powershell
     Set-AzDataFactoryV2 -ResourceGroupName $resourceGroupName -Location $location -Name $dataFactoryName 
@@ -283,7 +283,7 @@ Tenga en cuenta los siguientes puntos:
 
 * Para crear instancias de Data Factory, la cuenta de usuario que use para iniciar sesión en Azure debe ser un miembro de los roles colaborador o propietario, o de administrador de la suscripción de Azure.
 
-* Para una lista de las regiones de Azure en las que Data Factory está disponible actualmente, seleccione las regiones que le interesen en la página siguiente y expanda **Análisis** para poder encontrar **Data Factory** : [Productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/). Los almacenes de datos (Azure Storage, SQL Database, Instancia administrada de SQL, etc.) y los procesos (Azure HDInsight, etc.) que usa la factoría de datos pueden encontrarse en otras regiones.
+* Para una lista de las regiones de Azure en las que Data Factory está disponible actualmente, seleccione las regiones que le interesen en la página siguiente y expanda **Análisis** para poder encontrar **Data Factory**: [Productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/). Los almacenes de datos (Azure Storage, SQL Database, Instancia administrada de SQL, etc.) y los procesos (Azure HDInsight, etc.) que usa la factoría de datos pueden encontrarse en otras regiones.
 
 [!INCLUDE [data-factory-create-install-integration-runtime](../../includes/data-factory-create-install-integration-runtime.md)]
 
@@ -357,7 +357,7 @@ En este paso, vinculará la base de datos de SQL Server a la factoría de datos
     Set-Location 'C:\ADFTutorials\IncCopyMultiTableTutorial'
     ```
 
-3. Ejecute el cmdlet **Set-AzDataFactoryV2LinkedService** para crear el servicio vinculado AzureStorageLinkedService. En el ejemplo siguiente, debe pasar los valores de los parámetros *ResourceGroupName* y *DataFactoryName* : 
+3. Ejecute el cmdlet **Set-AzDataFactoryV2LinkedService** para crear el servicio vinculado AzureStorageLinkedService. En el ejemplo siguiente, debe pasar los valores de los parámetros *ResourceGroupName* y *DataFactoryName*: 
 
     ```powershell
     Set-AzDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SqlServerLinkedService" -File ".\SqlServerLinkedService.json"
@@ -804,7 +804,7 @@ La canalización toma una lista de tablas como un parámetro. La **actividad For
         ]
     }
     ```
-2. Ejecute la canalización IncrementalCopyPipeline mediante el cmdlet **Invoke-AzDataFactoryV2Pipeline** . Reemplace los marcadores de posición por su propio grupo de recursos y el nombre de la factoría de datos.
+2. Ejecute la canalización IncrementalCopyPipeline mediante el cmdlet **Invoke-AzDataFactoryV2Pipeline**. Reemplace los marcadores de posición por su propio grupo de recursos y el nombre de la factoría de datos.
 
     ```powershell
     $RunId = Invoke-AzDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroup $resourceGroupName -dataFactoryName $dataFactoryName -ParameterFile ".\Parameters.json"        
@@ -814,16 +814,16 @@ La canalización toma una lista de tablas como un parámetro. La **actividad For
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 
-2. Haga clic en **Todos los servicios** , busque con la palabra clave *Factorías de datos* y seleccione **Factorías de datos** . 
+2. Haga clic en **Todos los servicios**, busque con la palabra clave *Factorías de datos* y seleccione **Factorías de datos**. 
 
-3. Busque su factoría de datos en la lista y selecciónela para abrir la página **Factoría de datos** . 
+3. Busque su factoría de datos en la lista y selecciónela para abrir la página **Factoría de datos**. 
 
-4. En la página **Factoría de datos** , seleccione **Author & Monitor** (Creación y supervisión) para iniciar Azure Data Factory en otra pestaña.
+4. En la página **Factoría de datos**, seleccione **Author & Monitor** (Creación y supervisión) para iniciar Azure Data Factory en otra pestaña.
 
 5. En la página **Let's get started** (Introducción), seleccione **Monitor** (Supervisar) en el lado izquierdo. 
 ![La captura de pantalla muestra la página de introducción de Azure Data Factory.](media/doc-common-process/get-started-page-monitor-button.png)    
 
-6. Puede ver todas las ejecuciones de canalización y sus estados. Tenga en cuenta que, en el ejemplo siguiente, el estado de ejecución de la canalización es **Correcto** . Para comprobar los parámetros pasados a la canalización, seleccione el vínculo en la columna **Parámetros** . Si se ha producido un error, verá un vínculo en la columna **Error** .
+6. Puede ver todas las ejecuciones de canalización y sus estados. Tenga en cuenta que, en el ejemplo siguiente, el estado de ejecución de la canalización es **Correcto**. Para comprobar los parámetros pasados a la canalización, seleccione el vínculo en la columna **Parámetros**. Si se ha producido un error, verá un vínculo en la columna **Error**.
 
     ![La captura de pantalla muestra ejecuciones de la canalización para una factoría de datos, incluida su canalización.](media/tutorial-incremental-copy-multiple-tables-powershell/monitor-pipeline-runs-4.png)    
 7. Al seleccionar el vínculo de la columna **Actions** (Acciones), verá todas las ejecuciones de actividades de la canalización. 
@@ -907,7 +907,7 @@ VALUES
     ```powershell
     $RunId = Invoke-AzDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroup $resourceGroupname -dataFactoryName $dataFactoryName -ParameterFile ".\Parameters.json"
     ```
-2. Supervise las ejecuciones de canalización siguiendo las instrucciones de la sección [Supervisión de la canalización](#monitor-the-pipeline). Como el estado de la canalización es **En curso** , verá otro vínculo de acción en **Acciones** para cancelar la ejecución de canalización. 
+2. Supervise las ejecuciones de canalización siguiendo las instrucciones de la sección [Supervisión de la canalización](#monitor-the-pipeline). Como el estado de la canalización es **En curso**, verá otro vínculo de acción en **Acciones** para cancelar la ejecución de canalización. 
 
 3. Haga clic en **Actualizar** para actualizar la lista hasta que la ejecución de canalización se realice correctamente. 
 
@@ -934,7 +934,7 @@ PersonID    Name    LastModifytime
 5           Anny    2017-09-05 08:06:00.000
 ```
 
-Observe los nuevos valores de **Nombre** y **LastModifytime** de **PersonID** : 3. 
+Observe los nuevos valores de **Nombre** y **LastModifytime** de **PersonID**: 3. 
 
 **Consultar**
 

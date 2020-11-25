@@ -10,12 +10,12 @@ author: sdgilley
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, fasttrack-edit
-ms.openlocfilehash: 2c9d00f1d78d2dea46d4ff4a08433360e00c7b9d
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 29c378d40e3a4f92852f433677125a9e8a6d1133
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94445632"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540134"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces"></a>Creación y administración de áreas de trabajo de Azure Machine Learning 
 
@@ -121,7 +121,7 @@ Si tiene problemas para obtener acceso a su suscripción, consulte [Configuraci�
 
 1. Seleccione **Machine Learning**.
 
-1. En el panel **Machine Learning** , seleccione **Crear** para comenzar.
+1. En el panel **Machine Learning**, seleccione **Crear** para comenzar.
 
 1. Especifique la siguiente información para configurar la nueva área de trabajo:
 
@@ -159,15 +159,15 @@ El SDK de Azure Machine Learning para Python proporciona la clase [PrivateEndpoi
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-1. La configuración de red predeterminada es usar un __Punto de conexión público__ , que es accesible en la red pública de Internet. Para limitar el acceso al área de trabajo a una instancia de Azure Virtual Network que ha creado, puede seleccionar __Punto de conexión privado__ (versión preliminar) en __Método de conectividad__ y, después, usar __+ Agregar__ para configurar el punto de conexión.   
+1. La configuración de red predeterminada es usar un __Punto de conexión público__, que es accesible en la red pública de Internet. Para limitar el acceso al área de trabajo a una instancia de Azure Virtual Network que ha creado, puede seleccionar __Punto de conexión privado__ (versión preliminar) en __Método de conectividad__ y, después, usar __+ Agregar__ para configurar el punto de conexión.   
 
    :::image type="content" source="media/how-to-manage-workspace/select-private-endpoint.png" alt-text="Selección del punto de conexión privado":::  
 
-1. En el formulario __Crear punto de conexión privado__ , establezca la ubicación, el nombre y la red virtual que se va a usar. Si desea usar el punto de conexión con una zona DNS privada, seleccione __Integrar con la zona DNS privada__ y seleccione la zona mediante el campo __Zona DNS privada__. Seleccione __Aceptar__ para crear el punto de conexión.   
+1. En el formulario __Crear punto de conexión privado__, establezca la ubicación, el nombre y la red virtual que se va a usar. Si desea usar el punto de conexión con una zona DNS privada, seleccione __Integrar con la zona DNS privada__ y seleccione la zona mediante el campo __Zona DNS privada__. Seleccione __Aceptar__ para crear el punto de conexión.   
 
    :::image type="content" source="media/how-to-manage-workspace/create-private-endpoint.png" alt-text="Creación del punto de conexión privado":::   
 
-1. Cuando haya terminado de configurar las redes, puede seleccionar __Revisar y crear__ , o bien avanzar hasta la configuración de __Avanzado__ opcional.
+1. Cuando haya terminado de configurar las redes, puede seleccionar __Revisar y crear__, o bien avanzar hasta la configuración de __Avanzado__ opcional.
 
 ---
 
@@ -180,8 +180,8 @@ El SDK de Azure Machine Learning para Python proporciona la clase [PrivateEndpoi
 Al crear un punto de conexión privado, se crea una nueva zona DNS privada denominada __privatelink.api.azureml.ms__. Contiene un vínculo a la red virtual. Si crea varias áreas de trabajo con puntos de conexión privados en el mismo grupo de recursos, solo la red virtual del primer punto de conexión privado se puede agregar a la zona DNS. Para agregar entradas para las redes virtuales usadas por áreas de trabajo o puntos de conexión privados adicionales, siga estos pasos:
 
 1. En [Azure Portal](https://portal.azure.com), seleccione el grupo de recursos que contiene el área de trabajo. A continuación, seleccione el recurso de zona DNS privada denominado __privatelink.api.azureml.ms__.
-2. En __Configuración__ , seleccione __Vínculos de red virtual__.
-3. Seleccione __Agregar__. En la página __Agregar el vínculo de red virtual__ , proporcione un __Nombre de vínculo__ único y, a continuación, seleccione la __Red virtual__ que se va a agregar. Seleccione __Aceptar__ para agregar el vínculo de red.
+2. En __Configuración__, seleccione __Vínculos de red virtual__.
+3. Seleccione __Agregar__. En la página __Agregar el vínculo de red virtual__, proporcione un __Nombre de vínculo__ único y, a continuación, seleccione la __Red virtual__ que se va a agregar. Seleccione __Aceptar__ para agregar el vínculo de red.
 
 Para obtener más información, vea [Configuración de DNS para puntos de conexión privados de Azure](../private-link/private-endpoint-dns.md).
 
@@ -191,7 +191,7 @@ Azure Security Center proporciona administración unificada de la seguridad y pr
 
 ### <a name="advanced"></a>Avanzado
 
-De forma predeterminada, las métricas y los metadatos del área de trabajo se almacenan en una instancia de Azure Cosmos DB que Microsoft mantiene. Estos datos se cifran con claves administradas por Microsoft.
+De manera predeterminada, los metadatos del área de trabajo se almacenan en una instancia de Azure Cosmos DB que Microsoft mantiene. Estos datos se cifran con claves administradas por Microsoft.
 
 Para limitar los datos que Microsoft recopila sobre el área de trabajo, seleccione __Área de trabajo de alto impacto de negocio__ en el portal o establezca `hbi_workspace=true ` en Python. Para más información sobre esta configuración, consulte [Cifrado en reposo](concept-data-encryption.md#encryption-at-rest).
 
@@ -200,7 +200,7 @@ Para limitar los datos que Microsoft recopila sobre el área de trabajo, selecci
 
 #### <a name="use-your-own-key"></a>Usar su propia clave
 
-El usuario puede proporcionar su propia clave para el cifrado de datos. Así, se crea la instancia de Azure Cosmos DB que almacena las métricas y los metadatos en la suscripción de Azure.
+El usuario puede proporcionar su propia clave para el cifrado de datos. Así, se crea la instancia de Azure Cosmos DB que almacena metadatos en la suscripción de Azure.
 
 [!INCLUDE [machine-learning-customer-managed-keys.md](../../includes/machine-learning-customer-managed-keys.md)]
 
@@ -242,7 +242,7 @@ from azureml.core import Workspace
 
     :::image type="content" source="media/how-to-manage-workspace/advanced-workspace.png" alt-text="Claves administradas por el cliente":::
 
-1. En el formulario __Seleccionar clave en Azure Key Vault__ , seleccione una instancia de Azure Key Vault existente, una clave que contenga y la versión de la clave. Esta clave se usa para cifrar los datos almacenados en Azure Cosmos DB. Por último, use el botón __Seleccionar__ para usar esta clave.
+1. En el formulario __Seleccionar clave en Azure Key Vault__, seleccione una instancia de Azure Key Vault existente, una clave que contenga y la versión de la clave. Esta clave se usa para cifrar los datos almacenados en Azure Cosmos DB. Por último, use el botón __Seleccionar__ para usar esta clave.
 
    :::image type="content" source="media/how-to-manage-workspace/select-key-vault.png" alt-text="Seleccione la clave":::
 

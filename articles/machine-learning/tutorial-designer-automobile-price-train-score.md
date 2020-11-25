@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Predicción de los precios de los automóviles con el diseñador'
 titleSuffix: Azure Machine Learning
-description: Aprenda a entrenar, puntuar e implementar un modelo de Machine Learning mediante una interfaz de arrastrar y colocar. Este tutorial es la primera de una serie de dos partes sobre la predicción de precios de automóviles mediante la regresión lineal.
+description: Entrene modelos de Machine Learning para predecir los precios de los automóviles mediante regresión lineal. Este tutorial es la primera de una serie de dos partes.
 author: peterclu
 ms.author: peterlu
 services: machine-learning
@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 09/28/2020
 ms.custom: designer
-ms.openlocfilehash: d9422cfb9bd8e5539f1a9b43d6fb7b137778f3d4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0475e7a7b9bb40e77fe23362ff098350037bdd30
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91404925"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555284"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer"></a>Tutorial: Predicción del precio de un automóvil con el diseñador
 
@@ -221,7 +221,7 @@ Para entrenar el modelo, proporciónele un conjunto de datos que incluya el prec
     > [!IMPORTANT]
     > Asegúrese de que el puerto de salida izquierdo de **Split Data** (Dividir datos) se conecta a **Train Model** (Entrenar modelo). El puerto izquierdo contiene el conjunto de entrenamiento. El puerto derecho contiene el conjunto de prueba.
 
-    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-train-model.png"alt-text="Selección de columna":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-train-model.png"alt-text="Captura de pantalla que muestra la configuración correcta del módulo Train Model (Entrenar modelo). El módulo Linear Regression (Regresión lineal) se conecta al puerto izquierdo del módulo Train Model (Entrenar modelo) y el módulo Split Data (Dividir datos) se conecta al puerto derecho de Train Model (Entrenar modelo).":::
 
 1. Seleccione el módulo **Train Model** (Entrenar modelo).
 
@@ -236,7 +236,7 @@ Para entrenar el modelo, proporciónele un conjunto de datos que incluya el prec
 
     La canalización debe ser parecida a esta:
 
-    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-train-graph.png"alt-text="Selección de columna":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-train-graph.png"alt-text="Captura de pantalla que muestra la configuración correcta de la canalización después de agregar el módulo Train Model (Entrenar modelo).":::
 
 ### <a name="add-the-score-model-module"></a>Adición del módulo Score Model (Puntuar modelo)
 
@@ -256,7 +256,7 @@ Use el módulo **Evaluate Model** (Evaluar modelo) para evaluar la puntuación q
 
     La canalización final debe parecerse a esta:
 
-    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-final-graph.png"alt-text="Selección de columna":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-final-graph.png"alt-text="Captura de pantalla que muestra la configuración correcta de la canalización.":::
 
 ## <a name="submit-the-pipeline"></a>Enviar la canalización
 
@@ -285,7 +285,7 @@ Una vez finalizada la ejecución, puede ver los resultados de la ejecución de l
 
     Aquí puede ver los precios previstos y los precios reales de los datos de prueba.
 
-    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/score-result.png"alt-text="Selección de columna":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/score-result.png"alt-text="Captura de pantalla de la visualización de salida en la que aparece la columna Scored Label (Etiqueta puntuada) resaltada":::
 
 ### <a name="evaluate-models"></a>Evaluación de modelos
 

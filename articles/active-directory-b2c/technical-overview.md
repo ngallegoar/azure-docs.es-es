@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 05/28/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 80ae79f73a55d5feb1aede7ccc7d3b2b64682a24
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 519e2da902e1121220bcbb28c4cb18a68001293b
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92364089"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94840561"
 ---
 # <a name="technical-and-feature-overview-of-azure-active-directory-b2c"></a>Introducción a los aspectos técnicos y las características de Azure Active Directory B2C
 
@@ -27,16 +27,16 @@ En Azure Active Directory B2C (Azure AD B2C), un *inquilino* representa la or
 
 Los recursos principales con los que trabaja en un inquilino de Azure AD B2C son:
 
-* **Directorio** : el *directorio* es donde Azure AD B2C almacena las credenciales y los datos del perfil de los usuarios, así como los registros de aplicación.
-* **Registros de aplicación** : se registran las aplicaciones web, móviles y nativas en Azure AD B2C para permitir la administración de identidades. También se registran las API que quiera proteger con Azure AD B2C.
-* **Flujos de usuario** y **directivas personalizadas** : las experiencias de identidad integradas (flujos de usuario) y completamente personalizables (directivas personalizadas) de sus aplicaciones.
+* **Directorio**: el *directorio* es donde Azure AD B2C almacena las credenciales y los datos del perfil de los usuarios, así como los registros de aplicación.
+* **Registros de aplicación**: se registran las aplicaciones web, móviles y nativas en Azure AD B2C para permitir la administración de identidades. También se registran las API que quiera proteger con Azure AD B2C.
+* **Flujos de usuario** y **directivas personalizadas**: las experiencias de identidad integradas (flujos de usuario) y completamente personalizables (directivas personalizadas) de sus aplicaciones.
   * Use *flujos de usuario* para la configuración rápida y la habilitación de tareas comunes de identidad como registro, inicio de sesión y edición de perfiles.
   * Use *directivas personalizadas* para permitir experiencias de usuario no solo para las tareas comunes de identidad, sino también para crear compatibilidad con flujos de trabajo de identidad complejos exclusivos de su organización, clientes, empleados, asociados y ciudadanos.
-* **Proveedores de identidades** : configuración de federación para:
-  * Proveedores de identidades de *redes sociales* , como Facebook, LinkedIn o Twitter que quiera admitir en sus aplicaciones.
+* **Proveedores de identidades**: configuración de federación para:
+  * Proveedores de identidades de *redes sociales*, como Facebook, LinkedIn o Twitter que quiera admitir en sus aplicaciones.
   * Proveedores de identidades *externos* que admiten protocolos de identidad estándar, como OAuth 2.0, OpenID Connect, etc.
   * Cuentas *locales* que permiten a los usuarios registrarse e iniciar sesión con un nombre de usuario (o una dirección de correo electrónico u otro identificador) y una contraseña.
-* **Claves** : agregue y administre claves de cifrado para la firma y la validación de los tokens, secretos de cliente, certificados y contraseñas.
+* **Claves**: agregue y administre claves de cifrado para la firma y la validación de los tokens, secretos de cliente, certificados y contraseñas.
 
 El primer recurso que debe crear para empezar a trabajar con este servicio es un inquilino de Azure AD B2C. Aprenda cómo en el [Tutorial: Creación de un inquilino de Azure Active Directory B2C](tutorial-create-tenant.md).
 
@@ -44,20 +44,20 @@ El primer recurso que debe crear para empezar a trabajar con este servicio es un
 
 Azure AD B2C define varios tipos de cuentas de usuario. Azure Active Directory, Azure Active Directory B2B y Azure Active Directory B2C comparten estos tipos de cuentas.
 
-* **Cuenta profesional** : los usuarios con una cuenta profesional pueden administrar los recursos de un inquilino y, si además tienen un rol de administrador, también pueden administrar inquilinos. Asimismo, estos usuarios pueden crear cuentas de consumidor, restablecer contraseñas, bloquear o desbloquear cuentas y establecer permisos o asignar una cuenta a un grupo de seguridad.
-* **Cuenta de invitado** : usuarios externos a los que invita en su inquilino. Un escenario típico para invitar a un usuario invitado al inquilino de Azure AD B2C es compartir las responsabilidades de administración.
-* **Cuenta de consumidor** : las cuentas de consumidor son las cuentas creadas en el directorio de Azure AD B2C cuando los usuarios completan el recorrido de inicio de sesión en una aplicación que se ha registrado en el inquilino.
+* **Cuenta profesional**: los usuarios con una cuenta profesional pueden administrar los recursos de un inquilino y, si además tienen un rol de administrador, también pueden administrar inquilinos. Asimismo, estos usuarios pueden crear cuentas de consumidor, restablecer contraseñas, bloquear o desbloquear cuentas y establecer permisos o asignar una cuenta a un grupo de seguridad.
+* **Cuenta de invitado**: usuarios externos a los que invita en su inquilino. Un escenario típico para invitar a un usuario invitado al inquilino de Azure AD B2C es compartir las responsabilidades de administración.
+* **Cuenta de consumidor**: las cuentas de consumidor son las cuentas creadas en el directorio de Azure AD B2C cuando los usuarios completan el recorrido de inicio de sesión en una aplicación que se ha registrado en el inquilino.
 
 ![Página de administración de usuarios de Azure AD B2C en Azure Portal](media/technical-overview/portal-01-users.png)<br/>*Ilustración: Directorio de usuario dentro de un inquilino de Azure AD B2C en Azure Portal*
 
 ### <a name="consumer-accounts"></a>Cuentas de consumidor
 
-Con una cuenta de *consumidor* , los usuarios pueden iniciar sesión en las aplicaciones que ha protegido con Azure AD B2C. Sin embargo, no pueden acceder a los recursos de Azure, por ejemplo, a Azure Portal.
+Con una cuenta de *consumidor*, los usuarios pueden iniciar sesión en las aplicaciones que ha protegido con Azure AD B2C. Sin embargo, no pueden acceder a los recursos de Azure, por ejemplo, a Azure Portal.
 
 Una cuenta de consumidor se puede asociar con estos tipos de identidad:
 
-* Identidad **local** , con el nombre de usuario y la contraseña almacenados localmente en el directorio de Azure AD B2C. A menudo se hace referencia a estas identidades como "cuentas locales".
-* Las identidades de **redes sociales** o de **empresa** , donde la identidad del usuario se administra mediante un proveedor de identidades federado, como Facebook, Microsoft, ADFS o Salesforce.
+* Identidad **local**, con el nombre de usuario y la contraseña almacenados localmente en el directorio de Azure AD B2C. A menudo se hace referencia a estas identidades como "cuentas locales".
+* Las identidades de **redes sociales** o de **empresa**, donde la identidad del usuario se administra mediante un proveedor de identidades federado, como Facebook, Microsoft, ADFS o Salesforce.
 
 Un usuario con una cuenta de consumidor puede iniciar sesión con varias identidades, por ejemplo, nombre de usuario, correo electrónico, identificador gubernamental y otros. Una sola cuenta puede tener varias identidades, tanto locales como de redes sociales.
 
@@ -91,17 +91,17 @@ En Azure AD B2C, hay dos rutas de acceso principales que puede tomar para propo
 
 * Las **directivas personalizadas** le permiten crear sus propios recorridos de usuario para escenarios complejos de experiencia de identidad.
 
-Tanto los flujos de usuario como las directivas personalizadas se basan en *Identity Experience Framework* , el motor de orquestación de directivas de Azure AD B2C.
+Tanto los flujos de usuario como las directivas personalizadas se basan en *Identity Experience Framework*, el motor de orquestación de directivas de Azure AD B2C.
 
 ### <a name="user-flow"></a>Flujo de usuario
 
-Para ayudarle a configurar rápidamente las tareas más comunes de identidad, Azure Portal incluye varias directivas predefinidas y configurables denominadas *flujos de usuario* .
+Para ayudarle a configurar rápidamente las tareas más comunes de identidad, Azure Portal incluye varias directivas predefinidas y configurables denominadas *flujos de usuario*.
 
 Puede configurar valores de flujo de usuario como estos para controlar los comportamientos de la experiencia de identidad en las aplicaciones:
 
 * Los tipos de cuenta usados para el inicio de sesión, como cuentas de redes sociales (por ejemplo, Facebook), o cuentas locales que usan una dirección de correo electrónico y una contraseña para el inicio de sesión.
 * Los atributos que se recopilan del consumidor, como el nombre, el código postal o el país o región de residencia.
-* Azure Multi-Factor Authentication (MFA)
+* Azure AD Multi-Factor Authentication (MFA)
 * Personalización de la interfaz de usuario
 * El conjunto de notificaciones en un token que recibe la aplicación después de que el usuario completa el flujo de usuario.
 * Administración de sesiones
@@ -148,13 +148,13 @@ En el diagrama siguiente se muestra cómo Azure AD B2C puede comunicarse median
 
 ## <a name="application-integration"></a>Integración de aplicaciones
 
-Cuando un usuario quiere iniciar sesión en su aplicación, ya sea una aplicación web, móvil, de escritorio o de una sola página (SPA), la aplicación inicia una solicitud de autorización a un punto de conexión proporcionado por el flujo de usuario o la directiva personalizada. El flujo de usuario o la directiva personalizada definen y controlan la experiencia del usuario. Al completar un flujo de usuario, por ejemplo, el flujo de *registro o inicio de sesión* , Azure AD B2C genera un token y, luego, redirige al usuario de vuelta a la aplicación.
+Cuando un usuario quiere iniciar sesión en su aplicación, ya sea una aplicación web, móvil, de escritorio o de una sola página (SPA), la aplicación inicia una solicitud de autorización a un punto de conexión proporcionado por el flujo de usuario o la directiva personalizada. El flujo de usuario o la directiva personalizada definen y controlan la experiencia del usuario. Al completar un flujo de usuario, por ejemplo, el flujo de *registro o inicio de sesión*, Azure AD B2C genera un token y, luego, redirige al usuario de vuelta a la aplicación.
 
 ![Aplicación móvil con flechas que muestran el flujo entre ella y la página de inicio de sesión de Azure AD B2C](media/technical-overview/app-integration.png)
 
 Varias aplicaciones pueden usar el mismo flujo de usuario o directiva personalizada. Una sola aplicación puede usar varios flujos de usuario o directivas personalizadas.
 
-Por ejemplo, para iniciar sesión en una aplicación, la aplicación usa el flujo de usuario de *registro o inicio de sesión* . Cuando el usuario ha iniciado sesión, puede querer editar su perfil, así que la aplicación inicia otra solicitud de autorización, esta vez mediante el flujo de usuario de *edición del perfil* .
+Por ejemplo, para iniciar sesión en una aplicación, la aplicación usa el flujo de usuario de *registro o inicio de sesión*. Cuando el usuario ha iniciado sesión, puede querer editar su perfil, así que la aplicación inicia otra solicitud de autorización, esta vez mediante el flujo de usuario de *edición del perfil*.
 
 ## <a name="seamless-user-experiences"></a>Experiencias de usuario sin problemas.
 

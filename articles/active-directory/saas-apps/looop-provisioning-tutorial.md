@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/19/2019
 ms.author: Zhchia
-ms.openlocfilehash: 889972f7d94ab960354982275d45bdc5d5726d6e
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 528003ac482da6f254bf437321c70c389d23844b
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94356831"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94835091"
 ---
 # <a name="tutorial-configure-looop-for-automatic-user-provisioning"></a>Tutorial: Configuración de Looop para aprovisionar usuarios automáticamente
 
@@ -85,11 +85,11 @@ Para configurar Looop para el aprovisionamiento automático de usuarios con Azur
 
     ![Looop en la lista de resultados](common/search-new-app.png)
 
-5. Seleccione el botón **Registrarse en Looop** ; se le redirigirá a la página de inicio de sesión de Looop. 
+5. Seleccione el botón **Registrarse en Looop**, que le redirigirá a la página de inicio de sesión de Looop. 
 
     ![Looop OIDC Add](media/looop-provisioning-tutorial/signup.png)
 
-6. Como Looop es una aplicación de OpenIDConnect, inicie sesión en Looop con su cuenta Microsoft profesional.
+6. Como Looop es una aplicación de OpenIDConnect, inicie sesión en Looop con su cuenta profesional de Microsoft.
 
     ![Looop OIDC login](media/looop-provisioning-tutorial/msftlogin.png)
 
@@ -119,31 +119,52 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Captura de pantalla de la lista desplegable Modo de aprovisionamiento con la opción Automático seleccionada.](common/provisioning-automatic.png)
 
-5. En la sección **Credenciales de administrador** , escriba `https://<organisation_domain>.looop.co/scim/v2` en la **URL de inquilino**. Por ejemplo, `https://demo.looop.co/scim/v2`. Escriba el valor que recuperó y guardó anteriormente de Looop en **Token secreto**. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a Looop. Si no se establece la conexión, asegúrese de que la cuenta de Looop tiene permisos de administrador y pruebe de nuevo.
+5. En la sección **Credenciales de administrador**, escriba `https://<organisation_domain>.looop.co/scim/v2` en la **URL de inquilino**. Por ejemplo, `https://demo.looop.co/scim/v2`. Escriba el valor que recuperó y guardó anteriormente de Looop en **Token secreto**. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a Looop. Si no se establece la conexión, asegúrese de que la cuenta de Looop tiene permisos de administrador y pruebe de nuevo.
 
     ![URL de inquilino + Token](common/provisioning-testconnection-tenanturltoken.png)
 
-6. En el campo **Correo electrónico de notificación** , escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
+6. En el campo **Correo electrónico de notificación**, escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
 
     ![Correo electrónico de notificación](common/provisioning-notification-email.png)
 
-7. Haga clic en **Save** (Guardar).
+7. Haga clic en **Save**(Guardar).
 
-8. En la sección **Asignaciones** , seleccione **Synchronize Azure Active Directory Users to Looop** (Sincronizar usuarios de Azure Active Directory con Looop).
+8. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Users to Looop** (Sincronizar usuarios de Azure Active Directory con Looop).
 
     ![Asignaciones de usuario de Looop](media/looop-provisioning-tutorial/usermappings.png)
 
 9. Revise los atributos de usuario que se sincronizan entre Azure AD y Looop en la sección **Asignación de atributos**. Los atributos seleccionados como propiedades de **Matching** (Coincidencia) se usan para buscar coincidencias con las cuentas de usuario de Looop con el objetivo de realizar operaciones de actualización. Seleccione el botón **Guardar** para confirmar los cambios.
 
-    ![Atributos de usuario de Looop](media/looop-provisioning-tutorial/userattributes.png)
+   |Atributo|Tipo|Compatible con el filtrado|
+   |---|---|---|
+   |userName|String|&check;|
+   |active|Boolean|
+   |emails[type eq "work"].value|String|
+   |name.givenName|String|
+   |name.familyName|String|
+   |externalId|String|
+   |urn:ietf:params:scim:schemas:extension:Looop:2.0:User:area|String|
+   |urn:ietf:params:scim:schemas:extension:Looop:2.0:User:custom_1|String|
+   |urn:ietf:params:scim:schemas:extension:Looop:2.0:User:custom_2|String|
+   |urn:ietf:params:scim:schemas:extension:Looop:2.0:User:custom_3|String|
+   |urn:ietf:params:scim:schemas:extension:Looop:2.0:User:department|String|
+   |urn:ietf:params:scim:schemas:extension:Looop:2.0:User:employee_id|String|
+   |urn:ietf:params:scim:schemas:extension:Looop:2.0:User:location|String|
+   |urn:ietf:params:scim:schemas:extension:Looop:2.0:User:position|String|
+   |urn:ietf:params:scim:schemas:extension:Looop:2.0:User:startAt|String|
 
-10. En la sección **Asignaciones** , seleccione **Synchronize Azure Active Directory Groups to Meta Networks Connector** (Sincronizar grupos de Azure Active Directory con Meta Networks Connector).
+10. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Groups to Meta Networks Connector** (Sincronizar grupos de Azure Active Directory con Meta Networks Connector).
 
     ![Asignaciones de grupo de Looop](media/looop-provisioning-tutorial/groupmappings.png)
 
 11. Revise los atributos de grupo que se sincronizan entre Azure AD y Meta Networks Connector en la sección **Asignación de atributos**. Los atributos seleccionados como propiedades de **Coincidencia** se usan para buscar coincidencias con los grupos de Meta Networks Connector con el objetivo de realizar operaciones de actualización. Seleccione el botón **Guardar** para confirmar los cambios.
 
-    ![Atributos de grupo de Looop](media/looop-provisioning-tutorial/groupattributes.png)
+    |Atributo|Tipo|Compatible con el filtrado|
+    |---|---|---|
+    |DisplayName|String|&check;|
+    |members|Referencia|
+    |externalId|String|
+
 
 10. Para configurar filtros de ámbito, consulte las siguientes instrucciones, que se proporcionan en el artículo [Aprovisionamiento de aplicaciones basado en atributos con filtros de ámbito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
@@ -151,7 +172,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Estado de aprovisionamiento activado](common/provisioning-toggle-on.png)
 
-12. Seleccione los valores deseados en **Ámbito** , en la sección **Configuración** , para definir los usuarios o grupos que quiere aprovisionar en Looop.
+12. Seleccione los valores deseados en **Ámbito**, en la sección **Configuración**, para definir los usuarios o grupos que quiere aprovisionar en Looop.
 
     ![Ámbito del aprovisionamiento](common/provisioning-scope.png)
 

@@ -4,19 +4,17 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 05/06/2020
 ms.author: glenga
-ms.openlocfilehash: 5e0cff7bde6e80a776d694820ca7b69dafa7c0d9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2d66e7f497f85141de172c59b67676e1bb93955e
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83648825"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94578836"
 ---
-El acceso privado a sitios se refiere a que la aplicación solo sea accesible desde una red privada, como una red virtual de Azure.
+Un [punto de conexión privado de Azure](../articles/private-link/private-endpoint-overview.md) es una interfaz de red que nos conecta de forma privada y segura a un servicio por medio de la tecnología Azure Private Link.  Los puntos de conexión privados emplean una dirección IP privada de la red virtual, lo que hace que el servicio se incluya en la red virtual.
 
-* El acceso privado a sitios está disponible en los planes [Premium](../articles/azure-functions/functions-premium-plan.md), [Consumo](../articles/azure-functions/functions-scale.md#consumption-plan) y [App Service](../articles/azure-functions/functions-scale.md#app-service-plan) si se han configurado puntos de conexión de servicio.
-    * Los puntos de conexión de servicio se pueden configurar por aplicación en **Características de la plataforma** > **Redes** > **Configurar restricciones de acceso** > **Agregar regla**. Las redes virtuales ahora se pueden seleccionar como un tipo de regla.
-    * Para obtener más información, consulte [puntos de conexión de servicio de red virtual](../articles/virtual-network/virtual-network-service-endpoints-overview.md).
-    * Tenga en cuenta que, con los puntos de conexión de servicio, la función todavía tiene acceso de salida completo a Internet, incluso cuando está configurada la integración de red virtual.
-* El acceso privado a sitios también está disponible en una instancia de App Service Environment configurada con un equilibrador de carga interno (ILB). Para obtener más información, consulte [Creación y uso de un equilibrador de carga interno con un App Service Environment](../articles/app-service/environment/create-ilb-ase.md).
+Puede usar el punto de conexión privado para las funciones hospedadas en los planes [Premium](../articles/azure-functions/functions-premium-plan.md) y [App Service](../articles/azure-functions/functions-scale.md#app-service-plan).
 
-Para más información sobre cómo configurar el acceso a un sitio privado, consulte [Establecimiento del acceso a un sitio privado de Azure Functions](../articles/azure-functions/functions-create-private-site-access.md).
+Al crear una conexión de punto de conexión privado entrante para las funciones, también necesitará un registro DNS para resolver la dirección privada.  De manera predeterminada, se creará automáticamente un registro DNS privado al crear un punto de conexión privado mediante Azure Portal.
+
+Para más información, consulte cómo [usar puntos de conexión privados para aplicaciones web](../articles/app-service/networking/private-endpoint.md).

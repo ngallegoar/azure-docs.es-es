@@ -9,13 +9,13 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
-ms.date: 09/15/2020
-ms.openlocfilehash: 461fabd0dd9948e8967ac61919f77e3e23a981b9
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.date: 11/16/2020
+ms.openlocfilehash: 57213e228359fd6c201d501d3bb75f7267054277
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94331964"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94685433"
 ---
 # <a name="explore-the-synapse-knowledge-center"></a>Exploración del Centro de conocimientos de Synapse
 
@@ -25,7 +25,7 @@ En este tutorial, aprenderá a usar el Centro de conocimientos de Synapse Studio
 
 Hay dos formas de buscar el Centro de conocimientos en Synapse Studio:
 
-  1. En la central de inicio, en Vínculos útiles, haga clic en el primer vínculo denominado **Centro de conocimientos**.
+  1. En el centro de conectividad de inicio, cerca de la parte superior derecha de la página, haga clic en **Obtener información**.
   2. En la barra de menú de la parte superior, haga clic en **?** y, a continuación, en **Centro de conocimientos**.
 
 Elija cualquier método y abra el **Centro de conocimientos**.

@@ -2,14 +2,14 @@
 title: Información general de los servidores habilitados para Azure Arc
 description: Aprenda a usar los servidores habilitados para Azure Arc para administrar las máquinas hospedadas fuera de Azure como un recurso de Azure.
 keywords: azure automation, DSC, powershell, desired state configuration, update management, change tracking, inventory, runbooks, python, graphical, hybrid
-ms.date: 11/04/2020
+ms.date: 11/12/2020
 ms.topic: overview
-ms.openlocfilehash: b9d38b2395d922e3e2a7daec654cd73de7267ee1
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 2df970f7c94f1e306243aba1480ee7023b8f76c1
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360588"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94578729"
 ---
 # <a name="what-is-azure-arc-enabled-servers"></a>¿Qué son los servidores habilitados para Azure Arc?
 
@@ -44,7 +44,16 @@ Los datos de registro recopilados y almacenados en un área de trabajo de Log An
 
 Para obtener una lista definitiva de las regiones admitidas con servidores habilitados para Azure Arc, consulte la página [Productos de Azure por región](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc).
 
-En la mayoría de los casos, la ubicación que seleccione al crear el script de instalación debe ser la región de Azure más cercana geográficamente a la ubicación de la máquina. Los datos en reposo se almacenarán en la ubicación geográfica de Azure que contiene la región que especifique, lo que también puede afectar a su elección de región si tiene requisitos de residencia de datos. Si la región de Azure a la que está conectada la máquina experimente una interrupción, la máquina conectada no se verá afectada, aunque es posible que las operaciones de administración que usan Azure no se puedan completar. En el caso de una interrupción regional, si dispone de varias ubicaciones que admiten un servicio con redundancia geográfica, es mejor conectar las máquinas de cada ubicación a una región diferente de Azure.
+En la mayoría de los casos, la ubicación que seleccione al crear el script de instalación debe ser la región de Azure más cercana geográficamente a la ubicación de la máquina. Los datos en reposo se almacenan en la ubicación geográfica de Azure que contiene la región que especifique, lo que también puede afectar a su elección de región si tiene requisitos de residencia de datos. Si la región de Azure a la que está conectada la máquina experimente una interrupción, la máquina conectada no se verá afectada, aunque es posible que las operaciones de administración que usan Azure no se puedan completar. En el caso de una interrupción regional, si dispone de varias ubicaciones que admiten un servicio con redundancia geográfica, es mejor conectar las máquinas de cada ubicación a una región diferente de Azure.
+
+La siguiente información de metadatos sobre la máquina conectada se recopila y almacena en la región donde se configura el recurso de la máquina de Azure Arc:
+
+- Nombre y versión del sistema operativo
+- Nombre del equipo
+- Nombre de dominio completo (FQDN) del equipo
+- Versión del agente Connected Machine
+
+Por ejemplo, si la máquina se registra en Azure Arc en la región Este de EE. UU., estos datos se almacenan en la región de EE. UU.
 
 ### <a name="agent-status"></a>Estado del agente
 

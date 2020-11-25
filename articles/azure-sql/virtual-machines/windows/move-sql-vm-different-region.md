@@ -14,12 +14,12 @@ ms.date: 07/30/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 131deabfbd29e4d55a3f34252e3ba68261872ca0
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: ae89091eb57eade39f8b7581fc5df7ad449e8590
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92785500"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94553563"
 ---
 # <a name="move-a-sql-server-vm-to-another-region-within-azure-with-azure-site-recovery"></a>Traslado de una VM con SQL Server a otra región dentro de Azure con Azure Site Recovery
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -75,18 +75,18 @@ En los pasos siguientes aprenderá a utilizar Azure Site Recovery para copiar da
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com). 
 1. Elija **Crear un recurso** en la esquina superior izquierda del panel de navegación. 
-1. Seleccione **IT & Management tools** (Herramientas de TI y administración) y, luego, **Backup and Site Recovery** . 
-1. En la pestaña **Basics** (Aspectos básicos), en **Detalles del proyecto** , cree un grupo de recursos nuevo en la región de destino o seleccione uno existente en la región de destino. 
-1. En **Detalles de la instancia** , especifique un nombre para el almacén y, luego, seleccione la **región** de destino en el menú desplegable. 
+1. Seleccione **IT & Management tools** (Herramientas de TI y administración) y, luego, **Backup and Site Recovery**. 
+1. En la pestaña **Basics** (Aspectos básicos), en **Detalles del proyecto**, cree un grupo de recursos nuevo en la región de destino o seleccione uno existente en la región de destino. 
+1. En **Detalles de la instancia**, especifique un nombre para el almacén y, luego, seleccione la **región** de destino en el menú desplegable. 
 1. Haga clic en **Revisar y crear** para crear el almacén de Recovery Services. 
 1. Seleccione **Todos los servicios** en la esquina superior izquierda del panel de navegación y escriba `recovery services` en el cuadro de búsqueda. 
 1. (Opcionalmente) Seleccione la estrella junto a la opción **Almacenes de Recovery Services** para agregarla a la barra de navegación rápida. 
 1. Seleccione **Almacenes de Recovery Services** y, luego, el almacén de Recovery Services que creó. 
-1. En el panel **Información general** , seleccione **Replicar** . 
+1. En el panel **Información general**, seleccione **Replicar**. 
 
    ![Configuración de la replicación](./media/move-sql-vm-different-region/configure-replication.png)
 
-1. Seleccione **Origen** y, luego, seleccione **Azure** como el origen. Seleccione los valores adecuados para los otros campos desplegables, como la ubicación de las máquinas virtuales de origen. Solo los grupos de recursos ubicados en la región **Ubicación de origen** estarán visibles en el campo **Grupo de recursos de origen** . 
+1. Seleccione **Origen** y, luego, seleccione **Azure** como el origen. Seleccione los valores adecuados para los otros campos desplegables, como la ubicación de las máquinas virtuales de origen. Solo los grupos de recursos ubicados en la región **Ubicación de origen** estarán visibles en el campo **Grupo de recursos de origen**. 
 1. Seleccione **Máquinas virtuales** y elija las máquinas virtuales que quiere migrar. Seleccione **Aceptar** para guardar su selección de VM. 
 1. Seleccione **Configuración** y elija la **ubicación de destino** en el menú desplegable. Debe ser el grupo de recursos que preparó anteriormente. 
 1. Una vez que haya personalizado la replicación, seleccione **Crear recursos de destino** para crear los recursos en la ubicación nueva. 
@@ -98,12 +98,12 @@ En los pasos siguientes aprenderá a utilizar Azure Site Recovery para copiar da
 ## <a name="test-move-process"></a>Prueba del proceso de traslado
 En los pasos siguientes se muestra cómo usar Azure Site Recovery para probar el proceso de traslado. 
 
-1. Vaya a su **almacén de Recovery Services** en [Azure Portal](https://portal.azure.com) y seleccione **Elementos replicados** . 
-1. Seleccione la VM con SQL Server que quiere trasladar, compruebe que el **estado de la replicación** sea **Correcto** y, luego, seleccione **Conmutación por error de prueba** . 
+1. Vaya a su **almacén de Recovery Services** en [Azure Portal](https://portal.azure.com) y seleccione **Elementos replicados**. 
+1. Seleccione la VM con SQL Server que quiere trasladar, compruebe que el **estado de la replicación** sea **Correcto** y, luego, seleccione **Conmutación por error de prueba**. 
 
    ![Conmutación por error de prueba para la VM](./media/move-sql-vm-different-region/test-failover-of-replicated-vm.png)
 
-1. En la página **Conmutación por error de prueba** , seleccione el punto de recuperación **Más reciente coherente con la aplicación** que se usará para la conmutación por error, porque es el único tipo de instantánea que puede garantizar la coherencia de los datos de SQL Server. 
+1. En la página **Conmutación por error de prueba**, seleccione el punto de recuperación **Más reciente coherente con la aplicación** que se usará para la conmutación por error, porque es el único tipo de instantánea que puede garantizar la coherencia de los datos de SQL Server. 
 1. Seleccione la red virtual en la **red virtual de Azure** y, luego, seleccione **Aceptar** para realizar la conmutación por error de prueba. 
    
    >[!IMPORTANT]
@@ -114,24 +114,24 @@ En los pasos siguientes se muestra cómo usar Azure Site Recovery para probar el
    ![Supervisión del progreso de la prueba de la conmutación por error](./media/move-sql-vm-different-region/monitor-failover-test-job.png)
 
 1. Una vez que se complete la prueba, vaya a **Máquinas virtuales** en el portal y revise la máquina virtual recién creada. Asegúrese de que la VM con SQL Server está en funcionamiento, tiene el tamaño adecuado y está conectada a la red apropiada. 
-1. Elimine la máquina virtual que se creó como parte de la prueba, porque la opción **Conmutación por error** aparecerá atenuada hasta que se limpien los recursos de la prueba de conmutación por error. Vuelva al almacén, seleccione **Elementos replicados** , la VM con SQL Server y, luego, seleccione **Limpiar conmutación por error de prueba** . Registre y guarde cualquier observación asociada con la prueba en la sección **Notas** y active la casilla junto a **La prueba se ha completado. Elimine las máquinas virtuales de la conmutación por error de prueba** . Seleccione **Aceptar** para borrar los recursos después de la prueba. 
+1. Elimine la máquina virtual que se creó como parte de la prueba, porque la opción **Conmutación por error** aparecerá atenuada hasta que se limpien los recursos de la prueba de conmutación por error. Vuelva al almacén, seleccione **Elementos replicados**, la VM con SQL Server y, luego, seleccione **Limpiar conmutación por error de prueba**. Registre y guarde cualquier observación asociada con la prueba en la sección **Notas** y active la casilla junto a **La prueba se ha completado. Elimine las máquinas virtuales de la conmutación por error de prueba**. Seleccione **Aceptar** para borrar los recursos después de la prueba. 
 
    ![Eliminación de los elementos después de la prueba de la conmutación por error](./media/move-sql-vm-different-region/cleanup-test-items.png)
 
 ## <a name="move-the-sql-server-vm"></a>Traslado de la VM con SQL Server 
 En los pasos siguientes se muestra cómo mover la VM con SQL Server desde la región de origen a la región de destino. 
 
-1. Vaya al almacén de **Recovery Services** , seleccione **Elementos replicados** , seleccione la máquina virtual y, luego, **Conmutación por error** . 
+1. Vaya al almacén de **Recovery Services**, seleccione **Elementos replicados**, seleccione la máquina virtual y, luego, **Conmutación por error**. 
 
    ![Iniciar conmutación por error](./media/move-sql-vm-different-region/initiate-failover.png)
 
-1. Seleccione el punto de recuperación **más reciente coherente con la aplicación** en **Punto de recuperación** . 
+1. Seleccione el punto de recuperación **más reciente coherente con la aplicación** en **Punto de recuperación**. 
 1. Active la casilla junto a **Shut down the machine before beginning failover** (Apagar la máquina antes de empezar la conmutación por error). Después, Site Recovery intentará apagar la máquina virtual de origen antes de desencadenar la conmutación por error. La conmutación por error seguirá incluso si se produce un error al apagar la máquina virtual. 
 1. Seleccione **Aceptar** para iniciar la conmutación por error.
 1. Puede supervisar el proceso de conmutación por error desde la misma página **Trabajos de Site Recovery** que vio al supervisar la prueba de la conmutación por error en la sección anterior. 
 1. Una vez que se complete el trabajo, compruebe que la VM con SQL Server aparece en la región de destino según lo esperado. 
-1. Vuelva al almacén, seleccione **Elementos replicados** , seleccione la VM con SQL Server y, luego, **Confirmar** para finalizar el proceso de traslado a la región de destino. Espere hasta que el trabajo de confirmación finalice. 
-1. Registre la VM con SQL Server con el proveedor de recursos de VM de SQL para habilitar la capacidad de administración de la **máquina virtual con SQL** en Azure Portal y las características asociadas con el proveedor de recursos. Para más información, consulte [Registro de una máquina virtual con SQL Server en Azure con el proveedor de recursos de VM de SQL](sql-vm-resource-provider-register.md). 
+1. Vuelva al almacén, seleccione **Elementos replicados**, seleccione la VM con SQL Server y, luego, **Confirmar** para finalizar el proceso de traslado a la región de destino. Espere hasta que el trabajo de confirmación finalice. 
+1. Registre la VM con SQL Server con la extensión del Agente de IaaS de SQL permitir la capacidad de administración de **máquinas virtuales con SQL** en Azure Portal y las características asociadas con la extensión. Para más información, consulte [Registro de una VM SQL Server con la extensión del Agente de IaaS de SQL](sql-agent-extension-manually-register-single-vm.md). 
 
   > [!WARNING]
   > La coherencia de los datos de SQL Server solo la garantizan las instantáneas coherentes con la aplicación. La instantánea **procesada más recientemente** no se puede usar para la conmutación por error de SQL Server porque una instantánea de recuperación tras bloqueo no puede garantizar la coherencia de los datos de SQL Server. 
@@ -139,8 +139,8 @@ En los pasos siguientes se muestra cómo mover la VM con SQL Server desde la re
 ## <a name="clean-up-source-resources"></a>Limpieza de los recursos de origen
 Para evitar los cargos de facturación, quite la VM con SQL Server del almacén y elimine los recursos asociados innecesarios. 
 
-1. Vuelva al almacén de **Site Recovery** , seleccione **Elementos replicados** y la VM con SQL Server. 
-1. Seleccione **Deshabilitar replicación** . Seleccione un motivo para deshabilitar la protección y, luego, seleccione **Aceptar** para deshabilitar la replicación. 
+1. Vuelva al almacén de **Site Recovery**, seleccione **Elementos replicados** y la VM con SQL Server. 
+1. Seleccione **Deshabilitar replicación**. Seleccione un motivo para deshabilitar la protección y, luego, seleccione **Aceptar** para deshabilitar la replicación. 
 
    >[!IMPORTANT]
    > Es importante realizar este paso para evitar cargos por replicación de Azure Site Recovery. 

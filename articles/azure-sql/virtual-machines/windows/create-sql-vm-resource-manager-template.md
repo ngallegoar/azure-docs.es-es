@@ -7,12 +7,12 @@ ms.custom: subject-armqs
 ms.author: mathoma
 ms.date: 06/29/2020
 ms.service: virtual-machines-sql
-ms.openlocfilehash: b57303a1c9fdba2bea8637bef6c148622087a8d3
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 9d0dd8ee1b99ddd2abf4fad154c70315a3d33c83
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789784"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94556427"
 ---
 # <a name="quickstart-create-sql-server-vm-using-an-arm-template"></a>Inicio rápido: Creación de una VM con SQL Server mediante una plantilla de ARM
 
@@ -20,7 +20,7 @@ Use esta plantilla de Azure Resource Manager (plantilla de ARM) para implementar
 
 [!INCLUDE [About Azure Resource Manager](../../../../includes/resource-manager-quickstart-introduction.md)]
 
-Si su entorno cumple los requisitos previos y está familiarizado con el uso de plantillas de Resource Manager, seleccione el botón **Implementar en Azure** . La plantilla se abrirá en Azure Portal.
+Si su entorno cumple los requisitos previos y está familiarizado con el uso de plantillas de Resource Manager, seleccione el botón **Implementar en Azure**. La plantilla se abrirá en Azure Portal.
 
 [![Implementación en Azure](../../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-sql-vm-new-storage%2fazuredeploy.json)
 
@@ -45,39 +45,39 @@ En la plantilla se definen cinco recursos de Azure:
 - [Microsoft.Network/networkSecurityGroups](/azure/templates/microsoft.network/networksecuritygroups): Crea un grupo de seguridad de red. 
 - [Microsoft.Network/networkInterfaces](/azure/templates/microsoft.network/networkinterfaces): Configura la interfaz de red. 
 - [Microsoft.Compute/virtualMachines](/azure/templates/microsoft.compute/virtualmachines): Crea una máquina virtual en Azure. 
-- [Microsoft.SqlVirtualMachine/SqlVirtualMachines](/azure/templates/microsoft.sqlvirtualmachine/sqlvirtualmachines): registra la máquina virtual con el proveedor de recursos de la máquina virtual con SQL. 
+- [Microsoft.SqlVirtualMachine/SqlVirtualMachines](/azure/templates/microsoft.sqlvirtualmachine/sqlvirtualmachines): registra la máquina virtual con la extensión del agente de IaaS de SQL. 
 
 Se pueden encontrar más plantillas de SQL Server en máquinas virtuales de Azure en la [galería de plantillas de inicio rápido](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Sqlvirtualmachine&pageNumber=1&sort=Popular).
 
 
 ## <a name="deploy-the-template"></a>Implementación de la plantilla
 
-1. Seleccione la imagen siguiente para iniciar sesión en Azure y abrir una plantilla. La plantilla crea una máquina virtual con la versión de SQL Server prevista instalada en ella y registrada con el proveedor de recursos de la máquina virtual de SQL. 
+1. Seleccione la imagen siguiente para iniciar sesión en Azure y abrir una plantilla. La plantilla crea una máquina virtual con la versión de SQL Server prevista instalada en ella y registrada con la extensión del agente de IaaS de SQL. 
 
    [![Implementación en Azure](../../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-sql-vm-new-storage%2fazuredeploy.json)
 
 2. Seleccione o escriba los siguientes valores.
 
-    * **Suscripción** : Seleccione una suscripción de Azure.
-    * **Grupo de recursos** : el grupo de recursos preparado para la VM con SQL Server. 
-    * **Región** : Seleccione una región.  Por ejemplo, **Centro de EE. UU** .
-    * **Nombre de la máquina virtual** : escriba un nombre para la máquina virtual con SQL Server. 
-    * **Tamaño de la máquina virtual** : elija el tamaño adecuado de la máquina virtual en el menú desplegable.
-    * **Nombre de la red virtual existente** : escriba el nombre de la red virtual preparada para la VM con SQL Server. 
-    * **Grupo de recursos de la red virtual existente** : escriba el grupo de recursos en el que se preparó la red virtual. 
-    * **Nombre de subred existente** : el nombre de la subred preparada. 
-    * **Oferta de la imagen** : Elija la imagen de SQL Server y de Windows Server que mejor se adapte a sus necesidades empresariales. 
-    * **SKU de SQL** : elija la edición de la SKU de SQL Server que mejor se adapte a sus necesidades empresariales. 
-    * **Nombre de usuario administrador** : el nombre de usuario del administrador de la máquina virtual. 
-    * **Contraseña de administrador** : la contraseña que utiliza el administrador de la cuenta de la máquina virtual. 
-    * **Tipo de almacenamiento de la carga de trabajo** :  el tipo de almacenamiento de la carga de trabajo que mejor se adapte a su negocio. 
-    * **Número de discos de datos de SQL** :  el número de discos que SQL Server usa para los archivos de datos.  
-    * **Ruta de acceso a datos** :  la ruta de acceso a los archivos de datos de SQL Server. 
-    * **Número de discos de registro de SQL** :  el número de discos que SQL Server usa para los archivos de registro. 
-    * **Ruta de acceso al registro** :  la ruta de acceso a los archivos de registro de SQL Server. 
-    * **Ubicación** :  la ubicación de todos los recursos, este valor debe dejarse en su valor predeterminado `[resourceGroup().location]`. 
+    * **Suscripción**: Seleccione una suscripción de Azure.
+    * **Grupo de recursos**: el grupo de recursos preparado para la VM con SQL Server. 
+    * **Región**: Seleccione una región.  Por ejemplo, **Centro de EE. UU**.
+    * **Nombre de la máquina virtual**: escriba un nombre para la máquina virtual con SQL Server. 
+    * **Tamaño de la máquina virtual**: elija el tamaño adecuado de la máquina virtual en el menú desplegable.
+    * **Nombre de la red virtual existente**: escriba el nombre de la red virtual preparada para la VM con SQL Server. 
+    * **Grupo de recursos de la red virtual existente**: escriba el grupo de recursos en el que se preparó la red virtual. 
+    * **Nombre de subred existente**: el nombre de la subred preparada. 
+    * **Oferta de la imagen**: Elija la imagen de SQL Server y de Windows Server que mejor se adapte a sus necesidades empresariales. 
+    * **SKU de SQL**: elija la edición de la SKU de SQL Server que mejor se adapte a sus necesidades empresariales. 
+    * **Nombre de usuario administrador**: el nombre de usuario del administrador de la máquina virtual. 
+    * **Contraseña de administrador**: la contraseña que utiliza el administrador de la cuenta de la máquina virtual. 
+    * **Tipo de almacenamiento de la carga de trabajo**:  el tipo de almacenamiento de la carga de trabajo que mejor se adapte a su negocio. 
+    * **Número de discos de datos de SQL**:  el número de discos que SQL Server usa para los archivos de datos.  
+    * **Ruta de acceso a datos**:  la ruta de acceso a los archivos de datos de SQL Server. 
+    * **Número de discos de registro de SQL**:  el número de discos que SQL Server usa para los archivos de registro. 
+    * **Ruta de acceso al registro**:  la ruta de acceso a los archivos de registro de SQL Server. 
+    * **Ubicación**:  la ubicación de todos los recursos, este valor debe dejarse en su valor predeterminado `[resourceGroup().location]`. 
 
-3. Seleccione **Revisar + crear** . Una vez que se haya implementado la VM con SQL Server correctamente, recibirá una notificación.
+3. Seleccione **Revisar + crear**. Una vez que se haya implementado la VM con SQL Server correctamente, recibirá una notificación.
 
 Azure Portal se usa para implementar la plantilla. Además de Azure Portal, también puede usar Azure PowerShell, la CLI de Azure y API REST. Para obtener información sobre otros métodos de implementación, consulte [Implementación de plantillas](../../../azure-resource-manager/templates/deploy-powershell.md).
 

@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 089476980ff3e8b2d3b72cb2d229934cf7850c03
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0f67a36ac4ccb27d7b955158b7e4a9cf4f5185d0
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90899255"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94636925"
 ---
 # <a name="kubernetes-on-your-azure-stack-edge-pro-gpu-device"></a>Kubernetes en el dispositivo Azure Stack Edge Pro con GPU
 
@@ -67,7 +67,7 @@ A medida que las nuevas versiones de Kubernetes estén disponibles, el clúster 
 
 ## <a name="access-monitoring"></a>Acceso, supervisión
 
-El clúster de Kubernetes en el dispositivo Azure Stack Edge Pro permite el control de acceso basado en rol (RBAC). A fin de obtener más información, vea [Control de acceso basado en rol para el clúster de Kubernetes en el dispositivo Azure Stack Edge Pro](azure-stack-edge-gpu-kubernetes-rbac.md).
+El clúster de Kubernetes en el dispositivo Azure Stack Edge Pro permite el control de acceso basado en rol de Kubernetes (RBAC de Kubernetes). Para más información, consulte [Control de acceso basado en roles de Kubernetes en un dispositivo Azure Stack Edge Pro con GPU](azure-stack-edge-gpu-kubernetes-rbac.md).
 
 También puede supervisar el estado del clúster y los recursos mediante el panel de Kubernetes. También hay disponibles registros de contenedor. A fin de obtener más información, vea [Uso del panel de Kubernetes para supervisar el estado del clúster de Kubernetes en el dispositivo Azure Stack Edge Pro](azure-stack-edge-gpu-monitor-kubernetes-dashboard.md).
 

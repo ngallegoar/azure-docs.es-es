@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: kenwith
 ms.reviewer: arvindh, japere
-ms.openlocfilehash: 5c02733167db5071b1f2a9c5e04dc05a069fda3c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f7ec8a913634322be5a1eb854972cfa2a0217381
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90604213"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94651930"
 ---
 # <a name="single-sign-on-options-in-azure-ad"></a>Opciones de inicio de sesión único en Azure AD
 
@@ -49,7 +49,7 @@ En la tabla siguiente se resumen los métodos de inicio de sesión únicos y los
 | [Vinculado](#linked-sign-on) | En la nube y locales | Elija el inicio de sesión vinculado si la aplicación está configurada para el inicio de sesión único en otro servicio de proveedor de identidades. Esta opción no agrega el inicio de sesión único a la aplicación. No obstante, es posible que ya se haya implementado el inicio de sesión único en la aplicación mediante otro servicio, como los Servicios de federación de Active Directory.|
 | [Deshabilitada](#disabled-sso) | En la nube y locales | Elija un inicio de sesión único deshabilitado si la aplicación no está lista para configurarse para el inicio de sesión único. Este modo es la opción predeterminada cuando se crea la aplicación.|
 | [Autenticación integrada de Windows (IWA)](#integrated-windows-authentication-iwa-sso) | Solo en entornos locales | Elija el inicio de sesión único IWA para aplicaciones que usen la [autenticación integrada de Windows (IWA)](/aspnet/web-api/overview/security/integrated-windows-authentication) o aplicaciones compatibles con notificaciones. Para la autenticación integrada de Windows, los conectores del proxy de aplicación utilizan la delegación restringida de Kerberos (KCD) para autenticar a los usuarios en la aplicación. |
-| [Basado en encabezados](#header-based-sso) | Solo en entornos locales | Use el inicio de sesión único basado en encabezados si la aplicación usa encabezados para la autenticación. El inicio de sesión único basado en encabezados requiere PingAccess para Azure AD. El proxy de aplicación usa Azure AD para autenticar al usuario y, a continuación, pasa el tráfico a través del servicio de conector.  |
+| [Basado en encabezados](#header-based-sso) | Solo en entornos locales | Use el inicio de sesión único basado en encabezados si la aplicación usa encabezados para la autenticación. El proxy de aplicación usa Azure AD para autenticar al usuario y, a continuación, pasa el tráfico a través del servicio de conector.  |
 
 ## <a name="openid-connect-and-oauth"></a>OpenID Connect y OAuth
 
@@ -59,7 +59,7 @@ Para más información, consulte:
 
 - [OAuth 2.0](../develop/v2-oauth2-auth-code-flow.md)
 - [OpenID Connect 1.0](../develop/v2-protocols-oidc.md)
-- [Guía para desarrolladores de la plataforma de identidad de Microsoft](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide).
+- [Guía para desarrolladores de la plataforma de identidad de Microsoft](../develop/index.yml).
 
 ## <a name="saml-sso"></a>SSO de SAML
 
@@ -137,7 +137,7 @@ El inicio de sesión único vinculado permite a Azure AD proporcionar inicio de 
 
 ### <a name="linked-sign-on-for-application-migration"></a>Inicio de sesión vinculado para la migración de aplicaciones
 
-El inicio de sesión vinculado puede proporcionar una experiencia de usuario coherente durante la migración de aplicaciones durante un período de tiempo. Si va a migrar aplicaciones a Azure Active Directory, puede usar un inicio de sesión vinculado para publicar rápidamente los vínculos a todas las aplicaciones que pretende migrar.  Los usuarios pueden encontrar todos los vínculos en el [portal Mis aplicaciones](../user-help/active-directory-saas-access-panel-introduction.md) o en el [iniciador de aplicaciones de Microsoft 365](https://support.office.com/article/meet-the-office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a). Los usuarios no saben que están accediendo a una aplicación vinculada o una aplicación migrada.  
+El inicio de sesión vinculado puede proporcionar una experiencia de usuario coherente durante la migración de aplicaciones durante un período de tiempo. Si va a migrar aplicaciones a Azure Active Directory, puede usar un inicio de sesión vinculado para publicar rápidamente los vínculos a todas las aplicaciones que pretende migrar.  Los usuarios pueden encontrar todos los vínculos en el [portal Mis aplicaciones](../user-help/my-apps-portal-end-user-access.md) o en el [iniciador de aplicaciones de Microsoft 365](https://support.office.com/article/meet-the-office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a). Los usuarios no saben que están accediendo a una aplicación vinculada o una aplicación migrada.  
 
 Una vez que el usuario se ha autenticado con una aplicación vinculada, se debe crear un registro de cuenta antes de proporcionar al usuario final el acceso de inicio de sesión único. El aprovisionamiento de este registro de cuenta puede producirse automáticamente o bien lo puede realizar manualmente un administrador.
 
@@ -180,24 +180,14 @@ En este diagrama se explica el flujo cuando un usuario accede a una aplicación 
 
 ## <a name="header-based-sso"></a>Inicio de sesión único basado en encabezados
 
-El inicio de sesión único basado en encabezados funciona con aquellas aplicaciones que usan encabezados para la autenticación. Este método de inicio de sesión usa un servicio de autenticación de terceros denominado PingAccess. Un usuario solo necesita autenticarse en Azure AD.
+El inicio de sesión único basado en encabezados funciona con aquellas aplicaciones que usan encabezados para la autenticación.
 
-Elija el inicio de sesión único basado en encabezados cuando el proxy de aplicación y PingAccess estén configurados para la aplicación.
+Elija el inicio de sesión único basado en encabezados cuando Application Proxy y PingAccess estén configurados para la aplicación local.
 
-Para configurar la autenticación basada en encabezados, consulte [Autenticación basada en el encabezado para el inicio de sesión único con el proxy de aplicación](application-proxy-configure-single-sign-on-with-ping-access.md).
+Para más información acerca de la autenticación basada en encabezados, consulte [Inicio de sesión único basado en encabezados](application-proxy-configure-single-sign-on-with-headers.md).
 
-### <a name="what-is-pingaccess-for-azure-ad"></a>¿Qué es PingAccess para Azure AD?
-
-Mediante el uso de PingAccess para Azure AD los usuarios pueden acceder y realizar un inicio de sesión único en las aplicaciones que usan encabezados para la autenticación. El proxy de aplicación trata estas aplicaciones como a las demás, usa Azure AD para autenticar el acceso y, después, pasa el tráfico a través del servicio de conector. Después de que se produce la autenticación, el servicio PingAccess traslada el token de acceso de Azure AD a un formato de encabezado que se envía a la aplicación.
-
-Los usuarios no notarán ninguna diferencia al iniciar sesión para usar las aplicaciones corporativas. Podrán seguir trabajando desde cualquier lugar y en cualquier dispositivo. Los conectores del proxy de aplicación dirigen el tráfico remoto a todas las aplicaciones y seguirán equilibrando la carga de forma automática.
-
-### <a name="how-do-i-get-a-license-for-pingaccess"></a>¿Cómo se puede obtener una licencia de PingAccess?
-
-Dado que este escenario se ofrece a través de una asociación entre Azure AD y PingAccess, se necesitarán licencias de ambos servicios. Sin embargo, las suscripciones Azure AD Premium incluyen una licencia básica de PingAccess que abarca hasta 20 aplicaciones. Si tiene que publicar más de 20 aplicaciones basadas en encabezados, puede adquirir una licencia adicional de PingAccess.
-
-Para obtener más información, consulte [Ediciones de Azure Active Directory](../fundamentals/active-directory-whatis.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Serie de guías de inicio rápido sobre la administración de aplicaciones](view-applications-portal.md)
 * [Planeación de una implementación de inicio de sesión único](plan-sso-deployment.md)
+* [Inicio de sesión único con aplicaciones locales](application-proxy-config-sso-how-to.md)

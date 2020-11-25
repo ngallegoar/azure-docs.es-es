@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/05/2019
 ms.author: mathoma
-ms.openlocfilehash: d3d8908739d6dda76f4c3d44540c36b36115d6f5
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: b58119ccc1551d12dfc9b09f76f6980618ba6221
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289397"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94556308"
 ---
 # <a name="frequently-asked-questions-for-sql-server-on-azure-vms"></a>Preguntas más frecuentes sobre SQL Server en VM de Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -52,7 +52,7 @@ En este artículo se ofrecen respuestas a algunas de las preguntas más comunes 
    
 1. **¿Se puede crear una imagen de SQL Server de Azure Marketplace generalizada de mi VM con SQL Server y usarla para implementar las VM?**
 
-   Sí, pero debe [registrar todas las máquinas virtuales con SQL Server con el proveedor de recursos de máquina virtual con SQL Server](sql-vm-resource-provider-register.md) para administrarlas en el portal y poder usar características como la aplicación automática de revisiones y las copias de seguridad automáticas. Al registrar con el proveedor de recursos, también deberá especificar el tipo de licencia para cada máquina virtual con SQL Server.
+   Sí, pero debe [registrar las VM con SQL Server con la extensión Agente de IaaS de SQL](sql-agent-extension-manually-register-single-vm.md) para administrarlas en el portal y poder usar características como la aplicación automática de revisiones y las copias de seguridad automáticas. Al registrar con la extensión, también deberá especificar el tipo de licencia para cada VM con SQL Server.
 
 1. **¿Cómo puedo generalizar SQL Server en VM de Azure y usarlo para implementar nuevas VM?**
 
@@ -64,22 +64,22 @@ En este artículo se ofrecen respuestas a algunas de las preguntas más comunes 
    `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Setup\SysPrepExternal\Specialize`
 
    > [!NOTE]
-   > Se recomienda que todas máquinas virtuales de Azure con SQL Server, incluidas las implementadas a partir de imágenes generalizadas personalizadas, estén [registradas con el proveedor de recursos de máquina virtual de SQL](./sql-vm-resource-provider-register.md?tabs=azure-cli%252cbash) para satisfacer los requisitos de cumplimiento y para usar características opcionales como la revisión automatizada y las copias de seguridad automáticas. El proveedor de recursos también le permite [especificar el tipo de licencia](./licensing-model-azure-hybrid-benefit-ahb-change.md?tabs=azure-portal) para cada VM con SQL Server.
+   > Se recomienda que todas las VM con SQL Server en Azure, incluidas las implementadas a partir de imágenes generalizadas personalizadas, estén [registradas con la extensión Agente de IaaS de SQL](./sql-agent-extension-manually-register-single-vm.md?tabs=azure-cli%252cbash) para satisfacer los requisitos de cumplimiento y para usar características opcionales como la aplicación automatizada de revisiones y las copias de seguridad automáticas. La extensión también le permite [especificar el tipo de licencia](./licensing-model-azure-hybrid-benefit-ahb-change.md?tabs=azure-portal) para cada VM con SQL Server.
 
 1. **¿Puedo usar mi propio disco duro virtual para implementar una máquina virtual con SQL Server?**
 
-   Sí, pero debe [registrar todas las máquinas virtuales con SQL Server con el proveedor de recursos de máquina virtual con SQL Server](sql-vm-resource-provider-register.md) para administrarlas en el portal y poder usar características como la aplicación automática de revisiones y las copias de seguridad automáticas.
+   Sí, pero debe [registrar las VM con SQL Server con la extensión Agente de IaaS de SQL](sql-agent-extension-manually-register-single-vm.md) para administrarlas en el portal y poder usar características como la aplicación automática de revisiones y las copias de seguridad automáticas.
 
 1. **¿Es posible configurar configuraciones que no aparecen en la galería de máquinas virtuales (por ejemplo, Windows 2008 R2 + SQL Server 2012)?**
 
-   No. En el caso de las imágenes de la galería de máquinas virtuales que incluyen SQL Server, debe seleccionar una de las imágenes que se proporcionan a través de Azure Portal o mediante [PowerShell](create-sql-vm-powershell.md). No obstante, tiene la posibilidad de implementar una máquina virtual Windows e instalar automáticamente SQL Server en ella. Debe [registrar su máquina virtual con SQL Server con el proveedor de recursos de VM con SQL Server](sql-vm-resource-provider-register.md) para administrarla en Azure Portal y poder usar características como la aplicación automática de revisiones y las copias de seguridad automáticas. 
+   No. En el caso de las imágenes de la galería de máquinas virtuales que incluyen SQL Server, debe seleccionar una de las imágenes que se proporcionan a través de Azure Portal o mediante [PowerShell](create-sql-vm-powershell.md). No obstante, tiene la posibilidad de implementar una máquina virtual Windows e instalar automáticamente SQL Server en ella. Debe [registrar la VM con SQL Server con la extensión Agente de IaaS de SQL](sql-agent-extension-manually-register-single-vm.md) para administrarla en Azure Portal y poder usar características como la aplicación automática de revisiones y las copias de seguridad automáticas. 
 
 
 ## <a name="creation"></a>Creación
 
 1. **¿Cómo puedo crear una máquina virtual de Azure con SQL Server?**
 
-   El método más simple es crear una máquina virtual que incluya SQL Server. Para ver un tutorial sobre cómo suscribirse a Azure y crear una máquina virtual con SQL Server desde el portal, consulte [Aprovisionamiento de una máquina virtual con SQL Server en Azure Portal](create-sql-vm-portal.md). Puede seleccionar una imagen de máquina virtual que use licencias de SQL Server de pago por segundo o puede utilizar una imagen que le permita traer su propia licencia de SQL Server. También tiene la opción de instalar manualmente SQL Server en una máquina virtual con una edición de licencia libre (Developer o Express) o reutilizando una licencia local. Asegúrese de [registrar su máquina virtual con SQL Server con el proveedor de recursos de máquina virtual con SQL Server](sql-vm-resource-provider-register.md) para administrarla en el portal y poder usar características como la aplicación automática de revisiones y las copias de seguridad automáticas. Si trae su propia licencia, debe disponer de [Movilidad de Licencias a través de Software Assurance en Azure](https://azure.microsoft.com/pricing/license-mobility/). Para más información, vea [Pricing guidance for SQL Server Azure VMs](pricing-guidance.md) (Orientación de precios de máquinas virtuales de SQL Server Azure).
+   El método más simple es crear una máquina virtual que incluya SQL Server. Para ver un tutorial sobre cómo suscribirse a Azure y crear una máquina virtual con SQL Server desde el portal, consulte [Aprovisionamiento de una máquina virtual con SQL Server en Azure Portal](create-sql-vm-portal.md). Puede seleccionar una imagen de máquina virtual que use licencias de SQL Server de pago por segundo o puede utilizar una imagen que le permita traer su propia licencia de SQL Server. También tiene la opción de instalar manualmente SQL Server en una máquina virtual con una edición de licencia libre (Developer o Express) o reutilizando una licencia local. Asegúrese de [registrar su VM con SQL Server con la extensión Agente de IaaS de SQL](sql-agent-extension-manually-register-single-vm.md) para administrarla en el portal y poder usar características como la aplicación automática de revisiones y las copias de seguridad automáticas. Si trae su propia licencia, debe disponer de [Movilidad de Licencias a través de Software Assurance en Azure](https://azure.microsoft.com/pricing/license-mobility/). Para más información, vea [Pricing guidance for SQL Server Azure VMs](pricing-guidance.md) (Orientación de precios de máquinas virtuales de SQL Server Azure).
 
 1. **¿Cómo puedo migrar mi base de datos local de SQL Server a la nube?**
 
@@ -89,7 +89,7 @@ En este artículo se ofrecen respuestas a algunas de las preguntas más comunes 
 
 1. **¿Cómo puedo instalar mi copia de SQL Server con licencia en una máquina virtual de Azure?**
 
-   Existen tres formas de hacerlo. Si tiene un Contrato Enterprise (EA), puede aprovisionar una de las [imágenes de máquina virtual que admita licencias](sql-server-on-azure-vm-iaas-what-is-overview.md#BYOL), lo que también se conoce como "traiga su propia licencia" (BYOL). Si tiene [Software Assurance](https://www.microsoft.com/en-us/licensing/licensing-programs/software-assurance-default), puede habilitar la [Ventaja híbrida de Azure](licensing-model-azure-hybrid-benefit-ahb-change.md) en una imagen de pago por uso existente. También puede copiar los medios de instalación de SQL Server en una máquina virtual de Windows Server y, luego, instalar SQL Server en la máquina virtual. Asegúrese de registrar la máquina virtual con SQL Server en el [proveedor de recursos](sql-vm-resource-provider-register.md) para usar características como la administración de portal, las copias de seguridad automáticas y la aplicación de revisiones automatizada. 
+   Existen tres formas de hacerlo. Si tiene un Contrato Enterprise (EA), puede aprovisionar una de las [imágenes de máquina virtual que admita licencias](sql-server-on-azure-vm-iaas-what-is-overview.md#BYOL), lo que también se conoce como "traiga su propia licencia" (BYOL). Si tiene [Software Assurance](https://www.microsoft.com/en-us/licensing/licensing-programs/software-assurance-default), puede habilitar la [Ventaja híbrida de Azure](licensing-model-azure-hybrid-benefit-ahb-change.md) en una imagen de pago por uso existente. También puede copiar los medios de instalación de SQL Server en una máquina virtual de Windows Server y, luego, instalar SQL Server en la máquina virtual. Asegúrese de registrar la máquina virtual con SQL Server con la [extensión](sql-agent-extension-manually-register-single-vm.md) para usar características como la administración de portal, las copias de seguridad automáticas y la aplicación automatizada de revisiones. 
 
 1. **¿Puedo cambiar una máquina virtual para usar mi propia licencia de SQL Server si se ha creado desde una de las imágenes de la galería de pago por uso?**
 
@@ -97,15 +97,15 @@ En este artículo se ofrecen respuestas a algunas de las preguntas más comunes 
 
 1. **¿El cambio de modelos de licencia requerirá un tiempo de inactividad para SQL Server?**
 
-   No. El [cambio del modelo de licencias](licensing-model-azure-hybrid-benefit-ahb-change.md) no requiere ningún tiempo de inactividad para SQL Server, ya que el cambio es efectivo de inmediato y no requiere un reinicio de la VM. Sin embargo, para registrar la máquina virtual con SQL Server con el proveedor de recursos de máquina virtual con SQL Server, la [extensión IaaS de SQL](sql-server-iaas-agent-extension-automate-management.md) es un requisito previo y la instalación de la extensión IaaS de SQL en el modo _completo_ reinicia el servicio SQL Server. Por lo tanto, si es necesario instalar la extensión IaaS de SQL, instálela en modo _ligero_ para una funcionalidad limitada o instálela en modo _completo_ durante una ventana de mantenimiento. La extensión IaaS de SQL instalada en modo _ligero_ se puede actualizar al modo _completo_ en cualquier momento, pero requiere el reinicio del servicio SQL Server. 
+   No. El [cambio del modelo de licencias](licensing-model-azure-hybrid-benefit-ahb-change.md) no requiere ningún tiempo de inactividad para SQL Server, ya que el cambio es efectivo de inmediato y no requiere un reinicio de la VM. Sin embargo, para registrar la VM con SQL Server con la extensión Agente de IaaS de SQL, la [extensión IaaS de SQL](sql-server-iaas-agent-extension-automate-management.md) es un requisito previo y la instalación de la extensión IaaS de SQL en el modo _completo_ reinicia el servicio SQL Server. Por lo tanto, si es necesario instalar la extensión IaaS de SQL, instálela en modo _ligero_ para una funcionalidad limitada o instálela en modo _completo_ durante una ventana de mantenimiento. La extensión IaaS de SQL instalada en modo _ligero_ se puede actualizar al modo _completo_ en cualquier momento, pero requiere el reinicio del servicio SQL Server. 
    
 1. **¿Es posible cambiar los modelos de licencias en una VM con SQL Server implementada con el modelo clásico?**
 
-   No. No es posible cambiar los modelos de licencias en una VM clásica. Puede migrar la máquina virtual al modelo de Azure Resource Manager y registrarla con el proveedor de recursos de máquina virtual con SQL Server. Una vez que la máquina virtual está registrada con el proveedor de recursos de máquina virtual con SQL Server, los cambios en el modelo de licencias estarán disponibles en la máquina virtual.
+   No. No es posible cambiar los modelos de licencias en una VM clásica. Puede migrar la máquina virtual al modelo de Azure Resource Manager y registrarla con la extensión Agente de IaaS de SQL. Una vez que la máquina virtual está registrada con la extensión Agente de IaaS de SQL, los cambios en el modelo de licencias estarán disponibles en la máquina virtual.
 
 1. **¿Puedo usar Azure Portal para administrar varias instancias en la misma máquina virtual?**
 
-   No. La administración desde el portal es una característica proporcionada por el proveedor de recursos de máquina virtual con SQL Server, que se basa en la extensión Agente de IaaS de SQL Server. Como tal, se aplican las mismas limitaciones al proveedor de recursos que a la extensión. El portal solo puede administrar una instancia predeterminada o una instancia con nombre, siempre y cuando se haya configurado correctamente. Para más información sobre estas limitaciones, consulte la [extensión Agente de IaaS de SQL Server](sql-server-iaas-agent-extension-automate-management.md). 
+   No. La administración desde el portal es una característica proporcionada por la extensión Agente de IaaS de SQL, que se basa en la extensión Agente de IaaS de SQL Server. Como tal, se aplican las mismas limitaciones a esta extensión que a la otra. El portal solo puede administrar una instancia predeterminada o una instancia con nombre, siempre y cuando se haya configurado correctamente. Para más información sobre estas limitaciones, consulte la [extensión Agente de IaaS de SQL Server](sql-server-iaas-agent-extension-automate-management.md). 
 
 1. **¿Las suscripciones de CSP pueden activar la Ventaja híbrida de Azure?**
 
@@ -135,27 +135,27 @@ En este artículo se ofrecen respuestas a algunas de las preguntas más comunes 
    Los programas completos que ofrecen derechos de suscripción equivalentes de Software Assurance como una ventaja fija admiten la ventaja de la recuperación ante desastres. Esto incluye, entre otros, Open Value (OV), suscripción de Open Value (OVS), Contrato Enterprise (EA), suscripción del Contrato Enterprise (EAS) y Server and Cloud Enrollment (SCE). Consulte los [términos del producto](https://www.microsoft.com/licensing/product-licensing/products) y hable con los contactos de licencias o con el administrador de cuenta para más información. 
 
    
- ## <a name="resource-provider"></a>Proveedor de recursos
+ ## <a name="extension"></a>Comprobación de actualización
 
-1. **¿El registro de mi máquina virtual en el nuevo proveedor de recursos de máquina virtual con SQL conlleva costos adicionales?**
+1. **¿El registro de mi VM con la nueva extensión Agente de IaaS de SQL implicará costos adicionales?**
 
-   No. El proveedor de recursos de máquina virtual con SQL Server habilita funcionalidades de administración adicionales para SQL Server en las máquinas virtuales de Azure sin cargos adicionales. 
+   No. La extensión Agente de IaaS de SQL simplemente hace posible una capacidad de administración adicional para SQL Server en la VM de Azure sin cargos adicionales. 
 
-1. **¿El proveedor de recursos de máquina virtual con SQL Server está disponible para todos los clientes?**
+1. **¿Está disponible la extensión Agente de IaaS de SQL para todos los clientes?**
  
-   Sí, siempre que se haya implementado la máquina virtual con SQL Server en la nube pública con el modelo de Resource Manager y no con el modelo clásico. Todos los demás clientes pueden registrarse con el nuevo proveedor de recursos de máquina virtual con SQL Server. Sin embargo, solo los clientes con la ventaja de [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?activetab=software-assurance-default-pivot%3aprimaryr3) pueden usar su propia licencia activando la [Ventaja híbrida de Azure (AHB)](https://azure.microsoft.com/pricing/hybrid-benefit/) en una máquina virtual con SQL Server. 
+   Sí, siempre que se haya implementado la máquina virtual con SQL Server en la nube pública con el modelo de Resource Manager y no con el modelo clásico. Todos los demás clientes pueden registrarse con la nueva extensión Agente de IaaS de SQL. Sin embargo, solo los clientes con la ventaja de [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?activetab=software-assurance-default-pivot%3aprimaryr3) pueden usar su propia licencia activando la [Ventaja híbrida de Azure (AHB)](https://azure.microsoft.com/pricing/hybrid-benefit/) en una máquina virtual con SQL Server. 
 
-1. **¿Qué ocurre con el proveedor de recursos ( _Microsoft.SqlVirtualMachine_ ) si se mueve o se quita el recurso de la máquina virtual?** 
+1. **¿Qué ocurre con el recurso ( _Microsoft.SqlVirtualMachine_) de la extensión si se mueve o se quita el recurso de la máquina virtual?** 
 
    Cuando el recurso Microsoft.Compute/VirtualMachine se coloca o se mueve, se envía una notificación al recurso Microsoft.SqlVirtualMachine asociado para replicar de forma asincrónica la operación.
 
-1. **¿Qué ocurre con la máquina virtual si se quita el recurso del proveedor de recursos ( _Microsoft.SqlVirtualMachine_ )?**
+1. **¿Qué ocurre con la máquina virtual si el recurso (_Microsoft.SqlVirtualMachine_) de la extensión se elimina?**
 
     El recurso Microsoft.Compute/VirtualMachine no se ve afectado cuando se coloca el recurso Microsoft.SqlVirtualMachine. Sin embargo, los cambios en las licencias devolverán el valor predeterminado al origen de la imagen original. 
 
-1. **¿Es posible registrar máquinas virtuales con SQL Server implementadas automáticamente con el proveedor de recursos de máquina virtual con SQL Server?**
+1. **¿Es posible registrar VM de SQL Server implementadas automáticamente con la extensión Agente de IaaS de SQL?**
 
-    Sí. Si ha implementado SQL Server desde sus propios medios e instalado la extensión IaaS de SQL, puede registrar la VM con SQL Server con el proveedor de recursos para obtener las ventajas de capacidad de administración proporcionadas por la extensión IaaS de SQL.    
+    Sí. Si ha implementado SQL Server desde sus propios medios e instalado la extensión IaaS de SQL, puede registrar la VM con SQL Server con la extensión para obtener las ventajas de capacidad de administración proporcionadas por la extensión IaaS de SQL.    
 
 
 ## <a name="administration"></a>Administración
@@ -186,12 +186,12 @@ En este artículo se ofrecen respuestas a algunas de las preguntas más comunes 
    1. Haga una copia de seguridad de todos los datos, incluidas las bases de datos del sistema, si es necesario. 
    1. Desinstale SQL Server completamente, incluida la extensión IaaS de SQL (si existe).
    1. Instale la [edición de SQL Express](https://www.microsoft.com/sql-server/sql-server-downloads) gratuita.
-   1. Regístrese en el proveedor de recursos de máquina virtual de SQL en [modo ligero](sql-vm-resource-provider-register.md).
+   1. Regístrese con la extensión Agente de IaaS de SQL en [modo ligero](sql-agent-extension-manually-register-single-vm.md).
    1. Deshabilite el servicio SQL Server Express deshabilitando el inicio del servicio (este paso es opcional). 
 
 1. **¿Puedo usar Azure Portal para administrar varias instancias en la misma máquina virtual?**
 
-   No. La administración desde el portal es una característica proporcionada por el proveedor de recursos de máquina virtual con SQL Server, que se basa en la extensión Agente de IaaS de SQL Server. Como tal, se aplican las mismas limitaciones al proveedor de recursos que a la extensión. El portal solo puede administrar una instancia predeterminada o una instancia con nombre, siempre y cuando se haya configurado correctamente. Para obtener más información, consulte la [extensión Agente de IaaS de SQL Server](sql-server-iaas-agent-extension-automate-management.md). 
+   No. La administración desde el portal se proporciona por la extensión Agente de IaaS de SQL, que se basa en la extensión Agente de IaaS de SQL Server. Como tal, se aplican las mismas limitaciones a esta extensión que a la otra. El portal solo puede administrar una instancia predeterminada o una instancia con nombre, siempre y cuando se haya configurado correctamente. Para obtener más información, consulte la [extensión Agente de IaaS de SQL Server](sql-server-iaas-agent-extension-automate-management.md). 
 
 
 ## <a name="updating-and-patching"></a>Actualizaciones y revisiones
@@ -208,7 +208,7 @@ En este artículo se ofrecen respuestas a algunas de las preguntas más comunes 
 
    Las máquinas virtuales brindan control sobre la máquina virtual, incluido el momento en que se aplican las actualizaciones y la manera de hacerlas. En el caso del sistema operativo, puede aplicar manualmente las actualizaciones de Windows, o bien puede habilitar un servicio de programación llamado [Aplicación de revisiones automatizada](automated-patching.md). Aplicación de revisión automatizada instala las actualizaciones marcadas como importantes, incluidas las actualizaciones de SQL Server que tienen esa categoría. Otras actualizaciones opcionales a SQL Server se deben instalar manualmente.
 
-1. **¿Puedo actualizar mi instancia de SQL Server 2008/2008 R2 después de registrarla con el proveedor de recursos de máquina virtual con SQL Server?**
+1. **¿Puedo actualizar mi instancia de SQL Server 2008/2008 R2 después de registrarla con la extensión Agente de IaaS de SQL?**
 
    Si el sistema operativo es Windows Server 2008 R2 o una versión posterior, sí. Puede usar cualquier soporte de instalación para actualizar la versión y edición de SQL Server y, a continuación, puede actualizar el [modo de la extensión IaaS de SQL](sql-server-iaas-agent-extension-automate-management.md#management-modes)) de _sin agente_ a _completo_. Esto le dará acceso a todas las ventajas de la extensión IaaS de SQL, como la capacidad de administración de portal, las copias de seguridad automáticas y la aplicación de revisiones automatizada. Si la versión del sistema operativo es Windows Server 2008, solo se admite el modo NoAgent. 
 
@@ -241,7 +241,7 @@ En este artículo se ofrecen respuestas a algunas de las preguntas más comunes 
 
 ## <a name="resources"></a>Recursos
 
-**Máquinas virtuales Windows** :
+**Máquinas virtuales Windows**:
 
 * [Introducción a SQL Server en máquinas virtuales Windows](sql-server-on-azure-vm-iaas-what-is-overview.md)
 * [Aprovisionamiento de SQL Server en una VM Windows](create-sql-vm-portal.md)
@@ -250,7 +250,7 @@ En este artículo se ofrecen respuestas a algunas de las preguntas más comunes 
 * [Directrices de rendimiento para SQL Server en Azure Virtual Machines](performance-guidelines-best-practices.md)
 * [Estrategias de desarrollo y patrones de aplicación de SQL Server en Azure Virtual Machines](application-patterns-development-strategies.md)
 
-**Máquinas virtuales Linux** :
+**Máquinas virtuales Linux**:
 
 * [Introducción a SQL Server en máquinas virtuales Linux](../linux/sql-server-on-linux-vm-what-is-iaas-overview.md)
 * [Aprovisionamiento de SQL Server en una VM Linux](../linux/sql-vm-create-portal-quickstart.md)

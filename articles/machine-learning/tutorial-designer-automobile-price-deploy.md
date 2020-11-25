@@ -1,21 +1,21 @@
 ---
 title: 'Tutorial: Implementación de modelos de ML con el diseñador'
 titleSuffix: Azure Machine Learning
-description: En este tutorial se indica cómo crear una solución de análisis predictivo en el diseñador de Azure Machine Learning. Entrene, puntúe e implemente un modelo de Machine Learning mediante módulos de arrastrar y colocar.
+description: Cree una solución de análisis predictivo en el diseñador de Azure Machine Learning. Entrene, puntúe e implemente un modelo de Machine Learning mediante módulos del tipo arrastrar y colocar.
 author: peterclu
 ms.author: peterlu
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 06/28/2020
+ms.date: 11/13/2020
 ms.custom: designer
-ms.openlocfilehash: 95e5b3ac568cfa370fd1e49fad990b681aef46d9
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 5a5d166e36b2870ceb081c1c6d2635e01ab43a4d
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92311512"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94592556"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-designer"></a>Tutorial: Implementación de un modelo de Machine Learning con el diseñador
 
@@ -63,7 +63,7 @@ Para implementar la canalización, antes debe convertir la canalización de entr
 
     Si esta es la primera ejecución, la canalización puede tardar hasta 20 minutos en finalizar la ejecución. La configuración del proceso predeterminada tiene un tamaño de nodo mínimo de 0, lo que significa que el diseñador debe asignar recursos después de estar inactivo. Las ejecuciones de canalización repetidas tardarán menos en terminar, dado que los recursos del proceso ya están asignados. Además, el diseñador usa resultados almacenados en la caché en cada módulo para mejorar aún más la eficiencia.
 
-1. Seleccione **Implementar** .
+1. Seleccione **Implementar**.
 
 ## <a name="create-an-inferencing-cluster"></a>Creación de un clúster de inferencia
 
@@ -71,7 +71,7 @@ En el cuadro de diálogo que aparece, puede seleccionar entre los clústeres de 
 
 1. Seleccione **Compute** (Proceso) en el cuadro de diálogo que aparece, para ir a la página **Compute** (Proceso).
 
-1. En la cinta de opciones de navegación, seleccione **Inference Clusters** (Clústeres de inferencia) >  **+ Nuevo** .
+1. En la cinta de opciones de navegación, seleccione **Inference Clusters** (Clústeres de inferencia) >  **+ Nuevo**.
 
     ![Captura de pantalla que muestra cómo ir al panel del nuevo clúster de inferencia](./media/tutorial-designer-automobile-price-deploy/new-inference-cluster.png)
    
@@ -79,9 +79,9 @@ En el cuadro de diálogo que aparece, puede seleccionar entre los clústeres de 
 
 1. Escriba *aks-compute* en **Compute name** (Nombre de proceso).
     
-1. Seleccione una región cercana que esté disponible para la **región** .
+1. Seleccione una región cercana que esté disponible para la **región**.
 
-1. Seleccione **Crear** .
+1. Seleccione **Crear**.
 
     > [!NOTE]
     > La creación de un servicio AKS tarda unos 15 minutos. Puede comprobar el estado de aprovisionamiento en la página **Inference Clusters** (Clústeres de inferencia).
@@ -97,9 +97,9 @@ Después de que el servicio AKS haya terminado de aprovisionarse, vuelva a la ca
 
 1. Seleccione el clúster de AKS que ha creado.
 
-1. Seleccione **Implementar** .
+1. Seleccione **Implementar**.
     
-    :::image type="content" source="./media/tutorial-designer-automobile-price-deploy/setup-endpoint.png"alt-text="Captura de pantalla que muestra dónde encontrar el botón Crear canalización":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-deploy/setup-endpoint.png"alt-text="Captura de pantalla que muestra cómo configurar un nuevo punto de conexión en tiempo real":::
 
     Aparece una notificación de finalización correcta en la parte superior del lienzo una vez que termina la implementación. Esto puede llevar unos minutos.
 
@@ -107,11 +107,13 @@ Después de que el servicio AKS haya terminado de aprovisionarse, vuelva a la ca
 
 Una vez finalizada la implementación, puede ver el punto de conexión en tiempo real; para ello, vaya a la página **Endpoints** (Puntos de conexión).
 
-1. En la página **Puntos de conexión** , seleccione el punto de conexión que implementó.
+1. En la página **Puntos de conexión**, seleccione el punto de conexión que implementó.
 
 1. En la pestaña **Details** (Detalles), puede ver más información, como el identificador URI de REST, el estado y las etiquetas.
 
 1. En la pestaña **Consume** (Consumir), puede encontrar las claves de seguridad y establecer los métodos de autenticación.
+
+1. En la pestaña **Registros de implementación**, puede encontrar los registros de implementación detallados del punto de conexión en tiempo real. 
 
 Para más información sobre cómo utilizar el servicio web, consulte [Consumo de un modelo implementado como servicio web](how-to-consume-web-service.md).
 

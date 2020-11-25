@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 04/16/2020
 ms.author: mathapli
 ms.reviewer: cynthn
-ms.openlocfilehash: e7c9f9b158d01204536712f8024ed098cd7a5037
-ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
+ms.openlocfilehash: 124ff65087887a437e0b82fbd7b1e4c72e4f7b4c
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94372862"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94684362"
 ---
 # <a name="red-hat-enterprise-linux-rhel-extended-lifecycle-support"></a>Soporte técnico ampliado del ciclo de vida de Red Hat Enterprise Linux (RHEL)
 En este artículo se proporciona información sobre el soporte técnico ampliado del ciclo de vida para las imágenes de Red Hat Enterprise:
@@ -40,7 +40,7 @@ A partir del 30 de noviembre de 2020, finalizará la fase de mantenimiento de Re
 
 #### <a name="what-is-the-process-to-add-extended-life-cycle-support-els-repositories-to-continue-to-receive-software-maintenance-bug-and-security-fixes-and--support-for-red-hat-enterprise-linux-6"></a>¿Cuál es el proceso de incorporación de repositorios de soporte técnico ampliado del ciclo de vida (ELS) para seguir recibiendo mantenimiento de software (correcciones de errores y seguridad) y soporte técnico para Red Hat Enterprise Linux 6?
 
-El proceso de registro de un extremo a otro para el ELS estará disponible pronto aquí (como muy tarde el 15 de noviembre de 2020).
+El proceso de registro de un extremo a otro para el ELS estará disponible pronto aquí (como muy tarde el 30 de noviembre de 2020).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

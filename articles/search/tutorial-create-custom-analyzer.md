@@ -8,12 +8,12 @@ ms.author: delegenz
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 09/25/2020
-ms.openlocfilehash: ac7cee2c1d72b4102fb397aa8093c2d38686fc88
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 90d60a20bb464936d04662b0b9286bd7aaac9e74
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91397273"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94700178"
 ---
 # <a name="tutorial-create-a-custom-analyzer-for-phone-numbers"></a>Tutorial: Creación de un analizador personalizado para números de teléfono
 
@@ -59,9 +59,9 @@ Para cada solicitud:
 
 1. Reemplace `<YOUR-ADMIN-API-KEY>` por la clave principal o secundaria del servicio de búsqueda.
 
-  :::image type="content" source="media/search-get-started-postman/postman-url.png" alt-text="Encabezado y dirección URL de solicitud de Postman" border="false":::
+  :::image type="content" source="media/search-get-started-rest/postman-url.png" alt-text="Encabezado y dirección URL de solicitud de Postman" border="false":::
 
-Si no conoce esta herramienta, consulte [Exploración de las API REST de Azure Cognitive Search mediante Postman](search-get-started-postman.md).
+Si no conoce esta herramienta, consulte [Exploración de las API REST de Azure Cognitive Search](search-get-started-rest.md).
 
 ## <a name="3---create-an-initial-index"></a>3\. Creación de un índice inicial
 
@@ -239,11 +239,11 @@ Los analizadores constan de tres componentes:
 
 En el diagrama siguiente, puede ver cómo funcionan conjuntamente estos tres componentes para tokenizar una frase:
 
-  :::image type="content" source="media/tutorial-create-custom-analyzer/analyzers-explained.png" alt-text="Encabezado y dirección URL de solicitud de Postman":::
+  :::image type="content" source="media/tutorial-create-custom-analyzer/analyzers-explained.png" alt-text="Diagrama del proceso del analizador para acortar una oración":::
 
 Estos tokens se almacenan en un índice invertido, lo que permite búsquedas rápidas y de texto completo.  Un índice invertido permite la búsqueda de texto completo mediante la asignación de todos los términos únicos extraídos durante el análisis léxico a los documentos en los que se producen. Puede ver un ejemplo en el diagrama siguiente:
 
-  :::image type="content" source="media/tutorial-create-custom-analyzer/inverted-index-explained.png" alt-text="Encabezado y dirección URL de solicitud de Postman":::
+  :::image type="content" source="media/tutorial-create-custom-analyzer/inverted-index-explained.png" alt-text="Ejemplo de índice invertido":::
 
 Toda la búsqueda se reduce a buscar los términos almacenados en el índice invertido. El usuario emite una consulta:
 
@@ -251,7 +251,7 @@ Toda la búsqueda se reduce a buscar los términos almacenados en el índice inv
 1. A continuación, se examina el índice invertido para buscar documentos con términos coincidentes.
 1. Por último, los documentos recuperados se clasifican con el [algoritmo de similitud](index-ranking-similarity.md).
 
-  :::image type="content" source="media/tutorial-create-custom-analyzer/query-architecture-explained.png" alt-text="Encabezado y dirección URL de solicitud de Postman":::
+  :::image type="content" source="media/tutorial-create-custom-analyzer/query-architecture-explained.png" alt-text="Diagrama de similitud de clasificación del proceso del analizador":::
 
 Si los términos de la consulta no coinciden con los términos del índice invertido, no se devolverán resultados. Para más información sobre el funcionamiento de las consultas, consulte el artículo sobre la [búsqueda de texto completo](search-lucene-query-architecture.md).
 

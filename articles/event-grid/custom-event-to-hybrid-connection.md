@@ -4,12 +4,12 @@ description: 'Tutorial: Use Azure Event Grid y la CLI de Azure para publicar un 
 ms.date: 07/07/2020
 ms.topic: tutorial
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 77633a717478ff143c3b084adc0b69019abb203f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c709d77827551860cc917c3c84c5a849d9fdc512
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87832134"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566833"
 ---
 # <a name="tutorial-route-custom-events-to-azure-relay-hybrid-connections-with-azure-cli-and-event-grid"></a>Tutorial: Enrutar eventos personalizados a Conexiones híbridas de Azure Relay con la CLI de Azure y Event Grid
 
@@ -17,12 +17,11 @@ Azure Event Grid es un servicio de eventos para la nube. La solución Conexiones
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-En este artículo, se presupone que ya tiene una conexión híbrida y una aplicación de escucha. Para empezar a trabajar con las conexiones híbridas, consulte [Introducción a Conexiones híbridas de Relay: .NET](../azure-relay/relay-hybrid-connections-dotnet-get-started.md) o [Introducción a Conexiones híbridas de Relay: nodo](../azure-relay/relay-hybrid-connections-node-get-started.md).
+- En este artículo, se presupone que ya tiene una conexión híbrida y una aplicación de escucha. Para empezar a trabajar con las conexiones híbridas, consulte [Introducción a Conexiones híbridas de Relay: .NET](../azure-relay/relay-hybrid-connections-dotnet-get-started.md) o [Introducción a Conexiones híbridas de Relay: nodo](../azure-relay/relay-hybrid-connections-node-get-started.md).
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-> [!NOTE]
-> Si usa la CLI de Azure en la máquina local, utilice la versión 2.0.56 o superior. Para instrucciones sobre cómo instalar la versión más reciente de la CLI de Azure, consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli).
+- En este artículo se necesita la versión 2.0.56 de la CLI de Azure, o cualquier versión posterior. Si usa Azure Cloud Shell, ya está instalada la versión más reciente.
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 

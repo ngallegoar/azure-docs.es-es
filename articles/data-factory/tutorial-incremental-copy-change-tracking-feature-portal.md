@@ -1,6 +1,6 @@
 ---
 title: Copia incremental de datos con Change Tracking en Azure Portal
-description: En este tutorial, creará una factoría de datos de Azure con una canalización que carga los datos diferenciales según la información de control de cambios de la base de datos de origen de Azure SQL Database a una instancia de Azure Blob Storage.
+description: En este tutorial, creará una instancia de Azure Data Factory con una canalización que carga los datos diferenciales según la información de control de cambios de la base de datos de origen de Azure SQL Database a una instancia de Azure Blob Storage.
 services: data-factory
 ms.author: yexu
 author: dearandyxu
@@ -11,18 +11,18 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/12/2018
-ms.openlocfilehash: 78b9d3f30ebc8f74433f04c4474121682c4a3f36
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c5f87e693d2592f830ec785f2163c232915544d1
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91542026"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94561138"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information-using-the-azure-portal"></a>Carga incremental de datos de Azure SQL Database a Azure Blob Storage mediante la información de control de cambios en Azure Portal
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-En este tutorial, creará una factoría de datos de Azure con una canalización que carga los datos diferenciales según la información de **control de cambios** de la base de datos de origen de Azure SQL Database a una instancia de Azure Blob Storage.  
+En este tutorial, creará una instancia de Azure Data Factory con una canalización que carga los datos diferenciales según la información de **control de cambios** de la base de datos de origen de Azure SQL Database a una instancia de Azure Blob Storage.  
 
 En este tutorial, realizará los siguientes pasos:
 
@@ -164,14 +164,14 @@ Instale los módulos de Azure PowerShell siguiendo las instrucciones de [Cómo i
 
      ![Página New data factory (Nueva factoría de datos)](./media/tutorial-incremental-copy-change-tracking-feature-portal/new-azure-data-factory.png)
 
-   El nombre de la instancia de Azure Data Factory debe ser **único de forma global**. Si recibe el siguiente error, cambie el nombre de la factoría de datos (por ejemplo, yournameADFTutorialDataFactory) e intente crearlo de nuevo. Consulte el artículo [Azure Data Factory: reglas de nomenclatura](naming-rules.md) para conocer las reglas de nomenclatura de los artefactos de Data Factory.
+   El nombre de la instancia de Azure Data Factory debe ser **único globalmente**. Si recibe el siguiente error, cambie el nombre de la factoría de datos (por ejemplo, yournameADFTutorialDataFactory) e intente crearlo de nuevo. Consulte el artículo [Azure Data Factory: reglas de nomenclatura](naming-rules.md) para conocer las reglas de nomenclatura de los artefactos de Data Factory.
 
    *El nombre "ADFTutorialDataFactory" de factoría de datos no está disponible.*
 3. Seleccione la **suscripción** de Azure donde desea crear la factoría de datos.
 4. Para el **grupo de recursos**, realice uno de los siguientes pasos:
 
-      - Seleccione en primer lugar **Usar existente**y después un grupo de recursos de la lista desplegable.
-      - Seleccione **Crear nuevo**y escriba el nombre de un grupo de recursos.   
+      - Seleccione en primer lugar **Usar existente** y después un grupo de recursos de la lista desplegable.
+      - Seleccione **Crear nuevo** y escriba el nombre de un grupo de recursos.   
          
         Para obtener más información sobre los grupos de recursos, consulte [Uso de grupos de recursos para administrar los recursos de Azure](../azure-resource-manager/management/overview.md).  
 4. Seleccione **V2 (versión preliminar)** como **versión**.

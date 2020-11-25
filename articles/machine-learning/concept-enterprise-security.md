@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 09/09/2020
-ms.openlocfilehash: 2234b1507e6e0fdb0b668fc18a7c8533e3ea7cc1
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: fb1f1d098970927ba04c840e77ec0a0b8d76ca02
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94441790"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94561325"
 ---
 # <a name="enterprise-security-and-governance-for-azure-machine-learning"></a>Seguridad de empresa y gobernanza para Azure Machine Learning
 
@@ -105,7 +105,13 @@ También puede configurar sus propias identidades administradas para usarlas con
 
 Puede usar Azure Virtual Network (VNet) para restringir el acceso físico a recursos de Azure Machine Learning. Las redes virtuales le permiten crear entornos de red que están aislados de manera parcial o total del Internet público. Esto reduce la superficie expuesta a ataques de la solución, así como las posibilidades de que se produzca una filtración de datos.
 
-Para más información, consulte [Información general sobre aislamiento y privacidad de redes virtuales](how-to-network-security-overview.md).
+Para obtener más información, vea los documentos siguientes:
+
+* [Información general sobre la privacidad y el aislamiento de la red virtual](how-to-network-security-overview.md)
+* [Protección de los recursos de un área de trabajo](how-to-secure-workspace-vnet.md)
+* [Protección de un entorno de entrenamiento](how-to-secure-training-vnet.md)
+* [Protección del entorno de inferencia](how-to-secure-inferencing-vnet.md)
+* [Uso de Studio en una red virtual protegida](how-to-enable-studio-virtual-network.md)
 
 <a id="encryption-at-rest"></a><a id="azure-blob-storage"></a>
 
@@ -123,10 +129,11 @@ También puede que quiera cifrar la [información de diagnóstico registrada des
 
 Hay varios escenarios de supervisión con Azure Machine Learning, en función del rol y de lo que se esté supervisando.
 
-| Role | Supervisión que se debe usar |
-| ---- | ----- |
-| Administrador, DevOps, MLOps | [Métricas de Azure Monitor](#azure-monitor), [registro de actividades](#activity-log), [examen de vulnerabilidades](#vulnerability-scanning) |
-| Científico de datos, MLOps | [Supervisión de ejecuciones](#monitor-runs) |
+| Role | Supervisión que se debe usar | Descripción |
+| ---- | ----- | ----- |
+| Administrador, DevOps, MLOps | [Métricas de Azure Monitor](#azure-monitor), [registro de actividades](#activity-log), [examen de vulnerabilidades](#vulnerability-scanning) | Información de nivel de servicio |
+| Científico de datos, MLOps | [Supervisión de ejecuciones](#monitor-runs) | Información registrada durante las ejecuciones de entrenamiento |
+| MLOps | [Recopilación con datos de modelo](how-to-enable-data-collection.md), [Supervisión con Application Insights](how-to-enable-app-insights.md) | Información registrada por los modelos implementados como servicios web o módulos de IoT Edge|
 
 ### <a name="monitor-runs"></a>Supervisión de ejecuciones
 
@@ -134,7 +141,7 @@ Puede supervisar las ejecuciones de los experimentos en Azure Machine Learning, 
 
 * [Inicio, supervisión y cancelación de las ejecuciones de entrenamiento](how-to-manage-runs.md)
 * [Habilitamiento de registros](how-to-track-experiments.md)
-* [Ver registros](how-to-monitor-view-training-logs.md)
+* [Visualización de registros](how-to-monitor-view-training-logs.md)
 * [Visualización de ejecuciones con TensorBoard](how-to-monitor-tensorboard.md)
 
 ### <a name="azure-monitor"></a>Azure Monitor

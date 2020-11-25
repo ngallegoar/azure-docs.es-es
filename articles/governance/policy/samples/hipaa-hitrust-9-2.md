@@ -1,15 +1,15 @@
 ---
 title: Detalles del cumplimiento normativo de HIPAA HITRUST 9.2
 description: Detalles de la iniciativa integrada de cumplimiento normativo de HIPAA HITRUST 9.2. Cada control se corresponde a una o varias definiciones de Azure Policy que ayudan en la evaluación.
-ms.date: 10/20/2020
+ms.date: 11/17/2020
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 499ecccd6d9a98b69e9e36f72fbf87d65d242f6d
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: c177abaea8dd6d38814e39aef7cdfd63981a6856
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92310650"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94694266"
 ---
 # <a name="details-of-the-hipaa-hitrust-92-regulatory-compliance-built-in-initiative"></a>Detalles de la iniciativa integrada de cumplimiento normativo de HIPAA HITRUST 9.2
 
@@ -86,7 +86,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="the-organization-facilitates-information-sharing-by-enabling-authorized-users-to-determine-a-business-partners-access-when-discretion-is-allowed-as-defined-by-the-organization-and-by-employing-manual-processes-or-automated-mechanisms-to-assist-users-in-making-information-sharingcollaboration-decisions"></a>Con el fin de facilitar el uso compartido de la información, la organización permite que los usuarios autorizados determinen el acceso de un asociado comercial según unos criterios permitidos definidos y el empleo de procesos manuales o mecanismos automatizados para ayudar a los usuarios a tomar decisiones de colaboración y uso compartido de la información.
 
-**Identificador**: 1149.01c2System.9 - 01.c **Propiedad**: No aplicable
+**Identificador**: 1149.01c2System.9 - 01.c **Propiedad**: Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -94,7 +94,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="the-access-control-system-for-the-system-components-storing-processing-or-transmitting-covered-information-is-set-with-a-default-quotdeny-allquot-setting"></a>El sistema de control de acceso de los componentes del sistema que almacenan, procesan o transmiten la información cubierta se establece con un valor predeterminado &quot;denegar todo&quot;.
 
-**Identificador**: 1150.01c2System.10 - 01.c **Propiedad**: No aplicable
+**Identificador**: 1150.01c2System.10 - 01.c **Propiedad**: Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -144,7 +144,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="remote-access-by-vendors-and-business-partners-eg-for-remote-maintenance-is-disableddeactivated-when-not-in-use"></a>El acceso remoto por parte de proveedores y asociados comerciales (por ejemplo, con fines de mantenimiento remoto) está deshabilitado o desactivado cuando no se utiliza.
 
-**Identificador**: 1117.01j1Organizational.23 - 01.j **Propiedad**: No aplicable
+**Identificador**: 1117.01j1Organizational.23 - 01.j **Propiedad**: Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -160,7 +160,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="network-equipment-is-checked-for-unanticipated-dial-up-capabilities"></a>Se comprueba el equipo de red para determinar si tiene funcionalidad insospechada de acceso telefónico.
 
-**Identificador**: 1119.01j2Organizational.3 - 01.j **Propiedad**: No aplicable
+**Identificador**: 1119.01j2Organizational.3 - 01.j **Propiedad**: Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -176,7 +176,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="if-encryption-is-not-used-for-dial-up-connections-the-cio-or-hisher-designated-representative-provides-specific-written-authorization"></a>Si no se utiliza el cifrado con las conexiones de acceso telefónico, el CIO, o la persona que haya designado, proporcionará una autorización específica por escrito.
 
-**Identificador**: 1173.01j1Organizational.6 - 01.j **Propiedad**: No aplicable
+**Identificador**: 1173.01j1Organizational.6 - 01.j **Propiedad**: Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -184,7 +184,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="the-organization-protects-wireless-access-to-systems-containing-sensitive-information-by-authenticating-both-users-and-devices"></a>La organización protege el acceso inalámbrico a sistemas que contienen información confidencial mediante la autenticación de usuarios y dispositivos.
 
-**Identificador**: 1174.01j1Organizational.7 - 01.j **Propiedad**: No aplicable
+**Identificador**: 1174.01j1Organizational.7 - 01.j **Propiedad**: Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -200,7 +200,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="the-organization-requires-a-callback-capability-with-re-authentication-to-verify-dial-up-connections-from-authorized-locations"></a>La organización requiere una funcionalidad de devolución de llamada con reautenticación de usuarios para comprobar las conexiones de acceso telefónico desde ubicaciones autorizadas.
 
-**Identificador**: 1176.01j2Organizational.5 - 01.j **Propiedad**: No aplicable
+**Identificador**: 1176.01j2Organizational.5 - 01.j **Propiedad**: Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -322,7 +322,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="networks-are-segregated-from-production-level-networks-when-migrating-physical-servers-applications-or-data-to-virtualized-servers"></a>Las redes se separan de las redes de nivel de producción al migrar servidores físicos, aplicaciones o datos a servidores virtualizados.
 
-**Identificador**: 0894.01m2Organizational.7 - 01.m **Propiedad**: No aplicable
+**Identificador**: 0894.01m2Organizational.7 - 01.m **Propiedad**: Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -459,7 +459,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="non-organizational-users-all-information-system-users-other-than-organizational-users-such-as-patients-customers-contractors-or-foreign-nationals-or-processes-acting-on-behalf-of-non-organizational-users-determined-to-need-access-to-information-residing-on-the-organizations-information-systems-are-uniquely-identified-and-authenticated"></a>Los usuarios que no pertenezcan a la organización (es decir, los demás usuarios de los sistemas de información, como pacientes, clientes, contratistas o ciudadanos extranjeros), o los procesos que representen a usuarios que no pertenecen a la organización, que necesiten acceder a la información almacenada en los sistemas de información de la organización, se identificarán y autenticarán de forma exclusiva.
 
-**Identificador**: 11110.01q1Organizational.6 - 01.q **Propiedad**: No aplicable
+**Identificador**: 11110.01q1Organizational.6 - 01.q **Propiedad**: Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -483,7 +483,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="the-organization-requires-that-electronic-signatures-unique-to-one-individual-cannot-be-reused-by-or-reassigned-to-anyone-else"></a>La organización requiere que las firmas electrónicas, exclusivas para una persona, no se puedan reutilizar ni reasignar a otra persona.
 
-**Identificador**: 11208.01q1Organizational.8 - 01.q **Propiedad**: No aplicable
+**Identificador**: 11208.01q1Organizational.8 - 01.q **Propiedad**: Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -491,7 +491,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="electronic-signatures-and-handwritten-signatures-executed-to-electronic-records-shall-be-linked-to-their-respective-electronic-records"></a>Las firmas electrónicas y las firmas manuscritas que se ejecuten en registros electrónicos se vincularán a los respectivos registros electrónicos.
 
-**Identificador**: 11210.01q2Organizational.10 - 01.q **Propiedad**: No aplicable
+**Identificador**: 11210.01q2Organizational.10 - 01.q **Propiedad**: Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -499,7 +499,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="signed-electronic-records-shall-contain-information-associated-with-the-signing-in-human-readable-format"></a>Los registros electrónicos firmados contendrán información asociada a la firma en un formato legible.
 
-**Identificador**: 11211.01q2Organizational.11 - 01.q **Propiedad**: No aplicable
+**Identificador**: 11211.01q2Organizational.11 - 01.q **Propiedad**: Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -541,7 +541,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="remote-access-connections-between-the-organization-and-external-parties-are-encrypted"></a>Las conexiones de acceso remoto entre la organización y las entidades externas se cifran.
 
-**Identificador**: 1402.05i1Organizational.45 - 05.i **Propiedad**: No aplicable
+**Identificador**: 1402.05i1Organizational.45 - 05.i **Propiedad**: Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -591,7 +591,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="a-secure-audit-record-is-created-for-all-activities-on-the-system-create-read-update-delete-involving-covered-information"></a>Se crea un registro de auditoría seguro para todas las actividades del sistema (crear, leer, actualizar, eliminar) que afecten a la información cubierta.
 
-**Identificador**: 1202.09aa1System.1 - 09.aa **Propiedad**: No aplicable
+**Identificador**: 1202.09aa1System.1 - 09.aa **Propiedad**: Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -658,7 +658,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="all-disclosures-of-covered-information-within-or-outside-of-the-organization-are-logged-including-type-of-disclosure-datetime-of-the-event-recipient-and-sender"></a>Cualquier divulgación de la información cubierta, dentro o fuera de la organización, queda registrada; se incluyen el tipo de divulgación, la fecha y la hora del evento, el destinatario y el remitente.
 
-**Identificador**: 1210.09aa3System.3 - 09.aa **Propiedad**: No aplicable
+**Identificador**: 1210.09aa3System.3 - 09.aa **Propiedad**: Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -667,7 +667,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="the-organization-verifies-every-ninety-90-days-for-each-extract-of-covered-information-recorded-that-the-data-is-erased-or-its-use-is-still-required"></a>La organización comprueba cada 90 días si los datos de cada extracto de información cubierta registrada se han borrado o siguen siendo necesarios.
 
-**Identificador**: 1211.09aa3System.4 - 09.aa **Propiedad**: No aplicable
+**Identificador**: 1211.09aa3System.4 - 09.aa **Propiedad**: Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -891,7 +891,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="when-the-backup-service-is-delivered-by-the-third-party-the-service-level-agreement-includes-the-detailed-protections-to-control-confidentiality-integrity-and-availability-of-the-backup-information"></a>Cuando el proveedor tercero suministra el servicio de copia de seguridad, el contrato de nivel de servicio incluye las medidas de protección detalladas para garantizar la confidencialidad, la integridad y la disponibilidad de la información de copia de seguridad.
 
-**Identificador**: 1620.09l1Organizational.8 - 09.l **Propiedad**: No aplicable
+**Identificador**: 1620.09l1Organizational.8 - 09.l **Propiedad**: Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -915,7 +915,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="covered-information-is-backed-up-in-an-encrypted-format-to-ensure-confidentiality"></a>Se realiza una copia de seguridad de la información cubierta, en un formato cifrado para garantizar la confidencialidad.
 
-**Identificador**: 1623.09l2Organizational.4 - 09.l **Propiedad**: No aplicable
+**Identificador**: 1623.09l2Organizational.4 - 09.l **Propiedad**: Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -939,7 +939,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="the-organization-ensures-a-current-retrievable-copy-of-covered-information-is-available-before-movement-of-servers"></a>La organización garantiza la disponibilidad de una copia actual y recuperable de la información cubierta antes del traslado de los servidores.
 
-**Identificador**: 1626.09l3Organizational.5 - 09.l **Propiedad**: No aplicable
+**Identificador**: 1626.09l3Organizational.5 - 09.l **Propiedad**: Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -955,7 +955,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="workforce-members-roles-and-responsibilities-in-the-data-backup-process-are-identified-and-communicated-to-the-workforce-in-particular-bring-your-own-device-byod-users-are-required-to-perform-backups-of-organizational-andor-client-data-on-their-devices"></a>Los roles y responsabilidades de los miembros del personal en el proceso de copia de seguridad de los datos se identifican y se comunican al personal; en concreto, los usuarios del programa Bring Your Own Device (BYOD) deben realizar copias de seguridad de los datos de clientes o de la organización en sus dispositivos.
 
-**Identificador**: 1699.09l1Organizational.10 - 09.l **Propiedad**: No aplicable
+**Identificador**: 1699.09l1Organizational.10 - 09.l **Propiedad**: Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -1009,7 +1009,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="the-organization-builds-a-firewall-configuration-that-restricts-connections-between-un-trusted-networks-and-any-system-components-in-the-covered-information-environment-and-any-changes-to-the-firewall-configuration-are-updated-in-the-network-diagram"></a>La organización crea una configuración de firewall que restringe las conexiones entre las redes que no son de confianza y los componentes del sistema en el entorno de la información cubierta; y cualquier cambio en la configuración del firewall se actualiza en el diagrama de red.
 
-**Identificador**: 0863.09m2Organizational.910 - 09.m **Propiedad**: No aplicable
+**Identificador**: 0863.09m2Organizational.910 - 09.m **Propiedad**: Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -1017,7 +1017,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="usage-restrictions-and-implementation-guidance-are-formally-defined-for-voip-including-the-authorization-and-monitoring-of-the-service"></a>Se han definido formalmente restricciones de uso y directrices de implementación para VoIP, incluida la autorización y la supervisión del servicio.
 
-**Identificador**: 0864.09m2Organizational.12 - 09.m **Propiedad**: No aplicable
+**Identificador**: 0864.09m2Organizational.12 - 09.m **Propiedad**: Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -1025,7 +1025,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="the-organization-i-authorizes-connections-from-the-information-system-to-other-information-systems-outside-of-the-organization-through-the-use-of-interconnection-security-agreements-or-other-formal-agreement-ii-documents-each-connection-the-interface-characteristics-security-requirements-and-the-nature-of-the-information-communicated-iii-employs-a-deny-all-permit-by-exception-policy-for-allowing-connections-from-the-information-system-to-other-information-systems-outside-of-the-organization-and-iv-applies-a-default-deny-rule-that-drops-all-traffic-via-host-based-firewalls-or-port-filtering-tools-on-its-endpoints-workstations-servers-etc-except-those-services-and-ports-that-are-explicitly-allowed"></a>La organización (i) autoriza las conexiones del sistema de información con otros sistemas de información fuera de la organización mediante acuerdos de seguridad de interconexión u otro tipo de acuerdo formal; (ii) documenta cada conexión, las características de la interfaz, los requisitos de seguridad y la naturaleza de la información comunicada; (iii) utiliza una directiva "denegar todo", "permitir por excepción" para permitir las conexiones del sistema de información con otros sistemas de información fuera de la organización; y (iv) aplica una regla de denegación predeterminada que rechaza todo el tráfico mediante firewalls basados en host o herramientas de filtrado de puertos en los puntos de conexión (estaciones de trabajo, servidores, etc.), salvo en el caso de los servicios y puertos que se permitan explícitamente.
 
-**Identificador**: 0865.09m2Organizational.13 - 09.m **Propiedad**: No aplicable
+**Identificador**: 0865.09m2Organizational.13 - 09.m **Propiedad**: Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -1041,7 +1041,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="wireless-access-points-are-placed-in-secure-areas-and-shut-down-when-not-in-use-eg-nights-weekends"></a>Los puntos de acceso inalámbricos se colocan en áreas seguras y se apagan cuando no se usan (por ejemplo, noches, fines de semana).
 
-**Identificador**: 0867.09m3Organizational.17 - 09.m **Propiedad**: No aplicable
+**Identificador**: 0867.09m3Organizational.17 - 09.m **Propiedad**: Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -1049,7 +1049,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="the-organization-builds-a-firewall-configuration-to-restrict-inbound-and-outbound-traffic-to-that-which-is-necessary-for-the-covered-data-environment"></a>La organización crea una configuración de firewall para restringir el tráfico entrante y saliente al que es necesario para el entorno de datos cubiertos.
 
-**Identificador**: 0868.09m3Organizational.18 - 09.m **Propiedad**: No aplicable
+**Identificador**: 0868.09m3Organizational.18 - 09.m **Propiedad**: Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -1108,7 +1108,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="the-organization-reviews-and-updates-the-interconnection-security-agreements-on-an-ongoing-basis-verifying-enforcement-of-security-requirements"></a>La organización revisa y actualiza los acuerdos de seguridad de interconexión de forma continua y comprueba la aplicación de los requisitos de seguridad.
 
-**Identificador**: 0885.09n2Organizational.3 - 09.n **Propiedad**: No aplicable
+**Identificador**: 0885.09n2Organizational.3 - 09.n **Propiedad**: Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -1132,7 +1132,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="the-contract-with-the-externaloutsourced-service-provider-includes-the-specification-that-the-service-provider-is-responsible-for-the-protection-of-covered-information-shared"></a>El contrato con el proveedor de servicios externo o subcontratado incluye la especificación de que el proveedor de servicios es responsable de proteger la información cubierta compartida.
 
-**Identificador**: 0888.09n2Organizational.6 - 09.n **Propiedad**: No aplicable
+**Identificador**: 0888.09n2Organizational.6 - 09.n **Propiedad**: Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -1142,7 +1142,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="the-organization-based-on-the-data-classification-level-registers-media-including-laptops-prior-to-use-places-reasonable-restrictions-on-how-such-media-be-used-and-provides-an-appropriate-level-of-physical-and-logical-protection-including-encryption-for-media-containing-covered-information-until-properly-destroyed-or-sanitized"></a>La organización, según el nivel de clasificación de los datos, registra los medios (incluidos los equipos portátiles) antes de su uso, impone restricciones razonables sobre cómo utilizar dichos medios y proporciona un nivel adecuado de protección física y lógica (incluido el cifrado) para los medios que contengan información cubierta, hasta que esta se destruye o se limpia correctamente.
 
-**Identificador**: 0301.09o1Organizational.123 - 09.o **Propiedad**: No aplicable
+**Identificador**: 0301.09o1Organizational.123 - 09.o **Propiedad**: Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -1150,7 +1150,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="the-organization-protects-and-controls-media-containing-sensitive-information-during-transport-outside-of-controlled-areas"></a>La organización protege y controla los medios que contienen información confidencial durante el transporte fuera de las áreas controladas.
 
-**Identificador**: 0302.09o2Organizational.1 - 09.o **Propiedad**: No aplicable
+**Identificador**: 0302.09o2Organizational.1 - 09.o **Propiedad**: Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -1158,7 +1158,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="digital-and-non-digital-media-requiring-restricted-use-and-the-specific-safeguards-used-to-restrict-their-use-are-identified"></a>Se identifican los medios digitales y no digitales que requieren un uso restringido, y las medidas de seguridad específicas que se usan para restringir su uso.
 
-**Identificador**: 0303.09o2Organizational.2 - 09.o **Propiedad**: No aplicable
+**Identificador**: 0303.09o2Organizational.2 - 09.o **Propiedad**: Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -1166,7 +1166,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="the-organization-restricts-the-use-of-writable-removable-media-and-personally-owned-removable-media-in-organizational-systems"></a>La organización restringe el uso de medios extraíbles grabables y medios extraíbles personales en los sistemas de la organización.
 
-**Identificador**: 0304.09o3Organizational.1 - 09.o **Propiedad**: No aplicable
+**Identificador**: 0304.09o3Organizational.1 - 09.o **Propiedad**: Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -1234,7 +1234,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="the-organization-limits-the-use-of-organization-controlled-portable-storage-media-by-authorized-individuals-on-external-information-systems"></a>La organización restringe el uso de medios de almacenamiento portátiles controlados por la organización por parte de personas autorizadas en sistemas de información externos.
 
-**Identificador**: 0915.09s2Organizational.2 - 09.s **Propiedad**: No aplicable
+**Identificador**: 0915.09s2Organizational.2 - 09.s **Propiedad**: Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -1242,7 +1242,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="the-information-system-prohibits-remote-activation-of-collaborative-computing-devices-and-provides-an-explicit-indication-of-use-to-users-physically-present-at-the-devices"></a>El sistema de información prohíbe la activación remota de los dispositivos informáticos de colaboración y proporciona una indicación explícita de uso a los usuarios que están físicamente presentes en los dispositivos.
 
-**Identificador**: 0916.09s2Organizational.4 - 09.s **Propiedad**: No aplicable
+**Identificador**: 0916.09s2Organizational.4 - 09.s **Propiedad**: Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -1268,7 +1268,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="data-involved-in-electronic-commerce-and-online-transactions-is-checked-to-determine-if-it-contains-covered-information"></a>Los datos que intervienen en las transacciones de comercio electrónico y en línea se comprueban para determinar si contienen la información cubierta.
 
-**Identificador**: 0943.09y1Organizational.1 - 09.y **Propiedad**: No aplicable
+**Identificador**: 0943.09y1Organizational.1 - 09.y **Propiedad**: Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -1276,7 +1276,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="protocols-used-to-communicate-between-all-involved-parties-are-secured-using-cryptographic-techniques-eg-ssl"></a>Los protocolos usados para la comunicación entre todas las entidades involucradas están protegidos mediante técnicas criptográficas (por ejemplo, SSL).
 
-**Identificador**: 0945.09y1Organizational.3 - 09.y **Propiedad**: No aplicable
+**Identificador**: 0945.09y1Organizational.3 - 09.y **Propiedad**: Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -1284,7 +1284,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="the-organization-requires-the-use-of-encryption-between-and-the-use-of-electronic-signatures-by-each-of-the-parties-involved-in-the-transaction"></a>La organización requiere el uso de cifrado entre las partes involucradas en la transacción y el uso de firmas electrónicas por parte de cada una de ellas.
 
-**Identificador**: 0946.09y2Organizational.14 - 09.y **Propiedad**: No aplicable
+**Identificador**: 0946.09y2Organizational.14 - 09.y **Propiedad**: Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -1292,7 +1292,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="the-organization-ensures-the-storage-of-the-transaction-details-are-located-outside-of-any-publicly-accessible-environments-eg-on-a-storage-platform-existing-on-the-organizations-intranet-and-not-retained-and-exposed-on-a-storage-medium-directly-accessible-from-the-internet"></a>La organización garantiza que los detalles de la transacción se almacenan en una ubicación al margen de cualquier entorno de acceso público (por ejemplo, en una plataforma de almacenamiento hospedada en la intranet de la organización); y que la información no se conserva ni se expone en un medio de almacenamiento que sea directamente accesible desde Internet.
 
-**Identificador**: 0947.09y2Organizational.2 - 09.y **Propiedad**: No aplicable
+**Identificador**: 0947.09y2Organizational.2 - 09.y **Propiedad**: Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -1300,7 +1300,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="where-a-trusted-authority-is-used-eg-for-the-purposes-of-issuing-and-maintaining-digital-signatures-andor-digital-certificates-security-is-integrated-and-embedded-throughout-the-entire-end-to-end-certificatesignature-management-process"></a>Cuando se usa una entidad de confianza (por ejemplo, para la emisión y el mantenimiento de firmas o certificados digitales), la seguridad se integra e inserta a lo largo de todo el proceso de administración de firmas y certificados, de un extremo a otro.
 
-**Identificador**: 0948.09y2Organizational.3 - 09.y **Propiedad**: No aplicable
+**Identificador**: 0948.09y2Organizational.3 - 09.y **Propiedad**: Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -1308,7 +1308,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="the-protocols-used-for-communications-are-enhanced-to-address-any-new-vulnerability-and-the-updated-versions-of-the-protocols-are-adopted-as-soon-as-possible"></a>Los protocolos que se usan para las comunicaciones se han mejorado para abordar cualquier nueva vulnerabilidad, y las versiones actualizadas de los protocolos se adoptan lo antes posible.
 
-**Identificador**: 0949.09y2Organizational.5 - 09.y **Propiedad**: No aplicable
+**Identificador**: 0949.09y2Organizational.5 - 09.y **Propiedad**: Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -1392,7 +1392,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="where-development-is-outsourced-change-control-procedures-to-address-security-are-included-in-the-contracts-and-specifically-require-the-developer-to-track-security-flaws-and-flaw-resolution-within-the-system-component-or-service-and-report-findings-to-organization-defined-personnel-or-roles"></a>Cuando el desarrollo se externaliza, en los contratos se incluyen procedimientos de control de cambios para abordar cuestiones de seguridad y se exige específicamente que el desarrollador haga un seguimiento de las deficiencias de seguridad y su resolución dentro del sistema, componente o servicio y que notifique los hallazgos al personal o a los roles definidos por la organización.
 
-**Identificador**: 0640.10k2Organizational.1012 - 10.k **Propiedad**: No aplicable
+**Identificador**: 0640.10k2Organizational.1012 - 10.k **Propiedad**: Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -1442,7 +1442,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 |[Las vulnerabilidades en las configuraciones de seguridad de contenedor deben corregirse](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe8cbc669-f12d-49eb-93e7-9273119e9933) |Audite las vulnerabilidades en la configuración de seguridad de las máquinas con Docker instalado y muéstrelas como recomendaciones en Azure Security Center. |AuditIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_ContainerBenchmark_Audit.json) |
 |[Se deben corregir las vulnerabilidades en la configuración de seguridad en las máquinas](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe1e5fd5d-3e4c-4ce1-8661-7d1873ae6b15) |Azure Security Center supervisará los servidores que no cumplan la línea de base configurada como recomendaciones. |AuditIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_OSVulnerabilities_Audit.json) |
 |[Se deben corregir las vulnerabilidades en la configuración de seguridad de los conjuntos de escalado de máquinas virtuales](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3c735d8a-a4ba-4a3a-b7cf-db7754cf57f4) |Audite las vulnerabilidades del sistema operativo en los conjuntos de escalado de máquinas virtuales para protegerlos frente a ataques. |AuditIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_VmssOSVulnerabilities_Audit.json) |
-|[Se deben corregir las vulnerabilidades de las bases de datos SQL](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffeedbf84-6b99-488c-acc2-71c829aa5ffc) |Supervise los resultados del análisis de evaluación de puntos vulnerables y las recomendaciones para solucionar los de las bases de datos. |AuditIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_SQLDbVulnerabilities_Audit.json) |
+|[Se deben corregir las vulnerabilidades de las bases de datos SQL](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffeedbf84-6b99-488c-acc2-71c829aa5ffc) |Supervise los resultados del análisis de evaluación de puntos vulnerables y las recomendaciones para solucionar los de las bases de datos. |AuditIfNotExists, Disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_SQLDbVulnerabilities_Audit.json) |
 |[Se deben corregir las vulnerabilidades mediante una solución de evaluación de vulnerabilidades](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F760a85ff-6162-42b3-8d70-698e268f648c) |Supervisa los puntos vulnerables detectados por la solución de evaluación de puntos vulnerables y las máquinas virtuales sin esta solución en Azure Security Center como recomendaciones. |AuditIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_VMVulnerabilities_Audit.json) |
 |[La evaluación de vulnerabilidades debe estar habilitada en Instancia administrada de SQL](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1b7aa243-30e4-4c9e-bca8-d0d3022b634a) |Audita cada servicio SQL Managed Instance que no tiene habilitado los exámenes de evaluación de vulnerabilidades periódicos. La evaluación de vulnerabilidades permite detectar las vulnerabilidades potenciales de la base de datos, así como hacer un seguimiento y ayudar a corregirlas. |AuditIfNotExists, Disabled |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/VulnerabilityAssessmentOnManagedInstance_Audit.json) |
 |[La evaluación de vulnerabilidades debe estar activada en sus servidores de SQL Server](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fef2a8f2a-b3d9-49cd-a8a8-9a3aaaf647d9) |Audita los servidores Azure SQL Server que no tienen habilitados los exámenes de evaluación de vulnerabilidades periódicos. La evaluación de vulnerabilidades permite detectar las vulnerabilidades potenciales de la base de datos, así como hacer un seguimiento y ayudar a corregirlas. |AuditIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/VulnerabilityAssessmentOnServer_Audit.json) |
@@ -1502,7 +1502,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[Se deben corregir las vulnerabilidades de las bases de datos SQL](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffeedbf84-6b99-488c-acc2-71c829aa5ffc) |Supervise los resultados del análisis de evaluación de puntos vulnerables y las recomendaciones para solucionar los de las bases de datos. |AuditIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_SQLDbVulnerabilities_Audit.json) |
+|[Se deben corregir las vulnerabilidades de las bases de datos SQL](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffeedbf84-6b99-488c-acc2-71c829aa5ffc) |Supervise los resultados del análisis de evaluación de puntos vulnerables y las recomendaciones para solucionar los de las bases de datos. |AuditIfNotExists, Disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_SQLDbVulnerabilities_Audit.json) |
 
 ### <a name="vulnerability-scanning-tools-include-the-capability-to-readily-update-the-information-system-vulnerabilities-scanned"></a>Las herramientas de examen de vulnerabilidades permiten actualizar de inmediato las vulnerabilidades del sistema de información examinadas.
 
@@ -1544,7 +1544,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[Los objetos del almacén de claves deben poder recuperarse](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0b60c0b2-2dc2-4e1c-b5c9-abbed971de53) |Esta directiva audita si los objetos de Key Vault no se pueden recuperar. La característica de eliminación temporal ayuda a mantener de forma eficaz los recursos durante un período de retención determinado (90 días) incluso después de una operación de eliminación y, al mismo tiempo, ofrece la apariencia de que el objeto se ha eliminado. Cuando la protección de purgas está activada, un almacén o un objeto en estado eliminado no se puede purgar hasta que ha transcurrido el período de retención de 90 días. Estos almacenes y objetos todavía se pueden recuperar, lo garantiza a los clientes que se seguirá la directiva de retención. |Audit, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/KeyVault_Recoverable_Audit.json) |
+|[Key Vault debe tener habilitada la protección contra operaciones de purga](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0b60c0b2-2dc2-4e1c-b5c9-abbed971de53) |La eliminación malintencionada de un almacén de claves puede provocar una pérdida de datos permanente. Es posible que un usuario malintencionado de su organización pueda obtener acceso para eliminar y purgar los almacenes de claves. La protección contra purgas le protege frente a ataques internos mediante la aplicación de un período de retención obligatorio para almacenes de claves eliminados temporalmente. Ningún usuario de su organización o Microsoft podrá purgar los almacenes de claves durante el período de retención de eliminación temporal. |Audit, Deny, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/KeyVault_Recoverable_Audit.json) |
 
 ### <a name="business-impact-analysis-are-used-to-evaluate-the-consequences-of-disasters-security-failures-loss-of-service-and-service-availability"></a>Los análisis de repercusiones empresariales se usan para evaluar las consecuencias de posibles desastres, errores de seguridad, pérdida del servicio y disponibilidad del servicio.
 

@@ -3,12 +3,12 @@ title: Botón Implementación en Azure
 description: Use el botón para implementar plantillas de Azure Resource Manager desde un repositorio de GitHub.
 ms.topic: conceptual
 ms.date: 11/10/2020
-ms.openlocfilehash: 7d002508f6b2402f8cff40fb0369896080ecbbad
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 25ec5fd7a0c5b356097412ab6f1765cb0886522a
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94490906"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555273"
 ---
 # <a name="use-a-deployment-button-to-deploy-templates-from-github-repository"></a>Usar un botón de implementación para implementar plantillas desde el repositorio de GitHub
 
@@ -19,11 +19,15 @@ El ámbito de implementación viene determinado por el esquema de plantilla. Par
 * [resource groups](deploy-to-resource-group.md)
 * [subscriptions](deploy-to-subscription.md)
 * [grupos de administración](deploy-to-management-group.md)
-* [inquilinos](deploy-to-tenant.md).
+* [tenants](deploy-to-tenant.md)
 
 ## <a name="use-common-image"></a>Uso de una imagen común
 
 Para agregar el botón a su página web o repositorio, use la siguiente imagen:
+
+```markdown
+![Deploy to Azure](https://aka.ms/deploytoazurebutton)
+```
 
 ```html
 <img src="https://aka.ms/deploytoazurebutton"/>
@@ -48,6 +52,7 @@ https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-st
 A continuación, convierta la dirección URL en un valor con codificación URL. Puede usar un codificador en línea o ejecutar un comando. En el siguiente ejemplo de PowerShell se muestra cómo codificar un valor como una dirección URL.
 
 ```powershell
+$url = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json"
 [uri]::EscapeDataString($url)
 ```
 
@@ -70,6 +75,8 @@ https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.github
 ```
 
 Ya tiene la dirección URL completa del vínculo.
+
+Normalmente, la plantilla se hospeda en un repositorio público. Si usa un repositorio privado, debe incluir un token para tener acceso al contenido sin procesar de la plantilla. El token generado por GitHub solo es válido durante un breve período de tiempo. Deberá actualizar el vínculo a menudo.
 
 Si usa [Git con Azure Repos](/azure/devops/repos/git/) en lugar de un repositorio de GitHub, puede seguir usando el botón de Implementar en Azure. Asegúrese de que el repositorio es público. Use la [operación Elementos](/rest/api/azure/devops/git/items/get) para obtener la plantilla. La solicitud debería tener el siguiente formato:
 

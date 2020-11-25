@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 07/04/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8485f3474da18e052bc0eab6c053be084ef884a2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c7a9c8fce87b48b47f4bf82e5fd25fda12a25758
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82192423"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94553512"
 ---
 # <a name="operating-system-upgrade"></a>Actualización del sistema operativo
 Este documento describe los detalles acerca de las actualizaciones del sistema operativo en las instancias grandes HANA.
@@ -29,7 +29,7 @@ Este documento describe los detalles acerca de las actualizaciones del sistema o
 Durante el aprovisionamiento de la unidad HLI, el equipo de operaciones de Microsoft instala el sistema operativo.
 Con el tiempo, se le pide realizar mantenimiento al sistema operativo (por ejemplo: aplicación de revisiones, optimizaciones, actualizaciones, etc.) en la unidad HLI.
 
-Además, necesita abrir una incidencia de soporte técnico para ponerse en contacto con el equipo de operaciones de Microsoft y consultar con ellos antes de realizar cambios importantes en el sistema operativo (por ejemplo, la actualización de SP1 a SP2).
+Además, debe abrir una incidencia de soporte técnico para ponerse en contacto con el equipo de operaciones de Microsoft y consultar con ellos antes de realizar cambios importantes en el sistema operativo (por ejemplo, la actualización de SP1 a SP2).
 
 El vale incluye:
 
@@ -38,11 +38,9 @@ El vale incluye:
 * El nivel de revisión que se va a aplicar.
 * La fecha en la que está planeando este cambio. 
 
-Recomendamos que abra esta incidencia al menos una semana antes de la fecha de actualización deseada para que el equipo de Operaciones pueda comprobar si es necesaria una actualización de firmware en la hoja del servidor.
-
+Recomendamos que abra este vale al menos una semana antes de la actualización deseada, para que así el equipo de operaciones pueda conocer la versión de firmware elegida.
 
 Para la matriz de compatibilidad de las distintas versiones de SAP HANA con las diferentes versiones de Linux, consulte la [Nota de SAP 2235581](https://launchpad.support.sap.com/#/notes/2235581).
-
 
 ## <a name="known-issues"></a>Problemas conocidos
 
@@ -55,16 +53,17 @@ A continuación, se muestran algunos problemas habituales durante la actualizaci
 Con el tiempo, la configuración del sistema operativo puede desviarse de la configuración recomendada debido a la aplicación de revisiones, las actualizaciones del sistema y los cambios realizados por los clientes. Además, Microsoft identifica las actualizaciones necesarias para los sistemas existentes con el fin de garantizar que están configuradas de forma óptima para conseguir mejor rendimiento y resistencia. En las instrucciones siguientes se describen las recomendaciones dirigidas al rendimiento de la red, la estabilidad del sistema y el rendimiento óptimo de HANA.
 
 ### <a name="compatible-enicfnic-driver-versions"></a>Versiones compatibles del controlador eNIC/fNIC
-  Para conseguir el rendimiento de red y la estabilidad del sistema adecuados, se recomienda asegurarse de tener instalada la versión correcta específica del sistema operativo de los controladores eNIC y fNIC, tal y como se muestra en la siguiente tabla de compatibilidad. Los servidores se entregan a los clientes con versiones compatibles. Tenga en cuenta que, en algunos casos, durante la aplicación de revisiones del sistema operativo o del kernel, los controladores pueden revertir a sus versiones predeterminadas. Asegúrese de que la versión del controlador correcta ejecuta operaciones posteriores a la aplicación de revisiones del sistema operativo o del kernel.
+  Para conseguir el rendimiento de red y la estabilidad del sistema adecuados, se recomienda tener instalada la versión correcta específica del sistema operativo de los controladores eNIC y fNIC, tal y como se muestra en la siguiente tabla de compatibilidad. Los servidores se entregan a los clientes con versiones compatibles. En algunos casos, durante la aplicación de revisiones del sistema operativo o del kernel, los controladores pueden revertir a sus versiones predeterminadas. Asegúrese de que la versión del controlador correcta ejecuta operaciones posteriores a la aplicación de revisiones del sistema operativo o del kernel.
        
       
   |  Fabricante del sistema operativo    |  Versión del paquete del sistema operativo     |  Versión de firmware  |  Controlador eNIC |  Controlador fNIC | 
   |---------------|-------------------------|--------------------|--------------|--------------|
   |   SuSE        |  SLES 12 SP2            |   3.1.3h           |  2.3.0.40    |   1.6.0.34   |
   |   SuSE        |  SLES 12 SP3            |   3.1.3h           |  2.3.0.44    |   1.6.0.36   |
-  |   SuSE        |  SLES 12 SP4            |   3.2.3i           |  2.3.0.47    |   2.0.0.54   |
+  |   SuSE        |  SLES 12 SP4            |   3.2.3i           |  4.0.0.6     |   2.0.0.60   |
   |   SuSE        |  SLES 12 SP2            |   3.2.3i           |  2.3.0.45    |   1.6.0.37   |
-  |   SuSE        |  SLES 12 SP3            |   3.2.3i           |  2.3.0.45    |   1.6.0.37   |
+  |   SuSE        |  SLES 12 SP3            |   3.2.3i           |  2.3.0.43    |   1.6.0.36   |
+  |   SuSE        |  SLES 12 SP5            |   3.2.3i           |  4.0.0.8     |   2.0.0.60   |
   |   Red Hat     |  RHEL 7.2               |   3.1.3h           |  2.3.0.39    |   1.6.0.34   |
  
 
@@ -88,6 +87,15 @@ rpm -ivh <enic/fnic.rpm>
 modinfo enic
 modinfo fnic
 ```
+
+#### <a name="steps-for-enicfnic-drivers-installation-during-os-upgrade"></a>Pasos para la instalación de controladores eNIC/fNIC durante la actualización del sistema operativo
+
+* Actualizar la versión del sistema operativo
+* Quitar los paquetes RPM antiguos
+* Instalar los controladores eNIC/fNIC compatibles según la versión del sistema operativo instalada
+* Reiniciar el sistema
+* Después del reinicio, comprobar la versión de eNIC/fNIC.
+
 
 ### <a name="suse-hlis-grub-update-failure"></a>Error de actualización de GRUB de unidades HLI de SuSE
 HANA (instancias grandes) de SAP en Azure (tipo 1) puede encontrase en un estado de no arranque tras la actualización. Con el procedimiento siguiente se soluciona este problema.
@@ -117,7 +125,6 @@ blacklist edac_core
 ```
 Para que los cambios tengan lugar, se requiere un reinicio. Ejecute el comando `lsmod` y compruebe que el módulo no existe en la salida.
 
-
 ### <a name="kernel-parameters"></a>Parámetros de kernel
    Asegúrese de que se aplica el valor correcto para `transparent_hugepage`, `numa_balancing`, `processor.max_cstate`, `ignore_ce` y `intel_idle.max_cstate`.
 
@@ -126,7 +133,6 @@ Para que los cambios tengan lugar, se requiere un reinicio. Ejecute el comando `
 * transparent_hugepage=never
 * numa_balancing=disable
 * mce=ignore_ce
-
 
 #### <a name="execution-steps"></a>Pasos de ejecución
 

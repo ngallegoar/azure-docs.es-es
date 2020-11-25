@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.custom:
 - devx-track-csharp
 - devx-track-azurecli
-ms.openlocfilehash: 036629bd72f8219c2d7b1877dd1672291ed3d98a
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: b87408669dbb9268d6e3cd47b410b888ef1a19c2
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93424983"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94637156"
 ---
 # <a name="quickstart-create-a-c-function-in-azure-from-the-command-line"></a>Inicio rápido: Creación de una función de C# en Azure desde la línea de comandos
 
@@ -28,6 +28,8 @@ También hay una [versión basada en Visual Studio Code](create-first-function-v
 Antes de empezar, debe disponer de lo siguiente:
 
 + Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+
++ [.NET Core SDK 3.1](https://www.microsoft.com/net/download)
 
 + [Azure Functions Core Tools](functions-run-local.md#v2), versión 3.x.
 
@@ -49,6 +51,8 @@ Compruebe los requisitos previos, que dependen de si usa la CLI de Azure o Azure
 
 + Ejecute `az login` para iniciar sesión en Azure y comprobar una suscripción activa.
 
++ Ejecute `dotnet --list-sdks` para comprobar que SDK de .NET Core versión 3.1.x está instalado
+
 # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
 + En una ventana de terminal o de comandos, ejecute `func --version` para comprobar que la versión de Azure Functions Core Tools es la 3.x.
@@ -56,6 +60,8 @@ Compruebe los requisitos previos, que dependen de si usa la CLI de Azure o Azure
 + Ejecute `(Get-Module -ListAvailable Az).Version` y compruebe que es la versión 5.0 o posterior. 
 
 + Ejecute `Connect-AzAccount` para iniciar sesión en Azure y comprobar una suscripción activa.
+
++ Ejecute `dotnet --list-sdks` para comprobar que SDK de .NET Core versión 3.1.x está instalado
 
 ---
 

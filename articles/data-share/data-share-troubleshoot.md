@@ -7,12 +7,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: troubleshooting
 ms.date: 10/15/2020
-ms.openlocfilehash: a323dec66a3077784ff85deadd4f12086648fb3a
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: e29c640494a18bb3be2125a5b53b4f943521fe6c
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92220465"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94579154"
 ---
 # <a name="troubleshoot-common-issues-in-azure-data-share"></a>Solución de problemas habituales de Azure Data Share 
 
@@ -32,7 +32,7 @@ Esto puede deberse a los siguientes motivos:
     1. Seleccione la suscripción de Azure que quiere usar para crear un recurso de Azure Data Share
     1. Haga clic en **Proveedores de recursos**
     1. Busque **Microsoft.DataShare**
-    1. Haga clic en **Registrar** . 
+    1. Haga clic en **Registrar**. 
 
     Para completar estos pasos, debe tener el [rol Colaborador de Azure](../role-based-access-control/built-in-roles.md#contributor) para la suscripción de Azure. 
 
@@ -52,11 +52,11 @@ Esto puede deberse a los siguientes motivos:
 
 "No hemos podido agregar permisos de escritura para la cuenta de Azure Data Share en uno o más de los recursos seleccionados"
 
-Si recibe un error similar a los anteriores al crear un nuevo recurso compartido o asignar conjuntos de datos, podría deberse a la falta de permisos en el almacén de datos de Azure. Consulte [Roles y requisitos](concepts-roles-permissions.md) para obtener los permisos necesarios. 
+Si recibe un error similar a los anteriores al crear un nuevo recurso compartido, agregar conjuntos de datos o asignar conjuntos de datos, podría deberse a la falta de permisos en el almacén de datos de Azure. Consulte [Roles y requisitos](concepts-roles-permissions.md) para obtener los permisos necesarios. 
 
-Necesita permiso de escritura para compartir o recibir datos de un almacén de datos de Azure, que normalmente existe en el rol Colaborador. 
+Necesita permiso de escritura para compartir o recibir datos de un almacén de datos de Azure, que normalmente existe en el rol **Colaborador**. 
 
-Si esta es la primera vez que va a compartir o recibir datos del almacén de datos de Azure, también necesita el permiso *Microsoft.Authorization/role assignments/write* (asignación de roles o escritura), que normalmente existe en el rol Propietario. Aunque haya creado el recurso del almacén de datos de Azure, ello NO le convierte automáticamente el propietario del recurso. Con el permiso adecuado, el servicio de Azure Data Share concede automáticamente a la identidad administrada del recurso compartido de datos acceso al almacén de datos. Ese proceso podría tardar unos minutos en surtir efecto. Si experimenta un error debido a este retraso, vuelva a intentarlo en unos minutos.
+Si esta es la primera vez que va a compartir o recibir datos del almacén de datos de Azure, también necesita el permiso *Microsoft.Authorization/role assignments/write*, que normalmente existe en el rol **Propietario**. Aunque haya creado el recurso del almacén de datos de Azure, ello NO le convierte automáticamente el propietario del recurso. Con el permiso adecuado, el servicio de Azure Data Share concede automáticamente a la identidad administrada del recurso compartido de datos acceso al almacén de datos. Ese proceso podría tardar unos minutos en surtir efecto. Si experimenta un error debido a este retraso, vuelva a intentarlo en unos minutos.
 
 El uso compartido basado en SQL requiere permisos adicionales. Vea [Compartir desde orígenes de SQL](how-to-share-from-sql.md) para obtener una lista detallada de los requisitos previos.
 
@@ -69,7 +69,7 @@ La instantánea podría generar un error debido a diversos motivos. Puede encont
 
 Otras causas de errores de instantánea en el caso de los orígenes SQL son las siguientes. 
 
-* No se ejecuta el script SQL de origen o de destino para conceder el permiso de Data Share o se ejecuta mediante la autenticación de SQL en lugar de la autenticación de Azure Active Directory.  
+* El script SQL de origen o destino para conceder permiso para Data Share no se ejecuta. O bien para Azure SQL Database o Azure Synapse Analytics (anteriormente Azure SQL DW), se ejecuta mediante la autenticación de SQL en lugar de la autenticación de Azure Active Directory.  
 * El almacén de datos SQL de origen o de destino está en pausa.
 * Los tipos de datos SQL no son compatibles con el proceso de instantánea o el almacén de datos de destino. Vea [Compartir desde orígenes de SQL](how-to-share-from-sql.md#supported-data-types) para obtener más información.
 * El almacén de datos SQL de origen o de destino está bloqueado por otros procesos. Azure Data Share no aplica bloqueos al almacén de datos SQL de origen y de destino. Sin embargo, los bloqueos existentes en el almacén de datos SQL de origen y de destino provocarán errores de instantánea.

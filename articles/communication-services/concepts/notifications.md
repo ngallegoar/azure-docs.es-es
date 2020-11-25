@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 3e68e65a5c2ed73a8fb6d8e5d01c645e05ca5157
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: b368048e5ea34ebfc073b1ae239cbb40724ae393
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92320717"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94684379"
 ---
 # <a name="communication-services-notifications"></a>Notificaciones de Communication Services
 
@@ -36,7 +36,7 @@ Obtenga más información sobre el [control de eventos en Azure Communication Se
 
 Puede conectar una instancia de Azure Notification Hubs a su recurso de Communication Services para enviar automáticamente notificaciones push al dispositivo móvil de un usuario cuando recibe una llamada entrante. Debe usar estas notificaciones push para reactivar la aplicación en segundo plano y mostrar la interfaz de usuario que permite al usuario aceptar o rechazar la llamada. 
 
-:::image type="content" source="./media/notifications/acs-anh-int.png" alt-text="Diagrama que muestra cómo se integra Communication Services con Event Grid.":::
+:::image type="content" source="./media/notifications/acs-anh-int.png" alt-text="Diagrama que muestra cómo se integra Communication Services con Azure Notification Hubs.":::
 
 Communication Services usa Azure Notification Hubs como un servicio de tránsito para comunicarse con los diversos servicios de notificaciones push específicos de cada plataforma mediante [Direct Send](https://docs.microsoft.com/rest/api/notificationhubs/direct-send) API. De este modo, podrá volver a usar los recursos y valores de configuración de Azure Notification Hubs existentes para ofrecer notificaciones de llamada confiables y de baja latencia a sus aplicaciones.
 
@@ -53,7 +53,8 @@ Para enviar notificaciones push a dispositivos cliente mediante Notification Hub
 Una vez configurada la instancia de Notification Hubs, puede asociarla a su recurso de Communication Services; para ello, proporcione una cadena de conexión para el centro mediante el cliente de Azure Resource Manager o Azure Portal. La cadena de conexión debe contener permisos de "envío". Se recomienda crear otra directiva de acceso con permisos de "envío" únicamente para el centro. Más información sobre las [directivas de seguridad y acceso de Notification Hubs](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-push-notification-security)
 
 > [!IMPORTANT]
-> Para habilitar las notificaciones VoIP de Apple Push Notification Service, el nombre del centro de notificaciones se debe establecer en el id. de lote de aplicaciones con el sufijo `.voip`. Consulte [Uso de VoIP de APNS a través de Notification Hubs](https://docs.microsoft.com/azure/notification-hubs/voip-apns).
+> Esto solo es aplicable al modo de autenticación de tokens. Este modo de autenticación de certificados no se admite por ahora.  
+Para habilitar las notificaciones VoIP de Apple Push Notification Service, debe establecer el valor del identificador de agrupación al configurar el centro de notificaciones para que sea el identificador de agrupación de la aplicación con el sufijo `.voip`. Consulte [Uso de VoIP de APNS a través de Notification Hubs](https://docs.microsoft.com/azure/notification-hubs/voip-apns) para más información.
 
 #### <a name="using-the-azure-resource-manager-client-to-configure-the-notification-hub"></a>Uso del cliente de Azure Resource Manager para configurar la instancia de Notification Hubs
 
@@ -73,7 +74,7 @@ armclient POST /subscriptions/<sub_id>/resourceGroups/<resource_group>/providers
 
 En el portal, navegue hasta el recurso de Azure Communication Services. En el recurso de Communication Services, seleccione Notificaciones push en el menú de la izquierda de la página Communication Services y conecte la instancia de Notification Hubs que aprovisionó anteriormente. Debe especificar la cadena de conexión y el identificador de recurso aquí:
 
-:::image type="content" source="./media/notifications/acs-anh-portal-int.png" alt-text="Diagrama que muestra cómo se integra Communication Services con Event Grid.":::
+:::image type="content" source="./media/notifications/acs-anh-portal-int.png" alt-text="Captura de pantalla que muestra la configuración Notificaciones push en Azure Portal.":::
 
 > [!NOTE]
 > Si se actualiza la cadena de conexión del centro de notificaciones de Azure, también se debe actualizar el recurso de Communication Services.

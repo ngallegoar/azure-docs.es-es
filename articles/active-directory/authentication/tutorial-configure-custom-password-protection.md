@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 91cb1a0819902d2dfa27718ccfe39b175959a16c
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 03a5f355263b80ef2e5e1c829877dc96ca55787a
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91963846"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94837896"
 ---
 # <a name="tutorial-configure-custom-banned-passwords-for-azure-active-directory-password-protection"></a>Tutorial: Configuración de contraseñas prohibidas personalizadas para la protección con contraseña de Azure Active Directory
 
@@ -124,4 +124,4 @@ En este tutorial, ha habilitado y configurado listas personalizadas de protecci�
 > * Probar los cambios de contraseña con una contraseña prohibida
 
 > [!div class="nextstepaction"]
-> [Habilitación de la autenticación multifactor de Azure en función del riesgo](./tutorial-enable-azure-mfa.md)
+> [Habilitación de la autenticación multifactor de Azure AD en función del riesgo](./tutorial-enable-azure-mfa.md)

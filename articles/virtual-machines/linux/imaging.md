@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 06/22/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: 61c21aed76cfaac5621b234b32c90877ef6faa9f
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: e364578cdec8696688cf19e14fd0529f1ca3fbb3
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91966328"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842624"
 ---
 # <a name="bringing-and-creating-linux-images-in-azure"></a>Creación y uso de imágenes de Linux en Azure
 
@@ -83,7 +83,7 @@ Las [galerías de imágenes compartidas](shared-image-galleries.md) se recomiend
 - Replicación global de imágenes.
 - Control de versiones y agrupación de las imágenes para facilitar la administración.
 - Imágenes de alta disponibilidad con almacenamiento con redundancia de zona (ZRS), en las regiones en que esté disponible Availability Zones. ZRS ofrece mejor resistencia a errores de zona.
-- Imágenes compartidas entre suscripciones e, incluso, entre inquilinos de Active Directory (AD) mediante RBAC.
+- Uso compartido entre suscripciones e, incluso entre inquilinos de Active Directory (AD), mediante Azure RBAC.
 - Escalado de las implementaciones con réplicas de imagen en cada región.
 
 En un nivel alto, se crea un SIG, que consta de:

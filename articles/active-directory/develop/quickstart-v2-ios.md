@@ -13,20 +13,20 @@ ms.date: 09/24/2019
 ms.author: marsma
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:iOS
-ms.openlocfilehash: b171688fa4dbff8d05b3ba03e4e4bd29028983be
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 1b15330d368a93ac4ba176df129df212a259f3e2
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92016151"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94561903"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-or-macos-app"></a>Inicio rápido: Inicio de sesión de los usuarios y llamada a Microsoft Graph API desde una aplicación de iOS o macOS
 
-En este inicio rápido se incluye un código de ejemplo que muestra cómo una aplicación nativa de iOS o macOS puede usar la plataforma de identidad de Microsoft para iniciar sesión en cuentas personales, profesionales y educativas, obtener un token de acceso y llamar a Microsoft Graph API.
+En este inicio rápido descargará y ejecutará un código de ejemplo que muestra cómo una aplicación nativa de iOS o macOS puede realizar el inicio de sesión de usuarios y obtener un token de acceso para llamar a Microsoft Graph API.
 
-Este inicio rápido va dirigido a las aplicaciones de iOS y macOS. Algunos pasos solo son necesarios para las aplicaciones de iOS. Estos pasos indican que son solo para iOS.
+Este inicio rápido va dirigido a las aplicaciones de iOS y macOS. Algunos pasos solo son necesarios para las aplicaciones de iOS y así se indicará.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * XCode 10+
@@ -62,9 +62,9 @@ Este inicio rápido va dirigido a las aplicaciones de iOS y macOS. Algunos pasos
 >      - Omita las demás configuraciones de esta página.
 >      - Seleccione `Register`.
 > 1. En la sección **Administrar**, seleccione `Authentication` > `Add Platform` > `iOS`.
->      - Escriba el ***identificador de agrupación*** de la aplicación. El identificador de agrupación es simplemente una cadena única que identifica de forma exclusiva la aplicación, por ejemplo `com.<yourname>.identitysample.MSALMacOS`. Anote el valor que usa.
+>      - Escriba el **_identificador de agrupación_* de la aplicación. El identificador de agrupación es simplemente una cadena única que identifica de forma exclusiva la aplicación, por ejemplo `com.<yourname>.identitysample.MSALMacOS`. Anote el valor que usa.
 >      - Tenga en cuenta que la configuración de iOS también va dirigida a las aplicaciones de macOS.
-> 1. Seleccione `Configure` y guarde los detalles de ***Configuración de MSAL*** para usarlos más adelante en este inicio rápido.
+> 1. Seleccione `Configure` y guarde los detalles de _*_Configuración de MSAL_*_ para usarlos más adelante en este inicio rápido.
 > [!div renderon="portal" class="sxs-lookup"]
 >
 > #### <a name="step-1-configure-your-application"></a>Paso 1: Configuración de la aplicación
@@ -101,7 +101,7 @@ En una ventana de terminal, vaya a la carpeta con el ejemplo de código descarga
 >#### <a name="step-4-configure-your-project"></a>Paso 4: Configuración del proyecto
 > Si ha seleccionado la opción 1 anterior, puede omitir estos pasos.
 > 1. Extraiga el archivo ZIP y abra el proyecto en XCode.
-> 1. Edite **ViewController.swift** y reemplace la línea que empieza con "let kClientID" por el siguiente fragmento de código: No olvide actualizar el valor de `kClientID` con el identificador de cliente que guardó al registrar la aplicación en el portal anteriormente en este inicio rápido:
+> 1. Edite *ViewController.swift** y reemplace la línea que empieza con "let kClientID" por el siguiente fragmento de código. No olvide actualizar el valor de `kClientID` con el identificador de cliente que guardó al registrar la aplicación en el portal anteriormente en este inicio rápido:
 >    ```swift
 >    let kClientID = "Enter_the_Application_Id_Here"
 >    ```
@@ -117,7 +117,7 @@ En una ventana de terminal, vaya a la carpeta con el ejemplo de código descarga
 >     ```
 > 1. Abra la configuración del proyecto. En la sección **Identidad**, escriba el **identificador de agrupación** que especificó en el portal.
 > 1. Haga clic con el botón derecho en **Info.plist** y seleccione **Abrir como** > **Código fuente**.
-> 1. En el nodo raíz dict, reemplace `Enter_the_bundle_Id_Here` por el ***identificador de agrupación*** que usó en el portal.
+> 1. En el nodo raíz dict, reemplace `Enter_the_bundle_Id_Here` por el **_identificador de agrupación_* que usó en el portal.
 >
 >    ```xml
 >    <key>CFBundleURLTypes</key>
@@ -179,7 +179,7 @@ self.applicationContext = try MSALPublicClientApplication(configuration: msalCon
 
 > |Donde: | Descripción |
 > |---------|---------|
-> | `clientId` | El identificador de aplicación de la aplicación registrada en *portal.azure.com* |
+> | `clientId` | El identificador de aplicación de la aplicación registrada en portal.azure.com* |
 > | `authority` | Punto de conexión de la Plataforma de identidad de Microsoft En la mayoría de los casos, será `https://login.microsoftonline.com/common`. |
 > | `redirectUri` | URI de redireccionamiento de la aplicación. Puede pasar "nil" para usar el valor predeterminado o su URI de redireccionamiento personalizado. |
 
@@ -213,7 +213,7 @@ La aplicación también debe tener lo siguiente en `AppDelegate`. Esto permite q
     }
  ```
 
-Por último, la aplicación debe tener una entrada `LSApplicationQueriesSchemes` en ***Info.plist*** junto con `CFBundleURLTypes`. El ejemplo incluye esto.
+Por último, la aplicación debe tener una entrada `LSApplicationQueriesSchemes` en ***Info.plist** junto con `CFBundleURLTypes`. El ejemplo incluye esto.
 
    ```xml
    <key>LSApplicationQueriesSchemes</key>
@@ -231,7 +231,7 @@ MSAL tiene dos métodos para adquirir tokens: `acquireToken` y `acquireTokenSile
 
 Algunas situaciones requieren que los usuarios interactúen con la plataforma de identidad de Microsoft. En estos casos, puede que sea necesario que el usuario final seleccione su cuenta, escriba sus credenciales o dé su consentimiento a los permisos de la aplicación. Por ejemplo,
 
-* La primera vez que los usuarios inician sesión en la aplicación
+La primera vez que los usuarios inician sesión en la aplicación
 * Si un usuario restablece su contraseña, deberá escribir sus credenciales.
 * Cuando la aplicación solicita acceso a un recurso por primera vez.
 * Cuando se requieren MFA u otras directivas de acceso condicional.
@@ -274,4 +274,3 @@ Pase al tutorial paso a paso en el que se crea una aplicación de iOS o macOS qu
 
 > [!div class="nextstepaction"]
 > [Tutorial: Inicio de sesión de usuarios y llamada a Microsoft Graph desde una aplicación de iOS o macOS](tutorial-v2-ios.md)
-

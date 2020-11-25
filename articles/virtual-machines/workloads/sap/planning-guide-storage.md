@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 06/23/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 819ac1f01cc182c79571de35ec0753f694dc7722
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4ed99145a2d3860849c4a8117a93a9a0f24d227c
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88653620"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540933"
 ---
 # <a name="azure-storage-types-for-sap-workload"></a>Tipos de Azure Storage para una carga de trabajo de SAP
 Azure tiene numerosos tipos de almacenamiento que difieren en gran medida en términos de funcionalidad, rendimiento, latencia y precio. Algunos de los tipos de almacenamiento no son para escenarios de SAP, o bien su uso está limitado en ellos. Sin embargo, hay varios tipos de almacenamiento de Azure que son idóneos para escenarios específicos de carga de trabajo de SAP, o bien están optimizados para ello. Especialmente en el caso de SAP HANA, algunos tipos de almacenamiento de Azure han recibido certificación para su uso con SAP HANA. En este documento, vamos a repasar los diferentes tipos de almacenamiento y describir su capacidad y uso con las cargas de trabajo de SAP y los componentes de SAP.
@@ -352,11 +352,10 @@ A medida que incrementa el tamaño de las máquinas virtuales de Azure en el cic
 
 
 ## <a name="striping-or-not-striping"></a>Posibilidad de seccionar o no
-La creación de un conjunto seccionado de varios discos de Azure en un volumen más grande permite acumular la IOPS y el rendimiento de los discos individuales en un solo volumen. Se usa solo para Azure Standard Storage y Azure Premium Storage. El disco Ultra de Azure, donde puede configurar el rendimiento e IOPS independientemente de la capacidad de un disco, no requiere el uso de conjuntos seccionados. Los volúmenes compartidos basados en NFS o SMB no se pueden seccionar. Debido a la naturaleza no lineal del rendimiento e IOPS de Azure Premium Storage, puede aprovisionar una capacidad menor con los mismos valores de IOPS y rendimiento que los discos individuales de Azure Premium Storage grandes. Este es el método para lograr un mayor rendimiento o IOPS a un costo más bajo con Azure Premium Storage. Por ejemplo:
+La creación de un conjunto seccionado de varios discos de Azure en un volumen más grande permite acumular la IOPS y el rendimiento de los discos individuales en un solo volumen. Se usa solo para Azure Standard Storage y Azure Premium Storage. El disco Ultra de Azure, donde puede configurar el rendimiento e IOPS independientemente de la capacidad de un disco, no requiere el uso de conjuntos seccionados. Los volúmenes compartidos basados en NFS o SMB no se pueden seccionar. Debido a la naturaleza no lineal del rendimiento e IOPS de Azure Premium Storage, puede aprovisionar una capacidad menor con los mismos valores de IOPS y rendimiento que los discos individuales de Azure Premium Storage grandes. Este es el método para lograr un mayor rendimiento o IOPS a un costo más bajo con Azure Premium Storage. Por ejemplo, con el seccionamiento en dos discos de almacenamiento premium P15 se consigue un rendimiento de: 
 
-- Con el seccionamiento en dos discos de Premium Storage de P15 consigue un rendimiento de 
 - 250 MiB/s. Dicho volumen va a tener una capacidad de 512 GiB. Si desea tener un único disco que proporcione un rendimiento de 250 MiB por segundo, deberá elegir un disco P40 con 2 TiB de capacidad. 
-- O bien, puede lograr un rendimiento de 400 MiB/s mediante la división de cuatro discos de almacenamiento Premium de P10 con una capacidad total de 512 GiB mediante el seccionamiento. Si desea tener un solo disco con un rendimiento mínimo de 500 MiB por segundo, debe elegir un disco de Premium Storage de P60 con 8 TiB. Dado que el costo de Premium Storage es casi lineal con la capacidad, puede detectar el ahorro de costos mediante el uso del seccionamiento.
+- 400 MiB/s mediante el seccionamiento de cuatro discos de almacenamiento premium P10 con una capacidad total de 512 GiB por medio del seccionamiento. Si desea tener un solo disco con un rendimiento mínimo de 500 MiB por segundo, debe elegir un disco de Premium Storage de P60 con 8 TiB. Dado que el costo del almacenamiento premium es casi lineal con la capacidad, puede detectar el ahorro en los costos mediante el uso del seccionamiento.
 
 Algunas reglas deben seguirse en el seccionamiento:
 

@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Canalizaciones de ML para la puntuación por lotes'
 titleSuffix: Azure Machine Learning
-description: En este tutorial, compilará una canalización de aprendizaje automático para realizar la puntuación por lotes en un modelo de clasificación de imágenes. Azure Machine Learning le permiten centrarse en el aprendizaje automático, en lugar de en la infraestructura y la automatización.
+description: En este tutorial, compilará una canalización de aprendizaje automático para realizar la puntuación por lotes. Concéntrese en el aprendizaje automático, en lugar de en la infraestructura y la automatización.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ ms.author: laobri
 ms.reviewer: laobri
 ms.date: 10/13/2020
 ms.custom: contperfq4, devx-track-python
-ms.openlocfilehash: f7d1cffb44914535fe218980c750270ebba14445
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 8748d6e155eb84cf948966d768dda1a992207f7e
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93309450"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629638"
 ---
 # <a name="tutorial-build-an-azure-machine-learning-pipeline-for-batch-scoring"></a>Tutorial: Compilación de una canalización de Azure Machine Learning para la puntuación por lotes
 

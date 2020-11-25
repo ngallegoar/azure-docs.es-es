@@ -3,14 +3,14 @@ title: Referencia para desarrolladores de JavaScript para Azure Functions
 description: Obtenga información sobre cómo desarrollar funciones con JavaScript.
 ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: conceptual
-ms.date: 07/17/2020
+ms.date: 11/17/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 5b9ffdec83fb613b7df0b5a3227ca66c55e54fe9
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: d32c63332c530ec05eb9f93661a8f2a0c5d8264c
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422559"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94743327"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guía para el desarrollador de JavaScript para Azure Functions
 
@@ -325,10 +325,10 @@ Además del nivel predeterminado, están disponibles los siguientes métodos de 
 
 | Método                 | Descripción                                |
 | ---------------------- | ------------------------------------------ |
-| **error( _message_ )**   | Escribe un evento de nivel de error en los registros.   |
-| **warn( _message_ )**    | Escribe un evento de nivel de advertencia en los registros. |
-| **info( _message_ )**    | Escribe en el registro de nivel de información o inferior.    |
-| **verbose( _message_ )** | Escribe en el registro de nivel detallado.           |
+| **error(_message_)**   | Escribe un evento de nivel de error en los registros.   |
+| **warn(_message_)**    | Escribe un evento de nivel de advertencia en los registros. |
+| **info(_message_)**    | Escribe en el registro de nivel de información o inferior.    |
+| **verbose(_message_)** | Escribe en el registro de nivel detallado.           |
 
 En el ejemplo siguiente se escribe el mismo registro en el nivel de seguimiento de advertencia, en lugar de en el nivel de información:
 
@@ -508,12 +508,20 @@ En la tabla siguiente se muestran las versiones actuales de Node. js compatibles
 | Versión de Functions | Versión de Node (Windows) | Versión de Node (Linux) |
 |---|---| --- |
 | 1.x | 6.11.2 (bloqueado por el entorno de tiempo de ejecución) | N/D |
-| 2.x  | ~8<br/>~10 (recomendado)<br/>~12<sup>*</sup> | ~8 (recomendado)<br/>~10  |
-| 3.x | ~10<br/>~12 (recomendado)  | ~10<br/>~12 (recomendado) |
+| 2.x  | `~8`<br/>`~10` (recomendado)<br/>`~12` | `node|8`<br/>`node|10` (recomendado)  |
+| 3.x | `~10`<br/>`~12` (recomendado)<br/>`~14` (versión preliminar)  | `node|10`<br/>`node|12` (recomendado)<br/>`node|14` (versión preliminar) |
 
-<sup>*</sup>Node ~12 está permitido en la actualidad en la versión 2.x del runtime de Functions. De todas formas, para obtener el mejor rendimiento, se recomienda usar la versión 3.x del runtime de Functions con Node ~12. 
+Puede ver la versión actual que el entorno de tiempo de ejecución usa mediante el registro de `process.version` desde cualquier función.
 
-Puede ver la versión actual que el entorno de tiempo de ejecución usa consultando la configuración de aplicación anterior o mediante la impresión de `process.version` desde cualquier función. Seleccione el destino de la versión en Azure estableciendo la [configuración de aplicación](functions-how-to-use-azure-function-app-settings.md#settings) WEBSITE_NODE_DEFAULT_VERSION en una versión compatible con LTS, como `~10`.
+### <a name="setting-the-node-version"></a>Especificación de la versión de Node
+
+Para las aplicaciones de funciones de Windows, seleccione el destino de la versión en Azure estableciendo la [configuración de aplicación](functions-how-to-use-azure-function-app-settings.md#settings) `WEBSITE_NODE_DEFAULT_VERSION` en una versión compatible con LTS, como `~12`.
+
+En el caso de las aplicaciones de funciones de Linux, ejecute el siguiente comando de la CLI de Azure para actualizar la versión de Node.
+
+```bash
+az functionapp config set --linux-fx-version "node|12" --name "<MY_APP_NAME>" --resource-group "<MY_RESOURCE_GROUP_NAME>"
+```
 
 ## <a name="dependency-management"></a>Administración de dependencias
 Para poder utilizar bibliotecas de la comunidad en el código de JavaScript, como se muestra en el ejemplo siguiente, debe asegurarse de que todas las dependencias estén instaladas en Function App en Azure.
@@ -555,21 +563,42 @@ Hay dos maneras de instalar paquetes en Function App:
 
 ## <a name="environment-variables"></a>Variables de entorno
 
-En Functions, [la configuración de la aplicación](functions-app-settings.md), como las cadenas de conexión del servicio, se exponen como variables de entorno durante la ejecución. Puede acceder a esta configuración mediante `process.env`, como se muestra aquí en la segunda y tercera llamada a `context.log()` donde se registran las variables de entorno `AzureWebJobsStorage` y `WEBSITE_SITE_NAME`:
+Agregue sus propias variables de entorno a una aplicación de funciones, en entornos locales y en la nube, como secretos operativos (cadenas de conexión, claves y puntos de conexión) o la configuración del entorno (como las variables de generación de perfiles). Acceda a esta configuración mediante `process.env` en el código de la función.
+
+### <a name="in-local-development-environment"></a>Entorno de desarrollo local
+
+Cuando se ejecuta a nivel local, el proyecto de funciones incluye un [archivo `local.settings.json`](/functions-run-local.md?tabs=node#local-settings-file), donde se almacenan las variables de entorno en el objeto `Values`. 
+
+```json
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "",
+    "FUNCTIONS_WORKER_RUNTIME": "node",
+    "translatorTextEndPoint": "https://api.cognitive.microsofttranslator.com/",
+    "translatorTextKey": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+    "languageWorkers__node__arguments": "--prof"
+  }
+}
+```
+
+### <a name="in-azure-cloud-environment"></a>Entorno en la nube de Azure
+
+Cuando se ejecuta en Azure, la aplicación de funciones permite establecer usos de la [configuración de la aplicación](functions-app-settings.md), como cadenas de conexión de servicio, y expone estos valores como variables de entorno durante la ejecución. 
+
+[!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
+
+### <a name="access-environment-variables-in-code"></a>Acceso a variables de entorno en el código
+
+Acceda a la configuración de la aplicación como variables de entorno mediante `process.env`, como se muestra aquí en la segunda y tercera llamada a `context.log()` donde se registran las variables de entorno `AzureWebJobsStorage` y `WEBSITE_SITE_NAME`:
 
 ```javascript
 module.exports = async function (context, myTimer) {
-    var timeStamp = new Date().toISOString();
 
-    context.log('Node.js timer trigger function ran!', timeStamp);
     context.log("AzureWebJobsStorage: " + process.env["AzureWebJobsStorage"]);
     context.log("WEBSITE_SITE_NAME: " + process.env["WEBSITE_SITE_NAME"]);
 };
 ```
-
-[!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
-
-Cuando se ejecuta localmente, la configuración de la aplicación se lee desde el archivo del proyecto [local.settings.json](functions-run-local.md#local-settings-file).
 
 ## <a name="configure-function-entry-point"></a>Configuración del punto de entrada de la función
 

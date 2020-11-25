@@ -12,16 +12,18 @@ ms.workload: identity
 ms.date: 10/22/2020
 ms.author: amikuma
 ms.custom: aaddev, scenarios:getting-started, languages:js, devx-track-js
-ms.openlocfilehash: e223b5ae072a323ad56ed396c06580fea9b8b7ab
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 52e6c70b76b83c73059dc887eaefe8403befac13
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94335254"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94594239"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-node-web-app-using-the-auth-code-flow"></a>Inicio rápido: Inicio de sesión de los usuarios y obtención de un token de acceso en una aplicación web de Node mediante el flujo de código de autorización
 
-En este inicio rápido, se ejecuta un código de ejemplo que muestra de qué forma una aplicación web de Node.js puede iniciar la sesión de los usuarios de cuentas personales, profesionales y educativas mediante el flujo de código de autorización. En el ejemplo de código también se muestra cómo obtener un token de acceso para llamar a una API web, en este caso, Microsoft Graph API. Para ilustrar este tema, consulte el apartado en el que se explica el [funcionamiento del ejemplo](#how-the-sample-works).
+En este inicio rápido, descargará y ejecutará un código de ejemplo que muestra cómo una aplicación web de Node.js puede realizar el inicio de sesión de los usuarios mediante el flujo de código de autorización. En el ejemplo de código se muestra cómo obtener un token de acceso para llamar a Microsoft Graph API. 
+
+Para ilustrar este tema, consulte el apartado en el que se explica el [funcionamiento del ejemplo](#how-the-sample-works).
 
 En este inicio rápido se usa la biblioteca de autenticación de Microsoft para Node.js (MSAL Node) con el flujo del código de autorización.
 
@@ -43,12 +45,12 @@ En este inicio rápido se usa la biblioteca de autenticación de Microsoft para 
 > 1. Si la cuenta proporciona acceso a más de un inquilino, seleccione la cuenta en la esquina superior derecha y establezca la sesión del portal en el inquilino de Azure AD que desee utilizar.
 > 1. Seleccione [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) (Registros de aplicaciones).
 > 1. Seleccione **Nuevo registro**.
-> 1. Cuando se abra la página **Registrar una aplicación** , escriba el nombre de su aplicación.
+> 1. Cuando se abra la página **Registrar una aplicación**, escriba el nombre de su aplicación.
 > 1. En **Supported account types** (Tipos de cuenta compatibles), seleccione **Accounts in any organizational directory and personal Microsoft accounts** (Cuentas en cualquier directorio de organización y cuentas personales de Microsoft).
 > 1. Establezca el valor de **URI de redireccionamiento** en `http://localhost:3000/redirect`.
 > 1. Seleccione **Registrar**. 
 > 1. En la página de **información general** de la aplicación, anote el valor del **Identificador de aplicación (cliente)** para su uso posterior.
-> 1. En **Certificados y secretos** , seleccione **Nuevo secreto de cliente**.  Deje la descripción en blanco y la expiración predeterminada y haga clic en **Agregar**.
+> 1. En **Certificados y secretos**, seleccione **Nuevo secreto de cliente**.  Deje la descripción en blanco y la expiración predeterminada y haga clic en **Agregar**.
 > 1. Anote el **valor** de **Secreto de cliente** para usarlo más adelante.
 
 #### <a name="step-2-download-the-project"></a>Paso 2: Descarga del proyecto

@@ -3,12 +3,12 @@ title: Administración de certificados en un clúster de Azure Service Fabric
 description: Describe cómo agregar nuevos certificados, sustituir certificados y quitar certificados de un clúster de Service Fabric.
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: b1ccf83e666f9106a31809ff41d55062826be78c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6dd4440d76bed9d110c13baab9f4e67b3a5c64c0
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88869769"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660923"
 ---
 # <a name="add-or-remove-certificates-for-a-service-fabric-cluster-in-azure"></a>Agregar o quitar certificados para un clúster de Service Fabric de Azure
 Se recomienda leer [Escenarios de seguridad de los clústeres de Service Fabric](service-fabric-cluster-security.md) para familiarizarse con cómo Service Fabric usa los certificados X.509. Debe entender qué es un certificado de clúster y para qué se usa antes de seguir avanzando.
@@ -18,7 +18,7 @@ El comportamiento de carga de certificado predeterminado del SDK de Azure Servic
 Además de los certificados de cliente, al configurar la seguridad mediante certificados durante la creación del clúster, Service Fabric le permite especificar dos certificados de clúster: uno principal y uno secundario. Consulte el artículo sobre la [creación de un clúster de Service Fabric en Azure Portal](service-fabric-cluster-creation-via-portal.md) o la [creación de un clúster de Azure a través de Azure Resource Manager](service-fabric-cluster-creation-via-arm.md) para más información sobre cómo configurarlos en el momento de la creación. Si se especifica un único certificado de clúster en el momento de la creación, este se utilizará como el certificado principal. Después de la creación del clúster, puede agregar un nuevo certificado como certificado secundario.
 
 > [!NOTE]
-> Para que un clúster sea seguro, siempre deberá tener implementado al menos un certificado de clúster principal o secundario válido (no revocado ni expirado), o el clúster dejará de funcionar. Cuando falten 90 días para la expiración de todos los certificados válidos, el sistema genera un seguimiento de advertencias y un evento de estado de advertencia en el nodo. Actualmente, Service Fabric no envía ninguna notificación por correo electrónico ni de otro tipo sobre este artículo. 
+> Para que un clúster sea seguro, siempre deberá tener implementado al menos un certificado de clúster principal o secundario válido (no revocado ni expirado), o el clúster dejará de funcionar. Cuando falten 90 días para la expiración de todos los certificados válidos, el sistema genera un seguimiento de advertencias y un evento de estado de advertencia en el nodo. Actualmente, estas son las únicas notificaciones que Service Fabric envía con respecto a la expiración del certificado.
 > 
 > 
 
@@ -208,7 +208,7 @@ Implemente la plantilla en el grupo de recursos. Utilice el grupo de recursos en
 New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName <Resource Group that your cluster is currently deployed to> -TemplateFile <PathToTemplate>
 ```
 
-Este es un ejemplo ya rellenado del mismo powershell.
+Este es un ejemplo ya rellenado del mismo PowerShell.
 
 ```powershell
 $ResourceGroup2 = "chackosecure5"

@@ -5,14 +5,14 @@ author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: overview
-ms.date: 10/13/2020
+ms.date: 11/11/2020
 ms.author: sngun
-ms.openlocfilehash: c1af35b754362a230e77c7a3326de8ddb8a09d62
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: a149f0b331a77462aa53b948fedf25dd1331969e
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93083004"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94683631"
 ---
 # <a name="azure-cosmos-db-gremlin-graph-support-and-compatibility-with-tinkerpop-features"></a>Compatibilidad de los grafos de Gremlin de Azure Cosmos DB con las características de TinkerPop
 [!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
@@ -32,6 +32,7 @@ En la siguiente tabla se muestran los controladores Gremlin populares que puede 
 | [Node.js](https://www.npmjs.com/package/gremlin) | [Gremlin-JavaScript en GitHub](https://github.com/apache/tinkerpop/tree/master/gremlin-javascript) | [Crear gráfico con Node.js](create-graph-nodejs.md) | 3.3.4+ |
 | [Python](https://tinkerpop.apache.org/docs/3.3.1/reference/#gremlin-python) | [Gremlin-Python en GitHub](https://github.com/apache/tinkerpop/tree/master/gremlin-python) | [Crear gráfico con Python](create-graph-python.md) | 3.2.7 |
 | [PHP](https://packagist.org/packages/brightzone/gremlin-php) | [Gremlin-PHP en GitHub](https://github.com/PommeVerte/gremlin-php) | [Crear gráfico con PHP](create-graph-php.md) | 3.1.0 |
+| [Go Lang](https://github.com/supplyon/gremcos/) | [Go Lang](https://github.com/supplyon/gremcos/) | | Colaboradores externos han creado esta biblioteca. El equipo de Azure Cosmos DB no ofrece ningún soporte técnico ni mantiene la biblioteca. |
 | [Gremlin Console](https://tinkerpop.apache.org/downloads.html) | [Documentación de TinkerPop](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console) |  [Crear gráfico con la consola de Gremlin](create-graph-gremlin-console.md) | 3.2.0 + |
 
 ## <a name="supported-graph-objects"></a>Objetos de grafos permitidos
@@ -168,7 +169,7 @@ De manera predeterminada, el motor optimizado para escritura de Azure Cosmos DB 
 
 ## <a name="behavior-differences"></a>Diferencias de comportamiento
 
-* El motor Graph de Azure Cosmos DB ejecuta el recorrido centrando la * **prioridad en la amplitud** _, mientras que Gremlin de TinkerPop lo hace centrando la prioridad en la profundidad. Este comportamiento logra un mejor rendimiento en un sistema escalable horizontalmente como Cosmos DB.
+* El motor Graph de Azure Cosmos DB ejecuta el recorrido centrando la ***prioridad en la amplitud** _, mientras que Gremlin de TinkerPop lo hace centrando la prioridad en la profundidad. Este comportamiento logra un mejor rendimiento en un sistema escalable horizontalmente como Cosmos DB.
 
 ## <a name="unsupported-features"></a>Características no admitidas
 
@@ -176,15 +177,15 @@ _ * **[Gremlin Bytecode](https://tinkerpop.apache.org/docs/current/tutorials/gre
 
 Actualmente, no se admite el establecimiento de la cardinalidad _ * **`property(set, 'xyz', 1)`** _. En su lugar, use `property(list, 'xyz', 1)`. Para más información, consulte [Propiedades Vertex con TinkerPop](http://tinkerpop.apache.org/docs/current/reference/#vertex-properties).
 
-_ El * **paso `match()`** _ no se encuentra disponible actualmente. Este paso proporciona funcionalidades de consulta declarativa.
+_ El ***paso `match()`** _ no se encuentra disponible actualmente. Este paso proporciona funcionalidades de consulta declarativa.
 
-_ No se admiten los * **objetos como propiedades** _ en bordes ni vértices. Las propiedades solo pueden ser tipos primitivos o matrices.
+_ No se admiten los ***objetos como propiedades** _ en bordes ni vértices. Las propiedades solo pueden ser tipos primitivos o matrices.
 
-_ No se admite la * **ordenación por propiedades de la matriz** _ `order().by(<array property>)`. Solo se admite la ordenación por tipos primitivos.
+_ No se admite la ***ordenación por propiedades de la matriz** _ `order().by(<array property>)`. Solo se admite la ordenación por tipos primitivos.
 
-_ No se admiten los * **tipos JSON no primitivos** _. Use los tipos `string`, `number` o `true`/`false`. No se admiten los valores `null`. 
+_ No se admiten los ***tipos JSON no primitivos** _. Use los tipos `string`, `number` o `true`/`false`. No se admiten los valores `null`. 
 
-_ El serializador * **GraphSONv3** _ no se admite actualmente. Use las clases Serializer, Reader y Writer de `GraphSONv2` en la configuración de conexión. Los resultados devueltos por la API de Azure Cosmos DB Gremlin no tienen el mismo formato que el formato GraphSON. 
+_ El serializador ***GraphSONv3** _ no se admite actualmente. Use las clases Serializer, Reader y Writer de `GraphSONv2` en la configuración de conexión. Los resultados devueltos por la API de Azure Cosmos DB Gremlin no tienen el mismo formato que el formato GraphSON. 
 
 _ Actualmente no se admiten las **expresiones y funciones lambda**. Esto incluye las funciones `.map{<expression>}`, `.by{<expression>}` y `.filter{<expression>}`. Para obtener más información y saber cómo volver a escribirlas con los pasos de Gremlin, vea [Una nota sobre las expresiones lambda](http://tinkerpop.apache.org/docs/current/reference/#a-note-on-lambdas).
 
@@ -192,7 +193,7 @@ _ Actualmente no se admiten las **expresiones y funciones lambda**. Esto incluye
 
 ## <a name="known-limitations"></a>Restricciones conocidas
 
-_ **Uso de índices para las consultas de Gremlin con pasos `.V()` de recorrido intermedio** : actualmente, solo la primera llamada a `.V()` de un recorrido usará el índice para resolver los filtros o predicados asociados a él. Las llamadas subsiguientes no consultarán el índice, lo que podría aumentar la latencia y el costo de la consulta.
+_ **Uso de índices para las consultas de Gremlin con pasos `.V()` de recorrido intermedio**: actualmente, solo la primera llamada a `.V()` de un recorrido usará el índice para resolver los filtros o predicados asociados a él. Las llamadas subsiguientes no consultarán el índice, lo que podría aumentar la latencia y el costo de la consulta.
     
     Assuming default indexing, a typical read Gremlin query that starts with the `.V()` step would use parameters in its attached filtering steps, such as `.has()` or `.where()` to optimize the cost and performance of the query. For example:
 

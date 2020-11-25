@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/16/2019
-ms.openlocfilehash: 23077d7d6b476bcca0812dcff8660376568f7dd9
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.date: 11/13/2020
+ms.openlocfilehash: 4dfe284a00052cbd1915d62355e1d7772f3712ab
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94376339"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94591876"
 ---
 # <a name="one-vs-all-multiclass"></a>Uno frente a todos multiclase
 
@@ -31,6 +31,8 @@ Este módulo implementa el método uno frente a todos, en el que se crea un mode
 En esencia, el módulo crea un conjunto de modelos individuales, y luego combina los resultados para crear un único modelo que predice todas las clases. Cualquier clasificador binario se puede utilizar como base para un modelo uno frente a todos.  
 
 Por ejemplo, supongamos que configura un modelo de [Máquina de vectores de soporte de dos clases](two-class-support-vector-machine.md) y lo proporciona como entrada al módulo One-vs-All Multiclass (Uno frente a todos multiclase). El módulo creará modelos de máquina de vectores de soporte de dos clases para todos los miembros de la clase de salida. A continuación, aplicará el método uno frente a todos para combinar los resultados de todas las clases.  
+
+El módulo usa OneVsRestClassifier de sklearn. Puede consultar información más detallada [aquí](https://scikit-learn.org/stable/modules/generated/sklearn.multiclass.OneVsRestClassifier.html).
 
 ## <a name="how-to-configure-the-one-vs-all-multiclass-classifier"></a>Cómo configurar el clasificador One-vs-All Multiclass (Uno frente a todos multiclase)  
 

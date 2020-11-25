@@ -1,6 +1,6 @@
 ---
 title: ¿Qué es Azure Machine Learning Studio?
-description: Azure Machine Learning Studio es un portal web para las áreas de trabajo de Azure Machine Learning. Studio combina las experiencias de los tipos sin código y código primero para crear una plataforma de ciencia de datos inclusiva.
+description: Azure Machine Learning Studio es un portal web para las áreas de trabajo de Azure Machine Learning. Studio combina las experiencias de los tipos sin código y código primero para una plataforma de ciencia de datos inclusiva.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -8,12 +8,12 @@ ms.topic: overview
 author: peterclu
 ms.author: peterlu
 ms.date: 08/24/2020
-ms.openlocfilehash: 345c925d3b1350dfc2ea69d65d8d14688c6930b9
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 018a0e3a244d1f0e36ce638d646ab05861c10e38
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93310173"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94565915"
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>¿Qué es Azure Machine Learning Studio?
 
@@ -74,7 +74,7 @@ Studio puede simplificar el modo en que se administran los recursos del área de
 
 **Azure Machine Learning Studio** es un portal web *de* Azure Machine Learning que contiene las opciones de los tipos código bajo y sin código para la creación de proyectos y la administración de recursos. 
 
-Es aconsejable que los nuevos usuarios elijan **Azure Machine Learning** , en lugar de Machine Learning Studio (clásico), para obtener la gama más reciente de herramientas de ciencia de datos.
+Es aconsejable que los nuevos usuarios elijan **Azure Machine Learning**, en lugar de Machine Learning Studio (clásico), para obtener la gama más reciente de herramientas de ciencia de datos.
 
 ### <a name="feature-comparison"></a>Comparación de características
 
@@ -103,3 +103,4 @@ Visite [Studio](https://ml.azure.com) o explore las diferentes opciones de creac
   + [Uso de cuadernos de Jupyter Notebook en una instancia de proceso para entrenar e implementar modelos](tutorial-1st-experiment-sdk-setup.md)
   + [Uso del aprendizaje automático automatizado para entrenar e implementar modelos](tutorial-first-experiment-automated-ml.md)  
   + [Uso del diseñador para entrenar e implementar modelos](tutorial-designer-automobile-price-train-score.md)
+  + [Uso de Studio en una red virtual protegida](how-to-enable-studio-virtual-network.md)

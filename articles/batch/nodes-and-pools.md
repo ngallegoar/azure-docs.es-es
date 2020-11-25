@@ -2,17 +2,17 @@
 title: Nodos y grupos en Azure Batch
 description: Obtenga información sobre los grupos y nodos de proceso, y cómo se usan en un flujo de trabajo de Azure Batch desde el punto de vista del desarrollo.
 ms.topic: conceptual
-ms.date: 10/21/2020
-ms.openlocfilehash: c85c50d0b30e30563390d2ffb05942f199047d67
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.date: 11/10/2020
+ms.openlocfilehash: 77f3a1c954f5591537436c9ee747052b3a642ec4
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913813"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94537618"
 ---
 # <a name="nodes-and-pools-in-azure-batch"></a>Nodos y grupos en Azure Batch
 
-En un flujo de trabajo de Azure Batch, un *nodo de proceso* (o *nodo* ) es una máquina virtual que procesa una parte de la carga de trabajo de la aplicación. Un *grupo* es una colección de estos nodos para que la aplicación se ejecute. En este artículo se ofrece más información sobre nodos y grupos, junto con consideraciones al crearlos y usarlos en un flujo de trabajo de Azure Batch.
+En un flujo de trabajo de Azure Batch, un *nodo de proceso* (o *nodo*) es una máquina virtual que procesa una parte de la carga de trabajo de la aplicación. Un *grupo* es una colección de estos nodos para que la aplicación se ejecute. En este artículo se ofrece más información sobre nodos y grupos, junto con consideraciones al crearlos y usarlos en un flujo de trabajo de Azure Batch.
 
 ## <a name="nodes"></a>Nodos
 
@@ -72,9 +72,9 @@ El [agente de nodo del servicio Batch](https://github.com/Azure/Batch/blob/maste
 
 ### <a name="cloud-services-configuration"></a>Configuración de Cloud Services
 
-La **Configuración de Cloud Services** especifica que el grupo está formado por nodos de Azure Cloud Services. Cloud Services proporciona *solo* nodos de ejecución Windows.
+La **Configuración de Cloud Services** especifica que el grupo está formado por nodos de Azure Cloud Services. Cloud Services proporciona solo nodos de proceso de Windows.
 
-La lista de los sistemas operativos disponibles para los grupos de configuración de Cloud Services aparece en [Matriz de compatibilidad del SDK y versiones del SO invitado de Azure](../cloud-services/cloud-services-guestos-update-matrix.md). Cuando crea un grupo que contiene nodos de Cloud Services, tiene que especificar el tamaño del nodo y su *familia de sistema operativo* (que determina qué versiones de .NET se instalan con el sistema operativo). Cloud Services se implementa en Azure de forma más rápida que las máquinas virtuales que ejecutan Windows. Si desea grupos de nodos de proceso Windows, es posible que Cloud Services proporcione una mejora en el rendimiento en términos de tiempo de implementación.
+Los sistemas operativos disponibles para los grupos de configuración de Cloud Services se enumeran en [Matriz de compatibilidad del SDK y versiones del SO invitado de Azure](../cloud-services/cloud-services-guestos-update-matrix.md), y los tamaños de nodo de proceso disponibles se enumeran en [Tamaños de Cloud Services](../cloud-services/cloud-services-sizes-specs.md). Cuando se crea un grupo que contiene nodos de Cloud Services, se especifica el tamaño del nodo y su *familia de sistema operativo* (que determina qué versiones de .NET se instalan con el sistema operativo). Cloud Services se implementa en Azure de forma más rápida que las máquinas virtuales que ejecutan Windows. Si desea grupos de nodos de proceso Windows, es posible que Cloud Services proporcione una mejora en el rendimiento en términos de tiempo de implementación.
 
 Al igual que con los roles de trabajo en Cloud Services, es posible especificar la *versión del sistema operativo* (para más información sobre los roles de trabajo, consulte la [introducción a Cloud Services](../cloud-services/cloud-services-choose-me.md)). Se recomienda especificar `Latest (*)` para la *versión del sistema operativo* de forma que los nodos se actualicen automáticamente; así no es necesario realizar ningún trabajo para las versiones recién publicadas. El principal caso de uso para seleccionar una versión específica del sistema operativo es asegurarse de la compatibilidad de las aplicaciones; debe ser posible realizar pruebas de compatibilidad con versiones anteriores antes de permitir la actualización de la versión. Después de la validación, se puede actualizar la *versión del sistema operativo* para el grupo e instalar la nueva imagen del sistema operativo. Cualquier tarea en ejecución se interrumpirá y se volverá a poner en cola.
 
@@ -127,7 +127,7 @@ Una fórmula de escalado puede basarse en las siguientes métricas:
 
 - **Métricas de tiempo** : se basan en las estadísticas recopiladas cada cinco minutos en el número especificado de horas.
 - **Métricas de recursos** : se basan en el uso de CPU, ancho de banda y memoria y en el número de nodos.
-- **Métricas de tareas** : se basan en el estado de la tarea, como *Activa* (en cola), *En ejecución* o *Completada*.
+- **Métricas de tareas**: se basan en el estado de la tarea, como *Activa* (en cola), *En ejecución* o *Completada*.
 
 Cuando el escalado automático reduce el número de nodos de proceso en un grupo, debe considerar cómo administrará las tareas que se están ejecutando en el momento en que se realiza la operación de reducción. Para ello, Batch proporciona una [*opción de desasignación de nodos*](/rest/api/batchservice/pool/removenodes#computenodedeallocationoption) que se puede incluir en las fórmulas. Por ejemplo, puede especificar que las tareas en ejecución se detengan de inmediato y se vuelvan a poner en cola para ejecutarlas en otro nodo o se dejen finalizar antes de que se quite el nodo del grupo. Tenga en cuenta que si se establece la opción de desasignación de nodos en `taskcompletion` o `retaineddata`, se evitarán las operaciones de cambio de tamaño de los grupos hasta que se completen todas las tareas o hasta que expiren todos los períodos de retención de tareas, respectivamente.
 
@@ -148,7 +148,7 @@ También puede especificar un *tipo de relleno* que determina si el servicio Bat
 
 En la mayoría de los escenarios, las tareas funcionan de forma independiente y no necesitan comunicarse entre sí. Sin embargo, hay algunas aplicaciones en las que las tareas deben comunicarse, como en los [escenarios MPI](batch-mpi.md).
 
-Puede configurar un grupo que permita la **comunicación entre nodos** , de manera que los nodos de un grupo se puedan comunicar en tiempo de ejecución. Cuando se habilita la comunicación entre nodos, los nodos en grupos de configuración de Cloud Services pueden comunicarse entre sí en los puertos superiores a 1100, mientras que los grupos de configuración de máquina virtual no restringen el tráfico en ningún puerto.
+Puede configurar un grupo que permita la **comunicación entre nodos**, de manera que los nodos de un grupo se puedan comunicar en tiempo de ejecución. Cuando se habilita la comunicación entre nodos, los nodos en grupos de configuración de Cloud Services pueden comunicarse entre sí en los puertos superiores a 1100, mientras que los grupos de configuración de máquina virtual no restringen el tráfico en ningún puerto.
 
 Habilitar la comunicación entre nodos también afecta a la colocación de los nodos dentro de los clústeres y puede limitar el número máximo de nodos en un grupo a causa de las restricciones de implementación. Si la aplicación no requiere comunicación entre los nodos, el servicio Batch puede asignar un número potencialmente alto de nodos al grupo desde muchos clústeres y centros de datos diferentes para permitir el aumento de la potencia del procesamiento paralelo.
 

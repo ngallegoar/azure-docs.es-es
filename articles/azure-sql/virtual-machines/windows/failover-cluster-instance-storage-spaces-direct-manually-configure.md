@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/18/2020
 ms.author: mathoma
-ms.openlocfilehash: 9b90d13d6f4fa5a33bff38aaa66728a5d0f3d70f
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 01f9ee1ad134c14150d16569fd57e658b160784c
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289948"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94556325"
 ---
 # <a name="create-an-fci-with-storage-spaces-direct-sql-server-on-azure-vms"></a>Creación de una FCI con Espacios de almacenamiento directo (SQL Server en Azure VM)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -68,9 +68,9 @@ Antes de completar las instrucciones de este artículo, ya debe tener:
 
    Para instalar clústeres de conmutación por error desde la interfaz de usuario, realice los pasos siguientes en las dos máquinas virtuales.
 
-   1. En el **Administrador del servidor** , seleccione **Administrar** y, a continuación, seleccione **Agregar roles y características**.
-   1. En el **Asistente para agregar roles y características** , seleccione **Siguiente** hasta llegar a **Seleccionar características**.
-   1. En **Seleccionar características** , seleccione **Clúster de conmutación por error**. Incluya todas las características y herramientas de administración requeridas. 
+   1. En el **Administrador del servidor**, seleccione **Administrar** y, a continuación, seleccione **Agregar roles y características**.
+   1. En el **Asistente para agregar roles y características**, seleccione **Siguiente** hasta llegar a **Seleccionar características**.
+   1. En **Seleccionar características**, seleccione **Clúster de conmutación por error**. Incluya todas las características y herramientas de administración requeridas. 
    1. Seleccione **Agregar características**.
    1. Seleccione **Siguiente** y, después, **Finalizar** para instalar las características.
 
@@ -90,18 +90,18 @@ Valide el clúster en la interfaz de usuario o con PowerShell.
 
 Para validar el clúster con la interfaz de usuario, realice los pasos siguientes en una de las máquinas virtuales:
 
-1. En **Administrador del servidor** , seleccione **Herramientas** y, después, seleccione **Administrador de clústeres de conmutación por error**.
-1. En **Administrador de clústeres de conmutación por error** , seleccione **Acción** y, a continuación, seleccione **Validar configuración**.
+1. En **Administrador del servidor**, seleccione **Herramientas** y, después, seleccione **Administrador de clústeres de conmutación por error**.
+1. En **Administrador de clústeres de conmutación por error**, seleccione **Acción** y, a continuación, seleccione **Validar configuración**.
 1. Seleccione **Next** (Siguiente).
-1. En **Seleccionar servidores o un clúster** , escriba el nombre de ambas máquinas virtuales.
-1. En **Opciones de pruebas** , seleccione **Ejecutar solo las pruebas que seleccione**. 
+1. En **Seleccionar servidores o un clúster**, escriba el nombre de ambas máquinas virtuales.
+1. En **Opciones de pruebas**, seleccione **Ejecutar solo las pruebas que seleccione**. 
 1. Seleccione **Next** (Siguiente).
-1. En **Selección de pruebas** , seleccione todas las pruebas excepto **Almacenamiento** , como se muestra aquí:
+1. En **Selección de pruebas**, seleccione todas las pruebas excepto **Almacenamiento**, como se muestra aquí:
 
    ![Seleccionar pruebas de validación de clústeres](./media/failover-cluster-instance-storage-spaces-direct-manually-configure/10-validate-cluster-test.png)
 
 1. Seleccione **Next** (Siguiente).
-1. En **Confirmación** , seleccione **Siguiente**.
+1. En **Confirmación**, seleccione **Siguiente**.
 
     El **Asistente para validar una configuración** ejecuta las pruebas de validación.
 
@@ -160,7 +160,7 @@ Los discos Premium para Espacios de almacenamiento directo deben estar vacíos. 
    Enable-ClusterS2D
    ```
 
-   En **Administrador de clústeres de conmutación por error** , puede ver el grupo de almacenamiento.
+   En **Administrador de clústeres de conmutación por error**, puede ver el grupo de almacenamiento.
 
 1. [Cree un volumen](/windows-server/storage/storage-spaces/deploy-storage-spaces-direct#step-36-create-volumes).
 
@@ -180,7 +180,7 @@ Los discos Premium para Espacios de almacenamiento directo deben estar vacíos. 
 
 ## <a name="test-cluster-failover"></a>Conmutación por error del clúster de prueba
 
-Pruebe la conmutación por error del clúster. En **Administrador de clústeres de conmutación por error** , haga clic con el botón derecho en el clúster y seleccione **Más acciones** > **Mover principales recursos de clúster** > **Seleccionar nodo** y, después, seleccione el otro nodo del clúster. Mueva el recurso de clúster principal a cada nodo del clúster y, después, devuélvalo al nodo principal. Si puede mover correctamente el clúster a cada nodo, está listo para instalar SQL Server.  
+Pruebe la conmutación por error del clúster. En **Administrador de clústeres de conmutación por error**, haga clic con el botón derecho en el clúster y seleccione **Más acciones** > **Mover principales recursos de clúster** > **Seleccionar nodo** y, después, seleccione el otro nodo del clúster. Mueva el recurso de clúster principal a cada nodo del clúster y, después, devuélvalo al nodo principal. Si puede mover correctamente el clúster a cada nodo, está listo para instalar SQL Server.  
 
 :::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/test-cluster-failover.png" alt-text="Prueba de la conmutación por error del clúster moviendo el recurso principal a los demás nodos":::
 
@@ -190,11 +190,11 @@ Después de haber configurado el clúster de conmutación por error y todos los 
 
 1. Conéctese a la primera máquina virtual con RDP.
 
-1. En **Administrador de clústeres de conmutación por error** , asegúrese de que todos los recursos principales de clúster estén en la primera máquina virtual. Si es necesario, mueva todos los recursos a esa máquina virtual.
+1. En **Administrador de clústeres de conmutación por error**, asegúrese de que todos los recursos principales de clúster estén en la primera máquina virtual. Si es necesario, mueva todos los recursos a esa máquina virtual.
 
 1. Localice los medios de instalación. Si la máquina virtual usa una de las imágenes de Azure Marketplace, los medios se encuentran en `C:\SQLServer_<version number>_Full`. Seleccione **Setup** (Configuración).
 
-1. En **Centro de instalación de SQL Server** , seleccione **Instalación**.
+1. En **Centro de instalación de SQL Server**, seleccione **Instalación**.
 
 1. Seleccione **Nueva instalación de clúster de conmutación por error de SQL Server**. Siga las instrucciones del asistente para instalar la FCI de SQL Server.
 
@@ -217,7 +217,7 @@ Después de haber configurado el clúster de conmutación por error y todos los 
 
 ## <a name="register-with-the-sql-vm-rp"></a>Registro con el proveedor de recursos de máquina virtual de SQL
 
-Para administrar la VM con SQL Server desde el portal, regístrela con el proveedor de recursos (RP) de VM con SQL en [modo de administración ligera](sql-vm-resource-provider-register.md#lightweight-management-mode); actualmente, es el único modo que se admite con FCI y SQL Server en VM de Azure. 
+Para administrar la VM con SQL Server desde el portal, regístrela con la extensión Agente de IaaS de SQL en [modo de administración ligera](sql-agent-extension-manually-register-single-vm.md#lightweight-management-mode); actualmente, es el único modo que se admite con FCI y SQL Server en las VM de Azure. 
 
 
 Registre una máquina virtual con SQL Server en modo ligero con PowerShell:  
@@ -239,7 +239,7 @@ Para enrutar el tráfico de forma adecuada al nodo principal actual, configure l
 
 - Azure Virtual Machines admite el Coordinador de transacciones distribuidas de Microsoft (MSDTC) en Windows Server 2019 con almacenamiento en volúmenes compartidos en clúster (CSV) y un [equilibrador de carga estándar](../../../load-balancer/load-balancer-overview.md).
 - Los discos que se han conectado como discos con formato NTFS solo se pueden usar con Espacios de almacenamiento directo si la opción de elegibilidad del disco está deshabilitada o desactivada, cuando se agrega el almacenamiento al clúster. 
-- Solo se admite el registro con el proveedor de recursos de máquina virtual con SQL en [modo de administración ligero](sql-server-iaas-agent-extension-automate-management.md#management-modes).
+- Solo se admite el registro con la extensión Agente de IaaS de SQL en [modo de administración ligero](sql-server-iaas-agent-extension-automate-management.md#management-modes).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cbbf1a6aebf54c7928fe0636262055f37d7f93bd
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 59de3123dc991d0314cd9046d83712d17da53d9f
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91966549"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94837828"
 ---
 # <a name="tutorial-enable-users-to-unlock-their-account-or-reset-passwords-using-azure-active-directory-self-service-password-reset"></a>Tutorial: Habilitación del autoservicio de restablecimiento de contraseña de Azure Active Directory para que los usuarios puedan desbloquear su cuenta o restablecer contraseñas
 
@@ -107,7 +107,7 @@ Para mantener informados a los usuarios sobre la actividad de la cuenta, puede c
 
 Si los usuarios necesitan ayuda adicional con el proceso de autoservicio de restablecimiento de contraseña, puede personalizar el vínculo de "Póngase en contacto con el administrador". Este vínculo se usa en el proceso de registro de SSPR y cuando un usuario desbloquea su cuenta o restablece su contraseña. Para asegurarse de que los usuarios obtengan el soporte técnico necesario, se recomienda encarecidamente que se indique una dirección URL o un correo electrónico de soporte técnico personalizados.
 
-1. En la página**Personalización** del menú del lado izquierdo, establezca *Personalizar el vínculo del departamento de soporte técnico* en **Sí**.
+1. En la página **Personalización** del menú del lado izquierdo, establezca *Personalizar el vínculo del departamento de soporte técnico* en **Sí**.
 1. En el campo **Dirección URL o correo electrónico del departamento de soporte técnico personalizados**, indique una dirección de correo electrónico o una dirección URL de la página web donde los usuarios puedan obtener ayuda adicional de su organización, como *`https://support.contoso.com/`* .
 1. Para aplicar el vínculo personalizado, seleccione **Guardar**.
 
@@ -119,7 +119,7 @@ Con el autoservicio de restablecimiento de contraseña habilitado y configurado,
 > Para probar el autoservicio de restablecimiento de contraseña, use una cuenta que no sea de administrador. De manera predeterminada, los administradores están habilitados para el autoservicio de restablecimiento de contraseña y deben utilizar dos métodos de autenticación para restablecer su contraseña. Para más información, consulte [Diferencias entre directivas de restablecimiento de administrador](concept-sspr-policy.md#administrator-reset-policy-differences).
 
 1. Para ver el proceso de registro manual, abra una nueva ventana del explorador en modo InPrivate o incógnito y vaya a [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup). Se debe dirigir a los usuarios a este portal de registro la siguiente vez que inicien sesión.
-1. Inicie sesión con un usuario de prueba que no sea administrador, como*usuarioDePrueba* y registre la información de contacto de los métodos de autenticación.
+1. Inicie sesión con un usuario de prueba que no sea administrador, como *usuarioDePrueba* y registre la información de contacto de los métodos de autenticación.
 1. Una vez que haya terminado, seleccione el botón marcado como **Parece correcto** y cierre la ventana del explorador.
 1. Abra una nueva ventana del explorador en modo de incógnito o InPrivate, y vaya a [https://aka.ms/sspr](https://aka.ms/sspr).
 1. Escriba la información de cuenta del usuario de prueba sin privilegios de administrador, como *usuarioDePrueba*, y los caracteres del CAPTCHA; después, seleccione **Siguiente**.
@@ -149,4 +149,4 @@ En este tutorial habilitó el autoservicio de restablecimiento de contraseña en
 > * Probar el proceso SSPR como usuario
 
 > [!div class="nextstepaction"]
-> [Habilitación de Azure Multi-Factor Authentication](./tutorial-enable-azure-mfa.md)
+> [Habilitar Azure AD Multi-Factor Authentication](./tutorial-enable-azure-mfa.md)

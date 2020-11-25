@@ -6,14 +6,14 @@ ms.reviewer: dhgandhi
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 10/22/2020
+ms.date: 11/17/2020
 ms.author: banders
-ms.openlocfilehash: 69d6544485e356741634749dd91ba6485cfbb31c
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 7cbb628f6af286141fb1c7b330117ded33142c4f
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92460689"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94744245"
 ---
 # <a name="transfer-azure-subscriptions-between-subscribers-and-csps"></a>Transferencia de suscripciones de Azure entre suscriptores y CSP
 
@@ -25,7 +25,7 @@ Si tiene reservas existentes, dejarán de aplicarse después de transferir una s
 
 ## <a name="transfer-ea-subscriptions-to-a-csp-partner"></a>Transferencia de suscripciones EA a un asociado de CSP
 
-Los partners de facturación directa de CSP certificados como [Proveedor de servicios administrados (MSP) experto de Azure](https://partner.microsoft.com/membership/azure-expert-msp) pueden solicitar la transferencia de suscripciones de Azure a sus clientes que tengan un Contrato Enterprise (EA) directo. Solo se permiten las transferencias de suscripciones a los clientes que han aceptado un Contrato de cliente de Microsoft (MCA) y han adquirido un plan de Azure.
+Los partners de facturación directa de CSP certificados como [Proveedor de servicios administrados (MSP) experto de Azure](https://partner.microsoft.com/membership/azure-expert-msp) pueden solicitar la transferencia de suscripciones de Azure a sus clientes que tengan un Contrato Enterprise (EA) directo. Solo se permiten las transferencias de suscripciones a los clientes que han aceptado un Contrato de cliente de Microsoft (MCA) y han adquirido un plan de Azure con el programa de proveedor de servicios criptográficos.
 
 Cuando se aprueba la solicitud, el CSP puede entregar una factura combinada a sus clientes. Para obtener más información sobre los CSP que transfieren suscripciones, consulte [Obtención de la propiedad de la facturación de las suscripciones a Azure para la cuenta de MPA](mpa-request-ownership.md).
 

@@ -3,18 +3,18 @@ title: Administración del portal del Contrato Enterprise de Azure
 description: En este artículo se explican las tareas comunes que un administrador lleva a cabo en el portal del Contrato Enterprise de Azure.
 author: bandersmsft
 ms.author: banders
-ms.date: 10/27/2020
+ms.date: 11/13/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
 ms.custom: contperfq1
-ms.openlocfilehash: e83af5baa4ca38a8e81dffa8bb81ab3da64e1e95
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: edcc94050880544a6c2de54ff27f833f1c60f99f
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94411079"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94683652"
 ---
 # <a name="azure-ea-portal-administration"></a>Administración del portal del Contrato Enterprise de Azure
 
@@ -135,28 +135,20 @@ Para confirmar la propiedad de la cuenta:
    El estado debe cambiar de **Pending** (Pendiente) a **Start/End date** (Fecha de inicio y de finalización). La fecha de inicio y de finalización es la fecha en que el usuario inició sesión por primera vez y la fecha de finalización del contrato.
 1. Cuando aparezca el mensaje **Advertencia**, el propietario de la cuenta debe seleccionar **Continuar** para activar la cuenta la primera vez que inicie sesión en Azure Enterprise Portal.
 
-## <a name="change-account-owner"></a>Cambiar el propietario de la cuenta
+## <a name="change-azure-subscription-or-account-ownership"></a>Cambio de la propiedad de la cuenta o de la suscripción de Azure
 
-Los administradores de empresa pueden usar Azure Enterprise Portal para transferir la propiedad de la cuenta de suscripción en una inscripción. La acción mueve todas las suscripciones de una cuenta de usuario de origen a una cuenta de usuario de destino.
+Los administradores de empresa pueden usar Azure Enterprise Portal para transferir la propiedad de la cuenta de todas las suscripciones de una inscripción, o solo de algunas de ellas.
 
-Tenga en cuenta esta información importante al transferir cuentas:
+Cuando se completa la transferencia de una suscripción o de la propiedad de una cuenta, Microsoft actualiza el propietario de la cuenta.
 
-- Puede realizar estas transferencias:
-  - De una cuenta profesional o educativa a otra cuenta profesional o educativa.
-  - De una cuenta de Microsoft a una cuenta profesional o educativa.
-  - De una cuenta de Microsoft a otra cuenta de Microsoft.
+Antes de realizar la transferencia de la propiedad debe conocer estas directivas de control de acceso basado en rol de Azure (Azure RBAC):
 
-    La cuenta de destino debe ser una cuenta de Azure Commerce válida para ser un destino válido para las transferencias. En las nuevas cuentas, se le pide que cree una cuenta de Azure Commerce al iniciar sesión en Azure Enterprise Portal. En el caso de las cuentas existentes, para que la cuenta sea apta es preciso crear antes una suscripción de Azure.
-
-- No puede realizar una transferencia de una cuenta profesional o educativa a una cuenta de Microsoft.
-
-- Cuando se completa una transferencia de suscripción, Microsoft actualiza el propietario de la cuenta.
-
-Comprenda estas directivas de control de acceso basado en rol (RBAC):
-
-- Cuando se realizan transferencias de suscripciones entre dos identificadores de organización que se encuentran en el mismo inquilino, se conservan tanto las directivas de RBAC como los roles de administrador y coadministrador de servicios existentes.
-- Otras transferencias de suscripciones dan como resultado la pérdida de las directivas de RBAC y las asignaciones de roles.
+- Cuando se realizan transferencias de suscripciones o de la propiedad de cuentas entre dos identificadores de organización que se encuentran en el mismo inquilino, se conservan tanto las directivas de Azure RBAC como los roles de administrador y coadministrador de servicios existentes.
+- Las transferencias de suscripciones o de propiedad de cuentas entre inquilinos provocan la pérdida no solo de las directivas de Azure RBAC, sino también de las asignaciones de roles.
 - Las directivas y los roles de administrador no se transfieren entre los distintos directorios. Los administradores de servicios se actualizan al propietario de la cuenta de destino.
+- Para evitar la pérdida tanto de las directivas RBAC como de las asignaciones de roles al transferir la suscripción entre inquilinos, asegúrese de que la casilla **Move the subscriptions to the recipient’s Azure AD tenant** (Mover las suscripciones al inquilino de Azure AD del destinatario) no está **seleccionada**. De esta forma, se conservarán los servicios, los roles de RBAC y las directivas del inquilino de Azure AD actual y solo se transferirá la propiedad de facturación de la cuenta.  
+    :::image type="content" source="./media/ea-portal-administration/unselected-checkbox-move-subscriptions-to-recipients-tenant.png" alt-text="Imagen que muestra la casilla no seleccionada, con el fin de que se puedan mover las suscripciones al inquilino de Azure AD" lightbox="./media/ea-portal-administration/unselected-checkbox-move-subscriptions-to-recipients-tenant.png" :::
+
 
 Antes de cambiar el propietario de una cuenta:
 
@@ -168,26 +160,25 @@ Para transferir la propiedad de la cuenta para todas las suscripciones:
 1. Inicie sesión en Azure Enterprise Portal.
 1. En el área de navegación izquierda, seleccione **Administrar**.
 1. Seleccione la pestaña **Cuenta** y mantenga el puntero sobre una cuenta.
-1. Seleccione el icono de cambio de propietario de la cuenta a la derecha. El icono se parece a una persona.
-1. Elija una cuenta válida y, después, seleccione **Siguiente**.
+1. Seleccione el icono de cambio de propietario de la cuenta a la derecha. El icono se parece a una persona.  
+    ![Imagen que muestra el símbolo Cambiar propietario de cuenta.](./media/ea-portal-administration/create-ea-create-sub-transfer-account-ownership-of-sub.png)
+1. Elija la cuenta de destino a la que desea realizar la transferencia y, después, seleccione **Siguiente**.
+1. Si desea transferir la propiedad de la cuenta entre los inquilinos de Azure AD, seleccione la casilla **Move the subscriptions to the recipient's Azure AD tenant** (Mover las suscripciones al inquilino de Azure AD del destinatario).  
+    :::image type="content" source="./media/ea-portal-administration/selected-checkbox-move-subscriptions-to-recipients-tenant.png" alt-text="Imagen que muestra la casilla seleccionada para mover suscripciones al inquilino de Azure AD" lightbox="./media/ea-portal-administration/selected-checkbox-move-subscriptions-to-recipients-tenant.png" :::
 1. Confirme la transferencia y seleccione **Enviar**.
-
-![Imagen que muestra el símbolo Cambiar propietario de cuenta.](./media/ea-portal-administration/create-ea-create-sub-transfer-account-ownership-of-sub.png)
 
 Para transferir la propiedad de la cuenta para una sola suscripción:
 
 1. Inicie sesión en Azure Enterprise Portal.
 1. En el área de navegación izquierda, seleccione **Administrar**.
 1. Seleccione la pestaña **Cuenta** y mantenga el puntero sobre una cuenta.
-1. Seleccione el icono de transferir suscripciones a la derecha. El icono se parece a una página.
-1. Elija una suscripción válida y seleccione **Siguiente**.
+1. Seleccione el icono de transferir suscripciones a la derecha. El icono se parece a una página.  
+    ![Imagen que muestra el símbolo Transferir suscripciones](./media/ea-portal-administration/ea-transfer-subscriptions.png)
+1. Elija la cuenta de destino a la que desea transferir la suscripción y, después, seleccione **Siguiente**.
+1. Si desea transferir la propiedad de la suscripción entre los inquilinos de Azure AD, seleccione la casilla **Move the subscriptions to the recipient's Azure AD tenant** (Mover las suscripciones al inquilino de Azure AD del destinatario).  
+    :::image type="content" source="./media/ea-portal-administration/selected-checkbox-move-subscriptions-to-recipients-tenant.png" alt-text="Imagen que muestra la casilla seleccionada, para que se puedan mover las suscripciones al inquilino de Azure AD" lightbox="./media/ea-portal-administration/selected-checkbox-move-subscriptions-to-recipients-tenant.png" :::
 1. Confirme la transferencia y seleccione **Enviar**.
 
-![Imagen que muestra el símbolo Transferir suscripciones](./media/ea-portal-administration/ea-transfer-subscriptions.png)
-
-Consulte este vídeo para ver la administración de usuarios de Azure Enterprise Portal:
-
-> [!VIDEO https://www.youtube.com/embed/621jVkvmwm8]
 
 ## <a name="associate-an-account-to-a-department"></a>Asociar una cuenta a un departamento
 

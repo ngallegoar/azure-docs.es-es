@@ -4,12 +4,12 @@ description: 'Ejemplo de script de la CLI de Azure: creación de una función de
 ms.topic: sample
 ms.date: 07/03/2018
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 440767159ec1321d9b157f53408dbff8f9706eec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 760017439ddc65ee929db1612b34b093d8bed8a0
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87498572"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94565423"
 ---
 # <a name="create-an-azure-function-that-connects-to-an-azure-cosmos-db"></a>Creación de una función de Azure que se conecta a una instancia de Cosmos DB
 
@@ -17,9 +17,9 @@ Este script de ejemplo de Azure Functions crea una aplicación de función y con
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
-Si usa la CLI localmente, asegúrese de que ejecuta la versión 2.0 de la CLI de Azure o posterior. Para encontrar la versión, ejecute `az --version`. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli). 
+ - Este tutorial requiere la versión 2.0 de la CLI de Azure o cualquier versión posterior. Si usa Azure Cloud Shell, ya está instalada la versión más reciente. 
 
 ## <a name="sample-script"></a>Script de ejemplo
 
@@ -31,7 +31,7 @@ Este ejemplo crea una aplicación de Azure Function App y agrega una clave de ac
 
 ## <a name="script-explanation"></a>Explicación del script
 
-Cada script utiliza los comandos siguientes: cada comando de la tabla crea un vínculo a documentación específica del comando.
+Este script usa los siguientes comandos: Cada comando de la tabla crea un vínculo a documentación específica del comando.
 
 | Get-Help | Notas |
 |---|---|

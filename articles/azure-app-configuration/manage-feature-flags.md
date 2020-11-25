@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 04/19/2019
 ms.author: lcozzens
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: dd816ebcf2a40e6a0b7febcc3fe5c1006dac20bb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2e35c408d2e0ec2954ffdcbbce47f98ac49b16b8
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88209942"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94554706"
 ---
 # <a name="tutorial-manage-feature-flags-in-azure-app-configuration"></a>Tutorial: Administración de las marcas de características en Azure App Configuration
 
@@ -56,6 +56,7 @@ Para agregar una nueva marca de características:
     |---|---|
     | Microsoft.Percentage | {"Value": 0-100 percent} |
     | Microsoft.TimeWindow | {"Start": UTC time, "End": UTC time} |
+    | Microsoft.Targeting | { "Audience": blob de JSON que define usuarios, grupos y porcentajes de implementación. Consulte un ejemplo en el elemento `EnabledFor` de [este archivo de configuración](https://github.com/microsoft/FeatureManagement-Dotnet/blob/master/examples/FeatureFlagDemo/appsettings.json) }
 
     ![Filtro de la marca de características](./media/azure-app-configuration-feature-flag-filter.png)
 
@@ -65,7 +66,7 @@ Para cambiar el valor de estado de una marca de características:
 
 1. Seleccione **Administrador de características**.
 
-1. A la derecha de la marca de características que desea modificar, seleccione los puntos suspensivos ( **...** ) y, a continuación, seleccione **Editar**.
+1. A la derecha de la marca de características que desea modificar, seleccione los puntos suspensivos (**...**) y, a continuación, seleccione **Editar**.
 
 1. Establezca un nuevo estado para la marca de características.
 

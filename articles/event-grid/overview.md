@@ -3,12 +3,12 @@ title: ¿Qué es Azure Event Grid?
 description: Envíe datos de eventos desde un origen a los controladores con Azure Event Grid. Cree aplicaciones basadas en eventos e intégrelas con servicios de Azure.
 ms.topic: overview
 ms.date: 09/24/2020
-ms.openlocfilehash: 73d218058c5f95d8c2d2324f1a0e1e77b24f1364
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a4f614a22fdfa7d2272c70751f56f19145a10fa6
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91326512"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94576689"
 ---
 # <a name="what-is-azure-event-grid"></a>¿Qué es Azure Event Grid?
 
@@ -78,7 +78,7 @@ Estas son algunas características clave de Azure Event Grid:
 * **Distribución ramificada**: suscriba varios puntos de conexión al mismo evento para enviar copias del evento a tantos lugares como sea necesario.
 * **Confiabilidad**: 24 horas de reintento con retroceso exponencial para asegurarse de que se entregan los eventos.
 * **Pago por evento**: pague solo por la cantidad utilizada en Event Grid.
-* **Alto rendimiento**: cree cargas de trabajo de gran volumen en Event Grid con soporte para millones de eventos por segundo.
+* **Alto rendimiento**: cree cargas de trabajo de gran volumen en Event Grid.
 * **Eventos integrados**: desarrolle y ejecute rápidamente con eventos integrados definidos por el recurso.
 * **Eventos personalizados**: use Event Grid para enrutar, filtrar y entregar de forma confiable eventos personalizados en su aplicación.
 

@@ -1,7 +1,7 @@
 ---
 title: Implementación de modelos de Machine Learning en aplicaciones de Azure Functions (versión preliminar)
 titleSuffix: Azure Machine Learning
-description: Obtenga información sobre cómo usar Azure Machine Learning para implementar un modelo en una aplicación de Azure Functions.
+description: Aprenda a usar Azure Machine Learning para empaquetar e implementar un modelo como servicio web en una aplicación de Azure Functions.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 03/06/2020
 ms.topic: conceptual
 ms.custom: how-to, racking-python, devx-track-azurecli
-ms.openlocfilehash: 5e5ab4e3c9332d0daa1acf32edeeba2423c97ac3
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: d17967c24fbbb127c1d3eaee5acd5b78c3e3b902
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324592"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630352"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-functions-preview"></a>Implementación de un modelo de Machine Learning en Azure Functions (versión preliminar)
 
@@ -58,7 +58,7 @@ Antes de realizar la implementación, debe definir qué necesita para ejecutar e
 
 Para más información sobre el script de entrada, consulte [Definición del código de puntuación](./how-to-deploy-and-where.md#define-an-entry-script).
 
-* **Dependencias** , como scripts de asistente o paquetes de Python/Conda, necesarias para ejecutar el modelo o el script de entrada.
+* **Dependencias**, como scripts de asistente o paquetes de Python/Conda, necesarias para ejecutar el modelo o el script de entrada.
 
 Estas entidades se encapsulan en una __configuración de inferencia__. La configuración de inferencia hace referencia al script de entrada y a otras dependencias.
 

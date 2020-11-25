@@ -1,30 +1,31 @@
 ---
-title: Uso de filtros de características para habilitar una característica para un subconjunto de usuarios
+title: Uso de filtros de características para habilitar las marcas de características condicionales
 titleSuffix: Azure App Configuration
-description: Obtenga información sobre cómo usar los filtros de características y habilitar una característica para un subconjunto de usuarios
+description: Obtenga información sobre cómo usar los filtros de características para habilitar las marcas de características condicionales.
 ms.service: azure-app-configuration
 ms.custom: devx-track-csharp
 author: lisaguthrie
 ms.author: lcozzens
 ms.topic: conceptual
 ms.date: 3/9/2020
-ms.openlocfilehash: 5b2eb942581f6e4163012b0f767d04c02689bb7b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: af8df66e02dc9316311f36dec60374a7c4e649b8
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88206759"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94554767"
 ---
-# <a name="use-feature-filters-to-enable-a-feature-for-a-subset-of-users"></a>Uso de filtros de características para habilitar una característica para un subconjunto de usuarios
+# <a name="use-feature-filters-to-enable-conditional-feature-flags"></a>Uso de filtros de características para habilitar las marcas de características condicionales
 
 Las marcas de característica permiten activar o desactivar la funcionalidad de la aplicación. Una marca de característica simple está activada o desactivada. La aplicación siempre se comporta de la misma manera. Por ejemplo, podría implementar una nueva característica detrás de una marca de característica. Cuando la marca de característica está habilitada, todos los usuarios ven la nueva característica. Al deshabilitar la marca de característica, se oculta la nueva característica.
 
 Por el contrario, una _marca de característica condicional_ permite que la marca de característica se habilite o deshabilite de forma dinámica. La aplicación puede comportarse de forma diferente, dependiendo de los criterios de la marca de característica. Supongamos que desea mostrar la nueva característica a un pequeño subconjunto de usuarios en primer lugar. Una marca de característica condicional permite habilitar la marca de característica para algunos usuarios al deshabilitarla para otras personas. _Los filtros de características_ determinan el estado de la marca de característica cada vez que se evalúa.
 
-La biblioteca `Microsoft.FeatureManagement` incluye dos filtros de características:
+La biblioteca `Microsoft.FeatureManagement` incluye tres filtros de características:
 
 - `PercentageFilter` habilita la marca de característica en función de un porcentaje.
 - `TimeWindowFilter` habilita la marca de característica durante un período de tiempo especificado.
+- `TargetingFilter` habilita la marca de características para usuarios y grupos especificados.
 
 También puede crear su propio filtro de características que implementa la [interfaz Microsoft.FeatureManagement.IFeatureFilter](/dotnet/api/microsoft.featuremanagement.ifeaturefilter).
 
@@ -48,7 +49,7 @@ Puede configurar estas opciones para las marcas de característica definidas en 
 
 1. Siga las instrucciones del artículo [Guía de inicio rápido: Agregue marcas de característica a una aplicación ASP.NET Core](./quickstart-feature-flag-aspnet-core.md) para crear una aplicación web con una marca de característica.
 
-1. En Azure Portal, vaya al almacén de configuración y haga clic en **Feature Manager** (Administrador de características).
+1. En Azure Portal, vaya al almacén de configuración y haga clic en **Administrador de características**.
 
 1. Haga clic en el menú contextual de la marca de característica *Beta* que creó en la guía de inicio rápido. Haga clic en **Editar**.
 
@@ -84,9 +85,9 @@ Puede configurar estas opciones para las marcas de característica definidas en 
 Para ver los efectos de esta marca de característica, inicie la aplicación y presione el botón **Actualizar** en el explorador varias veces. Verá que el elemento *Beta* aparece en la barra de herramientas alrededor del 50 % del tiempo. Está oculto el resto del tiempo, porque el `PercentageFilter` desactiva la característica *Beta* para un subconjunto de solicitudes. En el vídeo siguiente se muestra este comportamiento en acción.
 
 > [!div class="mx-imgBorder"]
-> ![PercentageFilter en acción](./media/feature-flags-percentagefilter.gif)
+> ![TargetingFilter en acción](./media/feature-flags-percentagefilter.gif)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Introducción a la administración de características](./concept-feature-management.md)
+> [Habilitar el lanzamiento preconfigurado de características para audiencias de destino](./howto-targetingfilter-aspnet-core.md)

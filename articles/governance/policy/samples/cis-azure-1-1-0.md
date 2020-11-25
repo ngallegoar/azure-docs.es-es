@@ -1,23 +1,23 @@
 ---
 title: Detalles del cumplimiento normativo de CIS Microsoft Azure Foundations Benchmark
 description: Detalles de la iniciativa integrada de cumplimiento normativo de CIS Microsoft Azure Foundations Benchmark. Cada control se corresponde a una o varias definiciones de Azure Policy que ayudan en la evaluación.
-ms.date: 10/20/2020
+ms.date: 11/17/2020
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 06b74daff584c9df35d4c762c3115b95e4ed3179
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 1f9379427be69ecf8a07000744f0410c9b34f13c
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92320588"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696938"
 ---
 # <a name="details-of-the-cis-microsoft-azure-foundations-benchmark-regulatory-compliance-built-in-initiative"></a>Detalles de la iniciativa integrada de cumplimiento normativo de CIS Microsoft Azure Foundations Benchmark
 
 En el siguiente artículo se detalla la correspondencia entre los **dominios de cumplimiento** y los **controles** de la definición de la iniciativa integrada del cumplimiento normativo de Azure Policy y CIS Microsoft Azure Foundations Benchmark.
-Para más información sobre este estándar de cumplimiento, consulte [CIS Microsoft Azure Foundations Benchmark](https://www.cisecurity.org/benchmark/azure/). Para entender el concepto de _Propiedad_ , consulte [Definición de directivas de Azure Policy](../concepts/definition-structure.md#type) y [Responsabilidad compartida en la nube](../../../security/fundamentals/shared-responsibility.md).
+Para más información sobre este estándar de cumplimiento, consulte [CIS Microsoft Azure Foundations Benchmark](https://www.cisecurity.org/benchmark/azure/). Para entender el concepto de _Propiedad_, consulte [Definición de directivas de Azure Policy](../concepts/definition-structure.md#type) y [Responsabilidad compartida en la nube](../../../security/fundamentals/shared-responsibility.md).
 
-Las siguientes asignaciones son para los controles de **CIS Microsoft Azure Foundations Benchmark** . Use el panel de navegación de la derecha para ir directamente a un **dominio de cumplimiento** específico. Muchos de los controles se implementan con una definición de iniciativa de [Azure Policy](../overview.md). Para revisar la definición de iniciativa completa, abra **Policy** en Azure Portal y seleccione la página **Definiciones** .
-Busque y seleccione la definición de la iniciativa integrada de cumplimiento normativo de **CIS Microsoft Azure Foundations Benchmark 1.1.0** .
+Las siguientes asignaciones son para los controles de **CIS Microsoft Azure Foundations Benchmark**. Use el panel de navegación de la derecha para ir directamente a un **dominio de cumplimiento** específico. Muchos de los controles se implementan con una definición de iniciativa de [Azure Policy](../overview.md). Para revisar la definición de iniciativa completa, abra **Policy** en Azure Portal y seleccione la página **Definiciones**.
+Busque y seleccione la definición de la iniciativa integrada de cumplimiento normativo de **CIS Microsoft Azure Foundations Benchmark 1.1.0**.
 
 Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnico de CIS Microsoft Azure Foundations Benchmark](../../blueprints/samples/cis-azure-1-1-0.md).
 
@@ -29,7 +29,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="ensure-that-multi-factor-authentication-is-enabled-for-all-privileged-users"></a>Asegúrese de que la autenticación multifactor esté habilitada para todos los usuarios con privilegios.
 
-**Identificador** : CIS Azure 1.1 **Propiedad** : Customer
+**Identificador**: CIS Azure 1.1 **Propiedad**: Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -38,7 +38,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="ensure-that-multi-factor-authentication-is-enabled-for-all-non-privileged-users"></a>Asegúrese de que la autenticación multifactor esté habilitada para todos los usuarios sin privilegios.
 
-**Identificador** : CIS Azure 1.2 **Propiedad** : Customer
+**Identificador**: CIS Azure 1.2 **Propiedad**: Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -46,7 +46,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="ensure-that-there-are-no-guest-users"></a>Asegúrese de que no hay ningún usuario invitado.
 
-**Identificador** : CIS Azure 1.3 **Propiedad** : Customer
+**Identificador**: CIS Azure 1.3 **Propiedad**: Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -56,7 +56,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="ensure-that-no-custom-subscription-owner-roles-are-created"></a>Asegúrese de que no existe ningún rol de propietario de suscripción personalizado.
 
-**Identificador** : CIS Azure 1.23 **Propiedad** : Customer
+**Identificador**: CIS Azure 1.23 **Propiedad**: Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -66,7 +66,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="ensure-that-automatic-provisioning-of-monitoring-agent-is-set-to-on"></a>Asegúrese de que "Aprovisionamiento automático del agente de supervisión" esté establecido en "Activado".
 
-**Identificador** : CIS Azure 2.2 **Propiedad** : Customer
+**Identificador**: CIS Azure 2.2 **Propiedad**: Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -74,7 +74,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="ensure-asc-default-policy-setting-monitor-system-updates-is-not-disabled"></a>Asegúrese de que la configuración de la directiva predeterminada de ASC "Supervisar las actualizaciones del sistema" no es "Deshabilitado".
 
-**Identificador** : CIS Azure 2.3 **Propiedad** : Customer
+**Identificador**: CIS Azure 2.3 **Propiedad**: Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -82,7 +82,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="ensure-asc-default-policy-setting-monitor-os-vulnerabilities-is-not-disabled"></a>Asegúrese de que la configuración de la directiva predeterminada de ASC "Supervisar las vulnerabilidades del sistema operativo" no sea "Deshabilitado".
 
-**Identificador** : CIS Azure 2.4 **Propiedad** : Customer
+**Identificador**: CIS Azure 2.4 **Propiedad**: Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -90,7 +90,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="ensure-asc-default-policy-setting-monitor-endpoint-protection-is-not-disabled"></a>Asegúrese de que la configuración de la directiva predeterminada de ASC "Supervisar Endpoint Protection" no sea "Deshabilitado".
 
-**Identificador** : CIS Azure 2.5 **Propiedad** : Customer
+**Identificador**: CIS Azure 2.5 **Propiedad**: Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -98,7 +98,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="ensure-asc-default-policy-setting-monitor-disk-encryption-is-not-disabled"></a>Asegúrese de que la configuración de la directiva predeterminada de ASC "Supervisar el cifrado de disco" no sea "Deshabilitado".
 
-**Identificador** : CIS Azure 2.6 **Propiedad** : Customer
+**Identificador**: CIS Azure 2.6 **Propiedad**: Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -106,7 +106,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="ensure-asc-default-policy-setting-monitor-network-security-groups-is-not-disabled"></a>Asegúrese de que la configuración de la directiva predeterminada de ASC "Supervisar los grupos de seguridad de red" no sea "Deshabilitado".
 
-**Identificador** : CIS Azure 2.7 **Propiedad** : Customer
+**Identificador**: CIS Azure 2.7 **Propiedad**: Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -114,7 +114,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="ensure-asc-default-policy-setting-enable-next-generation-firewallngfw-monitoring-is-not-disabled"></a>Asegúrese de que la configuración de la directiva predeterminada de ASC "Habilitar la supervisión de firewalls de última generación (NGFW)" no sea "Deshabilitado".
 
-**Identificador** : CIS Azure 2.9 **Propiedad** : Customer
+**Identificador**: CIS Azure 2.9 **Propiedad**: Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -123,7 +123,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="ensure-asc-default-policy-setting-monitor-vulnerability-assessment-is-not-disabled"></a>Asegúrese de que la configuración de la directiva predeterminada de ASC "Supervisar la evaluación de vulnerabilidades" no sea "Deshabilitado".
 
-**Identificador** : CIS Azure 2.10 **Propiedad** : Customer
+**Identificador**: CIS Azure 2.10 **Propiedad**: Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -131,7 +131,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="ensure-asc-default-policy-setting-monitor-jit-network-access-is-not-disabled"></a>Asegúrese de que la configuración de la directiva predeterminada de ASC "Supervisar el acceso de red JIT" no sea "Deshabilitado".
 
-**Identificador** : CIS Azure 2.12 **Propiedad** : Customer
+**Identificador**: CIS Azure 2.12 **Propiedad**: Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -139,7 +139,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="ensure-asc-default-policy-setting-monitor-adaptive-application-whitelisting-is-not-disabled"></a>Asegúrese de que la configuración de la directiva predeterminada de ASC "Monitor Adaptive Application Whitelisting" (Supervisar las listas blancas de aplicaciones adaptables) no sea "Deshabilitado".
 
-**Identificador** : CIS Azure 2.13 **Propiedad** : Customer
+**Identificador**: CIS Azure 2.13 **Propiedad**: Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -147,7 +147,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="ensure-asc-default-policy-setting-monitor-sql-auditing-is-not-disabled"></a>Asegúrese de que la configuración de la directiva predeterminada de ASC "Supervisar la auditoría de SQL" no sea "Deshabilitado".
 
-**Identificador** : CIS Azure 2.14 **Propiedad** : Customer
+**Identificador**: CIS Azure 2.14 **Propiedad**: Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -155,7 +155,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="ensure-asc-default-policy-setting-monitor-sql-encryption-is-not-disabled"></a>Asegúrese de que la configuración de la directiva predeterminada de ASC "Supervisar el cifrado SQL" no sea "Deshabilitado".
 
-**Identificador** : CIS Azure 2.15 **Propiedad** : Customer
+**Identificador**: CIS Azure 2.15 **Propiedad**: Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -163,7 +163,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="ensure-that-security-contact-emails-is-set"></a>Asegúrese de que se ha establecido "Correos electrónicos de contacto de seguridad".
 
-**Identificador** : CIS Azure 2.16 **Propiedad** : Customer
+**Identificador**: CIS Azure 2.16 **Propiedad**: Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -171,7 +171,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="ensure-that-security-contact-phone-number-is-set"></a>Asegúrese de que se ha establecido "Número de teléfono".
 
-**Identificador** : CIS Azure 2.17 **Propiedad** : Customer
+**Identificador**: CIS Azure 2.17 **Propiedad**: Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -179,7 +179,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="ensure-that-send-email-notification-for-high-severity-alerts-is-set-to-on"></a>Asegúrese de que "Enviar notificaciones sobre alertas de gravedad alta por correo electrónico" se ha establecido en "Activado".
 
-**Identificador** : CIS Azure 2.18 **Propiedad** : Customer
+**Identificador**: CIS Azure 2.18 **Propiedad**: Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -187,7 +187,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="ensure-that-send-email-also-to-subscription-owners-is-set-to-on"></a>Asegúrese de que "Enviar correo electrónico también a los propietarios de la suscripción" esté establecido en "Activado".
 
-**Identificador** : CIS Azure 2.19 **Propiedad** : Customer
+**Identificador**: CIS Azure 2.19 **Propiedad**: Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -197,7 +197,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="ensure-that-secure-transfer-required-is-set-to-enabled"></a>Asegúrese de la opción "Se requiere transferencia segura" esté establecida en "Habilitada".
 
-**Identificador** : CIS Azure 3.1 **Propiedad** : Customer
+**Identificador**: CIS Azure 3.1 **Propiedad**: Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -205,7 +205,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="ensure-default-network-access-rule-for-storage-accounts-is-set-to-deny"></a>Asegúrese de que la regla de acceso de red predeterminada para las cuentas de almacenamiento esté configurada para denegar.
 
-**Identificador** : CIS Azure 3.7 **Propiedad** : Customer
+**Identificador**: CIS Azure 3.7 **Propiedad**: Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -213,7 +213,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="ensure-trusted-microsoft-services-is-enabled-for-storage-account-access"></a>Asegúrese de que "Servicios de Microsoft de confianza" está habilitado para el acceso a la cuenta de almacenamiento.
 
-**Identificador** : CIS Azure 3.8 **Propiedad** : Customer
+**Identificador**: CIS Azure 3.8 **Propiedad**: Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -223,7 +223,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="ensure-that-auditing-is-set-to-on"></a>Asegúrese de que la opción "Auditando" esté establecida en "Activada".
 
-**Identificador** : CIS Azure 4.1 **Propiedad** : Customer
+**Identificador**: CIS Azure 4.1 **Propiedad**: Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -231,7 +231,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="ensure-that-auditactiongroups-in-auditing-policy-for-a-sql-server-is-set-properly"></a>Asegúrese de que la opción "AuditActionGroups" de la directiva de auditoría para un servidor SQL Server esté configurada correctamente.
 
-**Identificador** : CIS Azure 4.2 **Propiedad** : Customer
+**Identificador**: CIS Azure 4.2 **Propiedad**: Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -239,7 +239,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="ensure-that-auditing-retention-is-greater-than-90-days"></a>Asegúrese de que la retención de "Auditoría" sea "más de 90 días".
 
-**Identificador** : CIS Azure 4.3 **Propiedad** : Customer
+**Identificador**: CIS Azure 4.3 **Propiedad**: Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -247,7 +247,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="ensure-that-advanced-data-security-on-a-sql-server-is-set-to-on"></a>Asegúrese de que "Advanced Data Security" en un servidor SQL Server esté establecido en "Activado".
 
-**Identificador** : CIS Azure 4.4 **Propiedad** : Customer
+**Identificador**: CIS Azure 4.4 **Propiedad**: Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -256,7 +256,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="ensure-that-azure-active-directory-admin-is-configured"></a>Asegúrese de que el administrador de Azure Active Directory está configurado.
 
-**Identificador** : CIS Azure 4.8 **Propiedad** : Customer
+**Identificador**: CIS Azure 4.8 **Propiedad**: Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -264,7 +264,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="ensure-that-data-encryption-is-set-to-on-on-a-sql-database"></a>Asegúrese de que la opción "Cifrado de datos" esté establecida en "Activado" en una base de datos SQL Database.
 
-**Identificador** : CIS Azure 4.9 **Propiedad** : Customer
+**Identificador**: CIS Azure 4.9 **Propiedad**: Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -272,7 +272,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="ensure-sql-servers-tde-protector-is-encrypted-with-byok-use-your-own-key"></a>Asegúrese de que el protector de TDE de SQL Server esté cifrado con BYOK (use su propia clave).
 
-**Identificador** : CIS Azure 4.10 **Propiedad** : Customer
+**Identificador**: CIS Azure 4.10 **Propiedad**: Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -281,7 +281,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="ensure-enforce-ssl-connection-is-set-to-enabled-for-mysql-database-server"></a>Asegúrese de que "Aplicar conexión SSL" esté establecido en "HABILITADO" para el servidor de bases de datos MySQL.
 
-**Identificador** : CIS Azure 4.11 **Propiedad** : Customer
+**Identificador**: CIS Azure 4.11 **Propiedad**: Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -289,7 +289,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="ensure-server-parameter-log_checkpoints-is-set-to-on-for-postgresql-database-server"></a>Asegúrese de que "log_checkpoints" del parámetro del servidor está establecido en "ACTIVADO" para el servidor de bases de datos PostgreSQL.
 
-**Identificador** : CIS Azure 4.12 **Propiedad** : Customer
+**Identificador**: CIS Azure 4.12 **Propiedad**: Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -297,7 +297,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="ensure-enforce-ssl-connection-is-set-to-enabled-for-postgresql-database-server"></a>Asegúrese de que "Aplicar conexión SSL" esté establecido en "HABILITADO" para el servidor de bases de datos PostgreSQL.
 
-**Identificador** : CIS Azure 4.13 **Propiedad** : Customer
+**Identificador**: CIS Azure 4.13 **Propiedad**: Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -305,7 +305,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="ensure-server-parameter-log_connections-is-set-to-on-for-postgresql-database-server"></a>Asegúrese de que "log_connections" del parámetro del servidor está establecido en "ACTIVADO" para el servidor de bases de datos PostgreSQL.
 
-**Identificador** : CIS Azure 4.14 **Propiedad** : Customer
+**Identificador**: CIS Azure 4.14 **Propiedad**: Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -313,7 +313,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="ensure-server-parameter-log_disconnections-is-set-to-on-for-postgresql-database-server"></a>Asegúrese de que "log_disconnections" del parámetro del servidor está establecido en "ACTIVADO" para el servidor de bases de datos PostgreSQL.
 
-**Identificador** : CIS Azure 4.15 **Propiedad** : Customer
+**Identificador**: CIS Azure 4.15 **Propiedad**: Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -321,7 +321,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="ensure-server-parameter-connection_throttling-is-set-to-on-for-postgresql-database-server"></a>Asegúrese de que "connection_throttling" del parámetro del servidor está establecido en "ACTIVADO" para el servidor de bases de datos PostgreSQL.
 
-**Identificador** : CIS Azure 4.17 **Propiedad** : Customer
+**Identificador**: CIS Azure 4.17 **Propiedad**: Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -331,7 +331,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="ensure-that-a-log-profile-exists"></a>Asegúrese de que existe un perfil de registro.
 
-**Identificador** : CIS Azure 5.1.1 **Propiedad** : Customer
+**Identificador**: CIS Azure 5.1.1 **Propiedad**: Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -339,7 +339,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="ensure-that-activity-log-retention-is-set-365-days-or-greater"></a>Asegúrese de que el período de retención del registro de actividad está establecido en 365 días o más.
 
-**Identificador** : CIS Azure 5.1.2 **Propiedad** : Customer
+**Identificador**: CIS Azure 5.1.2 **Propiedad**: Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -347,7 +347,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="ensure-audit-profile-captures-all-the-activities"></a>Asegúrese de que el perfil de auditoría captura todas las actividades.
 
-**Identificador** : CIS Azure 5.1.3 **Propiedad** : Customer
+**Identificador**: CIS Azure 5.1.3 **Propiedad**: Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -355,7 +355,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="ensure-the-log-profile-captures-activity-logs-for-all-regions-including-global"></a>Asegúrese de que el perfil de registro captura los registros de actividad de todas las regiones, incluida la global.
 
-**Identificador** : CIS Azure 5.1.4 **Propiedad** : Customer
+**Identificador**: CIS Azure 5.1.4 **Propiedad**: Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -363,7 +363,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="ensure-the-storage-account-containing-the-container-with-activity-logs-is-encrypted-with-byok-use-your-own-key"></a>Asegúrese de que la cuenta de almacenamiento que contiene el contenedor con los registros de actividad está cifrada con BYOK (use su propia clave).
 
-**Identificador** : CIS Azure 5.1.6 **Propiedad** : Customer
+**Identificador**: CIS Azure 5.1.6 **Propiedad**: Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -371,7 +371,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="ensure-that-logging-for-azure-keyvault-is-enabled"></a>Asegúrese de que el registro de Azure KeyVault esté habilitado.
 
-**Identificador** : CIS Azure 5.1.7 **Propiedad** : Customer
+**Identificador**: CIS Azure 5.1.7 **Propiedad**: Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -379,15 +379,15 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="ensure-that-activity-log-alert-exists-for-create-policy-assignment"></a>Asegúrese de que existe una alerta de registro de actividad para la creación de una asignación de directiva.
 
-**Identificador** : CIS Azure 5.2.1 **Propiedad** : Customer
+**Identificador**: CIS Azure 5.2.1 **Propiedad**: Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[Debe existir una alerta de registro de actividad para las operaciones específicas de la directiva](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc5447c04-a4d7-4ba8-a263-c9ee321a6858) |Esta directiva audita las operaciones específicas de la directiva sin alertas de registro de actividad configuradas. |AuditIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/ActivityLog_PolicyOperations_Audit.json) |
+|[Debe existir una alerta de registro de actividad para las operaciones específicas de la directiva](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc5447c04-a4d7-4ba8-a263-c9ee321a6858) |Esta directiva audita las operaciones específicas de la directiva sin alertas de registro de actividad configuradas. |AuditIfNotExists, Disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/ActivityLog_PolicyOperations_Audit.json) |
 
 ### <a name="ensure-that-activity-log-alert-exists-for-create-or-update-network-security-group"></a>Asegúrese de que existe una alerta de registro de actividad para crear o actualizar el grupo de seguridad de red.
 
-**Identificador** : CIS Azure 5.2.2 **Propiedad** : Customer
+**Identificador**: CIS Azure 5.2.2 **Propiedad**: Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -395,7 +395,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="ensure-that-activity-log-alert-exists-for-delete-network-security-group"></a>Asegúrese de que existe una alerta de registro de actividad para eliminar el grupo de seguridad de red.
 
-**Identificador** : CIS Azure 5.2.3 **Propiedad** : Customer
+**Identificador**: CIS Azure 5.2.3 **Propiedad**: Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -403,7 +403,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="ensure-that-activity-log-alert-exists-for-create-or-update-network-security-group-rule"></a>Asegúrese de que existe una alerta de registro de actividad para la regla Crear o actualizar grupo de seguridad de red.
 
-**Identificador** : CIS Azure 5.2.4 **Propiedad** : Customer
+**Identificador**: CIS Azure 5.2.4 **Propiedad**: Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -411,7 +411,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="ensure-that-activity-log-alert-exists-for-the-delete-network-security-group-rule"></a>Asegúrese de que existe una alerta de registro de actividad para la regla Eliminar grupo de seguridad de red.
 
-**Identificador** : CIS Azure 5.2.5 **Propiedad** : Customer
+**Identificador**: CIS Azure 5.2.5 **Propiedad**: Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -419,7 +419,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="ensure-that-activity-log-alert-exists-for-create-or-update-security-solution"></a>Asegúrese de que existe una alerta de registro de actividad para la solución de seguridad de creación o actualización.
 
-**Identificador** : CIS Azure 5.2.6 **Propiedad** : Customer
+**Identificador**: CIS Azure 5.2.6 **Propiedad**: Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -427,7 +427,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="ensure-that-activity-log-alert-exists-for-delete-security-solution"></a>Asegúrese de que existe una alerta de registro de actividad para la solución de seguridad de eliminación.
 
-**Identificador** : CIS Azure 5.2.7 **Propiedad** : Customer
+**Identificador**: CIS Azure 5.2.7 **Propiedad**: Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -435,7 +435,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="ensure-that-activity-log-alert-exists-for-create-or-update-or-delete-sql-server-firewall-rule"></a>Asegúrese de que existe una alerta de registro de actividad para la regla de firewall Crear, actualizar o eliminar SQL Server.
 
-**Identificador** : CIS Azure 5.2.8 **Propiedad** : Customer
+**Identificador**: CIS Azure 5.2.8 **Propiedad**: Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -443,7 +443,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="ensure-that-activity-log-alert-exists-for-update-security-policy"></a>Asegúrese de que existe una alerta de registro de actividad para la actualización de la directiva de seguridad.
 
-**Identificador** : CIS Azure 5.2.9 **Propiedad** : Customer
+**Identificador**: CIS Azure 5.2.9 **Propiedad**: Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -453,7 +453,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="ensure-that-rdp-access-is-restricted-from-the-internet"></a>Asegúrese de que el acceso RDP está restringido desde Internet.
 
-**Identificador** : CIS Azure 6.1 **Propiedad** : Customer
+**Identificador**: CIS Azure 6.1 **Propiedad**: Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -461,7 +461,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="ensure-that-ssh-access-is-restricted-from-the-internet"></a>Asegúrese de que el acceso SSH está restringido desde Internet.
 
-**Identificador** : CIS Azure 6.2 **Propiedad** : Customer
+**Identificador**: CIS Azure 6.2 **Propiedad**: Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -469,7 +469,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="ensure-that-network-watcher-is-enabled"></a>Asegúrese de que Network Watcher está "Habilitado".
 
-**Identificador** : CIS Azure 6.5 **Propiedad** : Customer
+**Identificador**: CIS Azure 6.5 **Propiedad**: Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -479,7 +479,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="ensure-that-os-disk-are-encrypted"></a>Asegúrese de que "Disco del SO" esté cifrado.
 
-**Identificador** : CIS Azure 7.1 **Propiedad** : Customer
+**Identificador**: CIS Azure 7.1 **Propiedad**: Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -487,7 +487,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="ensure-that-data-disks-are-encrypted"></a>Asegúrese de que la opción "Discos de datos" esté cifrada.
 
-**Identificador** : CIS Azure 7.2 **Propiedad** : Customer
+**Identificador**: CIS Azure 7.2 **Propiedad**: Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -495,7 +495,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="ensure-that-unattached-disks-are-encrypted"></a>Asegúrese de que la opción "Unattached disks" (Discos no asignados) esté cifrada.
 
-**Identificador** : CIS Azure 7.3 **Propiedad** : Customer
+**Identificador**: CIS Azure 7.3 **Propiedad**: Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -503,7 +503,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="ensure-that-only-approved-extensions-are-installed"></a>Asegúrese de que solo están instaladas las extensiones aprobadas.
 
-**Identificador** : CIS Azure 7.4 **Propiedad** : Customer
+**Identificador**: CIS Azure 7.4 **Propiedad**: Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -511,7 +511,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="ensure-that-the-latest-os-patches-for-all-virtual-machines-are-applied"></a>Asegúrese de que se aplican las revisiones del sistema operativo más recientes para todas las máquinas virtuales.
 
-**Identificador** : CIS Azure 7.5 **Propiedad** : Customer
+**Identificador**: CIS Azure 7.5 **Propiedad**: Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -519,7 +519,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="ensure-that-the-endpoint-protection-for-all-virtual-machines-is-installed"></a>Asegúrese de que Endpoint Protection esté instalado para todas las máquinas virtuales.
 
-**Identificador** : CIS Azure 7.6 **Propiedad** : Customer
+**Identificador**: CIS Azure 7.6 **Propiedad**: Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -529,15 +529,15 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="ensure-the-key-vault-is-recoverable"></a>Asegúrese de que el almacén de claves se puede recuperar.
 
-**Identificador** : CIS Azure 8.4 **Propiedad** : Customer
+**Identificador**: CIS Azure 8.4 **Propiedad**: Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[Los objetos del almacén de claves deben poder recuperarse](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0b60c0b2-2dc2-4e1c-b5c9-abbed971de53) |Esta directiva audita si los objetos de Key Vault no se pueden recuperar. La característica de eliminación temporal ayuda a mantener de forma eficaz los recursos durante un período de retención determinado (90 días) incluso después de una operación de eliminación y, al mismo tiempo, ofrece la apariencia de que el objeto se ha eliminado. Cuando la protección de purgas está activada, un almacén o un objeto en estado eliminado no se puede purgar hasta que ha transcurrido el período de retención de 90 días. Estos almacenes y objetos todavía se pueden recuperar, lo garantiza a los clientes que se seguirá la directiva de retención. |Audit, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/KeyVault_Recoverable_Audit.json) |
+|[Key Vault debe tener habilitada la protección contra operaciones de purga](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0b60c0b2-2dc2-4e1c-b5c9-abbed971de53) |La eliminación malintencionada de un almacén de claves puede provocar una pérdida de datos permanente. Es posible que un usuario malintencionado de su organización pueda obtener acceso para eliminar y purgar los almacenes de claves. La protección contra purgas le protege frente a ataques internos mediante la aplicación de un período de retención obligatorio para almacenes de claves eliminados temporalmente. Ningún usuario de su organización o Microsoft podrá purgar los almacenes de claves durante el período de retención de eliminación temporal. |Audit, Deny, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/KeyVault_Recoverable_Audit.json) |
 
 ### <a name="enable-role-based-access-control-rbac-within-azure-kubernetes-services"></a>Habilite el control de acceso basado en rol (RBAC) en Azure Kubernetes Services.
 
-**Identificador** : CIS Azure 8.5 **Propiedad** : Customer
+**Identificador**: CIS Azure 8.5 **Propiedad**: Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -547,7 +547,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="ensure-app-service-authentication-is-set-on-azure-app-service"></a>Asegúrese de que la autenticación de App Service está establecida en Azure App Service.
 
-**Identificador** : CIS Azure 9.1 **Propiedad** : Customer
+**Identificador**: CIS Azure 9.1 **Propiedad**: Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -557,7 +557,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="ensure-web-app-redirects-all-http-traffic-to-https-in-azure-app-service"></a>Asegúrese de que la aplicación web redirige todo el tráfico HTTP a HTTPS en Azure App Service.
 
-**Identificador** : CIS Azure 9.2 **Propiedad** : Customer
+**Identificador**: CIS Azure 9.2 **Propiedad**: Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -565,7 +565,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="ensure-web-app-is-using-the-latest-version-of-tls-encryption"></a>Asegúrese de que la aplicación web usa la versión más reciente del cifrado TLS.
 
-**Identificador** : CIS Azure 9.3 **Propiedad** : Customer
+**Identificador**: CIS Azure 9.3 **Propiedad**: Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -575,7 +575,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="ensure-the-web-app-has-client-certificates-incoming-client-certificates-set-to-on"></a>Asegúrese de que la aplicación web tenga la opción "Client Certificates (Incoming client certificates)" activada.
 
-**Identificador** : CIS Azure 9.4 **Propiedad** : Customer
+**Identificador**: CIS Azure 9.4 **Propiedad**: Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -585,7 +585,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="ensure-that-register-with-azure-active-directory-is-enabled-on-app-service"></a>Asegúrese de que el registro con Azure Active Directory esté habilitado en App Service.
 
-**Identificador** : CIS Azure 9.5 **Propiedad** : Customer
+**Identificador**: CIS Azure 9.5 **Propiedad**: Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -595,7 +595,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="ensure-that-php-version-is-the-latest-if-used-to-run-the-web-app"></a>Asegúrese de que la "Versión de PHP" es la más reciente si se usa para ejecutar la aplicación web.
 
-**Identificador** : CIS Azure 9.7 **Propiedad** : Customer
+**Identificador**: CIS Azure 9.7 **Propiedad**: Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -604,7 +604,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="ensure-that-python-version-is-the-latest-if-used-to-run-the-web-app"></a>Asegúrese de que la "Versión de Python" es la más reciente si se usa para ejecutar la aplicación web.
 
-**Identificador** : CIS Azure 9.8 **Propiedad** : Customer
+**Identificador**: CIS Azure 9.8 **Propiedad**: Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -614,7 +614,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="ensure-that-java-version-is-the-latest-if-used-to-run-the-web-app"></a>Asegúrese de que la "Versión de Java" es la más reciente si se usa para ejecutar la aplicación web.
 
-**Identificador** : CIS Azure 9.9 **Propiedad** : Customer
+**Identificador**: CIS Azure 9.9 **Propiedad**: Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -624,7 +624,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="ensure-that-http-version-is-the-latest-if-used-to-run-the-web-app"></a>Asegúrese de que la "Versión de HTTP" es la más reciente, si se usa para ejecutar la aplicación web.
 
-**Identificador** : CIS Azure 9.10 **Propiedad** : Customer
+**Identificador**: CIS Azure 9.10 **Propiedad**: Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|

@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 05/28/2020
+ms.date: 11/11/2020
 ms.author: jingwang
-ms.openlocfilehash: becebf5e56840b8430dd8d4a7714229503e677da
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: ef9ac29735289d5c7a60ff0fca3b9e9f360f6e08
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637129"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555403"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-database-in-azure-sql-database-by-using-azure-data-factory"></a>Copia de datos desde Azure Blob Storage hasta una base de datos de Azure SQL Database mediante Azure Data Factory
 
@@ -39,9 +39,9 @@ En este tutorial, realizará los siguientes pasos:
 > * Supervisión de las ejecuciones de canalización y actividad.
 
 ## <a name="prerequisites"></a>Requisitos previos
-* **Suscripción de Azure** . Si no tiene una suscripción a Azure, cree una [cuenta gratuita de Azure](https://azure.microsoft.com/free/) antes de empezar.
-* **Cuenta de Azure Storage** . Usará Blob Storage como almacén de datos de *origen* . Si no tiene una cuenta de almacenamiento, consulte [Crear una cuenta de almacenamiento](../storage/common/storage-account-create.md) para crear una.
-* **Azure SQL Database** . Usará la base de datos como un almacén de datos *receptor* . Si no tiene ninguna base de datos en Azure SQL Database, consulte el artículo [Creación de una base de datos en Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md) para ver los pasos y crear una.
+* **Suscripción de Azure**. Si no tiene una suscripción a Azure, cree una [cuenta gratuita de Azure](https://azure.microsoft.com/free/) antes de empezar.
+* **Cuenta de Azure Storage**. Usará Blob Storage como almacén de datos de *origen*. Si no tiene una cuenta de almacenamiento, consulte [Crear una cuenta de almacenamiento](../storage/common/storage-account-create.md) para crear una.
+* **Azure SQL Database**. Usará la base de datos como un almacén de datos *receptor*. Si no tiene ninguna base de datos en Azure SQL Database, consulte el artículo [Creación de una base de datos en Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md) para ver los pasos y crear una.
 
 ### <a name="create-a-blob-and-a-sql-table"></a>Creación de un blob y una tabla SQL
 
@@ -57,7 +57,7 @@ Ahora, prepare su almacenamiento de blobs y su base de datos SQL para el tutoria
     Jane,Doe
     ```
 
-1. Cree un contenedor denominado **adftutorial** en su instancia de Blob Storage. Cree una carpeta denominada **input** en este contenedor. A continuación, cargue el archivo **emp.txt** en la carpeta **input** . Use Azure Portal o herramientas como [Explorador de Azure Storage](https://storageexplorer.com/) para realizar estas tareas.
+1. Cree un contenedor denominado **adftutorial** en su instancia de Blob Storage. Cree una carpeta denominada **input** en este contenedor. A continuación, cargue el archivo **emp.txt** en la carpeta **input**. Use Azure Portal o herramientas como [Explorador de Azure Storage](https://storageexplorer.com/) para realizar estas tareas.
 
 #### <a name="create-a-sink-sql-table"></a>Creación de una tabla SQL receptora
 
@@ -75,29 +75,29 @@ Ahora, prepare su almacenamiento de blobs y su base de datos SQL para el tutoria
     CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
     ```
 
-1. Permita que los servicios de Azure accedan a SQL Server. Asegúrese de que **Permitir el acceso a servicios de Azure** esté **Activado** para SQL Server de forma que Data Factory pueda escribir datos en su instancia de SQL Server. Para comprobar y activar esta configuración, vaya al servidor SQL lógico > Información general > Establecer el firewall del servidor > y establezca la opción **Permitir el acceso a servicios de Azure** en **Activada** .
+1. Permita que los servicios de Azure accedan a SQL Server. Asegúrese de que **Permitir el acceso a servicios de Azure** esté **Activado** para SQL Server de forma que Data Factory pueda escribir datos en su instancia de SQL Server. Para comprobar y activar esta configuración, vaya al servidor SQL lógico > Información general > Establecer el firewall del servidor > y establezca la opción **Permitir el acceso a servicios de Azure** en **Activada**.
 
 ## <a name="create-a-data-factory"></a>Crear una factoría de datos
 En este paso, creará una factoría de datos e iniciará la interfaz de usuario de Data Factory para crear una canalización en la factoría de datos.
 
-1. Abra **Microsoft Edge** o **Google Chrome** . Actualmente, la interfaz de usuario de Data Factory solo se admite en los exploradores web Microsoft Edge y Google Chrome.
-2. En el menú de la izquierda, seleccione **Crear un recurso** > **Analytics** > **Data Factory** .
-3. En la página **Nueva factoría de datos** , en **Nombre** , escriba **ADFTutorialDataFactory** .
+1. Abra **Microsoft Edge** o **Google Chrome**. Actualmente, la interfaz de usuario de Data Factory solo se admite en los exploradores web Microsoft Edge y Google Chrome.
+2. En el menú de la izquierda, seleccione **Crear un recurso** > **Integración** > **Data Factory**.
+3. En la página **Nueva factoría de datos**, en **Nombre**, escriba **ADFTutorialDataFactory**.
 
-   El nombre de la instancia de Azure Data Factory debe ser *único de forma global* . Si recibe un mensaje de error sobre el valor de nombre, escriba un nombre diferente para la factoría de datos. (Por ejemplo, utilice SuNombreADFTutorialDataFactory). Para conocer las reglas de nomenclatura de los artefactos de Data Factory, consulte [Azure Data Factory: reglas de nomenclatura](naming-rules.md).
+   El nombre de la instancia de Azure Data Factory debe ser *único de forma global*. Si recibe un mensaje de error sobre el valor de nombre, escriba un nombre diferente para la factoría de datos. (Por ejemplo, utilice SuNombreADFTutorialDataFactory). Para conocer las reglas de nomenclatura de los artefactos de Data Factory, consulte [Azure Data Factory: reglas de nomenclatura](naming-rules.md).
 
      ![Nueva factoría de datos](./media/doc-common-process/name-not-available-error.png)
 4. Seleccione la **suscripción** de Azure en la que quiere crear la factoría de datos.
-5. Para **Grupo de recursos** , realice uno de los siguientes pasos:
+5. Para **Grupo de recursos**, realice uno de los siguientes pasos:
 
     a. Seleccione en primer lugar **Usar existente** y después un grupo de recursos de la lista desplegable.
 
     b. Seleccione **Crear nuevo** y escriba el nombre de un grupo de recursos. 
          
     Para más información sobre los grupos de recursos, consulte [Uso de grupos de recursos para administrar los recursos de Azure](../azure-resource-manager/management/overview.md). 
-6. En **Versión** , seleccione **V2** .
-7. En **Ubicación** , seleccione la ubicación de la factoría de datos. En la lista desplegable solo se muestran las ubicaciones que se admiten. Los almacenes de datos (por ejemplo, Azure Storage y SQL Database) y los procesos (por ejemplo, Azure HDInsight) que usa la factoría de datos pueden estar en otras regiones.
-8. Seleccione **Crear** .
+6. En **Versión**, seleccione **V2**.
+7. En **Ubicación**, seleccione la ubicación de la factoría de datos. En la lista desplegable solo se muestran las ubicaciones que se admiten. Los almacenes de datos (por ejemplo, Azure Storage y SQL Database) y los procesos (por ejemplo, Azure HDInsight) que usa la factoría de datos pueden estar en otras regiones.
+8. Seleccione **Crear**.
 9. Una vez finalizada la creación, verá el aviso en el centro de notificaciones. Seleccione **Ir al recurso** para ir a la página de Data Factory.
 10. Haga clic en **Author & Monitor** (Creación y supervisión) para iniciar la interfaz de usuario de Data Factory en una pestaña independiente.
 
@@ -115,7 +115,7 @@ En este tutorial, comenzará a crear la canalización. A continuación, creará 
 
    ![Creación de una canalización](./media/doc-common-process/get-started-page.png)
 
-1. 1. En el panel General, en **Propiedades** , especifique **CopyPipeline** en **Nombre** . A continuación, contraiga el panel; para ello, haga clic en el icono Propiedades en la esquina superior derecha.
+1. 1. En el panel General, en **Propiedades**, especifique **CopyPipeline** en **Nombre**. A continuación, contraiga el panel; para ello, haga clic en el icono Propiedades en la esquina superior derecha.
 
 1. En el cuadro de herramientas **Activities** (Actividades), expanda la categoría **Move and Transform** (Mover y transformar) y arrastre y suelte la actividad **Copy Data** (Copiar datos) desde el cuadro de herramientas hasta la superficie de diseño de la canalización. Especifique **CopyFromBlobToSql** en **Name** (Nombre).
 
@@ -124,7 +124,7 @@ En este tutorial, comenzará a crear la canalización. A continuación, creará 
 ### <a name="configure-source"></a>Configuración del origen
 
 >[!TIP]
->En este tutorial, usará *Clave de cuenta* como el tipo de autenticación para el almacén de datos de origen, pero puede elegir otros métodos de autenticación compatibles: *identificador URI de SAS* , *entidad de servicio* e *identidad administrada* , si es necesario. Consulte las secciones correspondientes en [este artículo](./connector-azure-blob-storage.md#linked-service-properties) para más información.
+>En este tutorial, usará *Clave de cuenta* como el tipo de autenticación para el almacén de datos de origen, pero puede elegir otros métodos de autenticación compatibles: *identificador URI de SAS*, *entidad de servicio* e *identidad administrada*, si es necesario. Consulte las secciones correspondientes en [este artículo](./connector-azure-blob-storage.md#linked-service-properties) para más información.
 >Para almacenar los secretos de los almacenes de datos de forma segura, también se recomienda usar Azure Key Vault. Consulte [este artículo](./store-credentials-in-key-vault.md) para obtener instrucciones detalladas.
 
 1. Vaya a la pestaña **Source** (Origen). Haga clic en **+ New** (+ Nuevo) para crear un conjunto de datos de origen.
@@ -135,19 +135,19 @@ En este tutorial, comenzará a crear la canalización. A continuación, creará 
 
 1. En el cuadro de diálogo **Set Properties** (Establecer propiedades), escriba **SourceBlobDataset** como nombre. Active la casilla **First row as header** (Primera fila como encabezado). En el cuadro de texto **Linked service** (Servicio vinculado), seleccione **+ New** (+ Nuevo).
 
-1. En la ventana **New Linked Service (Azure Blob Storage)** [Nuevo servicio vinculado (Azure Blob Storage)], escriba **AzureStorageLinkedService** como nombre y seleccione la cuenta de almacenamiento en la lista **Nombre de la cuenta de almacenamiento** . Pruebe la conexión y, a continuación, seleccione **Create** (Crear) para implementar el servicio vinculado.
+1. En la ventana **New Linked Service (Azure Blob Storage)** [Nuevo servicio vinculado (Azure Blob Storage)], escriba **AzureStorageLinkedService** como nombre y seleccione la cuenta de almacenamiento en la lista **Nombre de la cuenta de almacenamiento**. Pruebe la conexión y, a continuación, seleccione **Create** (Crear) para implementar el servicio vinculado.
 
 1. Una vez creado el servicio vinculado, se vuelve a ir a la página **Set Properties** (Establecer propiedades). Junto a **File path** (Ruta de acceso del archivo), seleccione **Browse** (Examinar).
 
-1. Vaya a la carpeta **adftutorial/input** , seleccione el archivo **emp.txt** y, luego, **OK** (Aceptar).
+1. Vaya a la carpeta **adftutorial/input**, seleccione el archivo **emp.txt** y, luego, **OK** (Aceptar).
 
-1. Seleccione **Aceptar** . Va automáticamente a la página de canalización. En la pestaña **Source** (Origen), confirme que se selecciona **SourceBlobDataset** . Para obtener una vista previa de los datos de esta página, seleccione **Preview data** (Vista previa de los datos).
+1. Seleccione **Aceptar**. Va automáticamente a la página de canalización. En la pestaña **Source** (Origen), confirme que se selecciona **SourceBlobDataset**. Para obtener una vista previa de los datos de esta página, seleccione **Preview data** (Vista previa de los datos).
 
     ![Conjunto de datos de origen](./media/tutorial-copy-data-portal/source-dataset-selected.png)
 
 ### <a name="configure-sink"></a>Configuración del receptor
 >[!TIP]
->En este tutorial, usará *Autenticación de SQL* como el tipo de autenticación para el almacén de datos receptor, pero puede elegir otros métodos de autenticación compatibles: *entidad de servicio* e *identidad administrada* , si es necesario. Consulte las secciones correspondientes en [este artículo](./connector-azure-sql-database.md#linked-service-properties) para más información.
+>En este tutorial, usará *Autenticación de SQL* como el tipo de autenticación para el almacén de datos receptor, pero puede elegir otros métodos de autenticación compatibles: *entidad de servicio* e *identidad administrada*, si es necesario. Consulte las secciones correspondientes en [este artículo](./connector-azure-sql-database.md#linked-service-properties) para más información.
 >Para almacenar los secretos de los almacenes de datos de forma segura, también se recomienda usar Azure Key Vault. Consulte [este artículo](./store-credentials-in-key-vault.md) para obtener instrucciones detalladas.
 
 1. Vaya a la pestaña **Sink** (Receptor) y seleccione **+ New** (+Nuevo) para crear un conjunto de datos del receptor.
@@ -158,7 +158,7 @@ En este tutorial, comenzará a crear la canalización. A continuación, creará 
 
 1. En el cuadro de diálogo **New Linked Service (Azure SQL Database)** [Nuevo servicio vinculado (Azure SQL Database)], realice los siguientes pasos:
 
-    a. En **Name** (Nombre), escriba **AzureSqlDatabaseLinkedService** .
+    a. En **Name** (Nombre), escriba **AzureSqlDatabaseLinkedService**.
 
     b. En **Server name** (Nombre del servidor), seleccione su instancia de SQL Server.
 
@@ -174,9 +174,9 @@ En este tutorial, comenzará a crear la canalización. A continuación, creará 
 
     ![Guardar nuevo servicio vinculado](./media/tutorial-copy-data-portal/new-azure-sql-linked-service-window.png)
 
-1. Va automáticamente al cuadro de diálogo **Set Properties** (Establecer propiedades). En **Table** (Tabla), seleccione **[dbo].[emp]** . Después, seleccione **Aceptar** .
+1. Va automáticamente al cuadro de diálogo **Set Properties** (Establecer propiedades). En **Table** (Tabla), seleccione **[dbo].[emp]** . Después, seleccione **Aceptar**.
 
-1. Vaya a la pestaña con la canalización y, en **Sink Dataset** (Conjunto de datos del receptor), confirme que se ha seleccionado **OutputSqlDataset** .
+1. Vaya a la pestaña con la canalización y, en **Sink Dataset** (Conjunto de datos del receptor), confirme que se ha seleccionado **OutputSqlDataset**.
 
     ![Pestaña Pipeline (Canalización)](./media/tutorial-copy-data-portal/pipeline-tab-2.png)       
 
@@ -205,7 +205,7 @@ En este paso, desencadenará manualmente la canalización que publicó en el pas
 
     [![Supervisión de las ejecuciones de canalización](./media/tutorial-copy-data-portal/monitor-pipeline-inline-and-expended.png)](./media/tutorial-copy-data-portal/monitor-pipeline-inline-and-expended.png#lightbox)
 
-1. Para ver las ejecuciones de actividad asociadas a la ejecución de la canalización, seleccione el vínculo **CopyPipeline** (Copiar canalización) en la columna **PIPELINE NAME** (Nombre de la canalización). En este ejemplo, solo hay una actividad, así que solo verá una entrada en la lista. Para obtener más información sobre la operación de copia, seleccione el vínculo **Detalles** (icono de gafas) en la columna **ACTIVITY NAME** . Para volver a la vista Ejecuciones de canalización, seleccione **All pipeline runs** (Todas las ejecuciones de canalización) en la parte superior. Para actualizar la vista, seleccione **Refresh** (Actualizar).
+1. Para ver las ejecuciones de actividad asociadas a la ejecución de la canalización, seleccione el vínculo **CopyPipeline** (Copiar canalización) en la columna **PIPELINE NAME** (Nombre de la canalización). En este ejemplo, solo hay una actividad, así que solo verá una entrada en la lista. Para obtener más información sobre la operación de copia, seleccione el vínculo **Detalles** (icono de gafas) en la columna **ACTIVITY NAME**. Para volver a la vista Ejecuciones de canalización, seleccione **All pipeline runs** (Todas las ejecuciones de canalización) en la parte superior. Para actualizar la vista, seleccione **Refresh** (Actualizar).
 
     [![Supervisión de las ejecuciones de actividad](./media/tutorial-copy-data-portal/view-activity-runs-inline-and-expended.png)](./media/tutorial-copy-data-portal/view-activity-runs-inline-and-expended.png#lightbox)
 
@@ -222,21 +222,19 @@ En esta programación, creará un desencadenador de programación para la canali
 
 1. En la ventana **New Trigger** (Nuevo desencadenador), lleve a cabo los siguientes pasos:
 
-    a. En **Name** (Nombre), escriba **RunEveryMinute** .
+    a. En **Name** (Nombre), escriba **RunEveryMinute**.
 
-    b. En **End** (Fin), seleccione **On Date** (El día).
+    b. Actualice **Start date** (Fecha de inicio) del desencadenador. Si la fecha es anterior a la fecha y hora actuales, el desencadenador comenzará a surtir efecto una vez publicado el cambio. 
 
-    c. En **End On** (Finaliza el), seleccione la lista desplegable.
+    c. En **Time zone** (Zona horaria), seleccione la lista desplegable.
 
-    d. Seleccione la opción **current day** (día actual). De forma predeterminada, el día de finalización se establece en el día siguiente.
+    d. En **Recurrence** (Periodicidad), seleccione **Every 1 Minute(s)** (Cada minuto).
 
-    e. Actualice la parte de **End Time** (Hora de finalización) con unos cuantos minutos que pasen de la fecha y hora actuales. El desencadenador se activa únicamente después de publicar los cambios. Si lo establece solo en un par de minutos de diferencia y no lo publica para entonces, no verá una ejecución de desencadenador.
+    e. Active la casilla **Specify an end date** (Especifica una fecha de finalización) y actualice la sección **End On** (Finaliza el) para que sea unos minutos después de la fecha y hora actuales. El desencadenador se activa únicamente después de publicar los cambios. Si lo establece solo en un par de minutos de diferencia y no lo publica para entonces, no verá una ejecución de desencadenador.
 
-    f. Seleccione **Aceptar** .
+    f. En la opción **Activated** (Activado), seleccione **Yes** (Sí).
 
-    g. En la opción **Activated** (Activado), seleccione **Yes** (Sí).
-
-    h. Seleccione **Aceptar** .
+    g. Seleccione **Aceptar**.
 
     > [!IMPORTANT]
     > Con cada ejecución de canalización se asocia un costo, así que establezca la fecha de finalización correctamente.

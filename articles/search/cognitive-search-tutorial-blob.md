@@ -7,30 +7,36 @@ author: luiscabrer
 ms.author: luisca
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 07/15/2020
-ms.openlocfilehash: 84defa0704c44bb0ed4564195725f7dd1c42312c
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.date: 11/17/2020
+ms.openlocfilehash: 21f0d141567f17c470732088c6a93a2ae7ed3c67
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92788067"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94738057"
 ---
 # <a name="tutorial-use-rest-and-ai-to-generate-searchable-content-from-azure-blobs"></a>Tutorial: Uso de REST y AI para generar contenido en el que se pueden realizar búsquedas desde blobs de Azure
 
-Si tiene texto no estructurado o imágenes en Azure Blob Storage, una [canalización de enriquecimiento de inteligencia artificial](cognitive-search-concept-intro.md) puede extraer la información y crear contenido útil en escenarios de búsqueda de texto completo o minería de conocimiento. Aunque una canalización puede procesar los archivos de imagen, este tutorial de REST se centra en el texto y se aplica la detección de idioma y el procesamiento del lenguaje natural para crear campos que se puedan aprovechar en las consultas, las facetas y los filtros.
+Si tiene texto no estructurado o imágenes en Azure Blob Storage, una [canalización de enriquecimiento de inteligencia artificial](cognitive-search-concept-intro.md) puede extraer la información y crear contenido a partir de blobs útiles en escenarios de búsqueda de texto completo o minería de conocimiento. Aunque una canalización puede procesar los archivos de imagen, este tutorial de REST se centra en el texto y se aplica la detección de idioma y el procesamiento del lenguaje natural para crear campos que se puedan aprovechar en las consultas, las facetas y los filtros.
 
 En este tutorial se usa Postman y las [API REST de Search](/rest/api/searchservice/) para realizar las siguientes tareas:
 
 > [!div class="checklist"]
-> * Comience con documentos completos (texto no estructurado) como PDF, HTML, DOCX y PPTX en Azure Blob Storage.
-> * Defina una canalización que extraiga texto, detecte el idioma, reconozca entidades y detecte frases clave.
-> * Defina un índice para almacenar la salida (contenido sin procesar, además de pares nombre-valor generados por canalización).
-> * Ejecute la canalización para iniciar transformaciones y análisis, así como para crear y cargar el índice.
+> * Configurar los servicios y una colección de Postman.
+> * Crear una canalización de enriquecimiento que extraiga texto, detecte el idioma, reconozca entidades y detecte frases clave.
+> * Crear un índice para almacenar la salida (contenido sin procesar, además de pares nombre-valor generados por canalización).
+> * Ejecute la canalización para realizar transformaciones y análisis, así como para cargar el índice.
 > * Explore los resultados mediante la búsqueda de texto completo y una sintaxis de consulta enriquecida.
 
 Si no tiene una suscripción a Azure, abra una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="overview"></a>Información general
+
+En este tutorial se usa C# y las API REST de Azure Cognitive Search para crear un origen de datos, un índice, un indexador y un conjunto de aptitudes. Empezará con documentos completos (texto no estructurado) como PDF, HTML, DOCX y PPTX en Azure Blob Storage y, a continuación, los ejecutará mediante un conjunto de aptitudes para extraer entidades, frases clave y otro texto en los archivos de contenido.
+
+Este conjunto de aptitudes usa aptitudes integradas basadas en Cognitive Services APIs. Los pasos de la canalización incluyen la detección de los idiomas del texto, la extracción de frases clave y el reconocimiento de entidades (organizaciones). La nueva información se almacena en campos nuevos que se pueden aprovechar en consultas, facetas y filtros.
+
+## <a name="prerequisites"></a>Requisitos previos
 
 + [Almacenamiento de Azure](https://azure.microsoft.com/services/storage/)
 + [Aplicación de escritorio Postman](https://www.getpostman.com/)
@@ -43,7 +49,9 @@ Si no tiene una suscripción a Azure, abra una [cuenta gratuita](https://azure.m
 
 1. Abra esta [carpeta de OneDrive](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) y, en la esquina superior izquierda, haga clic en **Descargar** para copiar los archivos en el equipo. 
 
-1. Haga clic con el botón derecho en el archivo ZIP y seleccione **Extraer todo** . Hay 14 archivos de varios tipos. Para este ejercicio, usará 7.
+1. Haga clic con el botón derecho en el archivo ZIP y seleccione **Extraer todo**. Hay 14 archivos de varios tipos. Para este ejercicio, usará 7.
+
+Opcionalmente, también puede descargar el código fuente, un archivo de colección de Postman, para este tutorial. El código fuente se puede encontrar en [https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/Tutorial](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/Tutorial).
 
 ## <a name="1---create-services"></a>1: Creación de servicios
 
@@ -53,7 +61,7 @@ Si es posible, cree los dos en la misma región y grupo de recursos para la prox
 
 ### <a name="start-with-azure-storage"></a>Comienzo con Azure Storage
 
-1. [Inicie sesión en Azure Portal](https://portal.azure.com/) y haga clic en **+ Crear un recurso** .
+1. [Inicie sesión en Azure Portal](https://portal.azure.com/) y haga clic en **+ Crear un recurso**.
 
 1. Busque *cuenta de almacenamiento* y seleccione la oferta de Cuenta de almacenamiento de Microsoft.
 
@@ -61,21 +69,21 @@ Si es posible, cree los dos en la misma región y grupo de recursos para la prox
 
 1. En la pestaña Datos básicos, se necesitan los siguientes elementos. Acepte los valores predeterminados para todo lo demás.
 
-   + **Grupo de recursos** . Seleccione un grupo existente o cree uno nuevo, pero use el mismo grupo para todos los servicios, con el fin de que pueda administrarlos colectivamente.
+   + **Grupo de recursos**. Seleccione un grupo existente o cree uno nuevo, pero use el mismo grupo para todos los servicios, con el fin de que pueda administrarlos colectivamente.
 
-   + **Nombre de cuenta de almacenamiento** . Si cree que puede tener varios recursos del mismo tipo, use el nombre para diferenciarlos por tipo y región, por ejemplo *blobstoragewestus* . 
+   + **Nombre de cuenta de almacenamiento**. Si cree que puede tener varios recursos del mismo tipo, use el nombre para diferenciarlos por tipo y región, por ejemplo *blobstoragewestus*. 
 
-   + **Ubicación** . Si es posible, elija la misma ubicación que se usa para Azure Cognitive Search y Cognitive Services. Una ubicación única anula los cargos de ancho de banda.
+   + **Ubicación**. Si es posible, elija la misma ubicación que se usa para Azure Cognitive Search y Cognitive Services. Una ubicación única anula los cargos de ancho de banda.
 
-   + **Tipo de cuenta** . Elija el valor predeterminado, *StorageV2 (uso general v2)* .
+   + **Tipo de cuenta**. Elija el valor predeterminado, *StorageV2 (uso general v2)* .
 
 1. Haga clic en **Revisar y crear** para crear el servicio.
 
 1. Una vez creado, haga clic en **Go to the resource** (Ir al recurso) para abrir la página de información general.
 
-1. Haga clic en el servicio **Blobs** .
+1. Haga clic en el servicio **Blobs**.
 
-1. Haga clic en **+ Contenedor** para crear un contenedor y asígnele el nombre *cog-search-demo* .
+1. Haga clic en **+ Contenedor** para crear un contenedor y asígnele el nombre *cog-search-demo*.
 
 1. Seleccione *cog-search-demo* y haga clic en **Cargar** para abrir la carpeta en la que guardó los archivos de descarga. Seleccione todos los archivos que no sean de imagen. Debería tener 7 archivos. Haga clic en **Aceptar** para empezar a cargar.
 
@@ -107,11 +115,11 @@ El tercer componente es Azure Cognitive Search, que se puede [crear en el portal
 
 Al igual que con Azure Blob Storage dedique un momento a recopilar la clave de acceso. Además, cuando empiece a estructurar las solicitudes, deberá proporcionar el punto de conexión y la clave de la API de administración que se usan para autenticar cada solicitud.
 
-### <a name="get-an-admin-api-key-and-url-for-azure-cognitive-search"></a>Obtención de una clave de API de administración y una dirección URL para Azure Cognitive Search
+### <a name="copy-an-admin-api-key-and-url-for-azure-cognitive-search"></a>Copia de una clave de API de administración y una dirección URL para Azure Cognitive Search
 
 1. [Inicie sesión en Azure Portal](https://portal.azure.com/) y, en la página **Información general** del servicio de búsqueda, obtenga el nombre del servicio de búsqueda. Para confirmar el nombre del servicio, revise la dirección URL del punto de conexión. Si la dirección URL del punto de conexión fuera `https://mydemo.search.windows.net`, el nombre del servicio sería `mydemo`.
 
-2. En **Configuración** > **Claves** , obtenga una clave de administrador para tener derechos completos en el servicio. Se proporcionan dos claves de administrador intercambiables para lograr la continuidad empresarial, por si necesitara sustituir una de ellas. Puede usar la clave principal o secundaria en las solicitudes para agregar, modificar y eliminar objetos.
+2. En **Configuración** > **Claves**, obtenga una clave de administrador para tener derechos completos en el servicio. Se proporcionan dos claves de administrador intercambiables para lograr la continuidad empresarial, por si necesitara sustituir una de ellas. Puede usar la clave principal o secundaria en las solicitudes para agregar, modificar y eliminar objetos.
 
    Obtenga también la clave de consulta. Es una práctica recomendada emitir solicitudes de consulta con acceso de solo lectura.
 
@@ -121,17 +129,17 @@ Todas las solicitudes enviadas al servicio necesitan una clave de API en el enca
 
 ## <a name="2---set-up-postman"></a>2: Configuración de Postman
 
-Inicie Postman y configure una solicitud HTTP. Si no está familiarizado con esta herramienta, consulte [Exploración de las API REST de Azure Cognitive Search mediante Postman](search-get-started-postman.md).
+Inicie Postman y configure una solicitud HTTP. Si no está familiarizado con esta herramienta, consulte [Exploración de las API REST de Azure Cognitive Search](search-get-started-rest.md).
 
-Los métodos de solicitud usados en este tutorial son **POST** , **PUT** y **GET** . Usaremos los métodos siguientes para realizar cuatro llamadas API al servicio de búsqueda: crear un origen de datos, un conjunto de aptitudes, un índice y un indexador.
+Los métodos de solicitud usados en este tutorial son **POST**, **PUT** y **GET**. Usaremos los métodos siguientes para realizar cuatro llamadas API al servicio de búsqueda: crear un origen de datos, un conjunto de aptitudes, un índice y un indexador.
 
 En Headers (Encabezados), establezca "Content-Type" en `application/json` y establezca `api-key` en la clave de API de administración de su servicio Azure Cognitive Search. Una vez que establezca los encabezados, puede usarlos para todas las solicitudes de este ejercicio.
 
-  ![Encabezado y dirección URL de solicitud de Postman](media/search-get-started-postman/postman-url.png "Encabezado y dirección URL de solicitud de Postman")
+  ![Encabezado y dirección URL de solicitud de Postman](media/search-get-started-rest/postman-url.png "Encabezado y dirección URL de solicitud de Postman")
 
 ## <a name="3---create-the-pipeline"></a>3: Creación de la canalización
 
-En Azure Cognitive Search, el procesamiento de la inteligencia artificial se produce durante la indexación (o la ingesta de datos). En esta parte del tutorial se crean cuatro objetos: origen de datos, definición de índice, conjunto de aptitudes, indexador. 
+En Azure Cognitive Search, el enriquecimiento se produce durante la indexación (o la ingesta de datos). En esta parte del tutorial se crean cuatro objetos: origen de datos, definición de índice, conjunto de aptitudes, indexador. 
 
 ### <a name="step-1-create-a-data-source"></a>Paso 1: Creación de un origen de datos
 
@@ -350,7 +358,7 @@ Un [indexador](/rest/api/searchservice/create-indexer) rige la canalización. Lo
 
     ```json
     {
-      "name":"cog-search-demo-idxr",    
+      "name":"cog-search-demo-idxr",
       "dataSourceName" : "cog-search-demo-ds",
       "targetIndexName" : "cog-search-demo-idx",
       "skillsetName" : "cog-search-demo-ss",

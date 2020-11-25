@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 07/21/2020
+ms.date: 11/03/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 638ab84658c36536966ef990570684a047521ee6
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.openlocfilehash: 0aace1041eba771a26bed4c85361ea2551c71ba6
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2020
-ms.locfileid: "88257449"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659427"
 ---
 ::: zone target="docs"
 
@@ -66,18 +66,18 @@ Realice los pasos siguientes si va a devolver el dispositivo en Estados Unidos o
     - Si no se indica el número de seguimiento, UPS solicitará que el abono de una cantidad adicional en la recogida.
     - En lugar de programar la recogida, también puede devolver la instancia de Data Box Disk en el punto de recogida más cercano.
 
-### <a name="europe"></a>[Europa](#tab/in-europe)
 
-Realice los pasos siguientes si va a devolver el dispositivo en Europa.
+### <a name="europe-or-uk"></a>[Europa o Reino Unido](#tab/in-europe-or-uk)
+
+Siga estos pasos si va a devolver el dispositivo en Europa o en Reino Unido.
 
 1. Use la etiqueta de envío de la devolución que tiene la funda plástica transparente fijada en la caja. Si la etiqueta se daña o se pierde:
     - Vaya a **Información general > Descargar la etiqueta de envío** y descargar una etiqueta de envío de devolución.
     - Pegue la etiqueta en el dispositivo.
 
 2. Selle la caja de envío y asegúrese de que la etiqueta de envío de devolución está visible.
-3. Si va a devolver el dispositivo en Europa con DHL, para solicitar la recogida de DHL, visite su sitio Web y especifique el número de factura de porte aéreo.
-4. Visite el sitio Web de DHL Express del país o región y elija **Book a Courier Collection > eReturn Shipment** (Reservar una colección Courier > Envío eReturn).
-5. Especifique el número de factura de porte aéreo y haga clic en **Schedule Pickup** (Programar la recogida) para organizar la recogida.
+3. Vaya al sitio web de DHL Express del país o región y seleccione la opción para **programar una recogida**. En la opción en que se le pregunta si **necesita una etiqueta de envío**, seleccione **No** > **I have a DHL Waybill Number DHL** (Tengo un número de hoja de ruta de DHL).
+4. Especifique el número de hoja de ruta y haga clic en **Schedule Pickup** (Programar la recogida) para organizar la recogida.
 
 ### <a name="australia"></a>[Australia](#tab/in-australia)
 

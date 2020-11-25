@@ -1,6 +1,6 @@
 ---
 title: Personalización de idioma en flujos de usuario de Azure AD
-description: Más información acerca de cómo personalizar la experiencia de lenguaje en los flujos de usuario.
+description: Más información acerca de cómo personalizar la experiencia de lenguaje en los flujos de usuario en Azure Active Directory.
 services: active-directory
 author: msmimart
 manager: celestedg
@@ -11,12 +11,12 @@ ms.date: 05/06/2020
 ms.author: mimart
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c73a5491c0ad543d57a6721f37d81ae661c0a653
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 98ead87ce2bd3b4e3ffc45763aa5151168c72078
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92441443"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94576519"
 ---
 # <a name="language-customization-in-azure-active-directory-preview"></a>Personalización de idioma en Azure Active Directory (versión preliminar)
 
@@ -37,13 +37,13 @@ De manera predeterminada, la personalización de idioma está habilitada para qu
 La personalización de idioma le permite personalizar cualquier cadena del flujo de usuario.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) como administrador de Azure AD.
-2. En **Servicios de Azure** , seleccione **Azure Active Directory** .
-3. En el menú de la izquierda, seleccione **External Identities** .
+2. En **Servicios de Azure**, seleccione **Azure Active Directory**.
+3. En el menú de la izquierda, seleccione **External Identities**.
 4. Seleccione **Flujos de usuario (versión preliminar)** .
 3. Seleccione el flujo de usuario que quiere habilitar para las traducciones.
-4. Seleccione **Idiomas** .
+4. Seleccione **Idiomas**.
 5. En la página **Idiomas** del flujo de usuario, seleccione un idioma que desee personalizar.
-6. Expanda la **página Colección de atributos** .
+6. Expanda la **página Colección de atributos**.
 7. Seleccione **Descargar valores predeterminados** (o **Descargar invalidaciones** si ha editado anteriormente este idioma).
 
 Estos pasos le proporcionan un archivo JSON que puede usar para comenzar a editar las cadenas.
@@ -115,9 +115,9 @@ Si desea proporcionar una lista establecida de valores para respuestas, debe cre
 
 1. Una vez completados los cambios en el archivo JSON, vuelva al inquilino.
 1. Seleccione **Flujos de usuario** y haga clic en el flujo de usuario que desea habilitar para las traducciones.
-1. Seleccione **Idiomas** .
+1. Seleccione **Idiomas**.
 1. Seleccione el idioma al que quiere traducir.
-1. Seleccione la **página Colección de atributos** .
+1. Seleccione la **página Colección de atributos**.
 1. Seleccione el icono de carpeta y el archivo JSON para cargar.
 
 Este cambio se guarda en el flujo de usuario automáticamente.

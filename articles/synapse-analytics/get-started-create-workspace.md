@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 10/07/2020
-ms.openlocfilehash: f7b96bcebb2106e52c62426ca2b64f9305e09141
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: 862d2a93058c63dbfad1db49346edcbfe3c02ad1
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94515416"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94592454"
 ---
 # <a name="creating-a-synapse-workspace"></a>Creación de un área de trabajo de Synapse
 
@@ -47,35 +47,23 @@ Una vez creada el área de trabajo de Azure Synapse, hay dos maneras de abrir Sy
 ## <a name="create-a-dedicated-sql-pool"></a>Creación de un grupo de SQL dedicado
 
 1. En Synapse Studio, en el panel izquierdo, seleccione **Administrar** > **Grupos de SQL**.
-1. Seleccione **Nuevo** y especifique estos valores:
-
-    |Configuración | Valor sugerido | 
-    |---|---|---|
-    |**Nombre del grupo de SQL**| **SQLDB1**|
-    |**Nivel de rendimiento**|**DW100C**|
-    |||
-
-1. Seleccione **Revisar y crear** > **Crear**. El grupo de SQL dedicado estará listo en unos minutos. El grupo de SQL dedicado se asocia con una base de datos del grupo de SQL dedicado, que también se denomina **SQLDB1**.
+1. Seleccione **Nuevo paso**.
+1. En **Nombre del grupo de SQL** seleccione **SQLPOOL1**
+1. En **Nivel de rendimiento** seleccione **DW100C**
+1. Seleccione **Revisar y crear** > **Crear**. El grupo de SQL dedicado estará listo en unos minutos. El grupo de SQL dedicado se asocia con una base de datos del grupo de SQL dedicado, que también se denomina **SQLPOOL1**.
 
 Los grupos de SQL dedicados consumen recursos facturables mientras están activos. Puede pausar los grupos más adelante para reducir los costos.
 
 ## <a name="create-a-serverless-apache-spark-pool"></a>Crear un grupo de Apache Spark sin servidor
 
 1. En Synapse Studio, en el lado izquierdo, seleccione **Administrar** > **Grupos de Apache Spark**.
-1. Seleccione **Nuevo** y especifique estos valores:
-
-    |Configuración | Valor sugerido | 
-    |---|---|---|
-    |**Nombre del grupo de Apache Spark**|**Spark1**
-    |**Tamaño del nodo**| **Pequeño**|
-    |**Número de nodos**| Establezca el valor mínimo en 3 y el máximo en 3|
-
+1. Seleccione **Nuevo paso**. 
+1. En **Nombre del grupo de Apache Spark** escriba **Spark1**.
+1. En **Tamaño del nodo** escriba **Pequeño**.
+1. En **Número de nodos**, establezca el valor mínimo en 3 y el máximo en 3.
 1. Seleccione **Revisar y crear** > **Crear**. El grupo de Apache Spark estará listo en unos segundos.
 
-Cuando se realiza una actividad de Spark en Azure Synapse, se especifica el grupo de Spark que se va a usar. El grupo indica a Azure Synapse el número de recursos de Spark que se van a usar. Solo paga por los recursos que utiliza. Al dejar de usar el grupo de forma activa, los recursos agotarán el tiempo de espera y se reciclarán automáticamente.
-
-> [!NOTE]
-> Las bases de datos de Spark se crean de forma independiente de los grupos de Spark. Un área de trabajo siempre tiene una base de datos de Spark denominada **default**. Puede crear bases de datos de Spark adicionales.
+El grupo de Spark indica a Azure Synapse el número de recursos de Spark que se van a usar. Solo paga por los recursos que utiliza. Al dejar de usar el grupo de forma activa, los recursos agotarán el tiempo de espera y se reciclarán automáticamente.
 
 ## <a name="the-serverless-sql-pool"></a>El grupo de SQL sin servidor
 

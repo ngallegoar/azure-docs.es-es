@@ -7,12 +7,12 @@ ms.date: 10/23/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 9b061a6d3d7d2a6598d8ed7c48428d756db6e97d
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 93a5d17ce5ea5ec60c67604efe5081d2b3425a84
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92126282"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94873699"
 ---
 # <a name="connected-waste-monitoring-reference-architecture"></a>Arquitectura de referencia de supervisión de residuos conectada 
 
@@ -39,10 +39,10 @@ Los dispositivos que se usan en entornos abiertos, como los contenedores de resi
 Azure IoT Central es una plataforma de aplicaciones de IoT que le ayuda a empezar a trabajar con su solución IoT rápidamente. Puede utilizar su marca, personalizar e integrar la solución con servicios de terceros.
 Después de conectar los dispositivos de agua inteligentes a IoT Central, obtendrá el control, la supervisión y las alertas de los dispositivos, la interfaz de usuario con RBAC integrado, paneles de información configurables y opciones de extensibilidad. 
 
-## <a name="extensibility-and-integrations"></a>Extensibilidad e integraciones 
+## <a name="extensibility-and-integrations"></a>Extensibilidad e integraciones
 Puede ampliar su aplicación de IoT en IoT Central y, si lo desea:
-* transformar e integrar los datos de IoT para el análisis avanzado, como el entrenamiento de modelos de aprendizaje automático, mediante la exportación continua de datos de la aplicación de IoT Central. 
-* Automatizar flujos de trabajo en otros sistemas al desencadenar acciones mediante Microsoft Flow o webhooks desde la aplicación de IoT Central.
+* transformar e integrar los datos de IoT para el análisis avanzado, como el entrenamiento de modelos de aprendizaje automático, mediante la exportación continua de datos de la aplicación de IoT Central.
+* Automatizar flujos de trabajo en otros sistemas al desencadenar acciones mediante Power Automate o webhooks desde la aplicación de IoT Central.
 * acceder mediante programación a la aplicación IoT de IoT Central mediante las API de IoT Central.
 
 ## <a name="business-applications"></a>Aplicaciones empresariales 

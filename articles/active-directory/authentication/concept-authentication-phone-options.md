@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 11/04/2020
+ms.date: 11/13/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 45851015dd5a845497fb2d09bf1f9fffb9e35a06
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 65c8baa101df5e24780e5e68b5a21b86985608a6
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93377758"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94628125"
 ---
 # <a name="authentication-methods-in-azure-active-directory---phone-options"></a>Métodos de autenticación en Azure Active Directory: opciones de teléfono
 
@@ -23,16 +23,16 @@ En el caso de la autenticación directa mediante mensajes de texto, puede consul
 
 Los usuarios también pueden verificarse mediante su teléfono móvil o teléfono de la oficina como forma secundaria de autenticación con Azure Multi-Factor Authentication o el autoservicio de restablecimiento de contraseña (SSPR).
 
-Para funcionar correctamente, los números de teléfono deben tener el formato *+códigoPaís númeroTeléfono* , *por ejemplo: +1 4251234567*.
+Para funcionar correctamente, los números de teléfono deben tener el formato *+códigoPaís númeroTeléfono*, *por ejemplo: +1 4251234567*.
 
 > [!NOTE]
 > Debe haber un espacio entre el código de país/región y el número de teléfono.
 >
-> El restablecimiento de contraseña no admite extensiones telefónicas. Incluso con el formato *+1 4251234567X12345* , las extensiones se quitan antes de hacer la llamada.
+> El restablecimiento de contraseña no admite extensiones telefónicas. Incluso con el formato *+1 4251234567X12345*, las extensiones se quitan antes de hacer la llamada.
 
 ## <a name="mobile-phone-verification"></a>Verificación por teléfono móvil
 
-En el caso de Azure Multi-Factor Authentication o autoservicio de restablecimiento de contraseña, los usuarios pueden elegir recibir un mensaje de texto con un código de verificación para acceder a la interfaz de inicio de sesión, o recibir una llamada de teléfono con una notificación para escribir su código PIN definido.
+En el caso de Azure Multi-Factor Authentication o SSPR, los usuarios pueden elegir recibir un mensaje de texto con un código de verificación para acceder a la interfaz de inicio de sesión, o recibir una llamada telefónica.
 
 Si los usuarios no quieren que su número de teléfono móvil sea visible en el directorio, pero quieren usarlo para restablecer la contraseña, los administradores no deben rellenar el número de teléfono en el directorio. En su lugar, los usuarios deben rellenar el atributo **Teléfono de autenticación** mediante el registro de información de seguridad combinado en [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo). Los administradores pueden ver esta información en el perfil del usuario, pero no se publica en ningún otro lugar.
 
@@ -46,22 +46,24 @@ Con la verificación por mensajes de texto durante el autoservicio de restableci
 
 ### <a name="phone-call-verification"></a>Verificación por llamada telefónica
 
-Con la verificación por llamada telefónica durante el autoservicio de restablecimiento de contraseña o Azure Multi-Factor Authentication, se hace una llamada de voz automatizada al número de teléfono registrado por el usuario. Para completar el proceso de inicio de sesión, se pide al usuario que escriba el número PIN, seguido de # en el teclado.
+Con la verificación por llamada telefónica durante el autoservicio de restablecimiento de contraseña o Azure Multi-Factor Authentication, se hace una llamada de voz automatizada al número de teléfono registrado por el usuario. Para completar el proceso de inicio de sesión, se le pide al usuario que presione # en el teclado.
 
 ## <a name="office-phone-verification"></a>Verificación por teléfono de la oficina
 
-Con la verificación por llamada telefónica durante el autoservicio de restablecimiento de contraseña o Azure Multi-Factor Authentication, se hace una llamada de voz automatizada al número de teléfono registrado por el usuario. Para completar el proceso de inicio de sesión, se pide al usuario que escriba el número PIN, seguido de # en el teclado.
+Con la verificación por llamada telefónica durante el autoservicio de restablecimiento de contraseña o Azure Multi-Factor Authentication, se hace una llamada de voz automatizada al número de teléfono registrado por el usuario. Para completar el proceso de inicio de sesión, se le pide al usuario que presione # en el teclado.
 
 ## <a name="troubleshooting-phone-options"></a>Solución de problemas de las opciones de teléfono
 
 Si tiene problemas con la autenticación telefónica en Azure AD, revise los siguientes pasos de solución de problemas:
 
+* Mensajes de error "Ha alcanzado el límite de llamadas de verificación" o "Ha alcanzado el límite de códigos de verificación de texto" durante el inicio de sesión
+   * Use la aplicación Microsoft Authenticator o el código de verificación para completar la autenticación o vuelva a intentarlo más adelante.
 * Identificador de llamada bloqueado en un solo dispositivo.
    * Revise los números bloqueados configurados en el dispositivo.
 * Número de teléfono incorrecto o código de país o región incorrecto, o confusión entre el número telefónico personal y el número telefónico del trabajo.
    * Solución de problemas de objeto de usuario y métodos de autenticación configurados. Asegúrese de haber registrado los números de teléfono correctos.
 * El PIN especificado es incorrecto.
-   * Confirme que el usuario ha usado el PIN correcto, según está registrado para su cuenta.
+   * Confirme que el usuario ha usado el PIN correcto, según está registrado para su cuenta (solo para los usuarios del servidor MFA).
 * La llamada se desvió al correo de voz.
    * Asegúrese de que el usuario tiene encendido el teléfono y que el servicio está disponible en su área, o use un método alternativo.
 * El usuario está bloqueado

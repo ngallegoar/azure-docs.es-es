@@ -12,15 +12,18 @@ ms.workload: identity
 ms.date: 09/25/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET, contperfq1
-ms.openlocfilehash: e621d50280adcccb8dbd82f4ceb0de7956e98e4b
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: d356674819304897aef353d161ddf236e19db1f5
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91576972"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94592250"
 ---
 # <a name="quickstart-add-microsoft-identity-platform-sign-in-to-an-aspnet-web-app"></a>Inicio rápido: Adición del inicio de sesión de la plataforma de identidad de Microsoft a una aplicación web de ASP.NET
-En este inicio rápido, utilizará un código de ejemplo para aprender cómo una aplicación web ASP.NET puede iniciar sesión en cuentas personales (hotmail.com, outlook.com y otras), profesionales y educativas desde cualquier instancia de Azure Active Directory (Azure AD).  (Para ilustrar este tema, consulte el apartado en el que se explica el [funcionamiento del ejemplo](#how-the-sample-works).)
+
+En este inicio rápido, descargará y ejecutará un código de ejemplo que muestra cómo una aplicación web de ASP.NET puede realizar el inicio de sesión de los usuarios desde cualquier organización de Azure Active Directory. 
+
+Para ilustrar este tema, consulte el apartado en el que se explica el [funcionamiento del ejemplo](#how-the-sample-works).
 > [!div renderon="docs"]
 > ## <a name="prerequisites"></a>Requisitos previos
 >
@@ -50,7 +53,7 @@ En este inicio rápido, utilizará un código de ejemplo para aprender cómo una
 > 1. Seleccione **Nuevo registro**.
 > 1. Cuando aparece la página **Registrar una aplicación**, escriba la información de registro de la aplicación:
 >      - En la sección **Nombre**, escriba un nombre significativo para la aplicación, que se mostrará a los usuarios de la aplicación, por ejemplo, `ASPNET-Quickstart`.
->      - Agregue `https://localhost:44368/` en **URI de redirección**y haga clic en **Registrar**.
+>      - Agregue `https://localhost:44368/` en **URI de redirección** y haga clic en **Registrar**.
 >      - En el panel de navegación izquierdo, en la sección Administrar, seleccione **Autenticación**
 >          - En la subsección **Concesión implícita** , seleccione **Tokens de id**.
 >          - Y, después, seleccione **Guardar**.
@@ -69,9 +72,9 @@ En este inicio rápido, utilizará un código de ejemplo para aprender cómo una
 > [!div renderon="docs"]
 > [Descargue la solución de Visual Studio 2019](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip)
 
-> [!div renderon="portal"]
+> [!div renderon="portal" class="sxs-lookup"]
 > Ejecute el proyecto con Visual Studio 2019.
-> [!div renderon="portal" id="autoupdate" class="nextstepaction"]
+> [!div renderon="portal" id="autoupdate" class="sxs-lookup nextstepaction"]
 > [Descargar el código de ejemplo](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip)
 
 > [!div class="sxs-lookup" renderon="portal"]

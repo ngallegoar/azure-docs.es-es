@@ -3,17 +3,17 @@ title: Novedades de Windows Virtual Desktop - Azure
 description: Nuevas características y actualizaciones de productos para Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: overview
-ms.date: 10/01/2020
+ms.date: 11/11/2020
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: lizross
 ms.custom: references_regions
-ms.openlocfilehash: 0191d6ad74a9b6349f5d1724f9483607dce2d926
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: c82312b40955b392243bf616ee991c0108a13fb5
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91630021"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94537397"
 ---
 # <a name="whats-new-in-windows-virtual-desktop"></a>Novedades de Windows Virtual Desktop
 
@@ -25,6 +25,48 @@ Windows Virtual Desktop se actualiza de forma periódica. En este artículo enco
 - Corrección de errores
 
 Este artículo se actualiza mensualmente. Asegúrese de volver aquí con frecuencia para mantenerse al día con las nuevas actualizaciones.
+
+## <a name="october-2020"></a>Octubre de 2020
+
+Estos son los cambios que han tenido lugar en octubre de 2020:
+
+### <a name="improved-performance"></a>rendimiento mejorado.
+
+- Hemos optimizado el rendimiento mediante la reducción de la latencia de conexión en las siguientes ubicaciones geográficas de Azure:
+    - Suiza
+    - Canadá
+
+Ahora puede usar el [estimador de experiencia](https://azure.microsoft.com/services/virtual-desktop/assessment/) para estimar la calidad de la experiencia del usuario en estas áreas.
+
+### <a name="azure-government-cloud-availability"></a>Disponibilidad de Azure Government Cloud
+
+Azure Government Cloud ya está disponible con carácter general. En [nuestra entrada de blog](https://azure.microsoft.com/updates/windows-virtual-desktop-is-now-generally-available-in-the-azure-government-cloud/) encontrará más información.
+
+### <a name="windows-virtual-desktop-azure-portal-updates"></a>Actualizaciones de Windows Virtual Desktop en Azure Portal
+
+Se han realizado varias actualizaciones de Windows Virtual Desktop en Azure Portal:
+
+- Se corrigió un error de resourceID que impedía a los usuarios abrir la pestaña "Sesiones".
+- Se ha simplificado la interfaz de usuario en la pestaña "Hosts de sesión".
+- Se han corregido los valores "Valores predeterminados", "Facilidad de uso" y "Restaurar valores predeterminados" en las propiedades del RDP.
+- Las funciones "Quitar" y "Eliminar" aparecen en todas las pestañas.
+- El portal ahora valida los nombres de las aplicaciones en el flujo de trabajo "Agregar una aplicación".
+- Se corrigió el problema de que los datos exportados del host de sesión no estaban alineados en las columnas.
+- Se corrigió el problema de que el portal no puede recuperar las sesiones del usuario.
+- Se corrigió un problema en la recuperación del host de sesión que se producía cuando la máquina virtual se creaba en otro grupo de recursos.
+- Se actualizó la pestaña "Host de sesión", ahora muestra tanto las sesiones activas como las desconectadas.
+- La pestaña "Aplicaciones" ahora tiene páginas.
+- Se corrigió el problema de que el texto "requiere línea de comandos" no se mostraba correctamente en la pestaña "Lista de aplicaciones".
+- Se corrigió el problema de que el portal no podía implementar grupos de hosts ni máquinas virtuales si se usaba la versión en alemán de Shared Image Gallery.
+
+### <a name="client-updates-for-october-2020"></a>Actualizaciones del cliente de octubre de 2020
+
+Hemos lanzado nuevas versiones de los clientes. Para obtener más información, vea estos artículos:
+
+- [Windows](/windows-server/remote/remote-desktop-services/clients/windowsdesktop-whatsnew)
+- [iOS](/windows-server/remote/remote-desktop-services/clients/ios-whatsnew)
+
+Para más información sobre los otros clientes, consulte [Actualizaciones de clientes](#client-updates).
 
 ## <a name="september-2020"></a>Septiembre de 2020
 
@@ -68,7 +110,7 @@ Estos son los cambios que se han producido en agosto de 2020:
 
 - Ahora, Azure Advisor forma parte de Windows Virtual Desktop. Al acceder a Windows Virtual Desktop a través de Azure Portal, puede ver recomendaciones para optimizar el entorno de Windows Virtual Desktop. Más información en [Azure Advisor](azure-advisor.md).
 
-- La CLI de Azure ahora admite Windows Virtual Desktop (`az desktopvirtualization`) para ayudarle a automatizar las implementaciones de Windows Virtual Desktop. Consulte [desktopvirtualization](/cli/azure/ext/desktopvirtualization/?view=azure-cli-latest) para ver una lista de los comandos de la extensión.
+- La CLI de Azure ahora admite Windows Virtual Desktop (`az desktopvirtualization`) para ayudarle a automatizar las implementaciones de Windows Virtual Desktop. Consulte [desktopvirtualization](/cli/azure/ext/desktopvirtualization/?view=azure-cli-latest&preserve-view=true) para ver una lista de los comandos de la extensión.
 
 - Hemos actualizado nuestras plantillas de implementación para que sean totalmente compatibles con las interfaces de Azure Resource Manager de Windows Virtual Desktop. Puede encontrar las plantillas en [GitHub](https://github.com/Azure/RDS-Templates/tree/master/ARM-wvd-templates).
 
@@ -140,7 +182,7 @@ Hemos agregado nuevos cmdlets AzWvd al módulo Az de Azure PowerShell con esta a
 
 Para instalar el módulo, siga las instrucciones de [Configuración del módulo de PowerShell para Windows Virtual Desktop](powershell-module.md).
 
-También puede ver una lista de los comandos disponibles en la [referencia de AzWvd PowerShell](/powershell/module/az.desktopvirtualization/?view=azps-4.2.0#desktopvirtualization).
+También puede ver una lista de los comandos disponibles en la [referencia de AzWvd PowerShell](/powershell/module/az.desktopvirtualization/?view=azps-4.2.0#desktopvirtualization&preserve-view=true).
 
 Para más información acerca de las nuevas características, consulte [nuestra entrada del blog](https://techcommunity.microsoft.com/t5/itops-talk-blog/windows-virtual-desktop-spring-update-enters-public-preview/ba-p/1340245).
 

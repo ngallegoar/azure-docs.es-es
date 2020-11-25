@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 05/03/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 8119d01ae8e8ed1e809753e433b063a844a2c5c3
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: ccd998bc2f6e2771ff4dd1bedfa2213af7573102
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790685"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94556597"
 ---
 # <a name="automated-backup-for-sql-server-2014-virtual-machines-resource-manager"></a>Automated Backup para SQL Server 2014 en máquinas virtuales (Resource Manager)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -35,11 +35,11 @@ Automated Backup configura automáticamente [Automated Backup para Microsoft Azu
 Para utilizar Automated Backup, tenga en cuenta los siguientes requisitos previos:
 
 
-**Sistema operativo** :
+**Sistema operativo**:
 
 - Windows Server 2012 y versiones posteriores 
 
-**Edición/versión de SQL Server** :
+**Edición/versión de SQL Server**:
 
 - SQL Server 2014 Standard
 - SQL Server 2014 Enterprise
@@ -47,10 +47,10 @@ Para utilizar Automated Backup, tenga en cuenta los siguientes requisitos previo
 > [!NOTE]
 > Para SQL 2016 y versiones posteriores, consulte [Copia de seguridad automatizada para SQL Server 2016](automated-backup.md).
 
-**Configuración de base de datos** :
+**Configuración de base de datos**:
 
 - Las bases de datos de _usuario_ de destino deben utilizar el modelo de recuperación completa. Las bases de datos del sistema no tienen que usar el modelo de recuperación completa. Aun así, sí debe usar el modelo de recuperación completa si necesita realizar copias de seguridad de registros para el modelo o para MSDB. Para obtener más información sobre el impacto del modelo de recuperación completa en las copias de seguridad, vea [Copia de seguridad en el modelo de recuperación completa](/previous-versions/sql/sql-server-2008-r2/ms190217(v=sql.105)). 
-- La máquina virtual de SQL Server se ha registrado con el proveedor de recursos de máquinas virtuales con SQL en [modo de administración completa](sql-vm-resource-provider-register.md#upgrade-to-full). 
+- La máquina virtual de SQL Server se ha registrado con la extensión Agente de IaaS de SQL en [modo de administración completa](sql-agent-extension-manually-register-single-vm.md#upgrade-to-full). 
 -  La copia de seguridad automatizada se basa en la [extensión de agente de IaaS de SQL Server](sql-server-iaas-agent-extension-automate-management.md) completa. Como tal, solo se admite en las bases de datos de destino de la instancia predeterminada o en una única instancia con nombre. Si no hay ninguna instancia predeterminada y hay varias instancias con nombre, se producirá un error en la extensión IaaS de SQL y la copia de seguridad automatizada no funcionará. 
 
 ## <a name="settings"></a>Configuración
@@ -70,7 +70,7 @@ En la siguiente tabla se describen las opciones que pueden configurarse para Aut
 
 Use Azure Portal para configurar la opción Automated Backup cuando cree una máquina virtual de SQL Server 2014 en el modelo de implementación de Resource Manager.
 
-En la pestaña **Configuración de SQL Server** , desplácese hacia abajo hasta **Copia de seguridad automatizada** y seleccione **Habilitar** . La siguiente captura de pantalla de Azure Portal muestra la opción de configuración **Copia de seguridad automatizada de SQL** .
+En la pestaña **Configuración de SQL Server**, desplácese hacia abajo hasta **Copia de seguridad automatizada** y seleccione **Habilitar**. La siguiente captura de pantalla de Azure Portal muestra la opción de configuración **Copia de seguridad automatizada de SQL**.
 
 ![Configuración de Automated Backup de SQL en Azure Portal](./media/automated-backup-sql-2014/azure-sql-arm-autobackup.png)
 
@@ -80,7 +80,7 @@ En la pestaña **Configuración de SQL Server** , desplácese hacia abajo hasta 
 
 En las máquinas virtuales con SQL Server existentes, desde Azure Portal se pueden habilitar y deshabilitar las copias de seguridad automatizadas, cambiar el período de retención, especificar la cuenta de almacenamiento y habilitar el cifrado. 
 
-Vaya al [recurso de máquinas virtuales SQL](manage-sql-vm-portal.md#access-the-sql-virtual-machines-resource) de la máquina virtual con SQL Server 2014 y seleccione **Copias de seguridad** . 
+Vaya al [recurso de máquinas virtuales SQL](manage-sql-vm-portal.md#access-the-sql-virtual-machines-resource) de la máquina virtual con SQL Server 2014 y seleccione **Copias de seguridad**. 
 
 ![Automated Backup de SQL para máquinas virtuales existentes](./media/automated-backup-sql-2014/azure-sql-rm-autobackup-existing-vms.png)
 
@@ -96,12 +96,12 @@ Si habilita Automated Backup por primera vez, Azure configura el Agente de IaaS 
 Puede usar PowerShell para configurar la copia de seguridad automatizada. Antes de comenzar:
 
 - [Descargue e instale la última versión de Azure PowerShell](https://aka.ms/webpi-azps).
-- Abra Windows PowerShell y asócielo a su cuenta con el comando **Connect-AzAccount** . 
+- Abra Windows PowerShell y asócielo a su cuenta con el comando **Connect-AzAccount**. 
 
 [!INCLUDE [updated-for-az.md](../../../../includes/updated-for-az.md)]
 
 ### <a name="install-the-sql-server-iaas-extension"></a>Instalación de la extensión IaaS de SQL Server
-Si se aprovisiona una máquina virtual con SQL Server desde Azure Portal, la extensión de IaaS de SQL Server también debe estar instalada. Para determinar si está instalada para la VM, llame al comando **Get-AzVM** y examine la propiedad **Extensions** .
+Si se aprovisiona una máquina virtual con SQL Server desde Azure Portal, la extensión de IaaS de SQL Server también debe estar instalada. Para determinar si está instalada para la VM, llame al comando **Get-AzVM** y examine la propiedad **Extensions**.
 
 ```powershell
 $vmname = "vmname"
@@ -112,7 +112,7 @@ $resourcegroupname = "resourcegroupname"
 
 Si la extensión del agente IaaS de SQL Server está instalada, debe aparecer como "SqlIaaSAgent" o "SQLIaaSExtension". **ProvisioningState** para la extensión también debería aparecer como "Correcto".
 
-Si no está instalada o no se ha podido aprovisionar, puede instalarla con el comando siguiente. Además del grupo de recursos y del nombre de VM, también debe especificar la región ( **$region** ) en que se encuentra dicha VM. Especifique el tipo de licencia de la máquina virtual con SQL Server, eligiendo entre pago por uso o traiga su propia licencia mediante la [Ventaja híbrida de Azure](https://azure.microsoft.com/pricing/hybrid-benefit/). Para más información acerca de las licencias, consulte [Modelo de licencia](licensing-model-azure-hybrid-benefit-ahb-change.md). 
+Si no está instalada o no se ha podido aprovisionar, puede instalarla con el comando siguiente. Además del grupo de recursos y del nombre de VM, también debe especificar la región ( **$region**) en que se encuentra dicha VM. Especifique el tipo de licencia de la máquina virtual con SQL Server, eligiendo entre pago por uso o traiga su propia licencia mediante la [Ventaja híbrida de Azure](https://azure.microsoft.com/pricing/hybrid-benefit/). Para más información acerca de las licencias, consulte [Modelo de licencia](licensing-model-azure-hybrid-benefit-ahb-change.md). 
 
 ```powershell
 New-AzSqlVM  -Name $vmname `
@@ -125,7 +125,7 @@ New-AzSqlVM  -Name $vmname `
 
 ### <a name="verify-current-settings"></a><a id="verifysettings"></a> Verificación de la configuración actual
 
-Si ha habilitado la copia de seguridad automatizada durante el aprovisionamiento, puede usar PowerShell para comprobar la configuración actual. Ejecute el comando **Get-AzVMSqlServerExtension** y examine la propiedad **AutoBackupSettings** :
+Si ha habilitado la copia de seguridad automatizada durante el aprovisionamiento, puede usar PowerShell para comprobar la configuración actual. Ejecute el comando **Get-AzVMSqlServerExtension** y examine la propiedad **AutoBackupSettings**:
 
 ```powershell
 (Get-AzVMSqlServerExtension -VMName $vmname -ResourceGroupName $resourcegroupname).AutoBackupSettings
@@ -148,7 +148,7 @@ FullBackupWindowHours       :
 LogBackupFrequency          : 
 ```
 
-Si la salida muestra que la opción **Habilitar** está establecida en **False** , tiene que habilitar la copia de seguridad automatizada. Lo bueno es que habilita y configura Automated Backup de la misma manera. Vea la sección siguiente para leer esta información.
+Si la salida muestra que la opción **Habilitar** está establecida en **False**, tiene que habilitar la copia de seguridad automatizada. Lo bueno es que habilita y configura Automated Backup de la misma manera. Vea la sección siguiente para leer esta información.
 
 > [!NOTE] 
 > Si comprueba la configuración inmediatamente después de realizar un cambio, es posible que obtenga los valores de configuración anteriores. Espere unos minutos y compruebe la configuración de nuevo para asegurarse de que se hayan aplicado los cambios.
@@ -172,7 +172,7 @@ If (-Not $storage)
 > [!NOTE]
 > Automated Backup no permite almacenar las copias de seguridad en Premium Storage, pero pueden realizar copias de seguridad de discos de VM que usan Premium Storage.
 
-Luego use el comando **New-AzVMSqlServerAutoBackupConfig** para habilitar y configurar los valores de Copia de seguridad automatizada para almacenar copias de seguridad en la cuenta de Azure Storage. En este ejemplo, las copias de seguridad se conservan durante 10 días. El segundo comando, **Set-AzVMSqlServerExtension** , actualiza la VM de Azure especificada con esta configuración.
+Luego use el comando **New-AzVMSqlServerAutoBackupConfig** para habilitar y configurar los valores de Copia de seguridad automatizada para almacenar copias de seguridad en la cuenta de Azure Storage. En este ejemplo, las copias de seguridad se conservan durante 10 días. El segundo comando, **Set-AzVMSqlServerExtension**, actualiza la VM de Azure especificada con esta configuración.
 
 ```powershell
 $autobackupconfig = New-AzVMSqlServerAutoBackupConfig -Enable `
@@ -186,9 +186,9 @@ Set-AzVMSqlServerExtension -AutoBackupSettings $autobackupconfig `
 La instalación y configuración del agente de Iaas de SQL Server puede tardar algunos minutos.
 
 > [!NOTE]
-> Hay otras opciones de **New-AzVMSqlServerAutoBackupConfig** que solo se aplican a SQL Server 2016 y a Copia de seguridad automatizada v2. SQL Server 2014 no admite las siguientes opciones: **BackupSystemDbs** , **BackupScheduleType** , **FullBackupFrequency** , **FullBackupStartHour** , **FullBackupWindowInHours** y **LogBackupFrequencyInMinutes** . Si intenta configurar estas opciones en una máquina virtual de SQL Server 2014, no hay ningún error, pero no se aplica la configuración. Si quiere usar estas opciones en una máquina virtual de SQL Server 2016, vea [Automated Backup v2 para máquinas virtuales de Azure con SQL Server 2016](automated-backup.md).
+> Hay otras opciones de **New-AzVMSqlServerAutoBackupConfig** que solo se aplican a SQL Server 2016 y a Copia de seguridad automatizada v2. SQL Server 2014 no admite las siguientes opciones: **BackupSystemDbs**, **BackupScheduleType**, **FullBackupFrequency**, **FullBackupStartHour**, **FullBackupWindowInHours** y **LogBackupFrequencyInMinutes**. Si intenta configurar estas opciones en una máquina virtual de SQL Server 2014, no hay ningún error, pero no se aplica la configuración. Si quiere usar estas opciones en una máquina virtual de SQL Server 2016, vea [Automated Backup v2 para máquinas virtuales de Azure con SQL Server 2016](automated-backup.md).
 
-Para habilitar el cifrado, modifique el script anterior para pasar el parámetro **EnableEncryption** junto con una contraseña (cadena segura) para el parámetro **CertificatePassword** . El siguiente script habilita la configuración de Automated Backup en el ejemplo anterior y agrega cifrado.
+Para habilitar el cifrado, modifique el script anterior para pasar el parámetro **EnableEncryption** junto con una contraseña (cadena segura) para el parámetro **CertificatePassword**. El siguiente script habilita la configuración de Automated Backup en el ejemplo anterior y agrega cifrado.
 
 ```powershell
 $password = "P@ssw0rd"
@@ -207,7 +207,7 @@ Para confirmar que se ha aplicado la configuración, [verifique la configuració
 
 ### <a name="disable-automated-backup"></a>Deshabilitar Automated Backup
 
-Para deshabilitar Copia de seguridad automatizada, ejecute el mismo script sin el parámetro **-Enable** en el comando **New-AzVMSqlServerAutoBackupConfig** . La ausencia del parámetro **-Enable** indica al comando que deshabilite la característica. Al igual que la instalación, la deshabilitación de Automated Backup puede tardar algunos minutos.
+Para deshabilitar Copia de seguridad automatizada, ejecute el mismo script sin el parámetro **-Enable** en el comando **New-AzVMSqlServerAutoBackupConfig**. La ausencia del parámetro **-Enable** indica al comando que deshabilite la característica. Al igual que la instalación, la deshabilitación de Automated Backup puede tardar algunos minutos.
 
 ```powershell
 $autobackupconfig = New-AzVMSqlServerAutoBackupConfig -ResourceGroupName $storage_resourcegroupname
@@ -261,11 +261,11 @@ Para supervisar Automated Backup en SQL Server 2014, tienes dos opciones princ
 En primer lugar, puede sondear el estado mediante una llamada a [msdb.smart_admin.sp_get_backup_diagnostics](/sql/relational-databases/system-stored-procedures/managed-backup-sp-get-backup-diagnostics-transact-sql). O bien consultar la función con valores de tabla [msdb.smart_admin.fn_get_health_status](/sql/relational-databases/system-functions/managed-backup-fn-get-health-status-transact-sql).
 
 > [!NOTE]
-> El esquema de Copia de seguridad administrada de SQL Server 2014 es **msdb.smart_admin** . En SQL Server 2016, cambió a **msdb.managed_backup** , y los temas de referencia utilizan este esquema más reciente. Pero para SQL Server 2014, debe seguir usando el esquema **smart_admin** para todos los objetos de Copia de seguridad administrada.
+> El esquema de Copia de seguridad administrada de SQL Server 2014 es **msdb.smart_admin**. En SQL Server 2016, cambió a **msdb.managed_backup**, y los temas de referencia utilizan este esquema más reciente. Pero para SQL Server 2014, debe seguir usando el esquema **smart_admin** para todos los objetos de Copia de seguridad administrada.
 
 Otra opción es aprovechar las ventajas de la característica integrada Correo electrónico de base de datos para las notificaciones.
 
-1. Llame al procedimiento almacenado [msdb.smart_admin.sp_set_parameter](/sql/relational-databases/system-stored-procedures/managed-backup-sp-set-parameter-transact-sql) para asignar una dirección de correo electrónico al parámetro **SSMBackup2WANotificationEmailIds** . 
+1. Llame al procedimiento almacenado [msdb.smart_admin.sp_set_parameter](/sql/relational-databases/system-stored-procedures/managed-backup-sp-set-parameter-transact-sql) para asignar una dirección de correo electrónico al parámetro **SSMBackup2WANotificationEmailIds**. 
 1. Habilite [SendGrid](../../../sendgrid-dotnet-how-to-send-email.md) para enviar los mensajes de correo electrónico desde la VM de Azure.
 1. Utilice el nombre de usuario y el servidor SMTP para configurar Correo electrónico de base de datos. Puede configurar Correo electrónico de base de datos en SQL Server Management Studio o con comandos de Transact-SQL. Para obtener más información, consulte [Correo electrónico de base de datos](/sql/relational-databases/database-mail/database-mail).
 1. [Configurar el Agente SQL Server para que use el Correo electrónico de base de datos](/sql/relational-databases/database-mail/configure-sql-server-agent-mail-to-use-database-mail).

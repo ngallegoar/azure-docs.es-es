@@ -4,12 +4,12 @@ description: Acceda rápidamente a la telemetría de sus solicitudes y excepcion
 ms.topic: conceptual
 ms.date: 03/17/2017
 ms.custom: vs-azure
-ms.openlocfilehash: 92879e9dc7b9de7ef5862f30241f2b80e6aac9e8
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 2cfc4e06dcb5671f34ff98794c9569b6ed5ddae7
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91932658"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94538502"
 ---
 # <a name="application-insights-telemetry-in-visual-studio-codelens"></a>Telemetría de Application Insights en CodeLens de Visual Studio
 Los métodos del código de la aplicación web se pueden anotar con telemetría acerca de las excepciones en tiempo de ejecución y los tiempos de respuesta de las solicitudes. Si instala [Azure Application Insights](./app-insights-overview.md) en la aplicación, la telemetría aparece en [CodeLens](/visualstudio/ide/find-code-changes-and-other-history-with-codelens?view=vs-2015) de Visual Studio (las notas de la parte superior de cada función en las que suele ver información útil, como el número de lugares en que se hace referencia a la función o la última persona que la editó).
@@ -30,7 +30,7 @@ Busque los datos de telemetría de Application Insights en los indicadores de Co
 > 
 
 ## <a name="exceptions-in-codelens"></a>Excepciones en CodeLens
-![TBD](./media/visual-studio-codelens/codelens-exceptions.png)
+![La captura de pantalla muestra 47 excepciones que aparecen en CodeLens.](./media/visual-studio-codelens/codelens-exceptions.png)
 
 El indicador de excepción de CodeLens muestra el número de excepciones que se han producido en las últimas 24 horas de las 15 excepciones que se producen con más frecuencia en la aplicación durante dicho período, al procesar la solicitud atendida por el método.
 
@@ -52,7 +52,7 @@ Para más detalles, haga clic en el indicador de excepciones de CodeLens:
 > 
 
 ## <a name="requests-in-codelens"></a>Solicitudes en CodeLens
-![TBD](./media/visual-studio-codelens/codelens-requests.png)
+![Captura de pantalla que muestra detalles de 684 solicitudes, incluido un 7 % de errores.](./media/visual-studio-codelens/codelens-requests.png)
 
 El indicador de solicitud de CodeLens muestra el número de solicitudes HTTP que sido atendidas por un método en las últimas 24 horas, además del porcentaje de dichas solicitudes en las que han producido errores.
 

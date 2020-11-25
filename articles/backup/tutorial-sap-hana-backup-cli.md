@@ -1,15 +1,15 @@
 ---
-title: 'Tutorial: copia de seguridad de la base de datos de SAP HANA en Azure mediante la CLI'
+title: 'Tutorial: copia de seguridad de la base de datos de SAP HANA en Azure mediante la CLI de Azure'
 description: En este tutorial aprenderá a hacer una copia de seguridad de las bases de datos de SAP HANA que se ejecutan en una máquina virtual de Azure en un almacén de Recovery Services de Azure Backup mediante la CLI de Azure.
 ms.topic: tutorial
 ms.date: 12/4/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: f11e01c6af18cac956d58b9c692d7b57c8fe653a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 41869ac4dfc0d3964fb48463e5f142b8391e2d94
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91324967"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94579260"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm-using-azure-cli"></a>Tutorial: Copia de seguridad de las bases de datos de SAP HANA en una máquina virtual de Azure con la CLI de Azure
 
@@ -26,9 +26,9 @@ En este documento se supone que ya tiene una base de datos de SAP HANA instalada
 
 Consulte los [escenarios admitidos actualmente](./sap-hana-backup-support-matrix.md#scenario-support) para SAP HANA.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Para instalar y usar la CLI localmente, debe ejecutar la versión xx.xxx.x de la CLI de Azure o una posterior. Para averiguar la versión de la CLI, ejecute `az --version`. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli).
+ - Este tutorial requiere la versión 2.0.30 de la CLI de Azure, o cualquier versión posterior. Si usa Azure Cloud Shell, ya está instalada la versión más reciente.
 
 ## <a name="create-a-recovery-services-vault"></a>Creación de un almacén de Recovery Services
 

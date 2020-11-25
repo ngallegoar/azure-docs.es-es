@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, bonova, danil
 ms.date: 11/10/2020
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: 873bebc462ce4756d38f966a87edda167bd49501
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 610ab649d64351b0897ef7358cdaf9280fe3ba55
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94506386"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94684927"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Diferencias de T-SQL entre SQL Server y una Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -517,12 +517,11 @@ Las siguientes variables, funciones y vistas devuelven resultados diferentes:
 ### <a name="failover-groups"></a>Grupos de conmutación por error
 Las bases de datos del sistema no se replican en la instancia secundaria de un grupo de conmutación por error. Por lo tanto, los escenarios que dependen de objetos de las bases de datos del sistema serán imposibles en la instancia secundaria, a menos que los objetos se creen manualmente en la secundaria.
 
-### <a name="failover-groups"></a>Grupos de conmutación por error
-Las bases de datos del sistema no se replican en la instancia secundaria de un grupo de conmutación por error. Por lo tanto, los escenarios que dependen de objetos de las bases de datos del sistema serán imposibles en la instancia secundaria, a menos que los objetos se creen manualmente en la secundaria.
-
 ### <a name="tempdb"></a>TEMPDB
-
-El tamaño máximo del archivo `tempdb` no puede ser mayor de 24 GB por núcleo en un nivel De uso general. El tamaño máximo de `tempdb` en un nivel Crítico para la empresa está limitado por el tamaño de almacenamiento de la Instancia administrada de SQL. El tamaño del archivo de registro `Tempdb` está limitado a 120 GB en el nivel de uso general. Algunas consultas podrían devolver un error si necesitan más de 24 GB por núcleo en `tempdb` o si producen datos de registro superiores a 120 GB.
+- El tamaño máximo del archivo `tempdb` no puede ser mayor de 24 GB por núcleo en un nivel De uso general. El tamaño máximo de `tempdb` en un nivel Crítico para la empresa está limitado por el tamaño de almacenamiento de la Instancia administrada de SQL. El tamaño del archivo de registro `Tempdb` está limitado a 120 GB en el nivel de uso general. Algunas consultas podrían devolver un error si necesitan más de 24 GB por núcleo en `tempdb` o si producen datos de registro superiores a 120 GB.
+- `Tempdb` siempre se divide en 12 archivos de datos: 1 principal, también denominado archivo de datos principal, y 11 archivos de datos no principales. La estructura de archivos no se puede modificar y los archivos nuevos no se pueden agregar a `tempdb`. 
+- Los [metadatos `tempdb` optimizados para memoria](/sql/relational-databases/databases/tempdb-database?view=sql-server-ver15#memory-optimized-tempdb-metadata), una característica nueva de base de datos en memoria de SQL Server 2019, no son compatibles.
+- Los objetos creados en la base de datos modelo no se pueden crear automáticamente en `tempdb` después de un reinicio o una conmutación por error, porque `tempdb` no obtiene su lista de objetos inicial de la base de datos modelo. Debe crear los objetos en `tempdb` manualmente después de cada reinicio o de una conmutación por error.
 
 ### <a name="msdb"></a>MSDB
 

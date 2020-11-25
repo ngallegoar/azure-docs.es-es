@@ -11,12 +11,12 @@ ms.author: anumamah
 ms.reviewer: nibaccam
 ms.date: 08/14/2020
 ms.custom: devx-track-python, automl
-ms.openlocfilehash: 811f1c27af660d388ecb875741c073591bd25f7f
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 4f6e194f04789fbcaf24d69965dfa8ac61b20a38
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93358616"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94886335"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-predict-taxi-fares"></a>Tutorial: Uso del aprendizaje automático para crear predecir tarifas de taxi
 
@@ -39,7 +39,9 @@ Si no tiene una suscripción a Azure, cree una cuenta gratuita antes de empezar.
 * Complete el [tutorial de instalación](tutorial-1st-experiment-sdk-setup.md) si aún no tiene un área de trabajo de Azure Machine Learning o una máquina virtual de cuadernos.
 * Después de completar el tutorial de instalación, abra el cuaderno *tutorials/regression-automl-nyc-taxi-data/regression-automated-ml.ipynb* con el mismo servidor de cuadernos.
 
-Este tutorial también está disponible en [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) si quiere ejecutarlo en su propio [entorno local](how-to-configure-environment.md#local). Ejecute `pip install azureml-sdk[automl] azureml-opendatasets azureml-widgets` para obtener los paquetes requeridos.
+Este tutorial también está disponible en [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) si quiere ejecutarlo en su propio [entorno local](how-to-configure-environment.md#local). Para obtener los paquetes obligatorios, 
+* [instale el cliente `automl` completo](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/README.md#setup-using-a-local-conda-environment).
+* Ejecute `pip install azureml-opendatasets azureml-widgets` para obtener los paquetes requeridos.
 
 ## <a name="download-and-prepare-data"></a>Descargar y preparar los datos
 

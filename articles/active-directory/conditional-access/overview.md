@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4, azuread-video-2020
-ms.openlocfilehash: d46dfba9d9dedea57b6be872a6853bc522a0bc8c
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: f0a91a4d3b479d1243907951481e5a10f7085bbc
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92145240"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94837437"
 ---
 # <a name="what-is-conditional-access"></a>¿Qué es el acceso condicional?
 
@@ -80,7 +80,7 @@ Muchas organizaciones tienen [problemas de acceso comunes y las directivas de ac
 - Requerir la autenticación multifactor a los usuarios con roles administrativos
 - Requerir la autenticación multifactor para las tareas de administración de Azure
 - Bloquear los inicios de sesión a los usuarios que intenten usar protocolos de autenticación heredados
-- Requerir ubicaciones de confianza para el registro de Azure Multi-Factor Authentication
+- Requerir ubicaciones de confianza para el registro de Azure AD Multi-Factor Authentication
 - Bloquear o conceder el acceso desde ubicaciones concretas
 - Bloquear de comportamientos de inicio de sesión peligrosos
 - Requerir dispositivos administrados por la organización para aplicaciones concretas

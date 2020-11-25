@@ -10,16 +10,16 @@ ms.subservice: sql-dw
 ms.date: 08/23/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 4751f3cf213098873b0c53b15df82f57d155787a
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 766837cacb4ef2acf874c2872b347b6d35633faa
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93313299"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701004"
 ---
 # <a name="source-control-integration-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Integración del control de código fuente para el grupo de SQL dedicado en Azure Synapse Analytics
 
-En este tutorial se describe cómo integrar el proyecto de base de datos de SQL Server Data Tools (SSDT) con control de código fuente.  La integración del control de código fuente es el primer paso en la creación de una canalización de integración e implementación continuas con el recurso de grupo de SQL dedicado en Azure Synapse Analytics.
+En este tutorial se describe cómo integrar el proyecto de base de datos de SQL Server Data Tools (SSDT) con el control de código fuente.  La integración del control de código fuente es el primer paso en la creación de una canalización de integración e implementación continuas con el recurso de grupo de SQL dedicado en Azure Synapse Analytics.
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
@@ -85,7 +85,7 @@ Para más información sobre cómo conectar proyectos mediante Visual Studio, co
 
    ![Verify](./media/sql-data-warehouse-source-control-integration/10-verify-column-change-pushed.png "Comprobar los cambios")
 
-4. ( **Opcional** ) Use Comparación de esquemas y actualice los cambios en el almacenamiento de datos de destino mediante SSDT para asegurarse de que las definiciones de los objetos del repositorio de Azure Repos y del repositorio local reflejan el almacenamiento de datos.
+4. (**Opcional**) Use Comparación de esquemas y actualice los cambios en el almacenamiento de datos de destino mediante SSDT para asegurarse de que las definiciones de los objetos del repositorio de Azure Repos y del repositorio local reflejan el almacenamiento de datos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

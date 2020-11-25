@@ -2,13 +2,13 @@
 title: Configuración de los valores de uso de los laboratorios educativos de Azure Lab Services
 description: Obtenga información sobre cómo configurar el número de alumnos del laboratorio, registrarlos en el laboratorio, controlar el número de horas que pueden usar la máquina virtual y mucho más.
 ms.topic: article
-ms.date: 06/26/2020
-ms.openlocfilehash: 742fcd2b504bce7ad2257edd559e4b66a9172d24
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/11/2020
+ms.openlocfilehash: d3100f1a7e67e3b0d403375de02cb3daf5fcfb31
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91399676"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555726"
 ---
 # <a name="add-and-manage-lab-users"></a>Incorporación y administración de usuarios de laboratorio
 
@@ -41,7 +41,9 @@ En esta sección, agregará alumnos a un laboratorio bien manualmente, bien carg
 
 ### <a name="add-users-by-uploading-a-csv-file"></a>Adición de usuarios mediante la carga de un archivo CSV
 
-También puede agregar usuarios cargando un archivo CSV que contenga sus direcciones de correo electrónico.
+También puede agregar usuarios cargando un archivo CSV que contenga sus direcciones de correo electrónico. 
+
+Se usa un archivo de texto CSV para almacenar datos tabulares (números y texto) separados por comas (CSV). En lugar de almacenar información en campos de columnas (por ejemplo, en hojas de cálculo), un archivo CSV almacena información separada por comas. Cada línea de un archivo CSV tendrá el mismo número de "campos" separados por comas. Puede utilizar Excel para crear y editar archivos CSV fácilmente.
 
 1. En Microsoft Excel, cree un archivo CSV e incluya en él las direcciones de correo electrónico de los estudiantes en una columna.
 
@@ -172,6 +174,7 @@ Para agregar alumnos a un laboratorio de clase, use sus cuentas de correo electr
 - Una cuenta de GitHub. Esta cuenta se debe vincular a una cuenta de Microsoft.
 
 ### <a name="use-a-non-microsoft-email-account"></a>Uso de una cuenta de correo electrónico que no es de Microsoft
+
 Los alumnos pueden usar cuentas de correo electrónico que no sean de Microsoft para registrarse e iniciar sesión en un laboratorio de clase.  Pero el registro exige que deben crear primero una cuenta de Microsoft que esté vinculada a su dirección de correo electrónico que no es de Microsoft.
 
 Es posible que muchos alumnos ya tengan una cuenta de Microsoft vinculada a su dirección de correo electrónico que no es de Microsoft. Por ejemplo, los alumnos ya tienen una cuenta de Microsoft si han usado su dirección de correo electrónico con otros productos o servicios de Microsoft, como Office, Skype, OneDrive o Windows.  
@@ -186,6 +189,7 @@ Con este vínculo, los alumnos pueden [registrarse para obtener una cuenta de Mi
 > Cuando los alumnos inician sesión en un laboratorio de clase, no se les ofrece la opción de crear una cuenta de Microsoft. Por este motivo, se recomienda incluir este vínculo de suscripción (http://signup.live.com ) en el correo electrónico de registro del laboratorio de clase que envíe a los alumnos que usen cuentas que no sean de Microsoft.
 
 ### <a name="use-a-github-account"></a>Uso de una cuenta de GitHub
+
 Los alumnos también pueden usar una cuenta de GitHub existente para registrarse e iniciar sesión en un laboratorio de clase. Si ya tienen una cuenta de Microsoft vinculada a su cuenta de GitHub, los alumnos pueden iniciar sesión y proporcionar su contraseña como se muestra en la sección anterior. 
 
 Si aún no han vinculado su cuenta de GitHub a una cuenta de Microsoft, pueden hacer lo siguiente:
@@ -209,6 +213,7 @@ Si aún no han vinculado su cuenta de GitHub a una cuenta de Microsoft, pueden h
 
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 Vea los artículos siguientes:
 
 - Para los administradores: [Creación y administración de cuentas de laboratorio](how-to-manage-lab-accounts.md)

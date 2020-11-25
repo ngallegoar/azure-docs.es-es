@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.devlang: na
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 6/10/2020
-ms.openlocfilehash: 3a46c2024269affc06d18806aa186fb8b0feaafe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/09/2020
+ms.openlocfilehash: ae66bb025f2a49a79120fe86e0de7c4a3ccf26ca
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91533764"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555386"
 ---
 # <a name="incrementally-copy-new-files-based-on-time-partitioned-file-name-by-using-the-copy-data-tool"></a>Copia incremental de nuevos archivos por el nombre de archivo con particiones de tiempo mediante la herramienta Copiar datos
 
@@ -56,7 +56,7 @@ Haga lo siguiente para preparar su instancia de Blob Storage para el tutorial.
 
 ## <a name="create-a-data-factory"></a>Crear una factoría de datos
 
-1. En el menú de la izquierda, seleccione **Crear un recurso** > **Datos y análisis** > **Data Factory**:
+1. En el menú de la izquierda, seleccione **Crear un recurso** > **Integración** > **Data Factory**:
 
    ![Selección de la factoría de datos en el panel Nuevo](./media/doc-common-process/new-azure-data-factory-menu.png)
 
@@ -70,9 +70,9 @@ Haga lo siguiente para preparar su instancia de Blob Storage para el tutorial.
 3. Seleccione la **suscripción** de Azure en la que quiere crear la nueva factoría de datos.
 4. Para **Grupo de recursos**, realice uno de los siguientes pasos:
 
-    a. Seleccione en primer lugar **Usar existente**y después un grupo de recursos de la lista desplegable.
+    a. Seleccione en primer lugar **Usar existente** y después un grupo de recursos de la lista desplegable.
 
-    b. Seleccione **Crear nuevo**y escriba el nombre de un grupo de recursos. 
+    b. Seleccione **Crear nuevo** y escriba el nombre de un grupo de recursos. 
          
     Para más información sobre los grupos de recursos, consulte [Uso de grupos de recursos para administrar los recursos de Azure](../azure-resource-manager/management/overview.md).
 

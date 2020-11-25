@@ -1,6 +1,6 @@
 ---
 title: Supervisión de la referencia de datos de Azure Machine Learning | Microsoft Docs
-description: Material de referencia importante y necesario para supervisar Azure Machine Learning. Obtenga información sobre los datos y recursos recopilados para Azure Machine Learning y disponibles en Azure Monitor. Azure Monitor recopila y muestra datos sobre el área de trabajo de Azure Machine Learning y le permite ver las métricas, establecer alertas y analizar los datos registrados.
+description: Documentación de referencia para supervisar Azure Machine Learning. Conozca los datos y los recursos recopilados y disponibles en Azure Monitor.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 10/02/2020
-ms.openlocfilehash: be8d6ca79a43ddd2bd709390dd476cb9dcfa7b29
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: bab74a1db04bb557aa6604fe76c05ba3d087f8c0
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323949"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540797"
 ---
 # <a name="monitoring-azure-machine-learning-data-reference"></a>Supervisión de la referencia de datos de Azure Machine Learning
 

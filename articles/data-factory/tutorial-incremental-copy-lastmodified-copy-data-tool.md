@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.devlang: na
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 6/10/2020
-ms.openlocfilehash: 402214da75bffd278e12db94f089d64acd62221e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/09/2020
+ms.openlocfilehash: f94975b91a332e480a1b570c29f02040a1047f75
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84730157"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555420"
 ---
 # <a name="incrementally-copy-new-and-changed-files-based-on-lastmodifieddate-by-using-the-copy-data-tool"></a>Copia incremental de archivos nuevos y modificados según LastModifiedDate con la herramienta Copiar datos
 
@@ -52,7 +52,7 @@ Complete estos pasos para preparar su instancia de Blob Storage para el tutorial
 
 ## <a name="create-a-data-factory"></a>Crear una factoría de datos
 
-1. En el panel izquierdo, seleccione **Crear un recurso**. Seleccione **Análisis** > **Data Factory**:
+1. En el panel izquierdo, seleccione **Crear un recurso**. Seleccione **Integración** > **Data Factory**:
 
    ![Selección de Data Factory](./media/doc-common-process/new-azure-data-factory-menu.png)
 

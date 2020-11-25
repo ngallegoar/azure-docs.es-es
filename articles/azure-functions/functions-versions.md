@@ -4,19 +4,19 @@ description: Azure Functions admite varias versiones del runtime. Conozca las di
 ms.topic: conceptual
 ms.custom: devx-track-dotnet
 ms.date: 12/09/2019
-ms.openlocfilehash: 6641461e63d7c9452351f3b0b99a274d2714a92e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c67708b5c23667a7b0a1603b756d564b35fa0c3f
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88208117"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94533742"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Introducción a las versiones de tiempo de ejecución de Azure Functions
 
 Actualmente, Azure Functions admite tres versiones del host en tiempo de ejecución: 1.x, 2.x y 3.x. Las tres versiones se admiten en escenarios de producción.  
 
 > [!IMPORTANT]
-> La versión 1.x se encuentra en modo de mantenimiento, y solo admite el desarrollo en Azure Portal o localmente en equipos Windows. Las mejoras solo se proporcionan en versiones posteriores. 
+> La versión 1.x se encuentra en modo de mantenimiento, y solo admite el desarrollo en Azure Portal, el portal de Azure Stack Hub o de forma local en equipos con Windows. Las mejoras solo se proporcionan en versiones posteriores. 
 
 En este artículo se detallan algunas de las diferencias entre las distintas versiones, cómo se puede crear cada versión y cómo se cambian las versiones.
 

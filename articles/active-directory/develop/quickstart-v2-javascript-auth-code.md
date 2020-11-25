@@ -12,16 +12,18 @@ ms.workload: identity
 ms.date: 07/17/2020
 ms.author: hahamil
 ms.custom: aaddev, scenarios:getting-started, languages:JavaScript, devx-track-js
-ms.openlocfilehash: 45a6843c5ce55dca7ff72731752f3c1f24a5db6b
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 40929a165e7a3afbbc92a472c352172723745040
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92216664"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94533198"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa-using-the-auth-code-flow"></a>Inicio rápido: Inicio de sesión de los usuarios y obtención de un token de acceso en una SPA de JavaScript mediante el flujo de código de autorización
 
-En este inicio rápido aprenderá a ejecutar un código de ejemplo que muestra cómo una aplicación de página única (SPA) de JavaScript puede iniciar la sesión de los usuarios de cuentas personales, profesionales y educativas mediante el flujo de código de autorización. En el ejemplo de código también se muestra cómo obtener un token de acceso para llamar a una API web, en este caso, Microsoft Graph API. Para ilustrar este tema, consulte el apartado en el que se explica el [funcionamiento del ejemplo](#how-the-sample-works).
+En este inicio rápido descargará y ejecutará un código de ejemplo que muestra cómo una aplicación de página única de JavaScript puede realizar el inicio de sesión de usuarios y llamar a Microsoft Graph API mediante el flujo de código de autorización. En el ejemplo de código también se muestra cómo obtener un token de acceso para llamar a Microsoft Graph API o a cualquier API web. 
+
+Para ilustrar este tema, consulte el apartado en el que se explica el [funcionamiento del ejemplo](#how-the-sample-works).
 
 En este inicio rápido se usa MSAL.js 2.0 con el flujo de código de autorización. Puede encontrar un inicio rápido similar que usa MSAL.js 1.0 con el flujo implícito en [Inicio rápido: Inicio de sesión de usuarios en aplicaciones de página única de JavaScript](./quickstart-v2-javascript.md).
 
@@ -200,4 +202,4 @@ npm install @azure/msal-browser
 Para encontrar una guía paso a paso más detallada sobre la compilación de la aplicación usada en este inicio rápido, consulte:
 
 > [!div class="nextstepaction"]
-> [Tutorial para iniciar sesión y llamar a MS Graph](./tutorial-v2-javascript-auth-code.md).
+> [Tutorial para iniciar sesión y llamar a MS Graph](./tutorial-v2-javascript-auth-code.md)

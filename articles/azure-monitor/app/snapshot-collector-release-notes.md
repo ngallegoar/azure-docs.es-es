@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: pharring
 ms.author: pharring
 ms.date: 11/10/2020
-ms.openlocfilehash: faacb78ca7f055bb8e9a469afb894bc30ee87501
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 89c13566c3710e56a4cd737d9aa03c6fb57edc93
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94507398"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542735"
 ---
 # <a name="release-notes-for-microsoftapplicationinsightssnapshotcollector"></a>Notas de la versión para Microsoft.ApplicationInsights.SnapshotCollector
 
@@ -31,7 +31,7 @@ Versión de carácter puntual para abordar un par de problemas de gran impacto.
 ## <a name="137"></a>[1.3.7](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.3.7)
 ### <a name="changes"></a>Cambios
 El destino de netcoreapp2.0 de SnapshotCollector depende de una versión de Microsoft.ApplicationInsights.AspNetCore >= 2.1.1 (de nuevo). Esto revierte el comportamiento a la manera en la que estaba antes de la versión 1.3.5. Hemos intentado actualizarlo en la versión 1.3.6, pero se han interrumpido algunos escenarios de Azure App Service.
-### <a name="new-features"></a>Características nuevas
+### <a name="new-features"></a>Nuevas características
 Snapshot Collector lee y analiza la cadena de conexión desde la variable de entorno APPLICATIONINSIGHTS_CONNECTION_STRING o desde TelemetryConfiguration. Esto se usa principalmente para establecer el punto de conexión para conectarse al servicio de instantáneas. Para más información, consulte [Cadenas de conexión](./sdk-connection-string.md).
 ### <a name="bug-fixes"></a>Corrección de errores
 - Se ha cambiado para usar HttpClient para todos los destinos excepto net45, porque se produjo un error de WebRequest en algunos entornos debido a un protocolo de seguridad incompatible (requiere TLS 1.2).
@@ -42,7 +42,7 @@ Snapshot Collector lee y analiza la cadena de conexión desde la variable de ent
 - Se ha eliminado la compatibilidad con TLS 1.0 y 1.1 en el cargador de instantáneas.
 - El período de los exámenes de PDB ahora tiene un valor predeterminado de 24 horas en lugar de 15 minutos. Configurable mediante PdbRescanInterval en SnapshotCollectorConfiguration.
 - El examen de PDB busca solo en las carpetas de nivel superior, en lugar de una búsqueda recursiva. Esto puede ser un cambio importante si los símbolos están en subcarpetas de la carpeta de archivos binarios.
-### <a name="new-features"></a>Características nuevas
+### <a name="new-features"></a>Nuevas características
 - Rotación del registro en SnapshotUploader para evitar que se llene la carpeta de registros con archivos antiguos.
 - Compatibilidad con la desoptimización (mediante ReJIT en adjuntos) para aplicaciones de .NET Core 3.0.
 - Se han agregado símbolos al paquete NuGet.
@@ -70,7 +70,7 @@ Snapshot Collector lee y analiza la cadena de conexión desde la variable de ent
 - _Característica experimental_: planes de recopilación de puntos de instantánea: Se ha agregado "snapshotOnFirstOccurence". Encontrará más información [aquí](https://gist.github.com/alexaloni/5b4d069d17de0dabe384ea30e3f21dfe).
 
 ## <a name="133"></a>[1.3.3](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.3.3)
-- Se ha corregido un error que provocaba que SnapshotUploader.exe se bloqueara y no cargara instantáneas para las aplicaciones de .NET Core.
+- Se ha corregido un error que provocaba que SnapshotUploader.exe dejara de responder y no cargara instantáneas de las aplicaciones de .NET Core.
 
 ## <a name="132"></a>[1.3.2](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.3.2)
 - _Característica experimental_: planes de recopilación de puntos de instantánea. Encontrará más información [aquí](https://gist.github.com/alexaloni/5b4d069d17de0dabe384ea30e3f21dfe).

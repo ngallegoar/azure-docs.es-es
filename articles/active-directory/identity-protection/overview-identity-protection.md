@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sahandle
 ms.custom: contperfq1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ed8d645c5bedf6df087fa9c948415c6a1df24e9
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 74cc5bb2b434e757e090bac45202704eb934a522
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92783188"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94835754"
 ---
 # <a name="what-is-identity-protection"></a>¿Qué es Identity Protection?
 
@@ -39,8 +39,8 @@ En su [entrada de blog de octubre de 2018](https://techcommunity.microsoft.com/t
 >
 > El año pasado, en Ignite, hablé sobre los tres ataques principales a nuestros sistemas de identidad. Este es el volumen reciente de estos ataques
 >   
->   - **Reproducción de infracciones** : 4600 millones detectados en mayo de 2018
->   - **Difusión de contraseña** : 350 000 en abril de 2018
+>   - **Reproducción de infracciones**: 4600 millones detectados en mayo de 2018
+>   - **Difusión de contraseña**: 350 000 en abril de 2018
 >   - **Suplantación de identidad (phishing)** : Es difícil de cuantificar con precisión, pero en marzo de 2018, detectamos 23 millones de eventos de riesgo, muchos de los cuales estaban relacionados con la suplantación de identidad (phishing)
 
 ## <a name="risk-detection-and-remediation"></a>Detección y corrección de riesgos
@@ -59,7 +59,7 @@ Identity Protection identifica los riesgos de las siguientes clasificaciones:
 
 Puede encontrar más información sobre estos riesgos y cómo/cuándo se calculan en el artículo [Qué es el riesgo](concept-identity-protection-risks.md).
 
-Las señales de riesgo pueden desencadenar esfuerzos de corrección, como exigir a los usuarios que usen Azure Multi-Factor Authentication, que restablezcan su contraseña mediante el autoservicio de restablecimiento de contraseña o que apliquen bloqueos hasta que un administrador tome medidas.
+Las señales de riesgo pueden desencadenar esfuerzos de corrección, como exigir a los usuarios que usen Azure AD Multi-Factor Authentication, que restablezcan su contraseña mediante el autoservicio de restablecimiento de contraseña o que apliquen bloqueos hasta que un administrador tome medidas.
 
 ## <a name="risk-investigation"></a>Investigación del riesgo
 

@@ -11,67 +11,47 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 09/03/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 080e2daf5065c0762fb039a84e62580e5c915ddb
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 212e5fb62043c2ffe2b8876249a6aad1d224411d
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92735167"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94685858"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-the-azure-portal"></a>Inicio rápido: Establecimiento y recuperación de un secreto de Azure Key Vault mediante Azure Portal
 
-Azure Key Vault es un servicio de almacenamiento seguro de secretos en la nube. Puede almacenar de forma segura claves, contraseñas, certificados y otros secretos. Las instancias de Azure Key Vault se pueden crear y administrar a través de Azure Portal. En esta guía de inicio rápido se crea un almacén de claves y se usa para almacenar un secreto. Para más información sobre Key Vault, consulte esta [introducción](../general/overview.md).
+Azure Key Vault es un servicio de almacenamiento seguro de secretos en la nube. Puede almacenar de forma segura claves, contraseñas, certificados y otros secretos. Las instancias de Azure Key Vault se pueden crear y administrar a través de Azure Portal. En esta guía de inicio rápido se crea un almacén de claves y se usa para almacenar un secreto. 
 
-Para más información sobre los secretos, consulte [Acerca de los secretos](about-secrets.md).
+Para más información, consulte 
+- [Introducción a Azure Key Vault](../general/overview.md)
+- [Información general de los secretos](about-secrets.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+Para acceder a Azure Key Vault, necesitará una suscripción de Azure. Si todavía no tiene una suscripción, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
+
+Todo acceso a los secretos tiene lugar a través de Azure Key Vault. Para este inicio rápido, cree un almacén de claves mediante [Azure Portal](../general/quick-create-portal.md), la [CLI de Azure](../general/quick-create-cli.md) o [Azure PowerShell](../general/quick-create-powershell.md).
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
 Inicie sesión en Azure Portal en https://portal.azure.com.
 
-## <a name="create-a-vault"></a>Creación de un almacén
-
-1. En el menú de Azure Portal o en la **página principal** , seleccione **Crear un recurso**.
-2. En el cuadro de búsqueda, escriba **Key Vault**.
-3. En la lista de resultados, elija **Key Vault**.
-4. En la sección Key Vault, elija **Crear**.
-5. En la sección **Crear Key Vault** , proporcione la siguiente información:
-    - **Name** : se requiere un nombre único. En esta guía de inicio rápido se usará **Contoso-vault2**. 
-    - **Suscripción** : Elija una suscripción.
-    - En **Grupo de recursos** elija **Crear nuevo** y escriba un nombre para el grupo de recursos.
-    - En el menú desplegable **Ubicación** , elija una ubicación.
-    - Deje las restantes opciones con sus valores predeterminados.
-6. Después de proporcionar la información descrita anteriormente, seleccione **Crear**.
-
-Tome nota de las dos propiedades siguientes:
-
-* **Nombre del almacén** : en este ejemplo es **Contoso-Vault2**. Utilizará este nombre para otros pasos.
-* **URI de almacén** : en el ejemplo es https://contoso-vault2.vault.azure.net/. Las aplicaciones que utilizan el almacén a través de su API de REST deben usar este identificador URI.
-
-También se puede crear un almacén de claves con la CLI de Azure y PowerShell:
-- [Creación de un almacén de claves mediante PowerShell](../general/quick-create-powershell.md)
-- [Creación de un almacén de claves mediante la CLI de Azure](../general/quick-create-cli.md)
-
-En este momento, su cuenta de Azure es la única autorizada para realizar operaciones en este nuevo almacén.
-
-![Salida tras completarse la creación de Key Vault](../media/quick-create-portal/vault-properties.png)
-
 ## <a name="add-a-secret-to-key-vault"></a>Incorporación de un secreto a Key Vault
 
-Para agregar un secreto al almacén, simplemente debe realizar un par de pasos adicionales. En este caso se ha agregado una contraseña que una aplicación podría usar. La contraseña se denomina **ExamplePassword** y almacena el valor de **Pa$$hVFkk965BuUv**.
+Para agregar un secreto al almacén, siga estos pasos:
 
-1. En las páginas de propiedades de Key Vault, seleccione **Secretos**.
-2. Haga clic en **Generar o Importar**.
-3. En la pantalla **Crear un secreto** , elija los siguientes valores:
-    - **Opciones de carga** : Manual.
-    - **Name** : ExamplePassword.
-    - **Valor** : hVFkk965BuUv
+1. Vaya al nuevo almacén de claves en Azure Portal.
+1. En las páginas de configuración de Key Vault, seleccione **Secretos**.
+1. Haga clic en **Generar o Importar**.
+1. En la pantalla **Crear un secreto**, elija los siguientes valores:
+    - **Opciones de carga**: Manual.
+    - **Name**: Escriba un nombre para el secreto. El nombre del secreto debe ser único en Key Vault. El nombre debe ser una cadena de entre 1 y 127 caracteres que solo contenga 0-9, a-z, A-Z y -. Para más información sobre la nomenclatura, consulte [Objetos, identificadores y control de versiones de Key Vault](https://docs.microsoft.com/azure/key-vault/general/about-keys-secrets-certificates#objects-identifiers-and-versioning).
+    - **Valor**: Escriba un valor para el secreto. Las API de Key Vault aceptan y devuelven los valores de secreto como cadenas. 
     - Deje las restantes opciones con sus valores predeterminados. Haga clic en **Crear**.
 
 Una vez recibido el mensaje de que el secreto se ha creado correctamente, puede hacer clic en él en la lista. 
+
+Para más información sobre los atributos de secretos, consulte [Acerca de los secretos de Azure Key Vault](https://docs.microsoft.com/azure/key-vault/secrets/about-secrets).
 
 ## <a name="retrieve-a-secret-from-key-vault"></a>Recuperar un secreto del almacén de claves
 
@@ -83,6 +63,8 @@ Si hace clic en el botón "Mostrar valor secreto" en el panel de la derecha, pue
 
 ![Valor secreto visible](../media/quick-create-portal/current-version-shown.png)
 
+También puede usar la [CLI de Azure]() o [Azure PowerShell]() para recuperar el secreto creado previamente.
+
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
 Otras guías de inicio rápido y tutoriales de Key Vault se basan en esta. Si tiene pensado seguir trabajando en otras guías de inicio rápido y tutoriales, considere la posibilidad de dejar estos recursos activos.
@@ -92,6 +74,8 @@ Cuando ya no lo necesite, elimine el grupo de recursos; de este modo se eliminar
 2. Seleccione **Eliminar grupo de recursos**.
 3. En el cuadro **ESCRIBA EL NOMBRE DEL GRUPO DE RECURSOS:** escriba el nombre del grupo de recursos y seleccione **Eliminar**.
 
+> [!NOTE]
+> Es importante tener en cuenta que una vez que se elimina un secreto, una clave, un certificado o un almacén de claves, no se podrá recuperar durante un período configurable de 7 a 90 días naturales. Si no se especifica ninguna configuración, el período de recuperación predeterminado se establecerá en 90 días. De esta forma, los usuarios tendrán tiempo suficiente para darse cuenta de la eliminación accidental de un secreto y responder a ella. Para más información sobre cómo eliminar y recuperar los almacenes de claves y los objetos de Key Vault, consulte [Información general sobre la eliminación temporal de Azure Key Vault](https://docs.microsoft.com/azure/key-vault/general/soft-delete-overview).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

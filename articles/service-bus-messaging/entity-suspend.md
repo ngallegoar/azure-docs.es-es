@@ -3,28 +3,29 @@ title: Entidades de mensajería de suspensión de Azure Service Bus
 description: En este artículo se explica cómo suspender y reactivar temporalmente entidades de mensaje de Azure Service Bus (colas, temas y suscripciones).
 ms.topic: article
 ms.date: 09/29/2020
-ms.openlocfilehash: f89e17e494cc777691b7f7ca47538cd29114d2dc
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: ea1acab3d0a86b0064f8b3eef7bfd1496bd17041
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91575265"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94543058"
 ---
 # <a name="suspend-and-reactivate-messaging-entities-disable"></a>Suspensión y reactivación de entidades de mensajería (deshabilitar)
 
 Las colas, los temas y las suscripciones se pueden suspender temporalmente. La suspensión coloca la entidad en un estado deshabilitado, en el que todos los mensajes se mantienen en el almacenamiento. Sin embargo, no se quitan ni se agregan mensajes, y las operaciones del protocolo respectivo producen error.
 
-Normalmente la suspensión de una entidad se realiza por motivos administrativos urgentes. Una de estas situaciones puede darse cuando se tiene un receptor defectuoso que saca mensajes de la cola, no realiza el procesamiento y encima completa incorrectamente los mensajes y los quita. Si se diagnostica este comportamiento, la cola se puede deshabilitar para las recepciones hasta que se implemente el código correcto y pueda impedirse que se sigan perdiendo datos debido a código incorrecto.
+Es posible que quiera suspender una entidad por razones administrativas urgentes. Por ejemplo, cuando un receptor defectuoso saca mensajes de la cola, no realiza el procesamiento y encima completa incorrectamente los mensajes y los quita. En este caso, puede que quiera deshabilitar la cola de recepción hasta que corrija e implemente el código. 
 
 El usuario o el sistema pueden realizar la suspensión o la reactivación. El sistema solo suspende las entidades por motivos administrativos graves como haber alcanzado el límite de gasto de suscripción. El usuario no puede reactivar las entidades deshabilitadas por el sistema, pero se restauran cuando se ha solucionado la causa de la suspensión.
 
 ## <a name="queue-status"></a>Estado de la cola 
-Los estados que se pueden establecer para una cola son:
+Los estados que se pueden establecer para una **cola** son:
 
--   **Activa**: la cola está activa.
+-   **Activa**: la cola está activa. Puede enviar y recibir mensajes de la cola. 
 -   **Disabled**: la cola se ha suspendido. Es equivalente a establecer **SendDisabled** y **ReceiveDisabled**. 
--   **SendDisabled**: la cola se suspende parcialmente y se permite la recepción.
--   **ReceiveDisabled**: la cola se suspende parcialmente y se permite el envío.
+-   **SendDisabled**: no puede enviar mensajes a la cola, pero puede recibirlos de ella. Si intenta enviar mensajes a la cola, recibirá una excepción. 
+-   **ReceiveDisabled**: puede enviar mensajes a la cola, pero no puede recibirlos de ella. Si intenta recibir mensajes de la cola, obtendrá una excepción.
+
 
 ### <a name="change-the-queue-status-in-the-azure-portal"></a>Cambie el estado de la cola en Azure Portal: 
 
@@ -35,9 +36,9 @@ Los estados que se pueden establecer para una cola son:
     :::image type="content" source="./media/entity-suspend/select-state.png" alt-text="Selección del estado de la cola":::
 4. Seleccione el nuevo estado de la cola y luego **Aceptar**. 
 
-    :::image type="content" source="./media/entity-suspend/entity-state-change.png" alt-text="Selección del estado de la cola":::
+    :::image type="content" source="./media/entity-suspend/entity-state-change.png" alt-text="Establecimiento del estado de la cola":::
     
-El portal solo permite deshabilitar completamente las colas. También puede deshabilitar las operaciones de envío y recepción por separado mediante las API [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) de Service Bus en el SDK de .NET Framework, o con una plantilla de Azure Resource Manager mediante la CLI de Azure o Azure PowerShell.
+También puede deshabilitar las operaciones de envío y recepción mediante las API [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) de Service Bus en el SDK de .NET, o con una plantilla de Azure Resource Manager mediante la CLI de Azure o Azure PowerShell.
 
 ### <a name="change-the-queue-status-using-azure-powershell"></a>Cambio del estado de la cola mediante Azure PowerShell
 El comando de PowerShell para deshabilitar una cola se muestra en el ejemplo siguiente. El comando de reactivación es equivalente a establecer `Status` en **Activo**.
@@ -51,24 +52,31 @@ Set-AzServiceBusQueue -ResourceGroup mygrp -NamespaceName myns -QueueName myqueu
 ```
 
 ## <a name="topic-status"></a>Estado del tema
-Cambiar el estado del tema en el Azure Portal es similar a cambiar el estado de una cola. Cuando seleccione el estado actual del tema, verá la siguiente página que le permite cambiar el estado. 
+Puede cambiar el estado del tema en Azure Portal. Seleccione el estado actual del tema para ver la siguiente página, que le permite cambiar el estado. 
 
-:::image type="content" source="./media/entity-suspend/topic-state-change.png" alt-text="Selección del estado de la cola":::
+:::image type="content" source="./media/entity-suspend/topic-state-change.png" alt-text="Cambio del estado de tema":::
 
-Los estados que se pueden establecer para una tema son:
-- **Activa**: El tema está activo.
-- **Disabled**: El tema se ha suspendido.
-- **SendDisabled**: El mismo efecto que **Disabled**.
+Los estados que se pueden establecer para un **tema** son:
+- **Activa**: El tema está activo. Puede enviar mensajes al tema. 
+- **Disabled**: El tema se ha suspendido. No puede enviar mensajes al tema. 
+- **SendDisabled**: El mismo efecto que **Disabled**. No puede enviar mensajes al tema. Si intenta enviar mensajes al tema, recibirá una excepción. 
 
 ## <a name="subscription-status"></a>Estado de la suscripción
-Cambiar el estado de la suscripción en Azure Portal es similar a cambiar el estado de un tema o de una cola. Cuando seleccione el estado actual de la suscripción, verá la siguiente página que le permite cambiar el estado. 
+Puede cambiar el estado de la suscripción en Azure Portal. Seleccione el estado actual de la suscripción para ver la siguiente página, que le permite cambiar el estado. 
 
-:::image type="content" source="./media/entity-suspend/subscription-state-change.png" alt-text="Selección del estado de la cola":::
+:::image type="content" source="./media/entity-suspend/subscription-state-change.png" alt-text="Cambio del estado de la suscripción":::
 
-Los estados que se pueden establecer para una tema son:
-- **Activa**: El tema está activo.
-- **Disabled**: El tema se ha suspendido.
-- **ReceiveDisabled**: El mismo efecto que **Disabled**.
+Los estados que se pueden establecer para una **suscripción** son:
+- **Activa**: Que la suscripción está activa. Puede recibir mensajes de la suscripción.
+- **Disabled**: la suscripción está suspendida. No puede recibir mensajes de la suscripción. 
+- **ReceiveDisabled**: El mismo efecto que **Disabled**. No puede recibir mensajes de la suscripción. Si intenta recibir mensajes de la suscripción, obtendrá una excepción.
+
+| Estado del tema | Estado de la suscripción | Comportamiento | 
+| ------------ | ------------------- | -------- | 
+| Activo | Activo | Puede enviar mensajes al tema y recibirlos de la suscripción. | 
+| Activo | Deshabilitada o recepción deshabilitada | Puede enviar mensajes al tema, pero no puede recibirlos de la suscripción. | 
+| Deshabilitada o envío deshabilitado | Activo | No puede enviar mensajes al tema, pero puede recibir los que ya estén en la suscripción. | 
+| Deshabilitada o envío deshabilitado | Deshabilitada o recepción deshabilitada | No puede enviar mensajes al tema ni tampoco recibirlos de la suscripción. | 
 
 ## <a name="other-statuses"></a>Otros estados
 La enumeración [EntityStatus](/dotnet/api/microsoft.servicebus.messaging.entitystatus) también define un conjunto de estados de transición que solo puede establecer el sistema. 

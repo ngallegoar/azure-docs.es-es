@@ -8,17 +8,17 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/09/2020
-ms.openlocfilehash: 8abcbc74506599e7896ad6d41b9444e946172283
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.date: 11/12/2020
+ms.openlocfilehash: 1489ce74da2ecff5212feb5a1a2e3c9151b73424
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324897"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555590"
 ---
 # <a name="convert-to-image-directory"></a>Conversión al directorio de imagen
 
-En este artículo se describe cómo usar el módulo Conversión al directorio de imagen para ayudar a convertir el conjunto de datos de imagen al tipo de datos *Directorio de imagen* , que es el formato de datos estandarizado en tareas relacionadas con imágenes como la clasificación de imágenes en el diseñador de Azure Machine Learning.
+En este artículo se describe cómo usar el módulo Conversión al directorio de imagen para ayudar a convertir el conjunto de datos de imagen al tipo de datos *Directorio de imagen*, que es el formato de datos estandarizado en tareas relacionadas con imágenes como la clasificación de imágenes en el diseñador de Azure Machine Learning.
 
 ## <a name="how-to-use-convert-to-image-directory"></a>Cómo usar Conversión al directorio de imagen  
 
@@ -47,7 +47,8 @@ En este artículo se describe cómo usar el módulo Conversión al directorio de
     
     ![Conjunto de datos de ejemplo de imágenes](./media/module/image-sample-dataset.png)
 
-    Para puntuar, la carpeta de conjunto de datos de imágenes solo debe contener imágenes sin clasificar.
+    > [!NOTE]
+    > Por inferencia, la carpeta del conjunto de datos de imágenes solo debe contener imágenes sin clasificar.
 
 1. [Registre el conjunto de datos de imágenes como un conjunto de datos de archivos](../how-to-create-register-datasets.md) en el área de trabajo, ya que la entrada del módulo Convertir en directorio de imagen debe ser un **conjunto de datos de archivos**.
 

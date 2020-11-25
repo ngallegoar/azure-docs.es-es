@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: business-intelligence
 ms.topic: tutorial
 ms.date: 07/20/2020
-ms.openlocfilehash: c5c41b98d52a4b8182fb162c3bfa9a08c0df5e15
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: b72d083216b7cd0ae7a588bfd721d8981829bfc7
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92171853"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844376"
 ---
 # <a name="visualize-data-with-power-bi"></a>Visualización de datos con Power BI
 
@@ -37,13 +37,9 @@ Puede vincular un área de trabajo de Power BI a su área de trabajo de Azure S
 ### <a name="link-your-azure-synapse-workspace-to-your-new-power-bi-workspace"></a>Vinculación de un área de trabajo de Azure Synapse a un área de trabajo de Power BI
 
 1. En Synapse Studio, vaya a **Administrar** > **Servicios vinculados**.
-1. Seleccione **Nuevo** > **Conectar con Power BI** y, después, configure estos campos:
-
-    |Configuración | Valor sugerido | 
-    |---|---|
-    |**Nombre**|**NYCTaxiWorkspace1**|
-    |**Workspace name** (Nombre del área de trabajo)|**NYCTaxiWorkspace1**|
-
+1. Seleccione **Nuevo** > **Conectar con Power BI**
+1. Establezca el **nombre** en **NYCTaxiWorkspace1**
+1. Establezca el **nombre del área de trabajo** en **NYCTaxiWorkspace1**
 1. Seleccione **Crear**.
 
 ### <a name="create-a-power-bi-dataset-that-uses-data-in-your-azure-synapse-workspace"></a>Creación de un conjunto de datos de Power BI que use los datos del área de trabajo de Azure Synapse
@@ -86,11 +82,7 @@ Puede vincular un área de trabajo de Power BI a su área de trabajo de Azure S
     * En **NYCTaxiWorkspace1** > **Informes de Power BI**, un nuevo informe denominado **PassengerAnalysis**.
 1. Seleccione el informe **PassengerAnalysis**. El informe se abre y puede editarlo directamente en Synapse Studio.
 
-## <a name="monitor-activities"></a>Actividad de supervisión
 
-1. En Synapse Studio, vaya al centro **Monitor** (Supervisión).
-1. En esta ubicación, puede ver un historial de todas las actividades que se realizan en el área de trabajo y las que están activas ahora.
-1. Explore **Ejecuciones de canalizaciones**, **Apache Spark applications** (Aplicaciones de Apache Spark) y **SQL requests** (Solicitudes SQL) y podrá ver lo que ya ha hecho en el área de trabajo.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

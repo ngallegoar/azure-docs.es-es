@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 10/05/2020
 ms.author: sngun
-ms.openlocfilehash: 683fc553e7712e2a760a0af1b601207cb20f2f55
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: a0feaf4a984f40ddee7a30291fe0a8f671b6512a
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93092813"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94636850"
 ---
 # <a name="how-to-audit-azure-cosmos-db-control-plane-operations"></a>Auditoría de operaciones de plano de control de Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -28,7 +28,7 @@ A continuación se muestran algunos escenarios de ejemplo en los que resulta út
 
 ## <a name="disable-key-based-metadata-write-access"></a>Deshabilitar el acceso de escritura de metadatos basado en claves
 
-Antes de auditar las operaciones de plano de control en Azure Cosmos DB, deshabilite el acceso de escritura de los metadatos basado en claves en su cuenta. Al deshabilitar el acceso de escritura de metadatos basado en claves, los clientes que se conecten a la cuenta de Azure Cosmos a través de claves de cuenta no podrán acceder a la cuenta. Para deshabilitar el acceso de escritura, defina la propiedad `disableKeyBasedMetadataWriteAccess` como true. Una vez definida esta propiedad, pueden aplicar cambios en los recursos los usuarios con las credenciales y el rol de control de acceso basado en rol (RBAC) adecuados. Para obtener más información sobre cómo establecer esta propiedad, consulte el artículo [Evitar cambios de SDK](role-based-access-control.md#prevent-sdk-changes). 
+Antes de auditar las operaciones de plano de control en Azure Cosmos DB, deshabilite el acceso de escritura de los metadatos basado en claves en su cuenta. Al deshabilitar el acceso de escritura de metadatos basado en claves, los clientes que se conecten a la cuenta de Azure Cosmos a través de claves de cuenta no podrán acceder a la cuenta. Para deshabilitar el acceso de escritura, defina la propiedad `disableKeyBasedMetadataWriteAccess` como true. Una vez definida esta propiedad, pueden aplicar cambios en los recursos los usuarios con las credenciales y el rol de Azure adecuados. Para obtener más información sobre cómo establecer esta propiedad, consulte el artículo [Evitar cambios de SDK](role-based-access-control.md#prevent-sdk-changes). 
 
 Una vez activado `disableKeyBasedMetadataWriteAccess`, si los clientes basados en SDK ejecutan operaciones de creación o actualización, se devuelve un error de tipo *no se permite la operación "POST" en el recurso "ContainerNameorDatabaseName" mediante el punto de conexión de Azure Cosmos DB*. Tendrá que activar el acceso a dichas operaciones para su cuenta o realizar las operaciones de creación y actualización mediante Azure Resource Manager, la CLI de Azure o Azure PowerShell. Para volver a cambiar, establezca el valor disableKeyBasedMetadataWriteAccess en **falso** mediante la CLI de Azure, tal como se describe en el artículo [Evitar cambios en el SDK de Cosmos](role-based-access-control.md#prevent-sdk-changes). Asegúrese de cambiar el valor de `disableKeyBasedMetadataWriteAccess` a falso en lugar de a true.
 

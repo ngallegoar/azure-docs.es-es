@@ -1,7 +1,7 @@
 ---
 title: Arquitectura y conceptos clave
 titleSuffix: Azure Machine Learning
-description: Obtenga información sobre la arquitectura, la terminología y los conceptos que conforman Azure Machine Learning.
+description: En este artículo se proporciona una descripción de alto nivel de la arquitectura, los términos y los conceptos que componen Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 08/20/2020
 ms.custom: seoapril2019, seodec18
-ms.openlocfilehash: f17cdd42c892f6c0d218875cf304846937ba58d7
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: a36481b2496060cb12bd755f56680915ec1074bb
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94444827"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540195"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Funcionamiento de Azure Machine Learning: Arquitectura y conceptos
 
@@ -267,6 +267,18 @@ La [CLI de Azure Machine Learning](reference-azure-machine-learning-cli.md) es u
 Las [canalizaciones de aprendizaje automático](concept-ml-pipelines.md) se usan para crear y administrar flujos de trabajo que unen las fases de aprendizaje automático. Por ejemplo, una canalización podría incluir las fases de preparación de los datos, entrenamiento del modelo, implementación del modelo e inferencia y puntuación. Cada fase puede estar formada por varios pasos, cada uno de los cuales puede ejecutarse en modo desatendido en varios destinos de proceso. 
 
 Los pasos de canalización se pueden reutilizar y se pueden ejecutar sin volver a ejecutar los pasos anteriores si la salida de esos pasos no ha cambiado. Por ejemplo, puede volver a entrenar un modelo sin volver a ejecutar los costosos pasos de preparación de datos si los datos no han cambiado. Las canalizaciones también permiten a los científicos de datos colaborar mientras trabajan en áreas independientes de un flujo de trabajo de Machine Learning.
+
+## <a name="monitoring-and-logging"></a>Supervisión y registro
+
+Azure Machine Learning proporciona las siguientes funcionalidades de supervisión y registro:
+
+* Como __científico de datos__, puede supervisar los experimentos y la información de registro de las ejecuciones de entrenamiento. Para más información, consulte los siguientes artículos.
+   * [Inicio, supervisión y cancelación de las ejecuciones de entrenamiento](how-to-manage-runs.md)
+   * [Métricas de registro de las ejecuciones de entrenamientos](how-to-track-experiments.md)
+   * [Seguimiento de experimentos con MLflow](how-to-use-mlflow.md)
+   * [Visualización de ejecuciones con TensorBoard](how-to-monitor-tensorboard.md)
+* Como __administrador__, puede supervisar la información sobre el área de trabajo y los recursos de Azure relacionados, o eventos como la creación y eliminación de recursos mediante Azure Monitor. Para más información, consulte [Supervisión de Azure Machine Learning](monitor-azure-machine-learning.md).
+* Como profesional de __DevOps__ o __MLOps__, puede supervisar la información generada por los modelos implementados como servicios web o módulos de IoT Edge para identificar problemas con las implementaciones y recopilar los datos enviados al servicio. Para más información, consulte [Recopilación de datos de modelos](how-to-enable-data-collection.md) y [Supervisión con Application Insights](how-to-enable-app-insights.md).
 
 ## <a name="interacting-with-your-workspace"></a>Interacción con el área de trabajo
 

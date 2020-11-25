@@ -12,12 +12,12 @@ ms.date: 09/15/2020
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: contperfq2
-ms.openlocfilehash: 158a82b43e573e5d34ec9a44c4a47cd1126de8ed
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 5e2f323f705a891f06cee1d25779351d02a91572
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424596"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94695272"
 ---
 # <a name="tutorial---build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>Tutorial: Creación de un punto de conexión SCIM y configuración del aprovisionamiento de usuarios con Azure AD
 
@@ -88,7 +88,8 @@ El esquema definido anteriormente se representaría mediante la carga JSON sigui
      "location":
  "https://example.com/v2/Users/2819c223-7f76-453a-919d-413861904646"
    }
- ```
+}   
+```
 
 ### <a name="table-2-default-user-attribute-mapping"></a>Tabla 2: Asignación de atributos de usuario predeterminada
 A continuación, puede usar la tabla siguiente para entender cómo los atributos de su aplicación se pueden asignar a un atributo en Azure AD y en el RFC de SCIM. Puede [personalizar](customize-application-attributes.md) el modo en que los atributos se asignan entre Azure AD y el punto de conexión SCIM. Tenga en cuenta que no es necesario que admita los usuarios ni los grupos, ni todos los atributos que se muestran a continuación. Son una referencia para el modo en que los atributos de Azure AD se suelen asignar a las propiedades del protocolo SCIM. 
@@ -126,7 +127,7 @@ A continuación, puede usar la tabla siguiente para entender cómo los atributos
 | objectId |externalId |
 | proxyAddresses |emails[type eq "other"].Value |
 
-Hay varios puntos de conexión definidos en el RFC de SCIM. Puede empezar con el punto de conexión /User y después ampliarlo desde allí. El punto de conexión /Schemas es útil cuando se usan atributos personalizados o si el esquema cambia con frecuencia. Permite a un cliente recuperar el esquema más reciente automáticamente. El punto de conexión /Bulk es especialmente útil cuando se admiten grupos. En la tabla siguiente se describen los distintos puntos de conexión definidos en el estándar SCIM. El punto de conexión /Schemas es útil cuando se usan atributos personalizados o si el esquema cambia con frecuencia. Permite a un cliente recuperar el esquema más reciente automáticamente. El punto de conexión /Bulk es especialmente útil cuando se admiten grupos. En la tabla siguiente se describen los distintos puntos de conexión definidos en el estándar SCIM. 
+Hay varios puntos de conexión definidos en el RFC de SCIM. Puede empezar con el punto de conexión /User y después ampliarlo desde allí. El punto de conexión /Schemas es útil cuando se usan atributos personalizados o si el esquema cambia con frecuencia. Permite a un cliente recuperar el esquema más reciente automáticamente. El punto de conexión /Bulk es especialmente útil cuando se admiten grupos. En la tabla siguiente se describen los distintos puntos de conexión definidos en el estándar SCIM.
  
 ### <a name="table-4-determine-the-endpoints-that-you-would-like-to-develop"></a>Tabla 4: Determinación de los puntos de conexión que quiere desarrollar
 |ENDPOINT|DESCRIPTION|
@@ -153,6 +154,7 @@ Dentro de la [especificación del protocolo SCIM 2.0](http://www.simplecloud.inf
 * Admitir la consulta de usuarios o grupos, según la sección [3.4.2 del protocolo SCIM](https://tools.ietf.org/html/rfc7644#section-3.4.2).  De forma predeterminada, los usuarios se recuperan por sus `id` y se consultan por sus `username` y `externalId`, y los grupos por su `displayName`.  
 * Admitir la consulta de usuarios por identificador y por administrador, según la sección 3.4.2 del protocolo SCIM.  
 * Admitir la consulta de grupos por Id. y miembro, según la sección 3.4.2 del protocolo SCIM.  
+* Admitir el filtro [excludedAttributes=members](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#get-group) al consultar el recurso de grupo, de acuerdo con la sección 3.4.2.5 del protocolo SCIM.
 * Acepta un token de portador único para la autenticación y autorización de Azure AD para la aplicación.
 * Admite la eliminación temporal de un usuario `active=false` y la restauración del usuario `active=true` (el objeto de usuario debe devolverse en una solicitud tanto si el usuario está activo como si no). La única vez que no se debe devolver el usuario es cuando se elimina de forma permanente de la aplicación. 
 
@@ -765,7 +767,7 @@ El proyecto _Microsoft.SCIM_ es la biblioteca que define los componentes del ser
 
 ![Desglose: Una solicitud traducida en llamadas a los métodos del proveedor](media/use-scim-to-provision-users-and-groups/scim-figure-3.png)
 
-El proyecto _Microsoft.SCIM.WebHostSample_ es una aplicación web ASP.NET Core de Visual Studio basada en la plantilla _Empty_. Esto permite implementar el código de ejemplo como independiente, hospedado en contenedores o en Internet Information Services. También implementa la interfaz _Microsoft.SCIM.IProvider_ , que mantiene las clases en memoria como almacén de identidades de ejemplo.
+El proyecto _Microsoft.SCIM.WebHostSample_ es una aplicación web ASP.NET Core de Visual Studio basada en la plantilla _Empty_. Esto permite implementar el código de ejemplo como independiente, hospedado en contenedores o en Internet Information Services. También implementa la interfaz _Microsoft.SCIM.IProvider_, que mantiene las clases en memoria como almacén de identidades de ejemplo.
 
 ```csharp
     public class Startup
@@ -808,7 +810,7 @@ Para obtener más información sobre HTTPS en ASP.NET Core, use el siguiente ví
 
 Las solicitudes de Azure Active Directory incluyen un token de portador de OAuth 2.0. Cualquier servicio que reciba la solicitud debe autenticar al emisor como Azure Active Directory para el inquilino de Azure Active Directory esperado.
 
-En el token, el emisor se identifica mediante una notificación de ISS; por ejemplo, `"iss":"https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/"`. En este ejemplo, la dirección base del valor de notificación, `https://sts.windows.net`, identifica a Azure Active Directory como el emisor, mientras que el segmento de la dirección relativa, _cbb1a5ac-f33b-45fa-9bf5-f37db0fed422_ , es un identificador único del inquilino de Azure Active Directory para el que se emitió el token.
+En el token, el emisor se identifica mediante una notificación de ISS; por ejemplo, `"iss":"https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/"`. En este ejemplo, la dirección base del valor de notificación, `https://sts.windows.net`, identifica a Azure Active Directory como el emisor, mientras que el segmento de la dirección relativa, _cbb1a5ac-f33b-45fa-9bf5-f37db0fed422_, es un identificador único del inquilino de Azure Active Directory para el que se emitió el token.
 
 La audiencia del token será el identificador de la plantilla de aplicación de la aplicación en la galería. Cada una de las aplicaciones registradas en un solo inquilino puede recibir la misma notificación `iss` con solicitudes SCIM. El identificador de la plantilla de aplicación para todas las aplicaciones personalizadas es _8adf8e6e-67b2-4cf2-a259-e3dc5476c621_. El token generado por el servicio de aprovisionamiento de Azure AD solo se debe usar para realizar pruebas. No se debe usar en entornos de producción.
 
@@ -1139,22 +1141,22 @@ Las aplicaciones que admiten el perfil SCIM descrito en este artículo se pueden
    *Galería de aplicaciones de Azure AD*
 
 5. En la pantalla de administración de la aplicación, seleccione **Aprovisionamiento** en el panel izquierdo.
-6. En el menú **Modo de aprovisionamiento** , seleccione **Automático**.
+6. En el menú **Modo de aprovisionamiento**, seleccione **Automático**.
 
    ![Ejemplo: Página Aprovisionamiento de una aplicación en Azure Portal](media/use-scim-to-provision-users-and-groups/scim-figure-2b.png)<br/>
    *Configuración del aprovisionamiento en Azure Portal*
 
-7. En el campo **Dirección URL del inquilino** , escriba la dirección URL del punto de conexión SCIM de la aplicación. Ejemplo: `https://api.contoso.com/scim/`
+7. En el campo **Dirección URL del inquilino**, escriba la dirección URL del punto de conexión SCIM de la aplicación. Ejemplo: `https://api.contoso.com/scim/`
 8. Si el punto de conexión SCIM requiere un token de portador OAuth de un emisor que no sea Azure AD, copie el token de portador OAuth necesario en el campo **Token secreto**. Si este campo se deja en blanco, Azure AD incluye un token de portador OAuth emitido desde Azure AD con cada solicitud. Las aplicaciones que usan Azure AD como un proveedor de identidades pueden validar este token que emitió Azure AD. 
    > [!NOTE]
-   > * *_No_* se recomienda dejar este campo en blanco ni confiar en un token generado por Azure AD. Esta opción está disponible principalmente para fines de prueba.
-9. Seleccione *Probar conexión* * para que Azure Active Directory intente conectarse al punto de conexión SCIM. Si se produce un error en el intento, se muestra la información de error.  
+   > **_No_* se recomienda dejar este campo en blanco ni confiar en un token generado por Azure AD. Esta opción está disponible principalmente para fines de prueba.
+9. Seleccione *Probar conexión** para que Azure Active Directory intente conectarse al punto de conexión SCIM. Si se produce un error en el intento, se muestra la información de error.  
 
     > [!NOTE]
     > La **prueba de conexión** consulta el punto de conexión SCIM de un usuario que no existe mediante un GUID aleatorio, como la propiedad de coincidencia seleccionada en la configuración de Azure AD. La respuesta correcta esperada es HTTP 200 OK con un mensaje ListResponse de SCIM vacío.
 
 10. Si la conexión se realiza con éxito, a continuación, seleccione **Guardar** para guardar las credenciales de administrador.
-11. En la sección **Asignaciones** , hay dos conjuntos seleccionables de [asignaciones de atributos](customize-application-attributes.md): uno para los objetos de usuario y otro para los objetos de grupo. Seleccione cada uno de ellos para revisar los atributos que se sincronizan desde Azure Active Directory a la aplicación. Los atributos seleccionados como propiedades de **Coincidencia** se usan para buscar coincidencias con los usuarios y grupos de la aplicación con el objetivo de realizar operaciones de actualización. Para confirmar los cambios, seleccione **Guardar**.
+11. En la sección **Asignaciones**, hay dos conjuntos seleccionables de [asignaciones de atributos](customize-application-attributes.md): uno para los objetos de usuario y otro para los objetos de grupo. Seleccione cada uno de ellos para revisar los atributos que se sincronizan desde Azure Active Directory a la aplicación. Los atributos seleccionados como propiedades de **Coincidencia** se usan para buscar coincidencias con los usuarios y grupos de la aplicación con el objetivo de realizar operaciones de actualización. Para confirmar los cambios, seleccione **Guardar**.
 
     > [!NOTE]
     > Opcionalmente, puede deshabilitar la sincronización de objetos de grupo deshabilitando la asignación de "grupos".

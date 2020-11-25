@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2230784eedd044acd95b3087793ba664b544f76a
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: b558e34d3f5d224515eee669dfa7b8f2c6bbb3cd
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94505077"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541018"
 ---
 # <a name="quickstart-create-a-dedicated-sql-pool-preview-using-the-azure-portal"></a>Inicio rápido: Creación de un grupo de SQL dedicado (versión preliminar) mediante Azure Portal
 
@@ -48,7 +48,7 @@ Inicie sesión en el [Portal de Azure](https://portal.azure.com/)
 
     | Configuración | Valor sugerido | Descripción |
     | :------ | :-------------- | :---------- |
-    | **Nombre de grupo de SQL dedicado** | Cualquier nombre válido | Nombre del grupo de SQL dedicado. |
+    | **Nombre del grupo de SQL dedicado** | Cualquier nombre válido | Nombre del grupo de SQL dedicado. |
     | **Nivel de rendimiento** | DW100c | Establézcalo en el menor tamaño para reducir los costos de este inicio rápido. |
 
   
@@ -73,7 +73,6 @@ Inicie sesión en el [Portal de Azure](https://portal.azure.com/)
 
 8. Una vez completado el aprovisionamiento, al desplazarse al área de trabajo se mostrará una nueva entrada para el grupo de SQL dedicado recién creado.
  ![Flujo de creación del grupo de SQL: aprovisionamiento de recursos.](media/quickstart-create-sql-pool/create-sql-pool-studio-27.png)
-
 
 
 Una vez que se cree el grupo de SQL dedicado, estará disponible en el área de trabajo para la carga de datos, el procesamiento de secuencias, la lectura del lago, etc.

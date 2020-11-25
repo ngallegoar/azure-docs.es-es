@@ -7,16 +7,16 @@ manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
-ms.date: 02/04/2019
+ms.date: 11/13/2020
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: a50554c73958400f1f16348d3b8fb2bac88ac61b
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: e9811710971b411aaaed64ec0072dcf7b6b116d3
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340284"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630063"
 ---
 # <a name="troubleshooting-synapse-sql-in-azure-synapse-analytics"></a>Solución de problemas de Synapse SQL en Azure Synapse Analytics
 
@@ -40,9 +40,15 @@ En este artículo se enumeran incidencias de solución de problemas en Synapse 
 | El scripting manual, mediante el Asistente para scripting, o la conexión a través de SSMS es lenta, no responde o genera errores | Asegúrese de que se han creado usuarios en la base de datos maestra. En las opciones de scripting, asegúrese también de que la edición del motor se ha establecido como "Microsoft Azure Synapse Analytics Edition" y que el tipo de motor es "Microsoft Azure SQL Database". |
 | Errores de generación de scripts en SSMS                               | No se puede generar un script para el grupo de SQL dedicado si la opción "Generar script para objetos dependientes" está establecida en "True". Como solución alternativa, los usuarios deben ir manualmente a **Herramientas -> Opciones ->Explorador de objetos de SQL Server -> opción "Generar script para objetos dependientes" y establecerla en False**. |
 
-## <a name="performance"></a>Rendimiento
+## <a name="data-ingestion-and-preparation"></a>Ingesta y preparación de datos
 
 | Incidencia                                                        | Resolución                                                   |
+| :----------------------------------------------------------- | :----------------------------------------------------------- |
+| La exportación de cadenas vacías con CETAS generará valores NULL en archivos Parquet y ORC. Tenga en cuenta que si exporta cadenas vacías desde columnas con variables NOT NULL, CETAS generará registros rechazados y puede que la exportación presente errores. | Quite las cadenas vacías o la columna con errores en la instrucción SELECT de CETAS. |
+
+## <a name="performance"></a>Rendimiento
+
+| Incidencia                                                        | Solución                                                   |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | Solución de problemas de rendimiento de consultas                            | Si está intentando solucionar los problemas de una consulta determinada, comience por [aprender a supervisar las consultas](sql-data-warehouse-manage-monitor.md#monitor-query-execution). |
 | Problemas de espacio de TempDB | [Supervise el uso del espacio de TempDB](sql-data-warehouse-manage-monitor.md#monitor-tempdb).  Las causas comunes para quedarse sin espacio de TempDB son:<br>- No hay suficientes recursos asignados a la consulta, lo que provoca que los datos se derramen en TempDB.  Consulte [Administración de cargas de trabajos](resource-classes-for-workload-management.md) <br>- Las estadísticas faltan o no están actualizadas, lo que provoca un movimiento de datos excesivo.  Para más información sobre cómo crear estadísticas, vea [Mantenimiento de estadísticas de tablas](sql-data-warehouse-tables-statistics.md).<br>- El espacio de TempDB se asigna por nivel de servicio.  El [escalado del grupo de SQL dedicado](sql-data-warehouse-manage-compute-overview.md#scaling-compute) a una configuración de DWU superior asigna más espacio de TempDB.|
@@ -54,7 +60,7 @@ En este artículo se enumeran incidencias de solución de problemas en Synapse 
 
 ## <a name="system-management"></a>Administración del sistema
 
-| Incidencia                                                        | Resolución                                                   |
+| Incidencia                                                        | Solución                                                   |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | Mens. 40847: No se pudo realizar la operación porque el servidor superaría la cuota de la unidad de transacción de la base de datos permitida de 45000. | Reduzca la unidad [DWU](what-is-a-data-warehouse-unit-dwu-cdwu.md) de la base de datos que intenta crear o [ solicite un aumento de la cuota](sql-data-warehouse-get-started-create-support-ticket.md). |
 | Investigación del uso del espacio                              | Consulte los [tamaños de tabla](sql-data-warehouse-tables-overview.md#table-size-queries) para comprender el uso del espacio del sistema. |
@@ -63,7 +69,7 @@ En este artículo se enumeran incidencias de solución de problemas en Synapse 
 
 ## <a name="differences-from-sql-database"></a>Diferencias con respecto a SQL Database
 
-| Incidencia                                 | Resolución                                                   |
+| Incidencia                                 | Solución                                                   |
 | :------------------------------------ | :----------------------------------------------------------- |
 | Características de SQL Database no admitidas     | Consulte [Características no compatibles de las tablas](sql-data-warehouse-tables-overview.md#unsupported-table-features). |
 | Tipos de datos de SQL Database no admitidos   | Consulte [Tipos de datos no admitidos](sql-data-warehouse-tables-data-types.md#identify-unsupported-data-types).        |

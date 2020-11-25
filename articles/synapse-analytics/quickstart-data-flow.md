@@ -1,5 +1,5 @@
 ---
-title: Inicio rápido para transformar datos mediante un flujo de datos de asignación
+title: 'Inicio rápido: Transformación de datos mediante un flujo de datos de asignación'
 description: En este tutorial se proporcionan instrucciones paso a paso para usar Azure Synapse Analytics con el objetivo de transformar los datos con un flujo de datos de asignación.
 author: djpmsft
 ms.author: daperlov
@@ -8,16 +8,16 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/03/2020
-ms.openlocfilehash: 0bf1611dee2b3f7f9a3059e3118ddbf08c00f886
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 207679ad5b508b687c9cad372d144839fcaa501d
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93342818"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94743854"
 ---
 # <a name="quickstart-transform-data-using-mapping-data-flows"></a>Inicio rápido: Transformación de datos mediante flujos de datos de asignación
 
-En este inicio rápido, usará Azure Synapse Analytics para crear una canalización que transforme los datos de un origen de Azure Data Lake Storage (ADLS) Gen2 en un receptor de ADLS Gen2 mediante un flujo de datos de asignación. El patrón de configuración de este inicio rápido se puede expandir al transformar los datos mediante el flujo de datos de asignación.
+En este inicio rápido, usará Azure Synapse Analytics para crear una canalización que transforme los datos de un origen de Azure Data Lake Storage Gen2 (ADLS Gen2) en un receptor de ADLS Gen2 mediante un flujo de datos de asignación. El patrón de configuración de este inicio rápido se puede expandir al transformar los datos mediante el flujo de datos de asignación.
 
 En este inicio rápido, hará lo siguiente:
 
@@ -29,9 +29,9 @@ En este inicio rápido, hará lo siguiente:
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* **Suscripción de Azure** : Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
-* **Área de trabajo de Azure Synapse** : Cree un área de trabajo de Synapse desde Azure Portal siguiendo las instrucciones que se indican en [Inicio rápido: Creación de un área de trabajo de Synapse](quickstart-create-workspace.md).
-* **Cuenta de Azure Storage** : El almacenamiento ADLS se puede usar como almacén de datos de *origen* y *receptor*. Si no tiene una cuenta de almacenamiento, consulte [Crear una cuenta de almacenamiento](../storage/common/storage-account-create.md) para crear una.
+* **Suscripción de Azure**: Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
+* **Área de trabajo de Azure Synapse**: Cree un área de trabajo de Synapse desde Azure Portal siguiendo las instrucciones que se indican en [Inicio rápido: Creación de un área de trabajo de Synapse](quickstart-create-workspace.md).
+* **Cuenta de Azure Storage**: El almacenamiento ADLS se puede usar como almacén de datos de *origen* y *receptor*. Si no tiene una cuenta de almacenamiento, consulte [Crear una cuenta de almacenamiento](../storage/common/storage-account-create.md) para crear una.
 
     El archivo que se está transformando en este tutorial es MoviesDB. csv, que se puede encontrar [aquí](https://raw.githubusercontent.com/djpmsft/adf-ready-demo/master/moviesDB.csv). Para recuperar el archivo de GitHub, copie el contenido en un editor de texto de su elección para guardarlo localmente como un archivo. csv. Para cargar el archivo en la cuenta de almacenamiento, vea [Carga de blobs con Azure Portal](../storage/blobs/storage-quickstart-blobs-portal.md). Los ejemplos harán referencia a un contenedor denominado "Sample-Data".
 
@@ -39,7 +39,7 @@ En este inicio rápido, hará lo siguiente:
 
 Una vez creada el área de trabajo de Azure Synapse, hay dos maneras de abrir Synapse Studio:
 
-* Abrir el área de trabajo de Synapse en [Azure Portal](https://ms.portal.azure.com/#home). En la parte superior de la sección Información general, seleccione **Iniciar Synapse Studio**.
+* Abrir el área de trabajo de Synapse en [Azure Portal](https://ms.portal.azure.com/#home). Seleccione **Abrir** en la tarjeta Abrir Synapse Studio de Información general.
 * Abra [Azure Synapse Analytics](https://web.azuresynapse.net/) e inicie sesión en su área de trabajo.
 
 En este inicio rápido, se usa como ejemplo el área de trabajo denominada "adftest2020". Se le dirigirá automáticamente a la página principal de Synapse Studio.
@@ -126,7 +126,7 @@ Una vez creado el flujo de datos, se le enviará automáticamente al lienzo fluj
 
     ![Adición de un agregado](media/quickstart-data-flow/add-aggregate.png)
 
-1. Denomine **AggregateComedyRatings** a la transformación de agregado. En la pestaña **Agrupar por** , seleccione **year** (año) en la lista desplegable para agrupar las agregaciones por el año en que apareció la película.
+1. Denomine **AggregateComedyRatings** a la transformación de agregado. En la pestaña **Agrupar por**, seleccione **year** (año) en la lista desplegable para agrupar las agregaciones por el año en que apareció la película.
 
     ![Configuración de agregado 1](media/quickstart-data-flow/aggregate-settings.png)
 

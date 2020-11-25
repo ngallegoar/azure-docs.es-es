@@ -12,12 +12,12 @@ ms.workload: iaas-sql-server
 ms.date: 05/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 467cbe91f4e516dc6facd2d30c38da1483308b77
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6b563e8ca93487a123f97f0bbb86624dc3be2db0
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91316977"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94556297"
 ---
 # <a name="manage-sql-server-vms-in-azure-by-using-the-azure-portal"></a>Administración de máquinas virtuales con SQL Server en Azure mediante Azure Portal
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -30,7 +30,7 @@ En [Azure Portal](https://portal.azure.com), el recurso [**Máquinas virtuales S
 ## <a name="remarks"></a>Observaciones
 
 - Se recomienda usar el recurso [**Máquinas virtuales SQL**](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.SqlVirtualMachine%2FSqlVirtualMachines) para ver y administrar las máquinas virtuales con SQL Server en Azure. Sin embargo, actualmente, el recurso **Máquinas virtuales SQL** no permite administrar máquinas virtuales con SQL Server con [finalización del soporte técnico](sql-server-2008-extend-end-of-support.md). Para administrar la configuración de las máquinas virtuales con SQL Server con finalización del soporte técnico, utilice en su lugar la [pestaña de configuración de SQL Server](#access-the-sql-server-configuration-tab) en desuso. 
-- El recurso **Máquinas virtuales SQL** solo está disponible para las máquinas virtuales con SQL Server que se hayan [registrado con el proveedor de recursos de máquina virtual con SQL Server](sql-vm-resource-provider-register.md). 
+- El recurso **Máquinas virtuales SQL** solo está disponible para las máquinas virtuales con SQL Server que se hayan [registrado con la extensión Agente de IaaS de SQL](sql-agent-extension-manually-register-single-vm.md). 
 
 
 ## <a name="access-the-sql-virtual-machines-resource"></a>Acceso al recurso Máquinas virtuales SQL
@@ -57,7 +57,7 @@ Para acceder al recurso **Máquinas virtuales SQL**, haga lo siguiente:
 > El recurso **máquinas virtuales de SQL** es para la configuración de SQL Server dedicada. Seleccione el nombre de la máquina virtual en el campo **Máquina virtual** para ir a los valores específicos de la máquina virtual, no a los exclusivos de SQL Server. 
 
 ## <a name="access-the-sql-server-configuration-tab"></a>Acceso a la pestaña de configuración de SQL Server
-La pestaña **Configuración de SQL Server** ha quedado en desuso. Actualmente, este es el único método para administrar las máquinas virtuales con SQL Server con [finalización del soporte técnico](sql-server-2008-extend-end-of-support.md) y las máquinas virtuales con SQL Server que no se hayan [registrado con el proveedor del recursos de máquina virtual con SQL Server](sql-vm-resource-provider-register.md).
+La pestaña **Configuración de SQL Server** ha quedado en desuso. Actualmente, este es el único método para administrar las máquinas virtuales con SQL Server con [finalización del soporte técnico](sql-server-2008-extend-end-of-support.md) y las máquinas virtuales con SQL Server que no se hayan [registrado con la extensión Agente de IaaS de SQL](sql-agent-extension-manually-register-single-vm.md).
 
 Para acceder a la pestaña **Configuración de SQL Server** en desuso, debe ir al recurso **Máquinas virtuales**. Siga estos pasos:
 

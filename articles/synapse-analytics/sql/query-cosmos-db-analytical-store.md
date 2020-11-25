@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 09/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: 9f57d435134bffbb8e7576adffeacb92bf687124
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 2ffc524c14b9ba281d7e386f7f8c726093f11dbf
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93310298"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94661025"
 ---
 # <a name="query-azure-cosmos-db-data-with-serverless-sql-pool-in-azure-synapse-link-preview"></a>Consulta de datos de Azure Cosmos DB con un grupo de SQL sin servidor en Azure Synapse Link (versión preliminar)
 
@@ -25,7 +25,7 @@ Para consultar Azure Cosmos DB, se admite el área expuesta de [SELECT](/sql/t-
 En este artículo, aprenderá a escribir una consulta con un grupo de SQL sin servidor que consultará datos de contenedores de Azure Cosmos DB que están habilitados para Synapse Link. Después, puede obtener más información sobre la creación de vistas de un grupo de SQL sin servidor en contenedores de Azure Cosmos DB y cómo conectarlas a modelos de Power BI en [este](./tutorial-data-analyst.md) tutorial. 
 
 > [!IMPORTANT]
-> En este tutorial se usa un contenedor con un [esquema bien definido de Azure Cosmos DB](../../cosmos-db/analytical-store-introduction.md#schema-representation). La experiencia de consulta que proporciona el grupo SQL sin servidor para el [esquema de fidelidad completa de Azure Cosmos DB](#full-fidelity-schema) es un comportamiento temporal que se cambiará en función de los comentarios de la versión preliminar. No confíe en el esquema del conjunto de resultados de la función `OPENROWSET` sin una cláusula `WITH` que lea los datos de un contenedor con un esquema de fidelidad completa, ya que la experiencia de consulta podría cambiarse y alinearse con la del esquema bien definido. Publique los comentarios en el [Foro de comentarios de Azure Synapse Analytics](https://feedback.azure.com/forums/307516-azure-synapse-analytics), o bien póngase en contacto con el [equipo del producto de Synapse Link](mailto:cosmosdbsynapselink@microsoft.com) para proporcionarlos.
+> En este tutorial se usa un contenedor con un [esquema bien definido de Azure Cosmos DB](../../cosmos-db/analytical-store-introduction.md#schema-representation). La experiencia de consulta que proporciona el grupo de SQL sin servidor para un [esquema de fidelidad completa de Azure Cosmos DB](#full-fidelity-schema) es un comportamiento temporal que se cambiará en función de los comentarios de la versión preliminar. No confíe en el esquema del conjunto de resultados de la función `OPENROWSET` sin la cláusula `WITH` que lea los datos de un contenedor con un esquema de fidelidad completa, ya que la experiencia de consulta podría alinearse con el esquema bien definido y cambiarse en función de dicho esquema. Publique los comentarios en el [foro de comentarios de Azure Synapse Analytics](https://feedback.azure.com/forums/307516-azure-synapse-analytics), o bien póngase en contacto con el [equipo del producto de Synapse Link](mailto:cosmosdbsynapselink@microsoft.com) para proporcionarlos.
 
 ## <a name="overview"></a>Introducción
 
@@ -42,7 +42,9 @@ OPENROWSET(
 La cadena de conexión de Azure Cosmos DB especifica el nombre de la cuenta de Azure Cosmos DB, el nombre de la base de datos, la clave maestra de la cuenta de base de datos y un nombre de región opcional para la función `OPENROWSET`. 
 
 > [!IMPORTANT]
-> Asegúrese de usar el alias después de `OPENROWSET`. Hay un [problema conocido](#known-issues) problemas de conexión con el punto de conexión SQL sin servidor de Synapse si no se especifica el alias después de la función `OPENROWSET`.
+> Asegúrese de usar alguna intercalación de base de datos UTF-8 (por ejemplo, `Latin1_General_100_CI_AS_SC_UTF8`) porque los valores de cadena del almacén analítico de Cosmos DB se codifican como texto UTF-8.
+> La falta de coincidencia entre la codificación de texto del archivo y la intercalación podría producir errores de conversión de texto inesperados.
+> Puede cambiar fácilmente la intercalación predeterminada de la base de datos actual mediante la siguiente instrucción T-SQL: `alter database current collate Latin1_General_100_CI_AI_SC_UTF8`.
 
 La cadena de conexión de dispositivo tiene el formato siguiente:
 ```sql
@@ -338,8 +340,8 @@ En este ejemplo, el número de casos se almacena como valores `int32`, `int64` o
 
 ## <a name="known-issues"></a>Problemas conocidos
 
-- El alias se **DEBE** especificar después de la función `OPENROWSET` (por ejemplo, `OPENROWSET (...) AS function_alias`). Si se omite el alias, es posible que haya problemas de conexión y que el punto de conexión SQL sin servidor de Synapse no esté disponible de manera temporal. Este problema se resolverá en noviembre de 2020.
 - La experiencia de consulta que proporciona el grupo SQL sin servidor para el [esquema de total fidelidad de Azure Cosmos DB](#full-fidelity-schema) es un comportamiento temporal que se cambiará en función de los comentarios de la versión preliminar. No se base en el esquema que proporciona la función `OPENROWSET` sin la cláusula `WITH` durante la versión preliminar pública, ya que la experiencia de consulta podría estar alineada con un esquema bien definido en función de los comentarios de los clientes. Póngase en contacto con el [equipo del producto de Synapse Link](mailto:cosmosdbsynapselink@microsoft.com) para proporcionar comentarios.
+- El grupo de SQL sin servidor no devolverá ningún error en tiempo de compilación si la intercalación de columnas `OPENROSET` no tiene codificación UTF-8. Puede cambiar fácilmente la intercalación predeterminada de todas las funciones `OPENROWSET` que se ejecutan en la base de datos actual mediante la siguiente instrucción T-SQL: `alter database current collate Latin1_General_100_CI_AI_SC_UTF8`.
 
 En la tabla siguiente se enumeran los posibles errores y las acciones para solucionar problemas:
 

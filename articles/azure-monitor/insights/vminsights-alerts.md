@@ -5,16 +5,19 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/23/2020
-ms.openlocfilehash: be469ab3b05c54ebc5afa6bd6d129efd8d4ba692
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/10/2020
+ms.openlocfilehash: f582f0dc7547a607351fcfc4ff9d39e8c5a077df
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91254812"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94686184"
 ---
 # <a name="how-to-create-alerts-from-azure-monitor-for-vms"></a>Creación de alertas a partir de Azure Monitor para VM
 Las [alertas de Azure Monitor](../platform/alerts-overview.md) notifican al usuario proactivamente sobre datos y patrones interesantes en los datos de supervisión. Azure Monitor para VM no incluye las reglas de alerta preconfiguradas, pero puede crear las suyas propias en función de los datos que recopila. En este artículo se proporcionan instrucciones sobre cómo crear reglas de alerta, incluido un conjunto de consultas de ejemplo.
+
+> [!IMPORTANT]
+> Las alertas descritas en este artículo se basan en las consultas de registro de los datos recopilados por Azure Monitor para VM. Son diferentes de las alertas creadas por el [estado de invitado de Azure Monitor para VM](vminsights-health-overview.md), que es una característica que se encuentra actualmente en versión preliminar pública. A medida que esta característica se acerque a la disponibilidad general, se consolidarán las instrucciones para las alertas.
 
 
 ## <a name="alert-rule-types"></a>Tipos de reglas de alerta

@@ -5,14 +5,14 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 11/12/2020
 ms.author: cherylmc
-ms.openlocfilehash: 7853ac3ece01057282bc6cb421018020e15273b5
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 822a90aa2bd3a19cf3459924e6b577cc416aa3a5
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92079197"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616831"
 ---
 # <a name="working-with-nsg-access-and-azure-bastion"></a>Trabajo con acceso a grupos de seguridad de red y Azure Bastion
 
@@ -34,15 +34,16 @@ En esta sección se muestra el tráfico de red entre el usuario y Azure Bastion,
 
 ### <a name="azurebastionsubnet"></a><a name="apply"></a>AzureBastionSubnet
 
-Azure Bastion se implementa específicamente en ***AzureBastionSubnet***.
+Azure Bastion se implementa específicamente en ***AzureBastionSubnet** _.
 
-* **Tráfico de entrada:**
+_ **Tráfico de entrada:**
 
    * **Tráfico de entrada procedente de Internet pública:** Azure Bastion creará una dirección IP pública que necesita el puerto 443 habilitado en la dirección IP pública para el tráfico de entrada. El puerto 3389/22 no tiene que abrirse en la subred AzureBastionSubnet.
    * **Plano de control del tráfico de entrada procedente de Azure Bastion:** Para la conectividad del plano de control, habilite el puerto 443 entrante desde la etiqueta de servicio de **GatewayManager**. De este modo, se permite que el plano de control, es decir, el administrador de puerta de enlace, pueda comunicarse con Azure Bastion.
+   * **Tráfico de entrada desde Azure Load Balancer:** en el caso de los sondeos de estado, habilite el puerto 443 de entrada desde la etiqueta de servicio **AzureLoadBalancer**. Esto permite que Azure Load Balancer detecte la conectividad. 
 
 
-   :::image type="content" source="./media/bastion-nsg/inbound.png" alt-text="NSG":::
+   :::image type="content" source="./media/bastion-nsg/inbound.png" alt-text="Captura de pantalla que muestra las reglas de seguridad de entrada para la conectividad de Azure Bastion.":::
 
 * **Tráfico de salida:**
 
@@ -50,7 +51,7 @@ Azure Bastion se implementa específicamente en ***AzureBastionSubnet***.
    * **Salida del tráfico a otros puntos de conexión públicos de Azure:** Azure Bastion debe ser capaz de conectarse a varios puntos de conexión públicos dentro de Azure (por ejemplo, para almacenar registros de diagnóstico y los registros de medición). Por esta razón, Azure Bastion necesita una salida hacia 443 para la etiqueta de servicio **AzureCloud**.
 
 
-   :::image type="content" source="./media/bastion-nsg/outbound.png" alt-text="NSG":::
+   :::image type="content" source="./media/bastion-nsg/outbound.png" alt-text="Captura de pantalla que muestra las reglas de seguridad de salida para la conectividad de Azure Bastion.":::
 
 ### <a name="target-vm-subnet"></a>Subred de máquina virtual de destino
 Se trata de una subred que contiene la máquina virtual de destino a la que quiere conectarse mediante RDP/SSH.

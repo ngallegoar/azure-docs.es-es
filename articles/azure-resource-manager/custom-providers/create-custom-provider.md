@@ -5,12 +5,12 @@ author: MSEvanhi
 ms.topic: tutorial
 ms.date: 06/24/2020
 ms.author: evanhi
-ms.openlocfilehash: 541d140716e52b4fe1db4bc999682914a380a5f0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 23ae69f49d37a210dd9fa1bfeedeca6c1b461e20
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85368114"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888868"
 ---
 # <a name="quickstart-create-a-custom-provider-and-deploy-custom-resources"></a>Inicio rápido: Creación de un proveedor de recursos e implementación de recursos personalizados
 
@@ -23,8 +23,11 @@ En este inicio rápido, creará su propio proveedor de recursos e implementará 
 
 # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
-- Los comandos [custom-providers](/cli/azure/ext/custom-providers/custom-providers/resource-provider) requieren una extensión. Para más información, consulte [Uso de extensiones con la CLI de Azure](/cli/azure/azure-cli-extensions-overview).
-- Los ejemplos de la CLI de Azure usan `az rest` para las solicitudes de `REST`. Para más información, consulte [az rest](/cli/azure/reference-index#az-rest).
+Prepare el entorno para la CLI de Azure.
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+Los ejemplos de la CLI de Azure usan `az rest` para las solicitudes de `REST`. Para más información, consulte [az rest](/cli/azure/reference-index#az-rest).
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -33,8 +36,6 @@ En este inicio rápido, creará su propio proveedor de recursos e implementará 
 - Una vez instalado el **ARMClient**, puede mostrar la información de uso de un símbolo del sistema de PowerShell si escribe `armclient.exe`. O bien, vaya a la [wiki de ARMClient](https://github.com/projectkudu/ARMClient/wiki).
 
 ---
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 ## <a name="deploy-custom-provider"></a>Implementación de un proveedor personalizado
 

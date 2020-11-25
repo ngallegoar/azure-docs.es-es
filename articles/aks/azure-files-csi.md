@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 08/27/2020
 author: palma21
-ms.openlocfilehash: 556aec071ccb59a0223bc07d134f3427755117f3
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: b29f4034b12ce43e6c051e454601f196365469f3
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92745801"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94636987"
 ---
 # <a name="use-azure-files-container-storage-interface-csi-drivers-in-azure-kubernetes-service-aks-preview"></a>Uso de los controladores de interfaz de almacenamiento de contenedores (CSI) de Azure Files en Azure Kubernetes Service (AKS) (versión preliminar)
 
@@ -33,13 +33,13 @@ Para más información sobre los volúmenes de Kubernetes, consulte [Opciones de
 
 ## <a name="dynamically-create-azure-files-pvs-by-using-the-built-in-storage-classes"></a>Creación dinámica de PV para Azure Files mediante las clases de almacenamiento integradas
 
-Una clase de almacenamiento se utiliza para definir cómo se crea un recurso compartido de Azure Files. En el [grupo de recursos de nodo][node-resource-group], se crea automáticamente una cuenta de almacenamiento para utilizarla con la clase de almacenamiento para guardar los recursos compartidos de Azure Files. Seleccione una de las siguientes [SKU de redundancia de Azure Storage][storage-skus] para *skuName* :
+Una clase de almacenamiento se utiliza para definir cómo se crea un recurso compartido de Azure Files. En el [grupo de recursos de nodo][node-resource-group], se crea automáticamente una cuenta de almacenamiento para utilizarla con la clase de almacenamiento para guardar los recursos compartidos de Azure Files. Seleccione una de las siguientes [SKU de redundancia de Azure Storage][storage-skus] para *skuName*:
 
-* **Standard_LRS** : almacenamiento con redundancia local estándar
-* **Standard_GRS** : almacenamiento con redundancia geográfica estándar
-* **Standard_ZRS** : almacenamiento con redundancia de zona
-* **Standard_RAGRS** : almacenamiento con redundancia geográfica con acceso de lectura estándar
-* **Premium_LRS** : almacenamiento con redundancia local prémium
+* **Standard_LRS**: almacenamiento con redundancia local estándar
+* **Standard_GRS**: almacenamiento con redundancia geográfica estándar
+* **Standard_ZRS**: almacenamiento con redundancia de zona
+* **Standard_RAGRS**: almacenamiento con redundancia geográfica con acceso de lectura estándar
+* **Premium_LRS**: almacenamiento con redundancia local prémium
 
 > [!NOTE]
 > Azure Files es compatible con Azure Premium Storage. El recurso compartido de archivos prémium mínimo es de 100 GB.
@@ -212,7 +212,7 @@ Registre la marca de la característica `AllowNfsFileShares` con el comando [az 
 az feature register --namespace "Microsoft.Storage" --name "AllowNfsFileShares"
 ```
 
-Tarda unos minutos en que el estado muestre *Registrado* . Puede comprobar el estado de registro con el comando [az feature list][az-feature-list]:
+Tarda unos minutos en que el estado muestre *Registrado*. Puede comprobar el estado de registro con el comando [az feature list][az-feature-list]:
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.Storage/AllowNfsFileShares')].{Name:name,State:properties.state}"
@@ -229,7 +229,7 @@ az provider register --namespace Microsoft.Storage
 [Cree una cuenta de almacenamiento de Azure `Premium_LRS`](../storage/files/storage-how-to-create-premium-fileshare.md) con las siguientes configuraciones para admitir recursos compartidos de archivos NFS:
 - Tipo de cuenta: FileStorage
 - Se requiere transferencia segura (habilite solo el tráfico HTTPS): false.
-- Seleccione la red virtual de los nodos de agente en firewalls y redes virtuales.
+- Seleccione la red virtual de los nodos de agente en firewalls y redes virtuales, por lo que es posible que prefiera crear la cuenta de almacenamiento en el grupo MC_resource.
 
 ### <a name="create-nfs-file-share-storage-class"></a>Creación de una clase de almacenamiento de recursos compartidos de archivos NFS
 
@@ -239,7 +239,7 @@ Guarde un archivo `nfs-sc.yaml` con el manifiesto siguiente editando los respect
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
-  name: azurefile-csi
+  name: azurefile-csi-nfs
 provisioner: file.csi.azure.com
 parameters:
   resourceGroup: EXISTING_RESOURCE_GROUP_NAME  # optional, required only when storage account is not in the same resource group as your agent nodes
@@ -275,6 +275,10 @@ Filesystem      Size  Used Avail Use% Mounted on
 accountname.file.core.windows.net:/accountname/pvc-fa72ec43-ae64-42e4-a8a2-556606f5da38  100G     0  100G   0% /mnt/azurefile
 ...
 ```
+
+>[!NOTE]
+> Tenga en cuenta que, como el recurso compartido de archivos NFS está en una cuenta Premium, el tamaño mínimo del recurso compartido de archivos es 100 GB. Si crea un PVC con un tamaño de almacenamiento pequeño, puede que reciba un error de tipo "No se pudo crear el recurso compartido de archivos… tamaño (5)…".
+
 
 ## <a name="windows-containers"></a>Contenedores de Windows
 

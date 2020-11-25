@@ -6,23 +6,28 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 09/22/2020
+ms.date: 11/12/2020
 ms.custom: references_regions
-ms.openlocfilehash: 7f71cacee86edd5b3f054f0996893c2148c626eb
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 4c1284c13d1516ac4061319287adb64ab7e14ff5
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422678"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94579477"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Novedades de Azure Cognitive Search
 
 Conozca las novedades del servicio. Marque esta página para mantenerse actualizado con el servicio.
 
+## <a name="november-2020"></a>Noviembre de 2020
+
+|Característica&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Category | Descripción | Disponibilidad  |
+|------------------------------|----------|-------------|---------------|
+|[cifrado de claves administradas por el cliente sobre indexadores, orígenes de datos y conjuntos de aptitudes](search-security-manage-encryption-keys.md) | Seguridad | Esta adición extiende el cifrado administrado por el cliente a toda la gama de recursos creados y administrados por un servicio de búsqueda. Recuerde que la compatibilidad con CMK agrega un nivel de cifrado adicional sobre el cifrado básico que realiza y administra Microsoft. | Disponible con carácter general mediante la API REST versión = 2020-06-30 |  
+
 ## <a name="september-2020"></a>Septiembre de 2020
 
 Cree una identidad para un servicio de búsqueda en Azure Active Directory y, a continuación, use los permisos de Azure RBAC para conceder los permisos de solo lectura de identidades a los orígenes de datos de Azure. Opcionalmente, elija la funcionalidad [excepción de un servicio de confianza](search-indexer-howto-access-trusted-service-exception.md) si las reglas de IP no son una opción.
-
 
 |Característica&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Category | Descripción | Disponibilidad  |
 |------------------------------|----------|-------------|---------------|

@@ -1,6 +1,6 @@
 ---
 title: 'Transformación de datos mediante la actividad de Hive: Azure'
-description: Aprenda cómo puede usar la actividad de Hive en una factoría de datos de Azure v1 para ejecutar consultas de Hive en un clúster de HDInsight suyo propio o a petición.
+description: Aprenda a usar la actividad de Hive en Azure Data Factory v1 para ejecutar consultas de Hive en un clúster de HDInsight suyo propio o a petición.
 services: data-factory
 documentationcenter: ''
 author: djpmsft
@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 36e0d8a0c0ee5e5202c47acdd74b869181cfaf9e
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 0271029814071b3a692209d3a2015cfdbe5fa941
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371688"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616780"
 ---
 # <a name="transform-data-using-hive-activity-in-azure-data-factory"></a>Transformación de datos mediante la actividad de Hive en Azure Data Factory 
 > [!div class="op_single_selector" title1="Actividades de transformación"]
@@ -177,7 +177,7 @@ En este ejemplo, los registros de juegos se introducen diariamente en Azure Blob
 
 Para usar scripts de Hive parametrizados, haga lo siguiente
 
-* Defina los parámetros en **defines** .
+* Defina los parámetros en **defines**.
 
     ```JSON  
     {

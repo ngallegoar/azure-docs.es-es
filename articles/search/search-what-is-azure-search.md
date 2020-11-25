@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: overview
 ms.date: 10/22/2020
 ms.custom: contperfq1
-ms.openlocfilehash: f9a5197b982958fe0a0ff21c4b442142beb38882
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 0062caff7d8d25b263a9b1202f61691c056469af
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422474"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701089"
 ---
 # <a name="what-is-azure-cognitive-search"></a>¿Qué es Azure Cognitive Search?
 
@@ -28,7 +28,7 @@ En cuanto a la arquitectura, un servicio de búsqueda se coloca entre los almace
 
 Las dos cargas de trabajo principales de un servicio de búsqueda son la *indexación* y la *realización de consultas*.
 
-+ La indexación lleva el texto al servicio de búsqueda y hace que se puedan realizar búsquedas en él. Internamente, el texto de entrada se procesa en tokens y se almacena en índices invertidos, con el fin de agilizar los exámenes. Durante la indexación, tiene la opción de agregar *aptitudes cognitivas* , tanto las predefinidas de Microsoft como las personalizadas que cree. Tanto las transformaciones como los análisis posteriores pueden dar lugar a una nueva información y estructuras que no existían previamente, lo que resulta muy útil para muchos escenarios de búsqueda y minería de conocimientos.
++ La indexación lleva el texto al servicio de búsqueda y hace que se puedan realizar búsquedas en él. Internamente, el texto de entrada se procesa en tokens y se almacena en índices invertidos, con el fin de agilizar los exámenes. Durante la indexación, tiene la opción de agregar *aptitudes cognitivas*, tanto las predefinidas de Microsoft como las personalizadas que cree. Tanto las transformaciones como los análisis posteriores pueden dar lugar a una nueva información y estructuras que no existían previamente, lo que resulta muy útil para muchos escenarios de búsqueda y minería de conocimientos.
 
 + Una vez que un índice se rellena con datos en los que se pueden realizar búsquedas, la aplicación cliente envía solicitudes de consulta a un servicio de búsqueda y controla las respuestas. Toda la ejecución de consultas se realiza a través de un índice de búsqueda que crea, posee y almacena en su servicio. En la aplicación cliente, la experiencia de búsqueda se define mediante las API de Azure Cognitive Search y puede incluir las funciones de ajuste de relevancia, autocompletar, coincidencia de sinónimos, coincidencia aproximada, coincidencia de patrones, filtro y ordenación.
 
@@ -80,7 +80,7 @@ El modelo de extracción "extrae" datos de orígenes en Azure y los envía a un 
 
 Tras completar un índice, puede [generar consultas de búsqueda](search-query-overview.md) para el punto de conexión de servicio mediante solicitudes HTTP sencillas con [API REST](/rest/api/searchservice/Search-Documents) o el [SDK de .NET](/dotnet/api/azure.search.documents.searchclient.search).
 
-Consulte [Creación de la primera aplicación de búsqueda](tutorial-csharp-create-first-app.md) para crear y, posteriormente, ampliar una página web que recoja los datos que especifique el usuario y controle los resultados. También puede usar llamadas a [Postman para REST interactivo](search-get-started-postman.md) o el [Explorador de búsqueda](search-explorer.md) integrado en Azure Portal para consultar un índice existente.
+Consulte [Creación de la primera aplicación de búsqueda](tutorial-csharp-create-first-app.md) para crear y, posteriormente, ampliar una página web que recoja los datos que especifique el usuario y controle los resultados. También puede usar [Postman o Visual Studio Code](search-get-started-rest.md) para llamadas REST interactivas o el [Explorador de búsqueda](search-explorer.md) integrado en Azure Portal para consultar un índice existente.
 
 ## <a name="how-it-compares"></a>Comparación
 

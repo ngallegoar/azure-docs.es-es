@@ -3,7 +3,7 @@ title: Uso de reproductores existentes para reproducir el contenido - Azure | Mi
 description: En este artículo se enumeran los reproductores existentes que puede usar para reproducir el contenido.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: 7e9fcf89-0fb6-4fa4-96cb-666320684d69
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2019
-ms.author: juliako
-ms.openlocfilehash: d2036fa056932f9bbd2f14b4005fa54321b1a382
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.date: 11/17/2020
+ms.author: inhenkel
+ms.openlocfilehash: 6085f34c46ab39012500cd42cd8392e65776f773
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93095720"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94739823"
 ---
 # <a name="playing-your-content-with-existing-players"></a>Reproducción de contenido con existentes
 
@@ -27,7 +27,8 @@ ms.locfileid: "93095720"
 
 Azure Media Services admite muchos formatos de streaming populares como Smooth Streaming, HTTP Live Streaming y MPEG-Dash. Este tema remite a reproductores existentes que puede usar para probar sus transmisiones.
 
-### <a name="the-azure-portal-media-services-content-player"></a>Reproductor del contenido de Media Services de Azure Portal
+## <a name="the-azure-portal-media-services-content-player"></a>Reproductor del contenido de Media Services de Azure Portal
+
 **Azure Portal** proporciona un reproductor de contenido que puede usar para probar el vídeo.
 
 Haga clic en el vídeo deseado (asegúrese de que se ha [publicado](media-services-portal-publish.md)) y haga clic en el botón **Reproducir** situado en la parte inferior del portal.
@@ -35,8 +36,6 @@ Haga clic en el vídeo deseado (asegúrese de que se ha [publicado](media-servic
 Se aplican algunas consideraciones:
 
 * El **REPRODUCTOR DE CONTENIDO DE SERVICIOS MULTIMEDIA** reproduce desde el extremo de streaming predeterminado. Si desea reproducir desde un extremo de streaming que no esté predeterminado, use otro reproductor. Por ejemplo, [Azure Media Player](https://aka.ms/azuremediaplayer).
-
-![AMSPlayer][AMSPlayer]
 
 ### <a name="azure-media-player"></a>Azure Media Player
 
@@ -55,20 +54,21 @@ Use [Azure Media Player](https://aka.ms/azuremediaplayer) para reproducir el con
 
 ### <a name="dash-players"></a>Reproductores DASH
 
-"https://dashplayer.azurewebsites.net"
+[reproductor dash](https://dashplayer.azurewebsites.net)
 
 [https://dashif.org](https://dashif.org)
 
 ### <a name="other"></a>Otros
+
 Para probar las direcciones URL de HLS también puede utilizar:
 
 * **Safari** en un dispositivo iOS o
 * **3ivx HLS Player** en Windows.
 
 ## <a name="media-services-learning-paths"></a>Rutas de aprendizaje de Media Services
+
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Envío de comentarios
-[!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-[AMSPlayer]: ./media/media-services-playback-content-with-existing-players/media-services-portal-player.png
+[!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

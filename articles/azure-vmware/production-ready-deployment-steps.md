@@ -3,12 +3,12 @@ title: Planificación de la implementación de Azure VMware Solution
 description: En este artículo se describe el flujo de trabajo de implementación de Azure VMware Solution.  El resultado final es un entorno listo para la creación y migración de máquinas virtuales (VM).
 ms.topic: tutorial
 ms.date: 10/16/2020
-ms.openlocfilehash: 9b6d04e1e7a60bf812ca2b1e370c5075d306c432
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 08a15e6f8cad4068415cec3353544829f2218fb0
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93287060"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888987"
 ---
 # <a name="planning-the-azure-vmware-solution-deployment"></a>Planificación de la implementación de Azure VMware Solution
 
@@ -38,6 +38,9 @@ Identifique la región en la que desea implementar Azure VMware Solution.  Para 
 ## <a name="resource-name"></a>Nombre del recurso
 
 Defina el nombre del recurso que va a usar durante la implementación.  El nombre del recurso es un nombre descriptivo en el que se le da un título a la nube privada de Azure VMware Solution.
+
+>[!IMPORTANT]
+>El nombre no puede tener más de 40 caracteres. Si el nombre supera este límite, no podrá crear direcciones IP públicas para utilizarlas con la nube privada. 
 
 ## <a name="size-hosts"></a>Hosts de tamaño
 
@@ -89,14 +92,6 @@ Tenga en cuenta que:
 
 - Si tiene previsto extender las redes del entorno local, esas redes deben conectarse a [vSphere Distributed Switch (vDS)](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.networking.doc/GUID-B15C6A13-797E-4BCB-B9D9-5CBC5A60C3A6.html) en el entorno local de VMware.  
 - Si las redes que desea extender se encuentran en [vSphere Standard Switch](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.networking.doc/GUID-350344DE-483A-42ED-B0E2-C811EE927D59.html), no se pueden extender.
-
-## <a name="expressroute-global-reach-peering-network"></a>Red de emparejamiento ExpressRoute Global Reach
-
-Identifique un bloque de direcciones de red CIDR `/29`, que es necesario para el emparejamiento de Global Reach de ExpressRoute. Recuerde que los segmentos IP creados deben ser únicos en la superficie de Azure VMware Solution y local. Las direcciones IP de este segmento se usan en cada extremo de la conexión de ExpressRoute Global Reach para conectar el circuito ExpressRoute de Azure VMware Solution con el circuito ExpressRoute local. 
-
-**Ejemplo**: 10.1.0.0/29
-
-:::image type="content" source="media/pre-deployment/expressroute-global-reach-ip-diagram.png" alt-text="Identificación: red de emparejamiento de ExpressRoute Global Reach" border="false":::
 
 ## <a name="azure-virtual-network-to-attach-azure-vmware-solution"></a>Azure Virtual Network para conectar Azure VMware Solution
 

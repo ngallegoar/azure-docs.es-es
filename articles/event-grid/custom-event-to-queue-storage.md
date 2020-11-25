@@ -4,12 +4,12 @@ description: 'Inicio rápido: Use Azure Event Grid y la CLI de Azure para public
 ms.date: 07/07/2020
 ms.topic: quickstart
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: e2c017b95493000b3c206aa7b2398bbf7ef464ee
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 4de7aa1c111b5b21a27b155474ae10f78feba083
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87497361"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566323"
 ---
 # <a name="quickstart-route-custom-events-to-azure-queue-storage-with-azure-cli-and-event-grid"></a>Inicio rápido: Enrutar eventos personalizados a Azure Queue Storage con la CLI de Azure y Event Grid
 
@@ -17,12 +17,11 @@ Azure Event Grid es un servicio de eventos para la nube. Azure Queue Storage es 
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Si va a usar la CLI de Azure o Azure PowerShell en la máquina local en lugar de usar Cloud Shell en Azure Portal, asegúrese de tener las siguientes versiones de la CLI de Azure y Azure PowerShell. 
+- En este artículo se necesita la versión 2.0.56 de la CLI de Azure, o cualquier versión posterior. Si usa Azure Cloud Shell, ya está instalada la versión más reciente.
 
-- CLI de Azure versión 2.0.56 o posterior. Para instrucciones sobre cómo instalar la versión más reciente de la CLI de Azure, consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli). 
-- Azure PowerShell versión 1.1.0 o superior. Descargue la versión más reciente de Azure PowerShell en la máquina Windows desde [Descargas de Azure: herramientas de línea de comandos](https://azure.microsoft.com/downloads/). 
+- Si va a usar Azure PowerShell en la máquina local en lugar de usar Cloud Shell en Azure Portal, asegúrese de que dispone de la versión 1.1.0 de Azure PowerShell u otra versión posterior. Descargue la versión más reciente de Azure PowerShell en la máquina Windows desde [Descargas de Azure: herramientas de línea de comandos](https://azure.microsoft.com/downloads/). 
 
 En este artículo se proporcionan los comandos para usar la CLI de Azure. 
 

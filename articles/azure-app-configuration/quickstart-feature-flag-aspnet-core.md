@@ -7,12 +7,12 @@ ms.custom: devx-track-csharp
 ms.topic: quickstart
 ms.date: 09/28/2020
 ms.author: lcozzens
-ms.openlocfilehash: 866f1c404df2de87c2b3ce58b791ceb5257fca1b
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 88481346f22176b8e307b53774b42d753838f90b
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92074454"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94554830"
 ---
 # <a name="quickstart-add-feature-flags-to-an-aspnet-core-app"></a>Inicio rápido: Adición de marcas de características a una aplicación web de ASP.NET Core
 
@@ -106,7 +106,7 @@ dotnet new mvc --no-https --output TestFeatureFlags
 
     ---
 
-    Con el cambio anterior, el [proveedor de configuración de App Configuration](/dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration) se ha registrado con la API de configuración de .NET Core.
+    Con el cambio anterior, el [proveedor de configuración de App Configuration](https://go.microsoft.com/fwlink/?linkid=2074664) se ha registrado con la API de configuración de .NET Core.
 
 1. En *Startup.cs*, agregue una referencia al administrador de características de .NET Core:
 
@@ -181,36 +181,9 @@ dotnet new mvc --no-https --output TestFeatureFlags
 
     El código anterior permite el uso del asistente de etiquetas de `<feature>` en los archivos *.cshtml* del proyecto.
 
-1. En *Views/Shared/_Layout.cshtml*, reemplace el código de barras de `<nav>` que se muestra en `<body>` > `<header>` por el marcado siguiente:
+1. Abra *_Layout.cshtml* en el directorio *Vistas*\\*Compartido*. Busque el código de barras `<nav>` en `<body>` > `<header>`. Inserte una nueva etiqueta `<feature>` entre los elementos de la barra de navegación *Inicio* y *Privacidad*, tal como se muestra en las líneas resaltadas a continuación.
 
-    ```cshtml
-    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-        <div class="container">
-            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">TestFeatureFlags</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-            aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                <ul class="navbar-nav flex-grow-1">
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                    </li>
-                    <feature name="Beta">
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Beta" asp-action="Index">Beta</a>
-                    </li>
-                    </feature>
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    ```
-
-    En el marcado anterior, tenga en cuenta el asistente de etiquetas de `<feature>` que rodea al elemento de lista *Beta*.
+    :::code language="html" source="../../includes/azure-app-configuration-navbar.md" range="15-38" highlight="13-17":::
 
 1. Cree un directorio *Views/Beta* y un archivo *Index.cshtml* que contenga el marcado siguiente:
 
@@ -246,13 +219,15 @@ dotnet new mvc --no-https --output TestFeatureFlags
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com). Seleccione **Todos los recursos** y seleccione la instancia de almacén de App Configuration que creó en el inicio rápido.
 
-1. Seleccione **Administrador de características** y cambie el estado de la clave *Beta* a **Activado**.
+1. Seleccione **Administrador de características**. 
+
+1. Habilite la marca *Beta* activando la casilla situada debajo de **Habilitado**.
 
 1. Vuelva al shell de comandos. Para cancelar el proceso de `dotnet` en ejecución, presione <kbd>CTRL + C</kbd>. Reinicie la aplicación mediante `dotnet run`.
 
 1. Actualice la página del explorador para ver los nuevos valores de configuración.
 
-    :::image type="content" source="media/quickstarts/aspnet-core-feature-flag-local-after.png" alt-text="Aplicación de inicio rápido local antes del cambio" border="true":::
+    :::image type="content" source="media/quickstarts/aspnet-core-feature-flag-local-after.png" alt-text="Aplicación de inicio rápido local después del cambio" border="true":::
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
@@ -260,7 +235,7 @@ dotnet new mvc --no-https --output TestFeatureFlags
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este inicio rápido, ha creado un almacén de App Configuration y lo ha usado para administrar características en una aplicación web de ASP.NET Core mediante las [bibliotecas de administración de características](/dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration).
+En este inicio rápido, ha creado un almacén de App Configuration y lo ha usado para administrar características en una aplicación web de ASP.NET Core mediante las [bibliotecas de administración de características](https://go.microsoft.com/fwlink/?linkid=2074664).
 
 * Más información sobre la [administración de características](./concept-feature-management.md).
 * [Administración de marcas de características](./manage-feature-flags.md).

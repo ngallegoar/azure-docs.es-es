@@ -12,16 +12,18 @@ ms.workload: identity
 ms.date: 10/07/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:UWP
-ms.openlocfilehash: 297b34fd9981308ece52545ac5878eaa144f4829
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 28d912153b52580727e0fb5086e0a7ae55e8b545
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91824395"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94560934"
 ---
 # <a name="quickstart-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Inicio rápido: Llamar a Microsoft Graph API desde una aplicación de la Plataforma universal de Windows (UWP)
 
-En este inicio rápido se usa un código de ejemplo que muestra cómo una aplicación de la Plataforma universal de Windows (UWP) inicia la sesión de los usuarios con cuentas personales, profesionales o educativas, obtiene un token de acceso y llama a Microsoft Graph API. Para ilustrar este tema, consulte el apartado en el que se explica el [funcionamiento del ejemplo](#how-the-sample-works).
+En este inicio rápido descargará y ejecutará un código de ejemplo que muestra cómo una aplicación de Plataforma universal de Windows puede realizar el inicio de sesión de usuarios y obtener un token de acceso para llamar a Microsoft Graph API. 
+
+Para ilustrar este tema, consulte el apartado en el que se explica el [funcionamiento del ejemplo](#how-the-sample-works).
 
 > [!div renderon="docs"]
 > ## <a name="prerequisites"></a>Prerrequisitos
@@ -110,7 +112,7 @@ En este inicio rápido se usa un código de ejemplo que muestra cómo una aplica
 
 Para ejecutar la aplicación de ejemplo en la máquina local:
 
-1. En la barra de herramientas de Visual Studio, elija la plataforma correcta (probablemente **x64** o **x86**, no ARM). El dispositivo de destino debería cambiar de *Dispositivo*a *Máquina local*.
+1. En la barra de herramientas de Visual Studio, elija la plataforma correcta (probablemente **x64** o **x86**, no ARM). El dispositivo de destino debería cambiar de *Dispositivo* a *Máquina local*.
 1. Seleccione **Depurar** > **Iniciar sin depurar**.
     
     Si se le pide, es posible que deba habilitar **Developer Mode** (Modo de desarrollador) antes de habilitar **Iniciar sin depurar** de nuevo para iniciar la aplicación.

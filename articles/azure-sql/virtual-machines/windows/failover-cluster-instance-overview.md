@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: 1b8dae471729b42b1c302c6c45033ddc808c7b43
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: d5bd2fc150ee1d35127eeb9dbf3dc1eeffdc9659
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289309"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94685943"
 ---
 # <a name="failover-cluster-instances-with-sql-server-on-azure-virtual-machines"></a>Instancias de clúster de conmutación por error con SQL Server en Azure Virtual Machines
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -46,7 +46,7 @@ En entornos en clúster tradicionales en el entorno local, un clúster de conmut
 
 SQL Server en VM de Azure ofrece varias opciones como solución de almacenamiento compartido para una implementación de instancias de clúster de conmutación por error de SQL Server: 
 
-||[Discos compartidos de Azure](../../../virtual-machines/windows/disks-shared.md)|[Recursos compartidos de archivos Premium](../../../storage/files/storage-how-to-create-premium-fileshare.md) |[Espacios de almacenamiento directo (S2D)](/windows-server/storage/storage-spaces/storage-spaces-direct-overview)|
+||[Discos compartidos de Azure](../../../virtual-machines/disks-shared.md)|[Recursos compartidos de archivos Premium](../../../storage/files/storage-how-to-create-premium-fileshare.md) |[Espacios de almacenamiento directo (S2D)](/windows-server/storage/storage-spaces/storage-spaces-direct-overview)|
 |---------|---------|---------|---------|
 |**Versión mínima de sistema operativo**| All |Windows Server 2012|Windows Server 2016|
 |**Versión de SQL Server mínima**|All|SQL Server 2012|SQL Server 2016|
@@ -58,10 +58,10 @@ En el resto de esta sección se enumeran las ventajas y las limitaciones de cada
 
 ### <a name="azure-shared-disks"></a>Discos compartidos de Azure
 
-[Los discos compartidos de Azure](../../../virtual-machines/windows/disks-shared.md) son una característica de [Azure Managed Disks](../../../virtual-machines/managed-disks-overview.md). Los clústeres de conmutación por error de Windows Server admiten el uso de discos compartidos de Azure con una instancia de clúster de conmutación por error. 
+[Los discos compartidos de Azure](../../../virtual-machines/disks-shared.md) son una característica de [Azure Managed Disks](../../../virtual-machines/managed-disks-overview.md). Los clústeres de conmutación por error de Windows Server admiten el uso de discos compartidos de Azure con una instancia de clúster de conmutación por error. 
 
-**Sistema operativo compatible** : All   
-**Versión de SQL compatible** : All     
+**Sistema operativo compatible**: All   
+**Versión de SQL compatible**: All     
 
 **Ventajas** 
 - Resulta útil para las aplicaciones que desean migrar a Azure al tiempo que mantienen su arquitectura de alta disponibilidad y recuperación ante desastres (HADR) tal cual. 
@@ -71,7 +71,7 @@ En el resto de esta sección se enumeran las ventajas y las limitaciones de cada
 - Admite FileStream.
 
 
-**Limitaciones** : 
+**Limitaciones**: 
 - Las máquinas virtuales se deben colocar en el mismo conjunto de disponibilidad y grupo de ubicación de proximidad.
 - Availability Zones no se admite.
 - El almacenamiento en caché de disco SSD Premium no se admite.
@@ -82,8 +82,8 @@ Para empezar, consulte [Creación de una FCI con discos compartidos de Azure (SQ
 
 [Espacios de almacenamiento directo](/windows-server/storage/storage-spaces/storage-spaces-direct-overview) es una característica de Windows Server compatible con los clústeres de conmutación por error en Azure Virtual Machines. Proporciona una SAN virtual basada en software.
 
-**Sistema operativo compatible** : Windows Server 2016 y posteriores   
-**Versión de SQL compatible** : SQL Server 2016 y posterior   
+**Sistema operativo compatible**: Windows Server 2016 y posteriores   
+**Versión de SQL compatible**: SQL Server 2016 y posterior   
 
 
 **Ventajas:** 
@@ -104,8 +104,8 @@ Para empezar, consulte [Instancia de clúster de conmutación por error de SQL S
 
 [Los recursos compartidos de archivos Premium](../../../storage/files/storage-how-to-create-premium-fileshare.md) son una característica de [Azure Files](../../../storage/files/index.yml). Los recursos compartidos de archivos Premium están respaldados por SSD y tienen una latencia baja constante. Son totalmente compatibles con las instancias de clúster de conmutación por error para SQL Server 2012 o posterior en Windows Server 2012 o posterior. Los recursos compartidos de archivos Premium ofrecen mayor flexibilidad, lo que le permite cambiar el tamaño y escalar un recurso compartido de archivos sin tiempo de inactividad.
 
-**Sistema operativo compatible** : Windows Server 2012 y posteriores   
-**Versión de SQL compatible** : SQL Server 2012 y posterior   
+**Sistema operativo compatible**: Windows Server 2012 y posteriores   
+**Versión de SQL compatible**: SQL Server 2012 y posterior   
 
 **Ventajas:** 
 - Solo una solución de almacenamiento compartido para las máquinas virtuales distribuidas en varias zonas de disponibilidad. 
@@ -122,8 +122,8 @@ Para empezar, consulte [Instancia de clúster de conmutación por error de SQL S
 
 Hay soluciones de agrupación en clústeres de asociados con almacenamiento compatible. 
 
-**Sistema operativo compatible** : All   
-**Versión de SQL compatible** : All   
+**Sistema operativo compatible**: All   
+**Versión de SQL compatible**: All   
 
 En un ejemplo se usa SIOS DataKeeper como almacenamiento. Para más información, consulte la entrada del blog [Clúster de conmutación por error y SIOS DataKeeper](https://azure.microsoft.com/blog/high-availability-for-a-file-share-using-wsfc-ilb-and-3rd-party-software-sios-datakeeper/).
 
@@ -131,8 +131,8 @@ En un ejemplo se usa SIOS DataKeeper como almacenamiento. Para más información
 
 También puede exponer un almacenamiento en bloque compartido de destino iSCSI a través de Azure ExpressRoute. 
 
-**Sistema operativo compatible** : All   
-**Versión de SQL compatible** : All   
+**Sistema operativo compatible**: All   
+**Versión de SQL compatible**: All   
 
 Por ejemplo, NetApp Private Storage (NPS) expone un destino iSCSI a través de ExpressRoute con Equinix a las máquinas virtuales de Azure.
 
@@ -148,10 +148,11 @@ Para más información sobre las opciones de conectividad de clústeres, consult
 
 Tenga en cuenta las limitaciones siguientes de las instancias de clúster de conmutación por error con SQL Server en Azure Virtual Machines. 
 
-### <a name="lightweight-resource-provider"></a>Proveedor de recursos ligeros   
-Actualmente, las instancias del clúster de conmutación por error de SQL Server en las máquinas virtuales de Azure solo se admiten con el modo de administración [ligera](sql-server-iaas-agent-extension-automate-management.md#management-modes) de la [extensión del agente de IaaS de SQL Server](sql-server-iaas-agent-extension-automate-management.md). Para cambiar del modo de extensión total a extensión ligera, elimine el recurso **Máquina virtual con SQL** de las máquinas virtuales correspondientes y regístrelas con el proveedor de recursos VM con SQL en el modo ligero. Cuando elimine el recurso **Máquina virtual con SQL** desde Azure Portal, desactive la casilla de la máquina virtual correcta. 
+### <a name="lightweight-extension-support"></a>Compatibilidad con extensiones de tareas ligeras   
 
-La extensión completa admite características como la copia de seguridad automatizada, y la aplicación de revisiones y la administración avanzada del portal. Estas características no funcionarán para las VM con SQL Server después de que el agente se vuelva a instalar en modo de administración ligera.
+Actualmente, las instancias del clúster de conmutación por error de SQL Server en las máquinas virtuales de Azure solo se admiten con el [modo de administración ligera](sql-server-iaas-agent-extension-automate-management.md#management-modes) de la extensión del agente de IaaS de SQL Server. Para cambiar del modo de extensión total a extensión ligera, elimine el recurso **Máquina virtual con SQL** de las máquinas virtuales correspondientes y regístrelas con la extensión del agente de IaaS de SQL en el modo ligero. Cuando elimine el recurso **Máquina virtual con SQL** desde Azure Portal, desactive la casilla de la máquina virtual correcta para evitar la eliminación de la máquina virtual. 
+
+La extensión completa admite características como la copia de seguridad automatizada, y la aplicación de revisiones y la administración avanzada del portal. Estas características no funcionarán para las VM con SQL Server registradas en modo de administración ligera.
 
 ### <a name="msdtc"></a>MSDTC 
 

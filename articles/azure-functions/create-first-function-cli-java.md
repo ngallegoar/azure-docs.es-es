@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.custom:
 - devx-track-java
 - devx-track-azurecli
-ms.openlocfilehash: 449f0a59cc8428ce8e19535d5cf0417bf4cf7ad0
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 5c8993bdf892ceb7d9886d0d2b97063dedec720c
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93424976"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94635558"
 ---
 # <a name="quickstart-create-a-java-function-in-azure-from-the-command-line"></a>Inicio rápido: Creación de una función de Java en Azure desde la línea de comandos
 
@@ -163,11 +163,23 @@ La primera vez que implementa un proyecto de funciones, se crea una aplicación 
 > [!TIP]
 > Para crear una aplicación de función que se ejecute en Linux en lugar de Windows, cambie el elemento `runtime.os` del archivo pom.xml de `windows` a `linux`. La ejecución de Linux en un plan de consumo se admite en [estas regiones](https://github.com/Azure/azure-functions-host/wiki/Linux-Consumption-Regions). No puede tener aplicaciones que se ejecuten en Linux y aplicaciones que se ejecuten en Windows en el mismo grupo de recursos.
 
-1. Antes de poder implementar, use el comando [az login](/cli/azure/authenticate-azure-cli) de la CLI de Azure para iniciar sesión en la suscripción de Azure. 
+1. Antes de poder implementar, inicie sesión en su suscripción a Azure mediante la CLI de Azure o Azure PowerShell. 
 
+    # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
     ```azurecli
     az login
     ```
+
+    El comando [az login](/cli/azure/reference-index#az-login) inicia sesión en su cuenta de Azure.
+
+    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell) 
+    ```azurepowershell
+    Connect-AzAccount
+    ```
+
+    El cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) inicia sesión en su cuenta de Azure.
+
+    ---
 
 1. Use el siguiente comando para implementar el proyecto en una nueva aplicación de funciones.
 

@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: vs-azure
 ms.date: 01/22/2018
-ms.openlocfilehash: 65309bbd70a6fda2bf725ce96cc5595cd9b55083
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: db93262a0f5c6bd75f8c5611c7f33de085e05a82
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91569061"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94564895"
 ---
 # <a name="tutorial-create-a-data-factory-by-using-visual-studio"></a>Tutorial: Creación de una instancia de Data Factory mediante Visual Studio
 > [!div class="op_single_selector" title="Tools/SDKs"]
@@ -31,7 +31,7 @@ ms.locfileid: "91569061"
 > [!NOTE]
 > Este artículo se aplica a la versión 1 de Data Factory. Si usa la versión actual del servicio Data Factory, consulte [Guía de inicio rápido: Creación de una factoría de datos mediante Data Factory](../quickstart-create-data-factory-dot-net.md).
 
-Este tutorial muestra cómo crear una instancia de Azure Data Factory mediante Visual Studio. Va a crear un proyecto de Visual Studio mediante la plantilla de proyectos de Data Factory, a definir entidades de Data Factory (servicios vinculados, conjuntos de datos y canalización) en formato JSON y, finalmente, a publicar o implementar estas entidades en la nube. 
+Este tutorial muestra cómo crear una instancia de Azure Data Factory mediante Visual Studio. Va a crear un proyecto de Visual Studio mediante la plantilla de proyectos de Data Factory, a definir entidades de Data Factory (servicios vinculados, conjuntos de datos y canalización) en formato JSON y, finalmente, a publicar o implementar estas entidades en la nube. 
 
 La canalización de este tutorial tiene una actividad: **actividad de HDInsight Hive**. Esta actividad ejecuta un script de Hive en un clúster de Azure HDInsight que transforma los datos de entrada para generar datos de salida. La canalización está programada para ejecutarse una vez al mes entre las horas de inicio y finalización especificadas. 
 
@@ -67,7 +67,7 @@ Estos son los pasos que debe realizar en este tutorial:
    * Descargue el SDK de Azure para Visual Studio 2013 o Visual Studio 2015. Vaya a la [página Descargas de Azure](https://azure.microsoft.com/downloads/) y haga clic en **VS 2013** o **VS 2015** en la sección **.NET**.
    * Descargue el último complemento de Azure Data Factory para Visual Studio: [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) o [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005). También puede actualizar el complemento, para lo que debe seguir estos pasos: en el menú, haga clic en **Herramientas** -> **Extensiones y actualizaciones** -> **En línea** -> **Galería de Visual Studio** -> **Herramientas de Microsoft Azure Data Factory para Visual Studio** -> **Actualizar**.
 
-Vamos a usa Visual Studio para crear una instancia de Azure Data Factory.
+Vamos a usa Visual Studio para crear una instancia de Azure Data Factory.
 
 ### <a name="create-visual-studio-project"></a>Creación de un proyecto de Visual Studio
 1. Inicie **Visual Studio 2013** o **Visual Studio 2015**. Haga clic en **Archivo**, seleccione **Nuevo** y, luego, haga clic en **Proyecto**. Debería ver el cuadro de diálogo **Nuevo proyecto** .  
@@ -406,7 +406,7 @@ La Aplicación de supervisión y administración también se puede usar para sup
 
 ### <a name="additional-notes"></a>Notas adicionales
 - Una factoría de datos puede tener una o más canalizaciones. Una canalización puede tener una o más actividades. Por ejemplo, una actividad de copia para copiar datos desde un origen hasta un almacén de datos de destino o una actividad de Hive de HDInsight para ejecutar un script de Hive que transforme los datos de entrada. Consulte los [almacenes de datos compatibles](data-factory-data-movement-activities.md#supported-data-stores-and-formats) para ver todos orígenes y receptores que admite la actividad de copia. Consulte los [servicios vinculados de procesos](data-factory-compute-linked-services.md) para ver la lista de servicios de proceso compatibles con Data Factory.
-- Los servicios vinculados vinculan almacenes de datos o servicios de proceso con una factoría de datos de Azure. Consulte los [almacenes de datos compatibles](data-factory-data-movement-activities.md#supported-data-stores-and-formats) para ver todos orígenes y receptores que admite la actividad de copia. Consulte los [servicios vinculados de procesos](data-factory-compute-linked-services.md) para ver la lista de servicios de proceso compatibles con Data Factory y las [actividades de transformación](data-factory-data-transformation-activities.md) que se pueden ejecutar en ellos.
+- Los servicios vinculados vinculan almacenes de datos o servicios de proceso con una instancia de Azure Data Factory. Consulte los [almacenes de datos compatibles](data-factory-data-movement-activities.md#supported-data-stores-and-formats) para ver todos orígenes y receptores que admite la actividad de copia. Consulte los [servicios vinculados de procesos](data-factory-compute-linked-services.md) para ver la lista de servicios de proceso compatibles con Data Factory y las [actividades de transformación](data-factory-data-transformation-activities.md) que se pueden ejecutar en ellos.
 - Consulte [Movimiento de datos hacia y desde Azure Blob mediante Azure Data Factory](data-factory-azure-blob-connector.md#azure-storage-linked-service) para más información acerca de las propiedades JSON usadas en la definición del servicio vinculado de Azure Storage.
 - Puede usar su propio clúster de HDInsight en lugar de usar un clúster de HDInsight a petición. Consulte [Servicios vinculados de procesos](data-factory-compute-linked-services.md) para más información.
 -  Data Factory crea un clúster de HDInsight **basado en Linux** con el código JSON anterior. Para más información, consulte la sección [Servicio vinculado a petición de HDInsight de Azure](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) .
@@ -546,9 +546,9 @@ Cuando realiza la implementación, se usan los valores del archivo de configurac
 No es aconsejable y, en ocasiones, contraviene la directiva de seguridad, confirmar información confidencial, como las cadenas de conexión, en el repositorio de código. Vea el ejemplo [ADF Secure Publish](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/ADFSecurePublish) en GitHub para obtener información sobre cómo almacenar información confidencial en Azure Key Vault y usarla al publicar entidades de Data Factory. La extensión Secure Publish de Visual Studio permite almacenar los secretos en Key Vault, y solo las referencias a ellos se especifican en las configuraciones de implementación o en los servicios vinculados. Estas referencias se resuelven al publicar las entidades de Data Factory en Azure. Estos archivos se pueden confirmar en el repositorio de origen sin exponer los secretos.
 
 ## <a name="summary"></a>Resumen
-En este tutorial, ha creado una instancia de Data Factory de Azure para procesar datos mediante la ejecución de un script de Hive en un clúster de Hadoop en HDInsight. Ha usado el Editor de Data Factory en el Portal de Azure para realizar los siguientes pasos:  
+En este tutorial, ha creado una instancia de Azure Data Factory para procesar datos mediante la ejecución de un script de Hive en un clúster de Hadoop en HDInsight. Ha usado el Editor de Data Factory en el Portal de Azure para realizar los siguientes pasos:  
 
-1. Ha creado una **factoría de datos**de Azure.
+1. Ha creado una **factoría de datos** de Azure.
 2. Ha creado dos **servicios vinculados**:
    1. **Azure Storage** para vincular la instancia de Azure Blob Storage que contiene los archivos de entrada y salida a la factoría de datos.
    2. **HDInsight de Azure** para vincular un clúster de Hadoop en HDInsight a petición a la factoría de datos. Azure Data Factory crea un clúster de Hadoop en HDInsight justo a tiempo para procesar los datos de entrada y generar los datos de salida.

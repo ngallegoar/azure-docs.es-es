@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 08/12/2020
 ms.author: komammas
 ms.custom: mvc, devx-track-python
-ms.openlocfilehash: f4c71cffe00faa6dd8cc440c59f94b8c2d60f712
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c66c14d42c3d14fc4171f6fdfaf2e7f75a531507
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88185118"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94886913"
 ---
 # <a name="tutorial-run-python-scripts-through-azure-data-factory-using-azure-batch"></a>Tutorial: Ejecución de scripts de Python mediante Azure Data Factory con Azure Batch
 
@@ -33,7 +33,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 ## <a name="prerequisites"></a>Requisitos previos
 
 * Una distribución de [Python](https://www.python.org/downloads/) instalada, para las pruebas locales.
-* El paquete `pip` de [Azure](https://pypi.org/project/azure/).
+* El paquete [azure-storage-blob](https://pypi.org/project/azure-storage-blob/) `pip`.
 * El [conjunto de datos iris.csv](https://www.kaggle.com/uciml/iris/version/2#Iris.csv).
 * Una cuenta de Azure Batch y una cuenta de Azure Storage vinculada. Consulte [Creación de una cuenta de Batch](quick-create-portal.md#create-a-batch-account) para más información sobre cómo crear y vincular cuentas de Batch para almacenar cuentas.
 * Una cuenta de Azure Data Factory. Consulte [Creación de una factoría de datos](../data-factory/quickstart-create-data-factory-portal.md#create-a-data-factory) para más información sobre cómo crear una factoría de datos con Azure Portal.
@@ -57,7 +57,7 @@ En esta sección, se va a utilizar Batch Explorer para crear el grupo de Batch q
     1. Establezca el tipo de escala en **Tamaño fijo** y establezca el número de nodos dedicados en 2.
     1. En **Ciencia de datos**, seleccione **Dsvm Windows** como sistema operativo.
     1. Elija `Standard_f2s_v2` como tamaño de la máquina virtual.
-    1. Habilite la tarea de inicio y agregue el comando `cmd /c "pip install pandas"`. La identidad del usuario puede permanecer como la del **usuario del grupo** predeterminado.
+    1. Habilite la tarea de inicio y agregue el comando `cmd /c "pip install azure-storage-blob pandas"`. La identidad del usuario puede permanecer como la del **usuario del grupo** predeterminado.
     1. Seleccione **Aceptar**.
 
 ## <a name="create-blob-containers"></a>Creación de contenedores de blobs
@@ -75,17 +75,17 @@ El siguiente script de Python carga el conjunto de datos `iris.csv` desde el con
 
 ``` python
 # Load libraries
-from azure.storage.blob import BlockBlobService
+from azure.storage.blob import BlobServiceClient
 import pandas as pd
 
 # Define parameters
-storageAccountName = "<storage-account-name>"
+storageAccountURL = "<storage-account-url>"
 storageKey         = "<storage-account-key>"
 containerName      = "output"
 
 # Establish connection with the blob storage account
-blobService = BlockBlobService(account_name=storageAccountName,
-                               account_key=storageKey
+blob_service_client = BlockBlobService(account_url=storageAccountURL,
+                               credential=storageKey
                                )
 
 # Load iris dataset from the task node
@@ -98,10 +98,12 @@ df = df[df['Species'] == "setosa"]
 df.to_csv("iris_setosa.csv", index = False)
 
 # Upload iris dataset
-blobService.create_blob_from_path(containerName, "iris_setosa.csv", "iris_setosa.csv")
+container_client = blob_service_client.get_container_client(containerName)
+with open("iris_setosa.csv", "rb") as data:
+    blob_client = container_client.upload_blob(name="iris_setosa.csv", data=data)
 ```
 
-Guarde el script como `main.py` y cárguelo en el contenedor de **Azure Storage**. Asegúrese de probar y asegurar su funcionalidad localmente antes de cargarlo en el contenedor de blobs:
+Guarde el script como `main.py` y cárguelo en el contenedor de **Azure Storage** `input`. Asegúrese de probar y asegurar su funcionalidad localmente antes de cargarlo en el contenedor de blobs:
 
 ``` bash
 python main.py

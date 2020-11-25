@@ -3,12 +3,12 @@ title: Controles del ejemplo de plano técnico de cargas de trabajo de ASE/SQL I
 description: Asignación de controles del ejemplo de plano técnico para cargas de trabajo de App Service Environment y SQL Database compatibles con ISO 27001 en Azure Policy y RBAC.
 ms.date: 11/05/2020
 ms.topic: sample
-ms.openlocfilehash: 438f2af05e0c499e9f002b501b97e291705cee9a
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 4256f401e602a0641247dd06a1537289282f647b
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93420417"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842556"
 ---
 # <a name="control-mapping-of-the-iso-27001-asesql-workload-blueprint-sample"></a>Asignación de controles del ejemplo de plano técnico para cargas de trabajo de ASE y SQL compatibles con ISO 27001
 
@@ -82,7 +82,7 @@ Azure implementa el [control de acceso basado en rol (Azure RBAC) de Azure](../.
 
 ## <a name="a942-secure-log-on-procedures"></a>A.9.4.2 Procedimientos seguros de inicio de sesión
 
-Este plano técnico asigna tres definiciones de Azure Policy para auditar cuentas que no tienen la autenticación multifactor habilitada. Azure Multi-Factor Authentication proporciona más seguridad, ya que requiere una segunda forma de autenticación y ofrece autenticación segura. Mediante la supervisión de las cuentas que no tienen la autenticación multifactor habilitada puede identificar las cuentas en mayor o menor riesgo.
+Este plano técnico asigna tres definiciones de Azure Policy para auditar cuentas que no tienen la autenticación multifactor habilitada. Azure AD Multi-Factor Authentication proporciona más seguridad, ya que requiere una segunda forma de autenticación y ofrece autenticación segura. Mediante la supervisión de las cuentas que no tienen la autenticación multifactor habilitada puede identificar las cuentas en mayor o menor riesgo.
 
 - MFA debe estar habilitada en las cuentas con permisos de propietario en la suscripción
 - MFA debe estar habilitada en las cuentas con permisos de lectura en la suscripción

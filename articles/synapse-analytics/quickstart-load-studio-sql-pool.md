@@ -6,15 +6,15 @@ author: kevinvngo
 ms.service: synapse-analytics
 ms.subservice: sql
 ms.topic: quickstart
-ms.date: 05/06/2020
+ms.date: 11/16/2020
 ms.author: kevin
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2a4740699d70601591645aa0d3183531a6687be6
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 3b32e7a1df0dbbf4d43a73f1e3e409a904ab88a3
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324929"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660090"
 ---
 # <a name="quickstart-bulk-loading-with-synapse-sql"></a>Inicio rápido: Carga masiva con Synapse SQL
 
@@ -39,7 +39,8 @@ Ahora puede cargar datos de forma masiva fácilmente mediante grupos de SQL dedi
 
 ### <a name="steps"></a>Pasos
 
-1. Seleccione la cuenta de almacenamiento y el archivo o la carpeta desde donde se va a realizar la carga en el panel Source storage location (Ubicación de almacenamiento de origen): ![Seleccionar una ubicación de origen](./sql/media/bulk-load/bulk-load-source-location.png)
+1. Seleccione en el panel Source storage location (Ubicación de almacenamiento de origen) la cuenta de almacenamiento y el archivo o la carpeta desde donde se va a realizar la carga. El asistente intentará detectar automáticamente los archivos Parquet. Si no se puede confirmar el tipo de archivo Parquet, se usará de forma predeterminada el formato de texto delimitado (CSV). 
+   ![Seleccionar una ubicación de origen](./sql/media/bulk-load/bulk-load-source-location.png)
 
 2. Seleccione la configuración del formato de archivo, incluida la cuenta de almacenamiento en la que desea escribir las filas rechazadas (archivo de error). Actualmente solo se admiten archivos .csv y Parquet.
 
@@ -47,9 +48,14 @@ Ahora puede cargar datos de forma masiva fácilmente mediante grupos de SQL dedi
 
 3. Puede seleccionar "Vista previa de los datos" para ver cómo va a analizar el archivo la instrucción COPY para ayudarle en la configuración del formato de archivo. Seleccione "Vista previa de los datos" cada vez que cambie la configuración del formato de archivo para ver cómo va a analizar el archivo la instrucción COPY con la configuración actualizada: ![Vista previa de los datos](./sql/media/bulk-load/bulk-load-file-format-settings-preview-data.png) 
 
+> [!NOTE]  
+>
+> - El Asistente para carga masiva no admite la vista previa de datos con terminadores de campo de varios caracteres. Si se especifica un terminador de campo de varios caracteres, el Asistente para carga masiva obtendrá una vista previa de los datos de una sola columna. 
+> - La especificación de terminadores de fila de varios caracteres se especifica en la instrucción COPY; sin embargo, esto no se admite en el Asistente para carga masiva en el que se producirá un error.
+
 4. Seleccione el grupo de SQL dedicado que va a usar para cargar, incluido si la carga será para una tabla existente o una nueva: ![Seleccionar ubicación de destino](./sql/media/bulk-load/bulk-load-target-location.png)
 
-5. Seleccione "Configure column mapping" (Configurar asignación de columnas) para asegurarse de que tiene la asignación de columnas adecuada. En el caso de las nuevas tablas, la configuración de la asignación de columnas es fundamental para actualizar los tipos de datos de la columna de destino: ![Configurar la asignación de columnas](./sql/media/bulk-load/bulk-load-target-location-column-mapping.png)
+5. Seleccione "Configure column mapping" (Configurar asignación de columnas) para asegurarse de que tiene la asignación de columnas adecuada. Tenga en cuenta que los nombres de las columnas se detectarán automáticamente si se ha habilitado "Inferir nombres de columna". En el caso de las nuevas tablas, la configuración de la asignación de columnas es fundamental para actualizar los tipos de datos de la columna de destino: ![Configurar la asignación de columnas](./sql/media/bulk-load/bulk-load-target-location-column-mapping.png)
 
 6. Seleccione "Abrir script" y se generará un script de T-SQL con la instrucción COPY para cargar desde un lago de datos: ![Abrir el script SQL](./sql/media/bulk-load/bulk-load-target-final-script.png)
 

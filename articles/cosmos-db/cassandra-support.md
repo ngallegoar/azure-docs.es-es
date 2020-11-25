@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 09/14/2020
-ms.openlocfilehash: ae4281350efc96fab6c4e2898cbcddf83bf29cd8
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: ecf4229c95ff9103cd27fd161fdd19c9e7a0f76b
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93073117"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94636969"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Características de Apache Cassandra admitidas por Cassandra API de Azure Cosmos DB 
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
@@ -86,17 +86,24 @@ Cassandra API de Azure Cosmos DB admite las siguientes funciones de CQL:
 | writetime | Sí |
 | Conversión | No |
 
-\* Cassandra API admite el token como proyección o selector y solo permite token(pk) en el lado izquierdo de una cláusula WHERE. Por ejemplo, se admite `WHERE token(pk) > 1024`, pero no se admite `WHERE token(pk) > token(100)`.
+> [!NOTE]
+> \* Cassandra API admite el token como proyección o selector y solo permite token(pk) en el lado izquierdo de una cláusula WHERE. Por ejemplo, se admite `WHERE token(pk) > 1024`, pero `WHERE token(pk) > token(100)` **no** se admite.
+
 
 
 Funciones de agregado:
 
 |Get-Help  |Compatible |
 |---------|---------|
-| Min | Sí |
-| max | Sí |
 | avg | Sí |
 | count | Sí |
+| Min | Sí |
+| max | Sí |
+| Sum | Sí |
+
+> [!NOTE]
+> Las funciones de agregación funcionan en columnas normales, pero **no** se admiten agregados en columnas de agrupación en clústeres.
+
 
 Funciones de conversión de blobs:
  
@@ -260,7 +267,7 @@ Cassandra API de Azure Cosmos DB ofrece opciones de coherencia para las operacio
 
 ## <a name="permission-and-role-management"></a>Administración de permisos y roles
 
-Azure Cosmos DB admite el control de acceso basado en rol (RBAC) para el aprovisionamiento, la rotación de claves, la vista de las métricas y las claves o contraseñas de lectura y escritura y de solo lectura que se pueden obtener a través de [Azure Portal](https://portal.azure.com). Azure Cosmos DB no admite roles para las actividades de CRUD.
+Azure Cosmos DB admite el control de acceso basado en rol de Azure para el aprovisionamiento, la rotación de claves, la vista de las métricas y las claves o contraseñas de lectura y escritura y de solo lectura que se pueden obtener a través de [Azure Portal](https://portal.azure.com). Azure Cosmos DB no admite roles para las actividades de CRUD.
 
 ## <a name="keyspace-and-table-options"></a>Opciones de espacio de claves y de tabla
 

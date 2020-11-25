@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/16/2020
 ms.author: sebansal
-ms.openlocfilehash: 2d981e902f829eb0fa8283b6a38ae376a780bcc9
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 591d71e8cd6af2801540f5a1a41ad88b1f538e81
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289737"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844495"
 ---
 # <a name="tutorial-configure-certificate-auto-rotation-in-key-vault"></a>Tutorial: Configuración de la rotación automática de certificados en Key Vault
 
@@ -41,7 +41,7 @@ Inicie sesión en Azure Portal en https://portal.azure.com.
 
 ## <a name="create-a-vault"></a>Creación de un almacén
 
-Cree un almacén de claves o seleccione el almacén existente para realizar operaciones (consulte los [pasos para crear un almacén de claves](../secrets/quick-create-portal.md)). En el ejemplo, el nombre del almacén de claves es **Example-Vault**.
+Cree una instancia de Azure Key Vault mediante [Azure Portal](../general/quick-create-portal.md), la [CLI de Azure](../general/quick-create-cli.md) o [Azure PowerShell](../general/quick-create-powershell.md). En el ejemplo, el nombre del almacén de claves es **Example-Vault**.
 
 ![Salida tras finalizar la creación de Key Vault](../media/certificates/tutorial-import-cert/vault-properties.png)
 

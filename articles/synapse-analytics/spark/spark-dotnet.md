@@ -9,16 +9,16 @@ ms.subservice: spark
 ms.date: 05/01/2020
 ms.author: mamccrea
 ms.reviewer: jrasnick
-ms.openlocfilehash: d0ae4ef48bfb79130180cc477eb2a6fbeb470eb6
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 9fbf4eab55ec2cf8e4f0e27969ca4a22eb1f27ad
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94506437"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94578624"
 ---
 # <a name="use-net-for-apache-spark-with-azure-synapse-analytics"></a>Uso de .NET para Apache Spark con Azure Synapse Analytics
 
-[.NET para Apache Spark](https://dot.net/spark) proporciona un marco gratuito, de código abierto y multiplataforma de .NET para Spark. 
+[.NET para Apache Spark](https://dot.net/spark) proporciona un marco gratuito, de [código abierto](https://github.com/dotnet/spark) y multiplataforma de .NET para Spark. 
 
 Ofrece enlaces de .NET para Spark que permiten acceder a las API de Spark con C# y F#. Con .NET para Apache Spark, también puede escribir y ejecutar funciones definidas por el usuario para Spark escritas en .NET. Las API de .NET para Spark le permiten acceder a todos los aspectos de las tramas de datos Spark que le ayudan a analizar los datos, incluido Spark SQL, Delta Lake y Structured Streaming.
 
@@ -70,7 +70,13 @@ Al crear un cuaderno, elige un kernel de lenguaje en el que quiere expresar la l
 
 Para usar .NET para Apache Spark en el cuaderno de Azure Synapse Analytics, seleccione **.NET Spark (C#)** como kernel y conecte el cuaderno a un grupo de Apache Spark sin servidor existente.
 
-El cuaderno de .NET Spark se basa en las experiencias interactivas de .NET y proporciona experiencias interactivas de C# con la capacidad de usar .NET para Spark de forma predefinida con la variable de sesión de Spark `spark` ya predefinida.
+El cuaderno de .NET Spark se basa en las experiencias [interactivas de .NET](https://github.com/dotnet/interactive) y proporciona experiencias interactivas de C# con la capacidad de usar .NET para Spark de forma predefinida con la variable de sesión de Spark `spark` ya predefinida.
+
+### <a name="install-nuget-packages-in-notebooks"></a>Instalación de paquetes NuGet en cuadernos
+
+Puede instalar los paquetes NuGet que prefiera en el cuaderno con el símbolo `#r` antes del nombre del paquete NuGet. En el diagrama siguiente se muestra un ejemplo:
+
+![Captura de pantalla que muestra cómo usar #r para instalar un paquete NuGet en un cuaderno de .NET para Spark](./media/apache-spark-development-using-notebooks/synapse-spark-dotnet-notebook-nuget.png)
 
 ### <a name="net-for-apache-spark-c-kernel-features"></a>Características de .NET para el kernel C# de Apache Spark
 
@@ -80,14 +86,15 @@ Las siguientes características están disponibles cuando se usa .NET para Apach
 * Instrucciones simples de C# (como asignaciones, impresión en la consola, generación de excepciones, etc.).
 * Bloques de código de varias líneas de C# (como instrucciones if, bucles foreach, definiciones de clase, etc.).
 * Acceso a la biblioteca estándar de C# (como System, LINQ, Enumerable, etc.).
-* Compatibilidad con las [características del lenguaje C# 8.0](/dotnet/csharp/whats-new/csharp-8?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
-* "spark" como variable predefinida para darle acceso a la sesión de Apache Spark.
-* Compatibilidad para definir [funciones definidas por el usuario de .NET que se pueden ejecutar en Apache Spark](https://github.com/dotnet/spark/blob/master/examples/Microsoft.Spark.CSharp.Examples/Sql).
+* Compatibilidad con las características del lenguaje C# 8.0.
+* `spark` como variable predefinida para darle acceso a la sesión de Apache Spark.
+* Compatibilidad para definir [funciones definidas por el usuario de .NET que se pueden ejecutar en Apache Spark](/dotnet/spark/how-to-guides/udf-guide). Le recomendamos leer [Escritura y llamada a UDF en entornos interactivos de .NET para Apache Spark](/dotnet/spark/how-to-guides/dotnet-interactive-udf-issue) para aprender a usar UDF en experiencias interactivas de .NET para Apache Spark.
 * Compatibilidad para visualizar la salida de los trabajos de Spark con distintos gráficos (como líneas, barras o histogramas), y diseños (como único, superpuesto, etc.) mediante la biblioteca de `XPlot.Plotly`.
 * Posibilidad de incluir paquetes NuGet en el cuaderno de C#.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Documentación de .NET para Apache Spark](/dotnet/spark?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
-* [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)
+* [Documentación de .NET para Apache Spark](/dotnet/spark/)
+* [Guías interactivas de .NET para Apache Spark](/dotnet/spark/how-to-guides/dotnet-interactive-udf-issue)
+* [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics/)
 * [Documentación interactiva de .NET](https://devblogs.microsoft.com/dotnet/creating-interactive-net-documentation/)
