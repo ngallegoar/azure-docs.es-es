@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 921d9e2138c8aa9c09535a673a7cd2d32e9cddad
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: f4a71740c487896208a3da7bf35bb39899c56937
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89270759"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94952070"
 ---
 # <a name="identity-protection-and-conditional-access-for-azure-ad-b2c"></a>Identity Protection y acceso condicional para Azure AD B2C
 
@@ -60,7 +60,7 @@ En Azure AD B2C, puede desencadenar condiciones del acceso condicional a partir
 
 ## <a name="microsoft-graph-api"></a>Microsoft Graph API
 
-También puede administrar las directivas de acceso condicional de Azure AD B2C con Microsoft Graph API. Para más información, consulte la [documentación del acceso condicional](../active-directory/conditional-access/overview.md) y la [Referencia de Microsoft Graph](https://docs.microsoft.com/graph/api/resources/conditionalaccesspolicy?view=graph-rest-beta.md).
+También puede administrar las directivas de acceso condicional de Azure AD B2C con Microsoft Graph API. Para más información, consulte la [documentación del acceso condicional](../active-directory/conditional-access/overview.md) y la [Referencia de Microsoft Graph](/graph/api/resources/conditionalaccesspolicy?view=graph-rest-beta.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

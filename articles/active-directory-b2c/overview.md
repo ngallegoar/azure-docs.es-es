@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 09/19/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 7126cd38a9d0f9ed0079a73e1235cb08a99bcbcf
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: 29b34041042f00d72b8a9fe86e31bd80f8c77dc2
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91396542"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94953957"
 ---
 # <a name="what-is-azure-active-directory-b2c"></a>¿Qué es Azure Active Directory B2C?
 
@@ -79,7 +79,7 @@ WoodGrove Groceries ofrece varias opciones de inicio de sesión basadas en la re
 
 * Los clientes **individuales** pueden registrarse o iniciar sesión con cuentas individuales, como un proveedor de identidades de redes sociales o una dirección de correo electrónico y una contraseña.
 * Los clientes **empresariales** pueden registrarse o iniciar sesión con las credenciales de empresa.
-* Los **asociados** y proveedores son usuarios que suministran a la tienda de comestibles productos para su venta. La identidad del asociado la proporciona [Azure Active Directory B2B](../active-directory/b2b/what-is-b2b.md).
+* Los **asociados** y proveedores son usuarios que suministran a la tienda de comestibles productos para su venta. La identidad del asociado la proporciona [Azure Active Directory B2B](../active-directory/external-identities/what-is-b2b.md).
 
 ![Páginas de inicio de sesión individuales (B2C), empresariales (B2C) y asociados (B2B)](./media/overview/woodgrove-overview.png)
 
@@ -111,7 +111,7 @@ Esta directiva presenta al usuario una opción para usar sus credenciales corpor
 
 El vínculo **Sign in with your supplier account** (Inicie sesión con su cuenta de proveedor) usa la funcionalidad de colaboración de Azure Active Directory B2B. Azure AD B2B es una familia de características de Azure Active Directory para administrar las identidades de los asociados. Esas identidades se pueden federar desde Azure Active Directory para el acceso a aplicaciones protegidas mediante Azure AD B2C.
 
-Para más información sobre Azure AD B2B, consulte [¿Qué es el acceso de usuarios invitados en Azure Active Directory B2B?](../active-directory/b2b/what-is-b2b.md).
+Para más información sobre Azure AD B2B, consulte [¿Qué es el acceso de usuarios invitados en Azure Active Directory B2B?](../active-directory/external-identities/what-is-b2b.md).
 
 <!-- UNCOMMENT WHEN REPO IS UPDATED WITH LATEST DEMO CODE
 ### Sample code

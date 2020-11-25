@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: damendo
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: b74987e225314112c84280e18af523bc5c3804a4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 51ad2654b285138dbdff211d5dc497a4beb48449
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91296066"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94957867"
 ---
 # <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem---azure-powershell"></a>Inicio rápido: Diagnóstico de problemas de filtrado del tráfico de red de una máquina virtual: Azure PowerShell
 
@@ -247,6 +247,6 @@ Remove-AzResourceGroup -Name myResourceGroup -Force
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En esta guía de inicio rápido, ha creado una máquina virtual y diagnosticado los filtros del tráfico de entrada y de salida. Ha aprendido que las reglas de grupo de seguridad de red permiten o deniegan el tráfico de entrada y salida de una máquina virtual. Más información acerca de las [reglas de seguridad](../virtual-network/security-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) y [cómo crearlas](../virtual-network/manage-network-security-group.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#create-a-security-rule).
+En esta guía de inicio rápido, ha creado una máquina virtual y diagnosticado los filtros del tráfico de entrada y de salida. Ha aprendido que las reglas de grupo de seguridad de red permiten o deniegan el tráfico de entrada y salida de una máquina virtual. Más información acerca de las [reglas de seguridad](../virtual-network/network-security-groups-overview.md?toc=%252fazure%252fnetwork-watcher%252ftoc.json) y [cómo crearlas](../virtual-network/manage-network-security-group.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#create-a-security-rule).
 
 Incluso con la aplicación de los filtros de tráfico adecuados, la comunicación con una máquina virtual puede seguir experimentando errores debido a la configuración del enrutamiento. Para más información acerca de cómo diagnosticar los problemas de enrutamiento de red de la máquina virtual, consulte [Diagnose VM routing problems](diagnose-vm-network-routing-problem-powershell.md) (Diagnóstico de problemas de enrutamiento de máquina virtual). Para diagnosticar problemas con los filtros de tráfico, la latencia o el enrutamiento de salida mediante una herramienta, consulte [Solución de problemas de conexiones](network-watcher-connectivity-powershell.md).

@@ -6,12 +6,12 @@ ms.topic: include
 ms.date: 10/14/2020
 ms.author: olayemio
 ms.custom: include file
-ms.openlocfilehash: b17480c1a2a0bd8588289627a51780999e1f311c
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 29cbb2f6a7f0faf91852e520f15b779b3fe229c8
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92897804"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96028127"
 ---
 Shared Image Gallery es un servicio que ayuda a crear la estructura y la organización en torno a las imágenes. Las galerías de imágenes compartidas proporcionan:
 
@@ -45,7 +45,7 @@ La característica de galería de imágenes compartidas tiene varios tipos de re
 
 Las definiciones de la imagen son una agrupación lógica de las versiones de una imagen. La definición de la imagen contiene información acerca de por qué se creó la imagen, para qué sistema operativo sirve y otra información acerca del uso de la imagen. Una definición de imagen es como un plan para todos los detalles que rodean la creación de una imagen específica. No se implementa una VM desde una definición de imagen, sino desde las versiones de imágenes creadas a partir de la definición.
 
-Hay tres parámetros para cada definición de imagen que se usan en combinación: **Publisher** , **Offer** y **SKU**. Se utilizan para buscar una definición de imagen específica. Puede tener versiones de imágenes que comparten uno o dos valores, pero no los tres.  Por ejemplo, estas son las tres definiciones de imágenes y sus valores:
+Hay tres parámetros para cada definición de imagen que se usan en combinación: **Publisher**, **Offer** y **SKU**. Se utilizan para buscar una definición de imagen específica. Puede tener versiones de imágenes que comparten uno o dos valores, pero no los tres.  Por ejemplo, estas son las tres definiciones de imágenes y sus valores:
 
 |Definición de imágenes|Publicador|Oferta|SKU|
 |---|---|---|---|
@@ -71,7 +71,7 @@ Los siguientes son otros parámetros que se pueden establecer en la definición 
 - Etiqueta: puede agregar etiquetas al crear la definición de imagen. Para más información sobre las etiquetas, consulte [Uso de etiquetas para organizar los recursos](../articles/azure-resource-manager/management/tag-resources.md).
 - Número mínimo y máximo de vCPU y recomendaciones de memoria: si la imagen tiene vCPU y recomendaciones de memoria, puede adjuntar esa información a la definición de imagen.
 - Tipos de disco no permitidos: puede proporcionar información acerca de las necesidades de almacenamiento para la máquina virtual. Por ejemplo, si la imagen no es adecuada para los discos HDD estándar, agréguelos a la lista de no permitidos.
-- Información del plan de compra para imágenes de Marketplace: `-PurchasePlanPublisher`, `-PurchasePlanName`y `-PurchasePlanProduct`. Para más información sobre el plan de compra, consulte [Buscar imágenes en Azure Marketplace](https://docs.microsoft.com/azure/virtual-machines/windows/cli-ps-findimage) e [Indicación de la información del plan de compra de Azure Marketplace al crear imágenes](../articles/virtual-machines/marketplace-images.md).
+- Información del plan de compra para imágenes de Marketplace: `-PurchasePlanPublisher`, `-PurchasePlanName`y `-PurchasePlanProduct`. Para más información sobre el plan de compra, consulte [Buscar imágenes en Azure Marketplace](../articles/virtual-machines/windows/cli-ps-findimage.md) e [Indicación de la información del plan de compra de Azure Marketplace al crear imágenes](../articles/virtual-machines/marketplace-images.md).
 
 
 ## <a name="image-versions"></a>Versiones de la imagen
@@ -110,7 +110,7 @@ Hay límites por suscripción, para implementar los recursos con las galerías d
 - 10 réplicas de versiones de imágenes por suscripción, por región
 - Cualquier disco asociado a la imagen debe tener un tamaño inferior o igual a 1 TB
 
-Para más información, consulte [Comparación del uso de recursos con los límites](https://docs.microsoft.com/azure/networking/check-usage-against-limits) para obtener ejemplos sobre cómo comprobar el uso actual.
+Para más información, consulte [Comparación del uso de recursos con los límites](../articles/networking/check-usage-against-limits.md) para obtener ejemplos sobre cómo comprobar el uso actual.
  
 ## <a name="scaling"></a>Ampliación
 La galería de imágenes compartidas le permite especificar el número de réplicas de las imágenes que quiere que Azure mantenga. Esto ayuda en los escenarios de implementación de varias VM, ya que las implementaciones de VM se pueden distribuir a las distintas réplicas, lo que reduce la probabilidad de que el proceso de creación de instancias quede limitado por la sobrecarga de una única réplica.
@@ -128,7 +128,7 @@ Siempre se recomienda aprovisionar en exceso el número de réplicas debido a fa
 
 [El almacenamiento con redundancia de zona (ZRS) de Azure](https://azure.microsoft.com/blog/azure-zone-redundant-storage-in-public-preview/) proporciona resistencia frente a un error de la zona de disponibilidad en la región. Con la disponibilidad general de la galería de imágenes compartidas, puede elegir almacenar sus imágenes en cuentas de ZRS en regiones con zonas de disponibilidad. 
 
-También puede elegir el tipo de cuenta para cada una de las regiones de destino. El tipo de cuenta de almacenamiento predeterminado es Standard_LRS, pero puede elegir Standard_ZRS para regiones con zonas de disponibilidad. Compruebe la disponibilidad regional de ZRS [aquí](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs).
+También puede elegir el tipo de cuenta para cada una de las regiones de destino. El tipo de cuenta de almacenamiento predeterminado es Standard_LRS, pero puede elegir Standard_ZRS para regiones con zonas de disponibilidad. Compruebe la disponibilidad regional de ZRS [aquí](../articles/storage/common/storage-redundancy.md).
 
 ![Gráfico que muestra ZRS](./media/shared-image-galleries/zrs.png)
 
@@ -183,11 +183,11 @@ Versión de la imagen:
 
 Los siguientes SDK admiten la creación de galerías de imágenes compartidas:
 
-- [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/virtualmachines/management?view=azure-dotnet)
-- [Java](https://docs.microsoft.com/java/azure/?view=azure-java-stable)
-- [Node.js](https://docs.microsoft.com/javascript/api/@azure/arm-compute)
-- [Python](https://docs.microsoft.com/python/api/overview/azure/virtualmachines?view=azure-python)
-- [Go](https://docs.microsoft.com/azure/go/)
+- [.NET](/dotnet/api/overview/azure/virtualmachines/management?view=azure-dotnet)
+- [Java](/java/azure/?view=azure-java-stable)
+- [Node.js](/javascript/api/@azure/arm-compute)
+- [Python](/python/api/overview/azure/virtualmachines?view=azure-python)
+- [Go](/azure/go/)
 
 ## <a name="templates"></a>Plantillas
 
@@ -244,8 +244,8 @@ Sí. Hay tres escenarios basados en los tipos de imagen que pueda tener.
 
  Escenario 3: Si tiene un VHD en el sistema de archivos local, deberá cargar el VHD en una imagen administrada y, luego, crear una definición de la imagen y una versión de la imagen a partir de ella.
 
-- Si el VHD es de una VM Windows, consulte [Carga de un VHD](https://docs.microsoft.com/azure/virtual-machines/windows/upload-generalized-managed).
-- Si el VHD es para una VM Linux, consulte [Cargar un disco duro virtual](https://docs.microsoft.com/azure/virtual-machines/linux/upload-vhd#option-1-upload-a-vhd).
+- Si el VHD es de una VM Windows, consulte [Carga de un VHD](../articles/virtual-machines/windows/upload-generalized-managed.md).
+- Si el VHD es para una VM Linux, consulte [Cargar un disco duro virtual](../articles/virtual-machines/linux/upload-vhd.md#option-1-upload-a-vhd).
 
 ### <a name="can-i-create-an-image-version-from-a-specialized-disk"></a>¿Puedo crear una versión de la imagen desde un disco especializado?
 
@@ -310,4 +310,4 @@ Para implementaciones de VM y conjuntos de escalado de máquinas virtuales que u
 
 ### <a name="can-i-update-my-virtual-machine-scale-set-created-using-managed-image-to-use-shared-image-gallery-images"></a>¿Puedo actualizar mi conjunto de escalado de máquinas virtuales creado mediante una imagen administrada para usar imágenes de Shared Image Gallery?
 
-Sí, puede actualizar la referencia de imagen del conjunto de escalado desde una imagen administrada a una imagen de Shared Image Gallery, siempre que el tipo de sistema operativo, la generación de Hyper-V y el diseño del disco de datos coincidan entre las imágenes. 
+Sí, puede actualizar la referencia de imagen del conjunto de escalado desde una imagen administrada a una imagen de Shared Image Gallery, siempre que el tipo de sistema operativo, la generación de Hyper-V y el diseño del disco de datos coincidan entre las imágenes.

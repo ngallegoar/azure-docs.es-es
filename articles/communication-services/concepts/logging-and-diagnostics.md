@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 10/15/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: aad4cdfe38ee9dd7530cb8ebe21cded18cb0a1ec
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: d8afa769c90c5cf9450343cda1a65809062468fb
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92128622"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888698"
 ---
 # <a name="communication-services-logs"></a>Registros de Communication Services
 
@@ -22,7 +22,7 @@ Azure Communication Services ofrece funcionalidades de registro que sirven para 
 
 ## <a name="enable-diagnostic-logs-in-your-resource"></a>Habilitación de los registros de diagnóstico en el recurso
 
-El registro está desactivado de forma predeterminada cuando se crea un recurso. Para habilitarlo, vaya a la hoja **Configuración de diagnóstico** del menú de recursos en la sección **Supervisión** . Haga clic en **Add diagnostic setting** (Agregar configuración de diagnóstico).
+El registro está desactivado de forma predeterminada cuando se crea un recurso. Para habilitarlo, vaya a la hoja **Configuración de diagnóstico** del menú de recursos en la sección **Supervisión**. Haga clic en **Add diagnostic setting** (Agregar configuración de diagnóstico).
 
 Después, establezca el destino de archivo que desee. Actualmente se admiten cuentas de almacenamiento y Log Analytics como destinos de archivo. Después de seleccionar los tipos de registros que desea capturar, guarde la configuración de diagnóstico.
  
@@ -30,7 +30,7 @@ La nueva configuración surte efecto en unos diez minutos. Los registros comenza
 
 :::image type="content" source="./media/diagnostic-settings.png" alt-text="Opciones de configuración de diagnóstico de ACS":::.
 
-Para más información sobre la configuración de diagnóstico, consulte la información general sobre los [registros de los recursos de Azure](https://docs.microsoft.com/azure/azure-monitor/platform/platform-logs-overview).
+Para más información sobre la configuración de diagnóstico, consulte la información general sobre los [registros de los recursos de Azure](../../azure-monitor/platform/platform-logs-overview.md).
 
 ## <a name="resource-log-categories"></a>Categorías del registro de recursos
 

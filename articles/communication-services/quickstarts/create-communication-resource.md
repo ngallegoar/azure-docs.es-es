@@ -10,18 +10,18 @@ ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
 zone_pivot_groups: acs-plat-azp-net
-ms.openlocfilehash: 8b606108d0e33ba1dd49e37c0f407b0caa350f6b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a93ac3b5d988be33c0f27726a75b1006f990d1da
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91667510"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94886126"
 ---
 # <a name="quickstart-create-and-manage-communication-services-resources"></a>Inicio rápido: Creación y administración de recursos de Communication Services
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
-Aprovisione su primer recurso de Communication Services a fin de empezar a usar Azure Communication Services. Los recursos de Communication Services se pueden aprovisionar a través de Azure Portal o con la biblioteca cliente de administración de .NET. La biblioteca cliente de administración le permite crear, configurar, actualizar y eliminar sus recursos e interfaces con [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/overview), el servicio de implementación y administración de Azure. Todas las funcionalidades disponibles en las bibliotecas cliente están disponibles en Azure Portal. 
+Aprovisione su primer recurso de Communication Services a fin de empezar a usar Azure Communication Services. Los recursos de Communication Services se pueden aprovisionar a través de Azure Portal o con la biblioteca cliente de administración de .NET. La biblioteca cliente de administración le permite crear, configurar, actualizar y eliminar sus recursos e interfaces con [Azure Resource Manager](../../azure-resource-manager/management/overview.md), el servicio de implementación y administración de Azure. Todas las funcionalidades disponibles en las bibliotecas cliente están disponibles en Azure Portal. 
 
 > [!WARNING]
 > Tenga en cuenta que la disponibilidad de Communication Services está restringida a la geografía de EE. UU. durante la versión preliminar pública. Así mismo, tenga presente que los recursos de comunicación no se pueden transferir a otra suscripción durante la versión preliminar pública.
@@ -47,8 +47,8 @@ Después de navegar al recurso de Communication Services, seleccione **Claves** 
 Las bibliotecas cliente de Communication Services usan cadenas de conexión para autorizar las solicitudes realizadas a Communication Services. Tiene varias opciones para almacenar una cadena de conexión:
 
 * Una aplicación que se ejecuta en el escritorio o en un dispositivo puede almacenar la cadena de conexión en un archivo **app.config** o **web.config**. Agregue la cadena de conexión a la sección **AppSettings** en estos archivos.
-* Una aplicación que se ejecuta en una instancia de Azure App Service puede almacenar la cadena de conexión en la [configuración de la aplicación de App Service](https://docs.microsoft.com/azure/app-service/configure-common). Agregue la cadena de conexión a la sección **Cadenas de conexión** de la pestaña Configuración de la aplicación en el portal.
-* Puede almacenar la cadena de conexión en [Azure Key Vault](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault).
+* Una aplicación que se ejecuta en una instancia de Azure App Service puede almacenar la cadena de conexión en la [configuración de la aplicación de App Service](../../app-service/configure-common.md). Agregue la cadena de conexión a la sección **Cadenas de conexión** de la pestaña Configuración de la aplicación en el portal.
+* Puede almacenar la cadena de conexión en [Azure Key Vault](../../data-factory/store-credentials-in-key-vault.md).
 * Si ejecuta la aplicación localmente, le recomendamos que almacene la cadena de conexión en una variable de entorno.
 
 ### <a name="store-your-connection-string-in-an-environment-variable"></a>Almacenamiento de la cadena de conexión en una variable de entorno
