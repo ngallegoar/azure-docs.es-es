@@ -8,20 +8,20 @@ ms.topic: how-to
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
-ms.openlocfilehash: 105978daeb93a2e5646222ff10055ba20a1dc481
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 7174f7dd53387de9a569a5ddcadc08c32692c749
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92172904"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95997110"
 ---
 # <a name="change-feed-support-in-azure-blob-storage"></a>Compatibilidad con la fuente de cambios en Azure Blob Storage
 
-El propósito de la fuente de cambios es proporcionar registros de transacciones de todos los cambios que se producen en los blobs y en los metadatos de blobs de la cuenta de almacenamiento. La fuente de cambios proporciona un registro **ordenado** , **garantizado** , **durable** , **inmutable** y de **solo lectura** de estos cambios. Las aplicaciones cliente pueden leer estos registros en cualquier momento, ya sea en streaming o en modo por lotes. La fuente de cambios le permite compilar soluciones eficaces y escalables que procesan los eventos de cambio que se producen en su cuenta de Blob Storage a un bajo costo.
+El propósito de la fuente de cambios es proporcionar registros de transacciones de todos los cambios que se producen en los blobs y en los metadatos de blobs de la cuenta de almacenamiento. La fuente de cambios proporciona un registro **ordenado**, **garantizado**, **durable**, **inmutable** y de **solo lectura** de estos cambios. Las aplicaciones cliente pueden leer estos registros en cualquier momento, ya sea en streaming o en modo por lotes. La fuente de cambios le permite compilar soluciones eficaces y escalables que procesan los eventos de cambio que se producen en su cuenta de Blob Storage a un bajo costo.
 
 [!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
-La fuente de cambios se almacena como [blobs](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) en un contenedor especial de la cuenta de almacenamiento al costo de los [precios de los blobs](https://azure.microsoft.com/pricing/details/storage/blobs/) estándar. Puede controlar el período de retención de estos archivos en función de los requisitos (consulte las [condiciones](#conditions) de la versión actual). Los eventos de cambio se anexan a la fuente de cambios como registros en la especificación de formato de [Apache Avro](https://avro.apache.org/docs/1.8.2/spec.html): un formato compacto, rápido y binario que proporciona estructuras de datos enriquecidos con el esquema en línea. Este formato se usa ampliamente en el ecosistema de Hadoop, en Stream Analytics y en Azure Data Factory.
+La fuente de cambios se almacena como [blobs](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) en un contenedor especial de la cuenta de almacenamiento al costo de los [precios de los blobs](https://azure.microsoft.com/pricing/details/storage/blobs/) estándar. Puede controlar el período de retención de estos archivos en función de los requisitos (consulte las [condiciones](#conditions) de la versión actual). Los eventos de cambio se anexan a la fuente de cambios como registros en la especificación de formato de [Apache Avro](https://avro.apache.org/docs/1.8.2/spec.html): un formato compacto, rápido y binario que proporciona estructuras de datos enriquecidos con el esquema en línea. Este formato se usa ampliamente en el ecosistema de Hadoop, en Stream Analytics y en Azure Data Factory.
 
 Puede procesar estos registros de manera asincrónica, incremental o en su totalidad. Cualquier número de aplicaciones cliente puede leer de manera independiente la fuente de cambios, en paralelo y a su propio ritmo. Las aplicaciones de análisis como [Apache Drill](https://drill.apache.org/docs/querying-avro-files/) o [Apache Spark](https://spark.apache.org/docs/latest/sql-data-sources-avro.html) pueden consumir registros directamente como archivos Avro, lo que le permite procesarlos a un bajo costo, con un alto ancho de banda y sin la necesidad de escribir una aplicación personalizada.
 
@@ -48,7 +48,7 @@ Para iniciar la captura y registro de cambios debe habilitar la fuente de cambio
 
 Estos son algunos aspectos que hay que tener en cuenta al habilitar la fuente de cambios.
 
-- Solo hay una fuente de cambios para Blob service en cada cuenta de almacenamiento y se almacena en el contenedor **$blobchangefeed** .
+- Solo hay una fuente de cambios para Blob service en cada cuenta de almacenamiento y se almacena en el contenedor **$blobchangefeed**.
 
 - Los cambios de creación, actualización y eliminación se capturan solo en el nivel de Blob service.
 
@@ -62,11 +62,11 @@ Habilite la fuente de cambios en la cuenta de almacenamiento mediante Azure Port
 
 1. En [Azure Portal](https://portal.azure.com/), seleccione la cuenta de almacenamiento.
 
-2. Vaya a la opción **Protección de datos** en **Blob service** .
+2. Vaya a la opción **Protección de datos** en **Blob service**.
 
-3. Haga clic en **Habilitado** en **Fuente de cambios de blob** .
+3. Haga clic en **Habilitado** en **Fuente de cambios de blob**.
 
-4. Elija el botón **Guardar** para confirmar la configuración de **Protección de datos** .
+4. Elija el botón **Guardar** para confirmar la configuración de **Protección de datos**.
 
     ![Captura de pantalla que muestra la configuración de protección de datos.](media/soft-delete-blob-enable/storage-blob-soft-delete-portal-configuration.png)
 
@@ -82,7 +82,7 @@ Habilite la fuente de cambios mediante PowerShell:
 
 2. Cierre la consola de PowerShell y vuelva a abrirla.
 
-3. Instale la versión 2.5.0, o cualquier versión posterior del módulo **Az.Storage** .
+3. Instale la versión 2.5.0, o cualquier versión posterior del módulo **Az.Storage**.
 
    ```powershell
    Install-Module Az.Storage –Repository PSGallery -RequiredVersion 2.5.0 –AllowClobber –Force
@@ -103,11 +103,11 @@ Habilite la fuente de cambios mediante PowerShell:
 ### <a name="template"></a>[Plantilla](#tab/template)
 Use una plantilla de Azure Resource Manager para habilitar la fuente de cambios en la cuenta de almacenamiento existente a través de Azure Portal:
 
-1. En Azure Portal, elija **Crear un recurso** .
+1. En Azure Portal, elija **Crear un recurso**.
 
-2. En **Buscar en Marketplace** , escriba **implementación de plantillas** y, después, presione **ENTRAR** .
+2. En **Buscar en Marketplace**, escriba **implementación de plantillas** y, después, presione **ENTRAR**.
 
-3. Elija **[Implementar una plantilla personalizada](https://portal.azure.com/#create/Microsoft.Template)** y, después, elija **Cree su propia plantilla en el editor** .
+3. Elija **[Implementar una plantilla personalizada](https://portal.azure.com/#create/Microsoft.Template)** y, después, elija **Cree su propia plantilla en el editor**.
 
 4. En el editor de plantillas, pegue el JSON siguiente. Reemplace el marcador de posición `<accountName>` por el nombre de la cuenta de almacenamiento.
 
@@ -130,7 +130,7 @@ Use una plantilla de Azure Resource Manager para habilitar la fuente de cambios 
    }
    ```
     
-5. Elija el botón **Guardar** , especifique el grupo de recursos de la cuenta y, luego, elija el botón **Comprar** para implementar la plantilla y habilitar la fuente de cambios.
+5. Elija el botón **Guardar**, especifique el grupo de recursos de la cuenta y, luego, elija el botón **Comprar** para implementar la plantilla y habilitar la fuente de cambios.
 
 ---
 
@@ -151,7 +151,7 @@ Consulte [Procesamiento de los registros de la fuente de cambios en Azure Blob S
 
 ### <a name="segments"></a>Segmentos
 
-La fuente de cambios es un registro de los cambios que se organizan en *segmentos* **horarios** , pero que se anexan y se actualizan cada pocos minutos. Estos segmentos se crean solo cuando se produce un evento de cambio de blob en esa hora. Esto permite que la aplicación cliente consuma los cambios que se producen dentro de intervalos de tiempo específicos sin tener que buscar en todo el registro. Para más información, consulte las [especificaciones](#specifications).
+La fuente de cambios es un registro de los cambios que se organizan en *segmentos* **horarios**, pero que se anexan y se actualizan cada pocos minutos. Estos segmentos se crean solo cuando se produce un evento de cambio de blob en esa hora. Esto permite que la aplicación cliente consuma los cambios que se producen dentro de intervalos de tiempo específicos sin tener que buscar en todo el registro. Para más información, consulte las [especificaciones](#specifications).
 
 Un segmento por hora disponible de la fuente de cambios se describe en un archivo de manifiesto que especifica las rutas de acceso a los archivos de la fuente de cambios para ese segmento. El listado del directorio virtual `$blobchangefeed/idx/segments/` muestra estos segmentos ordenados por hora. La ruta de acceso del segmento describe el inicio del intervalo de tiempo por hora que el segmento representa. Puede usar esa lista para filtrar los segmentos de registros que le interesan.
 
@@ -206,7 +206,7 @@ El archivo de manifiesto del segmento (`meta.json`) muestra la ruta de acceso de
 
 Los archivos de la fuente de cambios contienen una serie de registros de eventos de cambio. Cada registro de evento de cambio corresponde a un cambio en un blob individual. Los registros se serializan y se escriben en el archivo mediante la especificación de formato de [Apache Avro](https://avro.apache.org/docs/1.8.2/spec.html). Los registros se pueden leer si se usa la especificación de formato de archivo Avro. Hay varias bibliotecas disponibles para procesar archivos en ese formato.
 
-Los archivos de la fuente de cambios se almacenan en el directorio virtual `$blobchangefeed/log/` como [blobs en anexos](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs). El primer archivo de fuente de cambios de cada ruta de acceso tendrá `00000` en el nombre de archivo (por ejemplo, `00000.avro`). El nombre de cada archivo de registro subsiguiente agregado a esa ruta de acceso se incrementará en 1 (por ejemplo, `00001.avro`).
+Los archivos de la fuente de cambios se almacenan en el directorio virtual `$blobchangefeed/log/` como [blobs en anexos](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs). El primer archivo de fuente de cambios de cada ruta de acceso tendrá `00000` en el nombre de archivo (por ejemplo, `00000.avro`). El nombre de cada archivo de registro subsiguiente agregado a esa ruta de acceso se incrementará en 1 (por ejemplo, `00001.avro`).
 
 Los siguientes tipos de eventos se capturan en los registros de fuente de cambios:
 - BlobCreated
@@ -243,7 +243,7 @@ Este es un ejemplo de registro de evento de cambio del archivo de la fuente de c
 }
 ```
 
-Para una descripción de cada propiedad, consulte [Esquema de eventos de Azure Event Grid para Blob Storage](https://docs.microsoft.com/azure/event-grid/event-schema-blob-storage?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#event-properties). Los eventos BlobPropertiesUpdated y BlobSnapshotCreated actualmente son exclusivos de la fuente de cambios y aún no se admiten para los eventos de Blob Storage.
+Para una descripción de cada propiedad, consulte [Esquema de eventos de Azure Event Grid para Blob Storage](../../event-grid/event-schema-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#event-properties). Los eventos BlobPropertiesUpdated y BlobSnapshotCreated actualmente son exclusivos de la fuente de cambios y aún no se admiten para los eventos de Blob Storage.
 
 > [!NOTE]
 > Los archivos de la fuente de cambios de un segmento no aparecen inmediatamente después de crear un segmento. La duración del retraso se encuentra dentro del intervalo normal de la latencia de publicación de la fuente de cambios que se encuentra dentro de unos minutos del cambio.
@@ -256,7 +256,7 @@ Para una descripción de cada propiedad, consulte [Esquema de eventos de Azure E
 
 - Los registros de eventos de cambio se anexan en cuestión de minutos después del cambio. Las aplicaciones cliente pueden optar por consumir los registros a medida que se anexan para el acceso de streaming o de manera masiva en cualquier otro momento.
 
-- Los registros de eventos de cambio se organizan por orden de modificación **por blob** . El orden de los cambios entre blobs no está definido en Azure Blob Storage. Todos los cambios en un segmento anterior son previos a cualquier cambio en los segmentos posteriores.
+- Los registros de eventos de cambio se organizan por orden de modificación **por blob**. El orden de los cambios entre blobs no está definido en Azure Blob Storage. Todos los cambios en un segmento anterior son previos a cualquier cambio en los segmentos posteriores.
 
 - Los registros de eventos de cambio se serializan en el archivo de registro mediante la especificación de formato [Apache Avro 1.8.2](https://avro.apache.org/docs/1.8.2/spec.html).
 

@@ -10,11 +10,11 @@ ms.topic: how-to
 ms.date: 07/22/2020
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 243f6f26be592e2db82d8f46df3de9aafcd2078b
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340479"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996991"
 ---
 # <a name="monitor-and-debug-with-metrics-in-azure-cosmos-db"></a>Supervisión y depuración con métricas de Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -31,19 +31,19 @@ Este artículo le guía a través de casos de uso comunes y cómo se pueden util
 
    :::image type="content" source="./media/use-metrics/performance-metrics.png" alt-text="Métricas de rendimiento de Cosmos DB en Azure Portal":::
 
-Las siguientes métricas están disponibles desde el panel **Métricas** : 
+Las siguientes métricas están disponibles desde el panel **Métricas**: 
 
-* **Métricas de rendimiento** : esta métrica muestra el número de solicitudes consumidas o con error (código de respuesta 429) debido a que se superó la capacidad de rendimiento o almacenamiento aprovisionada para el contenedor.
+* **Métricas de rendimiento**: esta métrica muestra el número de solicitudes consumidas o con error (código de respuesta 429) debido a que se superó la capacidad de rendimiento o almacenamiento aprovisionada para el contenedor.
 
-* **Métricas de almacenamiento** : esta métrica muestra el tamaño de los datos y el uso del índice.
+* **Métricas de almacenamiento**: esta métrica muestra el tamaño de los datos y el uso del índice.
 
-* **Métricas de disponibilidad** : esta métrica muestra el porcentaje de solicitudes correctas realizadas en relación con el número total de solicitudes por hora. La tasa de éxito se define mediante los SLA de Azure Cosmos DB.
+* **Métricas de disponibilidad**: esta métrica muestra el porcentaje de solicitudes correctas realizadas en relación con el número total de solicitudes por hora. La tasa de éxito se define mediante los SLA de Azure Cosmos DB.
 
-* **Métricas de latencia** : esta métrica muestra la latencia de lectura y escritura que observa Azure Cosmos DB en la región donde funciona su cuenta. Puede visualizar la latencia entre regiones para una cuenta de replicación geográfica. Esta métrica no representa la latencia de solicitud de un extremo a otro.
+* **Métricas de latencia**: esta métrica muestra la latencia de lectura y escritura que observa Azure Cosmos DB en la región donde funciona su cuenta. Puede visualizar la latencia entre regiones para una cuenta de replicación geográfica. Esta métrica no representa la latencia de solicitud de un extremo a otro.
 
-* **Métricas de coherencia** : esta métrica muestra cuán de eventual es la coherencia para el modelo de coherencia que elija. Para las cuentas de varias regiones, esta métrica muestra también la latencia de replicación entre las regiones que haya seleccionado.
+* **Métricas de coherencia**: esta métrica muestra cuán de eventual es la coherencia para el modelo de coherencia que elija. Para las cuentas de varias regiones, esta métrica muestra también la latencia de replicación entre las regiones que haya seleccionado.
 
-* **Métricas de sistema** : esta métrica muestra cuántas solicitudes de metadatos procesa la partición principal. También ayuda a identificar las solicitudes limitadas.
+* **Métricas de sistema**: esta métrica muestra cuántas solicitudes de metadatos procesa la partición principal. También ayuda a identificar las solicitudes limitadas.
 
 En las siguientes secciones se explican escenarios comunes donde puede usar las métricas de Azure Cosmos DB. 
 
@@ -57,11 +57,11 @@ El código de estado de error más común es 429 (limitación de tasa/limitació
 
 ## <a name="determine-the-throughput-distribution-across-partitions"></a>Determinación de la distribución de rendimiento en las particiones
 
-Tener una buena cardinalidad de las claves de partición es esencial para cualquier aplicación escalable. Para determinar la distribución de rendimiento de cualquier contenedor particionado dividido en particiones, vaya a la **hoja Métricas** en [Azure Portal](https://portal.azure.com). En la pestaña **Rendimiento** , se muestra el desglose de almacenamiento en el gráfico **Máximo de RU/segundo consumidas por cada partición física**. En el siguiente gráfico se ilustra un ejemplo de una distribución deficiente de los datos como lo evidencia la partición sesgada en el extremo izquierdo.
+Tener una buena cardinalidad de las claves de partición es esencial para cualquier aplicación escalable. Para determinar la distribución de rendimiento de cualquier contenedor particionado dividido en particiones, vaya a la **hoja Métricas** en [Azure Portal](https://portal.azure.com). En la pestaña **Rendimiento**, se muestra el desglose de almacenamiento en el gráfico **Máximo de RU/segundo consumidas por cada partición física**. En el siguiente gráfico se ilustra un ejemplo de una distribución deficiente de los datos como lo evidencia la partición sesgada en el extremo izquierdo.
 
 :::image type="content" source="media/use-metrics/metrics-17.png" alt-text="Una sola partición ve un uso intensivo":::
 
-Una distribución de rendimiento desigual puede provocar particiones *activas* , lo que pueden dar lugar a solicitudes limitadas y la necesidad de volver a crear particiones. Para más información sobre la creación de particiones en Azure Cosmos DB, consulte [Partición y escalado en Azure Cosmos DB](./partitioning-overview.md).
+Una distribución de rendimiento desigual puede provocar particiones *activas*, lo que pueden dar lugar a solicitudes limitadas y la necesidad de volver a crear particiones. Para más información sobre la creación de particiones en Azure Cosmos DB, consulte [Partición y escalado en Azure Cosmos DB](./partitioning-overview.md).
 
 ## <a name="determine-the-storage-distribution-across-partitions"></a>Determinación de la distribución de almacenamiento en las particiones
 

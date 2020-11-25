@@ -7,11 +7,11 @@ ms.date: 02/25/2019
 ms.author: srrengar
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 59c8202b03bf1be2be5a68b75a1d7c7404b2213d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89020208"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95998250"
 ---
 # <a name="report-and-check-service-health"></a>Notificación y comprobación del estado del servicio
 Cuando los servicios se encuentran con problemas, su capacidad para responder y corregir cualquier incidente e interrupción depende de la capacidad de detectar los problemas rápidamente. Si informa de problemas y errores en el administrador de estado de Azure Service Fabric desde el código de servicio, puede usar las herramientas estándar de seguimiento de estado que proporciona Service Fabric para comprobar el estado de mantenimiento.

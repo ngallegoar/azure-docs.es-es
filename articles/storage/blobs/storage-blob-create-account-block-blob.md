@@ -8,19 +8,19 @@ ms.topic: how-to
 ms.date: 10/30/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 53033226702ea1033fe4ae94f60c62cacbae6596
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: 9350f9aeff90b75a4e1362f6fa2fa1b0d07f20cf
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93124975"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95997093"
 ---
 # <a name="create-a-blockblobstorage-account"></a>Creación de una cuenta BlockBlobStorage
 
 El tipo de cuenta BlockBlobStorage le permite crear blobs en bloques con características de rendimiento Premium. Este tipo de cuenta de almacenamiento está optimizado para cargas de trabajo con altas tasas de transacciones o que requieren tiempos de acceso muy rápidos. En este artículo se muestra cómo crear una cuenta BlockBlobStorage mediante Azure Portal, la CLI de Azure o Azure PowerShell.
 
-Para obtener más información sobre las cuentas de BlockBlobStorage, consulte [Introducción a las cuentas de Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-account-overview).
+Para obtener más información sobre las cuentas de BlockBlobStorage, consulte [Introducción a las cuentas de Azure Storage](../common/storage-account-overview.md).
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -90,19 +90,19 @@ Para crear una cuenta de BlockBlobStorage en Azure Portal, siga estos pasos:
 
 1. En Azure Portal, seleccione **Todos los servicios** > la categoría **Almacenamiento** > **Cuentas de almacenamiento**.
 
-2. En **Cuentas de almacenamiento** , seleccione **Agregar**.
+2. En **Cuentas de almacenamiento**, seleccione **Agregar**.
 
 3. Seleccione la suscripción en la que se va a crear la cuenta de almacenamiento en el campo **Suscripción**.
 
-4. En el campo del **Grupo de recursos** , seleccione un grupo de recursos existente o **Crear nuevo** y escriba un nombre para el grupo de recursos.
+4. En el campo del **Grupo de recursos**, seleccione un grupo de recursos existente o **Crear nuevo** y escriba un nombre para el grupo de recursos.
 
-5. En el campo **Nombre de la cuenta de almacenamiento** , escriba un nombre para la cuenta. Tenga en cuenta estas directrices:
+5. En el campo **Nombre de la cuenta de almacenamiento**, escriba un nombre para la cuenta. Tenga en cuenta estas directrices:
 
    - El nombre debe ser único en Azure.
    - El nombre debe tener entre tres y 24 caracteres.
    - El nombre solo puede contener números y letras minúsculas.
 
-6. En el campo **Ubicación** , seleccione una ubicación para la cuenta de almacenamiento o utilice la ubicación predeterminada.
+6. En el campo **Ubicación**, seleccione una ubicación para la cuenta de almacenamiento o utilice la ubicación predeterminada.
 
 7. Defina la configuración de los siguientes valores:
 
@@ -194,6 +194,6 @@ Para crear una cuenta de blob en bloques con la CLI de Azure, debe instalar prim
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para más información sobre las cuentas de almacenamiento, vea [Introducción a las cuentas de Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-account-overview).
+- Para más información sobre las cuentas de almacenamiento, vea [Introducción a las cuentas de Azure Storage](../common/storage-account-overview.md).
 
-- Para más información sobre los grupos de recursos, consulte [Información general de Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
+- Para más información sobre los grupos de recursos, consulte [Información general de Azure Resource Manager](../../azure-resource-manager/management/overview.md).

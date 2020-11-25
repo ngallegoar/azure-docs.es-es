@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 67e1f1dff43939ce7ef279db57bee4b18bd12dc8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 45393f116149f6cf16763d2d7033f8425df235bf
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88213951"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95998858"
 ---
 # <a name="azure-blob-storage-trigger-for-azure-functions"></a>Desencadenador de Azure Blob Storage para Azure Functions
 
@@ -20,6 +20,16 @@ El desencadenador de Blob Storage inicia una función cuando se detecta un blob 
 El desencadenador de Azure Blob Storage necesita una cuenta de almacenamiento de uso general. También se admiten las cuentas de almacenamiento v2 con [espacios de nombres jerárquicos](../storage/blobs/data-lake-storage-namespace.md). Para usar una cuenta solo para blobs, o si la aplicación tiene necesidades especializadas, revise las alternativas al uso de este desencadenador.
 
 Para obtener información sobre los detalles de instalación y configuración, consulte la [información general](./functions-bindings-storage-blob.md).
+
+## <a name="polling"></a>Sondeo
+
+El sondeo funciona como un híbrido entre la inspección de registros y la ejecución de exámenes periódicos de contenedores. Los blobs se examinan en grupos de 10 000 a la vez con un token de continuación que se usa entre intervalos.
+
+> [!WARNING]
+> Además, [se crean registros de almacenamiento basados en el principio del "mejor esfuerzo"](/rest/api/storageservices/About-Storage-Analytics-Logging). No hay ninguna garantía de que se capturen todos los eventos. En algunos casos, podrían faltar registros.
+> 
+> Si necesita un procesamiento de blobs más rápido o confiable, considere crear un [mensaje de cola](../storage/queues/storage-dotnet-how-to-use-queues.md) al crear el blob. A continuación, use un [desencadenador de cola](functions-bindings-storage-queue.md), en lugar de un desencadenador de blob, para procesar el blob. Otra opción consiste en usar Event Grid; consulte el tutorial [Automatizar el cambio de tamaño de imágenes cargadas mediante Event Grid](../event-grid/resize-images-on-storage-blob-upload-event.md).
+>
 
 ## <a name="alternatives"></a>Alternativas
 
@@ -413,16 +423,6 @@ El desencadenador de blob utiliza una cola internamente, por lo que el número m
 [El plan de consumo](functions-scale.md#how-the-consumption-and-premium-plans-work) limita una aplicación de función de una máquina virtual (VM) a 1,5 GB de memoria. Tanto las instancias de función que se ejecutan de forma simultánea como el entorno de ejecución de Functions utilizan la memoria. Si una función desencadenada por un blob carga el blob entero a la memoria, la memoria máxima utilizada por esa función solo para blobs tiene un tamaño máximo de blob de 24 *. Por ejemplo, una aplicación de función con tres funciones desencadenadas por un blob y la configuración predeterminada tendrían una simultaneidad máxima por máquina virtual de 3*24 = 72 invocaciones de función.
 
 Las funciones de JavaScript y Java cargan el blob entero en la memoria, mientras que las funciones de C# lo hacen si establece un enlace a `string` o `Byte[]`.
-
-## <a name="polling"></a>Sondeo
-
-El sondeo funciona como un híbrido entre la inspección de registros y la ejecución de exámenes periódicos de contenedores. Los blobs se examinan en grupos de 10 000 a la vez con un token de continuación que se usa entre intervalos.
-
-> [!WARNING]
-> Además, [se crean registros de almacenamiento basados en el principio del "mejor esfuerzo"](/rest/api/storageservices/About-Storage-Analytics-Logging). No hay ninguna garantía de que se capturen todos los eventos. En algunos casos, podrían faltar registros.
-> 
-> Si necesita un procesamiento de blobs más rápido o confiable, considere crear un [mensaje de cola](../storage/queues/storage-dotnet-how-to-use-queues.md) al crear el blob. A continuación, use un [desencadenador de cola](functions-bindings-storage-queue.md), en lugar de un desencadenador de blob, para procesar el blob. Otra opción consiste en usar Event Grid; consulte el tutorial [Automatizar el cambio de tamaño de imágenes cargadas mediante Event Grid](../event-grid/resize-images-on-storage-blob-upload-event.md).
->
 
 ## <a name="next-steps"></a>Pasos siguientes
 

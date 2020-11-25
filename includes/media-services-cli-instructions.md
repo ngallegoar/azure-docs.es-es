@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 01/28/2019
 ms.author: juliako
 ms.custom: include file
-ms.openlocfilehash: 5ebbac39c8850737ea6f9ef333e45d305a520655
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1327ac49920af353d6adbbe592ab4189417e60e8
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79461221"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996918"
 ---
 ## <a name="use-cli-shell"></a>Uso del shell de la CLI
 
-Para ejecutar comandos de la CLI, se recomienda usar [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest). **Cloud Shell** es un shell interactivo gratuito que se puede usar para ejecutar los pasos de este artículo. Cloud Shell incluye herramientas comunes de Azure preinstaladas y configuradas para que las use con su cuenta. Ofrece la flexibilidad de poder elegir la experiencia de shell que mejor se adapte a su forma de trabajar. Los usuarios de Linux pueden elegir una experiencia de Bash, mientras que los usuarios de Windows pueden optar por PowerShell.
+Para ejecutar comandos de la CLI, se recomienda usar [Azure Cloud Shell](../articles/cloud-shell/overview.md?view=azure-cli-latest). **Cloud Shell** es un shell interactivo gratuito que se puede usar para ejecutar los pasos de este artículo. Cloud Shell incluye herramientas comunes de Azure preinstaladas y configuradas para que las use con su cuenta. Ofrece la flexibilidad de poder elegir la experiencia de shell que mejor se adapte a su forma de trabajar. Los usuarios de Linux pueden elegir una experiencia de Bash, mientras que los usuarios de Windows pueden optar por PowerShell.
 
-La CLI también se puede instalar localmente. Consulte [Instalación de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) para ver las instrucciones específicas para su plataforma.
+La CLI también se puede instalar localmente. Consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli) para ver las instrucciones específicas para su plataforma.
 
 ### <a name="sign-in"></a>Iniciar sesión
 

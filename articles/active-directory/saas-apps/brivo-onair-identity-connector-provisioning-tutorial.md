@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 10/01/2019
 ms.author: Zhchia
 ms.openlocfilehash: 4f230a70ae87c7c0ec9db347e7cf975c0252bb18
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357817"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95998096"
 ---
 # <a name="tutorial-configure-brivo-onair-identity-connector-for-automatic-user-provisioning"></a>Tutorial: Configuración de Brivo Onair Identity Connector para el aprovisionamiento de usuarios automático
 
@@ -54,7 +54,7 @@ Antes de configurar y habilitar el aprovisionamiento automático de usuarios, de
 
    ![Consola de administración de Brivo Onair Identity Connector](media/brivo-onair-identity-connector-provisioning-tutorial/admin.png)
 
-2. Haga clic en la pestaña **Azure AD**. En la página de detalles de **Azure AD** , vuelva a escribir la contraseña de su cuenta de administrador senior. Haga clic en **Enviar**.
+2. Haga clic en la pestaña **Azure AD**. En la página de detalles de **Azure AD**, vuelva a escribir la contraseña de su cuenta de administrador senior. Haga clic en **Enviar**.
 
    ![Brivo Onair Identity Connector en Azure](media/brivo-onair-identity-connector-provisioning-tutorial/azuread.png)
 
@@ -80,7 +80,7 @@ Antes de configurar Brivo Onair Identity Connector para el aprovisionamiento aut
 
     ![Botón Nueva aplicación](common/add-new-app.png)
 
-4. En el cuadro de búsqueda, escriba **Brivo Onair Identity Connector** , seleccione **Brivo Onair Identity Connector** en el panel de resultados y, a continuación, haga clic en el botón **Agregar** para agregar la aplicación.
+4. En el cuadro de búsqueda, escriba **Brivo Onair Identity Connector**, seleccione **Brivo Onair Identity Connector** en el panel de resultados y, a continuación, haga clic en el botón **Agregar** para agregar la aplicación.
 
     ![Brivo Onair Identity Connector en la lista de resultados](common/search-new-app.png)
 
@@ -106,17 +106,17 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Captura de pantalla de la lista desplegable Modo de aprovisionamiento con la opción Automático seleccionada.](common/provisioning-automatic.png)
 
-5. En la sección **Credenciales de administrador** , escriba `https://scim.brivo.com/ActiveDirectory/v2/` en la **URL de inquilino**. Escriba el valor **SCIM Authentication Token** (Token de autenticación de SCIM) recuperado anteriormente en **Token secreto**. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a Brivo Onair Identity Connector. Si la conexión no se establece, asegúrese de que la cuenta de Brivo Onair Identity Connector tenga permisos de administrador y pruebe otra vez.
+5. En la sección **Credenciales de administrador**, escriba `https://scim.brivo.com/ActiveDirectory/v2/` en la **URL de inquilino**. Escriba el valor **SCIM Authentication Token** (Token de autenticación de SCIM) recuperado anteriormente en **Token secreto**. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a Brivo Onair Identity Connector. Si la conexión no se establece, asegúrese de que la cuenta de Brivo Onair Identity Connector tenga permisos de administrador y pruebe otra vez.
 
     ![URL de inquilino + Token](common/provisioning-testconnection-tenanturltoken.png)
 
-6. En el campo **Correo electrónico de notificación** , escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
+6. En el campo **Correo electrónico de notificación**, escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
 
     ![Correo electrónico de notificación](common/provisioning-notification-email.png)
 
-7. Haga clic en **Save** (Guardar).
+7. Haga clic en **Save**(Guardar).
 
-8. En la sección **Asignaciones** , seleccione **Synchronize Azure Active Directory Users to Brivo Onair Identity Connector** (Sincronizar usuarios de Azure Active Directory con Brivo Onair Identity Connector).
+8. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Users to Brivo Onair Identity Connector** (Sincronizar usuarios de Azure Active Directory con Brivo Onair Identity Connector).
 
     ![Asignaciones de usuario de Brivo Onair Identity Connector](media/brivo-onair-identity-connector-provisioning-tutorial/user-mappings.png )
 
@@ -124,7 +124,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Atributos de usuario de Brivo Onair Identity Connector](media/brivo-onair-identity-connector-provisioning-tutorial/user-attributes.png)
 
-10. En la sección **Asignaciones** , seleccione **Synchronize Azure Active Directory Groups to Brivo Onair Identity Connector** (Sincronizar grupos de Azure Active Directory con Brivo Onair Identity Connector).
+10. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Groups to Brivo Onair Identity Connector** (Sincronizar grupos de Azure Active Directory con Brivo Onair Identity Connector).
 
     ![Asignaciones de grupo de Brivo Onair Identity Connector](media/brivo-onair-identity-connector-provisioning-tutorial/group-mappings.png)
 
@@ -138,7 +138,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Estado de aprovisionamiento activado](common/provisioning-toggle-on.png)
 
-14. Defina los usuarios o grupos que quiere que se aprovisionen en Brivo Onair Identity Connector; para ello, elija los valores deseados en **Ámbito** , en la sección **Configuración**.
+14. Defina los usuarios o grupos que quiere que se aprovisionen en Brivo Onair Identity Connector; para ello, elija los valores deseados en **Ámbito**, en la sección **Configuración**.
 
     ![Ámbito del aprovisionamiento](common/provisioning-scope.png)
 

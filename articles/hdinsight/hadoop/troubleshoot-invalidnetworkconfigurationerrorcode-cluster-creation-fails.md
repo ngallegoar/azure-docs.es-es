@@ -8,11 +8,11 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 01/22/2020
 ms.openlocfilehash: 0eb9afc179f1dd2559f0db7b212f6b3a1da15824
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790923"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95998760"
 ---
 # <a name="cluster-creation-fails-with-invalidnetworkconfigurationerrorcode-in-azure-hdinsight"></a>Error al crear el clúster con InvalidNetworkConfigurationErrorCode en Azure HDInsight
 
@@ -60,7 +60,7 @@ Azure Storage y SQL no tienen direcciones IP fijas, por lo que es necesario perm
 
 * Si el clúster usa un [grupo de seguridad de red (NSG)](../../virtual-network/virtual-network-vnet-plan-design-arm.md).
 
-    Vaya a Azure Portal e identifique el grupo de seguridad de red que está asociado a la subred donde se va a implementar el clúster. En la sección **Reglas de seguridad de salida** , permita el acceso de salida a Internet sin límite (tenga en cuenta que un número menor de **prioridad** aquí es más prioritario). Además, en la sección **Subredes** , confirme si este grupo de seguridad de red se aplica a la subred del clúster.
+    Vaya a Azure Portal e identifique el grupo de seguridad de red que está asociado a la subred donde se va a implementar el clúster. En la sección **Reglas de seguridad de salida**, permita el acceso de salida a Internet sin límite (tenga en cuenta que un número menor de **prioridad** aquí es más prioritario). Además, en la sección **Subredes**, confirme si este grupo de seguridad de red se aplica a la subred del clúster.
 
 * Si el clúster usa [rutas definidas por el usuario (UDR)](../../virtual-network/virtual-networks-udr-overview.md).
 

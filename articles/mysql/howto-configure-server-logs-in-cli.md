@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.date: 4/13/2020
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 945a67f81010a61adf814f6f6f422eba5001b48d
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94541579"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95998556"
 ---
 # <a name="configure-and-access-slow-query-logs-by-using-azure-cli"></a>Configuración y acceso a los registros de consultas lentas con la CLI de Azure
 Puede descargar los registros de consultas lentas de Azure Database for MySQL mediante la CLI de Azure, la utilidad de línea de comandos de Azure.

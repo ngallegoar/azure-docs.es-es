@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 01/19/2018
 ms.openlocfilehash: adc29916c6b674531d7b0e8fcdd4e151b4a17bde
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677567"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95997263"
 ---
 # <a name="alert-management-solution-in-azure-log-analytics"></a>Solución Alert Management en Azure Log Analytics
 
@@ -20,7 +20,7 @@ ms.locfileid: "92677567"
 La solución Administración de alertas le ayuda a analizar todas las alertas del repositorio de Log Analytics.  Estas alertas pueden proceder de diversos orígenes, incluidos los [creados por Log Analytics ](./alerts-overview.md) o los [importados de Nagios o Zabbix](../learn/quick-collect-linux-computer.md). La solución también importa alertas desde cualquier [grupo de administración conectado de System Center Operations Manager](./om-agents.md).
 
 ## <a name="prerequisites"></a>Prerrequisitos
-La solución funciona con todos los registros del repositorio de Log Analytics con un tipo de **Alerta** , por lo que debe realizar las configuraciones que sean necesarias para recopilar estos registros.
+La solución funciona con todos los registros del repositorio de Log Analytics con un tipo de **Alerta**, por lo que debe realizar las configuraciones que sean necesarias para recopilar estos registros.
 
 - Para las alertas de Log Analytics, [cree reglas de alerta](./alerts-overview.md) para crear registros de alerta directamente en el repositorio.
 - Para las alertas de Nagios y Zabbix, [configure esos servidores](../learn/quick-collect-linux-computer.md) para que envíen alertas a Log Analytics.
@@ -56,14 +56,14 @@ Al agregar la solución Alert Management al área de trabajo de Log Analytics, s
 
 ![Icono Administración de alertas](media/alert-management-solution/tile.png)
 
-Haga clic en el icono **Administración de alertas** para abrir el panel **Administración de alertas** .  El panel incluye las columnas de la tabla siguiente.  Cada columna muestra las diez principales alertas por recuento que coinciden con los criterios de esa columna para el ámbito e intervalo de tiempo especificados.  Puede ejecutar una búsqueda de registros que proporcione toda la lista haciendo clic en **Ver todo** en la parte inferior de la columna o haciendo clic en el encabezado de columna.
+Haga clic en el icono **Administración de alertas** para abrir el panel **Administración de alertas**.  El panel incluye las columnas de la tabla siguiente.  Cada columna muestra las diez principales alertas por recuento que coinciden con los criterios de esa columna para el ámbito e intervalo de tiempo especificados.  Puede ejecutar una búsqueda de registros que proporcione toda la lista haciendo clic en **Ver todo** en la parte inferior de la columna o haciendo clic en el encabezado de columna.
 
 | Columna | Descripción |
 |:--- |:--- |
 | Alertas críticas |Todas las alertas con una gravedad crítica agrupadas por nombre de alerta.  Haga clic en un nombre de la alerta para ejecutar una búsqueda de registros que devuelva todos los registros de esa alerta. |
 | Alertas de advertencia |Todas las alertas con una gravedad de advertencia agrupadas por nombre de alerta.  Haga clic en un nombre de la alerta para ejecutar una búsqueda de registros que devuelva todos los registros de esa alerta. |
 | Alertas activas de System Center Operations Manager |Todas las alertas recopiladas desde Operations Manager con cualquier estado distinto de *Cerrado* agrupadas por el origen que generó la alerta. |
-| Todas las alertas activas |Todas las alertas con cualquier gravedad agrupadas por nombre de alerta. Solo incluye las alertas de Operations Manager con cualquier estado distinto de *Cerrado* . |
+| Todas las alertas activas |Todas las alertas con cualquier gravedad agrupadas por nombre de alerta. Solo incluye las alertas de Operations Manager con cualquier estado distinto de *Cerrado*. |
 
 Si se desplaza a la derecha, el panel mostrará varias consultas comunes en las que puede hacer clic para realizar una [búsqueda de registros](../log-query/log-query-overview.md) para datos de alertas.
 
@@ -71,9 +71,9 @@ Si se desplaza a la derecha, el panel mostrará varias consultas comunes en las 
 
 
 ## <a name="log-analytics-records"></a>Registros de Log Analytics
-La solución Administración de alertas analiza todos los registros con un tipo de **Alerta** .  La solución no recopila directamente las alertas creadas por Log Analytics o recopiladas desde Nagios o Zabbix.
+La solución Administración de alertas analiza todos los registros con un tipo de **Alerta**.  La solución no recopila directamente las alertas creadas por Log Analytics o recopiladas desde Nagios o Zabbix.
 
-La solución importa alertas desde System Center Operations Manager y crea un registro correspondiente para cada una con un tipo de **Alerta** y un SourceSystem de **OpsManager** .  Estos registros tienen las propiedades de la tabla siguiente:  
+La solución importa alertas desde System Center Operations Manager y crea un registro correspondiente para cada una con un tipo de **Alerta** y un SourceSystem de **OpsManager**.  Estos registros tienen las propiedades de la tabla siguiente:  
 
 | Propiedad | Descripción |
 |:--- |:--- |

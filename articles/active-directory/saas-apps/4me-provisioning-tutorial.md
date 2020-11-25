@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 06/3/2019
 ms.author: jeedes
 ms.openlocfilehash: c0c428997cfba8871a29d9bfe0df0a6920a1d22f
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357596"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95998675"
 ---
 # <a name="tutorial-configure-4me-for-automatic-user-provisioning"></a>Tutorial: Configuración de 4me para el aprovisionamiento automático de usuarios
 
@@ -53,7 +53,7 @@ Antes de configurar 4me para el aprovisionamiento automático de usuarios con Az
 
     ![Botón Nueva aplicación](common/add-new-app.png)
 
-4. En el cuadro de búsqueda, escriba **4me** , seleccione **4me** en el panel de resultados y luego haga clic en el botón **Agregar** para agregar la aplicación.
+4. En el cuadro de búsqueda, escriba **4me**, seleccione **4me** en el panel de resultados y luego haga clic en el botón **Agregar** para agregar la aplicación.
 
     ![4me en la lista de resultados](common/search-new-app.png)
 
@@ -114,13 +114,13 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Token](common/provisioning-testconnection-tenanturltoken.png)
 
-8. En el campo **Correo electrónico de notificación** , escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
+8. En el campo **Correo electrónico de notificación**, escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
 
     ![Correo electrónico de notificación](common/provisioning-notification-email.png)
 
-9. Haga clic en **Save** (Guardar).
+9. Haga clic en **Save**(Guardar).
 
-10. En la sección **Asignaciones** , seleccione Synchronize **Azure Active Directory Users to 4me** (Sincronizar usuarios de Azure Active Directory con 4me).
+10. En la sección **Asignaciones**, seleccione Synchronize **Azure Active Directory Users to 4me** (Sincronizar usuarios de Azure Active Directory con 4me).
 
     :::image type="content" source="media/4me-provisioning-tutorial/4me-user-mapping.png" alt-text="Captura de pantalla de la página Asignaciones. En el nombre, se resalta la opción para sincronizar usuarios de Azure Active Directory con FourMe." border="false":::
     
@@ -128,7 +128,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     :::image type="content" source="media/4me-provisioning-tutorial/4me-user-attributes.png" alt-text="Captura de pantalla de la página Asignaciones de atributos. En la tabla se enumeran los atributos de Azure Active Directory, los atributos correspondientes de FourMe y el estado de coincidencia." border="false":::
     
-12. En la sección **Asignaciones** , seleccione **Synchronize Azure Active Directory Groups to 4me** (Sincronizar grupos de Azure Active Directory con 4me).
+12. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Groups to 4me** (Sincronizar grupos de Azure Active Directory con 4me).
 
     :::image type="content" source="media/4me-provisioning-tutorial/4me-group-mapping.png" alt-text="Captura de pantalla de la página Asignaciones. En el nombre, se resalta la opción para sincronizar grupos de Azure Active Directory con FourMe." border="false":::
     
@@ -142,7 +142,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Estado de aprovisionamiento activado](common/provisioning-toggle-on.png)
 
-16. Elija los valores deseados en **Ámbito** , en la sección **Configuración** , para definir los usuarios o grupos que desea que se aprovisionen en 4me.
+16. Elija los valores deseados en **Ámbito**, en la sección **Configuración**, para definir los usuarios o grupos que desea que se aprovisionen en 4me.
 
     ![Ámbito del aprovisionamiento](common/provisioning-scope.png)
 

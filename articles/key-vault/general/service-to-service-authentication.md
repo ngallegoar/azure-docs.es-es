@@ -9,11 +9,11 @@ ms.date: 09/04/2020
 ms.topic: how-to
 ms.service: key-vault
 ms.openlocfilehash: ac3ee108fc63441b2a9381b9e7624631bdca4e5b
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289834"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95998113"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>Autenticación entre servicios en Azure Key Vault mediante .NET
 
@@ -65,7 +65,7 @@ Para el desarrollo local, hay dos escenarios de autenticación principales: la [
 
 Los equipos locales no admiten identidades administradas para recursos de Azure. Como resultado, la biblioteca `Microsoft.Azure.Services.AppAuthentication` utiliza las credenciales de desarrollador para la ejecución en el entorno de desarrollo local. Cuando la solución se implementa en Azure, la biblioteca usa una identidad administrada para cambiar a un flujo de concesión de credenciales de cliente de OAuth 2.0. Este enfoque significa que puede probar el mismo código local y remotamente sin preocuparse.
 
-Para el desarrollo local, `AzureServiceTokenProvider` captura tokens mediante **Visual Studio** , la **interfaz de línea de comandos de Azure** (CLI) o **la autenticación integrada de Azure AD**. Cada opción se prueba secuencialmente y la biblioteca usa la primera opción correcta. Si no funciona ninguna opción, se produce una excepción `AzureServiceTokenProviderException` con información detallada.
+Para el desarrollo local, `AzureServiceTokenProvider` captura tokens mediante **Visual Studio**, la **interfaz de línea de comandos de Azure** (CLI) o **la autenticación integrada de Azure AD**. Cada opción se prueba secuencialmente y la biblioteca usa la primera opción correcta. Si no funciona ninguna opción, se produce una excepción `AzureServiceTokenProviderException` con información detallada.
 
 #### <a name="authenticating-with-visual-studio"></a>Autenticación con Visual Studio
 
@@ -73,7 +73,7 @@ Para autenticar mediante Visual Studio:
 
 1. Inicie sesión en Visual Studio y use **Herramientas**&nbsp;>&nbsp;**Opciones** para abrir **Opciones**.
 
-1. Seleccione **Autenticación de servicio de Azure** , elija una cuenta para desarrollo local y seleccione **Aceptar**.
+1. Seleccione **Autenticación de servicio de Azure**, elija una cuenta para desarrollo local y seleccione **Aceptar**.
 
 Si experimenta problemas con Visual Studio, como errores relacionados con el archivo del proveedor de tokens, revise atentamente los pasos anteriores.
 
@@ -167,7 +167,7 @@ Hay tres métodos principales para usar una entidad de servicio para ejecutar la
           CertificateStoreLocation={CertificateStore}
     ```
 
-    Reemplace *{AppId}* , *{TenantId}* y *{Thumbprint}* por los valores generados en el paso 1. Reemplace *{CertificateStore}* por *LocalMachine* ` o *CurrentUser* , según su plan de implementación.
+    Reemplace *{AppId}* , *{TenantId}* y *{Thumbprint}* por los valores generados en el paso 1. Reemplace *{CertificateStore}* por *LocalMachine*` o *CurrentUser*, según su plan de implementación.
 
 1. Ejecute la aplicación.
 
@@ -217,7 +217,7 @@ Para usar un certificado de cliente para la autenticación de la entidad de serv
     RunAs=App;AppId={TestAppId};KeyVaultCertificateSecretIdentifier={KeyVaultCertificateSecretIdentifier}
     ```
 
-    Por ejemplo, si el almacén de claves se llamaba *myKeyVault* y ha creado un certificado denominado *myCert* , el identificador del certificado sería:
+    Por ejemplo, si el almacén de claves se llamaba *myKeyVault* y ha creado un certificado denominado *myCert*, el identificador del certificado sería:
 
     ```azurecli
     RunAs=App;AppId={TestAppId};KeyVaultCertificateSecretIdentifier=https://myKeyVault.vault.azure.net/secrets/myCert
@@ -262,7 +262,7 @@ Para ver la biblioteca `Microsoft.Azure.Services.AppAuthentication` en acción, 
 
 #### <a name="azure-cli-is-not-installed-youre-not-logged-in-or-you-dont-have-the-latest-version"></a>La CLI de Azure no está instalada, no se ha iniciado sesión o no se cuenta con la versión más reciente
 
-Ejecute *az account get-access-token* para ver si la CLI de Azure muestra un token automáticamente. Si indica que **no se encontró dicho programa** , instale la [versión más reciente de la CLI de Azure](/cli/azure/install-azure-cli?view=azure-cli-latest). Es posible que se le pida que inicie sesión.
+Ejecute *az account get-access-token* para ver si la CLI de Azure muestra un token automáticamente. Si indica que **no se encontró dicho programa**, instale la [versión más reciente de la CLI de Azure](/cli/azure/install-azure-cli?view=azure-cli-latest). Es posible que se le pida que inicie sesión.
 
 #### <a name="azureservicetokenprovider-cant-find-the-path-for-azure-cli"></a>AzureServiceTokenProvider no puede encontrar la ruta de acceso de la CLI de Azure
 

@@ -7,11 +7,11 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 01/09/2020
 ms.openlocfilehash: fbc75df0b22ba452b8c91dfcb21ca13aaed557a3
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93242405"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95998573"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mysql-using-portal"></a>Creación y administración de Private Link para Azure Database for MySQL mediante el portal
 
@@ -33,14 +33,14 @@ En esta sección, va a crear una red virtual y una subred para hospedar la VM qu
 En esta sección, va a crear una red virtual y una subred para hospedar la máquina virtual que se usa para acceder al recurso de Private Link.
 
 1. En la parte superior izquierda de la pantalla, seleccione **Crear un recurso** > **Redes** > **Red virtual**.
-2. En **Creación de una red virtual** , escriba o seleccione esta información:
+2. En **Creación de una red virtual**, escriba o seleccione esta información:
 
     | Configuración | Value |
     | ------- | ----- |
     | Nombre | Escriba *MyVirtualNetwork*. |
     | Espacio de direcciones | Escriba *10.1.0.0/16*. |
     | Suscripción | Seleccione su suscripción.|
-    | Resource group | Seleccione **Crear nuevo** , escriba *myResourceGroup* y, después, seleccione **Aceptar**. |
+    | Resource group | Seleccione **Crear nuevo**, escriba *myResourceGroup* y, después, seleccione **Aceptar**. |
     | Location | Seleccione **Oeste de Europa**.|
     | Subred: nombre | Escriba *mySubnet*. |
     | Subred: intervalo de direcciones | Escriba *10.1.0.0/24*. |
@@ -51,7 +51,7 @@ En esta sección, va a crear una red virtual y una subred para hospedar la máqu
 
 1. En la parte superior izquierda de Azure Portal, seleccione **Crear un recurso** > **Proceso** > **Máquina virtual**.
 
-2. En **Creación de una máquina virtual: conceptos básicos** , escriba o seleccione esta información:
+2. En **Creación de una máquina virtual: conceptos básicos**, escriba o seleccione esta información:
 
     | Configuración | Value |
     | ------- | ----- |
@@ -76,9 +76,9 @@ En esta sección, va a crear una red virtual y una subred para hospedar la máqu
 
 1. Seleccione **Siguiente: Discos**.
 
-1. En **Creación de una máquina virtual: Discos** , deje los valores predeterminados y seleccione **Siguiente: Redes**.
+1. En **Creación de una máquina virtual: Discos**, deje los valores predeterminados y seleccione **Siguiente: Redes**.
 
-1. En **Creación de una máquina virtual: Redes** , escriba o seleccione esta información:
+1. En **Creación de una máquina virtual: Redes**, escriba o seleccione esta información:
 
     | Configuración | Value |
     | ------- | ----- |
@@ -91,9 +91,9 @@ En esta sección, va a crear una red virtual y una subred para hospedar la máqu
     |||
 
 
-1. Seleccione **Revisar + crear**. Se le remitirá a la página **Revisar y crear** , donde Azure validará la configuración.
+1. Seleccione **Revisar + crear**. Se le remitirá a la página **Revisar y crear**, donde Azure validará la configuración.
 
-1. Cuando reciba el mensaje **Validación superada** , seleccione **Crear**.
+1. Cuando reciba el mensaje **Validación superada**, seleccione **Crear**.
 
 ## <a name="create-an-azure-database-for-mysql"></a>Creación de una instancia de Azure Database for MySQL
 
@@ -101,7 +101,7 @@ En esta sección, creará un servidor de Azure Database for MySQL en Azure.
 
 1. En la parte superior izquierda de la pantalla en Azure Portal, seleccione **Crear un recurso** > **Bases de datos** > **Azure Database for MySQL**.
 
-1. En **Azure Database for MySQL** , indique la información siguiente:
+1. En **Azure Database for MySQL**, indique la información siguiente:
 
     | Configuración | Value |
     | ------- | ----- |
@@ -118,7 +118,7 @@ En esta sección, creará un servidor de Azure Database for MySQL en Azure.
     |||
  
 7. Seleccione **Aceptar**. 
-8. Seleccione **Revisar + crear**. Se le remitirá a la página **Revisar y crear** , donde Azure validará la configuración. 
+8. Seleccione **Revisar + crear**. Se le remitirá a la página **Revisar y crear**, donde Azure validará la configuración. 
 9. Cuando reciba el mensaje Validación superada, seleccione **Crear**. 
 10. Cuando reciba el mensaje Validación superada, seleccione Crear. 
 
@@ -132,11 +132,11 @@ En esta sección, creará una instancia de MySQL Server y le agregará un punto 
 
 1. En la parte superior izquierda de la pantalla en Azure Portal, seleccione **Crear un recurso** > **Redes** > **Private Link**.
 
-2. En **Private Link Center: Información general** , en la opción **Crear una conexión privada a un servicio** , seleccione **Iniciar**.
+2. En **Private Link Center: Información general**, en la opción **Crear una conexión privada a un servicio**, seleccione **Iniciar**.
 
     :::image type="content" source="media/concepts-data-access-and-security-private-link/privatelink-overview.png" alt-text="Información general de Private Link":::
 
-1. En **Crear un punto de conexión privado - Aspectos básicos** , escriba o seleccione esta información:
+1. En **Crear un punto de conexión privado - Aspectos básicos**, escriba o seleccione esta información:
 
     | Configuración | Value |
     | ------- | ----- |
@@ -160,7 +160,7 @@ En esta sección, creará una instancia de MySQL Server y le agregará un punto 
     |Recurso secundario de destino |Seleccione *mysqlServer*.|
     |||
 7. Seleccione **Siguiente: Configuration** (Siguiente: Configuración).
-8. En **Crear un punto de conexión privado: Configuración** , escriba o seleccione esta información:
+8. En **Crear un punto de conexión privado: Configuración**, escriba o seleccione esta información:
 
     | Configuración | Value |
     | ------- | ----- |
@@ -175,8 +175,8 @@ En esta sección, creará una instancia de MySQL Server y le agregará un punto 
     > [!Note] 
     > Use la zona DNS privada predefinida para su servicio o proporcione el nombre de la zona DNS que prefiera. Consulte la [configuración de la zona DNS de los servicios de Azure](../private-link/private-endpoint-dns.md) para obtener más información.
 
-1. Seleccione **Revisar + crear**. Se le remitirá a la página **Revisar y crear** , donde Azure validará la configuración. 
-2. Cuando reciba el mensaje **Validación superada** , seleccione **Crear**. 
+1. Seleccione **Revisar + crear**. Se le remitirá a la página **Revisar y crear**, donde Azure validará la configuración. 
+2. Cuando reciba el mensaje **Validación superada**, seleccione **Crear**. 
 
     :::image type="content" source="media/concepts-data-access-and-security-private-link/show-mysql-private-link.png" alt-text="Private Link creado":::
 
@@ -186,13 +186,13 @@ En esta sección, creará una instancia de MySQL Server y le agregará un punto 
 ## <a name="connect-to-a-vm-using-remote-desktop-rdp"></a>Conéctese a una máquina virtual mediante Escritorio remoto (RDP)
 
 
-Después de crear **myVm** , conéctese a ella desde Internet como se indica a continuación: 
+Después de crear **myVm**, conéctese a ella desde Internet como se indica a continuación: 
 
 1. En la barra de búsqueda del portal, escriba *myVm*.
 
-1. Seleccione el botón **Conectar**. Después de seleccionar el botón **Conectar** , se abre **Conectar a máquina virtual**.
+1. Seleccione el botón **Conectar**. Después de seleccionar el botón **Conectar**, se abre **Conectar a máquina virtual**.
 
-1. Seleccione **Descargar archivo RDP**. Azure crea un archivo de Protocolo de Escritorio remoto ( *.rdp* ) y lo descarga en su equipo.
+1. Seleccione **Descargar archivo RDP**. Azure crea un archivo de Protocolo de Escritorio remoto ( *.rdp*) y lo descarga en su equipo.
 
 1. Abra el archivo *downloaded.rdp*.
 
@@ -211,7 +211,7 @@ Después de crear **myVm** , conéctese a ella desde Internet como se indica a c
 
 ## <a name="access-the-mysql-server-privately-from-the-vm"></a>Acceso al servidor de MySQL de forma privada desde la VM
 
-1. En el Escritorio remoto de *myVm* , abra PowerShell.
+1. En el Escritorio remoto de *myVm*, abra PowerShell.
 
 2. Escriba  `nslookup  myServer.privatelink.mysql.database.azure.com`. 
 
@@ -226,7 +226,7 @@ Después de crear **myVm** , conéctese a ella desde Internet como se indica a c
 
 3. Pruebe la conexión de vínculo privado para el servidor MySQL con cualquier cliente disponible. En el ejemplo siguiente se ha usado [MySQL Workbench](https://dev.mysql.com/doc/workbench/en/wb-installing-windows.html) para realizar la operación.
 
-4. En **Nueva conexión** , escriba o seleccione esta información:
+4. En **Nueva conexión**, escriba o seleccione esta información:
 
     | Configuración | Value |
     | ------- | ----- |

@@ -7,12 +7,12 @@ ms.date: 11/20/2018
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
-ms.openlocfilehash: 378c21a6904acad16847bb32955e4bc091e587df
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7fc1b2638c2ab17c4cd58ca8d4508d2e6d244cfa
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84465497"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95996832"
 ---
 # <a name="how-to-use-blob-storage-from-ios"></a>Uso del almacenamiento de blobs desde iOS
 
@@ -99,7 +99,7 @@ Si usa Swift, tendrá que crear un encabezado puente e importar \<AZSClient/AZSC
 
 ## <a name="create-a-container"></a>Crear un contenedor
 
-Todos los blobs de Azure Storage deben residir en un contenedor. En el siguiente ejemplo, se muestra cómo crear un contenedor denominado *newcontainer*en su cuenta de almacenamiento (siempre y cuando no exista ya). Al elegir el nombre del contenedor, tenga en cuenta las reglas de nomenclatura mencionadas anteriormente.
+Todos los blobs de Azure Storage deben residir en un contenedor. En el siguiente ejemplo, se muestra cómo crear un contenedor denominado *newcontainer* en su cuenta de almacenamiento (siempre y cuando no exista ya). Al elegir el nombre del contenedor, tenga en cuenta las reglas de nomenclatura mencionadas anteriormente.
 
 ```objc
 -(void)createContainer{
@@ -391,8 +391,8 @@ Ahora que ha aprendido cómo utilizar Blob Storage de iOS, siga estos vínculos 
 
 - [Biblioteca de cliente de Azure Storage para iOS](https://github.com/azure/azure-storage-ios)
 - [Documentación de referencia de iOS de Azure Storage](https://azure.github.io/azure-storage-ios/)
-- [API de REST de servicios de Azure Storage](https://msdn.microsoft.com/library/azure/dd179355.aspx)
-- [Blog del equipo de Azure Storage](https://docs.microsoft.com/archive/blogs/windowsazurestorage/)
+- [API de REST de servicios de Azure Storage](/rest/api/storageservices/)
+- [Blog del equipo de Azure Storage](/archive/blogs/windowsazurestorage/)
 
-Si tiene alguna pregunta sobre esta biblioteca, puede publicarla en la [Página de preguntas y respuestas](https://docs.microsoft.com/answers/topics/azure-blob-storage.html) o en [Stack Overflow](https://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files).
+Si tiene alguna pregunta sobre esta biblioteca, puede publicarla en la [Página de preguntas y respuestas](/answers/topics/azure-blob-storage.html) o en [Stack Overflow](https://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files).
 Si quiere sugerir características nuevas para Azure Storage, publíquelas en la página de [comentarios sobre Azure Storage](https://feedback.azure.com/forums/217298-storage/).

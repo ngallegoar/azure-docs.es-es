@@ -8,11 +8,11 @@ ms.topic: how-to
 ms.date: 01/09/2020
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: da6a2b97d2656d56fa2aa0e7259fba433bd7b81e
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94541647"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95998590"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mysql-using-cli"></a>Creación y administración de Private Link para Azure Database for MySQL mediante la CLI
 
@@ -23,7 +23,7 @@ Un punto de conexión privado es el bloque de creación fundamental para el vín
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-- This article requires version 2.0.28 or later of the Azure CLI. Si usa Azure Cloud Shell, ya está instalada la versión más reciente.
+- En este artículo se necesita la versión 2.0.28 o posterior de la CLI de Azure. Si usa Azure Cloud Shell, ya está instalada la versión más reciente.
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 

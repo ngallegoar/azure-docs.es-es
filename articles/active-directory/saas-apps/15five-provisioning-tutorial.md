@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: zhchia
 ms.openlocfilehash: 528ab93d1cf47d64338ef186a120695681f48e55
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357222"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95998658"
 ---
 # <a name="tutorial-configure-15five-for-automatic-user-provisioning"></a>Tutorial: Configuración de 15Five para aprovisionar usuarios automáticamente
 
@@ -106,13 +106,13 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![URL de inquilino + Token](common/provisioning-testconnection-tenanturltoken.png)
 
-6. En el campo **Correo electrónico de notificación** , escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
+6. En el campo **Correo electrónico de notificación**, escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
 
     ![Correo electrónico de notificación](common/provisioning-notification-email.png)
 
-7. Haga clic en **Save** (Guardar).
+7. Haga clic en **Save**(Guardar).
 
-8. En la sección **Asignaciones** , seleccione **Synchronize Azure Active Directory Users to 15Five** (Sincronizar usuarios de Azure Active Directory con 15Five).
+8. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Users to 15Five** (Sincronizar usuarios de Azure Active Directory con 15Five).
 
 9. Examine los atributos de usuario que se sincronizan entre Azure AD y 15Five en la sección **Asignación de atributos**. Los atributos seleccionados como propiedades de **Coincidencia** se usan para buscar coincidencias con las cuentas de usuario de 15Five con el objetivo de realizar operaciones de actualización. Seleccione el botón **Guardar** para confirmar los cambios.
 
@@ -131,7 +131,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
    |urn:ietf:params:scim:schemas:extension:15Five:2.0:User:location|String|
    |urn:ietf:params:scim:schemas:extension:15Five:2.0:User:startDate|String|
 
-10. En la sección **Asignaciones** , seleccione **Synchronize Azure Active Directory Groups to 15Five** (Sincronizar grupos de Azure Active Directory con 15Five).
+10. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Groups to 15Five** (Sincronizar grupos de Azure Active Directory con 15Five).
 
 11. Examine los atributos de grupo que se sincronizan entre Azure AD y 15Five en la sección **Asignación de atributos**. Los atributos seleccionados como propiedades **Coincidentes** se usan para establecer correspondencia con las cuentas del usuario en 15Five a fin de realizar operaciones de actualización. Seleccione el botón **Guardar** para confirmar los cambios.
 
@@ -147,7 +147,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Estado de aprovisionamiento activado](common/provisioning-toggle-on.png)
 
-14. Elija los valores deseados en **Ámbito** , en la sección **Configuración** , para definir los usuarios o grupos que desea que se aprovisionen en 15Five.
+14. Elija los valores deseados en **Ámbito**, en la sección **Configuración**, para definir los usuarios o grupos que desea que se aprovisionen en 15Five.
 
     ![Ámbito del aprovisionamiento](common/provisioning-scope.png)
 
