@@ -9,11 +9,11 @@ ms.date: 05/26/2020
 ms.author: victorh
 ms.custom: references_regions
 ms.openlocfilehash: 8df24b44d648343c46532eed443717f444bd0058
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93397797"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95975656"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Preguntas más frecuentes sobre Application Gateway
 
@@ -434,9 +434,9 @@ No, el complemento de AGIC es un servicio administrado, por lo que Microsoft act
 
 Application Gateway proporciona tres registros: 
 
-* **ApplicationGatewayAccessLog** : el registro de acceso contiene todas las solicitudes enviadas al front-end de Application Gateway. Los datos incluyen la dirección IP del autor de la llamada, la dirección URL solicitada, la latencia de la respuesta, el código de devolución y los bytes de entrada y salida. y contiene un registro por cada instancia de Application Gateway.
-* **ApplicationGatewayPerformanceLog** : el registro de rendimiento captura información de rendimiento para cada instancia de Application Gateway. La información incluye el rendimiento en bytes, el número total de solicitudes atendidas, el recuento de solicitudes con error y el recuento de instancias de back-end correctas e incorrectas.
-* **ApplicationGatewayFirewallLog** : para las instancias de Application Gateway que configure con WAF, el registro del firewall contiene las solicitudes que se registran mediante el modo de detección o el modo de prevención.
+* **ApplicationGatewayAccessLog**: el registro de acceso contiene todas las solicitudes enviadas al front-end de Application Gateway. Los datos incluyen la dirección IP del autor de la llamada, la dirección URL solicitada, la latencia de la respuesta, el código de devolución y los bytes de entrada y salida. y contiene un registro por cada instancia de Application Gateway.
+* **ApplicationGatewayPerformanceLog**: el registro de rendimiento captura información de rendimiento para cada instancia de Application Gateway. La información incluye el rendimiento en bytes, el número total de solicitudes atendidas, el recuento de solicitudes con error y el recuento de instancias de back-end correctas e incorrectas.
+* **ApplicationGatewayFirewallLog**: para las instancias de Application Gateway que configure con WAF, el registro del firewall contiene las solicitudes que se registran mediante el modo de detección o el modo de prevención.
 
 Todos los registros se recopilan cada 60 segundos. Para más información, consulte [Mantenimiento del back-end, registro de diagnóstico y métricas de Application Gateway](application-gateway-diagnostics.md).
 

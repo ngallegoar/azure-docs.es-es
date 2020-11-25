@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: victorh
 ms.openlocfilehash: 5d2760415e4f4ef3b181f2fb69802659fec3ef66
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93397882"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95975962"
 ---
 # <a name="create-a-custom-probe-for-application-gateway-by-using-the-portal"></a>Creación de un sondeo personalizado para Puerta de enlace de aplicaciones mediante el portal
 
@@ -42,7 +42,7 @@ Los sondeos se configuran en un proceso de dos pasos a través del portal. En el
 
    ![Incorporación de un nuevo sondeo][4]
 
-4. En la página **Agregar sondeo de estado** , rellene la información necesaria para el sondeo y, cuando finalice, seleccione **Aceptar**.
+4. En la página **Agregar sondeo de estado**, rellene la información necesaria para el sondeo y, cuando finalice, seleccione **Aceptar**.
 
    |**Configuración** | **Valor** | **Detalles**|
    |---|---|---|
@@ -93,7 +93,7 @@ Los sondeos se configuran en un proceso de dos pasos a través del portal. El pr
 
    ![Agregar hoja Sondeo con la información rellena][1]
 
-4. En la hoja **Agregar sondeo de estado** , rellene la información necesaria para el sondeo y, cuando finalice, seleccione **Aceptar**.
+4. En la hoja **Agregar sondeo de estado**, rellene la información necesaria para el sondeo y, cuando finalice, seleccione **Aceptar**.
 
    |**Configuración** | **Valor** | **Detalles**|
    |---|---|---|
@@ -118,7 +118,7 @@ Una vez creado el sondeo, es el momento de agregarlo a la puerta de enlace. La c
 
    ![ventana de configuración de https][2]
 
-2. En la página de configuración de **appGatewayBackEndHttpSettings** , active la casilla **Usar sondeo personalizado** y elija, en el menú desplegable **Sondeo personalizado** , el sondeo creado en la sección [Creación del sondeo](#createprobe).
+2. En la página de configuración de **appGatewayBackEndHttpSettings**, active la casilla **Usar sondeo personalizado** y elija, en el menú desplegable **Sondeo personalizado**, el sondeo creado en la sección [Creación del sondeo](#createprobe).
    Cuando haya terminado, haga clic en **Guardar** y se aplicará la configuración.
 
 ## <a name="next-steps"></a>Pasos siguientes
