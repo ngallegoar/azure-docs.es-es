@@ -8,12 +8,12 @@ ms.author: chpalm
 ms.date: 10/03/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 6b8145666ab92432d01b2f039685afe5534f0958
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 7c522abd04f4a3e480bb5c3e14e78cc03dbd5d86
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93043578"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888647"
 ---
 # <a name="region-availability-and-data-residency"></a>Disponibilidad de regiones y residencia de datos
 
@@ -37,13 +37,13 @@ Hay dos categorías de datos de Communication Services:
 
 ### <a name="identities"></a>Identities
 
-Azure Communication Services mantiene un directorio de identidades, use la API [DeleteIdentity](https://docs.microsoft.com/rest/api/communication/communicationidentity/delete) para eliminarlos. Al eliminar una identidad, se revocan todos los tokens de acceso asociados y se eliminan sus mensajes de chat. Para más información sobre cómo eliminar una identidad, [consulte esta página](../quickstarts/access-tokens.md).
+Azure Communication Services mantiene un directorio de identidades, use la API [DeleteIdentity](/rest/api/communication/communicationidentity/delete) para eliminarlos. Al eliminar una identidad, se revocan todos los tokens de acceso asociados y se eliminan sus mensajes de chat. Para más información sobre cómo eliminar una identidad, [consulte esta página](../quickstarts/access-tokens.md).
 
 - DeleteIdentity
 
 ### <a name="azure-resource-manager"></a>Azure Resource Manager
 
-El uso de Azure Portal o las API de Azure Resource Manager con Communication Services puede crear datos personales. [Administración de datos personales asociados a Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-manager-personal-data)
+El uso de Azure Portal o las API de Azure Resource Manager con Communication Services puede crear datos personales. [Administración de datos personales asociados a Azure Resource Manager](../../azure-resource-manager/management/resource-manager-personal-data.md)
 
 ### <a name="telephone-number-management"></a>Administración de números de teléfono
 
@@ -52,7 +52,7 @@ Azure Communication Services mantiene un directorio de números de teléfono aso
 
 ### <a name="chat"></a>Chat
 
-Los mensajes y los hilos de chat se conservan hasta que se eliminan explícitamente. Un hilo totalmente inactivo se eliminará automáticamente después de 30 días. Use las [API de chat](https://docs.microsoft.com/rest/api/communication/chat/deletechatmessage/deletechatmessage) para obtener, enumerar, actualizar y eliminar mensajes.
+Los mensajes y los hilos de chat se conservan hasta que se eliminan explícitamente. Un hilo totalmente inactivo se eliminará automáticamente después de 30 días. Use las [API de chat](/rest/api/communication/chat/deletechatmessage/deletechatmessage) para obtener, enumerar, actualizar y eliminar mensajes.
 
 - `Get Thread`
 - `Get Message`
@@ -73,10 +73,10 @@ El servicio procesa de forma efímera la comunicación de audio y vídeo, y no s
 
 ## <a name="azure-monitor-and-log-analytics"></a>Azure Monitor y Log Analytics
 
-Azure Communication Services alimentará los datos de registro de Azure Monitor para conocer el estado operativo y el uso del servicio. Algunos de estos registros incluyen identidades de Communication Services y números de teléfono como datos de campos. Para eliminar cualquier dato potencialmente personal, [utilice estos procedimientos para Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/personal-data-mgmt). También puede que desee configurar [el período de retención predeterminado de Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage).
+Azure Communication Services alimentará los datos de registro de Azure Monitor para conocer el estado operativo y el uso del servicio. Algunos de estos registros incluyen identidades de Communication Services y números de teléfono como datos de campos. Para eliminar cualquier dato potencialmente personal, [utilice estos procedimientos para Azure Monitor](../../azure-monitor/platform/personal-data-mgmt.md). También puede que desee configurar [el período de retención predeterminado de Azure Monitor](../../azure-monitor/platform/manage-cost-storage.md).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-- [Solicitudes de titulares de los datos de Azure para el RGPD y la CCPA](https://docs.microsoft.com/microsoft-365/compliance/gdpr-dsr-azure?view=o365-worldwide&preserve-view=true)
+- [Solicitudes de titulares de los datos de Azure para el RGPD y la CCPA](/microsoft-365/compliance/gdpr-dsr-azure?preserve-view=true&view=o365-worldwide)
 - [Microsoft Trust Center](https://www.microsoft.com/trust-center/privacy/data-location)
 - [Mapa interactivo de Azure: ¿dónde están los datos de los clientes?](https://azuredatacentermap.azurewebsites.net/)

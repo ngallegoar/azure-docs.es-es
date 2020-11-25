@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: java
 ms.custom: mvc, devx-track-java
-ms.openlocfilehash: 7c5aa7e5189b4c89636fdb38e8fd365208148900
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: fb6f9f598ef68911a9017dde504a032672dc55a3
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93094649"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966588"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-java"></a>Inicio rápido: Inscripción de dispositivos X.509 en el servicio Device Provisioning mediante Java
 
@@ -79,7 +79,7 @@ Los siguientes pasos muestran cómo agregar los detalles de aprovisionamiento de
 
         5. Cuando se le solicite, puede especificar opcionalmente un _nombre común_ para los certificados.
         6. La herramienta genera un valor de **Client Cert** (certificado de cliente), **Client Cert Private Key** (clave privada del certificado de cliente) y el **Root Cert** (certificado raíz) de forma local.
-        7. Copie el **certificado raíz** , incluidas las líneas **_---BEGIN CERTIFICATE---_** y **_---END CERTIFICATE---_** . 
+        7. Copie el **certificado raíz**, incluidas las líneas **_---BEGIN CERTIFICATE---_** y **_---END CERTIFICATE---_** . 
         8. Asigne el valor del **certificado raíz** al parámetro **PUBLIC_KEY_CERTIFICATE_STRING** tal y como se muestra a continuación:
 
             ```Java
@@ -109,14 +109,14 @@ Los siguientes pasos muestran cómo agregar los detalles de aprovisionamiento de
                 ```
             2. Asigne un nombre descriptivo al parámetro *DEVICE_ID* y mantenga el elemento *PROVISIONING_STATUS* con el valor predeterminado *HABILITADO*. 
 
-        - Si decide no configurar el servicio de aprovisionamiento, asegúrese de que convierte en comentario o elimina las siguientes instrucciones en el archivo _ServiceEnrollmentGroupSample.java_ :
+        - Si decide no configurar el servicio de aprovisionamiento, asegúrese de que convierte en comentario o elimina las siguientes instrucciones en el archivo _ServiceEnrollmentGroupSample.java_:
 
             ```Java
             enrollmentGroup.setIotHubHostName(IOTHUB_HOST_NAME);                // Optional parameter.
             enrollmentGroup.setProvisioningStatus(ProvisioningStatus.ENABLED);  // Optional parameter.
             ```
 
-    4. Estudie el código de ejemplo. Crea, actualiza, consulta y elimina una inscripción de un grupo para dispositivos X.509. Para comprobar si la inscripción se realizó correctamente en el portal, convierta temporalmente en comentario las siguientes líneas de código al final del archivo _ServiceEnrollmentGroupSample.java_ :
+    4. Estudie el código de ejemplo. Crea, actualiza, consulta y elimina una inscripción de un grupo para dispositivos X.509. Para comprobar si la inscripción se realizó correctamente en el portal, convierta temporalmente en comentario las siguientes líneas de código al final del archivo _ServiceEnrollmentGroupSample.java_:
 
         ```Java
         // ************************************** Delete info of enrollmentGroup ***************************************
@@ -172,7 +172,7 @@ Para inscribir un único dispositivo X.509, modifique el código de ejemplo de l
     private static final String REGISTRATION_ID = "[RegistrationId]";
     ```
 
-2. Cambie el nombre de la variable *TPM_ENDORSEMENT_KEY* a *PUBLIC_KEY_CERTIFICATE_STRING*. Copie su certificado de cliente o el valor de **Client Cert** (certificado de cliente) que obtuvo con la herramienta para _generar certificados X.509_ , como el valor de la variable *PUBLIC_KEY_CERTIFICATE_STRING*. 
+2. Cambie el nombre de la variable *TPM_ENDORSEMENT_KEY* a *PUBLIC_KEY_CERTIFICATE_STRING*. Copie su certificado de cliente o el valor de **Client Cert** (certificado de cliente) que obtuvo con la herramienta para _generar certificados X.509_, como el valor de la variable *PUBLIC_KEY_CERTIFICATE_STRING*. 
 
     ```Java
     // Rename the variable *TPM_ENDORSEMENT_KEY* as *PUBLIC_KEY_CERTIFICATE_STRING*
@@ -190,7 +190,7 @@ Para inscribir un único dispositivo X.509, modifique el código de ejemplo de l
             "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
             "-----END CERTIFICATE-----\n";
     ```
-3. En la función **main** , reemplace la línea `Attestation attestation = new TpmAttestation(TPM_ENDORSEMENT_KEY);` con el código siguiente para usar el certificado de cliente X.509:
+3. En la función **main**, reemplace la línea `Attestation attestation = new TpmAttestation(TPM_ENDORSEMENT_KEY);` con el código siguiente para usar el certificado de cliente X.509:
     ```Java
     Attestation attestation = X509Attestation.createFromClientCertificates(PUBLIC_KEY_CERTIFICATE_STRING);
     ```

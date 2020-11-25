@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: java
 ms.custom: mvc, devx-track-java
-ms.openlocfilehash: 31832c13ddee848864dcfe0d796deb7fcdcd8359
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 7a0e15ac3c08f55e817eb6a6300d58ab4af6029c
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90526551"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966665"
 ---
 # <a name="quickstart-create-and-provision-a-simulated-tpm-device-using-java-device-sdk-for-azure-iot-hub-device-provisioning-service"></a>Inicio rápido: Creación y aprovisionamiento de un dispositivo de TPM simulado mediante el SDK de dispositivos Java para Azure IoT Hub Device Provisioning Service.
 
@@ -27,7 +27,7 @@ En este inicio rápido se creará un dispositivo IoT simulado en un equipo Windo
 - Estar familiarizado con los conceptos de [aprovisionamiento](about-iot-dps.md#provisioning-process).
 - Finalización de [Configuración de Azure IoT Hub Device Provisioning Service con Azure Portal](./quick-setup-auto-provision.md).
 - Una cuenta de Azure con una suscripción activa. [cree una de forma gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- [Java SE Development Kit 8](https://aka.ms/azure-jdks).
+- [Java SE Development Kit 8](/azure/developer/java/fundamentals/java-jdk-long-term-support).
 - [Maven](https://maven.apache.org/install.html).
 - [Git](https://git-scm.com/download/).
 
@@ -35,7 +35,7 @@ En este inicio rápido se creará un dispositivo IoT simulado en un equipo Windo
 
 ## <a name="prepare-the-environment"></a>Preparación del entorno 
 
-1. Asegúrese de que tiene [Java SE Development Kit 8](https://aka.ms/azure-jdks) instalado en su máquina.
+1. Asegúrese de que tiene [Java SE Development Kit 8](/azure/developer/java/fundamentals/java-jdk-long-term-support) instalado en su máquina.
 
 1. Descargue e instale [Maven](https://maven.apache.org/install.html).
 
@@ -47,7 +47,7 @@ En este inicio rápido se creará un dispositivo IoT simulado en un equipo Windo
     git clone https://github.com/Azure/azure-iot-sdk-java.git --recursive
     ```
 
-1. Ejecute el simulador de [TPM](https://docs.microsoft.com/windows/device-security/tpm/trusted-platform-module-overview) para que sea el [HSM](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) para el dispositivo simulado. Haga clic en **Permitir acceso** para permitir cambios en la configuración del _Firewall de Windows_. Atiende en un socket en los puertos 2321 y 2322. No cierre esta ventana; debe mantener este simulador ejecutándose hasta el final de esta guía de inicio rápido. 
+1. Ejecute el simulador de [TPM](/windows/device-security/tpm/trusted-platform-module-overview) para que sea el [HSM](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) para el dispositivo simulado. Haga clic en **Permitir acceso** para permitir cambios en la configuración del _Firewall de Windows_. Atiende en un socket en los puertos 2321 y 2322. No cierre esta ventana; debe mantener este simulador ejecutándose hasta el final de esta guía de inicio rápido. 
 
     ```cmd/sh
     .\azure-iot-sdk-java\provisioning\provisioning-tools\tpm-simulator\Simulator.exe

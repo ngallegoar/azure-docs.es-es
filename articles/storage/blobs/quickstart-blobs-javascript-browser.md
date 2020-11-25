@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: devx-track-js
-ms.openlocfilehash: eebfa61632bc49d5df35c17ba2d2faca0382001c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 998d49e91d38a1f2fdc2503165ee99635e153027
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91336146"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001905"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
@@ -26,7 +26,7 @@ Recursos adicionales:
 * [Documentación de referencia de API](/javascript/api/@azure/storage-blob)
 * [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob)
 * [Paquete (npm)](https://www.npmjs.com/package/@azure/storage-blob)
-* [Muestras](https://docs.microsoft.com/azure/storage/common/storage-samples-javascript?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
+* [Muestras](../common/storage-samples-javascript.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -66,7 +66,7 @@ En esta sección se explica cómo preparar un proyecto para que funcione con la 
 
 ### <a name="create-a-cors-rule"></a>Creación de una regla de CORS
 
-Para que la aplicación web pueda acceder a un almacenamiento de blobs desde el cliente, debe configurar la cuenta para habilitar el [uso compartido de recursos entre orígenes](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services), o CORS.
+Para que la aplicación web pueda acceder a un almacenamiento de blobs desde el cliente, debe configurar la cuenta para habilitar el [uso compartido de recursos entre orígenes](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services), o CORS.
 
 En Azure Portal, seleccione la cuenta de almacenamiento. Para definir una nueva regla de CORS, vaya a la sección **Configuración** y seleccione **CORS**. En esta guía de inicio rápido, se crea una regla de CORS abierta:
 
@@ -76,10 +76,10 @@ En la tabla siguiente se describe cada opción de configuración de CORS y se ex
 
 |Configuración  |Value  | Descripción |
 |---------|---------|---------|
-| **ORÍGENES PERMITIDOS** | **\*** | Acepta una lista delimitada por comas de dominios establecidos como orígenes aceptables. Establecer el valor en `*` permite el acceso de todos los dominios a la cuenta de almacenamiento. |
+| **ORÍGENES PERMITIDOS** | **\** _ | Acepta una lista delimitada por comas de dominios establecidos como orígenes aceptables. Establecer el valor en `_` permite el acceso de todos los dominios a la cuenta de almacenamiento. |
 | **MÉTODOS PERMITIDOS** | **DELETE**, **GET**, **HEAD**, **MERGE**, **POST**, **OPTIONS**, and **PUT** | Enumera los verbos HTTP permitidos para ejecutar en la cuenta de almacenamiento. Para los fines de esta guía de rápido, seleccione todas las opciones disponibles. |
-| **ENCABEZADOS PERMITIDOS** | **\*** | Define una lista de encabezados de solicitud (incluidos los encabezados con prefijo) permitidos por la cuenta de almacenamiento. Establecer el valor en `*` permite el acceso de todos los encabezados. |
-| **ENCABEZADOS EXPUESTOS** | **\*** | Enumera los encabezados de respuesta permitidos por la cuenta. Establecer el valor en `*` permite que la cuenta envíe cualquier encabezado. |
+| **ENCABEZADOS PERMITIDOS** | **\** _ | Define una lista de encabezados de solicitud (incluidos los encabezados con prefijo) permitidos por la cuenta de almacenamiento. Establecer el valor en `_` permite el acceso de todos los encabezados. |
+| **ENCABEZADOS EXPUESTOS** | **\** _ | Enumera los encabezados de respuesta permitidos por la cuenta. Establecer el valor en `_` permite que la cuenta envíe cualquier encabezado. |
 | **ANTIGÜEDAD MÁXIMA** | **86400** | La cantidad máxima de tiempo que el explorador almacena en caché la solicitud OPTIONS preparatoria en segundos. El valor *86400* permite que la memoria caché permanezca un día completo. |
 
 Después de rellenar los campos con los valores de esta tabla, haga clic en el botón **Guardar**.

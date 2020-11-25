@@ -10,11 +10,11 @@ ms.date: 01/22/2019
 ms.author: chrande
 ms.custom: devx-track-python
 ms.openlocfilehash: 91b04b05b810b2b0fc221943a73e81c49f7119dc
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360197"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95972496"
 ---
 # <a name="quickstart-create-a-graph-database-in-azure-cosmos-db-using-python-and-the-azure-portal"></a>Inicio rápido: Creación de una base de datos de grafos en Azure Cosmos DB mediante Python y Azure Portal
 [!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
@@ -75,7 +75,7 @@ Ahora vamos a empezar a trabajar con el código. Vamos a clonar una aplicación 
 
 Este paso es opcional. Si está interesado en aprender cómo se crean los recursos de base de datos en el código, puede revisar los siguientes fragmentos de código. Todos los fragmentos de código se han tomado del archivo *connect.py* de la carpeta *C:\git-samples\azure-cosmos-db-graph-python-getting-started\\* . En caso contrario, puede ir directamente a [Actualización de la cadena de conexión](#update-your-connection-information). 
 
-* El valor de `client` de Gremlin se inicializa en la línea 104 de *connect.py* :
+* El valor de `client` de Gremlin se inicializa en la línea 104 de *connect.py*:
 
     ```python
     ...
@@ -129,7 +129,7 @@ Ahora vuelva a Azure Portal para obtener la información de conexión y cópiela
         password="<YOUR_PASSWORD>")
     ```
 
-4. En la página **Claves** , use el botón de copia para copiar la clave principal y péguela sobre `<YOUR_PASSWORD>` en el parámetro `password=<YOUR_PASSWORD>`.
+4. En la página **Claves**, use el botón de copia para copiar la clave principal y péguela sobre `<YOUR_PASSWORD>` en el parámetro `password=<YOUR_PASSWORD>`.
 
     Toda la definición del objeto `client` debe parecerse ahora a este código:
     ```python
@@ -171,11 +171,11 @@ Ahora vuelva a Azure Portal para obtener la información de conexión y cópiela
 
 Una vez que se insertan los vértices y los bordes, ahora puede volver al Explorador de datos y ver los vértices que se agregan al grafo, y agregar puntos de datos adicionales.
 
-1. En la cuenta de Azure Cosmos DB, en Azure Portal, seleccione **Explorador de datos** , expanda **sample-graph** , seleccione **Grafo** y, por último, seleccione **Aplicar filtro**. 
+1. En la cuenta de Azure Cosmos DB, en Azure Portal, seleccione **Explorador de datos**, expanda **sample-graph**, seleccione **Grafo** y, por último, seleccione **Aplicar filtro**. 
 
    :::image type="content" source="./media/create-graph-python/azure-cosmosdb-data-explorer-expanded.png" alt-text="Captura de pantalla que muestra el grafo seleccionado desde la A P I con la opción para aplicar el filtro.":::
 
-2. En la lista **Resultados** , observe los tres nuevos usuarios agregados al grafo. Puede mover los vértices arrastrando y colocando, acercarse y alejarse desplazando la rueda del mouse y ampliar el tamaño del gráfico con la flecha doble. 
+2. En la lista **Resultados**, observe los tres nuevos usuarios agregados al grafo. Puede mover los vértices arrastrando y colocando, acercarse y alejarse desplazando la rueda del mouse y ampliar el tamaño del gráfico con la flecha doble. 
 
    :::image type="content" source="./media/create-graph-python/azure-cosmosdb-graph-explorer-new.png" alt-text="Nuevos vértices en el grafo del Explorador de datos de Azure Portal":::
 
@@ -222,7 +222,7 @@ Una vez que se insertan los vértices y los bordes, ahora puede volver al Explor
 
     :::image type="content" source="./media/create-graph-python/azure-cosmosdb-data-explorer-edit-target.png" alt-text="Cambio del destino de un vértice en un grafo":::
 
-13. En el cuadro **Destino** , escriba *rakesh* , en el cuadro **Edge label** (Etiqueta de borde), escriba *conoce a* y, a continuación, seleccione la casilla.
+13. En el cuadro **Destino**, escriba *rakesh*, en el cuadro **Edge label** (Etiqueta de borde), escriba *conoce a* y, a continuación, seleccione la casilla.
 
     :::image type="content" source="./media/create-graph-python/azure-cosmosdb-data-explorer-set-target.png" alt-text="Adición de una conexión entre ashley y rakesh en el Explorador de datos":::
 
