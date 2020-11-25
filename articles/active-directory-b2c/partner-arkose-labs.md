@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a4d8174cd0bfdb2297099b403fb836210c5529ac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 333bb42643539cedec04d37680749c749a003536
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86170231"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994067"
 ---
 # <a name="tutorial-for-configuring-arkose-labs-with-azure-active-directory-b2c"></a>Tutorial para configurar Arkose Labs con Azure Active Directory B2C
 
@@ -106,7 +106,7 @@ El código de Azure AD B2C en un explorador utiliza un enfoque moderno y estánd
 
 Descargue Git Bash y siga estos pasos:
 
-1. Siga las instrucciones para [crear una aplicación web](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-php), hasta que aparezca el mensaje "Enhorabuena. Ha implementado su primera aplicación PHP en App Service".
+1. Siga las instrucciones para [crear una aplicación web](../app-service/quickstart-php.md), hasta que aparezca el mensaje "Enhorabuena. Ha implementado su primera aplicación PHP en App Service".
 
 2. Abra la carpeta local y cambie el nombre del archivo **index.php** por **verify-token.php**.
 

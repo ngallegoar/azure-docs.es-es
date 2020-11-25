@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 05/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: bf8fe68c28457fd01704762e537fe259a96a6bce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5d6fb23d7325347a1b27165d3e9bc3bf33797682
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87116237"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95994370"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-active-directory-b2c-using-a-custom-policy"></a>Configure el flujo de credenciales de contraseña de propietario del recurso en Azure Active Directory B2C con una directiva personalizada.
 
@@ -247,7 +247,7 @@ Después, actualice el archivo del usuario de confianza que inicia el recorrido 
 
 Use su aplicación favorita de desarrollo de API para generar una llamada de API y revise la respuesta para depurar la directiva. Cree una llamada como en este ejemplo con la siguiente información como el cuerpo de la solicitud POST:
 
-`https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1_ROPC_Auth/oauth2/v2.0/token`
+`https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1A_ROPC_Auth/oauth2/v2.0/token`
 
 - Reemplace `<tenant-name>` por el nombre del inquilino de Azure AD B2C.
 - Reemplace `B2C_1A_ROPC_Auth` por el nombre completo de la directiva de credenciales de contraseña del propietario de recursos.
@@ -269,7 +269,7 @@ Use su aplicación favorita de desarrollo de API para generar una llamada de API
 La solicitud POST real es similar al ejemplo siguiente:
 
 ```https
-POST /<tenant-name>.onmicrosoft.com/oauth2/v2.0/token?B2C_1_ROPC_Auth HTTP/1.1
+POST /<tenant-name>.onmicrosoft.com/oauth2/v2.0/token?B2C_1A_ROPC_Auth HTTP/1.1
 Host: <tenant-name>.b2clogin.com
 Content-Type: application/x-www-form-urlencoded
 
@@ -292,7 +292,7 @@ Una respuesta correcta con acceso sin conexión se parece al siguiente ejemplo:
 
 Cree una llamada POST como la que se muestra aquí. Use la información de la tabla siguiente como el cuerpo de la solicitud:
 
-`https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1_ROPC_Auth/oauth2/v2.0/token`
+`https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1A_ROPC_Auth/oauth2/v2.0/token`
 
 - Reemplace `<tenant-name>` por el nombre del inquilino de Azure AD B2C.
 - Reemplace `B2C_1A_ROPC_Auth` por el nombre completo de la directiva de credenciales de contraseña del propietario de recursos.

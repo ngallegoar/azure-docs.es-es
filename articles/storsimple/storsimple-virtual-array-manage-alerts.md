@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/12/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a24890f42b795bb4b9a7d187f74ceb9a4f8557f5
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 12fcc9996697f3bbba35826d79bec238bfb0f8b3
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94539233"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95993006"
 ---
 # <a name="use-storsimple-device-manager-to-manage-alerts-for-the-storsimple-virtual-array"></a>Use de StorSimple Device Manager para administrar alertas de la matriz virtual de StorSimple
 
@@ -72,7 +72,7 @@ Después de habilitar la notificación por correo electrónico para una matriz v
 
 La matriz virtual de StorSimple genera alertas en respuesta a una serie de condiciones. A continuación se detallan los tipos más comunes de condiciones de alerta:
 
-* **Problemas de conectividad** : estas alertas se producen cuando existen dificultades para transferir datos. Los problemas de comunicación pueden ocurrir durante la transferencia de datos a y de la cuenta de Azure Storage o debido a la falta de conectividad entre los dispositivos virtuales y el servicio StorSimple Device Manager. Los problemas de comunicación están entre los más difíciles de solucionar porque existen numerosos puntos de error. En primer lugar, siempre debe verificar que estén disponibles la conectividad de la red y el acceso a Internet antes de pasar a soluciones de problemas más avanzados. Para obtener información sobre la configuración del firewall y los puertos, vaya a [Requisitos del sistema de la matriz virtual de StorSimple](storsimple-ova-system-requirements.md). Si necesita ayuda para la solución de problemas, vaya a [Solución de problemas con el cmdlet Test-Connection](storsimple-troubleshoot-deployment.md).
+* **Problemas de conectividad** : estas alertas se producen cuando existen dificultades para transferir datos. Los problemas de comunicación pueden ocurrir durante la transferencia de datos a y de la cuenta de Azure Storage o debido a la falta de conectividad entre los dispositivos virtuales y el servicio StorSimple Device Manager. Los problemas de comunicación están entre los más difíciles de solucionar porque existen numerosos puntos de error. En primer lugar, siempre debe verificar que estén disponibles la conectividad de la red y el acceso a Internet antes de pasar a soluciones de problemas más avanzados. Para obtener información sobre la configuración del firewall y los puertos, vaya a [Requisitos del sistema de la matriz virtual de StorSimple](storsimple-ova-system-requirements.md). Si necesita ayuda para la solución de problemas, vaya a [Solución de problemas con el cmdlet Test-Connection](./storsimple-8000-troubleshoot-deployment.md).
 * **Problemas de rendimiento** : estas alertas se producen cuando el sistema no tiene un rendimiento óptimo, por ejemplo, cuando está sobrecargado.
 
 Además, podría ver alertas relacionadas con seguridad, actualizaciones o errores en el trabajo.

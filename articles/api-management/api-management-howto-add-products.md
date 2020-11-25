@@ -7,11 +7,11 @@ ms.topic: tutorial
 ms.date: 09/30/2020
 ms.author: apimpm
 ms.openlocfilehash: 2f298f240d8aa7a38b42a8c78ee3c90fe3423d10
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91630601"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95993557"
 ---
 # <a name="tutorial-create-and-publish-a-product"></a>Tutorial: Crear y publicar un producto  
 
@@ -38,7 +38,7 @@ En este tutorial, aprenderá a:
 1. En el panel de navegación izquierdo, seleccione **Productos** >  **+ Agregar**.
 1.  En la ventana **Agregar producto**, escriba los valores que se describen en la tabla siguiente para crear el producto.
 
-    :::image type="content" source="media/api-management-howto-add-products/02-create-publish-product-01.png" alt-text="Productos de API Management en el portal":::
+    :::image type="content" source="media/api-management-howto-add-products/02-create-publish-product-01.png" alt-text="Adición de un producto en el portal":::
 
     | Nombre                     | Descripción                                                                                                                                                                                                                                                                                                             |
     |--------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -80,7 +80,7 @@ En primer lugar, los desarrolladores deben suscribirse a un producto para accede
 1. Seleccione **+Agregar**.
 1. Elija una o varias API y, luego, elija **Seleccionar**.
 
-:::image type="content" source="media/api-management-howto-add-products/02-create-publish-product-02.png" alt-text="Productos de API Management en el portal":::
+:::image type="content" source="media/api-management-howto-add-products/02-create-publish-product-02.png" alt-text="Incorporación de una API a un producto existente":::
 
 > [!TIP]
 > Puede crear o actualizar la suscripción del usuario a un producto con claves de suscripción personalizadas mediante la [API REST](/rest/api/apimanagement/2019-12-01/subscription/createorupdate) o un comando de PowerShell.

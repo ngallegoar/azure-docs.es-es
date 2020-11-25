@@ -5,11 +5,11 @@ ms.topic: conceptual
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
 ms.openlocfilehash: c6b43cc48663be28d12fa788d92286be6f47ef08
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92359890"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95993540"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-event-hubs-resources"></a>Autenticación de una identidad administrada con Azure Active Directory para acceder a recursos de Event Hubs
 Azure Event Hubs admite la autenticación de Azure Active Directory (Azure AD) con [identidades administradas para los recursos de Azure](../active-directory/managed-identities-azure-resources/overview.md). Las identidades administradas para recursos de Azure pueden autorizar el acceso a los recursos de Event Hubs con credenciales de Azure AD desde aplicaciones que se ejecutan en máquinas virtuales (VM) de Azure, aplicaciones de función, conjuntos de escalado de máquinas virtuales y otros servicios. Si usa identidades administradas para recursos de Azure junto con autenticación de Azure AD, puede evitar el almacenamiento de credenciales con las aplicaciones que se ejecutan en la nube.
@@ -57,7 +57,7 @@ Para asignar un rol a los recursos de Event Hubs, vaya a ese recurso en Azure Po
 1. Seleccione **Access Control (IAM)** en el menú de la izquierda para mostrar la configuración de control de acceso para el centro de eventos.
 1.  Seleccione la pestaña **Asignaciones de roles** para ver la lista de asignaciones de roles.
 3.  Seleccione **Agregar** para agregar un rol nuevo.
-4.  En la página **Agregar asignación de roles** , seleccione los roles de Event Hubs que quiere asignar. A continuación, busque la identidad del servicio que ha registrado para asignar el rol.
+4.  En la página **Agregar asignación de roles**, seleccione los roles de Event Hubs que quiere asignar. A continuación, busque la identidad del servicio que ha registrado para asignar el rol.
     
     ![Página Agregar asignación de roles](./media/authenticate-managed-identity/add-role-assignment-page.png)
 5.  Seleccione **Guardar**. La identidad a la que ha asignado el rol aparece enumerada debajo de ese rol. Por ejemplo, la siguiente imagen muestra que la identidad del servicio tiene al propietario de los datos de Event Hubs.
@@ -144,7 +144,7 @@ Puede usar aplicaciones de Apache Kafka para enviar y recibir mensajes en Azure 
     - [Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/eventhubs/azure-messaging-eventhubs/src/samples/java/com/azure/messaging/eventhubs)
 - [Ejemplos de Microsoft.Azure.EventHubs](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac). 
     
-    En estos ejemplos se usa la biblioteca anterior **Microsoft.Azure.EventHubs** , pero se puede actualizar fácilmente para usar la biblioteca **Azure.Messaging.EventHubs** más reciente. Para que los ejemplos usen la biblioteca nueva en lugar de la anterior, consulte la [Guía para migrar de Microsoft.Azure.EventHubs a Azure.Messaging.EventHubs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md).
+    En estos ejemplos se usa la biblioteca anterior **Microsoft.Azure.EventHubs**, pero se puede actualizar fácilmente para usar la biblioteca **Azure.Messaging.EventHubs** más reciente. Para que los ejemplos usen la biblioteca nueva en lugar de la anterior, consulte la [Guía para migrar de Microsoft.Azure.EventHubs a Azure.Messaging.EventHubs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md).
     Este ejemplo se ha actualizado para usar la biblioteca **Azure.Messaging.EventHubs** más reciente.
 - [Event Hubs para Kafka: envío y recepción de mensajes mediante la autorización OAuth de identidad administrada](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/oauth/java/managedidentity)
 

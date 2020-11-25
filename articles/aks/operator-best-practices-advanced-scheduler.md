@@ -6,11 +6,11 @@ services: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.openlocfilehash: c0c1f587b4e52607e9466300f976a52874c9e5ad
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93125638"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95993710"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>Procedimientos recomendados para características avanzadas del programador en Azure Kubernetes Service (AKS)
 
@@ -25,7 +25,7 @@ Este artículo de procedimientos recomendados se centra en las características 
 
 ## <a name="provide-dedicated-nodes-using-taints-and-tolerations"></a>Proporcionar nodos dedicados con taints y tolerations
 
-**Orientación con procedimientos recomendados** : limite el acceso a aplicaciones que consumen muchos recursos, como los controladores de entrada, a nodos específicos. Mantenga recursos de nodo disponibles para las cargas de trabajo que los necesite y no permita la programación de otras cargas de trabajo en los nodos.
+**Orientación con procedimientos recomendados**: limite el acceso a aplicaciones que consumen muchos recursos, como los controladores de entrada, a nodos específicos. Mantenga recursos de nodo disponibles para las cargas de trabajo que los necesite y no permita la programación de otras cargas de trabajo en los nodos.
 
 Al crear el clúster de AKS, puede implementar los nodos con compatibilidad con GPU o un gran número de CPU eficaces. Estos nodos se utilizan a menudo para cargas de trabajo de procesamiento de datos grandes, como el aprendizaje automático o la inteligencia artificial. Como este tipo de hardware suele ser un recurso de nodo costoso para implementar, limite las cargas de trabajo que se pueden programar en esos nodos. En su lugar, puede dedicar algunos nodos del clúster a ejecutar servicios de entrada y evitar otras cargas de trabajo.
 
@@ -36,7 +36,7 @@ El programador de Kubernetes puede utilizar taints y tolerations para limitar la
 * Un valor **taint** se aplica a un nodo que indica que solo se pueden programar pods específicos en él.
 * Luego se aplica un valor **toleration** a un pod que le permite *tolerar* el valor taint de un nodo.
 
-Al implementar un pod en un clúster de AKS, Kubernetes programa solo pods en nodos donde un valor toleration se alinea con el valor taint. Por ejemplo, suponga que tiene un grupo de nodos en el clúster de AKS para nodos con compatibilidad con GPU. Define el nombre (por ejemplo, *gpu* ) y, a continuación, un valor para la programación. Si establece este valor en *NoSchedule* , el programador de Kubernetes no puede programar pods en el nodo si el pod no define el valor toleration correspondiente.
+Al implementar un pod en un clúster de AKS, Kubernetes programa solo pods en nodos donde un valor toleration se alinea con el valor taint. Por ejemplo, suponga que tiene un grupo de nodos en el clúster de AKS para nodos con compatibilidad con GPU. Define el nombre (por ejemplo, *gpu*) y, a continuación, un valor para la programación. Si establece este valor en *NoSchedule*, el programador de Kubernetes no puede programar pods en el nodo si el pod no define el valor toleration correspondiente.
 
 ```console
 kubectl taint node aks-nodepool1 sku=gpu:NoSchedule
@@ -80,20 +80,20 @@ Al actualizar un grupo de nodos en AKS, taints y tolerations siguen un patrón d
 - **Clústeres predeterminados que utilizan conjuntos de escalado de máquinas virtuales**
   - Puede [agregar intolerancias a un grupo de nodos][taint-node-pool] desde la API de AKS para que los nuevos nodos que se escalen horizontalmente reciban las intolerancias de nodo especificadas por la API.
   - Supongamos que tiene un clúster de dos nodos: *node1* y *node2*. Actualice el grupo de nodos.
-  - Se crean dos nodos adicionales, *node3* y *node4* , y se pasan los valores taints respectivamente.
+  - Se crean dos nodos adicionales, *node3* y *node4*, y se pasan los valores taints respectivamente.
   - Las versiones originales de *node1* y *node2* se eliminan.
 
 - **Clústeres sin compatibilidad con conjuntos de escalado de máquinas virtuales**
-  - Supongamos de nuevo que tiene un clúster de dos nodos: *node1* y *node2*. Al actualizar, se crea un nodo adicional ( *node3* ).
+  - Supongamos de nuevo que tiene un clúster de dos nodos: *node1* y *node2*. Al actualizar, se crea un nodo adicional (*node3*).
   - Los valores taints de *node1* se aplican a *node3* y luego *node1* se elimina.
-  - Se crea otro nuevo nodo (llamado *node1* , ya que el anterior *node1* se ha eliminado) y los valores taints de *node2* se aplican al nuevo *node1*. Luego, *node2* se elimina.
+  - Se crea otro nuevo nodo (llamado *node1*, ya que el anterior *node1* se ha eliminado) y los valores taints de *node2* se aplican al nuevo *node1*. Luego, *node2* se elimina.
   - Básicamente, *node1* se convierte en *node3* y *node2* se convierte en *node1*.
 
 Al escalar un grupo de nodos en AKS, los valores taints y tolerations no se transfieren mediante el diseño.
 
 ## <a name="control-pod-scheduling-using-node-selectors-and-affinity"></a>Control de la programación del pod mediante selectores de nodo y afinidad
 
-**Orientación con procedimientos recomendados** : controle la programación de pods en nodos mediante selectores de nodo, la afinidad de nodo y la afinidad entre nodos. Esta configuración permite que el programador de Kubernetes aísle lógicamente las cargas de trabajo, como el hardware en el nodo.
+**Orientación con procedimientos recomendados**: controle la programación de pods en nodos mediante selectores de nodo, la afinidad de nodo y la afinidad entre nodos. Esta configuración permite que el programador de Kubernetes aísle lógicamente las cargas de trabajo, como el hardware en el nodo.
 
 Se usan valores taint y toleration para aislar lógicamente los recursos con un corte radical: si el pod no tolera el valor taint de un nodo, no se programa en el nodo. Otra posibilidad es usar los selectores de nodo. Etiqueta los nodos, como para indicar el almacenamiento SSD adjunto localmente o una gran cantidad de memoria, y luego define en la especificación del pod un selector de nodo. Kubernetes, a continuación, programa los pods en un nodo coincidente. A diferencia de las tolerancias, los pods sin un selector de nodo coincidente pueden programarse en nodos etiquetados. Este comportamiento permite que los recursos no utilizados en los nodos se consuman, pero da prioridad a los pods que definen el selector de nodo correspondiente.
 
@@ -133,7 +133,7 @@ Para obtener más información sobre el uso de selectores de nodo, vea [Assignin
 
 Un selector de nodo es una forma básica de asignar pods a un nodo determinado. Hay más flexibilidad disponible al utilizar la *afinidad de nodo*. Con la afinidad de nodo, se define lo que sucede si no se puede asociar el pod con un nodo. Puede *exigir* que el programador de Kubernetes coincida con un pod con un host etiquetado. O bien, puede *preferir* una coincidencia, pero permitir que el pod se programe en un host diferente si no hay coincidencias disponibles.
 
-En el ejemplo siguiente se establece la afinidad de nodo en *requiredDuringSchedulingIgnoredDuringExecution*. Esta afinidad requiere que la programación de Kubernetes utilice un nodo con una etiqueta coincidente. Si ningún nodo está disponible, el pod tiene que esperar una programación para continuar. Para permitir que el pod se programe en un nodo diferente, puede establecer el valor en *preferredDuringSchedulingIgnoreDuringExecution* :
+En el ejemplo siguiente se establece la afinidad de nodo en *requiredDuringSchedulingIgnoredDuringExecution*. Esta afinidad requiere que la programación de Kubernetes utilice un nodo con una etiqueta coincidente. Si ningún nodo está disponible, el pod tiene que esperar una programación para continuar. Para permitir que el pod se programe en un nodo diferente, puede establecer el valor en *preferredDuringSchedulingIgnoreDuringExecution*:
 
 ```yaml
 kind: Pod

@@ -16,11 +16,11 @@ ms.date: 01/23/2017
 ms.author: mazha
 ms.custom: devx-track-js
 ms.openlocfilehash: f5d5c7a6e1f6993b19f38db2ae846b213a1d553e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91316771"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95993373"
 ---
 # <a name="get-started-with-azure-cdn-development"></a>Introducción al desarrollo de Azure CDN
 > [!div class="op_single_selector"]

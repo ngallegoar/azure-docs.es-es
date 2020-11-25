@@ -5,11 +5,11 @@ ms.topic: how-to
 ms.date: 06/26/2020
 ms.custom: seodec18
 ms.openlocfilehash: cb5cda16cd9405f0cbe91a3f88be7dc3f582d21b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86142762"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95993435"
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>Creación de un grupo de Azure Batch en una red virtual
 
@@ -35,7 +35,7 @@ Para permitir que los nodos de proceso se comuniquen de manera segura con otras 
 
 ## <a name="create-a-pool-with-a-vnet-in-the-azure-portal"></a>Creación de un grupo con una red virtual en Azure Portal
 
-Una vez que haya creado la red virtual y le haya asignado una subred, puede crear un grupo de Batch a esa red virtual. Siga estos pasos para crear un grupo en Azure Portal: 
+Una vez que haya creado la red virtual y le haya asignado una subred, puede crear un grupo de Batch a esa red virtual. Siga estos pasos para crear un grupo en Azure Portal: 
 
 1. Vaya a la cuenta de Batch en Azure Portal. Esta cuenta debe estar en la misma suscripción y región que el grupo de recursos que contiene la red virtual que pretende utilizar.
 2. En la ventana **Configuración** que aparece a la izquierda, seleccione el elemento de menú **Grupos**.

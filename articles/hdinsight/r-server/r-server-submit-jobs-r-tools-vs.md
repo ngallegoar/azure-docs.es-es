@@ -9,11 +9,11 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.openlocfilehash: 08426c74b26c18b15466578d9921520da1e9c923
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92536239"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95993795"
 ---
 # <a name="submit-jobs-from-r-tools-for-visual-studio"></a>Envío de trabajos desde Herramientas de R para Visual Studio
 
@@ -27,7 +27,7 @@ RTVS mejora el flujo de trabajo de R al ofrecer herramientas como la [ventana R 
 
     ![Instalación de RTVS en Visual Studio de 2017](./media/r-server-submit-jobs-r-tools-vs/install-r-tools-for-vs.png)
 
-2. Seleccione la carga de trabajo *Aplicaciones de ciencia de datos y de análisis* y luego seleccione las opciones **Compatibilidad con el lenguaje R** , **Compatibilidad de runtime con las herramientas de desarrollo de R** y **Microsoft R Client** .
+2. Seleccione la carga de trabajo *Aplicaciones de ciencia de datos y de análisis* y luego seleccione las opciones **Compatibilidad con el lenguaje R**, **Compatibilidad de runtime con las herramientas de desarrollo de R** y **Microsoft R Client**.
 
 3. Debe tener las claves públicas y privadas para la autenticación de SSH.
    <!-- {TODO tbd, no such file yet}[use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-windows.md) -->
@@ -37,14 +37,14 @@ RTVS mejora el flujo de trabajo de R al ofrecer herramientas como la [ventana R 
 5. Instale [PuTTY](https://www.putty.org/) para proporcionar un contexto de proceso para ejecutar funciones de `RevoScaleR` desde el cliente local hasta el clúster de HDInsight.
 
 6. Tiene la opción de aplicar la Configuración de ciencia de datos al entorno de Visual Studio, lo que proporciona un nuevo diseño para el área de trabajo de las herramientas de R.
-   1. Para guardar la configuración actual de Visual Studio, use el comando **Herramientas > Importar y exportar configuraciones** y, luego, seleccione **Exportar la configuración de entorno seleccionada** y especifique un nombre de archivo. Para restaurar esa configuración, use el mismo comando y seleccione **Importar la configuración de entorno seleccionada** .
+   1. Para guardar la configuración actual de Visual Studio, use el comando **Herramientas > Importar y exportar configuraciones** y, luego, seleccione **Exportar la configuración de entorno seleccionada** y especifique un nombre de archivo. Para restaurar esa configuración, use el mismo comando y seleccione **Importar la configuración de entorno seleccionada**.
 
    2. Vaya al elemento de menú **Herramientas de R** y seleccione **Configuración de ciencia de datos...** .
 
        ![Configuración de ciencia de datos de Visual Studio](./media/r-server-submit-jobs-r-tools-vs/data-science-settings.png)
 
       > [!NOTE]  
-      > Mediante el enfoque del paso 1, también puede guardar y restaurar su diseño de ciencia de datos personalizado en lugar de repetir el comando **Configuración de ciencia de datos** .
+      > Mediante el enfoque del paso 1, también puede guardar y restaurar su diseño de ciencia de datos personalizado en lugar de repetir el comando **Configuración de ciencia de datos**.
 
 ## <a name="execute-local-r-methods"></a>Ejecución de métodos de R locales
 
@@ -121,7 +121,7 @@ Mediante una instancia de Microsoft ML Server/Microsoft R Client desde un equipo
 
         ![Contenedores de almacenamiento para Azure HDInsight](./media/r-server-submit-jobs-r-tools-vs/hdi-storage-containers.png)
 
-    4. Seleccione el nombre del contenedor del clúster, vaya a la carpeta **user** (puede que tenga que hacer clic en *Cargar más* en la parte inferior de la lista), luego seleccione *RevoShare* y, a continuación, **newUser** . El archivo `people.json` se debe mostrar en la carpeta `newUser`.
+    4. Seleccione el nombre del contenedor del clúster, vaya a la carpeta **user** (puede que tenga que hacer clic en *Cargar más* en la parte inferior de la lista), luego seleccione *RevoShare* y, a continuación, **newUser**. El archivo `people.json` se debe mostrar en la carpeta `newUser`.
 
         ![Ubicación de la carpeta de archivos copiada de HDInsight](./media/r-server-submit-jobs-r-tools-vs/hdinsight-copied-file.png)
 

@@ -4,11 +4,11 @@ description: En este artículo se explica cómo solucionar problemas de instalac
 ms.topic: troubleshooting
 ms.date: 07/15/2019
 ms.openlocfilehash: 4ae4142652d9d38d5bf384e5a10d6eeb7e3cc608
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900381"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95993846"
 ---
 # <a name="troubleshoot-the-microsoft-azure-recovery-services-mars-agent"></a>Solución de problemas del agente de Microsoft Azure Recovery Services (MARS)
 
@@ -37,11 +37,11 @@ Se recomienda confirmar lo siguiente antes de empezar a solucionar problemas del
 
 ## <a name="invalid-vault-credentials-provided"></a>Se han proporcionado credenciales de almacén no válidas
 
-**Mensaje de error** : Se han proporcionado credenciales de almacén no válidas. El archivo está dañado o no tiene asociadas las credenciales más recientes para el servicio de recuperación. (Id.: 34513)
+**Mensaje de error**: Se han proporcionado credenciales de almacén no válidas. El archivo está dañado o no tiene asociadas las credenciales más recientes para el servicio de recuperación. (Id.: 34513)
 
 | Causa | Acciones recomendadas |
 | ---     | ---    |
-| **Las credenciales de almacén no son válidas** <br/> <br/> Es posible que los archivos de credenciales de almacén estén dañados, que hayan expirado o que tengan una extensión de archivo diferente de *.vaultCredentials*. (por ejemplo, podrían haberse descargado más de 48 horas antes del momento del registro).| [Descargue nuevas credenciales](backup-azure-file-folder-backup-faq.md#where-can-i-download-the-vault-credentials-file) del almacén de Recovery Services en Azure Portal. Luego, realice estos pasos, según corresponda: <ul><li> Si ya ha instalado y registrado MARS, abra la consola MMC del agente de Microsoft Azure Backup. A continuación, seleccione **Registrar servidor** en el panel **Acciones** para completar el registro con las nuevas credenciales. <br/> <li> Si se produce un error en la nueva instalación, intente realizarla otra vez con las nuevas credenciales.</ul> **Nota** : Si se han descargado varios archivos de credenciales de almacén, solo el último archivo será válido las próximas 48 horas. Le recomendamos que descargue un nuevo archivo de credenciales de almacén.
+| **Las credenciales de almacén no son válidas** <br/> <br/> Es posible que los archivos de credenciales de almacén estén dañados, que hayan expirado o que tengan una extensión de archivo diferente de *.vaultCredentials*. (por ejemplo, podrían haberse descargado más de 48 horas antes del momento del registro).| [Descargue nuevas credenciales](backup-azure-file-folder-backup-faq.md#where-can-i-download-the-vault-credentials-file) del almacén de Recovery Services en Azure Portal. Luego, realice estos pasos, según corresponda: <ul><li> Si ya ha instalado y registrado MARS, abra la consola MMC del agente de Microsoft Azure Backup. A continuación, seleccione **Registrar servidor** en el panel **Acciones** para completar el registro con las nuevas credenciales. <br/> <li> Si se produce un error en la nueva instalación, intente realizarla otra vez con las nuevas credenciales.</ul> **Nota**: Si se han descargado varios archivos de credenciales de almacén, solo el último archivo será válido las próximas 48 horas. Le recomendamos que descargue un nuevo archivo de credenciales de almacén.
 | **El servidor proxy o el firewall están bloqueando el registro** <br/>or <br/>**No hay conectividad de Internet** <br/><br/> Si la máquina o servidor proxy tiene una conectividad de Internet limitada y el acceso a las direcciones URL necesarias no está garantizado, se producirá un error en el registro.| Siga estos pasos:<br/> <ul><li> Acuda al equipo de TI para asegurarse de que el sistema tiene conectividad de Internet.<li> Si no tiene un servidor proxy, asegúrese de que la opción de proxy no está seleccionada al registrar el agente. [Compruebe la configuración de proxy](#verifying-proxy-settings-for-windows).<li> Si tiene un servidor proxy o un firewall, acuda al equipo de red para asegurarse de que estas direcciones URL y direcciones IP tienen acceso:<br/> <br> **URLs**<br> `www.msftncsi.com` <br> .Microsoft.com <br> .WindowsAzure.com <br> .microsoftonline.com <br> .windows.net <br>**Direcciones IP**<br>  20.190.128.0/18 <br>  40.126.0.0/18 <br/></ul></ul>Intente realizar el registro de nuevo después de completar los pasos de solución de problemas anteriores.<br></br> Si la conexión se realiza a través de Azure ExpressRoute, asegúrese de que la configuración esté definida como se describe en [Compatibilidad con Azure ExpressRoute](backup-support-matrix-mars-agent.md#azure-expressroute-support).
 | **El software antivirus está bloqueando el registro** | Si tiene un software antivirus instalado en el servidor, agregue al examen antivirus las reglas de exclusión necesarias correspondientes a los siguientes archivos y carpetas: <br/><ul> <li> CBengine.exe <li> CSC.exe<li> La carpeta temporal. La ubicación predeterminada es: C:\Archivos de programa\Microsoft Azure Recovery Services Agent\Scratch. <li> La carpeta Bin en C:\Archivos de programa\Microsoft Azure Recovery Services Agent\Bin.
 
@@ -135,7 +135,7 @@ Si las copias de seguridad programadas no se desencadenan automáticamente, pero
 
   1. En el Programador de tareas, expanda **Microsoft** y seleccione **Copia de seguridad en línea**.
   1. Haga doble clic en **Microsoft-OnlineBackup** y vaya a la pestaña **Desencadenadores**.
-  1. Compruebe si el estado de la tarea está establecido en **Habilitado**. Si no lo está, seleccione **Editar** , luego **Habilitado** y, por último, **Aceptar**.
+  1. Compruebe si el estado de la tarea está establecido en **Habilitado**. Si no lo está, seleccione **Editar**, luego **Habilitado** y, por último, **Aceptar**.
 
 - Asegúrese de que la cuenta de usuario que está seleccionada para la ejecución de la tarea es la de **sistema** o la del **grupo de administradores locales** del servidor. Para comprobar la cuenta de usuario, vaya a la pestaña **General** y consulte las opciones en **Seguridad**.
 
@@ -173,7 +173,7 @@ Error en la operación actual debido a un error interno del servicio de tipo "Re
 
 ## <a name="job-could-not-be-started-as-another-job-was-in-progress"></a>No se pudo iniciar el trabajo porque había otro trabajo en curso
 
-Si aparece un mensaje de advertencia en la **consola de MARS** > **Historial de trabajos** , que dice: "El trabajo no puede iniciarse mientras otro trabajo está en curso", podría deberse a una duplicación del trabajo desencadenada por el Programador de tareas.
+Si aparece un mensaje de advertencia en la **consola de MARS** > **Historial de trabajos**, que dice: "El trabajo no puede iniciarse mientras otro trabajo está en curso", podría deberse a una duplicación del trabajo desencadenada por el Programador de tareas.
 
 ![No se pudo iniciar el trabajo porque había otro trabajo en curso](./media/backup-azure-mars-troubleshoot/job-could-not-be-started.png)
 
@@ -204,11 +204,11 @@ Es posible que Azure Backup no monte correctamente el volumen de recuperación, 
 
 5. Haga clic con el botón derecho en **Dispositivo desconocido** y seleccione **Actualizar software de controlador**.
 
-6. Actualice el controlador. Para ello, seleccione la opción **Buscar software de controlador actualizado automáticamente**. Esta actualización debe cambiar **Dispositivo desconocido** por **Iniciador iSCSI de Microsoft** :
+6. Actualice el controlador. Para ello, seleccione la opción **Buscar software de controlador actualizado automáticamente**. Esta actualización debe cambiar **Dispositivo desconocido** por **Iniciador iSCSI de Microsoft**:
 
     ![Captura de pantalla del Administrador de dispositivos de Azure Backup con la opción Controladores de almacenamiento resaltada](./media/backup-azure-restore-windows-server/UnknowniSCSIDevice.png)
 
-7. Vaya a **Administrador de tareas** > **Servicios (local)**  > **Servicio del iniciador iSCSI de Microsoft** :
+7. Vaya a **Administrador de tareas** > **Servicios (local)**  > **Servicio del iniciador iSCSI de Microsoft**:
 
     ![Captura de pantalla del Administrador de tareas de Azure Backup con la opción Servicios (local) resaltada](./media/backup-azure-restore-windows-server/MicrosoftInitiatorServiceRunning.png)
 
@@ -234,7 +234,7 @@ Para que las operaciones del agente de MARS se realicen correctamente, la carpet
 
 ### <a name="increase-shadow-copy-storage"></a>Aumento del almacenamiento de instantáneas
 
-Se podrían producir errores en las operaciones de copia de seguridad si no hay suficiente espacio de almacenamiento de instantáneas para proteger el origen de datos. Para resolver este problema, aumente el espacio de almacenamiento de instantáneas en el volumen protegido mediante **vssadmin** , como se muestra a continuación:
+Se podrían producir errores en las operaciones de copia de seguridad si no hay suficiente espacio de almacenamiento de instantáneas para proteger el origen de datos. Para resolver este problema, aumente el espacio de almacenamiento de instantáneas en el volumen protegido mediante **vssadmin**, como se muestra a continuación:
 
 - Compruebe el espacio de almacenamiento de instantáneas actual desde el símbolo del sistema con privilegios elevados:<br/>
   `vssadmin List ShadowStorage /For=[Volume letter]:`

@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.author: mimart
 ms.subservice: B2C
 ms.date: 11/12/2020
-ms.openlocfilehash: 68a7dd1b9a7af9f2667785c8b822b2771510d00e
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: b41f5e9a3bd4d3cbe52cf2e1c567d24de8a661f4
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94562824"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95992834"
 ---
 # <a name="monitor-azure-ad-b2c-with-azure-monitor"></a>Supervisión de Azure AD B2C con Azure Monitor
 
@@ -25,7 +25,7 @@ Use Azure Monitor para enrutar los registros de inicio de sesión y [auditoría]
 Puede enrutar los eventos de registro a:
 
 * Una [cuenta de Azure Storage](../storage/blobs/storage-blobs-introduction.md).
-* Un [área de trabajo de Log Analytics](../azure-monitor/platform/resource-logs-collect-workspace.md) (para analizar los datos, crear paneles y alertar sobre eventos específicos).
+* Un [área de trabajo de Log Analytics](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace) (para analizar los datos, crear paneles y alertar sobre eventos específicos).
 * Un [centro de eventos](../event-hubs/event-hubs-about.md) de Azure (e integrarlo en sus instancias de Splunk y Sumo Logic).
 
 ![Azure Monitor](./media/azure-monitor/azure-monitor-flow.png)
