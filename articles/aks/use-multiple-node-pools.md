@@ -5,11 +5,11 @@ services: container-service
 ms.topic: article
 ms.date: 04/08/2020
 ms.openlocfilehash: 39c2fe177d0a6d913d7bf2b2baf44af3c69c0868
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900094"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006940"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Creación y administración de varios grupos de nodos para un clúster de Azure Kubernetes Service (AKS)
 
@@ -121,7 +121,7 @@ En la siguiente salida de ejemplo se puede ver que *mynodepool* se ha creado cor
 ```
 
 > [!TIP]
-> Si no se especifica *VmSize* al agregar un grupo de nodos, el tamaño predeterminado será *Standard_D2s_v3* para los grupos de nodos de Windows y *Standard_DS2_v2* para los grupos de nodos de Linux. Si no se especifica *OrchestratorVersion* , se establecerá de forma predeterminada en la misma versión que el plano de control.
+> Si no se especifica *VmSize* al agregar un grupo de nodos, el tamaño predeterminado será *Standard_D2s_v3* para los grupos de nodos de Windows y *Standard_DS2_v2* para los grupos de nodos de Linux. Si no se especifica *OrchestratorVersion*, se establecerá de forma predeterminada en la misma versión que el plano de control.
 
 ### <a name="add-a-node-pool-with-a-unique-subnet-preview"></a>Adición de un grupo de nodos con una subred única (versión preliminar)
 
@@ -172,7 +172,7 @@ az aks nodepool upgrade \
     --no-wait
 ```
 
-Muestre el estado de los grupos de nodos de nuevo mediante el comando [az aks node pool list][az-aks-nodepool-list]. En el ejemplo siguiente, se muestra que *mynodepool* se encuentra en el estado *Actualizando* a *KUBERNETES_VERSION* :
+Muestre el estado de los grupos de nodos de nuevo mediante el comando [az aks node pool list][az-aks-nodepool-list]. En el ejemplo siguiente, se muestra que *mynodepool* se encuentra en el estado *Actualizando* a *KUBERNETES_VERSION*:
 
 ```azurecli
 az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
@@ -214,7 +214,7 @@ Se recomienda que actualice todos los grupos de nodos de un clúster de AKS a la
 ## <a name="upgrade-a-cluster-control-plane-with-multiple-node-pools"></a>Actualización del plano de control de un clúster con varios grupos de nodos
 
 > [!NOTE]
-> Kubernetes usa el esquema de versiones estándar de [Versionamiento Semántico](https://semver.org/). El número de versión se expresa como *x.y.z* , donde *x* es la versión principal, *y* es la versión secundaria y *z* es la versión de revisión. Por ejemplo, en la versión  *1.12.6* , 1 es la versión principal, 12 es la versión secundaria y 6 es la versión de revisión. Las versiones de Kubernetes del plano de control y del grupo de nodos inicial se establecen durante la creación del clúster. Todos los grupos de nodos adicionales tienen establecida la versión de Kubernetes cuando se agregan al clúster. Las versiones de Kubernetes pueden diferir entre los grupos de nodos, así como entre un grupo de nodos y el plano de control.
+> Kubernetes usa el esquema de versiones estándar de [Versionamiento Semántico](https://semver.org/). El número de versión se expresa como *x.y.z*, donde *x* es la versión principal, *y* es la versión secundaria y *z* es la versión de revisión. Por ejemplo, en la versión *1.12.6*, 1 es la versión principal, 12 es la versión secundaria y 6 es la versión de revisión. Las versiones de Kubernetes del plano de control y del grupo de nodos inicial se establecen durante la creación del clúster. Todos los grupos de nodos adicionales tienen establecida la versión de Kubernetes cuando se agregan al clúster. Las versiones de Kubernetes pueden diferir entre los grupos de nodos, así como entre un grupo de nodos y el plano de control.
 
 Un clúster de AKS tiene dos objetos de recursos de clúster con las versiones de Kubernetes asociadas.
 
@@ -249,7 +249,7 @@ A medida que la carga de trabajo de las aplicaciones cambia, puede que tenga que
 
 <!--If you scale down, nodes are carefully [cordoned and drained][kubernetes-drain] to minimize disruption to running applications.-->
 
-Para escalar el número de nodos de un grupo de nodos, use el comando [az aks node pool scale][az-aks-nodepool-scale]. En el ejemplo siguiente se escala el número de nodos de *mynodepool* a *5* :
+Para escalar el número de nodos de un grupo de nodos, use el comando [az aks node pool scale][az-aks-nodepool-scale]. En el ejemplo siguiente se escala el número de nodos de *mynodepool* a *5*:
 
 ```azurecli-interactive
 az aks nodepool scale \
@@ -312,7 +312,7 @@ Si ya no necesita un grupo, puede eliminarlo y quitar los nodos de máquinas vir
 az aks nodepool delete -g myResourceGroup --cluster-name myAKSCluster --name mynodepool --no-wait
 ```
 
-En la siguiente salida de ejemplo del comando [az aks node pool list][az-aks-nodepool-list] se puede ver que *mynodepool* se encuentra en el estado *Eliminando* :
+En la siguiente salida de ejemplo del comando [az aks node pool list][az-aks-nodepool-list] se puede ver que *mynodepool* se encuentra en el estado *Eliminando*:
 
 ```azurecli
 az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
@@ -355,7 +355,7 @@ En los ejemplos anteriores para crear un grupo de nodos, se usó un tamaño de m
 
 En el ejemplo siguiente, cree un grupo de nodos basado en GPU que use el tamaño de máquina virtual *Standard_NC6*. Estas máquinas virtuales disponen de una tarjeta Tesla K80 de NVIDIA. Para más información sobre los tamaños de máquina virtual disponibles, consulte [Tamaños de las máquinas virtuales Linux en Azure][vm-sizes].
 
-Cree un grupo de nodos mediante el comando [az aks node pool add][az-aks-nodepool-add] de nuevo. Esta vez, especifique el nombre *gpunodepool* y use el parámetro `--node-vm-size` para especificar el tamaño *Standard_NC6* :
+Cree un grupo de nodos mediante el comando [az aks node pool add][az-aks-nodepool-add] de nuevo. Esta vez, especifique el nombre *gpunodepool* y use el parámetro `--node-vm-size` para especificar el tamaño *Standard_NC6*:
 
 ```azurecli-interactive
 az aks nodepool add \
@@ -425,7 +425,7 @@ az aks nodepool add \
 > [!NOTE]
 > Solo pueden crearse intolerancias para los grupos de nodos cuando estos se crean.
 
-En la siguiente salida de ejemplo del comando [az aks nodepool list][az-aks-nodepool-list] se puede ver que *taintnp* está creando ( *Creating* ) nodos con el valor *nodeTaints* especificado:
+En la siguiente salida de ejemplo del comando [az aks nodepool list][az-aks-nodepool-list] se puede ver que *taintnp* está creando (*Creating*) nodos con el valor *nodeTaints* especificado:
 
 ```console
 $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
@@ -489,7 +489,7 @@ Programe el pod mediante el comando `kubectl apply -f nginx-toleration.yaml`:
 kubectl apply -f nginx-toleration.yaml
 ```
 
-Se tarda unos segundos en programar el pod y extraer la imagen NGINX. Use el comando [kubectl describe pod][kubectl-describe] para ver el estado del pod. En la siguiente salida de ejemplo reducida se puede ver que se aplica el valor *sku=gpu:NoSchedule* a toleration. En la sección de eventos, el programador ha asignado el pod al nodo *aks-taintnp-28993262-vmss000000* :
+Se tarda unos segundos en programar el pod y extraer la imagen NGINX. Use el comando [kubectl describe pod][kubectl-describe] para ver el estado del pod. En la siguiente salida de ejemplo reducida se puede ver que se aplica el valor *sku=gpu:NoSchedule* a toleration. En la sección de eventos, el programador ha asignado el pod al nodo *aks-taintnp-28993262-vmss000000*:
 
 ```console
 kubectl describe pod mypod
@@ -531,7 +531,7 @@ az aks nodepool add \
 > [!NOTE]
 > La etiqueta solo se puede establecer para los grupos de nodos durante la creación de estos. Las etiquetas también deben ser un par clave-valor y tener una [sintaxis válida][kubernetes-label-syntax].
 
-En la siguiente salida de ejemplo del comando [az aks nodepool list][az-aks-nodepool-list] se puede ver que *labelnp* está creando ( *Creating* ) nodos con el valor *nodeLabels* especificado:
+En la siguiente salida de ejemplo del comando [az aks nodepool list][az-aks-nodepool-list] se puede ver que *labelnp* está creando (*Creating*) nodos con el valor *nodeLabels* especificado:
 
 ```console
 $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
@@ -577,9 +577,9 @@ az aks nodepool add \
 ```
 
 > [!NOTE]
-> También puede usar el parámetro `--tags` cuando use el comando [az aks nodepool update][az-aks-nodepool-update], y también durante la creación del clúster. Durante la creación del clúster, el parámetro `--tags` aplica la etiqueta al grupo de nodos inicial que se crea con el clúster. Todos los nombres de etiqueta deben cumplir las limitaciones de [Uso de etiquetas para organizar los recursos de Azure][tag-limitation]. Al actualizar un grupo de nodos con el parámetro `--tags`, se actualizan los valores de etiqueta existentes y se anexan las etiquetas nuevas. Por ejemplo, si el grupo de nodos tuviera *dept=IT* y *costcenter=9999* en las etiquetas y lo actualizara a *team=dev* y *costcenter=111* , el grupo de nodos tendría *dept=IT* , *costcenter=111* y *team=dev* como etiquetas.
+> También puede usar el parámetro `--tags` cuando use el comando [az aks nodepool update][az-aks-nodepool-update], y también durante la creación del clúster. Durante la creación del clúster, el parámetro `--tags` aplica la etiqueta al grupo de nodos inicial que se crea con el clúster. Todos los nombres de etiqueta deben cumplir las limitaciones de [Uso de etiquetas para organizar los recursos de Azure][tag-limitation]. Al actualizar un grupo de nodos con el parámetro `--tags`, se actualizan los valores de etiqueta existentes y se anexan las etiquetas nuevas. Por ejemplo, si el grupo de nodos tuviera *dept=IT* y *costcenter=9999* en las etiquetas y lo actualizara a *team=dev* y *costcenter=111*, el grupo de nodos tendría *dept=IT*, *costcenter=111* y *team=dev* como etiquetas.
 
-En la siguiente salida de ejemplo del comando [az aks nodepool list][az-aks-nodepool-list] se puede ver que *tagnodepool* está creando ( *Creating* ) nodos con el valor de *tag* especificado:
+En la siguiente salida de ejemplo del comando [az aks nodepool list][az-aks-nodepool-list] se puede ver que *tagnodepool* está creando (*Creating*) nodos con el valor de *tag* especificado:
 
 ```azurecli
 az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster

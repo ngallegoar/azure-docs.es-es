@@ -8,19 +8,19 @@ ms.topic: include
 ms.date: 09/25/2020
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: bed8475e5d6c7bf26003672b6cf9ce51a82384ad
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f8959904482bda8dc26e4df626377027e1ab4bd1
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91376891"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005558"
 ---
 Para crear una cuenta de almacenamiento de uso general v2 en Azure Portal, siga estos pasos:
 
 1. En el menú de Azure Portal, seleccione **Todos los servicios**. En la lista de recursos, escriba **Cuentas de almacenamiento**. Cuando comience a escribir, la lista se filtrará en función de la entrada. Seleccione **Cuentas de almacenamiento**.
 1. En la ventana **Cuentas de almacenamiento** que aparece, elija **Agregar**.
 1. En la pestaña **Aspectos básicos**, seleccione la suscripción en la que se va a crear la cuenta de almacenamiento.
-1. En el campo **Grupo de recursos**, seleccione el grupo de recursos deseado o cree uno nuevo.  Para más información sobre los grupos de recursos de Azure, consulte [Información general de Azure Resource Manager](../articles/azure-resource-manager/resource-group-overview.md).
+1. En el campo **Grupo de recursos**, seleccione el grupo de recursos deseado o cree uno nuevo.  Para más información sobre los grupos de recursos de Azure, consulte [Información general de Azure Resource Manager](../articles/azure-resource-manager/management/overview.md).
 1. Después, escriba un nombre para la cuenta de almacenamiento. El nombre que elija debe ser único en Azure. El nombre también debe tener una longitud de entre 3 y 24 caracteres, y solo puede contener números y letras minúsculas.
 1. Seleccione una ubicación para la cuenta de almacenamiento o utilice la ubicación predeterminada.
 1. Seleccione un nivel de rendimiento. El valor predeterminado es *Estándar*.

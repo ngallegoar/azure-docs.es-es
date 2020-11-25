@@ -12,11 +12,11 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 5d61c0f5f26bc46b9c4a5bc4a793df1e10710004
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130874"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006736"
 ---
 # <a name="create-hive-tables-and-load-data-from-azure-blob-storage"></a>Creación de tablas de Hive y carga de datos desde Azure Blob Storage
 
@@ -34,7 +34,7 @@ Si creó una máquina virtual de Azure siguiendo las instrucciones dadas en [Con
 
 Se supone que los datos de las tablas de Hive están en un formato tabular **sin comprimir** y que se han cargado los datos en el contenedor predeterminado (o en otro adicional) de la cuenta de almacenamiento que usa el clúster Hadoop.
 
-Si desea practicar con el grupo **NYC Taxi Trip Data** , necesita hacer lo siguiente:
+Si desea practicar con el grupo **NYC Taxi Trip Data**, necesita hacer lo siguiente:
 
 * **Descargue** los 24 archivos de [NYC Taxi Trip Data](https://www.andresmh.com/nyctaxitrips) (12 archivos de carreras y 12 archivos de tarifas).
 * **Descomprima** todos los archivos en archivos .csv.
@@ -147,7 +147,7 @@ STORED AS TEXTFILE LOCATION '<storage location>' TBLPROPERTIES("skip.header.line
 
 Estas son las descripciones de los campos que los usuarios necesitan para conectar y otras configuraciones:
 
-* **\<database name\>** : nombre de la base de datos que los usuarios desean crear. Si solo quiere usar la base de datos predeterminada, se puede omitir la consulta " *create database...* ".
+* **\<database name\>** : nombre de la base de datos que los usuarios desean crear. Si solo quiere usar la base de datos predeterminada, se puede omitir la consulta "*create database...* ".
 * **\<table name\>** : nombre de la tabla que los usuarios quieren crear en la base de datos especificada. Si los usuarios desean usar la base de datos predeterminada, puede hacer referencia directamente a la tabla *\<table name\>* sin \<database name\>.
 * **\<field separator\>** : el separador que separa los campos del archivo de datos que se cargará en la tabla de Hive.
 * **\<line separator\>** : separador que delimita las líneas del archivo de datos.

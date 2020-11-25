@@ -8,12 +8,12 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/10/2020
-ms.openlocfilehash: 9afab87e0d7f0e7a9e5c05b36ace1dfc09c9aa9f
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: a9a90fbb2eedd6db2873d4ac2a5fea94c05c7eed
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92548037"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005663"
 ---
 # <a name="azure-hdinsight-double-encryption-for-data-at-rest"></a>Cifrado doble de datos en reposo en Azure HDInsight
 
@@ -71,9 +71,9 @@ Consulte [Creación de una identidad administrada asignada por el usuario](../ac
 
 ### <a name="create-azure-key-vault"></a>Crear una instancia de Azure Key Vault
 
-Cree un almacén de claves. Consulte [Creación de una instancia de Azure Key Vault](../key-vault/secrets/quick-create-portal.md) para conocer los pasos específicos.
+Cree un almacén de claves. Consulte [Creación de una instancia de Azure Key Vault](../key-vault/general/quick-create-portal.md) para conocer los pasos específicos.
 
-HDInsight solo es compatible con Azure Key Vault. Si tiene su propio almacén de claves, puede importar las claves a Azure Key Vault. Recuerde que el almacén de claves debe tener habilitada la **eliminación temporal** . Para obtener más información sobre cómo importar claves existentes, visite [Información acerca de claves, secretos y certificados](../key-vault/general/about-keys-secrets-certificates.md).
+HDInsight solo es compatible con Azure Key Vault. Si tiene su propio almacén de claves, puede importar las claves a Azure Key Vault. Recuerde que el almacén de claves debe tener habilitada la **eliminación temporal**. Para obtener más información sobre cómo importar claves existentes, visite [Información acerca de claves, secretos y certificados](../key-vault/general/about-keys-secrets-certificates.md).
 
 ### <a name="create-key"></a>Crear clave
 
@@ -81,37 +81,37 @@ HDInsight solo es compatible con Azure Key Vault. Si tiene su propio almacén de
 
     ![Generación de una clave nueva en Azure Key Vault](./media/disk-encryption/create-new-key.png "Generar una clave nueva en Azure Key Vault")
 
-1. Proporcione un nombre y, luego, seleccione **Crear** . Mantenga el valor de **Tipo de clave** en **RSA** .
+1. Proporcione un nombre y, luego, seleccione **Crear**. Mantenga el valor de **Tipo de clave** en **RSA**.
 
     ![generación de un nombre de clave](./media/disk-encryption/create-key.png "Generación de un nombre de clave")
 
-1. Cuando vuelva a la página **Claves** , seleccione la clave que ha creado.
+1. Cuando vuelva a la página **Claves**, seleccione la clave que ha creado.
 
     ![lista de claves de Key Vault](./media/disk-encryption/key-vault-key-list.png)
 
-1. Seleccione la versión para abrir la página **Versión de la clave** . Cuando usa su propia clave para el cifrado del clúster de HDInsight, tiene que proporcionar el URI de la clave. Copie el **identificador de clave** y guárdelo en algún lugar hasta que vaya a crear el clúster.
+1. Seleccione la versión para abrir la página **Versión de la clave**. Cuando usa su propia clave para el cifrado del clúster de HDInsight, tiene que proporcionar el URI de la clave. Copie el **identificador de clave** y guárdelo en algún lugar hasta que vaya a crear el clúster.
 
     ![obtención del identificador de clave](./media/disk-encryption/get-key-identifier.png)
 
 ### <a name="create-access-policy"></a>Creación de directivas de acceso
 
-1. En el nuevo almacén de claves, vaya a **Configuración** > **Directivas de acceso** >  **+ Agregar directiva de acceso** .
+1. En el nuevo almacén de claves, vaya a **Configuración** > **Directivas de acceso** >  **+ Agregar directiva de acceso**.
 
     ![Creación de una directiva de acceso de Azure Key Vault](./media/disk-encryption/key-vault-access-policy.png)
 
-1. En la página **Agregar directiva de acceso** , proporcione la siguiente información:
+1. En la página **Agregar directiva de acceso**, proporcione la siguiente información:
 
     |Propiedad |Descripción|
     |---|---|
-    |Permisos de claves|Seleccione **Obtener** , **Desencapsular clave** y **Encapsular clave** .|
-    |Permisos de secretos|Seleccione **Obtener** , **Establecer** y **Eliminar** .|
+    |Permisos de claves|Seleccione **Obtener**, **Desencapsular clave** y **Encapsular clave**.|
+    |Permisos de secretos|Seleccione **Obtener**, **Establecer** y **Eliminar**.|
     |Selección de la entidad de seguridad|Seleccione la identidad administrada asignada por el usuario que creó anteriormente.|
 
     ![Establecimiento de la entidad de seguridad para la directiva de acceso de Azure Key Vault](./media/disk-encryption/azure-portal-add-access-policy.png)
 
-1. Seleccione **Agregar** .
+1. Seleccione **Agregar**.
 
-1. Seleccione **Guardar** .
+1. Seleccione **Guardar**.
 
     ![Guardar la directiva de acceso de Azure Key Vault](./media/disk-encryption/add-key-vault-access-policy-save.png)
 
@@ -359,7 +359,7 @@ Puede haber escenarios en los que quiera cambiar las claves de cifrado que se us
 
 #### <a name="using-the-azure-portal"></a>Uso de Azure Portal
 
-Para rotar la clave, necesita el URI del almacén de claves base. Una vez lo haya hecho, vaya a la sección de propiedades del clúster de HDInsight en el portal y haga clic en **Cambiar clave** en **URL de clave de cifrado de disco** . Escriba la dirección URL de la nueva clave y envíela para rotar la clave.
+Para rotar la clave, necesita el URI del almacén de claves base. Una vez lo haya hecho, vaya a la sección de propiedades del clúster de HDInsight en el portal y haga clic en **Cambiar clave** en **URL de clave de cifrado de disco**. Escriba la dirección URL de la nueva clave y envíela para rotar la clave.
 
 ![rotación de la clave de cifrado de disco](./media/disk-encryption/change-key.png)
 

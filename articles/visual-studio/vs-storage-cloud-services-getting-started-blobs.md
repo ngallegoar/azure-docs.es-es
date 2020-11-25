@@ -13,24 +13,24 @@ ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 670aef4f6f866788ef7a1a4502de242e765f5cc6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 89e0d6873ebfd8f8396c36185730c57a66af0dd9
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89017658"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96007054"
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-cloud-services-projects"></a>Introducción a Azure Blob Storage y a los servicios conectados de Visual Studio (proyectos de servicios en la nube)
 [!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
 
 ## <a name="overview"></a>Información general
-En este artículo se describe cómo empezar a usar Azure Blob Storage después de haber creado o hecho referencia a una cuenta de Azure Storage mediante el cuadro de diálogo **Agregar servicios conectados** en un proyecto de servicios en la nube de Visual Studio. Le mostraremos cómo obtener acceder a contenedores de blob y cómo crearlos, además de cómo realizar tareas comunes como cargar, enumerar y descargar blobs. Los ejemplos están escritos en C\# y usan la [biblioteca del cliente de Microsoft Azure Storage para .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx).
+En este artículo se describe cómo empezar a usar Azure Blob Storage después de haber creado o hecho referencia a una cuenta de Azure Storage mediante el cuadro de diálogo **Agregar servicios conectados** en un proyecto de servicios en la nube de Visual Studio. Le mostraremos cómo obtener acceder a contenedores de blob y cómo crearlos, además de cómo realizar tareas comunes como cargar, enumerar y descargar blobs. Los ejemplos están escritos en C\# y usan la [biblioteca del cliente de Microsoft Azure Storage para .NET](/previous-versions/azure/dn261237(v=azure.100)).
 
 Azure Blob Storage es un servicio para almacenar grandes cantidades de datos no estructurados a los que puede obtenerse acceso desde cualquier lugar del mundo a través de HTTP o HTTPS. Un solo blob puede tener cualquier tamaño. Los blobs pueden tener forma de imágenes, archivos de audio y vídeo, archivos sin procesar y archivos de documentos.
 
 Al igual que los archivos residen en carpetas, los blobs de almacenamiento residen en contenedores. Después de haber creado un almacenamiento, puede crear uno o varios contenedores en el almacenamiento. Por ejemplo, en un almacenamiento llamado "Scrapbook", puede crear un contenedor llamado "images" para almacenar imágenes y otro llamado "audio" para almacenar archivos de audio. Una vez creados los contenedores, puede cargar archivos de blob individuales a ellos.
 
-* Para más información sobre la manipulación de blobs mediante programación, consulte [Introducción al Almacenamiento de blobs de Azure mediante .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md).
+* Para más información sobre la manipulación de blobs mediante programación, consulte [Introducción al Almacenamiento de blobs de Azure mediante .NET](../storage/blobs/storage-quickstart-blobs-dotnet.md).
 * Para una información general sobre Azure Storage, consulte [Documentación sobre Almacenamiento](https://azure.microsoft.com/documentation/services/storage/).
 * Para información general sobre Azure Cloud Services, vea [Documentación sobre Cloud Services](https://azure.microsoft.com/documentation/services/cloud-services/).
 * Para obtener más información acerca de la programación de aplicaciones ASP.NET, consulte [ASP.NET](https://www.asp.net).
@@ -73,7 +73,7 @@ Para obtener acceso mediante programación a los blobs de los proyectos del Serv
 
 ## <a name="create-a-container-in-code"></a>Crear un contenedor en código
 > [!NOTE]
-> Algunas API que realizan llamadas a Azure Storage en ASP.NET son asincrónicas. Vea [Programación asincrónica con Async y Await](https://msdn.microsoft.com/library/hh191443.aspx) para más información. En el código del siguiente ejemplo, se da por supuesto que se están usando métodos de programación asincrónica.
+> Algunas API que realizan llamadas a Azure Storage en ASP.NET son asincrónicas. Vea [Programación asincrónica con Async y Await](/previous-versions/hh191443(v=vs.140)) para más información. En el código del siguiente ejemplo, se da por supuesto que se están usando métodos de programación asincrónica.
 > 
 > 
 
@@ -188,7 +188,7 @@ Block blob of length 399751: https://<accountname>.blob.core.windows.net/photos/
 Block blob of length 505623: https://<accountname>.blob.core.windows.net/photos/photo1.jpg
 ```
 
-Para más información, consulte [CloudBlobContainer.ListBlobs](https://msdn.microsoft.com/library/azure/dd135734.aspx).
+Para más información, consulte [CloudBlobContainer.ListBlobs](/rest/api/storageservices/List-Blobs).
 
 ## <a name="download-blobs"></a>Descargar blobs
 Para descargar blobs, primero recupere una referencia de blob y, a continuación, llame al método **DownloadToStream** . En el siguiente ejemplo, se usa el método **DownloadToStream** para transferir el contenido del blob a un objeto de secuencia que, a continuación, puede guardar en un archivo local.
@@ -270,4 +270,3 @@ async public static Task ListBlobsSegmentedInFlatListing(CloudBlobContainer cont
 
 ## <a name="next-steps"></a>Pasos siguientes
 [!INCLUDE [vs-storage-dotnet-blobs-next-steps](../../includes/vs-storage-dotnet-blobs-next-steps.md)]
-

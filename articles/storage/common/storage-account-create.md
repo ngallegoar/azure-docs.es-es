@@ -11,11 +11,11 @@ ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.openlocfilehash: b7faec5023abe37802d8b08980f216934d70a6ac
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92784361"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005559"
 ---
 # <a name="create-a-storage-account"></a>Creación de una cuenta de Storage
 
@@ -143,7 +143,7 @@ New-AzStorageAccount -ResourceGroupName $resourceGroup `
 > [!IMPORTANT]
 > Si planea usar [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/), incluya `-EnableHierarchicalNamespace $True` en esta lista de parámetros.
 
-Para crear una cuenta de almacenamiento de uso general v2 con otra opción de replicación, sustituya el valor deseado de la tabla siguiente por el parámetro **SkuName** .
+Para crear una cuenta de almacenamiento de uso general v2 con otra opción de replicación, sustituya el valor deseado de la tabla siguiente por el parámetro **SkuName**.
 
 |Opción Replicación  |Parámetro SkuName  |
 |---------|---------|
@@ -186,7 +186,7 @@ az storage account create \
 > [!IMPORTANT]
 > Si planea usar [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/), incluya `--enable-hierarchical-namespace true` en esta lista de parámetros.
 
-Para crear una cuenta de almacenamiento de uso general v2 con otra opción de replicación, sustituya el valor deseado de la tabla siguiente por el parámetro **sku** .
+Para crear una cuenta de almacenamiento de uso general v2 con otra opción de replicación, sustituya el valor deseado de la tabla siguiente por el parámetro **sku**.
 
 |Opción Replicación  |Parámetro sku  |
 |---------|---------|
@@ -199,7 +199,7 @@ Para crear una cuenta de almacenamiento de uso general v2 con otra opción de re
 
 # <a name="template"></a>[Plantilla](#tab/template)
 
-Puede usar Azure PowerShell o la CLI de Azure para implementar una plantilla de Resource Manager y crear así una cuenta de almacenamiento. La plantilla empleada en este artículo de procedimientos proviene de [Plantillas de inicio rápido de Azure Resource Manager](https://azure.microsoft.com/resources/templates/101-storage-account-create/). Para ejecutar los scripts, seleccione **Pruébelo** para abrir Azure Cloud Shell. Para pegar el script, haga clic con el botón derecho en el shell y, a continuación, seleccione **Pegar** .
+Puede usar Azure PowerShell o la CLI de Azure para implementar una plantilla de Resource Manager y crear así una cuenta de almacenamiento. La plantilla empleada en este artículo de procedimientos proviene de [Plantillas de inicio rápido de Azure Resource Manager](https://azure.microsoft.com/resources/templates/101-storage-account-create/). Para ejecutar los scripts, seleccione **Pruébelo** para abrir Azure Cloud Shell. Para pegar el script, haga clic con el botón derecho en el shell y, a continuación, seleccione **Pegar**.
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
@@ -236,7 +236,7 @@ Si se elimina la cuenta de almacenamiento, se elimina toda la cuenta, incluidos 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
 1. Navegue hasta cuenta de almacenamiento en [Azure Portal](https://portal.azure.com).
-1. Haga clic en **Eliminar** .
+1. Haga clic en **Eliminar**.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
 ms.openlocfilehash: b8b6383c7808fd6c298d7776fc10572631bc6ddc
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94359568"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006224"
 ---
 # <a name="tutorial-configure-zscaler-one-for-automatic-user-provisioning"></a>Tutorial: Configuración de Zscaler One para el aprovisionamiento automático de usuarios
 
@@ -96,9 +96,9 @@ Esta sección le guía por los pasos para configurar el servicio de aprovisionam
 
     ![Modo de aprovisionamiento de Zscaler One](./media/zscaler-one-provisioning-tutorial/provisioning-credentials.png)
 
-5. En la sección **Credenciales de administrador** , rellene los cuadros de **URL de inquilino** y **Token secreto** con las opciones de configuración para la cuenta de Zscaler One, como se describe en el paso 6.
+5. En la sección **Credenciales de administrador**, rellene los cuadros de **URL de inquilino** y **Token secreto** con las opciones de configuración para la cuenta de Zscaler One, como se describe en el paso 6.
 
-6. Para obtener los valores de la URL de inquilino y el Token secreto, vaya a **Administración** > **Configuración de autenticación** en la interfaz de usuario del portal de Zscaler One. En **Tipo de autenticación** , seleccione **SAML**.
+6. Para obtener los valores de la URL de inquilino y el Token secreto, vaya a **Administración** > **Configuración de autenticación** en la interfaz de usuario del portal de Zscaler One. En **Tipo de autenticación**, seleccione **SAML**.
 
     ![Configuración de autenticación de Zscaler One](./media/zscaler-one-provisioning-tutorial/secret-token-1.png)
 
@@ -112,13 +112,13 @@ Esta sección le guía por los pasos para configurar el servicio de aprovisionam
 
     ![Prueba de conexión de Zscaler One](./media/zscaler-one-provisioning-tutorial/test-connection.png)
 
-8. En el cuadro **Correo electrónico de notificación** , escriba la dirección de correo electrónico de la persona o el grupo que deben recibir las notificaciones de error de aprovisionamiento. Seleccione la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
+8. En el cuadro **Correo electrónico de notificación**, escriba la dirección de correo electrónico de la persona o el grupo que deben recibir las notificaciones de error de aprovisionamiento. Seleccione la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
 
     ![Notificación por correo electrónico de Zscaler One](./media/zscaler-one-provisioning-tutorial/notification.png)
 
 9. Seleccione **Guardar**.
 
-10. En la sección **Asignaciones** , seleccione **Synchronize Azure Active Directory Users to Zscaler One** (Sincronizar usuarios de Azure Active Directory con Zscaler One).
+10. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Users to Zscaler One** (Sincronizar usuarios de Azure Active Directory con Zscaler One).
 
     ![Sincronización de usuarios de Zscaler One](./media/zscaler-one-provisioning-tutorial/user-mappings.png)
 
@@ -126,7 +126,7 @@ Esta sección le guía por los pasos para configurar el servicio de aprovisionam
 
     ![Atributos de usuario coincidentes de Zscaler One](./media/zscaler-one-provisioning-tutorial/user-attribute-mappings.png)
 
-12. En la sección **Asignaciones** , seleccione **Synchronize Azure Active Directory Groups to Zscaler One** (Sincronizar grupos de Azure Active Directory con Zscaler One).
+12. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Groups to Zscaler One** (Sincronizar grupos de Azure Active Directory con Zscaler One).
 
     ![Sincronización de grupos de Zscaler One](./media/zscaler-one-provisioning-tutorial/group-mappings.png)
 
@@ -140,7 +140,7 @@ Esta sección le guía por los pasos para configurar el servicio de aprovisionam
 
     ![Estado de aprovisionamiento de Zscaler One](./media/zscaler-one-provisioning-tutorial/provisioning-status.png)
 
-16. Defina los usuarios o grupos que quiere que se aprovisionen en Zscaler One. En la sección **Configuración** , seleccione los valores que quiere incluir en el **Ámbito**.
+16. Defina los usuarios o grupos que quiere que se aprovisionen en Zscaler One. En la sección **Configuración**, seleccione los valores que quiere incluir en el **Ámbito**.
 
     ![Ámbito de Zscaler One](./media/zscaler-one-provisioning-tutorial/scoping.png)
 

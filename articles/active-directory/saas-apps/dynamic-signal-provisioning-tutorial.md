@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 05/07/2019
 ms.author: jeedes
 ms.openlocfilehash: 263a67fd8fba2c336d1ed4d91475386a8ae175dd
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94359024"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005799"
 ---
 # <a name="tutorial-configure-dynamic-signal-for-automatic-user-provisioning"></a>Tutorial: Configurar Dynamic Signal para el aprovisionamiento automático de usuarios
 
@@ -53,7 +53,7 @@ Antes de configurar Dynamic Signal para el aprovisionamiento automático de usua
 
     ![Botón Nueva aplicación](common/add-new-app.png)
 
-4. En el cuadro de búsqueda, escriba **Dynamic Signal** , seleccione **Dynamic Signal** en el panel de resultados y, a continuación, haga clic en el botón **Agregar** para agregar la aplicación.
+4. En el cuadro de búsqueda, escriba **Dynamic Signal**, seleccione **Dynamic Signal** en el panel de resultados y, a continuación, haga clic en el botón **Agregar** para agregar la aplicación.
 
     ![Dynamic Signal en la lista de resultados](common/search-new-app.png)
 
@@ -96,7 +96,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Captura de pantalla de la lista desplegable Modo de aprovisionamiento con la opción Automático seleccionada.](common/provisioning-automatic.png)
 
-5. En la sección **Credenciales de administrador** , especifique los valores de **URL de inquilino** y **Token secreto** de la cuenta de Dynamic Signal, como se describe en el paso 6.
+5. En la sección **Credenciales de administrador**, especifique los valores de **URL de inquilino** y **Token secreto** de la cuenta de Dynamic Signal, como se describe en el paso 6.
 
 6. En la consola de administración de Dynamic Signal, vaya a **Admin > Avanzado > API**.
 
@@ -110,13 +110,13 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![URL de inquilino + Token](common/provisioning-testconnection-tenanturltoken.png)
 
-8. En el campo **Correo electrónico de notificación** , escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
+8. En el campo **Correo electrónico de notificación**, escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
 
     ![Correo electrónico de notificación](common/provisioning-notification-email.png)
 
-9. Haga clic en **Save** (Guardar).
+9. Haga clic en **Save**(Guardar).
 
-10. En la sección **Asignaciones** , seleccione **Sincronizar usuarios de Azure Active Directory con Dynamic Signal**.
+10. En la sección **Asignaciones**, seleccione **Sincronizar usuarios de Azure Active Directory con Dynamic Signal**.
 
     ![Asignaciones de usuario de Dynamic Signal](media/dynamic-signal-provisioning-tutorial/user-mappings.png)
 

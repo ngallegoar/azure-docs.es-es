@@ -11,11 +11,11 @@ ms.workload: identity
 ms.date: 10/14/2020
 ms.author: chmutali
 ms.openlocfilehash: d39e00a80ab167936a749c73867b4343e6ed9d76
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94358820"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006445"
 ---
 # <a name="tutorial-configure-attribute-write-back-from-azure-ad-to-sap-successfactors"></a>Tutorial: Configuración de la escritura diferida de atributos de Azure AD en SAP SuccessFactors
 El objetivo de este tutorial es mostrar los pasos para la escritura diferida de atributos de Azure AD en Employee Central de SAP SuccessFactors. 
@@ -144,7 +144,7 @@ En SAP SuccessFactors, una *lista desplegable* es un conjunto configurable de op
    > [!div class="mx-imgBorder"]
    > ![Obtener información del correo electrónico](./media/sap-successfactors-inbound-provisioning/get-email-info.png)
 
-1. En la página de detalles de **email-type** , anote el nombre de la lista desplegable asociada a este campo. De forma predeterminada, es **ecEmailType**. Sin embargo, puede ser diferente en su inquilino. 
+1. En la página de detalles de **email-type**, anote el nombre de la lista desplegable asociada a este campo. De forma predeterminada, es **ecEmailType**. Sin embargo, puede ser diferente en su inquilino. 
 
    > [!div class="mx-imgBorder"]
    > ![Identificación de la lista desplegable de correos electrónicos](./media/sap-successfactors-inbound-provisioning/identify-email-picklist.png)
@@ -154,7 +154,7 @@ En SAP SuccessFactors, una *lista desplegable* es un conjunto configurable de op
    > [!div class="mx-imgBorder"]
    > ![Obtener información del teléfono](./media/sap-successfactors-inbound-provisioning/get-phone-info.png)
 
-1. En la página de detalles de **phone-type** , anote el nombre de la lista desplegable asociada a este campo. De forma predeterminada, es **ecPhoneType**. Sin embargo, puede ser diferente en su inquilino. 
+1. En la página de detalles de **phone-type**, anote el nombre de la lista desplegable asociada a este campo. De forma predeterminada, es **ecPhoneType**. Sin embargo, puede ser diferente en su inquilino. 
 
    > [!div class="mx-imgBorder"]
    > ![Identificación de la lista desplegable de teléfonos](./media/sap-successfactors-inbound-provisioning/identify-phone-picklist.png)
@@ -183,7 +183,7 @@ En SAP SuccessFactors, una *lista desplegable* es un conjunto configurable de op
    > ![Obtener el código de tipo de correo electrónico](./media/sap-successfactors-inbound-provisioning/get-email-type-code.png)
 
    > [!NOTE]
-   > Quite el carácter de coma al copiar el valor. Por ejemplo, si el valor de **Option ID** (Id. de opción) es *8,448* , establezca *emailType* en Azure AD en la constante *8448* (sin la coma). 
+   > Quite el carácter de coma al copiar el valor. Por ejemplo, si el valor de **Option ID** (Id. de opción) es *8,448*, establezca *emailType* en Azure AD en la constante *8448* (sin la coma). 
 
 ### <a name="retrieve-constant-value-for-phonetype"></a>Recuperación del valor constante para phoneType
 
@@ -214,7 +214,7 @@ En SAP SuccessFactors, una *lista desplegable* es un conjunto configurable de op
    > ![Obtener el código de teléfono móvil](./media/sap-successfactors-inbound-provisioning/get-cell-phone-code.png)
 
    > [!NOTE]
-   > Quite el carácter de coma al copiar el valor. Por ejemplo, si el valor de **Option ID** (Id. de opción) es *10,606* , establezca *cellPhoneType* en Azure AD en la constante *10606* (sin la coma). 
+   > Quite el carácter de coma al copiar el valor. Por ejemplo, si el valor de **Option ID** (Id. de opción) es *10,606*, establezca *cellPhoneType* en Azure AD en la constante *10606* (sin la coma). 
 
 
 ## <a name="configuring-successfactors-writeback-app"></a>Configuración de la aplicación de escritura diferida de SuccessFactors
@@ -245,13 +245,13 @@ En esta sección se proporcionan los pasos necesarios para realizar las siguient
 
 8. Cumplimente la sección **Credenciales de administrador** del siguiente modo:
 
-   * **Nombre de usuario de administrador** : escriba el nombre de usuario de la cuenta de usuario de SuccessFactors API, con el identificador de empresa anexado. El formato es: **username\@companyID**
+   * **Nombre de usuario de administrador**: escriba el nombre de usuario de la cuenta de usuario de SuccessFactors API, con el identificador de empresa anexado. El formato es: **username\@companyID**
 
    * **Contraseña de administrador:** escriba la contraseña de la cuenta de usuario de SuccessFactors API. 
 
    * **URL de inquilino:** escriba el nombre del punto de conexión de servicios de la API OData de SuccessFactors. Especifique solo el nombre de host del servidor sin http o https. Este valor debería ser similar al siguiente: `api4.successfactors.com`.
 
-   * **Correo electrónico de notificación** : escriba su dirección de correo electrónico y marque la casilla "Send email if failure occurs" (Enviar una notificación por correo electrónico cuando se produzca un error).
+   * **Correo electrónico de notificación**: escriba su dirección de correo electrónico y marque la casilla "Send email if failure occurs" (Enviar una notificación por correo electrónico cuando se produzca un error).
     > [!NOTE]
     > El servicio de aprovisionamiento de Azure AD envía la notificación por correo electrónico si el trabajo de aprovisionamiento entra en un estado de[cuarentena](../app-provisioning/application-provisioning-quarantine-status.md).
 
@@ -265,7 +265,7 @@ En esta sección se proporcionan los pasos necesarios para realizar las siguient
 
 En esta sección, configurará cómo fluyen los datos de los usuarios de SuccessFactors a Active Directory.
 
-1. En la pestaña Aprovisionamiento, en **Asignaciones** , haga clic en **Aprovisionar usuarios de Azure Active Directory**.
+1. En la pestaña Aprovisionamiento, en **Asignaciones**, haga clic en **Aprovisionar usuarios de Azure Active Directory**.
 
 1. En el campo **Ámbito de objeto de origen** puede seleccionar los conjuntos de usuarios de Azure AD que deben tenerse en cuenta para la escritura diferida; para ello debe definir un conjunto de filtros basados en atributos. El ámbito predeterminado es "todos los usuarios de Azure AD". 
    > [!TIP]
@@ -273,7 +273,7 @@ En esta sección, configurará cómo fluyen los datos de los usuarios de Success
 
 1. El campo **Acciones del objeto de destino** solo admite la operación **Actualizar**.
 
-1. En la tabla de asignación en la sección **Asignaciones de atributos** , puede asignar los siguientes atributos de Azure Active Directory a SuccessFactors. En la tabla siguiente se proporcionan instrucciones sobre cómo asignar los atributos de escritura diferida. 
+1. En la tabla de asignación en la sección **Asignaciones de atributos**, puede asignar los siguientes atributos de Azure Active Directory a SuccessFactors. En la tabla siguiente se proporcionan instrucciones sobre cómo asignar los atributos de escritura diferida. 
 
    | \# | Atributo de Azure AD | Atributo de SuccessFactors | Observaciones |
    |--|--|--|--|
@@ -281,8 +281,8 @@ En esta sección, configurará cómo fluyen los datos de los usuarios de Success
    | 2 | mail | email | Asigne el origen de atributo de correo electrónico. Con fines de prueba, puede asignar userPrincipalName al correo electrónico. |
    | 3 | 8448 | emailType | Este valor constante es el valor de identificador de SuccessFactors asociado con el correo electrónico empresarial. Actualice este valor para que coincida con el entorno de SuccessFactors. Vea la sección [Recuperación del valor constante para emailType](#retrieve-constant-value-for-emailtype) para conocer los pasos para establecer este valor. |
    | 4 | true | emailIsPrimary | Use este atributo para establecer el correo electrónico empresarial como principal en SuccessFactors. Si correo electrónico empresarial no es el principal, establezca esta marca en false. |
-   | 5 | userPrincipalName | [custom01 – custom15] | Si usa **Agregar nueva asignación** , puede escribir userPrincipalName o cualquier atributo de Azure AD en un atributo personalizado disponible en el objeto de usuario de SuccessFactors.  |
-   | 6 | on-prem-samAccountName | username | Con **Agregar nueva asignación** , puede asignar de forma opcional samAccountName local en el atributo de nombre de usuario de SuccessFactors. |
+   | 5 | userPrincipalName | [custom01 – custom15] | Si usa **Agregar nueva asignación**, puede escribir userPrincipalName o cualquier atributo de Azure AD en un atributo personalizado disponible en el objeto de usuario de SuccessFactors.  |
+   | 6 | on-prem-samAccountName | username | Con **Agregar nueva asignación**, puede asignar de forma opcional samAccountName local en el atributo de nombre de usuario de SuccessFactors. |
    | 7 | SSO | loginMethod | Si el inquilino de SuccessFactors se configura para [SSO parcial](https://apps.support.sap.com/sap/support/knowledge/en/2320766) y, después, usa Agregar nueva asignación, puede establecer loginMethod en un valor constante de "SSO" o "PWD". |
    | 8 | telephoneNumber | businessPhoneNumber | Use esta asignación para realizar el flujo de *telephoneNumber* de Azure AD a número de teléfono del trabajo o de la empresa de SuccessFactors. |
    | 9 | 10605 | businessPhoneType | Este valor constante es el valor de identificador de SuccessFactors asociado con el teléfono del trabajo. Actualice este valor para que coincida con el entorno de SuccessFactors. Vea la sección [Recuperación del valor constante para phoneType](#retrieve-constant-value-for-phonetype) para conocer los pasos para establecer este valor. |
@@ -308,7 +308,7 @@ En esta sección, configurará cómo fluyen los datos de los usuarios de Success
    > Si la opción **Editar lista de atributos para SuccessFactors** no se muestra en Azure Portal, use la dirección URL *https://portal.azure.com/?Microsoft_AAD_IAM_forceSchemaEditorEnabled=true* para acceder a la página. 
 
 1. La columna **Expresión de API** de esta vista muestra las expresiones de ruta de acceso JSON que usa el conector. 
-1. Actualice las expresiones de ruta de acceso JSON para el teléfono del trabajo y el teléfono móvil para usar el valor de identificador ( *businessPhoneType* y *cellPhoneType* ) correspondiente a su entorno. 
+1. Actualice las expresiones de ruta de acceso JSON para el teléfono del trabajo y el teléfono móvil para usar el valor de identificador (*businessPhoneType* y *cellPhoneType*) correspondiente a su entorno. 
 
     >[!div class="mx-imgBorder"]
     >![Cambio de la ruta de acceso JSON del teléfono](./media/sap-successfactors-inbound-provisioning/phone-json-path-change.png)
@@ -322,11 +322,11 @@ Una vez completadas las configuraciones de la aplicación de aprovisionamiento d
 > [!TIP]
 > De forma predeterminada, al activar el servicio de aprovisionamiento, se iniciarán las operaciones de aprovisionamiento para todos los usuarios del ámbito. Si hay errores en la asignación o problemas con los datos, puede que se produzcan errores con el trabajo de aprovisionamiento y que entre en estado de cuarentena. Para evitar esto, como procedimiento recomendado, es conveniente configurar el filtro **Ámbito de objeto de origen** y probar las asignaciones de atributos con algunos usuarios de prueba antes de iniciar la sincronización completa de todos los usuarios. Una vez haya verificado que las asignaciones funcionan y que obtiene los resultados deseados, puede quitar el filtro o expandirlo gradualmente para incluir más usuarios.
 
-1. En la pestaña **Aprovisionamiento** , establezca **Estado de aprovisionamiento** en **Activado**.
+1. En la pestaña **Aprovisionamiento**, establezca **Estado de aprovisionamiento** en **Activado**.
 
 1. Seleccione **Ámbito**. Puede seleccionar una de las siguientes opciones: 
-   * **Sincronizar todos los usuarios y grupos** : seleccione esta opción si tiene previsto reescribir atributos asignados de todos los usuarios de Azure AD a SuccessFactors, de acuerdo con las reglas de ámbito definidas en **Asignaciones** -> **Ámbito de objeto de origen**. 
-   * **Sincronizar solo los usuarios y grupos asignados** : seleccione esta opción si tiene previsto reescribir los atributos asignados solo de los usuarios que ha asignado a esta aplicación en la opción de menú **Aplicación** -> **Administrar** -> **Usuarios y grupos**. Estos usuarios también están sujetos a las reglas de ámbito definidas en **Asignaciones** -> **Ámbito de objeto de origen**.
+   * **Sincronizar todos los usuarios y grupos**: seleccione esta opción si tiene previsto reescribir atributos asignados de todos los usuarios de Azure AD a SuccessFactors, de acuerdo con las reglas de ámbito definidas en **Asignaciones** -> **Ámbito de objeto de origen**. 
+   * **Sincronizar solo los usuarios y grupos asignados**: seleccione esta opción si tiene previsto reescribir los atributos asignados solo de los usuarios que ha asignado a esta aplicación en la opción de menú **Aplicación** -> **Administrar** -> **Usuarios y grupos**. Estos usuarios también están sujetos a las reglas de ámbito definidas en **Asignaciones** -> **Ámbito de objeto de origen**.
 
    > [!div class="mx-imgBorder"]
    > ![Selección del ámbito de escritura diferida](./media/sap-successfactors-inbound-provisioning/select-writeback-scope.png)
@@ -334,13 +334,13 @@ Una vez completadas las configuraciones de la aplicación de aprovisionamiento d
    > [!NOTE]
    > La aplicación de aprovisionamiento de escritura diferida de SuccessFactors no admite la "asignación de grupo". Solo admite la "asignación de usuario". 
 
-1. Haga clic en **Save** (Guardar).
+1. Haga clic en **Save**(Guardar).
 
 1. Esta operación dará comienzo a la sincronización inicial, que puede tardar una cantidad de horas variable, según el número de usuarios que haya en el inquilino de Azure AD y el ámbito definido para la operación. Puede consultar en la barra de progreso el seguimiento del progreso del ciclo de sincronización. 
 
 1. En cualquier momento, compruebe la pestaña **Registros de aprovisionamiento** en Azure Portal para ver las acciones que ha realizado el servicio de aprovisionamiento. En los registros de aprovisionamiento se enumeran todos los eventos de sincronización individuales que realiza el servicio de aprovisionamiento. 
 
-1. Una vez completada la sincronización inicial, se escribe un informe resumido de auditoría en la pestaña **Aprovisionamiento** , tal y como se muestra a continuación.
+1. Una vez completada la sincronización inicial, se escribe un informe resumido de auditoría en la pestaña **Aprovisionamiento**, tal y como se muestra a continuación.
 
    > [!div class="mx-imgBorder"]
    > ![Barra de progreso de aprovisionamiento](./media/sap-successfactors-inbound-provisioning/prov-progress-bar-stats.png)

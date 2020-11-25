@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 05447db97311fb78707079528e0570b3fd42df59
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 244fdbf7cb723fe85e0987d176a13242f0bff064
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977585"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005935"
 ---
 # <a name="deploy-storsimple-virtual-array---set-up-as-file-server-via-azure-portal"></a>Implementación de una matriz virtual de StorSimple: configurar un servidor de archivos mediante Azure Portal
 ![Diagrama que muestra los pasos necesarios para implementar una matriz virtual. La primera parte del tercer paso está etiquetada como "Configurar como servidor de archivos" y aparece resaltada.](./media/storsimple-virtual-array-deploy3-fs-setup/fileserver4.png)
@@ -31,7 +31,7 @@ ms.locfileid: "91977585"
 
 En este artículo se describe cómo realizar la instalación inicial, registrar el servidor de archivos de StorSimple, completar la instalación del dispositivo y crear y conectarse a recursos compartidos de SMB. Este es el último artículo de la serie de tutoriales de implementación necesarios para implementar completamente la matriz virtual como servidor de archivos o servidor iSCSI.
 
-El proceso de instalación y configuración puede tardar unos 10 minutos en completarse. La información de este artículo solo se aplica a la implementación de StorSimple Virtual Array. Para la implementación de dispositivos StorSimple 8000 Series, vaya a: [Implementación del dispositivo StorSimple local (Update 3 u otra posterior)](storsimple-deployment-walkthrough-u2.md).
+El proceso de instalación y configuración puede tardar unos 10 minutos en completarse. La información de este artículo solo se aplica a la implementación de StorSimple Virtual Array. Para la implementación de dispositivos StorSimple 8000 Series, vaya a: [Implementación del dispositivo StorSimple local (Update 3 u otra posterior)](./storsimple-8000-deployment-walkthrough-u2.md).
 
 ## <a name="setup-prerequisites"></a>Requisitos previos de instalación
 Antes de instalar y configurar StorSimple Virtual Array, asegúrese de que:
@@ -138,7 +138,7 @@ Siga estos pasos en [Azure Portal](https://portal.azure.com/) para completar la 
     
    3. Para el cifrado se usa una clave AES de 256 bits con la clave definida por el usuario. Especifique una clave de 32 caracteres y vuelva a escribirla para confirmarla. Regístrela en cualquier aplicación de administración de claves, por si la necesita en el futuro.
     
-   4. Haga clic en **Configurar los valores obligatorios** para especificar las credenciales de la cuenta de almacenamiento que va a usar en su dispositivo. Haga clic en **Agregar nuevo** si no hay ninguna credencial de la cuenta de almacenamiento configurada. **Asegúrese de que la cuenta de almacenamiento que usa es compatible con los blobs en bloques. No se admiten blobs en páginas.** Más información sobre [blobs en bloques y blobs en páginas](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
+   4. Haga clic en **Configurar los valores obligatorios** para especificar las credenciales de la cuenta de almacenamiento que va a usar en su dispositivo. Haga clic en **Agregar nuevo** si no hay ninguna credencial de la cuenta de almacenamiento configurada. **Asegúrese de que la cuenta de almacenamiento que usa es compatible con los blobs en bloques. No se admiten blobs en páginas.** Más información sobre [blobs en bloques y blobs en páginas](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
    
       ![Configurar un servidor de archivos 3](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs6m.png) 
 4. En la hoja **Agregar credenciales de cuenta de almacenamiento**, realice las siguientes operaciones: 
@@ -213,4 +213,3 @@ Ahora, necesitará conectarse a uno o varios recursos compartidos que creó en e
 
 ## <a name="next-steps"></a>Pasos siguientes
 Aprenda a usar la interfaz de usuario web local para [administrar la matriz virtual de StorSimple](storsimple-ova-web-ui-admin.md).
-

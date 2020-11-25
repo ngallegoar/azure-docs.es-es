@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/14/2020
 ms.openlocfilehash: 66a17b61fef652160dc6d4a02bf330adbf0c7362
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425687"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006836"
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Actividad de búsqueda en Azure Data Factory
 
@@ -64,7 +64,7 @@ firstRowOnly | Indica si se deben devolver todas las filas o solo la primera. | 
 
 > [!NOTE]
 > 
-> * No se admiten las columnas de origen con el tipo **ByteArray** .
+> * No se admiten las columnas de origen con el tipo **ByteArray**.
 > * La **estructura** no se admite en las definiciones del conjunto de datos. En el caso de los archivos de formato de texto, utilice la fila de encabezado para proporcionar el nombre de columna.
 > * Si el origen de la búsqueda es un archivo JSON, la configuración `jsonPathDefinition` para cambiar la forma del objeto JSON no se admite. Se recuperarán los objetos completos.
 
@@ -107,15 +107,15 @@ El resultado de la búsqueda se devuelve en la sección `output` del resultado d
 
 ## <a name="example"></a>Ejemplo
 
-En este ejemplo, la canalización tiene dos actividades: **búsqueda** y **copia** . La actividad de copia realiza una copia de los datos de una tabla SQL de la instancia de Azure SQL Database en Azure Blob Storage. El nombre de la tabla SQL se almacena en un archivo JSON en Blob Storage. La actividad de búsqueda busca el nombre de la tabla en entorno de tiempo de ejecución. JSON se modifica de forma dinámica con este enfoque. No es necesario volver a implementar canalizaciones ni conjuntos de datos. 
+En este ejemplo, la canalización tiene dos actividades: **búsqueda** y **copia**. La actividad de copia realiza una copia de los datos de una tabla SQL de la instancia de Azure SQL Database en Azure Blob Storage. El nombre de la tabla SQL se almacena en un archivo JSON en Blob Storage. La actividad de búsqueda busca el nombre de la tabla en entorno de tiempo de ejecución. JSON se modifica de forma dinámica con este enfoque. No es necesario volver a implementar canalizaciones ni conjuntos de datos. 
 
 En este ejemplo se muestra solo la búsqueda de la primera fila. Para la búsqueda de todas las filas y encadenar los resultados con la actividad ForEach, consulte los ejemplos en [Copia de varias tablas en bloque mediante Azure Data Factory](tutorial-bulk-copy.md).
 
 
 ### <a name="pipeline"></a>Canalización
 
-- La actividad de búsqueda está configurada para usar **LookupDataset** , que hace referencia a una ubicación en una instancia de Azure Blob Storage. La actividad de búsqueda lee el nombre de la tabla SQL desde un archivo JSON en esta ubicación. 
-- La actividad de copia usa la salida de la actividad de búsqueda, que es el nombre de la tabla SQL. La propiedad **tableName** en **SourceDataset** se configura para usar la salida de la actividad de búsqueda. Con la actividad de copia se copian datos de la tabla SQL en una ubicación de Azure Blob Storage. La ubicación se especifica mediante la propiedad **SinkDataset** . 
+- La actividad de búsqueda está configurada para usar **LookupDataset**, que hace referencia a una ubicación en una instancia de Azure Blob Storage. La actividad de búsqueda lee el nombre de la tabla SQL desde un archivo JSON en esta ubicación. 
+- La actividad de copia usa la salida de la actividad de búsqueda, que es el nombre de la tabla SQL. La propiedad **tableName** en **SourceDataset** se configura para usar la salida de la actividad de búsqueda. Con la actividad de copia se copian datos de la tabla SQL en una ubicación de Azure Blob Storage. La ubicación se especifica mediante la propiedad **SinkDataset**. 
 
 ```json
 {
@@ -244,7 +244,7 @@ En este ejemplo se muestra solo la búsqueda de la primera fila. Para la búsque
 
 ### <a name="lookup-dataset"></a>Conjunto de datos de búsqueda
 
-El conjunto de datos **lookup** es el archivo **sourcetable.json** de la carpeta de búsqueda de Azure Storage especificada por el tipo **AzureStorageLinkedService** . 
+El conjunto de datos **lookup** es el archivo **sourcetable.json** de la carpeta de búsqueda de Azure Storage especificada por el tipo **AzureStorageLinkedService**. 
 
 ```json
 {
@@ -269,7 +269,7 @@ El conjunto de datos **lookup** es el archivo **sourcetable.json** de la carpeta
 
 ### <a name="source-dataset-for-copy-activity"></a>Conjunto de datos **source** para la actividad de copia
 
-El conjunto de datos **source** usa la salida de la actividad de búsqueda, que es el nombre de la tabla SQL. Con la actividad de copia se copian datos de esta tabla SQL en una ubicación de Azure Blob Storage. La ubicación se especifica mediante el conjunto de datos **sink** . 
+El conjunto de datos **source** usa la salida de la actividad de búsqueda, que es el nombre de la tabla SQL. Con la actividad de copia se copian datos de esta tabla SQL en una ubicación de Azure Blob Storage. La ubicación se especifica mediante el conjunto de datos **sink**. 
 
 ```json
 {
@@ -346,7 +346,7 @@ Con la actividad de copia se copian datos de la tabla SQL en el archivo **fileby
 
 ### <a name="sourcetablejson"></a>sourcetable.json
 
-Puede usar los dos tipos siguientes de formatos para el archivo **sourcetable.json** .
+Puede usar los dos tipos siguientes de formatos para el archivo **sourcetable.json**.
 
 #### <a name="set-of-objects"></a>Conjunto de objetos
 

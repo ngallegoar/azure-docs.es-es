@@ -4,11 +4,11 @@ description: Obtenga información acerca del mecanismo para actualizar una asign
 ms.date: 08/27/2020
 ms.topic: how-to
 ms.openlocfilehash: ddaac8110885d817bc96745965c1af7e522b1919
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89651367"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96007195"
 ---
 # <a name="how-to-update-an-existing-blueprint-assignment"></a>Procedimiento para actualizar una asignación de plano técnico
 
@@ -32,11 +32,11 @@ Cuando se asigna un plano técnico, se puede actualizar la asignación. Hay vari
 
 1. En la página de detalles de la asignación actualizada, consulte el nuevo estado. En este ejemplo, hemos agregado el **bloqueo** a la asignación.
 
-   :::image type="content" source="../media/update-existing-assignments/updated-assignment.png" alt-text="Captura de pantalla de la página Asignación de plano técnico con el botón &quot;Actualizar asignación&quot; resaltado." border="false":::
+   :::image type="content" source="../media/update-existing-assignments/updated-assignment.png" alt-text="Captura de pantalla de una asignación de plano técnico actualizada que muestra que cambió el modo de bloqueo." border="false":::
 
 1. Explore los detalles acerca de otras **operaciones de asignación** con la lista desplegable. La tabla de **recursos administrados** se actualiza mediante la operación de asignación seleccionada.
 
-   :::image type="content" source="../media/update-existing-assignments/assignment-operations.png" alt-text="Captura de pantalla de la página Asignación de plano técnico con el botón &quot;Actualizar asignación&quot; resaltado." border="false":::
+   :::image type="content" source="../media/update-existing-assignments/assignment-operations.png" alt-text="Captura de pantalla de una asignación de plano técnico actualizada que muestra las operaciones de asignación y su estado." border="false":::
 
 ## <a name="rules-for-updating-assignments"></a>Reglas de la actualización de asignaciones
 

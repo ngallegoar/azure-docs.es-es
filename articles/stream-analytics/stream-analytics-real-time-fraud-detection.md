@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.date: 03/24/2020
 ms.custom: seodec18
 ms.openlocfilehash: ba216e41672e1d19e552b3f82a2ea65da7d3a435
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93124584"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96007093"
 ---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Introducción al uso de Azure Stream Analytics: Detección de fraudes en tiempo real
 
@@ -65,7 +65,7 @@ En este procedimiento, cree primero un espacio de nombres del centro de eventos 
 
    ![Botón Agregar](./media/stream-analytics-real-time-fraud-detection/event-hubs-add-toolbar.png)
 
-4. En el panel **Crear espacio de nombres** , especifique un nombre de espacio de nombres, como `<yourname>-eh-ns-demo`. Puede utilizar cualquier nombre para el espacio de nombres, pero debe ser válido para una dirección URL y ser único en Azure. 
+4. En el panel **Crear espacio de nombres**, especifique un nombre de espacio de nombres, como `<yourname>-eh-ns-demo`. Puede utilizar cualquier nombre para el espacio de nombres, pero debe ser válido para una dirección URL y ser único en Azure. 
     
 5. Seleccione una suscripción y cree o elija un grupo de recursos. Luego haga clic en **Crear**.
 
@@ -94,7 +94,7 @@ Para que un proceso pueda enviar datos a un centro de eventos, este debe tener u
     > [!NOTE]
     > Asegúrese de que trabaja en el centro de eventos, no en el espacio de nombres del centro de eventos.
 
-3. Agregue una directiva denominada `asa-policy-manage-demo` y, en **Notificación** , seleccione **Administrar**.
+3. Agregue una directiva denominada `asa-policy-manage-demo` y, en **Notificación**, seleccione **Administrar**.
 
     <br/><img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-shared-access-policy-manage-new-portal.png" alt="Create shared access policy for Stream Analytics" width="300px"/>
  
@@ -192,7 +192,7 @@ Ahora que tiene un flujo de eventos de llamada, puede configurar un trabajo de S
 
 ### <a name="configure-job-input"></a>Configuración de la entrada del trabajo
 
-1. En el panel de información o en el panel **Todos los recursos** , busque el trabajo de Stream Analytics `asa_frauddetection_job_demo` y selecciónelo. 
+1. En el panel de información o en el panel **Todos los recursos**, busque el trabajo de Stream Analytics `asa_frauddetection_job_demo` y selecciónelo. 
 2. En la sección **Información general** del panel del trabajo de Stream Analytics, haga clic en el cuadro **Input** (Entradas).
 
    ![Cuadro Entradas en Topología en el panel del trabajo de Stream Analytics](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-input-box-new-portal.png)
@@ -228,9 +228,9 @@ Para más información sobre el lenguaje, consulte la [Referencia de lenguaje de
 La aplicación TelcoGenerator envía registros de llamada al centro de eventos y el trabajo de Stream Analytics se configura para leer los datos del centro de eventos. Puede unas una consulta para probar el trabajo y asegurarse de que lee correctamente. Para probar una consulta en la consola de Azure, necesita datos de muestra. En este tutorial, podrá extraer datos de muestra del flujo que entra en el centro de eventos.
 
 1. Asegúrese de que la aplicación TelcoGenerator se ejecuta y genera registros de llamada.
-2. En el portal, vuelva al panel del trabajo de Stream Analytics. (Si ha cerrado el panel, busque `asa_frauddetection_job_demo` en el panel **Todos los recursos** ).
+2. En el portal, vuelva al panel del trabajo de Stream Analytics. (Si ha cerrado el panel, busque `asa_frauddetection_job_demo` en el panel **Todos los recursos**).
 3. Haga clic en el cuadro **Consulta**. Azure muestra las entradas y salidas que están configuradas para el trabajo y le permite crear una consulta que permite transformar el flujo de entrada a medida que se envía a la salida.
-4. En el panel **Consulta** , haga clic en los puntos que aparecen junto a la entrada `CallStream` y seleccione **Datos de ejemplo de la entrada**.
+4. En el panel **Consulta**, haga clic en los puntos que aparecen junto a la entrada `CallStream` y seleccione **Datos de ejemplo de la entrada**.
 
    ![Opciones de menú para usar datos de muestra en la entrada del trabajo de Stream Analytics, con la opción "Datos de ejemplo de la entrada" seleccionada](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-sample-data-from-input.png)
 
@@ -359,15 +359,15 @@ Si ya tiene una cuenta de Blob Storage, puede utilizarla. En este tutorial, apre
 
 ### <a name="create-an-azure-blob-storage-account"></a>Creación de una cuenta de Azure Blob Storage
 
-1. En la esquina superior izquierda de Azure Portal, seleccione **Crear un recurso** > **Almacenamiento** > **Cuenta de almacenamiento**. Rellene la página del trabajo de la cuenta de almacenamiento. En **Nombre** , escriba "asaehstorage", en **Ubicación** , escriba "Este de EE. UU." y en **Grupo de recursos** , escriba "asa-eh-ns-rg" (para mejorar el rendimiento, hospede la cuenta de almacenamiento en el mismo grupo de recursos que el trabajo de Stream Analytics). El resto de la configuración se puede dejar con sus valores predeterminados.  
+1. En la esquina superior izquierda de Azure Portal, seleccione **Crear un recurso** > **Almacenamiento** > **Cuenta de almacenamiento**. Rellene la página del trabajo de la cuenta de almacenamiento. En **Nombre**, escriba "asaehstorage", en **Ubicación**, escriba "Este de EE. UU." y en **Grupo de recursos**, escriba "asa-eh-ns-rg" (para mejorar el rendimiento, hospede la cuenta de almacenamiento en el mismo grupo de recursos que el trabajo de Stream Analytics). El resto de la configuración se puede dejar con sus valores predeterminados.  
 
    ![Creación de una cuenta de almacenamiento en Azure Portal](./media/stream-analytics-real-time-fraud-detection/stream-analytics-storage-account-create.png)
 
-2. En Azure Portal, vuelva al panel del trabajo de Stream Analytics. (Si ha cerrado el panel, busque `asa_frauddetection_job_demo` en el panel **Todos los recursos** ).
+2. En Azure Portal, vuelva al panel del trabajo de Stream Analytics. (Si ha cerrado el panel, busque `asa_frauddetection_job_demo` en el panel **Todos los recursos**).
 
-3. En la sección **Topología de trabajo** , haga clic en el cuadro **Salida**.
+3. En la sección **Topología de trabajo**, haga clic en el cuadro **Salida**.
 
-4. En el panel **Salidas** , haga clic en **Agregar** y, después, seleccione **Almacenamiento de blobs**. Luego, especifique la siguiente información en la página New output (Salida nueva):
+4. En el panel **Salidas**, haga clic en **Agregar** y, después, seleccione **Almacenamiento de blobs**. Luego, especifique la siguiente información en la página New output (Salida nueva):
 
    |**Configuración**  |**Valor sugerido**  |**Descripción**  |
    |---------|---------|---------|
@@ -379,7 +379,7 @@ Si ya tiene una cuenta de Blob Storage, puede utilizarla. En este tutorial, apre
     <br/>
     <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-output-blob-storage-new-console.png" alt="Create blob output for Stream Analytics job" width="300px"/>
     
-5. Haga clic en **Save** (Guardar). 
+5. Haga clic en **Save**(Guardar). 
 
 
 ## <a name="start-the-streaming-analytics-job"></a>Inicio del trabajo de Stream Analytics
@@ -388,7 +388,7 @@ El trabajo ya está configurado. Ha especificado una entrada (el centro de event
 
 1. Asegúrese de que la aplicación TelcoGenerator se ejecuta.
 
-2. En el panel del trabajo, haga clic en **Iniciar**. En el panel **Iniciar trabajo** , en Hora de inicio de salida del trabajo, seleccione **Ahora**. 
+2. En el panel del trabajo, haga clic en **Iniciar**. En el panel **Iniciar trabajo**, en Hora de inicio de salida del trabajo, seleccione **Ahora**. 
 
    ![Inicio del trabajo de Stream Analytics](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-start.png)
 
@@ -411,7 +411,7 @@ Hay otros artículos que continúan con el escenario de detección de fraudes y 
 
 Pero, si ha terminado y no necesita los recursos que ha creado, puede eliminarlos para no incurrir en cargos de Azure innecesarios. En ese caso, se recomienda hacer lo siguiente:
 
-1. Detenga el trabajo de Stream Analytics. En la parte superior del panel **Trabajos** , haga clic en **Detener**.
+1. Detenga el trabajo de Stream Analytics. En la parte superior del panel **Trabajos**, haga clic en **Detener**.
 2. Detenga la aplicación Telco Generator. En la ventana de comandos donde inició la aplicación, presione Ctrl+C.
 3. Si ha creado una cuenta de Blob Storage exclusivamente para este tutorial, elimínela. 
 4. Elimine el trabajo de Stream Analytics.

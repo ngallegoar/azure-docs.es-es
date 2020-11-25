@@ -15,19 +15,19 @@ ms.workload: NA
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 24eb03069689d6dc89d8e237e0e65c71af6c6173
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 509a3ac383cebd91821e9c4b872c253ab3b0a947
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88184727"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005867"
 ---
 # <a name="disaster-recovery-and-device-failover-for-your-storsimple-virtual-array-via-azure-portal"></a>Recuperación ante desastres y conmutación por error de dispositivos para la matriz virtual de StorSimple mediante Azure Portal
 
 ## <a name="overview"></a>Información general
 En este artículo se describe la recuperación ante desastres para su instancia de Microsoft Azure StorSimple Virtual Array, incluidos los pasos detallados para conmutar por error a otra matriz virtual. Una conmutación por error permite mover los datos de un dispositivo de *origen* en el centro de datos a un dispositivo de *destino*. El dispositivo de destino puede estar en la misma ubicación geográfica o en otra diferente. La conmutación por error del dispositivo es para todo el dispositivo. Durante la conmutación por error, los datos de la nube para el dispositivo de origen cambian la propiedad a la del dispositivo de destino.
 
-Este artículo se aplica únicamente a matrices virtuales de StorSimple. Para conmutar por error un dispositivo de la serie 8000, vaya a [Conmutación por error y recuperación ante desastres para el dispositivo StorSimple](storsimple-device-failover-disaster-recovery.md).
+Este artículo se aplica únicamente a matrices virtuales de StorSimple. Para conmutar por error un dispositivo de la serie 8000, vaya a [Conmutación por error y recuperación ante desastres para el dispositivo StorSimple](./storsimple-8000-device-failover-disaster-recovery.md).
 
 ## <a name="what-is-disaster-recovery-and-device-failover"></a>Descripción de la recuperación ante desastres y la conmutación por error de dispositivos
 
@@ -181,4 +181,3 @@ Si hay dispositivos StorSimple que se registraron justo antes de que ocurriera u
 ## <a name="next-steps"></a>Pasos siguientes
 
 Obtenga más información sobre cómo [administrar la matriz virtual de StorSimple mediante la interfaz de usuario web local](storsimple-ova-web-ui-admin.md).
-

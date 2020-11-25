@@ -4,11 +4,11 @@ description: Aprenda a supervisar el consumo de los recursos de computación, co
 ms.topic: article
 ms.date: 04/24/2019
 ms.openlocfilehash: b10c370b599233d00b2b4a65268f6c61a11cbd5c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90526704"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96007263"
 ---
 # <a name="monitor-container-resources-in-azure-container-instances"></a>Supervisión de los recursos de los contenedores en Azure Container Instances
 

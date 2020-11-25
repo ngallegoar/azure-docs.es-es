@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 03/04/2020
 ms.openlocfilehash: 71ef902e909e552ade5174196f291630bc242ca0
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92543243"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005374"
 ---
 # <a name="connect-hdinsight-to-your-on-premises-network"></a>Conexión de HDInsight a la red local
 
@@ -65,32 +65,32 @@ Los pasos siguientes usan [Azure Portal](https://portal.azure.com) para crear un
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
   
-1. En el menú superior, seleccione **+ Crear un recurso** .
+1. En el menú superior, seleccione **+ Crear un recurso**.
 
     ![Creación de una máquina virtual Ubuntu](./media/connect-on-premises-network/azure-portal-create-resource.png)
 
-1. Seleccione **Proceso** > **Virtual machine** (Máquina virtual) para ir a la página **Crear una máquina virtual** .
+1. Seleccione **Proceso** > **Virtual machine** (Máquina virtual) para ir a la página **Crear una máquina virtual**.
 
-1. Introduzca la siguiente información de la pestaña __Aspectos básicos__ :  
+1. Introduzca la siguiente información de la pestaña __Aspectos básicos__:  
   
     | Campo | Value |
     | --- | --- |
     |Subscription |Seleccione una suscripción adecuada.|
     |Resource group |Seleccione el grupo de recursos que contiene la red virtual que ha creado antes.|
-    |Nombre de la máquina virtual | Escriba un nombre descriptivo que identifique esta máquina virtual. En este ejemplo se utiliza **DNSProxy** .|
+    |Nombre de la máquina virtual | Escriba un nombre descriptivo que identifique esta máquina virtual. En este ejemplo se utiliza **DNSProxy**.|
     |Region | Seleccione la misma región que la de la red virtual que creó anteriormente.  No todos los tamaños de máquina virtual están disponibles en todas las regiones.  |
-    |Opciones de disponibilidad |  Seleccione el nivel de disponibilidad que desee.  Azure ofrece varias opciones para administrar la disponibilidad y resistencia de las aplicaciones.  Diseñe su solución para que use las máquinas virtuales replicadas en Availability Zones o en conjuntos de disponibilidad para proteger sus aplicaciones y datos de las interrupciones del centro de datos y de los eventos de mantenimiento. En este ejemplo se usa **No se requiere redundancia de la infraestructura** . |
-    |Imagen | Déjelo en **Ubuntu Server 18.04 LTS** . |
-    |Tipo de autenticación | __Contraseña__ o __Clave pública SSH__ : El método de autenticación de la cuenta SSH. Se recomienda usar claves públicas, porque son más seguras. Este ejemplo utiliza **Contraseña** .  Para más información, consulte el documento [Creación y uso de claves SSH para máquinas virtuales Linux](../virtual-machines/linux/mac-create-ssh-keys.md).|
-    |Nombre de usuario |Escriba el nombre de usuario del administrador de la máquina virtual.  En el ejemplo se utiliza **sshuser** .|
-    |Contraseña o clave pública SSH | El campo disponible lo determina la opción elegida en **Tipo de autenticación** .  Escriba el valor adecuado.|
-    |Puertos de entrada públicos|Seleccione **Permitir los puertos seleccionados** . A continuación, seleccione **SSH (22)** en la lista desplegable **Seleccionar puertos de entrada** .|
+    |Opciones de disponibilidad |  Seleccione el nivel de disponibilidad que desee.  Azure ofrece varias opciones para administrar la disponibilidad y resistencia de las aplicaciones.  Diseñe su solución para que use las máquinas virtuales replicadas en Availability Zones o en conjuntos de disponibilidad para proteger sus aplicaciones y datos de las interrupciones del centro de datos y de los eventos de mantenimiento. En este ejemplo se usa **No se requiere redundancia de la infraestructura**. |
+    |Imagen | Déjelo en **Ubuntu Server 18.04 LTS**. |
+    |Tipo de autenticación | __Contraseña__ o __Clave pública SSH__: El método de autenticación de la cuenta SSH. Se recomienda usar claves públicas, porque son más seguras. Este ejemplo utiliza **Contraseña**.  Para más información, consulte el documento [Creación y uso de claves SSH para máquinas virtuales Linux](../virtual-machines/linux/mac-create-ssh-keys.md).|
+    |Nombre de usuario |Escriba el nombre de usuario del administrador de la máquina virtual.  En el ejemplo se utiliza **sshuser**.|
+    |Contraseña o clave pública SSH | El campo disponible lo determina la opción elegida en **Tipo de autenticación**.  Escriba el valor adecuado.|
+    |Puertos de entrada públicos|Seleccione **Permitir los puertos seleccionados**. A continuación, seleccione **SSH (22)** en la lista desplegable **Seleccionar puertos de entrada**.|
 
     ![Configuración básica de la máquina virtual](./media/connect-on-premises-network/virtual-machine-basics.png)
 
-    Deje otras entradas con los valores predeterminados y seleccione la pestaña **Redes** .
+    Deje otras entradas con los valores predeterminados y seleccione la pestaña **Redes**.
 
-4. Introduzca la siguiente información de la pestaña **Redes** :
+4. Introduzca la siguiente información de la pestaña **Redes**:
 
     | Campo | Value |
     | --- | --- |
@@ -102,13 +102,13 @@ Los pasos siguientes usan [Azure Portal](https://portal.azure.com) para crear un
 
     Deje otras entradas con los valores predeterminados y seleccione **Revisar y crear** .
 
-5. En la pestaña **Revisar y crear** , seleccione **Crear** para crear la máquina virtual.
+5. En la pestaña **Revisar y crear**, seleccione **Crear** para crear la máquina virtual.
 
 ### <a name="review-ip-addresses"></a>Examen de direcciones IP
 
-Una vez que se haya creado la máquina virtual, recibirá una notificación de **Implementación correcta** con un botón **Ir al recurso** .  Seleccione **Ir al recurso** para ir a la nueva máquina virtual.  En la vista predeterminada de la nueva máquina virtual, siga estos pasos para identificar las direcciones IP asociadas:
+Una vez que se haya creado la máquina virtual, recibirá una notificación de **Implementación correcta** con un botón **Ir al recurso**.  Seleccione **Ir al recurso** para ir a la nueva máquina virtual.  En la vista predeterminada de la nueva máquina virtual, siga estos pasos para identificar las direcciones IP asociadas:
 
-1. En **Configuración** , seleccione **Propiedades** .
+1. En **Configuración**, seleccione **Propiedades**.
 
 2. Anote los valores de **ETIQUETA CDE NOMBRE DNS O DIRECCIÓN IP PÚBLICA** y **DIRECCIÓN IP PRIVADA** para su uso posterior.
 
@@ -168,7 +168,7 @@ Una vez que se haya creado la máquina virtual, recibirá una notificación de *
     sudo nano /etc/bind/named.conf.options
     ```
 
-    Para guardar el archivo, use __Ctrl+X__ , __Y__ y, luego, __Entrar__ .
+    Para guardar el archivo, use __Ctrl+X__, __Y__ y, luego, __Entrar__.
 
 4. En la sesión de SSH, use el comando siguiente:
 
@@ -203,7 +203,7 @@ Una vez que se haya creado la máquina virtual, recibirá una notificación de *
     sudo nano /etc/bind/named.conf.local
     ```
 
-    Para guardar el archivo, use __Ctrl+X__ , __Y__ y, luego, __Entrar__ .
+    Para guardar el archivo, use __Ctrl+X__, __Y__ y, luego, __Entrar__.
 
 6. Para iniciar Bind, use el comando siguiente:
 
@@ -238,15 +238,15 @@ Una vez que se haya creado la máquina virtual, recibirá una notificación de *
 
 Para configurar la red virtual para que use el servidor DNS personalizado, en lugar de la resolución recursiva de Azure, use los pasos siguientes en [Azure Portal](https://portal.azure.com):
 
-1. En el menú izquierdo, vaya a **Todos los servicios** > **Redes** > **Redes virtuales** .
+1. En el menú izquierdo, vaya a **Todos los servicios** > **Redes** > **Redes virtuales**.
 
 2. Seleccione la red virtual en la lista y se abrirá la vista predeterminada de la red virtual.  
 
-3. En la vista predeterminada, en **Configuración** , seleccione **Servidores DNS** .  
+3. En la vista predeterminada, en **Configuración**, seleccione **Servidores DNS**.  
 
 4. Seleccione __Personalizar__ y escriba la **DIRECCIÓN IP PRIVADA** del servidor DNS personalizado.
 
-5. Seleccione __Guardar__ .  <br />  
+5. Seleccione __Guardar__.  <br />  
 
     ![Establecimiento del servidor DNS personalizado para la red](./media/connect-on-premises-network/configure-custom-dns.png)
 
@@ -254,11 +254,11 @@ Para configurar la red virtual para que use el servidor DNS personalizado, en lu
 
 En la sección anterior, configuró el servidor DNS personalizado para reenviar las solicitudes al servidor DNS local. A continuación, debe configurar el servidor DNS local para reenviar las solicitudes al servidor DNS personalizado.
 
-Para conocer los pasos específicos sobre cómo configurar el servidor DNS, consulte la documentación correspondiente al software de servidor DNS. Busque los pasos sobre cómo configurar un __reenvío condicional__ .
+Para conocer los pasos específicos sobre cómo configurar el servidor DNS, consulte la documentación correspondiente al software de servidor DNS. Busque los pasos sobre cómo configurar un __reenvío condicional__.
 
 Un reenvío condicional solo reenvía solicitudes para un sufijo DNS específico. En este caso, debe configurar un reenvío para el sufijo DNS de la red virtual. Las solicitudes para este sufijo se deben reenviar a la dirección IP del servidor DNS personalizado. 
 
-El texto siguiente es un ejemplo de la configuración de un reenvío condicional para el software DNS **Bind** :
+El texto siguiente es un ejemplo de la configuración de un reenvío condicional para el software DNS **Bind**:
 
 ```DNS Zone file
 zone "icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net" {
@@ -267,7 +267,7 @@ zone "icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net" {
 };
 ```
 
-Para información sobre cómo usar DNS en **Windows Server 2016** , consulte la documentación de [Add-DnsServerConditionalForwarderZone](/powershell/module/dnsserver/add-dnsserverconditionalforwarderzone).
+Para información sobre cómo usar DNS en **Windows Server 2016**, consulte la documentación de [Add-DnsServerConditionalForwarderZone](/powershell/module/dnsserver/add-dnsserverconditionalforwarderzone).
 
 Una vez que configure el servidor DNS local, puede usar `nslookup` desde la red local para comprobar que es posible resolver nombres en la red virtual. El ejemplo siguiente 
 
@@ -288,8 +288,8 @@ Puede usar grupos de seguridad de red (NSG) o rutas definidas por el usuario (UD
 
 2. Para las direcciones IP identificadas en el paso 1, permita el tráfico entrante desde ellas.
 
-   * Si usa __NSG__ : permita el tráfico __entrante__ en el puerto __443__ para las direcciones IP.
-   * Si usa __UDR__ : Establezca el tipo __Próximo salto__ de la ruta a __Internet__ de las direcciones IP.
+   * Si usa __NSG__: permita el tráfico __entrante__ en el puerto __443__ para las direcciones IP.
+   * Si usa __UDR__: Establezca el tipo __Próximo salto__ de la ruta a __Internet__ de las direcciones IP.
 
 Para un ejemplo de cómo usar Azure PowerShell o la CLI de Azure para crear NSG, consulte el documento [Extensión de HDInsight con redes virtuales de Azure](hdinsight-create-virtual-network.md#hdinsight-nsg).
 

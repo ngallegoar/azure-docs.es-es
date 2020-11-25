@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 11/21/2016
 ms.author: manuaery
 ms.openlocfilehash: 57cd9b55f529bde3f6bcb0a25a95c70333f6d8dd
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130959"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005782"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-log-a-support-request-for-the-storsimple-virtual-array"></a>Uso del servicio StorSimple Device Manager para registrar una solicitud de soporte técnico para StorSimple Virtual Array
 
@@ -37,9 +37,9 @@ En función de su [plan de soporte técnico](https://azure.microsoft.com/support
    
     ![Captura de pantalla que muestra el panel Aspectos básicos de una solicitud de soporte técnico nueva.](./media/storsimple-virtual-array-log-support-ticket/log-support-ticket1.png)
 
-2. En la hoja **Aspectos básicos** , haga lo siguiente:
+2. En la hoja **Aspectos básicos**, haga lo siguiente:
 
-    1. En la lista desplegable **Tipo de problema** , seleccione **Técnico**. 
+    1. En la lista desplegable **Tipo de problema**, seleccione **Técnico**. 
     
     2. Se eligen automáticamente la **Suscripción** actual, el tipo de **Servicio** y el **Recurso** (servicio StorSimple Device Manager). 
 
@@ -47,11 +47,11 @@ En función de su [plan de soporte técnico](https://azure.microsoft.com/support
 
     4. Elija un **plan de soporte técnico** adecuado si tiene varios planes asociados a la suscripción. Para habilitar el soporte técnico, debe contar con un plan de soporte técnico de pago.
 
-3. En el **paso 2** , elija la **Gravedad** y especifique si el problema está relacionado con la matriz o con el servicio StorSimple Device Manager. Además, elija una **Categoría** para este problema y proporcione más **Detalles** sobre el problema.
+3. En el **paso 2**, elija la **Gravedad** y especifique si el problema está relacionado con la matriz o con el servicio StorSimple Device Manager. Además, elija una **Categoría** para este problema y proporcione más **Detalles** sobre el problema.
    
     ![Captura de pantalla que muestra el panel Problemas en el que puede escribir el tipo de problema, la categoría y los detalles de la solicitud de soporte técnico.](./media/storsimple-virtual-array-log-support-ticket/log-support-ticket2.png)
 
-4. En el **paso 3** , proporcione la información de contacto. El Soporte técnico de Microsoft usará esta información para ponerse en contacto con usted para solicitar más información y comunicar el diagnóstico y la resolución.
+4. En el **paso 3**, proporcione la información de contacto. El Soporte técnico de Microsoft usará esta información para ponerse en contacto con usted para solicitar más información y comunicar el diagnóstico y la resolución.
    
     ![Captura de pantalla que muestra el panel Información de contacto.](./media/storsimple-virtual-array-log-support-ticket/log-support-ticket3.png)
 

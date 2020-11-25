@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-azurecli
 ms.date: 11/29/2019
 ms.openlocfilehash: d110f4ee0248b6ea069c6033dd69840eec1a18f3
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92741613"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96007161"
 ---
 # <a name="install-custom-apache-hadoop-applications-on-azure-hdinsight"></a>Instalación de aplicaciones de Apache Hadoop propias en Azure HDInsight
 
@@ -49,9 +49,9 @@ Los archivos necesarios para implementar esta aplicación (Hue):
 
 1. especifique el nombre del clúster en el que desea instalar la aplicación. Debe ser un clúster existente.
 
-1. Seleccione la casilla **Acepto los términos y condiciones indicados anteriormente** .
+1. Seleccione la casilla **Acepto los términos y condiciones indicados anteriormente**.
 
-1. Seleccione **Comprar** .
+1. Seleccione **Comprar**.
 
 El estado de la instalación se puede ver desde el icono anclado al panel del portal y la notificación del portal (haga clic en el icono de campana de la parte superior del portal).  La aplicación tarda aproximadamente 10 minutos en instalarse.
 
@@ -73,13 +73,13 @@ Además de Azure Portal, también puede usar [Azure PowerShell](hdinsight-hadoop
 
 El estado de la aplicación se puede comprobar en el Portal de Azure para validar la instalación de la aplicación. Además, también se pueden validar todos los puntos de conexión HTTP que han aparecido según lo previsto y la página web, si hay.
 
-En el caso de **Hue** , puede seguir estos pasos:
+En el caso de **Hue**, puede seguir estos pasos:
 
 ### <a name="azure-portal"></a>Portal de Azure
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 1. Seleccione el clúster en el que instaló la aplicación.
-1. En el menú **Configuración** , seleccione **Aplicaciones** .
+1. En el menú **Configuración**, seleccione **Aplicaciones**.
 1. Seleccione **hue** en la lista para ver las propiedades.  
 1. Seleccione el vínculo de la página web para validar el sitio web.
 
@@ -127,8 +127,8 @@ Si se produce algún error al instalar la aplicación, puede consultar los mensa
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 1. Seleccione el clúster en el que instaló la aplicación.
-1. En el menú **Configuración** , seleccione **Aplicaciones** .
-1. Haga clic con el botón derecho en la aplicación que desea eliminar y, luego, seleccione **Eliminar** .
+1. En el menú **Configuración**, seleccione **Aplicaciones**.
+1. Haga clic con el botón derecho en la aplicación que desea eliminar y, luego, seleccione **Eliminar**.
 1. Seleccione **Sí** para confirmar la acción.
 
 ### <a name="azure-cli"></a>Azure CLI

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4b61caecd67881eb08c82ea0c26522c63c3e8396
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e081acc357c1b8872dd3a25c552d4cbe9785e212
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84712061"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96007076"
 ---
 # <a name="update-3-release-notes-for-your-storsimple-8000-series-device"></a>Actualización de las notas de la versión Update 3 del dispositivo StorSimple serie 8000
 
@@ -79,11 +79,10 @@ En la tabla siguiente se proporciona un resumen de los problemas conocidos de es
 | 22 |Actualizaciones |Al aplicar Update 3, la página **Mantenimiento** del Portal de Azure clásico mostrará el siguiente mensaje relacionado con Update 2: "La serie StorSimple 8000 Update 2 permite que Microsoft recopile proactivamente información de registro del dispositivo cuando se detecten posibles problemas". Esto puede resultar confuso ya que indica que el dispositivo se está actualizando a Update 2. Después de que el dispositivo se ha actualizado correctamente a Update 3, este mensaje desaparece. |Este comportamiento se solucionará en futuras versiones. |Sí |No |
 
 ## <a name="controller-and-firmware-updates-in-update-3"></a>Actualizaciones de firmware y de controlador en Update 3
-Esta versión tiene actualizaciones de firmware y controlador LSI. Para más información sobre cómo instalar el controlador LSI y las actualizaciones de firmware del disco, consulte [Instalación de Update 3](storsimple-install-update-3.md) en el dispositivo StorSimple.
+Esta versión tiene actualizaciones de firmware y controlador LSI. Para más información sobre cómo instalar el controlador LSI y las actualizaciones de firmware del disco, consulte [Instalación de Update 3](./index.yml) en el dispositivo StorSimple.
 
 ## <a name="virtual-device-updates-in-update-3"></a>Actualizaciones de dispositivo virtual en Update 3
 Esta actualización no se puede aplicar a StorSimple Cloud Appliance (también conocido como el dispositivo virtual). Deben crearse nuevos dispositivos virtuales. 
 
 ## <a name="next-step"></a>Paso siguiente
-Obtenga información sobre cómo [instalar Update 3](storsimple-install-update-3.md) en el dispositivo StorSimple.
-
+Obtenga información sobre cómo [instalar Update 3](./index.yml) en el dispositivo StorSimple.

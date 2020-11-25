@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 05/07/2019
 ms.author: jeedes
 ms.openlocfilehash: 288d1e6cec8ddcf7d4afe5a35f28a022c2a7be10
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357069"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006719"
 ---
 # <a name="tutorial-configure-comeet-recruiting-software-for-automatic-user-provisioning"></a>Tutorial: Configuración de Comeet Recruiting Software para el aprovisionamiento automático de usuarios
 
@@ -53,7 +53,7 @@ Antes de configurar Comeet Recruiting Software para el aprovisionamiento automá
 
     ![Botón Nueva aplicación](common/add-new-app.png)
 
-4. En el cuadro de búsqueda, escriba **Comeet Recruiting Software** , seleccione **Comeet Recruiting Software** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
+4. En el cuadro de búsqueda, escriba **Comeet Recruiting Software**, seleccione **Comeet Recruiting Software** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
 
     ![Comeet Recruiting Software en la lista de resultados](common/search-new-app.png)
 
@@ -96,7 +96,7 @@ Esta sección le guía por los pasos para configurar el servicio de aprovisionam
 
     ![Captura de pantalla de la lista desplegable Modo de aprovisionamiento con la opción Automático seleccionada.](common/provisioning-automatic.png)
 
-5. En la sección **Credenciales de administrador** , especifique los valores de **URL de inquilino** y **Token secreto** de la cuenta de Comeet Recruiting Software, como se describe en el paso 6.
+5. En la sección **Credenciales de administrador**, especifique los valores de **URL de inquilino** y **Token secreto** de la cuenta de Comeet Recruiting Software, como se describe en el paso 6.
 
 6. En la [consola de administración de Comeet Recruiting Software](https://app.comeet.co/), vaya a **Comeet > Settings > Authentication > Microsoft Azure** (Comeet > Configuración > Autenticación > Microsoft Azure) y copie el valor **Secret Token for your company** (Token secreto para la empresa) en el campo **Token secreto** de Azure AD.
 
@@ -106,17 +106,17 @@ Esta sección le guía por los pasos para configurar el servicio de aprovisionam
 
     ![Token](common/provisioning-testconnection-token.png)
 
-8. En el campo **Correo electrónico de notificación** , escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
+8. En el campo **Correo electrónico de notificación**, escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
 
     ![Correo electrónico de notificación](common/provisioning-notification-email.png)
 
-9. Haga clic en **Save** (Guardar).
+9. Haga clic en **Save**(Guardar).
 
-10. En la sección **Asignaciones** , seleccione **Synchronize Azure Active Directory Users to Comeet** (Sincronizar usuarios de Azure Active Directory con Comeet).
+10. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Users to Comeet** (Sincronizar usuarios de Azure Active Directory con Comeet).
 
     ![Asignaciones de usuario de Comeet Recruiting Software](media/comeet-recruiting-software-provisioning-tutorial/user-mappings.png)
 
-11. En la sección **Asignación de atributos** , revise los atributos de usuario que se han sincronizado entre Azure AD y Comeet Recruiting Software. Los atributos seleccionados como propiedades de **Coincidencia** se usan para buscar coincidencias con las cuentas de usuario de Comeet Recruiting Software para las operaciones de actualización. Seleccione el botón **Guardar** para confirmar los cambios.
+11. En la sección **Asignación de atributos**, revise los atributos de usuario que se han sincronizado entre Azure AD y Comeet Recruiting Software. Los atributos seleccionados como propiedades de **Coincidencia** se usan para buscar coincidencias con las cuentas de usuario de Comeet Recruiting Software para las operaciones de actualización. Seleccione el botón **Guardar** para confirmar los cambios.
 
     ![Atributos de grupos de Comeet Recruiting Software](media/comeet-recruiting-software-provisioning-tutorial/user-mapping-attributes.png)
 
@@ -126,7 +126,7 @@ Esta sección le guía por los pasos para configurar el servicio de aprovisionam
 
     ![Estado de aprovisionamiento activado](common/provisioning-toggle-on.png)
 
-14. Para definir los usuarios o grupos que quiere aprovisionar en Comeet Recruiting Software, seleccione los valores deseados en **Ámbito** , en la sección **Configuración**.
+14. Para definir los usuarios o grupos que quiere aprovisionar en Comeet Recruiting Software, seleccione los valores deseados en **Ámbito**, en la sección **Configuración**.
 
     ![Ámbito del aprovisionamiento](common/provisioning-scope.png)
 
