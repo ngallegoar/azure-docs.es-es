@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 07/31/2020
 ms.author: jeedes
 ms.openlocfilehash: b89ae74a1f4ead568a5454c9494d4a82b0eeea3e
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92521346"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96015186"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mitel-micloud-connect-or-cloudlink-platform"></a>Tutorial: Integración de Azure Active Directory con Mitel MiCloud Connect o CloudLink Platform
 
@@ -47,25 +47,25 @@ En este tutorial configurará y probará el inicio de sesión único (SSO) de Az
 
 Para configurar la integración de Mitel Connect en Azure AD, será preciso que agregue Mitel Connect desde la galería a la lista de aplicaciones SaaS administradas en Azure Portal.
 
-1. En **[Azure Portal](https://portal.azure.com)** , en el panel de navegación izquierdo, seleccione **Azure Active Directory** .
+1. En **[Azure Portal](https://portal.azure.com)** , en el panel de navegación izquierdo, seleccione **Azure Active Directory**.
 
     ![Botón Azure Active Directory](common/select-azuread.png)
 
-2. Seleccione **Aplicaciones empresariales** y, después, **Todas las aplicaciones** .
+2. Seleccione **Aplicaciones empresariales** y, después, **Todas las aplicaciones**.
 
     ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
-3. Seleccione **Nueva aplicación** .
+3. Seleccione **Nueva aplicación**.
 
     ![Botón Nueva aplicación](common/add-new-app.png)
 
-4. Escriba **Mitel Connect** en el campo de búsqueda, seleccione **Mitel Connect** en el panel de resultados y, a continuación, seleccione **Agregar** .
+4. Escriba **Mitel Connect** en el campo de búsqueda, seleccione **Mitel Connect** en el panel de resultados y, a continuación, seleccione **Agregar**.
 
      ![Mitel Connect en la lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
 
-En esta sección, configurará y probará el inicio de sesión único de Azure AD con MiCloud Connect o CloudLink Platform con un usuario de prueba llamado **_Britta Simon_** . Para que el inicio de sesión único funcione, debe establecerse un vínculo entre el usuario en el portal de Azure AD y el usuario correspondiente en la plataforma de Mitel. Consulte las siguientes secciones para obtener información sobre cómo configurar y probar el inicio de sesión único de Azure AD con MiCloud Connect o CloudLink Platform.
+En esta sección, configurará y probará el inicio de sesión único de Azure AD con MiCloud Connect o CloudLink Platform con un usuario de prueba llamado **_Britta Simon_**. Para que el inicio de sesión único funcione, debe establecerse un vínculo entre el usuario en el portal de Azure AD y el usuario correspondiente en la plataforma de Mitel. Consulte las siguientes secciones para obtener información sobre cómo configurar y probar el inicio de sesión único de Azure AD con MiCloud Connect o CloudLink Platform.
 * Configuración y prueba del inicio de sesión único de Azure AD con MiCloud Connect
 * Configuración y prueba del inicio de sesión único de Azure AD con CloudLink Platform
 
@@ -73,10 +73,10 @@ En esta sección, configurará y probará el inicio de sesión único de Azure 
 
 Para configurar y probar el inicio de sesión único en Azure AD con MiCloud Connect:
 
-1. **[Configuración de MiCloud Connect para SSO con Azure AD](#configure-micloud-connect-for-sso-with-azure-ad)** , para permitir que los usuarios utilicen esta característica y configuren las opciones de inicio de sesión único en el lado de la aplicación.
+1. **[Configuración de MiCloud Connect para SSO con Azure AD](#configure-micloud-connect-for-sso-with-azure-ad)**, para permitir que los usuarios utilicen esta característica y configuren las opciones de inicio de sesión único en el lado de la aplicación.
 2. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con Britta Simon.
 3. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-4. **[Creación de un usuario de prueba de Mitel MiCloud Connect](#create-a-mitel-micloud-connect-test-user)** , para tener un homólogo de Britta Simon en la cuenta de MiCloud Connect que esté vinculado a su representación en Azure AD.
+4. **[Creación de un usuario de prueba de Mitel MiCloud Connect](#create-a-mitel-micloud-connect-test-user)**, para tener un homólogo de Britta Simon en la cuenta de MiCloud Connect que esté vinculado a su representación en Azure AD.
 5. **[Prueba del inicio de sesión único](#test-single-sign-on)** : para comprobar si la configuración funciona.
 
 ## <a name="configure-micloud-connect-for-sso-with-azure-ad"></a>Configuración de MiCloud Connect para SSO con Azure AD
@@ -88,11 +88,11 @@ Para configurar el SSO de MiCloud Connect para Azure AD, lo más fácil es abri
 
 1. Para abrir la página de configuración en [Azure Portal](https://portal.azure.com/):
 
-    1. En la página de integración de aplicaciones de **Mitel Connect** , seleccione **Inicio de sesión único** .
+    1. En la página de integración de aplicaciones de **Mitel Connect**, seleccione **Inicio de sesión único**.
 
        ![Vínculo Configurar inicio de sesión único](common/select-sso.png)
 
-    1. En el cuadro de diálogo **Seleccione un método de inicio de sesión único** , elija **SAML** .
+    1. En el cuadro de diálogo **Seleccione un método de inicio de sesión único**, elija **SAML**.
     
        ![Modo de selección de inicio de sesión único](common/select-saml-option.png)
     
@@ -110,7 +110,7 @@ Para configurar el SSO de MiCloud Connect para Azure AD, lo más fácil es abri
     
     ![Captura de pantalla que muestra la página de configuración del inicio de sesión único de Mitel Connect, con la casilla Enable Single Sign-On (Habilitar el inicio de sesión único) activada.](./media/mitel-connect-tutorial/mitel-connect-enable.png)
 
-4. En Azure Portal, seleccione el icono **Editar** en la sección **Configuración básica de SAML** .
+4. En Azure Portal, seleccione el icono **Editar** en la sección **Configuración básica de SAML**.
    
     ![Captura de pantalla de la página Configuración del inicio de sesión único con SAML con el icono de edición seleccionado.](common/edit-urls.png)
 
@@ -122,7 +122,7 @@ Para configurar el SSO de MiCloud Connect para Azure AD, lo más fácil es abri
 
    ![Captura de pantalla que muestra la configuración básica de SAML en Azure Portal y la sección Set Up Identity Provider (Configuración del proveedor de identidades) en el portal de Mitel Account con líneas que indican la relación entre ellos.](./media/mitel-connect-tutorial/mitel-azure-basic-configuration.png)
 
-7. En el cuadro de texto **URL de inicio de sesión** , escriba una de las siguientes direcciones URL:
+7. En el cuadro de texto **URL de inicio de sesión**, escriba una de las siguientes direcciones URL:
 
     1. **https://portal.shoretelsky.com** : para usar el portal de Mitel Account como aplicación Mitel predeterminada
     1. **https://teamwork.shoretel.com** : para usar Teamwork como aplicación Mitel predeterminada
@@ -154,7 +154,7 @@ Para configurar el SSO de MiCloud Connect para Azure AD, lo más fácil es abri
 
 En esta sección creará un usuario de prueba llamado Britta Simon en Azure Portal.
 
-1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory** , **Usuarios** y **Todos los usuarios** .
+1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
 
     ![Vínculos "Usuarios y grupos" y "Todos los usuarios"](common/users.png)
 
@@ -166,39 +166,39 @@ En esta sección creará un usuario de prueba llamado Britta Simon en Azure Por
 
     ![Cuadro de diálogo Usuario](common/user-properties.png)
 
-    1. En el campo **Nombre** , escriba **BrittaSimon** .
+    1. En el campo **Nombre**, escriba **BrittaSimon**.
   
-    1. En el campo **Nombre de usuario** , escriba brittasimon@\<yourcompanydomain\>.\<extension\>.  Por ejemplo, BrittaSimon@contoso.com.
+    1. En el campo **Nombre de usuario**, escriba brittasimon@\<yourcompanydomain\>.\<extension\>.  Por ejemplo, BrittaSimon@contoso.com.
 
-    1. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro **Contraseña** .
+    1. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro **Contraseña**.
 
-    1. Seleccione **Crear** .
+    1. Seleccione **Crear**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
 En esta sección, habilitará a Britta Simon para que use el inicio de sesión único de Azure concediéndole acceso a Mitel Connect.
 
-1. En Azure Portal, seleccione sucesivamente **Aplicaciones empresariales** y **Todas las aplicaciones** .
+1. En Azure Portal, seleccione sucesivamente **Aplicaciones empresariales** y **Todas las aplicaciones**.
 
     ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
-2. En la lista de aplicaciones, seleccione **Mitel Connect** .
+2. En la lista de aplicaciones, seleccione **Mitel Connect**.
 
     ![Vínculo a Mitel Connect en la lista de aplicaciones](common/all-applications.png)
 
-3. En el menú de la izquierda, seleccione **Usuarios y grupos** .
+3. En el menú de la izquierda, seleccione **Usuarios y grupos**.
 
     ![Vínculo "Usuarios y grupos"](common/users-groups-blade.png)
 
-4. Seleccione **Agregar usuario** . A continuación, en el cuadro de diálogo **Agregar asignación** , seleccione **Usuarios y grupos** .
+4. Seleccione **Agregar usuario**. A continuación, en el cuadro de diálogo **Agregar asignación**, seleccione **Usuarios y grupos**.
 
     ![Panel Agregar asignación](common/add-assign-user.png)
 
-5. En el cuadro de diálogo **Usuarios y grupos** , seleccione **Britta Simon** en la lista  **Usuarios** y, luego, elija **Seleccionar** en la parte inferior de la pantalla.
+5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista  **Usuarios** y, luego, elija **Seleccionar** en la parte inferior de la pantalla.
 
-6. Si espera algún valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol** , seleccione el rol adecuado para el usuario en la lista y, después, elija **Seleccionar** en la parte inferior de la pantalla.
+6. Si espera algún valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol**, seleccione el rol adecuado para el usuario en la lista y, después, elija **Seleccionar** en la parte inferior de la pantalla.
 
-7. En el cuadro de diálogo **Agregar asignación** , seleccione **Asignar** .
+7. En el cuadro de diálogo **Agregar asignación**, seleccione **Asignar**.
 
 ### <a name="create-a-mitel-micloud-connect-test-user"></a>Creación de un usuario de prueba de Mitel MiCloud Connect
 
@@ -231,15 +231,15 @@ Para configurar la plataforma de CloudLink con el inicio de sesión único para 
 
 1. Para abrir la página de configuración en [Azure Portal](https://portal.azure.com/):
 
-    1. En la página de integración de aplicaciones de **Mitel Connect** , seleccione **Inicio de sesión único** .
+    1. En la página de integración de aplicaciones de **Mitel Connect**, seleccione **Inicio de sesión único**.
 
        ![Vínculo Configurar inicio de sesión único](common/select-sso.png)
 
-    1. En el cuadro de diálogo **Seleccione un método de inicio de sesión único** , elija **SAML** .
+    1. En el cuadro de diálogo **Seleccione un método de inicio de sesión único**, elija **SAML**.
 
        ![Modo de selección de inicio de sesión único](common/select-saml-option.png)
     
-       Se abre la página **Inicio de sesión basado en SAML** , que muestra la sección **Configuración básica de SAML** .
+       Se abre la página **Inicio de sesión basado en SAML**, que muestra la sección **Configuración básica de SAML**.
 
        ![Captura de pantalla que muestra la página Inicio de sesión basado en SAML con Configuración básica de SAML.](./media/mitel-connect-tutorial/mitel-azure-saml-settings.png)
 
@@ -265,7 +265,7 @@ Para configurar la plataforma de CloudLink con el inicio de sesión único para 
        
        Mitel recomienda que la casilla **Enable Mitel Credentials (Optional)** (Habilitar credenciales de Mitel [opcional]) de la sección **Optional Mitel credentials** (Credenciales de Mitel opcionales) no se active. Active esta casilla solo si desea que el usuario inicie sesión en la aplicación CloudLink con las credenciales de Mitel además de con la opción de inicio de sesión único.
 
-3. En Azure Portal, en la página **Inicio de sesión basado en SAML** , seleccione el icono **Editar** en la sección **Configuración básica de SAML** . Se abre el panel **Configuración básica de SAML** .
+3. En Azure Portal, en la página **Inicio de sesión basado en SAML**, seleccione el icono **Editar** en la sección **Configuración básica de SAML**. Se abre el panel **Configuración básica de SAML**.
 
     ![Captura de pantalla que muestra el panel Configuración básica de SAML con el icono de edición seleccionado.](./media/mitel-connect-tutorial/mitel-azure-saml-basic.png)
  
@@ -282,9 +282,9 @@ Para configurar la plataforma de CloudLink con el inicio de sesión único para 
      > [!NOTE]
      > La aplicación de Mitel predeterminada es la que se abre cuando un usuario hace clic en el icono de Mitel Connect en el Panel de acceso. También es la aplicación a la que se accede cuando el usuario configura una instalación de prueba desde Azure AD.
 
-7. Seleccione **Guardar** en el cuadro de diálogo **Configuración básica de SAML** .
+7. Seleccione **Guardar** en el cuadro de diálogo **Configuración básica de SAML**.
 
-8. En la sección **Certificado de firma de SAML** de la página **Inicio de sesión basado en SAML** de Azure Portal, seleccione **Descargar** junto a **Certificado (Base64)** para descargar el **Certificado de firma** . Guarde el certificado en el equipo.
+8. En la sección **Certificado de firma de SAML** de la página **Inicio de sesión basado en SAML** de Azure Portal, seleccione **Descargar** junto a **Certificado (Base64)** para descargar el **Certificado de firma**. Guarde el certificado en el equipo.
   
     ![Captura de pantalla que muestra la sección Certificado de firma de SAML, donde puede descargar un certificado Base64.](./media/mitel-connect-tutorial/mitel-cloudlink-save-certificate.png)
 
@@ -309,7 +309,7 @@ Para configurar la plataforma de CloudLink con el inicio de sesión único para 
 
 En esta sección creará un usuario de prueba llamado Britta Simon en Azure Portal.
 
-1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory** , **Usuarios** y **Todos los usuarios** .
+1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
 
     ![Vínculos "Usuarios y grupos" y "Todos los usuarios"](common/users.png)
 
@@ -321,39 +321,39 @@ En esta sección creará un usuario de prueba llamado Britta Simon en Azure Por
 
     ![Cuadro de diálogo Usuario](common/user-properties.png)
 
-    1. En el campo **Nombre** , escriba **BrittaSimon** .
+    1. En el campo **Nombre**, escriba **BrittaSimon**.
   
-    1. En el campo **Nombre de usuario** , escriba brittasimon@\<yourcompanydomain\>.\<extension\>.  Por ejemplo, BrittaSimon@contoso.com.
+    1. En el campo **Nombre de usuario**, escriba brittasimon@\<yourcompanydomain\>.\<extension\>.  Por ejemplo, BrittaSimon@contoso.com.
 
-    1. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro **Contraseña** .
+    1. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro **Contraseña**.
 
-    1. Seleccione **Crear** .
+    1. Seleccione **Crear**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
 En esta sección, habilitará a Britta Simon para que use el inicio de sesión único de Azure concediéndole acceso a Mitel Connect.
 
-1. En Azure Portal, seleccione sucesivamente **Aplicaciones empresariales** y **Todas las aplicaciones** .
+1. En Azure Portal, seleccione sucesivamente **Aplicaciones empresariales** y **Todas las aplicaciones**.
 
     ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
-2. En la lista de aplicaciones, seleccione **Mitel Connect** .
+2. En la lista de aplicaciones, seleccione **Mitel Connect**.
 
     ![Vínculo a Mitel Connect en la lista de aplicaciones](common/all-applications.png)
 
-3. En el menú de la izquierda, seleccione **Usuarios y grupos** .
+3. En el menú de la izquierda, seleccione **Usuarios y grupos**.
 
     ![Vínculo "Usuarios y grupos"](common/users-groups-blade.png)
 
-4. Seleccione **Agregar usuario** . A continuación, en el cuadro de diálogo **Agregar asignación** , seleccione **Usuarios y grupos** .
+4. Seleccione **Agregar usuario**. A continuación, en el cuadro de diálogo **Agregar asignación**, seleccione **Usuarios y grupos**.
 
     ![Panel Agregar asignación](common/add-assign-user.png)
 
-5. En el cuadro de diálogo **Usuarios y grupos** , seleccione **Britta Simon** en la lista  **Usuarios** y, luego, elija **Seleccionar** en la parte inferior de la pantalla.
+5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista  **Usuarios** y, luego, elija **Seleccionar** en la parte inferior de la pantalla.
 
-6. Si espera algún valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol** , seleccione el rol adecuado para el usuario en la lista y, después, elija **Seleccionar** en la parte inferior de la pantalla.
+6. Si espera algún valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol**, seleccione el rol adecuado para el usuario en la lista y, después, elija **Seleccionar** en la parte inferior de la pantalla.
 
-7. En el cuadro de diálogo **Agregar asignación** , seleccione **Asignar** .
+7. En el cuadro de diálogo **Agregar asignación**, seleccione **Asignar**.
 
 ### <a name="create-a-cloudlink-test-user"></a>Creación de un usuario de prueba de CloudLink
 

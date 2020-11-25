@@ -8,11 +8,11 @@ ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 09/14/2018
 ms.openlocfilehash: 95b638b85e0746d2995488f2a28a5fb2512b1063
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92219333"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96015271"
 ---
 # <a name="how-to-set-up-a-cicd-pipeline-for-azure-data-lake-analytics"></a>Procedimiento para configurar una canalización de CI/CD para Azure Data Lake Analytics  
 
@@ -47,7 +47,7 @@ En caso negativo, tiene dos opciones para migrar el proyecto:
 
 MSBuild no proporciona compatibilidad integrada con proyectos de U-SQL. Para conseguir esta compatibilidad, es preciso agregar una referencia para la solución al paquete NuGet [Microsoft.Azure.DataLake.USQL.SDK](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.SDK/) que agregue el servicio de lenguaje requerido.
 
-Para agregar dicha referencia al paquete NuGet, puede hacer clic con el botón derecho en la solución en el Explorador de soluciones de Visual Studio y elegir **Administrar paquetes NuGet** . O bien puede agregar un archivo llamado `packages.config` a la carpeta de la solución y agregarle el contenido siguiente:
+Para agregar dicha referencia al paquete NuGet, puede hacer clic con el botón derecho en la solución en el Explorador de soluciones de Visual Studio y elegir **Administrar paquetes NuGet**. O bien puede agregar un archivo llamado `packages.config` a la carpeta de la solución y agregarle el contenido siguiente:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -76,16 +76,16 @@ msbuild USQLBuild.usqlproj /p:USQLSDKPath=packages\Microsoft.Azure.DataLake.USQL
 
 La definición de los argumentos y los valores son los siguientes:
 
-- **USQLSDKPath=\<U-SQL Nuget package>\build\runtime** . Este parámetro hace referencia a la ruta de instalación del paquete NuGet para el servicio de lenguaje de U-SQL.
-- **USQLTargetType=Merge o SyntaxCheck** :
+- **USQLSDKPath=\<U-SQL Nuget package>\build\runtime**. Este parámetro hace referencia a la ruta de instalación del paquete NuGet para el servicio de lenguaje de U-SQL.
+- **USQLTargetType=Merge o SyntaxCheck**:
 
-  - **Merge** . El modo Merge compila los archivos de código subyacente. Algunos ejemplos son los archivos **.cs** , **.py** y **.r** . Incorpora la biblioteca de código definido por el usuario resultante en el script U-SQL. Algunos ejemplos son un archivo binario .dll, Python o código de R.
+  - **Merge**. El modo Merge compila los archivos de código subyacente. Algunos ejemplos son los archivos **.cs**, **.py** y **.r**. Incorpora la biblioteca de código definido por el usuario resultante en el script U-SQL. Algunos ejemplos son un archivo binario .dll, Python o código de R.
 
-  - **SyntaxCheck** . El modo SyntaxCheck primero combina los archivos de código subyacente en el script U-SQL. A continuación, compila el script U-SQL para validar el código.
+  - **SyntaxCheck**. El modo SyntaxCheck primero combina los archivos de código subyacente en el script U-SQL. A continuación, compila el script U-SQL para validar el código.
 
 - **DataRoot=\<DataRoot path>** . DataRoot solo se necesita para el modo SyntaxCheck. Al compilar el script con el modo SyntaxCheck, MSBuild comprueba las referencias a objetos de base de datos en el script. Antes de compilar, configure un entorno local coincidente que contenga los objetos a los que se hace referencia desde la base de datos U-SQL en la carpeta DataRoot del equipo en que se realiza compilación. Para administrar estas dependencias de la base de datos, también se puede [hacer referencia a un proyecto de base de datos de U-SQL](data-lake-analytics-data-lake-tools-develop-usql-database.md#reference-a-u-sql-database-project). MSBuild solo comprueba la referencia de los objetos de base de datos, no los archivos.
 
-- **EnableDeployment=true** o **false** . EnableDeployment indica si se permite implementar bases de datos U-SQL de referencia durante el proceso de compilación. Si hace referencia al proyecto de base de datos U-SQL y consume los objetos de base de datos en el script U-SQL, establezca este parámetro en **true** .
+- **EnableDeployment=true** o **false**. EnableDeployment indica si se permite implementar bases de datos U-SQL de referencia durante el proceso de compilación. Si hace referencia al proyecto de base de datos U-SQL y consume los objetos de base de datos en el script U-SQL, establezca este parámetro en **true**.
 
 ### <a name="continuous-integration-through-azure-pipelines"></a>Integración continua mediante Azure Pipelines
 
@@ -126,7 +126,7 @@ Después de comprobar el código en el proceso de compilación y prueba, puede e
 
 ### <a name="submit-u-sql-jobs-through-azure-pipelines"></a>Envío de trabajos de U-SQL a través de Azure Pipelines
 
-La salida de la compilación del proyecto de U-SQL es un archivo ZIP llamado **USQLProjectName.usqlpack** . El archivo ZIP incluye todos los scripts U-SQL en el proyecto. Puede usar la [tarea de Azure PowerShell](/azure/devops/pipelines/tasks/deploy/azure-powershell) en Pipelines con el siguiente script de PowerShell de ejemplo para enviar trabajos de U-SQL directamente desde Azure Pipelines.
+La salida de la compilación del proyecto de U-SQL es un archivo ZIP llamado **USQLProjectName.usqlpack**. El archivo ZIP incluye todos los scripts U-SQL en el proyecto. Puede usar la [tarea de Azure PowerShell](/azure/devops/pipelines/tasks/deploy/azure-powershell) en Pipelines con el siguiente script de PowerShell de ejemplo para enviar trabajos de U-SQL directamente desde Azure Pipelines.
 
 ```powershell
 <#
@@ -307,7 +307,7 @@ Herramientas de Azure Data Lake para Visual Studio proporciona plantillas de pro
 
 MSBuild no proporciona compatibilidad integrada con los proyectos de base de datos U-SQL. Para obtener esta capacidad, es preciso agregar una referencia para la solución al paquete NuGet [Microsoft.Azure.DataLake.USQL.SDK](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.SDK/) que agregue el servicio de lenguaje requerido.
 
-Para agregar dicha referencia al paquete NuGet, haga clic con el botón derecho en la solución en el Explorador de soluciones de Visual Studio. Elija **Administrar paquetes NuGet** . A continuación, busque e instale el paquete NuGet. O bien puede agregar un archivo llamado **packages.config** a la carpeta de la solución y agregarle el contenido siguiente:
+Para agregar dicha referencia al paquete NuGet, haga clic con el botón derecho en la solución en el Explorador de soluciones de Visual Studio. Elija **Administrar paquetes NuGet**. A continuación, busque e instale el paquete NuGet. O bien puede agregar un archivo llamado **packages.config** a la carpeta de la solución y agregarle el contenido siguiente:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -360,7 +360,7 @@ En este momento, no se admite la adición directa de casos de prueba a los proce
 
 ## <a name="deploy-u-sql-database-through-azure-pipelines"></a>Implementación de una base de datos U-SQL mediante Azure Pipelines
 
-`PackageDeploymentTool.exe` proporciona interfaces de programación y de línea de comandos que ayudan a implementar paquetes de implementación de bases de datos U-SQL **.usqldbpack** . El SDK se incluye en el [paquete NuGet del SDK de U-SQL](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.SDK/), que se encuentra en **build/runtime/PackageDeploymentTool.exe** . Mediante el uso de `PackageDeploymentTool.exe`, puede implementar bases de datos U-SQL tanto para cuentas locales como para Azure Data Lake Analytics.
+`PackageDeploymentTool.exe` proporciona interfaces de programación y de línea de comandos que ayudan a implementar paquetes de implementación de bases de datos U-SQL **.usqldbpack**. El SDK se incluye en el [paquete NuGet del SDK de U-SQL](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.SDK/), que se encuentra en **build/runtime/PackageDeploymentTool.exe**. Mediante el uso de `PackageDeploymentTool.exe`, puede implementar bases de datos U-SQL tanto para cuentas locales como para Azure Data Lake Analytics.
 
 > [!NOTE]
 >
