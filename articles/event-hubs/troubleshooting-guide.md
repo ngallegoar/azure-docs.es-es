@@ -3,12 +3,12 @@ title: 'Solución de problemas de conectividad: Azure Event Hubs | Microsoft Doc
 description: En este artículo se proporciona información sobre cómo solucionar problemas de conectividad con Azure Event Hubs.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: b85c0895d1c8f165f494d29013adea014187dd23
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8eddc0e8c598e4553b30759d179fecb6ae880829
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87039334"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "96012687"
 ---
 # <a name="troubleshoot-connectivity-issues---azure-event-hubs"></a>Solución de problemas de conectividad: Azure Event Hubs
 Hay varias razones por las que las aplicaciones cliente no pueden conectarse a un centro de eventos. Los problemas de conectividad que experimenta pueden ser permanentes o transitorios. Si el problema sucede todo el tiempo (permanente), puede que desee comprobar la cadena de conexión, la configuración del firewall de la organización, la configuración del firewall de IP, la configuración de seguridad de la red (puntos de conexión de servicio, puntos de conexión privados, etc.), etc. En el caso de problemas transitorios, la actualización a la versión más reciente del SDK, la ejecución de comandos para comprobar los paquetes descartados y la obtención de seguimientos de red pueden ayudar a solucionar los problemas. 
@@ -26,54 +26,7 @@ Compruebe que la cadena de conexión que está usando es correcta. Consulte [Obt
 
 Para clientes de Kafka, compruebe que los archivos productor.config o consumer.config están configurados correctamente. Para más información, consulte [Envío y recepción de mensajes con Kafka en Event Hubs](event-hubs-quickstart-kafka-enabled-event-hubs.md#send-and-receive-messages-with-kafka-in-event-hubs).
 
-### <a name="check-if-the-ports-required-to-communicate-with-event-hubs-are-blocked-by-organizations-firewall"></a>Compruebe si los puertos necesarios para comunicarse con Event Hubs están bloqueados por el firewall de la organización
-Compruebe que los puertos utilizados para comunicarse con Azure Event Hubs no estén bloqueados en el firewall de la organización. Consulte en la siguiente tabla los puertos de salida que se deben abrir para comunicarse con Azure Event Hubs. 
-
-| Protocolo | Puertos | Detalles | 
-| -------- | ----- | ------- | 
-| AMQP | 5671 y 5672 | Consulte la [guía del protocolo AMQP](../service-bus-messaging/service-bus-amqp-protocol-guide.md) | 
-| HTTP, HTTPS | 80, 443 |  |
-| Kafka | 9093 | Consulte [Uso de Azure Event Hubs desde aplicaciones de Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md)
-
-Este es un comando de ejemplo que comprueba si el puerto 5671 está bloqueado.
-
-```powershell
-tnc <yournamespacename>.servicebus.windows.net -port 5671
-```
-
-En Linux:
-
-```shell
-telnet <yournamespacename>.servicebus.windows.net 5671
-```
-
-### <a name="verify-that-ip-addresses-are-allowed-in-your-corporate-firewall"></a>Compruebe que las direcciones IP se permiten en el firewall corporativo
-Cuando trabaja con Azure, en ocasiones tiene que permitir intervalos de direcciones IP específicos o direcciones URL en el firewall o proxy corporativo para tener acceso a todos los servicios de Azure que está usando o intentando usar. Compruebe que se permite el tráfico en las direcciones IP utilizadas por Event Hubs. En el caso de las direcciones IP usadas por Azure Event Hubs, vea [Intervalos de direcciones IP y etiquetas de servicio de Azure: nube pública](https://www.microsoft.com/download/details.aspx?id=56519).
-
-Además, compruebe que se permite la dirección IP del espacio de nombres. Para buscar las direcciones IP correctas para permitirlas para las conexiones, siga estos pasos:
-
-1. Ejecute el siguiente comando desde el símbolo del sistema: 
-
-    ```
-    nslookup <YourNamespaceName>.servicebus.windows.net
-    ```
-2. Anote la dirección IP devuelta en `Non-authoritative answer`. El único momento en que cambiaría es si restaurara el espacio de nombres en un clúster distinto.
-
-Si usa la redundancia de zona para el espacio de nombres, deberá realizar algunos pasos adicionales: 
-
-1. En primer lugar, ejecute nslookup en el espacio de nombres.
-
-    ```
-    nslookup <yournamespace>.servicebus.windows.net
-    ```
-2. Anote el nombre de la sección **respuesta no autoritativa**, que se encuentra en uno de los siguientes formatos: 
-
-    ```
-    <name>-s1.cloudapp.net
-    <name>-s2.cloudapp.net
-    <name>-s3.cloudapp.net
-    ```
-3. Ejecute nslookup para cada uno con los sufijos s1, s2 y s3 para obtener las direcciones IP de las tres instancias que se ejecutan en tres zonas de disponibilidad. 
+[!INCLUDE [event-hubs-connectivity](../../includes/event-hubs-connectivity.md)]
 
 ### <a name="verify-that-azureeventgrid-service-tag-is-allowed-in-your-network-security-groups"></a>Compruebe que se permite la etiqueta de servicio AzureEventGrid en los grupos de seguridad de red
 Si la aplicación se ejecuta dentro de una subred y hay un grupo de seguridad de red asociado, confirme si se permite la salida de Internet o la etiqueta de servicio AzureEventGrid. Vea [Etiquetas de servicio de red virtual](../virtual-network/service-tags-overview.md) y busque `EventHub`.
@@ -91,22 +44,6 @@ De forma predeterminada, los espacios de nombres de Azure Event Hubs son accesib
 Las reglas de firewall de IP se aplican en el nivel del espacio de nombres de Event Hubs. Por lo tanto, las reglas se aplican a todas las conexiones de clientes que usan cualquier protocolo admitido. Cualquier intento de conexión desde una dirección IP que no coincida con una regla IP admitida en el espacio de nombres de Event Hubs se rechaza como no autorizado. La respuesta no menciona la regla IP. Las reglas de filtro IP se aplican en orden y la primera regla que coincida con la dirección IP determina la acción de aceptar o rechazar.
 
 Para obtener más información, consulte [Configuración de reglas de firewall de IP para un espacio de nombres de Azure Event Hubs](event-hubs-ip-filtering.md). Para comprobar si tiene problemas de filtrado de direcciones IP, red virtual o cadena de certificados, consulte [Solución de problemas relacionados con la red](#troubleshoot-network-related-issues).
-
-#### <a name="find-the-ip-addresses-blocked-by-ip-firewall"></a>Buscar las direcciones IP bloqueadas por el firewall de IP
-Habilite los registros de diagnóstico para [eventos de conexión de red virtual de Event Hubs](event-hubs-diagnostic-logs.md#event-hubs-virtual-network-connection-event-schema) siguiendo las instrucciones indicadas en [Habilitar registros de diagnóstico](event-hubs-diagnostic-logs.md#enable-diagnostic-logs). Verá la dirección IP para la conexión que se deniega.
-
-```json
-{
-    "SubscriptionId": "0000000-0000-0000-0000-000000000000",
-    "NamespaceName": "namespace-name",
-    "IPAddress": "1.2.3.4",
-    "Action": "Deny Connection",
-    "Reason": "IPAddress doesn't belong to a subnet with Service Endpoint enabled.",
-    "Count": "65",
-    "ResourceId": "/subscriptions/0000000-0000-0000-0000-000000000000/resourcegroups/testrg/providers/microsoft.eventhub/namespaces/namespace-name",
-    "Category": "EventHubVNetConnectionEvent"
-}
-```
 
 ### <a name="check-if-the-namespace-can-be-accessed-using-only-a-private-endpoint"></a>Comprobar si se puede acceder al espacio de nombres con solo un punto de conexión privado
 Si el espacio de nombres de Event Hubs está configurado para ser accesible únicamente a través de un punto de conexión privado, confirme que la aplicación cliente accede al espacio de nombres a través del punto de conexión privado. 
