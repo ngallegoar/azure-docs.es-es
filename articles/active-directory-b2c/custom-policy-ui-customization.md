@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 03/16/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: cb833ff35dae4fe1c0c27204ec66fa6b4cdb82c7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 340c9629af89bfacb85b37503743fc5770070ae3
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85388891"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95990917"
 ---
 # <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Personalización de la interfaz de usuario de la aplicación mediante una directiva personalizada en Azure Active Directory B2C
 
@@ -34,7 +34,7 @@ Realice los pasos del artículo [Introducción a las directivas personalizadas](
 
 Para configurar la personalización de la interfaz de usuario, copie **ContentDefinition** y sus elementos secundarios del archivo base en el archivo de extensiones.
 
-1. Abra el archivo base de la directiva. Por ejemplo, <em>`SocialAndLocalAccounts/` **`TrustFrameworkBase.xml`** </em>. Este archivo base es uno de los archivos de directivas incluidos en el paquete de inicio de directivas personalizadas, que debería haber obtenido en el requisito previo, [Introducción a las directivas personalizadas en Azure Active Directory B2C](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-get-started-custom).
+1. Abra el archivo base de la directiva. Por ejemplo, <em>`SocialAndLocalAccounts/` **`TrustFrameworkBase.xml`**</em>. Este archivo base es uno de los archivos de directivas incluidos en el paquete de inicio de directivas personalizadas, que debería haber obtenido en el requisito previo, [Introducción a las directivas personalizadas en Azure Active Directory B2C](./custom-policy-get-started.md).
 1. Busque y copie todo el contenido del elemento **ContentDefinitions**.
 1. Abra el archivo de extensión. Por ejemplo, *TrustFrameworkExtensions.xml*. Busque el elemento **BuildingBlocks**. Si el elemento no existe, agréguelo.
 1. Pegue todo el contenido del elemento **ContentDefinitions** que ha copiado como elemento secundario del elemento **BuildingBlocks**.
