@@ -9,11 +9,11 @@ ms.service: azure-maps
 services: azure-maps
 manager: philMea
 ms.openlocfilehash: 2c3e46bf386e70cbe35d96728ede896d6bf0dc7d
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895841"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013129"
 ---
 # <a name="drawing-package-requirements"></a>Requisitos de paquetes de dibujos
 
@@ -50,9 +50,9 @@ Puede organizar los archivos DWG de cualquier manera dentro de la carpeta, pero 
 
 ## <a name="dwg-files-requirements"></a>Requisitos de los archivos DWG
 
-Se requiere un único archivo DWG para cada nivel de la instalación. Los datos del nivel deben formar parte de un único archivo DWG. Cualquier referencia externa ( _xref_ ) debe estar enlazada al dibujo principal. Además, cada archivo DWG:
+Se requiere un único archivo DWG para cada nivel de la instalación. Los datos del nivel deben formar parte de un único archivo DWG. Cualquier referencia externa (_xref_) debe estar enlazada al dibujo principal. Además, cada archivo DWG:
 
-* Debe definir las capas de _exterior_ y de _unidades_ . Además, puede definir las siguientes capas opcionales: _Pared_ , _Puerta_ , _UnitLabel_ , _Zona_ y _ZoneLabel_ .
+* Debe definir las capas de _exterior_ y de _unidades_. Además, puede definir las siguientes capas opcionales: _Pared_, _Puerta_, _UnitLabel_, _Zona_ y _ZoneLabel_.
 * No debe contener características de varios niveles.
 * No debe contener características de varias instalaciones.
 
@@ -93,7 +93,7 @@ En las secciones siguientes se detallan los requisitos de cada capa.
 
 ### <a name="exterior-layer"></a>Capa exterior
 
-El archivo DWG de cada nivel debe contener una capa para definir el perímetro de ese nivel. Esta capa se conoce como capa *exterior* . Por ejemplo, si una instalación contiene dos niveles, debe tener dos archivos DWG, con una capa exterior para cada archivo.
+El archivo DWG de cada nivel debe contener una capa para definir el perímetro de ese nivel. Esta capa se conoce como capa *exterior*. Por ejemplo, si una instalación contiene dos niveles, debe tener dos archivos DWG, con una capa exterior para cada archivo.
 
 Independientemente de cuántos dibujos de entidad haya en la capa exterior, el [conjunto de la instalación resultante](tutorial-creator-indoor-maps.md#create-a-feature-stateset) contendrá solo una característica de nivel para cada archivo DWG. Además:
 
@@ -168,7 +168,7 @@ Puede ver un ejemplo de la capa de ZoneLabel en el [paquete de dibujo de ejemplo
 
 ## <a name="manifest-file-requirements"></a>Requisitos del archivo de manifiesto
 
-La carpeta ZIP debe contener un archivo de manifiesto en el nivel raíz del directorio y el archivo debe tener el nombre **manifest.json** . Describe los archivos DWG para permitir que el [servicio de conversión de Azure Maps](/rest/api/maps/conversion) analice su contenido. Solo se ingieren los archivos identificados por el manifiesto. Los archivos que se encuentren en la carpeta zip, pero que no se enumeran correctamente en el manifiesto, se omiten.
+La carpeta ZIP debe contener un archivo de manifiesto en el nivel raíz del directorio y el archivo debe tener el nombre **manifest.json**. Describe los archivos DWG para permitir que el [servicio de conversión de Azure Maps](/rest/api/maps/conversion) analice su contenido. Solo se ingieren los archivos identificados por el manifiesto. Los archivos que se encuentren en la carpeta zip, pero que no se enumeran correctamente en el manifiesto, se omiten.
 
 Las rutas de acceso en el objeto `buildingLevels` del archivo de manifiesto deben ser relativas a la raíz de la carpeta zip. El nombre del archivo DWG debe coincidir exactamente con el nombre del nivel de la instalación. Por ejemplo, un archivo DWG para el nivel "Sótano" es "Sótano.dwg". Un archivo DWG para el nivel 2 tiene el nombre "nivel_2.dwg". Use un carácter de subrayado si el nombre del nivel tiene un espacio.
 

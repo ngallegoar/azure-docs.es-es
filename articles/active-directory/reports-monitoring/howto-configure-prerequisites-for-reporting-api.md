@@ -18,11 +18,11 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cabf5f40bc17828bc37b5c094de7b90de3ec8b26
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130228"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013061"
 ---
 # <a name="prerequisites-to-access-the-azure-active-directory-reporting-api"></a>Requisitos previos para acceder a la API de generación de informes de Azure Active Directory
 
@@ -55,7 +55,7 @@ Un inquilino de Azure AD debe tener asociada una licencia de Azure AD Premium 
 
 ## <a name="register-an-application"></a>Registro de una aplicación
 
-El registro es necesario aunque se acceda a la API de generación de informes mediante un script. El registro le proporciona un **identificador de aplicación** , que es necesario para las llamadas de autorización y permite que el código reciba tokens.
+El registro es necesario aunque se acceda a la API de generación de informes mediante un script. El registro le proporciona un **identificador de aplicación**, que es necesario para las llamadas de autorización y permite que el código reciba tokens.
 
 Si quiere configurar el directorio para que acceda a la API de generación de informes de Azure AD, debe iniciar sesión en [Azure Portal](https://portal.azure.com) con una cuenta de administrador de Azure que también sea miembro del rol de directorio **Administrador global** en su inquilino de Azure AD.
 
@@ -69,11 +69,11 @@ Si quiere configurar el directorio para que acceda a la API de generación de in
    
     ![Captura de pantalla que muestra que se seleccionó Azure Active Directory en el menú de Azure Portal.](./media/howto-configure-prerequisites-for-reporting-api/01.png) 
 
-2. En la página **Azure Active Directory** , haga clic en **Registros de aplicaciones**.
+2. En la página **Azure Active Directory**, haga clic en **Registros de aplicaciones**.
 
     ![Captura de pantalla que muestra que se seleccionó Registros de aplicaciones en el menú Administrar.](./media/howto-configure-prerequisites-for-reporting-api/02.png) 
 
-3. En la página **Registros de aplicaciones** , seleccione **Nuevo registro**.
+3. En la página **Registros de aplicaciones**, seleccione **Nuevo registro**.
 
     ![Captura de pantalla que muestra que se seleccionó Nuevo registro.](./media/howto-configure-prerequisites-for-reporting-api/03.png)
 
@@ -81,7 +81,7 @@ Si quiere configurar el directorio para que acceda a la API de generación de in
 
     ![Captura de pantalla que muestra la página Registro de una aplicación en la que puede escribir los valores de este paso.](./media/howto-configure-prerequisites-for-reporting-api/04.png)
 
-    a. En el cuadro de texto **Nombre** , escriba `Reporting API application`.
+    a. En el cuadro de texto **Nombre**, escriba `Reporting API application`.
 
     b. Para la opción **Supported accounts type (Tipo de cuentas admitidas)** , seleccione **Accounts in this organizational only (Solo cuentas de esta organización)** .
 
@@ -110,11 +110,11 @@ En la siguiente sección se enumeran los pasos para ambas API. Si no desea acced
 
     ![Captura de pantalla que muestra la página Permisos de API en la que puede seleccionar Agregar un permiso.](./media/howto-configure-prerequisites-for-reporting-api/05.png)
 
-2. En la **página Solicitud de permisos de API** , busque **APIs heredadas admitidas** **Azure Active Directory Graph**. 
+2. En la **página Solicitud de permisos de API**, busque **APIs heredadas admitidas** **Azure Active Directory Graph**. 
 
     ![Captura de pantalla que muestra la página Solicitar permisos de API en la que puede seleccionar Azure Active Directory Graph.](./media/howto-configure-prerequisites-for-reporting-api/06.png)
 
-3. En la página  **Permisos necesarios** , seleccione **Permisos de la aplicación** y expanda la casilla **Directory.ReadAll** de **Directorio**.  Seleccione **Agregar permisos**.
+3. En la página  **Permisos necesarios**, seleccione **Permisos de la aplicación** y expanda la casilla **Directory.ReadAll** de **Directorio**.  Seleccione **Agregar permisos**.
 
     ![Captura de pantalla que muestra la página Solicitar permisos de API en la que puede seleccionar permisos de aplicación.](./media/howto-configure-prerequisites-for-reporting-api/07.png)
 
@@ -144,7 +144,7 @@ Necesitará estos valores al configurar llamadas a la API de generación de info
    
     ![Captura de pantalla que muestra que se seleccionó Azure Active Directory en el menú de Azure Portal.](./media/howto-configure-prerequisites-for-reporting-api/01.png) 
 
-2. En la página **Azure Active Directory** , seleccione **Nombres de dominio personalizados**.
+2. En la página **Azure Active Directory**, seleccione **Nombres de dominio personalizados**.
 
     ![Captura de pantalla que muestra que se seleccionó Nombres de dominio personalizados en Azure Active Directory.](./media/howto-configure-prerequisites-for-reporting-api/09.png) 
 
@@ -177,17 +177,17 @@ Necesitará estos valores al configurar llamadas a la API de generación de info
 
 2.  Seleccione la aplicación en la página **Registros de aplicaciones**.
 
-3.  Seleccione **Certificados y Secretos** en la página **API Application** , en la sección **Secretos de cliente** , haga clic en **+ Nuevo secreto de cliente**. 
+3.  Seleccione **Certificados y Secretos** en la página **API Application**, en la sección **Secretos de cliente**, haga clic en **+ Nuevo secreto de cliente**. 
 
     ![Captura de pantalla que muestra la página Certificados y secretos en la que puede agregar un secreto de cliente.](./media/howto-configure-prerequisites-for-reporting-api/12.png)
 
 5. En la página **Add a client secret** (Agregar un secreto de cliente), agregue:
 
-    a. En el cuadro de texto **Descripción** , escriba `Reporting API`.
+    a. En el cuadro de texto **Descripción**, escriba `Reporting API`.
 
-    b. En **Expiración** , seleccione **En 2 años**.
+    b. En **Expiración**, seleccione **En 2 años**.
 
-    c. Haga clic en **Save** (Guardar).
+    c. Haga clic en **Save**(Guardar).
 
     d. Copie el valor de la clave.
 
