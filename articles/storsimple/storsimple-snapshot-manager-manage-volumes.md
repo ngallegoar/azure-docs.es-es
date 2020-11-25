@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 04/18/2016
 ms.author: alkohli
-ms.openlocfilehash: 79a239def70f0455f63c18d86397ec8d927f244c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 309fa85d0a4d877522a89dd8f1e6e71fb2074744
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90054914"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96022945"
 ---
 # <a name="use-storsimple-snapshot-manager-to-view-and-manage-volumes"></a>Uso de Administrador de instantáneas StorSimple para ver y administrar volúmenes
 ## <a name="overview"></a>Información general
@@ -45,7 +45,7 @@ Este tutorial explica cómo puede montar, inicializar y dar formato a volúmenes
 > 
 
 ## <a name="mount-volumes"></a>Montaje de volúmenes
-Utilice el procedimiento siguiente para montar, inicializar y dar formato a volúmenes de StorSimple. Este procedimiento usa Administración de discos, una utilidad del sistema para administrar discos duros y los volúmenes o particiones correspondientes. Para obtener más información sobre Administración de discos, vaya a [Administración de discos](https://technet.microsoft.com/library/cc770943.aspx) en el sitio web de Microsoft TechNet.
+Utilice el procedimiento siguiente para montar, inicializar y dar formato a volúmenes de StorSimple. Este procedimiento usa Administración de discos, una utilidad del sistema para administrar discos duros y los volúmenes o particiones correspondientes. Para obtener más información sobre Administración de discos, vaya a [Administración de discos](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc770943(v=ws.11)) en el sitio web de Microsoft TechNet.
 
 #### <a name="to-mount-volumes"></a>Para montar volúmenes
 1. En el equipo host, inicie el iniciador iSCSI de Microsoft.
@@ -80,7 +80,7 @@ Utilice el procedimiento siguiente para montar, inicializar y dar formato a vol�
       * Seleccione el sistema de archivos NTFS.
       * Especifique un tamaño de unidad de asignación de 64 KB.
       * Realice un formateo rápido.
-7. Dé formato a volúmenes de varias particiones. Para obtener instrucciones, vaya a la sección "Particiones y volúmenes" en [Implementación de Administración de discos](https://msdn.microsoft.com/library/dd163556.aspx).
+7. Dé formato a volúmenes de varias particiones. Para obtener instrucciones, vaya a la sección "Particiones y volúmenes" en [Implementación de Administración de discos](/previous-versions/tn-archive/dd163556(v=technet.10)).
 
 ## <a name="view-information-about-your-volumes"></a>Visualización de información acerca de los volúmenes
 Utilice el procedimiento siguiente para ver información acerca de volúmenes locales y de Azure StorSimple.
@@ -133,7 +133,7 @@ Utilice el siguiente procedimiento para configurar una copia de seguridad de un 
 ### <a name="prerequisites"></a>Prerrequisitos
 Antes de empezar:
 
-* Asegúrese de que el equipo host y el dispositivo StorSimple están configurados correctamente. Para obtener más información, vaya a [Implementación del dispositivo StorSimple local](storsimple-deployment-walkthrough-u2.md).
+* Asegúrese de que el equipo host y el dispositivo StorSimple están configurados correctamente. Para obtener más información, vaya a [Implementación del dispositivo StorSimple local](./storsimple-8000-deployment-walkthrough-u2.md).
 * Instalación y configuración de Administrador de instantáneas StorSimple Para obtener más información, vaya a [Implementación de StorSimple Snapshot Manager](storsimple-snapshot-manager-deployment.md).
 
 #### <a name="to-configure-backup-of-a-basic-volume"></a>Para configurar la copia de seguridad de un volumen básico
@@ -166,7 +166,7 @@ Antes de empezar:
 * Configure dos volúmenes en el dispositivo StorSimple. (En los ejemplos, los volúmenes disponibles son **Disco 1** y **Disco 2**). 
 
 ### <a name="step-1-use-disk-management-to-create-a-dynamic-mirrored-volume"></a>Paso 1: Uso de Administración de discos para crear un volumen reflejado dinámico
-Administración de discos es una utilidad del sistema para administrar discos duros y los volúmenes o particiones que contienen. Para obtener más información sobre Administración de discos, vaya a [Administración de discos](https://technet.microsoft.com/library/cc770943.aspx) en el sitio web de Microsoft TechNet.
+Administración de discos es una utilidad del sistema para administrar discos duros y los volúmenes o particiones que contienen. Para obtener más información sobre Administración de discos, vaya a [Administración de discos](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc770943(v=ws.11)) en el sitio web de Microsoft TechNet.
 
 #### <a name="to-create-a-dynamic-mirrored-volume"></a>Para crear un volumen reflejado dinámico
 1. Utilice cualquiera de las siguientes opciones para iniciar Administración de discos: 
@@ -210,4 +210,4 @@ Utilice el siguiente procedimiento para configurar un volumen reflejado dinámic
 * Obtenga más información sobre el [uso de Snapshot Manager de StorSimple  para crear y administrar grupos de volúmenes](storsimple-snapshot-manager-manage-volume-groups.md).
 
 <!--Reference links-->
-[1]: https://msdn.microsoft.com/library/ee338480(v=ws.10).aspx
+[1]: /previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee338480(v=ws.10)

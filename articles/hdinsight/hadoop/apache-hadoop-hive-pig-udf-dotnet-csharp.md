@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-csharp
 ms.date: 12/06/2019
 ms.openlocfilehash: e99d68d31f1da4dcb3ef1086a2bbd90f0ab30410
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489003"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023132"
 ---
 # <a name="use-c-user-defined-functions-with-apache-hive-and-apache-pig-on-apache-hadoop-in-hdinsight"></a>Use las funciones definidas por el usuario de C# con el streaming de Apache Hive y Apache Pig en Apache Hadoop de HDInsight.
 
@@ -22,7 +22,7 @@ Aprenda a usar funciones definidas por el usuario (UDF) de C# con [Apache Hive](
 > [!IMPORTANT]
 > Los pasos que se describen en este documento funcionan con clústeres de HDInsight basado en Linux. Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Para obtener más información, consulte el artículo relativo al [control de versiones de componentes de HDInsight](../hdinsight-component-versioning.md).
 
-Tanto Hive como Pig pueden pasar datos a aplicaciones externas para el procesamiento. Este proceso se conoce como _streaming_ . Cuando se usa una aplicación .NET, los datos se pasan a la aplicación en STDIN y la aplicación devuelve los resultados en STDOUT. Para leer y escribir en STDIN y STDOUT, puede usar `Console.ReadLine()` y `Console.WriteLine()` desde una aplicación de la consola.
+Tanto Hive como Pig pueden pasar datos a aplicaciones externas para el procesamiento. Este proceso se conoce como _streaming_. Cuando se usa una aplicación .NET, los datos se pasan a la aplicación en STDIN y la aplicación devuelve los resultados en STDOUT. Para leer y escribir en STDIN y STDOUT, puede usar `Console.ReadLine()` y `Console.WriteLine()` desde una aplicación de la consola.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -54,11 +54,11 @@ Para crear un proyecto de C# para una UDF de Apache Hive:
 
 1. Inicie Visual Studio.
 
-2. Seleccione **Crear un proyecto** .
+2. Seleccione **Crear un proyecto**.
 
-3. En la ventana **Crear un proyecto** , seleccione la plantilla **Aplicación de consola (.NET Framework)** (la versión de C#). Luego, seleccione **Siguiente** .
+3. En la ventana **Crear un proyecto**, seleccione la plantilla **Aplicación de consola (.NET Framework)** (la versión de C#). Luego, seleccione **Siguiente**.
 
-4. En la ventana **Configurar el nuevo proyecto** , escriba un **nombre de proyecto** de *HiveCSharp* y vaya a una **ubicación** donde guardar el nuevo proyecto o créela. Seleccione **Crear** .
+4. En la ventana **Configurar el nuevo proyecto**, escriba un **nombre de proyecto** de *HiveCSharp* y vaya a una **ubicación** donde guardar el nuevo proyecto o créela. Seleccione **Crear**.
 
 5. En el IDE de Visual Studio, reemplace el contenido de *Program.cs* por el código siguiente:
 
@@ -121,11 +121,11 @@ Para crear un proyecto de C# para una UDF de Apache Hive:
 
 1. Abra Visual Studio.
 
-2. En la ventana **Inicio** , seleccione **Crear un proyecto** .
+2. En la ventana **Inicio**, seleccione **Crear un proyecto**.
 
-3. En la ventana **Crear un proyecto** , seleccione la plantilla **Aplicación de consola (.NET Framework)** (la versión de C#). Luego, seleccione **Siguiente** .
+3. En la ventana **Crear un proyecto**, seleccione la plantilla **Aplicación de consola (.NET Framework)** (la versión de C#). Luego, seleccione **Siguiente**.
 
-4. En la ventana **Configurar el nuevo proyecto** , escriba un **nombre de proyecto** de *PigUDF* y vaya a una **ubicación** donde guardar el nuevo proyecto o créela. Seleccione **Crear** .
+4. En la ventana **Configurar el nuevo proyecto**, escriba un **nombre de proyecto** de *PigUDF* y vaya a una **ubicación** donde guardar el nuevo proyecto o créela. Seleccione **Crear**.
 
 5. En el IDE de Visual Studio, reemplace el contenido de *Program.cs* por el código siguiente:
 
@@ -168,9 +168,9 @@ Para crear un proyecto de C# para una UDF de Apache Hive:
 
 A continuación, cargue las aplicaciones UDF de Hive y Pig que se van a almacenar en un clúster de HDInsight.
 
-1. En Visual Studio, vaya a **Ver** > **Explorador de servidores** .
+1. En Visual Studio, vaya a **Ver** > **Explorador de servidores**.
 
-1. En el **Explorador de servidores** , haga clic con el botón derecho en **Azure** , seleccione **Conectar a la suscripción de Microsoft Azure** y complete el proceso de inicio de sesión.
+1. En el **Explorador de servidores**, haga clic con el botón derecho en **Azure**, seleccione **Conectar a la suscripción de Microsoft Azure** y complete el proceso de inicio de sesión.
 
 1. Expanda el clúster de HDInsight en el que desee implementar esta aplicación. Aparecerá una entrada con el texto **(Cuenta de almacenamiento predeterminada)** en la lista.
 
@@ -182,25 +182,25 @@ A continuación, cargue las aplicaciones UDF de Hive y Pig que se van a almacena
 
 1. Para cargar los archivos .exe, siga uno de estos métodos:
 
-    * Si está usando una **cuenta de Azure Storage** , seleccione el icono **Cargar blob** .
+    * Si está usando una **cuenta de Azure Storage**, seleccione el icono **Cargar blob**.
 
         ![HDInsight: icono de carga para el proyecto nuevo](./media/apache-hadoop-hive-pig-udf-dotnet-csharp/hdinsight-upload-icon.png)
 
-        En el cuadro de diálogo **Cargar nuevo archivo** , en **Nombre de archivo** , seleccione **Examinar** . En el cuadro de diálogo **Cargar blob** , vaya a la carpeta *bin\debug* del proyecto *HiveCSharp* y, a continuación, elija el archivo *HiveCSharp.exe* . Por último, seleccione **Abrir** y, a continuación, **Aceptar** para completar la carga.
+        En el cuadro de diálogo **Cargar nuevo archivo**, en **Nombre de archivo**, seleccione **Examinar**. En el cuadro de diálogo **Cargar blob**, vaya a la carpeta *bin\debug* del proyecto *HiveCSharp* y, a continuación, elija el archivo *HiveCSharp.exe*. Por último, seleccione **Abrir** y, a continuación, **Aceptar** para completar la carga.
 
-    * Si usa **Azure Data Lake Storage** , haga clic con el botón derecho en un área vacía de la lista de archivos y, después, seleccione **Cargar** . Por último, elija el archivo *HiveCSharp.exe* y seleccione **Abrir** .
+    * Si usa **Azure Data Lake Storage**, haga clic con el botón derecho en un área vacía de la lista de archivos y, después, seleccione **Cargar**. Por último, elija el archivo *HiveCSharp.exe* y seleccione **Abrir**.
 
-    Una vez que la carga del archivo *HiveCSharp.exe* haya finalizado, repita el proceso de carga con el archivo *PigUDF.exe* .
+    Una vez que la carga del archivo *HiveCSharp.exe* haya finalizado, repita el proceso de carga con el archivo *PigUDF.exe*.
 
 ## <a name="run-an-apache-hive-query"></a>Ejecución de una consulta de Apache Hive
 
 Ahora puede ejecutar una consulta de Hive que use su aplicación UDF de Hive.
 
-1. En Visual Studio, vaya a **Ver** > **Explorador de servidores** .
+1. En Visual Studio, vaya a **Ver** > **Explorador de servidores**.
 
-2. Expanda **Azure** y, después, haga lo mismo con **HDInsight** .
+2. Expanda **Azure** y, después, haga lo mismo con **HDInsight**.
 
-3. Haga clic con el botón derecho en el clúster en el que ha implementado la aplicación *HiveCSharp* y, a continuación, elija **Escribir una consulta de Hive** .
+3. Haga clic con el botón derecho en el clúster en el que ha implementado la aplicación *HiveCSharp* y, a continuación, elija **Escribir una consulta de Hive**.
 
 4. Use el siguiente texto para la consulta de Hive:
 
@@ -222,11 +222,11 @@ Ahora puede ejecutar una consulta de Hive que use su aplicación UDF de Hive.
     > [!IMPORTANT]
     > Quite la marca de comentario de la instrucción `add file` que coincide con el tipo de almacenamiento predeterminado que se usa para su clúster.
 
-    Esta consulta selecciona los campos `clientid`, `devicemake` y `devicemodel` de `hivesampletable` y, a continuación, los pasa a la aplicación *HiveCSharp.exe* . La consulta espera que la aplicación devuelva tres campos, que están almacenados como `clientid`, `phoneLabel` y `phoneHash`. La consulta también espera que *HiveCSharp.exe* esté en la raíz del contenedor de almacenamiento predeterminado.
+    Esta consulta selecciona los campos `clientid`, `devicemake` y `devicemodel` de `hivesampletable` y, a continuación, los pasa a la aplicación *HiveCSharp.exe*. La consulta espera que la aplicación devuelva tres campos, que están almacenados como `clientid`, `phoneLabel` y `phoneHash`. La consulta también espera que *HiveCSharp.exe* esté en la raíz del contenedor de almacenamiento predeterminado.
 
-5. Cambie el valor predeterminado de **Interactivo** a **Lote** y después seleccione **Enviar** para enviar el trabajo al clúster de HDInsight. Se abre la ventana **Resumen del trabajo de Hive** .
+5. Cambie el valor predeterminado de **Interactivo** a **Lote** y después seleccione **Enviar** para enviar el trabajo al clúster de HDInsight. Se abre la ventana **Resumen del trabajo de Hive**.
 
-6. Seleccione **Actualizar** para actualizar el resumen hasta que el valor de **Estado del trabajo** cambie a **Completado** . Para ver la salida del trabajo, seleccione **Salida de trabajo** .
+6. Seleccione **Actualizar** para actualizar el resumen hasta que el valor de **Estado del trabajo** cambie a **Completado**. Para ver la salida del trabajo, seleccione **Salida de trabajo**.
 
 ## <a name="run-an-apache-pig-job"></a>Ejecución de un trabajo de Apache Pig
 

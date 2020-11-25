@@ -8,11 +8,11 @@ ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: cherylmc
 ms.openlocfilehash: 6c6f71277c276bed603989774637bd95999de333
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92079061"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023538"
 ---
 # <a name="expressroute-encryption-ipsec-over-expressroute-for-virtual-wan"></a>Cifrado de ExpressRoute: IPsec sobre ExpressRoute para Virtual WAN
 
@@ -105,16 +105,16 @@ Después de crear el sitio VPN y conectarlo al centro de conectividad, use estos
 
 1. Vuelva a la página de recursos de la red de área extensa virtual y seleccione el recurso del centro de conectividad. O bien, vaya desde el sitio VPN hasta el concentrador conectado.
 
-   :::image type="content" source="./media/vpn-over-expressroute/hub-selection.png" alt-text="VPN a través de ExpressRoute":::
+   :::image type="content" source="./media/vpn-over-expressroute/hub-selection.png" alt-text="Selección de un centro":::
 1. En **Conectividad**, seleccione **VPN (de sitio a sitio)**.
 
-   :::image type="content" source="./media/vpn-over-expressroute/vpn-select.png" alt-text="VPN a través de ExpressRoute":::
+   :::image type="content" source="./media/vpn-over-expressroute/vpn-select.png" alt-text="Seleccionar VPN (sitio a sitio)":::
 1. Seleccione los puntos suspensivos (**...**) en el sitio VPN sobre ExpressRoute y seleccione **Editar la conexión de VPN a este concentrador**.
 
-   :::image type="content" source="./media/vpn-over-expressroute/config-menu.png" alt-text="VPN a través de ExpressRoute":::
+   :::image type="content" source="./media/vpn-over-expressroute/config-menu.png" alt-text="Menú Especificar configuración":::
 1. En **Usar dirección IP privada de Azure**, seleccione **Sí**. El ajuste configura la puerta de enlace de VPN de concentrador para que use direcciones IP privadas dentro del intervalo de direcciones del concentrador en la puerta de enlace para esta conexión, en lugar de las direcciones IP públicas. Esto garantizará que el tráfico de la red local atraviesa las rutas de acceso del emparejamiento privado de ExpressRoute, en lugar de usar la red pública de Internet para esta conexión VPN. En la captura de pantalla siguiente se muestra la configuración:
 
-   :::image type="content" source="./media/vpn-over-expressroute/vpn-link-configuration.png" alt-text="VPN a través de ExpressRoute" border="false":::
+   :::image type="content" source="./media/vpn-over-expressroute/vpn-link-configuration.png" alt-text="Configuración para el uso de una dirección IP privada para la conexión VPN" border="false":::
 1. Seleccione **Guardar**.
 
 Después de guardar los cambios, la puerta de enlace de VPN del centro de conectividad usará las direcciones IP privadas en la puerta de enlace de VPN para establecer las conexiones IPsec/IKE con el dispositivo VPN local a través de ExpressRoute.

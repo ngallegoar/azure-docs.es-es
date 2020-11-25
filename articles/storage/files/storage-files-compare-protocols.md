@@ -8,12 +8,12 @@ ms.date: 09/15/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 961ba457136d20fbb63ae3315fe8143cffb56be2
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: c4cbbc437b633232ea65dd202b7531a1a5ac2c58
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629315"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "96022602"
 ---
 # <a name="azure-file-share-protocols"></a>Protocolos de recurso compartido de archivos de Azure
 
@@ -26,7 +26,7 @@ Azure Files ofrece dos protocolos para conectar y montar los recursos compartido
 |Protocolos de acceso     |NFS 4.1         |SMB 2.1, SMB 3.0         |
 |SO admitido     |Versión posterior a la 4.3 del kernel de Linux         |Posterior Windows 2008 R2, versión posterior a la 4.11+         |
 |[Niveles disponibles](storage-files-planning.md#storage-tiers)     |Premium Storage         |Premium Storage, optimizado para transacciones, acceso frecuente, acceso esporádico         |
-|[Redundancia](storage-files-planning.md#redundancy)     |LRS         |LRS, ZRS, GRS         |
+|[Redundancia](storage-files-planning.md#redundancy)     |LRS, ZRS         |LRS, ZRS, GRS         |
 |Autenticación     |Solo autenticación basada en host        |Autenticación basada en identidad, autenticación basada en usuario         |
 |Permisos     |Permisos de estilo UNIX         |Permisos de estilo NTFS         |
 |Semántica del sistema de archivos     |Compatible con POSIX         |No compatible con POSIX         |

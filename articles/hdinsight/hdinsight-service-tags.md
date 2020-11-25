@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 08/11/2020
 ms.openlocfilehash: 1a90bc6636dcb3aa81f09b0489850c1a95b3256d
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92535253"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96022758"
 ---
 # <a name="nsg-service-tags-for-azure-hdinsight"></a>Etiquetas de servicio de grupos de seguridad de red para Azure HDInsight
 
@@ -26,9 +26,9 @@ Si quiere usar una región determinada y la etiqueta de servicio aún no está d
 
 Tiene dos opciones para usar etiquetas de servicio en los grupos de seguridad de red:
 
-- **Usar una sola etiqueta de servicio de HDInsight global** : esta opción abre la red virtual a todas las direcciones IP que usa el servicio HDInsight para supervisar los clústeres en todas las regiones. Aunque es el método más sencillo, podría no ser adecuado si tiene requisitos de seguridad restrictivos.
+- **Usar una sola etiqueta de servicio de HDInsight global**: esta opción abre la red virtual a todas las direcciones IP que usa el servicio HDInsight para supervisar los clústeres en todas las regiones. Aunque es el método más sencillo, podría no ser adecuado si tiene requisitos de seguridad restrictivos.
 
-- **Usar varias etiquetas de servicio regionales** : esta opción abre la red virtual solo a las direcciones IP que usa HDInsight en esa región específica. No obstante, si usa varias regiones, tendrá que agregar varias etiquetas de servicio a la red virtual.
+- **Usar varias etiquetas de servicio regionales**: esta opción abre la red virtual solo a las direcciones IP que usa HDInsight en esa región específica. No obstante, si usa varias regiones, tendrá que agregar varias etiquetas de servicio a la red virtual.
 
 ## <a name="use-a-single-global-hdinsight-service-tag"></a>Usar una sola etiqueta de servicio de HDInsight global
 
@@ -36,11 +36,11 @@ La manera más fácil de empezar a usar etiquetas de servicio con el clúster de
 
 1. Desde [Azure Portal](https://portal.azure.com/), seleccione su grupo de seguridad de red.
 
-1. En **Configuración** , seleccione **Reglas de seguridad de entrada** y, a continuación, seleccione **+ Agregar** .
+1. En **Configuración**, seleccione **Reglas de seguridad de entrada** y, a continuación, seleccione **+ Agregar**.
 
-1. En la lista desplegable **Origen** , seleccione **Etiqueta de servicio** .
+1. En la lista desplegable **Origen**, seleccione **Etiqueta de servicio**.
 
-1. En la lista desplegable **Etiqueta de servicio de origen** , seleccione **HDInsight** .
+1. En la lista desplegable **Etiqueta de servicio de origen**, seleccione **HDInsight**.
 
     ![Adición de una etiqueta de servicio desde Azure Portal](./media/hdinsight-service-tags/azure-portal-add-service-tag.png)
 

@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.date: 11/15/2019
 ms.custom: H1Hack27Feb2017,hdinsightactive, devx-track-python
 ms.openlocfilehash: 0179fd10e75af0ced55b4bb41f9525dc26b3efe5
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92540387"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023081"
 ---
 # <a name="use-python-user-defined-functions-udf-with-apache-hive-and-apache-pig-in-hdinsight"></a>Uso de funciones definidas por el usuario (UDF) de Python con Apache Hive y Apache Pig en HDInsight
 
@@ -27,8 +27,8 @@ HDInsight incluye también Jython, que es una implementación de Python escrita 
 
 ## <a name="prerequisites"></a>Prerequisites
 
-* **Un clúster de Hadoop en HDInsight** . Consulte [Introducción a HDInsight en Linux](apache-hadoop-linux-tutorial-get-started.md).
-* **Un cliente SSH** . Para más información, consulte [Conexión a través de SSH con HDInsight (Apache Hadoop)](../hdinsight-hadoop-linux-use-ssh-unix.md).
+* **Un clúster de Hadoop en HDInsight**. Consulte [Introducción a HDInsight en Linux](apache-hadoop-linux-tutorial-get-started.md).
+* **Un cliente SSH**. Para más información, consulte [Conexión a través de SSH con HDInsight (Apache Hadoop)](../hdinsight-hadoop-linux-use-ssh-unix.md).
 * El [esquema de URI](../hdinsight-hadoop-linux-information.md#URI-and-scheme) para el almacenamiento principal de clústeres. Sería `wasb://` para Azure Storage, `abfs://` para Azure Data Lake Storage Gen2 o adl:// para Azure Data Lake Storage Gen1. Si se habilita la transferencia segura para Azure Storage, el identificador URI sería wasbs://.  Consulte también el artículo acerca de la [transferencia segura](../../storage/common/storage-require-secure-transfer.md).
 * **Posible cambio en la configuración de almacenamiento.**  Vea [Configuración de almacenamiento](#storage-configuration) si usa el tipo de cuenta de almacenamiento `BlobStorage`.
 * Opcional.  Si tiene previsto usar PowerShell, necesitará tener instalado el [módulo AZ](/powershell/azure/new-azureps-module-az).
@@ -300,8 +300,8 @@ Un script de Python se puede usar como UDF desde Pig a través de la instrucció
 
 Para especificar el intérprete de Python, use `register` al hacer referencia al script de Python. Los ejemplos siguientes registran scripts con Pig como `myfuncs`:
 
-* **Para usar Jython** : `register '/path/to/pigudf.py' using jython as myfuncs;`
-* **Para usar C Python** : `register '/path/to/pigudf.py' using streaming_python as myfuncs;`
+* **Para usar Jython**: `register '/path/to/pigudf.py' using jython as myfuncs;`
+* **Para usar C Python**: `register '/path/to/pigudf.py' using streaming_python as myfuncs;`
 
 > [!IMPORTANT]  
 > Al usar Jython, la ruta de acceso al archivo pig_jython puede ser una ruta de acceso local o una ruta de acceso WASBS://. Sin embargo, cuando se usa C Python, se debe hacer referencia a un archivo local en el sistema de archivos local del nodo que se usa para enviar el trabajo de Pig.
@@ -343,7 +343,7 @@ def create_structure(input):
 
 En el ejemplo de Pig Latin, la entrada `LINE` se define como chararray porque no hay un esquema coherente para la entrada. El script de Python transforma los datos en un esquema coherente para la salida.
 
-1. La instrucción `@outputSchema` define el formato de los datos que se devuelven a Pig. En este caso es un **contenedor de datos** , que es un tipo de datos de Pig. El contenedor contiene los siguientes campos, los cuales son todos chararray (cadenas):
+1. La instrucción `@outputSchema` define el formato de los datos que se devuelven a Pig. En este caso es un **contenedor de datos**, que es un tipo de datos de Pig. El contenedor contiene los siguientes campos, los cuales son todos chararray (cadenas):
 
    * date: la fecha en la que se creó la entrada del registro
    * time: la hora a la que se creó la entrada del registro

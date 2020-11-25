@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020, devx-track-azurecli
 ms.date: 04/28/2020
 ms.openlocfilehash: eb8201ea888b98250d452e0b0e1c48f30cbb1efc
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92742052"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96022741"
 ---
 # <a name="use-azure-blob-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Uso de firmas de acceso compartido de Azure Blob Storage para restringir el acceso a datos en HDInsight
 
@@ -207,7 +207,7 @@ Es posible que tenga que ejecutar `pip install --upgrade azure-storage` si recib
 
 1. Abra la solución en Visual Studio.
 
-2. En el Explorador de soluciones, haga clic con el botón derecho en el proyecto **SASExample** y seleccione **Propiedades** .
+2. En el Explorador de soluciones, haga clic con el botón derecho en el proyecto **SASExample** y seleccione **Propiedades**.
 
 3. Seleccione **Configuración** y agregue valores para las siguientes entradas:
 
@@ -357,8 +357,8 @@ Si tiene un clúster existente, puede agregar la SAS para la configuración **co
 
 1. Expanda la sección **Custom core-site** (Sitio principal personalizado), desplácese hasta el final y seleccione **Add property...** (Agregar propiedad...). Utilice los siguientes valores para los campos **Key** (Clave) y **Value** (Valor):
 
-    * **Clave** : `fs.azure.sas.CONTAINERNAME.STORAGEACCOUNTNAME.blob.core.windows.net`
-    * **Valor** : La SAS devuelta por uno de los métodos que se han ejecutado antes.
+    * **Clave**: `fs.azure.sas.CONTAINERNAME.STORAGEACCOUNTNAME.blob.core.windows.net`
+    * **Valor**: La SAS devuelta por uno de los métodos que se han ejecutado antes.
 
     Reemplace `CONTAINERNAME` por el nombre del contenedor que ha usado con la aplicación de C# o de SAS. Reemplace `STORAGEACCOUNTNAME` por el nombre de la cuenta de almacenamiento que ha usado.
 
@@ -373,7 +373,7 @@ Si tiene un clúster existente, puede agregar la SAS para la configuración **co
 
 1. Aparecerá una lista desplegable **Restart** (Reiniciar). Seleccione **Restart All Affected** (Reiniciar todos los afectados) en la lista desplegable y, a continuación, seleccione __Confirm Restart All__ (Confirmar reiniciar todos).
 
-    Repita este proceso para **MapReduce2** y **YARN** .
+    Repita este proceso para **MapReduce2** y **YARN**.
 
 1. Una vez reiniciados los servicios, seleccione cada uno de ellos y deshabilite el modo de mantenimiento en la lista desplegable **Service Actions** (Acciones del servicio).
 
@@ -411,7 +411,7 @@ Siga los pasos siguientes para comprobar que solo puede leer y enumerar elemento
     hdfs dfs -get wasbs://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/sample.log testfile.txt
     ```
 
-    Este comando descarga el archivo en un archivo local denominado **testfile.txt** .
+    Este comando descarga el archivo en un archivo local denominado **testfile.txt**.
 
 5. Use el siguiente comando para cargar el archivo local en un nuevo archivo denominado **testupload.txt** en el almacenamiento de SAS:
 

@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: alkohli
 ms.openlocfilehash: f59d1e297ba4d7607d7abd07a78da4784f55d20f
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92792912"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023234"
 ---
 # <a name="data-transfer-for-small-datasets-with-low-to-moderate-network-bandwidth"></a>Transferencia de pequeños conjuntos de datos con ancho de banda de red de bajo a moderado
  
@@ -32,17 +32,17 @@ Los conjuntos de datos pequeños hacen referencia a tamaños de datos en el orde
 
 Las opciones recomendadas en este escenario son las siguientes:
 
-- **Herramientas de interfaz gráfica** : como Azure Storage Explorer y Azure Storage en el Azure Portal. Estas proporcionan una manera fácil de ver sus datos y transferir rápidamente algunos archivos.
+- **Herramientas de interfaz gráfica**: como Azure Storage Explorer y Azure Storage en el Azure Portal. Estas proporcionan una manera fácil de ver sus datos y transferir rápidamente algunos archivos.
 
-    - **Explorador de Azure Storage** : es una herramienta multiplataforma que permite administrar el contenido de las cuentas de Azure Storage. Permite cargar, descargar y administrar blogs, archivos, colas, tablas y entidades de Azure Cosmos DB. Utilícelo con Blob Storage para administrar blobs y carpetas, así como para cargar y descargar blobs entre el sistema de archivos local y Blob Storage, o entre cuentas de almacenamiento.
-    - **Azure Portal** : Azure Storage en Azure Portal proporciona una interfaz basada en la web que sirve para explorar archivos y cargar nuevos archivos de uno en uno. Es una buena opción si no desea instalar herramientas ni generar comandos para explorar rápidamente los archivos, o simplemente cargar archivos nuevos.
+    - **Explorador de Azure Storage**: es una herramienta multiplataforma que permite administrar el contenido de las cuentas de Azure Storage. Permite cargar, descargar y administrar blogs, archivos, colas, tablas y entidades de Azure Cosmos DB. Utilícelo con Blob Storage para administrar blobs y carpetas, así como para cargar y descargar blobs entre el sistema de archivos local y Blob Storage, o entre cuentas de almacenamiento.
+    - **Azure Portal**: Azure Storage en Azure Portal proporciona una interfaz basada en la web que sirve para explorar archivos y cargar nuevos archivos de uno en uno. Es una buena opción si no desea instalar herramientas ni generar comandos para explorar rápidamente los archivos, o simplemente cargar archivos nuevos.
 
-- **Herramientas de scripting y programación** : como AzCopy, PowerShell, la CLI de Azure y las API REST de Azure Storage.
+- **Herramientas de scripting y programación**: como AzCopy, PowerShell, la CLI de Azure y las API REST de Azure Storage.
 
-    - **AzCopy** : use esta herramienta de la línea de comandos para copiar fácilmente datos desde y hacia Azure Blobs, Files y Table Storage con un rendimiento óptimo. AzCopy admite la simultaneidad y el paralelismo, y permite reanudar operaciones de copia cuando si se interrumpen.
-    - **Azure PowerShell** : para usuarios que se sienten cómodos con la administración del sistema, use el módulo de Azure Storage en Azure PowerShell para transferir datos.
-    - **CLI de Azure** : use esta herramienta multiplataforma para poder administrar los servicios de Azure y cargar datos en Azure Storage.
-    - **API/SDK REST de Azure Storage** : al crear una aplicación, puede desarrollarla en función de las API REST y los SDK de Azure Storage y usar las bibliotecas de cliente de Azure que se ofrecen en varios lenguajes.
+    - **AzCopy**: use esta herramienta de la línea de comandos para copiar fácilmente datos desde y hacia Azure Blobs, Files y Table Storage con un rendimiento óptimo. AzCopy admite la simultaneidad y el paralelismo, y permite reanudar operaciones de copia cuando si se interrumpen.
+    - **Azure PowerShell**: para usuarios que se sienten cómodos con la administración del sistema, use el módulo de Azure Storage en Azure PowerShell para transferir datos.
+    - **CLI de Azure**: use esta herramienta multiplataforma para poder administrar los servicios de Azure y cargar datos en Azure Storage.
+    - **API/SDK REST de Azure Storage**: al crear una aplicación, puede desarrollarla en función de las API REST y los SDK de Azure Storage y usar las bibliotecas de cliente de Azure que se ofrecen en varios lenguajes.
 
 
 ## <a name="comparison-of-key-capabilities"></a>Comparación de funcionalidades clave

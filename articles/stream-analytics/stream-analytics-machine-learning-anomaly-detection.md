@@ -8,15 +8,15 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 06/21/2019
 ms.openlocfilehash: c57a3920dac3e18e248109fafdf61fdfa871c54d
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93123717"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023404"
 ---
 # <a name="anomaly-detection-in-azure-stream-analytics"></a>Detección de anomalías en Azure Stream Analytics
 
-Disponible tanto en la nube como en Azure IoT Edge, Azure Stream Analytics ofrece funcionalidades de detección de anomalías integradas basadas en aprendizaje automático, que se pueden usar para supervisar las dos anomalías que se producen con más frecuencia: temporales y persistentes. Con las funciones **AnomalyDetection_SpikeAndDip** y **AnomalyDetection_ChangePoint** , puede realizar la detección de anomalías directamente en el trabajo de Stream Analytics.
+Disponible tanto en la nube como en Azure IoT Edge, Azure Stream Analytics ofrece funcionalidades de detección de anomalías integradas basadas en aprendizaje automático, que se pueden usar para supervisar las dos anomalías que se producen con más frecuencia: temporales y persistentes. Con las funciones **AnomalyDetection_SpikeAndDip** y **AnomalyDetection_ChangePoint**, puede realizar la detección de anomalías directamente en el trabajo de Stream Analytics.
 
 Los modelos de aprendizaje automático asumen una serie temporal muestreada uniformemente. Si la serie temporal no es uniforme, puede insertar un paso de agregación con una ventana de saltos de tamaño constante antes de llamar a la detección de anomalías.
 
@@ -114,9 +114,9 @@ FROM AnomalyDetectionStep
 
 El rendimiento de estos modelos depende del tamaño del historial, la duración de la ventana, la carga de eventos y de si se utiliza la partición del nivel de función. En esta sección se describen estas configuraciones y se proporcionan ejemplos de cómo mantener las tasas de ingesta de mil, cinco mil y diez mil eventos por segundo.
 
-* **Tamaño del historial** : estos modelos se ejecutan linealmente con el **tamaño historial**. Cuanto mayor sea, más tiempo tardarán los modelos en puntuar un nuevo evento. Esto es porque los modelos comparan el nuevo evento con cada uno de los eventos anteriores en el búfer del historial.
-* **Duración de la ventana** : la **duración de la ventana** debe reflejar cuánto tarda en recibir todos los eventos según lo especificado por el tamaño del historial. Si no hay muchos eventos en la ventana, Azure Stream Analytics imputará los valores que falten. Por lo tanto, el consumo de CPU es una función del tamaño del historial.
-* **Carga de eventos** : cuanto mayor sea la **carga de eventos** , más trabajo realizarán los modelos, lo cual afecta al consumo de CPU. El trabajo se puede escalar horizontalmente de manera vergonzosamente paralela, dando por hecho que tiene sentido según la lógica de negocios usar más particiones de entrada.
+* **Tamaño del historial**: estos modelos se ejecutan linealmente con el **tamaño historial**. Cuanto mayor sea, más tiempo tardarán los modelos en puntuar un nuevo evento. Esto es porque los modelos comparan el nuevo evento con cada uno de los eventos anteriores en el búfer del historial.
+* **Duración de la ventana**: la **duración de la ventana** debe reflejar cuánto tarda en recibir todos los eventos según lo especificado por el tamaño del historial. Si no hay muchos eventos en la ventana, Azure Stream Analytics imputará los valores que falten. Por lo tanto, el consumo de CPU es una función del tamaño del historial.
+* **Carga de eventos**: cuanto mayor sea la **carga de eventos**, más trabajo realizarán los modelos, lo cual afecta al consumo de CPU. El trabajo se puede escalar horizontalmente de manera vergonzosamente paralela, dando por hecho que tiene sentido según la lógica de negocios usar más particiones de entrada.
 * **Partición del nivel de función** -  la **partición del nivel de función** se realiza mediante ```PARTITION BY``` dentro de la llamada de la función de detección de anomalías. Este tipo de partición agrega una sobrecarga, ya que el estado debe mantenerse para varios modelos al mismo tiempo. La partición del nivel de función se usa en escenarios como la partición del nivel de dispositivo.
 
 ### <a name="relationship"></a>Relación

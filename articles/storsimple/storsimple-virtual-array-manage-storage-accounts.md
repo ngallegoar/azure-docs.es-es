@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
-ms.openlocfilehash: 8267a678f35d01119ae3e7d89a07c789dc969614
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 70b6231829173059ffee675105bacbe1bd1532f2
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85507507"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023898"
 ---
 # <a name="use-storsimple-device-manager-to-manage-storage-account-credentials-for-storsimple-virtual-array"></a>Uso de StorSimple Device Manager para administrar credenciales de cuentas de almacenamiento de StorSimple Virtual Array
 
@@ -31,7 +31,7 @@ La sección **Configuración** de la hoja del servicio StorSimple Device Manager
   
   ![Panel del servicio Device Manager](./media/storsimple-virtual-array-manage-storage-accounts/ova-storageaccts-dashboard.png)  
 
-En este tutorial se explica cómo puede agregar, editar o eliminar cuentas de almacenamiento de StorSimple Virtual Array. La información de este tutorial solo se aplica a StorSimple Virtual Array. Para más información sobre cómo administrar cuentas de almacenamiento de la serie 8000, consulte [Usar el servicio StorSimple Manager para administrar su cuenta de almacenamiento](storsimple-manage-storage-accounts.md).
+En este tutorial se explica cómo puede agregar, editar o eliminar cuentas de almacenamiento de StorSimple Virtual Array. La información de este tutorial solo se aplica a StorSimple Virtual Array. Para más información sobre cómo administrar cuentas de almacenamiento de la serie 8000, consulte [Usar el servicio StorSimple Manager para administrar su cuenta de almacenamiento](./storsimple-8000-manage-storage-accounts.md).
 
 Las credenciales de las cuentas de almacenamiento son las credenciales que usa el dispositivo para acceder a su cuenta de almacenamiento con el proveedor de servicios en la nube. En el caso de las cuentas de almacenamiento de Microsoft Azure, se trata de credenciales como el nombre de cuenta y la clave de acceso primaria.
 
@@ -52,7 +52,7 @@ Las tareas más comunes relacionadas con las credenciales de las cuentas de alma
 Hay tres tipos de credenciales de cuentas de almacenamiento que se pueden usar con el dispositivo StorSimple.
 
 * **Credenciales de cuentas de almacenamiento generadas automáticamente**: como sugiere su nombre, este tipo de credenciales de cuenta de almacenamiento se genera automáticamente cuando se crea el servicio por primera vez. Para más información sobre cómo se crean estas credenciales de cuenta de almacenamiento, consulte [Creación de un nuevo servicio](storsimple-virtual-array-manage-service.md#create-a-service).
-* **Credenciales de cuentas de almacenamiento en la suscripción al servicio**: se trata de credenciales de cuentas de almacenamiento de Azure que están asociadas a la misma suscripción que la del servicio. Para más información sobre cómo se crean estas cuentas de almacenamiento, consulte [Acerca de las cuentas de Azure Storage](../storage/common/storage-create-storage-account.md).
+* **Credenciales de cuentas de almacenamiento en la suscripción al servicio**: se trata de credenciales de cuentas de almacenamiento de Azure que están asociadas a la misma suscripción que la del servicio. Para más información sobre cómo se crean estas cuentas de almacenamiento, consulte [Acerca de las cuentas de Azure Storage](../storage/common/storage-account-create.md).
 * **Credenciales de las cuentas de almacenamiento fuera de la suscripción al servicio**: son las credenciales de las cuentas de almacenamiento de Azure no asociadas al servicio que probablemente existían antes de que se crease el servicio.
 
 ## <a name="add-a-storage-account-credential"></a>Incorporación de una credencial de cuenta de almacenamiento
@@ -152,4 +152,3 @@ Para informar al servicio StorSimple Device Manager del cambio, tendrá que acce
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Obtenga más información para [administrar la matriz virtual de StorSimple](storsimple-ova-web-ui-admin.md).
-

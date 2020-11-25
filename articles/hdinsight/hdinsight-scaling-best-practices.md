@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/29/2020
 ms.openlocfilehash: 22ce91a81964ed52830fc19dbbbd52e7f170b0d4
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92535406"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96022775"
 ---
 # <a name="scale-azure-hdinsight-clusters"></a>Escala de clústeres de Azure HDInsight
 
@@ -82,7 +82,7 @@ A continuación se muestra cómo el efecto de cambiar el número de nodos de dat
 
     1. Abra `https://CLUSTERNAME.azurehdinsight.net/stormui` en el explorador web, donde `CLUSTERNAME` es el nombre del clúster de Storm. Si se le solicite, escriba el nombre de administrador (admin) del clúster de HDInsight y la contraseña que especificó al crear el clúster.
 
-    1. Seleccione la topología que quiere equilibrar y, después, seleccione el botón **Reequilibrar** . Especifique el retraso antes de realizar la operación de reequilibrio.
+    1. Seleccione la topología que quiere equilibrar y, después, seleccione el botón **Reequilibrar**. Especifique el retraso antes de realizar la operación de reequilibrio.
 
         ![Reequilibrio de escalado de HDInsight Storm](./media/hdinsight-scaling-best-practices/hdinsight-portal-scale-cluster-storm-rebalance.png)
 
@@ -128,9 +128,9 @@ Para evitar que se produzcan errores en los trabajos en ejecución durante una o
 Para ver una lista de los trabajos pendientes y en ejecución, puede usar la **interfaz de usuario de Resource Manager** de YARN; para ello, siga estos pasos:
 
 1. En [Azure Portal](https://portal.azure.com/), seleccione su clúster.  El clúster se abre en una nueva página del portal.
-2. En la vista principal, vaya a **Paneles de clúster** > **Inicio de Ambari** . Escriba las credenciales del clúster.
+2. En la vista principal, vaya a **Paneles de clúster** > **Inicio de Ambari**. Escriba las credenciales del clúster.
 3. En la interfaz de usuario de Ambari, seleccione **YARN** en la lista de servicios del menú de la izquierda.  
-4. En la página de YARN, seleccione **Vínculos rápidos** , mantenga el puntero sobre el nodo principal activo y, después, seleccione **ResourceManager UI** (UI de Resource Manager).
+4. En la página de YARN, seleccione **Vínculos rápidos**, mantenga el puntero sobre el nodo principal activo y, después, seleccione **ResourceManager UI** (UI de Resource Manager).
 
     ![Interfaz de usuario de Resource Manager de vínculos rápidos de Apache Ambari](./media/hdinsight-scaling-best-practices/resource-manager-ui1.png)
 

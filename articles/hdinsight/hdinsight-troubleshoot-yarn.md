@@ -8,11 +8,11 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 08/15/2019
 ms.openlocfilehash: b8dc63030c6791779ad90500747e4e2f5c4ffeef
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93288985"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96022673"
 ---
 # <a name="troubleshoot-apache-hadoop-yarn-by-using-azure-hdinsight"></a>Solucione problemas de YARN de Apache Hadoop con Azure HDInsight.
 
@@ -24,7 +24,7 @@ Obtenga información sobre los principales problemas y sus soluciones al trabaja
 
 Para crear una nueva cola de YARN y equilibrar la asignación de capacidad en todas las colas, siga estos pasos en Ambari.
 
-En este ejemplo, se cambia la capacidad de las dos colas existentes ( **default** (predeterminado) y **thriftsvr** ) del 50% al 25%, lo que proporciona una capacidad del 50% a la nueva cola (spark).
+En este ejemplo, se cambia la capacidad de las dos colas existentes (**default** (predeterminado) y **thriftsvr**) del 50% al 25%, lo que proporciona una capacidad del 50% a la nueva cola (spark).
 
 | Cola | Capacity | Capacidad máxima |
 | --- | --- | --- |
@@ -38,7 +38,7 @@ En este ejemplo, se cambia la capacidad de las dos colas existentes ( **default*
 2. Seleccione la cola **default**.
 
     ![YARN de Apache Ambari: seleccionar cola predeterminada](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-2.png)
-3. Para la cola **default** , cambie la **capacidad** del 50% al 25%. Para la cola **thriftsvr** , cambie la **capacidad** al 25%.
+3. Para la cola **default**, cambie la **capacidad** del 50% al 25%. Para la cola **thriftsvr**, cambie la **capacidad** al 25%.
 
     ![Cambio de la capacidad al 25 % para las colas default y thriftsvr](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-3.png)
 4. Seleccione **Add Queue** (Agregar cola) para crear una nueva cola.

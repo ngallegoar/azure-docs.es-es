@@ -10,11 +10,11 @@ ms.author: cavoeg
 author: caitlinv39
 ms.date: 01/03/2020
 ms.openlocfilehash: 1c64468a2e420734ca51a5b9308bb52e13712c51
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87852929"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023319"
 ---
 # <a name="testing-the-fhir-api"></a>Prueba de la API de FHIR
 En los dos pasos anteriores, se ha implementado Azure API for FHIR y se ha registrado la aplicación cliente. Ya está preparado para probar que su instancia de Azure API for FHIR está configurada con la aplicación cliente. 

@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.service: iot-hub
 services: iot-hub
 ms.openlocfilehash: 8a39c2b06ca8a0f852891acb60ba199fc2c6db5c
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92142678"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96024136"
 ---
 # <a name="best-practices-for-device-configuration-within-an-iot-solution"></a>Procedimientos recomendados para la configuración de dispositivos en una solución de IoT
 
@@ -70,7 +70,7 @@ Estos son los procedimientos recomendados para los desarrolladores de soluciones
 
    Las configuraciones automáticas de dispositivos se ejecutan por primera vez poco después de crear la configuración y, a continuación, en intervalos de cinco minutos. También se benefician de que IoT Hub realiza operaciones de dispositivo gemelo a una velocidad que nunca supera los [límites](iot-hub-devguide-quotas-throttling.md) de lecturas y actualizaciones de dispositivos gemelos.
 
-* **Usar el servicio[de aprovisionamiento de dispositivos](../iot-dps/how-to-manage-enrollments.md):** los desarrolladores de soluciones deben usar el servicio de aprovisionamiento de dispositivos para asignar etiquetas de dispositivo gemelo a nuevos dispositivos, de forma que se configurarán automáticamente mediante **configuraciones automáticas de dispositivos** dirigidas a dispositivos gemelos con esa etiqueta. 
+* **Usar el servicio [de aprovisionamiento de dispositivos](../iot-dps/how-to-manage-enrollments.md):** los desarrolladores de soluciones deben usar el servicio de aprovisionamiento de dispositivos para asignar etiquetas de dispositivo gemelo a nuevos dispositivos, de forma que se configurarán automáticamente mediante **configuraciones automáticas de dispositivos** dirigidas a dispositivos gemelos con esa etiqueta. 
 
 ## <a name="iot-solution-operator"></a>Operador de soluciones de IoT
 

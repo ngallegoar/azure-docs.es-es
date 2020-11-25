@@ -5,11 +5,11 @@ ms.topic: article
 ms.date: 10/28/2020
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 9162b8578fe4f48cc3740b38d9d84ffaa2f260de
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92927794"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023608"
 ---
 # <a name="overview-of-service-bus-transaction-processing"></a>Información general sobre el procesamiento de transacciones de Service Bus
 
@@ -36,7 +36,7 @@ La disposición del mensaje (completar, abandonar, correo devuelto, aplazar), se
 
 ## <a name="transfers-and-send-via"></a>Transferencias y "enviar por"
 
-Para permitir la entrega transaccional de datos de una cola o un tema a un procesador y luego a otra cola u otro tema, Service Bus admite *transferencias*. En las operaciones de transferencia, en primer lugar un remitente envía un mensaje a una *cola o un tema de transferencia* , que lo mueve inmediatamente a la cola o el tema de destino deseado usando la misma implementación de transferencias sólida que la funcionalidad de reenvío automático en la que se basa. El mensaje nunca se confirma en el registro del tema o la cola de transferencia de forma que se vuelve visible para los consumidores de dicho tema o cola.
+Para permitir la entrega transaccional de datos de una cola o un tema a un procesador y luego a otra cola u otro tema, Service Bus admite *transferencias*. En las operaciones de transferencia, en primer lugar un remitente envía un mensaje a una *cola o un tema de transferencia*, que lo mueve inmediatamente a la cola o el tema de destino deseado usando la misma implementación de transferencias sólida que la funcionalidad de reenvío automático en la que se basa. El mensaje nunca se confirma en el registro del tema o la cola de transferencia de forma que se vuelve visible para los consumidores de dicho tema o cola.
 
 La eficacia de esta funcionalidad transaccional se hace evidente cuando el propio tema o la cola de transferencia es el origen de los mensajes de entrada del remitente. En otras palabras, Service Bus puede transferir el mensaje a la cola o el tema de destino "mediante" la cola o el tema de transferencia y al mismo tiempo realizar una operación completa (o de aplazamiento o correo devuelto) en el mensaje de entrada, todo en una operación atómica. 
 
