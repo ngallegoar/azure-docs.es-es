@@ -9,11 +9,11 @@ ms.topic: troubleshooting
 ms.date: 08/22/2019
 ms.custom: seodec18
 ms.openlocfilehash: 9e60903aaa61cae63d406d459937d33317eee394
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545640"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96022258"
 ---
 # <a name="troubleshoot-apache-spark-by-using-azure-hdinsight"></a>Solución de problemas de Apache Spark mediante Azure HDInsight
 
@@ -29,19 +29,19 @@ Los valores de configuración de Spark se pueden ajustar para ayudar a evitar un
 
     ![Selección de la pestaña Configs (Configuraciones)](./media/apache-troubleshoot-spark/apache-spark-ambari-config2.png)
 
-1. En la lista de configuraciones, seleccione y expanda **Custom-spark2-defaults** .
+1. En la lista de configuraciones, seleccione y expanda **Custom-spark2-defaults**.
 
-1. Busque el valor de configuración que tiene que ajustar, por ejemplo **spark.executor.memory** . En este caso, el valor de **9728m** es demasiado alto.
+1. Busque el valor de configuración que tiene que ajustar, por ejemplo **spark.executor.memory**. En este caso, el valor de **9728m** es demasiado alto.
 
     ![Selección de custom-spark-defaults](./media/apache-troubleshoot-spark/apache-spark-ambari-config4.png)
 
 1. Establezca el valor en la configuración recomendada. Se recomienda el valor de **2048m** para esta configuración.
 
-1. Guarde el valor y, después, guarde la configuración. Seleccione **Guardar** .
+1. Guarde el valor y, después, guarde la configuración. Seleccione **Guardar**.
 
     ![Cambiar el valor a 2048m](./media/apache-troubleshoot-spark/apache-spark-ambari-config6a.png)
 
-    Escriba una nota sobre los cambios de configuración y, después, seleccione **Guardar** .
+    Escriba una nota sobre los cambios de configuración y, después, seleccione **Guardar**.
 
     ![Escribir una nota sobre los cambios realizados](./media/apache-troubleshoot-spark/apache-spark-ambari-config6c.png)
 
@@ -49,7 +49,7 @@ Los valores de configuración de Spark se pueden ajustar para ayudar a evitar un
 
     ![Selección de Proceed Anyway (Continuar de todos modos)](./media/apache-troubleshoot-spark/apache-spark-ambari-config6b.png)
 
-1. Cada vez que se guarda una configuración, se le solicitará que reinicie el servicio. Seleccione **Reiniciar** .
+1. Cada vez que se guarda una configuración, se le solicitará que reinicie el servicio. Seleccione **Reiniciar**.
 
     ![Selección de Reiniciar](./media/apache-troubleshoot-spark/apache-spark-ambari-config7a.png)
 
@@ -61,13 +61,13 @@ Los valores de configuración de Spark se pueden ajustar para ayudar a evitar un
 
     ![Revisar los procesos en ejecución](./media/apache-troubleshoot-spark/apache-spark-ambari-config7c.png)
 
-1. Puede agregar configuraciones. En la lista de configuraciones, seleccione **Custom-spark2-defaults** y, a continuación, seleccione **Agregar propiedad** .
+1. Puede agregar configuraciones. En la lista de configuraciones, seleccione **Custom-spark2-defaults** y, a continuación, seleccione **Agregar propiedad**.
 
     ![Selección de Agregar propiedad](./media/apache-troubleshoot-spark/apache-spark-ambari-config8.png)
 
 1. Defina una nueva propiedad. Puede definir una propiedad única mediante un cuadro de diálogo para valores específicos como el tipo de datos. O bien, puede definir varias propiedades mediante una definición por línea.
 
-    En este ejemplo, se define la propiedad **spark.driver.memory** con un valor de **4g** .
+    En este ejemplo, se define la propiedad **spark.driver.memory** con un valor de **4g**.
 
     ![Definir la nueva propiedad](./media/apache-troubleshoot-spark/apache-spark-ambari-config9.png)
 
@@ -77,7 +77,7 @@ Estos cambios son para todo el clúster, pero se pueden invalidar al enviar el t
 
 ## <a name="how-do-i-configure-an-apache-spark-application-by-using-a-jupyter-notebook-on-clusters"></a>¿Cómo se configura una aplicación de Apache Spark mediante un cuaderno de Jupyter en clústeres?
 
-En la primera celda del cuaderno de Jupyter, después de la directiva **%%configure** , especifique las configuraciones de Spark en formato JSON válido. Cambie los valores reales según sea necesario:
+En la primera celda del cuaderno de Jupyter, después de la directiva **%%configure**, especifique las configuraciones de Spark en formato JSON válido. Cambie los valores reales según sea necesario:
 
 ![Agregar una configuración](./media/apache-troubleshoot-spark/add-configuration-cell.png)
 
@@ -113,4 +113,4 @@ Si su problema no aparece o es incapaz de resolverlo, visite uno de nuestros can
 
 * Póngase en contacto con [@AzureSupport](https://twitter.com/azuresupport), la cuenta oficial de Microsoft Azure para mejorar la experiencia del cliente. Esta cuenta pone en contacto a la comunidad de Azure con los recursos adecuados: respuestas, soporte técnico y expertos.
 
-* Si necesita más ayuda, puede enviar una solicitud de soporte técnico desde [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Seleccione **Soporte técnico** en la barra de menús o abra la central **Ayuda + soporte técnico** . Para obtener información más detallada, revise [Creación de una solicitud de soporte técnico de Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md). La suscripción a Microsoft Azure incluye acceso al soporte técnico para facturación y administración de suscripciones. El soporte técnico se proporciona a través de uno de los [planes de soporte técnico de Azure](https://azure.microsoft.com/support/plans/).
+* Si necesita más ayuda, puede enviar una solicitud de soporte técnico desde [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Seleccione **Soporte técnico** en la barra de menús o abra la central **Ayuda + soporte técnico**. Para obtener información más detallada, revise [Creación de una solicitud de soporte técnico de Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md). La suscripción a Microsoft Azure incluye acceso al soporte técnico para facturación y administración de suscripciones. El soporte técnico se proporciona a través de uno de los [planes de soporte técnico de Azure](https://azure.microsoft.com/support/plans/).

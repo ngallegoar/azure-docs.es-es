@@ -10,18 +10,19 @@ tags: azure-resource-manager
 keywords: ''
 ms.assetid: 2ce38add-1078-4bb9-a1da-6f407a9bc910
 ms.service: virtual-machines-windows
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/12/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 14ffcbf2e111e052f4b45259b0b25664049d3b3d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 62803bd450db351290bbc12d650d23a4148a4536
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88855368"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96022350"
 ---
 # <a name="prepare-azure-infrastructure-for-sap-high-availability-by-using-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances"></a>Preparación de la infraestructura de Azure para la alta disponibilidad de SAP con un clúster de conmutación por error de Windows y el recurso compartido de archivos para instancias de SAP ASCS/SCS
 
@@ -259,9 +260,9 @@ Para preparar la infraestructura de Azure, complete los siguientes pasos:
 * Si usa Windows Server 2016, se recomienda configurar el [testigo en la nube de Azure][deploy-cloud-witness].
 
 
-## <a name="deploy-the-scale-out-file-server-cluster-manually"></a>Implementación manual del clúster de servidores de archivos de escalabilidad horizontal 
+## <a name="deploy-the-scale-out-file-server-cluster-manually"></a>Implementación manual del clúster de servidores de archivos de escalabilidad horizontal 
 
-Puede implementar de forma manual el clúster de servidores de archivos de escalabilidad horizontal de Microsoft, tal como se explica en el blog [Espacios de almacenamiento directo en Azure][ms-blog-s2d-in-azure], si ejecuta el código siguiente:  
+Puede implementar de forma manual el clúster de servidores de archivos de escalabilidad horizontal de Microsoft, tal como se explica en el blog [Espacios de almacenamiento directo en Azure][ms-blog-s2d-in-azure], si ejecuta el código siguiente:  
 
 
 ```powershell
