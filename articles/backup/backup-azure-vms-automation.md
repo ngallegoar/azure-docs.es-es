@@ -4,11 +4,11 @@ description: Describe cómo realizar una copia de seguridad y llevar a cabo la r
 ms.topic: conceptual
 ms.date: 09/11/2019
 ms.openlocfilehash: ded2bc8a71bf564e31f40ca9f0d6c8049188768b
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92094099"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95978376"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>Copia de seguridad y restauración de máquinas virtuales de con PowerShell
 
@@ -55,9 +55,9 @@ Para empezar:
 
     ![Lista de Recovery Services](./media/backup-azure-vms-automation/list-of-recoveryservices-ps.png)
 
-3. Inicie sesión en su cuenta de Azure mediante el cmdlet **Connect-AzAccount** . El cmdlet abrirá una página web que le solicitará las credenciales de la cuenta:
+3. Inicie sesión en su cuenta de Azure mediante el cmdlet **Connect-AzAccount**. El cmdlet abrirá una página web que le solicitará las credenciales de la cuenta:
 
-    * Como alternativa, puede incluir sus credenciales de cuenta como un parámetro en el cmdlet **Connect-AzAccount** mediante el parámetro **-Credential** .
+    * Como alternativa, puede incluir sus credenciales de cuenta como un parámetro en el cmdlet **Connect-AzAccount** mediante el parámetro **-Credential**.
     * Si usted es partner CSP que trabaja en nombre de un inquilino, especifique el cliente como inquilino usando su TenantID o su nombre de dominio principal de inquilino. Por ejemplo: **Connect-AzAccount -Tenant "fabrikam.com"**
 
 4. Ya que una cuenta puede tener varias suscripciones, le recomendamos que asocie la suscripción que quiera usar a esa cuenta:
@@ -78,7 +78,7 @@ Para empezar:
     Get-AzResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
     ```
 
-    En la salida del comando, **RegistrationState** se debe cambiar a **Registrado** . En caso contrario, vuelva a ejecutar el cmdlet **[Register-AzResourceProvider](/powershell/module/az.resources/register-azresourceprovider)** .
+    En la salida del comando, **RegistrationState** se debe cambiar a **Registrado**. En caso contrario, vuelva a ejecutar el cmdlet **[Register-AzResourceProvider](/powershell/module/az.resources/register-azresourceprovider)** .
 
 ## <a name="create-a-recovery-services-vault"></a>Creación de un almacén de Recovery Services
 
@@ -96,7 +96,7 @@ Los siguientes pasos le guiarán por el proceso de creación de un almacén de R
     New-AzRecoveryServicesVault -Name "testvault" -ResourceGroupName "test-rg" -Location "West US"
     ```
 
-3. Especifique el tipo de redundancia de almacenamiento que se usará. Puede usar [almacenamiento con redundancia local (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage), [almacenamiento con redundancia geográfica (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage) o [almacenamiento con redundancia de zona (ZRS)](../storage/common/storage-redundancy.md#zone-redundant-storage). En el ejemplo siguiente se muestra que la opción **-BackupStorageRedundancy** para *testvault* está establecida en **GeoRedundant** .
+3. Especifique el tipo de redundancia de almacenamiento que se usará. Puede usar [almacenamiento con redundancia local (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage), [almacenamiento con redundancia geográfica (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage) o [almacenamiento con redundancia de zona (ZRS)](../storage/common/storage-redundancy.md#zone-redundant-storage). En el ejemplo siguiente se muestra que la opción **-BackupStorageRedundancy** para *testvault* está establecida en **GeoRedundant**.
 
     ```powershell
     $vault1 = Get-AzRecoveryServicesVault -Name "testvault"
@@ -134,7 +134,7 @@ Use un almacén de Recovery Services para proteger sus máquinas virtuales. Ante
 
 ### <a name="set-vault-context"></a>Establecer el contexto de almacén
 
-Antes de habilitar la protección en una máquina virtual, use [Set-AzRecoveryServicesVaultContext](/powershell/module/az.recoveryservices/set-azrecoveryservicesvaultcontext) para establecer el contexto de almacén. Una vez que se haya establecido el contexto de almacén, se aplica a todos los cmdlets posteriores. En el ejemplo siguiente se establece el contexto del almacén *testvault* .
+Antes de habilitar la protección en una máquina virtual, use [Set-AzRecoveryServicesVaultContext](/powershell/module/az.recoveryservices/set-azrecoveryservicesvaultcontext) para establecer el contexto de almacén. Una vez que se haya establecido el contexto de almacén, se aplica a todos los cmdlets posteriores. En el ejemplo siguiente se establece el contexto del almacén *testvault*.
 
 ```powershell
 Get-AzRecoveryServicesVault -Name "testvault" -ResourceGroupName "Contoso-docs-rg" | Set-AzRecoveryServicesVaultContext
@@ -208,7 +208,7 @@ $schpol.ScheduleRunTimes[0] = $UtcTime
 > [!IMPORTANT]
 > Solo tiene que proporcionar la hora de inicio en múltiplos de 30 minutos. En el ejemplo anterior, solo puede ser "01:00:00" o "02:30:00". La hora de inicio no puede ser "01:15:00".
 
-En el ejemplo siguiente se almacenan la directiva de programación y la directiva de retención en variables. En el ejemplo se usan esas variables para definir los parámetros al crear la directiva de protección *NewPolicy* .
+En el ejemplo siguiente se almacenan la directiva de programación y la directiva de retención en variables. En el ejemplo se usan esas variables para definir los parámetros al crear la directiva de protección *NewPolicy*.
 
 ```powershell
 $retPol = Get-AzRecoveryServicesBackupRetentionPolicyObject -WorkloadType "AzureVM"
@@ -232,7 +232,7 @@ Una vez que haya definido la directiva de protección, todavía debe habilitar l
 
 En los ejemplos siguientes se habilita la protección para el elemento V2VM mediante la directiva NewPolicy. Los ejemplos varían en función de si la VM está cifrada y del tipo de cifrado.
 
-Para habilitar la protección en **VM de Resource Manager sin cifrar** :
+Para habilitar la protección en **VM de Resource Manager sin cifrar**:
 
 ```powershell
 $pol = Get-AzRecoveryServicesBackupProtectionPolicy -Name "NewPolicy" -VaultId $targetVault.ID
@@ -462,7 +462,7 @@ BackupManagementType        : AzureVM
 
 ### <a name="restore-the-disks"></a>Restauración de los discos
 
-Use el cmdlet [Restore-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem) para restaurar los datos y la configuración de un elemento de copia de seguridad a un punto de recuperación. Una vez que haya identificado un punto de recuperación, úselo como valor para el parámetro **-RecoveryPoint** . En el ejemplo anterior, **$rp[0]** era el punto de recuperación que se debía usar. En el código de ejemplo siguiente, **$rp[0]** es el punto de recuperación que se va a restaurar en el disco.
+Use el cmdlet [Restore-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem) para restaurar los datos y la configuración de un elemento de copia de seguridad a un punto de recuperación. Una vez que haya identificado un punto de recuperación, úselo como valor para el parámetro **-RecoveryPoint**. En el ejemplo anterior, **$rp[0]** era el punto de recuperación que se debía usar. En el código de ejemplo siguiente, **$rp[0]** es el punto de recuperación que se va a restaurar en el disco.
 
 Para restaurar los discos y la información de configuración:
 
@@ -529,7 +529,7 @@ Tras haber restaurado los discos, siga estos pasos para crear y configurar la m�
 > [!NOTE]
 >
 > 1. Se necesita el módulo AzureAz 3.0.0 o una versión posterior. <br>
-> 2. Para crear máquinas virtuales cifradas a partir de discos restaurados, el rol de Azure debe tener permiso para realizar la acción, **Microsoft.KeyVault/vaults/deploy/action** . Si su rol no tiene este permiso, cree un rol personalizado con esta acción. Para más información, consulte [Roles personalizados de Azure](../role-based-access-control/custom-roles.md). <br>
+> 2. Para crear máquinas virtuales cifradas a partir de discos restaurados, el rol de Azure debe tener permiso para realizar la acción, **Microsoft.KeyVault/vaults/deploy/action**. Si su rol no tiene este permiso, cree un rol personalizado con esta acción. Para más información, consulte [Roles personalizados de Azure](../role-based-access-control/custom-roles.md). <br>
 > 3. Después de restaurar discos, ahora puede obtener una plantilla de implementación que puede utilizar directamente para crear una nueva máquina virtual. No necesita cmdlets de PowerShell diferentes para crear máquinas virtuales administradas o no administradas que están cifradas o sin cifrar.<br>
 > <br>
 
@@ -598,7 +598,7 @@ En la sección siguiente se enumeran los pasos necesarios para crear una máquin
 
 4. Conecte el disco del sistema operativo y los discos de datos. En este paso se proporcionan ejemplos de diversas configuraciones de VM administrada y cifrada. Use el ejemplo que se adapte a su configuración de VM.
 
-    * **VM no administradas y no cifradas** : Use el ejemplo siguiente para VM no administradas y no cifradas.
+    * **VM no administradas y no cifradas**: Use el ejemplo siguiente para VM no administradas y no cifradas.
 
     ```powershell
         Set-AzVMOSDisk -VM $vm -Name "osdisk" -VhdUri $obj.'properties.StorageProfile'.osDisk.vhd.Uri -CreateOption "Attach"
@@ -691,7 +691,7 @@ En la sección siguiente se enumeran los pasos necesarios para crear una máquin
         }
     ```
 
-    * **Máquinas virtuales administradas y no cifradas** : en estas máquinas virtuales, asocie los discos administrados que ha restaurado. Para obtener información detallada, consulte [Conexión de un disco a una VM con Windows mediante PowerShell](../virtual-machines/windows/attach-disk-ps.md).
+    * **Máquinas virtuales administradas y no cifradas**: en estas máquinas virtuales, asocie los discos administrados que ha restaurado. Para obtener información detallada, consulte [Conexión de un disco a una VM con Windows mediante PowerShell](../virtual-machines/windows/attach-disk-ps.md).
 
     * **Máquinas virtuales administradas y cifradas con Azure AD (solo mediante BEK)** : en estas máquinas virtuales con Azure AD (solo cifradas con BEK), adjunte los discos administrados que ha restaurado. Para obtener información detallada, consulte [Conexión de un disco a una VM con Windows mediante PowerShell](../virtual-machines/windows/attach-disk-ps.md).
 
@@ -766,7 +766,7 @@ En la sección siguiente se enumeran los pasos necesarios para crear una máquin
 7. Inserte la extensión ADE.
    Si no se insertan las extensiones ADE, los discos de datos se marcarán como no cifrados, por lo que es obligatorio que se ejecuten los pasos siguientes:
 
-   * **Para máquinas virtuales con Azure AD** : Use el comando siguiente para habilitar manualmente el cifrado de los discos de datos.  
+   * **Para máquinas virtuales con Azure AD**: Use el comando siguiente para habilitar manualmente el cifrado de los discos de datos.  
 
      **Solo BEK**
 
@@ -780,7 +780,7 @@ En la sección siguiente se enumeran los pasos necesarios para crear una máquin
       Set-AzVMDiskEncryptionExtension -ResourceGroupName $RG -VMName $vm.Name -AadClientID $aadClientID -AadClientSecret $aadClientSecret -DiskEncryptionKeyVaultUrl $dekUrl -DiskEncryptionKeyVaultId $keyVaultId  -KeyEncryptionKeyUrl $kekUrl -KeyEncryptionKeyVaultId $keyVaultId -VolumeType Data
       ```
 
-   * **Para máquinas virtuales sin Azure AD** : Use el comando siguiente para habilitar manualmente el cifrado de los discos de datos.
+   * **Para máquinas virtuales sin Azure AD**: Use el comando siguiente para habilitar manualmente el cifrado de los discos de datos.
 
      Si durante la ejecución del comando se solicitara AADClientID, debe actualizar Azure PowerShell.
 
