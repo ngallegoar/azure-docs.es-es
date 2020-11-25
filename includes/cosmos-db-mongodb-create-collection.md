@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/15/2020
 ms.author: lbosq
 ms.custom: include file
-ms.openlocfilehash: 8d12645bd302a7ea808f13c07e2a72f66846bad7
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 37cdb6b466417add8dae69464304ce2f32247c8d
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85121561"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95554427"
 ---
 Ahora puede usar la herramienta Explorador de datos en Azure Portal para crear una base de datos y un contenedor de API para MongoDB de Azure Cosmos DB. 
 
@@ -28,9 +28,9 @@ Ahora puede usar la herramienta Explorador de datos en Azure Portal para crear u
     |Configuración|Valor sugerido|Descripción
     |---|---|---|
     |**Identificador de base de datos**|db|Escriba *db* como nombre de la nueva base de datos. Los nombres de base de datos tienen que tener entre 1 y 255 caracteres y no pueden contener `/, \\, #, ?` o espacios finales. Seleccione la opción **Provision database throughput** (Aprovisionar rendimiento de la base de datos) que le permite compartir el rendimiento aprovisionado de la base de datos entre todos los contenedores de esta. Esta opción también le ayudará a reducir los costos. |
-    |**Rendimiento**|400|Deje el rendimiento en 400 unidades de solicitud por segundo (RU/s). Si quiere reducir la latencia, puede escalar verticalmente el rendimiento más adelante. También puede elegir el [modo de escalabilidad automática](https://docs.microsoft.com/azure/cosmos-db/provision-throughput-autoscale), lo que le proporcionará un rango de unidades de solicitud que aumentará y disminuirá dinámicamente según sea necesario.| 
+    |**Rendimiento**|400|Deje el rendimiento en 400 unidades de solicitud por segundo (RU/s). Si quiere reducir la latencia, puede escalar verticalmente el rendimiento más adelante. También puede elegir el [modo de escalabilidad automática](../articles/cosmos-db/provision-throughput-autoscale.md), lo que le proporcionará un rango de unidades de solicitud que aumentará y disminuirá dinámicamente según sea necesario.| 
     |**Identificador de colección**|coll|Escriba `coll` como nombre del nuevo contenedor. Los identificadores de contenedor tienen los mismos requisitos de caracteres que los nombres de las bases de datos.|
     |**Capacidad de almacenamiento**|Fija (10 GB)|Escriba *Fija (10 GB)* para esta aplicación. Si selecciona *Ilimitada*, tendrá que crear una instancia de `Shard Key`, que todos los elementos que se inserten requerirán.|
-    |**Clave de partición**| /_id| El ejemplo que se describe en este artículo no usa una clave de partición, por lo que si se establece en */_id* usará el campo de identificador generado automáticamente como clave de partición. Para más información sobre el particionamiento, que se conoce también como creación de particiones, consulte [Creación de particiones en Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/partitioning-overview)|
+    |**Clave de partición**| /_id| El ejemplo que se describe en este artículo no usa una clave de partición, por lo que si se establece en */_id* usará el campo de identificador generado automáticamente como clave de partición. Para más información sobre el particionamiento, que se conoce también como creación de particiones, consulte [Creación de particiones en Azure Cosmos DB](../articles/cosmos-db/partitioning-overview.md)|
         
     Seleccione **Aceptar**. El Explorador de datos muestra la nueva base de datos y el contenedor.

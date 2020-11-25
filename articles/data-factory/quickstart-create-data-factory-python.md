@@ -14,11 +14,11 @@ ms.topic: quickstart
 ms.date: 01/22/2018
 ms.custom: seo-python-october2019, devx-track-python
 ms.openlocfilehash: e511b8b5505f1fa8713d81d0ce959df32ef28503
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89439119"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013333"
 ---
 # <a name="quickstart-create-a-data-factory-and-pipeline-using-python"></a>Inicio rápido: Creación de una factoría de datos y una canalización con Python
 
@@ -58,7 +58,7 @@ Las canalizaciones pueden ingerir datos de distintos almacenes de datos. Las can
 
 ## <a name="install-the-python-package"></a>Instalar el paquete de Python
 
-1. Abra un terminal o símbolo del sistema con privilegios de administrador. 
+1. Abra un terminal o símbolo del sistema con privilegios de administrador. 
 2. En primer lugar, instale el paquete de Python para los recursos de administración de Azure:
 
     ```python

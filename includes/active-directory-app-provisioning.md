@@ -1,20 +1,19 @@
 ---
-ms.openlocfilehash: 475a468977a976e2e7399c14df9329b31446d404
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: c400856546142353a7294a03fce6bbff1c258cc0
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93135053"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95556746"
 ---
-
-En Azure Active Directory (Azure AD), el término **aprovisionamiento de aplicaciones** hace referencia a la creación automática de identidades y roles de usuario en las aplicaciones de nube ( [SaaS](https://azure.microsoft.com/overview/what-is-saas/)) a las que los usuarios necesitan acceso. Además de crear identidades de usuario, el aprovisionamiento automático incluye el mantenimiento y la eliminación de identidades de usuario a medida que el estado o los roles cambian. Algunos escenarios comunes son el aprovisionamiento de un usuario de Azure AD en aplicaciones como [Dropbox](../articles/active-directory/saas-apps/dropboxforbusiness-provisioning-tutorial.md), [Salesforce](../articles/active-directory/saas-apps/salesforce-provisioning-tutorial.md) y [ServiceNow](../articles/active-directory/saas-apps/servicenow-provisioning-tutorial.md), entre otras.
+En Azure Active Directory (Azure AD), el término **aprovisionamiento de aplicaciones** hace referencia a la creación automática de identidades y roles de usuario en las aplicaciones de nube ([SaaS](https://azure.microsoft.com/overview/what-is-saas/)) a las que los usuarios necesitan acceso. Además de crear identidades de usuario, el aprovisionamiento automático incluye el mantenimiento y la eliminación de identidades de usuario a medida que el estado o los roles cambian. Algunos escenarios comunes son el aprovisionamiento de un usuario de Azure AD en aplicaciones como [Dropbox](../articles/active-directory/saas-apps/dropboxforbusiness-provisioning-tutorial.md), [Salesforce](../articles/active-directory/saas-apps/salesforce-provisioning-tutorial.md) y [ServiceNow](../articles/active-directory/saas-apps/servicenow-provisioning-tutorial.md), entre otras.
 
 ![Diagrama de información general del aprovisionamiento](./media/active-directory-app-provisioning/provisioning-overview.png)
 
 Esta característica le permite hacer lo siguiente:
 
-- **Aprovisionamiento automatizado** : Crear cuentas automáticamente en los sistemas adecuados para los usuarios nuevos cuando se unen a su equipo u organización.
-- **Desaprovisionamiento automatizado** : Desactivar las cuentas automáticamente en los sistemas adecuados cuando los usuarios dejan el equipo o la organización.
+- **Aprovisionamiento automatizado**: Crear cuentas automáticamente en los sistemas adecuados para los usuarios nuevos cuando se unen a su equipo u organización.
+- **Desaprovisionamiento automatizado**: Desactivar las cuentas automáticamente en los sistemas adecuados cuando los usuarios dejan el equipo o la organización.
 - **Sincronización de datos entre sistemas:** asegúrese de que las identidades de las aplicaciones y sistemas se mantienen actualizadas con los cambios del directorio o el sistema de recursos humanos.
 - **Aprovisionamiento de grupos:** aprovisione grupos para las aplicaciones que los admiten.
 - **Control del acceso:** supervise y audite a quién se ha aprovisionado en las aplicaciones.
@@ -46,7 +45,7 @@ Azure AD ofrece compatibilidad preintegrada con muchas aplicaciones SaaS y sist
 
    ![Logotipo de Salesforce](./media/active-directory-app-provisioning/gallery-app-logos.png)
 
-   Si quiere solicitar una nueva aplicación para el aprovisionamiento, puede [solicitar que la aplicación se integre con la galería de aplicaciones](../articles/active-directory/azuread-dev/howto-app-gallery-listing.md). Si se da una solicitud de aprovisionamiento de usuarios, es necesario que la aplicación tenga un punto de conexión compatible con SCIM. Solicite al proveedor de la aplicación que siga el estándar SCIM para que podamos incorporar la aplicación a nuestra plataforma rápidamente.
+   Si quiere solicitar una nueva aplicación para el aprovisionamiento, puede [solicitar que la aplicación se integre con la galería de aplicaciones](../articles/active-directory/develop/v2-howto-app-gallery-listing.md). Si se da una solicitud de aprovisionamiento de usuarios, es necesario que la aplicación tenga un punto de conexión compatible con SCIM. Solicite al proveedor de la aplicación que siga el estándar SCIM para que podamos incorporar la aplicación a nuestra plataforma rápidamente.
 
 * **Aplicaciones que admiten SCIM 2.0**. Para obtener información sobre cómo conectar genéricamente aplicaciones que implementan API de administración de usuarios basadas en SCIM 2.0, consulte [Aprovisionamiento de usuarios de SCIM con Azure Active Directory (Azure AD)](../articles/active-directory/app-provisioning/use-scim-to-provision-users-and-groups.md).
 
@@ -66,7 +65,7 @@ Las aplicaciones de la galería de Azure AD admiten uno de los dos modos de apr
 
 * **Automático** significa que se ha desarrollado un conector de aprovisionamiento de Azure AD para esta aplicación. Debe seguir el tutorial de configuración específico para configurar el aprovisionamiento de la aplicación. Puede encontrar tutoriales sobre aplicaciones en [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](../articles/active-directory/saas-apps/tutorial-list.md).
 
-En la galería de Azure AD, las aplicaciones que admiten el aprovisionamiento automático se designan mediante un icono de **aprovisionamiento**. Cambie a la nueva experiencia en versión preliminar de la galería para ver estos iconos (en el banner situado en la parte superior de la **página para agregar una aplicación** , seleccione el vínculo que indica **Haga clic aquí para probar la nueva y mejorada experiencia de la galería de aplicaciones** ).
+En la galería de Azure AD, las aplicaciones que admiten el aprovisionamiento automático se designan mediante un icono de **aprovisionamiento**. Cambie a la nueva experiencia en versión preliminar de la galería para ver estos iconos (en el banner situado en la parte superior de la **página para agregar una aplicación**, seleccione el vínculo que indica **Haga clic aquí para probar la nueva y mejorada experiencia de la galería de aplicaciones**).
 
 ![Icono de aprovisionamiento en la galería de aplicaciones](./media/active-directory-app-provisioning/browse-gallery.png)
 

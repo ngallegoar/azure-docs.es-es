@@ -9,12 +9,12 @@ ms.subservice: blobs
 ms.topic: quickstart
 ms.date: 12/04/2019
 ms.author: tamram
-ms.openlocfilehash: f920a937f4b9b51f9babd03ed0fb42dd3c7775d8
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 2477107105b6dbcab96db8d44ac982554dc0c48d
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92217796"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95543177"
 ---
 # <a name="quickstart-use-azure-storage-explorer-to-create-a-blob"></a>Inicio rápido: Uso del Explorador de Azure Storage para crear un blob
 
@@ -28,7 +28,7 @@ Esta guía de inicio rápido requiere que se instale el Explorador de Azure Stor
 
 ## <a name="log-in-to-storage-explorer"></a>Inicie sesión en el Explorador de Microsoft Azure Storage
 
-La primera vez, se muestra la ventana **Explorador de Microsoft Azure Storage: Conectar** . El Explorador de Microsoft Azure Storage proporciona varias maneras de conectar con las cuentas de almacenamiento. En la tabla siguiente se enumeran las distintas maneras en que puede conectarse:
+La primera vez, se muestra la ventana **Explorador de Microsoft Azure Storage: Conectar**. El Explorador de Microsoft Azure Storage proporciona varias maneras de conectar con las cuentas de almacenamiento. En la tabla siguiente se enumeran las distintas maneras en que puede conectarse:
 
 |Tarea|Propósito|
 |---|---|
@@ -36,11 +36,11 @@ La primera vez, se muestra la ventana **Explorador de Microsoft Azure Storage: C
 |Usar una cadena de conexión o un identificador URI de firma de acceso compartido | Puede utilizarse para tener acceso directamente a un contenedor o a la cuenta de almacenamiento con un token de SAS o una cadena de conexión compartida. |
 |Usar un nombre y clave de la cuenta de almacenamiento| Use el nombre y la clave de la cuenta de almacenamiento para conectarse a Azure Storage.|
 
-Seleccione **Add an Azure Account** (Agregar una cuenta de Azure) y haga clic en **Iniciar sesión** . Siga las indicaciones de la pantalla para registrarse en su cuenta de Azure.
+Seleccione **Add an Azure Account** (Agregar una cuenta de Azure) y haga clic en **Iniciar sesión**. Siga las indicaciones de la pantalla para registrarse en su cuenta de Azure.
 
 ![Captura de pantalla que muestra la ventana Explorador de Microsoft Azure Storage - Conectar.](media/storage-quickstart-blobs-storage-explorer/connect.png)
 
-Cuando se completa la conexión, el Explorador de Microsoft Azure Storage se carga y se muestra la pestaña **Explorador** . Esta vista proporciona una visión general de todas las cuentas de Azure Storage, así como del almacenamiento local que se configuró mediante el [emulador de almacenamiento Azurite](../common/storage-use-azurite.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json), las cuentas de [Cosmos DB](../../cosmos-db/storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) o los entornos de [Azure Stack](/azure-stack/user/azure-stack-storage-connect-se?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+Cuando se completa la conexión, el Explorador de Microsoft Azure Storage se carga y se muestra la pestaña **Explorador**. Esta vista proporciona una visión general de todas las cuentas de Azure Storage, así como del almacenamiento local que se configuró mediante el [emulador de almacenamiento Azurite](../common/storage-use-azurite.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json), las cuentas de [Cosmos DB](../../cosmos-db/storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) o los entornos de [Azure Stack](/azure-stack/user/azure-stack-storage-connect-se?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 ![Explorador de Microsoft Azure Storage: ventana Conectar](media/storage-quickstart-blobs-storage-explorer/mainpage.png)
 
@@ -48,15 +48,15 @@ Cuando se completa la conexión, el Explorador de Microsoft Azure Storage se car
 
 Los blobs siempre se cargan en un contenedor. Esto le permite organizar grupos de blobs de la misma forma que organiza archivos en carpetas en el equipo.
 
-Para crear un contenedor, expanda la cuenta de almacenamiento que creó en el paso anterior. Seleccione **Contenedor de blobs** , haga clic con el botón derecho y seleccione **Crear contenedor de blobs** . Escriba el nombre del contenedor de blobs. Para ver una lista de reglas y restricciones en la nomenclatura de contenedores de blobs, consulte la sección [Crear un contenedor](storage-quickstart-blobs-dotnet.md#create-a-container). Cuando haya finalizado, presione **Entrar** para crear el contenedor de blobs. Una vez que el contenedor de blobs se haya creado correctamente, se mostrará en la carpeta **Contenedores de blobs** de la cuenta de almacenamiento seleccionada.
+Para crear un contenedor, expanda la cuenta de almacenamiento que creó en el paso anterior. Seleccione **Contenedor de blobs**, haga clic con el botón derecho y seleccione **Crear contenedor de blobs**. Escriba el nombre del contenedor de blobs. Para ver una lista de reglas y restricciones en la nomenclatura de contenedores de blobs, consulte la sección [Crear un contenedor](storage-quickstart-blobs-dotnet.md#create-a-container). Cuando haya finalizado, presione **Entrar** para crear el contenedor de blobs. Una vez que el contenedor de blobs se haya creado correctamente, se mostrará en la carpeta **Contenedores de blobs** de la cuenta de almacenamiento seleccionada.
 
 ## <a name="upload-blobs-to-the-container"></a>Carga de blobs al contenedor
 
 Blob Storage admite blobs en bloques, blobs en anexos y blobs en páginas. Los archivos VHD utilizados para respaldar VM IaaS son blobs en páginas. Los blobs en anexos se utilizan para el registro, por ejemplo, cuando desea escribir en un archivo y luego sigue agregando más información. La mayoría de los archivos almacenados en Blob Storage son blobs en bloques.
 
-En la cinta de opciones de contenedor, seleccione **Cargar** . Esta operación da la opción de cargar un archivo o una carpeta.
+En la cinta de opciones de contenedor, seleccione **Cargar**. Esta operación da la opción de cargar un archivo o una carpeta.
 
-Elija los archivos o carpetas para cargar. Seleccione el **tipo de blob** . Opciones aceptables son **Anexar** , **Paginar** o **Bloquear** blob.
+Elija los archivos o carpetas para cargar. Seleccione el **tipo de blob**. Opciones aceptables son **Anexar**, **Paginar** o **Bloquear** blob.
 
 Si carga un archivo .vhd o .vhdx, elija **Upload .vhd/.vhdx files as page blobs (recommended)** [Cargar archivos.vhd/.vhdx como blobs de páginas (recomendado)].
 
@@ -64,21 +64,21 @@ En el campo **Cargar en carpeta (opcional)** , un nombre de carpeta para almacen
 
 ![Explorador de Microsoft Azure Storage: Carga de un blob](media/storage-quickstart-blobs-storage-explorer/uploadblob.png)
 
-Cuando se selecciona **Aceptar** , los archivos seleccionados se ponen en cola para cargar y se cargan de uno en uno. Una vez finalizada la carga, los resultados se muestran en la ventana **Actividades** .
+Cuando se selecciona **Aceptar**, los archivos seleccionados se ponen en cola para cargar y se cargan de uno en uno. Una vez finalizada la carga, los resultados se muestran en la ventana **Actividades**.
 
 ## <a name="view-blobs-in-a-container"></a>Visualización de los blobs de un contenedor
 
-En la aplicación **Explorador de Azure Storage** , seleccione un contenedor en una cuenta de almacenamiento. El panel principal muestra una lista de los blobs en el contenedor seleccionado.
+En la aplicación **Explorador de Azure Storage**, seleccione un contenedor en una cuenta de almacenamiento. El panel principal muestra una lista de los blobs en el contenedor seleccionado.
 
 ![Captura de pantalla que muestra dónde se selecciona un contenedor en el Explorador de Microsoft Azure Storage.](media/storage-quickstart-blobs-storage-explorer/listblobs.png)
 
 ## <a name="download-blobs"></a>Descargar blobs
 
-Para descargar los blobs mediante el **Explorador de Microsoft Azure Storage** , con un blob seleccionado, seleccione **Descargar** desde la cinta de opciones. Se abre un cuadro de diálogo de archivo que permite escribir un nombre de archivo. Seleccione **Guardar** para iniciar la descarga de un blob en la ubicación local.
+Para descargar los blobs mediante el **Explorador de Microsoft Azure Storage**, con un blob seleccionado, seleccione **Descargar** desde la cinta de opciones. Se abre un cuadro de diálogo de archivo que permite escribir un nombre de archivo. Seleccione **Guardar** para iniciar la descarga de un blob en la ubicación local.
 
 ## <a name="manage-snapshots"></a>Administración de instantáneas
 
-El Explorador de Microsoft Azure Storage permite tomar y administrar [instantáneas](storage-blob-snapshots.md) de los blobs. Para tomar una instantánea de un blob, haga clic con el botón derecho en el blob y seleccione **Create Snapshot** (Crear instantánea). Para ver las instantáneas de un blob, haga clic con el botón derecho en el blob y seleccione **Manage Snapshots** (Administrar instantáneas). Una lista de las instantáneas para el blob se muestran en la pestaña actual.
+El Explorador de Microsoft Azure Storage permite tomar y administrar [instantáneas](./snapshots-overview.md) de los blobs. Para tomar una instantánea de un blob, haga clic con el botón derecho en el blob y seleccione **Create Snapshot** (Crear instantánea). Para ver las instantáneas de un blob, haga clic con el botón derecho en el blob y seleccione **Manage Snapshots** (Administrar instantáneas). Una lista de las instantáneas para el blob se muestran en la pestaña actual.
 
 ![Captura de pantalla que muestra una lista de blobs del Explorador de Microsoft Azure Storage.](media/storage-quickstart-blobs-storage-explorer/snapshots.png)
 
@@ -90,13 +90,13 @@ Seleccione **Agregar** para agregar una nueva directiva de acceso y definir sus 
 
 ## <a name="work-with-shared-access-signatures"></a>Trabajo con firmas de acceso compartido
 
-Las firmas de acceso compartido (SAS) se pueden recuperar mediante el Explorador de Storage. Haga clic con el botón derecho en una cuenta de almacenamiento, contenedor o blob, y elija **Get Shared Access Signature...**  (Obtener firma de acceso compartido). Elija la hora de inicio y de expiración, y los permisos para la dirección URL de la firma de acceso compartido y seleccione **Crear** . Se proporcionan la dirección URL completa con la cadena de consulta, así como la cadena de consulta solamente y se pueden copiar desde la pantalla siguiente.
+Las firmas de acceso compartido (SAS) se pueden recuperar mediante el Explorador de Storage. Haga clic con el botón derecho en una cuenta de almacenamiento, contenedor o blob, y elija **Get Shared Access Signature...**  (Obtener firma de acceso compartido). Elija la hora de inicio y de expiración, y los permisos para la dirección URL de la firma de acceso compartido y seleccione **Crear**. Se proporcionan la dirección URL completa con la cadena de consulta, así como la cadena de consulta solamente y se pueden copiar desde la pantalla siguiente.
 
 ![Explorador de Microsoft Azure Storage: Enumeración de los blobs de un contenedor](media/storage-quickstart-blobs-storage-explorer/sharedaccesssignature.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En esta guía de inicio rápido aprendió a transferir archivos entre un disco local y Azure Blob Storage mediante el **Explorador de Microsoft Azure Storage** . Para más información sobre cómo trabajar con Blob Storage, continúe con los procedimientos de Blob Storage.
+En esta guía de inicio rápido aprendió a transferir archivos entre un disco local y Azure Blob Storage mediante el **Explorador de Microsoft Azure Storage**. Para más información sobre cómo trabajar con Blob Storage, continúe con los procedimientos de Blob Storage.
 
 > [!div class="nextstepaction"]
-> [Procedimientos de las operaciones de Blob Storage](storage-how-to-use-blobs-powershell.md)
+> [Procedimientos de las operaciones de Blob Storage](./storage-quickstart-blobs-powershell.md)

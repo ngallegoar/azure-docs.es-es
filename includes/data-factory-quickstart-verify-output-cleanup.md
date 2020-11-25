@@ -5,17 +5,17 @@ ms.date: 11/09/2018
 author: linda33wj
 ms.author: jingwang
 ms.openlocfilehash: 34848b638ff0c7f7b9d1a2f3e5894339f8310ccc
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93135761"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013375"
 ---
 ## <a name="review-deployed-resources"></a>Revisión de los recursos implementados
 
 El conducto crea automáticamente la carpeta de salida en el contenedor de blob adftutorial. A continuación, copia el archivo emp.txt de la carpeta de entrada a la carpeta de salida. 
 
-1. En Azure Portal, en la página del contenedor **adftutorial** , seleccione **Actualizar** para ver la carpeta de salida. 
+1. En Azure Portal, en la página del contenedor **adftutorial**, seleccione **Actualizar** para ver la carpeta de salida. 
     
     ![Captura de pantalla que muestra la página del contenedor donde puede actualizar la página.](media/data-factory-quickstart-verify-output-cleanup/output-refresh.png)
 

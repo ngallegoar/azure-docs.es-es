@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/05/2019
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: cb4cac18f887a72c05fe520d6103dc00399cc05e
-ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
+ms.openlocfilehash: 09b120838c27f8fa6b4f7bdf8617ce806f740e3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91828880"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96007312"
 ---
 Azure Blob Storage es la solución de almacenamiento de objetos de Microsoft para la nube. Blob Storage está optimizado para el almacenamiento de cantidades masivas de datos no estructurados. Los datos no estructurados son datos que no se ciñen a ningún un modelo de datos o definición concretos, como texto o datos binarios.
 
@@ -28,12 +28,12 @@ Blob Storage está diseñado para:
 * Almacenamiento de datos para copia de seguridad y restauración, recuperación ante desastres y archivado.
 * Almacenamiento de datos para el análisis en local o en un servicio hospedado de Azure.
 
-Los usuarios o las aplicaciones cliente pueden acceder a objetos en Blob Storage a través de HTTP/HTTPS, desde cualquier lugar del mundo. Se puede acceder a los objetos de Blob Storage mediante la [API REST de Azure Storage](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api), [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.storage), la [CLI de Azure](https://docs.microsoft.com/cli/azure/storage) o una biblioteca de cliente de Azure Storage. Hay bibliotecas de cliente disponibles para distintos lenguajes, entre los que se incluyen:
+Los usuarios o las aplicaciones cliente pueden acceder a objetos en Blob Storage a través de HTTP/HTTPS, desde cualquier lugar del mundo. Se puede acceder a los objetos de Blob Storage mediante la [API REST de Azure Storage](/rest/api/storageservices/blob-service-rest-api), [Azure PowerShell](/powershell/module/az.storage), la [CLI de Azure](/cli/azure/storage) o una biblioteca de cliente de Azure Storage. Hay bibliotecas de cliente disponibles para distintos lenguajes, entre los que se incluyen:
 
 * [.NET](/dotnet/api/overview/azure/storage?view=azure-dotnet)
-* [Java](https://docs.microsoft.com/java/api/overview/azure/storage)
+* [Java](/java/api/overview/azure/storage)
 * [Node.js](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage)
-* [Python](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-python)
+* [Python](../articles/storage/blobs/storage-quickstart-blobs-python.md)
 * [Go](https://github.com/azure/azure-storage-blob-go/)
 * [PHP](https://azure.github.io/azure-storage-php/)
 * [Ruby](https://azure.github.io/azure-storage-ruby)
@@ -47,4 +47,4 @@ Blob Storage es compatible con Azure Data Lake Storage Gen2, solución de análi
 * Coherencia máxima
 * Funcionalidades de recuperación ante desastres
 
-Para más información acerca de Data Lake Storage Gen2, consulte [Introduction to Azure Data Lake Storage Gen2](../articles/storage/data-lake-storage/introduction.md) (Introducción a Azure Data Lake Storage Gen2).
+Para más información acerca de Data Lake Storage Gen2, consulte [Introduction to Azure Data Lake Storage Gen2](../articles/storage/blobs/data-lake-storage-introduction.md) (Introducción a Azure Data Lake Storage Gen2).

@@ -4,11 +4,11 @@ description: 'Inicio rápido: Use Azure Event Grid y la CLI de Azure o el portal
 ms.date: 07/07/2020
 ms.topic: quickstart
 ms.openlocfilehash: aea52bcaa94d6f288e86e44e1a0f294796d8e4a3
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91324443"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996359"
 ---
 # <a name="quickstart-route-custom-events-to-an-azure-function-with-event-grid"></a>Inicio rápido: Enrutamiento de eventos personalizados a una instancia de Azure Functions con Event Grid
 
@@ -26,7 +26,7 @@ Antes de suscribirse al tema personalizado, cree una función para controlar los
         :::image type="content" source="./media/custom-event-to-function/function-event-grid-trigger.png" alt-text="Seleccionar el desencadenador de Event Grid":::
 3. En la página **Nueva función**, escriba un nombre para la función y seleccione **Crear función**.
 
-    :::image type="content" source="./media/custom-event-to-function/new-function-page.png" alt-text="Seleccionar el desencadenador de Event Grid":::
+    :::image type="content" source="./media/custom-event-to-function/new-function-page.png" alt-text="Página Nueva función":::
 4. Use la página **Código o prueba** para ver el código existente de la función y actualizarlo. 
 
 [!INCLUDE [event-grid-register-provider-portal.md](../../includes/event-grid-register-provider-portal.md)]
@@ -46,7 +46,7 @@ Un tema de cuadrícula de eventos proporciona un punto de conexión definido por
 4. En la página **Crear tema**, siga estos pasos:
 
     1. Escriba un **nombre** único para el tema personalizado. El nombre del tema debe ser único porque se representa mediante una entrada DNS. No use el nombre que se muestra en la imagen. En su lugar, cree su propio nombre: debe tener entre 3 y 50 caracteres y contener solo los valores a-z, A-Z, 0-9 y "-".
-    2. Selección la **suscripción**de Azure.
+    2. Selección la **suscripción** de Azure.
     3. Seleccione el mismo grupo de recursos que en los pasos anteriores.
     4. Seleccione una **ubicación** para el tema de Event Grid.
     5. Mantenga el valor predeterminado **Esquema de Event Grid** para el campo **Esquema de eventos**. 
@@ -88,7 +88,7 @@ Suscríbase a un tema de cuadrícula de eventos que indique a Event Grid los eve
     
         El procesamiento por lotes puede proporcionarle un alto rendimiento. Para **Max events per batch** (Máximo de eventos por lote), establezca el número máximo de eventos que una suscripción incluirá en un lote. El tamaño de lote preferido establece el límite superior preferido del tamaño del lote en kilobytes, pero se puede superar si un solo evento es mayor que este umbral.
     
-        :::image type="content" source="./media/custom-event-to-function/enable-batching.png" alt-text="Seleccionar el desencadenador de Event Grid":::
+        :::image type="content" source="./media/custom-event-to-function/enable-batching.png" alt-text="Habilitar el procesamiento por lotes":::
     6. En la página **Crear suscripción de eventos**, seleccione **Crear**.
 
 ## <a name="send-an-event-to-your-topic"></a>Envío de un evento al tema

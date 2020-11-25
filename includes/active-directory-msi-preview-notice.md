@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 04/24/2018
 ms.author: daveba
 ms.custom: include file
-ms.openlocfilehash: ed7d7b27ba1e69190dec6e9bd653a855a86e639e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9e6c778cb3fccedd0cfaf2d4eb952ad9d1347d05
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86277913"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95997393"
 ---
-Managed Identities for Azure Resources es una característica de Azure Active Directory. Cada [servicio de Azure compatible con Managed Identities for Azure Resources](/azure/active-directory/managed-identities-azure-resources/services-support-msi) está sujeto a su propia escala de tiempo. Asegúrese de revisar el estado de [disponibilidad](/azure/active-directory/managed-identities-azure-resources/services-support-msi) de las identidades administradas para el recurso y los [problemas conocidos](/azure/active-directory/managed-identities-azure-resources/known-issues) antes de comenzar.
+Managed Identities for Azure Resources es una característica de Azure Active Directory. Cada [servicio de Azure compatible con Managed Identities for Azure Resources](../articles/active-directory/managed-identities-azure-resources/services-support-managed-identities.md) está sujeto a su propia escala de tiempo. Asegúrese de revisar el estado de [disponibilidad](../articles/active-directory/managed-identities-azure-resources/services-support-managed-identities.md) de las identidades administradas para el recurso y los [problemas conocidos](../articles/active-directory/managed-identities-azure-resources/known-issues.md) antes de comenzar.

@@ -7,12 +7,12 @@ ms.date: 11/14/2018
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 8c24c5f043d17b5f0e54ca1c2c6cf41a0d3fe9bc
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 0bde1b7be15d49d82818f26d07c2ec633dc4526c
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "68726351"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95523270"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-ruby"></a>Inicio rápido: Carga, descarga y enumeración de blobs mediante Ruby
 
@@ -25,7 +25,7 @@ En esta guía de inicio rápido, aprenderá a usar Ruby para cargar, descargar y
 Asegúrese de tener instalados los siguientes requisitos previos adicionales:
 
 * [Ruby](https://www.ruby-lang.org/en/downloads/)
-* Instale la [biblioteca de Azure Storage para Ruby](https://docs.microsoft.com/azure/storage/blobs/storage-ruby-how-to-use-blob-storage) mediante el paquete rubygem: 
+* Instale la [biblioteca de Azure Storage para Ruby]() mediante el paquete rubygem: 
 
     ```
     gem install azure-storage-blob
@@ -90,7 +90,7 @@ Lo primero que hay que hacer es crear las referencias a los objetos usados para 
 Una vez que tenga CloudBlobContainer, puede crear el objeto de blob **Block** que apunte al blob específico en el que está interesado y realizar operaciones como carga, descarga y copia.
 
 > [!IMPORTANT]
-> Los nombres de contenedor deben estar en minúsculas. Para más información sobre la nomenclatura de contenedores y blobs, consulte [Naming and Referencing Containers, Blobs, and Metadata](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata) (Asignación de nombres y referencia a contenedores, blobs y metadatos).
+> Los nombres de contenedor deben estar en minúsculas. Para más información sobre la nomenclatura de contenedores y blobs, consulte [Naming and Referencing Containers, Blobs, and Metadata](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata) (Asignación de nombres y referencia a contenedores, blobs y metadatos).
 
 En esta sección, se configura una instancia del cliente de Azure Storage, se crean instancias de los objetos, se crea un contenedor y luego se establecen permisos en el contenedor para que los blobs sean públicos. El contenedor se denomina **quickstartblobs**. 
 
@@ -189,7 +189,7 @@ Consulte estos recursos adicionales para el desarrollo de Ruby con Blob Storage:
 En este tutorial de inicio rápido aprendió a transferir archivos entre un disco local y Azure Blob Storage mediante Ruby. Para más información sobre cómo trabajar con Blob Storage, continúe con los procedimientos de Blob Storage.
 
 > [!div class="nextstepaction"]
-> [Procedimientos de las operaciones de Blob Storage](./storage-ruby-how-to-use-blob-storage.md)
+> [Procedimientos de las operaciones de Blob Storage]()
 
 
 Para más información sobre el Explorador de Storage y los blobs, consulte [Administración de recursos de Azure Blob Storage con el Explorador de Storage (versión preliminar)](../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).

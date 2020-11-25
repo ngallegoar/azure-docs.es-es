@@ -4,11 +4,11 @@ description: archivo de inclusión
 services: cosmos-db
 ms.custom: include file
 ms.openlocfilehash: ad4445cbea6553a7a96299e1276dbe8f3816e166
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94503864"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994571"
 ---
 1. En una nueva ventana del explorador, inicie sesión en [Azure Portal](https://portal.azure.com/).
 

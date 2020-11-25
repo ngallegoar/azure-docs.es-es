@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: overview
 ms.date: 09/09/2020
 ms.author: raynew
-ms.openlocfilehash: 4d520f51717aa11dba55697d63852b17e0ba9cf0
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 5261904dd1ee7f280209015d8f756a055dfab57e
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90604502"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95522959"
 ---
 # <a name="about-the-move-process"></a>Acerca del proceso de traslado
 
@@ -25,8 +25,8 @@ Estos componentes se usan durante el traslado de región.
 
 **Componente** | **Detalles**
 --- | ---
-**Resource Mover** |  Resource Mover se coordina con los [proveedores de recursos de Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types) para orquestar el traslado de recursos entre regiones. Resource Mover analiza las dependencias de los recursos y mantiene y administra el estado de los recursos durante el proceso de traslado. 
-**Colección de movimiento** |  Una colección de movimiento es un objeto de [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/overview).<br/><br/> La colección de movimiento se crea durante el proceso de traslado de región, para cada combinación emparejada de las regiones de origen y de destino de una suscripción. La colección almacena metadatos e información de configuración de los recursos que se quieren trasladar.<br/><br/>Los recursos agregados a una colección de movimiento deben estar en la misma suscripción, pero pueden estar en distintos grupos de recursos. 
+**Resource Mover** |  Resource Mover se coordina con los [proveedores de recursos de Azure](../azure-resource-manager/management/resource-providers-and-types.md) para orquestar el traslado de recursos entre regiones. Resource Mover analiza las dependencias de los recursos y mantiene y administra el estado de los recursos durante el proceso de traslado. 
+**Colección de movimiento** |  Una colección de movimiento es un objeto de [Azure Resource Manager](../azure-resource-manager/management/overview.md).<br/><br/> La colección de movimiento se crea durante el proceso de traslado de región, para cada combinación emparejada de las regiones de origen y de destino de una suscripción. La colección almacena metadatos e información de configuración de los recursos que se quieren trasladar.<br/><br/>Los recursos agregados a una colección de movimiento deben estar en la misma suscripción, pero pueden estar en distintos grupos de recursos. 
 **Recurso de traslado** | Cuando se agrega un recurso a una colección de movimiento, Resource Mover realiza un seguimiento de él como un recurso de traslado.<br/><br/> Resource Mover mantiene información de todos los recursos de traslado en la colección de movimiento y mantiene una relación uno a uno entre el recurso de origen y el de destino. 
 **Dependencias** | Resource Mover valida los recursos que se agregan a una colección y comprueba si los recursos tienen dependencias que no están en la colección de movimiento.<br/><br/> Después de identificar las dependencias de un recurso, puede agregarlas a la colección de movimiento y trasladarlas también, o bien puede seleccionar otros recursos existentes en la región de destino. Se deben resolver todas las dependencias antes de iniciar el traslado. 
 
