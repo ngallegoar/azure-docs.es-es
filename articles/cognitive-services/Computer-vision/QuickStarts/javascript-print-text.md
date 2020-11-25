@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 08/05/2020
+ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-js
-ms.openlocfilehash: d3b16101cec242ad2cc470f90b37ab0f19848918
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: e98db4ce9884918e63bc87b68f9ab6c0fdf99b93
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94542769"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95746139"
 ---
 # <a name="quickstart-extract-printed-text-ocr-using-the-computer-vision-rest-api-and-javascript"></a>Inicio rápido: Extracción de texto impreso (OCR) mediante la API REST Computer Vision y JavaScript
 
 > [!NOTE]
-> Si va a extraer texto en inglés, considere la posibilidad de usar la nueva [operación de lectura](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-recognizing-text). Hay disponible una [guía de inicio rápido para JavaScript](https://docs.microsoft.com/azure/cognitive-services/computer-vision/quickstarts/javascript-hand-text).
+> Si va a extraer texto en inglés, considere la posibilidad de usar la nueva [operación de lectura](../concept-recognizing-text.md). Hay disponible una [guía de inicio rápido para JavaScript](./javascript-hand-text.md).
 
 En este inicio rápido, extraerá texto impreso con el reconocimiento óptico de caracteres (OCR) de una imagen con la API REST de Computer Vision. Con el método [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f20d), puede detectar texto impreso en cualquier imagen y extraer los caracteres reconocidos en una secuencia de caracteres que pueda usar una máquina.
 
@@ -248,6 +248,6 @@ Se devuelve una respuesta correcta en JSON. La página web de ejemplo analiza y 
 Después, explore una aplicación de JavaScript que usa Computer Vision para realizar el reconocimiento óptico de caracteres (OCR); crear miniaturas con recorte inteligente; y detectar, clasificar, etiquetar y describir características visuales, como caras, en una imagen. 
 
 > [!div class="nextstepaction"]
-> [Tutorial de Computer Vision API para JavaScript](../Tutorials/javascript-tutorial.md)
+> [Tutorial de Computer Vision API para JavaScript](https://github.com/Azure-Samples/cognitive-services-javascript-computer-vision-tutorial)
 
 * Para experimentar rápidamente con la versión de Computer Vision API, pruebe la [consola de pruebas de Open API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b/console).

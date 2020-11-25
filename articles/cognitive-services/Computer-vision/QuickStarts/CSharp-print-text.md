@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 08/11/2020
+ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-dotnet
-ms.openlocfilehash: ce75b5465d18f988d9dfd2b329c4157bab41ded9
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 8755a600a1e6afaae4ebe7451e16f6632073587f
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94534524"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95746598"
 ---
 # <a name="quickstart-extract-text-using-the-computer-vision-20-rest-api-ocr-operation-and-c"></a>Inicio rápido: Extraiga texto mediante la operación de OCR de la API REST de Computer Vision 2.0 y C#
 
 > [!IMPORTANT]
-> Si va a extraer texto en inglés, holandés, francés, alemán, Italiano, Portugués, español o chino simplificado (versión preliminar), se recomienda usar la nueva [operación de lectura](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-recognizing-text). Hay disponible una [guía de inicio rápido para C#](https://docs.microsoft.com/azure/cognitive-services/computer-vision/quickstarts/csharp-hand-text). 
+> Si va a extraer texto en inglés, holandés, francés, alemán, Italiano, Portugués, español o chino simplificado (versión preliminar), se recomienda usar la nueva [operación de lectura](../concept-recognizing-text.md). Hay disponible una [guía de inicio rápido para C#](./csharp-hand-text.md). 
 
 En este inicio rápido, extraerá texto impreso de una imagen mediante la característica [operación de OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f20d) de la API REST de Computer Vision. Con esta operación, puede detectar texto impreso en cualquier imagen y extraer los caracteres reconocidos en una secuencia de caracteres que pueda usar una máquina.
 
@@ -32,7 +32,7 @@ En este inicio rápido, extraerá texto impreso de una imagen mediante la caract
 * Una vez que tenga la suscripción de Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Creación de un recurso de Computer Vision"  target="_blank">cree un recurso de Computer Vision <span class="docon docon-navigate-external x-hidden-focus"></span></a> en Azure Portal para obtener la clave y el punto de conexión. Una vez que se implemente, haga clic en **Ir al recurso**.
     * Necesitará la clave y el punto de conexión del recurso que cree para conectar la aplicación al servicio Computer Vision. En una sección posterior de este mismo inicio rápido pegará la clave y el punto de conexión en el código siguiente.
     * Puede usar el plan de tarifa gratis (`F0`) para probar el servicio y actualizarlo más adelante a un plan de pago para producción.
-* [Cree las variables de entorno](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) `COMPUTER_VISION_SUBSCRIPTION_KEY` y `COMPUTER_VISION_ENDPOINT` para la clave y la dirección URL del punto de conexión, respectivamente.
+* [Cree las variables de entorno](../../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication) `COMPUTER_VISION_SUBSCRIPTION_KEY` y `COMPUTER_VISION_ENDPOINT` para la clave y la dirección URL del punto de conexión, respectivamente.
 
 ## <a name="create-and-run-the-sample-application"></a>Creación y ejecución de la aplicación de ejemplo
 
