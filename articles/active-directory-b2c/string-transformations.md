@@ -12,11 +12,11 @@ ms.date: 11/03/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 4e74c33a18baff3e1cb39328ce265f16975ef1b5
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322164"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994849"
 ---
 # <a name="string-claims-transformations"></a>Transformaciones de notificaciones de cadena
 
@@ -80,10 +80,10 @@ El perfil técnico autoafirmado llama al perfil técnico **login-NonInteractive*
 ### <a name="example"></a>Ejemplo
 
 - Notificaciones de entrada:
-  - **inputClaim1** : someone@contoso.com
-  - **inputClaim2** : someone@outlook.com
+  - **inputClaim1**: someone@contoso.com
+  - **inputClaim2**: someone@outlook.com
 - Parámetros de entrada:
-  - **stringComparison** : ordinalIgnoreCase
+  - **stringComparison**: ordinalIgnoreCase
 - Resultado: aparece un error
 
 ## <a name="changecase"></a>ChangeCase
@@ -115,11 +115,11 @@ Use esta transformación de notificaciones para cambiar cualquier ClaimType de c
 ### <a name="example"></a>Ejemplo
 
 - Notificaciones de entrada:
-  - **email** : SomeOne@contoso.com
+  - **email**: SomeOne@contoso.com
 - Parámetros de entrada:
-    - **toCase** : LOWER
+    - **toCase**: LOWER
 - Notificaciones de salida:
-  - **email** : someone@contoso.com
+  - **email**: someone@contoso.com
 
 ## <a name="createstringclaim"></a>CreateStringClaim
 
@@ -146,9 +146,9 @@ Use que esta transformación de notificaciones para establecer un valor de Claim
 ### <a name="example"></a>Ejemplo
 
 - Parámetro de entrada:
-    - **value** : Contoso terms of service...
+    - **value**: Contoso terms of service...
 - Notificaciones de salida:
-    - **createdClaim** : el tipo ClaimType TOS contiene el valor "Contoso terms of service…".
+    - **createdClaim**: el tipo ClaimType TOS contiene el valor "Contoso terms of service…".
 
 ## <a name="compareclaims"></a>CompareClaims
 
@@ -183,13 +183,13 @@ Use esta transformación de notificaciones para comprobar si una notificación e
 ### <a name="example"></a>Ejemplo
 
 - Notificaciones de entrada:
-  - **inputClaim1** : someone@contoso.com
-  - **inputClaim2** : someone@outlook.com
+  - **inputClaim1**: someone@contoso.com
+  - **inputClaim2**: someone@outlook.com
 - Parámetros de entrada:
-    - **operator** :  NOT EQUAL
-    - **ignoreCase** : true
+    - **operator**:  NOT EQUAL
+    - **ignoreCase**: true
 - Notificaciones de salida:
-    - **outputClaim** : true
+    - **outputClaim**: true
 
 ## <a name="compareclaimtovalue"></a>CompareClaimToValue
 
@@ -223,13 +223,13 @@ Puede usar esta transformación de notificaciones para comprobar si una notifica
 
 ### <a name="example"></a>Ejemplo
 - Notificaciones de entrada:
-    - **inputClaim1** : v1
+    - **inputClaim1**: v1
 - Parámetros de entrada:
-    - **compareTo** : V1
-    - **operator** : EQUAL
-    - **ignoreCase** : true
+    - **compareTo**: V1
+    - **operator**: EQUAL
+    - **ignoreCase**: true
 - Notificaciones de salida:
-    - **outputClaim** : true
+    - **outputClaim**: true
 
 ## <a name="createrandomstring"></a>CreateRandomString
 
@@ -259,9 +259,9 @@ El ejemplo siguiente genera un identificador único global. Esta transformación
 ### <a name="example"></a>Ejemplo
 
 - Parámetros de entrada:
-    - **randomGeneratorType** : GUID
+    - **randomGeneratorType**: GUID
 - Notificaciones de salida:
-    - **outputClaim** : bc8bedd2-aaa3-411e-bdee-2f1810b73dfc
+    - **outputClaim**: bc8bedd2-aaa3-411e-bdee-2f1810b73dfc
 
 El ejemplo siguiente genera un valor entero aleatorio entre 0 y 1000. El valor pasa a tener el formato OTP_ {valor_aleatorio}.
 
@@ -282,12 +282,12 @@ El ejemplo siguiente genera un valor entero aleatorio entre 0 y 1000. El valor p
 ### <a name="example"></a>Ejemplo
 
 - Parámetros de entrada:
-    - **randomGeneratorType** : INTEGER
-    - **maximumNumber** : 1000
-    - **stringFormat** : OTP_{0}
-    - **base64** : false
+    - **randomGeneratorType**: INTEGER
+    - **maximumNumber**: 1000
+    - **stringFormat**: OTP_{0}
+    - **base64**: false
 - Notificaciones de salida:
-    - **outputClaim** : OTP_853
+    - **outputClaim**: OTP_853
 
 
 ## <a name="formatstringclaim"></a>FormatStringClaim
@@ -319,11 +319,11 @@ Use esta transformación de notificaciones para dar formato a cualquier cadena c
 ### <a name="example"></a>Ejemplo
 
 - Notificaciones de entrada:
-    - **inputClaim** : 5164db16-3eee-4629-bfda-dcc3326790e9
+    - **inputClaim**: 5164db16-3eee-4629-bfda-dcc3326790e9
 - Parámetros de entrada:
-    - **stringFormat** : cpim_{0}@{RelyingPartyTenantId}
+    - **stringFormat**: cpim_{0}@{RelyingPartyTenantId}
 - Notificaciones de salida:
-  - **outputClaim** : cpim_5164db16-3eee-4629-bfda-dcc3326790e9@b2cdemo.onmicrosoft.com
+  - **outputClaim**: cpim_5164db16-3eee-4629-bfda-dcc3326790e9@b2cdemo.onmicrosoft.com
 
 ## <a name="formatstringmultipleclaims"></a>FormatStringMultipleClaims
 
@@ -356,12 +356,12 @@ Use esta transformación de notificaciones para dar formato a cualquier cadena c
 ### <a name="example"></a>Ejemplo
 
 - Notificaciones de entrada:
-    - **inputClaim1** : Joe
-    - **inputClaim2** : Fernando
+    - **inputClaim1**: Joe
+    - **inputClaim2**: Fernando
 - Parámetros de entrada:
-    - **stringFormat** : {0} {1}
+    - **stringFormat**: {0} {1}
 - Notificaciones de salida:
-    - **outputClaim** : Joe Fernando
+    - **outputClaim**: Joe Fernando
 
 ## <a name="getlocalizedstringstransformation"></a>GetLocalizedStringsTransformation
 
@@ -427,10 +427,10 @@ La transformación de notificaciones establece el valor del tipo de notificació
 ### <a name="example"></a>Ejemplo
 
 - Notificaciones de salida:
-  - **subject** : Código de verificación del correo electrónico de la cuenta de Contoso
-  - **message** : Gracias por comprobar la cuenta
-  - **codeIntro** : Su código es
-  - **signature** : Atentamente
+  - **subject**: Código de verificación del correo electrónico de la cuenta de Contoso
+  - **message**: Gracias por comprobar la cuenta
+  - **codeIntro**: Su código es
+  - **signature**: Atentamente
 
 
 ## <a name="getmappedvaluefromlocalizedcollection"></a>GetMappedValueFromLocalizedCollection
@@ -472,9 +472,9 @@ La transformación de notificaciones busca el texto del elemento y devuelve su v
 ### <a name="example"></a>Ejemplo
 
 - Notificaciones de entrada:
-    - **mapFromClaim** : B2C_V1_90001
+    - **mapFromClaim**: B2C_V1_90001
 - Notificaciones de salida:
-    - **restrictionValueClaim** : No puede iniciar sesión porque es menor de edad.
+    - **restrictionValueClaim**: No puede iniciar sesión porque es menor de edad.
 
 ## <a name="lookupvalue"></a>LookupValue
 
@@ -509,14 +509,14 @@ En el ejemplo siguiente se busca el nombre de dominio en una de las colecciones 
 ### <a name="example"></a>Ejemplo
 
 - Notificaciones de entrada:
-    - **inputParameterId** : test.com
+    - **inputParameterId**: test.com
 - Parámetros de entrada:
-    - **contoso.com** : 13c15f79-8fb1-4e29-a6c9-be0d36ff19f1
-    - **microsoft.com** : 0213308f-17cb-4398-b97e-01da7bd4804e
-    - **test.com** : c7026f88-4299-4cdb-965d-3f166464b8a9
-    - **errorOnFailedLookup** : false
+    - **contoso.com**: 13c15f79-8fb1-4e29-a6c9-be0d36ff19f1
+    - **microsoft.com**: 0213308f-17cb-4398-b97e-01da7bd4804e
+    - **test.com**: c7026f88-4299-4cdb-965d-3f166464b8a9
+    - **errorOnFailedLookup**: false
 - Notificaciones de salida:
-    - **outputClaim** : c7026f88-4299-4cdb-965d-3f166464b8a9
+    - **outputClaim**: c7026f88-4299-4cdb-965d-3f166464b8a9
 
 Cuando el parámetro de entrada `errorOnFailedLookup` está establecido en `true`, la transformación de notificaciones **LookupValue** siempre se ejecuta desde un [perfil técnico de validación](validation-technical-profile.md) llamado por un [perfil técnico autofirmado](self-asserted-technical-profile.md) o un elemento [DisplayControl](display-controls.md). Los metadatos `LookupNotFound` de un perfil técnico autoafirmado controlan el mensaje de error que se presenta al usuario.
 
@@ -544,12 +544,12 @@ En el ejemplo siguiente se busca el nombre de dominio en una de las colecciones 
 ### <a name="example"></a>Ejemplo
 
 - Notificaciones de entrada:
-    - **inputParameterId** : live.com
+    - **inputParameterId**: live.com
 - Parámetros de entrada:
-    - **contoso.com** : 13c15f79-8fb1-4e29-a6c9-be0d36ff19f1
-    - **microsoft.com** : 0213308f-17cb-4398-b97e-01da7bd4804e
-    - **test.com** : c7026f88-4299-4cdb-965d-3f166464b8a9
-    - **errorOnFailedLookup** : true
+    - **contoso.com**: 13c15f79-8fb1-4e29-a6c9-be0d36ff19f1
+    - **microsoft.com**: 0213308f-17cb-4398-b97e-01da7bd4804e
+    - **test.com**: c7026f88-4299-4cdb-965d-3f166464b8a9
+    - **errorOnFailedLookup**: true
 - Error:
     - No se encontró ninguna coincidencia para el valor de notificaciones de entrada en la lista de identificadores de parámetro de entrada y errorOnFailedLookup es true.
 
@@ -573,9 +573,9 @@ Use esta transformación de notificaciones para quitar datos innecesarios de la 
 ```
 
 - Notificaciones de entrada:
-    - **outputClaim** : Bienvenidos a Contoso App. Si continúa explorando y usando este sitio web, acepta las siguientes condiciones generales, que regirán su uso del sitio web...
+    - **outputClaim**: Bienvenidos a Contoso App. Si continúa explorando y usando este sitio web, acepta las siguientes condiciones generales, que regirán su uso del sitio web...
 - Notificaciones de salida:
-    - **outputClaim** : NULL
+    - **outputClaim**: NULL
 
 ## <a name="parsedomain"></a>ParseDomain
 
@@ -602,9 +602,9 @@ Use esta transformación de notificaciones para analizar el nombre de dominio de
 ### <a name="example"></a>Ejemplo
 
 - Notificaciones de entrada:
-  - **emailAddress** : joe@outlook.com
+  - **emailAddress**: joe@outlook.com
 - Notificaciones de salida:
-    - **domain** : outlook.com
+    - **domain**: outlook.com
 
 ## <a name="setclaimsifregexmatch"></a>SetClaimsIfRegexMatch
 
@@ -641,13 +641,13 @@ Comprueba si el número de teléfono indicado es válido, en función del patró
 ```
 
 - Notificaciones de entrada:
-    - **claimToMatch** : "64854114520"
+    - **claimToMatch**: "64854114520"
 - Parámetros de entrada:
-    - **matchTo** : "^[0-9]{4,16}$"
-    - **outputClaimIfMatched** : "isPhone"
+    - **matchTo**: "^[0-9]{4,16}$"
+    - **outputClaimIfMatched**: "isPhone"
 - Notificaciones de salida:
-    - **outputClaim** : "isPhone"
-    - **regexCompareResultClaim** : true
+    - **outputClaim**: "isPhone"
+    - **regexCompareResultClaim**: true
 
 ### <a name="example-2"></a>Ejemplo 2
 
@@ -672,15 +672,15 @@ Comprueba si la dirección de correo electrónico proporcionada es válida y dev
 ```
 
 - Notificaciones de entrada:
-    - **claimToMatch** : "emily@contoso.com"
+    - **claimToMatch**: "emily@contoso.com"
 - Parámetros de entrada:
-    - **matchTo** : `(?&lt;mailAlias&gt;.*)@(.*)$`
-    - **outputClaimIfMatched** :  "isEmail"
-    - **extractGroups** : true
+    - **matchTo**: `(?&lt;mailAlias&gt;.*)@(.*)$`
+    - **outputClaimIfMatched**:  "isEmail"
+    - **extractGroups**: true
 - Notificaciones de salida:
-    - **outputClaim** : "isEmail"
-    - **regexCompareResultClaim** : true
-    - **mailAlias** : emily
+    - **outputClaim**: "isEmail"
+    - **regexCompareResultClaim**: true
+    - **mailAlias**: emily
     
 ## <a name="setclaimsifstringsareequal"></a>SetClaimsIfStringsAreEqual
 
@@ -720,16 +720,16 @@ Puede usar esta transformación de notificaciones para comprobar si una notifica
 ### <a name="example"></a>Ejemplo
 
 - Notificaciones de entrada:
-    - **inputClaim** : v1
+    - **inputClaim**: v1
 - Parámetros de entrada:
-    - **matchTo** : V1
-    - **stringComparison** : ordinalIgnoreCase
-    - **stringMatchMsg** :  B2C_V1_90005
-    - **stringMatchMsgCode** :  The TOS is upgraded to v2
+    - **matchTo**: V1
+    - **stringComparison**: ordinalIgnoreCase
+    - **stringMatchMsg**:  B2C_V1_90005
+    - **stringMatchMsgCode**:  The TOS is upgraded to v2
 - Notificaciones de salida:
-    - **outputClaim1** : B2C_V1_90005
-    - **outputClaim2** : The TOS is upgraded to v2
-    - **stringCompareResultClaim** : true
+    - **outputClaim1**: B2C_V1_90005
+    - **outputClaim2**: The TOS is upgraded to v2
+    - **stringCompareResultClaim**: true
 
 ## <a name="setclaimsifstringsmatch"></a>SetClaimsIfStringsMatch
 
@@ -766,14 +766,14 @@ Por ejemplo, la siguiente transformación de notificaciones comprueba si el valo
 ### <a name="example"></a>Ejemplo
 
 - Notificaciones de entrada:
-    - **claimToMatch** : Minor
+    - **claimToMatch**: Minor
 - Parámetros de entrada:
-    - **matchTo** : Minor
-    - **stringComparison** : ordinalIgnoreCase
-    - **outputClaimIfMatched** :  B2C_V1_90001
+    - **matchTo**: Minor
+    - **stringComparison**: ordinalIgnoreCase
+    - **outputClaimIfMatched**:  B2C_V1_90001
 - Notificaciones de salida:
-    - **isMinorResponseCode** : B2C_V1_90001
-    - **isMinor** : true
+    - **isMinorResponseCode**: B2C_V1_90001
+    - **isMinor**: true
 
 
 ## <a name="stringcontains"></a>StringContains
@@ -807,12 +807,12 @@ Use esta transformación de notificaciones para comprobar si un tipo de notifica
 ### <a name="example"></a>Ejemplo
 
 - Notificaciones de entrada:
-    - **inputClaim** : "Admin, Approver, Editor"
+    - **inputClaim**: "Admin, Approver, Editor"
 - Parámetros de entrada:
-    - **contains** : "admin,"
-    - **ignoreCase** : true
+    - **contains**: "admin,"
+    - **ignoreCase**: true
 - Notificaciones de salida:
-    - **outputClaim** : true
+    - **outputClaim**: true
 
 ## <a name="stringsubstring"></a>StringSubstring
 
@@ -845,12 +845,12 @@ Por ejemplo, obtiene el prefijo de país o región del número de teléfono.
 ### <a name="example"></a>Ejemplo
 
 - Notificaciones de entrada:
-    - **inputClaim** : "+1644114520"
+    - **inputClaim**: "+1644114520"
 - Parámetros de entrada:
-    - **startIndex** : 0
-    - **length** :  2
+    - **startIndex**: 0
+    - **length**:  2
 - Notificaciones de salida:
-    - **outputClaim** : "+1"
+    - **outputClaim**: "+1"
 
 ## <a name="stringreplace"></a>StringReplace
 
@@ -883,12 +883,12 @@ Por ejemplo, normaliza un número de teléfono quitando los caracteres `-`.
 ### <a name="example"></a>Ejemplo
 
 - Notificaciones de entrada:
-    - **inputClaim** : "+164-411-452-054"
+    - **inputClaim**: "+164-411-452-054"
 - Parámetros de entrada:
-    - **oldValue** : "-"
-    - **newValue** :  ""
+    - **oldValue**: "-"
+    - **newValue**:  ""
 - Notificaciones de salida:
-    - **outputClaim** : "+164411452054"
+    - **outputClaim**: "+164411452054"
 
 ## <a name="stringjoin"></a>StringJoin
 
@@ -919,11 +919,11 @@ En el ejemplo siguiente se toma una colección de cadenas de roles de usuario y 
 ### <a name="example"></a>Ejemplo
 
 - Notificaciones de entrada:
-  - **inputClaim** : [ "Admin", "Author", "Reader" ]
+  - **inputClaim**: [ "Admin", "Author", "Reader" ]
 - Parámetros de entrada:
-  - **delimiter** : ","
+  - **delimiter**: ","
 - Notificaciones de salida:
-  - **outputClaim** : "Admin,Author,Reader"
+  - **outputClaim**: "Admin,Author,Reader"
 
 
 ## <a name="stringsplit"></a>StringSplit
@@ -955,11 +955,11 @@ En el siguiente ejemplo se toma una cadena con delimitador de coma de roles de u
 ### <a name="example"></a>Ejemplo
 
 - Notificaciones de entrada:
-  - **inputClaim** : "Admin,Author,Reader"
+  - **inputClaim**: "Admin,Author,Reader"
 - Parámetros de entrada:
-  - **delimiter** : ","
+  - **delimiter**: ","
 - Notificaciones de salida:
-  - **outputClaim** : [ "Admin", "Author", "Reader" ]
+  - **outputClaim**: [ "Admin", "Author", "Reader" ]
 
 ## <a name="string-claim-transformations-expressions"></a>Expresiones de transformaciones de notificaciones de cadena
 Las expresiones de transformaciones de notificaciones de las directivas personalizadas de Azure AD B2C proporcionan información contextual sobre el identificador de inquilino y el identificador de perfil técnico.

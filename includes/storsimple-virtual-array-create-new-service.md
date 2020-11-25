@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/15/2018
 ms.author: alkohli
 ms.custom: include file
-ms.openlocfilehash: 7bdbfd8ffd44f9515ae4df20c55b09c8a0adcaef
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 1be6a654962b513cfcf755d45e562b86067e7b25
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93375998"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995031"
 ---
 #### <a name="to-create-a-new-service"></a>Para crear un nuevo servicio
 
@@ -29,13 +29,13 @@ ms.locfileid: "93375998"
 
     2.  Elija una **Suscripción** en la lista desplegable. La suscripción está vinculada a la cuenta de facturación. Este campo no está presente si tiene una sola suscripción.
 
-    3.  Para **Grupo de recursos**, seleccione un grupo de recursos existente o cree uno. Para más información, consulte [Grupos de recursos en Azure](/azure/azure-resource-manager/management/manage-resource-groups-portal).
+    3.  Para **Grupo de recursos**, seleccione un grupo de recursos existente o cree uno. Para más información, consulte [Grupos de recursos en Azure](../articles/azure-resource-manager/management/manage-resource-groups-portal.md).
 
     4.  Proporcione una **Ubicación** para el servicio. Consulte [Regiones de Azure](https://azure.microsoft.com/regions/#services) para más información acerca de qué servicios están disponibles en cada región. En general, elija una **ubicación** más cercana a la región geográfica donde desee implementar el dispositivo. También puedes querer tener en cuenta lo siguiente:
 
         -   Si tiene cargas de trabajo existentes en Azure que también va a implementar con el dispositivo de StorSimple, se recomienda usar ese centro de datos.
 
-        -   El Administrador de dispositivos de StorSimple y el almacenamiento de Azure pueden encontrarse en dos ubicaciones independientes. En ese caso, se le pedirá que cree la cuenta del Administrador de dispositivos de StorSimple y la de almacenamiento de Azure por separado. Para crear una cuenta de almacenamiento de Azure, vaya a Azure Storage en Azure Portal y siga los pasos descritos en la sección [Crear una cuenta de almacenamiento](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account). Después de crear esta cuenta, agréguela al servicio Administrador de dispositivos de StorSimple mediante los pasos indicados en la sección [Configurar una nueva cuenta de almacenamiento para el servicio](https://azure.microsoft.com/documentation/articles/storsimple-deployment-walkthrough/#configure-a-new-storage-account-for-the-service).
+        -   El Administrador de dispositivos de StorSimple y el almacenamiento de Azure pueden encontrarse en dos ubicaciones independientes. En ese caso, se le pedirá que cree la cuenta del Administrador de dispositivos de StorSimple y la de almacenamiento de Azure por separado. Para crear una cuenta de almacenamiento de Azure, vaya a Azure Storage en Azure Portal y siga los pasos descritos en la sección [Crear una cuenta de almacenamiento](../articles/storage/common/storage-account-create.md). Después de crear esta cuenta, agréguela al servicio Administrador de dispositivos de StorSimple mediante los pasos indicados en la sección [Configurar una nueva cuenta de almacenamiento para el servicio](../articles/storsimple/storsimple-virtual-array-manage-storage-accounts.md#add-a-storage-account-credential).
 
         -   Si está implementando el dispositivo virtual en el Portal de Government, el servicio Administrador de dispositivos de StorSimple se encuentra disponible en las ubicaciones EE. UU. (Iowa) y EE. UU. (Virginia).
 
@@ -48,5 +48,3 @@ ms.locfileid: "93375998"
         ![Creación de un nuevo servicio 2](./media/storsimple-virtual-array-create-new-service/createnewservice4.png)  
 
 Se le dirige a la página de destino del **Servicio**. Se tarda unos minutos en crear el servicio. Después de que el servicio se cree correctamente, se le notificará de forma adecuada y el estado del servicio cambiará a **Activo**.
-
-

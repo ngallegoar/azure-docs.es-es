@@ -8,11 +8,11 @@ keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores
 manager: gwallace
 ms.custom: devx-track-js, devx-track-azurecli
 ms.openlocfilehash: 9bed61861c80f141270e50b644b32ae42fbe8e77
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748132"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995578"
 ---
 # <a name="github-actions--azure-kubernetes-service-preview"></a>Acciones de GitHub y Azure Kubernetes Service (versión preliminar)
 
@@ -88,31 +88,31 @@ az role assignment create --assignee <ClientId>  --scope <ACRId> --role AcrPush
 > [!IMPORTANT]
 > Debe tener habilitadas las acciones de GitHub para el repositorio. Para habilitar las acciones de GitHub para el repositorio, vaya al repositorio en GitHub, haga clic en la pestaña Acciones y habilite las acciones para este repositorio.
 
-Navegue al repositorio bifurcado y haga clic en *Configuración* . Haga clic en *Secretos* en la barra lateral izquierda. Haga clic en *Agregar un nuevo secreto* para agregar cada secreto nuevo a continuación:
+Navegue al repositorio bifurcado y haga clic en *Configuración*. Haga clic en *Secretos* en la barra lateral izquierda. Haga clic en *Agregar un nuevo secreto* para agregar cada secreto nuevo a continuación:
 
-1. *AZURE_CREDENTIALS* : toda la salida de la creación de la entidad de servicio.
-1. *RESOURCE_GROUP* : el grupo de recursos para el clúster de AKS, que en este ejemplo es *MyResourceGroup* .
-1. *CLUSTER_NAME* : el nombre del clúster de AKS, que en este ejemplo es *MyAKS* .
-1. *CONTAINER_REGISTRY* : el *loginServer* para la instancia de ACR.
-1. *HOST* : el host del espacio de desarrollo, que adopta la forma *<MASTER_SPACE>.<APP_NAME>.<HOST_SUFFIX>* , y en este ejemplo es *dev.bikesharingweb.fedcab0987.eus.azds.io* .
-1. *IMAGE_PULL_SECRET* : el nombre del secreto que desea usar, por ejemplo *demo-secret* .
-1. *MASTER_SPACE* : el nombre del espacio de desarrollo primario, que en este ejemplo es *dev* .
-1. *REGISTRY_USERNAME* : el *clientId* de la salida de JSON en la creación de la entidad de servicio.
-1. *REGISTRY_PASSWORD* : el *clientSecret* de la salida de JSON en la creación de la entidad de servicio.
+1. *AZURE_CREDENTIALS*: toda la salida de la creación de la entidad de servicio.
+1. *RESOURCE_GROUP*: el grupo de recursos para el clúster de AKS, que en este ejemplo es *MyResourceGroup*.
+1. *CLUSTER_NAME*: el nombre del clúster de AKS, que en este ejemplo es *MyAKS*.
+1. *CONTAINER_REGISTRY*: el *loginServer* para la instancia de ACR.
+1. *HOST*: el host del espacio de desarrollo, que adopta la forma *<MASTER_SPACE>.<APP_NAME>.<HOST_SUFFIX>* , y en este ejemplo es *dev.bikesharingweb.fedcab0987.eus.azds.io*.
+1. *IMAGE_PULL_SECRET*: el nombre del secreto que desea usar, por ejemplo *demo-secret*.
+1. *MASTER_SPACE*: el nombre del espacio de desarrollo primario, que en este ejemplo es *dev*.
+1. *REGISTRY_USERNAME*: el *clientId* de la salida de JSON en la creación de la entidad de servicio.
+1. *REGISTRY_PASSWORD*: el *clientSecret* de la salida de JSON en la creación de la entidad de servicio.
 
 > [!NOTE]
 > Todos estos secretos los usa la acción de GitHub y se configuran en [.github/workflows/bikes.yml][github-action-yaml].
 
-De manera opcional, si desea actualizar el espacio maestro después de la combinación de la solicitud de incorporación de cambios, agregue el secreto *GATEWAY_HOST* , que toma la forma *<ESPACIO_MAESTRO>. Gateway. <SUFIJO_DE_HOST>* , que en este ejemplo es *dev.gateway.fedcab0987.eus.azds.io* . Una vez que combine los cambios en la rama maestra de la bifurcación, se ejecutará otra acción para volver a compilar y ejecutar toda la aplicación en el espacio de desarrollo maestro. En este ejemplo, el espacio maestro es *dev* . Esta acción se configura en [.github/workflows/bikesharing.yml][github-action-bikesharing-yaml].
+De manera opcional, si desea actualizar el espacio maestro después de la combinación de la solicitud de incorporación de cambios, agregue el secreto *GATEWAY_HOST*, que toma la forma *<ESPACIO_MAESTRO>. Gateway. <SUFIJO_DE_HOST>* , que en este ejemplo es *dev.gateway.fedcab0987.eus.azds.io*. Una vez que combine los cambios en la rama maestra de la bifurcación, se ejecutará otra acción para volver a compilar y ejecutar toda la aplicación en el espacio de desarrollo maestro. En este ejemplo, el espacio maestro es *dev*. Esta acción se configura en [.github/workflows/bikesharing.yml][github-action-bikesharing-yaml].
 
-Además, si desea que los cambios de la solicitud de incorporación de cambios se ejecuten en un espacio terciario, actualice los secretos *MASTER_SPACE* y *HOST* . Por ejemplo, si la aplicación se ejecuta en *dev* con un espacio secundario *dev/azureuser1* , para que la solicitud de incorporación de cambios se ejecute en un espacio secundario de *dev/azureuser1* :
+Además, si desea que los cambios de la solicitud de incorporación de cambios se ejecuten en un espacio terciario, actualice los secretos *MASTER_SPACE* y *HOST*. Por ejemplo, si la aplicación se ejecuta en *dev* con un espacio secundario *dev/azureuser1*, para que la solicitud de incorporación de cambios se ejecute en un espacio secundario de *dev/azureuser1*:
 
-* Actualice *MASTER_SPACE* al espacio secundario que desee como espacio primario, en este ejemplo *azureuser1* .
-* Actualice *HOST* a *<GRANDPARENT_SPACE>.<APP_NAME>.<HOST_SUFFIX>* , en este ejemplo *dev.bikesharingweb.fedcab0987.eus.azds.io* .
+* Actualice *MASTER_SPACE* al espacio secundario que desee como espacio primario, en este ejemplo *azureuser1*.
+* Actualice *HOST* a *<GRANDPARENT_SPACE>.<APP_NAME>.<HOST_SUFFIX>* , en este ejemplo *dev.bikesharingweb.fedcab0987.eus.azds.io*.
 
 ## <a name="create-a-new-branch-for-code-changes"></a>Crear una nueva rama para los cambios de código
 
-Vaya a `BikeSharingApp/` y cree una nueva rama llamada *bike-images* .
+Vaya a `BikeSharingApp/` y cree una nueva rama llamada *bike-images*.
 
 ```cmd
 cd dev-spaces/samples/BikeSharingApp/
@@ -149,9 +149,9 @@ Use `git push` para enviar los cambios de la nueva rama al repositorio bifurcado
 git push origin bike-images
 ```
 
-Una vez completado el envío de cambios, vaya al repositorio bifurcado de GitHub y cree una solicitud de incorporación de cambios con la rama *master* del repositorio bifurcado como rama base en lugar de la rama *bike-images* .
+Una vez completado el envío de cambios, vaya al repositorio bifurcado de GitHub y cree una solicitud de incorporación de cambios con la rama *master* del repositorio bifurcado como rama base en lugar de la rama *bike-images*.
 
-Una vez abierta la solicitud de incorporación de cambios, vaya a la pestaña *Acciones* . Compruebe que se haya iniciado una nueva acción y se esté creando el servicio *Bikes* .
+Una vez abierta la solicitud de incorporación de cambios, vaya a la pestaña *Acciones*. Compruebe que se haya iniciado una nueva acción y se esté creando el servicio *Bikes*.
 
 ## <a name="view-the-child-space-with-your-changes"></a>Ver el espacio secundario con los cambios
 
@@ -160,9 +160,9 @@ Una vez completada la acción, verá un comentario con una dirección URL para e
 > [!div class="mx-imgBorder"]
 > ![URL de la acción de GitHub](../media/github-actions/github-action-url.png)
 
-Para navegar al servicio *bikesharingweb* , abra la dirección URL pública en el comentario. Seleccione *Aurelia Briggs (customer)* (Aurelia Briggs [cliente]) como usuario y, después, seleccione una bicicleta para alquilar. Compruebe que ya no ve la imagen de marcador de posición de la bicicleta.
+Para navegar al servicio *bikesharingweb*, abra la dirección URL pública en el comentario. Seleccione *Aurelia Briggs (customer)* (Aurelia Briggs [cliente]) como usuario y, después, seleccione una bicicleta para alquilar. Compruebe que ya no ve la imagen de marcador de posición de la bicicleta.
 
-Si combina los cambios en la rama *master* de la bifurcación, se ejecutará otra acción para volver a compilar y ejecutar toda la aplicación en el espacio de desarrollo primario. En este ejemplo, el espacio primario es *dev* . Esta acción se configura en [.github/workflows/bikesharing.yml][github-action-bikesharing-yaml].
+Si combina los cambios en la rama *master* de la bifurcación, se ejecutará otra acción para volver a compilar y ejecutar toda la aplicación en el espacio de desarrollo primario. En este ejemplo, el espacio primario es *dev*. Esta acción se configura en [.github/workflows/bikesharing.yml][github-action-bikesharing-yaml].
 
 ## <a name="clean-up-your-azure-resources"></a>Limpieza de los recursos de Azure
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 29ea9300b2f86f442d95c96d4a5df3364628d866
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 92041be4d3d5ef4d980c17fa0a5870b740c1784a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91744141"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995030"
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-virtual-array"></a>Implementación del servicio StorSimple Device Manager en una instancia de StorSimple Virtual Array
 
@@ -36,7 +36,7 @@ Las tareas comunes relacionadas con un servicio StorSimple Device Manager son:
 * Obtener la clave de registro del servicio
 * Volver a generar la clave de registro de servicio
 
-Este tutorial describe cómo realizar cada una de las tareas anteriores. La información contenida en este artículo se aplica solo a las matrices virtuales de StorSimple. Para más información acerca de la serie 8000 de StorSimple, vaya a [Implementar el servicio StorSimple Manager](storsimple-manage-service.md).
+Este tutorial describe cómo realizar cada una de las tareas anteriores. La información contenida en este artículo se aplica solo a las matrices virtuales de StorSimple. Para más información acerca de la serie 8000 de StorSimple, vaya a [Implementar el servicio StorSimple Manager](./storsimple-8000-manage-service.md).
 
 ## <a name="create-a-service"></a>Crear un servicio
 
@@ -89,7 +89,7 @@ Se actualizará la lista de servicios.
  ![Lista de servicios actualizada](./media/storsimple-virtual-array-manage-service/deleteservice7.png)
 
 ## <a name="get-the-service-registration-key"></a>Obtener la clave de registro del servicio
-Después de haber creado correctamente un servicio, deberá registrar el dispositivo StorSimple con el servicio. Para registrar el primer dispositivo StorSimple, necesitará la clave de registro del servicio. Para registrar dispositivos adicionales con un servicio existente StorSimple, necesitará la clave de registro y la clave de cifrado de datos de servicio (que se genera en el primer dispositivo durante el registro). Para obtener más información acerca de la clave de cifrado de datos de servicio, consulte [Seguridad de StorSimple](storsimple-security.md). Para obtener la clave de registro, acceda a la hoja **Claves** para el servicio.
+Después de haber creado correctamente un servicio, deberá registrar el dispositivo StorSimple con el servicio. Para registrar el primer dispositivo StorSimple, necesitará la clave de registro del servicio. Para registrar dispositivos adicionales con un servicio existente StorSimple, necesitará la clave de registro y la clave de cifrado de datos de servicio (que se genera en el primer dispositivo durante el registro). Para obtener más información acerca de la clave de cifrado de datos de servicio, consulte [Seguridad de StorSimple](./storsimple-8000-security.md). Para obtener la clave de registro, acceda a la hoja **Claves** para el servicio.
 
 Realice los pasos siguientes para obtener la clave de registro del servicio.
 
@@ -125,4 +125,3 @@ Realice los pasos siguientes para volver a generar una clave de registro de serv
 ## <a name="next-steps"></a>Pasos siguientes
 * Lea una [introducción](storsimple-virtual-array-deploy1-portal-prep.md) a StorSimple Virtual Array.
 * Obtenga información sobre cómo [administrar el dispositivo StorSimple](storsimple-ova-web-ui-admin.md).
-

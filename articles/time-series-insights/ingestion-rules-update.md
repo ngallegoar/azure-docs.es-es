@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/02/2020
 ms.custom: lyhughes
-ms.openlocfilehash: 320d92ef0ad6d02dbe7c31b883eb7f73472378ce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 56a1d5aab2f665f9c5bd8f6fa322f35e55483c7b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91667816"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995240"
 ---
 # <a name="upcoming-changes-to-json-flattening-and-escaping-rules-for-new-environments"></a>Próximos cambios en las reglas de aplanamiento y escape de JSON para los entornos nuevos
 
@@ -44,17 +44,17 @@ Las matrices de objetos siempre están aplanadas, lo que genera varios eventos. 
 
 Es preciso que las implementaciones nuevas coincidan con las reglas de ingesta nuevas. Por ejemplo, si el identificador de TS es `telemetry_tagId`, deberá actualizar las plantillas de Azure Resource Manager o los scripts de implementación automatizados para configurar `telemetry.tagId` como identificador de TS del entorno. Este cambio también es necesario para las marcas de tiempo del origen del evento en el objeto JSON anidado.
 
-### <a name="if-your-payload-contains-nested-json-or-special-characters-and-you-automate-authoring-time-series-model-variable-expressions"></a>Si la carga contiene un objeto JSON anidado o caracteres especiales y se automatiza la creación de expresiones variables del [modelo de Time Series](.\time-series-insights-update-tsm.md)
+### <a name="if-your-payload-contains-nested-json-or-special-characters-and-you-automate-authoring-time-series-model-variable-expressions"></a>Si la carga contiene un objeto JSON anidado o caracteres especiales y se automatiza la creación de expresiones variables del [modelo de Time Series](./concepts-model-overview.md)
 
-Actualice el código de cliente que ejecuta [TypesBatchPut](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriestypes/executebatch#typesbatchput) para que coincida con las reglas de ingesta nuevas. Por ejemplo, debería actualizar una [expresión de Time Series](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax) de `"value": {"tsx": "$event.series_value.Double"}` a una de las opciones siguientes:
+Actualice el código de cliente que ejecuta [TypesBatchPut](/rest/api/time-series-insights/dataaccessgen2/timeseriestypes/executebatch#typesbatchput) para que coincida con las reglas de ingesta nuevas. Por ejemplo, debería actualizar una [expresión de Time Series](/rest/api/time-series-insights/reference-time-series-expression-syntax) de `"value": {"tsx": "$event.series_value.Double"}` a una de las opciones siguientes:
 
 * `"value": {"tsx": "$event.series.value.Double"}`
 * `"value": {"tsx": "$event['series']['value'].Double"}`
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Obtenga información sobre el [almacenamiento y la entrada de Azure Time Series Insights Gen2](./time-series-insights-update-storage-ingress.md).
+* Obtenga información sobre el [almacenamiento y la entrada de Azure Time Series Insights Gen2](./concepts-ingestion-overview.md).
 
 * Aprenda a realizar consultas de datos mediante las [API de consulta de Time Series](./concepts-query-overview.md).
 
-* Lea más información sobre la [nueva sintaxis de Time Series Expression](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax).
+* Lea más información sobre la [nueva sintaxis de Time Series Expression](/rest/api/time-series-insights/reference-time-series-expression-syntax).

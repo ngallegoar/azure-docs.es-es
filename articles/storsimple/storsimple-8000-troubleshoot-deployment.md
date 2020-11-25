@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 5806266955eafab8c3c8c99695ff82736de92e9b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 600934e2d46c1a84a83fa1290db13b3d0d1508f4
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86187071"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995410"
 ---
 # <a name="troubleshoot-storsimple-device-deployment-issues"></a>Solución de problemas de implementación de dispositivos de StorSimple
 ## <a name="overview"></a>Información general
@@ -46,12 +46,12 @@ Las siguientes secciones le ayudarán a resolver los problemas que aparecen al c
 ## <a name="first-time-setup-wizard-process"></a>Proceso del Asistente para instalación por primera vez
 Los pasos siguientes resumen el proceso del Asistente para instalación. Para obtener información detallada de la configuración, consulte cómo [Implementar el dispositivo StorSimple local](storsimple-8000-deployment-walkthrough-u2.md).
 
-1. Ejecute el cmdlet [Invoke-HcsSetupWizard](https://technet.microsoft.com/library/dn688135.aspx) para iniciar el Asistente para instalación, que le guiará por el resto de los pasos. 
+1. Ejecute el cmdlet [Invoke-HcsSetupWizard](/previous-versions/windows/powershell-scripting/dn688135(v=wps.630)) para iniciar el Asistente para instalación, que le guiará por el resto de los pasos. 
 2. Configure la red: el Asistente para instalación permite configurar la red para la interfaz de red DATA 0 del dispositivo de StorSimple. Entre los ajustes se incluyen los siguientes:
-   * IP virtual (VIP), máscara de subred y puerta de enlace: el cmdlet [Set-HcsNetInterface](https://technet.microsoft.com/library/dn688161.aspx) se ejecuta en segundo plano. Configura la dirección IP, la máscara de subred y la puerta de enlace para la interfaz de red DATA 0 del dispositivo de StorSimple.
-   * Servidor DNS principal: el cmdlet [Set-HcsDnsClientServerAddress](https://technet.microsoft.com/library/dn688172.aspx) se ejecuta en segundo plano. Establece la configuración de DNS para la solución de StorSimple.
-   * Servidor NTP: el cmdlet [Set-HcsNtpClientServerAddress](https://technet.microsoft.com/library/dn688138.aspx) se ejecuta en segundo plano. Establece la configuración del servidor NTP para la solución de StorSimple.
-   * Proxy web opcional: el cmdlet [Set-HcsWebProxy](https://technet.microsoft.com/library/dn688154.aspx) se ejecuta en segundo plano. Establece y habilita la configuración de proxy web para la solución de StorSimple.
+   * IP virtual (VIP), máscara de subred y puerta de enlace: el cmdlet [Set-HcsNetInterface](/previous-versions/windows/powershell-scripting/dn688161(v=wps.630)) se ejecuta en segundo plano. Configura la dirección IP, la máscara de subred y la puerta de enlace para la interfaz de red DATA 0 del dispositivo de StorSimple.
+   * Servidor DNS principal: el cmdlet [Set-HcsDnsClientServerAddress](/previous-versions/windows/powershell-scripting/dn688172(v=wps.630)) se ejecuta en segundo plano. Establece la configuración de DNS para la solución de StorSimple.
+   * Servidor NTP: el cmdlet [Set-HcsNtpClientServerAddress](/previous-versions/windows/powershell-scripting/dn688138(v=wps.630)) se ejecuta en segundo plano. Establece la configuración del servidor NTP para la solución de StorSimple.
+   * Proxy web opcional: el cmdlet [Set-HcsWebProxy](/previous-versions/windows/powershell-scripting/dn688154(v=wps.630)) se ejecuta en segundo plano. Establece y habilita la configuración de proxy web para la solución de StorSimple.
 3. Configure la contraseña: el paso siguiente consiste en configurar la contraseña del administrador de dispositivos.
    La contraseña del administrador de dispositivos se usa para iniciar sesión en el dispositivo. La contraseña predeterminada del dispositivo es **Password1**.
         
@@ -157,7 +157,7 @@ Un paquete de soporte contiene todos los registros relevantes que pueden ayudar 
    2. En el panel **Acciones**, haga clic en **Abrir registro guardado** y elija los archivos de registro con formato etvx/etw (el paquete de soporte). Ahora puede ver el archivo. Después de abrirlo, puede hacer clic con el botón derecho y guardarlo como texto.
       
       > [!IMPORTANT]
-      > También puede usar el cmdlet **Get-WinEvent** para abrir estos archivos en Windows PowerShell. Para obtener más información, consulte [Get-WinEvent](https://technet.microsoft.com/library/hh849682.aspx) en la documentación de referencia de cmdlets de Windows PowerShell.
+      > También puede usar el cmdlet **Get-WinEvent** para abrir estos archivos en Windows PowerShell. Para obtener más información, consulte [Get-WinEvent](/powershell/module/microsoft.powershell.diagnostics/get-winevent) en la documentación de referencia de cmdlets de Windows PowerShell.
      
 5. Cuando los registros se abran en el Visor de eventos, busque los siguientes registros, que contienen problemas relacionados con la configuración del dispositivo:
    
@@ -189,7 +189,7 @@ Al configurar las interfaces de red para una implementación de dispositivo por 
    * Si el mantenimiento es correcto pero la interfaz no está habilitada, el estado de **ifIndex** se muestra como **NotPresent**.
    * Si la interfaz no existe, no aparece en la lista. La interfaz de usuario del servicio StorSimple Device Manager seguirá mostrando esta interfaz con un estado de error.
 
-Para más información sobre cómo usar este cmdlet, vaya a [Get-NetAdapter](https://docs.microsoft.com/powershell/module/netadapter/get-netadapter?view=win10-ps) en la referencia de cmdlets de Windows PowerShell.
+Para más información sobre cómo usar este cmdlet, vaya a [Get-NetAdapter](/powershell/module/netadapter/get-netadapter?view=win10-ps) en la referencia de cmdlets de Windows PowerShell.
 
 En las secciones siguientes se muestran ejemplos de salida del cmdlet `Get-NetAdapter` .
 
@@ -284,7 +284,7 @@ Use el cmdlet `Test-HcsmConnection` con un dispositivo que ya esté conectado al
    * ErrorCode.CiSDeviceDecommissioned: indica que el dispositivo está desactivado.
    * ErrorCode.DeviceNotReady: indica que el dispositivo se encuentra en modo de mantenimiento.
    * ErrorCode.DeviceNotReady: indica que el dispositivo no está en línea.
-3. Compruebe que el servicio StorSimple Device Manager se esté ejecutando (use el cmdlet [Get-ClusterResource](https://technet.microsoft.com/library/ee461004.aspx)). Si no se está ejecutando el servicio, pueden aparecer los errores siguientes:
+3. Compruebe que el servicio StorSimple Device Manager se esté ejecutando (use el cmdlet [Get-ClusterResource](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee461004(v=technet.10))). Si no se está ejecutando el servicio, pueden aparecer los errores siguientes:
    
    * ErrorCode.CiSApplianceAgentNotOnline
    * ErrorCode.CisPowershellScriptHcsError: indica que se produjo una excepción al ejecutar Get-ClusterResource.
@@ -308,7 +308,7 @@ Use el cmdlet `Test-HcsmConnection` con un dispositivo que ya esté conectado al
 
 En los archivos de registro CiSCommandletLog0Curr.errlog y CiSAgentsvc0Curr.errlog encontrará más información como, por ejemplo, los detalles de la excepción.
 
-Para obtener más información sobre cómo usar el cmdlet, vaya a [Test-HcsmConnection](https://technet.microsoft.com/library/dn715782.aspx) en la documentación de referencia de Windows PowerShell.
+Para obtener más información sobre cómo usar el cmdlet, vaya a [Test-HcsmConnection](/previous-versions/windows/powershell-scripting/dn715782(v=wps.630)) en la documentación de referencia de Windows PowerShell.
 
 > [!IMPORTANT]
 > Puede ejecutar este cmdlet para ambos controladores, activo y pasivo.
@@ -553,5 +553,5 @@ El error puede deberse a alguna de las siguientes causas:
 
 <!--Link references-->
 
-[1]: https://technet.microsoft.com/library/dd379547(v=ws.10).aspx
-[2]: https://technet.microsoft.com/library/dd392266(v=ws.10).aspx 
+[1]: /previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd379547(v=ws.10)
+[2]: /previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd392266(v=ws.10)

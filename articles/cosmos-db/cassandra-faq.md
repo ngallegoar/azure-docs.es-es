@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 08/12/2020
 ms.author: thvankra
 ms.openlocfilehash: 3436a0edf69efc71d3528bffaefd613668426fad
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93339944"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995833"
 ---
 # <a name="frequently-asked-questions-about-the-cassandra-api-in-azure-cosmos-db"></a>Preguntas más frecuentes sobre Cassandra API en Azure Cosmos DB
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
@@ -28,7 +28,7 @@ En este artículo se describen las diferencias de funcionalidad entre Apache Cas
 - Con Apache Cassandra, es posible establecer un factor de replicación de 1. Sin embargo, esto da lugar a una disponibilidad baja si el único nodo con datos deja de funcionar. Esto no supone un problema con Cassandra API para Azure Cosmos DB porque siempre hay un factor de replicación de 4 (cuórum de 3).
 - La adición o eliminación de nodos en Apache Cassandra requiere intervención manual, junto con un elevado uso de CPU en el nuevo nodo, mientras que los nodos existentes mueven algunos de sus intervalos de tokens al nuevo nodo. Esta situación es la misma cuando retira un nodo existente. Sin embargo, Cassandra API se escala horizontalmente sin que se observe ningún problema en el servicio o la aplicación.
 - No es necesario establecer **num_tokens** en cada nodo del clúster como en Apache Cassandra. Azure Cosmos DB administra totalmente los nodos y los intervalos de tokens.
-- Cassandra API está totalmente administrada. No necesita los comandos **nodetool** , como repair y decommission, que se usan en Apache Cassandra.
+- Cassandra API está totalmente administrada. No necesita los comandos **nodetool**, como repair y decommission, que se usan en Apache Cassandra.
 
 ## <a name="other-frequently-asked-questions"></a>Otras preguntas frecuentes
 

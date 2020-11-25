@@ -10,17 +10,17 @@ ms.date: 10/15/2020
 ms.author: euang
 ms.reviewer: euang
 ms.openlocfilehash: 94c30cad1e09a01686a9042a6271a152d0f433fd
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92738521"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995393"
 ---
 # <a name="use-extended-apache-spark-history-server-to-debug-and-diagnose-apache-spark-applications"></a>Uso del servidor de historial de Apache Spark extendido para depurar y diagnosticar aplicaciones Spark
 
 En este artículo se proporcionan instrucciones sobre cómo usar el servidor de historial de Apache Spark para depurar y diagnosticar las aplicaciones Spark en ejecución y completadas.
 
-La extensión incluye las pestañas Datos, Gráfico y Diagnóstico. Use la pestaña **Datos** para comprobar los datos de entrada y salida del trabajo de Spark. La pestaña **Gráfico** muestra el flujo de datos y reproduce el gráfico del trabajo. La pestaña **Diagnóstico** muestra la **Asimetría de datos** , el **Desfase horario** y el **Análisis de uso del ejecutor** .
+La extensión incluye las pestañas Datos, Gráfico y Diagnóstico. Use la pestaña **Datos** para comprobar los datos de entrada y salida del trabajo de Spark. La pestaña **Gráfico** muestra el flujo de datos y reproduce el gráfico del trabajo. La pestaña **Diagnóstico** muestra la **Asimetría de datos**, el **Desfase horario** y el **Análisis de uso del ejecutor**.
 
 ## <a name="access-the-apache-spark-history-server"></a>Acceso al servidor de historial de Apache Spark
 
@@ -44,7 +44,7 @@ El servidor de historial de Apache Spark es la interfaz de usuario web para las 
 
 ### <a name="open-the-spark-history-server-web-ui-from-data-node"></a>Apertura de la interfaz de usuario web del servidor de historial de Spark desde el nodo Datos
 
-1. En el cuaderno de Azure Synapse Studio, seleccione **Servidor de historial de Spark** desde la celda de resultados de la ejecución del trabajo o desde el panel de estado en la parte inferior del documento del cuaderno. Seleccione **Detalles de la sesión** .
+1. En el cuaderno de Azure Synapse Studio, seleccione **Servidor de historial de Spark** desde la celda de resultados de la ejecución del trabajo o desde el panel de estado en la parte inferior del documento del cuaderno. Seleccione **Detalles de la sesión**.
 
    ![Iniciar servidor de historial de Spark 1](./media/apache-spark-history-server/launch-history-server2.png "Iniciar servidor de historial de Spark")
 
@@ -56,7 +56,7 @@ El servidor de historial de Apache Spark es la interfaz de usuario web para las 
 
 Seleccione el id. del trabajo que quiere ver. Luego, seleccione **Datos** en el menú de herramientas para obtener la vista de datos. En esta sección se muestra cómo realizar varias tareas desde la pestaña Datos.
 
-* Seleccione cada pestaña para comprobar las **entradas** , las **salidas** y las **operaciones de tabla** .
+* Seleccione cada pestaña para comprobar las **entradas**, las **salidas** y las **operaciones de tabla**.
 
     ![Datos de aplicaciones Spark: pestañas](./media/apache-spark-history-server/apache-spark-data-tabs.png)
 
@@ -76,7 +76,7 @@ Seleccione el id. del trabajo que quiere ver. Luego, seleccione **Datos** en el 
 
     ![Datos de la aplicación Spark: tabla](./media/apache-spark-history-server/apache-spark-data-table.png)
 
-* Descargue un solo archivo; para ello, seleccione **Descarga parcial** . El archivo seleccionado se descarga en la ubicación local. Si el archivo ya no existe, aparece una nueva pestaña con un mensaje de error.
+* Descargue un solo archivo; para ello, seleccione **Descarga parcial**. El archivo seleccionado se descarga en la ubicación local. Si el archivo ya no existe, aparece una nueva pestaña con un mensaje de error.
 
     ![Datos de la aplicación Spark: descargar fila](./media/apache-spark-history-server/sparkui-data-download-row.png)
 
@@ -102,13 +102,13 @@ Seleccione el id. del trabajo que quiere ver. Después, seleccione **Gráfico** 
 
 ### <a name="overview"></a>Información general
 
-Puede ver la información general del trabajo en el gráfico generado. De forma predeterminada, el gráfico muestra todos los trabajos. Puede filtrar esta vista por **Id. de trabajo** .
+Puede ver la información general del trabajo en el gráfico generado. De forma predeterminada, el gráfico muestra todos los trabajos. Puede filtrar esta vista por **Id. de trabajo**.
 
 ![Aplicación Spark y gráfico de trabajos: identificador del trabajo](./media/apache-spark-history-server/apache-spark-graph-jobid.png)
 
 ### <a name="display"></a>Pantalla
 
-De forma predeterminada, está seleccionada la opción para mostrar **Progreso** . Puede comprobar el flujo de datos; para ello, seleccione **Read** (Leído) o **Written** (Escrito) en la lista desplegable **Mostrar** .
+De forma predeterminada, está seleccionada la opción para mostrar **Progreso**. Puede comprobar el flujo de datos; para ello, seleccione **Read** (Leído) o **Written** (Escrito) en la lista desplegable **Mostrar**.
 
 ![Aplicación Spark y gráfico de trabajos: mostrar](./media/apache-spark-history-server/sparkui-graph-display.png)
 
@@ -118,7 +118,7 @@ El nodo de gráfico muestra los colores descritos en la leyenda del mapa térmic
 
 ### <a name="playback"></a>Reproducción
 
-Para reproducir el trabajo, seleccione **Reproducir** . Puede seleccionar **Detener** en cualquier momento para detener el proceso. Los colores de las tareas muestran distintos estados durante la reproducción:
+Para reproducir el trabajo, seleccione **Reproducir**. Puede seleccionar **Detener** en cualquier momento para detener el proceso. Los colores de las tareas muestran distintos estados durante la reproducción:
 
 |Color|Significado|
 |-|-|
@@ -190,23 +190,23 @@ Seleccione **Proporcione sus comentarios** para enviar comentarios sobre inciden
 
 ## <a name="explore-the-diagnosis-tab-in-apache-spark-history-server"></a>Examen de la pestaña Diagnóstico en el servidor de historial de Apache Spark
 
-Para acceder a la pestaña Diagnóstico, seleccione un Id. de trabajo. Después, seleccione **Diagnóstico** en el menú de herramientas para obtener la vista Diagnóstico del trabajo. La pestaña de diagnóstico incluye **Asimetría de datos** , **Desfase horario** y **Análisis de uso del ejecutor** .
+Para acceder a la pestaña Diagnóstico, seleccione un Id. de trabajo. Después, seleccione **Diagnóstico** en el menú de herramientas para obtener la vista Diagnóstico del trabajo. La pestaña de diagnóstico incluye **Asimetría de datos**, **Desfase horario** y **Análisis de uso del ejecutor**.
 
-Para comprobar la **Asimetría de datos** , el **Desfase horario** y el **Análisis de uso del ejecutor** , seleccione las pestañas respectivamente.
+Para comprobar la **Asimetría de datos**, el **Desfase horario** y el **Análisis de uso del ejecutor**, seleccione las pestañas respectivamente.
 
 ![Diagnóstico de la interfaz de usuario de Spark: de nuevo la pestaña de asimetría de datos](./media/apache-spark-history-server/sparkui-diagnosis-tabs.png)
 
 ### <a name="data-skew"></a>Asimetría de datos
 
-Cuando seleccione la pestaña **Asimetría de datos** , se mostrarán las tareas con sesgos según los parámetros especificados.
+Cuando seleccione la pestaña **Asimetría de datos**, se mostrarán las tareas con sesgos según los parámetros especificados.
 
-* **Especificar parámetros** : la primera sección muestra los parámetros que se usan para detectar la Asimetría de datos. La regla predeterminada es: La lectura de datos de tarea es tres veces mayor que la lectura de datos de tarea promedio y la lectura de datos de tarea es mayor que 10 MB. Si desea definir su propia regla para las tareas sesgadas, puede elegir los parámetros. Las secciones **Skewed Stage** (Fase sesgada) y **Skew Chart** (Gráfico de sesgo) se actualizarán en consecuencia.
+* **Especificar parámetros**: la primera sección muestra los parámetros que se usan para detectar la Asimetría de datos. La regla predeterminada es: La lectura de datos de tarea es tres veces mayor que la lectura de datos de tarea promedio y la lectura de datos de tarea es mayor que 10 MB. Si desea definir su propia regla para las tareas sesgadas, puede elegir los parámetros. Las secciones **Skewed Stage** (Fase sesgada) y **Skew Chart** (Gráfico de sesgo) se actualizarán en consecuencia.
 
-* **Fase sesgada** : la segunda sección muestra las fases que tienen tareas con desfase que cumplen los criterios especificados anteriormente. Si hay más de una tarea sesgada en una fase, la tabla de fase sesgada solo muestra la tarea más sesgada (por ejemplo, los datos más grandes para la asimetría de datos).
+* **Fase sesgada**: la segunda sección muestra las fases que tienen tareas con desfase que cumplen los criterios especificados anteriormente. Si hay más de una tarea sesgada en una fase, la tabla de fase sesgada solo muestra la tarea más sesgada (por ejemplo, los datos más grandes para la asimetría de datos).
 
     ![Diagnóstico de la interfaz de usuario de Spark: pestaña de asimetría de datos](./media/apache-spark-history-server/sparkui-diagnosis-dataskew-section2.png)
 
-* **Gráfico de sesgo** : cuando se selecciona una fila de la tabla de fase sesgada, el gráfico de sesgo muestra más detalles de distribución de tareas en función de la lectura de datos y el tiempo de ejecución. Las tareas sesgadas se marcan en rojo y las tareas normales se marcan en azul. El gráfico muestra hasta 100 tareas de ejemplo y los detalles de la tarea se muestran en el panel inferior derecho.
+* **Gráfico de sesgo**: cuando se selecciona una fila de la tabla de fase sesgada, el gráfico de sesgo muestra más detalles de distribución de tareas en función de la lectura de datos y el tiempo de ejecución. Las tareas sesgadas se marcan en rojo y las tareas normales se marcan en azul. El gráfico muestra hasta 100 tareas de ejemplo y los detalles de la tarea se muestran en el panel inferior derecho.
 
     ![Interfaz de usuario de Spark: gráfico de desfase de la fase 10](./media/apache-spark-history-server/sparkui-diagnosis-dataskew-section3.png)
 
@@ -214,9 +214,9 @@ Cuando seleccione la pestaña **Asimetría de datos** , se mostrarán las tareas
 
 En la pestaña **Desfase horario** se muestran las tareas sesgadas en función del tiempo de ejecución de la tarea.
 
-* **Especificar parámetros** : la primera sección muestra los parámetros que se usan para detectar el desfase horario. Los criterios predeterminados para detectar el desfase horario son: el tiempo de ejecución de la tarea es mayor que tres veces el tiempo de ejecución promedio y el tiempo de ejecución de la tarea es superior a 30 segundos. Puede cambiar los parámetros en función de sus necesidades. La **fase sesgada** y el **gráfico de sesgo** muestran información sobre las fases y las tareas correspondientes del mismo modo que la pestaña **Asimetría de datos** .
+* **Especificar parámetros**: la primera sección muestra los parámetros que se usan para detectar el desfase horario. Los criterios predeterminados para detectar el desfase horario son: el tiempo de ejecución de la tarea es mayor que tres veces el tiempo de ejecución promedio y el tiempo de ejecución de la tarea es superior a 30 segundos. Puede cambiar los parámetros en función de sus necesidades. La **fase sesgada** y el **gráfico de sesgo** muestran información sobre las fases y las tareas correspondientes del mismo modo que la pestaña **Asimetría de datos**.
 
-* Seleccione **Desfase horario** y, después, se muestran los resultados filtrados en la sección **Fase sesgada** según los parámetros establecidos en la sección **Especificar parámetros** . Seleccione un elemento de la sección **Fase sesgada** para mostrar el gráfico correspondiente en la sección 3 y los detalles de la tarea en el panel inferior derecho.
+* Seleccione **Desfase horario** y, después, se muestran los resultados filtrados en la sección **Fase sesgada** según los parámetros establecidos en la sección **Especificar parámetros**. Seleccione un elemento de la sección **Fase sesgada** para mostrar el gráfico correspondiente en la sección 3 y los detalles de la tarea en el panel inferior derecho.
 
     ![Diagnóstico de la interfaz de usuario de Spark: sección de desfase horario](./media/apache-spark-history-server/sparkui-diagnosis-timeskew-section2.png)
 
@@ -224,7 +224,7 @@ En la pestaña **Desfase horario** se muestran las tareas sesgadas en función d
 
 El gráfico de uso del ejecutor visualiza el estado de ejecución y la asignación del ejecutor del trabajo de Spark.  
 
-1. Seleccione **Análisis de uso del ejecutor** y se trazarán cuatro tipos de curvas sobre el uso del ejecutor, incluidas **Ejecutores asignados** , **Ejecutores en ejecución** , **Ejecutores sin uso** e **Instancias de ejecutor máximas** . En el caso de los ejecutores asignados, cada evento "Ejecutor agregado" o "Ejecutor eliminado" aumenta o disminuye los ejecutores asignados. Puede comprobar la "escala de tiempo del evento" en la pestaña "Trabajos" para obtener más comparaciones.
+1. Seleccione **Análisis de uso del ejecutor** y se trazarán cuatro tipos de curvas sobre el uso del ejecutor, incluidas **Ejecutores asignados**, **Ejecutores en ejecución**, **Ejecutores sin uso** e **Instancias de ejecutor máximas**. En el caso de los ejecutores asignados, cada evento "Ejecutor agregado" o "Ejecutor eliminado" aumenta o disminuye los ejecutores asignados. Puede comprobar la "escala de tiempo del evento" en la pestaña "Trabajos" para obtener más comparaciones.
 
    ![Diagnóstico de la interfaz de usuario de Spark: pestaña de ejecutores](./media/apache-spark-history-server/sparkui-diagnosis-executors.png)
 

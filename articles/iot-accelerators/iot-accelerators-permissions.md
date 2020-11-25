@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: dobett
 ms.openlocfilehash: f5d816b3d44a6fadd8dd462a14e62de4cdac2a00
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370617"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995937"
 ---
 # <a name="use-the-azureiotsolutionscom-site-to-deploy-your-solution-accelerator"></a>Uso del sitio azureiotsolutions.com para implementar el acelerador de soluciones
 
@@ -26,9 +26,9 @@ Puede implementar los aceleradores de soluciones de Azure IoT en su suscripción
 
 Puede implementar los aceleradores de soluciones en las siguientes configuraciones:
 
-* **Estándar** : implementación ampliada de la infraestructura para desarrollar una implementación de producción. Azure Container Service implementa los microservicios en varias máquinas virtuales de Azure. Kubernetes orquesta los contenedores de Docker que hospedan los microservicios individuales.
-* **Básico** : versión de menor costo para ver una demostración o probar una implementación. Todos los microservicios se implementan en una máquina virtual de Azure.
-* **Local** : implementación de la máquina local para desarrollo y pruebas. Este enfoque implementa los microservicios en un contenedor Docker local y se conecta a IoT Hub, Azure Cosmos DB y los servicios de almacenamiento de Azure en la nube.
+* **Estándar**: implementación ampliada de la infraestructura para desarrollar una implementación de producción. Azure Container Service implementa los microservicios en varias máquinas virtuales de Azure. Kubernetes orquesta los contenedores de Docker que hospedan los microservicios individuales.
+* **Básico**: versión de menor costo para ver una demostración o probar una implementación. Todos los microservicios se implementan en una máquina virtual de Azure.
+* **Local**: implementación de la máquina local para desarrollo y pruebas. Este enfoque implementa los microservicios en un contenedor Docker local y se conecta a IoT Hub, Azure Cosmos DB y los servicios de almacenamiento de Azure en la nube.
 
 Cada uno de los aceleradores de soluciones utiliza una combinación diferente de servicios de Azure, como IoT Hub, Azure Stream Analytics y Cosmos DB. Para obtener más información, visite [AzureIoTSolutions.com](https://www.azureiotsolutions.com/Accelerators) y seleccione un acelerador de soluciones.
 
@@ -38,14 +38,14 @@ Antes de poder implementar un acelerador de soluciones, debe iniciar sesión en 
 
 Los permisos para implementar aceleradores de soluciones, administrar usuarios y administrar servicios de Azure dependen de su rol en el directorio seleccionado. Los roles de Azure AD comunes asociados con los aceleradores de soluciones incluyen:
 
-* **Administrador global** : Puede haber muchos [administradores globales](../active-directory/roles/permissions-reference.md) por inquilino de Azure AD:
+* **Administrador global**: Puede haber muchos [administradores globales](../active-directory/roles/permissions-reference.md) por inquilino de Azure AD:
 
   * Al crear un inquilino de Azure AD, quien lo crea es de manera predeterminada el administrador global del mismo.
   * El administrador global puede implementar aceleradores de soluciones básicos y estándar.
 
-* **Usuario de dominio** : Puede haber muchos usuarios de dominio por inquilino de Azure AD. Un usuario de dominio puede implementar un acelerador de soluciones básico.
+* **Usuario de dominio**: Puede haber muchos usuarios de dominio por inquilino de Azure AD. Un usuario de dominio puede implementar un acelerador de soluciones básico.
 
-* **Usuario invitado** : Puede haber muchos usuarios invitados por inquilino de Azure AD. Los usuarios invitados no pueden implementar un acelerador de soluciones en el inquilino de Azure AD.
+* **Usuario invitado**: Puede haber muchos usuarios invitados por inquilino de Azure AD. Los usuarios invitados no pueden implementar un acelerador de soluciones en el inquilino de Azure AD.
 
 Para más información acerca de los usuarios y roles de Azure AD, consulte estos recursos:
 
