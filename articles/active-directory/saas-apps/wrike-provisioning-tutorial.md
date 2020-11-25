@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 08/26/2019
 ms.author: Zhchia
 ms.openlocfilehash: 53b1db1a8c4da59055c0af5f448fa0c8a6933daf
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94354313"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95988168"
 ---
 # <a name="tutorial-configure-wrike-for-automatic-user-provisioning"></a>Tutorial: Configuración de Wrike para el aprovisionamiento automático de usuarios
 
@@ -95,7 +95,7 @@ Para agregar Wrike desde la galería de aplicaciones de Azure AD, siga estos pa
 
     ![Botón Nueva aplicación](common/add-new-app.png)
 
-4. En el cuadro de búsqueda, escriba **Wrike** , seleccione **Wrike** en el panel de resultados y luego seleccione **Agregar** para agregar la aplicación.
+4. En el cuadro de búsqueda, escriba **Wrike**, seleccione **Wrike** en el panel de resultados y luego seleccione **Agregar** para agregar la aplicación.
 
     ![Wrike en la lista de resultados](common/search-new-app.png)
 
@@ -129,13 +129,13 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![URL de inquilino y token](common/provisioning-testconnection-tenanturltoken.png)
 
-7. En el cuadro **Dirección de correo electrónico para notificaciones** , escriba la dirección de correo electrónico de la persona o grupo que deben recibir las notificaciones de error de aprovisionamiento. Seleccione la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
+7. En el cuadro **Dirección de correo electrónico para notificaciones**, escriba la dirección de correo electrónico de la persona o grupo que deben recibir las notificaciones de error de aprovisionamiento. Seleccione la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
 
     ![Dirección de correo electrónico para notificaciones](common/provisioning-notification-email.png)
 
 8. Seleccione **Guardar**.
 
-9. En la sección **Asignaciones** , seleccione **Synchronize Azure Active Directory Users to Wrike** (Sincronizar usuarios de Azure Active Directory con Wrike).
+9. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Users to Wrike** (Sincronizar usuarios de Azure Active Directory con Wrike).
 
     ![Asignaciones de usuario de Wrike](media/Wrike-provisioning-tutorial/Wrike-user-mappings.png)
 
@@ -149,7 +149,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Estado de aprovisionamiento activado](common/provisioning-toggle-on.png)
 
-13. Elija los valores deseados en **Ámbito** , en la sección **Configuración** , para definir los usuarios o grupos que quiere que se aprovisionen en Wrike.
+13. Elija los valores deseados en **Ámbito**, en la sección **Configuración**, para definir los usuarios o grupos que quiere que se aprovisionen en Wrike.
 
     ![Ámbito del aprovisionamiento](common/provisioning-scope.png)
 
