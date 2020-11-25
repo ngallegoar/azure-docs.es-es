@@ -4,11 +4,11 @@ description: En este artículo se tratan algunos de los problemas comunes de act
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.openlocfilehash: d462f2c2482e0fbb4d252967754a9675ed362674
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75377929"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96009354"
 ---
 # <a name="troubleshoot-application-upgrades"></a>Solucionar problemas de actualizaciones de aplicaciones
 
@@ -80,7 +80,7 @@ El comando **Get-ServiceFabricNode** se puede usar para comprobar que estos dos 
 
 Una fase *UpgradePhase* de *PreUpgradeSafetyCheck* indica que se produjeron errores al preparar el dominio de actualización antes de realizar la actualización. Los problemas más habituales en este caso son errores de servicio en el cierre o disminución de nivel de las rutas de acceso de código principales.
 
-El objeto **UpgradeState** actual es *RollingBackCompleted*, de modo que la actualización original debe haberse realizado con un objeto **FailureAction** de reversión, que revierte automáticamente la actualización tras el error. Si la actualización original se había realizado con un valor de **FailureAction**manual, la actualización estaría entonces en un estado suspendido para permitir una depuración en directo de la aplicación.
+El objeto **UpgradeState** actual es *RollingBackCompleted*, de modo que la actualización original debe haberse realizado con un objeto **FailureAction** de reversión, que revierte automáticamente la actualización tras el error. Si la actualización original se había realizado con un valor de **FailureAction** manual, la actualización estaría entonces en un estado suspendido para permitir una depuración en directo de la aplicación.
 
 En raras ocasiones, el campo **UpgradeDomainProgressAtFailure** puede estar vacío si se agota el tiempo de expiración de la actualización general cuando el sistema completa todo el trabajo del dominio de actualización actual. Si esto sucede, intente aumentar los valores de los parámetros de actualización **UpgradeTimeout** y **UpgradeDomainTimeout** y vuelva a intentar la actualización.
 
@@ -148,7 +148,7 @@ La actualización se suspendió tras el error al especificar un valor de **Failu
 
 ### <a name="recover-from-a-suspended-upgrade"></a>Recuperarse de una actualización suspendida
 
-Con un valor de **FailureAction**de reversión, no hace falta ninguna recuperación puesto que la actualización se revierte automáticamente tras el error. Con una **FailureAction**manual, hay varias opciones de recuperación:
+Con un valor de **FailureAction** de reversión, no hace falta ninguna recuperación puesto que la actualización se revierte automáticamente tras el error. Con una **FailureAction** manual, hay varias opciones de recuperación:
 
 1.  Desencadenar una reversión
 2. Completar por el resto de la actualización manualmente

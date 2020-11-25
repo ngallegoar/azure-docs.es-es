@@ -1,7 +1,7 @@
 ---
-title: 'Creación de una instancia de Connection Monitor (versión preliminar): ARMClient'
+title: Creación de una instancia de Connection Monitor mediante ARMClient
 titleSuffix: Azure Network Watcher
-description: Aprenda a crear una instancia de Connection Monitor (versión preliminar) mediante ARMClient.
+description: Aprenda a crear una instancia de Connection Monitor mediante ARMClient.
 services: network-watcher
 documentationcenter: na
 author: vinigam
@@ -12,22 +12,22 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/30/2020
 ms.author: vinigam
-ms.openlocfilehash: 5a351e550cac9edcc8ce1c54fbe5c57d012ee607
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 929a2feeb53e8903d675644dcb72b422eceb2858
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94447497"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94699107"
 ---
-# <a name="create-a-connection-monitor-preview-using-the-armclient"></a>Creación de una instancia de Connection Monitor (versión preliminar) mediante ARMClient
+# <a name="create-a-connection-monitor-using-the-armclient"></a>Creación de una instancia de Connection Monitor (mediante ARMClient
 
-Aprenda a crear una instancia de Connection Monitor (versión preliminar) para supervisar la comunicación entre los recursos mediante ARMClient. Admite implementaciones híbridas y en la nube de Azure.
+Aprenda a crear una instancia de Connection Monitor para supervisar la comunicación entre los recursos mediante ARMClient. Admite implementaciones híbridas y en la nube de Azure.
 
 ## <a name="before-you-begin"></a>Antes de empezar 
 
-En los monitores de conexión que crea en el Monitor de conexión (versión preliminar), puede agregar máquinas locales y máquinas virtuales de Azure como orígenes. Estos monitores de conexión también pueden supervisar la conectividad con los puntos de conexión. Los puntos de conexión pueden estar en Azure o en cualquier otra dirección URL o IP.
+En los monitores de conexión que crea en Connection Monitor, puede agregar máquinas locales y máquinas virtuales de Azure como orígenes. Estos monitores de conexión también pueden supervisar la conectividad con los puntos de conexión. Los puntos de conexión pueden estar en Azure o en cualquier otra dirección URL o IP.
 
-El Monitor de conexión (versión preliminar) incluye estas entidades:
+Connection Monitor incluye estas entidades:
 
 * **Recurso de monitor de conexión**: un recurso de Azure específico de la región. Todas las entidades siguientes son propiedades de un recurso de monitor de conexión.
 * **Punto de conexión**: un origen o destino que participa en las comprobaciones de conectividad. Algunos ejemplos de puntos de conexión son las máquinas virtuales de Azure, los agentes locales, las direcciones URL y las direcciones IP.
@@ -359,7 +359,7 @@ armclient PUT $ARM/$SUB/$NW/connectionMonitors/$connectionMonitorName/?api-versi
 
 * Puntos de conexión
     * name: nombre único de cada punto de conexión.
-    * resourceId: en el caso de los puntos de conexión de Azure, el identificador de recurso hace referencia al identificador de recurso de Azure Resource Manager para las máquinas virtuales. En el caso de los puntos de conexión que no son de Azure, el identificador de recurso hace referencia al identificador de recurso de Azure Resource Manager para el área de trabajo de Log Analytics vinculada a agentes que no son de Azure.
+    * resourceId: en el caso de los puntos de conexión de Azure, el id. de recurso hace referencia al id. de recurso de Azure Resource Manager para las máquinas virtuales. En el caso de los puntos de conexión que no son de Azure, el id. de recurso hace referencia al id. de recurso de Azure Resource Manager para el área de trabajo de Log Analytics vinculada a agentes que no son de Azure.
     * address: solo se aplica cuando no se especifica ningún identificador de recurso o si el identificador de recurso es el área de trabajo de Log Analytics. Si se usa con el identificador de recurso de Log Analytics, se refiere al FQDN del agente que se puede usar para la supervisión. Si se usa sin el identificador de recurso, puede ser la dirección URL o IP de cualquier punto de conexión público.
     * filter: en el caso de los puntos de conexión que no son de Azure, use este valor para seleccionar los agentes del área de trabajo de Log Analytics que se usarán para supervisar los recursos del monitor de conexión. Si no se establecen filtros, todos los agentes que pertenezcan al área de trabajo Log Analytics se pueden usar en la supervisión.
         * type: establezca el tipo como "dirección del agente".

@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 10/09/2019
 ms.author: pabouwer
 zone_pivot_groups: client-operating-system
-ms.openlocfilehash: 69541ec652188bc3826b7829fbc5c182193d6ba9
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: d66f3099ba225fbdd2bfc3d54db56ffd8ed2c43f
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92670933"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94684039"
 ---
 # <a name="use-intelligent-routing-and-canary-releases-with-istio-in-azure-kubernetes-service-aks"></a>Uso del enrutamiento inteligente y de las versiones de valor controlado con Istio en Azure Kubernetes Service (AKS)
 
@@ -33,13 +33,13 @@ En este artículo aprenderá a:
 > [!NOTE]
 > Este escenario se ha probado con la versión de Istio `1.3.2`.
 
-En los pasos detallados en este artículo se da por hecho que creó un clúster de AKS (Kubernetes `1.13` y versiones posteriores, con RBAC habilitado) y que estableció una conexión `kubectl` con el clúster. Istio también debe estar instalado en el clúster.
+En los pasos detallados en este artículo se da por hecho que creó un clúster de AKS (Kubernetes `1.13` y versiones posteriores, con RBAC de Kubernetes habilitado) y que estableció una conexión `kubectl` con el clúster. Istio también debe estar instalado en el clúster.
 
 Si necesita ayuda con cualquiera de estos elementos, consulte el [inicio rápido de AKS][aks-quickstart] y la guía de [instalación de Istio en AKS][istio-install].
 
 ## <a name="about-this-application-scenario"></a>Acerca de este escenario de aplicación
 
-La aplicación de votación de AKS de ejemplo proporciona dos opciones de voto ( **Cats** [gatos] o **Dogs** [perros]) a los usuarios. Hay un componente de almacenamiento que conserva el número de votos de cada opción. Además, hay un componente de análisis que proporciona detalles sobre los votos emitidos para cada opción.
+La aplicación de votación de AKS de ejemplo proporciona dos opciones de voto (**Cats** [gatos] o **Dogs** [perros]) a los usuarios. Hay un componente de almacenamiento que conserva el número de votos de cada opción. Además, hay un componente de análisis que proporciona detalles sobre los votos emitidos para cada opción.
 
 En este escenario de la aplicación, primero debe implementar la versión `1.0` de la aplicación de votación y la versión `1.0` del componente de análisis. El componente de análisis proporciona recuentos simples del número de votos. La aplicación de votación y el componente de análisis interactúan con la versión `1.0` del componente de almacenamiento, que está respaldada por Redis.
 

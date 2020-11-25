@@ -3,12 +3,12 @@ title: Copia de seguridad de una base de datos de SAP HANA a Azure con Azure Bac
 description: En este artículo, aprenderá a realizar copias de seguridad de una base de datos de SAP HANA en máquinas virtuales de Azure con el servicio Azure Backup.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: a0a03a0d126845b1beba6d247f82950b0a9a35ab
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: f7957670b3ba98c640ebc53c6427273ca75a4e6d
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92172993"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94682856"
 ---
 # <a name="back-up-sap-hana-databases-in-azure-vms"></a>Copia de seguridad de bases de datos de SAP HANA en máquinas virtuales de Azure
 
@@ -144,7 +144,7 @@ Especifique la configuración de la directiva como se muestra a continuación:
 1. En **Nombre de la directiva**, escriba un nombre para la nueva directiva.
 
    ![Escribir nombre de la directiva](./media/backup-azure-sap-hana-database/policy-name.png)
-2. En el menú **Full Backup policy** (Directiva de copia de seguridad completa), seleccione un valor para **Backup Frequency** (Frecuencia de copia de seguridad) entre **Daily** (Diaria) o **Weekly** (Semanal).
+1. En el menú **Full Backup policy** (Directiva de copia de seguridad completa), seleccione un valor para **Backup Frequency** (Frecuencia de copia de seguridad) entre **Daily** (Diaria) o **Weekly** (Semanal).
    * **Diaria**: Seleccione la zona horaria y la hora a la que comienza el trabajo de copia de seguridad.
        * Debe ejecutar una copia de seguridad completa. No se puede desactivar esta opción.
        * Seleccione **Copia de seguridad completa** para ver la directiva.
@@ -153,34 +153,39 @@ Especifique la configuración de la directiva como se muestra a continuación:
 
    ![Seleccionar una frecuencia de copia de seguridad](./media/backup-azure-sap-hana-database/backup-frequency.png)
 
-3. En **Duración de retención**, configure las opciones de retención de la copia de seguridad completa.
+1. En **Duración de retención**, configure las opciones de retención de la copia de seguridad completa.
     * De forma predeterminada, se seleccionan todas las opciones. Borre los límites de duración de retención que no desee usar y establezca los que sí quiera utilizar.
     * El período de retención mínimo para cualquier tipo de copia de seguridad (completa, diferencial o de registro) es de siete días.
     * Los puntos de recuperación se etiquetan para la retención en función de su duración de retención. Por ejemplo, si selecciona la frecuencia diaria, solo se desencadena una copia de seguridad completa cada día.
     * La copia de seguridad de un día específico se etiqueta y se retiene según la duración de retención semanal y la configuración.
     * La duración de retención mensual y anual se comporta de forma similar.
 
-4. En el menú de la **directiva de copia de seguridad completa**, seleccione **Aceptar** para aceptar la configuración.
-5. Para agregar una directiva de copia de seguridad diferencial, seleccione **Copia de seguridad diferencial**.
-6. En **Differential Backup policy** (Directiva de copia de seguridad diferencial), seleccione **Enable** (Habilitar) para abrir los controles de retención y frecuencia.
+1. En el menú de la **directiva de copia de seguridad completa**, seleccione **Aceptar** para aceptar la configuración.
+1. Para agregar una directiva de copia de seguridad diferencial, seleccione **Copia de seguridad diferencial**.
+1. En **Differential Backup policy** (Directiva de copia de seguridad diferencial), seleccione **Enable** (Habilitar) para abrir los controles de retención y frecuencia.
     * A lo sumo, puede desencadenar una copia de seguridad diferencial al día.
     * Como máximo, las copias de seguridad diferenciales se pueden retener durante 180 días. Si necesita más tiempo de retención, debe usar copias de seguridad completas.
 
     ![Directiva de copia de seguridad diferencial](./media/backup-azure-sap-hana-database/differential-backup-policy.png)
 
     > [!NOTE]
-    > Las copias de seguridad incrementales no se admiten en la actualidad.
+    > Ahora se admiten las copias de seguridad incrementales en la versión preliminar pública. Puede elegir entre una copia de seguridad diferencial o incremental como copia diaria, pero no ambas.
+1. En **Incremental Backup policy** (Directiva de copia de seguridad incremental), seleccione **Habilitar** para abrir los controles de retención y frecuencia.
+    * A lo sumo, puede desencadenar una copia de seguridad incremental al día.
+    * Como máximo, las copias de seguridad incrementales se pueden retener durante 180 días. Si necesita más tiempo de retención, debe usar copias de seguridad completas.
 
-7. Seleccione **Aceptar** para guardar la directiva y volver al menú principal de la **directiva de copia de seguridad**.
-8. Para agregar una directiva de copia de seguridad del registro de transacciones, seleccione **Copia de seguridad de registros**.
+    ![Directiva de copia de seguridad incremental](./media/backup-azure-sap-hana-database/incremental-backup-policy.png)
+
+1. Seleccione **Aceptar** para guardar la directiva y volver al menú principal de la **directiva de copia de seguridad**.
+1. Para agregar una directiva de copia de seguridad del registro de transacciones, seleccione **Copia de seguridad de registros**.
     * En **Copia de seguridad de registros**, seleccione **Habilitar**.  No se puede deshabilitar, dado que SAP HANA administra todas las copias de seguridad de registros.
     * Establezca los controles de frecuencia y retención.
 
     > [!NOTE]
     > Las copias de seguridad de registros comienzan el flujo solo después de que se haya completado correctamente una copia de seguridad completa.
 
-9. Seleccione **Aceptar** para guardar la directiva y volver al menú principal de la **directiva de copia de seguridad**.
-10. Al acabar de definir la directiva de copia de seguridad, seleccione **Aceptar**.
+1. Seleccione **Aceptar** para guardar la directiva y volver al menú principal de la **directiva de copia de seguridad**.
+1. Al acabar de definir la directiva de copia de seguridad, seleccione **Aceptar**.
 
 > [!NOTE]
 > Cada copia de seguridad de registros está encadenada a la copia de seguridad completa anterior para formar una cadena de recuperación. Esta copia de seguridad completa se conservará hasta que expire la retención de la última copia de seguridad de registros. Esto puede significar que la copia de seguridad completa se conservará durante un período adicional para asegurarse de que se pueden recuperar todos los registros. Supongamos que el usuario tiene una copia de seguridad completa semanal, una copia diferencial diaria y registros de 2 horas. Todos ellos se conservan 30 días. Sin embargo, la copia completa semanal puede limpiarse o eliminarse en realidad solo después de que esté disponible la siguiente copia de seguridad completa, es decir, después de 30+7 días. Por ejemplo, una copia de seguridad completa semanal se produce el 16 de noviembre. Según la directiva de retención, debe conservarse hasta el 16 de diciembre. La última copia de seguridad de registros de esta copia completa se produce antes de la siguiente copia completa programada, el 22 de noviembre. Hasta que este registro esté disponible el 22 de diciembre, no se puede eliminar la copia completa del 16 de noviembre. Por lo tanto, la copia completa del 16 de noviembre se conserva hasta el 22 de diciembre.

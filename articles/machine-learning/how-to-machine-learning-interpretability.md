@@ -1,7 +1,7 @@
 ---
 title: Capacidad de interpretación de modelos en Azure Machine Learning (versión preliminar)
 titleSuffix: Azure Machine Learning
-description: Aprenda a explicar los motivos por los que un modelo realiza predicciones mediante el SDK de Azure Machine Learning. Se puede usar durante el entrenamiento y la inferencia para saber cómo realiza las predicciones el modelo.
+description: Obtenga información sobre cómo comprender y explicar cómo el modelo de aprendizaje automático realiza predicciones durante el entrenamiento y la inferencia con el SDK de Azure Machine Learning para Python.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,13 +10,13 @@ ms.custom: how-to
 ms.author: mithigpe
 author: minthigpen
 ms.reviewer: Luis.Quintanilla
-ms.date: 07/09/2020
-ms.openlocfilehash: f98e18abb8ba06ea632ee9c63c1a726879e825d2
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.date: 11/16/2020
+ms.openlocfilehash: dff0aeaf84ce87ed728d333cb68aee3a349bc111
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93311516"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94699396"
 ---
 # <a name="model-interpretability-in-azure-machine-learning-preview"></a>Capacidad de interpretación de modelos en Azure Machine Learning (versión preliminar)
 
@@ -66,10 +66,10 @@ Obtenga información sobre las técnicas de interpretación admitidas, los model
 |--|--|--------------------|
 |SHAP Tree Explainer| El explicador de árboles de [SHAP](https://github.com/slundberg/shap), que se centra en el algoritmo de cálculo rápido de valores SHAP en tiempo polinómico específico para **árboles y conjuntos de árboles**.|Específico del modelo|
 |SHAP Deep Explainer| Según la explicación de SHAP, Deep Explainer "es un algoritmo de aproximación de alta velocidad para valores SHAP en modelos de aprendizaje profundo que se basa en una conexión con DeepLIFT descrita en el documento [SHAP NIPS](https://papers.nips.cc/paper/7062-a-unified-approach-to-interpreting-model-predictions). Se admiten tanto los modelos de **TensorFlow** como los modelos de **Keras** que usan el back-end de TensorFlow (también hay compatibilidad preliminar con PyTorch)".|Específico del modelo|
-|SHAP Linear Explainer| SHAP Linear Explainer calcula los valores SHAP para un **modelo lineal** , considerando de forma opcional las correlaciones entre funciones.|Específico del modelo|
+|SHAP Linear Explainer| SHAP Linear Explainer calcula los valores SHAP para un **modelo lineal**, considerando de forma opcional las correlaciones entre funciones.|Específico del modelo|
 |SHAP Kernel Explainer| SHAP Kernel Explainer usa una regresión lineal local ponderada de forma especial para calcular los valores SHAP de **cualquier modelo**.|Independiente del modelo|
 |Mimic Explainer (suplente global)| El explicador Mimic se basa en la idea de entrenar [modelos globales de sustitución](https://christophm.github.io/interpretable-ml-book/global.html) para imitar los modelos de caja negra. Un modelo suplente global es un modelo interpretable de forma intrínseca que está entrenado para aproximarse a las predicciones de **cualquier modelo de caja negra** de la forma más precisa posible. Los científicos de datos pueden interpretar el modelo suplente para extraer conclusiones acerca del modelo de caja negra. Cualquiera de los siguientes modelos se puede usar como modelo suplente: LightGBM (LGBMExplicableModel), Regresión lineal (LinearExplicableModel), Modelo explicable de descenso de gradiente estocástico (SGDExplicableModel) y Árbol de decisión (DecisionTreeExplicableModel).|Independiente del modelo|
-|Permutation Feature Importance Explainer (PFI)| La importancia de características de permutación es una técnica que se usa para explicar los modelos de clasificación y regresión que está inspirada en el [documento acerca de bosques aleatorios de Breiman](https://www.stat.berkeley.edu/~breiman/randomforest2001.pdf) (consulte la sección 10). En un alto nivel, la forma en que funciona es cuando se barajan aleatoriamente los datos de una característica para todo el conjunto de datos y se calcula en qué medida cambia la métrica de rendimiento que interesa. Cuanto mayor sea el cambio, más importante es la característica. PFI puede explicar el comportamiento general de **cualquier modelo subyacente** , pero no explica las predicciones individuales. |Independiente del modelo|
+|Permutation Feature Importance Explainer (PFI)| La importancia de características de permutación es una técnica que se usa para explicar los modelos de clasificación y regresión que está inspirada en el [documento acerca de bosques aleatorios de Breiman](https://www.stat.berkeley.edu/~breiman/randomforest2001.pdf) (consulte la sección 10). En un alto nivel, la forma en que funciona es cuando se barajan aleatoriamente los datos de una característica para todo el conjunto de datos y se calcula en qué medida cambia la métrica de rendimiento que interesa. Cuanto mayor sea el cambio, más importante es la característica. PFI puede explicar el comportamiento general de **cualquier modelo subyacente**, pero no explica las predicciones individuales. |Independiente del modelo|
 
 
 

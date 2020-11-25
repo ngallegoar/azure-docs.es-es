@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/25/2020
-ms.openlocfilehash: d41146b01b6b81804cdba31fbbf2541ba7ae0f03
-ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
+ms.openlocfilehash: a3c44d667b6baaf16e109dfb88c22c16a1ea2ce1
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94372394"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94697210"
 ---
 # <a name="how-to-index-json-blobs-using-a-blob-indexer-in-azure-cognitive-search"></a>Indexación de blobs JSON con el indexador de blobs de Azure Cognitive Search
 
@@ -108,7 +108,7 @@ Puede usar la API REST para indexar blobs JSON, siguiendo un flujo de trabajo de
 
 Eche un vistazo al [código de ejemplo de REST](#rest-example) al final de esta sección para ver cómo crear los tres objetos. Esta sección también contiene detalles sobre [modos de análisis de JSON](#parsing-modes), [blobs únicos](#parsing-single-blobs), [matrices JSON](#parsing-arrays) y [matrices anidadas](#nested-json-arrays).
 
-Para la indexación de JSON basado en código, use [Postman](search-get-started-postman.md) y la API REST para crear estos objetos:
+Para la indexación de JSON basado en código, use [Postman o Visual Studio Code](search-get-started-rest.md) y la API REST para crear estos objetos:
 
 + [índice](/rest/api/searchservice/create-index)
 + [origen de datos](/rest/api/searchservice/create-data-source)
@@ -126,7 +126,7 @@ Los blobs JSON de Azure Blob Storage suelen ser un documento JSON único o una "
 
 ### <a name="1---assemble-inputs-for-the-request"></a>1\. Ensamblado de las entradas para la solicitud
 
-Para cada solicitud, debe proporcionar el nombre del servicio y la clave de administrador de Azure Cognitive Search (en el encabezado POST) y el nombre de cuenta de almacenamiento y la clave para Blob Storage. Puede usar [Postman](search-get-started-postman.md) para enviar solicitudes HTTP a Azure Cognitive Search.
+Para cada solicitud, debe proporcionar el nombre del servicio y la clave de administrador de Azure Cognitive Search (en el encabezado POST) y el nombre de cuenta de almacenamiento y la clave para Blob Storage. Puede usar una [herramienta de pruebas de la API web](search-get-started-rest.md) para enviar solicitudes HTTP a Azure Cognitive Search.
 
 Copie los cuatro valores siguientes en el Bloc de notas para poder pegarlos en una solicitud:
 

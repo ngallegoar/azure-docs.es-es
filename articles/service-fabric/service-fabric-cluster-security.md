@@ -4,12 +4,12 @@ description: Información acerca de los escenarios de seguridad para un clúster
 ms.topic: conceptual
 ms.date: 08/14/2018
 ms.custom: sfrev
-ms.openlocfilehash: 8d6f3e94a735a6a8880d726890f1eb7ac346c755
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 642356f08a946cae5d2b2d395aaddd8e4dad27ed
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91946202"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94682798"
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>Escenarios de seguridad de los clústeres de Service Fabric
 
@@ -19,7 +19,7 @@ Este artículo es una introducción a escenarios de seguridad para los clústere
 
 * Seguridad de nodo a nodo
 * Seguridad de cliente a nodo
-* Control de acceso basado en rol (RBAC)
+* Control de acceso basado en rol de Service Fabric
 
 ## <a name="node-to-node-security"></a>Seguridad de nodo a nodo
 
@@ -60,7 +60,7 @@ Los clústeres que se ejecutan en Azure y los independientes que se ejecutan en 
 
 Configure la seguridad basada en certificados de cliente a nodo al crear el clúster, mediante Azure Portal, las plantillas de Resource Manager o una plantilla JSON independiente. Para crear el certificado, especifique un certificado de cliente de administración o de cliente de usuario. Es recomendable que los certificados de cliente de administración y de cliente de usuario que especifique sean diferentes de los certificados principales y secundarios que determine para la [seguridad de nodo a nodo](#node-to-node-security). Los certificados del clúster tienen los mismos derechos que los certificados de administración de clientes. Sin embargo, solo debe usarlos el clúster y no usuarios administrativos como procedimiento recomendado de seguridad.
 
-Los clientes que se conectan al clúster mediante el certificado de administración tienen acceso completo a las funcionalidades de administración. Los clientes que se conectan al clúster mediante el certificado de cliente de usuario de solo lectura tienen acceso de este tipo a las funcionalidades de administración. Estos certificados se usan para el control de acceso basado en rol (RBAC) que se describe más adelante en este artículo.
+Los clientes que se conectan al clúster mediante el certificado de administración tienen acceso completo a las funcionalidades de administración. Los clientes que se conectan al clúster mediante el certificado de cliente de usuario de solo lectura tienen acceso de este tipo a las funcionalidades de administración. Estos certificados se usan para el control de acceso basado en rol de Service Fabric que se describe más adelante en este artículo.
 
 Para aprender a configurar la seguridad basada en certificados en un clúster para Azure, consulte [Creación de un clúster de Service Fabric con Azure Resource Manager](service-fabric-cluster-creation-via-arm.md).
 
@@ -85,13 +85,13 @@ Para los clústeres de Service Fabric implementados en una red pública hospedad
 
 Para los clústeres de Windows Server independientes, si tiene Windows Server 2012 R2 y Windows Active Directory, se recomienda la seguridad de Windows con las cuentas de servicio administradas de grupo. De lo contrario, use la seguridad de Windows con cuentas de Windows.
 
-## <a name="role-based-access-control-rbac"></a>Control de acceso basado en rol (RBAC)
+## <a name="service-fabric-role-based-access-control"></a>Control de acceso basado en rol de Service Fabric
 
 Puede usar el control de acceso para limitarlo a determinadas operaciones de clúster para los diferentes grupos de usuarios. Esto ayuda a que el clúster esté más protegido. Se admiten dos tipos de control de acceso para los clientes que se conectan a un clúster: Rol de administrador y rol de usuario.
 
 Los usuarios con el rol de administrador tienen acceso total a las funcionalidades de administración (incluidas las de lectura y escritura). Los usuarios con el rol de usuario, de forma predeterminada, tienen acceso de solo lectura a las funcionalidades de administración (por ejemplo, funcionalidad de consulta). También pueden resolver aplicaciones y servicios.
 
-Los roles de administrador y de usuario del cliente se definen al crear el clúster. Para asignar roles, proporcione identidades diferentes (por ejemplo, con certificados o Azure AD) a cada tipo de rol. Para más información sobre la configuración del control de acceso predeterminada y cómo cambiarla, consulte [Control de acceso basado en roles para clientes de Service Fabric](service-fabric-cluster-security-roles.md).
+Los roles de administrador y de usuario del cliente se definen al crear el clúster. Para asignar roles, proporcione identidades diferentes (por ejemplo, con certificados o Azure AD) a cada tipo de rol. Para más información sobre la configuración del control de acceso predeterminada y cómo cambiarla, consulte [Control de acceso basado en roles de Service Fabric para clientes de Service Fabric](service-fabric-cluster-security-roles.md).
 
 ## <a name="x509-certificates-and-service-fabric"></a>Certificados X.509 y Service Fabric
 

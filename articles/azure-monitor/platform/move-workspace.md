@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 11/13/2019
-ms.openlocfilehash: e80ff2c04cf71fa322bb0bf41e8132f595c0644e
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.date: 11/12/2020
+ms.openlocfilehash: 8d7fde6661a4a133f689016559f010767c662417
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92372283"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94699753"
 ---
 # <a name="move-a-log-analytics-workspace-to-different-subscription-or-resource-group"></a>Trasladar un área de trabajo de Log Analytics a otro grupo de recursos o suscripción
 
@@ -29,14 +29,14 @@ Las suscripciones de origen y destino del área de trabajo deben existir dentro 
 ```
 
 ## <a name="workspace-move-considerations"></a>Consideraciones sobre el movimiento del área de trabajo
-Las soluciones administradas que se instalan en el área de trabajo se moverán con la operación de traslado de área de trabajo de Log Analytics. Los agentes conectados permanecerán conectados y conservarán los datos en el área de trabajo después de la migración. Dado que la operación de movimiento requiere que no haya ningún servicio vinculado del área de trabajo, las soluciones que se basan en dicho vínculo deben quitarse para permitir que el área de trabajo se mueva.
-
-Soluciones que deben quitarse para poder desvincular la cuenta de Automation:
-
-- Administración de actualizaciones
-- Seguimiento de cambios
-- Inicio y detención de máquinas virtuales durante las horas de trabajo
-- Azure Security Center
+- Las soluciones administradas que se instalan en el área de trabajo se moverán con la operación de traslado de área de trabajo de Log Analytics. 
+- Las claves del área de trabajo (principales y secundarias) se vuelven a generar con la operación de migración del área de trabajo. Si conserva una copia de las claves del área de trabajo en el almacén de claves, use las claves nuevas que se generaron después de mover el área de trabajo para actualizar la copia. 
+- Los agentes conectados permanecerán conectados y conservarán los datos en el área de trabajo después de la migración. 
+- Dado que la operación de movimiento requiere que no haya ningún servicio vinculado del área de trabajo, las soluciones que se basan en dicho vínculo deben quitarse para permitir que el área de trabajo se mueva. Soluciones que deben quitarse para poder desvincular la cuenta de Automation:
+  - Administración de actualizaciones
+  - Seguimiento de cambios
+  - Inicio y detención de máquinas virtuales durante las horas de trabajo
+  - Azure Security Center
 
 >[!IMPORTANT]
 > **Clientes de Azure Sentinel**
@@ -75,7 +75,7 @@ Remove-AzResource -ResourceType 'Microsoft.OperationsManagement/solutions' -Reso
 ```
 
 ### <a name="remove-alert-rules-for-startstop-vms-solution"></a>Eliminación de reglas de alerta de la solución Start/Stop VMs
-Para quitar la solución **Start/Stop VMs** , también debe quitar las reglas de alerta creadas por la solución. Use el siguiente procedimiento en Azure Portal para eliminar estas reglas.
+Para quitar la solución **Start/Stop VMs**, también debe quitar las reglas de alerta creadas por la solución. Use el siguiente procedimiento en Azure Portal para eliminar estas reglas.
 
 1. Abra el menú **Supervisar** y luego seleccione **Alertas**.
 2. Haga clic en **Administrar regla de alertas**.
@@ -98,11 +98,11 @@ Use el siguiente procedimiento para desvincular la cuenta de Automation del áre
 
 ## <a name="move-your-workspace"></a>Trasladar su área de trabajo
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure portal
 Use el siguiente procedimiento para trasladar su área de trabajo con Azure Portal:
 
 1. Abra el menú **Áreas de trabajo de Log Analytics** y luego seleccione su área de trabajo.
-2. En la página **Descripción general** , haga clic en **cambiar** después en **Grupo de recursos** o **Suscripción**.
+2. En la página **Descripción general**, haga clic en **cambiar** después en **Grupo de recursos** o **Suscripción**.
 3. Se abrirá una nueva página con una lista de recursos relacionados con el área de trabajo. Seleccione los recursos para pasar a la misma suscripción de destino y grupo de recursos que el área de trabajo. 
 4. Seleccione un destino **Suscripción** y **Grupo de recursos**. Si va a trasladar el área de trabajo a otro grupo de recursos de la misma suscripción, no verá la opción **Suscripción**.
 5. Haga clic en **Aceptar** para trasladar el área de trabajo y los recursos seleccionados.

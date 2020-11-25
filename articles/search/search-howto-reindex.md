@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/18/2020
-ms.openlocfilehash: 10c7d4146d61f5b589b29bc8faad5fa8e60a293a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ae8fd7f405beb20d516835ccb80b86e769fd0393
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88924034"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94697091"
 ---
 # <a name="how-to-rebuild-an-index-in-azure-cognitive-search"></a>Cómo recompilar un índice en Azure Cognitive Search
 
@@ -91,7 +91,7 @@ Al cargar el índice, el índice invertido de cada campo se rellena con todas la
 
 Puede empezar a consultar un índice en cuanto se carga el primer documento. Si conoce el identificador de un documento, la [API REST para buscar documentos](/rest/api/searchservice/lookup-document) devuelve el documento específico. Para realizar pruebas más amplias, debe esperar hasta que el índice se haya cargado completamente y, a continuación, usar consultas para comprobar el contexto que espera ver.
 
-Puede usar el [Explorador de búsqueda](search-explorer.md) o una herramienta de pruebas web como [Postman](search-get-started-postman.md) para comprobar el contenido actualizado.
+Puede usar el [Explorador de búsqueda](search-explorer.md) o una herramienta de pruebas web como [Postman o Visual Studio Code](search-get-started-rest.md) para comprobar el contenido actualizado.
 
 Si ha agregado un campo o le ha cambiado el nombre, use [$select](search-query-odata-select.md) para volver a ese campo: `search=*&$select=document-id,my-new-field,some-old-field&$count=true`
 

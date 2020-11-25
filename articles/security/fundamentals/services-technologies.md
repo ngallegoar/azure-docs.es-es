@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/29/2019
 ms.author: terrylan
-ms.openlocfilehash: 46b1cbbd620cf2de8d875927f5745e91fcf608c5
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 553cfe0c1a5e7d569c127f23a11f25f4d150b0bc
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94410052"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94700766"
 ---
 # <a name="security-services-and-technologies-available-on-azure"></a>Servicios y tecnologías de seguridad disponibles en Azure
 
@@ -67,7 +67,7 @@ Con el tiempo, esta lista cambiará y aumentará, igual que lo hace Azure. Aseg�
 ## <a name="identity-and-access-management"></a>Administración de identidades y acceso
 |Servicio|Descripción|
 |------|--------|
-| [Control de acceso&nbsp;basado en&nbsp;rol de&nbsp;Azure](../../role-based-access-control/role-assignments-portal.md)|Característica de control de acceso diseñada para que los usuarios accedan únicamente a los recursos necesarios en función de sus roles dentro de la organización.  |
+| [Control de acceso&nbsp;basado en rol de &nbsp;Azure](../../role-based-access-control/role-assignments-portal.md)|Característica de control de acceso diseñada para que los usuarios accedan únicamente a los recursos necesarios en función de sus roles dentro de la organización.  |
 | [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md)|Repositorio de autenticación basado en la nube que admite un directorio en la nube de varios inquilinos y varios servicios de administración de identidades en Azure.  |
 | [Azure Active Directory B2C](../../active-directory-b2c/overview.md)|Servicio de administración de identidades que permite controlar la manera en que los clientes se registran, inician sesión y administran sus perfiles al usar las aplicaciones de Azure.   |
 | [Azure Active Directory Domain Services](../../active-directory-domain-services/overview.md)| Una versión en la nube y administrada de Active Directory Domain Services. |

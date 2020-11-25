@@ -5,12 +5,12 @@ author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 8e7d5d4b730ef1669bd9bb7d74e35924061f5580
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 0aff55810508fedcf354fba3d9fca9f7a402029b
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93146218"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94685841"
 ---
 # <a name="cluster-resource-manager-architecture-overview"></a>Información general de la arquitectura del Administrador de recursos de clúster
 Cluster Resource Manager de Service Fabric es un servicio centralizado que se ejecuta en el clúster. Administra el estado deseado de los servicios del clúster, concretamente con respecto al consumo de recursos y las reglas de selección de ubicación. 
@@ -43,7 +43,7 @@ Observemos el diagrama siguiente:
 
 <center>
 
-![Diagrama que muestra cómo el servicio Cluster Resource Manager suma toda la información de los agentes locales y reacciona en función de su configuración actual.][Image1]
+![Diagrama que muestra cómo el servicio Cluster Resource Manager agrega toda la información de los agentes locales y reacciona en función de su configuración actual.][Image1]
 </center>
 
 Durante el tiempo de ejecución, pueden ocurrir muchos cambios. Por ejemplo, supongamos que la cantidad de recursos que algunos servicios consumen cambia, algunos servicios presentan errores y algunos nodos se unen y abandonan el clúster. Todos los cambios en un nodo se agregan y se envían periódicamente al servicio de Cluster Resource Manager (1, 2) donde se agregan de nuevo, se analizan y se almacenan. Cada pocos segundos, ese servicio examina los cambios y determina si es necesario llevar a cabo alguna acción (3). Por ejemplo, podría detectar que se agregaron nodos vacíos al clúster. Por consiguiente, decide mover algunos servicios a esos nodos. Cluster Resource Manager también podría detectar que un nodo en concreto está sobrecargado, o bien que determinados servicios no han funcionado o se han eliminado, y liberar recursos de otros lugares.

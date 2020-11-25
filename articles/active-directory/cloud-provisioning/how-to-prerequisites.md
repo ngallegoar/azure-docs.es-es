@@ -11,12 +11,12 @@ ms.date: 12/06/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7cf072ae9544cd479aeca02d9b9fcd670b8eb5fe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6dbdd5153186ee47e37856637eac16d6d450cc5a
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89226903"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94695187"
 ---
 # <a name="prerequisites-for-azure-ad-connect-cloud-provisioning"></a>Requisitos previos del aprovisionamiento en la nube de Azure AD Connect
 En este artículo se proporcionan instrucciones sobre cómo elegir y usar el aprovisionamiento en la nube de Azure Active Directory (Azure AD) Connect como solución de identidad.
@@ -90,6 +90,26 @@ Para habilitar TLS 1.2, siga estos pasos.
     ```
 
 1. Reinicie el servidor.
+
+## <a name="known-limitations"></a>Restricciones conocidas
+Estas son las limitaciones conocidas:
+
+### <a name="delta-synchronization"></a>Sincronización delta
+
+- El filtrado de ámbitos de grupos para la sincronización diferencial no admite más de 1500 miembros.
+- Cuando se elimina un grupo que se usa como parte de un filtro de ámbito de grupo, los usuarios que pertenecen a dicho grupo no se eliminan. 
+- Al cambiar el nombre de la unidad organizativa o del grupo que se encuentra en el ámbito, la sincronización diferencial no quitará a los usuarios.
+
+### <a name="provisioning-logs"></a>Registros de aprovisionamiento
+- Los registros de aprovisionamiento no distinguen claramente entre las operaciones de creación y actualización.  Es posible que se muestre una operación de creación para una actualización, y viceversa.
+
+### <a name="cross-domain-references"></a>Referencias entre dominios
+- Si tiene usuarios con referencias de miembro en otro dominio, no se sincronizarán como parte de la sincronización de dominio actual de ese usuario. 
+- (Ejemplo: un administrador del usuario al que está sincronizando está en el dominio B, y el usuario está en el dominio A. Al sincronizar los dominios A y B, los usuarios se sincronizarán, pero el administrador del usuario no se trasladará.
+
+### <a name="group-re-naming-or-ou-re-naming"></a>Cambio del nombre de grupo o de la unidad organizativa
+- Si cambia el nombre de un grupo o una unidad organizativa de AD que se encuentra en el ámbito de una configuración determinada, el trabajo de aprovisionamiento en la nube no podrá reconocer el cambio de nombre en AD. El trabajo no entrará en cuarentena y permanecerá en buen estado.
+
 
 
 ## <a name="next-steps"></a>Pasos siguientes 

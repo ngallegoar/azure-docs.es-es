@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/15/2020
-ms.openlocfilehash: 3aa4a1917711f8997c282ba577c33e7a7f94472b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa7c06c3bad59bad11fa288631042cca86109706
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88932889"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701140"
 ---
 # <a name="create-a-basic-search-index-in-azure-cognitive-search"></a>Creación de un índice básico en Azure Cognitive Search
 
@@ -59,7 +59,7 @@ Llegar a un diseño de índice final es un proceso iterativo. Es habitual comenz
 
    ![Página Agregar índice que muestra los atributos según el tipo de datos](media/search-what-is-an-index//field-definitions.png "Página Agregar índice que muestra los atributos según el tipo de datos")
 
-1. Descargue el esquema de índices mediante [Get Index (API REST)](/rest/api/searchservice/get-index) y una herramienta de prueba web como [Postman](search-get-started-postman.md). Ahora tiene una representación JSON del índice que puede adaptar para el código.
+1. Descargue el esquema de índices mediante [Get Index (API REST)](/rest/api/searchservice/get-index) y una herramienta de prueba web como [Postman](search-get-started-rest.md). Ahora tiene una representación JSON del índice que puede adaptar para el código.
 
 1. [Cargue el índice con datos](search-what-is-data-import.md). Azure Cognitive Search acepta documentos JSON. Para cargar los datos mediante programación, puede usar Postman con documentos JSON en la carga de solicitudes. Si los datos no se expresan con facilidad como JSON, este paso será más laborioso. 
 
@@ -70,7 +70,7 @@ Llegar a un diseño de índice final es un proceso iterativo. Es habitual comenz
 Durante el desarrollo, haga planes para realizar recompilaciones con frecuencia. Como se crean estructuras físicas en el servicio, la mayoría de las modificaciones realizadas en una definición de campo existente, requieren [quitar los índices y volverlos a crear](search-howto-reindex.md). Considere la posibilidad de trabajar con un subconjunto de los datos para asegurarse de que las recompilaciones van más rápido. 
 
 > [!Tip]
-> Para trabajar en el diseño de índices y la importación de datos simultáneamente, se recomienda el código en lugar del enfoque de portal. Como alternativa, herramientas como [Postman y la API REST](search-get-started-postman.md) son útiles con pruebas de concepto cuando los proyectos de desarrollo están aún en las fases iniciales. Puede realizar cambios incrementales en una definición de índice de un cuerpo de solicitud y, luego, enviar la solicitud al servicio para volver a crear un índice mediante un esquema actualizado.
+> Para trabajar en el diseño de índices y la importación de datos simultáneamente, se recomienda el código en lugar del enfoque de portal. Como alternativa, las herramientas como [Postman y Visual Studio Code](search-get-started-rest.md) son útiles con pruebas de concepto cuando los proyectos de desarrollo están aún en las fases iniciales. Puede realizar cambios incrementales en una definición de índice de un cuerpo de solicitud y, luego, enviar la solicitud al servicio para volver a crear un índice mediante un esquema actualizado.
 
 ## <a name="index-schema"></a>Esquema de índices
 

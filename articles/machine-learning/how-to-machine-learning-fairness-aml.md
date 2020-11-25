@@ -1,26 +1,24 @@
 ---
 title: Evaluación de la equidad de los modelos de ML en Python (versión preliminar)
 titleSuffix: Azure Machine Learning
-description: Obtenga información sobre cómo evaluar la equidad de los modelos en Azure Machine Learning
+description: Obtenga información sobre cómo evaluar y mitigar la equidad de los modelos de aprendizaje automático mediante Fairlearn y el SDK de Azure Machine Learning para Python.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.author: mesameki
 author: mesameki
 ms.reviewer: luquinta
-ms.date: 09/01/2020
+ms.date: 11/16/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: bf819e5cff8c6ef008b0e55e156ba3531936b489
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 3fbd4990fd330960bb8dbce2e2a8d1bcb578cf2a
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337889"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701191"
 ---
 # <a name="use-azure-machine-learning-with-the-fairlearn-open-source-package-to-assess-the-fairness-of-ml-models-preview"></a>Uso de Azure Machine Learning con el paquete de código abierto Fairlearn para evaluar la equidad de los modelos de ML (versión preliminar)
-
-
 
 En esta guía paso a paso, aprenderá a usar el paquete Python de código abierto [Fairlearn](https://fairlearn.github.io/) con Azure Machine Learning para realizar las siguientes tareas:
 
@@ -306,7 +304,7 @@ Si está interesado en comparar varios modelos y ver cómo difieren sus evaluaci
     ```
 
 
-    Al igual que en la sección anterior, puede seguir una de las rutas de acceso descritas anteriormente (a través de **Experimentos** o **Modelos** ) en Azure Machine Learning Studio para acceder al panel de visualización y comparar los dos modelos en cuanto a equidad y rendimiento.
+    Al igual que en la sección anterior, puede seguir una de las rutas de acceso descritas anteriormente (a través de **Experimentos** o **Modelos**) en Azure Machine Learning Studio para acceder al panel de visualización y comparar los dos modelos en cuanto a equidad y rendimiento.
 
 
 ## <a name="upload-unmitigated-and-mitigated-fairness-insights"></a>Cargar información de equidad no mitigada y mitigada

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: bde95006865a2aab2da4a5d6d27ccccc14d74d12
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 8e12a74ee689ba7b013b1c4a6881deac78680be0
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94408929"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701055"
 ---
 # <a name="security-control-v2-data-protection"></a>Control de seguridad V2: Protección de datos
 
@@ -34,9 +34,9 @@ Puede utilizar Azure SQL Information Protection para ayudar en la clasificación
 
 - [Implementación de la detección de datos de Azure SQL](../../azure-sql/database/data-discovery-and-classification-overview.md)
 
-**Responsabilidad** : Compartido
+**Responsabilidad**: Compartido
 
-**Partes interesadas de seguridad del cliente** ( [Más información](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Partes interesadas de seguridad del cliente** ([Más información](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Seguridad de las aplicaciones y DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)  
 
@@ -56,13 +56,13 @@ Para garantizar un control de acceso coherente, todos los tipos de control de ac
 
 En el caso de la plataforma subyacente administrada por Microsoft, Microsoft trata todo el contenido de los clientes como confidencial y protege a los clientes contra la pérdida y exposición de los datos. Para garantizar la seguridad de los datos de los clientes dentro de Azure, Microsoft ha implementado algunos controles y funcionalidades de protección de datos predeterminados.
 
-- [Control de acceso basado en rol (RBAC) de Azure](../../role-based-access-control/overview.md)
+- [Control de acceso basado en roles de Azure (Azure RBAC)](../../role-based-access-control/overview.md)
 
 - [Descripción de la protección de datos de los clientes en Azure](../fundamentals/protection-customer-data.md)
 
-**Responsabilidad** : Compartido
+**Responsabilidad**: Compartido
 
-**Partes interesadas de seguridad del cliente** ( [Más información](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Partes interesadas de seguridad del cliente** ([Más información](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Seguridad de las aplicaciones y DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
 
@@ -88,9 +88,9 @@ Si es necesario para el cumplimiento de la prevención de la pérdida de datos (
 
 - [Habilitación de ATP para Azure Storage](../../storage/common/azure-defender-storage-configure.md?tabs=azure-security-center)
 
-**Responsabilidad** : Compartido
+**Responsabilidad**: Compartido
 
-**Partes interesadas de seguridad del cliente** ( [Más información](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Partes interesadas de seguridad del cliente** ([Más información](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Operaciones de seguridad](/azure/cloud-adoption-framework/organize/cloud-security) 
 
@@ -116,9 +116,9 @@ De forma predeterminada, Azure proporciona el cifrado de los datos en tránsito 
 
 - [Cifrado doble para datos de Azure en tránsito](../fundamentals/double-encryption.md#data-in-transit)
 
-**Responsabilidad** : Compartido
+**Responsabilidad**: Compartido
 
-**Partes interesadas de seguridad del cliente** ( [Más información](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Partes interesadas de seguridad del cliente** ([Más información](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Arquitectura de seguridad](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 
@@ -146,9 +146,9 @@ Azure proporciona cifrado de datos en reposo de forma predeterminada. En el caso
 
 - [Cifrado doble de datos en reposo en Azure](../fundamentals/double-encryption.md#data-at-rest)
 
-**Responsabilidad** : Compartido
+**Responsabilidad**: Compartido
 
-**Partes interesadas de seguridad del cliente** ( [Más información](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Partes interesadas de seguridad del cliente** ([Más información](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Arquitectura de seguridad](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 

@@ -6,12 +6,12 @@ ms.topic: article
 ms.author: jpalma
 ms.date: 11/09/2020
 author: palma21
-ms.openlocfilehash: e3b755ca3ca5338acfc1918bd2085d9fba18b8ac
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: a1d045e66771026d2b4cf7ad44fd6943d2d407f4
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94380218"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701609"
 ---
 # <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>Control del tráfico de salida de los nodos de clúster en Azure Kubernetes Service (AKS)
 
@@ -209,8 +209,10 @@ Los clústeres de AKS que tienen habilitado Azure Policy necesitan las reglas de
 
 | FQDN                                          | Port      | Uso      |
 |-----------------------------------------------|-----------|----------|
-| **`gov-prod-policy-data.trafficmanager.net`** | **`HTTPS:443`** | Esta dirección se usa para el funcionamiento correcto de Azure Policy. (Actualmente en versión preliminar en AKS) |
-| **`raw.githubusercontent.com`**               | **`HTTPS:443`** | Esta dirección se usa para extraer las directivas integradas de GitHub para garantizar el funcionamiento correcto de Azure Policy. (Actualmente en versión preliminar en AKS) |
+| **`data.policy.core.windows.net`** | **`HTTPS:443`** | Esta dirección se usa para extraer las directivas de Kubernetes y para notificar el estado de cumplimiento del clúster en el servicio de directivas. |
+| **`store.policy.core.windows.net`** | **`HTTPS:443`** | Esta dirección se usa para extraer los artefactos de Gatekeeper de las directivas integradas. |
+| **`gov-prod-policy-data.trafficmanager.net`** | **`HTTPS:443`** | Esta dirección se usa para el funcionamiento correcto de Azure Policy.  |
+| **`raw.githubusercontent.com`**               | **`HTTPS:443`** | Esta dirección se usa para extraer las directivas integradas de GitHub para garantizar el funcionamiento correcto de Azure Policy. |
 | **`dc.services.visualstudio.com`**            | **`HTTPS:443`** | Complemento de Azure Policy que envía datos de telemetría al punto de conexión de Application Insights. |
 
 ## <a name="restrict-egress-traffic-using-azure-firewall"></a>Restricción del tráfico de salida mediante el firewall de Azure

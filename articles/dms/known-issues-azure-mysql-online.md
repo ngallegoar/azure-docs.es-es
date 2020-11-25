@@ -14,12 +14,12 @@ ms.custom:
 - seo-dt-2019
 ms.topic: troubleshooting
 ms.date: 02/20/2020
-ms.openlocfilehash: 3b9a94f7f9f64426374a5ea349b3653d837fc1ac
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: a9ac4830d11aa3360a272ac1feb167eb20c26c9a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92494445"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96009813"
 ---
 # <a name="online-migration-issues--limitations-to-azure-db-for-mysql-with-azure-database-migration-service"></a>Limitaciones y problemas de migración en línea de Azure DB for MySQL con Azure Database Migration Service
 
@@ -66,28 +66,28 @@ Los problemas conocidos y las limitaciones relacionadas con las migraciones en l
 
 ## <a name="datatype-limitations"></a>Limitaciones del tipo de datos
 
-- **Limitación** : si hay un tipo de datos JSON en la base de datos MySQL de origen, se producirá un error en la migración durante la sincronización continua.
+- **Limitación**: si hay un tipo de datos JSON en la base de datos MySQL de origen, se producirá un error en la migración durante la sincronización continua.
 
-    **Solución alternativa** : modificar el tipo de datos JSON a un texto medio o largo en la base de datos MySQL de origen.
+    **Solución alternativa**: modificar el tipo de datos JSON a un texto medio o largo en la base de datos MySQL de origen.
 
-- **Limitación** : si no hay ninguna clave principal en las tablas, se producirá un error en la sincronización continua.
+- **Limitación**: si no hay ninguna clave principal en las tablas, se producirá un error en la sincronización continua.
 
-    **Solución alternativa** : establecer temporalmente una clave principal para la tabla para que continúe la migración. Puede quitar la clave principal una vez completada la migración de datos.
+    **Solución alternativa**: establecer temporalmente una clave principal para la tabla para que continúe la migración. Puede quitar la clave principal una vez completada la migración de datos.
 
 ## <a name="lob-limitations"></a>Limitaciones de LOB
 
 Las columnas de objetos grandes (LOB) son columnas que pueden alcanzar un tamaño considerable. Para MySQL, algunos de los tipos de datos de LOB son Medium text, Longtext, Blob, Mediumblob, Longblob, etc.
 
-- **Limitación** : si se usan tipos de datos de LOB como claves principales, se producirá un error en la migración.
+- **Limitación**: si se usan tipos de datos de LOB como claves principales, se producirá un error en la migración.
 
-    **Solución alternativa** : reemplazar la clave principal por otros tipos de datos o columnas que no sean de LOB.
+    **Solución alternativa**: reemplazar la clave principal por otros tipos de datos o columnas que no sean de LOB.
 
-- **Limitación** : Si la longitud de columna de objetos grandes (LOB) es mayor que el parámetro "Limitar tamaño de LOB" (que no debería ser superior a 64 KB), es posible que se trunquen los datos en el destino. Puede comprobar la longitud de columna de LOB mediante esta consulta:
+- **Limitación**: Si la longitud de columna de objetos grandes (LOB) es mayor que el parámetro "Limitar tamaño de LOB" (que no debería ser superior a 64 KB), es posible que se trunquen los datos en el destino. Puede comprobar la longitud de columna de LOB mediante esta consulta:
     ```
     SELECT max(length(description)) as LEN from catalog;
     ```
 
-    **Solución alternativa** : Si tiene un objeto LOB con más de 64 KB, use el parámetro "Permitir tamaño de LOB ilimitado". Tenga en cuenta que las migraciones que usen el parámetro "Permitir tamaño de LOB ilimitado" serán más lentas que las migraciones que usen el parámetro "Limitar tamaño de LOB".
+    **Solución alternativa**: Si tiene un objeto LOB con más de 64 KB, use el parámetro "Permitir tamaño de LOB ilimitado". Tenga en cuenta que las migraciones que usen el parámetro "Permitir tamaño de LOB ilimitado" serán más lentas que las migraciones que usen el parámetro "Limitar tamaño de LOB".
 
 ## <a name="limitations-when-migrating-online-from-aws-rds-mysql"></a>Limitaciones al migrar en línea desde AWS RDS MySQL
 
@@ -95,8 +95,8 @@ Al intentar realizar una migración en línea desde AWS RDS MySQL hasta Azure Da
 
 - **Error:** la base de datos "{0}" tiene claves externas en el destino. Corrija el destino e inicie una nueva actividad de migración de datos. Ejecute el siguiente script en el destino para mostrar las claves externas.
 
-  **Limitación** : Si tiene claves externas en el esquema, se producirá un error en la carga inicial y la sincronización continua de la migración.
-  **Solución alternativa** : Ejecute el siguiente script en MySQL Workbench para extraer el script para eliminar la clave externa y el script para agregar clave externa:
+  **Limitación**: Si tiene claves externas en el esquema, se producirá un error en la carga inicial y la sincronización continua de la migración.
+  **Solución alternativa**: Ejecute el siguiente script en MySQL Workbench para extraer el script para eliminar la clave externa y el script para agregar clave externa:
 
   ```
   SET group_concat_max_len = 8192; SELECT SchemaName, GROUP_CONCAT(DropQuery SEPARATOR ';\n') as DropQuery, GROUP_CONCAT(AddQuery SEPARATOR ';\n') as AddQuery FROM (SELECT KCU.REFERENCED_TABLE_SCHEMA as SchemaName, KCU.TABLE_NAME, KCU.COLUMN_NAME, CONCAT('ALTER TABLE ', KCU.TABLE_NAME, ' DROP FOREIGN KEY ', KCU.CONSTRAINT_NAME) AS DropQuery, CONCAT('ALTER TABLE ', KCU.TABLE_NAME, ' ADD CONSTRAINT ', KCU.CONSTRAINT_NAME, ' FOREIGN KEY (`', KCU.COLUMN_NAME, '`) REFERENCES `', KCU.REFERENCED_TABLE_NAME, '` (`', KCU.REFERENCED_COLUMN_NAME, '`) ON UPDATE ',RC.UPDATE_RULE, ' ON DELETE ',RC.DELETE_RULE) AS AddQuery FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE KCU, information_schema.REFERENTIAL_CONSTRAINTS RC WHERE KCU.CONSTRAINT_NAME = RC.CONSTRAINT_NAME AND KCU.REFERENCED_TABLE_SCHEMA = RC.UNIQUE_CONSTRAINT_SCHEMA AND KCU.REFERENCED_TABLE_SCHEMA = 'SchemaName') Queries GROUP BY SchemaName;
@@ -104,21 +104,21 @@ Al intentar realizar una migración en línea desde AWS RDS MySQL hasta Azure Da
 
 - **Error:** la base de datos "{0}" no existe en el servidor. El servidor de origen de MySQL proporcionado distingue mayúsculas de minúsculas. Compruebe el nombre de la base de datos.
 
-  **Limitación** : Al migrar una base de datos MySQL a Azure mediante la interfaz de la línea de comandos (CLI), los usuarios pueden encontrarse este error. El servicio no pudo ubicar la base de datos en el servidor de origen. Puede que haya proporcionado un nombre de base de datos incorrecto o que la base de datos no exista en el servidor mostrado. Tenga en cuenta que los nombres de las bases de datos distinguen mayúsculas de minúsculas.
+  **Limitación**: Al migrar una base de datos MySQL a Azure mediante la interfaz de la línea de comandos (CLI), los usuarios pueden encontrarse este error. El servicio no pudo ubicar la base de datos en el servidor de origen. Puede que haya proporcionado un nombre de base de datos incorrecto o que la base de datos no exista en el servidor mostrado. Tenga en cuenta que los nombres de las bases de datos distinguen mayúsculas de minúsculas.
 
-  **Solución alternativa** : proporcione el nombre exacto de la base de datos e inténtelo de nuevo.
+  **Solución alternativa**: proporcione el nombre exacto de la base de datos e inténtelo de nuevo.
 
 - **Error:** hay tablas con el mismo nombre en la base de datos "{database}". Azure Database for MySQL no admite tablas que distinguen mayúsculas de minúsculas.
 
-  **Limitación** : Este error se produce cuando se tienen dos tablas con el mismo nombre en la base de datos de origen. Azure Database for MySQL no admite tablas que distingan mayúsculas de minúsculas.
+  **Limitación**: Este error se produce cuando se tienen dos tablas con el mismo nombre en la base de datos de origen. Azure Database for MySQL no admite tablas que distingan mayúsculas de minúsculas.
 
-  **Solución alternativa** : actualice los nombres de tabla para que sean únicos y vuelva a intentarlo.
+  **Solución alternativa**: actualice los nombres de tabla para que sean únicos y vuelva a intentarlo.
 
 - **Error:** la base de datos de destino {database} está vacía. Migre el esquema.
 
-  **Limitación** : Este error se produce cuando la base de datos de Azure Database for MySQL de destino no tiene el esquema necesario. La migración del esquema es necesaria para habilitar la migración de datos al destino.
+  **Limitación**: Este error se produce cuando la base de datos de Azure Database for MySQL de destino no tiene el esquema necesario. La migración del esquema es necesaria para habilitar la migración de datos al destino.
 
-  **Solución alternativa** : [migre el esquema](https://docs.microsoft.com/azure/dms/tutorial-mysql-azure-mysql-online#migrate-the-sample-schema) de la base de datos de origen a la de destino.
+  **Solución alternativa**: [migre el esquema](./tutorial-mysql-azure-mysql-online.md#migrate-the-sample-schema) de la base de datos de origen a la de destino.
 
 ## <a name="other-limitations"></a>Otras limitaciones
 
@@ -136,10 +136,10 @@ Al intentar realizar una migración en línea desde AWS RDS MySQL hasta Azure Da
 
 - En Azure Database Migration Service, el número de bases de datos que se van a migrar en una única actividad de migración se limita a cuatro.
 
-- Azure DMS no admite la acción referencial CASCADE, que ayuda a eliminar o actualizar automáticamente una fila coincidente en la tabla secundaria cuando se elimina o se actualiza una fila en la tabla primaria. Para obtener más información, consulte la sección sobre acciones referenciales del artículo [FOREIGN KEY Constraints](https://dev.mysql.com/doc/refman/8.0/en/create-table-foreign-keys.html) en la documentación de MySQL. Azure DMS requiere que se quiten las restricciones de claves externas en el servidor de base de datos de destino durante la carga de datos inicial, y no se pueden usar acciones referenciales. Si la carga de trabajo depende de la actualización de una tabla secundaria relacionada a través de esta acción referencial, se recomienda realizar un [volcado y restauración](https://docs.microsoft.com/azure/mysql/concepts-migrate-dump-restore) en su lugar. 
+- Azure DMS no admite la acción referencial CASCADE, que ayuda a eliminar o actualizar automáticamente una fila coincidente en la tabla secundaria cuando se elimina o se actualiza una fila en la tabla primaria. Para obtener más información, consulte la sección sobre acciones referenciales del artículo [FOREIGN KEY Constraints](https://dev.mysql.com/doc/refman/8.0/en/create-table-foreign-keys.html) en la documentación de MySQL. Azure DMS requiere que se quiten las restricciones de claves externas en el servidor de base de datos de destino durante la carga de datos inicial, y no se pueden usar acciones referenciales. Si la carga de trabajo depende de la actualización de una tabla secundaria relacionada a través de esta acción referencial, se recomienda realizar un [volcado y restauración](../mysql/concepts-migrate-dump-restore.md) en su lugar. 
 
 - **Error:** Tamaño de fila demasiado grande (> 8126). Puede ser útil cambiar algunas columnas a TEXTO o BLOB. En el formato de fila actual, el prefijo BLOB de 0 bytes se almacena en línea.
 
-  **Limitación** : Este error se produce cuando se realiza la migración a Azure Database for MySQL mediante el motor de almacenamiento InnoDB y el tamaño de la fila de la tabla es demasiado grande (> 8126 bytes).
+  **Limitación**: Este error se produce cuando se realiza la migración a Azure Database for MySQL mediante el motor de almacenamiento InnoDB y el tamaño de la fila de la tabla es demasiado grande (> 8126 bytes).
 
-  **Solución alternativa** : Actualice el esquema de la tabla que tiene un tamaño de fila superior a 8126 bytes. No se recomienda cambiar el modo strict porque los datos se truncarán. No se admite el cambio de page_size.
+  **Solución alternativa**: Actualice el esquema de la tabla que tiene un tamaño de fila superior a 8126 bytes. No se recomienda cambiar el modo strict porque los datos se truncarán. No se admite el cambio de page_size.

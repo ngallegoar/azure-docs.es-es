@@ -1,7 +1,7 @@
 ---
 title: Qué es un área de trabajo
 titleSuffix: Azure Machine Learning
-description: El área de trabajo es el recurso de nivel superior de Azure Machine Learning. Conserva un historial de todas las ejecuciones del entrenamiento, que incluye registros, métricas, resultados y una instantánea de sus scripts. Esta información se usa para determinar qué ejecución de entrenamiento crea el mejor modelo.
+description: El área de trabajo es el recurso de nivel superior de Azure Machine Learning. Conserva un historial de todas las ejecuciones del entrenamiento, con registros, métricas, resultados y una instantánea de sus scripts.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 09/22/2020
-ms.openlocfilehash: 1076b49a101d5657397ef12b8fac672d37e477b0
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 7acb555ddde20d6512119af85a8db055bcd9eeed
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324801"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701660"
 ---
 # <a name="what-is-an-azure-machine-learning-workspace"></a>¿Qué es un área de trabajo de Azure Machine Learning?
 
@@ -89,7 +89,7 @@ También puede realizar las siguientes tareas de administración de áreas de tr
 Hay varias maneras de crear un área de trabajo:  
 
 * Use [Azure Portal](how-to-manage-workspace.md?tabs=azure-portal#create-a-workspace) si quiere utilizar una interfaz de apuntar y hacer clic que le guíe por cada paso.
-* Use el [SDK de Azure Machine Learning para Python](how-to-manage-workspace.md?tabs=python#create-a-workspace) si quiere crear un área de trabajo al momento a partir de scripts de Python o cuadernos de Jupyter.
+* Use el [SDK de Azure Machine Learning para Python](how-to-manage-workspace.md?tabs=python#create-a-workspace) para crear un área de trabajo al momento a partir de scripts de Python o cuadernos de Jupyter.
 * Use una [plantilla de Azure Resource Manager](how-to-create-workspace-template.md) o la [CLI de Azure Machine Learning](reference-azure-machine-learning-cli.md) cuando necesite automatizar o personalizar la creación con estándares de seguridad corporativos.
 * Si trabaja en Visual Studio Code, use la [extensión de VS Code](how-to-manage-resources-vscode.md#create-a-workspace).
 

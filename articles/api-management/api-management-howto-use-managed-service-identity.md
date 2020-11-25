@@ -9,14 +9,14 @@ editor: ''
 ms.service: api-management
 ms.workload: integration
 ms.topic: article
-ms.date: 06/12/2020
+ms.date: 11/14/2020
 ms.author: apimpm
-ms.openlocfilehash: 8a7fa295bdc8881c0c1ba58c95872a9380231b81
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: db1a8238cf9ddae57d73438d43daa54294ce6860
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85558025"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94686232"
 ---
 # <a name="use-managed-identities-in-azure-api-management"></a>Uso de identidades administradas en Azure API Management
 
@@ -123,9 +123,9 @@ La propiedad `tenantId` identifica a qué inquilino de Azure AD pertenece la id
 > [!NOTE]
 > Una instancia de API Management puede tener identidades asignadas por el sistema y asignadas por el usuario al mismo tiempo. En este caso, la propiedad `type` sería `SystemAssigned,UserAssigned`.
 
-### <a name="supported-scenarios"></a>Escenarios admitidos
+## <a name="supported-scenarios-using-system-assigned-identity"></a>Escenarios admitidos que usan la identidad asignada por el sistema
 
-#### <a name="obtain-a-custom-tlsssl-certificate-for-the-api-management-instance-from-azure-key-vault"></a><a name="use-ssl-tls-certificate-from-azure-key-vault"></a>Obtención de un certificado TLS/SSL personalizado para la instancia de API Management desde Azure Key Vault
+### <a name="obtain-a-custom-tlsssl-certificate-for-the-api-management-instance-from-azure-key-vault"></a><a name="use-ssl-tls-certificate-from-azure-key-vault"></a>Obtención de un certificado TLS/SSL personalizado para la instancia de API Management desde Azure Key Vault
 Puede usar la identidad asignada por el sistema de una instancia de API Management para recuperar los certificados de TLS/SSL personalizados almacenados en Azure Key Vault. Después, puede asignar estos certificados a dominios personalizados en la instancia de API Management. Tenga en cuenta las consideraciones siguientes:
 
 - El tipo de contenido del secreto debe ser *application/x-pkcs12*.
@@ -262,7 +262,7 @@ En el ejemplo siguiente se muestra una plantilla de Azure Resource Manager que c
 }
 ```
 
-#### <a name="authenticate-to-the-back-end-by-using-an-api-management-identity"></a>Autenticación en el back-end mediante una identidad de API Management
+### <a name="authenticate-to-the-back-end-by-using-an-api-management-identity"></a>Autenticación en el back-end mediante una identidad de API Management
 
 Puede usar la identidad asignada por el sistema para autenticarse en el back-end a través de la directiva [authentication-managed-identity](api-management-authentication-policies.md#ManagedIdentity).
 
@@ -281,7 +281,7 @@ Para configurar una identidad administrada en el portal, primero tendrá que cre
 3. En la pestaña **Usuario asignado**, seleccione **Agregar**.
 4. Busque la identidad que creó anteriormente y selecciónela. Seleccione **Agregar**.
 
-   :::image type="content" source="./media/api-management-msi/enable-user-assigned-msi.png" alt-text="Selecciones para habilitar una identidad administrada asignada por el sistema" border="true":::
+   :::image type="content" source="./media/api-management-msi/enable-user-assigned-msi.png" alt-text="Selecciones para habilitar una identidad administrada asignada por el usuario" border="true":::
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
@@ -387,9 +387,32 @@ El valor `principalId` es un identificador único de la identidad que se usa par
 > [!NOTE]
 > Una instancia de API Management puede tener identidades asignadas por el sistema y asignadas por el usuario al mismo tiempo. En este caso, la propiedad `type` sería `SystemAssigned,UserAssigned`.
 
-### <a name="supported-scenarios"></a>Escenarios admitidos
+## <a name="supported-scenarios-using-user-assigned-managed-identity"></a>Escenarios admitidos que usan la identidad administrada asignada por el usuario
 
-#### <a name="authenticate-to-the-back-end-by-using-a-user-assigned-identity"></a>Autenticación en el back-end mediante una identidad de asignada por el usuario
+### <a name="obtain-a-custom-tlsssl-certificate-for-the-api-management-instance-from-azure-key-vault"></a><a name="use-ssl-tls-certificate-from-azure-key-vault-ua"></a>Obtención de un certificado TLS/SSL personalizado para la instancia de API Management desde Azure Key Vault
+Puede usar cualquier identidad asignada por el usuario para establecer la confianza entre una instancia de API Management y Key Vault. Esta confianza se puede usar para recuperar los certificados TLS/SSL personalizados almacenados en Azure Key Vault. Después, puede asignar estos certificados a dominios personalizados en la instancia de API Management. 
+
+Tenga en cuenta las consideraciones siguientes:
+
+- El tipo de contenido del secreto debe ser *application/x-pkcs12*.
+- Use el punto de conexión del secreto de certificado de Key Vault, que contiene el secreto.
+
+> [!Important]
+> Si no se proporciona la versión del objeto del certificado, API Management obtendrá automáticamente la versión más reciente del certificado dentro del plazo de cuatro horas a partir de que se cargue en Key Vault.
+
+Para ver la plantilla completa, consulte [API Management con SSL basado en KeyVault mediante identidades asignadas por el usuario](https://github.com/Azure/azure-quickstart-templates/blob/master/101-api-management-key-vault-create/azuredeploy.json).
+
+En esta plantilla, implementará lo siguiente:
+
+* Azure API Management
+* Identidad asignada por el usuario administrada por Azure
+* Azure Key Vault para almacenar el certificado SSL/TLS
+
+Para ejecutar automáticamente la implementación, haga clic en el botón siguiente:
+
+[![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-api-management-key-vault-create%2Fazuredeploy.json)
+
+### <a name="authenticate-to-the-back-end-by-using-a-user-assigned-identity"></a>Autenticación en el back-end mediante una identidad de asignada por el usuario
 
 Puede usar la identidad asignada por el usuario para autenticarse en el back-end a través de la directiva [authentication-managed-identity](api-management-authentication-policies.md#ManagedIdentity).
 

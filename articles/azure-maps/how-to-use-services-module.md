@@ -10,15 +10,15 @@ services: azure-maps
 manager: cpendleton
 ms.custom: devx-track-js
 ms.openlocfilehash: 2e07b614e87ed5dad94cf9bc5994e78071187839
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895433"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008606"
 ---
 # <a name="use-the-azure-maps-services-module"></a>Uso del módulo de servicios de Azure Maps
 
-El SDK web de Azure Maps proporciona un *módulo de servicios* . Este módulo es una biblioteca de ayuda que facilita el uso de los servicios REST de Azure Maps en la web o aplicaciones de Node.js mediante JavaScript o TypeScript.
+El SDK web de Azure Maps proporciona un *módulo de servicios*. Este módulo es una biblioteca de ayuda que facilita el uso de los servicios REST de Azure Maps en la web o aplicaciones de Node.js mediante JavaScript o TypeScript.
 
 ## <a name="use-the-services-module-in-a-webpage"></a>Uso del módulo de servicios en una página web
 

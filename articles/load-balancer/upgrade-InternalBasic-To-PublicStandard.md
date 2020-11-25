@@ -8,11 +8,11 @@ ms.topic: how-to
 ms.date: 01/23/2020
 ms.author: irenehua
 ms.openlocfilehash: d1c69f528328d5ff983c7de9d7fad052a7c41285
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94696258"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96009303"
 ---
 # <a name="upgrade-azure-internal-load-balancer---outbound-connection-required"></a>Actualización de Azure Load Balancer interno con necesidad de conexión de salida
 [Azure Standard Load Balancer](load-balancer-overview.md) ofrece un amplio conjunto de funcionalidades y alta disponibilidad gracias a la redundancia de zona. Para más información acerca de la SKU de Load Balancer, consulte la [tabla de comparación](./skus.md#skus). Dado que Standard Load Balancer interno no proporciona conexión de salida, se ofrece una solución para crear una instancia de Standard Public Load Balancer en su lugar.

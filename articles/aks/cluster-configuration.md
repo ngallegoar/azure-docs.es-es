@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 09/21/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: d93a43a44a9ccff4e7918e556b9d759e270d2f42
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 352c057a74d1be5f440041b9f13127e8730edf82
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92072091"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94698077"
 ---
 # <a name="configure-an-aks-cluster"></a>Configuración de un clúster de AKS
 
@@ -78,27 +78,28 @@ az aks nodepool add --name ubuntu1804 --cluster-name myAKSCluster --resource-gro
 
 Si quiere crear grupos de nodos con la imagen AKS Ubuntu 16.04, puede hacerlo omitiendo la etiqueta `--aks-custom-headers` personalizada.
 
+## <a name="container-runtime-configuration"></a>Configuración del entorno de ejecución de contenedor
 
-## <a name="container-runtime-configuration-preview"></a>Configuración del entorno de ejecución de contenedor (versión preliminar)
+Un entorno de ejecución de contenedor es un software que ejecuta contenedores y administra imágenes de contenedor en un nodo. El entorno de ejecución ayuda a abstraer la funcionalidad específica del sistema operativo o de sys-call para ejecutar contenedores en Linux o Windows. Los clústeres de AKS que usan grupos de nodos con la versión 1.19 de Kubernetes y posterior usan `containerd` como entorno de ejecución del contenedor. Los clústeres de AKS que usan grupos de nodos con versiones anteriores a la 1.19 de Kubernetes usan [Moby](https://mobyproject.org/) (Docker ascendente) como entorno de ejecución del contenedor.
 
-Un entorno de ejecución de contenedor es un software que ejecuta contenedores y administra imágenes de contenedor en un nodo. El entorno de ejecución ayuda a abstraer la funcionalidad específica del sistema operativo o de sys-call para ejecutar contenedores en Linux o Windows. Actualmente, AKS usa [Moby](https://mobyproject.org/) (Docker ascendente) como entorno de ejecución de contenedor. 
-    
 ![Docker CRI 1](media/cluster-configuration/docker-cri.png)
 
-[`Containerd`](https://containerd.io/) es un entorno de ejecución de contenedor básico compatible con [OCI](https://opencontainers.org/) (Open Container Initiative) que proporciona el conjunto mínimo de funciones necesarias para ejecutar contenedores y administrar imágenes en un nodo. Fue [donado](https://www.cncf.io/announcement/2017/03/29/containerd-joins-cloud-native-computing-foundation/) a la Cloud Native Compute Foundation (CNCF) en marzo de 2017. La versión de Moby que AKS usa actualmente se basa en `containerd` y ya aprovecha sus ventajas, como se mostró anteriormente. 
+[`Containerd`](https://containerd.io/) es un entorno de ejecución de contenedor básico compatible con [OCI](https://opencontainers.org/) (Open Container Initiative) que proporciona el conjunto mínimo de funciones necesarias para ejecutar contenedores y administrar imágenes en un nodo. Fue [donado](https://www.cncf.io/announcement/2017/03/29/containerd-joins-cloud-native-computing-foundation/) a la Cloud Native Compute Foundation (CNCF) en marzo de 2017. La versión actual de Moby que AKS usa se basa en `containerd` y ya aprovecha sus ventajas, como se mostró anteriormente.
 
-Con los grupos de nodos y los nodos basados en contenedores, en lugar de comunicarse con `dockershim`, el kubelet se comunicará directamente con `containerd` mediante el complemento CRI (interfaz del entorno de ejecución de contenedor) y eliminará los saltos adicionales del flujo, en comparación con la implementación de CRI de Docker. Como tal, verá una mejor latencia de inicio del pod y menor uso de recursos (CPU y memoria).
+Con los grupos de nodos y los nodos basados en `containerd`, en lugar de comunicarse con `dockershim`, el kubelet se comunicará directamente con `containerd` mediante el complemento CRI (interfaz del entorno de ejecución de contenedor) y eliminará los saltos adicionales del flujo, en comparación con la implementación de CRI de Docker. Como tal, verá una mejor latencia de inicio del pod y menor uso de recursos (CPU y memoria).
 
 Usar `containerd` para los nodos AKS mejora la latencia de inicio del pod y reduce el consumo de recursos de nodo del entorno de ejecución de contenedor. Estas mejoras son posibles gracias a la nueva arquitectura, en la que el kubelet se comunica directamente con `containerd` mediante el complemento CRI; sin embargo, en la arquitectura de Moby o Docker, el kubelet se comunica con `dockershim` y con el motor de Docker antes de llegar a `containerd` y, por lo tanto, tiene saltos adicionales en el flujo.
 
 ![Docker CRI 2](media/cluster-configuration/containerd-cri.png)
 
-`Containerd` funciona en todas las versiones de disponibilidad general de Kubernetes en AKS y en todas las versiones de Kubernetes anteriores a la versión 1.10, y admite todas las características de Kubernetes y AKS.
+`Containerd` funciona en todas las versiones de disponibilidad general de Kubernetes en AKS y en todas las versiones de Kubernetes anteriores a la versión 1.19, y admite todas las características de Kubernetes y AKS.
 
 > [!IMPORTANT]
-> Cuando `containerd` esté disponible con carácter general en AKS, será la opción predeterminada y solo estará disponible para el entorno de ejecución de contenedor en los clústeres nuevos. Puede seguir usando los clústeres y grupos de nodos de Moby en las versiones anteriores compatibles hasta que se retire el soporte técnico. 
+> Los clústeres con grupos de nodos creados en Kubernetes versión 1.19 o versiones posteriores tienen como entorno de ejecución del contenedor a `containerd` de manera predeterminada. Los clústeres con grupos de nodos de una versión de Kubernetes compatible inferior a la versión 1.19 reciben `Moby` como entorno de ejecución del contenedor, pero se actualizarán a `ContainerD` una vez que la versión de Kubernetes del grupo de nodos se actualice a la versión 1.19 o posteriores. Puede seguir usando los clústeres y grupos de nodos de `Moby` en las versiones anteriores compatibles hasta que se retire el soporte técnico.
 > 
-> Se recomienda probar las cargas de trabajo en los grupos de nodos `containerd` antes de crear nuevos clústeres o actualizarlos con este entorno de ejecución de contenedor.
+> Es muy recomendable que pruebe sus cargas de trabajo en los grupos de nodos de AKS con `containerD` antes de usar los clústeres en la versión 1.19 o posteriores.
+
+En la sección siguiente se explicará cómo usar y probar AKS con `containerD` en clústeres que todavía no usan Kubernetes versión 1.19 o posteriores o que se crearon antes de que esta característica estuviera disponible con carácter general, mediante la versión preliminar de la configuración del entorno de ejecución del contenedor.
 
 ### <a name="use-containerd-as-your-container-runtime-preview"></a>Uso de `containerd` como entorno de ejecución de contenedor (versión preliminar)
 

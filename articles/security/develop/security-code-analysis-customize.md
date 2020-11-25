@@ -14,11 +14,11 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.openlocfilehash: 4016e1dd055b45f9cd59a172d0e71ef95fec1c40
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94517213"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008691"
 ---
 # <a name="configure-and-customize-the-build-tasks"></a>Configuración y personalización de las tareas de compilación
 
@@ -56,9 +56,9 @@ En la captura de pantalla y la lista siguientes se muestran detalles de la confi
 
 - Establezca la configuración de compilación en Depurar para generar archivos de depuración .pdb. BinSkim usa estos archivos para volver a asignar problemas de los archivos binarios de salida al código fuente.
 - Para evitar la búsqueda y creación de su propia línea de comandos:
-     - En la lista **Tipo** , seleccione **Básico**.
-     - En la lista **Función** , seleccione **Analizar**.
-- En **Destino** , escriba uno o varios especificadores para un archivo, directorio o patrón del filtro. Estos especificadores se resuelven en uno o varios archivos binarios que se van a analizar:
+     - En la lista **Tipo**, seleccione **Básico**.
+     - En la lista **Función**, seleccione **Analizar**.
+- En **Destino**, escriba uno o varios especificadores para un archivo, directorio o patrón del filtro. Estos especificadores se resuelven en uno o varios archivos binarios que se van a analizar:
     - Cuando se agregan varios destinos especificados, deben separarse con un punto y coma (;).
     - Un especificador puede ser un único archivo o contener caracteres comodín.
     - Las especificaciones del directorio siempre deben terminar con \\*.
@@ -70,7 +70,7 @@ En la captura de pantalla y la lista siguientes se muestran detalles de la confi
            $(BUILD_STAGINGDIRECTORY)\*.dll;$(BUILD_STAGINGDIRECTORY)\*.exe;
 ```
 
-- Si selecciona **Línea de comandos** en la lista **Tipo** , debe ejecutar binskim.exe:
+- Si selecciona **Línea de comandos** en la lista **Tipo**, debe ejecutar binskim.exe:
      - Asegúrese de que los primeros argumentos de binskim.exe son el verbo **analizar** seguido de una o varias especificaciones de ruta de acceso. Cada ruta de acceso puede ser una ruta de acceso completa o una ruta de acceso relativa al directorio de origen.
      - Varias rutas de acceso de destino deben separarse con un espacio.
      - Puede omitir la opción **/o** o **/output**. El valor de salida se agrega automáticamente o se reemplaza.
@@ -95,20 +95,20 @@ En la captura de pantalla y la lista siguientes se muestran detalles de la confi
 ![Configuración de la tarea de compilación de Credential Scanner](./media/security-tools/3-taskdetails.png)
 
 Las opciones disponibles incluyen:
-  - **Nombre para mostrar** : Nombre de la tarea de Azure DevOps. El valor predeterminado es Run Credential Scanner (Ejecutar el escáner de credenciales).
-  - **Versión principal de la herramienta** : Los valores disponibles incluyen **CredScan V2** , **CredScan V1**. Se recomienda a los clientes que usen la versión **CredScan V2**.
-  - **Formato de salida** : entre los valores disponibles se incluyen **TSV** , **CSV** , **SARIF** y **PREfast**.
-  - **Versión de la herramienta** : recomendamos que seleccione **Más reciente**.
-  - **Examinar carpeta** : carpeta del repositorio que se va a examinar.
-  - **Tipo de archivo del buscador** : opciones para encontrar el archivo de buscador utilizado para el examen.
-  - **Archivo de eliminaciones** : un archivo [JSON](https://json.org/) puede eliminar los problemas en el registro de salida. Para obtener más información sobre los escenarios de eliminación, consulte la sección P+F de este artículo.
-  - **Resultado detallado** : se explica por sí solo.
-  - **Tamaño de lote** : el número de subprocesos simultáneos que se usan para ejecutar Credential Scanner. El valor predeterminado es 20. Los valores posibles oscilan entre 1 y 2 147 483 647.
-  - **Tiempo de espera de coincidencia** : la cantidad de tiempo en segundos que se invertirá en encontrar un buscador antes de detener la comprobación.
-  - **Tamaño de búfer de lectura para el examen de archivos** : tamaño en bytes del búfer que se usa durante la lectura de contenido. El valor predeterminado es 524 288.  
-  - **Bytes de lectura máximos para el examen de archivos** : número máximo de bytes que van a leerse en un archivo durante un análisis de contenido. El valor predeterminado es 104 857 600.
-  - **Opciones de control** > **Ejecutar esta tarea** : especifica cuándo se ejecutará la tarea. Seleccione **Condiciones personalizadas** para especificar condiciones más complejas.
-  - **Versión** : versión de la tarea de compilación en Azure DevOps. Esta opción no se usa con frecuencia.
+  - **Nombre para mostrar**: Nombre de la tarea de Azure DevOps. El valor predeterminado es Run Credential Scanner (Ejecutar el escáner de credenciales).
+  - **Versión principal de la herramienta**: Los valores disponibles incluyen **CredScan V2**, **CredScan V1**. Se recomienda a los clientes que usen la versión **CredScan V2**.
+  - **Formato de salida**: entre los valores disponibles se incluyen **TSV**, **CSV**, **SARIF** y **PREfast**.
+  - **Versión de la herramienta**: recomendamos que seleccione **Más reciente**.
+  - **Examinar carpeta**: carpeta del repositorio que se va a examinar.
+  - **Tipo de archivo del buscador**: opciones para encontrar el archivo de buscador utilizado para el examen.
+  - **Archivo de eliminaciones**: un archivo [JSON](https://json.org/) puede eliminar los problemas en el registro de salida. Para obtener más información sobre los escenarios de eliminación, consulte la sección P+F de este artículo.
+  - **Resultado detallado**: se explica por sí solo.
+  - **Tamaño de lote**: el número de subprocesos simultáneos que se usan para ejecutar Credential Scanner. El valor predeterminado es 20. Los valores posibles oscilan entre 1 y 2 147 483 647.
+  - **Tiempo de espera de coincidencia**: la cantidad de tiempo en segundos que se invertirá en encontrar un buscador antes de detener la comprobación.
+  - **Tamaño de búfer de lectura para el examen de archivos**: tamaño en bytes del búfer que se usa durante la lectura de contenido. El valor predeterminado es 524 288.  
+  - **Bytes de lectura máximos para el examen de archivos**: número máximo de bytes que van a leerse en un archivo durante un análisis de contenido. El valor predeterminado es 104 857 600.
+  - **Opciones de control** > **Ejecutar esta tarea**: especifica cuándo se ejecutará la tarea. Seleccione **Condiciones personalizadas** para especificar condiciones más complejas.
+  - **Versión**: versión de la tarea de compilación en Azure DevOps. Esta opción no se usa con frecuencia.
 
 Para obtener información sobre la configuración de YAML para esta tarea, consulte nuestras [opciones del detector de credenciales de YAML](yaml-configuration.md#credential-scanner-task).
 
@@ -124,10 +124,10 @@ En la lista y nota siguientes se muestran detalles de la configuración de tarea
 
 Las opciones disponibles incluyen:
 
-- **Conjunto de reglas** : los valores son **SDL Required** (SDL requerido), **SDL Recommended** (SDL recomendado) o su propio conjunto de reglas personalizado.
-- **Versión del analizador** : recomendamos que seleccione **Más reciente**.
-- **Archivo de eliminaciones de advertencias del compilador** : un archivo de texto con una lista de identificadores de advertencias que se eliminan.
-- **Opciones de control** > **Ejecutar esta tarea** : especifica cuándo se ejecutará la tarea. Elija **Condiciones personalizadas** para especificar condiciones más complejas.
+- **Conjunto de reglas**: los valores son **SDL Required** (SDL requerido), **SDL Recommended** (SDL recomendado) o su propio conjunto de reglas personalizado.
+- **Versión del analizador**: recomendamos que seleccione **Más reciente**.
+- **Archivo de eliminaciones de advertencias del compilador**: un archivo de texto con una lista de identificadores de advertencias que se eliminan.
+- **Opciones de control** > **Ejecutar esta tarea**: especifica cuándo se ejecutará la tarea. Elija **Condiciones personalizadas** para especificar condiciones más complejas.
 
 > [!NOTE]
 >
@@ -164,9 +164,9 @@ En la captura de pantalla y la lista siguientes se muestran detalles de la confi
 
 ![Configuración de la tarea de compilación de Publish Security Analysis Logs](./media/security-tools/9-publish-security-analsis-logs600.png)  
 
-- **Nombre del artefacto** : cualquier identificador de cadena.
-- **Tipo de artefacto** : Dependiendo de su selección, puede publicar los registros en Azure DevOps Server o en un recurso compartido al que pueda acceder el agente de compilación.
-- **Herramientas** : puede optar por conservar los registros de herramientas específicas, o bien puede seleccionar **Todas las herramientas** para conservar todos los registros.
+- **Nombre del artefacto**: cualquier identificador de cadena.
+- **Tipo de artefacto**: Dependiendo de su selección, puede publicar los registros en Azure DevOps Server o en un recurso compartido al que pueda acceder el agente de compilación.
+- **Herramientas**: puede optar por conservar los registros de herramientas específicas, o bien puede seleccionar **Todas las herramientas** para conservar todos los registros.
 
 Para obtener información sobre la configuración de YAML para esta tarea, consulte nuestras [opciones de publicación de registros de seguridad de YAML](yaml-configuration.md#publish-security-analysis-logs-task).
 
@@ -176,10 +176,10 @@ En la captura de pantalla y la lista siguientes se muestran detalles de la confi
 
 ![Configuración de la tarea de compilación de Security Report](./media/security-tools/4-createsecurityanalysisreport600.png)
 
-- **Informes** : seleccione cualquiera de los siguientes formatos: **consola de la canalización** , **archivo TSV** y **archivo HTML**. Se crea un archivo de informe para cada formato seleccionado.
-- **Herramientas** : seleccione las herramientas de la definición de compilación para las que quiere obtener un resumen de los problemas detectados. Para cada herramienta seleccionada, puede haber una opción para seleccionar si en el informe de resumen ve solo los errores o los errores y las advertencias.
-- **Opciones avanzadas** : si no hay registros para alguna de las herramientas seleccionadas, puede optar por registrar una advertencia o un error. Si registra un error, se produce un error en la tarea.
-- **Carpeta de registros base** : puede personalizar la carpeta de registros base donde se encuentran los registros. Sin embargo, esta opción no se utiliza normalmente.
+- **Informes**: seleccione cualquiera de los siguientes formatos: **consola de la canalización**, **archivo TSV** y **archivo HTML**. Se crea un archivo de informe para cada formato seleccionado.
+- **Herramientas**: seleccione las herramientas de la definición de compilación para las que quiere obtener un resumen de los problemas detectados. Para cada herramienta seleccionada, puede haber una opción para seleccionar si en el informe de resumen ve solo los errores o los errores y las advertencias.
+- **Opciones avanzadas**: si no hay registros para alguna de las herramientas seleccionadas, puede optar por registrar una advertencia o un error. Si registra un error, se produce un error en la tarea.
+- **Carpeta de registros base**: puede personalizar la carpeta de registros base donde se encuentran los registros. Sin embargo, esta opción no se utiliza normalmente.
 
 Para obtener información sobre la configuración de YAML para esta tarea, consulte nuestras [opciones de informes de seguridad de YAML](yaml-configuration.md#security-report-task).
 
@@ -189,9 +189,9 @@ En la captura de pantalla y la lista siguientes se muestran detalles de la confi
 
 ![Configuración de la tarea de compilación de Post-Analysis](./media/security-tools/a-post-analysis600.png)
 
-- **Herramientas** : seleccione las herramientas de la definición de compilación para las que quiere insertar una interrupción de la compilación de forma condicional. Para cada herramienta seleccionada, puede haber una opción para seleccionar si quiere realizar una interrupción solo cuando haya errores o cuando haya errores y advertencias.
-- **Informe** : puede escribir de forma opcional los resultados que provocan la interrupción de la compilación. Los resultados se escriben en el archivo de registro y la ventana de consola de Azure DevOps.
-- **Opciones avanzadas** : si no hay registros para alguna de las herramientas seleccionadas, puede optar por registrar una advertencia o un error. Si registra un error, se produce un error en la tarea.
+- **Herramientas**: seleccione las herramientas de la definición de compilación para las que quiere insertar una interrupción de la compilación de forma condicional. Para cada herramienta seleccionada, puede haber una opción para seleccionar si quiere realizar una interrupción solo cuando haya errores o cuando haya errores y advertencias.
+- **Informe**: puede escribir de forma opcional los resultados que provocan la interrupción de la compilación. Los resultados se escriben en el archivo de registro y la ventana de consola de Azure DevOps.
+- **Opciones avanzadas**: si no hay registros para alguna de las herramientas seleccionadas, puede optar por registrar una advertencia o un error. Si registra un error, se produce un error en la tarea.
 
 Para obtener información sobre la configuración de YAML para esta tarea, consulte nuestras [opciones de análisis posteriores de YAML](yaml-configuration.md#post-analysis-task).
 

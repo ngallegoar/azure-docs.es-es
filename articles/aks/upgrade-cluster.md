@@ -3,13 +3,13 @@ title: Actualización de un clúster de Azure Kubernetes Service (AKS)
 description: Obtenga información sobre cómo actualizar un clúster de Azure Kubernetes Service (AKS) para obtener las últimas características y actualizaciones de seguridad.
 services: container-service
 ms.topic: article
-ms.date: 10/21/2020
-ms.openlocfilehash: 046c010cdd811b53ef8ef35624ed41a673af43d3
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.date: 11/17/2020
+ms.openlocfilehash: 262905c9f840850795ba9555912e81eca61369d1
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461454"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94683240"
 ---
 # <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>Actualización de un clúster de Azure Kubernetes Service (AKS)
 
@@ -26,20 +26,20 @@ Para este artículo es preciso usar la versión 2.0.65 de la CLI de Azure, o cua
 
 ## <a name="check-for-available-aks-cluster-upgrades"></a>Compruebe las actualizaciones disponibles del clúster de AKS
 
-Para comprobar qué versiones de Kubernetes están disponibles para su clúster, use el comando [az aks get-upgrades][az-aks-get-upgrades]. En el ejemplo siguiente se comprueba si hay actualizaciones disponibles para el clúster denominado *myAKSCluster* en el grupo de recursos denominado *myResourceGroup* :
+Para comprobar qué versiones de Kubernetes están disponibles para su clúster, use el comando [az aks get-upgrades][az-aks-get-upgrades]. En el ejemplo siguiente se comprueba si hay actualizaciones disponibles para el clúster denominado *myAKSCluster* en el grupo de recursos denominado *myResourceGroup*:
 
 ```azurecli-interactive
 az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster --output table
 ```
 
 > [!NOTE]
-> Cuando se actualiza un clúster de AKS compatible, no pueden omitirse las versiones secundarias de Kubernetes. Por ejemplo, se permiten las actualizaciones entre *1.12.x* -> *1.13.x* o *1.13.x* -> *1.14.x* , pero no entre *1.12.x* -> *1.14.x*.
+> Cuando se actualiza un clúster de AKS compatible, no pueden omitirse las versiones secundarias de Kubernetes. Por ejemplo, se permiten las actualizaciones entre *1.12.x* -> *1.13.x* o *1.13.x* -> *1.14.x*, pero no entre *1.12.x* -> *1.14.x*.
 >
-> Para actualizar de *1.12.x* -> *1.14.x* , la primera actualización sería de *1.12.x* -> *1.13.x* y, después, de *1.13.x* -> *1.14.x*.
+> Para actualizar de *1.12.x* -> *1.14.x*, la primera actualización sería de *1.12.x* -> *1.13.x* y, después, de *1.13.x* -> *1.14.x*.
 >
-> Solo se pueden omitir varias versiones cuando se actualiza de una versión que no es compatible a otra que sí lo es. Por ejemplo, si se actualiza de la versión *1.10.x* , que no es compatible, a la versión *1.15.x* , que sí lo es.
+> Solo se pueden omitir varias versiones cuando se actualiza de una versión que no es compatible a otra que sí lo es. Por ejemplo, si se actualiza de la versión *1.10.x*, que no es compatible, a la versión *1.15.x*, que sí lo es.
 
-La siguiente salida de ejemplo muestra que el clúster puede actualizarse a las versiones *1.13.9* y *1.13.10* :
+La siguiente salida de ejemplo muestra que el clúster puede actualizarse a las versiones *1.13.9* y *1.13.10*:
 
 ```console
 Name     ResourceGroup     MasterVersion    NodePoolVersion    Upgrades
@@ -51,7 +51,7 @@ Si no hay ninguna actualización disponible, obtendrá:
 ERROR: Table output unavailable. Use the --query option to specify an appropriate query. Use --debug for more info.
 ```
 
-## <a name="customize-node-surge-upgrade-preview"></a>Personalización de la actualización de sobrecargas de nodo (versión preliminar)
+## <a name="customize-node-surge-upgrade"></a>Personalización de la actualización de sobrecargas de nodo
 
 > [!Important]
 > Los sobrecargas de nodo requieren la cuota de suscripción para el recuento máximo de sobrecargas solicitado para cada operación de actualización. Por ejemplo, un clúster con 5 grupos de nodos, cada uno con un recuento de 4 nodos, tiene un total de 20 nodos. Si cada grupo de nodos tiene un valor de sobrecarga máxima del 50 %, se requiere un proceso adicional y una cuota de IP de 10 nodos (2 nodos x 5 grupos) para completar la actualización.
@@ -66,21 +66,7 @@ AKS acepta valores enteros y un valor de porcentaje para la sobrecarga máxima. 
 
 Durante una actualización, el valor de sobrecarga máxima puede ser 1 como mínimo y un valor igual al número de nodos del grupo de nodos como máximo. Puede establecer valores mayores, pero el número máximo de nodos que se usan para la sobrecarga máxima no será mayor que el número de nodos del grupo en el momento de la actualización.
 
-### <a name="set-up-the-preview-feature-for-customizing-node-surge-upgrade"></a>Configuración de la característica de vista previa para la personalización de la actualización de la sobrecarga de nodos
-
-```azurecli-interactive
-# register the preview feature
-az feature register --namespace "Microsoft.ContainerService" --name "MaxSurgePreview"
-```
-
-Tardará varios minutos en registrarse. Use el siguiente comando para comprobar que la característica está registrada:
-
-```azurecli-interactive
-# Verify the feature is registered:
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/MaxSurgePreview')].{Name:name,State:properties.state}"
-```
-
-Durante la versión preliminar, necesita la extensión *aks-preview* de la CLI para usar la sobrecarga máxima. Use el comando [az extension add][az-extension-add] y, a continuación, busque las actualizaciones disponibles mediante el comando [az extension update][az-extension-update]:
+Hasta la versión 2.16.0 de la CLI, necesitará la extensión *aks-preview* de la CLI para usar la sobrecarga máxima. Use el comando [az extension add][az-extension-add] y, a continuación, busque las actualizaciones disponibles mediante el comando [az extension update][az-extension-update]:
 
 ```azurecli-interactive
 # Install the aks-preview extension
@@ -107,7 +93,7 @@ az aks nodepool update -n mynodepool -g MyResourceGroup --cluster-name MyManaged
 
 ## <a name="upgrade-an-aks-cluster"></a>Actualización de un clúster de AKS
 
-Con una lista de las versiones disponibles para el clúster de AKS, use el comando [az aks upgrade][az-aks-upgrade] para realizar la actualización. Durante el proceso de actualización, AKS agrega un nuevo nodo de búfer (o tantos nodos como los configurados en la [sobrecarga máxima](#customize-node-surge-upgrade-preview)) al clúster que ejecuta la versión de Kubernetes especificada. A continuación, [acordonará y purgará][kubernetes-drain] uno de los nodos antiguos para minimizar la interrupción de las aplicaciones en ejecución (si usa la sobrecarga máxima, [acordonará y purgará][kubernetes-drain] tantos nodos al mismo tiempo como el número de nodos de búfer especificados). Cuando el nodo anterior se ha purgado por completo, se restablecerá la imagen inicial para recibir la nueva versión y se convertirá en el nodo de búfer para el siguiente nodo que se va a actualizar. Este proceso se repite hasta que se hayan actualizado todos los nodos del clúster. Al final del proceso, se eliminará el último nodo purgado, manteniendo el número de nodos de agente existentes.
+Con una lista de las versiones disponibles para el clúster de AKS, use el comando [az aks upgrade][az-aks-upgrade] para realizar la actualización. Durante el proceso de actualización, AKS agrega un nuevo nodo de búfer (o tantos nodos como los configurados en la [sobrecarga máxima](#customize-node-surge-upgrade)) al clúster que ejecuta la versión de Kubernetes especificada. A continuación, [acordonará y purgará][kubernetes-drain] uno de los nodos antiguos para minimizar la interrupción de las aplicaciones en ejecución (si usa la sobrecarga máxima, [acordonará y purgará][kubernetes-drain] tantos nodos al mismo tiempo como el número de nodos de búfer especificados). Cuando el nodo anterior se ha purgado por completo, se restablecerá la imagen inicial para recibir la nueva versión y se convertirá en el nodo de búfer para el siguiente nodo que se va a actualizar. Este proceso se repite hasta que se hayan actualizado todos los nodos del clúster. Al final del proceso, se eliminará el último nodo purgado, manteniendo el número de nodos de agente existentes.
 
 ```azurecli-interactive
 az aks upgrade \
@@ -127,7 +113,7 @@ Para confirmar que la actualización se ha realizado correctamente, use el coman
 az aks show --resource-group myResourceGroup --name myAKSCluster --output table
 ```
 
-En la salida de ejemplo siguiente se muestra que el clúster ahora ejecuta la versión *1.13.10* :
+En la salida de ejemplo siguiente se muestra que el clúster ahora ejecuta la versión *1.13.10*:
 
 ```json
 Name          Location    ResourceGroup    KubernetesVersion    ProvisioningState    Fqdn

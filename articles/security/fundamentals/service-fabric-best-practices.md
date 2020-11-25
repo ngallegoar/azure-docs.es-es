@@ -7,12 +7,12 @@ ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
 ms.date: 01/16/2019
-ms.openlocfilehash: 93b25e65914ce603b4a969eda7fd7c048704e466
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: a7396c9a29c7d9f69dbe6a9cc5cd085c72ebafde
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94410019"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94700953"
 ---
 # <a name="azure-service-fabric-security-best-practices"></a>Procedimientos recomendados de seguridad de Azure Service Fabric
 La implementación de una aplicación en Azure es un proceso rápido, sencillo y rentable. Antes de implementar la aplicación en la nube en producción, revise la lista de procedimientos recomendados y fundamentales para implementar clústeres seguros en la aplicación.
@@ -60,10 +60,10 @@ Hay tres [escenarios](../../service-fabric/service-fabric-cluster-security.md) p
 -   Seguridad de nodo a nodo: este escenario protege la comunicación entre las máquinas virtuales y los equipos del clúster. Esta forma de seguridad garantiza que solo los equipos que están autorizados a unirse al clúster pueden hospedar aplicaciones y servicios en el clúster.
 En este escenario, los clústeres que se ejecutan en Azure o los independientes que se ejecutan en Windows pueden utilizar una [seguridad basada en certificados](../../service-fabric/service-fabric-windows-cluster-x509-security.md) o la [seguridad de Windows](../../service-fabric/service-fabric-windows-cluster-windows-security.md) para las máquinas con Windows Server.
 -   Seguridad de cliente a nodo: este escenario protege la comunicación entre un cliente de Service Fabric y los nodos individuales del clúster.
--   Control de acceso basado en rol (RBAC): este escenario utiliza identidades diferentes (certificados, Azure AD, etc) para cada rol de cliente de administrador y usuario que tiene acceso al clúster. Se especifican las identidades de rol cuando se crea el clúster.
+-   Control de acceso basado en rol de Service Fabric (RBAC de Service Fabric): este escenario utiliza identidades diferentes (certificados, Azure AD, etc) para cada rol de cliente de administrador y usuario que tiene acceso al clúster. Se especifican las identidades de rol cuando se crea el clúster.
 
 >[!NOTE]
->**Recomendación de seguridad para los clústeres de Azure** : utilice la seguridad de Azure AD para autenticar a los clientes y certificados para la seguridad de nodo a nodo.
+>**Recomendación de seguridad para los clústeres de Azure**: utilice la seguridad de Azure AD para autenticar a los clientes y certificados para la seguridad de nodo a nodo.
 
 Para configurar el clúster de Windows independiente, consulte [Opciones de configuración de un clúster de Windows independiente](../../service-fabric/service-fabric-cluster-manifest.md).
 
@@ -132,7 +132,7 @@ El certificado debe cumplir los siguientes requisitos de certificados SSL/TLS en
 -   El nombre de sujeto del certificado debe coincidir con el nombre de dominio usado para tener acceso al servicio en la nube.
 
     - Debe adquirir un nombre de dominio personalizado para el acceso a su servicio en la nube.
-    - Solicite un certificado a una entidad de certificación con un nombre de sujeto que coincida con el nombre de dominio personalizado del servicio. Por ejemplo, si el nombre de dominio personalizado es __contoso__ **.com** , el certificado de la CA debe tener el nombre de sujeto **.contoso.com** o __www__ **.contoso.com**.
+    - Solicite un certificado a una entidad de certificación con un nombre de sujeto que coincida con el nombre de dominio personalizado del servicio. Por ejemplo, si el nombre de dominio personalizado es __contoso__ **.com**, el certificado de la CA debe tener el nombre de sujeto **.contoso.com** o __www__ **.contoso.com**.
 
     >[!NOTE]
     >No se puede obtener un certificado SSL/TLS de una entidad de certificación para el dominio __cloudapp__ **.net**.
@@ -172,7 +172,7 @@ Para obtener más información sobre cómo configurar un almacén de claves, con
 Una vez que haya creado las aplicaciones para representar el clúster, debe asignar los usuarios a los roles compatibles con Service Fabric: solo lectura y administrador. Puede asignar los roles mediante Azure Portal.
 
 >[!NOTE]
-> Para más información sobre el uso de roles en Service Fabric, consulte [Control de acceso basado en roles para clientes de Service Fabric](../../service-fabric/service-fabric-cluster-security-roles.md).
+> Para más información sobre el uso de roles en Service Fabric, consulte [Control de acceso basado en roles de Service Fabric para clientes de Service Fabric](../../service-fabric/service-fabric-cluster-security-roles.md).
 
 Azure Service Fabric admite dos tipos de control de acceso para los clientes que están conectados a un [clúster de Service Fabric](../../service-fabric/service-fabric-cluster-creation-via-arm.md): administrador y usuario. El administrador del clúster puede usar el control de acceso para limitarlo a determinadas operaciones del clúster para los diferentes grupos de usuarios. El control de acceso hace que el clúster sea más seguro.
 

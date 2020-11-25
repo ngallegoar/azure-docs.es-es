@@ -7,11 +7,11 @@ ms.topic: how-to
 ms.date: 01/21/2020
 ms.author: rohogue
 ms.openlocfilehash: d87f57873a4bb84b20df3da3880017d9ef2484a5
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92342117"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008419"
 ---
 # <a name="prepare-to-create-the-avere-vfxt"></a>Preparación para la creación de Avere vFXT
 
@@ -100,7 +100,7 @@ Cree el punto de conexión de servicio de almacenamiento desde Azure Portal.
 1. Haga clic en **Agregar** en la parte superior.
 1. Elija el servicio ``Microsoft.Storage``.
 1. Seleccione la subred del clúster.
-1. Haga clic en **Agregar**en la parte inferior.
+1. Haga clic en **Agregar** en la parte inferior.
 
    ![Captura de pantalla de Azure Portal con anotaciones de los pasos para crear el punto de conexión de servicio](media/avere-vfxt-service-endpoint.png)
 

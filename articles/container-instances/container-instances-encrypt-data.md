@@ -5,12 +5,12 @@ ms.topic: article
 ms.date: 01/17/2020
 author: macolso
 ms.author: macolso
-ms.openlocfilehash: d2cad98267ef1654c4f2d9ad2db75f769dbc0780
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 1b73ce5c994231a1c7b2f26ad702f2ad5880ba44
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93091362"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94686283"
 ---
 # <a name="encrypt-deployment-data"></a>Cifrado de datos de implementación
 
@@ -59,7 +59,7 @@ En caso de que no pueda crear correctamente la entidad de servicio:
 
 ### <a name="create-a-key-vault-resource"></a>Creación de un recurso de Key Vault
 
-Cree una instancia de Azure Key Vault mediante [Azure Portal](../key-vault/secrets/quick-create-portal.md#create-a-vault), la [CLI](../key-vault/secrets/quick-create-cli.md) o [PowerShell](../key-vault/secrets/quick-create-powershell.md). 
+Cree una instancia de Azure Key Vault mediante [Azure Portal](../key-vault/general/quick-create-portal.md), la [CLI de Azure](../key-vault/general/quick-create-cli.md) o [Azure PowerShell](../key-vault/general/quick-create-powershell.md).
 
 En el caso de las propiedades del almacén de claves, siga estas instrucciones: 
 * Nombre: se requiere un nombre único. 
@@ -84,7 +84,7 @@ Cree una nueva directiva de acceso para permitir que el servicio ACI tenga acces
 * Una vez generada la clave, en la hoja de recursos del almacén de claves, en Configuración, haga clic en **Directivas de acceso**.
 * En la página "Directivas de acceso" del almacén de claves, haga clic en **Agregar directiva de acceso**.
 * Establezca los *Permisos de las claves* para incluir las opciones **Obtener** y **Desencapsular clave**. ![Establecer los permisos de las claves](./media/container-instances-encrypt-data/set-key-permissions.png)
-* En *Seleccionar la entidad de seguridad* , seleccione **Servicio Azure Container Instance**.
+* En *Seleccionar la entidad de seguridad*, seleccione **Servicio Azure Container Instance**.
 * Haga clic en **Agregar** en la parte inferior. 
 
 La directiva de acceso debe mostrarse ahora en las directivas de acceso del almacén de claves.

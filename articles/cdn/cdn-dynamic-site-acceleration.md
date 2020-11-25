@@ -15,11 +15,11 @@ ms.topic: how-to
 ms.date: 03/25/2019
 ms.author: allensu
 ms.openlocfilehash: 5387fdc224cd77ee5273767df5033a51dc27608c
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92778870"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008368"
 ---
 # <a name="dynamic-site-acceleration-via-azure-cdn"></a>Aceleración de sitios dinámicos a través de Azure CDN
 
@@ -40,34 +40,34 @@ Para configurar un punto de conexión de CDN a fin de optimizar la entrega de ar
 
 **Para configurar un punto de conexión de CDN para la optimización de DSA mediante Azure Portal:**
 
-1. En la página **Perfil de CDN** , seleccione **Punto de conexión** .
+1. En la página **Perfil de CDN**, seleccione **Punto de conexión**.
 
    ![Adición de un nuevo punto de conexión de CDN](./media/cdn-dynamic-site-acceleration/cdn-endpoint-profile.png) 
 
-   Aparecerá el panel **Agregar un punto de conexión** .
+   Aparecerá el panel **Agregar un punto de conexión**.
 
-2. En **Optimized for** (Optimizado para), seleccione **Aceleración de sitios dinámicos** .
+2. En **Optimized for** (Optimizado para), seleccione **Aceleración de sitios dinámicos**.
 
     ![Creación de un nuevo punto de conexión de CDN con DSA](./media/cdn-dynamic-site-acceleration/cdn-endpoint-dsa.png)
 
-3. En **Ruta de acceso de sondeo** , escriba una ruta de acceso válida a un archivo.
+3. En **Ruta de acceso de sondeo**, escriba una ruta de acceso válida a un archivo.
 
     La ruta de acceso de sondeo es una característica específica de DSA y se necesita una ruta de acceso válida para la creación. DSA usa un pequeño archivo de *ruta de acceso de sondeo* en el servidor de origen para optimizar las configuraciones de enrutamiento de red para la red CDN. Para el archivo de ruta de acceso de sondeo, puede descargar y cargar el archivo de ejemplo en su sitio, o usar un recurso existente en el origen que tenga un tamaño de unos 10 KB.
 
-4. Escriba las demás opciones de punto de conexión necesarias (para más información, consulte [Crear un nuevo punto de conexión de CDN](cdn-create-new-endpoint.md#create-a-new-cdn-endpoint)) y luego haga clic en **Agregar** .
+4. Escriba las demás opciones de punto de conexión necesarias (para más información, consulte [Crear un nuevo punto de conexión de CDN](cdn-create-new-endpoint.md#create-a-new-cdn-endpoint)) y luego haga clic en **Agregar**.
 
    Una vez creado el punto de conexión de CDN, las optimizaciones de DSA se aplican a todos los archivos que coincidan con determinados criterios. 
 
 
 **Para configurar un punto de conexión existente para DSA (solo perfiles de Azure CDN de Akamai):**
 
-1. En la página **Perfil de CDN** , seleccione el punto de conexión que quiere modificar.
+1. En la página **Perfil de CDN**, seleccione el punto de conexión que quiere modificar.
 
-2. En el panel izquierdo, seleccione **Optimización** . 
+2. En el panel izquierdo, seleccione **Optimización**. 
 
-   Aparece la página **Optimización** .
+   Aparece la página **Optimización**.
 
-3. En **Optimized for** (Optimizado para), seleccione **Aceleración de sitios dinámicos** y luego seleccione **Guardar** .
+3. En **Optimized for** (Optimizado para), seleccione **Aceleración de sitios dinámicos** y luego seleccione **Guardar**.
 
 > [!Note]
 > DSA incurre en cargos adicionales. Para más información, consulte [Precios de Content Delivery Network](https://azure.microsoft.com/pricing/details/cdn/).
@@ -153,15 +153,15 @@ Con DSA, el almacenamiento en caché está desactivado de forma predeterminada e
 
 Si tiene un sitio web con una combinación de recursos estáticos y dinámicos, es mejor adoptar un enfoque híbrido para obtener el mejor rendimiento. 
 
-En los perfiles de **Azure CDN estándar de Verizon** y **Azure CDN estándar de Akamai** , puede activar el almacenamiento en caché para puntos de conexión de DSA específicos mediante [reglas de caché](cdn-caching-rules.md).
+En los perfiles de **Azure CDN estándar de Verizon** y **Azure CDN estándar de Akamai**, puede activar el almacenamiento en caché para puntos de conexión de DSA específicos mediante [reglas de caché](cdn-caching-rules.md).
 
 Para acceder a las reglas de almacenamiento en caché:
 
-1. En la página **Perfil de CDN** , en Configuración, seleccione **Reglas de caché** .  
+1. En la página **Perfil de CDN**, en Configuración, seleccione **Reglas de caché**.  
     
     ![Botón Reglas de caché de CDN](./media/cdn-dynamic-site-acceleration/cdn-caching-rules-btn.png)
 
-    Se abre la página **Reglas de caché** .
+    Se abre la página **Reglas de caché**.
 
 2. Cree una regla de caché global o personalizada para activar el almacenamiento en caché en su punto de conexión de DSA. 
 

@@ -6,12 +6,12 @@ author: MS-jgol
 ms.author: jgol
 ms.date: 05/31/2020
 ms.reviewer: mbullwin
-ms.openlocfilehash: 234f772b4a77b780f0b0c1faf307c93847e5caf2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa5c2a0070ea0c3a0963f97fc1a04670eeaa4827
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87310725"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701898"
 ---
 # <a name="what-is-auto-instrumentation-or-codeless-attach---azure-monitor-application-insights"></a>¿Qué es la instrumentación automática o la conexión sin código de Azure Monitor Application Insights?
 
@@ -23,17 +23,17 @@ Application Insights se integra con varios proveedores de recursos y funciona en
 
 A medida que agregamos más integraciones, la matriz de funcionalidades de instrumentación automática se vuelve compleja. En la tabla siguiente se muestra el estado actual de la situación en lo que se refiere a la compatibilidad con varios proveedores de recursos, lenguajes y entornos.
 
-|Entorno/proveedor de recursos | .NET            | .NET Core       | Java            | Node.js         |
-|------------------------------|-----------------|-----------------|-----------------|-----------------|
-|Azure App Service en Windows  | Disponibilidad general, OnBD*       | Disponibilidad general, opcional      | Vista previa privada | Vista previa privada |
-|Azure App Service en Linux    | N/D             | No compatible   | Vista previa pública  | Vista previa pública  |
-|Azure App Service en AKS      | N/D             | En diseño       | En diseño       | En diseño       |
-|Azure Functions: básico       | Disponibilidad general, OnBD*       | Disponibilidad general, OnBD*       | Disponibilidad general, OnBD*       | Disponibilidad general, OnBD*       |
-|Azure Functions: dependencias| No compatible   | No compatible   | Vista previa pública  | No compatible   |
-|Azure Kubernetes Service      | N/D             | En diseño       | Mediante el agente   | En diseño       |
-|VM de Azure con Windows             | Vista previa pública  | No compatible   | No compatible   | No compatible   |
-|VM locales con Windows       | Disponibilidad general, opcional      | No compatible   | Mediante el agente   | No compatible   |
-|Agente independiente: cualquier ent.   | No compatible   | No compatible   | Vista previa pública  | No compatible   |
+|Entorno/proveedor de recursos          | .NET            | .NET Core       | Java            | Node.js         |
+|---------------------------------------|-----------------|-----------------|-----------------|-----------------|
+|Azure App Service en Windows           | Disponibilidad general, OnBD*       | Disponibilidad general, opcional      | Vista previa privada | Vista previa privada |
+|Azure App Service en Linux             | N/D             | No compatible   | Vista previa privada | Vista previa pública  |
+|Azure App Service en AKS               | N/D             | En diseño       | En diseño       | En diseño       |
+|Azure Functions: básico                | Disponibilidad general, OnBD*       | Disponibilidad general, OnBD*       | Disponibilidad general, OnBD*       | Disponibilidad general, OnBD*       |
+|Azure Functions en Windows: dependencias | No compatible   | No compatible   | Vista previa pública  | No compatible   |
+|Azure Kubernetes Service               | N/D             | En diseño       | Mediante el agente   | En diseño       |
+|VM de Azure con Windows                      | Vista previa pública  | No compatible   | No compatible   | No compatible   |
+|VM locales con Windows                | Disponibilidad general, opcional      | No compatible   | Mediante el agente   | No compatible   |
+|Agente independiente: cualquier ent.            | No compatible   | No compatible   | Disponibilidad general              | No compatible   |
 
 *OnBD significa "Activado de forma predeterminada"; Application Insights se habilitará automáticamente una vez que implemente la aplicación en los entornos compatibles. 
 

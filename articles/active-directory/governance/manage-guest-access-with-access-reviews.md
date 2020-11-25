@@ -16,12 +16,12 @@ ms.date: 07/22/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 77c560ffd01fe6d0b93e18b963574136c086fdc4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fb9bc252c733f3445cbf8b27281c2f455d5f2f36
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88783202"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696972"
 ---
 # <a name="manage-guest-access-with-azure-ad-access-reviews"></a>Administración del acceso de los invitados con las revisiones de acceso de Azure AD
 
@@ -41,7 +41,12 @@ Para más información, vea [Requisitos de licencia](access-reviews-overview.md#
 
 ## <a name="create-and-perform-an-access-review-for-guests"></a>Creación y realización de una revisión de acceso para invitados
 
-En primer lugar, como administrador global o administrador de usuarios, vaya a la [página Gobierno de identidades](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/) para asegurarse de que las revisiones de acceso están listas para su organización.
+En primer lugar, debe estar asignado a alguno de los siguientes roles:
+- Administrador global
+- Administrador de usuarios
+- (Versión preliminar) propietario del grupo de seguridad de M365 o AAD que se va a revisar
+
+Después, vaya a la [página de Identity Governance](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/) para asegurarse de que las revisiones de acceso están listas para su organización.
 
 Azure AD ofrece varios escenarios para revisar el acceso de los usuarios invitados.
 

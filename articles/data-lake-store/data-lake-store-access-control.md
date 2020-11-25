@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
-ms.openlocfilehash: 11629338a808ae0f83ac513b6475dce7a53814da
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d889c82142cda60b920f7b29bd91755cbc34f525
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88190153"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701456"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen1"></a>Control de acceso en Azure Data Lake Storage Gen1
 
@@ -280,7 +280,11 @@ Las entradas de las ACL se almacenan como GUID que corresponden a los usuarios e
 
 ### <a name="why-do-i-sometimes-see-guids-in-the-acls-when-im-using-the-azure-portal"></a>¿Por qué a veces veo GUID en las ACL al usar Azure Portal?
 
-Cuando el usuario ya no existe en Azure AD, se mostrará un GUID. Normalmente esto sucede cuando el usuario ha dejado la empresa o si se ha eliminado su cuenta de Azure AD.
+Cuando el usuario ya no existe en Azure AD, se mostrará un GUID. Normalmente esto sucede cuando el usuario ha dejado la empresa o si se ha eliminado su cuenta de Azure AD. Además, debe usar el id. correcto para configurar las listas de control de acceso (más información en la siguiente pregunta).
+
+### <a name="when-using-service-principal-what-id-should-i-use-to-set-acls"></a>Al usar la entidad de servicio, ¿qué id. debo usar para establecer las listas de control de acceso?
+
+En Azure Portal, diríjase a **Azure Active Directory > Aplicaciones empresariales** y seleccione su aplicación. La pestaña **Información general** debe mostrar un id. de objeto, y este debe usarse al agregar listas de control de acceso para el acceso a datos (en lugar del id. de la aplicación).
 
 ### <a name="does-data-lake-storage-gen1-support-inheritance-of-acls"></a>¿Admite Data Lake Storage Gen1 la herencia de ACL?
 

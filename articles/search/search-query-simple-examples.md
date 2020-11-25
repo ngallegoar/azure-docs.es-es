@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/05/2020
-ms.openlocfilehash: e2c6f627c69316b8f146d3ac82b8d29801ec3902
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 834e4fe8c7b3923f40a07c02c0310200db222308
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91740690"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94697261"
 ---
 # <a name="create-a-simple-query-in-azure-cognitive-search"></a>Creación de una consulta simple en Azure Cognitive Search
 
@@ -27,7 +27,7 @@ Una sintaxis de consulta alternativa es [Lucene completa](query-lucene-syntax.md
 
 Los ejemplos siguientes aprovechan un índice de búsqueda de trabajos de Nueva York que consta de los disponibles según un conjunto de datos proporcionado por la iniciativa [City of New York OpenData](https://nycopendata.socrata.com/). Estos datos no deben considerarse actuales o completos. El índice está en un servicio de espacio aislado que proporciona Microsoft, lo que significa que no necesita una suscripción a Azure o a Azure Cognitive Search para probar estas consultas.
 
-Lo que necesita es Postman o una herramienta equivalente para emitir la solicitud HTTP en GET. Para más información, consulte [Inicio rápido: Exploración de la API REST de Azure Cognitive Search mediante Postman](search-get-started-postman.md).
+Lo que necesita es Postman o una herramienta equivalente para emitir la solicitud HTTP en GET. Para más información, consulte [Inicio rápido: Exploración de las API REST de Cognitive Search](search-get-started-rest.md).
 
 ### <a name="set-the-request-header"></a>Establecimiento del encabezado de solicitud
 
@@ -43,7 +43,7 @@ Después de especificar el encabezado de solicitud, puede volver a usarlo para t
 
 La solicitud es un comando GET emparejado con una dirección URL que contiene la cadena de búsqueda y el punto de conexión de Azure Cognitive Search.
 
-  :::image type="content" source="media/search-query-lucene-examples/postman-basic-url-request-elements.png" alt-text="Parámetros del conjunto de encabezados de solicitud de Postman" border="false":::
+  :::image type="content" source="media/search-query-lucene-examples/postman-basic-url-request-elements.png" alt-text="Encabezado de solicitud GET de Postman" border="false":::
 
 La composición de dirección URL tiene los siguientes elementos:
 
@@ -97,7 +97,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-
 
 La respuesta de esta consulta debe tener un aspecto similar a la siguiente captura de pantalla.
 
-  :::image type="content" source="media/search-query-lucene-examples/postman-sample-results.png" alt-text="Parámetros del conjunto de encabezados de solicitud de Postman" border="false":::
+  :::image type="content" source="media/search-query-lucene-examples/postman-sample-results.png" alt-text="Respuesta de ejemplo de Postman" border="false":::
 
 Tal vez haya notado la puntuación de búsqueda en la respuesta. Las puntuaciones uniformes de 1 se producen cuando no hay ninguna clasificación, ya sea debido a que la búsqueda no era de texto completo o porque no se ha aplicado ningún criterio. Para la búsqueda de valores null sin ningún criterio, las filas vuelven en orden aleatorio. Al incluir criterios reales, verá que las puntuaciones de búsqueda evolucionan en valores significativos.
 
@@ -133,7 +133,7 @@ POST /indexes/nycjobs/docs/search?api-version=2020-06-30
 
 Si los usa conjuntamente, el filtro se aplica primero a todo el índice y, después, se realiza la búsqueda en los resultados del filtro. Por lo tanto, los filtros pueden ser una técnica útil para mejorar el rendimiento porque reducen el conjunto de documentos en los que se debe procesar la consulta de búsqueda.
 
-  :::image type="content" source="media/search-query-simple-examples/filtered-query.png" alt-text="Parámetros del conjunto de encabezados de solicitud de Postman" border="false":::
+  :::image type="content" source="media/search-query-simple-examples/filtered-query.png" alt-text="Respuesta de la consulta de filtro" border="false":::
 
 Si desea probar esto en Postman mediante GET, puede pegar en esta cadena:
 
@@ -167,7 +167,7 @@ POST /indexes/nycjobs/docs/search?api-version=2020-06-30
       "count": "true"
     }
 ```
-  :::image type="content" source="media/search-query-simple-examples/rangefilternumeric.png" alt-text="Parámetros del conjunto de encabezados de solicitud de Postman" border="false":::
+  :::image type="content" source="media/search-query-simple-examples/rangefilternumeric.png" alt-text="Filtro de rango para rangos numéricos" border="false":::
 
 
 ```http
@@ -181,7 +181,7 @@ POST /indexes/nycjobs/docs/search?api-version=2020-06-30
     }
 ```
 
-  :::image type="content" source="media/search-query-simple-examples/rangefiltertext.png" alt-text="Parámetros del conjunto de encabezados de solicitud de Postman" border="false":::
+  :::image type="content" source="media/search-query-simple-examples/rangefiltertext.png" alt-text="Filtro de rango para rangos de texto" border="false":::
 
 También puede probarlos en Postman mediante GET:
 
@@ -251,14 +251,14 @@ Con el parámetro searchMode predeterminado (cualquiera), se devuelven 2800 docu
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&$count=true&searchMode=any&search="fire department"  -"Metrotech Center"
 ```
 
-  :::image type="content" source="media/search-query-simple-examples/searchmodeany.png" alt-text="Parámetros del conjunto de encabezados de solicitud de Postman" border="false":::
+  :::image type="content" source="media/search-query-simple-examples/searchmodeany.png" alt-text="modo de búsqueda: any" border="false":::
 
 Al cambiar searchMode a `all`, se aplica un efecto acumulativo en los criterios y se devuelve un conjunto de resultados más pequeño (21 documentos) que consta de los documentos que contienen la frase completa "fire department", menos los trabajos con la dirección de Metrotech Center.
 
 ```http
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&$count=true&searchMode=all&search="fire department"  -"Metrotech Center"
 ```
-  :::image type="content" source="media/search-query-simple-examples/searchmodeall.png" alt-text="Parámetros del conjunto de encabezados de solicitud de Postman" border="false":::
+  :::image type="content" source="media/search-query-simple-examples/searchmodeall.png" alt-text="modo de búsqueda: all" border="false":::
 
 ## <a name="example-8-structuring-results"></a>Ejemplo 8: Estructuración de los resultados
 

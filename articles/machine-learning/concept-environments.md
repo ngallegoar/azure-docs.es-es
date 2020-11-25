@@ -1,23 +1,22 @@
 ---
 title: Acerca de los entornos de Azure Machine Learning
 titleSuffix: Azure Machine Learning
-description: En este artículo, obtendrá información sobre las ventajas de los entornos de aprendizaje automático, que permiten definiciones de dependencias de aprendizaje automático reproducibles, auditables y portátiles en distintos destinos de proceso.
+description: Obtenga información sobre las ventajas de los entornos de aprendizaje automático, que permiten definiciones de dependencias de aprendizaje automático reproducibles, auditables y portátiles para varios destinos de proceso.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.author: larryfr
 author: BlackMist
-ms.date: 07/08/2020
-ms.openlocfilehash: 9c554abc8aef89ca353e06c14b04fab2622d2827
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.date: 11/16/2020
+ms.openlocfilehash: 78f8d6d216659eaad01d512dd45696dd31035885
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322191"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94695391"
 ---
 # <a name="what-are-azure-machine-learning-environments"></a>¿Qué son los entornos de Azure Machine Learning?
-
 
 Los entornos de Azure Machine Learning son una encapsulación del entorno en el que se produce el entrenamiento de aprendizaje automático. Especifican los paquetes, las variables de entorno y la configuración de software de Python en torno a los scripts de entrenamiento y puntuación. También especifican los entornos de ejecución (Python, Spark o Docker). Los entornos son entidades administradas y con control de versiones en el área de trabajo de Machine Learning que permiten flujos de trabajo de aprendizaje automático reproducibles, auditables y portátiles en distintos destinos de proceso.
 
@@ -35,7 +34,7 @@ El entorno, el destino de proceso y el script de entrenamiento constituyen todos
 
 ## <a name="types-of-environments"></a>Tipos de entornos
 
-Los entornos se pueden dividir a grandes rasgos en tres categorías: *mantenidos* , *administrados por el usuario* y *administrados por el sistema*.
+Los entornos se pueden dividir a grandes rasgos en tres categorías: *mantenidos*, *administrados por el usuario* y *administrados por el sistema*.
 
 Los entornos mantenidos los proporciona Azure Machine Learning y están disponibles en el área de trabajo de forma predeterminada. Están concebidos para usarse tal cual; contienen colecciones de paquetes y configuraciones de Python que le ayudarán a empezar a usar diferentes marcos de aprendizaje automático. Estos entornos creados previamente también permiten un tiempo de implementación más rápido. Para obtener una lista completa, consulte el [artículo sobre los entornos mantenidos](resource-curated-environments.md).
 

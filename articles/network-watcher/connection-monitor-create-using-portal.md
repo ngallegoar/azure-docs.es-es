@@ -1,7 +1,7 @@
 ---
-title: 'Creación de una instancia de Connection Monitor (versión preliminar): Azure Portal'
+title: Creación de una instancia de Connection Monitor mediante Azure Portal
 titleSuffix: Azure Network Watcher
-description: En este artículo se describe cómo crear un monitor en la versión preliminar de Connection Monitor mediante Azure Portal.
+description: En este artículo se describe cómo crear un monitor en Connection Monitor mediante Azure Portal.
 services: network-watcher
 documentationcenter: na
 author: vinigam
@@ -12,20 +12,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/30/2020
 ms.author: vinigam
-ms.openlocfilehash: 97d20f2b6b7b355ea5c810ad46b084f42b9bd6d1
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 8c4df64334957a78fcf05c11625335214f8e032a
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94447507"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94699379"
 ---
-# <a name="create-a-monitor-in-connection-monitor-preview-by-using-the-azure-portal"></a>Creación de un monitor en la versión preliminar de Connection Monitor mediante Azure Portal
+# <a name="create-a-monitor-in-connection-monitor-by-using-the-azure-portal"></a>Creación de un monitor en Connection Monitor mediante Azure Portal
 
-Aprenda a usar la versión preliminar de Connection Monitor para supervisar la comunicación entre los recursos. En este artículo se describe cómo crear run monitor mediante Azure Portal. Connection Monitor admite implementaciones híbridas y en la nube de Azure.
+Aprenda a usar Connection Monitor para supervisar la comunicación entre los recursos. En este artículo se describe cómo crear run monitor mediante Azure Portal. Connection Monitor admite implementaciones híbridas y en la nube de Azure.
 
 ## <a name="before-you-begin"></a>Antes de empezar 
 
-En los monitores de conexión que crea en la versión preliminar de Connection Monitor, puede agregar máquinas locales y máquinas virtuales de Azure como orígenes. Estos monitores de conexión también pueden supervisar la conectividad con los puntos de conexión. Los puntos de conexión pueden estar en Azure o en cualquier otra dirección URL o IP.
+En los monitores de conexión que crea en Connection Monitor, puede agregar máquinas locales y máquinas virtuales de Azure como orígenes. Estos monitores de conexión también pueden supervisar la conectividad con los puntos de conexión. Los puntos de conexión pueden estar en Azure o en cualquier otra dirección URL o IP.
 
 Aquí tiene algunas definiciones para empezar:
 
@@ -47,25 +47,25 @@ Aquí tiene algunas definiciones para empezar:
 
 ## <a name="create-a-connection-monitor"></a>Creación de un monitor de conexión
 
-Para crear un monitor en la versión preliminar de Connection Monitor mediante Azure Portal:
+Para crear un monitor en Connection Monitor mediante Azure Portal:
 
 1. En la página principal de Azure Portal, vaya a **Network Watcher**.
-1. En el panel de la izquierda, en la sección **Supervisión** , seleccione **Monitor de conexión (versión preliminar)** .
+1. En el panel de la izquierda, en la sección **Supervisión**, seleccione **Monitor de conexión**.
 
-   Verá todos los monitores de conexión que se crearon en la versión preliminar de Connection Monitor. Para ver los monitores de conexión que se crearon en la experiencia clásica de Connection Monitor, vaya a la pestaña **Monitor de conexión**.
+   Verá todos los monitores de conexión que se crearon en Connection Monitor. Para ver los monitores de conexión que se crearon en la experiencia clásica de Connection Monitor, vaya a la pestaña **Monitor de conexión**.
 
-   :::image type="content" source="./media/connection-monitor-2-preview/cm-resource-view.png" alt-text="Captura de pantalla que muestra los monitores de conexión que se crearon en la versión preliminar de Connection Monitor.":::
+   :::image type="content" source="./media/connection-monitor-2-preview/cm-resource-view.png" alt-text="Captura de pantalla que muestra los monitores de conexión que se crearon en Connection Monitor.":::
    
     
-1. En el panel **Connection Monitor (versión preliminar)** , en la esquina superior izquierda, seleccione **Crear**.
+1. En el panel **Connection Monitor**, en la esquina superior izquierda, seleccione **Crear**.
 
    
 
-1. En la pestaña **Aspectos básicos** , escriba la información correspondiente al monitor de conexión: 
-   * **Nombre del monitor de conexión** : escriba un nombre para el monitor de conexión. Use las reglas de nomenclatura estándar para los recursos de Azure.
-   * **Suscripción** : elija una suscripción para el monitor de conexión.
-   * **Región** : elija una región para el monitor de conexión. Solo puede seleccionar las VM de origen que se crean en esta región.
-   * **Configuración del área de trabajo** : Elija un área de trabajo personalizada o el área de trabajo predeterminada. El área de trabajo contiene los datos de supervisión.
+1. En la pestaña **Aspectos básicos**, escriba la información correspondiente al monitor de conexión: 
+   * **Nombre del monitor de conexión**: escriba un nombre para el monitor de conexión. Use las reglas de nomenclatura estándar para los recursos de Azure.
+   * **Suscripción**: elija una suscripción para el monitor de conexión.
+   * **Región**: elija una región para el monitor de conexión. Solo puede seleccionar las VM de origen que se crean en esta región.
+   * **Configuración del área de trabajo**: Elija un área de trabajo personalizada o el área de trabajo predeterminada. El área de trabajo contiene los datos de supervisión.
        * Para usar el área de trabajo predeterminada, active la casilla. 
        * Para elegir un área de trabajo personalizada, desactive la casilla. A continuación, elija la suscripción y la región del área de trabajo personalizada. 
 
@@ -83,16 +83,16 @@ Para crear un monitor en la versión preliminar de Connection Monitor mediante A
 
 1. En la parte inferior de la pestaña, seleccione **Siguiente: Review + create** (Revisar y crear).
 
-1. En la pestaña **Revisar y crear** , revise la información básica y los grupos de prueba antes de crear el monitor de conexión. Si necesita editar el monitor de conexión, puede volver a las pestañas correspondientes. 
+1. En la pestaña **Revisar y crear**, revise la información básica y los grupos de prueba antes de crear el monitor de conexión. Si necesita editar el monitor de conexión, puede volver a las pestañas correspondientes. 
    :::image type="content" source="./media/connection-monitor-2-preview/review-create-cm.png" alt-text="Captura de pantalla que muestra la pestaña Revisar y crear en Connection Monitor.":::
    > [!NOTE] 
-   > La pestaña **Revisar y crear** muestra el costo mensual durante la fase de versión preliminar de Connection Monitor. Actualmente, la columna **Costo actual/mes** no muestra ningún cargo. Cuando el Monitor de conexión esté disponible con carácter general, esta columna mostrará un cargo mensual. 
+   > La pestaña **Revisar y crear** muestra el costo mensual durante la fase de Connection Monitor. Actualmente, la columna **Costo actual/mes** no muestra ningún cargo. Cuando el Monitor de conexión esté disponible con carácter general, esta columna mostrará un cargo mensual. 
    > 
-   > Incluso en la fase de versión preliminar de Connection Monitor, se aplican los cargos de ingesta de Log Analytics.
+   > Incluso en la fase de Connection Monitor, se aplican los cargos de ingesta de Log Analytics.
 
-1. Cuando esté listo para crear el monitor de conexión, en la parte inferior de la pestaña **Revisar y crear** , seleccione **Crear**.
+1. Cuando esté listo para crear el monitor de conexión, en la parte inferior de la pestaña **Revisar y crear**, seleccione **Crear**.
 
-La versión preliminar de Connection Monitor creará el recurso de monitor de conexión en segundo plano.
+Connection Monitor creará el recurso de monitor de conexión en segundo plano.
 
 ## <a name="create-test-groups-in-a-connection-monitor"></a>Creación de grupos de prueba en un monitor de conexión
 
@@ -100,9 +100,9 @@ Cada grupo de prueba de un monitor de conexión incluye orígenes y destinos que
 
 En Azure Portal, para crear un grupo de prueba en un monitor de conexión, especifique los valores para los campos siguientes:
 
-* **Deshabilitar grupo de pruebas** : puede seleccionar este campo para deshabilitar la supervisión de todos los orígenes y destinos que el grupo de prueba especifica. Esta selección está desactivada de forma predeterminada.
-* **Nombre** : asigne un nombre al grupo de prueba.
-* **Orígenes** : puede especificar máquinas virtuales de Azure y máquinas locales como orígenes si los agentes están instalados en ellas. Para obtener información sobre la instalación de un agente para el origen, consulte [Instalación de los agentes de supervisión](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview#install-monitoring-agents).
+* **Deshabilitar grupo de pruebas**: puede seleccionar este campo para deshabilitar la supervisión de todos los orígenes y destinos que el grupo de prueba especifica. Esta selección está desactivada de forma predeterminada.
+* **Nombre**: asigne un nombre al grupo de prueba.
+* **Orígenes**: puede especificar máquinas virtuales de Azure y máquinas locales como orígenes si los agentes están instalados en ellas. Para obtener información sobre la instalación de un agente para el origen, consulte [Instalación de los agentes de supervisión](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview#install-monitoring-agents).
    * Para elegir los agentes de Azure, seleccione la pestaña **Puntos de conexión de Azure**. Aquí solo se verán las máquinas virtuales que están enlazadas a la región que especificó al crear el monitor de conexión. De manera predeterminada, las máquinas virtuales se agrupan en la suscripción a la que pertenecen. Estos grupos están contraídos. 
    
        Puede explorar en profundidad desde el nivel **Suscripción** a otros niveles de la jerarquía:
@@ -119,7 +119,7 @@ En Azure Portal, para crear un grupo de prueba en un monitor de conexión, espec
    
        Si necesita agregar Network Performance Monitor al área de trabajo, puede obtenerlo en [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview). Para información sobre cómo agregar Network Performance Monitor, consulte [Soluciones de supervisión en Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/insights/solutions). 
    
-       En **Crear un monitor de conexión** , en la pestaña **Aspectos básicos** , aparece seleccionada la región predeterminada. Si cambia la región, puede elegir agentes de áreas de trabajo de la región nueva. Puede seleccionar uno o varios agentes o subredes. En la vista **Subred** , puede seleccionar direcciones IP específicas para la supervisión. Si agrega varias subredes, se creará una red local personalizada denominada **OnPremises_Network_1**. También puede cambiar el selector **Agrupar por** para agrupar por agentes.
+       En **Crear un monitor de conexión**, en la pestaña **Aspectos básicos**, aparece seleccionada la región predeterminada. Si cambia la región, puede elegir agentes de áreas de trabajo de la región nueva. Puede seleccionar uno o varios agentes o subredes. En la vista **Subred**, puede seleccionar direcciones IP específicas para la supervisión. Si agrega varias subredes, se creará una red local personalizada denominada **OnPremises_Network_1**. También puede cambiar el selector **Agrupar por** para agrupar por agentes.
 
       :::image type="content" source="./media/connection-monitor-2-preview/add-non-azure-sources.png" alt-text="Captura de pantalla que muestra el panel Agregar orígenes y la pestaña Non–Azure endpoints (Puntos de conexión que no son de Azure) en Connection Monitor.":::
 
@@ -127,9 +127,9 @@ En Azure Portal, para crear un grupo de prueba en un monitor de conexión, espec
    
    * Cuando termine de configurar los orígenes, seleccione **Listo** en la parte inferior del panel. Puede seguir editando propiedades básicas como el nombre del punto de conexión seleccionando el punto de conexión en la vista para **crear grupo de prueba**. 
 
-* **Destinos** : Se puede supervisar la conectividad a una máquina virtual de Azure, una máquina local o cualquier punto de conexión (una IP pública, una dirección URL o un FQDN) si se especifican como destino. En un solo grupo de prueba, puede agregar máquinas virtuales de Azure, máquinas locales, direcciones URL de Office 365, direcciones URL de Dynamics 365 y puntos de conexión personalizados.
+* **Destinos**: Se puede supervisar la conectividad a una máquina virtual de Azure, una máquina local o cualquier punto de conexión (una IP pública, una dirección URL o un FQDN) si se especifican como destino. En un solo grupo de prueba, puede agregar máquinas virtuales de Azure, máquinas locales, direcciones URL de Office 365, direcciones URL de Dynamics 365 y puntos de conexión personalizados.
 
-    * Para elegir las máquinas virtuales de Azure como destinos, seleccione la pestaña **Puntos de conexión de Azure**. De forma predeterminada, las máquinas virtuales de Azure se agrupan en una jerarquía de suscripción que se encuentra en la región que seleccionó en **Crear un monitor de conexión** , en la pestaña **Aspectos básicos**. Puede cambiar la región y elegir VM de Azure desde la nueva región. A continuación, puede explorar en profundidad desde el nivel **Suscripción** a otros niveles de la jerarquía, tal como se puede hacer al establecer los puntos de conexión de Azure de origen.
+    * Para elegir las máquinas virtuales de Azure como destinos, seleccione la pestaña **Puntos de conexión de Azure**. De forma predeterminada, las máquinas virtuales de Azure se agrupan en una jerarquía de suscripción que se encuentra en la región que seleccionó en **Crear un monitor de conexión**, en la pestaña **Aspectos básicos**. Puede cambiar la región y elegir VM de Azure desde la nueva región. A continuación, puede explorar en profundidad desde el nivel **Suscripción** a otros niveles de la jerarquía, tal como se puede hacer al establecer los puntos de conexión de Azure de origen.
 
       Puede seleccionar redes virtuales, subredes o máquinas virtuales individuales, como puede hacer al establecer los puntos de conexión de Azure de origen. Al seleccionar una red virtual, una subred o una sola máquina virtual, el identificador de recurso correspondiente se establece como el punto de conexión. De forma predeterminada, todas las máquinas virtuales de la red virtual o subred seleccionada que tienen la extensión Network Watcher participan en la supervisión. Para reducir el ámbito, seleccione subredes o agentes específicos o cambie el valor de la propiedad de ámbito. 
 
@@ -142,7 +142,7 @@ En Azure Portal, para crear un grupo de prueba en un monitor de conexión, espec
     
       Si necesita agregar Network Performance Monitor al área de trabajo, puede obtenerlo en Azure Marketplace. Para información sobre cómo agregar Network Performance Monitor, consulte [Soluciones de supervisión en Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/insights/solutions). 
 
-      En  **Crear un monitor de conexión** , en la pestaña  **Aspectos básicos** , aparece seleccionada la región predeterminada. Si cambia la región, puede elegir agentes de áreas de trabajo de la región nueva. Puede seleccionar uno o varios agentes o subredes. En la vista **Subred** , puede seleccionar direcciones IP específicas para la supervisión. Si agrega varias subredes, se creará una red local personalizada denominada **OnPremises_Network_1**.  
+      En  **Crear un monitor de conexión**, en la pestaña  **Aspectos básicos** , aparece seleccionada la región predeterminada. Si cambia la región, puede elegir agentes de áreas de trabajo de la región nueva. Puede seleccionar uno o varios agentes o subredes. En la vista **Subred**, puede seleccionar direcciones IP específicas para la supervisión. Si agrega varias subredes, se creará una red local personalizada denominada **OnPremises_Network_1**.  
 
       :::image type="content" source="./media/connection-monitor-2-preview/add-non-azure-dest.png" alt-text="Captura de pantalla que muestra el panel Agregar destinos y la pestaña Non-Azure endpoints (Puntos de conexión que no son de Azure).":::
     
@@ -155,18 +155,18 @@ En Azure Portal, para crear un grupo de prueba en un monitor de conexión, espec
     * Para elegir los puntos de conexión usados recientemente, vaya a la pestaña  **Recent endpoint**  (Punto de conexión reciente).
     * Cuando termine de elegir destinos, seleccione **Listo**. Puede seguir editando propiedades básicas como el nombre del punto de conexión seleccionando el punto de conexión en la vista para **crear grupo de prueba**. 
 
-* **Configuraciones de prueba** : puede agregar una o varias configuraciones de prueba a un grupo de prueba. Cree una nueva configuración de prueba mediante la pestaña **Nueva configuración**. O bien, agregue una configuración de prueba desde otro grupo de prueba en la misma instancia de Connection Monitor desde la pestaña **Elegir existente**.
+* **Configuraciones de prueba**: puede agregar una o varias configuraciones de prueba a un grupo de prueba. Cree una nueva configuración de prueba mediante la pestaña **Nueva configuración**. O bien, agregue una configuración de prueba desde otro grupo de prueba en la misma instancia de Connection Monitor desde la pestaña **Elegir existente**.
 
-    * **Nombre de configuración de prueba** : asigne un nombre a la configuración de prueba.
-    * **Protocolo** : seleccione **TCP** , **ICMP** o **HTTP**. Para cambiar HTTP a HTTPS, seleccione **HTTP** como el protocolo y luego **443** como el puerto.
-        * **Crear configuración de prueba TCP** : esta casilla solo aparece si selecciona **HTTP** en la lista **Protocolo**. Active esta casilla para crear otra configuración de prueba que use los mismos orígenes y destinos que especificó en cualquier otra parte de la configuración. La nueva configuración de prueba se denomina **\<name of test configuration>_networkTestConfig**.
-        * **Deshabilitar traceroute** : esta casilla se aplica cuando el protocolo es TCP o ICMP. Active esta casilla evitar que los orígenes detecten la topología y RTT de salto a salto.
-    * **Puerto de destino** : puede proporcionar un puerto de destino de su elección.
+    * **Nombre de configuración de prueba**: asigne un nombre a la configuración de prueba.
+    * **Protocolo**: seleccione **TCP**, **ICMP** o **HTTP**. Para cambiar HTTP a HTTPS, seleccione **HTTP** como el protocolo y luego **443** como el puerto.
+        * **Crear configuración de prueba TCP**: esta casilla solo aparece si selecciona **HTTP** en la lista **Protocolo**. Active esta casilla para crear otra configuración de prueba que use los mismos orígenes y destinos que especificó en cualquier otra parte de la configuración. La nueva configuración de prueba se denomina **\<name of test configuration>_networkTestConfig**.
+        * **Deshabilitar traceroute**: esta casilla se aplica cuando el protocolo es TCP o ICMP. Active esta casilla evitar que los orígenes detecten la topología y RTT de salto a salto.
+    * **Puerto de destino**: puede proporcionar un puerto de destino de su elección.
         * **Listen on port** (Escuchar en el puerto): esta casilla se aplica cuando el protocolo es TCP. Active esta casilla para abrir el puerto TCP elegido si aún no está abierto. 
-    * **Frecuencia de prueba** : en esta lista, especifique la frecuencia con la que los orígenes harán ping a los destinos en el protocolo y el puerto especificados. Puede elegir 30 segundos, 1 minuto, 5 minutos, 15 minutos o 30 minutos. Seleccione **personalizado** para especificar otra frecuencia comprendida entre 30 segundos y 30 minutos. Los orígenes probarán la conectividad a los destinos según el valor que elija. Por ejemplo, si selecciona 30 segundos, los orígenes comprobarán la conectividad con el destino al menos una vez en cada período de 30 segundos.
-    * **Umbral correcto** : puede establecer los umbrales en los siguientes parámetros de red:
-       * **Error en las comprobaciones** : establezca el porcentaje de comprobaciones que pueden presentar errores cuando los orígenes comprueban la conectividad con los destinos mediante los criterios especificados. En el caso del protocolo TCP o ICMP, el porcentaje de comprobaciones con error puede ser igual al porcentaje de pérdida de paquetes. En el caso del protocolo HTTP, este valor representa el porcentaje de solicitudes HTTP que no recibieron respuesta.
-       * **Tiempo de ida y vuelta** : establezca el RTT en milisegundos para indicar cuánto tiempo pueden tardar los orígenes en conectarse al destino a través de la configuración de prueba.
+    * **Frecuencia de prueba**: en esta lista, especifique la frecuencia con la que los orígenes harán ping a los destinos en el protocolo y el puerto especificados. Puede elegir 30 segundos, 1 minuto, 5 minutos, 15 minutos o 30 minutos. Seleccione **personalizado** para especificar otra frecuencia comprendida entre 30 segundos y 30 minutos. Los orígenes probarán la conectividad a los destinos según el valor que elija. Por ejemplo, si selecciona 30 segundos, los orígenes comprobarán la conectividad con el destino al menos una vez en cada período de 30 segundos.
+    * **Umbral correcto**: puede establecer los umbrales en los siguientes parámetros de red:
+       * **Error en las comprobaciones**: establezca el porcentaje de comprobaciones que pueden presentar errores cuando los orígenes comprueban la conectividad con los destinos mediante los criterios especificados. En el caso del protocolo TCP o ICMP, el porcentaje de comprobaciones con error puede ser igual al porcentaje de pérdida de paquetes. En el caso del protocolo HTTP, este valor representa el porcentaje de solicitudes HTTP que no recibieron respuesta.
+       * **Tiempo de ida y vuelta**: establezca el RTT en milisegundos para indicar cuánto tiempo pueden tardar los orígenes en conectarse al destino a través de la configuración de prueba.
        
    :::image type="content" source="./media/connection-monitor-2-preview/add-test-config.png" alt-text="Captura de pantalla que muestra dónde establecer una configuración de prueba en Connection Monitor.":::
        
@@ -176,17 +176,17 @@ Puede configurar alertas para las pruebas que no se superen en función de los u
 
 En Azure Portal, para crear alertas para un monitor de conexión, especifique los valores para estos campos: 
 
-- **Crear una alerta** : puede activar esta casilla para crear una alerta de métrica en Azure Monitor. Al activar esta casilla, los demás campos estarán habilitados para la edición. Se aplicarán cargos adicionales para la alerta, en función del [precio para las alertas](https://azure.microsoft.com/pricing/details/monitor/). 
+- **Crear una alerta**: puede activar esta casilla para crear una alerta de métrica en Azure Monitor. Al activar esta casilla, los demás campos estarán habilitados para la edición. Se aplicarán cargos adicionales para la alerta, en función del [precio para las alertas](https://azure.microsoft.com/pricing/details/monitor/). 
 
-- **Ámbito** > **Recurso** > **Jerarquía** : estos valores se rellenan automáticamente, en función de los valores especificados en la pestaña **Aspectos básicos**.
+- **Ámbito** > **Recurso** > **Jerarquía**: estos valores se rellenan automáticamente, en función de los valores especificados en la pestaña **Aspectos básicos**.
 
-- **Nombre de condición** : esta alerta se crea en la métrica `Test Result(preview)`. Cuando el resultado de la prueba del monitor de conexión es un resultado erróneo, se activará la regla de alerta. 
+- **Nombre de condición**: esta alerta se crea en la métrica `Test Result(preview)`. Cuando el resultado de la prueba del monitor de conexión es un resultado erróneo, se activará la regla de alerta. 
 
-- **Nombre del grupo de acciones** : puede escribir directamente el correo electrónico o puede crear alertas a través de grupos de acciones. Si escribe el correo electrónico directamente, se creará un grupo de acciones con el nombre **NPM Email ActionGroup**. El identificador de correo electrónico se agrega a ese grupo de acciones. Si decide usar grupos de acciones, tendrá que seleccionar un grupo de acciones creado anteriormente. Para obtener información sobre cómo crear un grupo de acciones, consulte [Creación de grupos de acciones en Azure Portal](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups). Una vez creada la alerta, puede [administrarlas](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric#view-and-manage-with-azure-portal). 
+- **Nombre del grupo de acciones**: puede escribir directamente el correo electrónico o puede crear alertas a través de grupos de acciones. Si escribe el correo electrónico directamente, se creará un grupo de acciones con el nombre **NPM Email ActionGroup**. El identificador de correo electrónico se agrega a ese grupo de acciones. Si decide usar grupos de acciones, tendrá que seleccionar un grupo de acciones creado anteriormente. Para obtener información sobre cómo crear un grupo de acciones, consulte [Creación de grupos de acciones en Azure Portal](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups). Una vez creada la alerta, puede [administrarlas](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric#view-and-manage-with-azure-portal). 
 
-- **Nombre de la regla de alertas** : nombre del administrador de conexiones.
+- **Nombre de la regla de alertas**: nombre del administrador de conexiones.
 
-- **Habilitar regla tras la creación** : active esta casilla para habilitar la regla de alerta en función de la condición. Desactive esta casilla si desea crear la regla sin habilitarla. 
+- **Habilitar regla tras la creación**: active esta casilla para habilitar la regla de alerta en función de la condición. Desactive esta casilla si desea crear la regla sin habilitarla. 
 
 :::image type="content" source="./media/connection-monitor-2-preview/create-alert-filled.png" alt-text="Captura de pantalla que muestra la pestaña Crear alerta en Connection Monitor.":::
 

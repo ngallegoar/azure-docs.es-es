@@ -6,12 +6,12 @@ ms.author: jzim
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 07/31/2020
-ms.openlocfilehash: a8b5ec48b64341ad9eabd087d7ee20bb703198c6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c09f741b37e06010a0bfbab40317980793240e29
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88816242"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94683512"
 ---
 # <a name="azure-red-hat-openshift-faq"></a>Preguntas más frecuentes de Red Hat OpenShift en Azure
 
@@ -186,13 +186,13 @@ Para obtener más información, vea la documentación de OpenShift sobre la desh
 
 ### <a name="which-unix-rights-in-iaas-are-available-for-mastersinfraapp-nodes"></a>¿Qué derechos de UNIX (en IaaS) están disponibles para los nodos maestros, infraestructura o aplicaciones?
 
-En el caso de los clústeres 4.x, el acceso al nodo está disponible a través del rol de administrador de clústeres. Para obtener más información, vea [Información general de RBAC](https://docs.openshift.com/container-platform/4.3/authentication/using-rbac.html).
+En el caso de los clústeres 4.x, el acceso al nodo está disponible a través del rol de administrador de clústeres. Para más información, consulte la [información general sobre RBAC de Kubernetes](https://docs.openshift.com/container-platform/4.3/authentication/using-rbac.html).
 
 En el caso de los clústeres 3.11, el acceso al nodo está prohibido.
 
 ### <a name="which-ocp-rights-do-we-have-cluster-admin-project-admin"></a>¿Qué derechos de OCP tenemos? ¿Administrador del clúster? ¿Administrador de proyectos?
 
-En el caso de los clústeres 4.x, el rol de administrador del clúster está disponible. Para obtener más información, vea [Información general de RBAC](https://docs.openshift.com/container-platform/4.3/authentication/using-rbac.html).
+En el caso de los clústeres 4.x, el rol de administrador del clúster está disponible. Para más información, consulte la [información general sobre RBAC de Kubernetes](https://docs.openshift.com/container-platform/4.3/authentication/using-rbac.html).
 
 En el caso de los clústeres 3.11, vea la [información general de administración del clúster](https://docs.openshift.com/aro/admin_guide/index.html) para obtener más detalles.
 

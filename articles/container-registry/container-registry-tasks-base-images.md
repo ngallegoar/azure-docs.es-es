@@ -4,11 +4,11 @@ description: Obtenga información sobre las imágenes base para las imágenes de
 ms.topic: article
 ms.date: 01/22/2019
 ms.openlocfilehash: 74e5fb81e3ef6f75b5ee2872ee44b99aae096fd8
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93025772"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96009830"
 ---
 # <a name="about-base-image-updates-for-acr-tasks"></a>Acerca de las actualizaciones de imagen base para ACR Tasks
 
@@ -47,24 +47,24 @@ Si la imagen base especificada en la instrucción `FROM` reside en alguna de esa
 
 El tiempo entre el momento en que se actualiza una imagen base y el momento en que se desencadena la tarea dependiente depende de la ubicación de la imagen base:
 
-* **Imágenes base de un repositorio público en Docker Hub o MCR** : para las imágenes base en repositorios públicos, una tarea de ACR Tasks comprueba las actualizaciones de la imagen en un intervalo aleatorio de entre 10 y 60 minutos. Las tareas dependientes se ejecutan en consecuencia.
-* **Imágenes base de un registro de contenedor de Azure** : para las imágenes base de los registros de contenedor de Azure, una tarea de ACR Tasks desencadena inmediatamente una ejecución cuando se actualiza su imagen base. La imagen base puede estar en el mismo ACR en el que se ejecuta la tarea o en un ACR diferente en cualquier región.
+* **Imágenes base de un repositorio público en Docker Hub o MCR**: para las imágenes base en repositorios públicos, una tarea de ACR Tasks comprueba las actualizaciones de la imagen en un intervalo aleatorio de entre 10 y 60 minutos. Las tareas dependientes se ejecutan en consecuencia.
+* **Imágenes base de un registro de contenedor de Azure**: para las imágenes base de los registros de contenedor de Azure, una tarea de ACR Tasks desencadena inmediatamente una ejecución cuando se actualiza su imagen base. La imagen base puede estar en el mismo ACR en el que se ejecuta la tarea o en un ACR diferente en cualquier región.
 
 ## <a name="additional-considerations"></a>Consideraciones adicionales
 
-* **Imágenes base para imágenes de aplicación** : Actualmente, una instancia de ACR Tasks solo realiza el seguimiento de las actualizaciones de las imágenes base de las imágenes de las aplicaciones ( *tiempo de ejecución* ). No realiza un seguimiento de las actualizaciones de las imágenes base de las imágenes intermedias ( *tiempo de compilación* ) que se usan en Dockerfiles de varias fases.  
+* **Imágenes base para imágenes de aplicación**: Actualmente, una instancia de ACR Tasks solo realiza el seguimiento de las actualizaciones de las imágenes base de las imágenes de las aplicaciones (*tiempo de ejecución*). No realiza un seguimiento de las actualizaciones de las imágenes base de las imágenes intermedias (*tiempo de compilación*) que se usan en Dockerfiles de varias fases.  
 
-* **Habilitado de forma predeterminada** : Cuando se crea una instancia de ACR Tasks con el comando [az acr task create][az-acr-task-create], de manera predeterminada la tarea se *habilita* para desencadenarse con una actualización de imagen base. Es decir, la propiedad `base-image-trigger-enabled` está establecida en True. Si quiere deshabilitar este comportamiento en una tarea, actualice la propiedad en False. Por ejemplo, ejecute el siguiente comando [az acr task update][az-acr-task-update]:
+* **Habilitado de forma predeterminada**: Cuando se crea una instancia de ACR Tasks con el comando [az acr task create][az-acr-task-create], de manera predeterminada la tarea se *habilita* para desencadenarse con una actualización de imagen base. Es decir, la propiedad `base-image-trigger-enabled` está establecida en True. Si quiere deshabilitar este comportamiento en una tarea, actualice la propiedad en False. Por ejemplo, ejecute el siguiente comando [az acr task update][az-acr-task-update]:
 
   ```azurecli
   az acr task update --myregistry --name mytask --base-image-trigger-enabled False
   ```
 
-* **Desencadenador para seguimiento de dependencias** : Para que una instancia de ACR Tasks pueda determinar y supervisar las dependencias de una imagen de contenedor (lo cual incluye su imagen base), primero debe desencadenar la tarea de compilación de la imagen **al menos una vez**. Por ejemplo, puede desencadenar la tarea de forma manual mediante el comando [az acr task run][az-acr-task-run].
+* **Desencadenador para seguimiento de dependencias**: Para que una instancia de ACR Tasks pueda determinar y supervisar las dependencias de una imagen de contenedor (lo cual incluye su imagen base), primero debe desencadenar la tarea de compilación de la imagen **al menos una vez**. Por ejemplo, puede desencadenar la tarea de forma manual mediante el comando [az acr task run][az-acr-task-run].
 
-* **Etiqueta stable para imagen base** : Para desencadenar una tarea cuando se actualice la imagen base, la imagen base debe tener una etiqueta *stable* , como `node:9-alpine`. Este etiquetado es común para las imágenes base que se actualizan a una versión estable más reciente mediante revisiones del sistema operativo y el marco. Si se actualiza la imagen base con una nueva etiqueta de versión, no se desencadena una tarea. Para obtener más información sobre el etiquetado de imágenes, consulte la [guía sobre procedimientos recomendados](container-registry-image-tag-version.md). 
+* **Etiqueta stable para imagen base**: Para desencadenar una tarea cuando se actualice la imagen base, la imagen base debe tener una etiqueta *stable*, como `node:9-alpine`. Este etiquetado es común para las imágenes base que se actualizan a una versión estable más reciente mediante revisiones del sistema operativo y el marco. Si se actualiza la imagen base con una nueva etiqueta de versión, no se desencadena una tarea. Para obtener más información sobre el etiquetado de imágenes, consulte la [guía sobre procedimientos recomendados](container-registry-image-tag-version.md). 
 
-* **Otros desencadenadores de tarea** : En una tarea desencadenada por actualizaciones de la imagen base, también puede habilitar desencadenadores en función de la [confirmación del código fuente](container-registry-tutorial-build-task.md) o una [programación](container-registry-tasks-scheduled.md). Una actualización de la imagen base también puede desencadenar una [tareas de varios pasos](container-registry-tasks-multi-step.md).
+* **Otros desencadenadores de tarea**: En una tarea desencadenada por actualizaciones de la imagen base, también puede habilitar desencadenadores en función de la [confirmación del código fuente](container-registry-tutorial-build-task.md) o una [programación](container-registry-tasks-scheduled.md). Una actualización de la imagen base también puede desencadenar una [tareas de varios pasos](container-registry-tasks-multi-step.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

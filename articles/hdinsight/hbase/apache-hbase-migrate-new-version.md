@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/02/2020
-ms.openlocfilehash: 3e35dc35746f08f48150a738b927433065fc1c67
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 8ce25780e197c26e0e5b102670e093031e1a2582
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92910277"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94697669"
 ---
 # <a name="migrate-an-apache-hbase-cluster-to-a-new-version"></a>Migración de un clúster de Apache HBase a una versión nueva
 
@@ -223,7 +223,7 @@ Para actualizar el clúster de Apache HBase en Azure HDInsight, realice los paso
    hdfs dfs -cp /hbase-wal-backup/hbasewal hdfs://mycluster/**
    ```
    
-1. Si está actualizando HDInsight 3.6 a 4.0, siga los pasos siguientes. En caso contrario, vaya al paso 10:
+1. Si está actualizando HDInsight 3.6 a la versión 4.0, siga los pasos siguientes. En caso contrario, vaya al paso 13:
 
     1. Reinicie todos los servicios necesarios en Ambari al seleccionar **Services** > **Restart All Required** (Servicios - Reiniciar todos los necesarios).
     1. Detenga el servicio de HBase.

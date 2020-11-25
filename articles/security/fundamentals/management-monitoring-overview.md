@@ -15,23 +15,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 0e74b540610d3b6520f4c8e25ca2df7bf628706f
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 3520cbafc0e9eebfd6057fe92579a45873b25734
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94410341"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94698769"
 ---
 # <a name="azure-security-management-and-monitoring-overview"></a>Información general sobre la administración y la supervisión de la seguridad en Azure
 En este artículo se proporciona información general sobre los servicios y características de seguridad que proporciona Azure para ayudarle a administrar y supervisar servicios en la nube y máquinas virtuales de Azure.
 
-## <a name="role-based-access-control"></a>Control de acceso basado en roles
+## <a name="azure-role-based-access-control"></a>Control de acceso basado en roles de Azure
 
-El control de acceso basado en roles (RBAC) le permite administrar de forma avanzada el acceso a los recursos de Azure. Gracias a RBAC, puede conceder a los usuarios únicamente el grado de acceso que necesitan para realizar sus trabajos. Asimismo, RBAC le ayudará a garantizar que cuando los usuarios dejan la organización, pierden el acceso a los recursos en la nube.
+El control de acceso basado en roles de Azure (Azure RBAC) le permite administrar de manera avanzada el acceso a los recursos de Azure. Gracias a Azure RBAC, puede conceder a los usuarios únicamente el grado de acceso que necesitan para realizar sus trabajos. Asimismo, Azure RBAC le ayudará a garantizar que cuando los usuarios dejan la organización, pierden el acceso a los recursos en la nube.
 
 Más información:
 
-* [Blog del equipo de Active Directory sobre RBAC](https://cloudblogs.microsoft.com/enterprisemobility/?product=azure-active-directory)
+* [Blog del equipo de Active Directory sobre Azure RBAC](https://cloudblogs.microsoft.com/enterprisemobility/?product=azure-active-directory)
 * [Control de acceso basado en roles de Azure (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md)
 
 ## <a name="antimalware"></a>Antimalware

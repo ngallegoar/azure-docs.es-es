@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 351503db52e4c62414cd5dcbae1f750032a37eb7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eea3c8525d31a3ca551e9cbc7d21d7dde163b5cc
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91542298"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94698009"
 ---
 # <a name="azure-api-management-faqs"></a>P+F de Azure API Management
 Obtenga respuestas a preguntas comunes, patrones y procedimientos recomendados para Azure API Management.
@@ -71,18 +71,7 @@ Sí, puede administrar API Management mediante programación utilizando:
 * Los cmdlets de [implementación del servicio](/powershell/module/wds) y [administración del servicio](/powershell/azure/servicemanagement/overview) de PowerShell.
 
 ### <a name="how-do-i-add-a-user-to-the-administrators-group"></a>¿Cómo se puede agregar un usuario al grupo de administradores?
-A continuación se indica cómo agregar un usuario al grupo de administradores:
-
-1. Inicie sesión en [Azure Portal](https://portal.azure.com).
-2. Vaya al grupo de recursos que tiene la instancia de API Management que desea actualizar.
-3. En API Management, asigne el rol **Colaborador de Service API Management**.
-
-Ahora el colaborador recién agregado puede usar los [cmdlets](/powershell/azure/) de Azure PowerShell. A continuación se indica cómo iniciar sesión como administrador:
-
-1. Utilice el cmdlet `Connect-AzAccount` para iniciar sesión.
-2. Establezca el contexto para la suscripción que tiene el servicio mediante `Set-AzContext -SubscriptionID <subscriptionGUID>`.
-3. Obtenga la dirección URL de inicio de sesión único mediante `Get-AzApiManagementSsoToken -ResourceGroupName <rgName> -Name <serviceName>`.
-4. Utilice la dirección URL para acceder al portal de administración.
+Los grupos de administradores son un grupo de sistema inmutable. Los administradores de suscripciones a Azure son parte de este grupo. No se pueden agregar usuarios a este grupo. Consulte [Creación y uso de grupos para administrar cuentas de desarrollador en Azure API Management](./api-management-howto-create-groups.md) para obtener más información.
 
 ### <a name="why-is-the-policy-that-i-want-to-add-unavailable-in-the-policy-editor"></a>¿Por qué la directiva que deseo agregar no está habilitada en el editor de directivas?
 Si la directiva que desea agregar aparece atenuada o sombreada en el editor de directivas, asegúrese de que está en el ámbito correcto para la directiva. Cada instrucción de la directiva está diseñada para su uso en determinados ámbitos y secciones de la directiva. Para revisar las secciones y los ámbitos de una directiva, consulte en la sección sobre el uso de la directiva en [API Management policies](./api-management-policies.md) (Directivas de API Management).

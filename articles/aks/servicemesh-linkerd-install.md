@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 10/09/2019
 ms.author: pabouwer
 zone_pivot_groups: client-operating-system
-ms.openlocfilehash: 419b61527b68299c82dec4f2f5da6b0220859cc1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d5b2ec220bbf14a79247ed2c78a0e84f4717fae3
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77593751"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94684243"
 ---
 # <a name="install-linkerd-in-azure-kubernetes-service-aks"></a>Instalación de Linkerd en Azure Kubernetes Service (AKS)
 
@@ -35,7 +35,7 @@ En este artículo aprenderá a:
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-En los pasos detallados en este artículo se da por hecho que ha creado un clúster de AKS (Kubernetes `1.13` y versiones posteriores, con RBAC habilitado) y que ha establecido una conexión `kubectl` con el clúster. Si necesita ayuda con cualquiera de estos elementos, consulte el [inicio rápido de AKS][aks-quickstart].
+En los pasos detallados en este artículo se da por hecho que creó un clúster de AKS (Kubernetes `1.13` y versiones posteriores, con RBAC de Kubernetes habilitado) y que estableció una conexión `kubectl` con el clúster. Si necesita ayuda con cualquiera de estos elementos, consulte el [inicio rápido de AKS][aks-quickstart].
 
 Todos los pods de Linkerd deben estar programados para ejecutarse en nodos de Linux: esta es la configuración predeterminada en el método de instalación que se detalla a continuación y no requiere ninguna otra configuración.
 

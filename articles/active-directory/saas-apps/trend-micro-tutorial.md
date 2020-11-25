@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 04/21/2020
 ms.author: jeedes
 ms.openlocfilehash: b76c41787d7a35fb3024fa18c0122bc966243bbc
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92514544"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008402"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-trend-micro-web-security-tmws"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Trend Micro Web Security (TMWS)
 
@@ -50,7 +50,7 @@ Para configurar la integración de TMWS en Azure AD, deberá agregar dicha solu
 1. En el panel izquierdo, seleccione el servicio **Azure Active Directory**.
 1. Seleccione **Aplicaciones empresariales** y, después, **Todas las aplicaciones**.
 1. Para agregar una nueva aplicación, seleccione **Nueva aplicación**.
-1. En la sección **Agregar desde la galería** , escriba **Trend Micro Web Security (TMWS)** en el cuadro de búsqueda.
+1. En la sección **Agregar desde la galería**, escriba **Trend Micro Web Security (TMWS)** en el cuadro de búsqueda.
 1. Seleccione **Trend Micro Web Security (TMWS)** en los resultados de búsqueda y agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
 
 ## <a name="configure-and-test-azure-ad-sso-for-tmws"></a>Configuración y prueba del inicio de sesión único de Azure AD para TMWS
@@ -71,18 +71,18 @@ Completará estos pasos básicos para configurar y probar el inicio de sesión �
 Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azure Portal.
 
 1. En [Azure Portal](https://portal.azure.com/), en la página de integración de aplicaciones de **Trend Micro Web Security (TMWS)** , busque la sección **Administrar** y seleccione **Inicio de sesión único**.
-1. En la página **Seleccione un método de inicio de sesión único** , elija **SAML**.
-1. En la página **Configuración del inicio de sesión único con SAML** , seleccione el botón de lápiz de **Configuración básica de SAML** para editar la configuración:
+1. En la página **Seleccione un método de inicio de sesión único**, elija **SAML**.
+1. En la página **Configuración del inicio de sesión único con SAML**, seleccione el botón de lápiz de **Configuración básica de SAML** para editar la configuración:
 
    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-1. En la sección **Configuración básica de SAML** , especifique los valores de las siguientes casillas:
+1. En la sección **Configuración básica de SAML**, especifique los valores de las siguientes casillas:
 
     a. En el cuadro **Identificador (id. de entidad)** , escriba una dirección URL con el siguiente patrón:
 
     `https://auth.iws-hybrid.trendmicro.com/([0-9a-f]{16})`
 
-    b. En el cuadro **URL de respuesta** , escriba esta dirección URL:
+    b. En el cuadro **URL de respuesta**, escriba esta dirección URL:
 
     `https://auth.iws-hybrid.trendmicro.com/simplesaml/module.php/saml/sp/saml2-acs.php/ics-sp`
 
@@ -100,7 +100,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
     | sAMAccountName | user.onpremisessamaccountname |
     | uPN | user.userprincipalname |
 
-1. En la página **Configurar el inicio de sesión único con SAML** , en la sección **Certificado de firma de SAML** , busque **Certificado (Base64)** . Seleccione el vínculo **Descargar** junto a este nombre de certificado para descargar el certificado y guardarlo en el equipo:
+1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **Certificado (Base64)** . Seleccione el vínculo **Descargar** junto a este nombre de certificado para descargar el certificado y guardarlo en el equipo:
 
     ![Vínculo de descarga del certificado](common/certificatebase64.png)
 
@@ -114,9 +114,9 @@ En esta sección, se crea un usuario llamado B.Simon en Azure Portal.
 
 1. En el panel izquierdo de Azure Portal, seleccione **Azure Active Directory**. Seleccione **Usuarios** y, a continuación, seleccione **Todos los usuarios**.
 1. Seleccione **Nuevo usuario** en la parte superior de la pantalla.
-1. En las propiedades del **usuario** , siga estos pasos:
-   1. En el cuadro **Nombre** , escriba `B.Simon`.  
-   1. En el cuadro de texto **Nombre de usuario** , escriba * *_nombreDeUsuario_@* dominioDeEmpresa *.* extensión***. Por ejemplo, `B.Simon@contoso.com`.
+1. En las propiedades del **usuario**, siga estos pasos:
+   1. En el cuadro **Nombre**, escriba `B.Simon`.  
+   1. En el cuadro de texto **Nombre de usuario**, escriba **_nombreDeUsuario_@* dominioDeEmpresa *.* extensión***. Por ejemplo, `B.Simon@contoso.com`.
    1. Seleccione **Mostrar contraseña** y, a continuación, anote el valor que se muestra en el cuadro **Contraseña**.
    1. Seleccione **Crear**.
 
@@ -126,7 +126,7 @@ En esta sección va a permitir que B.Simon acceda a TMWS mediante el inicio de s
 
 1. En Azure Portal, seleccione **Aplicaciones empresariales** y, a continuación, seleccione **Todas las aplicaciones**.
 1. En la lista de aplicaciones, seleccione **Trend Micro Web Security (TMWS)** .
-1. En la sección **Administrar** de la página de información general de la aplicación, seleccione **Usuarios y grupos** :
+1. En la sección **Administrar** de la página de información general de la aplicación, seleccione **Usuarios y grupos**:
 
    ![Seleccionar Usuarios y grupos](common/users-groups-blade.png)
 
@@ -134,29 +134,29 @@ En esta sección va a permitir que B.Simon acceda a TMWS mediante el inicio de s
 
     ![Selección de Agregar usuario](common/add-assign-user.png)
 
-1. En el cuadro de diálogo **Usuarios y grupos** , seleccione **B.Simon** en la lista **Usuarios** y haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
-1. Si espera que haya un valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol** , seleccione en la lista el rol adecuado para el usuario y haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
-1. En el cuadro de diálogo **Agregar asignación** , seleccione **Asignar**.
+1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **B.Simon** en la lista **Usuarios** y haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
+1. Si espera que haya un valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol**, seleccione en la lista el rol adecuado para el usuario y haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
+1. En el cuadro de diálogo **Agregar asignación**, seleccione **Asignar**.
 
 ### <a name="configure-user-and-group-synchronization-settings-in-azure-ad"></a>Configuración de las opciones de sincronización de usuarios y grupos en Azure AD
 
 1. En el panel izquierdo, seleccione **Azure Active Directory**.
 
-1. En **Administrar** , seleccione **Registros de aplicaciones** y, a continuación, seleccione la nueva aplicación empresarial bajo **Todas las aplicaciones**.
+1. En **Administrar**, seleccione **Registros de aplicaciones** y, a continuación, seleccione la nueva aplicación empresarial bajo **Todas las aplicaciones**.
 
-1. En **Administrar** , seleccione **Certificados y secretos**.
+1. En **Administrar**, seleccione **Certificados y secretos**.
 
-1. En el área **Secretos de cliente** , seleccione **Nuevo secreto de cliente**.
+1. En el área **Secretos de cliente**, seleccione **Nuevo secreto de cliente**.
 
 1. En la **pantalla Add a client secret** (Agregar un secreto de cliente) puede agregar una descripción y seleccionar un período de expiración para el secreto de cliente; a continuación, haga clic en **Agregar**. El nuevo secreto de cliente aparece en el área **Secretos de cliente**.
 
 1. Anote el valor de secreto de cliente. Más adelante, lo escribirá en TMWS.
 
-1. En **Administrar** , seleccione **Permisos de API**. 
+1. En **Administrar**, seleccione **Permisos de API**. 
 
-1. En la ventana **Permisos de API** , seleccione **Agregar un permiso**.
+1. En la ventana **Permisos de API**, seleccione **Agregar un permiso**.
 
-1. En la pestaña **API de Microsoft** de la pantalla **Solicitud de permisos de API** , seleccione **Microsoft Graph** y, a continuación, **Permisos de la aplicación**.
+1. En la pestaña **API de Microsoft** de la pantalla **Solicitud de permisos de API**, seleccione **Microsoft Graph** y, a continuación, **Permisos de la aplicación**.
 
 1. Busque y agregue estos permisos: 
 
@@ -165,7 +165,7 @@ En esta sección va a permitir que B.Simon acceda a TMWS mediante el inicio de s
 
 1. Seleccione **Agregar permisos**. Aparece un mensaje para confirmar que la configuración se guardó. Los nuevos permisos aparecen en la ventana **Permisos de API**.
 
-1. En el área **Otorgar consentimiento** , seleccione **Conceder consentimiento de administrador para *la cuenta de administrador* (directorio predeterminado)** y, a continuación, seleccione **Sí**. Aparece un mensaje para confirmar que se ha otorgado el consentimiento del administrador para los permisos solicitados.
+1. En el área **Otorgar consentimiento**, seleccione **Conceder consentimiento de administrador para *la cuenta de administrador* (directorio predeterminado)** y, a continuación, seleccione **Sí**. Aparece un mensaje para confirmar que se ha otorgado el consentimiento del administrador para los permisos solicitados.
 
 1. Seleccione **Información general**. 
 
@@ -224,7 +224,7 @@ Después de configurar correctamente el servicio Azure AD y especificar Azure 
 
 1. Visite cualquier sitio web de Internet. TMWS le dirigirá al portal cautivo de TMWS.
 
-1. Especifique una cuenta de Active Directory (formato: *dominio*\\*nombreDeCuentaDeSam* o *nombreDeCuentaDeSam*@*dominio* ), dirección de correo electrónico o UPN y, a continuación, seleccione **iniciar sesión**. TMWS le envía a la ventana de inicio de sesión de Azure AD.
+1. Especifique una cuenta de Active Directory (formato: *dominio*\\*nombreDeCuentaDeSam* o *nombreDeCuentaDeSam*@*dominio*), dirección de correo electrónico o UPN y, a continuación, seleccione **iniciar sesión**. TMWS le envía a la ventana de inicio de sesión de Azure AD.
 
 1. En la ventana de inicio de sesión de Azure AD, escriba las credenciales de la cuenta de Azure AD. Con esto debe haber iniciado sesión en TMWS.
 

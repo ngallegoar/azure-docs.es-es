@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 11/16/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2ebf383c1a904027d3ff5a1864ea9f50e87a5fa8
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 906df01587201561fbbfea0661d0885864042925
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093300"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701320"
 ---
 # <a name="list-blobs-with-net"></a>Enumeración de blobs con .NET
 
@@ -51,11 +51,7 @@ Las sobrecargas de estos métodos proporcionan opciones adicionales para adminis
 
 ### <a name="manage-how-many-results-are-returned"></a>Administración del número de resultados que se devuelven
 
-De forma predeterminada, una operación de enumeración devuelve hasta 5000 resultados a la vez, pero puede especificar el número de resultados que quiere que devuelva. En los ejemplos que se presentan en este artículo se muestra cómo hacerlo.
-
-Si una operación de enumeración devuelve más de 5000 blobs, o si el número de blobs disponibles supera el número especificado, Azure Storage devuelve un *token de continuación* con la lista de blobs. Un token de continuación es un valor opaco que se puede usar para recuperar el siguiente conjunto de resultados de Azure Storage.
-
-En el código, compruebe el valor del token de continuación para determinar si es NULL. Cuando el token de continuación es NULL, el conjunto de resultados está completo. Si el token de continuación no es NULL, llame de nuevo a la operación de enumeración y pase el token de continuación para recuperar el siguiente conjunto de resultados, hasta que el token de continuación sea NULL.
+De forma predeterminada, una operación de enumeración devuelve hasta 5000 resultados a la vez, pero puede especificar el número de resultados que quiere que devuelva. En los ejemplos que se presentan en este artículo muestran cómo devolver resultados por páginas.
 
 ### <a name="filter-results-with-a-prefix"></a>Filtrado de los resultados con un prefijo
 
@@ -63,11 +59,15 @@ Para filtrar la lista de blobs, especifique una cadena para el parámetro `prefi
 
 ### <a name="return-metadata"></a>Devolución de metadatos
 
-Puede devolver metadatos de blob con los resultados. 
+Puede devolver metadatos de blob con los resultados.
 
 - Si usa el SDK de .NET V12, especifique el valor **Metadata** para la enumeración [BlobTraits](https://docs.microsoft.com/dotnet/api/azure.storage.blobs.models.blobtraits).
 
 - Si usa el SDK de .NET V11, especifique el valor **Metadata** para la enumeración [BlobListingDetails](/dotnet/api/microsoft.azure.storage.blob.bloblistingdetails). Azure Storage incluye metadatos con cada contenedor que se devuelve, por lo que en este contexto no hay que llamar a uno de los métodos **FetchAttributes** para recuperar los metadatos del contenedor.
+
+### <a name="list-blob-versions-or-snapshots"></a>Enumeración de versiones o instantáneas de blob
+
+Para enumerar las versiones o instantáneas de blob con la biblioteca cliente de .NET versión 12, especifique el parámetro [BlobStates](/dotnet/api/azure.storage.blobs.models.blobstates) con el campo **Version** o **Snapshot**. Las instantáneas y las versiones aparecen ordenadas de más antigua a más reciente. Para obtener más información sobre la enumeración de versiones, consulte [Enumeración de versiones de blob](versioning-enable.md#list-blob-versions).
 
 ### <a name="flat-listing-versus-hierarchical-listing"></a>Lista plana frente a lista jerárquica
 
@@ -90,6 +90,10 @@ Si ha habilitado la característica de espacio de nombres jerárquico en su cuen
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_ListBlobsFlatListing":::
 
 # <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
+
+Si una operación de enumeración devuelve más de 5000 blobs, o si el número de blobs disponibles supera el número especificado, Azure Storage devuelve un *token de continuación* con la lista de blobs. Un token de continuación es un valor opaco que se puede usar para recuperar el siguiente conjunto de resultados de Azure Storage.
+
+En el código, compruebe el valor del token de continuación para determinar si es NULL. Cuando el token de continuación es NULL, el conjunto de resultados está completo. Si el token de continuación no es NULL, llame de nuevo a la operación de enumeración y pase el token de continuación para recuperar el siguiente conjunto de resultados, hasta que el token de continuación sea NULL.
 
 ```csharp
 private static async Task ListBlobsFlatListingAsync(CloudBlobContainer container, int? segmentSize)

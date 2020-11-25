@@ -4,12 +4,12 @@ description: Obtenga información sobre cómo solucionar problemas y resolver pr
 services: container-service
 ms.topic: troubleshooting
 ms.date: 06/20/2020
-ms.openlocfilehash: d15e381baf3abdb77f63b17cbd1d33b24f5d3321
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: aefb33325c1a5bf8e94d47106147d4c7c4f0f1ca
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93286767"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94684175"
 ---
 # <a name="aks-troubleshooting"></a>Solución de problemas de AKS
 
@@ -46,7 +46,7 @@ Los siguientes tres (3) casos provocan un error de tamaño de subred insuficien
    1. Si usa Kubenet, esto sucede cuando el `number of free IPs in the subnet` es **menor que** el `number of buffer nodes needed to upgrade`.
    1. Si usa Azure CNI, esto sucede cuando el `number of free IPs in the subnet` es **menor que** el `number of buffer nodes needed to upgrade times (*) the node pool's --max-pod value`.
    
-   De forma predeterminada, los clústeres de AKS establecen un valor de sobrecarga máxima (búfer de actualización) de uno (1), pero este comportamiento de actualización se puede personalizar si se establece el valor de [sobrecarga máxima de un grupo de nodos](upgrade-cluster.md#customize-node-surge-upgrade-preview) que aumentará el número de direcciones IP disponibles necesarias para completar una actualización.
+   De forma predeterminada, los clústeres de AKS establecen un valor de sobrecarga máxima (búfer de actualización) de uno (1), pero este comportamiento de actualización se puede personalizar si se establece el valor de [sobrecarga máxima de un grupo de nodos](upgrade-cluster.md#customize-node-surge-upgrade) que aumentará el número de direcciones IP disponibles necesarias para completar una actualización.
 
 1. Creación de AKS o adición de AKS Nodepool
    1. Si usa Kubenet, esto sucede cuando el `number of free IPs in the subnet` es **menor que** el `number of nodes requested for the node pool`.
@@ -86,13 +86,13 @@ AKS tiene planos de control de alta disponibilidad que se escalan verticalmente 
 
 Estos tiempos de espera pueden estar relacionados con el bloqueo del tráfico interno entre los nodos. Compruebe que no se está bloqueando este tráfico, por ejemplo mediante [grupos de seguridad de red](concepts-security.md#azure-network-security-groups) en la subred de los nodos del clúster.
 
-## <a name="im-trying-to-enable-role-based-access-control-rbac-on-an-existing-cluster-how-can-i-do-that"></a>Estoy intentando habilitar el control de acceso basado en rol (RBAC) en un clúster existente. ¿Cómo puedo hacerlo?
+## <a name="im-trying-to-enable-kubernetes-role-based-access-control-kubernetes-rbac-on-an-existing-cluster-how-can-i-do-that"></a>Estoy intentando habilitar el control de acceso basado en rol de Kubernetes (RBAC de Kubernetes) en un clúster existente. ¿Cómo puedo hacerlo?
 
-En este momento no se admite la habilitación del control de acceso basado en rol (RBAC) en clústeres existentes; se debe configurar al crear clústeres. RBAC está habilitado de forma predeterminada cuando se usa la CLI, el portal o una versión de API posterior a la `2020-03-01`.
+En este momento no se admite la habilitación del control de acceso basado en rol de Kubernetes (RBAC de Kubernetes) en clústeres existentes; se debe configurar al crear los clústeres. RBAC de Kubernetes está habilitado de manera predeterminada cuando se usa la CLI, el portal o una versión de API posterior a la `2020-03-01`.
 
-## <a name="i-created-a-cluster-with-rbac-enabled-and-now-i-see-many-warnings-on-the-kubernetes-dashboard-the-dashboard-used-to-work-without-any-warnings-what-should-i-do"></a>He creado un clúster con RBAC habilitado y ahora veo muchas advertencias en el panel de Kubernetes. El panel solía funcionar sin mostrar ninguna advertencia. ¿Cuál debo hacer?
+## <a name="i-created-a-cluster-with-kubernetes-rbac-enabled-and-now-i-see-many-warnings-on-the-kubernetes-dashboard-the-dashboard-used-to-work-without-any-warnings-what-should-i-do"></a>He creado un clúster con RBAC de Kubernetes habilitado y ahora veo muchas advertencias en el panel de Kubernetes. El panel solía funcionar sin mostrar ninguna advertencia. ¿Cuál debo hacer?
 
-El motivo de las advertencias es que el clúster tiene habilitado RBAC y el acceso al panel ahora está restringido de forma predeterminada. En general, este enfoque es recomendable, puesto que la exposición predeterminada del panel a todos los usuarios del clúster puede dar lugar a amenazas de seguridad. Si desea habilitar el panel, siga los pasos descritos en esta [entrada de blog](https://pascalnaber.wordpress.com/2018/06/17/access-dashboard-on-aks-with-rbac-enabled/).
+El motivo de las advertencias es que el clúster tiene habilitado RBAC de Kubernetes y el acceso al panel ahora está restringido de manera predeterminada. En general, este enfoque es recomendable, puesto que la exposición predeterminada del panel a todos los usuarios del clúster puede dar lugar a amenazas de seguridad. Si desea habilitar el panel, siga los pasos descritos en esta [entrada de blog](https://pascalnaber.wordpress.com/2018/06/17/access-dashboard-on-aks-with-rbac-enabled/).
 
 ## <a name="i-cant-get-logs-by-using-kubectl-logs-or-i-cant-connect-to-the-api-server-im-getting-error-from-server-error-dialing-backend-dial-tcp-what-should-i-do"></a>No logro obtener los registros mediante kubectl logs ni puedo conectarme al servidor de API. Recibo el mensaje "Error de servidor: error de marcado al back-end: marcar tcp…" ¿Cuál debo hacer?
 
@@ -157,7 +157,7 @@ Tanto AKS como la plataforma de Azure implementan las restricciones de nomenclat
 * El nombre del grupo de recursos *MC_* o del nodo de AKS combina el nombre del grupo de recursos y el nombre del recurso. La sintaxis generada automáticamente de `MC_resourceGroupName_resourceName_AzureRegion` no puede tener más de 80 caracteres. Si es necesario, disminuya la longitud del nombre del grupo de recursos o del nombre del clúster de AKS. También puede [personalizar el nombre del grupo de recursos del nodo](cluster-configuration.md#custom-resource-group-name).
 * *dnsPrefix* debe empezar y terminar con valores alfanuméricos, y debe tener entre 1 y 54 caracteres. Los caracteres válidos incluyen valores alfanuméricos y guiones (-). *dnsPrefix* no puede incluir caracteres especiales, como un punto (.).
 * Los nombres de grupo del nodo de AKS deben estar en minúsculas y tener entre 1 y 11 caracteres, en el caso de grupos de nodos de Linux, y entre 1 y 6 caracteres si son grupos de nodos de Windows. El nombre debe empezar por una letra y los únicos caracteres permitidos son letras y números.
-* El *admin-username* , que establece el nombre de usuario de administrador para los nodos de Linux, debe empezar con una letra, solo puede contener letras, números, guiones y caracteres de subrayado, y tiene una longitud máxima de 64 caracteres.
+* El *admin-username*, que establece el nombre de usuario de administrador para los nodos de Linux, debe empezar con una letra, solo puede contener letras, números, guiones y caracteres de subrayado, y tiene una longitud máxima de 64 caracteres.
 
 ## <a name="im-receiving-errors-when-trying-to-create-update-scale-delete-or-upgrade-cluster-that-operation-is-not-allowed-as-another-operation-is-in-progress"></a>Recibo errores cuando intento crear, actualizar, escalar, eliminar o actualizar un clúster, donde se indica que no se permite la operación porque hay otra en curso.
 
@@ -167,7 +167,7 @@ Las operaciones del clúster se limitan cuando todavía hay en curso una operaci
 
 En función de la salida del estado del clúster:
 
-* Si el clúster está en cualquier estado de aprovisionamiento distinto de *Succeeded* (Correcto) o *Failed* (Con errores), espere a que se termine la operación ( *actualización/creación/escalado/eliminación/migración* ). Cuando termine la operación anterior, vuelva a intentar la operación más reciente del clúster.
+* Si el clúster está en cualquier estado de aprovisionamiento distinto de *Succeeded* (Correcto) o *Failed* (Con errores), espere a que se termine la operación (*actualización/creación/escalado/eliminación/migración*). Cuando termine la operación anterior, vuelva a intentar la operación más reciente del clúster.
 
 * Si el clúster presenta errores de actualización, siga los pasos que se describen en [Recibo errores que indican que mi clúster presenta errores y que la actualización o el escalado no funcionarán hasta que se corrija](#im-receiving-errors-that-my-cluster-is-in-failed-state-and-upgrading-or-scaling-will-not-work-until-it-is-fixed).
 
@@ -365,7 +365,7 @@ Configuración recomendada:
 | 1.12.0 - 1.12.1 | 0755 |
 | 1.12.2 y versiones posteriores | 0777 |
 
-Las opciones de montaje se pueden especificar en el objeto de clase de almacenamiento. En el ejemplo siguiente se establece *0777* :
+Las opciones de montaje se pueden especificar en el objeto de clase de almacenamiento. En el ejemplo siguiente se establece *0777*:
 
 ```yaml
 kind: StorageClass
@@ -476,7 +476,7 @@ Este error se debe a una condición de carrera del escalador automático del cl�
 
 ### <a name="slow-disk-attachment-getazuredisklun-takes-10-to-15-minutes-and-you-receive-an-error"></a>Conexión lenta de disco, GetAzureDiskLun tarda entre 10 y 15 minutos y recibe un error.
 
-En las versiones de Kubernetes **anteriores a 1.15.0** , puede recibir un error similar a **Error: WaitForAttach no encuentra el LUN del disco**.  Para evitar este problema, espere unos 15 minutos y vuelva a intentarlo.
+En las versiones de Kubernetes **anteriores a 1.15.0**, puede recibir un error similar a **Error: WaitForAttach no encuentra el LUN del disco**.  Para evitar este problema, espere unos 15 minutos y vuelva a intentarlo.
 
 
 ### <a name="why-do-upgrades-to-kubernetes-116-fail-when-using-node-labels-with-a-kubernetesio-prefix"></a>¿Por qué se produce un error en las actualizaciones a Kubernetes 1.16 al usar etiquetas de nodo con un prefijo kubernetes.io?

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/31/2019
 ms.author: tomsh
-ms.openlocfilehash: 7b0ea9cc1788065a92e168e41a0c293bb1f4ea9b
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 9dcb1113bb37cb0f5f65c54ae9d6ca76a88330c1
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94409364"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94698672"
 ---
 # <a name="azure-operational-security-overview"></a>Información general sobre la seguridad operativa de Azure
 
@@ -87,7 +87,7 @@ Con Azure Active Directory, todas las aplicaciones que publica para sus asociado
 - Validación de cifrado de disco.
 - Ataques basados en la red.
 
-Security Center usa el [control de acceso basado en roles (RBAC de Azure)](../../role-based-access-control/role-assignments-portal.md). RBAC proporciona [roles integrados](../../role-based-access-control/built-in-roles.md) que se pueden asignar a usuarios, grupos y servicios de Azure.
+Security Center usa el [control de acceso basado en roles (RBAC de Azure)](../../role-based-access-control/role-assignments-portal.md). Azure RBAC proporciona [roles integrados](../../role-based-access-control/built-in-roles.md) que se pueden asignar a usuarios, grupos y servicios de Azure.
 
 Security Center evalúa la configuración de los recursos para identificar problemas de seguridad y vulnerabilidades. En Security Center, solo se muestra información relacionada con un recurso cuando tiene asignado el rol de propietario, colaborador o lector para la suscripción o grupo de recursos al que pertenece un recurso.
 

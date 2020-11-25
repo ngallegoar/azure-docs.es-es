@@ -2,14 +2,14 @@
 title: Preguntas más frecuentes
 description: En este artículo se ofrecen respuestas a algunas de las preguntas más frecuentes sobre Azure VMware Solution.
 ms.topic: conceptual
-ms.date: 09/25/2020
+ms.date: 11/12/2020
 ms.author: dikamath
-ms.openlocfilehash: 33250b0ba9209f7806346668dac0ef308101e7c2
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 2d71c30d2fb08629674c352ae812d8890463abfe
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94487799"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94695108"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution"></a>Preguntas frecuentes sobre Azure VMware Solution
 
@@ -229,9 +229,15 @@ Tendrá privilegios completos de administrador en NSX-T y podrá administrar el 
 
 Para ver las preguntas generales sobre los precios, consulte la página de [precios](https://azure.microsoft.com/pricing/details/azure-vmware) de Azure VMware Solution. 
 
+#### <a name="can-azure-vmware-solution-be-purchased-through-a-microsoft-csp"></a>¿Se puede adquirir Azure VMware Solution a través de un CSP de Microsoft?
+
+Sí, los clientes pueden implementar Azure VMware Solution en una suscripción de Azure administrada por un CSP.
+
 #### <a name="who-supports-azure-vmware-solution"></a>¿Quién proporciona el soporte técnico de Azure VMware Solution?
 
-Microsoft ofrece el soporte técnico para Azure VMware Solution. Puede enviar una [solicitud de soporte técnico](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Microsoft ofrece el soporte técnico para Azure VMware Solution. Puede enviar una [solicitud de soporte técnico](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). 
+
+En el caso de las suscripciones administradas por CSP, el proveedor de soluciones proporcionará el primer nivel de soporte técnico, como el proveedor de servicios criptográficos lo hace para otros servicios de Azure.
 
 #### <a name="what-accounts-do-i-need-to-create-an-azure-vmware-solution-private-cloud"></a>¿Qué cuentas necesito para crear una nube privada de Azure VMware Solution?
 
@@ -246,6 +252,10 @@ Microsoft y Red Hat comparten un equipo de soporte técnico integrado y coubicad
 VMware HCX Enterprise Edition (EE) está disponible con Azure VMware Solution, como una función o servicio en *versión preliminar*. Aunque VMware HCX EE para Azure VMware Solution esté en su versión preliminar, es una función o servicio gratuito y está sujeto a los términos y condiciones de los servicios de versión preliminar. Una vez que el servicio VMware HCX EE esté disponible de forma general, recibirá un aviso de 30 días de que la facturación cambiará. Puede desactivar o no participar en el servicio.
 
 #### <a name="how-do-i-request-a-host-quota-increase-for-azure-vmware-solution"></a>¿Cómo se solicita un aumento de la cuota de host para Azure VMware Solution?
+
+En el caso de las suscripciones administradas por CSP, el cliente debe realizar la solicitud al asociado y el equipo de asociados se comunicará con Microsoft para aumentar la cuota de la suscripción. Para más información, consulte el artículo [Habilitación del recurso de Azure VMware Solution](enable-azure-vmware-solution.md). 
+
+En el caso de las suscripciones de Contrato Enterprise, el cliente debe seguir este procedimiento.
 
 * Necesitará un [Contrato Enterprise (EA) de Azure](../cost-management-billing/manage/ea-portal-agreements.md) con Microsoft.
 * Necesitará una cuenta de Azure en una suscripción a Azure.
@@ -283,9 +293,16 @@ Antes de crear el recurso de Azure VMware Solution, debe enviar una incidencia d
 
    ```azurecli-interactive
    az provider register -n Microsoft.AVS --subscription <your subscription ID>
-   `"
 
-   For additional ways to register the resource provider, see [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md).
+   For additional ways to register the resource provider, see [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md). 
+
+#### Are Reserved Instances available for purchasing through the Cloud Solution Provider (CSP) program?
+
+Yes. CSP can purchase reserved instances on behalf of their customers, see [Save costs with a reserved instance](reserved-instance.md) article. 
+
+#### Does Azure VMware Solution offer multi-tenancy for hosting CSP partners?
+
+No. Currently Azure VMware Solution does not offer multi-tenancy.
 
 
 ## Customer communication

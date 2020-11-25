@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: terrylan
-ms.openlocfilehash: a26228b33a7d90df558de2ecdf4686910e606a54
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 526947c4d2db9fd87727fdd60c33bcaa9e75c6ff
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94413299"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94699872"
 ---
 # <a name="azure-network-security-overview"></a>Introducción a Azure Network Security
 
@@ -81,7 +81,7 @@ Más información:
 
 #### <a name="asc-just-in-time-vm-access"></a>Acceso ASC Just-In-Time a la máquina virtual
 
-[Azure Security Center](../../security-center/security-center-introduction.md) puede administrar los NSG en máquinas virtuales y bloquear el acceso a la máquina virtual hasta que un usuario con los permisos adecuados del control de acceso basado en rol [RBAC](../../role-based-access-control/overview.md) solicite acceso. Cuando el usuario está correctamente autorizado, ASC realiza modificaciones en los NSG para permitir el acceso a los puertos seleccionados durante el tiempo especificado. Cuando expira el tiempo, los NSG se restauran a su estado seguro anterior.
+[Azure Security Center](../../security-center/security-center-introduction.md) puede administrar los NSG en máquinas virtuales y bloquear el acceso a la máquina virtual hasta que un usuario con los permisos adecuados del control de acceso basado en rol de Azure ([Azure RBAC](../../role-based-access-control/overview.md)) solicite acceso. Cuando el usuario está correctamente autorizado, ASC realiza modificaciones en los NSG para permitir el acceso a los puertos seleccionados durante el tiempo especificado. Cuando expira el tiempo, los NSG se restauran a su estado seguro anterior.
 
 Más información:
 
@@ -315,7 +315,7 @@ Más información:
 ## <a name="azure-ddos-protection"></a>Azure DDoS Protection
 
 Los ataques por denegación de servicio distribuido (DDoS) son uno de los problemas de seguridad y disponibilidad más extendidos a los que se enfrentan los clientes que mueven sus aplicaciones a la nube. Un ataque DDoS intenta agotar los recursos de una aplicación haciendo que esta no esté disponible para los usuarios legítimos. Los ataques DDoS pueden ir dirigidos a cualquier punto de conexión que sea públicamente accesible a través de Internet.
-Microsoft proporciona protección contra DDoS conocida como **Básica** como parte de la plataforma Azure. No supone ningún costo adicional e incluye la supervisión siempre activada y la mitigación en tiempo real de ataques comunes de nivel de red. Además de las protecciones incluidas con la protección contra DDoS **Básica** , se puede habilitar la opción **Estándar**. Entre las características de Protección contra DDoS estándar se incluyen:
+Microsoft proporciona protección contra DDoS conocida como **Básica** como parte de la plataforma Azure. No supone ningún costo adicional e incluye la supervisión siempre activada y la mitigación en tiempo real de ataques comunes de nivel de red. Además de las protecciones incluidas con la protección contra DDoS **Básica**, se puede habilitar la opción **Estándar**. Entre las características de Protección contra DDoS estándar se incluyen:
 
 * **Integración de plataforma nativa:** integrado de forma nativa en Azure. Incluye la configuración a través de Azure Portal. Protección contra DDoS estándar comprende sus recursos y la configuración de recursos.
 * **Protección llave en mano:** la configuración simplificada protege de inmediato todos los recursos de una red virtual desde el momento en que se habilita DDoS Protection Estándar. No se requiere intervención ni definición del usuario. Protección contra DDoS estándar mitiga el ataque de forma instantánea y automática una vez detectado.

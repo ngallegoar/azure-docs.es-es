@@ -11,22 +11,22 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/27/2020
 ms.author: errobin
-ms.openlocfilehash: 2168ee05ab93655cc0ad87221bff29c1b6b1035d
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 63b91194c9ffb10fd8f4c5f1341eaf74bc81f5e1
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92897573"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94694888"
 ---
 # <a name="using-insights-to-monitor-and-configure-your-azure-load-balancer"></a>Uso de la información para supervisar y configurar Azure Load Balancer
 
-A través de [Azure Monitor para redes](https://docs.microsoft.com/azure/azure-monitor/insights/insights-overview#azure-monitor-for-networks-preview), se le proporcionan visualizaciones de dependencia funcional y el panel de métricas preconfigurado para las instancias de Load Balancer. Estos objetos visuales le ayudarán a tomar decisiones de diseño informadas y a localizar, diagnosticar y resolver errores rápidamente.
+A través de Azure Monitor para redes, se le proporcionan visualizaciones de dependencia funcional y el panel de métricas preconfigurado para las instancias de Load Balancer. Estos objetos visuales le ayudarán a tomar decisiones de diseño informadas y a localizar, diagnosticar y resolver errores rápidamente.
 
 >[!NOTE] 
 >Tenga en cuenta que esta característica está en versión preliminar y que la vista de dependencia funcional y el panel preconfigurado pueden cambiar para mejorar esta experiencia.
 
 >[!IMPORTANT]
->Standard Load Balancer es necesario para ver las métricas del espacio de nombres de Load Balancer en el panel de métricas preconfigurado. Podrá seguir viendo las métricas de los espacios de nombres de la máquina virtual, el conjunto de escalado de máquinas virtuales y Connection Monitor. No obstante, se recomienda la [actualización a Standard](https://docs.microsoft.com/azure/load-balancer/upgrade-basic-standard) para que las cargas de trabajo de producción aprovechen el sólido conjunto de métricas de Load Balancer.
+>Standard Load Balancer es necesario para ver las métricas del espacio de nombres de Load Balancer en el panel de métricas preconfigurado. Podrá seguir viendo las métricas de los espacios de nombres de la máquina virtual, el conjunto de escalado de máquinas virtuales y Connection Monitor. No obstante, se recomienda la [actualización a Standard](./upgrade-basic-standard.md) para que las cargas de trabajo de producción aprovechen el sólido conjunto de métricas de Load Balancer.
 
 ## <a name="functional-dependency-view"></a>Vista de dependencia funcional
 
@@ -40,7 +40,7 @@ En el caso de Standard Load Balancer, los recursos del grupo de back-end están 
 
 ## <a name="metrics-dashboard"></a>Panel de métricas
 
-En la hoja Insights de Load Balancer, puede seleccionar Métricas más detalladas para ver un [libro de Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview) preconfigurado que contiene objetos visuales de métricas relevantes para aspectos específicos de Load Balancer. Este panel mostrará el estado Load Balancer y los vínculos a la documentación correspondiente en la parte superior de la página.
+En la hoja Insights de Load Balancer, puede seleccionar Métricas más detalladas para ver un [libro de Azure Monitor](../azure-monitor/platform/workbooks-overview.md) preconfigurado que contiene objetos visuales de métricas relevantes para aspectos específicos de Load Balancer. Este panel mostrará el estado Load Balancer y los vínculos a la documentación correspondiente en la parte superior de la página.
 
 Al principio, se mostrará la pestaña Información general. Puede desplazarse por las pestañas disponibles, cada una de las cuales contiene objetos visuales relevantes para un aspecto específico de Load Balancer. Las instrucciones explícitas para cada una de ellas están disponibles en el panel en la parte inferior de cada pestaña.
 
@@ -68,16 +68,16 @@ La pestaña Rendimiento de los datos permite revisar el rendimiento de entrada y
 ### <a name="flow-distribution"></a>Distribución del flujo
 La pestaña Distribución del flujo le ayudará a visualizar y administrar el número de flujos que las instancias de back-end van a recibir y producir. Muestra la velocidad de creación de flujos y el número de flujos para el tráfico entrante y saliente, así como el tráfico de red que recibe cada máquina virtual y cada instancia del conjunto de escalado de máquinas virtuales. 
 
-Estas vistas pueden proporcionar comentarios sobre si la configuración de Load Balancer o los patrones de tráfico conducen a un tráfico desequilibrado. Por ejemplo, si tiene configurada la afinidad de la sesión y un solo cliente está realizando un número desproporcionado de solicitudes. También le indicará si se está aproximando al [límite de flujo por máquina virtual](https://docs.microsoft.com/azure/virtual-network/virtual-machine-network-throughput#flow-limits-and-recommendations) para el tamaño de la máquina.
+Estas vistas pueden proporcionar comentarios sobre si la configuración de Load Balancer o los patrones de tráfico conducen a un tráfico desequilibrado. Por ejemplo, si tiene configurada la afinidad de la sesión y un solo cliente está realizando un número desproporcionado de solicitudes. También le indicará si se está aproximando al [límite de flujo por máquina virtual](../virtual-network/virtual-machine-network-throughput.md#flow-limits-and-recommendations) para el tamaño de la máquina.
 
 ### <a name="connection-monitors"></a>Monitores de conexión
-La pestaña de instancias Connection Monitor le mostrará la latencia de recorrido de ida y vuelta en un mapa global para todas las instancias de [Connection Monitor](https://docs.microsoft.com/azure/network-watcher/connection-monitor) que ha configurado. Estos objetos visuales proporcionan información útil para los servicios con requisitos de latencia estrictos. Para satisfacer sus necesidades, puede que necesite agregar implementaciones regionales adicionales o cambiar a un modelo de [equilibrio de carga entre regiones](https://docs.microsoft.com/azure/load-balancer/cross-region-overview).
+La pestaña de instancias Connection Monitor le mostrará la latencia de recorrido de ida y vuelta en un mapa global para todas las instancias de [Connection Monitor](../network-watcher/connection-monitor.md) que ha configurado. Estos objetos visuales proporcionan información útil para los servicios con requisitos de latencia estrictos. Para satisfacer sus necesidades, puede que necesite agregar implementaciones regionales adicionales o cambiar a un modelo de [equilibrio de carga entre regiones](./cross-region-overview.md).
 
 ### <a name="metric-definitions"></a>Definiciones de métricas
-La pestaña Definiciones de métricas contiene toda la información que se muestra en el [artículo de métricas multidimensionales](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-diagnostics#multi-dimensional-metrics).
+La pestaña Definiciones de métricas contiene toda la información que se muestra en el [artículo de métricas multidimensionales](./load-balancer-standard-diagnostics.md#multi-dimensional-metrics).
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Revise el panel y proporcione comentarios mediante el siguiente vínculo si hay algo que se pueda mejorar.
-* [Revise la documentación de las métricas para asegurarse de que comprende cómo se calcula cada métrica](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-diagnostics#multi-dimensional-metrics).
-* [Cree instancias de Connection Monitor para Load Balancer](https://docs.microsoft.com/azure/network-watcher/connection-monitor).
-* [Cree sus propios libros](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview). Para ello, puede hacer clic en el botón Editar en el panel de métricas detalladas para inspirarse.
+* [Revise la documentación de las métricas para asegurarse de que comprende cómo se calcula cada métrica](./load-balancer-standard-diagnostics.md#multi-dimensional-metrics).
+* [Cree instancias de Connection Monitor para Load Balancer](../network-watcher/connection-monitor.md).
+* [Cree sus propios libros](../azure-monitor/platform/workbooks-overview.md). Para ello, puede hacer clic en el botón Editar en el panel de métricas detalladas para inspirarse.

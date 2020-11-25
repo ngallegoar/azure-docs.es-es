@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: e8eab3a1054541b1ef7fc6d2e65089f01f0df3c0
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: ad3980db6348867e92664e314326d23b4274abcc
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94517162"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701575"
 ---
 # <a name="design-secure-applications-on-azure"></a>Diseño de aplicaciones seguras en Azure
 En esta serie de artículos se presentan las actividades y controles de seguridad que hay que tener en cuenta al diseñar aplicaciones para la nube. Se abarcan los recursos de entrenamiento junto con los conceptos y preguntas de seguridad que se han de tener en cuenta durante las fases de diseño y requisitos del [ciclo de vida de desarrollo de seguridad (SDL)](/previous-versions/windows/desktop/cc307891(v=msdn.10)) de Microsoft. El objetivo es ayudarle a definir actividades y servicios de Azure que pueden usarse para diseñar una aplicación más segura.
@@ -217,7 +217,7 @@ Use los mecanismos de autenticación y autorización proporcionados en la plataf
 
 El concepto de [privilegios mínimos ](https://en.wikipedia.org/wiki/Principle_of_least_privilege) implica conceder a los usuarios el nivel preciso de acceso y control que necesitan para hacer su trabajo y nada más.
 
-¿Necesitará un desarrollador de software derechos de administrador de dominio? ¿Necesitará un auxiliar administrativo acceso a controles administrativos en su equipo personal? La evaluación del acceso al software de evaluación no es diferente. Si usa [control de acceso basado en rol (RBAC)](../../role-based-access-control/overview.md) para proporcionar a los usuarios distintas posibilidades y autoridad en la aplicación, no concede a todos los usuarios acceso a todo el contenido. Al limitar el acceso a lo que se requiere para cada rol, se limita el riesgo de que se produzca un problema de seguridad.
+¿Necesitará un desarrollador de software derechos de administrador de dominio? ¿Necesitará un auxiliar administrativo acceso a controles administrativos en su equipo personal? La evaluación del acceso al software de evaluación no es diferente. Si usa el [control de acceso basado en rol de Azure (Azure RBAC)](../../role-based-access-control/overview.md) para proporcionar a los usuarios distintas posibilidades y autoridad en la aplicación, no concede a todos los usuarios acceso a todo el contenido. Al limitar el acceso a lo que se requiere para cada rol, se limita el riesgo de que se produzca un problema de seguridad.
 
 Asegúrese de que la aplicación aplica [privilegios mínimos](/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models#in-applications) a lo largo de sus patrones de acceso.
 
@@ -233,7 +233,7 @@ Implemente acceso *Just-In-Time* (JIT) para reducir aún más el tiempo de expos
 
 ### <a name="require-re-authentication-for-important-transactions"></a>Exigencia de reautenticación con transacciones importantes
 
-La [falsificación de solicitud entre sitios](/aspnet/core/security/anti-request-forgery?view=aspnetcore-2.1) (también conocida como *XSRF* o *CSRF* ) es un ataque contra aplicaciones hospedadas en web, en el que una aplicación web malintencionada influye en la interacción entre un explorador cliente y una aplicación web que confía en ese explorador. Los ataques de falsificación de solicitud entre sitios son posibles porque los exploradores web envían automáticamente algunos tipos de token de autenticación con cada solicitud en un sitio web.
+La [falsificación de solicitud entre sitios](/aspnet/core/security/anti-request-forgery?view=aspnetcore-2.1) (también conocida como *XSRF* o *CSRF*) es un ataque contra aplicaciones hospedadas en web, en el que una aplicación web malintencionada influye en la interacción entre un explorador cliente y una aplicación web que confía en ese explorador. Los ataques de falsificación de solicitud entre sitios son posibles porque los exploradores web envían automáticamente algunos tipos de token de autenticación con cada solicitud en un sitio web.
 Esta forma de aprovechamiento también se conoce como *ataque con un clic* o *montaje en la sesión* porque el ataque aprovecha la sesión del usuario autenticada anteriormente.
 
 La mejor manera de defenderse contra este tipo de ataque es pedirle al usuario algo que solo él puede proporcionar antes de cada transacción importante, como una compra, la desactivación de la cuenta o un cambio de contraseña. Puede pedirle al usuario que vuelva a escribir su contraseña, rellene un captcha o envíe un token secreto que solo él pueda tener. El enfoque más común es el token secreto.
@@ -244,7 +244,7 @@ La pérdida de claves y credenciales es un problema común. mucho peor que perde
 
 Coloque siempre sus claves, certificados, secretos y cadenas de conexión en una solución de administración de claves. Puede usar una solución centralizada en la que las claves y los secretos se almacenen en módulos de seguridad de hardware (HSM). Azure ofrece un HSM en la nube con [Azure Key Vault](../../key-vault/general/overview.md).
 
-Key Vault es un *almacén de secretos* : se trata de un servicio centralizado en la nube para el almacenamiento de secretos de aplicación. Key Vault mantiene los secretos de aplicación en una única ubicación centralizada y proporciona acceso seguro, control de permisos y registro de acceso para proteger sus datos confidenciales.
+Key Vault es un *almacén de secretos*: se trata de un servicio centralizado en la nube para el almacenamiento de secretos de aplicación. Key Vault mantiene los secretos de aplicación en una única ubicación centralizada y proporciona acceso seguro, control de permisos y registro de acceso para proteger sus datos confidenciales.
 
 Los secretos se almacenan en *almacenes* individuales. Cada almacén tiene sus propias directivas de configuración y seguridad para controlar el acceso. Los datos se obtienen a través de una API REST o un SDK que está disponible para la mayoría de lenguajes de programación de cliente.
 

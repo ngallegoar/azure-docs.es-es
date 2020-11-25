@@ -12,11 +12,11 @@ ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-csharp
 ms.openlocfilehash: b83a8bfbc79af344c4d158ee65134034db714e9c
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92783970"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008912"
 ---
 # <a name="managing-concurrency-in-microsoft-azure-storage"></a>Administración de la simultaneidad en Almacenamiento de Microsoft Azure
 
@@ -85,7 +85,7 @@ catch (StorageException ex)
 }
 ```
 
-Azure Storage también incluye compatibilidad con encabezados condicionales como **If-Modified-Since** , **If-Unmodified-Since** y **If-None-Match** , además de combinaciones de dichos encabezados. Para obtener más información, consulte [Especificación de encabezados condicionales para las operaciones de Blob Service](/rest/api/storageservices/Specifying-Conditional-Headers-for-Blob-Service-Operations).
+Azure Storage también incluye compatibilidad con encabezados condicionales como **If-Modified-Since**, **If-Unmodified-Since** y **If-None-Match**, además de combinaciones de dichos encabezados. Para obtener más información, consulte [Especificación de encabezados condicionales para las operaciones de Blob Service](/rest/api/storageservices/Specifying-Conditional-Headers-for-Blob-Service-Operations).
 
 En la siguiente tabla se resumen las operaciones de contenedor que aceptan encabezados condicionales como **If-Match** en la solicitud y que devuelven un valor ETag en la respuesta.
 
@@ -130,7 +130,7 @@ En la siguiente tabla, se resumen las operaciones de blob que aceptan encabezado
 
 Para bloquear un blob para uso exclusivo, puede adquirir una [concesión](/rest/api/storageservices/Lease-Blob) en él. Al adquirir una concesión, debe especificar un período de tiempo para la misma. El período de tiempo oscila entre 15 y 60 segundos o infinito, lo que equivale a un bloqueo exclusivo. Renueve una concesión finita para ampliarla. Libere una concesión cuando haya terminado con ella. Blob Storage libera automáticamente concesiones finitas cuando expiran.
 
-Las concesiones permiten que se admitan diferentes estrategias de sincronización. Entre las estrategias se incluyen *escritura exclusiva/lectura compartida* , *escritura exclusiva/lectura exclusiva* y  *escritura compartida/lectura exclusiva*. Donde existe una concesión, Azure Storage impone escrituras exclusivas (operaciones poner, establecer y eliminar) garantizando, sin embargo, que la exclusividad para operaciones de lectura requiere que el desarrollador garantice que todas las aplicaciones cliente usan un identificador de concesión y que solamente un cliente tiene un identificador de concesión válido en cada momento. Las operaciones de lectura que no incluyen un identificador de concesión, dan lugar a lecturas compartidas.
+Las concesiones permiten que se admitan diferentes estrategias de sincronización. Entre las estrategias se incluyen *escritura exclusiva/lectura compartida*, *escritura exclusiva/lectura exclusiva* y  *escritura compartida/lectura exclusiva*. Donde existe una concesión, Azure Storage impone escrituras exclusivas (operaciones poner, establecer y eliminar) garantizando, sin embargo, que la exclusividad para operaciones de lectura requiere que el desarrollador garantice que todas las aplicaciones cliente usan un identificador de concesión y que solamente un cliente tiene un identificador de concesión válido en cada momento. Las operaciones de lectura que no incluyen un identificador de concesión, dan lugar a lecturas compartidas.
 
 En el siguiente fragmento de código de C# se muestra un ejemplo de adquisición de una concesión exclusiva durante 30 segundos en un blob, actualizando el contenido de dicho blob y, a continuación, liberando la concesión. Si ya hay una concesión válida en el blob cuando intenta adquirir una nueva concesión, la instancia de Blob service devuelve un resultado de estado "HTTP (409) Conflicto". El fragmento de código siguiente usa un objeto **AccessCondition** para encapsular la información de concesión cuando crea una solicitud para actualizar el blob en el servicio de almacenamiento.  Puede descargar aquí el ejemplo completo: [Administración de simultaneidad con Almacenamiento de Azure](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114).
 
@@ -161,7 +161,7 @@ catch (StorageException ex)
 }
 ```
 
-Si intenta una operación de escritura en un blob concedido sin pasar el identificador de concesión, la solicitud no se puede realizar y muestra el error 412. Si la concesión espira antes de llamar al método **UploadText** , pero sigue pasando el identificador de concesión, la solicitud tampoco se podrá realizar y mostrará el error **412**. Para más información acerca de la administración de tiempos de expiración de la concesión y de identificadores de concesión, vea la documentación de REST de [Lease Blob](/rest/api/storageservices/Lease-Blob) .
+Si intenta una operación de escritura en un blob concedido sin pasar el identificador de concesión, la solicitud no se puede realizar y muestra el error 412. Si la concesión espira antes de llamar al método **UploadText**, pero sigue pasando el identificador de concesión, la solicitud tampoco se podrá realizar y mostrará el error **412**. Para más información acerca de la administración de tiempos de expiración de la concesión y de identificadores de concesión, vea la documentación de REST de [Lease Blob](/rest/api/storageservices/Lease-Blob) .
 
 Las siguientes operaciones de blob pueden usar concesiones para administrar simultaneidad pesimista:
 
@@ -184,7 +184,7 @@ Las siguientes operaciones de blob pueden usar concesiones para administrar simu
 
 ### <a name="pessimistic-concurrency-for-containers"></a>Simultaneidad pesimista para contenedores
 
-Las concesiones en contenedores permiten las mismas estrategias de sincronización que en blob ( *escritura exclusiva/lectura compartida* , *escritura exclusiva/lectura exclusiva* y *escritura compartida/lectura exclusiva* ). Sin embargo, a diferencia de los blobs, el servicio de almacenamiento solamente impone exclusividad en operaciones de eliminación. Para eliminar un contenedor con una concesión activa, un cliente debe incluir el identificador de concesión activo con la solicitud de eliminación. El resto de operaciones de contenedor se realizan correctamente en un contenedor concedido sin incluir el identificador de concesión, en cuyo caso son operaciones compartidas. Si la exclusividad de la actualización (poner o establecer) o las operaciones de lectura son obligatorias, entonces los desarrolladores deben garantizar que todos los clientes usan un identificador de concesión y que solamente un cliente tiene un identificador de concesión válido en cada momento.
+Las concesiones en contenedores permiten las mismas estrategias de sincronización que en blob (*escritura exclusiva/lectura compartida*, *escritura exclusiva/lectura exclusiva* y *escritura compartida/lectura exclusiva*). Sin embargo, a diferencia de los blobs, el servicio de almacenamiento solamente impone exclusividad en operaciones de eliminación. Para eliminar un contenedor con una concesión activa, un cliente debe incluir el identificador de concesión activo con la solicitud de eliminación. El resto de operaciones de contenedor se realizan correctamente en un contenedor concedido sin incluir el identificador de concesión, en cuyo caso son operaciones compartidas. Si la exclusividad de la actualización (poner o establecer) o las operaciones de lectura son obligatorias, entonces los desarrolladores deben garantizar que todos los clientes usan un identificador de concesión y que solamente un cliente tiene un identificador de concesión válido en cada momento.
 
 Las siguientes operaciones de contenedor pueden usar concesiones para administrar simultaneidad pesimista:
 

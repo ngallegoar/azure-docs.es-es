@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 10/09/2019
 ms.author: dastrebe
 zone_pivot_groups: client-operating-system
-ms.openlocfilehash: 2f47ded22209a9d53510c7d0a2f8270096161354
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7c5ad53c0040009e9ed1f28072540b46ce7b0b9a
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86244144"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94683926"
 ---
 # <a name="install-and-use-consul-in-azure-kubernetes-service-aks"></a>Instalación y uso de Consul en Azure Kubernetes Service (AKS)
 
@@ -33,7 +33,7 @@ En este artículo aprenderá a:
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-En los pasos detallados en este artículo se da por hecho que ha creado un clúster de AKS (Kubernetes `1.13` y versiones posteriores, con RBAC habilitado) y que ha establecido una conexión `kubectl` con el clúster. Si necesita ayuda con cualquiera de estos elementos, consulte el [inicio rápido de AKS][aks-quickstart]. Asegúrese de que el clúster tiene al menos tres nodos en el grupo de nodos de Linux.
+En los pasos detallados en este artículo se da por hecho que creó un clúster de AKS (Kubernetes `1.13` y versiones posteriores, con RBAC de Kubernetes habilitado) y que estableció una conexión `kubectl` con el clúster. Si necesita ayuda con cualquiera de estos elementos, consulte el [inicio rápido de AKS][aks-quickstart]. Asegúrese de que el clúster tiene al menos tres nodos en el grupo de nodos de Linux.
 
 Necesitará [Helm][helm] para seguir estas instrucciones e instalar Consul. Es recomendable que tenga la versión estable más reciente correctamente instalada y configurada en el clúster. Si necesita ayuda con la instalación de Helm, consulte las [instrucciones de instalación de Helm para AKS][helm-install]. Todos los pods de Consul también deben programarse para ejecutarse en nodos de Linux.
 
