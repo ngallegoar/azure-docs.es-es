@@ -1,5 +1,5 @@
 ---
-title: 'Incorporación de una cuadrícula a la interfaz de usuario de la solución de supervisión remota: Azure | Microsoft Docs'
+title: 'Adición de una cuadrícula a la interfaz de usuario de la solución de supervisión remota: Azure | Microsoft Docs'
 description: En este artículo se muestra cómo agregar una nueva cuadrícula en una pagina de la interfaz de usuario web del acelerador de soluciones de supervisión remota.
 author: dominicbetts
 manager: timlt
@@ -10,11 +10,11 @@ ms.date: 10/04/2018
 ms.topic: conceptual
 ms.custom: devx-track-js
 ms.openlocfilehash: 7fc878e0c9e099b201264c1c3981c603668214d3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91318388"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017770"
 ---
 # <a name="add-a-custom-grid-to-the-remote-monitoring-solution-accelerator-web-ui"></a>Adición de una cuadrícula personalizada a la interfaz de usuario web del acelerador de soluciones de supervisión remota
 

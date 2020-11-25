@@ -9,11 +9,11 @@ manager: gwallace
 description: Aprenda a configurar la integración y la implementación continuas mediante Azure DevOps con Azure Dev Spaces
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, contenedores
 ms.openlocfilehash: de409aa060034c9ba0faaaa56ce21f904b02cdac
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91960395"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017787"
 ---
 # <a name="use-cicd-with-azure-dev-spaces"></a>Uso de CI/CD con Azure Dev Spaces
 
@@ -68,7 +68,7 @@ La opción para deshabilitar:
 ![Opción Nueva experiencia de creación de canalizaciones de YAML](../media/common/yaml-pipeline-preview-feature.png)
 
 > [!Note]
-> La característica en versión preliminar _Nueva experiencia de creación de canalizaciones de YAML_de Azure DevOps entra en conflicto con la creación de canalizaciones de compilación predefinidas en este momento. Debe deshabilitarla por ahora para implementar nuestra canalización de compilación predefinida.
+> La característica en versión preliminar _Nueva experiencia de creación de canalizaciones de YAML_ de Azure DevOps entra en conflicto con la creación de canalizaciones de compilación predefinidas en este momento. Debe deshabilitarla por ahora para implementar nuestra canalización de compilación predefinida.
 
 En la rama _azds_updates_ hemos incluido una sencilla instancia de [YAML de canalización de Azure](/azure/devops/pipelines/yaml-schema?view=vsts&tabs=schema) que define los pasos de compilación necesarios para *mywebapi* y *webfrontend*.
 
