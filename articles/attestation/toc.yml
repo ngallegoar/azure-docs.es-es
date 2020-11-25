@@ -35,6 +35,8 @@
           href: claim-sets.md
     - name: Flujo de trabajo
       href: workflow.md
+    - name: Visualización de registros de auditoría
+      href: audit-logs.md
 - name: Referencias
   items:
     - name: Preguntas más frecuentes

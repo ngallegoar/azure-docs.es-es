@@ -255,7 +255,7 @@
           href: connector-azure-databricks-delta-lake.md
         - name: Azure File Storage
           href: connector-azure-file-storage.md
-        - name: Azure SQL Database
+        - name: "Azure\_SQL\_Database"
           href: connector-azure-sql-database.md
         - name: Instancia administrada de Azure SQL
           href: connector-azure-sql-managed-instance.md
@@ -752,6 +752,8 @@
           href: connector-troubleshoot-guide.md
         - name: Flujos de datos
           href: data-flow-troubleshoot-guide.md
+        - name: Seguridad y control de acceso
+          href: security-and-access-control-troubleshoot-guide.md
         - name: Entornos de ejecución de integración autohospedados
           href: self-hosted-integration-runtime-troubleshoot-guide.md
         - name: Integration Runtime de SSIS de Azure

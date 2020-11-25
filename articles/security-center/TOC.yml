@@ -278,8 +278,6 @@
       items:
         - name: Preguntas generales
           href: faq-general.md
-        - name: Preguntas sobre facturación
-          href: faq-billing.md
         - name: Preguntas sobre permisos
           href: faq-permissions.md
         - name: Preguntas sobre agentes y recopilación de datos
