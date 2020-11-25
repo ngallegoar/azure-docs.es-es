@@ -4,11 +4,11 @@ description: En este artículo se proporciona información sobre cómo agregar e
 ms.topic: article
 ms.date: 07/29/2020
 ms.openlocfilehash: 029338e3835d03b1a66ff6629e872c84113b0ff2
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427207"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96015592"
 ---
 # <a name="allow-access-to-azure-event-hubs-namespaces-from-specific-virtual-networks"></a>Permitir el acceso al espacio de nombres de Event Hubs desde redes virtuales específicas 
 

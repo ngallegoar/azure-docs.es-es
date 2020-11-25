@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/06/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 0d5947f669b600b544cd7e5265e2cce8de118374
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1af80f208c72af9434d596f2c1219c08c0e3f719
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82789013"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016010"
 ---
 ## <a name="create-an-image-gallery"></a>Creación de una galería de imágenes
 
@@ -35,7 +35,7 @@ En el ejemplo siguiente se crea una galería denominada *myGallery* en el grupo 
 
 ## <a name="create-an-image-definition"></a>Creación de la definición de una imagen 
 
-Las definiciones de imagen crean una agrupación lógica de imágenes. Estas se usan para administrar la información sobre las versiones de la imagen que se crean dentro de ellas. Los nombres de las definiciones de imagen pueden estar formados por letras mayúsculas o minúsculas, números, puntos y guiones. Para más información sobre los valores que se pueden especificar para una definición de imagen, consulte [Definiciones de imagen](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries#image-definitions).
+Las definiciones de imagen crean una agrupación lógica de imágenes. Estas se usan para administrar la información sobre las versiones de la imagen que se crean dentro de ellas. Los nombres de las definiciones de imagen pueden estar formados por letras mayúsculas o minúsculas, números, puntos y guiones. Para más información sobre los valores que se pueden especificar para una definición de imagen, consulte [Definiciones de imagen](../articles/virtual-machines/windows/shared-image-galleries.md#image-definitions).
 
 Cree la definición de imagen de la galería dentro de la galería. En este ejemplo, la imagen de la galería se denomina *myImageDefinition*.
 
@@ -43,7 +43,7 @@ Cree la definición de imagen de la galería dentro de la galería. En este ejem
 1. En **Agregar nueva definición de imagen a la galería de imágenes compartidas**, en **Región**, seleccione *Este de EE. UU.* .
 1. En **Nombre de definición de la imagen**, escriba *myImageDefinition*.
 1. En **Sistema operativo**, seleccione la opción correcta en función de la VM de origen.  
-1. En **Generación de VM**, seleccione la opción en función de la VM de origen. En la mayoría de los casos, será *Gen 1*. Para obtener más información, consulte [Compatibilidad para máquinas virtuales de generación 2 en Azure](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2).
+1. En **Generación de VM**, seleccione la opción en función de la VM de origen. En la mayoría de los casos, será *Gen 1*. Para obtener más información, consulte [Compatibilidad para máquinas virtuales de generación 2 en Azure](../articles/virtual-machines/generation-2.md).
 1. En **Estado del sistema operativo**, seleccione la opción en función de la VM de origen. Para más información, consulte [Generalizada o Especializada](../articles/virtual-machines/linux/shared-image-galleries.md#generalized-and-specialized-images).
 1. En **Publicador**, escriba *myPublisher*. 
 1. En **Oferta**, escriba *myOffer*.
@@ -81,7 +81,7 @@ La imagen puede tardar un rato en replicarse en todas las regiones de destino.
 1. En la página de la definición de imagen, seleccione **Agregar versión** en la parte superior de la página.
 1. En **Región**, seleccione la región en la que se almacenará la instantánea. Las versiones de imagen deben crearse en la misma región que el origen a partir del que se crean.
 1. En **Nombre**, escriba *1.0.0*. El nombre de la versión de la imagen debe seguir el formato *principal*. *secundaria*. *revisión* con números enteros. 
-1. En **Instantánea del disco del sistema operativo**, seleccione la instantánea de la VM de origen en la lista desplegable. Si la VM de origen tenía un disco de datos que quiere incluir, seleccione el número de **LUN**correcto de la lista desplegable y luego seleccione la instantánea del disco de datos en **Instantánea del disco de datos**. 
+1. En **Instantánea del disco del sistema operativo**, seleccione la instantánea de la VM de origen en la lista desplegable. Si la VM de origen tenía un disco de datos que quiere incluir, seleccione el número de **LUN** correcto de la lista desplegable y luego seleccione la instantánea del disco de datos en **Instantánea del disco de datos**. 
 1. En **Excluir de las últimas**, deje el valor predeterminado de *No*.
 1. En **End of life date** (Fecha del final de la duración), seleccione una fecha del calendario que sea un par de meses en el futuro.
 1. En **Replicación**, deje **Número de réplicas predeterminado** en 1. Como debe replicar en la región de origen, deje la primera réplica como predeterminada y, luego, elija una segunda región de réplica, en este caso *Este de EE. UU.* .
@@ -104,4 +104,3 @@ Se recomienda compartir el acceso en el nivel de la galería de imágenes. Los s
 1. Si el usuario está fuera de su organización, verá el mensaje **This user will be sent an email that enables them to collaborate with Microsoft** (A este usuario se le enviará un correo electrónico que le permite colaborar con Microsoft). Seleccione el usuario con la dirección de correo electrónico y, luego, haga clic en **Guardar**.
 
 Si el usuario está fuera de su organización, recibirá una invitación por correo electrónico para unirse a ella. Debe aceptarla para ver la galería y todas las definiciones y versiones de imágenes de su lista de recursos.
-

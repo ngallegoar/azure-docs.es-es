@@ -11,11 +11,11 @@ ms.date: 10/14/2019
 ms.author: haroldw
 ms.custom: devx-track-ansible, devx-track-azurecli
 ms.openlocfilehash: dd967ad08b628f9073edfe548033f7e97845d047
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92735118"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016070"
 ---
 # <a name="post-deployment-tasks"></a>Tareas posteriores a la implementación
 
@@ -70,11 +70,11 @@ Tome nota de la propiedad appId que ha devuelto el comando para otro paso.
 
 En Azure Portal:
 
-1. Seleccione **Azure Active Directory** > **Registro de aplicaciones** .
+1. Seleccione **Azure Active Directory** > **Registro de aplicaciones**.
 2. Busque el registro de su aplicación (p. ej.: OCPAzureAD).
 3. En los resultados, haga clic en el registro de aplicación.
-4. En **Configuración** , seleccione **Permisos necesarios** .
-5. En **Permisos necesarios** , seleccione **Agregar** .
+4. En **Configuración**, seleccione **Permisos necesarios**.
+5. En **Permisos necesarios**, seleccione **Agregar**.
 
    ![Registro de aplicaciones](media/openshift-post-deployment/app-registration.png)
 
@@ -82,11 +82,11 @@ En Azure Portal:
 
    ![Selección de API del registro de aplicaciones](media/openshift-post-deployment/app-registration-select-api.png)
 
-7. En el paso 2: seleccione permisos, seleccione **Iniciar sesión y leer el perfil del usuario** , en **Permisos delegados** , y haga clic en **Seleccionar** .
+7. En el paso 2: seleccione permisos, seleccione **Iniciar sesión y leer el perfil del usuario**, en **Permisos delegados**, y haga clic en **Seleccionar**.
 
    ![Acceso al registro de aplicaciones](media/openshift-post-deployment/app-registration-access.png)
 
-8. Seleccione **Listo** .
+8. Seleccione **Listo**.
 
 ### <a name="configure-openshift-for-azure-ad-authentication"></a>Configuración de OpenShift para la autenticación de Azure AD
 

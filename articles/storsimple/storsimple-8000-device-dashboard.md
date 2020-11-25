@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 93d230656fd7ef34e76a143fb3186d23f8d3afed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 34bbf4d723e46663efe77560245db74d9dea1fc4
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91766242"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017158"
 ---
 # <a name="use-the-device-summary-in-storsimple-device-manager-service"></a>Uso del resumen del dispositivo del servicio StorSimple Device Manager
 
@@ -81,7 +81,7 @@ El área de información esencial captura algunas de las propiedades importantes
      En este contexto, *almacenamiento principal* hace referencia a la cantidad total de los datos escritos por el host y se puede desglosar por tipo de volumen: el *almacenamiento principal en capas* incluye los datos almacenados localmente y en capas en la nube. El *almacenamiento principal anclado localmente* incluye solo los datos almacenados localmente. Por otro lado, *almacenamiento en la nube* es una medición de la cantidad total de datos almacenados en la nube. Este almacenamiento incluye las copias de seguridad y los datos en niveles. Los datos almacenados en la nube están desduplicados y comprimidos, mientras que el almacenamiento principal indica la cantidad de almacenamiento usado antes de que los datos estén desduplicados y comprimidos. (Puede comparar estos dos números para hacerse una idea de la tasa de compresión). Para el almacenamiento principal y en la nube, las cantidades mostradas se basan en la frecuencia de seguimiento que configure. Por ejemplo, si elige una frecuencia de una semana, el gráfico mostrará datos para cada día de la semana anterior.
 
      Para ver la cantidad de almacenamiento en la nube consumido en el tiempo, seleccione la opción **ALMACENAMIENTO EN LA NUBE USADO** . Para ver el almacenamiento total escrito por el host, seleccione las opciones **PRIMARY TIERED STORAGE USED** (Almacenamiento en capas principal usado) y **PRIMARY LOCALLY PINNED STORAGE USED** (Almacenamiento principal anclado localmente usado). 
-     Para más información, consulte [Uso del servicio StorSimple Device Manager para supervisar su dispositivo StorSimple](storsimple-monitor-device.md).
+     Para más información, consulte [Uso del servicio StorSimple Device Manager para supervisar su dispositivo StorSimple](./storsimple-8000-monitor-device.md).
 
 
 * El icono **Capacidad** muestra el almacenamiento principal que está aprovisionado y el almacenamiento restante que queda en el dispositivo, en relación con el almacenamiento total disponible para él. **Aprovisionado** hace referencia a la cantidad de almacenamiento que está preparada y asignada para su uso. **Restante** hace referencia a la capacidad restante que se puede aprovisionar en este dispositivo. 
@@ -96,4 +96,3 @@ El área de información esencial captura algunas de las propiedades importantes
 ## <a name="next-steps"></a>Pasos siguientes
 * Más información sobre la [hoja de resumen del servicio StorSimple](storsimple-8000-service-dashboard.md).
 * Obtenga más información sobre el [uso del servicio Administrador de dispositivos de StorSimple para administrar el dispositivo StorSimple](storsimple-8000-manager-service-administration.md).
-

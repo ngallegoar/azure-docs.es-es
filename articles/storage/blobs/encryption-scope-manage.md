@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 9210c54305427c82d5666d68573fd3af41e8cef7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e77b58f7741af42f00b2a1831157405b12fa24ff
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90972196"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017413"
 ---
 # <a name="create-and-manage-encryption-scopes-preview"></a>Creación y administración de ámbitos de cifrado (versión preliminar)
 
@@ -179,7 +179,7 @@ Para información sobre cómo configurar el cifrado de Azure Storage con las cla
 
 Para ver los ámbitos de cifrado de una cuenta de almacenamiento en Azure Portal, vaya a la opción **Ámbitos de cifrado** de la cuenta de almacenamiento. En este panel, se puede habilitar un ámbito de cifrado, deshabilitarlo o cambiarle la clave.
 
-:::image type="content" source="media/encryption-scope-manage/list-encryption-scopes-portal.png" alt-text="Captura de pantalla en la que se muestra cómo crear un ámbito de cifrado en Azure Portal":::
+:::image type="content" source="media/encryption-scope-manage/list-encryption-scopes-portal.png" alt-text="Captura de pantalla en la que se muestra una lista de ámbitos de cifrado en Azure Portal":::
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
@@ -223,7 +223,7 @@ Para crear un contenedor con un ámbito de cifrado predeterminado en Azure Porta
 1. En la lista desplegable **Ámbito de cifrado**, seleccione el ámbito de cifrado predeterminado para el contenedor.
 1. Para requerir que todos los blobs del contenedor usen el ámbito de cifrado predeterminado, seleccione la casilla para **Usar este ámbito de cifrado para todos los blobs del contenedor**. Si esta casilla está seleccionada, un blob individual del contenedor no podrá invalidar el ámbito de cifrado predeterminado.
 
-    :::image type="content" source="media/encryption-scope-manage/create-container-default-encryption-scope.png" alt-text="Captura de pantalla en la que se muestra cómo crear un ámbito de cifrado en Azure Portal":::
+    :::image type="content" source="media/encryption-scope-manage/create-container-default-encryption-scope.png" alt-text="Captura de pantalla en la que se muestra el contenedor con el ámbito de cifrado predeterminado":::
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
@@ -247,7 +247,7 @@ New-AzRmStorageContainer -ResourceGroupName $rgName `
 
 Para crear un contenedor con un ámbito de cifrado predeterminado mediante la CLI de Azure, llame al comando [az storage container create](/cli/azure/storage/container#az-storage-container-create) y especifique el ámbito del parámetro `--default-encryption-scope`. Para forzar a todos los blobs de un contenedor a usar el ámbito predeterminado del contenedor, establezca el parámetro `--prevent-encryption-scope-override` en `true`.
 
-En el ejemplo siguiente se usa la cuenta de Azure AD para autorizar la operación de creación del contenedor. También se puede usar la clave de acceso de la cuenta. Para más información, consulte el artículo en el que se explica cómo [autorizar el acceso a los datos de blobs o colas con la CLI de Azure](../common/authorize-data-operations-cli.md).
+En el ejemplo siguiente se usa la cuenta de Azure AD para autorizar la operación de creación del contenedor. También se puede usar la clave de acceso de la cuenta. Para más información, consulte el artículo en el que se explica cómo [autorizar el acceso a los datos de blobs o colas con la CLI de Azure](./authorize-data-operations-cli.md).
 
 ```azurecli-interactive
 az storage container create \
@@ -277,7 +277,7 @@ Para cargar un blob con un ámbito de cifrado especificado en Azure Portal, prim
 1. Busque la sección desplegable **Ámbito de cifrado**. De forma predeterminada, el blob se crea con el ámbito de cifrado predeterminado para el contenedor, si se ha especificado uno. Si el contenedor requiere que los blobs usen el ámbito de cifrado predeterminado, esta sección está deshabilitada.
 1. A fin de especificar un ámbito diferente para el blob que se está cargando, seleccione **Elegir un ámbito existente** y, luego, el ámbito que quiera en la lista desplegable.
 
-    :::image type="content" source="media/encryption-scope-manage/upload-blob-encryption-scope.png" alt-text="Captura de pantalla en la que se muestra cómo crear un ámbito de cifrado en Azure Portal":::
+    :::image type="content" source="media/encryption-scope-manage/upload-blob-encryption-scope.png" alt-text="Captura de pantalla en la que se muestra cómo cargar un blob con un ámbito de cifrado":::
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 

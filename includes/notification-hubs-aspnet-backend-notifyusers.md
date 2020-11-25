@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/11/2019
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 3db9811322d27ab287fa568eeeffcb5f4d57bdf7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6f490b6f25112ed8a10bbd865070bd07ea3ee84f
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86530186"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016967"
 ---
 ## <a name="create-the-webapi-project"></a>Creación del proyecto de API web
 
@@ -50,7 +50,7 @@ Realice las siguientes acciones para crear el nuevo back-end de ASP.NET WebAPI:
 
     ![Ventana New ASP.NET Project (Nuevo proyecto de ASP.NET)][B2]
 
-7. En la ventana **Configurar aplicación web de Microsoft Azure**, seleccione una suscripción y, en la lista**Plan de App Service**, realice una de las siguientes acciones:
+7. En la ventana **Configurar aplicación web de Microsoft Azure**, seleccione una suscripción y, en la lista **Plan de App Service**, realice una de las siguientes acciones:
 
     * Seleccione un plan de App Service creado.
     * Seleccione **Crear un nuevo plan de App Service** para crear uno.
@@ -63,7 +63,7 @@ Realice las siguientes acciones para crear el nuevo back-end de ASP.NET WebAPI:
 
 ## <a name="authenticate-clients-to-the-webapi-backend"></a>Autenticar clientes en el back-end de WebAPI
 
-En esta sección se crea una clase de controlador de mensajes llamada **AuthenticationTestHandler** para el nuevo back-end. Esta clase deriva de [DelegatingHandler](https://msdn.microsoft.com/library/system.net.http.delegatinghandler.aspx) y se agrega como controlador de mensajes para que procese todas las solicitudes que lleguen al back-end.
+En esta sección se crea una clase de controlador de mensajes llamada **AuthenticationTestHandler** para el nuevo back-end. Esta clase deriva de [DelegatingHandler](/previous-versions/visualstudio/hh193679(v=vs.118)) y se agrega como controlador de mensajes para que procese todas las solicitudes que lleguen al back-end.
 
 1. En el Explorador de soluciones, haga clic con el botón derecho en el proyecto **AppBackend**, y seleccione **Agregar** y **Clase**.
 2. Asigne a la nueva clase el nombre **AuthenticationTestHandler.cs** y seleccione **Agregar** para generar la clase. Para simplificar, esta clase autentica a los usuarios con *Autenticación básica*. La aplicación puede utilizar cualquier esquema de autenticación.
@@ -88,7 +88,7 @@ En esta sección se crea una clase de controlador de mensajes llamada **Authenti
 
    En caso contrario, la solicitud se rechaza. Esta autenticación no es un enfoque de autorización y autenticación real. Es solo un ejemplo sencillo para este tutorial.
 
-   Si `AuthenticationTestHandler` autentica y autoriza el mensaje de solicitud, el usuario de autenticación básica se adjuntará a la solicitud actual en [HttpContext](https://msdn.microsoft.com/library/system.web.httpcontext.current.aspx). Otro controlador (RegisterController) usará después la información de usuario de HttpContext para agregar una [etiqueta](https://msdn.microsoft.com/library/azure/dn530749.aspx) a la solicitud de registro de notificación.
+   Si `AuthenticationTestHandler` autentica y autoriza el mensaje de solicitud, el usuario de autenticación básica se adjuntará a la solicitud actual en [HttpContext](/dotnet/api/system.web.httpcontext.current). Otro controlador (RegisterController) usará después la información de usuario de HttpContext para agregar una [etiqueta](/previous-versions/azure/azure-services/dn530749(v=azure.100)) a la solicitud de registro de notificación.
 
     ```csharp
     public class AuthenticationTestHandler : DelegatingHandler
@@ -333,7 +333,7 @@ En esta sección se agrega un nuevo controlador que expone una manera de enviar 
 
     Este código envía un tipo de notificación basado en el parámetro `pns` del servicio Sistema de notificación de plataforma (PNS). El valor de `to_tag` se usa para definir la etiqueta *username* en el mensaje. Esta etiqueta debe coincidir con una etiqueta de nombre de usuario de un registro de un centro de notificaciones activo. El mensaje de notificación se extrae del cuerpo de la solicitud POST y se formatea para el PNS de destino.
 
-    Dependiendo del PNS que usen los dispositivos compatibles para recibir notificaciones, se admiten distintos formatos. Por ejemplo, en dispositivos Windows, puede usar una [notificación del sistema con WNS](https://msdn.microsoft.com/library/windows/apps/br230849.aspx) que no sea compatible directamente con otro PNS. En este caso, el back-end debe dar un formato a la notificación que sea compatible con el PNS de los dispositivos que prevea admitir. Posteriormente, use la API de envío adecuada en la [clase NotificationHubClient](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.notificationhubclient_methods.aspx).
+    Dependiendo del PNS que usen los dispositivos compatibles para recibir notificaciones, se admiten distintos formatos. Por ejemplo, en dispositivos Windows, puede usar una [notificación del sistema con WNS](/uwp/schemas/tiles/toastschema/schema-root) que no sea compatible directamente con otro PNS. En este caso, el back-end debe dar un formato a la notificación que sea compatible con el PNS de los dispositivos que prevea admitir. Posteriormente, use la API de envío adecuada en la [clase NotificationHubClient](/dotnet/api/microsoft.azure.notificationhubs.notificationhubclient).
 
     ```csharp
     public async Task<HttpResponseMessage> Post(string pns, [FromBody]string message, string to_tag)

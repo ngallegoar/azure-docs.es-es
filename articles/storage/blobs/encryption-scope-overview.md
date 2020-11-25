@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 6fb3c9b6dbbab036ddb00edd7e1d5980bb425ebe
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 881a7fc915ab986577599b85f8412fa8107f7902
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91326123"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017396"
 ---
 # <a name="encryption-scopes-for-blob-storage-preview"></a>Ámbitos de cifrado para Blob Storage (versión preliminar)
 
@@ -52,8 +52,8 @@ Cuando se deshabilita un ámbito de cifrado, ya no se le facturará. Deshabilite
 
 Si el ámbito de cifrado está protegido con claves administradas por el cliente, también puede eliminar la clave asociada en el almacén de claves para deshabilitar el ámbito de cifrado. Tenga en cuenta que las claves administradas por el cliente están protegidas por la protección de eliminación y purga temporal en el almacén de claves, y que una clave eliminada está sujeta al comportamiento definido por esas propiedades. Para más información, consulte uno de los siguientes temas en la documentación de Azure Key Vault:
 
-- [Uso de la eliminación temporal con PowerShell](../../key-vault/general/soft-delete-powershell.md)
-- [Uso de la eliminación temporal con la CLI](../../key-vault/general/soft-delete-cli.md).
+- [Uso de la eliminación temporal con PowerShell](../../key-vault/general/key-vault-recovery.md)
+- [Uso de la eliminación temporal con la CLI](../../key-vault/general/key-vault-recovery.md).
 
 > [!NOTE]
 > No es posible eliminar un ámbito de cifrado.

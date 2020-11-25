@@ -11,11 +11,11 @@ ms.date: 10/01/2020
 ms.author: sudbalas
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: d1b1c27fe0136220d5a1851af4a5c24102a37da1
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93288617"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96015560"
 ---
 # <a name="configure-azure-key-vault-firewalls-and-virtual-networks"></a>Configuración de firewalls y redes virtuales de Azure Key Vault
 
@@ -83,7 +83,7 @@ Así es cómo puede configurar firewalls y redes virtuales de Key Vault mediante
 3. Haga clic en **Redes seleccionadas** en **Permitir el acceso desde**.
 4. Para agregar redes virtuales existentes a los firewall y las reglas de red virtual, haga clic en **+ Agregar redes virtuales existentes**.
 5. En la nueva hoja que se abrirá, seleccione la suscripción, las redes virtuales y las subredes a las cuales desea otorgar acceso a este almacén de claves. Si las redes virtuales y subredes que seleccionó no tienen puntos de conexión de servicio habilitados, confirme que desea habilitar los puntos de conexión de servicio y seleccione **Habilitar**. Esta operación podría tardar hasta 15 minutos en surtir efecto.
-6. En **Redes IP** , agregue rangos de direcciones IPv4; para ello, escriba los rangos de direcciones IPv4 en la [notación CIDR (enrutamiento de interdominios sin clases)](https://tools.ietf.org/html/rfc4632) o en las direcciones IP individuales.
+6. En **Redes IP**, agregue rangos de direcciones IPv4; para ello, escriba los rangos de direcciones IPv4 en la [notación CIDR (enrutamiento de interdominios sin clases)](https://tools.ietf.org/html/rfc4632) o en las direcciones IP individuales.
 7. Si desea permitir que los servicios de confianza de Microsoft omitan el firewall de Key Vault, seleccione "Sí". Para ver una lista completa de los servicios de confianza Key Vault actuales, consulte el siguiente vínculo. [Servicios de confianza de Azure Key Vault](./overview-vnet-service-endpoints.md#trusted-services)
 7. Seleccione **Guardar**.
 

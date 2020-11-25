@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: daf54b64e33b83b909fe91455cee2f5c1ec27d3d
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: c288f59b1cb9a85ed4bc978d1c3fba18ba30b572
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91960327"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017209"
 ---
 # <a name="contact-microsoft-support"></a>Ponerse en contacto con el servicio de soporte técnico de Microsoft
 
@@ -21,7 +21,7 @@ StorSimple Device Manager proporciona la posibilidad de **registrar una nueva so
 * Administrar el ciclo de vida de una solicitud de soporte técnico desde dentro del portal.
 * Iniciar una sesión de soporte en la interfaz de Windows PowerShell del dispositivo de StorSimple.
 
-Revise la sección [Información y contratos de nivel de servicio de soporte de la serie StorSimple 8000](https://msdn.microsoft.com/library/mt433077.aspx) antes de crear una solicitud de soporte técnico.
+Revise la sección [Información y contratos de nivel de servicio de soporte de la serie StorSimple 8000](./storsimple-8000-support-options.md) antes de crear una solicitud de soporte técnico.
 
 ## <a name="create-a-support-request"></a>Crear una solicitud de soporte
 

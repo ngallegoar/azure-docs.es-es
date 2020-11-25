@@ -4,25 +4,25 @@ description: Una introducción a los almacenes de Recovery Services.
 ms.topic: conceptual
 ms.date: 08/17/2020
 ms.openlocfilehash: ab6b27bdc7ac9b01385ed43830d0af5900210d43
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093674"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017328"
 ---
 # <a name="recovery-services-vaults-overview"></a>Introducción a los almacenes de Recovery Services
 
 En este artículo se describen las características de un almacén de Recovery Services. Un almacén de Recovery Services es una entidad de almacenamiento de Azure que aloja datos. Normalmente, los datos son copias de datos o información de configuración de máquinas virtuales (VM), cargas de trabajo, servidores o estaciones de trabajo. Puede usar almacenes de Recovery Services para almacenar datos de copia de seguridad de varios servicios de Azure como máquinas virtuales de IaaS (Linux o Windows) y bases de datos de Azure SQL. Los almacenes de Recovery Services son compatibles con System Center DPM, Windows Server, Azure Backup Server y muchos más. Los almacenes de Recovery Services facilitan la tarea de organizar los datos de copia de seguridad, al mismo tiempo que reduce al mínimo su sobrecarga administrativa. Los almacenes de Recovery Services se basan en el modelo de Azure Resource Manager de Azure, que proporciona características como las siguientes:
 
-- **Funcionalidades mejoradas para ayudar a proteger datos de copia de seguridad** : con los almacenes de Recovery Services, Azure Backup proporciona funcionalidades de seguridad para proteger las copias de seguridad en la nube. Estas características de seguridad garantizan que puede proteger las copias de seguridad y recuperar datos de forma segura, incluso si los servidores de producción y copia de seguridad están en peligro. [Más información](backup-azure-security-feature.md)
+- **Funcionalidades mejoradas para ayudar a proteger datos de copia de seguridad**: con los almacenes de Recovery Services, Azure Backup proporciona funcionalidades de seguridad para proteger las copias de seguridad en la nube. Estas características de seguridad garantizan que puede proteger las copias de seguridad y recuperar datos de forma segura, incluso si los servidores de producción y copia de seguridad están en peligro. [Más información](backup-azure-security-feature.md)
 
-- **Supervisión central para el entorno de TI híbrido** : con los almacenes de Recovery Services, puede supervisar no solo sus [máquinas virtuales de IaaS de Azure](backup-azure-manage-vms.md), sino también sus [recursos locales](backup-azure-manage-windows-server.md#manage-backup-items) desde un portal central. [Más información](backup-azure-monitoring-built-in-monitor.md)
+- **Supervisión central para el entorno de TI híbrido**: con los almacenes de Recovery Services, puede supervisar no solo sus [máquinas virtuales de IaaS de Azure](backup-azure-manage-vms.md), sino también sus [recursos locales](backup-azure-manage-windows-server.md#manage-backup-items) desde un portal central. [Más información](backup-azure-monitoring-built-in-monitor.md)
 
 - **Control de acceso basado en roles de Azure (Azure RBAC)** : Azure RBAC permite un control muy detallado de la administración de acceso en Azure. [Azure proporciona diversas funciones integradas](../role-based-access-control/built-in-roles.md) y Azure Backup tiene tres [roles integrados para administrar puntos de recuperación](backup-rbac-rs-vault.md). Los almacenes de Recovery Services son compatibles con Azure RBAC, que restringe el acceso de copia de seguridad y restauración al conjunto definido de roles de usuario. [Más información](backup-rbac-rs-vault.md)
 
-- **Eliminación temporal** :  Con la eliminación temporal, aunque un actor malintencionado elimine una copia de seguridad (o se eliminen por accidente datos de copia de seguridad), los datos de copia de seguridad se conservan durante 14 días adicionales, lo que permite la recuperación de ese elemento de copia de seguridad sin pérdida de datos. La retención adicional de 14 días de los datos de copia de seguridad con el estado de "eliminación temporal" no tiene costo alguno para el cliente. [Más información](backup-azure-security-feature-cloud.md).
+- **Eliminación temporal**:  Con la eliminación temporal, aunque un actor malintencionado elimine una copia de seguridad (o se eliminen por accidente datos de copia de seguridad), los datos de copia de seguridad se conservan durante 14 días adicionales, lo que permite la recuperación de ese elemento de copia de seguridad sin pérdida de datos. La retención adicional de 14 días de los datos de copia de seguridad con el estado de "eliminación temporal" no tiene costo alguno para el cliente. [Más información](backup-azure-security-feature-cloud.md).
 
-- **Restauración entre regiones** :  la restauración entre regiones (CRR) permite restaurar máquinas virtuales de Azure en una región secundaria, que es una región emparejada de Azure. Si Azure declara un desastre en la región primaria, los datos replicados en la región secundaria estarán disponibles para su restauración en esta última región para mitigar el desastre de tiempo de inactividad real en la región primaria de su entorno. [Más información](backup-azure-arm-restore-vms.md#cross-region-restore).
+- **Restauración entre regiones**:  la restauración entre regiones (CRR) permite restaurar máquinas virtuales de Azure en una región secundaria, que es una región emparejada de Azure. Si Azure declara un desastre en la región primaria, los datos replicados en la región secundaria estarán disponibles para su restauración en esta última región para mitigar el desastre de tiempo de inactividad real en la región primaria de su entorno. [Más información](backup-azure-arm-restore-vms.md#cross-region-restore).
 
 ## <a name="storage-settings-in-the-recovery-services-vault"></a>Configuración de almacenamiento en el almacén de Recovery Services
 

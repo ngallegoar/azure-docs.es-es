@@ -8,12 +8,12 @@ ms.service: private-link
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: allensu
-ms.openlocfilehash: 734d52dadbb849925303febb0d3d1195bbddb0df
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5cbfd90ca65a1fb75c9cbe5602ac2a69741e378f
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89236570"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96017243"
 ---
 # <a name="use-azure-firewall-to-inspect-traffic-destined-to-a-private-endpoint"></a>Uso de Azure Firewall para inspeccionar el tráfico destinado a un punto de conexión privado
 
@@ -55,7 +55,7 @@ Para obtener más información sobre los cargos relacionados con las conexiones 
 
 ## <a name="scenario-2-hub-and-spoke-architecture---shared-virtual-network-for-private-endpoints-and-virtual-machines"></a>Escenario 2: Arquitectura en estrella tipo hub-and-spoke: red virtual compartida para máquinas virtuales y puntos de conexión privados
 
-:::image type="content" source="./media/inspect-traffic-using-azure-firewall/shared-spoke.png" alt-text="Red virtual dedicada para puntos de conexión privados" border="true":::
+:::image type="content" source="./media/inspect-traffic-using-azure-firewall/shared-spoke.png" alt-text="Máquinas virtuales y puntos de conexión privados en la misma red virtual" border="true":::
 
 Este escenario se implementa cuando:
 
@@ -78,7 +78,7 @@ Para obtener más información sobre los cargos relacionados con las conexiones 
 
 ## <a name="scenario-3-single-virtual-network"></a>Escenario 3: Red virtual única
 
-:::image type="content" source="./media/inspect-traffic-using-azure-firewall/single-vnet.png" alt-text="Red virtual dedicada para puntos de conexión privados" border="true":::
+:::image type="content" source="./media/inspect-traffic-using-azure-firewall/single-vnet.png" alt-text="Red virtual única" border="true":::
 
 Existen algunas limitaciones en la implementación: no es posible realizar una migración a una arquitectura en estrella tipo hub-and-spoke. Se aplican las mismas consideraciones que en el escenario 2. En este escenario, no se aplican cargos de emparejamiento de red virtual.
 
@@ -87,7 +87,7 @@ Existen algunas limitaciones en la implementación: no es posible realizar una m
 
 ## <a name="scenario-4-on-premises-traffic-to-private-endpoints"></a>Escenario 4: Tráfico local en puntos de conexión privados
 
-:::image type="content" source="./media/inspect-traffic-using-azure-firewall/on-premises.png" alt-text="Red virtual dedicada para puntos de conexión privados" border="true":::
+:::image type="content" source="./media/inspect-traffic-using-azure-firewall/on-premises.png" alt-text="Tráfico local en puntos de conexión privados" border="true":::
 
 Esta arquitectura se puede implementar si ha configurado la conectividad con la red local mediante: 
 
@@ -106,7 +106,7 @@ Se aplican las mismas consideraciones que en el escenario 2. En este escenario, 
 * Suscripción a Azure.
 * Un área de trabajo de Log Analytics.  
 
-Consulte [Creación de un área de trabajo de Log Analytics en Azure Portal](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace) para crear un área de trabajo si no tiene ninguna en la suscripción.
+Consulte [Creación de un área de trabajo de Log Analytics en Azure Portal](../azure-monitor/learn/quick-create-workspace.md) para crear un área de trabajo si no tiene ninguna en la suscripción.
 
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
@@ -575,7 +575,7 @@ En esta sección, se conectará de manera privada a SQL Database mediante el pun
     Address: 10.2.0.4
     ```
 
-2. Instale [herramientas de línea de comandos de SQL Server](https://docs.microsoft.com/sql/linux/quickstart-install-connect-ubuntu?view=sql-server-ver15#tools).
+2. Instale [herramientas de línea de comandos de SQL Server](/sql/linux/quickstart-install-connect-ubuntu?view=sql-server-ver15#tools).
 
 3. Ejecute el siguiente comando para conectarse a SQL Server. Use el administrador del servidor y la contraseña que definió cuando creó SQL Server en los pasos anteriores.
 

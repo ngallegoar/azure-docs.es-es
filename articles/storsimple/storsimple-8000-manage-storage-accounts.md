@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/29/2017
 ms.author: alkohli
-ms.openlocfilehash: 5a0ea8a2f07ef596cd80e9165eedb2b98dab0bfa
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 0df0c12d5942179e2492bfdc932fa25d126a2426
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978720"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016884"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-your-storage-account-credentials"></a>Uso del servicio StorSimple Device Manager para administrar las credenciales de la cuenta de almacenamiento
 
@@ -55,7 +55,7 @@ Las tareas más comunes relacionadas con las cuentas de almacenamiento que se pu
 Hay tres tipos de cuentas de almacenamiento que se pueden usar con el dispositivo StorSimple.
 
 * **Cuentas de almacenamiento generadas automáticamente** : como sugiere su nombre, este tipo de cuenta de almacenamiento se genera automáticamente cuando se crea el servicio. Para más información sobre cómo se crea esta cuenta de almacenamiento, consulte [Paso 1: Creación de un nuevo servicio](storsimple-8000-deployment-walkthrough-u2.md#step-1-create-a-new-service) en [Implementar el dispositivo StorSimple local](storsimple-8000-deployment-walkthrough-u2.md). 
-* **Cuentas de almacenamiento en la suscripción al servicio**: se trata de cuentas de Azure Storage que están asociadas a la misma suscripción que la del servicio. Para obtener más información sobre cómo se crean estas cuentas de almacenamiento, vea [Acerca de las cuentas de Azure Storage](../storage/common/storage-create-storage-account.md). 
+* **Cuentas de almacenamiento en la suscripción al servicio**: se trata de cuentas de Azure Storage que están asociadas a la misma suscripción que la del servicio. Para obtener más información sobre cómo se crean estas cuentas de almacenamiento, vea [Acerca de las cuentas de Azure Storage](../storage/common/storage-account-create.md). 
 * **Cuentas de almacenamiento fuera de la suscripción al servicio**: son las cuentas de Azure Storage no asociadas al servicio que probablemente existían antes de que se crease el servicio.
 
 ## <a name="add-a-storage-account"></a>Agregar una cuenta de almacenamiento
@@ -179,4 +179,3 @@ Recibirá una notificación cuando la clave se sincronice correctamente.
 ## <a name="next-steps"></a>Pasos siguientes
 * Obtenga más información acerca de la [Seguridad de StorSimple](storsimple-8000-security.md).
 * Obtenga más información sobre el [uso del servicio Administrador de dispositivos de StorSimple para administrar el dispositivo StorSimple](storsimple-8000-manager-service-administration.md).
-

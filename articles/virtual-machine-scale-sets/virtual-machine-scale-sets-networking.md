@@ -10,11 +10,11 @@ ms.date: 06/25/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli
 ms.openlocfilehash: 234834af4fcf4ad809f548d171a4c1c406d85895
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92747830"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016699"
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Redes para conjuntos de escalado de máquinas virtuales de Azure
 
@@ -69,7 +69,7 @@ Para crear un conjunto de escalado que usa una puerta de enlace de aplicaciones,
 De forma predeterminada, los conjuntos de escalado adoptan los valores de DNS específicos de la red virtual y la subred en las que se crearon. No obstante, puede configurar los valores de DNS para un conjunto de escalado directamente.
 
 ### <a name="creating-a-scale-set-with-configurable-dns-servers"></a>Creación de un conjunto de escalado con servidores DNS configurables
-Para crear un conjunto de escalado con una configuración de DNS personalizada mediante la CLI de Azure, agregue el argumento **--dns-servers** al comando **vmss create** , seguido por las direcciones ip del servidor separadas por espacio. Por ejemplo:
+Para crear un conjunto de escalado con una configuración de DNS personalizada mediante la CLI de Azure, agregue el argumento **--dns-servers** al comando **vmss create**, seguido por las direcciones ip del servidor separadas por espacio. Por ejemplo:
 
 ```bash
 --dns-servers 10.0.0.6 10.0.0.5
@@ -84,7 +84,7 @@ Para configurar servidores DNS personalizados en una plantilla de Azure, agregue
 ```
 
 ### <a name="creating-a-scale-set-with-configurable-virtual-machine-domain-names"></a>Creación de un conjunto de escalado con nombres de dominio de máquinas virtuales configurables
-Para crear un conjunto de escalado con un nombre DNS personalizado para máquinas virtuales mediante la CLI, agregue el argumento **--vm-domain-name** al comando **virtual machine scale set create** , seguido por una cadena que representa el nombre de dominio.
+Para crear un conjunto de escalado con un nombre DNS personalizado para máquinas virtuales mediante la CLI, agregue el argumento **--vm-domain-name** al comando **virtual machine scale set create**, seguido por una cadena que representa el nombre de dominio.
 
 Para establecer el nombre de dominio en una plantilla de Azure, agregue una propiedad **dnsSettings** a la sección de **networkInterfaceConfigurations** del conjunto de escalado. Por ejemplo:
 
@@ -130,7 +130,7 @@ En general, las máquinas virtuales del conjunto de escalado de Azure no requier
 Sin embargo, algunos escenarios requieren que las máquinas virtuales del conjunto de escalado tengan sus propias direcciones IP públicas. Un ejemplo son los juegos, en los que se necesita una consola para tener una conexión directa a una máquina virtual en la nube, que esté realizando el procesamiento físico de los juegos. Otro ejemplo es cuando las máquinas virtuales necesitan realizar conexiones externas entre sí a través de regiones en una base de datos distribuida.
 
 ### <a name="creating-a-scale-set-with-public-ip-per-virtual-machine"></a>Creación de un conjunto de escalado con una dirección IP pública por máquina virtual
-Para crear un conjunto de escalado que asigne una dirección IP pública a cada máquina virtual con la CLI, agregue el parámetro **--public-ip-per-vm** al comando **vmss create** . 
+Para crear un conjunto de escalado que asigne una dirección IP pública a cada máquina virtual con la CLI, agregue el parámetro **--public-ip-per-vm** al comando **vmss create**. 
 
 Para crear un conjunto de escalado mediante una plantilla de Azure, asegúrese de que la versión de API del recurso Microsoft.Compute/virtualMachineScaleSets sea al menos **2017-03-30** y agregue una propiedad JSON **publicIpAddressConfiguration** a la sección ipConfigurations del conjunto de escalado. Por ejemplo:
 
@@ -146,9 +146,9 @@ Para crear un conjunto de escalado mediante una plantilla de Azure, asegúrese d
 Ejemplo de plantilla: [201-vmss-public-ip-linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-public-ip-linux)
 
 ### <a name="querying-the-public-ip-addresses-of-the-virtual-machines-in-a-scale-set"></a>Consulta de las direcciones IP públicas de las máquinas virtuales en un conjunto de escalado
-Para enumerar las direcciones IP públicas asignadas para escalar máquinas virtuales del conjunto mediante la CLI, use el comando **az vmss list-instance-public-ips** .
+Para enumerar las direcciones IP públicas asignadas para escalar máquinas virtuales del conjunto mediante la CLI, use el comando **az vmss list-instance-public-ips**.
 
-Para mostrar las direcciones IP públicas del conjunto de escalado con PowerShell, use el comando _Get-AzPublicIpAddress_ . Por ejemplo:
+Para mostrar las direcciones IP públicas del conjunto de escalado con PowerShell, use el comando _Get-AzPublicIpAddress_. Por ejemplo:
 
 ```powershell
 Get-AzPublicIpAddress -ResourceGroupName myrg -VirtualMachineScaleSetName myvmss
@@ -165,14 +165,14 @@ También puede mostrar las direcciones IP públicas asignadas a las máquinas vi
 Para realizar la consulta en [Azure Resource Explorer](https://resources.azure.com):
 
 1. Abra [Azure Resource Explorer](https://resources.azure.com) en una ventana del explorador.
-1. Para expandir las *suscripciones* del lado izquierdo, haga clic en el signo *+* situado junto a estas. Si solo tiene un elemento en *suscripciones* , puede que ya esté expandido.
+1. Para expandir las *suscripciones* del lado izquierdo, haga clic en el signo *+* situado junto a estas. Si solo tiene un elemento en *suscripciones*, puede que ya esté expandido.
 1. Expanda la suscripción.
 1. Expanda el grupo de recursos.
-1. Expanda los *proveedores* .
-1. Expanda *Microsoft.Compute* .
-1. Expanda *virtualMachineScaleSets* .
+1. Expanda los *proveedores*.
+1. Expanda *Microsoft.Compute*.
+1. Expanda *virtualMachineScaleSets*.
 1. Expanda el conjunto de escalado.
-1. Haga clic en *publicipaddresses* .
+1. Haga clic en *publicipaddresses*.
 
 Para consultar la API REST de Azure:
 

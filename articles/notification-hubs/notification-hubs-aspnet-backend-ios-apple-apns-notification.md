@@ -15,11 +15,11 @@ ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: 167c666c536ee33531fd069dbd1edb530331a9f3
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91302196"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016966"
 ---
 # <a name="tutorial-send-push-notifications-to-specific-users-using-azure-notification-hubs"></a>Tutorial: Envío de notificaciones push a usuarios concretos mediante Azure Notification Hubs
 
@@ -487,7 +487,7 @@ Si quiere utilizar Aplicaciones móviles como su servicio back-end, consulte [In
 
     ![Notificación de prueba de iOS mostrada][3]
 
-4. En el campo de texto para la*etiqueta del nombre de usuario del destinatario* , escriba la etiqueta del nombre de usuario usada con el registro desde otro dispositivo.
+4. En el campo de texto para la *etiqueta del nombre de usuario del destinatario* , escriba la etiqueta del nombre de usuario usada con el registro desde otro dispositivo.
 5. Escriba un mensaje de notificación y haga clic en **Enviar notificación**. Solo los dispositivos que tienen un registro con la etiqueta de nombre de usuario del destinatario reciben el mensaje de notificación. Solo se envía a los usuarios.
 
     ![Notificación de prueba de iOS etiquetada][4]
