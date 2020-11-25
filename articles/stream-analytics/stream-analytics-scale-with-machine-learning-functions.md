@@ -8,11 +8,11 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 03/16/2020
 ms.openlocfilehash: feeb709f67a0e75f5980ec0520b95feb7edd5960
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93124414"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018824"
 ---
 # <a name="scale-your-stream-analytics-job-with-azure-machine-learning-studio-classic-functions"></a>Escalado del trabajo de Stream Analytics con funciones de Azure Machine Learning Studio (clásico)
 
@@ -52,7 +52,7 @@ Para procesar 200 000 eventos por segundo, el trabajo de Stream Analytics neces
 
 ![Escalado de Stream Analytics con funciones de Studio (clásico): dos ejemplos de trabajo](./media/stream-analytics-scale-with-ml-functions/stream-analytics-scale-with-ml-functions-00.png "Escalado de Stream Analytics con funciones de Studio (clásico): dos ejemplos de trabajo")
 
-En general, si * *_B_* es el tamaño de lote y _*_L_*_ es la latencia del servicio web con el tamaño de lote B en milisegundos, el rendimiento de un trabajo de Stream Analytics con _*_N_*_ SU es:
+En general, si **_B_* es el tamaño de lote y _*_L_*_ es la latencia del servicio web con el tamaño de lote B en milisegundos, el rendimiento de un trabajo de Stream Analytics con _*_N_*_ SU es:
 
 ![Fórmula de escalado de Stream Analytics con funciones de Studio (clásico)](./media/stream-analytics-scale-with-ml-functions/stream-analytics-scale-with-ml-functions-02.png "Fórmula de escalado de Stream Analytics con funciones de Studio (clásico)")
 
@@ -63,7 +63,7 @@ Para obtener más información sobre esta configuración, consulte el [artículo
 ## <a name="example--sentiment-analysis"></a>Ejemplo: Análisis de opiniones
 En el ejemplo siguiente se incluye un trabajo de Stream Analytics con la función de análisis de opiniones de Studio (clásico), como se describe en el [tutorial de integración de Stream Analytics y Machine Learning Studio (clásico)](stream-analytics-machine-learning-integration-tutorial.md).
 
-La consulta es una consulta sencilla completamente particionada seguida de la función *sentiment* *, tal como se muestra en el ejemplo siguiente:
+La consulta es una consulta sencilla completamente particionada seguida de la función *sentiment**, tal como se muestra en el ejemplo siguiente:
 
 ```SQL
     WITH subquery AS (
@@ -99,7 +99,7 @@ Echemos un vistazo a la escala usando las siguientes medidas de latencia para ca
 | 300 ms | Lotes de 10 000 eventos |
 | 500 ms | Lotes de 25 000 eventos |
 
-1. Uso de la primera opción ( **no** aprovisionar más SU). Se podría aumentar el tamaño de lote a **25 000**. Aumentar el tamaño de lote de este modo permitirá que el trabajo procese 1 000 000 eventos con 20 conexiones simultáneas al servicio web de Studio (clásico) (con una latencia de 500 ms por llamada). De modo que, la latencia adicional del trabajo de Stream Analytics debido a las solicitudes de la función de opinión contra las solicitudes del servicio web de Studio (clásico) aumentaría de **200 ms** a **500 ms**. Sin embargo, el tamaño de lote **no** se puede aumentar de manera indefinida, dado que el servicio web de Studio (clásico) necesita que el tamaño de la carga de una solicitud sea de 4 MB o menos, y las solicitudes de servicio web tienen un tiempo de espera de 100 segundos de funcionamiento.
+1. Uso de la primera opción (**no** aprovisionar más SU). Se podría aumentar el tamaño de lote a **25 000**. Aumentar el tamaño de lote de este modo permitirá que el trabajo procese 1 000 000 eventos con 20 conexiones simultáneas al servicio web de Studio (clásico) (con una latencia de 500 ms por llamada). De modo que, la latencia adicional del trabajo de Stream Analytics debido a las solicitudes de la función de opinión contra las solicitudes del servicio web de Studio (clásico) aumentaría de **200 ms** a **500 ms**. Sin embargo, el tamaño de lote **no** se puede aumentar de manera indefinida, dado que el servicio web de Studio (clásico) necesita que el tamaño de la carga de una solicitud sea de 4 MB o menos, y las solicitudes de servicio web tienen un tiempo de espera de 100 segundos de funcionamiento.
 1. Con la segunda opción, el tamaño de lote se deja en 1000; con una latencia del servicio web de 200 ms, con cada 20 conexiones simultáneas al servicio web se podrían procesar 1000 * 20 * 5 eventos = 100 000 por segundo. Por tanto, para procesar 1 000 000 eventos por segundo, el trabajo necesitaría 60 SU. En comparación con la primera opción, el trabajo de Stream Analytics haría más solicitudes de lote de servicio web, lo que a su vez generaría un mayor costo.
 
 A continuación se muestra una tabla del rendimiento del trabajo de Stream Analytics para diferentes SU y tamaños de lote (en número de eventos por segundo).
@@ -120,17 +120,17 @@ En este momento, ya debe tener un buen conocimiento de las funciones de Studio (
 Normalmente, el tamaño de lote que se establece para las funciones de Studio (clásico) no será divisible exactamente por el número de eventos devueltos por cada "extracción" del trabajo de Stream Analytics. Cuando suceda esto, se llamará al servicio web de Studio (clásico) con lotes "parciales". El uso de lotes parciales evita incurrir en una sobrecarga de latencia adicional del trabajo en los eventos de combinación de una extracción a otra.
 
 ## <a name="new-function-related-monitoring-metrics"></a>Nuevas métricas de supervisión relacionadas con la función
-En el área de supervisión de un trabajo de Stream Analytics, se han agregado tres métricas adicionales relacionadas con las funciones. Y son: **SOLICITUDES DE FUNCIONES** , **EVENTOS DE FUNCIONES** y **SOLICITUDES DE FUNCIONES CON ERRORES** , como se muestra en el siguiente gráfico.
+En el área de supervisión de un trabajo de Stream Analytics, se han agregado tres métricas adicionales relacionadas con las funciones. Y son: **SOLICITUDES DE FUNCIONES**, **EVENTOS DE FUNCIONES** y **SOLICITUDES DE FUNCIONES CON ERRORES**, como se muestra en el siguiente gráfico.
 
 ![Métricas de escalado de Stream Analytics con funciones de Studio (clásico)](./media/stream-analytics-scale-with-ml-functions/stream-analytics-scale-with-ml-functions-01.png "Métricas de escalado de Stream Analytics con funciones de Studio (clásico)")
 
 Se definen de la manera siguiente:
 
-**SOLICITUDES DE FUNCIONES** : número de solicitudes de función.
+**SOLICITUDES DE FUNCIONES**: número de solicitudes de función.
 
-**EVENTOS DE FUNCIONES** : número de eventos en las solicitudes de función.
+**EVENTOS DE FUNCIONES**: número de eventos en las solicitudes de función.
 
-**SOLICITUDES DE FUNCIONES CON ERRORES** : número de solicitudes de función con errores.
+**SOLICITUDES DE FUNCIONES CON ERRORES**: número de solicitudes de función con errores.
 
 ## <a name="key-takeaways"></a>Puntos clave
 

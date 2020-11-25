@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: how-to
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 87fe02aed19ae7e5858715748a2b4c4da87a07b3
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: cfffafaab2e2d4ef6b165ef03beb827342c94608
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658577"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96018059"
 ---
 # <a name="create-a-private-link-service-using-azure-cli"></a>Creación de un servicio Private Link mediante la CLI de Azure
 En este artículo se muestra cómo crear un servicio Private Link en Azure mediante la CLI de Azure.
@@ -50,7 +50,7 @@ az network lb create --resource-group myResourceGroup --name myILB --sku standar
 
 ### <a name="create-a-load-balancer-health-probe"></a>Creación del sondeo de estado de un equilibrador de carga
 
-Un sondeo de estado comprueba todas las instancias de máquina virtual para asegurarse de que pueden recibir tráfico de red. La instancia de máquina virtual con comprobaciones de sondeo incorrectas se elimina del equilibrador de carga hasta que vuelve a estar en línea y una comprobación de sondeo determina que es correcta. Cree un sondeo de estado con [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe?view=azure-cli-latest) para supervisar el estado de las máquinas virtuales. 
+Un sondeo de estado comprueba todas las instancias de máquina virtual para asegurarse de que pueden recibir tráfico de red. La instancia de máquina virtual con comprobaciones de sondeo incorrectas se elimina del equilibrador de carga hasta que vuelve a estar en línea y una comprobación de sondeo determina que es correcta. Cree un sondeo de estado con [az network lb probe create](/cli/azure/network/lb/probe?view=azure-cli-latest) para supervisar el estado de las máquinas virtuales. 
 
 ```azurecli-interactive
   az network lb probe create \
@@ -63,7 +63,7 @@ Un sondeo de estado comprueba todas las instancias de máquina virtual para aseg
 
 ### <a name="create-a-load-balancer-rule"></a>Creación de una regla de equilibrador de carga
 
-Una regla de equilibrador de carga define la configuración de la dirección IP de front-end para el tráfico entrante y el grupo de direcciones IP de back-end para recibir el tráfico, junto con el puerto de origen y destino requeridos. Cree una regla de equilibrador de carga *myHTTPRule* con [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest) para escuchar el puerto 80 en el grupo de servidores front-end *myFrontEnd* y enviar tráfico de red con equilibrio de carga al conjunto de direcciones back-end *myBackEndPool*, que también usan el puerto 80. 
+Una regla de equilibrador de carga define la configuración de la dirección IP de front-end para el tráfico entrante y el grupo de direcciones IP de back-end para recibir el tráfico, junto con el puerto de origen y destino requeridos. Cree una regla de equilibrador de carga *myHTTPRule* con [az network lb rule create](/cli/azure/network/lb/rule?view=azure-cli-latest) para escuchar el puerto 80 en el grupo de servidores front-end *myFrontEnd* y enviar tráfico de red con equilibrio de carga al conjunto de direcciones back-end *myBackEndPool*, que también usan el puerto 80. 
 
 ```azurecli-interactive
   az network lb rule create \
@@ -79,7 +79,7 @@ Una regla de equilibrador de carga define la configuración de la dirección IP 
 ```
 ### <a name="create-backend-servers"></a>Creación de servidores back-end
 
-En este ejemplo no se trata la creación de máquinas virtuales. Puede seguir los pasos descritos en [Inicio rápido: Creación de un equilibrador de carga interno para equilibrar la carga de las máquinas virtuales con la CLI de Azure](/load-balancer/quickstart-load-balancer-standard-internal-cli#create-backend-servers) para crear dos máquinas virtuales que se usarán como servidores de back-end para el equilibrador de carga. 
+En este ejemplo no se trata la creación de máquinas virtuales. Puede seguir los pasos descritos en [Inicio rápido: Creación de un equilibrador de carga interno para equilibrar la carga de las máquinas virtuales con la CLI de Azure](../load-balancer/quickstart-load-balancer-standard-internal-cli.md) para crear dos máquinas virtuales que se usarán como servidores de back-end para el equilibrador de carga. 
 
 
 ### <a name="disable-private-link-service-network-policies-on-subnet"></a>Deshabilitación de las directivas de red de un servicio Private Link en una subred 
@@ -163,4 +163,3 @@ az network private-link-service show --resource-group myResourceGroup --name myP
 ```
 ## <a name="next-steps"></a>Pasos siguientes
 - Obtenga más información sobre el [servicio Azure Private Link](private-link-service-overview.md).
- 

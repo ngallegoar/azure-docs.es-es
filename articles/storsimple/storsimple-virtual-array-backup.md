@@ -15,12 +15,12 @@ ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5c49a46dfcd97f5feb43b0b910476ef3ad6f402a
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: 99c7f4ab92e4cce3937a933fec97008c281a0eae
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91742254"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018297"
 ---
 # <a name="back-up-shares-or-volumes-on-your-storsimple-virtual-array"></a>Copia de seguridad de recursos compartidos o volúmenes de la matriz virtual de StorSimple
 
@@ -28,7 +28,7 @@ ms.locfileid: "91742254"
 
 La matriz virtual de StorSimple es un dispositivo virtual local de almacenamiento en nube híbrida que se puede configurar como servidor de archivos o servidor iSCSI. La matriz virtual permite al usuario crear copias de seguridad programadas y manuales de todos los recursos compartidos o volúmenes del dispositivo. Cuando se configura como servidor de archivos, también permite la recuperación a nivel de elemento. Este tutorial describe cómo crear copias de seguridad programadas y manuales, y realizar la recuperación a nivel de elemento para restaurar un archivo eliminado en una matriz virtual.
 
-Este tutorial se aplica solo a instancias de StorSimple Virtual Array. Para obtener información sobre la serie 8000, vaya a [Creación de una copia de seguridad de un dispositivo de la serie 8000](storsimple-manage-backup-policies-u2.md)
+Este tutorial se aplica solo a instancias de StorSimple Virtual Array. Para obtener información sobre la serie 8000, vaya a [Creación de una copia de seguridad de un dispositivo de la serie 8000](./storsimple-8000-manage-backup-policies-u2.md)
 
 ## <a name="back-up-shares-and-volumes"></a>Crear copias de seguridad de los recursos compartidos y volúmenes
 
@@ -115,4 +115,3 @@ Para ver las copias de seguridad existentes, siga estos pasos en Azure Portal.
 ## <a name="next-steps"></a>Pasos siguientes
 
 Obtenga más información sobre la [administración de la matriz virtual de StorSimple](storsimple-ova-web-ui-admin.md).
-

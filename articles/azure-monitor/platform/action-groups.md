@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/28/2020
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: cbe3ef7080397b135ea0fb17cd50de9b1ccfdf09
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: a5d685e49d941d7b6febbc220cdbfbcb631c4496
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93336126"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94746370"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Creación y administración de grupos de acciones en Azure Portal
 Un grupo de acciones es una colección de las preferencias de notificación que el propietario de una suscripción de Azure define. Las alertas de Azure Monitor y Service Health usan grupos de acciones para notificar a los usuarios que se ha desencadenado una alerta. Varias alertas pueden usar el mismo grupo de acciones o distintos grupos de acciones en función de los requisitos del usuario. Puede configurar un máximo de 2000 grupos de acciones en una suscripción.
@@ -20,9 +20,9 @@ En este artículo se muestra cómo crear y administrar grupos de acciones en el 
 
 Cada acción se compone de las siguientes propiedades:
 
-* **Tipo** : La notificación o acción realizada. El envío de llamadas de voz, mensajes de texto o correo electrónico o el desencadenamiento de varios tipos de acciones automatizadas son algunos ejemplos. Consulte los tipos más adelante en este artículo.
-* **Name** : un identificador único dentro del grupo de acciones.
-* **Detalles** : detalles correspondientes que varían según el *tipo*.
+* **Tipo**: La notificación o acción realizada. El envío de llamadas de voz, mensajes de texto o correo electrónico o el desencadenamiento de varios tipos de acciones automatizadas son algunos ejemplos. Consulte los tipos más adelante en este artículo.
+* **Name**: un identificador único dentro del grupo de acciones.
+* **Detalles**: detalles correspondientes que varían según el *tipo*.
 
 Para más información sobre el uso de plantillas de Azure Resource Manager para configurar grupos de acciones, consulte [Plantillas de Resource Manager para grupos de acciones](./action-groups-create-resource-manager-template.md).
 
@@ -40,11 +40,11 @@ Para más información sobre el uso de plantillas de Azure Resource Manager para
 
 ### <a name="configure-basic-action-group-settings"></a>Configuración básica del grupo de acciones
 
-En **Detalles del proyecto** :
+En **Detalles del proyecto**:
 
 Seleccione la **Suscripción** y el **Grupo de recursos** donde está guardado el grupo de acciones.
 
-En **Detalles de instancia** :
+En **Detalles de instancia**:
 
 1. Escriba el **Nombre del grupo de acciones**.
 
@@ -55,35 +55,35 @@ En **Detalles de instancia** :
 
 ### <a name="configure-notifications"></a>Configuración de notificaciones
 
-1. Haga clic en el botón **Siguiente: Notificaciones >** para ir a la pestaña **Notificaciones** , o bien seleccione la pestaña **Notificaciones** en la parte superior de la pantalla.
+1. Haga clic en el botón **Siguiente: Notificaciones >** para ir a la pestaña **Notificaciones**, o bien seleccione la pestaña **Notificaciones** en la parte superior de la pantalla.
 
 1. Defina una lista de notificaciones que se enviarán cuando se desencadene una alerta. Proporcione lo siguiente para cada notificación:
 
-    a. **Tipo de notificación** : seleccione el tipo de notificación que desea enviar. Las opciones disponibles son:
+    a. **Tipo de notificación**: seleccione el tipo de notificación que desea enviar. Las opciones disponibles son:
       * Rol de Azure Resource Manager de correo electrónico: envíe un correo electrónico a los usuarios asignados a determinados roles de ARM en el nivel de suscripción.
       * Correo electrónico/SMS/Inserción/Voz: envíe estos tipos de notificación a destinatarios específicos.
     
-    b. **Name** : especifique un nombre único para la notificación.
+    b. **Name**: especifique un nombre único para la notificación.
 
-    c. **Detalles** : en función del tipo de notificación seleccionado, escriba una dirección de correo electrónico, un número de teléfono, etc.
+    c. **Detalles**: en función del tipo de notificación seleccionado, escriba una dirección de correo electrónico, un número de teléfono, etc.
     
-    d. **Esquema de alerta común** : puede optar por habilitar el [esquema de alerta común](./alerts-common-schema.md), que proporciona la ventaja de tener una sola carga de alertas, extensible y unificada, para todos los servicios de alerta de Azure Monitor.
+    d. **Esquema de alerta común**: puede optar por habilitar el [esquema de alerta común](./alerts-common-schema.md), que proporciona la ventaja de tener una sola carga de alertas, extensible y unificada, para todos los servicios de alerta de Azure Monitor.
 
     ![Pestaña Notificaciones](./media/action-groups/action-group-2-notifications.png)
     
 ### <a name="configure-actions"></a>Configuración de acciones
 
-1. Haga clic en el botón **Siguiente: Acciones >** para ir a la pestaña **Acciones** , o bien seleccione la pestaña **Acciones** en la parte superior de la pantalla.
+1. Haga clic en el botón **Siguiente: Acciones >** para ir a la pestaña **Acciones**, o bien seleccione la pestaña **Acciones** en la parte superior de la pantalla.
 
 1. Defina una lista de acciones que se ejecutarán cuando se desencadene una alerta. Proporcione lo siguiente para cada acción:
 
-    a. **Tipo de acción** : seleccione Runbook de Automation, Función de Azure, ITSM, Aplicación lógica, Webhook seguro y webhook.
+    a. **Tipo de acción**: seleccione Runbook de Automation, Función de Azure, ITSM, Aplicación lógica, Webhook seguro y webhook.
     
-    b. **Name** : escriba un nombre único para la acción.
+    b. **Name**: escriba un nombre único para la acción.
 
-    c. **Detalles** : según el tipo de acción, proporcione un identificador URI de webhook, una aplicación de Azure, una conexión de ITSM o un runbook de Automation. Para la acción de ITSM, especifique además **Elemento de trabajo** y otros campos que requiera la herramienta ITSM.
+    c. **Detalles**: según el tipo de acción, proporcione un identificador URI de webhook, una aplicación de Azure, una conexión de ITSM o un runbook de Automation. Para la acción de ITSM, especifique además **Elemento de trabajo** y otros campos que requiera la herramienta ITSM.
     
-    d. **Esquema de alerta común** : puede optar por habilitar el [esquema de alerta común](./alerts-common-schema.md), que proporciona la ventaja de tener una sola carga de alertas, extensible y unificada, para todos los servicios de alerta de Azure Monitor.
+    d. **Esquema de alerta común**: puede optar por habilitar el [esquema de alerta común](./alerts-common-schema.md), que proporciona la ventaja de tener una sola carga de alertas, extensible y unificada, para todos los servicios de alerta de Azure Monitor.
     
     ![Pestaña Acciones](./media/action-groups/action-group-3-actions.png)
 
@@ -266,22 +266,108 @@ Los webhooks se procesan utilizando las siguientes reglas:
 - El segundo y el tercer intento esperarán treinta segundos para obtener una respuesta.
 - Después de que los tres intentos de llamada al webhook no se hayan realizado, ningún grupo de acciones llamará al punto de conexión durante quince minutos.
 
-Rangos de direcciones IP de origen
- - 13.72.19.232
- - 13.106.57.181
- - 13.106.54.3
- - 13.106.54.19
- - 13.106.38.142
- - 13.106.38.148
- - 13.106.57.196
- - 13.106.57.197
- - 52.244.68.117
- - 52.244.65.137
- - 52.183.31.0
- - 52.184.145.166
- - 51.4.138.199
- - 51.5.148.86
- - 51.5.149.19
+Rangos de direcciones IP de origen:
+
+ - 13.66.60.119/32
+ - 13.66.143.220/30
+ - 13.66.202.14/32
+ - 13.66.248.225/32
+ - 13.66.249.211/32
+ - 13.67.10.124/30
+ - 13.69.109.132/30
+ - 13.71.199.112/30
+ - 13.77.53.216/30
+ - 13.77.172.102/32
+ - 13.77.183.209/32
+ - 13.78.109.156/30
+ - 13.84.49.247/32
+ - 13.84.51.172/32
+ - 13.84.52.58/32
+ - 13.86.221.220/30
+ - 13.106.38.142/32
+ - 13.106.38.148/32
+ - 13.106.54.3/32
+ - 13.106.54.19/32
+ - 13.106.57.181/32
+ - 13.106.57.196/31
+ - 20.38.149.132/30
+ - 20.42.64.36/30
+ - 20.43.121.124/30
+ - 20.44.17.220/30
+ - 20.45.123.236/30
+ - 20.72.27.152/30
+ - 20.150.172.228/30
+ - 20.192.238.124/30
+ - 20.193.202.4/30
+ - 40.68.195.137/32
+ - 40.68.201.58/32
+ - 40.68.201.65/32
+ - 40.68.201.206/32
+ - 40.68.201.211/32
+ - 40.68.204.18/32
+ - 40.115.37.106/32
+ - 40.121.219.215/32
+ - 40.121.221.62/32
+ - 40.121.222.201/32
+ - 40.121.223.186/32
+ - 51.104.9.100/30
+ - 52.183.20.244/32
+ - 52.183.31.0/32
+ - 52.183.94.59/32
+ - 52.184.145.166/32
+ - 191.233.50.4/30
+ - 191.233.207.64/26
+ - 2603:1000:4:402::178/125
+ - 2603:1000:104:402::178/125
+ - 2603:1010:6:402::178/125
+ - 2603:1010:101:402::178/125
+ - 2603:1010:304:402::178/125
+ - 2603:1010:404:402::178/125
+ - 2603:1020:5:402::178/125
+ - 2603:1020:206:402::178/125
+ - 2603:1020:305:402::178/125
+ - 2603:1020:405:402::178/125
+ - 2603:1020:605:402::178/125
+ - 2603:1020:705:402::178/125
+ - 2603:1020:805:402::178/125
+ - 2603:1020:905:402::178/125
+ - 2603:1020:a04:402::178/125
+ - 2603:1020:b04:402::178/125
+ - 2603:1020:c04:402::178/125
+ - 2603:1020:d04:402::178/125
+ - 2603:1020:e04:402::178/125
+ - 2603:1020:f04:402::178/125
+ - 2603:1020:1004:800::f8/125
+ - 2603:1020:1104:400::178/125
+ - 2603:1030:f:400::978/125
+ - 2603:1030:10:402::178/125
+ - 2603:1030:104:402::178/125
+ - 2603:1030:107:400::f0/125
+ - 2603:1030:210:402::178/125
+ - 2603:1030:40b:400::978/125
+ - 2603:1030:40c:402::178/125
+ - 2603:1030:504:802::f8/125
+ - 2603:1030:608:402::178/125
+ - 2603:1030:807:402::178/125
+ - 2603:1030:a07:402::8f8/125
+ - 2603:1030:b04:402::178/125
+ - 2603:1030:c06:400::978/125
+ - 2603:1030:f05:402::178/125
+ - 2603:1030:1005:402::178/125
+ - 2603:1040:5:402::178/125
+ - 2603:1040:207:402::178/125
+ - 2603:1040:407:402::178/125
+ - 2603:1040:606:402::178/125
+ - 2603:1040:806:402::178/125
+ - 2603:1040:904:402::178/125
+ - 2603:1040:a06:402::178/125
+ - 2603:1040:b04:402::178/125
+ - 2603:1040:c06:402::178/125
+ - 2603:1040:d04:800::f8/125
+ - 2603:1040:f05:402::178/125
+ - 2603:1040:1104:400::178/125
+ - 2603:1050:6:402::178/125
+ - 2603:1050:403:400::1f8/125
 
 Para recibir actualizaciones sobre los cambios a estas direcciones IP, se recomienda configurar una alerta de Service Health, que supervisa las notificaciones informativas sobre el servicio de grupos de acciones.
 

@@ -7,16 +7,16 @@ ms.service: data-catalog
 ms.topic: how-to
 ms.date: 08/01/2019
 ms.openlocfilehash: 3674c316e34b1e54ed8282ac7d2c228a2b774c06
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87081226"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019028"
 ---
 # <a name="how-to-document-data-sources-in-azure-data-catalog"></a>Documentación de orígenes de datos en Azure Data Catalog
 
 ## <a name="introduction"></a>Introducción
-**Microsoft Azure Data Catalog** es un servicio en la nube totalmente administrado que actúa como sistema de registro y de detección de orígenes de datos empresariales. En otras palabras, el **Azure Data Catalog** ayuda a las personas a detectar, *comprender*y usar orígenes de datos, así como ayudar a las organizaciones a obtener un mayor valor de sus datos.
+**Microsoft Azure Data Catalog** es un servicio en la nube totalmente administrado que actúa como sistema de registro y de detección de orígenes de datos empresariales. En otras palabras, el **Azure Data Catalog** ayuda a las personas a detectar, *comprender* y usar orígenes de datos, así como ayudar a las organizaciones a obtener un mayor valor de sus datos.
 
 Cuando un origen de datos se registra en **Azure Data Catalog**, el servicio copia e indexa sus metadatos, pero eso no es todo. **Azure Data Catalog** también permite a los usuarios proporcionar su propia documentación completa, que puede describir el uso y los escenarios comunes para el origen de datos.
 

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 09/13/2019
 ms.author: allensu
 ms.openlocfilehash: aa2f00a732a3978524fc017481285859c9535387
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92779176"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018688"
 ---
 # <a name="understanding-azure-cdn-billing"></a>Descripción de la facturación de Azure CDN
 
@@ -48,7 +48,7 @@ La región de facturación de Azure CDN se basa en la ubicación del servidor de
 Por ejemplo, si un usuario ubicado en México emite una solicitud y la atiende un servidor de una ubicación POP de Estados Unidos debido a las condiciones de tráfico o emparejamiento, la región de facturación será Estados Unidos.
 
 ## <a name="what-is-a-billable-azure-cdn-transaction"></a>¿Qué es una transacción facturable de Azure CDN?
-Cualquier solicitud HTTP(S) que termine en la red CDN es un evento facturable, que incluye todos los tipos de respuesta: correcto, error u otros. Sin embargo, respuestas distintas pueden generar cantidades de tráfico diferentes. Por ejemplo, *304 No modificado* y otras respuestas de solo encabezado generan poco tráfico porque son una respuesta de encabezado pequeña; de forma similar, las respuestas de error (por ejemplo, *404 No encontrado* ) son facturables, pero comportan un costo pequeño debido a la escasa carga de la respuesta.
+Cualquier solicitud HTTP(S) que termine en la red CDN es un evento facturable, que incluye todos los tipos de respuesta: correcto, error u otros. Sin embargo, respuestas distintas pueden generar cantidades de tráfico diferentes. Por ejemplo, *304 No modificado* y otras respuestas de solo encabezado generan poco tráfico porque son una respuesta de encabezado pequeña; de forma similar, las respuestas de error (por ejemplo, *404 No encontrado*) son facturables, pero comportan un costo pequeño debido a la escasa carga de la respuesta.
 
 ## <a name="what-other-azure-costs-are-associated-with-azure-cdn-use"></a>¿Qué otros costos de Azure están asociados con el uso de Azure CDN?
 El uso de Azure CDN también conlleva algunos cargos por la utilización de servicios usados como origen de los objetos. Estos costos suelen ser una pequeña fracción del costo total de utilización de CDN.
@@ -66,7 +66,7 @@ Si usa el almacenamiento de blobs de Azure como origen del contenido, también c
 
 Para obtener más información sobre la facturación de Azure Storage, consulte [Descripción de la facturación de Azure Storage: ancho de banda, transacciones y capacidad](https://blogs.msdn.microsoft.com/windowsazurestorage/2010/07/08/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity/).
 
-Si usa la *entrega de servicios hospedados* , se generarán cargos, como se indica a continuación:
+Si usa la *entrega de servicios hospedados*, se generarán cargos, como se indica a continuación:
 
 - Tiempo de proceso de Azure: las instancias de proceso que actúan como origen.
 

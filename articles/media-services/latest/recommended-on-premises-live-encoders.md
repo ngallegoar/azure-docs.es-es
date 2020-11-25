@@ -6,15 +6,15 @@ keywords: encoding;encoders;media
 author: johndeu
 manager: johndeu
 ms.author: johndeu
-ms.date: 08/31/2020
+ms.date: 11/10/2020
 ms.topic: conceptual
 ms.service: media-services
-ms.openlocfilehash: 3532032f8fd3ac6e673d3913fd13f7f83ae7759e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 88de41ae62e3a81fdb51981afe42135649bf34b4
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89295366"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94734317"
 ---
 # <a name="verified-on-premises-live-streaming-encoders"></a>Codificadores de streaming en vivo locales comprobados
 
@@ -50,6 +50,7 @@ Al hacer el streaming mediante RTMPS, compruebe la configuración del firewall o
 > Los codificadores deben admitir TLS 1.2 al usar protocolos RTMPS.
 
 - Adobe Flash Media Live Encoder 3.2
+- [Antix Digital](http://www.antixdigital.com/) StreamZ Live (antes conocido como Imagine Communication SelenioFlex Live)
 - [Blackmagic ATEM Mini y ATEM Mini PRO](https://www.blackmagicdesign.com/products/atemmini)
 - [Cambria Live 4.3](https://www.capellasystems.net/products/cambria-live/)
 - Elemental Live (versión 2.14.15 y posteriores)
@@ -78,11 +79,11 @@ Media Services recomienda usar uno de los codificadores en directo siguientes qu
 > Los codificadores deben admitir TLS 1.2 al usar protocolos HTTPS.
 
 - Ateme TITAN Live
+- [Antix Digital](http://www.antixdigital.com/) StreamZ Live (antes conocido como Imagine Communication SelenioFlex Live)
 - Cisco Digital Media Encoder 2200
 - Elemental Live (versión 2.14.15 y posterior debido al requisito de TLS 1.2)
 - Envivio 4Caster C4 Gen III 
 - [Ffmpeg](https://www.ffmpeg.org)
-- Imagine Communications Selenio MCP3
 - Media Excel Hero Live y Hero 4K (UHD/HEVC)
 
 > [!TIP]

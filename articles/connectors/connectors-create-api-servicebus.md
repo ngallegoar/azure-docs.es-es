@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 10/22/2020
 tags: connectors
 ms.openlocfilehash: b6276ff940d8b156a671cb5386ce53ede30dd879
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426640"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019723"
 ---
 # <a name="exchange-messages-in-the-cloud-by-using-azure-logic-apps-and-azure-service-bus"></a>Intercambio de mensajes en la nube con Azure Logic Apps y Azure Service Bus
 
@@ -47,13 +47,13 @@ Confirme que la aplicación lógica tiene permiso para acceder al espacio de nom
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) con su cuenta de Azure.
 
-1. Vaya al *espacio de nombres* de Service Bus. En la página del espacio de nombres, en **Configuración** , seleccione **Directivas de acceso compartido**. En **Notificaciones** , compruebe que tenga permisos de **Administrador** para ese espacio de nombres.
+1. Vaya al *espacio de nombres* de Service Bus. En la página del espacio de nombres, en **Configuración**, seleccione **Directivas de acceso compartido**. En **Notificaciones**, compruebe que tenga permisos de **Administrador** para ese espacio de nombres.
 
    ![Administración de permisos para el espacio de nombres de Service Bus](./media/connectors-create-api-azure-service-bus/azure-service-bus-namespace.png)
 
 1. Obtenga la cadena de conexión para el espacio de nombres de Service Bus. La necesita al proporcionar la información de conexión en la aplicación lógica.
 
-   1. En el panel **Directivas de acceso compartido** , seleccione **RootManageSharedAccessKey**.
+   1. En el panel **Directivas de acceso compartido**, seleccione **RootManageSharedAccessKey**.
 
    1. Al lado de la cadena de conexión principal, elija el botón de copia. Guarde la cadena de conexión para usarla más adelante.
 
@@ -123,7 +123,7 @@ Confirme que la aplicación lógica tiene permiso para acceder al espacio de nom
 
    También, para agregar una acción entre un paso y otro, mueva el puntero por encima de la flecha entre ellos. Seleccione el signo más ( **+** ) que aparece y elija **Agregar una acción**.
 
-1. En **Elegir una acción** , en el cuadro de búsqueda, escriba `azure service bus`. Seleccione la acción que desee en la lista de acciones que aparece. 
+1. En **Elegir una acción**, en el cuadro de búsqueda, escriba `azure service bus`. Seleccione la acción que desee en la lista de acciones que aparece. 
 
    En este ejemplo, seleccione la acción **Enviar mensaje**.
 
@@ -165,7 +165,7 @@ Confirme que la aplicación lógica tiene permiso para acceder al espacio de nom
 
 Cuando necesite enviar mensajes relacionados en un orden específico, puede usar el patrón [*convoy secuencial*](/azure/architecture/patterns/sequential-convoy) mediante el [conector de Azure Service Bus](../connectors/connectors-create-api-servicebus.md). Los mensajes correlacionados tienen una propiedad que define la relación entre esos mensajes, como el identificador de la [sesión](../service-bus-messaging/message-sessions.md) en Service Bus.
 
-Al crear una aplicación lógica, puede seleccionar la plantilla **Entrega por orden correlacionada mediante sesiones de Service Bus** , que implementa el patrón de convoy secuencial. Para más información, vea [Enviar mensajes relacionados en orden](../logic-apps/send-related-messages-sequential-convoy.md).
+Al crear una aplicación lógica, puede seleccionar la plantilla **Entrega por orden correlacionada mediante sesiones de Service Bus**, que implementa el patrón de convoy secuencial. Para más información, vea [Enviar mensajes relacionados en orden](../logic-apps/send-related-messages-sequential-convoy.md).
 
 ## <a name="delays-in-updates-to-your-logic-app-taking-effect"></a>Retrasos en el efecto de las actualizaciones de la aplicación lógica
 

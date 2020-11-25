@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
 ms.openlocfilehash: 41a97c639d9148f2bff3e4f530363ea05a65a7b8
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93095958"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018261"
 ---
 # <a name="automatically-scale-an-azure-api-management-instance"></a>Escalado automático de una instancia de Azure API Management  
 
@@ -66,7 +66,7 @@ Siga los pasos a continuación para configurar el escalado automático para un s
 
     ![Habilitación del escalado automático de Azure Monitor](media/api-management-howto-autoscale/03.png)
 
-6. En la sección **Reglas** , haga clic en **+ Agregar una regla**.
+6. En la sección **Reglas**, haga clic en **+ Agregar una regla**.
 
     ![Adición de una regla para escalado automático de Azure Monitor](media/api-management-howto-autoscale/04.png)
 
@@ -127,7 +127,7 @@ Siga los pasos a continuación para configurar el escalado automático para un s
 
     ![Captura de pantalla que resalta dónde establecer el número máximo de unidades de Azure API Management.](media/api-management-howto-autoscale/07.png)
 
-13. Haga clic en **Save** (Guardar). Se ha configurado el escalado automático.
+13. Haga clic en **Save**(Guardar). Se ha configurado el escalado automático.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: ed63d148afa6f5674d36cc50c18351b2a06966eb
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636840"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019623"
 ---
 # <a name="azure-data-factory---samples"></a>Azure Data Factory: ejemplos
 > [!NOTE]
@@ -59,7 +59,7 @@ Puede usar el icono de **Canales de muestras** de la página principal de la fac
 2. En la hoja **FACTORÍA DE DATOS** de la factoría de datos, haga clic en el icono **Canalizaciones de ejemplo**.
 
     ![Icono Canalizaciones de ejemplo](./media/data-factory-samples/SamplePipelinesTile.png)
-3. En la hoja **Canalizaciones de ejemplo** , haga clic en el **ejemplo** que quiere implementar.
+3. En la hoja **Canalizaciones de ejemplo**, haga clic en el **ejemplo** que quiere implementar.
 
     ![Hoja Canalizaciones de ejemplo](./media/data-factory-samples/SampleTile.png)
 4. Especifique las opciones de configuración para el ejemplo. Por ejemplo, el nombre de la cuenta de almacenamiento de Azure y la clave de la cuenta, el nombre del servidor lógico de SQL, la base de datos, el identificador de usuario y la contraseña, etc.
@@ -98,18 +98,18 @@ Debe tener lo siguiente instalado en el equipo:
     ![Cuadro de diálogo Plantillas de Data Factory](./media/data-factory-samples/vs-data-factory-templates-dialog.png)
 4. En el cuadro de diálogo **Data Factory Configuration** (Configuración de Data Factory), haga clic en **Siguiente** en la página **Data Factory Basics** (Aspectos básicos de Data Factory).
 5. En la página **Configure data factory** (Configurar Data Factory), siga estos pasos:
-   1. Seleccione la opción **Crear la nueva factoría de datos**. También puede seleccionar **Use existing data factory** (Usar factoría de datos existente).
+   1. Seleccione la opción **Crear la nueva factoría de datos**. También puede seleccionar **Use existing data factory**(Usar factoría de datos existente).
    2. Escriba un **nombre** para la factoría de datos.
    3. Seleccione la **suscripción de Azure** donde desea crear la factoría de datos.
    4. Seleccione el **grupo de recursos** para la factoría de datos.
    5. Seleccione **Oeste de EE. UU.** , **Este de EE. UU.** o **Norte de Europa** para la **región**.
    6. Haga clic en **Next**.
 6. En la página **Configure data stores** (Configurar almacenes de datos), especifique una **base de datos de Azure SQL Database** y una **cuenta de almacenamiento de Azure** ya existentes o cree otras nuevas y haga clic en Siguiente.
-7. En la página **Configurar proceso** , seleccione los valores predeterminados y haga clic en **Siguiente**.
+7. En la página **Configurar proceso**, seleccione los valores predeterminados y haga clic en **Siguiente**.
 8. En la página **Resumen** revise toda la configuración y haga clic en **Siguiente**.
-9. En la página **Estado de la implementación** , espere hasta que finalice la implementación y haga clic en **Finalizar**.
+9. En la página **Estado de la implementación**, espere hasta que finalice la implementación y haga clic en **Finalizar**.
 10. Haga clic con el botón derecho en el proyecto en el Explorador de soluciones y haga clic en **Publicar**.
-11. Si ve el cuadro de diálogo **Iniciar sesión en tu cuenta Microsoft** , escriba sus credenciales para la cuenta que tiene la suscripción de Azure y haga clic en **Iniciar sesión**.
+11. Si ve el cuadro de diálogo **Iniciar sesión en tu cuenta Microsoft**, escriba sus credenciales para la cuenta que tiene la suscripción de Azure y haga clic en **Iniciar sesión**.
 12. Debería ver el siguiente cuadro de diálogo:
 
     ![Cuadro de diálogo Publicar](./media/data-factory-build-your-first-pipeline-using-vs/publish.png)
@@ -118,7 +118,7 @@ Debe tener lo siguiente instalado en el equipo:
     1. Confirme la opción **Use existing data factory** (Usar factoría de datos existente).
     2. Seleccione la **factoría de datos** que había seleccionado al utilizar la plantilla anterior.
     3. Haga clic en **Siguiente** para cambiar a la página **Publicar elementos**. (Si el botón **Siguiente** está deshabilitado, presione la tecla **TAB** para salir del campo).
-14. En la página **Publicar elementos** , asegúrese de que todas las factorías de datos están seleccionadas y haga clic en **Siguiente** para cambiar a la página **Resumen**.     
+14. En la página **Publicar elementos**, asegúrese de que todas las factorías de datos están seleccionadas y haga clic en **Siguiente** para cambiar a la página **Resumen**.     
 15. Revise el resumen y haga clic en **Siguiente** para iniciar el proceso de implementación y ver el **Estado de implementación**.
 16. En la página **Estado de implementación** , debería ver el estado del proceso de implementación. Cuando se haya completado la implementación, haga clic en Finalizar.
 

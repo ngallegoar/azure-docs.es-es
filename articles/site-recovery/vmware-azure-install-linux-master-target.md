@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 09/15/2020
 ms.author: mayg
 ms.openlocfilehash: 9e1008f7acbfe0685b7a171176c7dc54592d1491
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93146479"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019249"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>Instalación de un servidor de destino maestro de Linux para la conmutación por recuperación
 Después de conmutar por error las máquinas virtuales a Azure, puede conmutarlas por recuperación en el sitio local. Para ello, debe volver a proteger la máquina virtual de Azure en el sitio local. Para realizar este proceso, necesitará un servidor de destino maestro local que reciba el tráfico. 
@@ -44,11 +44,11 @@ Publique cualquier comentario o pregunta que tenga al final del artículo, o bie
 ## <a name="sizing-guidelines-for-creating-master-target-server"></a>Directrices de ajuste de tamaño para la creación del servidor de destino maestro
 
 Cree el destino maestro conforme a las siguientes directrices de ajuste de tamaño:
-- **RAM** : 6 GB o más
-- **Tamaño de disco del SO** : 100 GB o más (para instalar el sistema operativo)
+- **RAM**: 6 GB o más
+- **Tamaño de disco del SO**: 100 GB o más (para instalar el sistema operativo)
 - **Additional disk size for retention drive** (Tamaño adicional de disco para la unidad de retención): 1 TB
 - **CPU cores** (Núcleos de CPU): 4 núcleos o más
-- **Kernel** : 4.16.*
+- **Kernel**: 4.16.*
 
 ## <a name="deploy-the-master-target-server"></a>Implementación del servidor de destino maestro
 
@@ -129,7 +129,7 @@ Coloque una imagen ISO de 64 bits mínima de Ubuntu 16.04.2 en la unidad de DVD 
     ![Instalador de arranque de GRUB](./media/vmware-azure-install-linux-master-target/image20.png)
 
 
-1. Seleccione el dispositivo adecuado para la instalación del cargador de arranque (preferiblemente **/dev/sda** ) y, luego, seleccione **Entrar**.
+1. Seleccione el dispositivo adecuado para la instalación del cargador de arranque (preferiblemente **/dev/sda**) y, luego, seleccione **Entrar**.
      
     ![Seleccione el dispositivo adecuado.](./media/vmware-azure-install-linux-master-target/image21.png)
 
@@ -162,9 +162,9 @@ Para obtener el identificador de cada disco duro SCSI de una máquina virtual Li
 
 5. Vea si ya existe una fila con **disk.EnableUUID**.
 
-   - Si el valor existe y está establecido en **False** , cámbielo a **True**. (Los valores no distinguen mayúsculas de minúsculas).
+   - Si el valor existe y está establecido en **False**, cámbielo a **True**. (Los valores no distinguen mayúsculas de minúsculas).
 
-   - Si el valor existe y está establecido en **True** , seleccione **Cancelar**.
+   - Si el valor existe y está establecido en **True**, seleccione **Cancelar**.
 
    - Si el valor no existe, seleccione **Agregar fila**.
 
@@ -196,7 +196,7 @@ Para descargarlos mediante Linux, escriba lo siguiente:
 `wget https://aka.ms/latestlinuxmobsvc -O latestlinuxmobsvc.tar.gz`
 
 > [!WARNING]
-> Asegúrese de que descarga y descomprime el instalador en el directorio principal. Si lo descomprime en **/usr/Local** , se produce un error en la instalación.
+> Asegúrese de que descarga y descomprime el instalador en el directorio principal. Si lo descomprime en **/usr/Local**, se produce un error en la instalación.
 
 
 #### <a name="access-the-installer-from-the-process-server"></a>Acceso al instalador desde el servidor de procesos
@@ -352,7 +352,7 @@ Verá que el campo **Versión** indica el número de versión del destino maestr
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-Una vez que han terminado la instalación y el registro del destino maestro, puede verlo en la sección **Destino maestro** de **Infraestructura de Site Recovery** , en la información general del servidor de configuración.
+Una vez que han terminado la instalación y el registro del destino maestro, puede verlo en la sección **Destino maestro** de **Infraestructura de Site Recovery**, en la información general del servidor de configuración.
 
 Ahora ya puede continuar con la [reprotección](vmware-azure-reprotect.md), seguido de la conmutación por recuperación.
 

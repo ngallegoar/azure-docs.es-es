@@ -9,12 +9,12 @@ ms.service: time-series-insights
 services: time-series-insights
 ms.date: 10/02/2020
 ms.custom: seodec18
-ms.openlocfilehash: 5565dd43689d0420fbb9b73f088f24a38a2d54db
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b5ecbabe4a5c3458c77d145fbce1281550470e00
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91665912"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "96019079"
 ---
 # <a name="summary-of-customer-data-request-features"></a>Resumen de características de solicitud de datos del cliente
 
@@ -34,7 +34,7 @@ Un administrador de inquilinos puede eliminar datos del cliente mediante Azure P
 
 [!INCLUDE [gdpr-dsr-and-stp-note](../../includes/gdpr-dsr-and-stp-note.md)]
 
-Sin embargo, antes de eliminar datos del cliente a través del portal, debe quitar las directivas de acceso del usuario del entorno de Time Series Insights en Azure Portal. Para obtener más información, consulte [Concesión de acceso a los datos de un entorno de Time Series Insights mediante Azure Portal](time-series-insights-data-access.md).
+Sin embargo, antes de eliminar datos del cliente a través del portal, debe quitar las directivas de acceso del usuario del entorno de Time Series Insights en Azure Portal. Para obtener más información, consulte [Concesión de acceso a los datos de un entorno de Time Series Insights mediante Azure Portal](./concepts-access-policies.md).
 
 También puede realizar operaciones de eliminación en las directivas de acceso mediante la API REST. Para obtener más información, lea [Directivas de acceso: eliminación](/rest/api/time-series-insights/management(gen1/gen2)/accesspolicies/delete).
 
@@ -46,7 +46,7 @@ De forma similar a la eliminación de datos, un administrador de inquilinos pued
 
 [!INCLUDE [gdpr-dsr-and-stp-note](../../includes/gdpr-dsr-and-stp-note.md)]
 
-Si es un administrador de inquilinos, puede ver las directivas de acceso a datos del entorno de Time Series Insights en Azure Portal. Para obtener más información, consulte [Concesión de acceso a los datos de un entorno de Time Series Insights mediante Azure Portal](time-series-insights-data-access.md).
+Si es un administrador de inquilinos, puede ver las directivas de acceso a datos del entorno de Time Series Insights en Azure Portal. Para obtener más información, consulte [Concesión de acceso a los datos de un entorno de Time Series Insights mediante Azure Portal](./concepts-access-policies.md).
 
 También es posible realizar operaciones de exportación de directivas de acceso mediante la operación "lista por entorno" de la API REST proporcionada. Para obtener más información, consulte [Directivas de acceso: enumerar por entorno](/rest/api/time-series-insights/management(gen1/gen2)/accesspolicies/listbyenvironment).
 
@@ -68,7 +68,7 @@ Para obtener más información, lea [Configuración de la retención en Time Ser
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Lea sobre cómo [conceder acceso a datos en el entorno de Time Series Insights](./time-series-insights-data-access.md).
+* Lea sobre cómo [conceder acceso a datos en el entorno de Time Series Insights](./concepts-access-policies.md).
 
 * Vea el artículo [Explorador de Azure Time Series Insights](time-series-insights-explorer.md).
 

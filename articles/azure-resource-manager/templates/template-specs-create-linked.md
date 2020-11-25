@@ -2,13 +2,13 @@
 title: Creación de una especificación de plantilla con plantillas vinculadas
 description: Aprenda a crear una especificación de plantilla con plantillas vinculadas.
 ms.topic: conceptual
-ms.date: 11/03/2020
-ms.openlocfilehash: b1862789ede4a9d2ab8c57bdb913c449a560dc58
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.date: 11/17/2020
+ms.openlocfilehash: d86b46a88dde7ebffea81cdeb8dc184dd275c0da
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321596"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94747441"
 ---
 # <a name="tutorial-create-a-template-spec-with-linked-templates-preview"></a>Tutorial: Creación de una especificación de plantilla con plantillas vinculadas (versión preliminar)
 
@@ -19,7 +19,7 @@ Aprenda a crear una [especificación de plantilla](template-specs.md) con una pl
 Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 > [!NOTE]
-> Las Especificaciones de plantilla se encuentran actualmente en versión preliminar. Para usarlo, debe [registrarse en la versión preliminar](https://aka.ms/templateSpecOnboarding).
+> Las Especificaciones de plantilla se encuentran actualmente en versión preliminar. Para usarlo, debe instalar la versión más reciente de PowerShell o la CLI de Azure. En Azure PowerShell, use la [versión 5.0.0 o posterior](/powershell/azure/install-az-ps). En la CLI de Azure, use la [versión 2.14.2 o posterior](/cli/azure/install-azure-cli).
 
 ## <a name="create-linked-templates"></a>Creación de plantillas vinculadas
 
@@ -35,7 +35,7 @@ La plantilla vinculada se denomina **linkedTemplate.json** y se almacena en una 
 
 La propiedad `relativePath` siempre es relativa al archivo de plantilla en el que se declara `relativePath`, por lo que si hay otro archivo linkedTemplate2.json que se llame desde linkedTemplate.json y linkedTemplate2.json se almacena en la misma subcarpeta de artefactos, la propiedad relativePath especificada en linkedTemplate.json es solo `linkedTemplate2.json`.
 
-1. Cree la plantilla principal con el JSON siguiente. Guarde la plantilla principal como **azuredeploy.json** en el equipo local. En este tutorial se da por supuesto que se ha guardado en la ruta de acceso **c:\Templates\linkedTS\azuredeploy.json** , pero puede usar cualquier ruta de acceso.
+1. Cree la plantilla principal con el JSON siguiente. Guarde la plantilla principal como **azuredeploy.json** en el equipo local. En este tutorial se da por supuesto que se ha guardado en la ruta de acceso **c:\Templates\linkedTS\azuredeploy.json**, pero puede usar cualquier ruta de acceso.
 
     ```json
     {

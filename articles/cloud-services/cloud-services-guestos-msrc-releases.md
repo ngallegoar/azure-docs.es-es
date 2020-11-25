@@ -10,47 +10,99 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 10/19/2020
+ms.date: 11/17/2020
 ms.author: yohaddad
-ms.openlocfilehash: 3f088d248037ecf552bf7130e3fe4c86d7430695
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 5a5e448660583204d424358e571c4bfb74890e8d
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207995"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94737836"
 ---
 # <a name="azure-guest-os"></a>SO invitado de Azure
 En las tablas siguientes se muestran las actualizaciones del Centro de respuestas de seguridad de Microsoft (MSRC) aplicadas al sistema operativo invitado de Azure. Busque en este artículo para determinar si una actualización concreta se aplica al SO invitado que usa. Las actualizaciones siempre se realizan para la [familia][family-explain] determinada en la que se introdujeron.
 
-## <a name="october-2020-guest-os"></a>SO invitado de octubre de 2020
+## <a name="november-2020-guest-os"></a>SO invitado de noviembre de 2020
 >[!NOTE] 
 
->El sistema operativo invitado de octubre se está implementando actualmente en las máquinas virtuales del servicio en la nube que están configuradas para las actualizaciones automáticas. Una vez completada la implementación, esta versión estará disponible para las actualizaciones manuales mediante Azure Portal y los archivos de configuración. Las revisiones siguientes se incluyen en el sistema operativo invitado de octubre. Esta lista está sujeta a cambios. 
+>El sistema operativo invitado de noviembre se está implementando actualmente en las máquinas virtuales del servicio en la nube que están configuradas para las actualizaciones automáticas. Una vez completada la implementación, esta versión estará disponible para las actualizaciones manuales mediante Azure Portal y los archivos de configuración. Las revisiones siguientes se incluyen en el sistema operativo invitado de octubre. Esta lista está sujeta a cambios. 
 
 | Categoría de productos | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
 | --- | --- | --- | --- | --- |
-|  Versión 20-10 |  [4577010]  |  Actualización acumulativa de IE | 2.103, 3.90, 4.83 | 8 de septiembre de 2020 |
-|  Versión 20-10 |  [4580325]  |  Actualización de Flash | 3.90, 4.83, 5.48, 6.24 | 13 de octubre de 2020 |
-|  Versión 20-10 |  [4577668]  |  Actualización acumulativa más reciente | 6.24 | 13 de octubre de 2020 |
-|  Versión 20-10 |  [4580346]  |  Actualización acumulativa más reciente | 5.48 | 13 de octubre de 2020 |
-|  Versión 20-10 |  [4580970]  |  Actualización de la pila de servicio | 2.103 | 13 de octubre de 2020 |
-|  Versión 20-10 |  [4580345]  |  Acumulación mensual | 2.103 | 13 de octubre de 2020 |
-|  Versión 20-10 |  [4578952]  |  Acumulación de seguridad y calidad de .NET Framework 3.5.1 | 2.103 | 13 de octubre de 2020 |
-|  Versión 20-10 |  [4578955]  |  Acumulación de seguridad y calidad de .NET Framework 4.5.2 | 2.103 | 13 de octubre de 2020 |
-|  Versión 20-10 |  [4566426]  |  Actualización de la pila de servicio | 3,90 | 14 de julio de 2020 |
-|  Versión 20-10 |  [4580382]  |  Acumulación mensual | 3,90 | 13 de octubre de 2020 |
-|  Versión 20-10 |  [4578950]  |  Acumulación de seguridad y calidad de .NET Framework 3.5 | 3,90 | 13 de octubre de 2020 |
-|  Versión 20-10 |  [4578954]  |  Acumulación de seguridad y calidad de .NET Framework 4.5.2 | 3,90 | 13 de octubre de 2020 |
-|  Versión 20-10 |  [4566425]  |  Actualización de la pila de servicio | 4.83 | 14 de julio de 2020 |
-|  Versión 20-10 |  [4580347]  |  Acumulación mensual | 4.83 | 13 de octubre de 2020 |
-|  Versión 20-10 |  [4578953]  |  Acumulación de seguridad y calidad de .NET Framework 3.5 | 4.83 | 13 de octubre de 2020 |
-|  Versión 20-10 |  [4578956]  |  Acumulación de seguridad y calidad de .NET Framework 4.5.2 | 4.83 | 13 de octubre de 2020 |
-|  Versión 20-10 |  [4578013]  |  Actualización de seguridad independiente | 4.83 | 19 de agosto de 2020 |
-|  Versión 20-10 |  [4576750]  |  Actualización de la pila de servicio | 5.48 | 8 de septiembre de 2020 |
-|  Versión 20-10 |  [4494175]  |  Microcódigo | 5.48 | 1 de septiembre de 2020 |
-|  Versión 20-10 |  [4577667]  |  Actualización de la pila de servicio | 6.24 | 13 de octubre de 2020 |
-|  Versión 20-10 |  [4578966]  |  Actualización acumulativa de .NET Framework 3.5 y 4.7.2 | 6.24 | 13 de octubre de 2020 |
-|  Versión 20-10 |  [4494174]  |  Microcódigo | 6.24 | 3 de septiembre de 2020 |
+|  Rel 20-11 |  [4586793]  |  Actualización acumulativa más reciente | 6.25 | 10 de noviembre de 2020 |
+|  Rel 20-11 |  [4580325]  |  Actualización de Flash | 3.91, 4.84, 5.49, 6.25 | 13 de octubre de 2020 |
+|  Rel 20-11 |  [4586768]  |  Actualización acumulativa de IE | 2.104, 3.91, 4.84 | 10 de noviembre de 2020 |
+|  Rel 20-11 |  [4586830]  |  Actualización acumulativa más reciente | 5.49 | 10 de noviembre de 2020 |
+|  Rel 20-11 |  [4578952]  |  Acumulación de seguridad y calidad de .NET Framework 3.5 | 2.104 | 10 de noviembre de 2020 |
+|  Rel 20-11 |  [4578955]  |  Acumulación de seguridad y calidad de .NET Framework 4.5.2 | 2.104 | 10 de noviembre de 2020 |
+|  Rel 20-11 |  [4578953]  |  Acumulación de seguridad y calidad de .NET Framework 3.5 | 4.84 | 10 de noviembre de 2020 |
+|  Rel 20-11 |  [4578956]  |  Acumulación de seguridad y calidad de .NET Framework 4.5.2 | 4.84 | 10 de noviembre de 2020 |
+|  Rel 20-11 |  [4578950]  |  Acumulación de seguridad y calidad de .NET Framework 3.5 | 3,91 | 10 de noviembre de 2020 |
+|  Rel 20-11 |  [4578954]  |  Acumulación de seguridad y calidad de .NET Framework 4.5.2 | 3,91 | 10 de noviembre de 2020 |
+|  Rel 20-11 |  [4578966]  |  Actualización acumulativa de .NET Framework 3.5 y 4.7.2 | 6.25 | 13 de octubre de 2020 |
+|  Rel 20-11 |  [4586827]  |  Acumulación mensual | 2.104 | 10 de noviembre de 2020 |
+|  Rel 20-11 |  [4586834]  |  Acumulación mensual | 3,91 | 10 de noviembre de 2020 |
+|  Rel 20-11 |  [4586845]  |  Acumulación mensual | 4.84 | 10 de noviembre de 2020 |
+|  Rel 20-11 |  [4566426]  |  Actualización de la pila de servicio | 3,91 | 14 de julio de 2020 |
+|  Rel 20-11 |  [4566425]  |  Actualización de la pila de servicio | 4.84 | 14 de julio de 2020 |
+|  Rel 20-11 OOB |  [4578013]  |  Actualización de seguridad independiente | 4.84 | 19 de agosto de 2020 |
+|  Rel 20-11 |  [4576750]  |  Actualización de la pila de servicio | 5.49 | 8 de septiembre de 2020 |
+|  Rel 20-11 |  [4580970]  |  Actualización de la pila de servicio | 2.104 | 13 de octubre de 2020 |
+|  Rel 20-11 |  [4587735]  |  Actualización de la pila de servicio | 6.25 | 10 de noviembre de 2020 |
+|  Rel 20-11 |  [4494175]  |  Microcódigo | 5.49 | 1 de septiembre de 2020 |
+|  Rel 20-11 |  [4494174]  |  Microcódigo | 6.25 | 3 de septiembre de 2020 |
+
+[4586793]: https://support.microsoft.com/kb/4586793
+[4580325]: https://support.microsoft.com/kb/4580325
+[4586768]: https://support.microsoft.com/kb/4586768
+[4586830]: https://support.microsoft.com/kb/4586830
+[4578952]: https://support.microsoft.com/kb/4578952
+[4578955]: https://support.microsoft.com/kb/4578955
+[4578953]: https://support.microsoft.com/kb/4578953
+[4578956]: https://support.microsoft.com/kb/4578956
+[4578950]: https://support.microsoft.com/kb/4578950
+[4578954]: https://support.microsoft.com/kb/4578954
+[4578966]: https://support.microsoft.com/kb/4578966
+[4586827]: https://support.microsoft.com/kb/4586827
+[4586834]: https://support.microsoft.com/kb/4586834
+[4586845]: https://support.microsoft.com/kb/4586845
+[4566426]: https://support.microsoft.com/kb/4566426
+[4566425]: https://support.microsoft.com/kb/4566425
+[4578013]: https://support.microsoft.com/kb/4578013
+[4576750]: https://support.microsoft.com/kb/4576750
+[4580970]: https://support.microsoft.com/kb/4580970
+[4587735]: https://support.microsoft.com/kb/4587735
+[4494175]: https://support.microsoft.com/kb/4494175
+[4494174]: https://support.microsoft.com/kb/4494174
+
+
+
+## <a name="october-2020-guest-os"></a>SO invitado de octubre de 2020
+
+| Categoría de productos | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
+| --- | --- | --- | --- | --- |
+|  Versión 20-10 |  [4577010]  |  Actualización acumulativa de IE | [2.103], [3.90], [4.83] | 8 de septiembre de 2020 |
+|  Versión 20-10 |  [4580325]  |  Actualización de Flash | [3.90], [4.83], [5.48], [6.24] | 13 de octubre de 2020 |
+|  Versión 20-10 |  [4577668]  |  Actualización acumulativa más reciente | [6.24] | 13 de octubre de 2020 |
+|  Versión 20-10 |  [4580346]  |  Actualización acumulativa más reciente | [5.48] | 13 de octubre de 2020 |
+|  Versión 20-10 |  [4580970]  |  Actualización de la pila de servicio | [2.103] | 13 de octubre de 2020 |
+|  Versión 20-10 |  [4580345]  |  Acumulación mensual | [2.103] | 13 de octubre de 2020 |
+|  Versión 20-10 |  [4578952]  |  Acumulación de seguridad y calidad de .NET Framework 3.5.1 | [2.103] | 13 de octubre de 2020 |
+|  Versión 20-10 |  [4578955]  |  Acumulación de seguridad y calidad de .NET Framework 4.5.2 | [2.103] | 13 de octubre de 2020 |
+|  Versión 20-10 |  [4566426]  |  Actualización de la pila de servicio | [3,90] | 14 de julio de 2020 |
+|  Versión 20-10 |  [4580382]  |  Acumulación mensual | [3,90] | 13 de octubre de 2020 |
+|  Versión 20-10 |  [4578950]  |  Acumulación de seguridad y calidad de .NET Framework 3.5 | [3,90] | 13 de octubre de 2020 |
+|  Versión 20-10 |  [4578954]  |  Acumulación de seguridad y calidad de .NET Framework 4.5.2 | [3,90] | 13 de octubre de 2020 |
+|  Versión 20-10 |  [4566425]  |  Actualización de la pila de servicio | [4.83] | 14 de julio de 2020 |
+|  Versión 20-10 |  [4580347]  |  Acumulación mensual | [4.83] | 13 de octubre de 2020 |
+|  Versión 20-10 |  [4578953]  |  Acumulación de seguridad y calidad de .NET Framework 3.5 | [4.83] | 13 de octubre de 2020 |
+|  Versión 20-10 |  [4578956]  |  Acumulación de seguridad y calidad de .NET Framework 4.5.2 | [4.83] | 13 de octubre de 2020 |
+|  Versión 20-10 |  [4578013]  |  Actualización de seguridad independiente | [4.83] | 19 de agosto de 2020 |
+|  Versión 20-10 |  [4576750]  |  Actualización de la pila de servicio | [5.48] | 8 de septiembre de 2020 |
+|  Versión 20-10 |  [4494175]  |  Microcódigo | [5.48] | 1 de septiembre de 2020 |
+|  Versión 20-10 |  [4577667]  |  Actualización de la pila de servicio | [6.24] | 13 de octubre de 2020 |
+|  Versión 20-10 |  [4578966]  |  Actualización acumulativa de .NET Framework 3.5 y 4.7.2 | [6.24] | 13 de octubre de 2020 |
+|  Versión 20-10 |  [4494174]  |  Microcódigo | [6.24] | 3 de septiembre de 2020 |
 
 
 [4577010]: https://support.microsoft.com/kb/4577010
@@ -75,6 +127,11 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 [4577667]: https://support.microsoft.com/kb/4577667
 [4578966]: https://support.microsoft.com/kb/4578966
 [4494174]: https://support.microsoft.com/kb/4494174
+[2.103]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
+[3,90]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
+[4.83]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
+[5.48]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
+[6.24]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
 
 
 ## <a name="september-2020-guest-os"></a>SO invitado de septiembre de 2020
@@ -1830,7 +1887,7 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 | MS15-014 |[3004361] |Una vulnerabilidad de SMB podría permitir la omisión de la característica de seguridad |4,17; 3,24; 2,36 |N/D |
 | MS15-015 |[3031432] |Una vulnerabilidad de Microsoft Windows podría permitir la elevación de privilegios |4,17; 3,24; 2,36 |N/D |
 | MS15-016 |[3029944] |Una vulnerabilidad del componente de gráficos de Microsoft podría permitir la divulgación de información |4,17; 3,24; 2,36 |N/D |
-| N/D |[3004375] |Actualización para mejorar la auditoría de línea de comandos de Windows<p/>**Nota** : Se instala pero la clave del registro para habilitarlo está desactivada |4,17; 3,24; 2,36 |N/D |
+| N/D |[3004375] |Actualización para mejorar la auditoría de línea de comandos de Windows<p/>**Nota**: Se instala pero la clave del registro para habilitarlo está desactivada |4,17; 3,24; 2,36 |N/D |
 
 ## <a name="january-2015-guest-os"></a>SO invitado de enero de 2015
 | Identificador de boletín | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |

@@ -15,12 +15,12 @@ ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d7e9d73fa94acd2f31452de05ef3caee92d5cf3d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2214f085c30419cefb3f6f84139d5592873173f7
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90055510"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017991"
 ---
 # <a name="an-introduction-to-storsimple-snapshot-manager"></a>Una introducción a StorSimple Snapshot Manager
 
@@ -79,7 +79,7 @@ Con Administrador de instantáneas StorSimple, es posible crear volúmenes y, a 
 
 Administrador de instantáneas StorSimple usa grupos de volúmenes para crear copias de seguridad coherentes con la aplicación. Existe coherencia de aplicaciones cuando todos los archivos y bases de datos relacionados están sincronizados y representan el estado real de una aplicación en un momento dado específico. Los grupos de volúmenes (también conocidos como *grupos de consistencia*) constituyen la base de los trabajos de copia de seguridad y de restauración.
 
-Los grupos de volúmenes no son lo mismo que los contenedores de volúmenes. Un contenedor de volúmenes contiene uno o varios volúmenes que comparten una cuenta de almacenamiento de nube y otros atributos, como el consumo de ancho de banda y el cifrado. Un contenedor de volúmenes individual puede contener hasta 256 volúmenes de StorSimple con aprovisionamiento fino. Para obtener más información acerca de los contenedores de volúmenes, vaya a [Administración de contenedores de volúmenes](storsimple-manage-volume-containers.md). Los grupos de volúmenes son colecciones de volúmenes que se pueden configurar para facilitar las operaciones de copia de seguridad. Si selecciona dos volúmenes que pertenecen a distintos contenedores de volúmenes, colóquelos en un único grupo de volúmenes y, a continuación, cree una directiva de copia de seguridad para dicho grupo de volúmenes, se realizará una copia de seguridad de cada volumen en el contenedor de volumen apropiado mediante la cuenta de almacenamiento adecuada.
+Los grupos de volúmenes no son lo mismo que los contenedores de volúmenes. Un contenedor de volúmenes contiene uno o varios volúmenes que comparten una cuenta de almacenamiento de nube y otros atributos, como el consumo de ancho de banda y el cifrado. Un contenedor de volúmenes individual puede contener hasta 256 volúmenes de StorSimple con aprovisionamiento fino. Para obtener más información acerca de los contenedores de volúmenes, vaya a [Administración de contenedores de volúmenes](./storsimple-8000-manage-volume-containers.md). Los grupos de volúmenes son colecciones de volúmenes que se pueden configurar para facilitar las operaciones de copia de seguridad. Si selecciona dos volúmenes que pertenecen a distintos contenedores de volúmenes, colóquelos en un único grupo de volúmenes y, a continuación, cree una directiva de copia de seguridad para dicho grupo de volúmenes, se realizará una copia de seguridad de cada volumen en el contenedor de volumen apropiado mediante la cuenta de almacenamiento adecuada.
 
 > [!NOTE]
 > Todos los volúmenes de un grupo de volúmenes deben provenir de un solo proveedor de servicios en la nube.
@@ -140,4 +140,3 @@ Para obtener información acerca de la supervisión de trabajos de copia de segu
 ## <a name="next-steps"></a>Pasos siguientes
 * Obtenga más información sobre el [uso de Snapshot Manager de StorSimple para administrar la solución de StorSimple](storsimple-snapshot-manager-admin.md).
 * Descargue el [Administrador de instantáneas StorSimple](https://www.microsoft.com/download/details.aspx?id=44220).
-

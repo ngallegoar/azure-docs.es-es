@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 09/28/2020
 ms.author: duau
 ms.openlocfilehash: 50e047325ad17710794b1640715ab1938373fe85
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91542179"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019470"
 ---
 # <a name="load-balancing-with-azures-application-delivery-suite"></a>Equilibrio de carga con el conjunto de entrega de aplicaciones de Azure
 
@@ -82,7 +82,7 @@ Además, el grupo de máquinas virtuales predeterminado que sirve el contenido d
 
 En el siguiente diagrama se muestra la arquitectura de este escenario:
 
-:::image type="content" source="./media/front-door-lb-with-azure-app-delivery-suite/application-delivery-figure2.png" alt-text="Conjunto de entrega de aplicaciones":::
+:::image type="content" source="./media/front-door-lb-with-azure-app-delivery-suite/application-delivery-figure2.png" alt-text="Arquitectura detallada del conjunto de entrega de aplicaciones":::
 
 > [!NOTE]
 > Este ejemplo es solo una de las muchas configuraciones posibles de los servicios de equilibrio de carga que ofrece Azure. Traffic Manager, Front Door, Application Gateway y Load Balancer se pueden combinar de la forma que mejor se adapte a sus necesidades de equilibrio de carga. Por ejemplo, si la descarga de TLS/SSL o el procesamiento de Capa 7 no son necesarios, se puede usar Load Balancer en lugar de Application Gateway.

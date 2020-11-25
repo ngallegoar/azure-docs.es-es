@@ -8,12 +8,12 @@ ms.topic: article
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: 4d307b2a16262645919423ef89c0d87636639bf1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b99ec4158b1df5ab558026c05b9ec1024fb0722e
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89378719"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94742580"
 ---
 # <a name="marketplace-rewards"></a>Recompensas de Marketplace
 
@@ -21,7 +21,7 @@ Marketplace Rewards están diseñado para ayudarle en su fase de crecimiento esp
 
 El programa crea un bucle de comentarios positivos: las ventajas de cada fase de crecimiento le ayudan a pasar a la fase siguiente, por lo que podrá llevar su negocio a los clientes de Microsoft gracias al campo de Microsoft y a través del canal de Microsoft; para ello, solo debe aprovechar la opción comercial de Marketplace como plataforma.
 
-Sus ventajas se diferencian en función de si la oferta es de [Lista, Prueba o Transacción](../determine-your-listing-type.md#choose-a-listing-option).
+Sus ventajas se diferencian en función de si la oferta es de [Contacto, Evaluación gratuita o Transacción](../determine-your-listing-type.md).
 
 Un miembro del equipo de Recompesas se pondrá en contacto con usted cuando se publique la oferta, en función de su idoneidad.
 

@@ -5,18 +5,19 @@ author: MSSedusch
 manager: juergent
 tags: azure-resource-manager
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/17/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017, devx-track-azurecli
-ms.openlocfilehash: ea53eda3863ea5164142fa0d37fff7be365a4d5c
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: bd45b0e1070efae7ae69a74ad96e1fa94a136006
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92894107"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "96019402"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Implementación y planeamiento de Azure Virtual Machines para SAP NetWeaver
 
@@ -1178,7 +1179,7 @@ Para más sugerencias e información, en concreto para las máquinas virtuales d
 
 En la mayoría de los escenarios, tendrá que crear discos adicionales para implementar la base de datos de SAP en la máquina virtual. En el capítulo [Estructura de VM/disco para implementaciones de SAP][planning-guide-5.5.1] de este documento ya se trataron las consideraciones sobre el número de discos. Azure Portal permite asociar y desasociar discos una vez implementada una máquina virtual base. Los discos se pueden asociar y desasociar cuando la máquina virtual se está ejecutando, así como cuando se encuentra detenida. Al asociar un disco, Azure Portal ofrece la posibilidad de asociar un disco vacío o uno existente que en ese momento no esté conectado a ninguna otra máquina virtual.
 
-**Nota** : Los discos solo pueden estar asociados a una máquina virtual al mismo tiempo.
+**Nota**: Los discos solo pueden estar asociados a una máquina virtual al mismo tiempo.
 
 ![Conexión/desconexión de discos con Azure Standard Storage][planning-guide-figure-1400]
 
@@ -1186,7 +1187,7 @@ Durante la implementación de una nueva máquina virtual, puede decidir si desea
 
 Después, debe decidir si desea crear un disco vacío o si quiere seleccionar un disco existente que se haya cargado con anterioridad y deba asociar ahora a la VM.
 
-**IMPORTANTE** : **NO** se recomienda usar el almacenamiento en caché de host con Azure Standard Storage. Debe dejar la preferencia de caché de host en el valor predeterminado, es decir, NINGUNO. Con Azure Premium Storage, debería habilitar el almacenamiento en caché de lectura si la característica de E/S es principalmente de lectura, como es típico del tráfico de E/S relativo a archivos de datos de bases de datos. En el caso del archivo de registro de transacciones, se recomienda no utilizar el almacenamiento en caché.
+**IMPORTANTE**: **NO** se recomienda usar el almacenamiento en caché de host con Azure Standard Storage. Debe dejar la preferencia de caché de host en el valor predeterminado, es decir, NINGUNO. Con Azure Premium Storage, debería habilitar el almacenamiento en caché de lectura si la característica de E/S es principalmente de lectura, como es típico del tráfico de E/S relativo a archivos de datos de bases de datos. En el caso del archivo de registro de transacciones, se recomienda no utilizar el almacenamiento en caché.
 
 ---
 > ![Logotipo de Windows.][Logo_Windows] Windows
@@ -1776,8 +1777,8 @@ La **recuperación ante desastres (DR)** también tiene el objetivo de minimizar
 
 Podemos descomponer la explicación sobre la alta disponibilidad de SAP en Azure en dos partes:
 
-* **Alta disponibilidad de la infraestructura de Azure** , por ejemplo, la alta disponibilidad del proceso (VM), la red, el almacenamiento, etc., y sus beneficios para aumentar la disponibilidad de las aplicaciones de SAP.
-* **Alta disponibilidad de las aplicaciones de SAP** , por ejemplo, la alta disponibilidad de los componentes de software de SAP:
+* **Alta disponibilidad de la infraestructura de Azure**, por ejemplo, la alta disponibilidad del proceso (VM), la red, el almacenamiento, etc., y sus beneficios para aumentar la disponibilidad de las aplicaciones de SAP.
+* **Alta disponibilidad de las aplicaciones de SAP**, por ejemplo, la alta disponibilidad de los componentes de software de SAP:
   * servidores de aplicaciones de SAP,
   * instancia de SAP ASCS/SCS,
   * servidor de base de datos,
@@ -1950,7 +1951,7 @@ La copia de seguridad sin conexión requiere básicamente apagar la máquina vir
 
 
 Para realizar una restauración a este estado, se debe eliminar la VM base, así como los discos originales y los discos montados de dicha VM; volver a copiar los discos guardados en la cuenta de almacenamiento original o el grupo de recursos de los discos de Managed Disks y, luego, volver a implementar el sistema.
-En este artículo se muestra un ejemplo de cómo crear un script para este proceso en Powershell: <http://www.westerndevs.com/azure-snapshots/>.
+En este artículo se muestra un ejemplo de cómo crear un script para este proceso en Powershell: <https://www.westerndevs.com/_/azure-snapshots/>.
 
 Hay que asegurarse de instalar una nueva licencia de SAP, ya que, al restaurar una copia de seguridad de la VM del modo descrito más arriba, se crea una clave de hardware.
 

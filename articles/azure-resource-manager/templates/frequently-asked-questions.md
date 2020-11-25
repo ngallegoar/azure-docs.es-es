@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 09/17/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: 47ac8d0e3172645ec168d5cfe7a002d84765b864
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 7f4238035a6fccb0addb9a481287b31732bd2662
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91333127"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94744542"
 ---
 # <a name="frequently-asked-questions-about-arm-templates"></a>Preguntas más frecuentes sobre las plantillas de Resource Manager
 
@@ -68,7 +68,7 @@ En este artículo se responde a preguntas frecuentes sobre las plantillas de Azu
 
 * **¿Puedo crear una suscripción en una plantilla de Resource Manager?**
 
-  Todavía no, pero estamos trabajando en ello.
+  Sí; para obtener más información, consulte [Creación de suscripciones de Azure mediante programación con las API más recientes](../../cost-management-billing/manage/programmatically-create-subscription.md).
 
 * **¿Cómo se puede probar la plantilla antes de implementarla?**
 
@@ -104,13 +104,13 @@ En este artículo se responde a preguntas frecuentes sobre las plantillas de Azu
 
 ## <a name="template-specs"></a>Especificaciones de plantilla
 
-* **¿Cómo puedo participar en la versión preliminar de Especificaciones de plantilla?**
+* **¿Cómo puedo empezar a usar la versión preliminar de las especificaciones de plantilla?**
 
-  [Únase a la lista de espera](https://aka.ms/templateSpecsWaitlist) para las especificaciones de plantilla.
+  Instale la versión más reciente de PowerShell o la CLI de Azure. En Azure PowerShell, use la [versión 5.0.0 o posterior](/powershell/azure/install-az-ps). En la CLI de Azure, use la [versión 2.14.2 o posterior](/cli/azure/install-azure-cli).
 
 * **¿Qué relación existe entre las especificaciones de plantilla y Azure Blueprints?**
 
-  Azure Blueprints usará especificaciones de plantilla en su implementación reemplazando el recurso `blueprint definition` por uno `template spec`. Se facilitará una ruta de migración para convertir la definición de plano técnico en una especificación de plantilla, pero las API de definición de plano técnico seguirán siendo compatibles. No hay que realizar ningún cambio en el recurso `blueprint assignment`. Los planos técnicos seguirán siendo una experiencia de usuario para crear un entorno controlado de Azure.
+  Azure Blueprints usará especificaciones de plantilla en su implementación reemplazando el recurso `blueprint definition` por uno `template spec`. Se le facilitará una ruta de migración para convertir la definición del plano técnico en una especificación de plantilla, pero las API de definición del plano técnico seguirán siendo compatibles. No hay que realizar ningún cambio en el recurso `blueprint assignment`. Los planos técnicos seguirán siendo una experiencia de usuario para crear un entorno controlado de Azure.
 
 * **¿Las especificaciones de plantilla reemplazan a las plantillas vinculadas?**
 
@@ -128,7 +128,7 @@ En este artículo se responde a preguntas frecuentes sobre las plantillas de Azu
 
 * **¿Puedo seguir usando extensiones de script personalizadas con Desired State Configuration (DSC)?**
 
-  Estas opciones siguen estando disponibles y no han cambiado. Los scripts de implementación están diseñados para realizar acciones que no están relacionadas con el invitado de la máquina virtual. Si ha de ejecutar un script en un sistema operativo host de una máquina virtual, la extensión de script personalizado o DSC sería una opción mejor. Sin embargo, los scripts de implementación tienen ventajas, como el establecimiento de la duración del tiempo de expiración.
+  Estas opciones siguen estando disponibles y no han cambiado. Los scripts de implementación están diseñados para realizar acciones que no están relacionadas con el invitado de la VM. Si ha de ejecutar un script en un sistema operativo host de una máquina virtual, la extensión de script personalizado o DSC sería una opción mejor. Sin embargo, los scripts de implementación tienen ventajas, como el establecimiento de la duración del tiempo de expiración.
 
 * **¿Se admiten los scripts de implementación en Azure Government?**
 

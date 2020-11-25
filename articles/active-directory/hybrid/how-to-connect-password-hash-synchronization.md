@@ -15,18 +15,18 @@ ms.author: billmath
 search.appverid:
 - MET150
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ee8c7cf2b34d5923f84bf9b9ba3cf5b10034e3e
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: c7edafd8a4a85e00a02486c646c77ddff5ff3e6b
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92458058"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94737105"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Implementación de la sincronización de hash de contraseñas con la sincronización de Azure AD Connect
 En este artículo se ofrece información que se necesita para sincronizar las contraseñas de usuario desde una instancia de Active Directory local con otra de Azure Active Directory (Azure AD) basado en la nube.
 
 ## <a name="how-password-hash-synchronization-works"></a>Funcionamiento de la sincronización de hash de contraseñas
-El servicio de dominio de Active Directory almacena contraseñas en forma de representación de valor hash de la contraseña de usuario real. Un valor hash es el resultado de una función matemática unidireccional (el *algoritmo hash* ). No hay ningún método para volver del resultado de una función unidireccional a la versión de texto sin formato de una contraseña. 
+El servicio de dominio de Active Directory almacena contraseñas en forma de representación de valor hash de la contraseña de usuario real. Un valor hash es el resultado de una función matemática unidireccional (el *algoritmo hash*). No hay ningún método para volver del resultado de una función unidireccional a la versión de texto sin formato de una contraseña. 
 
 Para sincronizar la contraseña, la sincronización de Azure AD Connect extrae el hash de la contraseña de la instancia de Active Directory local. Se aplica un procesamiento de seguridad adicional al hash de contraseña antes de que se sincronice con el servicio de autenticación de Azure Active Directory. Las contraseñas se sincronizan usuario por usuario y en orden cronológico.
 
@@ -53,7 +53,7 @@ En la sección siguiente se describe con detalle cómo funciona la sincronizaci�
 
 1. Cada dos minutos, el agente de sincronización de hash de contraseñas en el servidor de AD Connect solicita hashes de contraseña almacenados (el atributo unicodePwd) desde un controlador de dominio.  Esta solicitud es a través del protocolo de replicación [MS-DRSR](/openspecs/windows_protocols/ms-drsr/f977faaa-673e-4f66-b9bf-48c640241d47) estándar que se utiliza para sincronizar datos entre controladores de dominio. La cuenta de servicio debe tener los permisos para replicar cambios de directorio y para replicar cambios de directorio en todos los AD (se conceden de manera predeterminada en la instalación) para obtener los hashes de contraseña.
 2. Antes del envío, el controlador de dominio cifra el hash de contraseña MD4 mediante una clave que es un hash de [MD5](https://www.rfc-editor.org/rfc/rfc1321.txt) de la clave de sesión RPC y valor sal. Después envía el resultado al agente de sincronización de hash de contraseñas a través de RPC. El controlador de dominio también pasa el valor sal al agente de sincronización mediante el protocolo de replicación del controlador de dominio, por lo que el agente podrá descifrar el sobre.
-3. Cuando el agente de sincronización de hash de contraseñas tiene el sobre cifrado, usa [MD5CryptoServiceProvider](/dotnet/api/system.security.cryptography.md5cryptoserviceprovider?view=netcore-3.1) y el valor sal para generar una clave para descifrar los datos recibidos en su formato original de MD4. El agente de sincronización de hash de contraseñas nunca tiene acceso a la contraseña de texto no cifrado. El uso del agente de sincronización de hash de contraseñas de MD5 es estrictamente para compatibilidad del protocolo de replicación con el controlador de dominio y solo se usa en local entre el controlador de dominio y el agente de sincronización de hash de contraseñas.
+3. Cuando el agente de sincronización de hash de contraseñas tiene el sobre cifrado, usa [MD5CryptoServiceProvider](/dotnet/api/system.security.cryptography.md5cryptoserviceprovider?view=netcore-3.1) y el valor sal para generar una clave para descifrar los datos recibidos en su formato original de MD4. El agente de sincronización de hash de contraseñas nunca tiene acceso a la contraseña de texto no cifrado. El uso del agente de sincronización de hash de contraseñas de MD5 se usa estrictamente para la compatibilidad del protocolo de replicación con el controlador de dominio; igualmente, solo se usa en el entorno local entre el controlador de dominio y el agente de sincronización de hash de contraseñas.
 4. El agente de sincronización de hash de contraseñas amplía el hash de contraseña binario de 16 bits a 64 bytes al convertir en primer lugar el hash con una cadena hexadecimal de 32 bytes y, después, convertir esta cadena de nuevo en binario con codificación UTF-16.
 5. El agente de sincronización de hash de contraseñas agrega un valor sal por usuario, que consta de un valor sal de longitud de 10 bytes, al archivo binario de 64 bits para proteger aún más el valor hash original.
 6. El agente de sincronización de hash de contraseñas combina el hash MD4 con el valor sal por usuario y los introduce en la función [PBKDF2](https://www.ietf.org/rfc/rfc2898.txt). Se usan 1000 iteraciones del algoritmo hash con clave [HMAC-SHA256](/dotnet/api/system.security.cryptography.hmacsha256?view=netcore-3.1). 
@@ -199,7 +199,7 @@ Si usa Azure AD Domain Services para proporcionar autenticación heredada par
 >[!IMPORTANT]
 >Si va a migrar desde AD FS (u otra tecnología de federación) a la sincronización de hash de contraseña, es muy recomendable que siga nuestra guía de implementación detallada publicada [aquí](https://aka.ms/adfstophsdpdownload).
 
-Cuando se instala Azure AD Connect mediante la opción **Configuración rápida** , la sincronización de hash de contraseñas se habilita automáticamente. Para más información, vea [Introducción a Azure AD Connect mediante la configuración rápida](how-to-connect-install-express.md).
+Cuando se instala Azure AD Connect mediante la opción **Configuración rápida**, la sincronización de hash de contraseñas se habilita automáticamente. Para más información, vea [Introducción a Azure AD Connect mediante la configuración rápida](how-to-connect-install-express.md).
 
 Si usa una configuración personalizada al instalar Azure AD Connect, la sincronización de hash de contraseñas está disponible en la página de inicio de sesión del usuario. Para más información, consulte [Instalación personalizada de Azure AD Connect](how-to-connect-install-custom.md).
 

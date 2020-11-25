@@ -1,30 +1,42 @@
 ---
 title: Elemento de la interfaz de usuario ServicePrincipalSelector
-description: Describe el elemento de la interfaz de usuario Microsoft.Common.ServicePrincipalSelector para Azure Portal. Proporciona una lista desplegable para elegir un identificador de aplicación y un cuadro de texto para especificar una contraseña o una huella digital de certificado.
+description: Describe el elemento de la interfaz de usuario Microsoft.Common.ServicePrincipalSelector para Azure Portal. Proporciona un control para elegir una aplicación y un cuadro de texto para especificar una contraseña o una huella digital de certificado.
 author: tfitzmac
 ms.topic: conceptual
-ms.date: 09/29/2020
+ms.date: 11/17/2020
 ms.author: tomfitz
-ms.openlocfilehash: 73b242754bfae53b6df5abd9c2c8dee33b973dad
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9d41e41f110e927f436b38d6291719c138defa53
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91576003"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94745821"
 ---
 # <a name="microsoftcommonserviceprincipalselector-ui-element"></a>Elemento de interfaz de usuario Microsoft.Common. ServicePrincipalSelector
 
-Un control que permite a los usuarios seleccionar una entidad de servicio o registrar una nueva. Al seleccionar **Crear nuevo**, se recorren los pasos para registrar una nueva aplicación. Al seleccionar una aplicación existente, el control proporciona un cuadro de texto para escribir una contraseña o una huella digital de certificado.
+Control que permite a los usuarios seleccionar una [entidad de servicio](/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object) o registrar una aplicación nueva. Al seleccionar **Crear nuevo**, se recorren los pasos para registrar una nueva aplicación. Al seleccionar una aplicación existente, el control proporciona un cuadro de texto para escribir una contraseña o una huella digital de certificado.
 
-## <a name="ui-sample"></a>Ejemplo de interfaz de usuario
+## <a name="ui-samples"></a>Ejemplos de interfaz de usuario
 
-La vista predeterminada viene determinada por los valores de la propiedad `defaultValue`. Si la propiedad `principalId` contiene un identificador único global (GUID) válido, el control busca el identificador de objeto de la aplicación. El valor predeterminado se aplica si el usuario no realiza una selección en la lista desplegable.
+Puede usar una aplicación predeterminada, crear una nueva aplicación o utilizar una aplicación existente.
 
-:::image type="content" source="./media/managed-application-elements/microsoft-common-serviceprincipal-initial.png" alt-text="Vista inicial de Microsoft.Common.ServicePrincipalSelector":::
+### <a name="use-default-application-or-create-new"></a>Uso de una aplicación predeterminada o creación de una nueva
 
-Al seleccionar **Crear nuevo** o un identificador de aplicación existente en la lista desplegable, se muestra el **tipo de autenticación** para escribir una contraseña o huella digital del certificado en el cuadro de texto.
+La vista predeterminada la definen los valores de la propiedad `defaultValue` y el **tipo de entidad de servicio** se establece en **Crear nueva**. Si la propiedad `principalId` contiene un identificador único global (GUID) válido, el control busca el elemento `objectId` de la aplicación. El valor predeterminado se aplica si el usuario no realiza una selección en el control.
 
-:::image type="content" source="./media/managed-application-elements/microsoft-common-serviceprincipal-selection.png" alt-text="Vista inicial de Microsoft.Common.ServicePrincipalSelector":::
+Si quiere registrar una nueva aplicación, seleccione **Cambiar selección** y se mostrará el cuadro de diálogo **Registrar una aplicación**. Escriba el **nombre**, el **tipo de cuenta admitida** y pulse el botón **Registrar**.
+
+:::image type="content" source="./media/managed-application-elements/microsoft-common-serviceprincipal-default.png" alt-text="Vista inicial de Microsoft.Common.ServicePrincipalSelector":::.
+
+Después de registrar una nueva aplicación, use el **Tipo de autenticación** para escribir una contraseña o una huella digital de certificado.
+
+:::image type="content" source="./media/managed-application-elements/microsoft-common-serviceprincipal-authenticate.png" alt-text="Autenticación de Microsoft.Common.ServicePrincipalSelector.":::
+
+### <a name="use-existing-application"></a>Uso de la aplicación existente
+
+Para usar una aplicación existente, pulse **Seleccionar existentes** y, a continuación, **Hacer la selección**. Use el cuadro de diálogo **Seleccionar una aplicación** para buscar el nombre de la aplicación. En los resultados, seleccione la aplicación y, a continuación, el botón **Seleccionar**. Después de seleccionar una aplicación, el control muestra el **tipo de autenticación** para escribir una contraseña o una huella digital de certificado.
+
+:::image type="content" source="./media/managed-application-elements/microsoft-common-serviceprincipal-existing.png" alt-text="Microsoft. Common. ServicePrincipalSelector para seleccionar una aplicación existente.":::
 
 ## <a name="schema"></a>Schema
 
@@ -33,14 +45,12 @@ Al seleccionar **Crear nuevo** o un identificador de aplicación existente en la
   "name": "ServicePrincipal",
   "type": "Microsoft.Common.ServicePrincipalSelector",
   "label": {
-    "principalId": "App Id",
     "password": "Password",
     "certificateThumbprint": "Certificate thumbprint",
     "authenticationType": "Authentication Type",
     "sectionHeader": "Service Principal"
   },
   "toolTip": {
-    "principalId": "App Id",
     "password": "Password",
     "certificateThumbprint": "Certificate thumbprint",
     "authenticationType": "Authentication Type"
@@ -95,14 +105,12 @@ A continuación se muestra un ejemplo del control `Microsoft.Common.ServicePrinc
             "name": "ServicePrincipal",
             "type": "Microsoft.Common.ServicePrincipalSelector",
             "label": {
-              "principalId": "App Id",
               "password": "Password",
               "certificateThumbprint": "Certificate thumbprint",
               "authenticationType": "Authentication Type",
               "sectionHeader": "Service Principal"
             },
             "toolTip": {
-              "principalId": "App Id",
               "password": "Password",
               "certificateThumbprint": "Certificate thumbprint",
               "authenticationType": "Authentication Type"
@@ -138,9 +146,9 @@ A continuación se muestra un ejemplo del control `Microsoft.Common.ServicePrinc
 
 ## <a name="example-output"></a>Salida de ejemplo
 
-`appId` es el identificador del registro de la aplicación que ha seleccionado o creado. `objectId` es una matriz de objectId para las entidades de servicio configuradas para el registro de la aplicación seleccionada.
+`appId` es el identificador del registro de la aplicación que ha seleccionado o creado. `objectId` es una matriz de los id. de objeto correspondientes a las entidades de servicio configuradas para el registro de la aplicación seleccionada.
 
-Cuando no se realiza ninguna selección desde la lista desplegable, el valor de la propiedad `newOrExisting` es **nuevo**:
+Cuando no se realiza ninguna selección desde el control, el valor de la propiedad `newOrExisting` es **nuevo**:
 
 ```json
 {
@@ -165,7 +173,7 @@ Cuando no se realiza ninguna selección desde la lista desplegable, el valor de 
 }
 ```
 
-Cuando se selecciona **Crear nuevo** o un identificador de aplicación existente en la lista desplegable, el valor de la propiedad `newOrExisting` es **existente**:
+Cuando se selecciona **Crear nueva** o una aplicación existente en el control, el valor de la propiedad `newOrExisting` es **existente**:
 
 ```json
 {

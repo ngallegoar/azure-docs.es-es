@@ -16,11 +16,11 @@ ms.date: 04/30/2020
 ms.author: allensu
 ms.custom: mvc
 ms.openlocfilehash: b80437fa1ac41bb240565923eb40e562c8cf8c5b
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92778904"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018620"
 ---
 # <a name="quickstart-integrate-an-azure-storage-account-with-azure-cdn"></a>Inicio rápido: Integración de una cuenta de Azure Storage en Azure CDN
 
@@ -40,40 +40,40 @@ Una cuenta de almacenamiento proporciona acceso a los servicios de Azure Storage
 
 Para crear una cuenta de almacenamiento, debe ser administrador del servicio o coadministrador de la suscripción asociada.
 
-1. En Azure Portal, seleccione **Crear un recurso** en la parte superior izquierda. Aparece el panel **Nuevos** .
+1. En Azure Portal, seleccione **Crear un recurso** en la parte superior izquierda. Aparece el panel **Nuevos**.
 
-1. Busque **Storage account** (Cuenta de almacenamiento) y seleccione **Storage account - blob, file, table, queue** (Cuenta de almacenamiento: blob, archivo, tabla, cola) en la lista desplegable. A continuación, seleccione **Crear** :
+1. Busque **Storage account** (Cuenta de almacenamiento) y seleccione **Storage account - blob, file, table, queue** (Cuenta de almacenamiento: blob, archivo, tabla, cola) en la lista desplegable. A continuación, seleccione **Crear**:
     
     ![Selección del recurso de almacenamiento](./media/cdn-create-a-storage-account-with-cdn/cdn-select-new-storage-account.png)
 
-1. En el **panel Crear cuenta de almacenamiento** , escriba la siguiente información:
+1. En el **panel Crear cuenta de almacenamiento**, escriba la siguiente información:
 
     | Configuración | Value | 
     | --- | --- |
-    | Detalles del proyecto > Grupo de recursos | Seleccione **Crear nuevo** y use el nombre *CDNQuickstart-rg* . También puede usar un grupo de recursos existente si lo prefiere. |
+    | Detalles del proyecto > Grupo de recursos | Seleccione **Crear nuevo** y use el nombre *CDNQuickstart-rg*. También puede usar un grupo de recursos existente si lo prefiere. |
     | Detalles de instancia > Nombre de cuenta de almacenamiento | Escriba un nombre para la cuenta que contenga entre 3 y 24 letras minúsculas y números únicamente. El nombre debe ser único en Azure y se convierte en el nombre de host en la dirección URL que se usa para direccionar los recursos de blob, cola o tabla de la suscripción. Para direccionar un recurso de contenedor en Blob Storage, use un identificador URI con el siguiente formato: http:// *&lt;storageaccountname&gt;* .blob.core.windows.net/ *&lt;container-name&gt;* .
     | Detalles de instancia > Ubicación | Seleccione una región de Azure cercana en la lista desplegable. |
     
-    Deje los restantes detalles con su valor predeterminado y seleccione **Revisar y crear** .
+    Deje los restantes detalles con su valor predeterminado y seleccione **Revisar y crear**.
 
 1. La creación de la cuenta de almacenamiento podría tardar varios minutos en finalizar. Una vez finalizada la creación, seleccione **Ir al recurso** para abrir la página de la cuenta de almacenamiento para el siguiente paso.
 
 ## <a name="enable-azure-cdn-for-the-storage-account"></a>Habilitación de Azure CDN para la cuenta de almacenamiento
 
-1. En la página de la cuenta de almacenamiento, seleccione **Blob service** > **Azure CDN** en el menú de la izquierda. Aparece la página **Azure CDN** .
+1. En la página de la cuenta de almacenamiento, seleccione **Blob service** > **Azure CDN** en el menú de la izquierda. Aparece la página **Azure CDN**.
 
     ![Creación de un punto de conexión de CDN](./media/cdn-create-a-storage-account-with-cdn/cdn-storage-endpoint-configuration.png)
     
-1. En la sección **Nuevo punto de conexión** , escriba la siguiente información:
+1. En la sección **Nuevo punto de conexión**, escriba la siguiente información:
 
     | Configuración  | Value |
     | -------- | ----- |
-    | **Perfil de CDN** | Seleccione **Crear nuevo** y escriba su nombre de perfil, por ejemplo, *cdn-profile-123* . Un perfil es una colección de puntos de conexión. |
-    | **Plan de tarifa** | Seleccione una de las opciones **Estándar** , como **Microsoft estándar** . |
-    | **Nombre del punto de conexión de CDN** | Escriba el nombre de host de su punto de conexión como, por ejemplo, *cdn-endpoint-123* . Este nombre debe ser globalmente único en Azure, ya que se usa para acceder a los recursos almacenados en la caché en la dirección URL _&lt;NombreDePuntoDeConexión&gt;_ .azureedge.net. |
+    | **Perfil de CDN** | Seleccione **Crear nuevo** y escriba su nombre de perfil, por ejemplo, *cdn-profile-123*. Un perfil es una colección de puntos de conexión. |
+    | **Plan de tarifa** | Seleccione una de las opciones **Estándar**, como **Microsoft estándar**. |
+    | **Nombre del punto de conexión de CDN** | Escriba el nombre de host de su punto de conexión como, por ejemplo, *cdn-endpoint-123*. Este nombre debe ser globalmente único en Azure, ya que se usa para acceder a los recursos almacenados en la caché en la dirección URL _&lt;NombreDePuntoDeConexión&gt;_ .azureedge.net. |
     | **Nombre de host de origen** | De forma predeterminada, un nuevo punto de conexión de CDN usa el nombre de host de la cuenta de almacenamiento como servidor de origen. |
 
-1. Seleccione **Crear** . Después de que se crea el punto de conexión, aparece en la lista de puntos de conexión.
+1. Seleccione **Crear**. Después de que se crea el punto de conexión, aparece en la lista de puntos de conexión.
 
     ![Nuevo punto de conexión de CDN de almacenamiento](./media/cdn-create-a-storage-account-with-cdn/cdn-storage-new-endpoint-list.png)
 
@@ -95,7 +95,7 @@ Si quiere conceder acceso limitado a contenedores de almacenamiento privado, pue
 
 Para obtener acceso al contenido almacenado en la memoria caché de la red CDN, use la URL de la red CDN que se le ha proporcionado en el portal. La dirección de un blob en caché tiene el siguiente formato:
 
-http://< *NombreDePuntoDeConexión*\>.azureedge.net/< *myPublicContainer*\>/<*BlobName*\>
+http://<*NombreDePuntoDeConexión*\>.azureedge.net/<*myPublicContainer*\>/<*BlobName*\>
 
 > [!NOTE]
 > Después de habilitar el acceso de Azure CDN a una cuenta de almacenamiento, todos los objetos disponibles de forma pública se pueden almacenar en caché en el POP de la red CDN. Si modifica un objeto que está almacenado actualmente en caché en la red CDN, el nuevo contenido no estará disponible a través de Azure CDN hasta que Azure CDN actualice su contenido al cumplir el período de vida del contenido almacenado en caché.
@@ -116,7 +116,7 @@ En los pasos anteriores, ha creado un perfil y un punto de conexión de CDN en u
 
 1. En el menú izquierdo de Azure Portal, seleccione **Grupos de recursos** y después *CDNQuickstart-rg*\*.
 
-2. En la página **Grupo de recursos** , seleccione **Eliminar grupo de recursos** , escriba *CDNQuickstart-rg* en el cuadro de texto y, después, seleccione **Eliminar** .
+2. En la página **Grupo de recursos**, seleccione **Eliminar grupo de recursos**, escriba *CDNQuickstart-rg* en el cuadro de texto y, después, seleccione **Eliminar**.
 
     Esta acción eliminará el grupo de recursos, el perfil y el punto de conexión que creó en esta guía de inicio rápido.
 

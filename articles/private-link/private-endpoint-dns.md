@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: allensu
-ms.openlocfilehash: fe8f4229a2bc967f1368e263d2c055b153c3717d
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: bb1f4b5e37cecc33cef115f26c44ad6375c7e327
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369971"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94734385"
 ---
 # <a name="azure-private-endpoint-dns-configuration"></a>Configuración de DNS para puntos de conexión privados de Azure
 
@@ -25,9 +25,11 @@ Puede usar las siguientes opciones para establecer la configuración de DNS para
 - **Use el archivo de host (solo se recomienda para pruebas)** . Puede usar el archivo de host en una máquina virtual para invalidar el DNS.  
 - **Use una zona DNS privada**. Puede usar [zonas DNS privadas](../dns/private-dns-privatednszone.md) para invalidar la resolución DNS de un punto de conexión privado determinado. Una zona DNS privada se puede vincular a la red virtual para resolver dominios específicos.
 - **Use el reenviador DNS (opcional)** . Puede usar su reenviador DNS a fin de invalidar la resolución DNS para un determinado recurso de vínculo privado. Si el [servidor DNS](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) se hospeda en una red virtual, puede crear una regla de reenvío de DNS para usar una zona DNS privada con el fin de simplificar la configuración de todos los recursos de vínculo privado.
- 
+
 > [!IMPORTANT]
 > No se recomienda invalidar una zona que esté en uso para resolver puntos de conexión públicos. Las conexiones a los recursos no podrán resolverse correctamente sin el reenvío de DNS al DNS público. Para evitar problemas, cree un nombre de dominio diferente o siga el nombre sugerido para cada servicio que aparece a continuación. 
+
+
 
 ## <a name="azure-services-dns-zone-configuration"></a>Configuración de zonas DNS de los servicios de Azure
 Los servicios de Azure crearán un registro de DNS de nombre canónico (CNAME) en el servicio DNS público para redirigir la resolución a los nombres de dominio privados sugeridos. Puede invalidar la resolución con la dirección IP privada de los puntos de conexión privados. 
@@ -93,6 +95,8 @@ En función de sus preferencias, los siguientes escenarios están disponibles pa
 - [Cargas de trabajo locales que utilizan un reenviador DNS](#on-premises-workloads-using-a-dns-forwarder)
 - [Red virtual y cargas de trabajo locales mediante un reenviador DNS](#virtual-network-and-on-premises-workloads-using-a-dns-forwarder)
 
+> [!NOTE]
+> El [proxy DNS de Azure Firewall](../firewall/dns-settings.md#dns-proxy) se puede usar como reenviador DNS para [cargas de trabajo locales](#on-premises-workloads-using-a-dns-forwarder) y [cargas de trabajo de red virtual mediante un reenviador DNS](#virtual-network-and-on-premises-workloads-using-a-dns-forwarder).
 
 ## <a name="virtual-network-workloads-without-custom-dns-server"></a>Cargas de trabajo de red virtual sin un servidor DNS personalizado
 

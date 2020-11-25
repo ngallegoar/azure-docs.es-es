@@ -12,11 +12,11 @@ ms.date: 04/06/2020
 ms.author: sudbalas
 Customer intent: As a key vault administrator, I want to learn the options available to monitor the health of my vaults
 ms.openlocfilehash: 9195bb59264731914740e1cca902707603e3502d
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427013"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018127"
 ---
 # <a name="monitoring-and-alerting-for-azure-key-vault"></a>Supervisión y alertas de Azure Key Vault
 
@@ -36,15 +36,15 @@ Una vez que haya empezado a usar Key Vault para almacenar los secretos de produc
 + Total de visitas de la API de servicio (filtrar por tipo de actividad) 
 + Códigos de error (filtrar por código de estado) 
 
-**Disponibilidad del almacén** : esta métrica siempre debe estar en el 100 %. Esta es una métrica importante para la supervisión ya que puede mostrar rápidamente si el almacén de claves ha sufrido una interrupción. 
+**Disponibilidad del almacén**: esta métrica siempre debe estar en el 100 %. Esta es una métrica importante para la supervisión ya que puede mostrar rápidamente si el almacén de claves ha sufrido una interrupción. 
 
-**Saturación del almacén** : el número de solicitudes por segundo que puede procesar un almacén de claves se basa en el tipo de operación que se realiza. Algunas operaciones del almacén tienen un umbral inferior de solicitudes por segundo. Esta métrica suma el uso total del almacén de claves de todos los tipos de operaciones para obtener un valor porcentual que indica el uso actual del almacén de claves. Para obtener una lista completa de los límites del servicio Key Vault, consulte el siguiente documento. [Límites de servicio de Azure Key Vault](service-limits.md)
+**Saturación del almacén**: el número de solicitudes por segundo que puede procesar un almacén de claves se basa en el tipo de operación que se realiza. Algunas operaciones del almacén tienen un umbral inferior de solicitudes por segundo. Esta métrica suma el uso total del almacén de claves de todos los tipos de operaciones para obtener un valor porcentual que indica el uso actual del almacén de claves. Para obtener una lista completa de los límites del servicio Key Vault, consulte el siguiente documento. [Límites de servicio de Azure Key Vault](service-limits.md)
 
-**Latencia de la API de servicio** : esta métrica muestra la latencia media de una llamada al almacén de claves. Aunque el almacén de claves puede estar dentro de los límites del servicio, un uso elevado del almacén podría generar una latencia que provoque un error en las aplicaciones de nivel inferior. 
+**Latencia de la API de servicio**: esta métrica muestra la latencia media de una llamada al almacén de claves. Aunque el almacén de claves puede estar dentro de los límites del servicio, un uso elevado del almacén podría generar una latencia que provoque un error en las aplicaciones de nivel inferior. 
 
-**Total de visitas de la API** : esta métrica muestra todas las llamadas realizadas al almacén de claves. Esto le ayudará a identificar qué aplicaciones realizan llamadas a su almacén de claves. 
+**Total de visitas de la API**: esta métrica muestra todas las llamadas realizadas al almacén de claves. Esto le ayudará a identificar qué aplicaciones realizan llamadas a su almacén de claves. 
 
-**Códigos de error** : esta métrica le mostrará si el almacén de claves está experimentando una cantidad de errores inusual. Para obtener una lista completa de los códigos de error y la guía de solución de problemas, consulte el siguiente documento. [Códigos de error de la API REST de Azure Key Vault](rest-error-codes.md)
+**Códigos de error**: esta métrica le mostrará si el almacén de claves está experimentando una cantidad de errores inusual. Para obtener una lista completa de los códigos de error y la guía de solución de problemas, consulte el siguiente documento. [Códigos de error de la API REST de Azure Key Vault](rest-error-codes.md)
 
 ## <a name="how-to-configure-metrics-and-create-a-dashboard"></a>Configuración de las métricas y creación de un panel
 
