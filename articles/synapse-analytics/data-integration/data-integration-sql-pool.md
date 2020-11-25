@@ -10,11 +10,11 @@ ms.date: 11/03/2020
 ms.author: daperlov
 ms.reviewer: jrasnick
 ms.openlocfilehash: 44d17bafe534fea2d408c92a3a01efb699250a78
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93317779"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95974432"
 ---
 # <a name="ingest-data-into-a-dedicated-sql-pool"></a>Ingesta de datos en un grupo de SQL dedicado
 
@@ -22,16 +22,16 @@ En este artículo, aprenderá a ingerir datos desde una cuenta de almacenamiento
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-* **Suscripción de Azure** : Si no tiene una suscripción a Azure, cree una [cuenta gratuita de Azure](https://azure.microsoft.com/free/) antes de empezar.
-* **Cuenta de Azure Storage** : Puede usar Azure Data Lake Storage Gen2 como almacén de datos de *origen*. Si no tiene una cuenta de almacenamiento, consulte [Creación de una cuenta de Azure Storage](../../storage/blobs/data-lake-storage-quickstart-create-account.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) para crear una.
-* **Azure Synapse Analytics** : Puede usar un grupo de SQL dedicado como almacén de datos *receptor*. Si no tiene una instancia de Azure Synapse Analytics, consulte [Creación de un grupo de SQL dedicado](../../azure-sql/database/single-database-create-quickstart.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) para ver los pasos para crear una.
+* **Suscripción de Azure**: Si no tiene una suscripción a Azure, cree una [cuenta gratuita de Azure](https://azure.microsoft.com/free/) antes de empezar.
+* **Cuenta de Azure Storage**: Puede usar Azure Data Lake Storage Gen2 como almacén de datos de *origen*. Si no tiene una cuenta de almacenamiento, consulte [Creación de una cuenta de Azure Storage](../../storage/blobs/data-lake-storage-quickstart-create-account.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) para crear una.
+* **Azure Synapse Analytics**: Puede usar un grupo de SQL dedicado como almacén de datos *receptor*. Si no tiene una instancia de Azure Synapse Analytics, consulte [Creación de un grupo de SQL dedicado](../../azure-sql/database/single-database-create-quickstart.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) para ver los pasos para crear una.
 
 ## <a name="create-linked-services"></a>Crear servicios vinculados
 
 En Azure Synapse Analytics, un servicio vinculado es donde se define la información de conexión a otros servicios. En esta sección, agregará un servicio vinculado de Azure Synapse Analytics y Azure Data Lake Storage Gen2.
 
 1. Abra la experiencia del usuario de Azure Synapse Studio y vaya a la pestaña **Administrar**.
-1. En **Conexiones externas** , seleccione **Servicios vinculados**.
+1. En **Conexiones externas**, seleccione **Servicios vinculados**.
 1. Para agregar un servicio vinculado, seleccione **Nuevo**.
 1. Seleccione el icono de Azure Data Lake Storage Gen2 de la lista y seleccione **Continuar**.
 1. Especifique las credenciales de autenticación. Actualmente, la clave de cuenta, la entidad de servicio y la identidad administrada son los tipos de autenticación admitidos. Seleccione Probar conexión para verificar que las credenciales son correctas. Cuando haya terminado, seleccione **Crear**.

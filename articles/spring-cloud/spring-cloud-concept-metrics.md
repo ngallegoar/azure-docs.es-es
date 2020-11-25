@@ -7,13 +7,12 @@ ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
-zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: f84201de1f63704fefcf5de4041b95ed8c2122cd
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 015aadb791172f5033bf0198caad567c9bc03221
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92094065"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95974670"
 ---
 # <a name="understand-metrics-for-azure-spring-cloud"></a>Descripción de las métricas en Azure Spring Cloud
 
@@ -110,7 +109,6 @@ En las tablas siguientes se muestran las métricas y los detalles disponibles.
 >| jvm.gc.pause.total.count | jvm.gc.pause (recuento total) | Count | Recuento total de recolecciones de elementos no utilizados después del inicio de esta Máquina virtual Java, incluidas las recolecciones de elementos no utilizados anteriores y nuevas. |
 >| jvm.gc.pause.total.time | jvm.gc.pause (tiempo total) | Milisegundos | Recuento total de tiempo consumido en recolecciones de elementos no utilizados después del inicio de esta Máquina virtual Java, incluidas las recolecciones de elementos no utilizados anteriores y nuevas. |
 
-::: zone pivot="programming-language-csharp"
 ### <a name="performance-net"></a>Rendimiento (.NET)
 
 >[!div class="mx-tdCol2BreakAll"]
@@ -136,7 +134,6 @@ En las tablas siguientes se muestran las métricas y los detalles disponibles.
 >| Recuento de temporizadores activos               | active-timer-count               | Count | Número de usuarios que están actualmente en línea. Un temporizador activo es el que se registra para marcar en algún momento en el futuro y aún no se ha cancelado. |
 
 Para obtener más información, consulte [Contadores dotnet](/dotnet/core/diagnostics/dotnet-counters).
-::: zone-end
 
 ### <a name="request"></a>Solicitud
 >[!div class="mx-tdCol2BreakAll"]
@@ -147,7 +144,6 @@ Para obtener más información, consulte [Contadores dotnet](/dotnet/core/diagno
 >| tomcat.global.request.total.count | tomcat.global.request (recuento total) | Count | Recuento total de solicitudes procesadas por el servidor web de Tomcat |
 >| tomcat.global.request.max | tomcat.global.request.max | Milisegundos | Tiempo máximo del servidor web de Tomcat para procesar una solicitud |
 
-::: zone pivot="programming-language-csharp"
 ### <a name="request-net"></a>Solicitud (.NET)
 
 >[!div class="mx-tdCol2BreakAll"]
@@ -159,7 +155,6 @@ Para obtener más información, consulte [Contadores dotnet](/dotnet/core/diagno
 >| Error en las solicitudes | failed-requests | Count | Número de solicitudes con error. |
 
 Para obtener más información, consulte [Contadores dotnet](/dotnet/core/diagnostics/dotnet-counters).
-::: zone-end
 
 ### <a name="session"></a>Sesión
 >[!div class="mx-tdCol2BreakAll"]

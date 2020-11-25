@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e4c456e7788280b7ca5328342e1cd848ba3a583a
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94411140"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95972766"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-microsoft-365-resources"></a>Sincronización de Azure Active Directory Connect: Configuración de la ubicación de datos preferida para los recursos de Microsoft 365
 El objetivo de este tema es guiarle por la configuración del atributo de la ubicación de datos preferida en la sincronización de Azure Active Directory (Azure AD) Connect. Cuando alguien usa las funcionalidades multigeográficas de Microsoft 365, este atributo se usa para designar la ubicación geográfica de los datos de Microsoft 365 del usuario. (Los términos *región* y *geoárea* se usan indistintamente).
@@ -70,7 +70,7 @@ Azure AD Connect es compatible con la sincronización del atributo **preferredDa
 De manera predeterminada, el atributo **preferredDataLocation** no está habilitado para la sincronización. Esta característica está diseñada para organizaciones grandes. El esquema de Active Directory en Windows Server 2019 tiene un atributo **msDS-preferredDataLocation** que debe usar con este fin. Si no ha actualizado el esquema de Active Directory y no puede hacerlo, debe identificar un atributo para que contenga la geoárea de Microsoft 365 para los usuarios. Esto será diferente para cada organización.
 
 > [!IMPORTANT]
-> Azure AD permite que el atributo **preferredDataLocation** de los **objetos User de la nube** se configure directamente con Azure AD PowerShell. Para configurar este atributo en los **objetos User sincronizado** , debe usar Azure AD Connect.
+> Azure AD permite que el atributo **preferredDataLocation** de los **objetos User de la nube** se configure directamente con Azure AD PowerShell. Para configurar este atributo en los **objetos User sincronizado**, debe usar Azure AD Connect.
 
 Antes de habilitar la sincronización:
 
@@ -103,7 +103,7 @@ Si ha actualizado el esquema de Active Directory a 2019 y Connect se instaló a
 1. Inicie el Asistente de Azure AD Connect desde el escritorio.
 2. Seleccione la opción **Actualizar esquema de directorios** y haga clic en **Siguiente**.
 3. Escriba las credenciales de Azure AD y haga clic en **Siguiente**.
-4. En la página **Actualizar esquema de directorios** , asegúrese de que todos los bosques están seleccionados; después, haga clic en **Siguiente**.
+4. En la página **Actualizar esquema de directorios**, asegúrese de que todos los bosques están seleccionados; después, haga clic en **Siguiente**.
 5. Cuando termine, cierre el asistente.
 
 ![Captura de pantalla de Actualizar esquema de directorios en el asistente de Connect](./media/how-to-connect-sync-feature-preferreddatalocation/preferreddatalocation-refreshschema.png)
@@ -138,7 +138,7 @@ La regla de sincronización de entrada permite enviar el valor del atributo desd
 1. Inicie el **Editor de reglas de sincronización**. Para ello, vaya a **INICIO** > **Editor de reglas de sincronización**.
 2. Establezca el filtro de búsqueda **Dirección** como **Entrada**.
 3. Para crear una regla de entrada, seleccione **Agregar nueva regla**.
-4. En la pestaña **Descripción** , proporcione la configuración siguiente:
+4. En la pestaña **Descripción**, proporcione la configuración siguiente:
 
     | Atributo | Value | Detalles |
     | --- | --- | --- |
@@ -167,7 +167,7 @@ La regla de sincronización de salida permite enviar el valor del atributo desde
 1. Vaya al **Editor de Reglas de sincronización**.
 2. Establezca el filtro de búsqueda **Dirección** como **Salida**.
 3. Seleccione **Agregar nueva regla**.
-4. En la pestaña **Descripción** , proporcione la configuración siguiente:
+4. En la pestaña **Descripción**, proporcione la configuración siguiente:
 
     | Atributo | Value | Detalles |
     | ----- | ------ | --- |
@@ -240,7 +240,7 @@ En general, se requiere un ciclo de sincronización completo. Esto se debe a que
 6. Ejecute **Exportar** en el **conector de Azure AD**
 
    1. Haga clic con el botón derecho en **Conector de Azure AD** y seleccione **Ejecutar**.
-   2. En el cuadro de diálogo **Ejecutar conector** , seleccione **Exportar** y **Aceptar**.
+   2. En el cuadro de diálogo **Ejecutar conector**, seleccione **Exportar** y **Aceptar**.
    3. Espere a que se complete la operación.
 
 > [!NOTE]

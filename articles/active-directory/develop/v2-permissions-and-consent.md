@@ -13,11 +13,11 @@ ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur, marsma
 ms.custom: aaddev, fasttrack-edit, contperfq1, identityplatformtop40
 ms.openlocfilehash: 9c8a911bef5fb92f5bf9aa447e9e810a85317208
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92365857"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95974160"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Permisos y consentimiento en el punto de conexión de la Plataforma de identidad de Microsoft
 
@@ -25,7 +25,7 @@ Las aplicaciones que se integran con la plataforma de identidad de Microsoft sig
 
 ## <a name="scopes-and-permissions"></a>Permisos y ámbitos
 
-La plataforma de identidad de Microsoft implementa el protocolo de autorización [OAuth 2.0](active-directory-v2-protocols.md). OAuth 2.0 es un método a través del cual una aplicación de terceros puede acceder a recursos hospedados en Web en nombre de un usuario. Cualquier recurso hospedado en web que se integre con la plataforma de identidad de Microsoft tiene un identificador de recursos o *URI de identificador de aplicación* . Por ejemplo, algunos de los recursos de Microsoft hospedados en la web incluyen:
+La plataforma de identidad de Microsoft implementa el protocolo de autorización [OAuth 2.0](active-directory-v2-protocols.md). OAuth 2.0 es un método a través del cual una aplicación de terceros puede acceder a recursos hospedados en Web en nombre de un usuario. Cualquier recurso hospedado en web que se integre con la plataforma de identidad de Microsoft tiene un identificador de recursos o *URI de identificador de aplicación*. Por ejemplo, algunos de los recursos de Microsoft hospedados en la web incluyen:
 
 * Microsoft Graph: `https://graph.microsoft.com`
 * Mail API de Microsoft 365: `https://outlook.office.com`
@@ -42,7 +42,7 @@ Ocurre lo mismo con cualquier recurso de terceros integrado en la plataforma de 
 
 Mediante la definición de estos tipos de permisos, el recurso tiene control específico sobre sus datos y el modo en que la funcionalidad de la API se expone. Una aplicación de terceros puede solicitar estos permisos a los usuarios y administradores, quienes deben aprobar la solicitud para que la aplicación pueda acceder a los datos o actuar en nombre de un usuario. Al fragmentar la funcionalidad del recurso en conjuntos de permisos más pequeños, se pueden crear aplicaciones de terceros para solicitar solo los permisos concretos que necesitan para realizar sus tareas. Los usuarios y administradores pueden saber exactamente a qué datos tiene acceso la aplicación y estar más seguros de que no se comporta de forma malintencionada. Los desarrolladores deben cumplir siempre con el concepto del mínimo privilegio y pedir solo los permisos que necesitan para que sus aplicaciones funcionen.
 
-En OAuth 2.0, estos tipos de permisos se denominan *ámbitos* . A menudo se hace referencia a ellos como *permisos* . Un permiso se representa en la plataforma de identidad de Microsoft como un valor de cadena. Al igual que en el ejemplo de Microsoft Graph, el valor de ámbito cadena para cada permiso es:
+En OAuth 2.0, estos tipos de permisos se denominan *ámbitos*. A menudo se hace referencia a ellos como *permisos*. Un permiso se representa en la plataforma de identidad de Microsoft como un valor de cadena. Al igual que en el ejemplo de Microsoft Graph, el valor de ámbito cadena para cada permiso es:
 
 * Leer el calendario de un usuario mediante `Calendars.Read`
 * Escribir en el calendario de un usuario mediante `Calendars.ReadWrite`
@@ -52,11 +52,11 @@ Una aplicación suele solicitar estos permisos, para lo que especifica los ámbi
 
 ## <a name="permission-types"></a>Tipos de permisos
 
-La plataforma de identidad de Microsoft admite dos tipos de permisos: **permisos delegados** y **permisos de aplicación** .
+La plataforma de identidad de Microsoft admite dos tipos de permisos: **permisos delegados** y **permisos de aplicación**.
 
-* **Permisos delegados** : se utilizan en aplicaciones que tienen un usuario con la sesión iniciada. Para estas aplicaciones, el usuario o un administrador dan su consentimiento para los permisos que la aplicación requiere y se le delega el permiso a la aplicación para actuar como el usuario que inició sesión al realizar llamadas al recurso de destino. Algunos permisos delegados pueden ser consentidos por usuarios que no sean administradores, pero otros con más privilegios requieren el [consentimiento del administrador](#admin-restricted-permissions). Para información sobre qué roles de administrador pueden consentir los permisos delegados, consulte [Permisos de roles de administrador en Azure AD](../roles/permissions-reference.md).
+* **Permisos delegados**: se utilizan en aplicaciones que tienen un usuario con la sesión iniciada. Para estas aplicaciones, el usuario o un administrador dan su consentimiento para los permisos que la aplicación requiere y se le delega el permiso a la aplicación para actuar como el usuario que inició sesión al realizar llamadas al recurso de destino. Algunos permisos delegados pueden ser consentidos por usuarios que no sean administradores, pero otros con más privilegios requieren el [consentimiento del administrador](#admin-restricted-permissions). Para información sobre qué roles de administrador pueden consentir los permisos delegados, consulte [Permisos de roles de administrador en Azure AD](../roles/permissions-reference.md).
 
-* **Permisos de aplicación** : los usan las aplicaciones que se ejecutan sin la presencia de un usuario con la sesión iniciada; por ejemplo, las aplicaciones que se ejecutan como demonios o servicios en segundo plano.  Los permisos de aplicación solo pueden ser [aceptados por un administrador](#requesting-consent-for-an-entire-tenant).
+* **Permisos de aplicación**: los usan las aplicaciones que se ejecutan sin la presencia de un usuario con la sesión iniciada; por ejemplo, las aplicaciones que se ejecutan como demonios o servicios en segundo plano.  Los permisos de aplicación solo pueden ser [aceptados por un administrador](#requesting-consent-for-an-entire-tenant).
 
 _Los permisos efectivos_ son los que la aplicación tendrá al realizar solicitudes al recurso de destino. Es importante comprender la diferencia entre, por un lado, los permisos delegados y los de aplicación que se conceden a una aplicación y, por otro, sus permisos efectivos al realizar llamadas al recurso de destino.
 
@@ -113,7 +113,7 @@ https%3A%2F%2Fgraph.microsoft.com%2Fmail.send
 
 El parámetro `scope` es una lista separada por espacios que incluye los permisos delegados que la aplicación solicita. Cada permiso se indica anexando el valor del permiso al identificador del recurso (URI del identificador de aplicación). En la solicitud de ejemplo, la aplicación necesita permiso para leer el calendario del usuario y enviar correo electrónico en nombre del usuario.
 
-Después de que el usuario escriba sus credenciales, el punto de conexión de la Plataforma de identidad de Microsoft buscará un registro que coincida con el *consentimiento del usuario* . Si el usuario no dio su consentimiento a ninguno de los permisos solicitados en el pasado, y si ningún administrador dio su consentimiento a estos permisos en nombre de toda la organización, el punto de conexión de la Plataforma de identidad de Microsoft solicita al usuario que conceda los permisos solicitados.
+Después de que el usuario escriba sus credenciales, el punto de conexión de la Plataforma de identidad de Microsoft buscará un registro que coincida con el *consentimiento del usuario*. Si el usuario no dio su consentimiento a ninguno de los permisos solicitados en el pasado, y si ningún administrador dio su consentimiento a estos permisos en nombre de toda la organización, el punto de conexión de la Plataforma de identidad de Microsoft solicita al usuario que conceda los permisos solicitados.
 
 > [!NOTE]
 >En este momento, los permisos `offline_access` ("Mantener el acceso a los datos a los que le ha dado acceso") y `user.read` ("Iniciar sesión y leer su perfil") se incluyen automáticamente en el consentimiento inicial para una aplicación.  Estos permisos suelen ser necesarios para que la aplicación funcione correctamente: `offline_access` da acceso a la aplicación a los tokens de actualización, críticos para aplicaciones nativas y web, mientras que `user.read` da acceso a la notificación `sub`, lo que permite al cliente o a la aplicación identificar correctamente al usuario con el tiempo y acceder a información de usuario rudimentaria.
@@ -132,7 +132,7 @@ Además, las aplicaciones deben usar el punto de conexión de consentimiento del
 
 ## <a name="admin-restricted-permissions"></a>Permisos restringidos por el administrador
 
-Algunos permisos de privilegios elevados del ecosistema de Microsoft se pueden establecer en *restringido para los administradores* . Algunos ejemplos de estos tipos de permisos son los siguientes:
+Algunos permisos de privilegios elevados del ecosistema de Microsoft se pueden establecer en *restringido para los administradores*. Algunos ejemplos de estos tipos de permisos son los siguientes:
 
 * Leer los perfiles completos de todos los usuarios con `User.Read.All`
 * Escribir datos en el directorio de una organización mediante `Directory.ReadWrite.All`
@@ -144,7 +144,7 @@ Si la aplicación necesita acceso a los ámbitos restringidos para los administr
 
 Si la aplicación solicita permisos delegados con altos privilegios y un administrador los concede a través del punto de conexión de consentimiento del administrador, el consentimiento se concede a todos los usuarios del inquilino.
 
-Si la aplicación solicita permisos de aplicación y un administrador los concede a través del punto de conexión de consentimiento del administrador, esta concesión no se realiza en nombre de un usuario específico. En su lugar, a la aplicación cliente se le conceden los permisos *directamente* . Estos tipos de permisos solo se usan en servicios de demonio y otras aplicaciones no interactivas que se ejecutan en segundo plano.
+Si la aplicación solicita permisos de aplicación y un administrador los concede a través del punto de conexión de consentimiento del administrador, esta concesión no se realiza en nombre de un usuario específico. En su lugar, a la aplicación cliente se le conceden los permisos *directamente*. Estos tipos de permisos solo se usan en servicios de demonio y otras aplicaciones no interactivas que se ejecutan en segundo plano.
 
 ## <a name="using-the-admin-consent-endpoint"></a>Uso del punto de conexión de consentimiento del administrador
 
@@ -304,7 +304,7 @@ Se abre una pantalla de consentimiento para todos los permisos registrados (si e
 
 ### <a name="client-credentials-grant-flow-and-default"></a>Flujo de concesión de credenciales de cliente y ./default
 
-`./default` también se utiliza cuando se solicitan permisos de aplicación (o *roles* ) en una aplicación no interactiva, como una aplicación de demonio que usa el flujo de concesión de [credenciales de cliente](v2-oauth2-client-creds-grant-flow.md) para llamar a una API web.
+`./default` también se utiliza cuando se solicitan permisos de aplicación (o *roles*) en una aplicación no interactiva, como una aplicación de demonio que usa el flujo de concesión de [credenciales de cliente](v2-oauth2-client-creds-grant-flow.md) para llamar a una API web.
 
 Para crear permisos de aplicación (roles) para una API web, consulte [Procedimientos: Agregar roles de aplicación en la aplicación y recibirlos en el token](howto-add-app-roles-in-azure-ad-apps.md).
 

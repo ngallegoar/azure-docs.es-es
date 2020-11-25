@@ -10,11 +10,11 @@ ms.date: 04/15/2020
 ms.author: daperlov
 ms.reviewer: jrasnick
 ms.openlocfilehash: f06777e559187a57bfe0625cde700f30fb636a2b
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93309345"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95974466"
 ---
 # <a name="ingest-data-into-azure-data-lake-storage-gen2"></a>Ingesta de datos en Azure Data Lake Storage Gen2 
 
@@ -22,15 +22,15 @@ En este artículo, aprenderá a ingerir datos desde una cuenta a otra en una cue
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-* **Suscripción de Azure** : Si no tiene una suscripción a Azure, cree una [cuenta gratuita de Azure](https://azure.microsoft.com/free/) antes de empezar.
-* **Cuenta de Azure Storage** : Puede usar Azure Data Lake Gen2 como almacén de datos de *origen*. Si no tiene una cuenta de almacenamiento, consulte [Creación de una cuenta de Azure Storage](../../storage/blobs/data-lake-storage-quickstart-create-account.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) para crear una.
+* **Suscripción de Azure**: Si no tiene una suscripción a Azure, cree una [cuenta gratuita de Azure](https://azure.microsoft.com/free/) antes de empezar.
+* **Cuenta de Azure Storage**: Puede usar Azure Data Lake Gen2 como almacén de datos de *origen*. Si no tiene una cuenta de almacenamiento, consulte [Creación de una cuenta de Azure Storage](../../storage/blobs/data-lake-storage-quickstart-create-account.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) para crear una.
 
 ## <a name="create-linked-services"></a>Crear servicios vinculados
 
 En Azure Synapse Analytics, un servicio vinculado es donde se define la información de conexión a otros servicios. En esta sección, agregará Azure Synapse Analytics y Azure Data Lake Gen2 como servicios vinculados.
 
 1. Abra la experiencia del usuario de Azure Synapse Studio y vaya a la pestaña **Administrar**.
-1. En **Conexiones externas** , seleccione **Servicios vinculados**.
+1. En **Conexiones externas**, seleccione **Servicios vinculados**.
 1. Para agregar un servicio vinculado, seleccione **Nuevo**.
 1. Seleccione el icono de Azure Data Lake Storage Gen2 de la lista y seleccione **Continuar**.
 1. Especifique las credenciales de autenticación. Actualmente, la clave de cuenta, la entidad de servicio y la identidad administrada son los tipos de autenticación admitidos. Seleccione Probar conexión para verificar que las credenciales son correctas. 
