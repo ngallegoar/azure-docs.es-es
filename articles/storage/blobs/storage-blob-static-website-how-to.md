@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.author: normesta
 ms.date: 03/04/2020
 ms.custom: devx-track-js, devx-track-azurecli
-ms.openlocfilehash: 5c9d7faebe7fefdddbf194e3a9ad36b4644115e0
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 8ca670049b49500e6b6310bca25cb78ded31a294
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746450"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95537856"
 ---
 # <a name="host-a-static-website-in-azure-storage"></a>Hospedaje de un sitio web estático en Azure Storage
 
@@ -38,15 +38,15 @@ El hospedaje de sitios web estáticos es una característica que permite habilit
 
 4. Seleccione **Habilitado** para habilitar el hospedaje del sitio web estático para la cuenta de almacenamiento.
 
-5. En el campo **Index document name** (Nombre del documento de índice), especifique una página de índice predeterminada (por ejemplo: *index.html* ). 
+5. En el campo **Index document name** (Nombre del documento de índice), especifique una página de índice predeterminada (por ejemplo: *index.html*). 
 
    La página de índice predeterminada se muestra cuando un usuario navega hasta la raíz del sitio web estático.  
 
-6. En el campo **Error document path** (Ruta de acceso del documento de error), especifique una página de error predeterminada (por ejemplo: *404.html* ). 
+6. En el campo **Error document path** (Ruta de acceso del documento de error), especifique una página de error predeterminada (por ejemplo: *404.html*). 
 
    La página de error predeterminada se muestra cuando un usuario intenta navegar a una página que no existe en el sitio web estático.
 
-7. Haga clic en **Save** (Guardar). Azure Portal ahora muestra el punto de conexión estático del sitio web. 
+7. Haga clic en **Save**(Guardar). Azure Portal ahora muestra el punto de conexión estático del sitio web. 
 
     ![Habilitación del hospedaje del sitio web estático para una cuenta de almacenamiento](media/storage-blob-static-website-host/enable-static-website-hosting.png)
 
@@ -54,9 +54,9 @@ El hospedaje de sitios web estáticos es una característica que permite habilit
 
 <a id="cli"></a>
 
-Puede habilitar el hospedaje de sitios web estáticos mediante la [Interfaz de la línea de comandos (CLI) de Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
+Puede habilitar el hospedaje de sitios web estáticos mediante la [Interfaz de la línea de comandos (CLI) de Azure](/cli/azure/?view=azure-cli-latest).
 
-1. En primer lugar, abra [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest) o, si ha [instalado](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) la CLI de Azure localmente, abra una aplicación de consola de comandos como Windows PowerShell.
+1. En primer lugar, abra [Azure Cloud Shell](../../cloud-shell/overview.md?view=azure-cli-latest) o, si ha [instalado](/cli/azure/install-azure-cli?view=azure-cli-latest) la CLI de Azure localmente, abra una aplicación de consola de comandos como Windows PowerShell.
 
 2. Si su identidad se asocia a más de una suscripción, establezca su suscripción activa en la suscripción de la cuenta de almacenamiento que hospedará el sitio web estático.
 
@@ -136,7 +136,7 @@ Puede habilitar el hospedaje de sitios web estáticos con el módulo de Azure Po
 
 ### <a name="portal"></a>[Portal](#tab/azure-portal)
 
-En estas instrucciones se muestra cómo cargar archivos mediante la versión del Explorador de Storage que aparece en Azure Portal. No obstante, también se puede usar la versión del [Explorador de Storage](https://azure.microsoft.com/features/storage-explorer/) que se ejecuta fuera de Azure Portal. Puede usar [AzCopy](../common/storage-use-azcopy-v10.md), PowerShell, CLI o cualquier aplicación personalizada que pueda cargar archivos en el contenedor **$web** de su cuenta. Para ver un tutorial detallado sobre la carga de archivos mediante Visual Studio Code, consulte [Tutorial: Hospedaje de un sitio web estático en Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website-host).
+En estas instrucciones se muestra cómo cargar archivos mediante la versión del Explorador de Storage que aparece en Azure Portal. No obstante, también se puede usar la versión del [Explorador de Storage](https://azure.microsoft.com/features/storage-explorer/) que se ejecuta fuera de Azure Portal. Puede usar [AzCopy](../common/storage-use-azcopy-v10.md), PowerShell, CLI o cualquier aplicación personalizada que pueda cargar archivos en el contenedor **$web** de su cuenta. Para ver un tutorial detallado sobre la carga de archivos mediante Visual Studio Code, consulte [Tutorial: Hospedaje de un sitio web estático en Blob Storage](./storage-blob-static-website-host.md).
 
 1. Seleccione el **Explorador de Storage (versión preliminar)** .
 
@@ -173,7 +173,7 @@ az storage blob upload-batch -s <source-path> -d '$web' --account-name <storage-
 > [!NOTE]
 > Si usa una instalación de ubicación de la CLI de Azure, puede usar la ruta de acceso a cualquier ubicación en el equipo local (por ejemplo: `C:\myFolder`).
 >
-> Si usa Azure Cloud Shell, tendrá que hacer referencia a un recurso compartido de archivos visible para Cloud Shell. Esta ubicación podría ser el recurso compartido de archivos del propio recurso compartido en la nube o un recurso compartido de archivos existente que monta desde Cloud Shell. Para obtener información sobre cómo hacerlo, consulte [Persistencia de archivos en Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/persisting-shell-storage).
+> Si usa Azure Cloud Shell, tendrá que hacer referencia a un recurso compartido de archivos visible para Cloud Shell. Esta ubicación podría ser el recurso compartido de archivos del propio recurso compartido en la nube o un recurso compartido de archivos existente que monta desde Cloud Shell. Para obtener información sobre cómo hacerlo, consulte [Persistencia de archivos en Azure Cloud Shell](../../cloud-shell/persisting-shell-storage.md).
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -279,4 +279,3 @@ Después de habilitar las métricas, las estadísticas de tráfico de los archiv
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Aprenda a configurar un dominio personalizado con su sitio web estático. Consulte [Asignación de un dominio personalizado a un punto de conexión de Azure Blob Storage](storage-custom-domain-name.md).
-

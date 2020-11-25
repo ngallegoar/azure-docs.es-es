@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 09/23/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 828b5c34aaccf2a53aa197f921a8ef02d46821ae
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 2350177373bc99907c437d814d8f01193f18f3fd
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91280477"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95895730"
 ---
 # <a name="perform-a-point-in-time-restore-on-block-blob-data"></a>Habilitación y administración de la restauración a un momento dado para blobs en bloques
 
@@ -29,7 +29,7 @@ Para más información sobre la restauración a un momento dado, consulte [Resta
 
 Antes de habilitar y configurar la restauración a un momento dado, habilite los requisitos previos para la cuenta de almacenamiento: eliminación temporal, fuente de cambios y control de versiones de blob. Para obtener más información sobre cómo habilitar cada una de estas características, consulte estos artículos:
 
-- [Habilitación de la eliminación temporal para blobs](soft-delete-enable.md)
+- [Habilitación de la eliminación temporal para blobs](./soft-delete-blob-enable.md)
 - [Habilitar y deshabilitar la fuente de cambios](storage-blob-change-feed.md#enable-and-disable-the-change-feed)
 - [Habilitar y administrar las versiones de blob](versioning-enable.md)
 
@@ -122,7 +122,7 @@ Para restaurar todos los contenedores y blobs de la cuenta de almacenamiento con
 1. Active la casilla para confirmar que quiere continuar.
 1. Seleccione **Restaurar** para iniciar la operación de restauración.
 
-    :::image type="content" source="media/point-in-time-restore-manage/restore-all-containers-portal.png" alt-text="Captura de pantalla que muestra cómo configurar la restauración a un momento dado en Azure Portal":::
+    :::image type="content" source="media/point-in-time-restore-manage/restore-all-containers-portal.png" alt-text="Captura de pantalla que muestra cómo restaurar todos los contenedores a un punto de restauración especificado":::
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
@@ -169,14 +169,14 @@ Para restaurar un rango de blobs en uno o varios contenedores con Azure Portal, 
 1. Especifique los rangos que quiere restaurar. Use una barra diagonal (/) para delimitar el nombre del contenedor del prefijo de blob.
 1. De manera predeterminada, en el panel **Restauración de los contenedores seleccionados** se especifica un rango que incluye todos los blobs del contenedor. Elimine este rango si no quiere restaurar todo el contenedor. El rango predeterminado se muestra en la imagen siguiente.
 
-    :::image type="content" source="media/point-in-time-restore-manage/delete-default-blob-range.png" alt-text="Captura de pantalla que muestra cómo configurar la restauración a un momento dado en Azure Portal":::
+    :::image type="content" source="media/point-in-time-restore-manage/delete-default-blob-range.png" alt-text="Captura de pantalla que muestra el rango predeterminado de blobs que se va a eliminar antes de especificar el rango personalizado":::
 
 1. Active la casilla para confirmar que quiere continuar.
 1. Seleccione **Restaurar** para iniciar la operación de restauración.
 
 En la imagen siguiente se muestra una operación de restauración en un conjunto de rangos.
 
-:::image type="content" source="media/point-in-time-restore-manage/restore-multiple-container-ranges-portal.png" alt-text="Captura de pantalla que muestra cómo configurar la restauración a un momento dado en Azure Portal":::
+:::image type="content" source="media/point-in-time-restore-manage/restore-multiple-container-ranges-portal.png" alt-text="Captura de pantalla que muestra cómo restaurar rangos de blobs en uno o varios contenedores":::
 
 La operación de restauración que se muestra en la imagen realiza las acciones siguientes:
 
@@ -248,6 +248,6 @@ Para ejecutar la operación de restauración de manera sincrónica y bloquear la
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Restauración a un momento dado para blobs en bloques](point-in-time-restore-overview.md)
-- [Eliminación temporal](soft-delete-overview.md)
+- [Eliminación temporal](./soft-delete-blob-overview.md)
 - [Fuente de cambios](storage-blob-change-feed.md)
 - [Control de versiones de blobs](versioning-overview.md)

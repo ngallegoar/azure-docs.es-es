@@ -9,12 +9,12 @@ ms.date: 08/04/2020
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
-ms.openlocfilehash: 09206b8189f03a37f8bd7d073238609a3f1bd3ad
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7419e8667f07eec03e860634c7b3fddcac0e186b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88816106"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95901560"
 ---
 # <a name="mount-blob-storage-by-using-the-network-file-system-nfs-30-protocol-preview"></a>Montaje de Blob Storage con el protocolo Network File System (NFS) 3.0 (versión preliminar)
 
@@ -71,7 +71,7 @@ Get-AzProviderFeature -ProviderNamespace Microsoft.Storage -FeatureName PremiumH
 
 ## <a name="step-3-create-an-azure-virtual-network-vnet"></a>Paso 3: Creación de una instancia de Azure Virtual Network (VNet)
 
-La cuenta de almacenamiento debe incluirse en una red virtual. Una red virtual permite a los clientes conectarse de forma segura a su cuenta de almacenamiento. Para obtener más información sobre las redes virtuales y cómo crear una, consulte la [documentación de Virtual Network](https://docs.microsoft.com/azure/virtual-network/).
+La cuenta de almacenamiento debe incluirse en una red virtual. Una red virtual permite a los clientes conectarse de forma segura a su cuenta de almacenamiento. Para obtener más información sobre las redes virtuales y cómo crear una, consulte la [documentación de Virtual Network](../../virtual-network/index.yml).
 
 > [!NOTE]
 > Los clientes de la misma red virtual pueden montar contenedores en su cuenta. También puede montar un contenedor desde un cliente que se ejecuta en una red local, pero primero tendrá que conectar la red local a la red virtual. Consulte [Conexiones de red compatibles](network-file-system-protocol-support.md#supported-network-connections).
@@ -113,7 +113,7 @@ Cree un contenedor en la cuenta de almacenamiento mediante alguna de estas herra
 |[AzCopy](../common/storage-use-azcopy-blobs.md#create-a-container)|[Java](data-lake-storage-directory-file-acl-java.md#create-a-container)|
 |[PowerShell](data-lake-storage-directory-file-acl-powershell.md#create-a-container)|[Python](data-lake-storage-directory-file-acl-python.md#create-a-container)|
 |[CLI de Azure](data-lake-storage-directory-file-acl-cli.md#create-a-container)|[JavaScript](data-lake-storage-directory-file-acl-javascript.md)|
-||[REST](https://docs.microsoft.com/rest/api/storageservices/create-container)|
+||[REST](/rest/api/storageservices/create-container)|
 
 ## <a name="step-7-mount-the-container"></a>Paso 7: Montaje del contenedor
 
@@ -144,7 +144,7 @@ Cree un directorio en el sistema Windows o Linux y, a continuación, monte un co
 
    ![Característica Cliente para Network File System](media/network-file-system-protocol-how-to/client-for-network-files-system-feature.png)
 
-2. Monte un contenedor mediante el comando [mount](https://docs.microsoft.com/windows-server/administration/windows-commands/mount).
+2. Monte un contenedor mediante el comando [mount](/windows-server/administration/windows-commands/mount).
 
    ```
    mount -o nolock <storage-account-name>.blob.core.windows.net:/<storage-account-name>/<container-name> *
@@ -175,10 +175,3 @@ Cree un directorio en el sistema Windows o Linux y, a continuación, monte un co
 ## <a name="see-also"></a>Consulte también
 
 [Compatibilidad del protocolo Network File System (NFS) 3.0 en Azure Blob Storage (versión preliminar)](network-file-system-protocol-support.md)
-
-
-
-
-
-
-

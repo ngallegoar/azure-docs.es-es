@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/31/2020
 ms.author: rdhillon
-ms.openlocfilehash: 1e5253d617c87d5869cebc817da6d265ebfdfa7e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 45a7a146dd929408b50a0045fe2598726ee05505
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77539474"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95544316"
 ---
 # <a name="troubleshoot-azure-private-link-connectivity-problems"></a>Solución de problemas de conectividad de Azure Private Link
 
@@ -37,7 +37,7 @@ Estos son los escenarios de conectividad que están disponibles con Private Link
 
 ## <a name="deployment-troubleshooting"></a>Solución de problemas de implementación
 
-Revise la información sobre cómo [deshabilitar las directivas de red en el servicio Private Link](https://docs.microsoft.com/azure/private-link/disable-private-link-service-network-policy) para solucionar problemas en aquellos casos en los que no puede seleccionar la dirección IP de origen de la subred que prefiere para su servicio Private Link.
+Revise la información sobre cómo [deshabilitar las directivas de red en el servicio Private Link](./disable-private-link-service-network-policy.md) para solucionar problemas en aquellos casos en los que no puede seleccionar la dirección IP de origen de la subred que prefiere para su servicio Private Link.
 
 Asegúrese de que el valor **privateLinkServiceNetworkPolicies** está deshabilitado para la subred de la que está seleccionando la dirección IP de origen.
 
@@ -99,7 +99,7 @@ Si tiene problemas de conectividad con la configuración de Private Link, siga e
        - Si la conexión llega al grupo de back-end según las reglas de equilibrio de carga, significa que el equilibrador de carga está operativo.
        - También puede revisar la métrica del equilibrador de carga mediante Azure Monitor para ver si los datos fluyen a través de dicho equilibrador de carga.
 
-1. Use [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) para ver si los datos fluyen.
+1. Use [Azure Monitor](../azure-monitor/overview.md) para ver si los datos fluyen.
 
     a. En el recurso del servicio Private Link, seleccione **Métricas**.
      - Seleccione **Bytes de entrada** o **Bytes de salida**.
@@ -111,5 +111,5 @@ Si tiene problemas de conectividad con la configuración de Private Link, siga e
 
 ## <a name="next-steps"></a>Pasos siguientes
 
- * [Creación de un servicio Private Link (CLI)](https://docs.microsoft.com/azure/private-link/create-private-link-service-cli)
+ * [Creación de un servicio Private Link (CLI)](./create-private-link-service-cli.md)
  * [Guía de solución de problemas de puntos de conexión privados de Azure](troubleshoot-private-endpoint-connectivity.md)

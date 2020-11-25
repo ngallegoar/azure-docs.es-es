@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: a2eafd6bb34b897f3492ddcffd6841f0fabc4ca7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 28609ad27330ae4ea5ea7c0d02d5a61181fbe0df
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "73034553"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95560966"
 ---
 Cuando se diseña un sistema, es importante conocer las posibles amenazas a las que puede estar expuesto y agregar las defensas adecuadas según corresponda durante su diseño y arquitectura. Es importante diseñar el producto desde el principio teniendo en cuenta la seguridad, ya que conocer la forma en que un atacante podría poner en peligro un sistema ayuda a tomar las medidas pertinentes desde el principio.
 
@@ -72,7 +72,7 @@ Los cuatro elementos principales de un modelo de riesgos son:
 
 * Entidades externas (todo lo que interactúa con el sistema, pero que no está bajo el control de la aplicación; algunos ejemplos incluyen los usuarios y las fuentes de satélite)
 
-Todos los elementos del diagrama arquitectónico están sujetos a diversas amenazas. En este artículo se usará el mnemotécnico STRIDE. Para más información sobre los elementos de STRIDE, consulte el artículo [Threat Modeling Again, STRIDE](https://blogs.msdn.microsoft.com/larryosterman/2007/09/04/threat-modeling-again-stride/) (Modelado de riesgos otra vez, STRIDE).
+Todos los elementos del diagrama arquitectónico están sujetos a diversas amenazas. En este artículo se usará el mnemotécnico STRIDE. Para más información sobre los elementos de STRIDE, consulte el artículo [Threat Modeling Again, STRIDE](/archive/blogs/larryosterman/threat-modeling-again-stride) (Modelado de riesgos otra vez, STRIDE).
 
 Los distintos elementos del diagrama de las aplicaciones están sujetos a determinadas amenazas de STRIDE:
 

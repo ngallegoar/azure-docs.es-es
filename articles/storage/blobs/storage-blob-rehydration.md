@@ -9,19 +9,19 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: hux
-ms.openlocfilehash: a416c22c5b8e09104b20a17bc5042302fa56d8ba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f74d4ffdd724039354a311234317dac889cd7cfe
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88035151"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95545947"
 ---
 # <a name="rehydrate-blob-data-from-the-archive-tier"></a>Rehidratación de los datos de blob desde el nivel de archivo
 
 Mientras un blob se encuentra en el nivel de acceso de archivo, se considera sin conexión y no se puede leer ni modificar. Los metadatos de blob quedan en línea y se mantienen disponibles, lo que permite enumerar el blob y sus propiedades. La lectura y modificación de los datos de blob solo están disponibles con niveles en línea, como acceso frecuente o esporádico. Hay dos opciones para recuperar los datos almacenados en el nivel de acceso de archivo y obtener acceso a ellos.
 
-1. [Rehidratación de un blob archivado a un nivel en línea](#rehydrate-an-archived-blob-to-an-online-tier): rehidrate un blob de archivo a acceso frecuente o esporádico cambiando su nivel mediante la operación [Establecer el nivel del blob](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier).
-2. [Copia de un blob archivado en un nivel en línea](#copy-an-archived-blob-to-an-online-tier): cree una nueva copia de blob de archivo mediante la operación [Copiar blob](https://docs.microsoft.com/rest/api/storageservices/copy-blob). Especifique otro nombre de blob y un nivel de destino de acceso frecuente o esporádico.
+1. [Rehidratación de un blob archivado a un nivel en línea](#rehydrate-an-archived-blob-to-an-online-tier): rehidrate un blob de archivo a acceso frecuente o esporádico cambiando su nivel mediante la operación [Establecer el nivel del blob](/rest/api/storageservices/set-blob-tier).
+2. [Copia de un blob archivado en un nivel en línea](#copy-an-archived-blob-to-an-online-tier): cree una nueva copia de blob de archivo mediante la operación [Copiar blob](/rest/api/storageservices/copy-blob). Especifique otro nombre de blob y un nivel de destino de acceso frecuente o esporádico.
 
  Para obtener más información sobre los niveles de acceso, consulte [Azure Blob Storage: niveles de acceso frecuente, esporádico y de archivo](storage-blob-storage-tiers.md).
 
@@ -31,12 +31,12 @@ Mientras un blob se encuentra en el nivel de acceso de archivo, se considera sin
 
 ## <a name="copy-an-archived-blob-to-an-online-tier"></a>Copia de un blob archivado en un nivel en línea
 
-Si no quiere rehidratar un archivo blob, puede elegir realizar una operación [Copiar blob](https://docs.microsoft.com/rest/api/storageservices/copy-blob). Su blob original permanecerá sin modificaciones en el archivo, mientras se crea un nuevo blob en el nivel frecuente o esporádico en línea para que pueda trabajar. En la operación Copiar blob, también puede establecer la propiedad opcional *​​x-ms-rehydrate-priority* en Estándar o Alta para especificar la prioridad con la que desea que se cree su copia de blob.
+Si no quiere rehidratar un archivo blob, puede elegir realizar una operación [Copiar blob](/rest/api/storageservices/copy-blob). Su blob original permanecerá sin modificaciones en el archivo, mientras se crea un nuevo blob en el nivel frecuente o esporádico en línea para que pueda trabajar. En la operación Copiar blob, también puede establecer la propiedad opcional *​​x-ms-rehydrate-priority* en Estándar o Alta para especificar la prioridad con la que desea que se cree su copia de blob.
 
 La copia de un BLOB desde el archivo puede tardar horas en completarse, en función de la prioridad de rehidratación seleccionada. En segundo plano, la operación **Copiar blob** lee el blob de origen de archivo para crear un nuevo blob en línea en el nivel de destino seleccionado. El nuevo blob puede ser visible cuando enumera los blobs, pero los datos no estarán disponibles hasta que la lectura del blob de archivo de origen esté completa y los datos se escriban en el nuevo blob de destino en línea. El nuevo BLOB es una copia independiente y cualquier modificación o eliminación en él no afecta al BLOB de archivo de origen.
 
 > [!IMPORTANT]
-> No elimine el blob de origen hasta que la copia se complete correctamente en el destino. Si se elimina el blob de origen, es posible que el blob de destino no finalice la copia y quedará vacío. Puede comprobar el elemento*x-ms-copy-status* para determinar el estado de la operación de copia.
+> No elimine el blob de origen hasta que la copia se complete correctamente en el destino. Si se elimina el blob de origen, es posible que el blob de destino no finalice la copia y quedará vacío. Puede comprobar el elemento *x-ms-copy-status* para determinar el estado de la operación de copia.
 
 Los blobs de archivo solo se pueden copiar en los niveles de destino en línea dentro de la misma cuenta de almacenamiento. No se admite la copia de un blob de archivo en otro blob de archivo. En la tabla siguiente se indican las funcionalidades de CopyBlob.
 

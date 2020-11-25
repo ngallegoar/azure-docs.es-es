@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2020
 ms.author: blehr
-ms.openlocfilehash: 49a89ee90d28c9c7a3f59424b773ee0f221381e4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: add763b713b93604e089d7aec586876fecd2887c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89301037"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95895645"
 ---
 # <a name="quickstart-create-a-public-ip-address-using-the-azure-portal"></a>Inicio rápido: Creación de una dirección IP pública mediante Azure Portal
 
@@ -46,31 +46,6 @@ Use los pasos siguientes para crear una dirección IP pública estándar con red
     | Zona de disponibilidad       | Seleccione **Con redundancia de zona** o elija una zona específica (consulte la nota siguiente). |
 
 Tenga en cuenta que estas opciones solo son selecciones válidas en regiones con [zonas de disponibilidad](https://docs.microsoft.com/azure/availability-zones/az-overview?toc=/azure/virtual-network/toc.json#availability-zones).  (También puede seleccionar una zona específica en estas regiones, aunque no sea resistente a errores de zona).
-
-# <a name="standard-sku---no-zones"></a>[**SKU estándar: sin zonas**](#tab/option-create-public-ip-standard)
-
-Use los pasos siguientes para crear una dirección IP pública estándar como un recurso que no es de zona denominado **myStandardPublicIP**.
-
-1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
-2. Seleccione **Crear un recurso**. 
-3. En el cuadro de búsqueda, escriba *Dirección IP pública*.
-4. En los resultados de la búsqueda, escriba **Dirección IP pública**. A continuación, en la página **Dirección IP pública** seleccione **Crear**.
-5. En la página **Crear dirección IP pública**, escriba o seleccione la siguiente información: 
-
-    | Configuración                 | Value                       |
-    | ---                     | ---                         |
-    | Versión de la dirección IP              | Seleccione IPv4                 |    
-    | SKU                     | Seleccione **Estándar**.         |
-    | Nombre                    | Escriba *myStandardPublicIP*          |
-    | Asignación de dirección IP   | Tenga en cuenta que se bloqueará como "estática".                                        |
-    | Tiempo de espera de inactividad (minutos)  | Deje el valor en 4.        |
-    | Etiqueta de nombre DNS          | Deje el valor en blanco.    |
-    | Subscription            | Seleccione su suscripción.   |
-    | Resource group          | Seleccione **Crear nuevo**, escriba myResourceGroup y seleccione **Aceptar**. |
-    | Location                | Seleccione **Este de EE. UU. 2**.      |
-    | Zona de disponibilidad       | Seleccione **Ninguna zona** (y consulte la nota siguiente) |
-
-Esta selección es válida en todas las regiones y es la selección predeterminada para las direcciones IP públicas estándar en regiones sin [Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview?toc=/azure/virtual-network/toc.json#availability-zones).
 
 # <a name="basic-sku"></a>[**SKU básica**](#tab/option-create-public-ip-basic)
 

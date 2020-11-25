@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 08/20/2019
-ms.openlocfilehash: fdeddfb0a09151ea010d4e95a2954200dd9371dc
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: c77001707eda7c208ad19a014a1f0cff2b85b25d
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791433"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95736483"
 ---
 # <a name="what-is-sql-data-sync-for-azure"></a>¿Qué es SQL Data Sync para Azure?
 
@@ -44,7 +44,7 @@ Data Sync usa una topología de concentrador y radio para sincronizar los datos.
 Un grupo de sincronización tiene las siguientes propiedades:
 
 - En el **esquema de sincronización** se describen qué datos se están sincronizando.
-- La **dirección de sincronización** puede ser bidireccional o puede fluir solo en una dirección. Es decir, la dirección de sincronización puede ser de la *base de datos central al miembro* o del *miembro a la base de datos central* , o ambas.
+- La **dirección de sincronización** puede ser bidireccional o puede fluir solo en una dirección. Es decir, la dirección de sincronización puede ser de la *base de datos central al miembro* o del *miembro a la base de datos central*, o ambas.
 - El **intervalo de sincronización** describe la frecuencia con la que se produce la sincronización.
 - El **directiva de resolución de conflictos** es una directiva de nivel de grupo, que puede ser *Prevalece la base de datos central* o *Prevalece el cliente*.
 
@@ -73,15 +73,15 @@ Data Sync no es la solución preferida en los siguientes escenarios:
 - **Seguimiento de cambios de datos:** Data Sync realiza un seguimiento de cambios mediante los desencadenadores de inserción, actualización y eliminación. Los cambios se registran en una tabla en la base de datos de usuario. Tenga en cuenta que BULK INSERT no activa los desencadenadores de forma predeterminada. Si no se especifica FIRE_TRIGGERS, no se ejecutará ningún desencadenador de inserción. Agregue la opción FIRE_TRIGGERS para que Data Sync pueda realizar un seguimiento de esas inserciones. 
 - **Sincronización de datos:** La Sincronización de datos está diseñada en un modelo de concentrador y radio. La base de datos central se sincronizada con cada cliente individualmente. Los cambios de la base de datos central se descargan en el cliente y, después, los cambios del cliente se cargan en la base de datos central.
 - **Resolución de conflictos:** Data Sync proporciona dos opciones para la resolución de conflictos, *Prevalece la base de datos central* o *Prevalece el cliente*.
-  - Si selecciona *Prevalece la base de datos central* , los cambios de la base de datos central siempre sobrescriben los cambios del cliente.
-  - Si selecciona *Prevalece el cliente* , los cambios del cliente sobrescriben los cambios de la base de datos central. Si hay más de un cliente, el valor final depende del cliente que primero se sincronice.
+  - Si selecciona *Prevalece la base de datos central*, los cambios de la base de datos central siempre sobrescriben los cambios del cliente.
+  - Si selecciona *Prevalece el cliente*, los cambios del cliente sobrescriben los cambios de la base de datos central. Si hay más de un cliente, el valor final depende del cliente que primero se sincronice.
 
 ## <a name="compare-with-transactional-replication"></a>Comparación con la replicación transaccional
 
 | | Sincronización de datos | Replicación transaccional |
 |---|---|---|
 | **Ventajas** | - Compatibilidad activo-activo<br/>- Bidireccional entre el entorno local y Azure SQL Database | - Menor latencia<br/>- Coherencia transaccional<br/>- Reutilización de la topología existente después de la migración <br/>\- Compatibilidad con Instancia administrada de Azure SQL |
-| **Desventajas** | - Frecuencia mínima de 5 min entre sincronizaciones<br/>- Sin coherencia transaccional<br/>- Mayor impacto en el rendimiento | - No se puede publicar desde Azure SQL Database <br/>- Mayor costo de mantenimiento |
+| **Desventajas** | - Sin coherencia transaccional<br/>- Mayor impacto en el rendimiento | - No se puede publicar desde Azure SQL Database <br/>- Mayor costo de mantenimiento |
 
 ## <a name="get-started"></a>Introducción 
 
@@ -166,7 +166,6 @@ Data Sync no puede sincronizar las columnas de solo lectura o generadas por el s
 | Tablas de un grupo de sincronización                                          | 500                    | Crear varios grupos de sincronización |
 | Columnas de una tabla de un grupo de sincronización                              | 1000                   |                             |
 | Tamaño de la fila de datos en una tabla                                        | 24 Mb                  |                             |
-| Intervalo de frecuencia de sincronización mínimo                                 | 5 minutos              |                             |
 
 > [!NOTE]
 > Puede haber hasta 30 puntos de conexión en un solo grupo de sincronización si hay un único grupo de sincronización. Si hay más de un grupo de sincronización, el número total de puntos de conexión en todos los grupos de sincronización no puede superar los 30. Si una base de datos pertenece a varios grupos de sincronización, se cuenta como varios puntos de conexión, no como uno.
@@ -176,7 +175,7 @@ Data Sync no puede sincronizar las columnas de solo lectura o generadas por el s
 Cuando se establece el grupo de sincronización, el servicio Data Sync debe conectarse a la base de datos central. En el momento en que establece el grupo de sincronización, el servidor Azure SQL debe tener los siguientes valores en la configuración de `Firewalls and virtual networks`:
 
  * *Denegar acceso desde red pública* debe establecerse en *Desactivado*.
- * *Permitir que los servicios y recursos de Azure accedan a este servidor* debe establecerse en *Sí* , o bien debe crear reglas de IP para las [direcciones IP que usa el servicio Data Sync](network-access-controls-overview.md#data-sync).
+ * *Permitir que los servicios y recursos de Azure accedan a este servidor* debe establecerse en *Sí*, o bien debe crear reglas de IP para las [direcciones IP que usa el servicio Data Sync](network-access-controls-overview.md#data-sync).
 
 Una vez creado y aprovisionado el grupo de sincronización, puede deshabilitar estos valores. El agente de sincronización se conectará directamente a la base de datos central y entonces se podrán usar las [reglas de IP del firewall](firewall-configure.md) del servidor o [puntos de conexión privados](private-endpoint-overview.md) para permitir que el agente acceda al servidor central.
 

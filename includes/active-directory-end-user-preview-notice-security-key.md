@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 07/03/2019
 ms.author: lizross
 ms.custom: include file
-ms.openlocfilehash: be5514f0a5f9b3ef2923898f3f234fe99335205a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8757c2c30275e4bae76aff14604b769f16bc00e8
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87103000"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95564079"
 ---
-> El uso de una clave de seguridad como método de autenticación sin contraseña se encuentra actualmente en versión preliminar pública. Si lo que ve en la pantalla no coincide con lo que se tratará en este artículo, significa que el administrador no ha activado todavía esta característica. Hasta que se active esta característica, debe elegir otro método de autenticación en la [página **Información de seguridad**](https://docs.microsoft.com/azure/active-directory/user-help/user-help-security-info-overview). Para más información sobre las versiones preliminares, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> El uso de una clave de seguridad como método de autenticación sin contraseña se encuentra actualmente en versión preliminar pública. Si lo que ve en la pantalla no coincide con lo que se tratará en este artículo, significa que el administrador no ha activado todavía esta característica. Hasta que se active esta característica, debe elegir otro método de autenticación en la [página **Información de seguridad**](../articles/active-directory/user-help/security-info-setup-signin.md). Para más información sobre las versiones preliminares, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).

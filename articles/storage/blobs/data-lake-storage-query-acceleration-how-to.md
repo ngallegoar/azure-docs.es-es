@@ -9,12 +9,12 @@ ms.date: 09/09/2020
 ms.author: normesta
 ms.reviewer: jamsbak
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: b7f566f85ebdb6b481797823cba78aa968747e9f
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: b02f5a7c390c5594a7c5692798a0691c8d9a42d0
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746420"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95912780"
 ---
 # <a name="filter-data-by-using-azure-data-lake-storage-query-acceleration"></a>Filtro de datos mediante la aceleración de consultas de Azure Data Lake Storage
 
@@ -26,7 +26,7 @@ La aceleración de consultas permite tanto a las aplicaciones como a los marcos 
 
 - Para acceder a Azure Storage, necesitará una suscripción de Azure. Si todavía no tiene una suscripción, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-- Una cuenta de almacenamiento de **uso general v2** . Vea [Creación de una cuenta de Azure Storage](../common/storage-quickstart-create-account.md).
+- Una cuenta de almacenamiento de **uso general v2**. Vea [Creación de una cuenta de Azure Storage](../common/storage-account-create.md).
 
 - Elija una pestaña para ver todos los requisitos previos específicos del SDK.
 
@@ -92,7 +92,7 @@ Para usar la aceleración de consultas, antes debe registrar la característica 
 
 #### <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
-1. Abra [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) o, si ha [instalado](https://docs.microsoft.com/cli/azure/install-azure-cli) la CLI de Azure localmente, abra una aplicación de consola de comandos como Windows PowerShell.
+1. Abra [Azure Cloud Shell](../../cloud-shell/overview.md) o, si ha [instalado](/cli/azure/install-azure-cli) la CLI de Azure localmente, abra una aplicación de consola de comandos como Windows PowerShell.
 
 2. Si su identidad se asocia a más de una suscripción, establezca su suscripción activa en la suscripción de la cuenta de almacenamiento.
 
@@ -328,7 +328,7 @@ Get-QueryCsv $ctx $container $blob "SELECT * FROM BlobStorage WHERE _3 = 'Heming
 
 ### <a name="net"></a>[.NET](#tab/dotnet)
 
-El método asincrónico `BlobQuickQueryClient.QueryAsync` envía la consulta a la API de aceleración de consultas y, a continuación, vuelve a transmitir los resultados a la aplicación como un objeto [Stream](https://docs.microsoft.com/dotnet/api/system.io.stream).
+El método asincrónico `BlobQuickQueryClient.QueryAsync` envía la consulta a la API de aceleración de consultas y, a continuación, vuelve a transmitir los resultados a la aplicación como un objeto [Stream](/dotnet/api/system.io.stream).
 
 ```cs
 static async Task QueryHemingway(BlockBlobClient blob)

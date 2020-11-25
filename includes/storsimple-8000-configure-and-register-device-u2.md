@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 56514f5dcf4bfe205ef46ee64dcf4dcf638d4f62
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ee92e145acd981bb8c84b43986b90306b994c262
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67186520"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95555327"
 ---
 #### <a name="to-configure-and-register-the-device"></a>Para configurar y registrar el dispositivo
 
@@ -98,7 +98,7 @@ ms.locfileid: "67186520"
 
     ```
 
-12. Una vez registrado el dispositivo, aparecerá una clave de cifrado de datos de servicio. Copie esta clave y guárdela en un lugar seguro, **Esta clave se solicita junto con la clave de registro del servicio para registrar dispositivos adicionales en el servicio StorSimple Device Manager.** Consulte [Seguridad de StorSimple](../articles/storsimple/storsimple-security.md) para obtener más información sobre esta clave.
+12. Una vez registrado el dispositivo, aparecerá una clave de cifrado de datos de servicio. Copie esta clave y guárdela en un lugar seguro, **Esta clave se solicita junto con la clave de registro del servicio para registrar dispositivos adicionales en el servicio StorSimple Device Manager.** Consulte [Seguridad de StorSimple](../articles/storsimple/storsimple-8000-security.md) para obtener más información sobre esta clave.
     
     ![Registrar el dispositivo 7 de StorSimple](./media/storsimple-8000-configure-and-register-device-u2/step3pssetup1.png)
     
@@ -117,4 +117,3 @@ ms.locfileid: "67186520"
         Puede que tenga que esperar unos minutos a que el estado del dispositivo cambie a **Listo para configurar**.
        
         Si el dispositivo no se muestra en esta lista, debe asegurarse de que la red de su firewall se haya configurado como se describe en los [requisitos de red para su dispositivo de StorSimple](../articles/storsimple/storsimple-8000-system-requirements.md). Compruebe que el puerto 9354 está abierto para la comunicación saliente, ya que lo usa el bus de servicio para la comunicación entre el dispositivo y el servicio StorSimple Device Manager.
-

@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
 ms.custom: devx-track-js
-ms.openlocfilehash: 882a12838d13f511262486ff3adf332da32599c1
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: a929fcbc87a1ce11b226e9def46354c24a151a0c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131537"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95913375"
 ---
 # <a name="use-javascript-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Uso de JavaScript para administrar directorios, archivos y ACL en Azure Data Lake Storage Gen2
 
@@ -26,7 +26,7 @@ En este artículo se muestra cómo usar JavaScript para crear y administrar dire
 
 > [!div class="checklist"]
 > * Suscripción a Azure. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
-> * Una cuenta de almacenamiento que tenga habilitado el espacio de nombres jerárquico (HNS). Siga [estas](data-lake-storage-quickstart-create-account.md) instrucciones para crear uno.
+> * Una cuenta de almacenamiento que tenga habilitado el espacio de nombres jerárquico (HNS). Siga [estas](../common/storage-account-create.md) instrucciones para crear uno.
 > * Si utiliza este paquete en una aplicación de Node.js, necesitará Node.js 8.0.0 o una versión posterior.
 
 ## <a name="set-up-your-project"></a>Configurar su proyecto
@@ -93,7 +93,7 @@ function GetDataLakeServiceClientAD(accountName, clientID, clientSecret, tenantI
 
 ## <a name="create-a-container"></a>Crear un contenedor
 
-Un contenedor actúa como sistema de archivos para sus archivos. Puede crear uno mediante la obtención de una instancia de **FileSystemClient** y, a continuación, llamar al método **FileSystemClient.Create** .
+Un contenedor actúa como sistema de archivos para sus archivos. Puede crear uno mediante la obtención de una instancia de **FileSystemClient** y, a continuación, llamar al método **FileSystemClient.Create**.
 
 En este ejemplo se crea un contenedor denominado `my-file-system`. 
 
@@ -111,7 +111,7 @@ async function CreateFileSystem(datalakeServiceClient) {
 
 ## <a name="create-a-directory"></a>Creación de un directorio
 
-Cree una referencia de directorio obteniendo una instancia de **DirectoryClient** y, a continuación, llame al método **DirectoryClient.create** .
+Cree una referencia de directorio obteniendo una instancia de **DirectoryClient** y, a continuación, llame al método **DirectoryClient.create**.
 
 En este ejemplo se agrega un directorio denominado `my-directory` a un contenedor. 
 
@@ -127,7 +127,7 @@ async function CreateDirectory(fileSystemClient) {
 
 ## <a name="rename-or-move-a-directory"></a>Cambio de nombre o traslado de un directorio
 
-Cambie el nombre de un directorio o muévalo llamando al método **DirectoryClient.rename** . Pase la ruta de acceso del directorio que busca a un parámetro. 
+Cambie el nombre de un directorio o muévalo llamando al método **DirectoryClient.rename**. Pase la ruta de acceso del directorio que busca a un parámetro. 
 
 En este ejemplo se cambia el nombre de un subdirectorio a `my-directory-renamed`.
 
@@ -153,7 +153,7 @@ async function MoveDirectory(fileSystemClient) {
 
 ## <a name="delete-a-directory"></a>Eliminación de un directorio
 
-Elimine un directorio llamando al método **DirectoryClient.delete** .
+Elimine un directorio llamando al método **DirectoryClient.delete**.
 
 En este ejemplo se elimina un directorio denominado `my-directory`.   
 
@@ -170,7 +170,7 @@ async function DeleteDirectory(fileSystemClient) {
 
 ## <a name="upload-a-file-to-a-directory"></a>Carga de un archivo en un directorio
 
-Primero, lea un archivo En este ejemplo se usa el módulo `fs` de Node.js. A continuación, cree una referencia de archivo en el directorio de destino creando una instancia de **FileClient** y, a continuación, llamando al método **FileClient.create** . Cargue un archivo llamando al método **FileClient.append** . Asegúrese de completar la carga llamando al método **FileClient.flush** .
+Primero, lea un archivo En este ejemplo se usa el módulo `fs` de Node.js. A continuación, cree una referencia de archivo en el directorio de destino creando una instancia de **FileClient** y, a continuación, llamando al método **FileClient.create**. Cargue un archivo llamando al método **FileClient.append**. Asegúrese de completar la carga llamando al método **FileClient.flush**.
 
 En este ejemplo se carga un archivo de texto en un directorio denominado `my-directory`.
 
@@ -258,14 +258,14 @@ async function ListFilesInDirectory(fileSystemClient) {
 Puede obtener, establecer y actualizar los permisos de acceso de los directorios y archivos.
 
 > [!NOTE]
-> Si usa Azure Active Directory (Azure AD) para autorizar el acceso, asegúrese de que la entidad de seguridad tenga asignado el [rol Propietario de datos de blobs de almacenamiento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner). Para más información sobre cómo se aplican los permisos de ACL y las consecuencias de cambiarlos, vea [Control de acceso en Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
+> Si usa Azure Active Directory (Azure AD) para autorizar el acceso, asegúrese de que la entidad de seguridad tenga asignado el [rol Propietario de datos de blobs de almacenamiento](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner). Para más información sobre cómo se aplican los permisos de ACL y las consecuencias de cambiarlos, vea [Control de acceso en Azure Data Lake Storage Gen2](./data-lake-storage-access-control.md).
 
 ### <a name="manage-a-directory-acl"></a>Administración de una lista de control de acceso de directorio
 
 En este ejemplo se obtiene y después se establece la ACL de un directorio denominado `my-directory`. En este ejemplo se concede al usuario propietario permisos de lectura, escritura y ejecución, permisos de solo lectura y ejecución al grupo propietario, y permisos de lectura y escritura al resto.
 
 > [!NOTE]
-> Si la aplicación autoriza el acceso mediante Azure Active Directory (Azure AD), asegúrese de que la entidad de seguridad que la aplicación usa para autorizar el acceso tiene asignado el [rol de propietario de datos de blobs de almacenamiento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner). Para más información sobre cómo se aplican los permisos de ACL y las consecuencias de cambiarlos, vea [Control de acceso en Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
+> Si la aplicación autoriza el acceso mediante Azure Active Directory (Azure AD), asegúrese de que la entidad de seguridad que la aplicación usa para autorizar el acceso tiene asignado el [rol de propietario de datos de blobs de almacenamiento](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner). Para más información sobre cómo se aplican los permisos de ACL y las consecuencias de cambiarlos, vea [Control de acceso en Azure Data Lake Storage Gen2](./data-lake-storage-access-control.md).
 
 ```javascript
 async function ManageDirectoryACLs(fileSystemClient) {
@@ -314,14 +314,14 @@ async function ManageDirectoryACLs(fileSystemClient) {
 }
 ```
 
-También puede obtener y establecer la ACL del directorio raíz de un contenedor. Para obtener el directorio raíz, pase una cadena vacía (`/`) en el método **DataLakeFileSystemClient.getDirectoryClient** .
+También puede obtener y establecer la ACL del directorio raíz de un contenedor. Para obtener el directorio raíz, pase una cadena vacía (`/`) en el método **DataLakeFileSystemClient.getDirectoryClient**.
 
 ### <a name="manage-a-file-acl"></a>Administración de una lista de control de acceso de archivo
 
 En este ejemplo se obtiene y después se establece la ACL de un archivo denominado `upload-file.txt`. En este ejemplo se concede al usuario propietario permisos de lectura, escritura y ejecución, permisos de solo lectura y ejecución al grupo propietario, y permisos de lectura y escritura al resto.
 
 > [!NOTE]
-> Si la aplicación autoriza el acceso mediante Azure Active Directory (Azure AD), asegúrese de que la entidad de seguridad que la aplicación usa para autorizar el acceso tiene asignado el [rol de propietario de datos de blobs de almacenamiento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner). Para más información sobre cómo se aplican los permisos de ACL y las consecuencias de cambiarlos, vea [Control de acceso en Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
+> Si la aplicación autoriza el acceso mediante Azure Active Directory (Azure AD), asegúrese de que la entidad de seguridad que la aplicación usa para autorizar el acceso tiene asignado el [rol de propietario de datos de blobs de almacenamiento](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner). Para más información sobre cómo se aplican los permisos de ACL y las consecuencias de cambiarlos, vea [Control de acceso en Azure Data Lake Storage Gen2](./data-lake-storage-access-control.md).
 
 ```javascript
 async function ManageFileACLs(fileSystemClient) {

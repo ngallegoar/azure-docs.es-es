@@ -9,12 +9,12 @@ ms.date: 12/06/2018
 ms.author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: artek
-ms.openlocfilehash: 1d720aed44358dd314bc4226adb9ad517139cd18
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d2b36dd600efa864913e0087c49bffd556e8330d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87836316"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95912406"
 ---
 # <a name="using-the-hdfs-cli-with-data-lake-storage-gen2"></a>Uso de la CLI de HDFS con Data Lake Storage Gen2
 
@@ -29,7 +29,7 @@ Para más información sobre la CLI de HDFS, consulte la [documentación oficial
 
 ## <a name="use-the-hdfs-cli-with-an-hdinsight-hadoop-cluster-on-linux"></a>Usar la CLI de HDFS con un clúster de HDInsight Hadoop en Linux
 
-En primer lugar, establezca el [acceso remoto a los servicios](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-information#remote-access-to-services). Si selecciona [SSH](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix) el ejemplo de código de PowerShell tendría el siguiente aspecto:
+En primer lugar, establezca el [acceso remoto a los servicios](../../hdinsight/hdinsight-hadoop-linux-information.md#remote-access-to-services). Si selecciona [SSH](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md) el ejemplo de código de PowerShell tendría el siguiente aspecto:
 
 ```powershell
 #Connect to the cluster via SSH.
@@ -120,4 +120,4 @@ Puede consultar una lista completa de comandos en el sitio web de la [guía de c
 
 * [Uso de una cuenta compatible de Azure Data Lake Storage Gen2 en Azure Databricks](./data-lake-storage-quickstart-create-databricks-account.md)
 
-* [Información sobre las listas de control de acceso en archivos y directorios](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control)
+* [Información sobre las listas de control de acceso en archivos y directorios](./data-lake-storage-access-control.md)

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/16/2020
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 214cdbd5ad30ad096cb6c9d1442936eefb2b2054
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: e46bb87788de27916860720284087643db7153dc
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92674862"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95913409"
 ---
 # <a name="use-azure-storage-explorer-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Uso del Explorador de Azure Storage para administrar directorios, archivos y ACL en Azure Data Lake Storage Gen2
 
@@ -23,7 +23,7 @@ En este artículo se explica cómo usar el [Explorador de Azure Storage](https:/
 
 > [!div class="checklist"]
 > * Suscripción a Azure. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
-> * Una cuenta de almacenamiento que tenga habilitado el espacio de nombres jerárquico (HNS). Siga [estas](data-lake-storage-quickstart-create-account.md) instrucciones para crear uno.
+> * Una cuenta de almacenamiento que tenga habilitado el espacio de nombres jerárquico (HNS). Siga [estas](../common/storage-account-create.md) instrucciones para crear uno.
 > * Explorador de Azure Storage instalado en el equipo local. Para instalar el Explorador de Azure Storage para Windows, Macintosh o Linux, consulte [Explorador de Azure Storage](https://azure.microsoft.com/features/storage-explorer/).
 
 ## <a name="sign-in-to-storage-explorer"></a>Inicio de sesión en el Explorador de Storage
@@ -46,7 +46,7 @@ Cuando se completa la conexión, el Explorador de Microsoft Azure Storage se car
 
 ## <a name="create-a-container"></a>Crear un contenedor
 
-Un contenedor contiene directorios y archivos. Para crear uno, expanda la cuenta de almacenamiento que creó en el paso anterior. Seleccione **Contenedor de blobs** , haga clic con el botón derecho y seleccione **Crear contenedor de blobs**. Escriba el nombre del contenedor. Para ver una lista de reglas y restricciones en la nomenclatura de contenedores, consulte la sección [Crear un contenedor](storage-quickstart-blobs-dotnet.md#create-a-container). Cuando haya finalizado, presione **Entrar** para crear el contenedor. Una vez que el contenedor se ha creado correctamente, se muestra en la carpeta **Contenedores de blobs** de la cuenta de almacenamiento seleccionada.
+Un contenedor contiene directorios y archivos. Para crear uno, expanda la cuenta de almacenamiento que creó en el paso anterior. Seleccione **Contenedor de blobs**, haga clic con el botón derecho y seleccione **Crear contenedor de blobs**. Escriba el nombre del contenedor. Para ver una lista de reglas y restricciones en la nomenclatura de contenedores, consulte la sección [Crear un contenedor](storage-quickstart-blobs-dotnet.md#create-a-container). Cuando haya finalizado, presione **Entrar** para crear el contenedor. Una vez que el contenedor se ha creado correctamente, se muestra en la carpeta **Contenedores de blobs** de la cuenta de almacenamiento seleccionada.
 
 ![Explorador de Microsoft Azure Storage: creación de un contenedor](media/data-lake-storage-explorer/creating-a-filesystem.png)
 
@@ -64,21 +64,21 @@ Elija los archivos o carpetas para cargar.
 
 ![Explorador de Microsoft Azure Storage: Carga de un blob](media/data-lake-storage-explorer/upload-file.png)
 
-Cuando se selecciona **Aceptar** , los archivos seleccionados se ponen en cola para cargar y se cargan de uno en uno. Una vez finalizada la carga, los resultados se muestran en la ventana **Actividades**.
+Cuando se selecciona **Aceptar**, los archivos seleccionados se ponen en cola para cargar y se cargan de uno en uno. Una vez finalizada la carga, los resultados se muestran en la ventana **Actividades**.
 
 ## <a name="view-blobs-in-a-directory"></a>Visualización de blobs en un directorio
 
-En la aplicación **Explorador de Azure Storage** , seleccione un directorio en una cuenta de almacenamiento. El panel principal muestra una lista de los blobs en el directorio seleccionado.
+En la aplicación **Explorador de Azure Storage**, seleccione un directorio en una cuenta de almacenamiento. El panel principal muestra una lista de los blobs en el directorio seleccionado.
 
 ![Explorador de Microsoft Azure Storage: enumeración de los blobs de un directorio](media/data-lake-storage-explorer/list-files.png)
 
 ## <a name="download-blobs"></a>Descargar blobs
 
-Para descargar los archivos mediante el **Explorador de Azure Storage** , con un archivo seleccionado, seleccione **Descargar** desde la cinta de opciones. Se abre un cuadro de diálogo de archivo que permite escribir un nombre de archivo. Seleccione **Guardar** para iniciar la descarga de un archivo en la ubicación local.
+Para descargar los archivos mediante el **Explorador de Azure Storage**, con un archivo seleccionado, seleccione **Descargar** desde la cinta de opciones. Se abre un cuadro de diálogo de archivo que permite escribir un nombre de archivo. Seleccione **Guardar** para iniciar la descarga de un archivo en la ubicación local.
 
 ## <a name="managing-access"></a>Administración del acceso
 
-Puede establecer permisos en la raíz del contenedor. Para ello, debe iniciar sesión en el Explorador de Azure Storage con su cuenta individual con derechos para hacerlo (en contraposición al uso de una cadena de conexión). Haga clic con el botón derecho en el contenedor y seleccione **Administrar permisos** , tras lo que aparece el cuadro de diálogo **Manage Permission** (Administrar permiso).
+Puede establecer permisos en la raíz del contenedor. Para ello, debe iniciar sesión en el Explorador de Azure Storage con su cuenta individual con derechos para hacerlo (en contraposición al uso de una cadena de conexión). Haga clic con el botón derecho en el contenedor y seleccione **Administrar permisos**, tras lo que aparece el cuadro de diálogo **Manage Permission** (Administrar permiso).
 
 ![Explorador de Microsoft Azure Storage: administración del acceso al directorio](media/storage-quickstart-blobs-storage-Explorer/manageperms.png)
 
@@ -95,11 +95,11 @@ El usuario o grupo ahora aparecerá en el campo **Usuarios y grupos:** , lo que 
 
 Hay dos categorías de permisos que puede asignar: ACL de acceso y ACL predeterminadas.
 
-* **Acceso** : las ACL de acceso controlan el acceso a un objeto. Tanto archivos como directorios tienen ACL de acceso.
+* **Acceso**: las ACL de acceso controlan el acceso a un objeto. Tanto archivos como directorios tienen ACL de acceso.
 
-* **Valor predeterminado** : Una plantilla de ACL asociada con un directorio que determina las ACL de acceso de todos los elementos secundarios que se crean en ese directorio. Los archivos no tienen ACL predeterminadas.
+* **Valor predeterminado**: Una plantilla de ACL asociada con un directorio que determina las ACL de acceso de todos los elementos secundarios que se crean en ese directorio. Los archivos no tienen ACL predeterminadas.
 
-Dentro de ambas categorías existen tres permisos que puede asignar en los archivos o directorios: **Leer** , **Escribir** y **Ejecutar**.
+Dentro de ambas categorías existen tres permisos que puede asignar en los archivos o directorios: **Leer**, **Escribir** y **Ejecutar**.
 
 >[!NOTE]
 > Las selecciones que haga aquí no establecerán permisos en ningún elemento existente actual dentro del directorio. Debe ir a cada elemento individual y establecer manualmente los permisos, si el archivo ya existe.
@@ -111,4 +111,4 @@ Puede administrar los permisos en directorios individuales, así como en archivo
 Conozca las listas de control de acceso de Data Lake Storage Gen2.
 
 > [!div class="nextstepaction"]
-> [Control de acceso en Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control)
+> [Control de acceso en Azure Data Lake Storage Gen2](./data-lake-storage-access-control.md)

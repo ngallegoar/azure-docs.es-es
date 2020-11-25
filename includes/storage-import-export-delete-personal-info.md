@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/18/2018
 ms.author: cshoe
 ms.custom: include file
-ms.openlocfilehash: e6a0ded137162328fd446b65ddb4a15fa6f1db88
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 137aca7c6c857ee6e833c359b710e1c1848d15ed
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67186528"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95559024"
 ---
 ## <a name="deleting-personal-information"></a>Eliminación de información personal
 
@@ -37,7 +37,7 @@ Cuando se crea un trabajo de importación y exportación, los usuarios proporcio
 
 La información de contacto personal se puede eliminar de las maneras siguientes:
 
-- Los datos guardados con el trabajo se eliminan junto con el trabajo. Los usuarios pueden eliminar manualmente los trabajos y los trabajos completados se eliminan automáticamente después de 90 días. Puede eliminar manualmente los trabajos a través de la API REST o de Azure Portal. Para eliminar el trabajo en Azure Portal, vaya a su trabajo de importación y exportación y haga clic en *Eliminar* en la barra de comandos. Para más información sobre cómo eliminar un trabajo de importación y exportación mediante la API REST, consulte [Cancelación y eliminación de trabajos de Azure Import/Export](../articles/storage/common/storage-import-export-cancelling-and-deleting-jobs.md).
+- Los datos guardados con el trabajo se eliminan junto con el trabajo. Los usuarios pueden eliminar manualmente los trabajos y los trabajos completados se eliminan automáticamente después de 90 días. Puede eliminar manualmente los trabajos a través de la API REST o de Azure Portal. Para eliminar el trabajo en Azure Portal, vaya a su trabajo de importación y exportación y haga clic en *Eliminar* en la barra de comandos. Para más información sobre cómo eliminar un trabajo de importación y exportación mediante la API REST, consulte [Cancelación y eliminación de trabajos de Azure Import/Export](/previous-versions/azure/storage/common/storage-import-export-cancelling-and-deleting-jobs).
 
 - La información de contacto que se guarda en la configuración del portal se puede quitar eliminando esta configuración. Puede eliminar la configuración del portal si realiza estos pasos:
   - Inicie sesión en [Azure Portal](https://portal.azure.com).

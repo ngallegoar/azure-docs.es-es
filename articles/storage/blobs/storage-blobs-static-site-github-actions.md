@@ -8,20 +8,20 @@ ms.author: jukullam
 ms.reviewer: dineshm
 ms.date: 09/11/2020
 ms.subservice: blobs
-ms.custom: devx-track-javascript, github-actions-azure
-ms.openlocfilehash: 7213cea0796197e230cc5914f7cebfac7c69ae49
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.custom: devx-track-javascript, github-actions-azure, devx-track-azurecli
+ms.openlocfilehash: 799c0dbc3ddb673cafe0fe4962f7346a841bd4b7
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93395740"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95543109"
 ---
 # <a name="set-up-a-github-actions-workflow-to-deploy-your-static-website-in-azure-storage"></a>Configuración de un flujo de trabajo de acciones de GitHub para implementar el sitio web estático en Azure Storage
 
 Aprenda a usar las [Acciones de GitHub](https://docs.github.com/en/actions) mediante un flujo de trabajo para implementar un sitio estático en una cuenta de Azure Storage. Una vez que haya configurado el flujo de trabajo de acciones de GitHub, podrá implementar automáticamente el sitio en Azure desde GitHub cuando realice cambios en el código del sitio.
 
 > [!NOTE]
-> Si usa [Azure Static Web Apps](https://docs.microsoft.com/azure/static-web-apps/), no es necesario configurar manualmente un flujo de trabajo de acciones de GitHub.
+> Si usa [Azure Static Web Apps](../../static-web-apps/index.yml), no es necesario configurar manualmente un flujo de trabajo de acciones de GitHub.
 > Azure Static Web Apps crea automáticamente un flujo de trabajo de Acciones de GitHub. 
 
 ## <a name="prerequisites"></a>Requisitos previos
@@ -187,4 +187,4 @@ Cuando el repositorio de GitHub y el sitio estático ya no sean necesarios, limp
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Obtener más información sobre Azure Static Web Apps](https://docs.microsoft.com/azure/static-web-apps/)
+> [Obtener más información sobre Azure Static Web Apps](../../static-web-apps/index.yml)

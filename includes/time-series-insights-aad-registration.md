@@ -9,12 +9,12 @@ author: deepakpalled
 ms.author: dpalled
 manager: cshankar
 ms.date: 10/02/2020
-ms.openlocfilehash: 7de4dc21391f7dbd817c56ce51606a808cf9e3c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 50f203357d29d450f5b34593952f611f025b14ff
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91665825"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95559091"
 ---
 1. En [Azure Portal](https://ms.portal.azure.com/), seleccione **Azure Active Directory** > **Registros de aplicaciones** > **Nuevo registro**.
 
@@ -22,7 +22,7 @@ ms.locfileid: "91665825"
 
     La aplicación se mostrará aquí después de registrarla.
 
-1. Asigne un nombre a la aplicación y seleccione **Solo las cuentas de este directorio organizativo** para especificar los **tipos de cuenta admitidos** que pueden acceder a la API. Si va a crear una [aplicación cliente pública](https://docs.microsoft.com/azure/active-directory/develop/msal-client-application-configuration#redirect-uri), agregue un URI de redireccionamiento válido y **regístrese**.
+1. Asigne un nombre a la aplicación y seleccione **Solo las cuentas de este directorio organizativo** para especificar los **tipos de cuenta admitidos** que pueden acceder a la API. Si va a crear una [aplicación cliente pública](../articles/active-directory/develop/msal-client-application-configuration.md#redirect-uri), agregue un URI de redireccionamiento válido y **regístrese**.
 
    [![Creación de la aplicación en Azure Active Directory](media/time-series-insights-aad-registration/active-directory-registration.png)](media/time-series-insights-aad-registration/active-directory-registration.png#lightbox)
 

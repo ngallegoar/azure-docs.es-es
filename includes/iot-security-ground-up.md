@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/24/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 4f7ec9bbf7877d8067b3d8b1566a5cd2c2075281
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 234407e6973657ba3ad0d78189e7cb1d363c15e2
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86050344"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95557749"
 ---
 Internet de las cosas (IoT) plantea desafíos únicos para la seguridad, la privacidad y el cumplimiento a empresas de todo el mundo. A diferencia de la tecnología cibernética tradicional donde estos problemas giran en torno al software y cómo se implementa, a IoT le preocupa lo que sucede cuando los mundos cibernético y físico convergen. Proteger las soluciones IoT requiere garantizar el aprovisionamiento seguro de los dispositivos, proteger la conectividad entre estos dispositivos y la nube y garantizar la protección de los datos en la nube durante su procesamiento y almacenamiento. Sin embargo, trabajar con esta funcionalidad tiene sus inconvenientes: la limitación de recursos de los dispositivos, la distribución geográfica de las implementaciones y la existencia de un gran número de dispositivos dentro de una solución.
 
@@ -39,11 +39,11 @@ El [Ciclo de vida de desarrollo de seguridad (SDL)](https://www.microsoft.com/sd
 
 Microsoft Azure ofrece una completa solución de nube, que combina una colección de servicios en la nube integrados en constante crecimiento: análisis, aprendizaje automático, almacenamiento, seguridad, redes y web, con un compromiso líder del sector a la protección y la privacidad de sus datos. La estrategia de [presunción de vulneraciones](https://azure.microsoft.com/blog/red-teaming-using-cutting-edge-threat-simulation-to-harden-the-microsoft-enterprise-cloud/) de Microsoft usa un *equipo rojo* dedicado de expertos de seguridad de software que simulan ataques con el fin de probar la capacidad de Azure para detectar las amenazas emergentes, protegerse frente a ellas y recuperarse de las vulneraciones. El equipo de [respuesta a incidentes globales](https://www.microsoft.com/en-us/TrustCenter/Security/DesignOpSecurity) de Microsoft trabaja continuamente para mitigar los efectos de ataques y actividades malintencionadas. El equipo sigue procedimientos establecidos para la administración, la comunicación y la recuperación de incidentes, y emplea interfaces detectables y predecibles con asociados internos y externos.
 
-Los sistemas de Microsoft proporcionan continua detección y prevención de intrusiones, prevención de ataques de servicio, pruebas de penetración periódicas y herramientas forenses que ayudan a identificar y reducir las amenazas. [autenticación multifactor](../articles/active-directory/authentication/multi-factor-authentication.md) proporciona a los usuarios finales una capa de seguridad extra para el acceso a la red. Y para la aplicación y el proveedor de host, Microsoft ofrece control de acceso, supervisión, antimalware, examen de vulnerabilidades, revisiones y administración de configuración.
+Los sistemas de Microsoft proporcionan continua detección y prevención de intrusiones, prevención de ataques de servicio, pruebas de penetración periódicas y herramientas forenses que ayudan a identificar y reducir las amenazas. [autenticación multifactor](../articles/active-directory/authentication/concept-mfa-howitworks.md) proporciona a los usuarios finales una capa de seguridad extra para el acceso a la red. Y para la aplicación y el proveedor de host, Microsoft ofrece control de acceso, supervisión, antimalware, examen de vulnerabilidades, revisiones y administración de configuración.
 
 Los aceleradores de soluciones aprovechan la seguridad y la privacidad integradas en la plataforma de Azure, junto con los procesos SDL y OSA, para garantizar el desarrollo y el funcionamiento seguros de todo el software de Microsoft. Estos procedimientos proporcionan protección de infraestructura, protección de red y características de administración de identidades fundamentales para la seguridad de cualquier solución.
 
-La instancia de [Azure IoT Hub](../articles/iot-hub/about-iot-hub.md) que se encuentra dentro de los [aceleradores de soluciones de IoT](../articles/iot-fundamentals/iot-introduction.md) ofrece un servicio totalmente administrado que permite la comunicación bidireccional confiable y segura entre dispositivos de IoT y servicios de Azure, como [Azure Machine Learning](../articles/machine-learning/studio/what-is-machine-learning.md) y [Azure Stream Analytics](../articles/stream-analytics/stream-analytics-introduction.md), mediante el uso de credenciales de seguridad y el control de acceso en cada dispositivo.
+La instancia de [Azure IoT Hub](../articles/iot-hub/about-iot-hub.md) que se encuentra dentro de los [aceleradores de soluciones de IoT](../articles/iot-fundamentals/iot-introduction.md) ofrece un servicio totalmente administrado que permite la comunicación bidireccional confiable y segura entre dispositivos de IoT y servicios de Azure, como [Azure Machine Learning](../articles/machine-learning/classic/index.yml) y [Azure Stream Analytics](../articles/stream-analytics/stream-analytics-introduction.md), mediante el uso de credenciales de seguridad y el control de acceso en cada dispositivo.
 
 Para comunicar mejor las características de privacidad y seguridad integradas en los aceleradores de soluciones de Azure IoT, en este artículo se divide el conjunto de aplicaciones en tres áreas de seguridad principales.
 
@@ -89,7 +89,7 @@ Al usar Azure Active Directory (AAD) para la autorización y la autenticación d
 
 Cuando los datos están en la nube, se pueden procesar y almacenar en cualquier flujo de trabajo definido por el usuario. El acceso a cada parte de los datos se controla con Azure Active Directory, dependiendo del servicio de almacenamiento utilizado.
 
-Todas las claves usadas por la infraestructura IoT se almacenan en la nube en un almacenamiento seguro, con la posibilidad de sustituirlas en caso de que sea necesario volver a aprovisionarlas. Los datos se pueden almacenar en [Azure Cosmos DB](../articles/cosmos-db/introduction.md) o en [SQL Database](../articles/sql-database/sql-database-faq.md), lo que permite la definición del nivel de seguridad deseado. Además, Azure proporciona una manera de supervisar y auditar todo el acceso a los datos para avisarle de cualquier intrusión o acceso no autorizado.
+Todas las claves usadas por la infraestructura IoT se almacenan en la nube en un almacenamiento seguro, con la posibilidad de sustituirlas en caso de que sea necesario volver a aprovisionarlas. Los datos se pueden almacenar en [Azure Cosmos DB](../articles/cosmos-db/introduction.md) o en [SQL Database](../articles/azure-sql/database/sql-database-paas-overview.md), lo que permite la definición del nivel de seguridad deseado. Además, Azure proporciona una manera de supervisar y auditar todo el acceso a los datos para avisarle de cualquier intrusión o acceso no autorizado.
 
 ## <a name="conclusion"></a>Conclusión
 

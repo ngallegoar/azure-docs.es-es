@@ -9,12 +9,12 @@ ms.date: 10/10/2019
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3a3395873d7655118e3fcc9c36cdfc3855f8f000
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 14da8b6cb695703f1881b6b0b9858772bde386c5
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91714808"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95544758"
 ---
 # <a name="performance-and-scalability-checklist-for-blob-storage"></a>Lista de comprobación de escalabilidad y rendimiento para Blob Storage
 
@@ -59,7 +59,7 @@ En este artículo se organizan los procedimientos de eficacia probada para mejor
 
 Si su aplicación se aproxima o supera cualquiera de estos objetivos de escalabilidad, puede encontrar un aumento en la limitación o latencias de transacción. Cuando Azure Storage limita su aplicación, el servicio comienza a devolver códigos de error 503 (Servidor ocupado) o 500 (Tiempo de espera de la operación). Evitar estos errores, mediante la permanencia en los límites de los objetivos de escalabilidad, es una parte importante de la mejora del rendimiento de la aplicación.
 
-Para más información acerca de los objetivos de escalabilidad de Queue service, consulte [Objetivos de escalabilidad y rendimiento de Azure Storage en cuentas de almacenamiento](/azure/storage/queues/scalability-targets#scale-targets-for-queue-storage).
+Para más información acerca de los objetivos de escalabilidad de Queue service, consulte [Objetivos de escalabilidad y rendimiento de Azure Storage en cuentas de almacenamiento](../queues/scalability-targets.md#scale-targets-for-queue-storage).
 
 ### <a name="maximum-number-of-storage-accounts"></a>Número máximo de cuentas de almacenamiento
 
@@ -195,7 +195,7 @@ ServicePointManager.DefaultConnectionLimit = 100; //(Or More)
 
 En el caso de otros lenguajes de programación, consulte la documentación del lenguaje en cuestión para determinar cómo establecer el límite de conexiones.  
 
-Para obtener más información, vea la entrada de blog [Servicios web: conexiones simultáneas](https://blogs.msdn.microsoft.com/darrenj/2005/03/07/web-services-concurrent-connections/).  
+Para obtener más información, vea la entrada de blog [Servicios web: conexiones simultáneas](/archive/blogs/darrenj/web-services-concurrent-connections).  
 
 ### <a name="increase-minimum-number-of-threads"></a>Aumento del número mínimo de subprocesos
 
@@ -213,7 +213,7 @@ Aunque el paralelismo puede ser excelente para el rendimiento, tenga cuidado al 
 
 ## <a name="client-libraries-and-tools"></a>Herramientas y bibliotecas cliente
 
-Para obtener el mejor rendimiento posible, utilice siempre las herramientas y bibliotecas de cliente más recientes que proporciona Microsoft. Las bibliotecas de cliente de Azure Storage están disponibles para varios lenguajes. Azure Storage también admite PowerShell y la CLI de Azure. Microsoft desarrolla de forma activa estas herramientas y bibliotecas de cliente pensando en el rendimiento, las mantiene actualizadas con las versiones de servicio más recientes y se asegura de que controlan internamente muchos de los procedimientos de rendimiento de eficacia probada. Para más información, consulte la [documentación de referencia de Azure Storage](/azure/storage/#reference).
+Para obtener el mejor rendimiento posible, utilice siempre las herramientas y bibliotecas de cliente más recientes que proporciona Microsoft. Las bibliotecas de cliente de Azure Storage están disponibles para varios lenguajes. Azure Storage también admite PowerShell y la CLI de Azure. Microsoft desarrolla de forma activa estas herramientas y bibliotecas de cliente pensando en el rendimiento, las mantiene actualizadas con las versiones de servicio más recientes y se asegura de que controlan internamente muchos de los procedimientos de rendimiento de eficacia probada.
 
 ## <a name="handle-service-errors"></a>Control de errores del servicio
 
@@ -243,11 +243,11 @@ Para copiar los datos dentro de la misma cuenta de almacenamiento, use la operac
 
 ### <a name="use-azcopy"></a>Uso de AzCopy
 
-La utilidad de línea de comandos AzCopy es una opción sencilla y eficaz para la transferencia masiva de blobs entre cuentas de almacenamiento. Esta herramienta está optimizada para este escenario y con ella se pueden conseguir elevadas tasas de transferencia. La versión 10 de AzCopy usa la operación `Put Block From URL` para copiar datos de blobs entre cuentas de almacenamiento. Para más información, consulte [Copia o movimiento de datos a Azure Storage mediante AzCopy v10](/azure/storage/common/storage-use-azcopy-v10).  
+La utilidad de línea de comandos AzCopy es una opción sencilla y eficaz para la transferencia masiva de blobs entre cuentas de almacenamiento. Esta herramienta está optimizada para este escenario y con ella se pueden conseguir elevadas tasas de transferencia. La versión 10 de AzCopy usa la operación `Put Block From URL` para copiar datos de blobs entre cuentas de almacenamiento. Para más información, consulte [Copia o movimiento de datos a Azure Storage mediante AzCopy v10](../common/storage-use-azcopy-v10.md).  
 
 ### <a name="use-azure-data-box"></a>Uso de Azure Data Box
 
-Para importar grandes volúmenes de datos en Blob Storage, tiene la opción de usar la familia Azure Data Box para las transferencias sin conexión. Los dispositivos Data Box que proporciona Microsoft son una buena opción para mover grandes cantidades de datos a Azure cuando existan limitaciones de tiempo, disponibilidad de la red o costos. Para más información, consulte la [documentación de Azure Data Box](/azure/databox/).
+Para importar grandes volúmenes de datos en Blob Storage, tiene la opción de usar la familia Azure Data Box para las transferencias sin conexión. Los dispositivos Data Box que proporciona Microsoft son una buena opción para mover grandes cantidades de datos a Azure cuando existan limitaciones de tiempo, disponibilidad de la red o costos. Para más información, consulte la [documentación de Azure Data Box](../../databox/index.yml).
 
 ## <a name="content-distribution"></a>Distribución de contenido
 

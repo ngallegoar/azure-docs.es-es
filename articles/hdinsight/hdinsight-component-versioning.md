@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 08/13/2020
-ms.openlocfilehash: 282f13c89c527b096573b67b5d539de821e89032
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 82297b81ebe99301574e99ef438cc81c711dbeff
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900796"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95533691"
 ---
 # <a name="apache-components-and-versions-available-for-azure-hdinsight"></a>Componentes y versiones de Apache disponibles para Azure HDInsight
 
@@ -32,7 +32,7 @@ En la tabla siguiente se enumeran las versiones de componente asociadas a las ve
 |------------------------|---------------|-----------------------------|
 | Apache Hadoop y YARN | 3.1.1         | 2.7.3                       |
 | Apache Tez             | 0.9.1         | 0.7.0                       |
-| Apache Pig             | 0.16.0        | 0.16.0                      |
+| Apache Pig             | 0.16.1        | 0.16.0                      |
 | Apache Hive            | 3.1.0         | 1.2.1 (2.1.0 en ESP Interactive Query) |
 | Apache Tez Hive2       | -             | 0.8.4                       |
 | Apache Ranger          | 1.1.0         | 0.7.0                       |
@@ -119,7 +119,7 @@ En la tabla siguiente se enumeran las versiones de HDInsight que no están dispo
 
 ## <a name="service-level-agreement-for-hdinsight-cluster-versions"></a>Contrato de nivel de servicio para las versiones de clúster de HDInsight
 
-El contrato de nivel de servicio se define en términos de _ventana de soporte técnico_ . Una ventana de soporte técnico se refiere al período durante el cual la versión de HDInsight es compatible con el Soporte técnico y el Servicio al cliente de Microsoft. Si la versión tiene una _fecha de expiración de soporte técnico_ que ya ha pasado, el clúster de HDInsight está fuera de la ventana de soporte técnico. La expiración del soporte técnico de la versión X de HDInsight (después de que haya disponible una versión más reciente X + 1) es la más reciente:
+El contrato de nivel de servicio se define en términos de _ventana de soporte técnico_. Una ventana de soporte técnico se refiere al período durante el cual la versión de HDInsight es compatible con el Soporte técnico y el Servicio al cliente de Microsoft. Si la versión tiene una _fecha de expiración de soporte técnico_ que ya ha pasado, el clúster de HDInsight está fuera de la ventana de soporte técnico. La expiración del soporte técnico de la versión X de HDInsight (después de que haya disponible una versión más reciente X + 1) es la más reciente:
 
 - **Fórmula 1:** agregue 180 días a la fecha en la que se lanzó la versión X del clúster de HDInsight.
 - **Fórmula 2:** Agregue 90 días a la fecha en la que la versión del clúster de HDInsight X + 1 se encuentra disponible en Azure Portal.

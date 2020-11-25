@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/21/2019
 ms.author: cawa
-ms.openlocfilehash: 07652f2ac88475664f30e8189204b5649f966d16
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 48f00d964a87790b8d8c9b1d8eceaed26d15199e
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88033621"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95531974"
 ---
 # <a name="manage-azure-blob-storage-resources-with-storage-explorer"></a>Administración de recursos de Azure Blob Storage con el Explorador de Azure Storage
 
 ## <a name="overview"></a>Información general
 
-[Azure Blob Storage](storage/blobs/storage-dotnet-how-to-use-blobs.md) es un servicio para almacenar grandes cantidades de datos sin estructura, como texto o datos binarios, a los que puede acceder desde cualquier lugar del mundo a través de HTTP o HTTPS.
+[Azure Blob Storage](./storage/blobs/storage-quickstart-blobs-dotnet.md) es un servicio para almacenar grandes cantidades de datos sin estructura, como texto o datos binarios, a los que puede acceder desde cualquier lugar del mundo a través de HTTP o HTTPS.
 Puede usar el almacenamiento de blobs para exponer datos públicamente o para almacenar datos de la aplicación de manera privada. En este artículo, aprenderá a usar el Explorador de Azure Storage para trabajar con blobs y contenedores de blobs.
 
 ## <a name="prerequisites"></a>Prerrequisitos
@@ -61,7 +61,7 @@ Los siguientes pasos muestran cómo ver el contenido de un contenedor de blobs e
 
 1. Abra el Explorador de Storage.
 2. En el panel izquierdo, expanda la cuenta de almacenamiento que contiene el contenedor de blobs que desea ver.
-3. Expanda **Contenedores de blob**de la cuenta de almacenamiento.
+3. Expanda **Contenedores de blob** de la cuenta de almacenamiento.
 4. Haga clic con el botón derecho en el contenedor de blobs que desea ver y (en el menú contextual) seleccione **Abrir editor de contenedores de blobs**.
    También puede hacer doble clic en el contenedor de blobs que desea ver.
 
@@ -78,7 +78,7 @@ Los siguientes pasos muestran cómo eliminar un contenedor de blobs en el Explor
 
 1. Abra el Explorador de Storage.
 2. En el panel izquierdo, expanda la cuenta de almacenamiento que contiene el contenedor de blobs que desea ver.
-3. Expanda **Contenedores de blob**de la cuenta de almacenamiento.
+3. Expanda **Contenedores de blob** de la cuenta de almacenamiento.
 4. Haga clic con el botón derecho en el contenedor de blobs que desea eliminar y (en el menú contextual) seleccione **Eliminar**.
    También puede presionar **Suprimir** para eliminar el contenedor de blobs actualmente seleccionado.
 
@@ -95,7 +95,7 @@ Los siguientes pasos muestran cómo copiar un contenedor de blobs de una cuenta 
 
 1. Abra el Explorador de Storage.
 2. En el panel izquierdo, expanda la cuenta de almacenamiento que contiene el contenedor de blobs que desea copiar.
-3. Expanda **Contenedores de blob**de la cuenta de almacenamiento.
+3. Expanda **Contenedores de blob** de la cuenta de almacenamiento.
 4. Haga clic con el botón derecho en el contenedor de blobs que desea copiar y (en el menú contextual) seleccione **Copy Blob Container**(Copiar contenedor de blobs).
 
    ![Menú contextual Copiar contenedor de blobs][6]
@@ -105,14 +105,14 @@ Los siguientes pasos muestran cómo copiar un contenedor de blobs de una cuenta 
 
 ## <a name="get-the-sas-for-a-blob-container"></a>Obtención de la SAS para un contenedor de blobs
 
-Una [firma de acceso compartido (SAS)](storage/common/storage-dotnet-shared-access-signature-part-1.md) ofrece acceso delegado a los recursos en la cuenta de almacenamiento.
+Una [firma de acceso compartido (SAS)](./storage/common/storage-sas-overview.md) ofrece acceso delegado a los recursos en la cuenta de almacenamiento.
 Esto significa que puede conceder permisos limitados de los clientes a objetos en su cuenta de almacenamiento durante un período específico y con un conjunto determinado de permisos sin tener que compartir las claves de acceso a las cuentas.
 
 Los siguientes pasos muestran cómo crear una SAS para un contenedor de blobs:
 
 1. Abra el Explorador de Storage.
 2. En el panel izquierdo, expanda la cuenta de almacenamiento que contiene el contenedor de blobs del que desea obtener una SAS.
-3. Expanda **Contenedores de blob**de la cuenta de almacenamiento.
+3. Expanda **Contenedores de blob** de la cuenta de almacenamiento.
 4. Haga clic con el botón derecho en el contenedor de blobs deseado y (en el menú contextual) seleccione **Get Shared Access Signature**(Obtener firma de acceso compartido).
 
    ![Menú contextual Obtener SAS][8]
@@ -132,7 +132,7 @@ Los siguientes pasos muestran cómo administrar (agregar y quitar) las directiva
 
 1. Abra el Explorador de Storage.
 2. En el panel izquierdo, expanda la cuenta de almacenamiento que contiene el contenedor de blobs cuyas directivas de acceso desea administrar.
-3. Expanda **Contenedores de blob**de la cuenta de almacenamiento.
+3. Expanda **Contenedores de blob** de la cuenta de almacenamiento.
 4. Seleccione el contenedor de blobs deseado y (en el menú contextual) seleccione **Manage Access Policies**(Administrar directivas de acceso).
 
    ![Menú contextual Administrar directivas de acceso][11]
@@ -153,7 +153,7 @@ Los siguientes pasos muestran cómo especificar un nivel de acceso público para
 
 1. Abra el Explorador de Storage.
 2. En el panel izquierdo, expanda la cuenta de almacenamiento que contiene el contenedor de blobs cuyas directivas de acceso desea administrar.
-3. Expanda **Contenedores de blob**de la cuenta de almacenamiento.
+3. Expanda **Contenedores de blob** de la cuenta de almacenamiento.
 4. Seleccione el contenedor de blobs deseado y (en el menú contextual) seleccione **Set Public Access Level**(Establecer nivel de acceso público).
 
    ![Menú contextual Establecer nivel de acceso público][13]
@@ -170,7 +170,7 @@ Los siguientes pasos muestran cómo administrar los blobs (y carpetas) en un con
 
 1. Abra el Explorador de Storage.
 2. En el panel izquierdo, expanda la cuenta de almacenamiento que contiene el contenedor de blobs que desea administrar.
-3. Expanda **Contenedores de blob**de la cuenta de almacenamiento.
+3. Expanda **Contenedores de blob** de la cuenta de almacenamiento.
 4. Haga doble clic en el contenedor de blobs que desea ver.
 5. El panel principal mostrará el contenido del contenedor de blobs.
 

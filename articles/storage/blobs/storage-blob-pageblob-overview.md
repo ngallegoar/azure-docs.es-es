@@ -10,12 +10,12 @@ ms.author: tamram
 ms.reviewer: wielriac
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5558a57812414f6f1bb1be053a089af98533155a
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 39c1972eba84f4f1990c87112c5801c386849640
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93288335"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95545965"
 ---
 # <a name="overview-of-azure-page-blobs"></a>Introducción a blobs en páginas de Azure
 
@@ -27,11 +27,11 @@ Las características clave de los blobs en páginas de Azure son la interfaz RES
 
 ## <a name="restrictions"></a>Restricciones
 
-Los blobs en páginas solo pueden usar el **nivel de acceso frecuente** , no pueden usar los niveles de acceso **esporádico** o **de archivo**. Para más información sobre los niveles de acceso, consulte [Azure Blob Storage: niveles de acceso frecuente, esporádico y de archivo](storage-blob-storage-tiers.md).
+Los blobs en páginas solo pueden usar el **nivel de acceso frecuente**, no pueden usar los niveles de acceso **esporádico** o **de archivo**. Para más información sobre los niveles de acceso, consulte [Azure Blob Storage: niveles de acceso frecuente, esporádico y de archivo](storage-blob-storage-tiers.md).
 
 ## <a name="sample-use-cases"></a>Casos de uso de ejemplo
 
-Hablemos sobre un par de casos de uso de los blobs en páginas, comenzando con los discos de IaaS de Azure. Los blobs en páginas de Azure son la columna vertebral de la plataforma virtual de discos de IaaS de Azure. Tanto los discos de datos como el sistema operativo de Azure se implementan como discos virtuales donde los datos se conservan de forma duradera en la plataforma de Azure Storage y, después, se entregan a las máquinas virtuales para obtener el máximo rendimiento. Los discos de Azure se conservan en [formato VHD](https://technet.microsoft.com/library/dd979539.aspx) Hyper-V y se almacenan como [blobs en páginas](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs#about-page-blobs) en Azure Storage. Además de usar discos virtuales para las máquinas virtuales de IaaS de Azure, los blobs en páginas también permiten escenarios de PaaS y DBaaS, como el servicio Azure SQL DB, que actualmente usa los blobs en páginas para almacenar datos SQL, lo que permite operaciones de lectura y escritura aleatorias y rápidas en la base de datos. Otro ejemplo sería si dispone de un servicio PaaS para acceder a elementos multimedia compartidos para aplicaciones colaborativas de edición de vídeo, los blobs en páginas habilitan un acceso rápido a ubicaciones aleatorias en los elementos multimedia. También permite una edición y combinación rápida y eficaz de dichos elementos multimedia por parte de varios usuarios. 
+Hablemos sobre un par de casos de uso de los blobs en páginas, comenzando con los discos de IaaS de Azure. Los blobs en páginas de Azure son la columna vertebral de la plataforma virtual de discos de IaaS de Azure. Tanto los discos de datos como el sistema operativo de Azure se implementan como discos virtuales donde los datos se conservan de forma duradera en la plataforma de Azure Storage y, después, se entregan a las máquinas virtuales para obtener el máximo rendimiento. Los discos de Azure se conservan en [formato VHD](/previous-versions/windows/it-pro/windows-7/dd979539(v=ws.10)) Hyper-V y se almacenan como [blobs en páginas](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs#about-page-blobs) en Azure Storage. Además de usar discos virtuales para las máquinas virtuales de IaaS de Azure, los blobs en páginas también permiten escenarios de PaaS y DBaaS, como el servicio Azure SQL DB, que actualmente usa los blobs en páginas para almacenar datos SQL, lo que permite operaciones de lectura y escritura aleatorias y rápidas en la base de datos. Otro ejemplo sería si dispone de un servicio PaaS para acceder a elementos multimedia compartidos para aplicaciones colaborativas de edición de vídeo, los blobs en páginas habilitan un acceso rápido a ubicaciones aleatorias en los elementos multimedia. También permite una edición y combinación rápida y eficaz de dichos elementos multimedia por parte de varios usuarios. 
 
 Servicios de Microsoft de primera entidad, como Azure Site Recovery o Azure Backup, así como muchos terceros desarrolladores de aplicaciones han implementado las innovaciones líderes en el sector mediante el uso de la interfaz REST de los blobs en páginas. A continuación se incluyen algunos de los escenarios únicos implementados en Azure: 
 
@@ -47,7 +47,7 @@ Ambos tipos de almacenamiento que se ofrecen con blobs en páginas tienen su pro
 
 ### <a name="rest-api"></a>API DE REST
 
-Consulte el documento siguiente para empezar a [desarrollar con los blobs en páginas](storage-dotnet-how-to-use-blobs.md). Por ejemplo, vea cómo acceder a los blobs en páginas mediante la biblioteca cliente de Storage para .NET. 
+Consulte el documento siguiente para empezar a [desarrollar con los blobs en páginas](./storage-quickstart-blobs-dotnet.md). Por ejemplo, vea cómo acceder a los blobs en páginas mediante la biblioteca cliente de Storage para .NET. 
 
 En el siguiente diagrama se describen las relaciones globales entre la cuenta, los contenedores y los blobs en páginas.
 
@@ -63,7 +63,7 @@ En primer lugar, obtenga una referencia a un contenedor. Para crear un blob en p
 
 # <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
 
-Para crear un blob en páginas, primero debe crear un objeto **CloudBlobClient** , con el URI base para acceder al almacenamiento de blobs de la cuenta de almacenamiento ( *pbaccount* en la figura 1) junto con el objeto **StorageCredentialsAccountAndKey** , tal y como se muestra en el ejemplo siguiente. El ejemplo muestra cómo crear una referencia a un objeto **CloudBlobContainer** y, a continuación, cómo crear el contenedor ( *testvhds* ) si aún no existe. A continuación, con el objeto **CloudBlobContainer** , cree una referencia a un objeto **CloudPageBlob** especificando el nombre de blob en página (os4.vhd) al que se quiere acceder. Para crear el blob en páginas, llame a [CloudPageBlob.Create](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.create) pasando el tamaño máximo del blob que se va a crear. *blobSize* debe ser un múltiplo de 512 bytes.
+Para crear un blob en páginas, primero debe crear un objeto **CloudBlobClient**, con el URI base para acceder al almacenamiento de blobs de la cuenta de almacenamiento (*pbaccount* en la figura 1) junto con el objeto **StorageCredentialsAccountAndKey**, tal y como se muestra en el ejemplo siguiente. El ejemplo muestra cómo crear una referencia a un objeto **CloudBlobContainer** y, a continuación, cómo crear el contenedor (*testvhds*) si aún no existe. A continuación, con el objeto **CloudBlobContainer**, cree una referencia a un objeto **CloudPageBlob** especificando el nombre de blob en página (os4.vhd) al que se quiere acceder. Para crear el blob en páginas, llame a [CloudPageBlob.Create](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.create) pasando el tamaño máximo del blob que se va a crear. *blobSize* debe ser un múltiplo de 512 bytes.
 
 ```csharp
 using Microsoft.Azure;

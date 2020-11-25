@@ -10,12 +10,12 @@ ms.date: 09/22/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: aed3116976d57df81da399495fd9da3722ba770a
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: ca09e41e6d5b83f14d2dfee4107135585b7e945a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91960684"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95908802"
 ---
 # <a name="point-in-time-restore-for-block-blobs"></a>Restauración a un momento dado para blobs en bloques
 
@@ -49,7 +49,7 @@ La operación **Restore Blob Ranges** devuelve un id. de restauración que ident
 
 La restauración a un momento dado requiere que las siguientes características de Azure Storage se habiliten antes de poder habilitar la restauración a un momento dado:
 
-- [Eliminación temporal](soft-delete-overview.md)
+- [Eliminación temporal](./soft-delete-blob-overview.md)
 - [Fuente de cambios](storage-blob-change-feed.md)
 - [Control de versiones de blobs](versioning-overview.md)
 
@@ -92,5 +92,5 @@ Para obtener más información sobre los precios de las restauraciones a un mome
 
 - [Habilitación y administración de la restauración a un momento dado para blobs en bloques (versión preliminar)](point-in-time-restore-manage.md)
 - [Compatibilidad con la fuente de cambios en Azure Blob Storage (versión preliminar)](storage-blob-change-feed.md)
-- [Habilitación de la eliminación temporal para blobs](soft-delete-enable.md)
+- [Habilitación de la eliminación temporal para blobs](./soft-delete-blob-enable.md)
 - [Habilitación y administración de las versiones de blob](versioning-enable.md)

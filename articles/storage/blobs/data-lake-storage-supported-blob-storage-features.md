@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/12/2020
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: b670ec3cee2ebd1cc98ea2e04fb2b0dfd90e4e1a
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: 900021e258bb96c0d0c83ef182262515449ad5df
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94594222"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95912593"
 ---
 # <a name="blob-storage-features-available-in-azure-data-lake-storage-gen2"></a>Características de Blob Storage disponibles en Azure Data Lake Storage Gen2
 
@@ -31,7 +31,7 @@ En la tabla siguiente se muestra la compatibilidad de cada característica de Bl
 |Nivel de acceso esporádico|Disponibilidad general|No compatible|[Azure Blob Storage: niveles de acceso frecuente, esporádico y de archivo](storage-blob-storage-tiers.md)|
 |Eventos|Disponibilidad general|Disponibilidad general|[Reacción a eventos de Blob Storage](storage-blob-event-overview.md)|
 |Métricas (clásica)|Disponibilidad general|Disponibilidad general|[Métricas de Azure Storage Analytics (clásicas)](../common/storage-analytics-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
-|Métricas en Azure Monitor|Disponibilidad general|Vista previa|[Métricas de Azure Storage en Azure Monitor](../common/storage-metrics-in-azure-monitor.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
+|Métricas en Azure Monitor|Disponibilidad general|Vista previa|[Métricas de Azure Storage en Azure Monitor](./monitor-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |Comandos de PowerShell de Blob Storage|Disponibilidad general|Disponibilidad general|[Inicio rápido: Carga, descarga y enumeración de blobs mediante PowerShell](storage-quickstart-blobs-powershell.md)|
 |Comandos de la CLI de Azure de Blob Storage|Disponibilidad general|Disponibilidad general|[Inicio rápido: Creación, descarga y enumeración de blobs mediante la CLI de Azure](storage-quickstart-blobs-cli.md)|
 |API de Blob Storage|Disponibilidad general|Disponibilidad general|[Inicio rápido: Biblioteca cliente de Azure Blob Storage v12 para .NET](storage-quickstart-blobs-dotnet.md)<br>[Inicio rápido: Administración de blobs con el SDK de Java v12](storage-quickstart-blobs-java.md)<br>[Inicio rápido: Administración de blobs con el SDK de Python v12](storage-quickstart-blobs-python.md)<br>[Inicio rápido: Administración de blobs con el SDK de JavaScript v12 en Node.js](storage-quickstart-blobs-nodejs.md)|
@@ -39,12 +39,12 @@ En la tabla siguiente se muestra la compatibilidad de cada característica de Bl
 |Nivel de acceso de archivo|Disponibilidad general|No compatible|[Azure Blob Storage: niveles de acceso frecuente, esporádico y de archivo](storage-blob-storage-tiers.md)|
 |Directivas de administración del ciclo de vida (niveles)|Disponibilidad general|Todavía no se admite|[Administración del ciclo de vida de Azure Blob Storage](storage-lifecycle-management-concepts.md)|
 |Directivas de administración del ciclo de vida (eliminar blob)|Disponibilidad general|Disponibilidad general|[Administración del ciclo de vida de Azure Blob Storage](storage-lifecycle-management-concepts.md)|
-|Registro en Azure Monitor|Vista previa |Vista previa|[Supervisión de Azure Storage](../common/monitor-storage.md)|
+|Registro en Azure Monitor|Vista previa |Vista previa|[Supervisión de Azure Storage](./monitor-blob-storage.md)|
 |Instantáneas|Versión preliminar|Vista previa|[Instantáneas de blob](snapshots-overview.md)|
 |Sitios web estáticos|Versión preliminar|Vista previa|[Hospedaje de sitios web estáticos en Azure Storage](storage-blob-static-website.md)|
 |Almacenamiento inmutable|Versión preliminar|Vista previa|[Almacenamiento inmutable de los datos críticos para la empresa en Azure Blob Storage](storage-blob-immutable-storage.md)|
 |Eliminación temporal de contenedores|Versión preliminar|Versión preliminar|[Eliminación temporal para contenedores (versión preliminar)](soft-delete-container-overview.md)|
-|Eliminación temporal de blobs|Todavía no se admite|Todavía no se admite|[Eliminación temporal para blobs](storage-blob-soft-delete.md)|
+|Eliminación temporal de blobs|Todavía no se admite|Todavía no se admite|[Eliminación temporal para blobs](./soft-delete-blob-overview.md)|
 |Blobfuse|Disponibilidad general|Disponibilidad general|[Cómo montar el almacenamiento de blobs como sistema de archivos con blobfuse](storage-how-to-mount-container-linux.md)|
 |Conmutación por error de cuenta|Todavía no se admite|Todavía no se admite|[Recuperación ante desastres y conmutación por error de la cuenta](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |ACL del contenedor de blobs|No compatible<div role="complementary" aria-labelledby="blob-container-ACL"><sup>1</sup></div>|No compatible<div role="complementary" aria-labelledby="blob-container-ACL"><sup>2</sup></div>|Consulte la nota relacionada que aparece debajo de esta tabla.|

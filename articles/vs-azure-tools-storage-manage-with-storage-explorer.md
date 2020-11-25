@@ -8,12 +8,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/08/2019
 ms.author: cawa
-ms.openlocfilehash: 9922601d67393d103b95da7286d8db71d913434a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: be9b2d9a31d4affc9615f5d2f4b2585b7533a0f6
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88235252"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95545914"
 ---
 # <a name="get-started-with-storage-explorer"></a>Introducción al Explorador de Storage
 
@@ -61,7 +61,7 @@ El Explorador de Storage también se puede descargar como *.tar.gz*. Las depende
 
 La instalación mediante *.tar.gz* podría funcionar en otras distribuciones, pero las únicas oficialmente compatibles son las que aparecen en la lista.
 
-Para más información sobre la instalación del Explorador de Storage en Linux, consulte el apartado acerca de las [dependencias de Linux](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting#linux-dependencies) en la guía para la solución de problemas del Explorador de Azure Storage.
+Para más información sobre la instalación del Explorador de Storage en Linux, consulte el apartado acerca de las [dependencias de Linux](./storage/common/storage-explorer-troubleshooting.md#linux-dependencies) en la guía para la solución de problemas del Explorador de Azure Storage.
 
 ---
 
@@ -79,7 +79,7 @@ El Explorador de Microsoft Azure Storage proporciona varias maneras de conectar 
 ### <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
 > [!NOTE]
-> Para obtener acceso total a los recursos tras el inicio de sesión, el Explorador de Storage requiere permisos de administración (Azure Resource Manager) y en el nivel de datos. Esto significa que necesita permisos de Azure Active Directory que proporcionen acceso a la cuenta de Storage, los contenedores de la cuenta y los datos de los contenedores. Si solo tiene permisos en el nivel de datos, considere la posibilidad de [agregar un recurso mediante Azure AD](#add-a-resource-via-azure-ad). Para más información sobre los permisos específicos que requiere el Explorador de Storage, consulte la [guía para la solución de problemas del Explorador de Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting#rbac-permissions-issues).
+> Para obtener acceso total a los recursos tras el inicio de sesión, el Explorador de Storage requiere permisos de administración (Azure Resource Manager) y en el nivel de datos. Esto significa que necesita permisos de Azure Active Directory que proporcionen acceso a la cuenta de Storage, los contenedores de la cuenta y los datos de los contenedores. Si solo tiene permisos en el nivel de datos, considere la posibilidad de [agregar un recurso mediante Azure AD](#add-a-resource-via-azure-ad). Para más información sobre los permisos específicos que requiere el Explorador de Storage, consulte la [guía para la solución de problemas del Explorador de Azure Storage](./storage/common/storage-explorer-troubleshooting.md#azure-rbac-permissions-issues).
 
 1. En el Explorador de Storage, seleccione **Ver** > **Administración de cuentas**, o bien seleccione el botón **Administrar cuentas**.
 
@@ -106,8 +106,8 @@ El Explorador de Microsoft Azure Storage proporciona varias maneras de conectar 
 Hay varias formas de establecer una vinculación con un recurso en el Explorador de Storage:
 
 * [Agregar un recurso a través de Azure AD](#add-a-resource-via-azure-ad). Si solo tiene permisos en el nivel de datos, puede usar esta opción para agregar un contenedor de blobs o un contenedor de almacenamiento de blobs de Azure Data Lake Storage Gen2.
-* [Usar una cadena de conexión](#use-a-connection-string). Use esta opción si tiene una cadena de conexión a una cuenta de Storage. El Explorador de Storage admite las cadenas de conexión tanto de la clave como de la [firma de acceso compartido](storage/common/storage-dotnet-shared-access-signature-part-1.md).
-* [Use un identificador URI de firma de acceso compartido](#use-a-shared-access-signature-uri). Si tiene un [identificador URI de firma de acceso compartido](storage/common/storage-dotnet-shared-access-signature-part-1.md) en un contenedor de blobs, recurso compartido de archivos, cola o tabla, úselo para establecer la asociación con el recurso. Para obtener un identificador URI de firma de acceso compartido, puede usar el [Explorador de Storage](#generate-a-sas-in-storage-explorer) o [Azure Portal](https://portal.azure.com).
+* [Usar una cadena de conexión](#use-a-connection-string). Use esta opción si tiene una cadena de conexión a una cuenta de Storage. El Explorador de Storage admite las cadenas de conexión tanto de la clave como de la [firma de acceso compartido](./storage/common/storage-sas-overview.md).
+* [Use un identificador URI de firma de acceso compartido](#use-a-shared-access-signature-uri). Si tiene un [identificador URI de firma de acceso compartido](./storage/common/storage-sas-overview.md) en un contenedor de blobs, recurso compartido de archivos, cola o tabla, úselo para establecer la asociación con el recurso. Para obtener un identificador URI de firma de acceso compartido, puede usar el [Explorador de Storage](#generate-a-sas-in-storage-explorer) o [Azure Portal](https://portal.azure.com).
 * [Usar un nombre y una clave](#use-a-name-and-key). Si conoce cualquiera de las claves de cuenta para la cuenta de Storage, puede usar esta opción para conectarse rápidamente. Busque las claves en la página de la cuenta de almacenamiento; para ello, seleccione **Configuración** > **Claves de acceso** en [Azure Portal](https://portal.azure.com).
 * [Asociar a un emulador local](#attach-to-a-local-emulator). Si usa uno de los emuladores de Azure Storage disponibles, use esta opción para conectarse fácilmente al emulador.
 * [Conectarse a una cuenta de Azure Cosmos DB mediante una cadena de conexión](#connect-to-an-azure-cosmos-db-account-by-using-a-connection-string). Use esta opción si tiene una cadena de conexión para una instancia de Cosmos DB.
@@ -131,7 +131,7 @@ Hay varias formas de establecer una vinculación con un recurso en el Explorador
 
 1. Consulte el **resumen de la conexión** para asegurarse de que toda la información es correcta. Si es así, seleccione **Conectar**. De lo contrario, seleccione **Atrás** para volver a las páginas anteriores para corregir cualquier información incorrecta.
 
-Una vez que se agrega la conexión, el árbol de recursos va al nodo que representa la conexión. El recurso aparece en **Local y asociado** > **Cuentas de almacenamiento** >  **(Contenedores asociados)**  > **Contenedores de blob**. Si el Explorador de Storage no ha podido agregar la conexión o si no puede acceder a los datos después de agregar correctamente la conexión, consulte la [guía de solución de problemas del Explorador de Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting).
+Una vez que se agrega la conexión, el árbol de recursos va al nodo que representa la conexión. El recurso aparece en **Local y asociado** > **Cuentas de almacenamiento** >  **(Contenedores asociados)**  > **Contenedores de blob**. Si el Explorador de Storage no ha podido agregar la conexión o si no puede acceder a los datos después de agregar correctamente la conexión, consulte la [guía de solución de problemas del Explorador de Azure Storage](./storage/common/storage-explorer-troubleshooting.md).
 
 #### <a name="use-a-connection-string"></a>Usar una cadena de conexión
 
@@ -145,7 +145,7 @@ Una vez que se agrega la conexión, el árbol de recursos va al nodo que represe
 
 1. Consulte el **resumen de la conexión** para asegurarse de que toda la información es correcta. Si es así, seleccione **Conectar**. De lo contrario, seleccione **Atrás** para volver a las páginas anteriores para corregir cualquier información incorrecta.
 
-Una vez que se agrega la conexión, el árbol de recursos va al nodo que representa la conexión. El recurso aparece en **Local y asociado** > **Cuentas de almacenamiento**. Si el Explorador de Storage no ha podido agregar la conexión o si no puede acceder a los datos después de agregar correctamente la conexión, consulte la [guía de solución de problemas del Explorador de Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting).
+Una vez que se agrega la conexión, el árbol de recursos va al nodo que representa la conexión. El recurso aparece en **Local y asociado** > **Cuentas de almacenamiento**. Si el Explorador de Storage no ha podido agregar la conexión o si no puede acceder a los datos después de agregar correctamente la conexión, consulte la [guía de solución de problemas del Explorador de Azure Storage](./storage/common/storage-explorer-troubleshooting.md).
 
 #### <a name="use-a-shared-access-signature-uri"></a>Uso de un identificador URI de firma de acceso compartido
 
@@ -159,7 +159,7 @@ Una vez que se agrega la conexión, el árbol de recursos va al nodo que represe
 
 1. Consulte el **resumen de la conexión** para asegurarse de que toda la información es correcta. Si es así, seleccione **Conectar**. De lo contrario, seleccione **Atrás** para volver a las páginas anteriores para corregir cualquier información incorrecta.
 
-Una vez que se agrega la conexión, el árbol de recursos va al nodo que representa la conexión. El recurso aparece en **Local y asociado** > **Cuentas de almacenamiento** >  **(Contenedores asociados)**  > *el nodo de servicio del tipo de contenedor que ha asociado*. Si el Explorador de Storage no pudo agregar la conexión, consulte la [guía para la solución de problemas del Explorador de Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting). Consulte la guía para la solución de problemas si no puede acceder a los datos después de agregar correctamente la conexión.
+Una vez que se agrega la conexión, el árbol de recursos va al nodo que representa la conexión. El recurso aparece en **Local y asociado** > **Cuentas de almacenamiento** >  **(Contenedores asociados)**  > *el nodo de servicio del tipo de contenedor que ha asociado*. Si el Explorador de Storage no pudo agregar la conexión, consulte la [guía para la solución de problemas del Explorador de Azure Storage](./storage/common/storage-explorer-troubleshooting.md). Consulte la guía para la solución de problemas si no puede acceder a los datos después de agregar correctamente la conexión.
 
 #### <a name="use-a-name-and-key"></a>Usar un nombre y una clave
 
@@ -177,7 +177,7 @@ Una vez que se agrega la conexión, el árbol de recursos va al nodo que represe
 
 1. Consulte el **resumen de la conexión** para asegurarse de que toda la información es correcta. Si es así, seleccione **Conectar**. De lo contrario, seleccione **Atrás** para volver a las páginas anteriores para corregir cualquier información incorrecta.
 
-Una vez que se agrega la conexión, el árbol de recursos va al nodo que representa la conexión. El recurso aparece en **Local y asociado** > **Cuentas de almacenamiento**. Si el Explorador de Storage no ha podido agregar la conexión o si no puede acceder a los datos después de agregar correctamente la conexión, consulte la [guía de solución de problemas del Explorador de Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting).
+Una vez que se agrega la conexión, el árbol de recursos va al nodo que representa la conexión. El recurso aparece en **Local y asociado** > **Cuentas de almacenamiento**. Si el Explorador de Storage no ha podido agregar la conexión o si no puede acceder a los datos después de agregar correctamente la conexión, consulte la [guía de solución de problemas del Explorador de Azure Storage](./storage/common/storage-explorer-troubleshooting.md).
 
 #### <a name="attach-to-a-local-emulator"></a>Vincular un emulador local
 
@@ -205,7 +205,7 @@ Si quiere usar otro nombre para la conexión o si el emulador no se está ejecut
 
 1. Consulte el **resumen de la conexión** y asegúrese de que toda la información es correcta. Si es así, seleccione **Conectar**. De lo contrario, seleccione **Atrás** para volver a las páginas anteriores para corregir cualquier información incorrecta.
 
-Una vez que se agrega la conexión, el árbol de recursos va al nodo que representa la conexión. El nodo debería aparecer en **Local y asociado** > **Cuentas de almacenamiento**. Si el Explorador de Storage no ha podido agregar la conexión o si no puede acceder a los datos después de agregar correctamente la conexión, consulte la [guía de solución de problemas del Explorador de Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting).
+Una vez que se agrega la conexión, el árbol de recursos va al nodo que representa la conexión. El nodo debería aparecer en **Local y asociado** > **Cuentas de almacenamiento**. Si el Explorador de Storage no ha podido agregar la conexión o si no puede acceder a los datos después de agregar correctamente la conexión, consulte la [guía de solución de problemas del Explorador de Azure Storage](./storage/common/storage-explorer-troubleshooting.md).
 
 #### <a name="connect-to-an-azure-cosmos-db-account-by-using-a-connection-string"></a>Conexión a una cuenta de Azure Cosmos DB mediante una cadena de conexión
 
@@ -215,7 +215,7 @@ En lugar de administrar cuentas de Azure Cosmos DB mediante una suscripción de
 
     ![Conectarse a Azure Cosmos DB mediante una cadena de conexión][21]
 
-1. Seleccione la API de Azure Cosmos DB, escriba los datos de la **cadena de conexión** y, a continuación, seleccione **Aceptar** para conectarse a la cuenta de Azure Cosmos DB. Para más información sobre cómo recuperar la cadena de conexión, consulte [Administración de una cuenta de Azure Cosmos](https://docs.microsoft.com/azure/cosmos-db/manage-account).
+1. Seleccione la API de Azure Cosmos DB, escriba los datos de la **cadena de conexión** y, a continuación, seleccione **Aceptar** para conectarse a la cuenta de Azure Cosmos DB. Para más información sobre cómo recuperar la cadena de conexión, consulte [Administración de una cuenta de Azure Cosmos](./cosmos-db/how-to-manage-database-account.md).
 
     ![Cadena de conexión][22]
 

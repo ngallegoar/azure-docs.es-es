@@ -7,12 +7,12 @@ ms.topic: article
 author: trkeya
 ms.author: trkeya
 ms.date: 11/06/2020
-ms.openlocfilehash: 0765c05e08dda782c084775fb83b22a52558fa0d
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 9e8aecfe8b16d8af755d3f4c3c71b875d4e8ec40
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491620"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95751256"
 ---
 # <a name="detailed-configuration-for-hosted-test-drives"></a>Configuración detallada de las versiones de prueba hospedadas
 
@@ -29,7 +29,7 @@ En este artículo se describe cómo configurar una versión de prueba hospedada 
 
     - **Tipo de versión de prueba**: elija la opción **Microsoft Hosted (Dynamics 365 for Customer Engagement & PowerApps)** [Hospedada en Microsoft (Dynamics 365 for Customer Engagement y PowerApps)]. Esto indica que Microsoft hospedará y mantendrá el servicio que realiza el aprovisionamiento y desaprovisionamiento de usuarios de la versión de prueba.
 
-5. Conceda permiso a Microsoft AppSource para aprovisionar y desaprovisionar los usuarios de la versión de prueba del inquilino mediante [estas instrucciones](https://github.com/Microsoft/AppSource/blob/master/Microsoft%20Hosted%20Test%20Drive/Setup-your-Azure-subscription-for-Dynamics365-Microsoft-Hosted-Test-Drives.md). En este paso, generará los valores **Azure AD App ID** (Identificador de aplicación de Azure AD) y **Azure AD App Key** (Clave de aplicación de Azure AD) que se mencionan a continuación.
+5. Conceda permiso a Microsoft AppSource para aprovisionar y desaprovisionar los usuarios de la versión de prueba del inquilino mediante [estas instrucciones](https://docs.microsoft.com/azure/marketplace/test-drive-azure-subscription-setup). En este paso, generará los valores **Azure AD App ID** (Identificador de aplicación de Azure AD) y **Azure AD App Key** (Clave de aplicación de Azure AD) que se mencionan a continuación.
 6. Rellene estos campos en la página **Test drive technical configuration** (Configuración técnica de la versión de prueba).
 
     [![Página de configuración técnica de la versión de prueba.](media/test-drive/technical-config-details.png)](media/test-drive/technical-config-details.png#lightbox)

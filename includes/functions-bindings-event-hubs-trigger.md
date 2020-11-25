@@ -4,33 +4,33 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 03/05/2019
 ms.author: cshoe
-ms.openlocfilehash: d8c6b79dca97de3dd46eb9c677f2c94191f276b0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0cd514c852e13b83a679821ca2d940e4ed112bd8
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89304087"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95557282"
 ---
 Use el desencadenador de funciones para responder a un evento enviado a una secuencia de eventos del centro de eventos. Debe tener acceso de lectura al centro de eventos subyacente para configurar el desencadenador. Cuando esta función se desencadena, el mensaje que se pasa a la función se escribe como una cadena.
 
 ## <a name="scaling"></a>Ampliación
 
-Cada instancia de una función de desencadenador de eventos está respaldada por una única instancia de [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor). El desencadenador (con tecnología de Event Hubs) garantiza que solo una instancia de [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor) puede obtener una concesión en una partición determinada.
+Cada instancia de una función de desencadenador de eventos está respaldada por una única instancia de [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor). El desencadenador (con tecnología de Event Hubs) garantiza que solo una instancia de [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor) puede obtener una concesión en una partición determinada.
 
 Por ejemplo, considere una instancia de Event Hubs con las siguientes características:
 
 * 10 particiones.
 * 1000 eventos distribuidos uniformemente en todas las particiones, con 100 mensajes en cada partición.
 
-Cuando se habilita la función por primera vez, solo hay una instancia de la función. Vamos a llamar a esta instancia de función `Function_0`. Laq función `Function_0` tiene una sola instancia de [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor) que contiene una concesión en las diez particiones. Esta instancia lee eventos de las particiones 0-9. A partir de este punto, se producirá una de las siguientes acciones:
+Cuando se habilita la función por primera vez, solo hay una instancia de la función. Vamos a llamar a esta instancia de función `Function_0`. Laq función `Function_0` tiene una sola instancia de [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor) que contiene una concesión en las diez particiones. Esta instancia lee eventos de las particiones 0-9. A partir de este punto, se producirá una de las siguientes acciones:
 
 * **No se necesitan nuevas instancias de función**: `Function_0` puede procesar los 1000 eventos antes de que la lógica de escalado de Azure Functions surta efecto. En este caso, `Function_0` procesa los 1000 mensajes.
 
-* **Se agrega una instancia de función adicional**: Si la lógica de escalado de Azure Functions determina que `Function_0` tiene más mensajes de los que puede procesar, se crea una nueva instancia de la aplicación de función (`Function_1`). Esta nueva función también tiene asociada una instancia de [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor). Como la instancia de Event Hubs subyacente detecta que una nueva instancia de host está tratando de leer mensajes, efectúa un equilibrio de carga de las particiones entre las instancias de host. Por ejemplo, las particiones 0-4 pueden asignarse a `Function_0` y las particiones 5-9, a `Function_1`.
+* **Se agrega una instancia de función adicional**: Si la lógica de escalado de Azure Functions determina que `Function_0` tiene más mensajes de los que puede procesar, se crea una nueva instancia de la aplicación de función (`Function_1`). Esta nueva función también tiene asociada una instancia de [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor). Como la instancia de Event Hubs subyacente detecta que una nueva instancia de host está tratando de leer mensajes, efectúa un equilibrio de carga de las particiones entre las instancias de host. Por ejemplo, las particiones 0-4 pueden asignarse a `Function_0` y las particiones 5-9, a `Function_1`.
 
 * **Se agregan N instancias de función más**: Si la lógica de escalado de Azure Functions determina que tanto `Function_0` como `Function_1` tienen más mensajes de los que pueden procesar, se crean más instancias de aplicaciones de función de `Functions_N`.  Se van creando aplicaciones hasta llegar a un punto en el que `N` es mayor que el número de particiones de centro de eventos. En nuestro ejemplo, Event Hubs vuelve a equilibrar la carga de las particiones, en este caso, entre las instancias `Function_0`...`Functions_9`.
 
-Cuando se produce el escalado, `N` instancias es un número mayor que el número de particiones del centro de eventos. Este patrón se usa para garantizar que va a haber instancias de [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor) disponibles para obtener bloqueos de las particiones a medida que estén disponibles en otras instancias. Solo se le cobra por los recursos usados cuando se ejecuta la instancia de la función. En otras palabras, no se le cobrará por este aprovisionamiento en exceso.
+Cuando se produce el escalado, `N` instancias es un número mayor que el número de particiones del centro de eventos. Este patrón se usa para garantizar que va a haber instancias de [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor) disponibles para obtener bloqueos de las particiones a medida que estén disponibles en otras instancias. Solo se le cobra por los recursos usados cuando se ejecuta la instancia de la función. En otras palabras, no se le cobrará por este aprovisionamiento en exceso.
 
 Cuando se completa la ejecución de todas las funciones con o sin errores, se agregan puntos de comprobación a la cuenta de almacenamiento asociada. Cuando estos puntos de conexión se agregan correctamente, los 1000 mensajes ya no se vuelven a recuperar.
 
@@ -343,7 +343,7 @@ Python no admite atributos.
 
 # <a name="java"></a>[Java](#tab/java)
 
-En la [biblioteca en tiempo de ejecución de funciones](https://docs.microsoft.com/java/api/overview/azure/functions/runtime) de Java, utilice la anotación [EventHubTrigger](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.eventhubtrigger) en los parámetros cuyo valor provendría del centro de eventos. Los parámetros con estas anotaciones hacen que la función se ejecuta cuando llega un evento. Esta anotación se puede usar con tipos nativos de Java, POJO o valores que aceptan valores NULL mediante `Optional<T>`.
+En la [biblioteca en tiempo de ejecución de funciones](/java/api/overview/azure/functions/runtime) de Java, utilice la anotación [EventHubTrigger](/java/api/com.microsoft.azure.functions.annotation.eventhubtrigger) en los parámetros cuyo valor provendría del centro de eventos. Los parámetros con estas anotaciones hacen que la función se ejecuta cuando llega un evento. Esta anotación se puede usar con tipos nativos de Java, POJO o valores que aceptan valores NULL mediante `Optional<T>`.
 
 ---
 
@@ -366,11 +366,11 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 
 ## <a name="event-metadata"></a>Metadatos de evento
 
-El desencadenador de Event Hubs proporciona varias [propiedades de metadatos](../articles/azure-functions/./functions-bindings-expressions-patterns.md). Se pueden usar propiedades de metadatos como parte de expresiones de enlace en otros enlaces o como parámetros del código. Las propiedades proceden de la clase [EventData](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.eventdata).
+El desencadenador de Event Hubs proporciona varias [propiedades de metadatos](../articles/azure-functions/./functions-bindings-expressions-patterns.md). Se pueden usar propiedades de metadatos como parte de expresiones de enlace en otros enlaces o como parámetros del código. Las propiedades proceden de la clase [EventData](/dotnet/api/microsoft.servicebus.messaging.eventdata).
 
 |Propiedad|Tipo|Descripción|
 |--------|----|-----------|
-|`PartitionContext`|[PartitionContext](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.partitioncontext)|Instancia de `PartitionContext`.|
+|`PartitionContext`|[PartitionContext](/dotnet/api/microsoft.servicebus.messaging.partitioncontext)|Instancia de `PartitionContext`.|
 |`EnqueuedTimeUtc`|`DateTime`|Hora de puesta en la cola en UTC.|
 |`Offset`|`string`|El desplazamiento de los datos relacionados con el flujo de partición de Event Hubs. El desplazamiento es un marcador o identificador del flujo de Event Hubs. El identificador es único dentro de una partición del flujo de Event Hubs.|
 |`PartitionKey`|`string`|La partición a la que se deben enviar los datos del evento.|
