@@ -7,11 +7,11 @@ ms.date: 11/21/2018
 ms.author: gwallace
 ms.custom: mvc, devcenter , devx-track-azurecli
 ms.openlocfilehash: 00addbe992bc113c67df08f73414107d51b3bce5
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748202"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96007399"
 ---
 # <a name="mount-an-azure-files-based-volume-in-a-service-fabric-mesh-application"></a>Montaje de un volumen basado en Azure Files en una aplicación Service Fabric Mesh 
 
@@ -75,9 +75,9 @@ az storage account keys list --account-name <storageAccountName> --query "[?keyN
 ```
 
 También puede encontrar estos valores en [Azure Portal](https://portal.azure.com):
-* `<storageAccountName>`: en **Cuentas de almacenamiento** , el nombre de la cuenta de almacenamiento utilizada para crear el recurso compartido de archivos.
-* `<storageAccountKey>` -Seleccione la cuenta de almacenamiento en **Cuentas de almacenamiento** y después seleccione **Claves de acceso** y utilice el valor de **key1** .
-* `<fileShareName>` - Seleccione la cuenta de almacenamiento en **Cuentas de almacenamiento** y después seleccione **Archivos** . El nombre que se usa es el del recurso compartido de archivos que ha creado.
+* `<storageAccountName>`: en **Cuentas de almacenamiento**, el nombre de la cuenta de almacenamiento utilizada para crear el recurso compartido de archivos.
+* `<storageAccountKey>` -Seleccione la cuenta de almacenamiento en **Cuentas de almacenamiento** y después seleccione **Claves de acceso** y utilice el valor de **key1**.
+* `<fileShareName>` - Seleccione la cuenta de almacenamiento en **Cuentas de almacenamiento** y después seleccione **Archivos**. El nombre que se usa es el del recurso compartido de archivos que ha creado.
 
 ## <a name="declare-a-volume-resource-and-update-the-service-resource-json"></a>Declaración de un recurso de volumen y actualización del recurso de servicio (JSON)
 

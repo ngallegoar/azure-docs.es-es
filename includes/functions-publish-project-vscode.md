@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 09/28/2020
 ms.author: glenga
 ms.openlocfilehash: a525d1e14e642a64235c263ba29bf7a181bf9e30
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93420995"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008239"
 ---
 ## <a name="publish-the-project-to-azure"></a>Publicar el proyecto en Azure
 
@@ -19,21 +19,21 @@ En esta sección, va a crear una aplicación de funciones y los recursos relacio
 > La publicación en una aplicación de función existente sobrescribe el contenido de esa aplicación en Azure.
 
 
-1. Seleccione el icono de Azure en la barra de actividades y después en el área **Azure: Functions** , seleccione el botón de **implementación en la aplicación de funciones**.
+1. Seleccione el icono de Azure en la barra de actividades y después en el área **Azure: Functions**, seleccione el botón de **implementación en la aplicación de funciones**.
 
     ![Publicación del proyecto en Azure](media/functions-publish-project-vscode/function-app-publish-project.png)
 
 1. Escriba la siguiente información cuando se le indique:
 
-    - **Seleccione la carpeta** : elija una carpeta en el área de trabajo o busque una que contenga la aplicación de funciones. No verá esta opción si ya tiene una aplicación de funciones válida abierta.
+    - **Seleccione la carpeta**: elija una carpeta en el área de trabajo o busque una que contenga la aplicación de funciones. No verá esta opción si ya tiene una aplicación de funciones válida abierta.
 
-    - **Seleccione la suscripción** : elija la suscripción que desee usar. No se mostrará esta opción si solo tiene una suscripción.
+    - **Seleccione la suscripción**: elija la suscripción que desee usar. No se mostrará esta opción si solo tiene una suscripción.
 
-    - **Seleccione la aplicación de funciones en Azure** : Elija `- Create new Function App`. (No elija la opción `Advanced`, que no se trata en este artículo).
+    - **Seleccione la aplicación de funciones en Azure**: Elija `- Create new Function App`. (No elija la opción `Advanced`, que no se trata en este artículo).
       
-    - **Escriba un nombre único global para la aplicación de funciones** : Escriba un nombre que sea válido en una ruta de acceso de la dirección URL. El nombre que escriba se valida para asegurarse de que es único en Azure Functions.
+    - **Escriba un nombre único global para la aplicación de funciones**: Escriba un nombre que sea válido en una ruta de acceso de la dirección URL. El nombre que escriba se valida para asegurarse de que es único en Azure Functions.
     
-    - **Seleccione una ubicación para los nuevos recursos** : Para mejorar el rendimiento, elija una [región](https://azure.microsoft.com/regions/) cerca de usted. 
+    - **Seleccione una ubicación para los nuevos recursos**:  Para mejorar el rendimiento, elija una [región](https://azure.microsoft.com/regions/) cerca de usted. 
     
 1.  Cuando se complete, se crearán los siguientes recursos de Azure en la suscripción con nombres que se basan en el nombre de la aplicación de funciones:
     
