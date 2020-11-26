@@ -11,9 +11,9 @@
 - name: Guías de inicio rápido
   expanded: true
   items:
-    - name: .NET Core
+    - name: ASP.NET Core
       href: quickstart-dotnetcore.md
-    - name: .NET Framework
+    - name: ASP.NET
       href: quickstart-dotnet-framework.md
     - name: Node.js
       href: quickstart-nodejs.md
@@ -52,9 +52,9 @@
           href: scenario-secure-app-clean-up-resources.md
     - name: Aplicación con base de datos
       items:
-        - name: .NET Core con SQL Database
+        - name: "ASP.NET Core con SQL\_DB"
           href: tutorial-dotnetcore-sqldb-app.md
-        - name: .NET Framework con SQL Database
+        - name: "ASP.NET con SQL\_DB"
           href: app-service-web-tutorial-dotnet-sqldatabase.md
         - name: PHP con MySQL
           href: tutorial-php-mysql-app.md

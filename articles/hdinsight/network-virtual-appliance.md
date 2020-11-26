@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 06/30/2020
-ms.openlocfilehash: c831e099eca3cd6e6da20f55ad19980ae8e9ddc5
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 557f0a6a37747d3a461ced8de16fd1fcf0d1abab
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545929"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95524120"
 ---
 # <a name="configure-network-virtual-appliance-in-azure-hdinsight"></a>Configuración de una aplicación virtual de red en Azure HDInsight
 
@@ -22,7 +22,7 @@ ms.locfileid: "92545929"
 La etiqueta de FQDN de Azure Firewall está configurada automáticamente para permitir el tráfico para muchos de los FQDN comunes más importantes. Si usa otra aplicación virtual de red, tendrá que configurar algunas características adicionales. Tenga en cuenta los siguientes factores al configurar la aplicación virtual de red:
 
 * Los servicios que admiten puntos de conexión de servicio pueden configurarse con puntos de conexión de servicio, lo que provoca la omisión de NVA, normalmente para consideraciones de costos o rendimiento.
-* Si ResourceProviderConnection se establece en *outbound* , puede usar puntos de conexión privados para los servidores de almacenamiento y SQL Server para los metastores y no es necesario agregarlos a NVA.
+* Si ResourceProviderConnection se establece en *outbound*, puede usar puntos de conexión privados para los servidores de almacenamiento y SQL Server para los metastores y no es necesario agregarlos a NVA.
 * Las dependencias de dirección IP son para tráfico que no sea HTTP/HTTPS (tráfico TCP y UDP).
 * Los puntos de conexión HTTP/HTTPS de FQDN se pueden aprobar en el dispositivo NVA.
 * Asigne la tabla de rutas que creó a la subred de HDInsight.
@@ -41,7 +41,7 @@ Opcionalmente, puede habilitar uno o varios de los siguientes puntos de conexió
 
 | **Punto de conexión** | **Detalles** |
 |---|---|
-| Las direcciones IP se publican [aquí](hdinsight-management-ip-addresses.md) | Estas direcciones IP sirven para el proveedor de recursos de HDInsight y deben incluirse en el UDR para evitar el enrutamiento asimétrico. Esta regla solo es necesaria si ResourceProviderConnection está establecido en *Inbound* . Si ResourceProviderConnection se establece en *Outbound* , estas direcciones IP no son necesarias en el UDR.  |
+| Las direcciones IP se publican [aquí](hdinsight-management-ip-addresses.md) | Estas direcciones IP sirven para el proveedor de recursos de HDInsight y deben incluirse en el UDR para evitar el enrutamiento asimétrico. Esta regla solo es necesaria si ResourceProviderConnection está establecido en *Inbound*. Si ResourceProviderConnection se establece en *Outbound*, estas direcciones IP no son necesarias en el UDR.  |
 | Direcciones IP privadas de AAD-DS | Solo se necesitan para los clústeres ESP, si las redes virtuales no están emparejadas.|
 
 
@@ -57,6 +57,7 @@ La lista siguiente solo proporciona algunos FQDN que pueden ser necesarios para 
 | security.ubuntu.com:80                                                |
 | ocsp.msocsp.com:80                                                    |
 | ocsp.digicert.com:80                                                  |
+| microsoft.com/pki/mscorp/cps/default.htm:443                                      |
 | microsoft.com:80                                                      |
 |login.windows.net:443                                                  |
 |login.microsoftonline.com:443                                          |

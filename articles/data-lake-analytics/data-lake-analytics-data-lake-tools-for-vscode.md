@@ -6,11 +6,11 @@ ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 02/09/2018
 ms.openlocfilehash: e7da5454581e0e414dc832d4fcec50277f3b7f40
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92221254"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019062"
 ---
 # <a name="use-azure-data-lake-tools-for-visual-studio-code"></a>Uso de Herramientas de Azure Data Lake para Visual Studio Code
 
@@ -76,7 +76,7 @@ Abra la paleta de comandos (Ctrl+Mayús+P) y escriba **ADL: Open Sample Script**
                  D( DepID, DepName );
    ```
 
-   OUTPUT @departments     TO "/Output/departments.csv" USING Outputters.Csv();
+   OUTPUT @departments     TO "/Output/departments.csv" USING Outputters.Csv();
 
     El script crea un archivo departments.csv con algunos datos incluidos en la carpeta /output.
 
@@ -382,7 +382,7 @@ También puede [supervisar el estado de la descarga](#check-storage-tasks-status
 
 ### <a name="to-download-a-file-through-the-adl-download-file-command"></a>Para descargar un archivo mediante el comando ADL: Download File
 
-1. Haga clic con el botón derecho en el editor de scripts, seleccione **Descargar archivo**y, luego, elija la carpeta de destino en el cuadro de diálogo **Seleccionar carpeta**.
+1. Haga clic con el botón derecho en el editor de scripts, seleccione **Descargar archivo** y, luego, elija la carpeta de destino en el cuadro de diálogo **Seleccionar carpeta**.
 
 1. Elija la carpeta en la lista o seleccione **Indicar ruta de acceso** o **Examinar desde ruta de acceso raíz**. (Usamos **Indicar ruta de acceso** como un ejemplo).
 

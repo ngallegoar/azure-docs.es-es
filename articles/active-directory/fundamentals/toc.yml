@@ -79,6 +79,46 @@
               href: sync-ldap.md
             - name: Sincronización SCIM
               href: sync-scim.md
+        - name: Compilación para resistencia
+          items:
+            - name: Información general
+              href: resilience-overview.md
+            - name: Guía de infraestructura
+              items:
+                - name: Introducción a la infraestructura
+                  href: resilience-in-infrastructure.md
+                - name: Administración de credenciales
+                  href: resilience-in-credentials.md
+                - name: Estados del dispositivo
+                  href: resilience-with-device-states.md
+                - name: Evaluación continua de acceso
+                  href: resilience-with-continuous-access-evaluation.md
+                - name: Autenticación de usuarios externos
+                  href: resilience-b2b-authentication.md
+                - name: Autenticación híbrida
+                  href: resilience-in-hybrid.md
+                - name: Proxy de aplicación
+                  href: resilience-on-premises-access.md
+            - name: "Guía para Azure\_AD\_B2C"
+              items:
+                - name: "Introducción a la resistencia de Azure\_AD\_B2C"
+                  href: resilience-b2c.md
+                - name: Experiencia del usuario final
+                  href: resilient-end-user-experience.md
+                - name: Interfaces con procesos externos
+                  href: resilient-external-processes.md
+                - name: "Procedimientos recomendados para desarrolladores de Azure\_AD\_B2C"
+                  href: resilience-b2c-developer-best-practices.md
+                - name: Supervisión y análisis
+                  href: resilience-with-monitoring-alerting.md
+            - name: Guía para el desarrollo de aplicaciones
+              items:
+                - name: Introducción al desarrollo
+                  href: resilience-app-development-overview.md
+                - name: Aplicaciones cliente
+                  href: resilience-client-app.md
+                - name: Aplicaciones demonio
+                  href: resilience-daemon-app.md
         - name: Certificación de las autoridades usadas en Azure
           href: certificate-authorities.md
     - name: Guía de implementación

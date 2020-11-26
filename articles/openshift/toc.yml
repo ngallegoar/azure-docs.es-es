@@ -22,6 +22,12 @@
           href: howto-create-private-cluster-4x.md
         - name: Configuración del reenvío de DNS
           href: dns-forwarding.md
+    - name: Storage
+      items:
+        - name: Creación de una clase de Azure Files Storage
+          href: howto-create-a-storageclass.md
+        - name: Uso del registro de contenedor integrado
+          href: built-in-container-registry.md
     - name: Seguridad y autenticación
       items:
         - name: "Configuración de la autenticación de Azure\_Active\_Directory (CLI)"
