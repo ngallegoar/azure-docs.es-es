@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/15/2020
-ms.openlocfilehash: a8890db90fa9f76b676a5fb944f74a773b00c8cd
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 80280702748040e12d1d3d048644e6a16c926256
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92737508"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94832388"
 ---
 # <a name="source-transformation-in-mapping-data-flow"></a>Transformación de origen en flujo de datos de asignación
 
@@ -50,6 +50,7 @@ El flujo de datos de asignación sigue un enfoque de extracción, carga y transf
 | [Azure SQL Database](connector-azure-sql-database.md#mapping-data-flow-properties) | | ✓/- |
 | [Azure SQL Managed Instance (versión preliminar)](connector-azure-sql-managed-instance.md#mapping-data-flow-properties) | | ✓/- |
 | [Azure Cosmos DB (API de SQL)](connector-azure-cosmos-db.md#mapping-data-flow-properties) | | ✓/- |
+| [Hive](connector-hive.md#mapping-data-flow-properties) | | -/✓ | 
 | [Snowflake](connector-snowflake.md) | | ✓/✓ |
 
 La configuración específica de estos conectores se encuentra en la pestaña **Source options** (Opciones de origen). La información y algunos ejemplos de script de flujo de datos sobre esta configuración se encuentran en la documentación del conector.
@@ -64,13 +65,13 @@ Los valores de desarrollo de los parámetros del conjunto de datos se pueden con
 
 ![Captura de pantalla que muestra la pestaña Configuración de origen.](media/data-flow/source1.png "Captura de pantalla que muestra la pestaña Configuración de origen.")
 
-**Nombre de la secuencia de salida** : El nombre de la transformación de origen.
+**Nombre de la secuencia de salida**: El nombre de la transformación de origen.
 
-**Tipo de origen** : Elija si desea utilizar un conjunto de datos en línea o un objeto de conjunto de datos existente.
+**Tipo de origen**: Elija si desea utilizar un conjunto de datos en línea o un objeto de conjunto de datos existente.
 
-**Probar conexión** : pruebe si el servicio Spark del flujo de datos puede conectarse correctamente al servicio vinculado que se usa en el conjunto de datos de origen. El modo de depuración debe estar activado para habilitar esta característica.
+**Probar conexión**: pruebe si el servicio Spark del flujo de datos puede conectarse correctamente al servicio vinculado que se usa en el conjunto de datos de origen. El modo de depuración debe estar activado para habilitar esta característica.
 
-**Desfase de esquema** : el [desfase de esquema](concepts-data-flow-schema-drift.md) es la capacidad de Data Factory de administrar de forma nativa los esquemas flexibles en los flujos de datos sin necesidad de definir explícitamente los cambios en las columnas.
+**Desfase de esquema**: el [desfase de esquema](concepts-data-flow-schema-drift.md) es la capacidad de Data Factory de administrar de forma nativa los esquemas flexibles en los flujos de datos sin necesidad de definir explícitamente los cambios en las columnas.
 
 * Si las columnas de origen van a cambiar con frecuencia, seleccione la casilla **Allow schema drift** (Permitir el desfase de esquema). Esta opción permite que todos los campos de origen entrantes fluyan hasta el receptor a través de las transformaciones.
 
@@ -80,7 +81,7 @@ Los valores de desarrollo de los parámetros del conjunto de datos se pueden con
 
 **Skip line count** (Número de líneas para omitir): el campo **Skip line count** (Número de líneas para omitir) especifica el número de líneas que se van a omitir al principio del conjunto de datos.
 
-**Muestreo** : Habilite el **muestreo** para limitar el número de filas del origen. Use esta configuración al probar o muestrear datos del origen con fines de depuración.
+**Muestreo**: Habilite el **muestreo** para limitar el número de filas del origen. Use esta configuración al probar o muestrear datos del origen con fines de depuración.
 
 Para validar si el origen está configurado correctamente, active el modo de depuración y capture una vista previa de los datos. Para más información, consulte [Modo de depuración](concepts-data-flow-debug-mode.md).
 

@@ -12,12 +12,12 @@ ms.date: 08/20/2019
 ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: acd2f49f009a8bd71d8cfc9f442e579bb1ad396b
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: c2a7c2813919321227bfcdc4ee43ca15186b89df
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371892"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836825"
 ---
 # <a name="azure-active-directory-deployment-plans"></a>Planes de implementación de Azure Active Directory
 ¿Busca una guía de un extremo a otro sobre cómo implementar las funcionalidades de Azure Active Directory (Azure AD)? Los planes de implementación de Azure AD le guían por el valor de negocio, las consideraciones de planeamiento y los procedimientos operativos necesarios para implementar correctamente las funcionalidades comunes de Azure AD.
@@ -61,7 +61,7 @@ La ampliación de la implementación en grupos de usuarios más grandes debe lle
 
 | Capacidad | Descripción|
 | -| -|
-| [Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)| Azure Multi-Factor Authentication (MFA) es la solución de Microsoft de comprobación de dos pasos. El uso de métodos de autenticación aprobados por un administrador permite a Azure MFA ayudar a proteger el acceso a sus datos y aplicaciones, además de satisfacer la exigencia de un proceso de inicio de sesión simple. |
+| [Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)| Azure AD Multi-Factor Authentication (MFA) es la solución de Microsoft de comprobación de dos pasos. El uso de métodos de autenticación aprobados por un administrador permite a Azure AD MFA ayudar a proteger el acceso a sus datos y aplicaciones, además de satisfacer la exigencia de un proceso de inicio de sesión simple. |
 | [Acceso condicional](../conditional-access/plan-conditional-access.md)| Con Acceso condicional, puede implementar decisiones de control de acceso automatizado sobre quién puede acceder a las aplicaciones en nube, en función de condiciones. |
 | [Restablecimiento de la contraseña de autoservicio](../authentication/howto-sspr-deployment.md)| El autoservicio de restablecimiento de contraseñas proporciona a los usuarios la capacidad de restablecer sus contraseñas, sin intervención de ningún administrador, en el momento y el lugar donde se precisa. |
 | [Inicio de sesión sin contraseña](../authentication/howto-authentication-passwordless-deployment.md) | Implementación de la autenticación sin contraseña mediante la aplicación Microsoft Authenticator o las claves de seguridad de FIDO2 de su organización |

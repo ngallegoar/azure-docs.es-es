@@ -10,12 +10,12 @@ ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
 ms.date: 11/09/2020
-ms.openlocfilehash: a133cdb72e304a254305833b9ae6e8a7ebe30ab3
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 211ef9571b5a126686b4583330dc0f80863fd47e
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94540015"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94992053"
 ---
 # <a name="data-encryption-with-azure-machine-learning"></a>Cifrado de datos con Azure Machine Learning
 
@@ -129,6 +129,12 @@ Cada máquina virtual tiene también un disco local temporal para las operacione
 ### <a name="azure-databricks"></a>Azure Databricks
 
 Azure Databricks se puede utilizar en canalizaciones de Azure Machine Learning. De forma predeterminada, el sistema de archivos que usa Azure Databricks se cifra mediante una clave administrada por Microsoft. Para configurar Azure Databricks para que utilice las claves administradas por el cliente, consulte [Configuración de claves administradas por el cliente en DBFS (raíz) predeterminado](/azure/databricks/security/customer-managed-keys-dbfs).
+
+### <a name="microsoft-generated-data"></a>Datos generados por Microsoft
+
+Cuando usa servicios como el aprendizaje automático automatizado, Microsoft puede generar datos transitorios previamente procesados para entrenar varios modelos. Estos datos se guardan en un almacén de datos en el área de trabajo, lo que permite aplicar los controles de acceso y el cifrado de forma adecuada.
+
+También puede que quiera cifrar la [información de diagnóstico registrada desde el punto de conexión implementado](how-to-enable-app-insights.md) en su instancia de Azure Application Insights.
 
 ## <a name="encryption-in-transit"></a>Cifrado en tránsito
 

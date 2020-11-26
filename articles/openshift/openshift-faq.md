@@ -6,12 +6,12 @@ ms.author: jzim
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 07/31/2020
-ms.openlocfilehash: c09f741b37e06010a0bfbab40317980793240e29
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 3a474228776c689dbbd6f15ddd926f29383400ce
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94683512"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94964718"
 ---
 # <a name="azure-red-hat-openshift-faq"></a>Preguntas más frecuentes de Red Hat OpenShift en Azure
 
@@ -21,7 +21,7 @@ En este artículo se responde a las preguntas más frecuentes (P+F) sobre Red Ha
 
 ### <a name="which-azure-regions-are-supported"></a>¿Qué regiones de Azure se admiten?
 
-A fin de obtener una lista de las regiones admitidas para Red Hat OpenShift en Azure 4.x, vea [Regiones disponibles](https://docs.openshift.com/aro/4/welcome/index.html#available-regions).
+A fin de obtener una lista de las regiones admitidas para Red Hat OpenShift en Azure 4.x, vea [Regiones disponibles](https://azure.microsoft.com/global-infrastructure/services/?products=openshift&regions=all).
 
 A fin de obtener una lista de las regiones admitidas para Red Hat OpenShift en Azure 3.11, vea [Productos disponibles por región](supported-resources.md#azure-regions).
 

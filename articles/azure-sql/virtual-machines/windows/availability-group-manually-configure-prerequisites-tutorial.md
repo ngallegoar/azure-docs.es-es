@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 21562bc17d4bfd4913c9085755d962382d207c79
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 59eae5303d9eca48fa4cec30fe622faf19ffba1f
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94566799"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94961896"
 ---
 # <a name="tutorial-prerequisites-for-creating-availability-groups-on-sql-server-on-azure-virtual-machines"></a>Tutorial: Requisitos previos para crear grupos de disponibilidad en VM con SQL Server en Azure
 
@@ -538,7 +538,7 @@ Repita los pasos en la otra máquina virtual con SQL Server.
 
 ### <a name="tuning-failover-cluster-network-thresholds"></a>Ajuste de los umbrales de red de clústeres de conmutación por error
 
-Al ejecutar nodos de clúster de conmutación por error Windows en máquinas virtuales de Azure con AlwaysOn para SQL Server, se recomienda cambiar la configuración del clúster a un estado de supervisión más flexible.  Esto hará que el clúster sea mucho más estable y confiable.  Para más información al respecto, consulte [IaaS con SQL AlwaysOn: Ajuste de los umbrales de red de clústeres de conmutación por error](/windows-server/troubleshoot/iaas-sql-failover-cluser).
+Al ejecutar nodos de clúster de conmutación por error Windows en máquinas virtuales de Azure con AlwaysOn para SQL Server, se recomienda cambiar la configuración del clúster a un estado de supervisión más flexible.  Esto hará que el clúster sea mucho más estable y confiable.  Para más información sobre esto, consulte [IaaS con SQL AlwaysOn: Ajuste de los umbrales de red de clústeres de conmutación por error](/windows-server/troubleshoot/iaas-sql-failover-cluster).
 
 
 ## <a name="configure-the-firewall-on-each-sql-server-vm"></a><a name="endpoint-firewall"></a> Configuración del firewall en cada máquina virtual con SQL Server

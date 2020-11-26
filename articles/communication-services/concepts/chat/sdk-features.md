@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 3b66c962758afc28da3c6be938c13d768c4f2572
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b239cf6d253c1c2d2e36d213e92e0b218add3f8c
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91666150"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94885995"
 ---
 # <a name="chat-client-library-overview"></a>Información general de la biblioteca cliente de chat
 
@@ -52,7 +52,7 @@ En la lista siguiente se presenta el conjunto de características que están dis
 | Events             | Usar Event Grid para suscribirse a la actividad de usuario que se produce en las conversaciones de chat e integrar servicios de notificación personalizados o lógica de negocios     | ✔️   | ✔️  | ✔️    | ✔️  |
 | Supervisión        | Supervisar el uso en términos de los mensajes enviados                                                                               | ✔️   | ✔️  | ✔️    | ✔️  |
 |                    | Supervisar la calidad y el estado de las solicitudes de API realizadas por la aplicación y configurar las alertas a través del portal                                                          | ✔️   | ✔️  | ✔️    | ✔️  |
-|Características adicionales | Usar [Cognitive Services APIs](https://docs.microsoft.com/azure/cognitive-services/) junto con la biblioteca cliente de chat para habilitar las características inteligentes de *traducción de idioma y análisis de opinión de los mensajes entrantes en un cliente, conversión de voz en texto para redactar un mensaje mientras un miembro habla, etc.*                                                                                         | ✔️   | ✔️  | ✔️    | ✔️  |
+|Características adicionales | Usar [Cognitive Services APIs](../../../cognitive-services/index.yml) junto con la biblioteca cliente de chat para habilitar las características inteligentes de *traducción de idioma y análisis de opinión de los mensajes entrantes en un cliente, conversión de voz en texto para redactar un mensaje mientras un miembro habla, etc.*                                                                                         | ✔️   | ✔️  | ✔️    | ✔️  |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

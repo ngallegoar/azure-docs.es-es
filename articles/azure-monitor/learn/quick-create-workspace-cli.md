@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/26/2020
-ms.openlocfilehash: 7421162ed68a879d9f935a3efd5c6267e159a648
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 54d1d8a29c87f8d129c0ea5b29973c4fef0e6f7a
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87324308"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94889004"
 ---
 # <a name="create-a-log-analytics-workspace-with-azure-cli-20"></a>Creación de un área de trabajo de Log Analytics con la CLI de Azure 2.0
 
@@ -28,11 +28,11 @@ Para otros orígenes, como las máquinas virtuales de Azure y la máquinas virtu
 * [Recopilación de datos de un equipo Linux híbrido](./quick-collect-linux-computer.md)
 * [Recopilación de datos de un equipo Windows híbrido](quick-collect-windows-computer.md)
 
-Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
-Si decide instalar y usar la CLI en un entorno local, en esta guía de inicio rápido es preciso que ejecute la versión 2.0.30 de la CLI de Azure o una posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0](/cli/azure/install-azure-cli?view=azure-cli-latest).
+- En este artículo se necesita la versión 2.0.30 de la CLI de Azure, o cualquier versión posterior. Si usa Azure Cloud Shell, ya está instalada la versión más reciente.
 
 ## <a name="create-a-workspace"></a>Crear un área de trabajo
 Cree un área de trabajo con [az group deployment create](/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create). En el ejemplo siguiente se creará un área de trabajo en la ubicación *Este de EE. UU.* mediante una plantilla de Resource Manager desde la máquina local. La plantilla JSON está configurada para solicitar solo el nombre del área de trabajo y especifica un valor predeterminado para los restantes parámetros que es probable que se utilice como configuración estándar en su entorno. O bien, puede almacenar la plantilla en una cuenta de Azure Storage para el acceso compartido en su organización. Para más información sobre cómo trabajar con plantillas, consulte [Implementación de recursos con plantillas de Resource Manager y la CLI de Azure](../../azure-resource-manager/templates/deploy-cli.md).
