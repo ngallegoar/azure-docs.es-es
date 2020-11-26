@@ -40,6 +40,10 @@
       href: threat-intelligence-settings.md
     - name: Nombre de dominio completo en las reglas de red
       href: fqdn-filtering-network-rules.md
+    - name: Seguridad
+      items:
+        - name: Línea de base de seguridad
+          href: security-baseline.md
 - name: Guías paso a paso
   items:
     - name: Implementación de proveedores de seguridad asociados
@@ -54,7 +58,7 @@
       href: rule-hierarchy.md
 - name: Referencia
   items:
-    - name: CLI de Azure
+    - name: Azure CLI
       href: /cli/azure/ext/azure-firewall/network/firewall/policy
     - name: Azure PowerShell
       href: /powershell/module/az.network/new-azfirewallpolicy
