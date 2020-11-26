@@ -244,7 +244,7 @@
     - name: Versión beta de la API REST de Microsoft Graph
       href: /graph/api/resources/authenticationmethods-overview?view=graph-rest-beta
     - name: Restricciones y límites del servicio
-      href: ../users-groups-roles/directory-service-limits-restrictions.md
+      href: ../enterprise-users/directory-service-limits-restrictions.md
 - name: Recursos
   items:
     - name: Foro de comentarios de Azure
