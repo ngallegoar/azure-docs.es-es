@@ -33,11 +33,11 @@
         - name: Revocación del acceso de un usuario
           href: ../enterprise-users/users-revoke-access.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
         - name: Asignación de roles a usuarios invitados
-          href: ../b2b/add-guest-to-role.md?context=%2fazure/active-directory/roles/context/ugr-context
+          href: ../external-identities/add-guest-to-role.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
         - name: Restricción del acceso a usuarios invitados
           href: ../enterprise-users/users-restrict-guest-permissions.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
         - name: Grupos dinámicos e invitados
-          href: ../b2b/use-dynamic-groups.md?context=%2fazure/active-directory/roles/context/ugr-context
+          href: ../external-identities/use-dynamic-groups.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
     - name: Roles y permisos
       expanded: true
       items:
