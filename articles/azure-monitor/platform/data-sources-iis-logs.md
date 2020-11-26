@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 10/21/2020
-ms.openlocfilehash: ca3cf93329ea84183ef11eec8f8fac52cd84d445
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.date: 11/13/2020
+ms.openlocfilehash: a089631ab199b0fe997bba001561c6b027034e2c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461199"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95993693"
 ---
 # <a name="collect-iis-logs-with-log-analytics-agent-in-azure-monitor"></a>Recopilación de registros de IIS con el agente de Log Analytics en Azure Monitor
 Internet Information Services (IIS) almacena la actividad de usuario en archivos de registro que el agente de Log Analytics puede recopilar y almacenar en [Registros de Azure Monitor](data-platform.md).
@@ -26,12 +26,14 @@ Azure Monitor recopila entradas de archivos de registro creados por IIS, por lo 
 
 Azure Monitor solo admite archivos de registro de IIS almacenados en el formato W3C y no admite campos personalizados ni Advanced Logging de IIS. No recopila registros en formato nativo IIS o NCSA.
 
-Configure los registros de IIS en Azure Monitor en el [menú Configuración avanzada](agent-data-sources.md#configuring-data-sources) del agente de Log Analytics.  No se requiere otra configuración que seleccionar **Collect W3C format IIS log files** (Recopilar archivos de registro de IIS en formato W3C).
+Configure los registros de IIS en Azure Monitor en el [menú Configuración avanzada](agent-data-sources.md#configuring-data-sources) del agente de Log Analytics.  No se requiere otra configuración que seleccionar **Collect W3C format IIS log files**(Recopilar archivos de registro de IIS en formato W3C).
 
 
 ## <a name="data-collection"></a>datos, recopilación
 Azure Monitor recopila las entradas de registro IIS de todos los agentes cada vez que cambia la marca de tiempo del registro. El registro se lee cada **5 minutos**. Si por alguna razón IIS no actualiza la marca de tiempo antes de la hora de sustitución, cuando se crea un archivo, las entradas se recopilarán después de la creación del archivo. La frecuencia de creación de un registro se controla mediante la opción **Log File Rollover Schedule** (Programación de sustitución incremental de archivos de registro) para el sitio IIS, que es una vez al día de forma predeterminada. Si la configuración es **Hourly** (Por hora), Azure Monitor recopila el registro cada hora. Si la configuración es **Daily** (Diario), Azure Monitor recopila el registro cada 24 horas.
 
+> [!IMPORTANT]
+> Se recomienda establecer la **Programación de sustitución incremental de archivos** en **Cada hora**. Si se establece en **Diaria**, puede experimentar picos en los datos ya que solo se recopilarán una vez al día.
 
 ## <a name="iis-log-record-properties"></a>Propiedades de registro de IIS
 Los registros de IIS son del tipo **W3CIISLog** y tienen las propiedades que aparecen en la tabla siguiente:

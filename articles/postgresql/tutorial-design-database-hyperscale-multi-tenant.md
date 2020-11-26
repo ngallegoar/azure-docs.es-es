@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 05/14/2019
-ms.openlocfilehash: 2939b3b3beac55b537c1dcf844f702a0ad73f06e
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: d8dee086f55c5596af50245b5271d98536eb7e57
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92478616"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026206"
 ---
 # <a name="tutorial-design-a-multi-tenant-database-by-using-azure-database-for-postgresql--hyperscale-citus"></a>Tutorial: Diseño de una base de datos multiinquilino con Azure Database for PostgreSQL Hiperescala (Citus)
 
@@ -276,4 +276,4 @@ En los pasos anteriores, creó recursos de Azure en un grupo de servidores. Si n
 En este tutorial, aprendió a aprovisionar un grupo de servidores Hiperescala (Citus). Se conectó a él con psql, creó un esquema y distribuyó datos. Ha aprendido a consultar los datos dentro de los inquilinos y entre ellos, así como a personalizar el esquema por inquilino.
 
 - Más información acerca de los [tipos de nodo](./concepts-hyperscale-nodes.md) del grupo de servidores.
-- Determine el mejor [tamaño inicial](howto-hyperscale-scaling.md#picking-initial-size) para el grupo de servidores.
+- Determine el mejor [tamaño inicial](howto-hyperscale-scale-initial.md) para el grupo de servidores.

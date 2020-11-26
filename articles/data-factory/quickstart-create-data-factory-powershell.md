@@ -1,6 +1,6 @@
 ---
 title: Copia de datos en Blob Storage mediante Azure Data Factory
-description: Cree una factoría de datos de Azure mediante PowerShell para copiar los datos de una ubicación de Azure Blob Storage a otra.
+description: Cree una instancia de Azure Data Factory mediante PowerShell para copiar los datos de una ubicación de Azure Blob Storage a otra.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -13,14 +13,14 @@ ms.devlang: powershell
 ms.topic: quickstart
 ms.date: 04/10/2020
 ms.author: jingwang
-ms.openlocfilehash: 1377743fbaefdb812f18768307421fdae637ed54
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: a7fcb4be47e0e1e62c190a9b089243a178df8e7a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637588"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013370"
 ---
-# <a name="quickstart-create-an-azure-data-factory-using-powershell"></a>Inicio rápido: Creación de una factoría de datos de Azure con PowerShell
+# <a name="quickstart-create-an-azure-data-factory-using-powershell"></a>Inicio rápido: Creación de una instancia de Azure Data Factory con PowerShell
 
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
 > * [Versión 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
@@ -28,7 +28,7 @@ ms.locfileid: "92637588"
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-En esta guía de inicio rápido se describe cómo usar PowerShell para crear una instancia de Azure Data Factory. La canalización que ha creado en esta factoría de datos **copia** los datos de una carpeta a otra en Azure Blob Storage. Para ver un tutorial acerca de cómo **transformar** datos mediante Azure Data Factory, consulte [Tutorial: Transformación de datos con Spark](transform-data-using-spark.md).
+En este inicio rápido se describe cómo usar PowerShell para crear una instancia de Azure Data Factory. La canalización que ha creado en esta factoría de datos **copia** los datos de una carpeta a otra en Azure Blob Storage. Para ver un tutorial acerca de cómo **transformar** datos mediante Azure Data Factory, consulte [Tutorial: Transformación de datos con Spark](transform-data-using-spark.md).
 
 > [!NOTE]
 > En este artículo no se ofrece una introducción detallada al servicio Data Factory. Para ver una introducción al servicio Azure Data Factory, consulte [Introducción al servicio Azure Data Factory](introduction.md).
@@ -99,15 +99,15 @@ Instale los módulos de Azure PowerShell siguiendo las instrucciones de [Cómo i
 
 Tenga en cuenta los siguientes puntos:
 
-* El nombre de la instancia de Azure Data Factory debe ser único de forma global. Si recibe el siguiente error, cambie el nombre y vuelva a intentarlo.
+* El nombre de Azure Data Factory debe ser único de forma global. Si recibe el siguiente error, cambie el nombre y vuelva a intentarlo.
 
     ```
     The specified Data Factory name 'ADFv2QuickStartDataFactory' is already in use. Data Factory names must be globally unique.
     ```
 
-* Para crear instancias de Data Factory, la cuenta de usuario que use para iniciar sesión en Azure debe ser un miembro de los roles **colaborador** o **propietario** , o de **administrador** de la suscripción de Azure.
+* Para crear instancias de Data Factory, la cuenta de usuario que use para iniciar sesión en Azure debe ser un miembro de los roles **colaborador** o **propietario**, o de **administrador** de la suscripción de Azure.
 
-* Para una lista de las regiones de Azure en las que Data Factory está disponible actualmente, seleccione las regiones que le interesen en la página siguiente y expanda **Análisis** para poder encontrar **Data Factory** : [Productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/). Los almacenes de datos (Azure Storage, Azure SQL Database, etc.) y los procesos (HDInsight, etc.) que usa la factoría de datos pueden encontrarse en otras regiones.
+* Para una lista de las regiones de Azure en las que Data Factory está disponible actualmente, seleccione las regiones que le interesen en la página siguiente y expanda **Análisis** para poder encontrar **Data Factory**: [Productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/). Los almacenes de datos (Azure Storage, Azure SQL Database, etc.) y los procesos (HDInsight, etc.) que usa la factoría de datos pueden encontrarse en otras regiones.
 
 
 ## <a name="create-a-linked-service"></a>Creación de un servicio vinculado
@@ -115,7 +115,7 @@ Tenga en cuenta los siguientes puntos:
 Cree servicios vinculados en una factoría de datos para vincular los almacenes de datos y los servicios de proceso a la factoría de datos. En esta guía de inicio rápido, creará un servicio vinculado de Azure Storage que se utiliza para ambos almacenes: de origen y de recepción. El servicio vinculado tiene la información de conexión que usa el servicio Data Factory en el entorno de tiempo de ejecución para conectarse a él.
 
 >[!TIP]
->En este inicio rápido, usará *Clave de cuenta* como el tipo de autenticación para el almacén de datos, pero puede elegir otros métodos de autenticación compatibles: *identificador URI de SAS* , *entidad de servicio* e *identidad administrada* , si es necesario. Consulte las secciones correspondientes en [este artículo](./connector-azure-blob-storage.md#linked-service-properties) para más información.
+>En este inicio rápido, usará *Clave de cuenta* como el tipo de autenticación para el almacén de datos, pero puede elegir otros métodos de autenticación compatibles: *identificador URI de SAS*,*entidad de servicio* e *identidad administrada*, si es necesario. Consulte las secciones correspondientes en [este artículo](./connector-azure-blob-storage.md#linked-service-properties) para más información.
 >Para almacenar los secretos de los almacenes de datos de forma segura, también se recomienda usar Azure Key Vault. Consulte [este artículo](./store-credentials-in-key-vault.md) para obtener instrucciones detalladas.
 
 1. Cree un archivo JSON con el nombre **AzureStorageLinkedService.json** en la carpeta **C:\ADFv2QuickStartPSH** con el siguiente contenido: (Cree la carpeta ADFv2QuickStartPSH si todavía no existe).
@@ -136,15 +136,15 @@ Cree servicios vinculados en una factoría de datos para vincular los almacenes 
     }
     ```
 
-    Si usa el Bloc de notas, seleccione **Todos los archivos** en el campo **Guardar como tipo** del cuadro de diálogo **Guardar como** . Si no lo hace, puede que se agregue la extensión `.txt` al archivo. Por ejemplo, `AzureStorageLinkedService.json.txt`. Si crea el archivo en el Explorador de archivos antes de abrirlo en el Bloc de notas, puede que no vea la extensión `.txt`, ya que la opción **Ocultar las extensiones de archivo para tipos de archivo conocidos** está establecida de forma predeterminada. Quite la extensión `.txt` antes de continuar con el paso siguiente.
+    Si usa el Bloc de notas, seleccione **Todos los archivos** en el campo **Guardar como tipo** del cuadro de diálogo **Guardar como**. Si no lo hace, puede que se agregue la extensión `.txt` al archivo. Por ejemplo, `AzureStorageLinkedService.json.txt`. Si crea el archivo en el Explorador de archivos antes de abrirlo en el Bloc de notas, puede que no vea la extensión `.txt`, ya que la opción **Ocultar las extensiones de archivo para tipos de archivo conocidos** está establecida de forma predeterminada. Quite la extensión `.txt` antes de continuar con el paso siguiente.
 
-2. En **PowerShell** , cambie a la carpeta **ADFv2QuickStartPSH** .
+2. En **PowerShell**, cambie a la carpeta **ADFv2QuickStartPSH**.
 
     ```powershell
     Set-Location 'C:\ADFv2QuickStartPSH'
     ```
 
-3. Ejecute el cmdlet **Set-AzDataFactoryV2LinkedService** para crear el servicio vinculado: **AzureStorageLinkedService** .
+3. Ejecute el cmdlet **Set-AzDataFactoryV2LinkedService** para crear el servicio vinculado: **AzureStorageLinkedService**.
 
     ```powershell
     Set-AzDataFactoryV2LinkedService -DataFactoryName $DataFactory.DataFactoryName `
@@ -163,9 +163,9 @@ Cree servicios vinculados en una factoría de datos para vincular los almacenes 
 
 ## <a name="create-datasets"></a>Creación de conjuntos de datos
 
-En este procedimiento, creará dos conjuntos de datos: **InputDataset** y **OutputDataset** . Estos conjuntos de datos son del tipo **Binario** . Hacen referencia al servicio vinculado de Azure Storage que creó en la sección anterior.
-El conjunto de datos de entrada representa los datos de origen en la carpeta de entrada. En la definición del conjunto de datos de entrada, se especifica el contenedor de blobs ( **adftutorial** ), la carpeta ( **input** ) y el archivo ( **emp.txt** ) que contiene los datos de origen.
-El conjunto de datos de salida representa los datos que se copian en el destino. En la definición del conjunto de datos de salida, se especifica el contenedor de blobs ( **adftutorial** ), la carpeta ( **output** ) y el archivo en el que se copian los datos. 
+En este procedimiento, creará dos conjuntos de datos: **InputDataset** y **OutputDataset**. Estos conjuntos de datos son del tipo **Binario**. Hacen referencia al servicio vinculado de Azure Storage que creó en la sección anterior.
+El conjunto de datos de entrada representa los datos de origen en la carpeta de entrada. En la definición del conjunto de datos de entrada, se especifica el contenedor de blobs (**adftutorial**), la carpeta (**input**) y el archivo (**emp.txt**) que contiene los datos de origen.
+El conjunto de datos de salida representa los datos que se copian en el destino. En la definición del conjunto de datos de salida, se especifica el contenedor de blobs (**adftutorial**), la carpeta (**output**) y el archivo en el que se copian los datos. 
 1. Cree un archivo JSON llamado **InputDataset.json** en la carpeta **C:\ADFv2QuickStartPSH** con el siguiente contenido:
 
     ```json
@@ -190,7 +190,7 @@ El conjunto de datos de salida representa los datos que se copian en el destino.
     }
     ```
 
-2. Para crear el conjunto de datos: **InputDataset** , ejecute el cmdlet **Set-AzDataFactoryV2Dataset** .
+2. Para crear el conjunto de datos: **InputDataset**, ejecute el cmdlet **Set-AzDataFactoryV2Dataset**.
 
     ```powershell
     Set-AzDataFactoryV2Dataset -DataFactoryName $DataFactory.DataFactoryName `
@@ -231,7 +231,7 @@ El conjunto de datos de salida representa los datos que se copian en el destino.
     }
     ```
 
-4. Ejecute el cmdlet **Set-AzDataFactoryV2Dataset** para crear **OutDataset** .
+4. Ejecute el cmdlet **Set-AzDataFactoryV2Dataset** para crear **OutDataset**.
 
     ```powershell
     Set-AzDataFactoryV2Dataset -DataFactoryName $DataFactory.DataFactoryName `
@@ -306,7 +306,7 @@ En este procedimiento se crea una canalización con una actividad de copia que u
     }
     ```
 
-2. Para crear la canalización: **Adfv2QuickStartPipeline** , ejecute el cmdlet **Set-AzDataFactoryV2Pipeline** .
+2. Para crear la canalización: **Adfv2QuickStartPipeline**, ejecute el cmdlet **Set-AzDataFactoryV2Pipeline**.
 
     ```powershell
     $DFPipeLine = Set-AzDataFactoryV2Pipeline `

@@ -2,25 +2,22 @@
 title: Procedimientos recomendados para mejorar el rendimiento mediante Azure Service Bus
 description: Describe cómo usar Service Bus para optimizar el rendimiento al intercambiar mensajes asincrónicos.
 ms.topic: article
-ms.date: 06/23/2020
+ms.date: 11/11/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2bd5a1598448722f46a91b889b0778e80ad4e140
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 12de7edd5dec42b01c46307febbef7d739d0495d
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89012065"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95811665"
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>Procedimientos recomendados para mejorar el rendimiento mediante la mensajería de Service Bus
 
-En este artículo se describe cómo usar Azure Service Bus para optimizar el rendimiento al intercambiar mensajes asincrónicos. En la primera parte de este artículo se describen los distintos mecanismos que se ofrecen para ayudar a mejorar el rendimiento. La segunda parte proporciona orientación sobre cómo usar Service Bus de manera que pueda ofrecer el mejor rendimiento en un escenario determinado.
+En este artículo se describe cómo usar Azure Service Bus para optimizar el rendimiento al intercambiar mensajes asincrónicos. En la primera parte de este artículo se describen distintos mecanismos para aumentar el rendimiento. En la segunda parte se proporcionan instrucciones sobre cómo usar Service Bus de manera que pueda ofrecer el mejor rendimiento en un escenario determinado.
 
-En todo este artículo, el término "cliente" hace referencia a cualquier entidad que acceda a Service Bus. Un cliente puede asumir el rol de un remitente o receptor. El término "remitente" se usa para referirse a cualquier cliente de una cola o un tema de Service Bus que envía mensajes a una suscripción de una cola o un tema de Service Bus. El término "receptor" hace referencia a cualquier cliente de una cola o suscripción de Service Bus que recibe mensajes de una cola o suscripción de Service Bus.
-
-En estas secciones se presentan algunos conceptos que Service Bus usa para ayudar a mejorar el rendimiento.
+En todo este artículo, el término "cliente" hace referencia a cualquier entidad que acceda a Service Bus. Un cliente puede asumir el rol de un remitente o receptor. El término "remitente" se usa para referirse a un cliente de una cola o un tema de Service Bus que envía mensajes a una cola o un tema de Service Bus. El término "receptor" hace referencia a un cliente de una cola o una suscripción de Service Bus que recibe mensajes de una cola o una suscripción de Service Bus.
 
 ## <a name="protocols"></a>Protocolos
-
 Service Bus permite a los clientes enviar y recibir mensajes a través de uno de estos tres protocolos:
 
 1. Advanced Message Queuing Protocol (AMQP)
@@ -33,8 +30,7 @@ AMQP es el más eficaz, ya que mantiene la conexión a Service Bus. También imp
 > SBMP solo está disponible para .NET Framework. AMQP es el valor predeterminado de .NET Standard.
 
 ## <a name="choosing-the-appropriate-service-bus-net-sdk"></a>Elección del SDK de .NET para Service Bus adecuado
-
-Hay dos SDK de .NET para Azure Service Bus admitidos. Sus API son muy similares y pueden ser confuso cuál elegir. Consulte la siguiente tabla para que le ayude a tomar su decisión. Se recomienda el SDK de Microsoft.Azure.ServiceBus, ya que es más moderno, con rendimiento y es compatible entre plataformas. Además, admite AMQP sobre WebSockets y forma parte de la colección del SDK de .NET para Azure de proyectos de código abierto.
+Hay dos SDK de .NET para Azure Service Bus admitidos. Sus API son muy similares, y puede resultar confuso cuál elegir. Consulte la siguiente tabla para que le ayude a tomar su decisión. Se recomienda usar el SDK de Microsoft.Azure.ServiceBus, ya que es más moderno, su rendimiento es mejor y es compatible entre plataformas. Además, admite AMQP sobre WebSockets y forma parte de la colección del SDK de .NET para Azure de proyectos de código abierto.
 
 | Paquete NuGet | Espacios de nombres principales | Plataformas mínimas | Protocolos |
 |---------------|----------------------|---------------------|-------------|
@@ -47,19 +43,18 @@ Para más información sobre la compatibilidad mínima con la plataforma .NET St
 
 # <a name="microsoftazureservicebus-sdk"></a>[SDK de Microsoft.Azure.ServiceBus](#tab/net-standard-sdk)
 
-Objetos de cliente Service Bus, como las implementaciones de [`IQueueClient`][QueueClient] o [`IMessageSender`][MessageSender], se deben registrar para la inserción de dependencias como singletons (o crear una instancia de una vez y compartirse). Se recomienda no cerrar ni los generadores de mensajería ni los clientes de cola, tema y suscripción después de enviar un mensaje y luego volver a crearlos al enviar el mensaje siguiente. Al cerrar una factoría de mensajería, se elimina la conexión con el servicio Service Bus y, al volver a crearla, se establece una nueva conexión. Establecer una conexión es una operación costosa que puede evitar si vuelve a usar la misma factoría y los mismos objetos de cliente para varias operaciones. Puede utilizar estos objetos de cliente para operaciones asincrónicas simultáneas y desde varios subprocesos.
+Objetos de cliente Service Bus, como las implementaciones de [`IQueueClient`][QueueClient] o [`IMessageSender`][MessageSender], se deben registrar para la inserción de dependencias como singletons (o crear una instancia de una vez y compartirse). Se recomienda no cerrar las factorías de mensajería ni los clientes de cola, tema o suscripción después de enviar un mensaje y luego volver a crearlos al enviar el mensaje siguiente. Al cerrar una factoría de mensajería, se elimina la conexión al servicio Service Bus. Al volver a crear la factoría, se establece una nueva conexión. Establecer una conexión es una operación costosa que puede evitar si vuelve a usar la misma factoría y los mismos objetos de cliente para varias operaciones. Puede utilizar estos objetos de cliente para operaciones asincrónicas simultáneas y desde varios subprocesos.
 
 # <a name="windowsazureservicebus-sdk"></a>[SDK de WindowsAzure.ServiceBus](#tab/net-framework-sdk)
 
-Los objetos de cliente de Service Bus, como `QueueClient` o `MessageSender`, se crean mediante un objeto [MessagingFactory][MessagingFactory], que también proporciona administración interna de las conexiones. Se recomienda no cerrar ni los generadores de mensajería ni los clientes de cola, tema y suscripción después de enviar un mensaje y luego volver a crearlos al enviar el mensaje siguiente. Al cerrar una factoría de mensajería, se elimina la conexión con el servicio Service Bus y, al volver a crearla, se establece una nueva conexión. Establecer una conexión es una operación costosa que puede evitar si vuelve a usar la misma factoría y los mismos objetos de cliente para varias operaciones. Puede utilizar estos objetos de cliente para operaciones asincrónicas simultáneas y desde varios subprocesos.
+Los objetos de cliente de Service Bus, como `QueueClient` o `MessageSender`, se crean mediante un objeto [MessagingFactory][MessagingFactory], que también proporciona administración interna de las conexiones. Se recomienda no cerrar las factorías de mensajería ni los clientes de cola, tema o suscripción después de enviar un mensaje y luego volver a crearlos al enviar el mensaje siguiente. Al cerrar una factoría de mensajería, se elimina la conexión con el servicio Service Bus y, al volver a crearla, se establece una nueva conexión. Establecer una conexión es una operación costosa que puede evitar si vuelve a usar la misma factoría y los mismos objetos de cliente para varias operaciones. Puede utilizar estos objetos de cliente para operaciones asincrónicas simultáneas y desde varios subprocesos.
 
 ---
 
 ## <a name="concurrent-operations"></a>Operaciones simultáneas
+Las operaciones como enviar, recibir, eliminar, etc., tardan algún tiempo. Este tiempo incluye el que tarda el servicio Service Bus en procesar la operación y la latencia de la solicitud y la respuesta. Para aumentar el número de operaciones por tiempo, las operaciones deberán ejecutarse simultáneamente.
 
-Se tarda tiempo en realizar una operación (enviar, recibir, eliminar, etc.). Este tiempo incluye el procesamiento de la operación por el servicio Service Bus, además de la latencia de la solicitud y la respuesta. Para aumentar el número de operaciones por tiempo, las operaciones deberán ejecutarse simultáneamente.
-
-El cliente programa las operaciones simultáneas mediante la realización de operaciones asincrónicas. La siguiente solicitud se inicia antes de que se complete la anterior. En el siguiente fragmento de código se proporciona un ejemplo de operación asincrónica de envío:
+El cliente programa las operaciones simultáneas mediante la realización de operaciones **asincrónicas**. La siguiente solicitud se inicia antes de que se complete la anterior. En el siguiente fragmento de código se proporciona un ejemplo de operación asincrónica de envío:
 
 # <a name="microsoftazureservicebus-sdk"></a>[SDK de Microsoft.Azure.ServiceBus](#tab/net-standard-sdk)
 
@@ -167,15 +162,15 @@ Al crear un cliente de cola o suscripción, puede especificar un modo de recepci
 
 Al establecer el modo de recepción en `ReceiveAndDelete`, ambos pasos se combinan en una sola solicitud. Estos pasos reducen el número total de operaciones y pueden mejorar el rendimiento general de los mensajes. Esta mejora del rendimiento conlleva el riesgo de la pérdida de mensajes.
 
-Service Bus no admite transacciones para las operaciones de recepción y eliminación. Además, se necesita la semántica de PeekLock para aquellos escenarios en los que el cliente desee aplazar un mensaje o [procesarlo como correo devuelto](service-bus-dead-letter-queues.md).
+Service Bus no admite transacciones para las operaciones de recepción y eliminación. Además, se necesita la semántica de bloqueo de información en aquellos casos en los que el cliente quiera aplazar un mensaje o [procesarlo como correo devuelto](service-bus-dead-letter-queues.md).
 
 ## <a name="client-side-batching"></a>Procesamiento por lotes del lado cliente
 
-El procesamiento por lotes del lado cliente permite que un cliente de cola o tema retrase el envío de un mensaje durante un período determinado. Si el cliente envía más mensajes durante este período, los transmite en un único lote. El procesamiento por lotes del lado cliente también hace que un cliente de cola o suscripción procese varias solicitudes **Complete** por lotes en una única solicitud. El procesamiento por lotes solo está disponible para las operaciones **Send** y **Complete** asincrónicas. Las operaciones sincrónicas se envían de inmediato al servicio Service Bus. El procesamiento por lotes no tiene lugar para las operaciones de inspección o recepción, así como tampoco entre clientes.
+El procesamiento por lotes del lado cliente permite que un cliente de cola o tema retrase el envío de un mensaje durante un período determinado. Si el cliente envía más mensajes durante este período, los transmite en un único lote. El procesamiento por lotes del lado cliente también hace que un cliente de cola o suscripción procese varias solicitudes **Complete** por lotes en una única solicitud. El procesamiento por lotes solo está disponible para las operaciones **Send** y **Complete** asincrónicas. Las operaciones sincrónicas se envían de inmediato al servicio Service Bus. El procesamiento por lotes no tiene lugar con las operaciones de inspección o recepción, así como tampoco entre clientes.
 
 # <a name="microsoftazureservicebus-sdk"></a>[SDK de Microsoft.Azure.ServiceBus](#tab/net-standard-sdk)
 
-Funcionalidad de procesamiento por lotes para el SDK de .NET Standard, todavía no expone una propiedad para manipular.
+La funcionalidad de procesamiento por lotes del SDK de .NET Standard todavía no expone una propiedad para manipular.
 
 # <a name="windowsazureservicebus-sdk"></a>[SDK de WindowsAzure.ServiceBus](#tab/net-framework-sdk)
 
@@ -209,12 +204,17 @@ El procesamiento por lotes no afecta al número de operaciones de mensajería fa
 
 ## <a name="batching-store-access"></a>Acceso al almacén de procesamiento por lotes
 
-Para aumentar el rendimiento de una cola, un tema o una suscripción, Service Bus procesa varios mensajes por lotes al escribir en su almacén interno. Si se habilita en una cola o en un tema, la escritura de mensajes en el almacén se procesará por lotes. Si se habilita en una cola o en una suscripción, la eliminación de mensajes del almacén se procesará por lotes. Si el acceso al almacén de procesamiento por lotes está habilitado para una entidad, Service Bus retrasa una operación de escritura en almacenamiento relacionada con dicha entidad unos 20 ms.
+Para aumentar el rendimiento de una cola, un tema o una suscripción, Service Bus procesa varios mensajes por lotes al escribir en su almacén interno. 
+
+- Al habilitar el procesamiento por lotes en una cola, la escritura de mensajes en el almacén y la eliminación de mensajes del almacén se procesarán por lotes. 
+- Al habilitar el procesamiento por lotes en un tema, la escritura de mensajes en el almacén se procesa por lotes. 
+- Cuando se habilita el procesamiento por lotes en una suscripción, la eliminación de mensajes del almacén se procesa por lotes. 
+- Si el acceso al almacén por lotes está habilitado para una entidad, Service Bus retrasa una operación de escritura en almacén para ella unos 20 ms.
 
 > [!NOTE]
 > No hay ningún riesgo de pérdida de mensajes con procesamiento por lotes, aunque se produzca un error de Service Bus al final de un intervalo de procesamiento por lotes de 20 ms.
 
-Las demás operaciones de almacenamiento que se producen durante este intervalo se agregan al lote. El acceso al almacén de procesamiento por lotes solo afecta a las operaciones **Send** y **Complete**, pero no a las de recepción. El acceso al almacén de procesamiento por lotes es una propiedad de una entidad. El procesamiento por lotes se produce en todas las entidades que tengan habilitado el acceso al almacén de procesamiento por lotes.
+Las demás operaciones de almacenamiento que se producen durante este intervalo se agregan al lote. El acceso al almacén por lotes solo afecta a las operaciones **Enviar** y **Completar**, pero no a las de recepción. El acceso al almacén de procesamiento por lotes es una propiedad de una entidad. El procesamiento por lotes se produce en todas las entidades que tengan habilitado el acceso al almacén de procesamiento por lotes.
 
 Cuando se crea una cola, un tema o una suscripción nuevos, el acceso al almacén de procesamiento por lotes está habilitado de manera predeterminada.
 
@@ -230,7 +230,7 @@ var queueDescription = new QueueDescription(path)
 var queue = await managementClient.CreateQueueAsync(queueDescription);
 ```
 
-Para obtener más información, vea lo siguiente:
+Para más información, consulte los siguientes artículos.
 * <a href="https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.management.queuedescription.enablebatchedoperations?view=azure-dotnet" target="_blank">`Microsoft.Azure.ServiceBus.Management.QueueDescription.EnableBatchedOperations` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 * <a href="https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.management.subscriptiondescription.enablebatchedoperations?view=azure-dotnet" target="_blank">`Microsoft.Azure.ServiceBus.Management.SubscriptionDescription.EnableBatchedOperations` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 * <a href="https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.management.topicdescription.enablebatchedoperations?view=azure-dotnet" target="_blank">`Microsoft.Azure.ServiceBus.Management.TopicDescription.EnableBatchedOperations` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
@@ -247,24 +247,24 @@ var queueDescription = new QueueDescription(path)
 var queue = namespaceManager.CreateQueue(queueDescription);
 ```
 
-Para obtener más información, vea lo siguiente:
+Para más información, consulte los siguientes artículos.
 * <a href="https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.queuedescription.enablebatchedoperations?view=azure-dotnet" target="_blank">`Microsoft.ServiceBus.Messaging.QueueDescription.EnableBatchedOperations` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 * <a href="https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription.enablebatchedoperations?view=azure-dotnet" target="_blank">`Microsoft.ServiceBus.Messaging.SubscriptionDescription.EnableBatchedOperations` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 * <a href="https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.topicdescription.enablebatchedoperations?view=azure-dotnet" target="_blank">`Microsoft.ServiceBus.Messaging.TopicDescription.EnableBatchedOperations` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
 ---
 
-El acceso al almacén de procesamiento por lotes no afecta al número de operaciones de mensajería facturables y es una propiedad de una cola, un tema o una suscripción. Es independiente del modo de recepción y del protocolo que se usa entre un cliente y el servicio Service Bus.
+El acceso al almacén por lotes no afecta al número de operaciones de mensajería facturables. Es una propiedad de una cola, un tema o una suscripción. Es independiente del modo de recepción y del protocolo que se usa entre un cliente y el servicio Service Bus.
 
 ## <a name="prefetching"></a>Captura previa
 
-La [captura previa](service-bus-prefetch.md) permite que el cliente de cola o suscripción cargue más mensajes desde el servicio cuando realice una operación de recepción. El cliente almacena estos mensajes en una memoria caché local. El tamaño de la caché está determinado por las propiedades `QueueClient.PrefetchCount` o `SubscriptionClient.PrefetchCount`. Cada cliente con la captura previa habilitada mantiene su propia memoria caché. La memoria caché no se comparte entre los clientes. Si el cliente inicia una operación de recepción y su memoria caché está vacía, el servicio transmite un lote de mensajes. El tamaño del lote equivale al tamaño de la memoria caché o a 256 KB, con preferencia por el menor valor. Si el cliente inicia una operación de recepción y la memoria caché contiene un mensaje, el mensaje se recupera de la memoria caché.
+La [captura previa](service-bus-prefetch.md) permite que, al recibir mensajes, el cliente de la cola o la suscripción cargue otros adicionales desde el servicio. El cliente almacena estos mensajes en una memoria caché local. El tamaño de la caché está determinado por las propiedades `QueueClient.PrefetchCount` o `SubscriptionClient.PrefetchCount`. Cada cliente con la captura previa habilitada mantiene su propia memoria caché. Una caché no se comparte entre clientes. Si el cliente inicia una operación de recepción y su caché está vacía, el servicio transmite un lote de mensajes. El tamaño del lote equivale al tamaño de la memoria caché o a 256 KB, con preferencia por el menor valor. Si el cliente inicia una operación de recepción y la caché contiene un mensaje, este se recupera de la caché.
 
-Cuando se lleva a cabo la captura previa de un mensaje, el servicio bloquea dicho mensaje. Con el bloqueo, se impide que otro receptor reciba el mensaje con captura previa. Si el receptor no puede completar el mensaje antes de que expire el bloqueo, el mensaje pasa a estar disponible para otros receptores. La copia de captura previa del mensaje permanece en la memoria caché. El receptor que consume la copia en caché expirada recibirá una excepción cuando intente completar dicho mensaje. De forma predeterminada, el bloqueo del mensaje expira tras 60 segundos. Este valor puede ampliarse a 5 minutos. Para evitar el consumo de mensajes expirados, el tamaño de la memoria caché debe ser siempre menor que el número de mensajes que un cliente puede consumir en el intervalo de tiempo de espera de bloqueo.
+Cuando se lleva a cabo la captura previa de un mensaje, el servicio bloquea dicho mensaje. Con el bloqueo, se impide que otro receptor reciba el mensaje previamente capturado. Si el receptor no puede completar el mensaje antes de que expire el bloqueo, pasa a estar disponible para otros receptores. La copia de captura previa del mensaje permanece en la memoria caché. El receptor que consume la copia en caché expirada recibirá una excepción cuando intente completar dicho mensaje. De forma predeterminada, el bloqueo del mensaje expira tras 60 segundos. Este valor puede ampliarse a 5 minutos. Para evitar el consumo de mensajes expirados, establezca el tamaño de la caché en un valor inferior al número de mensajes que un cliente puede consumir en el intervalo de tiempo de expiración de bloqueo.
 
-Cuando se usa la expiración de bloqueo predeterminada de 60 segundos, un buen valor de `PrefetchCount` es 20 veces la velocidad de procesamiento máxima de todos los destinatarios de la fábrica. Por ejemplo, una factoría crea tres receptores y cada receptor puede procesar hasta 10 mensajes por segundo. El número de capturas previas no debe superar 20 X 3 X 10 = 600. De forma predeterminada, `PrefetchCount` se establece en 0, lo que significa que no se realiza la captura previa de ningún mensaje adicional desde el servicio.
+Cuando se usa la expiración de bloqueo predeterminada de 60 segundos, un buen valor de `PrefetchCount` es 20 veces la velocidad de procesamiento máxima de todos los destinatarios de la fábrica. Por ejemplo, una factoría crea tres receptores y cada receptor puede procesar hasta 10 mensajes por segundo. El número de capturas previas no debe superar 20 x 3 x 10 = 600. De forma predeterminada, `PrefetchCount` se establece en 0, lo que significa que no se realiza la captura previa de ningún mensaje adicional desde el servicio.
 
-La captura previa de los mensajes aumenta el rendimiento general de una cola o una suscripción porque reduce el número total de operaciones de mensajes o recorridos de ida y vuelta. Sin embargo, capturar el primer mensaje tardará más tiempo (debido al aumento del tamaño del mensaje). Recibir mensajes con captura previa será más rápido porque el cliente ya ha descargado estos mensajes.
+La captura previa de los mensajes aumenta el rendimiento general de una cola o una suscripción porque reduce el número total de operaciones de mensajes o recorridos de ida y vuelta. Sin embargo, capturar el primer mensaje tardará más tiempo (debido al aumento del tamaño del mensaje). Recibir mensajes previamente capturados de la caché será más rápido porque el cliente ya ha descargado estos mensajes.
 
 El servidor comprueba la propiedad de período de vida (TTL) de un mensaje en el momento en que envía el mensaje al cliente. El cliente no comprueba la propiedad TTL del mensaje cuando lo recibe. En su lugar, se puede recibir el mensaje, aunque se haya superado el TTL del mensaje mientras el cliente lo almacenaba en caché.
 
@@ -274,15 +274,15 @@ La captura previa no afecta al número de operaciones de mensajería facturables
 
 Para más información, vea las propiedades `PrefetchCount` siguientes:
 
-* <a href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.servicebus.queueclient.prefetchcount?view=azure-dotnet" target="_blank">`Microsoft.Azure.ServiceBus.QueueClient.PrefetchCount` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
-* <a href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.servicebus.subscriptionclient.prefetchcount?view=azure-dotnet" target="_blank">`Microsoft.Azure.ServiceBus.SubscriptionClient.PrefetchCount` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+* <a href="https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.queueclient.prefetchcount?view=azure-dotnet" target="_blank">`Microsoft.Azure.ServiceBus.QueueClient.PrefetchCount` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+* <a href="https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.subscriptionclient.prefetchcount?view=azure-dotnet" target="_blank">`Microsoft.Azure.ServiceBus.SubscriptionClient.PrefetchCount` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
 # <a name="windowsazureservicebus-sdk"></a>[SDK de WindowsAzure.ServiceBus](#tab/net-framework-sdk)
 
 Para más información, vea las propiedades `PrefetchCount` siguientes:
 
-* <a href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.queueclient.prefetchcount?view=azure-dotnet" target="_blank">`Microsoft.ServiceBus.Messaging.QueueClient.PrefetchCount` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
-* <a href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.subscriptionclient.prefetchcount?view=azure-dotnet" target="_blank">`Microsoft.ServiceBus.Messaging.SubscriptionClient.PrefetchCount` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+* <a href="https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.queueclient.prefetchcount?view=azure-dotnet" target="_blank">`Microsoft.ServiceBus.Messaging.QueueClient.PrefetchCount` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+* <a href="https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.subscriptionclient.prefetchcount?view=azure-dotnet" target="_blank">`Microsoft.ServiceBus.Messaging.SubscriptionClient.PrefetchCount` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
 ---
 
@@ -291,20 +291,20 @@ Para más información, vea las propiedades `PrefetchCount` siguientes:
 > [!NOTE]
 > Esta sección solo se aplica al SDK de WindowsAzure.ServiceBus, ya que el SDK de Microsoft.Azure.ServiceBus no expone las funciones por lotes.
 
-Aunque los conceptos de realizar una captura previa de varios mensajes juntos tienen una semántica similar la de procesar los mensajes en un lote (`ReceiveBatch`), hay algunas diferencias menores que deben tenerse en cuenta al aprovechar estos dos conceptos conjuntamente.
+Aunque los conceptos de realizar una captura previa de varios mensajes juntos tienen una semántica similar la de procesar los mensajes en un lote (`ReceiveBatch`), hay algunas diferencias menores que deben tenerse en cuenta al usar estos dos conceptos conjuntamente.
 
 La captura previa es una configuración (o modo) en el cliente (`QueueClient` y `SubscriptionClient`) y `ReceiveBatch` es una operación (que tiene una semántica de solicitud-respuesta).
 
-Cuando se usen conjuntamente, tenga en cuenta los siguientes casos:
+Cuando se usen estos enfoques conjuntamente, tenga en cuenta los siguientes casos:
 
-* La captura previa debe ser mayor o igual que el número de mensajes que se esperan recibir de `ReceiveBatch`.
+* La captura previa debe ser mayor o igual que el número de mensajes que se espera recibir de `ReceiveBatch`.
 * La captura previa puede alcanzar n/3 veces el número de mensajes procesados por segundo, donde n es la duración del bloqueo predeterminada.
 
-Hay algunos desafíos con tener un enfoque codicioso (es decir, mantener el recuento de capturas previas muy alto), porque implica que el mensaje se bloquea para un receptor en particular. La recomendación es intentar capturar previamente los valores entre los umbrales mencionados anteriormente e identificar empíricamente lo que se ajuste.
+El hecho de tener un enfoque ambicioso, es decir, mantener alto el número de capturas previas, presenta algunas dificultades, porque implica que el mensaje se bloquea para un receptor en particular. La recomendación es intentar capturar previamente los valores entre los umbrales mencionados anteriormente e identificar empíricamente lo que se ajuste.
 
 ## <a name="multiple-queues"></a>Varias colas
 
-Si una única cola o tema no pueden procesar la carga esperada, debe usar varias entidades de mensajería. Cuando use varias entidades, cree un cliente dedicado para cada una, en lugar de usar el mismo cliente para todas.
+Si una única cola o tema no puede controlar el número esperado, use varias entidades de mensajería. Cuando use varias entidades, cree un cliente dedicado para cada una, en lugar de usar el mismo cliente para todas.
 
 ## <a name="development-and-testing-features"></a>Características de desarrollo y pruebas
 
@@ -334,11 +334,11 @@ Objetivo: Maximizar el rendimiento de una sola cola. El número de remitentes y 
 
 Objetivo: Maximizar el rendimiento general de varias colas. El rendimiento de una cola individual es moderado o alto.
 
-Para obtener el máximo rendimiento en varias colas, use la configuración descrita para maximizar el rendimiento de una sola cola. Además, use distintas factorías para crear clientes que envíen o reciban desde diferentes colas.
+Para obtener el máximo rendimiento en varias colas, use la configuración descrita para maximizar el rendimiento de una sola cola. Además, use distintas factorías para crear clientes que envíen o reciban desde distintas colas.
 
 ### <a name="low-latency-queue"></a>Cola de baja latencia
 
-Objetivo: Minimizar la latencia de un extremo a otro de una cola o un tema. El número de remitentes y receptores es pequeño. El rendimiento de la cola es pequeño o moderado.
+Objetivo: Minimizar la latencia de una cola o un tema. El número de remitentes y receptores es pequeño. El rendimiento de la cola es pequeño o moderado.
 
 * Deshabilite el procesamiento por lotes del lado cliente. El cliente envía inmediatamente un mensaje.
 * Deshabilite el acceso al almacén de procesamiento por lotes. El servicio escribe inmediatamente el mensaje en el almacén.
@@ -349,11 +349,11 @@ Objetivo: Minimizar la latencia de un extremo a otro de una cola o un tema. El n
 
 Objetivo: Maximizar el rendimiento de una cola o un tema con un gran número de remitentes. Cada remitente envía mensajes a una tasa moderada. El número de receptores es pequeño.
 
-Service Bus permite hasta 1000 conexiones simultáneas a una entidad de mensajería. Este límite se aplica en el nivel de espacio de nombres, y las colas, los temas y las suscripciones quedan restringidos por el límite de conexiones simultáneas por espacio de nombres. Para las colas, este número se comparte entre remitentes y receptores. Si se requieren las 1000 conexiones para los remitentes, reemplace la cola por un tema y una única suscripción. Un tema acepta un máximo de mil conexiones simultáneas de los remitentes, mientras que la suscripción acepta otras mil conexiones simultáneas de receptores. Si se requieren más de mil remitentes simultáneos, los remitentes deberían enviar mensajes al protocolo de Service Bus a través de HTTP.
+Service Bus permite hasta 1000 conexiones simultáneas a una entidad de mensajería. Este límite se aplica en el nivel de espacio de nombres, y las colas, los temas y las suscripciones quedan restringidos por el límite de conexiones simultáneas por espacio de nombres. Para las colas, este número se comparte entre remitentes y receptores. Si se requieren las 1000 conexiones para los remitentes, reemplace la cola por un tema y una única suscripción. Un tema acepta hasta 1000 conexiones simultáneas de los remitentes. La suscripción acepta 1000 conexiones simultáneas adicionales de los destinatarios. Si se requieren más de mil remitentes simultáneos, los remitentes deberían enviar mensajes al protocolo de Service Bus a través de HTTP.
 
-Para maximizar el rendimiento, realice los pasos siguientes:
+Para maximizar el rendimiento, siga estos pasos:
 
-* Si cada remitente reside en un proceso diferente, use solo una única factoría para cada proceso.
+* Si cada remitente se encuentra en un proceso diferente, use solo una única factoría para cada proceso.
 * Use operaciones asincrónicas para aprovechar el procesamiento por lotes del lado cliente.
 * Use el intervalo predeterminado de procesamiento por lotes de 20 ms para reducir el número de transmisiones del protocolo de cliente de Service Bus.
 * Deje habilitado el acceso al almacén de procesamiento por lotes. Este acceso aumenta la velocidad global con que se pueden escribir mensajes en la cola o el tema.
@@ -365,10 +365,10 @@ Objetivo: Maximizar la velocidad de recepción de una cola o suscripción con un
 
 Service Bus permite hasta 1000 conexiones simultáneas a una entidad. Si una cola requiere más de 1000 receptores, reemplace la cola por un tema y varias suscripciones. Cada suscripción admite hasta mil conexiones simultáneas. Como alternativa, los receptores pueden acceder a la cola mediante el protocolo HTTP.
 
-Para maximizar el rendimiento, haga lo siguiente:
+Para maximizar el rendimiento, siga estas instrucciones:
 
-* Si cada receptor reside en un proceso diferente, use solo una única factoría por proceso.
-* Los receptores pueden usar operaciones sincrónicas o asincrónicas. Dada la tasa de recepción moderada de un receptor individual, el procesamiento por lotes del lado cliente de una solicitud Complete no afecta al rendimiento del receptor.
+* Si cada receptor se encuentra en un proceso diferente, use solo una única factoría por proceso.
+* Los receptores pueden usar operaciones sincrónicas o asincrónicas. Dada la tasa de recepción moderada de un receptor individual, el procesamiento por lotes del lado cliente de una solicitud Completar no afecta al rendimiento del receptor.
 * Deje habilitado el acceso al almacén de procesamiento por lotes. Este acceso reduce la carga general de la entidad. También reduce la velocidad global con que se pueden escribir mensajes en la cola o el tema.
 * Establezca el número de capturas previas en un valor pequeño (por ejemplo, PrefetchCount = 10). Este número evita que haya receptores inactivos mientras otros tienen un gran número de mensajes almacenados en caché.
 
@@ -376,7 +376,7 @@ Para maximizar el rendimiento, haga lo siguiente:
 
 Objetivo: Maximizar el rendimiento de un tema con un número pequeño de suscripciones. Muchas suscripciones reciben un mensaje, lo que significa que la velocidad de recepción combinada de todas las suscripciones es mayor que la velocidad de envío. El número de remitentes es pequeño. El número de receptores por suscripción es pequeño.
 
-Para maximizar el rendimiento, haga lo siguiente:
+Para maximizar el rendimiento, siga estas instrucciones:
 
 * Para aumentar la velocidad de envío general al tema, use varios generadores de mensajes para crear remitentes. Para cada remitente, use operaciones asincrónicas o varios subprocesos.
 * Para aumentar la velocidad de recepción general desde una suscripción, use varios generadores de mensajes para crear receptores. Para cada receptor, use operaciones asincrónicas o varios subprocesos.
@@ -389,7 +389,7 @@ Para maximizar el rendimiento, haga lo siguiente:
 
 Objetivo: Maximizar el rendimiento de un tema con un gran número de suscripciones. Muchas suscripciones reciben un mensaje, lo que significa que la velocidad de recepción combinada de todas las suscripciones es mucho mayor que la velocidad de envío. El número de remitentes es pequeño. El número de receptores por suscripción es pequeño.
 
-Los temas con un gran número de suscripciones suelen ofrecer un rendimiento general bajo si todos los mensajes se enrutan a todas las suscripciones. Este bajo rendimiento se debe al hecho de que cada mensaje se recibe muchas veces y todos los mensajes que se encuentran en un tema y en todas sus suscripciones se guardan en el mismo almacén. Se asume que el número de remitentes y el número de receptores por suscripción son pequeños. Service Bus admite hasta 2000 suscripciones por tema.
+Los temas con un gran número de suscripciones suelen ofrecer un rendimiento general bajo si todos los mensajes se enrutan a todas las suscripciones. El motivo es que cada mensaje se recibe muchas veces y todos los mensajes de un tema y todas sus suscripciones se almacenan en el mismo almacén. Aquí se supone que el número de remitentes y el número de receptores por suscripción son pequeños. Service Bus admite hasta 2000 suscripciones por tema.
 
 Para maximizar el rendimiento, intente los siguientes pasos:
 

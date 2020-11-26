@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 09/09/2020
 ms.author: jeedes
 ms.openlocfilehash: 3413e594179cdca0704cb5db7908276b7502e719
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900977"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96004762"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-servicenow"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con ServiceNow
 
@@ -59,7 +59,7 @@ Para configurar la integración de ServiceNow en Azure AD, es preciso agregarlo 
 1. En el panel izquierdo, seleccione el servicio **Azure Active Directory**.
 1. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones**.
 1. Para agregar una nueva aplicación, seleccione **Nueva aplicación**.
-1. En la sección **Agregar desde la galería** , escriba **ServiceNow** en el cuadro de búsqueda.
+1. En la sección **Agregar desde la galería**, escriba **ServiceNow** en el cuadro de búsqueda.
 1. Seleccione **ServiceNow** en el panel de resultados y agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
 
 ## <a name="configure-and-test-azure-ad-sso-for-servicenow"></a>Configuración y prueba del inicio de sesión único de Azure AD en ServiceNow
@@ -82,26 +82,26 @@ Para configurar y probar el inicio de sesión único de Azure AD con ServiceNow
 
 Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azure Portal.
 
-1. En Azure Portal, en la página de integración de la aplicación **ServiceNow** , busque la sección **Administrar**. Seleccione **Inicio de sesión único**.
-1. En la página **Seleccione un método de inicio de sesión único** , elija **SAML**.
-1. En la página **Configurar el inicio de sesión único con SAML** , seleccione el icono con forma de lápiz para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración.
+1. En Azure Portal, en la página de integración de la aplicación **ServiceNow**, busque la sección **Administrar**. Seleccione **Inicio de sesión único**.
+1. En la página **Seleccione un método de inicio de sesión único**, elija **SAML**.
+1. En la página **Configurar el inicio de sesión único con SAML**, seleccione el icono con forma de lápiz para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración.
 
    ![Captura de pantalla de la página Configurar el inicio de sesión único con SAML, con el icono de lápiz resaltado](common/edit-urls.png)
 
-1. En la sección **Configuración básica de SAML** , siga estos pasos:
+1. En la sección **Configuración básica de SAML**, siga estos pasos:
 
-    a. En el cuadro **URL de inicio de sesión** , escriba una dirección URL con el siguiente formato: `https://<instancename>.service-now.com/navpage.do`
+    a. En el cuadro **URL de inicio de sesión**, escriba una dirección URL con el siguiente formato: `https://<instancename>.service-now.com/navpage.do`
 
     b. En **Identificador (Id. de entidad)** , escriba una dirección URL con el siguiente formato: `https://<instance-name>.service-now.com`
 
-    c. En **URL de respuesta** , escriba uno de los siguientes patrones de dirección URL:
+    c. En **URL de respuesta**, escriba uno de los siguientes patrones de dirección URL:
 
     | URL de respuesta|
     |----------|
     | `https://<instancename>.service-now.com/navpage.do` |
     | `https://<instancename>.service-now.com/customer.do` | 
 
-    d. En el cuadro **URL de cierre de sesión** , escriba una dirección URL con el siguiente patrón: `https://<instancename>.service-now.com/navpage.do`.
+    d. En el cuadro **URL de cierre de sesión**, escriba una dirección URL con el siguiente patrón: `https://<instancename>.service-now.com/navpage.do`.
 
     > [!NOTE]
     > Si se agrega "/" en el valor del identificador, quítelo manualmente.
@@ -109,7 +109,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
     > [!NOTE]
     > Estos valores no son reales. Tiene que actualizarlos con la dirección URL de inicio de sesión, la dirección URL de respuesta, la dirección URL de cierre de sesión y el identificador reales. Esto se explica más adelante en el tutorial. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
-1. En la página **Configurar el inicio de sesión único con SAML** , en la sección **Certificado de firma de SAML** , busque **Certificado (Base64)** . 
+1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **Certificado (Base64)** . 
 
    ![Captura de pantalla de la sección Certificado de firma de SAML, con la opción Descargar resaltada](common/certificatebase64.png)
 
@@ -117,7 +117,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
     b. Seleccione **Descargar** para descargar el **Certificado (Base64)** y, luego, guarde el archivo de certificado en el equipo.
 
-1. En la sección **Configurar ServiceNow** , copie las direcciones URL que necesite.
+1. En la sección **Configurar ServiceNow**, copie las direcciones URL que necesite.
 
    ![Captura de pantalla de la sección Configurar ServiceNow con las direcciones URL resaltadas](common/copy-configuration-urls.png)
 
@@ -127,9 +127,9 @@ En esta sección, va a crear un usuario de prueba, llamado B. Simon, en Azure P
 
 1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory** > **Usuarios** > **Todos los usuarios**.
 1. Seleccione **Nuevo usuario** en la parte superior de la pantalla.
-1. En las propiedades del **usuario** , siga estos pasos:
-   1. En **Nombre** , escriba `B.Simon`.  
-   1. En **Nombre de usuario** , escriba username@companydomain.extension. Por ejemplo, `B.Simon@contoso.com`.
+1. En las propiedades del **usuario**, siga estos pasos:
+   1. En **Nombre**, escriba `B.Simon`.  
+   1. En **Nombre de usuario**, escriba username@companydomain.extension. Por ejemplo, `B.Simon@contoso.com`.
    1. Seleccione **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro **Contraseña**.
    1. Seleccione **Crear**.
 
@@ -140,39 +140,39 @@ En esta sección, va a permitir que B. Simon acceda a ServiceNow mediante el in
 1. En Azure Portal, seleccione **Aplicaciones empresariales** > **Todas las aplicaciones**.
 1. En la lista de aplicaciones, seleccione **ServiceNow**.
 1. En la página de información general de la aplicación, busque la sección **Administrar** y seleccione **Usuarios y grupos**.
-1. Seleccione **Agregar usuario**. En el cuadro de diálogo **Agregar asignación** , seleccione **Usuarios y grupos**.
-1. En el cuadro de diálogo **Usuarios y grupos** , seleccione **B. Simon** en la lista de usuarios y, después, elija **Seleccionar**.
+1. Seleccione **Agregar usuario**. En el cuadro de diálogo **Agregar asignación**, seleccione **Usuarios y grupos**.
+1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **B. Simon** en la lista de usuarios y, después, elija **Seleccionar**.
 1. Si espera que se asigne un rol a los usuarios, puede seleccionarlo en la lista desplegable **Seleccionar un rol**. Si no se ha configurado ningún rol para esta aplicación, verá seleccionado el rol "Acceso predeterminado".
-1. En el cuadro de diálogo **Agregar asignación** , seleccione **Asignar**.
+1. En el cuadro de diálogo **Agregar asignación**, seleccione **Asignar**.
 
 ### <a name="configure-azure-ad-sso-for-servicenow-express"></a>Configuración de inicio de sesión único de Azure AD para ServiceNow Express
 
-1. En [Azure Portal](https://portal.azure.com/), en la página de integración de aplicaciones de **ServiceNow** , haga clic en **Inicio de sesión único**.
+1. En [Azure Portal](https://portal.azure.com/), en la página de integración de aplicaciones de **ServiceNow**, haga clic en **Inicio de sesión único**.
 
     ![Captura de pantalla de la página de integración de aplicaciones de ServiceNow, con Inicio de sesión único resaltado](common/select-sso.png)
 
-2. En el cuadro de diálogo **Seleccione un método de inicio de sesión único** , seleccione el modo **SAML/WS-Fed** para habilitar el inicio de sesión único.
+2. En el cuadro de diálogo **Seleccione un método de inicio de sesión único**, seleccione el modo **SAML/WS-Fed** para habilitar el inicio de sesión único.
 
     ![Captura de pantalla Seleccione un método de inicio de sesión único con SAML resaltado](common/select-saml-option.png)
 
-3. En la página **Configurar el inicio de sesión único con SAML** , seleccione el icono de lápiz para abrir el cuadro de diálogo **Configuración básica de SAML**.
+3. En la página **Configurar el inicio de sesión único con SAML**, seleccione el icono de lápiz para abrir el cuadro de diálogo **Configuración básica de SAML**.
 
     ![Captura de pantalla de la página Configurar el inicio de sesión único con SAML, con el icono de lápiz resaltado](common/edit-urls.png)
 
-4. En la sección **Configuración básica de SAML** , siga estos pasos:
+4. En la sección **Configuración básica de SAML**, siga estos pasos:
 
-    a. En el cuadro **URL de inicio de sesión** , escriba una dirección URL con el siguiente formato: `https://<instancename>.service-now.com/navpage.do`
+    a. En el cuadro **URL de inicio de sesión**, escriba una dirección URL con el siguiente formato: `https://<instancename>.service-now.com/navpage.do`
 
     b. En **Identificador (id. de entidad)** , escriba una dirección URL con el siguiente formato: `https://<instance-name>.service-now.com`
 
-    c. En **URL de respuesta** , escriba una de las siguientes direcciones URL:
+    c. En **URL de respuesta**, escriba una de las siguientes direcciones URL:
 
     | URL de respuesta |
     |-----------|
     | `https://<instancename>.service-now.com/navpage.do` |
     | `https://<instancename>.service-now.com/customer.do` |
 
-    d. En el cuadro **URL de cierre de sesión** , escriba una dirección URL con el siguiente patrón: `https://<instancename>.service-now.com/navpage.do`.
+    d. En el cuadro **URL de cierre de sesión**, escriba una dirección URL con el siguiente patrón: `https://<instancename>.service-now.com/navpage.do`.
     
     > [!NOTE]
     > Si se agrega "/" en el valor del identificador, quítelo manualmente.
@@ -180,7 +180,7 @@ En esta sección, va a permitir que B. Simon acceda a ServiceNow mediante el in
     > [!NOTE]
     > Estos valores no son reales. Tiene que actualizarlos con la dirección URL de inicio de sesión, la dirección URL de respuesta, la dirección URL de cierre de sesión y el identificador reales. Esto se explica más adelante en el tutorial. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
-5. En la página **Configurar el inicio de sesión único con SAML** , en la sección **Certificado de firma de SAML** , seleccione **Descargar** para descargar el **Certificado (Base64)** de las opciones especificadas según sus requisitos. Guárdelo en el equipo.
+5. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, seleccione **Descargar** para descargar el **Certificado (Base64)** de las opciones especificadas según sus requisitos. Guárdelo en el equipo.
 
     ![Captura de pantalla de la sección Certificado de firma de SAML, con la opción Descargar resaltada](common/certificatebase64.png)
 
@@ -188,7 +188,7 @@ En esta sección, va a permitir que B. Simon acceda a ServiceNow mediante el in
 
     ![Captura de pantalla de la sección Configurar ServiceNow, con las instrucciones paso a paso resaltadas](./media/servicenow-tutorial/tutorial-servicenow-configure.png)
 
-7. En el formulario **Configurar inicio de sesión** , escriba el nombre de la instancia de ServiceNow, el nombre de usuario y la contraseña de administrador. Seleccione **Configurar ahora**. El nombre de usuario administrador proporcionado debe tener asignado el rol **security_admin** en ServiceNow para que esto funcione. De lo contrario, para configurar manualmente ServiceNow de modo que se use Azure AD como proveedor de identidades de SAML, seleccione **Configurar manualmente el inicio de sesión único**. Copie la **dirección URL de cierre de sesión, el identificador de Azure AD y la dirección URL de inicio de sesión** de la sección Referencia rápida.
+7. En el formulario **Configurar inicio de sesión**, escriba el nombre de la instancia de ServiceNow, el nombre de usuario y la contraseña de administrador. Seleccione **Configurar ahora**. El nombre de usuario administrador proporcionado debe tener asignado el rol **security_admin** en ServiceNow para que esto funcione. De lo contrario, para configurar manualmente ServiceNow de modo que se use Azure AD como proveedor de identidades de SAML, seleccione **Configurar manualmente el inicio de sesión único**. Copie la **dirección URL de cierre de sesión, el identificador de Azure AD y la dirección URL de inicio de sesión** de la sección Referencia rápida.
 
     ![Captura de pantalla del formulario de configuración de inicio de sesión con Configurar ahora resaltado](./media/servicenow-tutorial/configure.png "Configurar dirección URL de la aplicación")
 
@@ -240,13 +240,13 @@ En esta sección, va a permitir que B. Simon acceda a ServiceNow mediante el in
 
         ![Captura de pantalla de la sección Configuración de ServiceNow, con las instrucciones paso a paso resaltadas](./media/servicenow-tutorial/tutorial-servicenow-configure.png)
 
-    1. En el formulario **Configurar inicio de sesión** , escriba el nombre de la instancia de ServiceNow, el nombre de usuario y la contraseña de administrador. Seleccione **Configurar ahora**. El nombre de usuario administrador proporcionado debe tener asignado el rol **security-admin** en ServiceNow para que esta operación funcione. De lo contrario, para configurar manualmente ServiceNow de modo que se use Azure AD como proveedor de identidades de SAML, seleccione **Configurar manualmente el inicio de sesión único**. Copie la **URL del servicio de inicio de sesión único de SAML, el identificador de entidad de SAML y la dirección URL de cierre de sesión de SAML** de la sección Referencia rápida.
+    1. En el formulario **Configurar inicio de sesión**, escriba el nombre de la instancia de ServiceNow, el nombre de usuario y la contraseña de administrador. Seleccione **Configurar ahora**. El nombre de usuario administrador proporcionado debe tener asignado el rol **security-admin** en ServiceNow para que esta operación funcione. De lo contrario, para configurar manualmente ServiceNow de modo que se use Azure AD como proveedor de identidades de SAML, seleccione **Configurar manualmente el inicio de sesión único**. Copie la **URL del servicio de inicio de sesión único de SAML, el identificador de entidad de SAML y la dirección URL de cierre de sesión de SAML** de la sección Referencia rápida.
 
         ![Captura de pantalla del formulario de configuración de inicio de sesión con Configurar ahora resaltado](./media/servicenow-tutorial/configure.png "Configurar dirección URL de la aplicación")
 
     1. Inicie sesión en la aplicación ServiceNow como administrador.
 
-       * En la configuración automática, todos los valores necesarios se configuran en el lado de **ServiceNow** , pero el **certificado X.509** no está habilitado de forma predeterminada, por lo que, en **Single Sign-On Script** (Script de inicio de sesión único), debe proporcionar el valor **MultiSSOv2_SAML2_custom**. Tiene que asignarlo manualmente al proveedor de identidades en ServiceNow. Siga estos pasos:
+       * En la configuración automática, todos los valores necesarios se configuran en el lado de **ServiceNow**, pero el **certificado X.509** no está habilitado de forma predeterminada, por lo que, en **Single Sign-On Script** (Script de inicio de sesión único), debe proporcionar el valor **MultiSSOv2_SAML2_custom**. Tiene que asignarlo manualmente al proveedor de identidades en ServiceNow. Siga estos pasos:
 
          1. En el panel izquierdo, busque la sección **Multi-Provider SSO** (Inicio de sesión único multiproveedor) en la barra de búsqueda y, después, seleccione **Identity Providers** (Proveedores de identidades).
 
@@ -256,13 +256,13 @@ En esta sección, va a permitir que B. Simon acceda a ServiceNow mediante el in
 
             ![Captura de pantalla de los proveedores de identidades, con el proveedor de identidad generado resaltado](./media/servicenow-tutorial/tutorial-servicenow-08.png "Configurar inicio de sesión único")
 
-         1.  En la sección **Proveedor de identidades** , realice los siguientes pasos:
+         1.  En la sección **Proveedor de identidades**, realice los siguientes pasos:
 
              ![Captura de pantalla de la sección Identity Provider (Proveedor de identidades)](./media/servicenow-tutorial/automatic-config.png "Configurar inicio de sesión único")
 
                a. En **Name** (Nombre), escriba el nombre de la configuración, por ejemplo, **Microsoft Azure Federated single sign-on** (Inicio de sesión único federado de Microsoft Azure).
 
-               b. Copie el valor de **ServiceNow Homepage** (Página principal de ServiceNow) y péguelo en **Dirección URL de inicio de sesión** , en la sección **Configuración básica de SAML de ServiceNow** de Azure Portal.
+               b. Copie el valor de **ServiceNow Homepage** (Página principal de ServiceNow) y péguelo en **Dirección URL de inicio de sesión**, en la sección **Configuración básica de SAML de ServiceNow** de Azure Portal.
 
                 > [!NOTE]
                 > La página principal de la instancia de ServiceNow es una concatenación de su **URL de inquilino de ServiceNow** y **/navpage.do** (por ejemplo: `https://fabrikam.service-now.com/navpage.do`).
@@ -331,11 +331,11 @@ En esta sección, va a permitir que B. Simon acceda a ServiceNow mediante el in
         > [!NOTE]
         > La página principal de la instancia de ServiceNow es una concatenación de su **URL de inquilino de ServiceNow** y **/navpage.do** (por ejemplo: `https://fabrikam.service-now.com/navpage.do`).
 
-        c. Copie el valor de **Entity ID / Issuer** (Id. de entidad/emisor). Péguelo en **Identificador** , en la sección **Configuración de SAML básica de ServiceNow** de Azure Portal.
+        c. Copie el valor de **Entity ID / Issuer** (Id. de entidad/emisor). Péguelo en **Identificador**, en la sección **Configuración de SAML básica de ServiceNow** de Azure Portal.
 
         d. Confirme que el valor de **NameID Policy** (Directiva de id. de nombre) esté establecido en `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified`.
 
-        e. Seleccione **Advanced** (Avanzadas). En el **campo Usuario** , escriba **email** (correo electrónico).
+        e. Seleccione **Advanced** (Avanzadas). En el **campo Usuario**, escriba **email** (correo electrónico).
 
         > [!NOTE]
         > Puede configurar Azure AD para emitir el identificador de usuario de Azure AD (nombre principal de usuario) o la dirección de correo electrónico como identificador único en el token SAML. Para ello, vaya a la sección **ServiceNow** > **Attributes** > **Single sign-on** (ServiceNow>Atributos>Inicio de sesión único) de Azure Portal y asigne el campo deseado al atributo **nameidentifier** (identificador de nombre). El valor almacenado para el atributo seleccionado en Azure AD (por ejemplo, el nombre de usuario principal) debe coincidir con el valor almacenado en ServiceNow para el campo especificado (por ejemplo, user_name).
@@ -384,9 +384,9 @@ El objetivo de esta sección es crear una usuaria de prueba llamada B. Simon en 
 
     ![Captura de pantalla del cuadro de diálogo X.509 Certificates (Certificados X.509)](./media/servicenow-tutorial/ic7694975.png "Configurar inicio de sesión único")
 
-    a. En el cuadro de texto **Name** (Nombre), escriba el nombre de la configuración (por ejemplo, **TestSAML2.0** ).
+    a. En el cuadro de texto **Name** (Nombre), escriba el nombre de la configuración (por ejemplo, **TestSAML2.0**).
 
-    b. Seleccione **Active** (Activo).
+    b. Seleccione **Active**(Activo).
 
     c. En **Format** (Formato), seleccione **PEM**.
 
@@ -404,7 +404,7 @@ El objetivo de esta sección es crear una usuaria de prueba llamada B. Simon en 
 
     ![Captura de pantalla del cuadro de diálogo Add New Identity Provider (Agregar nuevo proveedor de identidades)](./media/servicenow-tutorial/ic7694982ex.png "Configurar inicio de sesión único")
 
-    a. En el cuadro de texto **Name** (Nombre), escriba el nombre de la configuración (por ejemplo, **SAML 2.0** ).
+    a. En el cuadro de texto **Name** (Nombre), escriba el nombre de la configuración (por ejemplo, **SAML 2.0**).
 
     b. En **Identity provider URL** (Dirección URL del proveedor de identidades), pegue el valor del identificador del proveedor de identidades que ha copiado de Azure Portal.
 
@@ -441,7 +441,7 @@ El objetivo de esta sección es crear una usuaria de prueba llamada B. Simon en 
 
     d. En **Clock Skew** (Sesgo de reloj), escriba **60**.
 
-    e. En el **campo Usuario** , escriba **email** (correo electrónico).
+    e. En el **campo Usuario**, escriba **email** (correo electrónico).
 
     > [!NOTE]
     > Puede configurar Azure AD para emitir el identificador de usuario de Azure AD (nombre principal de usuario) o la dirección de correo electrónico como identificador único en el token SAML. Para ello, vaya a la sección **ServiceNow** > **Attributes** > **Single sign-on** (ServiceNow>Atributos>Inicio de sesión único) de Azure Portal y asigne el campo deseado al atributo **nameidentifier** (identificador de nombre). El valor almacenado para el atributo seleccionado en Azure AD (por ejemplo, el nombre de usuario principal) debe coincidir con el valor almacenado en ServiceNow para el campo especificado (por ejemplo, user_name).

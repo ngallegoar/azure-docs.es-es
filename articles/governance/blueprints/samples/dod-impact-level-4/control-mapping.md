@@ -4,17 +4,17 @@ description: Asignación de controles del ejemplo de plano técnico de nivel 4 d
 ms.date: 10/26/2020
 ms.topic: sample
 ms.openlocfilehash: 376ddd68373026a93eaf08774cee0a1f8ce06bec
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675739"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019538"
 ---
 # <a name="control-mapping-of-the-dod-impact-level-4-blueprint-sample"></a>Asignación de controles del ejemplo de plano técnico de nivel 4 de impacto del DoD
 
 En el artículo siguiente se detalla cómo asigna el ejemplo de plano técnico de nivel 4 de impacto del Departamento de Defensa (DoD IL4) de Azure Blueprints los controles de nivel 4 de impacto del DoD. Para más información sobre los controles, consulte [Guía de requisitos de seguridad (SRG) de informática en la nube del DoD](https://dl.dod.cyber.mil/wp-content/uploads/cloud/pdf/Cloud_Computing_SRG_v1r3.pdf). La Agencia de sistemas de información de Defensa (DISA) es una agencia del Departamento de Defensa (DoD) de EE. UU. responsable del desarrollo y mantenimiento de la Guía de requisitos de seguridad (SRG) de informática en la nube del DoD. La SRG define los requisitos de seguridad de línea de base para los proveedores de servicios en la nube (CSP) que hospedan información, sistemas y aplicaciones del DoD y para el uso de los servicios en la nube del DoD.  
 
-Las siguientes asignaciones son para los controles del **nivel 4 de impacto del DoD** . Use el panel de navegación de la derecha para ir directamente a una asignación de control específica. Muchos de los controles asignados se implementan con una iniciativa de [Azure Policy](../../../policy/overview.md). Para revisar la iniciativa completa, abra **Policy** en Azure Portal y seleccione la página **Definiciones** . Después, busque y seleccione la **\[versión preliminar\]: iniciativa de directiva integrada del nivel 4 de impacto del DoD** .
+Las siguientes asignaciones son para los controles del **nivel 4 de impacto del DoD**. Use el panel de navegación de la derecha para ir directamente a una asignación de control específica. Muchos de los controles asignados se implementan con una iniciativa de [Azure Policy](../../../policy/overview.md). Para revisar la iniciativa completa, abra **Policy** en Azure Portal y seleccione la página **Definiciones**. Después, busque y seleccione la **\[versión preliminar\]: iniciativa de directiva integrada del nivel 4 de impacto del DoD**.
 
 > [!IMPORTANT]
 > Cada control que se muestra a continuación está asociado a una o varias definiciones de [Azure Policy](../../../policy/overview.md). Estas directivas pueden ayudarle a [evaluar el cumplimiento](../../../policy/how-to/get-compliance-data.md) mediante el control. Sin embargo, con frecuencia no hay una correspondencia completa o exacta entre un control y una o varias directivas. Como tal, el **cumplimiento** con Azure Policy solo se refiere a las propias directivas; esto no garantiza que sea totalmente compatible con todos los requisitos de un control. Además, el estándar de cumplimiento incluye controles que no se abordan con las definiciones de Azure Policy en este momento. Por lo tanto, el cumplimiento en Azure Policy es solo una vista parcial del estado general de cumplimiento. Las asociaciones entre los controles y las definiciones de Azure Policy para este ejemplo de plano técnico de cumplimiento pueden cambiar con el tiempo. Para ver el historial de cambios, consulte el [historial de confirmación de GitHub](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/dod-impact-level-4/control-mapping.md).

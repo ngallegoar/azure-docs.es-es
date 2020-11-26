@@ -9,12 +9,12 @@ ms.devlang: powershell
 ms.topic: sample
 ms.date: 11/07/2017
 ms.author: fryu
-ms.openlocfilehash: f8bd47a8fde700382f9789ab1c77ff35e9b1f4f5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2d921a968f50f64788ccbd7637bc04c8492a3f90
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86999537"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96010901"
 ---
 # <a name="calculate-the-total-billing-size-of-a-blob-container"></a>Cálculo del tamaño total de facturación de un contenedor de blobs
 
@@ -31,7 +31,7 @@ Este script calcula el tamaño de un contenedor de Azure Blob Storage con la fin
 
 El tamaño total de un contenedor de blobs incluye el tamaño del contenedor y el tamaño de todos los blobs del contenedor.
 
-En las secciones siguientes se describe cómo se calcula la capacidad de almacenamiento de los blobs y los contenedores de blobs. En la sección siguiente, Len(X) hace referencia al número de caracteres de la cadena.
+En las secciones siguientes se describe cómo se calcula la capacidad de almacenamiento de los blobs y los contenedores de blobs.  En la sección siguiente, Len(X) hace referencia al número de caracteres de la cadena.
 
 ### <a name="blob-containers"></a>Contenedores de blobs
 
@@ -120,6 +120,6 @@ A continuación, se explica con detalle:
 
 - Para más información sobre la facturación de Azure Storage, vea la [descripción de la facturación de Microsoft Azure Storage](https://blogs.msdn.microsoft.com/windowsazurestorage/2010/07/08/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity/).
 
-- Para más información sobre el módulo de Azure PowerShell, consulte la [documentación de Azure PowerShell](https://docs.microsoft.com/powershell/azure/).
+- Para más información sobre el módulo de Azure PowerShell, consulte la [documentación de Azure PowerShell](/powershell/azure/).
 
 - Puede encontrar ejemplos de script adicionales de PowerShell para Storage en los [ejemplos de PowerShell para Azure Storage](../blobs/storage-samples-blobs-powershell.md).

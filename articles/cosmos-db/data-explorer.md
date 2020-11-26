@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 09/23/2020
 ms.author: dech
-ms.openlocfilehash: d5958ea947f6b786e9fbc6c44ab914ea895d6e08
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 691a2e56230d312416aed3d68bffd361f1d63558
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93096808"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008589"
 ---
 # <a name="work-with-data-using-azure-cosmos-explorer"></a>Uso de datos con el Explorador de Azure Cosmos 
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -26,15 +26,15 @@ El Explorador de Azure Cosmos DB es una interfaz independiente basada en web que
 
 ## <a name="access-azure-cosmos-db-explorer"></a>Acceso al Explorador de Azure Cosmos DB
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com/). 
+1. Inicie sesión en el [portal de Azure](https://portal.azure.com/). 
 
-2. En **Todos los recursos** , busque y vaya a la cuenta de Azure Cosmos DB, seleccione Claves y copie la **cadena de conexión principal**.  
+2. En **Todos los recursos**, busque y vaya a la cuenta de Azure Cosmos DB, seleccione Claves y copie la **cadena de conexión principal**.  
 
 3. Vaya a https://cosmos.azure.com/, pegue la cadena de conexión y seleccione **Conectar**. Con la cadena de conexión, puede acceder al Explorador de Azure Cosmos DB sin límite de tiempo.  
 
    Si quiere proporcionar a otros usuarios acceso temporal a su cuenta de Azure Cosmos DB, puede hacerlo con las direcciones URL de acceso de lectura y escritura o de acceso de lectura. 
 
-4. Abra la hoja **Explorador de datos** , seleccione **Open Full Screen** (Abrir pantalla completa). En el cuadro de diálogo emergente, puede ver dos direcciones URL de acceso: **Read-Write** (Lectura y escritura) y **Read** (Lectura). Estas direcciones URL le permiten compartir temporalmente su cuenta de Azure Cosmos DB con otros usuarios. El acceso a la cuenta expira en 24 horas. Después, puede reconectarse con una dirección URL de acceso nueva o mediante la cadena de conexión. 
+4. Abra la hoja **Explorador de datos**, seleccione **Open Full Screen** (Abrir pantalla completa). En el cuadro de diálogo emergente, puede ver dos direcciones URL de acceso: **Read-Write** (Lectura y escritura) y **Read** (Lectura). Estas direcciones URL le permiten compartir temporalmente su cuenta de Azure Cosmos DB con otros usuarios. El acceso a la cuenta expira en 24 horas. Después, puede reconectarse con una dirección URL de acceso nueva o mediante la cadena de conexión. 
 
    **Read-Write** (Lectura y escritura): cuando comparte la dirección URL de lectura y escritura con otros usuarios, estos pueden ver y modificar las bases de datos, las colecciones, las consultas y otros recursos asociados con esa cuenta específica.
 
@@ -50,7 +50,7 @@ Actualmente, la experiencia de **Open Full Screen** (Abrir pantalla completa) qu
 
 Actualmente, no se admite la visualización de documentos que contengan un UUID en Data Explorer. Esto no afecta a la carga de colecciones, solo a la visualización de documentos o consultas individuales que incluyen estos documentos. Para ver y administrar estos documentos, los usuarios deben seguir usando la herramienta que se empleó originalmente para crearlos.
 
-Los errores HTTP 401 que reciben los clientes pueden deberse a permisos de RBAC insuficientes para sus cuentas de Azure, en especial si la cuenta tiene un rol de RBAC personalizado. Cualquier rol personalizado debe tener la acción `Microsoft.DocumentDB/databaseAccounts/listKeys/*` para usar Data Explorer si se inicia sesión con sus credenciales de Azure Active Directory.
+Los errores HTTP 401 que reciben los clientes pueden deberse a permisos de RBAC de Azure insuficientes para sus cuentas de Azure, en especial si la cuenta tiene un rol personalizado. Cualquier rol personalizado debe tener la acción `Microsoft.DocumentDB/databaseAccounts/listKeys/*` para usar Data Explorer si se inicia sesión con sus credenciales de Azure Active Directory.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

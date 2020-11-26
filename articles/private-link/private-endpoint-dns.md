@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: allensu
-ms.openlocfilehash: bb1f4b5e37cecc33cef115f26c44ad6375c7e327
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: d682495cb7add446adf1634de6e9ed6756d1468e
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94734385"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95544384"
 ---
 # <a name="azure-private-endpoint-dns-configuration"></a>Configuración de DNS para puntos de conexión privados de Azure
 
@@ -125,7 +125,7 @@ Este modelo se puede extender a varias redes virtuales del mismo nivel que está
 > [!IMPORTANT]
 > Si usa un punto de conexión privado en un modelo radial de una suscripción diferente, vuelva a usar la misma zona DNS privada en el centro de conectividad.
 
-En este escenario, hay una topología de red [radial](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) en la que las redes de radio que tienen un punto de conexión privado común y todas las redes virtuales de radio están vinculadas a la misma zona DNS privada. 
+En este escenario, hay una topología de red [radial](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) en la que las redes de radio que tienen un punto de conexión privado común y todas las redes virtuales de radio están vinculadas a la misma zona DNS privada. 
 
 :::image type="content" source="media/private-endpoint-dns/hub-and-spoke-azure-dns.png" alt-text="Topología de redes de centro y radio con DNS proporcionado por Azure":::
 
@@ -141,7 +141,7 @@ El siguiente escenario es adecuado para una red local que tenga un reenviador DN
 Para realizar la configuración correctamente, necesitaría los siguientes recursos:
 
 - Red local
-- Red virtual [conectada al entorno local](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/)
+- Red virtual [conectada al entorno local](/azure/architecture/reference-architectures/hybrid-networking/)
 - Reenviador DNS implementado en Azure 
 - Zonas DNS privadas [privatelink.database.windows.net](../dns/private-dns-privatednszone.md) con [registro de tipo A](../dns/dns-zones-records.md#record-types)
 - Información del punto de conexión privado (nombre del registro FQDN y dirección IP privada)
@@ -158,7 +158,7 @@ Esta configuración se puede extender para una red local que ya cuenta con una s
 Para realizar la configuración correctamente, necesitaría los siguientes recursos:
 
 - Red local con una solución DNS personalizada 
-- Red virtual [conectada al entorno local](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/)
+- Red virtual [conectada al entorno local](/azure/architecture/reference-architectures/hybrid-networking/)
 - Reenviador DNS implementado en Azure
 - Zonas DNS privadas [privatelink.database.windows.net](../dns/private-dns-privatednszone.md) con [registro de tipo A](../dns/dns-zones-records.md#record-types)
 - Información del punto de conexión privado (nombre del registro FQDN y dirección IP privada)
@@ -187,7 +187,7 @@ Este reenviador DNS es responsable de resolver todas las consultas de DNS a trav
 Para realizar la configuración correctamente, necesitaría los siguientes recursos:
 
 - Red local
-- Red virtual [conectada al entorno local](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/)
+- Red virtual [conectada al entorno local](/azure/architecture/reference-architectures/hybrid-networking/)
 - [Red virtual emparejada](../virtual-network/virtual-network-peering-overview.md) 
 - Reenviador DNS implementado en Azure
 - Zonas DNS privadas [privatelink.database.windows.net](../dns/private-dns-privatednszone.md) con [registro de tipo A](../dns/dns-zones-records.md#record-types)

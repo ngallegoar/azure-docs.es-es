@@ -10,18 +10,19 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/30/2020
+ms.date: 11/23/2020
 ms.author: vinigam
-ms.openlocfilehash: 8c4df64334957a78fcf05c11625335214f8e032a
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: a6ba9c02b384c1b30977d962659983d600c7b2ac
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94699379"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95545727"
 ---
 # <a name="create-a-monitor-in-connection-monitor-by-using-the-azure-portal"></a>Creación de un monitor en Connection Monitor mediante Azure Portal
 
 Aprenda a usar Connection Monitor para supervisar la comunicación entre los recursos. En este artículo se describe cómo crear run monitor mediante Azure Portal. Connection Monitor admite implementaciones híbridas y en la nube de Azure.
+
 
 ## <a name="before-you-begin"></a>Antes de empezar 
 
@@ -102,7 +103,7 @@ En Azure Portal, para crear un grupo de prueba en un monitor de conexión, espec
 
 * **Deshabilitar grupo de pruebas**: puede seleccionar este campo para deshabilitar la supervisión de todos los orígenes y destinos que el grupo de prueba especifica. Esta selección está desactivada de forma predeterminada.
 * **Nombre**: asigne un nombre al grupo de prueba.
-* **Orígenes**: puede especificar máquinas virtuales de Azure y máquinas locales como orígenes si los agentes están instalados en ellas. Para obtener información sobre la instalación de un agente para el origen, consulte [Instalación de los agentes de supervisión](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview#install-monitoring-agents).
+* **Orígenes**: puede especificar máquinas virtuales de Azure y máquinas locales como orígenes si los agentes están instalados en ellas. Para obtener información sobre la instalación de un agente para el origen, consulte [Instalación de los agentes de supervisión](./connection-monitor-overview.md#install-monitoring-agents).
    * Para elegir los agentes de Azure, seleccione la pestaña **Puntos de conexión de Azure**. Aquí solo se verán las máquinas virtuales que están enlazadas a la región que especificó al crear el monitor de conexión. De manera predeterminada, las máquinas virtuales se agrupan en la suscripción a la que pertenecen. Estos grupos están contraídos. 
    
        Puede explorar en profundidad desde el nivel **Suscripción** a otros niveles de la jerarquía:
@@ -117,7 +118,7 @@ En Azure Portal, para crear un grupo de prueba en un monitor de conexión, espec
 
    * Para elegir los agentes locales, seleccione la pestaña **Non–Azure endpoints** (Puntos de conexión que no son de Azure). De forma predeterminada, los agentes se agrupan en áreas de trabajo por región. Todas estas áreas de trabajo tienen configurado Network Performance Monitor. 
    
-       Si necesita agregar Network Performance Monitor al área de trabajo, puede obtenerlo en [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview). Para información sobre cómo agregar Network Performance Monitor, consulte [Soluciones de supervisión en Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/insights/solutions). 
+       Si necesita agregar Network Performance Monitor al área de trabajo, puede obtenerlo en [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview). Para información sobre cómo agregar Network Performance Monitor, consulte [Soluciones de supervisión en Azure Monitor](../azure-monitor/insights/solutions.md). 
    
        En **Crear un monitor de conexión**, en la pestaña **Aspectos básicos**, aparece seleccionada la región predeterminada. Si cambia la región, puede elegir agentes de áreas de trabajo de la región nueva. Puede seleccionar uno o varios agentes o subredes. En la vista **Subred**, puede seleccionar direcciones IP específicas para la supervisión. Si agrega varias subredes, se creará una red local personalizada denominada **OnPremises_Network_1**. También puede cambiar el selector **Agrupar por** para agrupar por agentes.
 
@@ -140,7 +141,7 @@ En Azure Portal, para crear un grupo de prueba en un monitor de conexión, espec
     
     * Para elegir agentes que no son de Azure como destinos, seleccione la pestaña **Non-Azure endpoints** (Puntos de conexión que no son de Azure). De forma predeterminada, los agentes se agrupan en áreas de trabajo por región. Todas estas áreas de trabajo tienen configurado Network Performance Monitor. 
     
-      Si necesita agregar Network Performance Monitor al área de trabajo, puede obtenerlo en Azure Marketplace. Para información sobre cómo agregar Network Performance Monitor, consulte [Soluciones de supervisión en Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/insights/solutions). 
+      Si necesita agregar Network Performance Monitor al área de trabajo, puede obtenerlo en Azure Marketplace. Para información sobre cómo agregar Network Performance Monitor, consulte [Soluciones de supervisión en Azure Monitor](../azure-monitor/insights/solutions.md). 
 
       En  **Crear un monitor de conexión**, en la pestaña  **Aspectos básicos** , aparece seleccionada la región predeterminada. Si cambia la región, puede elegir agentes de áreas de trabajo de la región nueva. Puede seleccionar uno o varios agentes o subredes. En la vista **Subred**, puede seleccionar direcciones IP específicas para la supervisión. Si agrega varias subredes, se creará una red local personalizada denominada **OnPremises_Network_1**.  
 
@@ -182,7 +183,7 @@ En Azure Portal, para crear alertas para un monitor de conexión, especifique lo
 
 - **Nombre de condición**: esta alerta se crea en la métrica `Test Result(preview)`. Cuando el resultado de la prueba del monitor de conexión es un resultado erróneo, se activará la regla de alerta. 
 
-- **Nombre del grupo de acciones**: puede escribir directamente el correo electrónico o puede crear alertas a través de grupos de acciones. Si escribe el correo electrónico directamente, se creará un grupo de acciones con el nombre **NPM Email ActionGroup**. El identificador de correo electrónico se agrega a ese grupo de acciones. Si decide usar grupos de acciones, tendrá que seleccionar un grupo de acciones creado anteriormente. Para obtener información sobre cómo crear un grupo de acciones, consulte [Creación de grupos de acciones en Azure Portal](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups). Una vez creada la alerta, puede [administrarlas](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric#view-and-manage-with-azure-portal). 
+- **Nombre del grupo de acciones**: puede escribir directamente el correo electrónico o puede crear alertas a través de grupos de acciones. Si escribe el correo electrónico directamente, se creará un grupo de acciones con el nombre **NPM Email ActionGroup**. El identificador de correo electrónico se agrega a ese grupo de acciones. Si decide usar grupos de acciones, tendrá que seleccionar un grupo de acciones creado anteriormente. Para obtener información sobre cómo crear un grupo de acciones, consulte [Creación de grupos de acciones en Azure Portal](../azure-monitor/platform/action-groups.md). Una vez creada la alerta, puede [administrarlas](../azure-monitor/platform/alerts-metric.md#view-and-manage-with-azure-portal). 
 
 - **Nombre de la regla de alertas**: nombre del administrador de conexiones.
 
@@ -201,5 +202,5 @@ Los monitores de conexión tienen estos límites de escalado:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Aprenda a [analizar los datos de supervisión y a definir alertas](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview#analyze-monitoring-data-and-set-alerts).
-* Aprenda a [diagnosticar problemas en la red](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview#diagnose-issues-in-your-network).
+* Aprenda a [analizar los datos de supervisión y a definir alertas](./connection-monitor-overview.md#analyze-monitoring-data-and-set-alerts).
+* Aprenda a [diagnosticar problemas en la red](./connection-monitor-overview.md#diagnose-issues-in-your-network).

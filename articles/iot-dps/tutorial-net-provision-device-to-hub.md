@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: csharp
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: 55195949cfaa741389f38deaea69806c568c0ce6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f9a14ee6ee3e10b36d64ec11fc23807efe2bfaf2
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89008274"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966571"
 ---
 # <a name="tutorial-enroll-the-device-to-an-iot-hub-using-the-azure-iot-hub-provisioning-service-client-net"></a>Tutorial: Inscripción del dispositivo en una instancia de IoT Hub mediante el cliente del servicio Azure IoT Hub Device Provisioning (.NET)
 
@@ -42,12 +42,12 @@ Este tutorial simula el período durante el proceso de fabricación del hardware
 Este paso incluye la incorporación de artefactos de seguridad únicos del dispositivo al servicio Device Provisioning. Estos artefactos de seguridad son los siguientes:
 
 - Para dispositivos basados en TPM:
-    - La *clave de aprobación* que es única para cada chip de TPM o simulación. Consulte [Descripción de la clave de aprobación de TPM](https://technet.microsoft.com/library/cc770443.aspx) para más información.
+    - La *clave de aprobación* que es única para cada chip de TPM o simulación. Consulte [Descripción de la clave de aprobación de TPM](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc770443(v=ws.11)) para más información.
     - El *identificador de registro* que se usa para identificar de forma única un dispositivo en el espacio de nombres o el ámbito. Este puede ser igual que el identificador de dispositivo o no. El identificador es obligatorio para todos los dispositivos. En el caso de los dispositivos basados en TPM, el identificador de registro puede derivarse del propio TPM, por ejemplo, un hash SHA-256 de la clave de aprobación del TPM.
 
 - Para dispositivos basados en X.509:
-    - El [certificado X.509 emitido para el dispositivo](https://msdn.microsoft.com/library/windows/desktop/bb540819.aspx), en un formato de archivo *.pem* o *.cer*. Para la inscripción individual, debe usar el *certificado de hoja* para su sistema X.509, mientras que para los grupos de inscripción, debe usar el *certificado raíz* o un *certificado del firmante*.
-    - El *identificador de registro* que se usa para identificar de forma única un dispositivo en el espacio de nombres o el ámbito. Este puede ser igual que el identificador de dispositivo o no. El identificador es obligatorio para todos los dispositivos. Para los dispositivos basados en X.509, el identificador de registro se deriva del nombre común del certificado (CN). Para más información sobre estos requisitos consulte [Conceptos de dispositivo](https://docs.microsoft.com/azure/iot-dps/concepts-device).
+    - El [certificado X.509 emitido para el dispositivo](/windows/win32/seccertenroll/about-x-509-public-key-certificates), en un formato de archivo *.pem* o *.cer*. Para la inscripción individual, debe usar el *certificado de hoja* para su sistema X.509, mientras que para los grupos de inscripción, debe usar el *certificado raíz* o un *certificado del firmante*.
+    - El *identificador de registro* que se usa para identificar de forma única un dispositivo en el espacio de nombres o el ámbito. Este puede ser igual que el identificador de dispositivo o no. El identificador es obligatorio para todos los dispositivos. Para los dispositivos basados en X.509, el identificador de registro se deriva del nombre común del certificado (CN). Para más información sobre estos requisitos consulte [Conceptos de dispositivo](./concepts-service.md).
 
 Hay dos maneras de inscribir el dispositivo en el servicio Device Provisioning:
 

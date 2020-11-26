@@ -9,12 +9,12 @@ ms.service: time-series-insights
 ms.topic: tutorial
 ms.date: 10/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: d504cbe9c2ac9046a34187d4a5576385b1f73bbe
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 982ca04237d16979d65260a040f5aed783822ac7
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92518116"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023231"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-gen1-environment"></a>Tutorial: Creación de un entorno de Azure Time Series Insights Gen1
 
@@ -83,7 +83,7 @@ En primer lugar, cree la solución de simulación de dispositivo, que genera dat
 
    [![Aprovisionamiento de la solución Simulación de dispositivos completada](media/tutorial-create-populate-tsi-environment/iot-solution-accelerator-ready.png)](media/tutorial-create-populate-tsi-environment/iot-solution-accelerator-ready.png#lightbox)
 
-1. Ahora, inspeccione los recursos recién creados en Azure Portal. En la página **Grupos de recursos** , se ve que se ha creado un nuevo grupo de recursos, para lo que se ha usado el **nombre de solución** proporcionado en el último paso. Tome nota de los recursos que se crearon para la simulación de dispositivos.
+1. Ahora, inspeccione los recursos recién creados en Azure Portal. En la página **Grupos de recursos**, se ve que se ha creado un nuevo grupo de recursos, para lo que se ha usado el **nombre de solución** proporcionado en el último paso. Tome nota de los recursos que se crearon para la simulación de dispositivos.
 
    [![Recursos de la simulación de dispositivos](media/tutorial-create-populate-tsi-environment/tsi-device-sim-solution-resources.png)](media/tutorial-create-populate-tsi-environment/tsi-device-sim-solution-resources.png#lightbox)
 
@@ -97,11 +97,11 @@ En segundo lugar, cree un entorno de Azure Time Series Insights en la suscripci�
 
    [![Selección del recurso del entorno de Azure Time Series Insights](media/tutorial-create-populate-tsi-environment/tsi-create-new-environment.png)](media/tutorial-create-populate-tsi-environment/tsi-create-new-environment.png#lightbox)
 
-1. En la página **Entorno de Time Series Insights** , rellene los parámetros necesarios.
+1. En la página **Entorno de Time Series Insights**, rellene los parámetros necesarios.
 
    Parámetro|Descripción
    ---|---
-   **Nombre del entorno** | Elija un nombre único para el entorno de Azure Time Series Insights. El explorador de Time Series Insights y las [API de consulta](https://docs.microsoft.com/rest/api/time-series-insights/gen1-query) utilizan los nombres.
+   **Nombre del entorno** | Elija un nombre único para el entorno de Azure Time Series Insights. El explorador de Time Series Insights y las [API de consulta](/rest/api/time-series-insights/gen1-query) utilizan los nombres.
    **Suscripción** | Las suscripciones son contenedores para recursos de Azure. Elija una suscripción para crear el entorno de Azure Time Series Insights.
    **Grupos de recursos** | Un grupo de recursos es un contenedor para recursos de Azure. Elija un grupo de recursos existente o cree uno para el recurso del entorno de Azure Time Series Insights.
    **Ubicación** | Elija una región del centro de datos para el entorno de Azure Time Series Insights. Para evitar una mayor latencia, cree el entorno de Azure Time Series Insights en la misma región que los otros recursos de IoT.
@@ -136,7 +136,7 @@ Junto con el centro de IoT, se generó una aplicación web de Azure App Service 
 
    [![Consentimiento de la aplicación web de simulación de dispositivos](media/tutorial-create-populate-tsi-environment/sawa-signin-consent.png)](media/tutorial-create-populate-tsi-environment/sawa-signin-consent.png#lightbox)
 
-1. Seleccione **+ New simulation** (+ Nueva simulación). Después de que se cargue la página **Configuración de simulación** , escriba los parámetros necesarios.
+1. Seleccione **+ New simulation** (+ Nueva simulación). Después de que se cargue la página **Configuración de simulación**, escriba los parámetros necesarios.
 
    Parámetro|Descripción
    ---|---
@@ -184,9 +184,9 @@ En este tutorial se crean varios servicios de Azure activos para respaldar tanto
 
 En el menú de la izquierda de Azure Portal:
 
-1. Seleccione el icono **Grupos de recursos**. Luego, seleccione el grupo de recursos que creó para el entorno de Azure Time Series Insights. En la parte superior de la página, seleccione **Eliminar grupo de recursos** , escriba el nombre del grupo de recursos y seleccione **Eliminar**.
+1. Seleccione el icono **Grupos de recursos**. Luego, seleccione el grupo de recursos que creó para el entorno de Azure Time Series Insights. En la parte superior de la página, seleccione **Eliminar grupo de recursos**, escriba el nombre del grupo de recursos y seleccione **Eliminar**.
 
-1. Seleccione el icono **Grupos de recursos**. Luego, seleccione el grupo de recursos que creó el acelerador de soluciones de simulación de dispositivos. En la parte superior de la página, seleccione **Eliminar grupo de recursos** , escriba el nombre del grupo de recursos y seleccione **Eliminar**.
+1. Seleccione el icono **Grupos de recursos**. Luego, seleccione el grupo de recursos que creó el acelerador de soluciones de simulación de dispositivos. En la parte superior de la página, seleccione **Eliminar grupo de recursos**, escriba el nombre del grupo de recursos y seleccione **Eliminar**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

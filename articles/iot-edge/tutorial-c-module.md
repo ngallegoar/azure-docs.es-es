@@ -9,12 +9,12 @@ ms.date: 07/30/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 4c2505f210b1a2b52b64c25b4ffa0c26bb30d7ee
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 470f82026cc27431555336570ef6f41063442c1e
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92044690"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94964548"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-linux-devices"></a>Tutorial: Desarrollo de un módulo IoT Edge con C para dispositivos Linux
 
@@ -33,7 +33,7 @@ El módulo IoT Edge que creó en este tutorial filtra lo datos sobre la temperat
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="solution-scope"></a>Ámbito de la solución
+## <a name="prerequisites"></a>Requisitos previos
 
 Este tutorial muestra cómo desarrollar un módulo en **C** mediante **Visual Studio Code** y cómo se implementa en un **dispositivo Linux**. Si va a desarrollar módulos para dispositivos Windows, vaya a [Desarrollo de un módulo IoT Edge en C para dispositivos Windows](tutorial-c-module-windows.md) en su lugar.
 
@@ -43,8 +43,6 @@ Utilice la tabla siguiente si desea conocer las opciones para desarrollar e impl
 | - | ------------------ | ------------- |
 | **Linux AMD64** | ![Usar VS Code para los módulos de C en Linux AMD64](./media/tutorial-c-module/green-check.png) | ![Usar VS para los módulos de C en Linux AMD64](./media/tutorial-c-module/green-check.png) |
 | **Linux ARM32** | ![Usar VS Code para los módulos de C en Linux ARM32](./media/tutorial-c-module/green-check.png) | ![Usar VS para los módulos de C en Linux ARM32](./media/tutorial-c-module/green-check.png) |
-
-## <a name="prerequisites"></a>Prerrequisitos
 
 Antes de comenzar este tutorial, debe haber realizado el anterior para configurar el entorno de desarrollo de contenedores de Linux: [Desarrollo de módulos IoT Edge para dispositivos Linux](tutorial-develop-for-linux.md). Al completar ese tutorial, se deben cumplir los siguientes requisitos previos:
 

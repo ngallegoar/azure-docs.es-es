@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: 93cccb1455f7a228cf40d4948cd8579610230db5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 876fd8260b64fba4d3d34a766b4259323c660b76
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90526449"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94968084"
 ---
 # <a name="tutorial-provision-the-device-to-an-iot-hub-using-the-azure-iot-hub-device-provisioning-service"></a>Tutorial: Aprovisionamiento del dispositivo en una instancia de IoT Hub mediante el servicio Azure IoT Hub Device Provisioning
 
@@ -36,13 +36,13 @@ Si no está familiarizado con el proceso de aprovisionamiento automático, revis
 Este paso incluye la incorporación de artefactos de seguridad únicos del dispositivo al servicio Device Provisioning. Estos artefactos de seguridad se basan en el [mecanismo de atestación](concepts-service.md#attestation-mechanism) del dispositivo como se indica a continuación:
 
 - Para dispositivos basados en TPM necesita:
-    - La *clave de aprobación* que es exclusiva de cada chip TPM o simulación y que se obtiene del fabricante.  Consulte [Descripción de la clave de aprobación de TPM](https://technet.microsoft.com/library/cc770443.aspx) para más información.
+    - La *clave de aprobación* que es exclusiva de cada chip TPM o simulación y que se obtiene del fabricante.  Consulte [Descripción de la clave de aprobación de TPM](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc770443(v=ws.11)) para más información.
     - El *identificador de registro* que se usa para identificar de forma única un dispositivo en el espacio de nombres o el ámbito. Este identificador puede ser igual que el identificador de dispositivo o no. El identificador es obligatorio para todos los dispositivos. En el caso de los dispositivos basados en TPM, el identificador de registro puede derivarse del propio TPM, por ejemplo, un hash SHA-256 de la clave de aprobación del TPM.
 
       [![Información de inscripción del TPM en el portal](./media/tutorial-provision-device-to-hub/tpm-device-enrollment.png)](./media/tutorial-provision-device-to-hub/tpm-device-enrollment.png#lightbox)  
 
 - Para dispositivos basados en X.509 necesita:
-    - El [certificado emitido para el chip o simulación X.509](https://msdn.microsoft.com/library/windows/desktop/bb540819.aspx), en un formato de archivo *.pem* o *.cer*. Para la inscripción individual, debe usar el *certificado del firmante* de cada dispositivo para su sistema X.509, mientras que para la inscripción de grupos, debe usar el *certificado raíz*. 
+    - El [certificado emitido para el chip o simulación X.509](/windows/win32/seccertenroll/about-x-509-public-key-certificates), en un formato de archivo *.pem* o *.cer*. Para la inscripción individual, debe usar el *certificado del firmante* de cada dispositivo para su sistema X.509, mientras que para la inscripción de grupos, debe usar el *certificado raíz*. 
 
       [![Agregar inscripción individual para la atestación X.509 en el portal](./media/tutorial-provision-device-to-hub/individual-enrollment.png)](./media/tutorial-provision-device-to-hub/individual-enrollment.png#lightbox)
 
@@ -88,7 +88,7 @@ Cuando arranca el dispositivo, se deben realizar las siguientes acciones:
 
     ![Conexión correcta al centro en el portal](./media/tutorial-provision-device-to-hub/hub-connect-success.png)
 
-Para obtener más información, consulte el ejemplo de cliente de dispositivo de aprovisionamiento, [prov_dev_client_sample.c](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/samples/prov_dev_client_sample/prov_dev_client_sample.c). En el ejemplo se muestra el aprovisionamiento de un dispositivo simulado mediante TPM, los certificados X.509 y las claves simétricas. Remítase a las guías de inicio rápido de atestación de [TPM](https://docs.microsoft.com/azure/iot-dps/quick-create-simulated-device), [X.509](https://docs.microsoft.com/azure/iot-dps/quick-create-simulated-device-x509) y [Clave simétrica](https://docs.microsoft.com/azure/iot-dps/quick-create-simulated-device-symm-key) para obtener instrucciones paso a paso sobre el uso del ejemplo.
+Para obtener más información, consulte el ejemplo de cliente de dispositivo de aprovisionamiento, [prov_dev_client_sample.c](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/samples/prov_dev_client_sample/prov_dev_client_sample.c). En el ejemplo se muestra el aprovisionamiento de un dispositivo simulado mediante TPM, los certificados X.509 y las claves simétricas. Remítase a las guías de inicio rápido de atestación de [TPM](./quick-create-simulated-device.md), [X.509](./quick-create-simulated-device-x509.md) y [Clave simétrica](./quick-create-simulated-device-symm-key.md) para obtener instrucciones paso a paso sobre el uso del ejemplo.
 
 ## <a name="next-steps"></a>Pasos siguientes
 En este tutorial, ha aprendido a:

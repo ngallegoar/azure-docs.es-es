@@ -5,12 +5,12 @@ services: service-fabric
 documentationcenter: .net
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.openlocfilehash: 7c5e6fe92ce5ac118de204e43eb443b4aab3b698
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 25e6854491f35dd0aa46b5de218d312f57854760
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92320510"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018926"
 ---
 # <a name="overview-of-service-fabric-clusters-on-azure"></a>Introducción a los clústeres de Service Fabric en Azure
 Un clúster de Service Fabric es un conjunto de máquinas físicas o virtuales conectadas a la red, en las que se implementan y administran los microservicios. Una máquina física o virtual que forma parte de un clúster se denomina nodo del clúster. Los clústeres pueden escalarse a miles de nodos. Si agrega nuevos nodos al clúster, Service Fabric reequilibra las réplicas e instancias de la partición del servicio en el número aumentado de nodos. El rendimiento general de la aplicación mejora y se reduce la contención para el acceso a la memoria. Si los nodos del clúster no se usan de forma eficaz, puede reducir su número de nodos. Service Fabric vuelve a reequilibrar las réplicas e instancias de la partición en el número reducido de nodos para aprovechar mejor el hardware de cada nodo.
@@ -68,12 +68,12 @@ Además de los certificados de cliente, Azure Active Directory también puede co
 
 Para más información, lea [Seguridad de cliente a nodo](service-fabric-cluster-security.md#client-to-node-security)
 
-### <a name="role-based-access-control"></a>Control de acceso basado en roles
-El control de acceso basado en rol (RBAC) le permite asignar controles de acceso específicos en los recursos de Azure.  Puede asignar diferentes reglas de acceso a las suscripciones, los grupos de recursos y los recursos.  A menos que se reemplacen a un nivel inferior, se heredan las reglas de RBAC a lo largo de la jerarquía de recursos.  Puede asignar reglas RBAC a cualquier usuario o grupo de usuarios de su entorno AAD para que los usuarios y grupos designados puedan modificar el clúster.  Para obtener más información, lea la [introducción a RBAC en Azure](../role-based-access-control/overview.md).
+### <a name="role-based-access-control"></a>Control de acceso basado en rol
+El control de acceso basado en rol de Azure (Azure RBAC) le permite asignar controles de acceso específicos en los recursos de Azure.  Puede asignar diferentes reglas de acceso a las suscripciones, los grupos de recursos y los recursos.  A menos que se reemplacen en un nivel inferior, se heredan las reglas de Azure RBAC a lo largo de la jerarquía de recursos.  Puede asignar reglas de Azure RBAC a cualquier usuario o grupo de usuarios de su entorno de AAD para que los usuarios y grupos designados puedan modificar el clúster.  Para obtener más información, lea la [introducción a RBAC en Azure](../role-based-access-control/overview.md).
 
 Service Fabric también admite el control de acceso para limitar este a determinadas operaciones de clúster para los diferentes grupos de usuarios. Esto ayuda a que el clúster esté más protegido. Se admiten dos tipos de control de acceso para los clientes que se conectan a un clúster: rol de administrador y usuario.  
 
-Para obtener más información, consulte [Control de acceso basado en rol (RBAC)](service-fabric-cluster-security.md#role-based-access-control-rbac).
+Para obtener más información, consulte [Control de acceso basado en rol de Service Fabric](service-fabric-cluster-security.md#service-fabric-role-based-access-control).
 
 ### <a name="network-security-groups"></a>Grupos de seguridad de red 
 Los grupos de seguridad de red (NSG) controlan el tráfico entrante y saliente de una subred, VM o NIC específica.  De forma predeterminada, cuando se colocan varias máquinas virtuales en la misma red virtual, pueden comunicarse entre sí a través de cualquier puerto.  Si desea restringir las comunicaciones entre las máquinas, puede definir los NSG para segmentar la red o aislar las máquinas virtuales entre sí.  Si tiene varios tipos de nodo en un clúster, puede aplicar los NSG a subredes para impedir que las máquinas que pertenecen a distintos tipos de nodos se comuniquen entre sí.  

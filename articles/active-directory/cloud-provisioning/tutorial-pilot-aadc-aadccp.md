@@ -11,12 +11,12 @@ ms.date: 05/19/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 77a8e6948b9912061801fefaa63d2f49611014aa
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 6b510464145f434f761cc28ba4e1c1361f983f8b
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94651709"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95237398"
 ---
 # <a name="pilot-cloud-provisioning-for-an-existing-synced-ad-forest"></a>Aprovisionamiento piloto en la nube para un bosque de AD sincronizado existente 
 
@@ -126,7 +126,7 @@ Los mismos pasos deben seguirse para todos los tipos de objetos (usuario, grupo 
 
 4. Una vez que finalice esta operación, se iniciará el asistente para configuración.  Inicie sesión con su cuenta de administrador global de Azure AD.
 5. En la pantalla **Connect Active Directory** (Conectar Active Directory), haga clic en **Add directory** (Agregar directorio) e inicie sesión con su cuenta de administrador de Active Directory.  Esta operación permitirá agregar su directorio local.  Haga clic en **Next**.</br>
-![Captura de pantalla que muestra la pantalla "Conectar Active Directory" con un valor de directorio especificado.](media/how-to-install/install-3.png)</br>
+![Captura de pantalla que muestra la pantalla "Conectar Active Directory" con un valor de directorio especificado.](media/how-to-install/install-3a.png)</br>
 
 6. En la pantalla **Configuración completa**, haga clic en **Confirmar**.  Esta operación registrará el agente y lo reiniciará.</br>
 ![Captura de pantalla que muestra la pantalla "Configuración completada" con el botón "Confirmar" seleccionado.](media/how-to-install/install-4a.png)</br>

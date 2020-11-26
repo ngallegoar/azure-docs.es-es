@@ -1,22 +1,22 @@
 ---
 title: Configuración del entorno de desarrollo de Python
 titleSuffix: Azure Machine Learning
-description: Obtenga información sobre cómo configurar un entorno de desarrollo de Python para Azure Machine Learning. Use entornos Conda para crear archivos de configuración y configurar su propio servidor de cuadernos basado en la nube, Jupyter Notebook, Azure Databricks, IDE, editores de código y Data Science Virtual Machine.
+description: Configure entornos de desarrollo de Python de Azure Machine Learning en Jupyter Notebook, Visual Studio Code, Azure Databricks y Data Science Virtual Machine.
 services: machine-learning
 author: rastala
 ms.author: roastala
 ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: larryfr
-ms.date: 09/30/2020
+ms.date: 11/16/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1, devx-track-azurecli
-ms.openlocfilehash: 451ad33a9d041635c3f51e323539b423378d02d1
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 03d10f71b585090157eff164cc98246f50608fe1
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422916"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018790"
 ---
 # <a name="set-up-a-python-development-environment-for-azure-machine-learning"></a>Configuración de un entorno de desarrollo de Python para Azure Machine Learning
 

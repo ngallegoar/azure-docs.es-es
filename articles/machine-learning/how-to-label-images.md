@@ -8,12 +8,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
-ms.openlocfilehash: 4392086146642e18b1fdef28a9e602bdbb5b0b18
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: b138b3eb52a0bfb6dca2ec6fdf0b855223bab698
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94542191"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94984454"
 ---
 # <a name="tag-images-in-a-labeling-project"></a>Etiquetado de imágenes en un proyecto de etiquetado 
 
@@ -133,7 +133,7 @@ Si el proyecto es de tipo "segmentación de instancias (Polygon)", deberá espec
 
 1. Seleccione una etiqueta para el polígono que planea crear.
 1. Seleccione la herramienta **Draw polygon region** (Dibujar región del polígono) ![herramienta Draw polygon region (Dibujar región del polígono)](./media/how-to-label-images/polygon-tool.png) o seleccione "P".
-3. Haga clic para crear cada punto del polígono.  Cuando haya completado la forma, haga doble clic para finalizar.
+1. Haga clic para crear cada punto del polígono.  Cuando haya completado la forma, haga doble clic para finalizar.
 
     :::image type="content" source="media/how-to-label-images/polygon.gif" alt-text="Creación de polígonos para perro y gato":::
 
@@ -158,3 +158,5 @@ Cuando haya terminado de etiquetar, seleccione su nombre en la esquina superior 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Aprenda a [entrenar modelos de clasificación de imágenes en Azure](./tutorial-train-models-with-aml.md).
+
+

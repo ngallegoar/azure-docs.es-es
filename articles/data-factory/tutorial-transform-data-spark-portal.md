@@ -11,11 +11,11 @@ author: nabhishek
 ms.author: abnarain
 manager: anandsub
 ms.openlocfilehash: 5b0bcdd66e17fb93a560b6073c13e3170e3ab37b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81409261"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010153"
 ---
 # <a name="transform-data-in-the-cloud-by-using-a-spark-activity-in-azure-data-factory"></a>Transformación de datos en la nube mediante una actividad de Spark en Azure Data Factory
 
@@ -99,8 +99,8 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 1. En **Suscripción**, seleccione la suscripción de Azure donde desea crear la factoría de datos. 
 1. Para **Grupo de recursos**, realice uno de los siguientes pasos:
      
-   - Seleccione en primer lugar **Usar existente**y después un grupo de recursos de la lista desplegable. 
-   - Seleccione **Crear nuevo**y escriba el nombre de un grupo de recursos.   
+   - Seleccione en primer lugar **Usar existente** y después un grupo de recursos de la lista desplegable. 
+   - Seleccione **Crear nuevo** y escriba el nombre de un grupo de recursos.   
          
    En algunos de los pasos de esta guía de inicio rápido se supone que se usa el nombre: **ADFTutorialResourceGroup** para el grupo de recursos. Para obtener más información sobre los grupos de recursos, consulte [Uso de grupos de recursos para administrar los recursos de Azure](../azure-resource-manager/management/overview.md).  
 1. En **Versión**, seleccione **V2**.

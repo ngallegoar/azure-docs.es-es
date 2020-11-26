@@ -4,19 +4,19 @@ titleSuffix: Azure Kubernetes Service
 description: Aprenda a usar una instancia pública de Load Balancer con una SKU estándar para exponer los servicios con Azure Kubernetes Service (AKS).
 services: container-service
 ms.topic: article
-ms.date: 06/14/2020
+ms.date: 11/14/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 414ae3b2adb60b9442a69e3ebcc8b13b29c67cb7
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 5da7f2a11be7562313b709a8af72ccd709165cfa
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92070510"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000868"
 ---
 # <a name="use-a-public-standard-load-balancer-in-azure-kubernetes-service-aks"></a>Uso de Standard Load Balancer en Azure Kubernetes Service (AKS)
 
-Azure Load Balancer es una instancia L4 del modelo de interconexión de sistemas abiertos (OSI) que admite escenarios de entrada y de salida. Distribuye flujos de entrada que llegan al front-end del equilibrador de carga a las instancias del grupo de servidores back-end.
+Azure Load Balancer es una instancia L4 del modelo de interconexión de sistemas abiertos (OSI) que admite escenarios de entrada y salida. Distribuye flujos de entrada que llegan al front-end del equilibrador de carga a las instancias del grupo de servidores back-end.
 
 Una instancia **pública** de Load Balancer, cuando se integra con AKS, tiene dos propósitos:
 
@@ -36,7 +36,7 @@ Para más información sobre las SKU *básicas* y *estándar*, consulte [Compara
 En este artículo se da por sentado que tiene un clúster de AKS con Azure Load Balancer de la SKU *estándar* y se le guía en el uso y la configuración de algunas de las funcionalidades y características del equilibrador de carga. Si necesita un clúster de AKS, consulte el inicio rápido de AKS [mediante la CLI de Azure][aks-quickstart-cli] o [mediante Azure Portal][aks-quickstart-portal].
 
 > [!IMPORTANT]
-> Si prefiere no aprovechar Azure Load Balancer para proporcionar una conexión de salida y prefiere tener su propia puerta de enlace, firewall o proxy para ese propósito, puede omitir la creación del grupo de salida del equilibrador de carga y el IP del front-end respectivo si usa el [**tipo de salida como UserDefinedRouting (UDR)** ](egress-outboundtype.md). El tipo de salida define el método de salida para un clúster y su valor predeterminado es el tipo de equilibrador de carga.
+> Si prefiere no aprovechar Azure Load Balancer para proporcionar una conexión de salida y prefiere tener su propia puerta de enlace, firewall o proxy para ese propósito, puede omitir la creación del grupo de salida del equilibrador de carga y el IP del front-end respectivo si usa el [**tipo de salida como UserDefinedRouting (UDR)**](egress-outboundtype.md). El tipo de salida define el método de salida para un clúster y su valor predeterminado es el tipo de equilibrador de carga.
 
 ## <a name="use-the-public-standard-load-balancer"></a>Uso de la instancia pública de Standard Load Balancer.
 
@@ -87,19 +87,22 @@ Cuando se usa la instancia pública de Load Balancer de la SKU estándar, hay un
 * Personalizar el número de puertos de salida asignados a cada nodo del clúster.
 * Configurar el valor de tiempo de espera para las conexiones inactivas.
 
+> [!IMPORTANT]
+> En un momento dado, solo se puede usar una opción de dirección IP de salida (direcciones IP administradas, traer sus propias direcciones IP o prefijos de IP).
+
 ### <a name="scale-the-number-of-managed-outbound-public-ips"></a>Escalar el número de direcciones IP públicas de salida administradas.
 
 Azure Load Balancer proporciona conectividad de salida desde una red virtual, además de conectividad de entrada. Las reglas de salida simplifican la configuración de la traducción de direcciones de red públicas de salida de Standard Load Balancer.
 
 Al igual que el resto de reglas de Load Balancer, las reglas de salida siguen la misma sintaxis conocida que las reglas de NAT de entrada y el equilibrio de carga:
 
-***IP de front-end + parámetros + grupo de back-end***
+***IP de front-end + parámetros + grupo de back-end** _
 
 Una regla de salida configura una NAT de salida para todas las máquinas virtuales identificadas por el grupo de back-end que se deben traducir para el front-end. Y los parámetros proporcionan un control más preciso sobre el algoritmo de NAT de salida.
 
 Mientras una regla de salida se puede usar con una única dirección IP pública, las reglas de salida alivian la carga de configuración para escalar la NAT de salida. Puede usar varias direcciones IP para planear escenarios de gran escala y puede usar reglas de salida para mitigar los patrones con tendencia a agotamiento de SNAT. Cada dirección IP adicional que proporciona un front-end ofrece 64 000 puertos efímeros que Load Balancer puede usar como puertos SNAT. 
 
-Cuando se usa un equilibrador de carga de SKU *estándar* con direcciones IP públicas de salida administradas, que se crean de forma predeterminada, se puede escalar el número de direcciones IP públicas de salida administradas mediante el parámetro **`load-balancer-managed-ip-count`** .
+Cuando se usa un equilibrador de carga de SKU _estándar* con direcciones IP públicas de salida administradas, que se crean de forma predeterminada, se puede escalar el número de direcciones IP públicas de salida administradas mediante el parámetro **`load-balancer-managed-ip-count`** .
 
 Para actualizar un clúster existente, ejecute el siguiente comando. Este parámetro también se puede establecer en el momento de creación del clúster para tener varias direcciones IP públicas de salida administradas.
 
@@ -120,10 +123,11 @@ Cuando se usa un equilibrador de carga de SKU *estándar*, de forma predetermina
 
 Una dirección IP pública creada por AKS se considera un recurso administrado de AKS. Esto significa que el ciclo de vida de la dirección IP pública está pensado para ser administrado por AKS y no requiere ninguna acción del usuario directamente en el recurso de IP pública. Como alternativa, puede asignar su propio prefijo de dirección IP pública personalizada o IP pública en el momento de la creación del clúster. Las direcciones IP personalizadas también se pueden actualizar en las propiedades del equilibrador de carga de un clúster existente.
 
-> [!NOTE]
-> Las direcciones IP públicas personalizadas deben crearse y ser propiedad del usuario. Las direcciones IP públicas administradas creadas por AKS no se pueden volver a usar como una dirección IP personalizada, ya que pueden provocar conflictos de administración.
+Requisitos para usar su propio prefijo o dirección IP pública:
 
-Antes de realizar esta operación, asegúrese de que cumple [los requisitos previos y las restricciones](../virtual-network/public-ip-address-prefix.md#constraints) necesarios para configurar direcciones IP de salida o prefijos IP de salida.
+- Las direcciones IP públicas personalizadas deben crearse y ser propiedad del usuario. Las direcciones IP públicas administradas creadas por AKS no se pueden volver a usar como una dirección IP personalizada, ya que pueden provocar conflictos de administración.
+- Debe asegurarse de que la identidad de clúster de AKS (entidad de servicio o identidad administrada) tiene permisos para acceder a la dirección IP de salida. Según la [lista de permisos de dirección IP pública requeridos](kubernetes-service-principal.md#networking).
+- Asegúrese de que cumple [los requisitos previos y las restricciones](../virtual-network/public-ip-address-prefix.md#constraints) necesarios para configurar direcciones IP de salida o prefijos IP de salida.
 
 #### <a name="update-the-cluster-with-your-own-outbound-public-ip"></a>Actualización del clúster con su propia dirección IP pública de salida
 
@@ -221,7 +225,7 @@ az aks update \
     --load-balancer-outbound-ports 4000
 ```
 
-Este ejemplo le daría 4000 puertos de salida asignados para cada nodo del clúster y, con 7 direcciones IP, tendría *4000 puertos por nodo * 100 nodos = 400 000 puertos totales < = 448 000 puertos totales = 7 IP * 64 000 puertos por IP*. Esto le permite escalar de forma segura hasta 100 nodos y tener una operación de actualización predeterminada. Es fundamental asignar suficientes puertos para los nodos adicionales necesarios para la actualización y otras operaciones. De forma predeterminada, AKS se asigna a un nodo de búfer para la actualización. En este ejemplo, se requieren 4000 puertos libres en cualquier momento dado. Si usa [valores maxSurge](upgrade-cluster.md#customize-node-surge-upgrade-preview), multiplique los puertos de salida por nodo por el valor de maxSurge.
+Este ejemplo le daría 4000 puertos de salida asignados para cada nodo del clúster y, con 7 direcciones IP, tendría *4000 puertos por nodo * 100 nodos = 400 000 puertos totales < = 448 000 puertos totales = 7 IP * 64 000 puertos por IP*. Esto le permite escalar de forma segura hasta 100 nodos y tener una operación de actualización predeterminada. Es fundamental asignar suficientes puertos para los nodos adicionales necesarios para la actualización y otras operaciones. De forma predeterminada, AKS se asigna a un nodo de búfer para la actualización. En este ejemplo, se requieren 4000 puertos libres en cualquier momento dado. Si usa [valores maxSurge](upgrade-cluster.md#customize-node-surge-upgrade), multiplique los puertos de salida por nodo por el valor de maxSurge.
 
 Para superar los 100 nodos con seguridad, tendría que agregar más direcciones IP.
 
@@ -315,7 +319,7 @@ spec:
 
 ## <a name="additional-customizations-via-kubernetes-annotations"></a>Personalizaciones adicionales mediante anotaciones de Kubernetes
 
-A continuación, se muestra una lista de las anotaciones admitidas para los servicios de Kubernetes con el tipo `LoadBalancer`. Estas anotaciones solo se aplican a flujos**DE ENTRADA**:
+A continuación, se muestra una lista de las anotaciones admitidas para los servicios de Kubernetes con el tipo `LoadBalancer`. Estas anotaciones solo se aplican a flujos **DE ENTRADA**:
 
 | Anotación | Value | Descripción
 | ----------------------------------------------------------------- | ------------------------------------- | ------------------------------------------------------------ 

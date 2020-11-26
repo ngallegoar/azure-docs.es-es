@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/15/2020
-ms.openlocfilehash: fd131798352aaccaea66c242e92d550c98d7c86f
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 2bbc57d8ddc004c1926da7e0037efdc1fcf2d76e
+ms.sourcegitcommit: 5ae2f32951474ae9e46c0d46f104eda95f7c5a06
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94686558"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95318106"
 ---
 # <a name="configure-monitoring-in-azure-monitor-for-vms-guest-health-using-data-collection-rules-preview"></a>Configuración de la supervisión en el estado de invitado de Azure Monitor para VM mediante reglas de recopilación de datos (versión preliminar)
 El [estado de invitado de Azure Monitor para VM](vminsights-health-overview.md) permite ver el estado de una máquina virtual conforme a la definición de un conjunto de medidas de rendimiento que se muestrean a intervalos regulares. En este artículo se describe cómo puede modificar la supervisión predeterminada en varias máquinas virtuales mediante reglas de recopilación de datos.
@@ -47,7 +47,7 @@ En la tabla siguiente se describen las propiedades que debe configurar en cada m
 En la tabla siguiente se muestra la configuración predeterminada de cada monitor. Esta configuración predeterminada no se puede cambiar directamente, pero puede definir [invalidaciones](#overrides) que modificarán la configuración del monitor para determinadas máquinas virtuales.
 
 
-| Monitor | habilitado | Alertas | Advertencia | Crítico | Frecuencia de evaluación | Retrospectiva | Tipo de evaluación | Mín. de muestras | Máx. de muestras |
+| Supervisión | habilitado | Alertas | Advertencia | Crítico | Frecuencia de evaluación | Retrospectiva | Tipo de evaluación | Mín. de muestras | Máx. de muestras |
 |:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|
 | Uso de CPU  | True | False | None | \> 90 %    | 60 segundos | 240 segundos | Min | 2 | 3 |
 | Memoria disponible | True | False | None | \< 100 MB | 60 segundos | 240 segundos | Max | 2 | 3 |
@@ -57,7 +57,7 @@ En la tabla siguiente se muestra la configuración predeterminada de cada monito
 ## <a name="overrides"></a>Invalidaciones
 Una *invalidación* cambia una o varias propiedades de un monitor. Por ejemplo, una invalidación podría deshabilitar un monitor habilitado de manera predeterminada, definir criterios de advertencia para el monitor o modificar el umbral crítico del monitor. 
 
-Las invalidaciones se definen en una [regla de recopilación de datos (DCR)](../platform/data-collection-rule-overview.md). Puede crear varias reglas de recopilación de datos con diferentes conjuntos de invalidaciones y aplicarlas a varias máquinas virtuales. Para aplicar una regla de recopilación de datos a una máquina virtual, cree una asociación como se describe en [Configuración de la recopilación de datos para el agente de Azure Monitor (versión preliminar)](../platform/data-collection-rule-azure-monitor-agent.md#dcr-associations).
+Las invalidaciones se definen en una [regla de recopilación de datos (DCR)](../platform/data-collection-rule-overview.md). Puede crear varias reglas de recopilación de datos con diferentes conjuntos de invalidaciones y aplicarlas a varias máquinas virtuales. Para aplicar una regla de recopilación de datos a una máquina virtual, cree una asociación como se describe en [Configuración de la recopilación de datos para el agente de Azure Monitor (versión preliminar)](../platform/data-collection-rule-azure-monitor-agent.md#data-collection-rule-associations).
 
 
 ## <a name="multiple-overrides"></a>Varias invalidaciones
@@ -74,7 +74,7 @@ La configuración resultante sería un monitor que pasa a un estado de mantenimi
 Si dos invalidaciones definen la misma propiedad en el mismo monitor, uno de los valores tendrá prioridad. Las invalidaciones se aplicarán en función de su [ámbito](#scopes-element), del más general al más específico. Esto significa que las invalidaciones más específicas tendrán mayores probabilidades de aplicarse. El orden específico es el siguiente:
 
 1. Global 
-2. Suscripción
+2. Subscription
 3. Resource group
 4. Una máquina virtual. 
 

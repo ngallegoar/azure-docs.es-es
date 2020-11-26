@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 8ebfbeeb4533f21bc0fa10a5fee7b88ef069c262
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8eca6297a704e1ef478c09baf227cf622d6890bb
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84298861"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94953158"
 ---
 # <a name="tutorial-grant-access-to-a-nodejs-web-api-from-a-desktop-app-using-azure-active-directory-b2c"></a>Tutorial: Concesión de acceso a una API web de Node.js desde una aplicación de escritorio mediante Azure Active Directory B2C
 
@@ -51,7 +51,7 @@ Para llamar a una API web protegida desde una aplicación cliente nativa, debe c
 
 En el tutorial de requisitos previos, registró una aplicación cliente nativa denominada *nativeapp1*. En los pasos siguientes se configura el registro de la aplicación nativa con los ámbitos de API expuestos para *webapi1* en la sección anterior. Esto permite que la aplicación de escritorio obtenga un token de acceso de Azure AD B2C que la API web puede usar para comprobar y proporcionar acceso de ámbito a sus recursos. Más adelante en el tutorial configurará y ejecutará los códigos de ejemplo de la aplicación de escritorio y de la API web.
 
-Para registrar una aplicación en su inquilino de Azure AD B2C, puede usar la nueva experiencia unificada **Registros de aplicaciones**, o bien la experiencia anterior **Aplicaciones (heredado)** . [Más información acerca de la nueva experiencia](https://aka.ms/b2cappregtraining).
+Para registrar una aplicación en su inquilino de Azure AD B2C, puede usar la nueva experiencia unificada **Registros de aplicaciones**, o bien la experiencia anterior **Aplicaciones (heredado)** . [Más información acerca de la nueva experiencia](./app-registrations-training-guide.md).
 
 #### <a name="app-registrations"></a>[Registros de aplicaciones](#tab/app-reg-ga/)
 

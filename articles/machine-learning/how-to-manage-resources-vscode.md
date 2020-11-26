@@ -1,7 +1,7 @@
 ---
 title: Creación y administración de recursos con la extensión de VS Code (versión preliminar)
 titleSuffix: Azure Machine Learning
-description: Creación y administración de recursos con la extensión de VS Code
+description: Obtenga información sobre cómo crear y administrar recursos de Azure Machine Learning mediante la extensión de Visual Studio Code para Azure Machine Learning.
 services: machine-learning
 author: luisquintanilla
 ms.author: luquinta
@@ -10,13 +10,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
-ms.date: 09/30/2020
-ms.openlocfilehash: 2e410cbc7813031929ea040b2cc4fb2967b99c1b
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.date: 11/16/2020
+ms.openlocfilehash: f8eb18b190b72381f1a93575eb39b3d19d8d431b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93319348"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010680"
 ---
 # <a name="manage-azure-machine-learning-resources-with-the-vs-code-extension-preview"></a>Administración de recursos de Azure Machine Learning con la extensión de VS Code (versión preliminar)
 
@@ -56,8 +56,8 @@ Los métodos alternativos para crear un área de trabajo incluyen:
 1. Expanda el nodo de suscripción que contiene el área de trabajo.
 1. Haga clic con el botón derecho en el área de trabajo que quiere quitar.
 1. Seleccione si quiere quitar:
-    - *Solo el área de trabajo* : esta opción **solo** elimina el recurso de área de trabajo de Azure. El grupo de recursos, las cuentas de almacenamiento y otros recursos a los que se adjuntó el área de trabajo siguen en Azure.
-    - *Con recursos asociados* : esta opción elimina el área de trabajo **y** todos los recursos que tiene asociados.
+    - *Solo el área de trabajo*: esta opción **solo** elimina el recurso de área de trabajo de Azure. El grupo de recursos, las cuentas de almacenamiento y otros recursos a los que se adjuntó el área de trabajo siguen en Azure.
+    - *Con recursos asociados*: esta opción elimina el área de trabajo **y** todos los recursos que tiene asociados.
 
 ## <a name="datastores"></a>Almacenes de datos
 
@@ -80,7 +80,7 @@ Para más información, consulte la sección sobre los [almacenes de datos](conc
     1. Elija el tipo de almacén de datos.
     1. Seleccione el recurso de almacenamiento. Puede elegir un recurso de almacenamiento asociado con el área de trabajo o seleccionar uno de los recursos de almacenamiento válidos en las suscripciones de Azure.
     1. Elija el contenedor en el que se encuentran los datos en el recurso de almacenamiento seleccionado anteriormente.
-1. Un archivo de configuración aparece en VS Code. Si está satisfecho con el archivo de configuración, seleccione **Guardar y continuar** o abra la paleta de comandos de VS Code ( **Ver > Paleta de comandos** ) y escriba **Azure ML: Guardar y continuar**.
+1. Un archivo de configuración aparece en VS Code. Si está satisfecho con el archivo de configuración, seleccione **Guardar y continuar** o abra la paleta de comandos de VS Code (**Ver > Paleta de comandos**) y escriba **Azure ML: Guardar y continuar**.
 
 ### <a name="manage-a-datastore"></a>Administración de un almacén de datos
 
@@ -96,8 +96,8 @@ Para más información, consulte la sección sobre los [almacenes de datos](conc
 
 Actualmente, la extensión admite estos tipos de conjunto de datos:
 
-- *Tabular* : permite materializar los datos en una estructura DataFrame (Pandas o PySpark).
-- *Archivo* : un archivo o una colección de archivos. Permite descargar o montar archivos en el proceso.
+- *Tabular*: permite materializar los datos en una estructura DataFrame (Pandas o PySpark).
+- *Archivo*: un archivo o una colección de archivos. Permite descargar o montar archivos en el proceso.
 
 Para más información, consulte la sección sobre [conjuntos de datos](concept-data.md#datasets).
 
@@ -159,12 +159,12 @@ Para más información, consulte la sección sobre los [entornos](concept-enviro
 1. En la solicitud:
     1. Proporcione un nombre para el entorno.
     1. Defina la configuración del entorno:
-        - *Entornos mantenidos* : entornos configurados previamente en Azure Machine Learning. Para personalizar aún más el entorno, modifique la propiedad `dependencies` en el archivo JSON. Obtenga más información sobre los [entornos mantenidos](resource-curated-environments.md).
-        - *Archivo de dependencias de Conda* : en los entornos Anaconda, se puede proporcionar el archivo que contiene la definición del entorno.
-        - *Archivo de requisitos de pip* : en los entornos de pip, se puede proporcionar el archivo que contiene la definición del entorno.
-        - *Entorno de Conda existente* : esta opción busca los entornos de Conda en el equipo local e intenta crear un entorno desde el entorno seleccionado.
-        - *Personalizado* : defina sus propios canales y dependencias.
-    1. Se abrirá un archivo de configuración en el editor. Si está satisfecho con la configuración, seleccione **Guardar y continuar** o abra la paleta de comandos de VS Code ( **Ver > Paleta de comandos** ) y escriba **Azure ML: Guardar y continuar**.
+        - *Entornos mantenidos*: entornos configurados previamente en Azure Machine Learning. Para personalizar aún más el entorno, modifique la propiedad `dependencies` en el archivo JSON. Obtenga más información sobre los [entornos mantenidos](resource-curated-environments.md).
+        - *Archivo de dependencias de Conda*: en los entornos Anaconda, se puede proporcionar el archivo que contiene la definición del entorno.
+        - *Archivo de requisitos de pip*: en los entornos de pip, se puede proporcionar el archivo que contiene la definición del entorno.
+        - *Entorno de Conda existente*: esta opción busca los entornos de Conda en el equipo local e intenta crear un entorno desde el entorno seleccionado.
+        - *Personalizado*: defina sus propios canales y dependencias.
+    1. Se abrirá un archivo de configuración en el editor. Si está satisfecho con la configuración, seleccione **Guardar y continuar** o abra la paleta de comandos de VS Code (**Ver > Paleta de comandos**) y escriba **Azure ML: Guardar y continuar**.
 
 ### <a name="view-environment-configurations"></a>Visualización de configuraciones de entorno
 
@@ -182,7 +182,7 @@ Para editar las dependencias y configuraciones de un entorno específico en la e
 1. Expanda el nodo de suscripción que contiene el área de trabajo.
 1. Expanda el nodo **Entornos** en el área de trabajo.
 1. Haga clic con el botón derecho en el entorno que quiere ver y seleccione **Editar entorno**.
-1. Después de realizar las modificaciones, si está satisfecho con la configuración, seleccione **Guardar y continuar** o abra la paleta de comandos de VS Code ( **Ver > Paleta de comandos** ) y escriba **Azure ML: Guardar y continuar**.
+1. Después de realizar las modificaciones, si está satisfecho con la configuración, seleccione **Guardar y continuar** o abra la paleta de comandos de VS Code (**Ver > Paleta de comandos**) y escriba **Azure ML: Guardar y continuar**.
 
 ## <a name="experiments"></a>Experimentos
 
@@ -217,7 +217,7 @@ Para ver el experimento en Azure Machine Learning Studio:
 1. Expanda el nodo de suscripción que contiene el área de trabajo.
 1. Expanda el nodo **Experimentos** en el área de trabajo.
 1. Haga clic con el botón derecho en el experimento que quiere ver y seleccione **Ver experimento**. 
-1. Aparece una solicitud para que abra la dirección URL del experimento en Azure Machine Learning Studio. seleccione **Open** (Abrir).
+1. Aparece una solicitud para que abra la dirección URL del experimento en Azure Machine Learning Studio. seleccione **Open**(Abrir).
 
 ### <a name="track-run-progress"></a>Seguimiento del progreso de la ejecución
 
@@ -227,7 +227,7 @@ Mientras ejecuta el experimento, puede que quiera ver el progreso. Para hacer un
 1. Expanda el nodo **Experimentos** en el área de trabajo.
 1. Expanda el nodo del experimento para el que quiere hacer el seguimiento.
 1. Haga clic con el botón derecho en la ejecución y seleccione **View Run in Azure portal** (Ver ejecución en Azure Portal).
-1. Aparece una solicitud para que abra la dirección URL de la ejecución en Azure Machine Learning Studio. seleccione **Open** (Abrir).
+1. Aparece una solicitud para que abra la dirección URL de la ejecución en Azure Machine Learning Studio. seleccione **Open**(Abrir).
 
 ### <a name="download-run-logs--outputs"></a>Descarga de registros y salidas de la ejecución
 
@@ -307,7 +307,7 @@ Para más información, consulte la sección sobre los [destinos de proceso](con
 1. Expanda el nodo de suscripción que contiene el área de trabajo.
 1. Expanda el nodo **Clústeres de proceso** en el área de trabajo.
 1. Haga clic con el botón derecho en el proceso que quiere editar y seleccione **Editar proceso**.
-1. Se abre un archivo de configuración para el proceso en el editor. Si está satisfecho con la configuración, seleccione **Guardar y continuar** o abra la paleta de comandos de VS Code ( **Ver > Paleta de comandos** ) y escriba **Azure ML: Guardar y continuar**.
+1. Se abre un archivo de configuración para el proceso en el editor. Si está satisfecho con la configuración, seleccione **Guardar y continuar** o abra la paleta de comandos de VS Code (**Ver > Paleta de comandos**) y escriba **Azure ML: Guardar y continuar**.
 
 ### <a name="delete-compute"></a>Eliminación del proceso
 
@@ -327,15 +327,15 @@ Para crear una configuración de ejecución en la extensión:
     1. Elija o cree un entorno nuevo.
     1. Escriba el nombre del script que quiere ejecutar o presione **ENTRAR** para buscar el script en la máquina local.
     1. (Opcional) Elija si quiere crear una referencia de datos para la ejecución de entrenamiento. Si lo hace, se le pedirá que defina un conjunto de datos en la configuración de ejecución.
-        1. Seleccione uno de los conjuntos de datos registrados para vincularlo con la configuración de ejecución. Se abre un archivo de configuración para el conjunto de datos en el editor. Si está satisfecho con la configuración, seleccione **Guardar y continuar** o abra la paleta de comandos de VS Code ( **Ver > Paleta de comandos** ) y escriba **Azure ML: Guardar y continuar**.
-    1. Si está satisfecho con la configuración, seleccione **Guardar y continuar** o abra la paleta de comandos de VS Code ( **Ver > Paleta de comandos** ) y escriba **Azure ML: Guardar y continuar**.
+        1. Seleccione uno de los conjuntos de datos registrados para vincularlo con la configuración de ejecución. Se abre un archivo de configuración para el conjunto de datos en el editor. Si está satisfecho con la configuración, seleccione **Guardar y continuar** o abra la paleta de comandos de VS Code (**Ver > Paleta de comandos**) y escriba **Azure ML: Guardar y continuar**.
+    1. Si está satisfecho con la configuración, seleccione **Guardar y continuar** o abra la paleta de comandos de VS Code (**Ver > Paleta de comandos**) y escriba **Azure ML: Guardar y continuar**.
 
 ### <a name="edit-run-configuration"></a>Edición de una configuración de ejecución
 
 1. Expanda el nodo de suscripción que contiene el área de trabajo.
 1. Expanda el nodo de clúster de proceso en el nodo **Clústeres de proceso** del área de trabajo.
 1. Haga clic con el botón derecho en la configuración de ejecución que quiere editar y seleccione **Editar configuración de ejecución**.
-1. Se abre un archivo de configuración para la configuración de ejecución en el editor. Si está satisfecho con la configuración, seleccione **Guardar y continuar** o abra la paleta de comandos de VS Code ( **Ver > Paleta de comandos** ) y escriba **Azure ML: Guardar y continuar**.
+1. Se abre un archivo de configuración para la configuración de ejecución en el editor. Si está satisfecho con la configuración, seleccione **Guardar y continuar** o abra la paleta de comandos de VS Code (**Ver > Paleta de comandos**) y escriba **Azure ML: Guardar y continuar**.
 
 ### <a name="delete-run-configuration"></a>Eliminación de la configuración de ejecución
 
@@ -357,7 +357,7 @@ Para más información, consulte la sección sobre los [modelos](concept-azure-m
     1. Proporcione un nombre para el modelo.
     1. Elija si el modelo es un archivo o una carpeta.
     1. Busque el modelo en el equipo local.
-    1. Un archivo de configuración para el modelo en el editor. Si está satisfecho con la configuración, seleccione **Guardar y continuar** o abra la paleta de comandos de VS Code ( **Ver > Paleta de comandos** ) y escriba **Azure ML: Guardar y continuar**.
+    1. Un archivo de configuración para el modelo en el editor. Si está satisfecho con la configuración, seleccione **Guardar y continuar** o abra la paleta de comandos de VS Code (**Ver > Paleta de comandos**) y escriba **Azure ML: Guardar y continuar**.
 
 ### <a name="view-model-properties"></a>Visualización de las propiedades del modelo
 
@@ -401,7 +401,7 @@ Para más información, consulte la sección sobre los [puntos de conexión de s
     1. Proporcione un nombre para el modelo.
     1. Proporcione el script que se ejecutará al puntuar el modelo.
     1. Proporcione un archivo de dependencias de Conda.
-    1. En el editor aparece un archivo de configuración para la implementación. Si está satisfecho con la configuración, seleccione **Guardar y continuar** o abra la paleta de comandos de VS Code ( **Ver > Paleta de comandos** ) y escriba **Azure ML: Guardar y continuar**.
+    1. En el editor aparece un archivo de configuración para la implementación. Si está satisfecho con la configuración, seleccione **Guardar y continuar** o abra la paleta de comandos de VS Code (**Ver > Paleta de comandos**) y escriba **Azure ML: Guardar y continuar**.
 
 > [!NOTE]
 > También puede hacer clic con el botón derecho en un modelo registrado en el nodo *Modelos* y seleccionar **Deploy Service From Registered Model** (Implementar el servicio a partir del modelo registrado).
@@ -421,7 +421,7 @@ Además de crear y eliminar implementaciones, también puede ver y editar la con
 1. Expanda el nodo **Puntos de conexión** en el área de trabajo.
 1. Haga clic con el botón derecho en la implementación que quiere administrar:
     - Para editar la configuración, seleccione **Editar servicio**.
-        - En el editor aparece un archivo de configuración para la implementación. Si está satisfecho con la configuración, seleccione **Guardar y continuar** o abra la paleta de comandos de VS Code ( **Ver > Paleta de comandos** ) y escriba **Azure ML: Guardar y continuar**.
+        - En el editor aparece un archivo de configuración para la implementación. Si está satisfecho con la configuración, seleccione **Guardar y continuar** o abra la paleta de comandos de VS Code (**Ver > Paleta de comandos**) y escriba **Azure ML: Guardar y continuar**.
     - Para ver la configuración de implementación, seleccione **View service properties** (Ver propiedades del servicio).
 
 ## <a name="next-steps"></a>Pasos siguientes

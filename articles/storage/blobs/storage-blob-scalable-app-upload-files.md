@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 10/08/2019
 ms.author: rogarana
 ms.subservice: blobs
-ms.openlocfilehash: dd87e1a9bcff55813dff420976df58351386fb34
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5dc1f8b8a7c46a3d6ad6f62d93bc91753e42c3ae
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75371945"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95545047"
 ---
 # <a name="upload-large-amounts-of-random-data-in-parallel-to-azure-storage"></a>Cargar grandes cantidades de datos aleatorios en paralelo en Azure Storage
 
@@ -62,7 +62,7 @@ Escriba `dotnet run` para ejecutar la aplicación. La primera vez que se ejecuta
 dotnet run
 ```
 
-La aplicación crea cinco contenedores con nombres aleatorios y comienza a cargar los archivos del directorio de almacenamiento provisional en la cuenta de almacenamiento. La aplicación establece el mínimo de subprocesos en 100 y el valor de [DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit(v=vs.110).aspx) en 100 para garantizar que se pueda establecer un gran número de conexiones simultáneas al ejecutar la aplicación.
+La aplicación crea cinco contenedores con nombres aleatorios y comienza a cargar los archivos del directorio de almacenamiento provisional en la cuenta de almacenamiento. La aplicación establece el mínimo de subprocesos en 100 y el valor de [DefaultConnectionLimit](/dotnet/api/system.net.servicepointmanager.defaultconnectionlimit) en 100 para garantizar que se pueda establecer un gran número de conexiones simultáneas al ejecutar la aplicación.
 
 Además de establecer la configuración del límite de subprocesos y de conexiones, la clase [BlobRequestOptions](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions) del método [UploadFromStreamAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob.uploadfromstreamasync) está configurada para usar el paralelismo y deshabilitar la validación de hash MD5. Los archivos se cargan en bloques de 100 MB. Esta configuración proporciona un mejor rendimiento, pero puede aumentar el costo si se usa una red con un rendimiento deficiente, ya que si se produce un error, se reintenta todo el bloque de 100 MB.
 

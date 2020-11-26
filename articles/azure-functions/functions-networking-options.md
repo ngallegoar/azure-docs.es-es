@@ -5,12 +5,12 @@ author: jeffhollan
 ms.topic: conceptual
 ms.date: 10/27/2020
 ms.author: jehollan
-ms.openlocfilehash: 691fbf3be4e39a724a8a290c3ec147a679013cba
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: bed76a6f3a17332f9a1e411ff1d4efb52703f3e1
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94413095"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021013"
 ---
 # <a name="azure-functions-networking-options"></a>Opciones de redes de Azure Functions
 
@@ -30,18 +30,36 @@ Puede hospedar aplicaciones de funciones de dos formas:
 
 [!INCLUDE [functions-networking-features](../../includes/functions-networking-features.md)]
 
-## <a name="inbound-ip-restrictions"></a>Restricciones de IP de entrada
+## <a name="inbound-access-restrictions"></a>Restricciones de acceso de entrada
 
-Puede usar restricciones de IP para definir una lista de direcciones IP ordenadas por prioridad a las que se les permite o deniega el acceso a la aplicación. La lista puede incluir direcciones IPv4 e IPv6. Si hay una o varias entradas, existe un "denegar a todos" implícito al final de la lista. Las restricciones de IP funcionan con todas las opciones de hospedaje de funciones.
+Puede usar restricciones de acceso para definir una lista de direcciones IP ordenadas por prioridad a las que se les permite o deniega el acceso a la aplicación. La lista puede incluir direcciones IPv4 e IPv6, bien o subredes de red virtual específicas con [puntos de conexión de servicio](#use-service-endpoints). Si hay una o varias entradas, existe un "denegar a todos" implícito al final de la lista. Las restricciones de IP funcionan con todas las opciones de hospedaje de funciones.
+
+Las restricciones de acceso están disponibles para [Premium](functions-premium-plan.md), [Consumo](functions-scale.md#consumption-plan) y [App Service](functions-scale.md#app-service-plan).
 
 > [!NOTE]
-> Con las restricciones de red vigentes, solo puede usar el editor del portal desde la red virtual o si ha incluido en la lista de destinatarios seguros la dirección IP del equipo que usa para acceder a Azure Portal. Sin embargo, todavía puede acceder a todas las características de la pestaña **Características de la plataforma** desde cualquier máquina.
+> Con las restricciones de red vigentes, solo puede implementar desde la red virtual o si ha incluido en la lista de destinatarios seguros la dirección IP del equipo que usa para acceder a Azure Portal. Sin embargo, todavía puede administrar la función en el portal.
 
 Para obtener más información, consulte [Restricciones de acceso estático de Azure App Service](../app-service/app-service-ip-restrictions.md).
 
-## <a name="private-site-access"></a>El acceso privado a sitios
+### <a name="use-service-endpoints"></a>Uso de puntos de conexión de servicio
+
+Con los puntos de conexión de servicio, puede restringir el acceso a las subredes de Azure Virtual Network. Para restringir el acceso a una subred específica, cree una regla de restricción con un tipo **Virtual Network**. Después, puede seleccionar la suscripción, la red virtual y la subred a las que desea permitir o denegar el acceso. 
+
+Si los puntos de conexión de servicio ya no están habilitados con Microsoft.Web para la subred seleccionada, se habilitarán automáticamente a menos que active la casilla **Omitir los puntos de conexión de servicio de Microsoft.Web que faltan**. La situación en la que convendría habilitar puntos de conexión de servicio en la aplicación pero no en la subred depende fundamentalmente de si se tienen los permisos para habilitarlos en la subred. 
+
+Si necesita que otra persona habilite los puntos de conexión de servicio en la subred, active la casilla **Omitir los puntos de conexión de servicio de Microsoft.Web que faltan**. La aplicación se configurará para los puntos de conexión de servicio en previsión de que se habiliten posteriormente en la subred. 
+
+![Captura de pantalla del panel "Agregar restricción de IP" con el tipo Virtual Network seleccionado.](../app-service/media/app-service-ip-restrictions/access-restrictions-vnet-add.png)
+
+No puede usar puntos de conexión de servicio para restringir el acceso a las aplicaciones que se ejecutan en un entorno App Service Environment. Si la aplicación está en un entorno App Service Environment, puede controlar el acceso a ella con reglas de acceso de IP. 
+
+Para más información sobre cómo configurar los puntos de conexión de servicio, consulte [Establecimiento del acceso a un sitio privado de Azure Functions](functions-create-private-site-access.md).
+
+## <a name="private-endpoint-connections"></a>Conexiones de punto de conexión privado
 
 [!INCLUDE [functions-private-site-access](../../includes/functions-private-site-access.md)]
+
+Para llamar a otros servicios que tienen una conexión de punto de conexión privado, como Storage Bus o Services Bus, asegúrese de configurar la aplicación para que haga [llamadas salientes a puntos de conexión privados](#private-endpoints).
 
 ## <a name="virtual-network-integration"></a>Integración de la red virtual
 
@@ -79,8 +97,8 @@ Al crear una aplicación de funciones, debe crear una cuenta de Azure Storage de
 1. Cree o configure una cuenta de almacenamiento diferente.  Será la cuenta de almacenamiento que se proteja con los puntos de conexión de servicio y se conecte a la función.
 1. [Cree un recurso compartido de archivos](../storage/files/storage-how-to-create-file-share.md#create-file-share) en la cuenta de almacenamiento protegida.
 1. Habilite los puntos de conexión de servicio o el punto de conexión privado para la cuenta de almacenamiento.  
-    * Asegúrese de habilitar la subred dedicada a sus aplicaciones de funciones si usa un punto de conexión de servicio.
-    * Asegúrese de crear un registro DNS y de configurar la aplicación para [trabajar con puntos de conexión privados](#azure-dns-private-zones) si usa un punto de conexión privado.  La cuenta de almacenamiento necesitará un punto de conexión privado para los recursos secundarios `file` y `blob`.  Si se usan ciertas funcionalidades como Durable Functions, también necesitará que se pueda acceder a `queue` y `table` a través de una conexión de punto de conexión privado.
+    * Si se usan conexiones de punto de conexión privado, la cuenta de almacenamiento necesitará un punto de conexión privado para los subrecursos `file` y `blob`.  Si se usan ciertas funcionalidades como Durable Functions, también necesitará que se pueda acceder a `queue` y `table` a través de una conexión de punto de conexión privado.
+    * Si usa puntos de conexión de servicio, habilite la subred dedicada a las aplicaciones de funciones para las cuentas de almacenamiento.
 1. (Opcional) Copie el contenido del archivo y el blob de la cuenta de almacenamiento de la aplicación de funciones en la cuenta de almacenamiento protegida y el recurso compartido de archivos.
 1. Copie la cadena de conexión para esta cuenta de almacenamiento.
 1. Actualice el contenido de **Configuración de la aplicación** que se encuentra en **Configuración** para la aplicación de funciones a lo siguiente:
@@ -88,6 +106,9 @@ Al crear una aplicación de funciones, debe crear una cuenta de Azure Storage de
     - `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` a la cadena de conexión de la cuenta de almacenamiento.
     - `WEBSITE_CONTENTSHARE` al nombre del recurso compartido de archivos creado en la cuenta de almacenamiento protegida.
     - Cree una nueva configuración con el nombre `WEBSITE_CONTENTOVERVNET` y el valor de `1`.
+    - Si la cuenta de almacenamiento usa conexiones de punto de conexión privado, compruebe o agregue la configuración siguiente:
+        - `WEBSITE_VNET_ROUTE_ALL` con un valor de `1`.
+        - `WEBSITE_DNS_SERVER` con un valor de `168.63.129.16`. 
 1. Guarde la configuración de la aplicación.  
 
 La aplicación de funciones se reiniciará y ahora se conectará a una cuenta de almacenamiento protegida.
@@ -159,7 +180,7 @@ Cuando se integra una aplicación de funciones de un plan Premium o un plan de A
 ## <a name="automation"></a>Automation
 Las siguientes API permiten administrar mediante programación las integraciones de redes virtuales regionales:
 
-+ **CLI de Azure**: Use los comandos [`az functionapp vnet-integration`](/cli/azure/functionapp/vnet-integration) para agregar, enumerar o quitar integraciones de redes virtuales regionales.  
++ **CLI de Azure**: Use los comandos [`az functionapp vnet-integration`](/cli/azure/functionapp/vnet-integration) para agregar, enumerar o quitar una integración de red virtual regional.  
 + **Plantillas ARM**: La integración de la red virtual regional se puede habilitar mediante una plantilla de Azure Resource Manager. Para obtener un ejemplo completo, consulte [esta plantilla de inicio rápido de Functions](https://azure.microsoft.com/resources/templates/101-function-premium-vnet-integration/).
 
 ## <a name="troubleshooting"></a>Solución de problemas

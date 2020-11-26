@@ -8,12 +8,12 @@ ms.topic: sample
 ms.date: 09/20/2019
 ms.author: rohink
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 1b0f08132ace5de7108702b61e89517fd28b4673
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 348b7911930711a25c88595b6360341ef6e00468
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87494917"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94954433"
 ---
 # <a name="azure-cli-script-example-create-a-dns-zone-and-record"></a>Ejemplo de script de CLI de Azure: crear una zona DNS y un registro
 
@@ -45,9 +45,8 @@ Este script usa los siguientes comandos para crear un grupo de recursos, una má
 | [az network dns zone create](/cli/azure/network/dns/zone#az-network-dns-zone-create) | Crea una zona de Azure DNS. |
 | [az network dns record-set a add-record](/cli/azure/network/dns/record-set) | Agrega un registro *A* a una zona DNS. |
 | [az network dns record-set list](/cli/azure/network/dns/record-set) | Muestra todos los conjuntos de registros *A* en una zona DNS. |
-| [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az-vm-extension-set) | Elimina un grupo de recursos, incluidos todos los recursos anidados. |
+| [az group delete](/cli/azure/vm/extension#az-vm-extension-set) | Elimina un grupo de recursos, incluidos todos los recursos anidados. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información sobre la CLI de Azure, consulte la [documentación de la CLI de Azure](https://docs.microsoft.com/cli/azure).
-
+Para más información sobre la CLI de Azure, consulte la [documentación de la CLI de Azure](/cli/azure).

@@ -1,6 +1,6 @@
 ---
 title: Copia de datos mediante la herramienta Copy Data de Azure
-description: Cree una factoría de datos de Azure y, luego, use la herramienta Copy Data para copiar los datos de una ubicación de Azure Blob Storage a otra.
+description: Cree una instancia de Azure Data Factory y, luego, use la herramienta Copy Data para copiar los datos de una ubicación de Azure Blob Storage a otra.
 services: data-factory
 documentationcenter: ''
 author: dearandyxu
@@ -10,13 +10,13 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: quickstart
-ms.date: 06/10/2020
-ms.openlocfilehash: 756c62aa070f05c4b66de0cde6c7df59d9b1d09a
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.date: 11/09/2020
+ms.openlocfilehash: 282917a6bbf7edb962a87ad87810adde56206d97
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "84735205"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013520"
 ---
 # <a name="quickstart-use-the-copy-data-tool-to-copy-data"></a>Inicio rápido: Uso de la herramienta Copy Data para copiar datos
 
@@ -37,7 +37,7 @@ En esta guía de inicio rápido, usará Azure Portal para crear una factoría de
 
 1. Inicie el explorador web **Microsoft Edge** o **Google Chrome**. Actualmente, la interfaz de usuario de Data Factory solo se admite en los exploradores web Microsoft Edge y Google Chrome.
 1. Vaya a [Azure Portal](https://portal.azure.com). 
-1. En el menú de Azure Portal, seleccione **Crear un recurso** > **Análisis** > **Data Factory**:
+1. En el menú de Azure Portal, seleccione **Crear un recurso** > **Integración** > **Data Factory**:
 
     ![Creación de nueva factoría de datos](./media/doc-common-process/new-azure-data-factory-menu.png)
 
@@ -50,7 +50,7 @@ En esta guía de inicio rápido, usará Azure Portal para crear una factoría de
 1. Para **Grupo de recursos**, realice uno de los siguientes pasos:
      
    - Seleccione en primer lugar **Usar existente** y después un grupo de recursos de la lista. 
-   - Seleccione **Crear nuevo**y escriba el nombre de un grupo de recursos.   
+   - Seleccione **Crear nuevo** y escriba el nombre de un grupo de recursos.   
          
    Para obtener más información sobre los grupos de recursos, consulte [Uso de grupos de recursos para administrar los recursos de Azure](../azure-resource-manager/management/overview.md).  
 1. En **Versión**, seleccione **V2**.

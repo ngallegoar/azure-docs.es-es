@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 - devx-track-js
-ms.openlocfilehash: 979ed3d21986ad43d805446a520a59333a6798ed
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 78600b7b57a7c30fc609434a700f13fa21e079ce
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92149327"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019266"
 ---
 # <a name="connect-a-downstream-device-to-an-azure-iot-edge-gateway"></a>Conexión de un dispositivo de bajada a una puerta de enlace Azure IoT Edge
 
@@ -39,7 +39,7 @@ En este artículo, los términos *puerta de enlace* y *puerta de enlace IoT Edge
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Debe disponer del archivo de certificado de entidad de certificación raíz que se usó para generar tal certificado del dispositivo en [Configuración de un dispositivo IoT Edge para que actúe como puerta de enlace transparente](how-to-create-transparent-gateway.md) en su dispositivo de bajada. El dispositivo de bajada usa este certificado para validar la identidad del dispositivo de puerta de enlace. Si usó los certificados de demostración, el certificado de entidad de certificado se denomina **azure-iot-test-only.root.ca.cert.pem** .
+* Debe disponer del archivo de certificado de entidad de certificación raíz que se usó para generar tal certificado del dispositivo en [Configuración de un dispositivo IoT Edge para que actúe como puerta de enlace transparente](how-to-create-transparent-gateway.md) en su dispositivo de bajada. El dispositivo de bajada usa este certificado para validar la identidad del dispositivo de puerta de enlace. Si usó los certificados de demostración, el certificado de entidad de certificado se denomina **azure-iot-test-only.root.ca.cert.pem**.
 * Modifique la cadena de conexión que señala al dispositivo de puerta de enlace, como se explica en [Autenticación de un dispositivo de bajada en Azure IoT Hub](how-to-authenticate-downstream-device.md).
 
 ## <a name="prepare-a-downstream-device"></a>Preparación de un dispositivo de bajada
@@ -63,9 +63,9 @@ Para conectar un dispositivo de bajada a una puerta de enlace IoT Edge, necesita
 
 El desafío de una conexión segura de los dispositivos de bajada a IoT Edge es igual que en cualquier otra comunicación cliente/servidor segura que se produce en Internet. Un cliente y un servidor se comunican de forma segura en Internet mediante la [Seguridad de la capa de transporte (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security). TLS se ha creado mediante construcciones de [Infraestructura de clave pública (PKI)](https://en.wikipedia.org/wiki/Public_key_infrastructure) estándar llamadas certificados. TLS es una especificación bastante compleja que aborda una amplia gama de temas relacionados con la protección de dos puntos de conexión. En esta sección se resumen los conceptos relevantes para que pueda conectar de forma segura los dispositivos a una puerta de enlace IoT Edge.
 
-Cuando un cliente se conecta a un servidor, el servidor presenta una cadena de certificados llamada *cadena de certificados de servidor* . Una cadena de certificados normalmente consta de un certificado de entidad de certificación (CA) raíz, uno o varios certificados de entidad de certificación intermedios y, finalmente, el propio certificado del servidor. Un cliente establece la confianza con un servidor mediante la comprobación criptográfica de la cadena de certificados de servidor completa. Esta validación del cliente de la cadena de certificados de servidor se llama *validación de la cadena del servidor* . El cliente desafía al servidor para demostrar la posesión de la clave privada asociada al certificado de servidor en un proceso denominado *prueba de posesión* . La combinación de la validación de la cadena del servidor y la prueba de posesión se denomina *autenticación de servidor* . Para validar una cadena de certificados de servidor, un cliente necesita una copia del certificado de la entidad de certificación raíz que se usó para crear (o emitir) el certificado del servidor. Normalmente, al conectarse a sitios web, un explorador viene preconfigurado con certificados de entidad de certificación usados habitualmente para que el cliente tenga un proceso de conexión directo.
+Cuando un cliente se conecta a un servidor, el servidor presenta una cadena de certificados llamada *cadena de certificados de servidor*. Una cadena de certificados normalmente consta de un certificado de entidad de certificación (CA) raíz, uno o varios certificados de entidad de certificación intermedios y, finalmente, el propio certificado del servidor. Un cliente establece la confianza con un servidor mediante la comprobación criptográfica de la cadena de certificados de servidor completa. Esta validación del cliente de la cadena de certificados de servidor se llama *validación de la cadena del servidor*. El cliente desafía al servidor para demostrar la posesión de la clave privada asociada al certificado de servidor en un proceso denominado *prueba de posesión*. La combinación de la validación de la cadena del servidor y la prueba de posesión se denomina *autenticación de servidor*. Para validar una cadena de certificados de servidor, un cliente necesita una copia del certificado de la entidad de certificación raíz que se usó para crear (o emitir) el certificado del servidor. Normalmente, al conectarse a sitios web, un explorador viene preconfigurado con certificados de entidad de certificación usados habitualmente para que el cliente tenga un proceso de conexión directo.
 
-Cuando un dispositivo se conecta a Azure IoT Hub, el dispositivo es el cliente y el servicio en la nube de IoT Hub es el servidor. El servicio en la nube de IoT Hub está respaldado por un certificado de entidad de certificación raíz llamado **Baltimore CyberTrust Root** , que es ampliamente utilizado y está disponible públicamente. Puesto que el certificado de entidad de certificación de IoT Hub ya está instalado en la mayoría de los dispositivos, muchas implementaciones de TLS (OpenSSL, Schannel, LibreSSL) lo utilizan automáticamente durante la validación de certificados de servidor. Sin embargo, un dispositivo que puede conectarse correctamente a IoT Hub puede tener problemas al intentar conectarse a una puerta de enlace IoT Edge.
+Cuando un dispositivo se conecta a Azure IoT Hub, el dispositivo es el cliente y el servicio en la nube de IoT Hub es el servidor. El servicio en la nube de IoT Hub está respaldado por un certificado de entidad de certificación raíz llamado **Baltimore CyberTrust Root**, que es ampliamente utilizado y está disponible públicamente. Puesto que el certificado de entidad de certificación de IoT Hub ya está instalado en la mayoría de los dispositivos, muchas implementaciones de TLS (OpenSSL, Schannel, LibreSSL) lo utilizan automáticamente durante la validación de certificados de servidor. Sin embargo, un dispositivo que puede conectarse correctamente a IoT Hub puede tener problemas al intentar conectarse a una puerta de enlace IoT Edge.
 
 Cuando un dispositivo se conecta a una puerta de enlace IoT Edge, el dispositivo de bajada es el cliente y el dispositivo de puerta de enlace es el servidor. Azure IoT Edge le permite crear cadenas de certificados de puerta de enlace como consideren oportuno. Puede usar un certificado de entidad de certificación pública, como Baltimore o usar un certificado de entidad de certificación de raíz autofirmado (o interno). Los certificados de entidad de certificación pública a menudo tienen un costo asociado, por lo que se utilizan normalmente en escenarios de producción. Los certificados de entidad de certificación autofirmados se prefieren para desarrollo y pruebas. Si utiliza los certificados de demostración, se trata de certificados de entidad de certificación raíz autofirmados.
 
@@ -77,7 +77,7 @@ Para más información acerca de los certificados de IoT Edge y algunas implicac
 
 ## <a name="provide-the-root-ca-certificate"></a>Inclusión del certificado de entidad de certificación raíz
 
-Para comprobar los certificados del dispositivo de puerta de enlace, el dispositivo de bajada necesita su propia copia del certificado de entidad de certificación raíz. Si ha usado los scripts proporcionados en el repositorio de Git de IoT Edge para crear certificados de prueba, el certificado de entidad de certificación raíz se denomina **azure-iot-test-only.root.ca.cert.pem** . Si no lo ha hecho ya como parte de los otros pasos de preparación del dispositivo de bajada, mueva este archivo de certificado a cualquier directorio de este dispositivo. Para ello, puede usar un servicio como [Azure Key Vault](../key-vault/index.yml) o una función como [Protocolo de copia segura](https://www.ssh.com/ssh/scp/).
+Para comprobar los certificados del dispositivo de puerta de enlace, el dispositivo de bajada necesita su propia copia del certificado de entidad de certificación raíz. Si ha usado los scripts proporcionados en el repositorio de Git de IoT Edge para crear certificados de prueba, el certificado de entidad de certificación raíz se denomina **azure-iot-test-only.root.ca.cert.pem**. Si no lo ha hecho ya como parte de los otros pasos de preparación del dispositivo de bajada, mueva este archivo de certificado a cualquier directorio de este dispositivo. Para ello, puede usar un servicio como [Azure Key Vault](../key-vault/index.yml) o una función como [Protocolo de copia segura](https://www.ssh.com/ssh/scp/).
 
 ## <a name="install-certificates-in-the-os"></a>Instalación de certificados en el sistema operativo
 
@@ -106,11 +106,11 @@ Puede instalar certificados con [Import-Certificate](/powershell/module/pkiclien
 import-certificate  <file path>\azure-iot-test-only.root.ca.cert.pem -certstorelocation cert:\LocalMachine\root
 ```
 
-También puede instalar certificados mediante la utilidad **certlm** :
+También puede instalar certificados mediante la utilidad **certlm**:
 
-1. En el menú Inicio, busque y seleccione **Administrar certificados de equipo** . Se abre una utilidad llamada **certlm** .
-2. Vaya a **Certificados: equipo local** > **Entidades de certificación raíz de confianza** .
-3. Haga clic con el botón derecho en **Certificados** y seleccione **Todas las tareas** > **Importar** . Se debe iniciar el asistente para importación de certificados.
+1. En el menú Inicio, busque y seleccione **Administrar certificados de equipo**. Se abre una utilidad llamada **certlm**.
+2. Vaya a **Certificados: equipo local** > **Entidades de certificación raíz de confianza**.
+3. Haga clic con el botón derecho en **Certificados** y seleccione **Todas las tareas** > **Importar**. Se debe iniciar el asistente para importación de certificados.
 4. Siga los pasos tal como se indica e importe el archivo del certificado `<path>/azure-iot-test-only.root.ca.cert.pem`. Cuando se haya completado, verá el mensaje "Importación correcta".
 
 También puede instalar certificados mediante programación con las API de .NET, como se muestra más adelante en el ejemplo de .NET de este artículo.
@@ -134,8 +134,8 @@ Debe tener dos cosas listas antes de usar los ejemplos de nivel de aplicación:
 Esta sección proporciona una aplicación de ejemplo para conectar un cliente de dispositivo de NodeJS de Azure IoT a una puerta de enlace IoT Edge. En el caso de las aplicaciones de NodeJS, debe instalar el certificado de entidad de certificación raíz en el nivel de aplicación, tal como se muestra aquí. Las aplicaciones de NodeJS no usan el almacén de certificados del sistema.
 
 1. Puede obtener el ejemplo para **edge_downstream_device.js** desde el [repositorio de ejemplos del SDK de dispositivo IoT de Azure para Node.js](https://github.com/Azure/azure-iot-sdk-node/tree/master/device/samples).
-2. Asegúrese de que tiene todos los requisitos previos para ejecutar el ejemplo; para ello, revise el archivo **readme.md** .
-3. En el archivo edge_downstream_device.js, actualice las variables **connectionString** y **edge_ca_cert_path** .
+2. Asegúrese de que tiene todos los requisitos previos para ejecutar el ejemplo; para ello, revise el archivo **readme.md**.
+3. En el archivo edge_downstream_device.js, actualice las variables **connectionString** y **edge_ca_cert_path**.
 4. Consulte la documentación del SDK para obtener instrucciones sobre cómo ejecutar el ejemplo en el dispositivo.
 
 Para entender el ejemplo que se está ejecutando, el siguiente fragmento de código contiene el modo en el que el SDK de cliente lee el archivo de certificado y lo usa para establecer una conexión TLS segura:
@@ -153,26 +153,30 @@ var options = {
 Esta sección presenta una aplicación de ejemplo para conectar un cliente de dispositivo de .NET de Azure IoT a una puerta de enlace IoT Edge. Sin embargo, las aplicaciones .NET pueden usar automáticamente los certificados instalados en el almacén de certificados del sistema en los hosts con Linux y Windows.
 
 1. Puede obtener el ejemplo para **EdgeDownstreamDevice** desde la [carpeta de ejemplos de .NET de IoT Edge](https://github.com/Azure/iotedge/tree/master/samples/dotnet/EdgeDownstreamDevice).
-2. Asegúrese de que tiene todos los requisitos previos para ejecutar el ejemplo; para ello, revise el archivo **readme.md** .
-3. En el archivo **Propiedades / launchSettings.json** , actualice las variables **DEVICE_CONNECTION_STRING** y **CA_CERTIFICATE_PATH** . Si desea utilizar el certificado instalado en el almacén de certificados de confianza en el sistema host, deje en blanco esta variable.
+2. Asegúrese de que tiene todos los requisitos previos para ejecutar el ejemplo; para ello, revise el archivo **readme.md**.
+3. En el archivo **Propiedades / launchSettings.json**, actualice las variables **DEVICE_CONNECTION_STRING** y **CA_CERTIFICATE_PATH**. Si desea utilizar el certificado instalado en el almacén de certificados de confianza en el sistema host, deje en blanco esta variable.
 4. Consulte la documentación del SDK para obtener instrucciones sobre cómo ejecutar el ejemplo en el dispositivo.
 
-Para instalar mediante programación un certificado de confianza en el almacén de certificados mediante una aplicación de .NET, consulte la función **InstallCACert()** del archivo **EdgeDownstreamDevice / Program.cs** . Esta operación es idempotente, por lo que se puede ejecutar varias veces con los mismos valores sin ningún efecto adicional.
+Para instalar mediante programación un certificado de confianza en el almacén de certificados mediante una aplicación de .NET, consulte la función **InstallCACert()** del archivo **EdgeDownstreamDevice / Program.cs**. Esta operación es idempotente, por lo que se puede ejecutar varias veces con los mismos valores sin ningún efecto adicional.
 
 ### <a name="c"></a>C
 
 Esta sección presenta una aplicación de ejemplo para conectar un cliente de dispositivo de Azure IoT para C a una puerta de enlace IoT Edge. El SDK para C puede funcionar con muchas bibliotecas TLS, incluidas OpenSSL, WolfSSL y Schannel. Para más información, consulte el [SDK de Azure IoT para C](https://github.com/Azure/azure-iot-sdk-c).
 
 1. Puede obtener la aplicación **iotedge_downstream_device_sample** en los [Ejemplos del SDK de dispositivo IoT de Azure para C](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples).
-2. Asegúrese de que tiene todos los requisitos previos para ejecutar el ejemplo; para ello, revise el archivo **readme.md** .
-3. En el archivo iotedge_downstream_device_sample.js, actualice las variables **connectionString** y **edge_ca_cert_path** .
+2. Asegúrese de que tiene todos los requisitos previos para ejecutar el ejemplo; para ello, revise el archivo **readme.md**.
+3. En el archivo iotedge_downstream_device_sample.js, actualice las variables **connectionString** y **edge_ca_cert_path**.
 4. Consulte la documentación del SDK para obtener instrucciones sobre cómo ejecutar el ejemplo en el dispositivo.
+
 
 El SDK de dispositivo IoT de Azure para C proporciona una opción para registrar un certificado de entidad de certificación al configurar el cliente. Esta operación no instala el certificado en ningún lugar y en su lugar usa un formato de cadena del certificado en memoria. Al establecer una conexión, se proporciona el certificado guardado a la pila TLS subyacente.
 
 ```C
 (void)IoTHubDeviceClient_SetOption(device_handle, OPTION_TRUSTED_CERT, cert_string);
 ```
+
+>[!NOTE]
+> El método para registrar un certificado de entidad de certificación al configurar el cliente puede cambiar si se usa una biblioteca o un paquete [administrado](https://github.com/Azure/azure-iot-sdk-c#packages-and-libraries). Por ejemplo, la [biblioteca basada en el IDE de Arduino](https://github.com/azure/azure-iot-arduino) requerirá agregar el certificado de entidad de certificación a una matriz de certificados definida en un archivo [certs.c](https://github.com/Azure/azure-iot-sdk-c/blob/master/certs/certs.c) global, en lugar de usar la operación `IoTHubDeviceClient_LL_SetOption`.  
 
 En hosts con Windows, si no utiliza OpenSSL ni otra biblioteca de TLS, el SDK utiliza de manera predeterminada Schannel. Para que Schannel funcione, se debe instalar el certificado de entidad de certificación raíz de IoT Edge en el almacén de certificados de Windows, no se debe establecer mediante la operación `IoTHubDeviceClient_SetOption`.
 
@@ -181,7 +185,7 @@ En hosts con Windows, si no utiliza OpenSSL ni otra biblioteca de TLS, el SDK ut
 Esta sección presenta una aplicación de ejemplo para conectar un cliente de dispositivo de Java de Azure IoT a una puerta de enlace IoT Edge.
 
 1. Puede obtener el ejemplo **Send-event** en los [Ejemplos del SDK de dispositivo IoT de Azure para Java](https://github.com/Azure/azure-iot-sdk-java/tree/master/device/iot-device-samples).
-2. Asegúrese de que tiene todos los requisitos previos para ejecutar el ejemplo; para ello, revise el archivo **readme.md** .
+2. Asegúrese de que tiene todos los requisitos previos para ejecutar el ejemplo; para ello, revise el archivo **readme.md**.
 3. Consulte la documentación del SDK para obtener instrucciones sobre cómo ejecutar el ejemplo en el dispositivo.
 
 ### <a name="python"></a>Python

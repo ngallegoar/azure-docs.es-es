@@ -9,12 +9,12 @@ ms.date: 11/16/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 906df01587201561fbbfea0661d0885864042925
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: ddd19c90c8c47016497e2c3b00e04595a94e7715
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94701320"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95543075"
 ---
 # <a name="list-blobs-with-net"></a>Enumeración de blobs con .NET
 
@@ -61,7 +61,7 @@ Para filtrar la lista de blobs, especifique una cadena para el parámetro `prefi
 
 Puede devolver metadatos de blob con los resultados.
 
-- Si usa el SDK de .NET V12, especifique el valor **Metadata** para la enumeración [BlobTraits](https://docs.microsoft.com/dotnet/api/azure.storage.blobs.models.blobtraits).
+- Si usa el SDK de .NET V12, especifique el valor **Metadata** para la enumeración [BlobTraits](/dotnet/api/azure.storage.blobs.models.blobtraits).
 
 - Si usa el SDK de .NET V11, especifique el valor **Metadata** para la enumeración [BlobListingDetails](/dotnet/api/microsoft.azure.storage.blob.bloblistingdetails). Azure Storage incluye metadatos con cada contenedor que se devuelve, por lo que en este contexto no hay que llamar a uno de los métodos **FetchAttributes** para recuperar los metadatos del contenedor.
 

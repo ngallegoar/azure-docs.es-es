@@ -10,11 +10,11 @@ ms.topic: tutorial
 ms.date: 10/05/2020
 ms.custom: devx-track-js, devx-track-csharp
 ms.openlocfilehash: 202a7f6b01423045fe7c72db5b42c29ae58f648d
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91739670"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013843"
 ---
 # <a name="tutorial-add-autocomplete-and-suggestions-using-the-net-sdk"></a>Tutorial: Incorporación de la función Autocompletar y sugerencias mediante el SDK de .NET
 
@@ -151,7 +151,7 @@ Comencemos con el caso más simple de la oferta de alternativas para el usuario:
 
 4. En el script de la vista, establezca **&fuzzy** en true y vuelva a ejecutar la aplicación. Ahora, escriba "pedido". Observe que en la búsqueda se da por supuesto que ha escrito una letra incorrecta.
  
-    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-suggest-fuzzy.png" alt-text="Si escribe *po*, aparecen dos sugerencias" border="false":::
+    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-suggest-fuzzy.png" alt-text="Escriba *pa*con el parámetro fuzzy establecido en true" border="false":::
 
     Si está interesado, la [sintaxis de consulta de Lucene en Azure Cognitive Search](./query-lucene-syntax.md) describe la lógica utilizada en las búsquedas aproximadas en detalle.
 
@@ -196,7 +196,7 @@ Se puede mejorar la apariencia de las sugerencias para el usuario si se establec
 
 1. Vuelva a ejecutar la aplicación y debería ver el texto que especificó en negrita en las sugerencias. Pruebe a escribir "pa".
  
-    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-suggest-highlight.png" alt-text="Si escribe *po*, aparecen dos sugerencias" border="false":::
+    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-suggest-highlight.png" alt-text="Escritura de &quot;pa&quot; con resaltado" border="false":::
 
    La lógica utilizada en el script de resaltado anterior no es infalible. Si escribe un término que aparece dos veces en el mismo nombre, los resultados en negrita no son lo que usted desearía. Pruebe a escribir "mo".
 
@@ -255,7 +255,7 @@ Otra variación, que es ligeramente diferente de las sugerencias, es la función
 
 1. Ejecute la aplicación. Observe cómo la variedad de opciones que se muestra en la lista desplegable son las palabras individuales. Pruebe a escribir palabras que empiezan por "re". Tenga en cuenta cómo se reduce el número de opciones a medida que se escriben más letras.
 
-    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-suggest-autocompletebasic.png" alt-text="Si escribe *po*, aparecen dos sugerencias" border="false":::
+    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-suggest-autocompletebasic.png" alt-text="Escritura con la función básica de autocompletar" border="false":::
 
     Tal como está, el script de sugerencias que ejecutó anteriormente es probablemente más útil que este script de la función Autocompletar. Para que la función de autocompletar sea más fácil de usar, considere la posibilidad de usarla con los resultados sugeridos.
 
@@ -451,7 +451,7 @@ Hay bibliotecas que ofrecen esta funcionalidad: a menudo denominada "Autocomplet
 
 1. Después, ejecute la aplicación. En el cuadro de búsqueda, escriba "pa". ¿Obtiene "palacio" como la sugerencia de Autocompletar, junto con dos hoteles que contienen "pa"?
 
-    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-suggest-autocomplete.png" alt-text="Si escribe *po*, aparecen dos sugerencias" border="false":::
+    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-suggest-autocomplete.png" alt-text="Escritura con sugerencias y Autocompletar insertada" border="false":::
 
 1. Pruebe la tabulación para aceptar la sugerencia de Autocompletar y pruebe a seleccionar sugerencias con las teclas de dirección y la tecla tab, e inténtelo de nuevo con el mouse y un solo clic. Compruebe que el script controla perfectamente todas estas situaciones.
 

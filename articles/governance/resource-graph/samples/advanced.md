@@ -4,11 +4,11 @@ description: Use Azure Resource Graph para ejecutar consultas avanzadas, incluid
 ms.date: 10/14/2020
 ms.topic: sample
 ms.openlocfilehash: dff4b06cc5cf4385820c7f6251efaae792d9c22d
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057151"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005408"
 ---
 # <a name="advanced-resource-graph-query-samples"></a>Ejemplos de consultas avanzadas de Resource Graph
 
@@ -378,7 +378,7 @@ Search-AzGraph -Query "Resources | where type =~ 'microsoft.compute/virtualmachi
 ## <a name="list-all-extensions-installed-on-a-virtual-machine"></a><a name="join-vmextension"></a>Enumeración de todas las extensiones instaladas en una máquina virtual
 
 En primer lugar, esta consulta usa `extend` en el tipo de recurso de máquinas virtuales para obtener el identificador en mayúsculas (`toupper()` el identificador), el nombre y el tipo del sistema operativo y el tamaño de la máquina virtual.
-Obtener el identificador de recurso en mayúsculas es una ayuda en la preparación para unirse a otra propiedad. A continuación, la consulta utiliza `join` con _leftouter_ como **tipo** para obtener las extensiones de máquina virtual mediante la coincidencia de una `substring` en mayúsculas del ID. de extensión. La parte del identificador antes de "/extensions/\<ExtensionName\>" tiene el mismo formato que el identificador de las máquinas virtuales, por lo que usamos esta propiedad para `join`. `summarize` se usa entonces con `make_list` en el nombre de la extensión de máquina virtual para combinar el nombre de cada extensión, donde _ID_, _OSName_, _OSType_y _VMSize_ son iguales en una única propiedad de matriz. Por último, se aplica `order by` a _OSName_ en minúsculas con **asc**. De forma predeterminada, el valor predeterminado de `order by` es descendente.
+Obtener el identificador de recurso en mayúsculas es una ayuda en la preparación para unirse a otra propiedad. A continuación, la consulta utiliza `join` con _leftouter_ como **tipo** para obtener las extensiones de máquina virtual mediante la coincidencia de una `substring` en mayúsculas del ID. de extensión. La parte del identificador antes de "/extensions/\<ExtensionName\>" tiene el mismo formato que el identificador de las máquinas virtuales, por lo que usamos esta propiedad para `join`. `summarize` se usa entonces con `make_list` en el nombre de la extensión de máquina virtual para combinar el nombre de cada extensión, donde _ID_, _OSName_, _OSType_ y _VMSize_ son iguales en una única propiedad de matriz. Por último, se aplica `order by` a _OSName_ en minúsculas con **asc**. De forma predeterminada, el valor predeterminado de `order by` es descendente.
 
 ```kusto
 Resources
@@ -564,7 +564,7 @@ Search-AzGraph -Query "Resources | where type == 'microsoft.compute/virtualmachi
 
 ## <a name="include-the-tenant-and-subscription-names-with-displaynames"></a><a name="displaynames"></a>Inclusión de nombres de inquilinos y suscripciones en DisplayNames
 
-Esta consulta usa el parámetro **Include** con la opción _DisplayNames_ para agregar **subscriptionDisplayName** y **tenantDisplayName**a los resultados. Este parámetro solo está disponible para la CLI de Azure y Azure PowerShell.
+Esta consulta usa el parámetro **Include** con la opción _DisplayNames_ para agregar **subscriptionDisplayName** y **tenantDisplayName** a los resultados. Este parámetro solo está disponible para la CLI de Azure y Azure PowerShell.
 
 ```azurecli-interactive
 az graph query -q "limit 1" --include displayNames

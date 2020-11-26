@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: damendo
 ms.custom: mvc
-ms.openlocfilehash: 89258b05831170ff502cde80577f3a6851659bf2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 385d43e46cd3f9465c0fbf9a02eeae356f48fac4
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90986324"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966537"
 ---
 # <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>Tutorial: Registro del tráfico de red de entrada y salida de una máquina virtual mediante Azure Portal
 
@@ -111,7 +111,7 @@ Para iniciar sesión en el flujo de NSG, es necesario recurrir al proveedor **Mi
 
 9. Seleccione la cuenta de almacenamiento que creó anteriormente en el paso 3:
    > [!NOTE]
-   > Los registros de flujo del grupo de seguridad de red no funcionan con las cuentas de almacenamiento que tienen un [espacio de nombres jerárquico](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-namespace) habilitado.
+   > Los registros de flujo del grupo de seguridad de red no funcionan con las cuentas de almacenamiento que tienen un [espacio de nombres jerárquico](../storage/blobs/data-lake-storage-namespace.md) habilitado.
 1. En la esquina superior izquierda del portal, seleccione **Todos los servicios**. En el cuadro **Filtrar**, escriba *Network Watcher*. Cuando aparezca la opción **Network Watcher** en los resultados de búsqueda, selecciónela.
 10. Establezca el valor de **Retención (días)** en 5 y, a continuación, seleccione **Guardar**.
 
@@ -215,7 +215,7 @@ El valor de **mac** en la salida anterior es la dirección MAC de la interfaz de
 | T            | Protocolo               | Si el protocolo del flujo es TCP (T) o UDP (U).                                  |
 | O            | Dirección              | Si el tráfico es entrante (I) o saliente (O).                                     |
 | A            | Acción                 | Si el tráfico está permitido (A) o si está denegado (D).  
-| C            | Estado de flujo **solo versión 2** | Captura el estado del flujo. Los estados posibles son**B**: Begin (Comienzo), cuando se crea el flujo. No se proporcionan las estadísticas. **C**: Continuación de un flujo en curso. Las estadísticas se proporcionan a intervalos de cinco minutos. **E**: End (Final), cuando termina el flujo. Se proporcionan las estadísticas. |
+| C            | Estado de flujo **solo versión 2** | Captura el estado del flujo. Los estados posibles son **B**: Begin (Comienzo), cuando se crea el flujo. No se proporcionan las estadísticas. **C**: Continuación de un flujo en curso. Las estadísticas se proporcionan a intervalos de cinco minutos. **E**: End (Final), cuando termina el flujo. Se proporcionan las estadísticas. |
 | 30 | Paquetes enviados: origen a destino **solo versión 2** | El número total de paquetes TCP o UDP enviados desde el origen al destino desde la última actualización. |
 | 16978 | Bytes enviados: origen a destino **solo versión 2** | El número total de bytes de paquetes TCP o UDP enviados desde el origen al destino desde la última actualización. Los bytes de paquete incluyen el encabezado y la carga del paquete. |
 | 24 | Paquetes enviados: destino a origen **solo versión 2** | El número total de paquetes TCP o UDP enviados desde el destino al origen desde la última actualización. |

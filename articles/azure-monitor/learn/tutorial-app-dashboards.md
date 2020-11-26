@@ -7,12 +7,12 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 09/30/2020
 ms.custom: mvc, contperfq1
-ms.openlocfilehash: 1a83385c7f384f7727a0fd10e238c6511950abfe
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.openlocfilehash: 31dd33bd8805ffcc677d5f0e98e81f2fa9e91ee2
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91612719"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95537057"
 ---
 # <a name="create-custom-kpi-dashboards-using-azure-application-insights"></a>Creación de paneles de indicadores clave de rendimiento (KPI) personalizados con Azure Application Insights
 
@@ -132,7 +132,7 @@ Los registros de Azure Application Insights proporcionan un lenguaje de consulta
 ## <a name="share-dashboard"></a>Compartir panel
 
 1. En la parte superior del panel, seleccione **Compartir** para publicar los cambios.
-2. Si lo desea, puede definir los usuarios específicos que deben tener acceso al panel. Para más información, consulte [Uso compartido de paneles de Azure mediante el control de acceso basado en rol](../../azure-portal/azure-portal-dashboard-share-access.md).
+2. Si lo desea, puede definir los usuarios específicos que deben tener acceso al panel. Para más información, consulte [Uso compartido de paneles de Azure mediante el control de acceso basado en rol de Azure](../../azure-portal/azure-portal-dashboard-share-access.md).
 3. Seleccione **Publicar**.
 
 ## <a name="next-steps"></a>Pasos siguientes
