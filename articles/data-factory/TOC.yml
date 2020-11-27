@@ -752,6 +752,8 @@
           href: connector-troubleshoot-guide.md
         - name: Flujos de datos
           href: data-flow-troubleshoot-guide.md
+        - name: Integración e implementación continuas
+          href: ci-cd-github-troubleshoot-guide.md
         - name: Seguridad y control de acceso
           href: security-and-access-control-troubleshoot-guide.md
         - name: Entornos de ejecución de integración autohospedados

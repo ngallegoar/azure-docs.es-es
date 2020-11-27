@@ -8,23 +8,23 @@ ms.topic: include
 ms.date: 10/06/2020
 ms.author: cauribeg
 ms.custom: include file
-ms.openlocfilehash: 07a80fcd1ec62b051a660bdac696f89e3b7c42b7
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: da36cb5c5d2db20b89f80d381f48632c7528c193
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93353868"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002478"
 ---
 1. Para crear una instancia de caché, inicie sesión en [Azure Portal](https://portal.azure.com) y seleccione **Crear un recurso**.
 
-    :::image type="content" source="media/redis-cache-create/create-resource.png" alt-text="Selección de Azure Cache for Redis.":::
+    :::image type="content" source="media/redis-cache-create/create-resource.png" alt-text="Crear un recurso está resaltado en el panel de navegación izquierdo.":::
 
    
-1. En la página **Nuevo** , seleccione **Base de datos** y, a continuación, seleccione **Azure Cache for Redis**.
+1. En la página **Nuevo**, seleccione **Base de datos** y, a continuación, seleccione **Azure Cache for Redis**.
 
-    :::image type="content" source="media/redis-cache-create/select-cache.png" alt-text="Selección de Azure Cache for Redis.":::
+    :::image type="content" source="media/redis-cache-create/select-cache.png" alt-text="En Nuevo, están resaltados Bases de datos y Azure Cache for Redis.":::
    
-1. En la página **Nueva instancia de Redis Cache** , configure las opciones de la nueva caché.
+1. En la página **Nueva instancia de Redis Cache**, configure las opciones de la nueva caché.
    
    | Configuración      | Valor sugerido  | Descripción |
    | ------------ |  ------- | -------------------------------------------------- |
@@ -36,7 +36,7 @@ ms.locfileid: "93353868"
 
 1. Seleccione la pestaña **Redes** o haga clic en el botón **Redes** de la parte inferior de la página.
 
-1. En la pestaña **Redes** , seleccione el método de conectividad.
+1. En la pestaña **Redes**, seleccione el método de conectividad.
 
 1. Seleccione la pestaña **Siguiente: Opciones avanzadas** o haga clic en el botón **Siguiente: Opciones avanzadas** de la parte inferior de la página.
 
@@ -48,10 +48,10 @@ ms.locfileid: "93353868"
 
 1. Seleccione el botón **Siguiente: Etiquetas** o haga clic en el botón **Siguiente: Etiquetas** situado en la parte inferior de la página.
 
-1. Opcionalmente, en la pestaña **Etiquetas** , escriba el nombre y el valor si desea clasificar el recurso. 
+1. Opcionalmente, en la pestaña **Etiquetas**, escriba el nombre y el valor si desea clasificar el recurso. 
 
 1. Seleccione **Revisar + crear**. Pasará a la pestaña Revisar y crear, donde Azure validará la configuración.
 
 1. Tras aparecer el mensaje verde Validación superada, seleccione **Crear**.
 
-La caché tarda un tiempo en crearse. Puede supervisar el progreso en la página **Información general** de Azure Cache for Redis. Cuando **Estado** se muestra como **En ejecución** , la memoria caché está lista para su uso. 
+La caché tarda un tiempo en crearse. Puede supervisar el progreso en la página **Información general** de Azure Cache for Redis. Cuando **Estado** se muestra como **En ejecución**, la memoria caché está lista para su uso. 

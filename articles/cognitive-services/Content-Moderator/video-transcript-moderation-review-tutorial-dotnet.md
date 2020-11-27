@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: tutorial
-ms.date: 08/05/2020
+ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 1648bd9a073bca696299e9ed703536db745e7edb
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: ad689c746a0f4d7232e7f61982fb8c4f735cbe34
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92912844"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95737809"
 ---
 # <a name="tutorial-video-and-transcript-moderation"></a>Tutorial: Moderación de vídeos y transcripciones
 
@@ -35,7 +35,7 @@ En este tutorial se muestra cómo realizar las siguientes acciones:
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-- Regístrese en el sitio web [Herramienta de revisión de Content Moderator](https://contentmoderator.cognitive.microsoft.com/) y cree etiquetas personalizadas. Consulte[Uso de etiquetas](./review-tool-user-guide/configure.md#tags) si necesita ayuda con este paso.
+- Regístrese en el sitio web de la [herramienta de revisión Content Moderator](https://contentmoderator.cognitive.microsoft.com/) y cree etiquetas personalizadas para las características que desea identificar. Consulte[Uso de etiquetas](./review-tool-user-guide/configure.md#tags) si necesita ayuda con este paso.
 
     ![captura de pantalla de etiquetas personalizadas de moderación de vídeo](images/video-tutorial-custom-tags.png)
 - Para ejecutar la aplicación de ejemplo, necesitará una cuenta de Azure, un recurso de Azure Media Services, un recurso de Azure Content Moderator y credenciales de Azure Active Directory. Para instrucciones sobre cómo obtener estos recursos, consulte la guía de la [API Video Moderation](video-moderation-api.md).
@@ -57,7 +57,7 @@ Edite el archivo `App.config` y agregue el nombre del inquilino de Active Direct
 
 ## <a name="examine-the-main-code"></a>Examinar el código principal
 
-La clase `Program` en `Program.cs` es el punto de entrada principal para la aplicación de moderación de vídeo.
+La clase **Program** de _Program.cs_ es el principal punto de entrada a la aplicación de moderación de vídeo.
 
 ### <a name="methods-of-program-class"></a>Métodos de la clase Program
 
@@ -116,7 +116,7 @@ En las siguientes secciones se examinan con más detalle algunos de los procesos
 Para minimizar el tráfico de red, la aplicación convierte archivos de vídeo a formato H.264 (MPEG-4 AVC) y les aplica una escala de un ancho máximo de 640 píxeles. Se recomienda el códec H.264 por su alta eficacia (velocidad de compresión). La compresión se realiza mediante la herramienta de línea de comandos `ffmpeg` gratuita, que se incluye en la carpeta `Lib` de la solución de Visual Studio. Los archivos de entrada pueden ser de cualquier formato admitido por `ffmpeg`, incluidos los códecs y formatos de archivo de vídeo más usados.
 
 > [!NOTE]
-> Cuando se inicia el programa con las opciones de línea de comandos, se especifica un directorio que contiene los archivos de vídeo que se envían para moderación. Se procesan todos los archivos de este directorio con la extensión de nombre de archivo `.mp4`. Para procesar otras extensiones de nombre de archivo, actualice el método `Main()` en `Program.cs` para incluir las extensiones deseadas.
+> Cuando se inicia el programa con las opciones de línea de comandos, se especifica un directorio que contiene los archivos de vídeo que se envían para moderación. Se procesan todos los archivos de este directorio con la extensión de nombre de archivo `.mp4`. Para procesar otras extensiones de nombre de archivo, actualice el método `Main()` en _Program.cs_ para incluir las extensiones deseadas.
 
 El código que comprime un solo archivo de vídeo es la clase `AmsComponent` en `AMSComponent.cs`. El método responsable de esta funcionalidad es `CompressVideo()`, que se muestra aquí.
 
@@ -138,7 +138,7 @@ El método devuelve el nombre del archivo de salida comprimido.
 
 ## <a name="upload-and-moderate-the-video"></a>Cargar y moderar el vídeo
 
-El vídeo debe almacenarse en Azure Media Services para que el servicio Content Moderation lo pueda procesar. La clase `Program` en `Program.cs` tiene un método breve `CreateVideoStreamingRequest()` que devuelve un objeto que representa la solicitud de streaming usada para cargar el vídeo.
+El vídeo debe almacenarse en Azure Media Services para que el servicio Content Moderation lo pueda procesar. La clase **Program** de _Program.cs_ tiene un método corto `CreateVideoStreamingRequest()` que devuelve un objeto que representa la solicitud de streaming utilizada para cargar el vídeo.
 
 [!code-csharp[CreateVideoStreamingRequest](~/VideoReviewConsoleApp/Microsoft.ContentModerator.AMSComponent/AMSComponentClient/Program.cs?range=120-133)]
 
@@ -228,7 +228,7 @@ También se produce una transcripción de audio del vídeo cuando está configur
 
 ## <a name="create-a-human-review"></a>Crear una revisión humana
 
-El proceso de moderación devuelve una lista de fotogramas clave del vídeo, junto con una transcripción de sus pistas de audio. El siguiente paso es crear una revisión en la herramienta de revisión de Content Moderator para moderadores humanos. Volviendo al método `ProcessVideo()` en `Program.cs`, verá la llamada al método `CreateVideoReviewInContentModerator()`. Este método está en la clase `videoReviewApi`, que se encuentra en `VideoReviewAPI.cs` y se muestra aquí.
+El proceso de moderación devuelve una lista de fotogramas clave del vídeo, junto con una transcripción de sus pistas de audio. El siguiente paso es crear una revisión en la herramienta de revisión de Content Moderator para moderadores humanos. Volviendo al método `ProcessVideo()` de _Program.cs_, verá la llamada al método `CreateVideoReviewInContentModerator()`. Este método está en la clase `videoReviewApi`, que se encuentra en `VideoReviewAPI.cs` y se muestra aquí.
 
 [!code-csharp[CreateVideoReviewInContentModerator](~/VideoReviewConsoleApp/Microsoft.ContentModerator.AMSComponent/AMSComponentClient/VideoReviewAPI.cs?range=42-69)]
 

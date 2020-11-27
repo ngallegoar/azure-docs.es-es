@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 11/13/2020
+ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom:
 - seodec18
 - cog-serv-seo-aug-2020
 keywords: computer vision, computer vision applications, computer vision service
-ms.openlocfilehash: aeaa10870b8b40b907da1d1660e77ebf0271c300
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 1b4768781c45733590639b4a382fecfdb02adf48
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629757"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95532297"
 ---
 # <a name="what-is-computer-vision"></a>¿Qué es Computer Vision?
 
@@ -64,7 +64,7 @@ Genere una descripción de toda una imagen en lenguaje natural, con frases compl
 
 ### <a name="detect-faces"></a>Detección de caras
 
-Detecte caras en una imagen y proporcione información acerca de ellas. Computer Vision devuelve las coordenadas, el rectángulo, el género y la edad de los rostros que detecta.<br/>Computer Vision proporciona un subconjunto de la funcionalidad del servicio [Face](/azure/cognitive-services/face/). Puede usar el servicio Face para realizar un análisis más detallado, como la identificación facial y la detección de poses. [Detección de caras](concept-detecting-faces.md)
+Detecte caras en una imagen y proporcione información acerca de ellas. Computer Vision devuelve las coordenadas, el rectángulo, el género y la edad de los rostros que detecta.<br/>Computer Vision proporciona un subconjunto de la funcionalidad del servicio [Face](../face/index.yml). Puede usar el servicio Face para realizar un análisis más detallado, como la identificación facial y la detección de poses. [Detección de caras](concept-detecting-faces.md)
 
 ### <a name="detect-image-types"></a>Detectar tipos de imagen
 
@@ -90,13 +90,12 @@ Analice el contenido de una imagen para devolver las coordenadas del *área de i
 
 Puede usar Computer Vision para [detectar contenido para adultos](concept-detecting-adult-content.md) en una imagen y devolver puntuaciones de confianza en las distintas clasificaciones. El umbral para el etiquetado de contenido se puede establecer en una escala deslizante, con el fin de que pueda ajustarlo a sus preferencias.
 
-## <a name="use-containers"></a>Uso de contenedores
+## <a name="deploy-on-premises-using-docker-containers"></a>Implementación local mediante contenedores de Docker
 
-Use contenedores de Docker de Computer Vision para usar el servicio de forma local. Actualmente hay dos contenedores disponibles:
+Use los contenedores de Computer Vision para implementar características de API de forma local. Estos contenedores de Docker permiten acercar el servicio a los datos para mejorar el cumplimiento, la seguridad o por otras razones operativas. Computer Vision ofrece los siguientes contenedores:
 
-* El [contenedor de lectura de Computer Vision](computer-vision-how-to-install-containers.md) permite reconocer texto impreso y manuscrito en imágenes.
-
-* El [contenedor de análisis espacial de Computer Vision](spatial-analysis-container.md) permite analizar vídeo de streaming en tiempo real para comprender las relaciones espaciales entre las personas y su movimiento en entornos físicos.
+* El [contenedor de OCR de lectura de Computer Vision (versión preliminar)](computer-vision-how-to-install-containers.md) permite reconocer texto impreso y manuscrito en imágenes.
+* El [contenedor de análisis espacial de Computer Vision (versión preliminar)](spatial-analysis-container.md) permite analizar vídeo de streaming en tiempo real para comprender las relaciones espaciales entre las personas y su movimiento en entornos físicos.
 
 ## <a name="image-requirements"></a>Requisitos de imagen
 

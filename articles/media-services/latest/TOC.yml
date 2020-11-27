@@ -45,6 +45,10 @@
           href: manage-assets-quickstart.md
         - name: Uso del portal para cifrar contenido
           href: encrypt-content-quickstart.md
+    - name: Uso de una plantilla de Resource Manager
+      items:
+        - name: Creación de una cuenta con Azure Resource Manager
+          href: quickstart-arm-template-account.md
 - name: Tutoriales
   items:
     - name: .NET

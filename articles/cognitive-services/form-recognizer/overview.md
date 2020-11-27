@@ -7,29 +7,56 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: overview
-ms.date: 09/21/2020
+ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: automated data processing, document processing, automated data entry, forms processing
-ms.openlocfilehash: 5243c170e1f6b5f647057b8cfafbcac9b2fb4db3
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 05024b8d7f4cf76024d71a79cb1fce489d58ee70
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91318966"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95519530"
 ---
 # <a name="what-is-form-recognizer"></a>¿Qué es Form Recognizer?
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-Azure Form Recognizer es un servicio cognitivo que le permite crear software de procesamiento de datos automatizado mediante tecnología de aprendizaje automático. Identifique y extraiga texto, pares clave-valor y datos de tabla de los documentos de formulario; el servicio genera datos estructurados que incluyen las relaciones en el archivo original. Obtendrá rápidamente resultados precisos a la medida de su contenido específico sin necesidad de una intervención manual pesada o una amplia experiencia en ciencia de datos. Use Form Recognizer para automatizar la entrada de datos en las aplicaciones.
+Azure Form Recognizer es un servicio cognitivo que le permite crear software de procesamiento de datos automatizado mediante tecnología de aprendizaje automático. Identifique y extraiga texto, pares clave-valor, marcas de selección, tablas y una estructura de sus documentos (el servicio genera datos estructurados que incluyen las relaciones del archivo original, rectángulos delimitadores, confianza, etc). Obtendrá rápidamente resultados precisos a la medida de su contenido específico sin necesidad de una intervención manual pesada o una amplia experiencia en ciencia de datos. Use Form Recognizer para automatizar la introducción de datos en las aplicaciones y mejorar las funcionalidades de búsqueda de documentos.
 
-Form Recognizer consta de modelos de procesamiento de documentos personalizados, los modelos precompilados de recibos y tarjetas de presentación y la API de diseño. Puede llamar a los modelos de Form Recognizer mediante una API REST o los SDK de la biblioteca cliente, e integrarlos en su flujo de trabajo o aplicación.
+Form Recognizer consta de modelos de procesamiento de documentos personalizados, modelos precompilados de facturas, recibos y tarjetas de presentación y el modelo de diseño. Puede llamar a los modelos de Form Recognizer mediante una API REST o los SDK de la biblioteca cliente, e integrarlos en su flujo de trabajo o aplicación.
 
-Form Recognizer se compone de los siguientes servicios:
-* **[Modelos personalizados](#custom-models)** : extraiga pares clave-valor y datos de tabla de los formularios. Puede entrenar estos modelos con sus propios datos para que se adapten a sus formularios.
-* **[Modelos precompilados](#prebuilt-models)** : extraiga datos de tipos de formularios únicos mediante modelos precompilados. Actualmente, hay modelos pregenerados para las confirmaciones de ventas y las tarjetas de presentación en inglés.
-* **[API de diseño](#layout-api)** : extraiga estructuras de texto y tabla, junto con sus coordenadas de rectángulos de selección, de los documentos.
+Form Recognizer consta de los siguientes servicios:
+* **[API de diseño](#layout-api)** : extraiga de los documentos texto, marcas de selección y estructuras de tablas, junto con las coordenadas de sus rectángulos de selección.
+* **[Modelos personalizados](#custom-models)** : extraiga texto, pares clave-valor, marcas de selección y datos de tabla de los formularios. Puede entrenar estos modelos con sus propios datos para que se adapten a sus formularios.
+* **[Modelos precompilados](#prebuilt-models)** : extraiga datos de tipos de formularios únicos mediante modelos precompilados. Actualmente, estos son los modelos precompilados que están disponibles:
+    * [Facturas](./concept-invoices.md)
+    * [Recibos de compra](./concept-receipts.md)
+    * [Tarjetas de presentación](./concept-business-cards.md)
+
+
+## <a name="try-it-out"></a>Prueba
+
+Para probar el servicio Form Recognizer, vaya a la herramienta de interfaz de usuario de ejemplo en línea:
+
+
+# <a name="v20"></a>[v2.0](#tab/v2-0)
+> [!div class="nextstepaction"]
+> [Uso de modelos precompilados](https://fott.azurewebsites.net/)
+
+# <a name="v21-preview"></a>[Versión preliminar v2.1](#tab/v2-1)
+> [!div class="nextstepaction"]
+> [Uso de modelos precompilados](https://fott-preview.azurewebsites.net/)
+
+---
+
+Necesitará una suscripción de Azure ([cree una gratis](https://azure.microsoft.com/free/cognitive-services)) y un punto de conexión de [recursos de Form Recognizer](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer), así como la clave para probar el servicio Form Recognizer.
+
+## <a name="layout-api"></a>API de diseño
+
+Form Recognizer puede extraer de documentos texto, marcas de selección y estructuras de tablas (los números de fila y columna asociados al texto) mediante el reconocimiento óptico de caracteres (OCR) de alta definición y un modelo de aprendizaje profundo mejorado. Para más información, consulte la guía conceptual sobre [diseño](./concept-layout.md).
+
+:::image type="content" source="./media/tables-example.jpg" alt-text="Tablas de ejemplo" lightbox="./media/tables-example.jpg":::
 
 ## <a name="custom-models"></a>Modelos personalizados
 
@@ -47,48 +74,57 @@ Consulte [Creación de un conjunto de datos de entrenamiento](./build-training-d
 
 Al entrenar con datos etiquetados, el modelo realiza un aprendizaje supervisado para extraer valores de interés mediante los formularios etiquetados que se proporcionan. Esto da como resultado modelos con un mejor rendimiento y puede generar modelos que funcionen con formularios complejos o formularios que contengan valores sin claves.
 
-Form Recognizer usa la [API de diseño](#layout-api) para aprender los tamaños y posiciones esperados de los elementos de texto impresos y manuscritos. A continuación, usa etiquetas especificadas por el usuario para aprender las asociaciones clave-valor de los documentos. Se recomienda usar cinco formularios etiquetados manualmente del mismo tipo para empezar a entrenar un nuevo modelo y agregar más datos etiquetados según sea necesario para mejorar la precisión del modelo.
+Form Recognizer usa la [API de diseño](#layout-api) para aprender los tamaños y posiciones esperados de los elementos de texto impresos y manuscritos. A continuación, usa etiquetas especificadas por el usuario para aprender las asociaciones clave-valor de los documentos. Se recomienda usar cinco formularios etiquetados manualmente del mismo tipo (la misma estructura) para empezar a entrenar un nuevo modelo y agregar más datos etiquetados según sea necesario para mejorar la precisión del modelo.
+
+[Introducción al entrenamiento con etiquetas](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/quickstarts/label-tool)
+
+
+> [!VIDEO https://channel9.msdn.com/Shows/Docs-Azure/Azure-Form-Recognizer/player]
+
 
 ## <a name="prebuilt-models"></a>Modelos creados previamente
 
 Form Recognizer también incluye modelos precompilados para el procesamiento automático de datos de tipos de formularios únicos.
 
+### <a name="prebuilt-invoice-model"></a>Modelo de factura precompilado
+El modelo de factura precompilado extrae datos de las facturas en varios formatos y devuelve datos estructurados. Este modelo extrae información clave como el identificador de factura, los detalles del cliente, los detalles del proveedor, la dirección de envío, la dirección de facturación, el total, los impuestos, el subtotal, etc. Además, este modelo se entrena para reconocer y devolver todo el texto y las tablas de la factura. Para más información, consulte la guía conceptual sobre [facturas](./concept-invoices.md).
+
+:::image type="content" source="./media/overview-invoices.jpg" alt-text="Factura de ejemplo" lightbox="./media/overview-invoices.jpg":::
+
 ### <a name="prebuilt-receipt-model"></a>Modelo de recibo pregenerado
 
 El modelo de recibo pregenerado se usa para leer los recibos de ventas en Inglés de Australia, Canadá, Gran Bretaña, India y Estados Unidos (el tipo que usan los restaurantes, las estaciones de gas, minoristas, etc). Este modelo extrae información clave como la hora y la fecha de la transacción, información del comerciante, importe de los impuestos, totales y mucho más. Además, el modelo de recibo pregenerado se entrena para reconocer y devolver todo el texto en un recibo. Consulte la guía conceptual sobre [recibos](./concept-receipts.md) para más información.
 
-![recibo de ejemplo](./media/contoso-receipt-small.png)
+:::image type="content" source="./media/overview-receipt.jpg" alt-text="recibo de ejemplo" lightbox="./media/overview-receipt.jpg":::
 
 ### <a name="prebuilt-business-cards-model"></a>Modelo de tarjetas de presentación pregenerado
 
 El modelo de tarjetas de presentación le permite extraer información como el nombre de la persona, el puesto de trabajo, la dirección, el correo electrónico, la empresa y los números de teléfono de las tarjetas de presentación en inglés. Consulte la guía conceptual sobre [tarjetas de presentación](./concept-business-cards.md) para más información.
 
-![tarjeta de presentación de ejemplo](./media/business-card-english.jpg)
+:::image type="content" source="./media/overview-business-card.jpg" alt-text="tarjeta de presentación de ejemplo" lightbox="./media/overview-business-card.jpg":::
 
-## <a name="layout-api"></a>API de diseño
-
-Form Recognizer también puede extraer texto y estructuras de tablas (los números de fila y columna asociados al texto) mediante el reconocimiento óptico de caracteres (OCR) de alta definición.
 
 ## <a name="get-started"></a>Introducción
 
-Siga un inicio rápido para comenzar a extraer datos de los formularios. Se recomienda usar el servicio gratuito cuando se está aprendiendo la tecnología. Recuerde que el número de páginas gratuitas se limita a 500 al mes.
+Use la [herramienta Form Recognizer de ejemplo](https://fott.azurewebsites.net/) o siga un inicio rápido para empezar a extraer datos de formularios. Se recomienda usar el servicio gratuito cuando se está aprendiendo la tecnología. Recuerde que el número de páginas gratuitas se limita a 500 al mes.
 
 * [Inicios rápidos de la biblioteca cliente](./quickstarts/client-library.md) (todos los lenguajes, varios escenarios)
 * Inicios rápidos de la interfaz de usuario web
   * [Entrenamiento con etiquetas: herramienta de etiquetado de ejemplo](quickstarts/label-tool.md)
 * Inicios rápidos de REST
+ * Extracción de texto, marcas de selección y estructura de tablas de documentos
+    * [Extracción de datos de diseño: Python](quickstarts/python-layout.md)
   * Entrenamiento de modelos personalizados y extracción de datos de formularios
     * [Entrenamiento sin etiquetas: cURL](quickstarts/curl-train-extract.md)
     * [Entrenamiento sin etiquetas: Python](quickstarts/python-train-extract.md)
     * [ Entrenamiento con etiquetas: Python](quickstarts/python-labeled-data.md)
+  * Extracción de datos de facturas
+    * [Extracción de datos de facturas: Python](quickstarts/python-invoices.md)
   * Extracción de datos de recibos de ventas
     * [Extracción de datos de recibos: cURL](quickstarts/curl-receipts.md)
     * [Extracción de datos de recibos: Python](quickstarts/python-receipts.md)
   * Extracción de datos de tarjetas de presentación
     * [Extracción de datos de tarjetas de presentación: Python](quickstarts/python-business-cards.md)
-  * Extracción de texto y estructura de tablas de formularios
-    * [Extracción de datos de diseño: Python](quickstarts/python-layout.md)
-
 
 ### <a name="review-the-rest-apis"></a>Revisión de las API REST
 
@@ -96,17 +132,29 @@ Va a utilizar las siguientes API para entrenar modelos y extraer datos estructur
 
 |Nombre |Descripción |
 |---|---|
+| **Análisis de diseño** | Analice un documento pasado como secuencia para extraer de él texto, marcas de selección, tablas y su estructura |
 | **Entrenamiento de modelos personalizados**| Entrene un nuevo modelo para analizar los formularios con cinco formularios del mismo tipo. Establezca el parámetro _useLabelFile_ en `true` para entrenar con datos etiquetados manualmente. |
-| **Análisis de formularios** |Analice un documento único pasado como una secuencia para extraer texto, pares clave-valor y tablas del formulario con su modelo personalizado.  |
-| **Análisis de recibos** |Analice un documento de entrada individual para extraer la información clave y cualquier otro texto del recibo.|
-| **Análisis de una tarjeta de presentación** |Analice una tarjeta de presentación para extraer el texto y la información más importante.|
-| **Análisis de diseño** |Analice el diseño de un formulario para extraer texto y estructuras de tablas.|
+| **Análisis de formularios** |Analice un formulario pasado como una secuencia para extraer texto, pares clave-valor y tablas del formulario con su modelo personalizado.  |
+| **Análisis de facturas** | Analice una factura para extraer de ella información clave, tablas y otro tipo de texto.|
+| **Análisis de recibos** | Analice un recibo para extraer de él la información clave y cualquier otro texto.|
+| **Análisis de una tarjeta de presentación** | Analice una tarjeta de presentación para extraer el texto y la información más importante.|
 
+
+# <a name="v20"></a>[v2.0](#tab/v2-0)
 Explore la [documentación de referencia de API REST](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm) para más información. Si está familiarizado con una versión anterior de la API, consulte el artículo sobre [novedades](./whats-new.md) para más información sobre los cambios recientes.
+
+# <a name="v21"></a>[v2.1](#tab/v2-1)
+Explore la [documentación de referencia de API REST](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeWithCustomForm) para más información. Si está familiarizado con una versión anterior de la API, consulte el artículo sobre [novedades](./whats-new.md) para más información sobre los cambios recientes.
+
+---
 
 ## <a name="input-requirements"></a>Requisitos de entrada
 
 [!INCLUDE [input requirements](./includes/input-requirements.md)]
+
+## <a name="deploy-on-premises-using-docker-containers"></a>Implementación local mediante contenedores de Docker
+
+[Use contenedores de Form Recognizer (versión preliminar)](form-recognizer-container-howto.md) para implementar características de API locales. Este contenedor de Docker permite acercar el servicio a los datos para mejorar el cumplimiento, la seguridad o por otras razones operativas.
 
 ## <a name="data-privacy-and-security"></a>Seguridad y privacidad de datos
 

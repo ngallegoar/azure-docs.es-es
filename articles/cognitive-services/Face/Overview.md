@@ -7,16 +7,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: overview
-ms.date: 9/17/2020
+ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: reconocimiento facial, software de reconocimiento facial, análisis facial, coincidencia facial, aplicación de reconocimiento facial, búsqueda de caras por imagen, búsqueda de reconocimiento facial
-ms.openlocfilehash: ccc9ee3107d287844430be0ae089e4b7ac3a2f44
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 600ca48cc19ee8723b423e484ec96736a55ae7fc
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92911450"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95532263"
 ---
 # <a name="what-is-the-azure-face-service"></a>¿Qué es el servicio Azure Face?
 
@@ -76,9 +76,9 @@ Una vez creada y entrenada la base de datos, puede realizar la identificación e
 
 Para más información sobre la identificación de personas, vea la guía de conceptos [Reconocimiento facial](concepts/face-recognition.md) o la documentación de referencia de [Identify API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239).
 
-## <a name="containers"></a>Contenedores
+## <a name="deploy-on-premises-using-docker-containers"></a>Implementación local mediante contenedores de Docker
 
-[Utilice el contenedor de caras](face-how-to-install-containers.md) para detectar, reconocer e identificar caras, mediante la instalación de un contenedor de Docker estándar más cercano a los datos.
+[Use el contenedor de Face (versión preliminar)](face-how-to-install-containers.md) para implementar características de API locales. Este contenedor de Docker permite acercar el servicio a los datos para mejorar el cumplimiento, la seguridad o por otras razones operativas.
 
 ## <a name="sample-apps"></a>Aplicaciones de ejemplo
 

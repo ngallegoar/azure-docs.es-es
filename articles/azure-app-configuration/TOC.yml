@@ -70,6 +70,8 @@
       items:
         - name: Inserción mediante Azure Pipelines
           href: push-kv-devops-pipeline.md
+        - name: Inserción mediante Azure Pipelines
+          href: pull-key-value-devops-pipeline.md
         - name: Inserción mediante Acciones de GitHub
           href: concept-github-action.md
         - name: Compilación de un proyecto mediante la configuración exportada

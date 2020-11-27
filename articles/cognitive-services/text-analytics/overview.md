@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 11/02/2020
+ms.date: 11/17/2020
 ms.author: aahi
 keywords: text mining, sentiment analysis, text analytics
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: 6d10161609abda321ed1be9dfda0acabf2030c9e
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 14dfa6111bbda8750b175c8c9b2a96321e1af2c5
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94365302"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95519411"
 ---
 # <a name="what-is-the-text-analytics-api"></a>¿Qué es Text Analytics API?
 
@@ -47,9 +47,18 @@ Detección de idiomas puede [detectar en qué idioma está escrito el texto de e
 
 La característica Reconocimiento de entidades con nombre (NER) puede [identificar y clasificar las entidades](how-tos/text-analytics-how-to-entity-linking.md) del texto como personas, lugares, organizaciones o cantidades. Las entidades conocidas también se reconocen y se vinculan a más información en la Web.
 
-## <a name="use-containers"></a>Uso de contenedores
+## <a name="deploy-on-premises-using-docker-containers"></a>Implementación local mediante contenedores de Docker
 
-[Use los contenedores de Text Analytics](how-tos/text-analytics-how-to-install-containers.md) como una solución local para la minería de texto y el uso de la API. Estos contenedores de Docker permiten extraer frases clave, detectar idiomas y analizar la opinión de sus datos.
+[Use los contenedores de Text Analytics](how-tos/text-analytics-how-to-install-containers.md) para implementar características de API de forma local. Estos contenedores de Docker permiten acercar el servicio a los datos para mejorar el cumplimiento, la seguridad o por otras razones operativas. Text Analytics ofrece los siguientes contenedores:
+
+* análisis de opinión
+* extracción de frases clave (versión preliminar)
+* detección de idioma (versión preliminar)
+* Text Analytics for Health (versión preliminar)
+
+## <a name="asynchronous-operations"></a>Operaciones asincrónicas
+
+El punto de conexión de `/analyze` permite usar las características seleccionadas de la API Text Analytics [de forma asincrónica](how-tos/text-analytics-how-to-call-api.md), como NER y la extracción de frases clave.
 
 ## <a name="typical-workflow"></a>Flujo de trabajo típico
 

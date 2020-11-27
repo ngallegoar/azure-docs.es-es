@@ -47,12 +47,8 @@
   items:
     - name: Conexión y desarrollo de dispositivos
       items:
-        - name: Conexión de un dispositivo (Node.js)
-          href: tutorial-connect-device-nodejs.md
-        - name: Conexión de un dispositivo (Python)
-          href: tutorial-connect-device-python.md
-        - name: Conexión de un dispositivo (Java)
-          href: tutorial-connect-device-java.md
+        - name: Creación y conexión de dispositivos
+          href: tutorial-connect-device.md
         - name: Creación de una plantilla de dispositivo de puerta de enlace
           href: tutorial-define-gateway-device-type.md
         - name: "Conexión de un dispositivo IoT\_Edge"

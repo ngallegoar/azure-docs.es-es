@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 08/14/2020
+ms.date: 11/19/2020
 ms.author: aahi
 ms.reviewer: chtufts
-ms.openlocfilehash: 905dde6932afb440c34bcccb563bfda98f23eb7c
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: c60adb09da05ba945bcf6ccb55e71c395f064211
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94363840"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965109"
 ---
 # <a name="data-and-rate-limits-for-the-text-analytics-api"></a>Límites de datos y velocidad de la API Text Analytics
 <a name="data-limits"></a>
@@ -31,24 +31,28 @@ Use este artículo para encontrar los límites de tamaño y las velocidades a la
 
 | Límite | Value |
 |------------------------|---------------|
-| Tamaño máximo de un documento individual | 5120 caracteres medidos por [StringInfo.LengthInTextElements](/dotnet/api/system.globalization.stringinfo.lengthintextelements). También se aplica a Text Analytics para el contenedor de estado. |
-| Tamaño máximo de la solicitud completa | 1 MB. También se aplica a Text Analytics para el contenedor de estado. |
+| Tamaño máximo de un documento individual | 5120 caracteres medidos por [StringInfo.LengthInTextElements](/dotnet/api/system.globalization.stringinfo.lengthintextelements). También se aplica a Text Analytics for Health. |
+| Tamaño máximo de un documento individual (punto de conexión de `/analyze`)  | 125 000 caracteres medidos por [StringInfo.LengthInTextElements](/dotnet/api/system.globalization.stringinfo.lengthintextelements). No se aplica a Text Analytics for Health. |
+| Tamaño máximo de la solicitud completa | 1 MB. También se aplica a Text Analytics for Health. |
 
-El número máximo de documentos que puede enviar en una única solicitud dependerá de la versión de la API y de la característica que use.
+El número máximo de documentos que puede enviar en una única solicitud dependerá de la versión de la API y de la característica que use. El punto de conexión de `/analyze` rechazará toda la solicitud si algún documento supera el tamaño máximo (125 000 caracteres)
 
 #### <a name="version-3"></a>[Versión 3](#tab/version-3)
 
-Los límites siguientes han cambiado en la versión 3 de la API. Si se superan los límites siguientes, se generará un código de error HTTP 400.
+Los siguientes límites son para la API v3 actual. Si se superan los límites siguientes, se generará un código de error HTTP 400.
 
 
 | Característica | Número máximo de documentos por solicitud | 
 |----------|-----------|
 | Detección de idiomas | 1000 |
 | Análisis de sentimiento | 10 |
+| Minería de opiniones | 10 |
 | Extracción de frases clave | 10 |
 | Reconocimiento de entidades con nombre | 5 |
 | Entity Linking | 5 |
-| Text Analytics para el contenedor de estado | 1000 |
+| Text Analytics for Health  | 10 para la API basada en web y 1000 para el contenedor. |
+| Analizar punto de conexión | 25 para todas las operaciones. |
+
 #### <a name="version-2"></a>[Versión 2](#tab/version-2)
 
 | Característica | Número máximo de documentos por solicitud | 
@@ -74,7 +78,7 @@ El límite de velocidad variará en función del [plan de tarifa](https://azure.
 | S3            | 500                 | 500                 |
 | S4            | 1000                | 1000                |
 
-Las solicitudes se miden por separado para cada característica de Text Analytics. Por ejemplo, puede enviar el número máximo de solicitudes correspondiente al plan de tarifa a cada característica, al mismo tiempo.  
+Los índices de solicitudes se miden por separado para cada característica de Text Analytics. Puede enviar el número máximo de solicitudes correspondiente al plan de tarifa a cada característica, al mismo tiempo. Por ejemplo, si se encuentra en el nivel de `S` y envía 1000 solicitudes a la vez, no podrá enviar ninguna otra solicitud durante 59 segundos.
 
 
 ## <a name="see-also"></a>Consulte también

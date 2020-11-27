@@ -10,12 +10,12 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 10/25/2019
-  ms.openlocfilehash: b59bfb72df88c80656935e15045933dcb13a139e
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 857fa66c1e3d6b6cea8fadb966ef1813222026fe
+  ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "90014623"
+  ms.lasthandoff: 11/25/2020
+  ms.locfileid: "96122527"
 landingContent:
 - title: Creación de soluciones para el sector sanitario
   linkLists:
@@ -35,10 +35,8 @@ landingContent:
       url: ../core/overview-iot-central-developer.md
   - linkListType: tutorial
     links:
-    - text: Conexión de un dispositivo (Node.js)
-      url: ../core/tutorial-connect-device-nodejs.md
-    - text: Conexión de un dispositivo (Python)
-      url: ../core/tutorial-connect-device-python.md
+    - text: Creación y conexión de un dispositivo
+      url: ../core/tutorial-connect-device.md
   - linkListType: concept
     links:
     - text: Conectividad de dispositivos

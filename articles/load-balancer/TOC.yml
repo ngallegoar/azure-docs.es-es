@@ -33,9 +33,11 @@
       href: tutorial-load-balancer-standard-public-zonal-portal.md
     - name: Configuración del reenvío de puertos de Load Balancer
       href: tutorial-load-balancer-port-forwarding-portal.md
+    - name: 'Creación de un equilibrador de carga entre regiones: Azure Portal'
+      href: tutorial-cross-region-portal.md
 - name: Ejemplos
   items:
-    - name: CLI de Azure
+    - name: Azure CLI
       href: cli-samples.md
     - name: Azure PowerShell
       href: powershell-samples.md
@@ -107,7 +109,7 @@
           href: upgrade-InternalBasic-To-PublicStandard.md
     - name: Creación de Load Balancer público con IPv6
       items:
-        - name: CLI de Azure
+        - name: Azure CLI
           href: ../virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli.md
         - name: Azure PowerShell
           href: ../virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md
@@ -154,7 +156,7 @@
       href: 'https://azure.microsoft.com/resources/samples/?service=load-balancer'
     - name: Azure PowerShell
       href: /powershell/module/az.network
-    - name: CLI de Azure
+    - name: Azure CLI
       href: /cli/azure/network/lb
     - name: .NET
       href: /dotnet/api/microsoft.azure.management.network.models

@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: overview
-ms.date: 08/20/2020
+ms.date: 11/23/2020
 ms.author: trbye
-ms.openlocfilehash: 7d31649e18f8cc687a9716c8ecafe556fa250de6
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 291ac7804109b098b556e38c57ca493ba74f1b14
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93377894"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95528897"
 ---
 # <a name="what-is-the-speech-service"></a>¿Qué es Speech Service?
 
-El servicio de voz es la unificación de las funcionalidades de conversión de voz a texto, conversión de texto a voz y traducción de voz en una sola suscripción de Azure. Con la [CLI de Voz](spx-overview.md), el [SDK de voz](speech-sdk-reference.md), el [SDK de dispositivos de voz](https://aka.ms/sdsdk-quickstart), [Speech Studio](https://speech.microsoft.com/) o las [API REST](rest-apis.md) es fácil habilitar aplicaciones, herramientas y dispositivos para el uso de la voz.
+El servicio de voz es la unificación de las funcionalidades de conversión de voz a texto, conversión de texto a voz y traducción de voz en una sola suscripción de Azure. Con la [CLI de Voz](spx-overview.md), el [SDK de voz](./speech-sdk.md), el [SDK de dispositivos de voz](./speech-devices-sdk-quickstart.md?pivots=platform-android), [Speech Studio](https://speech.microsoft.com/) o las [API REST](#reference-docs) es fácil habilitar aplicaciones, herramientas y dispositivos para el uso de la voz.
 
 > [!IMPORTANT]
 > El servicio de voz ha reemplazado a Bing Speech API y Translator Speech. Consulte la sección de _migración_ para obtener instrucciones sobre migración.
@@ -28,16 +28,16 @@ Las siguientes características forman parte del servicio Speech. Use los víncu
 
 | Servicio | Característica | Descripción | SDK | REST |
 |---------|---------|-------------|-----|------|
-| [Voz a texto](speech-to-text.md) | Conversión de voz en texto en tiempo real | La conversión de voz en texto transcribe o traduce en tiempo real secuencias de audio o archivos de audio a texto que sus aplicaciones, herramientas o dispositivos pueden consumir o mostrar. Use voz a texto con [Language Understanding (LUIS)](https://docs.microsoft.com/azure/cognitive-services/luis/) para derivar las intenciones del usuario a partir de voz transcrita y actuar en los comandos de voz. | [Sí](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [Sí](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+| [Voz a texto](speech-to-text.md) | Conversión de voz en texto en tiempo real | La conversión de voz en texto transcribe o traduce en tiempo real secuencias de audio o archivos de audio a texto que sus aplicaciones, herramientas o dispositivos pueden consumir o mostrar. Use voz a texto con [Language Understanding (LUIS)](../luis/index.yml) para derivar las intenciones del usuario a partir de voz transcrita y actuar en los comandos de voz. | [Sí](./speech-sdk.md) | [Sí](#reference-docs) |
 | | [Conversión de voz en texto por lotes](batch-transcription.md) | La conversión de voz a texto por lotes permite la transcripción asincrónica de voz en texto de grandes volúmenes de datos de audio de voz almacenados en Azure Blob Storage. Además de convertir el audio de la voz en texto, la conversión de voz en texto por lotes también permite la diarización y el análisis de opiniones. | No | [Sí](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0) |
 | | [Conversación entre varios dispositivos](multi-device-conversation.md) | Conexión de varios dispositivos o clientes en una conversación para enviar mensajes basados en voz o texto, con compatibilidad sencilla con transcripción y traducción| Sí | No |
-| | [Transcripción de conversaciones](conversation-transcription-service.md) | Permite el reconocimiento de voz en tiempo real, la identificación del hablante y la diarización. Es perfecto para transcribir reuniones en persona con la capacidad de distinguir a los oradores. | Sí | No |
+| | [Transcripción de conversaciones](./conversation-transcription.md) | Permite el reconocimiento de voz en tiempo real, la identificación del hablante y la diarización. Es perfecto para transcribir reuniones en persona con la capacidad de distinguir a los oradores. | Sí | No |
 | | [Creación de modelos de Habla personalizada](#customize-your-speech-experience) | Si usa voz a texto para el reconocimiento y la transcripción en un entorno único, puede crear y entrenar modelos acústicos, de lenguaje y pronunciación personalizados para dirigir el sonido ambiental o vocabulario específico del sector. | No | [Sí](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0) |
-| [Texto a voz](text-to-speech.md) | Texto a voz | Texto a voz convierte el texto de entrada en voz sintetizada similar a la humana mediante el [Lenguaje de marcado de síntesis de voz (SSML)](speech-synthesis-markup.md). Elija entre voces estándar y voces neuronales (consulte [Compatibilidad de idioma](language-support.md)). | [Sí](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [Sí](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
-| | [Creación de voces personalizadas](#customize-your-speech-experience) | Cree fuentes de voz personalizadas únicas para su marca o producto. | No | [Sí](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
-| [Traducción de voz](speech-translation.md) | Traducción de voz | La traducción de voz habilita la traducción de voz en varios idiomas en tiempo real en sus aplicaciones, herramientas y dispositivos. Use este servicio para la traducción de voz a voz y voz a texto. | [Sí](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | No |
+| [Texto a voz](text-to-speech.md) | Texto a voz | Texto a voz convierte el texto de entrada en voz sintetizada similar a la humana mediante el [Lenguaje de marcado de síntesis de voz (SSML)](speech-synthesis-markup.md). Elija entre voces estándar y voces neuronales (consulte [Compatibilidad de idioma](language-support.md)). | [Sí](./speech-sdk.md) | [Sí](#reference-docs) |
+| | [Creación de voces personalizadas](#customize-your-speech-experience) | Cree fuentes de voz personalizadas únicas para su marca o producto. | No | [Sí](#reference-docs) |
+| [Traducción de voz](speech-translation.md) | Traducción de voz | La traducción de voz habilita la traducción de voz en varios idiomas en tiempo real en sus aplicaciones, herramientas y dispositivos. Use este servicio para la traducción de voz a voz y voz a texto. | [Sí](./speech-sdk.md) | No |
 | [Asistentes de voz](voice-assistants.md) | Asistentes de voz | Los asistentes de voz que utilizan el Servicio de voz permiten a los desarrolladores crear interfaces de conversación naturales, similares a la humana, para sus aplicaciones y experiencias. El servicio del asistente de voz proporciona una interacción rápida y confiable entre un dispositivo y una implementación de asistente que usa el canal de voz de Direct Line Speech de Bot Framework o el servicio integrado de comandos personalizados (versión preliminar) para la finalización de tareas. | [Sí](voice-assistants.md) | No |
-| [Speaker Recognition](speaker-recognition-overview.md) | Verificación e identificación del hablante | El servicio Speaker Recognition proporciona algoritmos que comprueban e identifican a los hablantes por sus características de voz únicas. Speaker Recognition se usa para responder a la pregunta "¿quién está hablando?". | Sí | [Sí](https://docs.microsoft.com/rest/api/speakerrecognition/) |
+| [Speaker Recognition](speaker-recognition-overview.md) | Verificación e identificación del hablante | El servicio Speaker Recognition proporciona algoritmos que comprueban e identifican a los hablantes por sus características de voz únicas. Speaker Recognition se usa para responder a la pregunta "¿quién está hablando?". | Sí | [Sí](/rest/api/speakerrecognition/) |
 
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
@@ -104,15 +104,15 @@ Ofrecemos guías de inicio rápido en los lenguajes de programación más popula
 
 * [Inicio rápido de voz a texto](get-started-speech-to-text.md)
 * [Inicio rápido para la conversión de texto a voz](get-started-text-to-speech.md)
-* [Inicio rápido sobre la traducción de voz](speech-translation-basics.md)
+* [Inicio rápido sobre la traducción de voz](./get-started-speech-translation.md)
 * [Inicio rápido sobre el reconocimiento de intención](quickstarts/intent-recognition.md)
-* [Inicio rápido spbre el reconocimiento de los altavoces](speaker-recognition-basics.md)
+* [Inicio rápido spbre el reconocimiento de los altavoces](./get-started-speaker-recognition.md)
 
 Una vez que haya tenido la oportunidad de usar el servicio de voz, pruebe nuestros tutoriales, que le enseñarán a resolver distintos escenarios.
 
 - [Tutorial: Reconocimiento de intenciones a partir de contenido de voz con el SDK de voz y LUIS, C#](how-to-recognize-intents-from-speech-csharp.md)
 - [Tutorial: Habilitación del bot con voz mediante el SDK de voz, C#](tutorial-voice-enable-your-bot-speech-sdk.md)
-- [Tutorial: Compilación de una aplicación de Flask para traducir texto, analizar opiniones y sintetizar la voz de texto a voz, REST](https://docs.microsoft.com/azure/cognitive-services/translator/tutorial-build-flask-app-translation-synthesis?toc=%2fazure%2fcognitive-services%2fspeech-service%2ftoc.json&bc=%2fazure%2fcognitive-services%2fspeech-service%2fbreadcrumb%2ftoc.json&toc=%2Fen-us%2Fazure%2Fcognitive-services%2Fspeech-service%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json)
+- [Tutorial: Compilación de una aplicación de Flask para traducir texto, analizar opiniones y sintetizar la voz de texto a voz, REST](../translator/tutorial-build-flask-app-translation-synthesis.md?bc=%252fazure%252fcognitive-services%252fspeech-service%252fbreadcrumb%252ftoc.json%252c%252fen-us%252fazure%252fbread%252ftoc.json&toc=%252fazure%252fcognitive-services%252fspeech-service%252ftoc.json%252c%252fen-us%252fazure%252fcognitive-services%252fspeech-service%252ftoc.json)
 
 ## <a name="get-sample-code"></a>Obtención de código de ejemplo
 
@@ -134,16 +134,28 @@ Otros productos ofrecen modelos de voz adaptados para fines específicos, como l
 | Voz a texto | [Habla personalizada](https://aka.ms/customspeech) | El reconocimiento de voz personalizado se adapta a sus necesidades y datos disponibles. Elimine las barreras del reconocimiento de voz, como el estilo de habla, el vocabulario y el ruido de fondo. |
 | Text-to-Speech | [Voz personalizada](https://aka.ms/customvoice) | Cree una voz reconocible única para las aplicaciones de texto a voz con los datos de habla disponibles. Puede optimizar aún más las salidas de voz ajustando un conjunto de parámetros de voz. |
 
+## <a name="deploy-on-premises-using-docker-containers"></a>Implementación local mediante contenedores de Docker
+
+[Use los contenedores del servicio de voz](speech-container-howto.md) para implementar características de API de forma local. Estos contenedores de Docker permiten acercar el servicio a los datos para mejorar el cumplimiento, la seguridad o por otras razones operativas. El servicio de voz ofrece los siguientes contenedores:
+
+* Conversión de voz en texto estándar
+* Conversión de voz a texto personalizada
+* Conversión de texto a voz estándar
+* Texto a voz neuronal
+* Conversión de texto a voz personalizada (versión preliminar)
+* Detección de idioma de voz (versión preliminar)
+
 ## <a name="reference-docs"></a>Documentos de referencia
 
-- [Acerca del SDK de Voz](speech-sdk-reference.md)
+- [Acerca del SDK de Voz](./speech-sdk.md)
 - [Speech Devices SDK](speech-devices-sdk.md)
 - [API REST: Speech-to-text](rest-speech-to-text.md) (API de REST: Voz a texto)
 - [API REST: Text-to-speech](rest-text-to-speech.md) (API de REST: Texto a voz)
 - [API REST: Batch transcription and customization](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0) (API de REST: Transcripción y personalización de Azure Batch)
 
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Introducción a la conversión de voz en texto](speech-to-text-basics.md)
+> [Introducción a la conversión de voz en texto](./get-started-speech-to-text.md)
 > [Introducción a la conversión de texto en voz](get-started-text-to-speech.md)

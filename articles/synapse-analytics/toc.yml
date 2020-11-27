@@ -98,6 +98,8 @@
           items:
             - name: Línea de base de seguridad
               href: security-baseline.md
+            - name: Cifrado
+              href: ./security/workspaces-encryption.md
             - name: Seguridad de redes
               items:
                 - name: Reglas de firewall de IP del área de trabajo de Synapse
@@ -635,7 +637,7 @@
               href: ../data-factory/connector-azure-databricks-delta-lake.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Azure File Storage
               href: ../data-factory/connector-azure-file-storage.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: Azure SQL Database
+            - name: "Azure\_SQL\_Database"
               href: ../data-factory/connector-azure-sql-database.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Instancia administrada de Azure SQL
               href: ../data-factory/connector-azure-sql-database-managed-instance.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
@@ -976,6 +978,8 @@
               href: ../data-factory/data-factory-troubleshoot-guide.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Solución de problemas del conector
               href: ../data-factory/connector-troubleshoot-guide.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Integración e implementación continuas
+              href: ../data-factory/ci-cd-github-troubleshoot-guide.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Seguridad y control de acceso
               href: ../data-factory/security-and-access-control-troubleshoot-guide.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Solución de problemas de los entornos de ejecución de integración autohospedados
@@ -1028,6 +1032,9 @@
       href: 'https://github.com/Azure-Samples/Synapse'
     - name: Vistas del sistema
       href: sql/reference-tsql-system-views.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+    - name: Elementos integrados de Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
     - name: T-SQL
       items:
         - name: Referencia completa

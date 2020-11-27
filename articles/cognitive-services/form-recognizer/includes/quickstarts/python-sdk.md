@@ -9,23 +9,23 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 10/26/2020
 ms.author: pafarley
-ms.openlocfilehash: b09dfe8e585dbcb6b8b1289fc551cec12d86c6db
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 534916d81cfb4d3ad1e96d2934f43221067fb94f
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92918745"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95866953"
 ---
 > [!IMPORTANT]
 > * Por motivos de simplicidad, en el código de este artículo se usan métodos sincrónicos y almacenamiento de credenciales no protegidas. Para más información, consulte la siguiente documentación de referencia. 
 
 [Documentación de referencia](/python/api/azure-ai-formrecognizer) | [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/azure/ai/formrecognizer) | [Paquete (PyPi)](https://pypi.org/project/azure-ai-formrecognizer/) | [Ejemplos](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/cognitive-services)
 * [Python 3.x](https://www.python.org/)
-* Un blob de Azure Storage que contenga un conjunto de datos de entrenamiento. Consulte [Creación de un conjunto de datos de aprendizaje para un modelo personalizado](../../build-training-data-set.md) para ver sugerencias y opciones para reunir el conjunto de datos de aprendizaje. En este inicio rápido puede usar los archivos de la carpeta **Train** del [conjunto de datos de ejemplo](https://go.microsoft.com/fwlink/?linkid=2090451) (descargue y extraiga *sample_data.zip* ).
+* Un blob de Azure Storage que contenga un conjunto de datos de entrenamiento. Consulte [Creación de un conjunto de datos de aprendizaje para un modelo personalizado](../../build-training-data-set.md) para ver sugerencias y opciones para reunir el conjunto de datos de aprendizaje. En este inicio rápido puede usar los archivos de la carpeta **Train** del [conjunto de datos de ejemplo](https://go.microsoft.com/fwlink/?linkid=2090451) (descargue y extraiga *sample_data.zip*).
 * Una vez que tenga la suscripción de Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title="cree un recurso de Form Recognizer"  target="_blank">create a Form Recognizer resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> en Azure Portal para obtener la clave y el punto de conexión. Una vez que se implemente, haga clic en **Ir al recurso**.
     * Necesitará la clave y el punto de conexión del recurso que cree para conectar la aplicación a Form Recognizer API. En una sección posterior de este mismo inicio rápido pegará la clave y el punto de conexión en el código siguiente.
     * Puede usar el plan de tarifa gratis (`F0`) para probar el servicio y actualizarlo más adelante a un plan de pago para producción.
@@ -36,9 +36,19 @@ ms.locfileid: "92918745"
 
 Después de instalar Python, puede instalar la versión más reciente de la biblioteca de cliente de Form Recognizer con:
 
+#### <a name="version-30"></a>[versión 3.0](#tab/ga)
+
 ```console
 pip install azure-ai-formrecognizer
 ```
+
+#### <a name="version-31-preview"></a>[versión 3.1 (versión preliminar)](#tab/preview)
+
+```console
+pip install azure-ai-formrecognizer --pre
+```
+
+---
 
 ### <a name="create-a-new-python-application"></a>Creación de una nueva aplicación de Python
 
@@ -81,6 +91,8 @@ Con Form Recognizer, puede crear dos tipos de cliente diferentes. El primero, `f
 
 En estos fragmentos de código, se muestra cómo realizar las siguientes tareas con la biblioteca cliente de Form Recognizer para Python:
 
+#### <a name="version-30"></a>[versión 3.0](#tab/ga)
+
 * [Autenticar el cliente](#authenticate-the-client)
 * [Reconocer el contenido del formulario](#recognize-form-content)
 * [Reconocer recibos](#recognize-receipts)
@@ -88,10 +100,22 @@ En estos fragmentos de código, se muestra cómo realizar las siguientes tareas 
 * [Analizar formularios con un modelo personalizado](#analyze-forms-with-a-custom-model)
 * [Administrar modelos personalizados](#manage-your-custom-models)
 
+#### <a name="version-31-preview"></a>[versión 3.1 (versión preliminar)](#tab/preview)
+
+* [Autenticar el cliente](#authenticate-the-client)
+* [Reconocer el contenido del formulario](#recognize-form-content)
+* [Reconocer recibos](#recognize-receipts)
+* [Reconocer tarjetas de presentación](#recognize-business-cards)
+* [Reconocer facturas](#recognize-invoices)
+* [Entrenar un modelo personalizado](#train-a-custom-model)
+* [Analizar formularios con un modelo personalizado](#analyze-forms-with-a-custom-model)
+* [Administrar modelos personalizados](#manage-your-custom-models)
+
+---
 
 ## <a name="authenticate-the-client"></a>Autenticar el cliente
 
-Aquí, autenticará dos objetos de cliente mediante las variables de suscripción que definió anteriormente. Usará un objeto **AzureKeyCredential** , de modo que, si es necesario, pueda actualizar la clave de API sin crear otros objetos de cliente.
+Aquí, autenticará dos objetos de cliente mediante las variables de suscripción que definió anteriormente. Usará un objeto **AzureKeyCredential**, de modo que, si es necesario, pueda actualizar la clave de API sin crear otros objetos de cliente.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/FormRecognizer/FormRecognizerQuickstart.py?name=snippet_auth)]
 
@@ -135,7 +159,6 @@ Confidence score: 1.0
 Cell text: Charges
 Location: [Point(x=4.7074, y=2.8088), Point(x=5.386, y=2.8088), Point(x=5.386, y=3.3219), Point(x=4.7074, y=3.3219)]
 Confidence score: 1.0
-
 ...
 
 ```
@@ -170,6 +193,30 @@ Subtotal: 1098.99 has confidence 0.964
 Tax: 104.4 has confidence 0.713
 Total: 1203.39 has confidence 0.774
 ```
+
+#### <a name="version-30"></a>[versión 3.0](#tab/ga)
+
+#### <a name="version-31-preview"></a>[versión 3.1 (versión preliminar)](#tab/preview)
+
+## <a name="recognize-business-cards"></a>Reconocimiento de tarjetas de presentación
+
+En esta sección se muestra cómo reconocer y extraer campos comunes de tarjetas de presentación inglesas mediante un modelo entrenado previamente. Para reconocer tarjetas de presentación en una dirección URL, use el método `begin_recognize_business_cards_from_url`. 
+
+[!code-python[](~/cognitive-services-quickstart-code/python/FormRecognizer/FormRecognizerQuickstart-preview.py?name=snippet_bc)]
+
+> [!TIP]
+> También puede reconocer imágenes de tarjeta de presentación locales. Consulte los métodos [FormRecognizerClient](https://docs.microsoft.com/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formrecognizerclient?view=azure-python), como `begin_recognize_business_cards`. O bien, consulte el código de ejemplo en [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples) para escenarios relacionados con imágenes locales.
+
+## <a name="recognize-invoices"></a>Reconocimiento de facturas
+
+En esta sección se muestra cómo reconocer y extraer campos comunes de facturas de compra mediante un modelo entrenado previamente. Para reconocer facturas en una dirección URL, use el método `begin_recognize_invoices_from_url`. 
+
+[!code-python[](~/cognitive-services-quickstart-code/python/FormRecognizer/FormRecognizerQuickstart-preview.py?name=snippet_invoice)]
+
+> [!TIP]
+> También puede reconocer imágenes de facturas locales. Consulte los métodos [FormRecognizerClient](https://docs.microsoft.com/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formrecognizerclient?view=azure-python), como `begin_recognize_invoices`. O bien, consulte el código de ejemplo en [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples) para escenarios relacionados con imágenes locales.
+
+---
 
 ## <a name="train-a-custom-model"></a>Entrenamiento de un modelo personalizado
 

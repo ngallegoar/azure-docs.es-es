@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: tutorial
-ms.date: 08/05/2020
+ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom: devx-track-python
-ms.openlocfilehash: ee9f49463e8e6749d29c810afaf7337cc99a98e8
-ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
+ms.openlocfilehash: a47475ad55c5e6262dc8ba1a384d89b9721fd2e9
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94616049"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95736432"
 ---
 # <a name="tutorial-run-tensorflow-model-in-python"></a>Tutorial: Ejecución del modelo de TensorFlow en Python
 
@@ -34,7 +34,7 @@ Para usar el tutorial, debe realizar los siguientes pasos:
 
 A continuación, deberá instalar los siguientes paquetes:
 
-```
+```bash
 pip install tensorflow
 pip install pillow
 pip install numpy
@@ -43,7 +43,7 @@ pip install opencv-python
 
 ## <a name="load-your-model-and-tags"></a>Carga del modelo y de las etiquetas
 
-El archivo zip descargado contiene un archivo model.pb y un archivo labels.txt. Estos archivos representan el modelo entrenado y las etiquetas de clasificación. El primer paso consiste en cargar el modelo en el proyecto.
+El archivo zip descargado contiene un archivo _model.pb_ y un archivo _labels.txt_. Estos archivos representan el modelo entrenado y las etiquetas de clasificación. El primer paso consiste en cargar el modelo en el proyecto. Agregue el siguiente ejemplo de código en un nuevo script de Python.
 
 ```Python
 import tensorflow as tf
@@ -126,6 +126,8 @@ augmented_image = crop_center(augmented_image, network_input_size, network_input
 
 ```
 
+### <a name="add-helper-functions"></a>Incorporación de funciones auxiliares
+
 En los pasos anteriores se usan las siguientes funciones auxiliares:
 
 ```Python
@@ -191,7 +193,7 @@ with tf.compat.v1.Session() as sess:
         exit(-1)
 ```
 
-## <a name="view-the-results"></a>View the results
+## <a name="display-the-results"></a>Mostrar los resultados
 
 Los resultados de la ejecución del tensor de la imagen a través del modelo tendrán que volver a asignarse a las etiquetas.
 
