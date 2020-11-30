@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 05/27/2020
 ms.author: pafarley
-ms.openlocfilehash: ac934f88d00521b13fd2b134c80f19656c63117b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 79cf0ef059d96ac66f5918605e999d3936d589d2
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88718822"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95486524"
 ---
 # <a name="back-up-and-recover-your-form-recognizer-models"></a>Copia de seguridad y recuperación de los modelos de Form Recognizer
 
@@ -41,7 +41,7 @@ El proceso de copia de un modelo personalizado consta de los siguientes pasos:
 1. Usará las credenciales del recurso de origen para consultar la dirección URL de progreso hasta que la operación finalice correctamente. También puede consultar el nuevo identificador del modelo en el recurso de destino para obtener el estado del nuevo modelo.
 
 > [!CAUTION]
-> Actualmente, la API de copia no admite identificadores de modelo para los [modelos personalizados compuestos](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/Compose). La composición de modelos es una característica en vista previa de la versión preliminar v2.1-preview.1. 
+> Actualmente, la API de copia no admite identificadores de modelo para los [modelos personalizados compuestos](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/Compose). La composición de modelos es una característica en vista previa (gb) de la versión preliminar v2.1-preview.2. 
 
 ## <a name="generate-copy-authorization-request"></a>Generación de la solicitud de autorización de copia
 

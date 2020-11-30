@@ -4,13 +4,13 @@ description: Cómo mantener la aplicación Language Understanding (LUIS) bajo co
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/28/2020
-ms.openlocfilehash: 25f2c4f4698785326f80c24d3749e7585e85d5bb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/18/2020
+ms.openlocfilehash: cf5c88df4e2ac6b95e99a3a78b1bf1e45bf534ed
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91309513"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95535561"
 ---
 # <a name="devops-practices-for-luis"></a>Prácticas de DevOps para LUIS
 
@@ -18,7 +18,7 @@ Los ingenieros de software que desarrollan una aplicación de Language Understan
 
 ## <a name="source-control-and-branch-strategies-for-luis"></a>Control de código fuente y estrategias de ramificación para LUIS
 
-Uno de los factores clave de los que depende el éxito de DevOps es el [control de código fuente](https://docs.microsoft.com/azure/devops/user-guide/source-control?view=azure-devops). Un sistema de control de código fuente permite a los desarrolladores colaborar en el código y realizar el seguimiento de los cambios. El uso de ramas permite a los desarrolladores cambiar entre diferentes versiones de la base de código y trabajar de forma independiente de otros miembros del equipo. Cuando los desarrolladores generan una [solicitud de incorporación de cambios](https://help.github.com/github/collaborating-with-issues-and-pull-requests/about-pull-requests) (PR) para proponer actualizaciones de una rama a otra, o cuando se combinan los cambios, pueden ser el desencadenador de [compilaciones automatizadas](luis-concept-devops-automation.md) para compilar y probar continuamente el código.
+Uno de los factores clave de los que depende el éxito de DevOps es el [control de código fuente](/azure/devops/user-guide/source-control?view=azure-devops). Un sistema de control de código fuente permite a los desarrolladores colaborar en el código y realizar el seguimiento de los cambios. El uso de ramas permite a los desarrolladores cambiar entre diferentes versiones de la base de código y trabajar de forma independiente de otros miembros del equipo. Cuando los desarrolladores generan una [solicitud de incorporación de cambios](https://help.github.com/github/collaborating-with-issues-and-pull-requests/about-pull-requests) (PR) para proponer actualizaciones de una rama a otra, o cuando se combinan los cambios, pueden ser el desencadenador de [compilaciones automatizadas](luis-concept-devops-automation.md) para compilar y probar continuamente el código.
 
 Mediante los conceptos y las instrucciones que se describen en este documento, puede desarrollar una aplicación de LUIS mientras realiza el seguimiento de los cambios en un sistema de control de código fuente y seguir estos procedimientos recomendados de ingeniería de software:
 
@@ -42,25 +42,25 @@ Mediante los conceptos y las instrucciones que se describen en este documento, p
 
 ## <a name="source-control"></a>Control de código fuente
 
-Para mantener la [definición del esquema de la aplicación](https://docs.microsoft.com/azure/cognitive-services/luis/app-schema-definition) de una aplicación de LUIS en un sistema de administración de código fuente, use la representación del [formato LUDown (`.lu`)](https://docs.microsoft.com/azure/bot-service/file-format/bot-builder-lu-file-format?view=azure-bot-service-4.0) de la aplicación. El formato `.lu` se prefiere al formato `.json` porque es legible, lo que facilita la creación y revisión de cambios en las solicitudes de incorporación de cambios.
+Para mantener la [definición del esquema de la aplicación](./app-schema-definition.md) de una aplicación de LUIS en un sistema de administración de código fuente, use la representación del [formato LUDown (`.lu`)](/azure/bot-service/file-format/bot-builder-lu-file-format?view=azure-bot-service-4.0) de la aplicación. El formato `.lu` se prefiere al formato `.json` porque es legible, lo que facilita la creación y revisión de cambios en las solicitudes de incorporación de cambios.
 
 ### <a name="save-a-luis-app-using-the-ludown-format"></a>Almacenamiento de una aplicación de LUIS con el formato LUDown
 
 Para guardar una aplicación de LUIS en formato `.lu` y colocarla bajo control de código fuente:
 
-- OPCIONES: [Exporte la versión de la aplicación](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-manage-versions#other-actions) como `.lu` desde el [portal de LUIS](https://www.luis.ai/) y agréguela al repositorio de control de código fuente.
+- OPCIONES: [Exporte la versión de la aplicación](./luis-how-to-manage-versions.md#other-actions) como `.lu` desde el [portal de LUIS](https://www.luis.ai/) y agréguela al repositorio de control de código fuente.
 
 - O: Utilice un editor de texto para crear un archivo `.lu` para una aplicación de LUIS y agréguelo al repositorio de control de código fuente.
 
 > [!TIP]
-> Si está trabajando con la exportación de JSON de una aplicación de LUIS, puede [convertirla al formato LUDown](https://github.com/microsoft/botframework-cli/tree/master/packages/luis#bf-luisconvert) mediante la [CLI BotBuilder-Tools de LUIS](https://github.com/microsoft/botbuilder-tools/tree/master/packages/LUIS). Use la opción `--sort` para asegurarse de que las intenciones y las expresiones estén ordenadas alfabéticamente.  
+> Si trabaja con la exportación de JSON de una aplicación de LUIS, puede [convertirla al formato LUDown](https://github.com/microsoft/botframework-cli/tree/master/packages/luis#bf-luisconvert).  Use la opción `--sort` para asegurarse de que las intenciones y las expresiones estén ordenadas alfabéticamente.  
 > Tenga en cuenta que la funcionalidad de exportación de **.LU** integrada en el portal de LUIS ya ordena la salida.
 
 ### <a name="build-the-luis-app-from-source"></a>Compilación de la aplicación de LUIS a partir de código fuente
 
-En el caso de una aplicación de LUIS, *compilar a partir del código fuente* significa [crear una nueva versión de la aplicación de LUIS mediante la importación del código fuente de `.lu`](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-manage-versions#import-version), [entrenar la versión](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-train) y [publicarla](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-publish-app). Puede hacerlo en el portal de LUIS o en la línea de comandos:
+En el caso de una aplicación de LUIS, *compilar a partir del código fuente* significa [crear una nueva versión de la aplicación de LUIS mediante la importación del código fuente de `.lu`](./luis-how-to-manage-versions.md#import-version), [entrenar la versión](./luis-how-to-train.md) y [publicarla](./luis-how-to-publish-app.md). Puede hacerlo en el portal de LUIS o en la línea de comandos:
 
-- Use el portal de LUIS para [importar la versión `.lu`](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-manage-versions#import-version) de la aplicación del control de código fuente, y para [entrenar](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-train) y [publicar](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-publish-app) la aplicación.
+- Use el portal de LUIS para [importar la versión `.lu`](./luis-how-to-manage-versions.md#import-version) de la aplicación del control de código fuente, y para [entrenar](./luis-how-to-train.md) y [publicar](./luis-how-to-publish-app.md) la aplicación.
 
 - Use la [interfaz de la línea de comandos de Bot Framework para LUIS](https://github.com/microsoft/botbuilder-tools/tree/master/packages/LUIS) en la línea de comandos o en un flujo de trabajo de CI/CD para [importar](https://github.com/microsoft/botframework-cli/blob/master/packages/luis/README.md#bf-luisversionimport) la versión `.lu` de la aplicación del control de código fuente en una aplicación de LUIS, y para [entrenar](https://github.com/microsoft/botframework-cli/blob/master/packages/luis/README.md#bf-luistrainrun) y [publicar](https://github.com/microsoft/botframework-cli/blob/master/packages/luis/README.md#bf-luisapplicationpublish) la aplicación.
 
@@ -72,16 +72,16 @@ Los siguientes tipos de archivos para la aplicación de LUIS se deben mantener b
 
 - [Archivos de definición de pruebas unitarias](luis-concept-devops-testing.md#writing-tests) (expresiones y resultados esperados)
 
-- [Archivos de prueba por lotes](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-batch-test#batch-file-format) (expresiones y resultados esperados) usados para las pruebas de rendimiento
+- [Archivos de prueba por lotes](./luis-concept-batch-test.md#batch-file-format) (expresiones y resultados esperados) usados para las pruebas de rendimiento
 
-### <a name="credentialsand-keys-are-not-checked-in"></a>Las credenciales y las claves no están insertadas en el repositorio
+### <a name="credentials-and-keys-are-not-checked-in"></a>Las credenciales y las claves no están insertadas en el repositorio
 
 No incluya claves de suscripción ni valores confidenciales similares en los archivos que inserte en el repositorio, donde personal no autorizado pueda verlos. Entre las claves y otros valores que debe evitar insertar en el repositorio se incluyen:
 
 - Claves de creación y predicción de LUIS
 - Puntos de conexión de creación y predicción de LUIS
 - Claves de suscripción a Azure
-- Tokens de acceso, como el token de una [entidad de servicio](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) de Azure, que se usan para la autenticación de la automatización.
+- Tokens de acceso, como el token de una [entidad de servicio](/cli/azure/ad/sp?view=azure-cli-latest) de Azure, que se usan para la autenticación de la automatización.
 
 #### <a name="strategies-for-securely-managing-secrets"></a>Estrategias para administrar secretos de forma segura
 
@@ -92,7 +92,7 @@ Las estrategias para administrar secretos de forma segura incluyen:
 
 ## <a name="branching-and-merging"></a>Rama y combinación
 
-Los sistemas de control de versiones distribuidos como Git proporcionan flexibilidad a loso miembros del equipo para publicar, compartir, revisar e iterar los cambios de código a través de las ramas de desarrollo compartidas con otros usuarios. Adopte una [estrategia de rama de Git](https://docs.microsoft.com/azure/devops/repos/git/git-branching-guidance) que sea adecuada para su equipo.
+Los sistemas de control de versiones distribuidos como Git proporcionan flexibilidad a loso miembros del equipo para publicar, compartir, revisar e iterar los cambios de código a través de las ramas de desarrollo compartidas con otros usuarios. Adopte una [estrategia de rama de Git](/azure/devops/repos/git/git-branching-guidance) que sea adecuada para su equipo.
 
 Sea cual sea la estrategia de rama que adopte, un principio clave para todas es que los miembros del equipo pueden trabajar en la solución dentro de una *rama de características* independientemente del trabajo que se esté llevando a cabo en otras ramas.
 
@@ -110,7 +110,7 @@ Los desarrolladores pueden trabajar en actualizaciones en una aplicación de LUI
 
 1. Crear una rama de características desde la rama principal (en función de la estrategia de la rama, normalmente maestra o de desarrollo).
 
-1. [Crear una nueva aplicación de LUIS en el portal de LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-start-new-app) ("*aplicación de rama de desarrollo*") exclusivamente para admitir el trabajo en la rama de características.
+1. [Crear una nueva aplicación de LUIS en el portal de LUIS](./luis-how-to-start-new-app.md) ("*aplicación de rama de desarrollo*") exclusivamente para admitir el trabajo en la rama de características.
 
    * Si el código fuente de `.lu` de la solución ya existe en la rama, porque se guardó después del trabajo realizado en otra rama anteriormente en el proyecto, importe el archivo `.lu` para crear la aplicación de rama de desarrollo de LUIS.
 
@@ -120,11 +120,11 @@ Los desarrolladores pueden trabajar en actualizaciones en una aplicación de LUI
 
 1. Probar las actualizaciones. Consulte [Pruebas de DevOps para LUIS](luis-concept-devops-testing.md) para más información sobre cómo probar la aplicación de rama de desarrollo.
 
-1. Exportar la versión activa de la aplicación de rama de desarrollo como `.lu` desde la [lista de versiones](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-manage-versions).
+1. Exportar la versión activa de la aplicación de rama de desarrollo como `.lu` desde la [lista de versiones](./luis-how-to-manage-versions.md).
 
 1. Insertar las actualizaciones en el repositorio e invitar a la revisión por homólogos de las actualizaciones. Si usa GitHub, generará una [solicitud de incorporación de cambios](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-requests).
 
-1. Cuando se aprueben los cambios, combine las actualizaciones en la rama maestra. En este momento, creará una nueva [versión](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-manage-versions) de la aplicación *maestra* de LUIS, con el archivo `.lu` actualizado en la rama maestra. Consulte [Control de versiones](#versioning) para conocer las consideraciones sobre cómo establecer el nombre de la versión.
+1. Cuando se aprueben los cambios, combine las actualizaciones en la rama maestra. En este momento, creará una nueva [versión](./luis-how-to-manage-versions.md) de la aplicación *maestra* de LUIS, con el archivo `.lu` actualizado en la rama maestra. Consulte [Control de versiones](#versioning) para conocer las consideraciones sobre cómo establecer el nombre de la versión.
 
 1. Cuando se elimina la rama de características, se recomienda eliminar la aplicación de rama de desarrollo de LUIS creado para el trabajo de la rama de características.
 
@@ -144,9 +144,9 @@ Puede permitir que varios desarrolladores trabajen en la misma rama de caracter�
 
 - Si sigue el patrón descrito anteriormente en [Los desarrolladores pueden trabajar desde ramas independientes](#developers-can-work-from-independent-branches), esta rama usará una aplicación de LUIS única para admitir el desarrollo. El primer miembro del equipo de desarrollo que comience a trabajar en la rama de características creará esa aplicación de "rama de desarrollo" de LUIS.
 
-- [Agregue miembros del equipo como colaboradores](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-collaborate) a la aplicación de rama de desarrollo de LUIS.
+- [Agregue miembros del equipo como colaboradores](./luis-how-to-collaborate.md) a la aplicación de rama de desarrollo de LUIS.
 
-- Cuando se complete el trabajo de la rama de características, exporte la versión activa de la aplicación de rama de desarrollo de LUIS como `.lu` de la [lista de versiones](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-manage-versions), guarde el archivo `.lu` actualizado en el repositorio y, a continuación, inserte los cambios en el repositorio y realice la solicitud de incorporación de cambios.
+- Cuando se complete el trabajo de la rama de características, exporte la versión activa de la aplicación de rama de desarrollo de LUIS como `.lu` de la [lista de versiones](./luis-how-to-manage-versions.md), guarde el archivo `.lu` actualizado en el repositorio y, a continuación, inserte los cambios en el repositorio y realice la solicitud de incorporación de cambios.
 
 ### <a name="incorporating-changes-from-one-branch-to-another-with-rebase-or-merge"></a>Incorporación de los cambios de una rama en otra con fusión mediante cambio de base o combinación
 
@@ -183,7 +183,7 @@ Una aplicación de LUIS en formato LUDown es legible para el usuario y admite la
 
 ## <a name="versioning"></a>Control de versiones
 
-Una aplicación consta de varios componentes que pueden incluir elementos como un bot que se ejecute en [Azure Bot Service](https://docs.microsoft.com/azure/bot-service/bot-service-overview-introduction?view=azure-bot-service-4.0), [QnA Maker](https://www.qnamaker.ai/), el [servicio Voz de Azure](https://docs.microsoft.com/azure/cognitive-services/speech-service/overview), etc. Para lograr el objetivo de las aplicaciones de acoplamiento flexible, use el [control de versiones](https://docs.microsoft.com/azure/devops/learn/git/what-is-version-control) para que cada componente de una aplicación tenga versiones independientes, lo que permite a los desarrolladores detectar cambios importantes o actualizaciones simplemente mediante la consulta del número de versión. Es más fácil crear una versión de la aplicación de LUIS independientemente de otros componentes si la mantiene en su propio repositorio.
+Una aplicación consta de varios componentes que pueden incluir elementos como un bot que se ejecute en [Azure Bot Service](/azure/bot-service/bot-service-overview-introduction?view=azure-bot-service-4.0), [QnA Maker](https://www.qnamaker.ai/), el [servicio Voz de Azure](../speech-service/overview.md), etc. Para lograr el objetivo de las aplicaciones de acoplamiento flexible, use el [control de versiones](/azure/devops/learn/git/what-is-version-control) para que cada componente de una aplicación tenga versiones independientes, lo que permite a los desarrolladores detectar cambios importantes o actualizaciones simplemente mediante la consulta del número de versión. Es más fácil crear una versión de la aplicación de LUIS independientemente de otros componentes si la mantiene en su propio repositorio.
 
 La aplicación de LUIS de la rama maestra debe tener aplicado un esquema de control de versiones. Al fusionar mediante combinación las actualizaciones con el archivo `.lu` de una aplicación de LUIS en la rama maestra, importará ese código fuente actualizado a una nueva versión de la rama maestra en la aplicación de LUIS.
 
@@ -195,7 +195,7 @@ Con cada actualización, se incrementa el último dígito del número de versió
 
 La versión principal o secundaria se puede usar para indicar el ámbito de los cambios en la funcionalidad de la aplicación de LUIS:
 
-* Versión principal: un cambio significativo, como la compatibilidad con una nueva [intención](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-intent) o [entidad](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-entity-types).
+* Versión principal: un cambio significativo, como la compatibilidad con una nueva [intención](./luis-concept-intent.md) o [entidad](./luis-concept-entity-types.md).
 * Versión secundaria: un cambio menor de compatibilidad con versiones anteriores, como después de un nuevo entrenamiento significativo.
 * Compilación: no cambia ninguna funcionalidad, solo es una compilación diferente.
 

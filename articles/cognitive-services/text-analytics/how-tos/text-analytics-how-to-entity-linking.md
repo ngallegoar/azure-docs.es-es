@@ -8,47 +8,53 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 11/11/2020
+ms.date: 11/19/2020
 ms.author: aahi
-ms.openlocfilehash: cabde27591159b5751435a97a909a5f6f8c3081b
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: ef06faa17739153b2a04e777498e1de6e97c0646
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94518233"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94957102"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Uso del reconocimiento de entidades con nombre en Text Analytics
 
-Text Analytics API permite tomar el texto no estructurado y devuelve una lista de entidades desambiguadas con vínculos a más información en la web. La API admite el reconocimiento de entidades con nombre (NER) y la vinculación de entidades.
+Text Analytics API permite tomar el texto no estructurado y devuelve una lista de entidades desambiguadas con vínculos a más información en la web. La API admite el reconocimiento de entidades con nombre (NER) para varias categorías de entidad y la vinculación de entidades.
 
-### <a name="entity-linking"></a>Entity Linking
+## <a name="entity-linking"></a>Entity Linking
 
 La vinculación de entidad es la capacidad de identificar y desambiguar la identidad de una entidad que se encuentra en el texto (por ejemplo, determinar si una aparición de la palabra "Marte" hace referencia al planeta o al dios romano de la guerra). Este proceso requiere la presencia de una base de conocimiento en un lenguaje adecuado para vincular entidades reconocidas en el texto. La vinculación de entidades utiliza [Wikipedia](https://www.wikipedia.org/) como base de conocimiento.
 
+## <a name="named-entity-recognition-ner"></a>Reconocimiento de entidades con nombre (NER)
 
-### <a name="named-entity-recognition-ner"></a>Reconocimiento de entidades con nombre (NER)
+El reconocimiento de entidades con nombre (NER) es la capacidad para identificar diferentes entidades en el texto y clasificarlas en clases o tipos predefinidos, como: persona, ubicación, evento, producto y organización.  
 
-El reconocimiento de entidades con nombre (NER) es la capacidad de identificar diferentes entidades en el texto y clasificarlas en clases o tipos predefinidos, como: persona, ubicación, evento, producto y organización.  
+## <a name="personally-identifiable-information-pii"></a>Información de identificación personal
 
-## <a name="named-entity-recognition-versions-and-features"></a>Características y versiones del reconocimiento de entidades con nombre
+La característica PII forma parte de NER y puede identificar y suprimir entidades confidenciales en texto que están asociadas a una persona individual, como: el número de teléfono, la dirección de correo electrónico, la dirección de correo electrónico y el número de pasaporte.  
+
+## <a name="named-entity-recognition-features-and-versions"></a>Características y versiones del reconocimiento de entidades con nombre
 
 [!INCLUDE [v3 region availability](../includes/v3-region-availability.md)]
 
-| Característica                                                         | NER v3.0 | NER v3.1-versión preliminar.2 |
+| Característica                                                         | NER v3.0 | NER v3.1-preview.3 |
 |-----------------------------------------------------------------|--------|----------|
 | Métodos para solicitudes individuales y por lotes                          | X      | X        |
 | Reconocimiento de entidades expandidas en varias categorías           | X      | X        |
 | Separe los puntos de conexión independientes para enviar las solicitudes de vinculación de entidad y de NER. | X      | X        |
 | Reconocimiento de entidades de información personal (`PII`) y de estado (`PHI`)        |        | X        |
+| Supresión de `PII`        |        | X        |
 
 Consulte [Compatibilidad de idioma](../language-support.md) para obtener más información.
 
-## <a name="entity-types"></a>Tipos de entidades
-
 El reconocimiento de entidades con nombre v3 proporciona detección expandida en varios tipos. Actualmente, NER v3.0 puede reconocer entidades en la [categoría de entidad general](../named-entity-types.md).
 
-El Reconocimiento de entidades con nombre v3.1-versión preliminar.2 incluye las capacidades de detección de v3.0 y la capacidad de detectar información personal (`PII`) mediante el punto de conexión `v3.1-preview.2/entities/recognition/pii`. Se puede usar el parámetro opcional `domain=phi` para detectar información de estado confidencial (`PHI`). Vea el artículo [categorías de entidad](../named-entity-types.md) y la sección [puntos de conexión de solicitud](#request-endpoints) a continuación para obtener más información.
+La versión 3.1-preview.3 del reconocimiento de entidades con nombre incluye las funcionalidades de detección de la versión 3.0 y además: 
+* La capacidad para detectar información personal (`PII`) mediante el punto de conexión `v3.1-preview.3/entities/recognition/pii`. 
+* Un parámetro opcional `domain=phi` para detectar información de estado confidencial (`PHI`).
+* El [funcionamiento asincrónico](text-analytics-how-to-call-api.md) mediante el punto de conexión `/analyze`.
 
+Para más información, consulte el artículo sobre [categorías de entidad](../named-entity-types.md) y la sección sobre [puntos de conexión de solicitud](#request-endpoints), que encontrará a continuación. 
 
 ## <a name="sending-a-rest-api-request"></a>Envío de una solicitud de API REST
 
@@ -68,41 +74,41 @@ Cree una solicitud POST. Puede [usar Postman](text-analytics-how-to-call-api.md)
 
 ### <a name="request-endpoints"></a>Puntos de conexión de solicitud
 
-#### <a name="version-31-preview2"></a>[Versión 3.1-versión preliminar.2](#tab/version-3-preview)
+#### <a name="version-31-preview3"></a>[Versión 3.1-preview.3](#tab/version-3-preview)
 
-El Reconocimiento de entidades con nombre `v3.1-preview.2` usa puntos de conexión independientes para las solicitudes de NER, de PII y de vinculación de entidad. Use un formato de dirección URL a continuación en función de la solicitud:
+El reconocimiento de entidades con nombre `v3.1-preview.3` usa puntos de conexión independientes para las solicitudes de NER, de PII y de vinculación de entidad. Use un formato de dirección URL a continuación en función de la solicitud.
 
-Vinculación de entidad
-* `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.2/entities/linking`
+**Vinculación de entidad**
+* `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.3/entities/linking`
 
-[Referencia de la versión 3.1-versión preliminar para el reconocimiento de entidades con nombre para `Linking`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-2/operations/EntitiesLinking)
+[Referencia de la versión 3.1-versión preliminar para el reconocimiento de entidades con nombre para `Linking`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-3/operations/EntitiesLinking)
 
-NER
-* Entidades generales: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.2/entities/recognition/general`
+**Reconocimiento de entidades con nombre**
+* Entidades generales: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.3/entities/recognition/general`
 
-[Referencia de la versión 3.1-versión preliminar para el reconocimiento de entidades con nombre para `General`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-2/operations/EntitiesRecognitionGeneral)
+[Referencia de la versión 3.1-versión preliminar para el reconocimiento de entidades con nombre para `General`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-3/operations/EntitiesRecognitionGeneral)
 
-Información de identificación personal
-* Información personal (`PII`): `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.2/entities/recognition/pii`
+**Información de identificación personal**
+* Información personal (`PII`): `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.3/entities/recognition/pii`
 
 También se puede usar el parámetro opcional `domain=phi` para detectar información de estado (`PHI`) en el texto. 
 
-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.2/entities/recognition/pii?domain=phi`
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.3/entities/recognition/pii?domain=phi`
 
-Tenga en cuenta la adición de la propiedad `redactedText` en el JSON de respuesta que contiene el texto de entrada modificado donde las entidades PII detectadas se reemplazan por un * por cada carácter de las entidades.
+A partir de `v3.1-preview.3`, la respuesta JSON incluye una propiedad `redactedText`, que contiene el texto de entrada modificado donde las entidades PII detectadas se reemplazan por `*` en cada carácter de las entidades.
 
-[Referencia de la versión 3.1-versión preliminar para el reconocimiento de entidades con nombre para `PII`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-2/operations/EntitiesRecognitionPii)
+[Referencia de la versión 3.1-versión preliminar para el reconocimiento de entidades con nombre para `PII`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-3/operations/EntitiesRecognitionPii)
 
 #### <a name="version-30"></a>[Versión 3.0](#tab/version-3)
 
 El reconocimiento de entidades con nombre v3 usa puntos de conexión independientes para las solicitudes de NER y de vinculación de entidad. Use un formato de dirección URL a continuación en función de la solicitud:
 
-Vinculación de entidad
+**Vinculación de entidad**
 * `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/entities/linking`
 
 [Referencia de la versión 3.0 para el reconocimiento de entidades con nombre para `Linking`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/EntitiesRecognitionGeneral)
 
-NER
+**Reconocimiento de entidades con nombre**
 * `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/entities/recognition/general`
 
 [Referencia de la versión 3.0 para el reconocimiento de entidades con nombre para `General`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/EntitiesRecognitionGeneral)
@@ -113,7 +119,7 @@ Establezca un encabezado de la solicitud para incluir la clave de la API Text An
 
 ### <a name="example-ner-request"></a>Solicitud de NER de ejemplo 
 
-En el siguiente ejemplo se presenta contenido que podría a la API. El formato de la solicitud es el mismo para las dos versiones de la API.
+El siguiente código JSON es un ejemplo que se podría enviar a la API. El formato de la solicitud es el mismo para las dos versiones de la API.
 
 ```json
 {
@@ -138,7 +144,7 @@ La API Text Analytics no tiene estado. No se almacenan datos en la cuenta y los 
 
 Todas las solicitudes POST devuelven una respuesta con formato JSON con los identificadores y las propiedades de entidad detectadas.
 
-La salida se devuelve inmediatamente. Puede transmitir los resultados a una aplicación que acepte JSON o guardar la salida en un archivo en el sistema local y, a continuación, importarlo en una aplicación que permita ordenar, buscar y manipular los datos. Debido a la compatibilidad con varios idiomas y con Emojis, la respuesta puede contener desplazamientos de texto. Consulte [cómo procesar desplazamientos de texto](../concepts/text-offsets.md) para más información.
+La salida se devuelve inmediatamente. Puede transmitir los resultados a una aplicación que acepte JSON o guardar la salida en un archivo en el sistema local y, a continuación, importarlo en una aplicación que permita ordenar, buscar y manipular los datos. Debido a la compatibilidad con varios idiomas y con Emojis, la respuesta puede contener desplazamientos de texto. Para más información, consulte el artículo en que se indica [cómo procesar desplazamientos de texto](../concepts/text-offsets.md).
 
 ### <a name="example-responses"></a>Respuestas de ejemplo
 

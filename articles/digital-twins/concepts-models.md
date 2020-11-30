@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 12eed6aeccffe854810e9c2ddc8a5c4e59b8c312
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 0a38f9b8135fed08a95df68f108e44c34fec6325
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337940"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94955334"
 ---
 # <a name="understand-twin-models-in-azure-digital-twins"></a>Descripción de los modelos gemelos de Azure Digital Twins
 
@@ -224,7 +224,11 @@ Una vez que se aplica la herencia, la interfaz de extensión expone todas las pr
 
 La interfaz de extensión no puede cambiar ninguna de las definiciones de las interfaces primarias; solo puede agregar a ellas. Tampoco puede volver a definir una funcionalidad que ya esté definida en ninguna de sus interfaces primarias (incluso si las funcionalidades están definidas para ser iguales). Por ejemplo, si una interfaz primaria define una propiedad `double` *masa*, la interfaz de extensión no puede contener una declaración de *masa*, incluso si también es `double`.
 
-## <a name="validating-models"></a>Validación de modelos
+## <a name="best-practices-for-designing-models"></a>Procedimientos recomendados para el diseño de modelos
+
+Al diseñar modelos para que reflejen las entidades de su entorno, puede resultar útil realizar una búsqueda anticipada y considerar las implicaciones de [consulta](concepts-query-language.md) del diseño. Si lo desea, puede diseñar las propiedades de forma que se evite que grandes conjuntos de resultados atraviesen un grafo. También puede modelar relaciones que se responderán en una consulta individual como relaciones de nivel individual.
+
+### <a name="validating-models"></a>Validación de modelos
 
 [!INCLUDE [Azure Digital Twins: validate models info](../../includes/digital-twins-validate.md)]
 
@@ -232,7 +236,7 @@ La interfaz de extensión no puede cambiar ninguna de las definiciones de las in
 
 El uso de modelos que se basan en estándares del sector o que usan una representación estándar de la ontología, como RDF u OWL, proporciona un excelente punto de partida para diseñar modelos de Azure Digital Twins. Asimismo, el uso de modelos del sector también contribuye a la estandarización y el uso compartido de la información.
 
-Para usarse con Azure Digital Twins, los modelos se deben representar mediante el [**lenguaje de definición de Digital Twins (DTDL)** ](concepts-models.md), basado en JSON-LD. Por consiguiente, en este artículo se describe cómo representar los modelos estándar del sector en DTDL mediante la integración de los conceptos existentes del sector con la semántica de DTDL para que Azure Digital Twins pueda usarlos. El modelo de DTDL sirve como origen confiable del modelo en Azure Digital Twins.
+Para usarse con Azure Digital Twins, los modelos se deben representar mediante el [**lenguaje de definición de Digital Twins (DTDL)**](concepts-models.md), basado en JSON-LD. Por consiguiente, en este artículo se describe cómo representar los modelos estándar del sector en DTDL mediante la integración de los conceptos existentes del sector con la semántica de DTDL para que Azure Digital Twins pueda usarlos. El modelo de DTDL sirve como origen confiable del modelo en Azure Digital Twins.
 
 Hay dos rutas de acceso principales para la integración de modelos estándar del sector con DTDL y la elección de una u otra depende de su situación:
 * Si aún no ha creado los modelos, puede diseñarlos en torno a las  **ontologías de DTDL del inicio existentes** que contengan un idioma específico para su sector.

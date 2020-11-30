@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 5125fff0ef8987d313c6611e4d5de08d090f2263
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 769dea079339af2c6307d9230e047a654dc3d5dd
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913201"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95492217"
 ---
 # <a name="receipt-concepts"></a>Conceptos de recepción
 
@@ -57,6 +57,13 @@ Receipt API también devuelve la siguiente información:
 * Texto sin formato OCR (salida de texto extraído mediante OCR para todo el recibo)
 * Rectángulo delimitador de cada valor, apunte y palabra
 
+## <a name="try-it-out"></a>Prueba
+
+Para probar el servicio de recibos de Form Recognizer, vaya a la herramienta de interfaz de usuario de ejemplo en línea:
+
+> [!div class="nextstepaction"]
+> [Uso de modelos precompilados](https://fott-preview.azurewebsites.net/)
+
 ## <a name="input-requirements"></a>Requisitos de entrada
 
 [!INCLUDE [input reqs](./includes/input-requirements-receipts.md)]
@@ -64,7 +71,7 @@ Receipt API también devuelve la siguiente información:
 ## <a name="supported-locales"></a>Configuraciones regionales admitidas 
 
 * **Pre-built Receipt v2.0** (GA) admite recibos de ventas en la configuración regional EN-US.
-* **Pre-built Receipt v2.1-preview.1** (versión preliminar pública) agrega compatibilidad adicional para las siguientes configuraciones locales EN de recibos: 
+* **Pre-built Receipt v2.1-preview.2** (versión preliminar pública) agrega compatibilidad adicional para las siguientes configuraciones locales en inglés de los recibos: 
   * EN-AU 
   * EN-CA 
   * EN-GB 
@@ -73,12 +80,12 @@ Receipt API también devuelve la siguiente información:
   > [!NOTE]
   > Entrada de idioma 
   >
-  > Prebuilt Receipt v2.1-preview.1 tiene un parámetro de solicitud opcional para especificar una configuración regional de recibos en mercados en inglés adicionales. En el caso de los recibos de ventas en inglés de Australia (EN-AU), Canadá (EN-CA), Gran Bretaña (EN-GB) e India (EN-IN), puede especificar la configuración regional para obtener resultados mejorados. Si no se especifica ninguna configuración regional en v2.1-preview.1, el modelo se establecerá de forma predeterminada en EN-US.
+  > La versión precompilada de Receipt v2.1-preview.2 tiene un parámetro de solicitud opcional para especificar una configuración regional de recibos en mercados en inglés adicionales. En el caso de los recibos de ventas en inglés de Australia (EN-AU), Canadá (EN-CA), Gran Bretaña (EN-GB) e India (EN-IN), puede especificar la configuración regional para obtener resultados mejorados. Si no se especifica ninguna configuración regional en v2.1-preview.2, el modelo se establecerá de forma predeterminada en EN-US.
 
 
 ## <a name="the-analyze-receipt-operation"></a>La operación Analyze Receipt
 
-[Analyze Receipt](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeReceiptAsync) toma una imagen o PDF de un recibo como entrada y extrae los valores de interés y el texto. La llamada devuelve un campo de encabezado de respuesta denominado `Operation-Location`. El valor `Operation-Location` es una dirección URL que contiene el id. de resultado que se va a usar en el paso siguiente.
+[Analyze Receipt](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeReceiptAsync) toma una imagen o PDF de un recibo como entrada y extrae los valores de interés y el texto. La llamada devuelve un campo de encabezado de respuesta denominado `Operation-Location`. El valor `Operation-Location` es una dirección URL que contiene el id. de resultado que se va a usar en el paso siguiente.
 
 |Encabezado de respuesta| Dirección URL del resultado |
 |:-----|:----|
@@ -86,7 +93,7 @@ Receipt API también devuelve la siguiente información:
 
 ## <a name="the-get-analyze-receipt-result-operation"></a>La operación Get Analyze Receipt Result
 
-El segundo paso consiste en llamar a la operación [Get Analyze Receipt Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/GetAnalyzeReceiptResult). Esta operación toma como entrada el id. de resultado que la operación Analyze Receipt ha creado. Devuelve una respuesta JSON que contiene un campo de **estado** con los siguientes valores posibles. Llamará a esta operación de forma iterativa hasta que se devuelva con el valor **correcto**. Use un intervalo de 3 a 5 segundos para evitar superar la tasa de solicitudes por segundo (RPS).
+El segundo paso consiste en llamar a la operación [Get Analyze Receipt Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/GetAnalyzeReceiptResult). Esta operación toma como entrada el id. de resultado que la operación Analyze Receipt ha creado. Devuelve una respuesta JSON que contiene un campo de **estado** con los siguientes valores posibles. Llamará a esta operación de forma iterativa hasta que se devuelva con el valor **correcto**. Use un intervalo de 3 a 5 segundos para evitar superar la tasa de solicitudes por segundo (RPS).
 
 |Campo| Tipo | Valores posibles |
 |:-----|:----:|:----|
@@ -95,7 +102,7 @@ El segundo paso consiste en llamar a la operación [Get Analyze Receipt Result](
 | |  | failed: error en la operación de análisis. |
 | |  | succeeded: la operación de análisis se realizó correctamente. |
 
-Cuando el campo **status** tenga el valor **succeeded** , la respuesta JSON incluirá los resultados de la descripción del recibo y el reconocimiento del texto. El resultado de la descripción del recibo se organiza como un diccionario de valores de campo con nombre, en el que cada valor contiene el texto extraído, el valor normalizado, el rectángulo delimitador, el nivel de confianza y los elementos de la palabra correspondiente. El resultado del reconocimiento de texto se organiza como una jerarquía de líneas y palabras, con texto, rectángulo delimitador e información de confianza.
+Cuando el campo **status** tenga el valor **succeeded**, la respuesta JSON incluirá los resultados de la descripción del recibo y el reconocimiento del texto. El resultado de la descripción del recibo se organiza como un diccionario de valores de campo con nombre, en el que cada valor contiene el texto extraído, el valor normalizado, el rectángulo delimitador, el nivel de confianza y los elementos de la palabra correspondiente. El resultado del reconocimiento de texto se organiza como una jerarquía de líneas y palabras, con texto, rectángulo delimitador e información de confianza.
 
 ![resultados de ejemplo del recibo](./media/contoso-receipt-2-information.png)
 

@@ -10,14 +10,14 @@ ms.subservice: text-analytics
 ms.topic: include
 ms.date: 07/07/2020
 ms.author: aahi
-ms.openlocfilehash: 519625f6468372ec7ace523dae7648212f4f3203
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a0b2c9548f9c1289ae0abd61a72d7146a3bbca29
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91779482"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965154"
 ---
-Rellene y envíe el [formulario de solicitud de contenedores de Cognitive Services](https://aka.ms/csgate) para solicitar acceso al contenedor.
+Rellene y envíe el [formulario de solicitud de Cognitive Services](https://aka.ms/csgate) para solicitar acceso a la versión preliminar pública de Text Analytics for Health.  Esta aplicación se aplica tanto al contenedor como a la versión preliminar pública de la API web hospedada.
 El formulario solicita información acerca del usuario y de su empresa, así como del escenario de usuario para el que se va a usar el contenedor. Después de haber enviado el formulario, el equipo de Azure Cognitive Services lo revisa para asegurarse de que cumple los criterios de acceso al registro de contenedor privado.
 
 > [!IMPORTANT]
@@ -25,7 +25,7 @@ El formulario solicita información acerca del usuario y de su empresa, así com
 > * El recurso de Azure que se usa para ejecutar el contenedor se debe haber creado con el identificador de la suscripción de Azure aprobada. 
 > * Compruebe el correo electrónico (bandeja de entrada y carpetas de correo no deseado) para obtener las actualizaciones del estado de la aplicación por parte de Microsoft.
 
-Use el comando de inicio de sesión de Docker con las credenciales proporcionadas en el correo electrónico de incorporación para conectarse a nuestro registro de contenedor privado para contenedores de Cognitive Services.
+Una vez se apruebe, se le enviará un correo electrónico con las credenciales para acceder al registro de contenedor privado.  Use el comando de inicio de sesión de Docker con las credenciales proporcionadas en el correo electrónico de incorporación para conectarse a nuestro registro de contenedor privado para contenedores de Cognitive Services.
 
 
 ```Docker

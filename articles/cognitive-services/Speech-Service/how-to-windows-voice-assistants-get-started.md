@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: travisw
-ms.openlocfilehash: 4ea2f88b02738645af3f8fc32d5fdb99168a1122
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 77d756bc0c7bbdfa38bb1262638ef85b051fc234
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82997279"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026495"
 ---
 # <a name="getting-started-with-voice-assistants-on-windows"></a>Introducción a los asistentes de voz en Windows
 
@@ -25,17 +25,17 @@ En esta guía se explican los pasos necesarios para empezar a desarrollar un asi
 
 Para empezar a desarrollar un asistente de voz para Windows, deberá asegurarse de que tiene el entorno de desarrollo adecuado.
 
-- **Visual Studio:**  tendrá que instalar [Microsoft Visual Studio 2017](https://visualstudio.microsoft.com/), Community Edition o superior.
-- **Versión de Windows**: un equipo con una compilación del anillo anticipado de Windows Insider de Windows y la versión de Windows Insider de Windows SDK. Este código de ejemplo se comprueba como en funcionamiento en la compilación de versión de Windows Insider 19025.vb_release_analog.191112-1600 con Windows SDK 19018. Cualquier compilación o SDK por encima de las versiones especificadas debería ser compatible.
-- **Herramientas de desarrollo de UWP**: carga de trabajo de la Plataforma universal de Windows en Visual Studio. Consulte la página [Prepárate](https://docs.microsoft.com/windows/uwp/get-started/get-set-up) de UWP para preparar el equipo para el desarrollo de aplicaciones para UWP.
+- **Visual Studio:** Será preciso instalar [Microsoft Visual Studio 2017](https://visualstudio.microsoft.com/), Community Edition, o cualquier versión superior
+- **Versión de Windows**: un equipo con una compilación del anillo anticipado de Windows Insider de Windows y la versión de Windows Insider de Windows SDK.  Este código de ejemplo se comprueba como en funcionamiento en la compilación de versión de Windows Insider 19025.vb_release_analog.191112-1600 con Windows SDK 19018.  Cualquier compilación o SDK por encima de las versiones especificadas debería ser compatible.
+- **Herramientas de desarrollo de UWP**: carga de trabajo de la Plataforma universal de Windows en Visual Studio.  Consulte la página [Prepárate](/windows/uwp/get-started/get-set-up) de UWP para preparar el equipo para el desarrollo de aplicaciones para UWP.
 - **Un micrófono activo y una salida de audio**.
 
 ## <a name="obtain-resources-from-microsoft"></a>Obtención de recursos de Microsoft
 
 Algunos recursos necesarios para un agente de voz completamente personalizado en Windows requerirán recursos de Microsoft. El [ejemplo del asistente de voz de UWP](windows-voice-assistants-faq.md#the-uwp-voice-assistant-sample) proporciona versiones de ejemplo de estos recursos para el desarrollo y las pruebas iniciales, por lo que esta sección no es necesaria para el desarrollo inicial.
 
-- **Modelo de palabras clave:**  la activación por voz requiere un modelo de palabra clave de Microsoft con el formato de archivo .bin. El archivo .bin que se proporciona en el ejemplo del asistente de voz de UWP se entrena con la palabra clave "Contoso".
-- **Token de característica de acceso limitado:** dado que las API de ConversationalAgent proporcionan acceso al audio del micrófono, están protegidas con restricciones de la característica de acceso limitado. Para usar una característica de acceso limitado, tendrá que obtener un token de característica de acceso limitado conectado a la identidad del paquete de la aplicación de Microsoft.
+- **Modelo de palabras clave:** la activación por voz requiere un modelo de palabras clave de Microsoft con el formato de archivo .bin. El archivo .bin que se proporciona en el ejemplo del asistente de voz de UWP se entrena con la palabra clave "Contoso".
+- **Token de característica de acceso limitado:** dado que las API de ConversationalAgent proporcionan acceso al audio del micrófono, están protegidas con restricciones de la característica de acceso limitado.  Para usar una característica de acceso limitado, tendrá que obtener un token de característica de acceso limitado conectado a la identidad del paquete de la aplicación de Microsoft.
 
 ## <a name="establish-a-dialog-service"></a>Establecimiento de un servicio de diálogo
 
@@ -48,8 +48,8 @@ Para obtener una experiencia completa del asistente de voz, la aplicación neces
 
 Estos son los requisitos para crear un servicio de diálogo básico mediante Direct Line Speech.
 
-- **Suscripción de Servicios de voz:** suscripción de Cognitive Speech Services para conversiones de voz a texto y de texto a voz. Pruebe los Servicios de voz gratis [aquí](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started).
-- **Bot de Bot Framework:**  Un bot creado con Bot Framework, versión 4.2 o superior, que esté suscrito a [Direct Line Speech](https://docs.microsoft.com/azure/cognitive-services/speech-service/direct-line-speech) para habilitar la entrada y salida de voz. [Esta guía](https://docs.microsoft.com/azure/cognitive-services/speech-service/tutorial-voice-enable-your-bot-speech-sdk) contiene instrucciones paso a paso para crear un "bot de eco" y suscribirlo a Direct Line Speech. También puede acudir [aquí](https://blog.botframework.com/2018/05/07/build-a-microsoft-bot-framework-bot-with-the-bot-builder-sdk-v4/) para ver los pasos para crear un bot personalizado y, a continuación, seguir los mismos pasos que se describen [aquí](https://docs.microsoft.com/azure/cognitive-services/speech-service/tutorial-voice-enable-your-bot-speech-sdk) para suscribirse a Direct Line Speech, pero con el nuevo bot en lugar del "bot de eco".
+- **Suscripción de Servicios de voz:** suscripción de Cognitive Speech Services para conversiones de voz a texto y de texto a voz. Pruebe los Servicios de voz gratis [aquí](./overview.md#try-the-speech-service-for-free).
+- **Bot de Bot Framework:**  Un bot creado con Bot Framework, versión 4.2 o superior, que esté suscrito a [Direct Line Speech](./direct-line-speech.md) para habilitar la entrada y salida de voz. [Esta guía](./tutorial-voice-enable-your-bot-speech-sdk.md) contiene instrucciones paso a paso para crear un "bot de eco" y suscribirlo a Direct Line Speech. También puede acudir [aquí](https://blog.botframework.com/2018/05/07/build-a-microsoft-bot-framework-bot-with-the-bot-builder-sdk-v4/) para ver los pasos para crear un bot personalizado y, a continuación, seguir los mismos pasos que se describen [aquí](./tutorial-voice-enable-your-bot-speech-sdk.md) para suscribirse a Direct Line Speech, pero con el nuevo bot en lugar del "bot de eco".
 
 ## <a name="try-out-the-sample-app"></a>Prueba de la aplicación de ejemplo
 

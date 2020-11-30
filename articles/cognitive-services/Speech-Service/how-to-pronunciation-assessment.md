@@ -12,12 +12,12 @@ ms.date: 09/29/2020
 ms.author: yulili
 ms.custom: references_regions
 zone_pivot_groups: programming-languages-set-nineteen
-ms.openlocfilehash: 245a00acb07d1c0e769a243413fccdf64d544f5a
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 1cc313daf0e76ddd14865959410b07d9bdc189d7
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93135471"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94984928"
 ---
 # <a name="pronunciation-assessment"></a>Evaluación de la pronunciación
 
@@ -154,12 +154,12 @@ double pronunciationScore = pronunciationAssessmentResult.pronunciationScore;
 
 En esta tabla se enumeran los parámetros de configuración para la evaluación de la pronunciación.
 
-| Parámetro | Descripción | Obligatorio u opcional |
+| Parámetro | Descripción | ¿Necesario? |
 |-----------|-------------|---------------------|
 | ReferenceText | Texto con el que se va a evaluar la pronunciación. | Obligatorio |
-| GradingSystem | Sistema de puntos para la calibración de la puntuación. Los valores aceptados son: `FivePoint` y `HundredMark`. El valor predeterminado es `FivePoint`. | Opcional |
-| Granularidad | Granularidad de la evaluación. Los valores aceptados son `Phoneme`, que muestra la puntuación en el nivel de todo el texto, la palabra y el fonema, `Word`, que muestra la puntuación en el nivel de todo el texto y la palabra, `FullText`, que muestra la puntuación solo en el nivel de todo el texto. El valor predeterminado es `Phoneme`. | Opcional |
-| EnableMiscue | Habilita el cálculo de errores. Con esta opción habilitada, las palabras pronunciadas se comparan con el texto de referencia y se marcan con omisión/inserción en función de la comparación. Los valores aceptados son: `False` y `True`. El valor predeterminado es `False`. | Opcional |
+| GradingSystem | Sistema de puntos para la calibración de la puntuación. El sistema `FivePoint` da una puntuación de número de punto flotante entre 0 y 5, mientras que `HundredMark` da una puntuación de número de punto flotante entre 0 y 100. Predeterminado: `FivePoint`. | Opcional |
+| Granularidad | Granularidad de la evaluación. Los valores aceptados son `Phoneme`, que muestra la puntuación en el nivel de todo el texto, la palabra y el fonema, `Word`, que muestra la puntuación en el nivel de todo el texto y la palabra, `FullText`, que muestra la puntuación solo en el nivel de todo el texto. Predeterminado: `Phoneme`. | Opcional |
+| EnableMiscue | Habilita el cálculo de errores. Con esta opción habilitada, las palabras pronunciadas se comparan con el texto de referencia y se marcan con omisión/inserción en función de la comparación. Los valores aceptados son: `False` y `True`. Predeterminado: `False`. | Opcional |
 | ScenarioId | GUID que indica un sistema de puntos personalizado. | Opcional |
 
 ### <a name="pronunciation-assessment-result-parameters"></a>Parámetros de resultados de evaluación de la pronunciación

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/13/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 98c42a61e65935446f948e35cb08ed2893dd0b7b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 89e5fa180b011cbedebc25a5e5d555a2190805f8
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91532524"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015365"
 ---
 # <a name="speech-to-text-rest-api"></a>Speech-to-text REST API
 
@@ -30,7 +30,7 @@ Antes de usar la API REST de conversión de voz en texto, tenga en cuenta lo sig
 Si el envío de un audio más grande es necesario para la aplicación, considere la posibilidad de usar el [SDK de Voz](speech-sdk.md) o una API REST basada en archivos, como la [transcripción por lotes](batch-transcription.md).
 
 > [!TIP]
-> Consulte la [documentación](https://docs.microsoft.com/azure/azure-government/compare-azure-government-global-azure) de Azure Government para conocer los puntos de conexión de la nube de administración pública (FairFax).
+> Consulte la [documentación](../../azure-government/compare-azure-government-global-azure.md) de Azure Government para conocer los puntos de conexión de la nube de administración pública (FairFax).
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-rest-auth.md)]
 
@@ -90,10 +90,10 @@ El audio se envía en el cuerpo de la solicitud HTTP `POST`. Debe estar en uno d
 
 En esta tabla se indican los parámetros obligatorios y opcionales para la evaluación de la pronunciación.
 
-| Parámetro | Descripción | Obligatorio u opcional |
+| Parámetro | Descripción | ¿Necesario? |
 |-----------|-------------|---------------------|
 | ReferenceText | Texto con el que se va a evaluar la pronunciación. | Obligatorio |
-| GradingSystem | Sistema de puntos para la calibración de la puntuación. Los valores aceptados son: `FivePoint` y `HundredMark`. El valor predeterminado es `FivePoint`. | Opcional |
+| GradingSystem | Sistema de puntos para la calibración de la puntuación. El sistema `FivePoint` da una puntuación de número de punto flotante entre 0 y 5, mientras que `HundredMark` da una puntuación de número de punto flotante entre 0 y 100. Predeterminado: `FivePoint`. | Opcional |
 | Granularidad | Granularidad de la evaluación. Los valores aceptados son `Phoneme`, que muestra la puntuación en el nivel de todo el texto, la palabra y el fonema, `Word`, que muestra la puntuación en el nivel de todo el texto y la palabra, `FullText`, que muestra la puntuación solo en el nivel de todo el texto. El valor predeterminado es `Phoneme`. | Opcional |
 | Dimensión | Define los criterios de la salida. Los valores aceptados son `Basic`, que solo muestra la puntuación de precisión, `Comprehensive` muestra puntuaciones de más dimensiones (por ejemplo, puntuación de fluidez y puntuación de integridad en el nivel de todo el texto, tipo de error en el nivel de la palabra). Leer [Parámetros de respuesta](#response-parameters) para ver las definiciones de las distintas dimensiones de puntuación y los tipos de error de palabra. El valor predeterminado es `Basic`. | Opcional |
 | EnableMiscue | Habilita el cálculo de errores. Con esta opción habilitada, las palabras pronunciadas se comparan con el texto de referencia y se marcan con omisión/inserción en función de la comparación. Los valores aceptados son: `False` y `True`. El valor predeterminado es `False`. | Opcional |
@@ -307,5 +307,5 @@ La siguiente es una respuesta típica de reconocimiento con evaluación de pronu
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Creación de una cuenta de Azure gratuita](https://azure.microsoft.com/free/cognitive-services/)
-- [Personalización de modelos acústicos](how-to-customize-acoustic-models.md)
-- [Personalización de modelos de lenguaje](how-to-customize-language-model.md)
+- [Personalización de modelos acústicos](./how-to-custom-speech-train-model.md)
+- [Personalización de modelos de lenguaje](./how-to-custom-speech-train-model.md)

@@ -12,14 +12,14 @@ ms.date: 09/02/2020
 ms.author: trbye
 ms.custom: cog-serv-seo-aug-2020
 keywords: speaker recognition, reconocimiento del hablante, biometría de voz
-ms.openlocfilehash: 2c5b73b93c22ef27d7b68455f5e1e5108f25c984
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d07a9960c8a586fa137b4b717afbf91740c265d3
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89397266"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015331"
 ---
-# <a name="what-is-speaker-recognition"></a>¿Qué es Speaker Recognition?
+# <a name="what-is-speaker-recognition-preview"></a>¿Qué es Speaker Recognition (versión preliminar)?
 
 El servicio Speaker Recognition proporciona algoritmos que comprueban e identifican a los hablantes por sus características de voz únicas mediante la biometría de la voz. Speaker Recognition se usa para responder a la pregunta "¿quién está hablando?". Proporciona datos de entrenamiento de audio para un solo hablante, que crea un perfil de inscripción basado en las características únicas de la voz del hablante. Después, puede realizar una comprobación cruzada de los ejemplos de voz de audio con respecto a este perfil para comprobar que el hablante es la misma persona (verificación del hablante) o muestras de voz de audio de una consulta cruzada en un *grupo* de perfiles de altavoz inscritos, para ver si coincide con algún perfil del grupo (identificación del hablante). Por el contrario, [Speaker Diarization](batch-transcription.md#speaker-separation-diarization) agrupa segmentos de audio por hablante en una operación por lotes.
 
@@ -70,10 +70,10 @@ Al igual que sucede con todos los recursos de Cognitive Services, los desarrolla
 | ¿Qué formatos de audio se admiten? | WAV de 16 bits en mono a 16 kHz con codificación PCM. |
 | Las respuestas **Aceptar** y **Rechazar** no son precisas. ¿Cómo se ajusta el umbral? | Dado que el umbral óptimo varía en gran medida con los diferentes escenarios, la API toma una decisión basándose simplemente en un umbral predeterminado de 0,5. Se recomienda a los usuarios avanzados invalidar la decisión predeterminada y ajustar el resultado en función de su propio escenario. |
 | ¿Se puede inscribir a un hablante varias veces? | Sí, para la verificación dependiente del texto, puede inscribir a un hablante hasta 50 veces. En el caso de la verificación independiente del texto o la identificación del hablante, puede inscribirse con un máximo de 300 segundos de audio. |
-| ¿Qué datos se almacenan en Azure? | El audio de la inscripción se almacenará en el servicio hasta que el perfil de voz se [elimine](speaker-recognition-basics.md#deleting-voice-profile-enrollments). Las muestras de audio de reconocimiento no se conservarán ni se almacenarán. |
+| ¿Qué datos se almacenan en Azure? | El audio de la inscripción se almacenará en el servicio hasta que el perfil de voz se [elimine](./get-started-speaker-recognition.md#deleting-voice-profile-enrollments). Las muestras de audio de reconocimiento no se conservarán ni se almacenarán. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> * Complete la lectura del [artículo sobre conceptos básicos](speaker-recognition-basics.md) de Speaker Recognition para realizar una revisión de los modelos de diseño comunes que puede usar en sus aplicaciones.
+> * Complete la lectura del [artículo sobre conceptos básicos](./get-started-speaker-recognition.md) de Speaker Recognition para realizar una revisión de los modelos de diseño comunes que puede usar en sus aplicaciones.
 > * Consulte el [tutorial de vídeo](https://azure.microsoft.com/resources/videos/speaker-recognition-text-independent-verification-developer-tutorial/) para la verificación del hablante independiente del texto.

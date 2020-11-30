@@ -9,16 +9,45 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: pafarley
-ms.openlocfilehash: c9287e9661172480292a2214b231e7e5dac9c32f
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 10ae9e1356cea954435d15441d74f4f86a804578
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92912250"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95893987"
 ---
 # <a name="whats-new-in-form-recognizer"></a>Novedades en Form Recognizer
 
 El servicio Form Recognizer se actualiza de forma continuada. Use este artículo para mantenerse al día con mejoras de características, correcciones y actualizaciones de la documentación.
+
+## <a name="november-2020"></a>Noviembre de 2020
+
+### <a name="new-features"></a>Nuevas características
+
+- **Nuevo modelo de factura precompilado**: el nuevo modelo de factura precompilado permite a los clientes tomar facturas en varios formatos y devolver datos estructurados para automatizar el procesamiento de facturas. Combina nuestras eficaces funcionalidades de reconocimiento óptico de caracteres (OCR) con modelos de aprendizaje profundo de reconocimiento de facturas para extraer información clave de facturas en inglés. Extrae el texto, las tablas y la información como el cliente, el proveedor, el identificador de la factura, la fecha de vencimiento de la factura, el total, el importe debido, el importe de los impuestos, la dirección de envío, la dirección de facturación, etc.
+
+  > [Más información sobre el modelo de factura precompilado](concept-invoices.md)
+
+  :::image type="content" source="./media/invoice-example.jpg" alt-text="Ejemplo de factura" lightbox="./media/invoice-example.jpg":::
+
+- **Extracción de tablas mejorada**: Form Recognizer ahora proporciona una extracción de tablas mejorada, que combina nuestras eficaces funcionalidades de reconocimiento óptico de caracteres (OCR) con un modelo de extracción de tablas de aprendizaje profundo. Form Recognizer puede extraer datos de tablas, lo que incluye tablas complejas con columnas combinadas, filas, sin bordes, etc. 
+ 
+  :::image type="content" source="./media/tables-example.jpg" alt-text="Tablas de ejemplo" lightbox="./media/tables-example.jpg":::
+
+ 
+  > [Más información sobre la extracción de Layout](concept-layout.md)
+
+- **Nuevo idioma admitido (** japonés): ahora se admite el siguiente idiomas nuevos para `AnalyzeLayout` y `AnalyzeCustomForm`: japonés (`ja`). [Compatibilidad con idiomas](language-support.md)
+- **Indicación de estilo de línea de texto (manuscrito/otros) (solo idiomas romance)** : Form Recognizer ahora genera un objeto `appearance` que clasifica si cada línea de texto tiene estilo manuscrito o no, junto con una puntuación de confianza. Esta característica solo es compatible con los idiomas derivados del latín.
+- **Mejoras en la calidad**: mejoras en la extracción, lo que incluye mejoras en la extracción de dígitos individuales.
+- **Nueva característica para realizar pruebas en las herramientas de etiquetado y de ejemplo de Form Recognizer**: mediante la herramienta de etiquetado de ejemplo de Form Recognizer se pueden probar los modelos de factura, recibo y tarjeta de presentación precompilados y la API Layout. Vea cómo se extraen los datos sin escribir código.
+
+  > [Pruebe la herramienta de ejemplo de Form Recognizer](https://fott-preview.azurewebsites.net/)
+
+  ![Ejemplo de FOTT](./media/ui-preview.jpg)
+  
+- **Bucle de comentarios**: si se usa la herramienta de etiquetado de ejemplo para analizar archivos, ahora también se puede agregar al conjunto de entrenamiento, ajustar las tablas si fuera necesario y entrenar para mejorar el modelo.
+- **Etiquetado automático de documentos**: etiqueta automáticamente documentos adicionales en función de documentos ya etiquetados existentes en el proyecto. 
 
 ## <a name="august-2020"></a>Agosto de 2020
 
@@ -27,11 +56,11 @@ El servicio Form Recognizer se actualiza de forma continuada. Use este artículo
 **Ya está disponible la versión preliminar pública de Form Recognizer v2.1.** Se ha publicado V2.1-preview.1, incluidas las siguientes características: 
 
 
-- **Está disponible la referencia de la API de REST** : vea la [referencia de v2.1-preview.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeBusinessCardAsync) 
-- **Se admiten nuevos idiomas además del inglés** : ahora se admiten los siguientes [idiomas](language-support.md) para `Layout` y `Train Custom Model`: inglés (`en`), chino (simplificado) (`zh-Hans`), neerlandés (`nl`), francés (`fr`), alemán (`de`), italiano (`it`), portugués (`pt`) y español (`es`).
-- **Detección de marcas de selección o casillas** : Form Recognizer admite la detección y extracción de marcas de selección, como casillas y botones de radio. Las marcas de selección se extraen de `Layout` y ahora también es posible etiquetar y entrenar en `Train Custom Model` - _Entrenamiento con etiquetas_ para extraer pares clave-valor de marcas de selección. 
-- **Composición de modelos** permite que se compongan varios modelos y que se llamen con un único identificador de modelo. Cuando se envía un documento para que se analice con un identificador de modelo compuesto, primero se realiza un paso de clasificación para enrutarlo al modelo personalizado correcto. La composición de modelos está disponible para `Train Custom Model` - _Entrenamiento con etiquetas_.
-- **Nombre de modelo** : agregue un nombre descriptivo a los modelos personalizados para facilitar su administración y seguimiento.
+- **Está disponible la referencia de la API de REST**: vea la [referencia de v2.1-preview.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeBusinessCardAsync) 
+- **Se admiten nuevos idiomas además del inglés**: ahora se admiten los siguientes [idiomas](language-support.md) para `Layout` y `Train Custom Model`: inglés (`en`), chino (simplificado) (`zh-Hans`), neerlandés (`nl`), francés (`fr`), alemán (`de`), italiano (`it`), portugués (`pt`) y español (`es`).
+- **Detección de marcas de selección o casillas**: Form Recognizer admite la detección y extracción de marcas de selección, como casillas y botones de radio. Las marcas de selección se extraen de `Layout` y ahora también es posible etiquetar y entrenar en `Train Custom Model` - _Entrenamiento con etiquetas_ para extraer pares clave-valor de marcas de selección. 
+- **Composición de modelos**: permite que se compongan varios modelos y que se llamen con un único identificador de modelo. Cuando se envía un documento para que se analice con un identificador de modelo compuesto, primero se realiza un paso de clasificación para enrutarlo al modelo personalizado correcto. La composición de modelos está disponible para `Train Custom Model` - _Entrenamiento con etiquetas_.
+- **Nombre de modelo**: agregue un nombre descriptivo a los modelos personalizados para facilitar su administración y seguimiento.
 - **[Nuevo modelo precompilado para tarjetas de presentación](concept-business-cards.md)** para extraer campos comunes de tarjetas de presentación (en inglés).
 - **[Nuevas configuraciones regionales para recibos precompilados](concept-receipts.md)** : además de EN-US, ahora se admiten EN-AU, EN-CA, EN-GB y EN-IN.
 - **Mejoras de calidad** para `Layout`, `Train Custom Model` - _Entrenamiento sin etiquetas_ y _Entrenamiento con etiquetas_.
@@ -53,22 +82,22 @@ Hay **nuevos ejemplos** disponibles en GitHub.
 
 ### <a name="new-features"></a>Nuevas características
 
-* **Referencia de v2.0 disponible** Consulte la [Referencia de la API v2.0](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm) y los SDK actualizados para [.NET](/dotnet/api/overview/azure/ai.formrecognizer-readme?view=azure-dotnet), [Python](/python/api/overview/azure/?view=azure-python), [Java](/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-preview) y [JavaScript](/javascript/api/overview/azure/?view=azure-node-latest).
-* Las **mejoras en las tablas y extracciones** incluyen mejoras de precisión y de extracciones de tablas, en concreto, la posibilidad de conocer los encabezados y las estructuras de las tablas en el _entrenamiento personalizado sin etiquetas_. 
+* **Referencia de v2.0 disponible**: consulte la [referencia de la API v2.0](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm) y los SDK actualizados para [.NET](/dotnet/api/overview/azure/ai.formrecognizer-readme?view=azure-dotnet), [Python](/python/api/overview/azure/?view=azure-python), [Java](/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-preview) y [JavaScript](/javascript/api/overview/azure/?view=azure-node-latest).
+* **Mejoras en tablas y extracciones**: incluye mejoras tanto en la precisión como en las extracciones de tablas, en concreto, la funcionalidad para aprender encabezados y estructuras de tablas en el _entrenamiento personalizado sin etiquetas_. 
 
-* **La compatibilidad con divisas** permite detectar y extraer símbolos de divisas globales.
-* **En Azure Gov** también está disponible Form Recognizer.
-* **Características de seguridad mejoradas** : 
-   * **Traiga su propia clave** : Form Recognizer cifra automáticamente los datos cuando se guardan en la nube para protegerlos y para ayudarle a satisfacer los compromisos de cumplimiento y de seguridad de la organización. De forma predeterminada, su suscripción usa claves de cifrado administradas por Microsoft. Ahora también puede administrar la suscripción con sus propias claves de cifrado. [Las claves administradas por el cliente (CMK), también se conoce como Bring Your Own Key (BYOK)](./form-recognizer-encryption-of-data-at-rest.md), ofrecen más flexibilidad para crear, rotar, deshabilitar y revocar controles de acceso. También permite auditar las claves de cifrado que se usan para proteger los datos.  
+* **Compatibilidad de divisas**: detección y extracción de símbolos de moneda globales.
+* **Azure Gov**: Form Recognizer ya está disponible también en Azure Gov.
+* **Características de seguridad mejoradas**: 
+   * **Bring Your Own Key**: Form Recognizer cifra automáticamente los datos cuando se guardan en la nube para protegerlos y para ayudarle a satisfacer los compromisos de cumplimiento y de seguridad de la organización. De forma predeterminada, su suscripción usa claves de cifrado administradas por Microsoft. Ahora también puede administrar la suscripción con sus propias claves de cifrado. Las [claves administradas por el cliente (CMK), que también se conocen como Bring Your Own Key](./form-recognizer-encryption-of-data-at-rest.md), ofrecen más flexibilidad para crear, rotar, deshabilitar y revocar controles de acceso. También permite auditar las claves de cifrado que se usan para proteger los datos.  
    * **Los puntos de conexión privados** le permiten [acceder de forma segura a los datos a través de Private Link](../../private-link/private-link-overview.md) en una red virtual (VNet).
 
 
 ## <a name="june-2020"></a>Junio de 2020
 
 ### <a name="new-features"></a>Nuevas características
-* **Se ha agregado la CopyModel API a los SDK de cliente** : ahora puede usar los SDK de cliente para copiar modelos de una suscripción a otra. Consulte [Copia de seguridad y recuperación de modelos](./disaster-recovery.md) para obtener información general sobre esta característica.
-* **Integración de Azure Active Directory** : ahora puede usar las credenciales de Azure AD para autenticar los objetos de cliente de Form Recognizer en los SDK.
-* **Cambios específicos de cada SDK** : esto incluye la adición de características secundarias y cambios importantes. Consulte el registro de cambios del SDK para obtener más información.
+* **CopyModel API se agregó a los SDK de cliente**: ya se pueden usar los SDK de cliente para copiar modelos de una suscripción a otra. Consulte [Copia de seguridad y recuperación de modelos](./disaster-recovery.md) para obtener información general sobre esta característica.
+* **Integración de Azure Active Directory**: ya puede usar sus credenciales de Azure AD para autenticar sus objetos cliente de Form Recognizer en los SDK.
+* **Cambios específicos en los SDK**: aquí se incluye la tanto adición de características secundarias como los cambios importantes. Consulte el registro de cambios del SDK para obtener más información.
   * [Registro de cambios del SDK para C# versión preliminar 3](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/formrecognizer/Azure.AI.FormRecognizer/CHANGELOG.md)
   * [Registro de cambios del SDK para Python versión preliminar 3](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md)
   * [Registro de cambios del SDK para Java versión preliminar 3](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md)
@@ -77,7 +106,7 @@ Hay **nuevos ejemplos** disponibles en GitHub.
 ## <a name="april-2020"></a>Abril de 2020
 
 ### <a name="new-features"></a>Nuevas características
-* **Compatibilidad del SDK con la versión preliminar pública de la API de Form Recognizer v 2.0** Este mes hemos ampliado nuestro servicio de soporte técnico para incluir un SDK de versión preliminar para la versión v 2.0 (versión preliminar) de Form Recognizer. Use los vínculos siguientes para empezar a trabajar con el lenguaje que prefiera: 
+* **Compatibilidad del SDK con la versión preliminar pública de la API Form Recognizer v2.0**: este mes hemos ampliado nuestro servicio de soporte técnico para incluir un SDK de versión preliminar para la versión 2.0 (versión preliminar) de Form Recognizer. Use los vínculos siguientes para empezar a trabajar con el lenguaje que prefiera: 
    * [SDK de .NET](/dotnet/api/overview/azure/ai.formrecognizer-readme?view=azure-dotnet)
    * [SDK de Java](/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-preview)
    * [SDK de Python](/python/api/overview/azure/ai-formrecognizer-readme?view=azure-python-preview)
@@ -91,14 +120,14 @@ Hay **nuevos ejemplos** disponibles en GitHub.
 
 ### <a name="security-improvements"></a>Mejoras de seguridad
 
-* Las claves administradas por el cliente ahora están disponibles para Form Recognizer. Para obtener más información, consulte [Cifrado de datos en reposo para Form Recognizer](./form-recognizer-encryption-of-data-at-rest.md).
+* Las claves administradas por el cliente Customer-Managed Keys ya están disponibles para Form Recognizer. Para obtener más información, consulte [Cifrado de datos en reposo para Form Recognizer](./form-recognizer-encryption-of-data-at-rest.md).
 * Use Identidades administradas para acceder a los recursos de Azure con Azure Active Directory. Para obtener más información, consulte [Autorización para obtener acceso a identidades administradas](../authentication.md#authorize-access-to-managed-identities).
 
 ## <a name="march-2020"></a>Marzo de 2020 
 
 ### <a name="new-features"></a>Nuevas características
 
-* **Tipos de valor para etiquetar** : ahora puede especificar los tipos de valores que va a etiquetar con la herramienta de etiquetado de ejemplo de Form Recognizer. Actualmente se admiten los siguientes tipos de valor y variaciones:
+* **Tipos de valor para etiquetar**: ahora puede especificar los tipos de valores que va a etiquetar con la herramienta de etiquetado de ejemplo de Form Recognizer. Actualmente se admiten los siguientes tipos de valor y variaciones:
   * `string`
     * predeterminado, `no-whitespaces`, `alphanumeric`
   * `number`
@@ -111,9 +140,9 @@ Hay **nuevos ejemplos** disponibles en GitHub.
   Para aprender a usar esta característica, consulte la [herramienta de etiquetado de ejemplo](./quickstarts/label-tool.md#specify-tag-value-types).
 
 
-* **Visualización de tablas** : la herramienta de etiquetado de ejemplo ahora muestra las tablas que se reconocieron en el documento. Esto le permite ver las tablas que se han reconocido y extraído del documento antes de etiquetarlas y analizarlas. Esta característica se puede activar o desactivar mediante la opción de capas.
+* **Visualización de tablas**: la herramienta de etiquetado de ejemplo ahora muestra las tablas que se reconocieron en el documento. Esta característica permite ver las tablas que se han reconocido y extraído del documento antes de etiquetarlas y analizarlas. Esta característica se puede activar o desactivar mediante la opción de capas.
 
-  Este es un ejemplo de cómo se reconocen y extraen las tablas:
+  La siguiente imagen es un ejemplo de cómo se reconocen y extraen las tablas:
 
   > [!div class="mx-imgBorder"]
   > ![Visualización de tablas mediante la herramienta de etiquetado de ejemplo](./media/whats-new/formre-table-viz.png)
@@ -144,7 +173,7 @@ En esta versión se introduce Form Recognizer 2.0 (versión preliminar). En las 
 ### <a name="new-features"></a>Nuevas características
 
 * **Modelo personalizado**
-  * **Entrenar con etiquetas** Ahora puede entrenar un modelo personalizado con datos etiquetados manualmente. Esto da como resultado modelos con un mejor rendimiento y puede generar modelos que funcionen con formularios complejos o formularios que contengan valores sin claves.
+  * **Entrenar con etiquetas** Ahora puede entrenar un modelo personalizado con datos etiquetados manualmente. Este método genera modelos con un mejor rendimiento y puede generar modelos que funcionen con formularios complejos o formularios que contengan valores sin claves.
   * **API asincrónica** Puede usar llamadas API asincrónicas para entrenar y analizar grandes conjuntos de datos y archivos.
   * **Compatibilidad con archivos TIFF** Ahora puede entrenar y extraer datos de documentos TIFF.
   * **Mejoras en la precisión de la extracción**
