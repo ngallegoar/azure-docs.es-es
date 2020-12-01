@@ -11,21 +11,21 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 29a685706b09610dc298854093bb242f0bdcf8cf
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 267a543e771f33f0cfe1fac7abe225e3db2a8e3f
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964103"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94838747"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-for-high-availability"></a>Configuración del Servidor Microsoft Azure Multi-Factor Authentication para la alta disponibilidad
 
 Para conseguir una alta disponibilidad con la implementación del Servidor Azure MFA, debe implementar varios servidores MFA. En esta sección se proporciona información sobre un diseño de carga equilibrada para conseguir objetivos de alta disponibilidad en la implementación del Servidor Azure MFA.
 
 > [!IMPORTANT]
-> A partir del 1 de julio de 2019, Microsoft ya no ofrecerá el servidor MFA para implementaciones nuevas. Los clientes nuevos que quieran exigir la autenticación multifactor (MFA) durante los eventos de inicio de sesión deben usar Azure Multi-Factor Authentication basado en la nube.
+> A partir del 1 de julio de 2019, Microsoft ya no ofrecerá el servidor MFA para implementaciones nuevas. Los clientes nuevos que quieran exigir la autenticación multifactor (MFA) durante los eventos de inicio de sesión deben usar Azure AD Multi-Factor Authentication basado en la nube.
 >
-> Para empezar a trabajar con MFA basado en la nube, consulte [Tutorial: Protección de eventos de inicio de sesión de usuario con Azure Multi-Factor Authentication](tutorial-enable-azure-mfa.md).
+> Para empezar a trabajar con MFA basado en la nube, consulte [Tutorial: Protección de los eventos de inicio de sesión de usuario mediante Azure AD Multi-Factor Authentication](tutorial-enable-azure-mfa.md).
 >
 > Los clientes existentes que hayan activado el Servidor MFA antes del 1 de julio de 2019 podrán descargar la versión más reciente y las actualizaciones futuras, así como generar credenciales de activación como de costumbre.
 

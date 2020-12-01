@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/16/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: a0d474208f11c203ca65e9ac296fa381d8633a8b
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 12c9fd43933f9f54e013752c5fe482ce31650536
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94663359"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95238401"
 ---
 # <a name="create-an-app-service-environment"></a>Creación de una instancia de App Service Environment
 
@@ -48,7 +48,7 @@ ASEv3 solo se ofrece en determinadas regiones. A medida que la versión prelimin
 
 ## <a name="creating-an-ase-in-the-portal"></a>Creación de un ASE en el portal
 
-1. Para crear una instancia de ASEv3, busque **App Service Environment v3** en el marketplace.  
+1. Para crear una instancia de ASEv3, busque **App Service Environment (versión preliminar)** en el marketplace.  
 2. Aspectos básicos:  Seleccione la suscripción, seleccione o cree el grupo de recursos y escriba el nombre del ASE.  El nombre del ASE también se usará como sufijo de dominio del ASE.  Si el nombre del ASE es *contoso*, el sufijo de dominio será *contoso.appserviceenvironment.net*.  Este nombre se establecerá automáticamente en la zona privada de Azure DNS usada por la red virtual en la que se implementa el ASE. 
 
     ![Pestaña Aspectos básicos de creación de una instancia de App Service Environment](./media/creation/creation-basics.png)

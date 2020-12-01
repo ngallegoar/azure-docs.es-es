@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/27/2019
 ms.author: kenwith
-ms.openlocfilehash: 8e345b27fdb2604c0c3264d6935cb9cff8aeec9c
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 7edb7b498450625faf90f0601e19745ad632635a
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94656741"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94835669"
 ---
 # <a name="plan-an-azure-active-directory-my-apps-deployment"></a>Planeamiento de la implementación de Aplicaciones de Azure Active Directory
 
@@ -26,7 +26,7 @@ Con Aplicaciones de Azure AD, puede:
 * Detectar y acceder a todos los recursos de su empresa conectados a Azure AD como, por ejemplo, a las aplicaciones
 * Solicitar acceso a las nuevas aplicaciones y grupos
 * Administrar el acceso a estos recursos para otros usuarios
-* Administrar el autoservicio de restablecimiento de contraseña y la configuración de Azure Multi-Factor Authentication
+* Administrar el autoservicio de restablecimiento de contraseña y la configuración de Azure AD Multi-Factor Authentication
 * Administrar sus dispositivos
 
 También permite a los administradores administrar:
@@ -54,7 +54,7 @@ Aplicaciones de Azure AD beneficia a las empresas de la forma siguiente:
 
 Aplicaciones es gratuito y no requiere ninguna licencia para usarse en un nivel básico. Sin embargo, es posible que el número de objetos en el directorio y las características adicionales que desee implementar requieran licencias adicionales. Entre los escenarios de Azure AD más habituales que tienen requisitos de licencia se incluyen las siguientes características de seguridad:
 
-* [Azure Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md)
+* [Azure AD Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md)
 * [Pertenencia basada en grupos](../fundamentals/active-directory-manage-groups.md)
 * [Restablecimiento de la contraseña de autoservicio](../authentication/tutorial-enable-sspr.md)
 * [Azure Active Directory Identity Protection](../identity-protection/overview-identity-protection.md)
@@ -312,4 +312,4 @@ Use el rol con menos privilegios para realizar una tarea necesaria en Azure Acti
 Puede usar [Privileged Identity Management](../privileged-identity-management/pim-configure.md) para administrar los roles con el fin de permitir la auditoría, control y revisión de acceso adicionales para los usuarios con permisos de directorio.
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Planeamiento de una implementación de Azure Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)
+[Planeamiento de una implementación de Azure AD Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)

@@ -14,19 +14,19 @@ ms.date: 08/06/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95f8991d5ba9efb8e3223dd44a8d037acf2de849
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fba46ee5632f7411c433e4bba29201c59c552f21
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88009569"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94835210"
 ---
 # <a name="delegate-access-to-privileged-identity-management"></a>Delegación del acceso en Privileged Identity Management
 
 Para delegar el acceso en Privileged Identity Management (PIM), un administrador global puede asignar a otros usuarios el rol de administrador de roles con privilegios. De forma predeterminada, los administradores de seguridad y los lectores de seguridad tienen acceso de solo lectura a Privileged Identity Management. Para conceder acceso a Privileged Identity Management, el primer usuario puede asignar a otros el rol **Administrador de roles con privilegios**. El rol de administrador de roles con privilegios solo es necesario para administrar roles de Azure AD. Para administrar la configuración de los recursos de Azure, no se necesitan permisos de administrador de roles con privilegios.
 
 > [!NOTE]
-> La administración de Privileged Identity Management requiere Azure Multi-Factor Authentication. Dado que las cuentas Microsoft no se pueden registrar en Azure Multi-Factor Authentication, un usuario que inicia sesión con una de estas cuentas no puede acceder a Privileged Identity Management.
+> La administración de Privileged Identity Management requiere Azure AD Multi-Factor Authentication. Dado que las cuentas Microsoft no se pueden registrar en Azure AD Multi-Factor Authentication, un usuario que inicia sesión con una de estas cuentas no puede acceder a Privileged Identity Management.
 
 Asegúrese de que siempre haya al menos dos usuarios en un rol de administrador de roles con privilegios, por si se diera el caso de que a un usuario se le impida el acceso o su cuenta se elimine.
 

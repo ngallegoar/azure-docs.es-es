@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 08/27/2020
+ms.date: 11/16/2020
 ms.author: juliako
-ms.openlocfilehash: 6eecaaff836d3253d382fdf0280f9a15c3a7b00b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bf48f873127a12c3cabb28da33d34cedcda2793b
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89050869"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94831573"
 ---
 # <a name="examine-the-video-indexer-output"></a>Examen de la salida de Video Indexer
 
@@ -187,6 +187,7 @@ Un rostro podría tener un identificador, un nombre, una miniatura, otros metada
 |textualContentModeration|La conclusión [visualContentModeration](#textualcontentmoderation).|
 |emotions| La conclusión [emotions](#emotions).|
 |topics|Las conclusiones de los [temas](#topics).|
+|speakers|La conclusión [speakers](#speakers).|
 
 Ejemplo:
 
@@ -222,36 +223,45 @@ instances|Lista de intervalos de tiempo de este bloque.|
 |---|---|
 |id|Identificador de la línea.|
 |text|La transcripción en sí.|
+|confidence|Confianza de la precisión de la transcripción.|
+|speakerId|Identificador del orador.|
 |language|Idioma de la transcripción. Diseñado para admitir la transcripción, donde cada línea puede tener un idioma distinto.|
 |instances|Lista de los intervalos de tiempo donde apareció esta línea. Si la instancia es una transcripción, solo tendrá 1 instancia.|
 
 Ejemplo:
 
 ```json
-"transcript": [
+"transcript":[
 {
-    "id": 0,
-    "text": "Hi I'm Doug from office.",
-    "language": "en-US",
-    "instances": [
-    {
-        "start": "00:00:00.5100000",
-        "end": "00:00:02.7200000"
-    }
-    ]
+  "id":1,
+  "text":"Well, good morning everyone and welcome to",
+  "confidence":0.8839,
+  "speakerId":1,
+  "language":"en-US",
+  "instances":[
+     {
+    "adjustedStart":"0:00:10.21",
+    "adjustedEnd":"0:00:12.81",
+    "start":"0:00:10.21",
+    "end":"0:00:12.81"
+     }
+  ]
 },
 {
-    "id": 1,
-    "text": "I have a guest. It's Michelle.",
-    "language": "en-US",
-    "instances": [
-    {
-        "start": "00:00:02.7200000",
-        "end": "00:00:03.9600000"
-    }
-    ]
-}
-] 
+  "id":2,
+  "text":"ignite 2016. Your mission at Microsoft is to empower every",
+  "confidence":0.8944,
+  "speakerId":2,
+  "language":"en-US",
+  "instances":[
+     {
+    "adjustedStart":"0:00:12.81",
+    "adjustedEnd":"0:00:17.03",
+    "start":"0:00:12.81",
+    "end":"0:00:17.03"
+     }
+  ]
+},
 ```
 
 #### <a name="ocr"></a>ocr
@@ -827,6 +837,42 @@ Video Indexer saca conclusiones de los temas principales a partir de las transcr
 . . .
 ```
 
+#### <a name="speakers"></a>speakers
+
+|Nombre|Descripción|
+|---|---|
+|id|Id. del orador.|
+|name|Nombre del orador en forma de "Speaker # *<number>* ", por ejemplo: "Speaker #1".|
+|instances |Lista de los intervalos de tiempo donde apareció este orador.|
+
+```json
+"speakers":[
+{
+  "id":1,
+  "name":"Speaker #1",
+  "instances":[
+     {
+    "adjustedStart":"0:00:10.21",
+    "adjustedEnd":"0:00:12.81",
+    "start":"0:00:10.21",
+    "end":"0:00:12.81"
+     }
+  ]
+},
+{
+  "id":2,
+  "name":"Speaker #2",
+  "instances":[
+     {
+    "adjustedStart":"0:00:12.81",
+    "adjustedEnd":"0:00:17.03",
+    "start":"0:00:12.81",
+    "end":"0:00:17.03"
+     }
+  ]
+},
+` ` `
+```
 ## <a name="next-steps"></a>Pasos siguientes
 
 [Portal para desarrolladores de Video Indexer](https://api-portal.videoindexer.ai)

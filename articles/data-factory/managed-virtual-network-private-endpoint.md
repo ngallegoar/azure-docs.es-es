@@ -13,12 +13,12 @@ ms.custom:
 - seo-lt-2019
 - references_regions
 ms.date: 07/15/2020
-ms.openlocfilehash: a34f2e50a5eb4ab87a02a5128cb912fa220849f1
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 81d82bccd6b6bd97b84df5269dd59ffac4903370
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93317077"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94980385"
 ---
 # <a name="azure-data-factory-managed-virtual-network-preview"></a>Red virtual administrada de Azure Data Factory (versión preliminar)
 
@@ -72,6 +72,11 @@ Si el propietario aprueba la conexión, se establece el vínculo privado. De lo 
 ![Punto de conexión privado administrado aprobado](./media/tutorial-copy-data-portal-private/approve-private-endpoint.png)
 
 Solo un punto de conexión privado administrado en un estado aprobado puede enviar tráfico a un recurso de vínculo privado determinado.
+
+## <a name="interactive-authoring"></a>Creación interactiva
+Entre las funcionalidades de la creación interactiva se incluyen probar la conexión, examinar la lista de carpetas y la lista de tablas, obtener esquemas y obtener una vista previa de los datos. Puede habilitar la creación interactiva al crear o editar una instancia de Azure Integration Runtime que se encuentre en una red virtual administrada por ADF. El servicio de back-end asignará previamente el proceso para las funcionalidades de creación interactiva. De lo contrario, el proceso se asignará cada vez que se realice cualquier operación interactiva, lo que tardará más tiempo. El período de vida (TTL) para la creación interactiva es de 60 minutos, lo que significa que se deshabilitará automáticamente después de 60 minutos de la última operación de creación interactiva.
+
+![Creación interactiva](./media/managed-vnet/interactive-authoring.png)
 
 ## <a name="limitations-and-known-issues"></a>Limitaciones y problemas conocidos
 ### <a name="supported-data-sources"></a>Orígenes de datos compatibles

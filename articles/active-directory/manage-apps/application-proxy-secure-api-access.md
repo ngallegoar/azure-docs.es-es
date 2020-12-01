@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 02/12/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: e38d8261bf141248fd143f27c74e0761e54f73f9
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: eaa4a8f92809dcf44969958573231ad37d908daa
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94649337"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94835704"
 ---
 # <a name="secure-access-to-on-premises-apis-with-azure-ad-application-proxy"></a>Acceso seguro a API locales con Azure AD Application Proxy
 
@@ -36,7 +36,7 @@ En el diagrama siguiente se muestra cómo puede usar Azure AD Application Proxy
 
 Azure AD Application Proxy es la base de la solución, funciona como punto de conexión público para el acceso a API y proporciona autenticación y autorización. Puede acceder a las API desde una amplia variedad de plataformas mediante las bibliotecas de tipo [Biblioteca de autenticación de Microsoft (MSAL)](../azuread-dev/active-directory-authentication-libraries.md).
 
-Puesto que la autorización y autenticación de Azure AD Application Proxy se basan en Azure AD, puede usar el acceso condicional de Azure AD para asegurarse de que solo los dispositivos de confianza puedan tener acceso a las API publicadas mediante Application Proxy. Use Unión a Azure AD o Unión a Azure AD híbrido para escritorios e Intune Managed para dispositivos. También puede aprovechar las características de Azure Active Directory Premium, como la autenticación multifactor de Azure y la seguridad basada en el aprendizaje automático de [Azure Identity Protection](../identity-protection/overview-identity-protection.md).
+Puesto que la autorización y autenticación de Azure AD Application Proxy se basan en Azure AD, puede usar el acceso condicional de Azure AD para asegurarse de que solo los dispositivos de confianza puedan tener acceso a las API publicadas mediante Application Proxy. Use Unión a Azure AD o Unión a Azure AD híbrido para escritorios e Intune Managed para dispositivos. También puede aprovechar las características de Azure Active Directory Premium, como Azure AD Multi-Factor Authentication, y la seguridad basada en el aprendizaje automático de [Azure Identity Protection](../identity-protection/overview-identity-protection.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 

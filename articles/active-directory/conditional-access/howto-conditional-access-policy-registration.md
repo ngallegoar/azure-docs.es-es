@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: da68e21aa279ea2503a21ce35eee52f8e49d1434
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 81f4407ee7721332a4143952d1720151bb70d8c9
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89049101"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94837545"
 ---
 # <a name="conditional-access-securing-security-info-registration"></a>Acceso condicional: Protección del registro de información de seguridad
 
-Proteger cuándo y cómo se registran los usuarios para Azure Multi-Factor Authentication y el restablecimiento de contraseñas de autoservicio ya es posible con las acciones del usuario en la directiva de acceso condicional. Esta característica de versión preliminar está disponible para organizaciones que han habilitado la [vista previa del registro combinado](../authentication/concept-registration-mfa-sspr-combined.md). Esta funcionalidad se puede habilitar en las organizaciones que quieren usar condiciones como la ubicación de red de confianza para restringir el acceso al registro en Azure Multi-Factor Authentication y autoservicio de restablecimiento de contraseña (SSPR). Para obtener más información sobre las condiciones que se pueden usar, consulte el artículo [Acceso condicional: Condiciones](concept-conditional-access-conditions.md).
+Proteger cuándo y cómo se registran los usuarios para Azure AD Multi-Factor Authentication y el restablecimiento de contraseñas de autoservicio ya es posible con las acciones del usuario en la directiva de acceso condicional. Esta característica de versión preliminar está disponible para organizaciones que han habilitado la [vista previa del registro combinado](../authentication/concept-registration-mfa-sspr-combined.md). Esta funcionalidad se puede habilitar en las organizaciones que quieren usar condiciones como la ubicación de red de confianza para restringir el acceso al registro en Azure AD Multi-Factor Authentication y autoservicio de restablecimiento de contraseña (SSPR). Para obtener más información sobre las condiciones que se pueden usar, consulte el artículo [Acceso condicional: Condiciones](concept-conditional-access-conditions.md).
 
 ## <a name="create-a-policy-to-require-registration-from-a-trusted-location"></a>Crear una directiva para requerir el registro desde una ubicación de confianza
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: f91928812dd2f9f850b5e4c3af16ce5c82608e05
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: baa0aa01c94c4deb35db8a59f7b4f81224ae1fd3
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371059"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836995"
 ---
 # <a name="azure-active-directory-authentication-management-operations-reference-guide"></a>Guía de referencia de operaciones de administración de autenticación de Azure Active Directory
 
@@ -95,7 +95,7 @@ Las contraseñas por sí mismas no son lo suficientemente seguras para evitar qu
 
 ### <a name="on-premises-outage-authentication-resiliency"></a>Resistencia de la autenticación a las interrupciones locales
 
-Además de las ventajas de la simplicidad y la posibilidad de habilitar la detección de credenciales filtradas, la sincronización de hash de contraseñas (PHS) de Azure AD y Azure MFA permiten a los usuarios obtener acceso a las aplicaciones SaaS y a Microsoft 365 a pesar de las interrupciones locales debido a ciberataques, como [NotPetya](https://www.microsoft.com/security/blog/2018/02/05/overview-of-petya-a-rapid-cyberattack/). También es posible habilitar PHS mientras esté usando la federación. Si habilita PHS, podrá realizar una reserva de autenticación cuando los servicios de federación no estén disponibles.
+Además de las ventajas de la simplicidad y la posibilidad de habilitar la detección de credenciales filtradas, la sincronización de hash de contraseñas (PHS) de Azure AD y Azure AD MFA permiten a los usuarios obtener acceso a las aplicaciones SaaS y a Microsoft 365 a pesar de las interrupciones locales debido a ciberataques, como [NotPetya](https://www.microsoft.com/security/blog/2018/02/05/overview-of-petya-a-rapid-cyberattack/). También es posible habilitar PHS mientras esté usando la federación. Si habilita PHS, podrá realizar una reserva de autenticación cuando los servicios de federación no estén disponibles.
 
 Si la organización local no tiene una estrategia de resistencia frente a interrupciones o tiene una que no está integrada con Azure AD, debe implementar PHS de Azure AD y definir un plan de recuperación ante desastres que incluya PHS. Si habilita PHS de Azure AD, los usuarios podrán autenticarse en Azure AD si su instancia de Active Directory local no está disponible.
 
@@ -241,7 +241,7 @@ Si los empleados instalan aplicaciones compatibles con MAM en recursos corporati
 El acceso condicional es una herramienta esencial para mejorar la posición de seguridad de su organización. Por lo tanto, es importante que siga estos procedimientos recomendados:
 
 - Asegúrese de que todas las aplicaciones SaaS tienen al menos una directiva aplicada.
-- Evite combinar el filtro **Todas las aplicaciones** con el control de **bloqueo** , para evitar el riesgo de bloqueo.
+- Evite combinar el filtro **Todas las aplicaciones** con el control de **bloqueo**, para evitar el riesgo de bloqueo.
 - Evite usar la opción **Todos los usuarios** como filtro y agregar sin querer **Invitados**.
 - **Migre todas las directivas "heredadas" a Azure Portal**
 - Recopile todos los criterios de los usuarios, los dispositivos y las aplicaciones.
@@ -328,9 +328,9 @@ A continuación, se muestra la configuración de usuario y de grupo que se puede
 
 #### <a name="user-settings"></a>Configuración de usuario
 
-- **Usuarios externos** : la colaboración externa puede producirse de forma orgánica en la empresa mediante servicios como Teams, Power BI, SharePoint Online y Azure Information Protection. Si tiene restricciones explícitas para controlar cualquier colaboración externa que inicie el usuario, es recomendable que habilite usuarios externos mediante la [administración de derechos de Azure AD](../governance/entitlement-management-overview.md) o con una operación controlada como, por ejemplo, a través del departamento de soporte técnico. Si no quiere permitir la colaboración externa orgánica en los servicios, puede [impedir totalmente que los miembros inviten a usuarios externos](../external-identities/delegate-invitations.md). Como alternativa, también puede [permitir o bloquear dominios específicos](../external-identities/allow-deny-list.md) en invitaciones de usuarios externos.
-- **Registros de aplicaciones** : cuando la característica Registros de aplicaciones está habilitada, los usuarios finales pueden incorporar aplicaciones y conceder acceso a sus datos. Un ejemplo típico de la característica Registro de aplicaciones, son los usuarios que habilitan los complementos de Outlook o los asistentes de voz como Alexa y Siri que se usan para leer los correos electrónicos y el calendario, o para enviar correos electrónicos en su nombre. Si el cliente decide desactivar Registro de aplicaciones, los equipos de InfoSec e IAM deben participar en la administración de excepciones (esto es, registros de aplicaciones que son necesarios según los requisitos empresariales), ya que tendrán que registrar las aplicaciones con una cuenta de administrador, y lo más probable es que necesite diseñar un proceso para poner en marcha esta operación.
-- **Portal de administración** : las organizaciones pueden bloquear la hoja de Azure AD en Azure Portal para que los usuarios que no sean administradores no puedan obtener acceso a la administración de Azure AD en Azure Portal y se confundan debido a ello. Vaya a la configuración de usuario en el portal de administración de Azure AD para restringir el acceso:
+- **Usuarios externos**: la colaboración externa puede producirse de forma orgánica en la empresa mediante servicios como Teams, Power BI, SharePoint Online y Azure Information Protection. Si tiene restricciones explícitas para controlar cualquier colaboración externa que inicie el usuario, es recomendable que habilite usuarios externos mediante la [administración de derechos de Azure AD](../governance/entitlement-management-overview.md) o con una operación controlada como, por ejemplo, a través del departamento de soporte técnico. Si no quiere permitir la colaboración externa orgánica en los servicios, puede [impedir totalmente que los miembros inviten a usuarios externos](../external-identities/delegate-invitations.md). Como alternativa, también puede [permitir o bloquear dominios específicos](../external-identities/allow-deny-list.md) en invitaciones de usuarios externos.
+- **Registros de aplicaciones**: cuando la característica Registros de aplicaciones está habilitada, los usuarios finales pueden incorporar aplicaciones y conceder acceso a sus datos. Un ejemplo típico de la característica Registro de aplicaciones, son los usuarios que habilitan los complementos de Outlook o los asistentes de voz como Alexa y Siri que se usan para leer los correos electrónicos y el calendario, o para enviar correos electrónicos en su nombre. Si el cliente decide desactivar Registro de aplicaciones, los equipos de InfoSec e IAM deben participar en la administración de excepciones (esto es, registros de aplicaciones que son necesarios según los requisitos empresariales), ya que tendrán que registrar las aplicaciones con una cuenta de administrador, y lo más probable es que necesite diseñar un proceso para poner en marcha esta operación.
+- **Portal de administración**: las organizaciones pueden bloquear la hoja de Azure AD en Azure Portal para que los usuarios que no sean administradores no puedan obtener acceso a la administración de Azure AD en Azure Portal y se confundan debido a ello. Vaya a la configuración de usuario en el portal de administración de Azure AD para restringir el acceso:
 
 ![Acceso restringido del portal de administración](./media/active-directory-ops-guide/active-directory-ops-img13.png)
 

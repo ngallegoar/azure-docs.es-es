@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8d03b8f13a016dc21e37b82f66abc8050ef17d8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 77ecc23e2969ce4ce26eef7b9a3a485389d08ce0
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89266789"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94837114"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Preguntas más frecuentes sobre la administración de dispositivos de Azure Active Directory
 
@@ -198,7 +198,7 @@ Los cambios de nombre principal de usuario se admiten con la actualización 200
 
 ---
 
-### <a name="q-why-dont-some-of-my-users-get-azure-multi-factor-authentication-prompts-on-azure-ad-joined-devices"></a>P: ¿Por qué algunos de mis usuarios no reciben las indicaciones de Azure Multi-factor Authentication en dispositivos unidos a Azure AD?
+### <a name="q-why-dont-some-of-my-users-get-azure-ad-multi-factor-authentication-prompts-on-azure-ad-joined-devices"></a>P: ¿Por qué algunos de mis usuarios no reciben las indicaciones de Azure AD Multi-Factor Authentication en dispositivos unidos a Azure AD?
 
 **R:** Un usuario puede unir o registrar un dispositivo a Azure AD mediante Multi-Factor Authentication. De esta forma, el dispositivo se convierte en un segundo factor de confianza para dicho usuario. Siempre que el mismo usuario inicia sesión en el dispositivo y accede a una aplicación, Azure AD considera al dispositivo como segundo factor. Esta función permite que el usuario acceda sin problemas a las aplicaciones sin indicaciones adicionales de Multi-Factor Authentication. 
 

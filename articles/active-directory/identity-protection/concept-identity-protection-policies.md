@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8776ad915ff215eef143f62aaa9e242ff0354f3e
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 28a9080ce878e262573adf0b3c79394079c09ca2
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368798"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94835975"
 ---
 # <a name="identity-protection-policies"></a>Directivas de Identity Protection
 
@@ -24,11 +24,11 @@ Azure Active Directory Identity Protection incluye tres directivas predeterminad
 
 ![Directivas de Identity Protection](./media/concept-identity-protection-policies/identity-protection-policies.png)
 
-## <a name="azure-mfa-registration-policy"></a>Directiva de registro de Azure MFA
+## <a name="azure-ad-mfa-registration-policy"></a>Directiva de registro de Azure AD MFA
 
-Identity Protection puede ayudar a las organizaciones a implementar Multi-Factor Authentication (MFA) de Azure mediante una directiva de acceso condicional que requiere registro al iniciar sesión. La habilitación de esta directiva es una excelente manera de asegurarse de que los nuevos usuarios de la organización se hayan registrado en MFA el primer día. La autenticación multifactor es uno de los métodos de corrección automática para los eventos de riesgo dentro de Identity Protection. La corrección automática permite que los usuarios realicen acciones por su cuenta para reducir el volumen de llamadas al departamento de soporte técnico.
+Identity Protection puede ayudar a las organizaciones a implementar Azure AD Multi-Factor Authentication (MFA) mediante una directiva de acceso condicional que requiere registro al iniciar sesión. La habilitación de esta directiva es una excelente manera de asegurarse de que los nuevos usuarios de la organización se hayan registrado en MFA el primer día. La autenticación multifactor es uno de los métodos de corrección automática para los eventos de riesgo dentro de Identity Protection. La corrección automática permite que los usuarios realicen acciones por su cuenta para reducir el volumen de llamadas al departamento de soporte técnico.
 
-Encuentre más información sobre Azure Multi-factor Authentication en el artículo [Cómo funciona: Azure Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md).
+Encuentre más información sobre Azure AD Multi-Factor Authentication en el artículo [Cómo funciona: Azure AD Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md).
 
 ## <a name="sign-in-risk-policy"></a>Directiva de riesgo de inicio de sesión
 
@@ -37,7 +37,7 @@ Identity Protection analiza las señales de cada inicio de sesión, tanto en tie
 Si se detecta un riesgo, los usuarios pueden realizar el proceso de autenticación multifactor para solucionar automáticamente el evento de inicio de sesión peligroso y cerrarlo para evitar ruidos innecesarios para los administradores.
 
 > [!NOTE] 
-> Los usuarios deben haberse registrado previamente para Azure Multi-Factor Authentication antes de desencadenar la directiva de riesgo de inicio de sesión.
+> Los usuarios deben haberse registrado previamente para Azure AD Multi-Factor Authentication antes de desencadenar la directiva de riesgo de inicio de sesión.
 
 ### <a name="custom-conditional-access-policy"></a>Directiva de acceso condicional personalizada
 
@@ -58,8 +58,8 @@ Si se detecta un riesgo, los usuarios pueden utilizar el autoservicio de restabl
 
 - [Habilitación del autoservicio de restablecimiento de contraseña de Azure AD](../authentication/howto-sspr-deployment.md)
 
-- [Habilitación de Azure Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)
+- [Habilitación de Azure AD Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)
 
-- [Habilitación de la directiva de registro de autenticación multifactor de Azure](howto-identity-protection-configure-mfa-policy.md)
+- [Habilitación de la directiva de registro de Azure AD Multi-Factor Authentication](howto-identity-protection-configure-mfa-policy.md)
 
 - [Habilitación de las directivas de riesgo de inicios de sesión y de usuarios](howto-identity-protection-configure-risk-policies.md)

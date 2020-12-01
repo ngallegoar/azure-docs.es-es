@@ -3,12 +3,12 @@ title: Filtros de tema de Azure Service Bus | Microsoft Docs
 description: En este artículo se explica cómo los suscriptores pueden especificar filtros para definir qué mensajes desean recibir de un tema.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 5df343ff63c01a7cf10315b758e3d6fba8ac5674
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 04ae585c42f8acfbf338bf23befb32a5521fcf57
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88066753"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94889038"
 ---
 # <a name="topic-filters-and-actions"></a>Filtros y acciones de temas
 
@@ -18,7 +18,7 @@ Cada suscripción de tema recién creada tiene una regla de suscripción predete
 
 Service Bus admite tres condiciones de filtro:
 
--   *Filtros booleanos*: el filtro **TrueFilter** y **FalseFilter** hace que se seleccionen todos los mensajes entrantes (**true**) o ninguno de los mensajes entrantes (**false**) de la suscripción.
+-   *Filtros booleanos*: el filtro **TrueFilter** y **FalseFilter** hace que se seleccionen todos los mensajes entrantes (**true**) o ninguno de los mensajes entrantes (**false**) de la suscripción. Estos dos filtros provienen del filtro SQL. 
 
 -   *Filtros SQL*: una propiedad **SqlFilter** contiene una expresión condicional de tipo SQL que se evalúa en el agente contra las propiedades del sistema y las propiedades definidas por el usuario de los mensajes entrantes. Todas las propiedades del sistema deben ir precedidas de `sys.` en la expresión condicional. El [subconjunto de lenguaje SQL para las condiciones de filtro](service-bus-messaging-sql-filter.md) comprueba la existencia de propiedades (`EXISTS`), valores nulos (`IS NULL`), operadores lógicos, relacionales NOT/AND/OR, aritmética numérica simple y coincidencia de patrones de texto simple con `LIKE`.
 
@@ -52,6 +52,75 @@ Los filtros y las acciones permiten dos grupos adicionales de patrones: creació
 En la creación de particiones se usan filtros para distribuir los mensajes entre varias suscripciones a temas existentes de una manera predecible y mutuamente excluyente. El patrón de creación de particiones se usa cuando un sistema se escala horizontalmente para controlar muchos contextos diferentes en compartimientos funcionalmente idénticos que contiene cada uno de ellos un subconjunto de los datos generales; por ejemplo, información del perfil del cliente. Con la creación de particiones, un editor envía el mensaje en un tema sin necesidad de ningún conocimiento del modelo de creación de particiones. A continuación, el mensaje se mueve a la suscripción correcta desde la que el controlador de mensajes de la partición puede recuperarlo.
 
 En el enrutamiento se usan filtros para distribuir los mensajes entre las suscripciones a temas de un modo predecible, pero no necesariamente exclusivo. Junto con la característica de [reenvío automático](service-bus-auto-forwarding.md), pueden usarse filtros de tema para crear gráficos complejos de enrutamiento dentro de un espacio de nombres de Service Bus para la distribución de mensajes dentro de una región de Azure. Si Azure Functions o Azure Logic Apps actúan como un puente entre los espacios de nombres de Azure Service Bus, puede crear topologías globales complejas con integración directa en las aplicaciones de línea de negocio.
+
+## <a name="examples"></a>Ejemplos
+
+### <a name="set-rule-action-for-a-sql-filter"></a>Establecimiento de una acción de regla para un filtro SQL
+
+```csharp
+// instantiate the ManagementClient
+this.mgmtClient = new ManagementClient(connectionString);
+
+// create the SQL filter
+var sqlFilter = new SqlFilter("source = @stringParam");
+
+// assign value for the parameter
+sqlFilter.Parameters.Add("@stringParam", "orders");
+
+// instantiate the Rule = Filter + Action
+var filterActionRule = new RuleDescription
+{
+    Name = "filterActionRule",
+    Filter = sqlFilter,
+    Action = new SqlRuleAction("SET source='routedOrders'")
+};
+
+// create the rule on Service Bus
+await this.mgmtClient.CreateRuleAsync(topicName, subscriptionName, filterActionRule);
+```
+
+### <a name="sql-filter-on-a-system-property"></a>Filtro SQL en una propiedad del sistema
+
+```csharp
+sys.Label LIKE '%bus%'`
+```
+
+### <a name="using-or"></a>Uso de OR 
+
+```csharp
+sys.Label LIKE '%bus%' OR user.tag IN ('queue', 'topic', 'subscription')
+```
+
+### <a name="using-in-and-not-in"></a>Usar IN y NOT IN
+
+```csharp
+StoreId IN('Store1', 'Store2', 'Store3')"
+
+sys.To IN ('Store5','Store6','Store7') OR StoreId = 'Store8'
+
+sys.To NOT IN ('Store1','Store2','Store3','Store4','Store5','Store6','Store7','Store8') OR StoreId NOT IN ('Store1','Store2','Store3','Store4','Store5','Store6','Store7','Store8')
+```
+
+Para ver un ejemplo de C# donde se usan estos filtros, consulte el [ejemplo de filtros de temas en GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Azure.Messaging.ServiceBus/BasicSendReceiveTutorialwithFilters).
+
+### <a name="correlation-filter-using-correlationid"></a>Filtro de correlación con CorrelationID
+
+```csharp
+new CorrelationFilter("Contoso");
+```
+
+Filtra los mensajes con `CorrelationID` establecido en `Contoso`. 
+
+### <a name="correlation-filter-using-system-and-user-properties"></a>Filtro de correlación con propiedades del sistema y del usuario
+
+```csharp
+var filter = new CorrelationFilter();
+filter.Label = "Important";
+filter.ReplyTo = "johndoe@contoso.com";
+filter.Properties["color"] = "Red";
+```
+
+Es equivalente a: `sys.ReplyTo = 'johndoe@contoso.com' AND sys.Label = 'Important' AND color = 'Red'`.
 
 
 > [!NOTE]

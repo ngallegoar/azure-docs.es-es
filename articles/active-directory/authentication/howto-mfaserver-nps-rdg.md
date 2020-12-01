@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 261a7033737e0d7be9974ca80ca6844b50a19973
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 9959ce1c88fb595dedd4174a9185f801168ecb0d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91968623"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994186"
 ---
 # <a name="remote-desktop-gateway-and-azure-multi-factor-authentication-server-using-radius"></a>Puerta de enlace de Escritorio remoto y Servidor Azure Multi-Factor Authentication con RADIUS
 
@@ -27,9 +27,9 @@ Puesto que no se admite la autenticación de Windows para los servicios de termi
 Instale el servidor Azure Multi-Factor Authentication en un servidor independiente, que luego entrega la solicitud RADIUS a NPS en el servidor de Puerta de enlace de Escritorio remoto. Una vez que NPS valida el nombre de usuario y la contraseña, devuelve una respuesta al servidor Microsoft Azure Multi-Factor Authentication. Luego, el servidor MFA ejecuta el segundo factor de autenticación y devuelve un resultado a la puerta de enlace.
 
 > [!IMPORTANT]
-> A partir del 1 de julio de 2019, Microsoft ya no ofrecerá el servidor MFA para implementaciones nuevas. Los clientes nuevos que quieran exigir la autenticación multifactor (MFA) durante los eventos de inicio de sesión deben usar Azure Multi-Factor Authentication basado en la nube.
+> A partir del 1 de julio de 2019, Microsoft ya no ofrecerá el servidor MFA para implementaciones nuevas. Los clientes nuevos que quieran exigir la autenticación multifactor (MFA) durante los eventos de inicio de sesión deben usar Azure AD Multi-Factor Authentication basado en la nube.
 >
-> Para empezar a trabajar con MFA basado en la nube, consulte [Tutorial: Protección de eventos de inicio de sesión de usuario con Azure Multi-Factor Authentication](tutorial-enable-azure-mfa.md).
+> Para empezar a trabajar con MFA basado en la nube, consulte [Tutorial: Protección de los eventos de inicio de sesión de usuario mediante Azure AD Multi-Factor Authentication](tutorial-enable-azure-mfa.md).
 >
 > Si usa Azure MFA basada en la nube, vea cómo [Integrar la autenticación RADIUS con Azure Multi-Factor Authentication](howto-mfa-nps-extension.md).
 >

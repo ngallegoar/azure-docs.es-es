@@ -11,12 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: joflore
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e44cb38435ca86ad7cd4709d5e99f5cf41fcf91
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 20b51cc747d3a24b1437eda988397a2e999f6ab3
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92366333"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94837488"
 ---
 # <a name="plan-a-conditional-access-deployment"></a>Planeamiento de la implementación del acceso condicional
 
@@ -73,7 +73,7 @@ Los siguientes recursos pueden ser útiles a medida que obtiene información sob
 * [¿Cómo se implementa el acceso condicional?](https://youtu.be/c_izIRNJNuk)
 * [¿Cómo se implementan las directivas de CA en los usuarios finales?](https://youtu.be/0_Fze7Zpyvc)
 * [Acceso condicional con controles de dispositivos](https://youtu.be/NcONUf-jeS4)
-* [Acceso condicional con Azure MFA](https://youtu.be/Tbc-SU97G-w)
+* [Acceso condicional con Azure AD MFA](https://youtu.be/Tbc-SU97G-w)
 * [Acceso condicional en Enterprise Mobility + Security](https://youtu.be/A7IrxAH87wc)
 
 
@@ -105,7 +105,7 @@ Cuando las nuevas directivas estén listas para su entorno, impleméntelas en fa
 ## <a name="understand-ca-policy-components"></a>Descripción de los componentes de la directiva de CA
 Las directivas de CA son instrucciones if-then: si se cumple una asignación, aplique estos controles de acceso.
 
-Al configurar las directivas de CA, las condiciones se denominan *asignaciones* . Las directivas de CA permiten exigir controles de acceso en las aplicaciones de la organización según determinadas condiciones.
+Al configurar las directivas de CA, las condiciones se denominan *asignaciones*. Las directivas de CA permiten exigir controles de acceso en las aplicaciones de la organización según determinadas condiciones.
 
 
 Para obtener más información, consulte [Creación de una directiva de acceso condicional](concept-conditional-access-policies.md).
@@ -264,7 +264,7 @@ La pauta de nomenclatura ayuda a encontrar las directivas y a comprender su prop
 
 ![Captura de pantalla que muestra las normas de nomenclatura de las directivas.](media/plan-conditional-access/11.png)
 
-**Ejemplo** : Una directiva para requerir MFA para los usuarios de marketing con acceso a la aplicación de Dynamics CRP desde redes externas podría ser:
+**Ejemplo**: Una directiva para requerir MFA para los usuarios de marketing con acceso a la aplicación de Dynamics CRP desde redes externas podría ser:
 
 ![Pauta de nomenclatura](media/plan-conditional-access/naming-example.png)
 
@@ -287,7 +287,7 @@ EM01 - HABILITAR EN CASO DE EMERGENCIA: Interrupción de MFA [1/4]: Exchange Sha
 
 ### <a name="exclude-countries-from-which-you-never-expect-a-sign-in"></a>Excluya los países desde los que nunca espera un inicio de sesión.
 
-Azure Active Directory permite crear [ubicaciones con nombre](location-condition.md). Cree una ubicación con nombre que incluya todos los países desde los que nunca esperaría que se produjera un inicio de sesión. Después, cree una directiva para todas las aplicaciones que bloquee el inicio de sesión desde esa ubicación con nombre. **Asegúrese de excluir a los administradores de esta directiva** .
+Azure Active Directory permite crear [ubicaciones con nombre](location-condition.md). Cree una ubicación con nombre que incluya todos los países desde los que nunca esperaría que se produjera un inicio de sesión. Después, cree una directiva para todas las aplicaciones que bloquee el inicio de sesión desde esa ubicación con nombre. **Asegúrese de excluir a los administradores de esta directiva**.
 
 ### <a name="plan-your-policy-deployment"></a>Planear la implementación de la directiva
 
@@ -421,7 +421,7 @@ Otra manera de validar la directiva de acceso condicional es mediante la [herram
 
 Realice cada prueba del plan de pruebas con los usuarios de prueba.
 
-**Asegúrese de que se prueban los criterios de exclusión de las directivas** . Por ejemplo, puede excluir a un usuario o grupo de una directiva que requiera MFA. Pruebe si a los usuarios excluidos se les solicita MFA, ya que la combinación de otras directivas puede hacer que se exija para esos usuarios.
+**Asegúrese de que se prueban los criterios de exclusión de las directivas**. Por ejemplo, puede excluir a un usuario o grupo de una directiva que requiera MFA. Pruebe si a los usuarios excluidos se les solicita MFA, ya que la combinación de otras directivas puede hacer que se exija para esos usuarios.
 
 ### <a name="roll-back-policies"></a>Revertir las directivas
 

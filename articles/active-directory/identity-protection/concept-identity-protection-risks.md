@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 32d9683012a5900569740080d61ac21b464a5cd4
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: d0da8755199645b12e9c6ed75a42881fe86e70b5
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94490617"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023044"
 ---
 # <a name="what-is-risk"></a>¿Qué es el riesgo?
 
@@ -74,7 +74,7 @@ Estos riesgos se pueden calcular en tiempo real o sin conexión, usando orígene
 
 ### <a name="risk-levels"></a>Niveles de riesgo
 
-Identity Protection clasifica el riesgo en tres niveles: bajo, medio y alto. 
+Identity Protection clasifica el riesgo en tres niveles: bajo, medio y alto. Al configurar [directivas de Identity Protection personalizadas](https://docs.microsoft.com/azure/active-directory/identity-protection/concept-identity-protection-policies#custom-conditional-access-policy), también puede configurarla para que se desencadene en el nivel **Sin riesgo**. Sin riesgo significa que no hay ninguna indicación activa de que la identidad del usuario se ha visto en peligro.
 
 Aunque Microsoft no proporciona detalles específicos sobre cómo se calcula el riesgo, diremos que cada nivel aporta una mayor seguridad de que el usuario o el inicio de sesión están en peligro. Por ejemplo, cosas como un caso de propiedades de inicio de sesión desconocidas para un usuario podría no ser tan amenazante como la filtración de credenciales para otro usuario.
 

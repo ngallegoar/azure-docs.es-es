@@ -2,18 +2,18 @@
 title: Preguntas más frecuentes
 description: En este artículo se ofrecen respuestas a algunas de las preguntas más frecuentes sobre Azure VMware Solution.
 ms.topic: conceptual
-ms.date: 11/12/2020
+ms.date: 11/19/2020
 ms.author: dikamath
-ms.openlocfilehash: 2d71c30d2fb08629674c352ae812d8890463abfe
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 0bc3e0ab5b3017c2d051113a57d79214ffce0836
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94695108"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967353"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution"></a>Preguntas frecuentes sobre Azure VMware Solution
 
-Respuestas a las preguntas frecuentes sobre Azure VMware Solution.
+En este artículo se responden las preguntas más frecuentes sobre Azure VMware Solution.
 
 ## <a name="general"></a>General
 
@@ -33,7 +33,7 @@ Todos los servicios de Azure estarán disponibles para los clientes de Azure VMw
 
 #### <a name="do-i-use-the-same-tools-that-i-use-now-to-manage-private-cloud-resources"></a>¿Utilizo las mismas herramientas que uso ahora para administrar recursos de nube privada?
 
-Sí. Azure Portal se utiliza para la implementación y varias operaciones de administración. vCenter y NSX Manager se utilizan para administrar los recursos de vSphere y NSX-T.
+Sí. Azure Portal se utiliza para la implementación y para varias operaciones de administración. vCenter y NSX Manager se utilizan para administrar los recursos de vSphere y NSX-T.
 
 #### <a name="can-i-manage-a-private-cloud-with-my-on-premises-vcenter"></a>¿Puedo administrar una nube privada con mi instancia de vCenter local?
 
@@ -53,7 +53,7 @@ Todos los entornos de nube cuentan con VMware HCX, vSphere 5.5 o posterior en en
 
 #### <a name="what-does-the-change-control-process-look-like"></a>¿Qué aspecto tiene el proceso de control de cambios?
 
-Las actualizaciones realizadas en el propio servicio seguirán el proceso estándar de administración de cambios de Microsoft Azure. Los clientes son responsables de las tareas de administración de las cargas de trabajo y de los procesos asociados de administración de cambios.
+Las actualizaciones realizadas en el propio servicio sigue el proceso estándar de administración de cambios de Microsoft Azure. Los clientes son responsables de las tareas de administración de las cargas de trabajo y de los procesos asociados de administración de cambios.
 
 #### <a name="how-is-this-different-from-azure-vmware-solution-by-cloudsimple"></a>¿En qué se diferencia de Azure VMware Solution by CloudSimple?
 
@@ -65,7 +65,7 @@ Con la nueva solución Azure VMware Solution, Microsoft y VMware tienen una asoc
 Sí, siempre que el sistema en el que está instalado pueda acceder al servidor vCenter de la nube privada y use un servidor DNS público para poder resolver los nombres de host ESXi.
 
 #### <a name="are-there-special-instructions-for-installing-and-using-vmrc-with-azure-vmware-solution-vms"></a>¿Existen instrucciones especiales para instalar y usar VMRC con las VM de Azure VMware Solution?
-No, use las [instrucciones proporcionadas por VMware](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.vm_admin.doc/GUID-89E7E8F0-DB2B-437F-8F70-BA34C505053F.html) y cumpla los requisitos previos de la VM especificados en dichas instrucciones. 
+No. Siga las [instrucciones proporcionadas por VMware](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.vm_admin.doc/GUID-89E7E8F0-DB2B-437F-8F70-BA34C505053F.html) para cumplir los requisitos previos de VM especificados en dichas instrucciones. 
 
 #### <a name="is-vmware-hcx-supported-on-vpns"></a>¿Se admite VMware HCX en las VPN?
 No, debido a los requisitos de ancho de banda y latencia.
@@ -105,7 +105,7 @@ Cada host ESXi de Azure VMware Solution está configurado con cuatro adaptadores
 
 Sí, todos los datos vSAN se cifran de forma predeterminada mediante claves que se almacenan en Azure Key Vault.
 
-#### <a name="you-document-that-commvault-veritas-and-veeam-have-extended-their-backup-solutions-to-work-with-azure-vmware-solution-what-about-other-independent-software-vendor-isv-backup-solutions"></a>Puede documentar que Commvault, Veritas y Veeam han ampliado sus soluciones de copia de seguridad para trabajar con Azure VMware Solution. ¿Qué ocurre con otras soluciones de copia de seguridad de fabricantes de software independientes (ISV)?
+#### <a name="you-document-that-commvault-veritas-and-veeam-have-extended-their-backup-solutions-to-work-with-azure-vmware-solution-what-about-other-independent-software-vendors-isvs-backup-solutions"></a>Puede documentar que Commvault, Veritas y Veeam han ampliado sus soluciones de copia de seguridad para trabajar con Azure VMware Solution. ¿Qué ocurre con otras soluciones de copia de seguridad de fabricantes de software independientes (ISV)?
 
 A nuestro entender, cualquier solución de copia de seguridad que use VMware VADP con el modo de transporte HotAdd debería funcionar desde el principio en Azure VMware Solution.
 
@@ -147,7 +147,7 @@ No. Los hosts ESXi de alto nivel están reservados para su uso en clústeres de 
 
 #### <a name="what-versions-of-vmware-software-is-used-in-private-clouds"></a>¿Qué versiones del software de VMware se usan en las nubes privadas?
 
-Las nubes privadas usan vSphere 6.7, vSAN 6.7, VMware HCX y NSX-T 2.5.  
+Las nubes privadas usan vSphere 6.7 U3, vSAN 6.7 U3, VMware HCX y NSX-T 2.5.  Para obtener más información, consulte los [requisitos de la versión de software de VMware](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-54E5293B-8707-4D29-BFE8-EE63539CC49B.html).
 
 #### <a name="do-private-clouds-use-vmware-nsx"></a>¿Usan las nubes privadas VMware NSX?
 
@@ -163,7 +163,7 @@ No, no es necesario usar NSX en el entorno local.
 
 #### <a name="what-is-the-upgrade-and-update-schedule-for-vmware-software-in-a-private-cloud"></a>¿Cuál es el cronograma de actualización del software de VMware en una nube privada?
 
-Las actualizaciones del conjunto de productos de software de la nube privada se realizan para mantener el software dentro de una de las versiones más recientes del conjunto de productos de software de VMware. Las versiones de software de la nube privada pueden ser diferentes de las versiones más recientes de los componentes de software individuales (ESXi, NSX-T, vCenter, vSAN).
+Las actualizaciones del conjunto de productos de software de la nube privada mantienen el software dentro de una de las versiones más recientes del conjunto de productos de software de VMware. Las versiones de software de la nube privada pueden diferir de las versiones más recientes de los componentes de software individuales (ESXi, NSX-T, vCenter, vSAN).
 
 #### <a name="how-often-will-the-private-cloud-software-stack-be-updated"></a>¿Con qué frecuencia se actualizará la pila de software de nube privada?
 
@@ -218,7 +218,7 @@ Tendrá los privilegios del grupo CloudAdmin. Para obtener más información, co
 
 #### <a name="what-privileges-and-permissions-will-i-have-on-the-nsx-t-manager"></a>¿Qué privilegios y permisos tendré en NSX-T Manager?
 
-Tendrá privilegios completos de administrador en NSX-T y podrá administrar el control de acceso basado en roles, tal como lo haría con NSX-T Data Center en el entorno local. Para obtener más información, consulte [Conceptos de acceso y de identidad](concepts-identity.md).
+Tendrá privilegios completos de administrador en NSX-T y podrá administrar el control de acceso basado en roles de vSphere, tal como lo haría con NSX-T Data Center en el entorno local. Para obtener más información, consulte [Conceptos de acceso y de identidad](concepts-identity.md).
 
 > [!NOTE]
 > Se crea y configura un enrutador T0 como parte de una implementación de nube privada. Cualquier modificación en el enrutador lógico o en las VM del nodo perimetral de NSX-T podría afectar a la conectividad a la nube privada.
@@ -237,7 +237,7 @@ Sí, los clientes pueden implementar Azure VMware Solution en una suscripción d
 
 Microsoft ofrece el soporte técnico para Azure VMware Solution. Puede enviar una [solicitud de soporte técnico](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). 
 
-En el caso de las suscripciones administradas por CSP, el proveedor de soluciones proporcionará el primer nivel de soporte técnico, como el proveedor de servicios criptográficos lo hace para otros servicios de Azure.
+En el caso de las suscripciones administradas por CSP, el proveedor de soluciones proporciona el primer nivel de soporte técnico, como el CSP lo hace para otros servicios de Azure.
 
 #### <a name="what-accounts-do-i-need-to-create-an-azure-vmware-solution-private-cloud"></a>¿Qué cuentas necesito para crear una nube privada de Azure VMware Solution?
 
@@ -247,21 +247,20 @@ Necesitará una cuenta de Azure en una suscripción a Azure.
 
 Microsoft y Red Hat comparten un equipo de soporte técnico integrado y coubicado que proporciona un punto de contacto unificado para los ecosistemas de Red Hat que se ejecutan en la plataforma Azure.  Al igual que otros servicios de la plataforma Azure que funcionan con Red Hat Enterprise Linux, Azure VMware Solution está bajo la protección del soporte integrado y Cloud Access. Asimismo, se admite la ejecución de Red Hat Enterprise Linux sobre Azure VMware Solution en Azure.
 
-#### <a name="is-vmware-hcx-enterprise-edition-available-and-if-so-how-much-does-it-cost"></a>¿VMware HCX Enterprise Edition está disponible? Si es así, ¿cuánto cuesta?
+#### <a name="is-vmware-hcx-enterprise-available-and-if-so-how-much-does-it-cost"></a>¿VMware HCX Enterprise está disponible? Si es así, ¿cuánto cuesta?
 
-VMware HCX Enterprise Edition (EE) está disponible con Azure VMware Solution, como una función o servicio en *versión preliminar*. Aunque VMware HCX EE para Azure VMware Solution esté en su versión preliminar, es una función o servicio gratuito y está sujeto a los términos y condiciones de los servicios de versión preliminar. Una vez que el servicio VMware HCX EE esté disponible de forma general, recibirá un aviso de 30 días de que la facturación cambiará. Puede desactivar o no participar en el servicio.
+VMware HCX Enterprise está disponible con Azure VMware Solution, como una función o servicio en *versión preliminar*. Aunque VMware HCX Enterprise para Azure VMware Solution esté en su versión preliminar, es una función o servicio gratuito y está sujeto a los términos y condiciones de los servicios de versión preliminar. Una vez que el servicio VMware HCX Enterprise esté disponible de forma general, recibirá un aviso de 30 días de que la facturación cambiará. Puede desactivar o no participar en el servicio.
 
 #### <a name="how-do-i-request-a-host-quota-increase-for-azure-vmware-solution"></a>¿Cómo se solicita un aumento de la cuota de host para Azure VMware Solution?
 
-En el caso de las suscripciones administradas por CSP, el cliente debe realizar la solicitud al asociado y el equipo de asociados se comunicará con Microsoft para aumentar la cuota de la suscripción. Para más información, consulte el artículo [Habilitación del recurso de Azure VMware Solution](enable-azure-vmware-solution.md). 
+En el caso de las suscripciones administradas por CSP, el cliente debe enviar la solicitud al asociado. Luego el equipo de asociados se comunica con Microsoft para aumentar la cuota de la suscripción. Para obtener más información, consulte el artículo [Habilitación del recurso de Azure VMware Solution](enable-azure-vmware-solution.md). 
 
-En el caso de las suscripciones de Contrato Enterprise, el cliente debe seguir este procedimiento.
+En el caso de las suscripciones de EA, siga el procedimiento a continuación. En primer lugar, necesitará:
 
-* Necesitará un [Contrato Enterprise (EA) de Azure](../cost-management-billing/manage/ea-portal-agreements.md) con Microsoft.
-* Necesitará una cuenta de Azure en una suscripción a Azure.
+* Un [Contrato Enterprise (EA) de Azure](../cost-management-billing/manage/ea-portal-agreements.md) con Microsoft.
+* Una cuenta de Azure con una suscripción a Azure.
 
-Antes de crear el recurso de Azure VMware Solution, debe enviar una incidencia de soporte técnico para asignar los nodos. Se tarda hasta cinco días laborables en confirmar la solicitud y asignar los nodos. Si tiene una nube privada de Azure VMware Solution existente y desea asignar más nodos, repasará el mismo proceso.
-
+Antes de poder crear el recurso de Azure VMware Solution, deberá enviar una incidencia de soporte técnico para que se asignen los hosts. Se tarda hasta cinco días laborables en confirmar y cumplir la solicitud. Si tiene una nube privada de Azure VMware Solution y quiere asignar más hosts, pasará por el mismo proceso.
 
 1. En Azure Portal, en **Ayuda y soporte técnico**, cree una **[solicitud de soporte técnico](https://rc.portal.azure.com/#create/Microsoft.Support)** y proporcione la siguiente información para el vale:
    - **Tipo de problema**: Requisitos previos técnicos
@@ -276,42 +275,47 @@ Antes de crear el recurso de Azure VMware Solution, debe enviar una incidencia d
 
    - POC o producción 
    - Nombre de región
-   - Número de nodos
+   - Número de hosts
    - Cualquier otro detalle
 
    >[!NOTE]
-   >Azure VMware Solution recomienda un mínimo de tres nodos para poner en marcha su nube privada y para la redundancia de N+1 nodos. 
+   >Azure VMware Solution recomienda como mínimo tres hosts para poner en marcha la nube privada y N+1 hosts para la redundancia. 
 
 1. Seleccione **Revisar + crear** para enviar la solicitud.
 
    Un representante de soporte técnico tardará hasta cinco días hábiles en confirmar su solicitud.
 
    >[!IMPORTANT] 
-   >Si ya tiene una instancia de Azure VMware Solution existente y solicita más nodos, tenga en cuenta que necesitamos cinco días laborables para asignar los nodos. 
+   >Si ya tiene una instancia de Azure VMware Solution y solicita hosts adicionales, tenga en cuenta que necesitamos cinco días laborables para asignarlos. 
 
-1. Antes de poder aprovisionar los nodos, asegúrese de registrar el proveedor de recursos **Microsoft.AVS** en Azure Portal.  
+1. Antes de aprovisionar los hosts, asegúrese de registrar el proveedor de recursos **Microsoft.AVS** en Azure Portal.  
 
    ```azurecli-interactive
    az provider register -n Microsoft.AVS --subscription <your subscription ID>
+   ```
 
-   For additional ways to register the resource provider, see [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md). 
+   Para ver otras formas de registrar el proveedor de recursos, consulte [Tipos y proveedores de recursos de Azure](../azure-resource-manager/management/resource-providers-and-types.md). 
 
-#### Are Reserved Instances available for purchasing through the Cloud Solution Provider (CSP) program?
+#### <a name="are-reserved-instances-available-for-purchasing-through-the-cloud-solution-provider-csp-program"></a>¿Hay instancias reservadas disponibles para la compra a través del programa Proveedor de soluciones en la nube (CSP)?
 
-Yes. CSP can purchase reserved instances on behalf of their customers, see [Save costs with a reserved instance](reserved-instance.md) article. 
+Sí. El CSP puede comprar instancias reservadas para sus clientes. Para obtener más información, consulte el artículo [Ahorro de costos con una instancia reservada](reserved-instance.md). 
 
-#### Does Azure VMware Solution offer multi-tenancy for hosting CSP partners?
+#### <a name="does-azure-vmware-solution-offer-multi-tenancy-for-hosting-csp-partners"></a>¿Ofrece Azure VMware Solution varios inquilinos para hospedar asociados de CSP?
 
-No. Currently Azure VMware Solution does not offer multi-tenancy.
+No. Actualmente, Azure VMware Solution no ofrece varios inquilinos.
+
+#### <a name="will-traffic-between-on-premises-and-azure-vmware-solution-over-expressroute-incur-any-outbound-data-transfer-charge-in-the-metered-data-plan"></a>¿Incurre el tráfico entre el entorno local y Azure VMware Solution a través de ExpressRoute en un cargo de transferencia de datos de salida en el plan de datos según uso?
+
+El tráfico del circuito ExpressRoute de Azure VMware Solution no se mide de ningún modo. El tráfico del circuito ExpressRoute que conecta el entorno local a Azure se cobra en función de los planes de precios de ExpressRoute.
 
 
-## Customer communication
+## <a name="customer-communication"></a>Comunicación al cliente
 
-#### How can I receive an alert when Azure sends service health notifications to my Azure subscription?
+#### <a name="how-can-i-receive-an-alert-when-azure-sends-service-health-notifications-to-my-azure-subscription"></a>¿Cómo puedo recibir una alerta cuando Azure envía notificaciones de estado del servicio a mi suscripción de Azure?
 
-Service issues, planned maintenance, health advisories, security advisories notifications are published through **Service Health** in the Azure portal.  You can take timely actions when you set up activity log alerts for these notifications. For more information, see [Create service health alerts using the Azure portal](../service-health/alerts-activity-log-service-notifications-portal.md#create-service-health-alert-using-azure-portal).
+Las notificaciones de problemas de servicio, mantenimiento planificado, avisos de estado y avisos de seguridad se publican a través de **Service Health** en Azure Portal.  Puede realizar acciones oportunas al configurar las alertas del registro de actividad para estas notificaciones. Para obtener más información, consulte [Creación de alertas de Service Health mediante Azure Portal](../service-health/alerts-activity-log-service-notifications-portal.md#create-service-health-alert-using-azure-portal).
 
-:::image type="content" source="media/service-health.png" alt-text="Screenshot of Service Health notifications":::
+:::image type="content" source="media/service-health.png" alt-text="Captura de pantalla de notificaciones de Service Health":::
 
 
 

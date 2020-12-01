@@ -10,16 +10,16 @@ ms.date: 06/03/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 24eb7ac7c4490c8d27d141f6417ae157a7a9c65b
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 2a79ec9a54ae597bc7e9795029dc4292c2c82345
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94646583"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836400"
 ---
 # <a name="migrate-to-cloud-authentication-using-staged-rollout-preview"></a>Migración a la autenticación en la nube mediante un lanzamiento preconfigurado (versión preliminar)
 
-El lanzamiento preconfigurado le permite probar de forma selectiva grupos de usuarios con funcionalidades de autenticación en la nube, como Azure Multi-Factor Authentication (MFA), Acceso condicional, Identity Protection para credenciales filtradas, Identity Governance y otros, antes de utilizar sus propios dominios.  En este artículo se describe cómo realizar el cambio. Sin embargo, antes de comenzar el lanzamiento preconfigurado, debe tener en cuenta las consecuencias en caso de que se cumplan las condiciones siguientes:
+El lanzamiento preconfigurado le permite probar de forma selectiva grupos de usuarios con funcionalidades de autenticación en la nube, como Azure AD Multi-Factor Authentication (MFA), Acceso condicional, Identity Protection para credenciales filtradas, Identity Governance y otros, antes de utilizar sus propios dominios.  En este artículo se describe cómo realizar el cambio. Sin embargo, antes de comenzar el lanzamiento preconfigurado, debe tener en cuenta las consecuencias en caso de que se cumplan las condiciones siguientes:
     
 -  Usa actualmente un servidor de Multi-Factor Authentication local. 
 -  Usa tarjetas inteligentes para la autenticación. 
@@ -45,7 +45,7 @@ Para información general sobre la característica, vea este vídeo "Azure Acti
 
 -   Ha configurado todas las directivas adecuadas de acceso condicional y personalización de marca del inquilino que necesita para los usuarios que se van a migrar a la autenticación en la nube.
 
--   Si tiene previsto usar Azure Multi-Factor Authentication, le recomendamos que use el [registro combinado para el autoservicio de restablecimiento de contraseña (SSPR) y Multi-Factor Authentication](../authentication/concept-registration-mfa-sspr-combined.md) para que los usuarios registren sus métodos de autenticación una sola vez. Nota: cuando se usa SSPR para restablecer la contraseña o cambiar la contraseña mediante la página MyProfile en el lanzamiento preconfigurado, Azure AD Connect necesita sincronizar el nuevo hash de contraseña, lo que puede tardar hasta dos minutos después del restablecimiento.
+-   Si tiene previsto usar Azure AD Multi-Factor Authentication, le recomendamos que use el [registro combinado para el autoservicio de restablecimiento de contraseña (SSPR) y Multi-Factor Authentication](../authentication/concept-registration-mfa-sspr-combined.md) para que los usuarios registren sus métodos de autenticación una sola vez. Nota: cuando se usa SSPR para restablecer la contraseña o cambiar la contraseña mediante la página MyProfile en el lanzamiento preconfigurado, Azure AD Connect necesita sincronizar el nuevo hash de contraseña, lo que puede tardar hasta dos minutos después del restablecimiento.
 
 -   Para usar la característica de lanzamiento preconfigurado, debe ser administrador global en el inquilino.
 

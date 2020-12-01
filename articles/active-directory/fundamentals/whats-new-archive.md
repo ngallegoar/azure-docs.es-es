@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan, has-adal-ref
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a703f6d32cb665bfada73ca833f51c94d83f8b97
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 0ffa0059e78ee193cb12a4838282f7f9fb282edd
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93146167"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95973701"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Archivo de ¿Cuáles son las novedades de Azure Active Directory?
 
@@ -189,7 +189,7 @@ Las consultas delta para aplicaciones están disponibles con carácter general. 
 
 **Funcionalidad del producto:** Experiencia para el desarrollador
 
-Estas API son una herramienta fundamental para administrar los métodos de autenticación de los usuarios. Ahora puede realizar un registro previo y administrar mediante programación los autenticadores usados para MFA y el autoservicio de restablecimiento de contraseña (SSPR). Esta ha sido una de las características más solicitadas en las áreas de Azure MFA, SSPR y Microsoft Graph. Las nuevas API que hemos publicado en esta oleada le ofrecen la posibilidad de:
+Estas API son una herramienta fundamental para administrar los métodos de autenticación de los usuarios. Ahora puede realizar un registro previo y administrar mediante programación los autenticadores usados para MFA y el autoservicio de restablecimiento de contraseña (SSPR). Esta ha sido una de las características más solicitadas en las áreas de Azure AD MFA, SSPR y Microsoft Graph. Las nuevas API que hemos publicado en esta oleada le ofrecen la posibilidad de:
 
 - Leer, agregar, actualizar y eliminar los teléfonos de autenticación de un usuario
 - Restablecer la contraseña de un usuario
@@ -227,9 +227,9 @@ Para más información, consulte [Administración de unidades administrativas en
 
 **Funcionalidad del producto:** Control de acceso
 
-**Administrador de impresoras** : los usuarios con este rol pueden registrar impresoras y administrar todos los aspectos de todas las configuraciones de impresora en la solución de impresión universal de Microsoft, incluida la configuración del conector de impresión universal. Pueden dar su consentimiento a todas las solicitudes de permiso de impresión delegada. Los administradores de impresoras también tienen acceso a los informes de impresión. 
+**Administrador de impresoras**: los usuarios con este rol pueden registrar impresoras y administrar todos los aspectos de todas las configuraciones de impresora en la solución de impresión universal de Microsoft, incluida la configuración del conector de impresión universal. Pueden dar su consentimiento a todas las solicitudes de permiso de impresión delegada. Los administradores de impresoras también tienen acceso a los informes de impresión. 
 
-**Técnico de impresoras** : los usuarios con este rol pueden registrar impresoras y administrar el estado de la impresora en la solución de impresión universal de Microsoft. También pueden leer toda la información del conector. Una tarea clave que un Técnico de impresoras no puede realizar es establecer permisos de usuario en las impresoras ni compartir impresoras. [Más información.](../roles/permissions-reference.md#printer-administrator)
+**Técnico de impresoras**: los usuarios con este rol pueden registrar impresoras y administrar el estado de la impresora en la solución de impresión universal de Microsoft. También pueden leer toda la información del conector. Una tarea clave que un Técnico de impresoras no puede realizar es establecer permisos de usuario en las impresoras ni compartir impresoras. [Más información.](../roles/permissions-reference.md#printer-administrator)
 
 ---
 
@@ -352,7 +352,7 @@ Hemos actualizado la experiencia de aprovisionamiento para crear una vista de ad
 
 **Funcionalidad del producto:** Colaboración
 
-Azure Active Directory (Azure AD) ahora ofrece los medios para validar las reglas de grupos dinámicos. En la pestaña **Validación de las reglas** , puede validar la regla dinámica con los miembros del grupo de ejemplo, para confirmar que la regla funciona según lo previsto. Al crear o actualizar reglas de grupos dinámicos, los administradores quieren saber si un usuario o un dispositivo será miembro del grupo. Esto ayuda a evaluar si el usuario o el dispositivo cumplen los criterios de la regla y ayuda a solucionar problemas cuando no se espera la pertenencia.
+Azure Active Directory (Azure AD) ahora ofrece los medios para validar las reglas de grupos dinámicos. En la pestaña **Validación de las reglas**, puede validar la regla dinámica con los miembros del grupo de ejemplo, para confirmar que la regla funciona según lo previsto. Al crear o actualizar reglas de grupos dinámicos, los administradores quieren saber si un usuario o un dispositivo será miembro del grupo. Esto ayuda a evaluar si el usuario o el dispositivo cumplen los criterios de la regla y ayuda a solucionar problemas cuando no se espera la pertenencia.
 
 Para más información, consulte [Validación de una regla de pertenencia dinámica a grupos (versión preliminar)](../enterprise-users/groups-dynamic-rule-validation.md).
 
@@ -397,7 +397,7 @@ Estas nuevas acciones de mejora requerirán el registro de usuarios o administra
 **Categoría del servicio:** B2B  
 **Funcionalidad del producto:** B2B/B2C
  
-**A partir del 31 de marzo de 2021** , Microsoft dejará de admitir el canje de invitaciones mediante la creación de cuentas de Azure Active Directory (Azure AD) no administradas e inquilinos para escenarios de colaboración B2B. Como preparación para esto, le recomendamos que opte por la [autenticación de código de acceso de un solo uso por correo electrónico](../external-identities/one-time-passcode.md).
+**A partir del 31 de marzo de 2021**, Microsoft dejará de admitir el canje de invitaciones mediante la creación de cuentas de Azure Active Directory (Azure AD) no administradas e inquilinos para escenarios de colaboración B2B. Como preparación para esto, le recomendamos que opte por la [autenticación de código de acceso de un solo uso por correo electrónico](../external-identities/one-time-passcode.md).
 
 ---
 
@@ -1147,7 +1147,7 @@ Para más información, consulte el [Tutorial: Creación y configuración de una
 
 ### <a name="plan-for-change-deprecation-of-the-power-bi-content-packs"></a>Planeado su cambio: Desuso de los paquetes de contenido de Power BI
 
-**Tipo:** **Categoría del servicio:** Plan de cambio **Funcionalidad del producto** : Informes Supervisión e informes
+**Tipo:** **Categoría del servicio:** Plan de cambio **Funcionalidad del producto**: Informes Supervisión e informes
 
 A partir del 1 de octubre de 2019, Power BI comenzará a dejar de usar todos los paquetes de contenido, incluido el paquete de contenido de Azure AD Power BI. Como alternativa a este paquete de contenido, puede usar libros de Azure AD para obtener información sobre los servicios relacionados con Azure AD. Próximos libros de trabajo adicionales, incluidos los libros sobre las directivas de acceso condicional en modo de solo informes, información basada en el consentimiento de la aplicación, etc.
 
@@ -1157,9 +1157,9 @@ Para obtener más información acerca de los libros, consulte [Cómo usar los li
 
 ### <a name="my-profile-is-renaming-and-integrating-with-the-microsoft-office-account-page"></a>Mi perfil cambia de nombre y se integra con la página de la cuenta de Microsoft Office
 
-**Tipo:** **Categoría del servicio:** Plan de cambio **Funcionalidad del producto** : Mi perfil/cuenta Colaboración
+**Tipo:** **Categoría del servicio:** Plan de cambio **Funcionalidad del producto**: Mi perfil/cuenta Colaboración
 
-A partir de octubre, la experiencia Mi perfil se convertirá en Mi cuenta. Como parte de ese cambio, en todas partes en las que aparezca **Mi perfil** , este pasará a llamarse **Mi cuenta**. Además del cambio de nomenclatura y algunas mejoras de diseño, la experiencia actualizada ofrecerá una integración adicional con la página de la cuenta de Microsoft Office. En concreto, podrá obtener acceso a las instalaciones y suscripciones de Office desde la página **Overview Account** (Descripción general de la cuenta), junto con las preferencias de contacto relacionadas con Office desde la página **Privacy** (Privacidad).
+A partir de octubre, la experiencia Mi perfil se convertirá en Mi cuenta. Como parte de ese cambio, en todas partes en las que aparezca **Mi perfil**, este pasará a llamarse **Mi cuenta**. Además del cambio de nomenclatura y algunas mejoras de diseño, la experiencia actualizada ofrecerá una integración adicional con la página de la cuenta de Microsoft Office. En concreto, podrá obtener acceso a las instalaciones y suscripciones de Office desde la página **Overview Account** (Descripción general de la cuenta), junto con las preferencias de contacto relacionadas con Office desde la página **Privacy** (Privacidad).
 
 Para obtener más información sobre la experiencia Mi perfil (versión preliminar), consulte la [descripción general del portal Mi perfil (versión preliminar)](../user-help/my-account-portal-overview.md).
 
@@ -1271,7 +1271,7 @@ Si es un cliente ya existente que activó el servidor MFA antes del 1 de julio d
 
 - Se corrigieron otros errores menores.
 
-A partir del 1 de julio de 2019, Microsoft dejó de ofrecer el servidor de MFA en las nuevas implementaciones. Los clientes nuevos que quieran exigir la autenticación multifactor a sus usuarios deberán usar Azure Multi-Factor Authentication basado en la nube. Para obtener más información, consulte [Planificación de una implementación de Azure Multi-Factor Authentication basada en la nube](../authentication/howto-mfa-getstarted.md).
+A partir del 1 de julio de 2019, Microsoft dejó de ofrecer el servidor de MFA en las nuevas implementaciones. Los clientes nuevos que quieran exigir la autenticación multifactor a sus usuarios deberán usar Azure AD Multi-Factor Authentication basado en la nube. Para obtener más información, consulte [Planeamiento de una implementación de Azure AD Multi-Factor Authentication basada en la nube](../authentication/howto-mfa-getstarted.md).
 
 ---
 
@@ -1415,7 +1415,7 @@ Para obtener más información, consulte el [Ejemplo de cómo crear revisiones d
 
 ### <a name="azure-ad-activity-logs-are-now-available-for-government-cloud-instances-in-azure-monitor"></a>Los registros de actividad de Azure AD ahora están disponibles para las instancias de la nube de administración pública en Azure Monitor
 
-**Tipo:** **Categoría del servicio:** Característica modificada **Funcionalidad del producto** : Informes Supervisión e informes
+**Tipo:** **Categoría del servicio:** Característica modificada **Funcionalidad del producto**: Informes Supervisión e informes
 
 Nos complace anunciar que los registros de actividad de Azure AD ahora están disponibles para las instancias de la nube de administración pública en Azure Monitor Ahora puede enviar registros de Azure AD a su cuenta de almacenamiento o a un centro de eventos para integrarlos con las herramientas SIEM, como [Sumologic](../reports-monitoring/howto-integrate-activity-logs-with-sumologic.md), [Splunk](../reports-monitoring/howto-integrate-activity-logs-with-splunk.md) y [Arcsight](../reports-monitoring/howto-integrate-activity-logs-with-arcsight.md).
 
@@ -1437,7 +1437,7 @@ Para más información sobre la experiencia de información de seguridad mejorad
 
 2. Vaya a **Azure Active Directory > Configuración de usuario > Administrar la configuración de las características en versión preliminar del panel de acceso**.
 
-3. En el área **Mejoras para los usuarios a la hora de utilizar las características en versión preliminar para registrar y administrar la información de seguridad** , seleccione **Seleccionado** y luego elija un grupo de usuarios o elija **Todos** a fin de activar esta función para todos los usuarios del inquilino.
+3. En el área **Mejoras para los usuarios a la hora de utilizar las características en versión preliminar para registrar y administrar la información de seguridad**, seleccione **Seleccionado** y luego elija un grupo de usuarios o elija **Todos** a fin de activar esta función para todos los usuarios del inquilino.
 
 4. En el **Los usuarios pueden usar las características de vista previa para registrar y administrar el área de información **de seguridad**,** seleccione **Ninguno**.
 
@@ -1573,7 +1573,7 @@ Para más información, consulte [Habilitación de auditorías de seguridad para
 
 **Tipo:** **Categoría del servicio:** Nueva característica **Funcionalidad del producto:** Autoservicio de restablecimiento de contraseña Supervisión e informes
 
-Los informes de las conclusiones y uso de los nuevos métodos de autenticación pueden ayudarle a entender cómo se registran y usan características como Azure Multi-Factor Authentication y el restablecimiento de contraseña de autoservicio en su organización, lo que incluye el número de usuarios registrados para cada característica, la frecuencia con que se usa el restablecimiento de contraseña de autoservicio para restablecer contraseñas y el método de restablecimiento.
+Los informes de las conclusiones y uso de los nuevos métodos de autenticación pueden ayudarle a entender cómo se registran y usan características como Azure AD Multi-Factor Authentication y el autoservicio de restablecimiento de contraseña en su organización, lo que incluye el número de usuarios registrados para cada característica, la frecuencia con que se usa el autoservicio de restablecimiento de contraseña para restablecer contraseñas y el método de restablecimiento.
 
 Para más información, consulte [Conclusiones y uso de los métodos de autenticación (versión preliminar)](../authentication/howto-authentication-methods-usage-insights.md).
 
@@ -1583,7 +1583,7 @@ Para más información, consulte [Conclusiones y uso de los métodos de autentic
 
 **Tipo:** **Categoría del servicio:** Nueva característica **Funcionalidad del producto:** Identity Protection Seguridad y protección de la identidad
 
-Ahora, todos los administradores de Azure ad pueden seleccionar el banner de la parte superior de los informes de seguridad existentes, como el informe **Usuarios marcados en riesgo** , para empezar a usar la nueva experiencia de seguridad, como se muestra en los informes **Usuarios de riesgo**  e **Inicios de sesión de riesgo**. Con el tiempo, todos los informes de seguridad pasarán de las versiones anteriores a las nuevas y los informes nuevos le proporcionarán las siguientes funcionalidades adicionales:
+Ahora, todos los administradores de Azure ad pueden seleccionar el banner de la parte superior de los informes de seguridad existentes, como el informe **Usuarios marcados en riesgo**, para empezar a usar la nueva experiencia de seguridad, como se muestra en los informes **Usuarios de riesgo**  e **Inicios de sesión de riesgo**. Con el tiempo, todos los informes de seguridad pasarán de las versiones anteriores a las nuevas y los informes nuevos le proporcionarán las siguientes funcionalidades adicionales:
 
 - Filtrado y ordenación avanzados
 
@@ -1663,7 +1663,7 @@ Actualmente, las pantallas de registro de aplicaciones del Azure Portal aún blo
 
 ### <a name="activity-logs-ms-graph-apis-for-azure-ad-are-now-available-through-powershell-cmdlets"></a>Los registros de actividad (MS Graph API) para Azure AD ahora están disponibles a través de los cmdlets de PowerShell
 
-**Tipo:** **Categoría del servicio:** Nueva característica **Funcionalidad del producto** : Informes Supervisión e informes
+**Tipo:** **Categoría del servicio:** Nueva característica **Funcionalidad del producto**: Informes Supervisión e informes
 
 Nos complace anunciar que los registros de actividad de Azure AD (informes de auditoría e inicio de sesión) ahora están disponibles a través del módulo de Azure AD PowerShell. Antes podía crear sus propios scripts mediante los de MS Graph API y ahora hemos ampliado esa funcionalidad a los cmdlets de PowerShell.
 
@@ -1673,7 +1673,7 @@ Para más información acerca de cómo usar estos cmdlets, consulte [Cmdlets de 
 
 ### <a name="updated-filter-controls-for-audit-and-sign-in-logs-in-azure-ad"></a>Controles de filtro actualizados para los registros de auditoría e inicio de sesión en Azure AD
 
-**Tipo:** **Categoría del servicio:** Característica modificada **Funcionalidad del producto** : Informes Supervisión e informes
+**Tipo:** **Categoría del servicio:** Característica modificada **Funcionalidad del producto**: Informes Supervisión e informes
 
 Hemos actualizado los informes de auditoría e inicio de sesión, por lo que ahora puede aplicar varios filtros sin tener que agregarlos como columnas en las pantallas de informes. Además, ahora puede decidir el número de filtros que desea mostrar en la pantalla. Estas actualizaciones funcionan conjuntamente para que los informes sean más fáciles de leer y se ajusten más a sus necesidades.
 
@@ -1747,9 +1747,9 @@ Para obtener más información sobre cómo configurar la personalización de mar
 
 **Tipo:** **Categoría del servicio:** En desuso **Funcionalidad del producto:** MFA Seguridad y protección de la identidad
 
-A partir del 1 de julio de 2019, Microsoft ya no ofrecerá el Servidor MFA para implementaciones nuevas. Ahora, los clientes nuevos que quieran exigir la autenticación multifactor en su organización deberán usar Azure Multi-factor Authentication en la nube. Los clientes que tengan activado el Servidor MFA desde antes del 1 de julio no apreciarán ningún cambio. Podrán seguir descargando las versiones más recientes, obteniendo actualizaciones futuras y generando credenciales de activación.
+A partir del 1 de julio de 2019, Microsoft ya no ofrecerá el Servidor MFA para implementaciones nuevas. Ahora, los clientes nuevos que quieran exigir la autenticación multifactor en su organización deberán usar Azure AD Multi-factor Authentication basado en la nube. Los clientes que tengan activado el Servidor MFA desde antes del 1 de julio no apreciarán ningún cambio. Podrán seguir descargando las versiones más recientes, obteniendo actualizaciones futuras y generando credenciales de activación.
 
-Para obtener más información, vea [Introducción al Servidor Azure Multi-Factor Authentication](../authentication/howto-mfaserver-deploy.md). Para obtener más información sobre Azure Multi-Factor Authentication en la nube, vea [Planeación de una implementación de Azure Multi-Factor Authentication en la nube](../authentication/howto-mfa-getstarted.md).
+Para obtener más información, vea [Introducción al Servidor Azure Multi-Factor Authentication](../authentication/howto-mfaserver-deploy.md). Para obtener más información sobre Azure AD Multi-Factor Authentication basado en la nube, vea [Planeamiento de una implementación de Azure AD Multi-Factor Authentication basado en la nube](../authentication/howto-mfa-getstarted.md).
 
 ---
 
@@ -1891,7 +1891,7 @@ Para obtener más información, vea [Aplicación de una directiva de nomenclatur
 
 ### <a name="microsoft-graph-api-endpoints-are-now-available-for-azure-ad-activity-logs-general-availability"></a>Ahora, los puntos de conexión de la API de Microsoft Graph están disponibles para los registros de actividad de Azure AD (disponibilidad general)
 
-**Tipo:** **Categoría del servicio:** Característica modificada **Funcionalidad del producto** : Informes Supervisión e informes
+**Tipo:** **Categoría del servicio:** Característica modificada **Funcionalidad del producto**: Informes Supervisión e informes
 
 Nos complace anunciar la disponibilidad general de compatibilidad de puntos de conexión de la API de Microsoft Graph en los registros de actividad de Azure AD. Con este lanzamiento, ahora puede usar la versión 1.0 tanto de los registros de auditoría de Azure AD como de las API de registros de inicio de sesión.
 
@@ -1955,7 +1955,7 @@ Para obtener más información, vea [Aplicación de una directiva de nomenclatur
 
 ### <a name="azure-ad-activity-logs-are-now-available-in-azure-monitor-general-availability"></a>Los registros de actividad de Azure AD ya están disponibles en Azure Monitor (disponibilidad general)
 
-**Tipo:** **Categoría del servicio:** Nueva característica **Funcionalidad del producto** : Informes Supervisión e informes
+**Tipo:** **Categoría del servicio:** Nueva característica **Funcionalidad del producto**: Informes Supervisión e informes
 
 Para que sea más fácil atender sus comentarios sobre las visualizaciones de los registros de actividad de Azure AD, hemos incluido una nueva característica Información en Log Analytics. Esta característica sirve para obtener información sobre los recursos de Azure AD mediante nuestras plantillas interactivas, llamadas libros. Estos libros pregenerados proporcionan detalles sobre las aplicaciones o los usuarios, como lo siguiente:
 
@@ -1989,7 +1989,7 @@ Para obtener más información acerca de las aplicaciones, consulte [Integració
 
 Las nuevas actualizaciones de las revisiones de acceso de Azure AD permiten lo siguiente:
 
-- Cambiar la frecuencia de las revisiones de acceso a **Semestral** , además de las opciones ya existentes (Semanal, Mensual, Trimestral y Anual).
+- Cambiar la frecuencia de las revisiones de acceso a **Semestral**, además de las opciones ya existentes (Semanal, Mensual, Trimestral y Anual).
 
 - Seleccionar varios roles de recursos de Azure y de Azure AD al crear una revisión de acceso único. En esta situación, todos los roles se configuran igual y se notifica a todos los revisores al mismo tiempo.
 
@@ -2119,13 +2119,13 @@ Esta actualización envía el error `invalid_grant`: `AADSTS50196: The server te
 
 ### <a name="new-audit-logs-user-experience-now-available"></a>Ya disponible la nueva experiencia de usuario de los registros de auditoría
 
-**Tipo:** **Categoría del servicio:** Característica modificada **Funcionalidad del producto** : Informes Supervisión e informes
+**Tipo:** **Categoría del servicio:** Característica modificada **Funcionalidad del producto**: Informes Supervisión e informes
 
-Hemos creado una nueva página **Registros de auditoría** de Azure AD para mejorar la legibilidad y la búsqueda de información. Para ver la página **Registros de auditoría** , seleccione **Registros de auditoría** en la sección **Actividad** de Azure AD.
+Hemos creado una nueva página **Registros de auditoría** de Azure AD para mejorar la legibilidad y la búsqueda de información. Para ver la página **Registros de auditoría**, seleccione **Registros de auditoría** en la sección **Actividad** de Azure AD.
 
 ![Nueva página Registros de auditoría con información de ejemplo](media/whats-new/audit-logs-page.png)
 
-Para obtener más información sobre la página **Registros de auditoría** , vea [Informes de actividad de auditoría en el portal de Azure Active Directory](../reports-monitoring/concept-audit-logs.md#audit-logs).
+Para obtener más información sobre la página **Registros de auditoría**, vea [Informes de actividad de auditoría en el portal de Azure Active Directory](../reports-monitoring/concept-audit-logs.md#audit-logs).
 
 ---
 
@@ -2147,7 +2147,7 @@ Hemos actualizado y mejorado el modo en el que los usuarios leen y aceptan las c
 
 ### <a name="new-azure-ad-activity-logs-download-experience-available"></a>Disponible la nueva experiencia de descarga de los registros de actividad de Azure AD
 
-**Tipo:** **Categoría del servicio:** Característica modificada **Funcionalidad del producto** : Informes Supervisión e informes
+**Tipo:** **Categoría del servicio:** Característica modificada **Funcionalidad del producto**: Informes Supervisión e informes
 
 Ahora se pueden descargar grandes cantidades de registros de actividad directamente desde Azure Portal. Este cambio le permite:
 
@@ -2223,7 +2223,7 @@ En respuesta a los comentarios de los clientes, se ha mejorado la experiencia en
 
 1. Inicie sesión como administrador global o administrador de usuarios en Azure Portal y vaya a **Azure Active Directory > Configuración de usuario > Administrar la configuración de las características en versión preliminar del panel de acceso**.
 
-2. En la opción **Usuarios que pueden utilizar las características en versión preliminar para registrar y administrar la información de seguridad – actualizar** , elija activar las características para un **Grupo seleccionado de usuarios** o para **Todos los usuarios**.
+2. En la opción **Usuarios que pueden utilizar las características en versión preliminar para registrar y administrar la información de seguridad – actualizar**, elija activar las características para un **Grupo seleccionado de usuarios** o para **Todos los usuarios**.
 
 A lo largo de las próximas semanas se retirará la capacidad de activar la antigua experiencia combinada de vista previa de registro MFA/SSPR para los inquilinos que todavía no la hayan activado.
 
@@ -2231,7 +2231,7 @@ A lo largo de las próximas semanas se retirará la capacidad de activar la anti
 
 1. Inicie sesión como administrador global o administrador de usuarios en Azure Portal y vaya a **Azure Active Directory > Configuración de usuario > Administrar la configuración de las características en versión preliminar del panel de acceso**.
 
-2. Si la opción **Usuarios que pueden utilizar las características en versión preliminar para registrar y administrar la información de seguridad** está establecida en **Ninguno** , la opción se retirará del inquilino.
+2. Si la opción **Usuarios que pueden utilizar las características en versión preliminar para registrar y administrar la información de seguridad** está establecida en **Ninguno**, la opción se retirará del inquilino.
 
 Independientemente de si con anterioridad se ha activado la antigua experiencia combinada de vista previa de registro MFA/SSPR, la antigua experiencia se desactivará en una fecha futura. Por ello, es muy recomendable que cambie a la nueva experiencia lo antes posible.
 
@@ -2265,7 +2265,7 @@ Para obtener más información sobre cómo elegir versiones específicas de los 
 
 **Tipo:** **Categoría del servicio:** Nueva característica **Funcionalidad del producto:** B2C: administración de identidades de consumidor B2B/B2C
 
-Ya es posible configurar la complejidad de las contraseñas que usan los usuarios finales de la organización, en lugar de tener que utilizar la directiva nativa de contraseñas de Azure AD. En la hoja **Propiedades** de los flujos de usuario (antes conocidos como directivas integradas), puede elegir una complejidad de contraseña **Simple** o **Segura** , o bien puede crear un conjunto de requisitos **Personalizado**.
+Ya es posible configurar la complejidad de las contraseñas que usan los usuarios finales de la organización, en lugar de tener que utilizar la directiva nativa de contraseñas de Azure AD. En la hoja **Propiedades** de los flujos de usuario (antes conocidos como directivas integradas), puede elegir una complejidad de contraseña **Simple** o **Segura**, o bien puede crear un conjunto de requisitos **Personalizado**.
 
 Para obtener más información sobre la configuración de los requisitos de complejidad de contraseñas, vea [Configuración de los requisitos de complejidad de contraseñas de Azure Active Directory B2C](../../active-directory-b2c/user-flow-password-complexity.md).
 
@@ -2297,11 +2297,11 @@ Para más información, consulte [Autenticación con código de acceso de un sol
 
 Hemos incluido tres nuevas configuraciones de cookies, disponibles para las aplicaciones que se publican a través de Application Proxy:
 
-- **Usar cookie solo HTTP.** Establece la marca **HTTPOnly** en las cookies de sesión y acceso de Application Proxy. La activación de esta configuración ofrece ventajas de seguridad adicionales, como ayuda para evitar la copia o modificación de cookies por medio de scripting del lado cliente. Se recomienda activar esta marca (elija **Sí** ) para disfrutar de estas ventajas.
+- **Usar cookie solo HTTP.** Establece la marca **HTTPOnly** en las cookies de sesión y acceso de Application Proxy. La activación de esta configuración ofrece ventajas de seguridad adicionales, como ayuda para evitar la copia o modificación de cookies por medio de scripting del lado cliente. Se recomienda activar esta marca (elija **Sí**) para disfrutar de estas ventajas.
 
-- **Usar cookies seguras.** Establece la marca **Segura** en las cookies de sesión y acceso de Application Proxy. La activación de esta configuración ofrece ventajas de seguridad adicionales, como la garantía de que las cookies se transmiten solo a través de canales seguros de TLS, como HTTPS. Se recomienda activar esta marca (elija **Sí** ) para disfrutar de estas ventajas.
+- **Usar cookies seguras.** Establece la marca **Segura** en las cookies de sesión y acceso de Application Proxy. La activación de esta configuración ofrece ventajas de seguridad adicionales, como la garantía de que las cookies se transmiten solo a través de canales seguros de TLS, como HTTPS. Se recomienda activar esta marca (elija **Sí**) para disfrutar de estas ventajas.
 
-- **Usar cookies persistentes.** Impide que las cookies de acceso expiren cuando se cierra el explorador web. Estas cookies se mantienen vigentes durante toda la duración del token de acceso. Sin embargo, las cookies se restablecen si se alcanza la hora de expiración o si el usuario elimina manualmente la cookie. Se recomienda que mantenga la configuración predeterminada **No** , activando el ajuste solo para las aplicaciones anteriores que no comparten cookies entre procesos.
+- **Usar cookies persistentes.** Impide que las cookies de acceso expiren cuando se cierra el explorador web. Estas cookies se mantienen vigentes durante toda la duración del token de acceso. Sin embargo, las cookies se restablecen si se alcanza la hora de expiración o si el usuario elimina manualmente la cookie. Se recomienda que mantenga la configuración predeterminada **No**, activando el ajuste solo para las aplicaciones anteriores que no comparten cookies entre procesos.
 
 Para obtener más información acerca de las nuevas cookies, consulte [Configuración de las cookies para el acceso a aplicaciones locales en Azure Active Directory](../manage-apps/application-proxy-configure-cookie-settings.md).
 
@@ -2386,12 +2386,12 @@ Por lo tanto, esta corrección evita las actualizaciones directas sobre el atrib
 
 ### <a name="breaking-change-updates-to-the-audit-and-sign-in-logs-schema-through-azure-monitor"></a>Cambio de última hora: Actualizaciones de los esquemas de registros de auditoría y de inicio de sesión mediante Azure Monitor
 
-**Tipo:** **Categoría del servicio:** Característica modificada **Funcionalidad del producto** : Informes Supervisión e informes
+**Tipo:** **Categoría del servicio:** Característica modificada **Funcionalidad del producto**: Informes Supervisión e informes
 
 Actualmente, estamos publicando los flujos de registro de auditorías e inicios de sesión mediante Azure Monitor, por lo que puede integrar fácilmente los archivos de registro con sus herramientas SIEM o con Log Analytics. Basándonos en sus comentarios, y en preparación para el anuncio de disponibilidad general para esta característica, vamos a realizar los siguientes cambios en el esquema. Estos cambios en los esquemas y las actualizaciones de documentación relacionadas se producirán en la primera semana de enero.
 
 #### <a name="new-fields-in-the-audit-schema"></a>Nuevos campos en el esquema de auditoría
-Vamos a agregar un nuevo campo **Tipo de operación** , para proporcionar el tipo de operación que se realiza en el recurso. Por ejemplo, **Agregar** , **Actualizar** o **Eliminar**.
+Vamos a agregar un nuevo campo **Tipo de operación**, para proporcionar el tipo de operación que se realiza en el recurso. Por ejemplo, **Agregar**, **Actualizar** o **Eliminar**.
 
 #### <a name="changed-fields-in-the-audit-schema"></a>Campos modificados en el esquema de auditoría
 Los siguientes campos han cambiado en el esquema de auditoría:
@@ -2543,7 +2543,7 @@ Para obtener más información acerca de las aplicaciones, consulte [Integració
 
 ### <a name="azure-ad-logs-now-work-with-azure-log-analytics-public-preview"></a>Los registros de Azure AD ahora funcionan con Azure Log Analytics (versión preliminar pública)
 
-**Tipo:** **Categoría del servicio:** Nueva característica **Funcionalidad del producto** : Informes Supervisión e informes
+**Tipo:** **Categoría del servicio:** Nueva característica **Funcionalidad del producto**: Informes Supervisión e informes
 
 Nos complace anunciar que ahora puede reenviar los registros de Azure AD a Azure Log Analytics. Esta característica tan solicitada le ayuda a obtener un acceso aún mejor al análisis para su negocio, las operaciones y la seguridad, además de contribuir a supervisar la infraestructura. Para más información, consulte el blog sobre [los registros de actividad de Azure Active Directory en Azure Log Analytics que ya está disponible](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-Active-Directory-Activity-logs-in-Azure-Log-Analytics-now/ba-p/274843).
 
@@ -2644,9 +2644,9 @@ Para más información, consulte [¿Qué es el portal Mis aplicaciones?](../user
 
 ### <a name="new-troubleshooting-and-support-tab-on-the-sign-ins-logs-page-of-the-azure-portal"></a>Pestaña nueva solución de problemas y soporte técnico de la página de registros de inicios de sesión de Azure Portal
 
-**Tipo:** **Categoría del servicio:** Nueva característica **Funcionalidad del producto** : Informes Supervisión e informes
+**Tipo:** **Categoría del servicio:** Nueva característica **Funcionalidad del producto**: Informes Supervisión e informes
 
-El fin de la nueva pestaña **Solución de problemas y soporte técnico** de la página **Inicios de sesión** de Azure Portal es ayudar a los administradores e ingenieros de soporte técnico a solucionar problemas relacionados con los inicios de sesión de Azure AD. Esta nueva pestaña proporciona el código de error, mensaje de error y las recomendaciones de corrección (si existen) para ayudar a solucionar el problema. Si no puede resolver el problema, también le ofrecemos una nueva forma de crear una incidencia de soporte técnico mediante **Copiar al Portapapeles** , que rellena los campos **Id. de solicitud** y **Fecha (UTC)** del archivo de registro en su incidencia de soporte técnico.
+El fin de la nueva pestaña **Solución de problemas y soporte técnico** de la página **Inicios de sesión** de Azure Portal es ayudar a los administradores e ingenieros de soporte técnico a solucionar problemas relacionados con los inicios de sesión de Azure AD. Esta nueva pestaña proporciona el código de error, mensaje de error y las recomendaciones de corrección (si existen) para ayudar a solucionar el problema. Si no puede resolver el problema, también le ofrecemos una nueva forma de crear una incidencia de soporte técnico mediante **Copiar al Portapapeles**, que rellena los campos **Id. de solicitud** y **Fecha (UTC)** del archivo de registro en su incidencia de soporte técnico.
 
 ![Registros de inicio de sesión que se muestran en la nueva pestaña](media/whats-new/troubleshooting-and-support.png)
 
@@ -2874,7 +2874,7 @@ Para un ejemplo de algunos de los nuevos diseños de correo electrónico y más 
 
 ### <a name="azure-ad-activity-logs-are-now-available-through-azure-monitor"></a>Los registros de actividad de Azure AD ahora están disponibles a través de Azure Monitor
 
-**Tipo:** **Categoría del servicio:** Nueva característica **Funcionalidad del producto** : Informes Supervisión e informes
+**Tipo:** **Categoría del servicio:** Nueva característica **Funcionalidad del producto**: Informes Supervisión e informes
 
 Los registros de actividad de Azure AD ahora están disponibles en la versión preliminar pública de Azure Monitor (servicio supervisión en toda la plataforma de Azure). Azure Monitor ofrece una retención a largo plazo e integración sin problemas, además de estas mejoras:
 
@@ -2890,7 +2890,7 @@ Para más información sobre estas nuevas funcionalidades, consulte nuestro blog
 
 ### <a name="conditional-access-information-added-to-the-azure-ad-sign-ins-report"></a>Información de acceso condicional agregada al informe de inicios de sesión de Azure AD
 
-**Tipo:** **Categoría del servicio:** Nueva característica **Funcionalidad del producto** : Informes Seguridad y protección de la identidad
+**Tipo:** **Categoría del servicio:** Nueva característica **Funcionalidad del producto**: Informes Seguridad y protección de la identidad
 
 Esta actualización le permite ver qué directivas se evalúan cuando un usuario inicia sesión, junto con el resultado de la directiva. Además, el informe ahora incluye el tipo de aplicación cliente que el usuario utiliza, de manera que usted puede identificar el tráfico de protocolo heredado. Ahora también se pueden buscar entradas de informe para un identificador de correlación, que puede encontrarse en el mensaje de error de cara al usuario y puede usarse para identificar la solicitud de inicio de sesión coincidente y solucionar problemas en dicha solicitud.
 
@@ -2898,7 +2898,7 @@ Esta actualización le permite ver qué directivas se evalúan cuando un usuario
 
 ### <a name="view-legacy-authentications-through-sign-ins-activity-logs"></a>Visualización de autenticaciones heredadas a través de los registros de actividad de inicios de sesión
 
-**Tipo:** **Categoría del servicio:** Nueva característica **Funcionalidad del producto** : Informes Supervisión e informes
+**Tipo:** **Categoría del servicio:** Nueva característica **Funcionalidad del producto**: Informes Supervisión e informes
 
 Con la introducción del campo **Aplicación cliente** en los registros de actividad de inicio de sesión, los clientes ya pueden ver los usuarios que utilizan autenticaciones heredadas. Los clientes podrán acceder a esta información mediante Microsoft Graph API de los registros de inicio de sesión o mediante los registros de actividad de inicio de sesión del portal Azure AD, donde se puede usar el control **Aplicación cliente** para filtrar por autenticaciones heredadas. Para más información, consulte la documentación.
 
@@ -2932,7 +2932,7 @@ Para una lista de todas las aplicaciones que admiten el aprovisionamiento de usu
 
 ### <a name="connect-health-for-sync---an-easier-way-to-fix-orphaned-and-duplicate-attribute-sync-errors"></a>Connect Health para sincronización: una manera más sencilla de corregir errores de sincronización de atributos duplicados o huérfanas
 
-**Tipo:** **Categoría del servicio:** Nueva característica **Funcionalidad del producto** : Supervisión e informes
+**Tipo:** **Categoría del servicio:** Nueva característica **Funcionalidad del producto**: Supervisión e informes
 
 Azure AD Connect Health presenta la corrección de autoservicio para ayudarle a resaltar y corregir errores de sincronización. Esta característica soluciona los errores de sincronización de atributos duplicados y repara los objetos huérfanos desde Azure AD. Este diagnóstico tiene las siguientes ventajas:
 
@@ -3026,7 +3026,7 @@ La notificación de la aplicación móvil solo se puede activar como parte de un
 
 ### <a name="change-notice-security-fix-to-the-delegated-authorization-flow-for-apps-using-azure-ad-activity-logs-api"></a>Aviso de cambio: Revisión de seguridad para el flujo de autorización delegado para aplicaciones que usan la API de registro de actividad de Azure AD
 
-**Tipo:** **Categoría del servicio:** Plan de cambio **Funcionalidad del producto** : Informes Supervisión e informes
+**Tipo:** **Categoría del servicio:** Plan de cambio **Funcionalidad del producto**: Informes Supervisión e informes
 
 Debido a nuestras medidas de seguridad más estrictas, hemos tenido que realizar un cambio en los permisos de las aplicaciones que usan un flujo de autorización delegado para acceder a la [API de registro de actividad de Azure AD](../reports-monitoring/concept-reporting-api.md). Este cambio se producirá el **26 de junio de 2018**.
 
@@ -3035,8 +3035,8 @@ Si alguna de sus aplicaciones usa la API de registro de actividad de Azure AD, s
 **Para actualizar los permisos de la aplicación**
 
 1. Inicie sesión en Azure Portal, seleccione **Azure Active Directory** y, a continuación, **Registros de aplicaciones**.
-2. Seleccione la aplicación que usa la API de registro de actividad de Azure AD, seleccione **Configuración** , **Permisos necesarios** y, a continuación, seleccione la API de **Microsoft Azure Active Directory**.
-3. En el área **Permisos delegados** de la hoja **Habilitar acceso** , active la casilla junto a **Leer datos de directorio** y seleccione **Guardar**.
+2. Seleccione la aplicación que usa la API de registro de actividad de Azure AD, seleccione **Configuración**, **Permisos necesarios** y, a continuación, seleccione la API de **Microsoft Azure Active Directory**.
+3. En el área **Permisos delegados** de la hoja **Habilitar acceso**, active la casilla junto a **Leer datos de directorio** y seleccione **Guardar**.
 4. Haga clic en **Conceder permisos** y, a continuación, haga clic en **Sí**.
 
     >[!Note]
@@ -3061,14 +3061,14 @@ Es posible que los exploradores obsoletos no admitan las versiones más reciente
 - **Microsoft Edge e Internet Explorer (ambos se establecen mediante Internet Explorer)**
 
     1. Abra Internet Explorer, seleccione **Herramientas** > **Opciones de Internet** > **Opciones avanzadas**.
-    2. En el área de **Seguridad** , seleccione **use TLS 1.2** (usar TLS 1.2) y, a continuación, seleccione **Aceptar**.
+    2. En el área de **Seguridad**, seleccione **use TLS 1.2** (usar TLS 1.2) y, a continuación, seleccione **Aceptar**.
     3. Cierre todas las ventanas del explorador y reinicie Internet Explorer.
 
 - **Google Chrome**
 
     1. Abra Google Chrome, escriba *chrome://settings/* en la barra de direcciones y presione **ENTRAR**.
-    2. Expanda la **Configuración avanzada** , vaya al área de **Sistema** y seleccione **Abrir la configuración de proxy**.
-    3. En el cuadro **Propiedades: Internet** , seleccione la pestaña **Opciones avanzadas** , vaya al área de **Seguridad** , seleccione **Usar TLS 1.2** y, a continuación, seleccione  **Aceptar**.
+    2. Expanda la **Configuración avanzada**, vaya al área de **Sistema** y seleccione **Abrir la configuración de proxy**.
+    3. En el cuadro **Propiedades: Internet**, seleccione la pestaña **Opciones avanzadas**, vaya al área de **Seguridad**, seleccione **Usar TLS 1.2** y, a continuación, seleccione  **Aceptar**.
     4. Cierre todas las ventanas del explorador y reinicie Google Chrome.
 
 - **Mozilla Firefox**
@@ -3132,11 +3132,11 @@ Para obtener más información, consulte [Característica Azure Active Directory
 
 ---
 
-### <a name="new-and-comprehensive-guidance-about-deploying-azure-multi-factor-authentication"></a>Guía nueva y completa acerca de cómo implementar Azure Multi-Factor Authentication
+### <a name="new-and-comprehensive-guidance-about-deploying-azure-ad-multi-factor-authentication"></a>Guía nueva y completa acerca de cómo implementar Azure AD Multi-Factor Authentication
 
 **Tipo:** **Categoría del servicio:** Nueva característica **Funcionalidad del producto:** Otros Seguridad y protección de la identidad
 
-Hemos lanzado la nueva guía paso a paso acerca de cómo implementar Azure Multi-Factor Authentication (MFA) en su organización.
+Hemos lanzado la nueva guía paso a paso acerca de cómo implementar Azure AD Multi-Factor Authentication (MFA) en su organización.
 
 Para ver la guía de implementación de MFA, vaya al repositorio [Guías de implementación de identidad](./active-directory-deployment-plans.md) en GitHub. Para enviar comentarios acerca de las guías de implementación, use el [formulario Comentarios del plan de implementación](https://aka.ms/deploymentplanfeedback). Si tiene alguna pregunta acerca de las guías de implementación, póngase en contacto con nosotros en [IDGitDeploy](mailto:idgitdeploy@microsoft.com).
 
@@ -3172,7 +3172,7 @@ Para obtener más información acerca de la versión preliminar pública, consul
 
 **Tipo:** **Categoría del servicio:** Plan de cambio **Funcionalidad del producto:** Autenticaciones (inicios de sesión) Plataforma
 
-Las ofertas de software como servicio, como Azure Active Directory (Azure AD) están diseñadas para funcionar mejor a través de Internet, sin necesidad de ExpressRoute ni otros túneles VPN privados. Por este motivo, en **1 de agosto de 2018** , dejaremos de dar soporte técnico a ExpressRoute para los servicios de Azure AD que usen un emparejamiento público de Azure y a las comunidades de Azure que usen emparejamientos de Microsoft. Los servicios afectados por este cambio podrían observar que el tráfico de Azure AD gradualmente cambia de ExpressRoute a Internet.
+Las ofertas de software como servicio, como Azure Active Directory (Azure AD) están diseñadas para funcionar mejor a través de Internet, sin necesidad de ExpressRoute ni otros túneles VPN privados. Por este motivo, en **1 de agosto de 2018**, dejaremos de dar soporte técnico a ExpressRoute para los servicios de Azure AD que usen un emparejamiento público de Azure y a las comunidades de Azure que usen emparejamientos de Microsoft. Los servicios afectados por este cambio podrían observar que el tráfico de Azure AD gradualmente cambia de ExpressRoute a Internet.
 
 Aunque vamos a cambiar el soporte, también sabemos que aún hay situaciones en las que tendrá que utilizar un conjunto de circuitos dedicado para el tráfico de autenticación. Por este motivo, Azure AD seguirá admitiendo restricciones de intervalos de IP por inquilino utilizando ExpressRoute y los servicios que ya tienen emparejamiento de Microsoft con la comunidad "Otros servicios en línea de Office 365". Si los servicios se ven afectados pero requieren ExpressRoute, debe hacer lo siguiente:
 
@@ -3242,7 +3242,7 @@ La revisión de acceso de grupos y aplicaciones ya está disponible de forma gen
 
 ### <a name="azure-ad-activity-logs-sign-ins-and-audit-are-now-available-through-ms-graph"></a>Los registros de actividad de Azure AD (inicios de sesión y auditoría) ahora están disponibles a través de MS Graph
 
-**Tipo:** **Categoría del servicio:** Nueva característica **Funcionalidad del producto** : Informes Supervisión e informes
+**Tipo:** **Categoría del servicio:** Nueva característica **Funcionalidad del producto**: Informes Supervisión e informes
 
 Los registros de actividad de Azure AD, que incluyen los registros inicios de sesión y de auditorías, ahora están disponibles a través de Microsoft Graph API. Para acceder a dichos registros se han expuesto dos puntos de conexión a través de Microsoft Graph API. Consulte nuestros [documentos](../reports-monitoring/concept-reporting-api.md) para ver cómo acceder mediante programación a las API de informes de Azure AD.
 
@@ -3294,7 +3294,7 @@ Para ver las guías de implementación, vaya al repositorio [Guías de implement
 
 ### <a name="the-may-release-of-aadconnect-contains-a-public-preview-of-the-integration-with-pingfederate-important-security-updates-many-bug-fixes-and-new-great-new-troubleshooting-tools"></a>La versión de mayo de AADConnect contiene una versión preliminar pública de la integración con PingFederate, actualizaciones de seguridad importantes, muchas correcciones de errores y nuevas y magníficas herramientas para la solución de problemas.
 
-**Tipo:** **Categoría del servicio:** Característica modificada **Funcionalidad del producto** : Administración del ciclo de vida de la identidad
+**Tipo:** **Categoría del servicio:** Característica modificada **Funcionalidad del producto**: Administración del ciclo de vida de la identidad
 
 La versión de mayo de AADConnect contiene una versión preliminar pública de la integración con PingFederate, actualizaciones de seguridad importantes, muchas correcciones de errores y nuevas y magníficas herramientas para la solución de problemas. Puede encontrar las notas de la versión [aquí](../hybrid/reference-connect-version-history.md).
 
@@ -3654,11 +3654,11 @@ Se ha simplificado la experiencia de navegación para administrar usuarios y gru
 
 Los informes de registro de actividad de Azure AD ya están disponibles en Microsoft Azure controlado por instancias de 21Vianet (Azure China 21Vianet). Se incluyen los siguientes registros:
 
-- **Registros de actividad de inicios de sesión** : incluye todos los registros de inicios de sesión asociados con el inquilino.
+- **Registros de actividad de inicios de sesión**: incluye todos los registros de inicios de sesión asociados con el inquilino.
 
-- **Registros de auditoría de contraseñas de autoservicio** : incluye todos los registros de auditoría de SSPR.
+- **Registros de auditoría de contraseñas de autoservicio**: incluye todos los registros de auditoría de SSPR.
 
-- **Registros de auditoría de administración de directorios** : incluye todos los registros de auditoría relacionados con la administración de directorios como, por ejemplo, administración de usuarios, administración de aplicaciones y otros.
+- **Registros de auditoría de administración de directorios**: incluye todos los registros de auditoría relacionados con la administración de directorios como, por ejemplo, administración de usuarios, administración de aplicaciones y otros.
 
 Con estos registros, puede obtener información detallada sobre el funcionamiento de su entorno. Los datos proporcionados le permiten:
 
@@ -3672,7 +3672,7 @@ Para más información sobre cómo usar estos informes, consulte [Informes de Az
 
 ### <a name="use-report-reader-role-non-admin-role-to-view-azure-ad-activity-reports"></a>Use el rol "Lector de informes" (rol que no es de administrador) para ver los informes de actividad de Azure AD
 
-**Tipo:** **Categoría del servicio:** Nueva característica **Funcionalidad del producto** : Informes Supervisión e informes
+**Tipo:** **Categoría del servicio:** Nueva característica **Funcionalidad del producto**: Informes Supervisión e informes
 
 Como parte de los comentarios de los clientes para habilitar los roles que no son de administrador para acceder a los registros de actividades de Azure AD, hemos habilitado la posibilidad de que los usuarios con el rol "Lector de informes" puedan acceder a las actividades de inicios de sesión y de auditoría en Azure Portal, así como mediante Microsoft Graph API.
 
@@ -3905,7 +3905,7 @@ La configuración de MFA se encuentra en: **Azure Active Directory \> Servidor M
 
 ### <a name="deprecate-azure-ad-reports"></a>Informes de Azure AD obsoletos
 
-**Tipo:** **Categoría del servicio:** En desuso **Funcionalidad del producto** : Informes Administración del ciclo de vida de la identidad
+**Tipo:** **Categoría del servicio:** En desuso **Funcionalidad del producto**: Informes Administración del ciclo de vida de la identidad
 
 
 Con la disponibilidad general de la nueva consola de administración de Azure Active Directory y las nuevas API disponibles para los informes de actividad y seguridad, las API de informes que se encontraban en el punto de conexión "/reports" se retiraron el 31 de diciembre de 2017.
@@ -3936,7 +3936,7 @@ Siga estos pasos:
 
 2. En la esquina superior derecha, seleccione su nombre y seleccione **Perfil** en la lista.
 
-3. En su **Perfil** , seleccione **Revisar los términos de uso**.
+3. En su **Perfil**, seleccione **Revisar los términos de uso**.
 
 4. Ahora podrá revisar los términos de uso que aceptó.
 
@@ -4040,7 +4040,7 @@ Para obtener más información, consulte [PIM para recursos de Azure (versión p
 
 ### <a name="access-control-service-retirement"></a>Retirada del servicio de control de acceso
 
-**Tipo:** **Categoría del servicio:** Plan de cambio **Funcionalidad del producto** : Access Control Service Servicio Access Control
+**Tipo:** **Categoría del servicio:** Plan de cambio **Funcionalidad del producto**: Access Control Service Servicio Access Control
 
 Azure Active Directory Access Control (también conocido como Access Control Service) se retirará a finales de 2018. En las próximas semanas se ofrecerá más información, como, por ejemplo, una programación detallada y una guía de migración de alto nivel. Puede dejar comentarios en esta página con preguntas acerca de Access Control Service y un miembro del equipo le responderá.
 
@@ -4164,15 +4164,15 @@ Para más información, consulte:
 
 ---
 
-### <a name="network-policy-server-extension-for-azure-multi-factor-authentication"></a>Extensión Servidor de directivas de redes para Azure Multi-Factor Authentication
+### <a name="network-policy-server-extension-for-azure-ad-multi-factor-authentication"></a>Extensión Servidor de directivas de redes para Azure AD Multi-Factor Authentication
 
-**Tipo:** **Categoría del servicio:** Nueva característica  **Funcionalidad del producto** : Multi-Factor Authentication Autenticación de usuarios
+**Tipo:** **Categoría del servicio:** Nueva característica  **Funcionalidad del producto**: Multi-Factor Authentication Autenticación de usuarios
 
-La extensión Servidor de directivas de redes para Azure Multi-Factor Authentication incorpora funcionalidades de Multi-Factor Authentication basadas en la nube para su infraestructura de autenticación mediante los servidores existentes. Con la extensión Servidor de directivas de redes, podrá agregar mecanismos de verificación mediante llamadas de teléfono, mensajes de texto o aplicaciones de teléfono al flujo de autenticación existente. Para ello, no tendrá que instalar, configurar ni mantener servidores nuevos.
+La extensión Servidor de directivas de redes para Azure AD Multi-Factor Authentication incorpora funcionalidades de Multi-Factor Authentication basadas en la nube para su infraestructura de autenticación mediante los servidores existentes. Con la extensión Servidor de directivas de redes, podrá agregar mecanismos de verificación mediante llamadas de teléfono, mensajes de texto o aplicaciones de teléfono al flujo de autenticación existente. Para ello, no tendrá que instalar, configurar ni mantener servidores nuevos.
 
-Esta extensión se creó para las organizaciones que quieren proteger las conexiones de redes privadas virtuales sin tener que implementar el Servidor Microsoft Azure Multi-Factor Authentication. La extensión Servidor de directivas de redes actúa como un adaptador entre RADIUS y Azure Multi-Factor Authentication basada en la nube para proporcionar un segundo factor de autenticación a los usuarios federados o sincronizados.
+Esta extensión se creó para las organizaciones que quieren proteger las conexiones de redes privadas virtuales sin tener que implementar el Servidor Microsoft Azure Multi-Factor Authentication. La extensión Servidor de directivas de redes actúa como un adaptador entre RADIUS y Azure AD Multi-Factor Authentication basado en la nube para proporcionar un segundo factor de autenticación a los usuarios federados o sincronizados.
 
-Para obtener más información, consulte [Integración de la infraestructura existente de NPS con Azure Multi-Factor Authentication](../authentication/howto-mfa-nps-extension.md).
+Para obtener más información, consulte [Integración de la infraestructura existente de NPS con Azure AD Multi-Factor Authentication](../authentication/howto-mfa-nps-extension.md).
 
 ---
 
@@ -4189,7 +4189,7 @@ En el centro de administración de Azure AD, ahora puede:
 
 1. En el centro de administración de Azure AD, seleccione [Todos los usuarios](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/UserManagementMenuBlade/All) en la sección **Administrar**.
 
-2. En la lista **Mostrar** , seleccione **Usuarios eliminados recientemente**.
+2. En la lista **Mostrar**, seleccione **Usuarios eliminados recientemente**.
 
 3. Seleccione uno o varios usuarios eliminados recientemente y después restáurelos o elimínelos permanentemente.
 
@@ -4235,7 +4235,7 @@ La detección en tiempo real subyacente funciona cada vez que el usuario inicia 
 
 ### <a name="deprecate-azure-ad-reports"></a>Informes de Azure AD obsoletos
 
-**Tipo:** **Categoría del servicio:** Plan de cambio **Funcionalidad del producto** : Informes Administración del ciclo de vida de la identidad
+**Tipo:** **Categoría del servicio:** Plan de cambio **Funcionalidad del producto**: Informes Administración del ciclo de vida de la identidad
 
 Azure Portal proporciona lo siguiente:
 
@@ -4250,7 +4250,7 @@ Debido a estas nuevas funcionalidades, las API de informes que se encuentran en 
 
 **Tipo:** **Categoría del servicio:** Corregida **Funcionalidad del producto:** Mis aplicaciones Inicio de sesión único
 
-Azure AD admite la detección automática de campos de inicio de sesión para las aplicaciones que presentan un campo de nombre de usuario y contraseña HTML. Estos pasos se documentan en [Captura automática de campos de inicio de sesión para una aplicación](../manage-apps/troubleshoot-password-based-sso.md#manually-capture-sign-in-fields-for-an-app). Puede encontrar esta funcionalidad mediante la adición de una aplicación *situada fuera de la galería* en la página **Aplicaciones empresariales** en [Azure Portal](https://aad.portal.azure.com). Además, en esta nueva aplicación podrá configurar el modo **Inicio de sesión único** en **Inicio de sesión único basado en contraseña** , especificar una URL web y, a continuación, guardar la página.
+Azure AD admite la detección automática de campos de inicio de sesión para las aplicaciones que presentan un campo de nombre de usuario y contraseña HTML. Estos pasos se documentan en [Captura automática de campos de inicio de sesión para una aplicación](../manage-apps/troubleshoot-password-based-sso.md#manually-capture-sign-in-fields-for-an-app). Puede encontrar esta funcionalidad mediante la adición de una aplicación *situada fuera de la galería* en la página **Aplicaciones empresariales** en [Azure Portal](https://aad.portal.azure.com). Además, en esta nueva aplicación podrá configurar el modo **Inicio de sesión único** en **Inicio de sesión único basado en contraseña**, especificar una URL web y, a continuación, guardar la página.
 
 Debido a un problema del servicio, esta funcionalidad se deshabilitó temporalmente. El problema se ha resuelto y la detección automática del campo de inicio de sesión vuelve a estar disponible.
 
@@ -4258,7 +4258,7 @@ Debido a un problema del servicio, esta funcionalidad se deshabilitó temporalme
 
 ### <a name="new-multi-factor-authentication-features"></a>Nuevas características de Multi-Factor Authentication
 
-**Tipo:** **Categoría del servicio:** Nueva característica **Funcionalidad del producto** : Multi-Factor Authentication Protección y seguridad de la identidad
+**Tipo:** **Categoría del servicio:** Nueva característica **Funcionalidad del producto**: Multi-Factor Authentication Protección y seguridad de la identidad
 
 Multi-Factor Authentication (MFA) es un componente esencial para la protección de su organización. Para hacer que las credenciales tengan mayor capacidad de adaptación y que la experiencia resulte más sencilla, se han agregado las siguientes características:
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66df1bbe531c072ff5aa2bebe7b197201e6931a2
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 0b0b34ce55a0896fb804a48779c9c1007c8c340f
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93077734"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94838219"
 ---
 # <a name="plan-and-deploy-on-premises-azure-active-directory-password-protection"></a>Planeación e implementación de la protección con contraseña de Azure Active Directory local
 
@@ -142,8 +142,8 @@ El servicio de actualización de Agent Updater de Microsoft Azure AD Connect se 
 
 Hay dos instaladores requeridos para una implementación de la protección con contraseña de Azure AD local:
 
-* Agente de controlador de dominio de protección con contraseña de Azure AD ( *AzureADPasswordProtectionDCAgentSetup.msi* )
-* Proxy de protección con contraseña de Azure AD ( *AzureADPasswordProtectionProxySetup.exe* )
+* Agente de controlador de dominio de protección con contraseña de Azure AD (*AzureADPasswordProtectionDCAgentSetup.msi*)
+* Proxy de protección con contraseña de Azure AD (*AzureADPasswordProtectionProxySetup.exe*)
 
 Descargue ambos instaladores en el [Centro de descarga de Microsoft](https://www.microsoft.com/download/details.aspx?id=57071).
 
@@ -201,7 +201,7 @@ Para instalar el servicio de proxy de protección con contraseña de Azure AD, 
 
     Cuando este comando se ejecute correctamente una vez para un servicio de proxy de protección con contraseña de Azure AD, las invocaciones adicionales se realizarán correctamente, pero no son necesarias.
 
-    El cmdlet `Register-AzureADPasswordProtectionProxy` admite los siguientes tres modos de autenticación. Los dos primeros modos son compatibles con Azure Multi-Factor Authentication, pero el tercero no.
+    El cmdlet `Register-AzureADPasswordProtectionProxy` admite los siguientes tres modos de autenticación. Los dos primeros modos son compatibles con Azure AD Multi-Factor Authentication, pero el tercero no.
 
     > [!TIP]
     > Puede haber un retraso notable antes de completarse la primera vez que se ejecuta este cmdlet para un inquilino de Azure específico. A menos que se notifica un error, no se preocupe por este retraso.
@@ -231,7 +231,7 @@ Para instalar el servicio de proxy de protección con contraseña de Azure AD, 
         ```
 
         > [!NOTE]
-        > Se produce un error en este modo si se requiere Azure Multi-Factor Authentication para su cuenta. En ese caso, use uno de los dos modos de autenticación anteriores, o use una cuenta diferente que no requiera MFA.
+        > Se produce un error en este modo si se requiere Azure AD Multi-Factor Authentication para su cuenta. En ese caso, use uno de los dos modos de autenticación anteriores, o use una cuenta diferente que no requiera MFA.
         >
         > Puede que también vea que es necesaria la MFA si el registro de dispositivos de Azure (que usa en segundo plano la protección con contraseña de Azure AD) se ha configurado para requerir MFA de forma global. Para solucionar este requisito, puede usar una cuenta diferente que admita MFA con uno de los dos modos de autenticación anteriores, o bien también puede relajar temporalmente el requisito de MFA de registro de dispositivos de Azure.
         >
@@ -239,7 +239,7 @@ Para instalar el servicio de proxy de protección con contraseña de Azure AD, 
         >
         > Se recomienda omitir los requisitos de MFA solo con fines de prueba.
 
-    Actualmente, no se requiere especificar el parámetro *-ForestCredential* , que está reservado para una futura funcionalidad.
+    Actualmente, no se requiere especificar el parámetro *-ForestCredential*, que está reservado para una futura funcionalidad.
 
     El registro del servicio de proxy de protección con contraseña de Azure AD solo se debe hacer una vez a lo largo del ciclo de vida del servicio. A partir de aquí, el servicio de proxy de protección con contraseña de Azure AD realizará automáticamente todas las demás tareas de mantenimiento necesarias.
 
@@ -252,7 +252,7 @@ Para instalar el servicio de proxy de protección con contraseña de Azure AD, 
     
     Este paso se ejecuta una vez por bosque.
 
-    El cmdlet `Register-AzureADPasswordProtectionForest` admite los siguientes tres modos de autenticación. Los dos primeros modos son compatibles con Azure Multi-Factor Authentication, pero el tercero no.
+    El cmdlet `Register-AzureADPasswordProtectionForest` admite los siguientes tres modos de autenticación. Los dos primeros modos son compatibles con Azure AD Multi-Factor Authentication, pero el tercero no.
 
     > [!TIP]
     > Puede haber un retraso notable antes de completarse la primera vez que se ejecuta este cmdlet para un inquilino de Azure específico. A menos que se notifica un error, no se preocupe por este retraso.
@@ -282,7 +282,7 @@ Para instalar el servicio de proxy de protección con contraseña de Azure AD, 
         ```
 
         > [!NOTE]
-        > Se produce un error en este modo si se requiere Azure Multi-Factor Authentication para su cuenta. En ese caso, use uno de los dos modos de autenticación anteriores, o use una cuenta diferente que no requiera MFA.
+        > Se produce un error en este modo si se requiere Azure AD Multi-Factor Authentication para su cuenta. En ese caso, use uno de los dos modos de autenticación anteriores, o use una cuenta diferente que no requiera MFA.
         >
         > Puede que también vea que es necesaria la MFA si el registro de dispositivos de Azure (que usa en segundo plano la protección con contraseña de Azure AD) se ha configurado para requerir MFA de forma global. Para solucionar este requisito, puede usar una cuenta diferente que admita MFA con uno de los dos modos de autenticación anteriores, o bien también puede relajar temporalmente el requisito de MFA de registro de dispositivos de Azure.
         >
@@ -313,7 +313,7 @@ Cree un archivo *AzureADPasswordProtectionProxy.exe.config* en la carpeta `%Prog
    </configuration>
    ```
 
-Si el proxy de HTTP requiere autenticación, agregue la etiqueta *useDefaultCredentials* :
+Si el proxy de HTTP requiere autenticación, agregue la etiqueta *useDefaultCredentials*:
 
    ```xml
    <configuration>

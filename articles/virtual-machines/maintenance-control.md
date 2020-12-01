@@ -5,14 +5,14 @@ author: cynthn
 ms.service: virtual-machines
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 04/22/2020
+ms.date: 11/19/2020
 ms.author: cynthn
-ms.openlocfilehash: 4d126d1e6bb92d2079ac3c0d95f754cb9aab3c21
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 4b9dec0fe684e002fadbac2db375c354db2b6d01
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978618"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94981177"
 ---
 # <a name="managing-platform-updates-with-maintenance-control"></a>Administración de las actualizaciones de la plataforma con el control de mantenimiento 
 
@@ -23,12 +23,13 @@ El control de mantenimiento le permite decidir cuándo se aplican las actualizac
 Con el control de mantenimiento, puede:
 - Aplicar actualizaciones por lotes en un único paquete de actualización.
 - Esperar hasta 35 días para aplicar las actualizaciones. 
-- Automatice las actualizaciones de la plataforma en su ventana de mantenimiento mediante [Azure Functions](https://github.com/Azure/azure-docs-powershell-samples/tree/master/maintenance-auto-scheduler).
+- Para automatizar las actualizaciones de plataforma configure una programación de mantenimiento o use [Azure Functions](https://github.com/Azure/azure-docs-powershell-samples/tree/master/maintenance-auto-scheduler).
 - Mantener el trabajo de las configuraciones entre suscripciones y grupos de recursos. 
 
 ## <a name="limitations"></a>Limitaciones
 
 - Las máquinas virtuales deben estar en un [host dedicado](./dedicated-hosts.md) o bien crearse con un [tamaño de máquina virtual aislada](isolation.md).
+- Si se declara una programación de mantenimiento, debe tener un mínimo de 2 horas.
 - Después de 35 días, se aplicará automáticamente una actualización.
 - El usuario debe tener acceso de **colaborador del recurso**.
 

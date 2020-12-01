@@ -16,12 +16,12 @@ ms.date: 06/09/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6db477a288ef41c2946cd550af6ff87999eff2f0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2bb9d9e7c60344a2a4c538c6d3bf59e337e4569c
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91461281"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836332"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Autenticación de paso a través de Azure Active Directory: Preguntas más frecuentes
 
@@ -37,7 +37,7 @@ La autenticación de paso a través es una característica gratuita. Por tanto, 
 
 ## <a name="does-conditional-access-work-with-pass-through-authentication"></a>¿Funciona el [acceso condicional](../conditional-access/overview.md) con la autenticación de paso a través?
 
-Sí. Todas las capacidades de acceso condicional, incluida Azure Multi-Factor Authentication, funcionan con la autenticación de paso a través.
+Sí. Todas las capacidades de acceso condicional, incluida Azure AD Multi-Factor Authentication, funcionan con la autenticación de paso a través.
 
 ## <a name="does-pass-through-authentication-support-alternate-id-as-the-username-instead-of-userprincipalname"></a>¿Admite la autenticación de paso a través "Alternate ID" como nombre de usuario, en lugar de "userPrincipalName"?
 Sí, el inicio de sesión con un valor que no sea UPN, como un correo electrónico alternativo, se admite para la autenticación de paso a través (PTA) y la sincronización de hash de contraseñas (PHS). Para obtener más información, consulte acerca del [identificador de inicio de sesión alternativo](../authentication/howto-authentication-use-email-signin.md).

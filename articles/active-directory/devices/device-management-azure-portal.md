@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: hafowler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0ab17e5c0a024fec938f1b588cc4ce69bf16a878
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: a4077ade7de93470aaf03acef1dc1cefca8bd3d4
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93083259"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94837369"
 ---
 # <a name="manage-device-identities-using-the-azure-portal"></a>Administración de identidades de dispositivos con Azure Portal
 
@@ -77,7 +77,7 @@ Si es administrador de Intune, puede administrar los dispositivos en los que MDM
 
 Para habilitar o deshabilitar dispositivos, tiene dos opciones:
 
-- La barra de herramientas de la página **Todos los dispositivos** , después de seleccionar uno o más dispositivos.
+- La barra de herramientas de la página **Todos los dispositivos**, después de seleccionar uno o más dispositivos.
 - La barra de herramientas después de profundizar en un dispositivo específico.
 
 > [!IMPORTANT]
@@ -90,7 +90,7 @@ Para habilitar o deshabilitar dispositivos, tiene dos opciones:
 
 Para eliminar un dispositivo, tiene dos opciones:
 
-- La barra de herramientas de la página **Todos los dispositivos** , después de seleccionar uno o más dispositivos.
+- La barra de herramientas de la página **Todos los dispositivos**, después de seleccionar uno o más dispositivos.
 - La barra de herramientas después de profundizar en un dispositivo específico.
 
 > [!IMPORTANT]
@@ -111,7 +111,7 @@ Puede usar un id. de dispositivo para verificar los detalles del id.de dispositi
   
 ### <a name="view-or-copy-bitlocker-keys"></a>Ver o copiar las claves de BitLocker
 
-Puede ver y copiar las claves de BitLocker para permitir a los usuarios recuperar unidades cifradas. Estas claves solo están disponibles para dispositivos Windows cifrados y con las claves almacenadas en Azure AD. Puede encontrar estas claves al acceder a los detalles de un dispositivo mediante la selección de **Mostrar clave de recuperación**. Al seleccionar **Mostrar clave de recuperación** , se generará un registro de auditoría que puede encontrar en la categoría `KeyManagement`.
+Puede ver y copiar las claves de BitLocker para permitir a los usuarios recuperar unidades cifradas. Estas claves solo están disponibles para dispositivos Windows cifrados y con las claves almacenadas en Azure AD. Puede encontrar estas claves al acceder a los detalles de un dispositivo mediante la selección de **Mostrar clave de recuperación**. Al seleccionar **Mostrar clave de recuperación**, se generará un registro de auditoría que puede encontrar en la categoría `KeyManagement`.
 
 ![Visualización de claves de BitLocker](./media/device-management-azure-portal/device-details-show-bitlocker-key.png)
 
@@ -135,7 +135,7 @@ Antes, solo se podía filtrar la lista de dispositivos por actividad y estado ha
 - SO
 - Tipo de dispositivo (impresoras, máquinas virtuales seguras, dispositivos compartidos, dispositivos registrados)
 
-Para habilitar la funcionalidad de filtrado de versión preliminar en la vista **Todos los dispositivos** :
+Para habilitar la funcionalidad de filtrado de versión preliminar en la vista **Todos los dispositivos**:
 
 ![Habilitación de la funcionalidad de versión preliminar de filtrado](./media/device-management-azure-portal/device-filter-preview-enable.png)
 
@@ -158,19 +158,19 @@ Debe tener asignado uno de los roles siguientes para ver o administrar la config
 
 ![La configuración de dispositivos en relación con Azure AD](./media/device-management-azure-portal/device-settings-azure-portal.png)
 
-- **Los usuarios pueden unir sus dispositivos a Azure AD** : esta opción le permite seleccionar qué usuarios podrán registrar sus dispositivos como dispositivos de unión a Azure AD. El valor predeterminado es **Todos**.
+- **Los usuarios pueden unir sus dispositivos a Azure AD**: esta opción le permite seleccionar qué usuarios podrán registrar sus dispositivos como dispositivos de unión a Azure AD. El valor predeterminado es **Todos**.
 
 > [!NOTE]
 > La opción **Los usuarios pueden inscribir dispositivos en Azure AD**  solo puede utilizarse en Unión a Azure AD en Windows 10.
 
-- **Administradores locales adicionales en dispositivos unidos a Azure AD** : puede seleccionar a qué usuarios se conceden derechos de administrador local en un dispositivo. Estos usuarios se agregan al rol *Administradores de dispositivos* en Azure AD. De forma predeterminada, a los administradores globales de Azure AD y a los propietarios de dispositivos se les conceden derechos de administrador local. Esta opción es una capacidad de la edición Premium disponible en productos como Azure AD Premium o Enterprise Mobility Suite (EMS).
-- **Los usuarios pueden registrar sus dispositivos con Azure AD** : esta opción se debe configurar para que los dispositivos con Windows 10 personal, iOS, Android y macOS se puedan registrar en Azure AD. Si selecciona **Ninguno** , los dispositivos no podrán registrarse con Azure AD. La inscripción en Microsoft Intune o Administración de dispositivos móviles (MDM) para Microsoft 365 exige registrarse. Si ha configurado alguno de estos servicios, se selecciona **TODOS** y **NINGUNO** no está disponible.
-- **Requerir Multi-Factor Authentication para unir dispositivos** : puede decidir si se exige a los usuarios proporcionar un factor de autenticación adicional para unir su dispositivo a Azure AD. El valor predeterminado es **No**. Se recomienda exigir Multi-Factor Authentication al registrar un dispositivo. Antes de habilitar Multi-Factor Authentication para este servicio, debe asegurarse de que está configurado para los usuarios que registran sus dispositivos. Para más información sobre los distintos servicios de Azure Multi-Factor Authentication, vea [Introducción a Azure Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md). 
+- **Administradores locales adicionales en dispositivos unidos a Azure AD**: puede seleccionar a qué usuarios se conceden derechos de administrador local en un dispositivo. Estos usuarios se agregan al rol *Administradores de dispositivos* en Azure AD. De forma predeterminada, a los administradores globales de Azure AD y a los propietarios de dispositivos se les conceden derechos de administrador local. Esta opción es una capacidad de la edición Premium disponible en productos como Azure AD Premium o Enterprise Mobility Suite (EMS).
+- **Los usuarios pueden registrar sus dispositivos con Azure AD**: esta opción se debe configurar para que los dispositivos con Windows 10 personal, iOS, Android y macOS se puedan registrar en Azure AD. Si selecciona **Ninguno**, los dispositivos no podrán registrarse con Azure AD. La inscripción en Microsoft Intune o Administración de dispositivos móviles (MDM) para Microsoft 365 exige registrarse. Si ha configurado alguno de estos servicios, se selecciona **TODOS** y **NINGUNO** no está disponible.
+- **Requerir Multi-Factor Authentication para unir dispositivos**: puede decidir si se exige a los usuarios proporcionar un factor de autenticación adicional para unir su dispositivo a Azure AD. El valor predeterminado es **No**. Se recomienda exigir Multi-Factor Authentication al registrar un dispositivo. Antes de habilitar Multi-Factor Authentication para este servicio, debe asegurarse de que está configurado para los usuarios que registran sus dispositivos. Para obtener más información sobre los distintos servicios de Azure AD Multi-Factor Authentication, consulte [Introducción a Azure AD Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md). 
 
 > [!NOTE]
 > La configuración de **Requerir Multi-factor Authentication para unir dispositivos** se aplica a los dispositivos que están unidos a Azure AD o registrados en Azure AD. Este parámetro no se aplica a los dispositivos unidos a Azure AD híbrido.
 
-- **Número máximo de dispositivos** : esta opción permite seleccionar el número máximo de dispositivos unidos a Azure AD o registrados en Azure AD que puede tener un usuario en Azure AD. Si un usuario alcanza esta cuota, no puede agregar dispositivos adicionales hasta que se quitan uno o varios de los dispositivos existentes. El valor predeterminado es **50**.
+- **Número máximo de dispositivos**: esta opción permite seleccionar el número máximo de dispositivos unidos a Azure AD o registrados en Azure AD que puede tener un usuario en Azure AD. Si un usuario alcanza esta cuota, no puede agregar dispositivos adicionales hasta que se quitan uno o varios de los dispositivos existentes. El valor predeterminado es **50**.
 
 > [!NOTE]
 > La configuración del **número máximo de dispositivos** se aplica a los dispositivos que están unidos a Azure AD o registrados en Azure AD. Este parámetro no se aplica a los dispositivos unidos a Azure AD híbrido.
@@ -185,7 +185,7 @@ Las actividades de un dispositivo están disponibles a través de los registros 
 - Cambios en la configuración de un dispositivo
 - Operaciones de dispositivo como eliminar o actualizar un dispositivo
 
-El punto de entrada a los datos de auditoría está en **Registros de auditoría** , que se encuentra en la sección **Actividad** de la página **Dispositivos**.
+El punto de entrada a los datos de auditoría está en **Registros de auditoría**, que se encuentra en la sección **Actividad** de la página **Dispositivos**.
 
 El registro de auditoría tiene una vista de lista predeterminada que muestra:
 

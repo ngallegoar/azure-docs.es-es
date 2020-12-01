@@ -1,5 +1,5 @@
 ---
-title: 'Configurar la extensión NPS de Azure MFA: Azure Active Directory'
+title: 'Configuración de la extensión NPS de Azure AD MFA: Azure Active Directory'
 description: Después de instalar la extensión NPS, siga estos pasos para la configuración avanzada, como la creación de listas de direcciones IP permitidas y el reemplazo de UPN.
 services: multi-factor-authentication
 ms.service: active-directory
@@ -11,22 +11,22 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a9156f84e5189b38a2c15f257bd6a47ac3db130
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 55c6457ec73c9fe9b39d607f26ffe2a577cc200d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964407"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994220"
 ---
 # <a name="advanced-configuration-options-for-the-nps-extension-for-multi-factor-authentication"></a>Opciones de configuración avanzada para la extensión NPS para Multi-Factor Authentication
 
-La extensión Servidor de directivas de redes (NPS) amplía las características de Azure Multi-Factor Authentication basadas en la nube a la infraestructura local. En este artículo se supone que ya tiene la extensión instalada y ahora desea saber cómo personalizarla conforme a sus necesidades. 
+La extensión Servidor de directivas de redes (NPS) amplía las características de Azure AD Multi-Factor Authentication basado en la nube a la infraestructura local. En este artículo se supone que ya tiene la extensión instalada y ahora desea saber cómo personalizarla conforme a sus necesidades. 
 
 ## <a name="alternate-login-id"></a>Identificador de inicio de sesión alternativo
 
 Puesto que la extensión NPS se conecta a los directorios locales y de la nube, puede tener problemas donde los nombres principales de usuario (UPN) locales no coincidan con los nombres existentes en la nube. Para solucionar este problema, use identificadores de inicio de sesión alternativos. 
 
-Dentro de la extensión NPS, puede designar un atributo de Active Directory para que se use en lugar del UPN para Azure Multi-Factor Authentication. Esto le permite proteger los recursos locales con la verificación en dos pasos sin modificar los UPN locales. 
+Dentro de la extensión NPS, puede designar un atributo de Active Directory para que se use en lugar del UPN para Azure AD Multi-Factor Authentication. Esto le permite proteger los recursos locales con la verificación en dos pasos sin modificar los UPN locales. 
 
 Para configurar identificadores de inicio de sesión alternativos, vaya a `HKLM\SOFTWARE\Microsoft\AzureMfa` y edite los siguientes valores del Registro:
 
@@ -55,4 +55,4 @@ Cuando llega una solicitud procedente de una dirección IP que existe en `IP_WHI
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Resolución de mensajes de error de la extensión de NPS para Azure Multi-Factor Authentication](howto-mfa-nps-extension-errors.md)
+[Resolución de mensajes de error de la extensión NPS para Azure AD Multi-Factor Authentication](howto-mfa-nps-extension-errors.md)

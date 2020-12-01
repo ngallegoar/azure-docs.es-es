@@ -12,12 +12,12 @@ ms.date: 07/23/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0adf548b009ad6fe0c85501b9777ff23723b3e24
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 859a4f199e65dd0c3aee9424029f6060683d5fbd
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94413418"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836094"
 ---
 # <a name="azure-ad-connect-version-release-history-archive"></a>Azure AD Connect: Archivo del historial de lanzamiento de versiones
 
@@ -212,8 +212,8 @@ Nuevas características y mejoras
 - Ahora, la configuración de escritura diferida de dispositivo se administra únicamente desde el Asistente de Azure AD Connect.
 - Se ha agregado un nuevo módulo de PowerShell llamado ADSyncTools.psm1 que puede utilizarse para solucionar problemas de conectividad de SQL y otras utilidades de solución de problemas. Hay más información disponible sobre el módulo ADSyncTools [aquí](tshoot-connect-tshoot-sql-connectivity.md). 
 - Se ha agregado una nueva tarea adicional: Configurar opciones de dispositivo. Puede usar la tarea para configurar las dos operaciones siguientes: 
-  - **Unión a Azure AD híbrido** : Si su entorno tiene un uso local de AD y también desea aprovechar las funcionalidades proporcionadas por Azure Active Directory, puede implementar dispositivos híbridos unidos a Azure AD. Se trata de dispositivos que están unidos tanto al entorno local de Active Directory como a Azure Active Directory.
-  - **Escritura diferida de dispositivo** : la escritura diferida de dispositivo se usa para permitir el acceso condicional basado en dispositivos protegidos con AD FS (2012 R2 o posterior).
+  - **Unión a Azure AD híbrido**: Si su entorno tiene un uso local de AD y también desea aprovechar las funcionalidades proporcionadas por Azure Active Directory, puede implementar dispositivos híbridos unidos a Azure AD. Se trata de dispositivos que están unidos tanto al entorno local de Active Directory como a Azure Active Directory.
+  - **Escritura diferida de dispositivo**: la escritura diferida de dispositivo se usa para permitir el acceso condicional basado en dispositivos protegidos con AD FS (2012 R2 o posterior).
 
     >[!NOTE] 
     > - La opción para habilitar la escritura diferida de dispositivos de Personalizar las opciones de sincronización se mostrará atenuada. 
@@ -425,27 +425,27 @@ Estado: 19 de octubre de 2017
 #### <a name="fixed-issues"></a>Problemas corregidos
 * Se corrigió un problema con la tarea *Cambiar inicio de sesión de usuario* en el asistente de Azure AD Connect:
 
-  * El problema se produce cuando tiene una implementación de Azure AD Connect existente con sincronización de contraseña **habilitada** , y está intentando establecer el método de inicio de sesión de usuario como *Autenticación de paso a través*. Antes de aplicar el cambio, el asistente muestra incorrectamente la solicitud " *Deshabilitar la sincronización de contraseña* ". Sin embargo, la sincronización de contraseña sigue estando habilitada después de aplicar el cambio. Con esta corrección, el asistente ya no muestra la solicitud.
+  * El problema se produce cuando tiene una implementación de Azure AD Connect existente con sincronización de contraseña **habilitada**, y está intentando establecer el método de inicio de sesión de usuario como *Autenticación de paso a través*. Antes de aplicar el cambio, el asistente muestra incorrectamente la solicitud "*Deshabilitar la sincronización de contraseña*". Sin embargo, la sincronización de contraseña sigue estando habilitada después de aplicar el cambio. Con esta corrección, el asistente ya no muestra la solicitud.
 
   * De forma predeterminada, el asistente no deshabilita la sincronización de contraseña cuando se actualiza el método de inicio de sesión de usuario usando la tarea *Cambiar inicio de sesión de usuario*. Esto sirve para evitar trastornos a los clientes que desean mantener la sincronización de contraseña, aunque vayan a habilitar la autenticación de paso a través o la federación como su método principal de inicio de sesión de usuario.
 
   * Si desea deshabilitar la sincronización de contraseña después de actualizar el método de inicio de sesión de usuario, tiene que ejecutar la tarea *Personalizar la configuración de sincronización* en el asistente. Cuando se desplaza a la página *Características opcionales* desactive la opción *Sincronización de contraseña*.
 
-  * Tenga en cuenta que el mismo problema también se produce si intenta habilitar o deshabilitar un inicio de sesión único de conexión directa. De forma específica cuando tiene una implementación de Azure AD Connect existente con sincronización de contraseña habilitada, y el método de inicio de sesión de usuario ya está configurado como *Autenticación de paso a través*. Mediante la tarea *Cambiar inicio de sesión de usuario* puede activar o desactivar la opción *Habilitar el Inicio de sesión único de conexión directa* mientras el método de inicio de sesión de usuario se mantiene configurado como "Autenticación de paso a través". Antes de aplicar el cambio, el asistente muestra incorrectamente la solicitud " *Deshabilitar la sincronización de contraseña* ". Sin embargo, la sincronización de contraseña sigue estando habilitada después de aplicar el cambio. Con esta corrección, el asistente ya no muestra la solicitud.
+  * Tenga en cuenta que el mismo problema también se produce si intenta habilitar o deshabilitar un inicio de sesión único de conexión directa. De forma específica cuando tiene una implementación de Azure AD Connect existente con sincronización de contraseña habilitada, y el método de inicio de sesión de usuario ya está configurado como *Autenticación de paso a través*. Mediante la tarea *Cambiar inicio de sesión de usuario* puede activar o desactivar la opción *Habilitar el Inicio de sesión único de conexión directa* mientras el método de inicio de sesión de usuario se mantiene configurado como "Autenticación de paso a través". Antes de aplicar el cambio, el asistente muestra incorrectamente la solicitud "*Deshabilitar la sincronización de contraseña*". Sin embargo, la sincronización de contraseña sigue estando habilitada después de aplicar el cambio. Con esta corrección, el asistente ya no muestra la solicitud.
 
 * Se corrigió un problema con la tarea *Cambiar inicio de sesión de usuario* en el asistente de Azure AD Connect:
 
-  * El problema se produce cuando tiene una implementación de Azure AD Connect existente con sincronización de contraseña **deshabilitada** , y está intentando establecer el método de inicio de sesión de usuario como *Autenticación de paso a través*. Cuando se aplica el cambio, el asistente habilita tanto la autenticación de paso a través como la sincronización de contraseña. Con esta corrección, el asistente ya no habilita la sincronización de contraseña.
+  * El problema se produce cuando tiene una implementación de Azure AD Connect existente con sincronización de contraseña **deshabilitada**, y está intentando establecer el método de inicio de sesión de usuario como *Autenticación de paso a través*. Cuando se aplica el cambio, el asistente habilita tanto la autenticación de paso a través como la sincronización de contraseña. Con esta corrección, el asistente ya no habilita la sincronización de contraseña.
 
-  * Anteriormente, la sincronización de contraseña era un requisito previo para habilitar la autenticación de paso a través. Al establecer el método de inicio de sesión de usuario como *Autenticación de paso a través* , permitiría tanto la autenticación de paso a través como la sincronización de contraseña. Recientemente, la sincronización de contraseña se ha eliminado como un requisito previo. Como parte de Azure AD Connect versión 1.1.557.0, se realizó un cambio en Azure AD Connect para no habilitar la sincronización de contraseña al establecer el método de inicio de sesión de usuario como *Autenticación de paso a través*. Sin embargo, el cambio se aplicó solamente a la instalación de Azure AD Connect. Con esta corrección, el mismo cambio se aplica también a la tarea *Cambiar inicio de sesión de usuario*.
+  * Anteriormente, la sincronización de contraseña era un requisito previo para habilitar la autenticación de paso a través. Al establecer el método de inicio de sesión de usuario como *Autenticación de paso a través*, permitiría tanto la autenticación de paso a través como la sincronización de contraseña. Recientemente, la sincronización de contraseña se ha eliminado como un requisito previo. Como parte de Azure AD Connect versión 1.1.557.0, se realizó un cambio en Azure AD Connect para no habilitar la sincronización de contraseña al establecer el método de inicio de sesión de usuario como *Autenticación de paso a través*. Sin embargo, el cambio se aplicó solamente a la instalación de Azure AD Connect. Con esta corrección, el mismo cambio se aplica también a la tarea *Cambiar inicio de sesión de usuario*.
 
   * Tenga en cuenta que el mismo problema también se produce si intenta habilitar o deshabilitar un inicio de sesión único de conexión directa. De forma específica cuando tiene una implementación de Azure AD Connect existente con sincronización de contraseña deshabilitada, y el método de inicio de sesión de usuario ya está configurado como *Autenticación de paso a través*. Mediante la tarea *Cambiar inicio de sesión de usuario* puede activar o desactivar la opción *Habilitar el Inicio de sesión único de conexión directa* mientras el método de inicio de sesión de usuario se mantiene configurado como "Autenticación de paso a través". Cuando se aplica el cambio, el asistente habilita la sincronización de contraseña. Con esta corrección, el asistente ya no habilita la sincronización de contraseña. 
 
-* Se corrigió un problema que provocaba el fallo de la actualización de Azure AD Connect con el error " *No se pudo actualizar el componente servicio de sincronización* ". Además, ya no se puede iniciar el servicio de sincronización con el error de evento " *No se pudo iniciar este servicio porque la versión de la base de datos es más reciente que la versión de los binarios instalados.* ". El problema se produce cuando el administrador que realiza la actualización no tiene privilegios sysadmin para el servidor SQL Server que Azure AD Connect está usando. Con esta corrección, Azure AD Connect solo requiere que el administrador tenga privilegios db_owner en la base de datos de ADSync durante la actualización.
+* Se corrigió un problema que provocaba el fallo de la actualización de Azure AD Connect con el error "*No se pudo actualizar el componente servicio de sincronización*". Además, ya no se puede iniciar el servicio de sincronización con el error de evento "*No se pudo iniciar este servicio porque la versión de la base de datos es más reciente que la versión de los binarios instalados.* ". El problema se produce cuando el administrador que realiza la actualización no tiene privilegios sysadmin para el servidor SQL Server que Azure AD Connect está usando. Con esta corrección, Azure AD Connect solo requiere que el administrador tenga privilegios db_owner en la base de datos de ADSync durante la actualización.
 
 * Corregido un problema con la actualización de Azure AD Connect que afectaba a los clientes que han activado el [Inicio de sesión único de conexión directa](./how-to-connect-sso.md). Cuando se actualiza Azure AD Connect, el Inicio de sesión único de conexión directa aparece incorrectamente como deshabilitado en el asistente de Azure AD Connect, aunque la característica permanezca habilitada y totalmente funcional. Con esta solución, la característica ahora aparece correctamente como habilitada en el asistente.
 
-* Se corrigió un problema que provocaba que el asistente de Azure AD Connect mostrase siempre la solicitud " *Configuración del delimitador de origen* " en la página *Listo para configurar* , incluso si no se había realizado ningún cambio relacionado con el delimitador de origen.
+* Se corrigió un problema que provocaba que el asistente de Azure AD Connect mostrase siempre la solicitud "*Configuración del delimitador de origen*" en la página *Listo para configurar*, incluso si no se había realizado ningún cambio relacionado con el delimitador de origen.
 
 * Al realizar la actualización local manual de Azure AD Connect, el cliente debe proporcionar las credenciales de administrador global del correspondiente inquilino de Azure AD. Anteriormente, se podía realizar la actualización incluso si las credenciales de administrador global pertenecían a un inquilino de Azure AD diferente. Aunque la actualización parecía completarse sin problemas, determinadas configuraciones no se almacenaban correctamente tras la actualización. Con este cambio, el asistente evitará que la actualización continúe si las credenciales proporcionadas no coinciden con el inquilino de Azure AD.
 
@@ -480,7 +480,7 @@ Estado: 5 de septiembre de 2017
 ### <a name="azure-ad-connect"></a>Azure AD Connect
 
 #### <a name="known-issues"></a>Problemas conocidos
-* Se corrigió un problema que provocaba el fallo de la actualización de Azure AD Connect con el error " *No se pudo actualizar el componente servicio de sincronización* ". Además, ya no se puede iniciar el servicio de sincronización con el error de evento " *No se pudo iniciar este servicio porque la versión de la base de datos es más reciente que la versión de los binarios instalados.* ". El problema se produce cuando el administrador que realiza la actualización no tiene privilegios sysadmin para el servidor SQL Server que Azure AD Connect está usando. Los permisos de dbo no son suficientes.
+* Se corrigió un problema que provocaba el fallo de la actualización de Azure AD Connect con el error "*No se pudo actualizar el componente servicio de sincronización*". Además, ya no se puede iniciar el servicio de sincronización con el error de evento "*No se pudo iniciar este servicio porque la versión de la base de datos es más reciente que la versión de los binarios instalados.* ". El problema se produce cuando el administrador que realiza la actualización no tiene privilegios sysadmin para el servidor SQL Server que Azure AD Connect está usando. Los permisos de dbo no son suficientes.
 
 * Hay un problema conocido con la actualización de Azure AD Connect que afecta a los clientes que han activado [Inicio de sesión único de conexión directa](how-to-connect-sso.md). Después de actualizar Azure AD Connect, la característica aparece como deshabilitada en el asistente, aunque realmente sigue estando habilitada. Se proporcionará una solución a este problema en una versión futura. Los clientes preocupados por este problema de presentación pueden solucionarlo manualmente habilitando la opción Inicio de sesión único de conexión directa en el asistente.
 
@@ -1023,7 +1023,7 @@ Fecha de publicación: Febrero de 2016
 **Nuevas características:**
 
 * [Automatic upgrade](how-to-connect-install-automatic-upgrade.md) para los clientes de configuración rápida.
-* Compatibilidad con el administrador global mediante Azure Multi-Factor Authentication y Privileged Identity Management en el asistente para la instalación.
+* Compatibilidad con el administrador global mediante Azure AD Multi-Factor Authentication y Privileged Identity Management en el asistente para la instalación.
   * Si utiliza Multi-Factor Authentication, debe permitir que el servidor proxy también permita el tráfico a https://secure.aadcdn.microsoftonline-p.com.
   * Debe agregar https://secure.aadcdn.microsoftonline-p.com a la lista de sitios de confianza para que Multi-Factor Authentication funcione correctamente.
 * Permite cambiar el método de inicio de sesión del usuario después de la instalación inicial.

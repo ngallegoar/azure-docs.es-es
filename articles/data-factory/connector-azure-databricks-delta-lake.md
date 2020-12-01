@@ -10,17 +10,17 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 09/28/2020
-ms.openlocfilehash: 8937cfa5a48903ab53f3015b056a4915240bc525
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.date: 11/24/2020
+ms.openlocfilehash: 3eb43c98ae2697ece5ded8ae0df451a6cf5f272d
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92633134"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96007212"
 ---
 # <a name="copy-data-to-and-from-azure-databricks-delta-lake-by-using-azure-data-factory"></a>Copia de datos con Azure Databricks Delta Lake como origen o destino mediante Azure Data Factory
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 En este artículo se resume el uso de la actividad de copia de Azure Data Factory para copiar datos con Azure Databricks Delta Lake como origen o destino. Este se compila en función del artículo [Actividad de copia en Azure Data Factory](copy-activity-overview.md), en el que se ofrece información general acerca de la actividad de copia.
 
@@ -46,17 +46,17 @@ Para usar este conector de Azure Databricks Delta Lake, debe configurar un clús
 
 El clúster de Databricks debe tener acceso a una cuenta de blob de Azure o Azure Data Lake Storage Gen2, al sistema de archivos o contenedor de almacenamiento usado como origen, receptor o almacenamiento provisional y al sistema de archivos o contenedor en el que quiere escribir las tablas de Delta Lake.
 
-- Para usar **Azure Data Lake Storage Gen2** , puede configurar una **entidad de servicio** o **clave de acceso de la cuenta de almacenamiento** en el clúster de Databricks como parte de la configuración de Apache Spark. Siga los pasos descritos en [Acceso directo a la entidad de servicio](/azure/databricks/data/data-sources/azure/azure-datalake-gen2#--access-directly-with-service-principal-and-oauth-20) o [Acceso directo mediante la clave de acceso de la cuenta de almacenamiento](/azure/databricks/data/data-sources/azure/azure-datalake-gen2#--access-directly-using-the-storage-account-access-key).
+- Para usar **Azure Data Lake Storage Gen2**, puede configurar una **entidad de servicio** o **clave de acceso de la cuenta de almacenamiento** en el clúster de Databricks como parte de la configuración de Apache Spark. Siga los pasos descritos en [Acceso directo a la entidad de servicio](/azure/databricks/data/data-sources/azure/azure-datalake-gen2#--access-directly-with-service-principal-and-oauth-20) o [Acceso directo mediante la clave de acceso de la cuenta de almacenamiento](/azure/databricks/data/data-sources/azure/azure-datalake-gen2#--access-directly-using-the-storage-account-access-key).
 
-- Para usar **Azure Blob Storage** , puede configurar una **clave de acceso de cuenta de almacenamiento** o **token de SAS** en el clúster de Databricks como parte de la configuración de Apache Spark. Siga los pasos descritos en [Acceso a Azure Blob Storage mediante la API de RDD](/azure/databricks/data/data-sources/azure/azure-storage#access-azure-blob-storage-using-the-rdd-api).
+- Para usar **Azure Blob Storage**, puede configurar una **clave de acceso de cuenta de almacenamiento** o **token de SAS** en el clúster de Databricks como parte de la configuración de Apache Spark. Siga los pasos descritos en [Acceso a Azure Blob Storage mediante la API de RDD](/azure/databricks/data/data-sources/azure/azure-storage#access-azure-blob-storage-using-the-rdd-api).
 
 Durante la ejecución de la actividad de copia, si el clúster que configuró se ha finalizado, Data Factory lo inicia automáticamente. Si crea una canalización mediante la interfaz de usuario de creación de Data Factory, en el caso de las operaciones como la vista previa de los datos, deberá tener un clúster activo, ya que Data Factory no iniciará el clúster automáticamente.
 
 #### <a name="specify-the-cluster-configuration"></a>Especificación de la configuración de clúster
 
-1. En el menú desplegable **Modo del clúster** , seleccione **Estándar**.
+1. En el menú desplegable **Modo del clúster**, seleccione **Estándar**.
 
-2. En la lista desplegable **Versión de Databricks Runtime** , seleccione una versión de Databricks Runtime.
+2. En la lista desplegable **Versión de Databricks Runtime**, seleccione una versión de Databricks Runtime.
 
 3. Active la [Optimización automática](/azure/databricks/delta/optimizations/auto-optimize) al agregar las siguientes propiedades a la [configuración de Spark](/azure/databricks/clusters/configure#spark-config):
 
@@ -73,11 +73,11 @@ Para obtener detalles sobre la configuración del clúster, consulte [Configurac
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-En las secciones siguientes se proporcionan detalles sobre las propiedades que definen entidades de Data Factory específicas del conector de Azure Databricks Delta Lake.
+En las secciones siguientes se proporcionan detalles sobre las propiedades que definen entidades de Data Factory específicas de un conector de Azure Databricks Delta Lake.
 
 ## <a name="linked-service-properties"></a>Propiedades del servicio vinculado
 
-Las siguientes propiedades son compatibles con el servicio vinculado de Azure Databricks Delta Lake.
+Las siguientes propiedades son compatibles con un servicio vinculado de Azure Databricks Delta Lake.
 
 | Propiedad    | Descripción                                                  | Obligatorio |
 | :---------- | :----------------------------------------------------------- | :------- |
@@ -87,7 +87,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Azure Da
 | accessToken | El token de acceso es necesario para que Data Factory se autentique en Azure Databricks. El token de acceso debe generarse a partir del área de trabajo de Databricks. [Aquí](/azure/databricks/dev-tools/api/latest/authentication#generate-token) encontrará más pasos detallados para encontrar el token de acceso. |          |
 | connectVia  | El [entorno de ejecución de integración](concepts-integration-runtime.md) que se utiliza para conectarse al almacén de datos. Se puede usar Azure Integration Runtime o un entorno de ejecución de integración autohospedado (si el almacén de datos se encuentra en una red privada). Si no se especifica, se usará Azure Integration Runtime. | No       |
 
-**Ejemplo** :
+**Ejemplo**:
 
 ```json
 {
@@ -118,7 +118,7 @@ Las siguientes propiedades son compatibles con el conjunto de datos de Azure Dat
 | database | Nombre de la base de datos. |No para el origen, sí para el receptor  |
 | table | Nombre de la tabla de Delta. |No para el origen, sí para el receptor  |
 
-**Ejemplo** :
+**Ejemplo**:
 
 ```json
 {
@@ -162,20 +162,20 @@ Si el almacén de datos y el formulario del receptor cumplen los criterios descr
 
 - El **servicio vinculado del receptor** es [Azure Blob Storage](connector-azure-blob-storage.md) o [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md). Las credenciales de la cuenta deben estar configuradas previamente en la configuración de clúster de Azure Databricks. Obtenga más información sobre los [Requisitos previos](#prerequisites).
 
-- El **formato de datos de receptor** es **Parquet** , **texto delimitado** o **JSON** con estas configuraciones, y apunta a una carpeta en lugar de un archivo.
+- El **formato de datos de receptor** es **Parquet**, **texto delimitado** o **JSON** con estas configuraciones, y apunta a una carpeta en lugar de un archivo.
 
-    - Para el formato **Parquet** , el códec de compresión es **none** , **snappy** , o **gzip**.
-    - Para el formato de **texto delimitado** :
+    - Para el formato **Parquet**, el códec de compresión es **none**, **snappy**, o **gzip**.
+    - Para el formato de **texto delimitado**:
         - `rowDelimiter` es cualquier carácter individual.
-        - `compression` puede ser **none** , **bzip2** o **gzip**.
+        - `compression` puede ser **none**, **bzip2** o **gzip**.
         - No se admite `encodingName` con el valor UTF-7.
-    - En el caso del formato **Avro** , el códec de compresión es **none** , **deflate** o **snappy**.
+    - En el caso del formato **Avro**, el códec de compresión es **none**, **deflate** o **snappy**.
 
 - En el origen de la actividad Copy, `additionalColumns` no se especifica.
 - Si se copian datos en texto delimitado, en el receptor de la actividad de copia, `fileExtension` debe ser ".csv".
 - La conversión de tipos no está habilitada en la asignación de la actividad de copia.
 
-**Ejemplo** :
+**Ejemplo**:
 
 ```json
 "activities":[
@@ -216,7 +216,7 @@ Para usar esta característica, cree un [servicio vinculado de Azure Blob Storag
 >[!NOTE]
 >Las credenciales de la cuenta de almacenamiento provisional deben estar configuradas previamente en la configuración de clúster de Azure Databricks. Obtenga más información sobre los [Requisitos previos](#prerequisites).
 
-**Ejemplo** :
+**Ejemplo**:
 
 ```json
 "activities":[
@@ -276,14 +276,14 @@ Si el almacén de datos y el formulario de origen cumplen los criterios descrito
 
 - El **servicio vinculado de origen** es [Azure Blob Storage](connector-azure-blob-storage.md) o [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md). Las credenciales de la cuenta deben estar configuradas previamente en la configuración de clúster de Azure Databricks. Obtenga más información sobre los [Requisitos previos](#prerequisites).
 
-- El **formato de datos de origen** es **Parquet** , **texto delimitado** o **JSON** con estas configuraciones, y apunta a una carpeta en lugar de un archivo.
+- El **formato de datos de origen** es **Parquet**, **texto delimitado** o **JSON** con estas configuraciones, y apunta a una carpeta en lugar de un archivo.
 
-    - Para el formato **Parquet** , el códec de compresión es **none** , **snappy** , o **gzip**.
-    - Para el formato de **texto delimitado** :
+    - Para el formato **Parquet**, el códec de compresión es **none**, **snappy**, o **gzip**.
+    - Para el formato de **texto delimitado**:
         - `rowDelimiter` es el valor predeterminado, o cualquier carácter individual.
-        - `compression` puede ser **none** , **bzip2** o **gzip**.
+        - `compression` puede ser **none**, **bzip2** o **gzip**.
         - No se admite `encodingName` con el valor UTF-7.
-    - En el caso del formato **Avro** , el códec de compresión es **none** , **deflate** o **snappy**.
+    - En el caso del formato **Avro**, el códec de compresión es **none**, **deflate** o **snappy**.
 
 - En el origen de la actividad de copia: 
 
@@ -293,7 +293,7 @@ Si el almacén de datos y el formulario de origen cumplen los criterios descrito
 
 - La conversión de tipos no está habilitada en la asignación de la actividad de copia.
 
-**Ejemplo** :
+**Ejemplo**:
 
 ```json
 "activities":[
@@ -333,7 +333,7 @@ Para usar esta característica, cree un [servicio vinculado de Azure Blob Storag
 >[!NOTE]
 >Las credenciales de la cuenta de almacenamiento provisional deben estar configuradas previamente en la configuración de clúster de Azure Databricks. Obtenga más información sobre los [Requisitos previos](#prerequisites).
 
-**Ejemplo** :
+**Ejemplo**:
 
 ```json
 "activities":[

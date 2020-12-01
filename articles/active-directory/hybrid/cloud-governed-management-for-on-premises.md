@@ -13,12 +13,12 @@ ms.date: 05/29/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f717e14e5abe62aafffdeef841889ea2458fa8b
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 5374dc2ef4c736535b218d8cd67521e83a24a40b
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94413452"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836468"
 ---
 # <a name="how-azure-ad-delivers-cloud-governed-management-for-on-premises-workloads"></a>Cómo proporciona Azure AD administración regulada por la nube para cargas de trabajo locales
 
@@ -39,7 +39,7 @@ En este documento se describe la estrategia de Microsoft para IDaaS híbridas y 
 
 ## <a name="the-azure-ad-approach-to-cloud-governed-identity-management"></a>El enfoque de Azure AD a la administración de identidades regulada por la nube
 
-A medida que las organizaciones realizan la transición a la nube, necesitan garantías de que disponen de control de todo el entorno: más seguridad y visibilidad de las actividades, respaldada por la automatización, e información proactiva. En " **Administración regulada por la nube** " se describe cómo las organizaciones administran y controlan sus usuarios, aplicaciones, grupos y dispositivos desde la nube.
+A medida que las organizaciones realizan la transición a la nube, necesitan garantías de que disponen de control de todo el entorno: más seguridad y visibilidad de las actividades, respaldada por la automatización, e información proactiva. En "**Administración regulada por la nube**" se describe cómo las organizaciones administran y controlan sus usuarios, aplicaciones, grupos y dispositivos desde la nube.
 
 En este mundo moderno, las organizaciones necesitan poder administrar de forma eficaz a escala, debido a la proliferación de las aplicaciones SaaS y el papel creciente de las identidades de colaboración y externas. El nuevo panorama de riesgo de la nube significa que una organización debe tener más capacidad de respuesta: un actor malintencionado que ponga en peligro a un usuario en la nube podría afectar a las aplicaciones en la nube y locales.
 
@@ -89,7 +89,7 @@ Cuando una organización está lista para mover una aplicación integrada en AD 
 
 ## <a name="cloud-governed-management-for-on-premises-federation-based-applications"></a>Administración regulada por la nube para aplicaciones locales basadas en federación
 
-Para una organización que ya usa un proveedor de identidades local, el cambio de las aplicaciones a Azure AD permite un acceso más seguro y una experiencia administrativa más sencilla para la administración de la federación. Azure AD permite la configuración pormenorizada de los controles de acceso por aplicación, incluido Azure Multi-Factor Authentication, mediante el acceso condicional de Azure AD. Azure AD admite más funcionalidades, incluidos certificados de firma de token específicos de la aplicación y fechas de caducidad de certificados configurables. Estas funciones, herramientas e instrucciones permiten a las organizaciones retirar sus proveedores de identidades locales. El propio departamento de TI de Microsoft, por ejemplo, ha movido 17.987 aplicaciones desde Servicios de federación de Active Directory (AD FS) de Microsoft a Azure AD.
+Para una organización que ya usa un proveedor de identidades local, el cambio de las aplicaciones a Azure AD permite un acceso más seguro y una experiencia administrativa más sencilla para la administración de la federación. Azure AD permite la configuración pormenorizada de los controles de acceso por aplicación, incluido Azure AD Multi-Factor Authentication, mediante el acceso condicional de Azure AD. Azure AD admite más funcionalidades, incluidos certificados de firma de token específicos de la aplicación y fechas de caducidad de certificados configurables. Estas funciones, herramientas e instrucciones permiten a las organizaciones retirar sus proveedores de identidades locales. El propio departamento de TI de Microsoft, por ejemplo, ha movido 17.987 aplicaciones desde Servicios de federación de Active Directory (AD FS) de Microsoft a Azure AD.
 
 ![Evolución de Azure AD](media/cloud-governed-management-for-on-premises/image5.png)
 
@@ -111,7 +111,7 @@ Las organizaciones pueden automatizar el proceso del ciclo de vida de los acceso
 
 ## <a name="future-directions"></a>Direcciones en el futuro
 
-En los entornos híbridos, la estrategia de Microsoft consiste en habilitar implementaciones donde la **nube es el plano de control de las identidades** , y los directorios locales y otros sistemas de identidad, como Active Directory y otras aplicaciones locales, son el destino para el aprovisionamiento de acceso a los usuarios. Esta estrategia seguirá garantizando los derechos, las identidades y el acceso en esas aplicaciones y en las cargas de trabajo que dependen de ellas. En este estado final, las organizaciones podrán impulsar la productividad del usuario final completamente desde la nube.
+En los entornos híbridos, la estrategia de Microsoft consiste en habilitar implementaciones donde la **nube es el plano de control de las identidades**, y los directorios locales y otros sistemas de identidad, como Active Directory y otras aplicaciones locales, son el destino para el aprovisionamiento de acceso a los usuarios. Esta estrategia seguirá garantizando los derechos, las identidades y el acceso en esas aplicaciones y en las cargas de trabajo que dependen de ellas. En este estado final, las organizaciones podrán impulsar la productividad del usuario final completamente desde la nube.
 
 ![Arquitectura de Azure AD](media/cloud-governed-management-for-on-premises/image6.png)
 

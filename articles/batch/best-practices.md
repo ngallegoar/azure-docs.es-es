@@ -1,18 +1,18 @@
 ---
 title: Procedimientos recomendados
-description: Obtenga información sobre los procedimientos recomendados y sugerencias útiles para desarrollar su solución de Azure Batch.
-ms.date: 08/12/2020
+description: Obtenga información sobre los procedimientos recomendados y sugerencias útiles para desarrollar sus soluciones de Azure Batch.
+ms.date: 11/18/2020
 ms.topic: conceptual
-ms.openlocfilehash: dff6668050e45d9179cd985aa10670b56afe5377
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 6aaed76ad398b5278850dd66ce1da6d5bd33807f
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913235"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95254670"
 ---
 # <a name="azure-batch-best-practices"></a>Procedimientos recomendados de Azure Batch
 
-En este artículo se describe una colección de procedimientos recomendados para usar el servicio de Azure Batch de forma eficaz y eficiente, en función de la experiencia real con Batch. Lea este artículo para evitar los problemas de diseño, posibles problemas de rendimiento y los antipatrones durante el desarrollo para Batch y su uso.
+En este artículo se describe una colección de procedimientos recomendados y consejos útiles para usar el servicio de Azure Batch de forma eficaz, en función de la experiencia real con Batch. Estas sugerencias pueden ayudarle a mejorar el rendimiento y a evitar problemas de diseño en las soluciones de Azure Batch.
 
 ## <a name="pools"></a>Grupos
 
@@ -38,10 +38,10 @@ Los [grupos](nodes-and-pools.md#pools) de Batch son los recursos de proceso para
 
 ### <a name="pool-lifetime-and-billing"></a>Vigencia del grupo y facturación
 
-La vigencia del grupo puede variar en función del método de asignación y de las opciones que se apliquen a la configuración del grupo. Los grupos pueden tener una vigencia arbitraria y un número de nodos de proceso variable en el grupo en cualquier momento. Es su responsabilidad administrar los nodos de proceso del grupo, ya sea explícitamente o a través de las características proporcionadas por el servicio (escalado automático o autogrupo).
+La vigencia del grupo puede variar en función del método de asignación y de las opciones que se apliquen a la configuración del grupo. Los grupos pueden tener una vigencia arbitraria y un número de nodos de proceso variable en el grupo en cualquier momento. Es su responsabilidad administrar los nodos de proceso del grupo, ya sea explícitamente o a través de las características proporcionadas por el servicio ([escalado automático](nodes-and-pools.md#automatic-scaling-policy) o [autogrupo](nodes-and-pools.md#autopools)).
 
 - **Mantenga los grupos actualizados.**
-    Debe cambiar el tamaño de los grupos a cero cada pocos meses para asegurarse de que obtiene las [actualizaciones y las correcciones de errores del agente de nodo más recientes](https://github.com/Azure/Batch/blob/master/changelogs/nodeagent/CHANGELOG.md). El grupo no recibirá actualizaciones de agente de nodo a menos que se vuelva a crear o se cambie el tamaño a 0 nodos de proceso. Antes de volver a crear o cambiar el tamaño del grupo, se recomienda descargar los registros del agente de nodo con fines de depuración, como se describe en la sección [Nodos](#nodes).
+    Cambie el tamaño de los grupos a cero cada pocos meses para asegurarse de que obtiene las [actualizaciones y las correcciones de errores del agente de nodo más recientes](https://github.com/Azure/Batch/blob/master/changelogs/nodeagent/CHANGELOG.md). El grupo no recibirá actualizaciones de agente de nodo a menos que se vuelva a crear o se cambie el tamaño a 0 nodos de proceso. Antes de volver a crear o cambiar el tamaño del grupo, se recomienda descargar los registros del agente de nodo con fines de depuración, como se describe en la sección [Nodos](#nodes).
 
 - **Volver a crear el grupo** De forma similar, no se recomienda eliminar y volver a crear los grupos diariamente. En su lugar, cree un nuevo grupo y actualice los trabajos existentes para que apunten al nuevo grupo. Cuando se hayan pasado todas las tareas al nuevo grupo, elimine el grupo anterior.
 
@@ -93,7 +93,7 @@ Las [tareas](jobs-and-tasks.md#tasks) son unidades de trabajo individuales que c
 
 ### <a name="save-task-data"></a>Almacenamiento de datos de tareas
 
-Los nodos de proceso son efímeros por naturaleza. Hay muchas características en Batch, como el autogrupo y el escalado automático, que facilitan la desaparición de los nodos. Cuando los nodos dejan el grupo (debido a un cambio de tamaño o una eliminación del grupo), también se eliminan todos los archivos de dichos nodos. Por este motivo, una tarea debe mover su salida del nodo en el que se está ejecutando y en un almacén duradero antes de que se complete. Del mismo modo, si se produce un error en una tarea, debe trasladar los registros necesarios para diagnosticar el error en un almacén duradero.
+Los nodos de proceso son efímeros por naturaleza. Hay muchas características en Batch, como el [autogrupo](nodes-and-pools.md#autopools) y el [escalado automático](nodes-and-pools.md#automatic-scaling-policy), que facilitan la desaparición de los nodos. Cuando los nodos dejan un grupo (debido a un cambio de tamaño o una eliminación del grupo), también se eliminan todos los archivos de dichos nodos. Por este motivo, una tarea debe mover su salida del nodo en el que se está ejecutando y en un almacén duradero antes de que se complete. Del mismo modo, si se produce un error en una tarea, debe trasladar los registros necesarios para diagnosticar el error en un almacén duradero.
 
 Batch tiene compatibilidad integrada con Azure Storage para cargar datos a través de [OutputFiles](batch-task-output-files.md), así como una variedad de sistemas de archivos compartidos, o bien puede realizar la carga usted mismo en sus tareas.
 
@@ -175,7 +175,7 @@ Para más información sobre Resource Manager y las plantillas, consulte [Inicio
 
 ## <a name="connectivity"></a>Conectividad
 
-Revise las siguientes instrucciones a la hora de considerar la conectividad en las soluciones de Batch.
+Revise la siguiente guía relacionada con la conectividad en las soluciones de Batch.
 
 ### <a name="network-security-groups-nsgs-and-user-defined-routes-udrs"></a>Grupos de seguridad de red (NSG) y Rutas definidas por el usuario (UDR)
 
@@ -198,6 +198,10 @@ Asegúrese de que los clientes del servicio Batch tienen las directivas de reint
 
 Normalmente, se accede a las máquinas virtuales de un grupo de Batch mediante direcciones IP públicas que pueden cambiar a lo largo de la duración del grupo. Esto puede dificultar la interacción con una base de datos u otro servicio externo que limite el acceso a determinadas direcciones IP. Para asegurarse de que las direcciones IP públicas del grupo no cambien de forma inesperada, puede crear un grupo con un conjunto de direcciones IP públicas estáticas que controle. Para más información, consulte [Creación de un grupo de Azure Batch con direcciones IP públicas especificadas](create-pool-public-ip.md).
 
+### <a name="testing-connectivity-with-cloud-services-configuration"></a>Prueba de la conectividad con la configuración de Cloud Services
+
+No se puede usar el protocolo normal de "ping"/ICMP con servicios en la nube, ya que no se permite el protocolo ICMP a través de la instancia de Azure Load Balancer. Para obtener más información, consulte [Conectividad y redes en Azure Cloud Services](../cloud-services/cloud-services-connectivity-and-networking-faq.md#can-i-ping-a-cloud-service)
+
 ## <a name="batch-node-underlying-dependencies"></a>Dependencias subyacentes del nodo Batch
 
 Tenga en cuenta las siguientes dependencias y restricciones al diseñar sus soluciones de Batch.
@@ -206,12 +210,12 @@ Tenga en cuenta las siguientes dependencias y restricciones al diseñar sus solu
 
 Azure Batch crea y administra un conjunto de usuarios y grupos en la máquina virtual, que no se deben modificar. Los pasos son los siguientes:
 
-#### <a name="windows"></a>Windows
+Windows:
 
 - Un usuario llamado **PoolNonAdmin**
 - Un grupo de usuarios denominado **WATaskCommon**
 
-#### <a name="linux"></a>Linux
+Linux:
 
 - Un usuario llamado **_azbatch**
 
@@ -220,3 +224,9 @@ Azure Batch crea y administra un conjunto de usuarios y grupos en la máquina vi
 Batch intenta limpiar activamente el directorio de trabajo en el que se ejecutan las tareas, una vez que expira el tiempo de retención. Es [su responsabilidad limpiar](#manage-task-lifetime) cualquier archivo que se escriba fuera de este directorio para evitar llenar el espacio en disco.
 
 La limpieza automatizada del directorio de trabajo se bloqueará si ejecuta un servicio en Windows desde el directorio de trabajo startTask, debido a que la carpeta todavía está en uso. Esto dará lugar a un rendimiento degradado. Para solucionarlo, cambie el directorio de ese servicio a un directorio independiente que no esté administrado por Batch.
+
+## <a name="next-steps"></a>Pasos siguientes
+
+- [Creación de una cuenta de Azure Batch con Azure Portal](batch-account-create-portal.md)
+- Conozca el [flujo de trabajo y los recursos principales del servicio Batch](batch-service-workflow-features.md), como grupos, nodos, trabajos y tareas.
+- Obtenga información sobre [las restricciones, los límites y las cuotas de Azure Batch predeterminados y cómo solicitar un aumento de la cuota](batch-quota-limit.md).

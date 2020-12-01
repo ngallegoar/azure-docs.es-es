@@ -6,20 +6,28 @@ author: kromerm
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 04/20/2020
+ms.date: 11/22/2020
 ms.author: makromer
-ms.openlocfilehash: 3f8ac2d1434019548b01d8468015a543d89d0fba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 49d11dfe3d42d99c610fae9fa64079a5fd87501f
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85254419"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96006801"
 ---
 # <a name="handle-sql-truncation-error-rows-in-data-factory-mapping-data-flows"></a>Controlar las filas de errores de truncamiento de SQL en Data Factory con asignación de flujos de datos
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Un escenario común en Data Factory cuando se usan flujos de datos de asignación consiste en escribir los datos transformados en una base de datos de Azure SQL Database. En este escenario, una condición de error común que se debe evitar es un posible truncamiento de columna. Siga estos pasos para proporcionar el registro de columnas que no quepan en una columna de cadena de destino, lo que permite que el flujo de datos continúe en esos escenarios.
+Un escenario común en Data Factory cuando se usan flujos de datos de asignación consiste en escribir los datos transformados en una base de datos de Azure SQL Database. En este escenario, una condición de error común que se debe evitar es un posible truncamiento de columna.
+
+Hay dos métodos principales para controlar correctamente los errores cuando se escriben datos en el receptor de la base de datos en flujos de datos de ADF:
+
+* Establezca el [control de filas de errores](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-database#error-row-handling) del receptor en "Continuar con el error" al procesar los datos de la base de datos. Se trata de un método catch-all automatizado que no requiere una lógica personalizada en el flujo de datos.
+* También puede seguir los pasos que se indican a continuación para proporcionar el registro de columnas que no quepan en una columna de cadena de destino, lo que permite que el flujo de datos continúe.
+
+> [!NOTE]
+> Al habilitar el control de filas de errores automático, en contraposición al método siguiente de escribir su propia lógica de control de errores, se producirá una pequeña reducción del rendimiento provocado por un paso adicional realizado por ADF para llevar a cabo una operación de dos fases para interceptar los errores.
 
 ## <a name="scenario"></a>Escenario
 
@@ -49,6 +57,10 @@ Este vídeo le guía a través de un ejemplo de configuración de la lógica de 
 4. A continuación se muestra el flujo de datos completado. Ahora podemos dividir las filas de error para evitar los errores de truncamiento de SQL y colocar dichas entradas en un archivo de registro. Mientras tanto, las filas correctas pueden continuar escribiendo en nuestra base de datos de destino.
 
     ![flujo de datos completo](media/data-flow/error2.png)
+
+5. Si elige la opción de control de filas de errores en la transformación del receptor y establece "Filas de errores de salida", ADF generará automáticamente una salida de archivo CSV de los datos de la fila junto con los mensajes de error notificados por el controlador. No es necesario agregar esa lógica manualmente al flujo de datos con esa opción alternativa. Se producirá una pequeña reducción del rendimiento con esta opción para que ADF pueda implementar una metodología de dos fases para interceptar los errores y registrarlos.
+
+    ![flujo de datos completo con filas de errores](media/data-flow/error-row-3.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

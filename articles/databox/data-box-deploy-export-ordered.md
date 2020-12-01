@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: how-to
-ms.date: 09/10/2020
+ms.date: 11/23/2020
 ms.author: alkohli
-ms.openlocfilehash: ad8a5a23361e721fd5d8d55d3555f51def94e768
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: b132368982e0013bfe6f3ffd52e7aacb7b1274eb
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94442028"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "96003348"
 ---
 # <a name="tutorial-create-export-order-for-azure-data-box-preview"></a>Tutorial: Creación de un pedido de exportación para Azure Data Box (versión preliminar)
 
@@ -80,7 +80,7 @@ Para solicitar un dispositivo, siga estos pasos en Azure Portal.
 
    ![Selección de la capacidad de Data Box](media/data-box-deploy-export-ordered/azure-data-box-export-order-capacity.png)
 
-6. En **Pedido**, especifique los detalles del pedido **Básico**. Escriba o seleccione la siguiente información y seleccione **Siguiente**.
+6. En **Pedido**, especifique los detalles del pedido **Básico**. Escriba o seleccione la siguiente información.
 
     |Configuración  |Value  |
     |---------|---------|
@@ -88,13 +88,13 @@ Para solicitar un dispositivo, siga estos pasos en Azure Portal.
     |Resource group | Grupo de recursos especificado anteriormente. |
     |Nombre del pedido de exportación     |  Especifique un nombre descriptivo para hacer un seguimiento del pedido. <br> El nombre puede tener entre 3 y 24 caracteres que pueden ser letras, números y guiones. <br> El nombre debe empezar y terminar con una letra o un número.      |
 
-    ![Detalles del pedido de exportación](media/data-box-deploy-export-ordered/azure-data-box-export-order-storage-account-export-type.png)
+    ![Detalles del pedido de exportación](media/data-box-deploy-export-ordered/azure-data-box-export-order-basics-order-name.png)
 
     Seleccione **Siguiente: Selección de datos** para continuar.
 
 7. En **Selección de datos**, elija **Add storage account and export type** (Agregar cuenta de almacenamiento y tipo de exportación).
 
-    ![Agregar cuenta de almacenamiento y tipo de exportación](media/data-box-deploy-export-ordered/azure-data-box-export-order-basics.png)
+    ![Agregar cuenta de almacenamiento y tipo de exportación](media/data-box-deploy-export-ordered/azure-data-box-export-order-basics-add-storage.png)
 
 8. En **Seleccionar opción de exportación**, especifique los detalles de la opción de exportación. Escriba o seleccione la siguiente información y, luego, elija **Agregar**.
 
@@ -115,15 +115,88 @@ Para solicitar un dispositivo, siga estos pasos en Azure Portal.
 
    Para ver un ejemplo de la entrada XML, consulte [Entrada XML de ejemplo](data-box-deploy-export-ordered.md#sample-xml-file).
 
-9. En **Selección de datos**, revise la configuración y seleccione **Siguiente: Seguridad>** .
+9. En **Selección de datos**, revise la configuración y seleccione **Siguiente: Seguridad>** para continuar.
 
    ![Selección de datos para la exportación de pedido](media/data-box-deploy-export-ordered/azure-data-box-export-order-data-selection.png)
 
-10. En **Seguridad**, si quiere habilitar el cifrado doble basado en software, seleccione **Enable double encryption for the order** (Habilitar el cifrado doble para el pedido). 
+    La pantalla **Seguridad** le permite usar su propia clave de cifrado y elegir usar el cifrado doble.
+
+    Todos los valores de la pantalla **Security** (Seguridad) son opcionales. Si no cambia ninguna configuración, se aplicará la configuración predeterminada.
+
+    ![Pantalla de seguridad del Asistente para pedidos de importación de Data Box](media/data-box-deploy-export-ordered/data-box-export-security-01.png)
+
+10. Si quiere usar su propia clave administrada por el cliente para proteger la clave de paso para el nuevo recurso, expanda **Tipo de cifrado**.
+
+    La configuración de una clave administrada por el cliente de Azure Data Box es opcional. De manera predeterminada, Data Box usa una clave administrada por Microsoft para proteger la clave de paso desbloqueada.
+
+    Una clave administrada por el cliente no afecta a cómo se cifran los datos del dispositivo. La clave solo se usa para cifrar la clave de paso de desbloqueo del dispositivo.
+
+    Si no quiere usar una clave administrada por el cliente, vaya al paso 16.
+
+    ![Pantalla de seguridad que muestra la configuración Tipo de cifrado](./media/data-box-deploy-export-ordered/customer-managed-key-01.png)
+
+11. Seleccione la opción **Clave administrada por el cliente** como tipo de clave. A continuación, elija **Seleccione un almacén de claves y una clave**.
+   
+    ![Pantalla de seguridad, configuración de una clave administrada por el cliente](./media/data-box-deploy-export-ordered/customer-managed-key-02.png)
+
+12. En la pantalla **Seleccionar clave en Azure Key Vault**, la suscripción se rellena automáticamente.
+
+    - Para **Almacén de claves**, puede seleccionar un almacén de claves existente de la lista desplegable.
+
+      ![Pantalla Seleccionar clave en Azure Key Vault](./media/data-box-deploy-export-ordered/customer-managed-key-03.png)
+
+    - También puede seleccionar **Crear nuevo** para crear un nuevo almacén de claves. En la pantalla **Crear el almacén de claves**, escriba el grupo de recursos y el nombre del almacén de claves. Asegúrese de que estén habilitadas las opciones de **Eliminación temporal** y **Purgar protección**. Acepte los restantes valores predeterminados y seleccione **Revisar y crear**.
+
+      ![Configuración Crear una nueva instancia de Azure Key Vault](./media/data-box-deploy-export-ordered/customer-managed-key-04.png)
+
+      Revise la información del almacén de claves y seleccione **Crear**. Espere un par de minutos hasta que se complete la creación del almacén de claves.
+
+      ![Pantalla Nueva revisión de Azure Key Vault](./media/data-box-deploy-export-ordered/customer-managed-key-05.png)
+
+13. En la pantalla **Seleccionar clave en Azure Key Vault**, puede seleccionar una clave existente del almacén de claves.
+
+    ![Selección de una clave existente de Azure Key Vault](./media/data-box-deploy-export-ordered/customer-managed-key-06.png)
+
+    Si quiere crear una clave nueva, seleccione **Crear nuevo**. Debe usar una clave RSA. El tamaño puede ser de 2048 o superior. Escriba un nombre para la clave nueva, acepte los otros valores predeterminados y seleccione **Crear**.
+
+      ![Opción Crear una nueva clave](./media/data-box-deploy-export-ordered/customer-managed-key-07.png)
+
+      Se le notificará cuando se haya creado la clave en el almacén de claves.
+
+14. Seleccione la **Versión** de la clave que va a usar y, a continuación, elija **Seleccionar**.
+
+      ![Nueva clave creada en el almacén de claves](./media/data-box-deploy-export-ordered/customer-managed-key-08.png)
+
+    Si quiere crear una nueva versión de la clave, seleccione **Crear nuevo**.
+
+    ![Abrir un cuadro de diálogo para crear una nueva versión de la clave](./media/data-box-deploy-export-ordered/customer-managed-key-08-a.png)
+
+    En la pantalla **Crear nueva clave**, elija Configuración para la nueva versión de la clave y seleccione **Crear**.
+
+    ![Creación de una nueva versión de la clave](./media/data-box-deploy-export-ordered/customer-managed-key-08-b.png)
+
+    La configuración **Tipo de cifrado** en la pantalla **Seguridad** muestra el almacén de claves y la clave.
+
+    ![Clave y almacén de claves para una clave administrada por el cliente](./media/data-box-deploy-export-ordered/customer-managed-key-09.png)
+
+15. Seleccione una identidad de usuario que vaya a usar para administrar el acceso a este recurso. Elija **Seleccionar una identidad de usuario**. En el panel de la derecha, seleccione la suscripción y la identidad administrada que se va a usar. A continuación, elija **Seleccionar**.
+
+    Una identidad administrada asignada por el usuario es un recurso de Azure independiente que se puede usar para administrar varios recursos. Para más información, vea [Tipos de identidades administradas](/azure/active-directory/managed-identities-azure-resources/overview).  
+
+    Si necesita crear una nueva identidad administrada, siga las instrucciones que se muestran en [Creación, enumeración, eliminación o asignación de un rol a una identidad administrada asignada por el usuario mediante Azure Portal](../../articles/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md).
+    
+    ![Seleccionar una identidad de usuario](./media/data-box-deploy-export-ordered/customer-managed-key-10.png)
+
+    La identidad del usuario se muestra en la configuración **Tipo de cifrado**.
+
+    Ahora puede contraer la configuración **Tipo de cifrado**.
+
+    ![Se muestra una identidad de usuario en la configuración Tipo de cifrado](./media/data-box-deploy-export-ordered/customer-managed-key-11.png)
+
+16. Si quiere habilitar el cifrado doble basado en software, expanda **Cifrado doble (para entornos de seguridad)** y seleccione **Habilitar el cifrado doble para el pedido**. 
 
     El cifrado basado en software se realiza junto con el cifrado AES de 256 bits de los datos en Data Box.
 
-   
     > [!NOTE]
     > La habilitación de esta opción puede hacer que el procesamiento de pedidos y la copia de datos tarden más. Esta opción no se puede cambiar después de crear el pedido.
 

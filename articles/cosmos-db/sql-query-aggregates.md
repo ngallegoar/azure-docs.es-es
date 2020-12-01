@@ -5,14 +5,14 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 03/16/2020
+ms.date: 11/23/2020
 ms.author: tisande
-ms.openlocfilehash: 7c988f379e94bf2f69854c90d45af42fe2a7ec4f
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: f04590e78b5f1ea9d5e00c9f3d42c2fc32bebc5f
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93332787"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96001786"
 ---
 # <a name="aggregate-functions-in-azure-cosmos-db"></a>Funciones de agregado en Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -20,6 +20,8 @@ ms.locfileid: "93332787"
 Las funciones de agregado realizan un cálculo en un conjunto de valores en la cláusula `SELECT` y devuelven un valor único. Por ejemplo, la consulta siguiente devuelve el número de elementos dentro del contenedor `Families`:
 
 ## <a name="examples"></a>Ejemplos
+
+Al usar `COUNT()`, puede utilizar cualquier expresión escalar válida, como `1`, como entrada.
 
 ```sql
     SELECT COUNT(1)
@@ -78,7 +80,7 @@ También puede aplicar agregaciones a los resultados de la iteración de una mat
 > [!NOTE]
 > En el Explorador de datos de Azure Portal, las consultas de agregación pueden agregar resultados parciales a lo largo de solo una página de consulta. El SDK genera un único valor acumulado en todas las páginas. Para realizar consultas de agregación mediante código, necesita el SDK de .NET 1.12.0, el SDK de .NET Core 1.1.0 o el SDK de Java 1.9.5 o posterior.
 
-## <a name="remarks"></a>Observaciones
+## <a name="remarks"></a>Comentarios
 
 Estas funciones de agregado del sistema se beneficiarán de un [índice de intervalo](index-policy.md#includeexclude-strategy). Si espera ejecutar `COUNT`, `SUM`, `MIN`, `MAX` o `AVG` en una propiedad, debe [incluir la ruta de acceso relevante en la directiva de indexación](index-policy.md#includeexclude-strategy).
 

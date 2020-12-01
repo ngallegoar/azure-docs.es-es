@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: davidspo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 43b883cac7b970488a30116bc06efc8663766629
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 5c4301a61a79ab2351c18af0c76cccc3d07dd202
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370209"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836689"
 ---
 # <a name="rapidly-respond-to-secure-identities-with-azure-ad"></a>Respuesta rápida para proteger identidades con Azure AD
 
@@ -75,7 +75,7 @@ La tabla siguiente tiene como objetivo resaltar las acciones clave de las siguie
 
 | Acción recomendada | Detalle |
 | --- | --- |
-| [Habilitar la experiencia de registro combinada para Azure MFA y SSPR para simplificar la experiencia de registro del usuario](../authentication/howto-registration-mfa-sspr-combined.md) | Permita que los usuarios se registren para una de las experiencias comunes: Azure Multi-Factor Authentication o el autoservicio de restablecimiento de contraseña. |
+| [Habilitar la experiencia de registro combinada para Azure AD MFA y SSPR para simplificar la experiencia de registro del usuario](../authentication/howto-registration-mfa-sspr-combined.md) | Permita que los usuarios se registren para una de las experiencias comunes: Azure AD Multi-Factor Authentication o el autoservicio de restablecimiento de contraseña. |
 | [Configurar MFA para su organización](../authentication/howto-mfa-getstarted.md) | Asegúrese de que las cuentas están protegidas frente a los riesgos de la autenticación multifactor. |
 | [Habilitar el autoservicio de restablecimiento de contraseña](../authentication/tutorial-enable-sspr.md) | Esta capacidad reduce las llamadas al departamento de soporte técnico y la pérdida de productividad cuando un usuario no puede iniciar sesión en su dispositivo o en una aplicación. |
 | [Implementar la escritura diferida de contraseñas](../authentication/tutorial-enable-sspr-writeback.md) (si usa identidades híbridas) | Permita la escritura diferida de los cambios de contraseña en la nube en un entorno de Windows Server Active Directory local. |
@@ -105,11 +105,11 @@ La tabla siguiente tiene como objetivo resaltar las acciones clave de las siguie
 
 | Acción recomendada | Detalle |
 | --- | --- |
-| [Habilitar la experiencia de registro combinada para Azure MFA y SSPR para simplificar la experiencia de registro del usuario](../authentication/howto-registration-mfa-sspr-combined.md) | Permita que los usuarios se registren para una de las experiencias comunes: Azure Multi-Factor Authentication o el autoservicio de restablecimiento de contraseña. |
+| [Habilitar la experiencia de registro combinada para Azure AD MFA y SSPR para simplificar la experiencia de registro del usuario](../authentication/howto-registration-mfa-sspr-combined.md) | Permita que los usuarios se registren para una de las experiencias comunes: Azure AD Multi-Factor Authentication o el autoservicio de restablecimiento de contraseña. |
 | [Configurar MFA para su organización](../authentication/howto-mfa-getstarted.md) | Asegúrese de que las cuentas están protegidas frente a los riesgos de la autenticación multifactor. |
 | [Habilitar el autoservicio de restablecimiento de contraseña](../authentication/tutorial-enable-sspr.md) | Esta capacidad reduce las llamadas al departamento de soporte técnico y la pérdida de productividad cuando un usuario no puede iniciar sesión en su dispositivo o en una aplicación. |
 | [Implementar la escritura diferida de contraseñas](../authentication/tutorial-enable-sspr-writeback.md) (si usa identidades híbridas) | Permita la escritura diferida de los cambios de contraseña en la nube en un entorno de Windows Server Active Directory local. |
-| [Habilitar las directivas de Identity Protection para aplicar el registro de MFA](../identity-protection/howto-identity-protection-configure-mfa-policy.md) | Administre la implementación de Azure Multi-Factor Authentication (MFA). |
+| [Habilitar las directivas de Identity Protection para aplicar el registro de MFA](../identity-protection/howto-identity-protection-configure-mfa-policy.md) | Administre la implementación de Azure AD Multi-Factor Authentication (MFA). |
 | [Habilitar las directivas de riesgo de inicio de sesión y de usuario de Identity Protection](../identity-protection/howto-identity-protection-configure-risk-policies.md) | Habilite las directivas de inicio de sesión y de usuario de Identity Protection. La directiva de inicio de sesión recomendada está dirigida a los inicios de sesión de riesgo medio y requiere de MFA. En el caso de las directivas de usuario, deben dirigirse a los usuarios de alto riesgo que necesitan la acción de cambio de contraseña. |
 | Crear y habilitar directivas de acceso condicional | [MFA para que los administradores protejan las cuentas a las que se asignan derechos administrativos.](../conditional-access/howto-conditional-access-policy-admin-mfa.md) <br><br> [Bloquear los protocolos de autenticación heredados debido al aumento de riesgo asociado a los protocolos de autenticación heredados.](../conditional-access/howto-conditional-access-policy-block-legacy.md) <br><br> [Exigir que MFA para Azure Management proteja los recursos con privilegios al requerir la autenticación multifactor para cualquier usuario que tenga acceso a recursos de Azure.](../conditional-access/howto-conditional-access-policy-azure-management.md) |
 | [Habilitar la sincronización de hash de contraseñas](../hybrid/how-to-connect-password-hash-synchronization.md) (si se usan identidades híbridas) | Proporcione redundancia para la autenticación y mejore la seguridad (incluido el bloqueo inteligente, el bloqueo de IP y la capacidad de detectar las credenciales filtradas). |

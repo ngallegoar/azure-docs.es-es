@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7aebe6fafea7cbbb0b37469a13262529b568e342
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 92d1e5b8ac6492b0b1d819431e4616d32a092cc8
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93077972"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836927"
 ---
 # <a name="azure-active-directory-feature-deployment-guide"></a>Guía de implementación de la característica Azure Active Directory
 
@@ -57,7 +57,7 @@ En esta fase, los administradores habilitan unas características de seguridad c
 | [Implementación de Azure AD Multi-Factor Authentication mediante directivas de acceso condicional](../authentication/howto-mfa-getstarted.md) | Haga que los usuarios realicen la verificación en dos pasos al acceder a aplicaciones confidenciales mediante directivas de acceso condicional. | Azure AD Premium P1 |
 | [Habilitación de Azure Active Directory Identity Protection](../identity-protection/overview-identity-protection.md) | Habilite el seguimiento de los inicios de sesión de riesgo y de las credenciales en riesgo para los usuarios de su organización. | Azure AD Premium P2 |
 | [Uso de detecciones de riesgos para desencadenar Multi-Factor Authentication y cambios de contraseñas](../authentication/tutorial-risk-based-sspr-mfa.md) | Habilite la automatización que desencadene eventos como la autenticación multifactor, el restablecimiento de contraseña y el bloqueo del inicio de sesión en caso de riesgo. | Azure AD Premium P2 |
-| [Habilitación del registro combinado para autoservicio de restablecimiento de contraseña y Azure AD Multi-Factor Authentication](../authentication/concept-registration-mfa-sspr-combined.md) | Permita que los usuarios se registren para una de las experiencias comunes: Azure Multi-Factor Authentication o el autoservicio de restablecimiento de contraseña. | Azure AD Premium P1 |
+| [Habilitación del registro combinado para autoservicio de restablecimiento de contraseña y Azure AD Multi-Factor Authentication](../authentication/concept-registration-mfa-sspr-combined.md) | Permita que los usuarios se registren para una de las experiencias comunes: Azure AD Multi-Factor Authentication o el autoservicio de restablecimiento de contraseña. | Azure AD Premium P1 |
 
 ## <a name="phase-2-import-users-enable-synchronization-and-manage-devices"></a>Fase 2: Importación de usuarios, habilitación de la sincronización y administración de dispositivos
 

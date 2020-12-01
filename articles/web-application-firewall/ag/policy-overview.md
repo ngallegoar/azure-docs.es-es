@@ -5,14 +5,14 @@ services: web-application-firewall
 ms.topic: article
 author: winthrop28
 ms.service: web-application-firewall
-ms.date: 10/14/2020
+ms.date: 11/20/2020
 ms.author: victorh
-ms.openlocfilehash: 0f7fec997ec6d0c73fe6d1039ab1033752e0cedf
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: b546b043b856fd6ec69acd63fd69a01c48d0553b
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94566578"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94990132"
 ---
 # <a name="azure-web-application-firewall-waf-policy-overview"></a>Introducción a las directivas de firewall de aplicaciones web (WAF) de Azure
 
@@ -43,7 +43,7 @@ Para personalizar aún más al nivel de URI, puede asociar una directiva de WAF 
 
 Al igual que con las directivas de WAF por sitio, las directivas más específicas reemplazan a las menos específicas. Esto significa que una directiva por URI en una asignación de ruta de dirección URL invalida cualquier directiva de WAF global o por sitio anterior.
 
-## <a name="example"></a>Ejemplo
+### <a name="example"></a>Ejemplo
 
 Supongamos que tiene tres sitios: contoso.com, fabrikam.com y adatum.com, todos ellos detrás de la misma puerta de enlace de aplicaciones. Quiere que WAF se aplique a los tres sitios, pero necesita mayor seguridad con adatum.com porque es donde los clientes visitan, examinan y compran productos.
 
@@ -53,7 +53,7 @@ Esta directiva global es adecuada para contoso.com y fabrikam.com, pero debe ten
 
 El URI de adatum.com/payments es donde hay que tener cuidado. Por tanto, aplique otra directiva en ese URI y deje todas las reglas habilitadas, y también quite todas las exclusiones.
 
-En este ejemplo, tiene una directiva global que se aplica a dos sitios. Tiene una directiva por sitio que se aplica a un sitio y, a continuación, una directiva por URI que se aplica a una regla específica basada en la ruta de acceso. Consulte (Insertar vínculo aquí cuando lo haya) cómo crear directivas por sitio y por URI para el PowerShell correspondiente en este ejemplo.
+En este ejemplo, tiene una directiva global que se aplica a dos sitios. Tiene una directiva por sitio que se aplica a un sitio y, a continuación, una directiva por URI que se aplica a una regla específica basada en la ruta de acceso. Consulte [Configuración de directivas de WAF por sitio mediante Azure PowerShell](per-site-policies.md) para el PowerShell correspondiente para este ejemplo.
 
 ## <a name="existing-waf-configurations"></a>Configuraciones WAF existentes
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6ae5995340640e9cda16634cf76b9953d7d663c2
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: b7ac03ff017f8beefe7cc487cdc32741ac1c5a35
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91966668"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94838185"
 ---
 # <a name="troubleshooting-combined-security-information-registration"></a>Solución de problemas de registro de información de seguridad combinado
 
@@ -157,4 +157,4 @@ Ya no se pedirá a los usuarios que se registren mediante la experiencia actuali
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Más información sobre el registro combinado para el autoservicio de restablecimiento de contraseña y Azure Multi-Factor Authentication](concept-registration-mfa-sspr-combined.md)
+* [Más información sobre el registro combinado para el autoservicio de restablecimiento de contraseña y Azure AD Multi-Factor Authentication](concept-registration-mfa-sspr-combined.md)

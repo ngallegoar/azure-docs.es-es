@@ -11,27 +11,27 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d4c6b57eaa2a68906053faade48dd0e63fbf0db7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 072db1d47abd95844075aeedfeddc4f8cf6bf936
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84464341"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94835873"
 ---
-# <a name="how-to-configure-the-azure-multi-factor-authentication-registration-policy"></a>Instrucciones: Configuración de la directiva de registro de Azure Multi-Factor Authentication
+# <a name="how-to-configure-the-azure-ad-multi-factor-authentication-registration-policy"></a>Instrucciones: Configuración de la directiva de registro de Azure AD Multi-Factor Authentication
 
-Azure AD Identity Protection le ayuda a administrar la puesta en servicio del registro de Azure Multi-Factor Authentication (MFA) mediante la configuración de una directiva de acceso condicional para requerir el registro de MFA, independientemente de la aplicación de autenticación moderna en que inicie sesión.
+Azure AD Identity Protection le ayuda a administrar la puesta en servicio del registro de Azure AD Multi-Factor Authentication (MFA) mediante la configuración de una directiva de acceso condicional para requerir el registro de MFA, independientemente de la aplicación de autenticación moderna en que inicie sesión.
 
-## <a name="what-is-the-azure-multi-factor-authentication-registration-policy"></a>¿Qué es la directiva de registro de la autenticación multifactor de Azure?
+## <a name="what-is-the-azure-ad-multi-factor-authentication-registration-policy"></a>¿Qué es la directiva de registro de Azure AD Multi-Factor Authentication?
 
-Azure Multi-factor Authentication proporciona un medio para verificar su identidad más allá del nombre de usuario y la contraseña. Proporciona una segunda capa de seguridad a los inicios de sesión de los usuarios. Para que los usuarios puedan responder a las solicitudes MFA, primero debe registrarse para Azure Multi-Factor Authentication.
+Azure AD Multi-Factor Authentication proporciona un medio para verificar su identidad más allá del nombre de usuario y la contraseña. Proporciona una segunda capa de seguridad a los inicios de sesión de los usuarios. Para que los usuarios puedan responder a las solicitudes MFA, primero debe registrarse para Azure AD Multi-Factor Authentication.
 
-Se recomienda requerir Azure Multi-Factor Authentication en los inicios de sesión de usuario por los siguientes motivos:
+Se recomienda requerir Azure AD Multi-Factor Authentication en los inicios de sesión de usuario por los siguientes motivos:
 
 - Ofrece autenticación segura en una variedad de opciones de verificación.
 - Desempeña un papel fundamental en la preparación de su autocorrección en caso de detecciones de riesgo en Identity Protection.
 
-Para más información sobre Azure Multi-Factor Authentication, consulte [¿Qué es Azure Multi-Factor Authentication?](../authentication/howto-mfa-getstarted.md)
+Para más información sobre Azure AD Multi-Factor Authentication, consulte [¿Qué es Azure AD Multi-Factor Authentication?](../authentication/howto-mfa-getstarted.md)
 
 ## <a name="policy-configuration"></a>Configuración de directivas
 
@@ -41,7 +41,7 @@ Para más información sobre Azure Multi-Factor Authentication, consulte [¿Qué
       1. **Usuarios**: elija **Todos los usuarios** o **Seleccionar individuos y grupos** si limita el lanzamiento.
          1. Opcionalmente, puede optar por excluir usuarios de la directiva.
    1. En **Controles**
-      1. Asegúrese de que la casilla **Requerir registro de Azure MFA** está activada y elija **Seleccionar**.
+      1. Asegúrese de que la casilla **Requerir registro de Azure AD MFA** está activada y elija **Seleccionar**.
    1. **Aplicar directiva** - **Activado**
    1. **Guardar**
 
@@ -59,4 +59,4 @@ Para obtener información general de la experiencia de usuario relacionada, cons
 
 - [Habilitación del autoservicio de restablecimiento de contraseña de Azure AD](../authentication/howto-sspr-deployment.md)
 
-- [Habilitación de Azure Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)
+- [Habilitación de Azure AD Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)

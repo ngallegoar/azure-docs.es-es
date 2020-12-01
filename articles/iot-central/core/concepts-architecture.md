@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: cc33d3c07461b5662e1454ec131dbc2b5f19a390
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 7b048581b29fa4244c42261810f382b229a627dd
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92126180"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94985974"
 ---
 # <a name="azure-iot-central-architecture"></a>Arquitectura de Azure IoT Central
 
@@ -54,7 +54,7 @@ IoT Central habilita las funcionalidades siguientes para los dispositivos IoT Ed
   - Telemetría que envía cada módulo.
   - Propiedades que notifica cada módulo.
   - Comandos a los que responde cada módulo.
-  - Relaciones entre el modelo de funcionalidad del dispositivo de puerta de enlace IoT Edge y el modelo de funcionalidad del dispositivo de nivel inferior.
+  - Relaciones entre el dispositivo de puerta de enlace IoT Edge y el dispositivo de nivel inferior.
   - Propiedades de la nube que no están almacenadas en el dispositivo IoT Edge.
   - Personalizaciones, paneles y formularios que forman parte de la aplicación IoT Central.
 
@@ -133,12 +133,12 @@ En una aplicación de Azure IoT Central, las plantillas de dispositivo definen e
 
 ![Arquitectura de plantillas](media/concepts-architecture/template-architecture.png)
 
-Una plantilla de dispositivo de aplicación de IoT Central contiene:
+Una [plantilla de dispositivo](concepts-device-templates.md) de IoT Central contiene:
 
-- **Los modelos de funcionalidad del dispositivo** especifican las capacidades de un dispositivo, como la telemetría que envía, las propiedades que definen el estado del dispositivo y los comandos a los que responde el dispositivo. Las funcionalidades del dispositivo están organizadas en una o varias interfaces.
+- Un **modelo de dispositivo** para especificar las funcionalidades de un dispositivo, como la telemetría que envía, las propiedades que definen el estado del dispositivo y los comandos a los que responde el dispositivo. Las funcionalidades del dispositivo están organizadas en una o varias interfaces.
 - **Las propiedades de la nube** especifican las propiedades que IoT Central almacena para un dispositivo. Estas propiedades solo se almacenan en IoT Central y nunca se envían a un dispositivo.
 - Las **vistas** especifican los paneles y los formularios que crea el generador para permitir que el operador supervise y administre los dispositivos.
-- Las **personalizaciones** permiten que el generador invalide algunas de las definiciones en el modelo de funcionalidad del dispositivo para que sean más relevantes para la aplicación de IoT Central.
+- Las **personalizaciones** permiten que el generador invalide algunas de las definiciones en el modelo de dispositivo para que sean más relevantes para la aplicación de IoT Central.
 
 Una aplicación puede tener uno o varios dispositivos simulados y reales basados en cada plantilla de dispositivo.
 
@@ -152,7 +152,7 @@ En una aplicación de Azure IoT Central, puede [crear y ejecutar trabajos](howto
 
 ## <a name="role-based-access-control-rbac"></a>Control de acceso basado en roles (RBAC)
 
-Un [administrador puede definir reglas de acceso](howto-manage-users-roles.md) para una aplicación de Azure IoT Central con uno de los roles predefinidos o creando un rol personalizado. Los roles determinan las áreas de la aplicación a las que los usuarios tienen acceso y las acciones que pueden realizar.
+Cada aplicación de IoT Central tiene su propio sistema RBAC integrado. Un [administrador puede definir reglas de acceso](howto-manage-users-roles.md) para una aplicación de Azure IoT Central con uno de los roles predefinidos o creando un rol personalizado. Los roles determinan las áreas de la aplicación a las que los usuarios tienen acceso y las acciones que pueden realizar.
 
 ## <a name="security"></a>Seguridad
 

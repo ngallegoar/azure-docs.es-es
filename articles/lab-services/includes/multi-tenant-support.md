@@ -3,15 +3,15 @@ author: Julia
 ms.author: juliako
 ms.date: 10/30/2020
 ms.topic: include
-ms.openlocfilehash: a07e4c8ae222aa2a1f6ce43fd1dabe193f8cf6e8
-ms.sourcegitcommit: 8ad5761333b53e85c8c4dabee40eaf497430db70
+ms.openlocfilehash: d2eff2720d4a8d7b18bb52c827c86bc883ff1dfb
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2020
-ms.locfileid: "93148296"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95095691"
 ---
-Si es un administrador o un propietario de laboratorio que forma parte de varios inquilinos de Azure AD, puede desplazarse entre los inquilinos desde el portal de Azure Lab Services (esquina superior derecha). 
+Si tiene un rol de Administrador o Propietario de laboratorio en dos o más inquilinos de Azure AD y quiere cambiar entre los inquilinos en el portal de Azure Lab Services, puede seleccionar el control en la esquina superior derecha, como se muestra en la siguiente captura de pantalla: 
 
-![Selección de un inquilino](../media/multi-tenant-support/picker.png)
+![Captura de pantalla del control para cambiar entre los inquilinos en el portal de Azure Lab Services.](../media/multi-tenant-support/picker.png)
 
-Una vez que elija un inquilino, seleccione una cuenta de laboratorio en el inquilino de Azure Active Directory (Azure AD) en la esquina superior izquierda.
+Después de elegir un inquilino de Azure AD, vaya a la cuenta de laboratorio seleccionando el control en la esquina superior izquierda.

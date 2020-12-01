@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 318da4e92e6d07df1fcb89a4df0cb29d82caa630
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 7f52e46ff9cab7d3d150af9fd7b4f1c432bec74b
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91294875"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836196"
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>Definición de una estrategia de adopción de identidad híbrida
 En esta tarea, define la estrategia de adopción de identidades híbridas para que una solución de identidad híbrida cumpla los requisitos empresariales que se trataron en:
@@ -176,7 +176,7 @@ Los siguientes elementos no se admiten y no deben elegirse como implementación:
 > 
 
 ## <a name="define-multi-factor-authentication-strategy"></a>Definición de una estrategia de Multi-Factor Authentication
-En esta tarea definirá la estrategia de Multi-Factor Authentication que va a usar.  Azure Multi-Factor Authentication está disponible en dos versiones diferentes.  Una está basada en la nube y la otra es local con el servidor MFA de Azure.  Basándose en la evaluación que realizó anteriormente, puede determinar qué solución es la correcta para su estrategia.  Use la tabla siguiente para determinar qué opción de diseño cumple mejor el requisito de seguridad de su empresa:
+En esta tarea definirá la estrategia de Multi-Factor Authentication que va a usar.  Azure AD Multi-Factor Authentication está disponible en dos versiones diferentes.  Una está basada en la nube y la otra es local con el servidor MFA de Azure.  Basándose en la evaluación que realizó anteriormente, puede determinar qué solución es la correcta para su estrategia.  Use la tabla siguiente para determinar qué opción de diseño cumple mejor el requisito de seguridad de su empresa:
 
 Opciones de diseño multifactor:
 

@@ -2,13 +2,13 @@
 title: Nodos y grupos en Azure Batch
 description: Obtenga información sobre los grupos y nodos de proceso, y cómo se usan en un flujo de trabajo de Azure Batch desde el punto de vista del desarrollo.
 ms.topic: conceptual
-ms.date: 11/10/2020
-ms.openlocfilehash: 77f3a1c954f5591537436c9ee747052b3a642ec4
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.date: 11/20/2020
+ms.openlocfilehash: 880a956a2d839483c59578afad1b62146799578a
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94537618"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95243076"
 ---
 # <a name="nodes-and-pools-in-azure-batch"></a>Nodos y grupos en Azure Batch
 
@@ -40,7 +40,7 @@ A cada nodo que se agrega a un grupo se le asigna un nombre y una dirección IP 
 
 Un grupo solo se puede usar con la cuenta de Batch en la que se creó. Una cuenta de Batch puede crear varios grupos para satisfacer los requisitos de recursos de las aplicaciones que ejecutará.
 
-El grupo se puede crear de forma manual, o bien automáticamente por el servicio Batch cuando se especifica el trabajo que se va a realizar. Cuando se crea un grupo, puede especificar los siguientes atributos:
+El grupo se puede crear de forma manual, o bien [automáticamente por el servicio Batch](#autopools) cuando se especifica el trabajo que se va a realizar. Cuando se crea un grupo, puede especificar los siguientes atributos:
 
 - [Sistema operativo y versión del nodo](#operating-system-and-version)
 - [Tipo de nodo y número de nodos de destino](#node-type-and-target)
@@ -184,6 +184,10 @@ Por una parte, puede crear un grupo para cada trabajo que envíe el trabajo y el
 Por otro lado, si lo más importante es que los trabajos se inicien inmediatamente, se puede crear un grupo antes de tiempo y hacer que sus nodos estén disponibles antes de que se envíen los trabajos. En este escenario, las tareas se pueden iniciar inmediatamente, pero los nodos permanecerán inactivos mientras esperan a que se les asignen las tareas.
 
 Normalmente, se usa un enfoque combinado para controlar una carga variable, pero en curso. Puede tener un grupo en el que se envíen varios trabajos y puede escalar o reducir verticalmente el número de nodos según la carga del trabajo. Puede realizar esto de manera reactiva, según la carga actual o de forma anticipada si se puede predecir la carga. Para obtener más información, vea [Directiva de escalado automático](#automatic-scaling-policy).
+
+## <a name="autopools"></a>Autogrupos
+
+Un [autogrupo](/rest/api/batchservice/job/add#autopoolspecification) es un grupo que se crea mediante el servicio de Batch cuando se envía un trabajo, en lugar de crearse antes que los trabajos que se ejecuten en el grupo. El servicio de Batch administrará la duración de un autogrupo en función de las características que especifique. A menudo, estos grupos también se establecen para eliminarse automáticamente una vez que se han completado sus trabajos.
 
 ## <a name="security-with-certificates"></a>Seguridad con certificados
 

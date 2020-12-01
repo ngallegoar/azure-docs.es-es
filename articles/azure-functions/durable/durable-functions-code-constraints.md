@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: ee1561e85e769bf8a82ce96d5ce010eece92a0fa
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: dc301cf7149ad9fcd5bd5c02226afedc4df5e3ee
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93392623"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94833102"
 ---
 # <a name="orchestrator-function-code-constraints"></a>Restricciones de código de las funciones de orquestador
 
@@ -30,8 +30,8 @@ En la siguiente tabla se muestran ejemplos de API que debe evitar porque *no* so
 
 | Categoría de API | Motivo | Solución alternativa |
 | ------------ | ------ | ---------- |
-| Fechas y horas  | Las API que devuelven la fecha o la hora actual no son deterministas porque el valor devuelto es diferente en cada reproducción. | Use la API `CurrentUtcDateTime` en .NET, la API `currentUtcDateTime` en JavaScript o la API `current_utc_datetime` en Python, que son seguras para la reproducción. |
-| GUID y UUID  | Las API que devuelven un valor de GUID o UUID aleatorio no son deterministas porque el valor generado es diferente en cada reproducción. | Use `NewGuid` en .NET o `newGuid` en JavaScript para generar GUID aleatorios de forma segura. |
+| Fechas y horas  | Las API que devuelven la fecha o la hora actual no son deterministas porque el valor devuelto es diferente en cada reproducción. | Use la propiedad[CurrentUtcDateTime](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableorchestrationcontext.currentutcdatetime) en .NET, la API `currentUtcDateTime` en JavaScript, o la API `current_utc_datetime` en Python, que son seguras para la reproducción. |
+| GUID y UUID  | Las API que devuelven un valor de GUID o UUID aleatorio no son deterministas porque el valor generado es diferente en cada reproducción. | Use [NewGuid](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableorchestrationcontext.newguid) en .NET o `newGuid` en JavaScript para generar valores de GUID aleatorios de forma segura. |
 | Números aleatorios | Las API que devuelven números aleatorios no son deterministas porque el valor generado es diferente en cada repetición. | Use una función de actividad para devolver números aleatorios a una orquestación. Los valores devueltos de las funciones de actividad siempre son seguros para la reproducción. |
 | Enlaces | Los enlaces de entrada y salida normalmente realizan operaciones de E/S y no son deterministas. Una función de orquestador no debe usar directamente los enlaces del [cliente de orquestación](durable-functions-bindings.md#orchestration-client) ni de [entidad de cliente](durable-functions-bindings.md#entity-client). | Use los enlaces de entrada y salida dentro de las funciones de cliente o actividad. |
 | Red | Las llamadas de red implican sistemas externos y son no deterministas. | Use funciones de actividad para realizar llamadas de red. Si necesita realizar una llamada HTTP desde la función de orquestador, también tiene la opción de usar las [API HTTP duraderas](durable-functions-http-features.md#consuming-http-apis). |

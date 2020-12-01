@@ -8,18 +8,19 @@ manager: juergent
 editor: ''
 keywords: HLI, HANA, SKUs, S896, S224, S448, S672, Optane, SAP
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/23/2020
+ms.date: 11/20/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 08872b95c4cff3c261a545f117cc4e6bf24e15a5
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 2732f9fc4b1b9251391180874a055e8ffd8d9e7a
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94411480"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94985083"
 ---
 # <a name="available-skus-for-hana-large-instances"></a>SKU disponibles para instancias grandes de HANA
 
@@ -34,10 +35,13 @@ El servicio de SAP HANA en Azure (instancias grandes) basado en sellos de la rev
 
 - Oeste de EE. UU. 2
 - Este de EE. UU.
-- Este de EE. UU. 2
-- Centro-sur de EE. UU.
+
+Servicio de infraestructura BareMetal (certificado para cargas de trabajo de SAP HANA) basado en sellos de la revisión 4.2. Está disponible en varias configuraciones en las regiones de Azure siguientes:
 - Oeste de Europa
 - Norte de Europa
+- Este de EE. UU. 2
+- Centro-sur de EE. UU.
+
 
 
 
@@ -105,8 +109,8 @@ Dos clases diferentes de hardware dividen las SKU en:
 Una demarcación completa de HANA (instancias grandes) no está asignada exclusivamente para que la use un único cliente. Esto se aplica también a los bastidores de recursos de procesos y almacenamiento conectados mediante un tejido de red implementado en Azure. La infraestructura de HANA (instancias grandes), como Azure, implementa &quot;inquilinos&quot; de clientes diferentes que están aislados entre sí en los tres niveles siguientes:
 
 - **Network** (Red): aislamiento a través de redes virtuales dentro de la demarcación de HANA (instancias grandes).
-- **Almacenamiento** : aislamiento a través de máquinas virtuales de almacenamiento que tienen volúmenes de almacenamiento asignados y aíslan los volúmenes de almacenamiento entre inquilinos.
-- **Proceso** : asignación dedicada de las unidades de servidor a un único inquilino. Sin particiones de hardware ni de software de las unidades de servidor. Sin uso compartido de una sola unidad de host o servidor entre los inquilinos. 
+- **Almacenamiento**: aislamiento a través de máquinas virtuales de almacenamiento que tienen volúmenes de almacenamiento asignados y aíslan los volúmenes de almacenamiento entre inquilinos.
+- **Proceso**: asignación dedicada de las unidades de servidor a un único inquilino. Sin particiones de hardware ni de software de las unidades de servidor. Sin uso compartido de una sola unidad de host o servidor entre los inquilinos. 
 
 Las implementaciones de unidades de HANA (instancias grandes) entre varios inquilinos no son visibles entre sí. Las unidades de HANA (instancias grandes) implementadas en diferentes inquilinos tampoco se pueden comunicar directamente entre sí en el nivel de la demarcación de HANA (instancias grandes). Solo las unidades de HANA (instancias grandes) dentro de un mismo inquilino se pueden comunicar entre sí en el nivel de la demarcación de HANA (instancias grandes).
 

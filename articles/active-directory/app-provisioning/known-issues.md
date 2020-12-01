@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 09/11/2020
+ms.date: 11/19/2020
 ms.reviewer: arvinh
-ms.openlocfilehash: 4b4c02efffb39e88a01c35d3c818930a0f6fd9cf
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 8a1c789759f1119a6170fffc2c70874cd9a32fde
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92069762"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94919697"
 ---
 # <a name="known-issues-application-provisioning"></a>Problemas conocidos: Aprovisionamiento de aplicaciones
 Problemas conocidos que se deben tener en cuenta al trabajar con el aprovisionamiento de aplicaciones. Puede proporcionar comentarios sobre el servicio de aprovisionamiento de aplicaciones en UserVoice; vea [Aprovisionamiento de aplicaciones de Azure AD en UserVoice](https://aka.ms/appprovisioningfeaturerequest). Supervisamos UserVoice muy de cerca para poder mejorar el servicio. 
@@ -86,6 +86,9 @@ Al establecer el aprovisionamiento `enabled = off`, o al seleccionar la opción 
 
 Cuando un grupo está dentro del ámbito y un miembro está fuera, se aprovisionará el grupo. El usuario que está fuera del ámbito no se aprovisionará. Si el miembro vuelve al ámbito, el servicio no detectará el cambio inmediatamente. Al reiniciar el aprovisionamiento, se solucionará el problema. Se recomienda reiniciar periódicamente el servicio para asegurarse de que todos los usuarios se hayan aprovisionado correctamente.  
 
+**El administrador no está aprovisionado**
+
+Si un usuario y su administrador están ambos en el ámbito para el aprovisionamiento, el servicio aprovisionará al usuario y luego actualizará el administrador. Sin embargo, si en el día el usuario está en el ámbito y el administrador está fuera del ámbito, se aprovisionará al usuario sin la referencia del administrador. Cuando el administrador entre en el ámbito, la referencia del administrador no se actualizará hasta que se reinicie el aprovisionamiento y que el servicio vuelva a evaluar a todos los usuarios. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 - [Funcionamiento del aprovisionamiento](how-provisioning-works.md)

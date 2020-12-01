@@ -7,33 +7,38 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/06/2019
+ms.date: 11/16/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6dbdd5153186ee47e37856637eac16d6d450cc5a
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 5f6c5985c16875e263f2494f56636abb4d4e980d
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94695187"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95237262"
 ---
 # <a name="prerequisites-for-azure-ad-connect-cloud-provisioning"></a>Requisitos previos del aprovisionamiento en la nube de Azure AD Connect
 En este artículo se proporcionan instrucciones sobre cómo elegir y usar el aprovisionamiento en la nube de Azure Active Directory (Azure AD) Connect como solución de identidad.
 
-
-
 ## <a name="cloud-provisioning-agent-requirements"></a>Requisitos del agente de aprovisionamiento en la nube
 Se necesita lo siguiente para usar el aprovisionamiento en la nube de Azure AD Connect:
-    
+
+- Credenciales de administrador de dominio o administrador de empresa para crear la gMSA (cuenta de servicio administrada de grupo) de sincronización en la nube de Azure AD Connect para ejecutar el servicio del agente. 
 - Una cuenta de administrador de identidades híbridas para su inquilino de Azure AD que no sea un usuario invitado.
 - Un servidor local para el agente de aprovisionamiento con Windows 2012 R2 o posterior.  Este servidor debe ser un servidor de nivel 0 basado en el [modelo de nivel administrativo de Active Directory](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material).
 - Configuraciones de firewall locales.
 
->[!NOTE]
->Actualmente, el agente de aprovisionamiento solo se puede instalar en servidores con el idioma inglés. La instalación de un paquete de idioma en inglés en un servidor con un idioma distinto del inglés no es una opción válida y producirá un error en la instalación del agente. 
+## <a name="group-managed-service-accounts"></a>Cuentas de servicio administradas de grupo
+Una cuenta de servicio administradas de grupo es una cuenta de dominio administrado que proporciona administración automática de contraseñas, administración simplificada del nombre de entidad de seguridad de servicio (SPN), la posibilidad de delegar la administración a otros administradores y, además, amplía esta funcionalidad a varios servidores.  La sincronización en la nube de Azure AD Connect admite y usa una gMSA para ejecutar el agente.  Para poder crear esta cuenta, se le pedirán credenciales administrativas durante la instalación.  La cuenta aparecerá como (domain\provAgentgMSA$).  Para obtener más información sobre gMSA, consulte [Cuentas de servicio administradas de grupo](https://docs.microsoft.com/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview). 
 
-En el resto del documento se proporcionan instrucciones paso a paso para estos requisitos previos.
+### <a name="prerequisites-for-gmsa"></a>Requisitos previos de gMSA:
+1.  El esquema de Active Directory del bosque del dominio de la gMSA se tiene que actualizar a Windows Server 2012.
+2.  [Módulos de RSAT de PowerShell](https://docs.microsoft.com/windows-server/remote/remote-server-administration-tools) en un controlador de dominio
+3.  Al menos un controlador de dominio en el dominio debe ejecutar Windows Server 2012.
+4.  Un servidor unido a un dominio en el que se está instalando el agente debe ser Windows Server 2012 o posterior.
+
+Para conocer los pasos sobre cómo actualizar un agente existente para usar una cuenta gMSA, consulte [Cuentas de servicio administradas de grupo](how-to-install.md#group-managed-service-accounts).
 
 ### <a name="in-the-azure-active-directory-admin-center"></a>En el Centro de administración de Azure Active Directory
 
@@ -57,7 +62,9 @@ Ejecute la [herramienta IdFix](/office365/enterprise/prepare-directory-attribute
         | --- | --- |
         | **80** | Descarga las listas de revocación de certificados (CRL) al validar el certificado TLS/SSL  |
         | **443** | Controla toda la comunicación saliente con el servicio. |
+        |**8082**|Obligatorio para la instalación y si quiere configurar la API de administración de HIS.  Este puerto se puede quitar una vez instalado el agente y si no está planeando usar la API.   |
         | **8080** (opcional) | Si el puerto 443 no está disponible, los agentes notifican su estado cada 10 minutos en el puerto 8080. Este estado se muestra en el portal de Azure AD. |
+   
      
    - Si el firewall fuerza las reglas según los usuarios que las originan, abra estos puertos para el tráfico de servicios de Windows que se ejecutan como un servicio de red.
    - Si el firewall o proxy le permite configurar sufijos seguros, agregue conexiones a \*.msappproxy.net y \*.servicebus.windows.net. En caso contrario, permita el acceso a los [intervalos de direcciones IP del centro de datos de Azure](https://www.microsoft.com/download/details.aspx?id=41653), que se actualizan cada semana.
@@ -66,6 +73,8 @@ Ejecute la [herramienta IdFix](/office365/enterprise/prepare-directory-attribute
 
 >[!NOTE]
 > La instalación del agente de aprovisionamiento en la nube en Windows Server Core no se admite.
+
+
 
 
 ### <a name="additional-requirements"></a>Requisitos adicionales
@@ -91,24 +100,6 @@ Para habilitar TLS 1.2, siga estos pasos.
 
 1. Reinicie el servidor.
 
-## <a name="known-limitations"></a>Restricciones conocidas
-Estas son las limitaciones conocidas:
-
-### <a name="delta-synchronization"></a>Sincronización delta
-
-- El filtrado de ámbitos de grupos para la sincronización diferencial no admite más de 1500 miembros.
-- Cuando se elimina un grupo que se usa como parte de un filtro de ámbito de grupo, los usuarios que pertenecen a dicho grupo no se eliminan. 
-- Al cambiar el nombre de la unidad organizativa o del grupo que se encuentra en el ámbito, la sincronización diferencial no quitará a los usuarios.
-
-### <a name="provisioning-logs"></a>Registros de aprovisionamiento
-- Los registros de aprovisionamiento no distinguen claramente entre las operaciones de creación y actualización.  Es posible que se muestre una operación de creación para una actualización, y viceversa.
-
-### <a name="cross-domain-references"></a>Referencias entre dominios
-- Si tiene usuarios con referencias de miembro en otro dominio, no se sincronizarán como parte de la sincronización de dominio actual de ese usuario. 
-- (Ejemplo: un administrador del usuario al que está sincronizando está en el dominio B, y el usuario está en el dominio A. Al sincronizar los dominios A y B, los usuarios se sincronizarán, pero el administrador del usuario no se trasladará.
-
-### <a name="group-re-naming-or-ou-re-naming"></a>Cambio del nombre de grupo o de la unidad organizativa
-- Si cambia el nombre de un grupo o una unidad organizativa de AD que se encuentra en el ámbito de una configuración determinada, el trabajo de aprovisionamiento en la nube no podrá reconocer el cambio de nombre en AD. El trabajo no entrará en cuarentena y permanecerá en buen estado.
 
 
 

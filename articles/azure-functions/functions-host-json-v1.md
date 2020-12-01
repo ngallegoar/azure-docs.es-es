@@ -3,12 +3,12 @@ title: Referencia de host.json para Azure Functions 1.x
 description: Documentación de referencia para el archivo host.json de Azure Functions con el entorno en tiempo de ejecución de la versión 1.
 ms.topic: conceptual
 ms.date: 10/19/2018
-ms.openlocfilehash: 32848c725d5c99e3814e86447d604839502054c0
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 588ab6723015f34d15e4a46ec4f7324302b13b81
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167734"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94832830"
 ---
 # <a name="hostjson-reference-for-azure-functions-1x"></a>Referencia de host.json para Azure Functions 1.x
 
@@ -93,7 +93,8 @@ El siguiente archivo *host.json* de ejemplo tiene especificadas todas las opcion
     "serviceBus": {
       "maxConcurrentCalls": 16,
       "prefetchCount": 100,
-      "autoRenewTimeout": "00:05:00"
+      "autoRenewTimeout": "00:05:00",
+      "autoComplete": true
     },
     "singleton": {
       "lockPeriod": "00:00:15",
@@ -162,7 +163,7 @@ Lista de las funciones que el host de trabajo ejecuta. Una matriz vacía signifi
 
 ## <a name="functiontimeout"></a>functionTimeout
 
-Indica la duración del tiempo de espera para todas las funciones. En un plan de consumo sin servidor, el intervalo válido es de 1 segundo a 10 minutos, y el valor predeterminado es 5 minutos. En un plan de App Service, no hay ningún límite general y el valor predeterminado es _null_ , lo que indica que no hay tiempo de espera.
+Indica la duración del tiempo de espera para todas las funciones. En un plan de consumo sin servidor, el intervalo válido es de 1 segundo a 10 minutos, y el valor predeterminado es 5 minutos. En un plan de App Service, no hay ningún límite general y el valor predeterminado es _null_, lo que indica que no hay tiempo de espera.
 
 ```json
 {
@@ -286,6 +287,7 @@ Opción de configuración para [el enlace de salida de SendGrind](functions-bind
     "sendGrid": {
         "from": "Contoso Group <admin@contoso.com>"
     }
+}    
 ```
 
 |Propiedad  |Valor predeterminado | Descripción |
@@ -301,7 +303,8 @@ Opción de configuración para los [desencadenadores y enlaces de Service Bus](f
     "serviceBus": {
       "maxConcurrentCalls": 16,
       "prefetchCount": 100,
-      "autoRenewTimeout": "00:05:00"
+      "autoRenewTimeout": "00:05:00",
+      "autoComplete": true
     }
 }
 ```
@@ -310,7 +313,8 @@ Opción de configuración para los [desencadenadores y enlaces de Service Bus](f
 |---------|---------|---------| 
 |maxConcurrentCalls|16|Número máximo de llamadas simultáneas a la devolución de llamada que el bombeo de mensajes debe iniciar. De forma predeterminada, el entorno de ejecución de Functions procesa simultáneamente varios mensajes. Para indicar al entorno de ejecución que procese solo los mensajes de una única cola o tema, establezca `maxConcurrentCalls` en 1. | 
 |prefetchCount|N/D|Valor predeterminado de PrefetchCount que utilizará el receptor de mensajes subyacente.| 
-|autoRenewTimeout|00:05:00|Duración máxima dentro de la cual el bloqueo de mensajes se renovará automáticamente.| 
+|autoRenewTimeout|00:05:00|Duración máxima dentro de la cual el bloqueo de mensajes se renovará automáticamente.|
+|autoComplete|true|Cuando sea true, el desencadenador completará el procesamiento de mensajes automáticamente cuando la operación se ejecute correctamente. Cuando sea false, es responsabilidad de la función completar el mensaje antes de volver.|
 
 ## <a name="singleton"></a>singleton
 

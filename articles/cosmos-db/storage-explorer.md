@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/23/2020
 ms.author: dech
 ms.custom: seodec18, has-adal-ref
-ms.openlocfilehash: 9260f2892bdcc6a694e1e54e29cb06bae90298eb
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 61ae446d180a86b42bc52ac3244b96b7b347b68f
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93074478"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010578"
 ---
 # <a name="manage-azure-cosmos-db-resources-by-using-azure-storage-explorer"></a>Administración de recursos de Azure Cosmos DB mediante el Explorador de Azure Storage
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -34,7 +34,7 @@ Para instalar los bits más recientes del Explorador de Azure Storage, consulte 
 
 ## <a name="connect-to-an-azure-subscription"></a>Conexión a una suscripción de Azure
 
-1. Después de instalar el **Explorador de Azure Storage** , seleccione el icono de **complemento** en el panel izquierdo.
+1. Después de instalar el **Explorador de Azure Storage**, seleccione el icono de **complemento** en el panel izquierdo.
 
    :::image type="content" source="./media/storage-explorer/plug-in-icon.png" alt-text="Captura de pantalla que muestra el icono de complemento en el panel izquierdo.":::
 
@@ -42,7 +42,7 @@ Para instalar los bits más recientes del Explorador de Azure Storage, consulte 
 
    :::image type="content" source="./media/storage-explorer/connect-to-azure-subscription.png" alt-text="Captura de pantalla de la ventana Conectar a Azure Storage que muestra el botón de radio Agregar una cuenta de Azure seleccionado y el menú desplegable Entorno de Azure.":::
 
-1. En el cuadro de diálogo **Inicio de sesión de Azure** , seleccione **Iniciar sesión** y luego escriba las credenciales de Azure.
+1. En el cuadro de diálogo **Inicio de sesión de Azure**, seleccione **Iniciar sesión** y luego escriba las credenciales de Azure.
 
     :::image type="content" source="./media/storage-explorer/sign-in.png" alt-text="Captura de pantalla de la ventana Iniciar sesión que muestra dónde escribir sus credenciales para su suscripción de Azure.":::
 
@@ -64,13 +64,16 @@ Puede usar una cadena de conexión para conectarse a una instancia de Azure Cosm
 
     :::image type="content" source="./media/storage-explorer/connect-to-db-by-connection-string.png" alt-text="Captura de pantalla que muestra el menú desplegable después de hacer clic con el botón derecho, con la conexión a Azure Cosmos DB resaltada.":::
 
-2. En la ventana **Conectarse a Cosmos DB** :
+2. En la ventana **Conectarse a Cosmos DB**:
    1. Seleccione la API en el menú desplegable.
    1. Pegue la cadena de conexión en el cuadro **Cadena de conexión**. Para más información sobre cómo recuperar la cadena de conexión principal, consulte [Obtención de la cadena de conexión](manage-with-powershell.md#list-keys).
    1. Especifique una **Etiqueta de cuenta** y luego seleccione **siguiente** para comprobar el resumen.
    1. Seleccione **Conectar** para conectar la cuenta de Azure Cosmos DB.
 
       :::image type="content" source="./media/storage-explorer/connection-string.png" alt-text="Captura de pantalla de la ventana Conectarse a Cosmos DB, donde se muestra el menú desplegable API, el cuadro Cadena de conexión y el cuadro Etiqueta de cuenta.":::
+
+> [!NOTE]
+> Si el Explorador de Azure Storage muestra que la cadena de conexión de Azure Cosmos DB tiene un formato no válido, asegúrese de que la cadena de conexión tenga un punto y coma (`;`) al final. Un ejemplo de una cadena de conexión de Azure Cosmos DB válida sería: `AccountEndpoint=https://accountname.documents.azure.com:443;AccountKey=accountkey==;`
 
 ## <a name="use-a-local-emulator-to-connect-to-azure-cosmos-db"></a>Uso de un emulador local para conectarse a Azure Cosmos DB
 
@@ -82,7 +85,7 @@ Siga estos pasos para conectarse a Azure Cosmos DB con un emulador. Este métod
 
     :::image type="content" source="./media/storage-explorer/emulator-entry.png" alt-text="Captura de pantalla que muestra el menú que aparece después de hacer clic con el botón derecho, con la opción Conectarse a Emulador de Cosmos DB resaltada.":::
 
-1. En la ventana **Conectarse a Cosmos DB** :
+1. En la ventana **Conectarse a Cosmos DB**:
    1. Pegue la cadena de conexión en el cuadro **Cadena de conexión**. Para más información sobre cómo recuperar la cadena de conexión primaria, vea [Obtener la cadena de conexión](manage-with-powershell.md#list-keys).
    1. Especifique una **Etiqueta de cuenta** y luego seleccione **siguiente** para comprobar el resumen.
    1. Seleccione **Conectar** para conectar la cuenta de Azure Cosmos DB.
@@ -141,7 +144,7 @@ Puede hacer clic con el botón derecho en una suscripción en el panel Explorado
 
    :::image type="content" source="./media/storage-explorer/create-collection.png" alt-text="Captura de pantalla que muestra el menú que aparece después de hacer clic con el botón derecho, con la opción Crear colección resaltada.":::
 
-1. En la ventana Crear colección, escriba la información solicitada, como **Id. de colección** y **Capacidad de almacenamiento** , etc. Seleccione **Aceptar** para finalizar.
+1. En la ventana Crear colección, escriba la información solicitada, como **Id. de colección** y **Capacidad de almacenamiento**, etc. Seleccione **Aceptar** para finalizar.
 
    :::image type="content" source="./media/storage-explorer/create-collection2.png" alt-text="Captura de pantalla de la ventana Crear colección que muestra el cuadro Id. de colección y los botones de Capacidad de almacenamiento.":::
 
@@ -164,7 +167,7 @@ Puede hacer clic con el botón derecho en una suscripción en el panel Explorado
 
 #### <a name="create-and-modify-documents"></a>Crear y modificar documentos
 
-- Abra **Documentos** en el panel izquierdo, seleccione **Nuevo documento** , edite el contenido en el panel derecho y seleccione **Guardar**.
+- Abra **Documentos** en el panel izquierdo, seleccione **Nuevo documento**, edite el contenido en el panel derecho y seleccione **Guardar**.
 - También puede actualizar un documento existente y luego seleccionar **Guardar**. Para descartar los cambios, seleccione **Descartar**.
 
   :::image type="content" source="./media/storage-explorer/document.png" alt-text="Captura de pantalla que muestra la opción Documentos resaltada en el panel izquierdo. En el panel derecho están resaltadas las opciones Nuevo documento, Guardar y Descartar.":::
@@ -183,7 +186,7 @@ Puede hacer clic con el botón derecho en una suscripción en el panel Explorado
 
 #### <a name="create-and-modify-a-vertex"></a>Creación y modificación de un vértice
 
-* Para crear un vértice, abra **Grafo** en el panel izquierdo, seleccione **Nuevo vértice** , edite el contenido y seleccione **Aceptar**.
+* Para crear un vértice, abra **Grafo** en el panel izquierdo, seleccione **Nuevo vértice**, edite el contenido y seleccione **Aceptar**.
 * Para modificar un vértice existente, seleccione el icono del lápiz del panel derecho.
 
    :::image type="content" source="./media/storage-explorer/vertex.png" alt-text="Captura de pantalla que muestra la opción Grafo seleccionada en el panel izquierdo y la opción Nuevo vértice y el icono de lápiz resaltados en el panel derecho.":::
@@ -204,13 +207,13 @@ Puede hacer clic con el botón derecho en una suscripción en el panel Explorado
 
 * Para crear una tabla:
    1. En el panel izquierdo, abra **Entidades** y seleccione **Agregar**.
-   1. En el cuadro de diálogo **Agregar entidad** , edite el contenido.
+   1. En el cuadro de diálogo **Agregar entidad**, edite el contenido.
    1. Seleccione el botón **Agregar propiedad** para agregar una propiedad.
    1. Seleccione **Insertar**.
 
       :::image type="content" source="./media/storage-explorer/table.png" alt-text="Captura de pantalla que muestra la opción Entidades resaltada en el panel izquierdo y las opciones Agregar, Editar, Agregar propiedad e Insertar resaltadas en el panel derecho.":::
 
-* Para modificar una tabla, seleccione **Editar** , modifique el contenido y seleccione **Actualizar**.
+* Para modificar una tabla, seleccione **Editar**, modifique el contenido y seleccione **Actualizar**.
 
    
 
@@ -229,7 +232,7 @@ Puede hacer clic con el botón derecho en una suscripción en el panel Explorado
 
 #### <a name="query-a-table"></a>Consultar una tabla
 
-- Seleccione el botón **Consulta** , especifique una condición de consulta y seleccione el botón **Ejecutar consulta**. Para cerrar el panel de consulta, seleccione el botón **Cerrar consulta**.
+- Seleccione el botón **Consulta**, especifique una condición de consulta y seleccione el botón **Ejecutar consulta**. Para cerrar el panel de consulta, seleccione el botón **Cerrar consulta**.
 
   :::image type="content" source="./media/storage-explorer/table-query.png" alt-text="Captura de pantalla del panel derecho que muestra el botón Ejecutar consulta y el botón Cerrar consulta resaltados.":::
 

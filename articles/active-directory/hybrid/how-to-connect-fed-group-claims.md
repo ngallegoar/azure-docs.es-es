@@ -12,12 +12,12 @@ ms.topic: how-to
 ms.date: 02/27/2019
 ms.author: billmath
 author: billmath
-ms.openlocfilehash: ce438ad0725aff677f897a635a0cd32d92bbbdbe
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: cb828eeb408a170b93ffc73b58f14b3f7a883cc4
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91265476"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95247241"
 ---
 # <a name="configure-group-claims-for-applications-with-azure-active-directory"></a>Configuración de notificaciones de grupo para aplicaciones con Azure Active Directory
 
@@ -146,6 +146,7 @@ Los valores válidos son:
 | **"SecurityGroup"** | Emite grupos de seguridad de los que el usuario es miembro en la notificación de grupos. |
 | **"DirectoryRole"** | Si al usuario se le asignan roles de directorio, se emiten como una notificación “wids” (no se emitirá la notificación de grupos). |
 | **"ApplicationGroup"** | Emite solo los grupos asignados explícitamente a la aplicación y de los que el usuario es miembro. |
+| **"None"** | No se devuelve ningún grupo. (No distingue mayúsculas y minúsculas, así que "none" también funciona, y se puede establecer directamente en el manifiesto de aplicación). |
 
    Por ejemplo:
 

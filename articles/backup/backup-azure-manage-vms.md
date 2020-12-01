@@ -3,12 +3,12 @@ title: Administración y supervisión de copias de seguridad de máquinas virtua
 description: Aprenda a administrar y supervisar las copias de seguridad de Azure VM con el servicio Azure Backup.
 ms.topic: conceptual
 ms.date: 08/02/2020
-ms.openlocfilehash: 2052d80428af89862b5348943b446f1b800ab36f
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: a56f13afa23a81b9cd2b34d34e1ca302c0c667f0
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92174097"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "96002923"
 ---
 # <a name="manage-azure-vm-backups-with-azure-backup-service"></a>Administración de las copias de seguridad de máquina virtual de Azure con el servicio Azure Backup
 
@@ -144,7 +144,7 @@ Para detener la protección y eliminar los datos de una máquina virtual:
 1. En el [panel del elemento del almacén](#view-vms-on-the-dashboard), seleccione **Detener copia de seguridad**.
 2. Elija **Eliminar datos de la copia de seguridad** y confirme su selección según sea necesario. Escriba el nombre del elemento de copia de seguridad y agregue un comentario si lo desea.
 
-    ![Eliminación de datos de copia de seguridad](./media/backup-azure-manage-vms/delete-backup-data1.png)
+    ![Eliminación de datos de copia de seguridad](./media/backup-azure-manage-vms/delete-backup-data.png)
 
 > [!NOTE]
 > Una vez completada la operación de eliminación, los datos de copia de seguridad se conservarán durante 14 días en el [estado de eliminación temporal](./soft-delete-virtual-machines.md). <br>Además, también puede [habilitar o deshabilitar la eliminación temporal](./backup-azure-security-feature-cloud.md#enabling-and-disabling-soft-delete).
@@ -177,7 +177,7 @@ Hay dos formas de eliminar los datos de copia de seguridad de una máquina virtu
   * En el [panel del elemento del almacén](#view-vms-on-the-dashboard), seleccione **Eliminar copia de seguridad**.
   * Escriba el nombre del elemento de copia de seguridad para confirmar que desea eliminar los puntos de recuperación.
 
-    ![Eliminación de datos de copia de seguridad](./media/backup-azure-manage-vms/delete-backup-data1.png)
+    ![Eliminación de datos de copia de seguridad](./media/backup-azure-manage-vms/delete-backup-data.png)
 
   * Para eliminar los datos de copia de seguridad para el elemento, seleccione **Eliminar**. Un mensaje de notificación le confirma que se han eliminado los datos de copia de seguridad.
 
@@ -190,7 +190,7 @@ Para proteger los datos, Azure Backup incluye la característica de eliminación
 
 * Si las máquinas virtuales de Azure configuradas para Azure Backup se eliminan o se mueven sin detener la protección, los trabajos de copia de seguridad programados y a petición (ad hoc) generarán el error UserErrorVmNotFoundV2. La comprobación previa de la copia de seguridad aparecerá como crítica solo para los trabajos de copia de seguridad a petición con errores (no se muestran los trabajos programados con errores).
 * Estos elementos de copia de seguridad permanecen activos en el sistema que se adhiere a la directiva de copia de seguridad y retención establecida por el usuario. Los datos de copia de seguridad de estas máquinas virtuales de Azure se conservarán según la directiva de retención. Los puntos de recuperación expirados (excepto el punto de recuperación más reciente) se limpian según el intervalo de retención establecido en la directiva de copia de seguridad.
-* Si los datos o elementos de copia de seguridad de los recursos de eliminación ya no son necesarios, ya que el punto de recuperación más reciente se mantiene indefinidamente y al usuario se le cobra según los precios de copia de seguridad aplicables, se recomienda eliminar los elementos de copia de seguridad en los que ya no exista el origen de datos principal para evitar costos adicionales.
+* Para evitar costes adicionales, se recomienda eliminar los elementos de copia de seguridad en los que ya no existe el origen de datos principal. Se trata de un escenario en el que ya no es necesario el elemento o los datos de copia de seguridad para los recursos eliminados, ya que el punto de recuperación más reciente se conserva indefinidamente y se le cobra según los precios de copia de seguridad aplicables.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

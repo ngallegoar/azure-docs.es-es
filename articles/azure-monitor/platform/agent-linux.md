@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/21/2020
-ms.openlocfilehash: 8b9fac51b5bdab20d7b082945ee594ac76c3e52a
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: e1dbf5e20aa206189397cab26e9b867f4942e1d5
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92332508"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94886845"
 ---
 # <a name="install-log-analytics-agent-on-linux-computers"></a>Instalación del agente de Log Analytics en equipos Linux
 En este artículo, se proporcionan detalles sobre la instalación del agente de Log Analytics en equipos Linux con los métodos siguientes:
@@ -30,13 +30,17 @@ Consulte [Información general de los agentes de Azure Monitor](agents-overview.
 
 >[!NOTE]
 >OpenSSL 1.1.0 solo se admite en las plataformas x86_x64 (64 bits) y OpenSSL anterior a 1.x no se admite en ninguna plataforma.
->
+
+>[!NOTE]
+>No se admite la ejecución del agente de Log Analytics para Linux en contenedores. Si necesita supervisar contenedores, aproveche la [solución de supervisión de contenedores](../insights/containers.md) para hosts de Docker o [Azure Monitor para contenedores](../insights/container-insights-overview.md) para Kubernetes.
+
 A partir de las versiones publicadas después de agosto de 2018, hemos realizado los siguientes cambios en nuestro modelo de soporte técnico:  
 
 * Solo se admiten las versiones de servidor, no de cliente.  
 * La compatibilidad se centra en cualquiera de las [distribuciones de Linux aprobadas en Azure](../../virtual-machines/linux/endorsed-distros.md). Tenga en cuenta que puede haber cierto retraso entre la aprobación de una distribución o versión de Linux en Azure y su compatibilidad con el agente de Linux de Log Analytics.
 * Se admiten todas las versiones secundarias de cada versión principal de la lista.
-* No se admiten las versiones que han superado la fecha de finalización de soporte técnico de su fabricante.  
+* No se admiten las versiones que han superado la fecha de finalización de soporte técnico de su fabricante.
+* Solo admite imágenes de VM; no se admiten los contenedores, ni siquiera los derivados de las imágenes de los editores de distribuciones oficiales.
 * No se admiten las nuevas versiones de AMI.  
 * Solo se admiten las versiones que ejecutan SSL 1.x de forma predeterminada.
 
@@ -53,7 +57,7 @@ Si usa una versión anterior del agente, debe hacer que la máquina virtual use 
  - Ubuntu, Debian: `apt-get install -y python2`
  - SUSE: `zypper install -y python2`
 
-El ejecutable python2 debe tener un alias para *python* . A continuación se ofrece un método que puede usar para establecer este alias:
+El ejecutable python2 debe tener un alias para *python*. A continuación se ofrece un método que puede usar para establecer este alias:
 
 1. Ejecute el siguiente comando para quitar los alias existentes.
  
@@ -215,7 +219,7 @@ sudo sh ./omsagent-*.universal.x64.sh --extract
 A partir de la versión 1.0.0-47, todos los lanzamientos permiten actualizar desde la versión anterior. Realice la instalación con el parámetro `--upgrade` para actualizar todos los componentes del agente a la última versión.
 
 ## <a name="cache-information"></a>Información de caché
-Los datos del agente de Log Analytics para Linux se almacenan en la caché del equipo local en *% STATE_DIR_WS%/out_oms_common* . buffer * antes de enviarse a Azure Monitor. Los datos de registro personalizados se almacenan en búfer en *%STATE_DIR_WS%/out_oms_blob* .buffer*. La ruta de acceso puede ser diferente para algunas [soluciones y tipos de datos](https://github.com/microsoft/OMS-Agent-for-Linux/search?utf8=%E2%9C%93&q=+buffer_path&type=).
+Los datos del agente de Log Analytics para Linux se almacenan en la caché del equipo local en *% STATE_DIR_WS%/out_oms_common*. buffer * antes de enviarse a Azure Monitor. Los datos de registro personalizados se almacenan en búfer en *%STATE_DIR_WS%/out_oms_blob*.buffer*. La ruta de acceso puede ser diferente para algunas [soluciones y tipos de datos](https://github.com/microsoft/OMS-Agent-for-Linux/search?utf8=%E2%9C%93&q=+buffer_path&type=).
 
 El agente intenta realizar la carga cada 20 segundos. Si no lo consigue, el tiempo de espera aumentará de forma exponencial hasta que la operación se ejecute correctamente: 30 segundos antes del segundo intento; 60 segundos antes del tercero; 120 segundos a continuación y así sucesivamente hasta un máximo de 16 minutos entre reintentos hasta que se vuelva a conectar correctamente. El agente volverá a intentar la operación hasta 6 veces para un fragmento determinado de datos antes de descartarlo y pasar al siguiente. Esto continuará hasta que el agente pueda volver a efectuar la carga correctamente. Por esta razón, los datos se pueden almacenar en búfer hasta 30 minutos aproximadamente antes de ser descartados.
 

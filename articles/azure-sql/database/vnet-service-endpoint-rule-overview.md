@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto, genemi
 ms.date: 11/14/2019
-ms.openlocfilehash: 4539709dbac992979af6a56e3dae81725a35739d
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 97be3bf0ecec20c4bf2e1633f893c9aa0d9ba49d
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325007"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95020289"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-servers-in-azure-sql-database"></a>Uso de reglas y puntos de conexión de servicio de red virtual para servidores de Azure SQL Database
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -55,7 +55,7 @@ Existe una separación de los roles de seguridad en la administración de puntos
 - **Administrador de red:** &nbsp; se activa el punto de conexión.
 - **Administrador de base de datos:** &nbsp; Actualiza la lista de control de acceso (ACL) que se va a agregar a la subred proporcionada en el servidor.
 
-*Alternativa de RBAC:*
+*Alternativa a RBAC de Azure:*
 
 Los roles de administrador de red y de base de datos tienen más funcionalidades de las que se necesitan para administrar las reglas de red virtual. Solo se necesita un subconjunto de sus capacidades.
 
@@ -80,6 +80,7 @@ Para Azure SQL Database, la característica de regla de red virtual tiene las si
 
 - La activación de puntos de conexión de servicio de red virtual en Azure SQL Database también habilita los puntos de conexión para los servicios MySQL y PostgreSQL de Azure. Sin embargo, con los puntos de conexión activados, se puede producir un error al intentar conectarse desde los puntos de conexión con las instancias de MySQL o PostgreSQL.
   - El motivo subyacente es que es probable que MySQL y PostgreSQL no tengan una regla de red virtual configurada. Debe configurar una regla de red virtual de Azure Database for MySQL y PostgreSQL y la conexión se realizará correctamente.
+  - Para definir las reglas de firewall de red virtual en un servidor lógico SQL que ya está configurado con puntos de conexión privados, establezca **Deny public network access** (Denegar acceso a la red pública) en **No**.
 
 - En el firewall, los intervalos de direcciones IP se aplican a los siguientes elementos de red, pero no las reglas de red virtual:
   - [Red privada virtual (VPN) de sitio a sitio (S2S)][vpn-gateway-indexmd-608y]
@@ -89,7 +90,7 @@ Para Azure SQL Database, la característica de regla de red virtual tiene las si
 
 Al utilizar los puntos de conexión de servicio para Azure SQL Database, revise las consideraciones siguientes:
 
-- **Se requiere la salida a direcciones IP públicas de Azure SQL Database** : los grupos de seguridad de red (NSG) deben estar abiertos en las direcciones IP de Azure SQL Database para permitir la conectividad. Puede hacerlo mediante el uso de [etiquetas de servicio](../../virtual-network/network-security-groups-overview.md#service-tags) de NSG para Azure SQL Database.
+- **Se requiere la salida a direcciones IP públicas de Azure SQL Database**: los grupos de seguridad de red (NSG) deben estar abiertos en las direcciones IP de Azure SQL Database para permitir la conectividad. Puede hacerlo mediante el uso de [etiquetas de servicio](../../virtual-network/network-security-groups-overview.md#service-tags) de NSG para Azure SQL Database.
 
 ### <a name="expressroute"></a>ExpressRoute
 
@@ -188,7 +189,7 @@ Puede establecer la marca **IgnoreMissingVNetServiceEndpoint** mediante PowerShe
 
 ## <a name="errors-40914-and-40615"></a>Errores 40914 y 40615
 
-El error de conexión 40914 se relaciona con *reglas de red virtual* , tal y como se especifica en el panel Firewall de Azure Portal. El error 40615 es similar, excepto que se relaciona con *reglas de direcciones IP* del Firewall.
+El error de conexión 40914 se relaciona con *reglas de red virtual*, tal y como se especifica en el panel Firewall de Azure Portal. El error 40615 es similar, excepto que se relaciona con *reglas de direcciones IP* del Firewall.
 
 ### <a name="error-40914"></a>Error 40914
 
@@ -240,18 +241,18 @@ Ya debe tener una subred que esté etiquetada con el punto de conexión de servi
 
 1. Inicie sesión en [Azure Portal][http-azure-portal-link-ref-477t].
 
-2. Busque y seleccione **Servidores SQL Server** y, después, seleccione el servidor. En **Seguridad** , seleccione **Firewalls y redes virtuales**.
+2. Busque y seleccione **Servidores SQL Server** y, después, seleccione el servidor. En **Seguridad**, seleccione **Firewalls y redes virtuales**.
 
 3. Establezca el control **Permitir el acceso a los servicios de Azure** en Desactivado.
 
     > [!IMPORTANT]
     > Si deja el control establecido en Activado, el servidor aceptará la comunicación desde cualquier subred dentro del límite de Azure, es decir, que se origine en una de las direcciones IP que se reconocen como las que se encuentran dentro de los intervalos definidos para los centros de datos de Azure. Si deja el control establecido en Activado, el número de accesos podría ser excesivo desde un punto de vista de seguridad. La característica de punto de conexión de servicio de red virtual de Microsoft Azure, junto con la característica de regla de red virtual de SQL Database, pueden reducir el área expuesta de seguridad.
 
-4. Haga clic en el control **+ Agregar existente** , en la sección **Redes virtuales**.
+4. Haga clic en el control **+ Agregar existente**, en la sección **Redes virtuales**.
 
     ![Haga clic en Agregar existente (punto de conexión de subred, como una regla SQL).][image-portal-firewall-vnet-add-existing-10-png]
 
-5. En el nuevo panel **Crear/Actualizar** , rellene los controles con los nombres de los recursos de Azure.
+5. En el nuevo panel **Crear/Actualizar**, rellene los controles con los nombres de los recursos de Azure.
 
     > [!TIP]
     > Debe incluir el **prefijo de dirección** correcto de la subred. Puede encontrar el valor en el portal.

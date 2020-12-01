@@ -1,5 +1,5 @@
 ---
-title: Creación de un emparejamiento de replicación para Azure NetApp Files | Microsoft Docs
+title: Creación de una replicación de volúmenes para Azure NetApp Files | Microsoft Docs
 description: Se describe cómo crear el emparejamiento de replicación de volumen para Azure NetApp Files, a fin de configurar la replicación entre regiones.
 services: azure-netapp-files
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 09/16/2020
 ms.author: b-juche
-ms.openlocfilehash: df70f8a37a7223119068afd323583ea6126ca542
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 412724a072bfc03a67bf1005173702f757c6fdf4
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90708447"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95249944"
 ---
-# <a name="create-replication-peering-for-azure-netapp-files"></a>Creación de un emparejamiento de replicación para Azure NetApp Files
+# <a name="create-volume-replication-for-azure-netapp-files"></a>Creación de una replicación de volúmenes para Azure NetApp Files
 
 > [!IMPORTANT]
 > La característica de replicación entre regiones se encuentra actualmente en versión preliminar pública. Debe enviar una solicitud de lista de espera para acceder a la característica a través de la [página de envío de lista de espera de replicación entre regiones de Azure NetApp Files](https://aka.ms/anfcrrpreviewsignup). Antes de utilizar la característica de replicación entre regiones, debe esperar un correo electrónico de confirmación oficial del equipo de Azure NetApp Files.
@@ -113,5 +113,6 @@ Para autorizar la replicación, debe obtener el identificador de recurso del vol
 * [Visualización del estado de mantenimiento de la relación de la replicación](cross-region-replication-display-health-status.md)
 * [Métricas de replicación de volúmenes](azure-netapp-files-metrics.md#replication)
 * [Administración de la recuperación ante desastres](cross-region-replication-manage-disaster-recovery.md)
+* [Eliminación de volúmenes o replicaciones de volúmenes](cross-region-replication-delete.md)
 * [Solución de problemas de replicación entre regiones](troubleshoot-cross-region-replication.md)
 

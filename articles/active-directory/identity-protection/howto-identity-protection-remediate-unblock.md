@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c297e1a4f6443e584f04914712314d33df23b119
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6dd918aef85deefc23771413c3eb7b92f1189d39
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776109"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94835805"
 ---
 # <a name="remediate-risks-and-unblock-users"></a>Corregir riesgos y desbloquear usuarios
 
@@ -37,7 +37,7 @@ Los administradores tienen las siguientes opciones para la corrección:
 
 ### <a name="self-remediation-with-risk-policy"></a>Corrección automática con directiva de riesgo
 
-Si permite que los usuarios se corrijan automáticamente, con Azure Multi-Factor Authentication (MFA) y el autoservicio de restablecimiento de contraseña (SSPR) en las directivas de riesgo, pueden desbloquearse a sí mismos cuando se detecte riesgo. Estas detecciones se considerarán cerradas. Los usuarios deben haberse registrado previamente en Azure MFA y SSPR para usarlos cuando se detecte el riesgo.
+Si permite que los usuarios se corrijan automáticamente, con Azure AD Multi-Factor Authentication (MFA) y el autoservicio de restablecimiento de contraseña (SSPR) en las directivas de riesgo, pueden desbloquearse a sí mismos cuando se detecte riesgo. Estas detecciones se considerarán cerradas. Los usuarios deben haberse registrado previamente en Azure AD MFA y SSPR para usarlos cuando se detecte el riesgo.
 
 Es posible que algunas detecciones no produzcan riesgos en el nivel en el que sería necesaria una corrección automática del usuario, pero los administradores deberían evaluar estas detecciones igualmente. Los administradores pueden determinar que son necesarias medidas adicionales, como [bloquear el acceso desde ubicaciones](../conditional-access/howto-conditional-access-policy-location.md) o reducir el riesgo aceptable en sus directivas.
 
@@ -49,7 +49,7 @@ A los administradores se les proporcionan dos opciones al restablecer una contra
 
 - **Generar una contraseña temporal**: mediante la generación de una contraseña temporal, puede retornar inmediatamente una identidad a un estado seguro. Este método requiere ponerse en contacto con los usuarios afectados porque tienen que saber cuál es la contraseña temporal. Dado que la contraseña es temporal, se pedirá al usuario que cambie la contraseña por otra nueva en el inicio de sesión siguiente.
 
-- **Requerir que el usuario restablezca la contraseña**: requerir que los usuarios restablezcan las contraseñas permite la propia recuperación sin ponerse en contacto con el departamento de soporte técnico o un administrador. Este método solo se aplica a los usuarios que están registrados para Azure MFA y SSPR. Para los usuarios que aún no se han registrado, esta opción no está disponible.
+- **Requerir que el usuario restablezca la contraseña**: requerir que los usuarios restablezcan las contraseñas permite la propia recuperación sin ponerse en contacto con el departamento de soporte técnico o un administrador. Este método solo se aplica a los usuarios que están registrados para Azure AD MFA y SSPR. Para los usuarios que aún no se han registrado, esta opción no está disponible.
 
 ### <a name="dismiss-user-risk"></a>Descartar el riesgo del usuario
 

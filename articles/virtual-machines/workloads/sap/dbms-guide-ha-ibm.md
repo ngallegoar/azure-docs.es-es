@@ -3,16 +3,17 @@ title: Configurar IBM Db2 HADR en máquinas virtuales de (VM) de Azure | Microso
 description: Establezca la alta disponibilidad de IBM Db2 LUW en máquinas virtuales (VM) de Azure.
 author: msjuergent
 ms.service: virtual-machines
+ms.subservice: workloads
 ms.topic: article
 ms.date: 10/16/2020
 ms.author: juergent
 ms.reviewer: cynthn
-ms.openlocfilehash: 88a84cd90efb42ea096cad647d75f1c3736426f4
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 0cd1458c90970e219f2929e26423e455ba647a28
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92146434"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96015118"
 ---
 # <a name="high-availability-of-ibm-db2-luw-on-azure-vms-on-suse-linux-enterprise-server-with-pacemaker"></a>Alta disponibilidad de IBM Db2 LUW en máquinas virtuales de Azure en SUSE Linux Enterprise Server con Pacemaker
 
@@ -97,10 +98,10 @@ Complete el proceso de planificación antes de ejecutar la implementación. La p
 | Definir los grupos de recursos de Azure | Los grupos de recursos donde se implementa la máquina virtual, red virtual, Azure Load Balancer y otros recursos. Puede ser nuevo o existente. |
 | Definición de red virtual o subred | Donde se implementan las VM para IBM Db2 y Azure Load Balancer. Puede ser existente o recién creado. |
 | Máquinas virtuales que hospedan IBM Db2 LUW | Tamaño de VM, almacenamiento, redes, dirección IP. |
-| Nombre de host virtual y dirección IP virtual de la base de datos IBM Db2| La dirección IP virtual o nombre de host que se usa para la conexión de servidores de aplicaciones SAP. **db-virt-hostname** , **db-virt-ip** . |
+| Nombre de host virtual y dirección IP virtual de la base de datos IBM Db2| La dirección IP virtual o nombre de host que se usa para la conexión de servidores de aplicaciones SAP. **db-virt-hostname**, **db-virt-ip**. |
 | Barreras de Azure | Barreras de Azure o barreras de SBD (altamente recomendado). Método para evitar situaciones de cerebro dividido. |
 | VM SBD | Tamaño de máquina virtual SBD, almacenamiento, red. |
-| Azure Load Balancer | Uso de la versión Basic o Standard (recomendado), puerto de sondeo para la base de datos Db2 (nuestra recomendación 62500) **probe-port** . |
+| Azure Load Balancer | Uso de la versión Basic o Standard (recomendado), puerto de sondeo para la base de datos Db2 (nuestra recomendación 62500) **probe-port**. |
 | Resolución de nombres| Funcionamiento de la resolución de nombres en el entorno. Se recomienda el servicio DNS. Se puede usar el archivo de host local. |
     
 Para obtener más información sobre Linux Pacemaker en Azure, consulte [Configuración de Pacemaker en SUSE Linux Enterprise Server en Azure](./high-availability-guide-suse-pacemaker.md).
@@ -131,7 +132,7 @@ Asegúrese de que el SO seleccionado sea compatible con IBM/SAP para IBM Db2 LUW
 
 ## <a name="create-the-pacemaker-cluster"></a>Implementar un clúster de Pacemaker
     
-Para crear un clúster de Pacemaker básico para este servidor IBM Db2, consulte  [Configuración de Pacemaker en SUSE Linux Enterprise Server en Azure][sles-pacemaker]. 
+Para crear un clúster de Pacemaker básico para este servidor IBM Db2, consulte [Configuración de Pacemaker en SUSE Linux Enterprise Server en Azure][sles-pacemaker]. 
 
 ## <a name="install-the-ibm-db2-luw-and-sap-environment"></a>Instalar el entorno de SAP y IBM Db2 LUW
 
@@ -174,7 +175,7 @@ Para configurar el servidor de base de datos en espera mediante el procedimiento
 
    > [!NOTE]
    > Para la instalación y configuración específicas de Azure y Pacemaker: Durante el procedimiento de instalación a través de SAP Software Provisioning Manager, hay una pregunta sobre la alta disponibilidad para IBM Db2 LUW:
-   >+ No seleccione **IBM Db2 pureScale** .
+   >+ No seleccione **IBM Db2 pureScale**.
    >+ No seleccione **Install IBM Tivoli System Automation for Multiplatforms** (Instalar IBM Tivoli System Automation para multiplataformas).
    >+ No seleccione **Generate cluster configuration files** (Generar archivos de configuración de clúster).
 
@@ -191,7 +192,7 @@ Recomendamos los parámetros anteriores según las pruebas iniciales de conmutac
 > [!IMPORTANT]
 > Específico de IBM Db2 con la configuración de HADR con inicio normal: antes de poder iniciar la instancia de base de datos principal, debe estar en marcha la instancia de base de datos secundario o en espera.
 
-Para fines de demostración y los procedimientos que se describen en este artículo, la base de datos SID es **PTR** .
+Para fines de demostración y los procedimientos que se describen en este artículo, la base de datos SID es **PTR**.
 
 #### <a name="ibm-db2-hadr-check"></a>Comprobación de HADR de IBM Db2
 Tras haber configurado HADR y el estado es PEER y CONNECTED en los nodos principal y en espera, realice la comprobación siguiente:
@@ -308,7 +309,7 @@ Los siguientes elementos tienen los siguiente prefijos:
 
 **[A]**  Requisitos previos para la configuración de Pacemaker:
 1. Apague ambos servidores de bases de datos con el usuario db2\<sid> con db2stop.
-1. Cambie el entorno de shell del usuario db2\<sid> por */bin/ksh* . Recomendamos que use la herramienta de Yast. 
+1. Cambie el entorno de shell del usuario db2\<sid> por */bin/ksh*. Recomendamos que use la herramienta de Yast. 
 
 
 ### <a name="pacemaker-configuration"></a>Configuración de pacemaker
@@ -399,55 +400,55 @@ Para configurar Azure Load Balancer, recomendamos usar la [SKU de Azure Standard
 
 1. Crear un grupo de IP front-end:
 
-   a. En Azure Portal, abra Azure Load Balancer, seleccione **Grupo de IP de front-end** y luego seleccione **Agregar** .
+   a. En Azure Portal, abra Azure Load Balancer, seleccione **Grupo de IP de front-end** y luego seleccione **Agregar**.
 
-   b. Escriba el nombre del nuevo grupo de IP front-end (por ejemplo, **Db2-connection** ).
+   b. Escriba el nombre del nuevo grupo de IP front-end (por ejemplo, **Db2-connection**).
 
    c. Establezca la opción **Asignación** en **Estático** y en **IP Virtual** escriba la dirección IP definida al principio.
 
-   d. Seleccione **Aceptar** .
+   d. Seleccione **Aceptar**.
 
    e. Una vez creado el nuevo grupo de direcciones IP de front-end, anote la dirección IP del grupo.
 
 1. Cree un grupo de back-end:
 
-   a. En Azure Portal, abra Azure Load Balancer, seleccione **grupos back-end** luego seleccione **Agregar** .
+   a. En Azure Portal, abra Azure Load Balancer, seleccione **grupos back-end** luego seleccione **Agregar**.
 
-   b. Escriba el nombre del nuevo grupo de back-end (por ejemplo, **Db2-backend** ).
+   b. Escriba el nombre del nuevo grupo de back-end (por ejemplo, **Db2-backend**).
 
-   c. Seleccione **Agregar una máquina virtual** .
+   c. Seleccione **Agregar una máquina virtual**.
 
    d. Seleccione el conjunto de disponibilidad o las máquinas virtuales que hospedan la base de datos IBM Db2 creada en el paso anterior.
 
    e. Seleccione las máquinas virtuales del clúster de IBM Db2.
 
-   f. Seleccione **Aceptar** .
+   f. Seleccione **Aceptar**.
 
 1. Cree un sondeo de estado:
 
-   a. En Azure Portal, abra Azure Load Balancer, seleccione **sondeos de estado** y luego seleccione **Agregar** .
+   a. En Azure Portal, abra Azure Load Balancer, seleccione **sondeos de estado** y luego seleccione **Agregar**.
 
-   b. Escriba el nombre del nuevo sondeo de estado (por ejemplo, **Db2-hp** ).
+   b. Escriba el nombre del nuevo sondeo de estado (por ejemplo, **Db2-hp**).
 
-   c. Seleccione **TCP** como el protocolo y el puerto **62500** . Mantenga el valor **Intervalo** establecido en **5** y mantenga el valor de **Umbral incorrecto** establecido en **2** .
+   c. Seleccione **TCP** como el protocolo y el puerto **62500**. Mantenga el valor **Intervalo** establecido en **5** y mantenga el valor de **Umbral incorrecto** establecido en **2**.
 
-   d. Seleccione **Aceptar** .
+   d. Seleccione **Aceptar**.
 
 1. Cree las reglas de equilibrio de carga:
 
-   a. En Azure Portal, abra Azure Load Balancer, seleccione **Reglas de equilibrio de carga** y luego seleccione **Agregar** .
+   a. En Azure Portal, abra Azure Load Balancer, seleccione **Reglas de equilibrio de carga** y luego seleccione **Agregar**.
 
-   b. Escriba el nombre de la nueva regla de equilibrador de carga (por ejemplo, **Db2-SID** ).
+   b. Escriba el nombre de la nueva regla de equilibrador de carga (por ejemplo, **Db2-SID**).
 
-   c. Seleccione la dirección IP de front-end, el grupo de back-end y el sondeo de estado que creó anteriormente (por ejemplo, **Db2-frontend** ).
+   c. Seleccione la dirección IP de front-end, el grupo de back-end y el sondeo de estado que creó anteriormente (por ejemplo, **Db2-frontend**).
 
-   d. Mantenga el valor de **Protocolo** establecido en **TCP** y especifique el *puerto de comunicación de la base de datos* .
+   d. Mantenga el valor de **Protocolo** establecido en **TCP** y especifique el *puerto de comunicación de la base de datos*.
 
    e. Aumente el **tiempo de espera de inactividad** a 30 minutos.
 
-   f. Asegúrese de **habilitar la dirección IP flotante** .
+   f. Asegúrese de **habilitar la dirección IP flotante**.
 
-   g. Seleccione **Aceptar** .
+   g. Seleccione **Aceptar**.
 
 
 ### <a name="make-changes-to-sap-profiles-to-use-virtual-ip-for-connection"></a>Hacer cambios en los perfiles de SAP para usar la dirección IP virtual para la conexión
@@ -475,11 +476,11 @@ Si realizó la instalación antes de haber creado la configuración de HADR de D
 Use la herramienta de configuración de J2EE para comprobar o actualizar la dirección URL de JDBC. Dado que la herramienta de configuración de J2EE es una herramienta gráfica, deberá tener X server instalado:
  
 1. Inicie sesión en el servidor de aplicaciones principal de la instancia de J2EE y ejecute lo siguiente: `sudo /usr/sap/*SID*/*Instance*/j2ee/configtool/configtool.sh`
-1. En el marco de la izquierda, seleccione **security store** .
+1. En el marco de la izquierda, seleccione **security store**.
 1. En el marco de la derecha, elija la clave jdbc/pool/\<SAPSID>/url.
 1. Cambie el nombre de host de la dirección URL de JDBC al nombre de host virtual.
      `jdbc:db2://db-virt-hostname:5912/TSP:deferPrepares=0`
-1. Seleccione **Agregar** .
+1. Seleccione **Agregar**.
 1. Para guardar los cambios, seleccione el icono de disco de la parte superior izquierda.
 1. Cierre la herramienta de configuración.
 1. Reinicie la instancia de Java.
@@ -500,7 +501,7 @@ Puede usar recursos compartidos NFS de alta disponibilidad existentes para los t
 
 ## <a name="test-the-cluster-setup"></a>Prueba de la configuración del clúster
 
-En esta sección se describe cómo se puede probar la configuración de HADR de Db2. *En todas las pruebas, se supone que se inició sesión como usuario raíz*  y que el servidor principal de IBM Db2 se ejecutan en la máquina virtual *azibmdb01* .
+En esta sección se describe cómo se puede probar la configuración de HADR de Db2. *En todas las pruebas, se supone que se inició sesión como usuario raíz*  y que el servidor principal de IBM Db2 se ejecutan en la máquina virtual *azibmdb01*.
 
 El estado inicial de todos los casos de prueba se explica aquí: (crm_mon -r o crm status)
 
@@ -589,7 +590,7 @@ root       2380   2374  0 Feb05 ?        00:00:18 sbd: watcher: Cluster
 azibmdb01:~ # kill -9 2374
 </code></pre>
 
-El nodo de clúster *azibmdb01* se debe reiniciar. El rol HADR principal de IBM Db2 se va a mover a *azibmdb02* . Cuando *azibmdb01* vuelva a estar en línea, la instancia de Db2 se va a mover al rol de una instancia de base de datos secundaria. 
+El nodo de clúster *azibmdb01* se debe reiniciar. El rol HADR principal de IBM Db2 se va a mover a *azibmdb02*. Cuando *azibmdb01* vuelva a estar en línea, la instancia de Db2 se va a mover al rol de una instancia de base de datos secundaria. 
 
 Si el servicio de Pacemaker no se inicia automáticamente en la anterior instancia principal reiniciada, asegúrese de iniciarla manualmente con:
 
@@ -597,7 +598,7 @@ Si el servicio de Pacemaker no se inicia automáticamente en la anterior instanc
 
 ### <a name="test-a-manual-takeover"></a>Probar una toma de control manual
 
-Puede probar una toma de control manual al detener el servicio de Pacemaker en el nodo *azibmdb01* :
+Puede probar una toma de control manual al detener el servicio de Pacemaker en el nodo *azibmdb01*:
 <pre><code>service pacemaker stop</code></pre>
 
 Estado en *azibmdb02*
@@ -619,7 +620,7 @@ stonith-sbd     (stonith:external/sbd): Started azibmdb02
      Stopped: [ azibmdb01 ]
 </code></pre>
 
-Después de la conmutación por error, puede reiniciar el servicio en *azibmdb01* .
+Después de la conmutación por error, puede reiniciar el servicio en *azibmdb01*.
 <pre><code>service pacemaker start</code></pre>
 
 
@@ -839,7 +840,7 @@ stonith-sbd     (stonith:external/sbd): Started azibmdb02
      Masters: [ azibmdb01 ]
      Slaves: [ azibmdb02 ]</code></pre>
 
-El paso siguiente es comprobar para ver si existe una situación tipo *cerebro dividido* . Cuando el nodo superviviente haya determinado que el nodo que ejecutó por última vez la instancia de base de datos principal está inactivo, se ejecuta una conmutación por error de los recursos.
+El paso siguiente es comprobar para ver si existe una situación tipo *cerebro dividido*. Cuando el nodo superviviente haya determinado que el nodo que ejecutó por última vez la instancia de base de datos principal está inactivo, se ejecuta una conmutación por error de los recursos.
 <pre><code>2 nodes configured
 5 resources configured
 

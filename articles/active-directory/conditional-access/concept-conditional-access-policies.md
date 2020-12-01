@@ -11,22 +11,22 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5361460f7816dd4a3b2b53deecd9d360f98ad1d3
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 74e4ca34a69b121ce5b92ad52125dc317e3aea43
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92145361"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94837675"
 ---
 # <a name="building-a-conditional-access-policy"></a>Creación de una directiva de acceso condicional
 
-Como se explica en el artículo [¿Qué es el acceso condicional?](overview.md), una directiva de acceso condicional es una instrucción if-then, de **asignaciones** y **controles de acceso** . Una directiva de acceso condicional reúne las señales para tomar decisiones y aplicar las directivas de la organización.
+Como se explica en el artículo [¿Qué es el acceso condicional?](overview.md), una directiva de acceso condicional es una instrucción if-then, de **asignaciones** y **controles de acceso**. Una directiva de acceso condicional reúne las señales para tomar decisiones y aplicar las directivas de la organización.
 
 ¿Cómo una organización crea estas directivas? ¿Qué se necesita? ¿Cómo se aplican?
 
 ![Acceso condicional (señales + decisiones + aplicación = directivas)](./media/concept-conditional-access-policies/conditional-access-signal-decision-enforcement.png)
 
-Se pueden aplicar varias directivas de acceso condicional a un usuario individual en cualquier momento. En este caso, se tienen que satisfacer todas las directivas que se aplican. Por ejemplo, si una directiva exige la autenticación multifactor (MFA) y otra requiere un dispositivo compatible, tendrá que completar la MFA y usar un dispositivo compatible. A todas las asignaciones se les asigna **la operación lógica AND** . Si tiene más de una asignación configurada, se deben satisfacer todas las asignaciones para desencadenar una directiva.
+Se pueden aplicar varias directivas de acceso condicional a un usuario individual en cualquier momento. En este caso, se tienen que satisfacer todas las directivas que se aplican. Por ejemplo, si una directiva exige la autenticación multifactor (MFA) y otra requiere un dispositivo compatible, tendrá que completar la MFA y usar un dispositivo compatible. A todas las asignaciones se les asigna **la operación lógica AND**. Si tiene más de una asignación configurada, se deben satisfacer todas las asignaciones para desencadenar una directiva.
 
 Todas las directivas se aplican en dos fases:
 
@@ -101,7 +101,7 @@ El bloqueo de acceso hace justamente eso, bloqueará el acceso bajo las asignaci
 
 Conceder acceso puede desencadenar la aplicación de uno o más controles. 
 
-- Requerir la autenticación multifactor (Azure Multi-Factor Authentication)
+- Requerir la autenticación multifactor (Azure AD Multi-Factor Authentication)
 - Requerir que el dispositivo esté marcado como compatible (Intune)
 - Requerir un dispositivo unido a Azure AD híbrido
 - Requerir aplicación cliente aprobada
@@ -150,7 +150,7 @@ El artículo [Directivas de acceso condicional habituales](concept-conditional-a
 
 [Simulación del comportamiento de inicio de sesión mediante la herramienta What If de acceso condicional](troubleshoot-conditional-access-what-if.md)
 
-[Planeamiento de una implementación de Azure Multi-Factor Authentication basada en la nube](../authentication/howto-mfa-getstarted.md)
+[Planeamiento de una implementación de Azure AD Multi-Factor Authentication basada en la nube](../authentication/howto-mfa-getstarted.md)
 
 [Administración del cumplimiento del dispositivo con Intune](/intune/device-compliance-get-started)
 

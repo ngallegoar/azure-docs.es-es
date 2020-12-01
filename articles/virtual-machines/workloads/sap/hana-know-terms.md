@@ -7,18 +7,19 @@ author: msjuergent
 manager: bburns
 editor: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/21/2020
+ms.date: 11/20/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6785ae821f701121185f0064c6317c69d50191ab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7777888bd27325e9094032458922969494a9a64e
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77617063"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94984964"
 ---
 # <a name="know-the-terms"></a>Conocer los términos
 
@@ -44,6 +45,7 @@ En la Guía de implementación técnica y arquitectura, se utilizan con frecuenc
 - **Revisión**: Hay dos revisiones de demarcación diferentes para las demarcaciones de instancias grandes de HANA. Estas difieren en la arquitectura y la proximidad de los hosts de Azure Virtual Machine.
     - "Revisión 3" (Rev 3): es el diseño original implementado a mediados del año 2016.
     - "Revisión 4" (Rev 4): es un nuevo diseño que puede proporcionar una mayor proximidad a los hosts de Azure Virtual Machine y con menor latencia de red entre las VM de Azure y las unidades de instancia grande de HANA. 
+    - "Revisión 4.2" (Rev 4,2): en los controladores de dominio de la revisión 4 existente, los recursos se remarcan con la infraestructura BareMetal.  Los clientes pueden acceder a sus recursos como instancias de BareMetal desde Azure Portal. 
 
 Hay una serie de recursos adicionales sobre cómo implementar una carga de trabajo SAP en la nube. Si planea ejecutar una implementación de SAP HANA en Azure, debe poseer conocimientos y experiencia con los principios de IaaS de Azure y la implementación de cargas de trabajo de SAP en IaaS de Azure. Antes de continuar, consulte [Uso de soluciones de SAP enAzure Virtual Machines](get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para más información. 
 

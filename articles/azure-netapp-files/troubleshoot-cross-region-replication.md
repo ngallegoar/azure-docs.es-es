@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 11/17/2020
+ms.date: 11/18/2020
 ms.author: b-juche
-ms.openlocfilehash: 6fbb9b054433905d41d0171ab08b4647618be466
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: b30ed0cca680013b85efe064d59fb7cb73d753d2
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94745690"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95239557"
 ---
 # <a name="troubleshoot-cross-region-replication"></a>Solución de problemas de la replicación entre regiones
 
@@ -50,6 +50,12 @@ En este artículo se describen los mensajes de error y las resoluciones que pued
 |-|-|
 |     `Replication   cannot be deleted, mirror state needs to be in status: Broken before deleting`    |     Compruebe que la replicación se ha interrumpido o no se ha inicializado y está inactiva (error de inicialización).    |
 |     `Cannot delete   source replication`    |     No se permite eliminar la replicación desde el origen. Asegúrese de que está eliminando la replicación desde el destino.    |
+
+## <a name="errors-deleting-volume"></a>Errores al eliminar el volumen
+
+|     Mensaje de error    |     Solución    |
+|-|-|
+| `Volume is a member of an active volume replication relationship`  |  Elimine la replicación antes de eliminar el volumen. Consulte [Eliminación de replicaciones](cross-region-replication-delete.md). Esta operación requiere que se interrumpa el emparejamiento antes de eliminar la replicación del volumen. |
 | `Volume with replication cannot be deleted`  |  Elimine la replicación antes de eliminar el volumen. Consulte [Eliminación de replicaciones](cross-region-replication-delete.md). Esta operación requiere que se interrumpa el emparejamiento antes de eliminar la replicación del volumen. 
 
 ## <a name="errors-resyncing-volume"></a>Errores al volver a sincronizar el volumen
@@ -69,7 +75,7 @@ En este artículo se describen los mensajes de error y las resoluciones que pued
 
 * [Replicación entre regiones](cross-region-replication-introduction.md)
 * [Requisitos y consideraciones del uso de la replicación entre regiones](cross-region-replication-requirements-considerations.md)
-* [Creación de emparejamiento de replicación](cross-region-replication-create-peering.md)
+* [Creación de replicación de volumen](cross-region-replication-create-peering.md)
 * [Visualización del estado de mantenimiento de la relación de la replicación](cross-region-replication-display-health-status.md)
 * [Administración de la recuperación ante desastres](cross-region-replication-manage-disaster-recovery.md)
 * [Solución de problemas de la replicación entre regiones](troubleshoot-cross-region-replication.md)

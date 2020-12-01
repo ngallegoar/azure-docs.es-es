@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cbcc2351b7ead3714cfd21aa30b031cec75074a9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7eafeaf59757fcda978fa89b4bc2f9882b769e48
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84463763"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94835907"
 ---
 # <a name="simulating-risk-detections-in-identity-protection"></a>Simulación de detecciones de riesgo en Identity Protection
 
@@ -40,7 +40,7 @@ Puede encontrar más información sobre cada detección de riesgos en el artícu
 Para completar el procedimiento siguiente, necesitará:
 
 - [Tor Browser](https://www.torproject.org/projects/torbrowser.html.en) para simular direcciones IP anónimas. Es posible que necesite usar una máquina virtual si su organización restringe el uso de Tor Browser.
-- Todavía no hay ninguna cuenta de prueba registrada para la autenticación multifactor.
+- Todavía no hay ninguna cuenta de prueba registrada para Azure AD Multi-Factor Authentication.
 
 **Para simular un inicio de sesión desde una IP anónima, realice los siguientes pasos**:
 
@@ -61,7 +61,7 @@ El siguiente procedimiento usa:
 Para completar el procedimiento siguiente, necesitará una cuenta de usuario con:
 
 - Al menos un historial de inicio de sesión de 30 días.
-- Azure Multi-Factor Authentication habilitada.
+- Azure AD Multi-Factor Authentication habilitada.
 
 **Para simular un inicio de sesión desde una ubicación desconocida, realice los siguientes pasos**:
 

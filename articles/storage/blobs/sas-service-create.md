@@ -6,17 +6,17 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/30/2020
+ms.date: 11/20/2020
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 66ad9f84985c7f35d410c6b1c3508efd33526c83
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 0b2d18165bf2c5a4f70f1cbc555db79020ce988f
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93147712"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95250624"
 ---
 # <a name="create-a-service-sas-for-a-container-or-blob"></a>Creación de una SAS de servicio para un contenedor o blob
 
@@ -32,7 +32,7 @@ En el ejemplo de código siguiente se crea una SAS para un contenedor. Si se pro
 
 Una SAS de servicio se firma con la clave de acceso de la cuenta. Use la clase [StorageSharedKeyCredential](/dotnet/api/azure.storage.storagesharedkeycredential) para crear la credencial que se usa para firmar la SAS. A continuación, cree un nuevo objeto [BlobSasBuilder](/dotnet/api/azure.storage.sas.blobsasbuilder) y llame al elemento [ToSasQueryParameters](/dotnet/api/azure.storage.sas.blobsasbuilder.tosasqueryparameters) para obtener la cadena de token de SAS.
 
-:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Security.cs" id="Snippet_GetContainerSasUri":::
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Security.cs" id="Snippet_GetServiceSasUriForContainer":::
 
 ### <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
 
@@ -114,13 +114,13 @@ function getContainerSasUri(containerClient, sharedKeyCredential, storedPolicyNa
 
 El ejemplo de código siguiente crea una SAS en un blob. Si se proporciona el nombre de una directiva de acceso almacenada existente, esa directiva se asocia con la SAS. Si no se proporciona ninguna directiva de acceso almacenada, el código crea una SAS ad hoc en el blob.
 
-### <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
+# <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
 
 Una SAS de servicio se firma con la clave de acceso de la cuenta. Use la clase [StorageSharedKeyCredential](/dotnet/api/azure.storage.storagesharedkeycredential) para crear la credencial que se usa para firmar la SAS. A continuación, cree un nuevo objeto [BlobSasBuilder](/dotnet/api/azure.storage.sas.blobsasbuilder) y llame al elemento [ToSasQueryParameters](/dotnet/api/azure.storage.sas.blobsasbuilder.tosasqueryparameters) para obtener la cadena de token de SAS.
 
-:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Security.cs" id="Snippet_GetBlobSasUri":::
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Security.cs" id="Snippet_GetServiceSasUriForBlob":::
 
-### <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
+# <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
 
 Para crear una SAS de servicio para un blob, llame al método [CloudBlob.GetSharedAccessSignature](/dotnet/api/microsoft.azure.storage.blob.cloudblob.getsharedaccesssignature).
 
@@ -203,6 +203,14 @@ function getBlobSasUri(containerClient, blobName, sharedKeyCredential, storedPol
 ```
 
 ---
+
+## <a name="create-a-service-sas-for-a-directory"></a>Creación de una SAS de servicio para un directorio
+
+En una cuenta de almacenamiento con un espacio de nombres jerárquico habilitado, puede crear una SAS de servicio para un directorio. Para crear la SAS de servicio, asegúrese de que ha instalado la versión 12.5.0 o posterior del paquete [Azure.Storage.Files.DataLake](https://www.nuget.org/packages/Azure.Storage.Files.DataLake/).
+
+En el ejemplo siguiente se muestra cómo crear una SAS de servicio para un directorio con la biblioteca cliente v12 para .NET:
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Security.cs" id="Snippet_GetServiceSasUriForDirectory":::
 
 [!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
 

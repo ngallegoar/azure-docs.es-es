@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 886597e5490acb94f43d840dc5a3d22092e45849
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 94cb40522a9e463fea2efae329daf910b5386cdd
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94698772"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94832609"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Procedimientos recomendados para la administración de identidades y la seguridad del control de acceso en Azure
 
@@ -157,7 +157,7 @@ Si tiene varios inquilinos o quiere permitir que los usuarios [restablezcan su p
 
 Se recomienda exigir la verificación en dos pasos a todos los usuarios. Esto incluye a los administradores y otras personas de su organización, ya que el hecho de que su cuenta esté en peligro puede tener un impacto significativo (por ejemplo, los directores financieros).
 
-Existen varias opciones para exigir la verificación en dos pasos. La mejor opción para usted depende de sus objetivos, la edición de Azure AD que ejecuta y su programa de licencias. Consulte [Exigencia de verificación en dos pasos para un usuario](../../active-directory/authentication/howto-mfa-userstates.md) para determinar la mejor opción para usted. Puede encontrar más información sobre licencias y precios en las páginas de precios de [Azure AD](https://azure.microsoft.com/pricing/details/active-directory/) y [Azure Multi-Factor Authentication](https://azure.microsoft.com/pricing/details/multi-factor-authentication/).
+Existen varias opciones para exigir la verificación en dos pasos. La mejor opción para usted depende de sus objetivos, la edición de Azure AD que ejecuta y su programa de licencias. Consulte [Exigencia de verificación en dos pasos para un usuario](../../active-directory/authentication/howto-mfa-userstates.md) para determinar la mejor opción para usted. Puede encontrar más información sobre licencias y precios en las páginas de precios de [Azure AD](https://azure.microsoft.com/pricing/details/active-directory/) y [Azure AD Multi-Factor Authentication](https://azure.microsoft.com/pricing/details/multi-factor-authentication/).
 
 A continuación, se indican las opciones y ventajas para habilitar la verificación en dos pasos:
 
@@ -170,14 +170,14 @@ A continuación, se indican las opciones y ventajas para habilitar la verificaci
 Este método está disponible para todos los niveles de licencia, pero no se puede mezclar con las directivas de acceso condicional existentes. Puede encontrar más información en los [valores predeterminados de seguridad de Azure AD](../../active-directory/fundamentals/concept-fundamentals-security-defaults.md).
 
 **Opción 2**: [habilitar Multi-factor Authentication mediante el cambio de estado de usuario](../../active-directory/authentication/howto-mfa-userstates.md).   
-**Ventaja**: este es el método tradicional para exigir la verificación en dos pasos. Funciona tanto con [Azure Multi-factor Authentication en la nube como en el Servidor Azure Multi-factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md). El uso de este método requiere que los usuarios realicen la verificación en dos pasos cada vez que inicien sesión, e invalida las directivas de acceso condicional.
+**Ventaja**: este es el método tradicional para exigir la verificación en dos pasos. Funciona tanto con [Azure AD Multi-Factor Authentication en la nube como en el Servidor Azure Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md). El uso de este método requiere que los usuarios realicen la verificación en dos pasos cada vez que inicien sesión, e invalida las directivas de acceso condicional.
 
-Para averiguar dónde debe habilitarse Multi-Factor Authentication, vea [¿Qué versión de Azure MFA es adecuada en mi organización?](../../active-directory/authentication/concept-mfa-howitworks.md)
+Para averiguar dónde debe habilitarse Multi-Factor Authentication, consulte [¿Qué versión de Azure AD MFA es adecuada en mi organización?](../../active-directory/authentication/concept-mfa-howitworks.md)
 
 **Opción 3**: [habilitar Multi-Factor Authentication con la directiva de acceso condicional](../../active-directory/authentication/howto-mfa-getstarted.md).
 **Ventaja**: esta opción permite solicitar la verificación en dos pasos en condiciones específicas mediante el uso del [acceso condicional](../../active-directory/conditional-access/concept-conditional-access-policy-common.md). Las condiciones específicas pueden ser el inicio de sesión del usuario desde distintas ubicaciones, dispositivos no confiables o aplicaciones que considere de riesgo. Definir condiciones específicas donde exija la verificación en dos pasos le permite evitar pedirla constantemente a los usuarios, lo cual puede ser una experiencia desagradable para el usuario.
 
-Esta es la forma más flexible de habilitar la verificación en dos pasos para los usuarios. Habilitar la directiva de acceso condicional solo funciona con Azure Multi-Factor Authentication en la nube y es una característica premium de Azure AD. Puede encontrar más información sobre este método en [Implementación de Azure Multi-factor Authentication en la nube](../../active-directory/authentication/howto-mfa-getstarted.md).
+Esta es la forma más flexible de habilitar la verificación en dos pasos para los usuarios. Habilitar la directiva de acceso condicional solo funciona con Azure AD Multi-Factor Authentication en la nube y es una característica premium de Azure AD. Puede encontrar más información sobre este método en [Implementación de Azure AD Multi-Factor Authentication en la nube](../../active-directory/authentication/howto-mfa-getstarted.md).
 
 **Opción 4**: habilitar Multi-Factor Authentication con directivas de acceso condicional mediante la evaluación de [directivas de acceso condicional basadas en riesgos](../../active-directory/conditional-access/howto-conditional-access-policy-risk.md).   
 **Ventaja**: esta opción le permite:
@@ -269,7 +269,7 @@ Evalúe las cuentas que están asignadas al rol de administrador global o que so
 **Procedimiento recomendado**: requerir que todas las cuentas de administrador críticas no tengan contraseña (opción preferida) o requerir el uso de Multi-Factor Authentication.
 **Detalles**: use la [aplicación Microsoft Authenticator](../../active-directory/authentication/howto-authentication-passwordless-phone.md) para iniciar sesión en cualquier cuenta de Azure AD sin utilizar una contraseña. Al igual que [Windows Hello para empresas](/windows/security/identity-protection/hello-for-business/hello-identity-verification), Microsoft Authenticator usa la autenticación basada en claves para habilitar una credencial de usuario que está asociada a un dispositivo y usa una autenticación biométrica o un PIN.
 
-Requiera Azure Multi-Factor Authentication en el inicio de sesión para todos los usuarios asignados de forma permanente a uno o varios de los roles de administrador de Azure AD: administrador global, administrador de roles con privilegios, administrador de Exchange Online y administrador de SharePoint Online. Habilite [Multi-Factor Authentication en sus cuentas de administrador](../../active-directory/authentication/howto-mfa-userstates.md) y asegúrese de que todos los usuarios con cuentas de administrador están registrados.
+Requiera Azure AD Multi-Factor Authentication en el inicio de sesión para todos los usuarios asignados de forma permanente a uno o varios de los roles de administrador de Azure AD: administrador global, administrador de roles con privilegios, administrador de Exchange Online y administrador de SharePoint Online. Habilite [Multi-Factor Authentication en sus cuentas de administrador](../../active-directory/authentication/howto-mfa-userstates.md) y asegúrese de que todos los usuarios con cuentas de administrador están registrados.
 
 **Procedimiento recomendado**: en las cuentas de administrador críticas, tener una estación de trabajo de administración donde no se permitan tareas de producción (por ejemplo, las exploraciones o el correo electrónico). De este modo, protegerá las cuentas de administrador de vectores de ataque que usan la exploración y el correo electrónico, al tiempo que reducirá considerablemente el riesgo de que se produzca incidentes importantes.
 **Detalles**: use una estación de trabajo de administración. Elija el nivel de seguridad de la estación de trabajo:

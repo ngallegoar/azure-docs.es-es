@@ -11,25 +11,25 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7d3315a8d6bca9406461d0082ed85bbefc9459f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4d4897b9187caab50be4db75bbc0af03e3d35aa4
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88950211"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94835992"
 ---
 # <a name="user-experiences-with-azure-ad-identity-protection"></a>Experiencias de usuario con Azure AD Identity Protection
 
 Con Azure Active Directory Identity Protection, puede:
 
-* Exigir que todos los usuarios se registren para la autenticación multifactor (MFA)
+* Exigir que todos los usuarios se registren para Azure AD Multi-Factor Authentication (MFA)
 * Automatizar la corrección de inicios de sesión conflictivos y usuarios en peligro
 
-Todas las directivas de Identity Protection afectan a la experiencia de inicio de sesión de los usuarios. El hecho de permitir a los usuarios registrarse para el uso de herramientas como Azure MFA y el autoservicio de restablecimiento de contraseña puede reducir el impacto. Estas herramientas, junto con las opciones de directiva adecuadas, proporcionan a los usuarios una opción de corrección automática cuando lo necesitan.
+Todas las directivas de Identity Protection afectan a la experiencia de inicio de sesión de los usuarios. El hecho de permitir a los usuarios registrarse para el uso de herramientas como Azure AD MFA y el autoservicio de restablecimiento de contraseña puede reducir el impacto. Estas herramientas, junto con las opciones de directiva adecuadas, proporcionan a los usuarios una opción de corrección automática cuando lo necesitan.
 
 ## <a name="multi-factor-authentication-registration"></a>Registro de la autenticación multifactor
 
-Al habilitar la directiva de Identity Protection que requiere el registro de autenticación multifactor y se dirige a todos los usuarios, se asegurará de que estos tienen la capacidad de usar Azure MFA para solucionar sus problemas por sí mismos en el futuro. La configuración de esta directiva proporciona a los usuarios un período de 14 días para registrarse y, si no lo han hecho al finalizar este plazo, se les exigirá el registro. A continuación se describe la experiencia de los usuarios. Puede encontrar más información en la documentación del usuario final, en el artículo [Información general de la verificación en dos fases y la cuenta profesional o educativa](../user-help/multi-factor-authentication-end-user-first-time.md).
+Al habilitar la directiva de Identity Protection que requiere el registro de autenticación multifactor y se dirige a todos los usuarios, se asegurará de que estos tienen la capacidad de usar Azure AD MFA para solucionar sus problemas por sí mismos en el futuro. La configuración de esta directiva proporciona a los usuarios un período de 14 días para registrarse y, si no lo han hecho al finalizar este plazo, se les exigirá el registro. A continuación se describe la experiencia de los usuarios. Puede encontrar más información en la documentación del usuario final, en el artículo [Información general de la verificación en dos fases y la cuenta profesional o educativa](../user-help/multi-factor-authentication-end-user-first-time.md).
 
 ### <a name="registration-interrupt"></a>Interrupción de registro
 
@@ -37,7 +37,7 @@ Al habilitar la directiva de Identity Protection que requiere el registro de aut
    
     ![Se necesita más información](./media/concept-identity-protection-user-experience/identity-protection-experience-more-info-mfa.png)
 
-1. Complete los pasos guiados para registrarse en Azure Multi-Factor Authentication y completar el inicio de sesión.
+1. Complete los pasos guiados para registrarse en Azure AD Multi-Factor Authentication y completar el inicio de sesión.
 
 ## <a name="risky-sign-in-remediation"></a>Solución de inicios de sesión peligrosos
 
@@ -49,7 +49,7 @@ Cuando un administrador ha configurado una directiva de riesgo de inicio de sesi
    
     ![Aviso de algo inusual](./media/concept-identity-protection-user-experience/120.png)
 
-1. El usuario debe demostrar su identidad completando el proceso Azure MFA con uno de sus métodos registrados anteriormente. 
+1. El usuario debe demostrar su identidad completando el proceso Azure AD MFA con uno de sus métodos registrados anteriormente. 
 
 ### <a name="risky-sign-in-administrator-unblock"></a>Desbloqueo de administrador de inicio de sesión peligroso
 
@@ -69,7 +69,7 @@ Cuando se ha configurado una directiva de riesgo de usuario, los usuarios que cu
    
     ![Corrección](./media/concept-identity-protection-user-experience/101.png)
 
-1. El usuario debe demostrar su identidad completando el proceso Azure MFA con uno de sus métodos registrados anteriormente. 
+1. El usuario debe demostrar su identidad completando el proceso Azure AD MFA con uno de sus métodos registrados anteriormente. 
 1. Por último, el usuario debe cambiar su contraseña mediante el autoservicio de restablecimiento de contraseña, ya que es posible que otra persona haya tenido acceso a su cuenta.
 
 ## <a name="risky-sign-in-administrator-unblock"></a>Desbloqueo de administrador de inicio de sesión peligroso

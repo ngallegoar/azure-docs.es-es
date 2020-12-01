@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 09/16/2020
-ms.openlocfilehash: 293a3fc10920a29cd41e4bdb946e5bb06762eb52
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: d261640dfdb59b2b06cfe3066fca26640a0bed54
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427503"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94874651"
 ---
 # <a name="azure-monitor-logs-dedicated-clusters"></a>Clústeres dedicados de registros de Azure Monitor
 
@@ -19,10 +19,10 @@ Los clústeres dedicados de registros de Azure Monitor son una opción de implem
 
 Además de la posibilidad de un gran volumen, existen otras ventajas al usar clústeres dedicados:
 
-- **Límite de frecuencia** : Un cliente puede tener [límites de tasa de ingesta](../service-limits.md#data-ingestion-volume-rate) superiores solo en un clúster dedicado.
-- **Características** : Algunas características empresariales solo están disponibles en clústeres dedicados, en concreto, las claves administradas por el cliente (CMK) y la compatibilidad con Caja de seguridad. 
-- **Coherencia** : Los clientes tienen sus propios recursos dedicados y, por lo tanto, no hay influencia de otros clientes que funcionen en la misma infraestructura compartida.
-- **Rentabilidad** : Puede ser más rentable usar un clúster dedicado, ya que los niveles de reserva de capacidad asignados tienen en cuenta toda la ingesta del clúster y se aplican a todas sus áreas de trabajo, incluso si algunas de ellas son pequeñas y no son válidas para el descuento de la reserva de capacidad.
+- **Límite de frecuencia**: Un cliente puede tener [límites de tasa de ingesta](../service-limits.md#data-ingestion-volume-rate) superiores solo en un clúster dedicado.
+- **Características**: Algunas características empresariales solo están disponibles en clústeres dedicados, en concreto, las claves administradas por el cliente (CMK) y la compatibilidad con Caja de seguridad. 
+- **Coherencia**: Los clientes tienen sus propios recursos dedicados y, por lo tanto, no hay influencia de otros clientes que funcionen en la misma infraestructura compartida.
+- **Rentabilidad**: Puede ser más rentable usar un clúster dedicado, ya que los niveles de reserva de capacidad asignados tienen en cuenta toda la ingesta del clúster y se aplican a todas sus áreas de trabajo, incluso si algunas de ellas son pequeñas y no son válidas para el descuento de la reserva de capacidad.
 - Las consultas **entre áreas de trabajo** se ejecutan más rápido si todas las áreas de trabajo están en el mismo clúster.
 
 Los clústeres dedicados requieren que los clientes confirmen el uso de una capacidad de al menos 1 TB de ingesta de datos al día. La migración a un clúster dedicado es sencilla. No se produce ninguna pérdida de datos ni interrupción del servicio. 
@@ -36,6 +36,8 @@ Los clústeres dedicados se administran a través de un recurso de Azure que rep
 
 Una vez que se crea el clúster, se puede configurar y se le pueden vincular áreas de trabajo. Cuando un área de trabajo está vinculada a un clúster, los nuevos datos que se envían al área de trabajo residen en el clúster. Solo se pueden vincular al clúster las áreas de trabajo que se encuentran en la misma región que el clúster. Las áreas de trabajo se pueden desvincular de un clúster con algunas limitaciones. En este artículo se incluyen más detalles sobre estas limitaciones. 
 
+Los datos ingeridos en clústeres dedicados se cifran dos veces, una vez en el nivel de servicio mediante claves administradas por Microsoft o [claves administradas por el cliente](../platform/customer-managed-keys.md), y una vez en el nivel de infraestructura mediante dos algoritmos de cifrado diferentes y dos claves diferentes. El [doble cifrado](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) sirve de protección en caso de que uno de los algoritmos o claves de cifrado puedan estar en peligro. En este caso, la capa adicional de cifrado también protege los datos. El clúster dedicado también le permite proteger los datos con un control de [caja de seguridad](../platform/customer-managed-keys.md#customer-lockbox-preview).
+
 Todas las operaciones en el nivel de clúster requieren el permiso de acción `Microsoft.OperationalInsights/clusters/write` en el clúster. Este permiso se puede conceder a través del rol Propietario o Colaborador que contiene la acción `*/write` o a través del rol Colaborador de Log Analytics que contiene la acción `Microsoft.OperationalInsights/*`. Para obtener más información sobre los permisos de Log Analytics, consulte [Administración del acceso a los datos de registro y las áreas de trabajo en Azure Monitor](../platform/manage-access.md). 
 
 
@@ -47,9 +49,9 @@ El nivel de reserva de capacidad del clúster se configura mediante programació
 
 Hay dos modos de facturación para el uso en un clúster. Estos pueden especificarse mediante el parámetro `billingType` al configurar el clúster. 
 
-1. **Clúster** : en este caso (que es el modo predeterminado), la facturación de los datos ingeridos se realiza en el nivel de clúster. Las cantidades de datos ingeridas desde cada área de trabajo asociada a un clúster se suman para calcular la factura diaria del clúster. 
+1. **Clúster**: en este caso (que es el modo predeterminado), la facturación de los datos ingeridos se realiza en el nivel de clúster. Las cantidades de datos ingeridas desde cada área de trabajo asociada a un clúster se suman para calcular la factura diaria del clúster. 
 
-2. **Áreas de trabajo** : los costos de reserva de capacidad para el clúster se atribuyen proporcionalmente a las áreas de trabajo del clúster (después de tener en cuenta las asignaciones por nodo de [Azure Security Center](../../security-center/index.yml) para cada área de trabajo).
+2. **Áreas de trabajo**: los costos de reserva de capacidad para el clúster se atribuyen proporcionalmente a las áreas de trabajo del clúster (después de tener en cuenta las asignaciones por nodo de [Azure Security Center](../../security-center/index.yml) para cada área de trabajo).
 
 Tenga en cuenta que, si el área de trabajo usa el plan de tarifa heredado por nodo, cuando esté vinculado a un clúster se le facturará en función de los datos ingeridos en relación con la reserva de capacidad del clúster y ya no por nodo. Se seguirán aplicando las asignaciones de datos por nodo de Azure Security Center.
 
@@ -62,12 +64,12 @@ Primero debe crear los recursos de clúster para empezar a crear un clúster ded
 
 Deben especificarse las siguientes propiedades:
 
-- **Nombre del clúster** : Se usa con fines administrativos. Los usuarios no se exponen a este nombre.
-- **ResourceGroupName** : Como para cualquier recurso de Azure, los clústeres pertenecen a un grupo de recursos. Se recomienda usar un grupo de recursos de TI central, ya que los clústeres suelen compartirse entre muchos equipos dentro de una organización. Para más información sobre el diseño, consulte [Diseño de la implementación de registros de Azure Monitor](../platform/design-logs-deployment.md).
-- **Ubicación** : Un clúster se encuentra en una región de Azure específica. Solo las áreas de trabajo que se encuentran en esta región se pueden vincular a este clúster.
-- **SkuCapacity** : Debe especificar el nivel (sku) de *capacidad de reserva* al crear un recurso *cluster*. El nivel de *reserva de capacidad* puede estar en el intervalo de 1000 a 3000 GB por día. Puede actualizarlo en incrementos de 100 más adelante si es necesario. Si necesita un nivel de reserva de capacidad superior a 3000 GB por día, comuníquese con nosotros en LAIngestionRate@microsoft.com. Para obtener más información sobre los costos del clúster, consulte [Administración de costos de clústeres de Log Analytics](../platform/manage-cost-storage.md#log-analytics-dedicated-clusters).
+- **Nombre del clúster**: Se usa con fines administrativos. Los usuarios no se exponen a este nombre.
+- **ResourceGroupName**: Como para cualquier recurso de Azure, los clústeres pertenecen a un grupo de recursos. Se recomienda usar un grupo de recursos de TI central, ya que los clústeres suelen compartirse entre muchos equipos dentro de una organización. Para más información sobre el diseño, consulte [Diseño de la implementación de registros de Azure Monitor](../platform/design-logs-deployment.md).
+- **Ubicación**: Un clúster se encuentra en una región de Azure específica. Solo las áreas de trabajo que se encuentran en esta región se pueden vincular a este clúster.
+- **SkuCapacity**: Debe especificar el nivel (sku) de *capacidad de reserva* al crear un recurso *cluster*. El nivel de *reserva de capacidad* puede estar en el intervalo de 1000 a 3000 GB por día. Puede actualizarlo en incrementos de 100 más adelante si es necesario. Si necesita un nivel de reserva de capacidad superior a 3000 GB por día, comuníquese con nosotros en LAIngestionRate@microsoft.com. Para obtener más información sobre los costos del clúster, consulte [Administración de costos de clústeres de Log Analytics](../platform/manage-cost-storage.md#log-analytics-dedicated-clusters).
 
-Después de crear el recurso *cluster* , puede editar propiedades adicionales, como *sku* , *keyVaultProperties o *billingType*. Vea más detalles a continuación.
+Después de crear el recurso *cluster*, puede editar propiedades adicionales, como *sku*, *keyVaultProperties o *billingType*. Vea más detalles a continuación.
 
 > [!WARNING]
 > La creación del clúster desencadena la asignación y el aprovisionamiento de recursos. Esta operación puede tardar hasta una hora en completarse. Se recomienda ejecutarla de forma asincrónica.
@@ -162,10 +164,10 @@ El GUID *principalId* se genera desde el servicio de identidad administrada para
 
 Después de crear el recurso *cluster* y de que esté totalmente aprovisionado, puede editar propiedades adicionales en el nivel de clúster mediante PowerShell o la API de REST. Además de las propiedades que están disponibles durante la creación del clúster, solo se pueden establecer propiedades adicionales después de haber aprovisionado el clúster:
 
-- **keyVaultProperties** : Se usa para configurar la instancia de Azure Key Vault que se usa para aprovisionar una [clave administradas por el cliente de Azure Monitor](../platform/customer-managed-keys.md#customer-managed-key-provisioning-procedure). Contiene los parámetros siguientes:  *KeyVaultUri* , *KeyName* , *KeyVersion*. 
-- **billingType** : La propiedad *billingType* determina la atribución de facturación para el recurso *cluster* y sus datos:
+- **keyVaultProperties**: Se usa para configurar la instancia de Azure Key Vault que se usa para aprovisionar una [clave administradas por el cliente de Azure Monitor](../platform/customer-managed-keys.md#customer-managed-key-provisioning-procedure). Contiene los parámetros siguientes:  *KeyVaultUri*, *KeyName*, *KeyVersion*. 
+- **billingType**: La propiedad *billingType* determina la atribución de facturación para el recurso *cluster* y sus datos:
   - **Cluster** (valor predeterminado): Los costos de Reserva de capacidad para el clúster se atribuyen al recurso *cluster*.
-  - **Workspaces** : Los costos de Reserva de capacidad para el clúster se atribuyen proporcionalmente a las áreas de trabajo del clúster. En este caso, se factura una parte del uso del recurso *cluster* si el total de datos ingeridos del día está por debajo de la Reserva de capacidad. Vea [Clústeres dedicados de Log Analytics](../platform/manage-cost-storage.md#log-analytics-dedicated-clusters) para obtener más información sobre el modelo de precios del clúster. 
+  - **Workspaces**: Los costos de Reserva de capacidad para el clúster se atribuyen proporcionalmente a las áreas de trabajo del clúster. En este caso, se factura una parte del uso del recurso *cluster* si el total de datos ingeridos del día está por debajo de la Reserva de capacidad. Vea [Clústeres dedicados de Log Analytics](../platform/manage-cost-storage.md#log-analytics-dedicated-clusters) para obtener más información sobre el modelo de precios del clúster. 
 
 > [!NOTE]
 > La propiedad *billingType* no se admite en PowerShell.
@@ -261,10 +263,10 @@ Cuando un área de trabajo está vinculada a un clúster dedicado, los nuevos da
 
 Un clúster puede vincularse con hasta 100 áreas de trabajo. Las áreas de trabajo vinculadas se encuentran en la misma región que el clúster. Para proteger el back-end del sistema y evitar la fragmentación de los datos, un área de trabajo no se puede vincular a un clúster más de dos veces al mes.
 
-Para realizar la operación de vinculación, debe tener permisos de "escritura" tanto en el área de trabajo como en el recurso *cluster* :
+Para realizar la operación de vinculación, debe tener permisos de "escritura" tanto en el área de trabajo como en el recurso *cluster*:
 
 - En el área de trabajo: *Microsoft.OperationalInsights/workspaces/write*
-- En el recurso *cluster* : *Microsoft.OperationalInsights/clusters/write*
+- En el recurso *cluster*: *Microsoft.OperationalInsights/clusters/write*
 
 Además de los aspectos de facturación, el área de trabajo vinculada mantiene su propia configuración, como la duración de la retención de datos.
 El área de trabajo y el clúster pueden estar en distintas suscripciones. Es posible que el área de trabajo y el clúster estén en inquilinos diferentes si se usa Azure Lighthouse para asignar ambos a un único inquilino.
@@ -377,7 +379,7 @@ Se puede eliminar un recurso de clúster dedicado. Debe desvincular todas las á
 
 Una vez que se elimina el recurso de clúster, el clúster físico entra en un proceso de purga y eliminación. La eliminación de un clúster elimina todos los datos que se han almacenado en el clúster. Los datos podrían ser de áreas de trabajo que se vincularon al clúster en el pasado.
 
-Un recurso *Clúster* que se eliminó durante los últimos 14 días se encuentra en estado de eliminación temporal y se puede recuperar. Dado que todas las áreas de trabajo se han desasociado del recurso *cluster* con eliminación del recurso *cluster* , debe volver a asociar las áreas de trabajo después de la recuperación. El usuario no puede realizar la operación de recuperación. Póngase en contacto con el canal de Microsoft o con soporte técnico si tiene solicitudes de recuperación.
+Un recurso *Clúster* que se eliminó durante los últimos 14 días se encuentra en estado de eliminación temporal y se puede recuperar. Dado que todas las áreas de trabajo se han desasociado del recurso *cluster* con eliminación del recurso *cluster*, debe volver a asociar las áreas de trabajo después de la recuperación. El usuario no puede realizar la operación de recuperación. Póngase en contacto con el canal de Microsoft o con soporte técnico si tiene solicitudes de recuperación.
 
 Dentro de los 14 días posteriores a la eliminación, el nombre del recurso de clúster está reservado y otros recursos no pueden usarlo.
 

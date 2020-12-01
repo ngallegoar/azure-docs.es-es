@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f99d57e084a6a765b8598ba7f8eebbd7ddb34d74
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 7d9c4dff1e4a3ba7c7a2b11311e97eb5e66a1585
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964645"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994254"
 ---
 # <a name="enable-passwordless-security-key-sign-in-preview"></a>Habilitar el inicio de sesión con clave de seguridad sin contraseña (versión preliminar)
 
@@ -29,7 +29,7 @@ Este documento se centra en la habilitación de la autenticación sin contraseñ
 
 ## <a name="requirements"></a>Requisitos
 
-- [Azure Multi-Factor Authentication](howto-mfa-getstarted.md)
+- [Azure AD Multi-Factor Authentication](howto-mfa-getstarted.md)
 - Habilitar el [registro de información de seguridad combinado (versión preliminar)](concept-registration-mfa-sspr-combined.md)
 - [Claves de seguridad FIDO2](concept-authentication-passwordless.md#fido2-security-keys) compatibles
 - WebAuthN requiere Windows 10, versión 1903 o posterior**
@@ -62,8 +62,8 @@ Las características de registro de los métodos de autenticación sin contrase�
 1. Vaya a [https://myprofile.microsoft.com](https://myprofile.microsoft.com).
 1. Inicie sesión si aún no lo ha hecho.
 1. Haga clic en **Información de seguridad**.
-   1. Si el usuario ya tiene al menos un método de Azure Multi-Factor Authentication registrado, puede registrar de inmediato una clave de seguridad FIDO2.
-   1. Si no tiene registrado al menos un método de Azure Multi-Factor Authentication, debe agregar uno.
+   1. Si el usuario ya tiene al menos un método de Azure AD Multi-Factor Authentication registrado, puede registrar de inmediato una clave de seguridad FIDO2.
+   1. Si no tiene registrado al menos un método de Azure AD Multi-Factor Authentication, debe agregar uno.
 1. Agregue una llave de seguridad FIDO2 al hacer clic en **Agregar método** y seleccionar **Clave de seguridad**.
 1. Elija **Dispositivo USB** o **Dispositivo NFC**.
 1. Tenga preparada la llave y seleccione **Siguiente**.
@@ -105,4 +105,4 @@ Estamos trabajando en la admisión de una característica que permite el cambio 
 
 [Más información sobre el registro de dispositivos](../devices/overview.md)
 
-[Más información sobre Azure Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)
+[Más información sobre Azure AD Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)

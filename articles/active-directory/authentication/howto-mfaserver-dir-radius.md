@@ -11,21 +11,21 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e9115b5414bce407787c3aff63c8b6e368e7c72d
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 30c5e102ca6da4aab8314d803f9460a4e654163a
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91966702"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94838406"
 ---
 # <a name="integrate-radius-authentication-with-azure-multi-factor-authentication-server"></a>Integración de la autenticación RADIUS con Servidor Azure Multi-Factor Authentication
 
 RADIUS es un protocolo estándar para aceptar las solicitudes de autenticación y procesar estas solicitudes. Servidor Azure Multi-Factor Authentication puede actuar como servidor RADIUS. Insértelo entre el cliente RADIUS (aplicación VPN) y el destino de autenticación para agregar la verificación en dos pasos. El destino de autenticación puede ser Active Directory, un directorio LDAP u otro servidor RADIUS. Para que Azure Multi-Factor Authentication (MFA) funcione, debe configurar Servidor Azure MFA para que pueda comunicarse con los servidores de cliente y el destino de autenticación. El Servidor Azure MFA acepta solicitudes de un cliente RADIUS, valida las credenciales en el destino de autenticación, agrega Azure Multi-Factor Authentication y envía una respuesta al cliente RADIUS. La solicitud de autenticación se realizará correctamente solo si la autenticación principal y Azure Multi-Factor Authentication se ejecutan correctamente.
 
 > [!IMPORTANT]
-> A partir del 1 de julio de 2019, Microsoft ya no ofrecerá el servidor MFA para implementaciones nuevas. Los clientes nuevos que quieran exigir la autenticación multifactor (MFA) durante los eventos de inicio de sesión deben usar Azure Multi-Factor Authentication basado en la nube.
+> A partir del 1 de julio de 2019, Microsoft ya no ofrecerá el servidor MFA para implementaciones nuevas. Los clientes nuevos que quieran exigir la autenticación multifactor (MFA) durante los eventos de inicio de sesión deben usar Azure AD Multi-Factor Authentication basado en la nube.
 >
-> Para empezar a trabajar con MFA basado en la nube, consulte [Tutorial: Protección de eventos de inicio de sesión de usuario con Azure Multi-Factor Authentication](tutorial-enable-azure-mfa.md).
+> Para empezar a trabajar con MFA basado en la nube, consulte [Tutorial: Protección de los eventos de inicio de sesión de usuario mediante Azure AD Multi-Factor Authentication](tutorial-enable-azure-mfa.md).
 >
 > Si usa MFA basada en la nube, consulte [Integración de la infraestructura existente de NPS con Azure Multi-Factor Authentication](howto-mfa-nps-extension.md).
 >
@@ -87,4 +87,4 @@ Para configurar el cliente RADIUS, siga las siguientes instrucciones:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Obtenga información sobre cómo [integrar con la autenticación RADIUS](howto-mfa-nps-extension.md) si tiene Azure Multi-Factor Authentication en la nube. 
+Obtenga información sobre cómo [integrar con la autenticación RADIUS](howto-mfa-nps-extension.md) si tiene Azure AD Multi-Factor Authentication en la nube. 

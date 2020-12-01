@@ -5,12 +5,12 @@ ms.reviewer: jasonh
 ms.service: data-lake-analytics
 ms.topic: troubleshooting
 ms.date: 10/10/2019
-ms.openlocfilehash: c20333c83275edb90a266afec3ec3756ae1e0e7e
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 41b7c80c85331f288343351749e6b2e5292b30c6
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92216273"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95241614"
 ---
 # <a name="learn-how-to-troubleshoot-u-sql-runtime-failures-due-to-runtime-changes"></a>Información sobre cómo solucionar errores de runtime de U-SQL debido a cambios en el runtime
 
@@ -32,8 +32,8 @@ En raras ocasiones, Soporte técnico de Microsoft puede anclar una versión dist
 Puede ver el historial de la versión en tiempo de ejecución que han usado los trabajos pasados en el historial de trabajos de su cuenta mediante el explorador de trabajos de Visual Studio o el historial de trabajos de Azure Portal.
 
 1. En Azure Portal, vaya a la cuenta de Data Lake Analytics.
-2. Seleccione **Ver todos los trabajos** . Aparece una lista de todos los trabajos activos y finalizados recientemente en la cuenta.
-3. De forma opcional, haga clic en **Filtrar** para encontrar los trabajos por los valores **Intervalo de tiempo** , **Nombre del trabajo** y **Autor** .
+2. Seleccione **Ver todos los trabajos**. Aparece una lista de todos los trabajos activos y finalizados recientemente en la cuenta.
+3. De forma opcional, haga clic en **Filtrar** para encontrar los trabajos por los valores **Intervalo de tiempo**, **Nombre del trabajo** y **Autor**.
 4. Puede ver el runtime que se usa en los trabajos completados.
 
 ![Visualización de la versión de runtime de un trabajo anterior](./media/runtime-troubleshoot/prior-job-usql-runtime-version-.png)
@@ -52,6 +52,20 @@ Hay dos incidencias posibles de versión de runtime que se pueden encontrar:
 1. Un script o algún código de usuario está cambiando el comportamiento de una versión a la siguiente. Estos cambios importantes se comunican normalmente de antemano con la publicación de notas de la versión. Si encuentra un cambio importante, póngase en contacto con Soporte técnico de Microsoft para informar de este comportamiento significativo (en caso de que no se haya documentado todavía) y envíe los trabajos con la versión de runtime anterior.
 
 2. Ha estado usando un runtime no predeterminado, ya sea explícita o implícitamente, cuando se ha anclado a su cuenta, y ese runtime se ha quitado después de un tiempo. Si encuentra runtimes que faltan, actualice los scripts para que se ejecuten con el runtime predeterminado actual. Si necesita más tiempo, póngase en contacto con Soporte técnico de Microsoft.
+
+## <a name="known-issues"></a>Problemas conocidos
+
+* La referencia al archivo Newtonsoft.json, versión 12.0.3 o posterior, en un script USQL provocará el siguiente error de compilación:
+
+    *"Es probable que los trabajos que se ejecutan en la cuenta de Data Lake Analytics funcionen con lentitud o no se completen. Un problema inesperado nos impide restaurar automáticamente esta funcionalidad en la cuenta de Azure Data Lake Analytics, pero nos hemos puesto en contacto con los ingenieros de Azure Data Lake para que lo investiguen".*  
+
+    Donde la pila de llamadas contendrá:  
+    `System.IndexOutOfRangeException: Index was outside the bounds of the array.`  
+    `at Roslyn.Compilers.MetadataReader.PEFile.CustomAttributeTableReader.get_Item(UInt32 rowId)`  
+    `...`
+
+    **Solución**: Use el archivo Newtonsoft.json v12.0.2 o inferior.
+
 
 ## <a name="see-also"></a>Consulte también
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/11/2020
 ms.author: memildin
-ms.openlocfilehash: e802f798ade5e6bfe0b40b17bbf15df5387ef7c3
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 26192c742ab2e010c18c02226252dbb480b72cee
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93357851"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967166"
 ---
 # <a name="archive-for-whats-new-in-azure-security-center"></a>Archivo de novedades de Azure Security Center
 
@@ -154,13 +154,13 @@ Estamos integrando las capacidades de detección del análisis de volcado de mem
 
 Algunas de las ventajas de esta transición son:
 
-- **Detección de malware proactiva y oportuna** : el enfoque de CDA implicaba esperar a que se produjera un bloqueo y, después, ejecutar el análisis para encontrar artefactos malintencionados. El uso de la detección de ataques sin archivos proporciona una identificación proactiva de las amenazas en memoria mientras se ejecutan. 
+- **Detección de malware proactiva y oportuna**: el enfoque de CDA implicaba esperar a que se produjera un bloqueo y, después, ejecutar el análisis para encontrar artefactos malintencionados. El uso de la detección de ataques sin archivos proporciona una identificación proactiva de las amenazas en memoria mientras se ejecutan. 
 
-- **Alertas enriquecidas** : las alertas de seguridad de la detección de ataques sin archivos no están disponibles en CDA, como la información de las conexiones de red activas. 
+- **Alertas enriquecidas**: las alertas de seguridad de la detección de ataques sin archivos no están disponibles en CDA, como la información de las conexiones de red activas. 
 
-- **Agregación de alertas** : cuando CDA detectó varios patrones de ataque en un solo volcado de memoria, desencadenó varias alertas de seguridad. Detección de ataques sin archivos combina todos los patrones de ataque identificados del mismo proceso en una única alerta, lo que elimina la necesidad de poner en correlación varias alertas.
+- **Agregación de alertas**: cuando CDA detectó varios patrones de ataque en un solo volcado de memoria, desencadenó varias alertas de seguridad. Detección de ataques sin archivos combina todos los patrones de ataque identificados del mismo proceso en una única alerta, lo que elimina la necesidad de poner en correlación varias alertas.
 
-- **Requisitos reducidos en el área de trabajo de Log Analytics** : los volcados que contienen datos potencialmente confidenciales ya no se cargarán en el área de trabajo de Log Analytics.
+- **Requisitos reducidos en el área de trabajo de Log Analytics**: los volcados que contienen datos potencialmente confidenciales ya no se cargarán en el área de trabajo de Log Analytics.
 
 
 
@@ -188,7 +188,7 @@ Ahora, puede agregar estándares como:
 - **Canada Federal PBMM**
 - **Azure CIS 1.1.0 (nuevo)** (que es una representación más completa de Azure CIS 1.1.0)
 
-Además, recientemente hemos agregado el **Azure Security Benchmark** , las instrucciones específicas de Azure creadas por Microsoft para las prácticas recomendadas de seguridad y cumplimiento basadas en los marcos de cumplimiento comunes. Se admitirán estándares adicionales en el panel a medida que estén disponibles.  
+Además, recientemente hemos agregado el **Azure Security Benchmark**, las instrucciones específicas de Azure creadas por Microsoft para las prácticas recomendadas de seguridad y cumplimiento basadas en los marcos de cumplimiento comunes. Se admitirán estándares adicionales en el panel a medida que estén disponibles.  
  
 Más información sobre [cómo personalizar el conjunto de estándares en el panel de cumplimiento normativo](update-regulatory-compliance-packages.md).
 
@@ -253,9 +253,9 @@ La popular plataforma de código abierto Kubernetes se ha adoptado tan ampliamen
 
 La defensa de Security Center incluye:
 
-- **Detección y visibilidad** : detección continua de instancias de AKS administradas dentro de las suscripciones registradas de Security Center.
-- **Recomendaciones de seguridad** : recomendaciones útiles para ayudarle a cumplir los procedimientos recomendados de seguridad para AKS. Estas recomendaciones se incluyen en su puntuación segura para asegurarse de que se ven como parte de la postura de seguridad de su organización. Un ejemplo de una recomendación relacionada con AKS que podría ver es que "se debe usar el control de acceso basado en roles para restringir el acceso a un clúster de servicio de Kubernetes".
-- **Protección contra amenazas** : gracias al análisis continuo de la implementación de AKS, Security Center le alerta de las amenazas y actividades malintencionadas que se detectan en el host y el nivel de clúster de AKS.
+- **Detección y visibilidad**: detección continua de instancias de AKS administradas dentro de las suscripciones registradas de Security Center.
+- **Recomendaciones de seguridad**: recomendaciones útiles para ayudarle a cumplir los procedimientos recomendados de seguridad para AKS. Estas recomendaciones se incluyen en su puntuación segura para asegurarse de que se ven como parte de la postura de seguridad de su organización. Un ejemplo de una recomendación relacionada con AKS que podría ver es que "se debe usar el control de acceso basado en roles para restringir el acceso a un clúster de servicio de Kubernetes".
+- **Protección contra amenazas**: gracias al análisis continuo de la implementación de AKS, Security Center le alerta de las amenazas y actividades malintencionadas que se detectan en el host y el nivel de clúster de AKS.
 
 Más información acerca de [integración de Azure Kubernetes Services con Security Center](defender-for-kubernetes-introduction.md).
 
@@ -266,8 +266,8 @@ Más información sobre [las características de seguridad de los contenedores e
 
 Las características, la operación y la interfaz de usuario de las herramientas Just-in-Time de Azure Security Center que protegen los puertos de administración se han mejorado de la manera siguiente: 
 
-- **Campo de justificación** : al solicitar acceso a una máquina virtual (VM) a través de la página Just-in-Time del Azure Portal, hay un nuevo campo opcional disponible para especificar una justificación para la solicitud. Se puede realizar un seguimiento de la información especificada en este campo en el registro de actividad. 
-- **Limpieza automática de reglas Just-In-Time (JIT) redundantes** : siempre que se actualiza una directiva JIT, se ejecuta automáticamente una herramienta de limpieza para comprobar la validez de todo el conjunto de reglas. La herramienta busca discrepancias entre las reglas de la directiva y las reglas del grupo de seguridad de red. Si la herramienta de limpieza encuentra una discrepancia, determina la causa y, cuando es seguro hacerlo, quita las reglas integradas que ya no son necesarias. El limpiador no elimina nunca las reglas que ha creado. 
+- **Campo de justificación**: al solicitar acceso a una máquina virtual (VM) a través de la página Just-in-Time del Azure Portal, hay un nuevo campo opcional disponible para especificar una justificación para la solicitud. Se puede realizar un seguimiento de la información especificada en este campo en el registro de actividad. 
+- **Limpieza automática de reglas Just-In-Time (JIT) redundantes**: siempre que se actualiza una directiva JIT, se ejecuta automáticamente una herramienta de limpieza para comprobar la validez de todo el conjunto de reglas. La herramienta busca discrepancias entre las reglas de la directiva y las reglas del grupo de seguridad de red. Si la herramienta de limpieza encuentra una discrepancia, determina la causa y, cuando es seguro hacerlo, quita las reglas integradas que ya no son necesarias. El limpiador no elimina nunca las reglas que ha creado. 
 
 Más información acerca de [la característica de acceso JIT](security-center-just-in-time.md).
 
@@ -391,9 +391,9 @@ Kubernetes se convierte rápidamente en el nuevo estándar para implementar y ad
 
 Las nuevas capacidades de esta versión preliminar pública incluyen:
 
-- **Detección y visibilidad** : detección continua de instancias de AKS administradas dentro de las suscripciones registradas de Security Center.
-- **Recomendaciones de puntuación segura** : elementos procesables para ayudar a los clientes a cumplir los procedimientos recomendados de seguridad de AKS como parte de la puntuación segura del cliente, como "El control de acceso basado en roles debe usarse para restringir el acceso a un clúster de servicio de Kubernetes".
-- **Detección de amenazas** : análisis basados en host y en clúster, como "Se ha detectado un contenedor con privilegios".
+- **Detección y visibilidad**: detección continua de instancias de AKS administradas dentro de las suscripciones registradas de Security Center.
+- **Recomendaciones de puntuación de seguridad**: Elementos procesables para ayudar a los clientes a cumplir con los procedimientos recomendados de seguridad para AKS y aumentar su puntuación de seguridad. Las recomendaciones incluyen elementos como "El control de acceso basado en rol debe usarse para restringir el acceso a un clúster de servicio de Kubernetes".
+- **Detección de amenazas**: análisis basados en host y en clúster, como "Se ha detectado un contenedor con privilegios".
 
 
 ### <a name="virtual-machine-vulnerability-assessment-preview"></a>Evaluación de vulnerabilidades de máquinas virtuales (versión preliminar)

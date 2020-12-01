@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: tanning
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e427a68751cc348a7b0024fb01402bd15ca87d2a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: df70891ef090d44769aadbc235273e3193bc780e
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90705731"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94837216"
 ---
 # <a name="troubleshooting-enterprise-state-roaming-settings-in-azure-active-directory"></a>Solución de problemas de la configuración de Enterprise State Roaming en Azure Active Directory
 
@@ -76,7 +76,7 @@ Enterprise State Roaming requiere que el dispositivo esté registrado con Azure 
 
 ## <a name="enterprise-state-roaming-and-multi-factor-authentication"></a>Enterprise State Roaming y Multi-Factor Authentication 
 
-En algunas circunstancias, Enterprise State Roaming no puede sincronizar los datos si se ha configurado Azure Multi-Factor Authentication. Para más información sobre estos síntomas, consulte el documento de soporte técnico [KB3193683](https://support.microsoft.com/kb/3193683). 
+En algunas circunstancias, Enterprise State Roaming no puede sincronizar los datos si se ha configurado Azure AD Multi-Factor Authentication. Para más información sobre estos síntomas, consulte el documento de soporte técnico [KB3193683](https://support.microsoft.com/kb/3193683). 
 
 **Problema potencial**: Si el dispositivo está configurado para requerir Multi-Factor Authentication en el portal de Azure Active Directory, se puede producir un error al sincronizar la configuración cuando se inicia sesión en un dispositivo Windows 10 con una contraseña. Este tipo de configuración de Multi-Factor Authentication se ha diseñado para proteger cuentas de administrador de Azure. Los usuarios administradores pueden seguir realizando la sincronización al iniciar sesión en sus dispositivos Windows 10 con su PIN de Microsoft Passport for Work o también pueden completar Multi-Factor Authentication al acceder a otros servicios de Azure, como Microsoft 365.
 

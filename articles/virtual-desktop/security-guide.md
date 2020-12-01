@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: a194074b75a404e5a28e86015b0d0bcea2619fc2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d3033af32229be238831740c11a1112513259a43
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88002294"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023163"
 ---
 # <a name="security-best-practices"></a>Recomendaciones de seguridad
 
@@ -62,7 +62,7 @@ Para más información, consulte [Incorporación de su suscripción a Azure al n
 
 ### <a name="improve-your-secure-score"></a>Mejora de la puntuación de seguridad
 
-La puntuación de seguridad proporciona recomendaciones y procedimientos recomendados para mejorar la seguridad general. Estas recomendaciones se clasifican por orden de prioridad para ayudarle a elegir las más importantes, mientras que las opciones de corrección rápida le ayudan a abordar las posibles vulnerabilidades rápidamente. Estas recomendaciones también se actualizan con el tiempo, lo que permite mantenerse al día con las mejores formas de mantener la seguridad del entorno. Para más información, consulte [Mejora de la puntuación de seguridad de Azure Security Center](../security-center/security-center-secure-score.md).
+La puntuación de seguridad proporciona recomendaciones y procedimientos recomendados para mejorar la seguridad general. Estas recomendaciones se clasifican por orden de prioridad para ayudarle a elegir las más importantes, mientras que las opciones de corrección rápida le ayudan a abordar las posibles vulnerabilidades rápidamente. Estas recomendaciones también se actualizan con el tiempo, lo que permite mantenerse al día con las mejores formas de mantener la seguridad del entorno. Para más información, consulte [Mejora de la puntuación de seguridad de Azure Security Center](../security-center/secure-score-security-controls.md).
 
 ## <a name="windows-virtual-desktop-security-best-practices"></a>Procedimientos recomendados de seguridad para Windows Virtual Desktop
 
@@ -70,17 +70,17 @@ Windows Virtual Desktop tiene muchos controles de seguridad integrados. En esta 
 
 ### <a name="require-multi-factor-authentication"></a>Requerir autenticación multifactor
 
-Al requerir la autenticación multifactor para todos los usuarios y administradores en Windows Virtual Desktop, mejora la seguridad de toda la implementación. Para más información, consulte [Habilitación de Azure Multi-Factor Authentication para Windows Virtual Desktop](set-up-mfa.md).
+Al requerir la autenticación multifactor para todos los usuarios y administradores en Windows Virtual Desktop, mejora la seguridad de toda la implementación. Para más información, consulte [Habilitación de Azure AD Multi-Factor Authentication para Windows Virtual Desktop](set-up-mfa.md).
 
 ### <a name="enable-conditional-access"></a>Habilitación del acceso condicional
 
-Al habilitar el [acceso condicional](../active-directory/conditional-access/best-practices.md), podrá administrar los riesgos antes de conceder acceso al entorno de Windows Virtual Desktop a los usuarios. A la hora de decidir a qué usuarios se concederá acceso, se recomienda considerar también quién es el usuario, cómo inicia sesión y qué dispositivo está usando.
+Al habilitar el [acceso condicional](../active-directory/conditional-access/overview.md), podrá administrar los riesgos antes de conceder acceso al entorno de Windows Virtual Desktop a los usuarios. A la hora de decidir a qué usuarios se concederá acceso, se recomienda considerar también quién es el usuario, cómo inicia sesión y qué dispositivo está usando.
 
 ### <a name="collect-audit-logs"></a>Recopilación de registros de auditoría
 
 Al habilitar la recopilación de registros de auditoría, podrá ver la actividad de los usuario y administradores relacionada con Windows Virtual Desktop. Los siguientes son algunos ejemplos de registros de auditoría clave:
 
--   [Registro de actividad de Azure](../azure-monitor/platform/activity-log-collect.md)
+-   [Registro de actividad de Azure](../azure-monitor/platform/activity-log.md)
 -   [Registro de actividad de Azure Active Directory](../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md)
 -   [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md)
 -   [Hosts de sesión](../azure-monitor/platform/agent-windows.md)
@@ -93,7 +93,7 @@ Al elegir un modelo de implementación, puede proporcionar a los usuarios remoto
 
 ### <a name="monitor-usage-with-azure-monitor"></a>Supervisión de uso con Azure Monitor
 
-Supervise el uso y la disponibilidad del servicio de Windows Virtual Desktop con [Azure Monitor](https://azure.microsoft.com/services/monitor/). Considere la posibilidad de crear [alertas de estado del servicio](../service-health/alerts-activity-log-service-notifications.md) para que el servicio de Windows Virtual Desktop reciba notificaciones siempre que se produzca un evento que afecta al servicio.
+Supervise el uso y la disponibilidad del servicio de Windows Virtual Desktop con [Azure Monitor](https://azure.microsoft.com/services/monitor/). Considere la posibilidad de crear [alertas de estado del servicio](../service-health/alerts-activity-log-service-notifications-portal.md) para que el servicio de Windows Virtual Desktop reciba notificaciones siempre que se produzca un evento que afecta al servicio.
 
 ## <a name="session-host-security-best-practices"></a>Procedimientos recomendados de seguridad del host de sesión
 

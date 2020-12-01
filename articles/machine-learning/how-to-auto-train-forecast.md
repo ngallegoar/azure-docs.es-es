@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to, contperfq1, automl
 ms.date: 08/20/2020
-ms.openlocfilehash: 3be1d404d0cac7f9e5c9b1c2f7350cf05c5fe794
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 0bbb18a82de508f79cd2fd5dde58c1cf33520950
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93358123"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94887406"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Entrenamiento automático de un modelo de previsión de series temporales
 
@@ -138,7 +138,7 @@ ForecastTCN (versión preliminar)| ForecastTCN es un modelo de red neuronal dise
 
 Al igual que en un problema de regresión, debe definir los parámetros de entrenamiento estándar como tipo de tarea, número de iteraciones, datos de entrenamiento y número de validaciones cruzadas. Para las tareas de previsión existen parámetros adicionales que se deben establecer y que afectan al experimento. 
 
-En la tabla siguiente se resumen estos parámetros adicionales. Consulte la [documentación de referencia](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?preserve-view=true&view=azure-ml-py) para más información sobre los patrones de diseño de sintaxis.
+En la tabla siguiente se resumen estos parámetros adicionales. Consulte la [documentación de referencia para la clase ForecastingParameter](/python/api/azureml-automl-core/azureml.automl.core.forecasting_parameters.forecastingparameters?preserve-view=true&view=azure-ml-py) para obtener más información sobre los patrones de diseño de sintaxis.
 
 | Nombre del&nbsp;parámetro | Descripción | Obligatorio |
 |-------|-------|-------|
@@ -149,11 +149,11 @@ En la tabla siguiente se resumen estos parámetros adicionales. Consulte la [doc
 |`target_lags`|Número de filas para retrasar los valores de destino en función de la frecuencia de los datos. El retraso se representa como una lista o un entero único. El retraso se debe usar cuando la relación entre las variables independientes y la variable dependiente no coincide o está en correlación de forma predeterminada. ||
 |`feature_lags`| El ML automatizado decidirá automáticamente las características que se van a retardar cuando se establezcan `target_lags` y `feature_lags` se establezca en `auto`. Habilitar los retardos de características puede ayudarle a mejorar la precisión. Los retardos de características están deshabilitados de forma predeterminada. ||
 |`target_rolling_window_size`|*n* períodos históricos que se utilizarán para generar valores previstos, < = tamaño del conjunto de entrenamiento. Si se omite, *n* es el tamaño total del conjunto de entrenamiento. Especifique este parámetro si solo desea tener en cuenta una determinada cantidad de historial al entrenar el modelo. Más información sobre [agregación de ventanas con desplazamiento de objetivo](#target-rolling-window-aggregation).||
-|`short_series_handling`| Permite controlar series temporales breves para evitar errores provocados por la falta de datos durante el entrenamiento. De forma predeterminada, el control de series breves está establecido en True.|
+|`short_series_handling_config`| Permite controlar series temporales breves para evitar errores provocados por la falta de datos durante el entrenamiento. De manera predeterminada, el control de series breves está establecido en `auto`. Más información sobre el [control de series breves](#short-series-handling).|
 
 
 El código siguiente: 
-* Utiliza la clase `ForecastingParameters` para definir los parámetros de previsión que se van a emplear en el entrenamiento del experimento.
+* Usa la clase [`ForecastingParameters`](https://docs.microsoft.com/python/api/azureml-automl-core/azureml.automl.core.forecasting_parameters.forecastingparameters?preserve-view=true&view=azure-ml-py) para definir los parámetros de previsión que se van a emplear en el entrenamiento del experimento.
 * Establece `time_column_name` en el campo `day_datetime` en el conjunto de datos. 
 * Define el parámetro `time_series_id_column_names` en `"store"`. Esto garantiza que se creen **dos grupos de series temporales independientes** para los datos, uno para los almacenes A y B.
 * Establece el `forecast_horizon` en 50 para predecir el conjunto de pruebas completo. 
@@ -164,13 +164,12 @@ El código siguiente:
 ```python
 from azureml.automl.core.forecasting_parameters import ForecastingParameters
 
-forecasting_parameters = ForecastingParameters(
-    time_column_name='day_datetime', 
-    forecast_horizon=50,
-    time_series_id_column_names=["store"],
-    target_lags='auto',
-    target_rolling_window_size=10
-)
+forecasting_parameters = ForecastingParameters(time_column_name='day_datetime', 
+                                               forecast_horizon=50,
+                                               time_series_id_column_names=["store"],
+                                               target_lags='auto',
+                                               target_rolling_window_size=10)
+                                              
 ```
 
 Estos `forecasting_parameters` se pasan en el objeto de `AutoMLConfig` estándar junto con el tipo de tarea `forecasting`, la métrica principal, los criterios de salida y los datos de entrenamiento. 
@@ -190,7 +189,7 @@ automl_config = AutoMLConfig(task='forecasting',
                              n_cross_validations=5,
                              enable_ensembling=False,
                              verbosity=logging.INFO,
-                             **time_series_settings)
+                             **forecasting_parameters)
 ```
 
 ### <a name="featurization-steps"></a>Pasos de caracterización
@@ -226,12 +225,16 @@ Para personalizar las caracterizaciones con el SDK, especifique `"featurization"
 
 ```python
 featurization_config = FeaturizationConfig()
+
 # `logQuantity` is a leaky feature, so we remove it.
 featurization_config.drop_columns = ['logQuantitity']
+
 # Force the CPWVOL5 feature to be of numeric type.
 featurization_config.add_column_purpose('CPWVOL5', 'Numeric')
+
 # Fill missing values in the target column, Quantity, with zeroes.
 featurization_config.add_transformer_params('Imputer', ['Quantity'], {"strategy": "constant", "fill_value": 0})
+
 # Fill mising values in the `INCOME` column with median value.
 featurization_config.add_transformer_params('Imputer', ['INCOME'], {"strategy": "median"})
 ```
@@ -260,7 +263,7 @@ Para habilitar el aprendizaje profundo, establezca el `enable_dnn=True` en el ob
 automl_config = AutoMLConfig(task='forecasting',
                              enable_dnn=True,
                              ...
-                             **time_series_settings)
+                             **forecasting_parameters)
 ```
 > [!Warning]
 > Al habilitar DNN para los experimentos creados con el SDK, las [mejores explicaciones del modelo](how-to-machine-learning-interpretability-automl.md) se deshabilitan.
@@ -279,6 +282,35 @@ En la tabla se muestra el diseño de características que se produce cuando se a
 ![Ventana con desplazamiento de objetivo](./media/how-to-auto-train-forecast/target-roll.svg)
 
 Vea un ejemplo de código de Python que aprovecha las [características para agregar ventanas con desplazamiento de objetivo](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb).
+
+### <a name="short-series-handling"></a>Control de series breves
+
+El ML automatizado considera una serie temporal como **serie breve** si no hay suficientes puntos de datos para llevar a cabo las fases de entrenamiento y validación del desarrollo del modelo. El número de puntos de datos varía para cada experimento y depende de max_horizon, el número de divisiones de validación cruzada y la longitud de la retrospectiva del modelo, que es el máximo de historial necesario para construir las características de la serie temporal. Para ver el cálculo exacto, consulte la [documentación de referencia de short_series_handling_config](/python/api/azureml-automl-core/azureml.automl.core.forecasting_parameters.forecastingparameters?preserve-view=true&view=azure-ml-py#short-series-handling-configuration).
+
+El aprendizaje automático automatizado ofrece un control de series breves de manera predeterminada con el parámetro `short_series_handling_config` en el objeto `ForecastingParameters`. 
+
+Para habilitar el control de series breves, también se debe definir el parámetro `freq`. Para cambiar el comportamiento predeterminado, `short_series_handling_config = auto`, actualice el parámetro `short_series_handling_config` en el objeto `ForecastingParameter`.  
+
+```python
+from azureml.automl.core.forecasting_parameters import ForecastingParameters
+
+forecast_parameters = ForecastingParameters(time_column_name='day_datetime', 
+                                            forecast_horizon=50,
+                                            short_series_handling_config='auto',
+                                            freq = 50
+                                            target_lags='auto')
+```
+En la siguiente tabla se resumen las opciones disponibles para `short_series_handling_config`.
+ 
+|Configuración|Descripción
+|---|---
+|`auto`| El siguiente es el comportamiento predeterminado para el control de series breves: <li> *Si todas las series son breves*, se rellenan los datos. <br> <li> *Si no todas las series son breves*, se anulan las series breves. 
+|`pad`| Si `short_series_handling_config = pad`, el aprendizaje automático automatizado agrega valores ficticios a cada serie breve que se encuentra. A continuación se enumeran los tipos de columna y con qué se rellenan: <li>Columnas de objetos con NaN <li> Columnas numéricas con 0 <li> Columnas booleanas o lógicas con False <li> La columna de destino se rellena con valores aleatorios con una media de cero y una desviación estándar de 1. 
+|`drop`| Si `short_series_handling_config = drop`, el aprendizaje automático automatizado quita las series breves, y no se usarán para el entrenamiento ni la predicción. Las predicciones para estas series devolverán NaN.
+|`None`| No se rellena ni anula ninguna serie
+
+>[!WARNING]
+>El relleno puede afectar a la precisión del modelo resultante, ya que estamos introduciendo datos artificiales tan solo para superar el entrenamiento sin errores. <br> <br> Si muchas de las series son breves, puede que también vea algún impacto en los resultados de la capacidad de explicación.
 
 ## <a name="run-the-experiment"></a>Ejecución del experimento 
 

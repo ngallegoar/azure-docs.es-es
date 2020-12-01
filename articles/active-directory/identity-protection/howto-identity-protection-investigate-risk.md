@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3610fa5ea442e5ccb15255d8a1ddcee211871aeb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: be72c2152bdb8e1155d2dd29547f93ba3605d462
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84463950"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95251100"
 ---
 # <a name="how-to-investigate-risk"></a>Instrucciones: Investigación de riesgos
 
@@ -90,6 +90,10 @@ Con la información que proporciona el informe de detecciones de riesgo, los adm
 - Vinculación para obtener más detalles de Microsoft Cloud App Security (MCAS).
 
 Los administradores pueden elegir volver al informe de riesgo del usuario o de inicios de sesión para realizar acciones en función de la información recopilada.
+
+> [!NOTE] 
+> Nuestro sistema puede detectar que el evento de riesgo que ha contribuido a la puntuación de riesgo del usuario de riesgo era un falso positivo o que se ha corregido el riesgo del usuario con la aplicación de directivas, como al completar una solicitud de MFA o un cambio de contraseña seguro. Por lo tanto, el sistema descartará el estado de riesgo y se mostrará un detalle de riesgo de "La IA confirmó que el inicio de sesión es seguro" y dejará de contribuir al riesgo del usuario. 
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

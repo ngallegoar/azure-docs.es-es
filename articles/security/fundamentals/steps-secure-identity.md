@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 01/29/2020
 ms.author: martinco
-ms.openlocfilehash: 4fa5ba935e77055936b2abc4faab49b5d10cb5c0
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 4703a76ff0a0b55a438f9f0d164cd7f2d3242a02
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94410069"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842029"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Cinco pasos para asegurar su infraestructura de identidad
 
@@ -48,7 +48,7 @@ Las recomendaciones de este documento se basan en las especificaciones de la [pu
 
 Antes de comenzar a trabajar con esta lista de comprobación, asegúrese de que no se encontrará con problemas mientras lo hace. En primer lugar, necesita proteger sus cuentas con privilegios.
 
-Los atacantes que tomen el control de cuentas con privilegios pueden producir enormes daños, por lo que es fundamental proteger estas cuentas primero. Habilite y solicite que todos los administradores de la organización usen el servicio [Azure Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md) (MFA) mediante la [Valores predeterminados de Azure AD](../../active-directory/fundamentals/concept-fundamentals-security-defaults.md) o [Acceso condicional](../../active-directory/conditional-access/plan-conditional-access.md). Si no ha implementado MFA, ¡hágalo ahora! Es importantísimo.
+Los atacantes que tomen el control de cuentas con privilegios pueden producir enormes daños, por lo que es fundamental proteger estas cuentas primero. Habilite y solicite que todos los administradores de la organización usen el servicio [Azure AD Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md) (MFA) mediante la [Valores predeterminados de Azure AD](../../active-directory/fundamentals/concept-fundamentals-security-defaults.md) o [Acceso condicional](../../active-directory/conditional-access/plan-conditional-access.md). Si no ha implementado MFA, ¡hágalo ahora! Es importantísimo.
 
 ¿Todo listo? Comencemos con la lista de comprobación.
 
@@ -59,9 +59,9 @@ La mayoría de infracciones de seguridad que sufren las empresas se originan con
 
 ### <a name="make-sure-your-organization-uses-strong-authentication"></a>Asegúrese de que la organización use un método de autenticación sólida
 
-Dada la frecuencia de las contraseñas que se adivinan, se suplantan, se roban con malware o se reutilizan, es fundamental fortalecer la contraseña con algún tipo de credencial sólida: obtenga más información sobre [Azure Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md).
+Dada la frecuencia de las contraseñas que se adivinan, se suplantan, se roban con malware o se reutilizan, es fundamental fortalecer la contraseña con algún tipo de credencial sólida: obtenga más información sobre [Azure AD Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md).
 
-Para habilitar con facilidad el nivel básico de seguridad de identidad, puede usar la habilitación de un solo clic con [Valores predeterminados de seguridad de Azure AD](../../active-directory/fundamentals/concept-fundamentals-security-defaults.md). Los valores predeterminados de seguridad imponen Azure MFA para todos los usuarios de un inquilino y bloquean los inicios de sesión de los protocolos heredados en todo el inquilino.
+Para habilitar con facilidad el nivel básico de seguridad de identidad, puede usar la habilitación de un solo clic con [Valores predeterminados de seguridad de Azure AD](../../active-directory/fundamentals/concept-fundamentals-security-defaults.md). Los valores predeterminados de seguridad imponen Azure AD MFA para todos los usuarios de un inquilino y bloquean los inicios de sesión de los protocolos heredados en todo el inquilino.
 
 ### <a name="start-banning-commonly-attacked-passwords-and-turn-off-traditional-complexity-and-expiration-rules"></a>Comience a prohibir las contraseñas que sufren ataques con más frecuencia y olvídese de la complejidad y las reglas de expiración tradicionales.
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: 2de3f78b58e10a4fbf65bb00d516448a089f85b6
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: d5a8fe4192c3778e259ed18239a4198398d8807b
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370957"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836842"
 ---
 # <a name="azure-active-directory-general-operations-guide-reference"></a>Referencia de la guía de operaciones generales de Azure Active Directory
 
@@ -43,7 +43,7 @@ La administración de Azure Active Directory requiere la ejecución continua d
 | Supervisar registros híbridos: Agentes para la autenticación de paso a través | Equipo de operaciones IAM |
 | Supervisar registros híbridos: Servicio de escritura diferida de contraseñas | Equipo de operaciones IAM |
 | Supervisar registros híbridos: Puerta de enlace de protección con contraseña local | Equipo de operaciones IAM |
-| Supervisar registros híbridos: Extensión NPS para Azure MFA (si es aplicable) | Equipo de operaciones IAM |
+| Supervisar registros híbridos: Extensión NPS para Azure AD MFA (si es aplicable) | Equipo de operaciones IAM |
 
 A medida que revise la lista, es posible que tenga que asignar un propietario a las tareas que no tienen uno o ajustar la propiedad de aquellas tareas con propietarios que no coincidan con las recomendaciones anteriores.
 
@@ -86,7 +86,7 @@ A medida que supervisa el estado de su entorno, debe hacerse cargo inmediatament
 
 ### <a name="on-premises-agents-logs"></a>Registros de los agentes locales
 
-Algunos servicios de administración de identidades y acceso requieren agentes locales para habilitar escenarios híbridos. Algunos ejemplos son el restablecimiento de contraseña, la autenticación de paso a través (PTA), Azure AD Application Proxy y la extensión NPS de Azure MFA. Es fundamental que el equipo de operaciones establezca la línea de base y supervise el estado de estos componentes archivando y analizando los registros del agente de componentes, gracias a soluciones como System Center Operations Manager o SIEM. Es igualmente importante que el equipo de operaciones de INFOSEC o el Departamento de soporte técnico sepan cómo solucionar problemas de patrones de errores.
+Algunos servicios de administración de identidades y acceso requieren agentes locales para habilitar escenarios híbridos. Algunos ejemplos son el restablecimiento de contraseña, la autenticación de paso a través (PTA), Azure AD Application Proxy y la extensión NPS de Azure AD MFA. Es fundamental que el equipo de operaciones establezca la línea de base y supervise el estado de estos componentes archivando y analizando los registros del agente de componentes, gracias a soluciones como System Center Operations Manager o SIEM. Es igualmente importante que el equipo de operaciones de INFOSEC o el Departamento de soporte técnico sepan cómo solucionar problemas de patrones de errores.
 
 #### <a name="on-premises-agents-logs-recommended-reading"></a>Lectura recomendada de registros de agentes locales
 
@@ -94,7 +94,7 @@ Algunos servicios de administración de identidades y acceso requieren agentes l
 - [Solución de problemas del autoservicio de restablecimiento de contraseña: Azure Active Directory](../authentication/troubleshoot-sspr.md)
 - [Descripción de los conectores del Proxy de aplicación de Azure AD](../manage-apps/application-proxy-connectors.md)
 - [Azure AD Connect: Solución de problemas de autenticación de paso a través](../hybrid/tshoot-connect-pass-through-authentication.md#collecting-pass-through-authentication-agent-logs)
-- [Solución de problemas de códigos de error para la extensión de NPS de Azure MFA](../authentication/howto-mfa-nps-extension-errors.md)
+- [Solución de problemas de códigos de error para la extensión de NPS de Azure AD MFA](../authentication/howto-mfa-nps-extension-errors.md)
 
 ### <a name="on-premises-agents-management"></a>Administración de los agentes locales
 
@@ -166,9 +166,9 @@ Este modelo de niveles administrativo de Active Directory se diseñó para prot
 
 El [modelo de niveles](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material) se compone de tres niveles y solo incluye las cuentas administrativas, no las cuentas de usuario estándar.
 
-- **Nivel 0** : control directo de las identidades de empresa en el entorno. El nivel 0 incluye cuentas, grupos y otros recursos que tienen control administrativo directo o indirecto de los bosques, dominios o controladores de dominio de Active Directory y todos los recursos que haya en él. La sensibilidad de la seguridad de todos los recursos de nivel 0 es equivalente, ya que todos se controlan de forma efectiva entre sí.
-- **Nivel 1** : control de aplicaciones y servidores empresariales. Los recursos de nivel 1 incluyen sistemas operativos de servidor, servicios en la nube y aplicaciones empresariales. Las cuentas de administrador de nivel 1 tienen el control administrativo de una cantidad considerable de valor empresarial que se hospeda en estos recursos. Una función común de ejemplo son los administradores de servidores que mantienen estos sistemas operativos con la capacidad de afectar a todos los servicios de empresa.
-- **Nivel 2** : control de los dispositivos y estaciones de trabajo de usuarios. Las cuentas de administrador de nivel 2 tienen el control administrativo de una cantidad considerable de valor empresarial que se hospeda en dispositivos y estaciones de trabajo de usuarios. Algunos ejemplos son el departamento de soporte técnico y los administradores de soporte técnico del equipo, porque pueden afectar a la integridad de casi cualquier dato de usuario.
+- **Nivel 0**: control directo de las identidades de empresa en el entorno. El nivel 0 incluye cuentas, grupos y otros recursos que tienen control administrativo directo o indirecto de los bosques, dominios o controladores de dominio de Active Directory y todos los recursos que haya en él. La sensibilidad de la seguridad de todos los recursos de nivel 0 es equivalente, ya que todos se controlan de forma efectiva entre sí.
+- **Nivel 1**: control de aplicaciones y servidores empresariales. Los recursos de nivel 1 incluyen sistemas operativos de servidor, servicios en la nube y aplicaciones empresariales. Las cuentas de administrador de nivel 1 tienen el control administrativo de una cantidad considerable de valor empresarial que se hospeda en estos recursos. Una función común de ejemplo son los administradores de servidores que mantienen estos sistemas operativos con la capacidad de afectar a todos los servicios de empresa.
+- **Nivel 2**: control de los dispositivos y estaciones de trabajo de usuarios. Las cuentas de administrador de nivel 2 tienen el control administrativo de una cantidad considerable de valor empresarial que se hospeda en dispositivos y estaciones de trabajo de usuarios. Algunos ejemplos son el departamento de soporte técnico y los administradores de soporte técnico del equipo, porque pueden afectar a la integridad de casi cualquier dato de usuario.
 
 Bloquee el acceso a componentes de identidad locales tales como Azure AD Connect, AD FS y servicios de SQL, de la misma manera que lo hace en los controladores de dominio.
 

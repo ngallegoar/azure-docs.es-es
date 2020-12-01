@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 966d264cc338487dd1a8c04f2efd0825dfccdef0
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 10d93b92f3bb0adfe734ad439079afdfcaa6270e
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93378761"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94834445"
 ---
 # <a name="manage-emergency-access-accounts-in-azure-ad"></a>Administración de cuentas de acceso de emergencia en Azure AD
 
@@ -33,7 +33,7 @@ En este artículo se proporcionan instrucciones para administrar las cuentas de 
 Puede que una organización necesite usar una cuenta de acceso de emergencia en las siguientes situaciones:
 
 - Las cuentas de usuario están federadas y la federación no está disponible en este momento debido a una interrupción de la red de telefonía móvil o una interrupción del proveedor de identidades. Por ejemplo, si se ha interrumpido el host del proveedor de identidades de su entorno, puede que los usuarios no puedan iniciar sesión cuando Azure AD les redirija a su proveedor de identidades.
-- Los administradores están registrados mediante Azure Multi-Factor Authentication y todos sus dispositivos individuales o los servicios están deshabilitados. Puede que los usuarios no puedan completar la autenticación multifactor para activar un rol. Por ejemplo, una interrupción de la red de telefonía móvil les impide responder a llamadas telefónicas o recibir mensajes de texto, los únicos dos mecanismos de autenticación que registraron para sus dispositivos.
+- Los administradores están registrados mediante Azure AD Multi-Factor Authentication y todos sus dispositivos individuales o los servicios están deshabilitados. Puede que los usuarios no puedan completar la autenticación multifactor para activar un rol. Por ejemplo, una interrupción de la red de telefonía móvil les impide responder a llamadas telefónicas o recibir mensajes de texto, los únicos dos mecanismos de autenticación que registraron para sus dispositivos.
 - La persona con el acceso de Administrador global más reciente ha dejado la organización. Azure AD impide que se pueda eliminar la última cuenta de Administrador global, pero no impide que esta se pueda eliminar o deshabilitar de forma local. Es posible que alguna de estas situaciones impida a la organización recuperar la cuenta.
 - Circunstancias imprevistas, como un desastre natural, durante las cuales puede que las redes de telefonía móvil u otras redes no estén disponibles. 
 
@@ -44,7 +44,7 @@ Cree dos o más cuentas de acceso de emergencia. Estas deben ser cuentas que est
 Al configurarlas, deben cumplirse los siguientes requisitos:
 
 - Las cuentas de acceso de emergencia no se deberían asociar a ningún usuario individual de la organización. Asegúrese de que las cuentas no están conectadas a ningún teléfono móvil suministrado por un empleado, ni a tokens de hardware que viajen con empleados individuales ni con otras credenciales específicas de un empleado. Esta precaución debe incluir también los casos en los que un empleado individual pueda no estar disponible cuando se necesiten las credenciales. Es importante garantizar que todos los dispositivos registrados se almacenen en una ubicación conocida y segura que tenga varias formas de comunicarse con Azure AD.
-- El mecanismo de autenticación usado para una cuenta de acceso de emergencia debe ser distinto del que se utiliza para otras cuentas administrativas, incluidas otras cuentas de acceso de emergencia.  Por ejemplo, si el inicio de sesión de administrador normal es a través de una instancia de MFA local, Azure MFA sería un mecanismo diferente.  Sin embargo, si Azure MFA es la parte principal de la autenticación para las cuentas administrativas, considere un enfoque diferente para estas, como el uso de acceso condicional con un proveedor MFA de terceros a través de Controles personalizado.
+- El mecanismo de autenticación usado para una cuenta de acceso de emergencia debe ser distinto del que se utiliza para otras cuentas administrativas, incluidas otras cuentas de acceso de emergencia.  Por ejemplo, si el inicio de sesión de administrador normal es a través de una instancia de MFA local, Azure AD MFA sería un mecanismo diferente.  Sin embargo, si Azure AD MFA es la parte principal de la autenticación para las cuentas administrativas, considere un enfoque diferente para estas, como el uso de acceso condicional con un proveedor MFA de terceros a través de Controles personalizado.
 - El dispositivo o la credencial no deben expirar ni estar en el ámbito de una limpieza automatizada debido a la falta de uso.  
 - Debe convertir la asignación del rol de Administrador global en permanente para las cuentas de acceso de emergencia. 
 
@@ -72,7 +72,7 @@ Si usa contraseñas, asegúrese de que las cuentas tengan contraseñas seguras y
 
 Las organizaciones deben supervisar la actividad de registro de auditoría e inicio de sesión de las cuentas de emergencia y desencadenar el envío de notificaciones a otros administradores. Al supervisar la actividad en las cuentas de emergencia, puede comprobar que estas cuentas solo se usen para pruebas o emergencias reales. Puede usar Azure Log Analytics para supervisar los registros de inicio de sesión y desencadenar alertas por SMS y correo electrónico a los administradores cuando las cuentas de emergencia inicien sesión.
 
-### <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>Prerrequisitos
 
 1. [Envíe registros de inicio de sesión de Azure AD](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md) a Azure Monitor.
 
@@ -87,35 +87,35 @@ Las organizaciones deben supervisar la actividad de registro de auditoría e ini
 ### <a name="create-an-alert-rule"></a>Crear una regla de alerta
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta asignada al rol de Colaborador de supervisión en Azure Monitor.
-1. Seleccione **Todos los servicios** ", escriba "log analytics" en la búsqueda y después seleccione **Áreas de trabajo de Log Analytics**.
+1. Seleccione **Todos los servicios**", escriba "log analytics" en la búsqueda y después seleccione **Áreas de trabajo de Log Analytics**.
 1. Seleccione un área de trabajo.
 1. En el área de trabajo, seleccione **Alertas** > **Nueva regla de alertas**.
-    1. En **Recurso** , compruebe que la suscripción es la que quiere asociar con la regla de alertas.
-    1. En **condición** , seleccione **Agregar**.
+    1. En **Recurso**, compruebe que la suscripción es la que quiere asociar con la regla de alertas.
+    1. En **condición**, seleccione **Agregar**.
     1. Seleccione **Custom log search** (Búsqueda de registros personalizada) en **Nombre de señal**.
-    1. En **Consulta de búsqueda** , escriba la siguiente consulta e inserte los Id. de objeto de las dos cuentas de emergencia.
+    1. En **Consulta de búsqueda**, escriba la siguiente consulta e inserte los Id. de objeto de las dos cuentas de emergencia.
         > [!NOTE]
         > Para cada cuenta de emergencia adicional que quiera incluir, agregue otro "or UserId == "ObjectGuid"" a la consulta.
 
         ![Agregar los Id. de objeto de las cuentas de emergencia a una regla de alertas](./media/security-emergency-access/query-image1.png)
 
-    1. En **Lógica de alerta** , escriba lo siguiente:
+    1. En **Lógica de alerta**, escriba lo siguiente:
 
         - Basado en: Número de resultados
         - Operador: Mayor que
         - Valor del umbral: 0
 
-    1. En **Se evaluó basándose en** , seleccione el **Periodo (en minutos)** durante el que quiere que se ejecute la consulta, así como la **Frecuencia (en minutos)** con la que quiere que se ejecute la consulta. La frecuencia debe ser menor o igual que el periodo.
+    1. En **Se evaluó basándose en**, seleccione el **Periodo (en minutos)** durante el que quiere que se ejecute la consulta, así como la **Frecuencia (en minutos)** con la que quiere que se ejecute la consulta. La frecuencia debe ser menor o igual que el periodo.
 
         ![lógica de alerta](./media/security-emergency-access/alert-image2.png)
 
     1. Seleccione **Listo**. Ahora puede ver el costo mensual estimado de esta alerta.
 1. Seleccione el grupo de acciones con los usuarios a los que notificará la alerta. Si quiere crear uno, consulte [Creación de un grupo de acciones](#create-an-action-group).
 1. Para personalizar la notificación por correo electrónico que se envía a los miembros del grupo de acciones, seleccione Acciones en **Personalizar las acciones**.
-1. En **Detalles de alertas** , especifique el nombre de la regla de alerta y agregue una descripción opcional.
+1. En **Detalles de alertas**, especifique el nombre de la regla de alerta y agregue una descripción opcional.
 1. Establezca el **Nivel de gravedad** del evento. Se recomienda que lo establezca en **Crítico (gravedad 0)** .
-1. Under **Habilitar regla tras la creación** , deje el valor como **sí**.
-1. Para desactivar las alertas durante un tiempo, active la casilla **Suprimir alertas** , escriba la duración de la pausa antes de reanudar las alertas y seleccione **Guardar**.
+1. Under **Habilitar regla tras la creación**, deje el valor como **sí**.
+1. Para desactivar las alertas durante un tiempo, active la casilla **Suprimir alertas**, escriba la duración de la pausa antes de reanudar las alertas y seleccione **Guardar**.
 1. Haga clic en **Crear regla de alertas**.
 
 ### <a name="create-an-action-group"></a>Creación de un grupo de acciones

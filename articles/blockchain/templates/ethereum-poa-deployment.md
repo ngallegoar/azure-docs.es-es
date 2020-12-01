@@ -5,12 +5,12 @@ ms.date: 07/23/2020
 ms.topic: how-to
 ms.reviewer: ravastra
 ms.custom: devx-track-js
-ms.openlocfilehash: d1d3ad94957e791b2178b6c60d4c7debdec2b391
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e680bc601b7f230314c1063523a003e95a849c0a
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91283435"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024405"
 ---
 # <a name="deploy-ethereum-proof-of-authority-consortium-solution-template-on-azure"></a>Implementación de la solución Consorcio de prueba de autoridad de Ethereum en Azure
 
@@ -48,7 +48,9 @@ Cada implementación de los miembros del consorcio incluye:
 * Azure Monitor para agregar registros y estadísticas de rendimiento
 * Puerta de enlace de red virtual (opcional) para permitir conexiones VPN entre redes virtuales privadas
 
-De forma predeterminada, se puede acceder a los puntos de conexión RPC y de emparejamiento a través de una dirección IP pública para habilitar la conectividad simplificada entre suscripciones y nubes. Puede utilizar los [contratos de permisos de Parity](https://wiki.parity.io/Permissioning) para controles de acceso de nivel de aplicación. Se admiten las redes que se ha implementado detrás de VPN, que aprovechan las puertas de enlace de red virtual para conectividad entre suscripciones. Dado que las implementaciones de VPN y de red virtual son más complejas, puede que quiera empezar con un modelo de dirección IP pública al crear un prototipo de una solución.
+De forma predeterminada, se puede acceder a los puntos de conexión RPC y de emparejamiento a través de una dirección IP pública para habilitar la conectividad simplificada entre
+
+suscripciones y nubes. Puede utilizar los [contratos de permisos de Parity](https://openethereum.github.io/Permissioning.html) para controles de acceso de nivel de aplicación. Se admiten las redes que se ha implementado detrás de VPN, que aprovechan las puertas de enlace de red virtual para conectividad entre suscripciones. Dado que las implementaciones de VPN y de red virtual son más complejas, puede que quiera empezar con un modelo de dirección IP pública al crear un prototipo de una solución.
 
 Los contenedores de Docker se usan por su confiabilidad y modularidad. Azure Container Registry se usa para hospedar y proporcionar imágenes con versiones como parte de cada implementación. Las imágenes de contenedor constan de:
 
@@ -97,7 +99,7 @@ Dirección de correo electrónico | Recibirá una notificación por correo elect
 Nombre de usuario de máquina virtual | Nombre de usuario del administrador de cada una de las máquinas virtuales que se ha implementado | 1-64 caracteres alfanuméricos
 Tipo de autenticación | El método de autenticación en la máquina virtual. | Contraseña
 Contraseña | La contraseña de la cuenta de administrador para cada una de las máquinas virtuales implementadas. Inicialmente, todas las VM tienen la misma contraseña. Puede cambiar la contraseña después del aprovisionamiento. | De 12 a 72 caracteres 
-Suscripción | La suscripción en la que se va a implementar la red del consorcio. |
+Subscription | La suscripción en la que se va a implementar la red del consorcio. |
 Grupo de recursos| El grupo de recursos en el que se va a implementar la red del consorcio. | myResourceGroup
 Location | La región de Azure para el grupo de recursos. | Oeste de EE. UU. 2
 
@@ -561,7 +563,7 @@ Para compilar, implementar y probar contratos inteligentes, estas son algunas de
 
 En el ejemplo siguiente, se crea un contrato inteligente sencillo. Use Truffle para compilar e implementar el contrato inteligente en la red de cadena de bloques. Una vez implementado, puede llamar a una función de contrato inteligente mediante una transacción.
 
-#### <a name="prerequisites"></a>Requisitos previos
+#### <a name="prerequisites"></a>Prerrequisitos
 
 * Instale [Python 2.7.15](https://www.python.org/downloads/release/python-2715/). Python es necesario para Truffle y Web3. Seleccione la opción de instalación para incluir Python en su ruta de acceso.
 * Instale Truffle v5.0.5 `npm install -g truffle@v5.0.5`. Para usar Truffle es necesario instalar varias herramientas, como [Node.js](https://nodejs.org) y [Git](https://git-scm.com/). Consulte la [documentación de Truffle](https://github.com/trufflesuite/truffle) para más información.
@@ -685,7 +687,7 @@ Ahora que el contrato inteligente está implementado, puede enviar una transacci
 
 ## <a name="webassembly-wasm-support"></a>Compatibilidad con WebAssembly (WASM)
 
-La compatibilidad con WebAssembly ya está habilitada automáticamente en redes de prueba de autoridad recién implementadas. Permite el desarrollo de contratos inteligentes en cualquier lenguaje que transpile a WebAssembly (Rust, C, C++). Para más información, consulte: [Información general sobre la paridad de WebAssembly](https://wiki.parity.io/WebAssembly-Home) y [Tutorial de Parity Tech](https://github.com/paritytech/pwasm-tutorial)
+La compatibilidad con WebAssembly ya está habilitada automáticamente en redes de prueba de autoridad recién implementadas. Permite el desarrollo de contratos inteligentes en cualquier lenguaje que transpile a WebAssembly (Rust, C, C++). Para más información, consulte: [Información general sobre la paridad de WebAssembly](https://openethereum.github.io/WebAssembly-Home.html) y [Tutorial de Parity Tech](https://github.com/paritytech/pwasm-tutorial)
 
 ## <a name="faq"></a>Preguntas más frecuentes
 

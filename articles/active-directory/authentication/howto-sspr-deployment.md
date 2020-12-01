@@ -11,12 +11,12 @@ author: barbaraselden
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ee0c5093fc1dab69e0502b8ed1efe42fa63f1eb9
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 06c37eaf63b79b171e5a21d807262cfb359d416c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92363732"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994169"
 ---
 # <a name="plan-an-azure-active-directory-self-service-password-reset-deployment"></a>Plan de implementación de autoservicio de restablecimiento de contraseña de Azure Active Directory
 
@@ -48,13 +48,13 @@ Más información acerca de SSPR. Consulte [Funcionamiento: Autoservicio de rest
 
 Las ventajas clave de habilitar SSPR son:
 
-* **Administración del coste** . SSPR reduce los costes de soporte técnico de TI al permitir que los usuarios restablezcan las contraseñas por sí mismos. También reduce el coste de tiempo perdido debido a la pérdida de contraseñas y bloqueos. 
+* **Administración del coste**. SSPR reduce los costes de soporte técnico de TI al permitir que los usuarios restablezcan las contraseñas por sí mismos. También reduce el coste de tiempo perdido debido a la pérdida de contraseñas y bloqueos. 
 
-* **Experiencia de usuario intuitiva** . Proporciona un proceso intuitivo único de registro de usuarios que permite a los usuarios restablecer contraseñas y desbloquear cuentas a petición desde cualquier dispositivo o ubicación. SSPR permite a los usuarios volver a trabajar más rápidamente y ser más productivos.
+* **Experiencia de usuario intuitiva**. Proporciona un proceso intuitivo único de registro de usuarios que permite a los usuarios restablecer contraseñas y desbloquear cuentas a petición desde cualquier dispositivo o ubicación. SSPR permite a los usuarios volver a trabajar más rápidamente y ser más productivos.
 
-* **Flexibilidad y seguridad** . SSPR permite a las empresas acceder a la seguridad y la flexibilidad que proporciona una plataforma en la nube. Los administradores pueden cambiar la configuración para adaptarse a los nuevos requisitos de seguridad y aplicar los cambios a los usuarios sin interrumpir su inicio de sesión.
+* **Flexibilidad y seguridad**. SSPR permite a las empresas acceder a la seguridad y la flexibilidad que proporciona una plataforma en la nube. Los administradores pueden cambiar la configuración para adaptarse a los nuevos requisitos de seguridad y aplicar los cambios a los usuarios sin interrumpir su inicio de sesión.
 
-* **Auditoría y seguimiento del uso sólidos** . Una organización puede asegurarse de que los sistemas empresariales permanecen seguros mientras sus usuarios restablecen sus propias contraseñas. Los registros de auditoría sólidos incluyen información de cada paso del proceso de restablecimiento de contraseña. Estos registros también están disponibles desde una API y permiten al usuario importar estos datos en el sistema de Administración de eventos e información de seguridad (SIEM) de su elección.
+* **Auditoría y seguimiento del uso sólidos**. Una organización puede asegurarse de que los sistemas empresariales permanecen seguros mientras sus usuarios restablecen sus propias contraseñas. Los registros de auditoría sólidos incluyen información de cada paso del proceso de restablecimiento de contraseña. Estos registros también están disponibles desde una API y permiten al usuario importar estos datos en el sistema de Administración de eventos e información de seguridad (SIEM) de su elección.
 
 ### <a name="licensing"></a>Licencias
 
@@ -115,7 +115,7 @@ Antes de implementar SSPR, puede optar por determinar el número y el coste medi
 
 Microsoft recomienda que las organizaciones habiliten la experiencia de registro combinado para SSPR y autenticación multifactor. Al habilitar esta experiencia de registro combinado, los usuarios solo tienen que seleccionar su información de registro una vez para habilitar ambas características.
 
-La experiencia de registro combinado no requiere que las organizaciones habiliten tanto SSPR como Azure Multi-factor Authentication. El registro combinado proporciona a las organizaciones una mejor experiencia de usuario. Para más información, consulte [Registro de información de seguridad combinado](concept-registration-mfa-sspr-combined.md).
+La experiencia de registro combinado no requiere que las organizaciones habiliten tanto SSPR como Azure AD Multi-factor Authentication. El registro combinado proporciona a las organizaciones una mejor experiencia de usuario. Para más información, consulte [Registro de información de seguridad combinado](concept-registration-mfa-sspr-combined.md).
 
 ## <a name="plan-the-deployment-project"></a>Planeamiento del proyecto de implementación
 
@@ -151,7 +151,7 @@ La siguiente configuración es necesaria para habilitar SSPR junto con los valor
 
 | Área | Configuración | Value |
 | --- | --- | --- |
-| **Propiedades de SSPR** | Se habilitó el autoservicio de restablecimiento de contraseña | Grupo **Seleccionado** para piloto/ **Todos** para producción |
+| **Propiedades de SSPR** | Se habilitó el autoservicio de restablecimiento de contraseña | Grupo **Seleccionado** para piloto/**Todos** para producción |
 | **Métodos de autenticación** | Authentication methods required to register (Métodos de autenticación requeridos para registrarse) | Siempre 1 más de los necesarios para el restablecimiento |
 |   | Authentication methods required to reset (Métodos de autenticación requeridos para restablecer) | Uno o dos |
 | **Registro** | Exigir a los usuarios que se registren al iniciar sesión | Sí |
@@ -167,7 +167,7 @@ La siguiente configuración es necesaria para habilitar SSPR junto con los valor
 
 Al habilitar SSPR, elija un grupo de seguridad adecuado en el entorno piloto.
 
-* Para exigir el registro de SSPR a todos los usuarios, se recomienda usar la opción **Todos** .
+* Para exigir el registro de SSPR a todos los usuarios, se recomienda usar la opción **Todos**.
 * En caso contrario, seleccione el grupo de seguridad de Azure AD o AD adecuado.
 
 ### <a name="authentication-methods"></a>Métodos de autenticación
@@ -184,13 +184,13 @@ Nota: El usuario debe tener configurados los métodos de autenticación en las [
 
 ### <a name="registration-settings"></a>Configuración de registro
 
-Establezca **Exigir a los usuarios que se registren al iniciar sesión** en **Sí** . Esta configuración requiere que los usuarios se registren cuando inician sesión, lo que garantiza que todos los usuarios estén protegidos.
+Establezca **Exigir a los usuarios que se registren al iniciar sesión** en **Sí**. Esta configuración requiere que los usuarios se registren cuando inician sesión, lo que garantiza que todos los usuarios estén protegidos.
 
 Establezca **Número de días que pasan hasta que se pide a los usuarios que vuelvan a confirmar su información de autenticación** entre **90** y **180** días, a menos que su organización tenga una necesidad de negocio para un plazo de tiempo más corto.
 
 ### <a name="notifications-settings"></a>Configuración de notificaciones
 
-Configure tanto **¿Quiere notificar a los usuarios los restablecimientos de contraseña?** como **¿Quiere notificar a todos los administradores cuando otros administradores restablezcan su contraseña?** en **Sí** . Al seleccionar **Sí** en ambos se aumenta la seguridad asegurándose de que los usuarios son conscientes de que se restablece la contraseña. También garantiza que todos los administradores son conscientes de que un administrador cambia una contraseña. Si los usuarios o administradores reciben una notificación y no han comenzado el cambio, pueden denunciar de inmediato un problema de seguridad potencial.
+Configure tanto **¿Quiere notificar a los usuarios los restablecimientos de contraseña?** como **¿Quiere notificar a todos los administradores cuando otros administradores restablezcan su contraseña?** en **Sí**. Al seleccionar **Sí** en ambos se aumenta la seguridad asegurándose de que los usuarios son conscientes de que se restablece la contraseña. También garantiza que todos los administradores son conscientes de que un administrador cambia una contraseña. Si los usuarios o administradores reciben una notificación y no han comenzado el cambio, pueden denunciar de inmediato un problema de seguridad potencial.
 
 ### <a name="customization-settings"></a>Configuración de personalización
 
@@ -204,8 +204,8 @@ La [escritura diferida de contraseñas](../hybrid/whatis-hybrid-identity.md) se 
 
 Se recomienda la configuración siguiente:
 
-* Asegúrese de que **Escritura diferida de contraseñas al Active Directory local** esté establecido en **Sí** . 
-* Establezca **Allow users to unlock account without resetting password** (Permitir a los usuarios desbloquear las cuentas sin restablecer la contraseña) en **Sí** .
+* Asegúrese de que **Escritura diferida de contraseñas al Active Directory local** esté establecido en **Sí**. 
+* Establezca **Allow users to unlock account without resetting password** (Permitir a los usuarios desbloquear las cuentas sin restablecer la contraseña) en **Sí**.
 
 De forma predeterminada, Azure AD desbloquea las cuentas cuando se realiza un restablecimiento de contraseña.
 
@@ -321,7 +321,7 @@ Los registros de auditoría para el registro y el restablecimiento de contraseñ
 
 ### <a name="authentication-methods--usage-and-insights"></a>Métodos de autenticación: uso y conclusiones
 
-[El uso y las conclusiones](./howto-authentication-methods-usage-insights.md) le permiten comprender cómo funcionan en su organización los métodos de autenticación para características como Azure MFA y SSPR. Esta funcionalidad de informes proporciona a la organización los medios para comprender qué métodos se registran y cómo usarlos.
+[El uso y las conclusiones](./howto-authentication-methods-usage-insights.md) le permiten comprender cómo funcionan en su organización los métodos de autenticación para características como Azure AD MFA y SSPR. Esta funcionalidad de informes proporciona a la organización los medios para comprender qué métodos se registran y cómo usarlos.
 
 ### <a name="troubleshoot"></a>Solución de problemas
 

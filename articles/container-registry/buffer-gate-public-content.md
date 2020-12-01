@@ -4,13 +4,13 @@ description: Procedimientos y flujos de trabajo en Azure Container Registry para
 author: dlepow
 ms.topic: article
 ms.author: danlep
-ms.date: 10/29/2020
-ms.openlocfilehash: def1c3a9b8a1086f453c7e71d766ab0dd89b0c2d
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.date: 11/20/2020
+ms.openlocfilehash: 0c92899528d417f9c91f8f8930ca4932dc74e850
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93347529"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024745"
 ---
 # <a name="manage-public-content-with-azure-container-registry"></a>Administración del contenido público con Azure Container Registry
 
@@ -26,6 +26,8 @@ Sin los controles adecuados, el hecho de tener dependencias del contenido del re
 ## <a name="authenticate-with-docker-hub"></a>Autenticación con Docker Hub
 
 Como primer paso, si actualmente extrae imágenes públicas de Docker Hub como parte de un flujo de trabajo de compilación o de implementación, se recomienda [autenticarse con una cuenta de Docker Hub](https://docs.docker.com/docker-hub/download-rate-limit/#how-do-i-authenticate-pull-requests) en lugar de realizar una solicitud de incorporación de cambios anónima.
+
+Al realizar solicitudes de incorporación de cambios anónimas frecuentes, es posible que vea errores de Docker similares a `ERROR: toomanyrequests: Too Many Requests.` o `You have reached your pull rate limit.`. Autentíquese en Docker Hub para evitar estos errores.
 
 > [!NOTE]
 > Desde el 2 de noviembre de 2020, se aplican [límites de frecuencia de descarga](https://docs.docker.com/docker-hub/download-rate-limit) a las solicitudes anónimas y autenticadas a Docker Hub desde cuentas del plan gratuito de Docker y se aplican por dirección IP e identificador de Docker, respectivamente. 
@@ -47,20 +49,20 @@ Varios servicios de Azure, como App Service y Azure Container Instances, admiten
 **App Service**
 
 * **Origen de imagen:** Docker Hub
-* **Acceso al repositorio** : Privada
-* **Inicio de sesión** : \<Docker Hub username>
-* **Contraseña** : \<Docker Hub token>
+* **Acceso al repositorio**: Privada
+* **Inicio de sesión**: \<Docker Hub username>
+* **Contraseña**: \<Docker Hub token>
 
 Para más información, consulte [Extracciones autenticadas de Docker Hub en App Service](https://azure.github.io/AppService/2020/10/15/Docker-Hub-authenticated-pulls-on-App-Service.html).
 
 **Azure Container Instances**
 
 * **Origen de imagen:** Docker Hub u otro registro
-* **Tipo de imagen** : Privada
-* **Servidor de inicio de sesión del registro de imágenes** : docker.io
-* **Nombre de usuario del registro de imágenes** : \<Docker Hub username>
-* **Contraseña del registro de imágenes** : \<Docker Hub token>
-* **Imagen** : docker.io/\<repo name\>:\<tag>
+* **Tipo de imagen**: Privada
+* **Servidor de inicio de sesión del registro de imágenes**: docker.io
+* **Nombre de usuario del registro de imágenes**: \<Docker Hub username>
+* **Contraseña del registro de imágenes**: \<Docker Hub token>
+* **Imagen**: docker.io/\<repo name\>:\<tag>
 
 ## <a name="import-images-to-an-azure-container-registry"></a>Importación de imágenes en una instancia de Azure Container Registry
  

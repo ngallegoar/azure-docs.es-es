@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: end-user-help
 ms.date: 08/03/2020
 ms.author: curtand
-ms.openlocfilehash: d9023579b6627e9dab9feac8dfaccd94dc9f5c12
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a002254995e42fc586b707e3cb373dac66e678ee
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88798132"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94834156"
 ---
 # <a name="view-and-search-your-recent-sign-in-activity-from-the-my-sign-ins-page"></a>Visualización y búsqueda de la actividad de inicio de sesión reciente desde la página Mis inicios de sesión
 
@@ -46,7 +46,7 @@ Antes de determinar si algo es incorrecto, asegúrese de que no está viendo un 
 
 ### <a name="if-you-see-an-unsuccessful-sign-in"></a>Si ve un inicio de sesión incorrecto
 
-Si ve un inicio de sesión incorrecto, podría significar que escribió incorrectamente sus credenciales. También podría significar que un atacante estaba intentando adivinar la contraseña. Para responder a este riesgo, no es necesario cambiar la contraseña, pero es recomendable registrarse en Azure Multi-Factor Authentication (MFA). Con la autenticación multifactor, incluso si el hacker adivina su contraseña, no será suficiente para acceder a la cuenta.
+Si ve un inicio de sesión incorrecto, podría significar que escribió incorrectamente sus credenciales. También podría significar que un atacante estaba intentando adivinar la contraseña. Para responder a este riesgo, no es necesario cambiar la contraseña, pero es recomendable registrarse en Azure AD Multi-Factor Authentication (MFA). Con la autenticación multifactor, incluso si el hacker adivina su contraseña, no será suficiente para acceder a la cuenta.
 
 ![Icono de inicio de sesión incorrecto](media/my-account-portal-sign-ins-page/unsuccessful.png)
 

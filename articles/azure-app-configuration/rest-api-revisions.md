@@ -1,34 +1,33 @@
 ---
 title: 'API REST de Azure App Configuration: revisiones de clave y valor'
-description: Páginas de referencia para trabajar con revisiones de clave y valor mediante API REST de Azure App Configuration
+description: Páginas de referencia para trabajar con revisiones de clave y valor mediante la API REST de Azure App Configuration
 author: lisaguthrie
 ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
-ms.openlocfilehash: 7d1990d6bc524a69de2b22b4f7c5aeec88c3ce9d
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 668345da8bb89412f7b1dd36975c5bed6f229580
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93423818"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95246391"
 ---
 # <a name="key-value-revisions"></a>Revisiones de clave y valor
 
-api-version: 1.0
+Una *revisión de clave y valor* define la representación histórica de un recurso de clave y valor. Las revisiones expiran después de 7 días en el caso de los almacenes de nivel Gratis, o 30 días en el de los almacenes de nivel Estándar. Las revisiones admiten la operación `List`.
 
-Una **revisión de clave y valor** define la representación histórica de un recurso de clave y valor. Las revisiones expiran después de 7 días en el caso de los almacenes de nivel Gratis, o 30 días en el de los almacenes de nivel Estándar. Las revisiones admiten las siguientes operaciones:
+En todas las operaciones, ``key`` es un parámetro opcional. Si se omite, implica cualquier clave.
 
-- List
+En todas las operaciones, ``label`` es un parámetro opcional. Si se omite, implica cualquier etiqueta.
 
-En todas las operaciones, ``key`` es un parámetro opcional. Si se omite, implica **cualquier** clave.
-En todas las operaciones, ``label`` es un parámetro opcional. Si se omite, implica **cualquier** etiqueta.
+Este artículo se aplica a la API versión 1.0.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-rest-api-prereqs.md)]
 
-## <a name="list-revisions"></a>Lista de revisiones
+## <a name="list-revisions"></a>Enumeración de revisiones
 
 ```http
 GET /revisions?label=*&api-version={api-version} HTTP/1.1
@@ -62,7 +61,7 @@ Accept-Ranges: items
 
 ## <a name="pagination"></a>Paginación
 
-El resultado se pagina si el número de elementos devueltos supera el límite de respuesta. Siga el encabezado de respuesta ``Link`` opcional y use ``rel="next"`` para la navegación.  Como alternativa, el contenido proporciona un vínculo Siguiente en forma de propiedad ``@nextLink``.
+El resultado se pagina si el número de elementos devueltos supera el límite de respuesta. Siga el encabezado de respuesta ``Link`` opcional y use ``rel="next"`` para la navegación. Como alternativa, el contenido proporciona un vínculo siguiente en forma de la propiedad ``@nextLink``.
 
 ```http
 GET /revisions?api-version={api-version} HTTP/1.1
@@ -88,7 +87,7 @@ Link: <{relative uri}>; rel="next"
 
 ## <a name="list-subset-of-revisions"></a>Lista de subconjuntos de revisiones
 
-Use el encabezado de solicitud `Range`. La respuesta contiene un encabezado `Content-Range`. Si el servidor no puede satisfacer el intervalo solicitado, responde con HTTP `416` (RangeNotSatisfiable)
+Use el encabezado de solicitud `Range`. La respuesta contiene un encabezado `Content-Range`. Si el servidor no puede satisfacer el intervalo solicitado, responde con HTTP `416` (`RangeNotSatisfiable`).
 
 ```http
 GET /revisions?api-version={api-version} HTTP/1.1
@@ -105,7 +104,7 @@ Content-Range: items 0-2/80
 
 ## <a name="filtering"></a>Filtrado
 
-Se admite una combinación de filtrado `key` y `label`.
+Se admite una combinación de filtrado de `key` y `label`.
 Use los parámetros de cadena de consulta opcionales `key` y `label`.
 
 ```http
@@ -123,7 +122,7 @@ GET /revisions?key={key}&label={label}&api-version={api-version}
 |`key=*abc*`|Coincide con los nombres de claves que contienen **abc**|
 |`key=abc,xyz`|Coincide con los nombres de claves **abc** o **xyz** (limitado a 5 archivos CSV)|
 
-|Filtros de etiqueta|Efecto|
+|Filtro de etiqueta|Efecto|
 |--|--|
 |se omite `label` o `label=`|Coincide con una entrada sin etiqueta|
 |`label=*`|Coincide con **cualquier** etiqueta|
@@ -135,9 +134,11 @@ GET /revisions?key={key}&label={label}&api-version={api-version}
 
 ### <a name="reserved-characters"></a>Caracteres reservados
 
+Los caracteres reservados son:
+
 `*`, `\`, `,`
 
-Si un carácter reservado forma parte del valor, debe aplicarse escape mediante `\{Reserved Character}`. También se puede aplicar escape a los caracteres no reservados.
+Si un carácter reservado forma parte del valor, se debe escapar mediante `\{Reserved Character}`. También se puede aplicar escape a los caracteres no reservados.
 
 ### <a name="filter-validation"></a>Validación del filtro
 
@@ -160,19 +161,19 @@ Content-Type: application/problem+json; charset=utf-8
 
 ### <a name="examples"></a>Ejemplos
 
-- All
+- Todo:
 
     ```http
     GET /revisions
     ```
 
-- Elementos donde el nombre de clave comienza por **abc**
+- Elementos donde el nombre de clave comienza por **abc**:
 
     ```http
     GET /revisions?key=abc*&api-version={api-version}
     ```
 
-- Elementos donde el nombre de clave es **abc** o **xyz** y las etiquetas contienen **prod**
+- Elementos donde el nombre de clave es **abc** o **xyz**, y las etiquetas contienen **prod**:
 
     ```http
     GET /revisions?key=abc,xyz&label=*prod*&api-version={api-version}
@@ -188,7 +189,7 @@ GET /revisions?$select=value,label,last_modified&api-version={api-version} HTTP/
 
 ## <a name="time-based-access"></a>Acceso basado en el tiempo
 
-Obtenga una representación del resultado tal como era en un momento anterior. Vea la sección [2.1.1](https://tools.ietf.org/html/rfc7089#section-2.1)
+Obtenga una representación del resultado tal como era en un momento anterior. Para obtener más información, consulte [Marco HTTP para el acceso basado en tiempo a los estados de los recursos: Memento](https://tools.ietf.org/html/rfc7089#section-2.1), sección 2.1.1.
 
 ```http
 GET /revisions?api-version={api-version} HTTP/1.1

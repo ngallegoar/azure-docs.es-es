@@ -12,16 +12,16 @@ ms.date: 03/21/2019
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: 6c148e673b8ada549a6543f8f35634aaf29abff0
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 5ae946f82590f2270719570e4b589d49542ffec8
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93123955"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94833986"
 ---
 # <a name="troubleshoot-problems-with-the-my-apps-portal"></a>Solución de problemas relacionados con el portal Mis aplicaciones
 
-Si tiene problemas de inicio de sesión o de uso en el portal **Mis aplicaciones** , pruebe estas sugerencias de solución de problemas antes de pedir ayuda al soporte técnico o al administrador.
+Si tiene problemas de inicio de sesión o de uso en el portal **Mis aplicaciones**, pruebe estas sugerencias de solución de problemas antes de pedir ayuda al soporte técnico o al administrador.
 
 ## <a name="im-having-trouble-installing-the-my-apps-secure-sign-in-extension"></a>Tengo problemas para instalar la Extensión de inicio de sesión seguro de mis aplicaciones
 
@@ -45,13 +45,13 @@ Si tiene problemas para instalar la Extensión de inicio de sesión seguro de mi
 
 ## <a name="i-cant-sign-in-to-the-my-apps-portal"></a>No puedo iniciar sesión en el portal **Mis aplicaciones**
 
-Si tiene problemas para iniciar sesión en el portal **Mis aplicaciones** , puede intentar el siguiente procedimiento:
+Si tiene problemas para iniciar sesión en el portal **Mis aplicaciones**, puede intentar el siguiente procedimiento:
 
 - Asegúrese de que está utilizando la dirección URL correcta. Debe ser https://myapps.microsoft.com o una página personalizada para su organización, como https://myapps.microsoft.com/contoso.com.
 
 - Asegúrese de que la contraseña es correcta y de que no ha expirado. Para obtener más información, consulte [Restablecimiento de la contraseña profesional o educativa](active-directory-passwords-update-your-own-password.md).
 
-- Asegúrese de que la información de comprobación esté actualizada y sea precisa. Para obtener más información, consulte [¿Qué significa Azure Multi-factor Authentication para mí?](./multi-factor-authentication-end-user-first-time.md) o [Cambio de métodos de información de seguridad e información](./security-info-setup-auth-app.md).
+- Asegúrese de que la información de comprobación esté actualizada y sea precisa. Para obtener más información, consulte [¿Qué significa Azure AD Multi-Factor Authentication para mí?](./multi-factor-authentication-end-user-first-time.md) o [Cambio de métodos de información de seguridad e información](./security-info-setup-auth-app.md).
 
 - Agregue la dirección URL del portal **Mis aplicaciones** a la configuración **Propiedades de Internet > Seguridad > Sitios de confianza**.
 
@@ -67,7 +67,7 @@ Para poder restablecer su contraseña, el administrador debe activar primero la 
 
 ## <a name="im-getting-an-access-denied-message-when-i-start-an-app"></a>Obtengo un mensaje de acceso denegado al iniciar una aplicación
 
-Si recibe un mensaje de **acceso denegado** mensaje después de iniciar una aplicación desde el portal **Mis aplicaciones** , puede intentar realizar el siguiente procedimiento:
+Si recibe un mensaje de **acceso denegado** mensaje después de iniciar una aplicación desde el portal **Mis aplicaciones**, puede intentar realizar el siguiente procedimiento:
 
 - Asegúrese de que ha instalado la [Extensión de inicio de sesión seguro de Mis aplicaciones](my-apps-portal-end-user-access.md#download-and-install-the-my-apps-secure-sign-in-extension) y que esté usando un [explorador compatible](my-apps-portal-end-user-access.md#supported-browsers).
 
@@ -75,7 +75,7 @@ Si recibe un mensaje de **acceso denegado** mensaje después de iniciar una apli
 
 - Asegúrese de que la contraseña es correcta y de que no ha expirado. Para obtener más información, consulte [Restablecimiento de la contraseña profesional o educativa](active-directory-passwords-update-your-own-password.md).
 
-- Asegúrese de que la información de comprobación esté actualizada y sea precisa. Para obtener más información, consulte [¿Qué significa Azure Multi-factor Authentication para mí?](./multi-factor-authentication-end-user-first-time.md) o [Cambio de métodos de información de seguridad e información](./security-info-setup-auth-app.md).
+- Asegúrese de que la información de comprobación esté actualizada y sea precisa. Para obtener más información, consulte [¿Qué significa Azure AD Multi-Factor Authentication para mí?](./multi-factor-authentication-end-user-first-time.md) o [Cambio de métodos de información de seguridad e información](./security-info-setup-auth-app.md).
 
 - Borre la caché del explorador e intente iniciar sesión de nuevo.
 
@@ -83,7 +83,7 @@ Si después de probar todo esto no puede acceder a la aplicación, debe ponerse 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Después de iniciar sesión en el portal **Mis aplicaciones** , también puede actualizar su perfil e información de cuenta, la información del grupo y la información de revisión de acceso (si tiene permiso).
+Después de iniciar sesión en el portal **Mis aplicaciones**, también puede actualizar su perfil e información de cuenta, la información del grupo y la información de revisión de acceso (si tiene permiso).
 
 - [Acceder y usar las aplicaciones del portal Aplicaciones](my-apps-portal-end-user-access.md).
 

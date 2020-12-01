@@ -6,23 +6,21 @@ ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
-ms.openlocfilehash: 4949db646c54d75f60d29d3c631d0f4ee8d7c26e
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 7e63b48f2119c48cd43717acee7b13b1701e0032
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93423834"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95241274"
 ---
 # <a name="locks"></a>Bloqueos
 
-api-version: 1.0
-
-Esta API proporciona semántica de bloqueo y desbloqueo para el recurso de clave y valor. Admite las siguientes operaciones:
+Esta API (versión 1.0) proporciona semántica de bloqueo y desbloqueo para el recurso de clave y valor. Admite las siguientes operaciones:
 
 - Establecer bloqueo
 - Eliminar bloqueo
 
-Si está presente, `label` debe ser un valor de etiqueta explícito (**no** un carácter comodín). Es un parámetro opcional para todas las operaciones. Si se omite, significa que no hay etiqueta.
+Si está presente, `label` debe ser un valor de etiqueta explícito (no un carácter comodín). Es un parámetro opcional para todas las operaciones. Si se omite, significa que no hay etiqueta.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -30,8 +28,8 @@ Si está presente, `label` debe ser un valor de etiqueta explícito (**no** un c
 
 ## <a name="lock-key-value"></a>Bloqueo de clave y valor
 
-- **Obligatorio:** ``{key}``, ``{api-version}``  
-- *Opcional:* ``label``
+- Obligatorio: ``{key}``, ``{api-version}``  
+- Opcional: ``label``
 
 ```http
 PUT /locks/{key}?label={label}&api-version={api-version} HTTP/1.1
@@ -65,8 +63,8 @@ HTTP/1.1 404 Not Found
 
 ## <a name="unlock-key-value"></a>Desbloqueo de clave y valor
 
-- **Obligatorio:** ``{key}``, ``{api-version}``  
-- *Opcional:* ``label``
+- Obligatorio: ``{key}``, ``{api-version}``  
+- Opcional: ``label``
 
 ```http
 DELETE /locks/{key}?label={label}?api-version={api-version} HTTP/1.1
@@ -98,9 +96,9 @@ Si el elemento de clave y valor no existe, se devuelve la respuesta siguiente:
 HTTP/1.1 404 Not Found
 ```
 
-## <a name="conditional-lockunlock"></a>Bloqueo y desbloqueo condicional
+## <a name="conditional-lock-and-unlock"></a>Bloqueo y desbloqueo condicionales
 
-Para evitar condiciones de carrera, use los encabezados de solicitud `If-Match` o `If-None-Match`. El argumento `etag` forma parte de la representación de la clave. Si se omiten `If-Match` o `If-None-Match`, la operación será incondicional.
+Para evitar condiciones de carrera, use los encabezados de solicitud `If-Match` o `If-None-Match`. El argumento `etag` forma parte de la representación de la clave. Si se omiten `If-Match` o `If-None-Match`, la operación es incondicional.
 
 La siguiente solicitud aplica la operación solo si la representación de clave y valor actual coincide con el elemento `etag`especificado:
 

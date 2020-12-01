@@ -14,12 +14,12 @@ ms.subservice: roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 69428898ca123bf5b5fa96cf041818cc15f5ac40
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: b0a62aafd8073b5f1a35ba340c48c80f498be2c2
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93378642"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94834462"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Protección del acceso con privilegios para las implementaciones híbridas y en la nube en Azure AD
 
@@ -114,7 +114,7 @@ Evalúe las cuentas que están asignadas al rol de administrador global o que so
 
 #### <a name="turn-on-multi-factor-authentication-and-register-all-other-highly-privileged-single-user-non-federated-admin-accounts"></a>Activación de la autenticación multifactor y registro de las restantes cuentas de administrador no federadas de usuario único con privilegios elevados
 
-Requiera Azure Multi-Factor Authentication (MFA) en el inicio de sesión para todos los usuarios asignados de forma permanente a uno o varios de los roles de administrador de Azure AD: administrador global, administrador de roles con privilegios, administrador de Exchange y administrador de SharePoint. Use la guía para habilitar [Multi-Factor Authentication (MFA) en sus cuentas de administrador](../authentication/howto-mfa-userstates.md) y asegúrese de que todos esos usuarios se hayan registrado en [https://aka.ms/mfasetup](https://aka.ms/mfasetup). Puede encontrar más información en los pasos 2 y 3 de [Protección del acceso a datos y servicios de Microsoft 365](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e). 
+Requiera Azure AD Multi-Factor Authentication (MFA) en el inicio de sesión para todos los usuarios asignados de forma permanente a uno o varios de los roles de administrador de Azure AD: administrador global, administrador de roles con privilegios, administrador de Exchange y administrador de SharePoint. Use la guía para habilitar [Multi-Factor Authentication (MFA) en sus cuentas de administrador](../authentication/howto-mfa-userstates.md) y asegúrese de que todos esos usuarios se hayan registrado en [https://aka.ms/mfasetup](https://aka.ms/mfasetup). Puede encontrar más información en los pasos 2 y 3 de [Protección del acceso a datos y servicios de Microsoft 365](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e). 
 
 ## <a name="stage-2-mitigate-frequently-used-attacks"></a>Fase 2: Mitigación de los ataques usados con más frecuencia
 
@@ -135,7 +135,7 @@ El aumento de las directivas "Bring your own device" (BYOD) y del trabajo desde 
 * Asegúrese de que las cuentas que se usan con fines de administración:
 
   * tienen asociadas direcciones de correo electrónico del trabajo y
-  * se han registrado en Azure Multi-Factor Authentication o utilizan MFA en el entorno local.
+  * se han registrado en Azure AD Multi-Factor Authentication o utilizan MFA en el entorno local.
 * Pida a los usuarios su justificación comercial para el acceso administrativo.
 * Quite el acceso de administrador a los usuarios y servicios que no lo necesiten.
 
@@ -240,7 +240,7 @@ Se recomienda que:
 
 #### <a name="continue-rollout-of-stronger-authentication-for-all-users"></a>Continúe con el lanzamiento de una autenticación más segura para todos los usuarios
 
-Requiera que los usuarios con una exposición alta utilicen una autenticación sólida y moderna como Azure MFA o Windows Hello. Algunos ejemplos de usuarios con alta exposición son:
+Requiera que los usuarios con una exposición alta utilicen una autenticación sólida y moderna como Azure AD MFA o Windows Hello. Algunos ejemplos de usuarios con alta exposición son:
 
 * Ejecutivos de máximo rango
 * Administradores de alto nivel

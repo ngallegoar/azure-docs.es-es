@@ -10,12 +10,12 @@ author: sdgilley
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, fasttrack-edit
-ms.openlocfilehash: 29c378d40e3a4f92852f433677125a9e8a6d1133
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 9524577d40c3b6b65bb3c3c8ff9e257b015ed90d
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94540134"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95012946"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces"></a>Creación y administración de áreas de trabajo de Azure Machine Learning 
 
@@ -27,6 +27,10 @@ A medida que cambian las necesidades o aumentan los requisitos de automatizació
 
 * Suscripción a Azure. Si no tiene una suscripción de Azure, cree una cuenta gratuita antes de empezar. Pruebe hoy mismo la [versión gratuita o de pago de Azure Machine Learning](https://aka.ms/AMLFree).
 * Si usa el SDK de Python, [instalar el SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py).
+
+## <a name="limitations"></a>Limitaciones
+
+* Al crear una nueva área de trabajo, puede permitir que el área de trabajo cree los servicios de Azure que necesita automáticamente o proporcionar servicios existentes. Al proporcionar los servicios existentes, todos estos servicios deben estar en la misma suscripción a Azure que el área de trabajo.
 
 ## <a name="create-a-workspace"></a>Crear un área de trabajo
 
@@ -131,8 +135,12 @@ Si tiene problemas para obtener acceso a su suscripción, consulte [Configuraci�
    Subscription |Seleccione la suscripción de Azure que quiera usar.
    Resource group | Use un grupo de recursos existente en su suscripción o escriba un nombre para crear un nuevo grupo de recursos. Un grupo de recursos almacena los recursos relacionados con una solución de Azure. En este ejemplo, se usa **docs-aml**. Necesita el rol *colaborador* o *propietario* para usar un grupo de recursos existente.  Para obtener más información sobre el acceso, consulte [Administración del acceso a un área de trabajo de Azure Machine Learning](how-to-assign-roles.md).
    Region | Seleccione la región de Azure más cercana a los usuarios y los recursos de datos para crear el área de trabajo.
+   | Cuenta de almacenamiento | Cuenta de almacenamiento predeterminada para el área de trabajo. De manera predeterminada, se crea una nueva. |
+   | Key Vault | Instancia de Azure Key Vault que usa el área de trabajo. De manera predeterminada, se crea una nueva. |
+   | Application Insights | Instancia de Application Insights para el área de trabajo. De manera predeterminada, se crea una nueva. |
+   | Container Registry | Instancia de Azure Container Registry para el área de trabajo. De manera predeterminada, inicialmente _no_ se crea una nueva para el área de trabajo. En su lugar, se crea una vez que la necesita al crear una imagen de Docker durante el entrenamiento o la implementación. |
 
-    ![Configuración de un área de trabajo](./media/how-to-manage-workspace/create-workspace-form.png)
+   :::image type="content" source="media/how-to-manage-workspace/create-workspace-form.png" alt-text="Configuración del área de trabajo.":::
 
 1. Cuando haya terminado de configurar el área de trabajo, seleccione **Revisar y crear**. También puede usar las secciones [Redes](#networking) y [Opciones avanzadas](#advanced) para configurar otros valores del área de trabajo.
 
@@ -191,7 +199,7 @@ Azure Security Center proporciona administración unificada de la seguridad y pr
 
 ### <a name="advanced"></a>Avanzado
 
-De manera predeterminada, los metadatos del área de trabajo se almacenan en una instancia de Azure Cosmos DB que Microsoft mantiene. Estos datos se cifran con claves administradas por Microsoft.
+De manera predeterminada, los metadatos del área de trabajo se almacenan en una instancia de Azure Cosmos DB que Microsoft mantiene. Estos datos se cifran con claves administradas por Microsoft.
 
 Para limitar los datos que Microsoft recopila sobre el área de trabajo, seleccione __Área de trabajo de alto impacto de negocio__ en el portal o establezca `hbi_workspace=true ` en Python. Para más información sobre esta configuración, consulte [Cifrado en reposo](concept-data-encryption.md#encryption-at-rest).
 

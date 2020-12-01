@@ -3,17 +3,17 @@ title: ¿Qué son las plantillas de dispositivos en Azure IoT Central | Microsof
 description: Las plantillas de dispositivos de Azure IoT Central permiten especificar el comportamiento de los dispositivos conectados a la aplicación. Una plantilla de dispositivo especifica la telemetría, las propiedades y los comandos que el dispositivo debe implementar. Una plantilla de dispositivo también define la interfaz de usuario del dispositivo en IoT Central como los formularios y paneles que utiliza un operador.
 author: dominicbetts
 ms.author: dobett
-ms.date: 05/21/2020
+ms.date: 11/05/2020
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom: device-developer
-ms.openlocfilehash: 75317b5c6af2d0ce89d2db32f4343d9cc73a1a81
-ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
+ms.openlocfilehash: e82a377d62184c8ae1d2e8f076b228e36005887a
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91813175"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94992682"
 ---
 # <a name="what-are-device-templates"></a>¿Qué son las plantillas de dispositivo?
 
@@ -25,86 +25,99 @@ Un generador de soluciones agrega plantillas de dispositivos a una aplicación d
 
 En una plantilla de dispositivo se incluyen las secciones siguientes:
 
-- _Un modelo de funcionalidad del dispositivo (DCM)_ . Esta parte de la plantilla de dispositivo define cómo interactúa el dispositivo con la aplicación. Un desarrollador de dispositivos implementa los comportamientos definidos en el DCM.
-    - _Interfaces_. Un DCM contiene una o más interfaces que definen la telemetría, las propiedades y los comandos que el dispositivo debe implementar.
-- _Propiedades de la nube_. Esta parte de la plantilla de dispositivo permite al desarrollador de soluciones especificar los metadatos del dispositivo que se van a almacenar. Las propiedades de la nube nunca se sincronizan con los dispositivos y solo existen en la aplicación. Las propiedades de la nube no afectan al código que escribe el desarrollador de dispositivos para implementar el DCM.
-- _Personalizaciones_. Esta parte de la plantilla de dispositivo permite que el desarrollador de soluciones reemplace algunas de las definiciones del DCM. Las personalizaciones son útiles si el desarrollador de soluciones desea restringir el modo en que la aplicación controla un valor, como cambiar el nombre para mostrar de una propiedad o el color usado para mostrar un valor de telemetría. Las personalizaciones no afectan al código que escribe el desarrollador de dispositivos para implementar el DCM.
-- _Vistas_. Esta parte de la plantilla de dispositivo permite que el desarrollador de soluciones defina visualizaciones para ver los datos del dispositivo y los formularios para administrar y controlar un dispositivo. Las vistas usan el DCM, las propiedades de la nube y las personalizaciones. Las vistas no afectan al código que escribe el desarrollador de dispositivos para implementar el DCM.
+- _Un modelo de dispositivo_. Esta parte de la plantilla de dispositivo define cómo interactúa el dispositivo con la aplicación. Un desarrollador de dispositivos implementa los comportamientos definidos en el modelo.
+    - _Componente predeterminado_. Cada modelo de dispositivo tiene un componente predeterminado. La interfaz del componente predeterminado describe las funcionalidades que son específicas del modelo de dispositivo.
+    - _Componentes_. Un modelo de dispositivo puede incluir componentes además del componente predeterminado para describir las funcionalidades del dispositivo. Cada componente tiene una interfaz que describe las funcionalidades del componente. Las interfaces de los componentes se pueden reutilizar en otros modelos de dispositivo. Por ejemplo, varios modelos de dispositivos de teléfono pueden usar la misma interfaz de cámara.
+    - _Interfaces heredadas_. Un modelo de dispositivo contiene una o más interfaces que amplían las funcionalidades del componente predeterminado.
+- _Propiedades de la nube_. Esta parte de la plantilla de dispositivo permite al desarrollador de soluciones especificar los metadatos del dispositivo que se van a almacenar. Las propiedades de la nube nunca se sincronizan con los dispositivos y solo existen en la aplicación. Las propiedades de la nube no afectan al código que escribe el desarrollador de dispositivos para implementar el modelo de dispositivo.
+- _Personalizaciones_. Esta parte de la plantilla de dispositivo permite que el desarrollador de soluciones reemplace algunas de las definiciones del modelo de dispositivo. Las personalizaciones son útiles si el desarrollador de soluciones desea restringir el modo en que la aplicación controla un valor, como cambiar el nombre para mostrar de una propiedad o el color usado para mostrar un valor de telemetría. Las personalizaciones no afectan al código que escribe el desarrollador de dispositivos para implementar el modelo de dispositivo.
+- _Vistas_. Esta parte de la plantilla de dispositivo permite que el desarrollador de soluciones defina visualizaciones para ver los datos del dispositivo y los formularios para administrar y controlar un dispositivo. Las vistas usan el modelo de dispositivo, las propiedades de la nube y las personalizaciones. Las vistas no afectan al código que escribe el desarrollador de dispositivos para implementar el modelo de dispositivo.
 
-## <a name="device-capability-models"></a>Modelos de funcionalidad del dispositivo
+## <a name="device-models"></a>Modelos de dispositivos
 
-Un DCM define cómo interactúa un dispositivo con la aplicación de IoT Central. El desarrollador de dispositivos debe asegurarse de que el dispositivo implementa los comportamientos definidos en el DCM para que IoT Central pueda supervisar y administrar el dispositivo. Un DCM se compone de una o varias _interfaces_ y cada interfaz puede definir una colección de tipos de _telemetría_, _propiedades del dispositivo_ y _comandos_. Un desarrollador de soluciones puede importar un archivo JSON, que defina el DCM, a una plantilla de dispositivo, o usar la interfaz de usuario web en IoT Central para crear o editar un DCM. Los cambios en un DCM realizados mediante la interfaz de usuario web requieren la [cambio de versión de la plantilla de dispositivo](./howto-version-device-template.md).
+Un modelo de dispositivo define cómo interactúa un dispositivo con la aplicación de IoT Central. El desarrollador de dispositivos debe asegurarse de que el dispositivo implementa los comportamientos definidos en el modelo de dispositivo para que IoT Central pueda supervisar y administrar el dispositivo. Un modelo de dispositivo se compone de una o varias _interfaces_, y cada interfaz puede definir una colección de tipos de _telemetría_, _propiedades del dispositivo_ y _comandos_. Un desarrollador de soluciones puede importar un archivo JSON, que defina el modelo de dispositivo, a una plantilla de dispositivo, o usar la interfaz de usuario web en IoT Central para crear o editar un modelo de dispositivo. Los cambios en un modelo de dispositivo realizados mediante la interfaz de usuario web requieren la [cambio de versión de la plantilla de dispositivo](./howto-version-device-template.md).
 
-Un desarrollador de soluciones también puede exportar un archivo JSON que contenga el DCM. Un desarrollador de dispositivos puede usar este documento JSON para comprender cómo debe comunicarse el dispositivo con la aplicación de IoT Central.
+Un desarrollador de soluciones también puede exportar un archivo JSON que contenga el modelo de dispositivo. Un desarrollador de dispositivos puede usar este documento JSON para comprender cómo debe comunicarse el dispositivo con la aplicación de IoT Central.
 
-El archivo JSON que define el DCM usa el [Lenguaje de definición de gemelos digitales (DTDL) V1](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL). IoT Central espera que el archivo JSON contenga el DCM con las interfaces definidas insertadas, en lugar de en archivos independientes.
+El archivo JSON que define el modelo de dispositivo usa el [Lenguaje de definición de gemelos digitales (DTDL) V2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md). IoT Central espera que el archivo JSON contenga el modelo de dispositivo con las interfaces definidas insertadas, en lugar de en archivos independientes.
 
 Habitualmente, los dispositivos IoT constan de:
 
 - Elementos personalizados, que son las cosas que hacen que el dispositivo sea único.
 - Elementos estándar, que son cosas comunes a todos los dispositivos.
 
-Estos elementos se denominan _interfaces_  en un DCM. Las interfaces definen los detalles de cada uno de los elementos que implementa el dispositivo. Las interfaces se pueden reutilizar entre los DCM.
+Estos elementos se denominan _interfaces_  en un modelo de dispositivo. Las interfaces definen los detalles de cada uno de los elementos que implementa el dispositivo. Las interfaces se pueden reutilizar entre los modelos de dispositivo. En DTDL, un componente hace referencia a una interfaz definida en un archivo DTDL independiente.
 
-En el ejemplo siguiente se muestra el esquema de un modelo de funcionalidad del dispositivo para un sensor medioambiental con dos interfaces:
+En el ejemplo siguiente se muestra el esquema del modelo de dispositivo para un dispositivo de control de temperatura. El componente predeterminado incluye definiciones para `workingSet`, `serialNumber` y `reboot`. El modelo de dispositivo también incluye las interfaces `thermostat` y `deviceInformation`:
 
 ```json
 {
-  "@id": "urn:contoso:sensor_device:1",
-  "@type": "CapabilityModel",
-  "displayName": "Environment Sensor Capability Model",
-  "implements": [
+  "@context": "dtmi:dtdl:context;2",
+  "@id": "dtmi:com:example:TemperatureController;1",
+  "@type": "Interface",
+  "displayName": "Temperature Controller",
+  "description": "Device with two thermostats and remote reboot.",
+  "contents": [
     {
-      "@type": "InterfaceInstance",
-      "name": "deviceinfo",
-      "schema": {
-        "@id": "urn:azureiot:DeviceManagement:DeviceInformation:1",
-        "@type": "Interface",
-        "displayName": "Device Information",
-        "@context": "http://azureiot.com/v1/contexts/IoTModel.json",
-        "contents": [
-          ...
-        ]
+      "@type": [
+        "Telemetry", "DataSize"
+      ],
+      "name": "workingSet",
+      "displayName": "Working Set",
+      "description": "Current working set of the device memory in KiB.",
+      "schema": "double",
+      "unit" : "kibibyte"
+    },
+    {
+      "@type": "Property",
+      "name": "serialNumber",
+      "displayName": "Serial Number",
+      "description": "Serial number of the device.",
+      "schema": "string"
+    },
+    {
+      "@type": "Command",
+      "name": "reboot",
+      "displayName": "Reboot",
+      "description": "Reboots the device after waiting the number of seconds specified.",
+      "request": {
+        "name": "delay",
+        "displayName": "Delay",
+        "description": "Number of seconds to wait before rebooting the device.",
+        "schema": "integer"
       }
     },
     {
-      "@type": "InterfaceInstance",
-      "name": "sensor",
-      "schema": {
-        "@id": "urn:contoso:EnvironmentalSensor:1",
-        "@type": "Interface",
-        "displayName": "Environmental Sensor",
-        "@context": "http://azureiot.com/v1/contexts/IoTModel.json",
-        "contents": [
-          ...
-        ]
-      }
+      "@type" : "Component",
+      "schema": "dtmi:com:example:Thermostat;1",
+      "name": "thermostat",
+      "displayName": "Thermostat",
+      "description": "Thermostat One."
+    },
+    {
+      "@type": "Component",
+      "schema": "dtmi:azure:DeviceManagement:DeviceInformation;1",
+      "name": "deviceInformation",
+      "displayName": "Device Information interface",
+      "description": "Optional interface with basic device hardware information."
     }
-  ],
-  "@context": "http://azureiot.com/v1/contexts/IoTModel.json"
+  ]
 }
 ```
-
-Un modelo de funcionalidad tiene varios campos obligatorios:
-
-- `@id`: un identificador único en forma de nombre de recursos uniforme simple.
-- `@type`: declara que este objeto es un modelo de funcionalidad.
-- `@context`: especifica la versión de DTDL que se usa para el modelo de funcionalidad.
-- `implements`: enumera las interfaces que implementa el dispositivo.
-
-Todas las entradas de la lista de interfaces de la sección de implementaciones tienen:
-
-- `name`: el nombre de programación de la interfaz.
-- `schema`: la interfaz que implementa el modelo de funcionalidad.
 
 Una interfaz tiene varios campos obligatorios:
 
 - `@id`: un identificador único en forma de nombre de recursos uniforme simple.
 - `@type`: declara que este objeto es una interfaz.
 - `@context`: especifica la versión de DTDL que se usa para la interfaz.
-- `contents`: enumera las propiedades, la telemetría y los comandos que componen el dispositivo.
+- `contents`: enumera las propiedades, la telemetría y los comandos que componen el dispositivo. Las funcionalidades pueden definirse en varias interfaces.
 
 Hay algunos campos opcionales que puede usar para agregar más detalles al modelo de funcionalidad, como el de nombre para mostrar y el de descripción.
+
+Todas las entradas de la lista de interfaces de la sección de implementaciones tienen:
+
+- `name`: el nombre de programación de la interfaz.
+- `schema`: la interfaz que implementa el modelo de funcionalidad.
 
 ## <a name="interfaces"></a>Interfaces
 
@@ -114,55 +127,105 @@ DTDL permite describir las funcionalidades del dispositivo. Las funcionalidades 
 - `Telemetry`. Los campos de telemetría representan las medidas de los sensores. Cada vez que un dispositivo toma una medida de un sensor, debe enviar un evento de telemetría que contenga los datos del sensor.
 - `Commands`. Los comandos representan métodos que los usuarios del dispositivo pueden ejecutar en el dispositivo. Por ejemplo, un comando de restablecimiento o un comando para encender o apagar un ventilador.
 
-En el ejemplo siguiente se muestra la definición de la interfaz del sensor ambiental:
+En el ejemplo siguiente se muestra la definición de interfaz de un termostato:
 
 ```json
 {
-  "@type": "Property",
-  "displayName": "Device State",
-  "description": "The state of the device. Two states online/offline are available.",
-  "name": "state",
-  "schema": "boolean"
-},
-{
-  "@type": "Property",
-  "displayName": "Customer Name",
-  "description": "The name of the customer currently operating the device.",
-  "name": "name",
-  "schema": "string",
-  "writable": true
-},
-{
-  "@type": [
-    "Telemetry",
-    "SemanticType/Temperature"
-  ],
-  "description": "Current temperature on the device",
-  "displayName": "Temperature",
-  "name": "temp",
-  "schema": "double",
-  "unit": "Units/Temperature/fahrenheit"
-},
-{
-  "@type": "Command",
-  "name": "turnon",
-  "comment": "This Commands will turn-on the LED light on the device.",
-  "commandType": "synchronous"
-},
-{
-  "@type": "Command",
-  "name": "turnoff",
-  "comment": "This Commands will turn-off the LED light on the device.",
-  "commandType": "synchronous"
+  "@context": "dtmi:dtdl:context;2",
+  "@id": "dtmi:com:example:Thermostat;1",
+  "@type": "Interface",
+  "displayName": "Thermostat",
+  "description": "Reports current temperature and provides desired temperature control.",
+  "contents": [
+    {
+      "@type": [
+        "Telemetry",
+        "Temperature"
+      ],
+      "name": "temperature",
+      "displayName" : "Temperature",
+      "description" : "Temperature in degrees Celsius.",
+      "schema": "double",
+      "unit": "degreeCelsius"
+    },
+    {
+      "@type": [
+        "Property",
+        "Temperature"
+      ],
+      "name": "targetTemperature",
+      "schema": "double",
+      "displayName": "Target Temperature",
+      "description": "Allows to remotely specify the desired target temperature.",
+      "unit" : "degreeCelsius",
+      "writable": true
+    },
+    {
+      "@type": [
+        "Property",
+        "Temperature"
+      ],
+      "name": "maxTempSinceLastReboot",
+      "schema": "double",
+      "unit" : "degreeCelsius",
+      "displayName": "Max temperature since last reboot.",
+      "description": "Returns the max temperature since last device reboot."
+    },
+    {
+      "@type": "Command",
+      "name": "getMaxMinReport",
+      "displayName": "Get Max-Min report.",
+      "description": "This command returns the max, min and average temperature from the specified time to the current time.",
+      "request": {
+        "name": "since",
+        "displayName": "Since",
+        "description": "Period to return the max-min report.",
+        "schema": "dateTime"
+      },
+      "response": {
+        "name" : "tempReport",
+        "displayName": "Temperature Report",
+        "schema": {
+          "@type": "Object",
+          "fields": [
+            {
+              "name": "maxTemp",
+              "displayName": "Max temperature",
+              "schema": "double"
+            },
+            {
+              "name": "minTemp",
+              "displayName": "Min temperature",
+              "schema": "double"
+            },
+            {
+              "name" : "avgTemp",
+              "displayName": "Average Temperature",
+              "schema": "double"
+            },
+            {
+              "name" : "startTime",
+              "displayName": "Start Time",
+              "schema": "dateTime"
+            },
+            {
+              "name" : "endTime",
+              "displayName": "End Time",
+              "schema": "dateTime"
+            }
+          ]
+        }
+      }
+    }
+  ]
 }
 ```
 
-En este ejemplo se muestran dos propiedades (una de solo lectura y otra grabable), un tipo de telemetría y dos comandos. Una descripción de campo mínima tiene:
+En este ejemplo se muestran dos propiedades (una de solo lectura y otra editable), un tipo de telemetría y un comando. Una descripción de campo mínima tiene:
 
 - `@type` para especificar el tipo de funcionalidad: `Telemetry`, `Property`o `Command`.  En algunos casos, el tipo incluye un tipo semántico para permitir que IoT Central realice algunas suposiciones sobre cómo controlar el valor.
 - `name` para el valor de telemetría.
 - `schema` para especificar el tipo de datos para la telemetría o la propiedad. Este valor puede ser un tipo primitivo, como doble, entero, booleano o cadena. También se admiten tipos de objetos complejos, matrices y mapas.
-- `commandType` para especificar cómo debe controlarse el comando.
 
 Los campos opcionales, como el nombre para mostrar y la descripción, permiten agregar más detalles a la interfaz y las funcionalidades.
 
@@ -180,33 +243,36 @@ En el caso de las propiedades de escritura, la aplicación de dispositivo devuel
 
 ## <a name="telemetry"></a>Telemetría
 
-IoT Central le permite ver la telemetría en paneles y gráficos, y usar reglas para desencadenar acciones cuando se alcanzan los umbrales. IoT Central usa la información del DCM, como los tipos de datos, las unidades y los nombres para mostrar, para determinar cómo se muestran los valores de telemetría.
+IoT Central le permite ver la telemetría en paneles y gráficos, y usar reglas para desencadenar acciones cuando se alcanzan los umbrales. IoT Central usa la información del modelo de dispositivo, como los tipos de datos, las unidades y los nombres para mostrar, para determinar cómo se muestran los valores de telemetría.
 
 Puede usar la característica de exportación de datos de IoT Central para transmitir la telemetría a otros destinos, como Storage o Event Hubs.
 
 ## <a name="commands"></a>Comandos:
 
-Los comandos son sincrónicos o asincrónicos. Un comando sincrónico debe ejecutarse en un plazo máximo de 30 segundos de forma predeterminada y el dispositivo debe estar conectado cuando llegue el comando. Si el dispositivo no responde a tiempo o no está conectado, se produce un error en el comando.
+Un comando debe ejecutarse en un plazo máximo de 30 segundos de manera predeterminada y el dispositivo debe estar conectado cuando llegue el comando. Si el dispositivo no responde a tiempo o no está conectado, se produce un error en el comando.
 
-Use comandos asincrónicos para las operaciones de ejecución prolongada. El dispositivo envía la información del progreso mediante mensajes de telemetría. Estos mensajes tienen las siguientes propiedades del encabezado:
+Los comandos pueden tener parámetros de solicitud y devolver una respuesta.
 
-- `iothub-command-name`: el nombre del comando, por ejemplo `UpdateFirmware`.
-- `iothub-command-request-id`: el identificador de solicitud generado en el servidor y enviado al dispositivo en la llamada inicial.
-- `iothub-interface-id`:  el identificador de la interfaz en la que está definido este comando, por ejemplo `urn:example:AssetTracker:1`.
- `iothub-interface-name`: el nombre de instancia de esta interfaz, por ejemplo `myAssetTracker`.
-- `iothub-command-statuscode`: el código de estado que devuelve el dispositivo, por ejemplo `202`.
+### <a name="offline-commands"></a>Comandos sin conexión
+
+Puede elegir comandos de cola si un dispositivo está sin conexión; para ello, habilite la opción **Queue if offline** (Poner en cola si no está conectado) en un comando de la plantilla de dispositivo.
+
+Los comandos sin conexión son notificaciones unidireccionales al dispositivo desde la solución. Los comandos sin conexión pueden tener parámetros de solicitud, pero no devuelven una respuesta.
+
+> [!NOTE]
+> Esta opción solo está disponible en la interfaz de usuario web de IoT Central. Esta configuración no se incluye si exporta un modelo o una interfaz desde la plantilla de dispositivo.
 
 ## <a name="cloud-properties"></a>Propiedades de la nube
 
-Las propiedades de la nube forman parte de la plantilla de dispositivo, pero no forman parte del DCM. Las propiedades de la nube permiten al desarrollador de soluciones especificar los metadatos de los dispositivos que se van a almacenar en la aplicación de IoT Central. Las propiedades de la nube no afectan al código que escribe el desarrollador de dispositivos para implementar el DCM.
+Las propiedades de la nube forman parte de la plantilla de dispositivo, pero no forman parte del modelo de dispositivo. Las propiedades de la nube permiten al desarrollador de soluciones especificar los metadatos de los dispositivos que se van a almacenar en la aplicación de IoT Central. Las propiedades de la nube no afectan al código que escribe el desarrollador de dispositivos para implementar el modelo de dispositivo.
 
 Un desarrollador de soluciones puede agregar propiedades de la nube a los paneles y las vistas, junto a las propiedades del dispositivo, para permitir que un operador administre los dispositivos conectados a la aplicación. Un desarrollador de soluciones también puede usar las propiedades de la nube como parte de una definición de regla para que un operador pueda editar un valor de umbral.
 
 ## <a name="customizations"></a>Personalizaciones
 
-Las personalizaciones forman parte de la plantilla de dispositivo, pero no forman parte del DCM. Las personalizaciones permiten al desarrollador de soluciones reemplazar algunas de las definiciones del DCM. Por ejemplo, un desarrollador de soluciones puede cambiar el nombre para mostrar de un tipo de telemetría o propiedad. Un desarrollador de soluciones también puede usar personalizaciones para agregar una validación, como la longitud mínima o máxima de una propiedad de dispositivo de cadena.
+Las personalizaciones forman parte de la plantilla de dispositivo, pero no forman parte del modelo de dispositivo. Las personalizaciones permiten al desarrollador de soluciones reemplazar algunas de las definiciones del modelo de dispositivo. Por ejemplo, un desarrollador de soluciones puede cambiar el nombre para mostrar de un tipo de telemetría o propiedad. Un desarrollador de soluciones también puede usar personalizaciones para agregar una validación, como la longitud mínima o máxima de una propiedad de dispositivo de cadena.
 
-Las personalizaciones pueden afectan al código que escribe el desarrollador de dispositivos para implementar el DCM. Por ejemplo, una personalización podría establecer longitudes de cadena mínima y máxima, o valores numéricos mínimo y máximo para la telemetría.
+Las personalizaciones pueden afectan al código que escribe el desarrollador de dispositivos para implementar el modelo de dispositivo. Por ejemplo, una personalización podría establecer longitudes de cadena mínima y máxima, o valores numéricos mínimo y máximo para la telemetría.
 
 ## <a name="views"></a>Vistas
 
@@ -219,7 +285,7 @@ Un desarrollador de soluciones crea vistas que permiten a los operadores supervi
 - Iconos para permitir que el operador llame a comandos, incluidos los comandos que esperan una carga útil.
 - Iconos para mostrar etiquetas, imágenes o texto de Markdown.
 
-La telemetría, las propiedades y los comandos que puede agregar a una vista vienen determinados por el DCM, las propiedades de la nube y las personalizaciones de la plantilla de dispositivo.
+La telemetría, las propiedades y los comandos que puede agregar a una vista vienen determinados por el modelo de dispositivo, las propiedades de la nube y las personalizaciones de la plantilla de dispositivo.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
