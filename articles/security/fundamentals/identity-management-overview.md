@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 09/19/2018
 ms.author: terrylan
 Customer intent: As an IT Pro or decision maker I am trying to learn about identity management capabilities in Azure
-ms.openlocfilehash: 48d0483247f610a1e8c7491e13ea86883bf8f341
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 2c7d51da361816841ff556c1da696a48d2ce6a06
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94410375"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843696"
 ---
 # <a name="azure-identity-management-security-overview"></a>Información general sobre seguridad de administración de identidades de Azure
 
@@ -79,13 +79,13 @@ Más información:
 
 ## <a name="multi-factor-authentication"></a>Multi-Factor Authentication
 
-Azure Multi-factor Authentication es un método de autenticación que requiere el uso de más de un método de verificación y agrega un segundo nivel de seguridad crítico a las transacciones y los inicios de sesión del usuario. Multi-Factor Authentication le ayudará a proteger el acceso a los datos y las aplicaciones, además de satisfacer la demanda de los usuarios de un proceso de inicio de sesión simple. Proporciona autenticación sólida mediante diversas opciones de verificación: llamadas telefónicas, mensajes de texto, notificaciones de aplicaciones móviles, códigos de verificación y tokens OAuth de terceros.
+Multi-Factor Authentication de Azure AD es un método de autenticación que requiere el uso de más de un método de verificación y que agrega una segunda capa de seguridad crítica a las transacciones y los inicios de sesión del usuario. Multi-Factor Authentication le ayudará a proteger el acceso a los datos y las aplicaciones, además de satisfacer la demanda de los usuarios de un proceso de inicio de sesión simple. Proporciona autenticación sólida mediante diversas opciones de verificación: llamadas telefónicas, mensajes de texto, notificaciones de aplicaciones móviles, códigos de verificación y tokens OAuth de terceros.
 
 Más información:
 
 * [Multi-Factor Authentication](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)
-* [¿Qué es Azure Multi-Factor Authentication?](../../active-directory/authentication/concept-mfa-howitworks.md)
-* [Cómo funciona Azure Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md)
+* [¿Qué es Multi-Factor Authentication de Azure AD?](../../active-directory/authentication/concept-mfa-howitworks.md)
+* [Funcionamiento de Azure AD Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md)
 
 ## <a name="azure-rbac"></a>Azure RBAC
 
@@ -107,11 +107,11 @@ La supervisión de seguridad, las alertas y los informes basados en aprendizaje 
 
 En Azure Portal, los informes se dividen en las siguientes categorías:
 
-* **Informes de anomalías** : contienen eventos de inicio de sesión que se consideran anómalos. Nuestro objetivo es que sea consciente de dicha actividad y que pueda tomar una decisión sobre si un evento es sospechoso.
-* **Informes de aplicaciones integradas** : proporciona información sobre cómo se usan en la organización las aplicaciones en la nube. Azure AD ofrece integración con miles de aplicaciones en la nube.
-* **Informes de errores** : indican errores que se pueden producir al aprovisionar cuentas en aplicaciones externas.
-* **Informes específicos del usuario** : muestran los datos de actividad de dispositivo o de inicio de sesión de un usuario concreto.
-* **Registros de actividad** : contienen un registro de todos los eventos auditados en las últimas 24 horas, los últimos 7 días o los últimos 30 días, así como los cambios en la actividad del grupo y la actividad de registro y de restablecimiento de contraseña.
+* **Informes de anomalías**: contienen eventos de inicio de sesión que se consideran anómalos. Nuestro objetivo es que sea consciente de dicha actividad y que pueda tomar una decisión sobre si un evento es sospechoso.
+* **Informes de aplicaciones integradas**: proporciona información sobre cómo se usan en la organización las aplicaciones en la nube. Azure AD ofrece integración con miles de aplicaciones en la nube.
+* **Informes de errores**: indican errores que se pueden producir al aprovisionar cuentas en aplicaciones externas.
+* **Informes específicos del usuario**: muestran los datos de actividad de dispositivo o de inicio de sesión de un usuario concreto.
+* **Registros de actividad**: contienen un registro de todos los eventos auditados en las últimas 24 horas, los últimos 7 días o los últimos 30 días, así como los cambios en la actividad del grupo y la actividad de registro y de restablecimiento de contraseña.
 
 Más información:
 

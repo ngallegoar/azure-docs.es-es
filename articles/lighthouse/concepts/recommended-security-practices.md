@@ -3,12 +3,12 @@ title: Procedimientos de seguridad recomendados
 description: Al usar Azure Lighthouse, es importante tener en cuenta la seguridad y el control de acceso.
 ms.date: 08/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: 097611837e3bba2d1a44ec521862e03cc467d707
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ef2c41cf052e5f79ecf4abf01c8f3fab3dd1de14
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91399387"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843730"
 ---
 # <a name="recommended-security-practices"></a>Procedimientos de seguridad recomendados
 
@@ -17,11 +17,11 @@ Al usar [Azure Lighthouse](../overview.md), es importante tener en cuenta la seg
 > [!TIP]
 > Estas recomendaciones también se aplican a [empresas que administran varios inquilinos](enterprise.md) con Azure Lighthouse.
 
-## <a name="require-azure-multi-factor-authentication"></a>Requerir Azure Multi-Factor Authentication
+## <a name="require-azure-ad-multi-factor-authentication"></a>Requerir Azure AD Multi-Factor Authentication
 
-[Azure Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md) (también conocido como verificación en dos pasos) ayuda a evitar que los atacantes obtengan acceso a una cuenta, ya que requiere varios pasos de autenticación. Debe requerir Multi-Factor Authentication a todos los usuarios del inquilino administrador, incluidos los usuarios que tendrán acceso a los recursos delegados de cliente.
+[Multi-Factor Authentication de Azure AD](../../active-directory/authentication/concept-mfa-howitworks.md) (también conocido como verificación en dos pasos) ayuda a evitar que los atacantes obtengan acceso a una cuenta, al exigir varios pasos de autenticación. Debe requerir Multi-Factor Authentication a todos los usuarios del inquilino administrador, incluidos los usuarios que tendrán acceso a los recursos delegados de cliente.
 
-Le recomendamos que pida a sus clientes que implementen también Azure Multi-Factor Authentication en sus inquilinos.
+Le recomendamos que pida a sus clientes que implementen también Multi-Factor Authentication de Azure AD en sus inquilinos.
 
 ## <a name="assign-permissions-to-groups-using-the-principle-of-least-privilege"></a>Asignar permisos a grupos mediante el principio de privilegios mínimos
 
@@ -47,5 +47,5 @@ Tenga en cuenta que al [incorporar clientes a través de una oferta pública de 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Planificación de una implementación de Azure Multi-Factor Authentication basada en la nube](../../active-directory/authentication/howto-mfa-getstarted.md).
+- [Implemente Multi-Factor Authentication de Azure AD](../../active-directory/authentication/howto-mfa-getstarted.md).
 - Más información sobre las [experiencias de administración entre inquilinos](cross-tenant-management-experience.md).

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/19/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 44300771ce6471c97dcd582884995395daae4995
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: fe31e1bf095d15cfdd7945288486cb866ace8246
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92215491"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94840617"
 ---
 # <a name="single-page-sign-in-using-the-oauth-20-implicit-flow-in-azure-active-directory-b2c"></a>Inicio de sesión de página única mediante el flujo implícito de OAuth 2.0 con Azure Active Directory B2C
 
@@ -141,7 +141,7 @@ Varias validaciones más que debe realizar se describen en detalle en la [especi
 
 * Asegurarse de que la organización o el usuario se han registrado en la aplicación.
 * Asegurarse de que el usuario tiene la autorización y los privilegios adecuados.
-* Asegurarse de que se haya producido un determinado nivel de autenticación, como al usar Azure Multi-Factor Authentication.
+* Asegurarse de que se haya producido un determinado nivel de autenticación, como el asociado al uso de Multi-Factor Authentication de Azure AD.
 
 Para obtener más información sobre las notificaciones en un token de identificador, vea [Azure AD B2C: referencia de tokens](tokens-overview.md).
 

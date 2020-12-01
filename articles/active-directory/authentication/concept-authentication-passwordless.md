@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b308b47ff813237bdf90637334f20ac6b5490a19
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: dbe22a1af8fbf61629fa9df1267416ca3822884b
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91992821"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94840090"
 ---
 # <a name="passwordless-authentication-options-for-azure-active-directory"></a>Opciones de autenticación sin contraseña de Azure Active Directory
 
@@ -62,7 +62,7 @@ También puede permitir que el teléfono del empleado se convierta en un método
 
 La aplicación Authenticator convierte cualquier teléfono Android o iOS en una credencial segura sin contraseña. Los usuarios pueden iniciar sesión en cualquier plataforma o explorador con este proceso: reciben una notificación en su teléfono, comprueban que el número mostrado en la pantalla coincide con el de su teléfono y, a continuación, usan datos biométricos (reconocimiento táctil o facial) o el PIN para confirmarlo. Consulte [Descarga e instalación de la aplicación Microsoft Authenticator](../user-help/user-help-auth-app-download-install.md) para conocer los detalles de la instalación.
 
-El inicio de sesión sin contraseña con la aplicación Microsoft Authenticator en Azure AD está actualmente en versión preliminar. El uso de la aplicación Microsoft Authenticator para la autenticación secundaria para Azure Multi-Factor Authentication, el autoservicio de restablecimiento de contraseña (SSPR) o los tokens de software OATH están disponibles con carácter general. Para más información sobre las versiones preliminares, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+El inicio de sesión sin contraseña con la aplicación Microsoft Authenticator en Azure AD está actualmente en versión preliminar. El uso de la aplicación Microsoft Authenticator para la autenticación secundaria con Multi-Factor Authentication de Azure AD, el autoservicio de restablecimiento de contraseña (SSPR) o los tokens de software OATH está disponible con carácter general. Para más información sobre las versiones preliminares, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 La autenticación sin contraseñas mediante la aplicación Authenticator sigue el mismo patrón básico que Windows Hello para empresas. Es un poco más complicado, ya que el usuario debe identificarse para que Azure AD pueda encontrar la versión de la aplicación Microsoft Authenticator que se está usando:
 

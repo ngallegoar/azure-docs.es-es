@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 09e0b3bbac0bdc1d268aa7f24741aeb12a7d366d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f96365bcdf64d19dc0b894f2f1230233b3137bc7
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89462588"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842658"
 ---
 # <a name="deploy-a-windows-virtual-desktop-classic-management-tool-with-an-azure-resource-manager-template"></a>Implementación de una herramienta de administración de Windows Virtual Desktop (clásico) con una plantilla de Azure Resource Manager
 
@@ -36,7 +36,7 @@ Los siguientes exploradores son compatibles con la herramienta de administració
 
 Antes de implementar la herramienta de administración, necesitará que un usuario de Azure Active Directory (Azure AD) cree un registro de aplicaciones e implemente la interfaz de usuario de administración. Dicho usuario debe:
 
-- Deshabilitar la autenticación multifactor (MFA) de Azure.
+- Tener deshabilitado Multi-Factor Authentication (MFA) de Azure AD.
 - Tener los permisos para crear recursos en la suscripción de Azure.
 - Tener los permisos para crear una aplicación de Azure AD. Siga los pasos que se describen en la sección [Permisos necesarios](../../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app) para comprobar si el usuario tiene los permisos que necesita.
 

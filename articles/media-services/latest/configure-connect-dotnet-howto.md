@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 08/31/2020
+ms.date: 11/17/2020
 ms.author: inhenkel
 ms.custom: has-adal-ref, devx-track-csharp
-ms.openlocfilehash: b9b72e8340722f8ddc97b3769ce22e607974a508
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3d4f232d87209a3a5676cac22e67a38b17af6917
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89297406"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844325"
 ---
 # <a name="connect-to-media-services-v3-api---net"></a>Conexión a la API de Media Services v3: .NET
 
@@ -43,7 +43,7 @@ En este artículo se muestra cómo conectar con el SDK de .NET de Azure Media 
 
 La aplicación de ejemplo de este tema tiene `netcoreapp2.0` como destino. El código usa "async main", disponible a partir de C# 7.1. Consulte este [blog](/archive/blogs/benwilli/async-main-is-available-but-hidden) para más información.
 
-## <a name="add-required-nuget-packages"></a>Incorporación de los paquetes NuGet requeridos
+## <a name="add-required-nuget-packagesassemblies"></a>Incorporación de los paquetes y ensamblados de NuGet requeridos
 
 1. En Visual Studio, seleccione **Herramientas** > **Administrador de paquetes NuGet** > **Consola del Administrador de paquetes**.
 2. En la ventana **Consola del Administrador de paquetes**, use el comando `Install-Package` para agregar los siguientes paquetes NuGet. Por ejemplo, `Install-Package Microsoft.Azure.Management.Media`.
@@ -51,10 +51,14 @@ La aplicación de ejemplo de este tema tiene `netcoreapp2.0` como destino. El c�
 |Paquete|Descripción|
 |---|---|
 |`Microsoft.Azure.Management.Media`|SDK de Azure Media Services. <br/>Para asegurarse de que usa el paquete más reciente de Azure Media Services, consulte [Microsoft.Azure.Management.Media](https://www.nuget.org/packages/Microsoft.Azure.Management.Media).|
-|`Microsoft.Rest.ClientRuntime.Azure.Authentication`|Biblioteca con autenticación ADAL para el SDK de Azure SDK para .NET|
-|`Microsoft.Extensions.Configuration.EnvironmentVariables`|Lectura de los valores de configuración de las variables de entorno y los archivos JSON locales|
-|`Microsoft.Extensions.Configuration.Json`|Lectura de los valores de configuración de las variables de entorno y los archivos JSON locales
-|`WindowsAzure.Storage`|SDK de Storage|
+
+### <a name="other-required-assemblies"></a>Otros ensamblados necesarios
+
+- Azure.Storage.Blobs
+- Microsoft.Extensions.Configuration
+- Microsoft.Extensions.Configuration.EnvironmentVariables
+- Microsoft.Extensions.Configuration.Json
+- Microsoft.Rest.ClientRuntime.Azure.Authentication
 
 ## <a name="create-and-configure-the-app-settings-file"></a>Creación y configuración del archivo de configuración de la aplicación
 
@@ -72,7 +76,7 @@ Ejecute el comando `az ams account sp create` como se describe en el artículo d
 
 Para mayor comodidad, agregue un archivo de configuración que se encargue de leer los valores de "appsettings.json".
 
-1. Agregue una nueva clase .cs al proyecto. Asígnele el nombre `ConfigWrapper`. 
+1. Agregue una nueva clase .cs al proyecto. Denomínelo `ConfigWrapper`. 
 1. Pegue el siguiente código en este archivo (en este ejemplo se supone que tiene el espacio de nombres `ConsoleApp1`).
 
 ```csharp
@@ -136,9 +140,9 @@ namespace ConsoleApp1
             get { return new Uri(_config["ArmEndpoint"]); }
         }
 
-        public string Region
+        public string Location
         {
-            get { return _config["Region"]; }
+            get { return _config["Location"]; }
         }
     }
 }
@@ -243,7 +247,7 @@ namespace ConsoleApp1
 - [Creación de filtros con Media Services: .NET](filters-dynamic-manifest-dotnet-howto.md)
 - [Ejemplos avanzados de vídeo bajo demanda de Azure Functions v2 con Media Services v3](https://aka.ms/ams3functions)
 
-## <a name="see-also"></a>Consulte también
+## <a name="see-also"></a>Vea también
 
-* [Referencia de .NET](/dotnet/api/overview/azure/mediaservices/management?view=azure-dotnet)
+* [Referencia de .NET](/dotnet/api/overview/azure/mediaservices/management?view=azure-dotnet&preserve-view=true)
 * Para obtener más ejemplos de código, consulte el repositorio de [ejemplos del SDK de .NET](https://github.com/Azure-Samples/media-services-v3-dotnet).

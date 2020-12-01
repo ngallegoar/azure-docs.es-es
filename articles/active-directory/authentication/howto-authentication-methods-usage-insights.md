@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 03989e37ac05228dade2fdcda43856e8a5240865
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: fe8a916f4c3ce8869b6b487e33dcdecc061f8cbf
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964917"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94839597"
 ---
 # <a name="authentication-methods-usage--insights-preview"></a>Conclusiones y uso de los métodos de autenticación (versión preliminar)
 
-El uso y las conclusiones le permiten comprender cómo funcionan en su organización los métodos de autenticación para características como la autenticación multifactor y el autoservicio de restablecimiento de contraseña de Azure. Esta funcionalidad de informes proporciona a la organización los medios para comprender qué métodos se registran y cómo se utilizan.
+Las conclusiones y uso le permiten comprender cómo funcionan en su organización los métodos de autenticación de características como Multi-Factor Authentication de Azure AD y el autoservicio de restablecimiento de contraseña. Esta funcionalidad de informes proporciona a la organización los medios para comprender qué métodos se registran y cómo se utilizan.
 
 ## <a name="permissions-and-licenses"></a>Permisos y licencias
 
@@ -31,7 +31,7 @@ Los siguientes roles pueden tener acceso al uso y las conclusiones:
 - Administrador de seguridad
 - Lector de informes
 
-No se necesita ninguna licencia adicional para acceder al uso y las conclusiones. La información acerca de las licencias de la autenticación multifactor y el autoservicio de restablecimiento de contraseña (SSPR) de Azure puede encontrarse en el [sitio web de precios de Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
+No se necesita ninguna licencia adicional para acceder al uso y las conclusiones. Se puede encontrar información sobre las licencias de Multi-Factor Authentication de Azure AD y el autoservicio de restablecimiento de contraseña (SSPR) en el [sitio web de precios de Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 
 ## <a name="how-it-works"></a>Funcionamiento
 
@@ -92,7 +92,7 @@ Mediante los controles de la parte superior de la lista, puede buscar un usuario
 
 Los datos que se muestran en estos informes se retrasarán en hasta 60 minutos. Existe un campo de "Última actualización" en Azure Portal para identificar la antigüedad de los datos.
 
-Los datos de uso y conclusiones no sustituyen los informes de actividad de la autenticación multifactor de Azure ni la información del informe de inicios de sesión de Azure AD.
+Los datos de conclusiones y uso no sustituyen a los informes de actividad de Multi-Factor Authentication de Azure AD ni a la información contenida en el informe de inicios de sesión de Azure AD.
 
 Actualmente no se puede filtrar el informe para excluir a los usuarios externos.
 

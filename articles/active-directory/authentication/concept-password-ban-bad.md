@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c4da1066166a3384ffb5f0f94599452829faed1b
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 026f45e715f6d442b27cdd0274f029a68330f7ee
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93356593"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94839835"
 ---
 # <a name="eliminate-bad-passwords-using-azure-active-directory-password-protection"></a>Eliminación de contraseñas incorrectas mediante Protección con contraseña de Azure Active Directory
 
@@ -24,7 +24,7 @@ En general, las guías de seguridad recomiendan que no se use la misma contrase�
 
 Con Protección con contraseña de Azure AD, se aplican automáticamente listas globales de contraseñas prohibidas a todos los usuarios de un inquilino de Azure AD. Para satisfacer sus necesidades empresariales y de seguridad, puede definir entradas en una lista personalizada de contraseñas prohibidas. Cuando los usuarios cambian o restablecen sus contraseñas, se consultan estas listas de contraseñas prohibidas para exigir el uso de contraseñas seguras.
 
-Debe usar características adicionales, como [Azure Multi-Factor Authentication](concept-mfa-howitworks.md), no solo confiar en las contraseñas seguras aplicadas por Protección con contraseña de Azure AD. Para obtener más información sobre el uso de varios niveles de seguridad para los eventos de inicio de sesión, consulte [Su Contra$eña no importa](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Your-Pa-word-doesn-t-matter/ba-p/731984).
+Debe usar características adicionales, como [Multi-Factor Authentication de Azure AD](concept-mfa-howitworks.md), y no confiar solo en las contraseñas seguras aplicadas por Protección con contraseña de Azure AD. Para obtener más información sobre el uso de varios niveles de seguridad para los eventos de inicio de sesión, consulte [Su Contra$eña no importa](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Your-Pa-word-doesn-t-matter/ba-p/731984).
 
 > [!IMPORTANT]
 > En este artículo teórico se explica al administrador cómo funciona Protección con contraseña de Azure AD. Si es un usuario final registrado para el autoservicio de restablecimiento de contraseña y necesita volver a su cuenta, visite [https://aka.ms/sspr](https://aka.ms/sspr).

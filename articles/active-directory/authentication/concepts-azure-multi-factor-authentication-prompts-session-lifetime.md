@@ -1,6 +1,6 @@
 ---
-title: Mensajes y duración de la sesión de Multi-Factor Authentication
-description: Obtenga información acerca de la configuración recomendada para los mensajes de reautenticación con Azure Multi-Factor Authentication y cómo se aplica la duración de la sesión.
+title: Avisos y duración de la sesión de Multi-Factor Authentication de Azure AD
+description: Aprenda sobre la configuración recomendada para los avisos de reautenticación con Multi-Factor Authentication de Azure AD y cómo se aplica la duración de la sesión.
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,14 +11,14 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: inbarc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8a759d4e686f43133716cc1c40237db74a015210
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 87b30b12e75a583ccee9780f97a6492961365cca
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964951"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94839682"
 ---
-# <a name="optimize-reauthentication-prompts-and-understand-session-lifetime-for-azure-multi-factor-authentication"></a>Optimice los mensajes de reautenticación y comprenda la duración de la sesión para Azure Multi-Factor Authentication.
+# <a name="optimize-reauthentication-prompts-and-understand-session-lifetime-for-azure-ad-multi-factor-authentication"></a>Optimice los avisos de reautenticación y comprenda la duración de la sesión en Multi-Factor Authentication de Azure AD.
 
 Azure Active Directory (Azure AD) tiene varias opciones que determinan la frecuencia con la que los usuarios deben volver a autenticarse. Esta reautenticación podría ser con un primer factor como contraseña, FIDO o Microsoft Authenticator sin contraseña, o bien mediante autenticación multifactor (MFA). Puede configurar estas opciones de reautenticación según sea necesario para su propio entorno y la experiencia de usuario que desee.
 
@@ -90,7 +90,7 @@ Para obtener más información, consulte [Recordar Multi-Factor Authentication](
 
 La **frecuencia de inicio de sesión** permite al administrador elegir la frecuencia de inicio de sesión que se aplica para el primer y el segundo factor tanto en el cliente como en el explorador. Se recomienda usar estos valores, junto con dispositivos administrados, en escenarios en los que es necesario restringir la sesión de autenticación, por ejemplo, los de las aplicaciones empresariales críticas.
 
-Una **sesión persistente del explorador** permite a los usuarios permanecer conectados después de cerrar y volver a abrir la ventana del explorador. De forma similar a la configuración de *Remain signed-in* (Permanecer conectado), establece una cookie persistente en el explorador. Sin embargo, dado que está configurado por el administrador, no requiere que el usuario seleccione **Sí** en la opción *¿Quiere mantener la sesión iniciada?* , por lo que permite una mejor experiencia del usuario. Si usa la opción*Remain signed-in* (Permanecer conectado), se recomienda habilitar en su lugar la directiva **Sesión del explorador persistente**.
+Una **sesión persistente del explorador** permite a los usuarios permanecer conectados después de cerrar y volver a abrir la ventana del explorador. De forma similar a la configuración de *Remain signed-in* (Permanecer conectado), establece una cookie persistente en el explorador. Sin embargo, dado que está configurado por el administrador, no requiere que el usuario seleccione **Sí** en la opción *¿Quiere mantener la sesión iniciada?* , por lo que permite una mejor experiencia del usuario. Si usa la opción *Remain signed-in* (Permanecer conectado), se recomienda habilitar en su lugar la directiva **Sesión del explorador persistente**.
 
 Para obtener más información, consulte [Configuración de la administración de las sesiones de autenticación con el acceso condicional](../conditional-access/howto-conditional-access-session-lifetime.md).
 
@@ -136,4 +136,4 @@ En la tabla siguiente se resumen las recomendaciones basadas en licencias:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para empezar, complete el tutorial [Protección de eventos de inicio de sesión de usuario con Azure Multi-Factor Authentication](tutorial-enable-azure-mfa.md) o [Uso de las detecciones de riesgos en los inicios de sesión de usuario para desencadenar Azure Multi-Factor Authentication](tutorial-risk-based-sspr-mfa.md).
+Para empezar, realice el tutorial [Protección de eventos de inicio de sesión de usuario con Multi-Factor Authentication de Azure AD](tutorial-enable-azure-mfa.md) o [Uso de las detecciones de riesgos en los inicios de sesión de usuario para desencadenar Multi-Factor Authentication de Azure AD](tutorial-risk-based-sspr-mfa.md).

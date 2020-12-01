@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: c5ae0e0d312aa9a959b114d576f887bfa5072f49
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: a166a451c405c2321453e02751baad91c2a14c60
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91965512"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94840024"
 ---
 # <a name="what-authentication-and-verification-methods-are-available-in-azure-active-directory"></a>¿Qué métodos de autenticación y verificación hay disponibles en Azure Active Directory?
 
@@ -26,13 +26,13 @@ Como parte de la experiencia de inicio de sesión de las cuentas en Azure Active
 
 Los métodos de autenticación sin contraseña, como Windows Hello, las claves de seguridad FIDO2 y la aplicación Microsoft Authenticator, proporcionan los eventos de inicio de sesión más seguros.
 
-Azure Multi-Factor Authentication aporta seguridad adicional al solo uso de una contraseña cuando un usuario inicia sesión. Se pueden solicitar al usuario formas adicionales de autenticación, como responder a una notificación push, especificar un código de un token de software o hardware, o responder a un SMS o a una llamada de teléfono.
+Multi-Factor Authentication de Azure AD aporta seguridad adicional al mero uso de una contraseña cuando un usuario inicia sesión. Se pueden solicitar al usuario formas adicionales de autenticación, como responder a una notificación push, especificar un código de un token de software o hardware, o responder a un SMS o a una llamada de teléfono.
 
 Para simplificar la experiencia de incorporación de los usuarios y registrarse tanto para MFA como para SSPR, se recomienda [habilitar el registro de información de seguridad combinada](howto-registration-mfa-sspr-combined.md). Para mejorar la resistencia, se recomienda exigir a los usuarios que registren varios métodos de autenticación. Así, si un usuario no tiene disponible un método durante el inicio de sesión o el autoservicio de restablecimiento de contraseña, puede elegir autenticarse con otro método. Para obtener más información, consulte [Crear una estrategia de administración de control de acceso resistente con Azure Active Directory](concept-resilient-controls.md).
 
 ## <a name="authentication-method-strength-and-security"></a>Seguridad del método de autenticación
 
-Antes de implementar características como Azure Multi-Factor Authentication en su organización, revise los métodos de autenticación disponibles. Elija los métodos que cumplan o superen sus requisitos en cuanto a seguridad, facilidad de uso y disponibilidad. Siempre que sea posible, use métodos de autenticación con el nivel de seguridad más alto.
+Cuando implemente características, como Multi-Factor Authentication de Azure AD en su organización, revise los métodos de autenticación disponibles. Elija los métodos que cumplan o superen sus requisitos en cuanto a seguridad, facilidad de uso y disponibilidad. Siempre que sea posible, use métodos de autenticación con el nivel de seguridad más alto.
 
 En la tabla siguiente se describen las consideraciones sobre seguridad que se deben tener en cuenta en los métodos de autenticación disponibles. La disponibilidad es una indicación de que el usuario puede usar el método de autenticación, no de la disponibilidad del servicio en Azure AD:
 
@@ -54,7 +54,7 @@ Para obtener más información sobre la seguridad, consulte las [vulnerabilidade
 
 ## <a name="how-each-authentication-method-works"></a>Funcionamiento de cada método de autenticación
 
-Algunos métodos de autenticación se pueden usar como factor principal al iniciar sesión en una aplicación o un dispositivo, como el uso de una clave de seguridad FIDO2 o una contraseña. Otros métodos de autenticación solo están disponibles como factor secundario cuando se usa Azure Multi-Factor Authentication o SSPR.
+Algunos métodos de autenticación se pueden usar como factor principal al iniciar sesión en una aplicación o un dispositivo, como el uso de una clave de seguridad FIDO2 o una contraseña. Otros métodos de autenticación solo están disponibles como factor secundario cuando se usa Multi-Factor Authentication de Azure AD o SSPR.
 
 En la tabla siguiente se describe cuándo se puede usar un método de autenticación en un evento de inicio de sesión:
 
@@ -83,25 +83,25 @@ Para obtener más información sobre cómo funciona cada método de autenticaci�
 * Contraseña
 
 > [!NOTE]
-> En Azure AD, la contraseña suele ser uno de los métodos de autenticación principales. El método de autenticación de contraseña no se puede deshabilitar. Si usa una contraseña como factor de autenticación principal, aumente la seguridad de los eventos de inicio de sesión con Azure Multi-Factor Authentication.
+> En Azure AD, la contraseña suele ser uno de los métodos de autenticación principales. El método de autenticación de contraseña no se puede deshabilitar. Si usa una contraseña como factor de autenticación principal, aumente la seguridad de los eventos de inicio de sesión con Multi-Factor Authentication de Azure AD.
 
 En algunos escenarios se pueden usar los siguientes métodos de verificación adicional:
 
-* [Contraseñas de aplicación](howto-mfa-app-passwords.md): se usan en aplicaciones antiguas que no admiten la autenticación moderna y que se pueden configurar para la opción de Azure Multi-Factor Authentication por usuario.
+* [Contraseñas de aplicación](howto-mfa-app-passwords.md): se usan con aplicaciones antiguas que no admiten la autenticación moderna y se pueden configurar para la opción de Multi-Factor Authentication de Azure AD por usuario.
 * [Preguntas de seguridad](concept-authentication-security-questions.md): solo se usa en SSPR.
 * [Dirección de correo electrónico](concept-sspr-howitworks.md#authentication-methods): solo se usa en SSPR.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para comenzar, consulte el [tutorial del autoservicio de restablecimiento de contraseña][tutorial-sspr] y [Azure Multi-Factor Authentication][tutorial-azure-mfa].
+Para comenzar, consulte el [tutorial del autoservicio de restablecimiento de contraseña][tutorial-sspr] y [Azure AD Multi-Factor Authentication][tutorial-azure-mfa].
 
 Para obtener más información sobre los conceptos del SSPR, consulte [Funcionamiento: Autoservicio de restablecimiento de contraseña de Azure AD][concept-sspr].
 
-Para obtener más información sobre los conceptos de MFA, consulte [Funcionamiento: Azure Multi-Factor Authentication][concept-mfa].
+Para más información sobre los conceptos de MFA, consulte [Funcionamiento: Multi-Factor Authentication de Azure AD][concept-mfa].
 
 Más información sobre la configuración de métodos de autenticación con la [Versión beta de la API REST Microsoft Graph API](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta).
 
-Para revisar qué métodos de autenticación están en uso, consulte [Análisis de métodos de autenticación de Azure Multi-Factor Authentication con PowerShell](/samples/azure-samples/azure-mfa-authentication-method-analysis/azure-mfa-authentication-method-analysis/).
+Para revisar qué métodos de autenticación están en uso, consulte [Análisis de métodos de autenticación de Multi-Factor Authentication de Azure AD con PowerShell](/samples/azure-samples/azure-mfa-authentication-method-analysis/azure-mfa-authentication-method-analysis/).
 
 <!-- INTERNAL LINKS -->
 [tutorial-sspr]: tutorial-enable-sspr.md

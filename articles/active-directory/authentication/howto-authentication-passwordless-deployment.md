@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: baselden, librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f0c19e33ab6f91e69f9c7dbc5bc29fef1fd53bb
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 0143da9c1961b4123467120210135f7db2c582c8
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964883"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94839580"
 ---
 # <a name="plan-a-passwordless-authentication-deployment-in-azure-active-directory"></a>Planeamiento de una implementación de autenticación sin contraseña en Azure Active Directory
 
@@ -67,9 +67,9 @@ Las organizaciones deben cumplir los siguientes requisitos previos antes de come
 
 | Requisito previo | Aplicación de autenticación | Llaves de seguridad FIDO2 |
 | --- | --- | --- |
-| Se ha habilitado el [registro combinado para Azure Multi-Factor Authentication y el autoservicio de restablecimiento de contraseña (SSPR)](howto-registration-mfa-sspr-combined.md). | √ | √ |
-| [Los usuarios pueden realizar Azure Multi-Factor Authentication](howto-mfa-getstarted.md). | √ | √ |
-| [Los usuarios se han registrado para Azure Multi-Factor Authentication y SSPR](howto-registration-mfa-sspr-combined.md). | √ | √ |
+| Se ha habilitado el [registro combinado en Multi-Factor Authentication de Azure AD y el autoservicio de restablecimiento de contraseña (SSPR)](howto-registration-mfa-sspr-combined.md). | √ | √ |
+| [Los usuarios pueden realizar la autenticación multifactor de Azure AD](howto-mfa-getstarted.md). | √ | √ |
+| [Los usuarios se han registrado en Multi-Factor Authentication de Azure AD y SSPR](howto-registration-mfa-sspr-combined.md). | √ | √ |
 | [Los usuarios han registrado sus dispositivos móviles en Azure Active Directory](../devices/overview.md) | √ |   |
 | Windows 10 versión 1809 o superior con un explorador compatible, como Microsoft Edge o Mozilla Firefox <br> (versión 67 o posterior). <br> *Microsoft recomienda la versión 1903 o posteriores para tener compatibilidad nativa*. |   | √ |
 | Llaves de seguridad FIDO2 compatibles. Asegúrese de que está usando un dispositivo de seguridad FIDO2 [verificado y probado por Microsoft](./concept-authentication-passwordless.md) u otro dispositivo de seguridad FIDO2 compatible. |   | √ |
@@ -78,9 +78,9 @@ Las organizaciones deben cumplir los siguientes requisitos previos antes de come
 
 Los requisitos previos de Windows Hello dependen en gran medida de si se está implementando en una configuración local, híbrida o solo en la nube. Para más información, consulte la [lista completa de requisitos previos de Windows Hello para empresas](/windows/security/identity-protection/hello-for-business/hello-identity-verification).
 
-### <a name="azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication
+### <a name="azure-ad-multi-factor-authentication"></a>Azure AD Multi-Factor Authentication
 
-Los usuarios registran su método sin contraseña como parte del flujo de registro de Azure Multi-Factor Authentication. La autenticación multifactor con un nombre de usuario y una contraseña, además de otro método registrado, puede usarse como reserva en caso de que no puedan usar su llave de seguridad o el teléfono en algunos escenarios.
+Como parte del flujo de registro de Multi-Factor Authentication de Azure AD, los usuarios registran su método sin contraseña. La autenticación multifactor con un nombre de usuario y una contraseña, además de otro método registrado, puede usarse como reserva en caso de que no puedan usar su llave de seguridad o el teléfono en algunos escenarios.
 
 ### <a name="licensing"></a>Licencias 
 No hay ningún costo adicional para la autenticación sin contraseña, aunque algunos requisitos previos pueden requerir una suscripción prémium. Para más información sobre las características y licencias, consulte la [página de licencias de Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/). 
@@ -140,7 +140,7 @@ Esta aplicación convierte cualquier teléfono Android o iOS en una credencial s
 
 **Integración de AD FS**: cuando un usuario ha habilitado la credencial sin contraseña de Microsoft Authenticator, la autenticación predeterminada para ese usuario siempre será enviar una notificación para su aprobación. Se impide que los usuarios de un inquilino híbrido se dirijan a ADFS para iniciar sesión a menos que seleccionen "Use su contraseña en su lugar". Este proceso también omite las directivas de acceso condicional locales y los flujos de autenticación de paso a través. Sin embargo, si se especifica *login_hint*, el usuario se reenvía de manera automática a ADFS y se omite la opción de usar la credencial sin contraseña.
 
-**Servidor de Azure Multi-Factor Authentication**: los usuarios finales que están habilitados para Multi-Factor Authentication a través de un servidor de Azure Multi-Factor Authentication local de la organización pueden crear y usar una credencial de inicio de sesión único en el teléfono sin contraseña. Si el usuario intenta actualizar varias instalaciones (5 o más) de Microsoft Authenticator con la credencial, este cambio puede dar lugar a un error.
+**Servidor de Multi-Factor Authentication de Azure AD**: los usuarios finales que están habilitados para Multi-Factor Authentication a través de un servidor de Azure MFA local de la organización pueden crear y usar una sola credencial de inicio de sesión telefónico sin contraseña. Si el usuario intenta actualizar varias instalaciones (5 o más) de Microsoft Authenticator con la credencial, este cambio puede dar lugar a un error.
 
 **Registro de dispositivos**: para usar la aplicación Authenticator para la autenticación sin contraseña, el dispositivo debe estar registrado en el inquilino de Azure AD y no puede ser un dispositivo compartido. Un dispositivo solo se puede registrar en un único inquilino. Este límite significa que solo se admite una cuenta profesional o educativa para el inicio de sesión en el teléfono con la aplicación Authenticator.
 

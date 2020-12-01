@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/10/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 1abbabd3c231a70ca473c4b64e9a8c75d2119c89
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 7d116010d5e6fea5e1ba8a66431b874194506283
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94445530"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843458"
 ---
 # <a name="azure-security-baseline-for-key-vault"></a>Línea de base de seguridad de Azure para Key Vault
 
@@ -382,7 +382,7 @@ https://docs.microsoft.com/azure/key-vault/service-to-service-authentication
 
 **Instrucciones**: Habilite Multi-Factor Authentication de Azure Active Directory y siga las recomendaciones de administración de identidades y acceso de Azure Security Center (actualmente en fase de versión preliminar) para ayudar a proteger los recursos habilitados para Event Hubs.
 
-Planeamiento de una implementación de Azure Multi-Factor Authentication basada en la nube:
+Planeamiento de una implementación de Multi-Factor Authentication de Azure AD basado en la nube:
 
 https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
 
@@ -397,11 +397,11 @@ https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
 ### <a name="36-use-dedicated-machines-privileged-access-workstations-for-all-administrative-tasks"></a>3.6: Use máquinas dedicadas (estaciones de trabajo de acceso con privilegios) para todas las tareas administrativas
 
-**Instrucciones**: Utilice estaciones de acceso con privilegios (PAW) con Azure Multi-Factor Authentication (MFA) configurada para iniciar sesión en recursos habilitados para Azure Key Vault y configurarlos. 
+**Guía**: Utilice una estación de trabajo de acceso con privilegios (PAW) que tenga configurado Multi-Factor Authentication (MFA) de Azure AD para iniciar sesión en los recursos habilitados para Azure Key Vault y configurarlos. 
 
 Uso de estaciones de trabajo con privilegios de acceso: https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations 
 
-Planeamiento de una implementación de Azure Multi-Factor Authentication basada en la nube: https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
+Planeamiento de una implementación de Multi-Factor Authentication de Azure AD basado en la nube: https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
 
 
 

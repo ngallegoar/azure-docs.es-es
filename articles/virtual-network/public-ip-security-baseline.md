@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/11/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: d90384644c58938bfc8a37ec1231b0d12fd60057
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 788c52490a97bb5d5aee0656bbdd09731d767d85
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90058707"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842607"
 ---
 # <a name="azure-security-baseline-for-azure-public-ip"></a>Línea de base de seguridad de Azure para la IP pública de Azure
 
@@ -148,11 +148,11 @@ Acceso Just-In-Time habilitado mediante Azure Active Directory (Azure AD) Privi
 
 ### <a name="36-use-dedicated-machines-privileged-access-workstations-for-all-administrative-tasks"></a>3.6: Use máquinas dedicadas (estaciones de trabajo de acceso con privilegios) para todas las tareas administrativas
 
-**Guía**: use una estación de trabajo de acceso con privilegios (PAW) con Azure Multi-Factor Authentication (MFA) habilitado para iniciar sesión en los recursos relacionados con Azure Sentinel y configurarlos.
+**Guía**: Use una estación de trabajo de acceso con privilegios (PAW) que tenga habilitado Multi-Factor Authentication (MFA) de Azure AD para iniciar sesión en los recursos relacionados con Azure Sentinel y configurarlos.
 
 - [Uso de estaciones de trabajo con privilegios de acceso](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
 
-- [Planeamiento de una implementación de Azure Multi-Factor Authentication basada en la nube](../active-directory/authentication/howto-mfa-getstarted.md)
+- [Planeamiento de una implementación de Multi-Factor Authentication de Azure AD basado en la nube](../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Supervisión de Azure Security Center**: No aplicable
 

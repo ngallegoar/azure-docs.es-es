@@ -11,17 +11,17 @@ author: GithubMirek
 ms.author: MirekS
 ms.reviewer: vanto
 ms.date: 04/23/2020
-ms.openlocfilehash: bef6e6c5ef795c192a846700fc046aa20274502d
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 93831ec4c1dc3e34c2ea144e71b67dae711ee870
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92673399"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94841655"
 ---
-# <a name="connect-to-azure-sql-database-with-azure-multi-factor-authentication"></a>Conexión a Azure SQL Database con Azure Multi-factor Authentication
+# <a name="connect-to-azure-sql-database-with-azure-ad-multi-factor-authentication"></a>Conexión a Azure SQL Database con Multi-Factor Authentication de Azure AD
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-En este artículo se proporciona un programa de C# que conecta con Azure SQL Database. El programa usa la autenticación de modo interactivo, que admite [Azure Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md).
+En este artículo se proporciona un programa de C# que conecta con Azure SQL Database. El programa usa la autenticación de modo interactivo, que admite [Multi-Factor Authentication de Azure AD](../../active-directory/authentication/concept-mfa-howitworks.md).
 
 Para más información sobre la compatibilidad con Multi-Factor Authentication de las herramientas de SQL, consulte [Compatibilidad de Azure Active Directory con SQL Server Data Tools (SSDT)](/sql/ssdt/azure-active-directory).
 
@@ -39,7 +39,7 @@ A partir de la versión 4.7.2 de .NET Framework, la enumeración [`SqlAuthentica
 
 * Un cuadro de diálogo que solicita un código de verificación de Multi-Factor Authentication, que el sistema ha enviado a un teléfono móvil.
 
-Para información sobre cómo configurar Azure AD para solicitar Multi-Factor Authentication, consulte [Introducción a Azure Multi-Factor Authentication en la nube](../../active-directory/authentication/howto-mfa-getstarted.md).
+Para información sobre cómo configurar Azure AD para exigir Multi-Factor Authentication, consulte [Introducción a Multi-Factor Authentication de Azure AD en la nube](../../active-directory/authentication/howto-mfa-getstarted.md).
 
 Para obtener capturas de pantalla de estos cuadros de diálogo, consulte [Configuración de la autenticación multifactor para SQL Server Management Studio y Azure AD](authentication-mfa-ssms-configure.md).
 
@@ -56,27 +56,27 @@ Antes de empezar, debe haber un [servidor SQL lógico](logical-servers.md) dispo
 
 Para usar la autenticación de Azure AD, el programa de C# se debe registrar como una aplicación de Azure AD. Para registrar una aplicación, debe ser administrador de Azure AD o usuario asignado al rol *Desarrollador de aplicaciones* de Azure AD. Para más información sobre la asignación de roles, consulte [Asignación de roles de administrador y de no administrador a usuarios con Azure Active Directory](../../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
 
-Al completar el registro de una aplicación, se genera y se muestra un **identificador de la aplicación** . El programa debe incluir este identificador para realizar la conexión.
+Al completar el registro de una aplicación, se genera y se muestra un **identificador de la aplicación**. El programa debe incluir este identificador para realizar la conexión.
 
 Para registrar y establecer los permisos necesarios para la aplicación:
 
-1. En Azure Portal, seleccione **Azure Active Directory** > **Registros de aplicaciones** > **Nuevo registro** .
+1. En Azure Portal, seleccione **Azure Active Directory** > **Registros de aplicaciones** > **Nuevo registro**.
 
     ![Registro de aplicación](./media/active-directory-interactive-connect-azure-sql-db/image1.png)
 
-    Una vez que se crea el registro de aplicaciones, se genera y se muestra el valor del **identificador de la aplicación** .
+    Una vez que se crea el registro de aplicaciones, se genera y se muestra el valor del **identificador de la aplicación**.
 
     ![Identificador de aplicación mostrado](./media/active-directory-interactive-connect-azure-sql-db/image2.png)
 
-2. Seleccione **Permisos de API** > **Agregar un permiso** .
+2. Seleccione **Permisos de API** > **Agregar un permiso**.
 
     ![Configuración de permisos para la aplicación registrada](./media/active-directory-interactive-connect-azure-sql-db/sshot-registered-app-settings-required-permissions-add-api-access-c32.png)
 
-3. Seleccione **API usadas en mi organización** > escriba **Azure SQL Database** en la búsqueda y seleccione **Azure SQL Database** .
+3. Seleccione **API usadas en mi organización** > escriba **Azure SQL Database** en la búsqueda y seleccione **Azure SQL Database**.
 
     ![Adición de acceso a la API de Azure SQL Database](./media/active-directory-interactive-connect-azure-sql-db/sshot-registered-app-settings-required-permissions-add-api-access-Azure-sql-db-d11.png)
 
-4. Seleccione **Permisos delegados** > **user_impersonation** > **Agregar permisos** .
+4. Seleccione **Permisos delegados** > **user_impersonation** > **Agregar permisos**.
 
     ![Delegación de permisos en la API de Azure SQL Database](./media/active-directory-interactive-connect-azure-sql-db/sshot-add-api-access-azure-sql-db-delegated-permissions-checkbox-e14.png)
 
@@ -84,7 +84,7 @@ Para registrar y establecer los permisos necesarios para la aplicación:
 
 Para que el programa de C# se ejecute, un administrador del [servidor SQL lógico](logical-servers.md) debe asignar un administrador de Azure AD para el servidor.
 
-En la página **SQL Server** , seleccione **Administrador de Active Directory** > **Establecer administrador** .
+En la página **SQL Server**, seleccione **Administrador de Active Directory** > **Establecer administrador**.
 
 Para más información sobre los usuarios y administradores de Azure AD para Azure SQL Database, consulte las capturas de pantalla que aparecen en [Configuración y administración de la autenticación de Azure Active Directory con SQL Database](authentication-aad-configure.md#provision-azure-ad-admin-sql-database).
 
@@ -106,7 +106,7 @@ El ejemplo de C# se basa en el espacio de nombres [`System.Data.SqlClient`](/dot
 
 * `SqlAuthenticationMethod.ActiveDirectoryIntegrated`
 
-  Use este valor para una cuenta *federada* . En una cuenta federada, el nombre del usuario se conoce en el dominio de Windows. Este método de autenticación no admite Multi-Factor Authentication.
+  Use este valor para una cuenta *federada*. En una cuenta federada, el nombre del usuario se conoce en el dominio de Windows. Este método de autenticación no admite Multi-Factor Authentication.
 
 * `SqlAuthenticationMethod.ActiveDirectoryPassword`
 
@@ -134,16 +134,16 @@ Antes de ejecutar el programa de C#, se recomienda comprobar que la configuraci�
 
 ### <a name="verify-server-level-firewall-ip-addresses"></a>Comprobación de las direcciones IP del firewall de nivel de servidor
 
-Ejecute SSMS desde el mismo equipo, en el mismo edificio, donde planea ejecutar el programa de C#. Para esta prueba sirve cualquier modo de **autenticación** . Si hay cualquier indicación de que el servidor no acepta su dirección IP, consulte [Reglas de firewall de nivel de servidor y de nivel de base de datos](firewall-configure.md) para obtener ayuda.
+Ejecute SSMS desde el mismo equipo, en el mismo edificio, donde planea ejecutar el programa de C#. Para esta prueba sirve cualquier modo de **autenticación**. Si hay cualquier indicación de que el servidor no acepta su dirección IP, consulte [Reglas de firewall de nivel de servidor y de nivel de base de datos](firewall-configure.md) para obtener ayuda.
 
 ### <a name="verify-azure-active-directory-multi-factor-authentication"></a>Comprobación de Multi-Factor Authentication para Azure Active Directory
 
-Vuelva a ejecutar SSMS, en esta ocasión con la opción **Autenticación** establecida en **Active Directory - Universal con MFA** . Esta opción requiere la versión 17.5 o posterior de SSMS.
+Vuelva a ejecutar SSMS, en esta ocasión con la opción **Autenticación** establecida en **Active Directory - Universal con MFA**. Esta opción requiere la versión 17.5 o posterior de SSMS.
 
 Para más información, consulte [Configuración de la autenticación multifactor para SQL Server Management Studio y Azure AD](authentication-mfa-ssms-configure.md).
 
 > [!NOTE]
-> Si es un usuario invitado de la base de datos, también debe proporcionar el nombre de dominio de Azure AD para la base de datos: Seleccione **Opciones** > **Nombre de dominio o ID de inquilino de AD** . Para buscar el nombre de dominio de Azure Portal, seleccione **Azure Active Directory** > **Nombres de dominio personalizados** . En el programa de C# de ejemplo, no es necesario brindar un nombre de dominio.
+> Si es un usuario invitado de la base de datos, también debe proporcionar el nombre de dominio de Azure AD para la base de datos: Seleccione **Opciones** > **Nombre de dominio o ID de inquilino de AD**. Para buscar el nombre de dominio de Azure Portal, seleccione **Azure Active Directory** > **Nombres de dominio personalizados**. En el programa de C# de ejemplo, no es necesario brindar un nombre de dominio.
 
 ## <a name="c-code-example"></a>Ejemplo de código de C#
 
@@ -152,7 +152,7 @@ Para más información, consulte [Configuración de la autenticación multifacto
 
 El programa de C# de ejemplo se basa en el ensamblado DLL de [*Microsoft.IdentityModel.Clients.ActiveDirectory*](/dotnet/api/microsoft.identitymodel.clients.activedirectory).
 
-Para instalar este paquete, en Visual Studio seleccione **Proyecto** > **Administrar paquetes NuGet** . Busque e instale **Microsoft.IdentityModel.Clients.ActiveDirectory** .
+Para instalar este paquete, en Visual Studio seleccione **Proyecto** > **Administrar paquetes NuGet**. Busque e instale **Microsoft.IdentityModel.Clients.ActiveDirectory**.
 
 Este es un ejemplo de código fuente de C#.
 

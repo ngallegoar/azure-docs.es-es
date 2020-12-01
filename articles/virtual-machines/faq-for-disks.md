@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/15/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 3d199ae202cbe99176f3ca5d0ae82ecdeec84ca4
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: d6cf0ba06293a073fc8fbe26e2386f1852429002
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94684515"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844002"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Preguntas más frecuentes sobre los discos de máquina virtual de IaaS de Azure y los discos premium administrados y no administrados
 
@@ -76,7 +76,7 @@ En función de la región en la que se encuentre el conjunto de disponibilidad q
 
 Se configura una cuenta de almacenamiento privada para el diagnóstico de máquinas virtuales.
 
-**¿Qué tipo de compatibilidad con el Control de acceso basado en roles está disponible para Managed Disks?**
+**¿Qué tipo de compatibilidad con el control de acceso basado en rol de Azure está disponible con Managed Disks?**
 
 Managed Disks admite tres roles predeterminados fundamentales:
 

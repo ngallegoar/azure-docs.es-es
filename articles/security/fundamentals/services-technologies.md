@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/29/2019
 ms.author: terrylan
-ms.openlocfilehash: 553cfe0c1a5e7d569c127f23a11f25f4d150b0bc
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: a4cc6e31e49243af8fa52ac568bcbba660bcde7e
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94700766"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842743"
 ---
 # <a name="security-services-and-technologies-available-on-azure"></a>Servicios y tecnologías de seguridad disponibles en Azure
 
@@ -71,7 +71,7 @@ Con el tiempo, esta lista cambiará y aumentará, igual que lo hace Azure. Aseg�
 | [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md)|Repositorio de autenticación basado en la nube que admite un directorio en la nube de varios inquilinos y varios servicios de administración de identidades en Azure.  |
 | [Azure Active Directory B2C](../../active-directory-b2c/overview.md)|Servicio de administración de identidades que permite controlar la manera en que los clientes se registran, inician sesión y administran sus perfiles al usar las aplicaciones de Azure.   |
 | [Azure Active Directory Domain Services](../../active-directory-domain-services/overview.md)| Una versión en la nube y administrada de Active Directory Domain Services. |
-| [Azure Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md)| Aprovisionamiento de seguridad que utiliza diferentes formas de autenticación y comprobación antes de permitir el acceso a información protegida. |
+| [Multi-Factor Authentication de Azure AD](../../active-directory/authentication/concept-mfa-howitworks.md)| Aprovisionamiento de seguridad que utiliza diferentes formas de autenticación y comprobación antes de permitir el acceso a información protegida. |
 
 ## <a name="backup-and-disaster-recovery"></a>Copia de seguridad y recuperación ante desastres
 |Servicio|Descripción|

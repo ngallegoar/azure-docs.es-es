@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/08/2020
 ms.author: terrylan
-ms.openlocfilehash: 779330d7881040026f45a031f95f44d770f39a56
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: e9eabc73c244526f0ea15b9c72b5377545f662b2
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94412772"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844870"
 ---
 # <a name="security-management-in-azure"></a>Administración de la seguridad en Azure
 Los suscriptores de Azure pueden administrar sus entornos de nube desde diversos dispositivos, incluidas estaciones de trabajo de administración, equipos de desarrollador e incluso dispositivos de usuario final con privilegios que tengan permisos específicos para la tarea. En algunos casos, las funciones administrativas se realizan mediante consolas web tales como [Azure Portal](https://azure.microsoft.com/features/azure-portal/). En otros casos, puede haber conexiones directas a Azure desde sistemas locales a través de redes privadas virtuales (VPN), Terminal Services, protocolos de aplicación de cliente o Azure Service Management API (SMAPI). Además, los puntos de conexión de cliente pueden estar unidos a un dominio o aislados y no administrados, como tabletas o smartphones.
@@ -112,7 +112,7 @@ Puerta de enlace de Escritorio remoto es un servicio de proxy RDP basado en dire
 * Una Puerta de enlace de Escritorio remoto al mismo [dominio de administración](/previous-versions/windows/it-pro/windows-2000-server/bb727085(v=technet.10)) que las estaciones de trabajo de administrador. Esto es necesario cuando se usa una VPN IPsec de sitio a sitio o ExpressRoute dentro de un dominio que tenga una confianza unidireccional con Azure AD, o si federa las credenciales entre su instancia de AD DS local y Azure AD.
 * Configure una [directiva de autorización de conexión de cliente](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753324(v=ws.11)) para que Puerta de enlace de Escritorio remoto pueda comprobar si el nombre de la máquina cliente es válido (unido a un dominio) y tiene permiso para acceder a Azure Portal.
 * Use IPsec para que la [VPN de Azure](https://azure.microsoft.com/documentation/services/vpn-gateway/) pueda proteger aún más el tráfico de administración contra la interceptación y el robo de tokens, o podría usar un vínculo a Internet aislado mediante [Azure ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/).
-* Habilite la autenticación multifactor (mediante [Azure Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md)) o la autenticación de tarjeta inteligente para los administradores que inician sesión mediante Puerta de enlace de Escritorio remoto.
+* Habilite la autenticación multifactor (mediante [Multi-Factor Authentication de Azure AD](../../active-directory/authentication/concept-mfa-howitworks.md)) o la autenticación de tarjeta inteligente para los administradores que inician sesión mediante Puerta de enlace de Escritorio remoto.
 * Configure las [restricciones de direcciones IP](https://azure.microsoft.com/blog/2013/08/27/confirming-dynamic-ip-address-restrictions-in-windows-azure-web-sites/) de origen o los [grupos de seguridad de red](../../virtual-network/network-security-groups-overview.md) en Azure para minimizar el número de puntos de conexión de administración permitidos.
 
 ## <a name="security-guidelines"></a>Directrices de seguridad

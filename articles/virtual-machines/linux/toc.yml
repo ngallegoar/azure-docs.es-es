@@ -487,7 +487,7 @@
                       href: ../image-version-vm-cli.md
                     - name: Desde un disco administrado o una instantánea
                       href: ../image-version-snapshot-cli.md
-                    - name: Migración desde una imagen administrada
+                    - name: Clonación de una imagen administrada
                       href: ../image-version-managed-image-cli.md
                     - name: Copia desde otra galería
                       href: ../image-version-another-gallery-cli.md
@@ -511,7 +511,7 @@
                       href: ../image-version-vm-powershell.md
                     - name: Desde un disco administrado o una instantánea
                       href: ../image-version-snapshot-powershell.md
-                    - name: Migración desde una imagen administrada
+                    - name: Clonación de una imagen administrada
                       href: ../image-version-managed-image-powershell.md
                     - name: Copia desde otra galería
                       href: ../image-version-another-gallery-powershell.md
@@ -971,7 +971,7 @@
           items:
             - name: Azure CLI
               href: add-disk.md
-            - name: Azure Portal
+            - name: Azure portal
               href: attach-disk-portal.md
         - name: 'Cambio del nivel del disco: PowerShell/CLI'
           href: ../disks-performance-tiers.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json

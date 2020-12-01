@@ -1,6 +1,6 @@
 ---
-title: 'Registro combinado para SSPR y Azure Multi-Factor Authentication: Azure Active Directory'
-description: Obtenga información sobre la experiencia de registro combinado de Azure Active Directory para permitir que los usuarios se registren tanto en Azure Multi-Factor Authentication como en el autoservicio de restablecimiento de contraseña.
+title: 'Registro combinado de SSPR y Multi-Factor Authentication de Azure AD: Azure Active Directory'
+description: Aprenda sobre la experiencia de registro combinado de Azure Active Directory para permitir que los usuarios se registren tanto en Multi-Factor Authentication de Azure AD como en el autoservicio de restablecimiento de contraseña.
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7e1036e63b4fdef241350786fa3a246946a9223c
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 22f43c5f9848670b9df4b061c5abb6cc30912172
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93378013"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94839801"
 ---
 # <a name="combined-security-information-registration-for-azure-active-directory-overview"></a>Introducción al registro de información de seguridad combinado para Azure Active Directory
 
-Antes del registro combinado, los usuarios se registraban a los métodos de autenticación para Azure Multi-factor Authentication y el autoservicio de restablecimiento de contraseña (SSPR) por separado. La gente estaba confundida por el hecho de que se usaban métodos parecidos para Multi-Factor Authentication y SSPR pero, aún así, se tenían que registrar en las dos características. Ahora, con el registro combinado, los usuarios pueden registrarse una vez y obtener las ventajas de Multi-Factor Authentication y SSPR.
+Antes del registro combinado, los usuarios se registraban en los métodos de autenticación Multi-Factor Authentication Azure AD y autoservicio de restablecimiento de contraseña (SSPR) por separado. La gente estaba confundida por el hecho de que se usaban métodos parecidos para Multi-Factor Authentication y SSPR pero, aún así, se tenían que registrar en las dos características. Ahora, con el registro combinado, los usuarios pueden registrarse una vez y obtener las ventajas de Multi-Factor Authentication y SSPR.
 
 > [!NOTE]
 > A partir del 15 de agosto de 2020, todos los nuevos inquilinos de Azure AD se habilitarán automáticamente para el registro combinado.
@@ -142,8 +142,8 @@ Un usuario que previamente ha configurado al menos un método que se puede usar 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para comenzar, consulte los tutoriales para [habilitar el autoservicio de restablecimiento de contraseña](tutorial-enable-sspr.md) y [habilitar Azure Multi-Factor Authentication](tutorial-enable-azure-mfa.md).
+Para comenzar, consulte los tutoriales para [habilitar el autoservicio de restablecimiento de contraseña](tutorial-enable-sspr.md) y [habilitar Multi-Factor Authentication de Azure AD](tutorial-enable-azure-mfa.md).
 
 Obtenga información sobre cómo [habilitar el registro combinado en su inquilino](howto-registration-mfa-sspr-combined.md) o cómo [obligar a los usuarios a volver a registrar los métodos de autenticación](howto-mfa-userdevicesettings.md#manage-user-authentication-options).
 
-Además, puede revisar los [métodos disponibles para Multi-Factor Authentication y SSPR](concept-authentication-methods.md).
+Además, puede revisar los [métodos disponibles para Multi-Factor Authentication de Azure AD y SSPR](concept-authentication-methods.md).

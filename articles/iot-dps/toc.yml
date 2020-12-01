@@ -47,6 +47,8 @@
           href: how-to-legacy-device-symm-key.md
         - name: Uso de directivas de asignación personalizadas
           href: tutorial-custom-allocation-policies.md
+        - name: Aprovisionamiento de varios dispositivos X.509
+          href: tutorial-custom-hsm-enrollment-group-x509.md
     - name: '2: aprovisionamiento de dispositivos en varios centros'
       items:
         - name: Vinculación de varios centros a DPS

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rateller
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cdc0dea825cb32275a2ada3a49d7d622180aa468
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: a1da460933269a21afaf8ec7d805ec6f43fce926
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92166645"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94839412"
 ---
 # <a name="configure-and-enable-users-for-sms-based-authentication-using-azure-active-directory-preview"></a>Configuración y habilitación de los usuarios para la autenticación basada en SMS mediante Azure Active Directory (versión preliminar)
 
@@ -45,7 +45,7 @@ Para completar este artículo, necesitará los siguientes recursos y privilegios
 
 Durante la versión preliminar pública de la autenticación basada en SMS, se aplican las siguientes limitaciones:
 
-* La autenticación basada en SMS no es compatible actualmente con Azure Multi-Factor Authentication.
+* La autenticación basada en SMS no es compatible actualmente con Multi-Factor Authentication de Azure AD.
 * A excepción de Teams, la autenticación basada en SMS no es compatible actualmente con las aplicaciones de Office nativas.
 * No se recomienda la autenticación basada en SMS para las cuentas B2B.
 * Los usuarios federados no se autenticarán en el inquilino principal. Solo se autentican en la nube.
@@ -57,18 +57,18 @@ Para habilitar y usar la autenticación basada en SMS en su organización se nec
 * Habilitar la directiva de métodos de autenticación.
 * Seleccionar los usuarios o grupos que pueden usar el método de autenticación basado en SMS.
 * Asignar un número de teléfono para cada cuenta de usuario.
-    * Este número de teléfono se puede asignar en Azure Portal (que se muestra en este artículo) y en *Mi personal* o *Mi perfil* .
+    * Este número de teléfono se puede asignar en Azure Portal (que se muestra en este artículo) y en *Mi personal* o *Mi perfil*.
 
 En primer lugar, vamos a habilitar la autenticación basada en SMS para el inquilino de Azure AD.
 
-1. Inicie sesión en [Azure Portal][azure-portal] como *administrador global* .
-1. Busque y seleccione **Azure Active Directory** .
+1. Inicie sesión en [Azure Portal][azure-portal] como *administrador global*.
+1. Busque y seleccione **Azure Active Directory**.
 1. En el menú de navegación de la parte izquierda de la ventana de Azure Active Directory, seleccione **Seguridad > Métodos de autenticación > Directiva de métodos de autenticación (versión preliminar)** .
 
     [![Busque y seleccione la ventana de la directiva de métodos de autenticación (versión preliminar) en Azure Portal.](media/howto-authentication-sms-signin/authentication-method-policy-cropped.png)](media/howto-authentication-sms-signin/authentication-method-policy.png#lightbox)
 
-1. En la lista de métodos de autenticación disponibles, seleccione **Mensaje de texto** .
-1. Establezca **Habilitar** en *Sí* .
+1. En la lista de métodos de autenticación disponibles, seleccione **Mensaje de texto**.
+1. Establezca **Habilitar** en *Sí*.
 
     ![Habilitación de la autenticación de texto en la ventana de la directiva de métodos de autenticación](./media/howto-authentication-sms-signin/enable-text-authentication-method.png)
 
@@ -78,7 +78,7 @@ En primer lugar, vamos a habilitar la autenticación basada en SMS para el inqui
 
 Con la autenticación basada en SMS habilitada en el inquilino de Azure AD, seleccione ahora algunos usuarios o grupos que van a poder usar este método de autenticación.
 
-1. En la ventana de la directiva de autenticación de mensajes de texto, establezca **Destino** en *Seleccionar usuarios* .
+1. En la ventana de la directiva de autenticación de mensajes de texto, establezca **Destino** en *Seleccionar usuarios*.
 1. Elija **Agregar usuarios o grupos** y, luego, seleccione *Contoso User* (Usuario de Contoso) o *Contoso SMS Users* (Usuarios de SMS de Contoso) como usuario o grupo de prueba.
 
     [![Seleccione los usuarios o grupos que quiere habilitar para la autenticación basada en SMS en Azure Portal.](media/howto-authentication-sms-signin/add-users-or-groups-cropped.png)](media/howto-authentication-sms-signin/add-users-or-groups.png#lightbox)
@@ -89,24 +89,24 @@ Cada usuario que esté habilitado en la directiva de métodos de autenticación 
 
 ## <a name="set-a-phone-number-for-user-accounts"></a>Establecimiento de un número de teléfono para las cuentas de usuario
 
-Los usuarios ya están habilitados para la autenticación basada en SMS, pero su número de teléfono debe estar asociado con el perfil de usuario en Azure AD antes de poder iniciar sesión. El usuario puede [establecer este número de teléfono por sí mismo](../user-help/sms-sign-in-explainer.md) en *Mi perfil* , o bien se puede asignar mediante Azure Portal. Los *administradores globales* , *administradores de autenticación* o *administradores de autenticación con privilegios* pueden establecer los números de teléfono.
+Los usuarios ya están habilitados para la autenticación basada en SMS, pero su número de teléfono debe estar asociado con el perfil de usuario en Azure AD antes de poder iniciar sesión. El usuario puede [establecer este número de teléfono por sí mismo](../user-help/sms-sign-in-explainer.md) en *Mi perfil*, o bien se puede asignar mediante Azure Portal. Los *administradores globales*, *administradores de autenticación* o *administradores de autenticación con privilegios* pueden establecer los números de teléfono.
 
-Cuando se establece un número de teléfono para el inicio de sesión con SMS, también está disponible para su uso con [Azure Multi-Factor Authentication][tutorial-azure-mfa] y [autoservicio de restablecimiento de contraseña][tutorial-sspr].
+Cuando se establece un número de teléfono para el inicio de sesión con SMS, también se puede usar con [Multi-Factor Authentication de Azure AD][tutorial-azure-mfa] y el [autoservicio de restablecimiento de contraseña][tutorial-sspr].
 
-1. Busque y seleccione **Azure Active Directory** .
-1. En el menú de navegación del lado izquierdo de la ventana de Azure Active Directory, seleccione **Usuarios** .
-1. Seleccione el usuario que habilitó para la autenticación basada en SMS en la sección anterior, por ejemplo, *Contoso User* (Usuario de Contoso) y, luego, seleccione **Métodos de autenticación** .
-1. Seleccione **+ Agregar método de autenticación** y, después, en el menú desplegable *Elegir método* , elija **Número de teléfono** .
+1. Busque y seleccione **Azure Active Directory**.
+1. En el menú de navegación del lado izquierdo de la ventana de Azure Active Directory, seleccione **Usuarios**.
+1. Seleccione el usuario que habilitó para la autenticación basada en SMS en la sección anterior, por ejemplo, *Contoso User* (Usuario de Contoso) y, luego, seleccione **Métodos de autenticación**.
+1. Seleccione **+ Agregar método de autenticación** y, después, en el menú desplegable *Elegir método*, elija **Número de teléfono**.
 
-    Escriba el número de teléfono del usuario, incluido el código de país, por ejemplo, *+1 xxxxxxxxx* . Azure Portal valida que el número de teléfono tenga el formato correcto.
+    Escriba el número de teléfono del usuario, incluido el código de país, por ejemplo, *+1 xxxxxxxxx*. Azure Portal valida que el número de teléfono tenga el formato correcto.
 
-    A continuación, en el menú desplegable *Tipo de teléfono* , seleccione *Móvil* , *Teléfono móvil alternativo* u *Otros* según sea necesario.
+    A continuación, en el menú desplegable *Tipo de teléfono*, seleccione *Móvil*, *Teléfono móvil alternativo* u *Otros* según sea necesario.
 
     :::image type="content" source="media/howto-authentication-sms-signin/set-user-phone-number.png" alt-text="Establecimiento de un número de teléfono para un usuario en Azure Portal para usar con la autenticación basada en SMS":::
 
     El número de teléfono debe ser único en el inquilino. Si intenta usar el mismo número de teléfono para varios usuarios, se muestra un mensaje de error.
 
-1. Para aplicar el número de teléfono a la cuenta de un usuario, seleccione **Agregar** .
+1. Para aplicar el número de teléfono a la cuenta de un usuario, seleccione **Agregar**.
 
 Cuando se aprovisiona correctamente, aparece una marca de verificación en *SMS Sign-in enabled* (Habilitado para el inicio de sesión de SMS).
 
@@ -115,8 +115,8 @@ Cuando se aprovisiona correctamente, aparece una marca de verificación en *SMS 
 Para probar la cuenta de usuario que ahora está habilitada para el inicio de sesión basado en SMS, siga estos pasos:
 
 1. Abra una nueva ventana del explorador web en modo de incógnito o InPrivate en [https://www.office.com][office].
-1. En la esquina superior derecha, seleccione **Iniciar sesión** .
-1. En la solicitud de inicio de sesión, escriba el número de teléfono asociado al usuario en la sección anterior y, luego, seleccione **Siguiente** .
+1. En la esquina superior derecha, seleccione **Iniciar sesión**.
+1. En la solicitud de inicio de sesión, escriba el número de teléfono asociado al usuario en la sección anterior y, luego, seleccione **Siguiente**.
 
     ![Especificación de un número de teléfono en la solicitud de inicio de sesión del usuario de prueba](./media/howto-authentication-sms-signin/sign-in-with-phone-number.png)
 
@@ -132,9 +132,9 @@ Los siguientes escenarios y pasos de solución de problemas pueden usarse si tie
 
 ### <a name="phone-number-already-set-for-a-user-account"></a>Número de teléfono ya establecido para una cuenta de usuario
 
-Si un usuario ya se ha registrado para Azure Multi-Factor Authentication o el autoservicio de restablecimiento de contraseña (SSPR), ya tiene un número de teléfono asociado a su cuenta. Este número de teléfono no está disponible automáticamente para su uso con el inicio de sesión basado en SMS.
+Si un usuario ya se ha registrado en Multi-Factor Authentication de Azure AD o el autoservicio de restablecimiento de contraseña (SSPR), ya tiene un número de teléfono asociado a su cuenta. Este número de teléfono no está disponible automáticamente para su uso con el inicio de sesión basado en SMS.
 
-Los usuarios que tengan un número de teléfono ya establecido para su cuenta verán un botón *Enable for SMS sign-in* (Habilitar para el inicio de sesión único) en su página **Mi perfil** . Al seleccionar este botón, la cuenta se habilitará para su uso con el inicio de sesión basado en SMS y el registro anterior de Azure Multi-Factor Authentication o SSPR.
+Los usuarios que tengan un número de teléfono ya establecido para su cuenta verán un botón *Enable for SMS sign-in* (Habilitar para el inicio de sesión único) en su página **Mi perfil**. Al seleccionar este botón, la cuenta se habilita para su uso con el inicio de sesión basado en SMS y el registro anterior en Multi-Factor Authentication de Azure AD o SSPR.
 
 Para más información sobre la experiencia de usuario final, consulte [Experiencia de usuario de inicio de sesión de SMS para el número de teléfono (versión preliminar)](../user-help/sms-sign-in-explainer.md).
 
@@ -143,8 +143,8 @@ Para más información sobre la experiencia de usuario final, consulte [Experien
 Si recibe un error al intentar establecer un número de teléfono para una cuenta de usuario en Azure Portal, revise los siguientes pasos de solución de problemas:
 
 1. Asegúrese de que está habilitado para la versión preliminar de inicio de sesión basado en SMS.
-1. Confirme que la cuenta de usuario está habilitada en la directiva de métodos de autenticación de *mensaje de texto* .
-1. Asegúrese de establecer el número de teléfono con el formato adecuado, tal como se ha validado en Azure Portal (por ejemplo, *+ 1 4251234567* ).
+1. Confirme que la cuenta de usuario está habilitada en la directiva de métodos de autenticación de *mensaje de texto*.
+1. Asegúrese de establecer el número de teléfono con el formato adecuado, tal como se ha validado en Azure Portal (por ejemplo, *+ 1 4251234567*).
 1. Asegúrese de que el número de teléfono no se usa en ningún otro lugar del inquilino.
 1. Compruebe que no hay ningún número de voz establecido en la cuenta. Si hay establecido un número de voz, elimínelo y vuelva a probar con el número de teléfono.
 

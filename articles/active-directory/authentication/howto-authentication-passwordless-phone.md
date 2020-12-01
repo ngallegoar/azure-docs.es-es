@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 05f3d422c9a504a0089290f3c2e1e68d809366ac
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: 9da0c00bd8498e3f43d5f8258308fbc010a6a274
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94592964"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94839529"
 ---
 # <a name="enable-passwordless-sign-in-with-the-microsoft-authenticator-app-preview"></a>Habilitar el inicio de sesión sin contraseña en Azure AD con la aplicación Microsoft Authenticator (versión preliminar)
 
@@ -36,7 +36,7 @@ Las personas que habilitaron el inicio de sesión en el teléfono desde la aplic
 
 Para usar el inicio de sesión en el teléfono sin contraseña con la aplicación Microsoft Authenticator, se deben cumplir los siguientes requisitos previos:
 
-- Azure Multi-Factor Authentication, con notificaciones de inserción permitidas como método de comprobación.
+- Multi-Factor Authentication de Azure AD, con notificaciones push permitidas como método de verificación.
 - Versión más reciente de Microsoft Authenticator instalada en dispositivos que ejecutan iOS 8.0 o superior o Android 6.0 o superior.
 
 > [!NOTE]
@@ -141,4 +141,4 @@ Para obtener información sobre la autenticación de Azure AD y los métodos sin
 
 - [Obtener información sobre cómo funciona la autenticación con contraseñas](concept-authentication-passwordless.md)
 - [Obtenga información sobre el registro de dispositivos](../devices/overview.md#getting-devices-in-azure-ad)
-- [Más información sobre Azure Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)
+- [Más información sobre Multi-Factor Authentication de Azure AD](../authentication/howto-mfa-getstarted.md)

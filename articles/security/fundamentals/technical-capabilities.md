@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2020
 ms.author: terrylan
-ms.openlocfilehash: 90aafad2a17b9535bde29f811e630112ccbd02e3
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 575486a89cd078325b76fa684ff9bd3d59a619c9
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94696105"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844274"
 ---
 # <a name="azure-security-technical-capabilities"></a>Funcionalidades técnicas de seguridad de Azure
 Este artículo sirve de introducción a los servicios de seguridad de Azure que ayudan a proteger los datos, recursos y aplicaciones en la nube, así como a satisfacer las necesidades de seguridad de su negocio.
@@ -92,7 +92,7 @@ Los usuarios no solo no tienen que administrar varios conjuntos de nombres de us
 
 #### <a name="multi-factor-authentication"></a>Multi-Factor Authentication
 
-[Azure Multi-factor Authentication (MFA)](../../active-directory/authentication/concept-mfa-howitworks.md) es un método de autenticación que requiere el uso de más de un método de verificación, y agrega un segundo nivel de seguridad crítico a las transacciones e inicios de sesión del usuario. [MFA ayuda a proteger](../../active-directory/authentication/concept-mfa-howitworks.md) el acceso a los datos y las aplicaciones, al tiempo que satisface la demanda de los usuarios de un proceso de inicio de sesión simple. Proporciona autenticación sólida mediante una gran variedad de opciones de verificación, como llamadas telefónicas, mensajes de texto, notificaciones de aplicaciones móviles, códigos de verificación y tokens OAuth de terceros.
+[Multi-Factor Authentication (MFA) de Azure AD](../../active-directory/authentication/concept-mfa-howitworks.md) es un método de autenticación que requiere el uso de más de un método de verificación y que agrega una segunda capa de seguridad crítica a las transacciones y los inicios de sesión del usuario. [MFA ayuda a proteger](../../active-directory/authentication/concept-mfa-howitworks.md) el acceso a los datos y las aplicaciones, al tiempo que satisface la demanda de los usuarios de un proceso de inicio de sesión simple. Proporciona autenticación sólida mediante una gran variedad de opciones de verificación, como llamadas telefónicas, mensajes de texto, notificaciones de aplicaciones móviles, códigos de verificación y tokens OAuth de terceros.
 
 #### <a name="security-monitoring-alerts-and-machine-learning-based-reports"></a>Supervisión de seguridad, alertas e informes basados en aprendizaje automático
 
