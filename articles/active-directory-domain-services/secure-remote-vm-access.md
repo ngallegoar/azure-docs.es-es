@@ -1,6 +1,6 @@
 ---
 title: Protección del acceso remoto a máquinas virtuales en Azure AD Domain Services | Microsoft Docs
-description: Aprenda a proteger el acceso remoto a máquinas virtuales mediante el Servidor de directivas de redes (NPS) y Azure Multi-Factor Authentication con una implementación de Servicios de Escritorio remoto en un dominio administrado de Azure Active Directory Domain Services.
+description: Aprenda a proteger el acceso remoto a máquinas virtuales mediante Servidor de directivas de redes (NPS) y Azure AD Multi-Factor Authentication con una implementación de Servicios de Escritorio remoto en un dominio administrado de Azure Active Directory Domain Services.
 services: active-directory-ds
 author: MicrosoftGuyJFlo
 manager: daveba
@@ -10,16 +10,16 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: joflore
-ms.openlocfilehash: 2964ca74a05ccbc61646f8a289fc950b46cdad47
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: a08b5bf4fb575f0cd2098b3ef180860bb8fbd6e0
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91967790"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94840243"
 ---
 # <a name="secure-remote-access-to-virtual-machines-in-azure-active-directory-domain-services"></a>Protección del acceso remoto a máquinas virtuales en Azure AD Domain Services
 
-Para proteger el acceso remoto a máquinas virtuales (VM) que se ejecutan en un dominio administrado de Azure Active Directory Domain Services (Azure AD DS), puede usar Servicios de Escritorio remoto (RDS) y el Servidor de directivas de redes (NPS). Azure AD DS autentica a los usuarios a medida que solicitan acceso en el entorno de RDS. Para mejorar la seguridad, puede integrar Azure Multi-Factor Authentication para proporcionar una solicitud de autenticación adicional durante los eventos de inicio de sesión. Azure Multi-Factor Authentication usa una extensión para que NPS proporcione esta característica.
+Para proteger el acceso remoto a máquinas virtuales (VM) que se ejecutan en un dominio administrado de Azure Active Directory Domain Services (Azure AD DS), puede usar Servicios de Escritorio remoto (RDS) y el Servidor de directivas de redes (NPS). Azure AD DS autentica a los usuarios a medida que solicitan acceso en el entorno de RDS. Para mejorar la seguridad, puede integrar Azure AD Multi-Factor Authentication a fin de proporcionar una solicitud de autenticación adicional durante los eventos de inicio de sesión. Azure AD Multi-Factor Authentication usa una extensión para que NPS proporcione esta característica.
 
 > [!IMPORTANT]
 > La manera recomendada de conectarse de forma segura a las máquinas virtuales en un dominio administrado de Azure AD DS es usar Azure Bastion, un servicio PaaS totalmente administrado por la plataforma que se aprovisiona dentro de la red virtual. Un host bastión proporciona una conexión del Protocolo de escritorio remoto (RDP) segura e ininterrumpida a las máquinas virtuales directamente en Azure Portal a través de SSL. Cuando se conecta a través de un host bastión, las máquinas virtuales no necesitan una dirección IP pública ni es necesario usar grupos de seguridad de red para exponer el acceso a RDP en el puerto TCP 3389.
@@ -28,7 +28,7 @@ Para proteger el acceso remoto a máquinas virtuales (VM) que se ejecutan en un 
 >
 > Para más información, consulte [¿Qué es Azure Bastion?][bastion-overview].
 
-En este artículo se muestra cómo configurar RDS en Azure AD DS y, opcionalmente, cómo usar la extensión NPS para Azure Multi-Factor Authentication.
+En este artículo se muestra cómo configurar RDS en Azure AD DS y, opcionalmente, cómo usar la extensión NPS de Azure AD Multi-Factor Authentication.
 
 ![Introducción a los Servicios de Escritorio remoto (RDS)](./media/enable-network-policy-server/remote-desktop-services-overview.png)
 
@@ -66,32 +66,32 @@ La implementación del entorno de Escritorio remoto contiene una serie de pasos.
 
 Con Escritorio remoto implementado en el dominio administrado, puede administrar y usar el servicio como lo haría con un dominio de AD DS local.
 
-## <a name="deploy-and-configure-nps-and-the-azure-mfa-nps-extension"></a>Implementación y configuración de la extensión NPS para Azure MFA
+## <a name="deploy-and-configure-nps-and-the-azure-ad-mfa-nps-extension"></a>Implementación y configuración de NPS y la extensión NPS de Azure AD MFA
 
-Si desea aumentar la seguridad de la experiencia de inicio de sesión del usuario, también puede integrar el entorno de Escritorio remoto con Azure Multi-Factor Authentication. Con esta configuración, los usuarios reciben una solicitud adicional durante el inicio de sesión para confirmar su identidad.
+Si quiere aumentar la seguridad de la experiencia de inicio de sesión del usuario, puede integrar el entorno de Escritorio remoto con Azure AD Multi-Factor Authentication. Con esta configuración, los usuarios reciben una solicitud adicional durante el inicio de sesión para confirmar su identidad.
 
-Para proporcionar esta capacidad, se instala un Servidor de directivas de redes (NPS) adicional en el entorno junto con la extensión NPS para Azure Multi-Factor Authentication. Esta extensión se integra con Azure AD para solicitar y devolver el estado de las solicitudes de la autenticación multifactor.
+Para proporcionar esta capacidad, se instala una instancia adicional de Servidor de directivas de redes (NPS) en el entorno junto con la extensión NPS de Azure AD Multi-Factor Authentication. Esta extensión se integra con Azure AD para solicitar y devolver el estado de las solicitudes de la autenticación multifactor.
 
-Los usuarios deben estar [registrados para usar Azure Multi-Factor Authentication][user-mfa-registration], lo que puede requerir licencias de Azure AD adicionales.
+Los usuarios deben estar [registrados para usar Azure AD Multi-Factor Authentication][user-mfa-registration], lo que puede requerir licencias de Azure AD adicionales.
 
-Para integrar Azure Multi-Factor Authentication en el entorno de Escritorio remoto de Azure AD DS, cree un servidor NPS e instale la extensión:
+Para integrar Azure AD Multi-Factor Authentication en el entorno de Escritorio remoto de Azure AD DS, cree un servidor NPS e instale la extensión:
 
 1. Cree una máquina virtual Windows Server 2016 o 2019 adicional, como *NPSVM01*, que esté conectada a una subred de *cargas de trabajo* en la red virtual de Azure AD DS. Una la máquina virtual al dominio administrado.
 1. Inicie sesión en la máquina virtual con NPS con una cuenta que forme parte del grupo *Administradores del controlador de dominio de Azure AD*, como *contosoadmin*.
 1. En **Administrador del servidor**, seleccione **Agregar roles y características** y, a continuación, instale el rol *Servicios de acceso y directivas de redes*.
-1. Use el artículo paso a paso existente para [instalar y configurar la extensión NPS para Azure MFA][nps-extension].
+1. Use el artículo paso a paso existente para [instalar y configurar la extensión NPS de Azure AD MFA][nps-extension].
 
-Con el servidor NPS y la extensión NPS para Azure Multi-Factor Authentication instalada, complete la sección siguiente para configurarla para su uso con el entorno de Escritorio remoto.
+Con el servidor NPS y la extensión NPS de Azure AD Multi-Factor Authentication instalados, complete la sección siguiente para configurarla para su uso con el entorno de Escritorio remoto.
 
-## <a name="integrate-remote-desktop-gateway-and-azure-multi-factor-authentication"></a>Integración de la puerta de enlace de Escritorio remoto y Azure Multi-Factor Authentication
+## <a name="integrate-remote-desktop-gateway-and-azure-ad-multi-factor-authentication"></a>Integración de la puerta de enlace de Escritorio remoto y Azure AD Multi-Factor Authentication
 
-Para integrar la extensión NPS para Azure Multi-Factor Authentication, use el artículo paso a paso existente para [integrar la infraestructura de la puerta de enlace de Escritorio remoto con la extensión del Servidor de directivas de redes (NPS) y Azure AD][azure-mfa-nps-integration].
+Para integrar la extensión NPS de Azure AD Multi-Factor Authentication, use el artículo paso a paso existente para la [Integración de la infraestructura de la puerta de enlace de Escritorio remoto utilizando la extensión Servidor de directivas de redes (NPS) y Azure AD][azure-mfa-nps-integration].
 
 Se necesitan las siguientes opciones de configuración adicionales para la integración con un dominio administrado:
 
 1. No [registre el servidor NPS en Active Directory][register-nps-ad]. Este paso produce un error en un dominio administrado.
 1. En el [paso 4 de configuración de la directiva de red][create-nps-policy], active también la casilla **Omitir las propiedades de acceso telefónico de las cuentas de usuario**.
-1. Si usa Windows Server 2019 para el servidor NPS y la extensión NPS para Azure Multi-Factor Authentication, ejecute el siguiente comando para actualizar el canal seguro para permitir que el servidor NPS se comunique correctamente:
+1. Si usa Windows Server 2019 para el servidor NPS y la extensión NPS de Azure AD Multi-Factor Authentication, ejecute el siguiente comando para actualizar el canal seguro a fin de permitir que el servidor NPS se comunique correctamente:
 
     ```powershell
     sc sidtype IAS unrestricted
@@ -103,7 +103,7 @@ Ahora se solicitará a los usuarios un factor de autenticación adicional cuando
 
 Para más información sobre cómo mejorar la resistencia de la implementación, vea [Servicios de Escritorio remoto: alta disponibilidad][rds-high-availability].
 
-Para más información sobre cómo proteger el inicio de sesión de usuario, vea [Funcionamiento: Azure Multi-Factor Authentication][concepts-mfa].
+Para más información sobre cómo proteger el inicio de sesión de usuario, vea [Funcionamiento: Azure AD Multi-Factor Authentication][concepts-mfa].
 
 <!-- INTERNAL LINKS -->
 [bastion-overview]: ../bastion/bastion-overview.md

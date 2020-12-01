@@ -1,7 +1,7 @@
 ---
-title: Perfiles técnicos de Azure MFA en las directivas personalizadas
+title: Perfiles técnicos de Azure AD MFA en directivas personalizadas
 titleSuffix: Azure AD B2C
-description: Referencia de directivas personalizadas para perfiles técnicos de Azure Multi-Factor Authentication (MFA) en Azure AD B2C.
+description: Referencia de directivas personalizadas para perfiles técnicos de Azure AD Multi-Factor Authentication (MFA) en Azure AD B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -11,23 +11,23 @@ ms.topic: reference
 ms.date: 03/26/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 71040f831ed7a64f2bc7be7f3a75218976fc2559
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e81ac35555e6653cecb602e5af2f19aa3e2f05e9
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85385950"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94840600"
 ---
-# <a name="define-an-azure-mfa-technical-profile-in-an-azure-ad-b2c-custom-policy"></a>Definición de un perfil técnico de Azure AD en una directiva personalizada de Azure AD B2C
+# <a name="define-an-azure-ad-mfa-technical-profile-in-an-azure-ad-b2c-custom-policy"></a>Definición de un perfil técnico de Azure AD MFA en una directiva personalizada de Azure AD B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory B2C (Azure AD B2C) proporciona compatibilidad para verificar un número de teléfono mediante Azure Multi-Factor Authentication (MFA). Use este perfil técnico para generar y enviar un código a un número de teléfono y, a continuación, verifique el código. El perfil técnico de Azure MFA también puede devolver un mensaje de error.  El perfil técnico de validación valida los datos que proporciona el usuario antes de que continúe el recorrido del usuario. Con el perfil técnico de validación, se muestra un mensaje de error en una página autoafirmada.
+Azure Active Directory B2C (Azure AD B2C) proporciona compatibilidad con la verificación de un número de teléfono mediante Azure AD Multi-Factor Authentication (MFA). Use este perfil técnico para generar y enviar un código a un número de teléfono y, a continuación, verifique el código. El perfil técnico de Azure AD MFA también puede devolver un mensaje de error.  El perfil técnico de validación valida los datos que proporciona el usuario antes de que continúe el recorrido del usuario. Con el perfil técnico de validación, se muestra un mensaje de error en una página autoafirmada.
 
 Este perfil técnico:
 
 - No proporciona una interfaz para interactuar con el usuario. En su lugar, se llama a la interfaz de usuario desde un perfil técnico [autoafirmado](self-asserted-technical-profile.md) o desde un [control de pantalla](display-controls.md) como [perfil técnico de validación](validation-technical-profile.md).
-- Usa el servicio Azure MFA para generar y enviar un código a un número de teléfono y, después, verifica el código.  
+- Usa el servicio Azure AD MFA para generar un código y enviarlo a un número de teléfono y, después, verifica el código.  
 - Valida un número de teléfono a través de mensajes de texto.
 
 [!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
@@ -40,7 +40,7 @@ El atributo **Name** del elemento **Protocol** tiene que establecerse en `Propri
 Web.TPEngine.Providers.AzureMfaProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
 ```
 
-En el ejemplo siguiente se muestra un perfil técnico de Azure MFA:
+En el ejemplo siguiente se muestra un perfil técnico de Azure AD MFA:
 
 ```xml
 <TechnicalProfile Id="AzureMfa-SendSms">
@@ -55,7 +55,7 @@ El primer modo de este perfil técnico es generar un código y enviarlo. Pueden 
 
 ### <a name="input-claims"></a>Notificaciones de entrada
 
-El elemento **InputClaims** contiene una lista de notificaciones para enviar a Azure MFA. También puede asignar el nombre de la notificación al nombre definido en el perfil técnico de MFA.
+El elemento **InputClaims** contiene una lista de notificaciones para enviar a Azure AD MFA. También puede asignar el nombre de la notificación al nombre definido en el perfil técnico de MFA.
 
 | ClaimReferenceId | Obligatorio | Descripción |
 | --------- | -------- | ----------- |
@@ -64,11 +64,11 @@ El elemento **InputClaims** contiene una lista de notificaciones para enviar a A
 | companyName | No |Nombre de la empresa en el SMS. Si no se proporciona, se usa el nombre de la aplicación. |
 | locale | No | Configuración regional del SMS. Si no se proporciona, se usa la configuración regional del explorador del usuario. |
 
-El elemento **InputClaimsTransformations** puede contener una colección de elementos **InputClaimsTransformation** que se usan para modificar las notificaciones de entrada o generar otras nuevas antes del envío al servicio Azure MFA.
+El elemento **InputClaimsTransformations** puede contener una colección de elementos **InputClaimsTransformation** que se usan para modificar las notificaciones de entrada o generar otras nuevas antes del envío al servicio Azure AD MFA.
 
 ### <a name="output-claims"></a>Notificaciones de salida
 
-El proveedor del protocolo de Azure MFA no devuelve ningún **OutputClaims**, por lo que no es necesario especificar notificaciones de salida. Sin embargo, puede incluir notificaciones que no devuelve el proveedor de identidades de Azure MFA, siempre que establezca el atributo `DefaultValue`.
+El proveedor del protocolo de Azure AD MFA no devuelve ningún elemento **OutputClaims**, por lo que no es necesario especificar notificaciones de salida. Pero puede incluir notificaciones no devueltas por el proveedor de identidades de Azure AD MFA siempre que establezca el atributo `DefaultValue`.
 
 El elemento **OutputClaimsTransformations** puede contener una colección de elementos **OutputClaimsTransformation** que se usan para modificar las notificaciones de salida o para generar nuevas.
 
@@ -80,7 +80,7 @@ El elemento **OutputClaimsTransformations** puede contener una colección de ele
 
 #### <a name="ui-elements"></a>Elementos de interfaz de usuario
 
-Los metadatos siguientes se pueden usar para configurar los mensajes de error que se muestran cuando se produce un error en envío de mensajes de texto. Los metadatos se deben configurar en el perfil técnico [autoafirmado](self-asserted-technical-profile.md). Los mensajes de error se pueden [localizar](localization-string-ids.md#azure-mfa-error-messages).
+Los metadatos siguientes se pueden usar para configurar los mensajes de error que se muestran cuando se produce un error en envío de mensajes de texto. Los metadatos se deben configurar en el perfil técnico [autoafirmado](self-asserted-technical-profile.md). Los mensajes de error se pueden [localizar](localization-string-ids.md#azure-ad-mfa-error-messages).
 
 | Atributo | Obligatorio | Descripción |
 | --------- | -------- | ----------- |
@@ -91,7 +91,7 @@ Los metadatos siguientes se pueden usar para configurar los mensajes de error qu
 
 ### <a name="example-send-an-sms"></a>Ejemplo: envío de un SMS
 
-En el ejemplo siguiente se muestra un perfil técnico de Azure MFA que se usa para enviar un código a través de SMS.
+En el ejemplo siguiente se muestra un perfil técnico de Azure AD MFA que se usa para enviar un código a través de SMS.
 
 ```xml
 <TechnicalProfile Id="AzureMfa-SendSms">
@@ -117,18 +117,18 @@ El segundo modo de este perfil técnico es verificar un código. Pueden configur
 
 ### <a name="input-claims"></a>Notificaciones de entrada
 
-El elemento **InputClaims** contiene una lista de notificaciones para enviar a Azure MFA. También puede asignar el nombre de la notificación al nombre definido en el perfil técnico de MFA.
+El elemento **InputClaims** contiene una lista de notificaciones para enviar a Azure AD MFA. También puede asignar el nombre de la notificación al nombre definido en el perfil técnico de MFA.
 
 | ClaimReferenceId | Obligatorio | Descripción |
 | --------- | -------- | ----------- | ----------- |
 | phoneNumber| Sí | El mismo número de teléfono que se usó anteriormente para enviar un código. También se usa para buscar una sesión de verificación del teléfono. |
 | verificationCode  | Sí | Código de verificación que proporciona el usuario y que se va a verificar |
 
-El elemento **InputClaimsTransformations** puede contener una colección de elementos **InputClaimsTransformation** que se usan para modificar las notificaciones de entrada o generar otras nuevas antes de llamar al servicio Azure MFA.
+El elemento **InputClaimsTransformations** puede contener una colección de elementos **InputClaimsTransformation** que se usan para modificar las notificaciones de entrada o generar otras nuevas antes de llamar al servicio Azure AD MFA.
 
 ### <a name="output-claims"></a>Notificaciones de salida
 
-El proveedor del protocolo de Azure MFA no devuelve ningún **OutputClaims**, por lo que no es necesario especificar notificaciones de salida. Sin embargo, puede incluir notificaciones que no devuelve el proveedor de identidades de Azure MFA, siempre que establezca el atributo `DefaultValue`.
+El proveedor del protocolo de Azure AD MFA no devuelve ningún elemento **OutputClaims**, por lo que no es necesario especificar notificaciones de salida. Pero puede incluir notificaciones no devueltas por el proveedor de identidades de Azure AD MFA siempre que establezca el atributo `DefaultValue`.
 
 El elemento **OutputClaimsTransformations** puede contener una colección de elementos **OutputClaimsTransformation** que se usan para modificar las notificaciones de salida o para generar nuevas.
 
@@ -140,7 +140,7 @@ El elemento **OutputClaimsTransformations** puede contener una colección de ele
 
 #### <a name="ui-elements"></a>Elementos de interfaz de usuario
 
-Los metadatos siguientes se pueden usar para configurar los mensajes de error que se muestran cuando se produce un error en la comprobación de código. Los metadatos se deben configurar en el perfil técnico [autoafirmado](self-asserted-technical-profile.md). Los mensajes de error se pueden [localizar](localization-string-ids.md#azure-mfa-error-messages).
+Los metadatos siguientes se pueden usar para configurar los mensajes de error que se muestran cuando se produce un error en la comprobación de código. Los metadatos se deben configurar en el perfil técnico [autoafirmado](self-asserted-technical-profile.md). Los mensajes de error se pueden [localizar](localization-string-ids.md#azure-ad-mfa-error-messages).
 
 | Atributo | Obligatorio | Descripción |
 | --------- | -------- | ----------- |
@@ -151,7 +151,7 @@ Los metadatos siguientes se pueden usar para configurar los mensajes de error qu
 
 ### <a name="example-verify-a-code"></a>Ejemplo: verificación de un código
 
-En el ejemplo siguiente se muestra un perfil técnico de Azure MFA que se usa para verificar el código.
+En el ejemplo siguiente se muestra un perfil técnico de Azure AD MFA que se usa para verificar el código.
 
 ```xml
 <TechnicalProfile Id="AzureMfa-VerifySms">

@@ -1,6 +1,6 @@
 ---
-title: Configurar Azure Multi-Factor Authentication - Azure Active Directory
-description: Aprenda cómo configurar Azure Multi-Factor Authentication en Azure Portal
+title: 'Configuración de Azure AD Multi-Factor Authentication: Azure Active Directory'
+description: Aprenda a configurar Azure AD Multi-Factor Authentication en Azure Portal
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
@@ -12,26 +12,26 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 17fbba605f6f20fa384d59a8c89ee536a9b121bf
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: adca22b3a8d9b93dfbc62202106127a5833a4c38
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964442"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94839206"
 ---
-# <a name="configure-azure-multi-factor-authentication-settings"></a>Configuración de Azure Multi-Factor Authentication
+# <a name="configure-azure-ad-multi-factor-authentication-settings"></a>Configuración de Azure AD Multi-Factor Authentication
 
-Para personalizar la experiencia del usuario final de Azure Multi-Factor Authentication, puede definir opciones de configuración como los umbrales de bloqueo de la cuenta o las alertas y notificaciones de fraude. Algunas configuraciones están directamente en Azure Portal para Azure Active Directory (Azure AD) y otras en un portal de Azure Multi-Factor Authentication independiente.
+Para personalizar la experiencia de usuario final de Azure AD Multi-Factor Authentication, puede configurar opciones para valores como los umbrales de bloqueo de cuentas o las alertas y notificaciones de fraude. Algunos valores están directamente en Azure Portal para Azure Active Directory (Azure AD) y otros en un portal de Azure AD Multi-Factor Authentication independiente.
 
-Las siguientes configuraciones de Azure Multi-Factor Authentication están disponibles en Azure Portal:
+Los siguientes valores de Azure AD Multi-Factor Authentication están disponibles en Azure Portal:
 
 | Característica | Descripción |
 | ------- | ----------- |
-| [Bloqueo de cuenta](#account-lockout) | Impida temporalmente que las cuentas usen Azure Multi-Factor Authentication si hay demasiados intentos de autenticación denegados en una fila. Esta característica solo se aplica a los usuarios que escriben un PIN para autenticarse. (Servidor MFA) |
-| [Bloqueo y desbloqueo de usuarios](#block-and-unblock-users) | Impida que usuarios específicos puedan recibir solicitudes de Azure Multi-Factor Authentication. Todos los intentos de autenticación para los usuarios bloqueados se denegarán automáticamente. Los usuarios permanecen bloqueados durante noventa días a partir del momento en que se bloqueen o se desbloquean manualmente. |
+| [Bloqueo de cuenta](#account-lockout) | Evite temporalmente que las cuentas usen Azure AD Multi-Factor Authentication si hay demasiados intentos de autenticación denegados en una fila. Esta característica solo se aplica a los usuarios que escriben un PIN para autenticarse. (Servidor MFA) |
+| [Bloqueo y desbloqueo de usuarios](#block-and-unblock-users) | Evite que usuarios específicos puedan recibir solicitudes de Azure AD Multi-Factor Authentication. Todos los intentos de autenticación para los usuarios bloqueados se denegarán automáticamente. Los usuarios permanecen bloqueados durante noventa días a partir del momento en que se bloqueen o se desbloquean manualmente. |
 | [Alerta de fraude](#fraud-alert) | Defina configuraciones que permitan a los usuarios notificar solicitudes de comprobación fraudulentas. |
 | [Notificaciones](#notifications) | Permite notificaciones de eventos desde el Servidor MFA. |
-| [Tokens OATH](concept-authentication-oath-tokens.md) | Se usa en entornos de Azure MFA basados en la nube para administrar tokens de OATH para los usuarios. |
+| [Tokens OATH](concept-authentication-oath-tokens.md) | Se usa en entornos de Azure AD MFA basados en la nube para administrar tokens de OATH para los usuarios. |
 | [Configuración de las llamadas telefónicas](#phone-call-settings) | Configure valores relacionados con llamadas de teléfono y saludos para entornos locales y en la nube. |
 | Proveedores | Se mostrarán los proveedores de autenticación existentes que pueden haberse asociado con su cuenta. A partir del 1 de septiembre de 2018 no se pueden crear nuevos proveedores de autenticación. |
 
@@ -57,7 +57,7 @@ Para definir las configuraciones de bloqueo de cuenta, complete las siguientes c
 
 ## <a name="block-and-unblock-users"></a>Bloqueo y desbloqueo de usuarios
 
-Si el dispositivo de un usuario se ha perdido o ha sido robado, puede bloquear los intentos de Azure Multi-Factor Authentication para la cuenta asociada. Todos los intentos de Azure Multi-Factor Authentication para los usuarios bloqueados se denegarán automáticamente. Los usuarios permanecen bloqueados durante 90 días a partir del momento en que se bloqueen.
+Si el dispositivo de un usuario se ha perdido o ha sido robado, puede bloquear los intentos de Azure AD Multi-Factor Authentication de la cuenta asociada. Todos los intentos de Azure AD Multi-Factor Authentication de usuarios bloqueados se deniegan automáticamente. Los usuarios permanecen bloqueados durante 90 días a partir del momento en que se bloqueen.
 
 ### <a name="block-a-user"></a>Bloquear a un usuario
 
@@ -85,7 +85,7 @@ La característica de alerta de fraude permite a los usuarios informar sobre int
 
 Están disponibles las siguientes opciones de configuración de alertas de fraude:
 
-* **Bloquear automáticamente a los usuarios que notifican fraudes**: Si un usuario notifica fraude, los intentos de autenticación de Azure MFA para la cuenta de usuario se bloquean durante 90 días o hasta que un administrador desbloquee su cuenta. Un administrador puede revisar los inicios de sesión usando el informe de inicio de sesión y puede tomar las medidas adecuadas para prevenir el fraude en el futuro. El administrador puede, a continuación, [desbloquear](#unblock-a-user) la cuenta de usuario.
+* **Bloquear automáticamente a los usuarios que notifican fraudes**: si un usuario notifica un fraude, los intentos de autenticación de Azure AD MFA de la cuenta de usuario se bloquean durante 90 días o hasta que un administrador desbloquea esa cuenta. Un administrador puede revisar los inicios de sesión usando el informe de inicio de sesión y puede tomar las medidas adecuadas para prevenir el fraude en el futuro. El administrador puede, a continuación, [desbloquear](#unblock-a-user) la cuenta de usuario.
 * **Código para notificar fraudes durante el saludo inicial**: cuando los usuarios reciben una llamada telefónica para realizar la autenticación multifactor, normalmente presionan **#** para confirmar el inicio de sesión. Si desea notificar un fraude, el usuario introduce un código antes de presionar **#** . De manera predeterminada, dicho código es **0**, pero se puede personalizar.
 
    > [!NOTE]
@@ -156,7 +156,7 @@ En Estados Unidos, si no ha configurado el identificador del autor de la llamada
 * *+1 (877) 668 6536*
 
 > [!NOTE]
-> A veces, cuando las llamadas de Azure Multi-Factor Authentication se realizan a través de la red telefónica pública, se enrutan a través de un operador que no admite la característica de id. de llamada. Por este motivo, los id. de llamada no están garantizados, aunque Azure Multi-Factor Authentication los envíe siempre. Esto se aplica a las llamadas de teléfono y a los mensajes de texto proporcionados por Azure Multi-Factor Authentication. Si tiene que validar que un mensaje de texto procede de Azure Multi-Factor Authentication, consulte [¿Qué códigos cortos de SMS se usan para enviar mensajes?](multi-factor-authentication-faq.md#what-sms-short-codes-are-used-for-sending-sms-messages-to-my-users)
+> A veces, cuando las llamadas de Azure AD Multi-Factor Authentication se realizan mediante la red telefónica pública, se enrutan a través de un operador que no admite el id. del autor de la llamada. Por este motivo, el id. del autor de la llamada no se garantiza, aunque Azure AD Multi-Factor Authentication lo envíe siempre. Esto se aplica a las llamadas de teléfono y a los mensajes de texto proporcionados por Azure AD Multi-Factor Authentication. Si tiene que validar que un mensaje de texto procede de Azure AD Multi-Factor Authentication, vea [¿Qué códigos cortos de SMS se usan para enviar mensajes?](multi-factor-authentication-faq.md#what-sms-short-codes-are-used-for-sending-sms-messages-to-my-users)
 
 Para configurar su propio número de identificador del autor de la llamada, complete los pasos siguientes:
 
@@ -166,7 +166,7 @@ Para configurar su propio número de identificador del autor de la llamada, comp
 
 ### <a name="custom-voice-messages"></a>Mensajes de voz personalizados
 
-Puede usar sus propias grabaciones o saludos para Azure Multi-Factor Authentication con la característica de mensajes de voz personalizados. Se pueden utilizar estos mensajes además de las grabaciones de Microsoft predeterminadas; asimismo aquellos pueden reemplazar a estas.
+Puede usar sus propias grabaciones o saludos para Azure AD Multi-Factor Authentication con la característica de mensajes de voz personalizados. Se pueden utilizar estos mensajes además de las grabaciones de Microsoft predeterminadas; asimismo aquellos pueden reemplazar a estas.
 
 Antes de comenzar, tenga en cuenta las restricciones siguientes:
 
@@ -227,16 +227,16 @@ Para usar sus propios mensajes personalizados, complete los pasos siguientes:
 
 ## <a name="mfa-service-settings"></a>Configuración del servicio MFA
 
-La configuración para contraseñas de aplicación, IP de confianza, opciones de comprobación y recordar Multi-factor Authentication de Azure Multi-Factor Authentication se pueden encontrar en la configuración del servicio. Este es más de un portal heredado y no forma parte del portal convencional de Azure AD.
+Las opciones de contraseñas de aplicación, IP de confianza, opciones de verificación y recordar la autenticación multifactor de Azure AD Multi-Factor Authentication se pueden encontrar en la configuración del servicio. Este es más de un portal heredado y no forma parte del portal convencional de Azure AD.
 
 Se puede tener acceso a la configuración del servicio desde el Azure Portal, para ello, vaya a **Azure Active Directory** > **Seguridad** > **MFA** > **Introducción** > **Configurar** > **Configuración de MFA basada en la nube**. Se abre una nueva ventana o pestaña con opciones adicionales de *configuración del servicio*.
 
 ## <a name="trusted-ips"></a>IP de confianza
 
-La característica _IP de confianza_ de Azure Multi-Factor Authentication omite las solicitudes de autenticación multifactor para los usuarios que inician sesión desde un intervalo de direcciones IP definido. Puede establecer intervalos de direcciones IP de confianza para los entornos locales, de manera que, cuando los usuarios se encuentran en una de estas ubicaciones, Azure Multi-Factor Authentication no emite ninguna solicitud.
+La característica _IP de confianza_ de Azure AD Multi-Factor Authentication omite las solicitudes de autenticación multifactor de los usuarios que inician sesión desde un intervalo de direcciones IP definido. Puede establecer intervalos de direcciones IP de confianza para los entornos locales, de manera que, cuando los usuarios se encuentren en una de esas ubicaciones, Azure AD Multi-Factor Authentication no emita ninguna solicitud.
 
 > [!NOTE]
-> Las direcciones IP de confianza pueden incluir intervalos de direcciones IP privadas solo cuando se usa un servidor MFA. En el caso de Azure Multi-Factor Authentication basado en la nube, solo puede usar intervalos de direcciones IP públicas.
+> Las direcciones IP de confianza pueden incluir intervalos de direcciones IP privadas solo cuando se usa un servidor MFA. En el caso de Azure AD Multi-Factor Authentication basado en la nube, solo puede usar intervalos de direcciones IP públicas.
 >
 > Los intervalos de IPv6 solo se admiten en la interfaz de [Ubicaciones con nombre (versión preliminar)](../conditional-access/location-condition.md#preview-features).
 
@@ -291,7 +291,7 @@ Para habilitar direcciones IP de confianza mediante directivas de acceso condici
 
 ### <a name="enable-the-trusted-ips-feature-by-using-service-settings"></a>Habilite la característica de direcciones IP de confianza mediante la configuración del servicio
 
-Si no desea usar las directivas de acceso condicional para habilitar las direcciones IP de confianza, puede definir la *configuración del servicio* para Azure Multi-Factor Authentication mediante los pasos siguientes:
+Si no quiere usar directivas de acceso condicional para habilitar direcciones IP de confianza, puede definir la *configuración del servicio* de Azure AD Multi-Factor Authentication mediante los pasos siguientes:
 
 1. En Azure Portal, busque y seleccione **Azure Active Directory** y luego elija **Usuarios**.
 1. Seleccione **Multi-Factor Authentication**.
@@ -311,7 +311,7 @@ Si no desea usar las directivas de acceso condicional para habilitar las direcci
 
 ## <a name="verification-methods"></a>Métodos de comprobación
 
-Puede elegir los métodos de verificación que estén disponibles para los usuarios en el portal de configuración del servicio. Cuando los usuarios inscriben sus cuentas en Azure Multi-Factor Authentication, deciden su método de verificación preferido de las opciones que ha habilitado. Las instrucciones para el proceso de inscripción de los usuarios se proporcionan en [Configuración de mi cuenta para la autenticación multifactor](../user-help/multi-factor-authentication-end-user-first-time.md).
+Puede elegir los métodos de verificación que estén disponibles para los usuarios en el portal de configuración del servicio. Cuando los usuarios inscriben sus cuentas en Azure AD Multi-Factor Authentication, eligen su método de verificación preferido entre las opciones que ha habilitado. Las instrucciones para el proceso de inscripción de los usuarios se proporcionan en [Configuración de mi cuenta para la autenticación multifactor](../user-help/multi-factor-authentication-end-user-first-time.md).
 
 Están disponibles los siguientes métodos de verificación:
 
@@ -376,4 +376,4 @@ Después de habilitar la característica Recordar Multi-Factor Authentication, a
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener más información sobre los métodos disponibles para su uso en Azure Multi-Factor Authentication, consulte [¿Qué métodos de autenticación y verificación hay disponibles en Azure Active Directory?](concept-authentication-methods.md)
+Para obtener más información sobre los métodos disponibles para su uso en Azure AD Multi-Factor Authentication, vea [¿Qué métodos de autenticación y verificación hay disponibles en Azure Active Directory?](concept-authentication-methods.md)

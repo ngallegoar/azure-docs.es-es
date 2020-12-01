@@ -1,6 +1,6 @@
 ---
-title: Configuración de las contraseñas de aplicación de Azure Multi-Factor Authentication - Azure Active Directory
-description: Aprenda a configurar y usar contraseñas de aplicación para aplicaciones heredadas en Azure Multi-Factor Authentication
+title: 'Configuración de contraseñas de aplicación para Azure AD Multi-Factor Authentication: Azure Active Directory'
+description: Aprenda a configurar y usar contraseñas de aplicación con aplicaciones heredadas en Azure AD Multi-Factor Authentication
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 85031896a196dd742868466243dd401345b0bc97
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 282bf6a30d8ff70440999ff3763c0d5544ef428d
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964509"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94839274"
 ---
-# <a name="enable-and-use-azure-multi-factor-authentication-with-legacy-applications-using-app-passwords"></a>Habilitación y uso de Azure Multi-Factor Authentication con aplicaciones heredadas mediante contraseñas de aplicación
+# <a name="enable-and-use-azure-ad-multi-factor-authentication-with-legacy-applications-using-app-passwords"></a>Habilitación y uso de Azure AD Multi-Factor Authentication con aplicaciones heredadas mediante contraseñas de aplicación
 
-Algunas aplicaciones anteriores que no son de explorador, como Office 2010 o versiones anteriores y Apple Mail antes de iOS 11, no entienden las pausas o las interrupciones en el proceso de autenticación. Si un usuario tiene habilitada la opción Azure Multi-Factor Authentication e intenta usar una de estas aplicaciones antiguas que no son de explorador, no podrá autenticarse correctamente. Para usar estas aplicaciones de forma segura con Azure Multi-Factor Authentication habilitado para las cuentas de usuario, puede usar contraseñas de aplicación. Estas contraseñas de aplicación reemplazaron la contraseña tradicional para permitir que una aplicación omitiera la autenticación multifactor y funcionara correctamente.
+Algunas aplicaciones anteriores que no son de explorador, como Office 2010 o versiones anteriores y Apple Mail antes de iOS 11, no entienden las pausas o las interrupciones en el proceso de autenticación. Si un usuario está habilitado en Azure AD Multi-Factor Authentication e intenta usar una de estas aplicaciones antiguas que no son de explorador, no puede autenticarse correctamente. Para usar estas aplicaciones de forma segura con Azure AD Multi-Factor Authentication habilitado para las cuentas de usuario, puede usar contraseñas de aplicación. Estas contraseñas de aplicación reemplazaron la contraseña tradicional para permitir que una aplicación omitiera la autenticación multifactor y funcionara correctamente.
 
 La autenticación moderna se admite en los clientes de Microsoft Office 2013 y versiones posteriores. Los clientes de Office 2013, incluido Outlook, admiten protocolos de autenticación modernos y se pueden habilitar para que funcionen con la comprobación en dos pasos. Después de que se habilite el cliente, las contraseñas de aplicación no le serán necesarias.
 
@@ -31,7 +31,7 @@ En este artículo se muestra cómo habilitar y usar contraseñas de aplicación 
 
 ## <a name="overview-and-considerations"></a>Introducción y consideraciones
 
-Cuando una cuenta de usuario está habilitada para Azure Multi-Factor Authentication, se interrumpe la solicitud de inicio de sesión normal mediante una solicitud de comprobación adicional. Algunas aplicaciones anteriores no entienden esta interrupción en el proceso de inicio de sesión, por lo que se produce un error de autenticación. Para mantener la seguridad de la cuenta de usuario y dejar habilitada Azure Multi-Factor Authentication, se pueden usar contraseñas de aplicación en lugar del nombre de usuario y la contraseña normales del usuario. Cuando se usa una contraseña de aplicación durante el inicio de sesión, no hay ninguna solicitud de comprobación adicional, por lo que la autenticación se realiza correctamente.
+Cuando una cuenta de usuario está habilitada para Azure AD Multi-Factor Authentication, una solicitud de verificación adicional interrumpe la solicitud de inicio de sesión normal. Algunas aplicaciones anteriores no entienden esta interrupción en el proceso de inicio de sesión, por lo que se produce un error de autenticación. Para mantener la seguridad de la cuenta de usuario y dejar habilitado Azure AD Multi-Factor Authentication, se pueden usar contraseñas de aplicación en lugar del nombre de usuario y la contraseña normales del usuario. Cuando se usa una contraseña de aplicación durante el inicio de sesión, no hay ninguna solicitud de comprobación adicional, por lo que la autenticación se realiza correctamente.
 
 Las contraseñas de aplicación se generan automáticamente, no las especifica el usuario. Esta contraseña generada automáticamente es más difícil de adivinar y, por tanto, más segura. Los usuarios no tienen que realizar un seguimiento de las contraseñas ni escribirlas cada vez, ya que las contraseñas de aplicación solo se escriben una vez por aplicación.
 
@@ -39,7 +39,7 @@ Al usar las contraseñas de aplicación, deben aplicarse las siguientes consider
 
 * Hay un límite de 40 contraseñas de aplicación por usuario.
 * Las aplicaciones que almacenan en caché las contraseñas y las usan en escenarios locales pueden fallar porque no se conoce la contraseña de aplicación fuera de la cuenta profesional o educativa. Un ejemplo de este escenario es el de los mensajes de correo electrónico de Exchange que son locales pero se archivan en la nube. En este escenario, no funciona la misma contraseña.
-* Una vez habilitada Azure Multi-Factor Authentication en una cuenta de usuario, se pueden usar las contraseñas de aplicación con la mayoría de los clientes sin explorador como Outlook y Microsoft Skype Empresarial. Sin embargo, no se pueden realizar acciones administrativas con contraseñas de aplicación mediante aplicaciones sin explorador como Windows PowerShell. No se pueden realizar las acciones, incluso cuando el usuario tiene una cuenta administrativa.
+* Una vez habilitado Azure AD Multi-Factor Authentication en una cuenta de usuario, se pueden usar las contraseñas de aplicación con la mayoría de los clientes sin explorador como Outlook y Microsoft Skype Empresarial. Sin embargo, no se pueden realizar acciones administrativas con contraseñas de aplicación mediante aplicaciones sin explorador como Windows PowerShell. No se pueden realizar las acciones, incluso cuando el usuario tiene una cuenta administrativa.
     * Para ejecutar scripts de PowerShell, cree una cuenta de servicio con una contraseña segura y no la habilite para la verificación en dos pasos.
 * Si sospecha que una cuenta de usuario está en peligro y revoca o restablece la contraseña de la cuenta, también se deben actualizar las contraseñas de aplicación. Las contraseñas de aplicación no se revocan automáticamente cuando se revoca o restablece una contraseña de cuenta de usuario. El usuario debe eliminar las contraseñas de aplicación existentes y crear otras nuevas.
    * Para obtener más información, consulte [Creación y eliminación de contraseñas de la aplicación en la página de comprobación de seguridad adicional](../user-help/multi-factor-authentication-end-user-app-passwords.md#create-and-delete-app-passwords-from-the-additional-security-verification-page).
@@ -55,7 +55,7 @@ Se recomienda crear una contraseña de aplicación por dispositivo, en lugar de 
 
 ## <a name="federated-or-single-sign-on-app-passwords"></a>Contraseñas de aplicaciones de inicio de sesión único o federado
 
-Azure AD admite la federación o el inicio de sesión único (SSO) con Servicios de Dominio de Active Directory (AD DS) local. Si su organización está federada con Azure AD y está usando Azure Multi-Factor Authentication, se aplican las siguientes consideraciones acerca de las contraseñas de aplicación:
+Azure AD admite la federación o el inicio de sesión único (SSO) con Servicios de Dominio de Active Directory (AD DS) local. Si la organización está federada con Azure AD y está usando Azure AD Multi-Factor Authentication, se aplican las siguientes consideraciones sobre las contraseñas de aplicación:
 
 >[!NOTE]
 > Los siguientes puntos solo se aplican a los clientes federados (SSO).
@@ -72,7 +72,7 @@ Por ejemplo, supongamos que tiene la siguiente arquitectura:
 * Su instancia local de Active Directory está federada con Azure AD.
 * Utiliza Exchange Online.
 * Utiliza Skype Empresarial local.
-* Utiliza Azure Multi-Factor Authentication.
+* Usa Azure AD Multi-Factor Authentication.
 
 En este escenario, utilice las credenciales siguientes:
 
@@ -99,10 +99,10 @@ De forma predeterminada, los usuarios no pueden crear contraseñas de aplicació
 
 ## <a name="create-an-app-password"></a>Crear una contraseña de aplicación
 
-Cuando los usuarios completan el registro inicial de Azure Multi-Factor Authentication, existe una opción para crear contraseñas de aplicación al final del proceso de registro.
+Cuando los usuarios completan el registro inicial en Azure AD Multi-Factor Authentication, existe una opción para crear contraseñas de aplicación al final del proceso de registro.
 
-Los usuarios también pueden crear contraseñas de aplicación después del registro. Para más información e instrucciones detalladas para los usuarios, consulte [¿Qué son las contraseñas de aplicación de Azure Multi-Factor Authentication?](../user-help/multi-factor-authentication-end-user-app-passwords.md)
+Los usuarios también pueden crear contraseñas de aplicación después del registro. Para obtener más información y pasos detallados para los usuarios, vea [¿Qué son las contraseñas de aplicación de Azure AD Multi-Factor Authentication?](../user-help/multi-factor-authentication-end-user-app-passwords.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener más información sobre cómo permitir que los usuarios se registren rápidamente en Azure Multi-Factor Authentication, consulte [Introducción al registro de información de seguridad combinada](concept-registration-mfa-sspr-combined.md).
+Para obtener más información sobre cómo permitir que los usuarios se registren rápidamente en Azure AD Multi-Factor Authentication, vea [Introducción al registro de información de seguridad combinado](concept-registration-mfa-sspr-combined.md).

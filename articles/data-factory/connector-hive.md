@@ -9,16 +9,16 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 11/17/2020
 ms.author: jingwang
-ms.openlocfilehash: 587cdd54f09be2761026c25ccd80fb67d3eb6bb0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4207c4ddfcbab325b1ae119dcd200af30fc59f58
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84987055"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844951"
 ---
-# <a name="copy-data-from-hive-using-azure-data-factory"></a>Copiar datos de Hive con Azure Data Factory 
+# <a name="copy-and-transform-data-from-hive-using-azure-data-factory"></a>Copia y transformación de datos de Hive con Azure Data Factory 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 En este artículo se explica el uso de la actividad de copia de Azure Data Factory para copiar datos de Hive. El documento se basa en el artículo de [introducción a la actividad de copia](copy-activity-overview.md) que describe información general de la actividad de copia.
@@ -68,6 +68,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Hive:
 | allowHostNameCNMismatch | Especifica si se requiere que el nombre del certificado TLS/SSL emitido por una CA coincida con el nombre de host del servidor al conectarse a través de TLS. El valor predeterminado es false.  | No |
 | allowSelfSignedServerCert | Especifica si se permiten los certificados autofirmados del servidor. El valor predeterminado es false.  | No |
 | connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Obtenga más información en la sección [Requisitos previos](#prerequisites). Si no se especifica, se usará Azure Integration Runtime. |No |
+| storageReference | Referencia al servicio vinculado de la cuenta de almacenamiento que se usa para el almacenamiento provisional de los datos en el flujo de datos de asignación. Solo se necesita cuando se usa el servicio vinculado de Hive en el flujo de datos de asignación. | No |
 
 **Ejemplo**:
 
@@ -164,6 +165,53 @@ Para copiar datos de Hive, establezca el tipo de origen de la actividad de copia
     }
 ]
 ```
+
+## <a name="mapping-data-flow-properties"></a>Propiedades de Asignación de instancias de Data Flow
+
+El conector de Hive se admite como un origen de [conjunto de datos en línea](data-flow-source.md#inline-datasets) en los flujos de datos de asignación. Lea mediante una consulta o directamente desde una tabla de Hive en HDInsight. Los datos de Hive se almacenan provisionalmente en una cuenta de almacenamiento como archivos de Parquet antes de transformarse como parte de un flujo de datos. 
+
+### <a name="source-properties"></a>Propiedades de origen
+
+En la tabla siguiente se indican las propiedades que admite un origen de Hive. Puede editar estas propiedades en la pestaña **Source options** (Opciones del origen).
+
+| Nombre | Descripción | Obligatorio | Valores permitidos | Propiedad de script de flujo de datos |
+| ---- | ----------- | -------- | -------------- | ---------------- |
+| Tienda | Debe ser `hive` | sí |  `hive` | store | 
+| Formato | Si está leyendo desde una tabla o una consulta | sí | `table` o `query` | format |
+| Nombre del esquema | Si está leyendo desde una tabla, el esquema de la tabla de origen |  sí, si el formato es `table` | String | schemaName |
+| Nombre de la tabla | Si está leyendo desde una tabla, el nombre de la tabla |   sí, si el formato es `table` | String | tableName |
+| Consultar | Si el formato es `query`, la consulta de origen en el servicio vinculado de Hive | sí, si el formato es `query` | String | Query |
+| Almacenado provisionalmente | La tabla de Hive siempre va a estar almacenada provisionalmente. | sí | `true` | staged |
+| Contenedor de almacenamiento | Contenedor de almacenamiento que se usa para almacenar provisionalmente los datos antes de leer desde Hive o escribir en Hive. El clúster de Hive debe tener acceso a este contenedor. | sí | String | storageContainer |
+| Base de datos provisional | El esquema o la base de datos a los que tiene acceso la cuenta de usuario especificada en el servicio vinculado. Se usa para crear tablas externas durante el almacenamiento provisional y luego se elimina | no | `true` o `false` | stagingDatabaseName |
+| Scripts de SQL previos | Código SQL que se va a ejecutar en la tabla de Hive antes de leer los datos | no | String | preSQLs |
+
+#### <a name="source-example"></a>Ejemplo de origen
+
+A continuación se muestra un ejemplo de una configuración de origen de Hive:
+
+![Ejemplo de origen de Hive](media/data-flow/hive-source.png "[Ejemplo de origen de Hive")
+
+Esta configuración se traduce en el siguiente script de flujo de datos:
+
+```
+source(
+    allowSchemaDrift: true,
+    validateSchema: false,
+    ignoreNoFilesFound: false,
+    format: 'table',
+    store: 'hive',
+    schemaName: 'default',
+    tableName: 'hivesampletable',
+    staged: true,
+    storageContainer: 'khive',
+    storageFolderPath: '',
+    stagingDatabaseName: 'default') ~> hivesource
+```
+### <a name="known-limitations"></a>Restricciones conocidas
+
+* No se admite la lectura de tipos complejos como matrices, asignaciones, structs y uniones. 
+* El conector de Hive solo admite tablas de Hive en Azure HDInsight de la versión 4.0 o posterior (Apache Hive 3.1.0)
 
 ## <a name="lookup-activity-properties"></a>Propiedades de la actividad de búsqueda
 
