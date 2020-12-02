@@ -11,19 +11,19 @@ ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: c47a4fbf51b14d9a13237f77c75dbf2839fb5f80
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: ff54d605fd81fa640314d99359f1aabacf7a469e
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94381293"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350388"
 ---
 # <a name="tutorial-create-a-single-page-app-using-the-bing-web-search-api"></a>Tutorial: Creación de una aplicación de una sola página mediante Bing Web Search API
 
 > [!WARNING]
-> Las Bing Search API se mueven de Cognitive Services a Bing Search Services. A partir del  **30 de octubre de 2020** las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](https://aka.ms/cogsvcs/bingmove).
+> Las Bing Search API se mueven de Cognitive Services a Bing Search Services. A partir del **30 de octubre de 2020** las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 > El aprovisionamiento de las Bing Search API mediante Cognitive Services será posible durante los próximos tres años o hasta que finalice el Contrato Enterprise, lo que antes suceda.
-> Puede encontrar instrucciones sobre la migración en [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
+> Puede encontrar instrucciones sobre la migración en [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 Esta aplicación de una página muestra cómo recuperar, analizar y mostrar los resultados de la búsqueda desde Bing Web Search API. El tutorial usa código HTML y CSS reutilizable y se centra en el código de JavaScript. Los archivos HTML, CSS y JS están disponibles en [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/Tutorials/Bing-Web-Search) con instrucciones de inicio rápido.
 

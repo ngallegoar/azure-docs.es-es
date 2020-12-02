@@ -8,11 +8,11 @@ ms.date: 11/02/2020
 ms.topic: tutorial
 ms.service: digital-twins
 ms.openlocfilehash: 3225fff1c82822dee990804f934ada86068841e8
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93280281"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011309"
 ---
 # <a name="tutorial-coding-with-the-azure-digital-twins-apis"></a>Tutorial: Programación con las API de Azure Digital Twins
 
@@ -43,7 +43,7 @@ Lo que necesita para comenzar:
 
 Una vez que esté listo para trabajar con la instancia de Azure Digital Twins, empiece a configurar el proyecto de aplicación cliente. 
 
-Abra un símbolo del sistema u otra ventana de la consola en la máquina y cree un directorio de proyecto vacío donde quiera almacenar el trabajo durante este tutorial. Asigne al directorio el nombre que desee (por ejemplo, *DigitalTwinsCodeTutorial* ).
+Abra un símbolo del sistema u otra ventana de la consola en la máquina y cree un directorio de proyecto vacío donde quiera almacenar el trabajo durante este tutorial. Asigne al directorio el nombre que desee (por ejemplo, *DigitalTwinsCodeTutorial*).
 
 Vaya al nuevo directorio.
 
@@ -57,7 +57,7 @@ Se crean varios archivos dentro del directorio, incluido uno llamado *Program.cs
 
 Mantenga abierta la ventana de comandos, ya que la seguirá usando durante todo el tutorial.
 
-A continuación, **agregue dos dependencias al proyecto** , que necesitará para trabajar con Azure Digital Twins. Puede usar los vínculos siguientes para desplazarse a los paquetes NuGet, en donde encontrará los comandos de la consola (incluida la CLI de .NET) para agregar la versión más reciente de cada paquete al proyecto.
+A continuación, **agregue dos dependencias al proyecto**, que necesitará para trabajar con Azure Digital Twins. Puede usar los vínculos siguientes para desplazarse a los paquetes NuGet, en donde encontrará los comandos de la consola (incluida la CLI de .NET) para agregar la versión más reciente de cada paquete al proyecto.
 * [**Azure.DigitalTwins.Core**](https://www.nuget.org/packages/Azure.DigitalTwins.Core). Este es el paquete del [SDK de Azure Digital Twins para .NET](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true). 
 * [**Azure.Identity**](https://www.nuget.org/packages/Azure.Identity). Esta biblioteca proporciona herramientas para facilitar la autenticación en Azure.
 
@@ -105,7 +105,7 @@ Lo primero que tendrá que hacer la aplicación es autenticarse en el servicio A
 
 Para realizar la autenticación, necesita el *nombre de host* de la instancia de Azure Digital Twins.
 
-En *Program.cs* , pegue el siguiente código debajo de la línea impresa "Hello, World!" en el método `Main`. Establezca el valor de `adtInstanceUrl` en el *nombre de host* de la instancia de Azure Digital Twins.
+En *Program.cs*, pegue el siguiente código debajo de la línea impresa "Hello, World!" en el método `Main`. Establezca el valor de `adtInstanceUrl` en el *nombre de host* de la instancia de Azure Digital Twins.
 
 ```csharp
 string adtInstanceUrl = "https://<your-Azure-Digital-Twins-instance-hostName>"; 
@@ -267,7 +267,7 @@ for(int i=0; i<3; i++) {
 }
 ```
 
-En la ventana de comandos, ejecute el programa con `dotnet run`. En la salida, busque los mensajes de impresión de que se han creado *sampleTwin-0* , *sampleTwin-1* y *sampleTwin-2*. 
+En la ventana de comandos, ejecute el programa con `dotnet run`. En la salida, busque los mensajes de impresión de que se han creado *sampleTwin-0*, *sampleTwin-1* y *sampleTwin-2*. 
 
 Luego, Vuelva a ejecutar el programa. 
 
@@ -375,7 +375,7 @@ En la ventana de comandos, ejecute el programa con `dotnet run`. En la salida ve
 
 ## <a name="complete-code-example"></a>Finalización del ejemplo de código
 
-En este punto del tutorial, tiene una aplicación cliente completa, capaz de llevar a cabo acciones básicas en Azure Digital Twins. Como referencia, a continuación, se muestra el código completo del programa en *Program.cs* :
+En este punto del tutorial, tiene una aplicación cliente completa, capaz de llevar a cabo acciones básicas en Azure Digital Twins. Como referencia, a continuación, se muestra el código completo del programa en *Program.cs*:
 
 ```csharp
 using System;

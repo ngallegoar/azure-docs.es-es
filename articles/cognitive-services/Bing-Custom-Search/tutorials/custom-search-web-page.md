@@ -10,19 +10,19 @@ ms.subservice: bing-custom-search
 ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: aahi
-ms.openlocfilehash: 25d716513c7ceb9311588b75b0fad1c68bf71bfd
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: a789cb3fde05d12a8793196043f1c246bbab6559
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93081117"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96342420"
 ---
 # <a name="tutorial-build-a-custom-search-web-page"></a>Tutorial: Creación de una página web de Custom Search
 
 > [!WARNING]
-> Las Bing Search API se mueven de Cognitive Services a Bing Search Services. A partir del  **30 de octubre de 2020** , las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](https://aka.ms/cogsvcs/bingmove).
+> Las Bing Search API se mueven de Cognitive Services a Bing Search Services. A partir del **30 de octubre de 2020**, las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 > El aprovisionamiento de las Bing Search API mediante Cognitive Services será posible durante los próximos tres años o hasta que finalice el Contrato Enterprise, lo que antes suceda.
-> Puede encontrar instrucciones sobre la migración en [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
+> Puede encontrar instrucciones sobre la migración en [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 Bing Custom Search le permite crear experiencias de búsqueda a medida de los temas que le interesan. Por ejemplo, si tiene un sitio web de artes marciales que incluye la posibilidad de realizar búsquedas, puede especificar los dominios, subsitios y páginas web en las que busca Bing. Los usuarios ven los resultados de búsqueda adaptados al contenido que les interesa en lugar de recorrer las páginas de resultados de búsqueda generales que pueden contener contenido carente de interés. 
 
@@ -65,7 +65,7 @@ Para crear una instancia de Bing Custom Search:
 
 Para incluir los resultados de direcciones URL o sitios web específicos, agréguelos a la pestaña **Activos**.
 
-1. En la página **Configuración** , haga clic en la pestaña **Activos** y escriba la dirección URL de uno o varios sitios web que va a incluir en la búsqueda.
+1. En la página **Configuración**, haga clic en la pestaña **Activos** y escriba la dirección URL de uno o varios sitios web que va a incluir en la búsqueda.
 
     ![Captura de pantalla de la pestaña Activos del Editor de definiciones](../media/customSrchEditor.png)
 
@@ -75,7 +75,7 @@ Para incluir los resultados de direcciones URL o sitios web específicos, agrég
 
 Para excluir resultados de direcciones URL o sitios web específicos, agréguelos a la pestaña **Bloqueados**.
 
-1. En la página **Configuración** , haga clic en la pestaña **Bloqueados** y escriba la dirección URL de uno o más sitios web que quiera excluir de la búsqueda.
+1. En la página **Configuración**, haga clic en la pestaña **Bloqueados** y escriba la dirección URL de uno o más sitios web que quiera excluir de la búsqueda.
 
     ![Captura de pantalla de la pestaña Bloqueados del Editor de definiciones](../media/blockedCustomSrch.png)
 
@@ -86,7 +86,7 @@ Para excluir resultados de direcciones URL o sitios web específicos, agréguelo
 
 Para anclar una página web específica a la parte superior de los resultados de búsqueda, agregue la página web y el término de consulta a la pestaña **Pinned** (Anclado). La pestaña **Pinned** (Anclado) contiene una lista de pares de término de consulta y página web que especifican la página web que aparece como mejor resultado para una consulta específica. La página web se ancla solo si la cadena de consulta del usuario coincide con la cadena de consulta del ancla en función de la condición de coincidencia del ancla. En las búsquedas solo se mostrarán las páginas web indexadas. Para más información, consulte [Definición de una vista personalizada](../define-your-custom-view.md#pin-slices-to-the-top-of-search-results).
 
-1. En la página **Configuración** , haga clic en la pestaña **Anclados** y escriba el término de consulta y de página web de la página web que desee que se devuelva como el primer resultado.  
+1. En la página **Configuración**, haga clic en la pestaña **Anclados** y escriba el término de consulta y de página web de la página web que desee que se devuelva como el primer resultado.  
   
 2. De forma predeterminada, la cadena de consulta del usuario debe coincidir exactamente con la cadena de consulta de su ancla para que Bing devuelva la página web como el primer resultado. Para cambiar la condición de coincidencia, edite el código de anclado (haga clic en el icono de lápiz), haga clic en Exacta en la columna **Condición de coincidencia de la consulta** y seleccione la condición de coincidencia que sea adecuada para su aplicación.  
   
@@ -141,19 +141,19 @@ En el resto del tutorial, se ilustra la **Opción 1: fragmento de código de Jav
 
 1. Abra **Visual Studio** en el equipo.  
   
-2. En el menú **Archivo** , seleccione **Nuevo** y elija **Proyecto**.  
+2. En el menú **Archivo**, seleccione **Nuevo** y elija **Proyecto**.  
   
-3. En la ventana **Nuevo proyecto** , seleccione **Visual C#/Web/Aplicación web ASP.NET Core** , nombre el proyecto y, luego, haga clic en **OK** (Aceptar).  
+3. En la ventana **Nuevo proyecto**, seleccione **Visual C#/Web/Aplicación web ASP.NET Core**, nombre el proyecto y, luego, haga clic en **OK** (Aceptar).  
   
    ![Captura de pantalla de la ventana Nuevo proyecto](./media/custom-search-new-project.png)  
   
-4. En la ventana **Nueva aplicación web ASP.NET Core** , seleccione **Aplicación web** y haga clic en **Aceptar**.  
+4. En la ventana **Nueva aplicación web ASP.NET Core**, seleccione **Aplicación web** y haga clic en **Aceptar**.  
   
    ![Captura de pantalla de la nueva ventana de aplicación web](./media/custom-search-new-webapp.png)  
 
 ## <a name="edit-indexcshtml"></a>Edite index.cshtml.
 
-1. En el **Explorador de soluciones** , expanda **Páginas** y haga doble clic en **index.cshtml** para abrir el archivo.  
+1. En el **Explorador de soluciones**, expanda **Páginas** y haga doble clic en **index.cshtml** para abrir el archivo.  
   
    ![Captura de pantalla del Explorador de soluciones con las páginas expandidas e index.cshtml seleccionado](./media/custom-search-visual-studio-webapp-solution-explorer-index.png)  
   
@@ -179,7 +179,7 @@ En el resto del tutorial, se ilustra la **Opción 1: fragmento de código de Jav
    <div id="customSearch"></div>
    ```  
   
-4. En la página **UI hospedada** , desplácese hacia abajo hasta la sección titulada **Consumo de la interfaz de usuario**. Haga clic en el *Puntos de conexión* para tener acceso al fragmento de código de JavaScript. También puede obtener el fragmento de código haciendo clic en **Producción** y después en la pestaña **UI hospedada**.
+4. En la página **UI hospedada**, desplácese hacia abajo hasta la sección titulada **Consumo de la interfaz de usuario**. Haga clic en el *Puntos de conexión* para tener acceso al fragmento de código de JavaScript. También puede obtener el fragmento de código haciendo clic en **Producción** y después en la pestaña **UI hospedada**.
   
    <!-- Get new screenshot after prod gets new bits
    ![Screenshot of the Hosted UI save button](./media/custom-search-hosted-ui-consuming-ui.png)  
@@ -202,7 +202,7 @@ En el resto del tutorial, se ilustra la **Opción 1: fragmento de código de Jav
    </div>
    ```  
   
-6. En el **Explorador de soluciones** , haga clic con el botón derecho en **wwwroot** y haga clic en **View in Browser** (Ver en el explorador).  
+6. En el **Explorador de soluciones**, haga clic con el botón derecho en **wwwroot** y haga clic en **View in Browser** (Ver en el explorador).  
   
    ![Captura de pantalla del explorador de soluciones con Ver en el explorador seleccionado en el menú contextual de wwwroot](./media/custom-search-webapp-view-in-browser.png)  
 

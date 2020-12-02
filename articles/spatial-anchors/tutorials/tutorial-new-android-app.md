@@ -1,19 +1,19 @@
 ---
 title: 'Tutorial: Crear una nueva aplicación Android'
 description: En este tutorial, aprenderá a crear una aplicación Android mediante Azure Spatial Anchors.
-author: ramonarguelles
-manager: vriveras
+author: msftradford
+manager: MehranAzimi-msft
 services: azure-spatial-anchors
-ms.author: rgarcia
-ms.date: 06/22/2020
+ms.author: parkerra
+ms.date: 11/20/2020
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 3ef24e29e5dde90aa829c46d789256e6e5f3233b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: af0d01a20728d2332d4a8d71819f73baf68a65a4
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85296209"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95998400"
 ---
 # <a name="tutorial-step-by-step-instructions-to-create-a-new-android-app-using-azure-spatial-anchors"></a>Tutorial: instrucciones detalladas para crear una aplicación Android mediante Azure Spatial Anchors
 

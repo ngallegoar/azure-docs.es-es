@@ -11,19 +11,19 @@ ms.topic: tutorial
 ms.date: 02/03/2020
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: b6d9ec0760cc8d95f712cfc7a5478de1a99465ef
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: 76d7f4e31934480be57cd5ac133c1c7e6a9dd364
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94379878"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349612"
 ---
 # <a name="tutorial-single-page-video-search-app"></a>Tutorial: Aplicación de Video Search de página única
 
 > [!WARNING]
-> Las Bing Search API se mueven de Cognitive Services a Bing Search Services. A partir del  **30 de octubre de 2020** , las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](https://aka.ms/cogsvcs/bingmove).
+> Las Bing Search API se mueven de Cognitive Services a Bing Search Services. A partir del **30 de octubre de 2020**, las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 > El aprovisionamiento de las Bing Search API mediante Cognitive Services será posible durante los próximos tres años o hasta que finalice el Contrato Enterprise, lo que antes suceda.
-> Puede encontrar instrucciones sobre la migración en [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
+> Puede encontrar instrucciones sobre la migración en [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 Bing Video Search API permite buscar en la Web y obtener resultados de vídeo correspondientes a la consulta de búsqueda. En este tutorial, crearemos una aplicación web de una sola página que usa Bing Video Search API para mostrar los resultados de la búsqueda en la página. La aplicación incluye componentes HTML, CSS y JavaScript.
 
 <!-- Remove until it can be replaced with a sanitized version.

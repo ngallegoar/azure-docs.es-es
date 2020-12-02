@@ -11,11 +11,11 @@ ms.topic: tutorial
 ms.date: 09/10/2020
 ms.author: mbullwin
 ms.openlocfilehash: a17301e0807877662ae1bf34ade48e90a1d30c0c
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94368651"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006207"
 ---
 # <a name="tutorial-visualize-anomalies-using-batch-detection-and-power-bi"></a>Tutorial: Visualización de anomalías con detección por lotes y Power BI
 
@@ -48,13 +48,13 @@ En la ventana principal de Power BI Desktop, haga clic en la cinta de opciones
 
 ![Una imagen del botón "Obtener datos" en Power BI](../media/tutorials/power-bi-get-data-button.png)
 
-Después de que aparezca el cuadro de diálogo, vaya a la carpeta donde descargó el archivo .xlsx de ejemplo y selecciónelo. Una vez que aparezca el cuadro de diálogo **Navegador** , haga clic en **Sheet1** y, a continuación, en **Editar**.
+Después de que aparezca el cuadro de diálogo, vaya a la carpeta donde descargó el archivo .xlsx de ejemplo y selecciónelo. Una vez que aparezca el cuadro de diálogo **Navegador**, haga clic en **Sheet1** y, a continuación, en **Editar**.
 
 ![Una imagen de la pantalla "Navegador" del origen de datos en Power BI](../media/tutorials/navigator-dialog-box.png)
 
 Power BI convertirá las marcas de tiempo de la primera columna en un tipo de datos `Date/Time`. Estas marcas de tiempo se deben convertir a texto antes de enviarse a Anomaly Detector API. Si el editor Power Query no se abre automáticamente, haga clic en **Editar consultas** en la pestaña Inicio.
 
-Haga clic en la pestaña **Transformar** de la cinta de opciones del editor Power Query. En el grupo **Cualquier columna** , abra el menú desplegable **Tipo de datos:** y seleccione **Texto**.
+Haga clic en la pestaña **Transformar** de la cinta de opciones del editor Power Query. En el grupo **Cualquier columna**, abra el menú desplegable **Tipo de datos:** y seleccione **Texto**.
 
 ![Imagen de la lista desplegable de tipos de datos](../media/tutorials/data-type-drop-down.png)
 
@@ -125,7 +125,7 @@ Es posible que reciba un mensaje de advertencia cuando intente ejecutar la consu
 
 ![Una imagen que muestra una advertencia creada por Power BI](../media/tutorials/blocked-function.png)
 
-Para solucionar este problema, haga clic en **Archivo** y en **Opciones y configuración**. Después, haga clic en **Opciones**. A continuación, en **Archivo actual** , seleccione **Privacidad** e **Ignorar los niveles de privacidad y mejorar el rendimiento potencialmente**.
+Para solucionar este problema, haga clic en **Archivo** y en **Opciones y configuración**. Después, haga clic en **Opciones**. A continuación, en **Archivo actual**, seleccione **Privacidad** e **Ignorar los niveles de privacidad y mejorar el rendimiento potencialmente**.
 
 Además, puede recibir un mensaje que le pide que especifique cómo desea conectarse a la API.
 
@@ -156,7 +156,7 @@ Después de agregar los campos, haga clic en el gráfico y cambie su tamaño par
 
 ### <a name="display-anomaly-data-points"></a>Visualización de puntos de datos de anomalías
 
-En el lado derecho de la ventana de Power BI, bajo el panel **CAMPOS** , haga clic con el botón derecho en **Valor** en la **consulta de Función invocada** y haga clic en **Nueva medida rápida**.
+En el lado derecho de la ventana de Power BI, bajo el panel **CAMPOS**, haga clic con el botón derecho en **Valor** en la **consulta de Función invocada** y haga clic en **Nueva medida rápida**.
 
 ![Una imagen de la nueva pantalla de medida rápida](../media/tutorials/new-quick-measure.png)
 
@@ -164,7 +164,7 @@ En la pantalla que aparece, seleccione **Valor filtrado** como cálculo. Estable
 
 ![Imagen de la nueva pantalla de medida rápida](../media/tutorials/new-quick-measure-2.png)
 
-Después de hacer clic en **Aceptar** , tendrá un campo `Value for True`, en la parte inferior de la lista de los campos. Haga clic con el botón derecho en ella y cambie su nombre a **Anomalías**. Agréguela a los **valores** del gráfico. A continuación, seleccione la herramienta **Formato** y establezca el tipo de eje X en **Categórico**.
+Después de hacer clic en **Aceptar**, tendrá un campo `Value for True`, en la parte inferior de la lista de los campos. Haga clic con el botón derecho en ella y cambie su nombre a **Anomalías**. Agréguela a los **valores** del gráfico. A continuación, seleccione la herramienta **Formato** y establezca el tipo de eje X en **Categórico**.
 
 ![Imagen del formato del eje x](../media/tutorials/format-x-axis.png)
 

@@ -11,19 +11,19 @@ ms.topic: tutorial
 ms.date: 06/23/2020
 ms.author: aahi
 ms.custom: seodec2018, devx-track-js
-ms.openlocfilehash: 0eef6f424c0360ba1378bafa738cbec7dbf05776
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: c3d486a32f4a926ed42f3d67a1fa96d3da397beb
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93098372"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351221"
 ---
 # <a name="tutorial-create-a-single-page-web-app"></a>Tutorial: Creación de una aplicación web de una sola página
 
 > [!WARNING]
-> Las Bing Search API se mueven de Cognitive Services a Bing Search Services. A partir del  **30 de octubre de 2020** , las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](https://aka.ms/cogsvcs/bingmove).
+> Las Bing Search API se mueven de Cognitive Services a Bing Search Services. A partir del **30 de octubre de 2020**, las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 > El aprovisionamiento de las Bing Search API mediante Cognitive Services será posible durante los próximos tres años o hasta que finalice el Contrato Enterprise, lo que antes suceda.
-> Puede encontrar instrucciones sobre la migración en [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
+> Puede encontrar instrucciones sobre la migración en [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 Bing News Search API permite buscar en la Web y obtener resultados relacionados con las noticias y que sean relevantes para una consulta de búsqueda. En este tutorial, crearemos una aplicación web de una sola página que usa Bing News Search API para mostrar los resultados de la búsqueda directamente en la página. La aplicación incluye componentes HTML, CSS y JavaScript. El código fuente del ejemplo está disponible en [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/BingNewsSearchApp.html).
 

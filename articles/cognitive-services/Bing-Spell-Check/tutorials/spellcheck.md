@@ -11,19 +11,19 @@ ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: 7abd67ef072303b7f8156a18c2e3ac34758c03dd
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: bd01eaefa457c5ade10a5f1f4b8389d90ed60adf
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94364741"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351953"
 ---
 # <a name="tutorial-build-a-web-page-spell-check-client"></a>Tutorial: Compilación de un cliente de revisión ortográfica de página web
 
 > [!WARNING]
-> Las Bing Search API se mueven de Cognitive Services a Bing Search Services. A partir del  **30 de octubre de 2020** , las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](https://aka.ms/cogsvcs/bingmove).
+> Las Bing Search API se mueven de Cognitive Services a Bing Search Services. A partir del **30 de octubre de 2020**, las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 > El aprovisionamiento de las Bing Search API mediante Cognitive Services será posible durante los próximos tres años o hasta que finalice el Contrato Enterprise, lo que antes suceda.
-> Puede encontrar instrucciones sobre la migración en [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
+> Puede encontrar instrucciones sobre la migración en [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 En este tutorial, vamos a compilar una página web que permita a los usuarios consultar Bing Spell Check API. El código fuente de esta aplicación está disponible en [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/BingSpellCheckApp.html).
 
@@ -128,7 +128,7 @@ La función auxiliar getSubscriptionKeyLocalStorage primero intenta recuperar la
     }
 ```
 
-La función auxiliar getSubscriptionKey toma un parámetro, **invalidate**. Si **invalidate** es **true** , getSubscriptionKey elimina la cookie que contiene la clave de Bing Spell Check API. Si **invalidate** es **false** , getSubscriptionKey devuelve el valor de la clave de Bing Spell Check API.
+La función auxiliar getSubscriptionKey toma un parámetro, **invalidate**. Si **invalidate** es **true**, getSubscriptionKey elimina la cookie que contiene la clave de Bing Spell Check API. Si **invalidate** es **false**, getSubscriptionKey devuelve el valor de la clave de Bing Spell Check API.
 
 ```html
     function getSubscriptionKey(invalidate) {

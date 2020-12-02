@@ -6,11 +6,11 @@ ms.topic: include
 ms.date: 5/25/2020
 ms.author: baanders
 ms.openlocfilehash: f5b332415f1abf7d4c1002bdd4f3bfcef12f1267
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93136324"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023279"
 ---
 ## <a name="configure-the-sample-project"></a>Configuración del proyecto de ejemplo
 
@@ -32,7 +32,7 @@ En el cuerpo del archivo, cambie el valor de `instanceUrl` a la dirección URL d
 
 Guarde y cierre el archivo. 
 
-Después, configure el archivo *appsettings.json* para que se copie al directorio de salida cuando compile *SampleClientApp*. Para ello, seleccione el archivo *appsettings.json* con el botón derecho y elija *Propiedades.* . En el inspector *Propiedades* , cambie el valor de la propiedad *Copiar en el directorio de resultados* a *Copiar si es posterior*.
+Después, configure el archivo *appsettings.json* para que se copie al directorio de salida cuando compile *SampleClientApp*. Para ello, seleccione el archivo *appsettings.json* con el botón derecho y elija *Propiedades.* . En el inspector *Propiedades*, cambie el valor de la propiedad *Copiar en el directorio de resultados* a *Copiar si es posterior*.
 
 :::image type="content" source="../articles/digital-twins/media/includes/copy-config.png" alt-text="Extracto de la ventana de Visual Studio que muestra el panel Explorador de soluciones con appsettings.json resaltado y el panel Propiedades con la propiedad Copiar en el directorio de salida establecida en Copiar si es posterior" border="false" lightbox="../articles/digital-twins/media/includes/copy-config.png":::
 

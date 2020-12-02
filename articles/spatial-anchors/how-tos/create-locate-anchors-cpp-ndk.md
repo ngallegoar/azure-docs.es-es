@@ -1,19 +1,19 @@
 ---
 title: Creación y localización de delimitadores en C++ y NDK
 description: Explicación detallada de cómo crear y localizar delimitadores mediante Azure Spatial Anchors en C++/NDK.
-author: ramonarguelles
-manager: vriveras
+author: msftradford
+manager: MehranAzimi-msft
 services: azure-spatial-anchors
-ms.author: rgarcia
-ms.date: 02/24/2019
+ms.author: parkerra
+ms.date: 11/20/2020
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 445528b7d4f8d0b50270dfd775f6453252396f4c
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: 8c25b337447a0b5d2eab777cd2c9df69efeed0bb
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92097548"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "96022520"
 ---
 # <a name="how-to-create-and-locate-anchors-using-azure-spatial-anchors-in-cndk"></a>Creación y localización de delimitadores mediante Azure Spatial Anchors en C++/NDK
 
