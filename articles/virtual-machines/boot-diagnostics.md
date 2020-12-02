@@ -7,12 +7,12 @@ author: mimckitt
 ms.author: mimckitt
 ms.topic: conceptual
 ms.date: 11/06/2020
-ms.openlocfilehash: 1dcefefe02d91506c494cdf91e75ca951ccf43bb
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 408ba76c44d1161a4b91ccc037721796c7b94661
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94365477"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500757"
 ---
 # <a name="azure-boot-diagnostics"></a>Diagnósticos de arranque de Azure
 
@@ -41,10 +41,10 @@ Al crear una máquina virtual en Azure Portal, el valor predeterminado es tener 
 :::image type="content" source="./media/boot-diagnostics/boot-diagnostics-enable-portal.png" alt-text="Captura de pantalla de la habilitación del diagnóstico de arranque administrado durante la creación de la máquina virtual":::.
 
 ### <a name="enable-managed-boot-diagnostics-using-cli"></a>Habilitación de diagnósticos de arranque administrados mediante la CLI
-Los diagnósticos de arranque con una cuenta de almacenamiento administrada se admiten en la CLI de Azure 2.12.0 y versiones posteriores. Si no especifica un nombre o un URI para una cuenta de almacenamiento, se usará una cuenta administrada. Para obtener más información y ejemplos de código, consulte la [documentación de la CLI para los diagnósticos de arranque](https://docs.microsoft.com/cli/azure/vm/boot-diagnostics?view=azure-cli-latest&preserve-view=true).
+Los diagnósticos de arranque con una cuenta de almacenamiento administrada se admiten en la CLI de Azure 2.12.0 y versiones posteriores. Si no especifica un nombre o un URI para una cuenta de almacenamiento, se usará una cuenta administrada. Para obtener más información y ejemplos de código, consulte la [documentación de la CLI para los diagnósticos de arranque](/cli/azure/vm/boot-diagnostics?preserve-view=true&view=azure-cli-latest).
 
 ### <a name="enable-managed-boot-diagnostics-using-azure-resource-manager-arm-templates"></a>Habilitación de diagnósticos de arranque administrados mediante plantillas de Azure Resource Manager (ARM)
-Todas las versiones de API posteriores a 2020-06-01 admiten los diagnósticos de arranque administrados. Para más información, consulte la [vista de instancia de diagnósticos de arranque](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#bootdiagnostics).
+Todas las versiones de API posteriores a 2020-06-01 admiten los diagnósticos de arranque administrados. Para más información, consulte la [vista de instancia de diagnósticos de arranque](/rest/api/compute/virtualmachines/createorupdate#bootdiagnostics).
 
 ```ARM Template
             "name": "[parameters('virtualMachineName')]",

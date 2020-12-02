@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: daberry
-ms.openlocfilehash: 250223c5c15a0179fe105e66e7004f8920c5eb34
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 07564955e9cfa6931e461df00ef50a237a66b9b3
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637622"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500689"
 ---
 # <a name="ev3-and-esv3-series"></a>Series Ev3 y Esv3
 
@@ -80,7 +80,7 @@ Las máquinas virtuales de la serie Esv3 cuentan con la tecnología Hyper-Thread
 
 <sup>2</sup> La instancia está aislada en el hardware dedicado a un solo cliente.
 
-<sup>3</sup> Las máquinas virtuales de la serie Esv3 pueden [expandir](linux/disk-bursting.md) su rendimiento de disco y llegar a una expansión máxima de hasta 30 minutos cada vez.
+<sup>3</sup> Las máquinas virtuales de la serie Esv3 pueden [expandir](./disk-bursting.md) su rendimiento de disco y llegar a una expansión máxima de hasta 30 minutos cada vez.
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 

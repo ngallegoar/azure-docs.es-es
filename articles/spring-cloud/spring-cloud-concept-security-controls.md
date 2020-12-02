@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 04/23/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 102b8f4099c93637779743b9c08347266c1d044f
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 25636611795a18761a1fc7135efd4abba5af5fe3
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92094031"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96501114"
 ---
 # <a name="security-controls-for-azure-spring-cloud-service"></a>Controles de seguridad para el servicio Azure Spring Cloud
 
@@ -26,7 +26,7 @@ Un control de seguridad es una cualidad o característica de un servicio de Azur
 
 | Control de seguridad | Sí/No | Notas | Documentación |
 |:-------------|:-------|:-------------------------------|:----------------------|
-| Cifrado del lado servidor en reposo: Claves administradas por Microsoft | Sí | El origen y los artefactos cargados por el usuario, los valores del servidor de configuración, la configuración de la aplicación y los datos en el almacenamiento persistente se almacenan en Azure Storage, que cifra automáticamente el contenido en reposo.<br><br>La memoria caché del servidor de configuración, los archivos binarios en tiempo de ejecución compilados a partir del código fuente cargado y los registros de aplicación durante la vigencia de la aplicación se guardan en un disco administrado de Azure que cifra automáticamente el contenido en reposo.<br><br>Las imágenes de contenedor compiladas a partir del código fuente cargado por el usuario se guardan en Azure Container Registry, que cifra automáticamente el contenido de la imagen en reposo. | [Cifrado de Azure Storage para datos en reposo](../storage/common/storage-service-encryption.md)<br><br>[Cifrado del lado servidor de Azure Managed Disks](../virtual-machines/linux/disk-encryption.md)<br><br>[Almacenamiento de imágenes en Azure Container Registry](../container-registry/container-registry-storage.md) |
+| Cifrado del lado servidor en reposo: Claves administradas por Microsoft | Sí | El origen y los artefactos cargados por el usuario, los valores del servidor de configuración, la configuración de la aplicación y los datos en el almacenamiento persistente se almacenan en Azure Storage, que cifra automáticamente el contenido en reposo.<br><br>La memoria caché del servidor de configuración, los archivos binarios en tiempo de ejecución compilados a partir del código fuente cargado y los registros de aplicación durante la vigencia de la aplicación se guardan en un disco administrado de Azure que cifra automáticamente el contenido en reposo.<br><br>Las imágenes de contenedor compiladas a partir del código fuente cargado por el usuario se guardan en Azure Container Registry, que cifra automáticamente el contenido de la imagen en reposo. | [Cifrado de Azure Storage para datos en reposo](../storage/common/storage-service-encryption.md)<br><br>[Cifrado del lado servidor de Azure Managed Disks](../virtual-machines/disk-encryption.md)<br><br>[Almacenamiento de imágenes en Azure Container Registry](../container-registry/container-registry-storage.md) |
 | Cifrado en tránsito | Sí | Los puntos de conexión públicos de la aplicación de usuario usan HTTPS para el tráfico de entrada de forma predeterminada. |  |
 | Llamadas a API cifradas | Sí | Las llamadas de administración para configurar el servicio Azure Spring Cloud se producen mediante llamadas de Azure Resource Manager sobre HTTPS. | [Azure Resource Manager](../azure-resource-manager/index.yml) |
 

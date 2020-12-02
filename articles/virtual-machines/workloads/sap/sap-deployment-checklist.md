@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 08/10/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ac75ab31f8c9cdd9405115db4f5c35d28707e29f
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 06d20dd47ceb71b51e226d662892eab06b072685
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94950370"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500944"
 ---
 # <a name="sap-workloads-on-azure-planning-and-deployment-checklist"></a>Lista de comprobación de planeamiento e implementación de cargas de trabajo de SAP en Azure
 
@@ -243,8 +243,8 @@ En esta fase recopilará lo que experimentó y aprendió durante las implementac
     - Se usó Azure Premium Storage para los discos sensibles a la latencia o cuando se requiere el [contrato de nivel de servicio del 99,9 % para una única máquina virtual](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/).
     - El Acelerador de escritura de Azure se implementó correctamente.
         - Asegúrese de que, en las máquinas virtuales, se han creado correctamente los espacios de almacenamiento o conjuntos de franjas en los discos que necesitan Acelerador de escritura.
-        - Compruebe la [configuración del software RAID en Linux](../../linux/configure-raid.md).
-        - Compruebe la [configuración del LVM en las máquinas virtuales de Linux en Azure](../../linux/configure-lvm.md).
+        - Compruebe la [configuración del software RAID en Linux](/previous-versions/azure/virtual-machines/linux/configure-raid).
+        - Compruebe la [configuración del LVM en las máquinas virtuales de Linux en Azure](/previous-versions/azure/virtual-machines/linux/configure-lvm).
     - Se usaron exclusivamente [discos administrados de Azure](https://azure.microsoft.com/services/managed-disks/).
     - Las máquinas virtuales se implementaron en los conjuntos y las zonas de disponibilidad correctos.
     - Las [redes aceleradas de Azure](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/) están habilitadas en las máquinas virtuales que se usan en el nivel de aplicación de SAP y el nivel de DBMS de SAP.

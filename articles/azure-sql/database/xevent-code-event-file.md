@@ -7,16 +7,16 @@ ms.subservice: performance
 ms.custom: sqldbrb=1
 ms.devlang: PowerShell
 ms.topic: sample
-author: MightyPen
-ms.author: genemi
-ms.reviewer: jrasnik
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.reviewer: sstein
 ms.date: 06/06/2020
-ms.openlocfilehash: 9674b7188251312056812ac8e1dcae5885579e2a
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: d7a57f98551cf91ed87858caba0907471bcf6b12
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791314"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96501233"
 ---
 # <a name="event-file-target-code-for-extended-events-in-azure-sql-database"></a>Código de destino del archivo de evento para eventos extendidos en Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -54,7 +54,7 @@ En este tema se presenta un ejemplo de código de dos fases:
 
 - Debe tener instalados los [módulos de Azure PowerShell](https://go.microsoft.com/?linkid=9811175) .
 
-  - Los módulos proporcionan comandos como - **New-AzStorageAccount** .
+  - Los módulos proporcionan comandos como - **New-AzStorageAccount**.
 
 ## <a name="phase-1-powershell-code-for-azure-storage-container"></a>Fase 1: código de PowerShell para el contenedor de Azure Storage
 
@@ -62,7 +62,7 @@ Esta es la fase 1 del ejemplo de código de dos fases.
 
 El script comienza con comandos que realizan una limpieza después de una posible ejecución anterior y se puede volver a ejecutar.
 
-1. Pegue el script de PowerShell en un editor de texto simple, como Notepad.exe, y guárdelo como archivo con extensión **.ps1** .
+1. Pegue el script de PowerShell en un editor de texto simple, como Notepad.exe, y guárdelo como archivo con extensión **.ps1**.
 2. Inicie PowerShell ISE como administrador.
 3. En el símbolo del sistema, escriba<br/>`Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser`<br/>y, luego, presione Entrar.
 4. En PowerShell ISE, abra el archivo **.ps1** . Ejecute el script.
@@ -258,7 +258,7 @@ El script de PowerShell imprimió algunos valores con nombre cuando finalizó. D
 6. Guarde y, luego, ejecute el script.
 
 > [!WARNING]
-> El valor de clave SAS generado con el script de PowerShell anterior podría comenzar con un carácter "?" (signo de interrogación). Al utilizar la clave SAS en el siguiente script de T-SQL, debe *quitar el carácter "?" inicial* . De lo contrario, podrían bloquearse su trabajo por motivos de seguridad.
+> El valor de clave SAS generado con el script de PowerShell anterior podría comenzar con un carácter "?" (signo de interrogación). Al utilizar la clave SAS en el siguiente script de T-SQL, debe *quitar el carácter "?" inicial*. De lo contrario, podrían bloquearse su trabajo por motivos de seguridad.
 
 ### <a name="transact-sql-code"></a>Código Transact-SQL
 
@@ -451,7 +451,7 @@ GO
 
 ## <a name="output"></a>Output
 
-Cuando se complete el script de Transact-SQL, haga clic en una celda bajo el encabezado de la columna **event_data_XML** . Aparece un elemento **\<event>** que muestra una instrucción UPDATE.
+Cuando se complete el script de Transact-SQL, haga clic en una celda bajo el encabezado de la columna **event_data_XML**. Aparece un elemento **\<event>** que muestra una instrucción UPDATE.
 
 Este es un elemento **\<event>** que se generó durante la prueba:
 
@@ -506,9 +506,9 @@ En la siguiente página encontrará una explicación de las opciones avanzadas d
 
 Suponga que desea ejecutar el ejemplo de Transact-SQL anterior en Microsoft SQL Server.
 
-- Para mantener la simplicidad, desearía reemplazar completamente el uso del contenedor de Azure Storage por un archivo simple como *C:\myeventdata.xel* . El archivo se escribiría en el disco duro local del equipo donde se hospeda SQL Server.
-- No necesitaría ningún tipo de instrucción Transact-SQL para **CREATE MASTER KEY** y **CREATE CREDENTIAL** .
-- En la instrucción **CREATE EVENT SESSION** , en su cláusula **ADD TARGET** , reemplazaría el valor Http asignado en **filename=** por una cadena de ruta de acceso completa como *C:\myfile.xel* .
+- Para mantener la simplicidad, desearía reemplazar completamente el uso del contenedor de Azure Storage por un archivo simple como *C:\myeventdata.xel*. El archivo se escribiría en el disco duro local del equipo donde se hospeda SQL Server.
+- No necesitaría ningún tipo de instrucción Transact-SQL para **CREATE MASTER KEY** y **CREATE CREDENTIAL**.
+- En la instrucción **CREATE EVENT SESSION**, en su cláusula **ADD TARGET**, reemplazaría el valor Http asignado en **filename=** por una cadena de ruta de acceso completa como *C:\myfile.xel*.
   
   - No es necesario utilizar ninguna cuenta de Azure Storage.
 

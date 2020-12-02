@@ -4,15 +4,15 @@ description: Aprenda a implementar un modelo tabular en un servidor de Azure Ana
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 12/01/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 45ea75b65e75f9bac4d6d4839ffe7fa095e3b25d
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 9df10760164dcd0d207663c14107f72c46b76d25
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92018783"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96501250"
 ---
 # <a name="deploy-a-model-from-visual-studio"></a>Implementación de un modelo de Visual Studio
 
@@ -63,4 +63,4 @@ Si se produce un error al realizar una implementación en una tabla, es probable
 
 Ahora que tiene el modelo tabular implementado en el servidor, está listo para conectarse a él. Puede [conectarse a él con SQL Server Management Studio (SSMS)](analysis-services-manage.md) para administrarlo. Además, puede [conectarse a él mediante una herramienta cliente](analysis-services-connect.md) como Power BI, Power BI Desktop o Excel y empezar a crear informes.   
 
-Para obtener información sobre métodos de implementación avanzada, consulte [Implementación de la solución de modelo tabular](/analysis-services/deployment/tabular-model-solution-deployment?view=azure-analysis-services-current).
+Para obtener información sobre métodos de implementación avanzada, consulte [Implementación de la solución de modelo tabular](/analysis-services/deployment/tabular-model-solution-deployment?view=azure-analysis-services-current&preserve-view=true).

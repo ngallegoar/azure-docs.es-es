@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 3932a1dee0eee16e7d64ff4c6085919d85b431ab
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 5c00d08fcaeed8eba5b9732c9196b9abddc32b36
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843271"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500723"
 ---
 # <a name="azure-security-baseline-for-virtual-machine-scale-sets"></a>Línea de base de seguridad de Azure para Virtual Machine Scale Sets
 
@@ -76,7 +76,7 @@ También puede implementar el firewall de aplicaciones web (WAF) de Azure delant
 
 Puede usar el acceso de red Just-in-Time de Azure Security Center para limitar la exposición de Windows Virtual Machines a las direcciones IP aprobadas durante un período limitado. Use también la protección de redes adaptativa de Azure Security Center para recomendar configuraciones de NSG que limiten los puertos y las direcciones IP basadas en el tráfico real y la inteligencia sobre amenazas.
 
-* [Configuración de la protección contra DDoS](../virtual-network/manage-ddos-protection.md)
+* [Configuración de la protección contra DDoS](../ddos-protection/manage-ddos-protection.md)
 
 * [Implementación de Azure Firewall](../firewall/tutorial-firewall-deploy-portal.md)
 
@@ -284,7 +284,7 @@ Como alternativa, puede habilitar e incorporar datos en Azure Sentinel o en una 
 
 * [Incorporación de Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-* [Descripción del área de trabajo de Log Analytics](../azure-monitor/log-query/get-started-portal.md)
+* [Descripción del área de trabajo de Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md)
 
 * [Procedimiento para realizar consultas personalizadas en Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
 
@@ -318,7 +318,7 @@ Como alternativa, puede habilitar e incorporar datos en Azure Sentinel o en una 
 
 * [Instrucciones para incorporar servidores Linux a Azure Security Center](../security-center/quickstart-onboard-machines.md)
 
-* [En el siguiente vínculo se proporcionan las directrices de seguridad recomendadas de Microsoft, que pueden servir como lista de criterios para el software de vulnerabilidad seleccionado](../virtual-machines/linux/security-recommendations.md)
+* [En el siguiente vínculo se proporcionan las directrices de seguridad recomendadas de Microsoft, que pueden servir como lista de criterios para el software de vulnerabilidad seleccionado](../virtual-machines/security-recommendations.md)
 
 **Supervisión de Azure Security Center**: Sí
 
@@ -472,7 +472,7 @@ Para las máquinas virtuales Linux, puede configurar manualmente el registro de 
 
 **Guía**: configure opciones de diagnóstico para que Azure Active Directory envíe registros de auditoría y de inicio de sesión a un área de trabajo de Log Analytics. Además, use Azure Monitor para revisar los registros y realizar consultas en los datos de registro de las máquinas virtuales de Azure.
 
-* [Descripción del área de trabajo de Log Analytics](../azure-monitor/log-query/get-started-portal.md)
+* [Descripción del área de trabajo de Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md)
 
 * [Integración de los registros de actividad de Azure en Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
@@ -484,7 +484,7 @@ Para las máquinas virtuales Linux, puede configurar manualmente el registro de 
 
 **Responsabilidad**: Customer
 
-### <a name="312-alert-on-account-sign-in-behavior-deviation"></a>3.12: Alerta de las desviaciones de comportamiento en los inicios de sesión de las cuentas
+### <a name="312-alert-on-account-sign-in-behavior-deviation"></a>3.12: Alerta sobre las desviaciones de comportamiento en los inicios de sesión de las cuentas
 
 **Guía**: use las características de protección de identidad y detección de riesgo de Azure Active Directory para configurar respuestas automatizadas a las acciones sospechosas que se detecten en relación con los recursos de las cuentas de almacenamiento. Debe habilitar las respuestas automatizadas a través de Azure Sentinel para implementar las respuestas de seguridad de su organización.
 
@@ -756,7 +756,7 @@ Actualmente, los controles de aplicaciones adaptables no están disponibles para
 
 * [Introducción a Azure Automation](../automation/automation-intro.md)
 
-* [Seguimiento de cambios en el entorno con la solución Change Tracking](../automation/change-tracking.md)
+* [Seguimiento de cambios en el entorno con la solución Change Tracking](../automation/change-tracking/overview.md)
 
 * [Introducción a State Configuration de Azure Automation](../automation/automation-dsc-overview.md)
 
@@ -1036,7 +1036,7 @@ necesitará una herramienta de terceros para la protección contra malware en la
 
 * [Protección contra amenazas avanzada de Microsoft Defender](/windows/security/threat-protection/microsoft-defender-atp/onboard-configure)
 
-* [Configuración de Microsoft Antimalware para Cloud Services y Virtual Machines](../virtual-machines/linux/security-recommendations.md)
+* [Configuración de Microsoft Antimalware para Cloud Services y Virtual Machines](../virtual-machines/security-recommendations.md)
 
 **Supervisión de Azure Security Center**: No aplicable
 

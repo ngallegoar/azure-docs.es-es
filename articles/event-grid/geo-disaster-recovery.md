@@ -2,21 +2,21 @@
 title: Recuperación ante desastres geográfica en Azure Event Grid | Microsoft Docs
 description: Describe cómo Azure Event Grid admite la recuperación ante desastres geográfica (GeoDR) automáticamente.
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.openlocfilehash: ccb16971020a65932daa8f9adf4b7cd9008a9253
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/19/2020
+ms.openlocfilehash: 10beaf0ae25f3ed9b7bcda5961a89494b18b84d9
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86105853"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94980862"
 ---
 # <a name="server-side-geo-disaster-recovery-in-azure-event-grid"></a>Recuperación ante desastres geográfica del servidor en Azure Event Grid
 Ahora, Event Grid incluye una recuperación ante desastres geográfica (GeoDR) automática de metadatos, en que no solo se recuperan las suscripciones a eventos, los temas y los dominios nuevos, sino también todos los existentes. Si deja de funcionar toda una región de Azure, Event Grid ya tendrá todos los metadatos de infraestructura relacionados con el evento sincronizados en una región emparejada. Los nuevos eventos empezarán a fluir de nuevo sin intervención del usuario. 
 
 La recuperación ante desastres se mide con dos métricas:
 
-- [Objetivo de punto de recuperación (RPO)](https://en.wikipedia.org/wiki/Disaster_recovery#Recovery_Point_Objective): minutos u horas de datos que se pueden perder.
-- [Objetivo de tiempo de recuperación (RTO)](https://en.wikipedia.org/wiki/Disaster_recovery#Recovery_time_objective): minutos u horas que el servicio puede estar inactivo.
+- Objetivo de punto de recuperación (RPO): minutos u horas de datos que se pueden perder.
+- Objetivo de tiempo de recuperación (RTO): minutos u horas que el servicio puede estar inactivo.
 
 La conmutación automática por error de Event Grid tiene diferentes RPO y RTO para los metadatos (suscripciones a eventos, etc.) y los datos (eventos). Si necesita una especificación distinta a las siguientes, siempre puede implementar su propia [conmutación por error del lado cliente con las API de estado de temas](custom-disaster-recovery.md).
 

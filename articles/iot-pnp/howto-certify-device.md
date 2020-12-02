@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.custom: mvc, devx-track-azurecli
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: b20dab7719e4c55c5868032db3178bb7baaddda0
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 7aa84336a3d71349c127ad15a90af98ffe2133fe
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748483"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94980242"
 ---
 # <a name="how-to-certify-iot-plug-and-play-devices"></a>Certificación de dispositivos IoT Plug and Play
 
@@ -44,6 +44,10 @@ Para cumplir los requisitos de certificación, el dispositivo debe:
 - Publicar el modelo y todas las interfaces necesarias, en el [repositorio de modelos públicos de Azure IoT](https://devicemodels.azureiotsolutions.com/).
 - Enviar el id. de modelo durante el [registro de DPS](concepts-developer-guide-device-csharp.md#dps-payload) en la carga de aprovisionamiento de DPS.
 - Anunciar el id. del modelo durante la [conexión de MQTT](concepts-developer-guide-device-csharp.md#model-id-announcement).
+- Todos los modelos de dispositivo deben ser compatibles con [Azure IoT Central](https://aka.ms/pnp-iotc-getstarted).
+
+> [!NOTE]
+> En la actualidad, Azure IoT Central no es completamente compatible con los tipos de datos DTDL **Array** y **Geospatial**.
 
 ## <a name="test-with-the-azure-iot-extension-cli"></a>Prueba con la CLI de la extensión de Azure IoT
 
@@ -182,12 +186,12 @@ La información del perfil de empresa se usa en la descripción del dispositivo 
 
 Para certificar un dispositivo, primero debe crear un nuevo proyecto.
 
-Vaya al [portal de certificación](https://aka.ms/acdp). En la página **Proyectos** , seleccione *+ Crear nuevo proyecto* . A continuación, escriba un nombre para el proyecto, el nombre del dispositivo y seleccione una clase de dispositivo.
+Vaya al [portal de certificación](https://aka.ms/acdp). En la página **Proyectos**, seleccione *+ Crear nuevo proyecto*. A continuación, escriba un nombre para el proyecto, el nombre del dispositivo y seleccione una clase de dispositivo.
 
 La información del producto que se proporciona durante el proceso de certificación se divide en cuatro categorías:
 
 - Información del dispositivo. Recopila información sobre el dispositivo, como su nombre, descripción, certificaciones y sistema operativo.
-- La guía **Introducción** . Debe enviar la guía como documento PDF para que el administrador del sistema la apruebe antes de publicar el dispositivo.
+- La guía **Introducción**. Debe enviar la guía como documento PDF para que el administrador del sistema la apruebe antes de publicar el dispositivo.
 - Detalles de marketing. Proporcione información de marketing preparada para el cliente del dispositivo. La información de marketing incluye una descripción, una foto y los distribuidores.
 - Certificaciones adicionales del sector. Esta sección opcional le permite proporcionar información adicional sobre cualquier otra certificación que el dispositivo haya obtenido.
 

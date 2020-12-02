@@ -5,13 +5,13 @@ services: logic-apps
 ms.workload: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 08/27/2020
-ms.openlocfilehash: 8a59b47dadd845f1a522854c503af11c8fff72fd
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.date: 11/19/2020
+ms.openlocfilehash: b345168dad63b1846d46c12721587eaffb5f887e
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94331981"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94981211"
 ---
 # <a name="call-trigger-or-nest-logic-apps-by-using-https-endpoints-in-azure-logic-apps"></a>Llamada, desencadenamiento o anidamiento de aplicaciones lógicas con puntos de conexión HTTPS en Azure Logic Apps
 
@@ -104,7 +104,7 @@ Para más información sobre el cifrado, la seguridad y la autorización de llam
 
    * A la derecha del cuadro **Dirección URL de HTTP POST**, seleccione **Copiar dirección URL** (icono Copiar archivos).
 
-   * Realice esta llamada POST:
+   * Para hacer esta llamada, use el método que espera el desencadenador de solicitud. En este ejemplo se usa el método `POST`:
 
      `POST https://management.azure.com/{logic-app-resource-ID}/triggers/{endpoint-trigger-name}/listCallbackURL?api-version=2016-06-01`
 
@@ -124,7 +124,7 @@ Para más información sobre el cifrado, la seguridad y la autorización de llam
 
 ## <a name="select-expected-request-method"></a>Seleccionar método de solicitud esperado
 
-De manera predeterminada, el desencadenador de solicitud espera una solicitud POST. Puede especificar un método esperado diferente, pero solo uno.
+De manera predeterminada, el desencadenador de solicitud espera una solicitud `POST`. Sin embargo, puede especificar un método distinto que el autor de la llamada debe usar, pero solo un método.
 
 1. En el desencadenador de solicitud, abra la lista **Agregar nuevo parámetro** y seleccione **Método**, que agrega esta propiedad al desencadenador.
 
@@ -262,7 +262,7 @@ Si desea aceptar valores de parámetros a través de la dirección URL del punto
 
 ## <a name="call-logic-app-through-endpoint-url"></a>Llamada a la aplicación lógica a través de la dirección URL de un punto de conexión
 
-Después de crear el punto de conexión, puede desencadenar la aplicación lógica mediante el envío de una solicitud HTTPS `POST` a la dirección URL completa del punto de conexión. Las aplicaciones lógicas tienen compatibilidad integrada para los puntos de conexión de acceso directo.
+Después de crear el punto de conexión, puede desencadenar la aplicación lógica mediante el envío de una solicitud HTTPS a la dirección URL completa del punto de conexión. Las aplicaciones lógicas tienen compatibilidad integrada para los puntos de conexión de acceso directo.
 
 <a name="generated-tokens"></a>
 

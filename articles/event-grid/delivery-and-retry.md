@@ -3,18 +3,21 @@ title: Entrega y reintento de entrega de Azure Event Grid
 description: Describe cómo Azure Event Grid entrega eventos y cómo administra los mensajes no entregados.
 ms.topic: conceptual
 ms.date: 10/29/2020
-ms.openlocfilehash: 483a868022d4ae8f7c564e51344dfbede4314232
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 7bf8fd3a647e28d18a7ca1e658761f9226d1153a
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93042951"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94981109"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Entrega y reintento de entrega de mensajes de Event Grid
 
 En este artículo se describe cómo Azure Event Grid administra los eventos cuando no se confirma la entrega.
 
-Event Grid ofrece entrega duradera. Entrega cada mensaje por lo menos una vez en cada suscripción. Los eventos se envían inmediatamente al punto de conexión registrado de cada suscripción. Si un punto de conexión no acusa recibo de un evento, Event Grid reintenta la entrega del evento.
+Event Grid ofrece entrega duradera. Entrega cada mensaje **por lo menos una vez** en cada suscripción. Los eventos se envían inmediatamente al punto de conexión registrado de cada suscripción. Si un punto de conexión no acusa recibo de un evento, Event Grid reintenta la entrega del evento.
+
+> [!NOTE]
+> Event Grid no garantiza el orden de entrega de los eventos, por lo que el suscriptor puede recibirlos de forma desordenada. 
 
 ## <a name="batched-event-delivery"></a>Entrega de eventos por lotes
 
@@ -22,8 +25,8 @@ De forma predeterminada, Event Grid envía cada evento individualmente a los sus
 
 La entrega por lotes tiene dos opciones:
 
-* **Número máximo de eventos por lote** : es el número máximo de eventos que Event Grid entregará por lote. No se superará nunca este número; sin embargo, se pueden entregar menos eventos si no hay otros eventos disponibles en el momento de la publicación. Event Grid no retrasa los eventos para crear un lote si hay menos eventos disponibles. Debe estar entre 1 y 5 000.
-* **Tamaño de lote preferido en kilobytes** : es el límite superior de destino para el tamaño de lote en kilobytes. Al igual que el número máximo de eventos, el tamaño del lote puede ser menor si no hay más eventos disponibles en el momento de la publicación. Es posible que un lote sea mayor que el tamaño de lote preferido *si* un solo evento es mayor que el tamaño preferido. Por ejemplo, si el tamaño preferido es 4 KB y se inserta un evento de 10 KB en Event Grid, el evento de 10 KB se seguirá entregando en su propio lote en lugar de ser eliminado.
+* **Número máximo de eventos por lote**: es el número máximo de eventos que Event Grid entregará por lote. No se superará nunca este número; sin embargo, se pueden entregar menos eventos si no hay otros eventos disponibles en el momento de la publicación. Event Grid no retrasa los eventos para crear un lote si hay menos eventos disponibles. Debe estar entre 1 y 5 000.
+* **Tamaño de lote preferido en kilobytes**: es el límite superior de destino para el tamaño de lote en kilobytes. Al igual que el número máximo de eventos, el tamaño del lote puede ser menor si no hay más eventos disponibles en el momento de la publicación. Es posible que un lote sea mayor que el tamaño de lote preferido *si* un solo evento es mayor que el tamaño preferido. Por ejemplo, si el tamaño preferido es 4 KB y se inserta un evento de 10 KB en Event Grid, el evento de 10 KB se seguirá entregando en su propio lote en lugar de ser eliminado.
 
 La entrega por lotes se configura en función de una suscripción por evento mediante el portal, la CLI, PowerShell o los SDK.
 
@@ -33,8 +36,8 @@ La entrega por lotes se configura en función de una suscripción por evento med
 ### <a name="azure-cli"></a>Azure CLI
 Al crear una suscripción a eventos, use los parámetros siguientes: 
 
-- **max-events-per-batch** : número máximo de eventos en un lote. Debe ser un número entre 1 y 5000.
-- **preferred-batch-size-in-kilobytes** : tamaño de lote preferido en kilobytes. Debe ser un número entre 1 y 1024.
+- **max-events-per-batch**: número máximo de eventos en un lote. Debe ser un número entre 1 y 5000.
+- **preferred-batch-size-in-kilobytes**: tamaño de lote preferido en kilobytes. Debe ser un número entre 1 y 1024.
 
 ```azurecli
 storageid=$(az storage account show --name <storage_account_name> --resource-group <resource_group_name> --query id --output tsv)

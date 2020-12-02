@@ -3,19 +3,19 @@ title: Inicio manual de una conmutación por error en SQL Managed Instance
 description: Obtenga información sobre cómo realizar manualmente la conmutación por error de las réplicas principal y secundaria en Azure SQL Managed Instance.
 services: sql-database
 ms.service: sql-managed-instance
-ms.custom: seo-lt-2019, sqldbrb=1
+ms.custom: seo-lt-2019, sqldbrb=1, devx-track-azurecli
 ms.devlang: ''
 ms.topic: how-to
 author: danimir
 ms.author: danil
 ms.reviewer: douglas, sstein
 ms.date: 08/31/2020
-ms.openlocfilehash: ebf36c99e6c4dd636c41086d4c72fd6761f6d5ca
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 51e9e66e2fd8ff60dd20c275a66fd13c047cc629
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791637"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94985525"
 ---
 # <a name="user-initiated-manual-failover-on-sql-managed-instance"></a>Conmutación por error manual iniciada por el usuario en SQL Managed Instance
 
@@ -37,9 +37,9 @@ Puede considerar la posibilidad de ejecutar una [conmutación por error manual](
 
 ## <a name="initiate-manual-failover-on-sql-managed-instance"></a>Inicio manual de la conmutación por error en SQL Managed Instance
 
-### <a name="rbac-permissions-required"></a>Permisos de RBAC necesarios
+### <a name="azure-rbac-permissions-required"></a>Se requieren permisos de RBAC de Azure
 
-El usuario que inicia una conmutación por error debe tener uno de los siguientes roles de RBAC:
+El usuario que inicia una conmutación por error debe tener uno de los roles de Azure siguientes:
 
 - Rol Propietario de la suscripción, o
 - Rol Colaborador de Instancia administrada, o
@@ -136,11 +136,11 @@ Antes de iniciar la conmutación por error, el resultado indicará la réplica p
 No podrá ver el mismo resultado con el nivel de servicio GP que el anterior que se muestra para BC. Esto se debe a que el nivel de servicio GP se basa en un solo nodo. La salida de la consulta T-SQL para el nivel de servicio GP mostrará un solo nodo antes y después de la conmutación por error. La pérdida de conectividad del cliente durante la conmutación por error, que normalmente dura menos de un minuto, será la indicación de la ejecución de la conmutación por error.
 
 > [!NOTE]
-> La finalización del proceso de conmutación por error (no de la breve falta de disponibilidad real) puede tardar varios minutos en el caso de cargas de trabajo de **alta intensidad** . Esto se debe a que el motor de la instancia se encarga de todas las transacciones actuales en la principal y se pone al día en el nodo secundario, antes de poder realizar la conmutación por error.
+> La finalización del proceso de conmutación por error (no de la breve falta de disponibilidad real) puede tardar varios minutos en el caso de cargas de trabajo de **alta intensidad**. Esto se debe a que el motor de la instancia se encarga de todas las transacciones actuales en la principal y se pone al día en el nodo secundario, antes de poder realizar la conmutación por error.
 
 > [!IMPORTANT]
 > Limitaciones funcionales de la conmutación por error manual iniciada por el usuario:
-> - Podría haber una (1) conmutación por error iniciada en la misma Instancia administrada cada **30 minutos** .
+> - Podría haber una (1) conmutación por error iniciada en la misma Instancia administrada cada **30 minutos**.
 > - En el caso de las instancias de BC, debe existir cuórum de réplicas para que se acepte la solicitud de conmutación por error.
 > - En el caso de las instancias de BC, no es posible especificar en qué réplica secundaria legible se iniciará la conmutación por error.
 

@@ -7,16 +7,16 @@ ms.subservice: performance
 ms.custom: sqldbrb=1
 ms.devlang: ''
 ms.topic: reference
-author: MightyPen
-ms.author: genemi
-ms.reviewer: jrasnik
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.reviewer: sstein
 ms.date: 12/19/2018
-ms.openlocfilehash: 0c89dc28a330e319e18a6289e5f6759c56e46ae8
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 139673e46421aa0dc19298697872fbff5fe587af
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791280"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96501216"
 ---
 # <a name="extended-events-in-azure-sql-database"></a>Eventos extendidos en Base de datos SQL de Azure 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -66,7 +66,7 @@ Los temas relacionados proporcionan dos ejemplos de código:
 - Cuando se ejecuta el comando [CREATE EVENT SESSION](/sql/t-sql/statements/create-event-session-transact-sql) en SQL Server, se usa la cláusula **ON SERVER** . Pero en Azure SQL Database se usa la cláusula **ON DATABASE** en su lugar.
 - La cláusula **ON DATABASE** se aplica también a los comandos Transact-SQL [ALTER EVENT SESSION](/sql/t-sql/statements/alter-event-session-transact-sql) y [DROP EVENT SESSION](/sql/t-sql/statements/drop-event-session-transact-sql).
 
-- Un procedimiento recomendado es incluir la opción de sesión de eventos de **STARTUP_STATE = ON** en sus instrucciones **CREATE EVENT SESSION** o **ALTER EVENT SESSION** .
+- Un procedimiento recomendado es incluir la opción de sesión de eventos de **STARTUP_STATE = ON** en sus instrucciones **CREATE EVENT SESSION** o **ALTER EVENT SESSION**.
   - El valor **= ON** admite un reinicio automático después de una reconfiguración de la base de datos lógica debida a una conmutación por error.
 
 ## <a name="new-catalog-views"></a>Nuevas vistas de catálogo
@@ -97,7 +97,7 @@ Azure SQL Database tiene [vistas de administración dinámica (DMV)](/sql/relati
 
 En Microsoft SQL Server, las vistas de catálogo similares tienen nombres sin la parte *\_database* del nombre, como:
 
-- **sys.dm_xe_sessions** , en vez del nombre<br/>**sys.dm_xe_database_sessions** .
+- **sys.dm_xe_sessions**, en vez del nombre<br/>**sys.dm_xe_database_sessions**.
 
 ### <a name="dmvs-common-to-both"></a>DMV comunes
 
@@ -151,11 +151,11 @@ La API [Seguimiento de eventos para Windows (ETW)](/dotnet/framework/wcf/samples
 Hay un par de diferencias relacionadas con la seguridad que se adaptan al entorno de nube de Azure SQL Database:
 
 - Los eventos extendidos se basan en el modelo de aislamiento de inquilino único. Una sesión de eventos en una base de datos no puede tener acceso a datos o eventos desde otra base de datos.
-- No se puede emitir una instrucción **CREATE EVENT SESSION** en el contexto de la base de datos **maestra** .
+- No se puede emitir una instrucción **CREATE EVENT SESSION** en el contexto de la base de datos **maestra**.
 
 ## <a name="permission-model"></a>Nombre del permiso
 
-Debe tener permiso de **Control** en la base de datos para emitir una instrucción **CREATE EVENT SESSION** . El propietario de la base de datos (dbo) tiene permiso de **Control** .
+Debe tener permiso de **Control** en la base de datos para emitir una instrucción **CREATE EVENT SESSION**. El propietario de la base de datos (dbo) tiene permiso de **Control** .
 
 ### <a name="storage-container-authorizations"></a>Autorizaciones de contenedor de almacenamiento
 
@@ -172,7 +172,7 @@ Existen escenarios donde un uso intensivo de eventos extendidos puede acumular m
 Si recibe un mensaje de error que indica que se aplicó un máximo de memoria, algunas acciones correctivas que puede tomar son:
 
 - Ejecutar menos sesiones de eventos simultáneas.
-- A través de sus instrucciones **CREATE** y **ALTER** para las sesiones de eventos, reducir la cantidad de memoria que especifica en la cláusula **MAX\_MEMORY** .
+- A través de sus instrucciones **CREATE** y **ALTER** para las sesiones de eventos, reducir la cantidad de memoria que especifica en la cláusula **MAX\_MEMORY**.
 
 ### <a name="network-latency"></a>Latencia de red
 

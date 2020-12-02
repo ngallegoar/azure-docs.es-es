@@ -5,14 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewers: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 08/27/2020
+ms.date: 11/19/2020
 tags: connectors
-ms.openlocfilehash: c0e8743d78c8eeafb5bdeb6ade783d5e75991f91
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.openlocfilehash: b8f95e7e173dd6d1ad43301aab8ff3ec7cf78018
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94330995"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94981007"
 ---
 # <a name="receive-and-respond-to-inbound-https-requests-in-azure-logic-apps"></a>Recepción y respuesta de solicitudes HTTPS entrantes en Azure Logic Apps
 
@@ -190,9 +190,9 @@ La aplicación lógica solo mantiene abierta una solicitud entrante durante un [
    > [!NOTE]
    > Si quiere incluir el símbolo de hash o de almohadilla ( **#** ) en el URI al hacer una llamada al desencadenador de solicitud, use mejor esta versión codificada: `%25%23`
 
-1. Para desencadenar la aplicación lógica, envíe una solicitud HTTP POST a la URL generada.
+1. Para probar la aplicación lógica, envíe una solicitud HTTP a la dirección URL generada.
 
-   Por ejemplo, puede usar una herramienta como [Postman](https://www.getpostman.com/) para enviar HTTP POST. Para obtener más información sobre la definición JSON subyacente del desencadenador y sobre cómo llamar a este desencadenador, vea estos temas: [Tipo de desencadenador de solicitud](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger) y [Llamada, desencadenamiento o anidamiento de aplicaciones lógicas con puntos de conexión HTTP en Azure Logic Apps](../logic-apps/logic-apps-http-endpoint.md).
+   Por ejemplo, puede usar una herramienta como [Postman](https://www.getpostman.com/) para enviar la solicitud HTTP. Para obtener más información sobre la definición JSON subyacente del desencadenador y sobre cómo llamar a este desencadenador, vea estos temas: [Tipo de desencadenador de solicitud](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger) y [Llamada, desencadenamiento o anidamiento de aplicaciones lógicas con puntos de conexión HTTP en Azure Logic Apps](../logic-apps/logic-apps-http-endpoint.md).
 
 Para más información sobre el cifrado, la seguridad y la autorización de llamadas entrantes para la aplicación lógica, como la [Seguridad de la capa de transporte (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security), conocida anteriormente como Capa de sockets seguros (SSL) o la [Autenticación abierta de Azure Active Directory Azure (Azure AD OAuth)](../active-directory/develop/index.yml), exponer la aplicación lógica con Azure API Management o restringir las direcciones IP que originan las llamadas entrantes, consulte [Proteger el acceso y los datos en Azure Logic Apps: acceso de las llamadas entrantes a desencadenadores basados en solicitud](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests).
 

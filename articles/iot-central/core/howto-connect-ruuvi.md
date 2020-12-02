@@ -11,11 +11,11 @@ ms.author: avneets
 author: avneet723
 ms.date: 11/27/2019
 ms.openlocfilehash: 7cf0d31895eaeaa41c23f9f07664b27bed1d3126
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90016765"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006394"
 ---
 # <a name="connect-a-ruuvitag-sensor-to-your-azure-iot-central-application"></a>Conexión de un sensor RuuviTag a la aplicación de Azure IoT Central
 
@@ -45,10 +45,10 @@ Para incorporar un sensor RuuviTag a la instancia de la aplicación de Azure IoT
 
 Para agregar una plantilla de dispositivo RuuviTag, siga estos pasos:
 
-1. Vaya a la pestaña ***Device Templates*** (Plantillas de dispositivo) en el panel izquierdo y seleccione **+ New** (+ Nuevo):  ![Creación de una plantilla de dispositivo](./media/howto-connect-ruuvi/devicetemplate-new.png) La página ofrece una opción para ***crear una plantilla personalizada*** o ***usar una plantilla de dispositivo preconfigurada***.
+1. Vaya a la pestaña ***Device Templates** _ en el panel izquierdo y seleccione _*+ Nuevo**:  ![Creación de una plantilla de dispositivo](./media/howto-connect-ruuvi/devicetemplate-new.png) La página ofrece una opción para **_crear una plantilla personalizada_*_ o _*_usar una plantilla de dispositivo preconfigurada_*_
 1. Seleccione la plantilla de dispositivo RuuviTag de la lista de plantillas de dispositivo preconfiguradas, como se muestra a continuación:  ![Selección de la plantilla de dispositivo RuuviTag](./media/howto-connect-ruuvi/devicetemplate-preconfigured.png)
-1. Seleccione ***Siguiente: Customize*** (Personalizar) para continuar con el paso siguiente.
-1. En la siguiente pantalla, seleccione ***Create*** (Crear) para incorporar la plantilla de dispositivo C500 a la aplicación IoT Central.
+1. Seleccione _*_Siguiente: Personalizar_*_ para continuar con el paso siguiente.
+1. En la siguiente pantalla, seleccione _*_Crear_*_ para incorporar la plantilla de dispositivo C500 a la aplicación IoT Central.
 
 ## <a name="connect-a-ruuvitag-sensor"></a>Conexión de un sensor RuuviTag
 
@@ -68,7 +68,7 @@ Si no tiene a mano un dispositivo RuuviTag físico, puede crear uno simulado par
 
 Para crear un sensor RuuviTag simulado, siga estos pasos:
 
-1. Seleccione **Devices (Dispositivos) > RuuviTag**.
+1. Seleccione _*Devices > RuuviTag**.
 1. Seleccione **+ Nuevo**.
 1. Especifique un identificador único en **Device ID** (Id. de dispositivo) y un nombre descriptivo en **Device name** (Nombre de dispositivo).  
 1. Habilite la opción **Simulated** (Simulado).
