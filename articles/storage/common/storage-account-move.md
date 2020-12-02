@@ -10,10 +10,10 @@ ms.date: 05/11/2020
 ms.author: normesta
 ms.reviewer: dineshm
 ms.openlocfilehash: b70beb90fae794eb5512cb8b466524169c4c7b53
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: ac7029597b54419ca13238f36f48c053a4492cb6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 11/29/2020
 ms.locfileid: "92792997"
 ---
 # <a name="move-an-azure-storage-account-to-another-region"></a>Traslado de una cuenta de Azure Storage a otra región
@@ -55,9 +55,9 @@ Para exportar una plantilla mediante Azure Portal:
 
 2. Seleccione **Todos los recursos** y seleccione su cuenta de almacenamiento.
 
-3. Seleccione > **Configuración** > **Exportar plantilla** .
+3. Seleccione > **Configuración** > **Exportar plantilla**.
 
-4. Elija **Descargar** en la hoja **Exportar plantilla** .
+4. Elija **Descargar** en la hoja **Exportar plantilla**.
 
 5. Busque el archivo ZIP que descargó desde el portal y descomprímalo en la carpeta que prefiera.
 
@@ -101,21 +101,21 @@ Para modificar la plantilla, cambie el nombre y la región de la cuenta de almac
 
 Para implementar la plantilla con Azure Portal:
 
-1. En Azure Portal, haga clic en **Crear un recurso** .
+1. En Azure Portal, haga clic en **Crear un recurso**.
 
-2. En **Buscar en Marketplace** , escriba **implementación de plantillas** y, después, presione **ENTRAR** .
+2. En **Buscar en Marketplace**, escriba **implementación de plantillas** y, después, presione **ENTRAR**.
 
-3. Seleccione **Implementación de plantillas** .
+3. Seleccione **Implementación de plantillas**.
 
     ![Biblioteca de plantillas de Azure Resource Manager](./media/storage-account-move/azure-resource-manager-template-library.png)
 
-4. Seleccione **Crear** .
+4. Seleccione **Crear**.
 
-5. Seleccione **Cree su propia plantilla en el editor** .
+5. Seleccione **Cree su propia plantilla en el editor**.
 
 6. Seleccione **Cargar archivo** y, después, siga las instrucciones para cargar el archivo **template.json** que descargó en la última sección.
 
-7. En el archivo **template.json** , asigne un nombre a la cuenta de almacenamiento de destino mediante el establecimiento del valor predeterminado del nombre de la cuenta de almacenamiento. En este ejemplo se establece el valor predeterminado del nombre de la cuenta de almacenamiento en `mytargetaccount`.
+7. En el archivo **template.json**, asigne un nombre a la cuenta de almacenamiento de destino mediante el establecimiento del valor predeterminado del nombre de la cuenta de almacenamiento. En este ejemplo se establece el valor predeterminado del nombre de la cuenta de almacenamiento en `mytargetaccount`.
     
     ```json
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -137,13 +137,13 @@ Para implementar la plantilla con Azure Portal:
          "location": "centralus"
          }]          
     ```
-    Para obtener los códigos de ubicación de la región, consulte [Ubicaciones de Azure](https://azure.microsoft.com/global-infrastructure/locations/).  El código de una región es el nombre de la región sin espacios, **Centro de EE. UU.**  = **centralus** .
+    Para obtener los códigos de ubicación de la región, consulte [Ubicaciones de Azure](https://azure.microsoft.com/global-infrastructure/locations/).  El código de una región es el nombre de la región sin espacios, **Centro de EE. UU.**  = **centralus**.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Para implementar la plantilla con PowerShell:
 
-1. En el archivo **template.json** , asigne un nombre a la cuenta de almacenamiento de destino mediante el establecimiento del valor predeterminado del nombre de la cuenta de almacenamiento. En este ejemplo se establece el valor predeterminado del nombre de la cuenta de almacenamiento en `mytargetaccount`.
+1. En el archivo **template.json**, asigne un nombre a la cuenta de almacenamiento de destino mediante el establecimiento del valor predeterminado del nombre de la cuenta de almacenamiento. En este ejemplo se establece el valor predeterminado del nombre de la cuenta de almacenamiento en `mytargetaccount`.
     
     ```json
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -182,15 +182,15 @@ Implemente la plantilla para crear una nueva cuenta de almacenamiento en la regi
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-1. Guarde el archivo **template.json** .
+1. Guarde el archivo **template.json**.
 
 2. Escriba o seleccione los valores de propiedad:
 
-- **Suscripción** : Seleccione una suscripción de Azure.
+- **Suscripción**: Seleccione una suscripción de Azure.
 
-- **Grupo de recursos** : Seleccione **Crear nuevo** y asígnele un nombre al grupo de recursos.
+- **Grupo de recursos**: Seleccione **Crear nuevo** y asígnele un nombre al grupo de recursos.
 
-- **Ubicación** : Seleccione una ubicación de Azure.
+- **Ubicación**: Seleccione una ubicación de Azure.
 
 3. Active la casilla **Acepto los términos y condiciones indicados anteriormente** y haga clic en el botón **Select Purchase** (Seleccionar compra).
 
