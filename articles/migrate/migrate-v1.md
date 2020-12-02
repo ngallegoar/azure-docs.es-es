@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 53a10123bf3304ab9c949146d7cad6b904c8323d
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: c87290b36ec77e834a0d0fcd99e9a8bdb05675b5
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92317202"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96494705"
 ---
 # <a name="work-with-the-previous-version-of-azure-migrate"></a>Trabajar con la versión anterior de Azure Migrate
 
@@ -31,7 +31,7 @@ Existen dos versiones del servicio Azure Migrate:
 
 ## <a name="upgrade-between-versions"></a>Actualizar entre versiones
 
-No se pueden actualizar proyectos ni componentes de la versión anterior a la nueva versión. Tiene que [crear un proyecto de Azure Migrate](create-manage-projects.md) y [agregarle herramientas de valoración y migración](how-to-add-tool-first-time.md). Use los tutoriales para aprender a usar las herramientas de valoración y migración disponibles. Si tiene un área de trabajo Log Analytics asociada a un proyecto clásico, puede adjuntarla a un proyecto de la versión actual después de eliminar el proyecto clásico.
+No se pueden actualizar proyectos ni componentes de la versión anterior a la nueva versión. Tiene que [crear un proyecto de Azure Migrate](create-manage-projects.md) y [agregarle herramientas de valoración y migración](./create-manage-projects.md). Use los tutoriales para aprender a usar las herramientas de valoración y migración disponibles. Si tiene un área de trabajo Log Analytics asociada a un proyecto clásico, puede adjuntarla a un proyecto de la versión actual después de eliminar el proyecto clásico.
 
 ## <a name="find-projects-from-previous-version"></a>Buscar proyectos desde una versión anterior
 
@@ -219,7 +219,7 @@ Para usar la visualización de dependencias, debe asociar un área de trabajo de
 
 Después de configurar un área de trabajo, descargue e instale agentes en cada máquina local que vaya a valorar. Además, si tiene máquinas sin conectividad a Internet, debe descargar e instalar en ellas la [puerta de enlace de Log Analytics](../azure-monitor/platform/gateway.md).
 
-1. En **Introducción**, haga clic en **Administrar** > **Máquinas**y seleccione la máquina requerida.
+1. En **Introducción**, haga clic en **Administrar** > **Máquinas** y seleccione la máquina requerida.
 2. En la columna **Dependencias**, haga clic en **Instalar agentes**.
 3. En la página **Dependencias**, descargue e instale el agente de Microsoft Monitoring Agent (MMA), así como el agente de dependencia en cada máquina virtual que vaya a valorar.
 4. Copie la clave y el identificador de área de trabajo. Las necesitará cuando se instala MMA en la máquina local.
@@ -308,7 +308,7 @@ Para ejecutar consultas de Kusto:
 4. Escriba la consulta para recopilar los datos de dependencia mediante los registros de Azure Monitor. Busque consultas de ejemplo en la sección siguiente.
 5. Ejecute la consulta haciendo clic en Ejecutar. 
 
-[Más información](../azure-monitor/log-query/get-started-portal.md) sobre la escritura de consultas de Kusto. 
+[Más información](../azure-monitor/log-query/log-analytics-tutorial.md) sobre la escritura de consultas de Kusto. 
 
 ### <a name="sample-azure-monitor-logs-queries"></a>Consultas de registros de Azure Monitor de ejemplo
 

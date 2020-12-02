@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/06/2020
 ms.author: nichola
 ms.reviewer: ''
-ms.openlocfilehash: 975c92256ea0993badde0faf840a939f42901059
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 86c379316737b7718b62165a6feb93ca3a0e9954
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95753704"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96484046"
 ---
 # <a name="how-to-use-continuous-access-evaluation-enabled-apis-in-your-applications"></a>Uso de las API habilitadas para la evaluación continua de acceso en las aplicaciones
 
@@ -27,9 +27,9 @@ En este artículo se muestra cómo usar las API habilitadas para CAE en sus apli
 
 ## <a name="implementation-considerations"></a>Consideraciones de implementación
 
-Para usar la evaluación continua de acceso, tanto la aplicación como la API de recursos a la que se tiene acceso deben estar habilitadas para CAE. Sin embargo, preparar el código para usar un recurso habilitado para CAE no le impedirá usar las API que no están habilitadas para tal fin. 
+Para usar la evaluación continua de acceso, tanto la aplicación como la API de recursos a la que se tiene acceso deben estar habilitadas para CAE. Sin embargo, preparar el código para usar un recurso habilitado para CAE no le impedirá usar las API que no están habilitadas para tal fin.
 
-Si una API de recursos implementa CAE y la aplicación declara que puede controlar CAE, la aplicación obtendrá tokens de CAE para ese recurso. Por esta razón, si declara que la aplicación está lista para CAE, la aplicación debe controlar el desafío de notificaciones CAE para todas las API de recursos que acepten tokens de acceso de identidad de Microsoft. Si no controla las respuestas CAE en estas llamadas API, la aplicación podría acabar en un bucle de reintento de una llamada API con un token que todavía está usando la duración devuelta del token, pero se ha revocado debido a CAE. 
+Si una API de recursos implementa CAE y la aplicación declara que puede controlar CAE, la aplicación obtendrá tokens de CAE para ese recurso. Por esta razón, si declara que la aplicación está lista para CAE, la aplicación debe controlar el desafío de notificaciones CAE para todas las API de recursos que acepten tokens de acceso de identidad de Microsoft. Si no controla las respuestas CAE en estas llamadas API, la aplicación podría acabar en un bucle de reintento de una llamada API con un token que todavía está usando la duración devuelta del token, pero se ha revocado debido a CAE.
 
 ## <a name="the-code"></a>El código.
 
@@ -57,7 +57,7 @@ Cuando se cumplen estas condiciones, la aplicación puede extraer y descodificar
 ```csharp
 if (APIresponse.IsSuccessStatusCode)
 {
-    // . . .
+    // ...
 }
 else
 {
@@ -99,7 +99,7 @@ catch (MsalUiRequiredException)
             .ExecuteAsync()
             .ConfigureAwait(false);
     }
-    // . . .
+    // ...
 ```
 
 Una vez que la aplicación esté lista para controlar el desafío de notificaciones que devuelve un habilitado para CAE, puede indicar a la identidad de Microsoft que la aplicación está lista. Para hacerlo desde la aplicación MSAL, incluya las funcionalidades de cliente "cp1" al crear su cliente público.
@@ -116,4 +116,4 @@ Para probar la aplicación, puede iniciar la sesión de un usuario en la aplicac
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener más información, vea [Evaluación continua de acceso](/conditional-access/concept-continuous-access-evaluation.md).
+Para obtener más información, vea [Evaluación continua de acceso](../conditional-access/concept-continuous-access-evaluation.md).

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: c57ad181f35d3c0498804f65390792d0e600f1ff
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 1c1a5a96742d380ce42c0aea8c77a199083df47f
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843424"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492257"
 ---
 # <a name="azure-security-baseline-for-azure-ddos-protection-standard"></a>Línea de base de seguridad de Azure para Azure DDoS Protection Estándar
 
@@ -38,7 +38,7 @@ Esta línea de base de seguridad aplica la guía de [Azure Security Benchmark](.
 
 Habilite la configuración de diagnóstico del registro de actividad de Azure y envíela a un área de trabajo de Log Analytics, un centro de eventos de Azure o una cuenta de almacenamiento de Azure para su archivo. Los registros de actividad proporcionan información sobre las operaciones llevadas a cabo en las instancias de Azure Cache for Redis en el nivel del plano de control. Con los datos del registro de actividad de Azure, puede responder a las preguntas "qué, quién y cuándo" de las operaciones de escritura (PUT, POST, DELETE) llevadas a cabo en el nivel del plano de control para las instancias de Azure DDoS Protection.
 
-- [Configuración de alertas para métricas de protección contra DDoS](../../virtual-network/manage-ddos-protection.md#configure-alerts-for-ddos-protection-metrics)
+- [Configuración de alertas para métricas de protección contra DDoS](../../ddos-protection/telemetry-monitoring-alerting.md#configure-alerts-for-ddos-protection-metrics)
 
 - [Habilitación de la configuración de diagnóstico para el registro de actividad de Azure](../../azure-monitor/platform/activity-log.md)
 
@@ -60,7 +60,7 @@ Habilite la configuración de diagnóstico del registro de actividad de Azure y 
 
 **Guía**: Habilite la configuración de diagnóstico en el registro de actividad de Azure y envíe los registros a un área de trabajo de Log Analytics. Realice consultas en Log Analytics para buscar términos, identificar tendencias, analizar patrones y proporcionar muchas otras conclusiones basadas en los datos del registro de actividad que se pueden recopilar para almacenes de Recovery Services.
 
-- [Información sobre cómo acceder a la telemetría, los registros y el análisis de ataques del servicio DDoS Protection Estándar](../../virtual-network/manage-ddos-protection.md#configure-alerts-for-ddos-protection-metrics)
+- [Información sobre cómo acceder a la telemetría, los registros y el análisis de ataques del servicio DDoS Protection Estándar](../../ddos-protection/telemetry-monitoring-alerting.md#configure-alerts-for-ddos-protection-metrics)
 
 - [Habilitación de la configuración de diagnóstico para el registro de actividad de Azure](../../azure-monitor/platform/activity-log.md)
 
@@ -96,7 +96,7 @@ Incorpore un área de trabajo de Log Analytics a Azure Sentinel, ya que proporci
 
 Además, Azure Active Directory (AD) tiene roles integrados que se deben asignar explícitamente y son consultables. Use el módulo de PowerShell de Azure AD para realizar consultas ad hoc para detectar cuentas que son miembros de grupos administrativos.
 
-- [Descripción de los permisos de Azure DDoS Protection](../../virtual-network/manage-ddos-protection.md#permissions-and-restrictions)
+- [Descripción de los permisos de Azure DDoS Protection](../../ddos-protection/manage-permissions.md)
 
 - [Obtención de un rol de directorio en Azure AD con PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
 
@@ -166,7 +166,7 @@ Además, para ayudarlo a realizar un seguimiento de las cuentas administrativas 
 
 - [Implementación de una estación de trabajo segura administrada por Azure](../../active-directory/devices/howto-azure-managed-workstation.md)
 
-- [Planeamiento de una implementación de Multi-Factor Authentication de Azure AD basado en la nube](../../active-directory/authentication/howto-mfa-getstarted.md)
+- [Planeamiento de una implementación de Azure AD Multi-Factor Authentication basada en la nube](../../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -266,7 +266,7 @@ Para simplificar este proceso, cree una configuración de diagnóstico para las 
 
 **Guía**: para trabajar con planes de Azure DDoS Protection, su cuenta debe estar asignada al rol de colaborador de red o a un rol personalizado que tenga asignadas acciones específicas.
 
-- [Administración del control de acceso basado en roles (RBAC de Azure) de Azure en Azure DDoS Protection](../../virtual-network/manage-ddos-protection.md)
+- [Administración del control de acceso basado en roles (RBAC de Azure) de Azure en Azure DDoS Protection](../../ddos-protection/manage-ddos-protection.md)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -524,7 +524,7 @@ Pruebe sus suposiciones sobre el modo en que los servicios responderán a un ata
 
 Seleccione cualquiera de las métricas de protección contra DDoS disponibles para que le avisen cuando hay una mitigación activa durante un ataque mediante la configuración de alertas de Azure Monitor. Cuando se cumplan las condiciones, recibirá un correo electrónico de alerta en la dirección especificada.
 
-- [Configuración de alertas para métricas de protección contra DDoS](../../virtual-network/manage-ddos-protection.md#configure-alerts-for-ddos-protection-metrics)
+- [Configuración de alertas para métricas de protección contra DDoS](../../ddos-protection/telemetry-monitoring-alerting.md#configure-alerts-for-ddos-protection-metrics)
 
 - [Configuración de la exportación continua](../../security-center/continuous-export.md)
 

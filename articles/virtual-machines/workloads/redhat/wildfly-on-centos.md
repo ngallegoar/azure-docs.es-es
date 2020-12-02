@@ -8,12 +8,12 @@ ms.service: virtual-machines-linux
 ms.subservice: workloads
 ms.assetid: 7aa21ef8-9cfb-43e0-bfda-3f10a2a2f3ef
 ms.date: 10/23/2020
-ms.openlocfilehash: 842913b8e9f83ff3b188976da55aef7c909518ca
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: ddd6f277bc71467060aa2279d93f9410a1327dde
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93359925"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96486613"
 ---
 # <a name="quickstart-wildfly-on-centos-8"></a>Inicio rápido: WildFly en CentOS 8
 
@@ -63,7 +63,7 @@ La imagen de Azure CentOS 8 es una imagen de máquina virtual de pago por uso y
 
 Puede implementar la plantilla de las tres maneras siguientes:
 
-- Uso de PowerShell: implemente la plantilla mediante la ejecución de los siguientes comandos: (Consulte [Azure PowerShell](https://docs.microsoft.com/powershell/azure/) para obtener información sobre la instalación y configuración de Azure PowerShell).
+- Uso de PowerShell: implemente la plantilla mediante la ejecución de los siguientes comandos: (Consulte [Azure PowerShell](/powershell/azure/) para obtener información sobre la instalación y configuración de Azure PowerShell).
 
     ```
     New-AzResourceGroup -Name <resource-group-name> -Location <resource-group-location> #use this command when you need to create a new Resource Group for your deployment
@@ -73,7 +73,7 @@ Puede implementar la plantilla de las tres maneras siguientes:
     New-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/wildfly-standalone-centos8/azuredeploy.json
     ```
     
-- Uso de la CLI de Azure: implemente la plantilla mediante la ejecución de los siguientes comandos: (Consulte la [línea de comandos multiplataforma de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) para más información sobre la instalación y configuración de la interfaz de la línea de comandos multiplataforma de Azure).
+- Uso de la CLI de Azure: implemente la plantilla mediante la ejecución de los siguientes comandos: (Consulte la [línea de comandos multiplataforma de Azure](/cli/azure/install-azure-cli) para más información sobre la instalación y configuración de la interfaz de la línea de comandos multiplataforma de Azure).
 
     ```
     az group create --name <resource-group-name> --location <resource-group-location> #use this command when you need to create a new Resource Group for your deployment
@@ -92,7 +92,7 @@ Puede implementar la plantilla de las tres maneras siguientes:
 ## <a name="resource-links"></a>Vínculos de recursos
 
 * Más información sobre [WildFly 18](https://docs.wildfly.org/18/)
-* Obtenga más información sobre [Distribuciones de Linux aprobadas en Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).
+* Obtenga más información sobre [Distribuciones de Linux aprobadas en Azure](../../linux/endorsed-distros.md).
 * [Documentación para desarrolladores de Azure para Java](https://github.com/JasonFreeberg/jboss-on-app-service)
 
 ## <a name="next-steps"></a>Pasos siguientes

@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
 ms.custom: devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 7fe5b8da0b6dfa69d04a5ad152aa34a8686d854f
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 68c58769302bbefd29b483a8fda225201d242dd9
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92786112"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483651"
 ---
 # <a name="quickstart-azure-key-vault-secret-client-library-for-python"></a>Inicio rápido: Biblioteca cliente de secretos de Azure Key Vault para Python
 
@@ -54,7 +54,7 @@ En este inicio rápido se usa la biblioteca de identidades de Azure con la CLI d
 1. Instale la biblioteca de identidades de Azure Active Directory:
 
     ```terminal
-    pip install azure.identity
+    pip install azure-identity
     ```
 
 
@@ -136,7 +136,7 @@ print(" done.")
 
 ## <a name="run-the-code"></a>Ejecución del código
 
-Asegúrese de que el código de la sección anterior se encuentra en un archivo llamado *kv_secrets.py* . Luego, ejecute el código con el siguiente comando:
+Asegúrese de que el código de la sección anterior se encuentra en un archivo llamado *kv_secrets.py*. Luego, ejecute el código con el siguiente comando:
 
 ```terminal
 python kv_secrets.py

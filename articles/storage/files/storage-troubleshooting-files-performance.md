@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 11/16/2020
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: a49dbdace01396656c3114df0bc0d4589aff57c1
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: 5a35d939c12639770e25c3096c77f13d31310f85
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94916498"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492019"
 ---
 # <a name="troubleshoot-azure-file-shares-performance-issues"></a>Solución de problemas de rendimiento de recursos compartidos de archivos de Azure
 
@@ -196,7 +196,7 @@ Cambios recientes en la configuración de SMB multicanal sin volver a montar.
 
 ### <a name="cause"></a>Causa  
 
-La notificación de cambio de un número alto de archivos en recursos compartidos de archivos puede producir latencias altas significativas. Esto suele ocurrir con sitios web hospedados en recursos compartidos de archivos con una estructura de directorios anidada profunda. Un escenario típico es la aplicación web hospedada en IIS donde se configura la notificación de cambio de archivos para cada directorio en la configuración predeterminada. Cada cambio ([ReadDirectoryChangesW](https://docs.microsoft.com/windows/win32/api/winbase/nf-winbase-readdirectorychangesw)) en el recurso compartido en el que está registrado el cliente SMB envía una notificación de cambio desde el servicio de archivos al cliente, que usa recursos del sistema, y el problema empeora con el número de cambios. Esto puede dar lugar a una limitación de recursos compartidos y, por tanto, a una mayor latencia del lado cliente. 
+La notificación de cambio de un número alto de archivos en recursos compartidos de archivos puede producir latencias altas significativas. Esto suele ocurrir con sitios web hospedados en recursos compartidos de archivos con una estructura de directorios anidada profunda. Un escenario típico es la aplicación web hospedada en IIS donde se configura la notificación de cambio de archivos para cada directorio en la configuración predeterminada. Cada cambio ([ReadDirectoryChangesW](/windows/win32/api/winbase/nf-winbase-readdirectorychangesw)) en el recurso compartido en el que está registrado el cliente SMB envía una notificación de cambio desde el servicio de archivos al cliente, que usa recursos del sistema, y el problema empeora con el número de cambios. Esto puede dar lugar a una limitación de recursos compartidos y, por tanto, a una mayor latencia del lado cliente. 
 
 Para confirmarlo, puede usar las métricas de Azure en el portal: 
 

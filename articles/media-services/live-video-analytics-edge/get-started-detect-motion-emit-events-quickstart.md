@@ -3,12 +3,12 @@ title: 'Introducción a Live Video Analytics en IoT Edge: Azure'
 description: En este inicio rápido se muestran los primeros pasos con Live Video Analytics en IoT Edge. Aprenda a detectar movimiento en transmisiones de vídeo en directo.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: 2d426952e92951185c43b68266196a6764f4f601
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: e67c717a4476ab9191471483d9aa8e8f222cd750
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92125020"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498275"
 ---
 # <a name="quickstart-get-started---live-video-analytics-on-iot-edge"></a>Inicio rápido: Introducción: Live Video Analytics on IoT Edge
 
@@ -39,16 +39,20 @@ Este tutorial requiere los siguientes recursos de Azure:
 * IoT Hub
 * Cuenta de almacenamiento
 * Cuenta de Azure Media Services
-* Una máquina virtual Linux en Azure, con el [runtime de IoT Edge](../../iot-edge/how-to-install-iot-edge-linux.md) instalado
+* Una máquina virtual Linux en Azure, con el [runtime de IoT Edge](../../iot-edge/how-to-install-iot-edge.md) instalado
 
 Para este inicio rápido, se recomienda usar el [script de configuración de recursos de Live Video Analytics](https://github.com/Azure/live-video-analytics/tree/master/edge/setup) para implementar los recursos necesarios en su suscripción de Azure. Para hacerlo, siga estos pasos:
 
 1. Vaya a [Azure Cloud Shell](https://shell.azure.com).
 1. Si es la primera vez que usa Cloud Shell, se le pedirá que seleccione una suscripción para crear una cuenta de almacenamiento y un recurso compartido de Microsoft Azure Files. Seleccione **Create storage** (Crear almacenamiento) para crear una cuenta de almacenamiento para la información de la sesión de Cloud Shell. Esta cuenta de almacenamiento es independiente de la que creará el script para usarla con su cuenta de Azure Media Services.
-1. En el menú desplegable del lado izquierdo de la ventana de Cloud Shell, seleccione el entorno **Bash** .
+1. En el menú desplegable del lado izquierdo de la ventana de Cloud Shell, seleccione el entorno **Bash**.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/quickstarts/env-selector.png" alt-text="Live Video Analytics basado en la detección de movimiento"
+    > :::image type="content" source="./media/quickstarts/env-selector.png" alt-text="Selector de entorno":::
+1. Ejecute el siguiente comando.
+
+    ```
+    bash -c "$(curl -sL https://aka.ms/lva-edge/setup-resources-for-samples)"
     ```
     
 Si el script finaliza correctamente, debería ver todos los recursos necesarios en su suscripción. En la salida del script, una tabla de recursos enumera el nombre del centro de IoT. Busque el tipo de recurso `Microsoft.Devices/IotHubs` y anote el nombre, ya que lo necesitará en el paso siguiente. 
@@ -77,19 +81,20 @@ Ahora se implementan los módulos, pero no hay grafos multimedia activos.
 Siga estas instrucciones para conectarse a su centro de IoT mediante la extensión Azure IoT Tools.
 
 1. En Visual Studio Code, abra la pestaña **Extensiones** (o presione Ctrl + Mayús + X) y busque Azure IoT Hub.
-1. Haga clic con el botón derecho y seleccione la **Configuración de la extensión** .
+1. Haga clic con el botón derecho y seleccione la **Configuración de la extensión**.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="Live Video Analytics basado en la detección de movimiento" (Mostrar mensaje detallado).
+    > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="Configuración de la extensión":::
+1. Busque y habilite "Show Verbose Message" (Mostrar mensaje detallado).
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="Live Video Analytics basado en la detección de movimiento"::: (Mostrar mensaje detallado)
-1. Seleccione **Ver** > **Explorador** . O bien, seleccione Ctrl+Mayús+E.
-1. En la esquina inferior izquierda de la pestaña **Explorador** , seleccione **Azure IoT Hub** .
+    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="Show Verbose Message"::: (Mostrar mensaje detallado)
+1. Seleccione **Ver** > **Explorador**. O bien, seleccione Ctrl+Mayús+E.
+1. En la esquina inferior izquierda de la pestaña **Explorador**, seleccione **Azure IoT Hub**.
 1. Seleccione el icono **Más opciones** para ver el menú contextual. Luego, seleccione **Set IoT Hub Connection String** (Establecer cadena de conexión de IoT Hub).
-1. Cuando aparezca un cuadro de entrada, escriba la cadena de conexión de IoT Hub. En Cloud Shell, puede obtener la cadena de conexión de *~/clouddrive/lva-sample/appsettings.json* .
+1. Cuando aparezca un cuadro de entrada, escriba la cadena de conexión de IoT Hub. En Cloud Shell, puede obtener la cadena de conexión de *~/clouddrive/lva-sample/appsettings.json*.
 
-Si la conexión se realiza correctamente, aparece la lista de dispositivos perimetrales. Debería ver al menos un dispositivo denominado **lva-sample-device** . Ahora puede administrar los dispositivos IoT Edge e interactuar con Azure IoT Hub mediante el menú contextual. Para ver los módulos implementados en el dispositivo perimetral, en **lva-sample-device** , expanda el nodo **Módulos** .
+Si la conexión se realiza correctamente, aparece la lista de dispositivos perimetrales. Debería ver al menos un dispositivo denominado **lva-sample-device**. Ahora puede administrar los dispositivos IoT Edge e interactuar con Azure IoT Hub mediante el menú contextual. Para ver los módulos implementados en el dispositivo perimetral, en **lva-sample-device**, expanda el nodo **Módulos**.
 
 ![Nodo lva-sample-device](./media/quickstarts/lva-sample-device-node.png)
 
@@ -105,7 +110,7 @@ Puede usar el módulo para analizar secuencias de vídeo en directo mediante la 
 Para enumerar todas las [topologías de grafos](media-graph-concept.md#media-graph-topologies-and-instances) del módulo:
 
 1. En Visual Studio Code, haga clic con el botón derecho en el módulo **lvaEdge** y seleccione **Invoke Module Direct Method** (Invocar método directo de módulo).
-1. En el cuadro que aparece, escriba *GraphTopologyList* .
+1. En el cuadro que aparece, escriba *GraphTopologyList*.
 1. Copie la siguiente carga de JSON y péguela en el cuadro. Después, seleccione la tecla Entrar.
 
     ```
@@ -205,7 +210,7 @@ El uso de los pasos para invocar a `GraphTopologyList` le permite invocar a `Gra
 
 Esta carga JSON crea una topología de grafo que define tres parámetros. Dos de esos parámetros tienen valores predeterminados. La topología tiene un nodo de origen (origen RTSP), un nodo de procesador (procesador de detección de movimiento) y un nodo receptor (receptor de IoT Hub).
 
-En unos segundos, se ve la siguiente respuesta en la ventana **SALIDA** .
+En unos segundos, se ve la siguiente respuesta en la ventana **SALIDA**.
 
 ```
 [DirectMethod] Invoking Direct Method [GraphTopologySet] to [lva-sample-device/lvaEdge] ...
@@ -304,7 +309,7 @@ Invoque a `GraphTopologyGet` mediante el uso de la siguiente carga.
 }
 ```
 
-En unos segundos, se ve la siguiente respuesta en la ventana **SALIDA** :
+En unos segundos, se ve la siguiente respuesta en la ventana **SALIDA**:
 
 ```
 [DirectMethod] Invoking Direct Method [GraphTopologyGet] to [lva-sample-device/lvaEdge] ...
@@ -414,7 +419,7 @@ Tenga en cuenta que esta carga:
 * Especifica el nombre de la topología (`MotionDetection`) para la que se debe crear la instancia.
 * Contiene el valor de parámetro para `rtspUrl`, que no tenía un valor predeterminado en la carga de la topología de grafo.
 
-En unos segundos, se ve la siguiente respuesta en la ventana **SALIDA** :
+En unos segundos, se ve la siguiente respuesta en la ventana **SALIDA**:
 
 ```
 [DirectMethod] Invoking Direct Method [GraphInstanceSet] to [lva-sample-device/lvaEdge] ...
@@ -462,7 +467,7 @@ Ahora, active la instancia de grafo para iniciar el flujo de vídeo en directo a
 }
 ```
 
-En pocos segundos, verá la siguiente respuesta en la ventana **SALIDA** .
+En pocos segundos, verá la siguiente respuesta en la ventana **SALIDA**.
 
 ```
 [DirectMethod] Invoking Direct Method [GraphInstanceActivate] to [lva-sample-device/lvaEdge] ...
@@ -486,7 +491,7 @@ Ahora, invoque el método directo `GraphInstanceGet` mediante la carga siguiente
  }
  ```
 
-En pocos segundos, verá la siguiente respuesta en la ventana **SALIDA** .
+En pocos segundos, verá la siguiente respuesta en la ventana **SALIDA**.
 
 ```
 [DirectMethod] Invoking Direct Method [GraphInstanceGet] to [lva-sample-device/lvaEdge] ...
@@ -523,9 +528,9 @@ La instancia del grafo que hemos creado y activado usa el nodo de procesador de 
 
 Para observar los resultados, siga estos pasos.
 
-1. En Visual Studio Code, abra el panel **Explorer** (Explorador). En la esquina inferior izquierda, busque **Azure IoT Hub** .
+1. En Visual Studio Code, abra el panel **Explorer** (Explorador). En la esquina inferior izquierda, busque **Azure IoT Hub**.
 2. Expanda el nodo **Devices** (Dispositivos).
-3. Haga clic con el botón derecho en **Iva-sample-device** y elija la opción **Iniciar la supervisión del punto de conexión de eventos integrado** .
+3. Haga clic con el botón derecho en **Iva-sample-device** y elija la opción **Iniciar la supervisión del punto de conexión de eventos integrado**.
 
     ![Iniciar supervisión de eventos de IoT Hub](./media/quickstarts/start-monitoring-iothub-events.png)
     
@@ -580,7 +585,7 @@ Observe esta información:
 * La sección `body` contiene datos sobre el evento de análisis. En este caso, el evento es un evento de inferencia, por lo que el cuerpo contiene los datos `timestamp` y `inferences`.
 * La sección `inferences` indica que el valor de `type` es `motion`. Proporciona datos adicionales sobre el evento `motion`.
 
-Si deja que el grafo multimedia se ejecute un tiempo, verá el siguiente mensaje en la ventana **SALIDA** .
+Si deja que el grafo multimedia se ejecute un tiempo, verá el siguiente mensaje en la ventana **SALIDA**.
 
 ```
 [IoTHubMonitor] [7:47:45 AM] Message received from [lva-sample-device/lvaEdge]:
@@ -619,7 +624,7 @@ Invoque el método directo `GraphInstanceDeactivate` mediante la carga siguiente
 }
 ```
 
-En pocos segundos, verá la siguiente respuesta en la ventana **SALIDA** :
+En pocos segundos, verá la siguiente respuesta en la ventana **SALIDA**:
 
 ```
 [DirectMethod] Invoking Direct Method [GraphInstanceDeactivate] to [lva-sample-device/lvaEdge] ...
@@ -645,7 +650,7 @@ Invoque el método directo `GraphInstanceDelete` mediante la carga siguiente.
 }
 ```
 
-En pocos segundos, verá la siguiente respuesta en la ventana **SALIDA** :
+En pocos segundos, verá la siguiente respuesta en la ventana **SALIDA**:
 
 ```
 [DirectMethod] Invoking Direct Method [GraphInstanceDelete] to [lva-sample-device/lvaEdge] ...
@@ -669,7 +674,7 @@ Invoque el método directo `GraphTopologyDelete` mediante la siguiente carga.
 }
 ```
 
-En pocos segundos, verá la siguiente respuesta en la ventana **SALIDA** .
+En pocos segundos, verá la siguiente respuesta en la ventana **SALIDA**.
 
 ```
 [DirectMethod] Invoking Direct Method [GraphTopologyDelete] to [lva-sample-device/lvaEdge] ...

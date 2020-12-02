@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
 ms.date: 11/13/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4335c1e81ead36d14ee1794fffbdd4cc1ff72a0a
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: 15e5d257259bb4dfc98528cb726dbd2cc1f9a903
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96029615"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498734"
 ---
 # <a name="send-messages-to-and-receive-messages-from-azure-service-bus-queues-net"></a>Envío y recepción de mensajes con destino y origen en colas de Azure Service Bus (.NET)
 En este tutorial, creará una aplicación de consola de .NET Core para enviar mensajes a una cola de Service Bus y recibir mensajes desde ella mediante el paquete **Azure.Messaging.ServiceBus**. 
@@ -63,8 +63,7 @@ Inicie Visual Studio y cree otro proyecto **Aplicación de consola (.NET Core)
     public static async Task Main(string[] args)
     {    
         const int numberOfMessages = 10;
-        queueClient = new QueueClient(ServiceBusConnectionString, QueueName);
-
+        
         Console.WriteLine("======================================================");
         Console.WriteLine("Press ENTER key to exit after sending all the messages.");
         Console.WriteLine("======================================================");
@@ -73,8 +72,6 @@ Inicie Visual Studio y cree otro proyecto **Aplicación de consola (.NET Core)
         await SendMessagesAsync(numberOfMessages);
 
         Console.ReadKey();
-
-        await queueClient.CloseAsync();
     }
     ```
 1. Inmediatamente después del método `Main()`, agregue el método `SendMessagesAsync()` siguiente, que realiza el trabajo de enviar el número de mensajes especificado por `numberOfMessagesToSend` (actualmente se establece en 10):
@@ -292,5 +289,4 @@ Consulte la documentación y los ejemplos siguientes:
 
 - [Biblioteca cliente de Azure Service Bus para .NET: léame](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus)
 - [Ejemplos en GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus/samples)
-- [Referencia de API de .NET](https://docs.microsoft.com/dotnet/api/azure.messaging.servicebus?view=azure-dotnet-preview&preserve-view=true)
-
+- [Referencia de API de .NET](/dotnet/api/azure.messaging.servicebus?preserve-view=true&view=azure-dotnet-preview)

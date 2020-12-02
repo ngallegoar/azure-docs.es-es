@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 04/24/2018
 ms.author: damendo
 ms.custom: mvc
-ms.openlocfilehash: c5bf559ec7bf85e92cf21e3d4c493cae1361ea7c
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: e4782bf09b8c27132417f6021927408e18755104
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94968033"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96494025"
 ---
 # <a name="what-is-azure-network-watcher"></a>¿Qué es Azure Network Watcher?
 
@@ -31,7 +31,7 @@ Azure Network Watcher proporciona herramientas para supervisar, diagnosticar, ve
 
 Los puntos de conexión pueden ser otra máquina virtual (VM), un nombre de dominio completo (FQDN), un identificador uniforme de recursos (URI) o la dirección IPv4. La funcionalidad *monitor de conexión* supervisa la comunicación a intervalos regulares y le informa de los cambios de disponibilidad, latencia y topología de red entre la máquina virtual y el punto de conexión. Por ejemplo, podría tener una máquina virtual de servidor web que se comunica con una máquina virtual de servidor de base de datos. Alguna persona de su organización puede, sin su conocimiento, aplicar una ruta personalizada o una regla de seguridad de red a la máquina de servidor web o de servidor de base de datos o a la subred.
 
-Si un punto de conexión queda inaccesible, la solución de problemas de conexión le informa de la razón. Las razones posibles son un problema de resolución de nombres DNS, la CPU, memoria o firewall en el sistema operativo de una máquina virtual o el tipo de salto de una ruta personalizada o una regla de seguridad para la máquina virtual o la subred de la conexión saliente. Obtenga más información sobre las [reglas de seguridad](../virtual-network/network-security-groups-overview.md?toc=%252fazure%252fnetwork-watcher%252ftoc.json#security-rules) y los [tipos de salto de enrutamiento](../virtual-network/virtual-networks-udr-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) en Azure.
+Si un punto de conexión queda inaccesible, la solución de problemas de conexión le informa de la razón. Las razones posibles son un problema de resolución de nombres DNS, la CPU, memoria o firewall en el sistema operativo de una máquina virtual o el tipo de salto de una ruta personalizada o una regla de seguridad para la máquina virtual o la subred de la conexión saliente. Obtenga más información sobre las [reglas de seguridad](../virtual-network/network-security-groups-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#security-rules) y los [tipos de salto de enrutamiento](../virtual-network/virtual-networks-udr-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) en Azure.
 
 Monitor de conexión también proporciona la latencia mínima, media y máxima observada con el tiempo. Después de conocer la latencia de una conexión, es posible que usted pueda reducir la latencia moviendo los recursos de Azure a diferentes regiones de Azure. Obtenga más información sobre cómo determinar las [latencias relativas entre las regiones de Azure y los proveedores de acceso a Internet](#determine-relative-latencies-between-azure-regions-and-internet-service-providers) y cómo supervisar la comunicación entre una máquina virtual y un punto de conexión con [monitor de conexión](connection-monitor.md). Si, no obstante, prefiere probar una conexión en un punto determinado en el tiempo, en lugar de supervisar la conexión con el tiempo, como se hace con monitor de conexión, use la funcionalidad [solución de problemas de conexión](#connection-troubleshoot).
 

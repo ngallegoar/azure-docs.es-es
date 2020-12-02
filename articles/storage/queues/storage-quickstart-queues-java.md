@@ -4,16 +4,16 @@ description: Aprenda a usar la biblioteca de Azure Queue v12 para Java para cre
 author: mhopkins-msft
 ms.custom: devx-track-java
 ms.author: mhopkins
-ms.date: 09/10/2020
+ms.date: 12/01/2020
 ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
-ms.openlocfilehash: 25b6bdcb293379e3206cc6714fae65fe40f6e6c5
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 4c96b84aa53d2a9f4d6e44ac84cf0ce9e0ecac04
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93345608"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96491934"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-java"></a>Inicio rápido: Biblioteca cliente de Azure Queue Storage v12 para Java
 
@@ -33,7 +33,7 @@ Recursos adicionales:
 - [Documentación de referencia de API](/java/api/overview/azure/storage-queue-readme)
 - [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-queue)
 - [Paquete (Maven)](https://mvnrepository.com/artifact/com.azure/azure-storage-queue)
-- [Muestras](../common/storage-samples-java.md?toc=%252fazure%252fstorage%252fqueues%252ftoc.json#queue-samples)
+- [Muestras](../common/storage-samples-java.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#queue-samples)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -52,13 +52,29 @@ Cree una aplicación Java llamada *queues-quickstart-v12*.
 
 1. En una ventana de consola (por ejemplo, cmd, PowerShell o Bash), use Maven para crear una nueva aplicación de consola con el nombre *queues-quickstart-v12*. Escriba el siguiente comando **mvn** para crear un proyecto "Hola mundo" sencillo de Java.
 
-   ```console
-   mvn archetype:generate -DgroupId=com.queues.quickstart \
-                          -DartifactId=queues-quickstart-v12 \
-                          -DarchetypeArtifactId=maven-archetype-quickstart \
-                          -DarchetypeVersion=1.4 \
-                          -DinteractiveMode=false
-   ```
+    # <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+    ```powershell
+    mvn archetype:generate `
+        --define interactiveMode=n `
+        --define groupId=com.queues.quickstart `
+        --define artifactId=queues-quickstart-v12 `
+        --define archetypeArtifactId=maven-archetype-quickstart `
+        --define archetypeVersion=1.4
+    ```
+
+    # <a name="bash"></a>[Bash](#tab/bash)
+
+    ```bash
+    mvn archetype:generate \
+        --define interactiveMode=n \
+        --define groupId=com.queues.quickstart \
+        --define artifactId=queues-quickstart-v12 \
+        --define archetypeArtifactId=maven-archetype-quickstart \
+        --define archetypeVersion=1.4
+    ```
+
+    ---
 
 1. La salida a partir de la generación del proyecto debe ser similar a la siguiente:
 
@@ -241,7 +257,7 @@ queueClient.sendMessage("Second message");
 SendMessageResult result = queueClient.sendMessage("Third message");
 ```
 
-### <a name="peek-at-messages-in-a-queue"></a>Visualización de los mensajes de una cola
+### <a name="peek-at-messages-in-a-queue"></a>Lectura de los mensajes de una cola
 
 Lea los mensajes de la cola llamando al método [peekMessages](/java/api/com.azure.storage.queue.queueclient.peekmessages). El método `peelkMessages` recupera uno o varios mensajes de la parte delantera de la cola, pero no modifica la visibilidad del mensaje.
 
