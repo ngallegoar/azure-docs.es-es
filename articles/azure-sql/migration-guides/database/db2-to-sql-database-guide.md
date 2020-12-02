@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: bc7db167ed1d1d8823e90bf422f17428a7ed4e48
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 369f17a39b9d7b2f85fffb8b72a293558d16416e
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94496357"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325169"
 ---
 # <a name="migration-guide-db2-to-sql-database"></a>Guía de migración: De DB2 a SQL Database
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqldb.md)]
@@ -149,7 +149,7 @@ El método de prueba para la migración de bases de datos consta de las siguient
 
 ## <a name="leverage-advanced-features"></a>Aprovechamiento de las características avanzadas 
 
-Asegúrese de aprovechar las características avanzadas basadas en la nube que ofrece SQL Database, como las de [alta disponibilidad integrada](../../database/high-availability-sla.md), [detección de amenazas](../../database/advanced-data-security.md) y [supervisión y ajuste de la carga de trabajo](../../database/monitor-tune-overview.md). 
+Asegúrese de aprovechar las características avanzadas basadas en la nube que ofrece SQL Database, como las de [alta disponibilidad integrada](../../database/high-availability-sla.md), [detección de amenazas](../../database/azure-defender-for-sql.md) y [supervisión y ajuste de la carga de trabajo](../../database/monitor-tune-overview.md). 
 
 
 Algunas características de SQL Server solo están disponibles cuando el [nivel de compatibilidad de la base de datos](/sql/relational-databases/databases/view-or-change-the-compatibility-level-of-a-database) cambia al nivel de compatibilidad más reciente (150). 

@@ -7,16 +7,16 @@ ms.topic: conceptual
 author: vikrambmsft
 ms.author: vikramb
 ms.date: 04/16/2020
-ms.openlocfilehash: 2e976b895c6aa63b73c55b458668c00b64c6f960
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 705b0f02682b6aa41cb5c8e77d8da39faa5edb1f
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91660911"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96450124"
 ---
 # <a name="publish-an-integrated-solution"></a>Publicación de una solución integrada
 
-Este artículo se explica el proceso y los requisitos generales para la publicación de una solución integrada para el marketplace comercial. En una única oferta de conjunto de productos, una solución integrada combina tecnologías de soluciones puntuales de proveedores de software con la implementación y el soporte técnico de un partner de servicios. El partner de servicios anuncia la oferta en Microsoft AppSource o Azure Marketplace como un [servicio de consultoría](./consulting-services.md).
+Este artículo se explica el proceso y los requisitos generales para la publicación de una solución integrada para el marketplace comercial. En una única oferta de conjunto de productos, una solución integrada combina tecnologías de soluciones puntuales de proveedores de software con la implementación y el soporte técnico de un partner de servicios. El partner de servicios anuncia la oferta en Microsoft AppSource o Azure Marketplace como un [servicio de consultoría](./plan-consulting-service-offer.md).
 
 Las soluciones integradas tienen por objeto abordar una necesidad o un escenario específico del cliente. Los proveedores comienzan por comprender los desafíos del sector o los puntos débiles. Después, integran dos o más de las mejores tecnologías para crear una experiencia de implementación repetible y homogénea para los clientes. Los proveedores ponen rápidamente a los clientes en marcha. Ofrecen un único punto de contacto al cliente, que aporta la personalización, la consultoría y el soporte técnico relevantes para la solución. El resultado es una solución integrada, que incluye tecnología y servicios.
 
@@ -104,7 +104,7 @@ Una vez aprobada la nominación, utilice los recursos del programa vinculados pa
 
 ## <a name="publish-your-integrated-solution"></a>Publicación de la solución integrada
 
-Después de terminar la integración técnica y el material adjunto de marketing, consulte la guía del anunciante de [Servicios de consultoría de Azure Marketplace y AppSource](./consulting-services.md). Use este recurso para determinar si la solución se va a publicar en Microsoft AppSource o Azure Marketplace. También puede usar la guía para preparar los artefactos de publicación y completar el proceso de publicación.
+Después de terminar la integración técnica y el material adjunto de marketing, consulte la guía del anunciante de [Servicios de consultoría de Azure Marketplace y AppSource](./plan-consulting-service-offer.md). Use este recurso para determinar si la solución se va a publicar en Microsoft AppSource o Azure Marketplace. También puede usar la guía para preparar los artefactos de publicación y completar el proceso de publicación.
 
 Aunque hay cinco tipos de servicio disponibles para las ofertas de servicios de consultoría, una solución integrada debe ser una prueba de concepto o una implementación completa.
 

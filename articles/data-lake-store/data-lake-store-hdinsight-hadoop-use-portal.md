@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: e901009063afa81c98dd86268ac8c9c6de725e5d
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 666b39e2a600fe6ca004798ed4f8371cdd1dfe5f
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92521023"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96340261"
 ---
 # <a name="create-hdinsight-clusters-with-azure-data-lake-storage-gen1-by-using-the-azure-portal"></a>Crear clústeres de HDInsight con Data Lake Storage Gen1 mediante Azure Portal
 
@@ -47,16 +47,16 @@ Para crear un clúster de HDInsight con Data Lake Storage Gen1 como cuenta de
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. Siga [Creación de clústeres](../hdinsight/hdinsight-hadoop-create-linux-clusters-portal.md#create-clusters) para obtener información general sobre cómo crear clústeres de HDInsight.
-3. En la hoja **Almacenamiento** , en **Tipo de almacenamiento principal** , seleccione **Azure Data Lake Storage Gen1** y escriba la siguiente información:
+3. En la hoja **Almacenamiento**, en **Tipo de almacenamiento principal**, seleccione **Azure Data Lake Storage Gen1** y escriba la siguiente información:
 
     ![Configuración de la cuenta de almacenamiento de HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.1.adls.storage.png)
 
-    * **Seleccione la cuenta de Data Lake Store** : seleccione una cuenta existente de Data Lake Storage Gen1. Se necesita una cuenta existente de Data Lake Storage Gen1.  Consulte [Requisitos previos](#prerequisites).
-    * **Ruta de acceso raíz** : escriba una ruta de acceso en la que se almacenarán los archivos específicos del clúster. En la captura de pantalla, es __/clusters/myhdiadlcluster/__ , donde la carpeta __/clusters__ debe existir y el portal crea la carpeta *myhdicluster*.  *myhdicluster* es el nombre del clúster.
-    * **Acceso a Data Lake Store** : configure el acceso entre la cuenta de Data Lake Storage Gen1 y el clúster de HDInsight. Para obtener instrucciones, consulte [Configure Data Lake Storage Gen1 access](#configure-data-lake-storage-gen1-access) (Configuración del acceso a Data Lake Storage Gen1).
-    * **Cuentas de almacenamiento adicionales** : agregue cuentas de Azure Storage como cuentas de almacenamiento adicionales para el clúster. Para agregar más cuentas de Data Lake Storage Gen1, asigne al clúster permisos de datos en más cuentas de Data Lake Storage Gen1 al configurar una cuenta de Data Lake Storage Gen1 como tipo de almacenamiento principal. Consulte [Configuración del acceso a Data Lake Storage Gen1](#configure-data-lake-storage-gen1-access).
+    * **Seleccione la cuenta de Data Lake Store**: seleccione una cuenta existente de Data Lake Storage Gen1. Se necesita una cuenta existente de Data Lake Storage Gen1.  Consulte [Requisitos previos](#prerequisites).
+    * **Ruta de acceso raíz**: escriba una ruta de acceso en la que se almacenarán los archivos específicos del clúster. En la captura de pantalla, es __/clusters/myhdiadlcluster/__ , donde la carpeta __/clusters__ debe existir y el portal crea la carpeta *myhdicluster*.  *myhdicluster* es el nombre del clúster.
+    * **Acceso a Data Lake Store**: configure el acceso entre la cuenta de Data Lake Storage Gen1 y el clúster de HDInsight. Para obtener instrucciones, consulte [Configure Data Lake Storage Gen1 access](#configure-data-lake-storage-gen1-access) (Configuración del acceso a Data Lake Storage Gen1).
+    * **Cuentas de almacenamiento adicionales**: agregue cuentas de Azure Storage como cuentas de almacenamiento adicionales para el clúster. Para agregar más cuentas de Data Lake Storage Gen1, asigne al clúster permisos de datos en más cuentas de Data Lake Storage Gen1 al configurar una cuenta de Data Lake Storage Gen1 como tipo de almacenamiento principal. Consulte [Configuración del acceso a Data Lake Storage Gen1](#configure-data-lake-storage-gen1-access).
 
-4. En **Acceso a Data Lake Store** , haga clic en **Seleccionar** y continúe con la creación del clúster, tal y como se describe en [Creación de clústeres de Hadoop en HDInsight](../hdinsight/hdinsight-hadoop-create-linux-clusters-portal.md).
+4. En **Acceso a Data Lake Store**, haga clic en **Seleccionar** y continúe con la creación del clúster, tal y como se describe en [Creación de clústeres de Hadoop en HDInsight](../hdinsight/hdinsight-hadoop-create-linux-clusters-portal.md).
 
 ### <a name="create-a-cluster-with-data-lake-storage-gen1-as-additional-storage"></a>Crear un clúster con Data Lake Storage Gen1 como almacenamiento adicional
 
@@ -66,15 +66,15 @@ Para crear un clúster de HDInsight con Data Lake Storage Gen1 como cuenta de
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. Siga [Creación de clústeres](../hdinsight/hdinsight-hadoop-create-linux-clusters-portal.md#create-clusters) para obtener información general sobre cómo crear clústeres de HDInsight.
-3. En la hoja **Almacenamiento** , en **Tipo de almacenamiento principal** , seleccione **Azure Storage** y escriba la siguiente información:
+3. En la hoja **Almacenamiento**, en **Tipo de almacenamiento principal**, seleccione **Azure Storage** y escriba la siguiente información:
 
     ![Almacenamiento adicional, configuración de la cuenta de almacenamiento de HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.1.png)
 
-    * **Método de selección** : para especificar una cuenta de almacenamiento que forma parte de su suscripción de Azure, seleccione **Mis suscripciones** y después seleccione la cuenta de almacenamiento. Para especificar una cuenta de almacenamiento que está fuera de su suscripción de Azure, seleccione **Clave de acceso** y luego proporcione la información de la cuenta de almacenamiento externa.
+    * **Método de selección**: para especificar una cuenta de almacenamiento que forma parte de su suscripción de Azure, seleccione **Mis suscripciones** y después seleccione la cuenta de almacenamiento. Para especificar una cuenta de almacenamiento que está fuera de su suscripción de Azure, seleccione **Clave de acceso** y luego proporcione la información de la cuenta de almacenamiento externa.
 
-    * **Contenedor predeterminado** : use el valor predeterminado o especifique su propio nombre.
-    * **Cuentas de almacenamiento adicionales** : agregue más cuentas de Azure Storage como almacenamiento adicional.
-    * **Acceso a Data Lake Store** : configure el acceso entre la cuenta de Data Lake Storage Gen1 y el clúster de HDInsight. Para obtener instrucciones, consulte [Configuración del acceso a Data Lake Storage Gen1](#configure-data-lake-storage-gen1-access).
+    * **Contenedor predeterminado**: use el valor predeterminado o especifique su propio nombre.
+    * **Cuentas de almacenamiento adicionales**: agregue más cuentas de Azure Storage como almacenamiento adicional.
+    * **Acceso a Data Lake Store**: configure el acceso entre la cuenta de Data Lake Storage Gen1 y el clúster de HDInsight. Para obtener instrucciones, consulte [Configuración del acceso a Data Lake Storage Gen1](#configure-data-lake-storage-gen1-access).
 
 ## <a name="configure-data-lake-storage-gen1-access"></a>Configuración del acceso a Data Lake Storage Gen1.
 
@@ -85,13 +85,13 @@ En esta sección podrá configurar el acceso a Data Lake Storage Gen1 desde los 
 En Azure Portal puede usar una entidad de servicio existente o crear una.
 
 Para crear una entidad de servicio desde Azure Portal:
-1. Consulte [Creación de una entidad de servicio y certificados](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) mediante Azure Active Directory.
+1. Consulte [Creación de una entidad de servicio y certificados](../active-directory/develop/howto-create-service-principal-portal.md) mediante Azure Active Directory.
 
 Para usar una entidad de servicio existente en Azure Portal:
 
 1. La entidad de servicio debe tener permisos de propietario en la cuenta de almacenamiento. Consulte [Configuración de permisos para que la entidad de servicio sea propietaria en la cuenta de almacenamiento](#configure-serviceprincipal-permissions).
 1. Seleccione **Acceso a Data Lake Store**.
-1. En la hoja **Acceso a Data Lake Storage Gen1** , seleccione **Usar existente**.
+1. En la hoja **Acceso a Data Lake Storage Gen1**, seleccione **Usar existente**.
 1. Seleccione **Entidad de servicio** y luego elija una entidad de servicio.
 1. Cargue el certificado (archivo .pfx) asociado a la entidad de servicio seleccionada y especifique la contraseña del certificado.
 
@@ -118,12 +118,12 @@ La configuración varía en función de si la cuenta se usa como almacenamiento 
 
 Para asignar permisos en la cuenta de almacenamiento con Data Lake Storage Gen1 en el nivel raíz:
 
-1. En la hoja **Acceso a Data Lake Storage Gen1** , seleccione **Acceso**. Se abrirá la hoja **Seleccionar permisos de archivo**. En ella se muestran todas las cuentas de almacenamiento de su suscripción.
+1. En la hoja **Acceso a Data Lake Storage Gen1**, seleccione **Acceso**. Se abrirá la hoja **Seleccionar permisos de archivo**. En ella se muestran todas las cuentas de almacenamiento de su suscripción.
 1. Pase el mouse (sin hacer clic) sobre el nombre de la cuenta con Data Lake Storage Gen1 para que aparezca la casilla y, luego, actívela.
 
     ![Selección de los permisos de archivo](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.3.png)
 
-   De forma predeterminada, los permisos __LECTURA__ , __ESCRITURA__ Y __EJECUCIÓN__ están seleccionados.
+   De forma predeterminada, los permisos __LECTURA__, __ESCRITURA__ Y __EJECUCIÓN__ están seleccionados.
 
 1. Haga clic en **Seleccionar** en la parte inferior de la página.
 1. Seleccione **Ejecutar** para asignar el permiso.
@@ -131,8 +131,8 @@ Para asignar permisos en la cuenta de almacenamiento con Data Lake Storage Ge
 
 Para asignar permisos en el nivel raíz del clúster de HDInsight:
 
-1. En la hoja **Acceso a Data Lake Storage Gen1** , seleccione **Acceso**. Se abrirá la hoja **Seleccionar permisos de archivo**. En ella se muestran todas las cuentas de almacenamiento con Data Lake Storage Gen1 en la suscripción.
-1. En la hoja **Seleccionar permisos de archivo** , seleccione la cuenta de almacenamiento con el nombre Data Lake Storage Gen1 para mostrar su contenido.
+1. En la hoja **Acceso a Data Lake Storage Gen1**, seleccione **Acceso**. Se abrirá la hoja **Seleccionar permisos de archivo**. En ella se muestran todas las cuentas de almacenamiento con Data Lake Storage Gen1 en la suscripción.
+1. En la hoja **Seleccionar permisos de archivo**, seleccione la cuenta de almacenamiento con el nombre Data Lake Storage Gen1 para mostrar su contenido.
 1. Seleccione la raíz del almacenamiento de clúster de HDInsight activando la casilla situada a la izquierda de la carpeta. Según la captura de pantalla anterior, la raíz de almacenamiento del clúster es la carpeta __/clusters__ que especificó al seleccionar Data Lake Storage Gen1 como almacenamiento predeterminado.
 1. Establezca los permisos en la carpeta.  De forma predeterminada, los permisos LECTURA, ESCRITURA Y EJECUCIÓN están seleccionados.
 1. Haga clic en **Seleccionar** en la parte inferior de la página.
@@ -200,4 +200,4 @@ La cuenta de almacenamiento con Data Lake Storage Gen1 se puede usar para escrib
 * [PowerShell: Create an HDInsight cluster to use Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-powershell.md) (PowerShell: crear un clúster de HDInsight para usar Data Lake Storage Gen1)
 
 [makecert]: /windows-hardware/drivers/devtest/makecert
-[pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx
+[pvk2pfx]: /windows-hardware/drivers/devtest/pvk2pfx

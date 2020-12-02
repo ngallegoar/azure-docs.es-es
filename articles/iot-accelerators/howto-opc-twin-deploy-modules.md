@@ -9,12 +9,12 @@ ms.service: industrial-iot
 ms.custom: devx-track-azurecli
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 075f6f83e5af43cde3886f637a8ee326309e4218
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 1c12b1c7fd393227cb22d011f8b88f914cfded59
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96015050"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96445487"
 ---
 # <a name="deploy-opc-twin-module-and-dependencies-from-scratch"></a>Implementación del módulo y las dependencias de OPC Twin desde cero
 
@@ -117,7 +117,7 @@ La manera más fácil de implementar los módulos en un dispositivo de puerta de
 
 1. Implementación de las [dependencias](howto-opc-twin-deploy-dependencies.md) de OPC Twin y obtención del archivo `.env` resultante. Anote la instancia de `hub name` implementada en la variable `PCS_IOTHUBREACT_HUB_NAME` del archivo `.env` resultante.
 
-2. Registre e inicie un puerta de enlace de IoT Edge de [Linux](../iot-edge/how-to-install-iot-edge-linux.md) o [Windows](../iot-edge/how-to-install-iot-edge-windows.md) y anote su `device id`.
+2. Registre e inicie un puerta de enlace de IoT Edge de [Linux](../iot-edge/how-to-install-iot-edge.md) o [Windows](../iot-edge/how-to-install-iot-edge.md) y anote su `device id`.
 
 ### <a name="deploy-to-an-edge-device"></a>Implementación en un dispositivo de Edge
 

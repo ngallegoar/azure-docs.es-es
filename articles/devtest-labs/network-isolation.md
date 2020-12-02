@@ -3,12 +3,12 @@ title: Aislamiento de red en Azure DevTest Labs
 description: Obtenga información sobre el aislamiento de red en Azure DevTest Labs.
 ms.topic: article
 ms.date: 08/25/2020
-ms.openlocfilehash: aafa6bf94c7963d69bfb67a28a520b811c4fbacf
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 28bfa048a8a6666deb58a8ecfff38779c91d95b8
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92149157"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352939"
 ---
 # <a name="network-isolation-in-devtest-labs"></a>Aislamiento de red en DevTest Labs
 
@@ -74,7 +74,7 @@ Con esto, Azure Storage permitirá conexiones entrantes de la red virtual agrega
 
 También puede elegir automatizar estos pasos para configurar esta opción para varios laboratorios. 
 
-[Más información sobre la administración de reglas de acceso de red predeterminadas para Azure Storage mediante PowerShell y la CLI](../storage/common/storage-network-security.md?toc=%252fazure%252fvirtual-network%252ftoc.json#powershell)
+[Más información sobre la administración de reglas de acceso de red predeterminadas para Azure Storage mediante PowerShell y la CLI](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json#powershell)
 
 ## <a name="things-to-remember-while-using-a-lab-in-a-network-isolated-mode"></a>Elementos que hay que recordar al usar un laboratorio en un modo aislado de red
 

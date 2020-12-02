@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 05/11/2020
 ms.author: anfeldma
 ms.custom: devx-track-java, contperfq2
-ms.openlocfilehash: 4285571ead30f74f9136ad81687e52d92fdd1c47
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 1f57e14893e6f43b98b0e45cc2bd2d49e31271d0
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93341765"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350354"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-async-java-sdk-v2"></a>Sugerencias de rendimiento para el SDK asincrónico de Azure Cosmos DB para Java v2
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -90,7 +90,7 @@ Así que si se está preguntando "¿Cómo puedo mejorar el rendimiento de la bas
 
   :::image type="content" source="./media/performance-tips-async-java/rntbdtransportclient.png" alt-text="Ilustración de la arquitectura del modo directo" border="false":::
   
-  La arquitectura del lado cliente empleada en el modo directo permite un uso predecible de la red y el acceso multiplexado a las réplicas de Azure Cosmos DB. En el diagrama anterior se muestra cómo el modo directo enruta las solicitudes de cliente a las réplicas en el back-end de Cosmos DB. La arquitectura del modo directo asigna hasta 10 _ *canales* * en el lado cliente por réplica de base de datos. Un canal es una conexión TCP precedida por un búfer de solicitudes, que tiene 30 solicitudes de profundidad. El **punto de conexión de servicio** de la réplica asigna dinámicamente según sea necesario los canales que pertenecen a una réplica. Cuando el usuario emite una solicitud en el modo directo, **TransportClient** enruta la solicitud al punto de conexión de servicio adecuado en función de la clave de partición. La **cola de solicitudes** almacena en búfer las solicitudes antes del punto de conexión de servicio.
+  La arquitectura del lado cliente empleada en el modo directo permite un uso predecible de la red y el acceso multiplexado a las réplicas de Azure Cosmos DB. En el diagrama anterior se muestra cómo el modo directo enruta las solicitudes de cliente a las réplicas en el back-end de Cosmos DB. La arquitectura del modo directo asigna hasta 10 _ *canales** en el lado cliente por réplica de base de datos. Un canal es una conexión TCP precedida por un búfer de solicitudes, que tiene 30 solicitudes de profundidad. El **punto de conexión de servicio** de la réplica asigna dinámicamente según sea necesario los canales que pertenecen a una réplica. Cuando el usuario emite una solicitud en el modo directo, **TransportClient** enruta la solicitud al punto de conexión de servicio adecuado en función de la clave de partición. La **cola de solicitudes** almacena en búfer las solicitudes antes del punto de conexión de servicio.
 
   * ***Opciones de configuración de ConnectionPolicy para el modo directo** _
 
@@ -121,13 +121,13 @@ Así que si se está preguntando "¿Cómo puedo mejorar el rendimiento de la bas
   
   Algunas sugerencias de programación importantes al usar el modo directo:
   
-  _ **Usar multithreading en la aplicación para una transferencia de datos TCP eficaz** : después de realizar una solicitud, la aplicación debe suscribirse para recibir datos en otro subproceso. Si no lo hace, se fuerza una operación "dúplex medio" inesperada y las solicitudes subsiguientes se bloquean esperando la respuesta de la solicitud anterior.
+  _ **Usar multithreading en la aplicación para una transferencia de datos TCP eficaz**: después de realizar una solicitud, la aplicación debe suscribirse para recibir datos en otro subproceso. Si no lo hace, se fuerza una operación "dúplex medio" inesperada y las solicitudes subsiguientes se bloquean esperando la respuesta de la solicitud anterior.
   
-  * **Llevar a cabo las cargas de trabajo de proceso intensivo en un subproceso dedicado** : por motivos similares a la sugerencia anterior, es mejor colocar las operaciones como el procesamiento de datos complejos en un subproceso independiente. Una solicitud que extrae datos de otro almacén de datos (por ejemplo, si el subproceso emplea Azure Cosmos DB y almacenes de datos de Spark simultáneamente) puede experimentar una mayor latencia y se recomienda generar un subproceso adicional que espere una respuesta del otro almacén de datos.
+  * **Llevar a cabo las cargas de trabajo de proceso intensivo en un subproceso dedicado**: por motivos similares a la sugerencia anterior, es mejor colocar las operaciones como el procesamiento de datos complejos en un subproceso independiente. Una solicitud que extrae datos de otro almacén de datos (por ejemplo, si el subproceso emplea Azure Cosmos DB y almacenes de datos de Spark simultáneamente) puede experimentar una mayor latencia y se recomienda generar un subproceso adicional que espere una respuesta del otro almacén de datos.
   
     * Netty administra la E/S de red subyacente en el SDK asincrónico de Azure Cosmos DB para Java v2; consulte [Sugerencias para evitar patrones de codificación que bloquean los subprocesos de E/S de Netty](troubleshoot-java-async-sdk.md#invalid-coding-pattern-blocking-netty-io-thread).
   
-  * **Modelado de datos** : el Acuerdo de Nivel de Servicio de Azure Cosmos DB supone que el tamaño del documento es inferior a 1 KB. La optimización del modelo de datos y la programación para favorecer un tamaño de documento más pequeño normalmente dará lugar a una disminución de la latencia. Si va a necesitar almacenamiento y recuperación de documentos de más de 1 KB, el enfoque recomendado es vincular los documentos a datos de Azure Blob Storage.
+  * **Modelado de datos**: el Acuerdo de Nivel de Servicio de Azure Cosmos DB supone que el tamaño del documento es inferior a 1 KB. La optimización del modelo de datos y la programación para favorecer un tamaño de documento más pequeño normalmente dará lugar a una disminución de la latencia. Si va a necesitar almacenamiento y recuperación de documentos de más de 1 KB, el enfoque recomendado es vincular los documentos a datos de Azure Blob Storage.
 
 * **Ajuste de consultas paralelas en colecciones particionadas**
 
@@ -139,7 +139,7 @@ Así que si se está preguntando "¿Cómo puedo mejorar el rendimiento de la bas
 
     Es importante tener en cuenta que las consultas en paralelo producen los mejores beneficios si los datos se distribuyen uniformemente entre todas las particiones con respecto a la consulta. Si la colección con particiones está dividida de tal forma que todos, o la mayoría de los datos, devueltos por una consulta se concentran en algunas particiones (una partición en el peor de los casos), entonces el rendimiento de la consulta se vería afectada por cuellos de botella debido a esas particiones.
 
-  _ * **Tuning setMaxBufferedItemCount\:** _
+  _ ***Tuning setMaxBufferedItemCount\:** _
     
     Las consultas en paralelo están diseñadas para capturar previamente los resultados mientras el cliente procesa el lote actual de resultados. La captura previa ayuda a mejorar la latencia general de una consulta. setMaxBufferedItemCount limita el número de resultados capturados previamente. Establece setMaxBufferedItemCount en el número esperado de resultados devueltos (o un número más alto) permite que la consulta reciba el máximo beneficio de la captura previa.
 
@@ -260,7 +260,7 @@ _ **Implementación del retroceso según intervalos de getRetryAfterInMillisecon
     collectionDefinition.setIndexingPolicy(indexingPolicy);
     ```
 
-    Para más información, consulte [Directivas de indexación de Azure Cosmos DB](/azure/cosmos-db/index-policy).
+    Para más información, consulte [Directivas de indexación de Azure Cosmos DB](./index-policy.md).
 
 ## <a name="throughput"></a><a id="measure-rus"></a>Capacidad de proceso
 

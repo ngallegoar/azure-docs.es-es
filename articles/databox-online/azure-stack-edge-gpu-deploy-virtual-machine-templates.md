@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/04/2020
+ms.date: 11/16/2020
 ms.author: alkohli
-ms.openlocfilehash: d0d02532f39d676772e5ee5d6414b802faffba7c
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 93df80cd6fcd6f5553ea509a4778a155299bb057
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94505944"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96449056"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-via-templates"></a>Implementación de máquinas virtuales en el dispositivo Azure Stack Edge Pro con GPU mediante plantillas
 
@@ -76,7 +76,7 @@ Configure estos requisitos previos para crear los recursos que se necesitarán a
     
 ### <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
-Cree un grupo de recursos de Azure con [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup). Un grupo de recursos es un contenedor lógico en el que se implementan y administran los recursos de Azure, como la cuenta de almacenamiento, el disco y el disco administrado.
+Cree un grupo de recursos de Azure con [New-AzureRmResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Un grupo de recursos es un contenedor lógico en el que se implementan y administran los recursos de Azure, como la cuenta de almacenamiento, el disco y el disco administrado.
 
 > [!IMPORTANT]
 > Todos los recursos se crean en la misma ubicación que el dispositivo y la ubicación se establece en **DBELocal**.
@@ -149,7 +149,7 @@ En un entorno típico, tendría configurado el DNS para que todas las cuentas de
 
 ### <a name="optional-install-certificates"></a>(Opcional) Instalación de certificados
 
-Omita este paso si va a conectarse a través del Explorador de Storage con *http*. Si usa *https* , deberá instalar los certificados adecuados en el Explorador de Storage. En este caso, instale el certificado del punto de conexión de blob. Para más información, consulte cómo crear y cargar certificados en [Administración de certificados](azure-stack-edge-j-series-manage-certificates.md). 
+Omita este paso si va a conectarse a través del Explorador de Storage con *http*. Si usa *https*, deberá instalar los certificados adecuados en el Explorador de Storage. En este caso, instale el certificado del punto de conexión de blob. Para más información, consulte cómo crear y cargar certificados en [Administración de certificados](azure-stack-edge-j-series-manage-certificates.md). 
 
 ### <a name="create-and-upload-a-vhd"></a>Creación y carga de un disco duro virtual
 
@@ -189,13 +189,13 @@ Copie las imágenes de disco que se van a usar en los blobs en páginas en la cu
 
     ![Conectar a Azure Storage 2](media/azure-stack-edge-gpu-deploy-virtual-machine-templates/connect-azure-storage-2.png)
 
-6. En **Conectarse con el nombre y la clave** , indique los valores de **Nombre para mostrar** , **Nombre de cuenta** de almacenamiento, **Clave de cuenta** de Azure Storage. Seleccione el valor **Otros** en Dominio de almacenamiento y especifique la cadena de conexión `<device name>.<DNS domain>`. Si no ha instalado un certificado en el Explorador de Storage, marque la opción **Usar HTTP**. Seleccione **Next** (Siguiente).
+6. En **Conectarse con el nombre y la clave**, indique los valores de **Nombre para mostrar**, **Nombre de cuenta** de almacenamiento, **Clave de cuenta** de Azure Storage. Seleccione el valor **Otros** en Dominio de almacenamiento y especifique la cadena de conexión `<device name>.<DNS domain>`. Si no ha instalado un certificado en el Explorador de Storage, marque la opción **Usar HTTP**. Seleccione **Next** (Siguiente).
 
     ![Conectarse con el nombre y la clave](media/azure-stack-edge-gpu-deploy-virtual-machine-templates/connect-name-key-1.png)
 
 7. Revise el **Resumen de conexiones** y seleccione **Conectar**.
 
-8. La cuenta de almacenamiento aparece en el panel izquierdo. Seleccione y expanda la cuenta de almacenamiento. Seleccione **Contenedores de blob** , haga clic con el botón derecho y seleccione **Crear contenedor de blobs**. Escriba el nombre del contenedor de blobs.
+8. La cuenta de almacenamiento aparece en el panel izquierdo. Seleccione y expanda la cuenta de almacenamiento. Seleccione **Contenedores de blob**, haga clic con el botón derecho y seleccione **Crear contenedor de blobs**. Escriba el nombre del contenedor de blobs.
 
 9. Seleccione el contenedor que acaba de crear y, en el panel de la derecha, seleccione **Cargar > Cargar archivos**. 
 
@@ -209,7 +209,7 @@ Copie las imágenes de disco que se van a usar en los blobs en páginas en la cu
 
     ![Carga de archivo de disco duro virtual 3](media/azure-stack-edge-gpu-deploy-virtual-machine-templates/upload-vhd-file-3.png)
 
-12. Copie y guarde el identificador **URI** , ya que lo usará en los pasos posteriores.
+12. Copie y guarde el identificador **URI**, ya que lo usará en los pasos posteriores.
 
     ![Copia de URI](media/azure-stack-edge-gpu-deploy-virtual-machine-templates/copy-uri-1.png)
 
@@ -249,7 +249,7 @@ El archivo `CreateImageAndVnet.parameters.json` toma los parámetros siguientes:
               "value": "<Operating system corresponding to the VHD you upload can be Windows or Linux>"
         },
         "imageName": {
-            "value": "<Name for the VM iamge>"
+            "value": "<Name for the VM image>"
         },
         "imageUri": {
               "value": "<Path to the VHD that you uploaded in the Storage account>"
@@ -441,7 +441,7 @@ Asigne los parámetros adecuados en `CreateVM.parameters.json` para el dispositi
 
 1. Proporcione un nombre único, un nombre de interfaz de red y un nombre de ipconfig. 
 1. Escriba un nombre de usuario, una contraseña y un tamaño de máquina virtual admitido.
-1. Asigne el mismo nombre en **VnetName** , **subnetName** e **ImageName** que se indica en los parámetros de `CreateImageAndVnet.parameters.json`. Por ejemplo, si ha especificado los valores de VnetName, subnetName e ImageName como **vnet1** , **subnet1** e **image1** , utilice también esos valores en los parámetros de esta plantilla.
+1. Asigne el mismo nombre en **VnetName**, **subnetName** e **ImageName** que se indica en los parámetros de `CreateImageAndVnet.parameters.json`. Por ejemplo, si ha especificado los valores de VnetName, subnetName e ImageName como **vnet1**, **subnet1** e **image1**, utilice también esos valores en los parámetros de esta plantilla.
 1. Ahora necesitará una dirección IP estática para asignarla a la máquina virtual que se encuentra en la red de subred definida anteriormente. Reemplace **PrivateIPAddress** por esta dirección en el archivo de parámetros. Para que la máquina virtual obtenga una dirección IP del servidor DCHP local, deje en blanco el valor `privateIPAddress`.  
     
     ```json
@@ -629,4 +629,4 @@ To verify if the environment variable for AzCopy was set correctly, take the fol
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Cmdlets de Azure Resource Manager](https://docs.microsoft.com/powershell/module/azurerm.resources/?view=azurermps-6.13.0)
+[Cmdlets de Azure Resource Manager](/powershell/module/azurerm.resources/?view=azurermps-6.13.0)

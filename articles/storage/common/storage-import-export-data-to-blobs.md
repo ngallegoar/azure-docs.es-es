@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.date: 10/29/2020
 ms.author: alkohli
 ms.subservice: common
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: d23560e8ee387ca8bc9cb4bba4211f6c8272addd
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: 07f1a6ff5d15ee552680c59c86a194aeabe5b866
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94490889"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96326393"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Uso del servicio Azure Import/Export para importar datos de Azure Blob Storage
 
@@ -52,7 +52,7 @@ Realice los pasos siguientes para preparar las unidades de disco.
 1. Conecte las unidades de disco al sistema de Windows a través de los conectores SATA.
 2. Cree un volumen NTFS único en cada unidad. Asigne una letra de unidad al volumen. No utilice puntos de montaje.
 3. Habilite el cifrado de BitLocker en el volumen NTFS. Si usa un sistema de Windows Server, siga las instrucciones [How to enable BitLocker on Windows Server 2012 R2](https://thesolving.com/storage/how-to-enable-bitlocker-on-windows-server-2012-r2/) (Cómo habilitar BitLocker en Windows Server 2012 R2).
-4. Copie los datos en el volumen cifrado. Use arrastrar y soltar o Robocopy o cualquier herramienta de copia de este tipo. Se crea un archivo de diario ( *.jrn* ) en la misma carpeta en la que se ejecuta la herramienta.
+4. Copie los datos en el volumen cifrado. Use arrastrar y soltar o Robocopy o cualquier herramienta de copia de este tipo. Se crea un archivo de diario ( *.jrn*) en la misma carpeta en la que se ejecuta la herramienta.
 
    Si la unidad está bloqueada y necesita desbloquearla, los pasos para desbloquearla pueden variar en función del caso de uso.
 
@@ -109,7 +109,7 @@ Siga estos pasos para crear un trabajo de importación en Azure Portal.
 
     ![Hacer clic en Crear el trabajo de importación o exportación](./media/storage-import-export-data-to-blobs/import-to-blob2.png)
 
-4. En **Aspectos básicos** :
+4. En **Aspectos básicos**:
 
    * Seleccione **Import into Azure** (Importar en Azure).
    * Escriba un nombre descriptivo para el trabajo de importación. Utilice el nombre para realizar un seguimiento del progreso de los trabajos.
@@ -120,7 +120,7 @@ Siga estos pasos para crear un trabajo de importación en Azure Portal.
 
      ![Creación del trabajo de importación: Paso 1](./media/storage-import-export-data-to-blobs/import-to-blob3.png)
 
-5. En **Detalles del trabajo** :
+5. En **Detalles del trabajo**:
 
    * Cargue los archivos de diario de la unidad que haya obtenido durante el paso de preparación de la unidad. Si utilizó `waimportexport.exe version1`, cargue un archivo por cada unidad que haya preparado. Si el tamaño del archivo diario supera los 2 MB, puede usar el archivo `<Journal file name>_DriveInfo_<Drive serial ID>.xml` que se creó también junto con el archivo de diario.
    * Seleccione la cuenta de almacenamiento de destino en la que residirán los datos.
@@ -128,7 +128,7 @@ Siga estos pasos para crear un trabajo de importación en Azure Portal.
 
    ![Creación del trabajo de importación: Paso 2](./media/storage-import-export-data-to-blobs/import-to-blob4.png)
 
-6. En **Información de envío de devolución** :
+6. En **Información de envío de devolución**:
 
    * Seleccione el transportista en la lista desplegable. Si desea usar una empresa de mensajería que no sea FedEx o DHL, elija una de las opciones de la lista desplegable. Póngase en contacto con el equipo de operaciones de Azure Data Box en `adbops@microsoft.com` con la información relacionada con el transportista que quiere usar.
    * Escriba un número válido de cuenta de transportista que haya creado con ese transportista. Microsoft usa esta cuenta para devolverle las unidades una vez que haya finalizado el trabajo de importación. Si no tiene un número de cuenta, cree una cuenta de transportista [FedEx](https://www.fedex.com/us/oadr/) o [DHL](https://www.dhl.com/).
@@ -139,7 +139,7 @@ Siga estos pasos para crear un trabajo de importación en Azure Portal.
 
      ![Creación del trabajo de importación - Paso 3](./media/storage-import-export-data-to-blobs/import-to-blob5.png)
 
-7. En el **Resumen** :
+7. En el **Resumen**:
 
    * Revise la información de trabajo proporcionada en el resumen. Anote el nombre del trabajo y la dirección de envío del centro de datos Azure para enviar discos a Azure. Esta información se utiliza posteriormente en la etiqueta de envío.
    * Haga clic en **Aceptar** para crear el trabajo de importación.

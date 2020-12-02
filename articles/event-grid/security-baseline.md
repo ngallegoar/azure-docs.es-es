@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/21/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: ccc39513505f299e85cbc270e2daeafeac6ca6fd
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 575742ab0d886a69dc5acccf4a65ac8c91b5a871
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94845193"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96341042"
 ---
 # <a name="azure-security-baseline-for-event-grid"></a>Línea de base de seguridad de Azure para Event Grid
 
@@ -74,7 +74,7 @@ Habilite el estándar de DDoS Protection en las redes virtuales para protegerse 
 
 - [Configuración de puntos de conexión privados para temas o dominios de Azure Event Grid](configure-private-endpoints.md)
 
-- [Configuración de la protección contra DDoS](../virtual-network/manage-ddos-protection.md)
+- [Configuración de la protección contra DDoS](../ddos-protection/manage-ddos-protection.md)
 
 - [Para obtener más información sobre la inteligencia sobre amenazas integrada de Azure Security Center](../security-center/azure-defender.md)
 
@@ -227,7 +227,7 @@ También puede habilitar e incorporar datos en Azure Sentinel o en una herramien
 
 - [Incorporación de Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-- [Introducción a las consultas de Log Analytics](../azure-monitor/log-query/get-started-portal.md)
+- [Introducción a las consultas de Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md)
 
 - [Procedimiento para realizar consultas personalizadas en Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
 

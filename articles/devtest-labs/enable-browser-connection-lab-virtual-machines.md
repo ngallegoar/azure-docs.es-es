@@ -3,12 +3,12 @@ title: Habilitación de una conexión de explorador en máquinas virtuales de Az
 description: Ahora, DevTest Labs se integra con Azure Bastion, lo que le permite, como propietario del laboratorio, habilitar el acceso a todas las máquinas virtuales de laboratorio a través de un explorador.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 28a3c11f3df578265f9746a173fcb3029a132b26
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6d9d631c79c22f1f713cfc4ee7cdd766a4ad8f06
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88870500"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96341179"
 ---
 # <a name="enable-browser-connection-on-azure-devtest-labs-virtual-machines"></a>Habilitación de una conexión de explorador en máquinas virtuales de Azure DevTest Labs 
 DevTest Labs se integra con [Azure Bastion](../bastion/index.yml), lo que le permite conectarse a sus máquinas virtuales a través de un explorador. En primer lugar, hay que habilitar una conexión del explorador en las máquinas virtuales de laboratorio en cuestión.
@@ -20,7 +20,7 @@ En este artículo se explica cómo habilitar una conexión del explorador en má
 
 ## <a name="prerequisites"></a>Prerrequisitos 
 - Implemente un host de Bastion en la red virtual del laboratorio existente **(O)** conecte el laboratorio a una red virtual configurada con Bastion.
-Para aprender cómo implementar un host de Bastion en una red virtual, consulte [Creación de un host de Azure Bastion](../bastion/bastion-create-host-portal.md). Al crear el host de Bastion, seleccione la red virtual del laboratorio. 
+Para aprender cómo implementar un host de Bastion en una red virtual, consulte [Creación de un host de Azure Bastion](../bastion/tutorial-create-host-portal.md). Al crear el host de Bastion, seleccione la red virtual del laboratorio. 
 - El usuario del laboratorio debe tener el rol **Lector** en el host de Bastion y en la red virtual que lo tenga configurado. 
 
 ## <a name="create-a-second-sub-net-in-the-bastion-virtual-network"></a>Creación de una segunda subred en la red virtual de Bastion

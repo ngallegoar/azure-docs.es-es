@@ -10,12 +10,12 @@ author: markjones-msft
 ms.author: markjon
 ms.reviewer: mathoma
 ms.date: 11/06/2020
-ms.openlocfilehash: 0522f677c731aa1cd218a14429791db14179686a
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 5312ee08bad9d0b84e13c53fe4b1de59fad896f1
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94496336"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96326053"
 ---
 # <a name="migration-guide-db2-to-sql-server-on-azure-vms"></a>Guía de migración: De DB2 a SQL Server en VM de Azure
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlvm.md)]
@@ -164,7 +164,7 @@ Estos recursos se desarrollaron como parte del programa Ninja SQL de datos, que 
 
 Después de la migración, revise la [Guía de optimización y validación posterior a la migración](/sql/relational-databases/post-migration-validation-and-optimization-guide). 
 
-Para obtener una matriz de los servicios y herramientas de Microsoft y de otros fabricantes que están disponibles para ayudarle en diversos escenarios de migración de datos y bases de datos, además de las tareas especializadas, consulte [Servicios y herramientas de migración de datos](/azure/dms/dms-tools-matrix).
+Para obtener una matriz de los servicios y herramientas de Microsoft y de otros fabricantes que están disponibles para ayudarle en diversos escenarios de migración de datos y bases de datos, además de las tareas especializadas, consulte [Servicios y herramientas de migración de datos](../../../dms/dms-tools-matrix.md).
 
 Para ver otras guías de migración, consulte [Migración de bases de datos](https://datamigration.microsoft.com/). 
 

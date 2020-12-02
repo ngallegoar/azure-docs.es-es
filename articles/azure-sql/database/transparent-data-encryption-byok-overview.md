@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/18/2020
-ms.openlocfilehash: 76ecd811ab0bffe20b4bddcc4dc2eacaffaed588
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 2a7d77579eaebd3ee951d0184e25937783420806
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93308333"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325203"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Cifrado de datos transparente de Azure SQL con una clave administrada por el cliente
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -56,11 +56,11 @@ El Cifrado de datos transparente (TDE) administrado por el cliente le proporcion
 
 Para que el servidor pueda usar el protector de TDE almacenado en AKV para cifrar la DEK, el administrador del almacén de claves debe conceder los siguientes derechos de acceso al servidor mediante su identidad única de Azure Active Directory (Azure AD):
 
-- **get** : para recuperar la parte pública y las propiedades de la clave en Key Vault
+- **get**: para recuperar la parte pública y las propiedades de la clave en Key Vault
 
-- **wrapKey** : para poder proteger (cifrar) la DEK
+- **wrapKey**: para poder proteger (cifrar) la DEK
 
-- **unwrapKey** : para poder desproteger (descifrar) la DEK
+- **unwrapKey**: para poder desproteger (descifrar) la DEK
 
 El administrador de Key Vault también puede [habilitar el registro de eventos de auditoría del almacén de claves](../../azure-monitor/insights/key-vault-insights-overview.md), por lo que se pueden auditar más adelante.
 
@@ -78,7 +78,7 @@ Los auditores pueden usar Azure Monitor para revisar los registros de los objeto
 
 - Key Vault y SQL Database (o una instancia administrada) deben pertenecer al mismo inquilino de Azure Active Directory. No se admiten las interacciones de servidor y almacén de claves entre inquilinos. Para mover los recursos después, se tendrá que volver a configurar el TDE con AKV. Obtenga más información sobre el [movimiento de recursos](../../azure-resource-manager/management/move-resource-group-and-subscription.md).
 
-- La característica de [eliminación temporal](../../key-vault/general/soft-delete-overview.md) debe estar habilitada en el almacén de claves para protegerlo contra la pérdida de datos en caso de que se eliminen las claves (o el almacén de claves) de manera involuntaria. Los recursos eliminados temporalmente se conservan durante 90 días, a menos que el cliente los recupere o los purgue dentro de ese plazo. Las acciones de *recuperación* y *purga* tienen permisos propios asociados a una directiva de acceso al almacén de claves. La característica de eliminación temporal está desactivada de forma predeterminada y se puede habilitar mediante [PowerShell](../../key-vault/general/soft-delete-powershell.md#enabling-soft-delete) o la [CLI](../../key-vault/general/soft-delete-cli.md#enabling-soft-delete). No se puede habilitar mediante Azure Portal.  
+- La característica de [eliminación temporal](../../key-vault/general/soft-delete-overview.md) debe estar habilitada en el almacén de claves para protegerlo contra la pérdida de datos en caso de que se eliminen las claves (o el almacén de claves) de manera involuntaria. Los recursos eliminados temporalmente se conservan durante 90 días, a menos que el cliente los recupere o los purgue dentro de ese plazo. Las acciones de *recuperación* y *purga* tienen permisos propios asociados a una directiva de acceso al almacén de claves. La característica de eliminación temporal está desactivada de forma predeterminada y se puede habilitar mediante [PowerShell](../../key-vault/general/key-vault-recovery.md?tabs=azure-powershell) o la [CLI](../../key-vault/general/key-vault-recovery.md?tabs=azure-cli). No se puede habilitar mediante Azure Portal.  
 
 - Conceda al servidor o a la instancia administrada acceso al almacén de claves (get, wrapKey o unwrapKey) con su identidad de Azure Active Directory. Cuando usa Azure Portal, la identidad de Azure AD se crea automáticamente. Al usar PowerShell o la CLI, se debe crear explícitamente la identidad de Azure AD y se debe comprobar la finalización. Consulte [Configuración de TDE con BYOK](transparent-data-encryption-byok-configure.md) y [Configuración de TDE con BYOK para SQL Managed Instance](../managed-instance/scripts/transparent-data-encryption-byok-powershell.md) para obtener instrucciones detalladas paso a paso cuando se usa PowerShell.
 
@@ -146,7 +146,7 @@ A continuación se muestra una vista de los pasos adicionales necesarios en el p
 
 Es posible que alguien con los derechos de acceso suficientes al almacén de claves deshabilite accidentalmente el acceso del servidor a la clave al realizar alguna de las siguientes acciones:
 
-- Revocación de los permisos *get* , *wrapKey* o *unwrapKey* del almacén de claves desde el servidor.
+- Revocación de los permisos *get*, *wrapKey* o *unwrapKey* del almacén de claves desde el servidor.
 
 - Eliminar la clave.
 

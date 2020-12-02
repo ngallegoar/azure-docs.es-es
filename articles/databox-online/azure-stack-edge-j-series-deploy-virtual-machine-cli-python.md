@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 09/07/2020
 ms.author: alkohli
-ms.openlocfilehash: c27f6ef47b8e4db83ceb63e308e318803800f8a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c12935a4b0b9cbbf088ba7b9c5ea804be0ce85a1
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90890719"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96447354"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-using-azure-cli-and-python"></a>Implementación de máquinas virtuales en un dispositivo Azure Stack Edge Pro con GPU con la CLI de Azure y Python
 
@@ -117,7 +117,7 @@ Antes de empezar a crear y administrar una máquina virtual en el dispositivo Az
 
 ### <a name="verify-profile-and-install-azure-cli"></a>Comprobación del perfil e instalación de la CLI de Azure
 
-<!--1. Verify the API profile of the client and identify which version of the modules and libraries to include on your client. In this example, the client system will be running Azure Stack 1904 or later. For more information, see [Azure Resource Manager API profiles](https://docs.microsoft.com/azure-stack/user/azure-stack-version-profiles?view=azs-1908#azure-resource-manager-api-profiles).-->
+<!--1. Verify the API profile of the client and identify which version of the modules and libraries to include on your client. In this example, the client system will be running Azure Stack 1904 or later. For more information, see [Azure Resource Manager API profiles](/azure-stack/user/azure-stack-version-profiles?view=azs-1908#azure-resource-manager-api-profiles).-->
 
 1. Instale la CLI de Azure en el cliente. En este ejemplo, se ha instalado la CLI de Azure versión 2.0.80. Para comprobar la versión de la CLI de Azure, ejecute el comando `az --version`.
 
@@ -147,7 +147,7 @@ Antes de empezar a crear y administrar una máquina virtual en el dispositivo Az
     PS C:\windows\system32>
     ```
 
-    Si no tiene la CLI de Azure, descárguela y siga los pasos descritos en [Instalación de la CLI de Azure en Windows](https://docs.microsoft.com/cli/azure/install-azure-cli-windows?view=azure-cli-latest). Puede ejecutar la CLI de Azure mediante el símbolo del sistema de Windows o mediante Windows PowerShell.
+    Si no tiene la CLI de Azure, descárguela y siga los pasos descritos en [Instalación de la CLI de Azure en Windows](/cli/azure/install-azure-cli-windows?view=azure-cli-latest). Puede ejecutar la CLI de Azure mediante el símbolo del sistema de Windows o mediante Windows PowerShell.
 
 2. Tome nota de la ubicación de Python de la CLI. La necesitará para determinar la ubicación del almacén de certificados raíz de confianza para la CLI de Azure.
 
@@ -308,7 +308,7 @@ Antes de empezar a crear y administrar una máquina virtual en el dispositivo Az
     PS C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2>
     ```
 
-4. Inicie sesión en el entorno de Azure Stack Edge Pro con el comando `az login`. Puede iniciar sesión en el entorno de Azure Stack Edge Pro como un usuario o como una [entidad de servicio](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals).
+4. Inicie sesión en el entorno de Azure Stack Edge Pro con el comando `az login`. Puede iniciar sesión en el entorno de Azure Stack Edge Pro como un usuario o como una [entidad de servicio](../active-directory/develop/app-objects-and-service-principals.md).
 
    Siga estos pasos para iniciar sesión como un *usuario*:
 

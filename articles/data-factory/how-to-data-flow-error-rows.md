@@ -8,12 +8,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/22/2020
 ms.author: makromer
-ms.openlocfilehash: 49d11dfe3d42d99c610fae9fa64079a5fd87501f
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: c8b0ae7058aecc1813d720a3fbb2a1a1f967cf40
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96006801"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352616"
 ---
 # <a name="handle-sql-truncation-error-rows-in-data-factory-mapping-data-flows"></a>Controlar las filas de errores de truncamiento de SQL en Data Factory con asignación de flujos de datos
 
@@ -23,7 +23,7 @@ Un escenario común en Data Factory cuando se usan flujos de datos de asignació
 
 Hay dos métodos principales para controlar correctamente los errores cuando se escriben datos en el receptor de la base de datos en flujos de datos de ADF:
 
-* Establezca el [control de filas de errores](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-database#error-row-handling) del receptor en "Continuar con el error" al procesar los datos de la base de datos. Se trata de un método catch-all automatizado que no requiere una lógica personalizada en el flujo de datos.
+* Establezca el [control de filas de errores](./connector-azure-sql-database.md#error-row-handling) del receptor en "Continuar con el error" al procesar los datos de la base de datos. Se trata de un método catch-all automatizado que no requiere una lógica personalizada en el flujo de datos.
 * También puede seguir los pasos que se indican a continuación para proporcionar el registro de columnas que no quepan en una columna de cadena de destino, lo que permite que el flujo de datos continúe.
 
 > [!NOTE]

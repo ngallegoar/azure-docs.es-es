@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: msjogarrig
 ms.author: jogarrig
 ms.date: 09/04/2020
-ms.openlocfilehash: 10ca7602dd3cf5a80e371ceda845977bcd8f218a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d4fb3354b7035149b80191528b2f5335b593b764
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89484246"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96433548"
 ---
 # <a name="publishing-guide-for-azure-managed-applications"></a>Guía de publicación de aplicaciones administradas de Azure
 
@@ -34,7 +34,7 @@ Use el tipo de oferta de aplicación administrada con las siguientes condiciones
 |---------|---------|
 |Una suscripción de Azure | Las aplicaciones administradas se deben implementar en la suscripción del cliente, pero las puede administrar un tercero. |
 |Facturación y medición    |  Los recursos se proporcionan en la suscripción de Azure de un cliente. Las transacciones de VM que usan el modelo de pago por uso se realizan con el cliente mediante Microsoft y se facturan con la suscripción de Azure del cliente. <br><br> En el caso de las VM con el modelo "traiga su propia licencia", Microsoft factura los costos de infraestructura derivados en la suscripción del cliente, mientras que usted realizará la transacción de las tarifas de licencia de software directamente con el cliente.        |
-|Un disco duro virtual (VHD) compatible con Azure    |   Las máquinas virtuales deben estar basadas en Windows o Linux.<br><br>Para obtener más información acerca de cómo crear un VHD de Linux, consulte [Distribuciones de Linux aprobadas en Azure](../virtual-machines/linux/endorsed-distros.md).<br><br>Para más información sobre la creación de un disco duro virtual de Windows, consulte [Creación de una oferta de aplicación de Azure](./partner-center-portal/create-new-azure-apps-offer.md). |
+|Un disco duro virtual (VHD) compatible con Azure    |   Las máquinas virtuales deben estar basadas en Windows o Linux.<br><br>Para obtener más información acerca de cómo crear un VHD de Linux, consulte [Distribuciones de Linux aprobadas en Azure](../virtual-machines/linux/endorsed-distros.md).<br><br>Para más información sobre la creación de un disco duro virtual de Windows, consulte [Creación de una oferta de aplicación de Azure](./create-new-azure-apps-offer.md). |
 
 ---
 
@@ -51,4 +51,4 @@ Si aún no lo ha hecho, aprenda a [Ampliar su negocio en la nube con Azure Marke
 Para registrarse y empezar a trabajar en el Centro de partners, haga lo siguiente:
 
 - [Inicie sesión en el Centro de partners](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) para crear o completar la oferta.
-- Para obtener más información, consulte [Creación de una oferta de aplicaciones de Azure](./partner-center-portal/create-new-azure-apps-offer.md).
+- Para obtener más información, consulte [Creación de una oferta de aplicaciones de Azure](./create-new-azure-apps-offer.md).

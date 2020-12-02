@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/21/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: e8f9a8e1d10e39e37480e06a25fcc0e203a104ec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5ddcd7e5c3e5651062f88b261e7003fb0dd2ef3b
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89378736"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436001"
 ---
 # <a name="marketplace-metering-service-authentication-strategies"></a>Estrategias de autenticación del servicio de medición de Marketplace
 
@@ -155,5 +155,5 @@ Por ejemplo, siga los pasos que se indican a continuación para autenticarse con
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Creación de una oferta de aplicación de Azure](./create-new-azure-apps-offer.md)
+* [Creación de una oferta de aplicación de Azure](../create-new-azure-apps-offer.md)
 * [Planificación de una oferta de SaaS](../plan-saas-offer.md)

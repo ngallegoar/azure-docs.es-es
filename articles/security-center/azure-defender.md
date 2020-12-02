@@ -7,12 +7,12 @@ ms.date: 9/30/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 002c718466b9e13d2f92fbea6dd055eb13d4d3a7
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 41d98750f3c869eff5abf7482a9bb04435407318
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789121"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436766"
 ---
 # <a name="introduction-to-azure-defender"></a>Introducción a Azure Defender
 
@@ -20,7 +20,7 @@ Las características de Azure Security Center abarcan los dos extensos pilares d
 
 - **Administración de la posición de seguridad en la nube (CSPM)** : Security Center está disponible de forma **gratuita** para todos los usuarios de Azure. La experiencia gratuita incluye características de CSPM, como la puntuación segura, la detección de configuraciones incorrectas de seguridad en las máquinas de Azure, el inventario de recursos, etc. Use estas características de CSPM para fortalecer la posición en la nube híbrida y realizar un seguimiento del cumplimiento con las directivas integradas.
 
-- **Protección de la carga de trabajo en la nube (CWP)** : la plataforma integrada de protección de cargas de trabajo en la nube (CWP) de Security Center, **Azure Defender** , ofrece la protección avanzada e inteligente de los recursos y las cargas de trabajo híbridas de Azure. La habilitación de Azure Defender aporta diversas características de seguridad adicionales, como se describe en esta página. Además de las directivas integradas, cuando haya habilitado un plan de Azure Defender, puede agregar directivas e iniciativas personalizadas. Puede agregar estándares normativos, como NIST y Azure CIS, así como pruebas comparativas de la seguridad de Azure para obtener una vista realmente personalizada de su cumplimiento.
+- **Protección de la carga de trabajo en la nube (CWP)** : la plataforma integrada de protección de cargas de trabajo en la nube (CWP) de Security Center, **Azure Defender**, ofrece la protección avanzada e inteligente de los recursos y las cargas de trabajo híbridas de Azure. La habilitación de Azure Defender aporta diversas características de seguridad adicionales, como se describe en esta página. Además de las directivas integradas, cuando haya habilitado un plan de Azure Defender, puede agregar directivas e iniciativas personalizadas. Puede agregar estándares normativos, como NIST y Azure CIS, así como pruebas comparativas de la seguridad de Azure para obtener una vista realmente personalizada de su cumplimiento.
 
 El panel de Azure Defender en Security Center permite la visibilidad y el control de las características de CWP en un entorno:
 
@@ -61,7 +61,7 @@ Para ampliar la protección a las máquinas virtuales y a las base de datos SQL 
 
 
 
-## <a name="azure-defender-alerts"></a>Alertas de Azure Defender 
+## <a name="security-alerts"></a>Alertas de seguridad 
 
 Cuando Azure Defender detecta una amenaza en cualquiera de las áreas del entorno, genera una alerta. Estas alertas describen los detalles de los recursos afectados, los pasos de corrección sugeridos y, en algunos casos, una opción para desencadenar una aplicación lógica como respuesta.
 

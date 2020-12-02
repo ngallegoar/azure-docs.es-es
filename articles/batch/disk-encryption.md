@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 10/08/2020
 ms.author: peshultz
 ms.custom: references_regions
-ms.openlocfilehash: 55a7e117ebd49f268d4b075d58791df4e9223fdf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a61e87c660bf2d2f0f4c8d02bd1699c58f8da667
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91849269"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350677"
 ---
 # <a name="create-a-pool-with-disk-encryption-enabled"></a>Creación de un grupo con el cifrado de disco habilitado
 
@@ -25,8 +25,8 @@ Con un grupo de Batch, puede obtener acceso y almacenar datos en el sistema oper
 
 Batch aplicará una de estas tecnologías de cifrado de discos en nodos de proceso, en función de la configuración del grupo y la compatibilidad regional.
 
-- [Cifrado en reposo con claves administradas por la plataforma](../virtual-machines/windows/disk-encryption.md#platform-managed-keys)
-- [Cifrado en el host con una clave administrada por la plataforma](../virtual-machines/windows/disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data)
+- [Cifrado en reposo con claves administradas por la plataforma](../virtual-machines/disk-encryption.md#platform-managed-keys)
+- [Cifrado en el host con una clave administrada por la plataforma](../virtual-machines/disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data)
 - [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md)
 
 > [!IMPORTANT]
@@ -44,7 +44,7 @@ Al crear un grupo de Batch en Azure Portal, seleccione **TemporaryDisk** o **OsA
 
 Una vez creado el grupo, puede ver los destinos de configuración del cifrado de disco en la sección **Propiedades**.
 
-:::image type="content" source="media/disk-encryption/configuration-target.png" alt-text="Captura de pantalla de la opción de configuración de cifrado de disco en Azure Portal":::
+:::image type="content" source="media/disk-encryption/configuration-target.png" alt-text="Captura de pantalla que muestra la configuración de cifrado de disco en Azure Portal":::
 
 ## <a name="examples"></a>Ejemplos
 
@@ -107,5 +107,5 @@ az batch pool create \
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Obtenga información sobre el [cifrado del lado servidor de Azure Disk Storage](../virtual-machines/windows/disk-encryption.md).
+- Obtenga información sobre el [cifrado del lado servidor de Azure Disk Storage](../virtual-machines/disk-encryption.md).
 - Para obtener información general detallada sobre Batch, consulte [Flujo de trabajo y recursos del servicio Batch](batch-service-workflow-features.md).

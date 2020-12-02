@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
-ms.openlocfilehash: 888fdbb2352c4ac972eac8b24c29d22ce973e04d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e3fe3e910134080f6620023f539913454670d093
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90932347"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96339921"
 ---
 # <a name="get-started-with-azure-defender-for-iot-device-security-agents"></a>Introducción a los agentes de seguridad de dispositivo de Azure Defender para IoT
 
@@ -31,9 +31,9 @@ Los agentes de Defender para IoT controlan la recopilación de eventos sin proce
 Use el flujo de trabajo a continuación para implementar y probar los agentes de seguridad de Defender para IoT:
 
 1. [Habilitación del servicio Defender para IoT en IoT Hub](quickstart-onboard-iot-hub.md)
-1. Si IoT Hub no tiene ningún dispositivo registrado, [registre uno nuevo](https://docs.microsoft.com/azure/iot-accelerators/quickstart-device-simulation-deploy).
+1. Si IoT Hub no tiene ningún dispositivo registrado, [registre uno nuevo](../iot-accelerators/quickstart-device-simulation-deploy.md).
 1. [Cree un módulo de seguridad azureiotsecurity](quickstart-create-security-twin.md) para sus dispositivos.
-1. Para instalar el agente en un dispositivo simulado de Azure en lugar de hacerlo en un dispositivo real, [prepare una máquina virtual de Azure nueva](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal) en una zona de disponibilidad.
+1. Para instalar el agente en un dispositivo simulado de Azure en lugar de hacerlo en un dispositivo real, [prepare una máquina virtual de Azure nueva](../virtual-machines/linux/quick-create-portal.md) en una zona de disponibilidad.
 1. [Implemente un agente de seguridad de Defender para IoT](how-to-deploy-linux-cs.md) en el dispositivo IoT o en una máquina virtual nueva.
 1. Siga las instrucciones de [trigger_events](https://aka.ms/iot-security-github-trigger-events) para llevar a cabo una simulación inofensiva de un ataque.
 1. Compruebe las alertas de Defender para IoT en respuesta al ataque simulado del paso anterior. No las compruebe hasta que hayan transcurrido cinco minutos desde la ejecución del script.

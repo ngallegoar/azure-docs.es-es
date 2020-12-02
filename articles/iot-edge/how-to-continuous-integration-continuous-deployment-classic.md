@@ -8,12 +8,12 @@ ms.date: 08/26/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 1866f3360b90a96b5e3f215eb7669a1451262bd8
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: b9b842b94d66cf91ad836b8ae61df1b3d3f34293
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92046016"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96435950"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge-devices-classic-editor"></a>Integración e implementación continuas en dispositivos Azure IoT Edge (editor clásico)
 
@@ -32,15 +32,15 @@ En este artículo, aprenderá a usar las [tareas integradas de Azure IoT Edge](/
 
 A menos que se especifique lo contrario, los procedimientos descritos en este artículo no exploran toda la funcionalidad disponible mediante parámetros de tarea. Para obtener más información, vea lo siguiente:
 
-* [Versión de tarea](/azure/devops/pipelines/process/tasks?tabs=classic&view=azure-devops#task-versions)
+* [Versión de tarea](/azure/devops/pipelines/process/tasks?tabs=classic#task-versions)
 * **Avanzada**: si se aplica, especifique los módulos que no quiera compilar.
-* [Opciones de control](/azure/devops/pipelines/process/tasks?tabs=classic&view=azure-devops#task-control-options)
-* [Variables de entorno](/azure/devops/pipelines/process/variables?tabs=yaml%252cbatch&view=azure-devops#environment-variables)
-* [Variables de salida](/azure/devops/pipelines/process/variables?tabs=yaml%252cbatch&view=azure-devops#use-output-variables-from-tasks)
+* [Opciones de control](/azure/devops/pipelines/process/tasks?tabs=classic#task-control-options)
+* [Variables de entorno](/azure/devops/pipelines/process/variables?tabs=classic#environment-variables)
+* [Variables de salida](/azure/devops/pipelines/process/variables?tabs=classic#use-output-variables-from-tasks)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Un repositorio de Azure Repos. Si no tiene uno, puede [crear un nuevo repositorio de Git en el proyecto](/azure/devops/repos/git/create-new-repo?tabs=new-nav&view=vsts). En este artículo, hemos creado un repositorio denominado **IoTEdgeRepo**.
+* Un repositorio de Azure Repos. Si no tiene uno, puede [crear un nuevo repositorio de Git en el proyecto](/azure/devops/repos/git/create-new-repo). En este artículo, hemos creado un repositorio denominado **IoTEdgeRepo**.
 * Una solución de IoT Edge confirmada e insertada en el repositorio. Si quiere crear una nueva solución de ejemplo para hacer pruebas según este artículo, siga los pasos para [desarrollar y depurar módulos en Visual Studio Code](how-to-vs-code-develop-module.md) o [desarrollar y depurar módulos de C# en Visual Studio](./how-to-visual-studio-develop-module.md). Para este artículo, hemos creado una solución en el repositorio denominada **IoTEdgeSolution**, que tiene el código de un módulo denominado **filtermodule**.
 
    En este artículo, todo lo que necesita es la carpeta de la solución creada mediante las plantillas de IoT Edge en Visual Studio Code o Visual Studio. No es necesario compilar, insertar, implementar ni depurar este código antes de continuar. Configurará esos procesos en Azure Pipelines.
@@ -84,7 +84,7 @@ En esta sección, creará una nueva canalización de compilación. Configure la 
 
    * Si quiere compilar los módulos en la plataforma amd64 para contenedores Linux, elija **ubuntu-16.04**.
 
-   * Si quiere compilar los módulos en la plataforma amd64 para contenedores de Windows 1809, deberá [configurar un agente autohospedado en Windows](/azure/devops/pipelines/agents/v2-windows?view=vsts).
+   * Si quiere compilar los módulos en la plataforma amd64 para contenedores de Windows 1809, deberá [configurar un agente autohospedado en Windows](/azure/devops/pipelines/agents/v2-windows).
 
    * Si quiere compilar los módulos en la plataforma arm32v7 o arm64 para contenedores de Linux, deberá [configurar un agente autohospedado en Linux](https://devblogs.microsoft.com/iotdev/setup-azure-iot-edge-ci-cd-pipeline-with-arm-agent).
 
@@ -136,14 +136,14 @@ En esta sección, creará una nueva canalización de compilación. Configure la 
     | Nombre para mostrar | Usar el nombre predeterminado o personalizar |
     | Carpeta de origen | Carpeta con los archivos que se van a copiar. |
     | Contenido | Agregue dos líneas: `deployment.template.json` y `**/module.json`. Estos dos archivos sirven de entrada para generar el manifiesto de implementación de IoT Edge. |
-    | Carpeta de destino | Especifique la variable `$(Build.ArtifactStagingDirectory)`. Consulte las [variables de compilación](/azure/devops/pipelines/build/variables?tabs=yaml&view=azure-devops#build-variables) para obtener información acerca de sus descripciones. |
+    | Carpeta de destino | Especifique la variable `$(Build.ArtifactStagingDirectory)`. Consulte las [variables de compilación](/azure/devops/pipelines/build/variables#build-variables) para obtener información acerca de sus descripciones. |
 
 10. Seleccione la tarea **Publicar los artefactos de la compilación** para editarla. Proporcione la ruta de acceso del directorio de almacenamiento provisional de artefactos a la tarea para que la ruta de acceso pueda publicarse en la canalización de versión.
 
     | Parámetro | Descripción |
     | --- | --- |
     | Nombre para mostrar | Use el nombre predeterminado o personalícelo. |
-    | Ruta de acceso para publicar | Especifique la variable `$(Build.ArtifactStagingDirectory)`. Consulte [Variables de compilación](/azure/devops/pipelines/build/variables?tabs=yaml&view=azure-devops#build-variables) para obtener más información. |
+    | Ruta de acceso para publicar | Especifique la variable `$(Build.ArtifactStagingDirectory)`. Consulte [Variables de compilación](/azure/devops/pipelines/build/variables#build-variables) para obtener más información. |
     | Nombre del artefacto | Use el nombre predeterminado: **drop** |
     | Ubicación de publicación de artefactos | Use la ubicación predeterminada: **Azure Pipelines** |
 

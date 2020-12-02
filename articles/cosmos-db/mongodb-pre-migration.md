@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-mongo
 ms.topic: how-to
 ms.date: 09/01/2020
 ms.author: chrande
-ms.openlocfilehash: 8ad164f79f150e0cd6ab4a083f21b22c59f7c729
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 337341daf0e092def639a4e8f6fc8ee0a9b57c75
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93361592"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349425"
 ---
 # <a name="pre-migration-steps-for-data-migrations-from-mongodb-to-azure-cosmos-dbs-api-for-mongodb"></a>Pasos previos a la migración para migraciones de datos de MongoDB a la API de Azure Cosmos DB para MongoDB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -31,13 +31,13 @@ Si ya se han completado los anteriores requisitos previos para la migración, pu
 
 A continuación se muestran características específicas sobre la API de Azure Cosmos DB para MongoDB:
 
-- **Modelo de capacidad** : la capacidad de bases de datos en Azure Cosmos DB se basa en un modelo basado a su vez en el rendimiento. Este modelo se basa en [Unidades de solicitud por segundo](request-units.md), que es una unidad que representa el número de operaciones de base de datos que se pueden ejecutar en una colección por segundo. Esta capacidad se puede asignar en [un nivel de base de datos o de colección](set-throughput.md) y se puede aprovisionar en un modelo de asignación o mediante el [rendimiento aprovisionado de escalabilidad automática](provision-throughput-autoscale.md).
+- **Modelo de capacidad**: la capacidad de bases de datos en Azure Cosmos DB se basa en un modelo basado a su vez en el rendimiento. Este modelo se basa en [Unidades de solicitud por segundo](request-units.md), que es una unidad que representa el número de operaciones de base de datos que se pueden ejecutar en una colección por segundo. Esta capacidad se puede asignar en [un nivel de base de datos o de colección](set-throughput.md) y se puede aprovisionar en un modelo de asignación o mediante el [rendimiento aprovisionado de escalabilidad automática](provision-throughput-autoscale.md).
 
-- **Unidades de solicitud** : Cada operación de base de datos tiene un costo de las Unidades de solicitud (RU) en Azure Cosmos DB. Al ejecutarse, se resta del nivel de unidades de solicitud disponible en un segundo dado. Si una solicitud requiere más RU que las RU/s asignadas actualmente, existen dos opciones para resolver el problema: aumentar la cantidad de RU o esperar a que se inicie el próximo segundo y volver a intentar la operación.
+- **Unidades de solicitud**: Cada operación de base de datos tiene un costo de las Unidades de solicitud (RU) en Azure Cosmos DB. Al ejecutarse, se resta del nivel de unidades de solicitud disponible en un segundo dado. Si una solicitud requiere más RU que las RU/s asignadas actualmente, existen dos opciones para resolver el problema: aumentar la cantidad de RU o esperar a que se inicie el próximo segundo y volver a intentar la operación.
 
-- **Capacidad elástica** : la capacidad de una colección o base de datos determinada puede cambiar en cualquier momento. Esto permite a la base de datos adaptarse de forma elástica a los requisitos de rendimiento de su carga de trabajo.
+- **Capacidad elástica**: la capacidad de una colección o base de datos determinada puede cambiar en cualquier momento. Esto permite a la base de datos adaptarse de forma elástica a los requisitos de rendimiento de su carga de trabajo.
 
-- **Particionamiento automático** : Azure Cosmos DB proporciona un sistema de particionamiento automático que solo requiere una partición (o una clave de partición). El [mecanismo de particionamiento automático](partitioning-overview.md) se comparte entre todas las API de Azure Cosmos DB y permite datos sin problemas y en todo el escalado a través de la distribución horizontal.
+- **Particionamiento automático**: Azure Cosmos DB proporciona un sistema de particionamiento automático que solo requiere una partición (o una clave de partición). El [mecanismo de particionamiento automático](partitioning-overview.md) se comparte entre todas las API de Azure Cosmos DB y permite datos sin problemas y en todo el escalado a través de la distribución horizontal.
 
 ## <a name="migration-options-for-azure-cosmos-dbs-api-for-mongodb"></a><a id="options"></a>Opciones de migración para la API de Azure Cosmos DB para MongoDB
 
@@ -57,11 +57,11 @@ En Azure Cosmos DB, el rendimiento se aprovisiona de antemano y se mide en Unida
 Puede usar la [calculadora de capacidad de Azure Cosmos DB](https://cosmos.azure.com/capacitycalculator/) para determinar la cantidad de Unidades de solicitud en función de la configuración de la cuenta de base de datos, la cantidad de datos, el tamaño del documento y las lecturas y escrituras requeridas por segundo.
 
 Estos son factores clave que afectan al número de Unidades de solicitud necesarias:
-- **Tamaño del documento** : a medida que el tamaño de un elemento o documento aumenta, también lo hace el número de Unidades de solicitud consumidas para leer o escribir el elemento o documento.
+- **Tamaño del documento**: a medida que el tamaño de un elemento o documento aumenta, también lo hace el número de Unidades de solicitud consumidas para leer o escribir el elemento o documento.
 
-- **Recuento de propiedades del documento** : el número de RU consumidas para crear o actualizar un documento está relacionado con el número, la complejidad y la longitud de sus propiedades. Puede reducir el consumo de Unidades de solicitud para operaciones de escritura [limitando el número de las propiedades indexadas](mongodb-indexing.md).
+- **Recuento de propiedades del documento**: el número de RU consumidas para crear o actualizar un documento está relacionado con el número, la complejidad y la longitud de sus propiedades. Puede reducir el consumo de Unidades de solicitud para operaciones de escritura [limitando el número de las propiedades indexadas](mongodb-indexing.md).
 
-- **Patrones de consultas** : la complejidad de una consulta afecta a la cantidad de Unidades de solicitud que una consulta consume. 
+- **Patrones de consultas**: la complejidad de una consulta afecta a la cantidad de Unidades de solicitud que una consulta consume. 
 
 La mejor manera de comprender el costo de las consultas es usar los datos de ejemplo en Azure Cosmos DB [y ejecutar consultas de ejemplo desde el Shell de MongoDB](connect-mongodb-account.md) mediante el comando `getLastRequestStastistics` para obtener el cargo de solicitud, lo que generará el número de Unidades de solicitud consumidas:
 
@@ -71,7 +71,7 @@ Este comando generará un documento JSON similar al siguiente:
 
 ```{  "_t": "GetRequestStatisticsResponse",  "ok": 1,  "CommandName": "find",  "RequestCharge": 10.1,  "RequestDurationInMilliSeconds": 7.2}```
 
-También puede usar [la configuración de diagnóstico](cosmosdb-monitor-resource-logs.md) para comprender la frecuencia y los patrones de las consultas ejecutadas en Azure Cosmos DB. Los resultados de los registros de diagnóstico se pueden enviar a una cuenta de almacenamiento, una instancia de EventHub o [Azure Log Analytics](../azure-monitor/log-query/get-started-portal.md).  
+También puede usar [la configuración de diagnóstico](cosmosdb-monitor-resource-logs.md) para comprender la frecuencia y los patrones de las consultas ejecutadas en Azure Cosmos DB. Los resultados de los registros de diagnóstico se pueden enviar a una cuenta de almacenamiento, una instancia de EventHub o [Azure Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md).  
 
 ## <a name="choose-your-partition-key"></a><a id="partitioning"></a>Elección de la clave de partición
 La creación de particiones, también conocida como particionamiento, es un punto clave de consideración antes de migrar los datos. Azure Cosmos DB usa una creación de particiones totalmente administrada para aumentar la capacidad de una base de datos a fin de cumplir los requisitos de almacenamiento y rendimiento. Esta característica no necesita el hospedaje ni la configuración de los servidores de enrutamiento.   

@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, fasttrack-edit, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 3bbe704e6223bb04a17af7109c61875ca3b21bf9
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 0e2e09bc72991330ccdec7a35400460cbeba26fc
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748190"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327039"
 ---
 # <a name="azure-event-grid-trigger-for-azure-functions"></a>Desencadenador de Azure Event Grid para Azure Functions
 
@@ -80,7 +80,7 @@ namespace Company.Function
 
 En el ejemplo siguiente se muestra un enlace de desencadenador en un archivo *function.json* y una [función de script de C#](functions-reference-csharp.md) que usa el enlace.
 
-Estos son los datos de enlace del archivo *function.json* :
+Estos son los datos de enlace del archivo *function.json*:
 
 ```json
 {
@@ -132,7 +132,7 @@ public static void Run(JObject eventGridEvent, TraceWriter log)
 
 En el ejemplo siguiente se muestra un enlace de desencadenador en un archivo *function.json* y una [función de JavaScript](functions-reference-node.md) que usa el enlace.
 
-Estos son los datos de enlace del archivo *function.json* :
+Estos son los datos de enlace del archivo *function.json*:
 
 ```json
 {
@@ -163,7 +163,7 @@ module.exports = function (context, eventGridEvent) {
 
 En el ejemplo siguiente se muestra un enlace de desencadenador en un archivo *function.json* y una [función de Python](functions-reference-python.md) que usa el enlace.
 
-Estos son los datos de enlace del archivo *function.json* :
+Estos son los datos de enlace del archivo *function.json*:
 
 ```json
 {
@@ -305,7 +305,7 @@ La anotación [EventGridTrigger](https://github.com/Azure/azure-functions-java-l
 
 ## <a name="configuration"></a>Configuración
 
-En la siguiente tabla se explican las propiedades de configuración de enlace que se establecen en el archivo *function.json* . No hay parámetros de constructor ni propiedades que establecer en el atributo `EventGridTrigger`.
+En la siguiente tabla se explican las propiedades de configuración de enlace que se establecen en el archivo *function.json*. No hay parámetros de constructor ni propiedades que establecer en el atributo `EventGridTrigger`.
 
 |Propiedad de function.json |Descripción|
 |---------|---------|
@@ -345,11 +345,11 @@ En Azure Functions 2.x y versiones posteriores, también tiene la opción de us
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-La instancia de Event Grid está disponible mediante el parámetro configurado en la propiedad `name` del archivo *function.json* .
+La instancia de Event Grid está disponible mediante el parámetro configurado en la propiedad `name` del archivo *function.json*.
 
 # <a name="python"></a>[Python](#tab/python)
 
-La instancia de Event Grid está disponible mediante el parámetro configurado en la propiedad `name` del archivo *function.json* , con el tipo `func.EventGridEvent`.
+La instancia de Event Grid está disponible mediante el parámetro configurado en la propiedad `name` del archivo *function.json*, con el tipo `func.EventGridEvent`.
 
 # <a name="java"></a>[Java](#tab/java)
 
@@ -401,19 +401,19 @@ Para empezar a recibir solicitudes HTTP de Event Grid, cree una suscripción a E
 
 ### <a name="azure-portal"></a>Azure portal
 
-En el caso de las funciones que se desarrollen en Azure Portal con el desencadenador de Event Grid, seleccione **Integración** y, después, elija **Desencadenador de Event Grid** y seleccione **Crear suscripción de Event Grid** .
+En el caso de las funciones que se desarrollen en Azure Portal con el desencadenador de Event Grid, seleccione **Integración** y, después, elija **Desencadenador de Event Grid** y seleccione **Crear suscripción de Event Grid**.
 
 :::image type="content" source="media/functions-bindings-event-grid/portal-sub-create.png" alt-text="Conectar una suscripción de eventos nueva para desencadenar en el portal.":::
 
 Al seleccionar este vínculo, el portal abre la página **Crear suscripciones de eventos** con el punto de conexión del desencadenador actual ya definido.
 
-:::image type="content" source="media/functions-bindings-event-grid/endpoint-url.png" alt-text="Conectar una suscripción de eventos nueva para desencadenar en el portal." :::
+:::image type="content" source="media/functions-bindings-event-grid/endpoint-url.png" alt-text="Crear una suscripción de eventos con el punto de conexión de función ya definido" :::
 
 Para obtener más información sobre cómo crear suscripciones mediante el Azure Portal, consulte [Creación de eventos personalizados: Azure Portal](../event-grid/custom-event-quickstart-portal.md) en la documentación de Event Grid.
 
 ### <a name="azure-cli"></a>Azure CLI
 
-Para crear una suscripción mediante el uso de la [CLI de Azure](/cli/azure/get-started-with-azure-cli?view=azure-cli-latest), utilice el comando [az eventgrid event-subscription create](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-create).
+Para crear una suscripción mediante el uso de la [CLI de Azure](/cli/azure/get-started-with-azure-cli), utilice el comando [az eventgrid event-subscription create](/cli/azure/eventgrid/event-subscription#az-eventgrid-event-subscription-create).
 
 El comando requiere la dirección URL del punto de conexión que invoca la función. En el siguiente ejemplo se muestra el patrón de la dirección URL específico de la versión:
 
@@ -435,25 +435,55 @@ En este ejemplo se suscribe a una cuenta de almacenamiento de blobs (con un marc
 
 #### <a name="version-2x-and-higher-runtime"></a>Entorno en tiempo de ejecución versión 2.x (y posteriores)
 
+# <a name="bash"></a>[Bash](#tab/bash)
+
 ```azurecli
 az eventgrid resource event-subscription create -g myResourceGroup \
---provider-namespace Microsoft.Storage --resource-type storageAccounts \
---resource-name myblobstorage12345 --name myFuncSub  \
---included-event-types Microsoft.Storage.BlobCreated \
---subject-begins-with /blobServices/default/containers/images/blobs/ \
---endpoint https://mystoragetriggeredfunction.azurewebsites.net/runtime/webhooks/eventgrid?functionName=imageresizefunc&code=<key>
+    --provider-namespace Microsoft.Storage --resource-type storageAccounts \
+    --resource-name myblobstorage12345 --name myFuncSub \
+    --included-event-types Microsoft.Storage.BlobCreated \
+    --subject-begins-with /blobServices/default/containers/images/blobs/ \
+    --endpoint https://mystoragetriggeredfunction.azurewebsites.net/runtime/webhooks/eventgrid?functionName=imageresizefunc&code=<key>
 ```
+
+# <a name="cmd"></a>[Cmd](#tab/cmd)
+
+```azurecli
+az eventgrid resource event-subscription create -g myResourceGroup ^
+    --provider-namespace Microsoft.Storage --resource-type storageAccounts ^
+    --resource-name myblobstorage12345 --name myFuncSub ^
+    --included-event-types Microsoft.Storage.BlobCreated ^
+    --subject-begins-with /blobServices/default/containers/images/blobs/ ^
+    --endpoint https://mystoragetriggeredfunction.azurewebsites.net/runtime/webhooks/eventgrid?functionName=imageresizefunc&code=<key>
+```
+
+---
 
 #### <a name="version-1x-runtime"></a>Entorno en tiempo de ejecución versión 1.x
 
+# <a name="bash"></a>[Bash](#tab/bash)
+
 ```azurecli
 az eventgrid resource event-subscription create -g myResourceGroup \
---provider-namespace Microsoft.Storage --resource-type storageAccounts \
---resource-name myblobstorage12345 --name myFuncSub  \
---included-event-types Microsoft.Storage.BlobCreated \
---subject-begins-with /blobServices/default/containers/images/blobs/ \
---endpoint https://mystoragetriggeredfunction.azurewebsites.net/admin/extensions/EventGridExtensionConfig?functionName=imageresizefunc&code=<key>
+    --provider-namespace Microsoft.Storage --resource-type storageAccounts \
+    --resource-name myblobstorage12345 --name myFuncSub \
+    --included-event-types Microsoft.Storage.BlobCreated \
+    --subject-begins-with /blobServices/default/containers/images/blobs/ \
+    --endpoint https://mystoragetriggeredfunction.azurewebsites.net/admin/extensions/EventGridExtensionConfig?functionName=imageresizefunc&code=<key>
 ```
+
+# <a name="cmd"></a>[Cmd](#tab/cmd)
+
+```azurecli
+az eventgrid resource event-subscription create -g myResourceGroup ^
+    --provider-namespace Microsoft.Storage --resource-type storageAccounts ^
+    --resource-name myblobstorage12345 --name myFuncSub ^
+    --included-event-types Microsoft.Storage.BlobCreated ^
+    --subject-begins-with /blobServices/default/containers/images/blobs/ ^
+    --endpoint https://mystoragetriggeredfunction.azurewebsites.net/admin/extensions/EventGridExtensionConfig?functionName=imageresizefunc&code=<key>
+```
+
+---
 
 Para más información sobre cómo crear una suscripción, consulte [la guía de inicio rápido sobre el almacenamiento de blobs](../storage/blobs/storage-blob-event-quickstart.md#subscribe-to-your-storage-account) o cualquiera de las demás guías de inicio rápido de Event Grid.
 
@@ -508,7 +538,7 @@ Para probar localmente un desencadenador de Event Grid, debe enviar las solicitu
 1. [Genere una solicitud](#generate-a-request) y copie el cuerpo de la solicitud desde la aplicación de visor.
 1. [Envíe manualmente la solicitud](#manually-post-the-request) a la dirección URL de localhost de la función del desencadenador de Event Grid.
 
-Cuando haya finalizado las pruebas, puede utilizar la misma suscripción para producción actualizando el punto de conexión. Utilice el comando [az eventgrid event-subscription update](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-update) de la CLI de Azure.
+Cuando haya finalizado las pruebas, puede utilizar la misma suscripción para producción actualizando el punto de conexión. Utilice el comando [az eventgrid event-subscription update](/cli/azure/eventgrid/event-subscription#az-eventgrid-event-subscription-update) de la CLI de Azure.
 
 ### <a name="create-a-viewer-web-app"></a>Creación de una aplicación web de visor
 

@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/27/2020
-ms.openlocfilehash: dfc812771f0eeb8dcb0d95bdad1e76ed0b12297e
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: c56d83e551265f3fb4de106cb8fa77efd6dcbabc
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92754267"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452128"
 ---
 # <a name="how-to-plan-a-consulting-service-offer-in-the-commercial-marketplace"></a>Planificación de una oferta de servicios de consultoría en el marketplace comercial
 
@@ -36,7 +36,7 @@ Para obtener más información sobre las diferencias entre AppSource y Azure Mar
 
 ## <a name="eligibility-requirements"></a>Requisitos de elegibilidad
 
-Para demostrar a los clientes su experiencia en un campo, debe cumplir un conjunto de requisitos de idoneidad antes de publicar una oferta de servicios de consultoría. Los requisitos dependen del producto en el que se centra la oferta. La lista completa de requisitos de idoneidad para cada producto principal se encuentra en las [directivas de certificación para servicios de consultoría](https://docs.microsoft.com/legal/marketplace/certification-policies#800-consulting-services).
+Para demostrar a los clientes su experiencia en un campo, debe cumplir un conjunto de requisitos de idoneidad antes de publicar una oferta de servicios de consultoría. Los requisitos dependen del producto en el que se centra la oferta. La lista completa de requisitos de idoneidad para cada producto principal se encuentra en las [directivas de certificación para servicios de consultoría](/legal/marketplace/certification-policies#800-consulting-services).
 
 > [!NOTE]
 > En el caso de algunos productos primarios, debe tener una competencia Gold o Silver de Microsoft en el área de su solución. Para más información, consulte las [competencias de Microsoft Partner Network](https://partner.microsoft.com/membership/competencies).
@@ -45,11 +45,11 @@ Para demostrar a los clientes su experiencia en un campo, debe cumplir un conjun
 
 El marketplace comercial admite cinco tipos de servicios de consultoría:
 
-* **Evaluación** : una evaluación del entorno del cliente para determinar la aplicabilidad de una solución y estimar el costo y cronograma de la implementación.
-* **Sesión informativa** : introducción a una solución o servicio mediante marcos, demostraciones y ejemplos de clientes.
-* **Implementación** : una instalación completa que da como resultado una solución que funciona completamente.
-* **Prueba de concepto** : una implementación de ámbito limitado para determinar si una solución cumple los requisitos del cliente.
-* **Taller** : una interacción interactiva que se lleva a cabo en las instalaciones del cliente. Puede implicar entrenamiento, sesiones informativas, evaluaciones o demostraciones basados en los datos o el entorno del cliente.
+* **Evaluación**: una evaluación del entorno del cliente para determinar la aplicabilidad de una solución y estimar el costo y cronograma de la implementación.
+* **Sesión informativa**: introducción a una solución o servicio mediante marcos, demostraciones y ejemplos de clientes.
+* **Implementación**: una instalación completa que da como resultado una solución que funciona completamente.
+* **Prueba de concepto**: una implementación de ámbito limitado para determinar si una solución cumple los requisitos del cliente.
+* **Taller**: una interacción interactiva que se lleva a cabo en las instalaciones del cliente. Puede implicar entrenamiento, sesiones informativas, evaluaciones o demostraciones basados en los datos o el entorno del cliente.
 
 El servicio debe tener una duración fija y predeterminada de hasta 10 semanas. La duración del servicio debe quedar explícita en la descripción de la oferta.
 
@@ -84,7 +84,7 @@ Al crear la oferta de servicio de consultoría en el Centro de partners, introdu
 
 Para facilitar la creación de la oferta, prepare algunos de estos elementos con antelación. Los elementos siguientes son obligatorios a menos que se indique lo contrario.
 
-**Name** : este nombre aparecerá como título de la descripción de la oferta en el marketplace comercial. El nombre puede ser una marca comercial. No puede contener emojis (a menos que sean símbolos de marca comercial y copyright), y no puede tener más de 50 caracteres. El nombre debe incluir el tipo de servicio y la duración de la oferta para maximizar la optimización del motor de búsqueda (SEO). El formato requerido es *Nombre: duración + tipo*. No incluya el nombre de su empresa, a menos que sea también el nombre del producto. Estos son algunos ejemplos:
+**Name**: este nombre aparecerá como título de la descripción de la oferta en el marketplace comercial. El nombre puede ser una marca comercial. No puede contener emojis (a menos que sean símbolos de marca comercial y copyright), y no puede tener más de 50 caracteres. El nombre debe incluir el tipo de servicio y la duración de la oferta para maximizar la optimización del motor de búsqueda (SEO). El formato requerido es *Nombre: duración + tipo*. No incluya el nombre de su empresa, a menos que sea también el nombre del producto. Estos son algunos ejemplos:
 
 |No diga |Diga . |
 |---|---|
@@ -92,9 +92,9 @@ Para facilitar la creación de la oferta, prepare algunos de estos elementos con
 |Workshop on Smart Toasters |Smart Toasters: Taller de 1 semana |
 |Prueba de concepto de migración de SQL Server de Contoso |SQL Migration: 3-Wk Proof of Concept |
 
-**Resumen de los resultados de la búsqueda** : Describa el propósito u objetivo de la oferta en 200 caracteres como máximo. Este resumen se usa en los resultados de búsqueda de la oferta del marketplace comercial. No debe ser idéntico al título. Considere la posibilidad de incluir las palabras clave principales para SEO.
+**Resumen de los resultados de la búsqueda**: Describa el propósito u objetivo de la oferta en 200 caracteres como máximo. Este resumen se usa en los resultados de búsqueda de la oferta del marketplace comercial. No debe ser idéntico al título. Considere la posibilidad de incluir las palabras clave principales para SEO.
 
-**Descripción** : esta descripción se mostrará en la oferta del marketplace comercial. Considere la posibilidad de incluir una propuesta de valor, ventajas clave, base de usuarios prevista y cualquier categoría o asociación de sector.
+**Descripción**: esta descripción se mostrará en la oferta del marketplace comercial. Considere la posibilidad de incluir una propuesta de valor, ventajas clave, base de usuarios prevista y cualquier categoría o asociación de sector.
 
 Al escribir la descripción, siga estos criterios según el tipo de servicio:
 
@@ -119,13 +119,13 @@ Puede usar etiquetas HTML para dar formato a la descripción. En este cuadro pue
 
 **Palabras clave de búsqueda** (opcional): escriba al menos tres palabras clave de búsqueda que los clientes puedan usar para buscar su oferta en las tiendas en línea. No es necesario incluir el **nombre** y **descripción** de la oferta.
 
-**Duración** : su oferta de servicio de consultoría debe tener una duración predeterminada de hasta 10 semanas.
+**Duración**: su oferta de servicio de consultoría debe tener una duración predeterminada de hasta 10 semanas.
 
-**Información de contacto** : en el Centro de partners, se le pedirá que proporcione el nombre, la dirección de correo electrónico y el número de teléfono de dos personas de la empresa (usted puede ser uno de los dos contactos). Usaremos esta información para comunicarnos con usted sobre la oferta. Esta información no se muestra a los clientes, pero se proporcionará a los asociados de Proveedor de soluciones en la nube (CSP).
+**Información de contacto**: en el Centro de partners, se le pedirá que proporcione el nombre, la dirección de correo electrónico y el número de teléfono de dos personas de la empresa (usted puede ser uno de los dos contactos). Usaremos esta información para comunicarnos con usted sobre la oferta. Esta información no se muestra a los clientes, pero se proporcionará a los asociados de Proveedor de soluciones en la nube (CSP).
 
-**Documentos complementarios** : cargue al menos un documento PDF y hasta tres orientados al cliente que proporcionen información sobre su oferta. Por ejemplo, podrían ser notas del producto o folletos.
+**Documentos complementarios**: cargue al menos un documento PDF y hasta tres orientados al cliente que proporcionen información sobre su oferta. Por ejemplo, podrían ser notas del producto o folletos.
 
-**Elementos multimedia: logotipos** : proporcione un archivo PNG para el logotipo de tamaño grande. El Centro de partners lo usará para crear un logotipo pequeño. Opcionalmente, puede reemplazar el logotipo pequeño por una imagen diferente.
+**Elementos multimedia: logotipos**: proporcione un archivo PNG para el logotipo de tamaño grande. El Centro de partners lo usará para crear un logotipo pequeño. Opcionalmente, puede reemplazar el logotipo pequeño por una imagen diferente.
 
 * Grande (de 216 x 216 a 350 x 350 píxeles, obligatorio)
 * Pequeño (48 x 48 píxeles, opcional)
@@ -139,7 +139,7 @@ Siga estas instrucciones para los logotipos:
 * Si usa un fondo transparente, asegúrese de que el logotipo y el texto no son blancos, negros ni azules.
 * Evite los degradados en el logotipo o en el fondo. No coloque texto en el logotipo, ni siquiera el nombre de su empresa o de la marca.
 
-**Elementos multimedia de Marketplace: capturas de pantalla** : Agregue al menos una imagen y hasta cinco que sean demostrativas de la oferta. Todas las imágenes deben tener el tamaño 1280 x 720 píxeles y estar en formato PNG.
+**Elementos multimedia de Marketplace: capturas de pantalla**: Agregue al menos una imagen y hasta cinco que sean demostrativas de la oferta. Todas las imágenes deben tener el tamaño 1280 x 720 píxeles y estar en formato PNG.
 
 **Elementos multimedia de marketplace: vídeos** (opcional): puede agregar hasta cuatro vídeos que muestren la oferta. Los vídeos deben estar hospedados en YouTube o Vimeo y deben tener una miniatura (archivo PNG de 1280 x 720).
 

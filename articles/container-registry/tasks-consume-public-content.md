@@ -6,12 +6,12 @@ ms.topic: article
 ms.author: stevelas
 ms.date: 10/29/2020
 ms.custom: ''
-ms.openlocfilehash: 261604b66d393723b35b472415b8840b047bc36e
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 4fba6290b4973e797c13943fc9be4fadb19f3274
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93133459"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349289"
 ---
 # <a name="how-to-consume-and-maintain-public-content-with-azure-container-registry-tasks"></a>Consumo y mantenimiento de contenido público con Azure Container Registry Tasks
 
@@ -39,7 +39,7 @@ Puede usar Azure Cloud Shell o una instalación local de la CLI de Azure para co
 
 En este tutorial se realiza la configuración de lo siguiente:
 
-1. Tres **registros de contenedor** , que representan:
+1. Tres **registros de contenedor**, que representan:
    * Una instancia de [Docker Hub][docker-hub] (`publicregistry`) simulada para admitir el cambio de la imagen base.
    * El registro de equipo (`contoso`) para compartir imágenes privadas.
    * El registro compartido de la empresa o del equipo (`baseartifacts`) para el contenido público importado.
@@ -47,12 +47,12 @@ En este tutorial se realiza la configuración de lo siguiente:
    1. Crean una imagen `node` pública simulada.
    1. Importan y validan la imagen `node` al registro compartido de la empresa o del equipo.
    1. Crean e implementan la imagen `hello-world`.
-1. **Definiciones de las tareas de ACR** , incluidas las configuraciones de:
-1. Una colección de **credenciales de registro** , que son punteros a un almacén de claves.
-1. Una colección de **secretos** , disponible dentro de un archivo `acr-task.yaml`, que son punteros a un almacén de claves.
+1. **Definiciones de las tareas de ACR**, incluidas las configuraciones de:
+1. Una colección de **credenciales de registro**, que son punteros a un almacén de claves.
+1. Una colección de **secretos**, disponible dentro de un archivo `acr-task.yaml`, que son punteros a un almacén de claves.
 1. Una colección de **valores configurados** que se usan dentro de un archivo `acr-task.yaml`.
 1. Un **almacén de claves de Azure** para proteger todos los secretos.
-1. Una **instancia de contenedor de Azure** , que hospeda la aplicación de compilación `hello-world`.
+1. Una **instancia de contenedor de Azure**, que hospeda la aplicación de compilación `hello-world`.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -636,7 +636,7 @@ Una vez en ejecución, escriba **Ctrl+C** y supervise los registros:
 az acr task logs -r $REGISTRY_PUBLIC
 ```
 
-Al terminar, supervise la tarea **base-image-import** :
+Al terminar, supervise la tarea **base-image-import**:
 
 ```azurecli-interactive
 watch -n1 az acr task list-runs -r $REGISTRY_BASE_ARTIFACTS -o table
@@ -648,7 +648,7 @@ Una vez en ejecución, escriba **Ctrl+C** y supervise los registros:
 az acr task logs -r $REGISTRY_BASE_ARTIFACTS
 ```
 
-Al terminar, supervise la tarea **hello-world** :
+Al terminar, supervise la tarea **hello-world**:
 
 ```azurecli-interactive
 watch -n1 az acr task list-runs -r $REGISTRY -o table
@@ -698,7 +698,7 @@ Una vez en ejecución, escriba **Ctrl+C** y supervise los registros:
 az acr task logs -r $REGISTRY_PUBLIC
 ```
 
-Al terminar, supervise la tarea **base-image-import** :
+Al terminar, supervise la tarea **base-image-import**:
 
 ```azurecli-interactive
 watch -n1 az acr task list-runs -r $REGISTRY_BASE_ARTIFACTS -o table
@@ -751,11 +751,11 @@ En este artículo, usó tareas de ACR para crear un flujo de trabajo controlado 
 
 [install-cli]:                  /cli/azure/install-azure-cli
 [acr]:                          https://aka.ms/acr
-[acr-repo-permissions]:         https://aka.ms/acr/repo-permissions
-[acr-task]:                     https://aka.ms/acr/tasks
+[acr-repo-permissions]:         ./container-registry-repository-scoped-permissions.md
+[acr-task]:                     ./container-registry-tasks-overview.md
 [acr-task-triggers]:            container-registry-tasks-overview.md#task-scenarios
 [acr-task-credentials]:       container-registry-tasks-authentication-managed-identity.md#4-optional-add-credentials-to-the-task
-[acr-tokens]:                   https://aka.ms/acr/tokens
+[acr-tokens]:                   ./container-registry-repository-scoped-permissions.md
 [aci]:                          https://aka.ms/aci
 [alpine-public-image]:          https://hub.docker.com/_/alpine
 [docker-hub]:                   https://hub.docker.com
@@ -766,11 +766,7 @@ En este artículo, usó tareas de ACR para crear un flujo de trabajo controlado 
 [helm-charts]:                  https://helm.sh
 [mcr]:                          https://aka.ms/mcr
 [nginx-public-image]:           https://hub.docker.com/_/nginx
-[oci-artifacts]:                https://aka.ms/acr/artifacts
+[oci-artifacts]:                ./container-registry-oci-artifacts.md
 [oci-consuming-public-content]: https://opencontainers.org/posts/blog/2020-10-30-consuming-public-content/
 [opa]:                          https://www.openpolicyagent.org/
 [quay]:                         https://quay.io
-
-
-
-

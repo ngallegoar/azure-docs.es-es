@@ -5,12 +5,12 @@ author: pkshultz
 ms.topic: how-to
 ms.date: 07/17/2020
 ms.author: peshultz
-ms.openlocfilehash: 35780f915247e88a5de093594b653ddcebdfb06b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 404103caf376b792d363996664a69f655d5bd202
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89008886"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96326019"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-batch-account-with-azure-key-vault-and-managed-identity"></a>Configuración de claves administradas por el cliente para la cuenta de Azure Batch con Azure Key Vault e Identidad administrada
 
@@ -144,11 +144,10 @@ az batch account set \
   * **¿Son compatibles las claves administradas por el cliente con las cuentas existentes de Batch?** No. Las claves administradas por el cliente solo se admiten para las nuevas cuentas de Batch.
   * **¿Puedo seleccionar tamaños de clave RSA mayores de 2048 bits?** Sí, también se admiten los tamaños de clave RSA de `3072` y `4096` bits.
   * **¿Qué operaciones hay disponibles después de la revocación de una clave administrada por el cliente?** La única operación permitida es la eliminación de la cuenta si Batch pierde el acceso a la clave administrada por el cliente.
-  * **¿Cómo se debe restaurar el acceso a la cuenta de Batch si se elimina accidentalmente la clave Key Vault?** Dado que la protección de purga y la eliminación temporal están habilitadas, puede restaurar las claves existentes. Para más información, consulte [Recuperación de una instancia de Azure Key Vault](../key-vault/general/soft-delete-cli.md#recovering-a-key-vault).
+  * **¿Cómo se debe restaurar el acceso a la cuenta de Batch si se elimina accidentalmente la clave Key Vault?** Dado que la protección de purga y la eliminación temporal están habilitadas, puede restaurar las claves existentes. Para más información, consulte [Recuperación de una instancia de Azure Key Vault](../key-vault/general/key-vault-recovery.md).
   * **¿Puedo deshabilitar claves administradas por el cliente?** Puede volver a establecer el tipo de cifrado de la cuenta de Batch en "Clave administrada por Microsoft" en cualquier momento. Después, puede eliminar o cambiar la clave.
   * **¿Cómo puedo girar mis claves?** Las claves administradas por el cliente no se giran automáticamente. Para girar la clave, actualice el identificador de clave con el que está asociada la cuenta.
   * **Después de restaurar el acceso, ¿cuánto tiempo tardará la cuenta de Batch en volver a funcionar?** La cuenta puede tardar hasta 10 minutos en ser accesible después de restaurar el acceso.
   * **Mientras la cuenta de Batch no está disponible ¿qué sucede con mis recursos?** Los grupos que se estén ejecutando al perder el acceso de Batch a las claves administradas por el cliente seguirán ejecutándose. Sin embargo, los nodos pasarán a un estado no disponible y las tareas dejarán de ejecutarse (y se volverán a poner en cola). Una vez restaurado el acceso, los nodos volverán a estar disponibles y se reiniciarán las tareas.
   * **¿Este mecanismo de cifrado se aplica a los discos de VM de un grupo de Batch?** No. En el caso de los grupos de configuración de servicio en la nube, no se aplica ningún cifrado para el sistema operativo y el disco temporal. En el caso de los grupos de configuración de máquina virtual, el sistema operativo y los discos de datos especificados se cifrarán con una clave administrada de la plataforma Microsoft de forma predeterminada. Actualmente, no puede especificar su propia clave para estos discos. Para cifrar el disco temporal de las VM de un grupo de Batch con una clave administrada de la plataforma Microsoft, debe habilitar la propiedad [diskEncryptionConfiguration](/rest/api/batchservice/pool/add#diskencryptionconfiguration) en el grupo de [configuración de máquina virtual](/rest/api/batchservice/pool/add#virtualmachineconfiguration). En entornos altamente confidenciales, se recomienda habilitar el cifrado de disco temporal y evitar el almacenamiento de datos confidenciales en discos de datos y del sistema operativo. Para más información, consulte [Creación de un grupo con el cifrado de disco habilitado](./disk-encryption.md).
   * **¿Está disponible en los nodos de proceso la identidad administrada asignada por el sistema de la cuenta de Batch?** No. Esta identidad administrada se usa actualmente solo para acceder a la clave administrada por el cliente en Azure Key Vault.
-  

@@ -10,12 +10,12 @@ author: markjones-msft
 ms.author: markjon
 ms.reviewer: mathoma
 ms.date: 11/06/2020
-ms.openlocfilehash: 1558c396566b2fcfc098a749407d5e7a28316b6f
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 3b0fdccd3eaf6e6bd94b595107022f738bdd8382
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95019456"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325931"
 ---
 # <a name="migration-guide-sql-server-to-sql-server-on-azure-vms"></a>Guía de migración: De SQL Server a SQL Server en VM de Azure 
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlvm.md)]
@@ -38,8 +38,8 @@ Para obtener información sobre las estrategias de migración adicionales, consu
 La migración a SQL Server en VM de Azure requiere lo siguiente: 
 
 - [Database Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595).
-- Un [proyecto de Azure Migrate](/azure/migrate/create-manage-projects).
-- Una instancia de [SQL Server en una VM de Azure](/azure/azure-sql/virtual-machines/windows/create-sql-vm-portal) de destino que sea de la misma versión o una superior que la de la instancia de SQL Server de origen.
+- Un [proyecto de Azure Migrate](../../../migrate/create-manage-projects.md).
+- Una instancia de [SQL Server en una VM de Azure](../../virtual-machines/windows/create-sql-vm-portal.md) de destino que sea de la misma versión o una superior que la de la instancia de SQL Server de origen.
 - [Conectividad entre Azure y el entorno local](/azure/architecture/reference-architectures/hybrid-networking).
 - [Elección de una estrategia de migración adecuada](sql-server-to-sql-on-azure-vm-migration-overview.md#migrate).
 
@@ -157,8 +157,8 @@ En la tabla siguiente se proporcionan los componentes de una lista y los método
 || Bases de datos de usuario con secuencia de archivos |  Utilice los métodos de [copia de seguridad y restauración](../../virtual-machines/windows/migrate-to-vm-from-sql-server.md#back-up-and-restore) para la migración. DMA no admite bases de datos con secuencia de archivos. |
 | **Seguridad** | Inicios de sesión de SQL Server y Windows | Use DMA para [migrar inicios de sesión de usuario](/sql/dma/dma-migrateserverlogins). |
 || Roles de SQL Server | Script con SQL Server Management Studio |
-|| Proveedores de servicios criptográficos | Se recomienda la [conversión para usar el servicio Azure Key Vault](../../virtual-machines/windows/azure-key-vault-integration-configure.md). Este procedimiento usa el [proveedor de recursos de VM de SQL](../../virtual-machines/windows/sql-vm-resource-provider-register.md). |
-| **Objetos de servidor** | Dispositivos de copia de seguridad | Realice el reemplazo por la copia de seguridad de base de datos mediante el [servicio Azure Backup](../../../backup/backup-sql-server-database-azure-vms.md) o escriba copias de seguridad en [Azure Storage](../../virtual-machines/windows/azure-storage-sql-server-backup-restore-use.md) (SQL Server 2012 SP1 CU2 +). Este procedimiento usa el [proveedor de recursos de VM de SQL](../../virtual-machines/windows/sql-vm-resource-provider-register.md).|
+|| Proveedores de servicios criptográficos | Se recomienda la [conversión para usar el servicio Azure Key Vault](../../virtual-machines/windows/azure-key-vault-integration-configure.md). Este procedimiento usa el [proveedor de recursos de VM de SQL](../../virtual-machines/windows/sql-agent-extension-manually-register-single-vm.md). |
+| **Objetos de servidor** | Dispositivos de copia de seguridad | Realice el reemplazo por la copia de seguridad de base de datos mediante el [servicio Azure Backup](../../../backup/backup-sql-server-database-azure-vms.md) o escriba copias de seguridad en [Azure Storage](../../virtual-machines/windows/azure-storage-sql-server-backup-restore-use.md) (SQL Server 2012 SP1 CU2 +). Este procedimiento usa el [proveedor de recursos de VM de SQL](../../virtual-machines/windows/sql-agent-extension-manually-register-single-vm.md).|
 || Servidores vinculados | Script con SQL Server Management Studio. |
 || Desencadenadores de servidor | Script con SQL Server Management Studio. |
 | **Replicación** | Publicaciones locales | Script con SQL Server Management Studio. |

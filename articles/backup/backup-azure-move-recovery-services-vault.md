@@ -4,12 +4,12 @@ description: Instrucciones sobre cómo mover el almacén de Recovery Services en
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.custom: references_regions
-ms.openlocfilehash: 5a73963970b5fad7b3992d501d9aac5cc7229622
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 12c276b861e7db8e93e60eea7e9cd7f3aba04860
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92926689"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325781"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups"></a>Traslado del almacén de Recovery Services entre suscripciones y grupos de recursos de Azure
 
@@ -30,7 +30,7 @@ Se admiten todas las regiones públicas y soberanas, excepto el Centro de Franci
 - Si una máquina virtual no se traslada con el almacén de Recovery Services entre suscripciones, o a un nuevo grupo de recursos, los puntos de recuperación de la máquina virtual actuales permanecerán intactos en el almacén hasta que expiren.
 - Independientemente de que la máquina virtual se mueva con el almacén o no, siempre podrá restaurar la máquina virtual desde el historial de copia de seguridad conservado en el almacén.
 - Azure Disk Encryption requiere que el almacén de claves y las máquinas virtuales residan en la misma región y suscripción de Azure.
-- Para mover una máquina virtual con discos administrados, consulte este [artículo](https://docs.microsoft.com/azure/azure-resource-manager/management/move-resource-group-and-subscription).
+- Para mover una máquina virtual con discos administrados, consulte este [artículo](../azure-resource-manager/management/move-resource-group-and-subscription.md).
 - Las opciones para mover recursos implementados mediante el modelo clásico varían en función de si traslada los recursos dentro de una misma suscripción o a una nueva suscripción. Para más información, consulte este [artículo](../azure-resource-manager/management/move-resource-group-and-subscription.md).
 - Las directivas de copia de seguridad definidas para el almacén se conservan después de que el almacén se mueva entre suscripciones o a un nuevo grupo de recursos.
 - Solo puede trasladar un almacén que contenga cualquiera de los siguientes tipos de elementos de copia de seguridad. Los elementos de copia de seguridad de tipos que no se enumeran a continuación deberán detenerse y los datos deberán eliminarse de forma permanente antes de mover el almacén.
@@ -42,7 +42,7 @@ Se admiten todas las regiones públicas y soberanas, excepto el Centro de Franci
 
 > [!NOTE]
 > No se admite la migración de almacenes de Recovery Services para Azure Backup entre regiones de Azure.<br><br>
-> Si ha configurado alguna máquina virtual (IaaS de Azure, Hyper-V, VMware) o máquina física para la recuperación ante desastres mediante **Azure Site Recovery** , se bloquea la operación de traslado. Si desea mover almacenes para Azure Site Recovery, consulte [este artículo](../site-recovery/move-vaults-across-regions.md) para más información sobre cómo mover los almacenes manualmente.
+> Si ha configurado alguna máquina virtual (IaaS de Azure, Hyper-V, VMware) o máquina física para la recuperación ante desastres mediante **Azure Site Recovery**, se bloquea la operación de traslado. Si desea mover almacenes para Azure Site Recovery, consulte [este artículo](../site-recovery/move-vaults-across-regions.md) para más información sobre cómo mover los almacenes manualmente.
 
 ## <a name="use-azure-portal-to-move-recovery-services-vault-to-different-resource-group"></a>Uso de Azure Portal para trasladar un almacén de Recovery Services a otro grupo de recursos
 
@@ -61,11 +61,11 @@ Para mover un almacén de Recovery Services y los recursos asociados a un grupo 
 
    ![Cambiar el grupo de recursos](./media/backup-azure-move-recovery-services/change-resource-group.png)
 
-4. En el panel **Mover recursos** , para el almacén seleccionado, se recomienda mover los recursos relacionados opcionales activando la casilla de verificación, tal como se muestra en la siguiente imagen.
+4. En el panel **Mover recursos**, para el almacén seleccionado, se recomienda mover los recursos relacionados opcionales activando la casilla de verificación, tal como se muestra en la siguiente imagen.
 
    ![Mover suscripción](./media/backup-azure-move-recovery-services/move-resource.png)
 
-5. Para agregar el grupo de recursos de destino, en la lista desplegable **Grupo de recursos** , seleccione un grupo de recursos existente o la opción **Crear un grupo nuevo**.
+5. Para agregar el grupo de recursos de destino, en la lista desplegable **Grupo de recursos**, seleccione un grupo de recursos existente o la opción **Crear un grupo nuevo**.
 
    ![Crear recurso](./media/backup-azure-move-recovery-services/create-a-new-resource.png)
 
@@ -95,7 +95,7 @@ Puede mover un almacén de Recovery Services y sus recursos asociados a otra sus
    ![Mover recurso](./media/backup-azure-move-recovery-services/move-resource-source-subscription.png)
 
 5. Seleccione la suscripción de destino desde la lista desplegable **Suscripción** a donde desea que se mueva el almacén.
-6. Para agregar el grupo de recursos de destino, en la lista desplegable **Grupo de recursos** , seleccione un grupo de recursos existente o la opción **Crear un grupo nuevo**.
+6. Para agregar el grupo de recursos de destino, en la lista desplegable **Grupo de recursos**, seleccione un grupo de recursos existente o la opción **Crear un grupo nuevo**.
 
    ![Agregar suscripción](./media/backup-azure-move-recovery-services/add-subscription.png)
 

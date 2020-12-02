@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: d3f6a48815519499ddc39dcc12cafe0fe95e70e0
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 4ba7b8af9b50b9173f5e2040bb8b623eeafdd538
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96023812"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96453855"
 ---
 # <a name="platforms-and-tools-for-data-science-projects"></a>Plataformas y herramientas para proyectos de ciencia de datos
 
@@ -25,7 +25,7 @@ Los recursos de análisis a disposición de los equipos de ciencia de datos que 
 
 - Data Science Virtual Machine (tanto Windows como Linux CentOS)
 - Clústeres de HDInsight Spark
-- Synapse Analytics
+- Azure Synapse Analytics
 - Azure Data Lake
 - Clústeres de HDInsight Hive
 - Azure File Storage

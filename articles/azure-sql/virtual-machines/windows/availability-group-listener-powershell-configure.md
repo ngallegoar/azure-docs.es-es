@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 02/06/2019
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: cb55274800b239cf0e1e942647ae0c65b321b862
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 147c507cde9abf2ef97098c6b41fbbd4d67f02d2
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790056"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96324812"
 ---
 # <a name="configure-one-or-more-always-on-availability-group-listeners---resource-manager"></a>Configuración de uno o varios agentes de escucha de grupo de disponibilidad AlwaysOn: Resource Manager
 
@@ -64,7 +64,7 @@ Si restringe el acceso con Azure Network Security Group, asegúrese de que las r
 La [plantilla de Microsoft](./availability-group-quickstart-template-configure.md) actual para un grupo de disponibilidad usa un equilibrador de carga básico con direcciones IP básicas.
 
    > [!NOTE]
-   > Si usa un equilibrador de carga estándar y Azure Storage para el testigo en la nube, tendrá que configurar un [punto de conexión de servicio ](../../../storage/common/storage-network-security.md?toc=%252fazure%252fvirtual-network%252ftoc.json#grant-access-from-a-virtual-network). 
+   > Si usa un equilibrador de carga estándar y Azure Storage para el testigo en la nube, tendrá que configurar un [punto de conexión de servicio ](../../../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network). 
    > 
 
 En los ejemplos de este artículo se especifica un equilibrador de carga estándar. En los ejemplos, el script incluye `-sku Standard`.
@@ -195,11 +195,11 @@ $ILB | Add-AzLoadBalancerRuleConfig -Name $LBConfigRuleName -FrontendIpConfigura
 
 1. Abra SQL Server Management Studio y conéctese a la réplica principal.
 
-1. Vaya a **Alta disponibilidad de AlwaysOn** > **Grupos de disponibilidad** > **Agentes de escucha del grupo de disponibilidad** . 
+1. Vaya a **Alta disponibilidad de AlwaysOn** > **Grupos de disponibilidad** > **Agentes de escucha del grupo de disponibilidad**. 
 
-1. Ahora tienes que ver el nombre del agente de escucha que creaste en el Administrador de clústeres de conmutación por error. Haga clic con el botón derecho en el nombre del cliente de escucha y seleccione **Propiedades** .
+1. Ahora tienes que ver el nombre del agente de escucha que creaste en el Administrador de clústeres de conmutación por error. Haga clic con el botón derecho en el nombre del cliente de escucha y seleccione **Propiedades**.
 
-1. En el cuadro **Puerto** , especifique el número de puerto de escucha del grupo de disponibilidad mediante el valor de $EndpointPort que ha utilizado antes (1433 era el valor predeterminado) y, a continuación, seleccione **Aceptar** .
+1. En el cuadro **Puerto**, especifique el número de puerto de escucha del grupo de disponibilidad mediante el valor de $EndpointPort que ha utilizado antes (1433 era el valor predeterminado) y, a continuación, seleccione **Aceptar**.
 
 ## <a name="test-the-connection-to-the-listener"></a>Comprobación de la conexión con el agente de escucha
 
@@ -236,7 +236,7 @@ Cuando utilice un equilibrador de carga interno, tenga en cuenta las siguientes 
   - Las direcciones IP flotantes del equilibrador de carga para el cliente de escucha de AG
   - La dirección IP principal del clúster, si procede.
 
-* Cree un punto de conexión de servicio cuando use un equilibrador de carga estándar con Azure Storage para el testigo en la nube. Para más información, consulte [Concesión de acceso desde una red virtual](../../../storage/common/storage-network-security.md?toc=%252fazure%252fvirtual-network%252ftoc.json#grant-access-from-a-virtual-network).
+* Cree un punto de conexión de servicio cuando use un equilibrador de carga estándar con Azure Storage para el testigo en la nube. Para más información, consulte [Concesión de acceso desde una red virtual](../../../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network).
 
 ## <a name="for-more-information"></a>Para obtener más información
 

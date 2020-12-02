@@ -11,12 +11,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
-ms.openlocfilehash: effa0d3ba9f7098b691605bfbd76bff9ea3d5e66
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 7936699832a09f535729c42b12fec2d5c49a11a0
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96023438"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350949"
 ---
 # <a name="create-an-azure-ssis-integration-runtime-in-azure-data-factory"></a>Crear una instancia de Integration Runtime de Azure SSIS en Azure Data Factory
 
@@ -167,7 +167,7 @@ Si activa la casilla, realice los pasos siguientes para traer su propio servidor
 Seleccione **Test connection** (Prueba de conexión) cuando proceda y, si la prueba se realiza correctamente, seleccione **Next** (Siguiente).
 
 > [!NOTE]
-   > Si usa el servidor de Azure SQL Database para hospedar SSISDB, los datos se almacenarán de manera predeterminada en un almacenamiento con redundancia geográfica para las copias de seguridad. Si no quiere que los datos se repliquen en otras regiones, siga las instrucciones para la [Configuración de la redundancia del almacenamiento de copia de seguridad mediante PowerShell](https://docs.microsoft.com/azure/azure-sql/database/automated-backups-overview?tabs=single-database#configure-backup-storage-redundancy-by-using-powershell).
+   > Si usa el servidor de Azure SQL Database para hospedar SSISDB, los datos se almacenarán de manera predeterminada en un almacenamiento con redundancia geográfica para las copias de seguridad. Si no quiere que los datos se repliquen en otras regiones, siga las instrucciones para la [Configuración de la redundancia del almacenamiento de copia de seguridad mediante PowerShell](../azure-sql/database/automated-backups-overview.md?tabs=single-database#configure-backup-storage-redundancy-by-using-powershell).
    
 ##### <a name="creating-azure-ssis-ir-package-stores"></a>Creación de almacenes de paquetes de Azure-SSIS IR
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/22/2020
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: b82478338603750a76718da956d74e23d242692e
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: d015cec30e516541b50c2acfac38fad898965e1b
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896541"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436358"
 ---
 # <a name="managed-application-metered-billing"></a>Facturación según uso de aplicaciones administradas 
 
@@ -22,7 +22,7 @@ Con el servicio de medición de Marketplace, puede crear planes de aplicación a
 
 Para que un plan de aplicación administrada use la facturación según uso, debe:
 
-* Cumplir todos los requisitos de la oferta, según se describen en [Creación de una oferta de aplicación de Azure](create-new-azure-apps-offer.md).
+* Cumplir todos los requisitos de la oferta, según se describen en [Creación de una oferta de aplicación de Azure](../create-new-azure-apps-offer.md).
 * Configurar **precios** para cobrar a los clientes el costo por mes del servicio. El precio puede ser cero si no desea cobrar una tarifa fija y prefiere depender exclusivamente de la facturación según uso.
 * Establecer **dimensiones de facturación** para los eventos de medición que el cliente pagará a partir de la tarifa plana.
 * Integrarse con las [API del servicio de medición de Marketplace](./marketplace-metering-service-apis.md) para informar a Microsoft de eventos facturables.
@@ -56,11 +56,11 @@ Un cliente de Azure que se suscribe al servicio de CoA puede analizar y generar 
 
 Las dimensiones de facturación se utilizan para comunicar al cliente cómo se le facturará el uso del software.  Estas dimensiones también se usan para comunicar eventos de uso a Microsoft. Estas dimensiones se definen de la manera siguiente:
 
-* **Identificador de dimensión** : el identificador inmutable al que se hace referencia al emitir eventos de uso.
-* **Nombre de dimensión** : nombre para mostrar asociado a la dimensión; por ejemplo, "mensajes de texto enviados".
-* **Unidad de medida** : descripción de la unidad de facturación; por ejemplo, "por mensaje de texto" o "por cada 100 correos electrónicos".
-* **Precio por unidad** : el precio de una unidad de la dimensión.
-* **Cantidad incluida para el período mensual** : la cantidad de dimensión incluida al mes para los clientes que pagan la cuota mensual periódica; debe ser un número entero.
+* **Identificador de dimensión**: el identificador inmutable al que se hace referencia al emitir eventos de uso.
+* **Nombre de dimensión**: nombre para mostrar asociado a la dimensión; por ejemplo, "mensajes de texto enviados".
+* **Unidad de medida**: descripción de la unidad de facturación; por ejemplo, "por mensaje de texto" o "por cada 100 correos electrónicos".
+* **Precio por unidad**: el precio de una unidad de la dimensión.
+* **Cantidad incluida para el período mensual**: la cantidad de dimensión incluida al mes para los clientes que pagan la cuota mensual periódica; debe ser un número entero.
 
 Las dimensiones de facturación se comparten entre todos los planes de una oferta. Algunos atributos son aplicables a la dimensión en todos los planes y otros son específicos de un plan.
 
@@ -79,7 +79,7 @@ Los demás atributos de una dimensión son específicos de cada plan y pueden te
 Las dimensiones también tienen dos conceptos especiales, "habilitado" e "infinito":
 
 * **Habilitado** indica que este plan participa en esta dimensión.  Es posible que desee dejar esta opción desactivada si va a crear un nuevo plan que no enviará eventos de uso basados en esta dimensión. Además, las nuevas dimensiones que se agregan después de publicar un plan por primera vez se muestran como "no habilitadas" en el plan ya publicado.  Ahora se mostrará una dimensión deshabilitada en todas las listas de dimensiones de un plan visualizado por los clientes.
-* **Infinito** , representado por el símbolo de infinito "∞", indica que este plan participa en esta dimensión, sin medir el uso respecto a ella. Permite indicar a los clientes que la funcionalidad representada por esta dimensión está incluida en el plan, sin límite de uso.  Una dimensión con un uso infinito se mostrará en las listas de dimensiones de un plan visualizado por los clientes.  Este plan nunca incurrirá en un cargo.
+* **Infinito**, representado por el símbolo de infinito "∞", indica que este plan participa en esta dimensión, sin medir el uso respecto a ella. Permite indicar a los clientes que la funcionalidad representada por esta dimensión está incluida en el plan, sin límite de uso.  Una dimensión con un uso infinito se mostrará en las listas de dimensiones de un plan visualizado por los clientes.  Este plan nunca incurrirá en un cargo.
 
 >[!Note] 
 >Los siguientes escenarios se admiten explícitamente:  <br> - Puede agregar una nueva dimensión a un nuevo plan.  La nueva dimensión no se habilitará para los planes ya publicados. <br> - Puede publicar un plan con una tarifa mensual fija sin dimensiones y, a continuación, agregar un nuevo plan y configurar una nueva dimensión para ese plan. La nueva dimensión no se habilitará para los planes ya publicados.

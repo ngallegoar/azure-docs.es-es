@@ -7,12 +7,12 @@ ms.topic: article
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: 8bedecd4a050c445af0ab0ae0250197369b9173b
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 8346edd0f6016f1751a392213e5d6321f875baf2
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93131418"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96455663"
 ---
 # <a name="frequently-asked-questions-about-transitioning-from-the-cloud-partner-portal-to-partner-center"></a>Preguntas más frecuentes sobre la transición de Cloud Partner Portal al Centro de partners
 
@@ -58,11 +58,11 @@ Estas son las diferencias en el informe de pago entre Cloud Partner Portal (ya r
 
 | Cloud Partner Portal | Centro de partners |
 | --- | --- |
-| **Vínculo** : https://cloudpartner.azure.com/ | **Vínculo** : https://partner.microsoft.com/dashboard/payouts/reports/transactionhistory y https://partner.microsoft.com/dashboard/payouts/reports/incentivepayments |
-| **Navegación** : Informes de pago proporcionados en Insights Payout | **Navegación** : Informes de pago proporcionados en el Centro de Partners: icono de pago |
-| **Ámbito** :<ul><li>Transacción por artículo de línea visible, para cobros en curso, realizados y pagados.</li><li>Informes: se muestran todos los artículos de línea una vez creado el pedido de compra, incluidos los cobros y la facturación en curso; también se muestran el estado de cobro y los artículos de línea que aún no son válidos para su pago.</li></ul> | **Ámbito** :<ul><li>Muestra los artículos de línea después de que se consideran ganancias válidas.</li><li>Los clientes pagan primero a Microsoft y entonces los ISV pueden ver que se inicia el informe de pago.</li><li>El informe de pago no muestra ni el cobro ni la facturación en curso.</li></ul> |
-| **La transacción no está lista para el pago** : Facturación en curso | **La transacción no está lista para el pago** : Siguiente pago estimado: El estado del pago es sin procesar. |
-| **Estado del pago** : n/d | **Estado del pago** :<ul><li>Sin procesar: La ganancia es válida para el pago.</li><li>Próximamente: La ganancia se enviará al editor en el siguiente pago mensual.</li><li>Enviado: El pago se ha enviado al banco.</li></ul> |
+| **Vínculo**: https://cloudpartner.azure.com/ | **Vínculo**: https://partner.microsoft.com/dashboard/payouts/reports/transactionhistory y https://partner.microsoft.com/dashboard/payouts/reports/incentivepayments |
+| **Navegación**: Informes de pago proporcionados en Insights Payout | **Navegación**: Informes de pago proporcionados en el Centro de Partners: icono de pago |
+| **Ámbito**:<ul><li>Transacción por artículo de línea visible, para cobros en curso, realizados y pagados.</li><li>Informes: se muestran todos los artículos de línea una vez creado el pedido de compra, incluidos los cobros y la facturación en curso; también se muestran el estado de cobro y los artículos de línea que aún no son válidos para su pago.</li></ul> | **Ámbito**:<ul><li>Muestra los artículos de línea después de que se consideran ganancias válidas.</li><li>Los clientes pagan primero a Microsoft y entonces los ISV pueden ver que se inicia el informe de pago.</li><li>El informe de pago no muestra ni el cobro ni la facturación en curso.</li></ul> |
+| **La transacción no está lista para el pago**: Facturación en curso | **La transacción no está lista para el pago**: Siguiente pago estimado: El estado del pago es sin procesar. |
+| **Estado del pago**: n/d | **Estado del pago**:<ul><li>Sin procesar: La ganancia es válida para el pago.</li><li>Próximamente: La ganancia se enviará al editor en el siguiente pago mensual.</li><li>Enviado: El pago se ha enviado al banco.</li></ul> |
 |||
 
 ## <a name="what-about-offers-i-published-in-the-cloud-partner-portal"></a>¿Qué ocurre con las ofertas publicadas en Cloud Partner Portal?
@@ -79,14 +79,14 @@ En el caso de los tipos de oferta admitidos en el Centro de partners, todas las 
 | --- | --- | --- |
 | SaaS | Sí | Inicie sesión en el Centro de partners para crear ofertas y administrar las que se hayan creado en Cloud Partner Portal. Puede encontrar más información en [Planeamiento de una oferta de SaaS en el marketplace comercial](plan-saas-offer.md). |
 | Máquina virtual | Sí | Inicie sesión en el Centro de partners para crear ofertas y administrar las que se hayan creado en Cloud Partner Portal. Puede encontrar más información en el artículo sobre la [planificación de ofertas de máquina virtual](marketplace-virtual-machines.md). |
-| Aplicación de Azure | Sí | Inicie sesión en el Centro de partners para crear ofertas y administrar las que se hayan creado en Cloud Partner Portal. Más información en [Creación de una oferta de aplicación de Azure](partner-center-portal/create-new-azure-apps-offer.md). |
+| Aplicación de Azure | Sí | Inicie sesión en el Centro de partners para crear ofertas y administrar las que se hayan creado en Cloud Partner Portal. Más información en [Creación de una oferta de aplicación de Azure](create-new-azure-apps-offer.md). |
 | Dynamics 365 Business Central | Sí | Inicie sesión en el Centro de partners para crear ofertas y administrar las que se hayan creado en Cloud Partner Portal. Más información en [Creación de una oferta de Dynamics 365 Business Central](partner-center-portal/create-new-business-central-offer.md). |
 | Dynamics 365 for Customer Engagement y Power Apps | Sí | Inicie sesión en el Centro de partners para crear ofertas y administrar las que se hayan creado en Cloud Partner Portal. Más información en [Creación de una oferta de Dynamics 365 for Customer Engagement y PowerApps](partner-center-portal/create-new-customer-engagement-offer.md). |
 | Dynamics 365 for Operations | Sí | Inicie sesión en el Centro de partners para crear ofertas y administrar las que se hayan creado en Cloud Partner Portal. Más información en [Creación de una oferta de Dynamics 365 for Operations](partner-center-portal/create-new-operations-offer.md). |
 | Aplicación Power BI | Sí | Inicie sesión en el Centro de partners para crear ofertas y administrar las que se hayan creado en Cloud Partner Portal. Más información en [Creación de una aplicación de Power BI para AppSource](partner-center-portal/create-power-bi-app-offer.md). |
 | Módulo IoT Edge | Sí | Inicie sesión en el Centro de partners para crear ofertas y administrar las que se hayan creado en Cloud Partner Portal. Más información en [Creación, configuración y publicación de una oferta de módulo de IoT Edge en Azure Marketplace](partner-center-portal/azure-iot-edge-module-creation.md). |
-| Contenedor | Sí | Inicie sesión en el Centro de partners para crear ofertas y administrar las que se hayan creado en Cloud Partner Portal. Más información en [Creación de una oferta de contenedor de Azure](partner-center-portal/create-azure-container-offer.md). |
-| Servicio de consultoría | Sí | Inicie sesión en el Centro de partners para crear ofertas y administrar las que se hayan creado en Cloud Partner Portal. Más información en [Creación de una oferta de servicios de consultoría](partner-center-portal/create-consulting-service-offer.md). |
+| Contenedor | Sí | Inicie sesión en el Centro de partners para crear ofertas y administrar las que se hayan creado en Cloud Partner Portal. Más información en [Creación de una oferta de contenedor de Azure](./create-azure-container-offer.md). |
+| Servicio de consultoría | Sí | Inicie sesión en el Centro de partners para crear ofertas y administrar las que se hayan creado en Cloud Partner Portal. Más información en [Creación de una oferta de servicios de consultoría](./create-consulting-service-offer.md). |
 | Servicio administrado | Sí | Inicie sesión en el Centro de partners para crear ofertas y administrar las que se hayan creado en Cloud Partner Portal. Más información en [Creación de una oferta de servicio administrado](partner-center-portal/create-new-managed-service-offer.md). |
 | Servicio administrado de Dynamics NAV | No | Microsoft ha evolucionado el Servicio administrado de Dynamics NAV a [Dynamics 365 Business Central](/dynamics365/business-central/), por lo que sus ofertas se han eliminado de la lista en AppSource. Los clientes ya no pueden detectar estas ofertas y no se han movido al Centro de partners. Para que las ofertas estén disponibles en AppSource, puede adaptarlas a ofertas de Dynamics 365 Business Central y enviarlas al [Centro de partners](https://partner.microsoft.com/). Más información en [Creación de una oferta de Dynamics 365 Business Central](partner-center-portal/create-new-business-central-offer.md). |
 | Cortana Intelligence | No | Microsoft ha evolucionado la hoja de ruta del producto para Cortana Intelligence, por lo que sus ofertas activas se han eliminado de la lista en AppSource. Los clientes ya no pueden detectar estas ofertas y no se han movido al Centro de partners. Para que las ofertas estén disponibles en el marketplace comercial, adáptelas a ofertas de software como servicio (SaaS) y envíelas al [Centro de partners](https://partner.microsoft.com/). Más información en [Lista de comprobación de creación de ofertas de SaaS](./plan-saas-offer.md). |

@@ -3,12 +3,12 @@ title: Recopilar y analizar registros de recursos
 description: Registre y analice los eventos del registro de recursos de Azure Container Registry como la autenticación, y el envío y la incorporación de cambios en imágenes.
 ms.topic: article
 ms.date: 06/01/2020
-ms.openlocfilehash: 63ccb944b9c3de9941acf55ca5ea85fda70a7008
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8b05d34e6c50fea3760e30d28f59e55d8c5f211a
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87553383"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348592"
 ---
 # <a name="azure-container-registry-logs-for-diagnostic-evaluation-and-auditing"></a>Registros de Azure Container Registry para la evaluación y auditoría de diagnóstico
 
@@ -81,7 +81,7 @@ En la imagen siguiente se muestra la salida de ejemplo:
 
 ![Consulta de datos de registro](media/container-registry-diagnostics-audit-logs/azure-monitor-query.png)
 
-Para obtener un tutorial sobre el uso de Log Analytics en Azure Portal, consulte [Introducción a Log Analytics de Azure Monitor](../azure-monitor/log-query/get-started-portal.md) o pruebe el [entorno de demostración](https://portal.loganalytics.io/demo) de Log Analytics. 
+Para obtener un tutorial sobre el uso de Log Analytics en Azure Portal, consulte [Introducción a Log Analytics de Azure Monitor](../azure-monitor/log-query/log-analytics-tutorial.md) o pruebe el [entorno de demostración](https://portal.loganalytics.io/demo) de Log Analytics. 
 
 Para obtener más información sobre las consultas de registro, vea [Introducción a las consultas de registro en Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
 
@@ -146,5 +146,5 @@ Puede transmitir los eventos de registro de diagnóstico a un [centro de eventos
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Obtenga más información sobre cómo usar [Log Analytics](../azure-monitor/log-query/get-started-portal.md) y crear [consultas de registro](../azure-monitor/log-query/get-started-queries.md).
+* Obtenga más información sobre cómo usar [Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md) y crear [consultas de registro](../azure-monitor/log-query/get-started-queries.md).
 * Consulte [Introducción a los registros de plataforma Azure](../azure-monitor/platform/platform-logs-overview.md) para obtener información sobre los registros de la plataforma que están disponibles en las diferentes capas de Azure.

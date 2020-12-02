@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 10/06/2020
 ms.author: alkohli
-ms.openlocfilehash: 91efdac9d17e679226f10012bbff9b5b6676ff0e
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: bf4d0a845b7f26c82ba3940d6613a33bcacf9187
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92205585"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96448332"
 ---
 # <a name="recover-from-a-failed-azure-stack-edge-pro-gpu-device"></a>Recuperación de un dispositivo GPU de Azure Stack Edge Pro con errores 
 
@@ -81,7 +81,7 @@ Para prepararse para un posible error de dispositivo, es posible que haya implem
 
 | Soluciones de copia de seguridad        | SO admitido   | Referencia                                                                |
 |-------------------------|----------------|--------------------------------------------------------------------------|
-| Agente de Microsoft Azure Recovery Services (MARS) para Azure Backup | Windows        | [Acerca del agente de MARS](/azure/backup/backup-azure-about-mars)    |
+| Agente de Microsoft Azure Recovery Services (MARS) para Azure Backup | Windows        | [Acerca del agente de MARS](../backup/backup-azure-about-mars.md)    |
 | Cohesity                | Windows, Linux | [Breve descripción de la solución de integración, copia de seguridad y recuperación Microsoft Azure](https://www.cohesity.com/solution/cloud/azure) <br>Para obtener más información, póngase en contacto con Cohesity.                          |
 | Commvault               | Windows, Linux | https://www.commvault.com/azure <br> Para obtener más información, póngase en contacto con Commvault.
 | Veritas                 | Windows, Linux | http://veritas.com/azure <br> Para obtener más información, póngase en contacto con Veritas.                    |

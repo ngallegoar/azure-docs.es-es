@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/27/2020
 ms.author: mathoma
-ms.openlocfilehash: 81d0bddbd62f9f2d15d8404fee63b15c8ab2c0a3
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 194c6a5cead400e1bac78ba42cb7238b64bd3b7b
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93102282"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327481"
 ---
 # <a name="business-continuity-and-hadr-for-sql-server-on-azure-virtual-machines"></a>Continuidad empresarial y HADR para SQL Server en Azure Virtual Machines
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -101,7 +101,7 @@ Las máquinas virtuales de Azure, el almacenamiento y la conexión de red tienen
 ### <a name="high-availability-nodes-in-an-availability-set"></a>Nodos de alta disponibilidad en un conjunto de disponibilidad
 Los conjuntos de disponibilidad de Azure permiten colocar los nodos de alta disponibilidad en dominios de error y dominios de actualización independientes. La plataforma Azure asigna un dominio de actualización y un dominio de error a cada máquina virtual del conjunto de disponibilidad. Esta configuración en un centro de datos garantiza que, durante un evento de mantenimiento planeado o no planeado, hay al menos una máquina virtual disponible y cumple el contrato de nivel de servicio de Azure al 99,95 %. 
 
-Para configurar una alta disponibilidad, coloque todas las máquinas virtuales con SQL Server en el mismo conjunto de disponibilidad para evitar la pérdida de datos o de la aplicación durante un evento de mantenimiento. Tenga en cuenta que solo las máquinas virtuales del mismo servicio en la nube puede participar en el mismo conjunto de disponibilidad. Para más información, consulte [Administración de la disponibilidad de las máquinas virtuales](../../../virtual-machines/manage-availability.md?toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json).
+Para configurar una alta disponibilidad, coloque todas las máquinas virtuales con SQL Server en el mismo conjunto de disponibilidad para evitar la pérdida de datos o de la aplicación durante un evento de mantenimiento. Tenga en cuenta que solo las máquinas virtuales del mismo servicio en la nube puede participar en el mismo conjunto de disponibilidad. Para más información, consulte [Administración de la disponibilidad de las máquinas virtuales](../../../virtual-machines/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ### <a name="high-availability-nodes-in-an-availability-zone"></a>Nodos de alta disponibilidad en una zona de disponibilidad
 Las zonas de disponibilidad son ubicaciones físicas exclusivas dentro de una región de Azure. Cada zona de disponibilidad consta de uno o varios centros de datos equipados con alimentación, refrigeración y redes independientes. La separación física de las zonas de disponibilidad dentro de una región ayuda a proteger las aplicaciones y los datos frente a los errores del centro de datos al garantizar que hay al menos una máquina virtual disponible y cumple el contrato de nivel de servicio de Azure al 99,99 %. 
@@ -136,7 +136,7 @@ Si el grupo de disponibilidad abarca varias subredes de Azure (como por ejemplo,
 Puede seguir conectándose a cada réplica de disponibilidad por separado conectándose directamente a la instancia del servicio. Además, como los grupos de disponibilidad son compatibles con las versiones anteriores de los clientes de creación de reflejo de la base de datos, puede conectarse a las réplicas de disponibilidad como asociados de creación de reflejo de la base de datos siempre y cuando las réplicas estén configuradas de forma similar a la creación de reflejo de la base de datos:
 
 * Hay una réplica principal y una réplica secundaria.
-* La réplica secundaria está configurada como no legible (la opción **Réplica secundaria legible** está establecida en **No** ).
+* La réplica secundaria está configurada como no legible (la opción **Réplica secundaria legible** está establecida en **No**).
 
 A continuación se muestra una cadena de conexión de cliente de ejemplo correspondiente a esta configuración similar a la creación de reflejo de la base de datos que usa ADO.NET o SQL Server Native Client:
 

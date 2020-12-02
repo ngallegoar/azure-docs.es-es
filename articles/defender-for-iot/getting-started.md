@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/09/2020
 ms.author: mlottner
-ms.openlocfilehash: e3de253ee6f45f9296d6b09189fe4bc488be36ad
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 6aa525fd7f2d82194baa2e2a0c910cb71509c2d5
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92090070"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96340023"
 ---
 # <a name="getting-started-with-azure-defender-for-iot"></a>Introducción a Azure Defender para IoT
 
@@ -30,9 +30,9 @@ Complete los pasos siguientes para poner en funcionamiento Azure Defender para I
 
 ## <a name="1-set-up-azure"></a>1. Configuración de Azure
 
-- Configure una cuenta de Azure. Para más información, consulte [Creación de una cuenta de Azure](https://docs.microsoft.com/learn/modules/create-an-azure-account/).
+- Configure una cuenta de Azure. Para más información, consulte [Creación de una cuenta de Azure](/learn/modules/create-an-azure-account/).
 
-- Firewall o proxy: Si tiene un firewall o un dispositivo de red similar que esté configurado para permitir conexiones específicas, compruebe que *.azure-devices.net:443 está abierto en el firewall o el proxy. Si no se admiten comodines o desea tener más control, el nombre de dominio completo específico del centro IoT se debería abrir en el firewall o el proxy. Para obtener más información, consulte [Referencia: Puntos de conexión de IoT Hub](/azure/iot-hub/iot-hub-devguide-endpoints).
+- Firewall o proxy: Si tiene un firewall o un dispositivo de red similar que esté configurado para permitir conexiones específicas, compruebe que *.azure-devices.net:443 está abierto en el firewall o el proxy. Si no se admiten comodines o desea tener más control, el nombre de dominio completo específico del centro IoT se debería abrir en el firewall o el proxy. Para obtener más información, consulte [Referencia: Puntos de conexión de IoT Hub](../iot-hub/iot-hub-devguide-endpoints.md).
 
 ## <a name="2-deploy-hardware-software-and-onboard-to-sensor"></a>2. Implementar hardware, software e incorporar el sensor
 

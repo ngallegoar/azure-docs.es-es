@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: 87f27f316914f3efce5a750f50471c65dceca84e
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 9863ed24da9e427f885a4794bda7e103b0c1cc8e
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93127848"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96455460"
 ---
 # <a name="partner-center-submission-api-to-onboard-azure-apps-in-partner-center"></a>API de envío del Centro de partners para incorporar aplicaciones de Azure en el centro de Partners
 
@@ -42,7 +42,7 @@ Para usar la API de envío de Microsoft Store, tiene que asociar una aplicación
 
 1. En el Centro de partners, [asocie la cuenta del Centro de partners de la organización con el directorio de Azure AD de la organización](/windows/uwp/publish/associate-azure-ad-with-partner-center).
 1. A continuación, en la página **Usuarios** en la sección **Configuración** de la cuenta del Centro de partners, [agregue la aplicación de Azure AD](/windows/uwp/publish/add-users-groups-and-azure-ad-applications#add-azure-ad-applications-to-your-partner-center-account) que representa la aplicación o el servicio que usará para obtener acceso a los envíos de la cuenta del Centro de partners. Asegúrese de asignar a esta aplicación el rol **Administrador**. Si la aplicación aún no existe en el directorio de Azure AD, puede [crear una nueva aplicación de Azure AD en el Centro de partners](/windows/uwp/publish/add-users-groups-and-azure-ad-applications#create-a-new-azure-ad-application-account-in-your-organizations-directory-and-add-it-to-your-partner-center-account).
-1. Vuelva a la página **Usuarios** , haga clic en el nombre de la aplicación de Azure AD para ir a la configuración de la aplicación y, a continuación, copie los valores de **Identificador de inquilino** e **Identificador de cliente**.
+1. Vuelva a la página **Usuarios**, haga clic en el nombre de la aplicación de Azure AD para ir a la configuración de la aplicación y, a continuación, copie los valores de **Identificador de inquilino** e **Identificador de cliente**.
 1. Haga clic en **Agregar nueva clave**. En la pantalla siguiente, copie el valor de **Clave**. Después de salir de esta página no podrá tener acceso de nuevo a esta información. Para más información, consulte [Administrar claves para una aplicación de Azure AD](/windows/uwp/publish/add-users-groups-and-azure-ad-applications#manage-keys).
 
 ### <a name="step-2-obtain-an-azure-ad-access-token"></a>Paso 2: Obtención de un token de acceso de Azure AD
@@ -63,7 +63,7 @@ grant_type=client_credentials
 &resource= https://api.partner.microsoft.com
 ```
 
-Para el valor *tenant_id* en el `POST URI` y los parámetros *client_id* y *client_secret* , especifique el identificador de inquilino, el identificador de cliente y la clave de la aplicación que recuperó del Centro de partners en la sección anterior. Para el parámetro *resource* , tiene que especificar `https://api.partner.microsoft.com`.
+Para el valor *tenant_id* en el `POST URI` y los parámetros *client_id* y *client_secret*, especifique el identificador de inquilino, el identificador de cliente y la clave de la aplicación que recuperó del Centro de partners en la sección anterior. Para el parámetro *resource*, tiene que especificar `https://api.partner.microsoft.com`.
 
 ### <a name="step-3-use-the-microsoft-store-submission-api"></a>Paso 3: Uso de la API de envío de Microsoft Store
 
@@ -73,5 +73,5 @@ https://apidocs.microsoft.com/services/partneringestion/
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Obtenga información sobre la [Creación de un activo técnico de VM de Azure](create-azure-container-technical-assets.md).
-* Aprenda a crear una [oferta de Azure Container](create-azure-container-offer.md).
+* Obtenga información sobre la [Creación de un activo técnico de VM de Azure](../create-azure-container-technical-assets.md).
+* Aprenda a crear una [oferta de Azure Container](../create-azure-container-offer.md).

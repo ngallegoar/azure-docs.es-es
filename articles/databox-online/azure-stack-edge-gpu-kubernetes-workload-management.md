@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: alkohli
-ms.openlocfilehash: d9e0da9e24a0bd32047d029879c4f0e110dc0c16
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ef840b3d9db4e82eeecea37079a08ccb0858a77b
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91320802"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96448537"
 ---
 # <a name="kubernetes-workload-management-on-your-azure-stack-edge-pro-device"></a>Administración de cargas de trabajo de Kubernetes en un dispositivo Azure Stack Edge Pro
 
@@ -53,7 +53,7 @@ Existen tres formas principales de implementar las cargas de trabajo. Cada una d
 
 - **Implementación de Kubernetes habilitado para Azure Arc**: Kubernetes habilitado para Azure Arc es una herramienta de administración híbrida que le permitirá implementar aplicaciones en los clústeres de Kubernetes. Se conecta al clúster de Kubernetes en el dispositivo Azure Stack Edge Pro mediante `azure-arc namespace`. Los agentes implementados en este espacio de nombres son responsables de la conectividad con Azure. La configuración de implementación se aplica mediante la administración de configuraciones basada en GitOps. 
     
-    Kubernetes habilitado para Azure Arc también le permitirá usar Azure Monitor para contenedores para ver y supervisar su clúster. Para más información, vaya a [¿Qué es Kubernetes habilitado para Azure Arc?](https://docs.microsoft.com/azure/azure-arc/kubernetes/overview).
+    Kubernetes habilitado para Azure Arc también le permitirá usar Azure Monitor para contenedores para ver y supervisar su clúster. Para más información, vaya a [¿Qué es Kubernetes habilitado para Azure Arc?](../azure-arc/kubernetes/overview.md).
 
 ## <a name="choose-the-deployment-type"></a>Elección del tipo de implementación
 

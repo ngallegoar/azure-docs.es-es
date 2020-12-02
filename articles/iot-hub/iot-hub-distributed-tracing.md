@@ -13,12 +13,12 @@ ms.custom:
 - mqtt
 - fasttrack-edit
 - iot
-ms.openlocfilehash: efc4d07e9e3a64a36f2ecf3fa0000379bef380f9
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: f8d37cf8f23de1d0535c7a9ff4a95ac217eddf74
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92538585"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452394"
 ---
 # <a name="trace-azure-iot-device-to-cloud-messages-with-distributed-tracing-preview"></a>Seguimiento de mensajes del dispositivo a la nube de Azure IoT con seguimiento distribuido (versión preliminar)
 
@@ -59,15 +59,15 @@ En esta sección, configurará una instancia de IoT Hub para registrar atributos
 
 1. Haga clic en **Agregar configuración de diagnóstico**.
 
-1. En el campo **Nombre** , escriba un nombre para una nueva configuración de diagnóstico. Por ejemplo, **DistributedTracingSettings**.
+1. En el campo **Nombre**, escriba un nombre para una nueva configuración de diagnóstico. Por ejemplo, **DistributedTracingSettings**.
 
 1. Elija una o varias de las opciones siguientes que determinan dónde se enviará el registro:
 
-    - **Archivar en una cuenta de almacenamiento** : configure una cuenta de almacenamiento para que contenga la información de registro.
-    - **Transmisión a un centro de eventos** : configure un centro de eventos para que contenga la información de registro.
-    - **Enviar a Log Analytics** : Configure un área de trabajo de Log Analytics para que contenga la información de registro.
+    - **Archivar en una cuenta de almacenamiento**: configure una cuenta de almacenamiento para que contenga la información de registro.
+    - **Transmisión a un centro de eventos**: configure un centro de eventos para que contenga la información de registro.
+    - **Enviar a Log Analytics**: Configure un área de trabajo de Log Analytics para que contenga la información de registro.
 
-1. En la sección **Registro** , seleccione las operaciones para las que desea la información de registro.
+1. En la sección **Registro**, seleccione las operaciones para las que desea la información de registro.
 
     No olvide incluir **DistributedTracing** y configure un valor para **Retención** para establecer el número de días que desea conservar el registro. La retención de registros afecta a los costos de almacenamiento.
 
@@ -206,7 +206,7 @@ Para cambiar el porcentaje de mensajes que se van a seguir desde la nube, debe a
 
 1. Elija un valor en **Velocidad de muestreo** entre 0 % y 100 %.
 
-1. Haga clic en **Save** (Guardar).
+1. Haga clic en **Save**(Guardar).
 
 1. Espere unos segundos y presione **Actualizar**. Si el dispositivo lo reconoce correctamente, aparece un icono de sincronización con una marca de verificación.
 
@@ -295,7 +295,7 @@ La imagen siguiente muestra el seguimiento distribuido en App Map con tres punto
 
 ### <a name="context"></a>Context
 
-Muchas soluciones de IoT, incluida nuestra propia [arquitectura de referencia](https://aka.ms/iotrefarchitecture) (solo en inglés), suelen seguir una variante de la [arquitectura de microservicios](/azure/architecture/microservices/). A medida que una solución de IoT se vuelve más compleja, se termina usando una docena o más de microservicios. Estos microservicios pueden o no ser de Azure. La identificación de dónde se quitan o ralentizan los mensajes puede ser complicado. Por ejemplo, tiene una solución de IoT que usa cinco servicios diferentes de Azure y 1500 dispositivos activos. Cada dispositivo envía diez mensajes de dispositivo a la nube por segundo (lo que hace un total de 15 000 mensajes por segundo), pero observa que la aplicación web solo ve 10 000 mensajes por segundo. ¿Dónde está el problema? ¿Cómo encontrar la causa?
+Muchas soluciones de IoT, incluida nuestra propia [arquitectura de referencia](/azure/architecture/reference-architectures/iot) (solo en inglés), suelen seguir una variante de la [arquitectura de microservicios](/azure/architecture/microservices/). A medida que una solución de IoT se vuelve más compleja, se termina usando una docena o más de microservicios. Estos microservicios pueden o no ser de Azure. La identificación de dónde se quitan o ralentizan los mensajes puede ser complicado. Por ejemplo, tiene una solución de IoT que usa cinco servicios diferentes de Azure y 1500 dispositivos activos. Cada dispositivo envía diez mensajes de dispositivo a la nube por segundo (lo que hace un total de 15 000 mensajes por segundo), pero observa que la aplicación web solo ve 10 000 mensajes por segundo. ¿Dónde está el problema? ¿Cómo encontrar la causa?
 
 ### <a name="distributed-tracing-pattern-in-microservice-architecture"></a>Patrón de seguimiento distribuido en arquitectura de microservicio
 

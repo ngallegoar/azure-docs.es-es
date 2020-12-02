@@ -3,12 +3,12 @@ title: Configuración de informes de Azure Backup
 description: Configure y vea informes para Azure Backup mediante Log Analytics y libros de Azure
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: 11893488c59781bb78cf913a30069e920c66bc71
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 2565fa1183635c10e45b247f723788b6fe371c14
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92172465"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325254"
 ---
 # <a name="configure-azure-backup-reports"></a>Configuración de informes de Azure Backup
 
@@ -18,7 +18,7 @@ Un requisito común para los administradores de copias de seguridad es obtener c
 - Auditoría de copias de seguridad y restauraciones.
 - Identificación de las tendencias clave con diferentes niveles de granularidad.
 
-En la actualidad, Azure Backup proporciona una solución de informes que usa [registros de Azure Monitor](../azure-monitor/log-query/get-started-portal.md) y [libros de Azure](../azure-monitor/platform/workbooks-overview.md). Estos recursos le ayudan a obtener mejores conclusiones sobre las copias de seguridad en todo el conjunto de copias de seguridad. En este artículo se explica cómo configurar y ver informes de Azure Backup.
+En la actualidad, Azure Backup proporciona una solución de informes que usa [registros de Azure Monitor](../azure-monitor/log-query/log-analytics-tutorial.md) y [libros de Azure](../azure-monitor/platform/workbooks-overview.md). Estos recursos le ayudan a obtener mejores conclusiones sobre las copias de seguridad en todo el conjunto de copias de seguridad. En este artículo se explica cómo configurar y ver informes de Azure Backup.
 
 ## <a name="supported-scenarios"></a>Escenarios admitidos
 

@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 10/26/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a4e76e3924b1b14660dce8a3b58f7dd5b2715eec
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: e17c390dddcb2af9fdc83b45ae812ef1fff7f1c3
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92670130"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96345089"
 ---
 # <a name="define-a-self-asserted-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definición de un perfil técnico autoafirmado en una directiva personalizada en Azure Active Directory B2C
 
@@ -101,7 +101,7 @@ Considere el siguiente ejemplo en el que se define una notificación `age` como 
 </TechnicalProfile>
 ```
 
-Si una directiva de hoja que hereda esa base especifica posteriormente `officeNumber` como una notificación de **visualización** :
+Si una directiva de hoja que hereda esa base especifica posteriormente `officeNumber` como una notificación de **visualización**:
 
 ```xml
 <TechnicalProfile Id="id">
@@ -135,8 +135,8 @@ Use notificaciones de salida si:
 
 - **Las notificaciones se emiten mediante la transformación de notificaciones de salida**
 - **Establece un valor predeterminado en una notificación de salida** sin recopilar datos del usuario ni devolver los datos desde el perfil técnico de validación. El perfil técnico autoafirmado `LocalAccountSignUpWithLogonEmail` establece la notificación **executed-SelfAsserted-Input** en `true`.
-- **Un perfil técnico de validación devuelve las notificaciones de salida** : su perfil técnico puede llamar a un perfil técnico de validación que devuelve algunas notificaciones. Es posible que desee propagar las notificaciones y devolverlas a los siguientes pasos de orquestación en el recorrido del usuario. Por ejemplo, al iniciar sesión con una cuenta local, el perfil técnico autoafirmado denominado `SelfAsserted-LocalAccountSignin-Email` llama al perfil técnico de validación denominado `login-NonInteractive`. Este perfil técnico valida las credenciales de usuario y también devuelve el perfil de usuario. Por ejemplo, “userPrincipalName”, “displayName”, “givenName” y “surName”.
-- **Un control de visualización devuelve las notificaciones de salida** : su perfil técnico puede tener una referencia a un [control de visualización](display-controls.md). El control de visualización devuelve algunas notificaciones, como la dirección de correo electrónico comprobada. Es posible que desee propagar las notificaciones y devolverlas a los siguientes pasos de orquestación en el recorrido del usuario. La característica de notificaciones de visualización se encuentra actualmente en **versión preliminar**.
+- **Un perfil técnico de validación devuelve las notificaciones de salida**: su perfil técnico puede llamar a un perfil técnico de validación que devuelve algunas notificaciones. Es posible que desee propagar las notificaciones y devolverlas a los siguientes pasos de orquestación en el recorrido del usuario. Por ejemplo, al iniciar sesión con una cuenta local, el perfil técnico autoafirmado denominado `SelfAsserted-LocalAccountSignin-Email` llama al perfil técnico de validación denominado `login-NonInteractive`. Este perfil técnico valida las credenciales de usuario y también devuelve el perfil de usuario. Por ejemplo, “userPrincipalName”, “displayName”, “givenName” y “surName”.
+- **Un control de visualización devuelve las notificaciones de salida**: su perfil técnico puede tener una referencia a un [control de visualización](display-controls.md). El control de visualización devuelve algunas notificaciones, como la dirección de correo electrónico comprobada. Es posible que desee propagar las notificaciones y devolverlas a los siguientes pasos de orquestación en el recorrido del usuario. La característica de notificaciones de visualización se encuentra actualmente en **versión preliminar**.
 
 En el ejemplo siguiente se muestra el uso de un perfil técnico autoafirmado que utiliza notificaciones de visualización y notificaciones de salida.
 

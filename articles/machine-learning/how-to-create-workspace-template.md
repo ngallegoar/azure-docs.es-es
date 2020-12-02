@@ -10,12 +10,12 @@ ms.custom: how-to, devx-track-azurecli, devx-track-azurepowershell
 ms.author: larryfr
 author: Blackmist
 ms.date: 09/30/2020
-ms.openlocfilehash: 2c415fc92d2d338c568c422b1db2579563527839
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: bd9199bc73e56ec36343b30d9b24f0b48799835e
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94442062"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96445202"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Uso de una plantilla de Azure Resource Manager para crear un área de trabajo para Azure Machine Learning
 
@@ -39,6 +39,10 @@ Para obtener más información, consulte [Implementación de una aplicación con
 
     Para obtener más información, consulte [Administración y configuración de cuotas](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases).
 
+## <a name="limitations"></a>Limitaciones
+
+[!INCLUDE [register-namespace](../../includes/machine-learning-register-namespace.md)]
+
 ## <a name="workspace-resource-manager-template"></a>Plantilla de Resource Manager de área de trabajo
 
 La plantilla de Azure Resource Manager utilizada en este documento se encuentra en el directorio [201-machine-learning-advanced](https://github.com/Azure/azure-quickstart-templates/blob/master/201-machine-learning-advanced/azuredeploy.json) del repositorio de GitHub de plantillas de inicio rápido de Azure.
@@ -53,13 +57,13 @@ Esta plantilla crea los siguientes servicios de Azure:
 
 El grupo de recursos es el contenedor que contiene los servicios. El área de trabajo de Azure Machine Learning requiere los diversos servicios.
 
-La plantilla de ejemplo tiene dos parámetros **necesarios** :
+La plantilla de ejemplo tiene dos parámetros **necesarios**:
 
 * La **ubicación** en la que se crearán los recursos.
 
     La plantilla utilizará la ubicación que seleccione para la mayoría de los recursos. La excepción es el servicio Application Insights que no está disponible en todas las ubicaciones en las que están los demás servicios. Si selecciona una ubicación donde no está disponible, el servicio se creará en la ubicación Centro-sur de EE. UU.
 
-* El **nombre del área de trabajo** , que es el nombre descriptivo del área de trabajo de Azure Machine Learning.
+* El **nombre del área de trabajo**, que es el nombre descriptivo del área de trabajo de Azure Machine Learning.
 
     > [!NOTE]
     > El nombre del área de trabajo no distingue mayúsculas de minúsculas.
@@ -541,7 +545,7 @@ New-AzResourceGroupDeployment `
 
 ## <a name="use-the-azure-portal"></a>Uso de Azure Portal
 
-1. Siga los pasos que se indican en [Implementación de recursos desde plantilla personalizada](../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template). Cuando llegue a la pantalla __Seleccionar una plantilla__ , elija la plantilla **201-machine-learning-advanced** en la lista desplegable.
+1. Siga los pasos que se indican en [Implementación de recursos desde plantilla personalizada](../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template). Cuando llegue a la pantalla __Seleccionar una plantilla__, elija la plantilla **201-machine-learning-advanced** en la lista desplegable.
 1. Seleccione __Seleccionar plantilla__ para usar la plantilla. Proporcione la siguiente información necesaria y cualquier otro parámetro en función del escenario de implementación.
 
    * Suscripción: Seleccione la suscripción de Azure que va a usar para estos recursos.
@@ -550,7 +554,7 @@ New-AzResourceGroupDeployment `
    * Nombre del área de trabajo: El nombre que se usará para el área de trabajo de Azure Machine Learning que se va a crear. El nombre del área de trabajo debe tener entre 3 y 33 caracteres. Solo puede contener caracteres alfanuméricos y "-".
    * Ubicación: Seleccione la ubicación en la que se crearán los recursos.
 1. Seleccione __Revisar + crear__.
-1. En la pantalla __Revisar y crear__ , acepte los términos y condiciones de la lista y seleccione __Crear__.
+1. En la pantalla __Revisar y crear__, acepte los términos y condiciones de la lista y seleccione __Crear__.
 
 Para más información, vea [Implementación de recursos desde plantilla personalizada](../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template).
 

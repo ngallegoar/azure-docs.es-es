@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 08/06/2020
-ms.openlocfilehash: bcfd14572b632cdc455babf7b9f8d67be904406c
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: a001f3a13daf40a1af712f09e35d93fd045ea133
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629961"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350252"
 ---
 # <a name="use-external-metadata-stores-in-azure-hdinsight"></a>Uso de repositorios de metadatos externos en Azure HDInsight
 
@@ -67,7 +67,7 @@ Debe crear o tener una instancia de Azure SQL Database antes de configurar un me
 
 Al crear el clúster, el servicio HDInsight necesita conectarse al metastore externo y comprobar las credenciales. Configure las reglas de firewall de Azure SQL Database para permitir que los recursos y servicios de Azure accedan al servidor. Habilite esta opción en Azure Portal; para ello, seleccione **Establecer el firewall del servidor**. A continuación, seleccione **No** en **Denegar acceso de red pública** y **Sí** en **Permitir que los servicios y recursos de Azure accedan a este servidor** para Azure SQL Database. Para más información, consulte [Creación y administración de reglas de firewall de IP.](../azure-sql/database/firewall-configure.md#use-the-azure-portal-to-manage-server-level-ip-firewall-rules)
 
-Los puntos de conexión privados para almacenes SQL solo se admiten en los clústeres creados con `outbound` ResourceProviderConnection. Para obtener más información, vea esta [documentación](https://docs.microsoft.com/azure/hdinsight/hdinsight-private-link).
+Los puntos de conexión privados para almacenes SQL solo se admiten en los clústeres creados con `outbound` ResourceProviderConnection. Para obtener más información, vea esta [documentación](./hdinsight-private-link.md).
 
 ![Botón Establecer el firewall del servidor](./media/hdinsight-use-external-metadata-stores/configure-azure-sql-database-firewall1.png)
 

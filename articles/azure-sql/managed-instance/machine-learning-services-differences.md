@@ -12,12 +12,12 @@ ms.author: garye
 ms.reviewer: sstein, davidph
 manager: cgronlun
 ms.date: 10/26/2020
-ms.openlocfilehash: adf454ac697f8cabf4256ebfc5baa5d0d1c76264
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: c806c0a13f9f5f13588b780054d1f285beb44802
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92782474"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96324540"
 ---
 # <a name="key-differences-between-machine-learning-services-in-azure-sql-managed-instance-and-sql-server"></a>Principales diferencias entre Machine Learning Services de Instancia administrada de Azure SQL y SQL Server
 
@@ -55,7 +55,7 @@ Machine Learning Services de Instancia administrada de SQL y SQL Server admiten 
 La administración de paquetes de Python y R funciona de forma diferente entre Instancia administrada de SQL y SQL Server. Las diferencias son:
 
 - No hay ninguna compatibilidad con los paquetes que dependen de los entornos de ejecución externos (por ejemplo, Java) o que necesitan tener acceso a las API del sistema operativo para instalarse o usarse.
-- Los paquetes pueden realizar llamadas de red salientes (un cambio respecto al inicio de la versión preliminar). Puede establecer las reglas de seguridad saliente adecuadas en el nivel de [grupo de seguridad de red](/azure/virtual-network/network-security-groups-overview) para habilitar las llamadas de red salientes.
+- Los paquetes pueden realizar llamadas de red salientes (un cambio respecto al inicio de la versión preliminar). Puede establecer las reglas de seguridad saliente adecuadas en el nivel de [grupo de seguridad de red](../../virtual-network/network-security-groups-overview.md) para habilitar las llamadas de red salientes.
 
 Para obtener más información sobre la administración de paquetes de Python y R, vea:
 

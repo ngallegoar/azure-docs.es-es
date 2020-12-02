@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 09/30/2020
-ms.openlocfilehash: c8ae10fa059bb9cfd32b95f9bc6d21f30ad9f880
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 184003e42a14e786cc52c4f585c6781f7b9fe0e7
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91744209"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452196"
 ---
 # <a name="azure-key-vault-soft-delete-overview"></a>Información general sobre la eliminación temporal de Azure Key Vault
 
@@ -27,7 +27,7 @@ La característica de eliminación temporal de Key Vault permite la recuperació
 
 ## <a name="supporting-interfaces"></a>Interfaces admitidas
 
-La característica de eliminación temporal está disponible mediante las interfaces de [API REST](/rest/api/keyvault/), la [CLI de Azure](soft-delete-cli.md), [Azure PowerShell](soft-delete-powershell.md) y [.NET/C#](/dotnet/api/microsoft.azure.keyvault?view=azure-dotnet), así como de las [plantillas de Resource Manager](/azure/templates/microsoft.keyvault/2019-09-01/vaults).
+La característica de eliminación temporal está disponible mediante las interfaces de [API REST](/rest/api/keyvault/), la [CLI de Azure](./key-vault-recovery.md), [Azure PowerShell](./key-vault-recovery.md) y [.NET/C#](/dotnet/api/microsoft.azure.keyvault?view=azure-dotnet), así como de las [plantillas de Resource Manager](/azure/templates/microsoft.keyvault/2019-09-01/vaults).
 
 ## <a name="scenarios"></a>Escenarios
 
@@ -41,7 +41,7 @@ Los almacenes Azure Key Vault son recursos controlados que se administran por me
 
 Cuando está habilitada la eliminación temporal, los recursos marcados como recursos eliminados se conservan durante un período especificado (de forma predeterminada, 90 días). El servicio proporciona además un mecanismo para recuperar el objeto eliminado, básicamente deshaciendo la eliminación.
 
-Al crear un almacén de claves, la eliminación temporal está activada de forma predeterminada. Puede crear un almacén de claves sin eliminación temporal a través de la [CLI de Azure](soft-delete-cli.md) o de [Azure PowerShell](soft-delete-powershell.md). Una vez que la eliminación temporal está habilitada en un almacén de claves, no se puede deshabilitar.
+Al crear un almacén de claves, la eliminación temporal está activada de forma predeterminada. Puede crear un almacén de claves sin eliminación temporal a través de la [CLI de Azure](./key-vault-recovery.md) o de [Azure PowerShell](./key-vault-recovery.md). Una vez que la eliminación temporal está habilitada en un almacén de claves, no se puede deshabilitar.
 
 El período de retención predeterminado es de 90 días, durante la creación del almacén de claves, pero es posible establecer el intervalo de la directiva de retención en un valor de 7 a 90 días en Azure Portal. La directiva de retención de protección de purgas usa el mismo intervalo. Una vez establecido, el intervalo de la directiva de retención no se puede cambiar.
 
@@ -49,7 +49,7 @@ No se puede volver a usar el nombre de un almacén de claves que se ha eliminado
 
 ### <a name="purge-protection"></a>Protección de purgas
 
-La protección contra purgas es un comportamiento opcional de Key Vault y **no está habilitado de forma predeterminada**. La protección de purga solo se puede habilitar una vez habilitada la eliminación temporal.  Se puede activar a través de la [CLI](soft-delete-cli.md#enabling-purge-protection) o [Powershell](soft-delete-powershell.md#enabling-purge-protection).
+La protección contra purgas es un comportamiento opcional de Key Vault y **no está habilitado de forma predeterminada**. La protección de purga solo se puede habilitar una vez habilitada la eliminación temporal.  Se puede activar a través de la [CLI](./key-vault-recovery.md?tabs=azure-cli) o [Powershell](./key-vault-recovery.md?tabs=azure-powershell).
 
 Cuando la protección de purgas está activada, un almacén o un objeto en estado eliminado no se pueden purgar hasta que haya transcurrido el período de retención. Los objetos y los almacenes de eliminación temporal todavía se pueden recuperar, lo que garantiza que se seguirá la directiva de retención.
 
@@ -63,7 +63,7 @@ Las excepciones son estas:
 - Cuando la suscripción de Azure se marcó como *no eliminable*. En este caso, solo el servicio puede realizar la eliminación real, y lo hace como un proceso programado. 
 - Cuando `--enable-purge-protection flag` se habilita en el propio almacén. En este caso, Key Vault espera durante 90 días a partir de que el objeto de secreto original se marcara para eliminación para eliminar permanentemente el objeto.
 
-Para conocer los pasos, consulte [Uso de la eliminación temporal de Key Vault con la CLI: Purga de un almacén de claves](soft-delete-cli.md#purging-a-key-vault) o [Uso de la eliminación temporal de Key Vault con PowerShell: Purga de un almacén de claves](soft-delete-powershell.md#purging-a-key-vault).
+Para conocer los pasos, consulte [Uso de la eliminación temporal de Key Vault con la CLI: Purga de un almacén de claves](./key-vault-recovery.md?tabs=azure-cli#key-vault-cli) o [Uso de la eliminación temporal de Key Vault con PowerShell: Purga de un almacén de claves](./key-vault-recovery.md?tabs=azure-powershell#key-vault-powershell).
 
 ### <a name="key-vault-recovery"></a>Recuperación de Key Vault
 
@@ -71,7 +71,7 @@ Tras eliminar una instancia de Key Vault, el servicio crea un recurso de proxy e
 
 ### <a name="key-vault-object-recovery"></a>Recuperación de un objeto de Key Vault
 
-Cuando se elimina un objeto de Key Vault, como una clave, el servicio pondrá el objeto en estado "eliminado", de manera que no será accesible para ninguna operación de recuperación. Mientras esté en ese estado, el objeto de Key Vault solo se puede colocar en una lista, recuperar o eliminar por la fuerza/permanentemente. Para ver los objetos, use el comando `az keyvault key list-deleted` de la CLI de Azure (como se documenta en [Uso de la eliminación temporal de Key Vault con la CLI](soft-delete-cli.md)) o el parámetro `-InRemovedState` de Azure PowerShell (como se describe en [Uso de la eliminación temporal de Key Vault con PowerShell](soft-delete-powershell.md#secrets)).  
+Cuando se elimina un objeto de Key Vault, como una clave, el servicio pondrá el objeto en estado "eliminado", de manera que no será accesible para ninguna operación de recuperación. Mientras esté en ese estado, el objeto de Key Vault solo se puede colocar en una lista, recuperar o eliminar por la fuerza/permanentemente. Para ver los objetos, use el comando `az keyvault key list-deleted` de la CLI de Azure (como se documenta en [Uso de la eliminación temporal de Key Vault con la CLI](./key-vault-recovery.md)) o el parámetro `-InRemovedState` de Azure PowerShell (como se describe en [Uso de la eliminación temporal de Key Vault con PowerShell](./key-vault-recovery.md?tabs=azure-powershell#key-vault-powershell)).  
 
 Al mismo tiempo, Key Vault programará la eliminación de los datos subyacentes correspondientes al objeto o la instancia de Key Vault eliminados para su ejecución tras un intervalo de retención predeterminado. El registro DNS correspondiente al almacén también se conserva durante la duración del intervalo de retención.
 
@@ -99,5 +99,5 @@ En general, cuando un objeto (un almacén de claves, una clave o un secreto) est
 
 Las dos guías siguientes ofrecen los escenarios de uso principal para uso de la eliminación temporal.
 
-- [Uso de la eliminación temporal de Key Vault con PowerShell](soft-delete-powershell.md) 
-- [Uso de la eliminación temporal de Key Vault con la CLI](soft-delete-cli.md)
+- [Uso de la eliminación temporal de Key Vault con PowerShell](./key-vault-recovery.md) 
+- [Uso de la eliminación temporal de Key Vault con la CLI](./key-vault-recovery.md)

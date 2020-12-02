@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: ccfc290df64417bf0504849a83dbe68efcbddefe
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: b625a81ff328e6760ec0ad8d9acb5735f402df73
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843713"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96455614"
 ---
 # <a name="azure-security-baseline-for-logic-apps"></a>Base de referencia de seguridad de Azure para Logic Apps
 
@@ -98,7 +98,7 @@ Use la protección de redes adaptativa de Azure Security Center para recomendar 
 
 - [Restricción de direcciones IP entrantes](logic-apps-securing-a-logic-app.md#restrict-inbound-ip-addresses)
 
-- [Configuración de la protección contra DDoS](../virtual-network/manage-ddos-protection.md)
+- [Configuración de la protección contra DDoS](../ddos-protection/manage-ddos-protection.md)
 
 - [Implementación de Azure Firewall](../firewall/tutorial-firewall-deploy-portal.md)
 
@@ -929,7 +929,7 @@ Use también parámetros seguros para proteger datos confidenciales y secretos.
 
 ### <a name="72-establish-secure-operating-system-configurations"></a>7.2: Establezca configuraciones del sistema operativo seguras
 
-**Guía**: No aplicable; esta guía está pensada para recursos de proceso.
+**Instrucciones**: No aplicable; esta guía está pensada para recursos de proceso.
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -967,7 +967,7 @@ Además, asegúrese de proteger los datos del historial de ejecución mediante o
 
 ### <a name="74-maintain-secure-operating-system-configurations"></a>7.4: Mantenga configuraciones del sistema operativo seguras
 
-**Guía**: No aplicable; esta guía está pensada para recursos de proceso.
+**Instrucciones**: No aplicable; esta guía está pensada para recursos de proceso.
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -991,7 +991,7 @@ Además, Azure Resource Manager tiene la capacidad de exportar la plantilla en n
 
 ### <a name="76-securely-store-custom-operating-system-images"></a>7.6: Almacene imágenes de sistema operativo personalizadas de forma segura
 
-**Guía**: No aplicable; esta guía está pensada para recursos de proceso.
+**Instrucciones**: No aplicable; esta guía está pensada para recursos de proceso.
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -1027,7 +1027,7 @@ Además, Azure Resource Manager tiene la capacidad de exportar la plantilla en n
 
 ### <a name="710-implement-automated-configuration-monitoring-for-operating-systems"></a>7.10: Implemente la supervisión de configuración automatizada para sistemas operativos
 
-**Guía**: No aplicable; esta guía está pensada para recursos de proceso.
+**Instrucciones**: No aplicable; esta guía está pensada para recursos de proceso.
 
 **Supervisión de Azure Security Center**: No aplicable
 

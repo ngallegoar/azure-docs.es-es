@@ -3,12 +3,12 @@ title: Ahorro de costos con la instancia reservada de Azure VMware Solution
 description: Obtenga información sobre cómo comprar una instancia reservada para Azure VMware Solution.
 ms.topic: how-to
 ms.date: 11/12/2020
-ms.openlocfilehash: b57e985068adabccecbbdb43dd11bcf6596bf422
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 80780e9718001893b6960220b5004c1c29b2fec5
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94578972"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327404"
 ---
 # <a name="save-costs-with-azure-vmware-solution"></a>Ahorro de costos con Azure VMware Solution
 
@@ -63,7 +63,7 @@ Estos requisitos se aplican a la compra de una instancia reservada de host dedic
 
 ### <a name="buy-reserved-instances-for-a-csp-subscription"></a>Compra de instancias reservadas para una suscripción de CSP
 
-Los CSP que desean comprar instancias reservadas para sus clientes deben usar el procedimiento **Administración en nombre de** (AOBO) de la [documentación del Centro de partners](https://docs.microsoft.com/partner-center/azure-plan-manage). Para obtener más información, vea el vídeo [Administración en nombre de (AOBO)](https://channel9.msdn.com/Series/cspdev/Module-11-Admin-On-Behalf-Of-AOBO).
+Los CSP que desean comprar instancias reservadas para sus clientes deben usar el procedimiento **Administración en nombre de** (AOBO) de la [documentación del Centro de partners](/partner-center/azure-plan-manage). Para obtener más información, vea el vídeo [Administración en nombre de (AOBO)](https://channel9.msdn.com/Series/cspdev/Module-11-Admin-On-Behalf-Of-AOBO).
 
 1. Inicie sesión en el [Centro de partners](https://partner.microsoft.com).
 
@@ -113,7 +113,7 @@ Puede realizar estos cambios en una reserva después de haberla comprado:
 
 También puede dividir una reserva en fragmentos más pequeños y combinar reservas. Ninguno de estos cambios conlleva una nueva transacción comercial ni un cambio en la fecha de finalización de la reserva.
 
-Para más información sobre las reservas administradas por CSP, consulte [Venta de reservas de Microsoft Azure a clientes mediante el Centro de partners, Azure Portal o las API](https://docs.microsoft.com/partner-center/azure-reservations).
+Para más información sobre las reservas administradas por CSP, consulte [Venta de reservas de Microsoft Azure a clientes mediante el Centro de partners, Azure Portal o las API](/partner-center/azure-reservations).
 
 
 
@@ -131,4 +131,4 @@ Para más información sobre las reservas administradas por CSP, consulte [Venta
 
 Puede cancelar, intercambiar o reembolsar reservas con ciertas limitaciones. Para más información, consulte [Autoservicio de intercambios y reembolsos de reservas de Azure](../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
 
-Los CSP pueden cancelar, intercambiar o reembolsar reservas, con algunas limitaciones, adquiridas por sus clientes. Para obtener más información, consulte [Administración, cancelación, intercambio o reembolso de reservas de Microsoft Azure para clientes](https://docs.microsoft.com/partner-center/azure-reservations-manage).
+Los CSP pueden cancelar, intercambiar o reembolsar reservas, con algunas limitaciones, adquiridas por sus clientes. Para obtener más información, consulte [Administración, cancelación, intercambio o reembolso de reservas de Microsoft Azure para clientes](/partner-center/azure-reservations-manage).

@@ -6,17 +6,17 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 08/05/2020
 ms.author: thweiss
-ms.openlocfilehash: 21bb594f4e374d41cfc4184f3a72aea1717c85d8
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: e87f6f158265fd8ac210a0a071e35b0bb77df4d9
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93086149"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96338289"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-cosmos-account-with-azure-key-vault"></a>Configuración de claves administradas por el cliente para una cuenta de Azure Cosmos con Azure Key Vault
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-Los datos almacenados en su cuenta de Azure Cosmos se cifran de forma automática y sin problemas con claves administradas por Microsoft ( **claves administradas por el servicio** ). También puede optar por agregar una segunda capa de cifrado con las claves administradas ( **claves administradas por el cliente** ).
+Los datos almacenados en su cuenta de Azure Cosmos se cifran de forma automática y sin problemas con claves administradas por Microsoft (**claves administradas por el servicio**). También puede optar por agregar una segunda capa de cifrado con las claves administradas (**claves administradas por el cliente**).
 
 :::image type="content" source="./media/how-to-setup-cmk/cmk-intro.png" alt-text="Capas de cifrado en torno a los datos de clientes":::
 
@@ -27,11 +27,11 @@ Debe almacenar las claves administradas por el cliente en [Azure Key Vault](../
 
 ## <a name="register-the-azure-cosmos-db-resource-provider-for-your-azure-subscription"></a><a id="register-resource-provider"></a> Registro del proveedor de recursos de Azure Cosmos DB para su suscripción a Azure
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com/), vaya a la suscripción de Azure y seleccione **Proveedores de recursos** en la pestaña **Configuración** :
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/), vaya a la suscripción de Azure y seleccione **Proveedores de recursos** en la pestaña **Configuración**:
 
    :::image type="content" source="./media/how-to-setup-cmk/portal-rp.png" alt-text="Entrada Proveedores de recursos en el menú izquierdo":::
 
-1. Busque el proveedor de recursos **Microsoft.DocumentDB**. Compruebe si el proveedor de recursos ya está marcado como registrado. Si no es así, elija el proveedor de recursos y seleccione **Registrar** :
+1. Busque el proveedor de recursos **Microsoft.DocumentDB**. Compruebe si el proveedor de recursos ya está marcado como registrado. Si no es así, elija el proveedor de recursos y seleccione **Registrar**:
 
    :::image type="content" source="./media/how-to-setup-cmk/portal-rp-register.png" alt-text="Registro del proveedor de recursos Microsoft.DocumentDB":::
 
@@ -45,8 +45,8 @@ Si crea una nueva instancia de Azure Key Vault, habilite estas propiedades duran
 
 Si usa una instancia de Azure Key Vault existente y desea verificar si estas propiedades estén habilitadas, puede consultar la sección **Propiedades** en Azure Portal. Si alguna de estas propiedades no está habilitada, consulte las secciones "Habilitar la eliminación temporal" y "Habilitación de la protección de purgas" en cualquiera de los siguientes artículos:
 
-- [Uso de la eliminación temporal con PowerShell](../key-vault/general/soft-delete-powershell.md)
-- [Uso de la eliminación temporal con la CLI de Azure](../key-vault/general/soft-delete-cli.md)
+- [Uso de la eliminación temporal con PowerShell](../key-vault/general/key-vault-recovery.md)
+- [Uso de la eliminación temporal con la CLI de Azure](../key-vault/general/key-vault-recovery.md)
 
 ## <a name="add-an-access-policy-to-your-azure-key-vault-instance"></a>Adición de una directiva de acceso a la instancia de Azure Key Vault
 
@@ -56,11 +56,11 @@ Si usa una instancia de Azure Key Vault existente y desea verificar si estas pro
 
 1. Seleccione **+ Agregar directiva de acceso**.
 
-1. En el menú desplegable **Permisos de claves** , seleccione los permisos **Obtener** , **Desencapsular clave** y **Encapsular clave** :
+1. En el menú desplegable **Permisos de claves**, seleccione los permisos **Obtener**, **Desencapsular clave** y **Encapsular clave**:
 
    :::image type="content" source="./media/how-to-setup-cmk/portal-akv-add-ap-perm2.png" alt-text="Selección de los permisos correctos":::
 
-1. En **Seleccionar entidad de seguridad** , seleccione **Ninguna seleccionada**. A continuación, busque la entidad de seguridad de **Azure Cosmos DB** y selecciónela (para que sea más fácil de encontrar, también puede buscar por el identificador de la entidad de seguridad: `a232010e-820c-4083-83bb-3ace5fc29d0b` en cualquier región de Azure, excepto en las regiones de Azure Government donde el identificador de la entidad de seguridad es `57506a73-e302-42a9-b869-6f12d9ec29e9`). Por último, elija **Seleccionar** en la parte inferior. Si la entidad de seguridad **Azure Cosmos DB** no está en la lista, es posible que tenga que volver a registrar el proveedor de recursos **Microsoft.DocumentDB** como se describe en la sección [Registro del proveedor de recursos](#register-resource-provider) de este artículo.
+1. En **Seleccionar entidad de seguridad**, seleccione **Ninguna seleccionada**. A continuación, busque la entidad de seguridad de **Azure Cosmos DB** y selecciónela (para que sea más fácil de encontrar, también puede buscar por el identificador de la entidad de seguridad: `a232010e-820c-4083-83bb-3ace5fc29d0b` en cualquier región de Azure, excepto en las regiones de Azure Government donde el identificador de la entidad de seguridad es `57506a73-e302-42a9-b869-6f12d9ec29e9`). Por último, elija **Seleccionar** en la parte inferior. Si la entidad de seguridad **Azure Cosmos DB** no está en la lista, es posible que tenga que volver a registrar el proveedor de recursos **Microsoft.DocumentDB** como se describe en la sección [Registro del proveedor de recursos](#register-resource-provider) de este artículo.
 
    :::image type="content" source="./media/how-to-setup-cmk/portal-akv-add-ap.png" alt-text="Selección de la entidad de seguridad de Azure Cosmos DB":::
 
@@ -74,7 +74,7 @@ Si usa una instancia de Azure Key Vault existente y desea verificar si estas pro
 
    :::image type="content" source="./media/how-to-setup-cmk/portal-akv-keys.png" alt-text="Entrada Claves en el menú izquierdo":::
 
-1. Seleccione **Generar/Importar** , proporcione un nombre para la nueva clave y seleccione un tamaño de clave RSA. Para mejorar la seguridad, se recomienda un mínimo de 3072. A continuación, seleccione **Crear** :
+1. Seleccione **Generar/Importar**, proporcione un nombre para la nueva clave y seleccione un tamaño de clave RSA. Para mejorar la seguridad, se recomienda un mínimo de 3072. A continuación, seleccione **Crear**:
 
    :::image type="content" source="./media/how-to-setup-cmk/portal-akv-gen.png" alt-text="Creación de una nueva clave":::
 
@@ -88,7 +88,7 @@ Si usa una instancia de Azure Key Vault existente y desea verificar si estas pro
 
 ### <a name="using-the-azure-portal"></a>Uso de Azure Portal
 
-Al crear una nueva cuenta de Azure Cosmos DB desde Azure Portal, elija **Clave administrada por el cliente** en el paso **Cifrado**. En el campo **URI de clave** , pegue el URI o identificador de clave de la clave de Azure Key Vault que copió del paso anterior:
+Al crear una nueva cuenta de Azure Cosmos DB desde Azure Portal, elija **Clave administrada por el cliente** en el paso **Cifrado**. En el campo **URI de clave**, pegue el URI o identificador de clave de la clave de Azure Key Vault que copió del paso anterior:
 
 :::image type="content" source="./media/how-to-setup-cmk/portal-cosmos-enc.png" alt-text="Configuración de los parámetros de CMK en Azure Portal":::
 
@@ -235,7 +235,7 @@ La rotación de la clave administrada por el cliente que usa la cuenta de Azure�
 
     :::image type="content" source="./media/how-to-setup-cmk/portal-data-encryption.png" alt-text="Entrada de menú de cifrado de datos":::
 
-    A continuación, reemplace el **URI de clave** por la nueva clave que desee usar y seleccione **Guardar** :
+    A continuación, reemplace el **URI de clave** por la nueva clave que desee usar y seleccione **Guardar**:
 
     :::image type="content" source="./media/how-to-setup-cmk/portal-key-swap.png" alt-text="Actualización del URI de la clave":::
 

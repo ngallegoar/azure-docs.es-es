@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 10/07/2020
-ms.openlocfilehash: 1f62623758f683e5fa0580816f1497df3ab23637
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: d5103cbbeb5a8ab12f9ce497ee4ed227ca180728
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95748876"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350303"
 ---
 # <a name="archived-release-notes"></a>Archivado de notas de la versión
 
@@ -30,14 +30,14 @@ Esta versión se aplica a HDInsight 3.6 y HDInsight 4.0. La versión de HDInsigh
 HDInsight Identity Broker (HIB), que permite la autenticación OAuth de clústeres ESP, se encuentra ahora disponible con carácter general en esta versión. Los clústeres de HIB creados después de esta versión tendrán las características de HIB más recientes:
 - Alta disponibilidad (HA)
 - Compatibilidad con Multi-Factor Authentication (MFA)
-- Los usuarios federados inician sesión sin sincronización de hash de contraseña en AAD-DS. Para más información, consulte la [documentación de HIB](https://docs.microsoft.com/azure/hdinsight/domain-joined/identity-broker).
+- Los usuarios federados inician sesión sin sincronización de hash de contraseña en AAD-DS. Para más información, consulte la [documentación de HIB](./domain-joined/identity-broker.md).
 
 #### <a name="moving-to-azure-virtual-machine-scale-sets"></a>Movimiento a conjuntos de escalado de máquinas virtuales
-Ahora HDInsight usa máquinas virtuales de Azure para aprovisionar el clúster. A partir de esta versión, el servicio se migrará gradualmente a [conjuntos de escalado de máquinas virtuales de Azure](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview). Todo el proceso puede tardar meses. Después de migrar las regiones y las suscripciones, los clústeres de HDInsight recién creados se ejecutarán en conjuntos de escalado de máquinas virtuales sin acciones del cliente. No se espera ningún cambio importante.
+Ahora HDInsight usa máquinas virtuales de Azure para aprovisionar el clúster. A partir de esta versión, el servicio se migrará gradualmente a [conjuntos de escalado de máquinas virtuales de Azure](../virtual-machine-scale-sets/overview.md). Todo el proceso puede tardar meses. Después de migrar las regiones y las suscripciones, los clústeres de HDInsight recién creados se ejecutarán en conjuntos de escalado de máquinas virtuales sin acciones del cliente. No se espera ningún cambio importante.
 
 ### <a name="deprecation"></a>Desuso
 #### <a name="deprecation-of-hdinsight-36-ml-services-cluster"></a>Desuso del clúster de Machine Learning de HDInsight 3.6
-El soporte técnico del tipo de clúster de servicios de Machine Learning de HDInsight 3.6 finalizará el 31 de diciembre de 2020. A partir de entonces, los clientes no podrán crear clústeres de servicios de Machine Learning de HDInsight 3.6. Los clústeres existentes se ejecutarán tal cual sin la compatibilidad de Microsoft. Compruebe la expiración del soporte técnico de las versiones y los tipos de clúster de HDInsight [aquí](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#available-versions).
+El soporte técnico del tipo de clúster de servicios de Machine Learning de HDInsight 3.6 finalizará el 31 de diciembre de 2020. A partir de entonces, los clientes no podrán crear clústeres de servicios de Machine Learning de HDInsight 3.6. Los clústeres existentes se ejecutarán tal cual sin la compatibilidad de Microsoft. Compruebe la expiración del soporte técnico de las versiones y los tipos de clúster de HDInsight [aquí](./hdinsight-component-versioning.md#available-versions).
 
 #### <a name="disabled-vm-sizes"></a>Tamaños de máquina virtual deshabilitados
 A partir del 16 de noviembre de 2020, HDInsight impide que los nuevos clientes creen clústeres con los tamaños de máquina virtual standand_A8, standand_A9, standand_A10 y standand_A11. Esta medida no afectará a los clientes existentes que hayan usado estos tamaños de máquina virtual en los últimos tres meses. A partir del 9 de enero de 2021, HDInsight impedirá que todos los clientes creen clústeres con los tamaños de máquina virtual standand_A8, standand_A9, standand_A10 y standand_A11. Los clústeres existentes se ejecutarán tal cual. Considere pasar a HDInsight 4.0 para evitar la posible interrupción del sistema o del soporte técnico.
@@ -52,7 +52,7 @@ En las próximas versiones, se realizarán los siguientes cambios.
 Actualmente, HDInsight no admite la personalización del tamaño de nodo de Zookeeper para los tipos de clúster de Spark, Hadoop y Machine Learning Services. De manera predeterminada, serán tamaños de máquina virtual A2_v2 o A2, que se proporcionan de forma gratuita. En la próxima versión, puede seleccionar el tamaño de máquina virtual de Zookeeper que sea más adecuado para su escenario. Se cobrarán los nodos de Zookeeper con un tamaño de máquina virtual que no sea A2_v2 o A2. Las máquinas virtuales A2_v2 y A2 todavía se proporcionan de forma gratuita.
 
 #### <a name="default-cluster-version-will-be-changed-to-40"></a>La versión predeterminada del clúster cambiará a la 4.0
-A partir de febrero de 2021, la versión predeterminada del clúster de HDInsight cambiará de la 3.6 a la 4.0. Para más información sobre las versiones disponibles, consulte [este artículo](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#available-versions). Más información sobre las novedades de [HDInsight 4.0](https://docs.microsoft.com/azure/hdinsight/hdinsight-version-release)
+A partir de febrero de 2021, la versión predeterminada del clúster de HDInsight cambiará de la 3.6 a la 4.0. Para más información sobre las versiones disponibles, consulte [este artículo](./hdinsight-component-versioning.md#available-versions). Más información sobre las novedades de [HDInsight 4.0](./hdinsight-version-release.md)
 
 #### <a name="hdinsight-36-end-of-support-on-june-30-2021"></a>Fin del soporte técnico de HDInsight 3.6 el 30 de junio de 2021
 El soporte técnico para HDInsight 3.6 finaliza. A partir del 30 de junio de 2021, los clientes no pueden crear clústeres de HDInsight 3.6. Los clústeres existentes se ejecutarán tal cual sin la compatibilidad de Microsoft. Considere pasar a HDInsight 4.0 para evitar la posible interrupción del sistema o del soporte técnico.
@@ -60,7 +60,7 @@ El soporte técnico para HDInsight 3.6 finaliza. A partir del 30 de junio de 20
 ### <a name="bug-fixes"></a>Corrección de errores
 HDInsight continúa realizando mejoras en la confiabilidad y el rendimiento del clúster. 
 #### <a name="fix-issue-for-restarting-vms-in-cluster"></a>Corrección del problema para reiniciar las máquinas virtuales del clúster
-Se ha corregido el problema con el reinicio de las máquinas virtuales del clúster. Puede usar de nuevo [PowerShell o la API REST para reiniciar los nodos del clúster](https://docs.microsoft.com/azure/hdinsight/cluster-reboot-vm).
+Se ha corregido el problema con el reinicio de las máquinas virtuales del clúster. Puede usar de nuevo [PowerShell o la API REST para reiniciar los nodos del clúster](./cluster-reboot-vm.md).
 
 ### <a name="component-version-change"></a>Cambio de versión de componentes
 No hay cambio de versión de componentes para esta versión. En [este documento](./hdinsight-component-versioning.md) puede encontrar las versiones actuales de los componentes para HDInsight 4.0 y HDInsight 3.6.

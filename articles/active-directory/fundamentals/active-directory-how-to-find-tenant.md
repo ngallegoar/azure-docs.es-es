@@ -11,14 +11,14 @@ ms.topic: how-to
 ms.date: 10/30/2020
 ms.author: ajburnle
 ms.reviewer: jeffsta
-ms.custom: it-pro
+ms.custom: it-pro, devx-track-azurecli
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bbf23a32fdf5515402e18f70fe032a1a589dbcbe
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 910e68e5b8933875f252faf65fb58e514dee8254
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93423810"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96326597"
 ---
 # <a name="how-to-find-your-azure-active-directory-tenant-id"></a>Búsqueda del identificador de inquilino de Azure Active Directory
 
@@ -77,4 +77,4 @@ Para obtener más información, vea la referencia del comando [tenant id get](ht
 
 - Para aprender a asociar o agregar una suscripción a un inquilino, vea [Asociación o incorporación de una suscripción de Azure al inquilino de Azure Active Directory](active-directory-how-subscriptions-associated-directory.md).
 
-- Para aprender a buscar el identificador de objeto, vea [Búsqueda del identificador de objeto de usuario](https://docs.microsoft.com/partner-center/find-ids-and-domain-names#find-the-user-object-id).
+- Para aprender a buscar el identificador de objeto, vea [Búsqueda del identificador de objeto de usuario](/partner-center/find-ids-and-domain-names#find-the-user-object-id).

@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 06/19/2020
-ms.openlocfilehash: 02772ff6279ee813b86f92984742ba8301bdf74e
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 78829ae52d74cf6ec58c12779c51bca9a98e0af1
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93357953"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96450799"
 ---
 # <a name="regenerate-storage-account-access-keys"></a>Regeneración de las claves de acceso de la cuenta de almacenamiento
 
@@ -27,7 +27,7 @@ Por motivos de seguridad, es posible que necesite cambiar las claves de acceso d
 
 > [!IMPORTANT]
 
-> Las credenciales que se registran en almacenes de datos se guardan en la instancia de Azure Key Vault asociada al área de trabajo. Si tiene habilitada la [eliminación temporal](https://docs.microsoft.com/azure/key-vault/general/soft-delete-overview) para Key Vault, en este artículo se incluyen instrucciones para actualizar las credenciales. Si anula el registro del almacén de información e intenta volver a registrarlo con el mismo nombre, esta acción producirá un error. Consulte [Activación de la eliminación temporal de un almacén de claves existente]( https://docs.microsoft.com/azure/key-vault/general/soft-delete-change#turn-on-soft-delete-for-an-existing-key-vault) para habilitar la eliminación temporal en este escenario.
+> Las credenciales que se registran en almacenes de datos se guardan en la instancia de Azure Key Vault asociada al área de trabajo. Si tiene habilitada la [eliminación temporal](../key-vault/general/soft-delete-overview.md) para Key Vault, en este artículo se incluyen instrucciones para actualizar las credenciales. Si anula el registro del almacén de información e intenta volver a registrarlo con el mismo nombre, esta acción producirá un error. Consulte [Activación de la eliminación temporal de un almacén de claves existente]( https://docs.microsoft.com/azure/key-vault/general/soft-delete-change#turn-on-soft-delete-for-an-existing-key-vault) para habilitar la eliminación temporal en este escenario.
 
 ## <a name="prerequisites"></a>Requisitos previos
 

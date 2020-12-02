@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 5cf406dc0577f477858dd8a6570f7975747112e0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 048f2585d8e9ac1b10293083bda0900e7ce468bb
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90891250"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96447601"
 ---
 # <a name="connect-to-azure-resource-manager-on-your-azure-stack-edge-pro-device"></a>Conexión a Azure Resource Manager en un dispositivo Azure Stack Edge Pro
 
@@ -138,9 +138,9 @@ El cliente de Windows tiene que cumplir los siguientes requisitos previos:
 
     Compare la versión **principal** y asegúrese de que sea 5.0 o posterior.
 
-    Si su versión no está actualizada, consulte [Actualización de Windows PowerShell existente](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell?view=powershell-6#upgrading-existing-windows-powershell).
+    Si su versión no está actualizada, consulte [Actualización de Windows PowerShell existente](/powershell/scripting/install/installing-windows-powershell?view=powershell-6#upgrading-existing-windows-powershell).
 
-    Si no tiene PowerShell 5.0, siga las instrucciones de [Instalación de Windows PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell?view=powershell-6).
+    Si no tiene PowerShell 5.0, siga las instrucciones de [Instalación de Windows PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-6).
 
     A continuación se muestra una salida de ejemplo.
 
@@ -175,11 +175,11 @@ El cliente de Windows tiene que cumplir los siguientes requisitos previos:
     PSGallery                 Trusted              https://www.powershellgallery.com/api/v2
     ```
     
-Si el repositorio no es de confianza o necesita más información, consulte [Confirmación de la accesibilidad de la Galería de PowerShell](https://docs.microsoft.com/azure-stack/operator/azure-stack-powershell-install?view=azs-1908#2-validate-the-powershell-gallery-accessibility).
+Si el repositorio no es de confianza o necesita más información, consulte [Confirmación de la accesibilidad de la Galería de PowerShell](/azure-stack/operator/azure-stack-powershell-install?view=azs-1908#2-validate-the-powershell-gallery-accessibility).
 
 ## <a name="step-4-set-up-azure-powershell-on-the-client"></a>Paso 4: Configuración de Azure PowerShell en el cliente 
 
-<!--1. Verify the API profile of the client and identify which version of the Azure PowerShell modules and libraries to include on your client. In this example, the client system will be running Azure Stack 1904 or later. For more information, see [Azure Resource Manager API profiles](https://docs.microsoft.com/azure-stack/user/azure-stack-version-profiles?view=azs-1908#azure-resource-manager-api-profiles).-->
+<!--1. Verify the API profile of the client and identify which version of the Azure PowerShell modules and libraries to include on your client. In this example, the client system will be running Azure Stack 1904 or later. For more information, see [Azure Resource Manager API profiles](/azure-stack/user/azure-stack-version-profiles?view=azs-1908#azure-resource-manager-api-profiles).-->
 
 1. Instalará los módulos de Azure PowerShell en el cliente que funcionará con el dispositivo.
 
@@ -327,7 +327,7 @@ Establezca el entorno de Azure Resource Manager y compruebe que la comunicación
     Set-AzureRMEnvironment -Name <Environment Name>
     ```
     
-    Para más información, vaya a [Set-AzureRMEnvironment](https://docs.microsoft.com/powershell/module/azurerm.profile/set-azurermenvironment?view=azurermps-6.13.0).
+    Para más información, vaya a [Set-AzureRMEnvironment](/powershell/module/azurerm.profile/set-azurermenvironment?view=azurermps-6.13.0).
 
     - Defina el entorno en línea para cada cmdlet que ejecute. Esto garantiza que todas las llamadas a la API pasan por el entorno correcto. De forma predeterminada, las llamadas pasarán por el entorno Azure público, pero desea que pasen por el entorno que estableció para el dispositivo Azure Stack Edge Pro.
 

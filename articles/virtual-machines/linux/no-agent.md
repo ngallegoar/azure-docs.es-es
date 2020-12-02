@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 09/01/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: 30e76ec3085922ec2a1d4693681eb97c9052c026
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 9f0309f4e8273c2ef19ea86636de8e3aa6b6c4bc
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978737"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96435107"
 ---
 # <a name="creating-generalized-images-without-a-provisioning-agent"></a>Creación de imágenes generalizadas sin un agente de aprovisionamiento
 
@@ -199,7 +199,7 @@ WantedBy=multi-user.target
 Este servicio de systemd realiza tres acciones para el aprovisionamiento básico:
 
 1. Informa a Azure de que está listo (para indicar que apareció correctamente).
-1. Cambia el nombre de la máquina virtual en función del nombre de la máquina virtual proporcionado por el usuario extrayendo estos datos de [Azure Instance Metadata Service (IMDS)](./instance-metadata-service.md). **Tenga en cuenta** que IMDS también proporciona otros [metadatos de instancia](./instance-metadata-service.md#accessing-azure-instance-metadata-service), como las claves públicas SSH, por lo que puede establecer más de un nombre de host.
+1. Cambia el nombre de la máquina virtual en función del nombre de la máquina virtual proporcionado por el usuario extrayendo estos datos de [Azure Instance Metadata Service (IMDS)](./instance-metadata-service.md). **Tenga en cuenta** que IMDS también proporciona otros [metadatos de instancia](./instance-metadata-service.md#access-azure-instance-metadata-service), como las claves públicas SSH, por lo que puede establecer más de un nombre de host.
 1. Se deshabilita por su cuenta, de modo que solo se ejecute en el primer arranque y no en reinicios posteriores.
 
 Con la unidad en el sistema de archivos, ejecute lo siguiente para su habilitación:

@@ -10,12 +10,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: mokabiru
 ms.date: 11/06/2020
-ms.openlocfilehash: e9fb004df5fdf8a955312ebcf16b8b60fd7c9b6a
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: c47e4c1278f222feac35a2c6ab0b067c916c0217
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94592199"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96326852"
 ---
 # <a name="migration-performance-sql-server-to-sql-managed-instance-performance-analysis"></a>Rendimiento de la migración: Análisis de rendimiento de la migración de SQL Server a SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -86,4 +86,4 @@ Para obtener más información sobre cómo optimizar el nuevo entorno de Azure S
 - [¿Cómo se identifica el motivo por el que el rendimiento de la carga de trabajo en Azure SQL Managed Instance es diferente al de SQL Server?](https://medium.com/azure-sqldb-managed-instance/what-to-do-when-azure-sql-managed-instance-is-slower-than-sql-server-dd39942aaadd)
 - [Causas clave de las diferencias de rendimiento entre SQL Managed Instance y SQL Server](https://azure.microsoft.com/blog/key-causes-of-performance-differences-between-sql-managed-instance-and-sql-server/)
 - [Procedimientos recomendados y consideraciones de rendimiento de almacenamiento para Azure SQL Managed Instance (De uso general)](https://techcommunity.microsoft.com/t5/datacat/storage-performance-best-practices-and-considerations-for-azure/ba-p/305525)
-- [Supervisión del rendimiento en tiempo real para Azure SQL Managed Instance (está archivado, ¿se trata del destino previsto?)](https://docs.microsoft.com/archive/blogs/sqlcat/real-time-performance-monitoring-for-azure-sql-database-managed-instance)
+- [Supervisión del rendimiento en tiempo real para Azure SQL Managed Instance (está archivado, ¿se trata del destino previsto?)](/archive/blogs/sqlcat/real-time-performance-monitoring-for-azure-sql-database-managed-instance)

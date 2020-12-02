@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: troubleshooting
 ms.date: 08/11/2020
 ms.author: alkohli
-ms.openlocfilehash: 3087c209b844d691173edbbd8a993c1d0aae319b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: be7d477d08b025fd450bfa859e8eb677ba680143
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90903642"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96446366"
 ---
 # <a name="troubleshoot-your-azure-stack-edge-pro-ordering-issues"></a>Solución de problemas de pedidos de Azure Stack Edge Pro
 
@@ -33,7 +33,7 @@ En este tutorial, aprenderá a:
 
 ![Suscripción o región no admitidas](media/azure-stack-edge-troubleshoot-ordering/azure-stack-edge-troubleshoot-ordering-01.png)
 
-**Solución propuesta:**  Asegúrese de que ha usado una suscripción admitida como [Contrato Enterprise (EA) de Microsoft](https://azure.microsoft.com/overview/sales-number/), [Proveedor de soluciones en la nube (CSP)](https://docs.microsoft.com/partner-center/azure-plan-lp) o [Patrocinio de Microsoft Azure](https://azure.microsoft.com/offers/ms-azr-0036p/). No se admiten las suscripciones de pago por uso. Para obtener más información, consulte [Prerrequisitos de recursos de Azure Stack Edge](azure-stack-edge-deploy-prep.md#prerequisites).
+**Solución propuesta:**  Asegúrese de que ha usado una suscripción admitida como [Contrato Enterprise (EA) de Microsoft](https://azure.microsoft.com/overview/sales-number/), [Proveedor de soluciones en la nube (CSP)](/partner-center/azure-plan-lp) o [Patrocinio de Microsoft Azure](https://azure.microsoft.com/offers/ms-azr-0036p/). No se admiten las suscripciones de pago por uso. Para obtener más información, consulte [Prerrequisitos de recursos de Azure Stack Edge](azure-stack-edge-deploy-prep.md#prerequisites).
 
 Existe la posibilidad de que Microsoft pueda permitir una actualización del tipo de suscripción en cada caso particular. Póngase en contacto con [Soporte técnico de Microsoft](https://azure.microsoft.com/support/options/) para comprender sus necesidades y ajustar estos límites adecuadamente.
 

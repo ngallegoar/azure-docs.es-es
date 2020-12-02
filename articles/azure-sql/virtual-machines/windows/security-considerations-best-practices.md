@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/23/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: e6f6d1960c07dc23c584dec5bb424f91630fc1bb
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 92cd20f9e636c50416a72ec974a33c87da1ae2cb
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92785075"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327277"
 ---
 # <a name="security-considerations-for-sql-server-on-azure-virtual-machines"></a>Consideraciones de seguridad para SQL Server en Azure Virtual Machines
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -59,11 +59,11 @@ Por último, considere la posibilidad de habilitar conexiones cifradas para la i
 
 ## <a name="encryption"></a>Cifrado
 
-Los discos administrados ofrecen cifrado del lado servidor y Azure Disk Encryption. El [cifrado del lado servidor](../../../virtual-machines/windows/disk-encryption.md) proporciona cifrado en reposo y protege los datos con el fin de cumplir con los compromisos de cumplimiento y seguridad de su organización. [Azure Disk Encryption](../../../security/fundamentals/azure-disk-encryption-vms-vmss.md) usa la tecnología BitLocker o DM-Crypt y se integra con Azure Key Vault para cifrar los discos de datos y del sistema operativo. 
+Los discos administrados ofrecen cifrado del lado servidor y Azure Disk Encryption. El [cifrado del lado servidor](../../../virtual-machines/disk-encryption.md) proporciona cifrado en reposo y protege los datos con el fin de cumplir con los compromisos de cumplimiento y seguridad de su organización. [Azure Disk Encryption](../../../security/fundamentals/azure-disk-encryption-vms-vmss.md) usa la tecnología BitLocker o DM-Crypt y se integra con Azure Key Vault para cifrar los discos de datos y del sistema operativo. 
 
 ## <a name="use-a-non-default-port"></a>Usar un puerto no predeterminado
 
-De forma predeterminada, SQL Server escucha en un puerto conocido, 1433. Para aumentar la seguridad, configure SQL Server para que escuche en un puerto no predeterminado, como 1401. Si se aprovisiona una imagen de la galería de SQL Server en Azure Portal, puede especificar este puerto en la hoja **Configuración de SQL Server** .
+De forma predeterminada, SQL Server escucha en un puerto conocido, 1433. Para aumentar la seguridad, configure SQL Server para que escuche en un puerto no predeterminado, como 1401. Si se aprovisiona una imagen de la galería de SQL Server en Azure Portal, puede especificar este puerto en la hoja **Configuración de SQL Server**.
 
 [!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
 
@@ -84,18 +84,18 @@ Cuando SQL Server escucha en un puerto no predeterminado, debe especificar el pu
 
 No querrá que los atacantes adivinen fácilmente los nombres de las cuentas o las contraseñas. Use las sugerencias siguientes como ayuda para:
 
-- Cree una cuenta de administrador local única que no se llame **Administrador** .
+- Cree una cuenta de administrador local única que no se llame **Administrador**.
 
 - Use contraseñas seguras complejas para todas sus cuentas. Para más información sobre cómo crear una contraseña segura, vea el artículo [Crear una contraseña segura](https://support.microsoft.com/instantanswers/9bd5223b-efbe-aa95-b15a-2fb37bef637d/create-a-strong-password).
 
-- De forma predeterminada, Azure selecciona la Autenticación de Windows durante la instalación de la máquina virtual de SQL Server. Por lo tanto, el inicio de sesión de **SA** está deshabilitado y el programa de instalación asigna una contraseña. Se recomienda no usar ni habilitar el inicio de sesión de **SA** . Si debe tener un inicio de sesión de SQL, use una de las estrategias siguientes:
+- De forma predeterminada, Azure selecciona la Autenticación de Windows durante la instalación de la máquina virtual de SQL Server. Por lo tanto, el inicio de sesión de **SA** está deshabilitado y el programa de instalación asigna una contraseña. Se recomienda no usar ni habilitar el inicio de sesión de **SA**. Si debe tener un inicio de sesión de SQL, use una de las estrategias siguientes:
 
-  - Cree una cuenta de SQL con un nombre único que sea miembro de **sysadmin** . Puede hacerlo desde el portal si habilita **Autenticación de SQL** durante el aprovisionamiento.
+  - Cree una cuenta de SQL con un nombre único que sea miembro de **sysadmin**. Puede hacerlo desde el portal si habilita **Autenticación de SQL** durante el aprovisionamiento.
 
     > [!TIP] 
-    > Si no habilita la autenticación de SQL durante el aprovisionamiento, debe cambiar manualmente el modo de autenticación a **Modo de autenticación de Windows y SQL Server** . Para obtener más información, consulte [Cambiar el modo de autenticación del servidor](/sql/database-engine/configure-windows/change-server-authentication-mode).
+    > Si no habilita la autenticación de SQL durante el aprovisionamiento, debe cambiar manualmente el modo de autenticación a **Modo de autenticación de Windows y SQL Server**. Para obtener más información, consulte [Cambiar el modo de autenticación del servidor](/sql/database-engine/configure-windows/change-server-authentication-mode).
 
-  - Si tiene que usar el inicio de sesión de **SA** , habilite el inicio de sesión después del aprovisionamiento y asigne una nueva contraseña segura.
+  - Si tiene que usar el inicio de sesión de **SA**, habilite el inicio de sesión después del aprovisionamiento y asigne una nueva contraseña segura.
 
 ## <a name="additional-best-practices"></a>Procedimientos recomendados adicionales
 

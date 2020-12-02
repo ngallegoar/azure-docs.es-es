@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 10/01/2020
 ms.author: glenga
-ms.openlocfilehash: 39c0556350482e171234a3ff9dce0c16ed88d110
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 2ccff72be66a88b9bf0a5e9eb9c29ade8397804b
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93406706"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96356200"
 ---
 Los errores que se producen en una instancia de Azure Functions pueden provenir de cualquiera de los orígenes siguientes:
 
@@ -149,6 +149,27 @@ Esta es la directiva de reintentos del archivo *function.json*:
     }
 }
 ```
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+Esta es la directiva de reintentos del archivo *function.json*:
+
+
+```json
+{
+    "disabled": false,
+    "bindings": [
+        {
+            ....
+        }
+    ],
+    "retry": {
+        "strategy": "fixedDelay",
+        "maxRetryCount": 4,
+        "delayInterval": "00:00:10"
+    }
+}
+```
 ---
 
 #### <a name="exponential-backoff-retry"></a>Reintento de retroceso exponencial
@@ -230,6 +251,27 @@ Esta es la directiva de reintentos del archivo *function.json*:
 ```
 
 # <a name="java"></a>[Java](#tab/java)
+
+Esta es la directiva de reintentos del archivo *function.json*:
+
+```json
+{
+    "disabled": false,
+    "bindings": [
+        {
+            ....
+        }
+    ],
+    "retry": {
+        "strategy": "exponentialBackoff",
+        "maxRetryCount": 5,
+        "minimumInterval": "00:00:10",
+        "maximumInterval": "00:15:00"
+    }
+}
+```
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 Esta es la directiva de reintentos del archivo *function.json*:
 

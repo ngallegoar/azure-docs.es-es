@@ -4,12 +4,12 @@ description: En este artículo, aprenderá a solucionar los errores detectados a
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: 343ad80a6b68de352424fa8f16686fcece921954
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: cb25d9263648fbd92bc075751c1a8e627d03bd44
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94840923"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325220"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Solución de errores de copia de seguridad en las máquinas virtuales de Azure
 
@@ -246,7 +246,7 @@ Esto garantizará que las instantáneas se realizan con permisos de host en luga
 
 **Paso 2**: Pruebe a cambiar la programación de la copia de seguridad a un momento en que la máquina virtual esté bajo una carga menor (por ejemplo, menos CPU o IOPS).
 
-**Paso 3**: Pruebe a [aumentar el tamaño de la VM](https://docs.microsoft.com/azure/virtual-machines/windows/resize-vm) y reintente la operación.
+**Paso 3**: Pruebe a [aumentar el tamaño de la VM](../virtual-machines/windows/resize-vm.md) y reintente la operación.
 
 ### <a name="320001-resourcenotfound---could-not-perform-the-operation-as-vm-no-longer-exists--400094-bcmv2vmnotfound---the-virtual-machine-doesnt-exist--an-azure-virtual-machine-wasnt-found"></a>320001, ResourceNotFound: no se pudo realizar la operación porque la VM ya no existe / 400094, BCMV2VMNotFound: la máquina virtual no existe / No se encontró una máquina virtual de Azure
 

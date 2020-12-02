@@ -5,12 +5,12 @@ author: batrived
 ms.topic: article
 ms.date: 06/21/2020
 ms.author: batrived
-ms.openlocfilehash: 7b93d7a110889192bb5be6fffa56a73758d6faa2
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: fa119784715b8c88ef3c9f2700b2cac1cc467234
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92892322"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96339752"
 ---
 # <a name="troubleshoot-connectivity-issues---azure-event-grid"></a>Solución de problemas de conectividad - Azure Event Grid
 
@@ -50,7 +50,7 @@ telnet {sampletopicname}.{region}-{suffix}.eventgrid.azure.net 443
 
 Cuando trabaja con Azure, en ocasiones tiene que permitir intervalos de direcciones IP específicos o direcciones URL en el firewall o proxy corporativo para acceder a todos los servicios de Azure usa o intenta usar. Compruebe que se permite el tráfico en las direcciones IP utilizadas por Event Grid. En el caso de las direcciones IP utilizadas por Azure Event Grid: consulte [Rangos de direcciones IP y etiquetas de servicio de Azure: nube pública](https://www.microsoft.com/download/details.aspx?id=56519) y [Etiqueta de servicio: AzureEventGrid](network-security.md#service-tags).
 
-En el documento [Intervalos de direcciones IP y etiquetas de servicio de Azure: nube pública](https://www.microsoft.com/download/details.aspx?id=56519) también se enumeran las direcciones IP **por región**. Puede permitir intervalos de direcciones para la **región del tema** y la **región emparejada** en el firewall o el proxy corporativo. Para obtener una región emparejada para una región, vea [Continuidad empresarial y recuperación ante desastres (BCDR): Regiones emparejadas de Azure](/azure/best-practices-availability-paired-regions). 
+En el documento [Intervalos de direcciones IP y etiquetas de servicio de Azure: nube pública](https://www.microsoft.com/download/details.aspx?id=56519) también se enumeran las direcciones IP **por región**. Puede permitir intervalos de direcciones para la **región del tema** y la **región emparejada** en el firewall o el proxy corporativo. Para obtener una región emparejada para una región, vea [Continuidad empresarial y recuperación ante desastres (BCDR): Regiones emparejadas de Azure](../best-practices-availability-paired-regions.md). 
 
 > [!NOTE]
 > Se pueden agregar nuevas direcciones IP a la etiqueta de servicio AzureEventGrid, aunque no es habitual. Por lo tanto, es conveniente realizar una comprobación semanal de las etiquetas de servicio.

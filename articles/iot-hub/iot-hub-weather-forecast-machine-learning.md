@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 09/16/2020
 ms.author: robinsh
-ms.openlocfilehash: c53f78702aeb5404bd353274ddb29b9356229fae
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: ab9e122ba0b2b50203a2d66ae14f03f3b6300f96
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92145781"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452333"
 ---
 # <a name="weather-forecast-using-the-sensor-data-from-your-iot-hub-in-azure-machine-learning-studio-classic"></a>Pronóstico meteorológico con los datos del sensor de IoT Hub en Azure Machine Learning Studio (clásico)
 
@@ -46,7 +46,7 @@ Obtenga información sobre cómo usar Azure Machine Learning Studio (clásico) p
   - Un centro de Azure IoT en su suscripción.
   - Una aplicación cliente que envía mensajes a su centro de Azure IoT.
 - Una cuenta de [Azure Machine Learning Studio (clásico)](https://studio.azureml.net/).
-- Una [cuenta de Azure Storage](../storage/common/storage-account-overview.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json#types-of-storage-accounts); es preferible tener **una cuenta de uso general V2**, pero también se puede usar cualquier cuenta de Azure Storage que admita Azure Blob Storage.
+- Una [cuenta de Azure Storage](../storage/common/storage-account-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#types-of-storage-accounts); es preferible tener **una cuenta de uso general V2**, pero también se puede usar cualquier cuenta de Azure Storage que admita Azure Blob Storage.
 
 > [!Note]
 > En este artículo se usa Azure Stream Analytics y otros servicios de pago. Recuerde que se aplican cargos adicionales en Azure Stream Analytics cuando los datos se deben transferir entre regiones de Azure. Por esta razón, es recomendable asegurarse de que el grupo de recursos, IoT Hub y la cuenta de Azure Storage, así como el área de trabajo de Machine Learning Studio (clásico) y el trabajo de Azure Stream Analytics que se agregarán más adelante en este tutorial, se encuentran en la misma región de Azure. Puede comprobar la compatibilidad regional de Azure Machine Learning Studio (clásico) y otros servicios de Azure en la página de [Disponibilidad de productos de Azure por región](https://azure.microsoft.com/global-infrastructure/services/?products=machine-learning-studio&regions=all).

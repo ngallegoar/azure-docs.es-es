@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 07/20/2020
 ms.author: v-erkel
-ms.openlocfilehash: 8bce19e384e600e95b8306dcbba38652b4432bc9
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 90af33a01450002c7d36a4ab4cf4a3da647068c5
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92340536"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96444578"
 ---
 # <a name="use-customer-managed-encryption-keys-for-azure-hpc-cache"></a>Uso de claves de cifrado administradas por el cliente para Azure HPC Cache
 
@@ -20,7 +20,7 @@ Puede usar Azure Key Vault para controlar la titularidad de las claves usadas pa
 > [!NOTE]
 > Todos los datos almacenados en Azure, incluidos los discos de caché, se cifran en reposo mediante claves administradas por Microsoft de forma predeterminada. Solo tiene que seguir los pasos de este artículo si desea administrar las claves usadas para cifrar los datos.
 
-Azure HPC Cache también está protegida por el [cifrado del host de la máquina virtual](../virtual-machines/linux/disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data) en los discos administrados que contienen los datos almacenados en caché, incluso si agrega una clave de cliente para los discos de caché. La adición de una clave administrada por el cliente para el cifrado doble proporciona un nivel de seguridad adicional a los clientes con necesidades de alta seguridad. Consulte el artículo [Cifrado del lado servidor de Azure Disk Storage](../virtual-machines/linux/disk-encryption.md) para más información.
+Azure HPC Cache también está protegida por el [cifrado del host de la máquina virtual](../virtual-machines/disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data) en los discos administrados que contienen los datos almacenados en caché, incluso si agrega una clave de cliente para los discos de caché. La adición de una clave administrada por el cliente para el cifrado doble proporciona un nivel de seguridad adicional a los clientes con necesidades de alta seguridad. Consulte el artículo [Cifrado del lado servidor de Azure Disk Storage](../virtual-machines/disk-encryption.md) para más información.
 
 Esta característica solo está disponible en algunas de las regiones de Azure donde está disponible Azure HPC Cache. Consulte la lista de [disponibilidad de regiones](hpc-cache-overview.md#region-availability) para más información.
 
@@ -144,7 +144,7 @@ Después de elegir los nuevos valores de clave de cifrado, haga clic en **Selecc
 En estos artículos se explica más sobre el uso de Azure Key Vault y las claves administradas por el cliente para cifrar datos en Azure:
 
 * [Información general del cifrado de almacenamiento en Azure](../storage/common/storage-service-encryption.md)
-* [Cifrado de discos con claves administradas por el cliente](../virtual-machines/linux/disk-encryption.md#customer-managed-keys): documentación sobre el uso de Azure Key Vault y discos administrados, que es un escenario similar al de Azure HPC Cache.
+* [Cifrado de discos con claves administradas por el cliente](../virtual-machines/disk-encryption.md#customer-managed-keys): documentación sobre el uso de Azure Key Vault y discos administrados, que es un escenario similar al de Azure HPC Cache.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

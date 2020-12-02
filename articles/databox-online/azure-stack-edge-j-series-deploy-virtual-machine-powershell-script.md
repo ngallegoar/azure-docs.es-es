@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: cd877a91c7c082ce7845394f2636857f33b7940f
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 957274e6080ab4b77e6528386fe0b24b2d877219
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94578763"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96447310"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-via-azure-powershell-script"></a>Implementación de máquinas virtuales en el dispositivo Azure Stack Edge Pro con GPU por medio de un script de Azure PowerShell
 
@@ -83,7 +83,7 @@ Antes de empezar a crear y administrar una máquina virtual en el dispositivo Az
 
     `Uninstall-Module -Name Azure.Storage`
 
-5. [Descargue AzCopy 10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10#download-azcopy) en el cliente de Windows. Tome nota de esta ubicación, ya que la pasará como parámetro al ejecutar el script.
+5. [Descargue AzCopy 10](../storage/common/storage-use-azcopy-v10.md#download-azcopy) en el cliente de Windows. Tome nota de esta ubicación, ya que la pasará como parámetro al ejecutar el script.
 
 6. Asegúrese de que el cliente de Windows ejecuta TLS 1.2 o posterior.
 

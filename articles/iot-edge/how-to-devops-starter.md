@@ -1,18 +1,18 @@
 ---
 title: 'Canalización de CI/CD con Azure DevOps Starter: Azure IoT Edge | Microsoft Docs'
 description: Azure DevOps Starter facilita la introducción a Azure. En pocos y rápidos pasos le ayuda a iniciar la aplicación de Azure IoT Edge que prefiera.
-author: shizn
+author: kgremban
 ms.author: kgremban
 ms.date: 08/25/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: d57c1828b9456851d37a65b88eb5f8ea860a80fe
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 97dc0fe5a3720a41dd63583c222762d832d636ea
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92045863"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96437004"
 ---
 # <a name="create-a-cicd-pipeline-for-iot-edge-with-azure-devops-starter"></a>Creación de una canalización de CI/CD para IoT Edge con Azure DevOps Starter
 
@@ -74,14 +74,14 @@ DevOps Starter ha creado un repositorio Git para el proyecto en Azure Repos. En 
 
    ![Consulte el repositorio generado en Azure Repos](./media/how-to-devops-starter/view-repositories.png)
 
-> [!NOTE]
-> Los pasos siguientes sirven como guía para el uso del explorador web para realizar cambios de código. Si quiere clonar el repositorio localmente en su lugar, seleccione **Clonar** en la parte superior derecha de la ventana. Use la dirección URL proporcionada para clonar el repositorio de Git en Visual Studio Code o la herramienta de desarrollo que prefiera.
+   > [!NOTE]
+   > Los pasos siguientes sirven como guía para el uso del explorador web para realizar cambios de código. Si quiere clonar el repositorio localmente en su lugar, seleccione **Clonar** en la parte superior derecha de la ventana. Use la dirección URL proporcionada para clonar el repositorio de Git en Visual Studio Code o la herramienta de desarrollo que prefiera.
 
 2. El repositorio ya incluye código para un módulo denominado **FilterModule** según el idioma de la aplicación que eligió en el proceso de creación. Abra el archivo **modules/FilterModule/module.json**.
 
    ![Archivo module.json abierto en Azure Repos](./media/how-to-devops-starter/open-module-json.png)
 
-3. Tenga en cuenta que este archivo usa [variables de compilación de Azure DevOps](/azure/devops/pipelines/build/variables?view=vsts#build-variables) en el parámetro de **versión**. Esta configuración garantiza la creación de una nueva versión del módulo cada vez que se ejecute una nueva compilación.
+3. Tenga en cuenta que este archivo usa [variables de compilación de Azure DevOps](/azure/devops/pipelines/build/variables#build-variables) en el parámetro de **versión**. Esta configuración garantiza la creación de una nueva versión del módulo cada vez que se ejecute una nueva compilación.
 
 ## <a name="examine-the-cicd-pipeline"></a>Examen de la canalización de CI/CD
 

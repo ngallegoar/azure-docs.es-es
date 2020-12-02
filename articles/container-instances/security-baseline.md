@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/27/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: f3248085a0719628bcf7fe42253156d9652b86cd
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: e0cf0f30d1110a58ff8087fd348c4916c34e4603
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148631"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351817"
 ---
 # <a name="azure-security-baseline-for-container-instances"></a>Base de referencia de seguridad de Azure para Container Instances
 
@@ -263,7 +263,7 @@ Puede usar Azure PowerShell o la CLI de Azure para buscar o realizar acciones en
 
 * [Registro de instancias y grupos de contenedores con registros de Azure Monitor](./container-instances-log-analytics.md)
 
-* [Descripción del área de trabajo de Log Analytics](../azure-monitor/log-query/get-started-portal.md)
+* [Descripción del área de trabajo de Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md)
 
 * [Procedimiento para realizar consultas personalizadas en Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
 
@@ -750,7 +750,7 @@ Supervise los registros de Azure Container Instances en busca de comportamientos
 
 * [Registro de instancias y grupos de contenedores con registros de Azure Monitor](./container-instances-log-analytics.md)
 
-* [Descripción del área de trabajo de Log Analytics](../azure-monitor/log-query/get-started-portal.md)
+* [Descripción del área de trabajo de Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md)
 
 * [Procedimiento para realizar consultas personalizadas en Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
 
@@ -1028,7 +1028,7 @@ Use Azure Policy para establecer restricciones en el tipo de recursos que se pu
 
 ### <a name="81-use-centrally-managed-anti-malware-software"></a>8.1: Use software antimalware administrado centralmente
 
-**Guía**: no aplicable; esta guía está pensada para recursos de proceso de IaaS.
+**Instrucciones**: no aplicable; esta guía está pensada para recursos de proceso de IaaS.
 
 **Supervisión de Azure Security Center**: No aplicable
 

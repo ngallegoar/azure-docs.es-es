@@ -8,27 +8,27 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/06/2020
-ms.openlocfilehash: 38c7072472a13d7fe3d529933ca17a51e6a86733
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 3e4d0513808cdc44fc71e182a07fa6b050d182ee
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94577811"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452518"
 ---
 # <a name="plan-a-solution-template-for-an-azure-application-offer"></a>Planeamiento de una plantilla de solución para una oferta de Aplicación de Azure
 
 En este artículo se explican los requisitos para publicar un plan de plantilla de solución para una oferta de Aplicación de Azure. Un plan de plantilla de solución es uno de los dos tipos de planes que admiten las ofertas de Aplicación de Azure. Para información sobre la diferencia entre estos dos tipos de planes, consulte [Tipos de planes](plan-azure-application-offer.md#plans). Si aún no lo ha hecho, lea [Planeamiento de una oferta de Aplicación de Azure](plan-azure-application-offer.md).
 
-El tipo de plan de plantilla de solución requiere una [plantilla de Azure Resource Manager](/azure/azure-resource-manager/templates/overview) para implementar automáticamente la infraestructura de la solución.
+El tipo de plan de plantilla de solución requiere una [plantilla de Azure Resource Manager](../azure-resource-manager/templates/overview.md) para implementar automáticamente la infraestructura de la solución.
 
 ## <a name="solution-template-requirements"></a>Requisitos de la plantilla de solución
 
 | Requisitos | Detalles |
 | ------------ | ------------- |
 | Facturación y medición | Aunque no se pueden realizar transacciones con los planes de plantilla de solución, se pueden usar para implementar ofertas de máquina virtual de pago que se facturan mediante el marketplace comercial de Microsoft. Los recursos que implementa la plantilla de ARM de la solución se configuran en la suscripción de Azure del cliente. Las transacciones de máquinas virtuales de pago por uso se realizan con el cliente mediante Microsoft y se facturan con la suscripción de Azure del cliente. <br><br> En el caso de la facturación denominada "traiga su propia licencia" (BYOL), aunque Microsoft factura los costos de infraestructura derivados de la suscripción del cliente, usted realizará la transacción de las tarifas de licencia de software directamente con el cliente. |
-| Disco duro virtual (VHD) compatible con Azure | Las máquinas virtuales deben estar basadas en Windows o Linux. Para más información, consulte:<ul><li>[Creación de un recurso técnico de máquina virtual de Azure](/azure/marketplace/partner-center-portal/vm-certification-issues-solutions#how-to-address-a-vulnerability-or-exploit-in-a-vm-offer.md) (para discos duros virtuales de Windows)</li><li>[Distribuciones de Linux aprobadas en Azure](/azure/virtual-machines/linux/endorsed-distros) (para discos duros virtuales de Linux).</li></ul> |
+| Disco duro virtual (VHD) compatible con Azure | Las máquinas virtuales deben estar basadas en Windows o Linux. Para más información, consulte:<ul><li>[Creación de un recurso técnico de máquina virtual de Azure](./azure-vm-create-certification-faq.md#address-a-vulnerability-or-an-exploit-in-a-vm-offer) (para discos duros virtuales de Windows)</li><li>[Distribuciones de Linux aprobadas en Azure](../virtual-machines/linux/endorsed-distros.md) (para discos duros virtuales de Linux).</li></ul> |
 | Atribución de uso del cliente | Se requiere habilitar la atribución de uso del cliente en todas las plantillas de solución que se publican en Azure Marketplace. Para obtener más información sobre la atribución de uso del cliente y cómo habilitarla, consulte [Atribución de uso del cliente para asociados de Azure](azure-partner-customer-usage-attribution.md). |
-| Uso de discos administrados | Los [discos administrados](/azure/virtual-machines/windows/managed-disks-overview) son la opción predeterminada para los discos persistentes de VM de infraestructura como servicio (IaaS) en Azure. Debe usar discos administrados en las plantillas de solución.<ul><li>Para actualizar las plantillas de solución, siga las instrucciones de [Uso de discos administrados en plantillas de Azure Resource Manager](/azure/virtual-machines/using-managed-disks-template-deployments) y use [las muestras](https://github.com/Azure/azure-quickstart-templates) proporcionadas.</li><li>Para publicar el disco duro virtual como una imagen en Azure Marketplace, importe el disco duro virtual subyacente de los discos administrados en una cuenta de almacenamiento mediante [Azure PowerShell](/azure/virtual-machines/scripts/virtual-machines-powershell-sample-copy-managed-disks-vhd) o la [CLI de Azure](/azure/virtual-machines/scripts/virtual-machines-cli-sample-copy-managed-disks-vhd).</ul> |
+| Uso de discos administrados | Los [discos administrados](../virtual-machines/managed-disks-overview.md) son la opción predeterminada para los discos persistentes de VM de infraestructura como servicio (IaaS) en Azure. Debe usar discos administrados en las plantillas de solución.<ul><li>Para actualizar las plantillas de solución, siga las instrucciones de [Uso de discos administrados en plantillas de Azure Resource Manager](../virtual-machines/using-managed-disks-template-deployments.md) y use [las muestras](https://github.com/Azure/azure-quickstart-templates) proporcionadas.</li><li>Para publicar el disco duro virtual como una imagen en Azure Marketplace, importe el disco duro virtual subyacente de los discos administrados en una cuenta de almacenamiento mediante [Azure PowerShell](../virtual-machines/scripts/virtual-machines-powershell-sample-copy-managed-disks-vhd.md) o la [CLI de Azure](../virtual-machines/scripts/virtual-machines-cli-sample-copy-managed-disks-vhd.md).</ul> |
 | Paquete de implementación | Necesitará un paquete de implementación que permita a los clientes implementar el plan. Si crea varios planes que requieren la misma configuración técnica, puede usar el mismo paquete de plan. Para más información, consulte la siguiente sección: Paquete de implementación. |
 |||
 
@@ -38,8 +38,8 @@ El paquete de implementación contiene todos los archivos de plantilla necesario
 
 Todas las aplicaciones de Azure deben incluir estos dos archivos en la carpeta raíz de un archivo .zip:
 
-- Un archivo de plantilla de Resource Manager llamado [mainTemplate.json](/azure/azure-resource-manager/managed-applications/publish-service-catalog-app?tabs=azure-powershell#create-the-arm-template.md). Esta plantilla define los recursos que se van a implementar en la suscripción de Azure del cliente. Para ver ejemplos de plantillas de Resource Manager, consulte la [galería de plantillas de inicio rápido de Azure](https://azure.microsoft.com/documentation/templates/) o el repositorio [GitHub: Plantillas de inicio rápido de Azure Resource Manager](https://github.com/azure/azure-quickstart-templates) correspondiente.
-- Una definición de interfaz de usuario para la experiencia de creación de aplicaciones de Azure llamada [createUiDefinition.json](/azure/azure-resource-manager/managed-application-createuidefinition-overview). En la interfaz de usuario, puede especificar los elementos que permiten a los consumidores proporcionar los valores de los parámetros.
+- Un archivo de plantilla de Resource Manager llamado [mainTemplate.json](../azure-resource-manager/managed-applications/publish-service-catalog-app.md?tabs=azure-powershell#create-the-arm-template). Esta plantilla define los recursos que se van a implementar en la suscripción de Azure del cliente. Para ver ejemplos de plantillas de Resource Manager, consulte la [galería de plantillas de inicio rápido de Azure](https://azure.microsoft.com/documentation/templates/) o el repositorio [GitHub: Plantillas de inicio rápido de Azure Resource Manager](https://github.com/azure/azure-quickstart-templates) correspondiente.
+- Una definición de interfaz de usuario para la experiencia de creación de aplicaciones de Azure llamada [createUiDefinition.json](../azure-resource-manager/managed-applications/create-uidefinition-overview.md). En la interfaz de usuario, puede especificar los elementos que permiten a los consumidores proporcionar los valores de los parámetros.
 
 Los tamaños de archivo máximos admitidos son:
 
@@ -50,7 +50,7 @@ Todas las nuevas ofertas de la aplicación de Azure deben incluir un GUID de [at
 
 ## <a name="azure-regions"></a>Regiones de Azure
 
-Puede publicar su plan en la región pública de Azure, en la región de Azure Government, o en ambas. Antes de publicar en [Azure Government](/azure/azure-government/documentation-government-manage-marketplace-partners), pruebe y valide el plan en el entorno, ya que algunos puntos de conexión pueden ser diferentes. Para configurar y probar el plan, solicite una cuenta de prueba desde [Prueba de Microsoft Azure Government](https://azure.microsoft.com/global-infrastructure/government/request/).
+Puede publicar su plan en la región pública de Azure, en la región de Azure Government, o en ambas. Antes de publicar en [Azure Government](../azure-government/documentation-government-manage-marketplace-partners.md), pruebe y valide el plan en el entorno, ya que algunos puntos de conexión pueden ser diferentes. Para configurar y probar el plan, solicite una cuenta de prueba desde [Prueba de Microsoft Azure Government](https://azure.microsoft.com/global-infrastructure/government/request/).
 
 Como publicador, es responsable de los controles de cumplimiento, las medidas de seguridad y los procedimientos recomendados. Azure Government usa redes y centros de datos aislados físicamente (ubicados solo en Estados Unidos).
 

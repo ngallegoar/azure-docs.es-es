@@ -8,12 +8,12 @@ ms.author: kgremban
 ms.date: 3/27/2020
 ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: 1883ffdff20bbbef8efec1440854f01a21a281dc
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 2ae6d46198d979f91de5bf31d389f75961b4ab88
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95994526"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96437174"
 ---
 # <a name="use-visual-studio-2019-to-develop-and-debug-modules-for-azure-iot-edge"></a>Uso de Visual Studio 2019 para desarrollar y depurar módulos para Azure IoT Edge
 
@@ -32,7 +32,7 @@ En este artículo se muestra cómo usar las herramientas de Azure IoT Edge para 
 
 En este artículo se da por hecho que usa una máquina virtual que ejecuta Windows como máquina de desarrollo. En equipos Windows, puede desarrollar módulos de Windows o Linux. Para desarrollar módulos de Windows, use un equipo Windows que ejecute la versión 1809, la compilación 17763 o una más reciente. Para desarrollar módulos de Linux, use un equipo Windows que cumpla los [requisitos de Docker Desktop](https://docs.docker.com/docker-for-windows/install/#what-to-know-before-you-install).
 
-En este artículo se usa Visual Studio 2019 como herramienta de desarrollo principal, por lo que debe instalar Visual Studio. Asegúrese de incluir las cargas de trabajo de **desarrollo de Azure** y **desarrollo de escritorio con C++** en la instalación de Visual Studio 2019. También puede [modificar Visual Studio 2019](/visualstudio/install/modify-visual-studio?view=vs-2019) para agregar las cargas de trabajo necesarias.
+En este artículo se usa Visual Studio 2019 como herramienta de desarrollo principal, por lo que debe instalar Visual Studio. Asegúrese de incluir las cargas de trabajo de **desarrollo de Azure** y **desarrollo de escritorio con C++** en la instalación de Visual Studio 2019. También puede [modificar Visual Studio 2019](/visualstudio/install/modify-visual-studio?view=vs-2019&preserve-view=true) para agregar las cargas de trabajo necesarias.
 
 Una vez que Visual Studio 2019 esté listo, también necesitará las siguientes herramientas y componentes:
 

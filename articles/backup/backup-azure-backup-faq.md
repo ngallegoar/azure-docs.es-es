@@ -3,12 +3,12 @@ title: Respuestas a preguntas comunes
 description: 'Respuestas a preguntas comunes sobre las características de Azure Backup, incluidos los almacenes de Recovery Services, las copias de seguridad que puede realizar, cómo funciona, el cifrado y los límites. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: 72a4f805b34ba8a536cd398efd5e6809bd66f0d4
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: d85866e490b2c56abb7de1e94cd0ffaa8f714615
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92096630"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327158"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Preguntas más frecuentes de Azure Backup
 
@@ -60,7 +60,7 @@ Si ya ha configurado la copia de seguridad y debe pasar de GRS a LRS, consulte [
 
 ### <a name="how-can-i-move-data-from-the-recovery-services-vault-to-on-premises"></a>¿Cómo puedo transferir datos del almacén de Recovery Services a un entorno local?
 
-No se admite la exportación de datos directamente desde el almacén de Recovery Services al entorno local mediante Data Box. Los datos se deben restaurar a una cuenta de almacenamiento y, a continuación, se pueden mover al entorno local a través de [Data Box](https://docs.microsoft.com/azure/databox/data-box-overview) o [Importación/Exportación](https://docs.microsoft.com/azure/storage/common/storage-import-export-service).
+No se admite la exportación de datos directamente desde el almacén de Recovery Services al entorno local mediante Data Box. Los datos se deben restaurar a una cuenta de almacenamiento y, a continuación, se pueden mover al entorno local a través de [Data Box](../databox/data-box-overview.md) o [Importación/Exportación](../storage/common/storage-import-export-service.md).
 
 ## <a name="azure-backup-agent"></a>Agente de Azure Backup
 

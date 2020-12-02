@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 10/10/2020
 ms.author: alkohli
-ms.openlocfilehash: 8957d8982a3bfe1da2811dc10d0c3e77a72fc288
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: ec7a32739940d53d976e73a7e170df96a0acc245
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92367608"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96449516"
 ---
 # <a name="azure-key-vault-integration-with-azure-stack-edge"></a>Integración de Azure Key Vault con Azure Stack Edge 
 
@@ -49,7 +49,7 @@ Se crea un almacén de claves para el recurso de Azure Stack Edge durante el pro
 
 - Para evitar la eliminación accidental, se habilita un bloqueo de recursos en el almacén de claves. También se habilita una eliminación temporal en el almacén de claves que permite restaurar el almacén de claves en un plazo de 90 días si hay una eliminación accidental. Para más información, consulte [Información general sobre la eliminación temporal de Azure Key Vault](../key-vault/general/soft-delete-overview.md).
 
-    Si el almacén de claves se elimina accidentalmente y no ha transcurrido el período de protección de purga de 90 días, siga estos pasos para la [Recuperación del almacén de claves](../key-vault/general/soft-delete-powershell.md#recovering-a-key-vault). 
+    Si el almacén de claves se elimina accidentalmente y no ha transcurrido el período de protección de purga de 90 días, siga estos pasos para la [Recuperación del almacén de claves](../key-vault/general/key-vault-recovery.md#list-recover-or-purge-soft-deleted-secrets-keys-and-certificates). 
 
 - Si existe un recurso de Azure Stack Edge antes de que se integre Azure Key Vault con el recurso de Azure Stack Edge, no se verá afectado. Puede seguir usando el recurso de Azure Stack Edge existente. 
 
@@ -73,4 +73,3 @@ When you generate an activation key, the following events occur:
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Obtenga más información sobre la [Generación de la clave de activación](azure-stack-edge-gpu-deploy-prep.md#get-the-activation-key).
-

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 99594ad5fe07f18f639b4870f4e0faa59a697afc
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: a92802f0b121a332afccf7f6c12e876b3263bd82
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843186"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96343950"
 ---
 # <a name="azure-security-baseline-for-expressroute"></a>Línea de base de seguridad de Azure para ExpressRoute
 
@@ -56,9 +56,9 @@ Para más información, consulte [Introducción a la línea de base de seguridad
 
 **Guía**: no aplicable; la instancia de ExpressRoute de cada cliente se encuentra dentro de sus propios dominios de enrutamiento y se tuneliza en una red virtual propia. Aunque las instancias de ExpressRoute están aisladas, para la protección adicional de otros recursos que comparten la misma red virtual, puede habilitar el estándar DDoS Protection a fin de protegerse frente a ataques DDoS.
 
-* [Descripción de los controles de seguridad para Azure ExpressRoute](./expressroute-security-controls.md)
+* [Descripción de los controles de seguridad para Azure ExpressRoute]()
 
-* [Configuración de la protección contra DDoS](../virtual-network/manage-ddos-protection.md)
+* [Configuración de la protección contra DDoS](../ddos-protection/manage-ddos-protection.md)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -76,7 +76,7 @@ Para más información, consulte [Introducción a la línea de base de seguridad
 
 **Guía**: no aplicable; la instancia de ExpressRoute de cada cliente se encuentra dentro de sus propios dominios de enrutamiento y se tuneliza en una red virtual propia.
 
-* [Descripción de los controles de seguridad para Azure ExpressRoute](./expressroute-security-controls.md)
+* [Descripción de los controles de seguridad para Azure ExpressRoute]()
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -303,7 +303,7 @@ Además, para ayudarle a realizar un seguimiento de las cuentas administrativas 
 
 * [Uso de estaciones de trabajo con privilegios de acceso](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
 
-* [Planeamiento de una implementación de Multi-Factor Authentication de Azure AD basado en la nube](../active-directory/authentication/howto-mfa-getstarted.md)
+* [Planeamiento de una implementación de Azure AD Multi-Factor Authentication basada en la nube](../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -447,7 +447,7 @@ Procedimiento para configurar IPsec de sitio a sitio a través de ExpressRoute: 
 
 **Guía**: no aplicable; Azure ExpressRoute no almacena datos de clientes.
 
-* [Descripción de los controles de seguridad para Azure ExpressRoute](./expressroute-security-controls.md)
+* [Descripción de los controles de seguridad para Azure ExpressRoute]()
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -709,7 +709,7 @@ Use Azure Resource Graph para consultar o detectar recursos dentro de sus suscri
 
 ### <a name="72-establish-secure-operating-system-configurations"></a>7.2: Establezca configuraciones del sistema operativo seguras
 
-**Guía**: No aplicable; esta guía está pensada para recursos de proceso.
+**Instrucciones**: No aplicable; esta guía está pensada para recursos de proceso.
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -729,7 +729,7 @@ Use Azure Resource Graph para consultar o detectar recursos dentro de sus suscri
 
 ### <a name="74-maintain-secure-operating-system-configurations"></a>7.4: Mantenga configuraciones del sistema operativo seguras
 
-**Guía**: No aplicable; esta guía está pensada para recursos de proceso.
+**Instrucciones**: No aplicable; esta guía está pensada para recursos de proceso.
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -749,7 +749,7 @@ Use Azure Resource Graph para consultar o detectar recursos dentro de sus suscri
 
 ### <a name="76-securely-store-custom-operating-system-images"></a>7.6: Almacene imágenes de sistema operativo personalizadas de forma segura
 
-**Guía**: No aplicable; esta guía está pensada para recursos de proceso.
+**Instrucciones**: No aplicable; esta guía está pensada para recursos de proceso.
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -787,7 +787,7 @@ Use Azure Resource Graph para consultar o detectar recursos dentro de sus suscri
 
 ### <a name="710-implement-automated-configuration-monitoring-for-operating-systems"></a>7.10: Implemente la supervisión de configuración automatizada para sistemas operativos
 
-**Guía**: No aplicable; esta guía está pensada para recursos de proceso.
+**Instrucciones**: No aplicable; esta guía está pensada para recursos de proceso.
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -861,7 +861,7 @@ Es su responsabilidad realizar un análisis previo del contenido que se carga en
 
 **Instrucciones**: no aplicable; Azure ExpressRoute no almacena datos de clientes.
 
-* [Descripción de los controles de seguridad para Azure ExpressRoute](./expressroute-security-controls.md)
+* [Descripción de los controles de seguridad para Azure ExpressRoute]()
 
 **Supervisión de Azure Security Center**: No aplicable
 

@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 11/27/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 60f781ddfa5717bbe5bcbb05ec8c236c8594c587
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: c6d03c896242d02e147e880a99eb9f1e7bb15da8
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92793099"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96326881"
 ---
 # <a name="what-is-sql-server-on-azure-virtual-machines-windows"></a>Qué es SQL Server en Azure Virtual Machines (Windows)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -109,18 +109,18 @@ Si tiene una base de datos existente, debe moverla a la máquina virtual de SQL�
 
 Azure Portal proporciona una sola página donde puede administrar [todos los recursos de Azure SQL](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Sql%2Fazuresql), incluidas las máquinas virtuales de SQL.
 
-Para acceder a la página **Recursos SQL de Azure** , en el menú de Azure Portal, seleccione **Azure SQL** o busque y seleccione **Azure SQL** en cualquier página.
+Para acceder a la página **Recursos SQL de Azure**, en el menú de Azure Portal, seleccione **Azure SQL** o busque y seleccione **Azure SQL** en cualquier página.
 
 ![Búsqueda de Azure SQL](./media/sql-server-on-azure-vm-iaas-what-is-overview/search-for-azure-sql.png)
 
 > [!NOTE]
 > Azure SQL proporciona una manera rápida y sencilla de acceder a todas las bases de datos, grupos elásticos, servidores lógicos, instancias administradas y máquinas virtuales de Azure SQL. SQL de Azure no es un servicio ni un recurso. 
 
-Para administrar los recursos existentes, seleccione el elemento deseado en la lista. Para crear nuevos recursos de Azure SQL, seleccione **+ Agregar** . 
+Para administrar los recursos existentes, seleccione el elemento deseado en la lista. Para crear nuevos recursos de Azure SQL, seleccione **+ Agregar**. 
 
 ![Creación de un recurso de Azure SQL](./media/sql-server-on-azure-vm-iaas-what-is-overview/create-azure-sql-resource.png)
 
-Después de seleccionar **+ Agregar** , vea información adicional sobre las diferentes opciones al seleccionar **Mostrar detalles** en cualquier icono.
+Después de seleccionar **+ Agregar**, vea información adicional sobre las diferentes opciones al seleccionar **Mostrar detalles** en cualquier icono.
 
 ![detalles del icono de bases de datos](./media/sql-server-on-azure-vm-iaas-what-is-overview/sql-vm-details.png)
 
@@ -147,7 +147,7 @@ De manera predeterminada, el Programa para la mejora de la experiencia del clien
 ### <a name="networking"></a>Redes
 * [Información general sobre Virtual Network](../../../virtual-network/virtual-networks-overview.md)
 * [Direcciones IP en Azure](../../../virtual-network/public-ip-addresses.md)
-* [Crear un nombre de dominio completo en el Portal de Azure](../../../virtual-machines/linux/portal-create-fqdn.md)
+* [Crear un nombre de dominio completo en el Portal de Azure](../../../virtual-machines/create-fqdn.md)
 
 ### <a name="sql"></a>SQL
 * [Documentación de SQL Server](/sql/index)

@@ -9,12 +9,12 @@ ms.date: 03/20/2020
 ms.author: justipat
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b3bd6a71898576ac23cdd10c1eb52e1ef3a39b95
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: cfef6ce0fb38f074f854d5ceb77677843e44b91b
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93336595"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96345736"
 ---
 # <a name="use-system-assigned-managed-identities-to-access-azure-cosmos-db-data"></a>Uso de identidades administradas asignadas por el sistema para acceder a datos de Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -31,11 +31,11 @@ En este paso, asignará una identidad administrada asignada por el sistema a la 
 
 1. En [Azure Portal](https://portal.azure.com/), abra el panel **Función de Azure** y vaya a la aplicación de funciones. 
 
-1. Abra la pestaña **Características de la plataforma** > **Identidad** : 
+1. Abra la pestaña **Características de la plataforma** > **Identidad**: 
 
    :::image type="content" source="./media/managed-identity-based-authentication/identity-tab-selection.png" alt-text="Captura de pantalla que muestra las características de Plataforma y las opciones de Identidad de la aplicación de funciones.":::
 
-1. En la pestaña **Identidad** , **active** el **Estado** de identidad del sistema y seleccione **Guardar**. El panel **Identidad** debe tener este aspecto:  
+1. En la pestaña **Identidad**, **active** el **Estado** de identidad del sistema y seleccione **Guardar**. El panel **Identidad** debe tener este aspecto:  
 
    :::image type="content" source="./media/managed-identity-based-authentication/identity-tab-system-managed-on.png" alt-text="Captura de pantalla que muestra el estado de identidad del sistema activado.":::
 
@@ -58,7 +58,7 @@ En este escenario, la aplicación de funciones leerá la temperatura del acuario
 
 ### <a name="assign-the-role-using-azure-portal"></a>Asignación del rol mediante Azure Portal
 
-1. Inicie sesión en Azure Portal y vaya a la cuenta de Azure Cosmos DB. Abra el panel **Control de acceso (IAM)** y, después, la pestaña **Asignaciones de roles** :
+1. Inicie sesión en Azure Portal y vaya a la cuenta de Azure Cosmos DB. Abra el panel **Control de acceso (IAM)** y, después, la pestaña **Asignaciones de roles**:
 
    :::image type="content" source="./media/managed-identity-based-authentication/cosmos-db-iam-tab.png" alt-text="Captura de pantalla que muestra el panel Control de acceso y la pestaña Asignaciones de roles.":::
 
@@ -68,9 +68,9 @@ En este escenario, la aplicación de funciones leerá la temperatura del acuario
 
    :::image type="content" source="./media/managed-identity-based-authentication/cosmos-db-iam-tab-add-role-pane.png" alt-text="Captura de pantalla que muestra el panel Agregar asignación de roles.":::
 
-   * **Rol** : seleccione **Colaborador de cuenta de DocumentDB**.
-   * **Asignar acceso a** : en la subsección **Select system-assigned managed identity** (Seleccionar identidad administrada asignada por el sistema), seleccione **Aplicación de funciones**.
-   * **Select** : el panel se rellenará con todas las aplicaciones de funciones de la suscripción que tengan una **Identidad del sistema administrada**. En este caso, seleccione la aplicación de funciones **FishTankTemperatureService** : 
+   * **Rol**: seleccione **Colaborador de cuenta de DocumentDB**.
+   * **Asignar acceso a**: en la subsección **Select system-assigned managed identity** (Seleccionar identidad administrada asignada por el sistema), seleccione **Aplicación de funciones**.
+   * **Select**: el panel se rellenará con todas las aplicaciones de funciones de la suscripción que tengan una **Identidad del sistema administrada**. En este caso, seleccione la aplicación de funciones **FishTankTemperatureService**: 
 
       :::image type="content" source="./media/managed-identity-based-authentication/cosmos-db-iam-tab-add-role-pane-filled.png" alt-text="Captura de pantalla que muestra el panel Agregar asignación de roles con ejemplos.":::
 
@@ -214,7 +214,7 @@ namespace Monitor
 }
 ```
 
-Ya está preparado para [implementar la aplicación de funciones](../azure-functions/functions-create-first-function-vs-code.md).
+Ya está preparado para [implementar la aplicación de funciones](../azure-functions/create-first-function-vs-code-csharp.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

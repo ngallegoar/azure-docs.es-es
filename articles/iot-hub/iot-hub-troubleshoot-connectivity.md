@@ -15,12 +15,12 @@ ms.custom:
 - 'Role: Technical Support'
 - fasttrack-edit
 - iot
-ms.openlocfilehash: b179bb3566cc19b8033a56348db34cd1f05cee10
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 81558526500f3c01e975d9a963b4a6a98ec6d753
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94506403"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96446413"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-disconnects-with-azure-iot-hub"></a>Supervisión, diagnóstico y solución de problemas de desconexión con Azure IoT Hub
 
@@ -58,7 +58,7 @@ Explore los temas siguientes para más información sobre la supervisión de eve
 
 * Para ver un tutorial sobre la ordenación de los eventos de conexión de los dispositivos, consulte [Ordenación de eventos de conexión de dispositivos de Azure IoT Hub mediante Azure Cosmos DB](iot-hub-how-to-order-connection-state-events.md).
 
-* Para ver un tutorial sobre el envío de notificaciones por correo electrónico, consulte [Tutorial: Envío de notificaciones por correo electrónico sobre eventos de Azure IoT Hub mediante Event Grid y Logic Apps](/azure/event-grid/publish-iot-hub-events-to-logic-apps) en la documentación de Event Grid.
+* Para ver un tutorial sobre el envío de notificaciones por correo electrónico, consulte [Tutorial: Envío de notificaciones por correo electrónico sobre eventos de Azure IoT Hub mediante Event Grid y Logic Apps](../event-grid/publish-iot-hub-events-to-logic-apps.md) en la documentación de Event Grid.
 
 ## <a name="azure-monitor-route-connection-events-to-logs"></a>Azure Monitor: enrutamiento de los eventos de conexión a los registros
 
@@ -76,7 +76,7 @@ Para más información sobre el enrutamiento de los registros a un destino, cons
 
 Puede configurar alertas basadas en las métricas de la plataforma emitidas por IoT Hub. Con las alertas de métricas, puede notificar a los usuarios que se ha producido una condición de interés y también desencadenar acciones que pueden responder a esa condición automáticamente.
 
-La métrica [*Dispositivos conectados (versión preliminar)* ](monitor-iot-hub-reference.md#device-metrics) indica cuántos dispositivos están conectados a IoT Hub. Puede crear alertas que se desencadenarán si esta métrica cae por debajo de un valor de umbral:
+La métrica [*Dispositivos conectados (versión preliminar)*](monitor-iot-hub-reference.md#device-metrics) indica cuántos dispositivos están conectados a IoT Hub. Puede crear alertas que se desencadenarán si esta métrica cae por debajo de un valor de umbral:
 
 :::image type="content" source="media/iot-hub-troubleshoot-connectivity/configure-alert-logic.png" alt-text="Configuración de la lógica de alertas para la métrica de dispositivos conectados.":::
 

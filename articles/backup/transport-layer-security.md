@@ -3,12 +3,12 @@ title: Seguridad de la capa de transporte en Azure Backup
 description: Obtenga información acerca de cómo habilitar Azure Backup para usar el protocolo de cifrado Seguridad de la capa de transporte (TLS) para proteger los datos cuando se transfieren a través de una red.
 ms.topic: conceptual
 ms.date: 11/01/2020
-ms.openlocfilehash: 9881fd3532cbc7d67c7d5adbce75e02fc62e0bcf
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.openlocfilehash: ba9c9d91f562f54695a0739908c8a409d14d5852
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93280656"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327124"
 ---
 # <a name="transport-layer-security-in-azure-backup"></a>Seguridad de la capa de transporte en Azure Backup
 
@@ -45,7 +45,7 @@ Las siguientes claves del Registro garantizan que el protocolo TLS 1.2 está hab
 
 ### <a name="configuring-net-framework"></a>Configuración de .NET Framework
 
-Las claves del Registro siguientes configuran .NET Framework para que admita la criptografía segura. Puede obtener más información sobre la [configuración de .NET Framework aquí](https://docs.microsoft.com/dotnet/framework/network-programming/tls#configuring-schannel-protocols-in-the-windows-registry).
+Las claves del Registro siguientes configuran .NET Framework para que admita la criptografía segura. Puede obtener más información sobre la [configuración de .NET Framework aquí](/dotnet/framework/network-programming/tls#configuring-schannel-protocols-in-the-windows-registry).
 
 ```reg
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319]
@@ -65,7 +65,7 @@ TLS 1.2 es más seguro que los protocolos criptográficos anteriores, como SSL 2
 
 ### <a name="what-determines-the-encryption-protocol-used"></a>¿Qué determina el protocolo de cifrado usado?
 
-La versión de protocolo más alta admitida por el cliente y el servidor se negocia para establecer la conversación cifrada. Para obtener más información sobre el protocolo de enlace TLS, vea [Establecimiento de una sesión segura mediante TLS](https://docs.microsoft.com/windows/win32/secauthn/tls-handshake-protocol#establishing-a-secure-session-by-using-tls).
+La versión de protocolo más alta admitida por el cliente y el servidor se negocia para establecer la conversación cifrada. Para obtener más información sobre el protocolo de enlace TLS, vea [Establecimiento de una sesión segura mediante TLS](/windows/win32/secauthn/tls-handshake-protocol#establishing-a-secure-session-by-using-tls).
 
 ### <a name="what-is-the-impact-of-not-enabling-tls-12"></a>¿Cuál es el impacto de no habilitar TLS 1.2?
 
@@ -77,6 +77,6 @@ Para mejorar la seguridad de los ataques por degradación del protocolo, Azure B
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-- [Protocolo Seguridad de la capa de transporte](https://docs.microsoft.com/windows/win32/secauthn/transport-layer-security-protocol)
-- [Garantía de la compatibilidad con TLS 1.2 en sistemas operativos implementados](https://docs.microsoft.com/security/engineering/solving-tls1-problem#ensuring-support-for-tls-12-across-deployed-operating-systems)
-- Para obtener más información, consulte [Procedimientos recomendados sobre la seguridad de la capa de transporte (TLS) con .NET Framework](https://docs.microsoft.com/dotnet/framework/network-programming/tls).
+- [Protocolo Seguridad de la capa de transporte](/windows/win32/secauthn/transport-layer-security-protocol)
+- [Garantía de la compatibilidad con TLS 1.2 en sistemas operativos implementados](/security/engineering/solving-tls1-problem#ensuring-support-for-tls-12-across-deployed-operating-systems)
+- Para obtener más información, consulte [Procedimientos recomendados sobre la seguridad de la capa de transporte (TLS) con .NET Framework](/dotnet/framework/network-programming/tls).

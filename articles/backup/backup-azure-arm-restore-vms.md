@@ -4,12 +4,12 @@ description: Restaure una máquina virtual de Azure desde un punto de recuperaci
 ms.reviewer: geg
 ms.topic: conceptual
 ms.date: 08/02/2020
-ms.openlocfilehash: 335dfc665cc7fb9727e4eff3e65a18a2aa5c3f94
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 1c28de679bd957a472e543489a2dd15b3883aed5
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96002994"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327192"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Restauración de datos de máquinas virtuales de Azure en Azure Portal
 
@@ -203,7 +203,7 @@ Hay una serie de escenarios comunes en los que es posible que deba restaurar las
 **Grupo de seguridad de red (NSG) en la NIC o la subred** | La copia de seguridad de máquinas virtuales de Azure admite la copia de seguridad y la restauración de información de NSG en el nivel de red virtual, subred y NIC.
 **Máquinas virtuales ancladas por zona** | Si realiza una copia de seguridad de una máquina virtual de Azure anclada a una zona (con Azure Backup), puede restaurarla en la misma zona en que estaba anclada. [Más información](../availability-zones/az-overview.md)
 **Restauración de una máquina virtual en un conjunto de disponibilidad** | Al restaurar una máquina virtual desde el portal, no hay ninguna opción para elegir un conjunto de disponibilidad. Una máquina virtual restaurada no tiene un conjunto de disponibilidad. Si usa la opción del disco de restauración, puede [especificar un conjunto de disponibilidad](../virtual-machines/windows/tutorial-availability-sets.md) al crear una máquina virtual desde el disco con la plantilla proporcionada o mediante PowerShell.
-**Restauración de máquinas virtuales especiales como máquinas virtuales de SQL** | Si va a realizar una copia de seguridad de una máquina virtual de SQL mediante la copia de seguridad de máquina virtual de Azure y después usa la opción para restaurar la VM o crea una VM después de restaurar los discos, la máquina virtual recién creada debe estar registrada con el proveedor SQL, como se mencionó [aquí](../azure-sql/virtual-machines/windows/sql-vm-resource-provider-register.md?tabs=azure-cli%2Cbash). Esto convertirá la máquina virtual restaurada en una máquina virtual de SQL.
+**Restauración de máquinas virtuales especiales como máquinas virtuales de SQL** | Si va a realizar una copia de seguridad de una máquina virtual de SQL mediante la copia de seguridad de máquina virtual de Azure y después usa la opción para restaurar la VM o crea una VM después de restaurar los discos, la máquina virtual recién creada debe estar registrada con el proveedor SQL, como se mencionó [aquí](../azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-single-vm.md?tabs=azure-cli%2cbash). Esto convertirá la máquina virtual restaurada en una máquina virtual de SQL.
 
 ### <a name="restore-domain-controller-vms"></a>Restauración de máquinas virtuales de controlador de dominio
 

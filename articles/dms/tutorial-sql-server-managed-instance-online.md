@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 08/04/2020
-ms.openlocfilehash: 3674c6a0579eb901cc490d08bb8a4893296884c4
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 0041779abcd97901fb9315125a287a1d45cff133
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96020660"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350116"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-managed-instance-online-using-dms"></a>Tutorial: Migración de SQL Server a una Instancia administrada de Azure SQL en línea mediante DMS
 
@@ -220,7 +220,7 @@ Después de crear una instancia del servicio, búsquela en Azure Portal, ábrala
     ![Configuración de valores de migración](media/tutorial-sql-server-to-managed-instance-online/dms-configure-migration-settings4.png)
 
     > [!NOTE]
-    > Si Azure Database Migration Service muestra el error "Error del sistema 53" o "Error del sistema 57", la causa podría ser el resultado de una incapacidad de Azure Database Migration Service para acceder al recurso compartido de archivos de Azure. Si encuentra alguno de estos errores, conceda acceso a la cuenta de almacenamiento desde la red virtual mediante las instrucciones que se indican [aquí](../storage/common/storage-network-security.md?toc=%252fazure%252fvirtual-network%252ftoc.json#grant-access-from-a-virtual-network).
+    > Si Azure Database Migration Service muestra el error "Error del sistema 53" o "Error del sistema 57", la causa podría ser el resultado de una incapacidad de Azure Database Migration Service para acceder al recurso compartido de archivos de Azure. Si encuentra alguno de estos errores, conceda acceso a la cuenta de almacenamiento desde la red virtual mediante las instrucciones que se indican [aquí](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network).
 
     > [!IMPORTANT]
     > Si la funcionalidad de comprobación de bucle invertido está habilitada y el recurso compartido de archivos y SQL Server de origen están en el mismo equipo, el origen no podrá tener acceso al recurso compartido de archivos mediante el FQDN. Para corregir este problema, deshabilite la funcionalidad de comprobación de bucle invertido con las instrucciones que aparecen [aquí](https://support.microsoft.com/help/926642/error-message-when-you-try-to-access-a-server-locally-by-using-its-fqd).
