@@ -1056,7 +1056,7 @@
       items:
         - name: Azure Cache for Redis (versión preliminar)
           href: insights/redis-cache-insights-overview.md
-        - name: Azure Cosmos DB
+        - name: "Azure Cosmos\_DB"
           href: insights/cosmosdb-insights-overview.md
         - name: Redes
           href: insights/network-insights-overview.md
@@ -1143,6 +1143,8 @@
               href: platform/workbooks-tree-visualizations.md
             - name: Grafo
               href: platform/workbooks-graph-visualizations.md
+            - name: Asignación
+              href: platform/workbooks-map-visualizations.md
             - name: Panal
               href: platform/workbooks-honey-comb.md
             - name: Barra compuesta

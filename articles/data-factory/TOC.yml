@@ -255,11 +255,11 @@
           href: connector-azure-databricks-delta-lake.md
         - name: Azure File Storage
           href: connector-azure-file-storage.md
-        - name: "Azure\_SQL\_Database"
+        - name: Azure SQL Database
           href: connector-azure-sql-database.md
         - name: Instancia administrada de Azure SQL
           href: connector-azure-sql-managed-instance.md
-        - name: Azure Synapse Analytics (anteriormente SQL Data Warehouse)
+        - name: Azure Synapse Analytics
           href: connector-azure-sql-data-warehouse.md
         - name: Azure Table Storage
           href: connector-azure-table-storage.md

@@ -10,16 +10,16 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 11/18/2020
 ms.author: pafarley
-ms.openlocfilehash: b489964e5ef8ea483cbe203be1ff665078a6d66a
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 60ef490bbba4dca4f01b82967ad6ea8636e7bd4e
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95741736"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353704"
 ---
 # <a name="form-recognizer-layout-service"></a>Servicio Layout de Form Recognizer
 
-Azure Form Recognizer puede extraer texto, tablas, marcas de selección e información de la estructura de los documentos mediante su servicio Layout. La API Layout permite a los clientes tomar documentos de varios formatos y devolver no solo datos estructurados, sino también una representación del documento. Combina nuestras eficaces funcionalidades de [reconocimiento óptico de caracteres (OCR)](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-recognizing-text) con modelos de aprendizaje profundo de reconocimiento de documentos para extraer texto, tablas, marcas de selección e información de la estructura de los documentos. 
+Azure Form Recognizer puede extraer texto, tablas, marcas de selección e información de la estructura de los documentos mediante su servicio Layout. La API Layout permite a los clientes tomar documentos de varios formatos y devolver no solo datos estructurados, sino también una representación del documento. Combina nuestras eficaces funcionalidades de [reconocimiento óptico de caracteres (OCR)](../computer-vision/concept-recognizing-text.md) con modelos de aprendizaje profundo de reconocimiento de documentos para extraer texto, tablas, marcas de selección e información de la estructura de los documentos. 
 
 ## <a name="what-does-the-layout-service-do"></a>¿Qué hace el servicio Layout?
 
@@ -96,7 +96,3 @@ Layout también extrae marcas de selección de los documentos. Entre las marcas 
 
 * [¿Qué es Form Recognizer?](./overview.md)
 * [Documentos de referencia de la API de REST](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeLayoutAsync)
-
-
-
-
