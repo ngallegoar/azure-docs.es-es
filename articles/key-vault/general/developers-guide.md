@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/05/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 596de459b888bb9973aca1c7d72f2f9e24c966eb
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 6fa9f5d86d3640bf3ae0233e7d6d8a00752f5b6d
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96013979"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460811"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Guía del desarrollador de Azure Key Vault
 
@@ -120,7 +120,7 @@ Los artículos y escenarios siguientes proporcionan instrucciones específicas d
 - Cómo implementar certificados en VM desde Key Vault ([Windows](../../virtual-machines/extensions/key-vault-windows.md), [Linux](../../virtual-machines/extensions/key-vault-linux.md)): una aplicación de nube que se ejecute en una VM de Azure necesita un certificado. Sepa cómo añadirlo a la máquina virtual hoy mismo.
 - [Implementar un certificado de Azure Web App mediante Key Vault](../../app-service/configure-ssl-certificate.md#import-a-certificate-from-key-vault).
 - Asignación de una directiva de acceso ([CLI](assign-access-policy-cli.md) | [PowerShell](assign-access-policy-powershell.md) | [Azure Portal](assign-access-policy-portal.md)). 
-- [Uso de la eliminación temporal de Key Vault con la CLI](soft-delete-cli.md) le guiará por el uso y ciclo de vida de un almacén de claves y de varios objetos de almacén de claves con la eliminación temporal habilitada.
+- [Uso de la eliminación temporal de Key Vault con la CLI](./key-vault-recovery.md) le guiará por el uso y ciclo de vida de un almacén de claves y de varios objetos de almacén de claves con la eliminación temporal habilitada.
 - [Paso de valores seguros (como contraseñas) durante la implementación](../../azure-resource-manager/templates/key-vault-parameter.md). Si necesita pasar un valor seguro (como una contraseña) como un parámetro durante la implementación, puede almacenar ese valor como un secreto en Azure Key Vault y hacer referencia al valor en otras plantillas de Resource Manager.
 
 ## <a name="integrated-with-key-vault"></a>Integración con Key Vault

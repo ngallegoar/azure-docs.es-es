@@ -3,12 +3,12 @@ title: Supervisión de los recursos delegados a escala
 description: Aprenda a usar los registros de Azure Monitor de forma eficaz y escalable en los inquilinos del cliente que está administrando.
 ms.date: 10/26/2020
 ms.topic: how-to
-ms.openlocfilehash: 3e5c98b3b62a8fbc953a29cf51ac527e5de21110
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 96ca05faf2b3da8f214c14ae57eb186c7b71e1b3
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92735840"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461520"
 ---
 # <a name="monitor-delegated-resources-at-scale"></a>Supervisión de los recursos delegados a escala
 
@@ -44,7 +44,7 @@ Una vez implementadas las directivas, los datos se registrarán en las áreas de
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Explore este [libro de ejemplo creado por MVP](https://github.com/scautomation/Azure-Automation-Update-Management-Workbooks), que realiza un seguimiento de los informes de cumplimiento de revisiones mediante la [consulta de registros de Update Management](../../automation/update-management/update-mgmt-query-logs.md) en varias áreas de trabajo de Log Analytics. 
+- Explore este [libro de ejemplo creado por MVP](https://github.com/scautomation/Azure-Automation-Update-Management-Workbooks), que realiza un seguimiento de los informes de cumplimiento de revisiones mediante la [consulta de registros de Update Management](../../automation/update-management/query-logs.md) en varias áreas de trabajo de Log Analytics. 
 - Más información acerca de [Azure Monitor](../../azure-monitor/index.yml).
 - Más información acerca de los [registros de Azure Monitor](../../azure-monitor/platform/data-platform-logs.md).
 - Más información sobre las [experiencias de administración entre inquilinos](../concepts/cross-tenant-management-experience.md).

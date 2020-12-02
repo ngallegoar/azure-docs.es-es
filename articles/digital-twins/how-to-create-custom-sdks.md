@@ -8,12 +8,12 @@ ms.date: 4/24/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: devx-track-js
-ms.openlocfilehash: 158d22ffb3bc5486e0523c07cc2c022c49f2ee9c
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: c1dbdc4761c107a8e5028a43ead9710d45526016
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93145606"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461177"
 ---
 # <a name="create-custom-sdks-for-azure-digital-twins-using-autorest"></a>Creación de SDK personalizados para Azure Digital Twins con AutoRest
 
@@ -64,7 +64,7 @@ He aquí los pasos:
 3. En el Explorador de soluciones, seleccione con el botón derecho el proyecto *ADTApi* de la solución generada y elija *Agregar > Elemento existente...*
 4. Busque la carpeta en la que generó el SDK y seleccione los archivos en el nivel raíz.
 5. Presione "Aceptar".
-6. Agregue una carpeta al proyecto (haga clic con el botón derecho para seleccionar el proyecto en el Explorador de soluciones y elija *Agregar > Nueva carpeta* ).
+6. Agregue una carpeta al proyecto (haga clic con el botón derecho para seleccionar el proyecto en el Explorador de soluciones y elija *Agregar > Nueva carpeta*).
 7. Asigne a la carpeta el nombre *Models*.
 8. En el Explorador de soluciones, seleccione con el botón derecho la carpeta *Models* y elija *Agregar > Elemento existente...*
 9. Seleccione los archivos de la carpeta *Models* del SDK generado y presione "Aceptar".
@@ -102,7 +102,7 @@ A continuación se muestra un fragmento de código que intenta agregar un gemelo
 ```csharp
 try
 {
-    await client.DigitalTwins.AddAsync(id, initData);
+    await client.CreateOrReplaceDigitalTwinAsync<BasicDigitalTwin>(id, initData);
     Console.WriteLine($"Created a twin successfully: {id}");
 }
 catch (ErrorResponseException e)

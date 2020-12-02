@@ -11,12 +11,12 @@ author: nibaccam
 ms.reviewer: nibaccam
 ms.date: 09/22/2020
 ms.custom: how-to, data4ml
-ms.openlocfilehash: e97546e678b3b7bf7932600ea53d09557493685c
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 554c815e6384115d56611e497f49a2c97ed15e38
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93359874"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461430"
 ---
 # <a name="connect-to-data-with-the-azure-machine-learning-studio"></a>Conexión a los datos con Azure Machine Learning Studio
 
@@ -160,7 +160,7 @@ Encontrará información sobre la clave de cuenta, el token de SAS y la entidad 
 
 ### <a name="permissions"></a>Permisos
 
-Para el almacenamiento de Azure Data Lake Gen 2 y del contenedor de blobs de Azure, las credenciales de autenticación deben tener acceso al **Lector de datos de Storage Blob**. Obtenga más información sobre el [Lector de datos de Storage Blob](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader). Un token de SAS de cuenta no tiene de forma predeterminada ningún permiso. 
+Para el almacenamiento de Azure Data Lake Gen 2 y del contenedor de blobs de Azure, las credenciales de autenticación deben tener acceso al **Lector de datos de Storage Blob**. Obtenga más información sobre el [Lector de datos de Storage Blob](../role-based-access-control/built-in-roles.md#storage-blob-data-reader). Un token de SAS de cuenta no tiene de forma predeterminada ningún permiso. 
 * Para el **acceso de lectura** de datos, las credenciales de autenticación deben tener un número mínimo de permisos de enumeración y lectura para contenedores y objetos. 
 
 * Para el **acceso de escritura** de datos, también se necesitan los permisos de escritura y agregación.

@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 06/19/2020
 ms.author: trkeya
 author: trkeya
-ms.openlocfilehash: 0b445f9d4fdda0b1fac9dcdb4344533cfd7d37a9
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: fd3fa04d2d7e868476838788dd9cf0e27c07aeca
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491246"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461752"
 ---
 # <a name="azure-resource-manager-test-drive"></a>Versión de prueba de Azure Resource Manager
 
@@ -20,7 +20,7 @@ Use este tipo si tiene una oferta en Azure Marketplace o AppSource, pero quiere 
 
 Si no está familiarizado con el concepto de plantilla de ARM, lea [¿Qué es Azure Resource Manager?](../azure-resource-manager/management/overview.md) y [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md) para comprender mejor cómo compilar y probar sus propias plantillas.
 
-Para obtener información sobre una versión de prueba **hospedada** o de **aplicación lógica** , vea [¿Qué es una versión de prueba?](what-is-test-drive.md)
+Para obtener información sobre una versión de prueba **hospedada** o de **aplicación lógica**, vea [¿Qué es una versión de prueba?](what-is-test-drive.md)
 
 ## <a name="technical-configuration"></a>Configuración técnica
 
@@ -28,16 +28,16 @@ Una plantilla de implementación contiene todos los recursos de Azure que compon
 
 - **Regiones** (obligatorias): Actualmente hay 26 regiones admitidas de Azure en las que se puede usar la versión de prueba. La habitual es que desee que su versión de prueba esté disponible en las regiones en que prevé un mayor número de clientes, con el fin de que puedan seleccionar la región más cercana para lograr el mejor rendimiento posible. Tendrá que asegurarse de que su suscripción puede implementar todos los recursos necesarios en cada una de las regiones que seleccione.
 
-- **Instancias** : Seleccione el tipo (activo o inactivo) y el número de instancias disponibles, que se multiplicarán por el número de regiones en las que está disponible la oferta.
+- **Instancias**: Seleccione el tipo (activo o inactivo) y el número de instancias disponibles, que se multiplicarán por el número de regiones en las que está disponible la oferta.
 
-  - **Activa** : Este tipo de instancia se implementa y está en espera de acceso por cada región seleccionada. Los clientes pueden acceder al instante a las instancias *frecuentes* de una versión prueba, en lugar de tener que esperar a una implementación. La contrapartida es que estas instancias se ejecutan siempre en su suscripción de Azure, por lo que incurrirán en un mayor costo de tiempo de actividad. Se recomienda tener al menos una instancia *frecuente* , ya que la mayoría de los clientes no quieren esperar a que terminen las implementaciones completas, lo que genera un descenso en la utilización por parte de los clientes si no hay ninguna instancia *frecuente*.
+  - **Activa**: Este tipo de instancia se implementa y está en espera de acceso por cada región seleccionada. Los clientes pueden acceder al instante a las instancias *frecuentes* de una versión prueba, en lugar de tener que esperar a una implementación. La contrapartida es que estas instancias se ejecutan siempre en su suscripción de Azure, por lo que incurrirán en un mayor costo de tiempo de actividad. Se recomienda tener al menos una instancia *frecuente*, ya que la mayoría de los clientes no quieren esperar a que terminen las implementaciones completas, lo que genera un descenso en la utilización por parte de los clientes si no hay ninguna instancia *frecuente*.
 
-  - **Inactiva** : Este tipo de instancia representa el número total de instancias que se pueden implementar por región. Las instancias inactivas requieren que se implemente toda la plantilla de la versión de prueba de Resource Manager en el momento en que el cliente solicita la versión de prueba, por lo que las instancias *inactivas* tardan mucho más tiempo en cargarse que las *activas*. A cambio solo tiene que pagar por la duración de la versión de prueba, *no* se ejecuta de forma ininterrumpida en su suscripción de Azure como las instancias *activas*.
+  - **Inactiva**: Este tipo de instancia representa el número total de instancias que se pueden implementar por región. Las instancias inactivas requieren que se implemente toda la plantilla de la versión de prueba de Resource Manager en el momento en que el cliente solicita la versión de prueba, por lo que las instancias *inactivas* tardan mucho más tiempo en cargarse que las *activas*. A cambio solo tiene que pagar por la duración de la versión de prueba, *no* se ejecuta de forma ininterrumpida en su suscripción de Azure como las instancias *activas*.
 
-- **Versión de prueba de la plantilla de Azure Resource Manager** : Cargue el archivo. zip que contiene la plantilla de Azure Resource Manager. Para más información acerca de cómo crear una plantilla de Azure Resource Manager, consulte el artículo del tutorial de inicio rápido [Creación e implementación de plantillas de Azure Resource Manager mediante Azure Portal](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
+- **Versión de prueba de la plantilla de Azure Resource Manager**: Cargue el archivo. zip que contiene la plantilla de Azure Resource Manager. Para más información acerca de cómo crear una plantilla de Azure Resource Manager, consulte el artículo del tutorial de inicio rápido [Creación e implementación de plantillas de Azure Resource Manager mediante Azure Portal](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
 
     > [!note]
-    > Para publicar correctamente, es importante validar el formato de la plantilla de Resource Manager. Dos maneras de hacerlo son (1) mediante una [herramienta de API en línea](https://docs.microsoft.com/rest/api/resources/deployments/validate) o (2) con una [implementación de pruebas](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-portal).
+    > Para publicar correctamente, es importante validar el formato de la plantilla de Resource Manager. Dos maneras de hacerlo son (1) mediante una [herramienta de API en línea](/rest/api/resources/deployments/validate) o (2) con una [implementación de pruebas](../azure-resource-manager/templates/deploy-portal.md).
 
 - **Duración de la versión de prueba** (obligatorio): especifique el número de horas que la versión de prueba permanecerá activa. La versión de prueba termina automáticamente al finalizar este período. Usar solo números enteros (por ejemplo, "2" horas es válido, mientras que "1,5" no lo es).
 
@@ -300,13 +300,13 @@ La última sección que hay que completar permite implementar las versiones de p
 
    ![Suscripciones de Azure](media/test-drive/azure-subscriptions.png)
 
-2. Obtenga un **Identificador de inquilino de Azure AD**. Si ya tiene un identificador de inquilino disponible, puede encontrarlo en **Azure Active Directory** > **Propiedades** > **Id. de directorio** :
+2. Obtenga un **Identificador de inquilino de Azure AD**. Si ya tiene un identificador de inquilino disponible, puede encontrarlo en **Azure Active Directory** > **Propiedades** > **Id. de directorio**:
 
    ![Propiedades de Azure Active Directory](media/test-drive/azure-active-directory-properties.png)
 
    Si no tiene un identificador de inquilino, cree uno en Azure Active Directory. Para obtener ayuda con la configuración de un inquilino, vea [Inicio rápido: Configuración de un inquilino](../active-directory/develop/quickstart-create-new-tenant.md).
 
-3. **Identificador de aplicación de Azure AD** : cree una aplicación y regístrela. Esta aplicación se usará para realizar operaciones en la instancia de la versión de prueba.
+3. **Identificador de aplicación de Azure AD**: cree una aplicación y regístrela. Esta aplicación se usará para realizar operaciones en la instancia de la versión de prueba.
 
    1. Navegue al directorio recién creado o a uno que ya existe y seleccione Azure Active Directory en el panel de filtro.
    2. Busque **Registros de aplicaciones** y seleccione **Agregar**.
@@ -336,7 +336,7 @@ La última sección que hay que completar permite implementar las versiones de p
 
    1. Seleccione **Guardar**.
 
-7. Genere una clave de autenticación para la **Aplicación de Azure AD**. En **Claves** , agregue una **Descripción de la clave** , establezca la duración en **No expira nunca** (una clave expirada interrumpirá la versión de prueba en producción) y, después, seleccione **Guardar**. Copie este valor y péguelo en el campo obligatorio de la versión de prueba.
+7. Genere una clave de autenticación para la **Aplicación de Azure AD**. En **Claves**, agregue una **Descripción de la clave**, establezca la duración en **No expira nunca** (una clave expirada interrumpirá la versión de prueba en producción) y, después, seleccione **Guardar**. Copie este valor y péguelo en el campo obligatorio de la versión de prueba.
 
 ![Se muestran las claves de la aplicación de Azure AD](media/test-drive/azure-ad-app-keys.png)
 

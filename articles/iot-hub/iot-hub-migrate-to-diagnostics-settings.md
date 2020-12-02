@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: kgremban
-ms.openlocfilehash: eb53e7052db6d4de365864184b9bd2e6585b7e2d
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: dfd819d82f5e35183802e33e5d423cad4de36c38
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94412129"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461583"
 ---
 # <a name="migrate-your-iot-hub-from-operations-monitoring-to-azure-monitor-resource-logs"></a>Migración de la supervisión de operaciones de IoT Hub a los registros de recursos de Azure Monitor
 
@@ -49,9 +49,9 @@ Para actualizar IoT Hub en Azure Portal, primero cree la configuración de diagn
 
 1. Haga clic en **Save** (Guardar) para guardar la configuración.
 
-La nueva configuración surte efecto en unos 10 minutos. Después, los registros aparecen en el destino configurado. Para más información sobre la configuración de diagnósticos, consulte [Recopilación y uso de los datos de registro provenientes de los recursos de Azure](/azure/azure-monitor/platform/platform-logs-overview).
+La nueva configuración surte efecto en unos 10 minutos. Después, los registros aparecen en el destino configurado. Para más información sobre la configuración de diagnósticos, consulte [Recopilación y uso de los datos de registro provenientes de los recursos de Azure](../azure-monitor/platform/platform-logs-overview.md).
 
-Para obtener información más detallada sobre cómo crear la configuración de diagnóstico, incluido con PowerShell y la CLI de Azure, consulte [Configuración de diagnóstico](/azure/azure-monitor/platform/diagnostic-settings) en la documentación de Azure Monitor.
+Para obtener información más detallada sobre cómo crear la configuración de diagnóstico, incluido con PowerShell y la CLI de Azure, consulte [Configuración de diagnóstico](../azure-monitor/platform/diagnostic-settings.md) en la documentación de Azure Monitor.
 
 ### <a name="turn-off-operations-monitoring"></a>Desactivación de la supervisión de operaciones
 

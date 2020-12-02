@@ -6,12 +6,12 @@ ms.author: robinsh
 ms.topic: reference
 ms.service: iot-hub
 ms.date: 10/22/2020
-ms.openlocfilehash: 03941c3abe833deb218844cc60e2f04556fccc22
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 609c44991e7deca183321758fabdef80b71210c5
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93078210"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460862"
 ---
 # <a name="monitoring-azure-iot-hub-data-reference"></a>Supervisión de la referencia a datos de Azure IoT Hub
 
@@ -23,9 +23,9 @@ En esta sección se enumeran todas las métricas de la plataforma recopiladas au
 
 En las subsecciones siguientes se desglosan las métricas de la plataforma IoT Hub por categoría general y se enumeran por el nombre para mostrar con el que aparecen en Azure Portal. También se proporciona información relacionada con las métricas que aparecen en cada subsección.
 
-Además, en la documentación de Azure Monitor, encontrará una sola tabla donde se muestran todas las métricas de la plataforma IoT Hub por el nombre de la métrica en [Microsoft.Devices/IotHubs](/azure/azure-monitor/platform/metrics-supported#microsoftdevicesiothubs). Tenga en cuenta que, en esta tabla, no se proporciona toda la información, como las [agregaciones admitidas](#supported-aggregations) en algunas métricas, disponible en este artículo.
+Además, en la documentación de Azure Monitor, encontrará una sola tabla donde se muestran todas las métricas de la plataforma IoT Hub por el nombre de la métrica en [Microsoft.Devices/IotHubs](../azure-monitor/platform/metrics-supported.md#microsoftdevicesiothubs). Tenga en cuenta que, en esta tabla, no se proporciona toda la información, como las [agregaciones admitidas](#supported-aggregations) en algunas métricas, disponible en este artículo.
 
-Para información sobre las métricas admitidas por otros servicios de Azure, consulte [Métricas compatibles con Azure Monitor](/azure/azure-monitor/platform/metrics-supported).
+Para información sobre las métricas admitidas por otros servicios de Azure, consulte [Métricas compatibles con Azure Monitor](../azure-monitor/platform/metrics-supported.md).
 
 **Temas de esta sección**
 
@@ -49,11 +49,11 @@ La columna **Tipo de agregación** de cada tabla corresponde a la agregación pr
 
    ![Captura de pantalla que muestra la agregación de métricas](./media/monitor-iot-hub-reference/aggregation-type.png)
 
-Con la mayoría de las métricas, todos los tipos de agregación son válidos; sin embargo, con las métricas de recuento, aquellas con un valor en la columna **Unidad** de **Recuento** , solo algunas agregaciones son válidas. Las métricas de recuento pueden ser de dos tipos:
+Con la mayoría de las métricas, todos los tipos de agregación son válidos; sin embargo, con las métricas de recuento, aquellas con un valor en la columna **Unidad** de **Recuento**, solo algunas agregaciones son válidas. Las métricas de recuento pueden ser de dos tipos:
 
-* Métricas de recuento de un **solo punto** : IoT Hub registra un solo punto de datos (básicamente, un 1) cada vez que se produce la operación medida. Luego, Azure Monitor suma estos puntos de datos a lo largo de la granularidad especificada. Ejemplos de métricas de un **solo punto** son *Telemetry messages sent* (Mensajes de telemetría enviados) y *C2D message deliveries completed* (Entregas de mensajes C2D completadas). En estas métricas, el único tipo de agregación de interés es Total (Suma). El portal le permite elegir los valores mínimo, máximo y promedio; sin embargo, estos valores siempre serán 1.
+* Métricas de recuento de un **solo punto**: IoT Hub registra un solo punto de datos (básicamente, un 1) cada vez que se produce la operación medida. Luego, Azure Monitor suma estos puntos de datos a lo largo de la granularidad especificada. Ejemplos de métricas de un **solo punto** son *Telemetry messages sent* (Mensajes de telemetría enviados) y *C2D message deliveries completed* (Entregas de mensajes C2D completadas). En estas métricas, el único tipo de agregación de interés es Total (Suma). El portal le permite elegir los valores mínimo, máximo y promedio; sin embargo, estos valores siempre serán 1.
 
-* Métricas de recuento de **instantáneas** : IoT Hub registra un recuento total cuando se produce la operación medida. Actualmente, hay tres métricas de **instantánea** emitidas por IoT Hub: *Total number of messages used* (Número total de mensajes utilizados), *Total devices (preview) (Dispositivos totales [versión preliminar])* y *Connected devices (preview)*  (Dispositivos conectados [versión preliminar]). Dado que estas métricas presentan una cantidad "total" cada vez que se emiten, no tiene sentido sumarlas a lo largo de la granularidad especificada. Azure Monitor le limita a seleccionar los valores promedio, mínimo y máximo del tipo de agregación de estas métricas.
+* Métricas de recuento de **instantáneas**: IoT Hub registra un recuento total cuando se produce la operación medida. Actualmente, hay tres métricas de **instantánea** emitidas por IoT Hub: *Total number of messages used* (Número total de mensajes utilizados), *Total devices (preview) (Dispositivos totales [versión preliminar])* y *Connected devices (preview)*  (Dispositivos conectados [versión preliminar]). Dado que estas métricas presentan una cantidad "total" cada vez que se emiten, no tiene sentido sumarlas a lo largo de la granularidad especificada. Azure Monitor le limita a seleccionar los valores promedio, mínimo y máximo del tipo de agregación de estas métricas.
 
 ### <a name="cloud-to-device-command-metrics"></a>Métricas de comandos de nube a dispositivo
 
@@ -64,7 +64,7 @@ Con la mayoría de las métricas, todos los tipos de agregación son válidos; s
 |C2D messages abandoned (Mensajes de C2D abandonados)|c2d.commands.egress.abandon.success|Count|Total|Número de mensajes de la nube al dispositivo que el dispositivo ha abandonado.|None|
 |C2D messages rejected (Mensajes de C2D rechazados)|c2d.commands.egress.reject.success|Count|Total|Número de mensajes de la nube al dispositivo que el dispositivo ha rechazado.|None|
 
-En el caso de las métricas con un valor de **Unidad** de **Recuento** , solo la agregación total (suma) es válida. Las agregaciones mínimas, máximas y promedio siempre devuelven 1. Para más información, consulte las [agregaciones admitidas](#supported-aggregations).
+En el caso de las métricas con un valor de **Unidad** de **Recuento**, solo la agregación total (suma) es válida. Las agregaciones mínimas, máximas y promedio siempre devuelven 1. Para más información, consulte las [agregaciones admitidas](#supported-aggregations).
 
 ### <a name="cloud-to-device-direct-methods-metrics"></a>Métricas de métodos directos de nube a dispositivo
 
@@ -75,7 +75,7 @@ En el caso de las métricas con un valor de **Unidad** de **Recuento** , solo la
 |Tamaño de la respuesta de las invocaciones a métodos directos|c2d.methods.responseSize|Bytes|Average|El número de todas las respuestas correctas del método directo.|None|
 |Invocaciones correctas al método directo|c2d.methods.success|Count|Total|El número de todas las llamadas correctas al método directo.|None|
 
-En el caso de las métricas con un valor de **Unidad** de **Recuento** , solo la agregación total (suma) es válida. Las agregaciones mínimas, máximas y promedio siempre devuelven 1. Para más información, consulte las [agregaciones admitidas](#supported-aggregations).
+En el caso de las métricas con un valor de **Unidad** de **Recuento**, solo la agregación total (suma) es válida. Las agregaciones mínimas, máximas y promedio siempre devuelven 1. Para más información, consulte las [agregaciones admitidas](#supported-aggregations).
 
 ### <a name="cloud-to-device-twin-operations-metrics"></a>Métricas de operaciones de nube a dispositivo gemelo
 
@@ -88,7 +88,7 @@ En el caso de las métricas con un valor de **Unidad** de **Recuento** , solo la
 |Lecturas gemelas correctas del back-end|c2d.twin.read.success|Count|Total|El recuento de todas las lecturas gemelas correctas iniciadas por el back-end.|None|
 |Actualizaciones gemelas correctas del back-end|c2d.twin.update.success|Count|Total|El recuento de todas las actualizaciones gemelas correctas iniciadas por el back-end.|None|
 
-En el caso de las métricas con un valor de **Unidad** de **Recuento** , solo la agregación total (suma) es válida. Las agregaciones mínimas, máximas y promedio siempre devuelven 1. Para más información, consulte las [agregaciones admitidas](#supported-aggregations).
+En el caso de las métricas con un valor de **Unidad** de **Recuento**, solo la agregación total (suma) es válida. Las agregaciones mínimas, máximas y promedio siempre devuelven 1. Para más información, consulte las [agregaciones admitidas](#supported-aggregations).
 
 ### <a name="configurations-metrics"></a>Métricas de configuraciones
 
@@ -96,7 +96,7 @@ En el caso de las métricas con un valor de **Unidad** de **Recuento** , solo la
 |---|---|---|---|---|---|
 |Métricas de configuración|configuraciones|Count|Total|Número total de operaciones CRUD realizadas para la configuración de dispositivos y la implementación de IoT Edge en un conjunto de dispositivos de destino. Esto también incluye el número de operaciones que modifican el dispositivo gemelo o el módulo gemelo debido a estas configuraciones.|Ninguno|
 
-En el caso de las métricas con un valor de **Unidad** de **Recuento** , solo la agregación total (suma) es válida. Las agregaciones mínimas, máximas y promedio siempre devuelven 1. Para más información, consulte las [agregaciones admitidas](#supported-aggregations).
+En el caso de las métricas con un valor de **Unidad** de **Recuento**, solo la agregación total (suma) es válida. Las agregaciones mínimas, máximas y promedio siempre devuelven 1. Para más información, consulte las [agregaciones admitidas](#supported-aggregations).
 
 ### <a name="daily-quota-metrics"></a>Métricas de cuotas diarias
 
@@ -131,7 +131,7 @@ Las métricas *Connected devices (preview)* (Dispositivos conectados [versión p
 |Intentos de envío de mensajes de telemetría|d2c.telemetry.ingress.allProtocol|Count|Total|Número de mensajes de telemetría de dispositivo a la nube para enviar a IoT Hub|None|
 |Mensajes de telemetría enviados|d2c.telemetry.ingress.success|Count|Total|Número de mensajes de telemetría de dispositivo a la nube enviados correctamente a IoT Hub|None|
 
-En el caso de las métricas con un valor de **Unidad** de **Recuento** , solo la agregación total (suma) es válida. Las agregaciones mínimas, máximas y promedio siempre devuelven 1. Para más información, consulte las [agregaciones admitidas](#supported-aggregations).
+En el caso de las métricas con un valor de **Unidad** de **Recuento**, solo la agregación total (suma) es válida. Las agregaciones mínimas, máximas y promedio siempre devuelven 1. Para más información, consulte las [agregaciones admitidas](#supported-aggregations).
 
 ### <a name="device-to-cloud-twin-operations-metrics"></a>Métricas de operaciones de dispositivo gemelo a nube
 
@@ -144,7 +144,7 @@ En el caso de las métricas con un valor de **Unidad** de **Recuento** , solo la
 |Lecturas gemelas correctas de los dispositivos|d2c.twin.read.success|Count|Total|El recuento de todas las lecturas gemelas correctas iniciadas por el dispositivo.|None|
 |Actualizaciones gemelas correctas de los dispositivos|d2c.twin.update.success|Count|Total|El recuento de todas las actualizaciones gemelas correctas iniciadas por el dispositivo.|None|
 
-En el caso de las métricas con un valor de **Unidad** de **Recuento** , solo la agregación total (suma) es válida. Las agregaciones mínimas, máximas y promedio siempre devuelven 1. Para más información, consulte las [agregaciones admitidas](#supported-aggregations).
+En el caso de las métricas con un valor de **Unidad** de **Recuento**, solo la agregación total (suma) es válida. Las agregaciones mínimas, máximas y promedio siempre devuelven 1. Para más información, consulte las [agregaciones admitidas](#supported-aggregations).
 
 ### <a name="event-grid-metrics"></a>Métricas de Event Grid
 
@@ -153,7 +153,7 @@ En el caso de las métricas con un valor de **Unidad** de **Recuento** , solo la
 |Entregas de Event Grid (versión preliminar)|EventGridDeliveries|Count|Total|El número de eventos de IoT Hub publicados en Event Grid. Use la dimensión de resultado para ver el número de solicitudes correctas e incorrectas. La dimensión EventType muestra el tipo de evento (https://aka.ms/ioteventgrid).|Result,<br/>EventType<br>*Para más información, consulte [Dimensiones de métricas](#metric-dimensions)* .|
 |Latencia de Event Grid (versión preliminar)|EventGridLatency|Milisegundos|Average|La latencia media (milisegundos) desde el momento en que se generó el evento de IoT Hub hasta el momento en que se publicó el evento en Event Grid. Este número es un promedio entre todos los tipos de evento. Use la dimensión EventType para ver la latencia de un tipo específico de evento.|EventType<br>*Para más información, consulte [Dimensiones de métricas](#metric-dimensions)* .|
 
-En el caso de las métricas con un valor de **Unidad** de **Recuento** , solo la agregación total (suma) es válida. Las agregaciones mínimas, máximas y promedio siempre devuelven 1. Para más información, consulte las [agregaciones admitidas](#supported-aggregations).
+En el caso de las métricas con un valor de **Unidad** de **Recuento**, solo la agregación total (suma) es válida. Las agregaciones mínimas, máximas y promedio siempre devuelven 1. Para más información, consulte las [agregaciones admitidas](#supported-aggregations).
 
 ### <a name="jobs-metrics"></a>Métricas de trabajos
 
@@ -172,7 +172,7 @@ En el caso de las métricas con un valor de **Unidad** de **Recuento** , solo la
 |Cancelaciones de trabajos correctas|jobs.cancelJob.success|Count|Total|El recuento de todas las llamadas correctas para cancelar un trabajo.|None|
 |Consultas de trabajo correctas|jobs.queryJobs.success|Count|Total|El recuento de todas las llamadas correctas para consultar trabajos.|None|
 
-En el caso de las métricas con un valor de **Unidad** de **Recuento** , solo la agregación total (suma) es válida. Las agregaciones mínimas, máximas y promedio siempre devuelven 1. Para más información, consulte las [agregaciones admitidas](#supported-aggregations).
+En el caso de las métricas con un valor de **Unidad** de **Recuento**, solo la agregación total (suma) es válida. Las agregaciones mínimas, máximas y promedio siempre devuelven 1. Para más información, consulte las [agregaciones admitidas](#supported-aggregations).
 
 ### <a name="routing-metrics"></a>Métricas de enrutamiento
 
@@ -199,7 +199,7 @@ En el caso de las métricas con un valor de **Unidad** de **Recuento** , solo la
 |Enrutamiento: mensajes de telemetría incompatibles|d2c.telemetry.egress.invalid|Count|Total|Número de veces que el enrutamiento de IoT Hub no ha podido entregar mensajes debido a una incompatibilidad con el punto de conexión. Un mensaje es incompatible con un punto de conexión cuando IoT Hub intenta entregar el mensaje a un punto de conexión y se produce un error no transitorio. Los mensajes no válidos no se vuelven a intentar. Este valor no incluye los reintentos.|None|
 |Enrutamiento: mensajes de telemetría huérfanos |d2c.telemetry.egress.orphaned|Count|Total|Número de veces que los mensajes eran huérfanos a causa del enrutamiento de IoT Hub porque no coincidían con ninguna consulta de enrutamiento, cuando la ruta de reserva está deshabilitada.|None|
 
-En el caso de las métricas con un valor de **Unidad** de **Recuento** , solo la agregación total (suma) es válida. Las agregaciones mínimas, máximas y promedio siempre devuelven 1. Para más información, consulte las [agregaciones admitidas](#supported-aggregations).
+En el caso de las métricas con un valor de **Unidad** de **Recuento**, solo la agregación total (suma) es válida. Las agregaciones mínimas, máximas y promedio siempre devuelven 1. Para más información, consulte las [agregaciones admitidas](#supported-aggregations).
 
 ### <a name="twin-query-metrics"></a>Métricas de consultas de gemelos
 
@@ -209,7 +209,7 @@ En el caso de las métricas con un valor de **Unidad** de **Recuento** , solo la
 |Consultas gemelas correctas|twinQueries.success|Count|Total|El recuento de todas las consultas gemelas correctas.|None|
 |Tamaño de resultado de consultas gemelas|twinQueries.resultSize|Bytes|Average|El total del tamaño del resultado de todas las consultas gemelas correctas.|None|
 
-En el caso de las métricas con un valor de **Unidad** de **Recuento** , solo la agregación total (suma) es válida. Las agregaciones mínimas, máximas y promedio siempre devuelven 1. Para más información, consulte las [agregaciones admitidas](#supported-aggregations).
+En el caso de las métricas con un valor de **Unidad** de **Recuento**, solo la agregación total (suma) es válida. Las agregaciones mínimas, máximas y promedio siempre devuelven 1. Para más información, consulte las [agregaciones admitidas](#supported-aggregations).
 
 ## <a name="metric-dimensions"></a>Dimensiones de métricas
 
@@ -219,17 +219,17 @@ Azure IoT Hub tiene las siguientes dimensiones asociadas a algunas de sus métri
 |---|---|
 ||
 |**EndpointName**| El nombre del extremo.|
-|**EndpointType**|Uno de los siguientes: **eventHubs** , **serviceBusQueues** , **cosmosDB** , **serviceBusTopics**. **builtin** o **blobStorage**.|
-|**EventType**| Uno de los siguientes tipos de eventos de Event Grid: **Microsoft.Devices.DeviceCreated**. **Microsoft.Devices.DeviceDeleted** , **Microsoft.Devices.DeviceConnected** , **Microsoft.Devices.DeviceDisconnected** o **Microsoft.Devices.DeviceTelemetry**. Para más información, consulte [Tipos de eventos](iot-hub-event-grid.md#event-types).|
-|**FailureReasonCategory**| Una de los siguientes: **invalid** , **dropped** , **orphaned** o **null**.|
+|**EndpointType**|Uno de los siguientes: **eventHubs**, **serviceBusQueues**, **cosmosDB**, **serviceBusTopics**. **builtin** o **blobStorage**.|
+|**EventType**| Uno de los siguientes tipos de eventos de Event Grid: **Microsoft.Devices.DeviceCreated**. **Microsoft.Devices.DeviceDeleted**, **Microsoft.Devices.DeviceConnected**, **Microsoft.Devices.DeviceDisconnected** o **Microsoft.Devices.DeviceTelemetry**. Para más información, consulte [Tipos de eventos](iot-hub-event-grid.md#event-types).|
+|**FailureReasonCategory**| Una de los siguientes: **invalid**, **dropped**, **orphaned** o **null**.|
 |**Resultado**| **success** o **failure**.|
 |**RoutingSource**| Mensajes del dispositivo<br>Eventos de cambio de gemelo<br>Eventos de ciclo de vida del dispositivo|
 
-Para más información sobre las dimensiones de métricas, consulte [Métricas multidimensionales](/azure/azure-monitor/platform/data-platform-metrics#multi-dimensional-metrics).
+Para más información sobre las dimensiones de métricas, consulte [Métricas multidimensionales](../azure-monitor/platform/data-platform-metrics.md#multi-dimensional-metrics).
 
 ## <a name="resource-logs"></a>Registros del recurso
 
-En esta sección se enumeran todos los tipos y esquemas de categorías de registros de recursos recopilados para Azure IoT Hub. El proveedor de recursos y el tipo de todos los registros de IoT Hub es [Microsoft.Devices/IotHubs](/azure/azure-monitor/platform/resource-logs-categories#microsoftdevicesiothubs).
+En esta sección se enumeran todos los tipos y esquemas de categorías de registros de recursos recopilados para Azure IoT Hub. El proveedor de recursos y el tipo de todos los registros de IoT Hub es [Microsoft.Devices/IotHubs](../azure-monitor/platform/resource-logs-categories.md#microsoftdevicesiothubs).
 
 **Temas de esta sección**
 
@@ -384,7 +384,7 @@ Esta categoría no puede detectar los errores que se producen directamente mient
 
 ### <a name="routes"></a>Rutas
 
-La categoría de [enrutamiento de mensajes](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c) realiza un seguimiento de los errores que se producen durante la evaluación de este proceso y el estado del punto de conexión según lo que observa IoT Hub. Esta categoría incluye eventos tales como:
+La categoría de [enrutamiento de mensajes](./iot-hub-devguide-messages-d2c.md) realiza un seguimiento de los errores que se producen durante la evaluación de este proceso y el estado del punto de conexión según lo que observa IoT Hub. Esta categoría incluye eventos tales como:
 
 * Una regla se evalúa como "sin definir",
 * IoT Hub marca un punto de conexión como fallido, o
@@ -689,4 +689,4 @@ Puede encontrar una referencia de todas las tablas de registros de Azure Monitor
 ## <a name="see-also"></a>Consulte también
 
 * Consulte [Supervisión de Azure IoT Hub](monitor-iot-hub.md) para ver una descripción de la supervisión de Azure IoT Hub.
-* Para más información sobre la supervisión de recursos de Azure, consulte [Supervisión de recursos de Azure con Azure Monitor](/azure/azure-monitor/insights/monitor-azure-resource).
+* Para más información sobre la supervisión de recursos de Azure, consulte [Supervisión de recursos de Azure con Azure Monitor](../azure-monitor/insights/monitor-azure-resource.md).

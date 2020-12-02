@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/28/2020
-ms.openlocfilehash: bb978f30104b1e38bd8930ccb058c4057d394e51
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: d6c3dbc28da7bee0bc24a6dc24608c78e480c20e
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92899661"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462161"
 ---
 # <a name="extract-transform-and-load-etl-at-scale"></a>Extracción, transformación y carga de datos (ETL) a escala
 
@@ -82,11 +82,11 @@ Para cargar conjuntos de datos en el intervalo de terabytes, la latencia de red 
 
 - **Azure ExpressRoute:** permite crear conexiones privadas entre los centros de datos de Azure y la infraestructura local. Estas conexiones ofrecen una opción confiable para transferir grandes cantidades de datos. Para obtener más información, consulte la [documentación de Azure ExpressRoute](../../expressroute/expressroute-introduction.md).
 
-- **Carga de datos desde unidades de disco duro** : puede usar el [servicio Azure Import/Export](../../storage/common/storage-import-export-service.md) para enviar unidades de disco duro con sus datos a un centro de datos de Azure. Los datos se cargan primero en Azure Blob Storage. Después, puede usar Azure Data Factory o la herramienta AdlCopy para copiar datos desde Azure Blob Storage a Data Lake Storage.
+- **Carga de datos desde unidades de disco duro**: puede usar el [servicio Azure Import/Export](../../storage/common/storage-import-export-service.md) para enviar unidades de disco duro con sus datos a un centro de datos de Azure. Los datos se cargan primero en Azure Blob Storage. Después, puede usar Azure Data Factory o la herramienta AdlCopy para copiar datos desde Azure Blob Storage a Data Lake Storage.
 
 ### <a name="azure-synapse-analytics"></a>Azure Synapse Analytics
 
-Azure Synapse Analytics (anteriormente SQL DW) es una opción adecuada para almacenar los resultados preparados. Puede usar Azure HDInsight para ejecutar estos servicios para Azure Synapse Analytics.
+Azure Synapse Analytics es una opción adecuada para almacenar los resultados preparados. Puede usar Azure HDInsight para ejecutar estos servicios para Azure Synapse Analytics.
 
 Azure Synapse Analytics es un almacén de bases de datos relacionales optimizado para cargas de trabajo de análisis. Se escala según las tablas con particiones. La tablas se pueden dividir en particiones entre varios nodos. Los nodos se seleccionan en el momento de la creación. Se pueden escalar a posteriori, pero es un proceso activo que puede requerir el movimiento de datos. Para más información, consulte [Administración de proceso en Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md).
 

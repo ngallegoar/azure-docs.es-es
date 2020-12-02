@@ -11,37 +11,37 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/22/2018
 ms.author: jingwang
-ms.openlocfilehash: de0224c51debe4d0203400b55721208ce7093649
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 05f336af62bc0869249d5b32700ea3515ac5994f
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636296"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96459707"
 ---
 # <a name="load-data-from-office-365-by-using-azure-data-factory"></a>Carga de datos de Office 365 mediante Azure Data Factory
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-En este artículo se muestra cómo usar Data Factory para _cargar datos de Office 365 en Azure Blob Storage_ . Puede seguir pasos similares para copiar datos en Azure Data Lake Gen1 o Gen2. Consulte el [artículo del conector de Office 365](connector-office-365.md) sobre la copia de datos de Office 365 en general.
+En este artículo se muestra cómo usar Data Factory para _cargar datos de Office 365 en Azure Blob Storage_. Puede seguir pasos similares para copiar datos en Azure Data Lake Gen1 o Gen2. Consulte el [artículo del conector de Office 365](connector-office-365.md) sobre la copia de datos de Office 365 en general.
 
 ## <a name="create-a-data-factory"></a>Crear una factoría de datos
 
-1. En el menú de la izquierda, seleccione **Crear un recurso** > **Analytics** > **Data Factory** : 
+1. En el menú de la izquierda, seleccione **Crear un recurso** > **Analytics** > **Data Factory**: 
    
    ![Selección de la factoría de datos en el panel Nuevo](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
 
-2. En la página **Nueva factoría de datos** , proporcione los valores de los campos que se muestran en la imagen siguiente:
+2. En la página **Nueva factoría de datos**, proporcione los valores de los campos que se muestran en la imagen siguiente:
       
    ![Página New data factory (Nueva factoría de datos)](./media/load-office-365-data/new-azure-data-factory.png)
  
-    * **Name** : escriba un nombre único global para la factoría de datos de Azure. Si recibe el error "El nombre *LoadFromOffice365Demo* de factoría de datos no está disponible", escriba un nombre diferente para la factoría de datos. Por ejemplo, podría usar el nombre _**su nombre**_ **LoadFromOffice365Demo** . Intente crear de nuevo la factoría de datos. Para conocer las reglas de nomenclatura de los artefactos de Data Factory, consulte [Data Factory: reglas de nomenclatura](naming-rules.md).
-    * **Suscripción** : seleccione la suscripción de Azure donde desea crear la factoría de datos. 
-    * **Grupo de recursos** : seleccione un grupo de recursos existente en la lista desplegable o seleccione la opción **Crear nuevo** y escriba el nombre de un grupo de recursos. Para obtener más información sobre los grupos de recursos, consulte [Uso de grupos de recursos para administrar los recursos de Azure](../azure-resource-manager/management/overview.md).  
-    * **Versión** : seleccione **V2** .
-    * **Ubicación** : Seleccione la ubicación de la factoría de datos. Solo las ubicaciones admitidas se muestran en la lista desplegable. Los almacenes de datos que las factorías de datos usan pueden estar en otras ubicaciones y regiones. Estos almacenes de datos incluyen Azure Data Lake Store, Azure Storage, Azure SQL Database, etc.
+    * **Name**: escriba un nombre único global para la factoría de datos de Azure. Si recibe el error "El nombre *LoadFromOffice365Demo* de factoría de datos no está disponible", escriba un nombre diferente para la factoría de datos. Por ejemplo, podría usar el nombre _**su nombre**_ **LoadFromOffice365Demo**. Intente crear de nuevo la factoría de datos. Para conocer las reglas de nomenclatura de los artefactos de Data Factory, consulte [Data Factory: reglas de nomenclatura](naming-rules.md).
+    * **Suscripción**: seleccione la suscripción de Azure donde desea crear la factoría de datos. 
+    * **Grupo de recursos**: seleccione un grupo de recursos existente en la lista desplegable o seleccione la opción **Crear nuevo** y escriba el nombre de un grupo de recursos. Para obtener más información sobre los grupos de recursos, consulte [Uso de grupos de recursos para administrar los recursos de Azure](../azure-resource-manager/management/overview.md).  
+    * **Versión**: seleccione **V2**.
+    * **Ubicación**: Seleccione la ubicación de la factoría de datos. Solo las ubicaciones admitidas se muestran en la lista desplegable. Los almacenes de datos que las factorías de datos usan pueden estar en otras ubicaciones y regiones. Estos almacenes de datos incluyen Azure Data Lake Store, Azure Storage, Azure SQL Database, etc.
 
-3. Seleccione **Crear** .
-4. Una vez completada la creación, vaya a la factoría de datos. Verá la página principal de **Factoría de datos** , tal y como se muestra en la siguiente imagen:
+3. Seleccione **Crear**.
+4. Una vez completada la creación, vaya a la factoría de datos. Verá la página principal de **Factoría de datos**, tal y como se muestra en la siguiente imagen:
    
    ![Página principal Factoría de datos](./media/load-office-365-data/data-factory-home-page.png)
 
@@ -91,7 +91,7 @@ En este artículo se muestra cómo usar Data Factory para _cargar datos de Offic
 
 1. Vaya a la canalización > **pestaña Sink** (Receptor) y seleccione **+ New** (+Nuevo) para crear un conjunto de datos del receptor.
  
-2. En la ventana del nuevo conjunto de datos, observe que solo se selecciona el destino admitido al copiar desde Office 365. Seleccione **Azure Blob Storage** , seleccione el formato binario y, después, **Continue** (Continuar).  En este tutorial, copiará datos de Office 365 en una instancia de Azure Blob Storage.
+2. En la ventana del nuevo conjunto de datos, observe que solo se selecciona el destino admitido al copiar desde Office 365. Seleccione **Azure Blob Storage**, seleccione el formato binario y, después, **Continue** (Continuar).  En este tutorial, copiará datos de Office 365 en una instancia de Azure Blob Storage.
 
 3. Haga clic en el botón **Edit** (Editar) situado junto al conjunto de datos de Azure Blob Storage para continuar con la configuración de los datos.
 
@@ -130,7 +130,7 @@ Para ver las ejecuciones de actividad asociadas con la ejecución de canalizaci�
 
 ![Supervisión de la actividad](./media/load-office-365-data/activity-status.png) 
 
-Si es la primera vez que solicita datos para este contexto (una combinación de los datos de tabla a los que se accede, la cuenta de destino en la que se cargan los datos y la identidad de usuario que realiza la solicitud de acceso a los datos), verá el estado de la actividad de copia como **In Progress** (En curso), y solo al hacer clic en el vínculo de detalles en Actions (Acciones), verá el estado como " **RequesetingConsent** ".  Un miembro del grupo de aprobadores de acceso a datos debe aprobar la solicitud en Privileged Access Management antes de pasar a la extracción de datos.
+Si es la primera vez que solicita datos para este contexto (una combinación de los datos de tabla a los que se accede, la cuenta de destino en la que se cargan los datos y la identidad de usuario que realiza la solicitud de acceso a los datos), verá el estado de la actividad de copia como **In Progress** (En curso), y solo al hacer clic en el vínculo de detalles en Actions (Acciones), verá el estado como "**RequesetingConsent**".  Un miembro del grupo de aprobadores de acceso a datos debe aprobar la solicitud en Privileged Access Management antes de pasar a la extracción de datos.
 
 _Estado como solicitando consentimiento:_ 
 ![Detalles de la ejecución de la actividad: solicitar consentimiento](./media/load-office-365-data/activity-details-request-consent.png) 
@@ -147,7 +147,7 @@ Ahora, vaya a la instancia de Azure Blob Storage de destino y compruebe que Offi
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Continúe en el artículo siguiente para obtener información sobre la compatibilidad de Azure Synapse Analytics (anteriormente, Azure SQL Data Warehouse): 
+Continúe al artículo siguiente para obtener información sobre la compatibilidad de Azure Synapse Analytics: 
 
 > [!div class="nextstepaction"]
 >[Conector de Office 365](connector-office-365.md)
