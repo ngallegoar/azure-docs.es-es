@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 10/30/2017
 ms.author: vikdesai
-ms.openlocfilehash: 5df56b304463ab981026fbe0c82d831d83d702c3
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: f23d1fb0162abf05fba97c2f6fb02be9238fabd2
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93380075"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500366"
 ---
 # <a name="save-costs-with-azure-reserved-vm-instances-linux"></a>Ahorro de costos con Azure Reserved VM Instances (Linux)
 
@@ -74,19 +74,19 @@ El archivo de uso proporciona los cargos por período de facturación y el uso d
 
 Las instancias reservadas de máquinas virtuales están disponibles para la mayoría de los tamaños de máquina virtual, a excepción de los indicados aquí. El descuento de la reserva no se aplica en las siguientes máquinas virtuales:
 
-- **Series de máquinas virtuales** : serie A, serie Av2 o serie G.
+- **Series de máquinas virtuales**: serie A, serie Av2 o serie G.
 
-- **Máquinas virtuales de versión preliminar o promocionales** : cualquier serie o tamaño de máquina virtual que se encuentra en versión preliminar o usa el medidor promocional.
+- **Máquinas virtuales de versión preliminar o promocionales**: cualquier serie o tamaño de máquina virtual que se encuentra en versión preliminar o usa el medidor promocional.
 
-- **Nubes** : las reservas no están disponibles para la compra en las regiones de Alemania o China.
+- **Nubes**: las reservas no están disponibles para la compra en las regiones de Alemania o China.
 
-- **Cuota insuficiente** : una reserva cuyo ámbito sea de una sola suscripción debe tener cuota de vCPU disponible en la suscripción para la nueva instancia reservada. Por ejemplo, si la suscripción de destino tiene un límite de cuota de 10 vCPU para la serie D, no podrá comprar una reserva para 11 instancias Standard_D1. La comprobación de cuota para las reservas incluye las máquinas virtuales ya implementadas en la suscripción. Por ejemplo, si la suscripción tiene una cuota de 10 vCPU para la serie D y tiene implementadas dos instancias standard_D1, podrá comprar una reserva para 10 instancias standard_D1 en esta suscripción. También puede [cursar una solicitud de aumento de la cuota](../azure-portal/supportability/resource-manager-core-quotas-request.md) para resolver este problema.
+- **Cuota insuficiente**: una reserva cuyo ámbito sea de una sola suscripción debe tener cuota de vCPU disponible en la suscripción para la nueva instancia reservada. Por ejemplo, si la suscripción de destino tiene un límite de cuota de 10 vCPU para la serie D, no podrá comprar una reserva para 11 instancias Standard_D1. La comprobación de cuota para las reservas incluye las máquinas virtuales ya implementadas en la suscripción. Por ejemplo, si la suscripción tiene una cuota de 10 vCPU para la serie D y tiene implementadas dos instancias standard_D1, podrá comprar una reserva para 10 instancias standard_D1 en esta suscripción. También puede [cursar una solicitud de aumento de la cuota](../azure-portal/supportability/resource-manager-core-quotas-request.md) para resolver este problema.
 
-- **Restricciones de capacidad** : en algunas circunstancias poco frecuentes, Azure limita la compra de nuevas reservas a un subconjunto de tamaños de máquina virtual debido a que la capacidad en una región es baja.
+- **Restricciones de capacidad**: en algunas circunstancias poco frecuentes, Azure limita la compra de nuevas reservas a un subconjunto de tamaños de máquina virtual debido a que la capacidad en una región es baja.
 
 ## <a name="buy-a-reserved-vm-instance"></a>Compra de una instancia reservada de máquina virtual
 
-Puede comprar una instancia reservada de máquina virtual en [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22VirtualMachines%22%7D). Pague la reserva [por adelantado o mensualmente](../cost-management-billing/reservations/monthly-payments-reservations.md).
+Puede comprar una instancia reservada de máquina virtual en [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22VirtualMachines%22%7D). Pague la reserva [por adelantado o mensualmente](../cost-management-billing/reservations/prepare-buy-reservation.md).
 Estos requisitos se aplican a la compra de una instancia reservada de máquina virtual:
 
 - Debe tener un rol de propietario en al menos una suscripción de EA o en una suscripción con una tarifa de pago por uso.
@@ -106,7 +106,7 @@ Si tiene un Contrato Enterprise, puede usar la opción **Agregar más** para agr
 | Campo      | Descripción|
 |------------|--------------|
 |Subscription|Suscripción que se usa para pagar la reserva. Los costos de la reserva se cobran en el método de pago de la suscripción. El tipo de suscripción debe ser Contrato Enterprise (números de oferta: MS-AZR-0017P o MS-AZR-0148P) o Contrato de cliente de Microsoft o una suscripción individual con tarifas de pago por uso (números de oferta: MS-AZR-0003P o MS-AZR-0023P). Los cargos se deducen del saldo de compromiso monetario, si está disponible, o se cobran como uso por encima del límite. En una suscripción con tarifas de pago por uso, los cargos se cobran con el método de pago de factura o la tarjeta de crédito de la suscripción.|    
-|Ámbito       |El ámbito de la reserva puede cubrir una o varias suscripciones (ámbito compartido). Si selecciona: <ul><li>**Single resource group scope** (Ámbito de grupo de recursos único): aplica el descuento por reserva a los recursos coincidentes solo en el grupo de recursos seleccionado.</li><li>**Single subscription scope** (Ámbito de suscripción única): aplica el descuento por reserva a los recursos coincidentes de la suscripción seleccionada.</li><li>**Ámbito compartido** : aplica el descuento por reserva a los recursos coincidentes en suscripciones aptas que están en el contexto de facturación. Para los clientes de EA, el contexto de facturación es la inscripción. En el caso de suscripciones individuales con tarifas de pago por uso, el ámbito de facturación son todas las suscripciones aptas creadas por el administrador de la cuenta.</li></ul>|
+|Ámbito       |El ámbito de la reserva puede cubrir una o varias suscripciones (ámbito compartido). Si selecciona: <ul><li>**Single resource group scope** (Ámbito de grupo de recursos único): aplica el descuento por reserva a los recursos coincidentes solo en el grupo de recursos seleccionado.</li><li>**Single subscription scope** (Ámbito de suscripción única): aplica el descuento por reserva a los recursos coincidentes de la suscripción seleccionada.</li><li>**Ámbito compartido**: aplica el descuento por reserva a los recursos coincidentes en suscripciones aptas que están en el contexto de facturación. Para los clientes de EA, el contexto de facturación es la inscripción. En el caso de suscripciones individuales con tarifas de pago por uso, el ámbito de facturación son todas las suscripciones aptas creadas por el administrador de la cuenta.</li></ul>|
 |Region    |Región de Azure que está cubierta por la reserva.|    
 |Tamaño de VM     |Tamaño de las instancias de máquina virtual.|
 |Optimizar para     |La flexibilidad de tamaño de instancia de máquina virtual está seleccionada de forma predeterminada. Haga clic en **Configuración avanzada** para cambiar el valor de flexibilidad de tamaño de instancia, con el fin de aplicar el descuento de reserva a otras VM del mismo [grupo de tamaño de VM](reserved-vm-instance-size-flexibility.md). La prioridad de capacidad da preferencia a la capacidad del centro de datos para las implementaciones. Esto ofrece una mayor confianza en su capacidad para iniciar instancias de máquinas virtuales cuando las necesite. La prioridad de capacidad solo está disponible si el ámbito de la reserva es de suscripción única. |
@@ -158,6 +158,4 @@ Si tiene alguna pregunta o necesita ayuda, [cree una solicitud de soporte técni
     - [Información sobre el uso de reservas de Azure para suscripciones de pago por uso](../cost-management-billing/reservations/understand-reserved-instance-usage.md)
     - [Información sobre el uso de reservas para la inscripción Enterprise](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md)
     - [Costos de software de Windows no incluidos con reservas](../cost-management-billing/reservations/reserved-instance-windows-software-costs.md)
-    - [Azure Reservations en el programa del Proveedor de soluciones en la nube (CSP) del Centro de partners](https://docs.microsoft.com/partner-center/azure-reservations)
-
-
+    - [Azure Reservations en el programa del Proveedor de soluciones en la nube (CSP) del Centro de partners](/partner-center/azure-reservations)

@@ -7,29 +7,29 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 09/04/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: edd9898580c60199b761b24b172a366069f09cb2
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 0c0b3bd81e0f73a7879382e28516378bd722bc17
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92516195"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498649"
 ---
 # <a name="how-to-use-permissions-in-azure-spring-cloud"></a>Uso de permisos en Azure Spring Cloud
-En este artículo se muestra cómo crear roles personalizados que delegan permisos en recursos de Azure Spring Cloud. Los roles personalizados amplían los [roles integrados de Azure](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) con varios permisos estándar.
+En este artículo se muestra cómo crear roles personalizados que delegan permisos en recursos de Azure Spring Cloud. Los roles personalizados amplían los [roles integrados de Azure](../role-based-access-control/built-in-roles.md) con varios permisos estándar.
 
 Implementaremos los siguientes roles personalizados:
 
-* **Rol de desarrollador** : 
+* **Rol de desarrollador**: 
     * Implementar
     * Prueba
     * Reiniciar aplicaciones
     * Puede aplicar y realizar cambios en las configuraciones de aplicaciones del repositorio de Git
     * Puede obtener la secuencia de registros
-* **Rol de operaciones/ingeniería de confiabilidad de sitios** : 
+* **Rol de operaciones/ingeniería de confiabilidad de sitios**: 
     * Reiniciar aplicaciones
     * Obtener secuencias de registros
     * No puede realizar cambios en las aplicaciones ni configuraciones
-* **Rol de acciones de Azure Pipelines/Jenkins/GitHub** :
+* **Rol de acciones de Azure Pipelines/Jenkins/GitHub**:
     * Puede realizar operaciones de creación, lectura, actualización y eliminación
     * Puede crear y configurar todo en Azure Spring Cloud y las aplicaciones de la instancia de servicio: Acciones de Azure Pipelines, Jenkins o GitHub, con plantillas de Terraform o Resource Manager
 
@@ -61,19 +61,19 @@ Seleccione *Microsoft Azure Spring Cloud*.
 
 8. Seleccione los permisos para el rol de desarrollador:
 
-En **Microsoft.AppPlatform/Spring** , seleccione:
+En **Microsoft.AppPlatform/Spring**, seleccione:
 * Write : Create or Update Azure Spring Cloud service instance (Escritura: Crear o actualizar instancia del servicio Azure Spring Cloud)
 * Read : Get Azure Spring Cloud service instance (Lectura: Obtener instancia del servicio Azure Spring Cloud)
 * Other : List Azure Spring Cloud service instance test keys (Otro: Enumerar claves de prueba de la instancia del servicio Azure Spring Cloud)
 
-En **Microsoft.AppPlatform/Spring/apps** , seleccione:
+En **Microsoft.AppPlatform/Spring/apps**, seleccione:
 * Read : Read Microsoft Azure Spring Cloud application (Lectura: Leer aplicación de Microsoft Azure Spring Cloud)
 * Other : Get Microsoft Azure Spring Cloud application resource upload URL (Otro: Obtener dirección URL de carga de recursos de aplicación de Microsoft Azure Spring Cloud)
 
-En **Microsoft.AppPlatform/Spring/apps/bindings** , seleccione:
+En **Microsoft.AppPlatform/Spring/apps/bindings**, seleccione:
 * Read : Read Microsoft Azure Spring Cloud application binding (Lectura: Leer enlace de aplicación de Microsoft Azure Spring Cloud)
 
-En **Microsoft.AppPlatform/Spring/apps/deployments** , seleccione:
+En **Microsoft.AppPlatform/Spring/apps/deployments**, seleccione:
 * Write : Write Microsoft Azure Spring Cloud application deployment (Escritura: Escribir implementación de aplicación de Microsoft Azure Spring Cloud)
 * Read : Read Microsoft Azure Spring Cloud application deployment (Lectura: Leer implementación de aplicación de Microsoft Azure Spring Cloud)
 * Other : Start Microsoft Azure Spring Cloud application deployment (Otro: Iniciar implementación de aplicación de Microsoft Azure Spring Cloud)
@@ -81,16 +81,16 @@ En **Microsoft.AppPlatform/Spring/apps/deployments** , seleccione:
 * Other : Restart Microsoft Azure Spring Cloud application deployment (Otro: Reiniciar implementación de aplicación de Microsoft Azure Spring Cloud)
 * Other : Get Microsoft Azure Spring Cloud application deployment log file URL (Otro: Obtener dirección URL de archivo de registro de implementación de aplicación de Microsoft Azure Spring Cloud)
 
-En **Microsoft.AppPlatform/Spring/apps/domains** , seleccione:
+En **Microsoft.AppPlatform/Spring/apps/domains**, seleccione:
 * Read : Read Microsoft Azure Spring Cloud application custom domain (Lectura: Leer dominio personalizado de aplicación de Microsoft Azure Spring Cloud)
 
-En **Microsoft.AppPlatform/Spring/certificates** , seleccione:
+En **Microsoft.AppPlatform/Spring/certificates**, seleccione:
 * Read : Read Microsoft Azure Spring Cloud certificate (Lectura: Leer certificado de Microsoft Azure Spring Cloud)
 
-En **Microsoft.AppPlatform/locations/operationResults/Spring** , seleccione:
+En **Microsoft.AppPlatform/locations/operationResults/Spring**, seleccione:
 * Read : Read operation result (Lectura: Leer resultado de la operación)
 
-En **Microsoft.AppPlatform/locations/operationStatus/operationId** , seleccione:
+En **Microsoft.AppPlatform/locations/operationStatus/operationId**, seleccione:
 * Read : Read operation status (Lectura: Leer estado de la operación)
 
     [ ![Crear permisos de desarrollador](media/spring-cloud-permissions/developer-permissions-box.png) ](media/spring-cloud-permissions/developer-permissions-box.png#lightbox)
@@ -107,7 +107,7 @@ Este procedimiento define un rol con permisos para implementar, probar y reinici
 1. Repita el procedimiento para navegar a la suscripción y el grupo de recursos, y vaya a Control de acceso (IAM).
 2. Seleccione los permisos para el rol del ingeniero de DevOps:
 
-En **Microsoft.AppPlatform/Spring** , seleccione:
+En **Microsoft.AppPlatform/Spring**, seleccione:
 * Write : Create or Update Azure Spring Cloud service instance (Escritura: Crear o actualizar instancia del servicio Azure Spring Cloud)
 * Delete : Delete Azure Spring Cloud service instance (Eliminación: Eliminar instancia del servicio Azure Spring Cloud)
 * Read : Get Azure Spring Cloud service instance (Lectura: Obtener instancia del servicio Azure Spring Cloud)
@@ -116,19 +116,19 @@ En **Microsoft.AppPlatform/Spring** , seleccione:
 * Other : List Azure Spring Cloud service instance test keys (Otro: Enumerar claves de prueba de la instancia del servicio Azure Spring Cloud)
 * Other : Regenerate Azure Spring Cloud service instance test keys (Otro: Regenerar clave de prueba de la instancia del servicio Azure Spring Cloud)
 
-En **Microsoft.AppPlatform/Spring/apps** , seleccione:
+En **Microsoft.AppPlatform/Spring/apps**, seleccione:
 * Write : Write Microsoft Azure Spring Cloud application (Escritura: Escribir aplicación de Microsoft Azure Spring Cloud)
 * Delete : Delete Microsoft Azure Spring Cloud application (Eliminación: Eliminar aplicación de Microsoft Azure Spring Cloud)
 * Read : Read Microsoft Azure Spring Cloud application (Lectura: Leer aplicación de Microsoft Azure Spring Cloud)
 * Other : Get Microsoft Azure Spring Cloud application resource upload URL (Otro: Obtener dirección URL de carga de recursos de aplicación de Microsoft Azure Spring Cloud)
 * Other : Validate Microsoft Azure Spring Cloud application custom domain (Otro: Validar dominio personalizado de aplicación de Microsoft Azure Spring Cloud)
 
-En **Microsoft.AppPlatform/Spring/apps/bindings** , seleccione:
+En **Microsoft.AppPlatform/Spring/apps/bindings**, seleccione:
 * Write : Write Microsoft Azure Spring Cloud application binding (Escritura: Escribir enlace de aplicación de Microsoft Azure Spring Cloud)
 * Delete : Delete Microsoft Azure Spring Cloud application binding (Eliminación: Eliminar enlace de aplicación de Microsoft Azure Spring Cloud)
 * Read : Read Microsoft Azure Spring Cloud application binding (Lectura: Leer enlace de aplicación de Microsoft Azure Spring Cloud)
 
-En **Microsoft.AppPlatform/Spring/apps/deployments** , seleccione:
+En **Microsoft.AppPlatform/Spring/apps/deployments**, seleccione:
 * Write : Write Microsoft Azure Spring Cloud application deployment (Escritura: Escribir implementación de aplicación de Microsoft Azure Spring Cloud)
 * Delete : Delete Azure Spring Cloud application deployment (Eliminación: Eliminar implementación de aplicación de Azure Spring Cloud)
 * Read : Read Microsoft Azure Spring Cloud application deployment (Lectura: Leer implementación de aplicación de Microsoft Azure Spring Cloud)
@@ -137,18 +137,18 @@ En **Microsoft.AppPlatform/Spring/apps/deployments** , seleccione:
 * Other : Restart Microsoft Azure Spring Cloud application deployment (Otro: Reiniciar implementación de aplicación de Microsoft Azure Spring Cloud)
 * Other : Get Microsoft Azure Spring Cloud application deployment log file URL (Otro: Obtener dirección URL de archivo de registro de implementación de aplicación de Microsoft Azure Spring Cloud)
 
-En **Microsoft.AppPlatform/Spring/apps/deployments/skus** , seleccione:
+En **Microsoft.AppPlatform/Spring/apps/deployments/skus**, seleccione:
 * Read : List application deployment available skus (Lectura: Enumerar SKU disponibles de implementación de aplicación)
 
-En **Microsoft.AppPlatform/locations** , seleccione:
+En **Microsoft.AppPlatform/locations**, seleccione:
 * Other : Check name availability (Otro: Comprobar disponibilidad del nombre)
 
 En Microsoft.AppPlatform/locations/operationResults/Spring seleccione: Read : Read operation result (Lectura: Leer resultado de la operación)
 
-En **Microsoft.AppPlatform/locations/operationStatus/operationId** , seleccione:
+En **Microsoft.AppPlatform/locations/operationStatus/operationId**, seleccione:
 * Read : Read operation status (Lectura: Leer estado de la operación)
 
-En **Microsoft.AppPlatform/skus** , seleccione:
+En **Microsoft.AppPlatform/skus**, seleccione:
 * Read : List available skus (Lectura: Enumerar SKU disponibles)
 
    [ ![Permisos de desarrollo y operaciones](media/spring-cloud-permissions/dev-ops-permissions.png) ](media/spring-cloud-permissions/dev-ops-permissions.png#lightbox)
@@ -166,23 +166,23 @@ Este procedimiento define un rol con permisos para implementar, probar y reinici
 
 2. Seleccione los permisos para el rol de operaciones/ingeniería de confiabilidad de sitios:
 
-En **Microsoft.AppPlatform/Spring** , seleccione:
+En **Microsoft.AppPlatform/Spring**, seleccione:
 * Read : Get Azure Spring Cloud service instance (Lectura: Obtener instancia del servicio Azure Spring Cloud)
 * Other : List Azure Spring Cloud service instance test keys (Otro: Enumerar claves de prueba de la instancia del servicio Azure Spring Cloud)
 
-En **Microsoft.AppPlatform/Spring/apps** , seleccione:
+En **Microsoft.AppPlatform/Spring/apps**, seleccione:
 * Read : Read Microsoft Azure Spring Cloud application (Lectura: Leer aplicación de Microsoft Azure Spring Cloud)
 
-En **Microsoft.AppPlatform/apps/deployments** , seleccione:
+En **Microsoft.AppPlatform/apps/deployments**, seleccione:
 * Read : Read Microsoft Azure Spring Cloud application deployment (Lectura: Leer implementación de aplicación de Microsoft Azure Spring Cloud)
 * Other : Start Microsoft Azure Spring Cloud application deployment (Otro: Iniciar implementación de aplicación de Microsoft Azure Spring Cloud)
 * Other : Stop Microsoft Azure Spring Cloud application deployment (Otro: Detener implementación de aplicación de Microsoft Azure Spring Cloud)
 * Other : Restart Microsoft Azure Spring Cloud application deployment (Otro: Reiniciar implementación de aplicación de Microsoft Azure Spring Cloud)
 
-En **Microsoft.AppPlatform/locations/operationResults/Spring** , seleccione:
+En **Microsoft.AppPlatform/locations/operationResults/Spring**, seleccione:
 * Read : Read operation result (Lectura: Leer resultado de la operación)
 
-En **Microsoft.AppPlatform/locations/operationStatus/operationId** , seleccione:
+En **Microsoft.AppPlatform/locations/operationStatus/operationId**, seleccione:
 * Read : Read operation status (Lectura: Leer estado de la operación)
 
    [ ![Permisos de operaciones/ingeniería de confiabilidad de sitios](media/spring-cloud-permissions/ops-sre-permissions.png) ](media/spring-cloud-permissions/ops-sre-permissions.png#lightbox)
@@ -202,7 +202,7 @@ Este rol de acciones de Jenkins/GitHub puede crear y configurar todo en Azure Sp
 
 3. Seleccione los permisos para el rol de Azure Pipelines/aprovisionamiento:
   
-En **Microsoft.AppPlatform/Spring** , seleccione:
+En **Microsoft.AppPlatform/Spring**, seleccione:
 * Write : Create or Update Azure Spring Cloud service instance (Escritura: Crear o actualizar instancia del servicio Azure Spring Cloud)
 * Delete : Delete Azure Spring Cloud service instance (Eliminación: Eliminar instancia del servicio Azure Spring Cloud)
 * Read : Get Azure Spring Cloud service instance (Lectura: Obtener instancia del servicio Azure Spring Cloud)
@@ -211,19 +211,19 @@ En **Microsoft.AppPlatform/Spring** , seleccione:
 * Other : List Azure Spring Cloud service instance test keys (Otro: Enumerar claves de prueba de la instancia del servicio Azure Spring Cloud)
 * Other : Regenerate Azure Spring Cloud service instance test keys (Otro: Regenerar clave de prueba de la instancia del servicio Azure Spring Cloud)
 
-En **Microsoft.AppPlatform/Spring/apps** , seleccione:
+En **Microsoft.AppPlatform/Spring/apps**, seleccione:
 * Write : Write Microsoft Azure Spring Cloud application (Escritura: Escribir aplicación de Microsoft Azure Spring Cloud)
 * Delete : Delete Microsoft Azure Spring Cloud application (Eliminación: Eliminar aplicación de Microsoft Azure Spring Cloud)
 * Read : Read Microsoft Azure Spring Cloud application (Lectura: Leer aplicación de Microsoft Azure Spring Cloud)
 * Other : Get Microsoft Azure Spring Cloud application resource upload URL (Otro: Obtener dirección URL de carga de recursos de aplicación de Microsoft Azure Spring Cloud)
 * Other : Validate Microsoft Azure Spring Cloud application custom domain (Otro: Validar dominio personalizado de aplicación de Microsoft Azure Spring Cloud)
 
-En **Microsoft.AppPlatform/Spring/apps/bindings** , seleccione:
+En **Microsoft.AppPlatform/Spring/apps/bindings**, seleccione:
 * Write : Write Microsoft Azure Spring Cloud application binding (Escritura: Escribir enlace de aplicación de Microsoft Azure Spring Cloud)
 * Delete : Delete Microsoft Azure Spring Cloud application binding (Eliminación: Eliminar enlace de aplicación de Microsoft Azure Spring Cloud)
 * Read : Read Microsoft Azure Spring Cloud application binding (Lectura: Leer enlace de aplicación de Microsoft Azure Spring Cloud)
 
-En **Microsoft.AppPlatform/Spring/apps/deployments** , seleccione:
+En **Microsoft.AppPlatform/Spring/apps/deployments**, seleccione:
 * Write : Write Microsoft Azure Spring Cloud application deployment (Escritura: Escribir implementación de aplicación de Microsoft Azure Spring Cloud)
 * Delete : Delete Azure Spring Cloud application deployment (Eliminación: Eliminar implementación de aplicación de Azure Spring Cloud)
 * Read : Read Microsoft Azure Spring Cloud application deployment (Lectura: Leer implementación de aplicación de Microsoft Azure Spring Cloud)
@@ -232,19 +232,19 @@ En **Microsoft.AppPlatform/Spring/apps/deployments** , seleccione:
 * Other : Restart Microsoft Azure Spring Cloud application deployment (Otro: Reiniciar implementación de aplicación de Microsoft Azure Spring Cloud)
 * Other : Get Microsoft Azure Spring Cloud application deployment log file URL (Otro: Obtener dirección URL de archivo de registro de implementación de aplicación de Microsoft Azure Spring Cloud)
 
-En **Microsoft.AppPlatform/skus** , seleccione:
+En **Microsoft.AppPlatform/skus**, seleccione:
 * Read : List available skus (Lectura: Enumerar SKU disponibles)
 
-En **Microsoft.AppPlatform/locations** , seleccione:
+En **Microsoft.AppPlatform/locations**, seleccione:
 * Other : Check name availability (Otro: Comprobar disponibilidad del nombre)
 
-En **Microsoft.AppPlatform/locations/operationResults/Spring** , seleccione:
+En **Microsoft.AppPlatform/locations/operationResults/Spring**, seleccione:
 * Read : Read operation result (Lectura: Leer resultado de la operación)
 
-En **Microsoft.AppPlatform/locations/operationStatus/operationId** , seleccione:
+En **Microsoft.AppPlatform/locations/operationStatus/operationId**, seleccione:
 * Read : Read operation status (Lectura: Leer estado de la operación)
 
-En **Microsoft.AppPlatform/skus** , seleccione:
+En **Microsoft.AppPlatform/skus**, seleccione:
 * Read : List available skus (Lectura: Enumerar SKU disponibles)
 
    [ ![Permisos de Pipelines](media/spring-cloud-permissions/pipelines-permissions-box.png) ](media/spring-cloud-permissions/pipelines-permissions-box.png#lightbox)  
@@ -257,9 +257,9 @@ En **Microsoft.AppPlatform/skus** , seleccione:
 
 
 ## <a name="see-also"></a>Consulte también
-* [Creación o actualización de roles personalizados de Azure mediante Azure Portal](https://docs.microsoft.com/azure/role-based-access-control/custom-roles-portal)
+* [Creación o actualización de roles personalizados de Azure mediante Azure Portal](../role-based-access-control/custom-roles-portal.md)
 
 Para obtener más información sobre los tres métodos que definen permisos personalizados, consulte:
-* [Clonación de un rol](https://docs.microsoft.com/azure/role-based-access-control/custom-roles-portal#clone-a-role)
-* [Comienzo desde cero](https://docs.microsoft.com/azure/role-based-access-control/custom-roles-portal#start-from-scratch)
-* [Inicio desde un archivo JSON](https://docs.microsoft.com/azure/role-based-access-control/custom-roles-portal#start-from-json)
+* [Clonación de un rol](../role-based-access-control/custom-roles-portal.md#clone-a-role)
+* [Comienzo desde cero](../role-based-access-control/custom-roles-portal.md#start-from-scratch)
+* [Inicio desde un archivo JSON](../role-based-access-control/custom-roles-portal.md#start-from-json)

@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: 98ba7c63e057e1f6b1f37a6529b6e94e2f514d6d
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 86874a60d48ddcbdaca5ae779ad554ee58cc233b
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94701038"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498853"
 ---
 # <a name="azure-operational-security-best-practices"></a>Procedimientos recomendados de seguridad operativa de Azure
 En este artículo se proporciona un conjunto de procedimientos recomendados operativos para proteger los datos, aplicaciones y otros recursos en Azure.
@@ -195,7 +195,7 @@ Con los [puntos de conexión de servicio](../../virtual-network/virtual-network-
 
 Con frecuencia vemos ataques a los recursos locales de un cliente, además de a los recursos en Azure. Si conecta un entorno local a Azure, minimice la exposición de los recursos locales a la red pública de Internet.
 
-Azure tiene dos [ofertas de servicio](../../virtual-network/ddos-protection-overview.md) de DDoS que proporcionan protección frente a ataques de red:
+Azure tiene dos [ofertas de servicio](../../ddos-protection/ddos-protection-overview.md) de DDoS que proporcionan protección frente a ataques de red:
 
 - La protección básica se integra en Azure de forma predeterminada sin costo adicional. El tamaño y la capacidad de la red de implementación global de Azure proporciona una defensa contra los ataques al nivel de red más comunes mediante la supervisión constante del tráfico y la mitigación en tiempo real. La protección básica no requiere ningún cambio de configuración ni de aplicación y ayuda a proteger todos los servicios de Azure, incluidos servicios PaaS como Azure DNS.
 - La protección estándar proporciona funcionalidades avanzadas de mitigación de DDoS frente a ataques de red. Se ajusta automáticamente para proteger los recursos específicos de Azure. La protección se puede habilitar fácilmente durante la creación de redes virtuales. También puede realizarse después de la creación y no requiere ningún cambio de aplicación o recurso.

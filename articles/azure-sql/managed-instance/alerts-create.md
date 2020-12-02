@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: how-to
 author: danimir
 ms.author: danil
-ms.reviewer: jrasnik, sstein
+ms.reviewer: wiassaf, sstein
 ms.date: 05/04/2020
-ms.openlocfilehash: a5a2336728d4507544fa621961c2f346746c2bb9
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: a85bf6510163c47fa39bdb28debff806e1812f58
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92792657"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499278"
 ---
 # <a name="create-alerts-for-azure-sql-managed-instance-using-the-azure-portal"></a>Creación de alertas para Instancia administrada de Azure SQL mediante Azure Portal
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -72,7 +72,7 @@ Las siguientes métricas de la instancia administrada están disponibles para la
 
 4. Seleccione el período de agregación: promedio, mínimo o máximo alcanzado en el período de tiempo especificado (Promedio, Mínimo o Máximo). 
 
-5. Seleccione **Nueva regla de alertas** .
+5. Seleccione **Nueva regla de alertas**.
 
 6. En el panel Crear regla de alertas, haga clic en **Nombre de la condición** (en el ejemplo se utiliza el espacio de almacenamiento usado)
 
@@ -94,7 +94,7 @@ Las siguientes métricas de la instancia administrada están disponibles para la
 
    ![Select_action_group](./media/alerts-create/mi-select-action-group-smaller-annotated.png)
 
-   * Para crear un nuevo grupo de acciones, seleccione **+Crear grupo de acciones** .
+   * Para crear un nuevo grupo de acciones, seleccione **+Crear grupo de acciones**.
 
       ![Create_action_group_alerts](./media/alerts-create/mi-create-alert-action-group-smaller-annotated.png)
    
@@ -106,7 +106,7 @@ Las siguientes métricas de la instancia administrada están disponibles para la
 
       ![Rule_description](./media/alerts-create/mi-rule-details-complete-smaller-annotated.png)
 
-   * Para completar la creación de la regla de alertas, haga clic en el botón **Crear regla de alertas** .
+   * Para completar la creación de la regla de alertas, haga clic en el botón **Crear regla de alertas**.
 
 La nueva regla de alertas se activará en unos minutos y se desencadenará según lo estipulado en la configuración.
 

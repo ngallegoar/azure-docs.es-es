@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 7a5cd7a6019451b27b509aa7f486540c04c29ee2
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 464439516ee86d2fb6f900c3fcaf179095192acf
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94412653"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498887"
 ---
 # <a name="security-control-inventory-and-asset-management"></a>Control de seguridad: Administración de recursos y del inventario
 
@@ -100,7 +100,7 @@ Use la supervisión de integridad de archivos (Change Tracking) y el inventario 
 
 - [Habilitación de la supervisión de la integridad de los archivos](../../security-center/security-center-file-integrity-monitoring.md)
 
-- [Descripción de Azure Change Tracking](../../automation/change-tracking.md)
+- [Descripción de Azure Change Tracking](../../automation/change-tracking/overview.md)
 
 - [Habilitación del inventario de máquinas virtuales de Azure](../../automation/automation-tutorial-installed-software.md)
 

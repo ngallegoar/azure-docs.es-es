@@ -8,12 +8,12 @@ ms.date: 04/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: contperfq1
-ms.openlocfilehash: 839ba1f8a5215c9059cfeff6e2158165b154f1f7
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 3b0acd683309ceb105c49dc5b0bd493ce2e461b9
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289357"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500434"
 ---
 # <a name="introduction-to-azure-managed-disks"></a>Introducción a los discos administrados de Azure
 
@@ -71,7 +71,7 @@ Los discos administrados ofrecen dos tipos diferentes de cifrado. El primero de 
 
 El cifrado del lado servidor proporciona cifrado en reposo y protege los datos con el fin de cumplir con los compromisos de cumplimiento y seguridad de su organización. El cifrado en el servidor está habilitado de forma predeterminada para todos los discos administrados, instantáneas e imágenes en todas las regiones donde hay discos administrados disponibles (por otra parte, el cifrado del lado servidor no cifra los discos temporales a menos que habilite el cifrado en el host; consulte [Roles de disco: discos temporales](#temporary-disk)).
 
-Puede permitir que Azure administre sus claves, que son claves administradas por la plataforma, o puede administrar las claves por su cuenta, ya que son claves administradas por el cliente. Consulte el artículo [Cifrado del lado servidor de Azure Disk Storage](windows/disk-encryption.md) para obtener más información.
+Puede permitir que Azure administre sus claves, que son claves administradas por la plataforma, o puede administrar las claves por su cuenta, ya que son claves administradas por el cliente. Consulte el artículo [Cifrado del lado servidor de Azure Disk Storage](./disk-encryption.md) para obtener más información.
 
 
 #### <a name="azure-disk-encryption"></a>Azure Disk Encryption
@@ -96,7 +96,7 @@ El disco tiene una capacidad máxima de 4095 GiB.
 
 ### <a name="temporary-disk"></a>Disco temporal
 
-La mayoría de las máquinas virtuales contiene un disco temporal, que no es un disco administrado. El disco temporal proporciona almacenamiento a corto plazo para aplicaciones y procesos, y está destinado únicamente a almacenar datos como archivos de paginación o de intercambio. Los datos del disco temporal pueden perderse durante un [evento de mantenimiento](./manage-availability.md?toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json#understand-vm-reboots---maintenance-vs-downtime) o cuando [vuelva a implementar una máquina virtual](troubleshooting/redeploy-to-new-node-windows.md?toc=/azure/virtual-machines/windows/toc.json). Durante un reinicio estándar correcto de la máquina virtual, se conservarán los datos de la unidad temporal. Para más información sobre las máquinas virtuales sin discos temporales, consulte [Tamaños de máquina virtual de Azure sin disco temporal local](azure-vms-no-temp-disk.md).
+La mayoría de las máquinas virtuales contiene un disco temporal, que no es un disco administrado. El disco temporal proporciona almacenamiento a corto plazo para aplicaciones y procesos, y está destinado únicamente a almacenar datos como archivos de paginación o de intercambio. Los datos del disco temporal pueden perderse durante un [evento de mantenimiento](./manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime) o cuando [vuelva a implementar una máquina virtual](troubleshooting/redeploy-to-new-node-windows.md?toc=/azure/virtual-machines/windows/toc.json). Durante un reinicio estándar correcto de la máquina virtual, se conservarán los datos de la unidad temporal. Para más información sobre las máquinas virtuales sin discos temporales, consulte [Tamaños de máquina virtual de Azure sin disco temporal local](azure-vms-no-temp-disk.md).
 
 En máquinas virtuales Linux de Azure, el disco temporal normalmente es /dev/sdb, mientras que en máquinas virtuales Windows, el disco temporal es D: de forma predeterminada. El cifrado del lado servidor no cifra el disco temporal, a menos que habilite el cifrado en el host.
 

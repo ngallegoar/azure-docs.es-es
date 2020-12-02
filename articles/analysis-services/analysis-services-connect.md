@@ -4,16 +4,16 @@ description: Aprenda a conectarse y obtener datos de un servidor de Analysis Ser
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 09/04/2020
+ms.date: 12/01/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions
-ms.openlocfilehash: 93b1e9a2ea052a39e891cf9084b632f434c341df
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 4abe1e9c6f9d7b62792936f816b9c46a937be41a
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92013702"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499431"
 ---
 # <a name="connecting-to-servers"></a>Conexión a servidores
 
@@ -21,7 +21,7 @@ En este artículo se describe la conexión a un servidor mediante aplicaciones d
 
 ## <a name="client-libraries"></a>Bibliotecas de clientes
 
-[Obtener las bibliotecas de cliente más recientes](/analysis-services/client-libraries?view=azure-analysis-services-current)
+[Obtener las bibliotecas de cliente más recientes](/analysis-services/client-libraries?view=azure-analysis-services-current&preserve-view=true)
 
 Todas las conexiones a un servidor, con independencia del tipo, requieren las bibliotecas de cliente AMO, ADOMD.NET, y OLEDB actualizadas para conectarse a un servidor de Analysis Services e interaccionar con él. En el caso de SSMS, Visual Studio, Excel 2016 y versiones posteriores y Power BI, las bibliotecas cliente más recientes se instalan o actualizan con las versiones mensuales. Sin embargo, en algunos casos, es posible que una aplicación no tenga la más reciente. Por ejemplo, cuando las directivas retrasan las actualizaciones o las actualizaciones de Microsoft 365 están en el canal diferido.
 
@@ -79,7 +79,7 @@ Con versiones anteriores de Excel, los usuarios pueden conectarse a un servidor 
 
 ## <a name="connect-as-a-linked-server-from-sql-server"></a>Conectividad como un servidor vinculado desde SQL Server
 
-SQL Server puede conectarse a un recurso de Azure Analysis Services como un [servidor vinculado](/sql/relational-databases/linked-servers/create-linked-servers-sql-server-database-engine) especificando MSOLAP como proveedor de origen de datos. Antes de configurar una conexión de servidor vinculado, asegúrese de instalar la [biblioteca de cliente de MSOLAP](/analysis-services/client-libraries?view=azure-analysis-services-current) (proveedor) más reciente. 
+SQL Server puede conectarse a un recurso de Azure Analysis Services como un [servidor vinculado](/sql/relational-databases/linked-servers/create-linked-servers-sql-server-database-engine) especificando MSOLAP como proveedor de origen de datos. Antes de configurar una conexión de servidor vinculado, asegúrese de instalar la [biblioteca de cliente de MSOLAP](/analysis-services/client-libraries?view=azure-analysis-services-current&preserve-view=true) (proveedor) más reciente. 
 
 En el caso de las conexiones del servidor vinculado a Azure Analysis Services, se debe crear una instancia del proveedor MSOLAP fuera del proceso de SQL Server. Al configurar las opciones de servidor vinculado, asegúrese de que la opción **Permitir InProcess** **no esté seleccionada**.
 

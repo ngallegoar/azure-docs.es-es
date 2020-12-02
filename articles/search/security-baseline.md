@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: e594dab3e4bf36fedee7a068068934501ca02f24
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 07ef3da9f67de92c3526b83222c1c8088660d7c7
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842794"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499873"
 ---
 # <a name="azure-security-baseline-for-azure-cognitive-search"></a>Base de referencia de Azure Cognitive Search
 
@@ -64,7 +64,7 @@ Cognitive Search también admite la funcionalidad de seguridad de red adicional 
 
 **Guía**: Cognitive Search no ofrece una característica específica para combatir un ataque de denegación de servicio distribuido, pero puede habilitar DDoS Protection estándar en las redes virtuales asociadas a su servicio Cognitive Search como protección general.
 
-- [Configuración de la protección contra DDoS](../virtual-network/manage-ddos-protection.md)
+- [Configuración de la protección contra DDoS](../ddos-protection/manage-ddos-protection.md)
 
 **Supervisión de Azure Security Center**: no disponible actualmente
 
@@ -223,7 +223,7 @@ En Azure Monitor, establezca el período de retención del área de trabajo de L
 
 - [Incorporación de Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-- [Información acerca de Log Analytics](../azure-monitor/log-query/get-started-portal.md)
+- [Información acerca de Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md)
 
 - [Procedimiento para realizar consultas personalizadas en Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
 

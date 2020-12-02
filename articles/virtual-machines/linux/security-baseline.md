@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: f9835a0bb67fd276096153c54a569ebb58161799
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 45a33981c51f5a2590843fafc1e54f54d2e567cf
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842420"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498479"
 ---
 # <a name="azure-security-baseline-for-linux-virtual-machines"></a>Base de referencia de seguridad de Azure para Linux Virtual Machines
 
@@ -78,7 +78,7 @@ También puede implementar el firewall de aplicaciones web (WAF) de Azure delant
 
 Puede usar el acceso de red Just-in-Time de Azure Security Center para limitar la exposición de Linux Virtual Machines a las direcciones IP aprobadas durante un período limitado. Use también la protección de redes adaptativa de Azure Security Center para recomendar configuraciones de NSG que limiten los puertos y las direcciones IP basadas en el tráfico real y la inteligencia sobre amenazas.
 
-* [Configuración de la protección contra DDoS](../../virtual-network/manage-ddos-protection.md)
+* [Configuración de la protección contra DDoS](../../ddos-protection/manage-ddos-protection.md)
 
 * [Implementación de Azure Firewall](../../firewall/tutorial-firewall-deploy-portal.md)
 
@@ -278,7 +278,7 @@ Como alternativa, puede habilitar e incorporar datos en Azure Sentinel o en una 
 
 * [Incorporación de Azure Sentinel](../../sentinel/quickstart-onboard.md)
 
-* [Descripción del área de trabajo de Log Analytics](../../azure-monitor/log-query/get-started-portal.md)
+* [Descripción del área de trabajo de Log Analytics](../../azure-monitor/log-query/log-analytics-tutorial.md)
 
 * [Procedimiento para realizar consultas personalizadas en Azure Monitor](../../azure-monitor/log-query/get-started-queries.md)
 
@@ -308,7 +308,7 @@ Como alternativa, puede habilitar e incorporar datos en Azure Sentinel o en una 
 
 * [Instrucciones para incorporar servidores Linux a Azure Security Center](../../security-center/quickstart-onboard-machines.md)
 
-* [En el siguiente vínculo se proporcionan las directrices de seguridad recomendadas de Microsoft, que pueden servir como lista de criterios para el software de vulnerabilidad seleccionado](./security-recommendations.md)
+* [En el siguiente vínculo se proporcionan las directrices de seguridad recomendadas de Microsoft, que pueden servir como lista de criterios para el software de vulnerabilidad seleccionado](../security-recommendations.md)
 
 **Supervisión de Azure Security Center**: Sí
 
@@ -458,7 +458,7 @@ Como alternativa, puede habilitar e incorporar datos en Azure Sentinel o en una 
 
 **Guía**: configure opciones de diagnóstico para que Azure Active Directory envíe registros de auditoría y de inicio de sesión a un área de trabajo de Log Analytics. Además, use Azure Monitor para revisar los registros y realizar consultas en los datos de Syslog de autenticación de las máquinas virtuales de Azure.
 
-* [Descripción del área de trabajo de Log Analytics](../../azure-monitor/log-query/get-started-portal.md)
+* [Descripción del área de trabajo de Log Analytics](../../azure-monitor/log-query/log-analytics-tutorial.md)
 
 * [Integración de los registros de actividad de Azure en Azure Monitor](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
@@ -470,7 +470,7 @@ Como alternativa, puede habilitar e incorporar datos en Azure Sentinel o en una 
 
 **Responsabilidad**: Customer
 
-### <a name="312-alert-on-account-sign-in-behavior-deviation"></a>3.12: Alerta de las desviaciones de comportamiento en los inicios de sesión de las cuentas
+### <a name="312-alert-on-account-sign-in-behavior-deviation"></a>3.12: Alerta sobre las desviaciones de comportamiento en los inicios de sesión de las cuentas
 
 **Guía**: use las características de protección de identidad y detección de riesgo de Azure Active Directory para configurar respuestas automatizadas a las acciones sospechosas que se detecten en relación con los recursos de las cuentas de almacenamiento. Debe habilitar las respuestas automatizadas a través de Azure Sentinel para implementar las respuestas de seguridad de su organización.
 
@@ -586,7 +586,7 @@ Microsoft usa el protocolo Seguridad de la capa de transporte (TLS) para protege
 
 **Guía**: Los discos virtuales de Linux Virtual Machines (VM) se cifran en reposo mediante el cifrado del lado servidor o el cifrado de discos de Azure (ADE). Azure Disk Encryption aprovecha la característica DM-Crypt de Linux para cifrar los discos administrados con claves administradas por el cliente dentro de la máquina virtual invitada. El cifrado del lado servidor con claves administradas por el cliente mejora en ADE al permitir el uso de cualquier tipo de sistema operativo y de imágenes para las máquinas virtuales mediante el cifrado de datos en el servicio Storage.
 
-* [Cifrado del lado servidor de Azure Managed Disks](../windows/disk-encryption.md)
+* [Cifrado del lado servidor de Azure Managed Disks](../disk-encryption.md)
 
 * [Azure Disk Encryption para máquinas virtuales Linux](./disk-encryption-overview.md)
 
@@ -618,7 +618,7 @@ Microsoft usa el protocolo Seguridad de la capa de transporte (TLS) para protege
 
 * [Instrucciones para incorporar servidores Linux a Azure Security Center](../../security-center/quickstart-onboard-machines.md)
 
-* [Directrices de seguridad recomendadas por Microsoft](./security-recommendations.md)
+* [Directrices de seguridad recomendadas por Microsoft](../security-recommendations.md)
 
 **Supervisión de Azure Security Center**: Sí
 
@@ -628,9 +628,9 @@ Microsoft usa el protocolo Seguridad de la capa de transporte (TLS) para protege
 
 **Guía**: use la solución Azure Update Management para administrar las actualizaciones y las revisiones de las máquinas virtuales. Update Management se basa en el repositorio de actualización configurado localmente para aplicar revisiones a sistemas compatibles.
 
-* [Solución Update Management de Azure](../../automation/update-management/update-mgmt-overview.md)
+* [Solución Update Management de Azure](../../automation/update-management/overview.md)
 
-* [Administración de actualizaciones y revisiones para las máquinas virtuales](../../automation/update-management/update-mgmt-manage-updates-for-vm.md)
+* [Administración de actualizaciones y revisiones para las máquinas virtuales](../../automation/update-management/manage-updates-for-vm.md)
 
 **Supervisión de Azure Security Center**: Sí
 
@@ -640,9 +640,9 @@ Microsoft usa el protocolo Seguridad de la capa de transporte (TLS) para protege
 
 **Guía**: puede usar una solución de administración de revisiones de terceros. Puede usar la solución Azure Update Management para administrar las actualizaciones y las revisiones de las máquinas virtuales. Update Management se basa en el repositorio de actualización configurado localmente para aplicar revisiones a sistemas compatibles.
 
-* [Solución Update Management de Azure](../../automation/update-management/update-mgmt-overview.md)
+* [Solución Update Management de Azure](../../automation/update-management/overview.md)
 
-* [Administración de actualizaciones y revisiones para las máquinas virtuales](../../automation/update-management/update-mgmt-manage-updates-for-vm.md)
+* [Administración de actualizaciones y revisiones para las máquinas virtuales](../../automation/update-management/manage-updates-for-vm.md)
 
 **Supervisión de Azure Security Center**: No disponible
 
@@ -1016,7 +1016,7 @@ En la mayoría de los escenarios, las plantillas de máquina virtual base de Mic
 
 **Guía**: necesitará una herramienta de terceros para la protección contra malware en la máquina virtual con Linux de Azure.
 
-* [Configuración de Microsoft Antimalware para Cloud Services y Virtual Machines](./security-recommendations.md)
+* [Configuración de Microsoft Antimalware para Cloud Services y Virtual Machines](../security-recommendations.md)
 
 **Supervisión de Azure Security Center**: Sí
 
@@ -1034,7 +1034,7 @@ En la mayoría de los escenarios, las plantillas de máquina virtual base de Mic
 
 **Guía**: Necesitará una herramienta de terceros para la protección contra malware en la máquina virtual con Linux de Azure.
 
-* [Configuración de Microsoft Antimalware para Cloud Services y Virtual Machines](./security-recommendations.md)
+* [Configuración de Microsoft Antimalware para Cloud Services y Virtual Machines](../security-recommendations.md)
 
 **Supervisión de Azure Security Center**: Sí
 

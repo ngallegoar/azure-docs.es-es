@@ -8,12 +8,12 @@ ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: 0be69b72cc068d017202b0694e24fb4573172dba
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 12943d5d22a9e81c7e99522fa4728f4798549682
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92101399"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499958"
 ---
 # <a name="configure-ip-firewall-rules-to-allow-indexer-connections-azure-cognitive-search"></a>Configuración de reglas de firewall de IP para permitir conexiones de indexador (Azure Cognitive Search)
 
@@ -77,11 +77,11 @@ En el caso de las direcciones IP /32, quite el "/32" (52.253.133.74/32-> 52.253.
 
 ## <a name="add-the-ip-address-ranges-to-ip-firewall-rules"></a>Adición de los intervalos de direcciones IP a las reglas de firewall de IP
 
-La forma más fácil de agregar intervalos de direcciones IP a la regla de firewall de una cuenta de almacenamiento es a través de Azure Portal. Busque la cuenta de almacenamiento en el portal y vaya a la pestaña **Firewalls y redes virtuales** .
+La forma más fácil de agregar intervalos de direcciones IP a la regla de firewall de una cuenta de almacenamiento es a través de Azure Portal. Busque la cuenta de almacenamiento en el portal y vaya a la pestaña **Firewalls y redes virtuales**.
 
    ![Firewall y redes virtuales](media\search-indexer-howto-secure-access\storage-firewall.png "Firewall y redes virtuales")
 
-Agregue las tres direcciones IP obtenidas anteriormente (1 para la dirección IP del servicio de búsqueda, 2 para la etiqueta de servicio `AzureCognitiveSearch`) al intervalo de direcciones y seleccione **Guardar** .
+Agregue las tres direcciones IP obtenidas anteriormente (1 para la dirección IP del servicio de búsqueda, 2 para la etiqueta de servicio `AzureCognitiveSearch`) al intervalo de direcciones y seleccione **Guardar**.
 
    ![Reglas de firewall de IP](media\search-indexer-howto-secure-access\storage-firewall-ip.png "Reglas de firewall de IP")
 
@@ -90,5 +90,5 @@ Las reglas de firewall tardan entre 5 y 10 minutos en actualizarse; transcurrido
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Configuración de firewalls de Azure Storage](../storage/common/storage-network-security.md)
-- [Configuración del firewall de IP para Cosmos DB](../cosmos-db/firewall-support.md)
+- [Configuración del firewall de IP para Cosmos DB](../cosmos-db/how-to-configure-firewall.md)
 - [Configuración del firewall de IP para Azure SQL Server](../azure-sql/database/firewall-configure.md)

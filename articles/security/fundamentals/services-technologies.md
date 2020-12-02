@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/29/2019
 ms.author: terrylan
-ms.openlocfilehash: a4cc6e31e49243af8fa52ac568bcbba660bcde7e
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 8a33e9d462f3105bfee295ac82384a38325f7c7c
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842743"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498802"
 ---
 # <a name="security-services-and-technologies-available-on-azure"></a>Servicios y tecnologías de seguridad disponibles en Azure
 
@@ -91,5 +91,5 @@ Con el tiempo, esta lista cambiará y aumentará, igual que lo hace Azure. Aseg�
 | [Azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md)| Equilibrador de carga de DNS global.|
 | [Habilitación del proxy de la aplicación de Azure AD](../../active-directory/manage-apps/application-proxy.md)| Servidor front-end de autenticación usado para proteger el acceso remoto a las aplicaciones web hospedadas en los entornos locales. |
 |[Azure Firewall](../../firewall/overview.md)|Se trata de un servicio de seguridad de red administrado y basado en la nube que protege los recursos de Azure Virtual Network.|
-|[Azure DDoS Protection](../../virtual-network/ddos-protection-overview.md)|Junto con los procedimientos recomendados de diseño de aplicaciones, constituyen una defensa frente a los ataques DDoS.|
+|[Azure DDoS Protection](../../ddos-protection/ddos-protection-overview.md)|Junto con los procedimientos recomendados de diseño de aplicaciones, constituyen una defensa frente a los ataques DDoS.|
 |[Puntos de conexión de servicio de red virtual](../../virtual-network/virtual-network-service-endpoints-overview.md)|Estos extienden el espacio de direcciones privadas de la red virtual y la identidad de la red virtual a los servicios de Azure mediante una conexión directa.|

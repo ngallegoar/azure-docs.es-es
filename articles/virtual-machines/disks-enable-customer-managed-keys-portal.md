@@ -7,19 +7,19 @@ ms.topic: how-to
 ms.author: rogarana
 ms.service: virtual-machines
 ms.subservice: disks
-ms.openlocfilehash: 1b40eef0a4cae8fa68631426ff72003db43d7530
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5452b1e2ffc3ca8a11f3acb591c6288806445e1b
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88817213"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499397"
 ---
 # <a name="use-the-azure-portal-to-enable-server-side-encryption-with-customer-managed-keys-for-managed-disks"></a>Uso de Azure Portal para habilitar el cifrado del lado servidor con claves administradas por el cliente para los discos administrados
 
 Azure Disk Storage le permite administrar sus propias claves al usar el cifrado del lado servidor (SSE) para discos administrados, si así lo decide. Para obtener información conceptual sobre SSE con claves administradas por el cliente, así como otros tipos de cifrado de discos administrados, consulte la sección **Claves administradas por el cliente** de nuestro artículo sobre el cifrado de discos:
 
-- Para Linux: [Claves administradas por el cliente](./linux/disk-encryption.md#customer-managed-keys)
-- Para Windows: [Claves administradas por el cliente](./windows/disk-encryption.md#customer-managed-keys)
+- Para Linux: [Claves administradas por el cliente](./disk-encryption.md#customer-managed-keys)
+- Para Windows: [Claves administradas por el cliente](./disk-encryption.md#customer-managed-keys)
 
 ## <a name="restrictions"></a>Restricciones
 

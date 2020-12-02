@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: sttsinar
-ms.openlocfilehash: dc6706d4ec9090c59d4dd668d2ae1dd3ce7d188a
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 819654ef88584cb91d6032e46256258aaed524fd
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92928049"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500315"
 ---
 # <a name="b-series-burstable-virtual-machine-sizes"></a>Tamaños de las máquinas virtuales ampliables serie B
 
@@ -21,7 +21,7 @@ Las máquinas virtuales de la serie B son idóneas para cargas de trabajo que no
 
 La serie B incluye los siguientes tamaños de máquina virtual:
 
-[Unidad de proceso de Azure (ACU)](./acu.md?bc=%252fazure%252fvirtual-machines%252flinux%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json): varía.*<br>
+[Unidad de proceso de Azure (ACU)](./acu.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json): varía.*<br>
 [Premium Storage](premium-storage-performance.md): Compatible<br>
 [Almacenamiento en caché de Premium Storage](premium-storage-performance.md): No compatible<br>
 [Migración en vivo](maintenance-and-updates.md): Compatible<br>
@@ -98,7 +98,7 @@ Para un D16s_v3 que tiene 16 vCPU y 64 GiB de memoria, la tarifa por hora es de 
 
 ### <a name="q-how-do-you-get-135-baseline-performance-from-a-vm"></a>P: ¿Cómo obtener un 135% del rendimiento base de una máquina virtual?
 
-**R** : ese 135% se debe compartir entre las 8 vCPU que componen el tamaño de la máquina virtual. Por ejemplo, si la aplicación usa 4 de los 8 núcleos que están trabajando en el procesamiento por lotes y cada una de esas 4 vCPU se ejecuta al 30 % de uso, la cantidad total de rendimiento de la CPU de la máquina virtual equivaldría al 120 %.  Lo que significa que la máquina virtual podría acumular créditos basándose en este 15% de diferencia con el rendimiento base.  Pero también significa que cuando tenga créditos disponibles, esa misma máquina virtual puede utilizar el 100% de las 8 vCPU lo cual le proporcionaría a esa máquina virtual un rendimiento de CPU máximo del 800%.
+**R**: ese 135% se debe compartir entre las 8 vCPU que componen el tamaño de la máquina virtual. Por ejemplo, si la aplicación usa 4 de los 8 núcleos que están trabajando en el procesamiento por lotes y cada una de esas 4 vCPU se ejecuta al 30 % de uso, la cantidad total de rendimiento de la CPU de la máquina virtual equivaldría al 120 %.  Lo que significa que la máquina virtual podría acumular créditos basándose en este 15% de diferencia con el rendimiento base.  Pero también significa que cuando tenga créditos disponibles, esa misma máquina virtual puede utilizar el 100% de las 8 vCPU lo cual le proporcionaría a esa máquina virtual un rendimiento de CPU máximo del 800%.
 
 ### <a name="q-how-can-i-monitor-my-credit-balance-and-consumption"></a>P: ¿Cómo puedo supervisar mi saldo de crédito y consumo?
 
@@ -108,9 +108,9 @@ Para más información acerca de cómo acceder a los datos de las métricas de A
 
 ### <a name="q-how-are-credits-accumulated-and-consumed"></a>P: ¿Cómo se acumulan y consumen los créditos?
 
-**R** : Las tasas de acumulación y consumo de la máquina virtual se establecen de tal forma que una máquina virtual que se esté ejecutando exactamente a su nivel de rendimiento base, no tendrá una acumulación ni un consumo neto de créditos de ampliación.  Una máquina virtual tendrá un aumento neto en el número de créditos siempre que se esté ejecutando por debajo de su nivel de rendimiento base y tendrá una disminución neta cada vez que utilice la CPU por encima de este nivel.
+**R**: Las tasas de acumulación y consumo de la máquina virtual se establecen de tal forma que una máquina virtual que se esté ejecutando exactamente a su nivel de rendimiento base, no tendrá una acumulación ni un consumo neto de créditos de ampliación.  Una máquina virtual tendrá un aumento neto en el número de créditos siempre que se esté ejecutando por debajo de su nivel de rendimiento base y tendrá una disminución neta cada vez que utilice la CPU por encima de este nivel.
 
-**Ejemplo** : Quiero implementar una máquina virtual con el tamaño B1ms para mi aplicación de base de datos a la que se dedica poco tiempo y atención. Este tamaño permite que mi aplicación use hasta el 20 % de una vCPU como base de referencia, lo cual significa 0,2 créditos por minuto que puedo usar o acumular.
+**Ejemplo**: Quiero implementar una máquina virtual con el tamaño B1ms para mi aplicación de base de datos a la que se dedica poco tiempo y atención. Este tamaño permite que mi aplicación use hasta el 20 % de una vCPU como base de referencia, lo cual significa 0,2 créditos por minuto que puedo usar o acumular.
 
 Mi aplicación está ocupada al principio y al final de la jornada laboral de mis empleados, es decir, de 7:00 a 9:00 A.M. y de 4:00 a 6:00 PM. Durante las otras 20 horas del día, la aplicación suele estar inactiva y solo usa el 10% de la vCPU. Durante las horas de poca actividad, gano 0,2 créditos por minuto y solo consumo 0,1 créditos por minuto, por lo que la máquina virtual acumulará 0,1 x 60 = 6 créditos por hora.  Es decir, durante las 20 horas de poca actividad acumularé 120 créditos.  
 
@@ -128,11 +128,11 @@ Por ejemplo, en la instancia anterior, su línea de base es del 20 % y si usa el
 
 ### <a name="q-does-the-b-series-support-premium-storage-data-disks"></a>P: ¿Admite la serie B discos de datos de Premium Storage?
 
-**R** : Sí, toda la serie B admite discos de datos de Premium Storage.
+**R**: Sí, toda la serie B admite discos de datos de Premium Storage.
 
 ### <a name="q-why-is-my-remaining-credit-set-to-0-after-a-redeploy-or-a-stopstart"></a>P: ¿Por qué tengo el crédito restante se establece en 0 después de volver a hacer una implementación o después de una detención o inicio?
 
-**R** : Si una máquina virtual se "REIMPLEMENTA" y se mueve la máquina virtual a otro nodo, el crédito acumulado se pierde. En cambio, si la máquina virtual se detiene y se inicia, pero sigue en el mismo nodo, conservará el crédito acumulado. Cada vez que se inicia por primera vez una máquina virtual en un nodo, obtiene un crédito inicial. En el caso de Standard_B8ms es de 240.
+**R**: Si una máquina virtual se "REIMPLEMENTA" y se mueve la máquina virtual a otro nodo, el crédito acumulado se pierde. En cambio, si la máquina virtual se detiene y se inicia, pero sigue en el mismo nodo, conservará el crédito acumulado. Cada vez que se inicia por primera vez una máquina virtual en un nodo, obtiene un crédito inicial. En el caso de Standard_B8ms es de 240.
 
 ### <a name="q-what-happens-if-i-deploy-an-unsupported-os-image-on-b1ls"></a>P: ¿Qué sucede si implemento una imagen de sistema operativo no admitida en B1ls?
 

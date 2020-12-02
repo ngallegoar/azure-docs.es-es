@@ -8,19 +8,19 @@ ms.topic: article
 ms.author: terrylan
 manager: rkarlin
 ms.date: 11/10/2020
-ms.openlocfilehash: 73ae811c17a578cafc557b0cda9e98b101dd5c03
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: f4906d4e0590df047bac4ee15cb0e996a59c3d5b
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94557459"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498870"
 ---
 # <a name="measured-boot-and-host-attestation"></a>Atestación del host y arranque medido
 En este artículo se describe cómo Microsoft garantiza la integridad y la seguridad de los hosts mediante la atestación del host y el arranque medido.
 
 ## <a name="measured-boot"></a>Arranque medido
 
-El [Módulo de plataforma segura](https://docs.microsoft.com/windows/security/information-protection/tpm/trusted-platform-module-top-node) (TPM) es un componente de auditoría seguro desde el punto de vista criptográfico y a prueba de alteraciones con firmware suministrado por un tercero de confianza. El registro de configuración de arranque contiene medidas encadenadas por hash anotadas en sus Registros de configuración de la plataforma (PCR) de cuando el host realizó por última vez la secuencia de arranque. En la siguiente ilustración se muestra este proceso de registro. Para crear cadenas de hash, se agrega una medida a la que se ha aplicado un algoritmo hash a otra medida con hash, se ejecuta el algoritmo hash en la unión, y así sucesivamente.
+El [Módulo de plataforma segura](/windows/security/information-protection/tpm/trusted-platform-module-top-node) (TPM) es un componente de auditoría seguro desde el punto de vista criptográfico y a prueba de alteraciones con firmware suministrado por un tercero de confianza. El registro de configuración de arranque contiene medidas encadenadas por hash anotadas en sus Registros de configuración de la plataforma (PCR) de cuando el host realizó por última vez la secuencia de arranque. En la siguiente ilustración se muestra este proceso de registro. Para crear cadenas de hash, se agrega una medida a la que se ha aplicado un algoritmo hash a otra medida con hash, se ejecuta el algoritmo hash en la unión, y así sucesivamente.
 
 ![Diagrama que muestra el encadenamiento por hash del servicio de atestación de host.](./media/measured-boot-host-attestation/hash-chaining.png)
 

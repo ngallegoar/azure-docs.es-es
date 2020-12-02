@@ -7,12 +7,12 @@ ms.date: 08/10/2020
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: imaging
-ms.openlocfilehash: 88bbd83d7ac5b834255c9b4d46d7cef4394f15d3
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: a3016900b6265bfd56ad1a5a71f70efc01181af5
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91968674"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499261"
 ---
 # <a name="azure-image-builder-service-devops-task"></a>Tarea de DevOps del servicio Azure Image Builder
 
@@ -139,7 +139,7 @@ Seleccione el botón **Ruta de acceso de compilación** para elegir la carpeta d
 
 En los ejemplos siguientes se explica cómo funciona:
 
-:::image type="content" source="./media/image-builder-devops-task/build-artifacts.png" alt-text="Seleccionar Agregar un artefacto en la canalización de versión":::
+:::image type="content" source="./media/image-builder-devops-task/build-artifacts.png" alt-text="Una estructura de directorio que muestra la jerarquía":::
 
 
 * Windows: existen archivos en `C:\`. Se crea un directorio denominado `buildArtifacts` que incluye el directorio `webapp`.
@@ -194,7 +194,7 @@ En los ejemplos siguientes se explica cómo funciona:
     
 #### <a name="total-length-of-image-build"></a>Longitud total de la compilación de la imagen
 
-La longitud total no se puede cambiar todavía en la tarea de canalización de DevOps. Utiliza el valor predeterminado de 240 minutos. Si desea aumentar [buildTimeoutInMinutes](./image-builder-json.md?bc=%252fazure%252fvirtual-machines%252fwindows%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json#properties-buildtimeoutinminutes), puede usar una tarea AZ CLI en la canalización de versión. Configure la tarea para copiar una plantilla y enviarla. Para obtener un ejemplo, vea esta [solución](https://github.com/danielsollondon/azvmimagebuilder/tree/master/solutions/4_Using_ENV_Variables#using-environment-variables-and-parameters-with-image-builder) o use Az PowerShell.
+La longitud total no se puede cambiar todavía en la tarea de canalización de DevOps. Utiliza el valor predeterminado de 240 minutos. Si desea aumentar [buildTimeoutInMinutes](./image-builder-json.md?bc=%2fazure%2fvirtual-machines%2fwindows%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#properties-buildtimeoutinminutes), puede usar una tarea AZ CLI en la canalización de versión. Configure la tarea para copiar una plantilla y enviarla. Para obtener un ejemplo, vea esta [solución](https://github.com/danielsollondon/azvmimagebuilder/tree/master/solutions/4_Using_ENV_Variables#using-environment-variables-and-parameters-with-image-builder) o use Az PowerShell.
 
 
 #### <a name="storage-account"></a>Cuenta de almacenamiento
@@ -314,7 +314,7 @@ Si se produce un error de compilación, la tarea de DevOps no elimina el grupo d
 
 Verá un error en el registro de DevOps de la tarea de VM Image Builder y verá la ubicación del archivo customization.log. Por ejemplo:
 
-:::image type="content" source="./media/image-builder-devops-task/devops-task-error.png" alt-text="Seleccionar Agregar un artefacto en la canalización de versión":::
+:::image type="content" source="./media/image-builder-devops-task/devops-task-error.png" alt-text="Ejemplo de error de la tarea de DevOps":::
 
 Para más información sobre la solución de problemas, vea [Solución de problemas del servicio Azure Image Builder](image-builder-troubleshoot.md). 
 

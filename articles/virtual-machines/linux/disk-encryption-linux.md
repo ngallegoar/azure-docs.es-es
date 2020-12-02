@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: e8f71b277a4f4b538d501b1fa825bc6ec43428c8
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: d2c9d810fb3bd86d68518e1ad20088a57d538bbe
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94359398"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500587"
 ---
 # <a name="azure-disk-encryption-scenarios-on-linux-vms"></a>Escenarios de Azure Disk Encryption en máquinas virtuales Linux
 
@@ -413,8 +413,8 @@ Azure Disk Encryption no funciona en los siguientes escenarios, características
 - Una máquina virtual con "puntos de montaje anidados", es decir, varios puntos de montaje en una sola ruta de acceso (como "/1stmountpoint/data/2stmountpoint").
 - Una máquina virtual con una unidad de datos montada en la parte superior de una carpeta de sistema operativo.
 - Máquinas virtuales de la serie M con discos de Acelerador de escritura.
-- Aplicación de ADE a una máquina virtual que tiene discos cifrados con el [cifrado del lado servidor con claves administradas por el cliente](disk-encryption.md) (SSE + CMK). La aplicación de SSE + CMK a un disco de datos en una máquina virtual cifrada con ADE tampoco es un escenario admitido.
-- Migración de una máquina virtual cifrada con ADE, o que **alguna vez** haya estado cifrada con ADE, al [cifrado del lado servidor con claves administradas por el cliente](disk-encryption.md).
+- Aplicación de ADE a una máquina virtual que tiene discos cifrados con el [cifrado del lado servidor con claves administradas por el cliente](../disk-encryption.md) (SSE + CMK). La aplicación de SSE + CMK a un disco de datos en una máquina virtual cifrada con ADE tampoco es un escenario admitido.
+- Migración de una máquina virtual cifrada con ADE, o que **alguna vez** haya estado cifrada con ADE, al [cifrado del lado servidor con claves administradas por el cliente](../disk-encryption.md).
 - [Tamaños de máquina virtual de Azure sin disco temporal local](../azure-vms-no-temp-disk.md); concretamente, Dv4, Dsv4, Ev4 y Esv4.
 
 ## <a name="next-steps"></a>Pasos siguientes

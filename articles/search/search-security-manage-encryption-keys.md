@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/02/2020
 ms.custom: references_regions
-ms.openlocfilehash: b0871b6365d78129cd6fdaec82fee14e2b0a7a4b
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 4fb20b221858c4717d67e0777afbe5c067c00a69
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94693450"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499618"
 ---
 # <a name="configure-customer-managed-keys-for-data-encryption-in-azure-cognitive-search"></a>Configuración de claves administradas por el cliente para el cifrado de datos en Azure Cognitive Search
 
@@ -96,7 +96,7 @@ Puede establecer ambas propiedades mediante el portal, PowerShell o los comandos
 
 ### <a name="using-azure-cli"></a>Uso de la CLI de Azure
 
-+ Si tiene una [instalación de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli), puede ejecutar el siguiente comando para habilitar las propiedades necesarias.
++ Si tiene una [instalación de la CLI de Azure](/cli/azure/install-azure-cli), puede ejecutar el siguiente comando para habilitar las propiedades necesarias.
 
    ```azurecli-interactive
    az keyvault update -n <vault_name> -g <resource_group> --enable-soft-delete --enable-purge-protection
@@ -173,7 +173,7 @@ Los permisos de acceso se pueden revocar en cualquier momento. Una vez revocados
 
 ## <a name="5---encrypt-content"></a>5\. Cifrado del contenido
 
-Para agregar una clave administrada por el cliente a un índice, un origen de datos, un conjunto de aptitudes, un indizador o una asignación de sinónimos, debe usar la [API REST de búsqueda](https://docs.microsoft.com/rest/api/searchservice/) o un SDK. El portal no expone las asignaciones de sinónimos ni las propiedades de cifrado. Cuando se usa una API válida, los índices, los orígenes de datos, los conjuntos de aptitudes, los indizadores y las asignaciones de sinónimos admiten una propiedad **encryptionKey** de nivel superior.
+Para agregar una clave administrada por el cliente a un índice, un origen de datos, un conjunto de aptitudes, un indizador o una asignación de sinónimos, debe usar la [API REST de búsqueda](/rest/api/searchservice/) o un SDK. El portal no expone las asignaciones de sinónimos ni las propiedades de cifrado. Cuando se usa una API válida, los índices, los orígenes de datos, los conjuntos de aptitudes, los indizadores y las asignaciones de sinónimos admiten una propiedad **encryptionKey** de nivel superior.
 
 En este ejemplo se usa la API REST, con valores para Azure Key Vault y Azure Active Directory:
 
@@ -196,7 +196,7 @@ En este ejemplo se usa la API REST, con valores para Azure Key Vault y Azure Act
 
 ## <a name="example-index-encryption"></a>Ejemplo: Cifrado del índice
 
-Cree un índice cifrado con el procedimiento de [Creación de un índice (API REST de Azure Cognitive Search)](https://docs.microsoft.com/rest/api/searchservice/create-index). Use la propiedad `encryptionKey` para especificar la clave de cifrado que se va a usar.
+Cree un índice cifrado con el procedimiento de [Creación de un índice (API REST de Azure Cognitive Search)](/rest/api/searchservice/create-index). Use la propiedad `encryptionKey` para especificar la clave de cifrado que se va a usar.
 > [!Note]
 > Ninguno de estos detalles del almacén de claves se considera secreto y se pueden recuperar fácilmente yendo a la página de claves relevante de Azure Key Vault en Azure Portal.
 
@@ -239,7 +239,7 @@ Ahora puede enviar la solicitud de creación del índice y, a continuación, emp
 
 ### <a name="synonym-map-encryption"></a>Cifrado del mapa de sinónimos
 
-Cree una asignación de sinónimos cifrada con el procedimiento de [Creación de una asignación de sinónimos (API REST de Azure Cognitive Search)](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map). Use la propiedad `encryptionKey` para especificar la clave de cifrado que se va a usar.
+Cree una asignación de sinónimos cifrada con el procedimiento de [Creación de una asignación de sinónimos (API REST de Azure Cognitive Search)](/rest/api/searchservice/create-synonym-map). Use la propiedad `encryptionKey` para especificar la clave de cifrado que se va a usar.
 
 ```json
 {
@@ -263,7 +263,7 @@ Ahora puede enviar la solicitud de creación del mapa de sinónimos y, a continu
 
 ## <a name="example-data-source-encryption"></a>Ejemplo: Cifrado de origen de datos
 
-Cree un origen de datos cifrado con el procedimiento de [Creación de un origen de datos (API REST de Azure Cognitive Search)](https://docs.microsoft.com/rest/api/searchservice/create-data-source). Use la propiedad `encryptionKey` para especificar la clave de cifrado que se va a usar.
+Cree un origen de datos cifrado con el procedimiento de [Creación de un origen de datos (API REST de Azure Cognitive Search)](/rest/api/searchservice/create-data-source). Use la propiedad `encryptionKey` para especificar la clave de cifrado que se va a usar.
 
 ```json
 {
@@ -289,7 +289,7 @@ Ahora puede enviar la solicitud de creación del origen de datos y luego empezar
 
 ## <a name="example-skillset-encryption"></a>Ejemplo: Cifrado de conjunto de aptitudes
 
-Cree un conjunto de aptitudes cifrado con el procedimiento de [Creación de conjunto de aptitudes (API REST de Azure Cognitive Search)](https://docs.microsoft.com/rest/api/searchservice/create-skillset). Use la propiedad `encryptionKey` para especificar la clave de cifrado que se va a usar.
+Cree un conjunto de aptitudes cifrado con el procedimiento de [Creación de conjunto de aptitudes (API REST de Azure Cognitive Search)](/rest/api/searchservice/create-skillset). Use la propiedad `encryptionKey` para especificar la clave de cifrado que se va a usar.
 
 ```json
 {
@@ -315,7 +315,7 @@ Ahora puede enviar la solicitud de creación del conjunto de aptitudes y luego e
 
 ## <a name="example-indexer-encryption"></a>Ejemplo: Cifrado de indizador
 
-Cree un indizador cifrado con el procedimiento de [Creación de un indizador (API REST de Azure Cognitive Search)](https://docs.microsoft.com/rest/api/searchservice/create-indexer). Use la propiedad `encryptionKey` para especificar la clave de cifrado que se va a usar.
+Cree un indizador cifrado con el procedimiento de [Creación de un indizador (API REST de Azure Cognitive Search)](/rest/api/searchservice/create-indexer). Use la propiedad `encryptionKey` para especificar la clave de cifrado que se va a usar.
 
 ```json
 {

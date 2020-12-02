@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: tagore
-ms.openlocfilehash: 952fbcac27e1d44c9417066549261d878d02b6b7
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 219fe2d9d8ac46ba3dbeebe6aaae9dddc0883aa0
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94904657"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500417"
 ---
 # <a name="platform-supported-migration-of-iaas-resources-from-classic-to-azure-resource-manager-in-linux"></a>Migración compatible con la plataforma de recursos de IaaS del modelo clásico al de Azure Resource Manager en Linux.
 
@@ -47,7 +47,7 @@ Estos recursos de IaaS clásicos se admiten durante la migración
 
 | Servicio | Configuración |
 | --- | --- |
-| Azure AD Domain Services | [Redes virtuales que contienen servicios de dominio de Azure AD](https://docs.microsoft.com/azure/active-directory-domain-services/migrate-from-classic-vnet) |
+| Azure AD Domain Services | [Redes virtuales que contienen servicios de dominio de Azure AD](../active-directory-domain-services/migrate-from-classic-vnet.md) |
 
 ## <a name="supported-scopes-of-migration"></a>Ámbitos admitidos de la migración
 Hay cuatro maneras diferentes de completar la migración de los recursos de proceso, red y almacenamiento:
@@ -136,7 +136,7 @@ Actualmente no se admiten las siguientes configuraciones.
 | Proceso | Servicios en la nube que contienen roles web y de trabajo | Actualmente no se admite. |
 | Proceso | Servicios en la nube que contienen más de un conjunto de disponibilidad o varios. |Actualmente no se admite. Mueva Virtual Machines al mismo conjunto de disponibilidad antes de la migración. |
 | Proceso | VM con extensión de Azure Security Center | Azure Security Center instala automáticamente las extensiones en las máquinas virtuales para supervisar la seguridad y generar alertas. Si está habilitada la directiva de Azure Security Center en la suscripción, estas extensiones se suelen instalar automáticamente. Para migrar las máquinas virtuales, deshabilite la directiva de Security Center en la suscripción; esta operación quitará la extensión de supervisión de Security Center de las máquinas virtuales. |
-| Proceso | VM con extensión de instantánea o copia de seguridad | Estas extensiones se instalan en una máquina virtual configurada con el servicio Azure Backup. Mientras no se admita la migración de estas máquinas virtuales, siga las instrucciones que se indican [aquí](/azure/virtual-machines/windows/migration-classic-resource-manager-faq#i-backed-up-my-classic-vms-in-a-vault-can-i-migrate-my-vms-from-classic-mode-to-resource-manager-mode-and-protect-them-in-a-recovery-services-vault) para conservar las copias de seguridad que se realizaron antes de la migración.  |
+| Proceso | VM con extensión de instantánea o copia de seguridad | Estas extensiones se instalan en una máquina virtual configurada con el servicio Azure Backup. Mientras no se admita la migración de estas máquinas virtuales, siga las instrucciones que se indican [aquí](./migration-classic-resource-manager-faq.md#i-backed-up-my-classic-vms-in-a-vault-can-i-migrate-my-vms-from-classic-mode-to-resource-manager-mode-and-protect-them-in-a-recovery-services-vault) para conservar las copias de seguridad que se realizaron antes de la migración.  |
 | Proceso | VM con la extensión de Azure Site Recovery | Estas extensiones se instalan en una máquina virtual configurada con el servicio Azure Site Recovery. Aunque la migración del almacenamiento que se usa con Site Recovery funcionará, la replicación actual se verá afectada. Debe deshabilitar y habilitar la replicación de la VM después de la migración del almacenamiento. |
 | Red |Redes virtuales que contienen máquinas virtuales y roles web y de trabajo |Actualmente no se admite. Mueva los roles web y de trabajo a su propia Virtual Network antes de la migración. Una vez que se migra Virtual Network clásica, Virtual Network de Azure Resource Manager se puede emparejar con Virtual Network clásica para lograr una configuración similar a la anterior.|
 | Red | Circuitos ExpressRoute clásicos |Actualmente no se admite. Estos circuitos se deben migrar a Azure Resource Manager antes de comenzar la migración de IaaS. Para obtener más información, consulte la [transición de los circuitos ExpressRoute del modelo de implementación clásica al modelo de implementación de Resource Manager](../expressroute/expressroute-move.md).|

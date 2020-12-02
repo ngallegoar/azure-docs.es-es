@@ -30,9 +30,9 @@
     - name: Automatización con entidades de servicio
       href: analysis-services-service-principal.md
     - name: Bibliotecas de clientes
-      href: /analysis-services/client-libraries?view=azure-analysis-services-current
+      href: /analysis-services/client-libraries?view=azure-analysis-services-current&preserve-view=true
     - name: Nivel de compatibilidad
-      href: /analysis-services/tabular-models/compatibility-level-for-tabular-models-in-analysis-services?view=azure-analysis-services-current
+      href: /analysis-services/tabular-models/compatibility-level-for-tabular-models-in-analysis-services?view=azure-analysis-services-current&preserve-view=true
     - name: Conexión a orígenes de datos locales
       href: analysis-services-gateway.md
     - name: Conexión a servidores
@@ -112,9 +112,9 @@
     - name: Power Query M
       href: /powerquery-m/power-query-m-reference
     - name: Tabular Model Scripting Language (TMSL)
-      href: /analysis-services/tmsl/tabular-model-scripting-language-tmsl-reference?view=asallproducts-allversions
+      href: /analysis-services/tmsl/tabular-model-scripting-language-tmsl-reference?view=azure-analysis-services-current&preserve-view=true
     - name: Modelo de objetos tabulares (TOM)
-      href: /analysis-services/tom/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo?view=asallproducts-allversions
+      href: /analysis-services/tom/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo?view=azure-analysis-services-current&preserve-view=true
     - name: Límites de recursos y objetos
       href: analysis-services-capacity-limits.md
 - name: Recursos

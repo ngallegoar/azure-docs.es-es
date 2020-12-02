@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
-ms.openlocfilehash: a53f947eb2a44cc8773be8ee2b2bd03ca899be22
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 7c250f1351d83d213c5c7af5b00d7a648c5d8bc6
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95521009"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499669"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Notas de la versión del Explorador de Microsoft Azure Storage
 
@@ -559,7 +559,7 @@ La carga, descarga y copia entre regiones de discos se realiza mediante AzCopy v
         
 ### <a name="new"></a>Nuevo
 
-* Ahora puede usar el Explorador de Storage para tener acceso a los datos de blobs mediante [RBAC](./storage/common/storage-auth-aad-rbac-portal.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json). Si ha iniciado sesión y el Explorador de Storage no puede recuperar las claves de su cuenta de almacenamiento, se usará un token de OAuth para la autenticación al interactuar con sus datos.
+* Ahora puede usar el Explorador de Storage para tener acceso a los datos de blobs mediante [RBAC](./storage/common/storage-auth-aad-rbac-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). Si ha iniciado sesión y el Explorador de Storage no puede recuperar las claves de su cuenta de almacenamiento, se usará un token de OAuth para la autenticación al interactuar con sus datos.
 * El Explorador de Storage admite ahora cuentas de almacenamiento de ADLS Gen2. Cuando el Explorador de Storage detecta que el espacio de nombres jerárquico está habilitado para una cuenta de almacenamiento, verá "(ADLS Gen2 Preview)" junto al nombre de la cuenta de almacenamiento. El Explorador de Storage es capaz de detectar si está habilitado el espacio de nombres jerárquico cuando ha iniciado sesión o si ha asociado su cuenta de almacenamiento con el nombre y la clave. Para las cuentas de almacenamiento de ADLS Gen2, puede usar el Explorador de Storage para:
   * Crear y eliminar contenedores
   * Administrar propiedades y permisos del contenedor (izquierda)
@@ -628,7 +628,7 @@ La carga, descarga y copia entre regiones de discos se realiza mediante AzCopy v
         
 ### <a name="new"></a>Nuevo
 
-* Ahora puede usar el Explorador de Storage para tener acceso a los datos de blobs mediante [RBAC](./storage/common/storage-auth-aad-rbac-portal.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json). Si ha iniciado sesión y el Explorador de Storage no puede recuperar las claves de su cuenta de almacenamiento, se usará un token de OAuth para la autenticación al interactuar con sus datos.
+* Ahora puede usar el Explorador de Storage para tener acceso a los datos de blobs mediante [RBAC](./storage/common/storage-auth-aad-rbac-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). Si ha iniciado sesión y el Explorador de Storage no puede recuperar las claves de su cuenta de almacenamiento, se usará un token de OAuth para la autenticación al interactuar con sus datos.
 * El Explorador de Storage admite ahora cuentas de almacenamiento de ADLS Gen2. Cuando el Explorador de Storage detecta que el espacio de nombres jerárquico está habilitado para una cuenta de almacenamiento, verá "(ADLS Gen2 Preview)" junto al nombre de la cuenta de almacenamiento. El Explorador de Storage es capaz de detectar si está habilitado el espacio de nombres jerárquico cuando ha iniciado sesión o si ha asociado su cuenta de almacenamiento con el nombre y la clave. Para las cuentas de almacenamiento de ADLS Gen2, puede usar el Explorador de Storage para:
   * Crear y eliminar contenedores
   * Administrar propiedades y permisos del contenedor (izquierda)
@@ -683,7 +683,7 @@ La carga, descarga y copia entre regiones de discos se realiza mediante AzCopy v
 
 ### <a name="new"></a>Nuevo
 
-* Ahora puede usar el Explorador de Storage para tener acceso a los datos de blobs mediante [RBAC](./storage/common/storage-auth-aad-rbac-portal.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json). Si ha iniciado sesión y el Explorador de Storage no puede recuperar las claves de su cuenta de almacenamiento, se usará un token de OAuth para la autenticación al interactuar con sus datos.
+* Ahora puede usar el Explorador de Storage para tener acceso a los datos de blobs mediante [RBAC](./storage/common/storage-auth-aad-rbac-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). Si ha iniciado sesión y el Explorador de Storage no puede recuperar las claves de su cuenta de almacenamiento, se usará un token de OAuth para la autenticación al interactuar con sus datos.
 * El Explorador de Storage admite ahora cuentas de almacenamiento de ADLS Gen2. Cuando el Explorador de Storage detecta que el espacio de nombres jerárquico está habilitado para una cuenta de almacenamiento, verá "(ADLS Gen2 Preview)" junto al nombre de la cuenta de almacenamiento. El Explorador de Storage es capaz de detectar si está habilitado el espacio de nombres jerárquico cuando ha iniciado sesión o si ha asociado su cuenta de almacenamiento con el nombre y la clave. Para las cuentas de almacenamiento de ADLS Gen2, puede usar el Explorador de Storage para:
   * Crear y eliminar contenedores
   * Administrar propiedades y permisos del contenedor (izquierda)

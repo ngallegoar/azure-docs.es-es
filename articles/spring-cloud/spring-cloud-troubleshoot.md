@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 91ef218abc51cbdf079fd9e1baa8eb2b907087df
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 09415c47432f71310b10c86390c10e55f1ccc4b2
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94954212"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498615"
 ---
 # <a name="troubleshoot-common-azure-spring-cloud-issues"></a>Solución de problemas comunes de Azure Spring Cloud
 
@@ -66,7 +66,7 @@ Al depurar los bloqueos de la aplicación, empiece por comprobar el estado de la
 
 
 
-Para obtener más información sobre Azure Log Analytics, consulte [Introducción a los análisis de registros de Azure Monitor](../azure-monitor/log-query/get-started-portal.md).
+Para obtener más información sobre Azure Log Analytics, consulte [Introducción a los análisis de registros de Azure Monitor](../azure-monitor/log-query/log-analytics-tutorial.md).
 
 ### <a name="my-application-experiences-high-cpu-usage-or-high-memory-usage"></a>Mi aplicación experimenta un uso elevado de la CPU o la memoria
 
@@ -88,7 +88,7 @@ Para obtener más información, consulte [Métricas en Azure Spring Cloud](sprin
 
 Si todas las instancias están en funcionamiento, vaya a Azure Log Analytics para consultar los registros de la aplicación y examine la lógica del código. Esto le ayudará a ver si alguna puede afectar a la creación de particiones de escalado. Para obtener más información, consulte [Análisis de registros y métricas con la configuración de diagnóstico](diagnostic-services.md).
 
-Para obtener más información sobre Azure Log Analytics, consulte [Introducción a los análisis de registros de Azure Monitor](../azure-monitor/log-query/get-started-portal.md). Consulte los registros con el [lenguaje de consulta Kusto](/azure/kusto/query/).
+Para obtener más información sobre Azure Log Analytics, consulte [Introducción a los análisis de registros de Azure Monitor](../azure-monitor/log-query/log-analytics-tutorial.md). Consulte los registros con el [lenguaje de consulta Kusto](/azure/kusto/query/).
 
 ### <a name="checklist-for-deploying-your-spring-application-to-azure-spring-cloud"></a>Lista de comprobación para la implementación de la aplicación Spring en Azure Spring Cloud
 
@@ -163,7 +163,7 @@ Si va a migrar a Azure una solución existente de Spring Cloud, asegúrese de qu
 
 También puede consultar los registros de cliente de _Service Registry_ en Azure Log Analytics. Para obtener más información, consulte [Análisis de registros y métricas con la configuración de diagnóstico](diagnostic-services.md).
 
-Para obtener más información sobre Azure Log Analytics, consulte [Introducción a los análisis de registros de Azure Monitor](../azure-monitor/log-query/get-started-portal.md). Consulte los registros con el [lenguaje de consulta Kusto](/azure/kusto/query/).
+Para obtener más información sobre Azure Log Analytics, consulte [Introducción a los análisis de registros de Azure Monitor](../azure-monitor/log-query/log-analytics-tutorial.md). Consulte los registros con el [lenguaje de consulta Kusto](/azure/kusto/query/).
 
 ### <a name="i-want-to-inspect-my-applications-environment-variables"></a>Deseo inspeccionar las variables de entorno de mi aplicación
 

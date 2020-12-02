@@ -3,20 +3,20 @@ title: Actividad de webhook en Azure Data Factory
 description: La actividad de webhook no continúa la ejecución de la canalización hasta que valida el conjunto de datos adjunto con determinados criterios que el usuario especifica.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/25/2019
-ms.openlocfilehash: 1ce41a5928d5b8a7c7df439ce5321cd15f0cc1d5
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 144006c3d0722bc3211f542b7059bba0bb0cbdbf
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92634987"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499414"
 ---
 # <a name="webhook-activity-in-azure-data-factory"></a>Actividad de webhook en Azure Data Factory
 
@@ -62,7 +62,7 @@ Propiedad | Descripción | Valores permitidos | Obligatorio
 **headers** | Encabezados que se envían a la solicitud. Este es un ejemplo que establece el idioma y el tipo en una solicitud: `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }`. | Una cadena o una expresión con el valor **resultType** de una cadena. | Sí. Se necesita un encabezado `Content-Type` como `"headers":{ "Content-Type":"application/json"}`. |
 **body** | Representa la carga útil que se envía al punto de conexión. | JSON válido o una expresión con el valor **resultType** de JSON. Consulte la sección [Solicitar un esquema de carga](./control-flow-web-activity.md#request-payload-schema) para ver el esquema de carga de la solicitud. | Sí |
 **autenticación** | El método de autenticación que se usa para llamar al punto de conexión. Los tipos admitidos son "Basic" y "ClientCertificate". Para más información, consulte [Autenticación](./control-flow-web-activity.md#authentication). Si la autenticación no es necesaria, excluya esta propiedad. | Una cadena o una expresión con el valor **resultType** de una cadena. | No |
-**timeout** | El tiempo que la actividad espera a que se invoque la devolución de llamada especificada por **callBackUri** . El valor predeterminado es 10 minutos ("00:10:00"). Los valores tienen el formato TimeSpan *d* . *hh* : *mm* : *ss* . | String | No |
+**timeout** | El tiempo que la actividad espera a que se invoque la devolución de llamada especificada por **callBackUri**. El valor predeterminado es 10 minutos ("00:10:00"). Los valores tienen el formato TimeSpan *d*.*hh*:*mm*:*ss*. | String | No |
 **Notificar el estado de la devolución de llamada** | Permite a un usuario informar del estado de error de una actividad de webhook. | Boolean | No |
 
 ## <a name="authentication"></a>Authentication
@@ -71,7 +71,7 @@ Una actividad de webhook admite los siguientes tipos de autenticación.
 
 ### <a name="none"></a>None
 
-Si la autenticación no es necesaria, no incluya la propiedad **authentication** .
+Si la autenticación no es necesaria, no incluya la propiedad **authentication**.
 
 ### <a name="basic"></a>Básica
 
@@ -119,11 +119,11 @@ La propia actividad de webhook produce un error cuando la llamada al punto de co
 
 Para cada llamada a la API REST, el cliente agota el tiempo de espera si el punto de conexión no responde en un minuto. Este comportamiento es el procedimiento recomendado HTTP estándar. Para corregir este problema, implemente un patrón 202. En el caso actual, el punto de conexión devuelve 202 (aceptado) y el cliente sondea.
 
-El tiempo de espera de un minuto en la solicitud no tiene nada que ver con el tiempo de espera de la actividad. El último se usa para esperar a la devolución de llamada especificada por **callbackUri** .
+El tiempo de espera de un minuto en la solicitud no tiene nada que ver con el tiempo de espera de la actividad. El último se usa para esperar a la devolución de llamada especificada por **callbackUri**.
 
 El cuerpo devuelto al URI de devolución de llamada tiene que ser un JSON válido. Establezca el encabezado `Content-Type` en `application/json`.
 
-Al usar la propiedad **Notificar el estado de la devolución de llamada** , tiene que agregar el siguiente código al cuerpo al hacer la devolución de llamada:
+Al usar la propiedad **Notificar el estado de la devolución de llamada**, tiene que agregar el siguiente código al cuerpo al hacer la devolución de llamada:
 
 ```json
 {

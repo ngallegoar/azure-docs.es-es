@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.date: 11/27/2018
 ms.author: cynthn
 ms.topic: conceptual
-ms.openlocfilehash: 83d291ae72e79ec3600015fac07ee4ab80fe5df4
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: b7f6d30ffa849f78b0f7baa2d84e4fb01f3bf192
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843560"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500349"
 ---
 # <a name="secure-and-use-policies-on-virtual-machines-in-azure"></a>Protección y uso de directivas en máquinas virtuales en Azure
 
@@ -41,7 +41,7 @@ El cifrado no afecta al rendimiento de los discos administrados. No hay ningún 
 
 Puede confiar en las claves administradas por la plataforma para el cifrado del disco administrado o puede administrar el cifrado con sus propias claves. Si opta por administrar el cifrado con sus propias claves, puede especificar una *clave administrada por el cliente* que se usará para cifrar y descifrar todos los datos de discos administrados. 
 
-Para más información sobre el cifrado del lado servidor, consulte los artículos sobre [Windows](windows/disk-encryption.md) o [Linux](linux/disk-encryption.md).
+Para más información sobre el cifrado del lado servidor, consulte los artículos sobre [Windows](./disk-encryption.md) o [Linux](./disk-encryption.md).
 
 ### <a name="azure-disk-encryption"></a>Azure Disk Encryption
 
@@ -73,4 +73,4 @@ Mediante el [control de acceso basado en roles de Azure (RBAC de Azure)](../role
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-- Siga los pasos para supervisar la seguridad de la máquina virtual mediante Azure Security Center para [Linux](../security/fundamentals/overview.md) o [Windows](windows/tutorial-azure-security.md).
+- Siga los pasos para supervisar la seguridad de la máquina virtual mediante Azure Security Center para [Linux](../security/fundamentals/overview.md) o [Windows](./tutorial-azure-security.md).

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 357f44149cb17976556c1e4609f6f2af531b80ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9f36502eb464f051cd50b51245db69fa76daa915
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88935779"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499550"
 ---
 # <a name="partial-term-search-and-patterns-with-special-characters-wildcard-regex-patterns"></a>Búsqueda de términos parciales y patrones con caracteres especiales (carácter comodín, expresión regular y patrones)
 
@@ -160,7 +160,7 @@ Tanto si está evaluando analizadores como si avanza con una configuración conc
 
 Los analizadores predefinidos o integrados se pueden especificar por su nombre en una propiedad `analyzer` de una definición de campo, sin necesidad de establecer configuración adicional en el índice. En el ejemplo siguiente se muestra cómo debería establecer el analizador `whitespace` en un campo. 
 
-Para ver otros escenarios y obtener más información sobre otros analizadores integrados, consulte [Lista de analizadores predefinidos](/azure/search/index-add-custom-analyzers#predefined-analyzers-reference). 
+Para ver otros escenarios y obtener más información sobre otros analizadores integrados, consulte [Lista de analizadores predefinidos](./index-add-custom-analyzers.md#predefined-analyzers-reference). 
 
 ```json
     {

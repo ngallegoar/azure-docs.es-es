@@ -8,20 +8,20 @@ ms.service: media-services
 ms.topic: conceptual
 ms.date: 11/04/2020
 ms.author: inhenkel
-ms.openlocfilehash: a0ded2a1ad5cd590ab5715edebde2ab19e399e8d
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: d0811e8f9183ee334d413bcad69f2c7b32023be3
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94686532"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499363"
 ---
 # <a name="managed-identities-and-trusted-storage-with-media-services"></a>Identidades administradas y almacenamiento de confianza con Media Services
 
-Media Services puede usarse con [identidades administradas](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) para habilitar el almacenamiento de confianza. Al crear una cuenta de Media Services, debe asociarla a una cuenta de almacenamiento. Media Services puede acceder a esa cuenta de almacenamiento mediante la autenticación del sistema. Media Services valida que la cuenta de Media Services y la cuenta de almacenamiento se encuentran en la misma suscripción y valida que el usuario que agrega la asociación tenga acceso a la cuenta de almacenamiento con Azure Resource Manager RBAC.
+Media Services puede usarse con [identidades administradas](../../active-directory/managed-identities-azure-resources/overview.md) para habilitar el almacenamiento de confianza. Al crear una cuenta de Media Services, debe asociarla a una cuenta de almacenamiento. Media Services puede acceder a esa cuenta de almacenamiento mediante la autenticación del sistema. Media Services valida que la cuenta de Media Services y la cuenta de almacenamiento se encuentran en la misma suscripción y valida que el usuario que agrega la asociación tenga acceso a la cuenta de almacenamiento con Azure Resource Manager RBAC.
 
 ## <a name="trusted-storage"></a>Almacenamiento de confianza
 
-No obstante, si quiere usar un firewall para proteger su cuenta de almacenamiento, debe emplear la autenticación de identidad administrada. Esta permite que Media Services acceda a la cuenta de almacenamiento que se ha configurado con un firewall o una restricción de red virtual a través del acceso de almacenamiento de confianza.  Para más información acerca de los servicios de Microsoft de confianza, consulte [Configuración de redes virtuales y firewalls de Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-network-security#trusted-microsoft-services).
+No obstante, si quiere usar un firewall para proteger su cuenta de almacenamiento, debe emplear la autenticación de identidad administrada. Esta permite que Media Services acceda a la cuenta de almacenamiento que se ha configurado con un firewall o una restricción de red virtual a través del acceso de almacenamiento de confianza.  Para más información acerca de los servicios de Microsoft de confianza, consulte [Configuración de redes virtuales y firewalls de Azure Storage](../../storage/common/storage-network-security.md#trusted-microsoft-services).
 
 ## <a name="media-services-managed-identity-scenarios"></a>Escenarios de identidad administrada de Media Services
 
@@ -57,4 +57,4 @@ Estos tutoriales incluyen los dos escenarios mencionados anteriormente.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener más información sobre las funciones de las identidades administradas y su uso con las aplicaciones de Azure, consulte [Identidades administradas de Azure AD](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
+Para obtener más información sobre las funciones de las identidades administradas y su uso con las aplicaciones de Azure, consulte [Identidades administradas de Azure AD](../../active-directory/managed-identities-azure-resources/overview.md).

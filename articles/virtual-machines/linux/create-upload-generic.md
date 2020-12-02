@@ -6,12 +6,12 @@ ms.service: virtual-machines-linux
 ms.topic: how-to
 ms.date: 10/08/2018
 ms.author: guybo
-ms.openlocfilehash: a80cc29f318cff8e5a4c665cd07ba1829d25d66d
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: ef4175d24cfd02bb5cb6470b6334fea190b5bec2
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96016342"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500604"
 ---
 # <a name="information-for-non-endorsed-distributions"></a>Información para las distribuciones no aprobadas
 
@@ -38,7 +38,7 @@ Este artículo se centra en ofrecer orientaciones generales para ejecutar su dis
 * No se admite el formato de disco duro virtual de Hyper-V (VHDX) en Azure, solo *VHD fijo*.  Puede convertir el disco al formato VHD con el Administrador de Hyper-V o el cmdlet [Convert-VHD](/powershell/module/hyper-v/convert-vhd). Si usa VirtualBox, deberá seleccionar **Tamaño fijo** en lugar del tamaño predeterminado (asignado dinámicamente) al crear el disco.
 * Azure admite máquinas virtuales de Gen1 (arranque del BIOS) y Gen2 (arranque UEFI).
 * El tamaño máximo permitido para los discos duros virtuales es de 1023 GB.
-* Al instalar el sistema Linux, se recomienda usar las particiones estándar en lugar del Administrador de volúmenes lógicos (LVM), que viene de forma predeterminada en muchas instalaciones. Usar particiones estándar impedirá que el nombre del LVM entre en conflicto con las VM clonadas, especialmente si en algún momento hace falta adjuntar un disco de SO a otra VM idéntica para solucionar problemas. [LVM](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) o [RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) se pueden utilizar en discos de datos.
+* Al instalar el sistema Linux, se recomienda usar las particiones estándar en lugar del Administrador de volúmenes lógicos (LVM), que viene de forma predeterminada en muchas instalaciones. Usar particiones estándar impedirá que el nombre del LVM entre en conflicto con las VM clonadas, especialmente si en algún momento hace falta adjuntar un disco de SO a otra VM idéntica para solucionar problemas. [LVM](/previous-versions/azure/virtual-machines/linux/configure-lvm?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) o [RAID](/previous-versions/azure/virtual-machines/linux/configure-raid?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) se pueden utilizar en discos de datos.
 * Se requiere la compatibilidad de kernel para el montaje de sistemas de archivos UDF. Al arrancar Azure la primera vez, la configuración de aprovisionamiento se pasa a la VM Linux a través de medios con formato UDF conectados al invitado. El agente Linux de Azure debe montar el sistema de archivos UDF para leer su configuración y aprovisionar la VM.
 * Las versiones de kernel de Linux inferiores a la versión 2.6.37 no admiten NUMA en Hyper-V con tamaños de VM más grandes. Este problema afecta principalmente a las distribuciones anteriores que usan el kernel Red Hat 2.6.32 de canal de subida, y se ha corregido en Red Hat Enterprise Linux (RHEL) 6.6 (kernel-2.6.32-504). Los sistemas que ejecutan kernels personalizados cuyas versiones son anteriores a la versión 2.6.37, o bien kernels basados en RHEL cuyas versiones son anteriores a la versión 2.6.32-504, deben establecer el parámetro de inicio `numa=off` en la línea de comandos de kernel en grub.conf. Para más información, consulte [Red Hat KB 436883](https://access.redhat.com/solutions/436883).
 * No configure una partición de intercambio en el disco del SO. El agente de Linux se puede configurar para crear un archivo de intercambio en el disco de recursos temporal, como se describe en los pasos siguientes.

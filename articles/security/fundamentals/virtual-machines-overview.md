@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/2/2019
 ms.author: terrylan
-ms.openlocfilehash: 91dfb3cb07cca8ec89c77dea43f1cd075db11bbf
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: ed2cb967b24ce5abdebadfe29847ae1a16b4e745
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95014771"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498751"
 ---
 # <a name="azure-virtual-machines-security-overview"></a>Información general de seguridad de Azure Virtual Machines
 Este artículo ofrece una introducción a las principales características de seguridad de Azure que pueden usarse con máquinas virtuales.
@@ -117,7 +117,7 @@ Site Recovery:
 Más información:
 
 * [¿Qué es Azure Site Recovery?](../../site-recovery/site-recovery-overview.md)
-* [¿Cómo funciona Azure Site Recovery?](/azure/site-recovery/azure-to-azure-architecture)
+* [¿Cómo funciona Azure Site Recovery?](../../site-recovery/azure-to-azure-architecture.md)
 * [¿Qué cargas de trabajo se pueden proteger con Azure Site Recovery?](../../site-recovery/site-recovery-workload.md)
 
 ## <a name="virtual-networking"></a>Redes virtuales

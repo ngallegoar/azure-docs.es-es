@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 11/3/2020
 ms.author: cynthn
-ms.openlocfilehash: b19dab8dffaa0c9c888e8a9974a43cbb48006fd7
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 0f5eb6a2964cdb679c2a83bd9d9b6296e3e962ed
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94504329"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499295"
 ---
 # <a name="preview-use-customer-managed-keys-for-encrypting-images"></a>Vista previa: uso de claves administradas por el cliente para el cifrado de imágenes
 
@@ -220,6 +220,6 @@ Puede crear una máquina virtual a partir de una versión de imagen y usar clave
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Obtenga más información sobre [cifrado de disco del lado servidor](./windows/disk-encryption.md).
+Obtenga más información sobre [cifrado de disco del lado servidor](./disk-encryption.md).
 
 Para obtener información sobre cómo proporcionar información del plan de compra, consulte [Indicación de la información del plan de compra de Azure Marketplace al crear imágenes](marketplace-images.md).

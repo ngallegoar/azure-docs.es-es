@@ -9,12 +9,12 @@ ms.subservice: extensions
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: c02b6bcb6587313f84c4b900fba49df540d12c07
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 0418c11d84fb82ac4a4b181289f032407a29f92e
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94966367"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500672"
 ---
 # <a name="key-vault-virtual-machine-extension-for-windows"></a>Extensión de máquina virtual de Key Vault para Windows
 
@@ -36,9 +36,9 @@ También se admite la extensión VM de Key Vault en una VM local personalizada q
 - PEM
 
 ## <a name="prerequisities"></a>Requisitos previos
-  - Instancia de Key Vault con certificado. Consulte [Creación de un almacén de claves](https://docs.microsoft.com/azure/key-vault/general/quick-create-portal).
-  - VM/VMSS debe tener asignada una [identidad administrada](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
-  - La directiva de acceso de Key Vault se debe establecer con los secretos `get` y los permisos `list` para la identidad administrada de VM/VMSS y recuperar la parte del certificado de un secreto. Consulte [Autenticación en Key Vault](/azure/key-vault/general/authentication) y [Asignación de una directiva de acceso de Key Vault](/azure/key-vault/general/assign-access-policy-cli).
+  - Instancia de Key Vault con certificado. Consulte [Creación de un almacén de claves](../../key-vault/general/quick-create-portal.md).
+  - VM/VMSS debe tener asignada una [identidad administrada](../../active-directory/managed-identities-azure-resources/overview.md).
+  - La directiva de acceso de Key Vault se debe establecer con los secretos `get` y los permisos `list` para la identidad administrada de VM/VMSS y recuperar la parte del certificado de un secreto. Consulte [Autenticación en Key Vault](../../key-vault/general/authentication.md) y [Asignación de una directiva de acceso de Key Vault](../../key-vault/general/assign-access-policy-cli.md).
 
 ## <a name="extension-schema"></a>Esquema de extensión
 
@@ -111,7 +111,7 @@ Las extensiones de VM de Azure pueden implementarse con plantillas de Azure Reso
 La configuración de JSON para una extensión de máquina virtual debe estar anidada dentro del fragmento de recursos de máquina virtual de la plantilla, en concreto en el objeto `"resources": []` de la plantilla de máquina virtual y, en el caso de un conjunto de escalado de máquinas virtuales, en el objeto `"virtualMachineProfile":"extensionProfile":{"extensions" :[]`.
 
  > [!NOTE]
-> La extensión de VM requeriría la asignación de la identidad administrada del sistema o del usuario para autenticarse en Key Vault.  Consulte [Autenticación en Key Vault y asignación de una directiva de acceso de Key Vault](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm).
+> La extensión de VM requeriría la asignación de la identidad administrada del sistema o del usuario para autenticarse en Key Vault.  Consulte [Autenticación en Key Vault y asignación de una directiva de acceso de Key Vault](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md).
 > 
 
 ```json

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/15/2019
 ms.author: raynew
-ms.openlocfilehash: 7d11fa8605d9cd5f335b6be56097caf7a5222bbd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e3d3ce8218030bc8ba6c59b26b7360bf2299e02a
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89006948"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499822"
 ---
 # <a name="monitor-site-recovery-with-azure-monitor-logs"></a>Supervisión de Site Recovery con registros de Azure Monitor
 
@@ -36,7 +36,7 @@ Esto es lo que necesita:
 
 - Al menos una máquina protegida en un almacén de Recovery Services.
 - Un área de trabajo de Log Analytics para almacenar los registros de Site Recovery. [Obtenga información](../azure-monitor/learn/quick-create-workspace.md) sobre cómo configurar un área de trabajo.
-- Tener una noción básica de cómo escribir, ejecutar y analizar consultas de registros en Log Analytics. [Más información](../azure-monitor/log-query/get-started-portal.md).
+- Tener una noción básica de cómo escribir, ejecutar y analizar consultas de registros en Log Analytics. [Más información](../azure-monitor/log-query/log-analytics-tutorial.md).
 
 Le recomendamos que revise las [preguntas de supervisión más comunes](monitoring-common-questions.md) antes de comenzar.
 
@@ -59,7 +59,7 @@ Los registros de Site Recovery comienzan a obtener datos en una tabla (**AzureDi
 
 Puede capturar la información sobre la tasa de renovación de datos y la información de la tasa de carga de datos de origen para sus máquinas de VMware o físicas en el entorno local. Para habilitarlo, es necesario instalar el agente de supervisión de Microsoft en el servidor de procesos.
 
-1. Vaya al área de trabajo de Log Analytics y haga clic en**Configuración avanzada**.
+1. Vaya al área de trabajo de Log Analytics y haga clic en **Configuración avanzada**.
 2. Haga clic en la página **Orígenes conectados** y seleccione **Servidores de Windows**.
 3. Descargue el agente de Windows (64 bits) en el servidor de procesos. 
 4. [Obtención de la clave y el identificador del área de trabajo](../azure-monitor/platform/log-analytics-agent.md#workspace-id-and-key)
