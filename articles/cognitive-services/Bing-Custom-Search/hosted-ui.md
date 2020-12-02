@@ -11,19 +11,19 @@ ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: d5caa9b4168307bb27022b59415e43b37f30bf67
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: ca3f9da681c60608b5b196b17191f0b4d549f305
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94367393"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96338374"
 ---
 # <a name="configure-your-hosted-ui-experience"></a>Configure su experiencia de interfaz de usuario hospedada.
 
 > [!WARNING]
-> Bing Search APIs se mueve de Cognitive Services a Bing Search Services. A partir del **30 de octubre de 2020** , las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](https://aka.ms/cogsvcs/bingmove).
+> Bing Search APIs se mueve de Cognitive Services a Bing Search Services. A partir del **30 de octubre de 2020**, las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 > El aprovisionamiento de Bing Search APIs con Cognitive Services será posible durante los próximos tres años o hasta que finalice el Contrato Enterprise, lo que suceda primero.
-> Puede encontrar instrucciones sobre la migración en [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
+> Puede encontrar instrucciones sobre la migración en [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 Bing Custom Search proporciona una UI hospedada que puede integrar fácilmente en las aplicaciones web y páginas web como un fragmento de código de JavaScript. Mediante el portal de Bing Custom Search, puede configurar el diseño, el color y las opciones de búsqueda de la UI.
 
@@ -47,12 +47,12 @@ Para configurar una interfaz de usuario hospedada para las aplicaciones web, sig
 
 5. Seleccione un tema de color. Puede personalizar los colores para ajustarse a la aplicación haciendo clic en **Personalizar tema**. Para cambiar un color, escriba el valor HEXADECIMAL RGB del color (por ejemplo, `#366eb8`) o haga clic en la vista previa del color.
 
-   Puede obtener una vista previa de los cambios en el lado derecho del portal. Al hacer clic en **Restablecer valores predeterminados** , se revertirán los cambios para volver a los colores predeterminados del tema seleccionado.
+   Puede obtener una vista previa de los cambios en el lado derecho del portal. Al hacer clic en **Restablecer valores predeterminados**, se revertirán los cambios para volver a los colores predeterminados del tema seleccionado.
 
    > [!NOTE]
    > Considere la posibilidad de accesibilidad al elegir los colores.
 
-6. En **Configuraciones adicionales** , proporcione los valores según corresponda para la aplicación. Estos parámetros son opcionales. Para ver el efecto de aplicarlos o eliminarlos, consulte el panel de vista previa de la derecha. Las opciones de configuración disponibles son las siguientes:  
+6. En **Configuraciones adicionales**, proporcione los valores según corresponda para la aplicación. Estos parámetros son opcionales. Para ver el efecto de aplicarlos o eliminarlos, consulte el panel de vista previa de la derecha. Las opciones de configuración disponibles son las siguientes:  
 
 7. Escriba la clave de suscripción de búsqueda o elija una en la lista desplegable. La lista desplegable se completa con las claves de las suscripciones de su cuenta de Azure. Consulte [Creación de una cuenta de Cognitive Services APIs en Azure Portal](../cognitive-services-apis-create-account.md).  
 
@@ -105,7 +105,7 @@ Para configurar el comportamiento de la interfaz de usuario hospedada, haga clic
 - Resultados web por página: Número de resultados de la búsqueda web para mostrar a la vez (el máximo son 50 resultados por página).
 - Leyenda de imagen: Determina si las imágenes se muestran con resultados de búsqueda.
 
-Las configuraciones siguientes se mostrarán si hace clic en **Mostrar configuraciones avanzadas** :
+Las configuraciones siguientes se mostrarán si hace clic en **Mostrar configuraciones avanzadas**:
 
 - Resaltar palabras: Determina si se muestran los resultados con los términos de búsqueda en negrita.
 - Destino del vínculo: Determina si la página web se abre en una nueva pestaña del explorador (en blanco) o en la misma pestaña del explorador (suya propia) cuando el usuario hace clic en un resultado de búsqueda.

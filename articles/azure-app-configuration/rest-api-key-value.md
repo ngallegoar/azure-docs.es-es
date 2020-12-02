@@ -1,23 +1,23 @@
 ---
-title: 'API REST de Azure App Configuration: par clave-valor'
+title: 'API REST de Azure App Configuration: clave-valor'
 description: Páginas de referencia para trabajar con pares clave-valor mediante la API REST de Azure App Configuration
 author: lisaguthrie
 ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
-ms.openlocfilehash: 50d97a330507e9361674776acf29d1007ee5bf58
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: f89b3f2fa4805eeb2fd9f9d511c8f228b98139ac
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93423773"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95241036"
 ---
-# <a name="key-values"></a>Pares clave-valor
-
-api-version: 1.0
+# <a name="key-values"></a>Valores clave
 
 Un par clave-valor es un recurso identificado por una combinación única de `key` + `label`. `label` es opcional. Para hacer referencia de manera explícita a un par clave-valor sin etiqueta, use "\0" (se codifica para URL como ``%00``). Revise los detalles para cada operación.
+
+Este artículo se aplica a la API versión 1.0.
 
 ## <a name="operations"></a>Operations
 
@@ -47,8 +47,8 @@ Un par clave-valor es un recurso identificado por una combinación única de `ke
 
 ## <a name="get-key-value"></a>Obtención del par clave-valor
 
-**Obligatorios:** ``{key}``, ``{api-version}``  
-*Opcionales:* ``label``: si se omite, implica un par clave-valor sin etiqueta.
+Obligatorio: ``{key}``, ``{api-version}``  
+Opcional: ``label`` (si se omite, implica un par clave-valor sin etiqueta).
 
 ```http
 GET /kv/{key}?label={label}&api-version={api-version}
@@ -87,7 +87,7 @@ HTTP/1.1 404 Not Found
 
 ## <a name="get-conditionally"></a>Obtención (de manera condicional)
 
-Para mejorar el almacenamiento en caché del cliente, use los encabezados de solicitud `If-Match` o `If-None-Match`. El argumento `etag` forma parte de la representación de la clave. Consulte la [sección 14.24 y 14.26](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).
+Para mejorar el almacenamiento en caché del cliente, use los encabezados de solicitud `If-Match` o `If-None-Match`. El argumento `etag` forma parte de la representación de la clave. Para obtener más información, consulte las [secciones 14.24 y 14.26](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).
 
 La siguiente solicitud recupera el par clave-valor solo si la representación actual no coincide con el argumento `etag` especificado:
 
@@ -109,12 +109,9 @@ or
 HTTP/1.1 200 OK
 ```
 
-## <a name="list-key-values"></a>Lista de pares clave-valor
+## <a name="list-key-values"></a>Enumeración de pares clave-valor
 
-Consulte **Filtrado** para ver más opciones.
-
-*Opcionales:* ``key``: si no se especifica, sugiere **cualquier** clave.
-*Opcionales:* ``label``: si no se especifica, sugiere **cualquier** etiqueta.
+Opcional: ``key`` (si no se especifica, sugiere cualquier clave). Opcional: ``label`` (si no se especifica, sugiere cualquier etiqueta).
 
 ```http
 GET /kv?label=*&api-version={api-version} HTTP/1.1
@@ -127,10 +124,12 @@ HTTP/1.1 200 OK
 Content-Type: application/vnd.microsoft.appconfig.kvset+json; charset=utf-8
 ```
 
+Para obtener más opciones, consulte la sección "Filtrado" más adelante en este artículo.
+
 ## <a name="pagination"></a>Paginación
 
 El resultado se pagina si el número de elementos devueltos supera el límite de respuesta. Siga los encabezados de respuesta `Link` opcionales y use `rel="next"` para la navegación.
-Como alternativa, el contenido proporciona un vínculo Siguiente en forma de la propiedad `@nextLink`. El URI vinculado incluye el argumento `api-version`.
+Como alternativa, el contenido proporciona un vínculo Siguiente en forma de propiedad `@nextLink`. El URI vinculado incluye el argumento `api-version`.
 
 ```http
 GET /kv?api-version={api-version} HTTP/1.1
@@ -171,7 +170,7 @@ GET /kv?key={key}&label={label}&api-version={api-version}
 |`key=abc*`|Coincide con los nombres de claves que empiezan por **abc**|
 |`key=abc,xyz`|Coincide con los nombres de claves **abc** o **xyz** (limitado a 5 archivos CSV)|
 
-|Filtros de etiqueta|Efecto|
+|Filtro de etiqueta|Efecto|
 |--|--|
 |se omite `label` o `label=*`|Coincide con **cualquier** etiqueta|
 |`label=%00`|Coincide con pares clave-valor sin etiqueta|
@@ -234,7 +233,7 @@ GET /kv?$select=key,value&api-version={api-version} HTTP/1.1
 
 ## <a name="time-based-access"></a>Acceso basado en el tiempo
 
-Obtenga una representación del resultado tal como era en un momento anterior. Consulte la sección [2.1.1](https://tools.ietf.org/html/rfc7089#section-2.1). Todavía se admite la paginación tal y como se definió anteriormente.
+Obtenga una representación del resultado tal como era en un momento anterior. Para obtener más información, consulte la sección [2.1.1](https://tools.ietf.org/html/rfc7089#section-2.1). Todavía se admite la paginación tal y como se definió anteriormente en este artículo.
 
 ```http
 GET /kv?api-version={api-version} HTTP/1.1
@@ -258,10 +257,10 @@ Link: <{relative uri}>; rel="original"
 }
 ```
 
-## <a name="set-key"></a>Clave fija
+## <a name="set-key"></a>Establecimiento de clave
 
-- **Obligatorio:** ``{key}``
-- *Opcional:* ``label``: si no se especifica o, el valor es label=%00, implica un par clave-valor sin etiqueta.
+- Obligatorio: ``{key}``
+- Opcional: ``label`` (si no se especifica o, el valor es label=%00, implica un par clave-valor sin etiqueta).
 
 ```http
 PUT /kv/{key}?label={label}&api-version={api-version} HTTP/1.1
@@ -323,9 +322,9 @@ Content-Type: application/problem+json; charset="utf-8"
 ## <a name="set-key-conditionally"></a>Establecimiento de clave (de manera condicional)
 
 Para evitar condiciones de carrera, use los encabezados de solicitud `If-Match` o `If-None-Match`. El argumento `etag` forma parte de la representación de la clave.
-Si se omiten `If-Match` o `If-None-Match`, la operación será incondicional.
+Si se omiten `If-Match` o `If-None-Match`, la operación es incondicional.
 
-La siguiente respuesta actualiza el valor solo si la representación actual coincide con el valor de `etag` especificado.
+La siguiente respuesta actualiza el valor solo si la representación actual coincide con el valor de `etag` especificado:
 
 ```http
 PUT /kv/{key}?label={label}&api-version={api-version} HTTP/1.1
@@ -333,7 +332,7 @@ Content-Type: application/vnd.microsoft.appconfig.kv+json
 If-Match: "4f6dd610dd5e4deebc7fbaef685fb903"
 ```
 
-La siguiente respuesta actualiza el valor solo si la representación actual *no* coincide con el valor de `etag` especificado.
+La siguiente respuesta actualiza el valor solo si la representación actual no coincide con el valor de `etag` especificado:
 
 ```http
 PUT /kv/{key}?label={label}&api-version={api-version} HTTP/1.1
@@ -349,7 +348,7 @@ Content-Type: application/vnd.microsoft.appconfig.kv+json;
 If-Match: "*"
 ```
 
-La siguiente solicitud agrega el valor solo si *no* existe una representación:
+La siguiente solicitud agrega el valor solo si no existe una representación:
 
 ```http
 PUT /kv/{key}?label={label}&api-version={api-version} HTTP/1.1
@@ -373,8 +372,8 @@ HTTP/1.1 412 PreconditionFailed
 
 ## <a name="delete"></a>Eliminar
 
-- **Obligatorio:** `{key}`, `{api-version}`
-- *Opcional:* `{label}`: si no se especifica o, el valor es label=%00, implica un par clave-valor sin etiqueta.
+- Obligatorio: `{key}`, `{api-version}`
+- Opcional: `{label}` (si no se especifica o, el valor es label=%00, implica un par clave-valor sin etiqueta).
 
 ```http
 DELETE /kv/{key}?label={label}&api-version={api-version} HTTP/1.1
@@ -396,4 +395,4 @@ HTTP/1.1 204 No Content
 
 ## <a name="delete-key-conditionally"></a>Eliminación de clave (de manera condicional)
 
-Similar a **Establecimiento de clave (de manera condicional)**
+Esto es similar a la sección "Establecimiento de clave (de manera condicional)" anteriormente en este artículo.

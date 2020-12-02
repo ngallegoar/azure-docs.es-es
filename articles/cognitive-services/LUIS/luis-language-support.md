@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 12/09/2019
-ms.openlocfilehash: e377f910e1c1ddda864ea312b40fe3608c166376
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1da43d0ef208d61ced6c8ca8dbc7603e0ef51155
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541397"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "96021578"
 ---
 # <a name="language-and-region-support-for-luis"></a>Compatibilidad de idiomas y regiones para LUIS
 
@@ -28,7 +28,7 @@ Si necesita una aplicación cliente de LUIS multilingüe como un bot de chat, di
 
 LUIS entiende expresiones en los idiomas siguientes:
 
-| Idioma |Configuración regional  |  Dominio creado previamente | Entidad creada previamente | Recomendaciones de la lista de frases | \**[Análisis de texto](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)<br>(Las opiniones y<br>palabras clave)|
+| Idioma |Configuración regional  |  Dominio creado previamente | Entidad creada previamente | Recomendaciones de la lista de frases | \**[Análisis de texto](../text-analytics/language-support.md)<br>(Las opiniones y<br>palabras clave)|
 |--|--|:--:|:--:|:--:|:--:|
 | Spanish (Traditional Sort) - Spain |`en-US` | ✔ | ✔  |✔|✔|
 | Árabe (versión preliminar: Árabe estándar moderno) |`ar-AR`|-|-|-|-|
@@ -69,7 +69,7 @@ La compatibilidad con idiomas varía para las [entidades creadas previamente](lu
 Vea los [idiomas admitidos](../speech-service/speech-to-text.md) en Voz para obtener los idiomas de modo de dictado de Voz.
 
 ### <a name="bing-spell-check-supported-languages"></a>Idiomas admitidos de Bing Spell Check
-Vea los [idiomas admitidos](https://docs.microsoft.com/azure/cognitive-services/bing-spell-check/bing-spell-check-supported-languages) de Bing Spell Check para obtener una lista de los idiomas admitidos y el estado.
+Vea los [idiomas admitidos](../bing-spell-check/language-support.md) de Bing Spell Check para obtener una lista de los idiomas admitidos y el estado.
 
 ## <a name="rare-or-foreign-words-in-an-application"></a>Palabras poco frecuentes o extranjeras en una aplicación
 En la referencia cultural `en-us`, LUIS aprende a distinguir la mayoría de las palabras en inglés, incluido el argot. En la referencia cultural `zh-cn`, LUIS aprende a distinguir la mayoría de los caracteres chinos. Si se usa una palabra poco frecuente en `en-us` o un carácter en `zh-cn`, y ve que LUIS parece incapaz de distinguir esa palabra o carácter, puede agregarla a una [característica de lista de frases](luis-how-to-add-features.md). Por ejemplo, las palabras externas a la referencia cultural de la aplicación, es decir, las palabras en otros idiomas, se deben agregar a una característica de lista de frases.

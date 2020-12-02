@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 10/29/2020
 ms.author: aahi
 ms.openlocfilehash: cedcf8a3fcd656c4af0ca7493c598791d35d20d9
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130568"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996139"
 ---
 # <a name="use-docker-compose-to-deploy-multiple-containers"></a>Uso de Docker Compose para implementar varios contenedores
 
@@ -39,7 +39,7 @@ Este procedimiento requiere varias herramientas que se deben instalar y ejecutar
 
 ## <a name="docker-compose-file"></a>Archivo de Docker Compose
 
-El archivo YAML define todos los servicios que se van a implementar. Estos servicios se basan en un archivo `DockerFile` o en una imagen de contenedor existente. En este caso, usaremos dos imágenes de vista previa. Copie y pegue el siguiente archivo YAML y guárdelo como *docker-compose.yaml*. Especifique los valores adecuados de **apikey** , **billing** y **EndpointUri** en el archivo.
+El archivo YAML define todos los servicios que se van a implementar. Estos servicios se basan en un archivo `DockerFile` o en una imagen de contenedor existente. En este caso, usaremos dos imágenes de vista previa. Copie y pegue el siguiente archivo YAML y guárdelo como *docker-compose.yaml*. Especifique los valores adecuados de **apikey**, **billing** y **EndpointUri** en el archivo.
 
 ```yaml
 version: '3.7'
@@ -80,9 +80,9 @@ services:
 Un archivo de Docker Compose permite administrar todas las fases del ciclo de vida de un servicio definido: iniciar, detener y volver a generar los servicios, ver su estado y transmitir los registros. Abra una interfaz de línea de comandos desde el directorio del proyecto (donde se encuentra el archivo docker-compose.yaml).
 
 > [!NOTE]
-> Para evitar errores, asegúrese de que la máquina host comparte correctamente las unidades con el motor de Docker. Por ejemplo, si *E:\publicpreview* se usa como directorio en el archivo *docker-compose.yaml* , comparta la unidad **E** con Docker.
+> Para evitar errores, asegúrese de que la máquina host comparte correctamente las unidades con el motor de Docker. Por ejemplo, si *E:\publicpreview* se usa como directorio en el archivo *docker-compose.yaml*, comparta la unidad **E** con Docker.
 
-Desde la interfaz de la línea de comandos, ejecute el siguiente comando para iniciar (o reiniciar) todos los servicios definidos en el archivo *docker-compose.yaml* :
+Desde la interfaz de la línea de comandos, ejecute el siguiente comando para iniciar (o reiniciar) todos los servicios definidos en el archivo *docker-compose.yaml*:
 
 ```console
 docker-compose up
@@ -165,7 +165,7 @@ IMAGE ID            REPOSITORY                                                  
 
 ### <a name="test-containers"></a>Contenedores de prueba
 
-Abra un explorador en la máquina host y vaya a **localhost** , para lo que usará el puerto especificado en el archivo *docker-compose.yaml* , como http://localhost:5021/swagger/index.html. Por ejemplo, puede usar la característica **Probarlo** de la API para probar el punto de conexión de Form Recognizer. Las páginas de Swagger de ambos contenedores deberían estar disponibles y deberían poder probarse.
+Abra un explorador en la máquina host y vaya a **localhost**, para lo que usará el puerto especificado en el archivo *docker-compose.yaml*, como http://localhost:5021/swagger/index.html. Por ejemplo, puede usar la característica **Probarlo** de la API para probar el punto de conexión de Form Recognizer. Las páginas de Swagger de ambos contenedores deberían estar disponibles y deberían poder probarse.
 
 ![Contenedor de Form Recognizer](media/form-recognizer-swagger-page.png)
 

@@ -11,11 +11,11 @@ ms.topic: include
 ms.date: 05/05/2020
 ms.author: trbye
 ms.openlocfilehash: 85c4e0641e1989ddea6c8aa8b8a8895a966a5ddb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82876025"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002305"
 ---
 ### <a name="speech-to-text-sub-chart-chartsspeechtotext"></a>Speech-to-Text (gráfico secundario: charts/speechToText)
 
@@ -54,9 +54,9 @@ A partir de la versión 2.2.0 del contenedor de conversión de voz a texto y la
 |`textanalytics.image.pullSecrets`| Los secretos de imagen para extraer la imagen de Docker **text-analytics**.| nombre de secreto válido| |
 |`textanalytics.image.pullByHash`| Especifica si se va a extraer la imagen de Docker por hash.  Si `yes`, `image.hash` también se requiere. Si `no`, establézcalo como "false". El valor predeterminado es `false`.| true/false| `false`|
 |`textanalytics.image.hash`| El hash de la imagen de Docker **text-analytics**. Úselo solo con `image.pullByHash:true`.| hash de imagen de Docker válido | |
-|`textanalytics.image.args.eula`| Uno de los argumentos necesarios en el contenedor **text-analytics** , que indica que ha aceptado la licencia. El valor de esta opción debe establecerse en `accept`.| `accept`, si desea utilizar el contenedor. | |
-|`textanalytics.image.args.billing`| Uno de los argumentos necesarios en el contenedor **text-analytics** , que especifica el identificador URI del punto de conexión de facturación. El valor de URI del punto de conexión de facturación está disponible en Azure Portal, en la página de Información general de Información general del servicio de voz.|identificador URI del punto de conexión de facturación||
-|`textanalytics.image.args.apikey`| Uno de los argumentos necesarios en el contenedor **text-analytics** , que se usa para realizar un seguimiento de la información de facturación.| apiKey válido||
+|`textanalytics.image.args.eula`| Uno de los argumentos necesarios en el contenedor **text-analytics**, que indica que ha aceptado la licencia. El valor de esta opción debe establecerse en `accept`.| `accept`, si desea utilizar el contenedor. | |
+|`textanalytics.image.args.billing`| Uno de los argumentos necesarios en el contenedor **text-analytics**, que especifica el identificador URI del punto de conexión de facturación. El valor de URI del punto de conexión de facturación está disponible en Azure Portal, en la página de Información general de Información general del servicio de voz.|identificador URI del punto de conexión de facturación||
+|`textanalytics.image.args.apikey`| Uno de los argumentos necesarios en el contenedor **text-analytics**, que se usa para realizar un seguimiento de la información de facturación.| apiKey válido||
 |`textanalytics.cpuRequest`| La CPU solicitada para el contenedor **text-analytics**.| int| `3000m`|
 |`textanalytics.cpuLimit`| La CPU limitada del contenedor **text-analytics**.| | `8000m`|
 |`textanalytics.memoryRequest`| La memoria solicitada del contenedor **text-analytics**.| | `3Gi`|

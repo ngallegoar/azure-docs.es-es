@@ -11,11 +11,11 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 05/29/2019
 ms.openlocfilehash: 664c4289cbfa1f6ce2fce9f9f83b0240bd2d592c
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92912878"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002007"
 ---
 # <a name="moderate-text-from-the-api-console"></a>Moderación de texto desde la consola de API
 
@@ -23,7 +23,7 @@ Use la [API de moderación de texto](https://westus.dev.cognitive.microsoft.com/
 
 ## <a name="get-your-api-key"></a>Obtener la clave de API
 
-Antes de probar la API en la consola en línea, necesita la clave de suscripción. Se encuentra en la pestaña **Configuración** , en el cuadro **Ocp-Apim-Subscription-Key**. Para más información, consulte [Información general](overview.md).
+Antes de probar la API en la consola en línea, necesita la clave de suscripción. Se encuentra en la pestaña **Configuración**, en el cuadro **Ocp-Apim-Subscription-Key**. Para más información, consulte [Información general](overview.md).
 
 ## <a name="navigate-to-the-api-reference"></a>Navegar hasta la referencia de API
 
@@ -48,7 +48,7 @@ Seleccione los parámetros de consulta que quiere usar en la pantalla de texto. 
 > [!NOTE]
 > Para el parámetro **language** (idioma), asigne `eng` o déjelo en blanco para ver la respuesta **classification** (clasificación) asistida por máquina. **Esta característica solo admite inglés**.
 >
-> Para la detección de **palabras soeces** , use el [código ISO 639-3](http://www-01.sil.org/iso639-3/codes.asp) de los idiomas admitidos que se enumeran en este artículo, o deje el campo en blanco.
+> Para la detección de **palabras soeces**, use el [código ISO 639-3](http://www-01.sil.org/iso639-3/codes.asp) de los idiomas admitidos que se enumeran en este artículo, o deje el campo en blanco.
 
 Para **autocorrect** (autocorrección), **PII** (DCP) y **classify (preview)** [clasificar (versión preliminar)], seleccione **true**. Deje el campo **ListId** vacío.
 
@@ -56,7 +56,7 @@ Para **autocorrect** (autocorrección), **PII** (DCP) y **classify (preview)** [
 
 ### <a name="content-type"></a>Tipo de contenido
 
-Para **Content-Type** , seleccione el tipo de contenido que quiera filtrar. Para este ejemplo, use el tipo predeterminado **text/plain** (texto/sin formato). En el cuadro **Ocp-Apim-Subscription-Key** , especifique la clave de suscripción.
+Para **Content-Type**, seleccione el tipo de contenido que quiera filtrar. Para este ejemplo, use el tipo predeterminado **text/plain** (texto/sin formato). En el cuadro **Ocp-Apim-Subscription-Key**, especifique la clave de suscripción.
 
 ### <a name="sample-text-to-scan"></a>Texto de ejemplo que se va a examinar
 

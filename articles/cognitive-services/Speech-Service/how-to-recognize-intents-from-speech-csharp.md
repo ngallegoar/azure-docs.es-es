@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/10/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 1138a970bf7c52182f13d0fd14d0178a2d0cfeba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 93a3adf00203e317be912e3e72de7a3f7ca666c6
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88918798"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "96001117"
 ---
 # <a name="how-to-recognize-intents-from-speech-using-the-speech-sdk-for-c"></a>Reconocimiento de intenciones a partir de contenido de voz mediante el SDK de Voz para C#
 
@@ -55,7 +55,7 @@ LUIS usa tres tipos de claves:
 | Inicio   | Permite probar la aplicación de LUIS mediante el uso solo de texto.   |
 | Punto de conexión  | Autoriza el acceso a una aplicación de LUIS concreta            |
 
-Para esta guía, necesitará el tipo de clave de punto de conexión. Esta guía utiliza la aplicación de LUIS Home Automation de ejemplo, que se puede crear siguiendo el inicio rápido [Uso de automatización del hogar compilada previamente](https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-create-app). Si ha creado su propia aplicación de LUIS, puede usarla si lo prefiere.
+Para esta guía, necesitará el tipo de clave de punto de conexión. Esta guía utiliza la aplicación de LUIS Home Automation de ejemplo, que se puede crear siguiendo el inicio rápido [Uso de automatización del hogar compilada previamente](../luis/luis-get-started-create-app.md). Si ha creado su propia aplicación de LUIS, puede usarla si lo prefiere.
 
 Al crear una aplicación LUIS, el propio LUIS genera automáticamente una clave de inicio para que pueda probarla aplicación mediante consultas de texto. Esta clave no permite la integración del servicio de voz y no funcionará con esta guía. Cree un recurso de LUIS en el panel de Azure y asígnelo a la aplicación de LUIS. Puede usar el nivel de suscripción gratis para esta guía.
 
@@ -201,4 +201,4 @@ Busque el código de este artículo en la carpeta **samples/csharp/sharedcontent
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Inicio rápido: Reconocimiento de voz a través de un micrófono](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnetcore)
+> [Inicio rápido: Reconocimiento de voz a través de un micrófono](./get-started-speech-to-text.md?pivots=programming-language-csharp&tabs=dotnetcore)

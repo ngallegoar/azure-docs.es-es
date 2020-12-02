@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: b0574c41042e172af78365bb273c81729ce204ab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7b872340c50c800ebe4d4d6c7ca56b3b327bf162
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88749318"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95972660"
 ---
 # <a name="speech-service-supported-regions"></a>Regiones admitidas del servicio de voz
 
@@ -27,7 +27,7 @@ El portal de Voz para realizar configuraciones personalizadas a su experiencia d
 Tenga en cuenta los siguientes puntos al considerar las regiones:
 
 * Si la aplicación usa un [SDK de voz](speech-sdk.md), proporcione el identificador de región, por ejemplo, `westus`, al crear una configuración de voz.
-* Si la aplicación usa una de las [API de REST](rest-apis.md) del servicio de voz, la región forma parte del URI del punto de conexión que se emplea al realizar solicitudes.
+* Si la aplicación usa una de las [API de REST](./overview.md#reference-docs) del servicio de voz, la región forma parte del URI del punto de conexión que se emplea al realizar solicitudes.
 * Las claves creadas para una región son válidas únicamente en esa región. Si intenta usarlas con otras regiones se producen errores de autenticación.
 
 ## <a name="speech-sdk"></a>SDK de voz
@@ -63,7 +63,7 @@ Las regiones disponibles para el **reconocimiento de la intención** mediante el
 | Norteamérica | Oeste de EE. UU. 2        | `westus2`            |
 | Sudamérica | Sur de Brasil     | `brazilsouth`        |
 
-Se trata de un subconjunto de las regiones de publicación compatibles con el [servicio Language Understanding (LUIS)](/azure/cognitive-services/luis/luis-reference-regions).
+Se trata de un subconjunto de las regiones de publicación compatibles con el [servicio Language Understanding (LUIS)](../luis/luis-reference-regions.md).
 
 ### <a name="voice-assistants"></a>Asistentes de voz
 

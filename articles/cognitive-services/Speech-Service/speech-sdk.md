@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: trbye
-ms.openlocfilehash: ad26fe0d869a2e892a419b1732727c3ff1d1e9a2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9356cbb6eb210d6745d90e8ad001917e73592cd3
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88870721"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "96022000"
 ---
 # <a name="about-the-speech-sdk"></a>Acerca del SDK de Voz
 
@@ -29,7 +29,7 @@ El SDK de voz expone muchas características del servicio de voz, pero no todas 
 
 ### <a name="speech-to-text"></a>Voz a texto
 
-La [conversión de voz en texto](speech-to-text.md) (también conocida como *reconocimiento de voz*) transcribe secuencias de audio en texto en tiempo real que las aplicaciones, herramientas o dispositivos pueden usar o mostrar. Use voz a texto con [Language Understanding (LUIS)](../luis/index.yml) para derivar las intenciones del usuario a partir de voz transcrita y actuar en los comandos de voz. Utilice [Speech Translation](speech-translation.md) para traducir la entrada de voz a un idioma diferente con una sola llamada. Para más información, consulte [Aspectos básicos del reconocimiento de voz](speech-to-text-basics.md).
+La [conversión de voz en texto](speech-to-text.md) (también conocida como *reconocimiento de voz*) transcribe secuencias de audio en texto en tiempo real que las aplicaciones, herramientas o dispositivos pueden usar o mostrar. Use voz a texto con [Language Understanding (LUIS)](../luis/index.yml) para derivar las intenciones del usuario a partir de voz transcrita y actuar en los comandos de voz. Utilice [Speech Translation](speech-translation.md) para traducir la entrada de voz a un idioma diferente con una sola llamada. Para más información, consulte [Aspectos básicos del reconocimiento de voz](./get-started-speech-to-text.md).
 
 Las plataformas siguientes proporcionan **funcionalidad de reconocimiento de voz (SR), lista de frases, intención, traducción y contenedores locales**:
 
@@ -68,7 +68,7 @@ Los **asistentes de voz** están disponibles en las siguientes plataformas:
 
 #### <a name="keyword-spotting"></a>Detección de palabras clave
 
-El concepto de [detección de palabras clave](speech-devices-sdk-create-kws.md) es compatible con el SDK de voz. La detección de palabras clave es el acto de identificar una palabra clave en el habla, seguido de una acción al escuchar la palabra clave. Por ejemplo, "Hola Cortana" activa el asistente Cortana.
+El concepto de [detección de palabras clave](./custom-keyword-basics.md) es compatible con el SDK de voz. La detección de palabras clave es el acto de identificar una palabra clave en el habla, seguido de una acción al escuchar la palabra clave. Por ejemplo, "Hola Cortana" activa el asistente Cortana.
 
 La **detección de palabras clave (KWS)** está disponible en las siguientes plataformas:
 
@@ -180,4 +180,4 @@ La conversión de texto en voz personalizada, también conocida como Voz persona
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Creación de una cuenta de Azure gratuita](https://azure.microsoft.com/free/cognitive-services/)
-* [Vea cómo funciona el reconocimiento de voz en C#](quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnet)
+* [Vea cómo funciona el reconocimiento de voz en C#](./get-started-speech-to-text.md?pivots=programming-language-csharp&tabs=dotnet)

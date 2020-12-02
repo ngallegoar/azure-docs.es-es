@@ -8,11 +8,11 @@ ms.date: 08/27/2020
 ms.custom: cog-serv-seo-aug-2020
 keywords: personalizer, Azure personalizer, machine learning
 ms.openlocfilehash: f843e7bfa014ad8391e20efff83a3c21a9de11b9
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94363908"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96171966"
 ---
 # <a name="what-is-personalizer"></a>¿Qué es Personalizer?
 
@@ -29,14 +29,14 @@ Antes de empezar, no dude en probar [Personalizer con esta demostración interac
 
 ## <a name="how-does-personalizer-select-the-best-content-item"></a>¿Cómo selecciona Personalizer el mejor elemento de contenido?
 
-Personalizer usa el **aprendizaje de refuerzo** para seleccionar el mejor elemento ( _acción_ ) en función del comportamiento colectivo y las puntuaciones de recompensa de todos los usuarios. Las acciones son los elementos de contenido, como artículos de noticias, películas específicas o productos.
+Personalizer usa el **aprendizaje de refuerzo** para seleccionar el mejor elemento (_acción_) en función del comportamiento colectivo y las puntuaciones de recompensa de todos los usuarios. Las acciones son los elementos de contenido, como artículos de noticias, películas específicas o productos.
 
 La llamada **Rank** toma el elemento de acción, junto con las características de la acción, y las características de contexto para seleccionar el elemento de acción superior:
 
-* **Acciones con características** : elementos de contenido con características específicas de cada elemento
-* **Características de contexto** : características de los usuarios, su contexto o su entorno cuando se usa la aplicación
+* **Acciones con características**: elementos de contenido con características específicas de cada elemento
+* **Características de contexto**: características de los usuarios, su contexto o su entorno cuando se usa la aplicación
 
-La llamada Rank devuelve el identificador del elemento de contenido, __acción__ , que se mostrará al usuario, en el campo **Reward Action ID** (Id. de acción de recompensa).
+La llamada Rank devuelve el identificador del elemento de contenido, __acción__, que se mostrará al usuario, en el campo **Reward Action ID** (Id. de acción de recompensa).
 
 La __acción__ que se muestra al usuario se elige con los modelos de Machine Learning, que intentan maximizar la cantidad total de recompensas con el paso del tiempo.
 
@@ -57,7 +57,7 @@ Personalizer ha usado el aprendizaje de refuerzo para seleccionar la mejor acci�
 
 ## <a name="when-to-use-personalizer"></a>¿Cuándo se utiliza Personalizer?
 
-A la [API](https://go.microsoft.com/fwlink/?linkid=2092082) **Rank** de Personalizer se le llama cada vez que una aplicación presenta contenido. Esto se conoce como un **evento** , anotado con un _identificador de evento_.
+A la [API](https://go.microsoft.com/fwlink/?linkid=2092082) **Rank** de Personalizer se le llama cada vez que una aplicación presenta contenido. Esto se conoce como un **evento**, anotado con un _identificador de evento_.
 
 Se puede llamar a **API** [Reward](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Reward) de Personalizer en tiempo real o con retardo para que se adapte mejor a su infraestructura. La puntuación de recompensa se determinará según sus necesidades empresariales. La puntuación de recompensa oscila entre 0 y 1. Esta puntuación debe ser un solo valor, por ejemplo, 1 para bueno y 0 para malo, o un número generado por un algoritmo que cree teniendo en cuenta las métricas y los objetivos empresariales.
 
@@ -87,8 +87,8 @@ Dado que Personalizer usa información colectiva casi en tiempo real para devolv
 
 1. Agregue Personalizer a su aplicación, sitio web o sistema:
     1. Agregue una llamada **Rank** a Personalizer en su aplicación, sitio web o sistema para determinar el mejor elemento de _contenido_ antes de que se muestre el contenido al usuario.
-    1. Muestre al usuario el mejor elemento de _contenido_ , que es el _identificador de acción de recompensa_ devuelto.
-    1. Aplique la _lógica de negocios_ a la información recopilada sobre cómo se comportará el usuario, para determinar la puntuación de **recompensa** , por ejemplo:
+    1. Muestre al usuario el mejor elemento de _contenido_, que es el _identificador de acción de recompensa_ devuelto.
+    1. Aplique la _lógica de negocios_ a la información recopilada sobre cómo se comportará el usuario, para determinar la puntuación de **recompensa**, por ejemplo:
 
     |Comportamiento|Puntuación de recompensa calculada|
     |--|--|

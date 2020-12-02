@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 6/9/2020
 ms.author: baanders
-ms.openlocfilehash: fe3c737e0cbf6831e3abc37443e27926ed5e62b8
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 183d12b5e9d32c777c8acf01177c8cbbe1b6ca00
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93091783"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96027643"
 ---
 ### <a name="functional-limits"></a>Límites funcionales
 
@@ -29,7 +29,7 @@ En la tabla siguiente se enumeran los límites funcionales de Azure Digital Twin
 | Modelos | Número de modelos de una instancia de Azure Digital Twins | 10 000 | Sí |
 | Modelos | Número de modelos que se pueden cargar en una única llamada a la API | 250 | No |
 | Modelos | Número de elementos devueltos en una única página | 100 | No |
-| Consultar | Número de elementos devueltos en una única página | 100 | No |
+| Consultar | Número de elementos devueltos en una única página | 100 | Sí |
 | Consultar | Número de expresiones `AND` / `OR` de una consulta | 50 | Sí |
 | Consultar | Número de elementos de matriz de una cláusula `IN` / `NOT IN` | 50 | Sí |
 | Consultar | Número de caracteres de una consulta | 8,000 | Sí |
