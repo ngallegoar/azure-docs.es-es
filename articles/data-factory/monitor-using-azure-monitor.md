@@ -3,20 +3,20 @@ title: Supervisión de factorías de datos mediante Azure Monitor | Microsoft Do
 description: Aprenda a utilizar Azure Monitor para supervisar las canalizaciones de Azure Data Factory mediante la habilitación de registros de diagnóstico con la información de Data Factory.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/13/2020
-ms.openlocfilehash: af274c9c50b514befb4a3ce5930877edf964d976
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 35d2073dca21b4a0d48a43bed9933bb7549cf8f3
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92638098"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96497901"
 ---
 # <a name="monitor-and-alert-data-factory-by-using-azure-monitor"></a>Alerta y supervisión de Data Factory mediante Azure Monitor
 
@@ -35,8 +35,8 @@ Para más información, consulte [Introducción a Azure Monitor](../azure-monito
 Data Factory solo almacena los datos de ejecución de canalización durante 45 días. Use Azure Monitor si desea conservar los datos durante más tiempo. Con Monitor, puede enrutar los registros de diagnóstico a varios destinos diferentes.
 
 * **Storage Account** (Cuenta de almacenamiento): Guarde los registro de diagnóstico en una cuenta de almacenamiento para auditarlos o para inspeccionarlos manualmente. Puede usar la configuración de diagnóstico para especificar el tiempo de retención en días.
-* **Centro de eventos** : Transmita los registros a Azure Event Hubs. Los registros se convierten en la entrada de un servicio del asociado o una solución de análisis personalizada como Power BI.
-* **Log Analytics** : Analice los registros con Log Analytics. La integración de Data Factory con Azure Monitor es útil en los escenarios siguientes:
+* **Centro de eventos**: Transmita los registros a Azure Event Hubs. Los registros se convierten en la entrada de un servicio del asociado o una solución de análisis personalizada como Power BI.
+* **Log Analytics**: Analice los registros con Log Analytics. La integración de Data Factory con Azure Monitor es útil en los escenarios siguientes:
   * Quiere escribir consultas complejas en un amplio conjunto de métricas que se publican mediante Data Factory en Monitor. Puede crear alertas personalizadas sobre estas consultas mediante Monitor.
   * Quiere realizar la supervisión entre fábricas de datos. Puede enrutar datos desde varias factorías de datos a una única área de trabajo de Monitor.
 
@@ -46,23 +46,23 @@ Puede usar también una cuenta de almacenamiento o un espacio de nombres de cent
 
 Cree o agregue la configuración de diagnóstico de su factoría de datos.
 
-1. En el portal, vaya a Monitor. Seleccione **Configuración** > **Configuración de diagnóstico** .
+1. En el portal, vaya a Monitor. Seleccione **Configuración** > **Configuración de diagnóstico**.
 
 1. Seleccione la factoría de datos para la que quiere establecer una configuración de diagnóstico.
 
-1. Si no existe ninguna configuración en la factoría de datos seleccionada, se le pedirá que cree una. Seleccione **Activar diagnósticos** .
+1. Si no existe ninguna configuración en la factoría de datos seleccionada, se le pedirá que cree una. Seleccione **Activar diagnósticos**.
 
    ![Creación de una configuración de diagnóstico si no existe ninguna configuración](media/data-factory-monitor-oms/monitor-oms-image1.png)
 
-   Si hay una configuración existente en la factoría de datos, verá una lista de configuraciones ya establecidas en la factoría de datos. Seleccione **Agregar configuración de diagnóstico** .
+   Si hay una configuración existente en la factoría de datos, verá una lista de configuraciones ya establecidas en la factoría de datos. Seleccione **Agregar configuración de diagnóstico**.
 
    ![Adición de una configuración de diagnóstico si existe ninguna configuración](media/data-factory-monitor-oms/add-diagnostic-setting.png)
 
-1. Asigne un nombre de la configuración, seleccione **Enviar a Log Analytics** y, después, seleccione un área de trabajo en **Área de trabajo de Log Analytics** .
+1. Asigne un nombre de la configuración, seleccione **Enviar a Log Analytics** y, después, seleccione un área de trabajo en **Área de trabajo de Log Analytics**.
 
-    * En el modo _Azure-Diagnostics_ , los registros de diagnóstico fluyen a la tabla _AzureDiagnostics_ .
+    * En el modo _Azure-Diagnostics_, los registros de diagnóstico fluyen a la tabla _AzureDiagnostics_.
 
-    * En el modo _Resource-Specific_ , los registros de diagnóstico de Azure Data Factory fluyen a las tablas siguientes:
+    * En el modo _Resource-Specific_, los registros de diagnóstico de Azure Data Factory fluyen a las tablas siguientes:
       - _ADFActivityRun_
       - _ADFPipelineRun_
       - _ADFTriggerRun_
@@ -75,14 +75,14 @@ Cree o agregue la configuración de diagnóstico de su factoría de datos.
 
       Puede seleccionar varios registros pertinentes para las cargas de trabajo que se van a enviar a las tablas de Log Analytics. Por ejemplo, si no usa SQL Server Integration Services (SSIS), no es necesario seleccionar ningún registro de SSIS. Si desea registrar las operaciones de inicio, detención y mantenimiento de SSIS Integration Runtime (IR), puede seleccionar registros de SSIS IR. Si invoca ejecuciones de paquetes SSIS a través de T-SQL en SQL Server Management Studio (SSMS), el Agente SQL Server u otras herramientas designadas, puede seleccionar los registros de paquetes SSIS. Si invoca ejecuciones de paquetes SSIS mediante actividades Ejecutar paquete SSIS en las canalizaciones de ADF, puede seleccionar todos los registros.
 
-    * Si selecciona _AllMetrics_ , varias métricas de ADF estarán disponibles para que pueda supervisarlas o generar alertas sobre ellas, incluidas las métricas de ejecuciones de actividades, canalizaciones y desencadenadores de ADF, así como las operaciones de SSIS IR y las ejecuciones de paquetes SSIS.
+    * Si selecciona _AllMetrics_, varias métricas de ADF estarán disponibles para que pueda supervisarlas o generar alertas sobre ellas, incluidas las métricas de ejecuciones de actividades, canalizaciones y desencadenadores de ADF, así como las operaciones de SSIS IR y las ejecuciones de paquetes SSIS.
 
    ![Asignación de un nombre a la configuración y selección de un área de trabajo de Log Analytics](media/data-factory-monitor-oms/monitor-oms-image2.png)
 
     > [!NOTE]
-    > Como una tabla de registro de Azure no puede tener más de 500 columnas, se **recomienda encarecidamente** seleccionar el _modo específico de recursos_ . Para más información, consulte las [limitaciones conocidas de Log Analytics](../azure-monitor/platform/resource-logs.md#column-limit-in-azurediagnostics).
+    > Como una tabla de registro de Azure no puede tener más de 500 columnas, se **recomienda encarecidamente** seleccionar el _modo específico de recursos_. Para más información, consulte las [limitaciones conocidas de Log Analytics](../azure-monitor/platform/resource-logs.md#column-limit-in-azurediagnostics).
 
-1. Seleccione **Guardar** .
+1. Seleccione **Guardar**.
 
 Transcurridos unos instantes, el nuevo valor de configuración aparece en la lista de configuraciones para esta factoría de datos. Los registros de diagnóstico se transmiten en esa área de trabajo en cuanto se generan nuevos datos de evento. Pueden pasar hasta 15 minutos entre el momento en que se emite un evento y cuando aparece en Log Analytics.
 
@@ -94,7 +94,7 @@ Esta solución proporciona un resumen del estado general de Data Factory, con op
 * Capacidad de profundizar en las ejecuciones de actividad de factoría de datos por tipo
 * Resumen de los principales errores de actividad y canalización de factoría de datos
 
-1. Vaya a **Azure Marketplace** , elija el filtro **Analytics** y busque **Azure Data Factory Analytics (versión preliminar)** .
+1. Vaya a **Azure Marketplace**, elija el filtro **Analytics** y busque **Azure Data Factory Analytics (versión preliminar)** .
 
    ![Vaya a "Azure Marketplace", escriba "Filtro de Analytics" y seleccione "Azure Data Factory Analytics (versión preliminar)".](media/data-factory-monitor-oms/monitor-oms-image3.png)
 
@@ -102,7 +102,7 @@ Esta solución proporciona un resumen del estado general de Data Factory, con op
 
    ![Detalles sobre "Azure Data Factory Analytics (versión preliminar)"](media/data-factory-monitor-oms/monitor-oms-image4.png)
 
-1. Seleccione **Crear** y, después, cree o seleccione el **Área de trabajo Log Analytics** .
+1. Seleccione **Crear** y, después, cree o seleccione el **Área de trabajo Log Analytics**.
 
    ![Creación de una solución](media/data-factory-monitor-oms/monitor-log-analytics-image-5.png)
 
@@ -127,7 +127,7 @@ Puede visualizar las métricas anteriores, examinar las consultas detrás de est
 ![Representación gráfica de las ejecuciones de canalización por factoría de datos"](media/data-factory-monitor-oms/monitor-oms-image8.png)
 
 > [!NOTE]
-> Azure Data Factory Analytics (versión preliminar) envía los registros de diagnóstico a tablas de destino _específicas del recurso_ . Puede escribir consultas en las tablas siguientes: _ADFPipelineRun_ , _ADFTriggerRun_ y _ADFActivityRun_ .
+> Azure Data Factory Analytics (versión preliminar) envía los registros de diagnóstico a tablas de destino _específicas del recurso_. Puede escribir consultas en las tablas siguientes: _ADFPipelineRun_, _ADFTriggerRun_ y _ADFActivityRun_.
 
 ## <a name="data-factory-metrics"></a>Métricas de Data Factory
 
@@ -175,7 +175,7 @@ Inicie sesión en Azure Portal y haga clic en **Monitor** > **Alertas** para cr
 1. Defina la condición de la alerta.
 
     > [!NOTE]
-    > Asegúrese de seleccionar **Todo** en **Filtrar por tipo de recurso** .
+    > Asegúrese de seleccionar **Todo** en **Filtrar por tipo de recurso**.
 
     !["Definir condición de la alerta" > "Seleccionar destino", que abre el panel "Seleccionar un recurso" ](media/monitor-using-azure-monitor/alerts_image5.png)
 
@@ -862,7 +862,7 @@ Para enviar todas las métricas y los registros generados por las operaciones de
 
 Las [métricas](../azure-monitor/platform/data-platform-metrics.md) operativas de SSIS son contadores de rendimiento o valores numéricos que describen el estado de las operaciones de inicio y detención de SSIS IR, así como de las ejecuciones de paquetes SSIS en un momento determinado. Forman parte de las [métricas de ADF en Azure Monitor](#data-factory-metrics).
 
-Al configurar las opciones de diagnóstico y el área de trabajo de la instancia de ADF en Azure Monitor, al activar la casilla _AllMetrics_ , las métricas operativas de SSIS estarán disponibles para los [análisis interactivos con el Explorador de métricas de Azure](../azure-monitor/platform/metrics-getting-started.md), la [presentación en el panel de Azure](../azure-monitor/learn/tutorial-app-dashboards.md) y las [alertas casi en tiempo real](../azure-monitor/platform/alerts-metric.md).
+Al configurar las opciones de diagnóstico y el área de trabajo de la instancia de ADF en Azure Monitor, al activar la casilla _AllMetrics_, las métricas operativas de SSIS estarán disponibles para los [análisis interactivos con el Explorador de métricas de Azure](../azure-monitor/platform/metrics-getting-started.md), la [presentación en el panel de Azure](../azure-monitor/learn/tutorial-app-dashboards.md) y las [alertas casi en tiempo real](../azure-monitor/platform/alerts-metric.md).
 
 ![Asignación de un nombre a la configuración y selección de un área de trabajo de Log Analytics](media/data-factory-monitor-oms/monitor-oms-image2.png)
 
@@ -903,7 +903,7 @@ Al consultar los registros de operaciones de SSIS IR en Log Analytics, puede usa
 
 ![Consulta de los registros de operaciones de SSIS IR en Log Analytics](media/data-factory-monitor-oms/log-analytics-query.png)
 
-Al consultar los registros de ejecución de paquetes SSIS en Logs Analytics, puede combinarlos mediante las propiedades **OperationId**/**ExecutionId**/**CorrelationId** . **OperationId**/**ExecutionId** siempre se establecen en `1` para todas las operaciones o ejecuciones relacionadas con los paquetes que **no** están almacenados en SSISDB o se invocan mediante T-SQL.
+Al consultar los registros de ejecución de paquetes SSIS en Logs Analytics, puede combinarlos mediante las propiedades **OperationId**/**ExecutionId**/**CorrelationId**. **OperationId**/**ExecutionId** siempre se establecen en `1` para todas las operaciones o ejecuciones relacionadas con los paquetes que **no** están almacenados en SSISDB o se invocan mediante T-SQL.
 
 ![Consulta de los registros de ejecución de paquetes SSIS en Log Analytics](media/data-factory-monitor-oms/log-analytics-query2.png)
 

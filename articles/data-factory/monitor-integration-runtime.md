@@ -7,15 +7,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 08/11/2020
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: anandsub
-ms.openlocfilehash: 3c7765d65b63c9cee83a76a13448506f61aa8472
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 4eb9b0077d1d0591953a40d98a220d7aa0683de7
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637163"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96497952"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Supervisión de Integration Runtime en Azure Data Factory
 
@@ -39,7 +39,7 @@ El cmdlet devuelve información diferente para distintos tipos de instancia de I
 
 ## <a name="azure-integration-runtime"></a>Tiempo de ejecución de integración de Azure
 
-El recurso de proceso para una instancia de Azure Integration Runtime se puede administrar completamente de manera elástica en Azure. En la tabla siguiente se proporcionan las descripciones de las propiedades que devuelve el comando **Get-AzDataFactoryV2IntegrationRuntime** :
+El recurso de proceso para una instancia de Azure Integration Runtime se puede administrar completamente de manera elástica en Azure. En la tabla siguiente se proporcionan las descripciones de las propiedades que devuelve el comando **Get-AzDataFactoryV2IntegrationRuntime**:
 
 ### <a name="properties"></a>Propiedades
 
@@ -72,7 +72,7 @@ En la sección siguiente se proporcionan las descripciones de las propiedades qu
 
 ### <a name="properties"></a>Propiedades
 
-En la tabla siguiente se proporcionan las descripciones de las propiedades de supervisión para **cada nodo** :
+En la tabla siguiente se proporcionan las descripciones de las propiedades de supervisión para **cada nodo**:
 
 | Propiedad | Descripción | 
 | -------- | ----------- | 
@@ -82,7 +82,7 @@ En la tabla siguiente se proporcionan las descripciones de las propiedades de su
 | Memoria disponible | Memoria disponible en un nodo de una instancia de Integration Runtime autohospedada. Este valor es una instantánea casi en tiempo real. | 
 | Uso de CPU | Uso de CPU de un nodo de una instancia de Integration Runtime autohospedada. Este valor es una instantánea casi en tiempo real. |
 | Redes (Entrada/Salida) | Uso de las redes de un nodo de una instancia de Integration Runtime autohospedada. Este valor es una instantánea casi en tiempo real. | 
-| Trabajos simultáneos (En ejecución / Límite) | **En ejecución** . Número de trabajos o tareas que se ejecutan en cada nodo. Este valor es una instantánea casi en tiempo real. <br/><br/>**Límite** . Límite significa el máximo número de trabajos simultáneos para cada nodo. Este valor se define basándose en el tamaño de la máquina. Puede aumentar el límite para escalar verticalmente la ejecución de trabajos simultáneos en escenarios avanzados, cuando se supera el tiempo de espera de las actividades, aunque la CPU, la memoria o la red estén infrautilizadas. Esta funcionalidad también está disponible con una instancia de Integration Runtime autohospedada de nodo único. |
+| Trabajos simultáneos (En ejecución / Límite) | **En ejecución**. Número de trabajos o tareas que se ejecutan en cada nodo. Este valor es una instantánea casi en tiempo real. <br/><br/>**Límite**. Límite significa el máximo número de trabajos simultáneos para cada nodo. Este valor se define basándose en el tamaño de la máquina. Puede aumentar el límite para escalar verticalmente la ejecución de trabajos simultáneos en escenarios avanzados, cuando se supera el tiempo de espera de las actividades, aunque la CPU, la memoria o la red estén infrautilizadas. Esta funcionalidad también está disponible con una instancia de Integration Runtime autohospedada de nodo único. |
 | Role | En una instancia multinodo de Integration Runtime autohospedada hay dos tipos de roles: distribuidor y trabajo. Todos los nodos son trabajos, lo que significa que pueden usarse para ejecutar los trabajos. Hay solo un nodo distribuidor, que se usa para extraer los trabajos y las tareas de Cloud Services y enviarlos a los diferentes nodos de trabajo. El nodo distribuidor también es un nodo de trabajo. |
 
 Algunos valores de las propiedades tienen más sentido cuando hay dos o más nodos en el entorno de ejecución de integración autohospedado (es decir, en un escenario de escalado horizontal).
@@ -234,7 +234,7 @@ A continuación, seleccione el nombre de la instancia de Azure-SSIS IR para abri
 
 #### <a name="status-tile"></a>Icono STATUS (Estado)
 
-En el icono **ESTADO** de la página de supervisión de Azure-SSIS IR, puede ver su estado general; por ejemplo, **En ejecución** o **Detenido** . Al seleccionar el estado **En ejecución** , se abre una ventana con un botón dinámico **Detener** para detener la instancia de Azure-SSIS IR. Al seleccionar el estado **Detenido** , se abre una ventana con un botón dinámico **Iniciar** para iniciar la instancia de Azure-SSIS IR. La ventana emergente también tiene un botón **Ejecutar paquete de SSIS** para generar automáticamente una canalización de ADF con la actividad Ejecutar paquete de SSIS que se ejecuta en Azure-SSIS IR (consulte [Ejecución de un paquete de SSIS mediante la actividad Ejecutar paquete SSIS de Azure Data Factory](./how-to-invoke-ssis-package-ssis-activity.md)) y un cuadro de texto **Id. de recurso** , desde el que puede copiar el identificador de recurso de Azure-SSIS IR (`/subscriptions/YourAzureSubscripton/resourcegroups/YourResourceGroup/providers/Microsoft.DataFactory/factories/YourADF/integrationruntimes/YourAzureSSISIR`). El sufijo del identificador de recurso de Azure-SSIS IR que contiene los nombres de ADF y Azure-SSIS IR forma un identificador de clúster que se puede usar para adquirir componentes de SSIS Premium o con licencia adicionales de fabricantes de software independientes (ISV) y enlazarlos a su instancia de Azure-SSIS IR (consulte [Instalación de componentes personalizados de pago o con licencia para la instancia de Integration Runtime para la integración de SSIS en Azure](./how-to-develop-azure-ssis-ir-licensed-components.md)).
+En el icono **ESTADO** de la página de supervisión de Azure-SSIS IR, puede ver su estado general; por ejemplo, **En ejecución** o **Detenido**. Al seleccionar el estado **En ejecución**, se abre una ventana con un botón dinámico **Detener** para detener la instancia de Azure-SSIS IR. Al seleccionar el estado **Detenido**, se abre una ventana con un botón dinámico **Iniciar** para iniciar la instancia de Azure-SSIS IR. La ventana emergente también tiene un botón **Ejecutar paquete de SSIS** para generar automáticamente una canalización de ADF con la actividad Ejecutar paquete de SSIS que se ejecuta en Azure-SSIS IR (consulte [Ejecución de un paquete de SSIS mediante la actividad Ejecutar paquete SSIS de Azure Data Factory](./how-to-invoke-ssis-package-ssis-activity.md)) y un cuadro de texto **Id. de recurso**, desde el que puede copiar el identificador de recurso de Azure-SSIS IR (`/subscriptions/YourAzureSubscripton/resourcegroups/YourResourceGroup/providers/Microsoft.DataFactory/factories/YourADF/integrationruntimes/YourAzureSSISIR`). El sufijo del identificador de recurso de Azure-SSIS IR que contiene los nombres de ADF y Azure-SSIS IR forma un identificador de clúster que se puede usar para adquirir componentes de SSIS Premium o con licencia adicionales de fabricantes de software independientes (ISV) y enlazarlos a su instancia de Azure-SSIS IR (consulte [Instalación de componentes personalizados de pago o con licencia para la instancia de Integration Runtime para la integración de SSIS en Azure](./how-to-develop-azure-ssis-ir-licensed-components.md)).
 
 ![Supervisión de la instancia de Azure-SSIS IR: icono ESTADO](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-status.png)
 

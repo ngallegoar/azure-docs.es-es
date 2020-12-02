@@ -80,6 +80,8 @@
       href: observability.md
     - name: CI/CD mediante plantillas de Resource Manager
       href: devops-api-development-templates.md
+    - name: Eliminación temporal
+      href: soft-delete.md
 - name: Guías paso a paso
   items:
     - name: Definición de API

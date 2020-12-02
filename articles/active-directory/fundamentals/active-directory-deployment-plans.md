@@ -2,59 +2,27 @@
 title: Planes de implementación de Azure Active Directory | Microsoft Docs
 description: Guía de un extremo a otro sobre cómo implementar muchas funcionalidades de Azure Active Directory.
 services: active-directory
-author: ajburnle
+author: BarbaraSelden
 manager: daveba
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/20/2019
-ms.author: ajburnle
+ms.date: 12/01/2020
+ms.author: baselden
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c2a7c2813919321227bfcdc4ee43ca15186b89df
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 069cf348bb6d0432d02a8350bc0847c2b155f90a
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94836825"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498088"
 ---
 # <a name="azure-active-directory-deployment-plans"></a>Planes de implementación de Azure Active Directory
 ¿Busca una guía de un extremo a otro sobre cómo implementar las funcionalidades de Azure Active Directory (Azure AD)? Los planes de implementación de Azure AD le guían por el valor de negocio, las consideraciones de planeamiento y los procedimientos operativos necesarios para implementar correctamente las funcionalidades comunes de Azure AD.
 
 Desde cualquiera de las páginas del plan, use la funcionalidad Imprimir en PDF del explorador para crear una versión sin conexión actualizada de la documentación.
-## <a name="include-the-right-stakeholders"></a>Inclusión de la parte interesada correcta
-
-Cuando comience a planear la implementación de una nueva funcionalidad, es importante incluir a las partes interesadas que son clave en la organización. Es recomendable identificar y documentar a la persona o personas que cumplen cada uno de los siguientes roles y trabajar con ellas para determinar su participación en el proyecto.  
-
-Entre los roles, se incluyen los siguientes: 
-
-|Role |Descripción |
-|-|-|
-|Usuario final|Un grupo representativo de usuarios para el que se implementará la funcionalidad. A menudo previsualiza los cambios en un programa piloto.
-|Administrador de soporte técnico de TI|Un representante de la organización de soporte técnico de TI que puede proporcionar información sobre la compatibilidad de este cambio desde una perspectiva del departamento de soporte técnico.  
-|Arquitecto de identidades o administrador global de Azure|Un representante del equipo de administración de identidades responsable de definir cómo este cambio se alinea con la infraestructura de administración de identidades principal de su organización.|
-|Propietario empresarial de la aplicación |El propietario empresarial global de las aplicaciones afectadas, que pueden incluir la administración del acceso.  También puede proporcionar información sobre la experiencia del usuario y la utilidad de este cambio desde la perspectiva del usuario final.
-|Propietario de seguridad|Un representante del equipo de seguridad que puede aprobar que el plan cumplirá los requisitos de seguridad de la organización.|
-|Administrador de cumplimiento|La persona de la organización responsable de garantizar el cumplimiento con requisitos corporativos, del sector o gubernamentales.|
-
-**Los niveles de implicación podrían incluir:**
-
-- **R** esponsible para implementar el plan del proyecto y el resultado 
-
-- **A** probación del plan del proyecto y el resultado 
-
-- **C** olaborador con el plan del proyecto y el resultado 
-
-- **I** nformado del plan del proyecto y el resultado
-
-
-## <a name="best-practices-for-a-pilot"></a>Procedimientos recomendados para un piloto
-Un piloto le permite probar con un grupo pequeño antes de activar una funcionalidad para todos. Asegúrese de que, como parte de sus pruebas, cada caso de uso de su organización se prueba de forma exhaustiva. Es mejor dirigirse a un grupo específico de usuarios piloto antes de implementar esto en su organización como un todo.
-
-En su primera oleada, TI de destino, facilidad de uso y otros usuarios adecuados que pueden probar y proporcionar comentarios. Estos comentarios deben usarse para desarrollar aún más las comunicaciones e instrucciones que envía a sus usuarios y proporcionarles información sobre los tipos de problemas que puede ver su personal de soporte técnico. 
-
-La ampliación de la implementación en grupos de usuarios más grandes debe llevarse a cabo aumentando el ámbito de los grupos objetivo. Esto puede hacerse a través de la [pertenencia dinámica a grupos](../enterprise-users/groups-dynamic-membership.md) o agregando usuarios manualmente a los grupos objetivo.
 
 
 ## <a name="deploy-authentication"></a>Implementación de la autenticación
@@ -98,3 +66,36 @@ La ampliación de la implementación en grupos de usuarios más grandes debe lle
 | [Privileged Identity Management](../privileged-identity-management/pim-deployment-plan.md)| Azure AD Privileged Identity Management (PIM) le permite administrar roles con privilegios administrativos en Azure AD, los recursos de Azure y otros servicios de Microsoft Online Services. Asimismo, PIM ofrece soluciones como acceso de tipo Just-In-Time, flujos de trabajo de aprobación de solicitudes y revisiones de acceso completamente integradas para que pueda identificar, detectar y evitar en tiempo real las actividades malintencionadas de roles con privilegios. |
 | [Creación de informes y supervisión](../reports-monitoring/plan-monitoring-and-reporting.md)| El diseño de la solución de creación de informes y supervisión de Azure AD depende de sus requisitos legales, de seguridad y operativos, así como del entorno y los procesos existentes. En este artículo se presentan las distintas opciones de diseño y se le guía para que elija la estrategia de implementación adecuada. |
 | [Revisiones de acceso](../governance/deploy-access-reviews.md) | Las revisiones de acceso son una parte importante de su estrategia de gobernanza, pues le permiten saber y administrar quién tiene acceso y a qué tienen acceso. En este artículo se le ayuda a planear e implementar revisiones de acceso para lograr sus posiciones de colaboración y seguridad deseadas. |
+
+## <a name="include-the-right-stakeholders"></a>Inclusión de la parte interesada correcta
+
+Cuando comience a planear la implementación de una nueva funcionalidad, es importante incluir a las partes interesadas que son clave en la organización. Es recomendable identificar y documentar a la persona o personas que cumplen cada uno de los siguientes roles y trabajar con ellas para determinar su participación en el proyecto.  
+
+Entre los roles, se incluyen los siguientes: 
+
+|Role |Descripción |
+|-|-|
+|Usuario final|Un grupo representativo de usuarios para el que se implementará la funcionalidad. A menudo previsualiza los cambios en un programa piloto.
+|Administrador de soporte técnico de TI|Un representante de la organización de soporte técnico de TI que puede proporcionar información sobre la compatibilidad de este cambio desde una perspectiva del departamento de soporte técnico.  
+|Arquitecto de identidades o administrador global de Azure|Un representante del equipo de administración de identidades responsable de definir cómo este cambio se alinea con la infraestructura de administración de identidades principal de su organización.|
+|Propietario empresarial de la aplicación |El propietario empresarial global de las aplicaciones afectadas, que pueden incluir la administración del acceso.  También puede proporcionar información sobre la experiencia del usuario y la utilidad de este cambio desde la perspectiva del usuario final.
+|Propietario de seguridad|Un representante del equipo de seguridad que puede aprobar que el plan cumplirá los requisitos de seguridad de la organización.|
+|Administrador de cumplimiento|La persona de la organización responsable de garantizar el cumplimiento con requisitos corporativos, del sector o gubernamentales.|
+
+**Los niveles de implicación podrían incluir:**
+
+- **R** esponsible para implementar el plan del proyecto y el resultado 
+
+- **A** probación del plan del proyecto y el resultado 
+
+- **C** olaborador con el plan del proyecto y el resultado 
+
+- **I** nformado del plan del proyecto y el resultado
+
+
+## <a name="best-practices-for-a-pilot"></a>Procedimientos recomendados para un piloto
+Un piloto le permite probar con un grupo pequeño antes de activar una funcionalidad para todos. Asegúrese de que, como parte de sus pruebas, cada caso de uso de su organización se prueba de forma exhaustiva. Es mejor dirigirse a un grupo específico de usuarios piloto antes de implementar esto en su organización como un todo.
+
+En su primera oleada, TI de destino, facilidad de uso y otros usuarios adecuados que pueden probar y proporcionar comentarios. Estos comentarios deben usarse para desarrollar aún más las comunicaciones e instrucciones que envía a sus usuarios y proporcionarles información sobre los tipos de problemas que puede ver su personal de soporte técnico. 
+
+La ampliación de la implementación en grupos de usuarios más grandes debe llevarse a cabo aumentando el ámbito de los grupos objetivo. Esto puede hacerse a través de la [pertenencia dinámica a grupos](../enterprise-users/groups-dynamic-membership.md) o agregando usuarios manualmente a los grupos objetivo.

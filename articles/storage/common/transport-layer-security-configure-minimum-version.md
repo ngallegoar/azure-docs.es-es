@@ -10,12 +10,12 @@ ms.date: 11/03/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 5f772bd996b126a4cd7182a2ce088c2d3edc8e7d
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 683f0e070ad77add62ed76eabd70b42ba15f012e
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93312027"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498139"
 ---
 # <a name="enforce-a-minimum-required-version-of-transport-layer-security-tls-for-requests-to-a-storage-account"></a>Aplicación de una versión mínima necesaria de Seguridad de la capa de transporte (TLS) para las solicitudes a una cuenta de almacenamiento
 
@@ -35,7 +35,7 @@ Cuando se aplica una versión mínima de TLS para la cuenta de almacenamiento, s
 
 Para registrar las solicitudes a su cuenta de Azure Storage y determinar qué versión de TLS usa el cliente, puede usar el registro de Azure Storage en Azure Monitor (versión preliminar). Para más información, consulte [Supervisión de Azure Storage](../blobs/monitor-blob-storage.md).
 
-El registro de Azure Storage en Azure Monitor admite el uso de consultas de registro para analizar los datos de registro. Para consultar los registros, puede usar un área de trabajo de Azure Log Analytics. Para más información sobre las consultas de registro, consulte el [Tutorial: Introducción a las consultas de Log Analytics](../../azure-monitor/log-query/get-started-portal.md).
+El registro de Azure Storage en Azure Monitor admite el uso de consultas de registro para analizar los datos de registro. Para consultar los registros, puede usar un área de trabajo de Azure Log Analytics. Para más información sobre las consultas de registro, consulte el [Tutorial: Introducción a las consultas de Log Analytics](../../azure-monitor/log-query/log-analytics-tutorial.md).
 
 Para registrar datos de Azure Storage con Azure Monitor y analizarlos con Azure Log Analytics, primero debe crear una configuración de diagnóstico que indique qué tipos de solicitudes y para qué servicios de almacenamiento quiere registrar los datos. Para crear una configuración de diagnóstico en Azure Portal, siga estos pasos:
 
@@ -46,8 +46,8 @@ Para registrar datos de Azure Storage con Azure Monitor y analizarlos con Azure 
 1. Seleccione el servicio de Azure Storage cuyas solicitudes quiere registrar. Por ejemplo, elija **Blob** para registrar las solicitudes a Blob Storage.
 1. Seleccione **Agregar configuración de diagnóstico**.
 1. Proporcione un nombre para la configuración de diagnóstico.
-1. En **Detalles de la categoría** , en la sección **registro** , elija qué tipos de solicitudes registrar. Puede registrar las solicitudes de lectura, escritura y eliminación. Por ejemplo, al elegir **StorageRead** y **StorageWrite** se registrarán las solicitudes de lectura y escritura del servicio seleccionado.
-1. En **Detalles del destino** , seleccione **Enviar a Log Analytics**. Seleccione la suscripción y el área de trabajo de Log Analytics que creó anteriormente, como se muestra en la siguiente imagen.
+1. En **Detalles de la categoría**, en la sección **registro**, elija qué tipos de solicitudes registrar. Puede registrar las solicitudes de lectura, escritura y eliminación. Por ejemplo, al elegir **StorageRead** y **StorageWrite** se registrarán las solicitudes de lectura y escritura del servicio seleccionado.
+1. En **Detalles del destino**, seleccione **Enviar a Log Analytics**. Seleccione la suscripción y el área de trabajo de Log Analytics que creó anteriormente, como se muestra en la siguiente imagen.
 
     :::image type="content" source="media/transport-layer-security-configure-minimum-version/create-diagnostic-setting-logs.png" alt-text="Captura de pantalla que muestra cómo crear una configuración de diagnóstico para el registro de las solicitudes":::
 
@@ -91,7 +91,7 @@ Si está seguro de que el tráfico de los clientes que usan versiones anteriores
 
 Para configurar la versión mínima de TLS para una cuenta de almacenamiento, establezca la versión **MinimumTlsVersion** de la cuenta. Esta propiedad está disponible para todas las cuentas de almacenamiento que se crean con el modelo de implementación de Azure Resource Manager. Para más información sobre el modelo de implementación de Azure Resource Manager, consulte [Introducción a las cuentas de almacenamiento](storage-account-overview.md).
 
-La propiedad **MinimumTlsVersion** no se establece de manera predeterminada y no devuelve un valor hasta que se establece de manera explícita.  Si el valor de la propiedad es **NULL** , la cuenta de almacenamiento permite las solicitudes enviadas con la versión 1.0 o posterior de TLS.
+La propiedad **MinimumTlsVersion** no se establece de manera predeterminada y no devuelve un valor hasta que se establece de manera explícita.  Si el valor de la propiedad es **NULL**, la cuenta de almacenamiento permite las solicitudes enviadas con la versión 1.0 o posterior de TLS.
 
 # <a name="portal"></a>[Portal](#tab/portal)
 
@@ -101,7 +101,7 @@ Para configurar la versión mínima de TLS de una cuenta de almacenamiento exist
 
 1. Vaya a la cuenta de almacenamiento en Azure Portal.
 1. Seleccione el valor de **Configuración**.
-1. En **Versión mínima de TLS** , use la lista desplegable para seleccionar la versión mínima de TLS necesaria para acceder a los datos de esta cuenta de almacenamiento, tal como se muestra en la siguiente imagen.
+1. En **Versión mínima de TLS**, use la lista desplegable para seleccionar la versión mínima de TLS necesaria para acceder a los datos de esta cuenta de almacenamiento, tal como se muestra en la siguiente imagen.
 
     :::image type="content" source="media/transport-layer-security-configure-minimum-version/configure-minimum-version-portal.png" alt-text="Captura de pantalla que muestra cómo configurar la versión mínima de TLS en Azure Portal":::
 
@@ -172,7 +172,7 @@ az storage account show \
 Para configurar la versión mínima de TLS para una cuenta de almacenamiento con una plantilla, cree una plantilla con la propiedad **MinimumTLSVersion** establecida en `TLS1_0`, `TLS1_1`o `TLS1_2`. En los siguientes pasos se muestra cómo crear una plantilla en Azure Portal.
 
 1. En Azure Portal, elija **Crear un recurso**.
-1. En **Buscar en Marketplace** , escriba **implementación de plantillas** y, después, presione **ENTRAR**.
+1. En **Buscar en Marketplace**, escriba **implementación de plantillas** y, después, presione **ENTRAR**.
 1. Elija la opción de **Template Deployment (implementar mediante plantillas personalizadas) (versión preliminar)** , seleccione **Crear** y, a continuación, elija **Cree su propia plantilla en el editor.** .
 1. En el editor de plantillas, pegue el siguiente código JSON para crear una cuenta nueva y establecer la versión mínima de TLS en TLS 1.2. No olvide reemplazar los valores de los marcadores de posición entre corchetes angulares por sus propios valores.
 
@@ -246,9 +246,9 @@ Para crear una directiva con un efecto de auditoría para la versión mínima de
 1. En Azure Portal, vaya al servicio Azure Policy.
 1. Seleccione **Definiciones** en la sección **Creación**.
 1. Seleccione **Agregar definición de directiva** para crear una nueva definición de directiva.
-1. En el campo donde se indica la **ubicación de la definición** , seleccione el botón **Más** para especificar dónde se encuentra el recurso de directiva de auditoría.
+1. En el campo donde se indica la **ubicación de la definición**, seleccione el botón **Más** para especificar dónde se encuentra el recurso de directiva de auditoría.
 1. Escriba un nombre para la directiva. Si lo desea, puede escribir también una descripción y la categoría.
-1. En **Regla de directivas** , agregue la siguiente definición de directiva a la sección **policyRule**.
+1. En **Regla de directivas**, agregue la siguiente definición de directiva a la sección **policyRule**.
 
     ```json
     {
@@ -283,8 +283,8 @@ Para asignar la directiva con Azure Portal, haga lo siguiente:
 1. En Azure Portal, vaya al servicio Azure Policy.
 1. Seleccione **Asignaciones** en la sección **Creación**.
 1. Seleccione **Asignar directiva** para crear una nueva asignación de directiva.
-1. En el campo **Ámbito** , seleccione el ámbito de la asignación de directiva.
-1. En el campo **Definición de directiva** , seleccione el botón **Más** y, a continuación, seleccione la directiva que definió en la sección anterior de la lista.
+1. En el campo **Ámbito**, seleccione el ámbito de la asignación de directiva.
+1. En el campo **Definición de directiva**, seleccione el botón **Más** y, a continuación, seleccione la directiva que definió en la sección anterior de la lista.
 1. Escriba un nombre para la asignación de directiva. La descripción es opcional.
 1. Deje la opción **Cumplimiento de directivas** como *Habilitada*. Esta configuración no tiene ningún efecto en la directiva de auditoría.
 1. Seleccione **Revisar y crear** para crear la asignación.

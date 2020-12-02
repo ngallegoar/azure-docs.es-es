@@ -3,12 +3,12 @@ title: 'Implementación de Live Video Analytics en un dispositivo IoT Edge: Azur
 description: En este artículo se enumeran los pasos que ayudarán a implementar Live Video Analytics en el dispositivo IoT Edge. Hará esto, por ejemplo, si tiene acceso a una máquina Linux local o ha creado previamente una cuenta de Azure Media Services.
 ms.topic: how-to
 ms.date: 09/09/2020
-ms.openlocfilehash: a64fc11d7afa70d5200fdbd24bd3facdb8a95a7e
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 4fa4a9643976ba513b025706cacec26b2a50afb5
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019586"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498326"
 ---
 # <a name="deploy-live-video-analytics-on-an-iot-edge-device"></a>Implementación de Live Video Analytics en un dispositivo IoT Edge
 
@@ -23,8 +23,8 @@ En este artículo se enumeran los pasos que ayudarán a implementar Live Video A
 * Un dispositivo x86-64 o ARM64 que ejecute uno de los [sistemas operativos Linux admitidos](../../iot-edge/support.md#operating-systems).
 * Suscripción de Azure en la que tenga [privilegios de propietario](../../role-based-access-control/built-in-roles.md#owner).
 * [Creación y configuración de IoT Hub](../../iot-hub/iot-hub-create-through-portal.md).
-* [Registro de un dispositivo de IoT Edge](../../iot-edge/how-to-register-device.md).
-* [Instalación del entorno de ejecución de Azure IoT Edge en sistemas Linux basados en Debian](../../iot-edge/how-to-install-iot-edge-linux.md)
+* [Registro de un dispositivo de IoT Edge](../../iot-edge/how-to-manual-provision-symmetric-key.md).
+* [Instalación del entorno de ejecución de Azure IoT Edge en sistemas Linux basados en Debian](../../iot-edge/how-to-install-iot-edge.md)
 * [Creación de una cuenta de Azure Media Services](../latest/create-account-howto.md)
 
     * Use una de estas regiones: Este de EE. UU. 2, Este de EE. UU., Centro de EE. UU., Centro-norte de EE. UU., Japón Oriental, Oeste de EE. UU., Oeste de EE. UU. '2, Centro-oeste de EE. UU., Este de Canadá, Sur de Reino Unido, Centro de Francia, Sur de Francia, Norte de Suiza, Oeste de Suiza y Japón Occidental.
