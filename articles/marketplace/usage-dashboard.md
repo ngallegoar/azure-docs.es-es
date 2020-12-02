@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/09/2020
 author: sayantanroy83
 ms.author: sroy
-ms.openlocfilehash: 5e2bdec8b3c628f1d470acb3e27bb18eabbc71ac
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 563ccdb0633f94acccf3ade9faf1c40c28f108ac
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94565545"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462940"
 ---
 # <a name="usage-dashboard-in-commercial-marketplace-analytics"></a>Panel de uso de los análisis de marketplace comercial
 
@@ -21,7 +21,7 @@ En este artículo se proporciona información sobre el panel de uso del Centro d
 Para obtener acceso al panel de uso en el centro de partners, vaya a **Marketplace comercial** y seleccione **[Analizar](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)**  > **Uso**.
 
 >[!NOTE]
-> Para obtener definiciones detalladas de la terminología de análisis, consulte [Terminología de análisis y preguntas comunes de Marketplace comercial](./partner-center-portal/faq-terminology.md).
+> Para obtener definiciones detalladas de la terminología de análisis, consulte [Terminología de análisis y preguntas comunes de Marketplace comercial](./analytics-faq.md).
 
 ## <a name="usage-dashboard"></a>Panel de uso
 
@@ -194,4 +194,4 @@ Si tiene varias ofertas que usan medidores personalizados, el informe de uso de 
 - Para información sobre las métricas de uso y facturación de las ofertas de máquina virtual, consulte [Panel Uso de los análisis de marketplace comercial](usage-dashboard.md).
 - Para obtener una lista de las solicitudes de descarga de los últimos 30 días, consulte [Panel Descargas de los análisis de marketplace comercial](./partner-center-portal/downloads-dashboard.md).
 - Para obtener una vista consolidada con los comentarios de los clientes sobre las ofertas de Azure Marketplace y Microsoft AppSource, consulte [Panel de análisis de calificaciones y opiniones en el Centro de partners](./partner-center-portal/ratings-reviews.md).
-- Para ver las preguntas más frecuentes sobre los análisis de marketplace comercial y un diccionario completo de términos de datos, consulte [Preguntas más frecuentes y terminología del análisis de marketplace comercial](./partner-center-portal/faq-terminology.md).
+- Para ver las preguntas más frecuentes sobre los análisis de marketplace comercial y un diccionario completo de términos de datos, consulte [Preguntas más frecuentes y terminología del análisis de marketplace comercial](./analytics-faq.md).

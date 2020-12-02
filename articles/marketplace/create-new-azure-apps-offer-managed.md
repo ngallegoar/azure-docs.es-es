@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 11/06/2020
-ms.openlocfilehash: 66da9124a6b46fa34d0a13c8992cd3141b095422
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 61ee0b769664d1f574177e27b5b1fb10e9845035
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94369878"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96463105"
 ---
 # <a name="configure-a-managed-application-plan"></a>Configuración de un plan de una aplicación administrada
 
@@ -99,7 +99,7 @@ En **Plan visibility** (Visibilidad del plan), haga lo siguiente:
 1. Seleccione el vínculo **Exportar público (CSV)** .
 1. Abra el archivo .csv y, en la columna **Id.** , agregue los identificadores de la suscripción de Azure a los que quiere conceder acceso a la oferta privada.
 1. Opcionalmente, escriba una descripción para cada público en la columna **Descripción**.
-1. Agregue "SubscriptionId" en la columna **Tipo** en cada fila con un identificador de suscripción.
+1. Agregue "SubscriptionId" en la columna **Tipo** para cada fila con un identificador de suscripción.
 1. Guarde el archivo .CSV.
 1. En la pestaña **Disponibilidad**, en **Plan visibility** (Visibilidad del plan), seleccione el vínculo **Import Audience (csv)** (Importar audiencia [csv]).
 1. En el cuadro de diálogo que aparece, seleccione **Sí**.
@@ -135,10 +135,10 @@ Para habilitar el acceso JIT para este plan, seleccione la casilla **Habilitar e
 
 Seleccione el modo de implementación **Completo** o **Incremental**.
 
-- En el modo **Completo**, una reimplementación de la aplicación del cliente provocará la eliminación de recursos en el grupo de recursos administrados si los recursos no se definen en [mainTemplate.json](/azure/azure-resource-manager/managed-applications/publish-service-catalog-app?tabs=azure-powershell#create-the-arm-template.md).
+- En el modo **Completo**, una reimplementación de la aplicación del cliente provocará la eliminación de recursos en el grupo de recursos administrados si los recursos no se definen en [mainTemplate.json](../azure-resource-manager/managed-applications/publish-service-catalog-app.md?tabs=azure-powershell#create-the-arm-template).
 - En el modo **Incremental**, una reimplementación de la aplicación deja los recursos existentes sin cambios.
 
-Para obtener más información sobre los modos de implementación, consulte [Modos de implementación de Azure Resource Manager](/azure/azure-resource-manager/deployment-modes.md).
+Para obtener más información sobre los modos de implementación, consulte [Modos de implementación de Azure Resource Manager](../azure-resource-manager/templates/deployment-modes.md).
 
 ### <a name="provide-a-notification-endpoint-url"></a>Definición de una dirección URL del punto de conexión de notificaciones
 
@@ -175,17 +175,17 @@ Puede configurar un máximo de cinco directivas y solo una instancia de cada opc
 
 ## <a name="view-your-plans"></a>Visualización de los planes
 
-- Seleccione **Guardar borrador** y, luego, en la parte superior izquierda de la pestaña, seleccione **Información general del plan** para volver a la página **Información general del plan**.
+- Seleccione **Guardar borrador** y, luego, en la parte superior izquierda de la página, seleccione **Plan overview** (Información general del plan) para volver a la página **Plan overview** (Información general del plan).
 
-Después de crear uno o varios planes, verá el nombre del plan, el identificador del plan, el tipo de plan, la disponibilidad (pública o privada), el estado de publicación actual y las acciones disponibles en la pestaña **Información general del plan**.
+Después de crear uno o varios planes, verá el nombre, el identificador y el tipo del plan, la disponibilidad (pública o privada), el estado de publicación actual y las acciones disponibles en la pestaña **Plan overview** (Información general del plan).
 
 Las acciones que están disponibles en la columna **Acción** de la pestaña **Información general del plan** varían en función del estado del plan y pueden incluir lo siguiente:
 
 - Si el estado del plan es **Borrador**, el vínculo de la columna **Acción** indicará **Eliminar borrador**.
-- Si el estado del plan está **Activo**, el vínculo de la columna **Acción** será **Stop sell plan** (Dejar de vender el plan) o **Sync private audience** (Sincronizar público privado). El vínculo **Sync private audience** (Sincronizar público privado) publicará solo los cambios para el público privado, sin publicar ninguna otra actualización que haya podido realizar en la oferta.
-- Para crear otro plan para esta oferta, en la parte superior de la pestaña **Información general del plan**, seleccione **+ Crear nuevo plan**. Después, repita los pasos descritos en [Creación de planes para la oferta de aplicación de Azure](create-new-azure-apps-offer-plans.md). En caso contrario, si ha terminado de crear planes, vaya a la sección siguiente: Pasos siguientes.
+- Si el estado del plan es **Activo**, el vínculo de la columna **Acción** será **Stop sell plan** (Dejar de vender el plan) o **Sync private audience** (Sincronizar audiencia privada). El vínculo **Sync private audience** (Sincronizar público privado) publicará solo los cambios para el público privado, sin publicar ninguna otra actualización que haya podido realizar en la oferta.
+- Para crear otro plan para esta oferta, en la parte superior de la pestaña **Información general del plan**, seleccione **+ Crear nuevo plan**. Después, repita los pasos descritos en [Creación de planes para la oferta de Aplicación de Azure](create-new-azure-apps-offer-plans.md). En caso contrario, si ha terminado de crear planes, vaya a la sección siguiente: Pasos siguientes.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Prueba y publicación de la oferta de Aplicación de Azure](create-new-azure-apps-offer-test-publish.md).
-- Aprenda a [comercializar su oferta de aplicación de Azure](create-new-azure-apps-offer-marketing.md) mediante los programas de venta conjunta con Microsoft y reventa a través de los CSP.
+- Aprenda a [comercializar su oferta de Aplicación de Azure](create-new-azure-apps-offer-marketing.md) mediante los programas de venta conjunta con Microsoft y reventa a través de los CSP.

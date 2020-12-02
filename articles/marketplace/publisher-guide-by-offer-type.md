@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
 ms.date: 10/06/2020
-ms.openlocfilehash: 897f16d84a3e1cf0ca747e90ce621a35ff326b2a
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 2191a4df5b319ec16a4a6116aa99cfac50c87d9b
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94488985"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462917"
 ---
 # <a name="publishing-guide-by-offer-type"></a>Guía de publicación por tipo de oferta
 
@@ -33,7 +33,7 @@ En la tabla siguiente se muestran los tipos de oferta de Marketplace comercial e
 | [**Aplicación de Azure**](plan-azure-application-offer.md) | Hay dos tipos de planes de la Aplicación de Azure: _plantilla de solución_ y _aplicación administrada_. Ambos tipos de planes admiten la automatización de la implementación y la configuración de una solución más allá de una sola máquina virtual (VM). Puede automatizar el proceso de suministrar varios recursos, incluidas VM, redes y recursos de almacenamiento, para proporcionar soluciones complejas, como soluciones IaaS. Ambos tipos de planes pueden emplear muchos tipos diferentes de recursos de Azure, incluidas, entre otras, VM.<ul><li>Los planes de **plantilla de solución** son uno de los principales mecanismos para publicar una solución en el marketplace comercial. Los planes de plantilla de solución no se pueden comercializar en el marketplace comercial, pero se pueden usar para implementar ofertas de VM de pago facturadas mediante el marketplace comercial. Use el tipo de plan de plantilla de solución cuando el cliente administre la solución y las transacciones se facturan a través de otro plan.</li><br><li>Los planes de **aplicación administrada** le permiten crear y entregar con facilidad a los clientes aplicaciones llave en mano totalmente administradas. Tienen las mismas funcionalidades que los planes de plantilla de solución, con algunas diferencias clave:</li><ul><li> Los recursos se implementan en un grupo de recursos y están administrados por el editor de la aplicación. El grupo de recursos está presente en la suscripción del consumidor, pero una identidad en el inquilino del editor tiene acceso al grupo de recursos.</li><li>Como editor, especifica el costo del soporte técnico continuo de la solución, y las transacciones se admiten a través del marketplace comercial.</li></ul>Use el tipo de plan de aplicación administrada cuando usted o su cliente requieran que un partner administre la solución, o cuando vayan a implementar una solución basada en suscripciones.</ul> |
 | [**Contenedor de Azure**](marketplace-containers.md) | Use el tipo de oferta Contenedor de Azure cuando la solución sea una imagen de contenedor de Docker aprovisionada como un servicio de contenedor de Azure basado en Kubernetes. |
 | [**Máquina virtual de Azure**](marketplace-virtual-machines.md) | Use el tipo de oferta de máquina virtual cuando implemente un dispositivo virtual para la suscripción asociada con el cliente. |
-| [**Servicio de consultoría**](consulting-services.md) | Los servicios de consultoría ayudan a conectar a los clientes con servicios que les permitan ser compatibles y extender el uso que hacen de Azure, Dynamics 365 o Power Suite.|
+| [**Servicio de consultoría**](./plan-consulting-service-offer.md) | Los servicios de consultoría ayudan a conectar a los clientes con servicios que les permitan ser compatibles y extender el uso que hacen de Azure, Dynamics 365 o Power Suite.|
 | [**Dynamics 365**](appsource-offer-publishing-guide.md) | Puede publicar ofertas de AppSource que se basan en Dynamics 365 Business central, Dynamics 365 Customer Engagement, Power Apps y aplicaciones de Finance and Operations o que los amplían.|
 | [**Módulo IoT Edge**](iot-edge-module.md) | Los módulos de Azure IoT Edge son las unidades de cálculo más pequeñas que administra IoT Edge y pueden contener servicios de Microsoft (por ejemplo, Azure Stream Analytics), servicios de terceros o su propio código específico de la solución. |
 | [**Servicio administrado**](partner-center-portal/create-new-managed-service-offer.md) | Puede crear ofertas de servicios administrados y administrar suscripciones o grupos de recursos delegados al cliente a través de [Azure Lighthouse](../lighthouse/overview.md).|

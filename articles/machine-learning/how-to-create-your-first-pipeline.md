@@ -11,12 +11,12 @@ author: NilsPohlmann
 ms.date: 10/21/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: 452904e18a0910c2dd4781ca978042e0cdd4996d
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 57806ecaf4b0e295457c78faaff6033126ddb2c8
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94630131"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96463011"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Creación y ejecución de canalizaciones de Machine Learning con el SDK de Azure Machine Learning
 
@@ -24,7 +24,7 @@ ms.locfileid: "94630131"
 
 En este artículo, aprenderá a crear y ejecutar una [canalización de aprendizaje automático](concept-ml-pipelines.md) mediante el [SDK de Azure Machine Learning](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py). Use **canalizaciones de ML** para crear un flujo de trabajo que reúna varias fases de ML. A continuación, publique esa canalización para acceder a ella posteriormente o compartirla con otras personas. Realice un seguimiento de las canalizaciones de ML para ver cómo funciona el modelo en el mundo real y detectar el desfase de datos. Las canalizaciones de Machine Learning son ideales para puntuar escenarios por lotes, para usar varios procesos, para reutilizar pasos en lugar de volver a ejecutarlos y para compartir flujos de trabajo de Machine Learning con otros usuarios.
 
-Si bien se puede usar un tipo distinto de canalización, denominado [Azure Pipelines](/azure/devops/pipelines/targets/azure-machine-learning?context=azure%252fmachine-learning%252fservice%252fcontext%252fml-context&preserve-view=true&tabs=yaml&view=azure-devops), para la automatización de CI/CD de tareas de Machine Learning, este tipo de canalización nunca se almacena en el área de trabajo. [Compare ambas canalizaciones](concept-ml-pipelines.md#which-azure-pipeline-technology-should-i-use).
+Si bien se puede usar un tipo distinto de canalización, denominado [Azure Pipelines](/azure/devops/pipelines/targets/azure-machine-learning?context=azure%2fmachine-learning%2fservice%2fcontext%2fml-context&preserve-view=true&tabs=yaml&view=azure-devops), para la automatización de CI/CD de tareas de Machine Learning, este tipo de canalización nunca se almacena en el área de trabajo. [Compare ambas canalizaciones](concept-ml-pipelines.md#which-azure-pipeline-technology-should-i-use).
 
 Las canalizaciones de Machine Learning que cree serán visibles para los miembros de su [área de trabajo](how-to-manage-workspace.md) de Azure Machine Learning. 
 
