@@ -95,8 +95,8 @@ Si no encuentra el id. de la aplicación 9cdead84-A844-4324-93f2-b2e6bb768d07 en
 
 1. Inicie sesión en Azure Portal.
 2. Vaya a **Suscripción** y seleccione la suscripción.
-3. En el menú de la izquierda de la página, seleccione **Proveedor de recursos** .
-4. Busque y seleccione **Microsoft.DesktopVirtualization** y, a continuación, seleccione **Volver a registrar** .
+3. En el menú de la izquierda de la página, seleccione **Proveedor de recursos**.
+4. Busque y seleccione **Microsoft.DesktopVirtualization** y, a continuación, seleccione **Volver a registrar**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

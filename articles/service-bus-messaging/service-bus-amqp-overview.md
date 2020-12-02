@@ -2,23 +2,25 @@
 title: Introducción a AMQP 1.0 en Azure Service Bus
 description: Obtenga información sobre cómo Azure Service Bus admite Advanced Message Queuing Protocol (AMQP), un protocolo estándar abierto.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: c91c7965b94216f3f3bcb47e0cb652ce22a0217a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/20/2020
+ms.openlocfilehash: 85943344fd8f20cf3a73af5d637b65676584f93f
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88066345"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96022188"
 ---
 # <a name="amqp-10-support-in-service-bus"></a>Soporte de AMQP 1.0 en Service Bus
-Tanto el servicio en la nube de Azure Service Bus como el [Service Bus para Windows Server (Service Bus 1.1)](/previous-versions/service-bus-archive/dn282144(v=azure.100)) local, admiten el protocolo AMQP (Advanced Message Queueing Protocol) 1.0. AMQP le permite construir aplicaciones híbridas, entre plataformas, utilizando un protocolo estándar abierto. Puede construir aplicaciones mediante componentes creados con distintos lenguajes y marcos, y que se ejecutan en diferentes sistemas operativos. Todos estos componentes se pueden conectar a Service Bus e intercambiar directamente mensajes empresariales estructurados de manera eficaz y con total fidelidad.
+El servicio en la nube Azure Service Bus usa [Advanced Message Queueing Protocol (AMQP) 1.0](http://docs.oasis-open.org/amqp/core/v1.0/amqp-core-overview-v1.0.html) como medio principal de comunicación. Microsoft se ha comprometido con asociados de todo el sector, tanto clientes como proveedores de agentes de mensajería de la competencia, para desarrollar y evolucionar el protocolo AMQP en la última década, con nuevas extensiones desarrolladas en el [Comité técnico de OASIS AMQP](https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=amqp). AMQP 1.0 es una norma ISO e IEC ([ISO 19464:20149](https://www.iso.org/standard/64955.html)). 
+
+AMQP permite construir aplicaciones híbridas para varias plataformas utilizando un protocolo estándar abierto que no depende del proveedor ni de la implementación. Puede construir aplicaciones mediante componentes creados con distintos lenguajes y marcos, y que se ejecutan en diferentes sistemas operativos. Todos estos componentes se pueden conectar a Service Bus e intercambiar directamente mensajes empresariales estructurados de manera eficaz y con total fidelidad.
 
 ## <a name="introduction-what-is-amqp-10-and-why-is-it-important"></a>Introducción: ¿Qué es AMQP 1.0 y por qué es tan importante?
-Tradicionalmente, los productos de middleware orientados a mensajes utilizaban protocolos propietarios para la comunicación entre las aplicaciones cliente y los agentes. Esto significa que una vez seleccionado el agente de mensajes de un proveedor particular, usted debía utilizar las bibliotecas de dicho proveedor para conectar las aplicaciones cliente con ese agente. Esto ocasionaba un cierto grado de dependencia de ese proveedor, ya que la portabilidad de una aplicación a otro producto requería cambios en la codificación de todas las aplicaciones relacionadas. 
+Tradicionalmente, los productos de middleware orientados a mensajes utilizaban protocolos propietarios para la comunicación entre las aplicaciones cliente y los agentes. Esto significa que una vez seleccionado el agente de mensajes de un proveedor particular, usted debía utilizar las bibliotecas de dicho proveedor para conectar las aplicaciones cliente con ese agente. Esto ocasionaba un cierto grado de dependencia de ese proveedor, ya que la portabilidad de una aplicación a otro producto requería cambios en la codificación de todas las aplicaciones relacionadas. En la comunidad de Java, los estándares de API específicos del lenguaje como Java Message Service (JMS) y las abstracciones de Spring Framework han solucionado el problema hasta cierto punto, pero tienen un ámbito de características muy estrecho y excluyen los desarrolladores que usan otros lenguajes.
 
-Además, es difícil conectar a los agentes de mensajes de diferentes proveedores. Normalmente, esto requiere el establecimiento de un puente en el nivel de la aplicación para mover los mensajes de un sistema a otro y para traducir entre sus formatos de mensajes en propiedad. Es un requisito habitual, por ejemplo, cuando hay que proporcionar una nueva interfaz unificada para sistemas heterogéneos más antiguos o al integrar sistemas de TI después de una fusión.
+Además, es difícil conectar a los agentes de mensajes de diferentes proveedores. Normalmente, esto requiere el establecimiento de un puente en el nivel de la aplicación para mover los mensajes de un sistema a otro y para traducir entre sus formatos de mensajes en propiedad. Es un requisito habitual, por ejemplo, cuando hay que proporcionar una nueva interfaz unificada para sistemas heterogéneos más antiguos o al integrar sistemas de TI después de una fusión. AMQP permite la interconexión directa de agentes, por ejemplos mediante enrutadores como [Apache Qpid Dispatch Router](https://qpid.apache.org/components/dispatch-router/index.html) o "palas" nativas de agentes como el de [RabbitMQ](service-bus-integrate-with-rabbitmq.md).
 
-La industria del software es un negocio muy dinámico; nuevos lenguajes de programación y marcos de aplicaciones continúan inventándose, a veces a un ritmo enloquecido. De igual forma, los requisitos de los sistemas de TI evolucionan con el tiempo y los desarrolladores desean sacar partido las características de las plataformas más recientes. Sin embargo, a veces el proveedor de mensajes seleccionado no admite estas plataformas. Como los protocolos de mensajería son propietarios, no es posible que otros proporcionen bibliotecas para estas nuevas plataformas. Por lo tanto, hay que utilizar métodos como crear puertas de enlace o puentes para poder seguir usando el producto de mensajería.
+La industria del software es un negocio muy dinámico; nuevos lenguajes de programación y marcos de aplicaciones continúan inventándose, a veces a un ritmo enloquecido. De igual forma, los requisitos de los sistemas de TI evolucionan con el tiempo y los desarrolladores desean sacar partido las características de las plataformas más recientes. Sin embargo, a veces el proveedor de mensajes seleccionado no admite estas plataformas. Si los protocolos de mensajería son propietarios, no es posible que otros proporcionen bibliotecas para estas nuevas plataformas. Por lo tanto, hay que utilizar métodos como crear puertas de enlace o puentes para poder seguir usando el producto de mensajería.
 
 Estos problema motivaron el desarrollo del protocolo de colas de mensajes avanzados (AMQP) 1.0. Tuvo su origen en JP Morgan Chase, que, al igual que la mayoría de empresas de servicios financieros, consume una gran cantidad de middleware orientado a mensajes. El objetivo era sencillo: crear un protocolo de mensajes de estándar abierto que hiciera posible crear aplicaciones basadas en mensajes utilizando componentes construidos con otros lenguajes, marcos y sistemas operativos, usando en todos ellos los mejores componentes de una variedad de proveedores.
 
@@ -40,6 +42,8 @@ En octubre de 2011, el trabajo de desarrollo pasó a un Comité técnico dentro 
 * **Proveedores de tecnología**: Axway Software, Huawei Technologies, IIT Software, INETCO Systems, Kaazing, Microsoft, Mitre Corporation, Primeton Technologies, Progress Software, Red Hat, SITA, Software AG, Solace Systems, VMware, WSO2, Zenika.
 * **Firmas de usuario**: Bank of America, Credit Suisse, Deutsche Boerse, Goldman Sachs, JPMorgan Chase.
 
+Los puestos actuales de [OASIS AMQP Technical Committee](https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=amqp) representan Red Hat y Microsoft.
+
 Algunos de los beneficios que se mencionan con más frecuencia de los estándares abiertos son los siguientes:
 
 * Menos probabilidad de dependencia con el proveedor
@@ -50,7 +54,7 @@ Algunos de los beneficios que se mencionan con más frecuencia de los estándare
 * Menor riesgo y más controlable
 
 ## <a name="amqp-10-and-service-bus"></a>AMQP 1.0 y Service Bus
-La compatibilidad con AMQP 1.0 en Azure Service Bus implica que ahora puede sacar partido de sus características de encolamiento de Service Bus y de la publicación/suscripción de mensajería asíncrona desde una amplia variedad de plataformas mediante un eficaz protocolo binario. Además, puede desarrollar aplicaciones formadas por componentes creados con una mezcla de lenguajes, marcos y sistemas operativos.
+La compatibilidad con AMQP 1.0 en Azure Service Bus implica que puede sacar partido de sus características de encolamiento de Service Bus y de la publicación/suscripción de mensajería asíncrona desde una amplia variedad de plataformas mediante un eficaz protocolo binario. Además, puede desarrollar aplicaciones formadas por componentes creados con una mezcla de lenguajes, marcos y sistemas operativos.
 
 En la siguiente ilustración se muestra una implementación de ejemplo en el que clientes de Java que se ejecutan en Linux, escritos usando la API estándar Java Message Service (JMS), y clientes .NET que se ejecutan en Windows, intercambian mensajes a través de Service Bus mediante AMQP 1.0.
 
@@ -58,32 +62,31 @@ En la siguiente ilustración se muestra una implementación de ejemplo en el que
 
 **Figura 1: Escenario de implementación de ejemplos que muestran mensajes entre plataformas mediante Service Bus y AMQP 1.0**
 
-En este momento las siguientes bibliotecas de cliente están trabajando con Service Bus:
+Todas bibliotecas cliente de Service Bus disponible a través de Azure SDK usan AMQP 1.0.
 
-| Idioma | Biblioteca |
-| --- | --- |
-| Java |Cliente de Java Message Service (JMS) Apache Qpid<br/>Cliente de Java SwiftMQ, de IIT Software. |
-| C |Apache Qpid Proton-C |
-| PHP |Apache Qpid Proton-PHP |
-| Python |Apache Qpid Proton-Python |
-| C# |AMQP .NET Lite |
+- [Azure Service Bus para .NET](https://docs.microsoft.com/dotnet/api/overview/azure/service-bus?view=azure-dotnet&preserve-view=true)
+- [Bibliotecas de Azure Service Bus para Java](https://docs.microsoft.com/java/api/overview/azure/servicebus?view=azure-java-stable&preserve-view=true)
+- [Proveedor de Azure Service Bus para Java JMS 2.0](how-to-use-java-message-service-20.md)
+- [Módulos de Azure Service Bus para JavaScript y TypeScript](https://docs.microsoft.com/javascript/api/overview/azure/service-bus?view=azure-node-latest&preserve-view=true)
+- [Bibliotecas de Azure Service Bus para Python](https://docs.microsoft.com/python/api/overview/azure/servicebus?view=azure-python&preserve-view=true)
 
-**Figura 2: Tabla de bibliotecas de cliente de AMQP 1.0**
+[!INCLUDE [service-bus-websockets-options](../../includes/service-bus-websockets-options.md)]
+
+Además, Service Bus se puede usar desde cualquier pila de protocolos compatible con AMQP 1.0:
+
+[!INCLUDE [messaging-oss-amqp-stacks.md](../../includes/messaging-oss-amqp-stacks.md)]
 
 ## <a name="summary"></a>Resumen
 * AMQP 1.0 es un protocolo de mensajes confiable y abierto que se puede utilizar para crear aplicaciones híbridas, entre plataformas. AMQP 1.0 es un estándar de OASIS.
-* La compatibilidad con AMQP 1.0 ahora está disponible en Azure Service Bus, así como en Service Bus para Windows Server (Service Bus 1.1). El precio es el mismo que el de los protocolos existentes.
 
 ## <a name="next-steps"></a>Pasos siguientes
 ¿Listo para obtener más información? Consulte los siguientes vínculos:
 
 * [Uso de Service Bus desde .NET con AMQP]
 * [Uso de Service Bus desde Java con AMQP]
-* [Instalación de Apache Qpid Proton-C en una VM Linux de Azure]
-* [AMQP de Service Bus para Windows Server]
+* [Instalación de Apache Qpid Proton-C en una máquina virtual Linux de Azure]
 
 [0]: ./media/service-bus-amqp-overview/service-bus-amqp-1.png
 [Uso de Service Bus desde .NET con AMQP]: service-bus-amqp-dotnet.md
 [Uso de Service Bus desde Java con AMQP]: ./service-bus-java-how-to-use-jms-api-amqp.md
-[Instalación de Apache Qpid Proton-C en una VM Linux de Azure]: 
-[AMQP in Service Bus for Windows Server]: /previous-versions/service-bus-archive/dn574799(v=azure.100)
+[Instalación de Apache Qpid Proton-C en una máquina virtual Linux de Azure]:: 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 11/25/2019
 ms.author: kenwith
 ms.reviewer: arvinh, celested
-ms.openlocfilehash: b6eb571c7c37a628d11f07b4e1b207e38830250b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 5b593add9c9d7be446798eecdd03b396c3fe513a
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88235407"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96174737"
 ---
 # <a name="what-is-automated-saas-app-user-provisioning-in-azure-ad"></a>Qué es el aprovisionamiento automatizado de usuarios de aplicaciones SaaS en Azure AD
 
@@ -59,7 +59,7 @@ Azure AD ofrece compatibilidad preintegrada con muchas aplicaciones SaaS y sist
 
    ![Logotipo de Salesforce](./media/user-provisioning/gallery-app-logos.png)
 
-   Si quiere solicitar una nueva aplicación para el aprovisionamiento, puede [solicitar que la aplicación se integre con la galería de aplicaciones](../azuread-dev/howto-app-gallery-listing.md). Si se da una solicitud de aprovisionamiento de usuarios, es necesario que la aplicación tenga un punto de conexión compatible con SCIM. Solicite al proveedor de la aplicación que siga el estándar SCIM para que podamos incorporar la aplicación a nuestra plataforma rápidamente.
+   Si quiere solicitar una nueva aplicación para el aprovisionamiento, puede [solicitar que la aplicación se integre con la galería de aplicaciones](../develop/v2-howto-app-gallery-listing.md). Si se da una solicitud de aprovisionamiento de usuarios, es necesario que la aplicación tenga un punto de conexión compatible con SCIM. Solicite al proveedor de la aplicación que siga el estándar SCIM para que podamos incorporar la aplicación a nuestra plataforma rápidamente.
 
 * **Aplicaciones que admiten SCIM 2.0**. Para obtener información sobre cómo conectar genéricamente aplicaciones que implementan API de administración de usuarios basadas en SCIM 2.0, consulte [Aprovisionamiento de usuarios de SCIM con Azure Active Directory (Azure AD)](use-scim-to-provision-users-and-groups.md).
 

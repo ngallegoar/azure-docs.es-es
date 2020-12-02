@@ -24,7 +24,7 @@ Las directivas de punto de conexión de servicio de red virtual (VNet) permiten 
 
 ![Protección del tráfico de salida de red virtual a cuentas de Azure Storage](./media/virtual-network-service-endpoint-policies-overview/vnet-service-endpoint-policies-overview.png)
 
-Esta característica está disponible con carácter general para __Azure Storage__ en __todas las regiones del mundo de Azure__.
+Esta característica está disponible con carácter general para __Azure Storage__ en __todas las regiones globales de Azure__.
 
 ## <a name="key-benefits"></a>Ventajas principales
 

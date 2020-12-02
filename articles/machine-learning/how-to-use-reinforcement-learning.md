@@ -10,12 +10,12 @@ author: peterclu
 ms.date: 05/05/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: b9966d4d9ab0a37f5484ec9eb9b7e2472a6b41dc
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: a7fdb370847e72657829d53df019203b0a5b211b
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95012907"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96302567"
 ---
 # <a name="reinforcement-learning-preview-with-azure-machine-learning"></a>Aprendizaje de refuerzo (versión preliminar) con Azure Machine Learning
 
@@ -117,7 +117,7 @@ exp = Experiment(workspace=ws, name=experiment_name)
 
 ### <a name="specify-a-virtual-network"></a>Especificación de una red virtual
 
-En el caso de los trabajos de RL que usan varios destinos de proceso, debe especificar una red virtual con puertos abiertos que permitan que los nodos de trabajo y los nodos principales se comuniquen entre sí. La red virtual puede estar en cualquier grupo de recursos, pero debe estar en la misma región que el área de trabajo. Para obtener más información sobre la configuración de la red virtual, consulte el [cuaderno de configuración del área de trabajo](https://aka.ms/azure-rl-env-setup) que se encuentra en la sección de requisitos previos. Deberá especificar el nombre de la red virtual en el grupo de recursos.
+En el caso de los trabajos de RL que usan varios destinos de proceso, debe especificar una red virtual con puertos abiertos que permitan que los nodos de trabajo y los nodos principales se comuniquen entre sí. La red virtual puede estar en cualquier grupo de recursos, pero debe estar en la misma región que el área de trabajo. Para obtener más información sobre la configuración de la red virtual, consulte el cuaderno de configuración del área de trabajo que se encuentra en la sección de requisitos previos. Deberá especificar el nombre de la red virtual en el grupo de recursos.
 
 ```python
 vnet = 'your_vnet'

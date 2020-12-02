@@ -28,7 +28,7 @@ ms.locfileid: "94980969"
 
 ---
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/cognitive-services)
 * [Python 3.x](https://www.python.org/)
@@ -466,7 +466,7 @@ language_detection_example(client)
 ```
 
 
-### <a name="output"></a>Output
+### <a name="output"></a>Resultados
 
 ```console
 Language:  French
@@ -684,7 +684,7 @@ def entity_recognition_example(client):
 entity_recognition_example(client)
 ```
 
-### <a name="output"></a>Output
+### <a name="output"></a>Resultados
 
 ```console
 Named Entities:

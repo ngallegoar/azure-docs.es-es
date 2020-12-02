@@ -290,7 +290,7 @@ En los siguientes ejemplos se describe lo que ocurre cuando una solicitud coinci
 | Enviar una solicitud a... | Hace que... |
 |--|--|--|
 | _/profile_ | Los usuarios autenticados reciban el archivo _/profile/index.html_. Los usuarios sin autenticar se redirigen a _/login_. |
-| _/admin/reports_ | Los usuarios autenticados en el rol _Administradores_ reciban el archivo _/admin/reports/index.html_. Los usuarios autenticados que no tienen el rol _Administradores_ reciben un error 401<sup>2</sup>. Los usuarios sin autenticar se redirigen a _/login_. |
+| _/admin/reports_ | Los usuarios autenticados en el rol _Administradores_ reciban el archivo _/admin/reports/index.html_. Los usuarios autenticados que no tienen el rol _Administradores_ reciben un error 401 <sup>2</sup>. Los usuarios sin autenticar se redirigen a _/login_. |
 | _/api/admin_ | Las solicitudes de los usuarios autenticados en el rol _Administradores_ se envíen a la API. Los usuarios autenticados que no tienen el rol _Administradores_ y los que no se han autenticado reciben un error 401. |
 | _/customers/contoso_ | Los usuarios autenticados que pertenecen a los roles _Administradores_ o _customers\_contoso_ reciben el archivo _/customers/contoso/index.html_<sup>2</sup>. Los usuarios autenticados que no tienen los roles _Administradores_ o _customers\_contoso_ reciben un error 401. Los usuarios sin autenticar se redirigen a _/login_. |
 | _/login_ | Se pide a los usuarios sin autenticar que lo hagan con GitHub. |

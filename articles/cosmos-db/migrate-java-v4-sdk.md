@@ -64,11 +64,11 @@ A continuación se muestran los cambios de nivel de API en el SDK de Azure Cosmo
 
 * El SDK de Azure Cosmos DB para Java 3.x.x y 4.0 ofrecen API de sincronización y asincrónica.
 
-  * **SDK de Java 4.0** : Todas las clases pertenecen a la API de sincronización a menos que el nombre de clase se anexe con `Async` después de `Cosmos`.
+  * **SDK de Java 4.0**: Todas las clases pertenecen a la API de sincronización a menos que el nombre de clase se anexe con `Async` después de `Cosmos`.
 
-  * **SDK de Java 3.x.x** : Todas las clases pertenecen a la API asincrónica a menos que el nombre de clase se anexe con `Async` después de `Cosmos`.
+  * **SDK de Java 3.x.x**: Todas las clases pertenecen a la API asincrónica a menos que el nombre de clase se anexe con `Async` después de `Cosmos`.
 
-  * **SDK de Java 2.x.x asincrónico** : Los nombres de clase son similares a SDK de Java 2.x.x sincrónico, aunque el nombre comienza con *Asincrónico*.
+  * **SDK de Java 2.x.x asincrónico**: Los nombres de clase son similares a SDK de Java 2.x.x sincrónico, aunque el nombre comienza con *Asincrónico*.
 
 ### <a name="hierarchical-api-structure"></a>Estructura jerárquica de la API
 

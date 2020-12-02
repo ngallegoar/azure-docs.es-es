@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.date: 11/16/2020
 ms.reviewer: astay; kraigb
 ms.custom: mvc, seodec18, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 149f8deb8839b3adce3555300c94b8ebdf587100
-ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
+ms.openlocfilehash: f12ed42755af64f024fdcb0452173134f7b58482
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94873852"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183743"
 ---
 # <a name="configure-a-linux-python-app-for-azure-app-service"></a>Configuración de una aplicación de Python en Linux para Azure App Service
 
@@ -126,10 +126,10 @@ En la tabla siguiente se describe la configuración de producción que es pertin
 
 | Valor de Django | Instrucciones para Azure |
 | --- | --- |
-| `SECRET_KEY` | Almacene el valor en un valor de configuración de App Service, como se describe en [Acceso a la configuración de la aplicación como variables de entorno](#access-app-settings-as-environment-variables). Como alternativa, puede [almacenar el valor como un "secreto" en Azure Key Vault](/azure/key-vault/secrets/quick-create-python). |
+| `SECRET_KEY` | Almacene el valor en un valor de configuración de App Service, como se describe en [Acceso a la configuración de la aplicación como variables de entorno](#access-app-settings-as-environment-variables). Como alternativa, puede [almacenar el valor como un "secreto" en Azure Key Vault](../key-vault/secrets/quick-create-python.md). |
 | `DEBUG` | Cree un valor `DEBUG` en App Service con el valor 0 (false) y, luego, cargue el valor como una variable de entorno. En el entorno de desarrollo, cree una variable de entorno `DEBUG` con el valor 1 (true). |
 | `ALLOWED_HOSTS` | En producción, Django requiere que incluya la dirección URL de la aplicación en la matriz `ALLOWED_HOSTS` de *settings.py*. Puede recuperar esta dirección URL en tiempo de ejecución con el código `os.environ['WEBSITE_HOSTNAME']`. App Service establece automáticamente la variable de entorno `WEBSITE_HOSTNAME` en la dirección URL de la aplicación. |
-| `DATABASES` | Defina la configuración en App Service para la conexión de base de datos y cárguela como variables de entorno para rellenar el diccionario [`DATABASES`](https://docs.djangoproject.com/en/3.1/ref/settings/#std:setting-DATABASES). También puede almacenar los valores (especialmente el nombre de usuario y la contraseña) como [secretos de Azure Key Vault](/azure/key-vault/secrets/quick-create-python). |
+| `DATABASES` | Defina la configuración en App Service para la conexión de base de datos y cárguela como variables de entorno para rellenar el diccionario [`DATABASES`](https://docs.djangoproject.com/en/3.1/ref/settings/#std:setting-DATABASES). También puede almacenar los valores (especialmente el nombre de usuario y la contraseña) como [secretos de Azure Key Vault](../key-vault/secrets/quick-create-python.md). |
 
 ## <a name="container-characteristics"></a>Características del contenedor
 

@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/17/2020
-ms.openlocfilehash: fa048473f0f285b793dad88c7defdb6189ca1ccd
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 63be912986542741359cd5e88227f06905d42647
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96023013"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350881"
 ---
 # <a name="sink-transformation-in-mapping-data-flow"></a>Transformación de receptor en el flujo de datos de asignación
 
@@ -100,7 +100,7 @@ De forma predeterminada, los datos se escriben en varios receptores en un orden 
 ![Captura de pantalla que muestra la ordenación del receptor personalizado.](media/data-flow/custom-sink-ordering.png "Captura de pantalla que muestra la ordenación del receptor personalizado.")
 
 > [!NOTE]
-> Al usar las [búsquedas almacenadas en caché](https://docs.microsoft.com/azure/data-factory/concepts-data-flow-expression-builder#cached-lookup), asegúrese de que la ordenación del receptor tenga los receptores almacenado en caché establecidos en 1, el calor más bajo (o el primer valor) del orden.
+> Al usar las [búsquedas almacenadas en caché](./concepts-data-flow-expression-builder.md#cached-lookup), asegúrese de que la ordenación del receptor tenga los receptores almacenado en caché establecidos en 1, el calor más bajo (o el primer valor) del orden.
 
 ![Ordenación de receptores personalizada](media/data-flow/cache-2.png "Ordenación de receptores personalizados")
 

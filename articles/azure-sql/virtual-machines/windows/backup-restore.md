@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/04/2018
 ms.author: mikeray
-ms.openlocfilehash: db270224a753f815a2d94e6a1fa79ebbedf49278
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: f3723c792dfe962f2cbf16e3b167faf66c50a92e
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94991577"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327464"
 ---
 # <a name="backup-and-restore-for-sql-server-on-azure-vms"></a>Copia de seguridad y restauración de SQL Server en VM de Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -93,7 +93,7 @@ Las siguientes secciones describen varias opciones manuales de copia de segurida
 
 ### <a name="backup-to-attached-disks"></a>Copia de seguridad en discos conectados
 
-Para SQL Server que se ejecuta en VM de Azure, puede usar técnicas de copia de seguridad y restauración nativas mediante discos conectados en la VM para el destino de los archivos de copia de seguridad. No obstante, hay un límite en el número de discos que se pueden acoplar a una máquina virtual de Azure según el [tamaño de la máquina virtual](../../../virtual-machines/sizes.md?toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json). Existe también una sobrecarga de la administración de discos que tener en cuenta.
+Para SQL Server que se ejecuta en VM de Azure, puede usar técnicas de copia de seguridad y restauración nativas mediante discos conectados en la VM para el destino de los archivos de copia de seguridad. No obstante, hay un límite en el número de discos que se pueden acoplar a una máquina virtual de Azure según el [tamaño de la máquina virtual](../../../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Existe también una sobrecarga de la administración de discos que tener en cuenta.
 
 Para obtener un ejemplo de cómo crear manualmente una copia de seguridad completa de la base de datos mediante SQL Server Management Studio (SSMS) o Transact-SQL, consulte [Crear una copia de seguridad completa de base de datos (SQL Server)](/sql/relational-databases/backup-restore/create-a-full-database-backup-sql-server).
 

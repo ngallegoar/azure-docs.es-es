@@ -4,12 +4,12 @@ description: Aprenda a usar los servidores habilitados para Azure Arc para admi
 keywords: azure automation, DSC, powershell, desired state configuration, update management, change tracking, inventory, runbooks, python, graphical, hybrid
 ms.date: 11/12/2020
 ms.topic: overview
-ms.openlocfilehash: 2df970f7c94f1e306243aba1480ee7023b8f76c1
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 8368f89b8e471698ede3e9e8eb691e69f494b6e2
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94578729"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183403"
 ---
 # <a name="what-is-azure-arc-enabled-servers"></a>¿Qué son los servidores habilitados para Azure Arc?
 
@@ -29,7 +29,7 @@ Al conectar una máquina a los servidores habilitados para Azure Arc, se habili
 
 - Simplifique la implementación con otros servicios de Azure, como el área de trabajo de Log Analytics de Azure Monitor y [State Configuration](../../automation/automation-dsc-overview.md) de Azure Automation, con las [extensiones de máquina virtual de Azure](manage-vm-extensions.md) admitidas para la máquina Windows o Linux que no sea de Azure. Esto incluye realizar la instalación de software o la configuración posterior a la implementación mediante la extensión de script personalizado.
 
-- Use [Update Management](../../automation/update-management/update-mgmt-overview.md) en Azure Automation para administrar las actualizaciones del sistema operativo de los servidores Windows y Linux.
+- Use [Update Management](../../automation/update-management/overview.md) en Azure Automation para administrar las actualizaciones del sistema operativo de los servidores Windows y Linux.
 
     > [!NOTE]
     > En este momento, no se admite la habilitación de Update Management directamente desde un servidor habilitado para Arc. Consulte [Habilitación de Update Management desde una cuenta de Automation](../../automation/update-management/enable-from-automation-account.md) para saber más sobre los requisitos y cómo habilitarlo para el servidor.

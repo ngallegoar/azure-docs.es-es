@@ -32,7 +32,7 @@ ms.locfileid: "94978708"
 
 ---
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/cognitive-services)
 * [IDE de Visual Studio](https://visualstudio.microsoft.com/vs/)

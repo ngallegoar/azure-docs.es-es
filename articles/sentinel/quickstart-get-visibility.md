@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc, fasttrack-edit
 ms.date: 09/16/2020
 ms.author: yelevin
-ms.openlocfilehash: 26a29524e0bf329a368b3cd2281dd9b070b42a14
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 369847810cdb7f7e93a13f5d410f226d3663080d
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94660821"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96188588"
 ---
 # <a name="quickstart-get-started-with-azure-sentinel"></a>Inicio rápido: Introducción a Azure Sentinel
 
@@ -91,12 +91,11 @@ Puede crear un libro desde cero o usar un libro integrado como base para un nuev
 La siguiente consulta de ejemplo le permite comparar las tendencias del tráfico entre semanas. Puede cambiar fácilmente en el proveedor de dispositivos y el origen de datos en que se ejecutará la consulta. En este ejemplo se usa SecurityEvent de Windows, pero puede cambiarlo por AzureActivity, CommonSecurityLog o cualquier otro firewall.
 
 ```console
- |where DeviceVendor == "Palo Alto Networks":
-  // week over week query
-  SecurityEvent
-  | where TimeGenerated > ago(14d)
-  | summarize count() by bin(TimeGenerated, 1d)
-  | extend Week = iff(TimeGenerated>ago(7d), "This Week", "Last Week"), TimeGenerated = iff(TimeGenerated>ago(7d), TimeGenerated, TimeGenerated + 7d)
+// week over week query
+SecurityEvent
+| where TimeGenerated > ago(14d)
+| summarize count() by bin(TimeGenerated, 1d)
+| extend Week = iff(TimeGenerated>ago(7d), "This Week", "Last Week"), TimeGenerated = iff(TimeGenerated>ago(7d), TimeGenerated, TimeGenerated + 7d)
 ```
 
 Puede que quiera crear una consulta que incorpore datos de varios orígenes. Puede crear una consulta que examine los registros de auditoría de Azure Active Directory de los nuevos usuarios que acaba de crear y que luego compruebe los registros de Azure para ver si el usuario comenzó a realizar cambios en la asignación de roles al cabo de 24 horas de la creación. En este panel aparecería esa actividad sospechosa:

@@ -22,11 +22,11 @@ En este artículo, aprenderá a tomar decisiones de diseño para resolver proble
 
 Para contextualizar la discusión, vamos a definir algunos conceptos de fondo:
 
-- **Hora del evento** : hora en la que se produjo el evento original. Por ejemplo, cuando un automóvil en movimiento en la carretera se acerca a una cabina de peaje.
+- **Hora del evento**: hora en la que se produjo el evento original. Por ejemplo, cuando un automóvil en movimiento en la carretera se acerca a una cabina de peaje.
 
-- **Tiempo de procesamiento** : el tiempo que transcurre desde que el evento llega al sistema de procesamiento y se observa. Por ejemplo, cuando un sensor de la cabina de peaje detecta el automóvil y el sistema informático tarda unos instantes en procesar los datos.
+- **Tiempo de procesamiento**: el tiempo que transcurre desde que el evento llega al sistema de procesamiento y se observa. Por ejemplo, cuando un sensor de la cabina de peaje detecta el automóvil y el sistema informático tarda unos instantes en procesar los datos.
 
-- **Marca de agua** : marcador de hora del evento que indica qué eventos puntuales se han introducido en el procesador de streaming. Las marcas de agua permiten al sistema indicar el progreso claro sobre la ingesta de eventos. Por la naturaleza de las transmisiones, los datos de evento entrantes nunca se detienen, por lo que las marcas de agua indican el progreso a un determinado punto en la transmisión.
+- **Marca de agua**: marcador de hora del evento que indica qué eventos puntuales se han introducido en el procesador de streaming. Las marcas de agua permiten al sistema indicar el progreso claro sobre la ingesta de eventos. Por la naturaleza de las transmisiones, los datos de evento entrantes nunca se detienen, por lo que las marcas de agua indican el progreso a un determinado punto en la transmisión.
 
    El concepto de marca de agua es importante. Las marcas de agua permiten a Stream Analytics determinar cuándo el sistema puede producir resultados completos, correctos y repetibles que no necesitan retirarse. El procesamiento puede realizarse de una forma predecible y repetible. Por ejemplo, si es necesario realizar un recuento para alguna condición de control de errores, las marcas de agua son puntos de inicio y finalización seguros.
 
@@ -86,7 +86,7 @@ Como parte del ajuste, **System.Timestamp** del evento se establece en el nuevo 
 
 El mecanismo de generación de marcas de agua heurísticas descrito funciona correctamente en la mayoría de los casos donde la hora generalmente está sincronizada entre los diferentes remitentes de eventos. Sin embargo, en la vida real, especialmente en muchos escenarios de IoT, el sistema tiene poco control sobre el reloj en los remitentes de eventos. Los remitentes de eventos podrían ser todo tipo de dispositivos en el campo, tal vez con diferentes versiones de hardware y software.
 
-En lugar de usar una marca de agua global para todos los eventos en una partición de entrada, Stream Analytics tiene otro mecanismo denominado **transmisiones secundarias**. Puede utilizar transmisiones secundarias en su trabajo mediante la escritura de una consulta de trabajo que utilice la cláusula [**TIMESTAMP BY**](/stream-analytics-query/timestamp-by-azure-stream-analytics) y la palabra clave **OVER**. Para designar la transmisión secundaria, proporcione un nombre de columna de clave después de la palabra clave **OVER** , como `deviceid`, de modo que el sistema aplique las directivas de tiempo por esa columna. Cada transmisión secundaria obtiene su propia marca de agua independiente. Este mecanismo es útil para permitir la generación de salida a tiempo, cuando se trabaja con grandes sesgos de reloj o retrasos de red entre remitentes de eventos.
+En lugar de usar una marca de agua global para todos los eventos en una partición de entrada, Stream Analytics tiene otro mecanismo denominado **transmisiones secundarias**. Puede utilizar transmisiones secundarias en su trabajo mediante la escritura de una consulta de trabajo que utilice la cláusula [**TIMESTAMP BY**](/stream-analytics-query/timestamp-by-azure-stream-analytics) y la palabra clave **OVER**. Para designar la transmisión secundaria, proporcione un nombre de columna de clave después de la palabra clave **OVER**, como `deviceid`, de modo que el sistema aplique las directivas de tiempo por esa columna. Cada transmisión secundaria obtiene su propia marca de agua independiente. Este mecanismo es útil para permitir la generación de salida a tiempo, cuando se trabaja con grandes sesgos de reloj o retrasos de red entre remitentes de eventos.
 
 Las transmisiones secundarias son una solución única de Azure Stream Analytics que otros sistemas de procesamiento de datos de transmisión no ofrecen.
 

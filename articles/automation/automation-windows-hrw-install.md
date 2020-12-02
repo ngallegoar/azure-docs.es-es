@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 11/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: 31bb0fac302a81c2523a2d2855ca1930cb266ac4
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: e77a90617d79dab8c71cdf0c7a6a4fb21e052fbd
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95906626"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182791"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Implementación de Hybrid Runbook Worker en Windows
 
@@ -62,10 +62,10 @@ Para conocer los requisitos de red de Hybrid Runbook Worker, consulte [Configura
 
 ### <a name="adding-a-machine-to-a-hybrid-runbook-worker-group"></a>Adición de una máquina a un grupo de Hybrid Runbook Worker.
 
-Puede agregar la máquina de trabajo a un grupo de Hybrid Runbook Worker de una de sus cuentas de Automation. Las máquinas que hospedan la instancia de Hybrid Runbook Worker del sistema administrada por Update Management se pueden agregar a un grupo de Hybrid Runbook Worker. Sin embargo, debe usar la misma cuenta de Automation para Update Management y la pertenencia al grupo de Hybrid Runbook Worker.
+Puede agregar la máquina de trabajo a un grupo de Hybrid Runbook Worker de una de sus cuentas de Automation. Las máquinas que hospedan la instancia de Hybrid Runbook Worker del sistema administrada por Update Management se pueden agregar a un grupo de Hybrid Runbook Worker. Sin embargo, debe usar la misma cuenta de Automation para Update Management y para la pertenencia al grupo de Hybrid Runbook Worker.
 
 >[!NOTE]
->[Update Management](update-management/update-mgmt-overview.md) de Azure Automation instala automáticamente la instancia de Hybrid Runbook Worker del sistema en una máquina de Azure o que no es de Azure habilitada para Update Management. Sin embargo, este trabajo no se registra con ninguno de los grupos de Hybrid Runbook Worker de la cuenta de Automation. Para ejecutar los runbooks en esas máquinas, debe agregarlas a un grupo de Hybrid Runbook Worker. Siga el paso 6 de la sección [Implementación manual](#manual-deployment) para agregarla a un grupo.
+>[Update Management](./update-management/overview.md) de Azure Automation instala automáticamente la instancia de Hybrid Runbook Worker del sistema en una máquina de Azure o que no es de Azure habilitada para Update Management. Sin embargo, este trabajo no se registra con ninguno de los grupos de Hybrid Runbook Worker de la cuenta de Automation. Para ejecutar los runbooks en esas máquinas, debe agregarlas a un grupo de Hybrid Runbook Worker. Siga el paso 6 de la sección [Implementación manual](#manual-deployment) para agregarla a un grupo.
 
 ## <a name="enable-for-management-with-azure-automation-state-configuration"></a>Habilitación de la administración con State Configuration de Azure Automation
 

@@ -7,11 +7,11 @@ ms.service: data-share
 ms.topic: quickstart
 ms.date: 10/30/2020
 ms.openlocfilehash: 1442720fdf48aaa7da76e181b168a04306ff3e33
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94577505"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186463"
 ---
 # <a name="quickstart-share-data-using-azure-data-share-in-the-azure-portal"></a>Inicio rápido: Uso compartido de los datos con Azure Data Share en Azure Portal
 
@@ -45,7 +45,7 @@ Cree un recurso de Azure Data Share en un grupo de recursos de Azure.
 
    **Configuración** | **Valor sugerido** | **Descripción del campo**
    |---|---|---|
-   | Suscripción | Su suscripción | Seleccione la suscripción de Azure que desea usar para la cuenta del recurso compartido de datos.|
+   | Subscription | Su suscripción | Seleccione la suscripción de Azure que desea usar para la cuenta del recurso compartido de datos.|
    | Grupo de recursos | *test-resource-group* | Use un grupo de recursos existente o cree uno. |
    | Location | *Este de EE. UU. 2* | Seleccione una región para la cuenta de Azure Data Share.
    | Nombre | *datashareaccount* | Especifique un nombre para la cuenta del recurso compartido de datos. |

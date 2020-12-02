@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/12/2020
-ms.openlocfilehash: f7980ca7bc6f23c383ea013c2b017b3bd61e2d25
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 410281ce67faf345539701389d4b03351d403b99
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842301"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186072"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Conectar productos o servicios de ITSM con el Conector de Administración de servicios de TI
 En este artículo se proporciona información sobre cómo configurar la conexión entre los productos y servicios de ITSM y el Conector de Administración de servicios de TI (ITSMC) en Log Analytics para administrar de forma centralizada los elementos de trabajo. Para obtener más información sobre ITSMC, vea [Información general](./itsmc-overview.md).
@@ -46,7 +46,7 @@ Asegúrese de que se cumplen los siguientes requisitos previos:
 > [!NOTE]
 > 
 > - El conector de ITSM solo se puede conectar a instancias de ServiceNow basadas en la nube. Actualmente no se admiten instancias locales de ServiceNow.
-> - Para usar [plantillas](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview#template-definitions) personalizadas como parte de las acciones, se debe asignar el parámetro "ProjectionType" de la plantilla SCSM a "IncidentManagement!System.WorkItem.Incident.ProjectionType".
+> - Para usar [plantillas](./itsmc-overview.md#template-definitions) personalizadas como parte de las acciones, se debe asignar el parámetro "ProjectionType" de la plantilla SCSM a "IncidentManagement!System.WorkItem.Incident.ProjectionType".
 
 ### <a name="connection-procedure"></a>Procedimiento de conexión
 
@@ -432,4 +432,3 @@ Para generar el identificador o clave de cliente para Cherwell, utilice el proce
 
 ## <a name="next-steps"></a>Pasos siguientes
  - [Creación de elementos de trabajo de ITSM a partir de alertas de Azure](./itsmc-overview.md#create-itsm-work-items-from-azure-alerts)
-

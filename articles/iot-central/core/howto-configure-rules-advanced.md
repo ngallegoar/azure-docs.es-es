@@ -75,7 +75,7 @@ Para agregar el conector **Azure IoT Central V3 (Versión preliminar)** como una
 1. En la lista de acciones, seleccione la acción de IoT Central que desee usar.
 1. En el paso de la acción, complete la configuración de la acción que haya elegido. Después, seleccione **Guardar**.
 
-:::image type="content" source="./media/howto-configure-rules-advanced/actions.png" alt-text="Busque el conector Azure IoT Central - preview (Azure IoT Central [Versión preliminar]) y elija el desencadenador":::
+:::image type="content" source="./media/howto-configure-rules-advanced/actions.png" alt-text="Búsqueda del conector Azure IoT Central V3 (Versión preliminar) y selección de una acción":::
 
 ## <a name="list-of-actions"></a>Lista de acciones
 

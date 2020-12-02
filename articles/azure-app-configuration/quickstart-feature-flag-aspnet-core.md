@@ -7,12 +7,12 @@ ms.custom: devx-track-csharp
 ms.topic: quickstart
 ms.date: 09/28/2020
 ms.author: lcozzens
-ms.openlocfilehash: 88481346f22176b8e307b53774b42d753838f90b
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 5179a619b1adba432910605c75fae0789efd3397
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94554830"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182723"
 ---
 # <a name="quickstart-add-feature-flags-to-an-aspnet-core-app"></a>Inicio rápido: Adición de marcas de características a una aplicación web de ASP.NET Core
 
@@ -106,7 +106,7 @@ dotnet new mvc --no-https --output TestFeatureFlags
 
     ---
 
-    Con el cambio anterior, el [proveedor de configuración de App Configuration](https://go.microsoft.com/fwlink/?linkid=2074664) se ha registrado con la API de configuración de .NET Core.
+    Con el cambio anterior, el [proveedor de configuración de App Configuration](/dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration) se ha registrado con la API de configuración de .NET Core.
 
 1. En *Startup.cs*, agregue una referencia al administrador de características de .NET Core:
 
@@ -235,7 +235,7 @@ dotnet new mvc --no-https --output TestFeatureFlags
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este inicio rápido, ha creado un almacén de App Configuration y lo ha usado para administrar características en una aplicación web de ASP.NET Core mediante las [bibliotecas de administración de características](https://go.microsoft.com/fwlink/?linkid=2074664).
+En este inicio rápido, ha creado un almacén de App Configuration y lo ha usado para administrar características en una aplicación web de ASP.NET Core mediante las [bibliotecas de administración de características](/dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration).
 
 * Más información sobre la [administración de características](./concept-feature-management.md).
 * [Administración de marcas de características](./manage-feature-flags.md).

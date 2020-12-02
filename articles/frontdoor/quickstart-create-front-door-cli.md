@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/21/2020
 ms.author: duau
-ms.openlocfilehash: a24c0fdb244f87dbf281bcf59b5e1986a215142a
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: e01b56f88270348167ef1eef9d913e65074d9247
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92275618"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327260"
 ---
 # <a name="quickstart-create-a-front-door-for-a-highly-available-global-web-application-using-azure-cli"></a>Inicio rápido: Creación de una instancia de Front Door para una aplicación web global de alta disponibilidad mediante la CLI de Azure
 
 El primer paso con Azure Front Door es utilizar la CLI de Azure para crear una aplicación web global de alto rendimiento y alta disponibilidad.
 
-Front Door dirige el tráfico web a recursos concretos de un grupo de back-end. Ha definido el dominio del front-end, agregado recursos a un grupo de back-end y creado una regla de enrutamiento. En este artículo se usa una configuración simple de un grupo de back-end con dos recursos de aplicación web y una regla de enrutamiento única que usa la coincidencia de ruta de acceso default predeterminada "/*".
+Front Door dirige el tráfico web a recursos concretos de un grupo de back-end. Ha definido el dominio del front-end, agregado recursos a un grupo de back-end y creado una regla de enrutamiento. En este artículo se usa una configuración simple de un grupo de back-end con dos recursos de aplicación web y una regla de enrutamiento única que usa la coincidencia de ruta de acceso predeterminada "/*".
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -77,7 +77,7 @@ az appservice plan create \
 
 az appservice plan create \
 --name myAppServicePlanSouthCentralUS \
--resource-groupg myRGFDSouthCentral
+--resource-group myRGFDSouthCentral
 ```
 
 ### <a name="create-web-apps"></a>Creación de aplicaciones web
@@ -150,7 +150,7 @@ En este inicio rápido, ha creado lo siguiente:
 * Front Door
 * Dos aplicaciones web
 
-Para aprender a agregar un dominio personalizado a Front Door, pase a los tutoriales de Front Door.
+Para obtener información sobre cómo agregar un dominio personalizado a Front Door, continúe con los tutoriales de Front Door.
 
 > [!div class="nextstepaction"]
 > [Agregar un dominio personalizado](front-door-custom-domain.md)

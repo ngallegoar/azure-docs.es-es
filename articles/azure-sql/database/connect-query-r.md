@@ -14,12 +14,12 @@ ms.reviewer: davidph, sstein
 manager: cgronlun
 ms.date: 05/29/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 62f1015bc945b5c01f719d7e96e6446c49ac8b8a
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 2e32a4abeae78aa7105f21ecffbb18c2eae841a4
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675161"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185630"
 ---
 # <a name="quickstart-use-r-with-azure-sql-database-machine-learning-services-preview-to-query-a-database"></a>Inicio rápido: Uso de R con Azure SQL Database Machine Learning Services (versión preliminar) para consultar una base de datos 
 
@@ -37,7 +37,7 @@ En este inicio rápido, se utiliza R con Azure SQL Database Machine Learning Ser
 - [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms) (SSMS)
 
 > [!IMPORTANT]
-> Los scripts de este artículo se escriben para utilizar la base de datos **Adventure Works** .
+> Los scripts de este artículo se escriben para utilizar la base de datos **Adventure Works**.
 
 Machine Learning Services con R es una característica de Azure SQL Database que se usa para ejecutar scripts de R en bases de datos. Para más información, consulte el [proyecto R](https://www.r-project.org/).
 
@@ -47,9 +47,9 @@ Obtenga la información de conexión necesaria para conectarse a la base de dato
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
-2. Vaya a las páginas **Bases de datos SQL** o **Instancias administradas de SQL** .
+2. Vaya a las páginas **Bases de datos SQL** o **Instancias administradas de SQL**.
 
-3. En la página **Información general** , revise el nombre completo del servidor junto a **Nombre del servidor** para una base de datos de Azure SQL Database o el nombre completo del servidor junto a **Host** para una instancia administrada de Instancia administrada de Azure SQL. Para copiar el nombre del servidor o nombre de host, mantenga el cursor sobre él y seleccione el icono **Copiar** .
+3. En la página **Información general**, revise el nombre completo del servidor junto a **Nombre del servidor** para una base de datos de Azure SQL Database o el nombre completo del servidor junto a **Host** para una instancia administrada de Instancia administrada de Azure SQL. Para copiar el nombre del servidor o nombre de host, mantenga el cursor sobre él y seleccione el icono **Copiar**.
 
 ## <a name="create-code-to-query-your-database"></a>Creación de código para consultar la base de datos
 
@@ -78,10 +78,10 @@ Obtenga la información de conexión necesaria para conectarse a la base de dato
 
 1. Ejecute el procedimiento almacenado [sp_execute_external_script](/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql).
 
-1. Compruebe que se devuelven las 20 primeras filas de categoría o productos en la ventana de **mensajes** .
+1. Compruebe que se devuelven las 20 primeras filas de categoría o productos en la ventana de **mensajes**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Diseño de la primera base de datos en Azure SQL Database](design-first-database-tutorial.md)
 - [Machine Learning Services (con R) en Azure SQL Database](../managed-instance/machine-learning-services-overview.md)
-- [Crear y ejecutar scripts de R sencillos en Azure SQL Database Machine Learning Services (versión preliminar)](/sql/machine-learning/tutorials/quickstart-r-create-script?context=%252fazure%252fazure-sql%252fmanaged-instance%252fcontext%252fml-context)
+- [Crear y ejecutar scripts de R sencillos en Azure SQL Database Machine Learning Services (versión preliminar)](/sql/machine-learning/tutorials/quickstart-r-create-script?context=%2fazure%2fazure-sql%2fmanaged-instance%2fcontext%2fml-context)

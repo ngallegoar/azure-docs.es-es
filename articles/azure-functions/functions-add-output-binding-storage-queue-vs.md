@@ -4,12 +4,12 @@ description: Aprenda a agregar un enlace de salida para conectar las funciones d
 ms.date: 07/22/2019
 ms.topic: quickstart
 ms.custom: mvc
-ms.openlocfilehash: 0711516143839dbcdbafec56ab1d9643b4b8cdc7
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 635392212027c73e5aa954eb671be31228796a0d
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167129"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185137"
 ---
 # <a name="connect-functions-to-azure-storage-using-visual-studio"></a>Conexión de las funciones a Azure Storage mediante Visual Studio
 
@@ -29,7 +29,7 @@ Antes de empezar este artículo, debe realizar lo siguiente:
 
 ## <a name="download-the-function-app-settings"></a>Descarga de la configuración de la aplicación de función
 
-En el [artículo de inicio rápido anterior](functions-create-first-function-vs-code.md) creó una aplicación de funciones en Azure junto con una cuenta de Storage. La cadena de conexión de esta cuenta se almacena de forma segura en la configuración de la aplicación en Azure. En este artículo, escribirá mensajes en una cola de almacenamiento de la misma cuenta. Para conectarse a su cuenta de Azure Storage cuando se ejecuta la función localmente, debe descargar la configuración de la aplicación en el archivo *local.settings.json*. 
+En el [artículo de inicio rápido anterior](./create-first-function-vs-code-csharp.md) creó una aplicación de funciones en Azure junto con una cuenta de Storage. La cadena de conexión de esta cuenta se almacena de forma segura en la configuración de la aplicación en Azure. En este artículo, escribirá mensajes en una cola de almacenamiento de la misma cuenta. Para conectarse a su cuenta de Azure Storage cuando se ejecuta la función localmente, debe descargar la configuración de la aplicación en el archivo *local.settings.json*. 
 
 1. En el **Explorador de soluciones**, haga clic con el botón derecho en el proyecto y seleccione **Publicar**. 
 

@@ -7,12 +7,12 @@ keywords: Azure Automation, DSC, PowerShell, State Configuration, Update Managem
 ms.date: 10/18/2018
 ms.custom: mvc
 ms.topic: overview
-ms.openlocfilehash: 24aeb37cf868bed5d4211bc9b459a4736ceea4b2
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: e3986b7e8fc70f8662bed40b076897caa6165744
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92205343"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182825"
 ---
 # <a name="an-introduction-to-azure-automation"></a>Introducción a Azure Automation
 
@@ -43,7 +43,7 @@ Change Tracking e Inventario combina funciones de inventario y seguimiento de ca
 
 ## <a name="update-management"></a>Administración de actualizaciones
 
-Azure Automation incluye la característica [Update Management](update-management/update-mgmt-overview.md) para sistemas Windows y Linux en entornos híbridos. Update Management le proporciona visibilidad sobre el cumplimiento de las actualizaciones en Azure y otras nubes, así como en el entorno local. Esta característica le permite crear implementaciones programadas para organizar la instalación de actualizaciones en una ventana de mantenimiento definida. Si no es necesario instalar una actualización en una máquina, puede usar la funcionalidad Update Management para excluirla de una implementación.
+Azure Automation incluye la característica [Update Management](./update-management/overview.md) para sistemas Windows y Linux en entornos híbridos. Update Management le proporciona visibilidad sobre el cumplimiento de las actualizaciones en Azure y otras nubes, así como en el entorno local. Esta característica le permite crear implementaciones programadas para organizar la instalación de actualizaciones en una ventana de mantenimiento definida. Si no es necesario instalar una actualización en una máquina, puede usar la funcionalidad Update Management para excluirla de una implementación.
 
 ## <a name="shared-capabilities"></a>Funcionalidades compartidas
 

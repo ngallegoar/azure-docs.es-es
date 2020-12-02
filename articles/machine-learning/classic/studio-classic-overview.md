@@ -10,16 +10,16 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: overview
 ms.date: 08/19/2020
-ms.openlocfilehash: 1aadf1fe59c5300a4f16ea96b1e1d7a5fbcbdd6d
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 0a18f9adb8c3723619b44b30bfa334edf4300c0d
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325737"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95509491"
 ---
 # <a name="what-can-i-do-with-machine-learning-studio-classic"></a>¿Qué se puede hacer con Azure Machine Learning Studio (clásico)?
 
-**SE APLICA A:**  ![sí](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clásico)   ![no ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
+**SE APLICA A:**  ![Esta es una marca de verificación, lo que significa que este artículo se aplica a Machine Learning Studio (clásico).](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clásico)   ![Esta es una X, lo que significa que este artículo se aplica a Azure Machine Learning.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 [!INCLUDE [Designer notice](../../../includes/designer-notice.md)]
 
@@ -30,7 +30,7 @@ Machine Learning Studio (clásico) es una herramienta del tipo arrastrar y coloc
 
 Para desarrollar un modelo de análisis predictivo, normalmente se utilizan datos de una o varias fuentes, se transforman y analizan los datos a través de diversas funciones estadísticas y de manipulación de datos y se genera un conjunto de resultados. Desarrollar un modelo como este es un proceso iterativo: a medida que se modifican las diversas funciones y sus parámetros, sus resultados convergen hasta que esté satisfecho con un modelo entrenado y efectivo.
 
-Machine Learning Studio (clásico) le proporciona un área de trabajo visual e interactiva para crear, probar e iterar fácilmente en un modelo de análisis predictivo. Los * *_conjuntos de datos_* _ y los _*_módulos_*_ de análisis se arrastran y colocan en un lienzo interactivo, y se conectan todos para formar un _*_experimento_*_ que se ejecuta en Machine Learning Studio (clásico). Para iterar su diseño de modelo, se puede editar el experimento, guardar una copia si así se desea y ejecutarlo de nuevo. Cuando esté listo, puede convertir el _*_experimento de entrenamiento_*_ en un _*_experimento predictivo_*_ y luego publicarlo como _*_servicio web_*_ para que otros usuarios puedan acceder al modelo.
+Machine Learning Studio (clásico) le proporciona un área de trabajo visual e interactiva para crear, probar e iterar fácilmente en un modelo de análisis predictivo. Los **_conjuntos de datos_* _ y los _*_módulos_*_ de análisis se arrastran y colocan en un lienzo interactivo, y se conectan todos para formar un _*_experimento_*_ que se ejecuta en Machine Learning Studio (clásico). Para iterar su diseño de modelo, se puede editar el experimento, guardar una copia si así se desea y ejecutarlo de nuevo. Cuando esté listo, puede convertir el _*_experimento de entrenamiento_*_ en un _*_experimento predictivo_*_ y luego publicarlo como _*_servicio web_*_ para que otros usuarios puedan acceder al modelo.
 
 No se requiere programación; conecte visualmente conjuntos de datos y módulos para construir el modelo de análisis predictivo.
 

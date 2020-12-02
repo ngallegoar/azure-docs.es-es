@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 10/16/2020
 ms.custom: subject-armqs, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: c8542bfe3d1393917a63e4a1feae7d6dfc223031
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 5be4cea7d8ddb00a4c8a22a696dbdce1c062765c
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746179"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183029"
 ---
 # <a name="quickstart-create-app-service-app-using-an-arm-template"></a>Inicio rápido: Creación de una aplicación de App Service mediante una plantilla de ARM
 
@@ -21,13 +21,13 @@ Empiece a usar [Azure App Service](overview.md) mediante la implementación de u
 
  [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Si su entorno cumple los requisitos previos y está familiarizado con el uso de plantillas de Resource Manager, seleccione el botón **Implementar en Azure** . La plantilla se abrirá en Azure Portal.
+Si su entorno cumple los requisitos previos y está familiarizado con el uso de plantillas de Resource Manager, seleccione el botón **Implementar en Azure**. La plantilla se abrirá en Azure Portal.
 
-Use el botón siguiente para realizar la implementación en **Linux** :
+Use el botón siguiente para realizar la implementación en **Linux**:
 
 [![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-app-service-docs-linux%2Fazuredeploy.json)
 
-Use el botón siguiente para realizar la implementación en **Windows** :
+Use el botón siguiente para realizar la implementación en **Windows**:
 
 [![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-app-service-docs-windows%2Fazuredeploy.json)
 
@@ -145,7 +145,7 @@ Cuando ya no necesite, [elimine el grupo de recursos](../azure-resource-manager/
 > [PHP con MySQL](tutorial-php-mysql-app.md)
 
 > [!div class="nextstepaction"]
-> [Conexión a una base de datos de Azure SQL con Java](../azure-sql/database/connect-query-java.md?toc=%252fazure%252fjava%252ftoc.json)
+> [Conexión a una base de datos de Azure SQL con Java](../azure-sql/database/connect-query-java.md?toc=%2fazure%2fjava%2ftoc.json)
 
 > [!div class="nextstepaction"]
 > [Asignación de un dominio personalizado](app-service-web-tutorial-custom-domain.md)

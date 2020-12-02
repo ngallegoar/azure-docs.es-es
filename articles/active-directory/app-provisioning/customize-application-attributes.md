@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/10/2020
 ms.author: kenwith
-ms.openlocfilehash: f65fb37a4cc6640bc998af1c56e7852cccaba234
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 5f6e5de61c9f43d5958e68c545105c4373996f7c
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94955534"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96175073"
 ---
 # <a name="tutorial---customize-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Tutorial: Personalización de las asignaciones de atributos de aprovisionamiento de usuarios para aplicaciones SaaS en Azure Active Directory
 
@@ -239,7 +239,7 @@ Use los pasos siguientes para aprovisionar roles para un usuario para la aplicac
    }
    ]
    ```  
-El formato de la solicitud es diferente entre PATCH y POST. Para asegurarse de que los mensajes POST y PATCH se envían en el mismo formato, puede usar la marca de características descrita [aquí](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-config-problem-scim-compatibility#flags-to-alter-the-scim-behavior). 
+El formato de la solicitud es diferente entre PATCH y POST. Para asegurarse de que los mensajes POST y PATCH se envían en el mismo formato, puede usar la marca de características descrita [aquí](./application-provisioning-config-problem-scim-compatibility.md#flags-to-alter-the-scim-behavior). 
 
 - **AppRoleAssignmentsComplex** 
   - **Cuándo se debe usar:** use la expresión AppRoleAssignmentsComplex para aprovisionar varios roles para un usuario. 

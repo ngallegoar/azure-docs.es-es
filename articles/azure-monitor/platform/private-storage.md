@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: noakup
 ms.author: noakuper
 ms.date: 09/03/2020
-ms.openlocfilehash: 7cb427c83345a4603c6fe7727c1cc42c1943c456
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: f424a2c3102f7b270a64c612a91d645ab71461fc
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95908258"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184100"
 ---
 # <a name="using-customer-managed-storage-accounts-in-azure-monitor-log-analytics"></a>Uso de cuentas de almacenamiento administradas por el cliente en Log Analytics de Azure Monitor
 
@@ -64,7 +64,7 @@ Azure Storage cifra todos los datos en reposo de una cuenta de almacenamiento. D
 La cuenta de almacenamiento y el almacén de claves deben estar en la misma región, pero pueden estar en distintas suscripciones. Para más información sobre cifrado de Azure Storage y la administración de claves, consulte [Cifrado de Azure Storage para datos en reposo](../../storage/common/storage-service-encryption.md).
 
 ##### <a name="apply-cmk-to-your-storage-accounts"></a>Aplicación de CMK a cuentas de almacenamiento
-Para configurar la cuenta de almacenamiento de Azure para usar claves administradas por el cliente con Azure Key Vault use [Azure Portal](../../storage/common/customer-managed-keys-configure-key-vault.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json), [PowerShell](../../storage/common/customer-managed-keys-configure-key-vault.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json) o la [CLI](../../storage/common/customer-managed-keys-configure-key-vault.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json). 
+Para configurar la cuenta de almacenamiento de Azure para usar claves administradas por el cliente con Azure Key Vault use [Azure Portal](../../storage/common/customer-managed-keys-configure-key-vault.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json), [PowerShell](../../storage/common/customer-managed-keys-configure-key-vault.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) o la [CLI](../../storage/common/customer-managed-keys-configure-key-vault.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). 
 
 ## <a name="managing-linked-storage-accounts"></a>Administración de cuentas de almacenamiento vinculadas
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/17/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 7bf78194b50e2e2335d807504ebca5f8a0e9f0eb
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: ef516e021b33c465139ecab621369223f61608f4
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94849141"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348558"
 ---
 # <a name="azure-security-baseline-for-azure-data-share"></a>Línea base de seguridad de Azure para Azure Data Share
 
@@ -78,7 +78,7 @@ También puede habilitar e incorporar datos en Azure Sentinel o en una herramien
 
 - [Incorporación de Azure Sentinel](../sentinel/quickstart-onboard.md) 
 
-- [Introducción a las consultas de Log Analytics](/azure/azure-monitor/log-query/get-started-portal) 
+- [Introducción a las consultas de Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md) 
 
 - [Procedimiento para realizar consultas personalizadas en Azure Monitor](../azure-monitor/log-query/get-started-queries.md) 
 
@@ -108,7 +108,7 @@ También puede habilitar e incorporar datos en Azure Sentinel o en una herramien
 
 **Guía**: Azure Data Share admite la autenticación de SSO con Azure Active Directory. Reduzca el número de identidades y credenciales que los usuarios deben administrar habilitando SSO para el servicio con las identidades preexistentes de la organización.
 
-- [Descripción del SSO con Azure AD](/azure/active-directory/manage-apps/what-is-single-sign-o)
+- [Descripción del SSO con Azure AD](/azure/active-directory/manage-apps/what-is-single-sign-on)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -155,7 +155,7 @@ También puede habilitar e incorporar datos en Azure Sentinel o en una herramien
 
 **Guía**: Azure AD proporciona registros para ayudar a descubrir cuentas obsoletas. Además, use las revisiones de acceso e identidades de Azure AD para administrar de forma eficiente las pertenencias a grupos, el acceso a las aplicaciones empresariales y las asignaciones de roles. El acceso de los usuarios se puede revisar de forma periódica para asegurarse de que solo las personas adecuadas tengan acceso continuado.
 
-- [Descripción de los informes de Azure AD](/azure/active-directory/reports-monitoring/) 
+- [Descripción de los informes de Azure AD](../active-directory/reports-monitoring/index.yml) 
 
 - [Procedimiento para usar las revisiones de acceso e identidades de Azure AD](../active-directory/governance/access-reviews-overview.md) 
 
@@ -171,7 +171,7 @@ También puede habilitar e incorporar datos en Azure Sentinel o en una herramien
 
 Para simplificar este proceso, cree una configuración de diagnóstico para las cuentas de usuario de Azure AD y envíe los registros de auditoría y los registros de inicio de sesión a un área de trabajo de Log Analytics. Puede configurar las alertas deseadas en el área de trabajo de Log Analytics.
 
-- [Integración de los registros de actividad de Azure en Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics) 
+- [Integración de los registros de actividad de Azure en Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md) 
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -181,7 +181,7 @@ Para simplificar este proceso, cree una configuración de diagnóstico para las 
 
 **Guía**: use las características de Azure Active Directory Identity Protection para configurar las respuestas automatizadas a las acciones sospechosas detectadas relacionadas con las identidades de los usuarios. También puede hacer que Azure Sentinel ingiera los datos para investigarlos más.
 
-- [Visualización de los inicios de sesión de riesgo de Azure AD](/azure/active-directory/reports-monitoring/concept-risky-sign-ins) 
+- [Visualización de los inicios de sesión de riesgo de Azure AD](../active-directory/identity-protection/overview-identity-protection.md) 
 
 - [Configuración y habilitación de las directivas de riesgo de protección de identidad](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md) 
 
@@ -227,7 +227,7 @@ En general, siga las recomendaciones de Azure Security Center sobre cómo realiz
 
 Use una solución de terceros para realizar evaluaciones de vulnerabilidades en dispositivos de red y aplicaciones web. Al realizar exámenes remotos, no use una cuenta administrativa única y perpetua. Considere la posibilidad de implementar la metodología de aprovisionamiento JIT para la cuenta de examen. Las credenciales de la cuenta de examen deben protegerse, supervisarse y utilizarse solo para el examen de vulnerabilidades.
 
-- [Implementación de las recomendaciones de evaluación de vulnerabilidades de Azure Security Center](/azure/security-center/security-center-vulnerability-assessment-recommendations) 
+- [Implementación de las recomendaciones de evaluación de vulnerabilidades de Azure Security Center](../security-center/deploy-vulnerability-assessment-vm.md) 
 
 **Supervisión de Azure Security Center**: Sí
 
@@ -257,11 +257,11 @@ Use una solución de terceros para realizar evaluaciones de vulnerabilidades en 
 
 **Guía**: Use el etiquetado, los grupos de administración y las suscripciones independientes, si procede, para organizar y realizar un seguimiento de los recursos. Concilie el inventario periódicamente y asegúrese de que los recursos no autorizados se eliminan de la suscripción de manera oportuna.
 
-- [Creación de suscripciones adicionales de Azure](/azure/billing/billing-create-subscription) 
+- [Creación de suscripciones adicionales de Azure](../cost-management-billing/manage/create-subscription.md) 
 
-- [Creación de grupos de administración](/azure/governance/management-groups/create) 
+- [Creación de grupos de administración](../governance/management-groups/create-management-group-portal.md) 
 
-- [Creación y uso de etiquetas](/azure/azure-resource-manager/resource-group-using-tags)
+- [Creación y uso de etiquetas](../azure-resource-manager/management/tag-resources.md)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -292,7 +292,7 @@ Use Azure Resource Graph para consultar y detectar recursos dentro de sus suscri
 
 **Guía**: Quite recursos de Azure cuando ya no sean necesarios; para ello, utilice Azure Portal, PowerShell o la CLI.
 
-- [Eliminación de grupos de recursos y recursos de Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/delete-resource-group?tabs=azure-powershell)
+- [Eliminación de grupos de recursos y recursos de Azure](../azure-resource-manager/management/delete-resource-group.md?tabs=azure-powershell)
 
 Azure Data Share no expone el sistema operativo ni permite instalar aplicaciones de software de terceros en sus recursos.
 
@@ -330,7 +330,7 @@ Azure Data Share no expone el sistema operativo ni permite instalar aplicaciones
 
 **Guía**: Use Azure DevOps para almacenar y administrar de forma segura el código, como definiciones de Azure Policy personalizadas, plantillas de Azure Resource Manager y scripts de Desired State Configuration. Para acceder a los recursos que administra en Azure DevOps, puede conceder o denegar permisos a usuarios específicos, grupos de seguridad integrados o grupos definidos en Azure Active Directory (Azure AD) si se integran con Azure DevOps, o Active Directory si se integran con TFS.
 
-- [Almacenamiento de código en Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops&amp;preserve-view=true)
+- [Almacenamiento de código en Azure DevOps](/azure/devops/repos/git/gitworkflow?amp;preserve-view=true&view=azure-devops)
 
 - [Acerca de los permisos y los grupos en Azure DevOps](/azure/devops/organizations/security/about-permissions) 
 
@@ -362,5 +362,5 @@ Azure Data Share no expone el sistema operativo ni permite instalar aplicaciones
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Consulte la [prueba comparativa de seguridad de Azure](/azure/security/benchmarks/overview).
-- Obtenga más información sobre las [líneas de base de seguridad de Azure](/azure/security/benchmarks/security-baselines-overview).
+- Consulte la [prueba comparativa de seguridad de Azure](../security/benchmarks/overview.md).
+- Obtenga más información sobre las [líneas de base de seguridad de Azure](../security/benchmarks/security-baselines-overview.md).

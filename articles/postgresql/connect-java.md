@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.devlang: java
 ms.date: 08/17/2020
 ms.openlocfilehash: 42547338c0f5f2f3105833b12e499d40b6209b05
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93341423"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184712"
 ---
 # <a name="quickstart-use-java-and-jdbc-with-azure-database-for-postgresql"></a>Inicio rápido: Uso de Java y JDBC con Azure Database for PostgreSQL
 
@@ -179,7 +179,7 @@ CREATE TABLE todo (id SERIAL PRIMARY KEY, description VARCHAR(255), details VARC
 
 A continuación, agregue el código Java que usará JDBC para almacenar y recuperar datos del servidor de PostgreSQL.
 
-Cree un archivo *src/main/java/DemoApplication.java* , que contiene:
+Cree un archivo *src/main/java/DemoApplication.java*, que contiene:
 
 ```java
 package com.example.demo;
@@ -322,7 +322,7 @@ Esta clase es un modelo de dominio asignado a la tabla `todo` que creó al ejecu
 
 ### <a name="insert-data-into-azure-database-for-postgresql"></a>Inserción de datos en Azure Database for PostgreSQL
 
-En el archivo *src/main/java/DemoApplication.java* , después del método main, agregue el método siguiente para insertar los datos en la base de datos:
+En el archivo *src/main/java/DemoApplication.java*, después del método main, agregue el método siguiente para insertar los datos en la base de datos:
 
 ```java
 private static void insertData(Todo todo, Connection connection) throws SQLException {
@@ -360,7 +360,7 @@ La ejecución de la clase main debería generar ahora la siguiente salida:
 
 Vamos a leer los datos que se insertaron previamente para validar que el código funciona correctamente.
 
-En el archivo *src/main/java/DemoApplication.java* , después del método `insertData`, agregue el método siguiente para leer los datos de la base de datos:
+En el archivo *src/main/java/DemoApplication.java*, después del método `insertData`, agregue el método siguiente para leer los datos de la base de datos:
 
 ```java
 private static Todo readData(Connection connection) throws SQLException {
@@ -404,7 +404,7 @@ La ejecución de la clase main debería generar ahora la siguiente salida:
 
 Vamos a actualizar los datos que se insertaron anteriormente.
 
-En el archivo *src/main/java/DemoApplication.java* , después del método `readData`, agregue el método siguiente para actualizar los datos de la base de datos:
+En el archivo *src/main/java/DemoApplication.java*, después del método `readData`, agregue el método siguiente para actualizar los datos de la base de datos:
 
 ```java
 private static void updateData(Todo todo, Connection connection) throws SQLException {
@@ -448,7 +448,7 @@ La ejecución de la clase main debería generar ahora la siguiente salida:
 
 Por último, vamos a eliminar los datos que se insertaron anteriormente.
 
-En el archivo *src/main/java/DemoApplication.java* , después del método `updateData`, agregue el método siguiente para eliminar los datos de la base de datos:
+En el archivo *src/main/java/DemoApplication.java*, después del método `updateData`, agregue el método siguiente para eliminar los datos de la base de datos:
 
 ```java
 private static void deleteData(Todo todo, Connection connection) throws SQLException {

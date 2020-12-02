@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.custom:
 - devx-track-java
 - devx-track-azurecli
-ms.openlocfilehash: 5c8993bdf892ceb7d9886d0d2b97063dedec720c
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: db24fa4721e2e502c5098b415c4cf06da80f697d
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94635558"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96175685"
 ---
 # <a name="quickstart-create-a-java-function-in-azure-from-the-command-line"></a>Inicio rápido: Creación de una función de Java en Azure desde la línea de comandos
 
@@ -34,7 +34,7 @@ Antes de empezar, debe disponer de lo siguiente:
 
 + La [CLI de Azure](/cli/azure/install-azure-cli), versión 2.4 o cualquier versión posterior.
 
-+ [Kit para desarrolladores de Java](https://aka.ms/azure-jdks), versión 8 u 11. La variable de entorno `JAVA_HOME` se debe establecer en la ubicación de instalación de la versión correcta del JDK.     
++ [Kit para desarrolladores de Java](/azure/developer/java/fundamentals/java-jdk-long-term-support), versión 8 u 11. La variable de entorno `JAVA_HOME` se debe establecer en la ubicación de instalación de la versión correcta del JDK.     
 
 + [Apache Maven](https://maven.apache.org), versión 3.0 o posterior.
 
@@ -79,7 +79,7 @@ En Azure Functions, un proyecto de función es un contenedor para una o varias f
 1. Maven le pide los valores necesarios para finalizar la generación del proyecto en la implementación.   
     Indique los siguientes valores cuando se le solicite:
 
-    | Prompt | Value | Descripción |
+    | Prompt | Valor | Descripción |
     | ------ | ----- | ----------- |
     | **groupId** | `com.fabrikam` | Un valor que identifica de forma única su proyecto entre todos los demás y que sigue las [reglas de nomenclatura de paquetes](https://docs.oracle.com/javase/specs/jls/se6/html/packages.html#7.7) de Java. |
     | **artifactId** | `fabrikam-functions` | Un valor que es el nombre del archivo jar, sin un número de versión. |

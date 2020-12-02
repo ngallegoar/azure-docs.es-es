@@ -11,12 +11,12 @@ ms.date: 10/30/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4cbca2d00d10b6595b8a1d13251dd88c65667541
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: df199afd85c788299334087321c3edac8482698d
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93135003"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96168515"
 ---
 # <a name="what-is-inter-directory-provisioning"></a>¿Qué es el aprovisionamiento entre directorios?
 
@@ -35,7 +35,7 @@ Actualmente, Azure AD admite tres métodos para realizar el aprovisionamiento e
 
 - [Aprovisionamiento en la nube de Azure AD Connect](../cloud-provisioning/what-is-cloud-provisioning.md): un nuevo agente de Microsoft diseñado para satisfacer y lograr sus objetivos de identidad híbrida.  Proporciona una experiencia sencilla de aprovisionamiento entre directorios entre Active Directory y Azure AD.
 
-- [Microsoft Identity Manager](https://docs.microsoft.com/microsoft-identity-manager/microsoft-identity-manager-2016): la solución local de administración de identidades y acceso de Microsoft que le ayuda a administrar los usuarios, las credenciales, las directivas y el acceso en su organización. Además, Microsoft Identity Manager proporciona un aprovisionamiento avanzado entre directorios para lograr entornos de identidades híbridas para Active Directory, Azure AD y otros directorios.
+- [Microsoft Identity Manager](/microsoft-identity-manager/microsoft-identity-manager-2016): la solución local de administración de identidades y acceso de Microsoft que le ayuda a administrar los usuarios, las credenciales, las directivas y el acceso en su organización. Además, Microsoft Identity Manager proporciona un aprovisionamiento avanzado entre directorios para lograr entornos de identidades híbridas para Active Directory, Azure AD y otros directorios.
 
 ### <a name="key-benefits"></a>Ventajas principales
 
@@ -45,7 +45,7 @@ Esta funcionalidad de aprovisionamiento entre directorios ofrece las siguientes 
 - [Autenticación de paso a través](../hybrid/how-to-connect-pta.md): un método de inicio de sesión que permite a los usuarios usar la misma contraseña de forma local y en la nube, pero que no requiere la infraestructura adicional de un entorno federado.
 - [Integración de federación](../hybrid/how-to-connect-fed-whatis.md): puede utilizarse para configurar un entorno híbrido mediante una infraestructura local de AD FS. También proporciona funcionalidades de administración de AD FS, como la renovación de certificados e implementaciones de servidor de AD FS adicionales.
 - [Sincronización](../hybrid/how-to-connect-sync-whatis.md): responsable de la creación de usuarios, grupos y otros objetos.  También de asegurar que la información de identidad de los usuarios y los grupos de su entorno local coincide con la de la nube.  Esta sincronización también incluye los códigos hash de contraseña.
-- [Seguimiento de estado](../hybrid/whatis-hybrid-identity-health.md): puede proporcionar una sólida supervisión y una ubicación central en Azure Portal para ver esta actividad. 
+- [Seguimiento de estado](../hybrid/whatis-azure-ad-connect.md): puede proporcionar una sólida supervisión y una ubicación central en Azure Portal para ver esta actividad. 
 
 
 ## <a name="next-steps"></a>Pasos siguientes 

@@ -11,12 +11,12 @@ ms.date: 10/30/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ef6f6068bce7a676e55eca10ae9198b2238a143
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 640367d1b833f61e8a83fe9ce6b14d6d799cf9b9
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93135089"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96172459"
 ---
 # <a name="what-is-provisioning"></a>¿Qué es el aprovisionamiento?
 
@@ -42,10 +42,10 @@ El aprovisionamiento de recursos humanos en Azure AD implica la creación de ob
 
 El escenario más común sería el siguiente: cuando un empleado nuevo empleado entra a formar parte de la empresa, se le incorpora al sistema de recursos humanos.  Cuando esto sucede, se le aprovisiona automáticamente como nuevo usuario en Azure AD, sin necesidad de intervención administrativa para cada nuevo contrato.  Por lo general, el aprovisionamiento desde recursos humanos puede abarcar los siguientes escenarios.
 
-- **Contratación de nuevos empleados** : cuando se agrega un nuevo empleado a un sistema de RR. HH, se crea automáticamente una cuenta de usuario en Active Directory, Azure AD y, opcionalmente, en los directorios de otras aplicaciones compatibles con Azure AD, con reescritura de la dirección de correo electrónico en el sistema de RR. HH.
-- **Actualizaciones de atributos y perfiles de empleados** : si se actualiza un registro de empleado en el sistema de RR. HH (por ejemplo, el nombre, el cargo o el jefe), su cuenta de usuario se actualizará automáticamente en Active Directory, Azure AD y, opcionalmente, en otras aplicaciones compatibles con Azure AD.
-- **Despidos de empleados** : cuando se prescinde de un empleado en el sistema de RR. HH., se impide automáticamente a su cuenta de usuario el inicio de sesión o se elimina esa cuenta de Active Directory, Azure AD y de otras aplicaciones.
-- **Recontratación de empleados** : cuando se vuelve a contratar a un empleado en el sistema de RR. HH. en la nube, su cuenta anterior se puede volver a activar o reaprovisionar automáticamente (según lo que prefiera).
+- **Contratación de nuevos empleados**: cuando se agrega un nuevo empleado a un sistema de RR. HH, se crea automáticamente una cuenta de usuario en Active Directory, Azure AD y, opcionalmente, en los directorios de otras aplicaciones compatibles con Azure AD, con reescritura de la dirección de correo electrónico en el sistema de RR. HH.
+- **Actualizaciones de atributos y perfiles de empleados**: si se actualiza un registro de empleado en el sistema de RR. HH (por ejemplo, el nombre, el cargo o el jefe), su cuenta de usuario se actualizará automáticamente en Active Directory, Azure AD y, opcionalmente, en otras aplicaciones compatibles con Azure AD.
+- **Despidos de empleados**: cuando se prescinde de un empleado en el sistema de RR. HH., se impide automáticamente a su cuenta de usuario el inicio de sesión o se elimina esa cuenta de Active Directory, Azure AD y de otras aplicaciones.
+- **Recontratación de empleados**: cuando se vuelve a contratar a un empleado en el sistema de RR. HH. en la nube, su cuenta anterior se puede volver a activar o reaprovisionar automáticamente (según lo que prefiera).
 
 Hay tres opciones de implementación para el aprovisionamiento controlado por recursos humanos con Azure AD:
 
@@ -59,7 +59,7 @@ Para más información, consulte [¿Qué es el aprovisionamiento controlado por 
 
 ![aprovisionamiento de aplicaciones](media/what-is-provisioning/cloud-3b.png)
 
-En Azure AD, el término **[aprovisionamiento de aplicaciones](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning)** hace referencia a la creación automática de copias de identidades de usuario en las aplicaciones a las que los usuarios necesitan acceder, para aquellas aplicaciones que tienen su propio almacén de datos y que son distintas de Azure AD o Active Directory. Además de crear identidades de usuario, el aprovisionamiento de aplicaciones incluye el mantenimiento y la eliminación de identidades de usuario de esas aplicaciones a medida que el estado o los roles del usuario cambian. Algunos escenarios comunes incluyen el aprovisionamiento de un usuario de Azure AD en aplicaciones como [Dropbox](https://docs.microsoft.com/azure/active-directory/saas-apps/dropboxforbusiness-provisioning-tutorial), [Salesforce](https://docs.microsoft.com/azure/active-directory/saas-apps/salesforce-provisioning-tutorial) o [ServiceNow](https://docs.microsoft.com/azure/active-directory/saas-apps/servicenow-provisioning-tutorial), ya que cada una de estas aplicaciones tiene su propio repositorio de usuarios distinto de Azure AD.
+En Azure AD, el término **[aprovisionamiento de aplicaciones](../app-provisioning/user-provisioning.md)** hace referencia a la creación automática de copias de identidades de usuario en las aplicaciones a las que los usuarios necesitan acceder, para aquellas aplicaciones que tienen su propio almacén de datos y que son distintas de Azure AD o Active Directory. Además de crear identidades de usuario, el aprovisionamiento de aplicaciones incluye el mantenimiento y la eliminación de identidades de usuario de esas aplicaciones a medida que el estado o los roles del usuario cambian. Algunos escenarios comunes incluyen el aprovisionamiento de un usuario de Azure AD en aplicaciones como [Dropbox](../saas-apps/dropboxforbusiness-provisioning-tutorial.md), [Salesforce](../saas-apps/salesforce-provisioning-tutorial.md) o [ServiceNow](../saas-apps/servicenow-provisioning-tutorial.md), ya que cada una de estas aplicaciones tiene su propio repositorio de usuarios distinto de Azure AD.
 
 Para más información, consulte [¿Qué es el aprovisionamiento de aplicaciones?](what-is-app-provisioning.md)
 

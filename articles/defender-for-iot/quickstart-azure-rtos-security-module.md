@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2020
 ms.author: rkarlin
-ms.openlocfilehash: 38e78b80fd14aec7557b563b2b33faf7d51bd114
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: 321c8d2b9e58aba943c5bf19adf54d6359c5be96
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91759739"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351783"
 ---
 # <a name="quickstart-security-module-for-azure-rtos-preview"></a>Inicio rápido: Módulo de seguridad para Azure RTOS (versión preliminar)
 
-En este artículo se proporciona una explicación de los requisitos previos al comienzo y se explica cómo habilitar el módulo de seguridad para el servicio Azure RTOS en IoT Hub. Si actualmente no tiene una instancia de IoT Hub, consulte [Creación de una instancia de IoT Hub mediante Azure Portal](https://docs.microsoft.com/azure/iot-hub/iot-hub-create-through-portal) para comenzar.
+En este artículo se proporciona una explicación de los requisitos previos al comienzo y se explica cómo habilitar el módulo de seguridad para el servicio Azure RTOS en IoT Hub. Si actualmente no tiene una instancia de IoT Hub, consulte [Creación de una instancia de IoT Hub mediante Azure Portal](../iot-hub/iot-hub-create-through-portal.md) para comenzar.
 
 > [!NOTE]
 > Security Module for Azure RTOS solo se admite en centros de IoT de nivel estándar.
@@ -63,10 +63,10 @@ La ingesta de Log Analytics en IoT Hub está desactivada de forma predeterminada
 1. Seleccione **Recopilación de datos**. 
 1. En la opción **Configuración del área de trabajo**, cambie el control de alternancia a **Activado**. 
 1. Cree un área de trabajo de Log Analytics o adjunte uno existente. Asegúrese de que la opción **Access to raw security data** (Acceder a los datos de seguridad sin procesar) está seleccionada. 
- :::image type="content" source="media/quickstart/azure-rtos-data-collection-on.png" alt-text="Opción de recopilación de datos de acceso para Azure RTOS":::
+ :::image type="content" source="media/quickstart/azure-rtos-data-collection-on.png" alt-text="Configuración de Azure RTOS que muestra las opciones de recopilación de datos y de datos de seguridad sin procesar seleccionadas":::
 1. Seleccione **Guardar**.
 1. Vuelva a la lista de recursos de Azure y confirme que ve el área de trabajo de Log Analytics que ha creado o adjuntado habilitada para el centro de IoT.
-    :::image type="content" source="media/quickstart/verify-azure-resource-list.png" alt-text="Opción de recopilación de datos de acceso para Azure RTOS"::: 
+    :::image type="content" source="media/quickstart/verify-azure-resource-list.png" alt-text="Comprobación de la lista de recursos de Azure para confirmar la incorporación del área de trabajo de Log Analytics correcta para un centro de IoT"::: 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -3,12 +3,12 @@ title: Introducción a las características de seguridad
 description: Obtenga información sobre las funcionalidades de seguridad de Azure Backup que le ayudan a proteger los datos de copia de seguridad y a satisfacer las necesidades de seguridad de su negocio.
 ms.topic: conceptual
 ms.date: 03/12/2020
-ms.openlocfilehash: 8c4d3af9205df43c3596da64d7fcad2a9eb82500
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 9aa1909f1590b477d9a7f7a09ad0c2b1936e3e29
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093351"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325662"
 ---
 # <a name="overview-of-security-features-in-azure-backup"></a>Introducción a las características de seguridad de Azure Backup
 
@@ -26,7 +26,7 @@ Azure Backup proporciona tres [roles integrados](../role-based-access-control/bu
 
 Obtenga más información sobre el [control de acceso basado en roles de Azure para administrar puntos de recuperación de Azure Backup](./backup-rbac-rs-vault.md).
 
-Azure Backup tiene varios controles de seguridad integrados en el servicio para evitar, detectar y responder a los puntos vulnerables de seguridad. Obtenga más información sobre los [controles de seguridad para Azure Backup](./backup-security-controls.md).
+Azure Backup tiene varios controles de seguridad integrados en el servicio para evitar, detectar y responder a los puntos vulnerables de seguridad. Obtenga más información sobre los [controles de seguridad para Azure Backup](./security-baseline.md).
 
 ## <a name="separation-between-guest-and-azure-storage"></a>Separación entre el invitado y Azure Storage
 

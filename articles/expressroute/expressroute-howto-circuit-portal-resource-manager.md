@@ -8,11 +8,11 @@ ms.topic: quickstart
 ms.date: 10/21/2020
 ms.author: duau
 ms.openlocfilehash: b0fd844021e7398e061072d7939b782616580c1c
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368696"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185205"
 ---
 # <a name="quickstart-create-and-modify-an-expressroute-circuit"></a>Inicio rápido: Creación y modificación de un circuito ExpressRoute
 
@@ -43,11 +43,11 @@ Puede crear un circuito ExpressRoute seleccionando la opción de creación de un
 
 2. Después de seleccionar **ExpressRoute**, verá la página **Crear circuito ExpressRoute**. Proporcione el **grupo de recursos**, la **región** y el **nombre** del circuito. Después, seleccione **Next: Configuración >** .
 
-    :::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-create-basic.png" alt-text="Creación de un circuito ExpressRoute":::
+    :::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-create-basic.png" alt-text="Configuración del grupo de recursos y la región":::
 
 3. Después de rellenar los valores de esta página, asegúrese de especificar el nivel de SKU adecuado (Local, Estándar o Premium) y el modelo de facturación de medición de datos (Ilimitado o Limitado).
 
-    :::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-create-configuration.png" alt-text="Creación de un circuito ExpressRoute":::
+    :::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-create-configuration.png" alt-text="Configuración del circuito":::
     
     * **Tipo de puerto** determina si se va a conectar a un proveedor de servicios o directamente a la red global de Microsoft en una ubicación de emparejamiento.
     * **Crear o importar a partir de clásico** determina si se está creando un circuito nuevo o si está migrando un circuito clásico a Azure Resource Manager.
@@ -74,17 +74,17 @@ Puede crear un circuito ExpressRoute seleccionando la opción de creación de un
 
 Puede ver todos los circuitos creados seleccionando **Todos los servicios > Redes > Circuitos ExpressRoute** en el menú de la izquierda.
 
-:::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-circuit-menu.png" alt-text="Creación de un circuito ExpressRoute":::
+:::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-circuit-menu.png" alt-text="Menú Circuito de ExpressRoute":::
 
 Todos los circuitos Expressroute creados en la suscripción se mostrarán aquí.
 
-:::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-circuit-list.png" alt-text="Creación de un circuito ExpressRoute":::
+:::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-circuit-list.png" alt-text="Lista del Circuito de ExpressRoute":::
 
 **Visualización de las propiedades**
 
 Puede ver las propiedades del circuito seleccionándolo. En la página **Introducción** del circuito, la clave de servicio se muestra en el campo Clave de servicio. Consulte la clave de servicio del circuito y proporciónela al proveedor de servicios para completar el proceso de aprovisionamiento. La clave de servicio es específica para su circuito.
 
-:::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-circuit-overview.png" alt-text="Creación de un circuito ExpressRoute":::
+:::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-circuit-overview.png" alt-text="Vista de propiedades":::
 
 ### <a name="send-the-service-key-to-your-connectivity-provider-for-provisioning"></a>Envío de la clave de servicio al proveedor de conectividad para el aprovisionamiento
 
@@ -95,7 +95,7 @@ Cuando se crea un nuevo circuito ExpressRoute, dicho circuito tiene el siguiente
 Estado de proveedor: **No aprovisionado**<BR>
 Estado de circuito: **Enabled**
 
-:::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-circuit-overview-provisioning-state.png" alt-text="Creación de un circuito ExpressRoute":::
+:::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-circuit-overview-provisioning-state.png" alt-text="Se inicia el proceso de aprovisionamiento":::
 
 El circuito pasa al estado siguiente cuando el proveedor de conectividad lo habilita para el usuario:
 
@@ -111,7 +111,7 @@ Estado de circuito: **Enabled**
 
 Puede ver las propiedades del circuito que le interese seleccionándolo. Compruebe el **Estado de proveedor** y asegúrese de que se ha pasado a **Aprovisionado** antes de continuar.
 
-:::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/provisioned.png" alt-text="Creación de un circuito ExpressRoute":::
+:::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/provisioned.png" alt-text="Estado del circuito y proveedor":::
 
 ### <a name="create-your-routing-configuration"></a>Creación de la configuración de enrutamiento
 
@@ -159,7 +159,7 @@ Puede hacer las siguientes tareas sin experimentar tiempo de inactividad:
 
 Para modificar un circuito ExpressRoute, seleccione **Configuración**.
 
-:::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-circuit-configuration.png" alt-text="Creación de un circuito ExpressRoute":::
+:::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-circuit-configuration.png" alt-text="Modificación del circuito":::
 
 ## <a name="deprovisioning-an-expressroute-circuit"></a><a name="delete"></a>Desaprovisionamiento de un circuito ExpressRoute
 
@@ -174,7 +174,7 @@ Si el estado de aprovisionamiento del proveedor de servicios del circuito Expres
 
 Para eliminar el circuito ExpressRoute, puede seleccionar el icono **Eliminar**. Antes de proceder, asegúrese de que el estado del proveedor sea *No aprovisionado*.
 
-:::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-circuit-delete.png" alt-text="Creación de un circuito ExpressRoute":::
+:::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-circuit-delete.png" alt-text="Eliminación del circuito":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

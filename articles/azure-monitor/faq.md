@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2020
-ms.openlocfilehash: 391d9562bc73265a10976f485c78e3966aa4fe83
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: b770e4488b6edb1c2d3749066315b552c0b5b40a
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95536292"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186174"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Preguntas más frecuentes sobre Azure Monitor
 
@@ -31,7 +31,7 @@ En septiembre de 2018, Microsoft combinó Azure Monitor, Log Analytics y Applic
 Las características de Azure Monitor que están habilitadas automáticamente, como la recopilación de métricas y los registros de actividad, se proporcionan sin costo alguno. Hay un costo asociado a otras características, como las consultas de registro y las alertas. Para obtener información detallada sobre los precios, consulte la [página de precios de Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).
 
 ### <a name="how-do-i-enable-azure-monitor"></a>¿Cómo puedo habilitar Azure Monitor?
-Azure Monitor está habilitado en el momento en que se crea una nueva suscripción de Azure y se recopilan automáticamente el [registro de actividad](./platform/platform-logs-overview.md) y las [métricas](platform/data-platform-metrics.md) de la plataforma. Puede crear una [configuración de diagnóstico](platform/diagnostic-settings.md) para recopilar información más detallada sobre el funcionamiento de los recursos de Azure y agregar [soluciones de supervisión](insights/solutions.md) e [información detallada](insights/insights-overview.md) para proporcionar un análisis adicional de los datos recopilados de servicios específicos. 
+Azure Monitor está habilitado en el momento en que se crea una nueva suscripción de Azure y se recopilan automáticamente el [registro de actividad](./platform/platform-logs-overview.md) y las [métricas](platform/data-platform-metrics.md) de la plataforma. Puede crear una [configuración de diagnóstico](platform/diagnostic-settings.md) para recopilar información más detallada sobre el funcionamiento de los recursos de Azure y agregar [soluciones de supervisión](insights/solutions.md) e [información detallada](./monitor-reference.md) para proporcionar un análisis adicional de los datos recopilados de servicios específicos. 
 
 ### <a name="how-do-i-access-azure-monitor"></a>¿Cómo puedo acceder a Azure Monitor?
 Puede acceder a todas las características y los datos de Azure Monitor desde el menú **Monitor** de Azure Portal. La sección **Supervisión** del menú de los distintos servicios de Azure proporciona acceso a las mismas herramientas con datos filtrados para un recurso determinado. También se puede acceder a los datos de Azure Monitor para una variedad de escenarios mediante la CLI, PowerShell y una API REST.
@@ -65,7 +65,7 @@ Insights y las soluciones proporcionan una experiencia personalizada para trabaj
 ## <a name="solutions-and-insights"></a>Soluciones e Insights
 
 ### <a name="what-is-an-insight-in-azure-monitor"></a>¿Qué es una conclusión en Azure Monitor?
-Insights proporciona una experiencia de supervisión personalizada para determinados servicios de Azure. Usa las mismas métricas y registros que otras características de Azure Monitor, pero puede recopilar datos adicionales y proporcionar una experiencia única en Azure Portal. Consulte [Insights en Azure Monitor](insights/insights-overview.md).
+Insights proporciona una experiencia de supervisión personalizada para determinados servicios de Azure. Usa las mismas métricas y registros que otras características de Azure Monitor, pero puede recopilar datos adicionales y proporcionar una experiencia única en Azure Portal. Consulte [Insights en Azure Monitor](./monitor-reference.md).
 
 Para ver información detallada en Azure Portal, consulte la sección **Insights** del menú **Monitor** o la sección **Supervisión** del menú del servicio.
 
@@ -77,7 +77,7 @@ Para ver las soluciones en Azure Portal, haga clic en **Más** en la sección **
 ## <a name="logs"></a>Registros
 
 ### <a name="whats-the-difference-between-azure-monitor-logs-and-azure-data-explorer"></a>¿Cuál es la diferencia entre los registros de Azure Monitor y Azure Data Explorer?
-El Explorador de datos de Azure es un servicio de exploración de datos altamente escalable y rápido para datos de telemetría y registro. Los registros de Azure Monitor se basan en Azure Data Explorer y usan el mismo lenguaje de consulta Kusto (KQL) con algunas diferencias menores. Consulte [Diferencias en el lenguaje de consulta de los registros de Azure Monitor](log-query/data-explorer-difference.md).
+El Explorador de datos de Azure es un servicio de exploración de datos altamente escalable y rápido para datos de telemetría y registro. Los registros de Azure Monitor se basan en Azure Data Explorer y usan el mismo lenguaje de consulta Kusto (KQL) con algunas diferencias menores. Consulte [Diferencias en el lenguaje de consulta de los registros de Azure Monitor](/azure/data-explorer/kusto/query/).
 
 ### <a name="how-do-i-retrieve-log-data"></a>¿Cómo puedo recuperar los datos de registro?
 Todos los datos se recuperan de un área de trabajo de Log Analytics mediante una consulta de registro escrita en el lenguaje de consulta Kusto (KQL). Puede escribir sus propias consultas o usar soluciones e Insights que incluyan consultas de registro para una aplicación o servicio determinados. Consulte [Introducción a las consultas de registro en Azure Monitor](log-query/log-query-overview.md).
@@ -224,7 +224,7 @@ El Diseñador de vistas solo está disponible para los usuarios asignados que te
 * [Aplicaciones de Node.js](app/nodejs.md)
 * [Aplicaciones web de Azure](app/azure-web-apps.md)
 * [Cloud Services en Azure](app/cloudservices.md)
-* [Servidores de aplicaciones que se ejecutan en Docker](app/docker.md)
+* [Servidores de aplicaciones que se ejecutan en Docker](./azure-monitor-app-hub.yml)
 * [Aplicaciones web de una sola página](app/javascript.md)
 * [SharePoint](app/sharepoint.md)
 * [Aplicación de escritorio de Windows](app/windows-desktop.md)
@@ -401,7 +401,7 @@ Cada elemento que se transmite lleva una propiedad `itemCount` que muestra cuán
 
 **No se admite** la migración de recursos de Application Insights existentes de una región a otra. Los datos históricos que ha recopilado **no se pueden migrar** a una nueva región. La única solución alternativa parcial es:
 
-1. Cree un recurso de Application Insights ([clásico](app/create-new-resource.md) o [basado en el área de trabajo](/azure/azure-monitor/app/create-workspace-resource)) en la nueva región.
+1. Cree un recurso de Application Insights ([clásico](app/create-new-resource.md) o [basado en el área de trabajo](./app/create-workspace-resource.md)) en la nueva región.
 2. Vuelva a crear todas las personalizaciones únicas específicas del recurso original en el nuevo recurso.
 3. Modifique la aplicación para usar la [clave de instrumentación](app/create-new-resource.md#copy-the-instrumentation-key) o la [cadena de conexión](app/sdk-connection-string.md) del recurso de la nueva región.  
 4. Pruebe a confirmar que todo sigue funcionando según lo previsto con el nuevo recurso de Application Insights. 
@@ -414,7 +414,7 @@ Las personalizaciones únicas que normalmente deben volver a crearse o actualiza
 - Vuelva a crear alertas de disponibilidad.
 - Vuelva a crear las opciones de configuración de control de acceso basado en rol de Azure (Azure RBAC) personalizadas necesarias para que los usuarios puedan acceder al nuevo recurso. 
 - Replique la configuración que implique el muestreo de ingesta, la retención de datos, el límite diario y la habilitación de métricas personalizadas. Estas opciones de configuración se controlan mediante el panel **Uso y costos estimados**.
-- Cualquier integración que se base en claves de API como [anotaciones de versión](/azure/azure-monitor/app/annotations), [canal de control seguro de métricas en directo](app/live-stream.md#secure-the-control-channel), etc. Tendrá que generar nuevas claves de API y actualizar la integración asociada. 
+- Cualquier integración que se base en claves de API como [anotaciones de versión](./app/annotations.md), [canal de control seguro de métricas en directo](app/live-stream.md#secure-the-control-channel), etc. Tendrá que generar nuevas claves de API y actualizar la integración asociada. 
 - La exportación continua en los recursos clásicos deberían volver a configurarse.
 - La configuración de diagnóstico en los recursos basados en el área de trabajo tendría que volver a definirse.
 

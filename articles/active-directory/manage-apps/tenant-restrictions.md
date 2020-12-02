@@ -33,13 +33,13 @@ Este artículo se centra en las restricciones de inquilino para Microsoft 365, 
 
 La solución general consta de los siguientes componentes:
 
-1. **Azure AD** : si el encabezado `Restrict-Access-To-Tenants: <permitted tenant list>` está presente, Azure AD solo emite tokens de seguridad para los inquilinos permitidos.
+1. **Azure AD**: si el encabezado `Restrict-Access-To-Tenants: <permitted tenant list>` está presente, Azure AD solo emite tokens de seguridad para los inquilinos permitidos.
 
-2. **Infraestructura de servidor proxy local** : Esta infraestructura es un dispositivo proxy compatible con la inspección de Seguridad de la capa de transporte (TLS). Debe configurar el proxy para insertar el encabezado que contiene la lista de inquilinos permitidos en el tráfico destinado a Azure AD.
+2. **Infraestructura de servidor proxy local**: Esta infraestructura es un dispositivo proxy compatible con la inspección de Seguridad de la capa de transporte (TLS). Debe configurar el proxy para insertar el encabezado que contiene la lista de inquilinos permitidos en el tráfico destinado a Azure AD.
 
-3. **Software de cliente** : para admitir restricciones de inquilino, el software de cliente debe solicitar tokens directamente de Azure AD, de forma que la infraestructura del proxy pueda interceptar el tráfico. Actualmente, las aplicaciones de Microsoft 365 basadas en explorador admiten las restricciones de inquilino, así como los clientes de Office que usan la autenticación moderna (como OAuth 2.0).
+3. **Software de cliente**: para admitir restricciones de inquilino, el software de cliente debe solicitar tokens directamente de Azure AD, de forma que la infraestructura del proxy pueda interceptar el tráfico. Actualmente, las aplicaciones de Microsoft 365 basadas en explorador admiten las restricciones de inquilino, así como los clientes de Office que usan la autenticación moderna (como OAuth 2.0).
 
-4. **Autenticación moderna** : los servicios en la nube deben usar la autenticación moderna para utilizar restricciones de inquilino y bloquear el acceso a todos los inquilinos no permitidos. Debe configurar los servicios en la nube de Microsoft 365 para usar protocolos de autenticación modernos de manera predeterminada. Para ver la información más reciente sobre la compatibilidad con Microsoft 365 para la autenticación moderna, consulte [Autenticación moderna actualizada de Office 365](https://www.microsoft.com/en-us/microsoft-365/blog/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
+4. **Autenticación moderna**: los servicios en la nube deben usar la autenticación moderna para utilizar restricciones de inquilino y bloquear el acceso a todos los inquilinos no permitidos. Debe configurar los servicios en la nube de Microsoft 365 para usar protocolos de autenticación modernos de manera predeterminada. Para ver la información más reciente sobre la compatibilidad con Microsoft 365 para la autenticación moderna, consulte [Autenticación moderna actualizada de Office 365](https://www.microsoft.com/en-us/microsoft-365/blog/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
 
 En el siguiente diagrama se ilustra el flujo de tráfico de alto nivel. Las restricciones de inquilino solo requieren la inspección TLS en el tráfico hacia Azure AD, no hacia los servicios en la nube de Microsoft 365. Esta distinción es importante porque el volumen de tráfico para autenticación hacia Azure AD es normalmente mucho menor que el volumen de tráfico hacia aplicaciones SaaS como Exchange Online y SharePoint Online.
 
@@ -115,7 +115,7 @@ El administrador del inquilino especificado como inquilino Restricted-Access-Con
 > [!NOTE]
 > El informe puede contener información limitada, como el identificador del directorio de destino, cuando un usuario que está en un inquilino distinto del inquilino Restricted-Access-Context inicia sesión. En este caso, la información de identificación del usuario, como el nombre y el nombre principal de usuario, se enmascara para proteger los datos de usuario en otros inquilinos ("00000000-0000-0000-0000-00000000@domain.com"). 
 
-Al igual que otros informes en Azure Portal, puede usar filtros para especificar el ámbito del informe. Puede filtrar por un usuario, una aplicación, un cliente, un estado o un intervalo de tiempo específico. Si selecciona el botón **Columnas** , puede elegir mostrar los datos con cualquier combinación de los siguientes campos:
+Al igual que otros informes en Azure Portal, puede usar filtros para especificar el ámbito del informe. Puede filtrar por un usuario, una aplicación, un cliente, un estado o un intervalo de tiempo específico. Si selecciona el botón **Columnas**, puede elegir mostrar los datos con cualquier combinación de los siguientes campos:
 
 - **User**
 - **Aplicación**

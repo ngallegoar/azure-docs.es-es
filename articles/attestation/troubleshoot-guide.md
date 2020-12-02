@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: reference
 ms.date: 07/20/2020
 ms.author: mbaldwin
-ms.openlocfilehash: fe347983e2143c7a4bdf00ca0207356c881c66ac
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 72d7a40c38f3629a70260f223074b456dff9ce38
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95891289"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182842"
 ---
 # <a name="microsoft-azure-attestation-troubleshooting-guide"></a>Guía de solución de problemas de Microsoft Azure Attestation
 
@@ -95,7 +95,7 @@ b. Compruebe la configuración de asignación de roles de Azure
  
   ```
 
-c. Si no encuentra ninguna asignación de roles adecuada en la lista, siga las instrucciones que se indican [aquí](/azure/role-based-access-control/role-assignments-powershell)
+c. Si no encuentra ninguna asignación de roles adecuada en la lista, siga las instrucciones que se indican [aquí](../role-based-access-control/role-assignments-powershell.md)
 
 ## <a name="2-http--400-errors"></a>2. HTTP: errores 400
 
@@ -123,7 +123,7 @@ G:\Az\security\Attestation\src\AttestationServices\Instance\Enclave\api.cpp(840)
 
 Envíe una solicitud a la API de atestación mediante la especificación del texto de directiva del parámetro "draftPolicyForAttestation". La API AttestSgxEnclave usa este documento de directiva durante la llamada de atestación y, además, se puede usar para probar las directivas de atestación antes de que se consuman. El token de atestación generado cuando este campo está presente no está protegido.
 
-Vea [Ejemplos de una directiva de atestación](/azure/attestation/policy-examples)
+Vea [Ejemplos de una directiva de atestación](./policy-examples.md)
 
 ### <a name="22-attestation-failure-due-to-invalid-input"></a>2.2. Error de atestación debido a una entrada no válida
 
@@ -163,7 +163,7 @@ Asegúrese de que la extensión Restricciones básicas del certificado raíz est
 
 De lo contrario, se considera que la cadena de certificados no es válida.
 
-Vea ejemplos de [firmante de directivas](/azure/attestation/policy-signer-examples) y [directiva](/azure/attestation/policy-examples) 
+Vea ejemplos de [firmante de directivas](./policy-signer-examples.md) y [directiva](./policy-examples.md) 
 
 ### <a name="24-adddelete-policy-signer-failure"></a>2.4. Error de incorporación o eliminación de firmante de directivas
 
@@ -209,7 +209,7 @@ At line:1 char:1
     + FullyQualifiedErrorId : Microsoft.Azure.Commands.Attestation.AddAzureAttestationPolicySigner
 ```
 
-**Pasos para solucionar problemas** Para agregar o eliminar un nuevo certificado de firmante de directivas, use RFC7519 JSON Web Token (JWT) con una notificación denominada "x-ms-policyCertificate". El valor de la notificación es RFC7517 JSON Web Key, que contiene el certificado que se va a agregar. JWT se debe firmar con una clave privada de cualquiera de los certificados de firmante de directivas válidos asociados al proveedor. Vea [Ejemplos de firmante de directivas](/azure/attestation/policy-signer-examples).
+**Pasos para solucionar problemas** Para agregar o eliminar un nuevo certificado de firmante de directivas, use RFC7519 JSON Web Token (JWT) con una notificación denominada "x-ms-policyCertificate". El valor de la notificación es RFC7517 JSON Web Key, que contiene el certificado que se va a agregar. JWT se debe firmar con una clave privada de cualquiera de los certificados de firmante de directivas válidos asociados al proveedor. Vea [Ejemplos de firmante de directivas](./policy-signer-examples.md).
 
 ### <a name="25-attestation-policy-configuration-failure"></a>2.5. Error de configuración de directiva de atestación
 
@@ -255,7 +255,7 @@ Para configurar una directiva en formato de texto, especifique el texto de la di
 
 En PowerShell, especifique PolicyFormat como JWT para configurar la directiva en formato JWT. El formato de directiva predeterminado es Texto.
 
-Vea [ejemplos de directivas de atestación](/azure/attestation/policy-examples) y [Procedimiento para crear y firmar una directiva de atestación](/azure/attestation/author-sign-policy) 
+Vea [ejemplos de directivas de atestación](./policy-examples.md) y [Procedimiento para crear y firmar una directiva de atestación](./author-sign-policy.md) 
 
 ## <a name="3-azattestation-installation-issues-in-powershell"></a>3. Problemas de instalación de Az.Attestation en PowerShell
 
@@ -301,4 +301,3 @@ Get-InstalledModule
 Si las versiones no coinciden con el requisito mínimo, ejecute comandos Update-Module,
 
 por ejemplo, - Update-Module -Name Az.Attestation
-

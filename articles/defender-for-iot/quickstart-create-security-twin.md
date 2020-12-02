@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/08/2019
 ms.author: mlottner
-ms.openlocfilehash: 822e9dc237dd6f4d73e1860c6a0b240fb94c3105
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 74e0e8daa662f4dd49f1886972236b5b0a3b100a
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90945610"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348864"
 ---
 # <a name="quickstart-create-an-azureiotsecurity-module-twin"></a>Inicio rápido: Creación de un módulo gemelo de azureiotsecurity
 
@@ -31,7 +31,7 @@ En el caso de las soluciones de IoT integradas en Azure, los dispositivos gemelo
 Defender para IoT ofrece integración completa con la plataforma de administración de dispositivos de IoT existente, lo que permite no solo administrar el estado de seguridad de los dispositivos, sino también hacer uso de las funcionalidades de control de dispositivos existentes.
 Para lograr la integración de Defender para IoT es preciso usar el mecanismo gemelo de IoT Hub.
 
-Para más información acerca del concepto general de los módulos gemelos en Azure IoT Hub, consulte [Módulos gemelos de IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-module-twins).
+Para más información acerca del concepto general de los módulos gemelos en Azure IoT Hub, consulte [Módulos gemelos de IoT Hub](../iot-hub/iot-hub-devguide-module-twins.md).
 
 Defender para IoT usa el mecanismo de módulos gemelos y mantiene un módulo gemelo de seguridad denominado _azureiotsecurity_ para cada uno de los dispositivos.
 

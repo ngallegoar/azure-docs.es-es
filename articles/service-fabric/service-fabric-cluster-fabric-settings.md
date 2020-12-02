@@ -3,12 +3,12 @@ title: Cambio de la configuración de un clúster de Azure Service Fabric
 description: En este artículo se describe la configuración de Fabric y las directivas de actualización de Fabric que se pueden personalizar.
 ms.topic: reference
 ms.date: 08/30/2019
-ms.openlocfilehash: a83d24b4badd78750756a3cb4564b1e53fd30593
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 1f16e89dd1131f6aea64e5e72a342b3b737f3728
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94648232"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187228"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Personalización de la configuración de un clúster de Service Fabric
 En este documento se describen las distintas configuraciones de tejido para el clúster de Service Fabric que puede personalizar. Para clústeres hospedados en Azure, puede personalizar la configuración en [Azure Portal](https://portal.azure.com) o mediante una plantilla de Azure Resource Manager. Para más información, consulte el artículo sobre la [actualización de la configuración de un clúster de Azure](service-fabric-cluster-config-upgrade-azure.md). En clústeres independientes, para personalizar la configuración debe actualizar el archivo *ClusterConfig.json* y realizar una actualización de la configuración en el clúster. Para más información, consulte el artículo sobre la [actualización de la configuración de un clúster independiente](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -141,6 +141,7 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 |IsEnabled|bool, el valor predeterminado es FALSE|estática|Habilita o deshabilita DnsService. DnsService está deshabilitado de forma predeterminada y es necesario establecer esta configuración para habilitarlo. |
 |PartitionPrefix|string, el valor predeterminado es "--"|estática|Controla el valor de cadena del prefijo de partición en las consultas de DNS para servicios con particiones. El valor: <ul><li>Debe ser compatible con RFC, ya que formará parte de una consulta de DNS.</li><li>No debe contener un punto, ".", ya que el punto interfiere con el comportamiento del sufijo DNS.</li><li>No puede tener más de cinco caracteres.</li><li>No puede ser una cadena vacía.</li><li>Si se invalida la configuración de PartitionPrefix, se debe invalidar PartitionSuffix y viceversa.</li></ul>Para más información, vea [Servicio DNS en Azure Service Fabric](service-fabric-dnsservice.md).|
 |PartitionSuffix|string, el valor predeterminado es "".|estática|Controla el valor de cadena del sufijo de partición en las consultas de DNS para servicios con particiones. El valor: <ul><li>Debe ser compatible con RFC, ya que formará parte de una consulta de DNS.</li><li>No debe contener un punto, ".", ya que el punto interfiere con el comportamiento del sufijo DNS.</li><li>No puede tener más de cinco caracteres.</li><li>Si se invalida la configuración de PartitionPrefix, se debe invalidar PartitionSuffix y viceversa.</li></ul>Para más información, vea [Servicio DNS en Azure Service Fabric](service-fabric-dnsservice.md). |
+|RetryTransientFabricErrors|Bool, el valor predeterminado es true.|estática|La configuración controla las funcionalidades de reintento cuando se llama a las API de Service Fabric desde DnsService. Cuando está habilitada, se vuelve a intentar tres veces si se produce un error transitorio.|
 
 ## <a name="eventstoreservice"></a>EventStoreService
 
@@ -423,7 +424,7 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 |AzureStorageMaxConnections | Int, el valor predeterminado es 5000. |Dinámica|El número máximo de conexiones simultáneas a Azure Storage. |
 |AzureStorageMaxWorkerThreads | Int, el valor predeterminado es 25. |Dinámica|El número máximo de subprocesos de trabajo en paralelo. |
 |AzureStorageOperationTimeout | Tiempo en segundos, el valor predeterminado es 6000. |Dinámica|Especifique el intervalo de tiempo en segundos. Tiempo de espera para que finalice la operación xstore. |
-|CleanupApplicationPackageOnProvisionSuccess|bool, el valor predeterminado es FALSE |Dinámica|Habilita o deshabilita la limpieza automática de paquetes de aplicación cuando el aprovisionamiento es correcto.<br/> *El procedimiento recomendado es usar `true`.*
+|CleanupApplicationPackageOnProvisionSuccess|bool, el valor predeterminado es true |Dinámica|Habilita o deshabilita la limpieza automática de paquetes de aplicación cuando el aprovisionamiento es correcto.
 |CleanupUnusedApplicationTypes|Bool, el valor predeterminado es FALSE |Dinámica|Si esta configuración está habilitada, permite anular automáticamente las versiones del tipo de aplicación sin usar (omitiendo las tres últimas versiones sin usar), con lo que el espacio ocupado por el almacén de imágenes disminuye. La limpieza automática se desencadenará al final de un aprovisionamiento correcto de ese tipo de aplicación específica, y también se ejecuta periódicamente una vez al día para todos los tipos de aplicación. El número de versiones sin usar que se van a omitir es configurable mediante el parámetro "MaxUnusedAppTypeVersionsToKeep". <br/> *El procedimiento recomendado es usar `true`.*
 |DisableChecksumValidation | Bool, el valor predeterminado es false. |estática| Esta configuración permite habilitar o deshabilitar la validación de suma de comprobación durante el aprovisionamiento de aplicaciones. |
 |DisableServerSideCopy | Bool, el valor predeterminado es false. |estática|Esta configuración habilita o deshabilita la copia del lado servidor del paquete de aplicación en ImageStore durante el aprovisionamiento de aplicaciones. |
@@ -520,6 +521,7 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 |AutoDetectAvailableResources|bool, el valor predeterminado es TRUE|estática|Esta configuración desencadenará la detección automática de los recursos disponibles en el nodo (CPU y memoria). Cuando esta configuración se establece en true, se leen las capacidades reales y se corrigen si el usuario especificó unas capacidades erróneas de nodo o no las definió. Si esta configuración se establece en false, se hará el seguimiento de una advertencia en que el usuario especificó capacidades incorrectas para el nodo, pero no se corregirán. Esto significa que el usuario quiere especificar capacidades superiores a las reales del nodo o, si no se define ninguna capacidad, se asumirá una capacidad ilimitada. |
 |BalancingDelayAfterNewNode | Tiempo en segundos, el valor predeterminado es 120. |Dinámica|Especifique el intervalo de tiempo en segundos. No inicie actividades de equilibrio dentro de este período después de agregar un nuevo nodo. |
 |BalancingDelayAfterNodeDown | Tiempo en segundos, el valor predeterminado es 120. |Dinámica|Especifique el intervalo de tiempo en segundos. No inicie actividades de equilibrio dentro de este período después de un evento de inactividad de nodos. |
+|BlockNodeInUpgradeConstraintPriority | Int, el valor predeterminado es 0. |Dinámica|Determina la prioridad de la restricción de capacidad: 0: máxima; 1: mínima; negativo: Ignore  |
 |CapacityConstraintPriority | Int, el valor predeterminado es 0. | Dinámica|Determina la prioridad de la restricción de capacidad: 0: máxima; 1: mínima; negativo: omitir |
 |ConsecutiveDroppedMovementsHealthReportLimit | Int, el valor predeterminado es 20. | Dinámica|Define el número de veces consecutivas que los movimientos emitidos por ResourceBalancer se descartan antes de que se realicen diagnósticos y se emitan advertencias de mantenimiento. Negativo: no se emiten advertencias bajo esta condición. |
 |ConstraintFixPartialDelayAfterNewNode | Tiempo en segundos, el valor predeterminado es 120. |Dinámica| Especifique el intervalo de tiempo en segundos. No resuelva infracciones de restricciones FaultDomain y UpgradeDomain dentro de este período después de agregar un nuevo nodo. |

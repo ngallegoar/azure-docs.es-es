@@ -11,16 +11,16 @@ ms.date: 10/15/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 39d23313f9d00ef48f64327dd10356a91b9d13b7
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 8c150235dc6b867a69b539aba9c90d666122a210
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94951900"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96170453"
 ---
 # <a name="enable-multi-factor-authentication-in-azure-active-directory-b2c"></a>Habilitación de la autenticación multifactor en Azure Active Directory B2C
 
-Azure Active Directory B2C (Azure AD B2C) se integra directamente con [Azure AD Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md) de forma que puede agregar una segunda capa de seguridad a las experiencias de registro e inicio de sesión en las aplicaciones. La autenticación multifactor se habilita sin necesidad de escribir una sola línea de código. Aunque haya creado flujos de usuario de registro e inicio de sesión, puede habilitar la autenticación multifactor.
+Azure Active Directory B2C (Azure AD B2C) se integra directamente con [Azure AD Multi-Factor Authentication](../active-directory/authentication/concept-mfa-howitworks.md) de forma que puede agregar una segunda capa de seguridad a las experiencias de registro e inicio de sesión en las aplicaciones. La autenticación multifactor se habilita sin necesidad de escribir una sola línea de código. Aunque haya creado flujos de usuario de registro e inicio de sesión, puede habilitar la autenticación multifactor.
 
 Esta característica ayuda a las aplicaciones a tratar escenarios como los siguientes:
 

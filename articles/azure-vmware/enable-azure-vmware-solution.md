@@ -3,12 +3,12 @@ title: Habilitación del recurso de Azure VMware Solution
 description: Obtenga información sobre cómo enviar una solicitud de soporte técnico para habilitar el recurso de Azure VMware Solution. También puede solicitar más hosts en la nube privada de Azure VMware Solution existente.
 ms.topic: how-to
 ms.date: 11/12/2020
-ms.openlocfilehash: 68f8fe38c67ec5ddad7cf662a7996330ee2a1e73
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: 526d6b38f4b4e3f6c4806b71b4728dee90cf558a
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95794710"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325084"
 ---
 # <a name="how-to-enable-azure-vmware-solution-resource"></a>Habilitación del recurso de Azure VMware Solution
 Obtenga información sobre cómo una solicitud de soporte técnico para habilitar el recurso de [Azure VMware Solution](introduction.md). También puede solicitar más hosts en la nube privada de Azure VMware Solution existente.
@@ -68,7 +68,7 @@ Los CSP deben usar el [Centro de partners de Microsoft](https://partner.microsof
 
 1. En el **Centro de partners**, seleccione **CSP** para acceder al área **Clientes**.
 
-   :::image type="content" source="media/enable-azure-vmware-solution/csp-customers-screen.png" alt-text="Área de clientes del Centro de partners de Microsoft" lightbox="media/enable-azure-vmware-solution/csp-customers-screen.png":::
+   :::image type="content" source="media/enable-azure-vmware-solution/csp-customers-screen.png" alt-text="Centro de partners de Microsoft, área de cliente" lightbox="media/enable-azure-vmware-solution/csp-customers-screen.png":::
 
 1. Seleccione el cliente y, a continuación, seleccione **Agregar productos**.
 
@@ -76,7 +76,7 @@ Los CSP deben usar el [Centro de partners de Microsoft](https://partner.microsof
 
 1. Seleccione **Plan de Azure** y, después, seleccione **Agregar al carro**. 
 
-1. Revise y finalice la configuración general de la suscripción al plan de Azure para su cliente. Para más información, consulte la [documentación del Centro de partners de Microsoft](https://docs.microsoft.com/partner-center/azure-plan-manage).
+1. Revise y finalice la configuración general de la suscripción al plan de Azure para su cliente. Para más información, consulte la [documentación del Centro de partners de Microsoft](/partner-center/azure-plan-manage).
 
 Después de configurar el plan de Azure y de asignar los permisos de RBAC de vSphere necesarios como CSP, interactuará con Microsoft para habilitar la cuota de una suscripción al plan de Azure. Acceda a Azure Portal desde el Centro de partners mediante el procedimiento **Admin On Behalf Of** (Administrar en nombre de) (AOBO).
 

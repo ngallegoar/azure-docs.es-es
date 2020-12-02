@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5ef2d233024ab3e9cd086e8285e681dc9f42f3f7
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: a8915ae349e33390ce5bb687d7c07a21665a0258
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/25/2020
-ms.locfileid: "95904025"
+ms.locfileid: "96029411"
 ---
 # <a name="conditional-access-grant"></a>Acceso condicional: Conceder
 
@@ -34,7 +34,7 @@ El bloqueo es un control eficaz y se debe manejar con el conocimiento adecuado. 
 
 Los administradores pueden optar por aplicar uno o varios controles al conceder acceso. Entre estos controles se incluyen las siguientes opciones: 
 
-- [Requerir la autenticación multifactor (Azure AD Multi-Factor Authentication)](../authentication/concept-mfa-howitworks.md)
+- [Requerir la autenticación multifactor (Azure AD Multi-Factor Authentication)](../authentication/concept-mfa-howitworks.md)
 - [Requerir que el dispositivo esté marcado como compatible (Microsoft Intune)](/intune/protect/device-compliance-get-started)
 - [Requerir un dispositivo unido a Azure AD híbrido](../devices/concept-azure-ad-join-hybrid.md)
 - [Requerir aplicación cliente aprobada](app-based-conditional-access.md)
@@ -108,7 +108,7 @@ Esta configuración se aplica a las siguientes aplicaciones de iOS y Android:
 - Las aplicaciones cliente aprobadas admiten la característica de administración de aplicaciones móviles de Intune.
 - Requisito de la opción **Solicitar aplicación cliente aprobada**:
    - Solo admite iOS y Android como condición de plataformas de dispositivo.
-   - Se requiere una aplicación de agente para registrar el dispositivo. En iOS, la aplicación de agente es Microsoft Authenticator y, en Android, es la aplicación Portal de empresa de Intune.
+   - Se requiere una aplicación de agente para registrar el dispositivo. La aplicación de agente puede ser Microsoft Authenticator para iOS, o bien Microsoft Authenticator o el portal de empresa de Microsoft para dispositivos Android.
 - El acceso condicional no puede considerar Microsoft Edge en modo InPrivate como aplicación cliente aprobada.
 
 Consulte el artículo [Uso obligatorio de aplicaciones cliente aprobadas para el acceso a aplicaciones en la nube mediante el acceso condicional](app-based-conditional-access.md) para obtener ejemplos de configuración.

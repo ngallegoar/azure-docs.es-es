@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 11/20/2020
 ms.author: cshoe
 ms.custom: contperfq2
-ms.openlocfilehash: 6713c0d45a8b5363122c726d1d31e5c479ba8fff
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 514f2e9a82a50f95f9c054c6a54e7b5af3c0af15
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95504647"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96167784"
 ---
 # <a name="introduction-to-azure-functions"></a>Introducción a Azure Functions
 
@@ -38,7 +38,7 @@ A continuación se incluye un conjunto de escenarios habituales de Azure Functio
 | --- | --- |
 | **Crear una API web** | Implemente un punto de conexión para las aplicaciones web mediante el [desencadenador HTTP](./functions-bindings-http-webhook.md) |
 | **Procesar cargas de archivos** | Ejecute código cuando se cargue o se cambie un archivo en el [almacenamiento de blobs](./functions-bindings-storage-blob.md) |
-| **Compilar un flujo de trabajo sin servidor** | Encadene una serie de funciones mediante [Durable Functions](./durable-functions-overview.md) |
+| **Compilar un flujo de trabajo sin servidor** | Encadene una serie de funciones mediante [Durable Functions](./durable/durable-functions-overview.md) |
 | **Responder a cambios en una base de datos** | Ejecute una lógica personalizada cuando se cree o actualice un documento en [Cosmos DB](./functions-bindings-cosmosdb-v2.md) |
 | **Ejecutar tareas programadas** | Ejecute código a [horas establecidas](./functions-bindings-timer.md) |
 | **Crear sistemas de cola de mensajes confiables** | Procese colas de mensajes mediante [Queue Storage](./functions-bindings-storage-queue.md), [Service Bus](./functions-bindings-service-bus.md) o [Event Hubs](./functions-bindings-event-hubs.md) |

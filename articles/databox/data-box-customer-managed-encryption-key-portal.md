@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/19/2020
 ms.author: alkohli
 ms.subservice: pod
-ms.openlocfilehash: cd9f4ad6b6831b2b15c09b37edc569b3f2d247f7
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: f75907dc1fa079cebb3b80874090c658fd7b8174
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94958206"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96302828"
 ---
 # <a name="use-customer-managed-keys-in-azure-key-vault-for-azure-data-box"></a>Uso de claves administradas por el cliente en Azure Key Vault para Azure Data Box
 
@@ -79,7 +79,7 @@ Para habilitar una clave administrada por el cliente para el pedido de Data Box 
 
     Si desea generar una nueva versión de clave, seleccione **Crear nuevo**.
 
-    ![Apertura de un cuadro de diálogo para crear una nueva versión de clave](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-8-a.png)
+    ![Abrir un cuadro de diálogo para crear una nueva versión de la clave](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-8-a.png)
 
     Elija la configuración de la nueva versión de la clave y seleccione **Crear**.
 
@@ -91,11 +91,11 @@ Para habilitar una clave administrada por el cliente para el pedido de Data Box 
 
     La configuración de **Tipo de cifrado** muestra el almacén de claves y la clave que eligió.
 
-    ![Clave y almacén de claves para la clave administrada por el cliente](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-9.png)
+    ![Clave y almacén de claves para una clave administrada por el cliente](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-9.png)
 
 7. Seleccione el tipo de identidad que se va a usar para administrar la clave administrada por el cliente para este recurso. Puede usar la identidad **asignada por el sistema** que se generó durante la creación del pedido o elegir una identidad asignada por el usuario.
 
-    Una identidad asignada por el usuario es un recurso independiente que puede usar para administrar el acceso a los recursos. Para más información, vea [Tipos de identidad administrada](/azure/active-directory/managed-identities-azure-resources/overview).
+    Una identidad asignada por el usuario es un recurso independiente que puede usar para administrar el acceso a los recursos. Para más información, vea [Tipos de identidades administradas](/azure/active-directory/managed-identities-azure-resources/overview).
 
     ![Selección del tipo identidad](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-13.png)
 
@@ -103,11 +103,11 @@ Para habilitar una clave administrada por el cliente para el pedido de Data Box 
 
     ![Selección de una identidad para usar](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-14.png)
 
-    Aquí no se puede crear una nueva identidad de usuario. Para aprender a crear una, consulte [Creación, enumeración, eliminación o asignación de un rol a una identidad administrada asignada por el usuario mediante Azure Portal](/azure-docs/blob/master/articles/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal).
+    Aquí no se puede crear una nueva identidad de usuario. Para aprender a crear una, consulte [Creación, enumeración, eliminación o asignación de un rol a una identidad administrada asignada por el usuario mediante Azure Portal](/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal).
 
     La identidad de usuario seleccionada se muestra en la configuración de **Tipo de cifrado**.
 
-    ![Se muestra una identidad de usuario en la configuración Tipo de cifrado.](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-15.png)
+    ![Se muestra una identidad de usuario en la configuración Tipo de cifrado](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-15.png)
 
  9. Seleccione **Guardar** para guardar la configuración de **Tipo de cifrado** actualizada.
 

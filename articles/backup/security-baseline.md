@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 5e688fbf653646fcdd500f36930fd6b46bebeefa
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: a2cbd2dd4dd32be137e461985e9f10fd07ed8a60
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842165"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325645"
 ---
 # <a name="azure-security-baseline-for-backup"></a>Línea de base de seguridad de Azure para Backup
 
@@ -302,7 +302,7 @@ Además, para ayudarle a realizar un seguimiento de las cuentas administrativas 
 
 - [Multi-Factor Authentication en Azure Backup](./backup-azure-security-feature.md)
 
-- [Planeamiento de una implementación de Multi-Factor Authentication de Azure AD basado en la nube](../active-directory/authentication/howto-mfa-getstarted.md)
+- [Planeamiento de una implementación de Azure AD Multi-Factor Authentication basada en la nube](../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Supervisión de Azure Security Center**: Sí
 
@@ -314,7 +314,7 @@ Además, para ayudarle a realizar un seguimiento de las cuentas administrativas 
 
 - [Uso de estaciones de trabajo con privilegios de acceso](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
 
-- [Planeamiento de una implementación de Multi-Factor Authentication de Azure AD basado en la nube](../active-directory/authentication/howto-mfa-getstarted.md)
+- [Planeamiento de una implementación de Azure AD Multi-Factor Authentication basada en la nube](../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -534,7 +534,7 @@ Cuando se realiza una copia de seguridad con el agente de MARS o mediante un alm
 
 Plataforma subyacente examinada y revisada por Microsoft. Revise los controles de seguridad disponibles para Azure Backup para reducir las vulnerabilidades relacionadas con la configuración del servicio.
 
-- [Descripción de los controles de seguridad disponibles para Azure Backup](./backup-security-controls.md)
+- [Descripción de los controles de seguridad disponibles para Azure Backup]()
 
 **Supervisión de Azure Security Center**: no disponible actualmente
 
@@ -730,7 +730,7 @@ Use Azure Resource Graph para consultar o detectar recursos dentro de sus suscri
 
 ### <a name="72-establish-secure-operating-system-configurations"></a>7.2: Establezca configuraciones del sistema operativo seguras
 
-**Guía**: No aplicable; esta guía está pensada para recursos de proceso.
+**Instrucciones**: No aplicable; esta guía está pensada para recursos de proceso.
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -750,7 +750,7 @@ Use Azure Resource Graph para consultar o detectar recursos dentro de sus suscri
 
 ### <a name="74-maintain-secure-operating-system-configurations"></a>7.4: Mantenga configuraciones del sistema operativo seguras
 
-**Guía**: No aplicable; esta guía está pensada para recursos de proceso.
+**Instrucciones**: No aplicable; esta guía está pensada para recursos de proceso.
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -770,7 +770,7 @@ Use Azure Resource Graph para consultar o detectar recursos dentro de sus suscri
 
 ### <a name="76-securely-store-custom-operating-system-images"></a>7.6: Almacene imágenes de sistema operativo personalizadas de forma segura
 
-**Guía**: No aplicable; esta guía está pensada para recursos de proceso.
+**Instrucciones**: No aplicable; esta guía está pensada para recursos de proceso.
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -806,7 +806,7 @@ Use Azure Resource Graph para consultar o detectar recursos dentro de sus suscri
 
 ### <a name="710-implement-automated-configuration-monitoring-for-operating-systems"></a>7.10: Implemente la supervisión de configuración automatizada para sistemas operativos
 
-**Guía**: No aplicable; esta guía está pensada para recursos de proceso.
+**Instrucciones**: No aplicable; esta guía está pensada para recursos de proceso.
 
 **Supervisión de Azure Security Center**: No aplicable
 

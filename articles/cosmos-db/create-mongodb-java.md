@@ -9,12 +9,12 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 12/26/2018
 ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: 2dcd72f9231726d5a2f473dbbfa4d8fd81e64b97
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 8a8fa9e15630aea3fb92571fd88a0ce01d3c9211
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93098987"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349119"
 ---
 # <a name="quickstart-create-a-console-app-with-java-and-the-mongodb-api-in-azure-cosmos-db"></a>Inicio rápido: Creación de una aplicación de consola con Java y la API MongoDB en Azure Cosmos DB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -112,7 +112,7 @@ Esta aplicación de consola usa el [controlador Java de MongoDB](https://docs.mo
 
 Ahora vuelva a Azure Portal para obtener la información de la cadena de conexión y cópiela en la aplicación.
 
-1. En la cuenta de Azure Cosmos DB, seleccione **Inicio rápido** , **Java** y copie la cadena de conexión en el Portapapeles.
+1. En la cuenta de Azure Cosmos DB, seleccione **Inicio rápido**, **Java** y copie la cadena de conexión en el Portapapeles.
 
 2. Abra el archivo *Program.java* y reemplace el argumento del constructor MongoClientURI por la cadena de conexión. Ya ha actualizado la aplicación con toda la información que necesita para comunicarse con Azure Cosmos DB. 
     
@@ -137,4 +137,4 @@ Ahora puede usar [Robomongo](mongodb-robomongo.md) / [Studio 3T](mongodb-mongoch
 En este inicio rápido, ha aprendido a crear una cuenta de Azure Cosmos DB para MongoDB API, a agregar una base de datos y un contenedor mediante el Explorador de datos, y a agregar datos mediante una aplicación de consola de Java. Ahora puede importar datos adicionales en la base de datos de Cosmos. 
 
 > [!div class="nextstepaction"]
-> [Importación de datos de MongoDB a Azure Cosmos DB](../dms/tutorial-mongodb-cosmos-db.md?toc=%252fazure%252fcosmos-db%252ftoc.json%253ftoc%253d%252fazure%252fcosmos-db%252ftoc.json)
+> [Importación de datos de MongoDB a Azure Cosmos DB](../dms/tutorial-mongodb-cosmos-db.md?toc=%2fazure%2fcosmos-db%2ftoc.json%253ftoc%253d%2fazure%2fcosmos-db%2ftoc.json)

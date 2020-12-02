@@ -12,12 +12,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 420cc2bc38d079fa95f6b90ed20cb31e994f4ea3
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: 6be0720b7eafb251b262d5cd182bdf06e201402d
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93027081"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96173080"
 ---
 # <a name="what-are-external-identities-in-azure-active-directory"></a>¿Qué son External Identities de Azure Active Directory?
 
@@ -51,7 +51,7 @@ Proteja y administre los clientes y asociados más allá de los límites organiz
 
 ## <a name="about-multitenant-applications"></a>Acerca de las aplicaciones multiinquilino
 
-Si va a proporcionar una aplicación como servicio y no desea administrar las cuentas de usuario de los clientes, es probable que una aplicación multiinquilino sea la opción más adecuada. Al desarrollar aplicaciones para otros inquilinos de Azure AD, puede dirigirse a usuarios de una única organización (inquilino único) o usuarios de cualquier organización que ya tenga un inquilino de Azure AD (aplicaciones multiinquilino). Los registros de aplicaciones en Azure AD son de inquilino único de forma predeterminada, pero puede hacer que el registro sea multiinquilino. Usted mismo registra una vez la aplicación multiinquilino en su propia instancia de Azure AD. Pero, después, cualquier usuario de Azure AD de cualquier organización puede usar la aplicación sin ningún trabajo adicional por su parte. Para más información, consulte [Administración de identidades en aplicaciones multiinquilino](https://docs.microsoft.com/azure/architecture/multitenant-identity/), [Guía de procedimientos](../develop/howto-convert-app-to-be-multi-tenant.md).
+Si va a proporcionar una aplicación como servicio y no desea administrar las cuentas de usuario de los clientes, es probable que una aplicación multiinquilino sea la opción más adecuada. Al desarrollar aplicaciones para otros inquilinos de Azure AD, puede dirigirse a usuarios de una única organización (inquilino único) o usuarios de cualquier organización que ya tenga un inquilino de Azure AD (aplicaciones multiinquilino). Los registros de aplicaciones en Azure AD son de inquilino único de forma predeterminada, pero puede hacer que el registro sea multiinquilino. Usted mismo registra una vez la aplicación multiinquilino en su propia instancia de Azure AD. Pero, después, cualquier usuario de Azure AD de cualquier organización puede usar la aplicación sin ningún trabajo adicional por su parte. Para más información, consulte [Administración de identidades en aplicaciones multiinquilino](/azure/architecture/multitenant-identity/), [Guía de procedimientos](../develop/howto-convert-app-to-be-multi-tenant.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

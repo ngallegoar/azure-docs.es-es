@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.custom:
 - devx-track-python
 - devx-track-azurecli
-ms.openlocfilehash: 0aea0425123cab4da1939e85a2cfd6071f772737
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: 5f8bf6fb6f464bcb74d34e2d99fac16c24b12615
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95795751"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96175719"
 ---
 # <a name="quickstart-create-a-python-function-in-azure-from-the-command-line"></a>Inicio rápido: Creación de una función de Python en Azure desde la línea de comandos
 
@@ -167,7 +167,7 @@ Antes de poder implementar el código de la función en Azure, debe crear tres r
 - Una cuenta de almacenamiento, que mantiene el estado y otra información sobre los proyectos.
 - Una aplicación de funciones, que proporciona el entorno para ejecutar el código de función. Una aplicación de funciones se asigna al proyecto de funciones y le permite agrupar funciones como una unidad lógica para facilitar la administración, la implementación y el uso compartido de recursos.
 
-Utilice los comandos siguientes para crear los elementos. Se admiten la CLI de Azure y PowerShell.
+Utilice los comandos siguientes para crear los elementos. Se admiten las CLI de Azure y de PowerShell.
 
 1. Si todavía no lo ha hecho, inicie sesión en Azure:
 
@@ -176,7 +176,7 @@ Utilice los comandos siguientes para crear los elementos. Se admiten la CLI de A
     az login
     ```
 
-    El comando [az login](/cli/azure/reference-index#az-login) inicia sesión en la cuenta de Azure.
+    El comando [az login](/cli/azure/reference-index#az-login) inicia sesión en su cuenta de Azure.
 
     # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell) 
     ```azurepowershell
@@ -203,7 +203,7 @@ Utilice los comandos siguientes para crear los elementos. Se admiten la CLI de A
     New-AzResourceGroup -Name AzureFunctionsQuickstart-rg -Location westeurope
     ```
 
-    El comando [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) crea un grupo de recursos. Por lo general, los recursos y los grupos de recursos se crean en una región cerca de usted, y se utiliza alguna de las regiones devueltas por el cmdlet [Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation).
+    El comando [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) crea un grupo de recursos. Por lo general, los recursos y los grupos de recursos se crean en una región cerca de usted, y se utiliza alguna de las regiones devueltas por el cmdlet [Get-AzLocation](/powershell/module/az.resources/get-azlocation).
 
     ---
 
@@ -230,7 +230,7 @@ Utilice los comandos siguientes para crear los elementos. Se admiten la CLI de A
 
     ---
 
-    En el ejemplo anterior, reemplace `<STORAGE_NAME>` por un nombre adecuado para usted y único en Azure Storage. Los nombres deben contener entre 3 y 24 caracteres y solo letras minúsculas. `Standard_LRS` especifica una cuenta de uso general, que es [compatible con Functions](storage-considerations.md#storage-account-requirements).
+    En el ejemplo anterior, reemplace `<STORAGE_NAME>` por un nombre que sea apropiado para usted y único en Azure Storage. Los nombres deben contener entre 3 y 24 caracteres y solo letras minúsculas. `Standard_LRS` especifica una cuenta de uso general, que es [compatible con Functions](storage-considerations.md#storage-account-requirements).
     
     Este inicio rápido solo le supondrá unos pequeños gastos a la cuenta de almacenamiento.
 

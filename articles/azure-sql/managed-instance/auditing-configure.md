@@ -1,6 +1,6 @@
 ---
-title: Auditoría de Instancia administrada de SQL
-description: Aprenda a trabajar con la auditoría de Instancia administrada de Azure SQL mediante T-SQL
+title: Auditoría de SQL Managed Instance
+description: Aprenda a trabajar con la auditoría de SQL Managed InstanceL mediante T-SQL
 services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: security
@@ -20,10 +20,10 @@ ms.contentlocale: es-ES
 ms.lasthandoff: 11/11/2020
 ms.locfileid: "94505672"
 ---
-# <a name="get-started-with-azure-sql-managed-instance-auditing"></a>Introducción a la auditoría de Instancia administrada de Azure SQL
+# <a name="get-started-with-azure-sql-managed-instance-auditing"></a>Introducción a la auditoría de SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-La auditoría de [Instancia administrada de Azure SQL](sql-managed-instance-paas-overview.md) hace un seguimiento de los eventos de base de datos y los escribe en un registro de auditoría de la cuenta de Azure Storage. La auditoría también puede hacer lo siguiente:
+La auditoría de [SQL Managed InstanceL](sql-managed-instance-paas-overview.md) hace un seguimiento de los eventos de base de datos y los escribe en un registro de auditoría de la cuenta de Azure Storage. La auditoría también puede hacer lo siguiente:
 
 - Ayudar a mantener el cumplimiento de normativas, comprender la actividad de las bases de datos y conocer las discrepancias y anomalías que pueden indicar problemas en el negocio o infracciones de seguridad sospechosas.
 - Posibilitar y facilitar la observancia de estándares reguladores aunque no garantiza el cumplimiento. Para más información sobre los programas de Azure que se adhieren al cumplimiento normativo, visite el [Centro de confianza de Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942), donde podrá encontrar la lista más reciente de certificaciones de cumplimiento.

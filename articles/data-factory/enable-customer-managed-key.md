@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: chez
 ms.reviewer: mariozi
-ms.openlocfilehash: c7d3dae2b7da2fcc14e86eb4965ebd99fd7bf681
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: f1a7bffc05d83b30fe9e5bcd6e17bf6bc0192e1d
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88650591"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348949"
 ---
 # <a name="encrypt-azure-data-factory-with-customer-managed-keys"></a>Cifrado de Azure Data Factory con claves administradas por el cliente
 
@@ -47,8 +47,8 @@ En la lista siguiente se explican los pasos numerados del diagrama:
 
 Para usar las claves administradas por el cliente con Data Factory, es necesario establecer dos propiedades en Key Vault: __Eliminación temporal__ y __No purgar__. Estas propiedades se pueden habilitar mediante PowerShell o la CLI de Azure en un almacén de claves nuevo o existente. Para aprender a habilitar estas propiedades en un almacén de claves existente, consulte las secciones _Habilitación de la eliminación temporal_ y _Habilitación de la protección de purgas_ en cualquiera de los siguientes artículos:
 
-- [Uso de la eliminación temporal con PowerShell](../key-vault/general/soft-delete-powershell.md)
-- [Uso de la eliminación temporal con la CLI](../key-vault/general/soft-delete-cli.md).
+- [Uso de la eliminación temporal con PowerShell](../key-vault/general/key-vault-recovery.md)
+- [Uso de la eliminación temporal con la CLI](../key-vault/general/key-vault-recovery.md).
 
 Si va a crear una instancia de Azure Key Vault a través de Azure Portal, las propiedades __Eliminación temporal__ y __No purgan__ se pueden habilitar de la siguiente manera:
 

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 11/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: 07c04274829530942bab0e3267200f6524c4ddc7
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: 20683808c81b32560170b175edf1c37c332f47ad
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95793404"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183624"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Implementación de Hybrid Runbook Worker en Linux
 
@@ -73,7 +73,7 @@ Los requisitos mínimos de un sistema Linux y una instancia de Hybrid Runbook Wo
 Puede agregar la máquina de trabajo a un grupo de Hybrid Runbook Worker de una de sus cuentas de Automation. Las máquinas que hospedan la instancia de Hybrid Runbook Worker del sistema administrada por Update Management se pueden agregar a un grupo de Hybrid Runbook Worker. Sin embargo, debe usar la misma cuenta de Automation para Update Management y para la pertenencia al grupo de Hybrid Runbook Worker.
 
 >[!NOTE]
->[Update Management](update-management/update-mgmt-overview.md) de Azure Automation instala automáticamente la instancia de Hybrid Runbook Worker del sistema en una máquina de Azure o que no es de Azure habilitada para Update Management. Sin embargo, este trabajo no se registra con ninguno de los grupos de Hybrid Runbook Worker de la cuenta de Automation. Para ejecutar los runbooks en esas máquinas, debe agregarlas a un grupo de Hybrid Runbook Worker. Siga el paso 4 de la sección [Instalación de un Hybrid Runbook Worker de Linux](#install-a-linux-hybrid-runbook-worker) para agregarlo a un grupo.
+>[Update Management](./update-management/overview.md) de Azure Automation instala automáticamente la instancia de Hybrid Runbook Worker del sistema en una máquina de Azure o que no es de Azure habilitada para Update Management. Sin embargo, este trabajo no se registra con ninguno de los grupos de Hybrid Runbook Worker de la cuenta de Automation. Para ejecutar los runbooks en esas máquinas, debe agregarlas a un grupo de Hybrid Runbook Worker. Siga el paso 4 de la sección [Instalación de un Hybrid Runbook Worker de Linux](#install-a-linux-hybrid-runbook-worker) para agregarlo a un grupo.
 
 ## <a name="supported-linux-hardening"></a>Protección de Linux admitida
 

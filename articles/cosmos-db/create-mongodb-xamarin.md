@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 10/09/2020
 ms.author: masoucou
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 94cf54e689f845f77c54d1d3c7710e079594f556
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 339c6177de6e83f463efbc97e88a36ed4c52d97b
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93098950"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349102"
 ---
 # <a name="quickstart-build-a-xamarinforms-app-with-net-sdk-and-azure-cosmos-dbs-api-for-mongodb"></a>Inicio rápido: Creación de una aplicación Xamarin.Forms con .NET SDK y la API de Azure Cosmos DB para MongoDB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -207,4 +207,4 @@ Ya ha actualizado la aplicación con toda la información que necesita para comu
 En esta guía de inicio rápido, ha aprendido a crear una cuenta de Azure Cosmos DB y ejecutar una aplicación Xamarin.Forms con la API para MongoDB. Ahora puede importar datos adicionales en la cuenta de Cosmos DB.
 
 > [!div class="nextstepaction"]
-> [Importación de datos en Azure Cosmos DB configurado con la API de Azure Cosmos DB para MongoDB](../dms/tutorial-mongodb-cosmos-db.md?toc=%252fazure%252fcosmos-db%252ftoc.json%253ftoc%253d%252fazure%252fcosmos-db%252ftoc.json)
+> [Importación de datos en Azure Cosmos DB configurado con la API de Azure Cosmos DB para MongoDB](../dms/tutorial-mongodb-cosmos-db.md?toc=%2fazure%2fcosmos-db%2ftoc.json%253ftoc%253d%2fazure%2fcosmos-db%2ftoc.json)

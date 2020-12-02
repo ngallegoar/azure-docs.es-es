@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: nichola
-ms.openlocfilehash: 8f184de8953e8e8bfe982d2502ca476fb54a66c9
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 7fd9e504448d55b4a2ef8c10b4ba1176cb2e3402
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95903719"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96172642"
 ---
 # <a name="five-steps-for-integrating-all-your-apps-with-azure-ad"></a>Cinco pasos para la integración de todas las aplicaciones en Azure AD
 
@@ -38,7 +38,7 @@ Azure Active Directory (Azure AD) incluye una galería que contiene miles de ap
 - [AWS](../saas-apps/amazon-web-service-tutorial.md)
 - [Slack](../saas-apps/slack-tutorial.md)
 
-Además, puede [integrar aplicaciones que no estén en la galería](../manage-apps/view-applications-portal.md), incluida cualquier aplicación que ya exista en su organización o cualquier aplicación de terceros de un proveedor que aún no forme parte de la galería de Azure AD. También puede [agregar la aplicación a la galería](../azuread-dev/howto-app-gallery-listing.md) si no está allí.
+Además, puede [integrar aplicaciones que no estén en la galería](../manage-apps/view-applications-portal.md), incluida cualquier aplicación que ya exista en su organización o cualquier aplicación de terceros de un proveedor que aún no forme parte de la galería de Azure AD. También puede [agregar la aplicación a la galería](../develop/v2-howto-app-gallery-listing.md) si no está allí.
 
 Por último, también puede integrar las aplicaciones que desarrolla de modo interno. Esto se trata en el paso cinco de esta guía.
 

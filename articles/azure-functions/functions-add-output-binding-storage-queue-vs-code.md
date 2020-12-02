@@ -5,12 +5,12 @@ ms.date: 02/07/2020
 ms.topic: quickstart
 ms.custom: devx-track-python, devx-track-js
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: b709981e199d63c32426381ba48665402de820ce
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 1729e0b27dd50519359cf6a39bfa81ba7b3b41e9
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422712"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185154"
 ---
 # <a name="connect-azure-functions-to-azure-storage-using-visual-studio-code"></a>Conexión de Azure Functions a Azure Storage mediante Visual Studio Code
 
@@ -55,7 +55,7 @@ En este artículo se da por supuesto que ya inició sesión en la suscripción d
 
 ## <a name="download-the-function-app-settings"></a>Descarga de la configuración de la aplicación de función
 
-En el [artículo de inicio rápido anterior](functions-create-first-function-vs-code.md) creó una aplicación de funciones en Azure junto con una cuenta de Storage. La cadena de conexión de esta cuenta se almacena de forma segura en la configuración de la aplicación en Azure. En este artículo, escribirá mensajes en una cola de almacenamiento de la misma cuenta. Para conectarse a su cuenta de almacenamiento cuando se ejecuta la función localmente, debe descargar la configuración de la aplicación en el archivo local.settings.json. 
+En el [artículo de inicio rápido anterior](./create-first-function-vs-code-csharp.md) creó una aplicación de funciones en Azure junto con una cuenta de Storage. La cadena de conexión de esta cuenta se almacena de forma segura en la configuración de la aplicación en Azure. En este artículo, escribirá mensajes en una cola de almacenamiento de la misma cuenta. Para conectarse a su cuenta de almacenamiento cuando se ejecuta la función localmente, debe descargar la configuración de la aplicación en el archivo local.settings.json. 
 
 1. Presione la tecla F1 para abrir la paleta de comandos, y busque y ejecute el comando `Azure Functions: Download Remote Settings....`. 
 

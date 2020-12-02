@@ -6,12 +6,12 @@ ms.topic: quickstart
 author: bwren
 ms.author: bwren
 ms.date: 12/15/2019
-ms.openlocfilehash: 7f70994f35148614fb048ed2c3297727d5099b05
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 00cec2ca11b77f6cb9d6c0f3c429931bdcc6f6e4
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92056521"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186140"
 ---
 # <a name="quickstart-monitor-an-azure-resource-with-azure-monitor"></a>Inicio rápido: Supervisión de recursos de Azure con Azure Monitor
 [Azure Monitor](../overview.md) comienza a recopilar datos de los recursos de Azure en el momento en que se crean. Este inicio rápido proporciona un breve tutorial de los datos que se recopilan automáticamente para un recurso y de cómo verlos en la instancia de Azure Portal de un recurso determinado. Posteriormente puede agregar la configuración necesaria para recopilar datos adicionales y puede ir al menú de Azure Monitor para usar las mismas herramientas para acceder a los datos recopilados de todos los recursos de la suscripción.
@@ -70,5 +70,4 @@ Las métricas son valores numéricos que describen algún aspecto de un recurso 
 En este inicio rápido, ha visto el registro de actividad y las métricas de un recurso de Azure que Azure Monitor recopilan automáticamente. Continúe con el siguiente inicio rápido, en el que se muestra cómo recopilar el registro de actividad en un área de trabajo de Log Analytics, donde se puede analizar con [consultas de registro](../log-query/log-query-overview.md).
 
 > [!div class="nextstepaction"]
-> [Envío del registro de actividad de Azure a un área de trabajo de Log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/quick-collect-activity-log-portal)
-
+> [Envío del registro de actividad de Azure a un área de trabajo de Log Analytics](./quick-collect-activity-log-portal.md)

@@ -5,12 +5,12 @@ ms.author: mikben
 ms.date: 10/10/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: ab13e02c9154dbfc1bd28872f1bd6f993019a604
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 820659c513674dc04e914c8f1094afab4f5a89e2
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94915256"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96356467"
 ---
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -22,7 +22,7 @@ ms.locfileid: "94915256"
 La característica de interoperabilidad de Teams se encuentra actualmente en versión preliminar privada. Para habilitar esta característica para el recurso de Communication Services, envíe un correo electrónico a [acsfeedback@microsoft.com](mailto:acsfeedback@microsoft.com) que incluya:
 
 1. El identificador de la suscripción de Azure que contiene el recurso de Communication Services.
-2. El identificador de inquilino de Teams. La forma más fácil de conseguirlo es [obtener y compartir un vínculo con la instancia de Teams](https://support.microsoft.com/office/create-a-link-or-a-code-for-joining-a-team-11b0de3b-9288-4cb4-bc49-795e7028296f#:~:text=Create%20a%20link%20If%20you%E2%80%99re%20a%20team%20owner%2C,link%20into%20any%20browser%20to%20join%20the%20team).
+2. El identificador de inquilino de Teams. La forma más fácil de conseguirlo es [obtener y compartir un vínculo con la instancia de Teams](https://support.microsoft.com/office/create-a-link-or-a-code-for-joining-a-team-11b0de3b-9288-4cb4-bc49-795e7028296f).
 
 Para usar esta característica debe ser miembro de la organización propietaria de ambas entidades.
 
