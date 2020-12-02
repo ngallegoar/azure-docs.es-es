@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/18/2020
 ms.author: mnayak
-ms.openlocfilehash: 171ae04a70f3639981e74d20d260a03359a0f2c8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3f5653e4c184e88bce86026681dde1aee9e14d49
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86187445"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96491424"
 ---
 # <a name="what-is-routing-preference-preview"></a>¿Qué es la preferencia de enrutamiento (versión preliminar)?
 
@@ -70,19 +70,7 @@ En cuanto al almacenamiento, los puntos de conexión principales siempre usan la
 * Azure Data Lake
 
 ## <a name="pricing"></a>Precios
-La diferencia de precio entre ambas opciones se refleja en los precios de transferencia de datos de salida de Internet. El precio de transferencia de datos para el enrutamiento a través de la **red global de Microsoft** es el mismo que el precio de salida actual de Internet. Consulte la [página de precios de ancho de banda de Azure](https://azure.microsoft.com/pricing/details/bandwidth/) para obtener la información más reciente sobre los precios. El enrutamiento a través de la **red pública de Internet** tiene un precio inferior, tal como se muestra en la tabla siguiente:
-
-| Región de origen de salida | 0-5 GB/mes | 5 GB - 10 TB/mes | 10-50 TB/mes | 50-150 TB/mes | 150-500 TB/mes |
-| --- | --- | --- | --- | --- | --- |
-| Zona 1 | 0 USD/GB | 0,085 USD/GB | 0,065 USD/GB | 0,06 USD/GB | 0,04 USD/GB |
-| Zona 2 | 0 USD/GB | 0,11 USD/GB | 0,075 USD/GB | 0,07 USD/GB | 0,06 USD/GB  |
-
-[Póngase en contacto con nosotros](https://azure.microsoft.com/overview/sales-number/) para obtener un volumen mensual superior a 500 TB.
-* Zona 1: Centro de Australia, Centro de Australia 2, Centro de Canadá, Este de Canadá, Norte de Europa, Oeste de Europa, Centro de Francia, Sur de Francia, Norte de Alemania (público), Centro-oeste de Alemania (público), Este de Noruega, Oeste de Noruega, Norte de Suiza, Oeste de Suiza, Sur de Reino Unido, Oeste de Reino Unido, Centro de EE. UU.,Este de EE. UU., Este de EE. UU. 2, Centro y norte de EE. UU., Centro-sur de EE. UU., Oeste de EE. UU., Oeste de EE. UU. 2 y Centro-oeste de EE. UU.
-
-* Zona 2: Este de Asia, Sudeste de Asia, Este de Australia, Sudeste de Australia, Centro de la India, Sur de la India, India occidental, Este de Japón, Oeste de Japón, Centro de Corea del Sur y Sur de Corea del Sur.
-
-* Zona 3: Sur de Brasil, Norte de Sudáfrica, Oeste de Sudáfrica, Centro de Emiratos Árabes Unidos y Norte de Emiratos Árabes Unidos.
+La diferencia de precio entre ambas opciones se refleja en los precios de transferencia de datos de salida de Internet. El precio de transferencia de datos para el enrutamiento a través de la **red global de Microsoft** es el mismo que el precio de salida actual de Internet. Consulte la [página de precios de ancho de banda de Azure](https://azure.microsoft.com/pricing/details/bandwidth/) para obtener la información más reciente sobre los precios. 
 
 ## <a name="availability"></a>Disponibilidad
 

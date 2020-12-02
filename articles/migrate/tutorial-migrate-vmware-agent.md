@@ -4,12 +4,12 @@ description: Aprenda a ejecutar una migración de máquinas virtuales de VMware 
 ms.topic: tutorial
 ms.date: 06/09/2020
 ms.custom: MVC
-ms.openlocfilehash: ffdbdba0aeae33b04195c5a6bf6aeaff5658424b
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 46f23953e6572b752f8773bc9db86be946ccf212
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96012244"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96493004"
 ---
 # <a name="migrate-vmware-vms-to-azure-agent-based"></a>Migración de máquinas virtuales de VMware a Azure (basada en agente)
 
@@ -133,36 +133,6 @@ Asegúrese de que los servidores y las máquinas virtuales de VMware cumplen los
 
 > [!NOTE]
 > La migración basada en agente con la herramienta Azure Migrate Server Migration se basa en las características del servicio Azure Site Recovery. Es posible que algunos requisitos lleven a la documentación de Site Recovery.
-
-
-
-## <a name="add-the-azure-migrateserver-migration-tool"></a>Incorporación de la herramienta Azure Migrate:Server Migration
-
-Si aún no tiene un proyecto de Azure Migrate, [configure](how-to-add-tool-first-time.md) uno ahora y agregue la herramienta Server Migration.
-
-Si tiene un proyecto, agregue la herramienta de la siguiente manera:
-
-1. En Azure Portal > **Todos los servicios**, busque **Azure Migrate**.
-2. En **Servicios**, seleccione **Azure Migrate**.
-
-    ![Configuración de Azure Migrate](./media/tutorial-migrate-vmware-agent/azure-migrate-search.png)
-
-3. En **Información general**, haga clic en **Evaluar y migrar servidores**.
-4. En **Detectar, evaluar y migrar servidores**, haga clic en **Evaluar y migrar servidores**.
-
-    ![Detección y evaluación de servidores](./media/tutorial-migrate-vmware-agent/assess-migrate.png)
-
-1. En **Detectar, evaluar y migrar servidores**, haga clic en **Agregar herramientas**.
-2. En **Migrar proyecto**, seleccione la suscripción a Azure y cree un grupo de recursos, en caso de que no lo tenga.
-3. En **Detalles del proyecto**, especifique el nombre del proyecto y la zona geográfica en la que quiere crearlo; después, haga clic en **Siguiente**. Revise las zonas geográficas admitidas para nubes [públicas](migrate-support-matrix.md#supported-geographies-public-cloud) y [nubes gubernamentales](migrate-support-matrix.md#supported-geographies-azure-government).
-
-    ![Crear un proyecto de Azure Migrate](./media/tutorial-migrate-vmware-agent/migrate-project.png)
-
-
-4. En **Seleccione una herramienta de evaluación**, seleccione **Omitir por ahora la adición de una herramienta de evaluación** > **Siguiente**.
-5. En **Seleccione una herramienta de migración**, seleccione **Azure Migrate: Migración del servidor** > **Siguiente**.
-6. En **Revisar y agregar herramientas**, revise la configuración y haga clic en **Agregar herramientas**.
-7. Después de agregar la herramienta, aparece en el proyecto de Azure Migrate > **Servidores** > **Herramientas de migración**.
 
 ## <a name="set-up-the-replication-appliance"></a>Configuración del dispositivo de replicación
 

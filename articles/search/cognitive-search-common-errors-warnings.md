@@ -8,12 +8,12 @@ ms.author: abmotley
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 8ceb6d4dddb76148be1e82ebc8c1994886a11da3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dcdc05ae696a207546eb62160fe89ea38d307058
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362821"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492274"
 ---
 # <a name="troubleshooting-common-indexer-errors-and-warnings-in-azure-cognitive-search"></a>Solución de errores y advertencias comunes con el indexador en Azure Cognitive Search
 
@@ -348,8 +348,8 @@ Para solucionar esta advertencia, determine cuál es la codificación de texto p
 
 ## <a name="warning-cosmos-db-collection-x-has-a-lazy-indexing-policy-some-data-may-be-lost"></a>Advertencia: La colección "X" de Cosmos DB tiene una directiva de indexación diferida. Se podrían perder algunos datos
 
-Las colecciones con directivas de indexación [diferida](/azure/cosmos-db/index-policy#indexing-mode) no se pueden consultar de forma coherente, lo que hace que su indizador pierda datos. Para evitar esta advertencia, cambie su directiva de indexación a Coherente.
+Las colecciones con directivas de indexación [diferida](../cosmos-db/index-policy.md#indexing-mode) no se pueden consultar de forma coherente, lo que hace que su indizador pierda datos. Para evitar esta advertencia, cambie su directiva de indexación a Coherente.
 
 ## <a name="warning-the-document-contains-very-long-words-longer-than-64-characters-these-words-may-result-in-truncated-andor-unreliable-model-predictions"></a>Advertencia: El documento contiene palabras muy largas (más de 64 caracteres). Estas palabras pueden dar lugar a predicciones de modelo truncadas o no confiables.
 
-Esta advertencia se pasa desde el servicio Text Analytics.  En algunos casos, es seguro ignorar esta advertencia, por ejemplo, cuando el documento contiene una dirección URL larga (que probablemente no es una frase clave o una opinión motivada, etc.).  Tenga en cuenta que cuando una palabra tiene más de 64 caracteres, se truncará a 64 caracteres, lo que pueden afectar a las predicciones del modelo.  
+Esta advertencia se pasa desde el servicio Text Analytics.  En algunos casos, es seguro ignorar esta advertencia, por ejemplo, cuando el documento contiene una dirección URL larga (que probablemente no es una frase clave o una opinión motivada, etc.).  Tenga en cuenta que cuando una palabra tiene más de 64 caracteres, se truncará a 64 caracteres, lo que pueden afectar a las predicciones del modelo.

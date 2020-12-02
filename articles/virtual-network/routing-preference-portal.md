@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/18/2020
 ms.author: mnayak
-ms.openlocfilehash: 7d41893d734037e466ad786641fed98c461adcfc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 21d9f318ef18b7ffb49a95ce495c09f1fa46ec1a
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86231818"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96491322"
 ---
 # <a name="configure-routing-preference-for-a-public-ip-address-using-the-azure-portal"></a>Configuración de la preferencia de enrutamiento para una dirección IP pública mediante Azure Portal
 
@@ -37,12 +37,6 @@ De manera predeterminada, la preferencia de enrutamiento de la dirección IP pú
 > Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) ahora.
-
-## <a name="register-the-feature-for-your-subscription"></a>Registro de la característica de la suscripción
-La característica de preferencias de enrutamiento se encuentra actualmente en versión preliminar. Registre la característica de la suscripción mediante Azure PowerShell, tal como se indica a continuación:
-```azurepowershell
-Register-AzProviderFeature -FeatureName AllowRoutingPreferenceFeature -ProviderNamespace Microsoft.Network
-```
 
 ## <a name="create-a-public-ip-address-with-a-routing-preference"></a>Creación de una dirección IP pública con preferencia de enrutamiento
 1. Inicie sesión en [Azure Portal](https://preview.portal.azure.com/).

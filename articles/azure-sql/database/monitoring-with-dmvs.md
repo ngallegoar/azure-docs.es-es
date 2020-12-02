@@ -8,16 +8,16 @@ ms.subservice: performance
 ms.custom: sqldbrb=2
 ms.devlang: ''
 ms.topic: how-to
-author: juliemsft
-ms.author: jrasnick
+author: WilliamDAssafMSFT
+ms.author: wiassaf
 ms.reviewer: sstein
 ms.date: 04/19/2020
-ms.openlocfilehash: b76390efaed94003a792b04836d6850e6b7a7ead
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 480e9f9031481621ac9d568a7bd97b942f47b947
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789563"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96493651"
 ---
 # <a name="monitoring-microsoft-azure-sql-database-and-azure-sql-managed-instance-performance-using-dynamic-management-views"></a>Supervisión del rendimiento de Microsoft Azure SQL Database e Instancia administrada de Azure SQL mediante vistas de administración dinámica
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -34,14 +34,14 @@ Para obtener información detallada sobre las vistas de administración dinámic
 
 ## <a name="permissions"></a>Permisos
 
-En Azure SQL Database, para realizar consultas en una vista de administración dinámica se requieren los permisos **VIEW DATABASE STATE** . El permiso **VIEW DATABASE STATE** devuelve información sobre todos los objetos de la base de datos actual.
+En Azure SQL Database, para realizar consultas en una vista de administración dinámica se requieren los permisos **VIEW DATABASE STATE**. El permiso **VIEW DATABASE STATE** devuelve información sobre todos los objetos de la base de datos actual.
 Para conceder el permiso **VIEW DATABASE STATE** a un usuario de base de datos en concreto, ejecute la consulta siguiente:
 
 ```sql
 GRANT VIEW DATABASE STATE TO database_user;
 ```
 
-En Instancia administrada de Azure SQL, para realizar consultas en una vista de administración dinámica se requieren los permisos **VIEW SERVER STATE** . Para más información, consulte [Vistas de administración dinámica del sistema](/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views#required-permissions).
+En Instancia administrada de Azure SQL, para realizar consultas en una vista de administración dinámica se requieren los permisos **VIEW SERVER STATE**. Para más información, consulte [Vistas de administración dinámica del sistema](/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views#required-permissions).
 
 En una instancia de SQL Server y en Instancia administrada de Azure SQL, las vistas de administración dinámica devuelven la información de estado del servidor. En Azure SQL Database, devuelven información relativa únicamente a la base de datos lógica actual.
 
@@ -123,7 +123,7 @@ Cuando se identifican problemas de rendimiento de E/S, los principales tipos de 
 
 - `PAGEIOLATCH_*`
 
-  En el caso de problemas de E/S de archivos de datos (incluidos `PAGEIOLATCH_SH`, `PAGEIOLATCH_EX`, `PAGEIOLATCH_UP`).  Si en el nombre de tipo de espera se incluye **IO** , indica un problema de E/S. Si no hay ningún **IO** en el nombre de tiempo de espera de bloqueo temporal de la página, indica otro tipo de problema (por ejemplo, la contención de tempdb).
+  En el caso de problemas de E/S de archivos de datos (incluidos `PAGEIOLATCH_SH`, `PAGEIOLATCH_EX`, `PAGEIOLATCH_UP`).  Si en el nombre de tipo de espera se incluye **IO**, indica un problema de E/S. Si no hay ningún **IO** en el nombre de tiempo de espera de bloqueo temporal de la página, indica otro tipo de problema (por ejemplo, la contención de tempdb).
 
 - `WRITE_LOG`
 
@@ -517,7 +517,7 @@ WHERE c.session_id = @@SPID;
 ```
 
 > [!NOTE]
-> Al ejecutar las vistas **sys.dm_exec_requests** y **sys.dm_exec_sessions** , si el usuario tiene permiso **VIEW DATABASE STATE** en la base de datos, verá todas las sesiones en ejecución en la base de datos; en caso contrario, el usuario solo verá la sesión actual.
+> Al ejecutar las vistas **sys.dm_exec_requests** y **sys.dm_exec_sessions**, si el usuario tiene permiso **VIEW DATABASE STATE** en la base de datos, verá todas las sesiones en ejecución en la base de datos; en caso contrario, el usuario solo verá la sesión actual.
 
 ## <a name="monitor-resource-use"></a>Supervisión del uso de recursos
 
@@ -714,7 +714,7 @@ WHERE D.name = 'MyDatabase'
 
 Nuevamente, estas consultas devuelven un número puntual. Si recopila varias muestras a lo largo de un tiempo, entenderá mejor el uso de la sesión.
 
-Puede obtener estadísticas históricas sobre las sesiones consultando la vista [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) y revisando la columna **active_session_count** .
+Puede obtener estadísticas históricas sobre las sesiones consultando la vista [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) y revisando la columna **active_session_count**.
 
 ## <a name="monitoring-query-performance"></a>Supervisión del rendimiento de las consultas
 

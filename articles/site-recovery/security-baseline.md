@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/26/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 095a97d27439c54e2ade96e3a40349a0d95b9c11
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: f6d17b007fcccd87aed17a9ec3ca039b9559ab6d
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843101"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492240"
 ---
 # <a name="azure-security-baseline-for-site-recovery"></a>Base de referencia de seguridad de Azure para Site Recovery
 
@@ -52,7 +52,7 @@ Incorpore cualquiera de las definiciones de Azure Policy integradas relacionadas
 
 Puede usar Azure PowerShell o la CLI de Azure para buscar o realizar acciones en los recursos en función de sus etiquetas. 
 
-- [Creación y uso de etiquetas](/azure/azure-resource-manager/resource-group-using-tags) 
+- [Creación y uso de etiquetas](../azure-resource-manager/management/tag-resources.md) 
 
 - [Creación de una red virtual de Azure](../virtual-network/quick-create-portal.md) 
 
@@ -164,9 +164,9 @@ Visualice y consulte los resultados del registro y configure alertas para realiz
 
 **Guía**: No se asignan roles de manera predeterminada. Deben asignarse explícitamente según las necesidades de la empresa. Las asignaciones de roles se pueden comprobar con PowerShell, la CLI o Azure Active Directory (Azure AD) para detectar las cuentas que son miembros de los grupos administrativos.
 
-- [Obtención de un rol de directorio en Azure AD con PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0&amp;preserve-view=true)
+- [Obtención de un rol de directorio en Azure AD con PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?amp;preserve-view=true&view=azureadps-2.0)
 
-- [Obtención de los miembros de un rol de directorio en Azure AD con PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0&amp;preserve-view=true)
+- [Obtención de los miembros de un rol de directorio en Azure AD con PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?amp;preserve-view=true&view=azureadps-2.0)
 
 **Supervisión de Azure Security Center**: Sí
 
@@ -224,7 +224,7 @@ Cree un proceso para realizar un seguimiento del control de acceso e identidad p
 
 - [Uso de estaciones de trabajo con privilegios de acceso](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
 
-- [Planeamiento de una implementación de Multi-Factor Authentication de Azure AD basado en la nube](../active-directory/authentication/howto-mfa-getstarted.md)
+- [Planeamiento de una implementación de Azure AD Multi-Factor Authentication basada en la nube](../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -270,7 +270,7 @@ Administre de forma eficiente las pertenencias a grupos, el acceso a las aplicac
 
 Cree un proceso que revise el acceso de usuario de manera periódica para asegurarse de que solo los usuarios con revisiones de acceso completadas cuentan con acceso continuo. 
 
-- [Descripción de los informes de Azure AD](/azure/active-directory/reports-monitoring/)
+- [Descripción de los informes de Azure AD](../active-directory/reports-monitoring/index.yml)
 
 - [Procedimiento para usar las revisiones de acceso de identidad de Azure](../active-directory/governance/access-reviews-overview.md)
 
@@ -286,7 +286,7 @@ Tiene acceso a los orígenes del registro de eventos de las actividades de inici
 
 Simplifique aún más este proceso al crear una configuración de diagnóstico para las cuentas de usuario de Azure AD y enviar los registros de auditoría e inicio de sesión a un área de trabajo de Log Analytics. Puede configurar las alertas que quiera en un área de trabajo de Log Analytics.
 
-- [Integración de los registros de actividad de Azure en Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [Integración de los registros de actividad de Azure en Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 - [Incorporación de Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -431,7 +431,7 @@ Aunque los recursos clásicos de Azure se pueden detectar a través de Resource 
 
 - [Creación de consultas con Azure Graph](../governance/resource-graph/first-query-portal.md)
 
-- [Visualización de las suscripciones de Azure](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-4.8.0&amp;preserve-view=true)
+- [Visualización de las suscripciones de Azure](/powershell/module/az.accounts/get-azsubscription?amp;preserve-view=true&view=azps-4.8.0)
 
 - [Descripción de Azure RBAC](../role-based-access-control/overview.md)
 
@@ -505,7 +505,7 @@ Comprender cómo se crean y administran las directivas en Azure es importante pa
 
 - [Configuración y administración de Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [Denegación de un tipo de recurso específico con Azure Policy](/azure/governance/policy/samples)
+- [Denegación de un tipo de recurso específico con Azure Policy](../governance/policy/samples/index.md)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -530,7 +530,7 @@ Comprender cómo se crean y administran las directivas en Azure es importante pa
 **Instrucciones**: Defina e implemente configuraciones de seguridad estándar para el almacén de Recovery Services con Azure Policy. 
 
 Use alias de Azure Policy en el espacio de nombres "Microsoft.RecoveryServices" para crear directivas personalizadas con el fin de auditar o aplicar la configuración de los recursos de almacenes de Recovery Services del servicio Site Recovery.
-- [Visualización de los alias de Azure Policy disponibles](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-4.8.0&amp;preserve-view=true)
+- [Visualización de los alias de Azure Policy disponibles](/powershell/module/az.resources/get-azpolicyalias?amp;preserve-view=true&view=azps-4.8.0)
 
 - [Configuración y administración de Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -553,9 +553,9 @@ Use alias de Azure Policy en el espacio de nombres "Microsoft.RecoveryServices" 
 
 **Guía**: elija Azure Repos para almacenar y administrar código de manera segura si usa definiciones personalizadas de Azure Policy para los almacenes de Recovery Services y los recursos relacionados.
 
-- [Almacenamiento de código en Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops&amp;preserve-view=true)
+- [Almacenamiento de código en Azure DevOps](/azure/devops/repos/git/gitworkflow?amp;preserve-view=true&view=azure-devops)
 
-- [Documentación de Azure Repos](https://docs.microsoft.com/azure/devops/repos/?view=azure-devops&amp;preserve-view=true)
+- [Documentación de Azure Repos](/azure/devops/repos/?amp;preserve-view=true&view=azure-devops)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -608,7 +608,7 @@ Use las identidades administradas para proporcionar a los servicios de Azure una
 
 Las identidades administradas le permiten autenticarse en cualquier servicio que admita la autenticación de Azure AD, como Key Vault, sin necesidad de credenciales en el código.
 
-- [Integración con identidades administradas de Azure](https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity?tabs=core2x)
+- [Integración con identidades administradas de Azure](../azure-app-configuration/howto-integrate-azure-managed-service-identity.md?tabs=core2x)
 
 - [Habilitación de la identidad administrada por el sistema en el almacén de Recovery Services](azure-to-azure-how-to-enable-replication-private-endpoints.md#enable-the-managed-identity-for-the-vault)
 
@@ -638,7 +638,7 @@ Use la detección de amenazas de Security Center para los servicios de datos par
 
 - [Descripción de Microsoft Antimalware para Azure Cloud Services y Virtual Machines](../security/fundamentals/antimalware.md)
 
-- [Descripción de la detección de amenazas de Azure Security Center para servicios de datos](/azure/security-center/threat-protection)
+- [Descripción de la detección de amenazas de Azure Security Center para servicios de datos](../security-center/azure-defender.md)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -656,7 +656,7 @@ Todos los recursos de almacenamiento utilizados por los metadatos de los servici
 
 Esto se encuentra fuera del ámbito del cliente y el equipo de Site Recovery se encarga internamente. El cliente puede crear una copia de seguridad de las claves de Key Vault en Azure.
 
-- [Creación de una copia de seguridad de las claves del almacén de claves en Azure](https://docs.microsoft.com/powershell/module/az.keyvault/backup-azkeyvaultkey?view=azps-4.8.0&amp;preserve-view=true)
+- [Creación de una copia de seguridad de las claves del almacén de claves en Azure](/powershell/module/az.keyvault/backup-azkeyvaultkey?amp;preserve-view=true&view=azps-4.8.0)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -666,7 +666,7 @@ Esto se encuentra fuera del ámbito del cliente y el equipo de Site Recovery se 
 
 **Guía**: pruebe periódicamente las restauraciones de la copia de seguridad de las claves administradas por el cliente.
 
-- [Restauración de las claves del almacén de claves en Azure](https://docs.microsoft.com/powershell/module/az.keyvault/restore-azkeyvaultkey?view=azps-4.8.0&amp;preserve-view=true)
+- [Restauración de las claves del almacén de claves en Azure](/powershell/module/az.keyvault/restore-azkeyvaultkey?amp;preserve-view=true&view=azps-4.8.0)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -676,7 +676,7 @@ Esto se encuentra fuera del ámbito del cliente y el equipo de Site Recovery se 
 
 **Guía**: los datos se cifran en reposo mediante Storage Service Encryption (SSE) con la infraestructura como servicio (IaaS) de Azure basada en máquinas virtuales. Habilite la eliminación temporal en Key Vault para proteger las claves contra la eliminación accidental o malintencionada.
 
-- [Habilitación de la eliminación temporal en Key Vault](https://docs.microsoft.com/azure/storage/blobs/soft-delete-blob-overview?tabs=azure-portal)
+- [Habilitación de la eliminación temporal en Key Vault](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 **Supervisión de Azure Security Center**: Sí
 
@@ -712,7 +712,7 @@ Marque las suscripciones de manera clara (por ejemplo, producción o no producci
 
 - [Alertas de seguridad en el Centro de seguridad de Azure](../security-center/security-center-alerts-overview.md) 
 
-- [Uso de etiquetas para organizar los recursos de Azure](/azure/azure-resource-manager/resource-group-using-tags)
+- [Uso de etiquetas para organizar los recursos de Azure](../azure-resource-manager/management/tag-resources.md)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -778,5 +778,5 @@ Use el conector de datos de Security Center para transmitir las alertas a Azure 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Consulte la [Información general sobre Azure Security Benchmark V2](/azure/security/benchmarks/overview).
-- Obtenga más información sobre las [líneas de base de seguridad de Azure](/azure/security/benchmarks/security-baselines-overview).
+- Consulte la [Información general sobre Azure Security Benchmark V2](../security/benchmarks/overview.md).
+- Obtenga más información sobre las [líneas de base de seguridad de Azure](../security/benchmarks/security-baselines-overview.md).

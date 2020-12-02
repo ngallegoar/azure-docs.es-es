@@ -6,16 +6,16 @@ author: su-jie
 ms.author: sujie
 ms.date: 4/11/2020
 ms.topic: how-to
-ms.openlocfilehash: 756604b71efd1715ae3b4ca3d5eebf0fdfa41e34
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 988b9d364f09a4c88bcaab1fe81ae80c8de5d4d9
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129803"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96491577"
 ---
 # <a name="intellisense-in-azure-stream-analytics-tools-for-visual-studio-code"></a>IntelliSense en las herramientas de Azure Stream Analytics para Visual Studio Code
 
-IntelliSense está disponible para el [lenguaje de consulta de Stream Analytics](/stream-analytics-query/stream-analytics-query-language-reference?bc=https%253a%252f%252fdocs.microsoft.com%252fazure%252fbread%252ftoc.json&toc=https%253a%252f%252fdocs.microsoft.com%252fazure%252fstream-analytics%252ftoc.json) en las [herramientas de Azure Stream Analytics para VS Code](https://marketplace.visualstudio.com/items?itemName=ms-bigdatatools.vscode-asa&ssr=false#overview). IntelliSense es una ayuda para la finalización de código que incluye varias características: enumerar miembros, información de parámetros, información rápida y completar palabra. A veces las características de IntelliSense reciben otros nombres, como "finalización de código", "asistente de contenido" y "sugerencias de código".
+IntelliSense está disponible para el [lenguaje de consulta de Stream Analytics](/stream-analytics-query/stream-analytics-query-language-reference?bc=https%253a%2f%2fdocs.microsoft.com%2fazure%2fbread%2ftoc.json&toc=https%253a%2f%2fdocs.microsoft.com%2fazure%2fstream-analytics%2ftoc.json) en las [herramientas de Azure Stream Analytics para VS Code](https://marketplace.visualstudio.com/items?itemName=ms-bigdatatools.vscode-asa&ssr=false#overview). IntelliSense es una ayuda para la finalización de código que incluye varias características: enumerar miembros, información de parámetros, información rápida y completar palabra. A veces las características de IntelliSense reciben otros nombres, como "finalización de código", "asistente de contenido" y "sugerencias de código".
 
 ![Demostración de IntelliSense](./media/vs-code-intellisense/intellisense.gif)
 

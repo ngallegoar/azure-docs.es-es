@@ -4,15 +4,15 @@ description: Aprenda a crear alias de nombre del servidor de Azure Analysis Serv
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 06/16/2020
+ms.date: 12/01/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 753ac449418b78fe02640f1b70b94b5b3d7f2be5
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 7fb52a0f03fa1f9ab9bc0c6a2c27adf70b4bf2ca
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019042"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96491237"
 ---
 # <a name="alias-server-names"></a>Alias de nombre de servidor
 
@@ -54,5 +54,5 @@ protected void Page_Load(object sender, EventArgs e)
 
 ## <a name="see-also"></a>Consulte también
 
-[Bibliotecas de cliente](/analysis-services/client-libraries?view=azure-analysis-services-current)   
+[Bibliotecas de cliente](/analysis-services/client-libraries?view=azure-analysis-services-current&preserve-view=true)   
 [Conexión con Power BI Desktop](analysis-services-connect-pbi.md)

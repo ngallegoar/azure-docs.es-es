@@ -6,18 +6,18 @@ ms.author: srranga
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 11/10/2020
-ms.openlocfilehash: e756e033c8e5b2508dca9bde76ad16be26a940fa
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 42bbe1c9f4056ae0dae0ccd59b452db90a7c63c5
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94505791"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96493668"
 ---
 # <a name="upgrade-your-postgresql-database-using-dump-and-restore"></a>Actualización de una base de datos de PostgreSQL mediante volcado y restauración
 
 Puede actualizar el servidor de PostgreSQL implementado en Azure Database for PostgreSQL: servidor único; para ello, migre las bases de datos a una versión principal posterior del servidor mediante los métodos siguientes.
 * Método **sin conexión** mediante [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html) y [pg_restore](https://www.postgresql.org/docs/current/static/app-pgrestore.html) de PostgreSQL que implica tiempo de inactividad para migrar los datos. En este documento se aborda este método de actualización/migración.
-* Método **en línea** que usa [Database Migration Service](https://docs.microsoft.com/azure/dms/tutorial-azure-postgresql-to-azure-postgresql-online-portal) (DMS). Este método ofrece una migración con tiempo de inactividad reducido y mantiene sincronizada la base de datos de destino con el origen. Además, permite elegir el momento del traslado. No obstante, existen algunos requisitos previos y restricciones que se deben abordar para usar DMS. Para más información, consulte la [documentación de DMS](https://docs.microsoft.com/azure/dms/tutorial-azure-postgresql-to-azure-postgresql-online-portal). 
+* Método **en línea** que usa [Database Migration Service](../dms/tutorial-azure-postgresql-to-azure-postgresql-online-portal.md) (DMS). Este método ofrece una migración con tiempo de inactividad reducido y mantiene sincronizada la base de datos de destino con el origen. Además, permite elegir el momento del traslado. No obstante, existen algunos requisitos previos y restricciones que se deben abordar para usar DMS. Para más información, consulte la [documentación de DMS](../dms/tutorial-azure-postgresql-to-azure-postgresql-online-portal.md). 
 
  En la tabla siguiente se proporcionan algunas recomendaciones según el escenario y el tamaño de la base de datos.
 
@@ -28,7 +28,7 @@ Puede actualizar el servidor de PostgreSQL implementado en Azure Database for Po
 | Bases de datos pequeñas a medianas (10 GB a 100 GB). | X | X |
 | Bases de datos de gran tamaño (> 100 GB). |  | X |
 | Puede permitirse un tiempo de inactividad para la actualización (independientemente del tamaño de la base de datos). | X |  |
-| ¿Se puede encargar de los [requisitos previos](https://docs.microsoft.com/azure/dms/tutorial-azure-postgresql-to-azure-postgresql-online-portal#prerequisites) de DMS, incluido el reinicio? |  | X |
+| ¿Se puede encargar de los [requisitos previos](../dms/tutorial-azure-postgresql-to-azure-postgresql-online-portal.md#prerequisites) de DMS, incluido el reinicio? |  | X |
 | ¿Se puede evitar el uso de DDL y las tablas no registradas durante el proceso de actualización? | |  X |
 
 En esta guía se proporcionan algunas metodologías de migración sin conexión y ejemplos para mostrar cómo se puede migrar desde el servidor de origen al servidor de destino con una versión posterior de PostgreSQL.

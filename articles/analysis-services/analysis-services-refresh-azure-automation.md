@@ -4,20 +4,20 @@ description: En este artículo se explica cómo codificar actualizaciones de mod
 author: chrislound
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 05/07/2020
+ms.date: 12/01/2020
 ms.author: chlound
-ms.openlocfilehash: fe811c81d0774393f40dc5c8403d1af8b22da109
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 7c801511b6f24cf5ef04d55bb195e3a4c62d7b6d
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019144"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96491254"
 ---
 # <a name="refresh-with-azure-automation"></a>Actualización con Azure Automation
 
 Mediante el uso de Azure Automation y los runbooks de PowerShell, puede realizar operaciones de actualización de datos automatizadas en los modelos tabulares de análisis de Azure.  
 
-El ejemplo de este artículo usa el [módulo SqlServer de PowerShell](/powershell/module/sqlserver/?view=sqlserver-ps). Más adelante en este artículo, se proporciona un ejemplo de un runbook de PowerShell que muestra cómo actualizar un modelo.  
+El ejemplo de este artículo usa el [módulo SqlServer de PowerShell](/powershell/module/sqlserver/?view=sqlserver-ps&preserve-view=true). Más adelante en este artículo, se proporciona un ejemplo de un runbook de PowerShell que muestra cómo actualizar un modelo.  
 
 ## <a name="authentication"></a>Authentication
 

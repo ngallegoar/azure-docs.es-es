@@ -8,12 +8,12 @@ ms.date: 01/15/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 1b29565e18b2da2087cc15966b30b433a42fb603
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 32aa94c986c90b7bd46b9f5561021c34c0f142af
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629808"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492099"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planeamiento de una implementación de Azure Files Sync
 
@@ -368,7 +368,7 @@ Las soluciones de antivirus internas de Microsoft, Windows Defender y System Cen
 > Los proveedores de software antivirus pueden comprobar la compatibilidad entre sus productos y Azure File Sync con [Azure File Sync Antivirus Compatibility Test Suite](https://www.microsoft.com/download/details.aspx?id=58322), que está disponible para su descarga en el Centro de descarga de Microsoft.
 
 ## <a name="backup"></a>Copia de seguridad 
-Si está habilitada la nube por niveles, no se deben usar soluciones que realicen copias de seguridad directamente del punto de conexión de servidor o de una máquina virtual en la que se encuentre este. La nube por niveles hace que solo un subconjunto de los datos se almacene en el punto de conexión de servidor, y que el conjunto de datos completo resida en el recurso compartido de archivos de Azure. En función de la solución de copia de seguridad usada, los archivos por niveles se omitirán y no se realizará una copia de seguridad de ellos (porque tienen el conjunto de atributos FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS), o se recuperarán en el disco, lo que provocará cargos elevados de salida. Se recomienda usar una solución de copia de seguridad en la nube para realizar la copia de seguridad del recurso compartido de archivos de Azure directamente. Para más información, consulte [Acerca de la copia de seguridad de recursos compartidos de archivos de Azure](../../backup/azure-file-share-backup-overview.md?toc=%252fazure%252fstorage%252ffiles%252ftoc.json) o póngase en contacto con el proveedor de copias de seguridad para ver si admite la copia de seguridad de recursos compartidos de Azure.
+Si está habilitada la nube por niveles, no se deben usar soluciones que realicen copias de seguridad directamente del punto de conexión de servidor o de una máquina virtual en la que se encuentre este. La nube por niveles hace que solo un subconjunto de los datos se almacene en el punto de conexión de servidor, y que el conjunto de datos completo resida en el recurso compartido de archivos de Azure. En función de la solución de copia de seguridad usada, los archivos por niveles se omitirán y no se realizará una copia de seguridad de ellos (porque tienen el conjunto de atributos FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS), o se recuperarán en el disco, lo que provocará cargos elevados de salida. Se recomienda usar una solución de copia de seguridad en la nube para realizar la copia de seguridad del recurso compartido de archivos de Azure directamente. Para más información, consulte [Acerca de la copia de seguridad de recursos compartidos de archivos de Azure](../../backup/azure-file-share-backup-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) o póngase en contacto con el proveedor de copias de seguridad para ver si admite la copia de seguridad de recursos compartidos de Azure.
 
 Si prefiere usar una solución de copia de seguridad local, las copias de seguridad deben realizarse en un servidor del grupo de sincronización que tenga deshabilitada la nube por niveles. Al realizar una restauración, use las opciones de restauración de nivel de volumen o de archivo. Los archivos restaurados con la opción de restauración a nivel de archivo se sincronizarán con todos los puntos de conexión del grupo de sincronización y los archivos existentes se reemplazarán con la versión restaurada desde la copia de seguridad.  Las restauraciones a nivel de volumen no reemplazarán las versiones de archivo más recientes en el recurso compartido de archivos de Azure u otros puntos de conexión del servidor.
 
