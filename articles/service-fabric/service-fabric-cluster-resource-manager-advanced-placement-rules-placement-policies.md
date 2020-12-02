@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.custom: devx-track-csharp
-ms.openlocfilehash: fbfec218c1bf1d018157fc6d78c700991f332a13
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 5a4586c9c1be51b0ebbdebcf0c23289fc39f9eda
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92172799"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96485508"
 ---
 # <a name="placement-policies-for-service-fabric-services"></a>Directivas de colocación de servicios de Service Fabric
 Las directivas de colocación son reglas adicionales que pueden usarse para controlar la colocación del servicio en algunos escenarios específicos menos comunes. Algunos ejemplos de esos escenarios son:
@@ -150,7 +150,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 >
 
 > [!NOTE]
-> Actualmente, la directiva solo se admite para servicios sin estado con el [modo de activación de paquetes de servicio](https://docs.microsoft.com/dotnet/api/system.fabric.description.servicepackageactivationmode?view=azure-dotnet) ExclusiveProcess.
+> Actualmente, la directiva solo se admite para servicios sin estado con el [modo de activación de paquetes de servicio](/dotnet/api/system.fabric.description.servicepackageactivationmode?view=azure-dotnet) ExclusiveProcess.
 >
 
 > [!WARNING]
@@ -158,7 +158,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 >
 
 > [!NOTE]
-> El uso de un valor alto de [MinInstanceCount](https://docs.microsoft.com/dotnet/api/system.fabric.description.statelessservicedescription.mininstancecount?view=azure-dotnet) con esta directiva de colocación puede provocar que se bloqueen las actualizaciones de la aplicación. Por ejemplo, si tiene un clúster de cinco nodos y establece InstanceCount=10, tendrá dos instancias en cada nodo. Si establece MinInstanceCount=9, un intento de actualización de la aplicación puede bloquearse; con MinInstanceCount=8, esto se puede evitar.
+> El uso de un valor alto de [MinInstanceCount](/dotnet/api/system.fabric.description.statelessservicedescription.mininstancecount?view=azure-dotnet) con esta directiva de colocación puede provocar que se bloqueen las actualizaciones de la aplicación. Por ejemplo, si tiene un clúster de cinco nodos y establece InstanceCount=10, tendrá dos instancias en cada nodo. Si establece MinInstanceCount=9, un intento de actualización de la aplicación puede bloquearse; con MinInstanceCount=8, esto se puede evitar.
 >
 
 ## <a name="next-steps"></a>Pasos siguientes

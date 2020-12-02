@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: dc66de09a5918b19c60aaa0d3e9ab662876dc31a
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 9eab908d2767bcdc9305daa625c70be9b63b9756
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94684328"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96485553"
 ---
 # <a name="azure-security-baseline-for-service-fabric"></a>Línea de base de seguridad de Azure para Service Fabric
 
@@ -76,7 +76,7 @@ Considere la posibilidad de implementar el firewall de aplicaciones web (WAF) de
 
 **Instrucciones**: para protegerse de los ataques DDoS, habilite la protección estándar de DDoS de Azure en la red virtual donde está implementada su instancia de Azure Service Fabric. Use la inteligencia sobre amenazas integrada de Azure Security Center para denegar las comunicaciones con direcciones IP malintencionadas conocidas o no utilizadas.
 
-* [Configuración de la protección contra DDoS](../virtual-network/manage-ddos-protection.md)
+* [Configuración de la protección contra DDoS](../ddos-protection/manage-ddos-protection.md)
 
 * [Descripción de la inteligencia sobre amenazas integrada de Azure Security Center](../security-center/azure-defender.md)
 
@@ -626,7 +626,7 @@ Como alternativa, para probar primero las revisiones del SO antes de pasar a pro
 
 * [Actualización de las máquinas virtuales con el modelo de conjunto de escalado más reciente](../virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model)
 
-* [Introducción a Update Management de Azure Automation](../automation/update-management/update-mgmt-overview.md)
+* [Introducción a Update Management de Azure Automation](../automation/update-management/overview.md)
 
 **Supervisión de Azure Security Center**: no disponible actualmente
 

@@ -3,20 +3,20 @@ title: Actividad web en Azure Data Factory
 description: Aprenda a usar la actividad web, una de las actividades de flujo de control admitidas por Data Factory, para invocar un punto de conexión REST desde una canalización.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/19/2018
-ms.openlocfilehash: e74361d6fb3eb1f9708f39f198506d16c7c046c4
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 8ee23adf569a6afafc57dac786cd907a3481abde
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92635106"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96485814"
 ---
 # <a name="web-activity-in-azure-data-factory"></a>Actividad web en Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -73,7 +73,7 @@ La actividad Web puede usarse para llamar a un punto de conexión REST personali
 Propiedad | Descripción | Valores permitidos | Obligatorio
 -------- | ----------- | -------------- | --------
 name | Nombre de la actividad web | String | Sí
-type | Se debe establecer en **WebActivity** . | String | Sí
+type | Se debe establecer en **WebActivity**. | String | Sí
 method | Método de API de REST para el punto de conexión de destino. | String. <br/><br/>Tipos admitidos: "GET", "POST", "PUT" | Sí
 url | Punto de conexión y ruta de acceso de destino | Cadena (o expresión con un valor resultType de cadena). La actividad dará un error por tiempo de espera después de 1 minuto si no recibe una respuesta desde el punto de conexión. | Sí
 headers | Encabezados que se envían a la solicitud. Por ejemplo, para establecer el idioma y el tipo en una solicitud: `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }`. | Cadena (o expresión con un valor resultType de cadena) | Sí, el encabezado Content-type es necesario. `"headers":{ "Content-Type":"application/json"}`
