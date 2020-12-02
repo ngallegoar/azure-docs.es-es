@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: contperfq2
-ms.openlocfilehash: 8482ba608ee5fcefb006234b339cd9b711a38020
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 55607527ced2e5d93a61cfd85477758482f18daa
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94445309"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95495430"
 ---
 # <a name="install-and-use-azure-iot-explorer"></a>Instalación y uso de Azure IoT Explorer
 
@@ -40,7 +40,7 @@ Vaya a las [versiones de Azure IoT Explorer](https://github.com/Azure/azure-iot-
 
 ## <a name="use-azure-iot-explorer"></a>Uso de Azure IoT Explorer
 
-Para un dispositivo, puede conectar su propio dispositivo o utilizar uno de los dispositivos simulados de ejemplo. Para ver algunos dispositivos simulados de ejemplo escritos en lenguajes diferentes, consulte la guía de inicio rápido [Conexión de una aplicación de dispositivo IoT Plug and Play de ejemplo a IoT Hub ](quickstart-connect-device-node.md).
+Para un dispositivo, puede conectar su propio dispositivo o utilizar uno de los dispositivos simulados de ejemplo. Para ver algunos dispositivos simulados de ejemplo escritos en lenguajes diferentes, consulte la guía de inicio rápido [Conexión de una aplicación de dispositivo IoT Plug and Play de ejemplo a IoT Hub ](quickstart-connect-device.md).
 
 ### <a name="connect-to-your-hub"></a>Conexión con el centro
 

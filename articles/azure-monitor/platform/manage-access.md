@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/10/2019
-ms.openlocfilehash: 7acd287964d25cc7e98c11ec1986c73d8ae265da
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 79e5b1ddde0ff5f0d09dc1c20e3b20ec4de3d925
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92104145"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95536683"
 ---
 # <a name="manage-access-to-log-data-and-workspaces-in-azure-monitor"></a>Administración del acceso a los datos de registro y las áreas de trabajo en Azure Monitor
 
@@ -23,7 +23,7 @@ En este artículo se explica cómo administrar el acceso a los registros y cómo
 * Los usuarios que necesitan acceder a los datos de registro de recursos concretos mediante el control de acceso basado en rol de Azure (Azure RBAC), también conocido como [contexto del recurso](design-logs-deployment.md#access-mode).
 * Los usuarios que necesitan acceder a los datos de registro de una tabla específica del área de trabajo mediante Azure RBAC.
 
-Para comprender los conceptos de registros relacionados con las estrategias de acceso y RBAC, consulte [Diseño de la implementación de registros de Azure Monitor](design-logs-deployment.md)
+Para comprender los conceptos de registros relacionados con las estrategias de acceso y Azure RBAC, consulte [Diseño de la implementación de registros de Azure Monitor](design-logs-deployment.md)
 
 ## <a name="configure-access-control-mode"></a>Configuración del modo de control de acceso
 
@@ -196,7 +196,7 @@ Cuando los usuarios consulten los registros desde un área de trabajo mediante e
 
 El permiso `/read` se suele conceder desde un rol que incluye los permisos _\*/read o_ _\*_ como los roles [Lector](../../role-based-access-control/built-in-roles.md#reader) y [Colaborador](../../role-based-access-control/built-in-roles.md#contributor) integrados. Los roles personalizados que contienen acciones específicas o roles integrados dedicados no incluyen este permiso.
 
-Consulte [Definición del control de acceso por tabla](#table-level-rbac) a continuación, si desea crear un control de acceso diferente para las distintas tablas.
+Consulte [Definición del control de acceso por tabla](#table-level-azure-rbac) a continuación, si desea crear un control de acceso diferente para las distintas tablas.
 
 ## <a name="custom-role-examples"></a>Roles personalizados de ejemplo
 
@@ -239,9 +239,9 @@ Consulte [Definición del control de acceso por tabla](#table-level-rbac) a cont
 
     * Conceda a los usuarios los permisos siguientes a sus recursos: `*/read`, asignado al rol de lector, o `Microsoft.Insights/logs/*/read`. 
 
-## <a name="table-level-rbac"></a>RBAC de nivel de tabla
+## <a name="table-level-azure-rbac"></a>Permiso de Azure RBAC de nivel de tabla
 
-**RBAC de nivel de tabla** le permite definir un control más pormenorizado de los datos de un área de trabajo de Log Analytics, además de los restantes permisos. Este control le permite definir tipos de datos específicos que son accesibles solo a un conjunto concreto de usuarios.
+**Azure RBAC de nivel de tabla** le permite definir un control más pormenorizado de los datos de un área de trabajo de Log Analytics, además de los restantes permisos. Este control le permite definir tipos de datos específicos que son accesibles solo a un conjunto concreto de usuarios.
 
 El control de acceso de la tabla se implementa con [roles personalizados de Azure](../../role-based-access-control/custom-roles.md) para conceder o denegar el acceso a [tablas](./data-platform-logs.md) específicas del área de trabajo. Estos roles se aplican a las áreas de trabajo con los [modos de control de acceso](design-logs-deployment.md#access-control-mode) contexto del área de trabajo o contexto del recurso, independientemente del [modo de acceso](design-logs-deployment.md#access-mode) del usuario.
 

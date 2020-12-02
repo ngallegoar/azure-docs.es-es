@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/30/2019
-ms.openlocfilehash: 7e1deb11eb8ae754198cae5be7ecf7150262a61e
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: a817c12a367d7c14f693389920e49b368a35cc06
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94411395"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95522879"
 ---
 # <a name="optimize-log-queries-in-azure-monitor"></a>Optimización de las consultas de registro en Azure Monitor
 Los registros de Azure Monitor usan [Azure Data Explorer (ADX)](/azure/data-explorer/) para almacenar los datos de registro y ejecutar consultas para analizar los datos. Crea, administra y mantiene los clústeres de ADX automáticamente y los optimiza para la carga de trabajo de análisis de registros. Al ejecutar una consulta, se optimiza y se redirige al clúster de ADX adecuado que almacena los datos del área de trabajo. Tanto los registros de Azure Monitor como Azure Data Explorer usan muchos mecanismos de optimización de consultas automática. Si bien las optimizaciones automáticas proporcionan un aumento significativo, en algunos casos se puede mejorar considerablemente el rendimiento de las consultas. En este artículo se explican las consideraciones de rendimiento y varias técnicas para corregirlas.
@@ -463,7 +463,7 @@ Entre los comportamientos de las consultas que pueden reducir el paralelismo se 
 - Uso de las funciones de ventana y serialización, como [serialize operator](/azure/kusto/query/serializeoperator), [next()](/azure/kusto/query/nextfunction), [prev()](/azure/kusto/query/prevfunction) y [row](/azure/kusto/query/rowcumsumfunction). Las funciones de análisis de usuario y serie temporal pueden usarse en algunos de estos casos. También puede producirse una serialización ineficaz si los siguientes operadores no se usan al final de la consulta: [range](/azure/kusto/query/rangeoperator), [sort](/azure/kusto/query/sortoperator), [order](/azure/kusto/query/orderoperator), [top](/azure/kusto/query/topoperator), [top-hitters](/azure/kusto/query/tophittersoperator), [getschema](/azure/kusto/query/getschemaoperator).
 -    El uso de la función de agregación [dcount()](/azure/kusto/query/dcount-aggfunction) obliga al sistema a tener una copia central de los distintos valores. Cuando la escala de datos es alta, considere la posibilidad de usar los parámetros opcionales de la función dcount para reducir la precisión.
 -    En muchos casos, el operador [join](/azure/kusto/query/joinoperator?pivots=azuremonitor) reduce el paralelismo general. Considere la combinación de orden aleatorio como alternativa cuando el rendimiento sea problemático.
--    En las consultas con ámbito de recurso, las comprobaciones de ejecución previa de RBAC pueden perdurar en situaciones en las que hay un gran número de asignaciones de rol de Azure. Esto puede provocar comprobaciones más largas, lo que generaría un paralelismo más bajo. Por ejemplo, una consulta se ejecuta en una suscripción en la que hay miles de recursos y cada recurso tiene varias asignaciones de roles en el nivel de recurso, no en la suscripción ni en el grupo de recursos.
+-    En las consultas con ámbito de recurso, las comprobaciones de ejecución previa de RBAC de Kubernetes o Azure RBAC pueden demorarse en situaciones en las que hay un gran número de asignaciones de rol de Azure. Esto puede provocar comprobaciones más largas, lo que generaría un paralelismo más bajo. Por ejemplo, una consulta se ejecuta en una suscripción en la que hay miles de recursos y cada recurso tiene varias asignaciones de roles en el nivel de recurso, no en la suscripción ni en el grupo de recursos.
 -    Si una consulta está procesando fragmentos de datos pequeños, su paralelismo será inferior, ya que el sistema no se propagará en muchos nodos de ejecución.
 
 

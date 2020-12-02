@@ -1,5 +1,5 @@
 ---
-title: Connection Monitor | Microsoft Docs
+title: Connection Monitor en Azure | Microsoft Docs
 description: Obtenga información sobre cómo usar Connection Monitor para supervisar la comunicación de red en un entorno distribuido.
 services: network-watcher
 documentationcenter: na
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/27/2020
+ms.date: 11/23/2020
 ms.author: vinigam
 ms.custom: mvc
-ms.openlocfilehash: 5dbb8d508fe824d0264043625c988f43092f3f78
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: c5c3f8dedad47a819ce3648a0b81ffa3e65a1a1e
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94699243"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95544894"
 ---
 # <a name="network-connectivity-monitoring-with-connection-monitor"></a>Supervisión de conectividad de red con Connection Monitor
 
@@ -34,7 +34,7 @@ Estos son algunos casos de uso de Connection Monitor:
 - La aplicación híbrida necesita conectividad a un punto de conexión de Azure Storage. El sitio local y la aplicación de Azure se conectan al mismo punto de conexión de Azure Storage. Quiere comparar las latencias del sitio local con las latencias de la aplicación de Azure.
 - Quiere comprobar la conectividad entre las instalaciones locales y las máquinas virtuales de Azure que hospedan la aplicación en la nube.
 
-Connection Monitor combina lo mejor de las dos características: la característica [Connection Monitor (clásica)](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#monitor-communication-between-a-virtual-machine-and-an-endpoint) de Network Watcher y las características [Monitor de conectividad de servicio](https://docs.microsoft.com/azure/azure-monitor/insights/network-performance-monitor-service-connectivity), [Supervisión de ExpressRoute](https://docs.microsoft.com/azure/expressroute/how-to-npm) y [Monitor de rendimiento](https://docs.microsoft.com/azure/azure-monitor/insights/network-performance-monitor-performance-monitor) de Network Performance Monitor (NPM).
+Connection Monitor combina lo mejor de las dos características: la característica [Connection Monitor (clásica)](./network-watcher-monitoring-overview.md#monitor-communication-between-a-virtual-machine-and-an-endpoint) de Network Watcher y las características [Monitor de conectividad de servicio](../azure-monitor/insights/network-performance-monitor-service-connectivity.md), [Supervisión de ExpressRoute](../expressroute/how-to-npm.md) y [Monitor de rendimiento](../azure-monitor/insights/network-performance-monitor-performance-monitor.md) de Network Performance Monitor (NPM).
 
 Estas son algunas ventajas de Connection Monitor:
 
@@ -65,7 +65,7 @@ El Monitor de conexión se basa en archivos ejecutables ligeros para ejecutar la
 
 Para que el Monitor de conexión reconozca las máquinas virtuales de Azure como orígenes de supervisión, instale en ellas la extensión de máquina virtual del agente de Network Watcher. Esta extensión también se conoce como la *extensión Network Watcher*. Las máquinas virtuales de Azure requieren la extensión para desencadenar la supervisión de un extremo a otro y otras funcionalidades avanzadas. 
 
-Puede instalar la extensión Network Watcher cuando [cree una máquina virtual](https://docs.microsoft.com/azure/network-watcher/connection-monitor#create-the-first-vm). También puede instalar, configurar y solucionar problemas de la extensión de Network Watcher para [Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/network-watcher-linux) y [Windows](https://docs.microsoft.com/azure/virtual-machines/extensions/network-watcher-windows) por separado.
+Puede instalar la extensión Network Watcher cuando [cree una máquina virtual](./connection-monitor.md#create-the-first-vm). También puede instalar, configurar y solucionar problemas de la extensión de Network Watcher para [Linux](../virtual-machines/extensions/network-watcher-linux.md) y [Windows](../virtual-machines/extensions/network-watcher-windows.md) por separado.
 
 Las reglas de un grupo de seguridad de red (NSG) o firewall pueden bloquear la comunicación entre el origen y el destino. El Monitor de conexión detecta este problema y lo muestra como un mensaje de diagnóstico en la topología. Para habilitar la supervisión de la conexión, asegúrese de que las reglas de firewall y NSG permitan los paquetes a través de TCP o ICMP entre el origen y el destino.
 
@@ -73,7 +73,7 @@ Las reglas de un grupo de seguridad de red (NSG) o firewall pueden bloquear la c
 
 Para que el Monitor de conexión reconozca las máquinas locales como orígenes para la supervisión, instale el agente de Log Analytics en las máquinas. Luego, habilite la solución Network Performance Monitor. Estos agentes están vinculados a áreas de trabajo de Log Analytics, por lo que es necesario configurar el identificador de área de trabajo y la clave principal antes de que los agentes puedan iniciar la supervisión.
 
-Para instalar el agente de Log Analytics para las máquinas Windows, consulte [Extensión de máquina virtual de Azure Monitor para Windows](https://docs.microsoft.com/azure/virtual-machines/extensions/oms-windows).
+Para instalar el agente de Log Analytics para las máquinas Windows, consulte [Extensión de máquina virtual de Azure Monitor para Windows](../virtual-machines/extensions/oms-windows.md).
 
 Si la ruta de acceso incluye firewalls o aplicaciones virtuales de red (NVA), asegúrese de que el destino sea accesible.
 
@@ -81,7 +81,7 @@ Si la ruta de acceso incluye firewalls o aplicaciones virtuales de red (NVA), as
 
 Todas las suscripciones que tienen una red virtual se habilitan con Network Watcher. Al crear una red virtual en la suscripción, Network Watcher se habilita automáticamente en la región y suscripción de la red virtual. Esta habilitación automática no afecta los recursos ni incurre en cargos. Asegúrese de que Network Watcher no esté explícitamente deshabilitado en la suscripción. 
 
-Para más información, consulte [Habilitación de Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-create).
+Para más información, consulte [Habilitación de Network Watcher](./network-watcher-create.md).
 
 ## <a name="create-a-connection-monitor"></a>Creación de un monitor de conexión 
 
@@ -111,7 +111,7 @@ Connection Monitor incluye estas entidades:
 
  ![Diagrama que muestra un monitor de conexión y donde se define la relación entre los grupos de prueba y las pruebas](./media/connection-monitor-2-preview/cm-tg-2.png)
 
-Puede crear un monitor de conexión mediante [Azure Portal](connection-monitor-preview-create-using-portal.md) o [ARMClient](connection-monitor-preview-create-using-arm-client.md).
+Puede crear un monitor de conexión mediante [Azure Portal](./connection-monitor-create-using-portal.md) o [ARMClient](./connection-monitor-create-using-template.md).
 
 Todos los orígenes, destinos y configuraciones de prueba que se agregan a un grupo de prueba se dividen en pruebas individuales. Este un ejemplo de cómo se dividen los orígenes y destinos:
 
@@ -213,7 +213,7 @@ Para mostrar solo las pruebas con error en Connection Monitor en las que la dire
 Para mostrar solo las pruebas con error en Connection Monitor en las que el destino es outlook.office365.com:
 1. Cambie la vista a **Prueba**.
 1. En el caso del filtro basado en estado, seleccione **Fail** (Con errores).
-1. En el campo de búsqueda, escriba *outlook.office365.com*.
+1. En el campo de búsqueda, escriba *office.live.com*.
 1. En **Ámbito** en el filtro de nivel superior, seleccione **Destinos**.
   
   :::image type="content" source="./media/connection-monitor-2-preview/tests-view.png" alt-text="Captura de pantalla que muestra una vista filtrada para mostrar solo las pruebas con error para el destino Outlook.Office365.com" lightbox="./media/connection-monitor-2-preview/tests-view.png":::
@@ -348,5 +348,5 @@ En el caso de las redes cuyos orígenes son máquinas virtuales de Azure, se pue
 
 ## <a name="next-steps"></a>Pasos siguientes
     
-   * Aprenda a [crear una instancia de Connection Monitor mediante Azure Portal](connection-monitor-preview-create-using-portal.md)  
-   * Aprenda a [crear una instancia de Connection Monitor mediante ARMClient](connection-monitor-preview-create-using-arm-client.md)  
+   * Aprenda a [crear una instancia de Connection Monitor mediante Azure Portal](./connection-monitor-create-using-portal.md)  
+   * Aprenda a [crear una instancia de Connection Monitor mediante ARMClient](./connection-monitor-create-using-template.md)

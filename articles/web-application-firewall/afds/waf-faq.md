@@ -8,12 +8,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/05/2020
 ms.author: victorh
-ms.openlocfilehash: 0ba0cbbccd1f4a9bc8ff8a4895e238c9150c9b17
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 5c2763112b1aa2d58f5dc57cea72a3d0bdea961e
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94413078"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95545676"
 ---
 # <a name="frequently-asked-questions-for-azure-web-application-firewall-on-azure-front-door-service"></a>Preguntas más frecuentes sobre el Firewall de aplicaciones web de Azure en Azure Front Door Service
 
@@ -55,8 +55,19 @@ Puede configurar la lista de control de acceso de IP en el back-end para permiti
 
 ## <a name="which-azure-waf-options-should-i-choose"></a>¿Qué opciones de WAF de Azure debería elegir?
 
-Hay dos opciones al aplicar las directivas de WAF en Azure. WAF con Azure Front Door es una solución de seguridad de borde distribuida globalmente. WAF con Application Gateway es una solución regional y dedicada. Le recomendamos que elija una solución basada en los requisitos de seguridad y rendimiento generales. Para obtener más información, consulte [Equilibrio de carga con el conjunto de entrega de aplicaciones de Azure](https://docs.microsoft.com/azure/frontdoor/front-door-lb-with-azure-app-delivery-suite).
+Hay dos opciones al aplicar las directivas de WAF en Azure. WAF con Azure Front Door es una solución de seguridad de borde distribuida globalmente. WAF con Application Gateway es una solución regional y dedicada. Le recomendamos que elija una solución basada en los requisitos de seguridad y rendimiento generales. Para obtener más información, consulte [Equilibrio de carga con el conjunto de entrega de aplicaciones de Azure](../../frontdoor/front-door-lb-with-azure-app-delivery-suite.md).
 
+## <a name="whats-the-recommended-approach-to-enabling-waf-on-front-door"></a>¿Cuál es el enfoque recomendado para habilitar WAF en Front Door?
+
+Al habilitar WAF en una aplicación existente, suele haber detecciones de falsos positivos en las que las reglas de WAF detectan tráfico legítimo como una amenaza. Para minimizar el riesgo de que los usuarios se vean afectados, se recomienda el siguiente proceso:
+
+* Habilite WAF en el modo [**Detección**](./waf-front-door-create-portal.md#change-mode) para asegurarse de que WAF no bloquee las solicitudes mientras realiza este proceso.
+  > [!IMPORTANT]
+  > Este proceso describe cómo habilitar WAF en una solución nueva o existente cuando tiene como prioridad minimizar las interrupciones para los usuarios de la aplicación. Si está siendo atacado o está bajo amenaza inminente, se recomienda que implemente WAF en el modo **Prevención** inmediatamente y use el proceso de optimización para supervisar y ajustar WAF con el tiempo. Esto probablemente hará que se bloquee parte del tráfico legítimo, por lo que solo recomendamos hacerlo cuando esté bajo amenaza.
+* Siga las [instrucciones para optimizar WAF](./waf-front-door-tuning.md). Este proceso requiere que habilite el registro de diagnóstico, revise los registros con regularidad y agregue exclusiones de reglas y otras mitigaciones.
+* Repita todo este proceso y compruebe los registros con regularidad hasta que esté convencido de que no se está bloqueando el tráfico legítimo. Todo el proceso puede tardar varias semanas. Idealmente, debería haber menos detecciones de falsos positivos después de cada optimización que realice.
+* Por último, habilite WAF en **modo de prevención**.
+* Incluso cuando esté ejecutando WAF en producción, debe seguir supervisando los registros para identificar cualquier otra detección de falsos positivos. Revisar periódicamente los registros también le ayudará a identificar los intentos de ataques reales que se hayan bloqueado.
 
 ## <a name="do-you-support-same-waf-features-in-all-integrated-platforms"></a>¿Se admiten las mismas características de WAF en todas las plataformas integradas?
 

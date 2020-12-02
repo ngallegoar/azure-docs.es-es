@@ -2,13 +2,13 @@
 title: Trabajos y tareas en Azure Batch
 description: Obtenga información sobre trabajos y tareas y cómo se usan en un flujo de trabajo de Azure Batch desde el punto de vista del desarrollo.
 ms.topic: conceptual
-ms.date: 05/12/2020
-ms.openlocfilehash: 5120b76f34e81c2ceeba88767a656b5ee0d40c2f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/23/2020
+ms.openlocfilehash: e1ca721ec7527d9d042c129c22cf0266e57c32e9
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85955376"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95808590"
 ---
 # <a name="jobs-and-tasks-in-azure-batch"></a>Trabajos y tareas en Azure Batch
 
@@ -18,15 +18,17 @@ En Azure Batch, una *tarea* representa una unidad de cálculo. Un *trabajo* es u
 
 Un trabajo es una colección de tareas. El trabajo administra cómo sus tareas realizan el cálculo en los nodos de proceso de un grupo.
 
-Un trabajo especifica el [grupo](nodes-and-pools.md#pools) en el que se va a ejecutar la labor. Puede crear un grupo para cada trabajo o usar uno solo para muchos de ellos. Puede crear un grupo para cada trabajo asociado con una programación de trabajo o para todos los trabajos asociados con ella.
+Un trabajo especifica el [grupo](nodes-and-pools.md#pools) en el que se va a ejecutar la labor. Puede crear un grupo para cada trabajo o usar uno solo para muchos de ellos. Puede crear un grupo para cada trabajo asociado con una [programación de trabajo](#scheduled-jobs) o un grupo para todos los trabajos asociados con esta.
 
 ### <a name="job-priority"></a>prioridad del trabajo
 
-Puede asignar una prioridad de trabajo opcional a los trabajos que cree. El servicio Batch usa el valor de prioridad del trabajo para determinar el orden de programación de trabajos dentro de una cuenta (esto no se debe confundir con un [trabajo programado](#scheduled-jobs)). Los valores de prioridad pueden oscilar entre -1000 y 1000, siendo -1000 la prioridad más baja y 1000 la más alta. Para actualizar la prioridad de un trabajo, llame a la operación [Actualizar las propiedades de un trabajo](/rest/api/batchservice/job/update) (REST de Batch) o modifique la propiedad [CloudJob.Priority](/dotnet/api/microsoft.azure.batch.cloudjob) (Batch para .NET).
+Puede asignar una prioridad de trabajo opcional a los trabajos que cree. El servicio Batch usa el valor de prioridad del trabajo para determinar el orden de programación (para todas las tareas dentro del trabajo) en cada grupo.
 
-Dentro de la misma cuenta, los trabajos de mayor prioridad tienen precedencia de programación sobre los trabajos con menor prioridad. Un trabajo con un valor de prioridad mayor en una cuenta no tiene precedencia de programación sobre otro trabajo con un valor de prioridad inferior de una cuenta diferente. No adelantarán a las tareas de trabajos de prioridad más baja que ya estén en ejecución.
+Para actualizar la prioridad de un trabajo, llame a la operación [Actualizar las propiedades de un trabajo](/rest/api/batchservice/job/update) (REST de Batch) o modifique [CloudJob.Priority](/dotnet/api/microsoft.azure.batch.cloudjob) (Batch para .NET). Los valores de prioridad van de -1000 (prioridad mínima) a 1000 (prioridad máxima).
 
-La programación de trabajos entre los grupos es independiente. Entre grupos diferentes, no se garantiza que un trabajo con una prioridad más alta se programe antes si el grupo asociado tiene pocos nodos inactivos. En el mismo grupo, los trabajos con el mismo nivel de prioridad tienen la misma probabilidad de ser programados.
+Dentro del mismo grupo, los trabajos de mayor prioridad tienen precedencia de programación sobre los trabajos con menor prioridad. Las tareas en trabajos de prioridad más baja que ya se están ejecutando no se reemplazarán por las tareas de un trabajo de mayor prioridad. Los trabajos con el mismo nivel de prioridad tienen la misma probabilidad de programarse, y el orden de ejecución de las tareas no está definido.
+
+Un trabajo con un valor de prioridad alto que se ejecute en un grupo no afectará a la programación de trabajos que se ejecutan en un grupo independiente o en una cuenta de Batch distinta. La prioridad del trabajo no se aplica a los [grupos automáticos](nodes-and-pools.md#autopools), que se crean cuando se envía el trabajo.
 
 ### <a name="job-constraints"></a>Restricciones del trabajo
 
@@ -39,9 +41,9 @@ Puede utilizar restricciones de trabajo para especificar determinados límites p
 
 La aplicación cliente puede agregar tareas a un trabajo o puede especificar una [tarea del administrador de trabajos](#job-manager-task). Una tarea del administrador de trabajos contiene la información necesaria para crear las tareas que se requieren para un trabajo. Estas tareas se ejecutan en uno de los nodos de proceso del grupo. El servicio Batch controla específicamente las tareas del administrador de trabajos; las pone en cola en cuanto se crea el trabajo y las reinicia si se produce un error. Se requiere una tarea del administrador de trabajos para los trabajos creados mediante una [programación de trabajo](#scheduled-jobs), ya que es la única manera de definir las tareas antes de que se cree una instancia del trabajo.
 
-De manera predeterminada, los trabajos permanecen en estado activo cuando se completan todas las tareas que contienen. Este comportamiento se puede cambiar, con el fin de que el trabajo finalice automáticamente cuando se completen todas sus tareas. Establezca la propiedad **onAllTasksComplete** ([OnAllTasksComplete](/dotnet/api/microsoft.azure.batch.cloudjob) en .NET de Batch) en *terminatejob* para que el trabajo finalice automáticamente cuando todas sus tareas estén en estado completado.
+De manera predeterminada, los trabajos permanecen en estado activo cuando se completan todas las tareas que contienen. Este comportamiento se puede cambiar, con el fin de que el trabajo finalice automáticamente cuando se completen todas sus tareas. Establezca la propiedad **onAllTasksComplete** ([OnAllTasksComplete](/dotnet/api/microsoft.azure.batch.cloudjob) en .NET de Batch) en `terminatejob`*` para que el trabajo finalice automáticamente cuando todas sus tareas estén en estado completado.
 
-El servicio Batch considera que un trabajo *sin* tareas tiene todas sus tareas completadas. Por lo tanto, esta opción se utiliza normalmente con una [tarea del administrador de trabajos](#job-manager-task). Si desea usar la finalización automática de trabajos sin un administrador de trabajos, debe establecer inicialmente la propiedad **onAllTasksComplete** de cada trabajo nuevo en *noaction* y, después, establecerla en *terminatejob*, pero solo después de que haya terminado de agregar tareas al trabajo.
+El servicio Batch considera que un trabajo *sin* tareas tiene todas sus tareas completadas. Por lo tanto, esta opción se utiliza normalmente con una [tarea del administrador de trabajos](#job-manager-task). Si quiere usar la finalización automática de trabajos sin un administrador de trabajos, debe establecer inicialmente la propiedad **onAllTasksComplete** de cada trabajo nuevo en `noaction` y, después, establecerla en `terminatejob`, pero solo después de que haya terminado de agregar tareas al trabajo.
 
 ### <a name="scheduled-jobs"></a>Scheduled jobs
 

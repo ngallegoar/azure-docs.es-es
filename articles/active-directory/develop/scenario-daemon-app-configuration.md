@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 09/19/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 24e3841abc9c397ab307e55405bdcc208815570e
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 6864502a9d338a786e1e77dbf9888a7818bb94e9
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94444170"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95748655"
 ---
 # <a name="daemon-app-that-calls-web-apis---code-configuration"></a>Aplicación de demonio que llama a las API web: configuración de código
 
@@ -36,9 +36,9 @@ Estas bibliotecas de Microsoft son compatibles con las aplicaciones de demonio:
 
 Las aplicaciones de demonio usan permisos de aplicación en lugar de permisos delegados. Por lo tanto, el tipo de cuenta admitido no puede ser una cuenta en ningún directorio de la organización ni una cuenta de Microsoft personal (por ejemplo, Skype, Xbox, Outlook.com). No hay ningún administrador de inquilinos para otorgar consentimiento a una aplicación de demonio para una cuenta de Microsoft personal. Debe elegir *cuentas de mi organización* o *cuentas de cualquier organización*.
 
-Por lo tanto, la autoridad especificada en la configuración de la aplicación debe tener inquilinos (con identificador o nombre de dominio asociado a la organización).
+La autoridad especificada en la configuración de la aplicación debe tener inquilinos (con identificador o nombre de dominio asociado a la organización).
 
-Si es un ISV y quiere ofrecer una herramienta para varios inquilinos, puede usar `organizations`. Aún así, tenga en cuenta que también deberá explicar a los clientes cómo conceder el consentimiento de administrador. Consulte [Solicitud de consentimiento para un inquilino al completo](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant) para más información. También hay actualmente una limitación en MSAL: `organizations` solo se permite cuando las credenciales de cliente son un secreto de aplicación (no un certificado).
+Incluso si quiere proporcionar una herramienta para varios inquilinos, debe usar un id. de inquilino o un nombre de dominio y **no** debe usar `common` o `organizations` con este flujo, ya que el servicio no puede deducir de manera confiable qué inquilino debe usarse.
 
 ## <a name="configure-and-instantiate-the-application"></a>Configuración y creación de instancias de la aplicación
 

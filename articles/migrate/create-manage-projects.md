@@ -2,22 +2,62 @@
 title: Creación y administración de proyectos de Azure Migrate
 description: Busque, cree, administre y elimine proyectos en Azure Migrate.
 ms.topic: how-to
-ms.date: 07/23/2020
-ms.openlocfilehash: d60868f9d0d4c60291cfd92a9e8d11fd3f9a42b9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/23/2020
+ms.openlocfilehash: 95f123188f7906cbd5c7a209c9fd01be006e9a7e
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87071793"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95534930"
 ---
 # <a name="create-and-manage-azure-migrate-projects"></a>Creación y administración de proyectos de Azure Migrate
 
 En este artículo se describe cómo crear, administrar y eliminar proyectos de [Azure Migrate](migrate-services-overview.md).
 
+El proyecto de Azure Migrate se usa para almacenar los metadatos de detección, valoración y migración recopilados del entorno que se va a evaluar o migrar. En un proyecto puede realizar un seguimiento de los recursos detectados, crear evaluaciones y organizar migraciones a Azure.  
+
+## <a name="verify-permissions"></a>Comprobar los permisos
+
+Compruebe que tenga los permisos correctos para crear un proyecto de Azure Migrate:
+
+1. En Azure Portal, abra la suscripción correspondiente y seleccione  **Control de acceso (IAM)** .
+2. En **Comprobar acceso**, busque la cuenta correspondiente y, después, selecciónela para ver los permisos. Debe tener permisos de *Colaborador* o *Propietario*. 
+
 
 ## <a name="create-a-project-for-the-first-time"></a>Creación de un proyecto por primera vez
 
-La primera vez que se configura Azure Migrate, se crea un proyecto y se agrega una herramienta de evaluación o migración. [Siga estas instrucciones](how-to-add-tool-first-time.md) para realizar la configuración por primera vez.
+Configure un nuevo proyecto de Azure Migrate en una suscripción de Azure.
+
+1. En Azure Portal, busque *Azure Migrate*.
+2. En **Servicios**, seleccione **Azure Migrate**.
+3. En **Información general**, seleccione **Evaluar y migrar servidores**.
+
+    ![Opción en Información general para evaluar y migrar servidores](./media/create-manage-projects/assess-migrate-servers.png)
+
+4. En **Servidores**, seleccione **Crear proyecto**.
+
+    ![Botón para empezar a crear el proyecto](./media/create-manage-projects/create-project.png)
+
+5. En **Crear proyecto**, seleccione la suscripción y el grupo de recursos de Azure. Cree un grupo de recursos si no tiene ninguno.
+6. En **Detalles del proyecto**, especifique el nombre del proyecto y la región geográfica en la que quiere crearlo.
+    - La geografía solo se usa para almacenar los metadatos que se recopilan de las máquinas virtuales locales. Puede seleccionar cualquier región de destino para la migración. 
+    - Revise las zonas geográficas admitidas para nubes [públicas](migrate-support-matrix.md#supported-geographies-public-cloud) y [nubes gubernamentales](migrate-support-matrix.md#supported-geographies-azure-government).
+
+8. Seleccione **Crear**.
+
+   ![Página para especificar la configuración del proyecto](./media/create-manage-projects/project-details.png)
+
+
+Espere unos minutos para que se implemente el proyecto de Azure Migrate.
+
+## <a name="create-a-project-in-a-specific-region"></a>Creación de un proyecto en una región específica
+
+En el portal, puede seleccionar la geografía en la que quiere crear el proyecto. Si quiere crear el proyecto dentro de una región específica de Azure, use el siguiente comando de API para crearlo.
+
+```rest
+PUT /subscriptions/<subid>/resourceGroups/<rg>/providers/Microsoft.Migrate/MigrateProjects/<mymigrateprojectname>?api-version=2018-09-01-preview "{location: 'centralus', properties: {}}"
+``````
+
 
 ## <a name="create-additional-projects"></a>Creación de proyectos adicionales
 
@@ -30,14 +70,12 @@ Si ya tiene un proyecto de Azure Migrate y quiere crear otro, haga lo siguiente:
 
 3. Para crear un nuevo proyecto, seleccione **Haga clic aquí**.
 
-   ![Creación de un segundo proyecto de Azure Migrate](./media/create-manage-projects/create-new-project.png)
-
 
 ## <a name="find-a-project"></a>Búsqueda de un programa
 
 Busque un proyecto como se indica a continuación:
 
-1. En [Azure Portal](https://portal.azure.com), busque **Azure Migrate**.
+1. En [Azure Portal](https://portal.azure.com), busque *Azure Migrate*.
 2. En el panel de Azure Migrate, vaya a **Servidores** y seleccione **Cambiar** en la esquina superior derecha.
 
     ![Cambio a un proyecto de Azure Migrate existente](./media/create-manage-projects/switch-project.png)
@@ -45,9 +83,11 @@ Busque un proyecto como se indica a continuación:
 3. Seleccione la suscripción y el proyecto de Azure Migrate adecuados.
 
 
+### <a name="find-a-legacy-project"></a>Búsqueda de un proyecto heredado
+
 Si creó el proyecto en la [versión anterior](migrate-services-overview.md#azure-migrate-versions) de Azure Migrate, haga lo siguiente para buscarlo:
 
-1. En [Azure Portal](https://portal.azure.com), busque **Azure Migrate**.
+1. En [Azure Portal](https://portal.azure.com), busque *Azure Migrate*.
 2. En el panel de Azure Migrate, si ha creado un proyecto en la versión anterior, aparece un banner que hace referencia a los proyectos anteriores. Seleccione el banner.
 
     ![Acceso a proyectos existentes](./media/create-manage-projects/access-existing-projects.png)

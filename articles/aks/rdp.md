@@ -5,12 +5,12 @@ description: Aprenda a crear una conexión RDP con los nodos de Windows Server 
 services: container-service
 ms.topic: article
 ms.date: 06/04/2019
-ms.openlocfilehash: ed849ec928cc09cd0e8911929c4abc6ae54b1536
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c774e2287d0540c73cdd2234843d6766e7f2fb91
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82208047"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95792247"
 ---
 # <a name="connect-with-rdp-to-azure-kubernetes-service-aks-cluster-windows-server-nodes-for-maintenance-or-troubleshooting"></a>Conexión con RDP a los nodos de Windows Server de clúster de Azure Kubernetes Service (AKS) para el mantenimiento o la solución de problemas
 
@@ -20,9 +20,9 @@ En este artículo se muestra cómo crear una conexión RDP con un nodo de AKS me
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-En este artículo se presupone que ya tiene un clúster de AKS con un nodo de Windows Server. Si necesita un clúster de AKS, consulte el artículo sobre la [creación de un clúster de AKS con un contenedor de Windows mediante la CLI de Azure][aks-windows-cli]. Necesitará el nombre de usuario de administrador de Windows y la contraseña para el nodo de Windows Server cuyos problemas quiera solucionar. También necesitará un cliente RDP, como [Escritorio remoto de Microsoft][rdp-mac].
+En este artículo se presupone que ya tiene un clúster de AKS con un nodo de Windows Server. Si necesita un clúster de AKS, consulte el artículo sobre la [creación de un clúster de AKS con un contenedor de Windows mediante la CLI de Azure][aks-windows-cli]. Necesitará el nombre de usuario de administrador de Windows y la contraseña para el nodo de Windows Server cuyos problemas quiera solucionar. Si no los recuerda, puede restablecerlos con las instrucciones de [Restablecer los Servicios de Escritorio remoto o su contraseña de administrador en una máquina virtual Windows](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/reset-rdp). También necesitará un cliente RDP, como [Escritorio remoto de Microsoft][rdp-mac].
 
-También es preciso que esté instalada y configurada la versión 2.0.61 de la CLI de Azure u otra versión posterior. Ejecute  `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte  [Install Azure CLI][install-azure-cli] (Instalación de la CLI de Azure).
+También es preciso que esté instalada y configurada la versión 2.0.61 de la CLI de Azure u otra versión posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure][install-azure-cli].
 
 ## <a name="deploy-a-virtual-machine-to-the-same-subnet-as-your-cluster"></a>Implementación de una máquina virtual en la misma subred que el clúster
 

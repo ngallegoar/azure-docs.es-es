@@ -2,14 +2,14 @@
 title: Escalar automáticamente los nodos de proceso en un grupo de Azure Batch
 description: Habilite el escalado automático en un grupo en la nube para ajustar de forma dinámica el número de nodos de ejecución del grupo.
 ms.topic: how-to
-ms.date: 10/08/2020
+ms.date: 11/23/2020
 ms.custom: H1Hack27Feb2017, fasttrack-edit, devx-track-csharp
-ms.openlocfilehash: 5774acbfc035ab61267dddb31b01b0e82689f690
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 033272f22b98b27c67e9a551bce952368d35a043
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91849799"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95737299"
 ---
 # <a name="create-an-automatic-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Creación de una fórmula automática para escalar nodos de ejecución en un grupo de Batch
 
@@ -134,6 +134,9 @@ Puede obtener el valor de estas variables definidas por el servicio para efectua
 
 > [!TIP]
 > Estas variables de solo lectura definidas por el servicio son *objetos* que proporcionan varios métodos para acceder a los datos asociados a cada uno de ellos. Para obtener más información, consulte la sección [Obtención de datos de ejemplo](#obtain-sample-data), descrita más adelante en este artículo.
+
+> [!NOTE]
+> Use `$RunningTasks` al escalar según el número de tareas que se ejecutan en un momento dado y `$ActiveTasks` al escalar en función del número de tareas que se encuentran en cola para ejecutarse.
 
 ## <a name="types"></a>Tipos
 
@@ -381,7 +384,7 @@ $NodeDeallocationOption = taskcompletion;
 ```
 
 > [!NOTE]
-> Si elige hacerlo, puede incluir comentarios y saltos de línea en las cadenas de fórmulas.
+> Si elige hacerlo, puede incluir comentarios y saltos de línea en las cadenas de fórmulas. Tenga en cuenta también que los signos de punto y coma que faltan pueden dar lugar a errores de evaluación.
 
 ## <a name="automatic-scaling-interval"></a>Intervalo de escalado automático
 

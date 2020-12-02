@@ -1,6 +1,6 @@
 ---
-title: Cambio del tamaño de un disco de SO con una partición GPT | Microsoft Docs
-description: En este artículo se proporcionan instrucciones sobre cómo cambiar el tamaño de un disco de SO con una partición GPT.
+title: Cambio del tamaño de un disco de SO con una partición GPT
+description: En este artículo se proporcionan instrucciones sobre cómo cambiar el tamaño de un disco del sistema operativo que tiene una partición de tabla de particiones GUID (GPT) en Linux.
 services: virtual-machines-linux
 documentationcenter: ''
 author: kailashmsft
@@ -14,17 +14,17 @@ ms.devlang: azurecli
 ms.date: 05/03/2020
 ms.author: kaib
 ms.custom: seodec18
-ms.openlocfilehash: 99b723322ce7636edce3ae5b59a69b96e288ca24
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 3565b165c669af3566667d9bdfa401d15fcce101
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93392697"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95544163"
 ---
 # <a name="resize-an-os-disk-that-has-a-gpt-partition"></a>Cambio del tamaño de un disco de SO con una partición GPT
 
 > [!NOTE]
-> Este escenario se aplica únicamente a los discos de SO que tienen una partición de tabla de particiones de GUID (GPT).
+> Este artículo se aplica únicamente a los discos de SO que tienen una partición de tabla de particiones GUID (GPT).
 
 En este artículo se describe cómo aumentar el tamaño de un disco del SO que tiene una partición GPT en Linux. 
 
@@ -78,14 +78,14 @@ Las instrucciones siguientes se aplican a las distribuciones aprobadas por Linux
 
 ### <a name="ubuntu"></a>Ubuntu
 
-Para aumentar el tamaño del disco de SO en Ubuntu 16.x y 18.x:
+Para aumentar el tamaño del disco de SO en Ubuntu 16.*x* y 18.*x*:
 
 1. Pare la VM.
 1. Aumente el tamaño del disco de SO desde el portal.
 1. Reinicie la VM y, a continuación, inicie sesión en la VM como usuario **raíz**.
 1. Compruebe que el disco de SO ahora presenta un tamaño mayor del sistema de archivos.
 
-Como se muestra en el ejemplo siguiente, se ha cambiado el tamaño del disco de SO del portal a 100 GB. El sistema de archivos **/dev/sda1** montado en **/** muestra ahora 97 GB.
+En el ejemplo siguiente, se ha cambiado el tamaño del disco de SO del portal a 100 GB. El sistema de archivos **/dev/sda1** montado en **/** muestra ahora 97 GB.
 
 ```
 user@myvm:~# df -Th
@@ -110,21 +110,21 @@ Para aumentar el tamaño del disco de SO en SUSE 12 SP4, SUSE SLES 12 para S
 1. Aumente el tamaño del disco de SO desde el portal.
 1. Reinicie la VM.
 
-Una vez reiniciada la VM, siga los pasos que se describen a continuación:
+Cuando se haya reiniciado la máquina virtual, realice estos pasos:
 
-1. Acceda a la VM como usuario **raíz** con el comando siguiente:
+1. Acceda a la VM como usuario **raíz** con este comando:
 
    ```
    # sudo -i
    ```
 
-1. Use el siguiente comando para instalar el paquete **growpart**, que se usará para cambiar el tamaño de la partición:
+1. Use el siguiente comando para instalar el paquete **growpart**, que usará para cambiar el tamaño de la partición:
 
    ```
    # zypper install growpart
    ```
 
-1. Use el comando `lsblk` para encontrar la partición montada en la raíz del sistema de archivos ("/"). En este caso, vemos que la partición 4 del SDA del dispositivo está montada en /:
+1. Use el comando `lsblk` para encontrar la partición montada en la raíz del sistema de archivos ( **/** ). En este caso, vemos que la partición 4 del disco **sda** del dispositivo está montada en **/** :
 
    ```
    # lsblk
@@ -138,7 +138,7 @@ Una vez reiniciada la VM, siga los pasos que se describen a continuación:
    └─sdb1   8:17   0    4G  0 part /mnt/resource
    ```
 
-1. Cambie el tamaño de la partición necesaria con el comando `growpart` mediante el número de partición que se encuentra en el paso anterior.
+1. Cambie el tamaño de la partición necesaria con el comando `growpart` y el número de partición que se especificó en el paso anterior:
 
    ```
    # growpart /dev/sda 4
@@ -177,7 +177,7 @@ Una vez reiniciada la VM, siga los pasos que se describen a continuación:
 
 1. Según el tipo del sistema de archivos, use los comandos adecuados para cambiar el tamaño del sistema de archivos.
    
-   Para **xfs**, use el comando siguiente:
+   Use este comando para **xfs**:
    
    ```
    #xfs_growfs /
@@ -200,13 +200,13 @@ Una vez reiniciada la VM, siga los pasos que se describen a continuación:
    data blocks changed from 7470331 to 12188923
    ```
    
-   Para **ext4**, use el comando siguiente:
+   Use este comando para **ext4**:
    
    ```
    #resize2fs /dev/sda4
    ```
    
-1. Compruebe el mayor tamaño del sistema de archivos para **df -Th** con el siguiente comando:
+1. Compruebe el aumento de tamaño del sistema de archivos para **df -Th** con este comando:
    
    ```
    #df -Thl
@@ -233,13 +233,13 @@ Una vez reiniciada la VM, siga los pasos que se describen a continuación:
 
 ### <a name="rhel-with-lvm"></a>RHEL con LVM
 
-1. Acceda a la VM como usuario **raíz** con el comando siguiente:
+1. Acceda a la VM como usuario **raíz** con este comando:
 
    ```bash
    [root@dd-rhel7vm ~]# sudo -i
    ```
 
-1. Use el comando `lsblk` para encontrar el volumen lógico (LV) montado en la raíz del sistema de archivos ("/"). En este caso se ve que **_rootvg-rootlv_*está montado en*/** .  Si se quiere otro sistema de archivos, sustituya el volumen lógico y el punto de montaje a lo largo de este documento.
+1. Use el comando `lsblk` para determinar cuál volumen lógico (LV) está montado en la raíz del sistema de archivos ( **/** ). En este caso, se ve que **rootvg-rootlv** está montado en **/** . Si quiere usar otro sistema de archivos, sustituya el volumen lógico y el punto de montaje de este artículo.
 
    ```shell
    [root@dd-rhel7vm ~]# lsblk -f
@@ -258,7 +258,7 @@ Una vez reiniciada la VM, siga los pasos que se describen a continuación:
       └─rootvg-rootlv     xfs                 4f3e6f40-61bf-4866-a7ae-5c6a94675193   /
    ```
 
-1. Compruebe si hay espacio disponible en el grupo de volúmenes de LVM que contiene la partición raíz.  Si hay espacio disponible, vaya al paso **12**.
+1. Compruebe si hay espacio disponible en el grupo de volúmenes (VG) de LVM que contiene la partición raíz. Si hay espacio disponible, vaya al paso 12.
 
    ```bash
    [root@dd-rhel7vm ~]# vgdisplay rootvg
@@ -284,17 +284,15 @@ Una vez reiniciada la VM, siga los pasos que se describen a continuación:
    VG UUID               lPUfnV-3aYT-zDJJ-JaPX-L2d7-n8sL-A9AgJb
    ```
 
-   En este ejemplo, la línea **Free PE / Size** indica que hay 38,02 GB disponibles en el grupo de volúmenes.  No es necesario cambiar el tamaño del disco para agregar espacio al grupo de volúmenes.
+   En este ejemplo, la línea **Free PE / Size** muestra que hay 38,02 GB disponibles en el grupo de volúmenes. No es necesario cambiar el tamaño del disco antes de agregar espacio al grupo de volúmenes.
 
-1. Para aumentar el tamaño del disco de SO en RHEL 7.x con LVM:
+1. Para aumentar el tamaño del disco de SO en RHEL 7.*x* con LVM:
 
    1. Pare la VM.
    1. Aumente el tamaño del disco de SO desde el portal.
    1. Inicie la máquina virtual.
 
-1. Una vez reiniciada la VM, siga los pasos que se describen a continuación:
-
-   1. Instale el paquete **cloud-utils-growpart** para proporcionar el comando **growpart**, que es necesario para aumentar el tamaño del disco del sistema operativo.
+1. Cuando la máquina virtual se haya reiniciado, instale el paquete **cloud-utils-growpart** para obtener el comando `growpart`, que necesita para aumentar el tamaño del disco del sistema operativo.
 
       Este paquete está preinstalado en la mayoría de las imágenes de Azure Marketplace.
 
@@ -302,14 +300,14 @@ Una vez reiniciada la VM, siga los pasos que se describen a continuación:
       [root@dd-rhel7vm ~]# yum install cloud-utils-growpart
       ```
 
-1. Determine el disco y la partición que contienen los volúmenes físicos (PV) de LVM del grupo de volúmenes (VG) denominado rootvg con el comando **pvscan**.  Tome nota del tamaño y el espacio disponible indicados entre los corchetes **[]** .
+1. Determine el disco y la partición que contienen los volúmenes físicos (PV) de LVM del grupo de volúmenes (VG) denominado **rootvg** con el comando `pvscan`. Tome nota del tamaño y el espacio disponible indicados entre corchetes ( **[** y **]** ).
 
    ```bash
    [root@dd-rhel7vm ~]# pvscan
      PV /dev/sda4   VG rootvg          lvm2 [<63.02 GiB / <38.02 GiB free]
    ```
 
-1. Compruebe el tamaño de la partición con **lsblk**.  Observe 
+1. Compruebe el tamaño de la partición mediante `lsblk`. 
 
    ```bash
    [root@dd-rhel7vm ~]# lsblk /dev/sda4
@@ -323,14 +321,14 @@ Una vez reiniciada la VM, siga los pasos que se describen a continuación:
    └─rootvg-rootlv 253:6    0   2G  0 lvm  /
    ```
 
-1. Expanda la partición que contiene este volumen físico mediante **growpart**, el nombre de dispositivo y el número de partición.  Con esto se expande la partición especificada para usar todo el espacio disponible contiguo en el dispositivo.
+1. Expanda la partición que contiene este volumen físico mediante `growpart`, el nombre de dispositivo y el número de partición. De esta manera, se expande la partición especificada para usar todo el espacio disponible contiguo en el dispositivo.
 
    ```bash
    [root@dd-rhel7vm ~]# growpart /dev/sda 4
    CHANGED: partition=4 start=2054144 old: size=132161536 end=134215680 new: size=199272414 end=201326558
    ```
 
-1. Compruebe de nuevo que se ha cambiado el tamaño de la partición al esperado con el comando **lsblk**.  Observe que, en el ejemplo, sda4 ha pasado de 63G a 95G.
+1. Compruebe de nuevo que se ha cambiado el tamaño de la partición al esperado con el comando `lsblk`. Observe que, en el ejemplo, **sda4** ha pasado de 63 GB a 95 GB.
 
    ```bash
    [root@dd-rhel7vm ~]# lsblk /dev/sda4
@@ -344,7 +342,7 @@ Una vez reiniciada la VM, siga los pasos que se describen a continuación:
    └─rootvg-rootlv 253:6    0   2G  0 lvm  /
    ```
 
-1. Expanda el volumen físico para usar el resto de la partición recién expandida.
+1. Expanda el volumen físico para usar el resto de la partición recién expandida:
 
    ```bash
    [root@dd-rhel7vm ~]# pvresize /dev/sda4
@@ -352,14 +350,14 @@ Una vez reiniciada la VM, siga los pasos que se describen a continuación:
    1 physical volume(s) resized or updated / 0 physical volume(s) not resized
    ```
 
-1. Compruebe que el nuevo tamaño del volumen físico es el esperado; para ello, compare los valores originales **[size / free]** .
+1. Compruebe que el nuevo tamaño del volumen físico es el esperado; para ello, compárelo con los valores originales **[size / free]** :
 
    ```bash
    [root@dd-rhel7vm ~]# pvscan
    PV /dev/sda4   VG rootvg          lvm2 [<95.02 GiB / <70.02 GiB free]
    ```
 
-1. Expanda el volumen lógico deseado en la cantidad que quiera, que no tiene que ser todo el espacio disponible en el grupo de volúmenes.  En el ejemplo siguiente, se cambia el tamaño de **/dev/mapper/rootvg-rootlv** de 2 GB a 12 GB (un aumento de 10 GB) mediante el siguiente comando. Este comando también cambiará el tamaño del sistema de archivos.
+1. Expanda el volumen lógico deseado (LV) en la cantidad que quiera. No es necesario que el valor sea igual que todo el espacio disponible en el grupo de volúmenes. En el ejemplo siguiente, se cambia el tamaño de **/dev/mapper/rootvg-rootlv** de 2 GB a 12 GB (un aumento de 10 GB). Este comando también cambiará el tamaño del sistema de archivos.
 
    ```bash
    [root@dd-rhel7vm ~]# lvresize -r -L +10G /dev/mapper/rootvg-rootlv
@@ -383,7 +381,7 @@ Una vez reiniciada la VM, siga los pasos que se describen a continuación:
    data blocks changed from 524288 to 3145728
    ```
 
-1. El comando lvresize llama automáticamente al comando de cambio tamaño adecuado para el sistema de archivos del volumen lógico. Compruebe si **/dev/mapper/rootvg-rootlv**, que está montado en **/** , tiene un mayor tamaño del sistema de archivos mediante el comando siguiente:
+1. El comando `lvresize` llama automáticamente al comando de cambio tamaño adecuado para el sistema de archivos del volumen lógico. Compruebe si **/dev/mapper/rootvg-rootlv**, que está montado en **/** , tiene un mayor tamaño del sistema de archivos mediante este comando:
 
    ```shell
    [root@dd-rhel7vm ~]# df -Th /
@@ -399,100 +397,102 @@ Una vez reiniciada la VM, siga los pasos que se describen a continuación:
    ```
 
 > [!NOTE]
-> Para usar el mismo procedimiento para cambiar el tamaño de cualquier otro volumen lógico, cambie el nombre **lv** en el paso **12**.
+> Para usar el mismo procedimiento para cambiar el tamaño de cualquier otro volumen lógico, cambie el nombre del mismo en el paso 12.
 
 ### <a name="rhel-raw"></a>RAW con Red Hat Enterprise Linux
 >[!NOTE]
 >Tome siempre una instantánea de la máquina virtual antes de aumentar el tamaño del disco del sistema operativo.
 
-Para aumentar el tamaño del disco del sistema operativo en RHEL con una partición RAW:
+Para aumentar el tamaño del disco del sistema operativo en una partición RAW de RHEL:
 
-Pare la VM.
-Aumente el tamaño del disco de SO desde el portal.
-Inicie la máquina virtual.
-Una vez reiniciada la VM, siga los pasos que se describen a continuación:
+1. Pare la VM.
+1. Aumente el tamaño del disco de SO desde el portal.
+1. Inicie la máquina virtual.
 
-1. Acceda a la VM como usuario **raíz** con el comando siguiente:
+Cuando se haya reiniciado la máquina virtual, realice estos pasos:
+
+1. Acceda a la VM como usuario **raíz** con este comando:
  
    ```
    sudo su
    ```
 
-1. Instale el paquete **gptfdisk**, que es necesario para aumentar el tamaño del disco de SO.
+1. Instale el paquete **gptfdisk** que se necesita para aumentar el tamaño del disco de SO:
 
    ```
    yum install gdisk -y
    ```
 
-1.  Para ver todos los sectores disponibles en el disco, ejecute el siguiente comando:
+1.  Para ver todos los sectores disponibles en el disco, ejecute este comando:
     ```
     gdisk -l /dev/sda
     ```
 
-1. Verá el tipo de partición. Asegúrese de que es GPT. Identifique la partición raíz. No cambie ni elimine la partición de arranque (partición de arranque del BIOS) ni la partición del sistema ("partición del sistema EFI").
+1. Verá los detalles del tipo de partición. Asegúrese de que sea GPT. Identifique la partición raíz. No cambie ni elimine la partición de arranque (partición de arranque del BIOS) o la partición del sistema (partición del sistema EFI).
 
-1. Use el siguiente comando para iniciar la creación de particiones la primera vez. 
+1. Use este comando para iniciar la creación de particiones la primera vez: 
     ```
     gdisk /dev/sda
     ```
 
-1. Ahora verá un mensaje en el que se le pide el siguiente comando ("Command:? for help") [("Comando: ? si necesita ayuda")]. 
+1. Verá un mensaje que le solicita el siguiente comando: `Command: ? for help`. Seleccione la tecla **w**:
 
    ```
    w
    ```
 
-1. Recibirá la siguiente advertencia: "Warning! Secondary header is placed too early on the disk! Do you want to correct this problem? (Y/N):" [Advertencia: el encabezado secundario está colocado demasiado pronto en el disco. ¿Desea solucionar este problema? (S/N)]. Tiene que presionar "Y".
+1. Recibirá este mensaje: `Warning! Secondary header is placed too early on the disk! Do you want to
+correct this problem? (Y/N)`. Seleccione la tecla **Y**: 
 
    ```
    Y
    ```
 
-1. Debería ver un mensaje que indica que las comprobaciones finales se han completado y en el que se pide confirmación. Presione "Y".
+1. Debería ver un mensaje que indica que las comprobaciones finales se han completado y en el que se le solicita confirmación. Seleccione la tecla **Y**:
 
    ```
    Y
    ```
 
-1. Compruebe si todo se ha producido correctamente mediante el comando partprobe.
+1. Use el comando `partprobe` para comprobar si todo se realizó correctamente:
 
    ```
    partprobe
    ```
 
-1. Con los pasos anteriores nos aseguramos de que el encabezado GPT secundario se coloca al final. El siguiente paso es iniciar el proceso de cambio de tamaño, para lo que se vuelve a usar la herramienta gdisk. Use el comando siguiente.
+1. Completó los pasos anteriores para asegurarse de que el encabezado GPT secundario se haya colocado al final. A continuación, inicie el proceso de cambio de tamaño, para lo que se vuelve a usar la herramienta `gdisk`. Use el comando siguiente:
 
    ```
    gdisk /dev/sda
    ```
-1. En el menú de comandos, presione "p" para ver una lista de particiones. Identifique la partición raíz (en los pasos, sda2 se considera la partición raíz) y la partición de arranque (en los pasos, sda3 se considera la partición de arranque). 
+1. En el menú de comandos, seleccione la tecla **p** para ver una lista de las particiones. Identifique la partición raíz. (En estos pasos, **sda2** se considera la partición raíz). Identifique la partición de arranque. (En estos pasos, **sda3** se considera la partición de arranque). 
 
    ```
    p
    ```
-    ![Partición raíz y partición de arranque](./media/resize-os-disk-rhelraw/resize-os-disk-rhelraw1.png)
+    ![Captura de pantalla que muestra la partición raíz y la de arranque.](./media/resize-os-disk-rhelraw/resize-os-disk-rhelraw1.png)
 
-1. Presione "d" para eliminar la partición y seleccionar el número de partición asignado al arranque (en este ejemplo, es "3").
+1. Seleccione la tecla **d** para eliminar la partición. A continuación, seleccione el número de partición asignado a la partición de arranque. (En este ejemplo, es **3**).
    ```
    d
    3
    ```
-1. Presione "d" para eliminar la partición y seleccionar el número de partición asignado al arranque (en este ejemplo, es "2").
+1. Seleccione la tecla **d** para eliminar la partición. Seleccione el número de partición asignado a la partición de arranque. (En este ejemplo, es **2**).
    ```
    d
    2
    ```
-    ![Eliminar la partición raíz y la partición de arranque](./media/resize-os-disk-rhelraw/resize-os-disk-rhelraw2.png)
+    ![Captura de pantalla que muestra los pasos para eliminar las particiones raíz y de arranque.](./media/resize-os-disk-rhelraw/resize-os-disk-rhelraw2.png)
 
-1. Para volver a crear la partición raíz con un tamaño superior, presione "n", escriba el número de partición que eliminó anteriormente para la raíz ("2" en este ejemplo) y en el primer sector elija el "valor predeterminado", en el último sector elija el "valor del último sector: sector del tamaño de arranque" ("4096 en este caso", que corresponde a arranque de 2 MB) en el código hexadecimal elija 8300.
+1. Para volver a crear la partición raíz con un mayor tamaño, seleccione la tecla **n** y, a continuación, escriba el número de partición que eliminó anteriormente para la raíz (**2** en este ejemplo). Elija `Default Value` para el primer sector. Elija `Last sector value -  boot size sector` para el último sector (en este caso, `4096`, correspondiente un arranque de 2 MB). Elija `8300` como código hexadecimal.
    ```
    n
    2
    (Enter default)
-   (Calculateed value of Last sector value - 4096)
+   (Calculated value of Last sector value - 4096)
    8300
    ```
-1. Para volver a crear la partición de arranque, presione "n", escriba el número de partición que eliminó anteriormente para el arranque ("3" en este ejemplo) y en el primer sector elija el "valor predeterminado", en el último sector elija el "valor predeterminado" y en el código hexadecimal elija "EF02".
+1. Para volver a crear la partición de arranque, seleccione la tecla **n** y, a continuación, escriba el número de partición que eliminó anteriormente para el arranque (**3** en este ejemplo). Elija `Default Value` para el primer y el último sector. Elija `EF02` como código hexadecimal.
    ```
    n
    3
@@ -501,28 +501,28 @@ Una vez reiniciada la VM, siga los pasos que se describen a continuación:
    EF02
    ```
 
-1. Escriba los cambios con el comando "w" y presione "Y" para confirmar.
+1. Escriba los cambios mediante el comando `w` y, a continuación, seleccione `Y` para confirmar los cambios:
    ```
    w
    Y
    ```
-1. Ejecute el comando "partprobe" para comprobar la estabilidad del disco.
+1. Ejecute el comando `partprobe` para comprobar la estabilidad del disco:
    ```
    partprobe
    ```
-1. Tras reiniciar la máquina virtual el tamaño de la partición raíz debería haber aumentado.
+1. Reinicie la máquina virtual. Se debe aumentar el tamaño de la partición raíz.
    ```
    reboot
    ```
 
-   ![Nuevas partición raíz y partición de arranque](./media/resize-os-disk-rhelraw/resize-os-disk-rhelraw3.png)
+   ![Captura de pantalla que muestra los pasos para volver a crear las particiones de arranque.](./media/resize-os-disk-rhelraw/resize-os-disk-rhelraw3.png)
 
-1. Ejecute el comando xfs_growfs en la partición para cambiar su tamaño.
+1. Ejecute el comando `xfs_growfs` en la partición para cambiar su tamaño:
    ```
    xfs_growfs /dev/sda2
    ```
 
-   ![XFS Grow FS](./media/resize-os-disk-rhelraw/resize-os-disk-rhelraw4.png)
+   ![Captura de pantalla que muestra el resultado de la ejecución de xfs_growfs.](./media/resize-os-disk-rhelraw/resize-os-disk-rhelraw4.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -4,12 +4,12 @@ description: Reciba notificaciones por SMS, webhook y correo electrónico, entre
 ms.subservice: alerts
 ms.topic: conceptual
 ms.date: 09/17/2018
-ms.openlocfilehash: 7ed73678e0df1e068782c2a094846132be58cfe2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 836fc20b6c3d46766801dce0e2aeda83a217d6a3
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86516131"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95536088"
 ---
 # <a name="alerts-on-activity-log"></a>Alertas de registro de actividad
 
@@ -40,7 +40,7 @@ Las alertas del registro de actividad tienen algunas opciones en común:
     - Nivel de suscripción: por ejemplo, todas las máquinas virtuales de una suscripción (o) todos los recursos de una suscripción
 - **Grupo de recursos**: de forma predeterminada, la regla de alertas se guarda en el grupo de recursos que tiene el destino definido en el ámbito. El usuario también puede definir el grupo de recursos donde se debe almacenar la regla de alertas.
 - **Tipo de recurso**: Resource Manager ha definido el espacio de nombres para el destino de la alerta.
-- **Nombre de la operación**: Nombre de la [operación de Azure Resource Manager](../../role-based-access-control/resource-provider-operations.md) utilizado por el control de acceso basado en rol. No se pueden usar operaciones no registradas con Azure Resource Manager en una regla de alerta de registro de actividad.
+- **Nombre de la operación**: Nombre de la [operación del proveedor de recursos de Azure](../../role-based-access-control/resource-provider-operations.md) que usa el control de acceso basado en rol de Azure. No se pueden usar operaciones no registradas con Azure Resource Manager en una regla de alerta de registro de actividad.
 - **Nivel**: el nivel de gravedad del evento (informativo, advertencia, error o crítico).
 - **Estado**: el estado del evento, normalmente Iniciado, Error o Correcto.
 - **Evento iniciado por**: También se denomina "llamador". La dirección de correo electrónico o el identificador de Azure Active Directory del usuario que realizó la operación.

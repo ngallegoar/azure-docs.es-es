@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 95139c862b82a85dbf7f50aef021ad71c5c8210f
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: cffa6b1200b7236b3c0a3e48b50c58275cf4c57b
+ms.sourcegitcommit: 5ae2f32951474ae9e46c0d46f104eda95f7c5a06
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629451"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95316627"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Configuración del proxy y el firewall de Azure File Sync
 Azure File Sync conecta los servidores locales a Azure Files, lo que permite sincronizar las características de niveles de nube y de sincronización multisitio. Por lo tanto, un servidor local debe estar conectado a Internet. Un administrador de TI tiene que decidir cuál es la mejor ruta de acceso para que el servidor acceda a los servicios en la nube de Azure.
@@ -100,6 +100,7 @@ En la tabla siguiente se describen los dominios necesarios para la comunicación
 | **Almacenamiento de Azure** | &ast;.core.windows.net | &ast;.core.usgovcloudapi.net | Cuando el servidor descarga un archivo, realiza el movimiento de datos de forma más eficaz al comunicarse directamente con el recurso compartido de archivos de Azure en la cuenta de almacenamiento. El servidor tiene una clave SAS que solo se permite el acceso al recurso compartido de archivos de destino. |
 | **Azure File Sync** | &ast;.one.microsoft.com<br>&ast;.afs.azure.net | &ast;. afs.azure.us | Después del registro inicial del servidor, el servidor recibe una URL regional para la instancia de servicio de Azure File Sync en dicha región. El servidor puede utilizar la URL para comunicarse de forma directa y eficaz con la instancia que controla la sincronización. |
 | **Microsoft PKI** | https://www.microsoft.com/pki/mscorp/cps<br><http://ocsp.msocsp.com> | https://www.microsoft.com/pki/mscorp/cps<br><http://ocsp.msocsp.com> | Una vez instalado el agente Azure File Sync, la dirección URL de PKI se utiliza para descargar los certificados intermedios necesarios para comunicarse con el servicio Azure File Sync y el recurso compartido de archivos de Azure. La dirección URL de OCSP se utiliza para comprobar el estado de un certificado. |
+| **Microsoft Update** | &ast;.update.microsoft.com<br>&ast;.download.windowsupdate.com<br>&ast;.dl.delivery.mp.microsoft.com<br>&ast;.emdl.ws.microsoft.com | &ast;.update.microsoft.com<br>&ast;.download.windowsupdate.com<br>&ast;.dl.delivery.mp.microsoft.com<br>&ast;.emdl.ws.microsoft.com | Una vez instalado el agente de Azure File Sync, las direcciones URL de Microsoft Update se usan para descargar las actualizaciones del agente de Azure File Sync. |
 
 > [!Important]
 > Si permite el tráfico a &ast;.afs.azure.net, el tráfico solo podrá enviarse al servicio sincronización. Ningún otro servicio de Microsoft usa este dominio.

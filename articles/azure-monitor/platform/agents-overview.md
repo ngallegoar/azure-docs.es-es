@@ -6,13 +6,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 10/20/2020
-ms.openlocfilehash: 66d420a902cbfb56ece75646ee39bbba774b6208
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.date: 11/21/2020
+ms.openlocfilehash: 30521e85feda0fc19329364dcb710d322ae8cfc1
+ms.sourcegitcommit: 5ae2f32951474ae9e46c0d46f104eda95f7c5a06
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92312414"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95323236"
 ---
 # <a name="overview-of-azure-monitor-agents"></a>Información general sobre los agentes de Azure Monitor
 
@@ -34,7 +34,7 @@ En las tablas siguientes se proporciona una comparación rápida de los agentes 
 
 | | Agente de Azure Monitor (versión preliminar) | Diagnóstico<br>extensión (WAD) | Log Analytics<br>agente | Dependencia<br>agente |
 |:---|:---|:---|:---|:---|
-| **Entornos compatibles** | Azure | Azure | Azure<br>Otra nube<br>Local | Azure<br>Otra nube<br>Local | 
+| **Entornos compatibles** | Azure<br>Otra nube (Azure Arc)<br>Local (Azure Arc)  | Azure | Azure<br>Otra nube<br>Local | Azure<br>Otra nube<br>Local | 
 | **Requisitos del agente**  | None | None | None | Requiere el agente de Log Analytics |
 | **Datos recopilados** | Registros de eventos<br>Rendimiento | Registros de eventos<br>Eventos de ETW<br>Rendimiento<br>Registros basados en archivos<br>Registros IIS<br>Registros de aplicaciones .NET<br>Volcados de memoria<br>Registros de diagnósticos del agente | Registros de eventos<br>Rendimiento<br>Registros basados en archivos<br>Registros IIS<br>Conclusiones y soluciones<br>Otros servicios | Dependencias de procesos<br>Métricas de conexión de red |
 | **Destinatario de los datos** | Registros de Azure Monitor<br>Métricas de Azure Monitor | Azure Storage<br>Métricas de Azure Monitor<br>Centro de eventos | Registros de Azure Monitor | Registros de Azure Monitor<br>(a través del agente de Log Analytics) |
@@ -44,7 +44,7 @@ En las tablas siguientes se proporciona una comparación rápida de los agentes 
 
 | | Agente de Azure Monitor (versión preliminar) | Diagnóstico<br>extensión (WAD) | Telegraf<br>agente | Log Analytics<br>agente | Dependencia<br>agente |
 |:---|:---|:---|:---|:---|:---|
-| **Entornos compatibles** | Azure | Azure | Azure<br>Otra nube<br>Local | Azure<br>Otra nube<br>Local | Azure<br>Otra nube<br>Local |
+| **Entornos compatibles** | Azure<br>Otra nube (Azure Arc)<br>Local (Arc) | Azure | Azure<br>Otra nube<br>Local | Azure<br>Otra nube<br>Local | Azure<br>Otra nube<br>Local |
 | **Requisitos del agente**  | None | None | None | None | Requiere el agente de Log Analytics |
 | **Datos recopilados** | syslog<br>Rendimiento | syslog<br>Rendimiento | Rendimiento | syslog<br>Rendimiento| Dependencias de procesos<br>Métricas de conexión de red |
 | **Destinatario de los datos** | Registros de Azure Monitor<br>Métricas de Azure Monitor | Azure Storage<br>Centro de eventos | Métricas de Azure Monitor | Registros de Azure Monitor | Registros de Azure Monitor<br>(a través del agente de Log Analytics) |
@@ -56,7 +56,7 @@ El [agente de Azure Monitor ](azure-monitor-agent-overview.md) se encuentra actu
 
 Utilice el agente de Azure Monitor si necesita:
 
-- Recopilar los registros y las métricas de los invitados de cualquier máquina virtual en Azure, en otras nubes o en el entorno local. (Azure solo en versión preliminar).
+- Recopilar los registros y las métricas de los invitados de cualquier máquina virtual en Azure, en otras nubes o en el entorno local. (Azure Arc es necesario para las máquinas virtuales fuera de Azure). 
 - Enviar datos a registros y métricas de Azure Monitor para su análisis con Azure Monitor. 
 - Enviar datos a Azure Storage para su archivado.
 - Enviar datos a herramientas de terceros mediante [Azure Event Hubs](diagnostics-extension-stream-event-hubs.md).

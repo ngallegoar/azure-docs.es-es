@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/28/2020
 ms.author: yelevin
-ms.openlocfilehash: 0704f076ef7c5d1a39af67d3ec6ec2baece1fda5
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 9c100ca82b751a050e74cce85e1794701a789288
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92517308"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95498476"
 ---
 # <a name="permissions-in-azure-sentinel"></a>Permisos de Azure Sentinel
 
@@ -58,7 +58,7 @@ Es posible que sea necesario asignar roles adicionales o permisos específicos a
 
 - Conexión de orígenes de datos a Azure Sentinel
 
-    Para que un usuario pueda agregar **conectores de datos** , debe asignar permisos de escritura de usuario en el área de trabajo de Azure Sentinel. Además, tenga en cuenta los permisos adicionales necesarios para cada conector, tal como se muestra en la página del conector correspondiente.
+    Para que un usuario pueda agregar **conectores de datos**, debe asignar permisos de escritura de usuario en el área de trabajo de Azure Sentinel. Además, tenga en cuenta los permisos adicionales necesarios para cada conector, tal como se muestra en la página del conector correspondiente.
 
 - Los usuarios invitados asignan incidentes
 
@@ -74,7 +74,7 @@ En la asignación de roles de Azure específicos de Azure Sentinel, puede encont
 
 - **Roles de Log Analytics:** [Colaborador de Log Analytics](../role-based-access-control/built-in-roles.md#log-analytics-contributor) y [Lector de Log Analytics](../role-based-access-control/built-in-roles.md#log-analytics-reader). Los roles de Log Analytics conceden acceso a las áreas de trabajo de Log Analytics. 
 
-Por ejemplo, un usuario al que se haya asignado el rol de **Lector de Azure Sentinel** , pero no el rol de **Colaborador de Azure Sentinel** , todavía podrá editar elementos en Azure Sentinel si se le asigna el rol de **Colaborador** de nivel de Azure. Por tanto, si desea conceder permisos solo para un usuario en Azure Sentinel, elimine con cuidado los permisos anteriores de este usuario, y asegúrese de que no interrumpe ningún acceso necesario para otro recurso.
+Por ejemplo, un usuario al que se haya asignado el rol de **Lector de Azure Sentinel**, pero no el rol de **Colaborador de Azure Sentinel**, todavía podrá editar elementos en Azure Sentinel si se le asigna el rol de **Colaborador** de nivel de Azure. Por tanto, si desea conceder permisos solo para un usuario en Azure Sentinel, elimine con cuidado los permisos anteriores de este usuario, y asegúrese de que no interrumpe ningún acceso necesario para otro recurso.
 
 ## <a name="roles-and-allowed-actions"></a>Roles y acciones permitidas
 
@@ -91,7 +91,7 @@ En la siguiente tabla se resumen los roles y las acciones permitidas en Azure Se
 
 - Además de usar roles integrados de Azure (o en vez de ello), puede crear roles personalizados de Azure para Azure Sentinel. Los roles personalizados de Azure para Azure Sentinel se crean de la misma manera que se crean otros [roles personalizados de Azure](../role-based-access-control/custom-roles-rest.md#create-a-custom-role) basados en [permisos específicos para los recursos de Azure Sentinel](../role-based-access-control/resource-provider-operations.md#microsoftsecurityinsights) y [Azure Log Analytics](../role-based-access-control/resource-provider-operations.md#microsoftoperationalinsights).
 
-- Puede usar el control de acceso basado en rol avanzado de Log Analytics en los datos del área de trabajo de Azure Sentinel. Incluye RBAC de Azure basado en el tipo de datos y RBAC de Azure centrado en recursos. Para más información sobre los roles de Log Analytics, consulte [Administración de los datos de registro y las áreas de trabajo en Azure Monitor](../azure-monitor/platform/manage-access.md#manage-access-using-workspace-permissions).
+- Puede usar el control de acceso basado en rol de Azure avanzado de Log Analytics en los datos del área de trabajo de Azure Sentinel. Incluye RBAC de Azure basado en el tipo de datos y RBAC de Azure centrado en recursos. Para más información sobre los roles de Log Analytics, consulte [Administración de los datos de registro y las áreas de trabajo en Azure Monitor](../azure-monitor/platform/manage-access.md#manage-access-using-workspace-permissions).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

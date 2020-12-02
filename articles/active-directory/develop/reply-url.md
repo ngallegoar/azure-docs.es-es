@@ -5,18 +5,18 @@ description: Descripción de las restricciones y limitaciones del formato del id
 author: SureshJa
 ms.author: sureshja
 manager: CelesteDG
-ms.date: 10/29/2020
+ms.date: 11/23/2020
 ms.topic: conceptual
 ms.subservice: develop
 ms.custom: aaddev
 ms.service: active-directory
 ms.reviewer: marsma, lenalepa, manrath
-ms.openlocfilehash: a2838e40844b83d1e90789439ce286f2738e22c4
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.openlocfilehash: 30ea74b249937544a0bf9811cad60f02c1ca45c7
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94331862"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95752800"
 ---
 # <a name="redirect-uri-reply-url-restrictions-and-limitations"></a>Restricciones y limitaciones del identificador URI de redirección (dirección URL de respuesta)
 
@@ -51,25 +51,32 @@ Para agregar identificadores URI de redirección con un esquema HTTP a los regis
 
 Según las [secciones 8.3](https://tools.ietf.org/html/rfc8252#section-8.3) y [7.3 de RFC 8252](https://tools.ietf.org/html/rfc8252#section-7.3), los URI de redireccionamiento de "bucle invertido" o "localhost" incluyen dos consideraciones especiales:
 
-1. Los esquemas URI `http` son aceptables porque la redirección nunca sale del dispositivo. Por tanto, ambos son aceptables:
-    - `http://127.0.0.1/myApp`
-    - `https://127.0.0.1/myApp`
-1. Debido a los intervalos de puertos efímeros que suelen necesitar las aplicaciones nativas, el componente de puerto (por ejemplo, `:5001` o `:443`) se omite con el fin de buscar coincidencias con un identificador URI de redirección. Como resultado, todos ellos se consideran equivalentes:
-    - `http://127.0.0.1/MyApp`
-    - `http://127.0.0.1:1234/MyApp`
-    - `http://127.0.0.1:5000/MyApp`
-    - `http://127.0.0.1:8080/MyApp`
+1. Los esquemas URI `http` son aceptables porque la redirección nunca sale del dispositivo. Por tanto, ambos URI son aceptables:
+    - `http://localhost/myApp`
+    - `https://localhost/myApp`
+1. Debido a los intervalos de puertos efímeros que suelen necesitar las aplicaciones nativas, el componente de puerto (por ejemplo, `:5001` o `:443`) se omite con el fin de buscar coincidencias con un identificador URI de redirección. Como resultado, todos estos URI se consideran equivalentes:
+    - `http://localhost/MyApp`
+    - `http://localhost:1234/MyApp`
+    - `http://localhost:5000/MyApp`
+    - `http://localhost:8080/MyApp`
 
 Desde el punto de vista del desarrollo, esto significa algunas cosas:
 
 * No registre varios identificadores URI de redirección en los que solo el puerto es distinto. El servidor de inicio de sesión seleccionará uno arbitrariamente y usará el comportamiento asociado a ese identificador URI de redirección (por ejemplo, si es una redirección de tipo `web`, `native` o `spa`).
 
     Esto es especialmente importante si desea utilizar flujos de autenticación diferentes en el mismo registro de aplicación, por ejemplo, la concesión de código de autorización y el flujo implícito. Para asociar el comportamiento de respuesta correcto con cada identificador URI de redirección, el servidor de inicio de sesión debe ser capaz de distinguir entre los identificadores URI de redirección y no puede hacerlo cuando solo difiere el puerto.
-* Si necesita que registrar varios URI de redirección en localhost para probar flujos diferentes durante el desarrollo, puede diferenciarlos mediante el componente de *ruta de acceso* del URI. Por ejemplo, `http://127.0.0.1/MyWebApp` no coincide con `http://127.0.0.1/MyNativeApp`.
+* Si necesita que registrar varios URI de redirección en localhost para probar flujos diferentes durante el desarrollo, puede diferenciarlos mediante el componente de *ruta de acceso* del URI. Por ejemplo, `http://localhost/MyWebApp` no coincide con `http://localhost/MyNativeApp`.
 * La dirección de bucle invertido IPv6 (`[::1]`) no se admite actualmente.
-* Para evitar la interrupción de la aplicación a causa de firewalls mal configurados o interfaces de red cuyo nombre ha cambiado, use la dirección de bucle invertido del literal de IP `127.0.0.1` en el URI de redirección en lugar de `localhost`.
 
-    Para usar el esquema `http` con la dirección de bucle invertido del literal de IP `127.0.0.1`, actualmente debe modificar el atributo [replyUrlsWithType](reference-app-manifest.md#replyurlswithtype-attribute) en el [manifiesto de la aplicación](reference-app-manifest.md).
+#### <a name="prefer-127001-over-localhost"></a>Es preferible 127.0.0.1 frente a localhost
+
+Para evitar la interrupción de la aplicación a causa de firewalls mal configurados o interfaces de red cuyo nombre ha cambiado, use la dirección de bucle invertido del literal de IP `127.0.0.1` en el URI de redirección en lugar de `localhost`. Por ejemplo, `https://127.0.0.1`.
+
+Sin embargo, no puede usar el cuadro de texto **URI de redirección** en Azure Portal para agregar un URI de redirección basado en bucles que use el esquema `http`:
+
+:::image type="content" source="media/reply-url/portal-01-no-http-loopback-redirect-uri.png" alt-text="Cuadro de diálogo de error en Azure Portal que muestra el URI de redirección del bucle invertido basado en HTTP no permitido":::
+
+Para agregar un URI de redirección que usa el esquema `http` con la dirección de bucle invertido `127.0.0.1`, actualmente debe modificar el atributo [replyUrlsWithType](reference-app-manifest.md#replyurlswithtype-attribute) en el [manifiesto de la aplicación](reference-app-manifest.md).
 
 ## <a name="restrictions-on-wildcards-in-redirect-uris"></a>Restricciones en los caracteres comodín en los identificadores URI de redirección
 

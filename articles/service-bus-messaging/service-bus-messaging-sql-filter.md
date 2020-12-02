@@ -1,22 +1,23 @@
 ---
-title: Referencia de la sintaxis de SQLFilter de Azure Service Bus | Microsoft Docs
-description: En este artículo se ofrece información sobre la gramática de SQLFilter. SqlFilter admite un subconjunto del estándar SQL-92.
+title: Sintaxis de filtros de SQL de regla de suscripción de Azure Service Bus | Microsoft Docs
+description: En este artículo se ofrece información sobre la gramática de filtros de SQL. Un filtro de SQL admite un subconjunto del estándar SQL-92.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 8412dea583ae119b30976e53d4751411b45339a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/24/2020
+ms.openlocfilehash: bd263e8177652165376d4f6fe9e231af71ebdcbe
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85341604"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95805632"
 ---
-# <a name="sqlfilter-syntax"></a>Sintaxis de SQLFilter
+# <a name="subscription-rule-sql-filter-syntax"></a>Sintaxis de filtros de SQL de regla de suscripción
 
-Un objeto *SqlFilter* es una instancia de la [clase SqlFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter) y representa una expresión de filtro basada en lenguaje SQL que se evalúa con respecto a un objeto [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). SqlFilter admite un subconjunto del estándar SQL-92.  
+Un *filtro de SQL* es uno de los tipos de filtro disponibles para las suscripciones a tema de Service Bus. Es una expresión de texto que depende de un subconjunto del estándar SQL-92. Las expresiones de filtro se usan con el elemento `sqlExpression` de la propiedad "sqlFilter" de una `Rule` de Service Bus en una [plantilla de Resource Manager](service-bus-resource-manager-namespace-topic-with-rule.md), o con el argumento [`--filter-sql-expression`](https://docs.microsoft.com/cli/azure/servicebus/topic/subscription/rule?view=azure-cli-latest&preserve-view=true#az_servicebus_topic_subscription_rule_create) del comando `az servicebus topic subscription rule create` de la CLI de Azure y varias funciones de SDK que permiten administrar reglas de suscripción.
+
+Service Bus Premium también es compatible con la [sintaxis de selector de mensajes SQL de JMS](https://docs.oracle.com/javaee/7/api/javax/jms/Message.html) a través de la API 2.0 de JMS.
+
   
- En este tema se ofrece información sobre la gramática de SqlFilter.  
-  
-```  
+``` 
 <predicate ::=  
       { NOT <predicate> }  
       | <predicate> AND <predicate>  
@@ -51,7 +52,7 @@ Un objeto *SqlFilter* es una instancia de la [clase SqlFilter](/dotnet/api/micro
   
 -   `<scope>` es una cadena opcional que indica el ámbito de `<property_name>`. Los valores válidos son `sys` y `user`. El valor `sys` indica el ámbito del sistema, donde `<property_name>` es un nombre de propiedad pública de la [clase BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). `user` indica el ámbito de usuario, donde `<property_name>` es una clave del diccionario de la [clase BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). El ámbito de `user` es el predeterminado si no se especifica `<scope>`.  
   
-## <a name="remarks"></a>Observaciones
+## <a name="remarks"></a>Comentarios
 
 Un intento de acceso a una propiedad de sistema que no existe es un error, mientras que uno a una propiedad de usuario inexistente, no lo es. En su lugar, una propiedad de usuario inexistente internamente se evalúa como un valor desconocido. Un valor desconocido se trata de una forma especial durante la evaluación de operador.  
   
@@ -91,22 +92,22 @@ Esta gramática significa cualquier cadena que empiece por una letra y vaya segu
   
 ```  
   
-`<quoted_identifier>` es cualquier cadena que se incluye entre comillas dobles. Las comillas dobles en el identificador se representan como dos comillas dobles. No se recomienda utilizar identificadores entre comillas, ya que pueden confundirse fácilmente con una constante de cadena. Si es posible, utilice un identificador delimitado. A continuación, se muestra un ejemplo de `<quoted_identifier>`:  
+`<quoted_identifier>` es cualquier cadena que se incluye entre comillas dobles. Las comillas dobles en el identificador se representan como dos comillas dobles. No se recomienda usar identificadores entre comillas, ya que pueden confundirse fácilmente con una constante de cadena. Si es posible, utilice un identificador delimitado. Este es un ejemplo de `<quoted_identifier>`:  
   
 ```  
 "Contoso & Northwind"  
 ```  
   
-## <a name="pattern"></a>Patrón  
+## <a name="pattern"></a>pattern  
   
 ```  
 <pattern> ::=  
       <expression>  
 ```  
   
-### <a name="remarks"></a>Observaciones
+### <a name="remarks"></a>Comentarios
   
-`<pattern>` debe ser una expresión que se evalúa como una cadena. Se utiliza como patrón para el operador LIKE.      Puede contener los siguientes caracteres comodín:  
+`<pattern>` debe ser una expresión que se evalúa como una cadena. Se usa como patrón para el operador LIKE.      Puede contener los siguientes caracteres comodín:  
   
 -   `%`: cualquier cadena de cero o más caracteres.  
   
@@ -119,9 +120,9 @@ Esta gramática significa cualquier cadena que empiece por una letra y vaya segu
       <expression>  
 ```  
   
-### <a name="remarks"></a>Observaciones  
+### <a name="remarks"></a>Comentarios  
 
-`<escape_char>` debe ser una expresión que se evalúa como una cadena de longitud 1. Se utiliza como carácter de escape para el operador LIKE.  
+`<escape_char>` debe ser una expresión que se evalúa como una cadena de longitud 1. Se usa como carácter de escape para el operador LIKE.  
   
  Por ejemplo, `property LIKE 'ABC\%' ESCAPE '\'` coincide con `ABC%`, en lugar de con una cadena que comienza con `ABC`.  
   
@@ -134,16 +135,16 @@ Esta gramática significa cualquier cadena que empiece por una letra y vaya segu
   
 ### <a name="arguments"></a>Argumentos  
   
--   `<integer_constant>` es una cadena de números que no se incluyen entre comillas y no contienen decimales. Los valores se almacenan como `System.Int64` internamente y siguen el mismo intervalo.  
+-   `<integer_constant>` es una cadena de números que no se incluye entre comillas y no contiene decimales. Los valores se almacenan como `System.Int64` internamente y siguen el mismo intervalo.  
   
-     A continuación, se muestran ejemplos de constantes largas:  
+     Los siguientes son ejemplos de constantes largas:  
   
     ```  
     1894  
     2  
     ```  
   
--   `<decimal_constant>` es una cadena de números que no se incluyen entre comillas y contienen un separador decimal. Los valores se almacenan como `System.Double` internamente y siguen el mismo intervalo o la misma precisión.  
+-   `<decimal_constant>` es una cadena de números que no se incluye entre comillas y contiene un separador decimal. Los valores se almacenan como `System.Double` internamente y siguen el mismo intervalo o la misma precisión.  
   
      En una versión futura, este número podría almacenarse en un tipo de datos diferente para admitir la semántica de número exacto. Por lo tanto, no debe confiar en el hecho de que el tipo de datos subyacente es `System.Double` en `<decimal_constant>`.  
   
@@ -168,7 +169,7 @@ Esta gramática significa cualquier cadena que empiece por una letra y vaya segu
       TRUE | FALSE  
 ```  
   
-### <a name="remarks"></a>Observaciones  
+### <a name="remarks"></a>Comentarios  
 
 Las constantes booleanas se representan mediante las palabras clave **TRUE** o **FALSE**. Los valores se almacenan como `System.Boolean`.  
   
@@ -178,7 +179,7 @@ Las constantes booleanas se representan mediante las palabras clave **TRUE** o *
 <string_constant>  
 ```  
   
-### <a name="remarks"></a>Observaciones  
+### <a name="remarks"></a>Comentarios  
 
 Las constantes de cadena se incluyen entre comillas simples y contienen caracteres Unicode válidos. Una comilla simple incrustada en una constante de cadena se representan como dos comillas simples.  
   
@@ -190,9 +191,9 @@ Las constantes de cadena se incluyen entre comillas simples y contienen caracter
       property(name) | p(name)  
 ```  
   
-### <a name="remarks"></a>Observaciones
+### <a name="remarks"></a>Comentarios
   
-La función `newid()` devuelve un elemento **System.Guid** generado por el método `System.Guid.NewGuid()`.  
+La función `newid()` devuelve un elemento `System.Guid` generado por el método `System.Guid.NewGuid()`.  
   
 La función `property(name)` devuelve el valor de la propiedad a la que hace referencia `name`. El valor `name` puede ser cualquier expresión válida que devuelve un valor de cadena.  
   
@@ -268,8 +269,63 @@ Tenga en cuenta la siguiente semántica de [SqlFilter](/dotnet/api/microsoft.ser
   
 -   Los operadores aritméticos, como `+`, `-`, `*`, `/` y `%`, siguen la misma semántica que el enlace de operadores de C# en promociones de tipo de datos y conversiones implícitas.
 
+
+## <a name="examples"></a>Ejemplos
+
+### <a name="set-rule-action-for-a-sql-filter"></a>Establecimiento de una acción de regla para un filtro de SQL
+
+```csharp
+// instantiate the ManagementClient
+this.mgmtClient = new ManagementClient(connectionString);
+
+// create the SQL filter
+var sqlFilter = new SqlFilter("source = @stringParam");
+
+// assign value for the parameter
+sqlFilter.Parameters.Add("@stringParam", "orders");
+
+// instantiate the Rule = Filter + Action
+var filterActionRule = new RuleDescription
+{
+    Name = "filterActionRule",
+    Filter = sqlFilter,
+    Action = new SqlRuleAction("SET source='routedOrders'")
+};
+
+// create the rule on Service Bus
+await this.mgmtClient.CreateRuleAsync(topicName, subscriptionName, filterActionRule);
+```
+
+### <a name="sql-filter-on-a-system-property"></a>Filtro de SQL en una propiedad del sistema
+
+```csharp
+sys.Label LIKE '%bus%'`
+```
+
+### <a name="using-or"></a>Uso de OR 
+
+```csharp
+ sys.Label LIKE '%bus%'` OR `user.tag IN ('queue', 'topic', 'subscription')
+```
+
+### <a name="using-in-and-not-in"></a>Usar IN y NOT IN
+
+```csharp
+StoreId IN('Store1', 'Store2', 'Store3')"
+
+sys.To IN ('Store5','Store6','Store7') OR StoreId = 'Store8'
+
+sys.To NOT IN ('Store1','Store2','Store3','Store4','Store5','Store6','Store7','Store8') OR StoreId NOT IN ('Store1','Store2','Store3','Store4','Store5','Store6','Store7','Store8')
+```
+
+Para ver un ejemplo de C#, consulte el [ejemplo de filtros de temas en GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Azure.Messaging.ServiceBus/BasicSendReceiveTutorialwithFilters).
+
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Clase SQLFilter (.NET Framework)](/dotnet/api/microsoft.servicebus.messaging.sqlfilter)
 - [Clase SQLFilter (.NET Standard)](/dotnet/api/microsoft.azure.servicebus.sqlfilter)
-- [Clase SQLRuleAction](/dotnet/api/microsoft.servicebus.messaging.sqlruleaction)
+- [Clase SqlFilter (Java)](/java/api/com.microsoft.azure.servicebus.rules.SqlFilter)
+- [SqlRuleFilter (JavaScript)](/javascript/api/@azure/service-bus/sqlrulefilter)
+- [az servicebus topic subscription rule](/cli/azure/servicebus/topic/subscription/rule)
+- [New-AzServiceBusRule](/powershell/module/az.servicebus/new-azservicebusrule)

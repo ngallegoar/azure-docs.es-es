@@ -3,12 +3,12 @@ title: Consulta de registros desde Azure Monitor para contenedores | Microsoft D
 description: Azure Monitor para contenedores recopila datos de registro y métricas. En este artículo se describen los registros y se incluyen consultas de ejemplo.
 ms.topic: conceptual
 ms.date: 06/01/2020
-ms.openlocfilehash: a540ae828b14f231b3b327b714876550cc744a7e
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 08c42fab84cb5180497f8da4f077b9bd82283ad4
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91994011"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95747686"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-containers"></a>Cómo consultar registros desde Azure Monitor para contenedores
 
@@ -16,7 +16,7 @@ Azure Monitor para contenedores recopila métricas de rendimiento, datos de inve
 
 ## <a name="container-records"></a>Registros de contenedor
 
-En la tabla siguiente, se proporcionan detalles de los registros recopilados por Azure Monitor para contenedores. 
+En la tabla siguiente, se proporcionan detalles de los registros recopilados por Azure Monitor para contenedores. Para obtener una lista de las descripciones de columna, consulte la referencia de las tablas [ContainerInventory](/azure/azure-monitor/reference/tables/containerinventory) y [ContainerLog](/azure/azure-monitor/reference/tables/containerlog).
 
 | data | Origen de datos | Tipo de datos | Fields |
 |------|-------------|-----------|--------|

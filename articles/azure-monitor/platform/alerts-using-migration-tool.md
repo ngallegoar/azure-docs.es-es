@@ -6,12 +6,12 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 03/19/2018
 ms.subservice: alerts
-ms.openlocfilehash: e49525018a3e23ecbbf92d7a8b3f7c50804432b8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d7bcf3e5c0b50d3d6eb8f71dc70f0ff064ff3465
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91358668"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95536037"
 ---
 # <a name="use-the-voluntary-migration-tool-to-migrate-your-classic-alert-rules"></a>Uso de la herramienta de migración voluntaria para migrar las reglas de alertas clásicas
 
@@ -83,7 +83,7 @@ Cuando una suscripción pasa a estar lista para la migración, el propietario de
 
 ### <a name="who-can-trigger-the-migration"></a>¿Quién puede desencadenar la migración?
 
-Pueden desencadenar la migración los usuarios que tengan el rol de colaborador de supervisión asignado en el nivel de suscripción. [Más información sobre el Control de acceso basado en rol para el proceso de migración](alerts-understand-migration.md#who-can-trigger-the-migration).
+Pueden desencadenar la migración los usuarios que tengan el rol de colaborador de supervisión asignado en el nivel de suscripción. [Más información sobre el control de acceso basado en rol de Azure para el proceso de migración](alerts-understand-migration.md#who-can-trigger-the-migration).
 
 ### <a name="how-long-will-the-migration-take"></a>¿Cuánto tiempo tardará la migración?
 

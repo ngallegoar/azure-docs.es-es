@@ -4,12 +4,12 @@ description: Resume la compatibilidad con la recuperación ante desastres de má
 ms.topic: article
 ms.date: 07/14/2020
 ms.author: raynew
-ms.openlocfilehash: c54c4608f04c8f98e21309ca531452ae0a34fdf2
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 2391a4056d5c0c952677b57e7d37a181ef0eacc0
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94646379"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95808855"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Matriz de soporte para la recuperación ante desastres de máquinas virtuales de Azure entre regiones de Azure
 
@@ -113,6 +113,9 @@ SUSE Linux Enterprise Server 11 | SP3<br/><br/> No se admite la actualización d
 SUSE Linux Enterprise Server 11 | SP4
 Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, [7.7](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery), [7.8](https://support.microsoft.com/help/4573888/), [8.0](https://support.microsoft.com/help/4573888/), [8.1](https://support.microsoft.com/help/4573888/)  <br/> Ejecución del kernel compatible de Red Hat o Unbreakable Enterprise Kernel Release 3, 4 y 5 (UEK3, UEK4, UEK5)<br/><br/>8.1<br/>La ejecución en todos los kernels de UEK y RedHat kernel <= 3.10.0-1062.* se admiten en [9.35](https://support.microsoft.com/help/4573888/). La compatibilidad con el resto de los kernels de RedHat está disponible en [9.36](https://support.microsoft.com/help/4578241/).
 
+> [!NOTE]
+> Asegúrese de que, en el caso de las versiones de Linux, Azure Site Recovery no admita imágenes de SO personalizadas. Solo se admiten kernels de stock que forman parte del lanzamiento o la actualización de la versión secundaria de la distribución.
+
 **Nota: Para admitir los kernels de Linux más recientes en un plazo de 15 días desde su publicación, Azure Site Recovery implementa la revisión de corrección urgente sobre la versión más reciente del agente de movilidad. Esta corrección se implementa entre dos versiones principales. Para actualizar a la versión más reciente del agente de movilidad (incluida la revisión de corrección urgente), siga los pasos que se mencionan en [este artículo](service-updates-how-to.md#azure-vm-disaster-recovery-to-azure). Esta revisión está implementada actualmente para los agentes de movilidad que se usan en Azure para el escenario de recuperación ante desastres de Azure.
 
 #### <a name="supported-ubuntu-kernel-versions-for-azure-virtual-machines"></a>Versiones de kernel de Ubuntu admitidas para máquinas virtuales de Azure
@@ -172,7 +175,7 @@ SUSE Linux Enterprise Server 15 y 15 SP1 | [9.34](https://support.microsoft.com
 * Administrador de volúmenes: LVM2
 
 > [!NOTE]
-> No se admite software de múltiples rutas. 
+> No se admite software de múltiples rutas.
 
 
 ## <a name="replicated-machines---compute-settings"></a>Máquinas replicadas: Configuración de proceso
@@ -213,7 +216,7 @@ Esta tabla resume la compatibilidad con el disco del sistema operativo, el disco
 --- | --- | ---
 Tamaño máximo del disco de sistema operativo | 2048 GB | [Más información](../virtual-machines/managed-disks-overview.md) sobre discos de máquina virtual.
 Disco temporal | No compatible | El disco temporal se excluye de la replicación siempre.<br/><br/> No almacene los datos persistentes en el disco temporal. [Más información](../virtual-machines/managed-disks-overview.md).
-Tamaño máximo del disco de datos | 8192 GB para discos administrados<br></br>4095 GB para discos no administrados|
+Tamaño máximo del disco de datos | 32 TB para discos administrados<br></br>4 TB para discos no administrados|
 Tamaño mínimo del disco de datos | Sin restricción de discos no administrados. 2 GB en discos administrados |
 Número máximo de discos de datos | Hasta 64, según la compatibilidad con un tamaño específico de máquina virtual de Azure | [Más información](../virtual-machines/sizes.md) sobre tamaños de máquina virtual.
 Tasa de cambio de disco de datos | Máximo de 20 MBps por disco para el almacenamiento Premium. Máximo de 2 MBps por disco para el almacenamiento Estándar. | Si la tasa media de cambio de los datos en el disco sobrepasa el máximo continuamente, la replicación no mantendrá el ritmo.<br/><br/>  Sin embargo, si se supera el máximo esporádicamente, la replicación podrá mantenerlo, aunque podría ver puntos de recuperación ligeramente retrasados.

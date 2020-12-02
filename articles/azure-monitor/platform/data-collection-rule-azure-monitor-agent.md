@@ -1,18 +1,19 @@
 ---
 title: Configuración de la recopilación de datos para el agente de Azure Monitor (versión preliminar)
-description: ''
+description: Se describe cómo crear una regla de recopilación de datos para recopilar datos de máquinas virtuales mediante el agente de Azure Monitor.
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/19/2020
-ms.openlocfilehash: cd29bfafe2d37b6a34031e6962cc27bfff0006c1
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 94c926c555a4bc96ac3c6fbe773650e16554bcf2
+ms.sourcegitcommit: 5ae2f32951474ae9e46c0d46f104eda95f7c5a06
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108021"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95315709"
 ---
 # <a name="configure-data-collection-for-the-azure-monitor-agent-preview"></a>Configuración de la recopilación de datos para el agente de Azure Monitor (versión preliminar)
+
 Las reglas de recopilación de datos (DCR) definen los datos que entran en Azure Monitor y especifican dónde se deben enviar. En este artículo se describe cómo crear una regla de recopilación de datos para recopilar datos de máquinas virtuales mediante el agente de Azure Monitor.
 
 Para obtener una descripción completa de las reglas de recopilación de datos, consulte [Reglas de recopilación de datos en Azure Monitor (versión preliminar)](data-collection-rule-overview.md).
@@ -20,15 +21,18 @@ Para obtener una descripción completa de las reglas de recopilación de datos, 
 > [!NOTE]
 > En este artículo se describe cómo configurar los datos de las máquinas virtuales con el agente de Azure Monitor que se encuentra actualmente en versión preliminar. Consulte [Información general sobre los agentes de Azure Monitor](agents-overview.md) para obtener una descripción de los agentes que están disponibles con carácter general y cómo usarlos para recopilar datos.
 
+## <a name="data-collection-rule-associations"></a>Asociaciones de reglas de recopilación de datos
 
-## <a name="dcr-associations"></a>Asociaciones de reglas de recopilación de datos
 Para aplicar una reglas de recopilación de datos a una máquina virtual, cree una asociación para la máquina virtual. Una máquina virtual puede tener una asociación a varias reglas de recopilación de datos y una de estas reglas puede tener varias máquinas virtuales asociadas. Esto le permite definir un conjunto de reglas de recopilación de datos, cada una de las cuales coincide con un requisito determinado y aplicarlas solo a las máquinas virtuales en las que se aplican. 
 
 Por ejemplo, imagine un entorno con un conjunto de máquinas virtuales que ejecutan una aplicación de línea de negocio y otras que se ejecutan SQL Server. Es posible que tenga una regla de recopilación de datos predeterminada que se aplique a todas las máquinas virtuales y a reglas de recopilación de datos independientes que recopilen datos específicamente para la aplicación de línea de negocio y SQL Server. Las asociaciones de las máquinas virtuales con las reglas de recopilación de datos tendrían un aspecto similar al siguiente diagrama.
 
 ![En el diagrama se muestran las máquinas virtuales que hospedan la aplicación de línea de negocio y SQL Server asociadas a las reglas de recopilación de datos denominadas central-i t-default y lob-app para la aplicación de línea de negocio y central-i t-default y s q l para SQL Server.](media/data-collection-rule-azure-monitor-agent/associations.png)
 
-## <a name="create-using-the-azure-portal"></a>Creación mediante Azure Portal
+
+
+## <a name="create-rule-and-association-in-azure-portal"></a>Creación de reglas y asociaciones en Azure Portal
+
 Puede usar Azure Portal para crear una regla de recopilación de datos y asociar las máquinas virtuales de su suscripción a esa regla. El agente de Azure Monitor se instalará automáticamente y se creará una identidad administrada para las máquinas virtuales que no lo tengan instalado.
 
 En el menú **Azure Monitor** de Azure Portal, seleccione las **reglas de recopilación de datos** en la sección **Configuración**. Haga clic en **Agregar** para agregar una nueva asignación y regla de recopilación de datos.
@@ -39,7 +43,7 @@ Haga clic en **Agregar** para crear una nueva regla y un conjunto de asociacione
 
 [![Nombre de la regla de recopilación de datos](media/azure-monitor-agent/data-collection-rule-basics.png)](media/azure-monitor-agent/data-collection-rule-basics.png#lightbox)
 
-En la pestaña **Máquinas virtuales**, agregue las máquinas virtuales que deben tener aplicada la regla de recopilación de datos. El agente de Azure Monitor se instalará en las máquinas virtuales que no lo tengan instalado.
+En la pestaña **Máquinas virtuales**, agregue las máquinas virtuales que deben tener aplicada la regla de recopilación de datos. Deben mostrarse las máquinas virtuales de Azure y los servidores habilitados para Azure Arc en su entorno. El agente de Azure Monitor se instalará en las máquinas virtuales que no lo tengan instalado.
 
 [![Máquinas virtuales de reglas de recopilación de datos](media/azure-monitor-agent/data-collection-rule-virtual-machines.png)](media/azure-monitor-agent/data-collection-rule-virtual-machines.png#lightbox)
 
@@ -59,15 +63,25 @@ En la pestaña **Destination** (Destino), agregue uno o varios destinos para el 
 Haga clic en **Agregar origen de datos** (Agregar origen de datos) y, después, en **Revisar y crear** para revisar los detalles de la regla de recopilación de datos y la asociación con el conjunto de máquinas virtuales. Haga clic en **Crear** para crearlo.
 
 > [!NOTE]
-> Cuando se hayan creado las asociaciones y la regla de recopilación de datos, los datos pueden tardar hasta cinco minutos en enviarse a los destinos.
+> Una vez creadas las asociaciones y la regla de recopilación de datos, los datos pueden tardar hasta cinco minutos en enviarse a los destinos.
 
-## <a name="create-using-rest-api"></a>Creación mediante la API REST
-Siga los pasos que se indican a continuación para crear una DCR y asociaciones mediante la API REST.  
-1. 1.
-2.  Cree manualmente el archivo DCR con el formato JSON que se muestra en  [DCR de ejemplo](data-collection-rule-overview.md#sample-data-collection-rule).
-3. 2.
 
-## <a name="next-steps"></a> Cree la regla con la  [API REST](/rest/api/monitor/datacollectionrules/create#examples).
+## <a name="create-rule-and-association-using-rest-api"></a>Creación de reglas y asociaciones mediante una API REST
 
-- 3.
--  Cree una asociación para cada máquina virtual a la regla de recopilación de datos mediante la  [API REST](/rest/api/monitor/datacollectionruleassociations/create#examples).
+Siga los pasos que se indican a continuación para crear una regla de recopilación de datos y asociaciones mediante la API REST.
+
+1. Cree manualmente el archivo de regla de recopilación de datos con el formato JSON que se muestra en [DCR de ejemplo](data-collection-rule-overview.md#sample-data-collection-rule).
+
+2. Cree la regla con la [API REST](/rest/api/monitor/datacollectionrules/create#examples).
+
+3. Cree una asociación para cada máquina virtual a la regla de recopilación de datos mediante la [API REST](/rest/api/monitor/datacollectionruleassociations/create#examples).
+
+
+## <a name="create-association-using-resource-manager-template"></a>Creación de una asociación mediante plantillas de Resource Manager
+
+No puede crear una regla de recopilación de datos mediante una plantilla de Resource Manager, pero puede crear una asociación entre una máquina virtual de Azure o un servidor habilitado para Azure Arc mediante una plantilla de Resource Manager. Consulte [Ejemplos de plantillas de Resource Manager para reglas de recopilación de datos en Azure Monitor](../samples/resource-manager-data-collection-rules.md) para obtener plantillas de ejemplo.
+
+## <a name="next-steps"></a>Pasos siguientes
+
+- Más información sobre el [agente de Azure Monitor](azure-monitor-agent-overview.md).
+- Más información sobre las [reglas de recopilación de datos](data-collection-rule-overview.md).

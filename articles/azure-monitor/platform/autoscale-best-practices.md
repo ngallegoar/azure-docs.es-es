@@ -4,12 +4,12 @@ description: Patrones de escalado automático en Azure para Web Apps, conjunto d
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: 414716fbbb36167e52c4f3b98c70ae7696ffea8f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7fdb3588833dd9bcf989e020cd1dd861c6e28f37
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87327062"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95745323"
 ---
 # <a name="best-practices-for-autoscale"></a>Procedimientos recomendados de escalado automático
 La escalabilidad automática de Azure Monitor solo se aplica a [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloud Services](https://azure.microsoft.com/services/cloud-services/), [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/) y los [servicios de API Management](../../api-management/api-management-key-concepts.md).
@@ -73,6 +73,9 @@ En este caso
 3. Imaginemos ahora que, con el tiempo, el porcentaje de CPU cae a 60.
 4. La regla de reducción horizontal del escalado automático calcula el estado final como si fuese a reducirse horizontalmente. Por ejemplo, 60 x 3 (número de instancias actual) = 180/2 (número final de instancias al reducir verticalmente) = 90. Por tanto, el escalado automático no reduce horizontalmente porque tendría que volver a escalar horizontalmente de inmediato. En su lugar, omite la reducción vertical.
 5. La próxima vez que comprueba el escalado automático, la CPU ha seguido cayendo a 50. Vuelve a calcular: 50 x 3 instancias = 150/2 instancias = 75, lo que está por debajo del umbral de escalado horizontal de 80. Por tanto, reduce horizontalmente a 2 instancias.
+
+> [!NOTE]
+> Si el motor de escalabilidad automática detecta oscilaciones podría producirse como resultado del escalado del número de instancias de destino, también intentará escalar a un número diferente de instancias entre el recuento actual y el recuento de destino. Si no se produce una oscilación en este intervalo, la escalabilidad automática continuará la operación de escalado con el nuevo destino.
 
 ### <a name="considerations-for-scaling-threshold-values-for-special-metrics"></a>Consideraciones para establecer valores de umbral de escalado en métricas especiales
  En el caso de las métricas especiales, como la métrica longitud de cola de Service Bus o de Storage, el umbral es el promedio de mensajes disponibles por número actual de instancias. Elija cuidadosamente el valor de umbral para esta métrica.
@@ -143,6 +146,8 @@ El escalado automático se publicará en el registro de actividad si se produce 
 * El servicio de escalado automático no puede realizar una acción de escalado.
 * No hay métricas disponibles para que el servicio de escalado automático tome una decisión de escalado.
 * Vuelve a haber métricas disponibles (recuperación) para poder tomar una decisión de escalado.
+* La escalabilidad automática detecta la oscilación y anula el intento de escalado. En esta situación, notará un tipo de registro `Flapping`. Si ve esto, pregúntese si los umbrales son demasiado limitados.
+* La escalabilidad automática detecta oscilaciones, pero sigue teniendo la capacidad de escalar correctamente. En esta situación, notará un tipo de registro `FlappingOccurred`. Si lo ve, el motor de escalabilidad automática ha intentado escalar (por ejemplo, de 4 instancias a 2), pero ha determinado que esto provocaría una oscilación. En su lugar, el motor de escalabilidad automática se ha escalado a un número diferente de instancias (por ejemplo, con 3 instancias en lugar de 2), lo que ya no provoca la oscilación, por lo que se ha escalado a este número de instancias.
 
 También puede usar una alerta de registro de actividades para supervisar el mantenimiento del motor de escalado automático. Aquí puede ver ejemplos para [crear una alerta de registro de actividades para supervisar todas las operaciones del motor de escalado automático en su suscripción](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert) o para [crear una alerta de registro de actividades para supervisar todas las operaciones con errores de escalado automático y reducción horizontal en su suscripción](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert).
 

@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: how-to
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 20695d183ea8184f7ee2948b3897fa1f3a741411
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2987cd1ff8c678f7079e13e8b9bc657817c066f1
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84737502"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95531379"
 ---
 # <a name="manage-a-private-endpoint-connection"></a>Administrar una conexión de punto de conexión privado
 Azure Private Link trabaja en un modelo de flujo de llamadas de aprobación en el que el consumidor del servicio Private Link puede solicitar una conexión al proveedor de servicios para consumir el servicio. A partir de ese momento, el proveedor de servicios puede decidir si va a permitir al consumidor conectarse o no. Azure Private Link permite a los proveedores de servicios administrar la conexión de punto de conexión privado en sus recursos. En este artículo se proporcionan instrucciones sobre cómo administrar las conexiones de punto de conexión privado.
@@ -20,8 +20,8 @@ Azure Private Link trabaja en un modelo de flujo de llamadas de aprobación en e
 ![Administración de puntos de conexión privados](media/manage-private-endpoint/manage-private-endpoint.png)
 
 Hay dos métodos de aprobación de conexión entre los que puede elegir un consumidor del servicio Private Link:
-- **Automático**: si el consumidor del servicio tiene permisos de RBAC en el recurso de proveedor de servicios, el consumidor puede elegir el método de aprobación automático. En este caso, cuando el recurso de proveedor de servicios recibe la solicitud, no se requerirá ninguna acción del proveedor de servicios y la conexión se aprobará automáticamente. 
-- **Manual**: por el contrario, si el consumidor del servicio no tiene permisos de RBAC en el recurso de proveedor de servicios, el consumidor puede elegir el método de aprobación manual. En este caso, la solicitud de conexión aparece en los recursos de servicio como **Pendiente**. El proveedor de servicios debe aprobar manualmente la solicitud antes de que puedan establecerse las conexiones. En los casos manuales, el consumidor del servicio también puede especificar un mensaje con la solicitud para proporcionar más contexto al proveedor de servicios. El proveedor de servicios tiene las siguientes opciones entre las que elegir para todas las conexiones de punto de conexión privado: **Aprobar**, **Rechazar**, **Quitar**.
+- **Automático**: si el consumidor del servicio tiene permisos de Azure RBAC en el recurso de proveedor de servicios, el consumidor puede elegir el método de aprobación automático. En este caso, cuando el recurso de proveedor de servicios recibe la solicitud, no se requerirá ninguna acción del proveedor de servicios y la conexión se aprobará automáticamente. 
+- **Manual**: por el contrario, si el consumidor del servicio no tiene permisos de Azure RBAC en el recurso de proveedor de servicios, el consumidor puede elegir el método de aprobación manual. En este caso, la solicitud de conexión aparece en los recursos de servicio como **Pendiente**. El proveedor de servicios debe aprobar manualmente la solicitud antes de que puedan establecerse las conexiones. En los casos manuales, el consumidor del servicio también puede especificar un mensaje con la solicitud para proporcionar más contexto al proveedor de servicios. El proveedor de servicios tiene las siguientes opciones entre las que elegir para todas las conexiones de punto de conexión privado: **Aprobar**, **Rechazar**, **Quitar**.
 
 En la siguiente tabla se muestran las distintas acciones del proveedor de servicios y los estados de conexión resultantes para los puntos de conexión privados.  El proveedor de servicios también puede cambiar el estado de conexión de la conexión de punto de conexión privado en un momento posterior sin la intervención del consumidor. La acción actualizará el estado del punto de conexión en el lado del consumidor. 
 

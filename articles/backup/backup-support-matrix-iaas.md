@@ -4,12 +4,12 @@ description: Proporciona un resumen de opciones de compatibilidad y limitaciones
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.custom: references_regions
-ms.openlocfilehash: 5988cc7bdc34521bfa75e9f179f88bfbe881b882
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 2c38af9a2e1c4c71bb2d5661758f663efe13a946
+ms.sourcegitcommit: 1d366d72357db47feaea20c54004dc4467391364
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92925652"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95414086"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matriz de compatibilidad para copias de seguridad de máquinas virtuales de Azure
 
@@ -50,7 +50,7 @@ Copia de seguridad mensual o anual| No se admite cuando la copia de seguridad se
 Ajuste automático del reloj | No compatible.<br/><br/> Azure Backup no se ajusta automáticamente a los cambios al horario de verano cuando realiza la copia de seguridad de una máquina virtual.<br/><br/>  Modifique la directiva de forma manual según sea necesario.
 [Características de seguridad para copias de seguridad híbridas](./backup-azure-security-feature.md) |No se pueden deshabilitar las características de seguridad.
 Copia de seguridad de la máquina virtual cuya hora se ha cambiado | No compatible.<br/><br/> Si se cambia la hora de la máquina a una fecha y hora futuras después de habilitar la copia de seguridad para esa máquina virtual, aunque se revierta el cambio horario, no se garantiza que la copia de seguridad se efectúe correctamente.
-Máquinas virtuales de Azure en [conjuntos de escalado de máquinas virtuales](../virtual-machine-scale-sets/overview.md) | La copia de seguridad y restauración se admiten para las máquinas virtuales con el [modo de orquestación](../virtual-machine-scale-sets/orchestration-modes.md#orchestration-modes) establecido en 3. <br><br>Los conjuntos de disponibilidad no se admiten.
+Máquinas virtuales de Azure en [conjuntos de escalado de máquinas virtuales](../virtual-machine-scale-sets/overview.md) |Los conjuntos de disponibilidad no se admiten.
 
 ## <a name="operating-system-support-windows"></a>Compatibilidad con sistema operativo (Windows)
 
@@ -109,7 +109,7 @@ Puntos de recuperación en disco DPM/MABS | 64 para servidores de archivos y 448
 
 **Restauración** | **Compatible**
 --- | ---
-Restaurar archivos entre sistemas operativos | Puede restaurar archivos en cualquier máquina que tenga el mismo sistema operativo que la máquina virtual de copia de seguridad, o bien uno compatible. Consulte la [tabla de sistemas operativos compatibles](backup-azure-restore-files-from-vm.md#system-requirements).
+Restaurar archivos entre sistemas operativos | Puede restaurar archivos en cualquier máquina que tenga el mismo sistema operativo que la máquina virtual de copia de seguridad, o bien uno compatible. Consulte la [tabla de sistemas operativos compatibles](backup-azure-restore-files-from-vm.md#step-3-os-requirements-to-successfully-run-the-script).
 Restaurar archivos desde máquinas virtuales cifradas | No compatible.
 Restaurar archivos desde cuentas de almacenamiento con acceso restringido a la red | No compatible.
 Restaurar archivos en máquinas virtuales con espacios de almacenamiento de Windows | La restauración no se admite en la misma máquina virtual.<br/><br/> En su lugar, restaure los archivos en una máquina virtual compatible.
@@ -140,7 +140,7 @@ Restaurar una máquina virtual en una red virtual distinta |Compatible.<br/><br/
 Tamaño de VM |Cualquier tamaño de máquina virtual de Azure con al menos 2 núcleos de CPU y 1 GB de RAM<br/><br/> [Más información.](../virtual-machines/sizes.md)
 Copia de seguridad de máquinas virtuales en [conjuntos de disponibilidad](../virtual-machines/availability.md#availability-sets) | Compatible.<br/><br/> No se puede restaurar una máquina virtual en un conjunto disponible con la opción para crear rápidamente una máquina virtual. En su lugar, cuando restaure la máquina virtual, restaure el disco y úselo para implementar una máquina virtual, o bien restaure un disco y úselo para reemplazar un disco existente.
 Copia de seguridad de máquinas virtuales implementadas con la [ventaja de uso híbrido (HUB)](../virtual-machines/windows/hybrid-use-benefit-licensing.md) | Compatible.
-Copia de seguridad de máquinas virtuales implementadas en un [conjunto de escalado](../virtual-machine-scale-sets/overview.md) |Compatible. [El modo de orquestación](../virtual-machine-scale-sets/orchestration-modes.md) debe establecerse en 2 para el dominio de error. El conjunto de disponibilidad no se admite.
+Copia de seguridad de máquinas virtuales implementadas en un [conjunto de escalado](../virtual-machine-scale-sets/overview.md) |Compatible. El conjunto de disponibilidad no se admite.
 Copia de seguridad de máquinas virtuales implementadas desde [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?filters=virtual-machine-images)<br/><br/> (Publicado por Microsoft y terceros) |Compatible.<br/><br/> La máquina virtual debe ejecutar un sistema operativo compatible.<br/><br/> Al recuperar archivos en la máquina virtual, puede restaurar solo en un sistema operativo compatible (no en un sistema operativo anterior ni posterior). No restauramos las máquinas virtuales de Azure Marketplace cuya copia de seguridad se ha realizado como máquinas virtuales, ya que estas necesitan información de compra. Solo se restauran como discos.
 Copia de seguridad de máquinas virtuales implementadas desde una imagen personalizada (terceros) |Compatible.<br/><br/> La máquina virtual debe ejecutar un sistema operativo compatible.<br/><br/> Al recuperar archivos en la máquina virtual, puede restaurar solo en un sistema operativo compatible (no en un sistema operativo anterior ni posterior).
 Copia de seguridad de máquinas virtuales migradas a Azure| Compatible.<br/><br/> Para realizar copias de seguridad de la máquina virtual, el agente de máquina virtual debe estar instalado en la máquina migrada.
@@ -160,7 +160,7 @@ Tamaño del disco de datos | El tamaño de disco individual puede ser de hasta 3
 Tipo de almacenamiento | HDD estándar, SSD estándar y SSD Premium.
 Discos administrados | Compatible.
 Discos cifrados | Compatible.<br/><br/> Se puede realizar una copia de seguridad (con o sin la aplicación Azure AD) de las máquinas virtuales de Azure que tengan habilitado Azure Disk Encryption.<br/><br/> Las máquinas virtuales cifradas no se pueden recuperar a nivel de archivo o carpeta. Tiene que recuperar la máquina virtual completa.<br/><br/> Puede habilitar el cifrado en máquinas virtuales que ya estén protegidas con Azure Backup.
-Discos con el Acelerador de escritura habilitado | No compatible.<br/><br/> Azure Backup excluye automáticamente los discos que tienen habilitado el Acelerador de escritura (WA) durante la copia de seguridad. Como no tienen copia de seguridad, no puede restaurar estos discos desde puntos de recuperación de la máquina virtual. <br><br> **Nota importante** : Las máquinas virtuales con discos WA necesitan conectividad a Internet para una copia de seguridad correcta (aunque esos discos se excluyan de la copia de seguridad).
+Discos con el Acelerador de escritura habilitado | A partir del 23 de noviembre de 2020, se admite en las regiones Centro de Corea del Sur (KRC) y Norte de Sudáfrica (SAN).<br/><br/> Azure Backup realizará una copia de seguridad de las máquinas virtuales que tienen discos que tienen habilitada la escritura acelerada (WA) durante la copia de seguridad.  
 Copia de seguridad y restauración de discos y máquinas virtuales desduplicados | Azure Backup no admite la desduplicación. Para más información, consulte este [artículo](./backup-support-matrix.md#disk-deduplication-support). <br/> <br/>  - Azure Backup no se desduplica entre máquinas virtuales en el almacén de Recovery Services <br/> <br/>  - Si hay máquinas virtuales en estado de desduplicación durante la restauración, los archivos no se pueden restaurar porque el almacén no entiende el formato. Sin embargo, puede realizar correctamente la restauración de una máquina virtual completa.
 Agregar disco a una máquina virtual protegida | Compatible.
 Cambiar tamaño de disco de una máquina virtual protegida | Compatible.

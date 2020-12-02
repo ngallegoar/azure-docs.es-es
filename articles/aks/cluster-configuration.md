@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 09/21/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 352c057a74d1be5f440041b9f13127e8730edf82
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 88774450fb196da5de24bcad047ecdb8c424f653
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94698077"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95736544"
 ---
 # <a name="configure-an-aks-cluster"></a>Configuración de un clúster de AKS
 
@@ -237,47 +237,28 @@ az aks nodepool add --name gen2 --cluster-name myAKSCluster --resource-group myR
 Si quiere crear un grupo de nodos Gen1 normal, puede hacerlo omitiendo la etiqueta `--aks-custom-headers` personalizada.
 
 
-## <a name="ephemeral-os-preview"></a>Sistema operativo efímero (versión preliminar)
+## <a name="ephemeral-os"></a>SO efímero
 
-El disco del sistema operativo de una máquina virtual de Azure se replica automáticamente, de forma predeterminada, en Azure Storage para evitar la pérdida de datos cuando hay que reubicar la máquina virtual en otro host. Sin embargo, como los contenedores no están diseñados para preservar el estado local, este comportamiento ofrece un valor limitado y, además, presenta algunos inconvenientes, como un aprovisionamiento más lento de los nodos y una mayor latencia de lectura y escritura.
+De manera predeterminada, Azure replica automáticamente el disco del sistema operativo de una máquina virtual en Azure Storage para evitar la pérdida de datos cuando hay que reubicar la máquina virtual en otro host. Sin embargo, como los contenedores no están diseñados para preservar el estado local, este comportamiento ofrece un valor limitado y, además, presenta algunos inconvenientes, como un aprovisionamiento más lento de los nodos y una mayor latencia de lectura y escritura.
 
 En cambio, los discos de sistema operativo efímero solo se almacenan en el equipo host, al igual que los discos temporales. Esto proporciona una latencia de lectura y escritura menor, junto con escalabilidad de nodos y actualizaciones de clúster más rápidas.
 
 Al igual que sucede con un disco temporal, el disco de sistema operativo efímero está incluido en el precio de la máquina virtual, por lo que no lleva asociado ningún costo adicional de almacenamiento.
 
-Registre la característica `EnableEphemeralOSDiskPreview`:
+> [!IMPORTANT]
+>Cuando un usuario no solicita explícitamente los discos administrados para el sistema operativo, AKS tomará como valor predeterminado el sistema operativo efímero si es posible para una configuración de grupo de nodos determinada.
 
-```azurecli
-az feature register --name EnableEphemeralOSDiskPreview --namespace Microsoft.ContainerService
-```
+Cuando se usa un sistema operativo efímero, el disco del sistema operativo debe caber en la memoria caché de la máquina virtual. Los tamaños de la memoria caché de la máquina virtual están disponibles en la [documentación de Azure](../virtual-machines/dv3-dsv3-series.md) entre paréntesis junto a rendimiento de E/S ("tamaño de caché en GiB").
 
-Pueden pasar unos minutos hasta que el estado aparezca como **Registrado**. Puede comprobar el estado del registro con el comando [az feature list](/cli/azure/feature?view=azure-cli-latest#az-feature-list&preserve-view=true):
+Con el tamaño de máquina virtual predeterminado de AKS Standard_DS2_v2 con el tamaño de disco de sistema operativo predeterminado de 100 GB como ejemplo, este tamaño de máquina virtual es compatible con el sistema operativo efímero pero solo tiene 86 GB de tamaño de caché. El valor predeterminado de esta configuración serán discos administrados si el usuario no lo especifica explícitamente. Si un usuario solicita explícitamente el sistema operativo efímero, recibirá un error de validación.
 
-```azurecli
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EnableEphemeralOSDiskPreview')].{Name:name,State:properties.state}"
-```
+Si un usuario solicita el mismo tamaño Standard_DS2_v2 con un disco del sistema operativo de 60 GB, esta configuración sería el sistema operativo efímero de manera predeterminada: el tamaño solicitado de 60 GB es menor que el tamaño máximo de la caché de 86 GB.
 
-Cuando el estado se muestre como Registrado, actualice el registro del proveedor de recursos `Microsoft.ContainerService` mediante el comando [az provider register](/cli/azure/provider?view=azure-cli-latest#az-provider-register&preserve-view=true):
+Al usar el tamaño Standard_D8s_v3 con un disco de sistema operativo de 100 GB, este tamaño de máquina virtual es compatible con el sistema operativo efímero y tiene 200 GB de espacio en caché. Si un usuario no especifica el tipo de disco del sistema operativo, el grupo de nodos recibiría un sistema operativo efímero de manera predeterminada. 
 
-```azurecli
-az provider register --namespace Microsoft.ContainerService
-```
+El sistema operativo efímero requiere la versión 2.15.0 de la CLI de Azure.
 
-El sistema operativo efímero requiere la versión 0.4.63 como mínimo de la extensión de la CLI aks-preview.
-
-Para instalar la extensión aks-preview de la CLI, use los siguientes comandos de la CLI de Azure:
-
-```azurecli
-az extension add --name aks-preview
-```
-
-Para actualizar la extensión aks-preview de la CLI, use los siguientes comandos de la CLI de Azure:
-
-```azurecli
-az extension update --name aks-preview
-```
-
-### <a name="use-ephemeral-os-on-new-clusters-preview"></a>Uso del sistema operativo efímero en clústeres nuevos (versión preliminar)
+### <a name="use-ephemeral-os-on-new-clusters"></a>Uso del sistema operativo efímero en clústeres nuevos
 
 Configure el clúster para que utilice discos de sistema operativo efímero al crearlo. Use la marca `--node-osdisk-type` para establecer el sistema operativo efímero como el tipo de disco de sistema operativo para el nuevo clúster.
 
@@ -285,9 +266,9 @@ Configure el clúster para que utilice discos de sistema operativo efímero al c
 az aks create --name myAKSCluster --resource-group myResourceGroup -s Standard_DS3_v2 --node-osdisk-type Ephemeral
 ```
 
-Si desea crear un clúster normal con discos de sistema operativo conectados a la red, omita la etiqueta `--node-osdisk-type` personalizada o especifique `--node-osdisk-type=Managed`. También puede optar por añadir más grupos de nodos de sistema operativo efímero, tal y como se indica a continuación.
+Si quiere crear un clúster normal con discos de sistema operativo conectados a la red, especifique la etiqueta `--node-osdisk-type=Managed`. También puede optar por añadir más grupos de nodos de sistema operativo efímero, tal y como se indica a continuación.
 
-### <a name="use-ephemeral-os-on-existing-clusters-preview"></a>Uso del sistema operativo efímero en clústeres existentes (versión preliminar)
+### <a name="use-ephemeral-os-on-existing-clusters"></a>Uso del sistema operativo efímero en clústeres existentes
 Configure un nuevo grupo de nodos para usar discos de sistema operativo efímero. Utilice la marca `--node-osdisk-type` para establecerla como el tipo de disco de para ese grupo de nodos.
 
 ```azurecli
@@ -295,9 +276,9 @@ az aks nodepool add --name ephemeral --cluster-name myAKSCluster --resource-grou
 ```
 
 > [!IMPORTANT]
-> El sistema operativo efímero permite implementar imágenes de instancias y de máquinas virtuales cuyo tamaño máximo sea equivalente al de la memoria caché de máquina virtual. En el caso de AKS, la configuración predeterminada del disco de sistema operativo del nodo utiliza 100 GiB, lo cual significa que necesitará una máquina virtual con una memoria caché cuyo tamaño sea superior 100 GiB. La máquina virtual Standard_DS2_v2 tiene un tamaño de caché de 86 GiB, que no es lo suficientemente grande. Las máquinas virtuales Standard_DS3_v2 tienen un tamaño de caché de 172 GiB, que es lo suficientemente grande. También puede reducir el tamaño predeterminado del disco de sistema operativo mediante `--node-osdisk-size`. El tamaño mínimo de las imágenes de AKS es 30 GiB. 
+> El sistema operativo efímero permite implementar imágenes de instancias y de máquinas virtuales cuyo tamaño máximo sea equivalente al de la memoria caché de máquina virtual. En el caso de AKS, la configuración predeterminada del disco de sistema operativo del nodo usa 128 GB, lo cual significa que necesitará una máquina virtual con una memoria caché cuyo tamaño sea superior a 128 GB. El tamaño de VM predeterminado Standard_DS2_v2 tiene un tamaño de caché de 86 GB, que no es lo suficientemente grande. Las máquinas virtuales Standard_DS3_v2 tienen un tamaño de caché de 172 GB, que es lo suficientemente grande. También puede reducir el tamaño predeterminado del disco de sistema operativo mediante `--node-osdisk-size`. El tamaño mínimo de las imágenes de AKS es 30 GB. 
 
-Si desea crear grupos de nodos con discos de sistema operativo conectados a red, omita la etiqueta `--node-osdisk-type` personalizada.
+Si quiere crear grupos de nodos con discos de sistema operativo conectados a red, puede especificar `--node-osdisk-type Managed` para hacerlo.
 
 ## <a name="custom-resource-group-name"></a>Nombre del grupo de recursos personalizado
 

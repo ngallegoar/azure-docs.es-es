@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 02/07/2019
 ms.author: cavoeg
-ms.openlocfilehash: 609bd01e8dcb0e9202d1d9dbe1d1fc1a01cac550
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 3aea2322129c383a385168c54001464da5dae276
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368288"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95520091"
 ---
 # <a name="features"></a>Características
 
@@ -100,8 +100,8 @@ Se admiten todos los tipos de parámetro de búsqueda.
 |-------------------------|-----------|-----------|-----------|---------|
 | `_sort`                 | Parcial        | Parcial   | Parcial        |   `_sort=_lastUpdated` se admite       |
 | `_count`                | Sí       | Sí       | Sí       | `_count` tiene un límite de 100 caracteres. Si se establece en un valor superior a 100, solo se devolverán 100 y una advertencia en el conjunto. |
-| `_include`              | No        | Sí       | No        |         |
-| `_revinclude`           | No        | Sí       | No        | Los elementos incluidos se limitan a 100. |
+| `_include`              | Sí       | Sí       | Sí       |Los elementos incluidos se limitan a 100. La inclusión en PaaS y OSS de Cosmos DB no incluye compatibilidad con :iterate.|
+| `_revinclude`           | Sí       | Sí       | Sí       | Los elementos incluidos se limitan a 100. La inclusión en PaaS y OSS de Cosmos DB no incluye compatibilidad con :iterate.|
 | `_summary`              | Parcial   | Parcial   | Parcial   | `_summary=count` se admite |
 | `_total`                | Parcial   | Parcial   | Parcial   | _total=non y _total=accurate      |
 | `_elements`             | Sí       | Sí       | Sí       |         |
@@ -132,6 +132,27 @@ Cosmos DB es una base de datos (SQL API, MongoDB API, etc.) de varios modelos di
 FHIR Server utiliza [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) para el control de acceso. En concreto, se aplica el control de acceso basado en roles (RBAC) si el parámetro de configuración `FhirServer:Security:Enabled` se establece en `true`, y todas las solicitudes (excepto `/metadata`) a FHIR Server deben tener el encabezado de solicitud `Authorization` establecido en `Bearer <TOKEN>`. El token debe contener uno o varios roles, tal como se define en la notificación `roles`. Se permitirá una solicitud si el token contiene un rol que permite la acción especificada en el recurso especificado.
 
 Actualmente, las acciones permitidas para un rol determinado se aplican *globalmente* en la API.
+
+## <a name="service-limits"></a>Límites de servicio
+
+* [**Unidades de solicitud (RU)** ](https://docs.microsoft.com/azure/cosmos-db/concepts-limits): puede configurar hasta 10 000 unidades de solicitud en el portal de Azure API for FHIR. Necesitará un mínimo de 400 RU o 10 RU/GB, lo que sea mayor. Si necesita más de 10 000 RU, puede crear una incidencia de soporte técnico para solicitar un aumento. El máximo disponible es 1 000 000.
+
+* **Conexiones simultáneas** e **instancias**: de manera predeterminada, tiene cinco conexiones simultáneas en dos instancias del clúster (para un total de diez solicitudes simultáneas). Si cree que necesita un mayor número solicitudes simultáneas, abra una incidencia de soporte técnico con los detalles de lo que necesita.
+
+* **Tamaño de conjunto**: cada conjunto está limitado a 500 elementos.
+
+* **Tamaño de los datos**: los datos y documentos deben ser ligeramente inferiores a 2 MB.
+
+## <a name="performance-expectations"></a>Expectativas de rendimiento
+
+El rendimiento del sistema depende del número de RU, las conexiones simultáneas y el tipo de operaciones que se van a llevar a cabo (PUT, POST, etc.). A continuación se muestran algunos intervalos generales de lo que puede esperar en función del número de RU configurado. En general, el rendimiento se escala de manera lineal con un aumento en RU:
+
+| N.º de RU | Recursos/segundo |
+|----------|---------------|
+| 400      | 5-10          |
+| 1,000    | 100-150       |
+| 10 000   | 225-400       |
+| 100 000  | 2500-4000   |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

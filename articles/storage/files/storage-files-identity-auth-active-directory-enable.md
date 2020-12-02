@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 09/13/2020
 ms.author: rogarana
-ms.openlocfilehash: 9dc6433170144635ad05033d110f448cf314179b
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 2214dbc9dcbd4ba7728065ee45471e9f94b9e513
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94628856"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95740002"
 ---
 # <a name="overview---on-premises-active-directory-domain-services-authentication-over-smb-for-azure-file-shares"></a>Introducción: autenticación de Active Directory Domain Services local en SMB para recursos compartidos de archivos de Azure
 
@@ -24,7 +24,7 @@ Si no está familiarizado con los recursos compartidos de archivos de Azure, se 
 
 - Las identidades de AD DS que se usen para la autenticación de AD DS local de Azure Files se deben sincronizar con Azure AD. La sincronización de hash de contraseña es opcional. 
 - Admite recursos compartidos de archivos de Azure administrados por Azure File Sync.
-- Admite la autenticación Kerberos con AD y con [cifrado RC4-HMAC y AES 256](./storage-troubleshoot-windows-file-connection-problems.md#azure-files-on-premises-ad-ds-authentication-support-for-aes-256-kerberos-encryption). Todavía no se admite el cifrado de Kerberos con AES 128.
+- Admite la autenticación Kerberos con AD y con [cifrado RC4-HMAC y AES 256](./storage-troubleshoot-windows-file-connection-problems.md#azure-files-on-premises-ad-ds-authentication-support-for-aes-256-kerberos-encryption). La compatibilidad con el cifrado AES 256 está limitada actualmente a las cuentas de almacenamiento con nombres de menos de 15 caracteres de longitud. Todavía no se admite el cifrado de Kerberos con AES 128.
 - Admite la experiencia de inicio de sesión único.
 - Solo se admite en clientes que ejecutan versiones de SO posteriores a Windows 7 o Windows Server 2008 R2.
 - Solo se admite en el bosque de AD en el que está registrada la cuenta de almacenamiento. De forma predeterminada, solo se puede acceder a los recursos compartidos de archivos de Azure con las credenciales de AD DS desde un solo bosque. Si necesita acceso al recurso compartido de archivos de Azure desde otro bosque, asegúrese de tener configurada la confianza de bosque adecuada. Para más información, consulte las [preguntas más frecuentes](storage-files-faq.md#ad-ds--azure-ad-ds-authentication).

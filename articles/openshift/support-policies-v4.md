@@ -1,17 +1,17 @@
 ---
 title: Directiva de soporte técnico del clúster de la versión 4 de Red Hat OpenShift en Azure
-description: Información acerca de la directiva de soporte técnico de la versión 4 de Red Hat OpenShift.
+description: Información acerca de la directiva de soporte técnico de la versión 4 de Red Hat OpenShift
 author: sakthi-vetrivel
 ms.author: suvetriv
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 04/24/2020
-ms.openlocfilehash: e396cfa032a3030467b2e2318d61393713894cd4
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.date: 11/23/2020
+ms.openlocfilehash: c8d52609043f173e896668eadeb8c59493739859
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94628227"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95521145"
 ---
 # <a name="azure-red-hat-openshift-support-policy"></a>Directiva de soporte técnico de Red Hat OpenShift en Azure
 
@@ -23,7 +23,7 @@ Ciertas configuraciones de los clústeres de la versión 4 de Red Hat OpenShift
 ## <a name="cluster-configuration-requirements"></a>Requisitos de configuración de clústeres
 
 * Todos los operadores de clúster de OpenShift deben permanecer en estado administrado. La lista de operadores de clústeres se puede devolver mediante la ejecución de `oc get clusteroperators`.
-* El clúster debe tener un mínimo de un nodo de trabajo. No escale los trabajos del clúster a cero.
+* El clúster debe tener un mínimo de dos nodos de trabajo. No escale los trabajos del clúster a cero ni intente realizar un cierre correcto del clúster.
 * No quite ni modifique los servicios Prometheus y Alertmanager del clúster.
 * No quite las reglas de Alertmanager del servicio.
 * No quite ni modifique el registro de servicios de Red Hat OpenShift en Azure (pods mdsd).

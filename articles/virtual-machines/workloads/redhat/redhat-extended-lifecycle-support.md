@@ -3,16 +3,17 @@ title: Ampliación del soporte técnico del ciclo de vida de Red Hat Enterprise 
 description: Más información sobre cómo agregar el complemento de soporte técnico ampliado del ciclo de vida de Red Hat Enterprise
 author: mathapli
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.date: 04/16/2020
 ms.author: mathapli
 ms.reviewer: cynthn
-ms.openlocfilehash: 124ff65087887a437e0b82fbd7b1e4c72e4f7b4c
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 1f31cc982e5e7f92cfe7e8adf588dd96628f2c6f
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94684362"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95744048"
 ---
 # <a name="red-hat-enterprise-linux-rhel-extended-lifecycle-support"></a>Soporte técnico ampliado del ciclo de vida de Red Hat Enterprise Linux (RHEL)
 En este artículo se proporciona información sobre el soporte técnico ampliado del ciclo de vida para las imágenes de Red Hat Enterprise:
@@ -21,6 +22,14 @@ En este artículo se proporciona información sobre el soporte técnico ampliado
 ## <a name="red-hat-enterprise-linux-6-lifecycle"></a>Ciclo de vida de Red Hat Enterprise Linux 6
 A partir del 30 de noviembre de 2020, finalizará la fase de mantenimiento de Red Hat Enterprise Linux 6. La fase de mantenimiento va seguida de la fase de duración ampliada. Como Red Hat Enterprise Linux 6 realiza la transición de las fases de mantenimiento o completa, se recomienda encarecidamente actualizar a Red Hat Enterprise Linux 7 u 8. Si los clientes deben permanecer en Red Hat Enterprise Linux 6, se recomienda agregar el complemento de soporte técnico ampliado del ciclo de vida (ELS) de Red Hat Enterprise Linux.
 
+## <a name="steps-to-add-extended-lifecycle-support-on-marketplace-pay-as-you-go-vms"></a>Pasos para agregar el soporte técnico Extended Lifecycle en máquinas virtuales de pago por uso de marketplace
+1. Rellene el [formulario de ELS disponible en este vínculo](https://aka.ms/els-form) con su información de contacto y la información de suscripción de las máquinas virtuales para las que quiere agregar el soporte técnico ELS. La información adicional sobre los precios del complemento también está disponible en el formulario.
+1. El equipo de Azure Red Hat Enterprise Linux se pondrá en contacto con usted y le enviará una lista de máquinas virtuales para el complemento de soporte técnico ELS en un plazo de 1 a 2 días hábiles. Revise la lista y responda para aceptar los precios del complemento.
+1. El equipo de Azure Red Hat Enterprise Linux compartirá los pasos para agregar el paquete de cliente de ELS a las máquinas virtuales. Siga los pasos que se incluirán en el correo electrónico para seguir recibiendo mantenimiento de software (correcciones de errores y seguridad) y soporte técnico para Red Hat Enterprise Linux 6.
+
+> [!Note]
+> No comparta los pasos necesarios para usar el complemento ELS de RHEL con ninguna persona ajena a su organización. Póngase en contacto con AzureRedHatELS@microsoft.com para obtener soporte técnico o para cualquier duda adicional.
+
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
 
 #### <a name="im-running-red-hat-enterprise-linux-6-and-cant-migrate-to-a-later-version-at-this-time-what-options-do-i-have"></a>Ejecuto Red Hat Enterprise Linux 6 y no puedo migrar a una versión posterior en este momento. ¿De qué opciones dispongo?
@@ -28,19 +37,8 @@ A partir del 30 de noviembre de 2020, finalizará la fase de mantenimiento de Re
 * Migre a Red Hat Enterprise Linux 7 u 8 tan pronto como pueda.
 
 #### <a name="what-is-the-additional-charge-for-using-red-hat-enterprise-linux-extended-life-cycle-support-els-add-on"></a>¿Cuál es el cargo adicional por el uso del complemento de soporte técnico ampliado del ciclo de vida (ELS) de Red Hat Enterprise Linux?
+Los costos relacionados con el soporte técnico Extended Lifecycle se pueden encontrar con el [formulario de ELS](https://aka.ms/els-form).
 
-|Tamaño de VM|Período de tiempo del cargo adicional|Importe adicional en dólares (USD)| Notas|
-|---|---|---|---|
-| Invitado virtual pequeño (<=4 núcleos) | Cargo adicional por hora | TBC | |
-|  | Cargo adicional al mes | TBC | Para instancias reservadas |
-|  | Cargo adicional al año | TBC | Para instancias reservadas |
-| Invitado virtual grande (>4 núcleos) | Cargo adicional por hora | TBC | |
-|  | Cargo adicional al mes | TBC | Para instancias reservadas |
-|  | Cargo adicional al año | TBC | Para instancias reservadas |
-
-#### <a name="what-is-the-process-to-add-extended-life-cycle-support-els-repositories-to-continue-to-receive-software-maintenance-bug-and-security-fixes-and--support-for-red-hat-enterprise-linux-6"></a>¿Cuál es el proceso de incorporación de repositorios de soporte técnico ampliado del ciclo de vida (ELS) para seguir recibiendo mantenimiento de software (correcciones de errores y seguridad) y soporte técnico para Red Hat Enterprise Linux 6?
-
-El proceso de registro de un extremo a otro para el ELS estará disponible pronto aquí (como muy tarde el 30 de noviembre de 2020).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

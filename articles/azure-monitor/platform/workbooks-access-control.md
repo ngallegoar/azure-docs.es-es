@@ -6,12 +6,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
-ms.openlocfilehash: 92ac1887aca8f30c551419ef9149073d79f333a5
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 7d3bc13dc373cda510153099859cf4cd61b3dd69
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92143834"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95534541"
 ---
 # <a name="access-control"></a>Control de acceso
 
@@ -32,7 +32,7 @@ El [colaborador de supervisión](../../role-based-access-control/built-in-roles.
 "Colaborador de libros" agrega privilegios de "libros y escritura" a un objeto para guardar libros compartidos.
 No se requiere ningún privilegio especial para que los usuarios guarden libros privados que solo ellos pueden ver.
 
-Para un control de acceso basado en roles personalizado:
+Para los roles personalizados:
 
 Agregue `microsoft.insights/workbooks/write` para guardar los libros compartidos. Para obtener más información, vea el rol [Colaborador de libro](../../role-based-access-control/built-in-roles.md#monitoring-contributor).
 

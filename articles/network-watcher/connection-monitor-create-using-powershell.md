@@ -10,18 +10,19 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/30/2020
+ms.date: 11/23/2020
 ms.author: vinigam
-ms.openlocfilehash: 532f045233f26a9a2933a19ae7a0a893195ad33f
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: 1a554177bf7084b9a7f4c413dbe82271b3ab6b3a
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94384059"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95545540"
 ---
 # <a name="create-a-connection-monitor-using-powershell"></a>Creación de una instancia de Connection Monitor mediante PowerShell
 
 Aprenda a crear una instancia de Connection Monitor para supervisar la comunicación entre los recursos mediante PowerShell.
+
 
 ## <a name="before-you-begin"></a>Antes de empezar 
 
@@ -80,7 +81,7 @@ New-AzNetworkWatcherConnectionMonitor -NetworkWatcherName $nw -ResourceGroupName
 
 * Puntos de conexión
     * name: nombre único de cada punto de conexión.
-    * resourceId: en el caso de los puntos de conexión de Azure, el identificador de recurso hace referencia al identificador de recurso de Azure Resource Manager para las máquinas virtuales. En el caso de los puntos de conexión que no son de Azure, el identificador de recurso hace referencia al identificador de recurso de Azure Resource Manager para el área de trabajo de Log Analytics vinculada a agentes que no son de Azure.
+    * resourceId: en el caso de los puntos de conexión de Azure, el id. de recurso hace referencia al id. de recurso de Azure Resource Manager para las máquinas virtuales. En el caso de los puntos de conexión que no son de Azure, el id. de recurso hace referencia al id. de recurso de Azure Resource Manager para el área de trabajo de Log Analytics vinculada a agentes que no son de Azure.
     * address: solo se aplica cuando no se especifica ningún identificador de recurso o si el identificador de recurso es el área de trabajo de Log Analytics. Si se usa con el identificador de recurso de Log Analytics, se refiere al FQDN del agente que se puede usar para la supervisión. Si se usa sin el identificador de recurso, puede ser la dirección URL o IP de cualquier punto de conexión público.
     * filter: en el caso de los puntos de conexión que no son de Azure, use este valor para seleccionar los agentes del área de trabajo de Log Analytics que se usarán para supervisar los recursos del monitor de conexión. Si no se establecen filtros, todos los agentes que pertenezcan al área de trabajo Log Analytics se pueden usar en la supervisión.
         * type: establezca el tipo como "dirección del agente".
@@ -89,7 +90,7 @@ New-AzNetworkWatcherConnectionMonitor -NetworkWatcherName $nw -ResourceGroupName
 * Grupos de prueba
     * name: asigne un nombre al grupo de prueba.
     * testConfigurations: configuraciones de prueba basadas en los puntos de conexión de origen que se conectan a los puntos de conexión de destino.
-    * sources: elija entre los puntos de conexión creados anteriormente. Los puntos de conexión de origen basados en Azure deben tener instalada la extensión de Azure Network Watcher y los que no se basan en Azure deben tener instalado el agente de Azure Log Analytics. Para instalar un agente para el origen, consulte [Instalación de los agentes de supervisión](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview#install-monitoring-agents).
+    * sources: elija entre los puntos de conexión creados anteriormente. Los puntos de conexión de origen basados en Azure deben tener instalada la extensión de Azure Network Watcher y los que no se basan en Azure deben tener instalado el agente de Azure Log Analytics. Para instalar un agente para el origen, consulte [Instalación de los agentes de supervisión](./connection-monitor-overview.md#install-monitoring-agents).
     * destinations: elija entre los puntos de conexión creados anteriormente. Se puede supervisar la conectividad a las máquinas virtuales de Azure o a cualquier punto de conexión (una IP pública, una dirección URL o un FQDN) si se especifican como destinos. En un solo grupo de prueba, puede agregar máquinas virtuales de Azure, direcciones URL de Office 365, direcciones URL de Dynamics 365 y puntos de conexión personalizados.
     * disable: use este campo para deshabilitar la supervisión de todos los orígenes y destinos que especifica el grupo de prueba.
 
@@ -100,6 +101,10 @@ New-AzNetworkWatcherConnectionMonitor -NetworkWatcherName $nw -ResourceGroupName
         * preferHTTPS: especifique si se usará HTTPS sobre HTTP.
         * port: especifique el puerto de destino de su elección.
         * disableTraceRoute: se aplica a los grupos de prueba cuyo protocolo es TCP o ICMP. Impide que los orígenes detecten la topología y el valor de RTT de salto a salto.
+        * method: se aplica a las configuraciones de prueba cuyo protocolo es HTTP. Seleccione el método de solicitud HTTP, ya sea GET o POST.
+        * path: especifique los parámetros de ruta de acceso para anexar a la dirección URL.
+        * validStatusCodes: elija los códigos de estado aplicables. Si el código de respuesta no coincide con esta lista, obtendrá un mensaje de diagnóstico.
+        * requestHeaders: especifique cadenas de encabezado de solicitud personalizadas que se pasarán al destino.
     * successThreshold: puede establecer los umbrales de estos parámetros de red:
         * checksFailedPercent: establezca el porcentaje de comprobaciones que pueden presentar errores cuando los orígenes comprueban la conectividad a los destinos mediante los criterios especificados. En el caso del protocolo TCP o ICMP, el porcentaje de comprobaciones con error puede ser igual al porcentaje de pérdida de paquetes. En el caso del protocolo HTTP, este campo representa el porcentaje de solicitudes HTTP que no recibieron respuesta.
         * roundTripTimeMs: establezca el RTT en milisegundos para indicar cuánto tiempo pueden tardar los orígenes en conectarse al destino a través de la configuración de prueba.
@@ -115,5 +120,5 @@ Los monitores de conexión tienen los límites de escala siguientes:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Aprenda a [analizar los datos de supervisión y a definir alertas](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview#analyze-monitoring-data-and-set-alerts).
-* Aprenda a [diagnosticar los problemas de la red](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview#diagnose-issues-in-your-network).
+* Aprenda a [analizar los datos de supervisión y a definir alertas](./connection-monitor-overview.md#analyze-monitoring-data-and-set-alerts).
+* Aprenda a [diagnosticar los problemas de la red](./connection-monitor-overview.md#diagnose-issues-in-your-network).

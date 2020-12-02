@@ -7,16 +7,16 @@ manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
-ms.date: 05/31/2020
+ms.date: 11/23/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: cb5984ba5d5764ee2ffa3f28e2d95612c14f7e27
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: bd5c56ef74fbe0c60a9d395a7b8a0fbc496e773c
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93025942"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95534847"
 ---
 # <a name="tutorial-load-the-new-york-taxicab-dataset"></a>Tutorial: Carga de conjuntos de datos de taxis de Nueva York
 
@@ -24,9 +24,6 @@ En este tutorial se usa la [instrucción COPY](https://docs.microsoft.com/sql/t-
 
 > [!div class="checklist"]
 >
-> * Creación de un grupo de SQL en Azure Portal
-> * Establecer una regla de firewall de nivel de servidor en Azure Portal
-> * Conectarse al almacenamiento de datos con SSMS
 > * Crear un usuario designado para cargar datos
 > * Crear tablas para el conjunto de datos de ejemplo 
 > * Usar la instrucción COPY de T-SQL para cargar datos en el almacenamiento de datos
@@ -36,128 +33,9 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-Antes de completar este tutorial, descargue e instale la versión más reciente de [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SSMS).
+Antes de completar este tutorial, descargue e instale la versión más reciente de [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SSMS).  
 
-## <a name="log-in-to-the-azure-portal"></a>Iniciar sesión en Azure Portal
-
-Inicie sesión en [Azure Portal](https://portal.azure.com/).
-
-## <a name="create-a-blank-database"></a>Crear una base de datos en blanco
-
-Se crea un grupo de SQL con un conjunto definido de [recursos de proceso](memory-concurrency-limits.md). La base de datos se crea dentro de un [grupo de recursos de Azure](../../azure-resource-manager/management/overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) y en un [servidor lógico de SQL](../../azure-sql/database/logical-servers.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
-
-Siga estos pasos para crear una base de datos en blanco.
-
-1. Haga clic en **Crear un recurso** en la esquina superior izquierda de Azure Portal.
-
-2. Seleccione **Bases de datos** en la página **Nuevo** y **Azure Synapse Analytics** en **Destacados** , en la página **Nuevo**.
-
-    ![La captura de pantalla muestra SQL Data Warehouse seleccionado en Bases de datos en Azure Portal.](./media/load-data-from-azure-blob-storage-using-polybase/create-empty-data-warehouse.png)
-
-3. Rellene el formulario con la siguiente información:
-
-   | Configuración            | Valor sugerido       | Descripción                                                  |
-   | ------------------ | --------------------- | ------------------------------------------------------------ |
-   | *Nombre**            | mySampleDataWarehouse | Para conocer los nombres de base de datos válidos, consulte [Database Identifiers](/sql/relational-databases/databases/database-identifiers?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (Identificadores de base de datos). |
-   | **Suscripción**   | Su suscripción     | Para más información acerca de sus suscripciones, consulte [Suscripciones](https://account.windowsazure.com/Subscriptions). |
-   | **Grupos de recursos** | myResourceGroup       | Para conocer cuáles son los nombres de grupo de recursos válidos, consulte el artículo [Convenciones de nomenclatura](/azure/architecture/best-practices/resource-naming?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). |
-   | **Seleccionar origen**  | Base de datos en blanco        | Se especifica para crear una base de datos en blanco. Tenga en cuenta que un almacenamiento de datos es un tipo de base de datos. |
-
-    ![Captura de pantalla que muestra el panel SQL Data Warehouse donde puede especificar estos valores.](./media/load-data-from-azure-blob-storage-using-polybase/create-data-warehouse.png)
-
-4. Seleccione **Servidor** para crear y configurar un servidor nuevo para la nueva base de datos. Rellene el **formulario de servidor nuevo** con la siguiente información:
-
-    | Configuración                | Valor sugerido          | Descripción                                                  |
-    | ---------------------- | ------------------------ | ------------------------------------------------------------ |
-    | **Nombre del servidor**        | Cualquier nombre globalmente único | Para conocer cuáles son los nombres de servidor válidos, consulte el artículo [Naming conventions](/azure/architecture/best-practices/resource-naming?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) (Convenciones de nomenclatura). |
-    | **Inicio de sesión del administrador del servidor** | Cualquier nombre válido           | Para conocer los nombres de inicio de sesión válidos, consulte [Database Identifiers](/sql/relational-databases/databases/database-identifiers?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (Identificadores de base de datos). |
-    | **Contraseña**           | Cualquier contraseña válida       | La contraseña debe tener un mínimo de ocho caracteres y debe contener caracteres de tres de las siguientes categorías: caracteres en mayúsculas, caracteres en minúsculas, números y caracteres no alfanuméricos. |
-    | **Ubicación**           | Cualquier ubicación válida       | Para obtener información acerca de las regiones, consulte [Regiones de Azure](https://azure.microsoft.com/regions/). |
-
-    ![Creación de un servidor](./media/load-data-from-azure-blob-storage-using-polybase/create-database-server.png)
-
-5. Elija **Seleccionar**.
-
-6. Haga clic en **Nivel de rendimiento** para especificar si el almacenamiento de datos es Gen1 o Gen2 y especificar el número de unidades de almacenamiento de datos.
-
-7. Para este tutorial, seleccione el grupo de SQL **Gen2**. El control deslizante se establece de forma predeterminada en **DW1000c**.  Intente moverlo hacia arriba y hacia abajo para ver cómo funciona.
-
-    ![configuración del rendimiento](./media/load-data-from-azure-blob-storage-using-polybase/configure-performance.png)
-
-8. Seleccione **Aplicar**.
-9. En la hoja de aprovisionamiento, seleccione una **intercalación** para la base de datos en blanco. En este tutorial, use el valor predeterminado. Para más información sobre las intercalaciones, vea [Collations](/sql/t-sql/statements/collations?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (Intercalaciones)
-
-10. Una vez completado el formulario, seleccione **Crear** para aprovisionar la base de datos. El aprovisionamiento tarda unos minutos.
-
-11. Para supervisar el proceso de implementación, seleccione **Notificaciones** en la barra de herramientas.
-  
-     ![Captura de pantalla que muestra Azure Portal con el panel Notificaciones abierto con la implementación en curso.](./media/load-data-from-azure-blob-storage-using-polybase/notification.png)
-
-## <a name="create-a-server-level-firewall-rule"></a>Crear una regla de firewall de nivel de servidor
-
-Un firewall a nivel de servidor impide que herramientas y aplicaciones externas se conecten al servidor o a cualquier base de datos incluida en este. Para habilitar la conectividad, puede agregar reglas de firewall que habilitan la conectividad para direcciones IP concretas.  Siga estos pasos para crear una [regla de firewall de nivel de servidor](../../azure-sql/database/firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) para la dirección IP del cliente.
-
-> [!NOTE]
-> Azure Synapse Analytics se comunica a través del puerto 1433. Si intenta conectarse desde una red corporativa, es posible que el firewall de la red no permita el tráfico saliente a través del puerto 1433. En ese caso, no podrá conectarse al servidor salvo que el departamento de TI abra el puerto 1433.
-
-1. Cuando se haya terminado la implementación, seleccione **Bases de datos SQL** en el menú de la izquierda y, después, seleccione **mySampleDatabase** en la página **Bases de datos SQL**. Se abre la página de información general de la base de datos, que muestra el nombre completo del servidor (por ejemplo, **mynewserver-20180430.database.windows.net** ) y proporciona opciones para otras configuraciones.
-
-2. Copie este nombre para conectarse a su servidor y a sus bases de datos en los inicios rápidos posteriores. Después, seleccione el nombre del servidor para abrir su configuración.
-
-    ![búsqueda del nombre del servidor](././media/load-data-from-azure-blob-storage-using-polybase/find-server-name.png)
-
-3. Seleccione el nombre del servidor para abrir su configuración.
-
-    ![configuración del servidor](./media/load-data-from-azure-blob-storage-using-polybase/server-settings.png)
-
-4. Seleccione **Mostrar configuración del firewall**. Se abrirá la página **Configuración del firewall** para el servidor.
-
-    ![regla de firewall del servidor](./media/load-data-from-azure-blob-storage-using-polybase/server-firewall-rule.png)
-
-5. Seleccione **Agregar IP de cliente** en la barra de herramientas para agregar la dirección IP actual a la nueva regla de firewall. La regla de firewall puede abrir el puerto 1433 para una única dirección IP o un intervalo de direcciones IP.
-
-6. Seleccione **Guardar**. Se creará una regla de firewall de nivel de servidor para el puerto 1433 de la dirección IP actual en el servidor.
-
-7. Seleccione **Aceptar** y después cierre la página **Configuración de firewall**.
-
-Ahora puede conectarse al servidor y sus almacenamientos de datos mediante esta dirección IP. La conexión funciona desde SQL Server Management Studio u otra herramienta de su elección. Cuando se conecte, use la cuenta de ServerAdmin que creó anteriormente.  
-
-> [!IMPORTANT]
-> De forma predeterminada, el acceso a través del firewall de SQL Database está habilitado para todos los servicios de Azure. Seleccione **DESACTIVAR** en esta página y luego **Guardar** para deshabilitar el firewall para todos los servicios de Azure.
-
-## <a name="get-the-fully-qualified-server-name"></a>Obtención del nombre completo del servidor
-
-Encontrará el nombre completo del servidor en Azure Portal. Más adelante usará el nombre completo cuando se conecte al servidor.
-
-1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
-2. Seleccione **Azure Synapse Analytics** en el menú de la izquierda y, después, seleccione su base de datos en la página **Azure Synapse Analytics**.
-3. En el panel **Essentials** de la página de Azure Portal de la base de datos, busque y copie el **nombre del servidor**. En este ejemplo, el nombre completo es mynewserver-20180430.database.windows.net.
-
-    ![información sobre la conexión](././media/load-data-from-azure-blob-storage-using-polybase/find-server-name.png)  
-
-## <a name="connect-to-the-server-as-server-admin"></a>Conexión al servidor como administrador del mismo
-
-En esta sección se usa [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SSMS) para establecer una conexión con el servidor.
-
-1. Abra SQL Server Management Studio.
-
-2. En el cuadro de diálogo **Conectar con el servidor** , especifique la siguiente información:
-
-    | Configuración        | Valor sugerido                            | Descripción                                                  |
-    | -------------- | ------------------------------------------ | ------------------------------------------------------------ |
-    | Tipo de servidor    | Motor de base de datos                            | Este valor es obligatorio                                       |
-    | Nombre de servidor    | Nombre completo del servidor            | Este nombre debería parecerse al siguiente: **mynewserver-20180430.database.windows.net**. |
-    | Authentication | Autenticación de SQL Server                  | Autenticación de SQL es el único tipo de autenticación que hemos configurado en este tutorial. |
-    | Inicio de sesión          | La cuenta de administrador del servidor                   | Es la cuenta que especificó cuando creó el servidor. |
-    | Contraseña       | La contraseña de la cuenta de administrador del servidor | Es la contraseña que especificó cuando creó el servidor. |
-
-    ![conectar con el servidor](./media/load-data-from-azure-blob-storage-using-polybase/connect-to-server.png)
-
-3. Seleccione **Conectar**. La ventana Explorador de objetos se abre en SSMS.
-
-4. En el Explorador de objetos, expanda **Bases de datos**. A continuación, expanda **Bases de datos del sistema** y **maestro** para ver los objetos de la base de datos maestra.  Expanda **mySampleDatabase** para ver los objetos de la base de datos.
-
-    ![Objetos de base de datos](./media/load-data-from-azure-blob-storage-using-polybase/connected.png)
+En este tutorial se supone que ya ha creado un grupo dedicado de SQL a partir del siguiente [tutorial](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/create-data-warehouse-portal#connect-to-the-server-as-server-admin).
 
 ## <a name="create-a-user-for-loading-data"></a>Creación de un usuario para cargar datos
 
@@ -165,7 +43,7 @@ La cuenta de administrador del servidor está pensada para realizar operaciones 
 
 Es mejor crear un inicio de sesión y un usuario que esté dedicado para cargar datos. A continuación, agregue el usuario de carga a una [clase de recurso](resource-classes-for-workload-management.md) que permita una asignación de memoria máxima apropiada.
 
-Puesto que actualmente está conectado como administrador del servidor, puede crear inicios de sesión y usuarios. Siga estos pasos para crear un inicio de sesión y un usuario llamado **LoaderRC20**. Luego, asigne el usuario a la clase de recurso **staticrc20**.
+Conéctese como administrador del servidor para que pueda crear inicios de sesión y usuarios. Siga estos pasos para crear un inicio de sesión y un usuario llamado **LoaderRC20**. Luego, asigne el usuario a la clase de recurso **staticrc20**.
 
 1. En SSMS, haga clic con el botón derecho en **maestro** para mostrar un menú desplegable y elija **Nueva consulta**. Se abrirá una nueva ventana de consulta.
 
@@ -178,7 +56,7 @@ Puesto que actualmente está conectado como administrador del servidor, puede cr
     CREATE USER LoaderRC20 FOR LOGIN LoaderRC20;
     ```
 
-3. Seleccione **Execute** (Ejecutar).
+3. Seleccione **Execute**(Ejecutar).
 
 4. Haga clic con el botón derecho en **mySampleDataWarehouse** y elija **Nueva consulta**. Se abre una nueva ventana de consulta.  
 
@@ -192,7 +70,7 @@ Puesto que actualmente está conectado como administrador del servidor, puede cr
     EXEC sp_addrolemember 'staticrc20', 'LoaderRC20';
     ```
 
-6. Seleccione **Execute** (Ejecutar).
+6. Seleccione **Execute**(Ejecutar).
 
 ## <a name="connect-to-the-server-as-the-loading-user"></a>Conexión al servidor como el usuario de carga
 

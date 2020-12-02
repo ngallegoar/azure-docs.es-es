@@ -1,5 +1,5 @@
 ---
-title: Creación de una instancia de Connection Monitor mediante ARMClient
+title: Creación de una instancia de Connection Monitor mediante una plantilla de Resource Manager
 titleSuffix: Azure Network Watcher
 description: Aprenda a crear una instancia de Connection Monitor mediante ARMClient.
 services: network-watcher
@@ -10,18 +10,19 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/30/2020
+ms.date: 11/23/2020
 ms.author: vinigam
-ms.openlocfilehash: 929a2feeb53e8903d675644dcb72b422eceb2858
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: c3b228d2652d5f7dcf7c6596ee5425b3f5f9a4d8
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94699107"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95544010"
 ---
-# <a name="create-a-connection-monitor-using-the-armclient"></a>Creación de una instancia de Connection Monitor (mediante ARMClient
+# <a name="create-a-connection-monitor-using-the-arm-template"></a>Creación de una instancia de Connection Monitor mediante una plantilla de Resource Manager
 
 Aprenda a crear una instancia de Connection Monitor para supervisar la comunicación entre los recursos mediante ARMClient. Admite implementaciones híbridas y en la nube de Azure.
+
 
 ## <a name="before-you-begin"></a>Antes de empezar 
 
@@ -368,7 +369,7 @@ armclient PUT $ARM/$SUB/$NW/connectionMonitors/$connectionMonitorName/?api-versi
 * Grupos de prueba
     * name: asigne un nombre al grupo de prueba.
     * testConfigurations: configuraciones de prueba basadas en los puntos de conexión de origen que se conectan a los puntos de conexión de destino.
-    * sources: elija entre los puntos de conexión creados anteriormente. Los puntos de conexión de origen basados en Azure deben tener instalada la extensión de Azure Network Watcher y los que no se basan en Azure deben tener instalado el agente de Azure Log Analytics. Para instalar un agente para el origen, consulte [Instalación de los agentes de supervisión](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview#install-monitoring-agents).
+    * sources: elija entre los puntos de conexión creados anteriormente. Los puntos de conexión de origen basados en Azure deben tener instalada la extensión de Azure Network Watcher y los que no se basan en Azure deben tener instalado el agente de Azure Log Analytics. Para instalar un agente para el origen, consulte [Instalación de los agentes de supervisión](./connection-monitor-overview.md#install-monitoring-agents).
     * destinations: elija entre los puntos de conexión creados anteriormente. Se puede supervisar la conectividad a las máquinas virtuales de Azure o a cualquier punto de conexión (una IP pública, una dirección URL o un FQDN) si se especifican como destinos. En un solo grupo de prueba, puede agregar máquinas virtuales de Azure, direcciones URL de Office 365, direcciones URL de Dynamics 365 y puntos de conexión personalizados.
     * disable: use este campo para deshabilitar la supervisión de todos los orígenes y destinos que especifica el grupo de prueba.
 
@@ -400,5 +401,5 @@ Los monitores de conexión tienen los límites de escala siguientes:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Aprenda a [analizar los datos de supervisión y a definir alertas](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview#analyze-monitoring-data-and-set-alerts).
-* Aprenda a [diagnosticar los problemas de la red](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview#diagnose-issues-in-your-network).
+* Aprenda a [analizar los datos de supervisión y a definir alertas](./connection-monitor-overview.md#analyze-monitoring-data-and-set-alerts).
+* Aprenda a [diagnosticar los problemas de la red](./connection-monitor-overview.md#diagnose-issues-in-your-network).

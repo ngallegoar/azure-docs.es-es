@@ -3,32 +3,46 @@ title: Información general sobre la mensajería de Azure Service Bus (ejemplos)
 description: En los ejemplos de mensajería de Service Bus se muestran las características principales de la mensajería de Azure Service Bus. Se proporcionan vínculos a ejemplos en GitHub.
 author: spelluru
 ms.topic: article
-ms.date: 06/23/2020
+ms.date: 10/14/2020
 ms.author: spelluru
-ms.openlocfilehash: 2f2392630c0023c8d6321a5716075a65e8127dd0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f8729d0a947ebf2fd918a478fb3354e6d84fe1e3
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91326276"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95803096"
 ---
 # <a name="service-bus-messaging-samples"></a>Ejemplos de mensajería de Service Bus
 En los ejemplos de mensajería de Service Bus se muestran las características principales de la [mensajería de Service Bus](https://azure.microsoft.com/services/service-bus/). Actualmente, puede encontrar los ejemplos en los siguientes lugares:
 
-| Lenguaje de programación | Ubicación del SDK o los ejemplos |
+## <a name="net-samples"></a>Ejemplos de .NET
+
+| Paquete | Ubicación de los ejemplos | 
+| ------- | ---------------- | 
+| Azure.Messaging.ServiceBus (más reciente) | https://docs.microsoft.com/samples/azure/azure-sdk-for-net/azuremessagingservicebus-samples/ | 
+| Microsoft.Azure.ServiceBus (heredado) |  https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus |
+
+## <a name="java-samples"></a>Ejemplos de Java
+| Paquete | Ubicación de los ejemplos | 
+| ------- | ---------------- | 
+| azure-messaging-servicebus (más reciente) | https://docs.microsoft.com/samples/azure/azure-sdk-for-java/servicebus-samples/ |
+| azure-servicebus (heredado) | https://github.com/Azure/azure-service-bus/tree/master/samples/Java |
+
+## <a name="python-samples"></a>Ejemplos de Python
+| Paquete | Ubicación de los ejemplos |
 | -------------------- | ----------------------- |
-| . NET, Java y administración | https://github.com/Azure/azure-service-bus/ |
-| Node.js | https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/servicebus/service-bus/samples |
-| Python | https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/servicebus/azure-servicebus |
-| Go| https://github.com/Azure/azure-service-bus-go/ |
+| azure.servicebus | https://docs.microsoft.com/samples/azure/azure-sdk-for-python/servicebus-samples/ |
 
-## <a name="service-bus-explorer"></a>Explorador de Service Bus
+## <a name="javascript-samples"></a>Ejemplos de JavaScript
+| Paquete | Ubicación de los ejemplos | 
+| ------- | ---------------- | 
+| azure/service-bus | https://docs.microsoft.com/samples/azure/azure-sdk-for-js/service-bus-javascript/ | 
 
-Además, [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer) es un ejemplo hospedado en GitHub que le permite conectarse a un espacio de nombres del servicio Service Bus y administrar fácilmente las entidades de mensajería. La herramienta ofrece características avanzadas, como la funcionalidad de importación y exportación y la capacidad de probar las entidades de mensajería y servicios de retransmisión. Puede encontrar el código fuente y la documentación completa de Service Bus Explorer en [GitHub](https://github.com/paolosalvatori/ServiceBusExplorer).
+## <a name="go-samples"></a>Ejemplos de Go
+| Paquete | Ubicación de los ejemplos | 
+| ------- | ---------------- | 
+| azure-service-bus-go | https://github.com/Azure/azure-service-bus-go/ |
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="management-samples"></a>Ejemplos de administración
+Puede encontrar ejemplos de administración en GitHub en la siguiente dirección: https://github.com/Azure/azure-service-bus/tree/master/samples/Management.
 
-Consulte los siguientes temas para obtener conceptos generales sobre Service Bus.
-
-* [Introducción a la mensajería de Service Bus](service-bus-messaging-overview.md)
-* [Arquitectura de Service Bus](./service-bus-messaging-overview.md)

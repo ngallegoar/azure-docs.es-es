@@ -9,12 +9,12 @@ ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: klaasl
 ms.custom: references_regions
-ms.openlocfilehash: 8f1ea67605be3aee6257c293aea3db617d885645
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 4f84c3c2f6fc671a8cb6ac70313361540e3dd815
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370260"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95523287"
 ---
 # <a name="manage-and-find-azure-blob-data-with-blob-index-tags-preview"></a>Administración y búsqueda de datos de Azure Blob con etiquetas de índice de blobs (versión preliminar)
 
@@ -51,7 +51,7 @@ Estos blobs se separan mediante un prefijo de *contenedor/carpeta virtual/nombre
 Las etiquetas del índice de blobs son atributos de clave-valor que se pueden aplicar a objetos nuevos o existentes dentro de la cuenta de almacenamiento. Puede especificar etiquetas de índice durante el proceso de carga mediante las operaciones [Put Blob](/rest/api/storageservices/put-blob), [Put Block List](/rest/api/storageservices/put-block-list) o [Copy Blob](/rest/api/storageservices/copy-blob) y el encabezado `x-ms-tags` opcional. Si ya tiene blobs en la cuenta de almacenamiento, llame a [SetBlobTags](/rest/api/storageservices/set-blob-tags) pasando un documento XML con formato con las etiquetas de índice en el cuerpo de la solicitud.
 
 > [!IMPORTANT]
-> El [propietario de datos de blobs de almacenamiento](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner), así como cualquier persona con una firma de acceso compartido que tenga permiso para acceder a las etiquetas de blobs (el permiso `t` de SAS), puede establecer las etiquetas de índice de blobs.
+> El [propietario de datos de blobs de almacenamiento](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner), así como cualquier persona con una firma de acceso compartido que tenga permiso para acceder a las etiquetas de blobs (el permiso `t` de SAS), puede establecer las etiquetas de índice de blobs.
 >
 > Además, los usuarios de RBAC con el permiso `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` pueden realizar esta operación.
 
@@ -87,7 +87,7 @@ Los límites siguientes se aplican a las etiquetas del índice de blobs:
 Las etiquetas de índice de blobs se almacenan como subrecurso junto con los datos de blobs y se pueden recuperar independientemente del contenido subyacente de los datos del blob. Las etiquetas de índice de blobs para un único blob se pueden recuperar con la operación [Get Blob Tags](/rest/api/storageservices/get-blob-tags). La operación [List Blobs](/rest/api/storageservices/list-blobs) con el parámetro `include:tags` también devolverá todos los blobs de un contenedor, junto con las etiquetas de índice de blobs.
 
 > [!IMPORTANT]
-> El [propietario de datos de blobs de almacenamiento](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner), así como cualquier persona con una firma de acceso compartido que tenga permiso para acceder a las etiquetas de blobs (el permiso `t` de SAS), puede obtener y enumerar las etiquetas de índice de blobs.
+> El [propietario de datos de blobs de almacenamiento](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner), así como cualquier persona con una firma de acceso compartido que tenga permiso para acceder a las etiquetas de blobs (el permiso `t` de SAS), puede obtener y enumerar las etiquetas de índice de blobs.
 >
 > Además, los usuarios de RBAC con el permiso `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/read` pueden realizar esta operación.
 
@@ -100,7 +100,7 @@ El motor de indexación expone esos atributos de clave-valor en un índice multi
 La operación [Find Blobs By Tags](/rest/api/storageservices/find-blobs-by-tags) le permite obtener un conjunto filtrado de blobs cuyas etiquetas de índice coinciden con una expresión de consulta determinada. `Find Blobs by Tags` admite el filtrado entre todos los contenedores de la cuenta de almacenamiento, o puede limitar el filtrado a un único contenedor. Dado que todas las claves y valores de las etiquetas de índice son cadenas, los operadores relacionales usan una ordenación lexicográfica.
 
 > [!IMPORTANT]
-> El [propietario de datos de blobs de almacenamiento](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner), así como cualquier persona con una firma de acceso compartido que tenga permiso para buscar los blobs por etiquetas (el permiso `f` de SAS), puede buscar datos mediante etiquetas de índice de blobs.
+> El [propietario de datos de blobs de almacenamiento](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner), así como cualquier persona con una firma de acceso compartido que tenga permiso para buscar los blobs por etiquetas (el permiso `f` de SAS), puede buscar datos mediante etiquetas de índice de blobs.
 >
 > Además, los usuarios de RBAC con el permiso `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/filter/action` pueden realizar esta operación.
 
@@ -235,7 +235,7 @@ A los autores de llamadas que usan una [identidad de Azure AD](../common/storage
 | [Obtener etiquetas de blobs](/rest/api/storageservices/get-blob-tags)           | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/read     |
 | [Buscar blobs por etiquetas](/rest/api/storageservices/find-blobs-by-tags) | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/filter/action |
 
-Se requieren permisos adicionales independientes de los datos de blobs subyacentes para las operaciones con etiquetas de índice. El rol [propietario de datos de blobs de almacenamiento](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner) tiene permisos para las tres operaciones de etiquetas de índice de blobs. El [lector de datos de blobs de almacenamiento](/azure/role-based-access-control/built-in-roles#storage-blob-data-reader) solo tiene permisos para las operaciones `Find Blobs by Tags` y `Get Blob Tags`.
+Se requieren permisos adicionales independientes de los datos de blobs subyacentes para las operaciones con etiquetas de índice. El rol [propietario de datos de blobs de almacenamiento](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) tiene permisos para las tres operaciones de etiquetas de índice de blobs. El [lector de datos de blobs de almacenamiento](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader) solo tiene permisos para las operaciones `Find Blobs by Tags` y `Get Blob Tags`.
 
 ### <a name="sas-permissions"></a>Permisos de SAS
 
@@ -327,6 +327,7 @@ En esta sección se describen los problemas conocidos y las condiciones de la ve
 - Cuando el filtrado se limita a un único contenedor, `@container` solo se puede pasar si todas las etiquetas de índice de la expresión de filtro son comprobaciones de igualdad (clave=valor).
 - Al usar el operador de intervalo con la condición `AND`, solo puede especificar el mismo nombre de clave de etiqueta de índice (`"Age" > '013' AND "Age" < '100'`).
 - El control de versiones y el índice de blobs no se admiten. Las etiquetas de índice de blobs se conservan para las versiones, pero no se pasan al motor de índices de blobs.
+- No hay ninguna API para determinar si las etiquetas de índice están indizadas.
 - No se admite la conmutación por error de cuentas. Es posible que el índice de blobs no se actualice correctamente después de la conmutación por error.
 - La administración del ciclo de vida solo admite comprobaciones de igualdad con coincidencia del índice de blobs.
 - `Copy Blob` no copia las etiquetas de índice de blobs del blob de origen en el nuevo blob de destino. Puede especificar las etiquetas que desea que se apliquen al blob de destino durante la operación de copia.

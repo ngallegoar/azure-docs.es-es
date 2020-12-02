@@ -1,14 +1,14 @@
 ---
 title: Configuración del entorno para un operador de plano técnico
 description: Aprenda a configurar el entorno de Azure para su uso con el rol integrado de Azure en el operador del plano técnico.
-ms.date: 08/27/2020
+ms.date: 11/24/2020
 ms.topic: how-to
-ms.openlocfilehash: ae881ac6d0714401f8c80e880b4d288f594b7cf3
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: db8450516feab2fae4136f549959a29b006059aa
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91535789"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95804920"
 ---
 # <a name="configure-your-environment-for-a-blueprint-operator"></a>Configuración del entorno para un operador de plano técnico
 
@@ -29,6 +29,8 @@ El primer paso consiste en conceder el rol de **operador de plano técnico** a l
 Una definición de plano técnico puede usar identidades administradas asignadas por el sistema o por el usuario. Sin embargo, al usar el rol de **operador de plano técnico**, la definición del plano técnico debe configurarse para usar una identidad administrada asignada por el usuario. Además, la cuenta o el grupo de seguridad a quien se concede el rol de **operador de plano técnico** debe tener concedido el rol de **operador de identidad administrada** en la identidad administrada asignada por el usuario. Sin este permiso, las asignaciones de plano técnico generan errores debido a la falta de permisos.
 
 1. [Cree una identidad administrada asignada por el usuario](../../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity) para que la use un plano técnico asignado.
+
+1. Conceda a la identidad administrada asignada por el usuario cualquier rol o permiso que requiera la definición de plano técnico para el ámbito previsto.
 
 1. [Agregue una asignación de roles](../../../role-based-access-control/role-assignments-portal.md#add-a-role-assignment) de **operador de identidad administrada** a la cuenta o al grupo de seguridad. Limite la asignación de roles a la nueva identidad administrada asignada por el usuario.
 

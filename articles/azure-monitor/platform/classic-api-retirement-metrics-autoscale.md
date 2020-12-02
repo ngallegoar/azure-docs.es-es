@@ -4,12 +4,12 @@ description: Las API de métricas y escalabilidad automática, también llamadas
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 11/19/2018
-ms.openlocfilehash: 38a30f2adc0de7ccb9a9a3a4ba7ed53fd5fda3f7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a8900d238e7542864e3dc53f9d192e579e2c96d1
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87317389"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95536700"
 ---
 # <a name="azure-monitor-retirement-of-classic-deployment-model-apis-for-metrics-and-autoscale"></a>Retirada de Azure Monitor de las API del modelo de implementación clásica para métricas y escalabilidad automática
 
@@ -53,7 +53,7 @@ Si no está seguro de si el código o las herramientas personalizadas están lla
 
 Todas las funcionalidades existentes para la escalabilidad automática y las métricas seguirán funcionando a través de las nuevas API.  
 
-La migración a las API más recientes incluye funcionalidades basadas en Resource Manager como, por ejemplo, el control de acceso basado en rol (RBAC) coherente en todos los servicios de supervisión. También obtendrá una funcionalidad adicional para las métricas: 
+La migración a las API más recientes incluye funcionalidades basadas en Resource Manager como, por ejemplo, el control de acceso basado en rol de Azure (Azure RBAC) coherente en todos los servicios de supervisión. También obtendrá una funcionalidad adicional para las métricas: 
 
 - compatibilidad con las dimensiones
 - granularidad de las métricas de 1 minuto coherente en todos los servicios 

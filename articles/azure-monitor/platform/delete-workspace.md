@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/26/2020
-ms.openlocfilehash: 2ce048ea8c9a4414b1c9f049569251c39d931c9a
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 0858d448cf768dbe6ea48f07247725fac30da860
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92174165"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95758920"
 ---
 # <a name="delete-and-recover-azure-log-analytics-workspace"></a>Eliminación y recuperación de un área de trabajo de Azure Log Analytics
 
@@ -41,14 +41,16 @@ La operación de eliminación del área de trabajo quita el recurso de Resource 
 > [!NOTE] 
 > Tanto las soluciones instaladas como los servicios vinculados, como la cuenta de Azure Automation, se quitan permanentemente del área de trabajo en el momento de la eliminación y no se pueden recuperar. Deben volver a configurarse después de la operación de recuperación para que el área de trabajo vuelva al estado en que estaba configurado anteriormente.
 
-Las áreas de trabajo se pueden eliminar un mediante [PowerShell](/powershell/module/azurerm.operationalinsights/remove-azurermoperationalinsightsworkspace?view=azurermps-6.13.0), [API REST](/rest/api/loganalytics/workspaces/delete) o en [Azure Portal](https://portal.azure.com).
+Las áreas de trabajo se pueden eliminar un mediante [PowerShell](/powershell/module/azurerm.operationalinsights/remove-azurermoperationalinsightsworkspace?view=azurermps-6.13.0&preserve-view=true), [API REST](/rest/api/loganalytics/workspaces/delete) o en [Azure Portal](https://portal.azure.com).
 
 ### <a name="azure-portal"></a>Azure portal
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com). 
-2. En Azure Portal, seleccione **Todos los servicios** . En la lista de recursos, escriba **Log Analytics** . Cuando comience a escribir, la lista se filtrará en función de la entrada. Seleccione **Áreas de trabajo de Log Analytics** .
+2. En Azure Portal, seleccione **Todos los servicios**. En la lista de recursos, escriba **Log Analytics**. Cuando comience a escribir, la lista se filtrará en función de la entrada. Seleccione **Áreas de trabajo de Log Analytics**.
 3. En la lista de áreas de trabajo de Log Analytics, seleccione un área de trabajo y, a continuación, haga clic en **Eliminar** en la parte superior del panel intermedio.
-4. Aparece una página de confirmación que muestra la ingesta de datos en el área de trabajo durante la semana pasada. Escriba el nombre del área de trabajo que desea confirmar y, a continuación, haga clic en **Eliminar** .
+4. Aparece una página de confirmación que muestra la ingesta de datos en el área de trabajo durante la semana pasada. 
+5. Si quiere eliminar permanentemente el área de trabajo al quitar la opción para recuperarla más tarde, active la casilla **Delete the workspace permanently** (Eliminar el área de trabajo de forma permanente).
+6. Escriba el nombre del área de trabajo que desea confirmar y, a continuación, haga clic en **Eliminar**.
 
    ![Confirmación de la eliminación del área de trabajo](media/delete-workspace/workspace-delete.png)
 
@@ -60,11 +62,12 @@ PS C:\>Remove-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-
 ## <a name="permanent-workspace-delete"></a>Eliminación permanente del área de trabajo
 Es posible que el método de eliminación temporal no encaje en algunos escenarios como el desarrollo y las pruebas, donde es necesario repetir una implementación con la misma configuración y el mismo nombre de área de trabajo. En tales casos, puede eliminar el área de trabajo de forma permanente e "invalidar" el período de eliminación temporal. La operación de eliminación permanente del área de trabajo libera el nombre del área de trabajo y puede crear una nueva área de trabajo con el mismo nombre.
 
-
 > [!IMPORTANT]
 > Use la operación de eliminación permanente de áreas de trabajo con precaución porque es irreversible y no podrá recuperar el área de trabajo ni sus datos.
 
-Agregue la etiqueta "-ForceDelete" para eliminar permanentemente el área de trabajo. La opción "-ForceDelete" está disponible actualmente con Az.OperationalInsights 2.3.0 o versiones posteriores. 
+Para eliminar de manera permanente un área de trabajo mediante Azure Portal, active la casilla **Delete the workspace permanently** (Eliminar el área de trabajo de manera permanente) antes de hacer clic en el botón **Eliminar**.
+
+Para eliminar de manera permanente un área de trabajo con PowerShell, agregue la etiqueta "-ForceDelete" para eliminar el área de trabajo de manera permanente. La opción "-ForceDelete" está disponible actualmente con Az.OperationalInsights 2.3.0 o versiones posteriores. 
 
 ```powershell
 PS C:\>Remove-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-name" -Name "workspace-name" -ForceDelete
@@ -83,7 +86,7 @@ Puede recuperar el área de trabajo durante el período de eliminación temporal
 ### <a name="azure-portal"></a>Azure portal
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com). 
-2. En Azure Portal, seleccione **Todos los servicios** . En la lista de recursos, escriba **Log Analytics** . Cuando comience a escribir, la lista se filtrará en función de la entrada. Seleccione **Áreas de trabajo de Log Analytics** . Verá la lista de áreas de trabajo que tiene en el ámbito seleccionado.
+2. En Azure Portal, seleccione **Todos los servicios**. En la lista de recursos, escriba **Log Analytics**. Cuando comience a escribir, la lista se filtrará en función de la entrada. Seleccione **Áreas de trabajo de Log Analytics**. Verá la lista de áreas de trabajo que tiene en el ámbito seleccionado.
 3. Haga clic en **Recuperar** en el menú superior izquierdo para abrir una página con áreas de trabajo en estado de eliminación temporal que se puedan recuperar.
 
    ![Captura de la pantalla de áreas de trabajo de Log Analytics en Azure Portal con la opción Recuperar resaltada en la barra de menús.](media/delete-workspace/recover-menu.png)
@@ -115,6 +118,6 @@ Debe tener al menos permisos de *Colaborador de Log Analytics* para eliminar un 
     1. [Recuperar](#recover-workspace) el área de trabajo.
     2. [Eliminar permanentemente](#permanent-workspace-delete) el área de trabajo.
     3. Crear una nueva área de trabajo con el mismo nombre.
-* Si ve un código de respuesta 204 con el mensaje *No se encuentra el recurso* , es posible que la causa sea que se han realizado intentos consecutivos para usar la operación de eliminación del área de trabajo. 204 es una respuesta vacía, lo que normalmente significa que el recurso no existe y que la eliminación se completó sin hacer nada.
+* Si ve un código de respuesta 204 con el mensaje *No se encuentra el recurso*, es posible que la causa sea que se han realizado intentos consecutivos para usar la operación de eliminación del área de trabajo. 204 es una respuesta vacía, lo que normalmente significa que el recurso no existe y que la eliminación se completó sin hacer nada.
   Después de que la llamada de eliminación se haya completado correctamente en el back-end, puede restaurar el área de trabajo y completar la operación de eliminación permanente en uno de los métodos sugeridos anteriormente.
 

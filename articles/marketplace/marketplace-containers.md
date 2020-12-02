@@ -7,24 +7,24 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: keferna
 ms.author: keferna
-ms.date: 09/04/2020
-ms.openlocfilehash: c52fabcfc2ff22df2de6dd93f2543d625310baef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/30/2020
+ms.openlocfilehash: 83c575aa40b80d9a8e39263e89a5e7860c8f8774
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89484348"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95741668"
 ---
-# <a name="publishing-guide-for-container-offers"></a>Guía de publicación para ofertas de contenedor
+# <a name="publishing-guide-for-azure-container-offers"></a>Guía de publicación para ofertas de contenedor de Azure
 
-Las ofertas de contenedor le ayudan a publicar la imagen de contenedor en Azure Marketplace. Use esta guía para comprender los requisitos para esta oferta. 
+Las ofertas de contenedor de Azure le ayudan a publicar la imagen de contenedor en Azure Marketplace. Use esta guía para comprender los requisitos para este tipo de oferta.
 
-Las ofertas de contenedor son ofertas de transacciones que se implementan y facturan mediante Azure Marketplace. La opción que el usuario ve es "Obtener ahora".
+Las ofertas de contenedor de Azure son ofertas de transacciones que se implementan y facturan mediante Azure Marketplace. La opción que el usuario ve es "Obtener ahora".
 
-Use el tipo de oferta *Contenedor* cuando la solución sea una imagen de contenedor de Docker configurada como instancia de servicio de contenedor de Azure basada en Kubernetes. 
+Use el tipo de oferta Contenedor de Azure cuando la solución sea una imagen de contenedor de Docker configurada como instancia de contenedor de Azure basada en Kubernetes.
 
 > [!NOTE]
-> Algunos ejemplos de instancias de servicio de contenedor de Azure basado en Kubernetes son Azure Kubernetes Service o Azure Container Instances, la opción de los clientes de Azure para un entorno en tiempo de ejecución de contenedor basado en Kubernetes.  
+> Una instancia de Azure Container Instances es una instancia de Docker de entorno de ejecución que proporciona la forma más rápida y sencilla de ejecutar un contenedor en Azure, sin tener que administrar ninguna máquina virtual y sin necesidad de adoptar un servicio de nivel superior. Las instancias de contenedor se pueden implementar directamente en Azure u organizarse mediante Azure Kubernetes Services o el motor de Azure Kubernetes Service.  
 
 Microsoft admite actualmente los modelos de licencia gratuito y BYOL (traiga su propia licencia).
 
@@ -39,9 +39,6 @@ Microsoft admite actualmente los modelos de licencia gratuito y BYOL (traiga su 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Si aún no lo ha hecho, aprenda a [Ampliar su negocio en la nube con Azure Marketplace](https://azuremarketplace.microsoft.com/sell).
+- Para preparar los recursos técnicos de una oferta de contenedor, consulte [Creación de recursos técnicos de Azure Container](create-azure-container-technical-assets.md).
 
-Para registrarse y empezar a trabajar en el Centro de partners, haga lo siguiente:
-
-- [Inicie sesión en el Centro de partners](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) para crear o completar la oferta.
-- Para más información, consulte [Creación de una oferta de Azure Container](./partner-center-portal/create-azure-container-offer.md).
+- Para crear una oferta de Azure Container, consulte [Creación de una oferta de Azure Container en Azure Marketplace](create-azure-container-offer.md) para obtener más información.

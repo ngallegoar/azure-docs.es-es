@@ -4,12 +4,12 @@ description: Información general de las alertas de Azure Alertas, alertas clás
 ms.subservice: alerts
 ms.topic: conceptual
 ms.date: 01/28/2018
-ms.openlocfilehash: e71f048a0a96323552b426663a235ed66fa2ef87
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: b8d24eab79bdf16e4d883549be00431bd5372af8
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108803"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95536054"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Información general sobre las alertas en Microsoft Azure 
 
@@ -173,7 +173,7 @@ La página de detalles de alertas incluye las secciones siguientes:
 | Historial | Muestra cada acción que realiza la alerta y los cambios hechos en la alerta. Actualmente se limita a cambios de estado. |
 | Diagnóstico | Información sobre el grupo inteligente en el que se incluye la alerta. El *recuento de alertas* se refiere al número de alertas incluidas en el grupo inteligente. Incluye en el mismo grupo inteligente otras alertas que se crearon en los últimos 30 días, con independencia del filtro de tiempo de la página de lista de alertas. Seleccione una alerta para ver sus detalles. |
 
-## <a name="role-based-access-control-rbac-for-your-alert-instances"></a>Control de acceso basado en rol (RBAC) para las instancias de alertas
+## <a name="azure-role-based-access-control-azure-rbac-for-your-alert-instances"></a>Control de acceso basado en rol de Azure (Azure RBAC) para las instancias de alertas
 
 El consumo y la administración de instancias de alertas requiere que el usuario tenga los roles integrados de Azure de [colaborador de supervisión](../../role-based-access-control/built-in-roles.md#monitoring-contributor) o [lector de supervisión](../../role-based-access-control/built-in-roles.md#monitoring-reader). Estos roles se admiten en cualquier ámbito de Azure Resource Manager, desde el nivel de la suscripción hasta las asignaciones pormenorizadas en el nivel de un recurso. Por ejemplo, si un usuario solo tiene acceso de "colaborador de supervisión" para la máquina virtual `ContosoVM1`, puede consumir y administrar solo las alertas generadas en `ContosoVM1`.
 

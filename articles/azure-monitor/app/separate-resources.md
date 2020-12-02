@@ -3,12 +3,12 @@ title: 'Diseño de la implementación de Application Insights: uno frente a much
 description: Este artículo trata sobre el envío directo de la telemetría a los diferentes recursos para los sellos de desarrollo, prueba y producción.
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.openlocfilehash: 264cbe35e7af50577b345d686b639e47760f428d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 49e9b8920af7333e0d95e23e6e5cf0828d448609
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88258714"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95536360"
 ---
 # <a name="how-many-application-insights-resources-should-i-deploy"></a>¿Cuántos recursos de Application Insights se deben implementar?
 
@@ -26,7 +26,7 @@ Cada recurso de Application Insights incluye métricas disponibles de serie. En 
 
 -   En componentes de aplicaciones que se han implementado juntos. Normalmente han sido desarrollados por un solo equipo, administrados por el mismo conjunto de usuarios de DevOps/ITOps.
 -   Si tiene sentido agregar indicadores clave de rendimiento (KPI), como las duraciones de las respuestas, las tasas de error en el panel, etc., en todos ellos de forma predeterminada (puede optar por segmentar por nombre de rol en la experiencia del Explorador de métricas).
--   Si no hay necesidad de administrar el control de acceso basado en rol (RBAC) de manera diferente entre los componentes de aplicaciones.
+-   Si no hay necesidad de administrar el control de acceso basado en rol de Azure (Azure RBAC) de manera diferente entre los componentes de aplicaciones.
 -   Si no necesita criterios de alerta de métricas diferentes entre los componentes.
 -   Si no necesita administrar exportaciones continuas de forma distinta entre los componentes.
 -   Si no necesita administrar facturaciones o cuotas de forma distinta entre los componentes.

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2020
-ms.openlocfilehash: 0812716ab9d952969ccfc14fc0a1e833fae1c9e1
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 391d9562bc73265a10976f485c78e3966aa4fe83
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94653800"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95536292"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Preguntas más frecuentes sobre Azure Monitor
 
@@ -81,7 +81,7 @@ El Explorador de datos de Azure es un servicio de exploración de datos altament
 
 ### <a name="how-do-i-retrieve-log-data"></a>¿Cómo puedo recuperar los datos de registro?
 Todos los datos se recuperan de un área de trabajo de Log Analytics mediante una consulta de registro escrita en el lenguaje de consulta Kusto (KQL). Puede escribir sus propias consultas o usar soluciones e Insights que incluyan consultas de registro para una aplicación o servicio determinados. Consulte [Introducción a las consultas de registro en Azure Monitor](log-query/log-query-overview.md).
-
+p
 ### <a name="can-i-delete-data-from-a-log-analytics-workspace"></a>¿Puedo eliminar datos de un área de trabajo de Log Analytics?
 Los datos se eliminan de un área de trabajo en función del [período de retención](platform/manage-cost-storage.md#change-the-data-retention-period). Puede eliminar datos específicos por motivos de privacidad o de cumplimiento. Consulte [Cómo exportar y eliminar datos privados](platform/personal-data-mgmt.md#how-to-export-and-delete-private-data) para más información.
 
@@ -412,7 +412,7 @@ Las personalizaciones únicas que normalmente deben volver a crearse o actualiza
 - Vuelva a crear libros y paneles personalizados. 
 - Vuelva a crear o actualizar el ámbito de cualquier alerta de registro/métrica personalizada. 
 - Vuelva a crear alertas de disponibilidad.
-- Vuelva a crear las opciones de configuración de Access Control basado en roles (RBAC) personalizadas necesarias para que los usuarios puedan acceder al nuevo recurso. 
+- Vuelva a crear las opciones de configuración de control de acceso basado en rol de Azure (Azure RBAC) personalizadas necesarias para que los usuarios puedan acceder al nuevo recurso. 
 - Replique la configuración que implique el muestreo de ingesta, la retención de datos, el límite diario y la habilitación de métricas personalizadas. Estas opciones de configuración se controlan mediante el panel **Uso y costos estimados**.
 - Cualquier integración que se base en claves de API como [anotaciones de versión](/azure/azure-monitor/app/annotations), [canal de control seguro de métricas en directo](app/live-stream.md#secure-the-control-channel), etc. Tendrá que generar nuevas claves de API y actualizar la integración asociada. 
 - La exportación continua en los recursos clásicos deberían volver a configurarse.
@@ -595,10 +595,6 @@ El recopilador de OpenTelemetry se describe en su [archivo Léame de GitHub](htt
 
 ## <a name="azure-monitor-for-containers"></a>Azure Monitor para contenedores
 
-### <a name="health-feature-is-in-private-preview"></a>La característica de mantenimiento se encuentra en versión preliminar privada
-
-Estamos planeando realizar varios cambios para agregar funcionalidad y dar respuesta a los comentarios. La característica de mantenimiento va a pasar a una versión preliminar privada a finales de junio de 2020. Para obtener información adicional, revise el siguiente [Anuncio de actualizaciones de Azure](https://azure.microsoft.com/updates/ci-health-limited-preview/).
-
 ### <a name="what-does-other-processes-represent-under-the-node-view"></a>¿Qué representa *Otros procesos* en la vista de nodo?
 
 **Otros procesos** están concebidos para ayudarle a entender claramente la causa principal del uso elevado de recursos en el nodo. Esto le permite distinguir el uso entre los procesos en contenedores y los procesos fuera de contenedores.
@@ -684,9 +680,9 @@ La tabla ContainerInventory contiene información sobre los contenedores detenid
 
 Si recibe el error **Missing Subscription registration for Microsoft.OperationsManagement** (Falta el registro de suscripción de Microsoft.OperationsManagement), puede resolverlo registrando el proveedor de recursos **Microsoft.OperationsManagement** en la suscripción en la que está definida el área de trabajo. La documentación sobre cómo hacer esto se puede encontrar [aquí](../azure-resource-manager/templates/error-register-resource-provider.md).
 
-### <a name="is-there-support-for-rbac-enabled-aks-clusters"></a>¿Se admiten clústeres de AKS con RBAC habilitado?
+### <a name="is-there-support-for-kubernetes-rbac-enabled-aks-clusters"></a>¿Se admiten clústeres de AKS con RBAC de Kubernetes habilitado?
 
-La solución de supervisión de contenedores no admite RBAC, pero Azure Monitor para contenedores sí. La página de detalles de la solución no puede mostrar la información correcta en las hojas que muestran datos para estos clústeres.
+La solución de supervisión de contenedores no admite RBAC de Kubernetes, pero Azure Monitor para contenedores sí. La página de detalles de la solución no puede mostrar la información correcta en las hojas que muestran datos para estos clústeres.
 
 ### <a name="how-do-i-enable-log-collection-for-containers-in-the-kube-system-namespace-through-helm"></a>¿Cómo habilitar la recopilación de registros para contenedores en el espacio de nombres kube-system mediante Helm?
 

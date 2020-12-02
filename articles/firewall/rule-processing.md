@@ -5,17 +5,17 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 04/10/2020
+ms.date: 11/18/2020
 ms.author: victorh
-ms.openlocfilehash: 84110e749dac9267e994385aa5f6d05e3ba224a6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 01f7aa61d3bfb3c712320bbf138160a7ff8197c7
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87087550"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95502193"
 ---
 # <a name="configure-azure-firewall-rules"></a>Configuración de las reglas de Azure Firewall
-Puede configurar reglas NAT, reglas de red y reglas de aplicaciones en Azure Firewall. Las colecciones de reglas se procesan según el tipo de regla en orden de prioridad, de números inferiores a números mayores desde 100 hasta 65 000. El nombre de una colección de reglas solo puede contener letras, números, guiones bajos, puntos o guiones. Debe comenzar con una letra o un número y terminar con una letra, un número o un guión bajo. La longitud máxima del nombre es de 80 caracteres.
+Puede configurar reglas NAT, reglas de red y reglas de aplicaciones en Azure Firewall. Las colecciones de reglas se procesan según el tipo de regla en orden de prioridad, de números inferiores a números mayores desde 100 hasta 65 000. El nombre de una colección de reglas solo puede contener letras, números, guiones bajos, puntos o guiones. Debe comenzar con una letra o un número y terminar con una letra, un número o un guion bajo. La longitud máxima del nombre es de 80 caracteres.
 
 Es mejor espaciar inicialmente los números de prioridad de la colección de reglas en incrementos de 100 (100, 200, 300, etc.) para disponer de espacio para agregar más colecciones de reglas si es necesario.
 
@@ -27,6 +27,12 @@ Es mejor espaciar inicialmente los números de prioridad de la colección de reg
 ### <a name="network-rules-and-applications-rules"></a>Reglas de red y reglas de aplicaciones
 
 Si configura reglas de red y reglas de aplicación, las reglas de red se aplican en orden de prioridad antes que las reglas de aplicación. Las reglas están terminando. Por lo tanto, si se encuentra una coincidencia en una regla de red, no se procesa ninguna otra regla.  Si no coincide ninguna regla de red, y el protocolo es HTTP, HTTPS o MSSQL, las reglas de aplicación evalúan el paquete en orden de prioridad. Si sigue sin haber coincidencias, el paquete se evalúa con la [colección de reglas de infraestructura](infrastructure-fqdns.md). Si sigue sin haber coincidencias, el paquete se deniega de forma predeterminada.
+
+#### <a name="network-rule-protocol"></a>Protocolo de una regla de red
+
+Las reglas de red se pueden configurar para los protocolos **TCP**, **UDP**, **ICMP** o **cualquier** protocolo IP. La opción "cualquier protocolo IP" incluye todos los protocolos IP tal como se definen en el documento [Números de protocolo de autoridad de asignación de números de Internet (IANA)](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml). Si se configura explícitamente un puerto de destino, la regla se traducirá a una regla TCP y UDP.
+
+Antes del 9 de noviembre de 2020, la opción **Cualquier** significaba **TCP**, **UDP** o **ICMP**. Por lo tanto, es posible que haya configurado una regla antes de esa fecha con Protocol = Any y destination ports = "*". Si realmente no quiere permitir ningún protocolo IP como el definido actualmente, modifique la regla para configurar explícitamente los protocolos que quiera (TCP, UDP o ICMP).
 
 ## <a name="inbound-connectivity"></a>Conectividad de entrada
 

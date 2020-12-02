@@ -3,12 +3,12 @@ title: Conexión de máquinas híbridas a Azure mediante PowerShell
 description: En este artículo se aprende a instalar el agente y a conectar una máquina a Azure mediante servidores habilitados para Azure Arc. Puede hacer esto con PowerShell.
 ms.date: 10/28/2020
 ms.topic: conceptual
-ms.openlocfilehash: f85e2564b2e5b194d306ef4bad2269982331a7d4
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 0218235179e1a8a883360d0061e685c04079cbf4
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422780"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95492948"
 ---
 # <a name="connect-hybrid-machines-to-azure-by-using-powershell"></a>Conexión de máquinas híbridas a Azure mediante PowerShell
 
@@ -45,13 +45,13 @@ Cuando finaliza la instalación, se ve el mensaje siguiente:
     * Para instalar el Agente de Connected Machine en el equipo de destino que se puede comunicar directamente con Azure, ejecute:
 
         ```azurepowershell
-        Connect-AzConnectedMachine -ResourceGroupName myResourceGroup -Name myMachineName -Location <region> -SubscriptionId 978ab182-6cf0-4de3-a58b-53c8d0a3235e
+        Connect-AzConnectedMachine -ResourceGroupName myResourceGroup -Name myMachineName -Location <region>
         ```
     
     * Para instalar el Agente de Connected Machine en el equipo de destino que se comunica a través de un servidor proxy, ejecute:
         
         ```azurepowershell
-        Connect-AzConnectedMachine -ResourceGroupName myResourceGroup -Name myMachineName -Location <region> -SubscriptionId 978ab182-6cf0-4de3-a58b-53c8d0a3235e -proxy http://<proxyURL>:<proxyport>
+        Connect-AzConnectedMachine -ResourceGroupName myResourceGroup -Name myMachineName -Location <region> -Proxy http://<proxyURL>:<proxyport>
         ```
 
 Si el agente no se inicia una vez completada la instalación, compruebe los registros para obtener información detallada del error. En Windows, compruebe este archivo: *%ProgramData%\AzureConnectedMachineAgent\Log\himds.log*. En Linux, compruebe este archivo: */var/opt/azcmagent/log/himds.log*.
@@ -64,20 +64,20 @@ Aquí se explica cómo configurar uno o más servidores Windows con servidores h
 
 2. Inicie sesión en Azure para ejecutar el comando `Connect-AzAccount`.
 
-3. Para instalar el Agente de Connected Machine, use `Connect-AzConnectedMachine` con los parámetros `-Name`, `-ResourceGroupName` y `-Location`. Use el parámetro `-SubscriptionId` para invalidar la suscripción predeterminada como resultado del contexto de Azure creado después del inicio de sesión.
+3. Para instalar el Agente de Connected Machine, use `Connect-AzConnectedMachine` con los parámetros `-ResourceGroupName` y `-Location`. Los nombres de los recursos de Azure usarán automáticamente el nombre de host de cada servidor. Use el parámetro `-SubscriptionId` para invalidar la suscripción predeterminada como resultado del contexto de Azure creado después del inicio de sesión.
 
     * Para instalar el Agente de Connected Machine en la máquina de destino que se puede comunicar directamente con Azure, ejecute el comando siguiente:
     
         ```azurepowershell
-        $session = Connect-PSSession -ComputerName myMachineName
-        Connect-AzConnectedMachine -ResourceGroupName myResourceGroup -Name myMachineName -Location <region> -PSSession $session
+        $sessions = New-PSSession -ComputerName myMachineName
+        Connect-AzConnectedMachine -ResourceGroupName myResourceGroup -Location <region> -PSSession $sessions
         ```
     
     * Para instalar el agente de Connected Machine en varias máquinas remotas al mismo tiempo, agregue una lista de nombres de máquinas remotas separados por una coma.
 
         ```azurepowershell
-        $session = Connect-PSSession -ComputerName myMachineName1, myMachineName2, myMachineName3
-        Connect-AzConnectedMachine -ResourceGroupName myResourceGroup -Name myMachineName -Location <region> -PSSession $session
+        $sessions = New-PSSession -ComputerName myMachineName1, myMachineName2, myMachineName3
+        Connect-AzConnectedMachine -ResourceGroupName myResourceGroup -Location <region> -PSSession $sessions
         ```
 
     En el ejemplo siguiente se muestra el resultado del comando con una sola máquina como destino:

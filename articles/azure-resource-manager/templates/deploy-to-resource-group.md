@@ -2,13 +2,13 @@
 title: Implementación de recursos en grupos de recursos
 description: Se describe cómo implementar recursos en una plantilla de Azure Resource Manager. Se muestra cómo seleccionar más de un grupo de recursos como destino.
 ms.topic: conceptual
-ms.date: 10/26/2020
-ms.openlocfilehash: fd211641d7fcc02a1db154053597497583b21ae5
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.date: 11/24/2020
+ms.openlocfilehash: 9d0bec51fa55ee377eb647a11fb554ec3b81e9eb
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92681337"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95807721"
 ---
 # <a name="resource-group-deployments-with-arm-templates"></a>Implementaciones de grupos de recursos con plantillas de Resource Manager
 
@@ -83,17 +83,21 @@ Al implementar en un grupo de recursos, puede implementar los recursos en:
 
 * el grupo de recursos de destino de la operación
 * otros grupos de recursos de la misma suscripción o de otras
+* cualquier suscripción en el inquilino
+* el inquilino del grupo de recursos
 * se pueden aplicar [recursos de extensión](scope-extension-resources.md) a los recursos
 
 El usuario que implementa la plantilla debe tener acceso al ámbito especificado.
 
-En esta sección se muestra cómo especificar ámbitos diferentes. Puede combinar estos ámbitos diferentes en una sola plantilla.
+En esta sección se muestra cómo especificar distintos ámbitos. Puede combinar estos ámbitos diferentes en una sola plantilla.
 
 ### <a name="scope-to-target-resource-group"></a>Ámbito de destino del grupo de recursos
 
 Para implementar recursos en el recurso de destino, agregue esos recursos a la sección de recursos de la plantilla.
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/default-rg.json" highlight="5":::
+
+Para ver una plantilla de ejemplo, consulte [Implementación en el grupo de recursos de destino](#deploy-to-target-resource-group).
 
 ### <a name="scope-to-resource-group-in-same-subscription"></a>Ámbito en el grupo de recursos de la misma suscripción
 
@@ -103,13 +107,43 @@ En el ejemplo siguiente, la implementación anidada tiene como destino un grupo 
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/same-sub-to-resource-group.json" highlight="9,13":::
 
+Para ver una plantilla de ejemplo, consulte [Implementación en varios grupos de recursos](#deploy-to-multiple-resource-groups).
+
 ### <a name="scope-to-resource-group-in-different-subscription"></a>Ámbito en el grupo de recursos de otra suscripción
 
 Para implementar recursos en un grupo de recursos de otra suscripción, agregue una implementación anidada e incluya las propiedades `subscriptionId` y `resourceGroup`. En el ejemplo siguiente, la implementación anidada tiene como destino un grupo de recursos denominado `demoResourceGroup`.
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/different-sub-to-resource-group.json" highlight="9,10,14":::
 
-## <a name="cross-resource-groups"></a>Grupos de recursos cruzados
+Para ver una plantilla de ejemplo, consulte [Implementación en varios grupos de recursos](#deploy-to-multiple-resource-groups).
+
+### <a name="scope-to-subscription"></a>Ámbito de la suscripción
+
+Para implementar recursos en una suscripción, agregue una implementación anidada e incluya la propiedad `subscriptionId`. La suscripción puede ser la del grupo de recursos de destino, o cualquier otra suscripción del inquilino. Además, establezca la propiedad `location` para la implementación anidada.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/resource-group-to-subscription.json" highlight="9,10,14":::
+
+Para ver una plantilla de ejemplo, consulte [Creación de un grupo de recursos](#create-resource-group).
+
+### <a name="scope-to-tenant"></a>Ámbito del inquilino
+
+Puede crear recursos en el inquilino al establecer `scope` en `/`. El usuario que implementa la plantilla debe tener el [acceso necesario para realizar implementaciones en el inquilino](deploy-to-tenant.md#required-access).
+
+Puede usar una implementación anidada con los valores de `scope` y `location` establecidos.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/resource-group-to-tenant.json" highlight="9,10,14":::
+
+O bien, puede establecer el ámbito en `/` para algunos tipos de recursos, como los grupos de administración.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/resource-group-create-mg.json" highlight="12,15":::
+
+## <a name="deploy-to-target-resource-group"></a>Implementación en el grupo de recursos de destino
+
+Para implementar recursos en el grupo de recursos de destino, defina esos recursos en la sección **resources** de la plantilla. La plantilla siguiente crea una cuenta de almacenamiento en el grupo de recursos que se especifica en la operación de implementación.
+
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-outputs/azuredeploy.json":::
+
+## <a name="deploy-to-multiple-resource-groups"></a>Implementación de varios grupos de recursos
 
 Puede implementar en más de un grupo de recursos en una misma plantilla de Resource Manager. Para establecer como destino un grupo de recursos diferente al de la plantilla primaria, use una [plantilla anidada o vinculada](linked-templates.md). En el tipo de recurso de implementación, especifique los valores para el identificador de suscripción y el grupo de recursos en que quiere realizar la implementación de la plantilla anidada. Los grupos de recursos pueden existir en suscripciones distintas.
 
@@ -126,7 +160,7 @@ Para probar la plantilla anterior y ver los resultados, use PowerShell o la CLI 
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Para implementar dos cuentas de almacenamiento en dos grupos de recursos de la **misma suscripción** , use:
+Para implementar dos cuentas de almacenamiento en dos grupos de recursos de la **misma suscripción**, use:
 
 ```azurepowershell-interactive
 $firstRG = "primarygroup"
@@ -143,7 +177,7 @@ New-AzResourceGroupDeployment `
   -secondStorageLocation eastus
 ```
 
-Para implementar dos cuentas de almacenamiento en **dos suscripciones** , use:
+Para implementar dos cuentas de almacenamiento en **dos suscripciones**, use:
 
 ```azurepowershell-interactive
 $firstRG = "primarygroup"
@@ -152,10 +186,10 @@ $secondRG = "secondarygroup"
 $firstSub = "<first-subscription-id>"
 $secondSub = "<second-subscription-id>"
 
-Select-AzSubscription -Subscription $secondSub
+Set-AzContext -Subscription $secondSub
 New-AzResourceGroup -Name $secondRG -Location eastus
 
-Select-AzSubscription -Subscription $firstSub
+Set-AzContext -Subscription $firstSub
 New-AzResourceGroup -Name $firstRG -Location southcentralus
 
 New-AzResourceGroupDeployment `
@@ -169,7 +203,7 @@ New-AzResourceGroupDeployment `
 
 # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
-Para implementar dos cuentas de almacenamiento en dos grupos de recursos de la **misma suscripción** , use:
+Para implementar dos cuentas de almacenamiento en dos grupos de recursos de la **misma suscripción**, use:
 
 ```azurecli-interactive
 firstRG="primarygroup"
@@ -184,7 +218,7 @@ az deployment group create \
   --parameters storagePrefix=tfstorage secondResourceGroup=$secondRG secondStorageLocation=eastus
 ```
 
-Para implementar dos cuentas de almacenamiento en **dos suscripciones** , use:
+Para implementar dos cuentas de almacenamiento en **dos suscripciones**, use:
 
 ```azurecli-interactive
 firstRG="primarygroup"
@@ -207,6 +241,76 @@ az deployment group create \
 ```
 
 ---
+
+## <a name="create-resource-group"></a>Creación de un grupo de recursos
+
+En una implementación de grupo de recursos, puede cambiar al nivel de una suscripción y crear un grupo de recursos. La siguiente plantilla implementa una cuenta de almacenamiento en el grupo de recursos de destino y crea un grupo de recursos nuevo en la suscripción especificada.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "storagePrefix": {
+            "type": "string",
+            "maxLength": 11
+        },
+        "newResourceGroupName": {
+            "type": "string"
+        },
+        "nestedSubscriptionID": {
+            "type": "string"
+        },
+        "location": {
+            "type": "string",
+            "defaultValue": "[resourceGroup().location]"
+        }
+    },
+    "variables": {
+        "storageName": "[concat(parameters('storagePrefix'), uniqueString(resourceGroup().id))]"
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Storage/storageAccounts",
+            "apiVersion": "2019-06-01",
+            "name": "[variables('storageName')]",
+            "location": "[parameters('location')]",
+            "sku": {
+                "name": "Standard_LRS"
+            },
+            "kind": "Storage",
+            "properties": {
+            }
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2020-06-01",
+            "name": "demoSubDeployment",
+            "location": "westus",
+            "subscriptionId": "[parameters('nestedSubscriptionID')]",
+            "properties": {
+                "mode": "Incremental",
+                "template": {
+                    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
+                    "contentVersion": "1.0.0.0",
+                    "parameters": {},
+                    "variables": {},
+                    "resources": [
+                        {
+                            "type": "Microsoft.Resources/resourceGroups",
+                            "apiVersion": "2020-06-01",
+                            "name": "[parameters('newResourceGroupName')]",
+                            "location": "[parameters('location')]",
+                            "properties": {}
+                        }
+                    ],
+                    "outputs": {}
+                }
+            }
+        }
+    ]
+}
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 

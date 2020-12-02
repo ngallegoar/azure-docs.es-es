@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: a9423069b917c37e77b70a4466e489918cd330c4
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: a2f46440a4214e298bc6d2f3b9c2b5680437ead7
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92143915"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95522709"
 ---
 # <a name="azure-resource-logs"></a>Registros de recursos de Azure
 Los registros de recursos de Azure son [registros de plataforma](platform-logs-overview.md) que proporcionan información sobre las operaciones que se realizaron en un recurso de Azure. El contenido de estos registros de recurso varía según el servicio de Azure y el tipo de recurso. Los registros de recurso no se recopilan de forma predeterminada. Debe crear una configuración de diagnóstico para cada recurso de Azure con el fin de enviar sus registros de recursos a un área de trabajo Log Analytics que se usará con [registros de Azure Monitor](data-platform-logs.md), Azure Event Hubs para reenviar fuera de Azure o Azure Storage para el archivado.
@@ -54,7 +54,7 @@ La tabla AzureDiagnostics tendrá el siguiente aspecto:
 | … |
 
 ### <a name="resource-specific"></a>Específico del recurso
-En este modo se crean tablas individuales en el área de trabajo seleccionada para cada categoría seleccionada en la configuración de diagnóstico. Se recomienda este método porque facilita el trabajo con los datos en las consultas de registro, proporciona mejor capacidad de detección de esquemas y su estructura, mejora el rendimiento en la latencia de ingesta y en los tiempos de consulta, y ofrece la capacidad de conceder derechos de RBAC en un tabla específica. Todos los servicios de Azure se migrarán finalmente al modo específico del recurso. 
+En este modo se crean tablas individuales en el área de trabajo seleccionada para cada categoría seleccionada en la configuración de diagnóstico. Se recomienda este método porque facilita el trabajo con los datos en las consultas de registro, proporciona mejor capacidad de detección de esquemas y su estructura, mejora el rendimiento en la latencia de ingesta y en los tiempos de consulta, y ofrece la capacidad de conceder derechos de Azure RBAC en un tabla específica. Todos los servicios de Azure se migrarán finalmente al modo específico del recurso. 
 
 En el ejemplo anterior, esto daría lugar a la creación de tres tablas:
  

@@ -4,12 +4,12 @@ description: Obtenga información acerca del esquema del archivo JSON que se pub
 ms.topic: conceptual
 ms.date: 03/31/2017
 ms.subservice: alerts
-ms.openlocfilehash: 0ebaf7f0cc52ac131573226dfff5516581745c67
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 026613c3f5710137fb110153b34f9ed74bbf8a7b
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92104281"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95522794"
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Webhooks para alertas del registro de actividad de Azure
 Como parte de la definición de un grupo de acciones, se pueden configurar puntos de conexión de webhook para recibir notificaciones de alertas del registro de actividad. Los webhooks permiten enrutar estas notificaciones a otros sistemas para su procesamiento posterior o acciones personalizadas. Este artículo muestra el aspecto de la carga útil para HTTP POST a un webhook.
@@ -269,7 +269,7 @@ Para obtener detalles del esquema específico sobre alertas del registro de acti
 | resourceGroupName |Nombre del grupo de recursos del recurso afectado. |
 | properties |Conjunto de pares `<Key, Value>` (es decir, `Dictionary<String, String>`) que incluye detalles sobre el evento. |
 | event |Elemento que contiene metadatos sobre el evento. |
-| authorization |Las propiedades del Control de acceso basado en rol del evento. Estas propiedades normalmente incluyen la acción, el rol y el ámbito. |
+| authorization |Las propiedades del control de acceso basado en rol de Azure del evento. Estas propiedades normalmente incluyen la acción, el rol y el ámbito. |
 | category |Categoría del evento. Los valores admitidos incluyen: Administrative, Alert, Security, ServiceHealth y Recommendation. |
 | caller |Dirección de correo electrónico del usuario que realizó la operación, la notificación de UPN o la notificación de SPN basada en la disponibilidad. Puede ser null para ciertas llamadas del sistema. |
 | correlationId |Normalmente, un GUID en formato de cadena. Los eventos con correlationId pertenecen a la misma acción de mayor tamaño y suelen compartir un campo correlationId. |

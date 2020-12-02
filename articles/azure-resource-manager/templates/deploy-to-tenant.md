@@ -2,13 +2,13 @@
 title: Implementación de recursos en el inquilino
 description: Se describe cómo implementar recursos en el ámbito de un inquilino en una plantilla de Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 10/22/2020
-ms.openlocfilehash: 854ccbd43509b6c0b5a04357844c78c32b7e6396
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.date: 11/24/2020
+ms.openlocfilehash: 5733c5d6eb6cbd86207589244c22badc17fe7073
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92668700"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95807631"
 ---
 # <a name="tenant-deployments-with-arm-templates"></a>Implementaciones de inquilino con plantillas de Resource Manager
 
@@ -36,11 +36,19 @@ Para crear grupos de administración, use:
 
 * [managementGroups](/azure/templates/microsoft.management/managementgroups)
 
+Para crear suscripciones, use:
+
+* [alias](/azure/templates/microsoft.subscription/aliases)
+
 Para la administración de costos, use:
 
 * [billingProfiles](/azure/templates/microsoft.billing/billingaccounts/billingprofiles)
 * [instructions](/azure/templates/microsoft.billing/billingaccounts/billingprofiles/instructions)
 * [invoiceSections](/azure/templates/microsoft.billing/billingaccounts/billingprofiles/invoicesections)
+
+Para configurar el portal, use:
+
+* [tenantConfigurations](/azure/templates/microsoft.portal/tenantconfigurations)
 
 ## <a name="schema"></a>Schema
 
@@ -121,14 +129,22 @@ Para obtener información más detallada sobre los comandos de implementación y
 * [Usar un botón de implementación para implementar plantillas desde el repositorio de GitHub](deploy-to-azure-button.md)
 * [Implementación de plantillas de Resource Manager desde Cloud Shell](deploy-cloud-shell.md)
 
+## <a name="deployment-location-and-name"></a>Ubicación y nombre de la implementación
+
+En el caso de las implementaciones de nivel de inquilino, debe proporcionar una ubicación para la implementación. La ubicación de la implementación es independiente de la ubicación de los recursos que se implementan. La ubicación de implementación especifica dónde se almacenarán los datos de la implementación. Las implementaciones de [suscripción](deploy-to-subscription.md) y [grupo de administración](deploy-to-management-group.md) también requieren una ubicación. En las implementaciones de [grupo de recursos](deploy-to-resource-group.md), la ubicación del grupo de recursos se usa para almacenar los datos de implementación.
+
+Puede proporcionar un nombre para la implementación o usar el nombre de implementación predeterminado. El nombre predeterminado es el nombre del archivo de plantilla. Por ejemplo, al implementar una plantilla llamada **azuredeploy.json**, se crea un nombre de predeterminado **azuredeploy**.
+
+Para cada nombre de implementación, la ubicación es inmutable. No se puede crear una implementación en una ubicación si ya existe una implementación con el mismo nombre en otra ubicación. Por ejemplo, si crea una implementación de inquilino con el nombre **deployment1** en **centralus**, no podrá crear otra implementación con el nombre **deployment1**, sino una ubicación de **westus**. Si recibe el código de error `InvalidDeploymentLocation`, use un nombre diferente o utilice la ubicación de la implementación anterior que tenía ese mismo nombre.
+
 ## <a name="deployment-scopes"></a>Ámbitos de implementación
 
-Al implementar en un grupo de administración, puede implementar los recursos en:
+Al implementar en un inquilino, puede implementar los recursos en:
 
 * el inquilino
 * grupos de administración dentro del inquilino
 * subscriptions
-* grupos de recursos (a través de dos implementaciones anidadas)
+* grupos de recursos
 * se pueden aplicar [recursos de extensión](scope-extension-resources.md) a los recursos
 
 El usuario que implementa la plantilla debe tener acceso al ámbito especificado.
@@ -145,7 +161,7 @@ Los recursos definidos en la sección de recursos de la plantilla se aplican al 
 
 Para establecer como destino un grupo de administración dentro del inquilino, agregue una implementación anidada y especifique la propiedad `scope`.
 
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/tenant-to-mg.json" highlight="10,17,22":::
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/tenant-to-mg.json" highlight="10,17,18,22":::
 
 ### <a name="scope-to-subscription"></a>Ámbito de la suscripción
 
@@ -153,83 +169,27 @@ También puede dirigirse a las suscripciones dentro del inquilino. El usuario qu
 
 Para establecer como destino una suscripción dentro del inquilino, use una implementación anidada y la propiedad `subscriptionId`.
 
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/tenant-to-subscription.json" highlight="10,18":::
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/tenant-to-subscription.json" highlight="9,10,18":::
 
-## <a name="deployment-location-and-name"></a>Ubicación y nombre de la implementación
+### <a name="scope-to-resource-group"></a>Ámbito del grupo de recursos
 
-En el caso de las implementaciones de nivel de inquilino, debe proporcionar una ubicación para la implementación. La ubicación de la implementación es independiente de la ubicación de los recursos que se implementan. La ubicación de implementación especifica dónde se almacenarán los datos de la implementación.
+También puede dirigirse a los grupos de recursos dentro del inquilino. El usuario que implementa la plantilla debe tener acceso al ámbito especificado.
 
-Puede proporcionar un nombre para la implementación o usar el nombre de implementación predeterminado. El nombre predeterminado es el nombre del archivo de plantilla. Por ejemplo, al implementar una plantilla llamada **azuredeploy.json** , se crea un nombre de predeterminado **azuredeploy**.
+Para establecer como destino un grupo de recursos dentro del inquilino, use una implementación anidada. Establezca las propiedades `subscriptionId` y `resourceGroup`. No establezca una ubicación para la implementación anidada porque se implementa en la ubicación del grupo de recursos.
 
-Para cada nombre de implementación, la ubicación es inmutable. No se puede crear una implementación en una ubicación si ya existe una implementación con el mismo nombre en otra ubicación. Si recibe el código de error `InvalidDeploymentLocation`, use un nombre diferente o utilice la ubicación de la implementación anterior que tenía ese mismo nombre.
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/tenant-to-rg.json" highlight="9,10,18":::
 
 ## <a name="create-management-group"></a>Creación de un grupo de administración
 
-La [siguiente plantilla](https://github.com/Azure/azure-quickstart-templates/tree/master/tenant-deployments/new-mg) crea un grupo de administración.
+La siguiente plantilla crea un grupo de administración.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "mgName": {
-      "type": "string",
-      "defaultValue": "[concat('mg-', uniqueString(newGuid()))]"
-    }
-  },
-  "resources": [
-    {
-      "type": "Microsoft.Management/managementGroups",
-      "apiVersion": "2019-11-01",
-      "name": "[parameters('mgName')]",
-      "properties": {
-      }
-    }
-  ]
-}
-```
+:::code language="json" source="~/quickstart-templates/tenant-deployments/new-mg/azuredeploy.json":::
 
 ## <a name="assign-role"></a>Asignación de un rol
 
-La [siguiente plantilla](https://github.com/Azure/azure-quickstart-templates/tree/master/tenant-deployments/tenant-role-assignment) asigna un rol en el ámbito del inquilino.
+La siguiente plantilla asigna un rol en el ámbito del inquilino.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "principalId": {
-      "type": "string",
-      "metadata": {
-        "description": "principalId if the user that will be given contributor access to the resourceGroup"
-      }
-    },
-    "roleDefinitionId": {
-      "type": "string",
-      "defaultValue": "8e3af657-a8ff-443c-a75c-2fe8c4bcb635",
-      "metadata": {
-        "description": "roleDefinition for the assignment - default is owner"
-      }
-    }
-  },
-  "variables": {
-    // This creates an idempotent guid for the role assignment
-    "roleAssignmentName": "[guid('/', parameters('principalId'), parameters('roleDefinitionId'))]"
-  },
-  "resources": [
-    {
-      "name": "[variables('roleAssignmentName')]",
-      "type": "Microsoft.Authorization/roleAssignments",
-      "apiVersion": "2019-04-01-preview",
-      "properties": {
-        "roleDefinitionId": "[tenantResourceId('Microsoft.Authorization/roleDefinitions', parameters('roleDefinitionId'))]",
-        "principalId": "[parameters('principalId')]",
-        "scope": "/"
-      }
-    }
-  ]
-}
-```
+:::code language="json" source="~/quickstart-templates/tenant-deployments/tenant-role-assignment/azuredeploy.json":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: parthpandyaMSFT
 ms.author: parthp
-ms.date: 7/14/2020
-ms.openlocfilehash: 653e6aad7f57b4d683f2f71ed22e402ed5d1fca8
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.date: 11/19/2020
+ms.openlocfilehash: a20c495553dfe9a16c34a2972575d21cc95eef44
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94630301"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95537142"
 ---
 # <a name="microsoft-business-applications-independent-software-vendor-isv-connect-program-onboarding-guide"></a>Guía de incorporación del programa Connect para fabricantes de software independientes (ISV) de Microsoft Business Applications
 
@@ -38,7 +38,7 @@ La participación en este programa requiere que revise y acepte el [anexo de Bus
 > Este paso requiere un rol de *Propietario* o *Administrador* en el Centro de partners para poder firmar contratos legales con su cuenta.
 
 1. Inicie sesión en el [Centro de partners](https://partner.microsoft.com/dashboard).
-1. Seleccione **Configuración** (icono de engranaje) y, luego, **Developer Settings** (Configuración de desarrollador).
+1. Seleccione **Configuración** (icono de engranaje) > **Configuración de la cuenta**.
 1. Seleccione **Acuerdos**.
 1. Seleccione el vínculo de la versión y consulte el contrato.
 1. Para aceptar el acuerdo, seleccione **Aceptar el Contrato**.
@@ -51,8 +51,8 @@ Configure la información de facturación para el programa Connect para ISV de B
 > Este paso requiere un rol de *Propietario* o *Administrador* en el Centro de partners para poder actualizar la información de facturación con su cuenta.
 
 1. Inicie sesión en el [Centro de partners](https://partner.microsoft.com/dashboard).
-1. Seleccione **Configuración** (icono de engranaje) y, luego, **Developer Settings** (Configuración de desarrollador).
-1. En **Configuración de la cuenta**, seleccione **Perfil de facturación**.
+1. Seleccione **Configuración** (icono de engranaje) > **Configuración de la cuenta**.
+1. En **Perfil de la organización**, seleccione **Perfil de facturación** y, a continuación, la pestaña **Desarrollador**.
 1. Revise la información del contacto principal y de facturación que se ha rellenado a partir de la entidad legal.
 1. Para realizar cambios, seleccione **Actualizar**.
 1. Si procede, proporcione la configuración del código o número de identificación fiscal.

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 10/05/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 61bff59114d25b2f3167a34100ec2f742036bb90
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: d39d72a79d4b273918986d0d350df4706592c77d
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94663353"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95503183"
 ---
 # <a name="header-based-single-sign-on-for-on-premises-apps-with-azure-ad-app-proxy-preview"></a>Inicio de sesión único basado en encabezados para aplicaciones locales con App Proxy de Azure AD (versión preliminar)
 
@@ -85,7 +85,7 @@ Antes de empezar a trabajar con el inicio de sesión único para aplicaciones ba
 ## <a name="test-your-app"></a>Prueba de la aplicación 
 
 Una vez realizados todos los pasos, la aplicación debería estar ejecutándose y disponible. Para probar la aplicación: 
-1. Abra un explorador y vaya a  **Dirección URL externa**  desde la configuración de Application Proxy. 
+1. Abra una nueva ventana normal o privada del explorador para asegurarse de que los encabezados previamente almacenados en caché se hayan borrado. A continuación, vaya a  **Dirección URL externa**  desde la configuración de Application Proxy.
 2. Inicie sesión con la cuenta de prueba que asignó a la aplicación. Si puede cargar la aplicación e iniciar sesión en ella mediante SSO, ha terminado. 
 
 

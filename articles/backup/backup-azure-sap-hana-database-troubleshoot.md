@@ -3,12 +3,12 @@ title: Solución de problemas de errores de copia de seguridad de bases de datos
 description: En este artículo se describe cómo se solucionan los errores comunes que pueden producirse al usar Azure Backup para realizar copias de seguridad de bases de datos de SAP HANA.
 ms.topic: troubleshooting
 ms.date: 11/7/2019
-ms.openlocfilehash: 5cdad55ef849b9ced31646466e2c2c170ebf0827
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b9fa73ee38e337a547816432212bc68d419f40bb
+ms.sourcegitcommit: 1d366d72357db47feaea20c54004dc4467391364
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89377691"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95411332"
 ---
 # <a name="troubleshoot-backup-of-sap-hana-databases-on-azure"></a>Solución de problemas al realizar copias de seguridad de bases de datos de SAP HANA en Azure
 
@@ -153,7 +153,7 @@ Las actualizaciones del sistema operativo, el cambio de versión de SDC o el cam
 - Asegúrese de que la nueva versión del sistema operativo, de SDC o de MDC [sea compatible actualmente con Azure Backup](sap-hana-backup-support-matrix.md#scenario-support).
 - [Detenga la protección de datos con la conservación de datos](sap-hana-db-manage.md#stop-protection-for-an-sap-hana-database) para la base de datos.
 - Realice la actualización.
-- Vuelva a ejecutar el script de registro previo. Normalmente, el proceso de actualización elimina los roles necesarios. La ejecución del script de registro previo le ayudará a comprobar todos los roles necesarios.
+- Vuelva a ejecutar el script de registro previo. A menudo, el proceso de actualización puede eliminar los [roles necesarios](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does). La ejecución del script de registro previo le ayudará a comprobar todos los roles necesarios.
 - Reanude la protección de la base de datos nuevamente.
 
 ## <a name="sdc-to-mdc-upgrade-with-no-change-in-sid"></a>Actualización de SDC a MDC sin cambios en el SID

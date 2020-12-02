@@ -2,19 +2,19 @@
 title: Incorporación de herramientas de migración en Azure Migrate
 description: Aprenda a agregar herramientas de migración en Azure Migrate.
 ms.topic: article
-ms.date: 04/26/2020
-ms.openlocfilehash: b6ac8ed64d3f12783cc16f0428874a19d027adf9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/23/2020
+ms.openlocfilehash: 5ff5fb54e077896fb6169ad53ce29483cd2c2f89
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86109814"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95545341"
 ---
 # <a name="add-migration-tools"></a>Incorporación de herramientas de migración
 
 En este artículo se describe cómo agregar herramientas de migración en [Azure Migrate](./migrate-services-overview.md).
 
-- Si quiere agregar una herramienta de migración y todavía no ha configurado un proyecto de Azure Migrate, consulte este [artículo](how-to-add-tool-first-time.md).
+- Si quiere agregar una herramienta de migración y todavía no ha configurado un proyecto de Azure Migrate, consulte este [artículo](create-manage-projects.md).
 - Si ha agregado una herramienta de ISV para la migración, [siga los pasos](prepare-isv-movere.md) de preparación para trabajar con la herramienta.
 
 ## <a name="select-a-migration-scenario"></a>Selección de un escenario de migración
@@ -23,46 +23,69 @@ En este artículo se describe cómo agregar herramientas de migración en [Azure
 2. Seleccione el escenario de migración que quiere usar:
 
     - Para migrar máquinas y cargas de trabajo a Azure, seleccione **Evaluar y migrar servidores**.
-    - Para migrar bases de datos de SQL Server locales, seleccione **Evaluar y migrar bases de datos**.
-    - Para migrar aplicaciones web locales, seleccione **Evaluar y migrar aplicaciones web**.
-    - Para migrar grandes cantidades de datos locales a Azure en el modo sin conexión, seleccione **Solicitar una instancia de Data Box**.
+    - Para migrar bases de datos locales, seleccione **Evaluar y migrar bases de datos**.
+    - Para migrar aplicaciones web locales, seleccione **Explorar más** > **Aplicaciones web**.
+    - Para migrar datos a Azure mediante Data Box, seleccione **Explorar más** > **Data Box**.
 
-    ![Escenario de valoración](./media/how-to-migrate/assess-scenario.png)
+    ![Opciones para seleccionar un escenario de migración](./media/how-to-migrate/migrate-scenario.png)
+
 
 ## <a name="select-a-server-migration-tool"></a>Selección de una herramienta de migración de servidores
 
-1. Haga clic en **Evaluar y migrar servidores**.
-2. En **Azure Migrate - Servidores**, si aún no ha agregado una herramienta de migración, vaya a **Herramientas de migración** y seleccione **Click here to add a migration tool** (Haga clic aquí para agregar una herramienta de migración). Si ya ha agregado herramientas, en **¿Quiere agregar más herramientas de migración?** , seleccione **Cambiar**.
+1. Agregue una herramienta:
 
-    > [!NOTE]
-    > Si necesita desplazarse a otro proyecto, en **Azure Migrate - Servidores**, junto a **¿Quiere ver los detalles de un proyecto de migración diferente?** , seleccione **Haga clic aquí**.
+    - Si creó un proyecto de Azure Migrate a través de la opción **Evaluar y migrar servidores** en el portal, la herramienta Azure Migrate Server Migration se agrega automáticamente al proyecto. Para agregar más herramientas de migración, en **Servidores**, junto a **Herramientas de migración**, seleccione **Agregar más herramientas**.
+    
+         ![Botón para agregar herramientas de migración adicionales](./media/how-to-migrate/add-migration-tools.png)
 
-3. En **Azure Migrate**, seleccione la herramienta de migración que quiere usar.
-    - Si usa Azure Migrate Server Migration, puede configurar y ejecutar las migraciones directamente en el proyecto de Azure Migrate.
-    - Si usa una herramienta de valoración de terceros, vaya al vínculo proporcionado para el ISV y ejecute la migración de acuerdo con las instrucciones que se proporcionan.
+    - Si creó un proyecto con una opción diferente y aún no tiene ninguna herramienta de migración, en **Servidores** > **Herramientas de migración**, seleccione **Haga clic aquí**.
+
+    ![Botón para agregar las primeras herramientas de migración](./media/how-to-migrate/no-migration-tool.png)
+
+2. En **Azure Migrate** > **Agregar herramientas**, seleccione las herramientas que quiera agregar. A continuación, seleccione **Agregar herramienta**.
+
+    ![Selección de una herramienta de evaluación de la lista](./media/how-to-migrate/select-migration-tool.png)
+
 
 ## <a name="select-a-database-migration-tool"></a>Selección de una herramienta de migración de bases de datos
 
-1. Haga clic en **Evaluar y migrar bases de datos**.
-2. En **Bases de datos**, haga clic en **Agregar herramientas**.
-3. En Agregar una herramienta > **Seleccione una herramienta de migración**, elija la herramienta que quiere usar para migrar la base de datos.
+Si creó un proyecto de Azure Migrate a través de la opción **Evaluar y migrar bases de datos** en el portal, la herramienta Database Migration se agrega automáticamente al proyecto. 
+
+1. Si la herramienta Database Migration no se encuentra en el proyecto, en **Bases de datos** > **Herramientas de evaluación**, seleccione **Haga clic aquí**.
+    
+    ![Adición de herramientas de migración de base de datos](./media/how-to-migrate/no-database-migration-tool.png)
+
+
+2. En **Azure Migrate** > **Agregar herramientas**, seleccione la herramienta Database Migration. A continuación, seleccione **Agregar herramienta**.
+
+    ![Selección de la herramienta de migración de bases de datos de la lista](./media/how-to-migrate/select-database-migration-tool.png)
+
+    
 
 ## <a name="select-a-web-app-migration-tool"></a>Selección de una herramienta de migración de aplicaciones web
 
-1. Haga clic en **Evaluar y migrar aplicaciones web**.
-2. Siga el vínculo a la herramienta de migración para Azure App Service. Use la herramienta de migración para:
+Si creó un proyecto de Azure Migrate a través de la opción **Explorar más** > **Web Apps** en el portal, la herramienta Web App Migration se agrega automáticamente al proyecto. 
 
-    - **Evaluar aplicaciones web en línea**: puede evaluar y migrar las aplicaciones con una dirección URL pública en línea mediante Migration Assistant de Azure App Service.
-    - **.NET/PHP**: para las aplicaciones .NET y PHP internas, puede descargar y ejecutar Migration Assistant.
+1. Si la herramienta Web App Migration no está en el proyecto, en **Web Apps** > **Herramientas de evaluación**, seleccione **Haga clic aquí**.
+
+    ![Adición de herramientas de migración de aplicaciones web](./media/how-to-migrate/no-web-app-migration-tool.png)
+ 
+
+2. En **Azure Migrate** > **Agregar herramientas**, seleccione la herramienta Web App Migration. A continuación, seleccione **Agregar herramienta**.
+
+    ![Selección de herramientas de evaluación de aplicaciones web de la lista](./media/how-to-migrate/select-web-app-migration-tool.png)
+
 
 ## <a name="order-an-azure-data-box"></a>Solicitud de una instancia de Azure Data Box
 
 Para migrar grandes cantidades de datos a Azure, puede solicitar una instancia de Azure Data Box para la transferencia de datos sin conexión.
 
-1. Haga clic en **Solicitar una instancia de Data Box**.
-2. En **Seleccione su instancia de Azure Data Box**, especifique su suscripción. 
-3. La transferencia será una importación a Azure. Especifique el origen de datos y la región de Azure de destino para los datos.
+1. En **Información general**, seleccione **Explorar más**.
+2. En **Explorar más**, seleccione **Data Box**.
+3. En **Introducción a Data Box**, seleccione la suscripción y el grupo de recursos que quiere usar para solicitar una instancia de Data Box.
+4. El **Tipo de transferencia** es una importación a Azure. Especifique el país en el que residen los datos y la región de Azure a la que quiere transferir los datos. 
+5. Haga clic en **Aplicar** para guardar la configuración.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Pruebe la migración con Azure Migrate Server Migration para máquinas virtuales de [Hyper-V](tutorial-migrate-hyper-v.md) o [VMware](tutorial-migrate-vmware.md).
+Pruebe la migración con la herramienta Azure Migrate Server Migration para máquinas virtuales de [Hyper-V](tutorial-migrate-hyper-v.md) o [VMware](tutorial-migrate-vmware.md).

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/03/2020
-ms.openlocfilehash: 1c0247c5adfe60dc2436c832cf3d561882ae3a5d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7ce0aea6bb257f0a52a843ce53cc904ed0a775dd
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91760168"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95536207"
 ---
 # <a name="audit-queries-in-azure-monitor-logs-preview"></a>Auditoría de las consultas en los registros de Azure Monitor (versión preliminar)
 Los registros de auditoría de las consultas de registro proporcionan datos de telemetría sobre la ejecución de consultas de registro en Azure Monitor. Esto incluye información como cuándo se ejecutó una consulta, quién la ejecutó, qué herramienta se usó, el texto de la consulta y las estadísticas de rendimiento que describen la ejecución de la consulta.
@@ -66,7 +66,7 @@ Cada vez que se ejecuta una consulta, se crea un registro de auditoría. Si env�
 
 - Las consultas solo se registran cuando se ejecutan en un contexto de usuario. No se registrará ningún servicio a servicio dentro de Azure. Los dos conjuntos principales de consultas que engloba esta exclusión son los cálculos de facturación y las ejecuciones de alertas automatizadas. En el caso de las alertas, solo la consulta de alerta programada no se registrará; la ejecución inicial de la alerta en la pantalla de creación de alertas se ejecuta en un contexto de usuario y estará disponible para auditorías. 
 - Las estadísticas de rendimiento no están disponibles para las consultas que provienen del proxy de Azure Data Explorer. El resto de los datos de estas consultas se seguirán rellenando.
-- La sugerencia *h* en las cadenas que [ofuscan literales de cadena](/azure/data-explorer/kusto/query/scalar-data-types/string#obfuscated-string-literals) no afectará a los registros de auditoría de consulta. Las consultas se capturarán exactamente como se enviaron sin la cadena que se ofusca. Debe asegurarse de que solo los usuarios que tienen derechos de cumplimiento para ver estos datos pueden hacerlo; para ello, use los distintos modos de RBAC disponibles en las áreas de trabajo de Log Analytics.
+- La sugerencia *h* en las cadenas que [ofuscan literales de cadena](/azure/data-explorer/kusto/query/scalar-data-types/string#obfuscated-string-literals) no afectará a los registros de auditoría de consulta. Las consultas se capturarán exactamente como se enviaron sin la cadena que se ofusca. Debe asegurarse de que solo los usuarios que tienen derechos de cumplimiento para ver estos datos pueden hacerlo; para ello, use los distintos modos de RBAC de Kubernetes o Azure RBAC disponibles en las áreas de trabajo de Log Analytics.
 - En el caso de las consultas que incluyen datos de varias áreas de trabajo, la consulta solo se capturará en las áreas de trabajo a las que el usuario tenga acceso.
 
 ## <a name="costs"></a>Costos  

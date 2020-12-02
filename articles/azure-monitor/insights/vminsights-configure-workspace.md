@@ -7,12 +7,12 @@ ms.custom: references_regions
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: a7bdc1ee22d3672160122cad65b18de99f743cc7
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: a4380ae7fdb523f8b2f5bc14fefa094b6d96e547
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94747696"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95750541"
 ---
 # <a name="configure-log-analytics-workspace-for-azure-monitor-for-vms"></a>Configuración del área de trabajo de Log Analytics para Azure Monitor para VM
 Azure Monitor para VM recopila sus datos de una o varias áreas de trabajo de Log Analytics en Azure Monitor. Antes de incorporar agentes, debe crear y configurar un área de trabajo. En este artículo se describen los requisitos del área de trabajo y cómo configurarla para Azure Monitor para VM.
@@ -68,7 +68,7 @@ Azure Monitor para VM admite áreas de trabajo de Log Analytics en las siguiente
 - Este de Australia
 - Sudeste de Australia
 
-## <a name="role-based-access-control"></a>Control de acceso basado en rol
+## <a name="azure-role-based-access-control"></a>Control de acceso basado en roles de Azure
 Para habilitar y obtener acceso a las características de Azure Monitor para VM, debe tener el rol de [colaborador de Log Analytics](../platform/manage-access.md#manage-access-using-azure-permissions) en el área de trabajo. Para ver los datos de rendimiento, mantenimiento y el mapa, debe tener el [rol de lector de supervisión](../platform/roles-permissions-security.md#built-in-monitoring-roles) en la máquina virtual de Azure. Para más información acerca de cómo controlar el acceso a un área de trabajo de Log Analytics, consulte [Administración de áreas de trabajo](../platform/manage-access.md).
 
 ## <a name="add-vminsights-solution-to-workspace"></a>Incorporación de la solución VMInsights al área de trabajo
@@ -80,7 +80,7 @@ Antes de que se pueda utilizar un área de trabajo de Log Analytics con Azure Mo
 ### <a name="azure-portal"></a>Azure portal
 Existen tres opciones para configurar un área de trabajo existente mediante Azure Portal. Cada una se describe a continuación.
 
-Para configurar una única área de trabajo, seleccione **Otras opciones de incorporación** y, a continuación, **Configurar un área de trabajo**. Seleccione una suscripción y un área de trabajo y, a continuación, haga clic en **Configurar**.
+Para configurar una sola área de trabajo, vaya a la opción **Máquinas virtuales** en el menú **Azure Monitor**, seleccione **Other onboarding options** (Otras opciones de incorporación) y, a continuación, **Configurar un área de trabajo**. Seleccione una suscripción y un área de trabajo y, a continuación, haga clic en **Configurar**.
 
 [![Configuración del área de trabajo](media/vminsights-enable-at-scale-policy/configure-workspace.png)](media/vminsights-enable-at-scale-policy/configure-workspace.png#lightbox)
 

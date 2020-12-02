@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 09/04/2020
 ms.author: deanwe
-ms.openlocfilehash: 2b8009d6d571a9daf7163d2126b6d52edfc4bfdd
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 001721ac0fdbbaaf808b962a79353369ab1dddb5
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92521091"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95521961"
 ---
 # <a name="azure-automanage-for-virtual-machines-best-practices"></a>Procedimientos recomendados de Azure Automanage para máquinas virtuales
 
@@ -33,6 +33,7 @@ Todos estos servicios se incorporarán y configurarán automáticamente, se supe
 |Microsoft Antimalware    |Microsoft Antimalware para Azure es una protección gratuita en tiempo real que ayuda a identificar y eliminar virus, spyware y otro software malintencionado. Genera alertas cuando software no deseado o malintencionado intenta instalarse o ejecutarse en los sistemas de Azure. [Más información](../security/fundamentals/antimalware.md). |Procedimientos recomendados de Azure Virtual Machines: producción; procedimientos recomendados de Azure Virtual Machines: desarrollo/pruebas    |Sí    |
 |Administración de actualizaciones    |Use Update Management en Azure Automation para administrar las actualizaciones del sistema operativo de las máquinas virtuales. Puede evaluar rápidamente el estado de las actualizaciones disponibles en todas las máquinas agente y administrar el proceso de instalación de las actualizaciones necesarias para los servidores. [Más información](../automation/update-management/update-mgmt-overview.md).    |Procedimientos recomendados de Azure Virtual Machines: producción; procedimientos recomendados de Azure Virtual Machines: desarrollo/pruebas    |No    |
 |Change Tracking e Inventario    |Change Tracking e Inventario combina funciones de inventario y seguimiento de cambios que le permiten realizar un seguimiento de los cambios en la infraestructura de servidores y máquinas virtuales. El servicio admite el seguimiento de cambios en el registro, servicios, demonios, software y archivos del entorno para ayudarle a diagnosticar cambios no deseados y generar alertas. La compatibilidad con inventario le permite consultar recursos de los invitados para obtener una visualización de las aplicaciones instaladas y otros elementos de configuración.  [Más información](../automation/change-tracking/overview.md).    |Procedimientos recomendados de Azure Virtual Machines: producción; procedimientos recomendados de Azure Virtual Machines: desarrollo/pruebas    |No    |
+|Configuración de invitado de Azure    | La directiva de configuración de invitado se usa para supervisar la configuración y notificar sobre el cumplimiento de la máquina. El servicio de Automanage instalará las [líneas base de seguridad de Windows](https://docs.microsoft.com/windows/security/threat-protection/windows-security-baselines) con la extensión de configuración de invitado. [Más información](../governance/policy/concepts/guest-configuration.md).    |Procedimientos recomendados de Azure Virtual Machines: producción; procedimientos recomendados de Azure Virtual Machines: desarrollo/pruebas    |No    |
 |Cuenta de Azure Automation    |Azure Automation permite la administración de la infraestructura y las aplicaciones a lo largo de su ciclo de vida. [Más información](../automation/automation-intro.md).    |Procedimientos recomendados de Azure Virtual Machines: producción; procedimientos recomendados de Azure Virtual Machines: desarrollo/pruebas    |No    |
 |Área de trabajo de Log Analytics    |Azure Monitor almacena los datos de registro en un área de trabajo de Log Analytics, que es un recurso de Azure y un contenedor en el que los datos se recopilan y se agregan, y que sirve como límite administrativo. [Más información](../azure-monitor/platform/design-logs-deployment.md).    |Procedimientos recomendados de Azure Virtual Machines: producción; procedimientos recomendados de Azure Virtual Machines: desarrollo/pruebas    |No    |
 

@@ -3,18 +3,18 @@ title: Migración de un recurso clásico de Application Insights de Azure Moni
 description: Obtenga información sobre los pasos necesarios para actualizar un recurso clásico de Application Insights de Azure Monitor al nuevo modelo basado en áreas de trabajo.
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 0d2c7d1b9ee57e6d201205c04557e1b5f5623eb0
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 709cff1326bb6393a14c594ea434a6c16fb80860
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91930585"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95536530"
 ---
 # <a name="migrate-to-workspace-based-application-insights-resources"></a>Migración a recursos de Application Insights basados en áreas de trabajo
 
 Esta guía le orienta a lo largo del proceso de migración de un recurso clásico de Application Insights a un recurso basado en áreas de trabajo. Los recursos basados en área de trabajo permiten la integración completa entre Application Insights y Log Analytics. Los recursos basados en áreas de trabajo envían telemetría de Application Insights a un área de trabajo común de Log Analytics, lo que permite el acceso a las [características más recientes de Azure Monitor](#new-capabilities), a la vez que se mantienen los registros de aplicación, infraestructura y plataforma en una única ubicación consolidada.
 
-Los recursos basados en áreas de trabajo permiten el control de acceso basado en rol (RBAC) común en los recursos y eliminan la necesidad de consultas entre aplicaciones y áreas de trabajo.
+Los recursos basados en áreas de trabajo permiten el control de acceso basado en rol de Azure (Azure RBAC) común en los recursos y eliminan la necesidad de consultas entre aplicaciones y áreas de trabajo.
 
 **Los recursos basados en áreas de trabajo están disponibles actualmente en todas las regiones comerciales y en Azure US Government**
 

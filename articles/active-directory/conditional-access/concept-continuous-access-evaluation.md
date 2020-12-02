@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ca23c1503b01c1aa9523edc2576599d7b6ab458
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 706fa1666dc327955294fb350b673aed40d6bf48
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91992804"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95520669"
 ---
 # <a name="continuous-access-evaluation"></a>Evaluación continua de acceso
 
@@ -26,7 +26,9 @@ Los clientes han manifestado dudas sobre el retraso entre el momento en que camb
 
 La respuesta oportuna a las infracciones de las directivas o a los problemas de seguridad requiere realmente una "conversación" entre el emisor del token, como Azure AD, y el usuario de confianza, como Exchange Online. Esta conversación bidireccional nos proporciona dos funcionalidades importantes. El usuario de confianza puede advertir cuándo han cambiado las cosas, como un cliente que procede de una nueva ubicación, e indicárselo al emisor del token. También proporciona al emisor del token una manera de indicar al usuario de confianza que deje de respetar los tokens de un usuario determinado debido a que la cuenta esté en peligro, se haya deshabilitado u otros problemas. El mecanismo para esta conversación es la evaluación continua de acceso (CAE). Aunque el objetivo es que la respuesta sea casi en tiempo real, en algunos casos se puede observar una latencia de hasta 15 minutos debido al tiempo de propagación de los eventos.
 
-La implementación inicial de la evaluación continua de acceso se centra en Exchange, Teams y SharePoint Online. 
+La implementación inicial de la evaluación continua de acceso se centra en Exchange, Teams y SharePoint Online.
+
+Para preparar las aplicaciones para el uso de CAE, consulte [Uso de las API habilitadas para la evaluación continua de acceso en las aplicaciones](/develop/app-resilience-continuous-access-evaluation.md).
 
 ### <a name="key-benefits"></a>Ventajas principales
 
@@ -140,7 +142,7 @@ En esta página, puede limitar opcionalmente los usuarios y grupos que estarán 
 En el caso de CAE, solo tenemos información sobre ubicaciones con nombre basadas en IP. No tenemos información sobre otras opciones de configuración de ubicación, como las [direcciones IP de confianza de MFA](../authentication/howto-mfa-mfasettings.md#trusted-ips) o las ubicaciones basadas en países. Cuando el usuario procede de una dirección IP de confianza de MFA o de ubicaciones de confianza que incluyen las direcciones IP de confianza de MFA o la ubicación de país, CAE no se aplica después de que el usuario se mueva a otra ubicación. En esos casos, se emitirá un token de CAE de 1 hora sin comprobación de cumplimiento de IP instantánea.
 
 > [!IMPORTANT]
-> Al configurar ubicaciones para la evaluación continua de acceso, use solo la [condición de ubicación de acceso condicional basado en IP](../conditional-access/location-condition.md#preview-features) y configure todas las direcciones IP, **incluidas las IPv4 e IPv6**, que el proveedor de identidades y el proveedor de recursos podrán ver. No use condiciones de ubicación de país o la característica de direcciones IP de confianza que está disponible en la página de configuración del servicio Azure Multi-Factor Authentication.
+> Al configurar ubicaciones para la evaluación continua de acceso, use solo la [condición de ubicación de acceso condicional basado en IP](../conditional-access/location-condition.md#preview-features) y configure todas las direcciones IP, **incluidas las IPv4 e IPv6**, que el proveedor de identidades y el proveedor de recursos podrán ver. No use condiciones de ubicación de país o la característica de direcciones IP de confianza que está disponible en la página de configuración del servicio Multi-Factor Authentication de Azure AD.
 
 ### <a name="ip-address-configuration"></a>Configuración de dirección IP
 

@@ -2,13 +2,13 @@
 title: Implementación de recursos en una suscripción
 description: Se describe cómo crear un grupo de recursos en una plantilla de Azure Resource Manager. También se muestra cómo implementar recursos en el ámbito de la suscripción de Azure.
 ms.topic: conceptual
-ms.date: 10/26/2020
-ms.openlocfilehash: 7b0edde4f3571255e92c65d82429b4ddd1a689b8
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.date: 11/24/2020
+ms.openlocfilehash: 2d4bd0db32a4bf0224b9da3af6e03ca86d7b496e
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92668879"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95807704"
 ---
 # <a name="subscription-deployments-with-arm-templates"></a>Implementaciones de suscripción con plantillas de Resource Manager
 
@@ -126,25 +126,41 @@ Para obtener información más detallada sobre los comandos y las opciones de im
 * [Usar un botón de implementación para implementar plantillas desde el repositorio de GitHub](deploy-to-azure-button.md)
 * [Implementación de plantillas de Resource Manager desde Cloud Shell](deploy-cloud-shell.md)
 
+## <a name="deployment-location-and-name"></a>Ubicación y nombre de la implementación
+
+En el caso de las implementaciones de nivel de suscripción, debe proporcionar una ubicación para la implementación. La ubicación de la implementación es independiente de la ubicación de los recursos que se implementan. La ubicación de implementación especifica dónde se almacenarán los datos de la implementación. Las implementaciones de [grupo de administración](deploy-to-management-group.md) e [inquilino](deploy-to-tenant.md) también requieren una ubicación. En las implementaciones de [grupo de recursos](deploy-to-resource-group.md), la ubicación del grupo de recursos se usa para almacenar los datos de implementación.
+
+Puede proporcionar un nombre para la implementación o usar el nombre de implementación predeterminado. El nombre predeterminado es el nombre del archivo de plantilla. Por ejemplo, al implementar una plantilla llamada **azuredeploy.json**, se crea un nombre de predeterminado **azuredeploy**.
+
+Para cada nombre de implementación, la ubicación es inmutable. No se puede crear una implementación en una ubicación si ya existe una implementación con el mismo nombre en otra ubicación. Por ejemplo, si crea una implementación de suscripción con el nombre **deployment1** en **centralus**, no podrá crear otra implementación con el nombre **deployment1**, sino una ubicación de **westus**. Si recibe el código de error `InvalidDeploymentLocation`, use un nombre diferente o utilice la ubicación de la implementación anterior que tenía ese mismo nombre.
+
 ## <a name="deployment-scopes"></a>Ámbitos de implementación
 
 Al implementar en una suscripción, puede implementar los recursos en:
 
 * la suscripción de destino de la operación
-* grupos de recursos de la suscripción
+* cualquier suscripción en el inquilino
+* grupos de recursos en la suscripción o en otras
+* inquilino para la suscripción
 * se pueden aplicar [recursos de extensión](scope-extension-resources.md) a los recursos
 
-No puede realizar la suscripción en una suscripción diferente de la de destino. El usuario que implementa la plantilla debe tener acceso al ámbito especificado.
+El usuario que implementa la plantilla debe tener acceso al ámbito especificado.
 
-En esta sección se muestra cómo especificar ámbitos diferentes. Puede combinar estos ámbitos diferentes en una sola plantilla.
+En esta sección se muestra cómo especificar distintos ámbitos. Puede combinar estos distintos ámbitos en una sola plantilla.
 
-### <a name="scope-to-subscription"></a>Ámbito de la suscripción
+### <a name="scope-to-target-subscription"></a>Ámbito de la suscripción de destino
 
 Para implementar recursos en la suscripción de destino, agregue esos recursos a la sección de recursos de la plantilla.
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/default-sub.json" highlight="5":::
 
 Para obtener ejemplos de cómo implementar en la suscripción, vea [Creación de grupos de recursos](#create-resource-groups) y [Asignación de definición de directiva](#assign-policy-definition).
+
+### <a name="scope-to-other-subscription"></a>Ámbito de otra suscripción
+
+Para implementar recursos en una suscripción diferente de la suscripción de la operación, agregue una implementación anidada. Establezca la propiedad `subscriptionId` en el id. de la suscripción en la que quiere realizar la implementación. Establezca la propiedad `location` para la implementación anidada.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/sub-to-sub.json" highlight="9,10,14":::
 
 ### <a name="scope-to-resource-group"></a>Ámbito del grupo de recursos
 
@@ -154,13 +170,17 @@ Para implementar recursos en un grupo de recursos dentro de la suscripción, agr
 
 Para obtener un ejemplo de cómo implementar en un grupo de recursos, vea [Creación de un grupo de recursos y recursos](#create-resource-group-and-resources).
 
-## <a name="deployment-location-and-name"></a>Ubicación y nombre de la implementación
+### <a name="scope-to-tenant"></a>Ámbito del inquilino
 
-En el caso de las implementaciones de nivel de suscripción, debe proporcionar una ubicación para la implementación. La ubicación de la implementación es independiente de la ubicación de los recursos que se implementan. La ubicación de implementación especifica dónde se almacenarán los datos de la implementación.
+Puede crear recursos en el inquilino al establecer `scope` en `/`. El usuario que implementa la plantilla debe tener el [acceso necesario para realizar implementaciones en el inquilino](deploy-to-tenant.md#required-access).
 
-Puede proporcionar un nombre para la implementación o usar el nombre de implementación predeterminado. El nombre predeterminado es el nombre del archivo de plantilla. Por ejemplo, al implementar una plantilla llamada **azuredeploy.json** , se crea un nombre de predeterminado **azuredeploy**.
+Puede usar una implementación anidada con los valores de `scope` y `location` establecidos.
 
-Para cada nombre de implementación, la ubicación es inmutable. No se puede crear una implementación en una ubicación si ya existe una implementación con el mismo nombre en otra ubicación. Si recibe el código de error `InvalidDeploymentLocation`, use un nombre diferente o utilice la ubicación de la implementación anterior que tenía ese mismo nombre.
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/subscription-to-tenant.json" highlight="9,10,14":::
+
+O bien, puede establecer el ámbito en `/` para algunos tipos de recursos, como los grupos de administración.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/subscription-create-mg.json" highlight="12,15":::
 
 ## <a name="resource-groups"></a>Grupos de recursos
 

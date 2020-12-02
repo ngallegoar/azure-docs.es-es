@@ -7,12 +7,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 03/15/2020
 ms.author: matjazl
-ms.openlocfilehash: c62593251cb0e19c91d1c4877d1b33fe407ebd06
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 096e4e3ecbcedaec674e074a2baccbb336e03c94
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87847013"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95524205"
 ---
 # <a name="configure-local-rbac-for-fhir"></a>Configuración de RBAC local para FHIR 
 
@@ -23,7 +23,7 @@ En este artículo se explica cómo configurar Azure API for FHIR para usar un in
 
 ## <a name="add-service-principal"></a>Agregar entidad de servicio
 
-RBAC local permite usar un inquilino de Azure Active Directory externo con el servidor de FHIR. Para que el sistema RBAC pueda comprobar las pertenencias a grupos en este inquilino, Azure API for FHIR debe tener una entidad de servicio en el inquilino. Esta entidad de servicio se crea automáticamente en los inquilinos vinculados a las suscripciones que han implementado Azure API for FHIR, pero si el inquilino no tiene ninguna suscripción vinculada, un administrador de inquilinos tiene que crear esta entidad de servicio con uno de los siguientes comandos:
+RBAC local permite usar un inquilino de Azure Active Directory externo con el servidor de FHIR. Para que el sistema RBAC local pueda comprobar las pertenencias a grupos en este inquilino, Azure API for FHIR debe tener una entidad de servicio en el inquilino. Esta entidad de servicio se crea automáticamente en los inquilinos vinculados a las suscripciones que han implementado Azure API for FHIR, pero si el inquilino no tiene ninguna suscripción vinculada, un administrador de inquilinos tiene que crear esta entidad de servicio con uno de los siguientes comandos:
 
 Con el módulo de PowerShell `Az`:
 

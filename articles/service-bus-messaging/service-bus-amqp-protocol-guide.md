@@ -3,26 +3,26 @@ title: Guía del protocolo AMQP 1.0 en Azure Service Bus y Event Hubs | Microsof
 description: Guía del protocolo para expresiones y la descripción de AMQP 1.0 en Azure Service Bus y Event Hubs
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: ffccd49d37dbf2a8fc404e9895b648e53007675c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e001327c2c7da08cb9a3552f97fc9a7d8b7921a2
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88064543"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95736721"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>Guía del protocolo AMQP 1.0 Azure Service Bus y Event Hubs
 
-Advanced Message Queueing Protocol 1.0 es un protocolo de tramas y transferencia estandarizado para transferir mensajes de forma asincrónica, segura y confiable entre dos partes. Es el principal protocolo de Azure Service Bus Messaging y Azure Event Hubs. Ambos servicios también admiten HTTPS. El protocolo SBMP propietario, que también se admite, está desapareciendo en favor de AMQP.
+Advanced Message Queueing Protocol 1.0 es un protocolo de tramas y transferencia estandarizado para transferir mensajes de forma asincrónica, segura y confiable entre dos partes. Es el principal protocolo de Azure Service Bus Messaging y Azure Event Hubs.  
 
-AMQP 1.0 es el resultado de una amplia colaboración del sector que reunió a proveedores de middleware, como Microsoft y Red Hat, con muchos usuarios de middleware de mensajería, como JP Morgan Chase, que representa al sector de los servicios financieros. El foro de normalización técnica para las especificaciones del protocolo AMQP y la extensión es OASIS, y ha logrado la aprobación formal como estándar internacional como ISO/IEC 19494.
+AMQP 1.0 es el resultado de una amplia colaboración del sector que reunió a proveedores de middleware, como Microsoft y Red Hat, con muchos usuarios de middleware de mensajería, como JP Morgan Chase, que representa al sector de los servicios financieros. El foro de normalización técnica para las especificaciones del protocolo AMQP y la extensión es OASIS, y ha logrado la aprobación formal como estándar internacional como ISO/IEC 19494:2014. 
 
 ## <a name="goals"></a>Objetivos
 
-Este artículo resume brevemente los conceptos básicos de la especificación de mensajería AMQP 1.0, junto con un pequeño conjunto de borradores de especificaciones de la extensión que actualmente se está finalizando en el comité técnico de OASIS para AMQP; también explica cómo Azure Service Bus implementa y crea basándose en estas especificaciones.
+Este artículo resume los conceptos básicos de la especificación de mensajería AMQP 1.0, junto con especificaciones de la extensión desarrollados por el [comité técnico de OASIS para AMQP](https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=amqp); además, explica cómo Azure Service Bus implementa y crea basándose en estas especificaciones.
 
 El objetivo es que cualquier desarrollador que usa una pila de cliente de AMQP 1.0 existente en cualquier plataforma pueda interactuar con Azure Service Bus mediante AMQP 1.0.
 
-Las pilas de propósito general de AMQP 1.0 comunes, como Apache Proton o AMQP.NET Lite, ya implementan todos los protocolos importantes de AMQP 1.0. Los gestos fundacionales a veces se encapsulan con una API de mayor nivel; Apache Proton incluso ofrece dos: la API de Messenger imperativa y la API de Reactor reactiva.
+Las pilas de propósito general de AMQP 1.0 comunes, como [Apache Qpid Proton](https://qpid.apache.org/proton/index.html) o [AMQP.NET Lite](https://github.com/Azure/amqpnetlite), ya implementan todos los protocolos importantes de AMQP 1.0, como las sesiones o los vínculos. Los elementos básicos a veces se encapsulan con una API de mayor nivel; Apache Proton incluso ofrece dos: la API de Messenger imperativa y la API de Reactor reactiva.
 
 En la siguiente sección, se supone que la administración de conexiones, sesiones y vínculos de AMQP, y la administración de las transferencias de tramas y el control de flujo se tratan mediante la pila correspondiente (por ejemplo, Apache Proton-C) y no requieren demasiada atención específica de los desarrolladores de aplicaciones, o ninguna atención. Suponemos de forma abstracta la existencia de unas primitivas de API, como la capacidad de conectarse y de crear algún tipo de objetos de abstracción *remitente* y *receptor*, que luego tienen alguna forma de operaciones `send()` y `receive()`, respectivamente.
 
@@ -42,7 +42,7 @@ El protocolo AMQP 1.0 está diseñado para ser extensible, lo que permite que la
 
 En esta sección se explica el uso básico de AMQP 1.0 con Azure Service Bus, lo que incluye la creación de conexiones, sesiones y vínculos, así como la transferencia de mensajes tanto a las entidades de Services Bus (colas, temas y suscripciones) como desde ellas.
 
-La fuente con mayor autoridad para aprender cómo funciona AMQP es la especificación AMQP 1.0, pero se escribió para guiar de forma precisa la implementación, no para enseñar el protocolo. Esta sección se centra en la presentación de tanta terminología como sea necesario para describir el modo en que Service Bus usa AMQP 1.0. Para una introducción más completa a AMQP, así como una explicación más amplia de AMQP 1.0, puede consultar [este curso en vídeo][this video course].
+La fuente con mayor autoridad para aprender cómo funciona AMQP es la [especificación AMQP 1.0](http://docs.oasis-open.org/amqp/core/v1.0/amqp-core-overview-v1.0.html), pero se escribió para guiar de manera precisa la implementación, no para enseñar el protocolo. Esta sección se centra en la presentación de tanta terminología como sea necesario para describir el modo en que Service Bus usa AMQP 1.0. Para una introducción más completa a AMQP, así como una explicación más amplia de AMQP 1.0, puede consultar [este curso en vídeo][this video course].
 
 ### <a name="connections-and-sessions"></a>Conexiones y sesiones
 
@@ -67,7 +67,7 @@ Las sesiones tienen un modelo de control de flujo basado en ventanas; cuando se 
 
 Este modelo basado en ventanas es parecido al concepto de control de flujo basado en ventanas de TCP, pero en el nivel de sesión dentro del socket. El concepto del protocolo de permitir que haya varias sesiones simultáneas existe para que el tráfico de alta prioridad pueda adelantar al tráfico normal limitado, como en un carril rápido de una autopista.
 
-En la actualidad, Azure Service Bus utiliza exactamente una sesión para cada conexión. El tamaño de trama máximo de Service Bus es 262 144 bytes (256 KB) para Service Bus estándar y Event Hubs. Para Service Bus Premium es 1 048 576 (1 MB). Service Bus no impone ninguna ventana específica de limitación en el nivel de sesión, pero restablece la ventana periódicamente como parte del control de flujo en el nivel de vínculo (consulte [la siguiente sección](#links)).
+En la actualidad, Azure Service Bus utiliza exactamente una sesión para cada conexión. El tamaño de trama máximo de Service Bus es 262 144 bytes (256 KB) para Service Bus estándar. Para Service Bus Premium y Event Hubs es 1 048 576 (1 MB). Service Bus no impone ninguna ventana específica de limitación en el nivel de sesión, pero restablece la ventana periódicamente como parte del control de flujo en el nivel de vínculo (consulte [la siguiente sección](#links)).
 
 Las conexiones, los canales y las sesiones son efímeros. Si la conexión subyacente se contrae, es necesario restablecer las conexiones, el túnel TLS, el contexto de autorización SASL y las sesiones.
 
@@ -77,7 +77,7 @@ Los clientes que usan conexiones AMQP a través de TCP requieren que se abran lo
 
 ![Lista de puertos de destino][4]
 
-Un cliente de .NET producirá un error SocketException ("Intento de obtener acceso a un socket de una manera no permitida por los permisos de acceso") si el firewall bloquea estos puertos. La característica se puede deshabilitar estableciendo `EnableAmqpLinkRedirect=false` en la cadena de conexión, lo que obliga a los clientes a comunicarse con el servicio remoto a través del puerto 5671.
+Un cliente de .NET producirá un error SocketException ("Intento de obtener acceso a un socket de una manera no permitida por los permisos de acceso") si el firewall bloquea estos puertos. La característica se puede deshabilitar al establecer `EnableAmqpLinkRedirect=false` en la cadena de conexión, lo que obliga a los clientes a comunicarse con el servicio remoto a través del puerto 5671.
 
 
 ### <a name="links"></a>Vínculos
@@ -120,7 +120,7 @@ Para compensar posibles envíos duplicados, Service Bus admite la detección de 
 
 Además del modelo de control de flujo en el nivel de sesión que se ha tratado anteriormente, cada vínculo tiene su propio modelo de control de flujo. El control de flujo en el nivel de sesión protege el contenedor para que no tenga que controlar muchas tramas de una vez; el control de flujo de nivel de vínculo pone la aplicación a cargo de cuántos mensajes desea controlar desde un vínculo y cuándo.
 
-![Captura de pantalla de un registro que muestra los campos origen, destino, puerto de origen, puerto de destino y nombre del protocolo. En la primera fila, el puerto de destino 10401 (0x28 A 1) está marcado en negro.][4]
+![Captura de pantalla de un registro que muestra los campos origen, destino, puerto de origen, puerto de destino y nombre del protocolo. En la primera fila, el puerto de destino 10401 (0x28 A 1) está marcado en negro.][4]
 
 En un vínculo, las transferencias solo se pueden producir si el remitente tiene suficiente *crédito del vínculo*. El crédito del vínculo es un contador establecido por el receptor con el performativo *flow*, que tiene un ámbito en un vínculo. Cuando el remitente tiene crédito del vínculo asignado, intenta utilizar ese crédito con la entrega de mensajes. Cada entrega de mensajes reduce en uno el crédito del vínculo restante. Cuando se agota el crédito del vínculo, las entregas se detienen.
 

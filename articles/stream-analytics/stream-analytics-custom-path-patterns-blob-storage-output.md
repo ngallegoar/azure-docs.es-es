@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1d651f3136b096eae957f0271e33cd11b1fb5571
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 72718285ff83a23acd21a5e29001ea96e1f061c8
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91317861"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95531362"
 ---
 # <a name="azure-stream-analytics-custom-blob-output-partitioning"></a>Particionamiento de la salida de blobs personalizada en Azure Stream Analytics
 
@@ -62,6 +62,8 @@ Tenga en cuenta que cada registro en el blob tiene una columna **client_id** que
 2. Las claves de partición no distinguen mayúsculas de minúsculas, por lo que los valores como "Juan" y "juan" son equivalentes. Además, no pueden usarse expresiones como clave de partición. Por ejemplo, **{columnaA + columnaB}** no funciona.  
 
 3. Cuando un flujo de entrada consta de registros con una cardinalidad de clave de partición menor que 8000, los registros se anexarán a los blobs existentes y solo se crearán blobs nuevos cuando sea necesario. Si la cardinalidad es mayor que 8000, no garantizamos que se escribirá en los blobs existentes ni que no se crearán blobs nuevos para un número arbitrario de registros con la misma clave de partición.
+
+4. Si el resultado del blob está [configurado como inmutable](../storage/blobs/storage-blob-immutable-storage.md), Stream Analytics creará un blob cada vez que se envíen los datos.
 
 ## <a name="custom-datetime-path-patterns"></a>Patrones personalizados de ruta de acceso de fecha y hora
 

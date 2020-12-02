@@ -3,25 +3,25 @@ title: Uso de etiquetas de índice de blobs para administrar y buscar datos en A
 description: Vea ejemplos de cómo usar etiquetas de índice de blobs para clasificar, administrar y consultar objetos de blobs.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 10/19/2020
+ms.date: 11/19/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
 ms.reviewer: klaasl
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 159252cf850fd59f40d1b59e592153f50d7cb813
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 411815ca2f947c47b8dfb0d2e5d61f8ea18f3545
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371977"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95541256"
 ---
 # <a name="use-blob-index-tags-preview-to-manage-and-find-data-on-azure-blob-storage"></a>Uso de etiquetas de índice de blobs (versión preliminar) para administrar y buscar datos en Azure Blob Storage
 
 Las etiquetas de índice de blobs clasifican los datos de la cuenta de almacenamiento mediante atributos de etiqueta clave-valor. Estas etiquetas se indexan y se exponen automáticamente como un índice multidimensional que se puede buscar para encontrar fácilmente los datos. En este artículo se muestra cómo establecer, obtener y buscar datos mediante etiquetas de índice de blobs.
 
 > [!NOTE]
-> El índice de blobs está en versión preliminar pública y se encuentra disponible en las regiones **Centro de Canadá** , **Este de Canadá** , **Centro de Francia** y **Sur de Francia**. Para obtener más información sobre esta característica junto con las limitaciones y los problemas conocidos, vea [Administración y búsqueda de datos en Azure Blob con etiquetas de índice de blobs (versión preliminar)](storage-manage-find-blobs.md).
+> El índice de blobs está en versión preliminar pública y se encuentra disponible en las regiones **Centro de Canadá**, **Este de Canadá**, **Centro de Francia** y **Sur de Francia**. Para obtener más información sobre esta característica junto con las limitaciones y los problemas conocidos, vea [Administración y búsqueda de datos en Azure Blob con etiquetas de índice de blobs (versión preliminar)](storage-manage-find-blobs.md).
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -38,7 +38,7 @@ Como el índice de blobs está en versión preliminar, el paquete de almacenamie
 
 2. En el administrador de paquetes de NuGet, busque el paquete **Azure.Storage.Blobs** e instale la versión **12.7.0-preview.1** o posterior en el proyecto. También puede ejecutar el comando de PowerShell: `Install-Package Azure.Storage.Blobs -Version 12.7.0-preview.1`
 
-   Para saber cómo hacerlo, consulte [Búsqueda e instalación de un paquete](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-visual-studio#find-and-install-a-package).
+   Para saber cómo hacerlo, consulte [Búsqueda e instalación de un paquete](/nuget/consume-packages/install-use-packages-visual-studio#find-and-install-a-package).
 
 3. Agregue las instrucciones USING siguientes al inicio del archivo de código.
 
@@ -56,7 +56,7 @@ Como el índice de blobs está en versión preliminar, el paquete de almacenamie
 
 ## <a name="upload-a-new-blob-with-index-tags"></a>Carga de un nuevo blob con etiquetas de índice
 
-El [propietario de datos de blobs de almacenamiento](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner) puede realizar la carga de un blob nuevo con etiquetas de índice. Además, los usuarios con el permiso de [control de acceso basado en rol](/azure/role-based-access-control/overview) `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` pueden realizar esta operación.
+Esta tarea puede realizarla un [propietario de datos de Storage Blob](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) o una entidad de seguridad a la que se haya concedido permiso para la [operación de proveedor de recursos de Azure](../../role-based-access-control/resource-provider-operations.md#microsoftstorage) `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` a través de un rol personalizado de Azure.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -114,9 +114,9 @@ static async Task BlobIndexTagsOnCreate()
 
 ## <a name="get-set-and-update-blob-index-tags"></a>Obtención, establecimiento y actualización de etiquetas de índice de blobs
 
-El [propietario de datos de blobs de almacenamiento](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner) puede realizar la obtención de etiquetas de índice de blob. Además, los usuarios con el permiso de [control de acceso basado en rol](/azure/role-based-access-control/overview) `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/read` pueden realizar esta operación.
+La obtención de las etiquetas de índice de blob puede realizarla un [propietario de datos de Storage Blob](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) o una entidad de seguridad a la que se haya concedido permiso para la [operación de proveedor de recursos de Azure](../../role-based-access-control/resource-provider-operations.md#microsoftstorage) `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/read` a través de un rol personalizado de Azure.
 
-El [propietario de datos de blobs de almacenamiento](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner) puede realizar la configuración y actualización de las etiquetas de índice de blob. Además, los usuarios con el permiso de [control de acceso basado en rol](/azure/role-based-access-control/overview) `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` pueden realizar esta operación.
+El establecimiento y actualización de las etiquetas de índice de blob puede realizarla un [propietario de datos de Storage Blob](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) o una entidad de seguridad a la que se haya concedido permiso para la [operación de proveedor de recursos de Azure](../../role-based-access-control/resource-provider-operations.md#microsoftstorage) `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` a través de un rol personalizado de Azure.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -193,7 +193,7 @@ static async Task BlobIndexTagsExample()
 
 ## <a name="filter-and-find-data-with-blob-index-tags"></a>Filtrado y búsqueda de datos con etiquetas de índice de blobs
 
-El [propietario de datos de blobs de almacenamiento](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner) puede realizar la búsqueda y el filtrado por etiquetas de índice de blob. Además, los usuarios con el permiso de [control de acceso basado en rol](/azure/role-based-access-control/overview) `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/filter/action` pueden realizar esta operación.
+Esta tarea puede realizarla un [propietario de datos de Storage Blob](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) o una entidad de seguridad a la que se haya concedido permiso para la [operación de proveedor de recursos de Azure](../../role-based-access-control/resource-provider-operations.md#microsoftstorage) `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/filter/action` a través de un rol personalizado de Azure.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
