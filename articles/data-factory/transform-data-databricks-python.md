@@ -7,23 +7,23 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/15/2018
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 ms.reviewer: maghan
 manager: anandsub
 ms.custom: devx-track-python
-ms.openlocfilehash: a42c7d911793e1b4ef4183c5d1f02f8be7d4ded3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7e80fad02a186173868a6aa78aedeac0801f199a
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87872300"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96496898"
 ---
 # <a name="transform-data-by-running-a-python-activity-in-azure-databricks"></a>Transformación de datos mediante la ejecución de una actividad de Python en Azure Databricks
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 
-La actividad de Python en Azure Databricks en una [canalización de Data Factory](concepts-pipelines-activities.md) ejecuta un archivo de Python en el clúster de Azure Databricks. Este artículo se basa en el artículo sobre  [actividades de transformación de datos](transform-data.md) , que presenta información general de la transformación de datos y las actividades de transformación admitidas. Azure Databricks es una plataforma administrada para ejecutar Apache Spark.
+La actividad de Python en Azure Databricks en una [canalización de Data Factory](concepts-pipelines-activities.md) ejecuta un archivo de Python en el clúster de Azure Databricks. Este artículo se basa en el artículo sobre [actividades de transformación de datos](transform-data.md) , que presenta información general de la transformación de datos y las actividades de transformación admitidas.  Azure Databricks es una plataforma administrada para ejecutar Apache Spark.
 
 Si desea una introducción y demostración de once minutos de esta característica, vea el siguiente vídeo:
 
@@ -69,7 +69,7 @@ En la siguiente tabla se describen las propiedades JSON que se usan en la defini
 |name|Nombre de la actividad en la canalización.|Sí|
 |description|Texto que describe para qué se usa la actividad.|No|
 |type|En el caso de la actividad de Python en Databricks, el tipo de actividad es DatabricksSparkPython.|Sí|
-|linkedServiceName|Nombre del servicio vinculado de Databricks en el que se ejecuta la actividad de Python. Para más información sobre este servicio vinculado, consulte el artículo  [Servicios vinculados de proceso](compute-linked-services.md) .|Sí|
+|linkedServiceName|Nombre del servicio vinculado de Databricks en el que se ejecuta la actividad de Python. Para obtener más información sobre este servicio vinculado, vea el artículo [Compute linked services](compute-linked-services.md) (Servicios vinculados de procesos).|Sí|
 |pythonFile|El URI del archivo Python que se va a ejecutar. Solo se admiten rutas de acceso de DBFS.|Sí|
 |parámetros|Parámetros de la línea de comandos que se pasarán al archivo Python. Se trata de una matriz de cadenas.|No|
 |libraries|Lista de bibliotecas para instalar en el clúster que ejecutará el trabajo. Puede ser una cadena de <cadena, objeto>|No|

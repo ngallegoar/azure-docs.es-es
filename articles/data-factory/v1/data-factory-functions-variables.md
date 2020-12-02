@@ -2,20 +2,20 @@
 title: Funciones y variables del sistema de Data Factory
 description: Proporciona una lista de funciones y variables del sistema de Azure Data Factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: cbc7fd22915af1c9645d915a9898679a3a7c30d0
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 9b5f91655367e866858a04b941cec4ee61dfe180
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92631519"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96495657"
 ---
 # <a name="azure-data-factory---functions-and-system-variables"></a>Azure Data Factory: funciones y variables del sistema
 > [!NOTE]
@@ -37,7 +37,7 @@ Este artículo proporciona información sobre las funciones y las variables comp
 > 
 
 ### <a name="example-for-using-a-system-variable"></a>Ejemplo de uso de una variable del sistema
-En el siguiente ejemplo, el año, mes, día y hora de **SliceStart** se extraen en variables independientes que se usan en las propiedades **folderPath** y **fileName** .
+En el siguiente ejemplo, el año, mes, día y hora de **SliceStart** se extraen en variables independientes que se usan en las propiedades **folderPath** y **fileName**.
 
 ```json
 "folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
@@ -61,7 +61,7 @@ Puede usar las funciones de Data Factory junto con las variables del sistema con
    
     $$ no es necesario para especificar expresiones de dependencia de entrada.     
 
-En el ejemplo siguiente, la propiedad **sqlReaderQuery** de un archivo JSON se asigna a un valor devuelto por la función `Text.Format`. Este ejemplo también usa una variable de sistema denominada **WindowStart** , que representa la hora de inicio de la ventana de ejecución de la actividad.
+En el ejemplo siguiente, la propiedad **sqlReaderQuery** de un archivo JSON se asigna a un valor devuelto por la función `Text.Format`. Este ejemplo también usa una variable de sistema denominada **WindowStart**, que representa la hora de inicio de la ventana de ejecución de la actividad.
 
 ```json
 {
@@ -97,7 +97,7 @@ Las tablas siguientes muestran todas las funciones de Azure Data Factory:
 | Texto |Format(X) |X: Variable de cadena |Formatea el texto (use la combinación `\\'` para aplicar el escape del carácter `'`).|
 
 > [!IMPORTANT]
-> Cuando se usa una función dentro de otra función, no es necesario usar el prefijo **$$** para la función interna. Por ejemplo: $$Text.Format('PartitionKey eq \\'my_pkey_filter_value\\' y RowKey ge \\'{0: yyyy-MM-dd HH:mm:ss}\\'', Time.AddHours(SliceStart, -6)). En este ejemplo, observe que el prefijo **$$** no se usa para la función **Time.AddHours** . 
+> Cuando se usa una función dentro de otra función, no es necesario usar el prefijo **$$** para la función interna. Por ejemplo: $$Text.Format('PartitionKey eq \\'my_pkey_filter_value\\' y RowKey ge \\'{0: yyyy-MM-dd HH:mm:ss}\\'', Time.AddHours(SliceStart, -6)). En este ejemplo, observe que el prefijo **$$** no se usa para la función **Time.AddHours**. 
 
 #### <a name="example"></a>Ejemplo
 En el ejemplo siguiente, los parámetros de entrada y salida de la actividad de Hive se determinan mediante el uso de la función `Text.Format` y la variable del sistema SliceStart. 

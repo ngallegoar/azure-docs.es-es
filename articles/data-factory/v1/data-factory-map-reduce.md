@@ -3,8 +3,8 @@ title: Invocar programa MapReduce desde Azure Data Factory
 description: Obtenga información sobre cómo procesar datos mediante la ejecución de programas MapReduce en un clúster de HDInsight de Azure desde una factoría de datos de Azure.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.assetid: c34db93f-570a-44f1-a7d6-00390f4dc0fa
@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 089a2e6a0b90c1682e2ebdd146626c93cec35f77
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 8bdcaf20330a3700681fd96f858370dd7dcdf4c7
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636857"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96495436"
 ---
 # <a name="invoke-mapreduce-programs-from-data-factory"></a>Invocar programas MapReduce desde la factoría de datos de Azure
 > [!div class="op_single_selector" title1="Actividades de transformación"]
@@ -49,7 +49,7 @@ Consulte [Pig](data-factory-pig-activity.md) y [Hive](data-factory-hive-activity
 ## <a name="json-for-hdinsight-mapreduce-activity"></a>JSON para la actividad MapReduce de HDInsight
 En la definición de JSON para la actividad de HDInsight: 
 
-1. Establezca el **tipo** de la **actividad** en **HDInsight** .
+1. Establezca el **tipo** de la **actividad** en **HDInsight**.
 2. Especifique el nombre de la clase para la propiedad **className** .
 3. Especifique la ruta de acceso al archivo JAR incluyendo el nombre de archivo de la propiedad **jarFilePath** .
 4. Especifique el servicio vinculado que hace referencia a Azure Blob Storage que contiene el archivo JAR de la propiedad **jarLinkedService** .   
@@ -183,7 +183,7 @@ La canalización de este ejemplo tiene solo una actividad de tipo: HDInsightMapR
 
 | Propiedad | Notas |
 |:--- |:--- |
-| type |El tipo debe establecerse en **HDInsightMapReduce** . |
+| type |El tipo debe establecerse en **HDInsightMapReduce**. |
 | className |El nombre de la clase es: **wordcount** |
 | jarFilePath |Ruta de acceso al archivo .jar que contiene la clase anterior. Si copia/pega el código siguiente, no olvide cambiar el nombre del clúster. |
 | jarLinkedService |Servicio vinculado a Azure Storage que contiene el archivo jar. Este servicio vinculado hace referencia al almacenamiento asociado al clúster de HDInsight. |

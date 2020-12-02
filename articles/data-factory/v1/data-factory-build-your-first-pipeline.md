@@ -3,20 +3,20 @@ title: 'Tutorial de Data Factory: primera canalización de datos '
 description: En este tutorial de Azure Data Factory se muestra cómo crear y programar una factoría de datos que procese los datos mediante el script de Hive en un clúster de Hadoop.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/22/2018
-ms.openlocfilehash: 80644ed2d655544fa176a7be92aec3c01aa3bf14
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a79872c11d76a74932fe232fa3f7818edc58ffcc
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75966070"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96496218"
 ---
 # <a name="tutorial-build-your-first-pipeline-to-transform-data-using-hadoop-cluster"></a>Tutorial: Compilación de la primera canalización para transformar datos mediante el clúster de Hadoop
 > [!div class="op_single_selector"]
@@ -46,7 +46,7 @@ En este tutorial, realizará los siguientes pasos:
 3. Cree **servicios vinculados**. Un servicio vinculado se crea para vincular un almacén de datos o servicio de proceso a la factoría de datos. Un almacén de datos como Azure Storage contiene los datos de entrada y salida de las actividades de la canalización. Un servicio de proceso como un clúster de Hadoop de HDInsight procesa y transforma los datos.
 
     En este tutorial, creará dos servicios vinculados: **Azure Storage** y **Azure HDInsight**. El servicio vinculado Azure Storage vincula una cuenta de Azure Storage que contiene los datos de entrada/salida con la factoría de datos. El servicio vinculado Azure HDInsight vincula un clúster de Azure HDInsight que se utiliza para transformar los datos con la factoría de datos.
-3. Crear **conjuntos de datos**de entrada y salida. Un conjunto de datos de entrada representa la entrada para una actividad de la canalización y un conjunto de datos de salida representa la salida de la actividad.
+3. Crear **conjuntos de datos** de entrada y salida. Un conjunto de datos de entrada representa la entrada para una actividad de la canalización y un conjunto de datos de salida representa la salida de la actividad.
 
     En este tutorial, los conjuntos de datos de entrada y salida especifican las ubicaciones de los datos de entrada y salida en Azure Blob Storage. El servicio vinculado Azure Storage especifica qué cuenta de Azure Storage se usa. Un conjunto de datos de entrada especifica el lugar en que se encuentran los archivos de entrada, mientras que un conjunto de datos de salida especifica el lugar en que se colocan los archivos de salida.
 

@@ -3,20 +3,20 @@ title: Actualización de los modelos de Machine Learning con Azure Data Factory
 description: En este artículo se describe cómo crear canalizaciones predictivas con Azure Data Factory v1 y Azure Machine Learning Studio (clásico).
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/22/2018
-ms.openlocfilehash: c456c7eb31e1e8e66aa3276a0cb5f6f8b39efa9a
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 556936eb6e8c1c1c2dd1fab4ce7dfc1b648710b7
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92631757"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96496609"
 ---
 # <a name="updating-azure-machine-learning-studio-classic-models-using-update-resource-activity"></a>Actualización de los modelos de Azure Machine Learning Studio (clásico) con la actividad de actualización de recurso
 
@@ -46,8 +46,8 @@ Pasado algún tiempo, los modelos predictivos en los experimentos de puntuación
 
 En la tabla siguiente se describen los servicios web empleados en este ejemplo.  Para obtener más información, consulte [Nuevo entrenamiento de modelos de Azure Machine Learning Studio (clásico) mediante programación](../../machine-learning/classic/retrain-machine-learning-model.md).
 
-- **Servicio web de entrenamiento** : recibe datos de entrenamiento y genera modelos entrenados. El resultado del nuevo entrenamiento es un archivo .ilearner en Blob Storage de Azure. El **punto de conexión predeterminado** se crea automáticamente para cuando publique el experimento de entrenamiento como un servicio web. Se pueden crear más puntos de conexión, pero el ejemplo usa solo el predeterminado.
-- **Servicio web de puntuación** : recibe ejemplos de datos sin etiqueta y realiza predicciones. El resultado de la predicción puede presentarse en diversas formas, como un archivo .csv o las filas de una base de datos de Azure SQL Database, según la configuración del experimento. El punto de conexión predeterminado se crea automáticamente cuando se publica el experimento predictivo como un servicio web. 
+- **Servicio web de entrenamiento**: recibe datos de entrenamiento y genera modelos entrenados. El resultado del nuevo entrenamiento es un archivo .ilearner en Blob Storage de Azure. El **punto de conexión predeterminado** se crea automáticamente para cuando publique el experimento de entrenamiento como un servicio web. Se pueden crear más puntos de conexión, pero el ejemplo usa solo el predeterminado.
+- **Servicio web de puntuación**: recibe ejemplos de datos sin etiqueta y realiza predicciones. El resultado de la predicción puede presentarse en diversas formas, como un archivo .csv o las filas de una base de datos de Azure SQL Database, según la configuración del experimento. El punto de conexión predeterminado se crea automáticamente cuando se publica el experimento predictivo como un servicio web. 
 
 En la siguiente imagen se muestra la relación entre los puntos de conexión de entrenamiento y de puntuación de Azure Machine Learning Studio (clásico).
 
@@ -58,7 +58,7 @@ Puede invocar el **servicio web de entrenamiento** mediante la **actividad de ej
 Puede invocar el **servicio web de puntuación** a través de la **actividad de actualización de recurso de Azure Machine Learning Studio (clásico)** para actualizar el servicio web con el modelo recién entrenado. Los ejemplos siguientes proporcionan definiciones de servicios vinculados: 
 
 ## <a name="scoring-web-service-is-a-classic-web-service"></a>El servicio web de puntuación es un servicio web clásico
-Si el servicio web de puntuación es un **servicio web clásico** , cree el segundo **punto de conexión no predeterminado y actualizable** mediante Azure Portal. Para conocer los pasos necesarios para ello, consulte el artículo [Creación de puntos de conexión](../../machine-learning/classic/create-endpoint.md). Después de crear el punto de conexión actualizable no predeterminado, realice los siguientes pasos:
+Si el servicio web de puntuación es un **servicio web clásico**, cree el segundo **punto de conexión no predeterminado y actualizable** mediante Azure Portal. Para conocer los pasos necesarios para ello, consulte el artículo [Creación de puntos de conexión](../../machine-learning/classic/create-endpoint.md). Después de crear el punto de conexión actualizable no predeterminado, realice los siguientes pasos:
 
 * Haga clic en **EJECUCIÓN DE LOTES** para obtener el valor del URI para la propiedad JSON **mlEndpoint**.
 * Haga clic en vínculo **ACTUALIZAR RECURSO** para obtener el valor de URI para la propiedad JSON **updateResourceEndpoint**. La clave de API está en la página de punto de conexión (en la esquina inferior derecha).
@@ -208,7 +208,7 @@ El siguiente fragmento JSON define un servicio vinculado de Studio (clásico) qu
 }
 ```
 
-En **Azure Machine Learning Studio (clásico)** , haga lo siguiente para obtener los valores de **mlEndpoint** y **apiKey** :
+En **Azure Machine Learning Studio (clásico)** , haga lo siguiente para obtener los valores de **mlEndpoint** y **apiKey**:
 
 1. Haga clic en **SERVICIOS WEB** en el menú de la izquierda.
 2. En la lista de servicios web, haga clic en el **servicio web de entrenamiento** .

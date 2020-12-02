@@ -3,20 +3,20 @@ title: 'Azure Data Factory: preguntas más frecuentes'
 description: Preguntas más frecuentes acerca de Azure Data Factory.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: de4661bcfd7106d515480e39dc4660f44f469a3d
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 57f2beef3dc14a47480950bf9e3bdf35a1fd6ce8
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92631706"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96495827"
 ---
 # <a name="azure-data-factory---frequently-asked-questions"></a>Azure Data Factory: preguntas más frecuentes
 > [!NOTE]
@@ -72,7 +72,7 @@ En la tabla siguiente se proporciona una lista de entornos de proceso compatible
 | [Azure Batch](data-factory-compute-linked-services.md#azure-batch-linked-service) |[DotNet](data-factory-use-custom-activities.md) |
 | [Azure Machine Learning Studio (clásico)](data-factory-compute-linked-services.md#azure-machine-learning-studio-classic-linked-service) |[Actividades de Estudio (clásico): ejecución de lotes y recurso de actualización](data-factory-azure-ml-batch-execution-activity.md) |
 | [Análisis con Azure Data Lake](data-factory-compute-linked-services.md#azure-data-lake-analytics-linked-service) |[U-SQL de análisis con Data Lake](data-factory-usql-activity.md) |
-| [Azure SQL](data-factory-compute-linked-services.md#azure-sql-linked-service), [Azure Synapse Analytics (anteriormente, SQL Data Warehouse)](data-factory-compute-linked-services.md#azure-synapse-analytics-linked-service), [SQL Server](data-factory-compute-linked-services.md#sql-server-linked-service) |[Procedimiento almacenado](data-factory-stored-proc-activity.md) |
+| [Azure SQL](data-factory-compute-linked-services.md#azure-sql-linked-service), [Azure Synapse Analytics](data-factory-compute-linked-services.md#azure-synapse-analytics-linked-service), [SQL Server](data-factory-compute-linked-services.md#sql-server-linked-service) |[Procedimiento almacenado](data-factory-stored-proc-activity.md) |
 
 ### <a name="how-does-azure-data-factory-compare-with-sql-server-integration-services-ssis"></a>¿Cómo se compara Azure Data Factory con SQL Server Integration Services (SSIS)? 
 Consulte la presentación [Azure Data Factory frente a SSIS](https://www.sqlbits.com/Sessions/Event15/Azure_Data_Factory_vs_SSIS) de uno de nuestros MVP (profesionales más valiosos): Reza Rad. Puede que algunos de los cambios recientes de Data Factory no aparezcan en las diapositivas. Continuamente estamos agregando más funcionalidades a Azure Data Factory. Continuamente estamos agregando más funcionalidades a Azure Data Factory. Se incorporarán estas actualizaciones en la comparación de tecnologías de integración de datos de Microsoft este año más adelante.   

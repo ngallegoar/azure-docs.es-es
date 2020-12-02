@@ -3,8 +3,8 @@ title: 'Transformación de datos mediante Hadoop Streaming Activity: Azure'
 description: Aprenda cómo puede usar Hadoop Streaming Activity en Azure Data Factory para transformar datos mediante la ejecución de programas de Hadoop Streaming en un clúster de HDInsight propio o a petición.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.assetid: 4c3ff8f2-2c00-434e-a416-06dfca2c41ec
@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 9c6661a762886140997b9305f88f5c4e25476e57
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 80f78e3d2e7fdcd8fef53ca0412676a37c6486c2
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371705"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96495606"
 ---
 # <a name="transform-data-using-hadoop-streaming-activity-in-azure-data-factory"></a>Transformación de datos mediante Hadoop Streaming Activity en Azure Data Factory
 > [!div class="op_single_selector" title1="Actividades de transformación"]
@@ -95,7 +95,7 @@ El clúster de HDInsight se rellena automáticamente con los programas de ejempl
 Tenga en cuenta los siguientes puntos:
 
 1. Establezca **linkedServiceName** en el nombre del servicio vinculado que apunta al clúster de HDInsight en el que se va a ejecutar el trabajo de MapReduce de streaming.
-2. Establezca el tipo de la actividad en **HDInsightStreaming** .
+2. Establezca el tipo de la actividad en **HDInsightStreaming**.
 3. Para la propiedad **mapper** , especifique el nombre del ejecutable del asignador. En el ejemplo, cat.exe es el ejecutable del asignador.
 4. Para la propiedad **reducer** , especifique el nombre del ejecutable del reductor. En el ejemplo, wc.exe es el ejecutable del reductor.
 5. Para la propiedad **input** type, especifique el archivo de entrada (incluida la ubicación) para el asignador. En el ejemplo: `wasb://adfsample@<account name>.blob.core.windows.net/example/data/gutenberg/davinci.txt`: adfsample es el contenedor de blobs, example/data/Gutenberg es la carpeta y davinci.txt es el blob.
@@ -174,7 +174,7 @@ La canalización de este ejemplo no toma ninguna entrada. Deberá especificar un
 ```
 
 ### <a name="pipeline"></a>Canalización
-La canalización de este ejemplo tiene solo una actividad de tipo: **HDInsightStreaming** . 
+La canalización de este ejemplo tiene solo una actividad de tipo: **HDInsightStreaming**. 
 
 El clúster de HDInsight se rellena automáticamente con los programas de ejemplo (wc.exe y cat.exe) y los datos (davinci.txt). De forma predeterminada, el nombre del contenedor usado por el clúster de HDInsight es el nombre del propio clúster. Por ejemplo, si el nombre del clúster es myhdicluster, el nombre del contenedor de blobs asociado sería myhdicluster.  
 

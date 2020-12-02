@@ -3,20 +3,20 @@ title: Caso de uso - Generación de perfiles de clientes
 description: Obtenga información sobre cómo se usa Azure Data Factory para crear un flujo de trabajo orientado a datos (canalización) para generar perfiles de clientes de juegos.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 63c31312070fbac99959d833344ccf04760bb8e4
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 313050035694eaeabaefc8e09383ec3a887eb32b
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637894"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96495929"
 ---
 # <a name="use-case---customer-profiling"></a>Caso de uso - Generación de perfiles de clientes
 Azure Data Factory es uno de los muchos servicios que se usan para implementar el conjunto de aplicaciones Cortana Intelligence de aceleradores de soluciones.  Para más información sobre Cortana Intelligence, visite [Cortana Intelligence Suite](https://www.microsoft.com/cortanaanalytics)(conjunto de aplicaciones de Cortana Intelligence). En este documento se describe un caso de uso sencillo para que pueda comprender cómo Azure Data Factory puede resolver los problemas comunes de análisis.
@@ -32,20 +32,20 @@ En esta solución, Contoso quiere evaluar la eficacia de una campaña de marketi
 Todo lo que necesita para acceder a este caso de uso sencillo y probarlo es una [suscripción de Azure](https://azure.microsoft.com/pricing/free-trial/), una [cuenta de Azure Blob Storage](../../storage/common/storage-account-create.md) y [Azure SQL Database](../../azure-sql/database/single-database-create-quickstart.md). Implementará la canalización de generación de perfiles de cliente desde el icono de **Canales de muestras** de la página principal de la factoría de datos.
 
 1. Cree una factoría de datos o abra una. Vea [Copia de datos de Blob Storage a SQL Database con Data Factory](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obtener los pasos para crear una factoría de datos.
-2. En la hoja **FACTORÍA DE DATOS** de la factoría de datos, haga clic en el icono **Canalizaciones de ejemplo** .
+2. En la hoja **FACTORÍA DE DATOS** de la factoría de datos, haga clic en el icono **Canalizaciones de ejemplo**.
 
     ![Icono Canalizaciones de ejemplo](./media/data-factory-samples/SamplePipelinesTile.png)
-3. En la hoja **Canales de muestras** , haga clic en el **Generación de perfiles de cliente** que quiere implementar.
+3. En la hoja **Canales de muestras**, haga clic en el **Generación de perfiles de cliente** que quiere implementar.
 
     ![Hoja Canalizaciones de ejemplo](./media/data-factory-samples/SampleTile.png)
 4. Especifique las opciones de configuración para el ejemplo. Por ejemplo, el nombre de la cuenta de Azure Storage y la clave, el nombre del servidor de SQL lógico, la base de datos, el identificador de usuario y la contraseña.
 
     ![Hoja de ejemplo](./media/data-factory-samples/SampleBlade.png)
 5. Cuando haya terminado de especificar las opciones de configuración, haga clic en **Crear** para crear o implementar las canalizaciones de ejemplo y los servicios o las tablas vinculados que usan las canalizaciones.
-6. Verá el estado de implementación en el icono de ejemplo en el que hizo clic anteriormente en la hoja **Canalizaciones de ejemplo canalizaciones** .
+6. Verá el estado de implementación en el icono de ejemplo en el que hizo clic anteriormente en la hoja **Canalizaciones de ejemplo canalizaciones**.
 
     ![Estado de implementación](./media/data-factory-samples/DeploymentStatus.png)
-7. Cuando vea el mensaje **La implementación se realizó correctamente** en el icono del ejemplo, cierre la hoja **Canalizaciones de ejemplo** .  
+7. Cuando vea el mensaje **La implementación se realizó correctamente** en el icono del ejemplo, cierre la hoja **Canalizaciones de ejemplo**.  
 8. En la hoja **FACTORÍA DE DATOS** , verá que los servicios vinculados, los conjuntos de datos y las canalizaciones se han agregado a la factoría de datos.  
 
     ![Hoja de la Factoría de datos](./media/data-factory-samples/DataFactoryBladeAfter.png)

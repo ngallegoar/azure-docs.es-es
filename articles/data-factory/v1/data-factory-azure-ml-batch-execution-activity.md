@@ -3,20 +3,20 @@ title: Creación de canalizaciones de datos predictivas con Azure Data Factory
 description: Aquí se explica cómo crear canalizaciones predictivas con Azure Data Factory y Azure Machine Learning Studio (clásico)
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/22/2018
-ms.openlocfilehash: ce3175a015b7a5813f62c639fdadbeea367bbc22
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 481b801d481f32ef84279be2d8bd6089670a01b1
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92631774"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96496526"
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-studio-classic-and-azure-data-factory"></a>Creación de canalizaciones predictivas con Azure Machine Learning Studio (clásico) y Azure Data Factory
 
@@ -80,7 +80,7 @@ En este escenario, el servicio web de Studio (clásico) realiza predicciones med
 > [!IMPORTANT]
 > Si el servicio web toma varias entradas, use la propiedad **webServiceInputs** en lugar de usar **webServiceInput**. Consulte la sección [El servicio web requiere varias entradas](#web-service-requires-multiple-inputs) para ver un ejemplo de cómo usar la propiedad webServiceInputs.
 >
-> Los conjuntos de datos a los que hacen referencia las propiedades **webServiceInput**/**webServiceInputs** y **webServiceOutputs** (en **typeProperties** ) también se deben incluir en las **entradas** y las **salidas** de la actividad.
+> Los conjuntos de datos a los que hacen referencia las propiedades **webServiceInput**/**webServiceInputs** y **webServiceOutputs** (en **typeProperties**) también se deben incluir en las **entradas** y las **salidas** de la actividad.
 >
 > En el experimento de Studio (clásico), los puertos de entrada y salida del servicio web y los parámetros globales tienen nombres predeterminados ("input1", "input2") que se pueden personalizar. Los nombres que se utilizan para la configuración de globalParameters, webServiceOutputs y webServiceInputs deben coincidir exactamente con los de los experimentos. Puede ver la carga útil de la solicitud de ejemplo en la página de ayuda de ejecución de lotes del punto de conexión de Studio (clásico) para comprobar la asignación esperada.
 >
@@ -234,7 +234,7 @@ Es recomendable que siga el tutorial [Compilación de la primera canalización c
       }
     }
     ```
-4. Cree un **servicio vinculado** del tipo: **AzureMLLinkedService** ; para ello, proporcione la clave de API y la dirección URL de ejecución de lotes del modelo.
+4. Cree un **servicio vinculado** del tipo: **AzureMLLinkedService**; para ello, proporcione la clave de API y la dirección URL de ejecución de lotes del modelo.
 
     ```JSON
     {
@@ -301,7 +301,7 @@ Es recomendable que siga el tutorial [Compilación de la primera canalización c
       }
       ```
 
-      Las fechas y horas de inicio ( **start** ) y de finalización ( **end** ) deben estar en [formato ISO](https://en.wikipedia.org/wiki/ISO_8601). Por ejemplo: 2014-10-14T16:32:41Z. La hora de la propiedad **end** es opcional. Si no especifica ningún valor para la propiedad **end** , se calcula como " **start + 48 horas** ". Para ejecutar la canalización indefinidamente, especifique **9999-09-09** como valor de propiedad **end**. Para obtener más información sobre las propiedades JSON, vea [Referencia de scripting JSON](/previous-versions/azure/dn835050(v=azure.100)) .
+      Las fechas y horas de inicio (**start**) y de finalización (**end**) deben estar en [formato ISO](https://en.wikipedia.org/wiki/ISO_8601). Por ejemplo: 2014-10-14T16:32:41Z. La hora de la propiedad **end** es opcional. Si no especifica ningún valor para la propiedad **end**, se calcula como "**start + 48 horas**". Para ejecutar la canalización indefinidamente, especifique **9999-09-09** como valor de propiedad **end**. Para obtener más información sobre las propiedades JSON, vea [Referencia de scripting JSON](/previous-versions/azure/dn835050(v=azure.100)) .
 
       > [!NOTE]
       > La especificación de la entrada para la actividad AzureMLBatchExecution es opcional.
@@ -347,7 +347,7 @@ También puede usar [Funciones de Factoría de datos](data-factory-functions-var
 ### <a name="using-a-reader-module-to-read-data-from-multiple-files-in-azure-blob"></a>Uso de un módulo lector para leer datos de varios archivos de blob de Azure
 La canalización de macrodatos con actividades como Pig y Hive puede generar uno o varios archivos de salida sin extensiones. Por ejemplo, cuando se especifica una tabla externa de Hive, los datos de dicha tabla se pueden almacenar en el almacenamiento de blobs de Azure con el siguiente nombre 000000_0. Puede usar el módulo lector en un experimento para leer varios archivos y usarlos para realizar predicciones.
 
-Al usar el módulo Lector en un experimento de Studio (clásico), puede especificar Azure Blob como entrada. Los archivos de Azure Blob Storage pueden ser los archivos de salida (ejemplo: 000000_0) que genera un script de Pig y Hive que se ejecuta en HDInsight. El módulo de lector permite leer archivos (sin extensiones) mediante la configuración de la propiedad **Path to container, directory/blob** (Ruta de acceso al contenedor, directorio o blob). La **ruta de acceso al contenedor** apunta al contenedor y el **directorio o blob** apunta a la carpeta que contiene los archivos, tal y como se muestra en la siguiente imagen. Tenga en cuenta que el asterisco (\*) **especifica que todos los archivos de la carpeta o contenedor (es decir, data/aggregateddata/year=2014/month-6/\*)** se leen como parte del experimento.
+Al usar el módulo Lector en un experimento de Studio (clásico), puede especificar Azure Blob como entrada. Los archivos de Azure Blob Storage pueden ser los archivos de salida (ejemplo: 000000_0) que genera un script de Pig y Hive que se ejecuta en HDInsight. El módulo de lector permite leer archivos (sin extensiones) mediante la configuración de la propiedad **Path to container, directory/blob**(Ruta de acceso al contenedor, directorio o blob). La **ruta de acceso al contenedor** apunta al contenedor y el **directorio o blob** apunta a la carpeta que contiene los archivos, tal y como se muestra en la siguiente imagen. Tenga en cuenta que el asterisco (\*) **especifica que todos los archivos de la carpeta o contenedor (es decir, data/aggregateddata/year=2014/month-6/\*)** se leen como parte del experimento.
 
 ![Propiedades de Blob de Azure](./media/data-factory-create-predictive-pipelines/azure-blob-properties.png)
 
@@ -405,7 +405,7 @@ Al usar el módulo Lector en un experimento de Studio (clásico), puede especifi
 En el ejemplo JSON anterior:
 
 * El servicio web de Studio (clásico) implementado usa un módulo Lector y otro Escritor para leer y escribir datos desde y hacia una base de datos de Azure SQL Database. Este servicio web expone los cuatro parámetros siguientes:  nombre del servidor de bases de datos, nombre de base de datos, nombre de la cuenta del usuario del servidor y contraseña de la cuenta de usuario del servidor.
-* Las fechas y horas de inicio ( **start** ) y de finalización ( **end** ) deben estar en [formato ISO](https://en.wikipedia.org/wiki/ISO_8601). Por ejemplo: 2014-10-14T16:32:41Z. La hora de la propiedad **end** es opcional. Si no especifica ningún valor para la propiedad **end** , se calcula como " **start + 48 horas** ". Para ejecutar la canalización indefinidamente, especifique **9999-09-09** como valor de propiedad **end**. Para obtener más información sobre las propiedades JSON, vea [Referencia de scripting JSON](/previous-versions/azure/dn835050(v=azure.100)) .
+* Las fechas y horas de inicio (**start**) y de finalización (**end**) deben estar en [formato ISO](https://en.wikipedia.org/wiki/ISO_8601). Por ejemplo: 2014-10-14T16:32:41Z. La hora de la propiedad **end** es opcional. Si no especifica ningún valor para la propiedad **end**, se calcula como "**start + 48 horas**". Para ejecutar la canalización indefinidamente, especifique **9999-09-09** como valor de propiedad **end**. Para obtener más información sobre las propiedades JSON, vea [Referencia de scripting JSON](/previous-versions/azure/dn835050(v=azure.100)) .
 
 ### <a name="other-scenarios"></a>Otros escenarios
 #### <a name="web-service-requires-multiple-inputs"></a>El servicio web requiere varias entradas
