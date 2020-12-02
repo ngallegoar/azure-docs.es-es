@@ -16,12 +16,12 @@ ms.date: 07/27/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 224ccaeace91288171db42d2b8b8cf8c21a352e0
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 99da9b787bfe06bece8b8dafdafc257336dddf63
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94652525"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96176195"
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Solución de problemas de autenticación de paso a través de Azure Active Directory
 
@@ -72,7 +72,7 @@ Para confirmar que este es el problema, primero compruebe que el agente de auten
  ``` 
 4. Cuando se le pida que escriba las credenciales, escriba el mismo nombre de usuario y contraseña que usa para iniciar sesión (https://login.microsoftonline.com).
 
-Si recibe el mismo error de nombre de usuario y contraseña, significa que el agente de autenticación de paso a través funciona correctamente y el problema puede ser que el UPN local no sea enrutable. Para saber más, consulte [Configuración del identificador de inicio de sesión alternativo]( /windows-server/identity/ad-fs/operations/configuring-alternate-login-id#:~:text=%20Configuring%20Alternate%20Login%20ID,See%20Also.%20%20More).
+Si recibe el mismo error de nombre de usuario y contraseña, significa que el agente de autenticación de paso a través funciona correctamente y el problema puede ser que el UPN local no sea enrutable. Para saber más, consulte [Configuración del identificador de inicio de sesión alternativo](/windows-server/identity/ad-fs/operations/configuring-alternate-login-id).
 
 > [!IMPORTANT]
 > Si el servidor de Azure AD Connect no está unido a un dominio, lo cual es un requisito mencionado en [Azure AD Connect: requisitos previos](./how-to-connect-install-prerequisites.md#installation-prerequisites), se produce el problema de nombre de usuario o contraseña no válidos.

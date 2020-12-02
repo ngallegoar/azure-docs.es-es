@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 06/17/2020
 ms.author: Zhchia
-ms.openlocfilehash: 54dc9d7357e4315c7878ccdacfd3f90809751858
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 3fc1e39bc0a397329ed1bd83c8b9e8184f9961bd
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94353448"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96181992"
 ---
 # <a name="tutorial-configure-myday-for-automatic-user-provisioning"></a>Tutorial: Configuración de myday para el aprovisionamiento automático de usuarios
 
@@ -40,7 +40,7 @@ En este tutorial se describen los pasos que se deben realizar en myday y Azure 
 En el escenario descrito en este tutorial se supone que ya cuenta con los requisitos previos siguientes:
 
 * [Un inquilino de Azure AD](../develop/quickstart-create-new-tenant.md) 
-* Una cuenta de usuario en Azure AD con [permiso](../users-groups-roles/directory-assign-admin-roles.md) para configurar el aprovisionamiento (por ejemplo, Administrador de aplicaciones, Administrador de aplicaciones en la nube, Propietario de la aplicación o Administrador global). 
+* Una cuenta de usuario en Azure AD con [permiso](../roles/permissions-reference.md) para configurar el aprovisionamiento (por ejemplo, Administrador de aplicaciones, Administrador de aplicaciones en la nube, Propietario de la aplicación o Administrador global). 
 * Una cuenta de usuario de myday con permisos de administrador.
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>Paso 1. Planeación de la implementación de aprovisionamiento
@@ -87,17 +87,17 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Pestaña de aprovisionamiento automático](common/provisioning-automatic.png)
 
-5. En la sección **Credenciales de administrador** , escriba el valor de **URL de inquilino** recuperado anteriormente. Escriba el valor del token secreto recuperado anteriormente en **Token secreto**. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a myday. Si la conexión no se establece, asegúrese de que la cuenta de myday tiene permisos de administrador y pruebe de nuevo.
+5. En la sección **Credenciales de administrador**, escriba el valor de **URL de inquilino** recuperado anteriormente. Escriba el valor del token secreto recuperado anteriormente en **Token secreto**. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a myday. Si la conexión no se establece, asegúrese de que la cuenta de myday tiene permisos de administrador y pruebe de nuevo.
 
     ![Token de URL de inquilino](common/provisioning-testconnection-tenanturltoken.png)
 
-6. En el campo **Correo electrónico de notificación** , escriba la dirección de correo electrónico de una persona o grupo que deba recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
+6. En el campo **Correo electrónico de notificación**, escriba la dirección de correo electrónico de una persona o grupo que deba recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
 
     ![Correo electrónico de notificación](common/provisioning-notification-email.png)
 
 7. Seleccione **Guardar**.
 
-8. En la sección **Asignaciones** , seleccione **Aprovisionar usuarios de Azure Active Directory**.
+8. En la sección **Asignaciones**, seleccione **Aprovisionar usuarios de Azure Active Directory**.
 
 9. Revise los atributos de usuario que se sincronizan entre Azure AD y myday en la sección **Asignación de atributos**. Los atributos seleccionados como propiedades de **Coincidencia** se usan para buscar coincidencias con las cuentas de usuario de myday para operaciones de actualización. Si decide cambiar el [atributo de destino de coincidencia](../app-provisioning/customize-application-attributes.md), debe asegurarse de que la API de myday admite el filtrado de usuarios basado en ese atributo. Seleccione el botón **Guardar** para confirmar los cambios.
 
@@ -131,7 +131,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|Referencia|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:organization|String|
 
-10. En la sección **Asignaciones** , seleccione **Aprovisionar grupos de Azure Active Directory**.
+10. En la sección **Asignaciones**, seleccione **Aprovisionar grupos de Azure Active Directory**.
 
 11. Revise los atributos de grupo que se sincronizan entre Azure AD y myday en la sección **Asignación de atributos**. Los atributos seleccionados como propiedades de **Coincidencia** se usan para establecer correspondencia con los grupos de myday para operaciones de actualización. Seleccione el botón **Guardar** para confirmar los cambios.
 
@@ -147,7 +147,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Estado de aprovisionamiento activado](common/provisioning-toggle-on.png)
 
-14. Seleccione los valores deseados en **Ámbito** , en la sección **Configuración** , para definir los usuarios o grupos que quiere que se aprovisionen en myday.
+14. Seleccione los valores deseados en **Ámbito**, en la sección **Configuración**, para definir los usuarios o grupos que quiere que se aprovisionen en myday.
 
     ![Ámbito del aprovisionamiento](common/provisioning-scope.png)
 

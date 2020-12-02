@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/08/2020
 ms.author: Zhchia
-ms.openlocfilehash: 43b430ffe1eb9b074eedea3d977523589bc4606a
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 00e3b40b0e3f4c799c54308b35ce3e810cde118c
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94359292"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96181102"
 ---
 # <a name="tutorial-configure-apple-school-manager-for-automatic-user-provisioning"></a>Tutorial: Configuración de Apple School Manager para el aprovisionamiento automático de usuarios
 
@@ -39,7 +39,7 @@ En este tutorial se describen los pasos que debe realizar en Apple School Manage
 En el escenario descrito en este tutorial se supone que ya cuenta con los requisitos previos siguientes:
 
 * [Un inquilino de Azure AD](../develop/quickstart-create-new-tenant.md) 
-* Una cuenta de usuario en Azure AD con [permiso](../users-groups-roles/directory-assign-admin-roles.md) para configurar el aprovisionamiento (por ejemplo, Administrador de aplicaciones, Administrador de aplicaciones en la nube, Propietario de la aplicación o Administrador global). 
+* Una cuenta de usuario en Azure AD con [permiso](../roles/permissions-reference.md) para configurar el aprovisionamiento (por ejemplo, Administrador de aplicaciones, Administrador de aplicaciones en la nube, Propietario de la aplicación o Administrador global). 
 * Una cuenta de Apple School Manager con el rol de administrador, administrador de sitios o administrador de personas.
 
 > [!NOTE]
@@ -92,20 +92,20 @@ El servicio de aprovisionamiento de Azure AD le permite definir quién se aprov
 
     ![Pestaña de aprovisionamiento automático](common/provisioning-automatic.png)
 
-5. En la sección **Credenciales de administrador** , escriba los valores de **URL base de SCIM 2.0 y token de acceso** que recuperó anteriormente de Apple School Manager en **URL de inquilino** y **Token secreto** , respectivamente. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a Apple School Manager. Si la conexión falla, asegúrese de que la cuenta de Apple School Manager tiene permisos de administrador e inténtelo de nuevo.
+5. En la sección **Credenciales de administrador**, escriba los valores de **URL base de SCIM 2.0 y token de acceso** que recuperó anteriormente de Apple School Manager en **URL de inquilino** y **Token secreto**, respectivamente. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a Apple School Manager. Si la conexión falla, asegúrese de que la cuenta de Apple School Manager tiene permisos de administrador e inténtelo de nuevo.
 
     ![Token](common/provisioning-testconnection-tenanturltoken.png)
 
 > [!NOTE]
 >Si la conexión es correcta, Apple School Manager muestra la conexión SCIM como activa. Apple School Manager puede tardar hasta 60 segundos en reflejar el estado de conexión más reciente.
 
-6. En el campo **Correo electrónico de notificación** , escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
+6. En el campo **Correo electrónico de notificación**, escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
 
     ![Correo electrónico de notificación](common/provisioning-notification-email.png)
 
-7. Haga clic en **Save** (Guardar).
+7. Haga clic en **Save**(Guardar).
 
-8. En la sección **Asignaciones** , seleccione **Synchronize Azure Active Directory Users to Apple School Manager** (Sincronizar usuarios de Azure Active Directory con Apple School Manager).
+8. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Users to Apple School Manager** (Sincronizar usuarios de Azure Active Directory con Apple School Manager).
 
 9. Revise los atributos de usuario que se sincronizan entre Azure AD y Apple School Manager en la sección **Asignaciones de atributos**. Tenga en cuenta que los atributos seleccionados como propiedades de **Coincidencia** se usarán para buscar coincidencias con las cuentas de usuario de Apple School Managers con el objetivo de realizar operaciones de actualización. Seleccione el botón **Guardar** para confirmar los cambios.
 
@@ -130,7 +130,7 @@ El servicio de aprovisionamiento de Azure AD le permite definir quién se aprov
 
     ![Estado de aprovisionamiento activado](common/provisioning-toggle-on.png)
 
-12. Elija los valores deseados en **Ámbito** , en la sección **Configuración** , para definir los usuarios o grupos que desea que se aprovisionen en Apple School Manager.
+12. Elija los valores deseados en **Ámbito**, en la sección **Configuración**, para definir los usuarios o grupos que desea que se aprovisionen en Apple School Manager.
 
     ![Ámbito del aprovisionamiento](common/provisioning-scope.png)
 

@@ -10,12 +10,12 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 zone_pivot_groups: client-operating-system-macos-and-linux-windows-powershell
-ms.openlocfilehash: c333b95ed762c905511ab1d4a84050d50f0e023c
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 66b10efb6ca93bc6b4dd67d700daaf1f9049de68
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371331"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183437"
 ---
 # <a name="upload-usage-data-metrics-and-logs-to-azure-monitor"></a>Carga de datos de uso, métricas y registros en Azure Monitor
 
@@ -63,7 +63,7 @@ La entidad de servicio se usa para cargar datos y métricas de uso.
 Use estos comandos para crear la entidad de servicio de carga de métricas:
 
 > [!NOTE]
-> Para crear una entidad de servicio se necesitan [determinados permisos en Azure](/azure/active-directory/develop/howto-create-service-principal-portal#permissions-required-for-registering-an-app).
+> Para crear una entidad de servicio se necesitan [determinados permisos en Azure](../../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
 
 Para crear una entidad de servicio, actualice el siguiente ejemplo. Reemplace `<ServicePrincipalName>` por el nombre de la entidad de servicio y ejecute el comando:
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/24/2020
 ms.author: Zhchia
-ms.openlocfilehash: e70ee06d696539f0b41c0a070f6f5b43391fda52
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: ab261d4ca04fed04c8a3e1046c0a4c563767ad4c
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357167"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182009"
 ---
 # <a name="tutorial-configure-mixpanel-for-automatic-user-provisioning"></a>Tutorial: Configuración de Mixpanel para el aprovisionamiento automático de usuarios
 
@@ -35,7 +35,7 @@ En este tutorial, se describen los pasos que debe realizar en Mixpanel y Azure 
 
 En el escenario descrito en este tutorial se supone que ya cuenta con los requisitos previos siguientes:
 * [Un inquilino de Azure AD](../develop/quickstart-create-new-tenant.md) 
-* Una cuenta de usuario en Azure AD con [permiso](../users-groups-roles/directory-assign-admin-roles.md) para configurar el aprovisionamiento (por ejemplo, Administrador de aplicaciones, Administrador de aplicaciones en la nube, Propietario de la aplicación o Administrador global). 
+* Una cuenta de usuario en Azure AD con [permiso](../roles/permissions-reference.md) para configurar el aprovisionamiento (por ejemplo, Administrador de aplicaciones, Administrador de aplicaciones en la nube, Propietario de la aplicación o Administrador global). 
 * Una organización de Mixpanel de nivel empresarial
 * Una cuenta de Mixpanel con privilegios de administrador en la organización
 * Inicio de sesión único habilitado dentro de Mixpanel con un dominio notificado
@@ -86,17 +86,17 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Captura de pantalla de la lista desplegable Modo de aprovisionamiento con la opción Automático seleccionada.](common/provisioning-automatic.png)
 
-5. En la sección **Credenciales de administrador** , escriba los valores de **URL de inquilino** y **Token de secreto** de Mixpanel. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a Mixpanel. Si no se establece la conexión, asegúrese de que la cuenta de Mixpanel tiene permisos de administrador y pruebe de nuevo.
+5. En la sección **Credenciales de administrador**, escriba los valores de **URL de inquilino** y **Token de secreto** de Mixpanel. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a Mixpanel. Si no se establece la conexión, asegúrese de que la cuenta de Mixpanel tiene permisos de administrador y pruebe de nuevo.
 
     ![Captura de pantalla que muestra el cuadro de diálogo Credenciales de administrador, en el que se puede especificar el URL de inquilino y el secreto de inquilino.](./media/mixpanel-provisioning-tutorial/provisioning.png)
 
-6. En el campo **Correo electrónico de notificación** , escriba la dirección de correo electrónico de una persona o grupo que deba recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
+6. En el campo **Correo electrónico de notificación**, escriba la dirección de correo electrónico de una persona o grupo que deba recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
 
     ![Correo electrónico de notificación](common/provisioning-notification-email.png)
 
 7. Seleccione **Guardar**.
 
-8. En la sección **Asignaciones** , seleccione **Sincronizar usuarios de Azure Active Directory con Mixpanel**.
+8. En la sección **Asignaciones**, seleccione **Sincronizar usuarios de Azure Active Directory con Mixpanel**.
 
 9. Revise los atributos de usuario que se sincronizan entre Azure AD y Mixpanel en la sección de **Asignación de atributos**. Los atributos seleccionados como propiedades de **Coincidencia** se usan para buscar coincidencias con las cuentas de usuario de Mixpanel para las operaciones de actualización. Si decide cambiar el [atributo de destino coincidente](../app-provisioning/customize-application-attributes.md), deberá asegurarse de que la API de Mixpanel admite el filtrado de usuarios basado en ese atributo. Seleccione el botón **Guardar** para confirmar los cambios.
 
@@ -105,7 +105,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
    |userName|String|
    |DisplayName|String|
 
-10. En la sección **Asignaciones** , seleccione **Sincronizar grupos de Azure Active Directory con Mixpanel**.
+10. En la sección **Asignaciones**, seleccione **Sincronizar grupos de Azure Active Directory con Mixpanel**.
 
 11. Examine los atributos de grupo que se sincronizan entre Azure AD y Mixpanel en la sección **Asignación de atributos**. Los atributos seleccionados como propiedades de **Coincidencia** se usan para establecer correspondencia con los grupos de Mixpanel a fin de realizar operaciones de actualización. Seleccione el botón **Guardar** para confirmar los cambios.
 
@@ -120,7 +120,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Estado de aprovisionamiento activado](common/provisioning-toggle-on.png)
 
-14. Elija los valores deseados en **Ámbito** , en la sección **Configuración** , para definir los usuarios o grupos que desea que se aprovisionen en Mixpanel.
+14. Elija los valores deseados en **Ámbito**, en la sección **Configuración**, para definir los usuarios o grupos que desea que se aprovisionen en Mixpanel.
 
     ![Ámbito del aprovisionamiento](common/provisioning-scope.png)
 

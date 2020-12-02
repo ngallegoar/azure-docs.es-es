@@ -6,19 +6,19 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/20/2020
-ms.openlocfilehash: 07d9ae0d7cdf8e823bb59cb376d40cdf846bb2cb
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 3cb01a8f1c06bad618ae5c7930920ee0f067038c
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93092762"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184542"
 ---
 # <a name="monitor-health-of-log-analytics-workspace-in-azure-monitor"></a>Supervisión del estado del área de trabajo de Log Analytics en Azure Monitor
-Para mantener el rendimiento y la disponibilidad del área de trabajo de Log Analytics en Azure Monitor, es necesario detectar con antelación los problemas que surjan. En este artículo se describe cómo supervisar el estado del área de trabajo de Log Analytics con los datos de la tabla [Operation](https://docs.microsoft.com/azure/azure-monitor/reference/tables/operation) (Operación). Esta tabla se incluye en todas las áreas de trabajo de Log Analytics y contiene los errores y las advertencias que se producen en el área de trabajo. Revise periódicamente estos datos y cree alertas para recibir notificaciones de forma anticipada cuando haya incidentes importantes en el área de trabajo.
+Para mantener el rendimiento y la disponibilidad del área de trabajo de Log Analytics en Azure Monitor, es necesario detectar con antelación los problemas que surjan. En este artículo se describe cómo supervisar el estado del área de trabajo de Log Analytics con los datos de la tabla [Operation](/azure/azure-monitor/reference/tables/operation) (Operación). Esta tabla se incluye en todas las áreas de trabajo de Log Analytics y contiene los errores y las advertencias que se producen en el área de trabajo. Revise periódicamente estos datos y cree alertas para recibir notificaciones de forma anticipada cuando haya incidentes importantes en el área de trabajo.
 
 ## <a name="_logoperation-function"></a>Función _LogOperation
 
-Los registros de Azure Monitor envían detalles sobre cualquier problema a la tabla [Operation](https://docs.microsoft.com/azure/azure-monitor/reference/tables/operation) (Operación) del área de trabajo donde se produjo el problema. La función **_LogsOperation** del sistema se basa en la tabla **Operation** (Operación) y proporciona un conjunto simplificado de información para el análisis y la generación de alertas.
+Los registros de Azure Monitor envían detalles sobre cualquier problema a la tabla [Operation](/azure/azure-monitor/reference/tables/operation) (Operación) del área de trabajo donde se produjo el problema. La función **_LogsOperation** del sistema se basa en la tabla **Operation** (Operación) y proporciona un conjunto simplificado de información para el análisis y la generación de alertas.
 
 ## <a name="columns"></a>Columnas
 
@@ -60,8 +60,8 @@ Las operaciones de ingesta son problemas que se produjeron durante la ingesta de
 | Metadatos. | Error | Se detectó un error de configuración. | |
 | datos, recopilación | Error   | Se descartaron los datos porque la solicitud se creó con anterioridad al número de días establecido. | [Administrar el uso y los costos con los registros de Azure Monitor](manage-cost-storage.md#alert-when-daily-cap-reached)
 | datos, recopilación | Información    | Se detectó la configuración de la máquina de recopilación.| |
-| datos, recopilación | Información    | Recopilación de datos iniciada debido a un nuevo día. | [Administrar el uso y los costos con los registros de Azure Monitor](/azure/azure-monitor/platform/manage-cost-storage#alert-when-daily-cap-reached) |
-| datos, recopilación | Advertencia | Recopilación de datos detenida debido a que se alcanzó el límite diario.| [Administrar el uso y los costos con los registros de Azure Monitor](/azure/azure-monitor/platform/manage-cost-storage#alert-when-daily-cap-reached) |
+| datos, recopilación | Información    | Recopilación de datos iniciada debido a un nuevo día. | [Administrar el uso y los costos con los registros de Azure Monitor](./manage-cost-storage.md#alert-when-daily-cap-reached) |
+| datos, recopilación | Advertencia | Recopilación de datos detenida debido a que se alcanzó el límite diario.| [Administrar el uso y los costos con los registros de Azure Monitor](./manage-cost-storage.md#alert-when-daily-cap-reached) |
 | Procesamiento de datos | Error   | Formato JSON no válido. | [Envío de datos de registro a Azure Monitor con HTTP Data Collector API (versión preliminar pública)](data-collector-api.md#request-body) | 
 | Procesamiento de datos | Advertencia | El valor se ha recortado al tamaño máximo permitido. | [Límites de servicio de Azure Monitor](../service-limits.md#log-analytics-workspaces) |
 | Procesamiento de datos | Advertencia | Se ha recortado el valor de campo cuando se alcanzó el tamaño límite. | [Límites de servicio de Azure Monitor](../service-limits.md#log-analytics-workspaces) | 

@@ -7,12 +7,12 @@ ms.service: api-management
 ms.topic: conceptual
 ms.date: 10/09/2020
 ms.author: apimpm
-ms.openlocfilehash: 92d108304f788279a636b1dc5e1c4e6c103ede3d
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 62f163b9ce649cd5ddb52b4325682570633dfb92
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93088886"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183165"
 ---
 # <a name="cicd-for-api-management-using-azure-resource-manager-templates"></a>CI/CD para API Management mediante plantillas de Azure Resource Manager
 
@@ -41,14 +41,14 @@ En este ejemplo, hay dos entornos de implementación: *Desarrollo* y *Producció
 * Los desarrolladores de API tienen acceso a la instancia de desarrollo y pueden usarla para desarrollar y probar sus API. 
 * Un equipo designado denominado *Publicadores de API* administra la instancia de producción.
 
-La clave de este enfoque propuesto es conservar todas las configuraciones de API Management en [plantillas de Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md). La organización debe mantener estas plantillas en un sistema de control de código fuente como Git. Como se muestra en la imagen, un repositorio del publicador contiene todas las configuraciones de la instancia de API Management de producción en una colección de plantillas:
+La clave de este enfoque propuesto es conservar todas las configuraciones de API Management en [plantillas de Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md). La organización debe mantener estas plantillas en un sistema de control de código fuente como Git. Como se muestra en la imagen, un repositorio del publicador contiene todas las configuraciones de la instancia de API Management de producción en una colección de plantillas:
 
 |Plantilla  |Descripción  |
 |---------|---------|
 |Plantilla de servicio     | Configuraciones de nivel de servicio de la instancia de API Management, como el plan de tarifa y los dominios personalizados.         |
 |Plantillas compartidas     |  Recursos compartidos en toda una instancia de API Management, como grupos, productos y registradores.    |
 |Plantillas de API     |  Configuraciones de API y sus subrecursos: operaciones, directivas y configuración de diagnóstico.        |
-|Plantilla maestra (principal)     |   Conecta todo mediante la [vinculación](../azure-resource-manager/resource-group-linked-templates.md) de todas las plantillas y su implementación por orden. Para implementar todas las configuraciones en una instancia de API Management, implemente la plantilla principal. También puede implementar cada plantilla de manera individual.       |
+|Plantilla maestra (principal)     |   Conecta todo mediante la [vinculación](../azure-resource-manager/templates/linked-templates.md) de todas las plantillas y su implementación por orden. Para implementar todas las configuraciones en una instancia de API Management, implemente la plantilla principal. También puede implementar cada plantilla de manera individual.       |
 
 Los desarrolladores de API bifurcarán el repositorio del publicador a un repositorio del desarrollador y trabajarán en los cambios de sus API. En la mayoría de los casos, se centran en las plantillas de API para sus API y no es necesario cambiar las plantillas de servicio o compartidas.
 

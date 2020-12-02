@@ -8,12 +8,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 10/14/2020
 ms.author: apimpm
-ms.openlocfilehash: 2317e61111c3ad328e8f112e7d9567f3f5d47990
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 031b3bfd30e0272589c5c7ee2c546b9459767b33
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95997057"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183199"
 ---
 # <a name="tutorial-monitor-published-apis"></a>Tutorial: Supervisión de las API publicadas
 
@@ -149,7 +149,7 @@ Si habilita la recopilación de registros de GatewayLogs o métricas en un área
 
     :::image type="content" source="media/api-management-howto-use-azure-monitor/logs-menu-item.png" alt-text="Captura de pantalla del elemento Registros en el menú de supervisión":::
 
-Ejecute consultas para ver los datos. Se proporcionan varias [consultas de ejemplo](../azure-monitor/log-query/saved-queries.md), pero también puede ejecutar la suya propia. Por ejemplo, la consulta siguiente recupera las 24 horas de datos más recientes de la tabla GatewayLogs:
+Ejecute consultas para ver los datos. Se proporcionan varias [consultas de ejemplo](../azure-monitor/log-query/example-queries.md), pero también puede ejecutar la suya propia. Por ejemplo, la consulta siguiente recupera las 24 horas de datos más recientes de la tabla GatewayLogs:
 
 ```kusto
 ApiManagementGatewayLogs
@@ -158,7 +158,7 @@ ApiManagementGatewayLogs
 
 Para más información acerca del uso de registros de recursos para API Management, consulte:
 
-* [Introducción a los análisis de registros de Azure Monitor](../azure-monitor/log-query/get-started-portal.md), o bien pruebe el [entorno de demostración de Log Analytics](https://portal.loganalytics.io/demo).
+* [Introducción a los análisis de registros de Azure Monitor](../azure-monitor/log-query/log-analytics-tutorial.md), o bien pruebe el [entorno de demostración de Log Analytics](https://portal.loganalytics.io/demo).
 
 * [Introducción a las consultas de registro en Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
 

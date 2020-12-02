@@ -4,12 +4,12 @@ description: Aprenda a desarrollar funciones con Python
 ms.topic: article
 ms.date: 11/4/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: ce8abf439c44e06134113dd562ebadc62b803a28
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 8254abda68949e6884143316d4b29b07ade129dc
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94506080"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96167852"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Guía de Azure Functions para desarrolladores de Python
 
@@ -19,7 +19,7 @@ Como desarrollador de Python, puede que también le interese uno de los siguient
 
 | Introducción | Conceptos| Escenarios y ejemplos |
 | -- | -- | -- | 
-| <ul><li>[Función de Python mediante Visual Studio Code](./functions-create-first-function-vs-code.md?pivots=programming-language-python)</li><li>[Función de Python con el terminal o el símbolo del sistema](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-python)</li></ul> | <ul><li>[Guía del desarrollador](functions-reference.md)</li><li>[Opciones de hospedaje](functions-scale.md)</li><li>[Consideraciones&nbsp;sobre el rendimiento](functions-best-practices.md)</li></ul> | <ul><li>[Clasificación de imágenes con PyTorch](machine-learning-pytorch.md)</li><li>[Ejemplo de Azure Automation](/samples/azure-samples/azure-functions-python-list-resource-groups/azure-functions-python-sample-list-resource-groups/)</li><li>[Machine Learning con TensorFlow](functions-machine-learning-tensorflow.md)</li><li>[Examen de los ejemplos de Python](/samples/browse/?products=azure-functions&languages=python)</li></ul> |
+| <ul><li>[Función de Python mediante Visual Studio Code](./create-first-function-vs-code-csharp.md?pivots=programming-language-python)</li><li>[Función de Python con el terminal o el símbolo del sistema](./create-first-function-cli-csharp.md?pivots=programming-language-python)</li></ul> | <ul><li>[Guía del desarrollador](functions-reference.md)</li><li>[Opciones de hospedaje](functions-scale.md)</li><li>[Consideraciones&nbsp;sobre el rendimiento](functions-best-practices.md)</li></ul> | <ul><li>[Clasificación de imágenes con PyTorch](machine-learning-pytorch.md)</li><li>[Ejemplo de Azure Automation](/samples/azure-samples/azure-functions-python-list-resource-groups/azure-functions-python-sample-list-resource-groups/)</li><li>[Machine Learning con TensorFlow](functions-machine-learning-tensorflow.md)</li><li>[Examen de los ejemplos de Python](/samples/browse/?products=azure-functions&languages=python)</li></ul> |
 
 ## <a name="programming-model"></a>Modelo de programación
 
@@ -491,7 +491,7 @@ func azure functionapp publish <APP_NAME>
 
 Reemplace `<APP_NAME>` por el nombre de la aplicación de función de Azure.
 
-La [extensión de Azure Functions para Visual Studio Code](functions-create-first-function-vs-code.md#publish-the-project-to-azure) también solicita de forma predeterminada una compilación remota.
+La [extensión de Azure Functions para Visual Studio Code](./create-first-function-vs-code-csharp.md#publish-the-project-to-azure) también solicita de forma predeterminada una compilación remota.
 
 ### <a name="local-build"></a>Compilación local
 
@@ -723,6 +723,8 @@ Para obtener más información, consulte los siguientes recursos:
 * [Enlaces de HTTP y de Webhook](functions-bindings-http-webhook.md)
 * [Enlaces de Queue Storage](functions-bindings-storage-queue.md)
 * [Desencadenador de temporizador](functions-bindings-timer.md)
+
+[¿Tiene problemas? Háganoslo saber.](https://aka.ms/python-functions-ref-survey)
 
 
 [HttpRequest]: /python/api/azure-functions/azure.functions.httprequest?view=azure-python&preserve-view=true

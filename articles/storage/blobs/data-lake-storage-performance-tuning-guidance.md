@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 82220a63cfe470344951e4276bc9eaccd9600428
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 2011fa8e85f10f12ae914b02710bbd65f5700403
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677353"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95913052"
 ---
 # <a name="optimize-azure-data-lake-storage-gen2-for-performance"></a>Optimizar Azure Data Lake Storage Gen2 para el rendimiento
 
@@ -47,7 +47,7 @@ Una vez haya solucionado los cuellos de botella de la conectividad de la red y d
 |--------------------|------------------------------------------------------|------------------------------|
 | DistCp            | -m (mapper)   | [Vínculo](data-lake-storage-use-distcp.md#performance-considerations-while-using-distcp)                             |
 | Azure Data Factory| parallelCopies    | [Vínculo](../../data-factory/copy-activity-performance.md)                          |
-| Sqoop           | fs.azure.block.size, -m (mapper)    |   [Vínculo](https://docs.microsoft.com/archive/blogs/shanyu/performance-tuning-for-hdinsight-storm-and-microsoft-azure-eventhubs)        |
+| Sqoop           | fs.azure.block.size, -m (mapper)    |   [Vínculo](/archive/blogs/shanyu/performance-tuning-for-hdinsight-storm-and-microsoft-azure-eventhubs)        |
 
 ## <a name="structure-your-data-set"></a>Estructuración del conjunto de datos
 
@@ -57,7 +57,7 @@ Cuando los datos se almacenan en Data Lake Storage Gen2, el tamaño de los archi
 
 Normalmente, los motores de análisis como HDInsight y Azure Data Lake Analytics tienen una sobrecarga por cada archivo. Si los datos se almacenan en muchos archivos pequeños, puede afectar desfavorablemente al rendimiento. En general, organice los datos en archivos de un tamaño mayor para mejorar el rendimiento (tamaño de 256 MB a 100 GB). Algunos motores y aplicaciones podrían tener problemas para procesar eficazmente los archivos que tienen un tamaño superior a 100 GB.
 
-A veces, las canalizaciones de datos ejercen un control limitado sobre los datos sin procesar que tienen una gran cantidad de archivos pequeños. Se recomienda disponer de un proceso de "cocinado" que genere archivos de mayor tamaño para usarlos en las aplicaciones de bajada.
+A veces, las canalizaciones de datos ejercen un control limitado sobre los datos sin procesar que tienen una gran cantidad de archivos pequeños. En general, se recomienda que el sistema tenga algún tipo de proceso para agregar archivos pequeños en otros más grandes y que así puedan usarlos aplicaciones de nivel inferior.
 
 ### <a name="organizing-time-series-data-in-folders"></a>Organización de los datos de serie temporal en carpetas
 

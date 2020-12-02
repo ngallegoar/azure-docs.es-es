@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d5314758acecae2a9d68f2405fc1c3d2196950b4
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: f209d394e1a0c2c4ddde9cbf8df2704647e2822a
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94577063"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96168719"
 ---
 # <a name="ldap-authentication-with-azure-active-directory"></a>Autenticación de LDAP con Azure Active Directory
 
@@ -60,12 +60,11 @@ Existe la necesidad de que una aplicación o un servicio usen la autenticación 
 
 ## <a name="implement-ldap-authentication-with-azure-ad"></a>Implementación de la autenticación LDAP con Azure AD
 
-* [Creación y configuración de una instancia de Azure AD DS](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance) 
+* [Creación y configuración de una instancia de Azure AD DS](../../active-directory-domain-services/tutorial-create-instance.md) 
 
-* [Configuración de redes virtuales para una instancia de Azure AD DS](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-configure-networking) 
+* [Configuración de redes virtuales para una instancia de Azure AD DS](../../active-directory-domain-services/tutorial-configure-networking.md) 
 
-* [Configuración de LDAP seguro para un dominio administrado de Azure AD DS](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-configure-ldaps) 
+* [Configuración de LDAP seguro para un dominio administrado de Azure AD DS](../../active-directory-domain-services/tutorial-configure-ldaps.md) 
 
-* [Creación de una confianza de bosque de salida a un dominio local en Azure AD DS](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-forest-trust)
+* [Creación de una confianza de bosque de salida a un dominio local en Azure AD DS](../../active-directory-domain-services/tutorial-create-forest-trust.md)
 
- 

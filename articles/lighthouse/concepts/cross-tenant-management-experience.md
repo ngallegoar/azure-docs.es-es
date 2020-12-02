@@ -1,14 +1,14 @@
 ---
 title: Experiencias de administración entre inquilinos
 description: La administración de recursos delegados de Azure habilita una experiencia de administración entre inquilinos.
-ms.date: 11/09/2020
+ms.date: 11/19/2020
 ms.topic: conceptual
-ms.openlocfilehash: dfb92e3f4f02e693ae5e4bba57e5344288c4615a
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 95b9bcf6bb9530afc9f6a23c323b6931e8975ad1
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94413129"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95905130"
 ---
 # <a name="cross-tenant-management-experiences"></a>Experiencias de administración entre inquilinos
 
@@ -81,6 +81,8 @@ La mayoría de las tareas y servicios se pueden realizar en recursos delegados a
 [Azure Kubernetes Service (AKS)](../../aks/index.yml):
 
 - administre los entornos de Kubernetes hospedados e implemente y administre aplicaciones en contenedores en inquilinos de clientes
+- Implementación y administración de clústeres en inquilinos de clientes
+-   Uso de Azure Monitor para que los contenedores supervisen el rendimiento en los inquilinos de cliente
 
 [Azure Migrate](../../migrate/index.yml):
 
@@ -170,4 +172,4 @@ Con todos los escenarios, tenga en cuenta las siguientes limitaciones actuales:
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Incorpore los clientes a Azure Lighthouse, ya sea [mediante plantillas de Azure Resource Manager](../how-to/onboard-customer.md) o [publicando una oferta de servicios administrados privada o pública en Azure Marketplace](../how-to/publish-managed-services-offers.md).
-- Puede [ver y administrar clientes](../how-to/view-manage-customers.md) desde **Mis clientes** , en Azure Portal.
+- Puede [ver y administrar clientes](../how-to/view-manage-customers.md) desde **Mis clientes**, en Azure Portal.

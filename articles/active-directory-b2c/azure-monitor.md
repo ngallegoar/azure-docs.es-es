@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.author: mimart
 ms.subservice: B2C
 ms.date: 11/12/2020
-ms.openlocfilehash: b41f5e9a3bd4d3cbe52cf2e1c567d24de8a661f4
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 6d40eab12c9726459543d0b69e27b73178eba99f
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95992834"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96170623"
 ---
 # <a name="monitor-azure-ad-b2c-with-azure-monitor"></a>Supervisión de Azure AD B2C con Azure Monitor
 
@@ -140,9 +140,9 @@ Una vez que haya implementado la plantilla y esperado unos minutos a que se comp
 
 La configuración de diagnóstico define dónde se deben enviar los registros y las métricas de un recurso. Los posibles destinos son:
 
-- [Cuenta de Almacenamiento de Azure](../azure-monitor/platform/resource-logs-collect-storage.md)
-- Soluciones de [Event Hubs](../azure-monitor/platform/resource-logs-stream-event-hubs.md)
-- [Área de trabajo de Log Analytics](../azure-monitor/platform/resource-logs-collect-workspace.md)
+- [Cuenta de Almacenamiento de Azure](../azure-monitor/platform/resource-logs.md#send-to-azure-storage)
+- Soluciones de [Event Hubs](../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs)
+- [Área de trabajo de Log Analytics](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace)
 
 En este ejemplo, se usa el área de trabajo de Log Analytics para crear un panel.
 
@@ -180,7 +180,7 @@ Ahora puede configurar el área de trabajo de Log Analytics para visualizar los 
 Las consultas de registro ayudan a aprovechar al máximo el valor de los datos recopilados en registros de Azure Monitor. Un lenguaje de consulta eficaz permite combinar datos de varias tablas, agregar grandes conjuntos de datos y realizar operaciones complejas con una mínima cantidad de código. Se puede responder casi cualquier pregunta y realizar cualquier análisis, siempre y cuando se hayan recopilado los datos de respaldo y comprenda cómo construir la consulta adecuada. Para más información, consulte [Introducción a las consultas de registro en Azure Monitor](../azure-monitor/log-query/get-started-queries.md).
 
 1. En el **área de trabajo de Log Analytics**, seleccione **Registros**.
-1. En el editor de consultas, pegue la siguiente consulta del [lenguaje de consulta Kusto](https://docs.microsoft.com/azure/data-explorer/kusto/query/). Esta consulta muestra el uso de la directiva por operación durante los últimos X días. El período predeterminado está establecido en 90 días (90d). Tenga en cuenta que la consulta solo se centra en operaciones en las que se emite un token o código mediante la directiva.
+1. En el editor de consultas, pegue la siguiente consulta del [lenguaje de consulta Kusto](/azure/data-explorer/kusto/query/). Esta consulta muestra el uso de la directiva por operación durante los últimos X días. El período predeterminado está establecido en 90 días (90d). Tenga en cuenta que la consulta solo se centra en operaciones en las que se emite un token o código mediante la directiva.
 
     ```kusto
     AuditLogs
@@ -205,7 +205,7 @@ Las consultas de registro ayudan a aprovechar al máximo el valor de los datos r
 
 1. Seleccione **Guardar**.
 
-También puede cambiar la consulta para visualizar los datos mediante el operador [render](https://docs.microsoft.com/azure/data-explorer/kusto/query/renderoperator?pivots=azuremonitor).
+También puede cambiar la consulta para visualizar los datos mediante el operador [render](/azure/data-explorer/kusto/query/renderoperator?pivots=azuremonitor).
 
 ```kusto
 AuditLogs

@@ -6,19 +6,19 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.subservice: alerts
-ms.openlocfilehash: 7f03858b2427b2a2069ebe2c9d06425e7a741e2b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e7c9c76816b5d1ee2eedfb7e54645e056906feef
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91294366"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186633"
 ---
 # <a name="optimizing-log-alert-queries"></a>Optimización de consultas de alerta de registro
 En este artículo se describe cómo escribir y convertir las consultas de [alerta de registro](alerts-unified-log.md) para lograr un rendimiento óptimo. Las consultas optimizadas reducen la latencia y la carga de alertas, que se ejecutan con frecuencia.
 
 ## <a name="how-to-start-writing-an-alert-log-query"></a>Cómo empezar a escribir una consulta de alerta de registro
 
-Las consultas de alerta comienzan a partir de la [consulta de los datos de registro en Log Analytics](alerts-log.md#create-a-log-alert-rule-with-the-azure-portal) que indican el problema. Puede usar el [tema de ejemplos de consultas de alertas](../log-query/saved-queries.md) para comprender qué puede detectar. También puede [empezar a escribir su propia consulta](../log-query/get-started-portal.md). 
+Las consultas de alerta comienzan a partir de la [consulta de los datos de registro en Log Analytics](alerts-log.md#create-a-log-alert-rule-with-the-azure-portal) que indican el problema. Puede usar el [tema de ejemplos de consultas de alertas](../log-query/example-queries.md) para comprender qué puede detectar. También puede [empezar a escribir su propia consulta](../log-query/log-analytics-tutorial.md). 
 
 ### <a name="queries-that-indicate-the-issue-and-not-the-alert"></a>Consultas que indican el problema y no la alerta
 

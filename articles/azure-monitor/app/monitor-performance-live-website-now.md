@@ -4,12 +4,12 @@ description: Supervise el rendimiento de un sitio web sin volver a implementarlo
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 6c27c78bf8e3f3b8af342a14a38c9be3821d781a
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 53dbcc341fdd4bc194d34d40cdd2a975df496376
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96020932"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186310"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-codeless-attach"></a>Instrumentación de aplicaciones web en tiempo de ejecución con Adjuntar sin código de Application Insights
 
@@ -93,7 +93,7 @@ Estos son algunos de los pasos que puede seguir para confirmar que la instalaci�
 
 - Confirme que el archivo applicationInsights.config esté en el directorio de la aplicación de destino y que incluya la clave de instrumentación.
 
-- Si sospecha que faltan datos, puede ejecutar una consulta en [Analytics](../log-query/get-started-portal.md) para mostrar todos los roles de la nube que actualmente envían datos de telemetría.
+- Si sospecha que faltan datos, puede ejecutar una consulta en [Analytics](../log-query/log-analytics-tutorial.md) para mostrar todos los roles de la nube que actualmente envían datos de telemetría.
   ```Kusto
   union * | summarize count() by cloud_RoleName, cloud_RoleInstance
   ```
@@ -340,4 +340,3 @@ Agregue más telemetría:
 [qna]: ../faq.md
 [roles]: ./resources-roles-access-control.md
 [usage]: ./javascript.md
-

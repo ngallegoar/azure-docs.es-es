@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 11/22/2019
 ms.author: kenwith
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: ce8b792beb8652bedfddff470444240bc3edf148
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 64418a727ecb9a300912a4766a9ea2066328ad31
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92363664"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96174907"
 ---
 # <a name="plan-cloud-hr-application-to-azure-active-directory-user-provisioning"></a>Planeamiento de la aplicación de RR. HH. en la nube para el aprovisionamiento de usuarios de Azure Active Directory
 
@@ -60,9 +60,9 @@ El aprovisionamiento de usuarios crea una base en la gobernanza de identidades e
 
 En este artículo se usan los términos siguientes:
 
-- **Sistema de origen** : repositorio de usuarios desde el que se aprovisiona Azure AD. Un ejemplo es una aplicación de RR. HH. en la nube, como Workday o SuccessFactors.
-- **Sistema de destino** : repositorio de usuarios en el que aprovisiona Azure AD. Algunos ejemplos son Active Directory, Azure AD, Microsoft 365 u otras aplicaciones SaaS.
-- **Proceso de incorporaciones, cambios y bajas** : término que se usa para nuevas contrataciones, transferencias y bajas mediante una aplicación de RR. HH. en la nube como sistema de registros. El proceso se completa cuando el servicio aprovisiona correctamente los atributos necesarios en el sistema de destino.
+- **Sistema de origen**: repositorio de usuarios desde el que se aprovisiona Azure AD. Un ejemplo es una aplicación de RR. HH. en la nube, como Workday o SuccessFactors.
+- **Sistema de destino**: repositorio de usuarios en el que aprovisiona Azure AD. Algunos ejemplos son Active Directory, Azure AD, Microsoft 365 u otras aplicaciones SaaS.
+- **Proceso de incorporaciones, cambios y bajas**: término que se usa para nuevas contrataciones, transferencias y bajas mediante una aplicación de RR. HH. en la nube como sistema de registros. El proceso se completa cuando el servicio aprovisiona correctamente los atributos necesarios en el sistema de destino.
 
 ### <a name="key-benefits"></a>Ventajas principales
 
@@ -144,9 +144,9 @@ Ejecute la configuración inicial en un [entorno piloto](../fundamentals/active-
 
 Para facilitar los flujos de trabajo de aprovisionamiento de Azure AD entre la aplicación de RR. HH. en la nube y Active Directory, puede agregar varias aplicaciones de conectores de aprovisionamiento desde la galería de aplicaciones de Azure AD:
 
-- **Aprovisionamiento de usuarios de la aplicación de RR. HH. en la nube en Active Directory** : esta aplicación de conector de aprovisionamiento facilita el aprovisionamiento de cuentas de usuario de la aplicación de RR. HH. en la nube en un solo dominio de Active Directory. Si tiene varios dominios, puede agregar una instancia de esta aplicación desde la galería de aplicaciones de Azure AD para cada dominio de Active Directory en el que deba efectuar un aprovisionamiento.
-- **Aprovisionamiento de usuarios de la aplicación de RR. HH. en la nube en Azure AD** : si bien Azure AD Connect es la herramienta que se debe usar para sincronizar los usuarios de Active Directory con Azure AD, esta aplicación de conector de aprovisionamiento se puede usar para facilitar el aprovisionamiento de usuarios que solo están en la nube desde la aplicación de RR. HH. en la nube en un inquilino de Azure AD.
-- **Reescritura de la aplicación de RR. HH. en la nube** : esta aplicación de conector de aprovisionamiento facilita la reescritura de las direcciones de correo electrónico de los usuarios de Azure AD en la aplicación de RR. HH. en la nube.
+- **Aprovisionamiento de usuarios de la aplicación de RR. HH. en la nube en Active Directory**: esta aplicación de conector de aprovisionamiento facilita el aprovisionamiento de cuentas de usuario de la aplicación de RR. HH. en la nube en un solo dominio de Active Directory. Si tiene varios dominios, puede agregar una instancia de esta aplicación desde la galería de aplicaciones de Azure AD para cada dominio de Active Directory en el que deba efectuar un aprovisionamiento.
+- **Aprovisionamiento de usuarios de la aplicación de RR. HH. en la nube en Azure AD**: si bien Azure AD Connect es la herramienta que se debe usar para sincronizar los usuarios de Active Directory con Azure AD, esta aplicación de conector de aprovisionamiento se puede usar para facilitar el aprovisionamiento de usuarios que solo están en la nube desde la aplicación de RR. HH. en la nube en un inquilino de Azure AD.
+- **Reescritura de la aplicación de RR. HH. en la nube**: esta aplicación de conector de aprovisionamiento facilita la reescritura de las direcciones de correo electrónico de los usuarios de Azure AD en la aplicación de RR. HH. en la nube.
 
 Por ejemplo, en la imagen siguiente se enumeran las aplicaciones de conector de Workday que están disponibles en la galería de aplicaciones de Azure AD.
 
@@ -245,7 +245,7 @@ Al iniciar el proceso de las incorporaciones, reúna los siguientes requisitos:
 
 En función de sus requisitos, Azure AD admite la asignación directa de atributo a atributo al proporcionar valores constantes o [escribir expresiones de asignaciones de atributos](../app-provisioning/functions-for-customizing-application-data.md). Esta flexibilidad le brinda un mayor control de lo que se rellena en el atributo de la aplicación de destino. Puede usar [Microsoft Graph API](../app-provisioning/export-import-provisioning-configuration.md) y Probador de Graph para exportar el esquema y las asignaciones de atributos de aprovisionamiento de usuarios en un archivo JSON e importarlos de nuevo en Azure AD.
 
-De forma predeterminada, el atributo de la aplicación de RR. HH. en la nube que representa el identificador de empleado único se usa como atributo coincidente *asignado al atributo único en Active Directory* . Por ejemplo, en el escenario de la aplicación Workday, el atributo **WorkerID** de **Workday** está asignado al atributo **employeeID** de Active Directory.
+De forma predeterminada, el atributo de la aplicación de RR. HH. en la nube que representa el identificador de empleado único se usa como atributo coincidente *asignado al atributo único en Active Directory*. Por ejemplo, en el escenario de la aplicación Workday, el atributo **WorkerID** de **Workday** está asignado al atributo **employeeID** de Active Directory.
 
 Puede establecer varios atributos coincidentes y asignar una precedencia de coincidencia. Se evalúan según la precedencia de la coincidencia. En el momento en que se encuentre una coincidencia, no se evaluarán más atributos coincidentes.
 
@@ -303,7 +303,7 @@ Un requisito común es colocar las cuentas de usuario de Active Directory en con
 
 Use la función [Switch()](../app-provisioning/functions-for-customizing-application-data.md#switch) para configurar la lógica de negocios de la asignación de la unidad organizativa y asígnela al atributo **parentDistinguishedName** de Active Directory.
 
-Por ejemplo, si quiere crear usuarios en la unidad organizativa según el atributo de RR. HH. **Municipio** , puede usar la siguiente expresión:
+Por ejemplo, si quiere crear usuarios en la unidad organizativa según el atributo de RR. HH. **Municipio**, puede usar la siguiente expresión:
 
 `
 Switch([Municipality], "OU=Default,OU=Users,DC=contoso,DC=com", "Dallas", "OU=Dallas,OU=Users,DC=contoso,DC=com", "Austin", "OU=Austin,OU=Users,DC=contoso,DC=com", "Seattle", "OU=Seattle,OU=Users,DC=contoso,DC=com", "London", "OU=London,OU=Users,DC=contoso,DC=com")
@@ -366,9 +366,9 @@ La implementación del aprovisionamiento de usuarios de RR. HH. en la nube podr
 
 Elija la aplicación de RR. HH. en la nube que se ajuste a los requisitos de la solución.
 
-**Workday** : para importar perfiles de trabajo de Workday en Active Directory y Azure AD, vea [Tutorial: Configuración de Workday para el aprovisionamiento automático de usuarios](../saas-apps/workday-inbound-tutorial.md#planning-your-deployment). Si quiere, puede reescribir la dirección de correo electrónico, el nombre de usuario y el número de teléfono en Workday.
+**Workday**: para importar perfiles de trabajo de Workday en Active Directory y Azure AD, vea [Tutorial: Configuración de Workday para el aprovisionamiento automático de usuarios](../saas-apps/workday-inbound-tutorial.md#planning-your-deployment). Si quiere, puede reescribir la dirección de correo electrónico, el nombre de usuario y el número de teléfono en Workday.
 
-**SAP SuccessFactors** : para importar perfiles de trabajo de SuccessFactors en Active Directory y Azure AD, vea [Tutorial: Configuración del aprovisionamiento de usuarios de SAP SuccessFactors a Active Directory](../saas-apps/sap-successfactors-inbound-provisioning-tutorial.md). Opcionalmente, puede reescribir la dirección de correo electrónico y el nombre de usuario en SuccessFactors.
+**SAP SuccessFactors**: para importar perfiles de trabajo de SuccessFactors en Active Directory y Azure AD, vea [Tutorial: Configuración del aprovisionamiento de usuarios de SAP SuccessFactors a Active Directory](../saas-apps/sap-successfactors-inbound-provisioning-tutorial.md). Opcionalmente, puede reescribir la dirección de correo electrónico y el nombre de usuario en SuccessFactors.
 
 ## <a name="manage-your-configuration"></a>Administración de la configuración
 
@@ -404,9 +404,9 @@ Para solucionar los problemas que pueden surgir durante el aprovisionamiento, ve
 
 - [Problema al configurar el aprovisionamiento de usuarios para una aplicación de la galería de Azure AD](application-provisioning-config-problem.md)
 - [Sincronización de un atributo de Active Directory local con Azure AD para el aprovisionamiento en una aplicación](user-provisioning-sync-attributes-for-mapping.md)
-- [Problema al guardar las credenciales de administrador al configurar el aprovisionamiento de usuarios em una aplicación de galería de Azure Active Directory](application-provisioning-config-problem-storage-limit.md)
+- [Problema al guardar las credenciales de administrador al configurar el aprovisionamiento de usuarios em una aplicación de galería de Azure Active Directory](./user-provisioning.md)
 - [No se aprovisionan usuarios en una aplicación de la galería de Azure AD](application-provisioning-config-problem-no-users-provisioned.md)
-- [Aprovisionamiento de un conjunto de usuarios incorrecto en una aplicación de la galería de Azure AD](application-provisioning-config-problem-wrong-users-provisioned.md)
+- [Aprovisionamiento de un conjunto de usuarios incorrecto en una aplicación de la galería de Azure AD](../manage-apps/add-application-portal-assign-users.md)
 - [Configuración del Visor de eventos de Windows para solucionar problemas del agente](../saas-apps/workday-inbound-tutorial.md#setting-up-windows-event-viewer-for-agent-troubleshooting)
 - [Configuración de registros de auditoría de Azure Portal para solucionar problemas con el servicio](../saas-apps/workday-inbound-tutorial.md#setting-up-azure-portal-audit-logs-for-service-troubleshooting)
 - [Información sobre registros para las operaciones de creación de cuentas de usuario de AD](../saas-apps/workday-inbound-tutorial.md#understanding-logs-for-ad-user-account-create-operations)

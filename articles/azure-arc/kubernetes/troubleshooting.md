@@ -8,12 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: Solución de problemas comunes con los clústeres de Kubernetes habilitado para Arc
 keywords: Kubernetes, Arc, Azure, containers
-ms.openlocfilehash: 4a8f4c652f1ab73e0b9979f77d7de5014c8d31a8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2e05701b92d2d96074a07e0e61ce65145a1d9dfd
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91540615"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96302390"
 ---
 # <a name="azure-arc-enabled-kubernetes-troubleshooting-preview"></a>Solución de problemas de Kubernetes habilitado para Azure Arc (versión preliminar)
 
@@ -69,7 +69,7 @@ pod/metrics-agent-58b765c8db-n5l7k              2/2     Running  0       16h
 pod/resource-sync-agent-5cf85976c7-522p5        3/3     Running  0       16h
 ```
 
-Todos los pods deben mostrar `STATUS` como `Running`, y `READY` debe ser `3/3` o `2/2`. Capture los registros y describa los pods que devuelven `Error` o `CrashLoopBackOff`. Si alguno de estos pods está atascado en el estado `Pending`, podría deberse a que no hay recursos suficientes en los nodos del clúster. [Escalar verticalmente el clúster](https://kubernetes.io/docs/tasks/administer-cluster/cluster-management/#resizing-a-cluster) hará que estos pods pasen al estado `Running`.
+Todos los pods deben mostrar `STATUS` como `Running`, y `READY` debe ser `3/3` o `2/2`. Capture los registros y describa los pods que devuelven `Error` o `CrashLoopBackOff`. Si alguno de estos pods está atascado en el estado `Pending`, podría deberse a que no hay recursos suficientes en los nodos del clúster. [Escalar verticalmente el clúster](https://kubernetes.io/docs/tasks/administer-cluster/) hará que estos pods pasen al estado `Running`.
 
 ## <a name="connecting-kubernetes-clusters-to-azure-arc"></a>Conexión de clústeres de Kubernetes con Azure Arc
 

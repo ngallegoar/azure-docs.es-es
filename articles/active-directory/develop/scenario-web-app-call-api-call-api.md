@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/25/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 846c47017ba2887c287dd080c44c46b372660d0e
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 016a2917c02deaecf35c526426cb2a6dbc89e338
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94443609"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96173199"
 ---
 # <a name="a-web-app-that-calls-web-apis-call-a-web-api"></a>Aplicación web que llama a las API web: Llamada a una API de web
 
@@ -152,7 +152,7 @@ public async Task<IActionResult> Profile()
 > [!NOTE]
 > Puede usar el mismo principio para llamar a cualquier API web.
 >
-> La mayoría de las API web de Azure proporcionan un SDK que simplifica la llamada a la API, como en el caso de Microsoft Graph. Consulte, por ejemplo, [Adquisición de un token de Azure AD para la autorización de solicitudes desde una aplicación cliente](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-app?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=dotnet) para obtener un ejemplo de una aplicación web que usa Microsoft.Identity.Web y el SDK de Azure Storage.
+> La mayoría de las API web de Azure proporcionan un SDK que simplifica la llamada a la API, como en el caso de Microsoft Graph. Consulte, por ejemplo, [Adquisición de un token de Azure AD para la autorización de solicitudes desde una aplicación cliente](../../storage/common/storage-auth-aad-app.md?tabs=dotnet&toc=%2fazure%2fstorage%2fblobs%2ftoc.json) para obtener un ejemplo de una aplicación web que usa Microsoft.Identity.Web y el SDK de Azure Storage.
 
 # <a name="java"></a>[Java](#tab/java)
 

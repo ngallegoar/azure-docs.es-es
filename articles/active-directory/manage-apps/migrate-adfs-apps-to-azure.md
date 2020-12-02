@@ -14,12 +14,12 @@ ms.date: 04/01/2020
 ms.author: kenwith
 ms.reviewer: baselden
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1012ae32f679d23f16a7483415657596d027cc01
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: ab3b655d59e2cb8c6773fa1a34a08638e6926475
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658832"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96180666"
 ---
 # <a name="moving-application-authentication-from-active-directory-federation-services-to-azure-active-directory"></a>Traslado de la autenticación de las aplicaciones de los Servicios de federación de Active Directory (AD FS) a Azure Active Directory
 
@@ -320,7 +320,7 @@ El selector de usuarios o grupos es una regla que permite aplicar MFA en cada gr
 
 Especifique las reglas de MFA para un usuario o un grupo en Azure AD:
 
-1. Cree una [directiva de acceso condicional nueva](../authentication/tutorial-enable-azure-mfa.md?bc=%252fazure%252factive-directory%252fconditional-access%252fbreadcrumb%252ftoc.json&toc=%252fazure%252factive-directory%252fconditional-access%252ftoc.json).
+1. Cree una [directiva de acceso condicional nueva](../authentication/tutorial-enable-azure-mfa.md?bc=%2fazure%2factive-directory%2fconditional-access%2fbreadcrumb%2ftoc.json&toc=%2fazure%2factive-directory%2fconditional-access%2ftoc.json).
 
 2. Seleccione **Asignaciones**. Agregue los usuarios o los grupos a los que quiere aplicar MFA.
 
@@ -333,7 +333,7 @@ Especifique las reglas de MFA para un usuario o un grupo en Azure AD:
 
 Especifique las reglas de MFA para los dispositivos no registrados en Azure AD:
 
-1. Cree una [directiva de acceso condicional nueva](../authentication/tutorial-enable-azure-mfa.md?bc=%252fazure%252factive-directory%252fconditional-access%252fbreadcrumb%252ftoc.json&toc=%252fazure%252factive-directory%252fconditional-access%252ftoc.json).
+1. Cree una [directiva de acceso condicional nueva](../authentication/tutorial-enable-azure-mfa.md?bc=%2fazure%2factive-directory%2fconditional-access%2fbreadcrumb%2ftoc.json&toc=%2fazure%2factive-directory%2fconditional-access%2ftoc.json).
 
 2. Establezca las **Asignaciones** en **Todos los usuarios**.
 
@@ -348,7 +348,7 @@ Cuando se establece la opción Para varios controles en Requerir uno de los cont
 
 Especifique las reglas de MFA en función de la ubicación de un usuario en Azure AD:
 
-1. Cree una [directiva de acceso condicional nueva](../authentication/tutorial-enable-azure-mfa.md?bc=%252fazure%252factive-directory%252fconditional-access%252fbreadcrumb%252ftoc.json&toc=%252fazure%252factive-directory%252fconditional-access%252ftoc.json).
+1. Cree una [directiva de acceso condicional nueva](../authentication/tutorial-enable-azure-mfa.md?bc=%2fazure%2factive-directory%2fconditional-access%2fbreadcrumb%2ftoc.json&toc=%2fazure%2factive-directory%2fconditional-access%2ftoc.json).
 
 1. Establezca las **Asignaciones** en **Todos los usuarios**.
 
@@ -386,7 +386,7 @@ AD FS 2016 tiene varias directivas de control de acceso integradas que puede e
 ![Control de acceso integrado de Azure AD](media/migrate-adfs-apps-to-azure/map-builtin-access-control-policies-1.png)
 
 
-Para implementar directivas integradas en Azure AD, puede usar una [directiva de acceso condicional nueva](../authentication/tutorial-enable-azure-mfa.md?bc=%252fazure%252factive-directory%252fconditional-access%252fbreadcrumb%252ftoc.json&toc=%252fazure%252factive-directory%252fconditional-access%252ftoc.json) y configurar los controles de acceso, o bien puede usar el diseñador de directivas personalizadas en AD FS 2016 para configurar las directivas de control de acceso. El editor de reglas tiene una lista exhaustiva de las opciones Permitir y Excepto que puede ayudarlo a realizar todo tipo de permutaciones.
+Para implementar directivas integradas en Azure AD, puede usar una [directiva de acceso condicional nueva](../authentication/tutorial-enable-azure-mfa.md?bc=%2fazure%2factive-directory%2fconditional-access%2fbreadcrumb%2ftoc.json&toc=%2fazure%2factive-directory%2fconditional-access%2ftoc.json) y configurar los controles de acceso, o bien puede usar el diseñador de directivas personalizadas en AD FS 2016 para configurar las directivas de control de acceso. El editor de reglas tiene una lista exhaustiva de las opciones Permitir y Excepto que puede ayudarlo a realizar todo tipo de permutaciones.
 
 ![Directivas de control de acceso de Azure AD](media/migrate-adfs-apps-to-azure/map-builtin-access-control-policies-2.png)
 

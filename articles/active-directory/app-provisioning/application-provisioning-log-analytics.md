@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/12/2020
 ms.author: kenwith
 ms.reviewer: arvinh,luleon
-ms.openlocfilehash: 68e47fe3cc674542a807ecbabd37cc6b624d5c03
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 167ed7e5c00452db4ee77e10236fec3ff86f0439
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92145585"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96175107"
 ---
 # <a name="understand-how-provisioning-integrates-with-azure-monitor-logs"></a>Entienda cómo se integra el aprovisionamiento con los registros de Azure Monitor
 
@@ -26,17 +26,17 @@ El aprovisionamiento se integra con registros de Azure Monitor y Log Analytics. 
 
 Ya debería estar familiarizado con la supervisión de Azure y Log Analytics. Si no es así, vaya a obtener más información sobre ellos y luego vuelva aquí para conocer los registros de aprovisionamiento de aplicaciones. Para obtener más información sobre la supervisión de Azure, vea [Introducción a Azure Monitor](../../azure-monitor/overview.md). Para obtener más información sobre los registros de Azure Monitor y Log Analytics, consulte [Introducción a las consultas de registro en Azure Monitor](../../azure-monitor/log-query/log-query-overview.md).
 
-Una vez configurada la supervisión de Azure, es posible habilitar registros para el aprovisionamiento de aplicaciones. La opción se encuentra en la página **Configuración de diagnóstico** .
+Una vez configurada la supervisión de Azure, es posible habilitar registros para el aprovisionamiento de aplicaciones. La opción se encuentra en la página **Configuración de diagnóstico**.
 
 :::image type="content" source="media/application-provisioning-log-analytics/diagnostic-settings.png" alt-text="Acceso a la configuración de diagnóstico" lightbox="media/application-provisioning-log-analytics/diagnostic-settings.png":::
 
-:::image type="content" source="media/application-provisioning-log-analytics/enable-log-analytics.png" alt-text="Acceso a la configuración de diagnóstico" lightbox="media/application-provisioning-log-analytics/enable-log-analytics.png":::
+:::image type="content" source="media/application-provisioning-log-analytics/enable-log-analytics.png" alt-text="Habilitación de registros de aprovisionamiento de aplicaciones" lightbox="media/application-provisioning-log-analytics/enable-log-analytics.png":::
 
 > [!NOTE]
-> Si acaba de aprovisionar un área de trabajo, puede pasar algún tiempo antes de que pueda enviarle registros. Si recibe un error que le indica que la suscripción no está registrada para usar *microsoft.insights* , vuelva a realizar la comprobación después de unos minutos.
+> Si acaba de aprovisionar un área de trabajo, puede pasar algún tiempo antes de que pueda enviarle registros. Si recibe un error que le indica que la suscripción no está registrada para usar *microsoft.insights*, vuelva a realizar la comprobación después de unos minutos.
  
 ## <a name="understanding-the-data"></a>Descripción de los datos
-El flujo de datos subyacente que el aprovisionamiento envía a los visores de registro es casi idéntico. Los registros de Azure Monitor obtienen casi el mismo flujo que la interfaz de usuario de Azure Portal y la API de Azure. Solo hay algunas **diferencias** en los campos de registro, tal y como se describe en la tabla siguiente. Para obtener más información sobre estos campos, consulte el artículo sobre la [lista provisioningObjectSummary](https://docs.microsoft.com/graph/api/provisioningobjectsummary-list?view=graph-rest-beta&tabs=http&preserve-view=true).
+El flujo de datos subyacente que el aprovisionamiento envía a los visores de registro es casi idéntico. Los registros de Azure Monitor obtienen casi el mismo flujo que la interfaz de usuario de Azure Portal y la API de Azure. Solo hay algunas **diferencias** en los campos de registro, tal y como se describe en la tabla siguiente. Para obtener más información sobre estos campos, consulte el artículo sobre la [lista provisioningObjectSummary](/graph/api/provisioningobjectsummary-list?preserve-view=true&tabs=http&view=graph-rest-beta).
 
 |Registros de Azure Monitor   |Interfaz de usuario de Azure Portal   |API de Azure |
 |----------|-----------|------------|
@@ -51,9 +51,9 @@ Los libros de Azure Monitor facilitan un lienzo flexible para el análisis de da
 
 El aprovisionamiento de aplicaciones incluye un conjunto de libros precompilados. Puede encontrarlos en la página Libros. Para ver los datos, tiene que asegurarse de que se rellenen todos los filtros (timeRange, jobID y appName). También tendrá que asegurarse de haber aprovisionado una aplicación; de lo contrario, no habrá ningún dato en los registros.
 
-:::image type="content" source="media/application-provisioning-log-analytics/workbooks.png" alt-text="Acceso a la configuración de diagnóstico" lightbox="media/application-provisioning-log-analytics/workbooks.png":::
+:::image type="content" source="media/application-provisioning-log-analytics/workbooks.png" alt-text="Libros de aprovisionamiento de aplicaciones" lightbox="media/application-provisioning-log-analytics/workbooks.png":::
 
-:::image type="content" source="media/application-provisioning-log-analytics/report.png" alt-text="Acceso a la configuración de diagnóstico" lightbox="media/application-provisioning-log-analytics/report.png":::
+:::image type="content" source="media/application-provisioning-log-analytics/report.png" alt-text="Panel de aprovisionamiento de aplicaciones" lightbox="media/application-provisioning-log-analytics/report.png":::
 
 ## <a name="custom-queries"></a>Consultas personalizadas
 
@@ -100,15 +100,15 @@ Para obtener más información sobre las alertas, consulte [Respuesta a eventos 
 
 Alerta cuando hay un pico de errores. Reemplace jobID por el valor jobID de la aplicación.
 
-:::image type="content" source="media/application-provisioning-log-analytics/alert1.png" alt-text="Acceso a la configuración de diagnóstico" lightbox="media/application-provisioning-log-analytics/alert1.png":::
+:::image type="content" source="media/application-provisioning-log-analytics/alert1.png" alt-text="Alerta cuando hay un pico de errores." lightbox="media/application-provisioning-log-analytics/alert1.png":::
 
 Puede que un problema haya provocado que el servicio de aprovisionamiento haya dejado de ejecutarse. Use la siguiente alerta para detectar cuándo no hay ningún evento de aprovisionamiento durante un intervalo determinado.
 
-:::image type="content" source="media/application-provisioning-log-analytics/alert2.png" alt-text="Acceso a la configuración de diagnóstico" lightbox="media/application-provisioning-log-analytics/alert2.png":::
+:::image type="content" source="media/application-provisioning-log-analytics/alert2.png" alt-text="Puede que un problema haya provocado que el servicio de aprovisionamiento haya dejado de ejecutarse." lightbox="media/application-provisioning-log-analytics/alert2.png":::
 
 Alerta cuando hay un pico de deshabilitaciones o eliminaciones.
 
-:::image type="content" source="media/application-provisioning-log-analytics/alert3.png" alt-text="Acceso a la configuración de diagnóstico" lightbox="media/application-provisioning-log-analytics/alert3.png":::
+:::image type="content" source="media/application-provisioning-log-analytics/alert3.png" alt-text="Alerta cuando hay un pico de deshabilitaciones o eliminaciones." lightbox="media/application-provisioning-log-analytics/alert3.png":::
 
 
 ## <a name="community-contributions"></a>Contribuciones de la comunidad
@@ -121,4 +121,4 @@ Se está adoptando un enfoque de código abierto basado en la comunidad para las
 - [Introducción a las consultas de registros de Azure Monitor](../../azure-monitor/log-query/get-started-queries.md)
 - [Creación y administración de grupos de alertas en Azure Portal](../../azure-monitor/platform/action-groups.md)
 - [Instalación y uso de las vistas de Log Analytics para Azure Active Directory](../reports-monitoring/howto-install-use-log-analytics-views.md)
-- [API de registros de aprovisionamiento](https://docs.microsoft.com/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta.md&preserve-view=true)
+- [API de registros de aprovisionamiento](/graph/api/resources/provisioningobjectsummary?preserve-view=true&view=graph-rest-beta.md)

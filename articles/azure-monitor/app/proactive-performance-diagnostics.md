@@ -4,12 +4,12 @@ description: Application Insights realiza un análisis inteligente de la telemet
 ms.topic: conceptual
 ms.date: 05/04/2017
 ms.reviewer: antonfr
-ms.openlocfilehash: c817e2c7f609bbbec52eff1b898a8d7c53209a28
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 28a32c714618a3b6b0c3126d8060295f134ddc7c
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87321316"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186242"
 ---
 # <a name="smart-detection---performance-anomalies"></a>Detección inteligente: anomalías de rendimiento
 
@@ -175,11 +175,10 @@ Estas herramientas de diagnóstico lo ayudarán a inspeccionar los datos de tele
 
 * [Generador de perfiles](profiler.md) 
 * [depurador de instantáneas](./snapshot-debugger.md)
-* [Analytics](../log-query/get-started-portal.md)
+* [Analytics](../log-query/log-analytics-tutorial.md)
 * [Diagnóstico de análisis inteligente](../log-query/log-query-overview.md)
 
 Las detecciones inteligentes son completamente automáticas. Pero ¿quizás le gustaría configurar algunas alertas más?
 
 * [Alertas de métricas configuradas manualmente](../platform/alerts-log.md)
 * [Pruebas web de disponibilidad](./monitor-web-app-availability.md)
-

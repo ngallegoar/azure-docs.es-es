@@ -4,12 +4,12 @@ description: Supervise el rendimiento y diagnostique problemas en servicios de N
 ms.topic: conceptual
 ms.date: 06/01/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 982adf6c6d7cd825d185802321ce30a04bd2f216
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 4c350cbfdf92d19a084940941351cf1f028c93d2
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96020898"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186286"
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>Supervisión de servicios y aplicaciones de Node.js con Application Insights
 
@@ -416,10 +416,9 @@ Las siguientes propiedades son específicas del cliente, por lo que puede config
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Navegación y paneles en el portal de Application Insights](./overview-dashboard.md)
-* [Escritura de consultas de Analytics sobre los datos de telemetría](../log-query/get-started-portal.md)
+* [Escritura de consultas de Analytics sobre los datos de telemetría](../log-query/log-analytics-tutorial.md)
 
 <!--references-->
 
 [portal]: https://portal.azure.com/
 [FAQ]: ../faq.md
-

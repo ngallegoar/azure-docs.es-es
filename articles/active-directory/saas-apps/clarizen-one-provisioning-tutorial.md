@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/01/2020
 ms.author: Zhchia
-ms.openlocfilehash: 9335869797509171c71caffb0062aeccca207803
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 1658e6adf0c9de0cbd7412b963fb9a134f633430
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94358922"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96179710"
 ---
 # <a name="tutorial-configure-clarizen-one-for-automatic-user-provisioning"></a>Tutorial: Configuración de Clarizen One para el aprovisionamiento automático de usuarios
 
-En este tutorial, se describen los pasos que debe realizar en Clarizen One y Azure Active Directory (Azure AD) para configurar el aprovisionamiento automático de usuarios. Cuando está configurado, Azure AD aprovisiona y desaprovisiona automáticamente usuarios y grupos en [Clarizen One](https://www.clarizen.com/) mediante el servicio de aprovisionamiento de Azure AD. Para obtener información acerca de lo que hace este servicio, cómo funciona y las preguntas más frecuentes, consulte [Qué es el aprovisionamiento automatizado de usuarios de aplicaciones SaaS en Azure AD](../manage-apps/user-provisioning.md).
+En este tutorial, se describen los pasos que debe realizar en Clarizen One y Azure Active Directory (Azure AD) para configurar el aprovisionamiento automático de usuarios. Cuando está configurado, Azure AD aprovisiona y desaprovisiona automáticamente usuarios y grupos en [Clarizen One](https://www.clarizen.com/) mediante el servicio de aprovisionamiento de Azure AD. Para obtener información acerca de lo que hace este servicio, cómo funciona y las preguntas más frecuentes, consulte [Qué es el aprovisionamiento automatizado de usuarios de aplicaciones SaaS en Azure AD](../app-provisioning/user-provisioning.md).
 
 ## <a name="capabilities-supported"></a>Funcionalidades admitidas
 
@@ -33,21 +33,21 @@ En este tutorial, se describen los pasos que debe realizar en Clarizen One y Azu
 > * Eliminar usuarios de Clarizen One cuando ya no necesiten acceso.
 > * Mantener los atributos de usuario sincronizados entre Azure AD y Clarizen One.
 > * Aprovisionar grupos y pertenencias a grupos en Clarizen One.
-> * Se recomienda el [inicio de sesión único](https://docs.microsoft.com/azure/active-directory/saas-apps/clarizen-tutorial) en Clarizen One.
+> * Se recomienda el [inicio de sesión único](./clarizen-tutorial.md) en Clarizen One.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
 En el escenario descrito en este tutorial se supone que ya cuenta con los requisitos previos siguientes:
 
-* [Un inquilino de Azure AD](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant).
-* Una cuenta de usuario en Azure AD con [permisos](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) para configurar el aprovisionamiento. Algunos ejemplos son el administrador de aplicaciones, el administrador de aplicaciones en la nube, el propietario de la aplicación o el administrador global.
+* [Un inquilino de Azure AD](../develop/quickstart-create-new-tenant.md).
+* Una cuenta de usuario en Azure AD con [permisos](../roles/permissions-reference.md) para configurar el aprovisionamiento. Algunos ejemplos son el administrador de aplicaciones, el administrador de aplicaciones en la nube, el propietario de la aplicación o el administrador global.
 * Una cuenta de usuario de Clarizen One con [permisos](https://success.clarizen.com/hc/articles/360011833079-API-Keys-Support) de **usuario de integración** y **administrador básico**.
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>Paso 1. Planeación de la implementación de aprovisionamiento
 
-1. Obtenga información sobre [cómo funciona el servicio de aprovisionamiento](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
-1. Determine quién estará en el [ámbito de aprovisionamiento](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
-1. Determine qué datos quiere [asignar entre Azure AD y Clarizen One](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes).
+1. Obtenga información sobre [cómo funciona el servicio de aprovisionamiento](../app-provisioning/user-provisioning.md).
+1. Determine quién estará en el [ámbito de aprovisionamiento](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+1. Determine qué datos quiere [asignar entre Azure AD y Clarizen One](../app-provisioning/customize-application-attributes.md).
 
 ## <a name="step-2-configure-clarizen-one-to-support-provisioning-with-azure-ad"></a>Paso 2. Configuración de Clarizen One para admitir el aprovisionamiento con Azure AD
 
@@ -61,14 +61,14 @@ En el escenario descrito en este tutorial se supone que ya cuenta con los requis
 
 ## <a name="step-3-add-clarizen-one-from-the-azure-ad-application-gallery"></a>Paso 3. Adición de Clarizen One desde la galería de aplicaciones de Azure AD
 
-Para empezar a administrar el aprovisionamiento de Clarizen One, agregue Clarizen One desde la galería de aplicaciones de Azure AD. Si ha configurado previamente Clarizen One para el inicio de sesión único, puede usar la misma aplicación. Al probar la integración inicialmente, cree una aplicación independiente. Para más información sobre cómo agregar una aplicación desde la galería, consulte [Incorporación de una aplicación al inquilino de Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app).
+Para empezar a administrar el aprovisionamiento de Clarizen One, agregue Clarizen One desde la galería de aplicaciones de Azure AD. Si ha configurado previamente Clarizen One para el inicio de sesión único, puede usar la misma aplicación. Al probar la integración inicialmente, cree una aplicación independiente. Para más información sobre cómo agregar una aplicación desde la galería, consulte [Incorporación de una aplicación al inquilino de Azure AD](../manage-apps/add-application-portal.md).
 
 ## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>Paso 4. Determinar quién estará en el ámbito de aprovisionamiento
 
-Con el servicio de aprovisionamiento de Azure AD, puede definir quién se aprovisionará en función de la asignación a la aplicación o en función de los atributos del usuario o el grupo. Si elige determinar el ámbito de quién se aprovisionará en la aplicación en función de la asignación, siga los pasos descritos en [Administración de la asignación de usuarios para una aplicación en Azure Active Directory](../manage-apps/assign-user-or-group-access-portal.md) para asignar usuarios y grupos a la aplicación. Si elige determinar el ámbito de quién se aprovisionará en función únicamente de los atributos del usuario o el grupo, puede usar un filtro de ámbito, tal como se describe en [Aprovisionamiento de aplicaciones basado en atributos con filtros de ámbito](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
+Con el servicio de aprovisionamiento de Azure AD, puede definir quién se aprovisionará en función de la asignación a la aplicación o en función de los atributos del usuario o el grupo. Si elige determinar el ámbito de quién se aprovisionará en la aplicación en función de la asignación, siga los pasos descritos en [Administración de la asignación de usuarios para una aplicación en Azure Active Directory](../manage-apps/assign-user-or-group-access-portal.md) para asignar usuarios y grupos a la aplicación. Si elige determinar el ámbito de quién se aprovisionará en función únicamente de los atributos del usuario o el grupo, puede usar un filtro de ámbito, tal como se describe en [Aprovisionamiento de aplicaciones basado en atributos con filtros de ámbito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-* Al asignar usuarios y grupos a Clarizen One, debe seleccionar un rol que no sea **Acceso predeterminado**. Los usuarios con el rol de acceso predeterminado se excluyen del aprovisionamiento y se marcarán como no autorizados en los registros de aprovisionamiento. Si el único rol disponible en la aplicación es el rol de acceso predeterminado, puede [actualizar el manifiesto de aplicación](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps) para agregar más roles.
-* Empiece por algo pequeño. Pruebe con un pequeño conjunto de usuarios y grupos antes de implementarlo para todos. Cuando el ámbito del aprovisionamiento se establece en los usuarios y grupos asignados, puede mantener el control mediante la asignación de uno o dos usuarios o grupos a la aplicación. Cuando el ámbito se establece en todos los usuarios y grupos, puede especificar un [filtro de ámbito basado en atributos](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
+* Al asignar usuarios y grupos a Clarizen One, debe seleccionar un rol que no sea **Acceso predeterminado**. Los usuarios con el rol de acceso predeterminado se excluyen del aprovisionamiento y se marcarán como no autorizados en los registros de aprovisionamiento. Si el único rol disponible en la aplicación es el rol de acceso predeterminado, puede [actualizar el manifiesto de aplicación](../develop/howto-add-app-roles-in-azure-ad-apps.md) para agregar más roles.
+* Empiece por algo pequeño. Pruebe con un pequeño conjunto de usuarios y grupos antes de implementarlo para todos. Cuando el ámbito del aprovisionamiento se establece en los usuarios y grupos asignados, puede mantener el control mediante la asignación de uno o dos usuarios o grupos a la aplicación. Cuando el ámbito se establece en todos los usuarios y grupos, puede especificar un [filtro de ámbito basado en atributos](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 ## <a name="step-5-configure-automatic-user-provisioning-to-clarizen-one"></a>Paso 5. Configuración del aprovisionamiento automático de usuarios en Clarizen One
 
@@ -104,7 +104,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
 1. En la sección **Asignaciones**, seleccione **Sincronizar usuarios de Azure Active Directory con Clarizen One**.
 
-1. Revise los atributos de usuario que se sincronizan entre Azure AD y Clarizen One en la sección **Asignaciones de atributos**. Los atributos seleccionados como propiedades de **Coincidencia** se usan para buscar coincidencias con las cuentas de usuario de Clarizen One con el objetivo de realizar operaciones de actualización. Si cambia el [atributo de destino coincidente](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes), deberá asegurarse de que la API de Clarizen One admite el filtrado de usuarios en función de ese atributo. Seleccione el botón **Guardar** para confirmar los cambios.
+1. Revise los atributos de usuario que se sincronizan entre Azure AD y Clarizen One en la sección **Asignaciones de atributos**. Los atributos seleccionados como propiedades de **Coincidencia** se usan para buscar coincidencias con las cuentas de usuario de Clarizen One con el objetivo de realizar operaciones de actualización. Si cambia el [atributo de destino coincidente](../app-provisioning/customize-application-attributes.md), deberá asegurarse de que la API de Clarizen One admite el filtrado de usuarios en función de ese atributo. Seleccione el botón **Guardar** para confirmar los cambios.
 
    |Atributo|Tipo|
    |---|---|
@@ -158,7 +158,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
       |externalId|String|
       |members|Referencia|
 
-1. Para configurar los filtros de ámbito, consulte las instrucciones que se describen en [Aprovisionamiento de aplicaciones basado en atributos con filtros de ámbito](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+1. Para configurar los filtros de ámbito, consulte las instrucciones que se describen en [Aprovisionamiento de aplicaciones basado en atributos con filtros de ámbito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 1. Para habilitar el servicio de aprovisionamiento de Azure AD para Clarizen One, cambie **Estado de aprovisionamiento** a **Activado** en la sección **Configuración**.
 
@@ -178,9 +178,9 @@ Esta operación inicia el ciclo de sincronización inicial de todos los usuarios
 
 Una vez configurado el aprovisionamiento, use los recursos siguientes para supervisar la implementación.
 
-1. Use los [registros de aprovisionamiento](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) para determinar qué usuarios se han aprovisionado correctamente y los que no.
-1. Consulte la [barra de progreso](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user) para ver el estado del ciclo de aprovisionamiento y cuánto falta para que finalice.
-1. Si la configuración de aprovisionamiento parece estar en mal estado, la aplicación pasará a estar en cuarentena. Para más información sobre los estados de cuarentena, consulte [Aprovisionamiento de aplicaciones en el estado de cuarentena](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).
+1. Use los [registros de aprovisionamiento](../reports-monitoring/concept-provisioning-logs.md) para determinar qué usuarios se han aprovisionado correctamente y los que no.
+1. Consulte la [barra de progreso](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) para ver el estado del ciclo de aprovisionamiento y cuánto falta para que finalice.
+1. Si la configuración de aprovisionamiento parece estar en mal estado, la aplicación pasará a estar en cuarentena. Para más información sobre los estados de cuarentena, consulte [Aprovisionamiento de aplicaciones en el estado de cuarentena](../app-provisioning/application-provisioning-quarantine-status.md).
 
 ## <a name="troubleshooting-tips"></a>Sugerencias de solución de problemas
 
@@ -196,9 +196,9 @@ Al asignar un usuario a la aplicación de la galería de Clarizen One, seleccion
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-* [Administración del aprovisionamiento de cuentas de usuario para aplicaciones empresariales](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Administración del aprovisionamiento de cuentas de usuario para aplicaciones empresariales](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Aprenda a revisar los registros y a obtener informes sobre la actividad de aprovisionamiento](../manage-apps/check-status-user-account-provisioning.md)
+* [Aprenda a revisar los registros y a obtener informes sobre la actividad de aprovisionamiento](../app-provisioning/check-status-user-account-provisioning.md)

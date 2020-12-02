@@ -3,18 +3,18 @@ title: Uso de Búsqueda en Azure Application Insights | Microsoft Docs
 description: Busque y filtre los datos de telemetría sin procesar que envía la aplicación web.
 ms.topic: conceptual
 ms.date: 07/30/2019
-ms.openlocfilehash: f88e0fb8fbd7e9605635ede1e8f71b57de84b74e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f87a972b417bf6074de1c10b7a54bd2416f88daa
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87324461"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187024"
 ---
 # <a name="using-search-in-application-insights"></a>Uso de Búsqueda en Application Insights
 
 Búsqueda es una característica de [Application Insights](./app-insights-overview.md) que se usa para buscar y explorar elementos de telemetría individuales, como vistas de páginas, excepciones o solicitudes web. Y puede ver los seguimientos de registros y eventos que haya codificado.
 
-(Para consultas más complejas sobre los datos, use [Analytics](../log-query/get-started-portal.md)).
+(Para consultas más complejas sobre los datos, use [Analytics](../log-query/log-analytics-tutorial.md)).
 
 ## <a name="where-do-you-see-search"></a>¿Dónde verá Search?
 
@@ -81,7 +81,7 @@ Para buscar todos los elementos con el mismo valor de propiedad, escríbalo en l
 ## <a name="search-the-data"></a>Búsqueda de los datos
 
 > [!NOTE]
-> Para escribir consultas más complejas, abra [**Registros (Analytics)** ](../log-query/get-started-portal.md) desde la parte superior de la hoja Buscar.
+> Para escribir consultas más complejas, abra [**Registros (Analytics)**](../log-query/log-analytics-tutorial.md) desde la parte superior de la hoja Buscar.
 >
 
 Puede buscar términos en cualquiera de los valores de propiedad. Esto es útil si ha escrito [eventos personalizados](./api-custom-events-metrics.md) con valores de propiedad.
@@ -145,8 +145,7 @@ Aunque no registramos los datos POST automáticamente, puede usar [TrackTrace o 
 
 ## <a name="next-steps"></a><a name="add"></a>Pasos siguientes
 
-* [Escribir consultas complejas en Analytics](../log-query/get-started-portal.md)
+* [Escribir consultas complejas en Analytics](../log-query/log-analytics-tutorial.md)
 * [Envío de registros y telemetría personalizada a Application Insights](./asp-net-trace-logs.md).
 * [Configuración de pruebas de disponibilidad y de capacidad de respuesta](./monitor-web-app-availability.md)
 * [Solución de problemas](../faq.md)
-

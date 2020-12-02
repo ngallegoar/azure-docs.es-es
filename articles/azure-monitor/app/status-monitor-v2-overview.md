@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 09/16/2019
-ms.openlocfilehash: 0fa0b0d5e3620fc45a104ea31fd3bcbedd673da1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f0ce969a4ab016d6a036d33a0e9bf027bb580a20
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87318953"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186225"
 ---
 # <a name="deploy-azure-monitor-application-insights-agent-for-on-premises-servers"></a>Implementación de Azure Application Insights Agent para servidores locales
 
@@ -67,7 +67,7 @@ Cada una de estas opciones se describe en las [instrucciones detalladas](status-
   - Se puede usar el cmdlet [Get-ApplicationInsightsMonitoringStatus](./status-monitor-v2-api-reference.md#get-applicationinsightsmonitoringstatus) para comprobar que la habilitación se ha realizado correctamente.
   - Se recomienda usar [Live Metrics](./live-stream.md) para determinar rápidamente si la aplicación envía telemetría.
 
-  - También puede usar [Log Analytics](../log-query/get-started-portal.md) para enumerar todos los roles en la nube que están enviando actualmente telemetría:
+  - También puede usar [Log Analytics](../log-query/log-analytics-tutorial.md) para enumerar todos los roles en la nube que están enviando actualmente telemetría:
       ```Kusto
       union * | summarize count() by cloud_RoleName, cloud_RoleInstance
       ```
@@ -86,4 +86,3 @@ Agregue más telemetría:
 * [Cree pruebas web](monitor-web-app-availability.md) para asegurarse de que el sitio permanece activo.
 * [Agregue telemetría de cliente web](./javascript.md) para ver las excepciones de código de la página web y para habilitar las llamadas de seguimiento.
 * [Agregue el SDK de Application Insights al código](./asp-net.md) para que pueda insertar llamadas de seguimiento y registro.
-

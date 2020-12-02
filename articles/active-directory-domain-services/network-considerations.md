@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/06/2020
 ms.author: joflore
-ms.openlocfilehash: 4ced7331daa116e237d9628d12d16a67687db5b9
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 43731f84066943b991b566ff5936e4288aa669eb
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91968096"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96175226"
 ---
 # <a name="virtual-network-design-considerations-and-configuration-options-for-azure-active-directory-domain-services"></a>Consideraciones de diseño y opciones de configuración de red virtual para Azure Active Directory Domain Services
 
@@ -104,7 +104,7 @@ Un dominio administrado crea algunos recursos de red durante la implementación.
 
 ## <a name="network-security-groups-and-required-ports"></a>Grupos de seguridad de red y puertos necesarios
 
-Un [grupo de seguridad de red (NSG)](../virtual-network/security-overview.md) contiene una lista de reglas que permiten o deniegan el tráfico de red al tráfico de una red virtual de Azure. Cuando se implementa un dominio administrado que contiene un conjunto de reglas que permiten que el servicio proporcione funciones de autenticación y administración, se crea un grupo de seguridad de red. Este grupo de seguridad de red predeterminado está asociado a la subred de la red virtual en la que se implementa el dominio administrado.
+Un [grupo de seguridad de red (NSG)](../virtual-network/network-security-groups-overview.md) contiene una lista de reglas que permiten o deniegan el tráfico de red al tráfico de una red virtual de Azure. Cuando se implementa un dominio administrado que contiene un conjunto de reglas que permiten que el servicio proporcione funciones de autenticación y administración, se crea un grupo de seguridad de red. Este grupo de seguridad de red predeterminado está asociado a la subred de la red virtual en la que se implementa el dominio administrado.
 
 Las siguientes reglas de grupo de seguridad de red son necesarias para que el dominio administrado proporcione servicios de autenticación y administración. No edite ni elimine estas reglas del grupo de seguridad de red para la subred de la red virtual en la que está implementado el dominio administrado.
 
@@ -176,4 +176,4 @@ Para obtener más información sobre algunos de los recursos de red y las opcion
 
 * [Emparejamiento de Azure Virtual Network](../virtual-network/virtual-network-peering-overview.md)
 * [Puertas de enlace de VPN de Azure](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md)
-* [Grupos de seguridad de red de Azure](../virtual-network/security-overview.md)
+* [Grupos de seguridad de red de Azure](../virtual-network/network-security-groups-overview.md)

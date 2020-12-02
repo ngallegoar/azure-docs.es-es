@@ -4,12 +4,12 @@ description: Supervisión de los roles web y de trabajo de manera eficaz con App
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 09/05/2018
-ms.openlocfilehash: cae2e4e1d5b5e199e772c5263a46d82289f5d6ac
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 29482403358936b95fc5e814b68238cc8c25f7a8
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91992847"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186361"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights para Azure Cloud Services
 [Application Insights][start] puede supervisar las [aplicaciones de Azure Cloud Service](https://azure.microsoft.com/services/cloud-services/) para comprobar la disponibilidad, el rendimiento, los errores y el uso al combinar datos de los SDK de Application Insights con datos de [Azure Diagnostics](../platform/diagnostics-extension-overview.md) de los servicios en la nube. Con los comentarios que obtendrá sobre el rendimiento y la eficacia de la aplicación en su entorno natural, pueda tomar decisiones meditadas sobre la dirección del diseño en cada ciclo de vida de desarrollo.
@@ -191,7 +191,7 @@ Para ver los recuentos de eventos y los contadores de rendimiento, abra [Explora
 
 ![Datos de Azure Diagnostics](./media/cloudservices/23-wad.png)
 
-Para buscar en los distintos registros de seguimiento enviados por Azure Diagnostics, use [Búsqueda](./diagnostic-search.md) o una [consulta de Analytics](../log-query/get-started-portal.md). Por ejemplo, suponga que tiene una excepción no controlada que provocó el bloqueo y reciclaje de un rol. Esa información aparecería en el canal Aplicación del registro de eventos de Windows. Puede utilizar Buscar para ver el error del registro de eventos de Windows y obtener el seguimiento de la pila completo para la excepción. Así podrá encontrar la causa principal del problema.
+Para buscar en los distintos registros de seguimiento enviados por Azure Diagnostics, use [Búsqueda](./diagnostic-search.md) o una [consulta de Analytics](../log-query/log-analytics-tutorial.md). Por ejemplo, suponga que tiene una excepción no controlada que provocó el bloqueo y reciclaje de un rol. Esa información aparecería en el canal Aplicación del registro de eventos de Windows. Puede utilizar Buscar para ver el error del registro de eventos de Windows y obtener el seguimiento de la pila completo para la excepción. Así podrá encontrar la causa principal del problema.
 
 ![Búsqueda de Azure Diagnostics](./media/cloudservices/25-wad.png)
 

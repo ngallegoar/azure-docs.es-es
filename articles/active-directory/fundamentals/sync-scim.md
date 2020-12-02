@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f957070ec94fc4c61089f31fe91261a2f52c4ee4
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: b95aac504bc6ee72c353faecad25384e2dc90840
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94578865"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96172425"
 ---
 # <a name="scim-synchronization-with-azure-active-directory"></a>Sincronización de SCIM con Azure Active Directory
 
@@ -45,11 +45,10 @@ Quiere aprovisionar automáticamente la información de los usuarios de un siste
 
 ## <a name="implement-scim-with-azure-ad"></a>Implementación de SCIM con Azure AD 
 
-* [Funcionamiento del aprovisionamiento en Azure AD](https://docs.microsoft.com/azure/active-directory/app-provisioning/how-provisioning-works)
+* [Funcionamiento del aprovisionamiento en Azure AD](../app-provisioning/how-provisioning-works.md)
 
-* [Administración del aprovisionamiento de cuentas de usuario para aplicaciones empresariales en Azure Portal](https://docs.microsoft.com/azure/active-directory/app-provisioning/configure-automatic-user-provisioning-portal)
+* [Administración del aprovisionamiento de cuentas de usuario para aplicaciones empresariales en Azure Portal](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 
-* [Creación de un punto de conexión SCIM y configuración del aprovisionamiento de usuarios con Azure AD](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups)
+* [Creación de un punto de conexión SCIM y configuración del aprovisionamiento de usuarios con Azure AD](../app-provisioning/use-scim-to-provision-users-and-groups.md)
 
-* [Cumplimiento del protocolo SCIM 2.0 con el servicio de aprovisionamiento de Azure AD](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-config-problem-scim-compatibility)
-
+* [Cumplimiento del protocolo SCIM 2.0 con el servicio de aprovisionamiento de Azure AD](../app-provisioning/application-provisioning-config-problem-scim-compatibility.md)

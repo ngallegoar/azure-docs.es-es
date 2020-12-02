@@ -13,12 +13,12 @@ ms.date: 08/28/2019
 ms.author: marsma
 ms.reviewer: oldalton
 ms.custom: aaddev
-ms.openlocfilehash: 4810de772e44be22ee5bd4a9fb6ef0ef756e62f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d8a176fff0da932d0fafd40b9ab895b635acc5f6
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77085211"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96169450"
 ---
 # <a name="how-to-configure-msal-for-ios-and-macos-to-use-different-identity-providers"></a>Procedimientos: Configuración de MSAL para iOS y macOS para el uso de diferentes proveedores de identidades
 
@@ -29,7 +29,7 @@ En este artículo se muestra cómo configurar la aplicación de biblioteca de au
 `MSALPublicClientApplication` está configurado con una dirección URL de autoridad predeterminada de `https://login.microsoftonline.com/common`, que es adecuada para la mayoría de los escenarios de Azure Active Directory (AAD). A menos que esté implementando escenarios avanzados, como nubes nacionales, o trabajando con B2C, no tendrá que cambiarlo.
 
 > [!NOTE]
-> No se admite la autenticación moderna con Servicios de federación de Active Directory (AD FS) como proveedor de identidades (ADFS) (consulte [ADFS para desarrolladores](https://docs.microsoft.com/windows-server/identity/ad-fs/overview/ad-fs-openid-connect-oauth-flows-scenarios) para más información). ADFS se admite mediante la federación.
+> No se admite la autenticación moderna con Servicios de federación de Active Directory (AD FS) como proveedor de identidades (ADFS) (consulte [ADFS para desarrolladores](/windows-server/identity/ad-fs/overview/ad-fs-openid-connect-oauth-flows-scenarios) para más información). ADFS se admite mediante la federación.
 
 ## <a name="change-the-default-authority"></a>Cambio de la autoridad predeterminada
 

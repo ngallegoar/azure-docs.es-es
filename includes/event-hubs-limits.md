@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 09/10/2020
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 320fa542f2b786f0a256c22f2d2eb299c476dcae
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 262783e83bdb846a3ea7e3015212c01048a00125
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94362764"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96152632"
 ---
 En las tablas siguientes se enumeran las cuotas y los límites específicos de [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/). Para más información sobre los precios de Event Hubs, consulte los [precios de Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/).
 
-## <a name="common-limits-for-all-tiers"></a>Límites comunes para todos los niveles
+### <a name="common-limits-for-all-tiers"></a>Límites comunes para todos los niveles
 Los límites siguientes son comunes en todos los niveles. 
 
 | Límite |  Notas | Value |
@@ -33,7 +33,7 @@ Los límites siguientes son comunes en todos los niveles.
 | Número de reglas de red virtual (VNet) y de configuración IP | - | 128 | 
 
 
-## <a name="basic-vs-standard-tiers"></a>Niveles Básico y Estándar
+### <a name="basic-vs-standard-tiers"></a>Niveles Básico y Estándar
 En la tabla siguiente se muestran los límites que pueden ser diferentes para los niveles básico y estándar. 
 
 | Límite | Notas | Básico | Estándar |
@@ -42,12 +42,12 @@ En la tabla siguiente se muestran los límites que pueden ser diferentes para lo
 | Número de grupos de consumidores por centro de eventos | &nbsp; |1 |20 |
 | Número de conexiones de AMQP por espacio de nombres | Las solicitudes posteriores de conexiones adicionales se rechazan y el código que llama recibe una excepción. |100 |5\.000|
 | Período de retención máximo de datos de eventos | &nbsp; |1 día |1-7 días |
-| Unidades de rendimiento máximo |Si se supera este límite, los datos se limitan y se genera un [excepción por servidor ocupado](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception). Para solicitar un número mayor de unidades de procesamiento para el nivel Estándar rellene una [solicitud de soporte técnico](/azure/azure-portal/supportability/how-to-create-azure-support-request). Las [unidades de rendimiento adicionales](../articles/event-hubs/event-hubs-auto-inflate.md) se encuentran disponibles en bloques de 20 y están sujetas a un compromiso de compra. |20 | 20 | 
+| Unidades de rendimiento máximo |Si se supera este límite, los datos se limitan y se genera un [excepción por servidor ocupado](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception). Para solicitar un número mayor de unidades de procesamiento para el nivel Estándar rellene una [solicitud de soporte técnico](../articles/azure-portal/supportability/how-to-create-azure-support-request.md). Las [unidades de rendimiento adicionales](../articles/event-hubs/event-hubs-auto-inflate.md) se encuentran disponibles en bloques de 20 y están sujetas a un compromiso de compra. |20 | 20 | 
 
-## <a name="dedicated-tier-vs-standard-tier"></a>Nivel dedicado frente a nivel estándar
+### <a name="dedicated-tier-vs-standard-tier"></a>Nivel dedicado frente a nivel estándar
 La oferta de Event Hubs dedicado se factura aplicando una tarifa mensual fija con un uso mínimo de 4 horas. El nivel Dedicado ofrece todas las características del plan Estándar, pero con una capacidad de escalado de nivel empresarial para aquellos clientes que tienen cargas de trabajo muy exigentes. 
 
-Consulte este [documento](https://docs.microsoft.com/azure/event-hubs/event-hubs-dedicated-cluster-create-portal), en el que se explica cómo crear un clúster de Event Hubs dedicado mediante Azure Portal.
+Consulte este [documento](../articles/event-hubs/event-hubs-dedicated-cluster-create-portal.md), en el que se explica cómo crear un clúster de Event Hubs dedicado mediante Azure Portal.
 
 | Característica | Estándar | Dedicado |
 | --- |:---|:---|
@@ -63,11 +63,11 @@ Consulte este [documento](https://docs.microsoft.com/azure/event-hubs/event-hubs
 | Capturar | Pago por hora | Se incluye |
 
 
-## <a name="schema-registry-limitations"></a>Limitaciones del registro de esquema
+### <a name="schema-registry-limitations"></a>Limitaciones del registro de esquema
 
-### <a name="limits-that-are-the-same-for-standard-and-dedicated-tiers"></a>Límites que son iguales para los niveles **estándar** y **dedicado** 
+#### <a name="limits-that-are-the-same-for-standard-and-dedicated-tiers"></a>Límites que son iguales para los niveles estándar y dedicado 
 | Característica | Límite | 
-|---|---|--|
+|---|---|
 | Longitud máxima de un nombre de grupo de esquemas | 50 |  
 | Longitud máxima de un nombre de esquemas | 100 |    
 | Tamaño, en bytes, por esquema | 1 MB |   
@@ -76,15 +76,10 @@ Consulte este [documento](https://docs.microsoft.com/azure/event-hubs/event-hubs
 | Tamaño, en bytes, por valor de propiedad del grupo | 1024 | 
 
 
-### <a name="limits-that-are-different-for-standard-and-dedicated-tiers"></a>Límites que son distintos para los niveles **estándar** y **dedicado** 
+#### <a name="limits-that-are-different-for-standard-and-dedicated-tiers"></a>Límites que son distintos para los niveles estándar y dedicado 
 
 | Límite | Estándar | Dedicado | 
-|---|---|--|---|
+|---|---|--|
 | Tamaño del registro de esquema (espacio de nombres), en megabytes | 25 |  1024 |
 | Números de grupos de esquemas en un registro de esquemas o un espacio de nombres | 1: sin incluir el grupo predeterminado | 1000 |
 | Número de versiones del esquema en todos los grupos de esquemas | 25 | 10000 |
-
-
-
-
-

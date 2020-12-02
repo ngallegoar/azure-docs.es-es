@@ -3,16 +3,16 @@ title: Configuración de la supervisión de VP con Azure Monitor para contenedor
 description: En este artículo se describe cómo puede configurar la supervisión de clústeres de Kubernetes con volúmenes persistentes mediante Azure Monitor para contenedores.
 ms.topic: conceptual
 ms.date: 10/20/2020
-ms.openlocfilehash: 30e99c2abbc66de257f9623dedc901fca51976c1
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: e7c547c137fc84e6e6dfb2807b871ef0329a3c13
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92492133"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186854"
 ---
 # <a name="configure-pv-monitoring-with-azure-monitor-for-containers"></a>Configuración de la supervisión de VP con Azure Monitor para contenedores
 
-A partir de la versión del agente *ciprod10052020* , el agente integrado de Azure Monitor para contenedores ahora admite la supervisión del uso de VP (volúmenes persistentes).
+A partir de la versión del agente *ciprod10052020*, el agente integrado de Azure Monitor para contenedores ahora admite la supervisión del uso de VP (volúmenes persistentes).
 
 ## <a name="pv-metrics"></a>Métricas de VP
 
@@ -30,4 +30,4 @@ Azure Monitor para contenedores incluye gráficos preconfigurados para esta mét
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Obtenga más información sobre las métricas de VP recopiladas [aquí](https://aka.ms/ci/pvconfig).
+- Obtenga más información sobre las métricas de VP recopiladas [aquí](./container-insights-agent-config.md).

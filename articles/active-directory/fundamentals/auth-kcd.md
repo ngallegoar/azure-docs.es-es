@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 62c8f230ca2b2d0db1170cde9b24f9e4819889bb
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: a1c7aa4d2300a6dee44da067b122fc7af97f7aa9
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94577131"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96172863"
 ---
 # <a name="windows-authentication---kerberos-constrained-delegation-with-azure-active-directory"></a>Autenticación de Windows: Delegación restringida de Kerberos con Azure Active Directory
 
@@ -52,8 +52,7 @@ Existe la necesidad de proporcionar acceso remoto, proteger con autenticación p
 
 ## <a name="implement-windows-authentication-kcd-with-azure-ad"></a>Implementación de la autenticación de Windows (KCD) con Azure AD
 
-* [Delegación restringida de Kerberos para el inicio de sesión único para las aplicaciones con Proxy de aplicación](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-single-sign-on-with-kcd) 
+* [Delegación restringida de Kerberos para el inicio de sesión único para las aplicaciones con Proxy de aplicación](../manage-apps/application-proxy-configure-single-sign-on-with-kcd.md) 
 
-* [Adición de una aplicación local para el acceso remoto mediante Application Proxy en Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application)
+* [Adición de una aplicación local para el acceso remoto mediante Application Proxy en Azure Active Directory](../manage-apps/application-proxy-add-on-premises-application.md)
 
- 

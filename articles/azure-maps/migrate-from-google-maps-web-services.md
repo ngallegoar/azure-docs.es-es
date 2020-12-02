@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: f97d04ca40e69ba2516744adfc9f1f455cba97c0
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 0bb252e227e4f23388929f2fca18769e0bd02e19
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896351"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187041"
 ---
 # <a name="tutorial---migrate-web-service-from-google-maps"></a>Tutorial: Migración de un servicio web desde Google Maps
 
@@ -219,8 +219,8 @@ En la tabla se establecen referencias cruzadas entre los parámetros de API de G
 | `mode`                         | `travelMode`                       |
 | `optimize`                     | `computeBestOrder`                 |
 | `origin`                       | `query`                            |
-| `region`                       | *No procede* : esta característica está relacionada con la geocodificación. Use el parámetro *countrySet* al usar la API de geocodificación de Azure Maps)  |
-| `traffic_model`               | *No procede* (solo puede especificar si los datos de tráfico deben usarse con el parámetro *traffic* ) |
+| `region`                       | *No procede*: esta característica está relacionada con la geocodificación. Use el parámetro *countrySet* al usar la API de geocodificación de Azure Maps)  |
+| `traffic_model`               | *No procede* (solo puede especificar si los datos de tráfico deben usarse con el parámetro *traffic*) |
 | `transit_mode`                | Vea la documentación de los [servicios de movilidad](/rest/api/maps/mobility). |
 | `transit_routing_preference` | Vea la documentación de los [servicios de movilidad](/rest/api/maps/mobility). |
 | `units`                        | *No procede* (Azure Maps usa exclusivamente el sistema métrico)  |
@@ -443,10 +443,10 @@ En esta tabla se establecen referencias cruzadas entre los parámetros de API de
 | `language`                     | `language` (vea la documentación de [compatibilidad de idiomas](supported-languages.md))  |
 | `mode`                         | `travelMode`                         |
 | `origins`                      | `origins`: especifíquelo como GeoJSON en el cuerpo de la solicitud POST.  |
-| `region`                       | *No procede* : esta característica está relacionada con la geocodificación. Use el parámetro `countrySet` al usar la API de geocodificación de Azure Maps) |
+| `region`                       | *No procede*: esta característica está relacionada con la geocodificación. Use el parámetro `countrySet` al usar la API de geocodificación de Azure Maps) |
 | `traffic_model`                | *No procede* (solo puede especificar si los datos de tráfico deben usarse con el parámetro `traffic`) |
-| `transit_mode`                 | *No procede* : actualmente no se admiten matrices de distancias basadas en el tránsito.  |
-| `transit_routing_preference`   | *No procede* : actualmente no se admiten matrices de distancias basadas en el tránsito.  |
+| `transit_mode`                 | *No procede*: actualmente no se admiten matrices de distancias basadas en el tránsito.  |
+| `transit_routing_preference`   | *No procede*: actualmente no se admiten matrices de distancias basadas en el tránsito.  |
 | `units`                        | *No procede* (Azure Maps usa exclusivamente el sistema métrico) |
 
 > [!TIP]
@@ -501,10 +501,10 @@ Obtenga más información sobre los servicios REST de Azure Maps.
 > [Procedimientos recomendados de cálculo de ruta](how-to-use-best-practices-for-routing.md)
 
 > [!div class="nextstepaction"]
-> [Documentación de referencia de la API del servicio REST de Azure Maps](https://docs.microsoft.com/rest/api/maps/)
+> [Documentación de referencia de la API del servicio REST de Azure Maps](/rest/api/maps/)
 
 > [!div class="nextstepaction"]
-> [Ejemplos de código](https://docs.microsoft.com/samples/browse/?products=azure-maps)
+> [Ejemplos de código](/samples/browse/?products=azure-maps)
 
 > [!div class="nextstepaction"]
 > [Uso del módulo de servicios (SDK web)](how-to-use-best-practices-for-routing.md)

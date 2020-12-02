@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/15/2020
 ms.author: Zhchia
-ms.openlocfilehash: 011071c9aa1722b8f1cf81ec8d9ef88e8d91ea03
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: b371baec663ffc7ff5909e04965353e79acb9708
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94359058"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96177079"
 ---
 # <a name="tutorial-configure-hootsuite-for-automatic-user-provisioning"></a>Tutorial: Configuración de Hootsuite para el aprovisionamiento automático de usuarios
 
@@ -35,7 +35,7 @@ En este tutorial se describen los pasos que debe realizar en Hootsuite y Azure A
 En el escenario descrito en este tutorial se supone que ya cuenta con los requisitos previos siguientes:
 
 * [Un inquilino de Azure AD](../develop/quickstart-create-new-tenant.md) 
-* Una cuenta de usuario en Azure AD con [permiso](../users-groups-roles/directory-assign-admin-roles.md) para configurar el aprovisionamiento (por ejemplo, Administrador de aplicaciones, Administrador de aplicaciones en la nube, Propietario de la aplicación o Administrador global). 
+* Una cuenta de usuario en Azure AD con [permiso](../roles/permissions-reference.md) para configurar el aprovisionamiento (por ejemplo, Administrador de aplicaciones, Administrador de aplicaciones en la nube, Propietario de la aplicación o Administrador global). 
 * Una cuenta de usuario con [Hootsuite](http://www.hootsuite.com/) que tenga permisos de **administración de miembros** en la organización.
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>Paso 1. Planeación de la implementación de aprovisionamiento
@@ -86,17 +86,17 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Captura de pantalla de la lista desplegable Modo de aprovisionamiento con la opción Automático seleccionada.](common/provisioning-automatic.png)
 
-5. En la sección **Credenciales de administrador** , escriba `https://platform.hootsuite.com/scim/v2` en la URL de inquilino. Escriba el valor del token secreto de larga duración recuperado antes en el **Paso 2**. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a Hootsuite. Si se produce un error en la conexión, asegúrese de que la cuenta de Hootsuite tiene permisos de administrador e inténtelo de nuevo.
+5. En la sección **Credenciales de administrador**, escriba `https://platform.hootsuite.com/scim/v2` en la URL de inquilino. Escriba el valor del token secreto de larga duración recuperado antes en el **Paso 2**. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a Hootsuite. Si se produce un error en la conexión, asegúrese de que la cuenta de Hootsuite tiene permisos de administrador e inténtelo de nuevo.
 
     ![Captura de pantalla que muestra el cuadro de diálogo Credenciales de administrador, en el que se puede especificar el URL de inquilino y el secreto de inquilino.](./media/hootsuite-provisioning-tutorial/provisioning.png)
 
-6. En el campo **Correo electrónico de notificación** , escriba la dirección de correo electrónico de una persona o grupo que deba recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
+6. En el campo **Correo electrónico de notificación**, escriba la dirección de correo electrónico de una persona o grupo que deba recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
 
     ![Correo electrónico de notificación](common/provisioning-notification-email.png)
 
 7. Seleccione **Guardar**.
 
-8. En la sección **Asignaciones** , seleccione **Aprovisionar usuarios de Azure Active Directory**.
+8. En la sección **Asignaciones**, seleccione **Aprovisionar usuarios de Azure Active Directory**.
 
 9. Revise los atributos de usuario que se sincronizan entre Azure AD y Hootsuite en la sección **Asignación de atributos**. Los atributos seleccionados como propiedades de **Coincidencia** se usan para establecer coincidencias con las cuentas de usuario de Hootsuite a fin de realizar operaciones de actualización. Si decide cambiar el [atributo de destino coincidente](../app-provisioning/customize-application-attributes.md), deberá asegurarse de que la API de Hootsuite admite el filtrado de usuarios en función de ese atributo. Seleccione el botón **Guardar** para confirmar los cambios.
 
@@ -111,7 +111,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
    |name.givenName|String|
    |name.familyName|String|
 
-10. En la sección **Asignaciones** , seleccione **Synchronize Azure Active Directory Group** (Sincronizar grupos de Azure Active Directory).
+10. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Group** (Sincronizar grupos de Azure Active Directory).
 
 11. Revise los atributos de grupo que se sincronizan entre Azure AD y Hootsuite en la sección **Asignación de atributos**. Los atributos seleccionados como propiedades de **Coincidencia** se usan para establecer coincidencias con los grupos de Hootsuite con el objetivo de realizar operaciones de actualización. Seleccione el botón **Guardar** para confirmar los cambios.
 
@@ -121,13 +121,13 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
       |externalId|String|
       |members|Referencia|
 
-12. Para configurar filtros de ámbito, consulte las siguientes instrucciones, que se proporcionan en el artículo [Aprovisionamiento de aplicaciones basado en atributos con filtros de ámbito](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+12. Para configurar filtros de ámbito, consulte las siguientes instrucciones, que se proporcionan en el artículo [Aprovisionamiento de aplicaciones basado en atributos con filtros de ámbito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 13. Para habilitar el servicio de aprovisionamiento de Azure AD para Hootsuite, cambie el **Estado de aprovisionamiento** a **Activado** en la sección **Configuración**.
 
     ![Estado de aprovisionamiento activado](common/provisioning-toggle-on.png)
 
-14. Elija los valores deseados en **Ámbito** , en la sección **Configuración** , para definir los usuarios o grupos que quiera aprovisionar en Hootsuite.
+14. Elija los valores deseados en **Ámbito**, en la sección **Configuración**, para definir los usuarios o grupos que quiera aprovisionar en Hootsuite.
 
     ![Ámbito del aprovisionamiento](common/provisioning-scope.png)
 

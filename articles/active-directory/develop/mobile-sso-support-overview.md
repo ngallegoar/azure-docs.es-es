@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/14/2020
 ms.author: nichola
-ms.openlocfilehash: 4a9282882d23ecbdc3c03ca158ea3de5566143e7
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: 59924c1f876d08aa504f19c5d6c86dca32fbd1e2
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94634861"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96173471"
 ---
 # <a name="support-single-sign-on-and-app-protection-policies-in-mobile-apps-you-develop"></a>Compatibilidad con inicio de sesión único y directivas de protección de aplicaciones en el desarrollo de aplicaciones móviles
 
@@ -38,7 +38,7 @@ Para permitir que la aplicación aproveche las ventajas del inicio de sesión ú
 
 ### <a name="use-microsoft-authentication-library-msal"></a>Uso de la Biblioteca de autenticación de Microsoft (MSAL)
 
-La mejor opción para implementar el inicio de sesión único en la aplicación es usar la [Biblioteca de autenticación de Microsoft (MSAL)](msal-overview.md). Con MSAL, puede agregar autenticación a la aplicación con un mínimo de código y llamadas API, obtener las características completas de la [plataforma de identidad de Microsoft](/azure/active-directory/develop/) y dejar que Microsoft administre el mantenimiento de una solución de autenticación segura. De forma predeterminada, MSAL agrega compatibilidad con el inicio de sesión único en su aplicación. Además, el uso de MSAL es un requisito si también tiene previsto implementar directivas de protección de aplicaciones.
+La mejor opción para implementar el inicio de sesión único en la aplicación es usar la [Biblioteca de autenticación de Microsoft (MSAL)](msal-overview.md). Con MSAL, puede agregar autenticación a la aplicación con un mínimo de código y llamadas API, obtener las características completas de la [plataforma de identidad de Microsoft](./index.yml) y dejar que Microsoft administre el mantenimiento de una solución de autenticación segura. De forma predeterminada, MSAL agrega compatibilidad con el inicio de sesión único en su aplicación. Además, el uso de MSAL es un requisito si también tiene previsto implementar directivas de protección de aplicaciones.
 
 > [!NOTE]
 > Es posible configurar MSAL para usar una vista web insertada. Esto impedirá el inicio de sesión único. Use el comportamiento predeterminado (es decir, el explorador web del sistema) para asegurarse de que el inicio de sesión único funcione.
@@ -64,7 +64,7 @@ Apple tiene instrucciones para hacerlo en aplicaciones iOS: [Autenticación de u
 
 Para habilitar directivas de protección de aplicaciones, use la [Biblioteca de autenticación de Microsoft (MSAL)](msal-overview.md). MSAL es la biblioteca de autenticación y autorización de la plataforma de identidad de Microsoft, y el SDK de Intune se ha desarrollado para trabajar conjuntamente con ella.
 
-Además, debe usar una aplicación de agente para la autenticación. El agente requiere que la aplicación proporcione información de la aplicación y del dispositivo para garantizar su cumplimiento. Los usuarios de iOS usarán la [aplicación Microsoft Authenticator](../user-help/user-help-auth-app-sign-in.md) y los usuarios de Android usarán la aplicación Microsoft Authenticator o la [aplicación Portal de empresa](https://play.google.com/store/apps/details?id=com.microsoft.windowsintune.companyportal) para la [autenticación asincrónica](brokered-auth.md). De forma predeterminada, MSAL utiliza un agente como primera opción para cumplimentar una solicitud de autenticación, por lo que su uso para la autenticación se habilitará automáticamente para la aplicación al usar MSAL de forma predefinida.
+Además, debe usar una aplicación de agente para la autenticación. El agente requiere que la aplicación proporcione información de la aplicación y del dispositivo para garantizar su cumplimiento. Los usuarios de iOS usarán la [aplicación Microsoft Authenticator](../user-help/user-help-auth-app-sign-in.md) y los usuarios de Android usarán la aplicación Microsoft Authenticator o la [aplicación Portal de empresa](https://play.google.com/store/apps/details?id=com.microsoft.windowsintune.companyportal) para la [autenticación asincrónica](./msal-android-single-sign-on.md). De forma predeterminada, MSAL utiliza un agente como primera opción para cumplimentar una solicitud de autenticación, por lo que su uso para la autenticación se habilitará automáticamente para la aplicación al usar MSAL de forma predefinida.
 
 Por último, [agregue el SDK de Intune](/mem/intune/developer/app-sdk-get-started) a la aplicación para habilitar las directivas de protección de aplicaciones. El SDK sigue en su mayor parte un modelo de interceptación, y aplicará automáticamente las directivas de protección de aplicaciones para determinar si las acciones que realiza la aplicación se permiten o no. También hay API a las que puede llamar manualmente para indicar a la aplicación si hay restricciones en ciertas acciones.
 
@@ -73,8 +73,8 @@ Por último, [agregue el SDK de Intune](/mem/intune/developer/app-sdk-get-starte
 - [Planificación de una implementación de inicio de sesión único de Azure Active Directory](../manage-apps/plan-sso-deployment.md)
 - [Procedimientos: Configuración del inicio de sesión único en macOS e iOS](single-sign-on-macos-ios.md)
 - [Complemento de Microsoft Enterprise SSO para dispositivos Apple (versión preliminar)](apple-sso-plugin.md)
-- [Autenticación con agente en Android](brokered-auth.md)
-- [Agentes de autorización y cómo habilitarlos](authorization-agents.md)
+- [Autenticación con agente en Android](./msal-android-single-sign-on.md)
+- [Agentes de autorización y cómo habilitarlos](./msal-android-single-sign-on.md)
 - [Introducción al SDK para aplicaciones de Microsoft Intune](/mem/intune/developer/app-sdk-get-started)
 - [Establecer la configuración de Intune App SDK](/mem/intune/developer/app-sdk-ios#configure-settings-for-the-intune-app-sdk)
 - [Aplicaciones protegidas de Microsoft Intune](/mem/intune/apps/apps-supported-intune-apps)

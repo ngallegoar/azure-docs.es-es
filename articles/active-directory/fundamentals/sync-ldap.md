@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e617d7ccc14e65c18eb86877b1c7fb1aeef74cd0
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 1f34e734b315c7c05ce77f5e168a452fc1c1c547
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94578899"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96168685"
 ---
 # <a name="ldap-synchronization-with-azure-active-directory"></a>Sincronización de LDAP con Azure Active Directory
 
@@ -52,13 +52,12 @@ Debe sincronizar los datos de identidad entre los directorios de LDAP v3 locale
 
 ## <a name="implement-ldap-synchronization-with-azure-ad"></a>Implementación de la sincronización LDAP con Azure AD
 
-* [Herramientas para la integración de directorios de identidades híbridas](https://docs.microsoft.com/azure/active-directory/hybrid/plan-hybrid-identity-design-considerations-tools-comparison) 
+* [Herramientas para la integración de directorios de identidades híbridas](../hybrid/plan-hybrid-identity-design-considerations-tools-comparison.md) 
 
-* [Hoja de ruta de instalación de Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-roadmap) 
+* [Hoja de ruta de instalación de Azure AD Connect](../hybrid/how-to-connect-install-roadmap.md) 
 
-* [Información general y creación de un conector LDAP](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericldap) 
+* [Información general y creación de un conector LDAP](/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericldap) 
 
    > [!NOTE]
    > Los conectores LDAP son una configuración avanzada que requiere cierta familiaridad con Forefront Identity Manager o Microsoft Identity Manager. Si se usa en producción, se recomienda plantear las preguntas sobre esta configuración a través del [soporte técnico Premier](https://support.microsoft.com/premier) o Microsoft Partner Network.
 
- 

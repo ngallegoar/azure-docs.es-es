@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/23/2020
 ms.author: Zhchia
-ms.openlocfilehash: e7f3817a6db288e93b5e0dc99c7b6c9b7bd2e44b
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: ffae286437a476d5ebe08c3ee442d0d52af84eb7
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94355777"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96179352"
 ---
 # <a name="tutorial-configure-code42-for-automatic-user-provisioning"></a>Tutorial: Configuración de Code42 para el aprovisionamiento automático de usuarios
 
@@ -40,7 +40,7 @@ En este tutorial, se describen los pasos que debe realizar en Code42 y Azure Act
 En el escenario descrito en este tutorial se supone que ya cuenta con los requisitos previos siguientes:
 
 * [Un inquilino de Azure AD](../develop/quickstart-create-new-tenant.md)
-* Una cuenta de usuario en Azure AD con [permiso](../users-groups-roles/directory-assign-admin-roles.md) para configurar el aprovisionamiento (por ejemplo, Administrador de aplicaciones, Administrador de aplicaciones en la nube, Propietario de la aplicación o Administrador global).
+* Una cuenta de usuario en Azure AD con [permiso](../roles/permissions-reference.md) para configurar el aprovisionamiento (por ejemplo, Administrador de aplicaciones, Administrador de aplicaciones en la nube, Propietario de la aplicación o Administrador global).
 * Un inquilino de Code42 con la administración de identidades habilitada.
 * Una cuenta de usuario de Code42 con el permiso de [administrador de la nube de clientes](https://support.code42.com/Administrator/Cloud/Monitoring_and_managing/Roles_reference#Customer_Cloud_Admin).
 
@@ -60,7 +60,7 @@ Esta sección es una guía de los pasos para configurar Azure AD como un provee
 3. En el campo **Display name** (Nombre para mostrar), escriba un nombre único para el proveedor de aprovisionamiento. Establezca **Authentication credential type** (Tipo de credencial de autenticación) en **OAuth token** (Token de OAuth). Seleccione **Next** (Siguiente) para generar las credenciales.
 
 > [!NOTE]
->* Mantenga esta ventana abierta hasta que se le solicite la dirección URL base ( **Base URL** ) y el **Token** necesarios en los pasos siguientes.
+>* Mantenga esta ventana abierta hasta que se le solicite la dirección URL base (**Base URL**) y el **Token** necesarios en los pasos siguientes.
 >* También puede copiar esta información en una ubicación temporal para futuras referencias.
 
 ## <a name="step-3-add-code42-from-the-azure-ad-application-gallery"></a>Paso 3. Adición de Code42 desde la galería de aplicaciones de Azure AD
@@ -98,17 +98,17 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Pestaña de aprovisionamiento automático](common/provisioning-automatic.png)
 
-5. En la sección **Credenciales de administrador** , escriba los valores de **URL base de SCIM 2.0 y token de acceso** que recuperó anteriormente desde Code42 en **URL de inquilino** y **Token secreto** respectivamente. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a Code42. Si la conexión no se establece, asegúrese de que la cuenta de Code42 tiene permisos de administrador y vuelva a intentarlo.
+5. En la sección **Credenciales de administrador**, escriba los valores de **URL base de SCIM 2.0 y token de acceso** que recuperó anteriormente desde Code42 en **URL de inquilino** y **Token secreto** respectivamente. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a Code42. Si la conexión no se establece, asegúrese de que la cuenta de Code42 tiene permisos de administrador y vuelva a intentarlo.
 
     ![Token](common/provisioning-testconnection-tenanturltoken.png)
 
-6. En el campo **Correo electrónico de notificación** , escriba la dirección de correo electrónico de una persona o grupo que deba recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
+6. En el campo **Correo electrónico de notificación**, escriba la dirección de correo electrónico de una persona o grupo que deba recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
 
     ![Correo electrónico de notificación](common/provisioning-notification-email.png)
 
 7. Seleccione **Guardar**.
 
-8. En la sección **Asignaciones** , seleccione **Synchronize Azure Active Directory Users to Code42** (Sincronizar usuarios de Azure Active Directory con Code42).
+8. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Users to Code42** (Sincronizar usuarios de Azure Active Directory con Code42).
 
 9. Examine los atributos de usuario que se sincronizan entre Azure AD y Code42 en la sección **Asignación de atributos**. Los atributos seleccionados como propiedades **Coincidentes** se usan para establecer correspondencia con las cuentas del usuario en Code42 a fin de realizar operaciones de actualización. Si decide cambiar el [atributo de destino coincidente](../app-provisioning/customize-application-attributes.md), deberá asegurarse de que la API de Code42 admite el filtrado de usuarios basado en ese atributo. Seleccione el botón **Guardar** para confirmar los cambios.
 
@@ -129,7 +129,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:division|String|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|Referencia|
 
-10. En la sección **Asignaciones** , seleccione **Synchronize Azure Active Directory Groups to Code42** (Sincronizar grupos de Azure Active Directory con Code42).
+10. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Groups to Code42** (Sincronizar grupos de Azure Active Directory con Code42).
 
 11. Revise los atributos de grupo que se sincronizan entre Azure AD y Code42 en la sección **Asignación de atributos**. Los atributos seleccionados como propiedades de **Coincidencia** se usan para establecer correspondencia con los grupos de Code42 para operaciones de actualización. Seleccione el botón **Guardar** para confirmar los cambios.
 
@@ -145,7 +145,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Estado de aprovisionamiento activado](common/provisioning-toggle-on.png)
 
-14. Elija los valores deseados en **Ámbito** , en la sección **Configuración** , para definir los usuarios o grupos que desea que se aprovisionen en Code42.
+14. Elija los valores deseados en **Ámbito**, en la sección **Configuración**, para definir los usuarios o grupos que desea que se aprovisionen en Code42.
 
     ![Ámbito del aprovisionamiento](common/provisioning-scope.png)
 

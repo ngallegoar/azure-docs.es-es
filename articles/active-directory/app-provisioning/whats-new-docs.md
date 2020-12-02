@@ -9,12 +9,12 @@ ms.workload: identity
 ms.author: kenwith
 author: kenwith
 manager: CelesteDG
-ms.openlocfilehash: 21307deb509d0735e4367f2b41603086f301bdeb
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 51a2facfdaccc6cb29264873e9ffd60fc48735da
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94533538"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96174669"
 ---
 # <a name="azure-active-directory-application-provisioning-whats-new"></a>Aprovisionamiento de aplicaciones de Azure Active Directory: Novedades
 
@@ -59,7 +59,7 @@ Le damos la bienvenida a las novedades sobre la documentación de aprovisionamie
 
 
 ### <a name="updated-articles"></a>Artículos actualizados
-- [Configuración del aprovisionamiento mediante las Microsoft Graph API](application-provisioning-configure-api.md)
+- [Configuración del aprovisionamiento mediante las Microsoft Graph API](/graph/application-provisioning-configure-api)
 - [Problemas conocidos y soluciones con el cumplimiento de protocolo SCIM 2.0 del servicio de aprovisionamiento de usuarios de Azure AD](application-provisioning-config-problem-scim-compatibility.md)
 
 ## <a name="july-2020"></a>Julio de 2020

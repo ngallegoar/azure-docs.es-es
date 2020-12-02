@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: jeedes
-ms.openlocfilehash: 04399dc82a3bd2d70b8b472b121e95a73ca43136
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 9c27139e2dca37c1ff8d963e1e8cdb5de682d39d
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96009626"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96302949"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-carlson-wagonlit-travel"></a>Tutorial: Integración de Azure Active Directory con Carlson Wagonlit Travel
 
@@ -119,7 +119,7 @@ Para configurar el inicio de sesión único de Azure AD con Carlson Wagonlit Tra
 
 ### <a name="configure-carlson-wagonlit-travel-single-sign-on"></a>Configuración del inicio de sesión único de Carlson Wagonlit Travel
 
-Para configurar el inicio de sesión único en **Carlson Wagonlit Travel**, es preciso enviar el **XML de metadatos de federación** descargado y las direcciones URL apropiadas copiadas de Azure Portal al [equipo de soporte técnico de Carlson Wagonlit Travel](http://www.carlsonwagonlit.in/content/cwt/in/en/technical-assistance.html). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
+Para configurar el inicio de sesión único en **Carlson Wagonlit Travel**, es preciso enviar el **XML de metadatos de federación** descargado y las direcciones URL apropiadas copiadas de Azure Portal al [equipo de soporte técnico de Carlson Wagonlit Travel](https://www.mycwt.com/traveler-help/). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
@@ -174,7 +174,7 @@ En esta sección, habilitará a Britta Simon para usar el inicio de sesión úni
 
 ### <a name="create-carlson-wagonlit-travel-test-user"></a>Creación de un usuario de prueba de Carlson Wagonlit Travel
 
-En esta sección, creará el usuario Britta Simon en Carlson Wagonlit Travel. Trabaje con el [equipo de soporte técnico de Carlson Wagonlit Travel](http://www.carlsonwagonlit.in/content/cwt/in/en/technical-assistance.html) para agregar los usuarios en la plataforma Carlson Wagonlit Travel. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
+En esta sección, creará el usuario Britta Simon en Carlson Wagonlit Travel. Trabaje con el [equipo de soporte técnico de Carlson Wagonlit Travel](https://www.mycwt.com/traveler-help/) para agregar los usuarios en la plataforma Carlson Wagonlit Travel. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
 ### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único 
 

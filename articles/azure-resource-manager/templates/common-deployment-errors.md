@@ -4,12 +4,12 @@ description: Describe cómo solucionar errores comunes al implementar recursos e
 tags: top-support-issue
 ms.topic: troubleshooting
 ms.date: 09/09/2020
-ms.openlocfilehash: fb7e476a5b4416282546d321a5e9a0127b7a4364
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 785a74184cae8523b99da7f647ca87fda53c8648
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96000715"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185834"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Solución de errores comunes de implementación de Azure con Azure Resource Manager
 
@@ -76,10 +76,10 @@ Si busca información sobre un código de error y esa información no se proporc
 | StorageAccountAlreadyTaken | Proporcione un nombre único para la cuenta de almacenamiento. | [Resolución del nombre de la cuenta de almacenamiento](error-storage-account-name.md) |
 | StorageAccountNotFound | Compruebe la suscripción, el grupo de recursos y el nombre de la cuenta de almacenamiento que intenta utilizar. | |
 | SubnetsNotInSameVnet | Una máquina virtual solo puede tener una red virtual. Al implementar varias NIC, asegúrese de que pertenecen a la misma red virtual. | [Varias NIC](../../virtual-machines/windows/multiple-nics.md) |
-| SubscriptionNotFound | No se puede acceder a una suscripción especificada para la implementación. Podría deberse a que el identificador de la suscripción sea incorrecto, a que el usuario que implemente la plantilla carezca de los permisos adecuados para implementar en la suscripción o a que el identificador de la suscripción tenga un formato incorrecto. Al usar implementaciones anidadas para [implementar entre ámbitos](cross-scope-deployment.md), proporcione el GUID de la suscripción. | |
+| SubscriptionNotFound | No se puede acceder a una suscripción especificada para la implementación. Podría deberse a que el identificador de la suscripción sea incorrecto, a que el usuario que implemente la plantilla carezca de los permisos adecuados para implementar en la suscripción o a que el identificador de la suscripción tenga un formato incorrecto. Al usar implementaciones anidadas para [implementar entre ámbitos](./deploy-to-resource-group.md), proporcione el GUID de la suscripción. | |
 | SubscriptionNotRegistered | Al implementar un recurso, se debe registrar el proveedor de recursos para la suscripción. Cuando se usa una plantilla de Azure Resource Manager para la implementación, el proveedor de recursos se registra automáticamente en la suscripción. A veces, el registro automático no se completa a tiempo. Para evitar este error intermitente, registre el proveedor de recursos antes de la implementación. | [Resolución de registros](error-register-resource-provider.md) |
 | TemplateResourceCircularDependency | Quite las dependencias innecesarias. | [Resolver dependencias circulares](error-invalid-template.md#circular-dependency) |
-| TooManyTargetResourceGroups | Reduzca el número de grupos de recursos de una sola implementación. | [Implementaciones entre ámbitos](cross-scope-deployment.md) |
+| TooManyTargetResourceGroups | Reduzca el número de grupos de recursos de una sola implementación. | [Implementaciones entre ámbitos](./deploy-to-resource-group.md) |
 
 ## <a name="find-error-code"></a>Búsqueda de códigos de error
 

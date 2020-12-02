@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a48a72aa021a17c59adb86bece66cec966e234bd
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 0c4fde22b1b8d72ae8ae775c090e0da25ce0665f
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92056147"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96181176"
 ---
 # <a name="analyze-azure-ad-activity-logs-with-azure-monitor-logs"></a>Análisis de registros de actividad de Azure AD con registros de Azure Monitor
 
@@ -104,9 +104,9 @@ También puede configurar alertas en la consulta. Por ejemplo, para configurar u
 
 Los libros proporcionan varios informes relacionados con escenarios comunes que implican eventos de auditoría, inicio de sesión y aprovisionamiento. También se puede alertar sobre cualquiera de los datos proporcionados en los informes, siguiendo los pasos descritos en la sección anterior.
 
-* **Análisis del aprovisionamiento**: este [libro](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-log-analytics) muestra informes relacionados con la auditoría de la actividad de aprovisionamiento, como el número de nuevos usuarios aprovisionados y errores de aprovisionamiento, el número de usuarios actualizados y errores de actualización y el número de usuarios desaprovisionados y los errores correspondientes.    
+* **Análisis del aprovisionamiento**: este [libro](../app-provisioning/application-provisioning-log-analytics.md) muestra informes relacionados con la auditoría de la actividad de aprovisionamiento, como el número de nuevos usuarios aprovisionados y errores de aprovisionamiento, el número de usuarios actualizados y errores de actualización y el número de usuarios desaprovisionados y los errores correspondientes.    
 * **Sign-ins Events** (Eventos de inicio de sesión): este libro muestra los informes más importantes relacionados con la supervisión de la actividad de inicio de sesión, como los inicios de sesión por aplicación, usuario y dispositivo, así como una vista resumida que muestra el número de inicios de sesión a lo largo del tiempo.
-* **Conditional Access Insights**: el [libro](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-insights-reporting) Conditional Access insights and reporting (Información detallada e informes del acceso condicional) le permite comprender el impacto de las directivas de acceso condicional en su organización a lo largo del tiempo. 
+* **Conditional Access Insights**: el [libro](../conditional-access/howto-conditional-access-insights-reporting.md) Conditional Access insights and reporting (Información detallada e informes del acceso condicional) le permite comprender el impacto de las directivas de acceso condicional en su organización a lo largo del tiempo. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

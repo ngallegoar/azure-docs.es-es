@@ -6,12 +6,12 @@ ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
-ms.openlocfilehash: 21a43a005b78c8916d06e97ca9d2ba21d5a585a3
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 56416009395ebf8270ad0fa8d141277424dd6d9a
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93423842"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183471"
 ---
 # <a name="authentication"></a>Autenticación
 
@@ -23,4 +23,4 @@ La [autenticación HMAC](./rest-api-authentication-hmac.md) usa un secreto gener
 
 ## <a name="azure-active-directory"></a>Azure Active Directory
 
-La [autenticación de Azure Active Directory (Azure AD)](/azure/active-directory/authentication/overview-authentication) emplea un token de portador que se obtiene de Azure Active Directory para autenticar las solicitudes. Puede encontrar información detallada sobre cómo se autorizan las solicitudes que usan este método de autenticación en la sección [Autorización de Azure AD](./rest-api-authorization-azure-ad.md).
+La [autenticación de Azure Active Directory (Azure AD)](../active-directory/authentication/overview-authentication.md) emplea un token de portador que se obtiene de Azure Active Directory para autenticar las solicitudes. Puede encontrar información detallada sobre cómo se autorizan las solicitudes que usan este método de autenticación en la sección [Autorización de Azure AD](./rest-api-authorization-azure-ad.md).

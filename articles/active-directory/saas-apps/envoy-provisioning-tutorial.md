@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/3/2019
 ms.author: Zhchia
-ms.openlocfilehash: 5fd1f310d952873ed178a88b830ee979344143c8
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 7e63b0af2c5b9bd39f755c39adc296b3a8c4a049
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94355335"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96180972"
 ---
 # <a name="tutorial-configure-envoy-for-automatic-user-provisioning"></a>Tutorial: Configuración de Envoy para el aprovisionamiento automático de usuarios
 
@@ -36,7 +36,7 @@ En este tutorial, se describen los pasos que debe realizar en Envoy y Azure Acti
 En el escenario descrito en este tutorial se supone que ya cuenta con los requisitos previos siguientes:
 
 * [Un inquilino de Azure AD](../develop/quickstart-create-new-tenant.md) 
-* Una cuenta de usuario en Azure AD con [permiso](../users-groups-roles/directory-assign-admin-roles.md) para configurar el aprovisionamiento (por ejemplo, Administrador de aplicaciones, Administrador de aplicaciones en la nube, Propietario de la aplicación o Administrador global). 
+* Una cuenta de usuario en Azure AD con [permiso](../roles/permissions-reference.md) para configurar el aprovisionamiento (por ejemplo, Administrador de aplicaciones, Administrador de aplicaciones en la nube, Propietario de la aplicación o Administrador global). 
 * [Un inquilino de Envoy](https://envoy.com/pricing/).
 * Una cuenta de usuario de Envoy con permisos de administrador.
 
@@ -98,17 +98,17 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Captura de pantalla de la lista desplegable Modo de aprovisionamiento con la opción Automático seleccionada.](common/provisioning-automatic.png)
 
-5. En la sección **Credenciales de administrador** , escriba `https://app.envoy.com/scim/v2` en la **URL de inquilino**. Escriba el valor **TOKEN DE PORTADOR DE OAUTH** recuperado anteriormente en **Token secreto**. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a Envoy. Si la conexión no se establece, asegúrese de que la cuenta de Envoy tiene permisos de administrador y pruebe de nuevo.
+5. En la sección **Credenciales de administrador**, escriba `https://app.envoy.com/scim/v2` en la **URL de inquilino**. Escriba el valor **TOKEN DE PORTADOR DE OAUTH** recuperado anteriormente en **Token secreto**. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a Envoy. Si la conexión no se establece, asegúrese de que la cuenta de Envoy tiene permisos de administrador y pruebe de nuevo.
 
    ![Captura de pantalla que muestra el cuadro de diálogo Credenciales de administrador, en el que se puede especificar el URL de inquilino y el secreto de inquilino.](./media/envoy-tutorial/provisioning.png)
 
-6. En el campo **Correo electrónico de notificación** , escriba la dirección de correo electrónico de una persona o grupo que deba recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
+6. En el campo **Correo electrónico de notificación**, escriba la dirección de correo electrónico de una persona o grupo que deba recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
 
     ![Correo electrónico de notificación](common/provisioning-notification-email.png)
 
 7. Seleccione **Guardar**.
 
-8. En la sección **Asignaciones** , seleccione **Synchronize Azure Active Directory Users to Envoy** (Sincronizar usuarios de Azure Active Directory con Envoy).
+8. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Users to Envoy** (Sincronizar usuarios de Azure Active Directory con Envoy).
 
 9. Examine los atributos de usuario que se sincronizan entre Azure AD y Envoy en la sección **Asignación de atributos**. Los atributos seleccionados como propiedades **Coincidentes** se usan para establecer correspondencia con las cuentas del usuario en Envoy a fin de realizar operaciones de actualización. Si decide cambiar el [atributo de destino coincidente](../app-provisioning/customize-application-attributes.md), deberá asegurarse de que la API de Envoy admite el filtrado de usuarios basado en ese atributo. Seleccione el botón **Guardar** para confirmar los cambios.
 
@@ -134,7 +134,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
    |phoneNumbers[type eq "work"].value|String|
    |locale|String|
 
-10. En la sección **Asignaciones** , seleccione **Synchronize Azure Active Directory Groups to Envoy** (Sincronizar grupos de Azure Active Directory con Envoy).
+10. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Groups to Envoy** (Sincronizar grupos de Azure Active Directory con Envoy).
 
 11. Examine los atributos de grupo que se sincronizan entre Azure AD y Envoy en la sección **Asignación de atributos**. Los atributos seleccionados como propiedades **Coincidentes** se usan para establecer correspondencia con las cuentas del usuario en Envoy a fin de realizar operaciones de actualización. Seleccione el botón **Guardar** para confirmar los cambios.
 
@@ -150,7 +150,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Estado de aprovisionamiento activado](common/provisioning-toggle-on.png)
 
-14. Elija los valores deseados en **Ámbito** , en la sección **Configuración** , para definir los usuarios o grupos que desea que se aprovisionen en Envoy.
+14. Elija los valores deseados en **Ámbito**, en la sección **Configuración**, para definir los usuarios o grupos que desea que se aprovisionen en Envoy.
 
     ![Ámbito del aprovisionamiento](common/provisioning-scope.png)
 

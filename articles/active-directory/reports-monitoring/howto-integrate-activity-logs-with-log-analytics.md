@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 01f762ef1fa3a997c01873df02abf87362b8c06f
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 85e6a66f4520f12278266203211e1d1ae224c97f
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92055960"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96180462"
 ---
 # <a name="integrate-azure-ad-logs-with-azure-monitor-logs"></a>Integración de registros de Azure AD con registros de Azure Monitor
 
@@ -46,7 +46,7 @@ Puede enrutar los registros de actividad de auditoría y los registros de activi
 
 * **Registros de auditoría**: el [informe de actividad de registros de auditoría](concept-audit-logs.md) le proporciona acceso al historial de todas las tareas llevadas a cabo en el inquilino.
 * **Registros de inicio de sesión**: Con el [informe de actividad de inicios de sesión](concept-sign-ins.md), puede determinar quién ha realizado las tareas notificadas en el informe de registros de auditoría.
-* **Registros de aprovisionamiento**: Con los [registros de aprovisionamiento](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-log-analytics), puede supervisar qué usuarios se han creado, actualizado y eliminado en todas las aplicaciones de terceros. 
+* **Registros de aprovisionamiento**: Con los [registros de aprovisionamiento](../app-provisioning/application-provisioning-log-analytics.md), puede supervisar qué usuarios se han creado, actualizado y eliminado en todas las aplicaciones de terceros. 
 
 > [!NOTE]
 > En este momento no se admiten los registros de actividad de auditoría e inicio de sesión relacionados con B2C.

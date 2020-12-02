@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/13/2020
 ms.author: Zhchia
-ms.openlocfilehash: 5cdc36c20cbba148bb68bda700f5fdccbc593caf
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: cca46d47003a1611c861986f8df839de57500db6
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94353006"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96181494"
 ---
 # <a name="tutorial-configure-solarwinds-service-desk-previously-samanage-for-automatic-user-provisioning"></a>Tutorial: Configuración de SolarWinds Service Desk (anteriormente Samanage) para el aprovisionamiento automático de usuarios
 
@@ -38,7 +38,7 @@ Si tiene una integración de SolarWinds Service Desk existente con credenciales 
 
 #### <a name="how-can-i-tell-if-my-application-has-been-migrated"></a>¿Cómo puedo saber si se ha migrado mi aplicación? 
 
-Una vez migrada la aplicación, en la sección **Credenciales de administrador** , los campos **Nombre de usuario de administrador** y **Contraseña de administrador** se reemplazarán por un único campo **Token secreto**.
+Una vez migrada la aplicación, en la sección **Credenciales de administrador**, los campos **Nombre de usuario de administrador** y **Contraseña de administrador** se reemplazarán por un único campo **Token secreto**.
 
 ## <a name="capabilities-supported"></a>Funcionalidades admitidas
 
@@ -54,7 +54,7 @@ Una vez migrada la aplicación, en la sección **Credenciales de administrador**
 En el escenario descrito en este tutorial se supone que ya cuenta con los requisitos previos siguientes:
 
 * [Un inquilino de Azure AD](../develop/quickstart-create-new-tenant.md) 
-* Una cuenta de usuario en Azure AD con [permiso](../users-groups-roles/directory-assign-admin-roles.md) para configurar el aprovisionamiento (por ejemplo, Administrador de aplicaciones, Administrador de aplicaciones en la nube, Propietario de la aplicación o Administrador global). 
+* Una cuenta de usuario en Azure AD con [permiso](../roles/permissions-reference.md) para configurar el aprovisionamiento (por ejemplo, Administrador de aplicaciones, Administrador de aplicaciones en la nube, Propietario de la aplicación o Administrador global). 
 * Un [inquilino de SolarWinds Service Desk](https://www.samanage.com/pricing/) con el paquete Professional.
 * Una cuenta de usuario de SolarWinds Service Desk con permisos de administrador.
 
@@ -100,25 +100,25 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Captura de pantalla que muestra Modo de aprovisionamiento establecido en Automático.](common/provisioning-automatic.png)
 
-5. En la sección **Credenciales de administrador** , escriba `https://api.samanage.com` en la **URL de inquilino**.  Escriba el valor del token secreto recuperado anteriormente en **Token secreto**. Seleccione **Probar conexión** para asegurarse de que Azure AD pueda conectarse a SolarWinds Service Desk. Si la conexión no se establece, asegúrese de que la cuenta de SolarWinds Service Desk tiene permisos de administrador e inténtelo de nuevo.
+5. En la sección **Credenciales de administrador**, escriba `https://api.samanage.com` en la **URL de inquilino**.  Escriba el valor del token secreto recuperado anteriormente en **Token secreto**. Seleccione **Probar conexión** para asegurarse de que Azure AD pueda conectarse a SolarWinds Service Desk. Si la conexión no se establece, asegúrese de que la cuenta de SolarWinds Service Desk tiene permisos de administrador e inténtelo de nuevo.
 
     ![Captura de pantalla que muestra el botón Probar conexión seleccionado.](./media/samanage-provisioning-tutorial/provisioning.png)
 
-6. En el campo **Correo electrónico de notificación** , escriba la dirección de correo electrónico de una persona o grupo que deba recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
+6. En el campo **Correo electrónico de notificación**, escriba la dirección de correo electrónico de una persona o grupo que deba recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
 
     ![Correo electrónico de notificación](common/provisioning-notification-email.png)
 
 7. Seleccione **Guardar**.
 
-8. En la sección **Asignaciones** , seleccione **Synchronize Azure Active Directory Users to SolarWinds Service Desk** (Sincronizar usuarios de Azure Active Directory con SolarWinds Service Desk).
+8. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Users to SolarWinds Service Desk** (Sincronizar usuarios de Azure Active Directory con SolarWinds Service Desk).
 
-9. En la sección **Asignaciones de atributos** , revise los atributos de usuario que se sincronizan entre Azure AD y SolarWinds Service Desk. Los atributos seleccionados como propiedades de **Matching** (Coincidencia) se usan para buscar coincidencias con las cuentas de usuario de SolarWinds Service Desk para las operaciones de actualización. Si decide cambiar el [atributo de destino coincidente](../app-provisioning/customize-application-attributes.md), deberá asegurarse de que la API de SolarWinds Service Desk admite el filtrado de usuarios basado en ese atributo. Seleccione el botón **Guardar** para confirmar los cambios.
+9. En la sección **Asignaciones de atributos**, revise los atributos de usuario que se sincronizan entre Azure AD y SolarWinds Service Desk. Los atributos seleccionados como propiedades de **Matching** (Coincidencia) se usan para buscar coincidencias con las cuentas de usuario de SolarWinds Service Desk para las operaciones de actualización. Si decide cambiar el [atributo de destino coincidente](../app-provisioning/customize-application-attributes.md), deberá asegurarse de que la API de SolarWinds Service Desk admite el filtrado de usuarios basado en ese atributo. Seleccione el botón **Guardar** para confirmar los cambios.
 
       ![Asignaciones de usuario de Samanage](./media/samanage-provisioning-tutorial/user-attributes.png)
 
-10. En la sección **Asignaciones** , seleccione **Synchronize Azure Active Directory Groups to SolarWinds Service Desk** (Sincronizar grupos de Azure Active Directory con SolarWinds Service Desk).
+10. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Groups to SolarWinds Service Desk** (Sincronizar grupos de Azure Active Directory con SolarWinds Service Desk).
 
-11. En la sección de **asignaciones de atributos** , revise los atributos de grupo que se sincronizan entre Azure AD y SolarWinds Service Desk. Los atributos seleccionados como propiedades de **coincidencia** se usan para buscar coincidencias con los grupos de SolarWinds Service Desk con el objetivo de realizar operaciones de actualización. Seleccione el botón **Guardar** para confirmar los cambios.
+11. En la sección de **asignaciones de atributos**, revise los atributos de grupo que se sincronizan entre Azure AD y SolarWinds Service Desk. Los atributos seleccionados como propiedades de **coincidencia** se usan para buscar coincidencias con los grupos de SolarWinds Service Desk con el objetivo de realizar operaciones de actualización. Seleccione el botón **Guardar** para confirmar los cambios.
 
       ![Asignaciones de grupo de Samanage](./media/samanage-provisioning-tutorial/group-attributes.png)
 
@@ -128,7 +128,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Estado de aprovisionamiento activado](common/provisioning-toggle-on.png)
 
-14. Elija los valores deseados en **Ámbito** , en la sección **Configuración** , para definir los usuarios o grupos que desea que se aprovisionen en SolarWinds Service Desk.
+14. Elija los valores deseados en **Ámbito**, en la sección **Configuración**, para definir los usuarios o grupos que desea que se aprovisionen en SolarWinds Service Desk.
 
     ![Ámbito del aprovisionamiento](common/provisioning-scope.png)
 

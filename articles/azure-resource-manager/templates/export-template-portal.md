@@ -3,12 +3,12 @@ title: Exportación de plantilla en Azure Portal
 description: Use Azure Portal para exportar una plantilla de Azure Resource Manager desde los recursos de la suscripción.
 ms.topic: conceptual
 ms.date: 07/29/2020
-ms.openlocfilehash: 6d0c9adb121372047336d2753df047f54f1e0fa2
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: ee97953a337bbb7cc9a8d1f042a3beae7bccdcae
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951764"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185698"
 ---
 # <a name="single-and-multi-resource-export-to-a-template-in-azure-portal"></a>Exportación de uno y varios recursos a una plantilla en Azure Portal
 
@@ -51,7 +51,7 @@ Al realizar una exportación de un grupo de recursos o un recurso, la plantilla 
 
 La característica de exportación de plantillas no admite la exportación de recursos de Azure Data Factory. Para más información sobre cómo exportar recursos de Data Factory, consulte [Copia o clonación de una factoría de datos en Azure Data Factory](../../data-factory/copy-clone-data-factory.md).
 
-Para exportar los recursos creados mediante el modelo de implementación clásica, debe [migrarlos al modelo de implementación de Resource Manager](../../virtual-machines/windows/migration-classic-resource-manager-overview.md).
+Para exportar los recursos creados mediante el modelo de implementación clásica, debe [migrarlos al modelo de implementación de Resource Manager](../../virtual-machines/migration-classic-resource-manager-overview.md).
 
 Si recibe una advertencia al exportar una plantilla que indica que un tipo de recurso no se ha exportado, aún puede detectar las propiedades de ese recurso. Para obtener información sobre las distintas opciones para ver las propiedades de los recursos, consulte [Descubra las propiedades de los recursos](view-resources.md). También puede consultar la [API de REST de Azure](/rest/api/azure/) para el tipo de recurso.
 

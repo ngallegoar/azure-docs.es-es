@@ -13,12 +13,12 @@ ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: sumitp
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ea8905051d06e4f8787d80abf5cc33dbc21692e0
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 30d268b116b35ede5741179c3f60da909c792ba8
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95488443"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96168976"
 ---
 # <a name="powershell-and-graph-examples-for-group-based-licensing-in-azure-ad"></a>Ejemplos de PowerShell y Graph para licencias basadas en grupos de Azure AD
 
@@ -661,9 +661,9 @@ aadbe4da-c4b5-4d84-800a-9400f31d7371 User has no direct license to remove. Skipp
 Para más información sobre el conjunto de características de administración de licencias mediante grupos, consulte los artículos siguientes:
 
 * [¿En qué consisten las licencias basadas en grupos de Azure Active Directory?](../fundamentals/active-directory-licensing-whatis-azure-portal.md)
-* [Asignación de licencias a un grupo en Azure Active Directory](../users-groups-roles/licensing-groups-assign.md)
+* [Asignación de licencias a un grupo en Azure Active Directory](./licensing-groups-assign.md)
 * [Identificación y resolución de problemas de licencias de un grupo en Azure Active Directory](licensing-groups-resolve-problems.md)
 * [Migración de usuarios individuales con licencia a licencias basadas en grupos en Azure Active Directory](licensing-groups-migrate-users.md)
 * [Cómo migrar usuarios entre diferentes licencias de productos con licencias basadas en grupos de Azure Active Directory](licensing-groups-change-licenses.md)
-* [Escenarios adicionales de licencias basadas en grupos de Azure Active Directory](../users-groups-roles/licensing-group-advanced.md)
+* [Escenarios adicionales de licencias basadas en grupos de Azure Active Directory](./licensing-group-advanced.md)
 * [Ejemplos de PowerShell para licencias basadas en grupos de Azure AD](licensing-ps-examples.md)

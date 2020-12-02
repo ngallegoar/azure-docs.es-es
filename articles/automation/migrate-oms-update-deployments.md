@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 07/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: dabe914ffd4e84e8ded5c0e3b519036479fe33ec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a2226f55c829afa4316a92888d16f6dc68e1f931
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90987595"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183607"
 ---
 # <a name="migrate-azure-monitor-logs-update-deployments-to-azure-portal"></a>Migración de implementaciones de actualización de registros de Azure Monitor a Azure Portal
 
@@ -19,7 +19,7 @@ El portal de Operations Management Suite (OMS) está quedando [en desuso](../azu
 ## <a name="key-information"></a>Información importante
 
 * Las implementaciones existentes seguirán funcionando. Una vez que haya vuelto a crear la implementación en Azure, podrá eliminar la implementación anterior.
-* Todas las características existentes que tenía en OMS están disponibles en Azure. Para más información sobre Update Management, consulte [Introducción a Update Management](update-management/update-mgmt-overview.md).
+* Todas las características existentes que tenía en OMS están disponibles en Azure. Para más información sobre Update Management, consulte [Introducción a Update Management](./update-management/overview.md).
 
 ## <a name="access-the-azure-portal"></a>Acceso a Azure Portal
 
@@ -43,7 +43,7 @@ El portal de Operations Management Suite (OMS) está quedando [en desuso](../azu
 
 Todas las implementaciones de actualizaciones creadas en el portal de OMS tienen una [búsqueda guardada](../azure-monitor/platform/computer-groups.md) que también se conoce como un grupo de equipos, con el mismo nombre que la implementación de actualizaciones existente. La búsqueda guardada incluye la lista de las máquinas que se programaron en la implementación de actualizaciones.
 
-:::image type="content" source="media/migrate-oms-update-deployments/oms-deployment.png" alt-text="Captura de pantalla de la página Administración de actualizaciones.":::
+:::image type="content" source="media/migrate-oms-update-deployments/oms-deployment.png" alt-text="Captura de pantalla de la página Implementaciones de actualizaciones con los campos Nombre y Servidores resaltados.":::
 
 Para usar esta búsqueda guardada existente, siga estos pasos:
 
@@ -74,4 +74,4 @@ Para usar esta búsqueda guardada existente, siga estos pasos:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información sobre Update Management en Azure Automation, consulte [Introducción a Update Management](update-management/update-mgmt-overview.md).
+Para más información sobre Update Management en Azure Automation, consulte [Introducción a Update Management](./update-management/overview.md).

@@ -11,12 +11,12 @@ author: barbaraselden
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a1acdbeb29091bae0be214b740023f13928506a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 46ecc2cba96b07d9105020e69ae3198a3765be7c
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91319850"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96172238"
 ---
 # <a name="plan-and-troubleshoot-user-principal-name-changes-in-azure-active-directory"></a>Planeamiento y solución de problemas de los cambios de nombre principal de usuario en Azure Active Directory
 
@@ -174,7 +174,7 @@ La [aplicación Microsoft Authenticator](../user-help/user-help-auth-app-overvie
 
 * Autenticación multifactor a través de una notificación push u un código de verificación.
 
-* Actuar como agente de autenticación en dispositivos iOS y Android para proporcionar el inicio de sesión único en aplicaciones que usan la [autenticación asincrónica](../develop/brokered-auth.md).
+* Actuar como agente de autenticación en dispositivos iOS y Android para proporcionar el inicio de sesión único en aplicaciones que usan la [autenticación asincrónica](../develop/msal-android-single-sign-on.md).
 
 * Registro de dispositivos (también conocido como Workplace Join) en Azure AD, que es requisito para otras características como Intune App Protection e inscripción o administración de dispositivos.
 

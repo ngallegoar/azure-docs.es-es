@@ -2,17 +2,19 @@
 title: Salidas en plantillas
 description: Se describe cómo definir valores de salida en una plantilla de Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 02/25/2020
-ms.openlocfilehash: 203bfc66e9515ef14a5fe1315ef5b9ee07075041
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/24/2020
+ms.openlocfilehash: 8f782a78e523ebc55faac98344643982172476fa
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79460031"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95911437"
 ---
 # <a name="outputs-in-azure-resource-manager-template"></a>Salidas en una plantilla de Azure Resource Manager
 
 En este artículo se describe cómo definir valores de salida en una plantilla de Azure Resource Manager. Las salidas se usan cuando es necesario devolver valores de los recursos implementados.
+
+El formato de cada valor de salida debe coincidir con uno de los [tipos de datos](template-syntax.md#data-types).
 
 ## <a name="define-output-values"></a>Definición de valores de salida
 

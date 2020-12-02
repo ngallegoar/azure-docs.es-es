@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 695d47c839a9436f4fad9399f7995b3197e1c0eb
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: b1583307771dd58053128d71cb0ae5dd7e709f68
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91965002"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96174388"
 ---
 # <a name="password-policies-and-account-restrictions-in-azure-active-directory"></a>Restricciones de cuenta y directivas de contraseñas en Azure Active Directory
 
@@ -180,4 +180,4 @@ Una vez instalado el módulo, use los pasos a continuación para completar cada 
 
 Para empezar a trabajar con SSPR, consulte [Tutorial: Habilitación del autoservicio de restablecimiento de contraseña de Azure Active Directory para que los usuarios puedan desbloquear su cuenta o restablecer contraseñas](tutorial-enable-sspr.md)
 
-Si usted o los usuarios tienen problemas con SSPR, consulte [Solución de problemas de autoservicio de restablecimiento de contraseña](active-directory-passwords-troubleshoot.md).
+Si usted o los usuarios tienen problemas con SSPR, consulte [Solución de problemas de autoservicio de restablecimiento de contraseña](./troubleshoot-sspr.md).

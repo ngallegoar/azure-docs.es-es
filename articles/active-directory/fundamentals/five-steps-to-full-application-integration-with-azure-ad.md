@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: nichola
-ms.openlocfilehash: 26dd255e6edff7c339ab9766bb71889cf4e2deaa
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 8f184de8953e8e8bfe982d2502ca476fb54a66c9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94577650"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95903719"
 ---
 # <a name="five-steps-for-integrating-all-your-apps-with-azure-ad"></a>Cinco pasos para la integración de todas las aplicaciones en Azure AD
 
@@ -46,7 +46,7 @@ Por último, también puede integrar las aplicaciones que desarrolla de modo int
 
 A continuación, detecte las aplicaciones que los empleados utilizan con frecuencia y priorice su trabajo para integrarlas con Azure AD.
 
-Puede comenzar con las [herramientas de Cloud Discovery](/cloud-app-security/tutorial-shadow-it) de Microsoft Cloud App Security para detectar y administrar &quot;TI en la sombra&quot; en la red (es decir, las aplicaciones no administradas por el departamento de TI). Puede utilizar [Protección contra amenazas avanzada (ATP) de Microsoft Defender](/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection) para simplificar y ampliar el proceso de detección.
+Puede comenzar con las [herramientas de Cloud Discovery](/cloud-app-security/tutorial-shadow-it) de Microsoft Cloud App Security para detectar y administrar la opción de TI en la sombra en la red (es decir, las aplicaciones no que no administra el departamento de TI). Puede utilizar [Protección contra amenazas avanzada (ATP) de Microsoft Defender](/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection) para simplificar y ampliar el proceso de detección.
 
 Además, puede usar el [informe de actividad de la aplicación AD FS](../manage-apps/migrate-adfs-application-activity.md) en Azure Portal para detectar todas las aplicaciones de AD FS de su organización, el número de usuarios únicos que han iniciado sesión en ellas y la compatibilidad para integrarlas con Azure AD.
 
@@ -66,7 +66,7 @@ Durante el proceso de detección, es posible que haya encontrado aplicaciones si
 - Ahorrar dinero al eliminar la necesidad de aprovisionamiento y autenticación de usuarios locales, así como de las tarifas de licencias pagadas por otros proveedores de identidades en la nube para el mismo servicio.
 - Reducir la sobrecarga administrativa y permitir una mayor seguridad con menos redundancias en el proceso de administración de identidades y accesos.
 - Permitir a los empleados obtener acceso seguro de inicio de sesión único a TODAS las aplicaciones que necesiten mediante el portal [Mis aplicaciones](../manage-apps/access-panel-collections.md).
-- Mejorar la inteligencia de los servicios relacionados con [protección de identidades](../identity-protection/overview-identity-protection.md) de Azure AD, como el acceso condicional mediante el aumento de la cantidad de datos que obtiene del uso de la aplicación, y ampliar las ventajas a las aplicaciones recién agregadas.
+- Mejorar la inteligencia de los servicios relacionados con la [protección de identidades](../identity-protection/overview-identity-protection.md) de Azure AD, como el acceso condicional mediante el aumento de la cantidad de datos que obtiene del uso de la aplicación, y ampliar las ventajas a las aplicaciones recién agregadas.
 
 Hemos publicado una guía para administrar el proceso empresarial de integración de aplicaciones con Azure AD, incluido un [póster](https://aka.ms/AppOnePager) y una [presentación](https://aka.ms/AppGuideline) que puede utilizar para concienciar e interesar a los propietarios de las aplicaciones y del negocio. Puede modificar esos ejemplos con su propia personalización de marca y publicarlos en su organización en el portal de empresa, el boletín u otro medio a medida que vaya completando este proceso.
 

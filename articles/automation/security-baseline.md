@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 2d0157f3e7ab0ef373235fcc6e188f9caa36eff4
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: e07e9035dc55f77a2e76b4f4ee306deab829980a
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94833306"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182757"
 ---
 # <a name="azure-security-baseline-for-automation"></a>Base de referencia de seguridad de Azure para Automation
 
@@ -80,7 +80,7 @@ Si usa instancias de Hybrid Runbook Worker respaldadas por Azure Virtual Machine
 
 Puede usar el acceso de red Just-in-Time de Azure Security Center para limitar la exposición de las máquinas virtuales de Windows a las direcciones IP aprobadas durante un período limitado. Use también las recomendaciones de la Protección de red adaptable de Azure Security Center para las configuraciones de grupo de seguridad de red, a fin de limitar los puertos y las direcciones IP basadas en el tráfico real y la inteligencia sobre amenazas.
 
-* [Configuración de la protección contra DDoS](../virtual-network/manage-ddos-protection.md)
+* [Configuración de la protección contra DDoS](../ddos-protection/manage-ddos-protection.md)
 
 * [Implementación de Azure Firewall](../firewall/tutorial-firewall-deploy-portal.md)
 
@@ -220,7 +220,7 @@ Como alternativa, puede habilitar e incorporar datos en Azure Sentinel o en una 
 
 * [Regiones admitidas para el área de trabajo de Log Analytics vinculada](./how-to/region-mappings.md)
 
-* [Consulta de registros de Update Management](./update-management/update-mgmt-query-logs.md)
+* [Consulta de registros de Update Management](./update-management/query-logs.md)
 
 **Supervisión de Azure Security Center**: Sí
 
@@ -270,7 +270,7 @@ Como alternativa, puede habilitar e incorporar datos en Azure Sentinel o en una 
 
 * [Incorporación de Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-* [Descripción de las consultas de registro en Azure Monitor](../azure-monitor/log-query/get-started-portal.md)
+* [Descripción de las consultas de registro en Azure Monitor](../azure-monitor/log-query/log-analytics-tutorial.md)
 
 * [Procedimiento para realizar consultas personalizadas en Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
 
@@ -600,7 +600,7 @@ Si usa instancias de Hybrid Runbook Worker respaldadas por Azure Virtual Machine
 
 Al usar instancias de Hybrid Runbook Worker, los discos virtuales de las máquinas virtuales se cifran en reposo mediante el cifrado del lado servidor o el cifrado de discos de Azure (ADE). Azure Disk Encryption aprovecha la característica BitLocker de Windows para cifrar los discos administrados con claves administradas por el cliente dentro de la máquina virtual invitada. El cifrado del lado servidor con claves administradas por el cliente mejora en ADE al permitir el uso de cualquier tipo de sistema operativo y de imágenes para las máquinas virtuales mediante el cifrado de datos en el servicio Storage.
 
-* [Cifrado del lado servidor de Azure Managed Disks](../virtual-machines/windows/disk-encryption.md)
+* [Cifrado del lado servidor de Azure Managed Disks](../virtual-machines/disk-encryption.md)
 
 * [Azure Disk Encryption para máquinas virtuales Windows](../virtual-machines/windows/disk-encryption-overview.md)
 
@@ -646,9 +646,9 @@ Al usar instancias de Hybrid Runbook Worker, los discos virtuales de las máquin
 
 Si usa instancias de Hybrid Runbook Worker respaldadas por Azure Virtual Machines, use Azure Update Management para administrar las actualizaciones y las revisiones de las máquinas virtuales. Update Management se basa en el repositorio de actualización configurado localmente para aplicar revisiones a sistemas de Windows compatibles. Herramientas como System Center Updates Publisher (Updates Publisher) le permiten publicar actualizaciones personalizadas en Windows Server Update Services (WSUS). Este escenario permite que Update Management aplique revisiones a las máquinas que usan Configuration Manager como repositorio de actualizaciones con software de terceros.
 
-* [Update Management en Azure](./update-management/update-mgmt-overview.md)
+* [Update Management en Azure](./update-management/overview.md)
 
-* [Administración de actualizaciones y revisiones para las máquinas virtuales](./update-management/update-mgmt-manage-updates-for-vm.md)
+* [Administración de actualizaciones y revisiones para las máquinas virtuales](./update-management/manage-updates-for-vm.md)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -660,9 +660,9 @@ Si usa instancias de Hybrid Runbook Worker respaldadas por Azure Virtual Machine
 
 Si usa instancias de Hybrid Runbook Worker respaldadas por Azure Virtual Machines, puede usar Azure Update Management para administrar las actualizaciones y las revisiones de las máquinas virtuales. Update Management se basa en el repositorio de actualización configurado localmente para aplicar revisiones a sistemas de Windows compatibles. Herramientas como System Center Updates Publisher (Updates Publisher) le permiten publicar actualizaciones personalizadas en Windows Server Update Services (WSUS). Este escenario permite que Update Management aplique revisiones a las máquinas que usan Configuration Manager como repositorio de actualizaciones con software de terceros.
 
-* [Solución Update Management de Azure](./update-management/update-mgmt-overview.md)
+* [Solución Update Management de Azure](./update-management/overview.md)
 
-* [Administración de actualizaciones y revisiones para las máquinas virtuales de Azure](./update-management/update-mgmt-manage-updates-for-vm.md)
+* [Administración de actualizaciones y revisiones para las máquinas virtuales de Azure](./update-management/manage-updates-for-vm.md)
 
 **Supervisión de Azure Security Center**: No aplicable
 

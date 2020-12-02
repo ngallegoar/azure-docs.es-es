@@ -6,20 +6,23 @@ author: euangMS
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.date: 10/16/2020
-ms.author: euang
+ms.author: midesa
 ms.reviewer: jrasnick
 ms.subservice: spark
-ms.openlocfilehash: fbcc7ffbde49acfd9afc180418d618060eb923c1
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 8d478b35b702e02f303358972526c091ceb3657e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93313542"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95917132"
 ---
 # <a name="manage-libraries-for-apache-spark-in-azure-synapse-analytics"></a>Administración de bibliotecas para Apache Spark en Azure Synapse Analytics
 
 Las bibliotecas proporcionan código reutilizable que se puede incluir en los programas o proyectos. A fin de que el código de terceros o de compilación local esté disponible para las aplicaciones, puede instalar una biblioteca en uno de los grupos de Apache Spark sin servidor (versión preliminar). Una vez instalada una biblioteca para un grupo de Spark, está disponible para todas las sesiones que usan el mismo grupo. 
 
+## <a name="before-you-begin"></a>Antes de empezar
+- Para instalar y actualizar las bibliotecas, debe tener los permisos de tipo **Colaborador de datos de Blob Storage** o **Propietario de datos de Blob Storage** en la cuenta de almacenamiento principal de tipo Gen2 que está vinculada al área de trabajo de Azure Synapse Analytics.
+  
 ## <a name="default-installation"></a>Instalación predeterminada
 Apache Spark en Azure Synapse Analytics tiene una instalación completa de Anaconda y otras bibliotecas adicionales. Puede encontrar la lista de bibliotecas completas en [Compatibilidad con las versiones de Apache Spark](apache-spark-version-support.md). 
 
@@ -35,6 +38,7 @@ Una vez que haya identificado las bibliotecas que le gustaría usar para la apli
 > - Si el paquete que va a instalar es de gran tamaño o tarda mucho tiempo en instalarse, afectará al tiempo de inicio de la instancia de Spark.
 > - No se admiten los paquetes que requieren compatibilidad con el compilador en el momento de la instalación, como GCC.
 > - No es posible cambiar a una versión anterior de los paquetes; solo pueden agregarse o actualizarse.
+> - Para instalar las bibliotecas, debe tener permisos de colaborador de datos de Blob Storage o de Propietario de datos de Blob Storage en la cuenta de almacenamiento principal de tipo Gen2 vinculada al área de trabajo de Synapse.
 
 ### <a name="requirements-format"></a>Requisitos de formato
 
@@ -92,9 +96,9 @@ Para instalar una biblioteca en un grupo de Spark (versión preliminar) directam
 Para comprobar si se han instalado las versiones correctas de las bibliotecas correctas, ejecute el código siguiente
 
 ```python
-import pip #needed to use the pip functions
-for i in pip.get_installed_distributions(local_only=True):
-    print(i)
+import pkg_resources
+for d in pkg_resources.working_set:
+     print(d)
 ```
 ### <a name="update-python-packages"></a>Actualización de paquetes de Python
 Los paquetes se pueden agregar o modificar en cualquier momento entre sesiones. Al cargar un nuevo archivo de configuración de paquetes, se sobrescribirán los paquetes y las versiones existentes.  
@@ -112,7 +116,7 @@ Para actualizar o desinstalar una biblioteca:
    
 
 > [!IMPORTANT]
-> Al seleccionar la opción para **forzar configuración nueva** , finalizarán todas las sesiones actuales del grupo de Spark seleccionado. Una vez finalizadas las sesiones, tendrá que esperar a que el grupo se reinicie. 
+> Al seleccionar la opción para **forzar configuración nueva**, finalizarán todas las sesiones actuales del grupo de Spark seleccionado. Una vez finalizadas las sesiones, tendrá que esperar a que el grupo se reinicie. 
 >
 > Si esta opción no está seleccionada, tendrá que esperar a que la sesión de Spark actual finalice o detenerla manualmente. Una vez finalizada la sesión, deberá dejar que el grupo se reinicie. 
 

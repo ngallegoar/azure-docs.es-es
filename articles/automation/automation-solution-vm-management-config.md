@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 06/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: b0bc23d515bebdd0d943bbad33c5ebba35a35605
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3fdb3b2b23d07b79a8e9979450bee653d646196c
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90987213"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182808"
 ---
 # <a name="configure-startstop-vms-during-off-hours"></a>Configuración de la solución Start/Stop VMs during off-hours
 
@@ -63,7 +63,7 @@ En un entorno que incluya dos, o más, componentes de varias máquinas virtuales
 
 ### <a name="target-the-start-and-stop-actions-against-a-subscription-and-resource-group"></a>Destino de las acciones de inicio y detención a un grupo de recursos y una suscripción
 
-1. Agregue las etiquetas `sequencestart` y `sequencestop` con un valor entero positivo a las máquinas virtuales de destino en las variables `External_Start_ResourceGroupNames` y `External_Stop_ResourceGroupNames`. Las acciones de inicio y detención se realizan en orden ascendente. Para aprender a etiquetar una máquina virtual, consulte [Etiquetado de una máquina virtual Windows en Azure](../virtual-machines/windows/tag.md) y [Etiquetado de una máquina virtual Linux en Azure](../virtual-machines/linux/tag.md).
+1. Agregue las etiquetas `sequencestart` y `sequencestop` con un valor entero positivo a las máquinas virtuales de destino en las variables `External_Start_ResourceGroupNames` y `External_Stop_ResourceGroupNames`. Las acciones de inicio y detención se realizan en orden ascendente. Para aprender a etiquetar una máquina virtual, consulte [Etiquetado de una máquina virtual Windows en Azure](../virtual-machines/tag-portal.md) y [Etiquetado de una máquina virtual Linux en Azure](../virtual-machines/tag-cli.md).
 
 2. Modifique las programaciones de **Sequenced-StartVM** y **Sequenced-StopVM** a una fecha y hora que cumplan sus requisitos, y habilite la programación.
 
@@ -143,13 +143,13 @@ Para cambiar las notificaciones de correo electrónico después de implementar l
 
 2. En la página StartStop_VM_Notification, haga clic en **Editar detalles** en **Detalles**. Se abrirá la página Correo electrónico/SMS/Push/Voz. Actualice la dirección de correo electrónico y haga clic en **Aceptar** para guardar los cambios.
 
-    :::image type="content" source="media/automation-solution-vm-management/change-email.png" alt-text="Captura de pantalla de la página Supervisar: grupos de acciones.":::
+    :::image type="content" source="media/automation-solution-vm-management/change-email.png" alt-text="Captura de pantalla de la página Correo electrónico, SMS, Notificación push y Voz que muestra una dirección de correo electrónico de ejemplo actualizada.":::
 
     También puede agregar acciones adicionales al grupo de acciones; para más información sobre grupos de acciones, consulte [grupos de acciones](../azure-monitor/platform/action-groups.md)
 
 El siguiente es un correo electrónico de ejemplo que se envía cuando la característica cierra las máquinas virtuales.
 
-:::image type="content" source="media/automation-solution-vm-management/email.png" alt-text="Captura de pantalla de la página Supervisar: grupos de acciones.":::
+:::image type="content" source="media/automation-solution-vm-management/email.png" alt-text="Captura de pantalla de un correo electrónico de ejemplo que se envía cuando la característica cierra las máquinas virtuales.":::
 
 ## <a name="add-or-exclude-vms"></a><a name="add-exclude-vms"></a>Agregar o excluir máquinas virtuales
 

@@ -7,12 +7,12 @@ ms.date: 05/14/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 66f0846ab8fcfc316c4b40ad9e51b402a37e874d
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 1fb17d56c546511fee291f30b103a5310c8015cc
+ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92122916"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96122266"
 ---
 # <a name="monitor-the-overall-health-of-the-devices-connected-to-an-iot-central-application"></a>Supervisión del estado general de los dispositivos conectados a una aplicación de IoT Central
 
@@ -31,7 +31,7 @@ Las aplicaciones que usan el plan de evaluación gratuita no tienen una suscripc
 
 ## <a name="view-metrics-in-the-azure-portal"></a>Visualización de métricas en Azure Portal
 
-En los pasos siguientes se supone que tiene una [aplicación de IoT Central](./quick-deploy-iot-central.md) con algunos [dispositivos conectados](./tutorial-connect-device-nodejs.md).
+En los pasos siguientes se supone que tiene una [aplicación de IoT Central](./quick-deploy-iot-central.md) con algunos [dispositivos conectados](./tutorial-connect-device.md).
 
 Para ver las métricas de IoT Central en el portal:
 

@@ -4,12 +4,12 @@ description: Supervisión del rendimiento de aplicaciones de Azure App Services.
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-js, devx-track-dotnet
-ms.openlocfilehash: f46d00f97dab18b0c7c1d4a5742a87308f814e9e
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: c0ee68659f4729ed8f63b9ea990343adf51513bd
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94832905"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186378"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Supervisar el rendimiento de Azure App Service
 
@@ -372,7 +372,7 @@ A continuación, se muestra nuestra guía paso a paso de solución de problemas 
 
     * Confirme que no hay ninguna entrada para `AppAlreadyInstrumented`, `AppContainsDiagnosticSourceAssembly` y `AppContainsAspNetTelemetryCorrelationAssembly`.
         * Si existe alguna de estas entradas, quite los siguientes paquetes de la aplicación: `Microsoft.ApplicationInsights`, `System.Diagnostics.DiagnosticSource` y `Microsoft.AspNet.TelemetryCorrelation`.
-        * Solo para aplicaciones de ASP.NET Core: en caso de que la aplicación haga referencia a algún paquete de Application Insights, por ejemplo, si ya ha instrumentado (o ha intentado instrumentar) la aplicación con el [SDK de ASP.NET Core](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core), es posible que la integración de App Service no surta efecto y que los datos no aparezcan en Application Insights. Para solucionar el problema, en el portal, active Interop with Application Insights SDK (Interoperabilidad con el SDK de Application Insights), y comenzará a ver los datos en Application Insights. 
+        * Solo para aplicaciones de ASP.NET Core: en caso de que la aplicación haga referencia a algún paquete de Application Insights, por ejemplo, si ya ha instrumentado (o ha intentado instrumentar) la aplicación con el [SDK de ASP.NET Core](./asp-net-core.md), es posible que la integración de App Service no surta efecto y que los datos no aparezcan en Application Insights. Para solucionar el problema, en el portal, active Interop with Application Insights SDK (Interoperabilidad con el SDK de Application Insights), y comenzará a ver los datos en Application Insights. 
         > [!IMPORTANT]
         > Esta funcionalidad está en versión preliminar. 
 
@@ -432,4 +432,3 @@ Para obtener las actualizaciones y correcciones de errores más recientes, [cons
 * [Reciba notificaciones de alerta](../platform/alerts-overview.md) cada vez que se produzcan eventos de operaciones o las métricas traspasen un umbral.
 * Use [aplicaciones y páginas web de Application Insights para JavaScript](javascript.md) para obtener la telemetría del cliente de los exploradores que visitan una página web.
 * [Configure pruebas web de disponibilidad](monitor-web-app-availability.md) para recibir una alerta si el sitio deja de estar activo.
-

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/17/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: ca4bd3d3b40934323bab8036f3ce72e9281f1de4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d4b93685160250a5abe7c050db89978ae8ceb1a9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67186751"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96026900"
 ---
 > [!div class="op_single_selector"]
 > * [C en Windows](../articles/iot-accelerators/iot-accelerators-connecting-devices.md)
@@ -21,7 +21,7 @@ ms.locfileid: "67186751"
 > * [C en Raspberry Pi](../articles/iot-accelerators/iot-accelerators-connecting-pi-c.md)
 > * [Node.js (genérico)](../articles/iot-accelerators/iot-accelerators-connecting-devices-node.md)
 > * [Node.js en Raspberry Pi](../articles/iot-accelerators/iot-accelerators-connecting-pi-node.md)
-> * [MXChip IoT DevKit](../articles/iot-accelerators/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2.md)
+> * [MXChip IoT DevKit](../articles/iot-accelerators/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoring-v2.md)
 
 En este tutorial, implementará un dispositivo **Refrigerador** que envía la siguiente telemetría al [acelerador de soluciones](../articles/iot-accelerators/about-iot-accelerators.md) de supervisión remota:
 
@@ -54,7 +54,7 @@ Cuando finalice el proceso de implementación para la solución de supervisión 
 ### <a name="add-your-device-to-the-remote-monitoring-solution"></a>Adición del dispositivo a la solución de supervisión remota
 
 > [!NOTE]
-> Si ya ha agregado un dispositivo a la solución, puede omitir este paso. Sin embargo, el paso siguiente requiere la cadena de conexión del dispositivo. Puede recuperar la cadena de conexión de un dispositivo desde [Azure Portal](https://portal.azure.com) o con la herramienta CLI [az iot](https://docs.microsoft.com/cli/azure/iot?view=azure-cli-latest).
+> Si ya ha agregado un dispositivo a la solución, puede omitir este paso. Sin embargo, el paso siguiente requiere la cadena de conexión del dispositivo. Puede recuperar la cadena de conexión de un dispositivo desde [Azure Portal](https://portal.azure.com) o con la herramienta CLI [az iot](/cli/azure/iot?view=azure-cli-latest).
 
 Para que un dispositivo se conecte al acelerador de soluciones, debe identificarse en IoT Hub con credenciales válidas. Tendrá la oportunidad de guardar la cadena de conexión del dispositivo que contiene estas credenciales cuando agregue el dispositivo a la solución. Más adelante en este tutorial incluirá esta cadena en su aplicación cliente.
 

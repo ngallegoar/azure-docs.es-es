@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: jushiman
-ms.openlocfilehash: 0aedcc3be4cb319dc24990507d85756bd77777e4
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 56a360f461c89d7c60e973bf2d6258d63113ab47
+ms.sourcegitcommit: 6b16e7cc62b29968ad9f3a58f1ea5f0baa568f02
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94963834"
+ms.lasthandoff: 11/28/2020
+ms.locfileid: "96303771"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Compatibilidad para máquinas virtuales de generación 2 en Azure
 
@@ -49,6 +49,8 @@ Las máquinas virtuales de primera generación son compatibles con todos los tam
 * [Serie NCv3](ncv3-series.md)
 * [Serie ND](nd-series.md)
 * [Serie NVv3](nvv3-series.md)
+* [Serie NVv4](nvv4-series.md)
+* [Serie NCasT4_v3](nct4-v3-series.md)
 
 <sup>1</sup> La serie MV2 no admite imágenes de máquina virtual de generación 1 y solo admite un subconjunto de imágenes de generación 2. Consulte la [documentación de la serie MV2](mv2-series.md) para obtener más información.
 

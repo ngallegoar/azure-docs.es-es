@@ -14,18 +14,18 @@ ms.topic: how-to
 ms.date: 10/15/2020
 ms.author: hahamil
 ms.reviewer: marsma
-ms.openlocfilehash: 7e53e21b6d929e2f0ba9a2e23e4e8e1b2278f828
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 3f5791bfcf6547b7fc4e84bee3d4c1c49453af9c
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92209283"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96169501"
 ---
 # <a name="how-to-enable-cross-app-sso-on-android-using-msal"></a>Procedimiento: Habilitación de SSO entre aplicaciones en Android mediante MSAL
 
 El inicio de sesión único (SSO) permite a los usuarios escribir sus credenciales una sola vez y que las credenciales funcionen automáticamente en otras aplicaciones.
 
-La [plataforma de identidad de Microsoft](/azure/active-directory/develop/) y la biblioteca de autenticación de Microsoft (MSAL) le ayudan a habilitar el inicio de sesión único en su propio conjunto de aplicaciones. Con las aplicaciones de capacidad de agente y Authenticator, puede extender el inicio de sesión único a todo el dispositivo.
+La [plataforma de identidad de Microsoft](./index.yml) y la biblioteca de autenticación de Microsoft (MSAL) le ayudan a habilitar el inicio de sesión único en su propio conjunto de aplicaciones. Con las aplicaciones de capacidad de agente y Authenticator, puede extender el inicio de sesión único a todo el dispositivo.
 
 En este procedimiento aprenderá a configurar los SDK usados por la aplicación para proporcionar SSO a sus clientes.
 
@@ -33,7 +33,7 @@ En este procedimiento aprenderá a configurar los SDK usados por la aplicación 
 
 En este procedimiento se supone que sabe cómo:
 
-- Aprovisione su aplicación mediante Azure Portal. Para más información sobre este tema, consulte las instrucciones para crear una aplicación en [el tutorial de Android](https://docs.microsoft.com/azure/active-directory/develop/tutorial-v2-android#create-a-project).
+- Aprovisione su aplicación mediante Azure Portal. Para más información sobre este tema, consulte las instrucciones para crear una aplicación en [el tutorial de Android](./tutorial-v2-android.md#create-a-project).
 - Integre su aplicación con la [biblioteca de autenticación de Microsoft para Android](https://github.com/AzureAD/microsoft-authentication-library-for-android).
 
 ## <a name="methods-for-single-sign-on"></a>Métodos del inicio de sesión único
@@ -87,7 +87,7 @@ La instalación de un agente no requiere que el usuario vuelva a iniciar sesión
 - La cuenta del usuario ya no cumple una directiva de acceso condicional.
 - El usuario ha revocado su consentimiento para que la aplicación esté asociada a su cuenta.
 
-**Varios agentes** : si hay varios agentes instalados en un dispositivo, el agente que se instaló primero siempre será el agente activo. Solo un agente puede estar activo en un dispositivo.
+**Varios agentes**: si hay varios agentes instalados en un dispositivo, el agente que se instaló primero siempre será el agente activo. Solo un agente puede estar activo en un dispositivo.
 
 #### <a name="when-a-broker-is-uninstalled"></a>Cuando se desinstala un agente
 
@@ -117,14 +117,14 @@ Windows:
 keytool -exportcert -alias androiddebugkey -keystore %HOMEPATH%\.android\debug.keystore | openssl sha1 -binary | openssl base64
 ```
 
-Una vez que haya generado un hash de firma con el valor *keytool* , use Azure Portal para generar el URI de redirección:
+Una vez que haya generado un hash de firma con el valor *keytool*, use Azure Portal para generar el URI de redirección:
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) y seleccione la aplicación Android en **Registros de aplicaciones** .
-1. Seleccione **Autenticación** > **Agregar una plataforma** > **Android** .
-1. En el panel para **Configurar la aplicación para Android** que se abrirá, escriba el **hash de firma** que generó anteriormente y un **nombre de paquete** .
-1. Seleccione el botón **Configurar** .
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) y seleccione la aplicación Android en **Registros de aplicaciones**.
+1. Seleccione **Autenticación** > **Agregar una plataforma** > **Android**.
+1. En el panel para **Configurar la aplicación para Android** que se abrirá, escriba el **hash de firma** que generó anteriormente y un **nombre de paquete**.
+1. Seleccione el botón **Configurar**.
 
-Azure Portal genera el URI de redireccionamiento automáticamente y lo muestra en el campo del **URI de redirección** del panel de **configuración de Android** .
+Azure Portal genera el URI de redireccionamiento automáticamente y lo muestra en el campo del **URI de redirección** del panel de **configuración de Android**.
 
 Para obtener más información sobre cómo firmar la aplicación, consulte [Firmar la aplicación](https://developer.android.com/studio/publish/app-signing) en la guía de usuario de Android Studio.
 
@@ -159,7 +159,7 @@ Si obtiene una excepción `MsalClientException` con el código de error `"BROKER
 Es posible que no quede claro inmediatamente que la integración del agente funcione, pero puede seguir estos los pasos siguientes para comprobarlo:
 
 1. En el dispositivo Android, complete una solicitud con el agente.
-1. En la configuración del dispositivo Android, busque una cuenta recién creada que se corresponda con la cuenta con la que se autenticó. La cuenta debe ser del tipo *Cuenta profesional* .
+1. En la configuración del dispositivo Android, busque una cuenta recién creada que se corresponda con la cuenta con la que se autenticó. La cuenta debe ser del tipo *Cuenta profesional*.
 
 Puede quitar la cuenta de la configuración si desea repetir la prueba.
 

@@ -3,13 +3,13 @@ title: Implementación de plantillas de Resource Manager mediante Acciones de Gi
 description: Se describe cómo implementar plantillas de Resource Manager mediante Acciones de GitHub.
 ms.topic: conceptual
 ms.date: 10/13/2020
-ms.custom: github-actions-azure
-ms.openlocfilehash: 69974a8db30f12b255a4bab57ebfa32ba78f67ed
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.custom: github-actions-azure, devx-track-azurecli
+ms.openlocfilehash: 3dcb246956aae274f17cf938ee3d406562b22941
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746108"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95905266"
 ---
 # <a name="deploy-azure-resource-manager-templates-by-using-github-actions"></a>Implementación de plantillas de Azure Resource Manager mediante Acciones de GitHub
 
@@ -38,7 +38,7 @@ El archivo tiene dos secciones:
 ## <a name="generate-deployment-credentials"></a>Genere las credenciales de implementación.
 
 
-Puede crear una [entidad de servicio](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) mediante el comando [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac&preserve-view=true) de la [CLI de Azure](/cli/azure/). Puede ejecutar este comando mediante [Azure Cloud Shell](https://shell.azure.com/) en Azure Portal o haciendo clic en el botón **Probar** .
+Puede crear una [entidad de servicio](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) mediante el comando [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac&preserve-view=true) de la [CLI de Azure](/cli/azure/). Puede ejecutar este comando mediante [Azure Cloud Shell](https://shell.azure.com/) en Azure Portal o haciendo clic en el botón **Probar**.
 
 Cree un grupo de recursos si todavía no tiene uno. 
 
@@ -95,12 +95,12 @@ Puede colocar el archivo en cualquier parte del repositorio. En el ejemplo de fl
 
 ## <a name="create-workflow"></a>Creación del flujo de trabajo
 
-El archivo de flujo de trabajo se debe almacenar en la carpeta **.github/workflows** en la raíz del repositorio. La extensión de archivo de flujo de trabajo puede ser **.yml** o **.yaml** .
+El archivo de flujo de trabajo se debe almacenar en la carpeta **.github/workflows** en la raíz del repositorio. La extensión de archivo de flujo de trabajo puede ser **.yml** o **.yaml**.
 
 1. En el repositorio de GitHub, seleccione **Actions** (Acciones) en el menú superior.
 1. Seleccione **New workflow** (Nuevo flujo de trabajo).
 1. Seleccione **Set up a workflow yourself** (Configurar un flujo de trabajo personalmente).
-1. Cambie el nombre del archivo de flujo de trabajo si prefiere otro distinto a **main.yml** . Por ejemplo: **deployStorageAccount.yml** .
+1. Cambie el nombre del archivo de flujo de trabajo si prefiere otro distinto a **main.yml**. Por ejemplo: **deployStorageAccount.yml**.
 1. Reemplace el contenido del archivo .yml por lo siguiente:
 
     ```yml
@@ -112,7 +112,7 @@ El archivo de flujo de trabajo se debe almacenar en la carpeta **.github/workflo
         steps:
 
           # Checkout code
-        - uses: actions/checkout@master
+        - uses: actions/checkout@main
 
           # Log into Azure
         - uses: azure/login@v1
@@ -136,11 +136,11 @@ El archivo de flujo de trabajo se debe almacenar en la carpeta **.github/workflo
 
     La primera sección del archivo de flujo de trabajo incluye:
 
-    - **name** : El nombre del flujo de trabajo.
-    - **on** : el nombre de los eventos de GitHub que desencadenan el flujo de trabajo. El flujo de trabajo se desencadena cuando hay un evento de envío en la rama principal, que modifica al menos uno de los dos archivos especificados. Los dos archivos son el de trabajo y el de plantilla.
+    - **name**: El nombre del flujo de trabajo.
+    - **on**: el nombre de los eventos de GitHub que desencadenan el flujo de trabajo. El flujo de trabajo se desencadena cuando hay un evento de envío en la rama principal, que modifica al menos uno de los dos archivos especificados. Los dos archivos son el de trabajo y el de plantilla.
 
 1. Seleccione **Start commit** (Iniciar confirmación).
-1. Seleccione **Commit directly to the master branch** (Confirmar directamente en la rama principal).
+1. Seleccione **Commit directly to the main branch** (Confirmar directamente en la rama principal).
 1. Seleccione **Commit new file** (Confirmar nuevo archivo) (o bien **Commit changes** (Confirmar cambios)).
 
 Como el flujo de trabajo está configurado para que lo desencadene el archivo de flujo de trabajo o el de plantilla que se va a actualizar, el flujo de trabajo se inicia inmediatamente después de confirmar los cambios.
@@ -152,7 +152,6 @@ Como el flujo de trabajo está configurado para que lo desencadene el archivo de
 1. Seleccione **Run ARM deploy** (Ejecutar implementación de ARM) en el menú para comprobar la implementación.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
-
 Cuando el repositorio y el grupo de recursos ya no sean necesarios, limpie los recursos que implementó eliminando el grupo de recursos y el repositorio de GitHub. 
 
 ## <a name="next-steps"></a>Pasos siguientes

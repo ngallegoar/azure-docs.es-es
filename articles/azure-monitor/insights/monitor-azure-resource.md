@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2019
-ms.openlocfilehash: e3a8e8b908c9d278654bfe992474811d6a9ddb86
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: d365b13ef8fb7ed9676bb00919315dc6fc9773ee
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91993711"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184593"
 ---
 # <a name="monitoring-azure-resources-with-azure-monitor"></a>Supervisión de recursos de Azure con Azure Monitor
 Si tiene aplicaciones y procesos empresariales críticos que dependen de recursos de Azure, querrá supervisar esos recursos para su disponibilidad, rendimiento y funcionamiento. En este artículo se describen los datos de supervisión generados por los recursos de Azure y cómo puede usar las características de Azure Monitor para analizar y alertar sobre estos datos.
@@ -93,7 +93,7 @@ Muchos servicios incluirán datos de supervisión en su página **Información g
 
 
 ### <a name="insights-and-solutions"></a>Insights y soluciones 
-Algunos servicios proporcionarán herramientas más allá de las características estándar de Azure Monitor. [Insights](./insights-overview.md) proporciona una experiencia de supervisión personalizada basada en la plataforma de datos de Azure Monitor y las características estándar. Las [soluciones](./solutions.md) proporcionan lógica de supervisión predefinida basada en los registros de Azure Monitor. 
+Algunos servicios proporcionarán herramientas más allá de las características estándar de Azure Monitor. [Insights](../monitor-reference.md) proporciona una experiencia de supervisión personalizada basada en la plataforma de datos de Azure Monitor y las características estándar. Las [soluciones](./solutions.md) proporcionan lógica de supervisión predefinida basada en los registros de Azure Monitor. 
 
 Si un servicio tiene una conclusión de Azure Monitor, puede acceder a ella desde la opción **Supervisión** en el menú de cada recurso. Puede acceder a todas las conclusiones y las soluciones desde el menú de **Azure Monitor**.
 
@@ -119,7 +119,7 @@ Vea las entradas del registro de actividad en Azure Portal con el filtro inicial
 ### <a name="azure-monitor-logs"></a>Registros de Azure Monitor
 Los registros de Azure Monitor consolidan los registros y las métricas de varios servicios, y otros orígenes de datos para su análisis con una herramienta de consulta eficaz. Como se ha descrito anteriormente, cree una configuración de diagnóstico para recopilar métricas de la plataforma, el registro de actividad y los registros de recursos en un área de trabajo de Log Analytics en Azure Monitor.
 
-[Log Analytics](../log-query/get-started-portal.md) le permite trabajar con las [consultas de registros](../log-query/log-query-overview.md), que es una característica eficaz de Azure Monitor que ayuda a realizar un análisis avanzado de los datos de registro mediante un lenguaje de consulta muy completo. Abra Log Analytics en **Registros** en el menú **Supervisión** para que un recurso de Azure funcione con las consultas de registro que usan el recurso como [ámbito de consulta](../log-query/scope.md#query-scope). Esto le permite analizar datos en varias tablas solo para ese recurso. Use **Registros** en el menú de Azure Monitor para acceder a los registros de todos los recursos. 
+[Log Analytics](../log-query/log-analytics-tutorial.md) le permite trabajar con las [consultas de registros](../log-query/log-query-overview.md), que es una característica eficaz de Azure Monitor que ayuda a realizar un análisis avanzado de los datos de registro mediante un lenguaje de consulta muy completo. Abra Log Analytics en **Registros** en el menú **Supervisión** para que un recurso de Azure funcione con las consultas de registro que usan el recurso como [ámbito de consulta](../log-query/scope.md#query-scope). Esto le permite analizar datos en varias tablas solo para ese recurso. Use **Registros** en el menú de Azure Monitor para acceder a los registros de todos los recursos. 
 
 - Consulte [Introducción a las consultas de registro en Azure Monitor](../log-query/get-started-queries.md) para ver un tutorial sobre el uso del lenguaje de consulta que se utiliza para escribir consultas de registro.
 - Consulte [Recopilación de registros de recurso de Azure en el área de trabajo de Log Analytics en Azure Monitor](../platform/resource-logs.md#send-to-log-analytics-workspace) para información sobre cómo se recopilan los registros de recurso en los registros de Azure Monitor y detalles sobre cómo obtener acceso a ellos en una consulta.

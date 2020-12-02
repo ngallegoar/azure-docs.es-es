@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/24/2020
 ms.author: Zhchia
-ms.openlocfilehash: d567985cba35647654d3ec47340979fcf9411132
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: d2c1704182a2a59f8e3f79c2d4e671167ce661d8
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94359466"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183080"
 ---
 # <a name="tutorial-configure-zapier-for-automatic-user-provisioning"></a>Tutorial: Configuración de Zapier para el aprovisionamiento automático de usuarios
 
@@ -36,7 +36,7 @@ En este tutorial, se describen los pasos que debe realizar en Zapier y Azure Ac
 En el escenario descrito en este tutorial se supone que ya cuenta con los requisitos previos siguientes:
 
 * [Un inquilino de Azure AD](../develop/quickstart-create-new-tenant.md) 
-* Una cuenta de usuario en Azure AD con [permiso](../users-groups-roles/directory-assign-admin-roles.md) para configurar el aprovisionamiento (por ejemplo, Administrador de aplicaciones, Administrador de aplicaciones en la nube, Propietario de la aplicación o Administrador global). 
+* Una cuenta de usuario en Azure AD con [permiso](../roles/permissions-reference.md) para configurar el aprovisionamiento (por ejemplo, Administrador de aplicaciones, Administrador de aplicaciones en la nube, Propietario de la aplicación o Administrador global). 
 * Una cuenta de usuario de Zapier con permisos de administrador.
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>Paso 1. Planeación de la implementación de aprovisionamiento
@@ -93,17 +93,17 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Captura de pantalla de la lista desplegable Modo de aprovisionamiento con la opción Automático seleccionada.](common/provisioning-automatic.png)
 
-5. En la sección **Credenciales de administrador** , escriba los valores de **URL de inquilino** y **Token de secreto**. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a Zapier. Si la conexión no se establece, asegúrese de que la cuenta de Zapier tenga permisos de administrador y pruebe de nuevo.
+5. En la sección **Credenciales de administrador**, escriba los valores de **URL de inquilino** y **Token de secreto**. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a Zapier. Si la conexión no se establece, asegúrese de que la cuenta de Zapier tenga permisos de administrador y pruebe de nuevo.
 
    ![Captura de pantalla que muestra el cuadro de diálogo Credenciales de administrador, en el que se puede especificar el URL de inquilino y el secreto de inquilino.](./media/zapier-provisioning-tutorial/provisioning.png)
 
-6. En el campo **Correo electrónico de notificación** , escriba la dirección de correo electrónico de una persona o grupo que deba recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
+6. En el campo **Correo electrónico de notificación**, escriba la dirección de correo electrónico de una persona o grupo que deba recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
 
    ![Correo electrónico de notificación](common/provisioning-notification-email.png)
 
 7. Seleccione **Guardar**.
 
-8. En la sección **Asignaciones** , seleccione **Synchronize Azure Active Directory Users to Zapier** (Sincronizar usuarios de Azure Active Directory con Zapier).
+8. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Users to Zapier** (Sincronizar usuarios de Azure Active Directory con Zapier).
 
 9. Revise los atributos de usuario que se sincronizan entre Azure AD y Zapier en la sección **Asignaciones de atributos**. Los atributos seleccionados como propiedades **coincidentes** se usan para buscar coincidencias con las cuentas de usuario de Zapier con el objetivo de realizar operaciones de actualización. Si decide cambiar el [atributo de destino coincidente](../app-provisioning/customize-application-attributes.md), deberá asegurarse de que la API de Zapier admite el filtrado de usuarios basado en ese atributo. Seleccione el botón **Guardar** para confirmar los cambios.
 
@@ -116,7 +116,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
    |name.familyName|String|
    |emails[type eq "work"].value|String|
 
-10. En la sección **Asignaciones** , seleccione **Synchronize Azure Active Directory Groups to Zapier** (Sincronizar grupos de Azure Active Directory con Zapier).
+10. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Groups to Zapier** (Sincronizar grupos de Azure Active Directory con Zapier).
 
 11. Examine los atributos de grupo que se sincronizan entre Azure AD y Zapier en la sección **Asignaciones de atributos**. Los atributos seleccionados como propiedades **coincidentes** se usan para buscar coincidencias con los grupos de Zapier con el fin de realizar operaciones de actualización. Seleccione el botón **Guardar** para confirmar los cambios.
 
@@ -131,7 +131,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Estado de aprovisionamiento activado](common/provisioning-toggle-on.png)
 
-14. Elija los valores deseados en **Ámbito** , en la sección **Configuración** , para definir los usuarios o grupos que desea que se aprovisionen en Zapier.
+14. Elija los valores deseados en **Ámbito**, en la sección **Configuración**, para definir los usuarios o grupos que desea que se aprovisionen en Zapier.
 
     ![Ámbito del aprovisionamiento](common/provisioning-scope.png)
 

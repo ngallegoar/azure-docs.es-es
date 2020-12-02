@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 01/30/2020
+ms.date: 11/24/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b88b2ca0a420295a7a53608f02923e72045e1c44
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 25c6ccb4661fde1efb088cd8535bf2759f2057b3
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964747"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95902767"
 ---
 # <a name="enable-passwordless-security-key-sign-in-to-windows-10-devices-with-azure-active-directory-preview"></a>Habilitar el inicio de sesión con una clave de seguridad sin contraseña en dispositivos Windows 10 con Azure Active Directory (versión preliminar)
 
@@ -29,7 +29,7 @@ Este documento se centra en la habilitación de la autenticación sin contraseñ
 
 | Tipo de dispositivo | Unido a Azure AD | Híbrido unido a Azure AD |
 | --- | --- | --- |
-| [Azure Multi-Factor Authentication](howto-mfa-getstarted.md) | X | X |
+| [Azure AD Multi-Factor Authentication](howto-mfa-getstarted.md) | X | X |
 | [Registro de información de seguridad combinado (vista preliminar)](concept-registration-mfa-sspr-combined.md) | X | X |
 | [Claves de seguridad FIDO2](concept-authentication-passwordless.md#fido2-security-keys) compatibles | X | X |
 | WebAuthN requiere Windows 10 versión 1903 o superior | X | X |
@@ -134,7 +134,7 @@ En el caso de los **dispositivos unidos a Azure AD híbrido**, las organizacion
 - Si se establece esta directiva en **Habilitada**, los usuarios podrán iniciar sesión con claves de seguridad.
 - Si se establece en **Deshabilitada** o **No configurada**, los usuarios no podrán iniciar sesión con claves de seguridad.
 
-Esta configuración de directiva de grupo requiere una versión actualizada de la plantilla de directiva de grupo `credentialprovider.admx`. Esta nueva plantilla está disponible con la siguiente versión de Windows Server y con Windows 10 20H1. Esta configuración se puede administrar con un dispositivo que ejecute una de estas versiones más recientes de Windows o de forma centralizada siguiendo las instrucciones del tema de soporte técnico [Creación y administración del almacén central de plantillas administrativas de la directiva de grupo en Windows](https://support.microsoft.com/help/3087759/how-to-create-and-manage-the-central-store-for-group-policy-administra).
+Esta configuración de directiva de grupo requiere una versión actualizada de la plantilla de directiva de grupo `CredentialProviders.admx`. Esta nueva plantilla está disponible con la siguiente versión de Windows Server y con Windows 10 20H1. Esta configuración se puede administrar con un dispositivo que ejecute una de estas versiones más recientes de Windows o de forma centralizada siguiendo las instrucciones del tema de soporte técnico [Creación y administración del almacén central de plantillas administrativas de la directiva de grupo en Windows](https://support.microsoft.com/help/3087759/how-to-create-and-manage-the-central-store-for-group-policy-administra).
 
 ## <a name="sign-in-with-fido2-security-key"></a>Inicio de sesión con una clave de seguridad FIDO2
 
@@ -164,4 +164,4 @@ Si quiere compartir comentarios o detectar problemas mientras usa la versión pr
 
 [Más información sobre el registro de dispositivos](../devices/overview.md)
 
-[Más información sobre Azure Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)
+[Más información sobre Azure AD Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)

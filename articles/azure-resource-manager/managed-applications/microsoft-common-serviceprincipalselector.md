@@ -5,16 +5,16 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 11/17/2020
 ms.author: tomfitz
-ms.openlocfilehash: 9d41e41f110e927f436b38d6291719c138defa53
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: 2fdbbad467d8c762db485fc7935e9cef78313fd0
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94745821"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184457"
 ---
 # <a name="microsoftcommonserviceprincipalselector-ui-element"></a>Elemento de interfaz de usuario Microsoft.Common. ServicePrincipalSelector
 
-Control que permite a los usuarios seleccionar una [entidad de servicio](/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object) o registrar una aplicación nueva. Al seleccionar **Crear nuevo**, se recorren los pasos para registrar una nueva aplicación. Al seleccionar una aplicación existente, el control proporciona un cuadro de texto para escribir una contraseña o una huella digital de certificado.
+Control que permite a los usuarios seleccionar una [entidad de servicio](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) o registrar una aplicación nueva. Al seleccionar **Crear nuevo**, se recorren los pasos para registrar una nueva aplicación. Al seleccionar una aplicación existente, el control proporciona un cuadro de texto para escribir una contraseña o una huella digital de certificado.
 
 ## <a name="ui-samples"></a>Ejemplos de interfaz de usuario
 

@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: arvinh
-ms.openlocfilehash: 58fe99164c390d8a9435e5aa65e55fe7fca5d6db
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 92c2ae13b840d7a73d86365ce88584bcafc878e8
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94359483"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96181465"
 ---
 # <a name="tutorial-configure-slack-for-automatic-user-provisioning"></a>Tutorial: Configuración de Slack para aprovisionar usuarios automáticamente
 
@@ -36,7 +36,7 @@ El objetivo de este tutorial es explicar los pasos que debe realizar en Slack y 
 En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
 
 * [Un inquilino de Azure AD](../develop/quickstart-create-new-tenant.md).
-* Una cuenta de usuario en Azure AD con [permiso](../users-groups-roles/directory-assign-admin-roles.md) para configurar el aprovisionamiento (por ejemplo, Administrador de aplicaciones, Administrador de aplicaciones en la nube, Propietario de la aplicación o Administrador global).
+* Una cuenta de usuario en Azure AD con [permiso](../roles/permissions-reference.md) para configurar el aprovisionamiento (por ejemplo, Administrador de aplicaciones, Administrador de aplicaciones en la nube, Propietario de la aplicación o Administrador global).
 * Un inquilino de Slack con el [plan Plus](https://aadsyncfabric.slack.com/pricing) o uno superior habilitado.
 * Una cuenta de usuario de Slack con permisos de administrador de equipo.
 
@@ -79,7 +79,7 @@ Esta sección lo guía a través de los pasos necesarios para conectar la API de
 
     ![Captura de pantalla de la lista desplegable Modo de aprovisionamiento con la opción Automático seleccionada.](common/provisioning-automatic.png)
 
-5. En **Credenciales de administrador** , haga clic en **Autorizar**. Se abrirá un cuadro de diálogo de autorización de Slack en una nueva ventana del explorador.
+5. En **Credenciales de administrador**, haga clic en **Autorizar**. Se abrirá un cuadro de diálogo de autorización de Slack en una nueva ventana del explorador.
 
     ![Captura de pantalla que muestra el botón Authorize Admin Credentials (Autorizar credenciales de administrador).](media/slack-provisioning-tutorial/authorization.png)
 
@@ -90,7 +90,7 @@ Esta sección lo guía a través de los pasos necesarios para conectar la API de
 
 7. En Azure Portal, haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a la aplicación de Slack. Si se produce un error de conexión, asegúrese de que su cuenta de Slack tiene permisos de administrador de equipo y vuelva a intentar el paso de "Autorizar".
 
-8. En el campo **Correo electrónico de notificación** , escriba la dirección de correo electrónico de una persona o grupo que deba recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
+8. En el campo **Correo electrónico de notificación**, escriba la dirección de correo electrónico de una persona o grupo que deba recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
 
     ![Correo electrónico de notificación](common/provisioning-notification-email.png)
 
@@ -98,7 +98,7 @@ Esta sección lo guía a través de los pasos necesarios para conectar la API de
 
 10. En la sección Asignaciones, seleccione **Synchronize Azure Active Directory Users to** (Sincronizar usuarios de Azure Active Directory con Slack).
 
-11. En la sección **Asignaciones de atributos** , revise los atributos de usuario que se sincronizarán de Azure AD a Slack. Tenga en cuenta que los atributos seleccionados como propiedades de **Coincidencia** se usarán para establecer coincidencias con las cuentas de usuario de Slack con el objetivo de realizar operaciones de actualización. Seleccione el botón Guardar para confirmar los cambios.
+11. En la sección **Asignaciones de atributos**, revise los atributos de usuario que se sincronizarán de Azure AD a Slack. Tenga en cuenta que los atributos seleccionados como propiedades de **Coincidencia** se usarán para establecer coincidencias con las cuentas de usuario de Slack con el objetivo de realizar operaciones de actualización. Seleccione el botón Guardar para confirmar los cambios.
 
    |Atributo|Tipo|
    |---|---|
@@ -132,9 +132,9 @@ Esta sección lo guía a través de los pasos necesarios para conectar la API de
    |urn:scim:schemas:extension:enterprise:1.0.organization|String|
    |urn:scim:schemas:extension:enterprise:1.0.division|String|
 
-12. En la sección **Asignaciones** , seleccione **Synchronize Azure Active Directory Groups to Slack** (Sincronizar grupos de Azure Active Directory con Slack).
+12. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Groups to Slack** (Sincronizar grupos de Azure Active Directory con Slack).
 
-13. En la sección **Asignaciones de atributos** , revise los atributos de grupo que se sincronizarán de Azure AD a Slack. Tenga en cuenta que los atributos seleccionados como propiedades de **Coincidencia** se usarán para establecer coincidencias con los grupos de Slack con el objetivo de realizar operaciones de actualización. Seleccione el botón Guardar para confirmar los cambios.
+13. En la sección **Asignaciones de atributos**, revise los atributos de grupo que se sincronizarán de Azure AD a Slack. Tenga en cuenta que los atributos seleccionados como propiedades de **Coincidencia** se usarán para establecer coincidencias con los grupos de Slack con el objetivo de realizar operaciones de actualización. Seleccione el botón Guardar para confirmar los cambios.
 
       |Atributo|Tipo|
       |---|---|
@@ -147,7 +147,7 @@ Esta sección lo guía a través de los pasos necesarios para conectar la API de
 
     ![Estado de aprovisionamiento activado](common/provisioning-toggle-on.png)
 
-16. Seleccione los valores deseados en **Ámbito** , en la sección **Configuración** para definir los usuarios o grupos que quiere aprovisionar en Slack.
+16. Seleccione los valores deseados en **Ámbito**, en la sección **Configuración** para definir los usuarios o grupos que quiere aprovisionar en Slack.
 
     ![Ámbito del aprovisionamiento](common/provisioning-scope.png)
 

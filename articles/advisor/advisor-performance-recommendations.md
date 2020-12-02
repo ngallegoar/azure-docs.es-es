@@ -3,12 +3,12 @@ title: Mejora del rendimiento de las aplicaciones de Azure con Advisor
 description: Use recomendaciones sobre rendimiento de Azure Advisor para mejorar la velocidad y la capacidad de respuesta de las aplicaciones empresariales críticas.
 ms.topic: article
 ms.date: 07/29/2020
-ms.openlocfilehash: 6a008411d4422853e6a98fad59bd4519b42a9548
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 55f5ac6784bf613170fd10060799ab5ad1290a62
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93308678"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183352"
 ---
 # <a name="improve-the-performance-of-azure-applications-by-using-azure-advisor"></a>Mejora del rendimiento de las aplicaciones de Azure con Azure Advisor
 
@@ -146,7 +146,7 @@ Advisor detecta las cuentas de Azure Cosmos DB que tienen tráfico de una regió
 
 ## <a name="configure-your-azure-cosmos-db-indexing-policy-by-using-custom-included-or-excluded-paths"></a>Configuración de la directiva de indexación de Azure Cosmos DB con rutas de acceso personalizadas incluidas o excluidas
 
-Advisor identifica los contenedores de Azure Cosmos DB que usan la directiva de indexación predeterminada, pero podrían aprovechar una directiva de indexación personalizada. Esta determinación se basa en el patrón de carga de trabajo. La directiva de indexación predeterminada indexa todas las propiedades. Una directiva de indexación personalizada con uso de rutas de acceso incluidas o excluidas de forma explícita en los filtros de consulta puede reducir las RU y el almacenamiento utilizados para la indexación. [Más información sobre la modificación de las directivas de índice.](/azure/cosmos-db/index-policy)
+Advisor identifica los contenedores de Azure Cosmos DB que usan la directiva de indexación predeterminada, pero podrían aprovechar una directiva de indexación personalizada. Esta determinación se basa en el patrón de carga de trabajo. La directiva de indexación predeterminada indexa todas las propiedades. Una directiva de indexación personalizada con uso de rutas de acceso incluidas o excluidas de forma explícita en los filtros de consulta puede reducir las RU y el almacenamiento utilizados para la indexación. [Más información sobre la modificación de las directivas de índice.](../cosmos-db/index-policy.md)
 
 ## <a name="set-your-azure-cosmos-db-query-page-size-maxitemcount-to--1"></a>Configuración del tamaño de página de consulta (MaxItemCount) de Azure Cosmos DB en -1 
 

@@ -9,22 +9,22 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 02/01/2019
-ms.openlocfilehash: 00501a1e17f8e085b817cfe3dac819ba890248f5
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: c69ed7b9e2aaa7113637868e1c1329ed2962b931
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93309848"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96302771"
 ---
 # <a name="import-your-training-data-into-azure-machine-learning-studio-classic-from-various-data-sources"></a>Importación de datos de entrenamiento en Azure Machine Learning Studio (clásico) desde varios orígenes de datos
 
-**SE APLICA A:**  ![Se aplica a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clásico)   ![No se aplica a. ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
+**SE APLICA A:**  ![Se aplica a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clásico)   ![No se aplica a.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 Para usar sus propios datos en Machine Learning Studio (clásico) para desarrollar y entrenar una solución de análisis predictivo, puede usar los datos de: 
 
-* Un **archivo local** : cargue los datos locales de antemano desde la unidad de disco duro para crear un módulo de conjunto de datos en su área de trabajo
-* **Orígenes de datos en línea** : use el módulo [Importar datos][import-data] para acceder a los datos de varios orígenes en línea mientras se ejecuta su experimento
+* Un **archivo local**: cargue los datos locales de antemano desde la unidad de disco duro para crear un módulo de conjunto de datos en su área de trabajo
+* **Orígenes de datos en línea**: use el módulo [Importar datos][import-data] para acceder a los datos de varios orígenes en línea mientras se ejecuta su experimento
 * **Experimento de Machine Learning Studio (clásico)** : use los datos que se guardaron como un conjunto de datos en Machine Learning Studio (clásico)
 * [**Base de datos de SQL Server**](use-data-from-an-on-premises-sql-server.md): use los datos de una base de datos de SQL Server sin tener que copiar manualmente los datos
 
@@ -54,7 +54,7 @@ Puede importar diversos tipos de datos al experimento, dependiendo del mecanismo
 * Tabla de Base de datos SQL
 * Valores de OData
 * Datos SVMLight (.svmlight) (consulte la [definición de SVMLight](http://svmlight.joachims.org/) para obtener más información sobre el formato)
-* Datos de formato de archivo con relación de atributo (ARFF) (.arff) (consulte la [definición de ARFF](https://weka.wikispaces.com/ARFF) si desea ver información sobre el formato)
+* Datos de formato de archivo con relación de atributo (ARFF) (.arff) (consulte la [definición de ARFF](https://www.cs.waikato.ac.nz/ml/weka/arff.html) si desea ver información sobre el formato)
 * Archivo ZIP (.zip)
 * Archivo de área de trabajo u objeto de R (.RData)
 
@@ -73,12 +73,12 @@ Studio (clásico) reconoce los siguientes tipos de datos:
 * DateTime
 * TimeSpan
 
-Studio usa un tipo de datos interno llamado * **tabla de datos** _ para pasar datos entre los módulos. Puede convertir explícitamente sus datos en formato de tabla de datos con el módulo [Convertir al conjunto de datos][convert-to-dataset].
+Studio usa un tipo de datos interno llamado ***tabla de datos** _ para pasar datos entre los módulos. Puede convertir explícitamente sus datos en formato de tabla de datos con el módulo [Convertir al conjunto de datos][convert-to-dataset].
 
 Todo módulo que acepta formatos distintos de tabla de datos convertirá los datos a tabla de datos de manera silenciosa antes de pasarlos al módulo siguiente.
 
 En caso de ser necesario, puede convertir el formato tabla de datos de vuelta al formato CSV, TSV, ARFF o SVMLight mediante otros módulos de conversión.
-Consulte la sección _ *Conversiones de formatos de datos* * de la paleta de módulos para ver los módulos que realizan estas funciones.
+Consulte la sección _ *Conversiones de formatos de datos** de la paleta de módulos para ver los módulos que realizan estas funciones.
 
 ## <a name="data-capacities"></a>Capacidades de datos
 
@@ -111,7 +111,7 @@ Para importar datos desde una unidad de disco duro local, siga estos pasos:
 
 1. Haga clic en **+NUEVO** en la parte inferior de la ventana de Studio (clásico).
 2. Seleccione **CONJUNTO DE DATOS** y **DESDE ARCHIVO LOCAL**.
-3. En el cuadro de diálogo **Cargar un nuevo conjunto de datos** , vaya al archivo que quiere cargar.
+3. En el cuadro de diálogo **Cargar un nuevo conjunto de datos**, vaya al archivo que quiere cargar.
 4. Escriba un nombre, identifique el tipo de datos y, si lo desea, escriba una descripción. Se recomienda incluir una descripción: le permite registrar cualquier característica acerca de los datos que quiera recordar cuando use los datos en el futuro.
 5. La casilla **Esta es la versión nueva de un conjunto de datos existente** le permite actualizar una base de datos existente con datos nuevos. Para ello, haga clic en esta casilla y, luego, escriba el nombre de un conjunto de datos existente.
 

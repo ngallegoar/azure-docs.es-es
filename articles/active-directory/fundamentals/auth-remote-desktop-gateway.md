@@ -13,16 +13,16 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 57466cccb71444d5711a9221c324a107757c5e82
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 4baaf2de6fbe4a56f64d449644b8594217dc432c
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94576802"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96172744"
 ---
 # <a name="remote-desktop-gateway-services"></a>Servicios de puerta de enlace de Escritorio remoto
 
-Una implementación estándar de Servicios de Escritorio remoto (RDS) estándar incluye diversos [servicios de rol de Escritorio remoto](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/desktop-hosting-logical-architecture) que se ejecutan en Windows Server. La implementación de RDS con Application Proxy de Azure Active Directory (Azure AD) tiene una conexión de salida permanente desde el servidor que ejecuta el servicio de conexión. Otras implementaciones dejan conexiones entrantes abiertas a través de un equilibrador de carga. Este patrón de autenticación le permite ofrecer más tipos de aplicaciones mediante la publicación de aplicaciones locales mediante Servicios de Escritorio remoto. También reduce la superficie de ataque de su implementación mediante el uso de Application Proxy de Azure AD.
+Una implementación estándar de Servicios de Escritorio remoto (RDS) estándar incluye diversos [servicios de rol de Escritorio remoto](/windows-server/remote/remote-desktop-services/Desktop-hosting-logical-architecture) que se ejecutan en Windows Server. La implementación de RDS con Application Proxy de Azure Active Directory (Azure AD) tiene una conexión de salida permanente desde el servidor que ejecuta el servicio de conexión. Otras implementaciones dejan conexiones entrantes abiertas a través de un equilibrador de carga. Este patrón de autenticación le permite ofrecer más tipos de aplicaciones mediante la publicación de aplicaciones locales mediante Servicios de Escritorio remoto. También reduce la superficie de ataque de su implementación mediante el uso de Application Proxy de Azure AD.
 
 ## <a name="use-when"></a>Cuándo se utiliza
 
@@ -44,8 +44,7 @@ Debe proporcionar acceso remoto y proteger la implementación de Servicios de Es
 
 ## <a name="implement-remote-desktop-gateway-services-with-azure-ad"></a>Implementación de servicios de puerta de enlace de Escritorio remoto con Azure AD
 
-* [Publicación de Escritorio Remoto con Application Proxy de Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-integrate-with-remote-desktop-services) 
+* [Publicación de Escritorio Remoto con Application Proxy de Azure AD](../manage-apps/application-proxy-integrate-with-remote-desktop-services.md) 
 
-* [Adición de una aplicación local para el acceso remoto mediante Application Proxy en Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application)
+* [Adición de una aplicación local para el acceso remoto mediante Application Proxy en Azure AD](../manage-apps/application-proxy-add-on-premises-application.md)
 
- 

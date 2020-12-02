@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4bef201cbd14a4de0c785b5f86d534f27bfedb31
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: e121a6a45ab20055591a3670152114b8d03529cf
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92363715"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96174001"
 ---
 # <a name="customize-the-user-experience-for-azure-active-directory-self-service-password-reset"></a>Personalización de la experiencia del usuario para el autoservicio de restablecimiento de contraseña de Azure Active Directory
 
@@ -45,8 +45,8 @@ Para que los usuarios obtengan ayuda con el autoservicio de restablecimiento de 
 El correo electrónico de contacto predeterminado se envía a los destinatarios en el orden siguiente:
 
 1. Si el rol *Administrador del departamento de soporte técnico* o *Administrador de contraseñas* está asignado, se notificará a todos administradores que los tengan.
-1. Si no hay asignado ningún administrador del departamento de soporte técnico o de contraseñas, entonces se notificará a los que tengan el rol de *administrador de usuarios* .
-1. Si no se ha asignado ninguno de los roles anteriores, se notificará a los *administradores globales* .
+1. Si no hay asignado ningún administrador del departamento de soporte técnico o de contraseñas, entonces se notificará a los que tengan el rol de *administrador de usuarios*.
+1. Si no se ha asignado ninguno de los roles anteriores, se notificará a los *administradores globales*.
 
 En todos los casos, se notificará a un máximo de 100 destinatarios en total.
 
@@ -56,8 +56,8 @@ Para obtener más información sobre los diferentes roles de administrador y có
 
 Si la organización no quiere que se notifique a los administradores de las solicitudes de restablecimiento de contraseña, se pueden usar las opciones de configuración siguientes:
 
-* Personalice el vínculo del departamento de soporte técnico para proporcionar una dirección URL web o una dirección mailto: que los usuarios puedan usar para obtener asistencia. Esta opción se encuentra en **Restablecimiento de contraseña** > **Personalización** > **Dirección URL o correo electrónico personalizados del departamento de soporte técnico** .
-* Habilite el autoservicio de restablecimiento de contraseña para todos los usuarios. Esta opción está disponible en **Restablecimiento de contraseña** > **Propiedades** . Si no quiere que los usuarios restablezcan sus propias contraseñas, puede aumentar el ámbito del acceso a un grupo vacío. *(Esta opción no se recomienda).*
+* Personalice el vínculo del departamento de soporte técnico para proporcionar una dirección URL web o una dirección mailto: que los usuarios puedan usar para obtener asistencia. Esta opción se encuentra en **Restablecimiento de contraseña** > **Personalización** > **Dirección URL o correo electrónico personalizados del departamento de soporte técnico**.
+* Habilite el autoservicio de restablecimiento de contraseña para todos los usuarios. Esta opción está disponible en **Restablecimiento de contraseña** > **Propiedades**. Si no quiere que los usuarios restablezcan sus propias contraseñas, puede aumentar el ámbito del acceso a un grupo vacío. *(Esta opción no se recomienda).*
 
 ## <a name="customize-the-sign-in-page-and-access-panel"></a>Personalización del panel de acceso y la página de inicio de sesión
 
@@ -72,10 +72,10 @@ Los gráficos que elija se muestran en los siguientes casos:
 
 ### <a name="directory-name"></a>Nombre de directorio
 
-Para que todo resulte más sencillo, puede cambiar el nombre de la organización en el portal y en las comunicaciones automatizadas. Para cambiar el atributo de nombre de directorio en Azure Portal, vaya a **Azure Active Directory** > **Propiedades** . Esta opción de nombre descriptivo de la organización es la más visible en correos electrónicos automatizados, tal como se muestra en los ejemplos siguientes:
+Para que todo resulte más sencillo, puede cambiar el nombre de la organización en el portal y en las comunicaciones automatizadas. Para cambiar el atributo de nombre de directorio en Azure Portal, vaya a **Azure Active Directory** > **Propiedades**. Esta opción de nombre descriptivo de la organización es la más visible en correos electrónicos automatizados, tal como se muestra en los ejemplos siguientes:
 
-* Nombre descriptivo del correo electrónico, por ejemplo " *Demostración de Microsoft en nombre de CONTOSO* "
-* Línea de asunto del correo electrónico, por ejemplo " *Código de verificación del correo electrónico de la cuenta de demostración CONTOSO* "
+* Nombre descriptivo del correo electrónico, por ejemplo "*Demostración de Microsoft en nombre de CONTOSO*"
+* Línea de asunto del correo electrónico, por ejemplo "*Código de verificación del correo electrónico de la cuenta de demostración CONTOSO*"
 
 ## <a name="customize-the-ad-fs-sign-in-page"></a>Personalizar la página de inicio de sesión de AD FS
 
@@ -91,4 +91,4 @@ Set-ADFSGlobalWebContent -SigninPageDescriptionText "<p><a href='https://passwor
 
 Para comprender el uso de SSPR en su entorno, consulte [Opciones de creación de informes para la administración de contraseñas de Azure AD](howto-sspr-reporting.md).
 
-Si usted o los usuarios tienen problemas con SSPR, consulte [Solución de problemas de autoservicio de restablecimiento de contraseña](active-directory-passwords-troubleshoot.md).
+Si usted o los usuarios tienen problemas con SSPR, consulte [Solución de problemas de autoservicio de restablecimiento de contraseña](./troubleshoot-sspr.md).

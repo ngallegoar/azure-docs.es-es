@@ -4,12 +4,12 @@ ms.service: virtual-machine-scale-sets
 ms.topic: include
 ms.date: 04/26/2019
 ms.author: manayar
-ms.openlocfilehash: 633f7f9231e08acdb0e08ee97067d2a469bbdb45
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ff3434a7d1b5b4643d9aca5fae03ac03fe65b514
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75980165"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96028568"
 ---
 Para implementar la plantilla anterior, siga la [documentación de Azure Resource Manager](../articles/azure-resource-manager/templates/deploy-powershell.md).
 
@@ -21,4 +21,4 @@ Puede ver cómo modificar la [plantilla de conjunto de escalado básico](../arti
 
 Puede ver cómo modificar la [plantilla de conjunto de escalado básico](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-start.md) para [implementar un conjunto de escalado de Linux con escalabilidad automática basada en invitados](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-guest-based-autoscale-linux.md).
 
-Para obtener más información sobre los conjuntos de escalado, vea la [página de información general sobre los conjuntos de escalado](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md).
+Para obtener más información sobre los conjuntos de escalado, vea la [página de información general sobre los conjuntos de escalado](../articles/virtual-machine-scale-sets/overview.md).

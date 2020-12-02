@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bb54410fb314376b68d7297a3452f0990762343d
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 69e87fc919893a544f5d0b1b615a110f25486e57
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94577165"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96168753"
 ---
 # <a name="header-based-authentication-with-azure-active-directory"></a>Autenticación basada en encabezados con Azure Active Directory
 
@@ -48,8 +48,8 @@ Los usuarios remotos necesitan un inicio de sesión único (SSO) de forma segura
 
 ## <a name="implement-header-based-authentication-with-azure-ad"></a>Implementación de la autenticación basada en encabezados con Azure AD
 
-* [Adición de una aplicación local para el acceso remoto mediante Application Proxy en Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application)  
+* [Adición de una aplicación local para el acceso remoto mediante Application Proxy en Azure AD](../manage-apps/application-proxy-add-on-premises-application.md)  
 
-* [Autenticación basada en el encabezado para el inicio de sesión único con el proxy de aplicación y PingAccess](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-single-sign-on-with-ping-access) 
+* [Autenticación basada en el encabezado para el inicio de sesión único con el proxy de aplicación y PingAccess](../manage-apps/application-proxy-configure-single-sign-on-with-headers.md) 
 
-* [Protección de aplicaciones heredadas con redes y controladores de entrega de aplicaciones](https://docs.microsoft.com/azure/active-directory/manage-apps/secure-hybrid-access)
+* [Protección de aplicaciones heredadas con redes y controladores de entrega de aplicaciones](../manage-apps/secure-hybrid-access.md)

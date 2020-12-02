@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2020
-ms.openlocfilehash: 6b3fdf052ce7f0d6a5c3497aa1ac971d9249546a
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 118bdcb6929abfc162ff05e91f1621f087b6c50c
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95015602"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186735"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms"></a>Cómo consultar registros de Azure Monitor para VM
 
@@ -473,7 +473,6 @@ Los contadores de rendimiento recopilados actualmente en la tabla *InsightsMetri
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Si eres nuevo a la hora de escribir consultas en Azure Monitor, revisa el tema sobre el [uso de Log Analytics](../log-query/get-started-portal.md) en Azure Portal para escribir consultas de registro.
+* Si eres nuevo a la hora de escribir consultas en Azure Monitor, revisa el tema sobre el [uso de Log Analytics](../log-query/log-analytics-tutorial.md) en Azure Portal para escribir consultas de registro.
 
-* Información acerca de la [escritura de consultas de búsqueda](/azure/azure-monitor/log-query/get-started-queries).
-
+* Información acerca de la [escritura de consultas de búsqueda](../log-query/get-started-queries.md).

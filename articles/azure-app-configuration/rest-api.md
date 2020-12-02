@@ -6,16 +6,16 @@ ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
-ms.openlocfilehash: 2e89b372e3ee8d71e99baa4072cd577fa4fb8d7c
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: e2753f0f8926ac15f5d32020c8891d1b612d2bb3
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93423770"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182604"
 ---
 # <a name="azure-app-configuration-rest-api"></a>API REST de Azure App Configuration
 
-La documentación general sobre la API REST de Azure App Configuration está disponible en [Azure App Configuration](https://docs.microsoft.com/rest/api/appconfiguration/). En esta sección se incluyen más detalles para los desarrolladores que trabajan con la API REST de App Configuration.
+La documentación general sobre la API REST de Azure App Configuration está disponible en [Azure App Configuration](/rest/api/appconfiguration/). En esta sección se incluyen más detalles para los desarrolladores que trabajan con la API REST de App Configuration.
 
 Las siguientes páginas de referencia están disponibles para describir en detalle la superficie de la API de Azure App Configuration.
 

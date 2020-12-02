@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 09/17/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: 7f4238035a6fccb0addb9a481287b31732bd2662
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: af6a46e16cd888e3ff6a382be2b1a4264fcc2941
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94744542"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184015"
 ---
 # <a name="frequently-asked-questions-about-arm-templates"></a>Preguntas más frecuentes sobre las plantillas de Resource Manager
 
@@ -68,7 +68,7 @@ En este artículo se responde a preguntas frecuentes sobre las plantillas de Azu
 
 * **¿Puedo crear una suscripción en una plantilla de Resource Manager?**
 
-  Sí; para obtener más información, consulte [Creación de suscripciones de Azure mediante programación con las API más recientes](../../cost-management-billing/manage/programmatically-create-subscription.md).
+  Sí; para obtener más información, consulte [Creación de suscripciones de Azure mediante programación con las API más recientes](../../cost-management-billing/manage/programmatically-create-subscription-enterprise-agreement.md).
 
 * **¿Cómo se puede probar la plantilla antes de implementarla?**
 

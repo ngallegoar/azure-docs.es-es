@@ -3,12 +3,12 @@ title: 'Funciones de plantillas: recursos'
 description: Describe las funciones para usar en una plantilla de Azure Resource Manager para recuperar valores sobre recursos.
 ms.topic: conceptual
 ms.date: 11/18/2020
-ms.openlocfilehash: 0d118b80439579b0c8be45fdf1180b9a03b54c1d
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: b7bb726250c6d1ef8a597481b5f7e95f024a56d4
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95994149"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183998"
 ---
 # <a name="resource-functions-for-arm-templates"></a>Funciones de recursos para plantillas de ARM
 
@@ -1030,7 +1030,7 @@ La propiedad **managedBy** solo se devuelve para los grupos de recursos que cont
 
 ### <a name="remarks"></a>Observaciones
 
-La función `resourceGroup()` no se puede usar en una plantilla que está [implementada en el nivel de suscripción](deploy-to-subscription.md). Solo puede usarse en las plantillas que se implementan en un grupo de recursos. Puede usar la `resourceGroup()`función en una [plantilla vinculada o anidada (con ámbito interno)](linked-templates.md) que tenga como destino un grupo de recursos, incluso cuando la plantilla primaria se implementa en la suscripción. En ese escenario, la plantilla vinculada o anidada se implementa en el nivel de grupo de recursos. Para más información sobre cómo establecer como destino un grupo de recursos en una implementación de nivel de suscripción, consulte [Implementar recursos de Azure en más de una suscripción o un grupo de recursos](cross-scope-deployment.md).
+La función `resourceGroup()` no se puede usar en una plantilla que está [implementada en el nivel de suscripción](deploy-to-subscription.md). Solo puede usarse en las plantillas que se implementan en un grupo de recursos. Puede usar la `resourceGroup()`función en una [plantilla vinculada o anidada (con ámbito interno)](linked-templates.md) que tenga como destino un grupo de recursos, incluso cuando la plantilla primaria se implementa en la suscripción. En ese escenario, la plantilla vinculada o anidada se implementa en el nivel de grupo de recursos. Para más información sobre cómo establecer como destino un grupo de recursos en una implementación de nivel de suscripción, consulte [Implementar recursos de Azure en más de una suscripción o un grupo de recursos](./deploy-to-resource-group.md).
 
 Un uso común de la función resourceGroup es crear recursos en la misma ubicación que el grupo de recursos. En el ejemplo siguiente se utiliza la ubicación del grupo de recursos para un valor de parámetro predeterminado.
 
@@ -1055,7 +1055,7 @@ param location string = resourceGroup().location
 
 También puede usar la función resourceGroup para aplicar etiquetas del grupo de recursos a un recurso. Para más información, consulte [Aplicación de etiquetas de un grupo de recursos](../management/tag-resources.md#apply-tags-from-resource-group).
 
-Al usar plantillas anidadas para implementar en varios grupos de recursos, puede especificar el ámbito para evaluar la función resourceGroup. Para más información, consulte [Implementación de recursos de Azure en varias suscripciones y grupos de recursos](cross-scope-deployment.md).
+Al usar plantillas anidadas para implementar en varios grupos de recursos, puede especificar el ámbito para evaluar la función resourceGroup. Para más información, consulte [Implementación de recursos de Azure en varias suscripciones y grupos de recursos](./deploy-to-resource-group.md).
 
 ### <a name="resource-group-example"></a>Ejemplo de grupo de recursos
 
@@ -1372,7 +1372,7 @@ La función devuelve el siguiente formato:
 
 ### <a name="remarks"></a>Observaciones
 
-Al usar plantillas anidadas para implementar en varias suscripciones, puede especificar el ámbito para evaluar la función de suscripción. Para más información, consulte [Implementación de recursos de Azure en varias suscripciones y grupos de recursos](cross-scope-deployment.md).
+Al usar plantillas anidadas para implementar en varias suscripciones, puede especificar el ámbito para evaluar la función de suscripción. Para más información, consulte [Implementación de recursos de Azure en varias suscripciones y grupos de recursos](./deploy-to-resource-group.md).
 
 ### <a name="subscription-example"></a>Ejemplo de suscripción
 

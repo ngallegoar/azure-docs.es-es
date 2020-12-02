@@ -12,17 +12,20 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/12/2019
-ms.openlocfilehash: 38be8b97b3255e4e63301e693d2a5f295e8d801b
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 8881dc3f67ac1c9f699bd2bf7bcf1dbbcd5e9c0c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92779975"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95905334"
 ---
 # <a name="powershell-and-the-azure-cli-enable-transparent-data-encryption-with-customer-managed-key-from-azure-key-vault"></a>PowerShell y la CLI de Azure: Habilitación de Cifrado de datos transparente con una clave administrada por el cliente de Azure Key Vault
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
 En este artículo se explica cómo usar una clave de Azure Key Vault para Cifrado de datos transparente (TDE) en una instancia de Azure SQL Database o Azure Synapse Analytics (anteriormente, SQL Data Warehouse). Para obtener más información sobre TDE con la integración de Azure Key Vault - compatibilidad con Traiga su propia clave (BYOK), visite [TDE with customer-managed keys in Azure Key Vault](transparent-data-encryption-byok-overview.md) (TDE con claves administradas por el cliente de Azure Key Vault).
+
+> [!NOTE] 
+> Azure SQL admite ahora el uso de una clave RSA almacenada en un HSM administrado como protector de TDE. Esta característica está en **versión preliminar pública**. HSM administrado de Azure Key Vault es un servicio en la nube totalmente administrado, de alta disponibilidad y de un solo inquilino que cumple los estándares y que le permite proteger las claves criptográficas de las aplicaciones en la nube mediante HSM validados de FIPS 140-2, nivel 3. Obtenga más información sobre [HSM administrados](../../key-vault/managed-hsm/index.yml).
 
 ## <a name="prerequisites-for-powershell"></a>Requisitos previos para PowerShell
 
@@ -36,7 +39,8 @@ En este artículo se explica cómo usar una clave de Azure Key Vault para Cifrad
 - La clave debe tener los siguientes atributos que se usarán para TDE:
   - Sin fecha de expiración
   - No deshabilitado
-  - Poder realizar las operaciones *get* , *wrap key* , *unwrap key*
+  - Poder realizar las operaciones *get*, *wrap key*, *unwrap key*
+- **(En versión preliminar)** Para usar una clave de HSM administrado, siga las instrucciones para [crear y activar un HSM administrado mediante la CLI de Azure.](../../key-vault/managed-hsm/quick-create-cli.md)
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -70,6 +74,8 @@ Utilice el cmdlet [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/se
    Set-AzKeyVaultAccessPolicy -VaultName <KeyVaultName> `
        -ObjectId $server.Identity.PrincipalId -PermissionsToKeys get, wrapKey, unwrapKey
    ```
+Para agregar permisos al servidor en un HSM administrado, agregue el rol de RBAC local "Cifrado del servicio criptográfico de HSM administrado" al servidor. Esto permitirá que el servidor realice operaciones para obtener la clave, ajustarla y desajustarla en las claves del HSM administrado.
+[Instrucciones para aprovisionar el acceso al servidor en HSM administrado](../../key-vault/managed-hsm/role-management.md)
 
 ## <a name="add-the-key-vault-key-to-the-server-and-set-the-tde-protector"></a>Agregar la clave de Key Vault al servidor y establecer el protector de TDE
 
@@ -79,10 +85,15 @@ Utilice el cmdlet [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/se
 - Utilice el cmdlet [Get-AzureRmSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/get-azsqlservertransparentdataencryptionprotector) para confirmar que el protector de TDE se ha configurado según lo previsto.
 
 > [!NOTE]
+> **(En versión preliminar)** En cuanto a las claves de HSM administrado, use la versión Az.Sql 2.11.1 de PowerShell.
+
+> [!NOTE]
 > La longitud combinada para el nombre del almacén de claves y el nombre de la clave no puede superar los 94 caracteres.
 
 > [!TIP]
-> KeyId de ejemplo desde Key Vault: https://contosokeyvault.vault.azure.net/keys/Key1/1a1a2b2b3c3c4d4d5e5e6f6f7g7g8h8h
+> KeyId de ejemplo desde Key Vault: <br/>https://contosokeyvault.vault.azure.net/keys/Key1/1a1a2b2b3c3c4d4d5e5e6f6f7g7g8h8h
+>
+> KeyId de ejemplo desde HSM administrado:<br/>https://contosoMHSM.managedhsm.azure.net/keys/myrsakey
 
 ```powershell
 # add the key from Key Vault to the server
@@ -239,7 +250,7 @@ Compruebe lo siguiente si se produce un problema:
 
 - Si la nueva clave no se puede agregar al servidor, o la nueva clave no se puede actualizar como protector de TDE, compruebe lo siguiente:
    - La clave no debe tener una fecha de expiración
-   - La clave debe tener las operaciones *get* , *wrap key* y *unwrap key* .
+   - La clave debe tener las operaciones *get*, *wrap key* y *unwrap key*.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

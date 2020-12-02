@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eb766150339820f9356fe94311cd1ff33dda5480
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 3b77ab0832fa19149c270d6ba5a6641069548cbe
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92462829"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96172727"
 ---
 # <a name="ssh"></a>SSH  
 
@@ -40,22 +40,21 @@ SSH con Azure AD
 
 ## <a name="components-of-system"></a>Componentes del sistema 
 
-* **Usuario** : inicia el cliente SSH para configurar una conexión con las máquinas virtuales Linux® y proporciona las credenciales para la autenticación.
+* **Usuario**: inicia el cliente SSH para configurar una conexión con las máquinas virtuales Linux® y proporciona las credenciales para la autenticación.
 
-* **Explorador web** : Componente con el que interactúa el usuario. Se comunica con el proveedor de identidades (Azure AD) para autenticar y autorizar de forma segura al usuario.
+* **Explorador web**: Componente con el que interactúa el usuario. Se comunica con el proveedor de identidades (Azure AD) para autenticar y autorizar de forma segura al usuario.
 
-* **Cliente SSH** : controla el proceso de configuración de la conexión.
+* **Cliente SSH**: controla el proceso de configuración de la conexión.
 
-* **Azure AD** : autentica la identidad del usuario mediante el flujo de dispositivo y emite un token para las máquinas virtuales Linux.
+* **Azure AD**: autentica la identidad del usuario mediante el flujo de dispositivo y emite un token para las máquinas virtuales Linux.
 
-* **Máquina virtual Linux** : acepta el token y proporciona una conexión correcta.
+* **Máquina virtual Linux**: acepta el token y proporciona una conexión correcta.
 
 ## <a name="implement-ssh-with-azure-ad"></a>Implementación de SSH con Azure AD 
 
-* [Inicio de sesión en una máquina virtual Linux en Azure mediante la autenticación de Azure Active Directory](https://docs.microsoft.com/azure/virtual-machines/linux/login-using-aad) 
+* [Inicio de sesión en una máquina virtual Linux en Azure mediante la autenticación de Azure Active Directory](../../virtual-machines/linux/login-using-aad.md) 
 
-* [Flujo de concesión de autorización de dispositivo de OAuth 2.0 y la Plataforma de identidad de Microsoft](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-device-code)
+* [Flujo de concesión de autorización de dispositivo de OAuth 2.0 y la Plataforma de identidad de Microsoft](../develop/v2-oauth2-device-code.md)
 
 * [Integración con Azure Active Directory (akamai.com)](https://learn.akamai.com/webhelp/enterprise-application-access/enterprise-application-access/GUID-6B16172C-86CC-48E8-B30D-8E678BF3325F.html)
 
- 

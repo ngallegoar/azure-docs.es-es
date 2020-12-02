@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ab14413de1f999747e5b3fb58b505e0a9258a55
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 7cd2aa5e9ff8cbaeead69f11d2e3de7f760b53ec
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92441222"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96168651"
 ---
 # <a name="saml-authentication-with-azure-active-directory"></a>Autenticación SAML con Azure Active Directory
 
@@ -41,20 +41,20 @@ Si bien uno de los casos de uso más importantes que aborda SAML es SSO, en espe
 
 ## <a name="components-of-system"></a>Componentes del sistema
 
-* **Usuario** : Solicita un servicio a la aplicación.
+* **Usuario**: Solicita un servicio a la aplicación.
 
-* **Explorador web** : Componente con el que interactúa el usuario.
+* **Explorador web**: Componente con el que interactúa el usuario.
 
-* **Aplicación web** : Aplicación empresarial que admite SAML y usa Azure AD como IdP.
+* **Aplicación web**: Aplicación empresarial que admite SAML y usa Azure AD como IdP.
 
-* **Token** : Aserción SAML (también conocida como "token SAML") que incluye conjuntos de notificaciones realizadas por el IdP sobre la entidad de seguridad (usuario). Contiene información de autenticación, atributos e instrucciones sobre la decisión de autorización.
+* **Token**: Aserción SAML (también conocida como "token SAML") que incluye conjuntos de notificaciones realizadas por el IdP sobre la entidad de seguridad (usuario). Contiene información de autenticación, atributos e instrucciones sobre la decisión de autorización.
 
-* **Azure AD** : IdP de la nube empresarial que proporciona SSO y autenticación multifactor para las aplicaciones SAML. Sincroniza, mantiene y administra la información de identidad de los usuarios, al tiempo que proporciona servicios de autenticación a las aplicaciones de confianza. 
+* **Azure AD**: IdP de la nube empresarial que proporciona SSO y autenticación multifactor para las aplicaciones SAML. Sincroniza, mantiene y administra la información de identidad de los usuarios, al tiempo que proporciona servicios de autenticación a las aplicaciones de confianza. 
 
 ## <a name="implement-saml-authentication-with-azure-ad"></a>Implementación de la autenticación SAML con Azure AD
 
-* [Tutoriales para integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list) 
+* [Tutoriales para integrar aplicaciones SaaS con Azure Active Directory](../saas-apps/tutorial-list.md) 
 
-* [Configuración de inicio de sesión único basado en SAML para aplicaciones que no están en la galería](https://docs.microsoft.com/azure/active-directory/manage-apps/add-non-gallery-app) 
+* [Configuración de inicio de sesión único basado en SAML para aplicaciones que no están en la galería](../manage-apps/add-application-portal.md) 
 
-* [Uso del protocolo SAML por parte de Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-protocol-reference)
+* [Uso del protocolo SAML por parte de Azure AD](../develop/active-directory-saml-protocol-reference.md)

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: ramakk
-ms.openlocfilehash: 50669dcce044988f2e45acc2a17ae43c140d1ab5
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 96d8ba058a33d408ec2ee2a1adfba9011f393da9
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91930312"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184491"
 ---
 # <a name="guidelines-for-azure-netapp-files-network-planning"></a>Instrucciones para el planeamiento de red de Azure NetApp Files
 
@@ -116,7 +116,7 @@ En el siguiente diagrama se ilustra un entorno híbrido:
 
 ![Entorno de conexión híbrido](../media/azure-netapp-files/azure-netapp-files-network-hybrid-environment.png)
 
-En el escenario híbrido, las aplicaciones de centros de datos locales necesitan acceso a los recursos de Azure.  Esto es así si quiere expandir su centro de datos a Azure, o si quiere usar los servicios nativos de Azure o para la recuperación ante desastres. Consulte las [opciones de planeamiento de VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%252fazure%252fvirtual-network%252ftoc.json#planningtable) para información sobre cómo conectar varios recursos locales a los recursos en Azure a través de una VPN de sitio a sitio o ExpressRoute.
+En el escenario híbrido, las aplicaciones de centros de datos locales necesitan acceso a los recursos de Azure.  Esto es así si quiere expandir su centro de datos a Azure, o si quiere usar los servicios nativos de Azure o para la recuperación ante desastres. Consulte las [opciones de planeamiento de VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#planningtable) para información sobre cómo conectar varios recursos locales a los recursos en Azure a través de una VPN de sitio a sitio o ExpressRoute.
 
 En una topología de red en estrella tipo hub-and-spoke híbrida, la red virtual del centro (hub) en Azure actúa como un punto central de conectividad para la red local. Los radios (spokes) son redes virtuales emparejadas con el centro y pueden usarse para aislar las cargas de trabajo.
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 07/06/2020
 ms.author: Zhchia
-ms.openlocfilehash: feb661a5f0a22350d9660669c18209e7b1fd878d
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: d374043235d6c09243ea5ecdacccf141a2d4f8b4
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94358531"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96181355"
 ---
 # <a name="tutorial-configure-webroot-security-awareness-training-for-automatic-user-provisioning"></a>Tutorial: Configuración de Webroot Security Awareness Training para el aprovisionamiento automático de usuarios
 
@@ -39,7 +39,7 @@ En este tutorial, se describen los pasos que debe realizar en Webroot Security A
 En el escenario descrito en este tutorial se supone que ya cuenta con los requisitos previos siguientes:
 
 * [Un inquilino de Azure AD](../develop/quickstart-create-new-tenant.md) 
-* Una cuenta de usuario en Azure AD con [permiso](../users-groups-roles/directory-assign-admin-roles.md) para configurar el aprovisionamiento (por ejemplo, Administrador de aplicaciones, Administrador de aplicaciones en la nube, Propietario de la aplicación o Administrador global).
+* Una cuenta de usuario en Azure AD con [permiso](../roles/permissions-reference.md) para configurar el aprovisionamiento (por ejemplo, Administrador de aplicaciones, Administrador de aplicaciones en la nube, Propietario de la aplicación o Administrador global).
 * Una consola de proveedor de servicios administrados con Webroot Security Awareness Training habilitado para al menos uno de los sitios.
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>Paso 1. Planeación de la implementación de aprovisionamiento
@@ -55,7 +55,7 @@ Para conectar el sitio a Azure AD, deberá obtener un **token secreto** para es
 
 1. Inicie sesión en la [consola de administración de Webroot](https://identity.webrootanywhere.com/v1/Account/login#tab_customers).
 
-2. En la pestaña **Sitios** , haga clic en el icono de engranaje de la columna Security Awareness Training del sitio que quiera conectar con Azure AD.
+2. En la pestaña **Sitios**, haga clic en el icono de engranaje de la columna Security Awareness Training del sitio que quiera conectar con Azure AD.
 
     ![Icono de engranaje](./media/webroot-security-awareness-training-provisioning-tutorial/gear-icon.png)
 
@@ -65,7 +65,7 @@ Para conectar el sitio a Azure AD, deberá obtener un **token secreto** para es
 
 4. Copie y guarde el **token secreto**. Este valor se escribirá en el campo Token secreto de la pestaña Aprovisionamiento de la aplicación Webroot Security Awareness Training en Azure Portal.
 
-5. Haga clic en **Done** (Listo).
+5. Haga clic en **Done**(Listo).
 
     ![Copia del token secreto](./media/webroot-security-awareness-training-provisioning-tutorial/copy-secret-token.png)
 
@@ -104,17 +104,17 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Captura de pantalla de la lista desplegable Modo de aprovisionamiento con la opción Automático seleccionada.](common/provisioning-automatic.png)
 
-5. En la sección **Credenciales de administrador** , escriba `https://awarenessapi.webrootanywhere.com/api/v2/scim` en la **URL de inquilino**. Escriba el valor del token secreto recuperado anteriormente en **Token secreto**. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a Webroot Security Awareness Training. Si la conexión no se establece, asegúrese de que la cuenta de Webroot Security Awareness Training tiene permisos de administrador e inténtelo de nuevo.
+5. En la sección **Credenciales de administrador**, escriba `https://awarenessapi.webrootanywhere.com/api/v2/scim` en la **URL de inquilino**. Escriba el valor del token secreto recuperado anteriormente en **Token secreto**. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a Webroot Security Awareness Training. Si la conexión no se establece, asegúrese de que la cuenta de Webroot Security Awareness Training tiene permisos de administrador e inténtelo de nuevo.
 
     ![Captura de pantalla que muestra el cuadro de diálogo Credenciales de administrador, en el que se puede especificar el URL de inquilino y el secreto de inquilino.](./media/webroot-security-awareness-training-provisioning-tutorial/provisioning.png)
 
-6. En el campo **Correo electrónico de notificación** , escriba la dirección de correo electrónico de una persona o grupo que deba recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
+6. En el campo **Correo electrónico de notificación**, escriba la dirección de correo electrónico de una persona o grupo que deba recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
 
     ![Correo electrónico de notificación](common/provisioning-notification-email.png)
 
 7. Seleccione **Guardar**.
 
-8. En la sección **Asignaciones** , seleccione **Aprovisionar usuarios de Azure Active Directory**.
+8. En la sección **Asignaciones**, seleccione **Aprovisionar usuarios de Azure Active Directory**.
 
 9. Revise los atributos de usuario que se sincronizan entre Azure AD y Webroot Security Awareness Training en la sección **Asignación de atributos**. Los atributos seleccionados como propiedades de **Coincidencia** se usan para buscar coincidencias con las cuentas de usuario de Webroot Security Awareness Training con el objetivo de realizar operaciones de actualización. Si decide cambiar el [atributo de destino coincidente](../app-provisioning/customize-application-attributes.md), deberá asegurarse de que la API de Webroot Security Awareness Training admite el filtrado de usuarios basado en ese atributo. Seleccione el botón **Guardar** para confirmar los cambios.
 
@@ -125,7 +125,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
    |name.familyName|String|
    |emails[type eq "work"].value|String|
 
-10. En la sección **Asignaciones** , seleccione **Aprovisionar grupos de Azure Active Directory**.
+10. En la sección **Asignaciones**, seleccione **Aprovisionar grupos de Azure Active Directory**.
 
 11. Revise los atributos de grupo que se sincronizan entre Azure AD y Webroot Security Awareness Training en la sección **Asignación de atributos**. Los atributos seleccionados como propiedades de **Coincidencia** se usan para buscar coincidencias con los grupos de Webroot Security Awareness Training con el objetivo de realizar operaciones de actualización. Seleccione el botón **Guardar** para confirmar los cambios.
 
@@ -141,7 +141,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Estado de aprovisionamiento activado](common/provisioning-toggle-on.png)
 
-14. Elija los valores deseados en **Ámbito** , en la sección **Configuración** , para definir los usuarios o grupos que quiere que se aprovisionen en Webroot Security Awareness Training.
+14. Elija los valores deseados en **Ámbito**, en la sección **Configuración**, para definir los usuarios o grupos que quiere que se aprovisionen en Webroot Security Awareness Training.
 
     ![Ámbito del aprovisionamiento](common/provisioning-scope.png)
 

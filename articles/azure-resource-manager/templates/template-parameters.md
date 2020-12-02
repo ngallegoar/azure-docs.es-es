@@ -2,19 +2,21 @@
 title: Parámetros en plantillas
 description: Se describe cómo definir parámetros en una plantilla de Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 09/05/2019
-ms.openlocfilehash: 89c6984c587e8dae59c1825a99d4f8da1c06dafb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/24/2020
+ms.openlocfilehash: 8cdc95037967a32c2d8464f4dc39b1e7369102bb
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76122430"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95911420"
 ---
 # <a name="parameters-in-azure-resource-manager-templates"></a>Parámetros en plantillas de Azure Resource Manager
 
 En este artículo se describe cómo definir y usar parámetros en una plantilla de Azure Resource Manager. Si proporciona valores diferentes para los parámetros, podrá volver a usar una plantilla para distintos entornos.
 
 Resource Manager resuelve los valores de parámetro antes de iniciar las operaciones de implementación. Siempre que el parámetro se use en la plantilla, Resource Manager lo reemplaza por el valor resuelto.
+
+Cada parámetro debe establecerse en uno de los [tipos de datos](template-syntax.md#data-types).
 
 ## <a name="define-parameter"></a>Definición del parámetro
 

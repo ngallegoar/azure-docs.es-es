@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de91ffe721cbaf2061c0ded70a150fbc410af955
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 1b24989c32c0c385f8ad41d73dacba41bb7eef79
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95503095"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96173250"
 ---
 # <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>Identificación y resolución de problemas de asignación de licencias de un grupo en Azure Active Directory
 
@@ -177,8 +177,8 @@ Por ejemplo, después de resolver el problema con la dirección proxy duplicada 
 Para más información sobre otros escenarios de administración de licencias a través de grupos, consulte lo siguiente:
 
 * [¿En qué consisten las licencias basadas en grupos de Azure Active Directory?](../fundamentals/active-directory-licensing-whatis-azure-portal.md)
-* [Asignación de licencias a un grupo en Azure Active Directory](../users-groups-roles/licensing-groups-assign.md)
+* [Asignación de licencias a un grupo en Azure Active Directory](./licensing-groups-assign.md)
 * [Migración de usuarios individuales con licencia a licencias basadas en grupos en Azure Active Directory](licensing-groups-migrate-users.md)
 * [Cómo migrar usuarios entre diferentes licencias de productos con licencias basadas en grupos de Azure Active Directory](licensing-groups-change-licenses.md)
-* [Escenarios adicionales de licencias basadas en grupos de Azure Active Directory](../users-groups-roles/licensing-group-advanced.md)
+* [Escenarios adicionales de licencias basadas en grupos de Azure Active Directory](./licensing-group-advanced.md)
 * [Ejemplos de PowerShell para licencias basadas en grupos de Azure AD](licensing-ps-examples.md)

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2dddad5692ab2eebb6ef9b427c091be449791d7c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 96d1eaff4d1b93ad3bb489f177020c351fe4d13d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91818353"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95904042"
 ---
 # <a name="conditional-access-conditions"></a>Acceso condicional: Condiciones
 
@@ -194,7 +194,7 @@ Si selecciona **Otros clientes**, puede especificar una condición que afecta a 
 La condición del estado del dispositivo se puede usar para excluir dispositivos que están unidos a Azure AD híbrido o dispositivos marcados como compatibles con una directiva de cumplimiento de Microsoft Intune de las directivas de acceso condicional de una organización.
 
 Por ejemplo, *Todos los usuarios* que acceden a la aplicación en la nube *Administración de Microsoft Azure*, incluido **Todos los estados de dispositivo**, excluidos **Unido a Azure AD híbrido de dispositivo** y **Dispositivo marcado como compatible** y para *Controles de acceso*, **Bloquear**. 
-   - En este ejemplo se crea una directiva que solo permite el acceso a Administración de Microsoft Azure desde dispositivos unidos a Azure AD híbrido o dispositivos marcados como compatibles.
+   - En este ejemplo se crea una directiva que solo permite el acceso a la Administración de Microsoft Azure desde dispositivos unidos a Azure AD híbrido o desde dispositivos marcados como compatibles.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

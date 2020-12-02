@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 07/03/2019
 ms.author: vitalyg
 ms.subservice: application-insights
-ms.openlocfilehash: 9ea98df4b6cd8572412e7082b451feac3736919c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5c61287475eb82241aa5c9e1d1649e8b20e3b28c
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87327079"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185953"
 ---
 # <a name="application-insights-log-based-metrics"></a>Métricas basadas en registros de Application Insights
 
@@ -38,7 +38,7 @@ Cuando se traza la misma métrica en el [explorador de métricas](metrics-gettin
 - La dimensión **Split chart** (Dividir gráfico) se traduce en una propiedad de resumen adicional. Por ejemplo, si divide el gráfico por *ubicación* y realiza un trazado usando una granularidad de tiempo de cinco minutos, la cláusula *summarize* se resume como *... by bin(timestamp, 5 m), location*.
 
 > [!NOTE]
-> Si no está familiarizado con el lenguaje de consulta de Kusto, comience por copiar y pegar las instrucciones de Kusto en el panel de consulta de Log Analytics sin realizar ninguna modificación. Haga clic en **Ejecutar** para ver el gráfico básico. Cuando empiece a comprender la sintaxis del lenguaje de consulta, podrá comenzar a realizar pequeñas modificaciones y ver el impacto del cambio. La exploración de sus propios datos es una excelente manera de comenzar a obtener toda la eficacia de [Log Analytics](../log-query/get-started-portal.md) y [Azure Monitor](../overview.md).
+> Si no está familiarizado con el lenguaje de consulta de Kusto, comience por copiar y pegar las instrucciones de Kusto en el panel de consulta de Log Analytics sin realizar ninguna modificación. Haga clic en **Ejecutar** para ver el gráfico básico. Cuando empiece a comprender la sintaxis del lenguaje de consulta, podrá comenzar a realizar pequeñas modificaciones y ver el impacto del cambio. La exploración de sus propios datos es una excelente manera de comenzar a obtener toda la eficacia de [Log Analytics](../log-query/log-analytics-tutorial.md) y [Azure Monitor](../overview.md).
 
 ## <a name="availability-metrics"></a>Métricas de disponibilidad
 
@@ -492,4 +492,3 @@ union traces, requests, pageViews, dependencies, customEvents, availabilityResul
 | summarize dcount(user_AuthenticatedId) by bin(timestamp, 1h)
 | render barchart
 ```
-

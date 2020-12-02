@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: baselden, librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0143da9c1961b4123467120210135f7db2c582c8
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: b4c06e53d3ddfb5f344a759e31d83cb22ce6d4d3
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94839580"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96174143"
 ---
 # <a name="plan-a-passwordless-authentication-deployment-in-azure-active-directory"></a>Planeamiento de una implementación de autenticación sin contraseña en Azure Active Directory
 
@@ -126,7 +126,7 @@ Al implementar la autenticación sin contraseña, debe habilitar primero uno o v
 
 Los grupos se pueden sincronizar desde un directorio local o desde Azure AD. Cuando esté satisfecho con los resultados de la prueba piloto, puede activar la autenticación sin contraseña para todos los usuarios.
 
-Consulte [Procedimiento recomendado para una prueba piloto](https://aka.ms/deploymentplans) en la página de planes de implementación.
+Consulte [Procedimiento recomendado para una prueba piloto](../fundamentals/active-directory-deployment-plans.md) en la página de planes de implementación.
 
 ## <a name="plan-passwordless-authentication-with-the-microsoft-authenticator-app"></a>Planeamiento de la autenticación de contraseña con la aplicación Microsoft Authenticator
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/04/2020
 ms.author: deanwe
 ms.custom: references_regions
-ms.openlocfilehash: a51a4a95d3580912d9b727d1580e6f278831f677
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: ffbf3fa3e2d404b7bc5888ef01707cbd816600b3
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92891509"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182859"
 ---
 # <a name="azure-automanage-for-virtual-machines"></a>Azure Automanage para máquinas virtuales
 
@@ -28,7 +28,7 @@ En este artículo se incluye información sobre Azure Automanage para máquinas 
 
 ## <a name="overview"></a>Información general
 
-Azure Automanage para máquinas virtuales es un servicio que elimina la necesidad de detectar, saber incorporar y configurar determinados servicios en Azure que serían beneficiosos para una máquina virtual. Estos servicios ayudan a mejorar la confiabilidad, la seguridad y la administración de las máquinas virtuales y se consideran servicios de procedimientos recomendados de Azure. Algunos de ellos son [Azure Update Management](../automation/update-management/update-mgmt-overview.md) y [Azure Backup](../backup/backup-overview.md), por nombrar unos pocos.
+Azure Automanage para máquinas virtuales es un servicio que elimina la necesidad de detectar, saber incorporar y configurar determinados servicios en Azure que serían beneficiosos para una máquina virtual. Estos servicios ayudan a mejorar la confiabilidad, la seguridad y la administración de las máquinas virtuales y se consideran servicios de procedimientos recomendados de Azure. Algunos de ellos son [Azure Update Management](../automation/update-management/overview.md) y [Azure Backup](../backup/backup-overview.md), por nombrar unos pocos.
 
 Después de incorporar las máquinas virtuales a Azure Automanage, se configura automáticamente cada servicio de procedimientos recomendados en su configuración recomendada. Los procedimientos recomendados son diferentes para cada uno de los servicios. Por ejemplo, en Azure Backup el procedimiento recomendado es realizar una copia de seguridad de la máquina virtual una vez al día y tener un período de retención de seis meses.
 
@@ -69,7 +69,7 @@ Todos estos servicios se incorporarán y configurarán automáticamente, se supe
 
 En Azure Portal, puede habilitar Automanage en máquinas virtuales nuevas o existentes. Para conocer los pasos resumidos de este proceso, consulte el [inicio rápido de Automanage para máquinas virtuales](quick-create-virtual-machines-portal.md).
 
-Si es la primera vez que habilita Automanage en la máquina virtual, puede buscar **Automanage: procedimientos recomendados de máquinas virtuales de Azure** en Azure Portal. Haga clic en **Enable on existing VM** (Habilitar en máquina virtual existente), seleccione las máquinas virtuales que quiere incorporar, haga clic en **Seleccionar** y en **Habilitar** , y ya está.
+Si es la primera vez que habilita Automanage en la máquina virtual, puede buscar **Automanage: procedimientos recomendados de máquinas virtuales de Azure** en Azure Portal. Haga clic en **Enable on existing VM** (Habilitar en máquina virtual existente), seleccione las máquinas virtuales que quiere incorporar, haga clic en **Seleccionar** y en **Habilitar**, y ya está.
 
 El único caso en que podría tener que interactuar con esta máquina virtual para administrar estos servicios es si intentamos corregir la máquina virtual, pero no lo conseguimos. Si hemos corregido la máquina virtual correctamente, la devolveremos a su estado de conformidad sin avisarle.
 
@@ -121,7 +121,7 @@ Para cada máquina virtual de la lista, se muestran los detalles siguientes: nom
 La columna **Status** (Estado) puede mostrar los siguientes estados:
 - *In-progress* (En curso). la máquina virtual se acaba de habilitar y se está configurando.
 - *Configured* (Configurada): la máquina virtual está configurada y no se detecta ninguna desviación.
-- *Failed* (Error): la máquina virtual presenta desviaciones y no somos capaces de corregirlas.
+- *Failed*(Error): la máquina virtual presenta desviaciones y no somos capaces de corregirlas.
 
 Si en **Status** (Estado), aparece *Failed* (Error), puede solucionar el problema de la implementación mediante el grupo de recursos en el que se encuentra la máquina virtual. Vaya a **Resource groups** (Grupos de recursos), seleccione el grupo de recursos, haga clic en **Deployments** (Implementaciones) y vea ahí el estado *Failed* (Error) con los detalles del error.
 

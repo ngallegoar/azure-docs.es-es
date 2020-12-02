@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python, github-actions-azure
-ms.openlocfilehash: a2d5234b3c80456a98fde4547b9665ca1b0a83dd
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 651c1913491952c53af42abec5ce5d5009da06a0
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913553"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96168073"
 ---
 # <a name="continuous-delivery-by-using-github-action"></a>Entrega continua con Acciones de GitHub
 
@@ -34,7 +34,7 @@ Para un flujo de trabajo de Azure Functions, el archivo tiene tres secciones:
 - Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Una cuenta de GitHub. Si no tiene ninguna, regístrese [gratis](https://github.com/join).  
 - Una aplicación funcional hospedada en Azure con un repositorio de GitHub.   
-    - [Inicio rápido: Creación de una función en Azure mediante Visual Studio Code](functions-create-first-function-vs-code.md)
+    - [Inicio rápido: Creación de una función en Azure mediante Visual Studio Code](./create-first-function-vs-code-csharp.md)
 
 ## <a name="generate-deployment-credentials"></a>Genere las credenciales de implementación.
 
@@ -59,7 +59,7 @@ Para descargar el perfil de publicación de la aplicación de funciones:
 
    :::image type="content" source="media/functions-how-to-github-actions/add-secret.png" alt-text="Agregar secreto":::
 
-1. Agregue un secreto nuevo usando `AZURE_FUNCTIONAPP_PUBLISH_PROFILE` para **Nombre** , el contenido del archivo del perfil de publicación para **Value** y, después, seleccione **Agregar secreto**.
+1. Agregue un secreto nuevo usando `AZURE_FUNCTIONAPP_PUBLISH_PROFILE` para **Nombre**, el contenido del archivo del perfil de publicación para **Value** y, después, seleccione **Agregar secreto**.
 
 Ahora GitHub puede autenticarse en su aplicación de funciones de Azure.
 

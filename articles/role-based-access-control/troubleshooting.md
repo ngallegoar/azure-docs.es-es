@@ -15,12 +15,12 @@ ms.date: 11/10/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1, devx-track-azurecli
-ms.openlocfilehash: 53628f5aa0bc5ab5dedde5deb9950c7b13fb4bf6
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: e30af9522d7c8fa81c4d93e11d252aefc4426586
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94490753"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184270"
 ---
 # <a name="troubleshoot-azure-rbac"></a>Solución de problemas de Azure RBAC
 
@@ -151,7 +151,7 @@ Del mismo modo, si enumera esta asignación de roles con la CLI de Azure, podrí
 }
 ```
 
-No es problema dejar estas asignaciones de roles donde se ha eliminado la entidad de seguridad. Si lo desea, puede quitar estas asignaciones de roles siguiendo los pasos similares a otras asignaciones de roles. Para obtener información sobre cómo quitar las asignaciones de roles, vea [Azure Portal](role-assignments-portal.md#remove-a-role-assignment), [Azure PowerShell](role-assignments-powershell.md#remove-a-role-assignment) o la [CLI de Azure](role-assignments-cli.md#remove-role-assignment).
+No es problema dejar estas asignaciones de roles donde se ha eliminado la entidad de seguridad. Si lo desea, puede quitar estas asignaciones de roles siguiendo los pasos similares a otras asignaciones de roles. Para obtener información sobre cómo quitar las asignaciones de roles, vea [Azure Portal](role-assignments-portal.md#remove-a-role-assignment), [Azure PowerShell](role-assignments-powershell.md#remove-a-role-assignment) o la [CLI de Azure](role-assignments-cli.md#remove-a-role-assignment).
 
 En PowerShell, si intenta quitar las asignaciones de roles mediante el identificador de objeto y el nombre de la definición de roles, y más de una asignación de roles coincide con los parámetros, obtendrá el mensaje de error: "The provided information does not map to a role assignment" (La información proporcionada no se asigna a una asignación de roles). La salida siguiente muestra un ejemplo del mensaje de error:
 

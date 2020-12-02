@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/02/2020
-ms.openlocfilehash: ed9942fa7b73418e3ef1ddf0651781d32b662995
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 04f1eb0d9db00a2be1a4619cafe38aa18145fc78
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92049595"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186004"
 ---
 # <a name="archive-data-from-log-analytics-workspace-to-azure-storage-using-logic-app"></a>Archivado de datos de un área de trabajo de Log Analytics a Azure Storage mediante Logic Apps
 En este artículo se describe un método para usar [Azure Logic Apps](../../logic-apps/index.yml) para consultar datos de un área de trabajo de Log Analytics en Azure Monitor y enviarlos a Azure Storage. Use este proceso cuando necesite exportar los datos de registros de Azure Monitor para escenarios de auditoría y cumplimiento o para permitir que otro servicio recupere estos datos.  
@@ -25,7 +25,7 @@ El método que se explica en este artículo describe una exportación programada
 - Exportación única a una máquina local mediante un script de PowerShell. Consulte [Invoke-AzOperationalInsightsQueryExport]](https://www.powershellgallery.com/packages/Invoke-AzOperationalInsightsQueryExport).
 
 ## <a name="overview"></a>Introducción
-En este procedimiento se usa el [conector de Azure Monitor Logs](https://docs.microsoft.com/connectors/azuremonitorlogs/) que le permite ejecutar una consulta de registro desde una aplicación lógica y usar su salida en otras acciones del flujo de trabajo. En este procedimiento se usa el [conector de Azure Blob Storage](https://docs.microsoft.com/connectors/azureblob/) para enviar la salida de la consulta a Azure Storage. Las demás acciones se describen en las secciones siguientes.
+En este procedimiento se usa el [conector de Azure Monitor Logs](/connectors/azuremonitorlogs/) que le permite ejecutar una consulta de registro desde una aplicación lógica y usar su salida en otras acciones del flujo de trabajo. En este procedimiento se usa el [conector de Azure Blob Storage](/connectors/azureblob/) para enviar la salida de la consulta a Azure Storage. Las demás acciones se describen en las secciones siguientes.
 
 ![Introducción a Logic Apps](media/logs-export-logicapp/logic-app-overview.png)
 

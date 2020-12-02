@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 09/17/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: f438567851204a1a284955bede1525505712f4b7
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: fd9890cb94bf6bb4b82ebbb585ab8bbb9d5ba46a
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94442385"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96169297"
 ---
 # <a name="web-app-that-signs-in-users-move-to-production"></a>Aplicación web que inicia sesión de usuarios: Paso a producción
 
@@ -50,7 +50,7 @@ Este tutorial progresivo incluye código listo para producción para una aplicac
 - su organización,
 - varias organizaciones,
 - cuentas profesionales o educativas o cuentas personales de Microsoft,
-- [Azure AD B2C](https://aka.ms/aadb2c)
+- [Azure AD B2C](../../active-directory-b2c/overview.md)
 - Nubes nacionales
 
 ## <a name="sample-code-java-web-app"></a>Ejemplo de código: Aplicaciones web de Java

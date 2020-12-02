@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/12/2020
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 6543b629af8d67658afe61ef81e22eb7355e1de7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1b49faabb1c61a10418bfce3ae2e8187429981ad
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91772811"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186089"
 ---
 # <a name="azure-activity-log"></a>Registro de actividad de Azure
 El Registro de actividad es un [registro de plataforma](platform-logs-overview.md) de Azure que proporciona información de los eventos de nivel de suscripción. Esto incluye información como cuándo se modificó un recurso o cuándo se inició una máquina virtual. Puede ver el registro de actividad en Azure Portal o recuperar entradas con PowerShell y la CLI. Para obtener más funciones, debe crear una configuración de diagnóstico para enviar el registro de actividad a los [registros de Azure Monitor](data-platform-logs.md), a Azure Event Hubs para reenviarlo fuera de Azure o a Azure Storage para archivarlo. En este artículo se proporcionan detalles sobre cómo visualizar el registro de actividad y enviarlo a diversos destinos.
@@ -60,7 +60,7 @@ También puede acceder a los eventos del registro de actividad mediante los mét
 
 [Cree una configuración de diagnóstico](diagnostic-settings.md) para enviar el registro de actividad a un área de trabajo de Log Analytics. Puede enviar el registro de actividad desde cualquier suscripción única hasta un máximo de cinco áreas de trabajo. La recopilación de registros entre inquilinos requiere [Azure Lighthouse](../../lighthouse/index.yml).
 
-Los datos del registro de actividad de un área de trabajo de Log Analytics se almacenan en una tabla denominada *AzureActivity* que se puede recuperar con una [consulta de registro](../log-query/log-query-overview.md) en [Log Analytics](../log-query/get-started-portal.md). La estructura de esta tabla varía en función de la [categoría de la entrada de registro](activity-log-schema.md). Para obtener una descripción de las propiedades de la tabla, vea la [referencia de datos de Azure Monitor](/azure/azure-monitor/reference/tables/azureactivity).
+Los datos del registro de actividad de un área de trabajo de Log Analytics se almacenan en una tabla denominada *AzureActivity* que se puede recuperar con una [consulta de registro](../log-query/log-query-overview.md) en [Log Analytics](../log-query/log-analytics-tutorial.md). La estructura de esta tabla varía en función de la [categoría de la entrada de registro](activity-log-schema.md). Para obtener una descripción de las propiedades de la tabla, vea la [referencia de datos de Azure Monitor](/azure/azure-monitor/reference/tables/azureactivity).
 
 Por ejemplo, para ver un recuento de las entradas del registro de actividad para cada categoría, use la consulta siguiente.
 

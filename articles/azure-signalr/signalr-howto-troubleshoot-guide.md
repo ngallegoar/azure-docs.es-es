@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 11/06/2020
 ms.author: yajin1
-ms.openlocfilehash: 11ea348a80bc226b6a96bea1e7c023ee9c06b13a
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: cc17dcef7a554bee2715c79ba7d0c2356db2c6b3
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94684124"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185664"
 ---
 # <a name="troubleshooting-guide-for-azure-signalr-service-common-issues"></a>Guía para la solución de problemas comunes de Azure SignalR Service
 
@@ -148,7 +148,7 @@ El error 429 se devuelve si su recuento de conexiones **simultáneas** supera e
 
 En el caso de las instancias **Gratis**, el límite del número de conexiones **simultáneas** es 20 para instancias **Estándar** y el límite del número de conexiones **simultáneas** **por unidad** es 1000, lo que significa que 100 unidades permitirán 100 000 conexiones simultáneas.
 
-Las conexiones incluyen conexiones de cliente y de servidor. Consulte [aquí](https://docs.microsoft.com/azure/azure-signalr/signalr-concept-messages-and-connections#how-connections-are-counted) cómo se cuentan las conexiones.
+Las conexiones incluyen conexiones de cliente y de servidor. Consulte [aquí](./signalr-concept-messages-and-connections.md#how-connections-are-counted) cómo se cuentan las conexiones.
 
 ## <a name="500-error-when-negotiate-azure-signalr-service-is-not-connected-yet-please-try-again-later"></a>Error 500 al negociar: Azure SignalR Service no está conectado todavía. Vuelva a intentarlo más tarde.
 
@@ -162,7 +162,7 @@ Habilite el seguimiento del lado servidor para averiguar los detalles del error 
 
 #### <a name="enable-server-side-logging-for-aspnet-core-signalr"></a>Habilitación del registro del lado servidor para ASP.NET Core SignalR
 
-El registro del lado servidor para ASP.NET Core SignalR se integra con los [registros](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1&tabs=aspnetcore2x) basados en `ILogger` proporcionado en el marco de ASP.NET Core. Puede habilitar el registro del lado servidor mediante `ConfigureLogging`. A continuación se incluye un ejemplo de uso:
+El registro del lado servidor para ASP.NET Core SignalR se integra con los [registros](/aspnet/core/fundamentals/logging/?tabs=aspnetcore2x&view=aspnetcore-2.1) basados en `ILogger` proporcionado en el marco de ASP.NET Core. Puede habilitar el registro del lado servidor mediante `ConfigureLogging`. A continuación se incluye un ejemplo de uso:
 ```cs
 .ConfigureLogging((hostingContext, logging) =>
         {

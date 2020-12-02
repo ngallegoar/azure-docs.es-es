@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 06/25/2020
 ms.author: Zhchia
-ms.openlocfilehash: f6a03a65b18d09000e93a1e0fa4a194321912211
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 75da1e2b2f1954b0126b08232046fe09b1c2b6e7
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94354262"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96177969"
 ---
 # <a name="tutorial-configure-invision-for-automatic-user-provisioning"></a>Tutorial: Configuración de InVision para el aprovisionamiento automático de usuarios
 
@@ -39,7 +39,7 @@ En este tutorial se describen los pasos que debe realizar en InVision y Azure Ac
 En el escenario descrito en este tutorial se supone que ya cuenta con los requisitos previos siguientes:
 
 * [Un inquilino de Azure AD](../develop/quickstart-create-new-tenant.md) 
-* Una cuenta de usuario en Azure AD con [permiso](../users-groups-roles/directory-assign-admin-roles.md) para configurar el aprovisionamiento (por ejemplo, Administrador de aplicaciones, Administrador de aplicaciones en la nube, Propietario de la aplicación o Administrador global). 
+* Una cuenta de usuario en Azure AD con [permiso](../roles/permissions-reference.md) para configurar el aprovisionamiento (por ejemplo, Administrador de aplicaciones, Administrador de aplicaciones en la nube, Propietario de la aplicación o Administrador global). 
 * Una [cuenta de InVision Enterprise](https://www.invisionapp.com/enterprise) con SSO habilitado.
 * Una cuenta de usuario en InVision con permisos de administrador.
 
@@ -102,17 +102,17 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Modo de aprovisionamiento](common/provisioning-automatic.png)
 
-5. En la sección **Credenciales de administrador** , escriba el valor de dirección URL de la API de SCIM recuperado anteriormente en **URL de inquilino**. Escriba el valor de token de autenticación recuperado anteriormente en **Token secreto**. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a InVision. Si la conexión no se establece, asegúrese de que la cuenta de InVision tiene permisos de administrador y pruebe otra vez.
+5. En la sección **Credenciales de administrador**, escriba el valor de dirección URL de la API de SCIM recuperado anteriormente en **URL de inquilino**. Escriba el valor de token de autenticación recuperado anteriormente en **Token secreto**. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a InVision. Si la conexión no se establece, asegúrese de que la cuenta de InVision tiene permisos de administrador y pruebe otra vez.
 
     ![Credenciales de administrador](./media/inVision-provisioning-tutorial/provisioning.png)
 
-6. En el campo **Correo electrónico de notificación** , escriba la dirección de correo electrónico de una persona o grupo que deba recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
+6. En el campo **Correo electrónico de notificación**, escriba la dirección de correo electrónico de una persona o grupo que deba recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
 
     ![Correo electrónico de notificación](common/provisioning-notification-email.png)
 
 7. Seleccione **Guardar**.
 
-8. En la sección **Asignaciones** , seleccione **Aprovisionar usuarios de Azure Active Directory**.
+8. En la sección **Asignaciones**, seleccione **Aprovisionar usuarios de Azure Active Directory**.
 
 9. Examine los atributos de usuario que se sincronizan entre Azure AD e InVision en la sección **Asignación de atributos**. Los atributos seleccionados como propiedades de **Coincidencia** se usan para buscar coincidencias con las cuentas de usuario de InVision con el objetivo de realizar operaciones de actualización. Si decide cambiar el [atributo de destino coincidente](../app-provisioning/customize-application-attributes.md), deberá asegurarse de que la API de InVision admite el filtrado de usuarios en función de ese atributo. Seleccione el botón **Guardar** para confirmar los cambios.
 
@@ -130,7 +130,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Estado de aprovisionamiento activado](common/provisioning-toggle-on.png)
 
-12. Elija los valores deseados en **Ámbito** de la sección **Configuración** , para definir los usuarios o grupos que quiere que se aprovisionen en InVision.
+12. Elija los valores deseados en **Ámbito** de la sección **Configuración**, para definir los usuarios o grupos que quiere que se aprovisionen en InVision.
 
     ![Ámbito del aprovisionamiento](common/provisioning-scope.png)
 

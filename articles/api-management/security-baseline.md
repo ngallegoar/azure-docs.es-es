@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 6ac568e56d201ef43e40428085b226608e83973a
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 62b4629d258f8779dc53b4b8e00684d3b793291d
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95024575"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183760"
 ---
 # <a name="azure-security-baseline-for-api-management"></a>Línea de base de seguridad de Azure para API Management
 
@@ -98,7 +98,7 @@ Use la inteligencia sobre amenazas integrada de Azure Security Center para deneg
 
 * [¿Qué es Azure Application Gateway?](../application-gateway/index.yml)
 
-* [Configuración de Azure DDoS Protection Estándar](../virtual-network/manage-ddos-protection.md)
+* [Configuración de Azure DDoS Protection Estándar](../ddos-protection/manage-ddos-protection.md)
 
 * [Descripción de la inteligencia sobre amenazas integrada de Azure Security Center](../security-center/azure-defender.md)
 
@@ -301,7 +301,7 @@ Si lo desea, puede integrar API Management con Azure Application Insights y usar
 
 * [Procedimiento para realizar consultas personalizadas en Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
 
-* [Descripción del área de trabajo de Log Analytics](../azure-monitor/log-query/get-started-portal.md)
+* [Descripción del área de trabajo de Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md)
 
 * [Cómo integrar Azure API Management con Azure Application Insights](./api-management-howto-app-insights.md)
 
@@ -614,7 +614,7 @@ Microsoft administra la infraestructura subyacente para Azure API Management y h
 
 **Guía**: Las llamadas del plano de administración se hacen mediante Azure Resource Manager con TLS. Se requiere un token web de JSON (JWT) válido. Las llamadas del plano de datos pueden estar protegidas con TLS y uno de los mecanismos de autenticación admitidos (por ejemplo, el certificado de cliente o JWT).
 
-* [Protección de los datos en Azure API Management](./api-management-security-controls.md#data-protection)
+* [Protección de los datos en Azure API Management](#data-protection)
 
 * [Administración de la configuración de TLS en Azure API Management](./api-management-howto-manage-protocols-ciphers.md)
 
@@ -664,7 +664,7 @@ Microsoft administra la infraestructura subyacente para Azure API Management y h
 
 **Guía**: Los datos confidenciales, como certificados, claves y valores con nombre secreto, se cifran con claves que administra el servicio por instancia de servicio. Todas las claves de cifrado son por instancia de servicio y las administra el servicio.
 
-* [Descripción de la protección de datos y el cifrado en reposo con Azure API Management](./api-management-security-controls.md#data-protection)
+* [Descripción de la protección de datos y el cifrado en reposo con Azure API Management](#data-protection)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -692,7 +692,7 @@ Microsoft administra la infraestructura subyacente para Azure API Management y h
 
 Plataforma subyacente examinada y revisada por Microsoft. Revise los controles de seguridad disponibles para reducir los puntos vulnerables relacionados con la configuración de los servicios.
 
-* [Controles de seguridad disponibles para Azure API Management](./api-management-security-controls.md)
+* [Controles de seguridad disponibles para Azure API Management]()
 
 **Supervisión de Azure Security Center**: no disponible actualmente
 
@@ -728,7 +728,7 @@ Plataforma subyacente examinada y revisada por Microsoft. Revise los controles d
 
 Plataforma subyacente examinada y revisada por Microsoft. El cliente debe revisar los controles de seguridad disponibles para reducir los puntos vulnerables relacionados con la configuración de los servicios.
 
-* [Controles de seguridad disponibles para Azure API Management](./api-management-security-controls.md)
+* [Controles de seguridad disponibles para Azure API Management]()
 
 **Supervisión de Azure Security Center**: no disponible actualmente
 
@@ -932,8 +932,6 @@ Use Azure Resource Graph para consultar o detectar recursos dentro de sus suscri
 
 * [Documentación de Azure Repos](/azure/devops/repos/index)
 
-* [Descripción del kit de recursos de DevOps de Azure API Management](./api-management-security-controls.md#configuration-management)
-
 **Supervisión de Azure Security Center**: No aplicable
 
 **Responsabilidad**: Customer
@@ -971,8 +969,6 @@ Use Azure Resource Graph para consultar o detectar recursos dentro de sus suscri
 **Guía**: Use el kit de recursos de DevOps de Azure API Management para realizar la administración de la configuración de Azure API Management.
 
 Además, defina e implemente configuraciones de seguridad estándar para los servicios de Azure API Management con Azure Policy. Use alias de Azure Policy en el espacio de nombres "Microsoft.ApiManagement" para crear directivas personalizadas con el fin de auditar o aplicar la configuración de las instancias de Azure API Management. Use la directiva de Azure [denegar] e [implementar si no existe] para aplicar la configuración segura en los recursos de Azure.
-
-* [Descripción del kit de recursos de DevOps de Azure API Management](./api-management-security-controls.md#configuration-management)
 
 * [Configuración y administración de Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 

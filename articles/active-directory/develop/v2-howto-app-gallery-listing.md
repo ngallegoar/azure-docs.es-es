@@ -12,12 +12,12 @@ ms.date: 11/04/2020
 ms.author: kenwith
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 3b9f744e414e83c103f6b9249a0ccf5020588463
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 6374164bb5049742d63a669b4c1e552c93967977
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93356355"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96173386"
 ---
 # <a name="publish-your-app-to-the-azure-ad-app-gallery"></a>Publicación de la aplicación en la galería de aplicaciones de Azure AD
 
@@ -36,7 +36,7 @@ Además, hay muchas ventajas cuando los clientes usan Azure AD como proveedor d
 - Proporcionar inicio de sesión único para los usuarios. Con el inicio de sesión único, puede reducir los costos de soporte técnico poniéndoselo más fácil a los clientes. Si está habilitado el inicio de sesión único con un solo clic, los administradores de TI de los clientes no tendrán que aprender a configurar la aplicación para su uso en su organización. Para más información sobre el inicio de sesión único, vea [¿Qué es el inicio de sesión único?](../manage-apps/what-is-single-sign-on.md)
 - Se puede detectar la aplicación en la galería de aplicaciones de Microsoft 365, el iniciador de aplicaciones de Microsoft 365 y en Microsoft Search en Office.com. 
 - Administración integrada de aplicaciones. Para más información sobre la administración de aplicaciones en Azure AD, vea [¿Qué es la administración de aplicaciones?](../manage-apps/what-is-application-management.md)
-- La aplicación puede usar [Graph API](https://docs.microsoft.com/graph/) para acceder a los datos que impulsan la productividad de los usuarios en el ecosistema de Microsoft.
+- La aplicación puede usar [Graph API](/graph/) para acceder a los datos que impulsan la productividad de los usuarios en el ecosistema de Microsoft.
 - La documentación específica de la aplicación coproducida con el equipo de Azure AD para los clientes mutuos facilita la adopción.
 - Puede proporcionar a los clientes la posibilidad de administrar por completo la autenticación y autorización de las identidades de sus empleados e invitados.
 - Colocando toda la responsabilidad de administración de la cuenta y del cumplimiento normativo en el cliente propietario de esas identidades.
@@ -47,7 +47,7 @@ Además, hay muchas ventajas cuando los clientes usan Azure AD como proveedor d
 - Agregue seguridad y comodidad cuando los usuarios inicien sesión en las aplicaciones con el inicio de sesión único de Azure AD sin necesidad de usar credenciales independientes.
 
 > [!TIP]
-> Cuando ofrece la aplicación para que la utilicen otras empresas mediante su compra o suscripción, hace que la aplicación esté disponible para los clientes dentro de sus propios inquilinos de Azure. Esto se conoce como creación de una aplicación multiinquilino. Para obtener información general sobre este concepto, vea [Aplicaciones multiinquilino en Azure](https://docs.microsoft.com/azure/dotnet-develop-multitenant-applications) e [Inquilinos en Azure Active Directory](single-and-multi-tenant-apps.md).
+> Cuando ofrece la aplicación para que la utilicen otras empresas mediante su compra o suscripción, hace que la aplicación esté disponible para los clientes dentro de sus propios inquilinos de Azure. Esto se conoce como creación de una aplicación multiinquilino. Para obtener información general sobre este concepto, vea [Aplicaciones multiinquilino en Azure](../../dotnet-develop-multitenant-applications.md) e [Inquilinos en Azure Active Directory](single-and-multi-tenant-apps.md).
 
 > [!IMPORTANT]
 > Para publicar la aplicación en la galería de Azure AD, debe aceptar términos y condiciones concretos. Antes de empezar, asegúrese de leer y aceptar los [términos y condiciones](https://azure.microsoft.com/support/legal/active-directory-app-gallery-terms/).
@@ -162,7 +162,7 @@ Si la aplicación es compatible con SAML 2.0, puede integrarlo directamente con
 Microsoft no proporciona ni recomienda bibliotecas para las implementaciones de SAML. Hay muchas bibliotecas de código abierto disponibles.
 
 ### <a name="implement-ws-fed"></a>Implementación de WS-Fed
-Para más información sobre WS-Fed en ASP.NET Core, vea [Autenticación de usuarios con WS-Federation en ASP.NET Core](https://docs.microsoft.com/aspnet/core/security/authentication/ws-federation).
+Para más información sobre WS-Fed en ASP.NET Core, vea [Autenticación de usuarios con WS-Federation en ASP.NET Core](/aspnet/core/security/authentication/ws-federation).
 
 ### <a name="implement-password-vaulting"></a>Implementación del almacenamiento de contraseñas
 
@@ -173,7 +173,7 @@ Cree una aplicación web que tenga una página de inicio de sesión HTML. Asegú
 
 Necesitará un inquilino de Azure AD para probar la aplicación. Para configurar el entorno de desarrollo, vea [Inicio rápido: Configuración de un inquilino](quickstart-create-new-tenant.md).
 
-Como alternativa, cada suscripción a Microsoft 365 incluye un inquilino de Azure AD. Para configurar un entorno de desarrollo de Microsoft 365 gratuito, vea [Unirse al programa de desarrolladores de Microsoft 365](https://docs.microsoft.com/office/developer-program/microsoft-365-developer-program).
+Como alternativa, cada suscripción a Microsoft 365 incluye un inquilino de Azure AD. Para configurar un entorno de desarrollo de Microsoft 365 gratuito, vea [Unirse al programa de desarrolladores de Microsoft 365](/office/developer-program/microsoft-365-developer-program).
 
 Una vez que tenga un inquilino, debe habilitar y probar el acceso de inicio de sesión único. 
 
@@ -209,7 +209,7 @@ Se recomienda que la documentación sobre el sitio como mínimo incluya los sigu
 
 ### <a name="documentation-on-the-microsoft-site"></a>Documentación sobre el sitio de Microsoft
 
-Al publicar la aplicación con la galería de aplicaciones de Azure Active Directory, que también publica la aplicación en Azure Marketplace, Microsoft genera documentación que explica el proceso paso a paso para los clientes mutuos. Puede ver un ejemplo [aquí](https://aka.ms/appstutorial). Esta documentación se crea en función del envío a la galería y se puede actualizar fácilmente si se realizan cambios en la aplicación con la cuenta de GitHub.
+Al publicar la aplicación con la galería de aplicaciones de Azure Active Directory, que también publica la aplicación en Azure Marketplace, Microsoft genera documentación que explica el proceso paso a paso para los clientes mutuos. Puede ver un ejemplo [aquí](../saas-apps/tutorial-list.md). Esta documentación se crea en función del envío a la galería y se puede actualizar fácilmente si se realizan cambios en la aplicación con la cuenta de GitHub.
 
 
 ## <a name="step-5---submit-your-app"></a>Paso 5: Envíe la aplicación
@@ -262,7 +262,7 @@ Si quiere agregar la aplicación a la lista de la galería mediante SSO con cont
 
 ![Escala de tiempo para agregar la aplicación de SSO con contraseña a la lista de galería](./media/howto-app-gallery-listing/passwordsso.png)
 
-Si va a implementar un punto de conexión de [SCIM](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups) 2.0 para el aprovisionamiento de usuarios, seleccione la opción como se muestra. 
+Si va a implementar un punto de conexión de [SCIM](../app-provisioning/use-scim-to-provision-users-and-groups.md) 2.0 para el aprovisionamiento de usuarios, seleccione la opción como se muestra. 
 
    ![Solicitud de aprovisionamiento de usuarios](./media/howto-app-gallery-listing/user-provisioning.png)
 

@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 06/15/2020
+ms.date: 11/24/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 08e236d798f700a3c48dd41ba61941bc0037d613
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 888ed2fa24b82c0dda3361df1c63bb802e58f5fe
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88055384"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95904110"
 ---
 # <a name="using-the-location-condition-in-a-conditional-access-policy"></a>Uso la condición de ubicación en una directiva de acceso condicional 
 
@@ -37,7 +37,7 @@ La ubicación de red viene determinada por la dirección IP pública que proporc
 
 ## <a name="named-locations"></a>Ubicaciones con nombre
 
-Las ubicaciones se designan en Azure Portal en **Azure Active Directory** > **Seguridad** > **Acceso condicional** > **Ubicaciones con nombre** . Estas ubicaciones de red con nombre pueden incluir ubicaciones, como intervalos de redes de la sede central de una organización, intervalos de redes VPN o intervalos que desea bloquear. 
+Las ubicaciones se designan en Azure Portal en **Azure Active Directory** > **Seguridad** > **Acceso condicional** > **Ubicaciones con nombre**. Estas ubicaciones de red con nombre pueden incluir ubicaciones, como intervalos de redes de la sede central de una organización, intervalos de redes VPN o intervalos que desea bloquear. 
 
 ![Ubicación con nombre en Azure Portal](./media/location-condition/new-named-location.png)
 
@@ -64,13 +64,13 @@ Esta opción puede incluirse en las directivas de acceso condicional, donde, por
 Algunas organizaciones pueden optar por definir los límites de IP de países o regiones completos como ubicaciones con nombre para las directivas de acceso condicional. Estas ubicaciones pueden usarse al bloquear tráfico innecesario cuando se sabe que los usuarios válidos nunca provienen de una ubicación como Corea del Norte. Estas asignaciones de dirección IP a países se actualizan periódicamente. 
 
 > [!NOTE]
-> Los países no incluyen intervalos de direcciones IPv6, solo intervalos de direcciones IPv4 conocidos, por lo que no se pueden marcar como de confianza.
+> Los rangos de direcciones IPv6 no se pueden asignar a países. Solo las direcciones IPv4 se asignan a países.
 
 ![Crear una nueva ubicación basada en el país o la región en Azure Portal](./media/location-condition/new-named-location-country-region.png)
 
 #### <a name="include-unknown-areas"></a>Inclusión de áreas desconocidas
 
-Algunas direcciones IP no están asignadas a ningún país o región específicos. Para capturar estas ubicaciones IP, active la casilla **Incluir áreas desconocidas** al definir una ubicación. Esta opción le permite elegir si estas direcciones IP deberían estar incluidas en la ubicación con nombre. Use esta configuración cuando la directiva que usa la ubicación con nombre deba aplicarse en ubicaciones desconocidas.
+Algunas direcciones IP no están asignadas a ningún país o región determinados, incluidas todas las direcciones IPv6. Para capturar estas ubicaciones IP, active la casilla **Incluir áreas desconocidas** al definir una ubicación. Esta opción le permite elegir si estas direcciones IP deberían estar incluidas en la ubicación con nombre. Use esta configuración cuando la directiva que usa la ubicación con nombre deba aplicarse en ubicaciones desconocidas.
 
 ### <a name="configure-mfa-trusted-ips"></a>Configurar IP de confianza de MFA
 
@@ -80,7 +80,7 @@ Si se han configurado IP de confianza, se mostrarán como **IP de confianza de M
 
 ### <a name="skipping-multi-factor-authentication"></a>Omisión de la autenticación multifactor
 
-En la página de configuración del servicio de la autenticación multifactor, podrá identificar a los usuarios de la intranet corporativa seleccionando **Omitir la autenticación multifactor para solicitudes de usuarios federados en mi intranet** . Esta configuración indica que la notificación interna de la red corporativa, la cual emiten los Servicios de federación de Active Directory (AD FS), es de confianza y se utiliza para identificar al usuario como si estuviera en la red corporativa. Para obtener más información, vea [Habilitar la función de direcciones IP de confianza mediante el acceso condicional](../authentication/howto-mfa-mfasettings.md#enable-the-trusted-ips-feature-by-using-conditional-access).
+En la página de configuración del servicio de la autenticación multifactor, podrá identificar a los usuarios de la intranet corporativa seleccionando **Omitir la autenticación multifactor para solicitudes de usuarios federados en mi intranet**. Esta configuración indica que la notificación interna de la red corporativa, la cual emiten los Servicios de federación de Active Directory (AD FS), es de confianza y se utiliza para identificar al usuario como si estuviera en la red corporativa. Para obtener más información, vea [Habilitar la función de direcciones IP de confianza mediante el acceso condicional](../authentication/howto-mfa-mfasettings.md#enable-the-trusted-ips-feature-by-using-conditional-access).
 
 Tras activar esta opción, incluida la ubicación con nombre, las **IP de confianza de MFA** se aplicarán a todas las directivas que tengan esta opción seleccionada.
 
@@ -114,7 +114,7 @@ Con la versión preliminar, ahora hay dos opciones de creación:
 - **Ubicación de los intervalos de direcciones IP**
 
 > [!NOTE]
-> Los países no incluyen intervalos de direcciones IPv6, solo intervalos de direcciones IPv4 conocidos, por lo que no se pueden marcar como de confianza.
+> Los rangos de direcciones IPv6 no se pueden asignar a países. Solo las direcciones IPv4 se asignan a países.
 
 ![Interfaz de la versión preliminar de ubicaciones con nombre](./media/location-condition/named-location-preview.png)
 
@@ -128,7 +128,7 @@ Al configurar la condición de ubicación, puede distinguir entre:
 
 ### <a name="any-location"></a>Cualquier ubicación
 
-De manera predeterminada, al seleccionar **Cualquier ubicación** , se aplicará una directiva a todas las direcciones IP, lo que incluye cualquier dirección de Internet. Esta configuración no está limitada a las direcciones IP que haya configurado como ubicación con nombre. Al seleccionar **Cualquier ubicación** , todavía puede excluir determinadas ubicaciones de una directiva. Por ejemplo, puede aplicar una directiva en todas las ubicaciones (excepto en aquellas que sean de confianza) para establecer el ámbito en todas las ubicaciones menos en la red corporativa.
+De manera predeterminada, al seleccionar **Cualquier ubicación**, se aplicará una directiva a todas las direcciones IP, lo que incluye cualquier dirección de Internet. Esta configuración no está limitada a las direcciones IP que haya configurado como ubicación con nombre. Al seleccionar **Cualquier ubicación**, todavía puede excluir determinadas ubicaciones de una directiva. Por ejemplo, puede aplicar una directiva en todas las ubicaciones (excepto en aquellas que sean de confianza) para establecer el ámbito en todas las ubicaciones menos en la red corporativa.
 
 ### <a name="all-trusted-locations"></a>Todas las ubicaciones de confianza
 
@@ -139,7 +139,7 @@ Esta opción se aplica a:
 
 ### <a name="selected-locations"></a>Ubicaciones seleccionadas
 
-Con esta opción, puede seleccionar una o varias ubicaciones con nombre. Para una directiva a la que se aplicará esta configuración, el usuario debe conectarse desde cualquiera de las ubicaciones seleccionadas. Al hacer clic en **Seleccionar** , se abrirá el control de selección de red con nombre que muestra la lista de redes con nombre. En la lista también se muestra si la ubicación de red se ha marcado como de confianza. La ubicación con nombre llamada **IP de confianza de MFA** se utiliza para incluir los valores de IP que pueden configurarse en la página de configuración del servicio de la autenticación multifactor.
+Con esta opción, puede seleccionar una o varias ubicaciones con nombre. Para una directiva a la que se aplicará esta configuración, el usuario debe conectarse desde cualquiera de las ubicaciones seleccionadas. Al hacer clic en **Seleccionar**, se abrirá el control de selección de red con nombre que muestra la lista de redes con nombre. En la lista también se muestra si la ubicación de red se ha marcado como de confianza. La ubicación con nombre llamada **IP de confianza de MFA** se utiliza para incluir los valores de IP que pueden configurarse en la página de configuración del servicio de la autenticación multifactor.
 
 ## <a name="ipv6-traffic"></a>Tráfico de IPv6
 
@@ -157,7 +157,7 @@ La mayor parte del tráfico IPv6 que se dirige mediante proxy a Azure AD proce
 Estos son los motivos más comunes por los que es posible que necesite configurar intervalos IPv6 en sus ubicaciones con nombre. Además, si usa redes virtuales de Azure, tendrá tráfico procedente de una dirección IPv6. Si el tráfico de red virtual está bloqueado por una directiva de acceso condicional, consulte el registro de inicio de sesión de Azure AD. Una vez que haya identificado el tráfico, puede obtener la dirección IPv6 que se está usando y excluirla de la directiva. 
 
 > [!NOTE]
-> Si quiere especificar un intervalo CIDR de IP para una sola dirección, aplique la máscara de /32 bits. Por ejemplo, si queremos excluir la dirección IPv6 2607:fb90:b27a:6f69:f8d5:dea0:fb39:74a como un intervalo, se usará 2607:fb90:b27a:6f69:f8d5:dea0:fb39:74a/32.
+> Si quiere especificar un intervalo CIDR de IP para una sola dirección, aplique la máscara de /128 bits. Por ejemplo, si tiene la dirección IPv6 2607:fb90:b27a:6f69:f8d5:dea0:fb39:74a y quiere excluirla como un intervalo, usará 2607:fb90:b27a:6f69:f8d5:dea0:fb39:74a/128.
 
 ### <a name="identifying-ipv6-traffic-in-the-azure-ad-sign-in-activity-reports"></a>Identificación del tráfico IPv6 en los informes de actividad de inicio de sesión de Azure AD
 

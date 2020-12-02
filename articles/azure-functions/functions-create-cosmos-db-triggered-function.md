@@ -5,12 +5,12 @@ ms.assetid: bc497d71-75e7-47b1-babd-a060a664adca
 ms.topic: how-to
 ms.date: 04/28/2020
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: c7dc18d8186d7262154cc0718bb6ad77ebbb5d2e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 907836b0e45ccc9e9481e605b1ebf4180f7650d6
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85829846"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182587"
 ---
 # <a name="create-a-function-triggered-by-azure-cosmos-db"></a>Creación de una función desencadenada por Azure Cosmos DB
 
@@ -50,7 +50,7 @@ Después, cree una función en la nueva Function App.
 
 1. En la página **Nueva función**, escriba `cosmos` en el campo de búsqueda y, después, elija la plantilla **Desencadenador de Azure Cosmos DB**.
 
-   :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/function-choose-cosmos.png" alt-text="Código de Azure Cosmos DB":::
+   :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/function-choose-cosmos.png" alt-text="Página Funciones en Azure Portal":::
 
 
 1. Configure el nuevo desencadenador según la configuración especificada en la tabla siguiente:
@@ -64,7 +64,7 @@ Después, cree una función en la nueva Function App.
     | **Nombre de la colección de concesiones** | concesiones | Nombre de la colección para almacenar las concesiones. |
     | **Crear colección de concesiones si no existe** | Sí | Comprueba si existe la colección de concesiones y la crea automáticamente. |
 
-    :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/functions-cosmosdb-trigger-settings.png" alt-text="Código de Azure Cosmos DB":::
+    :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/functions-cosmosdb-trigger-settings.png" alt-text="Creación de la función de desencadenador de Azure Cosmos DB":::
 
 1. Seleccione **Crear función**. 
 
@@ -72,7 +72,7 @@ Después, cree una función en la nueva Function App.
 
 1. Para mostrar el código de función basado en plantilla, seleccione **Código y prueba**.
 
-    :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/function-cosmosdb-template.png" alt-text="Código de Azure Cosmos DB":::
+    :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/function-cosmosdb-template.png" alt-text="Plantilla de función de Cosmos DB en C#":::
 
     Esta plantilla de función escribe el número de documentos y el identificador del primer documento en los registros.
 
@@ -100,7 +100,7 @@ A continuación, se conectará a la cuenta de Azure Cosmos DB y creará el cont
     | ---|---|--- |
     | **Identificador de base de datos** | Tareas |Nombre de la nueva base de datos. Debe coincidir con el nombre definido en el enlace de función. |
     | **ID de contenedor** | Elementos | El nombre del nuevo contenedor. Debe coincidir con el nombre definido en el enlace de función.  |
-    | **[Clave de partición](../cosmos-db/partition-data.md)** | /categoría|Una clave de partición que distribuye los datos uniformemente a cada partición. La selección de la clave de partición correcta es importante al crear un contenedor con rendimiento. | 
+    | **[Clave de partición](../cosmos-db/partitioning-overview.md)** | /categoría|Una clave de partición que distribuye los datos uniformemente a cada partición. La selección de la clave de partición correcta es importante al crear un contenedor con rendimiento. | 
     | **Rendimiento** |400 RU| Use el valor predeterminado. Si quiere reducir la latencia, puede escalar verticalmente el rendimiento más adelante. |    
 
 1. Haga clic en **Aceptar** para crear el contenedor Items. Puede que el contenedor tarde un poco en crearse.
@@ -111,7 +111,15 @@ Una vez que el contenedor especificado en el enlace de función existe, puede pr
 
 1. Expanda el nuevo contenedor **Items** en Data Explorer, elija **Elementos** y, a continuación, seleccione **Nuevo elemento**.
 
-    :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/create-item-in-container.png" alt-text="Código de Azure Cosmos DB"
+    :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/create-item-in-container.png" alt-text="Creación de un elemento en el contenedor Items":::
+
+1. Reemplace el contenido del nuevo elemento por el siguiente contenido, y luego elija **Guardar**.
+
+    ```yaml
+    {
+        "id": "task1",
+        "category": "general",
+        "description": "some task"
     }
     ```
 

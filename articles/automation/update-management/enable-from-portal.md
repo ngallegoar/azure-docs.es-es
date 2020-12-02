@@ -5,18 +5,18 @@ services: automation
 ms.date: 04/11/2019
 ms.topic: article
 ms.custom: mvc
-ms.openlocfilehash: 73813ffbb6ac1839a48fc455dec5f6ad26ed0164
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: ac402587c8346c14f34b683ba10832c7779b660b
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348796"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182774"
 ---
 # <a name="enable-update-management-from-the-azure-portal"></a>Habilitación de Update Management desde Azure Portal
 
 En este artículo se describe cómo se puede habilitar la característica [Update Management](overview.md) en máquinas virtuales examinando Azure Portal. Para habilitar máquinas virtuales de Azure a escala, debe habilitar una máquina virtual de Azure existente mediante Update Management.
 
-El número de grupos de recursos que puede usar para administrar las máquinas virtuales está limitado por los [límites de implementación de Resource Manager](../../azure-resource-manager/templates/cross-scope-deployment.md). Las implementaciones de Resource Manager, que no se deben confundir con las implementaciones de actualización, están limitadas a cinco grupos de recursos por implementación. Dos de esos grupos de recursos están reservados para configurar el área de trabajo de Log Analytics, la cuenta de Automation y los recursos relacionados. Esto le deja con tres grupos de recursos que seleccionar para su administración mediante Update Management. Este límite solo se aplica a la instalación simultánea, no al número de grupos de recursos que una característica de Automation puede administrar.
+El número de grupos de recursos que puede usar para administrar las máquinas virtuales está limitado por los [límites de implementación de Resource Manager](../../azure-resource-manager/templates/deploy-to-resource-group.md). Las implementaciones de Resource Manager, que no se deben confundir con las implementaciones de actualización, están limitadas a cinco grupos de recursos por implementación. Dos de esos grupos de recursos están reservados para configurar el área de trabajo de Log Analytics, la cuenta de Automation y los recursos relacionados. Esto le deja con tres grupos de recursos que seleccionar para su administración mediante Update Management. Este límite solo se aplica a la instalación simultánea, no al número de grupos de recursos que una característica de Automation puede administrar.
 
 > [!NOTE]
 > Al habilitar Update Management, solo se admiten determinadas regiones para vincular un área de trabajo de Log Analytics y una cuenta de Automation. Para obtener una lista de los pares de asignación que se admiten, consulte [Asignación de región para la cuenta de Automation y el área de trabajo de Log Analytics](../how-to/region-mappings.md).
@@ -35,7 +35,7 @@ Inicie sesión en Azure en https://portal.azure.com.
 
 1. En Azure Portal, vaya a **Máquinas virtuales**.
 
-2. En la página **Máquinas virtuales** , use las casillas para elegir las máquinas virtuales que se van a agregar a Update Management. Puede agregar máquinas para un máximo de tres grupos de recursos distintos a la vez. Las máquinas virtuales de Azure pueden existir en cualquier región independientemente de la ubicación de la cuenta de Automation.
+2. En la página **Máquinas virtuales**, use las casillas para elegir las máquinas virtuales que se van a agregar a Update Management. Puede agregar máquinas para un máximo de tres grupos de recursos distintos a la vez. Las máquinas virtuales de Azure pueden existir en cualquier región independientemente de la ubicación de la cuenta de Automation.
 
     ![Lista de máquinas virtuales](media/enable-from-portal/vmlist.png)
 

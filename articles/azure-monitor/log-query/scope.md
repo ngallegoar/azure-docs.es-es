@@ -6,15 +6,15 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/09/2020
-ms.openlocfilehash: 066e9cf6c63c9f2073ba869e8b40e25bfc993cd8
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: ddb73de87789934aa66893bdbe6519011cf324b3
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491382"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186106"
 ---
 # <a name="log-query-scope-and-time-range-in-azure-monitor-log-analytics"></a>Ámbito e intervalo de tiempo de una consulta de registro en Log Analytics de Azure Monitor
-Al ejecutar una [consulta de registro](log-query-overview.md) en [Log Analytics en Azure Portal](get-started-portal.md), el conjunto de datos que evalúa la consulta depende del ámbito y el intervalo de tiempo que seleccione. En este artículo se describe el ámbito y el intervalo de tiempo y cómo puede establecer cada uno de ellos en función de sus requisitos. También describe el comportamiento de distintos tipos de ámbitos.
+Al ejecutar una [consulta de registro](log-query-overview.md) en [Log Analytics en Azure Portal](./log-analytics-tutorial.md), el conjunto de datos que evalúa la consulta depende del ámbito y el intervalo de tiempo que seleccione. En este artículo se describe el ámbito y el intervalo de tiempo y cómo puede establecer cada uno de ellos en función de sus requisitos. También describe el comportamiento de distintos tipos de ámbitos.
 
 
 ## <a name="query-scope"></a>Ámbito de la consulta
@@ -87,5 +87,5 @@ Sin embargo, si la consulta utiliza **app** para recuperar datos de una aplicaci
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Realice un [tutorial sobre el uso de Log Analytics en Azure Portal](get-started-portal.md).
+- Realice un [tutorial sobre el uso de Log Analytics en Azure Portal](./log-analytics-tutorial.md).
 - Realice un [tutorial sobre cómo escribir consultas](get-started-queries.md).

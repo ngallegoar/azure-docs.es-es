@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/05/2020
-ms.openlocfilehash: 0c1e84695ce40b489fb1005325d501ea241cdaf1
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: fc89790c7d268bcfa0c08bd26249bc91979d7fca
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94738108"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186905"
 ---
 # <a name="monitoring-azure-virtual-machines-with-azure-monitor"></a>Supervisión de máquinas virtuales de Azure con Azure Monitor
 En este artículo se describe cómo usar Azure Monitor para recopilar y analizar datos de supervisión de máquinas virtuales de Azure para mantener su estado. Las máquinas virtuales se pueden supervisar en términos de disponibilidad y rendimiento con Azure Monitor como cualquier [otro](monitor-azure-resource.md) recurso de Azure, pero se diferencian de otros recursos en cuanto que también debe supervisar el sistema operativo invitado y las cargas de trabajo que se ejecutan en él. 
@@ -64,7 +64,7 @@ Para habilitar todas las características de Azure Monitor para la supervisión 
 En las secciones siguientes se describen todos estos pasos de configuración.
 
 ### <a name="enable-azure-monitor-for-vms"></a>Habilitar Azure Monitor para VM
-[Azure Monitor para VM](vminsights-overview.md) es un [punto de información](insights-overview.md) en Azure Monitor que sirve de herramienta principal para supervisar máquinas virtuales en Azure Monitor. Proporciona el siguiente valor adicional con respecto a las características de Azure Monitor estándar.
+[Azure Monitor para VM](vminsights-overview.md) es un [punto de información](../monitor-reference.md) en Azure Monitor que sirve de herramienta principal para supervisar máquinas virtuales en Azure Monitor. Proporciona el siguiente valor adicional con respecto a las características de Azure Monitor estándar.
 
 - Incorporación simplificada del agente de Log Analytics y de Dependency Agent para habilitar la supervisión de un sistema operativo invitado y las cargas de trabajo de una máquina virtual. 
 - Libros y gráficas de rendimiento de tendencias predefinidos que permiten analizar las métricas de rendimiento básicas del sistema operativo invitado de la máquina virtual.
@@ -140,7 +140,7 @@ Una vez configurada la recopilación de los datos de supervisión para una máqu
 | Configuración de diagnóstico | Habilite y configure la [extensión de diagnóstico](../platform/diagnostics-extension-overview.md) para la máquina virtual actual. |
 | Recomendaciones de Advisor | Recomendaciones para la máquina virtual actual desde [Azure Advisor](../../advisor/index.yml). |
 | Registros | Abra [Log Analytics](../log-query/log-analytics-overview.md) con el [ámbito](../log-query/scope.md) establecido en la máquina virtual actual. |
-| Monitor de conexión | Abra la [supervisión de conexiones de Network Watcher](../../network-watcher/connection-monitor-preview.md) para supervisar las conexiones entre la máquina virtual actual y otras máquinas virtuales. |
+| Monitor de conexión | Abra la [supervisión de conexiones de Network Watcher](../../network-watcher/connection-monitor-overview.md) para supervisar las conexiones entre la máquina virtual actual y otras máquinas virtuales. |
 
 
 ## <a name="analyzing-metric-data"></a>Analizar datos de métricas
@@ -242,4 +242,3 @@ Consulte [Conexión de Operations Manager a Azure Monitor](../platform/om-agents
 
 * [Obtenga información sobre el análisis de datos en registros de Azure Monitor mediante consultas de registro.](../log-query/get-started-queries.md)
 * [Obtenga información sobre las alertas que usan métricas y registros en Azure Monitor.](../platform/alerts-overview.md)
-

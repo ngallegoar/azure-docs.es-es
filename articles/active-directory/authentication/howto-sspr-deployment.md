@@ -11,12 +11,12 @@ author: barbaraselden
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 06c37eaf63b79b171e5a21d807262cfb359d416c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 765bfe0f805ae4219110d689e8f7f8fd54a26cf3
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95994169"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96173943"
 ---
 # <a name="plan-an-azure-active-directory-self-service-password-reset-deployment"></a>Plan de implementación de autoservicio de restablecimiento de contraseña de Azure Active Directory
 
@@ -123,7 +123,7 @@ Tenga en cuenta las necesidades de su organización al determinar la estrategia 
 
 ### <a name="engage-the-right-stakeholders"></a>Interactuar con las partes interesadas adecuadas
 
-Cuando fracasan los proyectos tecnológicos, normalmente se debe a expectativas incorrectas relacionadas con el impacto, los resultados y las responsabilidades. Para evitar estos problemas, [asegúrese de involucrar a las partes interesadas correctas](https://aka.ms/deploymentplans) y que los roles de las partes interesadas en el proyecto se entiendan bien; para ello, documente las partes interesadas y sus aportes y responsabilidades en el proyecto.
+Cuando fracasan los proyectos tecnológicos, normalmente se debe a expectativas incorrectas relacionadas con el impacto, los resultados y las responsabilidades. Para evitar estos problemas, [asegúrese de involucrar a las partes interesadas correctas](../fundamentals/active-directory-deployment-plans.md) y que los roles de las partes interesadas en el proyecto se entiendan bien; para ello, documente las partes interesadas y sus aportes y responsabilidades en el proyecto.
 
 #### <a name="required-administrator-roles"></a>Roles de administrador necesarios
 
@@ -325,7 +325,7 @@ Los registros de auditoría para el registro y el restablecimiento de contraseñ
 
 ### <a name="troubleshoot"></a>Solución de problemas
 
-* Consulte [Solución de problemas del autoservicio de restablecimiento de contraseñas](./active-directory-passwords-troubleshoot.md) 
+* Consulte [Solución de problemas del autoservicio de restablecimiento de contraseñas](./troubleshoot-sspr.md) 
 
 * Siga [Preguntas más frecuentes sobre la administración de contraseñas](./active-directory-passwords-faq.md) 
 

@@ -7,12 +7,12 @@ ms.topic: include
 author: mingshen-ms
 ms.author: krsh
 ms.date: 10/20/2020
-ms.openlocfilehash: ecbafe0d3f39b1bd6f7c494695ea17e067f0c79e
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 6c7536e38a0d2cf7d4e906947aff645c74e459c0
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129305"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96025518"
 ---
 ## <a name="generalize-the-image"></a>Generalizar la imagen
 
@@ -45,8 +45,8 @@ El siguiente proceso generaliza una máquina virtual Linux y la vuelve a impleme
 3. En la hoja Instantánea, seleccione **Crear**.
 4. Escriba un **nombre** para la instantánea.
 5. Seleccione un grupo de recursos existente o escriba el nombre de uno nuevo.
-6. Como **disco de origen** , seleccione el disco administrado para la instantánea.
-7. Seleccione el **tipo de cuenta** que se usará para almacenar la instantánea. Use **HDD estándar** , a menos que necesite almacenarla en un disco SSD de alto rendimiento.
+6. Como **disco de origen**, seleccione el disco administrado para la instantánea.
+7. Seleccione el **tipo de cuenta** que se usará para almacenar la instantánea. Use **HDD estándar**, a menos que necesite almacenarla en un disco SSD de alto rendimiento.
 8. Seleccione **Crear**.
 
 #### <a name="extract-the-vhd"></a>Extracción del disco duro
@@ -81,7 +81,7 @@ destinationVHDFileName=myvhdfilename.vhd
 
 az account set --subscription $subscriptionId
 
-sas=$(az snapshot grant-access --resource-group $resourceGroupName --name $ snapshotName --duration-in-seconds $sasExpiryDuration --query [accessSas] -o tsv)
+sas=$(az snapshot grant-access --resource-group $resourceGroupName --name $snapshotName --duration-in-seconds $sasExpiryDuration --query [accessSas] -o tsv)
 
 az storage blob copy start --destination-blob $destinationVHDFileName --destination-container $storageContainerName --account-name $storageAccountName --account-key $storageAccountKey --source-uri $sas
 ```

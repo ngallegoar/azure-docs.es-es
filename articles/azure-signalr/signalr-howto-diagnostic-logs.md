@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: wanl
-ms.openlocfilehash: b0c1a91df30ee6a88f055dc47cfdef339e2ee2b2
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 5ad40ca051677ced0c6d8b5c35e8563272ff598f
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151069"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183981"
 ---
 # <a name="resource-logs-for-azure-signalr-service"></a>Registros de recursos para Azure SignalR Service
 
@@ -122,7 +122,7 @@ Para ver los registros de recursos, siga estos pasos:
 
     ![Elemento de menú de Log Analytics](./media/signalr-tutorial-diagnostic-logs/log-analytics-menu-item.png)
 
-2. Escriba `SignalRServiceDiagnosticLogs` y seleccione el intervalo de tiempo para consultar los registros de recursos. Para una consulta avanzada, consulte [Introducción a los análisis de registros de Azure Monitor](../azure-monitor/log-query/get-started-portal.md).
+2. Escriba `SignalRServiceDiagnosticLogs` y seleccione el intervalo de tiempo para consultar los registros de recursos. Para una consulta avanzada, consulte [Introducción a los análisis de registros de Azure Monitor](../azure-monitor/log-query/log-analytics-tutorial.md).
 
     ![Registro de consultas en Log Analytics](./media/signalr-tutorial-diagnostic-logs/query-log-in-log-analytics.png)
 
@@ -182,7 +182,7 @@ Si recibe un mensaje 401 No autorizado para las solicitudes de cliente, comprueb
 
 #### <a name="throttling"></a>Limitaciones
 
-Si no puede establecer conexiones de cliente de SignalR con Azure SignalR Service, compruebe los registros de recursos. Si encuentra `Connection count reaches limit` en el registro de recursos, establece demasiadas conexiones con SignalR Service, lo que provoca que se alcance el límite del número de conexiones. Considere la posibilidad de escalar SignalR Service. Si encuentra `Message count reaches limit` en el registro de recursos, significa que utiliza el nivel gratuito y ha llegado al máximo de la cuota de mensajes. Si desea enviar más mensajes, considere la posibilidad de cambiar SignalR Service al nivel estándar para enviar mensajes adicionales. Para más información, consulte [Precios de Azure SignalR Service](https://azure.microsoft.com/pricing/details/signalr-service/).
+Si no puede establecer conexiones de cliente de SignalR con Azure SignalR Service, compruebe los registros de recursos. Si encuentra `Connection count reaches limit` en el registro de recursos, establece demasiadas conexiones con SignalR Service, lo que provoca que se alcance el límite del número de conexiones. Considere la posibilidad de escalar SignalR Service. Si encuentra `Message count reaches limit` en el registro de recursos, significa que utiliza el nivel gratuito y ha llegado al máximo de la cuota de mensajes. Si desea enviar más mensajes, considere la posibilidad de cambiar SignalR Service al nivel estándar para enviar mensajes adicionales. Para más información, consulte [Precios de Azure SignalR Service](https://azure.microsoft.com/pricing/details/signalr-service/).
 
 ### <a name="get-help"></a>Obtener ayuda
 

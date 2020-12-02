@@ -3,12 +3,12 @@ title: Límites y cuotas de suscripción de Azure
 description: Se proporciona una lista de límites, cuotas y restricciones de suscripción y servicio comunes de Azure. Este artículo incluye información acerca de cómo aumentar los límites junto con los valores máximos.
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: b95c056a8885998c3ca5b5c62cb13049c3a8c66d
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 810d503f1abdc14ad2d255a89aebe7c10954a889
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94412938"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186208"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure
 
@@ -155,6 +155,10 @@ Los valores más recientes para las cuotas de Proceso de Machine Learning pueden
 ### <a name="action-groups"></a>Grupos de acciones
 
 [!INCLUDE [monitoring-limits](../../../includes/azure-monitor-limits-action-groups.md)]
+
+### <a name="autoscale"></a>Escalado automático
+
+[!INCLUDE [monitoring-limits](../../../includes/azure-monitor-limits-autoscale.md)]
 
 ### <a name="log-queries-and-language"></a>Consultas de registro y lenguaje
 
@@ -394,7 +398,7 @@ Para más información, consulte [Tamaños de máquina virtual](../../virtual-ma
 
 #### <a name="disk-encryption-sets"></a>Conjuntos de cifrado de disco
 
-Hay una limitación de 50 conjuntos de cifrado de disco por región y por suscripción. Para obtener más información, vea la documentación de cifrado para máquinas virtuales [Linux](../../virtual-machines/linux/disk-encryption.md#restrictions) o [Windows](../../virtual-machines/windows/disk-encryption.md#restrictions). Si necesita aumentar la cuota, póngase en contacto con el soporte técnico de Azure.
+Hay una limitación de 50 conjuntos de cifrado de disco por región y por suscripción. Para obtener más información, vea la documentación de cifrado para máquinas virtuales [Linux](../../virtual-machines/disk-encryption.md#restrictions) o [Windows](../../virtual-machines/disk-encryption.md#restrictions). Si necesita aumentar la cuota, póngase en contacto con el soporte técnico de Azure.
 
 ### <a name="managed-virtual-machine-disks"></a>Discos de máquinas virtuales administrados
 

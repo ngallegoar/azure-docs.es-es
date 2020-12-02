@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/05/2020
 ms.author: Zhchia
-ms.openlocfilehash: df1b3f81c1d8f9ead6d5773de6b6d1cd9517235e
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: bbb9b47e42ce195a98801ee08d177efd409c597e
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357494"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96181673"
 ---
 # <a name="tutorial-configure-purecloud-by-genesys-for-automatic-user-provisioning"></a>Tutorial: Configuración de PureCloud by Genesis para el aprovisionamiento automático de usuarios
 
@@ -36,7 +36,7 @@ En este tutorial, se describen los pasos que debe realizar en PureCloud by Genes
 En el escenario descrito en este tutorial se supone que ya cuenta con los requisitos previos siguientes:
 
 * [Un inquilino de Azure AD](../develop/quickstart-create-new-tenant.md) 
-* Una cuenta de usuario en Azure AD con [permiso](../users-groups-roles/directory-assign-admin-roles.md) para configurar el aprovisionamiento (por ejemplo, Administrador de aplicaciones, Administrador de aplicaciones en la nube, Propietario de la aplicación o Administrador global). 
+* Una cuenta de usuario en Azure AD con [permiso](../roles/permissions-reference.md) para configurar el aprovisionamiento (por ejemplo, Administrador de aplicaciones, Administrador de aplicaciones en la nube, Propietario de la aplicación o Administrador global). 
 * Una [organización](https://help.mypurecloud.com/?p=81984) de PureCloud.
 * Un usuario con [permisos](https://help.mypurecloud.com/?p=24360) para crear un cliente de OAuth.
 
@@ -86,17 +86,17 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Captura de pantalla de la lista desplegable Modo de aprovisionamiento con la opción Automático seleccionada.](common/provisioning-automatic.png)
 
-5. En la sección **Credenciales de administrador** , escriba la dirección URL de la API de PureCloud by Genesys y el token de OAuth en los campos **URL de inquilino** y **Token secreto** respectivamente. La dirección URL de la API se estructurará como `{{API Url}}/api/v2/scim/v2`, mediante la dirección URL de la API de la región PureCloud del [Centro para desarrolladores de PureCloud](https://developer.mypurecloud.com/api/rest/index.html). Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a PureCloud by Genesys. Si la conexión no se establece, asegúrese de que la cuenta de PureCloud by Genesys tiene permisos de administrador y pruebe otra vez.
+5. En la sección **Credenciales de administrador**, escriba la dirección URL de la API de PureCloud by Genesys y el token de OAuth en los campos **URL de inquilino** y **Token secreto** respectivamente. La dirección URL de la API se estructurará como `{{API Url}}/api/v2/scim/v2`, mediante la dirección URL de la API de la región PureCloud del [Centro para desarrolladores de PureCloud](https://developer.mypurecloud.com/api/rest/index.html). Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a PureCloud by Genesys. Si la conexión no se establece, asegúrese de que la cuenta de PureCloud by Genesys tiene permisos de administrador y pruebe otra vez.
 
     ![Captura de pantalla que muestra el cuadro de diálogo Credenciales de administrador, en el que se puede especificar el URL de inquilino y el secreto de inquilino.](./media/purecloud-by-genesys-provisioning-tutorial/provisioning.png)
 
-6. En el campo **Correo electrónico de notificación** , escriba la dirección de correo electrónico de una persona o grupo que deba recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
+6. En el campo **Correo electrónico de notificación**, escriba la dirección de correo electrónico de una persona o grupo que deba recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
 
     ![Correo electrónico de notificación](common/provisioning-notification-email.png)
 
 7. Seleccione **Guardar**.
 
-8. En la sección **Asignaciones** , seleccione **Synchronize Azure Active Directory Users to PureCloud by Genesys** (Sincronizar usuarios de Azure Active Directory con PureCloud by Genesys).
+8. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Users to PureCloud by Genesys** (Sincronizar usuarios de Azure Active Directory con PureCloud by Genesys).
 
 9. Revise los atributos de usuario que se sincronizan entre Azure AD y PureCloud by Genesys en la sección **Asignación de atributos**. Los atributos seleccionados como propiedades de **Coincidencia** se usan para buscar coincidencias con las cuentas de usuario de PureCloud by Genesys para las operaciones de actualización. Si decide cambiar el [atributo de destino coincidente](../app-provisioning/customize-application-attributes.md), deberá asegurarse de que la API de PureCloud by Genesys admite el filtrado de usuarios basado en ese atributo. Seleccione el botón **Guardar** para confirmar los cambios.
 
@@ -114,7 +114,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
      |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:employeeNumber|String|
      
 
-10. En la sección **Asignaciones** , seleccione **Synchronize Azure Active Directory Groups to PureCloud by Genesys** (Sincronizar grupos de Azure Active Directory con PureCloud by Genesys).
+10. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Groups to PureCloud by Genesys** (Sincronizar grupos de Azure Active Directory con PureCloud by Genesys).
 
 11. Revise los atributos de grupo que se sincronizan entre Azure AD y PureCloud by Genesys en la sección **Asignación de atributos**. Los atributos seleccionados como propiedades de **Coincidencia** se usan para establecer coincidencias con los grupos de PureCloud by Genesys con el objetivo de realizar operaciones de actualización. Seleccione el botón **Guardar** para confirmar los cambios. PureCloud by Genesis no admite la creación o eliminación de grupos y solo admite la actualización de grupos.
 
@@ -130,7 +130,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Estado de aprovisionamiento activado](common/provisioning-toggle-on.png)
 
-14. Elija los valores que quiera en **Ámbito** , en la sección **Configuración** , para definir los usuarios o grupos que quiere que se aprovisionen en PureCloud by Genesys.
+14. Elija los valores que quiera en **Ámbito**, en la sección **Configuración**, para definir los usuarios o grupos que quiere que se aprovisionen en PureCloud by Genesys.
 
     ![Ámbito del aprovisionamiento](common/provisioning-scope.png)
 

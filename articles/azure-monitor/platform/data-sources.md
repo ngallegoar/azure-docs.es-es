@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/06/2020
-ms.openlocfilehash: 48336b65ec564f834ef8a1e8f4911c89b1a37f31
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: c6b976ca1beb9beb78f7c56d7ae512c1f499c2c5
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107953"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186531"
 ---
 # <a name="sources-of-monitoring-data-for-azure-monitor"></a>Orígenes de datos de supervisión para Azure Monitor
 Azure Monitor se basa en una [plataforma de datos de supervisión común](data-platform.md) que incluye [registros](data-platform-logs.md) y [métricas](data-platform-metrics.md). La recopilación de datos en esta plataforma permite que los datos de múltiples recursos se analicen juntos mediante un conjunto común de herramientas en Azure Monitor. Los datos de supervisión también pueden enviarse a otras ubicaciones para admitir determinados escenarios, y algunos recursos pueden realizar operaciones de escritura en otras ubicaciones para poder recopilarse en registros o métricas.
@@ -164,7 +164,7 @@ Cuando se habilita Application Insights para una aplicación mediante la instala
 |            | Los datos de instantáneas de depuración capturados para un subconjunto de excepciones se almacenan en Azure Storage. Utilice Application Insights en Azure Portal para descargar los análisis locales.  | [Funcionamiento de las instantáneas](../app/snapshot-debugger.md#how-snapshots-work) |
 
 ## <a name="monitoring-solutions-and-insights"></a>Soluciones de supervisión y perspectivas
-Las [soluciones de supervisión](../insights/solutions.md) y [perspectivas](../insights/insights-overview.md) recopilan datos para proporcionar conclusiones sobre el funcionamiento de un servicio o aplicación determinados. Pueden abordar recursos en diferentes niveles de aplicación e incluso varios niveles.
+Las [soluciones de supervisión](../insights/solutions.md) y [perspectivas](../monitor-reference.md) recopilan datos para proporcionar conclusiones sobre el funcionamiento de un servicio o aplicación determinados. Pueden abordar recursos en diferentes niveles de aplicación e incluso varios niveles.
 
 ### <a name="monitoring-solutions"></a>Soluciones de supervisión
 

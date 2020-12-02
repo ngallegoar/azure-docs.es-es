@@ -4,12 +4,12 @@ ms.service: virtual-machines-sql
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: jroth
-ms.openlocfilehash: 4e79fef08af8ff73ce63ab4732c9efd77e3a5d3f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 51dc04fbef8d09878f33d7fda6f15039d3afba3e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67186270"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96026628"
 ---
 ### <a name="configure-a-dns-label-for-the-public-ip-address"></a>Configuración de una etiqueta DNS para la dirección IP pública
 
@@ -34,7 +34,7 @@ Para crear una etiqueta DNS, seleccione primero **Máquinas virtuales** en el po
 
 ### <a name="connect-to-the-database-engine-from-another-computer"></a>Conexión al motor de base de datos desde otro equipo
 
-1. En otro equipo que esté conectado a Internet, abra SQL Server Management Studio (SSMS). Si no tiene SQL Server Management Studio, puede descargarla [aquí](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
+1. En otro equipo que esté conectado a Internet, abra SQL Server Management Studio (SSMS). Si no tiene SQL Server Management Studio, puede descargarla [aquí](/sql/ssms/download-sql-server-management-studio-ssms).
 
 1. En el cuadro de diálogo **Conectar al servidor** o **Conectarse al motor de base de datos**, edite el valor de **Nombre del servidor**. Escriba la dirección IP o el nombre DNS completo de la máquina virtual (que se determinó en la tarea anterior). También puede agregar una coma y proporcionar el puerto TCP de SQL Server. Por ejemplo, `mysqlvmlabel.eastus.cloudapp.azure.com,1433`.
 

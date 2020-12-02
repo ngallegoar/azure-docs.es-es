@@ -6,18 +6,18 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 07/29/2019
 ms.subservice: alerts
-ms.openlocfilehash: 0842efe304faa9a0d94fbf71075f1bc16ff34014
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 61aba3e5792d1cc20da16686d052de91744dab76
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96018212"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186786"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Creación, visualización y administración de alertas de registro mediante Azure Monitor
 
 ## <a name="overview"></a>Información general
 
-Las alertas de registro permiten a los usuarios usar una consulta de [Log Analytics](../log-query/get-started-portal.md) para evaluar los registros de los recursos según una frecuencia establecida y activar una alerta en función de los resultados. Las reglas pueden desencadenar una o varias acciones mediante [grupos de acciones](./action-groups.md). [Obtenga más información sobre la funcionalidad y la terminología de las alertas de registro](alerts-unified-log.md).
+Las alertas de registro permiten a los usuarios usar una consulta de [Log Analytics](../log-query/log-analytics-tutorial.md) para evaluar los registros de los recursos según una frecuencia establecida y activar una alerta en función de los resultados. Las reglas pueden desencadenar una o varias acciones mediante [grupos de acciones](./action-groups.md). [Obtenga más información sobre la funcionalidad y la terminología de las alertas de registro](alerts-unified-log.md).
 
 En este artículo se muestra cómo crear y administrar alertas de registro con Azure Monitor. Las reglas de alertas se definen mediante tres componentes:
 - Destino: un recurso de Azure específico que se va a supervisar.
@@ -27,7 +27,7 @@ En este artículo se muestra cómo crear y administrar alertas de registro con A
 También puede crear reglas de alertas de registro mediante plantillas de Azure Resource Manager, que se describen en [otro artículo](alerts-log-create-templates.md).
 
 > [!NOTE]
-> Los datos de registro de un [área de trabajo de Log Analytics](../log-query/get-started-portal.md) se pueden enviar al almacén de métricas de Azure Monitor. Las alertas de métricas tienen [diferentes comportamientos](alerts-metric-overview.md), lo que puede ser más conveniente en función de los datos con los que esté trabajando. Para saber más sobre cómo se pueden enrutar los registros a las métricas, vea [Alerta de métricas para los registros](alerts-metric-logs.md).
+> Los datos de registro de un [área de trabajo de Log Analytics](../log-query/log-analytics-tutorial.md) se pueden enviar al almacén de métricas de Azure Monitor. Las alertas de métricas tienen [diferentes comportamientos](alerts-metric-overview.md), lo que puede ser más conveniente en función de los datos con los que esté trabajando. Para saber más sobre cómo se pueden enrutar los registros a las métricas, vea [Alerta de métricas para los registros](alerts-metric-logs.md).
 
 ## <a name="create-a-log-alert-rule-with-the-azure-portal"></a>Creación de una regla de alertas de registro en Azure Portal
 
@@ -35,7 +35,7 @@ A continuación se indican los pasos para empezar a escribir consultas para las 
 
 1. Vaya al recurso para el que le gustaría crear la alerta.
 1. En **Supervisar**, seleccione **Registros**.
-1. Consulte los datos de registro que pueden indicar el problema. Puede usar el [tema de ejemplos de consultas de alertas](../log-query/saved-queries.md) para comprender qué puede detectar, o bien puede [empezar a escribir su propia consulta](../log-query/get-started-portal.md). Además, [aprenda a crear consultas de alertas optimizadas](alerts-log-query.md).
+1. Consulte los datos de registro que pueden indicar el problema. Puede usar el [tema de ejemplos de consultas de alertas](../log-query/example-queries.md) para comprender qué puede detectar, o bien puede [empezar a escribir su propia consulta](../log-query/log-analytics-tutorial.md). Además, [aprenda a crear consultas de alertas optimizadas](alerts-log-query.md).
 1. Presione el botón "+ Nueva regla de alertas" para iniciar el flujo de creación de alerta.
 
     ![Log Analytics: Establecer alerta](media/alerts-log/AlertsAnalyticsCreate.png)
@@ -327,4 +327,3 @@ Si se crea correctamente, se devuelve 201. Si se actualiza correctamente, se de
 * Cree alertas de registro con [plantillas de Azure Resource Manager](./alerts-log-create-templates.md).
 * Conozca las [acciones de webhook para alertas de registro](./alerts-log-webhook.md).
 * Obtenga más información sobre las [consultas de registro](../log-query/log-query-overview.md).
-

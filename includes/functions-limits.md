@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 05/04/2020
 ms.author: glenga
-ms.openlocfilehash: 37a61e270f95ffdc420536046e0ce1eda1e489b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 826fccad043b067ce86d5f56eaebc6ee48b532d1
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85391503"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96028518"
 ---
 | Recurso |[Plan de consumo](../articles/azure-functions/functions-scale.md#consumption-plan)|[Plan Premium](../articles/azure-functions/functions-scale.md#premium-plan)|[Plan dedicado](../articles/azure-functions/functions-scale.md#app-service-plan)|[Azure App Service Environment](../articles/app-service/environment/intro.md)| [Kubernetes](../articles/aks/quotas-skus-regions.md) |
 | --- | --- | --- | --- | --- | --- |
@@ -19,7 +19,7 @@ ms.locfileid: "85391503"
 | Tamaño máximo de la solicitud (MB)<sup>3</sup> | 100 | 100 | 100 | 100 | Depende del clúster |
 | Longitud máxima de la cadena de consulta<sup>3</sup> | 4096 | 4096 | 4096 | 4096 | Depende del clúster |
 | Longitud máxima de URL de solicitud<sup>3</sup> | 8192 | 8192 | 8192 | 8192 | Depende del clúster |
-|[ACU](../articles/virtual-machines/windows/acu.md) por instancia | 100 | 210-840 | 100-840 | 210-250<sup>8</sup> | [Precios de AKS](https://azure.microsoft.com/pricing/details/container-service/) |
+|[ACU](../articles/virtual-machines/acu.md) por instancia | 100 | 210-840 | 100-840 | 210-250<sup>8</sup> | [Precios de AKS](https://azure.microsoft.com/pricing/details/container-service/) |
 | Memoria máxima (GB por instancia) | 1.5 | 3,5-14 | 1,75-14 | 3,5-14 | Se admite cualquier nodo |
 | Aplicaciones de funciones por plan |100 |100 |sin enlazar<sup>4</sup> | sin enlazar | sin enlazar |
 | [Planes de App Service](../articles/app-service/overview-hosting-plans.md) | 100 por [región](https://azure.microsoft.com/global-infrastructure/regions/) |100 por grupo de recursos |100 por grupo de recursos | - | - |

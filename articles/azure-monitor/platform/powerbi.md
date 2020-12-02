@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/01/2019
-ms.openlocfilehash: 8b9624313716081a039b12c73e54b9f7afc2a323
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 53277f64c3d1b03572732157756da1fececbcd43
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86505319"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184576"
 ---
 # <a name="import-azure-monitor-log-data-into-power-bi"></a>Importación de datos de registro de Azure Monitor en Power BI
 
@@ -28,7 +28,7 @@ Para importar en Power BI datos de un [área de trabajo de Log Analytics](manag
 ## <a name="export-query"></a>Exportación de consultas
 Empiece por crear una [consulta de registro](../log-query/log-query-overview.md) que devuelva los datos con los que quiera rellenar el conjunto de datos de Power BI.  Después, exporte dicha consulta al [lenguaje de Power Query (M)](/powerquery-m/power-query-m-language-specification), que es el que Power BI Desktop puede utilizar.
 
-1. [Cree la consulta de registro en Log Analytics](../log-query/get-started-portal.md) para extraer los datos para el conjunto de datos.
+1. [Cree la consulta de registro en Log Analytics](../log-query/log-analytics-tutorial.md) para extraer los datos para el conjunto de datos.
 2. Seleccione **Exportar** > **Power BI (M Query)** .  De este modo, se exporta la consulta a un archivo de texto denominado **PowerBIQuery.txt**. 
 
     ![Exportación de la búsqueda de registros](media/powerbi/export-analytics.png)

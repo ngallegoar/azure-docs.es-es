@@ -7,12 +7,12 @@ author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
 ms.custom: references_regions
-ms.openlocfilehash: 90a5f0f84c72895a8450a42260b07f6dbea15e37
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: b4e35296a999070a6f536f4a52cfb7c3a1d4f42a
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94428047"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186497"
 ---
 # <a name="connect-azure-to-itsm-tools-by-using-it-service-management-connector"></a>Conexión de Azure a las herramientas de ITSM mediante el Conector de Administración de servicios de TI
 
@@ -145,7 +145,7 @@ Utilice el procedimiento siguiente para crear elementos de trabajo:
 
 7. Seleccione un tipo de **Elemento de trabajo**.
 
-8. Si desea rellenar los campos predeterminados con valores fijos, seleccione **Usar la plantilla personalizada**. De lo contrario, elija una [plantilla](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview#template-definitions) existente en la lista **Plantilla** y escriba los valores fijos en los campos de la plantilla.
+8. Si desea rellenar los campos predeterminados con valores fijos, seleccione **Usar la plantilla personalizada**. De lo contrario, elija una [plantilla](#template-definitions) existente en la lista **Plantilla** y escriba los valores fijos en los campos de la plantilla.
 
 9. Al seleccionar **Crear elementos de trabajo individuales para cada elemento de configuración**, cada elemento de configuración tendrá su propio elemento de trabajo. Habrá un elemento de trabajo por cada elemento de configuración. Se actualizará según las alertas que se crearán.
 
@@ -329,4 +329,3 @@ Si tiene consultas o comentarios sobre el Conector de Administración de servici
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Incorporación de productos o servicios de ITSM al Conector de Administración de servicios de TI](./itsmc-connections.md)
-

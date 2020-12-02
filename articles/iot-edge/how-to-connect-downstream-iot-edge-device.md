@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: d5da6576258d3e33296781bbc262494220140ddc
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 37c237cdaf6c0d4f766d4b2e39c10e3e96215463
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94489291"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187840"
 ---
 # <a name="connect-a-downstream-iot-edge-device-to-an-azure-iot-edge-gateway-preview"></a>Conexión de un dispositivo IoT Edge de nivel inferior a una puerta de enlace Azure IoT Edge (versión preliminar)
 
@@ -172,7 +172,7 @@ En Linux, asegúrese de que el usuario **iotedge** tenga permisos de lectura par
      type: "docker"
      env: {}
      config:
-       image: "mcr.microsoft.com/azureiotedge-agent:1.2.0-rc1"
+       image: "mcr.microsoft.com/azureiotedge-agent:1.2.0-rc2"
        auth: {}
    ```
 
@@ -202,7 +202,7 @@ En Linux, asegúrese de que el usuario **iotedge** tenga permisos de lectura par
 
 Si bien esta característica se encuentra en versión preliminar pública, debe configurar el dispositivo IoT Edge para usar las versiones preliminares públicas de los módulos de entorno de ejecución de Azure IoT Edge. En la sección anterior se indican los pasos para configurar edgeAgent en el inicio. También debe configurar los módulos del entorno de ejecución en las implementaciones del dispositivo.
 
-1. Configure el módulo edgeHub para que use la imagen de versión preliminar pública: `mcr.microsoft.com/azureiotedge-hub:1.2.0-rc1`.
+1. Configure el módulo edgeHub para que use la imagen de versión preliminar pública: `mcr.microsoft.com/azureiotedge-hub:1.2.0-rc2`.
 
 1. Configure las siguientes variables de entorno para el módulo edgeHub:
 
@@ -211,7 +211,7 @@ Si bien esta característica se encuentra en versión preliminar pública, debe 
    | `experimentalFeatures__enabled` | `true` |
    | `experimentalFeatures__nestedEdgeEnabled` | `true` |
 
-1. Configure el módulo edgeAgent para que use la imagen de versión preliminar pública: `mcr.microsoft.com/azureiotedge-hub:1.2.0-rc1`.
+1. Configure el módulo edgeAgent para que use la imagen de versión preliminar pública: `mcr.microsoft.com/azureiotedge-hub:1.2.0-rc2`.
 
 ## <a name="network-isolate-downstream-devices"></a>Aislamiento de red de dispositivos de nivel inferior
 
@@ -366,7 +366,7 @@ agent:
   type: "docker"
   env: {}
   config:
-    image: "{Parent FQDN or IP}:443/azureiotedge-agent:1.2.0-rc1"
+    image: "{Parent FQDN or IP}:443/azureiotedge-agent:1.2.0-rc2"
     auth: {}
 ```
 

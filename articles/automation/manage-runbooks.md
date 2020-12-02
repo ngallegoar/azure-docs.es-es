@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 10/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: 65451ed99580d9f2d66bd28518f0ec40a21ffe65
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: ed5eda668f6bd52ba144aa664119ab613fdb7742
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93317084"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183590"
 ---
 # <a name="manage-runbooks-in-azure-automation"></a>Administración de runbooks en Azure Automation
 
@@ -45,7 +45,7 @@ New-AzAutomationRunbook -AutomationAccountName MyAccount `
 
 ## <a name="import-a-runbook"></a>Importación de un runbook
 
-Puede importar un script de PowerShell o de flujo de trabajo de PowerShell ( **.ps1** ), un runbook gráfico ( **.graphrunbook** ) o un script de Python 2 ( **.py** ) para crear su propio runbook. Necesita especificar el [tipo de runbook](automation-runbook-types.md) que se creará durante la importación teniendo en cuenta las consideraciones siguientes.
+Puede importar un script de PowerShell o de flujo de trabajo de PowerShell ( **.ps1**), un runbook gráfico ( **.graphrunbook**) o un script de Python 2 ( **.py**) para crear su propio runbook. Necesita especificar el [tipo de runbook](automation-runbook-types.md) que se creará durante la importación teniendo en cuenta las consideraciones siguientes.
 
 * Puede importar un archivo **.ps1** que no contenga un flujo de trabajo, ya sea en un [runbook de PowerShell](automation-runbook-types.md#powershell-runbooks) o en un [runbook de flujo de trabajo de PowerShell](automation-runbook-types.md#powershell-workflow-runbooks). Si lo importa en un runbook de flujo de trabajo de PowerShell, se convertirá en un flujo de trabajo. En este caso, se incluyen comentarios en el runbook para describir los cambios realizados.
 
@@ -63,7 +63,7 @@ Puede usar el siguiente procedimiento para importar un archivo de script en Azur
 > Solo puede importar un archivo **.ps1** en un runbook de flujo de trabajo de PowerShell mediante el portal.
 
 1. En Azure Portal, abra su cuenta de Automation.
-2. En **Automatización de procesos** , haga clic en **Runbooks** para abrir la lista de runbooks.
+2. En **Automatización de procesos**, haga clic en **Runbooks** para abrir la lista de runbooks.
 3. Haga clic en **Importar un runbook**.
 4. Haga clic en **Archivo de runbook** y seleccione el archivo que se va a importar.
 5. Si el campo **Nombre** está habilitado, tiene la opción de cambiar el nombre del runbook. El nombre debe empezar por una letra y puede tener letras, números, guiones bajos y guiones.
@@ -223,7 +223,7 @@ Para utilizar un script personalizado, haga lo siguiente:
 
 1. Cree una cuenta de Automation y obtenga un [rol de colaborador](automation-role-based-access-control.md).
 2. [Vincule la cuenta al área de trabajo de Azure](../security-center/security-center-enable-data-collection.md).
-3. Habilite [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md), [Update Management](update-management/update-mgmt-overview.md) u otra característica de Automation. 
+3. Habilite [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md), [Update Management](./update-management/overview.md) u otra característica de Automation. 
 4. Si se trata de una máquina Linux, necesitará permisos elevados. Inicie sesión en [desactivar las comprobaciones de firmas](automation-linux-hrw-install.md#turn-off-signature-validation).
 
 ## <a name="test-a-runbook"></a>Prueba de un runbook

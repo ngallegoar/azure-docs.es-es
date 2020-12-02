@@ -9,17 +9,17 @@ ms.author: ericg
 ms.service: app-service
 ms.workload: web
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: 880100c3d67dfe10aacf10ed5bb57dec6e2c2a83
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: bebc7dcbc18a25b0d6d0761a8ca3ac476e83e581
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92217072"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183046"
 ---
 # <a name="using-private-endpoints-for-azure-web-app"></a>Uso de puntos de conexión privados para una aplicación web de Azure
 
 > [!IMPORTANT]
-> El punto de conexión privado está disponible para la aplicación web de Windows y Linux en un contenedor (o no), y que esté hospedada en estos planes de App Service: **Aislado** , **PremiumV2** , **PremiumV3** , **Functions Premium** (a veces se conoce como plan Elástico Premium). 
+> El punto de conexión privado está disponible para la aplicación web de Windows y Linux en un contenedor (o no), y que esté hospedada en estos planes de App Service: **Aislado**, **PremiumV2**, **PremiumV3**, **Functions Premium** (a veces se conoce como plan Elástico Premium). 
 
 Puede usar el punto de conexión privado para la aplicación web de Azure a fin de permitir que los clientes ubicados en la red privada accedan de forma segura a la aplicación a través de un vínculo privado. El punto de conexión privado usa una dirección IP del espacio de direcciones de la red virtual de Azure. El tráfico de red entre un cliente en la red privada y la aplicación web atraviesa la red virtual y un servicio Private Link en la red troncal de Microsoft, lo que elimina la exposición desde la red pública de Internet.
 
@@ -86,7 +86,7 @@ Por ejemplo, la resolución de nombres será:
 |cloudservicename.cloudapp.net|A|40.122.110.154|<-- esta dirección IP pública no es su punto de conexión privado; recibirá un error 403.|
 
 Debe configurar un servidor DNS privado o una zona privada de Azure DNS para las pruebas en las que puede modificar la entrada del host de la máquina de prueba.
-La zona DNS que debe crear es: **privatelink.azurewebsites.net** . Realice el registro de la aplicación web con un registro A y la dirección IP del punto de conexión privado.
+La zona DNS que debe crear es: **privatelink.azurewebsites.net**. Realice el registro de la aplicación web con un registro A y la dirección IP del punto de conexión privado.
 Por ejemplo, la resolución de nombres será:
 
 |Nombre |Tipo |Value |Comentario |
@@ -144,7 +144,7 @@ Estamos mejorando la característica Private Link y el punto de conexión privad
 [dnsvalidation]: ../app-service-web-tutorial-custom-domain.md
 [pllimitations]: ../../private-link/private-endpoint-overview.md#limitations
 [pricing]: https://azure.microsoft.com/pricing/details/private-link/
-[howtoguide1]: ../../private-link/create-private-endpoint-webapp-portal.md
+[howtoguide1]: ../../private-link/tutorial-private-endpoint-webapp-portal.md
 [howtoguide2]: ../scripts/cli-deploy-privateendpoint.md
 [howtoguide3]: ../scripts/powershell-deploy-private-endpoint.md
 [howtoguide4]: ../scripts/template-deploy-private-endpoint.md

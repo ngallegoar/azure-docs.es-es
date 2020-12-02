@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 11/05/2020
 ms.author: alsin
-ms.openlocfilehash: 226a23bfdacb0f7423c7dafb8cae36af7333699d
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 4694fa679c7bbff309a0452219ff39bacf2488c4
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94681846"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183709"
 ---
 # <a name="repair-an-automanage-account"></a>Reparación de una cuenta de Automanage
 La [cuenta de Azure Automanage](./automanage-virtual-machines.md#automanage-account) es el contexto de seguridad o la identidad bajo los que tienen lugar las operaciones automatizadas. Si ha movido recientemente una suscripción que contiene una cuenta de Automanage a un nuevo inquilino, debe volver a configurarla. Para volver a configurarla, debe restablecer el tipo de identidad y asignar los roles adecuados para la cuenta.
@@ -22,8 +22,8 @@ La [cuenta de Azure Automanage](./automanage-virtual-machines.md#automanage-acco
 Restablezca el tipo de identidad de cuenta de Automanage mediante la siguiente plantilla de Azure Resource Manager (ARM). Guarde el archivo localmente como armdeploy.json o un nombre similar. Anote el nombre y la ubicación de la cuenta de Automanage porque son parámetros necesarios en la plantilla de Resource Manager.
 
 1. Cree una implementación de Resource Manager mediante la siguiente plantilla. Use `identityType = None`.
-    * Puede crear la implementación en la CLI de Azure mediante `az deployment sub create`. Para más información, consulte [az deployment sub](https://docs.microsoft.com/cli/azure/deployment/sub).
-    * Puede crear la implementación en PowerShell mediante el módulo `New-AzDeployment`. Para más información, consulte [New-AzDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azdeployment).
+    * Puede crear la implementación en la CLI de Azure mediante `az deployment sub create`. Para más información, consulte [az deployment sub](/cli/azure/deployment/sub).
+    * Puede crear la implementación en PowerShell mediante el módulo `New-AzDeployment`. Para más información, consulte [New-AzDeployment](/powershell/module/az.resources/new-azdeployment).
 
 1. Vuelva a ejecutar la misma plantilla de Resource Manager con `identityType = SystemAssigned`.
 
@@ -63,7 +63,7 @@ La cuenta de Automanage requiere los roles Colaborador y Colaborador de la direc
 
 Si usa una plantilla de Resource Manager o la CLI de Azure, necesitará el id. de entidad de seguridad (también conocido como id. de objeto) de la cuenta de Automanage. (El id. no es necesario si utiliza Azure Portal). Puede encontrar este id. mediante estos métodos:
 
-- [CLI de Azure](https://docs.microsoft.com/cli/azure/ad/sp): use el comando `az ad sp list --display-name <name of your Automanage Account>`.
+- [CLI de Azure](/cli/azure/ad/sp): use el comando `az ad sp list --display-name <name of your Automanage Account>`.
 
 - Azure Portal: vaya a **Azure Active Directory** y busque la cuenta de Automanage por nombre. En **Aplicaciones empresariales**, seleccione el nombre de la cuenta de Automanage cuando aparezca.
 

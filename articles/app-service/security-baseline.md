@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/17/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 640d51de6dac1d175f9b46f327b72f293cf025cb
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 691bb538ea0f46e26c318a68e9f66a9a986eb5d4
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94849135"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96301836"
 ---
 # <a name="azure-security-baseline-for-app-service"></a>Base de referencia de seguridad de Azure para App Service
 
@@ -47,7 +47,7 @@ Considere implementar una instancia de Azure Firewall para crear, aplicar y regi
 
 - [Protección de las 10 primeras vulnerabilidades del proyecto de seguridad de aplicaciones web (OWASP)](https://owasp.org/www-project-top-ten/)
 
-- [Grupos de seguridad de red](/azure/virtual-network/security-overview)
+- [Grupos de seguridad de red](../virtual-network/network-security-groups-overview.md)
 
 - [Integración de su aplicación con una instancia de Azure Virtual Network](web-sites-integrate-with-vnet.md)
 
@@ -71,7 +71,7 @@ Use Azure Firewall para enviar el tráfico y crear, aplicar y registrar directiv
 
 - [Descripción de la seguridad de red proporcionada por Azure Security Center](../security-center/security-center-network-recommendations.md)
 
-- [Habilitación de la supervisión y la protección de App Service](/azure/security-center/security-center-app-services)
+- [Habilitación de la supervisión y la protección de App Service](/azure/security-center/defender-for-app-service-intro)
 
 **Supervisión de Azure Security Center**: Sí
 
@@ -168,7 +168,7 @@ Para más información, revise los vínculos a los que se hace referencia.
 
 - [Configuración de TLS de un extremo a otro con Application Gateway mediante el portal](../application-gateway/end-to-end-ssl-portal.md)
 
-- [Proteja el ASE tal y como se describe en Bloqueo de una instancia de App Service](https://review.docs.microsoft.com/azure/app-service/environment/firewall-integrationEnvironment:)
+- [Proteja el ASE tal y como se describe en Bloqueo de una instancia de App Service](/azure/app-service/environment/firewall-integration)
 
 **Supervisión de Azure Security Center**: Sí
 
@@ -205,7 +205,7 @@ Para más información, revise los vínculos a los que se hace referencia.
 
 - [Configuración de TLS de un extremo a otro con Application Gateway mediante el portal](../application-gateway/end-to-end-ssl-portal.md)
 
-- [Proteja el ASE tal y como se describe en Bloqueo de una instancia de App Service](https://review.docs.microsoft.com/azure/app-service/environment/firewall-integrationEnvironment:)
+- [Proteja el ASE tal y como se describe en Bloqueo de una instancia de App Service](/azure/app-service/environment/firewall-integration)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -219,9 +219,9 @@ En el caso de grupos de seguridad de red individuales, utilice el campo "Descrip
 
 Aplique cualquiera de las definiciones integradas de Azure Policy relacionadas con los efectos de etiquetado, como "Requerir etiqueta y su valor", para que todos los recursos se creen con etiquetas y para que se le notifiquen los recursos no etiquetados existentes. Use Azure PowerShell o la CLI de Azure para buscar o realizar acciones en los recursos en función de sus etiquetas.
 
-- [Creación y uso de etiquetas](/azure/azure-resource-manager/resource-group-using-tags)
+- [Creación y uso de etiquetas](../azure-resource-manager/management/tag-resources.md)
 
-- [Restricciones de acceso de Azure App Service](/azure/app-service/app-service-ip-restriction)
+- [Restricciones de acceso de Azure App Service](/azure/app-service/app-service-ip-restrictions)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -241,7 +241,7 @@ Revise las alertas y recomendaciones de seguridad detalladas en Security Center,
 
 Se recomienda crear un proceso con herramientas automatizadas para supervisar las configuraciones de recursos de red y detectar rápidamente los cambios.
 
-- [Visualización y recuperación de eventos del registro de actividad de Azure](/azure/azure-monitor/platform/activity-log-view)
+- [Visualización y recuperación de eventos del registro de actividad de Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
 
 - [Creación de alertas en Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
 
@@ -280,7 +280,7 @@ Las preguntas "qué, quién y cuándo" de las operaciones de escritura (PUT, POS
 
 Además, Azure Key Vault proporciona administración de secretos centralizada con directivas de acceso e historial de auditorías. 
 
-- [Habilitación de la configuración de diagnóstico para el registro de actividad de Azure](/azure/azure-monitor/platform/diagnostic-settings-legacy)
+- [Habilitación de la configuración de diagnóstico para el registro de actividad de Azure](../azure-monitor/platform/activity-log.md)
 
 - [Procedimiento para habilitar la configuración de diagnóstico en Azure App Service](troubleshoot-diagnostic-logs.md)
 
@@ -309,7 +309,7 @@ Si ha implementado una instancia de Web Application Firewall (WAF), puede superv
 
 Use Azure Sentinel, un sistema de administración de eventos de información de seguridad (SIEM) escalable y nativo de nube, para la integración con diversos orígenes de datos y conectores, según los requisitos. Opcionalmente, habilite e incorpore los datos a una solución de administración de eventos de información de seguridad de terceros de Azure Marketplace.
 
-- [Habilitación de la configuración de diagnóstico para el registro de actividad de Azure](/azure/azure-monitor/platform/diagnostic-settings-legacy)
+- [Habilitación de la configuración de diagnóstico para el registro de actividad de Azure](../azure-monitor/platform/activity-log.md)
 
 - [Habilitación de Application Insights](../azure-monitor/app/app-insights-overview.md)
 
@@ -343,7 +343,7 @@ Supervise los ataques contra sus aplicaciones de App Service mediante un registr
 
 **Guía**: Azure Active Directory (Azure AD) tiene roles integrados que se deben asignar explícitamente y que se pueden consultar. Use el módulo de PowerShell de Azure AD para realizar consultas ad hoc para detectar cuentas que son miembros de grupos administrativos.
 
-- [Obtención de los miembros de un rol de directorio en Azure AD con PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0&amp;preserve-view=true)
+- [Obtención de los miembros de un rol de directorio en Azure AD con PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?amp;preserve-view=true&view=azureadps-2.0)
 
 - [Cómo usar identidades administradas para App Service y Azure Functions](overview-managed-identity.md?context=azure%2Factive-directory%2Fmanaged-identities-azure-resources%2Fcontext%2Fmsi-context&amp;tabs=dotnet)
 
@@ -422,7 +422,7 @@ Cuando habilita la autenticación y autorización con uno de estos proveedores, 
 
 Implemente la autenticación multifactor para Azure AD. Los administradores deben asegurarse de que las cuentas de suscripción del portal están protegidas. La suscripción es vulnerable a los ataques porque administra los recursos creados. 
 
-- [MFA de seguridad de Azure](/azure/security/develop/secure-aad-app)
+- [MFA de seguridad de Azure](/previous-versions/azure/security/develop/secure-aad-app)
 
 - [Procedimiento para habilitar la MFA en Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
@@ -454,9 +454,9 @@ La protección contra amenazas de Security Center proporciona defensas completas
 
 - [Cómo implementar Privileged Identity Management (PIM)](../active-directory/privileged-identity-management/pim-deployment-plan.md)
 
-- [Información sobre las detecciones de riesgo de Azure AD](/azure/active-directory/reports-monitoring/concept-risk-events)
+- [Información sobre las detecciones de riesgo de Azure AD](../active-directory/identity-protection/overview-identity-protection.md)
 
-- [Protección contra amenazas de los recursos de proceso de Azure](/azure/security-center/threat-protection)
+- [Protección contra amenazas de los recursos de proceso de Azure](../security-center/azure-defender.md)
 
 **Supervisión de Azure Security Center**: Sí
 
@@ -488,7 +488,7 @@ La protección contra amenazas de Security Center proporciona defensas completas
 
 **Guía**: Detecte cuentas obsoletas con los registros proporcionados por Azure Active Directory (Azure AD). Use revisiones de acceso de identidad de Azure para administrar de forma eficiente las pertenencias a grupos, el acceso a las aplicaciones empresariales y las asignaciones de roles. Revise el acceso de los usuarios periódicamente para asegurarse de que solo los usuarios previstos tengan acceso continuo. 
 
-- [Descripción de los informes de Azure AD](/azure/active-directory/reports-monitoring)
+- [Descripción de los informes de Azure AD](../active-directory/reports-monitoring/index.yml)
 
 - [Procedimiento para usar las revisiones de acceso de identidad de Azure](../active-directory/governance/access-reviews-overview.md)
 
@@ -504,7 +504,7 @@ El acceso a los orígenes del registro de eventos de riesgo, auditoría y activi
 
 - [Configuración de las aplicaciones de Azure App Service para usar el inicio de sesión de Azure AD](configure-authentication-provider-aad.md)
 
-- [Integración de los registros de actividad de Azure en Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [Integración de los registros de actividad de Azure en Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 - [Incorporación de Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -520,7 +520,7 @@ Use Azure AD Identity Protection para configurar respuestas automatizadas a acc
 
 - [Configuración de una aplicación de App Service para usar el inicio de sesión de Azure AD](configure-authentication-provider-aad.md)
 
-- [Visualización de los inicios de sesión de riesgo de Azure AD](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+- [Visualización de los inicios de sesión de riesgo de Azure AD](../active-directory/identity-protection/overview-identity-protection.md)
 
 - [Configuración y habilitación de las directivas de riesgo de protección de identidad](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
 
@@ -546,7 +546,7 @@ Use Azure AD Identity Protection para configurar respuestas automatizadas a acc
 
 **Guía**: Use etiquetas para ayudar a realizar el seguimiento de los recursos de Azure que almacenan o procesan información confidencial.
 
-- [Creación y uso de etiquetas](/azure/azure-resource-manager/resource-group-using-tags)
+- [Creación y uso de etiquetas](../azure-resource-manager/management/tag-resources.md)
 
 **Supervisión de Azure Security Center**: no disponible actualmente
 
@@ -628,7 +628,7 @@ Los secretos suministrados por el cliente se cifran en reposo mientras se almace
 
 Tenga en cuenta que, aunque los sitios web pueden usar opcionalmente los discos conectados localmente como almacenamiento temporal (por ejemplo, D:\local y% TMP%), no se cifran en reposo.
 
-- [Controles de protección de datos para Azure App Service](app-service-security-controls.md)
+- [Controles de protección de datos para Azure App Service]()
 
 - [Cifrado en reposo de Azure Storage](../storage/common/storage-service-encryption.md)
 
@@ -656,9 +656,9 @@ Tenga en cuenta que, aunque los sitios web pueden usar opcionalmente los discos 
 
 Revise y siga las recomendaciones de Security Center para proteger las aplicaciones de App Service.
 
-- [Incorporación de un mecanismo continuo para validar la seguridad en la canalización de CI/CD](https://docs.microsoft.com/azure/devops/migrate/security-validation-cicd-pipeline?view=azure-devops&amp;preserve-view=true)
+- [Incorporación de un mecanismo continuo para validar la seguridad en la canalización de CI/CD](/azure/devops/migrate/security-validation-cicd-pipeline?amp;preserve-view=true&view=azure-devops)
 
-- [Implementación de las recomendaciones de evaluación de vulnerabilidades de Azure Security Center](/azure/security-center/security-center-vulnerability-assessment-recommendations)
+- [Implementación de las recomendaciones de evaluación de vulnerabilidades de Azure Security Center](../security-center/deploy-vulnerability-assessment-vm.md)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -686,7 +686,7 @@ Aunque los recursos clásicos de Azure se pueden detectar a través de Resource 
 
 - [Creación de consultas con Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
-- [Visualización de las suscripciones de Azure](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-4.8.0&amp;preserve-view=true)
+- [Visualización de las suscripciones de Azure](/powershell/module/az.accounts/get-azsubscription?amp;preserve-view=true&view=azps-4.8.0)
 
 - [Descripción de Azure RBAC](../role-based-access-control/overview.md)
 
@@ -698,7 +698,7 @@ Aunque los recursos clásicos de Azure se pueden detectar a través de Resource 
 
 **Guía**: Aplique etiquetas a los recursos de Azure mediante metadatos para organizarlos de forma lógica en una taxonomía.
 
-- [Creación y uso de etiquetas](/azure/azure-resource-manager/resource-group-using-tags)
+- [Creación y uso de etiquetas](../azure-resource-manager/management/tag-resources.md)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -715,11 +715,11 @@ Elija Azure Policy para aplicar restricciones sobre el tipo de recursos que se p
 
 Para más información, revise los vínculos a los que se hace referencia.
 
-- [Creación de suscripciones adicionales de Azure](/azure/billing/billing-create-subscription)
+- [Creación de suscripciones adicionales de Azure](../cost-management-billing/manage/create-subscription.md)
 
-- [Creación de grupos de administración](/azure/governance/management-groups/create)
+- [Creación de grupos de administración](../governance/management-groups/create-management-group-portal.md)
 
-- [Creación y uso de etiquetas](/azure/azure-resource-manager/resource-group-using-tags)
+- [Creación y uso de etiquetas](../azure-resource-manager/management/tag-resources.md)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -891,7 +891,7 @@ Aplique definiciones de directivas integradas, por ejemplo:
 
 Se recomienda documentar el proceso para aplicar las definiciones de directivas integradas para su uso estándar.   
 
-- [Visualización de los alias de Azure Policy disponibles](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-4.8.0&amp;preserve-view=true)
+- [Visualización de los alias de Azure Policy disponibles](/powershell/module/az.resources/get-azpolicyalias?amp;preserve-view=true&view=azps-4.8.0)
 
 - [Configuración y administración de Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -917,9 +917,9 @@ Se recomienda documentar el proceso para aplicar las definiciones de directivas 
 
 Use su canalización de integración continua (CI) y entrega continua (CD) existente para implementar una configuración segura conocida.
 
-- [Almacenamiento de código en Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops&amp;preserve-view=true)
+- [Almacenamiento de código en Azure DevOps](/azure/devops/repos/git/gitworkflow?amp;preserve-view=true&view=azure-devops)
 
-- [Documentación de Azure Repos](https://docs.microsoft.com/azure/devops/repos/?view=azure-devops&amp;preserve-view=true)
+- [Documentación de Azure Repos](/azure/devops/repos/?amp;preserve-view=true&view=azure-devops)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -951,11 +951,11 @@ Use los efectos de Azure Policy [audit], [deny] y [deploy if not exist] para apl
 
 **Guía**: Use identidades administradas para proporcionar a las aplicaciones de App Service una identidad administrada automáticamente en Azure Active Directory (Azure AD). Las identidades administradas permiten que las aplicaciones se autentiquen en cualquier servicio que admita la autenticación de Azure AD, como Key Vault, sin necesidad de credenciales en el código. Asegúrese de que la eliminación temporal está habilitada en Azure Key Vault.
 
-- [Habilitación de la eliminación temporal en Azure Key Vault](/azure/key-vault/key-vault-soft-delete-powershell)
+- [Habilitación de la eliminación temporal en Azure Key Vault](../key-vault/general/key-vault-recovery.md)
 
 - [Uso de identidades administradas para App Service](overview-managed-identity.md)
 
-- [Cómo proporcionar la autenticación de Key Vault con una identidad administrada](/azure/key-vault/managed-identity)
+- [Cómo proporcionar la autenticación de Key Vault con una identidad administrada](../key-vault/general/assign-access-policy-portal.md)
 
 **Supervisión de Azure Security Center**: Sí
 
@@ -967,7 +967,7 @@ Use los efectos de Azure Policy [audit], [deny] y [deploy if not exist] para apl
 
 - [Uso de identidades administradas para App Service](overview-managed-identity.md)
 
-- [Cómo proporcionar la autenticación de Key Vault con una identidad administrada](/azure/key-vault/managed-identity)
+- [Cómo proporcionar la autenticación de Key Vault con una identidad administrada](../key-vault/general/assign-access-policy-portal.md)
 
 **Supervisión de Azure Security Center**: Sí
 
@@ -1000,7 +1000,7 @@ Asegúrese de tiene lugar copias de seguridad normales y automatizadas con una f
 
 - [Funcionalidad de copia de seguridad de Azure App Service](manage-backup.md)
 
-- [Claves administradas por el cliente para el cifrado de Azure Storage](https://docs.microsoft.com/azure/storage/common/customer-managed-keys-overview?toc=/azure/storage/blobs/toc.json)
+- [Claves administradas por el cliente para el cifrado de Azure Storage](../storage/common/customer-managed-keys-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -1053,7 +1053,7 @@ De manera predeterminada, los datos de una cuenta de almacenamiento se cifran co
 
 - [Cifrado de Azure Storage para datos en reposo](../storage/common/storage-service-encryption.md)
 
-- [Habilitación de la eliminación temporal en Azure Key Vault](/azure/key-vault/key-vault-soft-delete-powershell)
+- [Habilitación de la eliminación temporal en Azure Key Vault](../key-vault/general/key-vault-recovery.md)
 
 **Supervisión de Azure Security Center**: Sí
 
@@ -1149,5 +1149,5 @@ Puede encontrar más información sobre la estrategia y puesta en marcha de un e
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Consulte la [prueba comparativa de seguridad de Azure](/azure/security/benchmarks/overview).
-- Obtenga más información sobre las [líneas de base de seguridad de Azure](/azure/security/benchmarks/security-baselines-overview).
+- Consulte la [prueba comparativa de seguridad de Azure](../security/benchmarks/overview.md).
+- Obtenga más información sobre las [líneas de base de seguridad de Azure](../security/benchmarks/security-baselines-overview.md).

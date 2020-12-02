@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/16/2020
 ms.author: Zhchia
-ms.openlocfilehash: f060a6ee2b5968c1d1daf3c668b6e7009b6ccd69
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 0efb451997b0ed842e6757a7e6b30dd88b33f4aa
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94358140"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96177912"
 ---
 # <a name="tutorial-configure-juno-journey-for-automatic-user-provisioning"></a>Tutorial: Configuración de Juno Journey para el aprovisionamiento automático de usuarios
 
@@ -35,7 +35,7 @@ En este tutorial, se describen los pasos que debe realizar en Juno Journey y Azu
 En el escenario descrito en este tutorial se supone que ya cuenta con los requisitos previos siguientes:
 
 * [Un inquilino de Azure AD](../develop/quickstart-create-new-tenant.md) 
-* Una cuenta de usuario en Azure AD con [permiso](../users-groups-roles/directory-assign-admin-roles.md) para configurar el aprovisionamiento (por ejemplo, Administrador de aplicaciones, Administrador de aplicaciones en la nube, Propietario de la aplicación o Administrador global). 
+* Una cuenta de usuario en Azure AD con [permiso](../roles/permissions-reference.md) para configurar el aprovisionamiento (por ejemplo, Administrador de aplicaciones, Administrador de aplicaciones en la nube, Propietario de la aplicación o Administrador global). 
 *  Un [inquilino de Juno Journey](https://www.junojourney.com/getstarted).
 *  Una cuenta de usuario de Juno Journey con permisos de administrador.
 
@@ -46,7 +46,7 @@ En el escenario descrito en este tutorial se supone que ya cuenta con los requis
 
 ## <a name="step-2-configure-juno-journey-to-support-provisioning-with-azure-ad"></a>Paso 2. Configuración de Juno Journey para admitir el aprovisionamiento con Azure AD
 
-1. Para obtener el **token secreto** y la **dirección URL de inquilino** , póngase en contacto con el equipo de soporte técnico de Juno Journey a través del correo support@the-juno.com. Este valor se escribirá en los campos **Token secreto** y **Dirección URL de inquilino** , respectivamente, de la pestaña Aprovisionamiento de la aplicación Juno Journey en Azure Portal. 
+1. Para obtener el **token secreto** y la **dirección URL de inquilino**, póngase en contacto con el equipo de soporte técnico de Juno Journey a través del correo support@the-juno.com. Este valor se escribirá en los campos **Token secreto** y **Dirección URL de inquilino**, respectivamente, de la pestaña Aprovisionamiento de la aplicación Juno Journey en Azure Portal. 
 
 ## <a name="step-3-add-juno-journey-from-the-azure-ad-application-gallery"></a>Paso 3. Adición de Juno Journey desde la galería de aplicaciones de Azure AD
 
@@ -83,17 +83,17 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Captura de pantalla de la lista desplegable Modo de aprovisionamiento con la opción Automático seleccionada.](common/provisioning-automatic.png)
 
-5. En la sección **Credenciales de administrador** , escriba el valor de **URL de inquilino** recuperado anteriormente. Escriba el valor del token secreto recuperado anteriormente en **Token secreto**. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a Juno Journey. Si la conexión no se establece, asegúrese de que la cuenta de Juno Journey tiene permisos de administrador y pruebe de nuevo.
+5. En la sección **Credenciales de administrador**, escriba el valor de **URL de inquilino** recuperado anteriormente. Escriba el valor del token secreto recuperado anteriormente en **Token secreto**. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a Juno Journey. Si la conexión no se establece, asegúrese de que la cuenta de Juno Journey tiene permisos de administrador y pruebe de nuevo.
 
     ![Captura de pantalla que muestra el cuadro de diálogo Credenciales de administrador, en el que se puede especificar el URL de inquilino y el secreto de inquilino.](./media/juno-journey-provisioning-tutorial/provisioning.png)
 
-6. En el campo **Correo electrónico de notificación** , escriba la dirección de correo electrónico de una persona o grupo que deba recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
+6. En el campo **Correo electrónico de notificación**, escriba la dirección de correo electrónico de una persona o grupo que deba recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
 
     ![Correo electrónico de notificación](common/provisioning-notification-email.png)
 
 7. Seleccione **Guardar**.
 
-8. En la sección **Asignaciones** , seleccione **Synchronize Azure Active Directory Users to Juno Journey** (Sincronizar usuarios de Azure Active Directory con Juno Journey).
+8. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Users to Juno Journey** (Sincronizar usuarios de Azure Active Directory con Juno Journey).
 
 9. Examine los atributos de usuario que se sincronizan entre Azure AD y Juno Journey en la sección **Asignación de atributos**. Los atributos seleccionados como propiedades de **Coincidencia** se usan para buscar coincidencias con las cuentas de usuario de Juno Journey para las operaciones de actualización. Si decide cambiar el [atributo de destino coincidente](../app-provisioning/customize-application-attributes.md), deberá asegurarse de que la API de Juno Journey admite el filtrado de usuarios basado en ese atributo. Seleccione el botón **Guardar** para confirmar los cambios.
 
@@ -133,7 +133,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Estado de aprovisionamiento activado](common/provisioning-toggle-on.png)
 
-12. Elija los valores deseados en **Ámbito** , en la sección **Configuración** , para definir los usuarios o grupos que quiere que se aprovisionen en Juno Journey.
+12. Elija los valores deseados en **Ámbito**, en la sección **Configuración**, para definir los usuarios o grupos que quiere que se aprovisionen en Juno Journey.
 
     ![Ámbito del aprovisionamiento](common/provisioning-scope.png)
 

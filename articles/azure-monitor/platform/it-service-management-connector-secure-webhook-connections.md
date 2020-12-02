@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 09/08/2020
-ms.openlocfilehash: 85ff3bed2a648f852c311fefa8513622c2a48285
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.openlocfilehash: 4d12a7ec76f3390aabc7b45aeb0cd8cedcc6febd
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94376543"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186480"
 ---
 # <a name="connect-azure-to-itsm-tools-by-using-secure-export"></a>Conexión de Azure a las herramientas de ITSM mediante Exportación segura
 
@@ -60,8 +60,8 @@ Empiece a usar la herramienta del Conector de Administración de servicios de TI
 3. Configurar el entorno del asociado. 
 
 Exportación segura admite conexiones con las siguientes herramientas ITSM:
-* [ServiceNow](https://docs.microsoft.com/azure/azure-monitor/platform/it-service-management-connector-secure-webhook-connections#connect-servicenow-to-azure-monitor)
-* [BMC Helix](https://docs.microsoft.com/azure/azure-monitor/platform/it-service-management-connector-secure-webhook-connections#connect-bmc-helix-to-azure-monitor)
+* [ServiceNow](#connect-servicenow-to-azure-monitor)
+* [BMC Helix](#connect-bmc-helix-to-azure-monitor)
 
 ## <a name="register-with-azure-active-directory"></a>Registro con Azure Active Directory
 
@@ -90,7 +90,7 @@ Para agregar un webhook a una acción, siga estas instrucciones para Webhook seg
 5. Seleccione **Webhook seguro**.
 6. Seleccione estos detalles:
    1. Seleccione el id. de objeto de la instancia de Azure Active Directory que registró.
-   2. En el URI, pegue la dirección URL del webhook que copió del [entorno de la herramienta ITSM](https://docs.microsoft.com/azure/azure-monitor/platform/it-service-management-connector-secure-webhook-connections#configure-the-partner-environment).
+   2. En el URI, pegue la dirección URL del webhook que copió del [entorno de la herramienta ITSM](#configure-the-itsm-tool-environment).
    3. Establezca **Habilitar el esquema de alerta común** en **Sí**. 
 
    En la imagen siguiente se muestra la configuración de una acción de webhook seguro de ejemplo:

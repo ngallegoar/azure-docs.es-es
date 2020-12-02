@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/28/2020
 ms.author: jeedes
-ms.openlocfilehash: d0113ea684b9b2fb26eac1fb5ceec5b53aef677f
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: e690a761efcd16428f9da8fe53e5dd8d26e9ff79
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94359755"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96181295"
 ---
 # <a name="tutorial-configure-workplace-by-facebook-for-automatic-user-provisioning"></a>Tutorial: Configuración de Workplace by Facebook para el aprovisionamiento automático de usuarios
 
@@ -35,7 +35,7 @@ En este tutorial, se describen los pasos que debe realizar en Workplace by Faceb
 En el escenario descrito en este tutorial se supone que ya cuenta con los requisitos previos siguientes:
 
 * [Un inquilino de Azure AD](../develop/quickstart-create-new-tenant.md) 
-* Una cuenta de usuario en Azure AD con [permiso](../users-groups-roles/directory-assign-admin-roles.md) para configurar el aprovisionamiento (por ejemplo, Administrador de aplicaciones, Administrador de aplicaciones en la nube, Propietario de la aplicación o Administrador global).
+* Una cuenta de usuario en Azure AD con [permiso](../roles/permissions-reference.md) para configurar el aprovisionamiento (por ejemplo, Administrador de aplicaciones, Administrador de aplicaciones en la nube, Propietario de la aplicación o Administrador global).
 * Una suscripción habilitada para inicio de sesión único de Workplace by Facebook
 
 > [!NOTE]
@@ -87,19 +87,19 @@ El servicio de aprovisionamiento de Azure AD le permite definir quién se aprov
 
     ![Captura de pantalla de la lista desplegable Modo de aprovisionamiento con la opción Automático seleccionada.](common/provisioning-automatic.png)
 
-5. En **Credenciales de administrador** , haga clic en **Autorizar**. Se le redirigirá a la página de autorización de Workplace by Facebook. Escriba el nombre de usuario de Workplace by Facebook y haga clic en el botón **Continuar**. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a Workplace by Facebook. Si la conexión no se establece, asegúrese de que la cuenta de Workplace by Facebook tiene permisos de administrador y vuelva a intentarlo.
+5. En **Credenciales de administrador**, haga clic en **Autorizar**. Se le redirigirá a la página de autorización de Workplace by Facebook. Escriba el nombre de usuario de Workplace by Facebook y haga clic en el botón **Continuar**. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a Workplace by Facebook. Si la conexión no se establece, asegúrese de que la cuenta de Workplace by Facebook tiene permisos de administrador y vuelva a intentarlo.
 
     ![Captura de pantalla que muestra el cuadro de diálogo Credenciales de administrador con una opción de autorización.](./media/workplacebyfacebook-provisioning-tutorial/provisioning.png)
 
     ![autorización](./media/workplacebyfacebook-provisioning-tutorial/workplacelogin.png)
 
-6. En el campo **Correo electrónico de notificación** , escriba la dirección de correo electrónico de una persona o grupo que deba recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
+6. En el campo **Correo electrónico de notificación**, escriba la dirección de correo electrónico de una persona o grupo que deba recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
 
     ![Correo electrónico de notificación](common/provisioning-notification-email.png)
 
 7. Seleccione **Guardar**.
 
-8. En la sección **Asignaciones** , seleccione **Synchronize Azure Active Directory Users to Workplace by Facebook** (Sincronizar usuarios de Azure Active Directory con Workplace by Facebook).
+8. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Users to Workplace by Facebook** (Sincronizar usuarios de Azure Active Directory con Workplace by Facebook).
 
 9. Revise los atributos de usuario que se sincronizan entre Azure AD y Workplace by Facebook en la sección **Attribute Mappings** (Asignaciones de atributos). Los atributos seleccionados como propiedades de **Coincidencia** se usan para buscar coincidencias con las cuentas de usuario de Workplace by Facebook con el objetivo de realizar operaciones de actualización. Si decide cambiar el [atributo de destino coincidente](../app-provisioning/customize-application-attributes.md), deberá asegurarse de que la API de Workplace by Facebook admite el filtrado de usuarios basado en ese atributo. Seleccione el botón **Guardar** para confirmar los cambios.
 
@@ -142,7 +142,7 @@ El servicio de aprovisionamiento de Azure AD le permite definir quién se aprov
 
     ![Estado de aprovisionamiento activado](common/provisioning-toggle-on.png)
 
-12. Elija los valores deseados en **Ámbito** , en la sección **Configuración** , para definir los usuarios o grupos que desea que se aprovisionen en Workplace by Facebook.
+12. Elija los valores deseados en **Ámbito**, en la sección **Configuración**, para definir los usuarios o grupos que desea que se aprovisionen en Workplace by Facebook.
 
     ![Ámbito del aprovisionamiento](common/provisioning-scope.png)
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 58f0ffa8bd43a8428603334b6c89fa1cf36315b5
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: ba22745923f1b157c477dce0b5704c7e278e748e
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94987344"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96176008"
 ---
 # <a name="frequently-asked-questions-identity-protection-in-azure-active-directory"></a>Preguntas más frecuentes sobre Identity Protection en Azure Active Directory
 
@@ -38,7 +38,7 @@ Si es un cliente de Azure AD Identity Protection, vaya a la vista [de usuarios d
 ## <a name="why-was-my-sign-in-blocked-but-identity-protection-didnt-generate-a-risk-detection"></a>¿Por qué se bloqueó mi inicio de sesión, pero Identity Protection no generó una detección de riesgos?
 Los inicios de sesión se pueden bloquear por varios motivos. Debe tener en cuenta que Identity Protection solo genera detecciones de riesgo cuando se usan las credenciales correctas en la solicitud de autenticación. Si un usuario usa credenciales incorrectas, no se marcará con Identity Protection, ya que no hay riesgo de que las credenciales se pongan en peligro a menos que un infiltrado use las credenciales correctas. Algunos de los motivos por los que se podría bloquear a un usuario sin generar una detección de Identity Protection incluyen:
 * La **IP se puede bloquear** debido a actividad malintencionada de la dirección IP. El mensaje IP bloqueada no distingue si las credenciales son correctas o no. Si la dirección IP está bloqueada y no se usan credenciales correctas, no se generará una detección de Identity Protection.
-* El **[bloqueo inteligente](https://docs.microsoft.com/azure/active-directory/authentication/howto-password-smart-lockout)** puede impedir que la cuenta inicie sesión después de varios intentos erróneos.
+* El **[bloqueo inteligente](../authentication/howto-password-smart-lockout.md)** puede impedir que la cuenta inicie sesión después de varios intentos erróneos.
 * Se puede aplicar una **directiva de acceso condicional** que use condiciones distintas del nivel de riesgo para bloquear una solicitud de autenticación.
 
 ### <a name="how-can-i-get-a-report-of-detections-of-a-specific-type"></a>¿Cómo puedo obtener un informe de las detecciones de un tipo específico?
@@ -93,6 +93,4 @@ Dado que el riesgo del usuario es de naturaleza acumulativa y no expira, un usua
 
 ### <a name="why-does-a-sign-in-have-a-sign-in-risk-aggregate-score-of-high-when-the-detections-associated-with-it-are-of-low-or-medium-risk"></a>¿Por qué un inicio de sesión tiene una puntuación alta en "sign-in risk (aggregate)" [Riesgo de inicio de sesión (agregado)] cuando las detecciones asociadas con él son de riesgo medio o bajo?
 
-La puntuación agregada de riesgo alto podría basarse en otras características del inicio de sesión, o en el hecho de que se desencadenó más de una detección para ese inicio de sesión. Y a la inversa, un inicio de sesión puede tener un riesgo de inicio de sesión (agregado) de nivel Medio, incluso si las detecciones asociadas con el inicio de sesión son de riesgo alto. 
-
-
+La puntuación agregada de riesgo alto podría basarse en otras características del inicio de sesión, o en el hecho de que se desencadenó más de una detección para ese inicio de sesión. Y a la inversa, un inicio de sesión puede tener un riesgo de inicio de sesión (agregado) de nivel Medio, incluso si las detecciones asociadas con el inicio de sesión son de riesgo alto.

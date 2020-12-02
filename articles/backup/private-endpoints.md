@@ -4,11 +4,11 @@ description: Comprenda el proceso de creación de puntos de conexión privados p
 ms.topic: conceptual
 ms.date: 05/07/2020
 ms.openlocfilehash: 0ca4e7a83e18ac72e25131d320737ce9578b1cf3
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92172245"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184761"
 ---
 # <a name="private-endpoints-for-azure-backup"></a>Puntos de conexión privados para Azure Backup
 
@@ -77,7 +77,7 @@ Se recomienda conceder el rol **Colaborador** para estos tres grupos de recursos
 
     ![Adición de una asignación de roles](./media/private-endpoints/add-role-assignment.png)
 
-1. En el panel de **Agregar asignación de roles**, seleccione **Colaborador** como **Rol**y use el **Nombre** del almacén como **Entidad de seguridad**. Seleccione el almacén y, cuando haya terminado, seleccione **Guardar**.
+1. En el panel de **Agregar asignación de roles**, seleccione **Colaborador** como **Rol** y use el **Nombre** del almacén como **Entidad de seguridad**. Seleccione el almacén y, cuando haya terminado, seleccione **Guardar**.
 
     ![Elegir rol y entidad de seguridad](./media/private-endpoints/choose-role-and-principal.png)
 

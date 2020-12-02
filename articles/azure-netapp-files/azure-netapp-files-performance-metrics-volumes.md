@@ -7,12 +7,12 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: conceptual
 ms.date: 08/07/2019
-ms.openlocfilehash: cf25ef59bc1ea5db61dcfb3c76c0d978cb1f95d0
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: b41575208d0793a33864556ec4313ae1a71f2db5
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91931843"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184474"
 ---
 # <a name="performance-benchmark-test-recommendations-for-azure-netapp-files"></a>Banco de pruebas de rendimiento de recomendaciones de pruebas para Azure NetApp Files
 
@@ -24,7 +24,7 @@ Para entender las características de rendimiento de un volumen de Azure NetApp 
 
 ### <a name="vm-instance-sizing"></a>Tamaño de instancia de la máquina virtual
 
-Para obtener mejores resultados, asegúrese de usar una instancia de máquina virtual (VM) que tiene el tamaño adecuado para realizar las pruebas. En los ejemplos siguientes se usa una instancia Standard_D32s_v3. Para más información sobre los tamaños de las instancias de la máquina virtual, consulte [Tamaños de las máquinas virtuales Windows en Azure](../virtual-machines/sizes.md?toc=%252fazure%252fvirtual-network%252ftoc.json) para las máquinas virtuales basadas en Windows y [Tamaños de las máquinas virtuales Linux en Azure](../virtual-machines/sizes.md?toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json) para las máquinas virtuales basadas en Linux.
+Para obtener mejores resultados, asegúrese de usar una instancia de máquina virtual (VM) que tiene el tamaño adecuado para realizar las pruebas. En los ejemplos siguientes se usa una instancia Standard_D32s_v3. Para más información sobre los tamaños de las instancias de la máquina virtual, consulte [Tamaños de las máquinas virtuales Windows en Azure](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) para las máquinas virtuales basadas en Windows y [Tamaños de las máquinas virtuales Linux en Azure](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para las máquinas virtuales basadas en Linux.
 
 ### <a name="azure-netapp-files-volume-sizing"></a>Ajuste del tamaño en Azure NetApp Files
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/17/2019
 ms.author: kenwith
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: 010e2a206ef08677651572c274cfc38fd516ecc9
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: e741bd6c87ea32b0d92b1dd53112a1bed3e4cd38
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93041128"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96174924"
 ---
 # <a name="plan-an-automatic-user-provisioning-deployment"></a>Planeamiento de una implementación del aprovisionamiento automático de usuarios
 
@@ -157,7 +157,7 @@ Los pasos que son necesarios para habilitar y configurar el aprovisionamiento au
 
 Si no es así, siga estos pasos:
 
-1. [Cree una solicitud](../azuread-dev/howto-app-gallery-listing.md) para un conector de aprovisionamiento de usuarios integrado previamente. Nuestro equipo trabajará con usted y con el desarrollador de la aplicación para incorporar la aplicación a nuestra plataforma si es compatible con SCIM.
+1. [Cree una solicitud](../develop/v2-howto-app-gallery-listing.md) para un conector de aprovisionamiento de usuarios integrado previamente. Nuestro equipo trabajará con usted y con el desarrollador de la aplicación para incorporar la aplicación a nuestra plataforma si es compatible con SCIM.
 
 1. Use la compatibilidad con el aprovisionamiento genérico de usuarios [BYOA SCIM](../app-provisioning/use-scim-to-provision-users-and-groups.md) de la aplicación. Este es un requisito de Azure AD para aprovisionar usuarios en la aplicación sin un conector de aprovisionamiento integrado previamente.
 
@@ -300,11 +300,11 @@ Consulte los vínculos siguientes para solucionar los problemas que pueden surgi
 
 * [Sincronización de un atributo de Active Directory local con Azure AD para el aprovisionamiento en una aplicación](../app-provisioning/user-provisioning-sync-attributes-for-mapping.md)
 
-* [Problema al guardar las credenciales de administrador al configurar el aprovisionamiento de usuarios em una aplicación de galería de Azure Active Directory](../app-provisioning/application-provisioning-config-problem-storage-limit.md)
+* [Problema al guardar las credenciales de administrador al configurar el aprovisionamiento de usuarios em una aplicación de galería de Azure Active Directory](./user-provisioning.md)
 
 * [No se aprovisionan usuarios en una aplicación de la galería de Azure AD](../app-provisioning/application-provisioning-config-problem-no-users-provisioned.md)
 
-* [Aprovisionamiento de un conjunto de usuarios incorrecto en una aplicación de la galería de Azure AD](../app-provisioning/application-provisioning-config-problem-wrong-users-provisioned.md)
+* [Aprovisionamiento de un conjunto de usuarios incorrecto en una aplicación de la galería de Azure AD](../manage-apps/add-application-portal-assign-users.md)
 
 ### <a name="helpful-documentation"></a>Documentación útil
 

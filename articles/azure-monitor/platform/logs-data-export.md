@@ -7,12 +7,12 @@ ms.custom: references_regions, devx-track-azurecli
 author: bwren
 ms.author: bwren
 ms.date: 10/14/2020
-ms.openlocfilehash: 1813da8a8a812eeded235d71c351ec352c42707c
-ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
+ms.openlocfilehash: d2e93ccfaf3ff2c5b74ceef1f6a274f71ee52c4e
+ms.sourcegitcommit: ac7029597b54419ca13238f36f48c053a4492cb6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94920090"
+ms.lasthandoff: 11/29/2020
+ms.locfileid: "96309841"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Exportación de datos del área de trabajo de Log Analytics en Azure Monitor (versión preliminar)
 La exportación de datos del área de trabajo de Log Analytics en Azure Monitor permite exportar continuamente los datos de las tablas seleccionadas del área de trabajo de Log Analytics en una cuenta de Azure Storage o Azure Event Hubs a medida que se recopilan. En este artículo se ofrecen detalles sobre esta característica y pasos para configurar la exportación de datos en las áreas de trabajo.
@@ -68,7 +68,7 @@ Los datos se envían cada hora a las cuentas de almacenamiento. La configuració
 
 La ruta de acceso a los blobs de la cuenta de almacenamiento es *WorkspaceResourceId=/subscriptions/subscription-id/resourcegroups/\<resource-group\>/providers/microsoft.operationalinsights/workspaces/\<workspace\>/y=\<four-digit numeric year\>/m=\<two-digit numeric month\>/d=\<two-digit numeric day\>/h=\<two-digit 24-hour clock hour\>/m=00/PT1H.json*. Dado que los blobs en anexos están limitados a 50 000 escrituras en el almacenamiento, el número de blobs exportados puede ampliarse si el número de anexos es elevado. El patrón de nomenclatura de los blobs sería PT1H_#.json en este caso, donde # corresponde al incremento del número de blobs.
 
-El formato de los datos de la cuenta de almacenamiento es en [líneas JSON](diagnostic-logs-append-blobs.md). Esto significa que todos los registros se delimitan mediante una nueva línea, sin matrices de registros exteriores y sin comas entre los registros JSON. 
+El formato de los datos de la cuenta de almacenamiento es en [líneas JSON](./resource-logs-blob-format.md). Esto significa que todos los registros se delimitan mediante una nueva línea, sin matrices de registros exteriores y sin comas entre los registros JSON. 
 
 [![Datos de ejemplo de almacenamiento](media/logs-data-export/storage-data.png)](media/logs-data-export/storage-data.png#lightbox)
 
@@ -78,7 +78,7 @@ La exportación de datos de Log Analytics puede escribir blobs en anexos en cuen
 Los datos se envían al centro de eventos prácticamente en tiempo real a medida que llegan a Azure Monitor. Se crea un centro de eventos para cada tipo de datos que se exporta con el nombre *am-* seguido del nombre de la tabla. Por ejemplo, la tabla *SecurityEvent* se enviaría a un centro de eventos denominado *am-SecurityEvent*. Si quiere que los datos exportados lleguen a un centro de eventos específico, o si tiene una tabla con un nombre que supere el límite de 47 caracteres, puede proporcionar el nombre de su propio centro de eventos y exportar todos los datos para las tablas definidas en él.
 
 Consideraciones:
-1. La SKU del centro de eventos 'básico' admite un [límite](https://docs.microsoft.com/azure/event-hubs/event-hubs-quotas#basic-vs-standard-tiers) de tamaño de evento inferior y algunos registros del área de trabajo pueden superarlo y quitarse. Recomendamos que se use el centro de eventos 'estándar' o 'dedicado' como destino de exportación.
+1. La SKU del centro de eventos 'básico' admite un [límite](../../event-hubs/event-hubs-quotas.md#basic-vs-standard-tiers) de tamaño de evento inferior y algunos registros del área de trabajo pueden superarlo y quitarse. Recomendamos que se use el centro de eventos 'estándar' o 'dedicado' como destino de exportación.
 2. El volumen de los datos exportados suele aumentar con el tiempo, y es necesario aumentar la escala del centro de eventos para administrar velocidades de transferencia mayores, así como para evitar escenarios de limitación y latencia de datos. Debe usar la característica de inflado automático de Event Hubs para escalar verticalmente y aumentar el número de unidades de procesamiento de forma automática y, de este modo, satisfacer las necesidades de uso. Consulte [Escalado vertical y automático de las unidades de procesamiento de Azure Event Hubs](../../event-hubs/event-hubs-auto-inflate.md) para obtener más información.
 
 ## <a name="prerequisites"></a>Requisitos previos
@@ -117,6 +117,10 @@ Si ha configurado la cuenta de almacenamiento para permitir el acceso desde las 
 ### <a name="create-or-update-data-export-rule"></a>Creación o actualización de una regla de exportación de datos
 Una regla de exportación de datos define los datos que se van a exportar para un conjunto de tablas a un único destino. Puede crear una regla para cada destino.
 
+
+# <a name="azure-portal"></a>[Azure Portal](#tab/portal)
+
+N/D
 
 # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
@@ -203,6 +207,10 @@ El siguiente es un cuerpo de ejemplo para la solicitud REST para un centro de ev
 
 ## <a name="view-data-export-configuration"></a>Consulta de la configuración de la exportación de datos
 
+# <a name="azure-portal"></a>[Azure Portal](#tab/portal)
+
+N/D
+
 # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
 Use el siguiente comando para ver la configuración de una regla de exportación de datos mediante la CLI.
@@ -221,6 +229,10 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/
 ---
 
 ## <a name="disable-an-export-rule"></a>Deshabilitación de una regla de exportación
+
+# <a name="azure-portal"></a>[Azure Portal](#tab/portal)
+
+N/D
 
 # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
@@ -256,6 +268,10 @@ Content-type: application/json
 
 ## <a name="delete-an-export-rule"></a>Eliminación de una regla de exportación
 
+# <a name="azure-portal"></a>[Azure Portal](#tab/portal)
+
+N/D
+
 # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
 Use el siguiente comando para eliminar una regla de exportación de datos mediante la CLI.
@@ -274,6 +290,10 @@ DELETE https://management.azure.com/subscriptions/<subscription-id>/resourcegrou
 ---
 
 ## <a name="view-all-data-export-rules-in-a-workspace"></a>Consulta de todas las reglas de exportación de datos en un área de trabajo
+
+# <a name="azure-portal"></a>[Azure Portal](#tab/portal)
+
+N/D
 
 # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 

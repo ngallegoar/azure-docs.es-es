@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 04/20/2020
 ms.author: apimpm
-ms.openlocfilehash: c7f0e98b5ea2fdd13b1daa9fd9737998eb6cfaf1
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: 466af29a3f073f73d4a0fc62d74709cd59f82425
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "96010221"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183794"
 ---
 # <a name="upgrade-and-scale-an-azure-api-management-instance"></a>Actualización y escalado de una instancia de Azure API Management  
 
@@ -80,7 +80,7 @@ Puede cambiar un nivel por otro superior o inferior. El cambio a un nivel superi
 Si va a escalar desde o hasta el nivel Desarrollador, habrá tiempo de inactividad. De lo contrario, no hay tiempo de inactividad. 
 
 ## <a name="compute-isolation"></a>Aislamiento de proceso
-Si los requisitos de seguridad incluyen [aislamiento de proceso](https://docs.microsoft.com/azure/azure-government/azure-secure-isolation-guidance#compute-isolation), puede usar el plan de tarifa **Aislado**. Este nivel garantiza que los recursos de proceso de una instancia de servicio de API Management consuman todo el host físico y proporcionen el nivel de aislamiento necesario para admitir, por ejemplo, las cargas de trabajo de nivel de impacto 5 (IL5) del Departamento de Defensa de Estados Unidos. Para obtener acceso al nivel aislado, [cree una incidencia de soporte técnico](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). 
+Si los requisitos de seguridad incluyen [aislamiento de proceso](../azure-government/azure-secure-isolation-guidance.md#compute-isolation), puede usar el plan de tarifa **Aislado**. Este nivel garantiza que los recursos de proceso de una instancia de servicio de API Management consuman todo el host físico y proporcionen el nivel de aislamiento necesario para admitir, por ejemplo, las cargas de trabajo de nivel de impacto 5 (IL5) del Departamento de Defensa de Estados Unidos. Para obtener acceso al nivel aislado, [cree una incidencia de soporte técnico](../azure-portal/supportability/how-to-create-azure-support-request.md). 
 
 
 

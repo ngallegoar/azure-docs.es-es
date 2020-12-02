@@ -7,12 +7,12 @@ ms.date: 01/27/2020
 ms.topic: how-to
 ms.service: azure-supportability
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: 7486cee351880dc0465a43b1259a5f07ef31c77b
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 550c011bb9f4aeb99a4dcb8da0e7ae2be4202788
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173298"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185885"
 ---
 # <a name="quota-increase-requests"></a>Solicitudes de aumento de cuota
 
@@ -24,7 +24,6 @@ Puede solicitar un aumento del límite de la cuota de vCPU para la serie de máq
 Cuando se crea una suscripción, el número total de vCPU regionales predeterminadas no puede ser igual a la suma de las cuotas de vCPU predeterminadas de todas las series individuales de máquina virtual. Este hecho puede dar lugar a una suscripción con suficiente cuota para cada serie individual de máquina virtual que quiera implementar. Pudiera ser que no hubiese cuota suficiente para el número total de vCPU regionales en todas las implementaciones. En este caso, deberá enviar una solicitud para aumentar explícitamente el límite del número total de vCPU regionales. El límite del número total de vCPU regionales no puede superar la suma de la cuota aprobada en todas las series de máquina virtual de la región.
 
 > [!NOTE]
-> Si desea aumentar el límite o la cuota por encima del límite predeterminado, [abra una solicitud de soporte técnico al cliente en línea sin cargo alguno](https://docs.microsoft.com/azure/azure-resource-manager/templates/error-resource-quota#solution).
+> Si desea aumentar el límite o la cuota por encima del límite predeterminado, [abra una solicitud de soporte técnico al cliente en línea sin cargo alguno](../../azure-resource-manager/templates/error-resource-quota.md#solution).
 
 Para más información sobre las cuotas, consulte [Cuotas de vCPU de máquinas virtuales](../../virtual-machines/windows/quotas.md) en [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../../azure-resource-manager/management/azure-subscription-service-limits.md).
-
