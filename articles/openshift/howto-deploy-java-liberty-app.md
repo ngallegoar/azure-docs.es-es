@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 10/30/2020
 keywords: java, jakartaee, javaee, microprofile, open-liberty, websphere-liberty, aro, openshift, red hat
-ms.openlocfilehash: 41891b58942efbfd705747cc16219185f2a2daa2
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 0c17c911d1eefe646785314a26b6a9b1e964ca67
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95018399"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96493959"
 ---
 # <a name="deploy-a-java-application-with-open-libertywebsphere-liberty-on-an-azure-red-hat-openshift-4-cluster"></a>Implementación de una aplicación Java con Open Liberty/WebSphere Liberty en un clúster de Red Hat OpenShift en Azure 4
 
@@ -25,26 +25,26 @@ En esta guía se muestra cómo ejecutar una aplicación Java, Java EE, [Jakarta
 Complete estos requisitos previos para recorrer correctamente esta guía.
 
 > [!NOTE]
-> Red Hat OpenShift en Azure requiere 40 núcleos como mínimo para crear y ejecutar un clúster de OpenShift. La cuota predeterminada de recursos de Azure para una suscripción nueva de Azure no cumple este requisito. Para solicitar un aumento del límite de recursos, consulte [Cuota estándar: Aumento de los límites por serie de máquinas virtuales](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests). Tenga en cuenta que la suscripción de evaluación gratuita no es válida para un aumento de cuota, por lo que debe [actualizar a una suscripción de pago por uso](https://docs.microsoft.com/azure/cost-management-billing/manage/upgrade-azure-subscription) antes de solicitar ese aumento.
+> Red Hat OpenShift en Azure requiere 40 núcleos como mínimo para crear y ejecutar un clúster de OpenShift. La cuota predeterminada de recursos de Azure para una suscripción nueva de Azure no cumple este requisito. Para solicitar un aumento del límite de recursos, consulte [Cuota estándar: Aumento de los límites por serie de máquinas virtuales](../azure-portal/supportability/per-vm-quota-requests.md). Tenga en cuenta que la suscripción de evaluación gratuita no es válida para un aumento de cuota, por lo que debe [actualizar a una suscripción de pago por uso](../cost-management-billing/manage/upgrade-azure-subscription.md) antes de solicitar ese aumento.
 
 1. Prepare una máquina local con un sistema operativo similar a Unix instalado (por ejemplo, Ubuntu o macOS).
 1. Instale una implementación de Java SE (por ejemplo, [AdoptOpenJDK OpenJDK 8 LTS/OpenJ9](https://adoptopenjdk.net/?variant=openjdk8&jvmVariant=openj9)).
 1. Instale [Maven](https://maven.apache.org/download.cgi) 3.5.0 o una versión superior.
 1. Instale [Docker](https://docs.docker.com/get-docker/) para el sistema operativo.
-1. Instale la [CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) 2.0.75 o una versión posterior.
+1. Instale la [CLI de Azure](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest) 2.0.75 o una versión posterior.
 1. Compruebe e instale [`envsubst`](https://command-not-found.com/envsubst) si no está preinstalado en el sistema operativo.
 1. Clone el código para este ejemplo en el sistema local. El ejemplo se encuentra en [GitHub](https://github.com/Azure-Samples/open-liberty-on-aro).
-1. Siga las instrucciones que aparecen en [Creación de un clúster de Red Hat OpenShift en Azure 4](/azure/openshift/tutorial-create-cluster).
+1. Siga las instrucciones que aparecen en [Creación de un clúster de Red Hat OpenShift en Azure 4](./tutorial-create-cluster.md).
 
    Si bien el paso "Obtención de un secreto de extracción de Red Hat" está etiquetado como opcional, **es necesario para este artículo**.  El secreto de extracción permite que el clúster de Red Hat OpenShift en Azure busque el operador de Open Liberty.
 
    Si planea ejecutar en el clúster aplicaciones que utilizan mucha memoria, especifique el tamaño de máquina virtual correspondiente para los nodos de trabajo mediante el parámetro `--worker-vm-size`. Por ejemplo, `Standard_E4s_v3` es el tamaño de máquina virtual mínimo para instalar el operador de Elasticsearch en un clúster. Para más información, consulte:
 
-   * [CLI de Azure para crear un clúster](https://docs.microsoft.com/cli/azure/aro?view=azure-cli-latest&preserve-view=true#az-aro-create)
-   * [Tamaños de máquina virtual admitidos para la memoria optimizada](/azure/openshift/support-policies-v4#memory-optimized)
+   * [CLI de Azure para crear un clúster](/cli/azure/aro?preserve-view=true&view=azure-cli-latest#az-aro-create)
+   * [Tamaños de máquina virtual admitidos para la memoria optimizada](./support-policies-v4.md#memory-optimized)
    * [Requisitos previos para instalar el operador de Elasticsearch](https://docs.openshift.com/container-platform/4.3/logging/cluster-logging-deploying.html#cluster-logging-deploy-eo-cli_cluster-logging-deploying)
 
-1. Para conectarse al clúster, siga los pasos que aparecen en [Conexión a un clúster de Red Hat OpenShift en Azure 4](/azure/openshift/tutorial-connect-cluster).
+1. Para conectarse al clúster, siga los pasos que aparecen en [Conexión a un clúster de Red Hat OpenShift en Azure 4](./tutorial-connect-cluster.md).
    * Asegúrese de seguir los pasos que aparecen en "Instalación de la CLI de OpenShift", porque usaremos el comando `oc` más adelante en este artículo.
    * Anota la dirección URL de la consola del clúster, que tiene este aspecto: `https://console-openshift-console.apps.<random>.<region>.aroapp.io/`.
    * Anote las credenciales de `kubeadmin`.
@@ -314,7 +314,7 @@ oc delete -f openlibertyapplication.yaml
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Para eliminar el clúster de ARO, siga los pasos que aparecen en [Tutorial: Eliminación de un clúster de Red Hat OpenShift en Azure 4](/azure/openshift/tutorial-delete-cluster)
+Para eliminar el clúster de ARO, siga los pasos que aparecen en [Tutorial: Eliminación de un clúster de Red Hat OpenShift en Azure 4](./tutorial-delete-cluster.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

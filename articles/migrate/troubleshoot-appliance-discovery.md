@@ -6,12 +6,12 @@ ms.manager: abhemraj
 ms.author: hamusa
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: b6fed24c7de87424bde94b864d4a9db91828a510
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 0d4630cad94a30e0dd53785c512e452d7b4a7d38
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92315781"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96494450"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Solución de problemas del dispositivo de Azure Migrate y la detección
 
@@ -80,7 +80,7 @@ Si obtiene este error de conexión, es posible que no pueda conectarse a vCenter
     - [Más información](./migrate-appliance.md#appliance---vmware) sobre los roles y permisos de Azure necesarios.
 - Puede producirse el error 60039, "The appliance might not be registered successfully to the Azure Migrate project" (El dispositivo podría no estar registrado correctamente en el proyecto de Azure Migrate) si se produce un error de registro porque no se puede encontrar el proyecto de Azure Migrate utilizado para registrar el dispositivo.
     - En Azure Portal, compruebe si el proyecto existe en el grupo de recursos.
-    - Si el proyecto no existe, cree un nuevo proyecto de Azure Migrate en el grupo de recursos y vuelva a registrar el dispositivo. [Obtenga información sobre](./how-to-add-tool-first-time.md#create-a-project-and-add-a-tool) cómo crear un nuevo proyecto.
+    - Si el proyecto no existe, cree un nuevo proyecto de Azure Migrate en el grupo de recursos y vuelva a registrar el dispositivo. [Obtenga información sobre](./create-manage-projects.md#create-a-project-for-the-first-time) cómo crear un nuevo proyecto.
 
 ## <a name="error-6003060031-key-vault-management-operation-failed"></a>Error 60030/60031: Error durante la operación de administración de Key Vault
 

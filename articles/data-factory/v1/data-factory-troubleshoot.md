@@ -8,17 +8,17 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 ms.reviewer: maghan
 manager: anandsub
 robots: noindex
-ms.openlocfilehash: 7afc16beaacee5b75d57c4e4216a105734d20a09
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: bd18a26a1c199e1ecc32cfc371d2931b1dee0c3f
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637078"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96494977"
 ---
 # <a name="troubleshoot-data-factory-issues"></a>Solución de problemas de la factoría de datos
 > [!NOTE]
@@ -97,7 +97,7 @@ Consulte el artículo [Conjuntos de datos](data-factory-create-datasets.md) para
 }
 ```
 
-Para resolver el error, agregue la propiedad *external* * y la sección **externalData** opcional a la definición de JSON de la tabla de entrada y vuelva a crear la tabla.
+Para resolver el error, agregue la propiedad *external** y la sección **externalData** opcional a la definición de JSON de la tabla de entrada y vuelva a crear la tabla.
 
 ### <a name="problem-hybrid-copy-operation-fails"></a>Problema: la operación de copia híbrida produce un error.
 Consulte [Solución de problemas de la puerta de enlace](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) si quiere ver los pasos para solucionar problemas con la copia en un almacén de datos local como origen o destino usando Data Management Gateway.

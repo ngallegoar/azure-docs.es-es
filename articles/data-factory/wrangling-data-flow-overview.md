@@ -1,18 +1,18 @@
 ---
 title: Flujos de datos de limpieza y transformación en Azure Data Factory
 description: Introducción a los flujos de datos de limpieza y transformación en Azure Data Factory
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 ms.reviewer: gamal
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/01/2019
-ms.openlocfilehash: fe3fd25753344c5ccfd21310ae01fca9962e3971
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 607ed6167ec761a6bf380a2cc420eb72f808f0a3
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636075"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96494875"
 ---
 # <a name="what-are-wrangling-data-flows"></a>¿Qué son los flujos de datos de limpieza y transformación?
 
@@ -56,7 +56,7 @@ Analice visualmente los datos sin código para quitar los valores atípicos y la
 
 ## <a name="the-mashup-editor"></a>Editor de mashup
 
-Cuando se crea un flujo de datos de limpieza y transformación, todos los conjuntos de datos de origen se convierten en consultas de conjuntos de datos y se colocan en la carpeta **ADFResource** . De forma predeterminada, UserQuery apuntará a la primera consulta del conjunto de datos. Todas las transformaciones deben realizarse en UserQuery, ya que no se admiten ni se conservan los cambios en las consultas del conjunto de datos. Actualmente no se admiten las opciones para cambiar el nombre o agregar y eliminar consultas.
+Cuando se crea un flujo de datos de limpieza y transformación, todos los conjuntos de datos de origen se convierten en consultas de conjuntos de datos y se colocan en la carpeta **ADFResource**. De forma predeterminada, UserQuery apuntará a la primera consulta del conjunto de datos. Todas las transformaciones deben realizarse en UserQuery, ya que no se admiten ni se conservan los cambios en las consultas del conjunto de datos. Actualmente no se admiten las opciones para cambiar el nombre o agregar y eliminar consultas.
 
 ![Limpieza y transformación](media/wrangling-data-flow/editor.png)
 

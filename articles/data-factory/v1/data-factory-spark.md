@@ -3,20 +3,20 @@ title: Invocar programas Spark desde Azure Data Factory
 description: Obtenga información sobre cómo invocar programas Spark desde Azure Data Factory mediante la actividad MapReduce.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 97e2be64818888040b7e6ac3bc8861da24ebdbbd
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 6c9e5b6466d3da675975dbf2c532602561e820c9
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92359958"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96495079"
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Invocación de programas Spark desde canalizaciones de Azure Data Factory
 
@@ -67,12 +67,12 @@ Para crear una factoría de datos, siga estos pasos:
 
 1. Seleccione **Nuevo** > **Data + Analytics** > **Data Factory**.
 
-1. En la hoja **Nueva factoría de datos** , en **Nombre** , escriba **SparkDF**.
+1. En la hoja **Nueva factoría de datos**, en **Nombre**, escriba **SparkDF**.
 
    > [!IMPORTANT]
    > El nombre de la instancia de Azure Data Factory debe ser único de forma global. Si aparece el error "El nombre SparkDF de factoría de datos no está disponible", cambie dicho nombre. Por ejemplo, use yournameSparkDFdate y vuelva a crear la factoría de datos. Para más información acerca de las reglas de nomenclatura, consulte [Azure Data Factory: Reglas de nomenclatura](data-factory-naming-rules.md).
 
-1. En **Suscripción** , seleccione la suscripción de Azure en la que desea que se cree la factoría de datos.
+1. En **Suscripción**, seleccione la suscripción de Azure en la que desea que se cree la factoría de datos.
 
 1. Seleccione un grupo de recursos de Azure existente o cree uno nuevo.
 
@@ -85,7 +85,7 @@ Para crear una factoría de datos, siga estos pasos:
 
 1. Verá que la factoría de datos se creará en el panel de Azure Portal.
 
-1. Tras crear la factoría de datos, se ve la página de la **factoría de datos** , que muestra su contenido. Si no ve la página de la **factoría de datos** , seleccione el icono de la factoría de datos en el panel.
+1. Tras crear la factoría de datos, se ve la página de la **factoría de datos**, que muestra su contenido. Si no ve la página de la **factoría de datos**, seleccione el icono de la factoría de datos en el panel.
 
     ![Hoja de la Factoría de datos](./media/data-factory-spark/data-factory-blade.png)
 
@@ -95,7 +95,7 @@ En este paso, creará dos servicios vinculados. Un servicio vincula su clúster 
 #### <a name="create-a-storage-linked-service"></a>Creación de un servicio vinculado de Storage
 En este paso, vinculará su cuenta de almacenamiento con su factoría de datos. Un conjunto de datos creado en un paso más adelante en este tutorial hace referencia a este servicio vinculado. El servicio vinculado de HDInsight que se define en el paso siguiente también hace referencia a este servicio vinculado.
 
-1. En la hoja **Factoría de datos** , haga clic en el icono **Crear e implementar**. Aparece Data Factory Editor.
+1. En la hoja **Factoría de datos**, haga clic en el icono **Crear e implementar**. Aparece Data Factory Editor.
 
 1. Seleccione **Nuevo almacén de datos** y elija **Azure Storage**.
 
@@ -217,11 +217,11 @@ En este paso, crea una canalización con una actividad de HDInsightSpark. Actual
 
     a. La propiedad de **tipo** se establece en **HDInsightSpark**.
 
-    b. La propiedad **rootPath** se establece en **adfspark\\pyFiles** , donde adfspark es el contenedor de blobs y pyFiles es la carpeta de archivos en ese contenedor. En este ejemplo, la instancia de Blob Storage es la que está asociada con el clúster de Spark. Puede cargar el archivo en una cuenta de almacenamiento diferente. Si lo hace, cree un servicio vinculado de Storage para vincular esa cuenta de almacenamiento con la factoría de datos. A continuación, especifique el nombre del servicio vinculado como un valor de la propiedad **sparkJobLinkedService**. Para más información sobre esta y otras propiedades que admite la actividad de Spark, consulte [Propiedades de la actividad de Spark](#spark-activity-properties).
+    b. La propiedad **rootPath** se establece en **adfspark\\pyFiles**, donde adfspark es el contenedor de blobs y pyFiles es la carpeta de archivos en ese contenedor. En este ejemplo, la instancia de Blob Storage es la que está asociada con el clúster de Spark. Puede cargar el archivo en una cuenta de almacenamiento diferente. Si lo hace, cree un servicio vinculado de Storage para vincular esa cuenta de almacenamiento con la factoría de datos. A continuación, especifique el nombre del servicio vinculado como un valor de la propiedad **sparkJobLinkedService**. Para más información sobre esta y otras propiedades que admite la actividad de Spark, consulte [Propiedades de la actividad de Spark](#spark-activity-properties).
 
-    c. La propiedad **entryFilePath** se establece en **test.py** , que es el archivo de Python.
+    c. La propiedad **entryFilePath** se establece en **test.py**, que es el archivo de Python.
 
-    d. La propiedad **getDebugInfo** está establecida en **Siempre** , lo que significa que siempre se generan archivos de registro (acierto o error).
+    d. La propiedad **getDebugInfo** está establecida en **Siempre**, lo que significa que siempre se generan archivos de registro (acierto o error).
 
     > [!IMPORTANT]
     > Se recomienda que no establezca esta propiedad como `Always` en un entorno de producción, a menos que esté solucionando un problema.
@@ -233,7 +233,7 @@ En este paso, crea una canalización con una actividad de HDInsightSpark. Actual
 1. Seleccione **Deploy** (Implementar) en la barra de comandos para implementar la canalización.
 
 ### <a name="monitor-a-pipeline"></a>Supervisión de una canalización
-1. En la hoja **Factoría de datos** , seleccione **Supervisión y administración** para iniciar la aplicación de supervisión en otra pestaña.
+1. En la hoja **Factoría de datos**, seleccione **Supervisión y administración** para iniciar la aplicación de supervisión en otra pestaña.
 
     ![Icono Supervisión y administración](media/data-factory-spark/monitor-and-manage-tile.png)
 
@@ -243,7 +243,7 @@ En este paso, crea una canalización con una actividad de HDInsightSpark. Actual
 
     ![Supervisar la canalización](media/data-factory-spark/monitor-and-manage-app.png)
 
-1. En la lista de **ventanas de actividad** , seleccione una ejecución de actividad para ver información sobre ella. Si se produce un error, puede ver detalles sobre él en el panel derecho.
+1. En la lista de **ventanas de actividad**, seleccione una ejecución de actividad para ver información sobre ella. Si se produce un error, puede ver detalles sobre él en el panel derecho.
 
 ### <a name="verify-the-results"></a>Verificación de los resultados
 
@@ -268,7 +268,7 @@ En este paso, crea una canalización con una actividad de HDInsightSpark. Actual
 Para obtener instrucciones detalladas, consulte la sección [Ejecución de una consulta de Spark SQL](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md).
 
 ### <a name="troubleshooting"></a>Solución de problemas
-Puesto que establece getDebugInfo en **Siempre** , aparece una subcarpeta de registro en la carpeta pyFiles del contenedor de blobs. El archivo de registro en la carpeta de registro proporciona información adicional. Este archivo de registro es especialmente útil cuando se produce un error. En un entorno de producción, podría ser recomendable establecerlo en **Error**.
+Puesto que establece getDebugInfo en **Siempre**, aparece una subcarpeta de registro en la carpeta pyFiles del contenedor de blobs. El archivo de registro en la carpeta de registro proporciona información adicional. Este archivo de registro es especialmente útil cuando se produce un error. En un entorno de producción, podría ser recomendable establecerlo en **Error**.
 
 Para solucionar problemas, realice los pasos siguientes:
 

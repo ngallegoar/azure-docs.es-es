@@ -3,12 +3,12 @@ title: Preguntas más frecuentes sobre Azure Migrate
 description: Obtenga respuestas a preguntas comunes sobre el servicio Azure Migrate.
 ms.topic: conceptual
 ms.date: 04/15/2020
-ms.openlocfilehash: 95fd2ea9ecf5e4bcdf3fb2291e4cf7bf5b111c5f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d0877ad0d36e131525a227050cf44321e39e8b30
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87847472"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96494620"
 ---
 # <a name="azure-migrate-common-questions"></a>Azure Migrate: Preguntas frecuentes
 
@@ -41,7 +41,7 @@ Azure Migrate: La herramienta Server Migration usa cierta funcionalidad de back-
 
 ## <a name="i-have-a-project-with-the-previous-classic-experience-of-azure-migrate-how-do-i-start-using-the-new-version"></a>Tengo un proyecto con la experiencia clásica anterior de Azure Migrate. ¿Cómo empiezo a usar la nueva versión?
 
-No se pueden actualizar proyectos ni componentes de la versión anterior a la nueva versión. Tiene que [crear un proyecto de Azure Migrate](create-manage-projects.md) y [agregarle herramientas de valoración y migración](how-to-add-tool-first-time.md). Use los tutoriales para aprender a usar las herramientas de valoración y migración disponibles. Si tiene un área de trabajo Log Analytics asociada a un proyecto clásico, puede adjuntarla a un proyecto de la versión actual después de eliminar el proyecto clásico.
+No se pueden actualizar proyectos ni componentes de la versión anterior a la nueva versión. Tiene que [crear un proyecto de Azure Migrate](create-manage-projects.md) y [agregarle herramientas de valoración y migración](./create-manage-projects.md). Use los tutoriales para aprender a usar las herramientas de valoración y migración disponibles. Si tiene un área de trabajo Log Analytics asociada a un proyecto clásico, puede adjuntarla a un proyecto de la versión actual después de eliminar el proyecto clásico.
 
 ## <a name="whats-the-difference-between-azure-migrate-server-assessment-and-the-map-toolkit"></a>¿Cuál es la diferencia entre Azure Migrate: Server Assessment y MAP Toolkit?
 
