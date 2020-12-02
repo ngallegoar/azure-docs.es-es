@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 07/17/2019
 ms.author: hamusa
-ms.openlocfilehash: 867124a08bbad88b7dac5386ee6bc1c9c4d99c12
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 420259929afc50b2884bf075212402d80b6b52f4
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85549900"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483545"
 ---
 # <a name="create-a-group-for-assessment"></a>Creación de un grupo para su valoración
 
@@ -37,7 +37,7 @@ Si quiere crear un grupo manualmente fuera de la creación de una valoración, h
 
 1. En el proyecto de Azure Migrate > **Información general**, haga clic en **Evaluar y migrar servidores**. En **Azure Migrate: Server Assessment**, haga clic en **Grupos**.
     - Si aún no ha agregado la herramienta Azure Migrate: Server Assessment, haga clic para agregarla. [Más información](how-to-assess.md).
-    - Si aún no ha creado un proyecto de Azure Migrate, [obtenga más información](how-to-add-tool-first-time.md).
+    - Si aún no ha creado un proyecto de Azure Migrate, [obtenga más información](./create-manage-projects.md).
 
     ![Selección de grupos](./media/how-to-create-a-group/select-groups.png)
 
@@ -89,4 +89,3 @@ Si ya [ha configurado la asignación de dependencias](how-to-create-group-machin
 ## <a name="next-steps"></a>Pasos siguientes
 
 Aprenda a configurar y a usar la [asignación de dependencias](how-to-create-group-machine-dependencies.md) para crear grupos de confianza alta.
-

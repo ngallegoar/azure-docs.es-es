@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 09/04/2020
 ms.author: v-demjoh
-ms.openlocfilehash: 9101944a567df5000d3584ed48eff24e4c5e0057
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 572b3b3459e1d837130f3c987d45ee45629f37ad
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89565810"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96485083"
 ---
 # <a name="test-a-model-using-an-audio-file-in-speech-studio"></a>Prueba de un modelo mediante archivos de audio en Speech Studio
 
@@ -23,7 +23,7 @@ En este procedimiento, se usa Speech Studio para convertir la voz de un archivo 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Antes de usar el portal de Voz, [siga estas instrucciones para crear una cuenta de Azure y suscribirse al servicio Voz](../how-to-custom-speech.md#set-up-your-azure-account). Esta suscripción unificada proporciona acceso a la conversión de voz a texto, la conversión de texto a voz, la traducción de voz y el portal de Habla personalizada.
+Antes de usar el portal de Voz, [siga estas instrucciones para crear una cuenta de Azure y suscribirse al servicio Voz](../custom-speech-overview.md#set-up-your-azure-account). Esta suscripción unificada proporciona acceso a la conversión de voz a texto, la conversión de texto a voz, la traducción de voz y el portal de Habla personalizada.
 
 ## <a name="download-an-audio-file"></a>Descarga de un archivo de audio
 

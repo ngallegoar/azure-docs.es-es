@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: tamram
 ms.reviewer: fryu
-ms.openlocfilehash: 49a89228afd3b46f38afafb8ff16bc63a40dd35b
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: ce0ea938cac4afa043b8770a4d6a98f08ec145ec
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94635218"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96484896"
 ---
 # <a name="prevent-shared-key-authorization-for-an-azure-storage-account-preview"></a>Impedir la autorización con clave compartida para una cuenta de Azure Storage (versión preliminar)
 
@@ -77,7 +77,7 @@ Los registros de Azure Storage capturan detalles sobre las solicitudes realizada
 
 Para registrar las solicitudes a su cuenta de Azure Storage con el fin de evaluar cómo se autorizan, puede usar el registro de Azure Storage en Azure Monitor (versión preliminar). Para más información, consulte [Supervisión de Azure Storage](../blobs/monitor-blob-storage.md).
 
-El registro de Azure Storage en Azure Monitor admite el uso de consultas de registro para analizar los datos de registro. Para consultar los registros, puede usar un área de trabajo de Azure Log Analytics. Para más información sobre las consultas de registro, consulte el [Tutorial: Introducción a las consultas de Log Analytics](../../azure-monitor/log-query/get-started-portal.md).
+El registro de Azure Storage en Azure Monitor admite el uso de consultas de registro para analizar los datos de registro. Para consultar los registros, puede usar un área de trabajo de Azure Log Analytics. Para más información sobre las consultas de registro, consulte el [Tutorial: Introducción a las consultas de Log Analytics](../../azure-monitor/log-query/log-analytics-tutorial.md).
 
 #### <a name="create-a-diagnostic-setting-in-the-azure-portal"></a>Creación de una configuración de diagnóstico en Azure Portal
 
@@ -217,7 +217,7 @@ Algunas herramientas de Azure ofrecen la opción de usar la autorización Azure 
 | AzCopy | Compatible con el Blob Storage. Para obtener información sobre cómo autorizar operaciones de AzCopy, consulte [Elija cómo autorizar el acceso a los datos de blob o de cola en Azure Portal](storage-use-azcopy-v10.md#choose-how-youll-provide-authorization-credentials) en la documentación de AzCopy. |
 | Explorador de Azure Storage | Solo compatible con Blob Storage y Azure Data Lake Storage Gen2. El acceso con Azure AD a Queue Storage no se admite. Asegúrese de seleccionar el inquilino de Azure AD correcto. Para más información, consulte [Introducción al Explorador de Storage](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#sign-in-to-azure). |
 | Azure PowerShell | Compatible. Para obtener información sobre la forma de autorizar comandos de PowerShell para las operaciones de blobs o colas con Azure AD, consulte los artículos [Ejecución de comandos de PowerShell con credenciales de Azure AD para acceder a datos de blob](../blobs/authorize-data-operations-powershell.md) o [Ejecución de comandos de PowerShell con credenciales de Azure AD para acceder los datos de la cola](../queues/authorize-data-operations-powershell.md). |
-| Azure CLI | Compatible. Para información sobre cómo autorizar comandos de la CLI de Azure con Azure AD para el acceso a datos de blobs y colas, consulte [Elección de cómo autorizar el acceso a los datos de blobs o colas con la CLI de Azure](authorize-data-operations-cli.md). |
+| Azure CLI | Compatible. Para información sobre cómo autorizar comandos de la CLI de Azure con Azure AD para el acceso a datos de blobs y colas, consulte [Elección de cómo autorizar el acceso a los datos de blobs o colas con la CLI de Azure](../blobs/authorize-data-operations-cli.md). |
 | Azure IoT Hub | Compatible. Para más información, consulte [Compatibilidad de IoT Hub con redes virtuales mediante Private Link e identidad administrada](../../iot-hub/virtual-network-support.md). |
 | Azure Cloud Shell | Azure Cloud Shell es un shell integrado en Azure Portal. Azure Cloud Shell hospeda archivos para la persistencia en un recurso compartido de archivos de Azure en una cuenta de almacenamiento. Estos archivos dejarán de estar accesibles si la autorización con clave compartida se deniega para esa cuenta de almacenamiento. Para más información, consulte [Conexión con el almacenamiento de Microsoft Azure Files](../../cloud-shell/overview.md#connect-your-microsoft-azure-files-storage). <br /><br /> Para ejecutar comandos en Azure Cloud Shell para administrar cuentas de almacenamiento para las que se deniega el acceso con clave compartida, primero debe asegurarse de que se le han concedido los permisos necesarios para estas cuentas mediante el control de acceso basado en rol de Azure (Azure RBAC). Para más información, consulte [¿Qué es el control de acceso basado en rol de Azure (RBAC)?](../../role-based-access-control/overview.md) |
 

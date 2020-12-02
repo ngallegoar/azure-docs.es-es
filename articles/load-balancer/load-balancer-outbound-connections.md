@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.custom: contperfq1
 ms.date: 10/13/2020
 ms.author: allensu
-ms.openlocfilehash: 5a2d7f9f60253916eae808a7f65bc4b4b289bd67
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 3f4791c5cbcf731e118bac4bf692adcad7e9ff44
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94694787"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483596"
 ---
 # <a name="using-snat-for-outbound-connections"></a>Uso de SNAT para conexiones salientes
 
@@ -182,8 +182,6 @@ Para obtener más información sobre Azure Virtual Network NAT, consulte [¿Qué
 
 ## <a name="constraints"></a>Restricciones
 
-*   Los puertos se liberarán después de 15 segundos si se recibe o se envía **TCP RST**.
-*   Los puertos se liberarán después de 240 segundos si se recibe o se envía **FINACK**.
 *   Cuando una conexión está inactiva y no se envían paquetes nuevos, los puertos se liberarán después de un intervalo entre 4 y 120 minutos.
   * Este umbral se puede configurar a través de reglas de salida.
 *   Cada dirección IP proporciona 64 000 puertos que se pueden usar para SNAT.

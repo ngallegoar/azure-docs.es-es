@@ -7,12 +7,12 @@ ms.subservice: monitoring
 ms.date: 08/20/2019
 ms.author: sarn
 ms.topic: how-to
-ms.openlocfilehash: 0806c6e0ed89c2c0f4712ec985599810119fcf89
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 0d1edde5ac1b83feab458eb5d12d524163d3ffb1
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96015526"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483307"
 ---
 # <a name="monitoring-scheduled-events"></a>Supervisión de Scheduled Events
 
@@ -132,7 +132,7 @@ Se instalará [Microsoft Monitoring Agent](../extensions/oms-windows.md) en la m
 ## <a name="creating-an-alert-rule-with-azure-monitor"></a>Creación de una regla de alerta con Azure Monitor 
 
 
-Una vez que los eventos se insertan en Log Analytics, puede ejecutar la [consulta](../../azure-monitor/log-query/get-started-portal.md) siguiente para buscar los eventos de programación.
+Una vez que los eventos se insertan en Log Analytics, puede ejecutar la [consulta](../../azure-monitor/log-query/log-analytics-tutorial.md) siguiente para buscar los eventos de programación.
 
 1. En la parte superior de la página, seleccione **Registros** y pegue lo siguiente en el cuadro de texto:
 

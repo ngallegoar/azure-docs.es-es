@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 7/14/2020
 ms.author: raynew
-ms.openlocfilehash: 53967ab0bec9488691ff60cdabb8fedbb6b9730e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7466f037f0a39b67023b9ebcc27c2e19b27f42ab
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87386714"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96485270"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Matriz de compatibilidad para la recuperación ante desastres de máquinas virtuales locales de Hyper-V en Azure
 
@@ -136,7 +136,7 @@ Almacenamiento de acceso frecuente| Sin | No
 Blobs en bloques | No | Sin
 Cifrado en reposo (SSE)| Sí | Sí
 Cifrado en reposo (CMK) <br></br> (Solo para conmutación por error en discos administrados)| Sí (a través del módulo PowerShell Az 3.3.0 en adelante) | Sí (a través del módulo PowerShell Az 3.3.0 en adelante)
-Cifrado de datos en reposo doble <br></br> (Solo para conmutación por error en discos administrados) <br></br> Más información sobre las regiones admitidas para [Windows](../virtual-machines/windows/disk-encryption.md) y [Linux](../virtual-machines/linux/disk-encryption.md) | Sí (a través del módulo PowerShell Az 3.3.0 en adelante) | Sí (a través del módulo PowerShell Az 3.3.0 en adelante)
+Cifrado de datos en reposo doble <br></br> (Solo para conmutación por error en discos administrados) <br></br> Más información sobre las regiones admitidas para [Windows](../virtual-machines/disk-encryption.md) y [Linux](../virtual-machines/disk-encryption.md) | Sí (a través del módulo PowerShell Az 3.3.0 en adelante) | Sí (a través del módulo PowerShell Az 3.3.0 en adelante)
 Premium Storage | Sí | Sí
 Standard Storage | Sí | Sí
 Servicio Import/Export | Sin | No

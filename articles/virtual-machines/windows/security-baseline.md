@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 385f747999bbdb408dd1c5d2f5f12717834e94da
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: af7cc9d83b87c8a772a190c431d6946eec4dda86
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94844223"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483137"
 ---
 # <a name="azure-security-baseline-for-windows-virtual-machines"></a>Base de referencia de seguridad de Azure para Windows Virtual Machines
 
@@ -76,7 +76,7 @@ También puede implementar el firewall de aplicaciones web (WAF) de Azure delant
 
 Puede usar el acceso de red Just-in-Time de Azure Security Center para limitar la exposición de Windows Virtual Machines a las direcciones IP aprobadas durante un período limitado. Use también la protección de redes adaptativa de Azure Security Center para recomendar configuraciones de NSG que limiten los puertos y las direcciones IP basadas en el tráfico real y la inteligencia sobre amenazas.
 
-* [Configuración de la protección contra DDoS](../../virtual-network/manage-ddos-protection.md)
+* [Configuración de la protección contra DDoS](../../ddos-protection/manage-ddos-protection.md)
 
 * [Implementación de Azure Firewall](../../firewall/tutorial-firewall-deploy-portal.md)
 
@@ -274,7 +274,7 @@ Como alternativa, puede habilitar e incorporar datos en Azure Sentinel o en una 
 
 * [Incorporación de Azure Sentinel](../../sentinel/quickstart-onboard.md)
 
-* [Descripción del área de trabajo de Log Analytics](../../azure-monitor/log-query/get-started-portal.md)
+* [Descripción del área de trabajo de Log Analytics](../../azure-monitor/log-query/log-analytics-tutorial.md)
 
 * [Procedimiento para realizar consultas personalizadas en Azure Monitor](../../azure-monitor/log-query/get-started-queries.md)
 
@@ -452,7 +452,7 @@ Como alternativa, puede habilitar e incorporar datos en Azure Sentinel o en una 
 
 **Guía**: configure opciones de diagnóstico para que Azure Active Directory envíe registros de auditoría y de inicio de sesión a un área de trabajo de Log Analytics. Además, use Azure Monitor para revisar los registros y realizar consultas en los datos de registro de las máquinas virtuales de Azure.
 
-* [Descripción del área de trabajo de Log Analytics](../../azure-monitor/log-query/get-started-portal.md)
+* [Descripción del área de trabajo de Log Analytics](../../azure-monitor/log-query/log-analytics-tutorial.md)
 
 * [Integración de los registros de actividad de Azure en Azure Monitor](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
@@ -464,7 +464,7 @@ Como alternativa, puede habilitar e incorporar datos en Azure Sentinel o en una 
 
 **Responsabilidad**: Customer
 
-### <a name="312-alert-on-account-sign-in-behavior-deviation"></a>3.12: Alerta de las desviaciones de comportamiento en los inicios de sesión de las cuentas
+### <a name="312-alert-on-account-sign-in-behavior-deviation"></a>3.12: Alerta sobre las desviaciones de comportamiento en los inicios de sesión de las cuentas
 
 **Guía**: use las características de protección de identidad y detección de riesgo de Azure Active Directory para configurar respuestas automatizadas a las acciones sospechosas que se detecten en relación con los recursos de las cuentas de almacenamiento. Debe habilitar las respuestas automatizadas a través de Azure Sentinel para implementar las respuestas de seguridad de su organización.
 
@@ -580,7 +580,7 @@ Microsoft usa el protocolo Seguridad de la capa de transporte (TLS) para protege
 
 **Instrucciones**: los discos virtuales de Windows Virtual Machines (VM) se cifran en reposo mediante el cifrado del lado servidor o el cifrado de discos de Azure (ADE). Azure Disk Encryption aprovecha la característica BitLocker de Windows para cifrar los discos administrados con claves administradas por el cliente dentro de la máquina virtual invitada. El cifrado del lado servidor con claves administradas por el cliente mejora en ADE al permitir el uso de cualquier tipo de sistema operativo y de imágenes para las máquinas virtuales mediante el cifrado de datos en el servicio Storage.
 
-* [Cifrado del lado servidor de Azure Managed Disks](./disk-encryption.md)
+* [Cifrado del lado servidor de Azure Managed Disks](../disk-encryption.md)
 
 * [Azure Disk Encryption para máquinas virtuales Windows](./disk-encryption-overview.md)
 
@@ -620,9 +620,9 @@ Microsoft usa el protocolo Seguridad de la capa de transporte (TLS) para protege
 
 **Guía**: use la solución Azure Update Management para administrar las actualizaciones y las revisiones de las máquinas virtuales. Update Management se basa en el repositorio de actualización configurado localmente para aplicar revisiones a sistemas de Windows compatibles. Herramientas como System Center Updates Publisher (Updates Publisher) le permiten publicar actualizaciones personalizadas en Windows Server Update Services (WSUS). Este escenario permite que Update Management aplique revisiones a las máquinas que usan Configuration Manager como repositorio de actualizaciones con software de terceros.
 
-* [Solución Update Management de Azure](../../automation/update-management/update-mgmt-overview.md)
+* [Solución Update Management de Azure](../../automation/update-management/overview.md)
 
-* [Administración de actualizaciones y revisiones para las máquinas virtuales](../../automation/update-management/update-mgmt-manage-updates-for-vm.md)
+* [Administración de actualizaciones y revisiones para las máquinas virtuales](../../automation/update-management/manage-updates-for-vm.md)
 
 **Supervisión de Azure Security Center**: Sí
 
@@ -632,9 +632,9 @@ Microsoft usa el protocolo Seguridad de la capa de transporte (TLS) para protege
 
 **Guía**: puede usar una solución de administración de revisiones de terceros. Puede usar la solución Azure Update Management para administrar las actualizaciones y las revisiones de las máquinas virtuales. Update Management se basa en el repositorio de actualización configurado localmente para aplicar revisiones a sistemas de Windows compatibles. Herramientas como System Center Updates Publisher (Updates Publisher) le permiten publicar actualizaciones personalizadas en Windows Server Update Services (WSUS). Este escenario permite que Update Management aplique revisiones a las máquinas que usan Configuration Manager como repositorio de actualizaciones con software de terceros.
 
-* [Solución Update Management de Azure](../../automation/update-management/update-mgmt-overview.md)
+* [Solución Update Management de Azure](../../automation/update-management/overview.md)
 
-* [Administración de actualizaciones y revisiones para las máquinas virtuales](../../automation/update-management/update-mgmt-manage-updates-for-vm.md)
+* [Administración de actualizaciones y revisiones para las máquinas virtuales](../../automation/update-management/manage-updates-for-vm.md)
 
 **Supervisión de Azure Security Center**: No disponible
 

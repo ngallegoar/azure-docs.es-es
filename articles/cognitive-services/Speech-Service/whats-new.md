@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/06/2020
 ms.author: erhopf
-ms.openlocfilehash: 5c4f02eff06c08f1829f9f1c74d1dcb09ee57905
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: a562c28235608d4a2425455b5543a76c99374f80
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95024796"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483821"
 ---
 # <a name="speech-service-whats-new-in-docs"></a>Servicio Voz: novedades de la documentación
 
@@ -32,7 +32,7 @@ Si quiere obtener información sobre las actualizaciones del servicio de voz, el
 
 ### <a name="new-articles"></a>Artículos nuevos
 
-* [Mejora de la precisión de Habla personalizada](how-to-custom-speech-improve-accuracy.md)
+* [Mejora de la precisión de Habla personalizada](./how-to-custom-speech-evaluate-data.md)
 
 ### <a name="updated-articles"></a>Artículos actualizados
 
@@ -44,7 +44,7 @@ Si quiere obtener información sobre las actualizaciones del servicio de voz, el
 * [Inicio rápido: síntesis asincrónica para audio de formato largo en Python (versión preliminar)](./long-audio-api.md): se ha actualizado con la compatibilidad con las voces neuronales públicas y los parámetros asociados.
 * [Inicio rápido: Reconocimiento de voz de un archivo de audio](./get-started-speech-to-text.md): se han agregado instrucciones de JavaScript a la documentación.
 * [Inicio rápido: Reconocimiento de voz a través de un micrófono](./get-started-speech-to-text.md): se han agregado instrucciones de Go y JavaScript a la documentación.
-* [Inicio rápido: Reconocimiento de voz almacenada en Blob Storage](quickstarts/from-blob.md): se han agregado instrucciones de JavaScript a la documentación.
+* [Inicio rápido: Reconocimiento de voz almacenada en Blob Storage](./batch-transcription.md): se han agregado instrucciones de JavaScript a la documentación.
 * [Inicio rápido: Reconocimiento de voz, intenciones y entidades con Language Understanding (LUIS)](quickstarts/intent-recognition.md)
 * [Inicio rápido: Configuración del entorno de desarrollo](quickstarts/setup-platform.md): se han agregado instrucciones de JavaScript a la documentación.
 * [Inicio rápido: Síntesis de voz en un archivo de audio](./get-started-text-to-speech.md): se han agregado instrucciones de JavaScript a la documentación.

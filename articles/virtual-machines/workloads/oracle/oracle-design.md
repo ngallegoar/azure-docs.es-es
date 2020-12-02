@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/02/2018
 ms.author: kegorman
 ms.reviewer: cynthn
-ms.openlocfilehash: 6b7c280d9ff5f4d8a3c35eb11e080bf2f9f287c0
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 5e9ddecd694a9051e746d07cbc1bee4d98bf5829
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94959176"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96484437"
 ---
 # <a name="design-and-implement-an-oracle-database-in-azure"></a>Diseño e implementación de una base de datos de Oracle en Azure
 
@@ -138,7 +138,7 @@ En función de los requisitos de ancho de banda de red, puede elegir diferentes 
 - La latencia de red es superior en comparación con una implementación local. El rendimiento puede mejorar considerablemente si se reducen los recorridos de ida y vuelta de red.
 - Consolide las aplicaciones que tengan transacciones elevadas o estén "fragmentadas" en la misma máquina virtual para reducir los recorridos de ida y vuelta.
 - Use una instancia de Virtual Machines con las [redes aceleradas](../../../virtual-network/create-vm-accelerated-networking-cli.md) para mejorar el rendimiento de la red.
-- En cuanto a ciertas distribuciones de Linux, habilite la [compatibilidad con TRIM/UNMAP](../../linux/configure-lvm.md#trimunmap-support).
+- En cuanto a ciertas distribuciones de Linux, habilite la [compatibilidad con TRIM/UNMAP](/previous-versions/azure/virtual-machines/linux/configure-lvm#trimunmap-support).
 - Instale [Oracle Enterprise Manager](https://www.oracle.com/technetwork/oem/enterprise-manager/overview/index.html) en una máquina virtual individual.
 - Las páginas de gran tamaño no están habilitadas en Linux de forma predeterminada. Habilite las páginas de gran tamaño y establezca `use_large_pages = ONLY` en Oracle DB. Esto puede ayudarle a mejorar el rendimiento. Puede encontrar más información [aquí](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/refrn/USE_LARGE_PAGES.html#GUID-1B0F4D27-8222-439E-A01D-E50758C88390).
 

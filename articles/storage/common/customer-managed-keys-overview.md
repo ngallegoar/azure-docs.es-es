@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 2b474ae184374a2c91dcba15517048556686ec35
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 8eaadc031039b22e209db1023c65da39e1e096b1
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92782236"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483290"
 ---
 # <a name="customer-managed-keys-for-azure-storage-encryption"></a>Claves administradas por el cliente para el cifrado de Azure Storage
 
@@ -113,7 +113,7 @@ Para revocar el acceso a las claves administradas por el cliente, use [PowerShel
 
 ## <a name="customer-managed-keys-for-azure-managed-disks"></a>Claves administradas por el cliente para discos administrados por Azure
 
-Las claves administradas por el cliente también están disponibles para administrar el cifrado de discos administrados por Azure. Las claves administradas por el cliente se comportan de forma diferente en los discos administrados que en los recursos de Azure Storage. Para más información, consulte [Cifrado del lado servidor de Azure Managed Disks](../../virtual-machines/windows/disk-encryption.md) para Windows o [Cifrado del lado servidor de Azure Managed Disks](../../virtual-machines/linux/disk-encryption.md) para Linux.
+Las claves administradas por el cliente también están disponibles para administrar el cifrado de discos administrados por Azure. Las claves administradas por el cliente se comportan de forma diferente en los discos administrados que en los recursos de Azure Storage. Para más información, consulte [Cifrado del lado servidor de Azure Managed Disks](../../virtual-machines/disk-encryption.md) para Windows o [Cifrado del lado servidor de Azure Managed Disks](../../virtual-machines/disk-encryption.md) para Linux.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

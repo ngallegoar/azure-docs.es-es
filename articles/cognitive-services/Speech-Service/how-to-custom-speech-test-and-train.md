@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/27/2020
 ms.author: trbye
-ms.openlocfilehash: cd9b85f22866c529b66fa6df07bd524516726086
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: a5457dc94082f089d3adf02c9614d05d2c5db244
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92165339"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96484012"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Preparación de los datos para Habla personalizada
 
@@ -204,4 +204,4 @@ Utilice la tabla siguiente para asegurarse de que el formato del archivo de dato
 * [Inspección de los datos](how-to-custom-speech-inspect-data.md)
 * [Evaluación de los datos](how-to-custom-speech-evaluate-data.md)
 * [Entrenamiento del modelo](how-to-custom-speech-train-model.md)
-* [Implementación del modelo](how-to-custom-speech-deploy-model.md)
+* [Implementación del modelo](./how-to-custom-speech-train-model.md)

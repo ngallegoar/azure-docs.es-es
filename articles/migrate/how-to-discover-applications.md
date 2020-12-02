@@ -3,12 +3,12 @@ title: Detección de aplicaciones, roles y características en servidores locale
 description: Obtenga información sobre cómo detectar aplicaciones, roles y características en servidores locales con Azure Migrate Server Assessment.
 ms.topic: article
 ms.date: 06/10/2020
-ms.openlocfilehash: 6bdc26ac3a27026183e889bf258e2e1a5dadebfb
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 960877ac4eab4d8f23b5616dc04628142964b46a
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92315209"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483460"
 ---
 # <a name="discover-machine-apps-roles-and-features"></a>Detección de aplicaciones, roles y características de la máquina
 
@@ -23,7 +23,7 @@ La detección del inventario de aplicaciones, roles y características que se ej
 ## <a name="before-you-start"></a>Antes de comenzar
 
 - Asegúrese de que ha:
-    - [Creado](how-to-add-tool-first-time.md) un proyecto de Azure Migrate.
+    - [Creado](./create-manage-projects.md) un proyecto de Azure Migrate.
     - [Agregado](how-to-assess.md) la herramienta de Azure Migrate: evaluación del servidor a un proyecto.
 - Revise [la compatibilidad y los requisitos de la detección de aplicaciones](migrate-support-matrix-vmware.md#vmware-requirements).
 - Asegúrese de que las máquinas virtuales en las que se ejecuta la detección de aplicaciones tengan instalada la versión de PowerShell 2.0 o posterior y de que estén instaladas las herramientas de VMware (posterior a 10.2.0).

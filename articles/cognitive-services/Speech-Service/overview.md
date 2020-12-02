@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 11/23/2020
 ms.author: trbye
-ms.openlocfilehash: 291ac7804109b098b556e38c57ca493ba74f1b14
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 3b20773de62f036b507f1612f2b38d613d54ba2f
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95528897"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96485202"
 ---
 # <a name="what-is-the-speech-service"></a>¿Qué es Speech Service?
 
@@ -49,7 +49,7 @@ En los pasos siguientes, necesitará un cuenta de Microsoft y una cuenta de Azur
 Cuando tenga la cuenta de Microsoft, vaya a la [página de suscripción a Azure](https://azure.microsoft.com/free/ai/), seleccione **Comenzar gratis** y cree una cuenta de Azure con su cuenta de Microsoft. Este es un vídeo de [cómo registrarse para obtener una cuenta gratuita de Azure](https://www.youtube.com/watch?v=GWT2R1C_uUU).
 
 > [!NOTE]
-> Si se registra para obtener una cuenta gratuita de Azure, recibirá 200 USD en crédito de servicios que puede aplicar a una suscripción del servicio de voz de pago, válida durante 30 días. Los servicios de Azure se deshabilitan cuando el crédito se agota o expira al terminar los 30 días. Para seguir usando los servicios de Azure, debe actualizar la cuenta. Para más información, consulte [Actualización de una cuenta gratuita de Azure](https://docs.microsoft.com/azure/cost-management-billing/manage/upgrade-azure-subscription). 
+> Si se registra para obtener una cuenta gratuita de Azure, recibirá 200 USD en crédito de servicios que puede aplicar a una suscripción del servicio de voz de pago, válida durante 30 días. Los servicios de Azure se deshabilitan cuando el crédito se agota o expira al terminar los 30 días. Para seguir usando los servicios de Azure, debe actualizar la cuenta. Para más información, consulte [Actualización de una cuenta gratuita de Azure](../../cost-management-billing/manage/upgrade-azure-subscription.md). 
 >
 > El servicio de voz tiene dos niveles de servicio: gratis (f0) y suscripción (s0), que tienen diferentes limitaciones y ventajas. Si usa el nivel gratis del servicio Voz de bajo volumen, puede conservar esta suscripción gratuita incluso después de que expire la evaluación gratuita o el crédito del servicio. Para más información, consulte [Precios de Cognitive Services: servicio de voz](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
@@ -70,8 +70,8 @@ Para agregar un recurso de servicio de voz (plan gratuito o de pago) a la cuenta
 1. Seleccione **Crear** y, después:
 
    - Dé un nombre único al nuevo recurso. El nombre ayuda a distinguir entre varias suscripciones vinculadas al mismo servicio.
-   - Elija la suscripción de Azure a la que esté asociado el recurso nuevo para determinar cómo se facturan las tarifas. Esta es la introducción a [cómo crear una suscripción de Azure](https://docs.microsoft.com/azure/cost-management-billing/manage/create-subscription#create-a-subscription-in-the-azure-portal) en Azure Portal.
-   - Elija la [región](regions.md) donde se va a usar el recurso. Azure es una plataforma de nube global que está disponible con carácter general en muchas regiones de todo el mundo. Para obtener el mejor rendimiento, seleccione la región más cercana a usted o donde se ejecuta la aplicación. La disponibilidad del servicio de voz varía de una región a otra. Asegúrese de crear el recurso en una región admitida. Consulte [Regiones admitidas en los servicios de voz](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#speech-to-text-text-to-speech-and-translation).
+   - Elija la suscripción de Azure a la que esté asociado el recurso nuevo para determinar cómo se facturan las tarifas. Esta es la introducción a [cómo crear una suscripción de Azure](../../cost-management-billing/manage/create-subscription.md#create-a-subscription-in-the-azure-portal) en Azure Portal.
+   - Elija la [región](regions.md) donde se va a usar el recurso. Azure es una plataforma de nube global que está disponible con carácter general en muchas regiones de todo el mundo. Para obtener el mejor rendimiento, seleccione la región más cercana a usted o donde se ejecuta la aplicación. La disponibilidad del servicio de voz varía de una región a otra. Asegúrese de crear el recurso en una región admitida. Consulte [Regiones admitidas en los servicios de voz](./regions.md#speech-to-text-text-to-speech-and-translation).
    - Elija un plan de tarifa de pago (S0) o gratis (F0). Puede encontrar información completa sobre los precios y las cuotas de uso de cada plan en **Ver todos los detalles de los precios** o [Precios de Speech Services](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/). Para conocer los límites de los recursos, consulte [Límites de Azure Cognitive Services](../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-cognitive-services-limits).
    - Cree un nuevo grupo de recursos para esta suscripción de voz o asígnela a un grupo de recursos existente. Los grupos de recursos ayudan a mantener organizadas las distintas suscripciones de Azure.
    - Seleccione **Crear**. Esto le llevará a la información general de la implementación y mostrará mensajes del progreso de la implementación.  
@@ -112,7 +112,7 @@ Una vez que haya tenido la oportunidad de usar el servicio de voz, pruebe nuestr
 
 - [Tutorial: Reconocimiento de intenciones a partir de contenido de voz con el SDK de voz y LUIS, C#](how-to-recognize-intents-from-speech-csharp.md)
 - [Tutorial: Habilitación del bot con voz mediante el SDK de voz, C#](tutorial-voice-enable-your-bot-speech-sdk.md)
-- [Tutorial: Compilación de una aplicación de Flask para traducir texto, analizar opiniones y sintetizar la voz de texto a voz, REST](../translator/tutorial-build-flask-app-translation-synthesis.md?bc=%252fazure%252fcognitive-services%252fspeech-service%252fbreadcrumb%252ftoc.json%252c%252fen-us%252fazure%252fbread%252ftoc.json&toc=%252fazure%252fcognitive-services%252fspeech-service%252ftoc.json%252c%252fen-us%252fazure%252fcognitive-services%252fspeech-service%252ftoc.json)
+- [Tutorial: Compilación de una aplicación de Flask para traducir texto, analizar opiniones y sintetizar la voz de texto a voz, REST](../translator/tutorial-build-flask-app-translation-synthesis.md?bc=%2fazure%2fcognitive-services%2fspeech-service%2fbreadcrumb%2ftoc.json%252c%2fen-us%2fazure%2fbread%2ftoc.json&toc=%2fazure%2fcognitive-services%2fspeech-service%2ftoc.json%252c%2fen-us%2fazure%2fcognitive-services%2fspeech-service%2ftoc.json)
 
 ## <a name="get-sample-code"></a>Obtención de código de ejemplo
 

@@ -2,17 +2,17 @@
 title: Configuración del análisis de dependencias basado en agente en Azure Migrate Server Assessment
 description: En este artículo se describe cómo configurar un análisis de dependencias basado en agente en Azure Migrate Server Assessment.
 ms.topic: how-to
-ms.date: 6/09/2020
-ms.openlocfilehash: c5c019ec995f59b61fb96917bed50bd8ba3f61d4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/25/2020
+ms.openlocfilehash: 1ab5d639d68b5ce2298f907ef8346488e16b4020
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89022384"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483477"
 ---
 # <a name="set-up-dependency-visualization"></a>Configuración de la visualización de dependencias
 
-En este artículo se describe cómo configurar el análisis de dependencias sin agente en Azure Migrate Server Assessment. El [análisis de dependencias](concepts-dependency-visualization.md) le ayuda a identificar y comprender las dependencias en las máquinas que quiere evaluar y migrar a Azure.
+En este artículo se describe cómo configurar un análisis de dependencias basado en agente en Azure Migrate Server Assessment. El [análisis de dependencias](concepts-dependency-visualization.md) le ayuda a identificar y comprender las dependencias en las máquinas que quiere evaluar y migrar a Azure.
 
 ## <a name="before-you-start"></a>Antes de comenzar
 
@@ -21,7 +21,7 @@ En este artículo se describe cómo configurar el análisis de dependencias sin 
     - [Servidores físicos](migrate-support-matrix-physical.md#agent-based-dependency-analysis-requirements)
     - [VM de Hyper-V](migrate-support-matrix-hyper-v.md#agent-based-dependency-analysis-requirements).
 - Asegúrese de lo siguiente:
-    - Tener un proyecto de Azure Migrate. Si no lo tiene, es el momento de [crearlo](how-to-add-tool-first-time.md).
+    - Tener un proyecto de Azure Migrate. Si no lo tiene, es el momento de [crearlo](./create-manage-projects.md).
     - Compruebe que ha [agregado ](how-to-assess.md) la herramienta Azure Migrate:Server Assessment al proyecto.
     - Configure un [dispositivo Azure Migrate](migrate-appliance.md) para detectar las máquinas locales. El dispositivo detecta máquinas locales, y envía metadatos y datos de rendimiento a Azure Migrate: Server Assessment. Configuración de un dispositivo para:
         - VM de [VMware](how-to-set-up-appliance-vmware.md).
@@ -83,7 +83,7 @@ Para instalar al agente en una máquina Windows, siga estos pasos:
 
 El agente se puede instalar desde la línea de comandos o mediante un método automatizado, como Configuration Manager o [Intigua](https://www.intigua.com/intigua-for-azure-migration).
 - [Obtenga más información](../azure-monitor/platform/log-analytics-agent.md#installation-options) sobre el uso de estos métodos para instalar el agente MMA.
-- También se puede instalar el agente de MMA mediante este [script](https://go.microsoft.com/fwlink/?linkid=2104394).
+- También se puede instalar el agente de MMA mediante este [script](https://github.com/brianbar-MSFT/Install-MMA).
 - [Más información](../azure-monitor/platform/agents-overview.md#supported-operating-systems) sobre la compatibilidad de MMA con sistemas operativos Windows.
 
 ### <a name="install-mma-on-a-linux-machine"></a>Instalación de Microsoft Monitoring Agent en una máquina Linux
@@ -147,7 +147,7 @@ Después de crear el grupo, le recomendamos que instale los agentes en todas las
 Los datos de dependencia que captura Service Map se pueden consultar en el área de trabajo de Log Analytics asociada con el proyecto de Azure Migrate. Log Analytics se usa para escribir y ejecutar consultas de registros en Azure Monitor.
 
 - [Obtenga información sobre cómo](../azure-monitor/insights/service-map.md#log-analytics-records) buscar datos de Service Map en Log Analytics.
-- [Obtenga información general](../azure-monitor/log-query/get-started-queries.md) sobre la escritura de consultas de registro en [Log Analytics](../azure-monitor/log-query/get-started-portal.md).
+- [Obtenga información general](../azure-monitor/log-query/get-started-queries.md) sobre la escritura de consultas de registro en [Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md).
 
 Ejecute una consulta para los datos de dependencia como se indica a continuación:
 

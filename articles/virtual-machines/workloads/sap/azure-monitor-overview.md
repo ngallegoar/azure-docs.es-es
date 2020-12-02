@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/30/2020
 ms.author: radeltch
 ms.reviewer: cynthn
-ms.openlocfilehash: 5bb40ec930731b58d457500d83b66c7a187b44d8
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: bcb912a24dfb2a5e78719cf9010fd23afe0df185
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94957442"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96484403"
 ---
 # <a name="azure-monitor-for-sap-solutions-preview"></a>Azure Monitor para soluciones de SAP (versión preliminar)
 
@@ -35,7 +35,7 @@ Bases de datos admitidas:
 - Base de datos de SAP HANA
 - Microsoft SQL Server
 
-Azure Monitor para soluciones de SAP aprovecha la eficacia de las capacidades de [Azure Monitor](../../../azure-monitor/overview.md), como Log Analytics y [Workbooks](../../../azure-monitor/platform/workbooks-overview.md), para proporcionar funciones de supervisión adicionales. Los clientes pueden crear [visualizaciones personalizadas](../../../azure-monitor/platform/workbooks-overview.md#getting-started) mediante la modificación de los libros predeterminados de Workbooks que proporciona Azure Monitor para soluciones de SAP, escribir [consultas personalizadas](../../../azure-monitor/log-query/get-started-portal.md) y crear [alertas personalizadas](../../../azure-monitor/learn/tutorial-response.md) mediante el uso del área de trabajo de Log Analytics de Azure, aprovechar el [período de retención flexible](../../../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period) y conectar datos de supervisión con el sistema de vales.
+Azure Monitor para soluciones de SAP aprovecha la eficacia de las capacidades de [Azure Monitor](../../../azure-monitor/overview.md), como Log Analytics y [Workbooks](../../../azure-monitor/platform/workbooks-overview.md), para proporcionar funciones de supervisión adicionales. Los clientes pueden crear [visualizaciones personalizadas](../../../azure-monitor/platform/workbooks-overview.md#getting-started) mediante la modificación de los libros predeterminados de Workbooks que proporciona Azure Monitor para soluciones de SAP, escribir [consultas personalizadas](../../../azure-monitor/log-query/log-analytics-tutorial.md) y crear [alertas personalizadas](../../../azure-monitor/learn/tutorial-response.md) mediante el uso del área de trabajo de Log Analytics de Azure, aprovechar el [período de retención flexible](../../../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period) y conectar datos de supervisión con el sistema de vales.
 
 ## <a name="what-data-does-azure-monitor-for-sap-solutions-collect"></a>¿Qué datos recopila Azure Monitor para soluciones de SAP?
 

@@ -9,12 +9,12 @@ ms.date: 07/23/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: 971f0cd74d7ccc6e2b0d8049a4441ba3d465b70a
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: eb71de223e2d840e0caa0444b837e16e1f091414
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92787676"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96484794"
 ---
 # <a name="azure-storage-analytics-logging"></a>Registro de Azure Storage Analytics
 
@@ -57,11 +57,11 @@ Todos los registros se almacenan en blobs en bloques, en un contenedor denominad
 > [!NOTE]
 >  El contenedor `$logs` no se muestra cuando se realiza una operación para enumerar los contenedores, como la operación Lista de contenedores. Se debe tener acceso a él directamente. Por ejemplo, puede utilizar la operación Mostrar blobs para acceder a los blobs en el contenedor `$logs`.
 
-A medida que se registran las solicitudes, Storage Analytics cargará los resultados intermedios como bloques. Periódicamente, Storage Analytics confirmará estos bloques para que estén disponibles como blobs. Hasta que los datos de registro aparezcan en los blobs del contenedor **$logs** , puede transcurrir hasta una hora, dada la frecuencia con la que el servicio de almacenamiento vacía la escritura de registros. Es posible que haya entradas duplicadas en los registros creados durante la misma hora. Puede determinar si un registro es un duplicado comprobando el número **RequestId** y **Operation** .
+A medida que se registran las solicitudes, Storage Analytics cargará los resultados intermedios como bloques. Periódicamente, Storage Analytics confirmará estos bloques para que estén disponibles como blobs. Hasta que los datos de registro aparezcan en los blobs del contenedor **$logs**, puede transcurrir hasta una hora, dada la frecuencia con la que el servicio de almacenamiento vacía la escritura de registros. Es posible que haya entradas duplicadas en los registros creados durante la misma hora. Puede determinar si un registro es un duplicado comprobando el número **RequestId** y **Operation**.
 
 Si tiene un gran volumen de datos de registro con varios archivos correspondientes a cada hora, puede usar los metadatos del blob para averiguar qué datos contiene el registro (examinando para ello los campos de metadatos del blob). Esto resulta útil también porque, a veces, puede haber un retraso mientras los datos se escriben en los archivos de registro, y es que los metadatos del blob indican el contenido del blob de forma más precisa que el nombre del blob.
 
-La mayoría de las herramientas de exploración del almacenamiento permiten ver los metadatos de los blobs, si bien esta información se puede consultar también con PowerShell o mediante programación. El siguiente fragmento de código de PowerShell es un ejemplo de filtrado de la lista de blobs de registro por nombre para especificar una hora, y por metadatos para identificar únicamente aquellos registros que contengan operaciones de escritura ( **write** ).  
+La mayoría de las herramientas de exploración del almacenamiento permiten ver los metadatos de los blobs, si bien esta información se puede consultar también con PowerShell o mediante programación. El siguiente fragmento de código de PowerShell es un ejemplo de filtrado de la lista de blobs de registro por nombre para especificar una hora, y por metadatos para identificar únicamente aquellos registros que contengan operaciones de escritura (**write**).  
 
  ```powershell
  Get-AzStorageBlob -Container '$logs' |  
@@ -139,7 +139,7 @@ Puede especificar los servicios de almacenamiento que quiera registrar, así com
 
  Para usar PowerShell en el equipo local para configurar el registro de almacenamiento en la cuenta de almacenamiento, use el cmdlet **Get-AzStorageServiceLoggingProperty** de Azure PowerShell para recuperar la configuración actual y el cmdlet **Set-AzStorageServiceLoggingProperty** para cambiar la configuración actual.  
 
- Los cmdlets que controlan el registro de almacenamiento usan un parámetro **LoggingOperations** , que es una cadena que contiene una lista separada por comas de los tipos de solicitud que se van a registrar. Los tres tipos de solicitud posibles son **read** , **write** y **delete** . Para desactivar el registro, use el valor **none** en el parámetro **LoggingOperations** .  
+ Los cmdlets que controlan el registro de almacenamiento usan un parámetro **LoggingOperations**, que es una cadena que contiene una lista separada por comas de los tipos de solicitud que se van a registrar. Los tres tipos de solicitud posibles son **read**, **write** y **delete**. Para desactivar el registro, use el valor **none** en el parámetro **LoggingOperations**.  
 
  Con el siguiente comando se activa el registro de solicitudes de lectura, escritura y eliminación en el servicio Queue service de la cuenta de almacenamiento predeterminada, con un período de retención establecido en cinco días:  
 
@@ -204,7 +204,7 @@ En el siguiente ejemplo se muestra cómo descargar los datos de registro de Queu
 azcopy copy 'https://mystorageaccount.blob.core.windows.net/$logs/queue' 'C:\Logs\Storage' --include-path '2014/05/20/09;2014/05/20/10;2014/05/20/11' --recursive
 ```
 
-Para obtener más información sobre cómo descargar archivos específicos, consulte [Descarga de archivos específicos](./storage-use-azcopy-blobs.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json#download-specific-files).
+Para obtener más información sobre cómo descargar archivos específicos, consulte [Descarga de archivos específicos](./storage-use-azcopy-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#download-specific-files).
 
 Cuando haya descargado los datos de registro, puede ver las entradas de registro en los archivos. Estos archivos de registro usan un formato de texto delimitado que muchas herramientas de lectura de registros son capaces de analizar; para más información, consulte la guía [Supervisión, diagnóstico y solución de problemas de Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md). Cada herramienta tiene diferentes recursos para aplicar formato, filtrar, ordenar y buscar contenido en los archivos de registro. Para obtener más información sobre el contenido y el formato de los archivos de registro del registro de almacenamiento, vea [Formato de registros de Storage Analytics](/rest/api/storageservices/storage-analytics-log-format) y [Operaciones registradas y mensajes de estado de Storage Analytics](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages).
 

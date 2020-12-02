@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: fc44b7a49785a24460ea11f07e5248b266f5dfad
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 7008cfcdeb4615b42839f92a6df71357f9acf911
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92793014"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96484998"
 ---
 # <a name="storage-account-overview"></a>Introducción a las cuentas de almacenamiento
 
@@ -106,9 +106,9 @@ Azure Storage ofrece diferentes opciones para obtener acceso a los datos de blob
 
 Los niveles de acceso disponibles son:
 
-- Nivel de acceso **frecuente** . Este nivel está optimizado para el acceso frecuente de objetos en la cuenta de almacenamiento. Obtener acceso a los datos en el nivel de acceso frecuente es más rentable, aunque los costos de almacenamiento son más altos. Las nuevas cuentas de almacenamiento se crean en el nivel de acceso frecuente de forma predeterminada.
-- Nivel de acceso **esporádico** . Este nivel está optimizado para almacenar grandes cantidades de datos a los que se accede con poca frecuencia y que llevan guardados al menos 30 días. El almacenamiento de datos en el nivel de acceso esporádico es más rentable, pero el acceso a esos datos puede ser algo más costoso que a los del nivel de acceso frecuente.
-- Nivel de **archivo** . Este nivel está disponible solo para blobs en bloques individuales. Este nivel está optimizado para los datos que pueden tolerar varias horas de latencia de recuperación y que permanecerán en el nivel de almacenamiento de archivo durante un mínimo de 180 días. El nivel de archivo es la opción más rentable para almacenar datos. Sin embargo, el acceso a los datos es más caro que en el caso de los niveles de acceso frecuente o esporádico.
+- Nivel de acceso **frecuente**. Este nivel está optimizado para el acceso frecuente de objetos en la cuenta de almacenamiento. Obtener acceso a los datos en el nivel de acceso frecuente es más rentable, aunque los costos de almacenamiento son más altos. Las nuevas cuentas de almacenamiento se crean en el nivel de acceso frecuente de forma predeterminada.
+- Nivel de acceso **esporádico**. Este nivel está optimizado para almacenar grandes cantidades de datos a los que se accede con poca frecuencia y que llevan guardados al menos 30 días. El almacenamiento de datos en el nivel de acceso esporádico es más rentable, pero el acceso a esos datos puede ser algo más costoso que a los del nivel de acceso frecuente.
+- Nivel de **archivo**. Este nivel está disponible solo para blobs en bloques individuales. Este nivel está optimizado para los datos que pueden tolerar varias horas de latencia de recuperación y que permanecerán en el nivel de almacenamiento de archivo durante un mínimo de 180 días. El nivel de archivo es la opción más rentable para almacenar datos. Sin embargo, el acceso a los datos es más caro que en el caso de los niveles de acceso frecuente o esporádico.
 
 Si hay un cambio en el patrón de uso de datos, también se puede cambiar de nivel de acceso en cualquier momento. Para más información acerca de los niveles de acceso, consulte [Azure Blob Storage: niveles de almacenamiento de archivo, esporádico y frecuente](../blobs/storage-blob-storage-tiers.md).
 
@@ -127,7 +127,7 @@ Todos los datos de su cuenta de almacenamiento se cifran en el mismo servicio. P
 
 Una cuenta de almacenamiento le proporciona un espacio de nombres único en Azure para sus datos. Cada objeto que almacena en Azure Storage tiene una dirección que incluye su nombre de cuenta único. La combinación del nombre de la cuenta y el punto de conexión del servicio de Azure Storage forma los puntos de conexión de su cuenta de almacenamiento.
 
-Por ejemplo, si la cuenta de almacenamiento de uso general se llama *mystorageaccount* , los puntos de conexión predeterminados de la cuenta de almacenamiento serán:
+Por ejemplo, si la cuenta de almacenamiento de uso general se llama *mystorageaccount*, los puntos de conexión predeterminados de la cuenta de almacenamiento serán:
 
 - Blob Storage: `https://*mystorageaccount*.blob.core.windows.net`
 - Table Storage: `https://*mystorageaccount*.table.core.windows.net`
@@ -138,7 +138,7 @@ Por ejemplo, si la cuenta de almacenamiento de uso general se llama *mystorageac
 > [!NOTE]
 > Las cuentas de almacenamiento de blob y de blob en bloques solo exponen el punto de conexión de Blob service.
 
-Construya la dirección URL para acceder a un objeto de una cuenta de almacenamiento anexando la ubicación de este al punto de conexión. Por ejemplo, una dirección de blob podría tener este formato: http:// *mystorageaccount* .blob.core.windows.net/ *mycontainer*/*myblob* .
+Construya la dirección URL para acceder a un objeto de una cuenta de almacenamiento anexando la ubicación de este al punto de conexión. Por ejemplo, una dirección de blob podría tener este formato: http://*mystorageaccount*.blob.core.windows.net/*mycontainer*/*myblob*.
 
 También puede configurar una cuenta de almacenamiento para usar un dominio personalizado para los blobs. Para obtener más información, consulte [Configuración de un nombre de dominio personalizado para una cuenta de Azure Storage](../blobs/storage-custom-domain-name.md).  
 
@@ -167,7 +167,7 @@ Al actualizar a una cuenta de uso general v1 a otra de uso general v2 o a una cu
 
 ### <a name="azcopy"></a>AzCopy
 
-AzCopy es una utilidad de línea de comandos de Windows diseñada para la copia de datos de alto rendimiento a y desde Azure Storage. AzCopy se puede usar para copiar datos en una cuenta de Blob Storage desde cuentas de almacenamiento de uso general ya existentes, o para cargar datos desde dispositivos de almacenamiento local. Para más información, vea [Transferencia de datos con la utilidad en línea de comandos AzCopy](./storage-use-azcopy-v10.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json).
+AzCopy es una utilidad de línea de comandos de Windows diseñada para la copia de datos de alto rendimiento a y desde Azure Storage. AzCopy se puede usar para copiar datos en una cuenta de Blob Storage desde cuentas de almacenamiento de uso general ya existentes, o para cargar datos desde dispositivos de almacenamiento local. Para más información, vea [Transferencia de datos con la utilidad en línea de comandos AzCopy](./storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 ### <a name="data-movement-library"></a>Data Movement Library
 

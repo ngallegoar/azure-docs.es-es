@@ -9,14 +9,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/22/2020
+ms.date: 11/30/2020
 ms.author: allensu
-ms.openlocfilehash: 169889dbb87d00fdde44ff72c0d2004c331604ab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2c593cda7761ce1defa6bdb31e0dbb528b9e5eca
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87073037"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483995"
 ---
 # <a name="analyze-azure-cdn-usage-patterns"></a>Análisis de patrones de uso de Azure CDN
 
@@ -31,7 +31,7 @@ Con un perfil estándar de Microsoft, puede habilitar los registros sin procesar
 
 Con Azure Log Analytics, puede ver las métricas de supervisión y configurar alertas. 
 
-Para más información, consulte [Registros sin procesar de HTTP de Azure CDN](enable-raw-logs.md).
+Para más información, consulte [Registros sin procesar de HTTP de Azure CDN](monitoring-and-access-log.md).
 
 
 ## <a name="core-analytics-via-azure-diagnostic-logs"></a>Análisis básicos a través de los registros de diagnóstico de Azure
@@ -61,6 +61,4 @@ En este artículo, ha aprendido las diferentes opciones de los informes de anál
 Para más información sobre Azure CDN y los otros servicios de Azure que se mencionan en este artículo, consulte:
 
 * [¿Qué es Azure CDN?](cdn-overview.md)
-* [Registros sin procesar de HTTP de Azure CDN](enable-raw-logs.md)
-
-
+* [Registros sin procesar de HTTP de Azure CDN](monitoring-and-access-log.md)
