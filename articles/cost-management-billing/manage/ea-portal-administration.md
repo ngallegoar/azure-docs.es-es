@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
 ms.custom: contperfq1
-ms.openlocfilehash: f18f1184f921aca4f2c1e33ac00dcf14c63b24eb
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: bb8a52a2258143e1c68ca46ac31a8c986b1bcfe7
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95893365"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96457132"
 ---
 # <a name="azure-ea-portal-administration"></a>Administración del portal del Contrato Enterprise de Azure
 
@@ -282,13 +282,13 @@ El portal del Contrato Enterprise de Azure le ayuda a administrar los costos y e
 
 Cada rol tiene un nivel de acceso y autoridad diferente.
 
-Para más información sobre los roles de usuario, consulte [Roles de usuario de empresa](/azure/cost-management-billing/manage/understand-ea-roles#enterprise-user-roles).
+Para más información sobre los roles de usuario, consulte [Roles de usuario de empresa](./understand-ea-roles.md#enterprise-user-roles).
 
 ## <a name="add-an-azure-ea-account"></a>Adición de una cuenta del Contrato Enterprise de Azure
 
 La cuenta del Contrato Enterprise de Azure es una unidad organizativa del portal del Contrato Enterprise de Azure. Se utiliza para administrar las suscripciones y los informes. Para acceder a los servicios de Azure y usarlos, debe crear una cuenta o tener una ya creada.
 
-Para más información sobre las cuentas de Azure, consulte [Agregar una cuenta](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-administration#add-an-account).
+Para más información sobre las cuentas de Azure, consulte [Agregar una cuenta](#add-an-account).
 
 ## <a name="enterprise-devtest-offer"></a>Oferta Desarrollo/pruebas - Enterprise
 
@@ -361,7 +361,7 @@ Para eliminar una suscripción en la que es el propietario de la cuenta:
 
 Solo los administradores de la cuenta pueden cancelar las suscripciones.
 
-Para más información, consulte [¿Qué ocurre después de cancelar la suscripción?](cancel-azure-subscription.md#what-happens-after-i-cancel-my-subscription).
+Para más información, consulte [¿Qué ocurre después de cancelar la suscripción?](cancel-azure-subscription.md#what-happens-after-subscription-cancellation).
 
 ## <a name="delete-an-account"></a>Eliminación de una cuenta
 

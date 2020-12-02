@@ -8,12 +8,12 @@ author: vikrambmsft
 ms.author: vikramb
 ms.date: 11/4/2020
 ms.custom: devx-track-terraform
-ms.openlocfilehash: 3728fdd07172f2402ddb1dc7434ddb1993b984b1
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: e9e630f4199e0bfb67509f008f403c0a7a490887
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95999882"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436698"
 ---
 # <a name="commercial-marketplace-partner-and-customer-usage-attribution"></a>Atribución de uso de partners y clientes de marketplace comercial
 
@@ -32,7 +32,7 @@ La atribución de uso del cliente admite tres opciones de implementación:
 >
 >- La atribución de uso de clientes es para implementaciones nuevas y NO admite el etiquetado de recursos existentes que ya se hayan implementado.
 >
->- Se requiere la atribución de uso de clientes en las ofertas de [aplicación de Azure](./partner-center-portal/create-new-azure-apps-offer.md) publicadas en Azure Marketplace.
+>- Se requiere la atribución de uso de clientes en las ofertas de [aplicación de Azure](./create-new-azure-apps-offer.md) publicadas en Azure Marketplace.
 >
 >- No todos los servicios de Azure son compatibles con la atribución de uso del cliente. Actualmente, Azure Kubernetes Services (AKS) y VM Scale Sets tienen problemas conocidos que provocan que se informe un subregistro del uso.
 
@@ -64,7 +64,7 @@ Los GUID deben estar registrados en el Centro de partners para permitir la atrib
 Después de agregar un GUID a la plantilla o en el agente de usuario, y registrarlo en el Centro de partners, se realizará un seguimiento de las futuras implementaciones.
 
 > [!NOTE]
-> Si va a publicar la oferta de [Aplicación de Azure](./partner-center-portal/create-new-azure-apps-offer.md) en Azure Marketplace a través del Centro de partners, cualquier GUID nuevo que se use dentro de la plantilla se registrará de forma automática en el perfil del Centro de partners al cargar esta.  
+> Si va a publicar la oferta de [Aplicación de Azure](./create-new-azure-apps-offer.md) en Azure Marketplace a través del Centro de partners, cualquier GUID nuevo que se use dentro de la plantilla se registrará de forma automática en el perfil del Centro de partners al cargar esta.  
 
 1. Inicie sesión en el [Centro de partners](https://partner.microsoft.com/dashboard).
 
@@ -90,7 +90,7 @@ Muchas soluciones de partners se implementan mediante plantillas de Azure Resour
 > [!NOTE]
 > Para más información sobre la creación y publicación de plantillas de solución, consulte
 > * [Creación e implementación de plantillas de Resource Manager](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
->* [Oferta de aplicación de Azure](./partner-center-portal/create-new-azure-apps-offer.md).
+>* [Oferta de aplicación de Azure](./create-new-azure-apps-offer.md).
 >* Vídeo: [Creación de plantillas de soluciones y aplicaciones administradas para Azure Marketplace](https://channel9.msdn.com/Events/Build/2018/BRK3603).
 
 

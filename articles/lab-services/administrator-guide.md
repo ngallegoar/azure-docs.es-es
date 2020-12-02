@@ -3,12 +3,12 @@ title: 'Azure Lab Services: guía del administrador | Microsoft Docs'
 description: Esta guía sirve de ayuda para los administradores que crean y administran cuentas de laboratorio mediante Azure Lab Services.
 ms.topic: article
 ms.date: 10/20/2020
-ms.openlocfilehash: 08d2fea719ad67f666ea9da09721dc3f7ab54768
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 3ad3ee38a6c08a6af85822d76012cc6dfc34ff4e
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95999287"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462467"
 ---
 # <a name="azure-lab-services---administrator-guide"></a>Azure Lab Services: guía del administrador
 Los administradores de tecnología de la información (TI) que administran los recursos en la nube de una universidad suelen ser también responsables de configurar la cuenta de laboratorio en su institución. Una vez configurada una cuenta de laboratorio, los administradores o educadores crean los laboratorios que están incluidos en la cuenta. En este artículo se proporciona información general de alto nivel sobre los recursos de Azure relacionados e instrucciones para crearlos.
@@ -167,14 +167,14 @@ Cuando los administradores o creadores de laboratorios crean un laboratorio, pue
 
 | Size | Especificaciones | Serie | Sugerencia de uso |
 | ---- | ----- | ------ | ------------- |
-| Pequeña| <ul><li>2&nbsp;núcleos</li><li>3,5 gigabytes (GB) de RAM</li> | [Standard_A2_v2](../virtual-machines/av2-series.md?bc=%252fazure%252fvirtual-machines%252flinux%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json) | Es el más adecuado para la línea de comandos, la apertura del explorador web, los servidores web de poco tráfico o las bases de datos pequeñas o medianas. |
-| Media | <ul><li>4&nbsp;núcleos</li><li>7&nbsp;GB&nbsp;de RAM</li> | [Standard_A4_v2](../virtual-machines/av2-series.md?bc=%252fazure%252fvirtual-machines%252flinux%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json) | Es el más adecuado para bases de datos relacionales, análisis y almacenamiento en caché en memoria. |
-| Mediano (virtualización anidada) | <ul><li>4&nbsp;núcleos</li><li>16&nbsp;GB&nbsp; de RAM</li></ul> | [Standard_D4s_v3](../virtual-machines/dv3-dsv3-series.md?bc=%252fazure%252fvirtual-machines%252flinux%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json#dsv3-series) | Es el más adecuado para bases de datos relacionales, análisis y almacenamiento en caché en memoria.
+| Pequeña| <ul><li>2&nbsp;núcleos</li><li>3,5 gigabytes (GB) de RAM</li> | [Standard_A2_v2](../virtual-machines/av2-series.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Es el más adecuado para la línea de comandos, la apertura del explorador web, los servidores web de poco tráfico o las bases de datos pequeñas o medianas. |
+| Media | <ul><li>4&nbsp;núcleos</li><li>7&nbsp;GB&nbsp;de RAM</li> | [Standard_A4_v2](../virtual-machines/av2-series.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Es el más adecuado para bases de datos relacionales, análisis y almacenamiento en caché en memoria. |
+| Mediano (virtualización anidada) | <ul><li>4&nbsp;núcleos</li><li>16&nbsp;GB&nbsp; de RAM</li></ul> | [Standard_D4s_v3](../virtual-machines/dv3-dsv3-series.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#dsv3-series) | Es el más adecuado para bases de datos relacionales, análisis y almacenamiento en caché en memoria.
 | grande | <ul><li>8&nbsp;núcleos</li><li>16&nbsp;GB&nbsp; de RAM</li></ul>  | [Standard_A8_v2](../virtual-machines/av2-series.md) | Es el más adecuado para aplicaciones que necesitan CPU más rápidas, un mejor rendimiento de los discos locales, bases de datos grandes y cachés de memoria grandes.  Este tamaño admite la virtualización anidada. |
-| Grande (virtualización anidada) | <ul><li>8&nbsp;núcleos</li><li>32&nbsp;GB&nbsp; de RAM</li></ul>  | [Standard_D8s_v3](../virtual-machines/dv3-dsv3-series.md?bc=%252fazure%252fvirtual-machines%252flinux%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json#dsv3-series) | Es el más adecuado para aplicaciones que necesitan CPU más rápidas, un mejor rendimiento de los discos locales, bases de datos grandes y cachés de memoria grandes. |
+| Grande (virtualización anidada) | <ul><li>8&nbsp;núcleos</li><li>32&nbsp;GB&nbsp; de RAM</li></ul>  | [Standard_D8s_v3](../virtual-machines/dv3-dsv3-series.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#dsv3-series) | Es el más adecuado para aplicaciones que necesitan CPU más rápidas, un mejor rendimiento de los discos locales, bases de datos grandes y cachés de memoria grandes. |
 | GPU pequeña (visualización) | <ul><li>6&nbsp;núcleos</li><li>56&nbsp;GB&nbsp;de RAM</li>  | [Standard_NV6](../virtual-machines/nv-series.md) | Es el más adecuado para la visualización, la realización de streaming, los juegos y la codificación de forma remota con marcos como OpenGL y DirectX. |
 | GPU pequeña (proceso) | <ul><li>6&nbsp;núcleos</li><li>56&nbsp;GB&nbsp;de RAM</li></ul>  | [Standard_NC6](../virtual-machines/nc-series.md) |Es el más adecuado para aplicaciones con un uso intensivo de proceso, como inteligencia artificial y aprendizaje profundo. |
-| GPU mediana (visualización) | <ul><li>12&nbsp;núcleos</li><li>112&nbsp;GB&nbsp;de RAM</li></ul>  | [Standard_NV12](../virtual-machines/nv-series.md?bc=%252fazure%252fvirtual-machines%252flinux%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json) | Es el más adecuado para la visualización, la realización de streaming, los juegos y la codificación de forma remota con marcos como OpenGL y DirectX. |
+| GPU mediana (visualización) | <ul><li>12&nbsp;núcleos</li><li>112&nbsp;GB&nbsp;de RAM</li></ul>  | [Standard_NV12](../virtual-machines/nv-series.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Es el más adecuado para la visualización, la realización de streaming, los juegos y la codificación de forma remota con marcos como OpenGL y DirectX. |
 
 ## <a name="manage-identity"></a>Administración de identidades
 

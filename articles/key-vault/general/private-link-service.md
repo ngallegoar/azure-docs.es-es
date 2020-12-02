@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: ec619681f1eebc51da85d31ad15f1db25cfd3cbc
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: 570281e31c70b2f5f85a858f9dd424f93ee86029
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94917926"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460053"
 ---
 # <a name="integrate-key-vault-with-azure-private-link"></a>Integración de Key Vault con Azure Private Link
 
@@ -23,7 +23,7 @@ Un punto de conexión privado de Azure es una interfaz de red que le conecta de 
 
 Para más información, consulte [¿Qué es Azure Private Link?](../../private-link/private-link-overview.md)
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para integrar un almacén de claves con Azure Private Link, necesitará lo siguiente:
 
@@ -226,14 +226,14 @@ Aliases:  <your-key-vault-name>.vault.azure.net
 
 * Asegúrese de que tiene un recurso Zona DNS privada. 
     1. Debe tener un recurso Zona DNS privada cuyo nombre sea exactamente privatelink.vaultcore.azure.net. 
-    2. Para aprender a configurarlo, consulte el siguiente vínculo. [Zonas DNS privadas](https://docs.microsoft.com/azure/dns/private-dns-privatednszone)
+    2. Para aprender a configurarlo, consulte el siguiente vínculo. [Zonas DNS privadas](../../dns/private-dns-privatednszone.md)
     
 * Asegúrese de que la zona DNS privada no está vinculada a la red virtual. Si se devuelve la dirección IP pública, es posible que el problema sea este. 
     1. Si la zona DNS privada no está vinculada a la red virtual, la consulta de DNS cuyo origen era la red virtual devolverá la dirección IP pública del almacén de claves. 
     2. Vaya al recurso Zona DNS privada de Azure Portal y haga clic en la opción de los vínculos de la red virtual. 
     4. La red virtual que realizará las llamadas al almacén de claves debe aparecer en la lista. 
     5. Si no está, agréguela. 
-    6. Para ver los pasos detallados, consulte el siguiente documento [Vínculo de una red virtual a una zona DNS privada](https://docs.microsoft.com/azure/dns/private-dns-getstarted-portal#link-the-virtual-network)
+    6. Para ver los pasos detallados, consulte el siguiente documento [Vínculo de una red virtual a una zona DNS privada](../../dns/private-dns-getstarted-portal.md#link-the-virtual-network)
 
 * Asegúrese de que en la zona DNS privada no falta un registro d para el almacén de claves. 
     1. Vaya a la página Zona DNS privada. 

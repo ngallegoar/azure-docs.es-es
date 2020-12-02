@@ -10,12 +10,12 @@ ms.subservice: billing
 ms.topic: troubleshooting
 ms.date: 08/20/2020
 ms.author: v-miegge
-ms.openlocfilehash: 91b3b7b71524c76006ad4d431774e05e47fd0266
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 85f6e64cb20a14b9cd03776d138872d6a4191535
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131078"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96344494"
 ---
 # <a name="troubleshoot-issues-when-you-sign-up-for-a-new-account-in-azure-portal-or-azure-account-center"></a>Solución de problemas al registrar una cuenta nueva en Azure Portal o en el centro de cuentas de Azure
 
@@ -76,8 +76,8 @@ Para resolver este problema, compruebe si se cumplen las siguientes condiciones:
 
 #### <a name="you-see-the-message-your-current-account-type-is-not-supported"></a>Aparece el mensaje "Tipo de cuenta actual no admitido".
 
-Este problema puede producirse si la cuenta está registrada en [un directorio de Azure AD no administrado](../../active-directory/users-groups-roles/directory-self-service-signup.md) y no está en el directorio de Azure AD de la organización.
-Para solucionar este problema, inicie sesión en la cuenta de Azure usando otra cuenta o tome el control del directorio de AD no administrado. Para más información, vea [Adquisición de un directorio no administrado como administrador en Azure Active Directory](../../active-directory/users-groups-roles/domains-admin-takeover.md).
+Este problema puede producirse si la cuenta está registrada en [un directorio de Azure AD no administrado](../../active-directory/enterprise-users/directory-self-service-signup.md) y no está en el directorio de Azure AD de la organización.
+Para solucionar este problema, inicie sesión en la cuenta de Azure usando otra cuenta o tome el control del directorio de AD no administrado. Para más información, vea [Adquisición de un directorio no administrado como administrador en Azure Active Directory](../../active-directory/enterprise-users/domains-admin-takeover.md).
 
 ## <a name="identity-verification-by-phone"></a>Verificación de identidad mediante teléfono
 

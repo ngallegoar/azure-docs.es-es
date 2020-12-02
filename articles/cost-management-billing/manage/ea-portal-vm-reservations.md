@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
-ms.openlocfilehash: 16e325f029fc4c317a61db62df97ded5c213e0e5
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 7c8a35e7c8ecd0952f8e02b66c5071253d9b0445
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132540"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348932"
 ---
 # <a name="azure-ea-vm-reserved-instances"></a>Instancias reservadas de máquinas virtuales de Azure EA
 
@@ -65,7 +65,7 @@ Las instancias reservadas pueden reducir los costos de las máquinas virtuales h
 
 Para comprar una instancia reservada de máquina virtual de Azure, un administrador de inscripciones de Azure Enterprise debe habilitar la opción de compra _Reserve Instance_ (Reservar instancia). La opción se encuentra en la sección _Enrollment Detail_ (Detalles de la inscripción) de la pestaña _Enrollment_ (Inscripción) de [Azure Enterprise Portal](https://ea.azure.com/).
 
-Una vez que la inscripción de Contrato Enterprise está habilitada para agregar instancias reservadas, cualquier propietario de la cuenta con una suscripción activa asociada a esta inscripción puede comprar una instancia reservada de máquina virtual en [Azure Portal](https://aka.ms/reservations). Para obtener más información, consulte [Pago por adelantado de máquinas virtuales para ahorrar dinero con instancias reservadas de máquina virtual](../../virtual-machines/windows/prepay-reserved-vm-instances.md).
+Una vez que la inscripción de Contrato Enterprise está habilitada para agregar instancias reservadas, cualquier propietario de la cuenta con una suscripción activa asociada a esta inscripción puede comprar una instancia reservada de máquina virtual en [Azure Portal](https://aka.ms/reservations). Para obtener más información, consulte [Pago por adelantado de máquinas virtuales para ahorrar dinero con instancias reservadas de máquina virtual](../../virtual-machines/prepay-reserved-vm-instances.md).
 
 ### <a name="how-to-view-reserved-instance-purchase-details"></a>Visualización de los detalles de la compra de instancias reservadas
 

@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 02/07/2019
 ms.author: cavoeg
-ms.openlocfilehash: 3aea2322129c383a385168c54001464da5dae276
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 9a4c331d82695aecb53990fd604ade82f3361959
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95520091"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452914"
 ---
 # <a name="features"></a>Características
 
@@ -135,7 +135,7 @@ Actualmente, las acciones permitidas para un rol determinado se aplican *globalm
 
 ## <a name="service-limits"></a>Límites de servicio
 
-* [**Unidades de solicitud (RU)** ](https://docs.microsoft.com/azure/cosmos-db/concepts-limits): puede configurar hasta 10 000 unidades de solicitud en el portal de Azure API for FHIR. Necesitará un mínimo de 400 RU o 10 RU/GB, lo que sea mayor. Si necesita más de 10 000 RU, puede crear una incidencia de soporte técnico para solicitar un aumento. El máximo disponible es 1 000 000.
+* [**Unidades de solicitud (RU)** ](../cosmos-db/concepts-limits.md): puede configurar hasta 10 000 unidades de solicitud en el portal de Azure API for FHIR. Necesitará un mínimo de 400 RU o 10 RU/GB, lo que sea mayor. Si necesita más de 10 000 RU, puede crear una incidencia de soporte técnico para solicitar un aumento. El máximo disponible es 1 000 000.
 
 * **Conexiones simultáneas** e **instancias**: de manera predeterminada, tiene cinco conexiones simultáneas en dos instancias del clúster (para un total de diez solicitudes simultáneas). Si cree que necesita un mayor número solicitudes simultáneas, abra una incidencia de soporte técnico con los detalles de lo que necesita.
 

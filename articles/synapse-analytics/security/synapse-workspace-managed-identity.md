@@ -8,14 +8,14 @@ ms.subservice: security
 ms.date: 10/16/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 4100640fd619d9d971ac1c7083eedef8e2125fc3
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 5506a54193efc813927663533ddfd89be3ddf40a
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92738291"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461302"
 ---
-# <a name="azure-synapse-workspace-managed-identity-preview"></a>Identidad administrada del área de trabajo de Azure Synapse (versión preliminar)
+# <a name="azure-synapse-workspace-managed-identity"></a>Identidad administrada del área de trabajo de Azure Synapse
 
 En este artículo, aprenderá sobre la identidad administrada en el área de trabajo de Azure Synapse.
 

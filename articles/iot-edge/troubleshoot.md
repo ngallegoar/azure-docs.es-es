@@ -8,12 +8,12 @@ ms.date: 11/12/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: daae45c9eca45022225ea47aa048815d5eff70c4
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 035cf5be4471cad7ac11eb8ce9a8a0ecb13a68da
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94964514"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462363"
 ---
 # <a name="troubleshoot-your-iot-edge-device"></a>Solución de problemas del dispositivo IoT Edge
 
@@ -81,7 +81,7 @@ Para obtener instrucciones sobre cómo actualizar el dispositivo, consulte [Actu
 
 ## <a name="verify-the-installation-of-iot-edge-on-your-devices"></a>Comprobación de la instalación de IoT Edge en los dispositivos
 
-Puede comprobar la instalación de IoT Edge en los dispositivos mediante la [supervisión del módulo gemelo edgeAgent](https://docs.microsoft.com/azure/iot-edge/how-to-monitor-module-twins).
+Puede comprobar la instalación de IoT Edge en los dispositivos mediante la [supervisión del módulo gemelo edgeAgent](./how-to-monitor-module-twins.md).
 
 Para obtener el módulo gemelo edgeAgent más reciente, ejecute el siguiente comando desde [Azure Cloud Shell](https://shell.azure.com/):
 
@@ -89,7 +89,7 @@ Para obtener el módulo gemelo edgeAgent más reciente, ejecute el siguiente com
    az iot hub module-twin show --device-id <edge_device_id> --module-id $edgeAgent --hub-name <iot_hub_name>
    ```
 
-Este comando generará todas las [propiedades notificadas](https://docs.microsoft.com/azure/iot-edge/module-edgeagent-edgehub) de edgeAgent. Aquí hay algunos elementos útiles para supervisar el estado del dispositivo:
+Este comando generará todas las [propiedades notificadas](./module-edgeagent-edgehub.md) de edgeAgent. Aquí hay algunos elementos útiles para supervisar el estado del dispositivo:
 
 * estado del entorno de ejecución
 * hora de inicio del entorno de ejecución

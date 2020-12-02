@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: 460fed7244ba8094da41ae6b5b8161de3d9efe65
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: efa160eb422658aeeb2eea3ad3c1d305b4b9f8be
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93317271"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462413"
 ---
 # <a name="sql-authentication"></a>Autenticación de SQL
 
@@ -29,7 +29,7 @@ La autorización con Azure Active Directory permite administrar los usuarios des
 
 ## <a name="administrative-accounts"></a>Cuentas administrativas
 
-Hay dos cuentas administrativas ( **administrador del servidor** y **administrador de Active Directory** ) que actúan como administradores. Para identificar estas cuentas de administrador de SQL Server, abra Azure Portal y vaya a la pestaña Propiedades de Synapse SQL.
+Hay dos cuentas administrativas (**administrador del servidor** y **administrador de Active Directory**) que actúan como administradores. Para identificar estas cuentas de administrador de SQL Server, abra Azure Portal y vaya a la pestaña Propiedades de Synapse SQL.
 
 ![Administradores de SQL Server](./media/sql-authentication/sql-admins.png)
 
@@ -51,7 +51,7 @@ Las cuentas de **administrador del servidor** y de **administrador de Azure AD**
 - Pueden agregar y quitar miembros en los roles `dbmanager` y `loginmanager`.
 - Pueden ver la tabla del sistema `sys.sql_logins`.
 
-## <a name="serverless-sql-pool-preview"></a>[Grupo de SQL sin servidor (versión preliminar)](#tab/serverless)
+## <a name="serverless-sql-pool"></a>[Grupo de SQL sin servidor](#tab/serverless)
 
 Para administrar los usuarios que tienen acceso al grupo de SQL sin servidor, puede usar las instrucciones siguientes.
 
@@ -127,7 +127,7 @@ Ahora, el usuario puede conectarse a la base de datos `master` y puede crear nue
 
 ### <a name="login-managers"></a>Administradores de inicio de sesión
 
-El otro rol administrativo es el rol de administrador de inicio de sesión. Los miembros de este rol pueden crear nuevos inicios de sesión en la base de datos maestra. Si lo desea, puede realizar los mismos pasos (crear un inicio de sesión y un usuario, y agregar un usuario al rol **loginmanager** ) para que los usuarios puedan crear nuevos inicios de sesión en la base de datos maestra. Normalmente los inicios de sesión no son necesarios, ya que Microsoft recomienda utilizar los usuarios de base de datos independiente que se autenticarán en el nivel de base de datos, en lugar de utilizar los usuarios basándose en los inicios de sesión. Para obtener más información, vea [Usuarios de base de datos independiente: hacer que la base de datos sea portátil](/sql/relational-databases/security/contained-database-users-making-your-database-portable?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
+El otro rol administrativo es el rol de administrador de inicio de sesión. Los miembros de este rol pueden crear nuevos inicios de sesión en la base de datos maestra. Si lo desea, puede realizar los mismos pasos (crear un inicio de sesión y un usuario, y agregar un usuario al rol **loginmanager**) para que los usuarios puedan crear nuevos inicios de sesión en la base de datos maestra. Normalmente los inicios de sesión no son necesarios, ya que Microsoft recomienda utilizar los usuarios de base de datos independiente que se autenticarán en el nivel de base de datos, en lugar de utilizar los usuarios basándose en los inicios de sesión. Para obtener más información, vea [Usuarios de base de datos independiente: hacer que la base de datos sea portátil](/sql/relational-databases/security/contained-database-users-making-your-database-portable?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 ---
 
@@ -187,7 +187,7 @@ La administración de acceso eficiente utiliza los permisos asignados a grupos y
 
 - Si utilizar la autenticación de SQL Server, cree usuarios de base de datos contenidos en la base de datos. Coloque uno o varios usuarios de base de datos en un [rol de base de datos](/sql/relational-databases/security/authentication-access/database-level-roles?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) y, luego, asigne [permisos](/sql/relational-databases/security/permissions-database-engine?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) al rol de base de datos.
 
-Los roles de base de datos pueden ser roles integrados como **db_owner** , **db_ddladmin** , **db_datawriter** , **db_datareader** , **db_denydatawriter** y **db_denydatareader**. **db_owner** se usa habitualmente para conceder permiso completo solo a algunos usuarios. Los restantes roles fijos de base de datos son útiles para obtener rápidamente una base de datos simple en la fase de desarrollo, pero no se recomiendan para la mayoría de las bases de datos de producción. 
+Los roles de base de datos pueden ser roles integrados como **db_owner**, **db_ddladmin**, **db_datawriter**, **db_datareader**, **db_denydatawriter** y **db_denydatareader**. **db_owner** se usa habitualmente para conceder permiso completo solo a algunos usuarios. Los restantes roles fijos de base de datos son útiles para obtener rápidamente una base de datos simple en la fase de desarrollo, pero no se recomiendan para la mayoría de las bases de datos de producción. 
 
 Por ejemplo, el rol fijo de base de datos **db_datareader** concede acceso de lectura a todas las tablas de la base de datos, algo que normalmente es más de lo estrictamente necesario. 
 

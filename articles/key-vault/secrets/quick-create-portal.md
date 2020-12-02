@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 09/03/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 212e5fb62043c2ffe2b8876249a6aad1d224411d
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 3d7e6357fd8f1091509cbf27875c028d3af310cb
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94685858"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96445920"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-the-azure-portal"></a>Inicio rápido: Establecimiento y recuperación de un secreto de Azure Key Vault mediante Azure Portal
 
@@ -45,13 +45,13 @@ Para agregar un secreto al almacén, siga estos pasos:
 1. Haga clic en **Generar o Importar**.
 1. En la pantalla **Crear un secreto**, elija los siguientes valores:
     - **Opciones de carga**: Manual.
-    - **Name**: Escriba un nombre para el secreto. El nombre del secreto debe ser único en Key Vault. El nombre debe ser una cadena de entre 1 y 127 caracteres que solo contenga 0-9, a-z, A-Z y -. Para más información sobre la nomenclatura, consulte [Objetos, identificadores y control de versiones de Key Vault](https://docs.microsoft.com/azure/key-vault/general/about-keys-secrets-certificates#objects-identifiers-and-versioning).
+    - **Name**: Escriba un nombre para el secreto. El nombre del secreto debe ser único en Key Vault. El nombre debe ser una cadena de entre 1 y 127 caracteres que solo contenga 0-9, a-z, A-Z y -. Para más información sobre la nomenclatura, consulte [Objetos, identificadores y control de versiones de Key Vault](../general/about-keys-secrets-certificates.md#objects-identifiers-and-versioning).
     - **Valor**: Escriba un valor para el secreto. Las API de Key Vault aceptan y devuelven los valores de secreto como cadenas. 
     - Deje las restantes opciones con sus valores predeterminados. Haga clic en **Crear**.
 
 Una vez recibido el mensaje de que el secreto se ha creado correctamente, puede hacer clic en él en la lista. 
 
-Para más información sobre los atributos de secretos, consulte [Acerca de los secretos de Azure Key Vault](https://docs.microsoft.com/azure/key-vault/secrets/about-secrets).
+Para más información sobre los atributos de secretos, consulte [Acerca de los secretos de Azure Key Vault](./about-secrets.md).
 
 ## <a name="retrieve-a-secret-from-key-vault"></a>Recuperar un secreto del almacén de claves
 
@@ -75,7 +75,7 @@ Cuando ya no lo necesite, elimine el grupo de recursos; de este modo se eliminar
 3. En el cuadro **ESCRIBA EL NOMBRE DEL GRUPO DE RECURSOS:** escriba el nombre del grupo de recursos y seleccione **Eliminar**.
 
 > [!NOTE]
-> Es importante tener en cuenta que una vez que se elimina un secreto, una clave, un certificado o un almacén de claves, no se podrá recuperar durante un período configurable de 7 a 90 días naturales. Si no se especifica ninguna configuración, el período de recuperación predeterminado se establecerá en 90 días. De esta forma, los usuarios tendrán tiempo suficiente para darse cuenta de la eliminación accidental de un secreto y responder a ella. Para más información sobre cómo eliminar y recuperar los almacenes de claves y los objetos de Key Vault, consulte [Información general sobre la eliminación temporal de Azure Key Vault](https://docs.microsoft.com/azure/key-vault/general/soft-delete-overview).
+> Es importante tener en cuenta que una vez que se elimina un secreto, una clave, un certificado o un almacén de claves, no se podrá recuperar durante un período configurable de 7 a 90 días naturales. Si no se especifica ninguna configuración, el período de recuperación predeterminado se establecerá en 90 días. De esta forma, los usuarios tendrán tiempo suficiente para darse cuenta de la eliminación accidental de un secreto y responder a ella. Para más información sobre cómo eliminar y recuperar los almacenes de claves y los objetos de Key Vault, consulte [Información general sobre la eliminación temporal de Azure Key Vault](../general/soft-delete-overview.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

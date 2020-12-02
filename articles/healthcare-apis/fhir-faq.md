@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 08/03/2020
 ms.author: matjazl
-ms.openlocfilehash: 744bcfe196629f76c5505f36ef9c8c224fefe601
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 31ae5b780bf451e29a97f04202f804db27fc387a
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95909074"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452930"
 ---
 # <a name="frequently-asked-questions-about-the-azure-api-for-fhir"></a>Preguntas más frecuentes sobre Azure API for FHIR
 
@@ -31,7 +31,7 @@ Sí, los datos se almacenan en bases de datos administradas en Azure. Azure API 
 Actualmente se admite Microsoft Azure Active Directory como proveedor de identidades.
 
 ### <a name="what-is-the-recovery-point-objective-rpo-for-the-azure-api-for-fhir"></a>¿Cuál es el objetivo de punto de recuperación (RPO) de Azure API for FHIR?
-El servicio Azure API for FHIR está respaldado por Cosmos DB como nuestro proveedor de persistencia. Por este motivo, el RPO del servicio es igual a [Cosmos DB (región única)](https://docs.microsoft.com/azure/cosmos-db/consistency-levels) y <240 minutos.
+El servicio Azure API for FHIR está respaldado por Cosmos DB como nuestro proveedor de persistencia. Por este motivo, el RPO del servicio es igual a [Cosmos DB (región única)](../cosmos-db/consistency-levels.md) y <240 minutos.
 
 ### <a name="what-fhir-version-do-you-support"></a>¿Qué versión de FHIR admite?
 
@@ -122,7 +122,7 @@ Hay una colección de arquitecturas de referencia disponible en la página de [G
 
 ### <a name="where-can-i-see-an-example-of-connecting-a-web-application-to-azure-api-for-fhir"></a>¿Dónde puedo ver un ejemplo de conexión de una aplicación web a Azure API for FHIR?
 
-Tenemos una [página de GitHub de la arquitectura de estado](https://github.com/microsoft/health-architectures) que contiene aplicaciones y escenarios de ejemplo. En ella se muestra cómo conectar una aplicación web a Azure API for FHIR.  
+Tenemos una [página de GitHub de la arquitectura de estado](https://aka.ms/health-architectures) que contiene aplicaciones y escenarios de ejemplo. En ella se muestra cómo conectar una aplicación web a Azure API for FHIR.  
 
 ## <a name="azure-api-for-fhir-features-and-services"></a>Características y servicios de Azure API for FHIR 
 

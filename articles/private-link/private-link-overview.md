@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 09/03/2020
 ms.author: allensu
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: ce3903bad4f7e4675406956ddedbc9011a6d2be8
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: f4803cc9871b71e65e4d94ed37d3f9771be1cae0
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95522267"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96454962"
 ---
 # <a name="what-is-azure-private-link"></a>¿Qué es Azure Private Link? 
 Azure Private Link le permite acceder a los servicios PaaS de Azure (por ejemplo, Azure Storage y SQL Database) y a los servicios hospedados en Azure que son propiedad de los clientes, o a los servicios de asociados, a través de un [punto de conexión privado](private-endpoint-overview.md) de la red virtual.
@@ -47,7 +47,7 @@ Azure Private Link proporciona las ventajas siguientes:
 | Azure Queue Storage       |  Todas las regiones públicas<br/> Todas las regiones de Azure Government       |  Se admite en el tipo cuenta de uso general V2 | Disponibilidad general <br/> [Aprenda a crear un punto de conexión privado para Queue Storage.](tutorial-private-endpoint-storage-portal.md) |
 | Azure Table storage       |  Todas las regiones públicas<br/> Todas las regiones de Azure Government       |  Se admite en el tipo cuenta de uso general V2 | Disponibilidad general <br/> [Aprenda a crear un punto de conexión privado para Table Storage.](tutorial-private-endpoint-storage-portal.md)  |
 |  Azure SQL Database         | Todas las regiones públicas <br/> Todas las regiones de Azure Government<br/>Todas las regiones de China      |  Compatible con la [directiva de conexión](../azure-sql/database/connectivity-architecture.md#connection-policy) de proxy | Disponibilidad general <br/> [Aprenda a crear un punto de conexión privado para Azure SQL.](create-private-endpoint-portal.md)      |
-|Azure Synapse Analytics (anteriormente SQL Data Warehouse)| Todas las regiones públicas <br/> Todas las regiones de Azure Government |  Compatible con la [directiva de conexión](../azure-sql/database/connectivity-architecture.md#connection-policy) de proxy |Disponibilidad general <br/> [Aprenda a crear un punto de conexión privado para Azure Synapse Analytics.](../azure-sql/database/private-endpoint-overview.md)|
+|Azure Synapse Analytics| Todas las regiones públicas <br/> Todas las regiones de Azure Government |  Compatible con la [directiva de conexión](../azure-sql/database/connectivity-architecture.md#connection-policy) de proxy |Disponibilidad general <br/> [Aprenda a crear un punto de conexión privado para Azure Synapse Analytics.](../azure-sql/database/private-endpoint-overview.md)|
 |Azure Cosmos DB|  Todas las regiones públicas<br/> Todas las regiones de Azure Government</br> Todas las regiones de China | |Disponibilidad general <br/> [Aprenda a crear un punto de conexión privado para Cosmos DB.](./tutorial-private-endpoint-cosmosdb-portal.md)|
 |  Azure Database for PostgreSQL: servidor único         | Todas las regiones públicas <br/> Todas las regiones de Azure Government<br/>Todas las regiones de China     | Compatible con los planes de tarifa De uso general y Optimizada para memoria | Disponibilidad general <br/> [Aprenda a crear un punto de conexión privado para Azure Database for PostgreSQL.](../postgresql/concepts-data-access-and-security-private-link.md)      |
 |  Azure Database for MySQL         | Todas las regiones públicas<br/> Todas las regiones de Azure Government<br/>Todas las regiones de China      |  | Disponibilidad general <br/> [Aprenda a crear un punto de conexión privado para Azure Database for MySQL.](../mysql/concepts-data-access-security-private-link.md)     |
@@ -97,7 +97,7 @@ Para más información sobre los precios, consulte [Precios de Azure Private Lin
 ## <a name="faqs"></a>Preguntas más frecuentes  
 Para ver las preguntas más frecuentes, consulte [Preguntas más frecuentes sobre Azure Private Link](private-link-faq.md).
  
-## <a name="limits"></a>límites  
+## <a name="limits"></a>Límites  
 Para conocer los límites, consulte [Límites de Azure Private Link](../azure-resource-manager/management/azure-subscription-service-limits.md#private-link-limits).
 
 ## <a name="service-level-agreement"></a>Acuerdo de Nivel de Servicio

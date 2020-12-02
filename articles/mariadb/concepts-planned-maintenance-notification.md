@@ -6,12 +6,12 @@ ms.author: ambhatna
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 10/21/2020
-ms.openlocfilehash: 1c9ae694fefcede599331d5d57a298bda4739f53
-ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
+ms.openlocfilehash: c290236dfe7e88999847f8cb0d66b2d3c868c1ab
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94920532"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96453293"
 ---
 # <a name="planned-maintenance-notification-in-azure-database-for-mariadb"></a>Notificación de mantenimiento planeado en Azure Database for MariaDB
 
@@ -61,7 +61,7 @@ Puede comprobar la notificación de mantenimiento planeado en Azure Portal, o bi
 7. Asegúrese de que Habilitar regla tras la creación esté establecido en Sí.
 8. Seleccione **Crear regla de alertas** para completar la alerta.
 
-Para conocer los pasos detallados sobre cómo crear **alertas de Service Health**, consulte [Creación de alertas del registro de actividad en notificaciones del servicio](../service-health/alerts-activity-log-service-notifications.md).
+Para conocer los pasos detallados sobre cómo crear **alertas de Service Health**, consulte [Creación de alertas del registro de actividad en notificaciones del servicio](../service-health/alerts-activity-log-service-notifications-portal.md).
 
 ## <a name="can-i-cancel-or-postpone-planned-maintenance"></a>¿Se puede cancelar o posponer el mantenimiento planeado?
 

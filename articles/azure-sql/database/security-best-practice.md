@@ -10,12 +10,12 @@ ms.author: vanto
 ms.topic: article
 ms.date: 09/21/2020
 ms.reviewer: ''
-ms.openlocfilehash: b309ce01595e2e62bea7f78ae728d83bc7d9b9be
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 1217d3af855e96b6d6a0f403c2ff351a6b957d9a
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94992172"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96459676"
 ---
 # <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database-and-azure-sql-managed-instance"></a>Cuaderno de estrategias para abordar requisitos de seguridad comunes con Azure SQL Database y Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -33,7 +33,7 @@ En este documento se proporcionan instrucciones sobre cómo resolver los requisi
 
 ### <a name="deployment-offers-not-covered-in-this-guide"></a>Ofertas de implementación que no se describen en esta guía
 
-- Azure Synapse Analytics (anteriormente SQL Data Warehouse)
+- Azure Synapse Analytics
 - Máquinas virtuales de Azure SQL (IaaS)
 - SQL Server
 
@@ -614,7 +614,7 @@ Los ataques de denegación de servicio distribuido (DDoS) son intentos por parte
 
 La protección contra DDoS está habilitada de manera automática como parte de la plataforma de Azure. Incluye la supervisión del tráfico siempre activa y la mitigación en tiempo real de los ataques en el nivel de red en puntos de conexión públicos.
 
-- Use [Azure DDoS Protection](../../virtual-network/ddos-protection-overview.md) para supervisar las direcciones IP públicas asociadas a los recursos implementados en redes virtuales.
+- Use [Azure DDoS Protection](../../ddos-protection/ddos-protection-overview.md) para supervisar las direcciones IP públicas asociadas a los recursos implementados en redes virtuales.
 
 - Utilice [Advanced Threat Protection en Azure SQL Database](threat-detection-overview.md) para detectar ataques de denegación de servicio (DoS) contra las bases de datos.
 

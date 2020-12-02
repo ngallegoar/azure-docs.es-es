@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: e84afc949a84da90a4799d7db3b3e7ad3e0057a3
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 3fc7a7f137701590e4bddd791a3fdd2d1eaeca4a
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323536"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461614"
 ---
 # <a name="quickstart-create-a-new-serverless-apache-spark-pool-using-the-azure-portal"></a>Inicio rápido: Creación de un grupo de Apache Spark sin servidor mediante Azure Portal
 
@@ -47,7 +47,7 @@ Inicie sesión en el [Portal de Azure](https://portal.azure.com/)
 
 1. En el área de trabajo de Synapse en la que desee crear el grupo de Apache Spark, seleccione **New Apache Spark pool** (Nuevo grupo de Apache Spark) en la barra superior.
     ![Información general del área de trabajo de Synapse con un cuadro rojo alrededor del comando para crear un nuevo grupo de Apache Spark](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-01.png)
-2. En la pestaña **Datos básicos** , escriba la siguientes información:
+2. En la pestaña **Datos básicos**, escriba la siguientes información:
 
     |Configuración | Valor sugerido | Descripción |
     | :------ | :-------------- | :---------- |
@@ -89,7 +89,7 @@ Siga los pasos que se indican a continuación para eliminar el grupo de Apache S
 Si está seguro de que quiere eliminar el grupo de Apache Spark, haga lo siguiente:
 
 1. Vaya a la hoja Grupos de Apache Spark en el área de trabajo.
-2. Seleccione el grupo de Apache Spark que se va a eliminar (en este caso, **contosospark** ).
+2. Seleccione el grupo de Apache Spark que se va a eliminar (en este caso, **contosospark**).
 3. Presione **Eliminar**.
  ![Lista de grupos de Apache Spark, con el grupo creado recientemente seleccionado.](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-08.png)
 4. Confirme la eliminación y presione el botón **Eliminar**.
@@ -99,4 +99,4 @@ Si está seguro de que quiere eliminar el grupo de Apache Spark, haga lo siguien
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Consulte [Quickstart: Creación de un cuaderno de Apache Spark](quickstart-apache-spark-notebook.md)
-- Consulte [Quickstart: Creación de un grupo de SQL dedicado de Synapse mediante Azure Portal](quickstart-create-sql-pool-portal.md).
+- Consulte [Quickstart: Creación de un grupo de SQL dedicado mediante Azure Portal](quickstart-create-sql-pool-portal.md).

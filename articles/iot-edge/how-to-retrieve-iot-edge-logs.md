@@ -10,12 +10,12 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 ms.custom: devx-track-azurecli
 services: iot-edge
-ms.openlocfilehash: 97cdc4ad0b1d5e7dfb6642fa0163f810be5d7171
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: dccb734ef4eaa9f22b70488918f14ad94f723453
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94966928"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96437140"
 ---
 # <a name="retrieve-logs-from-iot-edge-deployments"></a>Recuperación de registros de implementaciones de IoT Edge
 
@@ -33,7 +33,7 @@ Aunque no es necesario, para mejorar la compatibilidad con esta característica,
 <{Log Level}> {Timestamp} {Message Text}
 ```
 
-`{Log Level}` debe seguir el [formato de nivel de gravedad de Syslog](https://wikipedia.org/wiki/Syslog#Severity_lnevel) y `{Timestamp}` debe tener el formato `yyyy-mm-dd hh:mm:ss.fff zzz`.
+`{Log Level}` debe seguir el [formato de nivel de gravedad de Syslog](https://wikipedia.org/wiki/Syslog#Severity_level) y `{Timestamp}` debe tener el formato `yyyy-mm-dd hh:mm:ss.fff zzz`.
 
 La [Clase de registrador de IoT Edge](https://github.com/Azure/iotedge/blob/master/edge-util/src/Microsoft.Azure.Devices.Edge.Util/Logger.cs) actúa como implementación canónica.
 
@@ -50,10 +50,10 @@ Este método acepta una carga JSON con el siguiente esquema:
           {
              "id": "regex string",
              "filter": {
-                "tail": int,
-                "since": int,
-                "until": int,
-                "loglevel": int,
+                "tail": "int",
+                "since": "int",
+                "until": "int",
+                "loglevel": "int",
                 "regex": "regex string"
              }
           }
@@ -159,10 +159,10 @@ Este método acepta una carga JSON similar a **GetModuleLogs**, con la adición 
           {
              "id": "regex string",
              "filter": {
-                "tail": int,
-                "since": int,
-                "until": int,
-                "loglevel": int,
+                "tail": "int",
+                "since": "int",
+                "until": "int",
+                "loglevel": "int",
                 "regex": "regex string"
              }
           }

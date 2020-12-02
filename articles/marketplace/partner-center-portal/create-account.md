@@ -8,12 +8,12 @@ ms.date: 11/02/2020
 author: parthpandyaMSFT
 ms.author: parthp
 ms.custom: contperfq2
-ms.openlocfilehash: ccdc87d03181bad1aba4dd362a651fa42381343a
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 39a9b363c847b615bfbe049b4b47628e8688c607
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95542293"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96458125"
 ---
 # <a name="create-a-commercial-marketplace-account-in-partner-center"></a>Creación de una cuenta de Marketplace comercial en el Centro de partners
 
@@ -114,7 +114,7 @@ Ha creado una cuenta del marketplace comercial en el Centro de partners. Vaya a 
 >
 >Las cuentas individuales son para desarrolladores que trabajan por su cuenta. Las cuentas de empresa son para organizaciones y negocios. Las cuentas de empresa proporcionan acceso al envío de aplicaciones con funcionalidad adicional.
 >
-> Para comprobar que tiene la autorización necesaria para configurar la cuenta para la empresa, después del registro, requerimos una verificación adicional de las cuentas de empresa. Esta verificación puede tardar desde unos días hasta un par de semanas y, a menudo, incluye una llamada telefónica a su empresa. Ambos tipos de cuentas permiten enviar aplicaciones, complementos y servicios. Para obtener más información, consulte  [Tipos de cuenta, ubicaciones y precios](https://docs.microsoft.com/windows/uwp/publish/account-types-locations-and-fees).
+> Para comprobar que tiene la autorización necesaria para configurar la cuenta para la empresa, después del registro, requerimos una verificación adicional de las cuentas de empresa. Esta verificación puede tardar desde unos días hasta un par de semanas y, a menudo, incluye una llamada telefónica a su empresa. Ambos tipos de cuentas permiten enviar aplicaciones, complementos y servicios. Para obtener más información, consulte  [Tipos de cuenta, ubicaciones y precios](/windows/uwp/publish/account-types-locations-and-fees).
 
 Al registrarse en el programa del marketplace comercial con la misma cuenta que en el programa de desarrolladores, puede ver las inscripciones existentes en los programas en el panel izquierdo del Centro de partners.
 

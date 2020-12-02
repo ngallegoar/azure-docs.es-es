@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc,subject-armqs
 ms.date: 10/14/2020
 ms.author: sebansal
-ms.openlocfilehash: c16fc475e4982724ebc9f4f55301b6fc56dfb7c7
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 73c52963df65dc4037f087a93108ccfacb3fb5d4
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95017016"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461553"
 ---
 # <a name="quickstart-create-an-azure-key-vault-and-a-key-by-using-arm-template-preview"></a>Inicio rápido: Creación de un almacén de claves de Azure y una clave mediante una plantilla de Resource Manager (versión preliminar)
 
@@ -26,7 +26,7 @@ ms.locfileid: "95017016"
 Para completar este artículo:
 
 - Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
-- El usuario tendría que tener asignado el rol incorporado de RBAC, por ejemplo, colaborador. [Obtén más información aquí](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
+- El usuario tendría que tener asignado el rol incorporado de RBAC, por ejemplo, colaborador. [Obtén más información aquí](../../role-based-access-control/role-assignments-portal.md)
 - La plantilla necesita el identificador de objeto de usuario de Azure AD para configurar los permisos. El procedimiento siguiente permite obtener el identificador de objeto (GUID).
 
     1. Ejecute el siguiente comando de Azure PowerShell o la CLI de Azure, para lo que debe seleccionar **Pruébelo** y, a continuación, pegar el script en el panel de shell. Para pegar el script, haga clic con el botón derecho en el shell y, a continuación, seleccione **Pegar**.

@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/13/2019
 author: trkeya
 ms.author: trkeya
-ms.openlocfilehash: de85e4eb553f623790b472e79f8f97487ba96b48
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 553eba3898a5ea42e5d478603e35e82c68abcab1
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95751120"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462905"
 ---
 # <a name="test-drive-technical-configuration"></a>Configuración técnica de la versión de prueba
 
@@ -38,9 +38,9 @@ Microsoft puede eliminar la complejidad de configurar una versión de prueba hos
 
 - **Nombre del rol** (obligatorio): Proporcione el nombre del rol de seguridad que ha definido en la versión de prueba de Dynamics 365 personalizada, que se asignará al usuario durante la versión de prueba (por ejemplo, test-drive-role).
 
-Para obtener ayuda sobre cómo configurar el entorno de Dynamics 365 para la versión de prueba y conceder permiso a AppSource para aprovisionar y desaprovisionar usuarios de la versión de prueba en el inquilino, siga [estas instrucciones](https://docs.microsoft.com/azure/marketplace/test-drive-azure-subscription-setup).
+Para obtener ayuda sobre cómo configurar el entorno de Dynamics 365 para la versión de prueba y conceder permiso a AppSource para aprovisionar y desaprovisionar usuarios de la versión de prueba en el inquilino, siga [estas instrucciones](./test-drive-azure-subscription-setup.md).
 
-Para obtener instrucciones paso a paso sobre cómo enumerar y configurar la versión de prueba hospedada, visite la página [Configuración detallada de la versión de prueba hospedada](https://docs.microsoft.com/azure/marketplace/test-drive-hosted-detailed-config).
+Para obtener instrucciones paso a paso sobre cómo enumerar y configurar la versión de prueba hospedada, visite la página [Configuración detallada de la versión de prueba hospedada](./test-drive-hosted-detailed-config.md).
 
 ## <a name="logic-app-test-drive"></a>Versión de prueba de aplicación lógica
 
@@ -95,7 +95,7 @@ La opción **Anuncios de versión de prueba** de la pestaña **Versión de prueb
 
 Si está creando la versión de prueba en el Centro de partners, seleccione **Guardar borrador** antes de continuar.
 
-Para obtener instrucciones paso a paso sobre cómo enumerar y configurar la versión de prueba hospedada, visite la página [Configuración detallada de la versión de prueba hospedada](https://docs.microsoft.com/azure/marketplace/test-drive-hosted-detailed-config).
+Para obtener instrucciones paso a paso sobre cómo enumerar y configurar la versión de prueba hospedada, visite la página [Configuración detallada de la versión de prueba hospedada](./test-drive-hosted-detailed-config.md).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

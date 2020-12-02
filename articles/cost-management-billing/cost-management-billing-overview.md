@@ -9,12 +9,12 @@ ms.topic: overview
 ms.service: cost-management-billing
 ms.subservice: common
 ms.custom: contentperfq2
-ms.openlocfilehash: 2c533ea08534444e5bf8d8d57d585e2bf975a93b
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 1dca2fa938c26ba45f162fae962aec0bfaf6cef7
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677378"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353041"
 ---
 # <a name="what-is-azure-cost-management--billing"></a>¿Qué es Azure Cost Management y facturación?
 
@@ -43,11 +43,11 @@ Cuando se registra para usar Azure, se crea una cuenta de facturación. Use su c
 
 Azure Portal admite actualmente los siguientes tipos de cuentas de facturación:
 
-- **Microsoft Online Services Program** : se crea una cuenta de facturación individual para el programa de Microsoft Online Services cuando se registra en el sitio web de Azure. Por ejemplo, cuando se registra para obtener una cuenta gratuita de Azure, como una cuenta con tarifas de pago por uso o como un suscriptor de Visual Studio.
+- **Microsoft Online Services Program**: se crea una cuenta de facturación individual para el programa de Microsoft Online Services cuando se registra en el sitio web de Azure. Por ejemplo, cuando se registra para obtener una cuenta gratuita de Azure, como una cuenta con tarifas de pago por uso o como un suscriptor de Visual Studio.
 
-- **Contrato Enterprise** : Se crea una cuenta de facturación para un Contrato Enterprise cuando la organización firma este Contrato Enterprise (EA) para utilizar Azure.
+- **Contrato Enterprise**: Se crea una cuenta de facturación para un Contrato Enterprise cuando la organización firma este Contrato Enterprise (EA) para utilizar Azure.
 
-- **Contrato de cliente de Microsoft** : Se crea una cuenta de facturación para un contrato de cliente de Microsoft cuando una organización trabaja con un representante de Microsoft para firmar un contrato de cliente de Microsoft. Algunos clientes en regiones seleccionadas, que se registran en el sitio web de Azure para una cuenta con tarifas de pago por uso o actualizar su cuenta gratuita de Azure, también pueden tener una cuenta de facturación para un contrato de cliente de Microsoft.
+- **Contrato de cliente de Microsoft**: Se crea una cuenta de facturación para un contrato de cliente de Microsoft cuando una organización trabaja con un representante de Microsoft para firmar un contrato de cliente de Microsoft. Algunos clientes en regiones seleccionadas, que se registran en el sitio web de Azure para una cuenta con tarifas de pago por uso o actualizar su cuenta gratuita de Azure, también pueden tener una cuenta de facturación para un contrato de cliente de Microsoft.
 
 ### <a name="scopes-for-billing-accounts"></a>Ámbitos para las cuentas de facturación
 Un ámbito es un nodo dentro de una cuenta de facturación que los usuarios utilizan para ver y administrar la facturación. Es donde se administran los datos de facturación, los pagos, las facturas y se realiza la administración de cuentas generales.
@@ -108,7 +108,7 @@ Cloudyn es un servicio de Azure relacionado con Cost Management que pasará a es
 Azure tiene otras herramientas que no forman parte del conjunto de características de Azure Cost Management y facturación. Sin embargo, tienen un rol importante en el proceso de administración de costos. Para aprender más sobre dichas herramientas, consulte los siguientes vínculos.
 
 - [Calculadora de precios de Azure](https://azure.microsoft.com/pricing/calculator/): utilice esta herramienta para calcular los en la nube costos por adelantado.
-- [Azure Migrate](/azure/migrate/migrate-services-overview): evalué la carga de trabajo actual de su centro de datos para obtener información sobre lo que se necesita de la solución de reemplazo de Azure.
+- [Azure Migrate](../migrate/migrate-services-overview.md): evalué la carga de trabajo actual de su centro de datos para obtener información sobre lo que se necesita de la solución de reemplazo de Azure.
 - [Azure Advisor](../advisor/advisor-overview.md): identifique las máquinas virtuales no utilizadas y reciba recomendaciones sobre la compra de instancias reservadas de Azure.
 - [Ventaja híbrida de Azure](https://azure.microsoft.com/pricing/hybrid-benefit/): use sus licencias locales de Windows Server o SQL Server para máquinas virtuales en Azure para el guardado.
 

@@ -9,12 +9,12 @@ ms.topic: reference
 ms.author: jmartens
 author: j-martens
 ms.date: 09/10/2020
-ms.openlocfilehash: 53a30f92adaf25d87897e98834cda2d5f92b874c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 03825e0f091df01b98355dd6789eb5c9cb2897b0
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96012278"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96444542"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notas de la versión de Azure Machine Learning
 
@@ -43,7 +43,7 @@ Para obtener información acerca de errores conocidos y soluciones alternativas,
     + Se ha mejorado la documentación de `OutputDatasetConfig.register_on_complete` para incluir el comportamiento de lo que ocurrirá cuando el nombre ya exista.
     + Especificar nombres de entrada y salida del conjunto de datos que tienen el potencial de colisión con variables de entorno comunes producirá ahora una advertencia.
     + Se ha readaptado el parámetro `grant_workspace_access` al registrar los almacenes de datos. Establézcalo en `True` para acceder a los datos subyacentes a la red virtual desde Machine Learning Studio.
-      [Más información](https://docs.microsoft.com/azure/machine-learning/how-to-enable-studio-virtual-network)
+      [Más información](./how-to-enable-studio-virtual-network.md)
     + Se ha refinado la API del servicio vinculado. En lugar de proporcionar el identificador del recurso, tenemos tres parámetros independientes, sub_id, rg y name, definidos en la configuración.
     + Para permitir que los clientes resuelvan automáticamente los problemas de daños en los tokens, habilite la sincronización de tokens del área de trabajo para que sea un método público.
     + Este cambio permite usar una cadena vacía como valor de script_param.
@@ -109,8 +109,8 @@ Obtenga más información sobre el [etiquetado de segmentación de instancias de
 
 ### <a name="azure-machine-learning-studio-notebooks-experience-october-update"></a>Experiencia con Notebooks de Azure Machine Learning Studio (actualización de octubre)
 + **Nuevas características:**
-  + [Compatibilidad completa con redes virtuales](https://docs.microsoft.com/azure/machine-learning/how-to-enable-studio-virtual-network)
-  + [Modo de enfoque](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#focus-mode)
+  + [Compatibilidad completa con redes virtuales](./how-to-enable-studio-virtual-network.md)
+  + [Modo de enfoque](./how-to-run-jupyter-notebooks.md#focus-mode)
   + Guardado de cuadernos Ctrl-S
   + Números de línea
 
