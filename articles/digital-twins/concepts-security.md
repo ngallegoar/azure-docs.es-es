@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 349f57299387b616373bb5fb4d295da8df8ee493
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.openlocfilehash: d62e7566038af6647cab2992b02184a4ea5ba30b
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93279902"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96344154"
 ---
 # <a name="secure-azure-digital-twins"></a>Protección de Azure Digital Twins
 
@@ -24,7 +24,7 @@ Azure Digital Twins también admite el cifrado de datos en reposo.
 
 Azure RBAC se proporciona en Azure Digital Twins mediante la integración con [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) (Azure AD).
 
-Puede usar Azure RBAC para conceder permisos a una *entidad de seguridad* , que puede ser un usuario, un grupo o una entidad de servicio de aplicación. Azure AD autentica la entidad de seguridad y recibe un token de OAuth 2.0 a cambio. Este token se puede usar para autorizar una solicitud de acceso a una instancia de Azure Digital Twins.
+Puede usar Azure RBAC para conceder permisos a una *entidad de seguridad*, que puede ser un usuario, un grupo o una entidad de servicio de aplicación. Azure AD autentica la entidad de seguridad y recibe un token de OAuth 2.0 a cambio. Este token se puede usar para autorizar una solicitud de acceso a una instancia de Azure Digital Twins.
 
 ### <a name="authentication-and-authorization"></a>Autenticación y autorización
 
@@ -93,7 +93,7 @@ Si un usuario intenta realizar una acción no permitida por su rol, es posible q
 
 Una **etiqueta de servicio** representa un grupo de prefijos de direcciones IP de un servicio de Azure determinado. Microsoft administra los prefijos de direcciones que la etiqueta de servicio incluye y actualiza automáticamente dicha etiqueta a medida que las direcciones cambian, lo que minimiza la complejidad de las actualizaciones frecuentes en las reglas de seguridad de red. Para más información sobre las etiquetas de servicio, consulte  [*Etiquetas de red virtuales*](../virtual-network/service-tags-overview.md). 
 
-Puede usar etiquetas de servicio para definir controles de acceso de red en  [grupos de seguridad de red](../virtual-network/network-security-groups-overview.md#security-rules) o [Azure Firewall](../firewall/service-tags.md), usando etiquetas de servicio en lugar de direcciones IP específicas al crear reglas de seguridad. Al especificar el nombre de la etiqueta de servicio (en este caso,  **AzureDigitalTwins** ) en el campo de  *origen* o *destino* apropiado de una regla, puede permitir o denegar el tráfico para el servicio correspondiente. 
+Puede usar etiquetas de servicio para definir controles de acceso de red en  [grupos de seguridad de red](../virtual-network/network-security-groups-overview.md#security-rules) o [Azure Firewall](../firewall/service-tags.md), usando etiquetas de servicio en lugar de direcciones IP específicas al crear reglas de seguridad. Al especificar el nombre de la etiqueta de servicio (en este caso,  **AzureDigitalTwins**) en el campo de  *origen* o *destino* apropiado de una regla, puede permitir o denegar el tráfico para el servicio correspondiente. 
 
 A continuación, se muestran los detalles de la etiqueta de servicio **AzureDigitalTwins**.
 
@@ -121,7 +121,7 @@ Azure Digital Twins permite el cifrado de los datos en reposo y en tránsito a m
 
 ## <a name="cross-origin-resource-sharing-cors"></a>Uso compartido de recursos entre orígenes
 
-Azure Digital Twins no admite actualmente el **uso compartido de recursos entre orígenes (CORS)** . Como resultado, si está llamando a una API REST desde una aplicación de explorador, una interfaz de [API Management (APIM)](../api-management/api-management-key-concepts.md) o un conector de [Power Apps](https://docs.microsoft.com/powerapps/powerapps-overview), es posible que vea un error de directiva.
+Azure Digital Twins no admite actualmente el **uso compartido de recursos entre orígenes (CORS)** . Como resultado, si está llamando a una API REST desde una aplicación de explorador, una interfaz de [API Management (APIM)](../api-management/api-management-key-concepts.md) o un conector de [Power Apps](/powerapps/powerapps-overview), es posible que vea un error de directiva.
 
 Para resolver este error, realice una de las siguientes acciones:
 * Quite el encabezado CORS `Access-Control-Allow-Origin` del mensaje. Este encabezado indica si la respuesta se puede compartir. 

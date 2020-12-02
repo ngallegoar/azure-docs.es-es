@@ -9,12 +9,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
 ms.author: egeaney
-ms.openlocfilehash: 1ee3c3942ee7d01fa174947f5d9c278cddaf0424
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.openlocfilehash: 19dc0f3a676d5373b28e4b7055050477c426f847
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94376922"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96345787"
 ---
 # <a name="qna-maker-encryption-of-data-at-rest"></a>Cifrado de datos en reposo de QnA Maker
 
@@ -26,11 +26,11 @@ De forma predeterminada, su suscripción usa claves de cifrado administradas por
 
 # <a name="qna-maker-ga-stable-release"></a>[Disponibilidad general de QnA Maker (versión estable)](#tab/v1)
 
-QnA Maker usa la compatibilidad con CMK de Azure Search. Configure [CMK en Azure Search mediante Azure Key Vault](https://docs.microsoft.com/azure/search/search-security-manage-encryption-keys). Esta instancia de Azure debe estar asociada con el servicio QnA Maker para que esté habilitada para CMK.
+QnA Maker usa la compatibilidad con CMK de Azure Search. Configure [CMK en Azure Search mediante Azure Key Vault](../../search/search-security-manage-encryption-keys.md). Esta instancia de Azure debe estar asociada con el servicio QnA Maker para que esté habilitada para CMK.
 
 # <a name="qna-maker-managed-preview-release"></a>[QnA Maker administrado (versión preliminar)](#tab/v2)
 
-QnA Maker usa la [compatibilidad con CMK de Azure Search](https://docs.microsoft.com/azure/search/search-security-manage-encryption-keys) y asocia automáticamente la clave administrada por el cliente proporcionada para cifrar los datos almacenados en el índice de Azure Search.
+QnA Maker usa la [compatibilidad con CMK de Azure Search](../../search/search-security-manage-encryption-keys.md) y asocia automáticamente la clave administrada por el cliente proporcionada para cifrar los datos almacenados en el índice de Azure Search.
 
 ---
 
@@ -43,7 +43,7 @@ El servicio QnA Maker usa CMK del servicio Azure Search. Siga estos pasos para h
 
 # <a name="qna-maker-ga-stable-release"></a>[Disponibilidad general de QnA Maker (versión estable)](#tab/v1)
 
-1. Cree una nueva instancia de Azure Search y habilite los requisitos previos que se mencionan en los [requisitos previos de la clave administrada por el cliente de Azure Cognitive Search](https://docs.microsoft.com/azure/search/search-security-manage-encryption-keys#prerequisites).
+1. Cree una nueva instancia de Azure Search y habilite los requisitos previos que se mencionan en los [requisitos previos de la clave administrada por el cliente de Azure Cognitive Search](../../search/search-security-manage-encryption-keys.md#prerequisites).
 
    ![Vista de opciones de cifrado 1](../media/cognitive-services-encryption/qna-encryption-1.png)
 
@@ -62,14 +62,14 @@ El servicio QnA Maker usa CMK del servicio Azure Search. Siga estos pasos para h
 # <a name="qna-maker-managed-preview-release"></a>[QnA Maker administrado (versión preliminar)](#tab/v2)
 
 1.  Vaya a la pestaña **Encryption** (Cifrado) del servicio QnA Maker administrado (versión preliminar).
-2.  Seleccione la opción **Claves administradas de cliente**. Especifique los detalles de sus [claves administradas por el cliente](https://docs.microsoft.com/azure/storage/common/customer-managed-keys-configure-key-vault?tabs=portal) y haga clic en **Guardar**.
+2.  Seleccione la opción **Claves administradas de cliente**. Especifique los detalles de sus [claves administradas por el cliente](../../storage/common/customer-managed-keys-configure-key-vault.md?tabs=portal) y haga clic en **Guardar**.
 
      :::image type="content" source="../media/cognitive-services-encryption/qnamaker-v2-encryption-cmk.png" alt-text="Configuración de CMK en QnA Maker administrado (versión preliminar)" lightbox="../media/cognitive-services-encryption/qnamaker-v2-encryption-cmk.png":::
 
 3.  Si se guarda correctamente, la clave administrada por el cliente se usará para cifrar los datos almacenados en el índice de Azure Search.
 
 > [!IMPORTANT]
-> Se recomienda establecer la clave administrada por el cliente en un servicio Azure Cognitive Search nuevo antes de crear knowledge bases. Si CMK se establece en un servicio QnA Maker con knowledge bases existentes, se puede perder el acceso a ellas. En Azure Cognitive Search puede encontrar más información sobre cómo [trabajar con contenido cifrado](https://docs.microsoft.com/azure/search/search-security-manage-encryption-keys#work-with-encrypted-content).
+> Se recomienda establecer la clave administrada por el cliente en un servicio Azure Cognitive Search nuevo antes de crear knowledge bases. Si CMK se establece en un servicio QnA Maker con knowledge bases existentes, se puede perder el acceso a ellas. En Azure Cognitive Search puede encontrar más información sobre cómo [trabajar con contenido cifrado](../../search/search-security-manage-encryption-keys.md#work-with-encrypted-content).
 
 > [!NOTE]
 > Para solicitar la capacidad de usar claves administradas por el cliente, rellene y envíe el [formulario de solicitud de claves administradas por el cliente de Cognitive Services](https://aka.ms/cogsvc-cmk).
@@ -87,6 +87,6 @@ Pero como el servicio del portal de QnA Maker se hospeda en el oeste de EE. UU.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Cifrado en Azure Search mediante CMK en Azure Key Vault](https://docs.microsoft.com/azure/search/search-security-manage-encryption-keys)
-* [Cifrado de datos en reposo](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest)
-* [Más información sobre Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)
+* [Cifrado en Azure Search mediante CMK en Azure Key Vault](../../search/search-security-manage-encryption-keys.md)
+* [Cifrado de datos en reposo](../../security/fundamentals/encryption-atrest.md)
+* [Más información sobre Azure Key Vault](../../key-vault/general/overview.md)

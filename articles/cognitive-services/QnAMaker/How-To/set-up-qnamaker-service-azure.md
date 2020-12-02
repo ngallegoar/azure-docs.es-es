@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: ccd070d2d7a6fcccab6d243567dfbe02960cc870
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.openlocfilehash: 83917214705546b21553e997ccab11a7511f77fd
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94376448"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353313"
 ---
 # <a name="manage-qna-maker-resources"></a>Administración de recursos de QnA Maker
 
@@ -81,7 +81,7 @@ Para actualizar la SKU de administración de QnA Maker:
 
  Cuando la base de conocimiento necesite atender más solicitudes de la aplicación cliente, actualice el plan de tarifa de App Service.
 
-Puede [escalar verticalmente](https://docs.microsoft.com/azure/app-service/manage-scale-up) o escalar horizontalmente App Service.
+Puede [escalar verticalmente](../../../app-service/manage-scale-up.md) o escalar horizontalmente App Service.
 
 Vaya al recurso App Service en Azure Portal y seleccione la opción **Escalar verticalmente** o **Escalar horizontalmente** según proceda.
 
@@ -133,6 +133,7 @@ App Service Environment se puede usar para hospedar un servicio de aplicaciones 
 2. Exponga el servicio de aplicaciones y permita la disponibilidad de QnA Maker como:
     * Disponible públicamente (predeterminado)
     * Etiqueta de servicio DNS: `CognitiveServicesManagement`
+3. Cree una instancia de Cognitive Services de QnA Maker (Microsoft.CognitiveServices/accounts) mediante Azure Resource Manager, donde el punto de conexión de QnA Maker debe establecerse en App Service Environment.
 
 ### <a name="network-isolation-for-app-service"></a>Aislamiento de red en App Service
 
@@ -143,8 +144,6 @@ Cognitive Services de QnA Maker utiliza la etiqueta de servicio: `CognitiveServi
 * Vaya a la sección de redes del recurso App Service y haga clic en la opción "Configure Access Restriction" (Configurar restricción de acceso) para agregar las direcciones IP a una lista de permitidos.
 
 También tenemos un script automatizado para hacer lo mismo para App Service. El [script de PowerShell para configurar una lista de permitidos](https://github.com/pchoudhari/QnAMakerBackupRestore/blob/master/AddRestrictedIPAzureAppService.ps1) se encuentra en GitHub. Los parámetros del script que hay que especificar son el identificador de la suscripción, el grupo de recursos y el nombre real de App Service. Al ejecutar el script se agregarán automáticamente las direcciones IP a la lista de permitidos de App Service.
-    
-1. Cree una instancia de Cognitive Services de QnA Maker (Microsoft.CognitiveServices/accounts) mediante Azure Resource Manager, donde el punto de conexión de QnA Maker debe establecerse en App Service Environment.
 
 ### <a name="business-continuity-with-traffic-manager"></a>Continuidad del negocio con Traffic Manager
 
@@ -155,13 +154,13 @@ El objetivo principal del plan de continuidad empresarial consiste en crear un p
 
 La idea de alto nivel como se representa anteriormente es la siguiente:
 
-1. Configure dos [servicios QnA Maker](set-up-qnamaker-service-azure.md) paralelos en [Regiones emparejadas de Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
+1. Configure dos [servicios QnA Maker](set-up-qnamaker-service-azure.md) paralelos en [Regiones emparejadas de Azure](../../../best-practices-availability-paired-regions.md).
 
 1. [Realice una copia de seguridad](../../../app-service/manage-backup.md) del servicio de aplicaciones de QnA Maker principal y [restáurela](../../../app-service/web-sites-restore.md) en la configuración secundaria. De este modo, se asegurará de que ambas configuraciones funcionan con el mismo nombre de host y las mismas claves.
 
 1. Mantenga sincronizados los índices principal y secundario de Azure Search. Use el ejemplo de GitHub [aquí](https://github.com/pchoudhari/QnAMakerBackupRestore) para ver cómo realizar una copia de seguridad de los índices de Azure y cómo restaurarlos.
 
-1. Realice una copia de seguridad de Application Insights con la [exportación continua](../../../application-insights/app-insights-export-telemetry.md).
+1. Realice una copia de seguridad de Application Insights con la [exportación continua](../../../azure-monitor/app/export-telemetry.md).
 
 1. Una vez configuradas las pilas principal y secundaria, use [Traffic Manager](../../../traffic-manager/traffic-manager-overview.md) para configurar los dos puntos de conexión y establecer un método de enrutamiento.
 
@@ -387,4 +386,4 @@ Si elimina cualquiera de los recursos de Azure usados para las bases de conocimi
 Más información sobre [App Service](../../../app-service/index.yml) y el [servicio Azure Search](../../../search/index.yml).
 
 > [!div class="nextstepaction"]
-> [Aprenda a crear en colaboración](../how-to/collaborate-knowledge-base.md)
+> [Aprenda a crear en colaboración](../index.yml)

@@ -7,16 +7,16 @@ ms.date: 11/09/2020
 ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: RESTCURL2020FEB27
 ms.topic: quickstart
-ms.openlocfilehash: 021628b92f1068743b097a455306df742f308f86
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 7592b9fb509f39504ad2399d0e939ceca1156221
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427690"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351102"
 ---
 # <a name="quickstart-use-curl-and-rest-to-manage-knowledge-base"></a>Inicio rápido: Uso de cURL y REST para administrar la base de conocimiento
 
-En este inicio rápido se explica cómo crear, publicar y consultar la base de conocimiento. QnA Maker extrae automáticamente preguntas y respuestas a partir de contenido semiestructurado, como las preguntas frecuentes, y de [orígenes de datos](../Concepts/knowledge-base.md). El modelo para la base de conocimiento se define en el JSON que se envía en el cuerpo de la solicitud de API.
+En este inicio rápido se explica cómo crear, publicar y consultar la base de conocimiento. QnA Maker extrae automáticamente preguntas y respuestas a partir de contenido semiestructurado, como las preguntas frecuentes, y de [orígenes de datos](../index.yml). El modelo para la base de conocimiento se define en el JSON que se envía en el cuerpo de la solicitud de API.
 
 [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
@@ -54,7 +54,7 @@ Para crear una base de conocimiento con las API REST y cURL, debe tener la sigui
 |--|--|--|
 |Nombre del recurso de QnA Maker|URL|Se usa para construir la dirección URL|
 |Clave del recurso de QnA Maker|Parámetro `-h` para el encabezado `Ocp-Apim-Subscription-Key`|Autenticación en el servicio QnA Maker|
-|JSON que describe la base de conocimiento|Parámetro `-d`|[Ejemplos](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create#examples) de JSON|
+|JSON que describe la base de conocimiento|Parámetro `-d`|[Ejemplos](/rest/api/cognitiveservices/qnamaker/knowledgebase/create#examples) de JSON|
 |Tamaño del archivo JSON en bytes|Parámetro `-h` para el encabezado `Content-Size`||
 
 El comando de cURL se ejecuta desde un shell de BASH. Edite este comando con su propio nombre de recurso, clave de recurso y valores y tamaño de JSON.
@@ -89,7 +89,7 @@ Para crear una base de conocimiento con las API REST y cURL, debe tener la sigui
 |--|--|--|
 |Nombre del recurso de QnA Maker|URL|Se usa para construir la dirección URL|
 |Clave del recurso de QnA Maker|Parámetro `-h` para el encabezado `Ocp-Apim-Subscription-Key`|Autenticación en el servicio QnA Maker|
-|JSON que describe la base de conocimiento|Parámetro `-d`|[Ejemplos](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create#examples) de JSON|
+|JSON que describe la base de conocimiento|Parámetro `-d`|[Ejemplos](/rest/api/cognitiveservices/qnamaker/knowledgebase/create#examples) de JSON|
 |Tamaño del archivo JSON en bytes|Parámetro `-h` para el encabezado `Content-Size`||
 
 El comando de cURL se ejecuta desde un shell de BASH. Edite este comando con su propio nombre de recurso, clave de recurso y valores y tamaño de JSON.
@@ -322,7 +322,7 @@ La obtención de una respuesta de la base de conocimiento se realiza desde un ti
 |Nombre del recurso de QnA Maker|URL|Se usa para construir la dirección URL|
 |Clave de tiempo de ejecución de QnA Maker|Parámetro `-h` para el encabezado `Authorization`|La clave forma parte de una cadena que incluye la palabra `Endpointkey `. Autenticación en el servicio QnA Maker|
 |Identificador de base de conocimiento|Ruta de dirección URL|`/knowledgebases/REPLACE-WITH-YOUR-KNOWLEDGE-BASE-ID`|
-|JSON que describe la consulta|Parámetro `-d`|[Parámetros del cuerpo de la solicitud](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer#request-body) y [ejemplos](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer#examples) de JSON|
+|JSON que describe la consulta|Parámetro `-d`|[Parámetros del cuerpo de la solicitud](/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer#request-body) y [ejemplos](/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer#examples) de JSON|
 |Tamaño del archivo JSON en bytes|Parámetro `-h` para el encabezado `Content-Size`||
 
 El comando de cURL se ejecuta desde un shell de BASH. Edite este comando con su propio nombre de recurso, clave de recurso e identificador de base de conocimiento.
@@ -347,7 +347,7 @@ La obtención de una respuesta de la base de conocimiento se realiza desde un ti
 |Nombre del recurso de QnA Maker|URL|Se usa para construir la dirección URL|
 |Clave del recurso de QnA Maker|Parámetro `-h` para el encabezado `Ocp-Apim-Subscription-Key`|Autenticación en el servicio QnA Maker|
 |Identificador de base de conocimiento|Ruta de dirección URL|`/knowledgebases/REPLACE-WITH-YOUR-KNOWLEDGE-BASE-ID`|
-|JSON que describe la consulta|Parámetro `-d`|[Parámetros del cuerpo de la solicitud](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer#request-body) y [ejemplos](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer#examples) de JSON|
+|JSON que describe la consulta|Parámetro `-d`|[Parámetros del cuerpo de la solicitud](/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer#request-body) y [ejemplos](/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer#examples) de JSON|
 |Tamaño del archivo JSON en bytes|Parámetro `-h` para el encabezado `Content-Size`||
 
 El comando de cURL se ejecuta desde un shell de BASH. Edite este comando con su propio nombre de recurso, clave de recurso e identificador de base de conocimiento.
@@ -414,11 +414,11 @@ El estado de la respuesta es 204 sin resultados. Use el parámetro de línea de 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-* Documentación de referencia de [creación](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker4.0/knowledgebase)
-* Documentación de referencia del [entorno de ejecución](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker4.0/runtime)
+* Documentación de referencia de [creación](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase)
+* Documentación de referencia del [entorno de ejecución](/rest/api/cognitiveservices/qnamaker4.0/runtime)
 * [Scripts de BASH de ejemplo con cURL](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/curl/QnAMaker)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Referencia de QnA Maker (V4) REST API](https://go.microsoft.com/fwlink/?linkid=2092179)
+> [Referencia de QnA Maker (V4) REST API](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase)

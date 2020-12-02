@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: d085d59dc1dbe09c014dcaf5aa239805824354f0
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.openlocfilehash: 6559de2b94879ac8643f4945fd5adcf4fc7e1045
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93279965"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350830"
 ---
 # <a name="route-events-within-and-outside-of-azure-digital-twins"></a>Enrutar eventos dentro y fuera de Azure Digital Twins
 
@@ -20,7 +20,7 @@ Azure Digital Twins usa **rutas de eventos** para enviar datos a los consumidore
 
 Hay dos casos principales para el envío de datos de Azure Digital Twins:
 * El envío de datos desde un gemelo del grafo de Azure Digital Twins a otro. Por ejemplo, cuando cambia una propiedad de un gemelo digital, puede que desee notificar y actualizar otro gemelo digital en consecuencia.
-* El envío de datos a servicios de datos descendentes, para almacenamiento o procesamiento adicional (también conocido como *salida de datos* ). Por ejemplo,
+* El envío de datos a servicios de datos descendentes, para almacenamiento o procesamiento adicional (también conocido como *salida de datos*). Por ejemplo,
   - Un hospital puede querer enviar datos de eventos de Azure Digital Twins a [Time Series Insights (TSI)](../time-series-insights/overview-what-is-tsi.md), para registrar los datos de series temporales de eventos relacionados con el lavado de manos para análisis masivo.
   - Una empresa que ya use [Azure Maps](../azure-maps/about-azure-maps.md) podría querer usar Azure Digital Twins para mejorar su solución. Puede habilitar con rapidez un mapa de Azure después de configurar Azure Digital Twins, incorporar las entidades del mapa de Azure a Azure Digital Twins como [gemelos digitales](concepts-twins-graph.md) en el grafo de gemelos, o ejecutar consultas eficaces que aprovechen los datos de Azure Maps y Azure Digital Twins conjuntamente.
 
@@ -103,7 +103,7 @@ Si se cumple alguna de las condiciones, el evento se quita o pone en la cola de 
 
 Antes de establecer la ubicación de mensajes fallidos, debe tener una cuenta de almacenamiento con un contenedor. Tiene que proporcionar la dirección URL de este contenedor al crear el punto de conexión. La cola de mensajes fallidos se suministra como una dirección URL del contenedor con un token de SAS. Ese token solo necesita permiso `write` para el contenedor de destino dentro de la cuenta de almacenamiento. La dirección URL totalmente estructurada tendrá el formato: `https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>`
 
-Para más información sobre los tokens de SAS, consulte: [*Otorgar acceso limitado a recursos de Azure Storage con firmas de acceso compartido (SAS)*](https://docs.microsoft.com/azure/storage/common/storage-sas-overview)
+Para más información sobre los tokens de SAS, consulte: [*Otorgar acceso limitado a recursos de Azure Storage con firmas de acceso compartido (SAS)*](../storage/common/storage-sas-overview.md)
 
 Para obtener información sobre cómo configurar un punto de conexión con una cola de mensajes fallidos, consulte: [ *Administración de puntos de conexión y rutas en Azure Digital Twins (API y CLI)*](how-to-manage-routes-apis-cli.md#create-an-endpoint-with-dead-lettering)
 

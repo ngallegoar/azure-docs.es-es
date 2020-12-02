@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/20/2020
 ms.author: encorona
-ms.openlocfilehash: a24f1337a68f38db273688e9a91c65ac2f4736b4
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 737b6e0534111924a31204d4548dfa59805c2fe5
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94963613"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352582"
 ---
 # <a name="update-a-command-from-a-web-endpoint"></a>Actualizar un comando desde un punto de conexión web
 
@@ -29,7 +29,7 @@ En este artículo, aprenderá a actualizar un comando en curso desde un punto de
 
 ## <a name="create-an-azure-function"></a>Creación de una función de Azure 
 
-En este ejemplo, se necesitará una [función de Azure](https://docs.microsoft.com/azure/azure-functions/) desencadenada por HTTP que admita la entrada siguiente (o un subconjunto de esta entrada):
+En este ejemplo, se necesitará una [función de Azure](../../azure-functions/index.yml) desencadenada por HTTP que admita la entrada siguiente (o un subconjunto de esta entrada):
 
 ```JSON
 {

@@ -11,19 +11,19 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: scottwhi
-ms.openlocfilehash: 39848bcaded1669c6a6efd5b649ecf8e8343a596
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: d930543671a5328d76a38aa7e1b421c111e89e39
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94381123"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349527"
 ---
 # <a name="upgrade-from-bing-web-search-api-v5-to-v7"></a>Actualizar Bing Web Search API v5 a v7
 
 > [!WARNING]
-> Bing Search APIs se mueve de Cognitive Services a Bing Search Services. A partir del **30 de octubre de 2020** , las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](https://aka.ms/cogsvcs/bingmove).
+> Bing Search APIs se mueve de Cognitive Services a Bing Search Services. A partir del **30 de octubre de 2020**, las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 > El aprovisionamiento de Bing Search APIs con Cognitive Services será posible durante los próximos tres años o hasta que finalice el Contrato Enterprise, lo que suceda primero.
-> Puede encontrar instrucciones sobre la migración en [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
+> Puede encontrar instrucciones sobre la migración en [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 Esta guía de actualización identifica los cambios entre las versiones 5 y 7 de Bing Web Search API. Utilice esta guía para identificar las partes de la aplicación que se deben actualizar para usar la versión 7.
 
@@ -31,7 +31,7 @@ Esta guía de actualización identifica los cambios entre las versiones 5 y 7 de
 
 ### <a name="endpoints"></a>Puntos de conexión
 
-- El número de versión del punto de conexión ha cambiado de v5 a v7. Por ejemplo, https:\/\/api.cognitive.microsoft.com/bing/ **v7.0** /search.
+- El número de versión del punto de conexión ha cambiado de v5 a v7. Por ejemplo, https:\/\/api.cognitive.microsoft.com/bing/**v7.0**/search.
 
 ### <a name="error-response-objects-and-error-codes"></a>Objetos de la respuesta de error y códigos de error
 
@@ -86,7 +86,7 @@ Bloqueado|InvalidRequest.Blocked
 
 - Se ha agregado el parámetro de consulta [answerCount](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#answercount). Utilice este parámetro para especificar el número de respuestas que quiere que incluya la respuesta. Las respuestas se eligen en función de la clasificación. Por ejemplo, si establece este parámetro en tres (3), la respuesta incluye las tres primeras respuestas clasificadas.  
 
-- Se ha agregado el parámetro de consulta [promote](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#promote). Utilice este parámetro junto con `answerCount` incluir explícitamente uno o más tipos de respuesta, independientemente de su clasificación. Por ejemplo, para promover vídeos e imágenes en la respuesta, habría que establecer promote en *videos, images*. La lista de respuestas que quiere promover no se tiene en cuenta para el límite de `answerCount`. Por ejemplo, si `answerCount` es 2 y `promote` está establecido en *videos, images* , la respuesta puede incluir páginas web, noticias, vídeos e imágenes.
+- Se ha agregado el parámetro de consulta [promote](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#promote). Utilice este parámetro junto con `answerCount` incluir explícitamente uno o más tipos de respuesta, independientemente de su clasificación. Por ejemplo, para promover vídeos e imágenes en la respuesta, habría que establecer promote en *videos, images*. La lista de respuestas que quiere promover no se tiene en cuenta para el límite de `answerCount`. Por ejemplo, si `answerCount` es 2 y `promote` está establecido en *videos, images*, la respuesta puede incluir páginas web, noticias, vídeos e imágenes.
 
 ### <a name="object-changes"></a>Cambios en objetos
 

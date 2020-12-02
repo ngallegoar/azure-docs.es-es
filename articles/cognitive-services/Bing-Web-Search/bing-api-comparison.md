@@ -10,19 +10,19 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: aahi
-ms.openlocfilehash: a982c150349ca31fdf93a38b38910c3572b14d2f
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 72b4755c6f01a10851e79cf274842f1599bc2c55
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93078771"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349544"
 ---
 # <a name="what-are-the-bing-search-apis"></a>¿Qué son las versiones de Bing Search API?
 
 > [!WARNING]
-> Bing Search APIs se mueve de Cognitive Services a Bing Search Services. A partir del **30 de octubre de 2020** , las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](https://aka.ms/cogsvcs/bingmove).
+> Bing Search APIs se mueve de Cognitive Services a Bing Search Services. A partir del **30 de octubre de 2020**, las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 > El aprovisionamiento de Bing Search APIs con Cognitive Services será posible durante los próximos tres años o hasta que finalice el Contrato Enterprise, lo que suceda primero.
-> Puede encontrar instrucciones sobre la migración en [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
+> Puede encontrar instrucciones sobre la migración en [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 Las versiones de Bing Search API permiten crear aplicaciones y servicios conectados a la web que buscan páginas web, imágenes, noticias, lugares y mucho más sin anuncios. Mediante el envío de solicitudes de búsqueda con las API REST o los SDK de Bing Search, puede obtener información y contenido apropiados para búsquedas web. Use este artículo para conocer las diversas API de búsqueda de Bing y cómo puede integrar las búsquedas cognitivas en sus aplicaciones y servicios. Los precios y límites de velocidad pueden variar según la API.
 

@@ -7,12 +7,12 @@ manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 08/22/2019
-ms.openlocfilehash: 96cca89b1206aaa7890648def694074a18b2aa17
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 4ab32cd37d732cd9f177363da547edd22bd5af77
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94368872"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349272"
 ---
 # <a name="cognitive-services-and-machine-learning"></a>Cognitive Services y Machine Learning
 
@@ -44,7 +44,7 @@ El aprendizaje automático es un concepto en el que reúne los datos y un algori
 
 El proceso de creación de un sistema de aprendizaje automático requiere cierto conocimiento de aprendizaje automático o ciencia de datos.
 
-El aprendizaje automático se proporciona con [productos y servicios de Azure Machine Learning (AML)](/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure%252fmachine-learning%252fstudio%252fcontext%252fml-context).
+El aprendizaje automático se proporciona con [productos y servicios de Azure Machine Learning (AML)](/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure%2fmachine-learning%2fstudio%2fcontext%2fml-context).
 
 ## <a name="what-is-a-cognitive-service"></a>¿Qué es un servicio de Cognitive Services?
 

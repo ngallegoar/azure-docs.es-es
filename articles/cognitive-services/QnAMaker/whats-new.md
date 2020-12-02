@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: overview
 ms.date: 07/16/2020
-ms.openlocfilehash: 2016d6dfedef68c334758660e9affa0ad9b9d4a3
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 2c159e25195c5f144187268b4355c1078695e809
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94505247"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96345532"
 ---
 # <a name="whats-new-in-qna-maker"></a>Novedades de QnA Maker
 
@@ -56,17 +56,17 @@ Conozca las novedades de QnA Maker.
 
 ### <a name="november-2019"></a>Noviembre de 2019
 
-* [Soporte técnico de la nube de US Government](https://docs.microsoft.com/azure/azure-government/documentation-government-services-aiandcognitiveservices#qna-maker) para QnA Maker
-* Característica de [múltiples turnos](https://docs.microsoft.com/azure/cognitive-services/qnamaker/how-to/multiturn-conversation) en disponibilidad general
-* [Compatibilidad con la charla](https://docs.microsoft.com/azure/cognitive-services/qnamaker/how-to/chit-chat-knowledge-base#language-support) disponible en los idiomas de nivel 1
+* [Soporte técnico de la nube de US Government](../../azure-government/compare-azure-government-global-azure.md#guidance-for-developers) para QnA Maker
+* Característica de [múltiples turnos](./how-to/multiturn-conversation.md) en disponibilidad general
+* [Compatibilidad con la charla](./how-to/chit-chat-knowledge-base.md#language-support) disponible en los idiomas de nivel 1
 
 ### <a name="october-2019"></a>Octubre de 2019
 
-* [Establecimiento explícito del idioma](./how-to/language-knowledge-base.md#select-language-when-creating-first-knowledge-base) para todas las bases de conocimiento del servicio QnA Maker.
+* [Establecimiento explícito del idioma](./index.yml) para todas las bases de conocimiento del servicio QnA Maker.
 
 ### <a name="september-2019"></a>Septiembre de 2019
 
-* Importación y exportación con el [formato de archivo XLS](concepts/content-types.md)
+* Importación y exportación con el [formato de archivo XLS](./index.yml)
 
 ### <a name="june-2019"></a>Junio de 2019
 

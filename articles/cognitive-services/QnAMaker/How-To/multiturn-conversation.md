@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 04/13/2020
-ms.openlocfilehash: 57e878f11f5857f4c5b629a8069f64de259e8e7a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 26fc976983fc08857e7771d58f15d0abcd9a1d3c
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91777803"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353228"
 ---
 # <a name="use-follow-up-prompts-to-create-multiple-turns-of-a-conversation"></a>Uso de avisos de seguimiento para crear múltiples turnos de una conversación
 
@@ -82,7 +82,7 @@ Al agregar un documento multiturno, QnA Maker determina los avisos de seguimient
 
 ## <a name="create-knowledge-base-with-multi-turn-prompts-with-the-create-api"></a>Creación de la base de conocimiento con avisos multiturno con Create API
 
-Puede crear una base de conocimiento con avisos multiturno mediante [Create API de QnA Maker](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create). Los avisos se agregan en la matriz `prompts` de la propiedad `context`.
+Puede crear una base de conocimiento con avisos multiturno mediante [Create API de QnA Maker](/rest/api/cognitiveservices/qnamaker/knowledgebase/create). Los avisos se agregan en la matriz `prompts` de la propiedad `context`.
 
 ## <a name="show-questions-and-answers-with-context"></a>Mostrar preguntas y respuestas con contexto
 
@@ -94,7 +94,7 @@ Seleccione **View options** (Opciones de vista) y, después, seleccione **Show c
 
 El contexto multiturno se muestra en la primera columna.
 
-:::image type="content" source="../media/conversational-context/surface-manual-pdf-follow-up-prompt.png" alt-text="Captura de pantalla que muestra un ejemplo de la estructura en un manual de usuario." lightbox="../media/conversational-context/surface-manual-pdf-follow-up-prompt.png":::
+:::image type="content" source="../media/conversational-context/surface-manual-pdf-follow-up-prompt.png" alt-text="Captura de pantalla que muestra la sección Contexto resaltada." lightbox="../media/conversational-context/surface-manual-pdf-follow-up-prompt.png":::
 
 En la imagen anterior, **1** indica texto en negrita en la columna, lo cual indica la pregunta actual. La pregunta principal es el elemento superior de la fila. Todas las preguntas por debajo de ella son pares de preguntas y respuestas vinculadas. Estos elementos son seleccionables, por lo que puede pasar inmediatamente a los demás elementos de contexto.
 
@@ -161,7 +161,7 @@ Cuando se agrega un nuevo par de pregunta y respuesta a la base de conocimiento,
 
     Esta acción crea un nuevo par de pregunta y respuesta, y vincula la pregunta seleccionada como un aviso de seguimiento. La columna **Contexto** de ambas preguntas, indica una relación de aviso de seguimiento.
 
-1. Seleccione **Ver opciones** y, a continuación, seleccione [**Mostrar contexto (VERSIÓN PRELIMINAR)** ](#show-questions-and-answers-with-context).
+1. Seleccione **Ver opciones** y, a continuación, seleccione [**Mostrar contexto (VERSIÓN PRELIMINAR)**](#show-questions-and-answers-with-context).
 
     La nueva pregunta muestra cómo se vincula.
 
@@ -169,7 +169,7 @@ Cuando se agrega un nuevo par de pregunta y respuesta a la base de conocimiento,
 
     La pregunta primaria muestra una nueva pregunta como una de sus opciones.
 
-    :::image type="content" source="../media/conversational-context/child-prompt-created.png" alt-text="Captura de pantalla que muestra un ejemplo de la estructura en un manual de usuario." lightbox="../media/conversational-context/child-prompt-created.png":::
+    :::image type="content" source="../media/conversational-context/child-prompt-created.png" alt-text="Captura de pantalla que muestra la columna Contexto de ambas preguntas e indica una relación de solicitud de seguimiento." lightbox="../media/conversational-context/child-prompt-created.png":::
 
 1. Una vez que haya agregado el aviso de seguimiento, seleccione **Save and train** (Guardar y entrenar) en la barra de navegación superior.
 
@@ -357,11 +357,11 @@ Si va a compilar una aplicación personalizada mediante la característica multi
 
 ## <a name="display-order-is-supported-in-the-update-api"></a>Update API admite el orden de presentación
 
-El [texto para mostrar y el orden de presentación](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update#promptdto) que se devuelve en la respuesta JSON, es compatible para su edición con [Update API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update).
+El [texto para mostrar y el orden de presentación](/rest/api/cognitiveservices/qnamaker/knowledgebase/update#promptdto) que se devuelve en la respuesta JSON, es compatible para su edición con [Update API](/rest/api/cognitiveservices/qnamaker/knowledgebase/update).
 
 ## <a name="add-or-delete-multi-turn-prompts-with-the-update-api"></a>Incorporación o eliminación de avisos multiturno con Update API
 
-Puede agregar o eliminar avisos multiturno mediante [Update API de QnA Maker](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update).  Los avisos se agregan en la matriz `promptsToAdd` y `promptsToDelete` de la propiedad `context`.
+Puede agregar o eliminar avisos multiturno mediante [Update API de QnA Maker](/rest/api/cognitiveservices/qnamaker/knowledgebase/update).  Los avisos se agregan en la matriz `promptsToAdd` y `promptsToDelete` de la propiedad `context`.
 
 ## <a name="export-knowledge-base-for-version-control"></a>Exportar la base de conocimiento para el control de versiones
 
@@ -369,7 +369,7 @@ QnA Maker admite el control de versiones al incluir pasos de conversación de va
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Más información acerca de las conversaciones contextuales de este [ejemplo de diálogo](https://github.com/microsoft/BotBuilder-Samples/blob/master/samples/csharp_dotnetcore/adaptive-dialog/07.qnamaker/QnAMaker.csproj) o más información acerca del [diseño de bots conceptuales para conversaciones multiturno](https://docs.microsoft.com/azure/bot-service/bot-builder-conversations?view=azure-bot-service-4.0).
+Más información acerca de las conversaciones contextuales de este [ejemplo de diálogo](https://github.com/microsoft/BotBuilder-Samples/blob/master/samples/csharp_dotnetcore/adaptive-dialog/07.qnamaker/QnAMaker.csproj) o más información acerca del [diseño de bots conceptuales para conversaciones multiturno](/azure/bot-service/bot-builder-conversations?view=azure-bot-service-4.0).
 
 > [!div class="nextstepaction"]
 > [Migración de una base de conocimiento](../Tutorials/migrate-knowledge-base.md)

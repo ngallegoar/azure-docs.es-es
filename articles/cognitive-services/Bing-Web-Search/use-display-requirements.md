@@ -10,19 +10,19 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: aahi
-ms.openlocfilehash: 93be72f2afcda90dde1b74c5ee317a7ad3350be1
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 4300860039b76bd076f19acfc252f59ef10d462b
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93075694"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351851"
 ---
 # <a name="bing-search-api-use-and-display-requirements"></a>Requisitos de uso y visualización de Bing Search API
 
 > [!WARNING]
-> Bing Search APIs se mueve de Cognitive Services a Bing Search Services. A partir del **30 de octubre de 2020** , las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](https://aka.ms/cogsvcs/bingmove).
+> Bing Search APIs se mueve de Cognitive Services a Bing Search Services. A partir del **30 de octubre de 2020**, las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 > El aprovisionamiento de Bing Search APIs con Cognitive Services será posible durante los próximos tres años o hasta que finalice el Contrato Enterprise, lo que suceda primero.
-> Puede encontrar instrucciones sobre la migración en [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
+> Puede encontrar instrucciones sobre la migración en [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 Estos requisitos de uso y visualización se aplican a cualquier implementación de contenido y la información asociada de las siguientes Bing Search APIs, incluidas las relaciones, los metadatos y otras señales.
 
@@ -172,5 +172,4 @@ Los requisitos de uso y presentación de las secciones anteriores de las API de 
 
 ## <a name="gdpr-compliance"></a>Cumplimiento del GDPR  
 
-Con respecto a los datos personales sujetos al Reglamento general de protección de datos (RGPD) y que se procesan en relación con las llamadas a las API Search, Bing Spell Check o Bing Autosuggest, comprende que usted y Microsoft son controladores independientes de los datos sujetos al RGPD. Usted es responsable de manera independiente del cumplimiento del Reglamento general de protección de datos.  
-
+Con respecto a los datos personales sujetos al Reglamento general de protección de datos (RGPD) y que se procesan en relación con las llamadas a las API Search, Bing Spell Check o Bing Autosuggest, comprende que usted y Microsoft son controladores independientes de los datos sujetos al RGPD. Usted es responsable de manera independiente del cumplimiento del Reglamento general de protección de datos.

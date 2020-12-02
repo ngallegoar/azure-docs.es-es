@@ -7,18 +7,18 @@ ms.author: baanders
 ms.date: 11/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 1866e9b233a1379474c061779ada09fd6d119107
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: f5bfe128ddc04e8048bb89a8e39035434dfd2b92
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94338669"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352888"
 ---
 # <a name="integrate-industry-standard-models-with-dtdl-for-azure-digital-twins"></a>Integración de modelos estándar del sector con DTDL para Azure Digital Twins
 
 El uso de modelos que se basan en estándares del sector o que usan una representación estándar de la ontología, como RDF u OWL, proporciona un excelente punto de partida para diseñar modelos de Azure Digital Twins. Asimismo, el uso de modelos del sector también contribuye a la estandarización y el uso compartido de la información.
 
-Para usarse con Azure Digital Twins, los modelos se deben representar mediante el [**lenguaje de definición de Digital Twins (DTDL)** ](concepts-models.md), basado en JSON-LD. Por consiguiente, en este artículo se describe cómo representar los modelos estándar del sector en DTDL mediante la integración de los conceptos existentes del sector con la semántica de DTDL para que Azure Digital Twins pueda usarlos. El modelo de DTDL sirve como origen confiable del modelo en Azure Digital Twins.
+Para usarse con Azure Digital Twins, los modelos se deben representar mediante el [**lenguaje de definición de Digital Twins (DTDL)**](concepts-models.md), basado en JSON-LD. Por consiguiente, en este artículo se describe cómo representar los modelos estándar del sector en DTDL mediante la integración de los conceptos existentes del sector con la semántica de DTDL para que Azure Digital Twins pueda usarlos. El modelo de DTDL sirve como origen confiable del modelo en Azure Digital Twins.
 
 Hay tres rutas posibles para integrar modelos estándar del sector con DTDL:
 * **Adoptar**: puede iniciar la solución con una ontología de DTDL de código abierto que se ha creado a partir de estándares del sector profusamente adoptados. 
@@ -111,7 +111,7 @@ Hay una aplicación de ejemplo disponible que convierte un archivo de modelo bas
 
 El ejemplo es una aplicación de línea de comandos de .NET Core denominada **RdfToDtdlConverter**.
 
-Aquí puede obtener el ejemplo: [**RdfToDtdlConverter**](https://docs.microsoft.com/samples/azure-samples/rdftodtdlconverter/digital-twins-model-conversion-samples/). 
+Aquí puede obtener el ejemplo: [**RdfToDtdlConverter**](/samples/azure-samples/rdftodtdlconverter/digital-twins-model-conversion-samples/). 
 
 Para descargar el código en la máquina, pulse el botón *Descargar archivo ZIP* que se encuentra debajo del título en la página de aterrizaje del ejemplo. Se descargará un archivo *ZIP* de nombre *RdfToDtdlConverter_sample_application_to_convert_RDF_to_DTDL.zip*, que podrá descomprimir y explorar.
 

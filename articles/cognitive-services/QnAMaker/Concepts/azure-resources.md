@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: 46b1cf2681ab5d804035c98d458600de5081c77d
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.openlocfilehash: cd64c19e7e9af05becd7a6978ceb4d0306112170
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94376803"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351902"
 ---
 # <a name="azure-resources-for-qna-maker"></a>Recursos de Azure para QnA Maker
 
@@ -49,8 +49,8 @@ Al pasar a la fase de desarrollo del proyecto, debe tener en cuenta lo siguiente
 Normalmente hay tres parámetros que necesita tener en cuenta:
 
 * **Rendimiento que se precisa del servicio**:
-    * seleccione el [plan de aplicación](https://azure.microsoft.com/pricing/details/app-service/plans/) apropiado para App Service en función de sus necesidades. Puede [escalar o reducir verticalmente](https://docs.microsoft.com/azure/app-service/manage-scale-up) la aplicación.
-    * Esto debería influir también en la selección de la SKU de Azure **Cognitive Search**; consulte más detalles [aquí](https://docs.microsoft.com/azure/search/search-sku-tier). Además, es posible que necesite ajustar la [capacidad](../../../search/search-capacity-planning.md) de Cognitive Search con réplicas.
+    * seleccione el [plan de aplicación](https://azure.microsoft.com/pricing/details/app-service/plans/) apropiado para App Service en función de sus necesidades. Puede [escalar o reducir verticalmente](../../../app-service/manage-scale-up.md) la aplicación.
+    * Esto debería influir también en la selección de la SKU de Azure **Cognitive Search**; consulte más detalles [aquí](../../../search/search-sku-tier.md). Además, es posible que necesite ajustar la [capacidad](../../../search/search-capacity-planning.md) de Cognitive Search con réplicas.
 
 * **Tamaño y número de bases de conocimiento**: Elija la [SKU de Azure Search](https://azure.microsoft.com/pricing/details/search/) adecuada para su escenario. Normalmente, puede decidir el número de bases de conocimiento que necesita en función del número de dominios de sujeto distintos. Si el dominio de sujeto (para un único idioma) debe estar en una base de conocimiento.
 
@@ -74,7 +74,7 @@ Normalmente hay tres parámetros que necesita tener en cuenta:
 
 * **Rendimiento que se precisa del servicio**:
     * QnA Maker administrado (versión preliminar) es un servicio gratuito con un rendimiento limitado actualmente a 10 TPS para las API de administración y las de predicción.
-    * Esto debería influir también en la selección de la SKU de Azure **Cognitive Search**; consulte más detalles [aquí](https://docs.microsoft.com/azure/search/search-sku-tier). Además, es posible que necesite ajustar la [capacidad](../../../search/search-capacity-planning.md) de Cognitive Search con réplicas.
+    * Esto debería influir también en la selección de la SKU de Azure **Cognitive Search**; consulte más detalles [aquí](../../../search/search-sku-tier.md). Además, es posible que necesite ajustar la [capacidad](../../../search/search-capacity-planning.md) de Cognitive Search con réplicas.
 
 * **Tamaño y número de bases de conocimiento**: Elija la [SKU de Azure Search](https://azure.microsoft.com/pricing/details/search/) adecuada para su escenario. Normalmente, puede decidir el número de bases de conocimiento que necesita en función del número de dominios de sujeto distintos. Si el dominio de sujeto (para un único idioma) debe estar en una base de conocimiento.
 
@@ -240,7 +240,7 @@ Use estas claves al realizar solicitudes al servicio mediante las API.
 
 |Nombre|Location|Propósito|
 |--|--|--|
-|Clave de creación|[Azure Portal](https://azure.microsoft.com/free/cognitive-services/)|estas claves se usan para acceder a las [API del servicio de administración de QnA Maker](https://go.microsoft.com/fwlink/?linkid=2092179). Estas API permiten editar las preguntas y respuestas de una base de conocimiento y publicar una base de conocimiento. Estas claves se crean al crear al mismo tiempo que los servicios QnA Maker.<br><br>Busque estas claves en el recurso **Cognitive Services** de la página **Claves**.|
+|Clave de creación|[Azure Portal](https://azure.microsoft.com/free/cognitive-services/)|estas claves se usan para acceder a las [API del servicio de administración de QnA Maker](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase). Estas API permiten editar las preguntas y respuestas de una base de conocimiento y publicar una base de conocimiento. Estas claves se crean al crear al mismo tiempo que los servicios QnA Maker.<br><br>Busque estas claves en el recurso **Cognitive Services** de la página **Claves**.|
 |Clave de punto de conexión de consulta|[Portal de QnA Maker](https://www.qnamaker.ai)|Estas claves se usan para consultar el punto de conexión de la base de conocimiento publicado para obtener una respuesta para una pregunta de un usuario. Este punto de conexión de consulta normalmente se usa en un bot de chat o el código de la aplicación cliente que se conecta el servicio QnA Maker. Estas claves se crean al publicar una base de conocimiento de QnA Maker.<br><br>Busque estas claves en la página **Configuración del servicio**. Busque esta página en el menú del usuario de la parte superior derecha de la página, en el menú desplegable.|
 
 ### <a name="subscription-keys"></a>Claves de suscripción
@@ -251,11 +251,11 @@ Debe saber cuál es la clave de acceso, la administración de la base de conocim
 
 ### <a name="recommended-settings-for-network-isolation"></a>Configuración recomendada para el aislamiento de red
 
-* Proteja el recurso de Cognitive Services del acceso público con la [configuración de la red virtual](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-virtual-networks?tabs=portal).
+* Proteja el recurso de Cognitive Services del acceso público con la [configuración de la red virtual](../../cognitive-services-virtual-networks.md?tabs=portal).
 * Proteja App Service (QnA Runtime) del acceso público:
     * Permita el tráfico solo desde direcciones IP de Cognitive Services. Ya están incluidas en la etiqueta de servicio "CognitiveServicesManagement". Esto es necesario para la creación de API (crear o actualizar KB) para invocar el servicio de aplicaciones y actualizar el servicio Azure Search en consecuencia.
     * Asegúrese de que también permite otros puntos de entrada como el servicio de bot, el portal de QnA Maker (puede ser su red corporativa), etc., para el acceso de la API "GenerateAnswer" de predicción.
-    * Consulte [más información sobre las etiquetas de servicio](https://docs.microsoft.com/azure/virtual-network/service-tags-overview).
+    * Consulte [más información sobre las etiquetas de servicio](../../../virtual-network/service-tags-overview.md).
 
 # <a name="qna-maker-managed-preview-release"></a>[QnA Maker administrado (versión preliminar)](#tab/v2)
 
@@ -317,8 +317,8 @@ Use estas claves al realizar solicitudes al servicio mediante las API.
 
 |Nombre|Location|Propósito|
 |--|--|--|
-|Clave de creación|[Azure Portal](https://azure.microsoft.com/free/cognitive-services/)|estas claves se usan para acceder a las [API del servicio de administración de QnA Maker](https://go.microsoft.com/fwlink/?linkid=2092179). Estas API permiten editar las preguntas y respuestas de una base de conocimiento y publicar una base de conocimiento. Estas claves se crean al crear al mismo tiempo que los servicios QnA Maker.<br><br>Busque estas claves en el recurso **Cognitive Services** de la página **Claves**.|
-|Clave de administración de Azure Cognitive Search|[Azure Portal](https://docs.microsoft.com/azure/search/search-security-api-keys)|Estas claves se utilizan para comunicarse con el servicio Azure Cognitive Search implementado en la suscripción de Azure del usuario. Cuando asocia una instancia de Azure Cognitive Search con el servicio QnA Maker administrado (versión preliminar), la clave de administración se pasa automáticamente al servicio QnA Maker. <br><br>Puede encontrar estas claves en el recurso **Azure Cognitive Search** de la página **Claves**.|
+|Clave de creación|[Azure Portal](https://azure.microsoft.com/free/cognitive-services/)|estas claves se usan para acceder a las [API del servicio de administración de QnA Maker](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase). Estas API permiten editar las preguntas y respuestas de una base de conocimiento y publicar una base de conocimiento. Estas claves se crean al crear al mismo tiempo que los servicios QnA Maker.<br><br>Busque estas claves en el recurso **Cognitive Services** de la página **Claves**.|
+|Clave de administración de Azure Cognitive Search|[Azure Portal](../../../search/search-security-api-keys.md)|Estas claves se utilizan para comunicarse con el servicio Azure Cognitive Search implementado en la suscripción de Azure del usuario. Cuando asocia una instancia de Azure Cognitive Search con el servicio QnA Maker administrado (versión preliminar), la clave de administración se pasa automáticamente al servicio QnA Maker. <br><br>Puede encontrar estas claves en el recurso **Azure Cognitive Search** de la página **Claves**.|
 
 ### <a name="subscription-keys"></a>Claves de suscripción
 
@@ -328,13 +328,12 @@ Debe saber cuál es la clave de acceso, la administración de la base de conocim
 
 ### <a name="recommended-settings-for-network-isolation"></a>Configuración recomendada para el aislamiento de red 
 
-Proteja el recurso de Cognitive Services del acceso público con la [configuración de la red virtual](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-virtual-networks?tabs=portal).
+Proteja el recurso de Cognitive Services del acceso público con la [configuración de la red virtual](../../cognitive-services-virtual-networks.md?tabs=portal).
 
 ---
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Aprenda más sobre la [base de conocimiento](knowledge-base.md) de QnA Maker.
+* Aprenda más sobre la [base de conocimiento](../index.yml) de QnA Maker.
 * Comprenda que es un [ciclo de vida de la base de conocimiento](development-lifecycle-knowledge-base.md).
 * Revise los [límites](../limits.md) de servicio y de la base de conocimiento.
-

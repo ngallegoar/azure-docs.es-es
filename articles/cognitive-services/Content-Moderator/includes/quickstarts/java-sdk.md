@@ -11,12 +11,12 @@ ms.topic: include
 ms.date: 10/16/2020
 ms.custom: devx-track-java, cog-serv-seo-aug-2020
 ms.author: pafarley
-ms.openlocfilehash: 6f5d1fd8a179f88677ddd6d7b1875f60836ade51
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 30360253c0b1aa34c4af1e5efdf3cf9b4d8baaa0
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92918755"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96356501"
 ---
 Introducción a la biblioteca cliente de Azure Content Moderator para Java. Siga estos pasos para instalar el paquete Maven y probar el código de ejemplo para realizar tareas básicas. 
 
@@ -48,13 +48,13 @@ En una ventana de la consola (como cmd, PowerShell o Bash), cree un directorio p
 mkdir myapp && cd myapp
 ```
 
-Ejecute el comando `gradle init` desde el directorio de trabajo. Este comando creará archivos de compilación esenciales para Gradle, como *build.gradle.kts* , que se usa en tiempo de ejecución para crear y configurar la aplicación.
+Ejecute el comando `gradle init` desde el directorio de trabajo. Este comando creará archivos de compilación esenciales para Gradle, como *build.gradle.kts*, que se usa en tiempo de ejecución para crear y configurar la aplicación.
 
 ```console
 gradle init --type basic
 ```
 
-Cuando se le solicite que elija un **DSL** , seleccione **Kotlin**.
+Cuando se le solicite que elija un **DSL**, seleccione **Kotlin**.
 
 ## <a name="install-the-client-library"></a>Instalación de la biblioteca cliente
 
@@ -103,7 +103,7 @@ En la clase **ContentModeratorQuickstart** de la aplicación, cree variables par
 > [!IMPORTANT]
 > Vaya a Azure Portal. Si el recurso de [nombre del producto] que ha creado en la sección **Requisitos previos** se ha implementado correctamente, haga clic en el botón **Ir al recurso** en **Pasos siguientes**. Puede encontrar su clave y punto de conexión en la página de **clave y punto de conexión** del recurso, en **Administración de recursos**. 
 >
-> Recuerde quitar la clave del código cuando haya terminado y no hacerla nunca pública. En el caso de producción, considere la posibilidad de usar alguna forma segura de almacenar las credenciales, y acceder a ellas. Para más información, consulte el artículo sobre la [seguridad](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-security) de Cognitive Services.
+> Recuerde quitar la clave del código cuando haya terminado y no hacerla nunca pública. En el caso de producción, considere la posibilidad de usar alguna forma segura de almacenar las credenciales, y acceder a ellas. Para más información, consulte el artículo sobre la [seguridad](../../../cognitive-services-security.md) de Cognitive Services.
 
 En el método **main** de la aplicación, agregue llamadas para los métodos que se usan en este inicio rápido. Se definirán más adelante.
 
@@ -147,7 +147,7 @@ En un nuevo método, cree un objeto **[BodyModelModel](/java/api/com.microsoft.a
 
 ### <a name="define-helper-class"></a>Definir la clase auxiliar
 
-Luego, en el archivo *ContentModeratorQuickstart.java* , agregue la siguiente definición de clase dentro de la clase **ContentModeratorQuickstart**. Esta clase interna se usa en el proceso de moderación de imágenes.
+Luego, en el archivo *ContentModeratorQuickstart.java*, agregue la siguiente definición de clase dentro de la clase **ContentModeratorQuickstart**. Esta clase interna se usa en el proceso de moderación de imágenes.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ContentModerator/src/main/java/ContentModeratorQuickstart.java?name=snippet_evaluationdata)]
 
@@ -185,7 +185,7 @@ Cierre la instrucción `try` y agregue una instrucción `catch` para completar e
 
 ### <a name="set-up-sample-text"></a>Configuración de texto de ejemplo
 
-En la parte superior de la clase **ContentModeratorQuickstart** , defina una referencia a un archivo de texto local. Agregue un archivo.txt al directorio del proyecto y escriba el texto que desea analizar.
+En la parte superior de la clase **ContentModeratorQuickstart**, defina una referencia a un archivo de texto local. Agregue un archivo.txt al directorio del proyecto y escriba el texto que desea analizar.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ContentModerator/src/main/java/ContentModeratorQuickstart.java?name=snippet_textmod_var)]
 

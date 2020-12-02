@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 05/15/2020
-ms.openlocfilehash: c3d6e21b45bccbdaeeee350bac79be680783eb24
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: ecf81152605d77e1036c9fbf5d3308af2b1fb988
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147525"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96346162"
 ---
 # <a name="collaborate-with-other-authors-and-editors"></a>Colaboración con otros creadores y editores
 
@@ -42,11 +42,11 @@ En el diagrama siguiente se muestra el flujo, desde la perspectiva del creador, 
 |3|La API de QnA Maker valida el token.|
 |4 |La API de QnA Maker llama al servicio QnAMaker.|
 
-Si tiene previsto llamar a las [API de creación](../How-To/collaborate-knowledge-base.md), obtenga más información sobre cómo configurar la autenticación.
+Si tiene previsto llamar a las [API de creación](../index.yml), obtenga más información sobre cómo configurar la autenticación.
 
 ## <a name="authenticate-by-qna-maker-portal"></a>Autenticación mediante el portal de QnA Maker
 
-Si crea y colabora con el portal de QnA Maker, después de [agregar el rol adecuado al recurso para un colaborador](../How-To/collaborate-knowledge-base.md), en el portal de QnA Maker se administran todos los permisos de acceso.
+Si crea y colabora con el portal de QnA Maker, después de [agregar el rol adecuado al recurso para un colaborador](../index.yml), en el portal de QnA Maker se administran todos los permisos de acceso.
 
 ## <a name="authenticate-by-qna-maker-apis-and-sdks"></a>Autenticación mediante API y SDK de QnA Maker
 
@@ -54,4 +54,4 @@ Si crea y colabora mediante API, ya sea a través de REST o los SDK, tendrá que
 
 ## <a name="next-step"></a>Paso siguiente
 
-* Diseño de una base de conocimiento para [lenguajes](design-language-culture.md) o [aplicaciones cliente](integration-with-other-applications.md)
+* Diseño de una base de conocimiento para [lenguajes](../index.yml) o [aplicaciones cliente](../index.yml)

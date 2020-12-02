@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 04/06/2020
-ms.openlocfilehash: d35ea57a68e500deffa99033b83114ec518dd5e3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1bf6eebcfc43452dd9a62e4a49f9aacbcd517ffc
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776738"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352242"
 ---
 # <a name="format-guidelines-for-imported-documents-and-urls"></a>Instrucciones de formato para las direcciones URL y los documentos importados
 
@@ -22,7 +22,7 @@ Después de importar un archivo o una dirección URL, QnA Maker convierte y alma
 
 Si agrega o edita el contenido directamente en la base de conocimiento, use el **formato de Markdown** para crear contenido de texto enriquecido o cambiar el contenido de dicho formato que ya está en la respuesta. QnA Maker admite gran parte del formato de Markdown para aportar funcionalidades de texto enriquecido al contenido. Sin embargo, es posible que la aplicación cliente, como un bot de chat, no admita el mismo conjunto de formatos de Markdown. Es importante probar la presentación de las respuestas de la aplicación cliente.
 
-Vea una lista completa de [tipos de contenido y ejemplos](./Concepts/content-types.md#file-and-url-data-types).
+Vea una lista completa de [tipos de contenido y ejemplos](./concepts/data-sources-and-content.md#content-types-of-documents-you-can-add-to-a-knowledge-base).
 
 ## <a name="basic-document-formatting"></a>Formato básico de documentos
 
@@ -118,4 +118,4 @@ Al importar una base de conocimiento, se reemplaza el contenido de la base de co
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Vea una lista completa de [tipos de contenido y ejemplos](./Concepts/content-types.md#file-and-url-data-types).
+Vea una lista completa de [tipos de contenido y ejemplos](./concepts/data-sources-and-content.md#content-types-of-documents-you-can-add-to-a-knowledge-base).

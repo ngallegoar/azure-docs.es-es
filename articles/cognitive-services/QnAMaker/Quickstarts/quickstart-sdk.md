@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 06/18/2020
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
 zone_pivot_groups: programming-languages-set-sixteen
-ms.openlocfilehash: 36a38c69c68613e912e7c598495b9370044f13a6
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: d9e984d4384b59fa13bc59e09e29939457dad37c
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91777446"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351051"
 ---
 # <a name="quickstart-qna-maker-client-library"></a>Inicio rápido: Biblioteca cliente de QnA Maker
 
@@ -52,9 +52,8 @@ Si quiere limpiar y eliminar una suscripción a Cognitive Services, puede elimin
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
->[Tutorial: Prueba de la base de conocimiento con un archivo por lotes](./batch-testing.md)
+>[Tutorial: Prueba de la base de conocimiento con un archivo por lotes](../index.yml)
 
 * [¿Qué es QnA Maker API?](../Overview/overview.md)
 * [Editar una base de conocimiento](../how-to/edit-knowledge-base.md)
 * [Obtención de análisis de uso](../how-to/get-analytics-knowledge-base.md)
-

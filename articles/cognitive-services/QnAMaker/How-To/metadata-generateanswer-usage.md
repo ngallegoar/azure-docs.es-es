@@ -9,18 +9,18 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 85abefc8437936ffaedc4811bdd9bed0be32786f
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.openlocfilehash: c250868c9d470ee85f765f693aff3e21320fc45e
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94375511"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96346195"
 ---
 # <a name="get-an-answer-with-the-generateanswer-api-and-metadata"></a>Obtención de una respuesta con GenerateAnswer API y metadatos
 
 Para obtener la respuesta prevista a la pregunta de un usuario, use GenerateAnswer API. Al publicar una base de conocimiento, puede consultar información sobre cómo usar esta API en la página **Publicar**. También puede configurar la API para filtrar las respuestas según las etiquetas de metadatos y probar la base de conocimiento desde el punto de conexión con el parámetro de cadena de consulta de prueba.
 
-QnA Maker permite agregar metadatos, en forma de pares clave-valor, a los pares de preguntas y respuestas. Luego puede usar esta información para filtrar los resultados de las consultas de usuario y para almacenar información adicional que se puede usar en las conversaciones de seguimiento. Para más información, consulte la [base de conocimiento](../Concepts/knowledge-base.md).
+QnA Maker permite agregar metadatos, en forma de pares clave-valor, a los pares de preguntas y respuestas. Luego puede usar esta información para filtrar los resultados de las consultas de usuario y para almacenar información adicional que se puede usar en las conversaciones de seguimiento. Para más información, consulte la [base de conocimiento](../index.yml).
 
 <a name="qna-entity"></a>
 
@@ -36,13 +36,13 @@ Cada entidad QnA tiene un identificador único y persistente. Puede usar el iden
 
 ## <a name="get-answer-predictions-with-the-generateanswer-api"></a>Obtención de predicciones de respuestas con GenerateAnswer API
 
-[GenerateAnswer API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer) se usa en un bot o aplicación para consultar la base de conocimiento con una pregunta de usuario y obtener la mejor coincidencia de los pares de preguntas y respuestas.
+[GenerateAnswer API](/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer) se usa en un bot o aplicación para consultar la base de conocimiento con una pregunta de usuario y obtener la mejor coincidencia de los pares de preguntas y respuestas.
 
 <a name="generateanswer-endpoint"></a>
 
 ## <a name="publish-to-get-generateanswer-endpoint"></a>Publicación para obtener el punto de conexión de GenerateAnswer
 
-Después de publicar la base de conocimiento, ya sea desde el [portal de QnA Maker](https://www.qnamaker.ai) o mediante la [API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/publish), puede obtener los detalles de su punto de conexión de GenerateAnswer.
+Después de publicar la base de conocimiento, ya sea desde el [portal de QnA Maker](https://www.qnamaker.ai) o mediante la [API](/rest/api/cognitiveservices/qnamaker/knowledgebase/publish), puede obtener los detalles de su punto de conexión de GenerateAnswer.
 
 Para obtener los detalles del punto de conexión:
 1. Inicie sesión en [https://www.qnamaker.ai](https://www.qnamaker.ai).
@@ -70,9 +70,9 @@ Para llamar a GenerateAnswer, se utiliza una solicitud HTTP POST. Para ver códi
 
 La solicitud POST usa:
 
-* Los [parámetros de URI](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/train#uri-parameters) obligatorios.
+* Los [parámetros de URI](/rest/api/cognitiveservices/qnamakerruntime/runtime/train#uri-parameters) obligatorios.
 * La propiedad del encabezado obligatoria, `Authorization`, por seguridad.
-* Las [propiedades del cuerpo](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/train#feedbackrecorddto) obligatorias.
+* Las [propiedades del cuerpo](/rest/api/cognitiveservices/qnamakerruntime/runtime/train#feedbackrecorddto) obligatorias.
 
 La dirección URL de GenerateAnswer tiene el formato siguiente:
 
@@ -108,7 +108,7 @@ El código JSON anterior solo solicitó aquellas respuestas con una puntuación 
 
 ## <a name="generateanswer-response-properties"></a>Propiedades de la respuesta de GenerateAnswer
 
-La [respuesta](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer#successful-query) es un objeto JSON que incluye toda la información necesaria para mostrar la respuesta y el siguiente turno en la conversación, si está disponible.
+La [respuesta](/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer#successful-query) es un objeto JSON que incluye toda la información necesaria para mostrar la respuesta y el siguiente turno en la conversación, si está disponible.
 
 ```json
 {
@@ -136,7 +136,7 @@ El código JSON anterior respondió con una respuesta con una puntuación del 38
 
 ## <a name="use-qna-maker-with-a-bot-in-c"></a>Uso de QnA Maker con un bot en C#
 
-Bot Framework brinda acceso a las propiedades de QnA Maker con [getAnswer API](https://docs.microsoft.com/dotnet/api/microsoft.bot.builder.ai.qna.qnamaker.getanswersasync?view=botbuilder-dotnet-stable#Microsoft_Bot_Builder_AI_QnA_QnAMaker_GetAnswersAsync_Microsoft_Bot_Builder_ITurnContext_Microsoft_Bot_Builder_AI_QnA_QnAMakerOptions_System_Collections_Generic_Dictionary_System_String_System_String__System_Collections_Generic_Dictionary_System_String_System_Double__&preserve-view=true):
+Bot Framework brinda acceso a las propiedades de QnA Maker con [getAnswer API](/dotnet/api/microsoft.bot.builder.ai.qna.qnamaker.getanswersasync?preserve-view=true&view=botbuilder-dotnet-stable#Microsoft_Bot_Builder_AI_QnA_QnAMaker_GetAnswersAsync_Microsoft_Bot_Builder_ITurnContext_Microsoft_Bot_Builder_AI_QnA_QnAMakerOptions_System_Collections_Generic_Dictionary_System_String_System_String__System_Collections_Generic_Dictionary_System_String_System_Double__):
 
 ```csharp
 using Microsoft.Bot.Builder.AI.QnA;
@@ -155,7 +155,7 @@ El código JSON anterior solo solicitó aquellas respuestas con una puntuación 
 
 ## <a name="use-qna-maker-with-a-bot-in-nodejs"></a>Uso de QnA Maker con un bot en Node.js
 
-Bot Framework brinda acceso a las propiedades de QnA Maker con [getAnswer API](https://docs.microsoft.com/javascript/api/botbuilder-ai/qnamaker?view=botbuilder-ts-latest#generateanswer-string---undefined--number--number-&preserve-view=true):
+Bot Framework brinda acceso a las propiedades de QnA Maker con [getAnswer API](/javascript/api/botbuilder-ai/qnamaker?preserve-view=true&view=botbuilder-ts-latest#generateanswer-string---undefined--number--number-):
 
 ```javascript
 const { QnAMaker } = require('botbuilder-ai');

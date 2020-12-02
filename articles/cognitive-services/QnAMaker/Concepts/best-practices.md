@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: 2f87f5c7e43757db476153db93d6ecc5082dde89
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.openlocfilehash: ee8d838ba315c2e261a61699948b71a710341165
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94376764"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96346365"
 ---
 # <a name="best-practices-of-a-qna-maker-knowledge-base"></a>Procedimientos recomendados para una base de conocimiento de QnA Maker
 
@@ -18,7 +18,7 @@ El artículo sobre el [ciclo de vida de desarrollo de una base de conocimiento](
 
 ## <a name="extraction"></a>Extracción
 
-El servicio QnA Maker mejora continuamente los algoritmos que extraen preguntas y respuestas del contenido y amplía la lista de formatos HTML y de archivos que admite. Siga las [directrices](../Concepts/content-types.md) para la extracción de datos según su tipo de documento.
+El servicio QnA Maker mejora continuamente los algoritmos que extraen preguntas y respuestas del contenido y amplía la lista de formatos HTML y de archivos que admite. Siga las [directrices](../index.yml) para la extracción de datos según su tipo de documento.
 
 En general, las páginas de preguntas más frecuentes deben ser independientes y no combinarse con otra información. Los manuales de productos deben tener encabezados claros y, preferiblemente, una página de índice.
 
@@ -117,10 +117,10 @@ Los [metadatos](../How-To/edit-knowledge-base.md) agregan la posibilidad de que 
 
 ### <a name="use-synonyms"></a>Usar sinónimos
 # <a name="qna-maker-ga-stable-release"></a>[Disponibilidad general de QnA Maker (versión estable)](#tab/v1)
-Aunque hay cierta compatibilidad con los sinónimos en inglés, use alteraciones de palabras que no distinguen mayúsculas de minúsculas a través de [Alterations API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/alterations/replace) para agregar sinónimos a las palabras clave que tengan una forma diferente. Los sinónimos se agregan en el nivel del servicio QnA Maker y **todas las bases de conocimiento del servicio los comparten**.
+Aunque hay cierta compatibilidad con los sinónimos en inglés, use alteraciones de palabras que no distinguen mayúsculas de minúsculas a través de [Alterations API](/rest/api/cognitiveservices/qnamaker/alterations/replace) para agregar sinónimos a las palabras clave que tengan una forma diferente. Los sinónimos se agregan en el nivel del servicio QnA Maker y **todas las bases de conocimiento del servicio los comparten**.
 
 # <a name="qna-maker-managed-preview-release"></a>[QnA Maker administrado (versión preliminar)](#tab/v2)
-Aunque hay cierta compatibilidad con los sinónimos en inglés, use alteraciones de palabras que no distinguen mayúsculas de minúsculas a través de [Alterations API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/alterations/replace) para agregar sinónimos a las palabras clave que tengan una forma diferente. Los sinónimos de QnA Maker administrado (versión preliminar) se **agregan por base de conocimiento**.
+Aunque hay cierta compatibilidad con los sinónimos en inglés, use alteraciones de palabras que no distinguen mayúsculas de minúsculas a través de [Alterations API](/rest/api/cognitiveservices/qnamaker/alterations/replace) para agregar sinónimos a las palabras clave que tengan una forma diferente. Los sinónimos de QnA Maker administrado (versión preliminar) se **agregan por base de conocimiento**.
 
 |Palabra original|Sinónimos|
 |--|--|
@@ -141,7 +141,7 @@ Por ejemplo, puede tener dos preguntas y respuestas independientes con las sigui
 Puesto que estas dos preguntas y respuestas están expresadas con palabras muy similares, esta similitud podría provocar que las puntuaciones sean muy parecidas para muchas de las consultas de usuario que están expresadas como *dónde está ubicado `<x>`* . Como alternativa, intente diferenciarlas claramente con consultas como *"dónde está el estacionamiento"* y *"dónde está el cajero automático"* , evitando palabras como "ubicado", que pueden estar en muchas preguntas en la base de conocimiento.
 
 ## <a name="collaborate"></a>Colaborar
-QnA Maker permite a los usuarios [colaborar](../How-to/collaborate-knowledge-base.md) en una base de conocimiento. Los usuarios necesitan acceso al grupo de recursos de QnA Maker en Azure para tener acceso a las bases de conocimiento. Algunas organizaciones quizás quieran externalizar la edición y el mantenimiento de la base de conocimiento, sin dejar de proteger el acceso a sus recursos de Azure. Para realizar este modelo de editor-aprobador, se configuran dos [servicios QnA Maker](../How-to/set-up-qnamaker-service-azure.md) idénticos en suscripciones distintas y seleccionar uno para el ciclo de pruebas de edición. Una vez finalizada la prueba, se transfiere el contenido de la base de conocimiento con un proceso de [importación y exportación](../Tutorials/migrate-knowledge-base.md) al servicio QnA Maker del aprobador que, finalmente, publicará la base de conocimiento y actualizará el punto de conexión.
+QnA Maker permite a los usuarios [colaborar](../index.yml) en una base de conocimiento. Los usuarios necesitan acceso al grupo de recursos de QnA Maker en Azure para tener acceso a las bases de conocimiento. Algunas organizaciones quizás quieran externalizar la edición y el mantenimiento de la base de conocimiento, sin dejar de proteger el acceso a sus recursos de Azure. Para realizar este modelo de editor-aprobador, se configuran dos [servicios QnA Maker](../How-to/set-up-qnamaker-service-azure.md) idénticos en suscripciones distintas y seleccionar uno para el ciclo de pruebas de edición. Una vez finalizada la prueba, se transfiere el contenido de la base de conocimiento con un proceso de [importación y exportación](../Tutorials/migrate-knowledge-base.md) al servicio QnA Maker del aprobador que, finalmente, publicará la base de conocimiento y actualizará el punto de conexión.
 
 
 

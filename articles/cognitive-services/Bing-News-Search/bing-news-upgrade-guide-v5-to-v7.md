@@ -10,19 +10,19 @@ ms.subservice: bing-news-search
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: scottwhi
-ms.openlocfilehash: fe9511df5fb290853dbd6cb8d39fed4e289fca4d
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: a114cb24d79189f9e370fae1962f60ca97241d90
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94366424"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351374"
 ---
 # <a name="news-search-api-upgrade-guide"></a>Guía de actualización de News Search API
 
 > [!WARNING]
-> Bing Search APIs se mueve de Cognitive Services a Bing Search Services. A partir del **30 de octubre de 2020** , las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](https://aka.ms/cogsvcs/bingmove).
+> Bing Search APIs se mueve de Cognitive Services a Bing Search Services. A partir del **30 de octubre de 2020**, las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 > El aprovisionamiento de Bing Search APIs con Cognitive Services será posible durante los próximos tres años o hasta que finalice el Contrato Enterprise, lo que suceda primero.
-> Puede encontrar instrucciones sobre la migración en [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
+> Puede encontrar instrucciones sobre la migración en [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 Esta guía de actualización identifica los cambios entre las versiones 5 y 7 de Bing News Search API. Utilice esta guía para identificar las partes de la aplicación que se deben actualizar para usar la versión 7.
 
@@ -95,4 +95,4 @@ Bloqueado|InvalidRequest.Blocked
 
 - Se ha agregado el campo `sort` al objeto [News](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#news). El campo `sort` muestra el criterio de ordenación de los artículos. Por ejemplo, los artículos se ordenan por relevancia (valor predeterminado) o fecha.
 
-- Se ha agregado el objeto [SortValue](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#sortvalue) que define un criterio de ordenación. El campo `isSelected` indica si la respuesta utiliza el criterio de ordenación. Si es **true** , la respuesta utiliza el criterio de ordenación. Si `isSelected` es **false** , puede usar la dirección URL del campo `url` para solicitar un criterio de ordenación diferente.
+- Se ha agregado el objeto [SortValue](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#sortvalue) que define un criterio de ordenación. El campo `isSelected` indica si la respuesta utiliza el criterio de ordenación. Si es **true**, la respuesta utiliza el criterio de ordenación. Si `isSelected` es **false**, puede usar la dirección URL del campo `url` para solicitar un criterio de ordenación diferente.

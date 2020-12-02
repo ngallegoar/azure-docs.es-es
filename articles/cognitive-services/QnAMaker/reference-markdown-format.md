@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 03/19/2020
-ms.openlocfilehash: f5f640f8895cd6defe31a68b790ce841c4679a6f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f49e05578f55a38845acbd4010f928fb17c51606
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91777364"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352276"
 ---
 # <a name="markdown-format-supported-in-qna-maker-answer-text"></a>Formato Markdown admitido en el texto de respuesta de QnA Maker
 
@@ -22,7 +22,7 @@ Use el tutorial **[CommonMark](https://commonmark.org/help/tutorial/index.html)*
 
 La [edición de texto enriquecido](How-To/edit-knowledge-base.md#add-an-editorial-qna-set) de las respuestas le permite, como autor, usar una barra de herramientas de formato para seleccionar y dar formato al texto rápidamente.
 
-Markdown es la mejor herramienta cuando se necesita generar contenido automáticamente para crear bases de conocimiento que se van a importar como parte de una canalización de CI/CD o para [pruebas por lotes](Quickstarts/batch-testing.md).
+Markdown es la mejor herramienta cuando se necesita generar contenido automáticamente para crear bases de conocimiento que se van a importar como parte de una canalización de CI/CD o para [pruebas por lotes](./index.yml).
 
 ## <a name="supported-markdown-format"></a>Formato Markdown compatible
 
@@ -37,8 +37,8 @@ Nueva línea entre dos oraciones.|`\n\n`|`How can I create a bot with \n\n QnA M
 |Dirección URL del vínculo|`[text](https://www.my.com)`|`How do I create a bot with [QnA Maker](https://www.qnamaker.ai)?`|![formato de dirección URL (hipervínculo)](./media/qnamaker-concepts-datasources/format-url.png)|
 |*Dirección URL de imagen pública|`![text](https://www.my.com/image.png)`|`How can I create a bot with ![QnAMaker](https://review.docs.microsoft.com/azure/cognitive-services/qnamaker/media/qnamaker-how-to-key-management/qnamaker-resource-list.png)`|![formato de la dirección URL de imagen pública ](./media/qnamaker-concepts-datasources/format-image-url.png)|
 |Tachado|`~~text~~`|`some ~~questoins~~ questions need to be asked`|![formato del tachado](./media/qnamaker-concepts-datasources/format-strikethrough.png)|
-|Negrita y cursiva|`***text***`|`How can I create a ***QnA Maker*** bot?`|![formato de negrita y cursiva](./media/qnamaker-concepts-datasources/format-bold-italics.png)|
-|Dirección URL en negrita del vínculo.|`[**text**](https://www.my.com)`|`How do I create a bot with [**QnA Maker**](https://www.qnamaker.ai)?`|![formato para la dirección URL en negrita](./media/qnamaker-concepts-datasources/format-bold-url.png)|
+|Negrita y cursiva|`***text**_`|`How can I create a _*_QnA Maker_*_ bot?`|![formato de negrita y cursiva](./media/qnamaker-concepts-datasources/format-bold-italics.png)|
+|Dirección URL en negrita del vínculo.|`[_*text**](https://www.my.com)`|`How do I create a bot with [**QnA Maker**](https://www.qnamaker.ai)?`|![formato para la dirección URL en negrita](./media/qnamaker-concepts-datasources/format-bold-url.png)|
 |Dirección URL en cursiva del vínculo.|`[*text*](https://www.my.com)`|`How do I create a bot with [*QnA Maker*](https://www.qnamaker.ai)?`|![formato de la dirección URL en cursiva](./media/qnamaker-concepts-datasources/format-url-italics.png)|
 |Símbolos de escape de Markdown|`\*text\*`|`How do I create a bot with \*QnA Maker\*?`|![formato de símbolos de escape de Markdown](./media/qnamaker-concepts-datasources/format-escape-markdown-symbols.png)|
 |Lista ordenada|`\n 1. item1 \n 1. item2`|`This is an ordered list: \n 1. List item 1 \n 1. List item 2`<br>En el ejemplo anterior se utiliza la numeración automática integrada en Markdown.<br>`This is an ordered list: \n 1. List item 1 \n 2. List item 2`<br>En el ejemplo anterior se usa la numeración explícita.|![formato de la lista ordenada](./media/qnamaker-concepts-datasources/format-ordered-list.png)|

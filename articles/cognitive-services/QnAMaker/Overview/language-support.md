@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 11/09/2019
-ms.openlocfilehash: dc910c01c401468a3dae392a6318344bee25efb7
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.openlocfilehash: 5035a81838ace0678f0cbb68ad2b9325de498003
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94375647"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353126"
 ---
 # <a name="language-support-for-a-qna-maker-resource-and-knowledge-bases"></a>Idiomas admitidos en el recurso de QnA Maker y en las bases de conocimiento
 
@@ -140,7 +140,7 @@ La siguiente lista contiene los idiomas que admiten los recursos de QnA Maker.
 |Vietnamita|
 
 ## <a name="query-matching-and-relevance"></a>Coincidencia y relevancia de las consultas
-QnA Maker depende de los [analizadores de idioma de Azure Cognitive Search](https://docs.microsoft.com/rest/api/searchservice/language-support) para proporcionar resultados.
+QnA Maker depende de los [analizadores de idioma de Azure Cognitive Search](/rest/api/searchservice/language-support) para proporcionar resultados.
 
 Aunque las funcionalidades de Azure Cognitive Search están en el mismo nivel que los idiomas admitidos, QnA Maker tiene un clasificador adicional que está por encima de los resultados de búsqueda de Azure. En este modelo de clasificador, se usan características semánticas y basadas en palabras especiales en los siguientes idiomas.
 
@@ -166,4 +166,4 @@ Esta clasificación adicional es un elemento de trabajo interno del clasificador
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Selección de idioma](../how-to/language-knowledge-base.md)
+> [Selección de idioma](../index.yml)

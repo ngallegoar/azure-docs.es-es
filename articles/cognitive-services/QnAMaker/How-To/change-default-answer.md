@@ -5,16 +5,16 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: how-to
 ms.date: 11/09/2020
-ms.openlocfilehash: ceff3127eba724ba9aa9bc8f9398d0f27ba687eb
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.openlocfilehash: 5aab021ab5194b4af18e3ff1b2c154ed74710353
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94376616"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96346127"
 ---
 # <a name="change-default-answer-for-a-qna-maker-resource"></a>Cambiar la respuesta predeterminada para un recurso de QnA Maker
 
-La respuesta predeterminada para una base de conocimiento está pensada para que se devuelva cuando no se encuentra una respuesta. Si usa una aplicación cliente, como [Azure Bot Service](https://docs.microsoft.com/azure/bot-service/bot-builder-howto-qna), es posible que también tenga una respuesta predeterminada independiente, lo que indica que ninguna respuesta ha alcanzado el umbral de puntuación.
+La respuesta predeterminada para una base de conocimiento está pensada para que se devuelva cuando no se encuentra una respuesta. Si usa una aplicación cliente, como [Azure Bot Service](/azure/bot-service/bot-builder-howto-qna), es posible que también tenga una respuesta predeterminada independiente, lo que indica que ninguna respuesta ha alcanzado el umbral de puntuación.
 
 ## <a name="types-of-default-answer"></a>Tipos de respuesta predeterminada
 
@@ -24,15 +24,15 @@ Hay dos tipos de respuesta predeterminada en la knowledge base. Es importante en
 
 |Tipos de respuestas predeterminadas|Descripción de respuesta|
 |--|--|
-|Respuesta de KB si no se ha determinado ninguna respuesta|`No good match found in KB.` - Si la [API GenerateAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer) no encuentra ninguna respuesta coincidente para la pregunta, se devuelve el valor `DefaultAnswer` de App Service. Todas las knowledge bases del mismo recurso de QnA Maker comparten el mismo texto de respuesta predeterminado.<br>Puede administrar la configuración en Azure Portal por medio de App Service o con las API de REST para [obtener](https://docs.microsoft.com/rest/api/appservice/webapps/listapplicationsettings) o [actualizar](https://docs.microsoft.com/rest/api/appservice/webapps/updateapplicationsettings) la configuración.|
-|Texto de instrucciones de solicitud de seguimiento|Al usar una solicitud de seguimiento en un flujo de conversación, es posible que no necesite una respuesta en el par de pregunta y respuesta porque quiere que el usuario seleccione en las solicitudes de seguimiento. En este caso, establezca un texto concreto al determinar el texto de respuesta predeterminado, que se devuelve con cada predicción de las solicitudes de seguimiento. El texto tiene que mostrarse como texto de instrucciones para la selección de solicitudes de seguimiento. Un ejemplo de este texto de respuesta predeterminado es `Please select from the following choices`. Esta configuración se explica en las siguientes secciones de este documento. También se puede establecer como parte de la definición de knowledge base de `defaultAnswerUsedForExtraction` mediante la [API de REST](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create).|
+|Respuesta de KB si no se ha determinado ninguna respuesta|`No good match found in KB.` - Si la [API GenerateAnswer](/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer) no encuentra ninguna respuesta coincidente para la pregunta, se devuelve el valor `DefaultAnswer` de App Service. Todas las knowledge bases del mismo recurso de QnA Maker comparten el mismo texto de respuesta predeterminado.<br>Puede administrar la configuración en Azure Portal por medio de App Service o con las API de REST para [obtener](/rest/api/appservice/webapps/listapplicationsettings) o [actualizar](/rest/api/appservice/webapps/updateapplicationsettings) la configuración.|
+|Texto de instrucciones de solicitud de seguimiento|Al usar una solicitud de seguimiento en un flujo de conversación, es posible que no necesite una respuesta en el par de pregunta y respuesta porque quiere que el usuario seleccione en las solicitudes de seguimiento. En este caso, establezca un texto concreto al determinar el texto de respuesta predeterminado, que se devuelve con cada predicción de las solicitudes de seguimiento. El texto tiene que mostrarse como texto de instrucciones para la selección de solicitudes de seguimiento. Un ejemplo de este texto de respuesta predeterminado es `Please select from the following choices`. Esta configuración se explica en las siguientes secciones de este documento. También se puede establecer como parte de la definición de knowledge base de `defaultAnswerUsedForExtraction` mediante la [API de REST](/rest/api/cognitiveservices/qnamaker/knowledgebase/create).|
 
 # <a name="qna-maker-managed-preview-release"></a>[QnA Maker administrado (versión preliminar)](#tab/v2)
 
 |Tipos de respuestas predeterminadas|Descripción de respuesta|
 |--|--|
-|Respuesta de KB si no se ha determinado ninguna respuesta|`No good match found in KB.`: si [GenerateAnswer API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer) no encuentra ninguna respuesta coincidente para la pregunta, muestra una respuesta de texto predeterminada. En QnA Maker administrado (versión preliminar), este texto se puede establecer en la **configuración** de la knowledge base. <br><br> ![Respuesta predeterminada establecida de QnA Maker administrado (versión preliminar)](../media/qnamaker-how-change-default-answer/qnamaker-v2-change-default-answer.png)|
-|Texto de instrucciones de solicitud de seguimiento|Al usar una solicitud de seguimiento en un flujo de conversación, es posible que no necesite una respuesta en el par de pregunta y respuesta porque quiere que el usuario seleccione en las solicitudes de seguimiento. En este caso, establezca un texto concreto al determinar el texto de respuesta predeterminado, que se devuelve con cada predicción de las solicitudes de seguimiento. El texto tiene que mostrarse como texto de instrucciones para la selección de solicitudes de seguimiento. Un ejemplo de este texto de respuesta predeterminado es `Please select from the following choices`. Esta configuración se explica en las siguientes secciones de este documento. También se puede establecer como parte de una definición de knowledge base si `defaultAnswerUsedForExtraction` usa la [API REST](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create).|
+|Respuesta de KB si no se ha determinado ninguna respuesta|`No good match found in KB.`: si [GenerateAnswer API](/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer) no encuentra ninguna respuesta coincidente para la pregunta, muestra una respuesta de texto predeterminada. En QnA Maker administrado (versión preliminar), este texto se puede establecer en la **configuración** de la knowledge base. <br><br> ![Respuesta predeterminada establecida de QnA Maker administrado (versión preliminar)](../media/qnamaker-how-change-default-answer/qnamaker-v2-change-default-answer.png)|
+|Texto de instrucciones de solicitud de seguimiento|Al usar una solicitud de seguimiento en un flujo de conversación, es posible que no necesite una respuesta en el par de pregunta y respuesta porque quiere que el usuario seleccione en las solicitudes de seguimiento. En este caso, establezca un texto concreto al determinar el texto de respuesta predeterminado, que se devuelve con cada predicción de las solicitudes de seguimiento. El texto tiene que mostrarse como texto de instrucciones para la selección de solicitudes de seguimiento. Un ejemplo de este texto de respuesta predeterminado es `Please select from the following choices`. Esta configuración se explica en las siguientes secciones de este documento. También se puede establecer como parte de una definición de knowledge base si `defaultAnswerUsedForExtraction` usa la [API REST](/rest/api/cognitiveservices/qnamaker/knowledgebase/create).|
 
 ---
 

@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: how-to
 ms.date: 11/09/2020
-ms.openlocfilehash: 4378a648b8b7a545c9e4b638d08592aa32fff3aa
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: c89ab375cb02824a08ff57e6b5278dd9299126ff
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427673"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350932"
 ---
 # <a name="migrate-a-knowledge-base-using-export-import"></a>Migrar una base de conocimiento mediante la exportación e importación
 
@@ -34,7 +34,7 @@ La migración de una base de conocimiento requiere la exportación de una base d
 1. Inicie sesión en el [portal de QnA Maker](https://qnamaker.ai).
 1. Seleccione la base de conocimiento de origen que quiere migrar.
 
-1. En la página **Settings** (Configuración), seleccione **Export knowledge base** (Exportar base de conocimiento) para descargar un archivo .tsv que incluya el contenido de la base de conocimiento de origen (preguntas, respuestas, metadatos, avisos de seguimiento) y los nombres del origen de datos del que se han extraído. Los identificadores de QnA que se exportan con las preguntas y respuestas se pueden usar para actualizar un par de pregunta y respuesta concreto mediante la [API de actualización](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update). El identificador de QnA de un par de pregunta y respuesta concreto permanece sin cambios en varias operaciones de exportación.
+1. En la página **Settings** (Configuración), seleccione **Export knowledge base** (Exportar base de conocimiento) para descargar un archivo .tsv que incluya el contenido de la base de conocimiento de origen (preguntas, respuestas, metadatos, avisos de seguimiento) y los nombres del origen de datos del que se han extraído. Los identificadores de QnA que se exportan con las preguntas y respuestas se pueden usar para actualizar un par de pregunta y respuesta concreto mediante la [API de actualización](/rest/api/cognitiveservices/qnamaker/knowledgebase/update). El identificador de QnA de un par de pregunta y respuesta concreto permanece sin cambios en varias operaciones de exportación.
 
 1. Seleccione **Create a knowledge base** (Crear una base de conocimiento) en el menú superior y cree una base de conocimiento _vacía_. Está vacía porque, cuando se crea, no se agregan direcciones URL ni archivos, sino que lo hacen durante el paso de importación, después de la creación.
 
@@ -59,16 +59,16 @@ El proceso de migración está disponible mediante programación con las siguien
 
 **Exportarar**
 
-* [Descarga de la API de la base de conocimiento](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker4.0/knowledgebase/download)
+* [Descarga de la API de la base de conocimiento](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase/download)
 
 **Importar**
 
-* [API Replace (volver a cargar con el mismo identificador de base de conocimiento)](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker4.0/knowledgebase/replace)
-* [API Create (cargar con un identificador de base de conocimiento nuevo)](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker4.0/knowledgebase/create)
+* [API Replace (volver a cargar con el mismo identificador de base de conocimiento)](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase/replace)
+* [API Create (cargar con un identificador de base de conocimiento nuevo)](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase/create)
 
 
 ## <a name="chat-logs-and-alterations"></a>Modificaciones y registros de chat
-Las alteraciones (sinónimos) que no distinguen mayúsculas de minúsculas no se importan de forma automática. Use las [API V4](https://go.microsoft.com/fwlink/?linkid=2092179) para mover las modificaciones en la nueva base de conocimiento.
+Las alteraciones (sinónimos) que no distinguen mayúsculas de minúsculas no se importan de forma automática. Use las [API V4](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase) para mover las modificaciones en la nueva base de conocimiento.
 
 No hay forma de migrar registros de chat, ya que la base de conocimiento nueva usa Application Insights para almacenar registros de chat.
 

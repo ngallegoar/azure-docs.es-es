@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: f58fe342d66c328bdadf41fc965c2952605aea8e
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.openlocfilehash: 5f149dd6db82b66b45a4c995e2004936481af786
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94376582"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352429"
 ---
 # <a name="get-analytics-on-your-knowledge-base"></a>Obtener análisis en la base de conocimiento
 
@@ -52,7 +52,7 @@ QnA Maker almacena todos los registros de chat y otra telemetría, si ha habilit
 
 QnA Maker administrado (versión preliminar) usa el registro de diagnóstico de Azure para almacenar los datos de telemetría y los registros de chat. Siga los pasos que se indican a continuación para ejecutar consultas de ejemplo para obtener análisis sobre el uso de la knowledge base de QnA Maker.
 
-1. [Habilite el registro de diagnóstico](https://docs.microsoft.com/azure/cognitive-services/diagnostic-logging) del servicio QnA Maker administrado (versión preliminar).
+1. [Habilite el registro de diagnóstico](../../diagnostic-logging.md) del servicio QnA Maker administrado (versión preliminar).
 
 2. En el paso anterior, seleccione **Trace** (Seguimiento), además de **Audit, RequestResponse y AllMetrics** para el registro
 
