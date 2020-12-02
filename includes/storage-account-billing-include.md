@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/19/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: cdcbe993bd1100b2060a1f8d38eb82ac97121c0d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fcfe05db6a9be1049ca5da06985f31135ac79f3b
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74851642"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95561651"
 ---
 Azure Storage se factura en función del uso que se haga de la cuenta de almacenamiento. Todos los objetos de una cuenta de almacenamiento se facturan juntos como un grupo. 
 
@@ -25,7 +25,6 @@ Para calcular los costos de almacenamiento se tienen en cuenta los siguientes fa
 * **Capacidad** de almacenamiento hace referencia a la cuantificación de la asignación correspondiente a su cuenta de almacenamiento que utiliza para almacenar datos.
 * La **replicación** determina cuántas copias de los datos se conservan al mismo tiempo, y en qué ubicaciones.
 * Las **transacciones** se refieren a todas las operaciones de lectura y escritura en Azure Storage.
-* La **salida de los datos** se refiere a los datos transferidos fuera de una región de Azure. Cuando una aplicación que no se ejecuta en la misma región que su cuenta de almacenamiento accede a los datos de esta, se le cobra por la salida de los datos. Para obtener información sobre el uso de grupos de recursos para agrupar los datos y servicios en la misma región a fin de limitar los cargos de salida, vea [¿Qué es un grupo de recursos de Azure?](https://docs.microsoft.com/azure/cloud-adoption-framework/govern/resource-consistency/resource-access-management#what-is-an-azure-resource-group). 
+* La **salida de los datos** se refiere a los datos transferidos fuera de una región de Azure. Cuando una aplicación que no se ejecuta en la misma región que su cuenta de almacenamiento accede a los datos de esta, se le cobra por la salida de los datos. Para obtener información sobre el uso de grupos de recursos para agrupar los datos y servicios en la misma región a fin de limitar los cargos de salida, vea [¿Qué es un grupo de recursos de Azure?](/azure/cloud-adoption-framework/govern/resource-consistency/resource-access-management#what-is-an-azure-resource-group). 
 
 La página [Precios de Azure Storage](https://azure.microsoft.com/pricing/details/storage/) proporciona información detallada sobre los precios en función del tipo de cuenta, de la capacidad de almacenamiento, de la replicación y de las transacciones. La página [Detalles de precios de Transferencias de datos](https://azure.microsoft.com/pricing/details/data-transfers/) proporciona información detallada sobre los precios para la salida de datos. Puede usar la [Calculadora de precios de Azure Storage](https://azure.microsoft.com/pricing/calculator/?scenario=data-management) para ayudarle a calcular los costes.
-

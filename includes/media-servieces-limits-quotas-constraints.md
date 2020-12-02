@@ -4,12 +4,12 @@ ms.service: media-services
 ms.topic: include
 ms.date: 10/26/2020
 ms.author: inhenkel
-ms.openlocfilehash: 84aa07ef282dd7100043f7e9bfcc97cb3b3673a5
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 59ff0ba854fa609e6d29f3473f662a89ab5f3dbc
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92755966"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95558294"
 ---
 > [!NOTE]
 > En relación con los recursos que no están fijados, abra una incidencia de soporte técnico para solicitar un aumento en las cuotas. No cree cuentas adicionales de Azure Media Services para obtener límites mayores.
@@ -81,7 +81,7 @@ Se eliminarán automáticamente los registros de trabajo de más de 90 días de 
 | Directivas de streaming | 100 <sup>(6)</sup> |
 | Localizadores de streaming únicos asociados con un recurso al mismo tiempo | 100<sup>(7)</sup> (cantidad fija) |
 
-<sup>6</sup> Al usar una [directiva de streaming](https://docs.microsoft.com/rest/api/media/streamingpolicies) personalizada, debe diseñar un conjunto limitado de dichas directivas para su cuenta de Media Service y reutilizarlas para sus localizadores de streaming siempre que se necesiten las mismas opciones y protocolos de cifrado. No debe crear una nueva directiva de streaming para cada localizador de streaming.
+<sup>6</sup> Al usar una [directiva de streaming](/rest/api/media/streamingpolicies) personalizada, debe diseñar un conjunto limitado de dichas directivas para su cuenta de Media Service y reutilizarlas para sus localizadores de streaming siempre que se necesiten las mismas opciones y protocolos de cifrado. No debe crear una nueva directiva de streaming para cada localizador de streaming.
 
 <sup>7</sup> Los localizadores de streaming no están diseñados para administrar el control de acceso por usuario. Para conceder derechos de acceso diferentes a usuarios individuales, use las soluciones de administración de derechos digitales (DRM).
 

@@ -5,12 +5,12 @@ ms.subservice: B2C
 ms.topic: include
 ms.date: 03/19/2020
 ms.author: mimart
-ms.openlocfilehash: 9b660bf20c90a84780175e70573c96a0ce1b0b7d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4cb4cdef227c786b12790903037fdc02649592e3
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91376490"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95990891"
 ---
 ## <a name="use-custom-page-content"></a>Uso del contenido de la página personalizada
 
@@ -56,7 +56,7 @@ En la tabla siguiente se muestra el contenido de la página predeterminada propo
 
 ## <a name="hosting-the-page-content"></a>Hospedaje del contenido de la página
 
-Al utilizar sus propios archivos HTML y CSS para personalizar la interfaz de usuario, hospede el contenido de la interfaz de usuario en cualquier punto de conexión HTTPS disponible públicamente que admita CORS. Por ejemplo, [Azure Blob Storage](../articles/storage/blobs/storage-blobs-introduction.md), [Azure App Service](/azure/app-service/), servidores web, redes CDN, AWS S3 o sistemas de uso compartido de archivos.
+Al utilizar sus propios archivos HTML y CSS para personalizar la interfaz de usuario, hospede el contenido de la interfaz de usuario en cualquier punto de conexión HTTPS disponible públicamente que admita CORS. Por ejemplo, [Azure Blob Storage](../articles/storage/blobs/storage-blobs-introduction.md), [Azure App Service](../articles/app-service/index.yml), servidores web, redes CDN, AWS S3 o sistemas de uso compartido de archivos.
 
 ## <a name="guidelines-for-using-custom-page-content"></a>Directrices para usar el contenido de la página personalizada
 

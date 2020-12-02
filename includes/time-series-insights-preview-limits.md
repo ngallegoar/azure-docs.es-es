@@ -9,16 +9,16 @@ author: deepakpalled
 ms.author: dpalled
 manager: diviso
 ms.custom: include file
-ms.openlocfilehash: 5ec1f71d13d5d2fb3af86c1c63d5e61ce13d2c82
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: e7b5dfe9380612d56e591c3f619dfcb8582f8dee
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94553081"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95559098"
 ---
 ### <a name="property-limits"></a>Límites de propiedad
 
-Los límites de propiedad de Azure Time Series Insights han aumentado a 1000 para el almacenamiento intermedio y ningún límite de propiedad para el almacenamiento en reposo. Las propiedades de evento proporcionadas tienen columnas JSON, CSV y de gráfico correspondientes que puede ver en el [explorador de Azure Time Series Insights Gen2](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-quickstart).
+Los límites de propiedad de Azure Time Series Insights han aumentado a 1000 para el almacenamiento intermedio y ningún límite de propiedad para el almacenamiento en reposo. Las propiedades de evento proporcionadas tienen columnas JSON, CSV y de gráfico correspondientes que puede ver en el [explorador de Azure Time Series Insights Gen2](../articles/time-series-insights/quickstart-explore-tsi.md).
 
 | SKU | Propiedades máximas |
 | --- | --- |
@@ -36,4 +36,4 @@ Los límites de propiedad de Azure Time Series Insights han aumentado a 1000 pa
 
 ### <a name="api-limits"></a>Límites de API
 
-Los límites de la API de REST para Azure Time Series Insights Gen2 están especificadas en la [documentación de referencia de la API de REST](https://docs.microsoft.com/rest/api/time-series-insights/preview#limits-1).
+Los límites de la API de REST para Azure Time Series Insights Gen2 están especificadas en la [documentación de referencia de la API de REST](/rest/api/time-series-insights/preview#limits-1).

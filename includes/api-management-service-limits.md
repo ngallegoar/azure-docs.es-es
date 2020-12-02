@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 04/14/2020
 ms.author: vlvinogr
 ms.custom: include file
-ms.openlocfilehash: 5c36a541c9380596884252efcba4a9c0ca2be33f
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: cf051d96651161658796689639b5d268230d4b5a
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92082187"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95559225"
 ---
 | Resource | Límite |
 | ---------------------------------------------------------------------- | -------------------------- |
@@ -44,4 +44,4 @@ ms.locfileid: "92082187"
 <sup>7</sup>Los certificados de CA no se admiten en el plan de consumo.<br/>
 <sup>8</sup>Este límite es aplicable solo al plan de consumo. No hay límites en estas categorías para otros niveles.<br/>
 <sup>9</sup>Solo se aplica al plan de consumo. Incluye una cadena de consulta de hasta 2048 bytes de longitud.<br/>
-<sup>10</sup>Las puertas de enlace autohospedadas solo se admiten en los planes Desarrollador y Premium. El límite se aplica al número de [recursos de puerta de enlace autohospedados](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/gateway). Para aumentar este límite, póngase en contacto con el departamento de [soporte técnico](https://azure.microsoft.com/support/options/). Tenga en cuenta que el número de nodos (o réplicas) asociados a un recurso de puerta de enlace autohospedado es ilimitado en el plan Premium y está limitado a un solo nodo en el plan Desarrollador.
+<sup>10</sup>Las puertas de enlace autohospedadas solo se admiten en los planes Desarrollador y Premium. El límite se aplica al número de [recursos de puerta de enlace autohospedados](/rest/api/apimanagement/2019-12-01/gateway). Para aumentar este límite, póngase en contacto con el departamento de [soporte técnico](https://azure.microsoft.com/support/options/). Tenga en cuenta que el número de nodos (o réplicas) asociados a un recurso de puerta de enlace autohospedado es ilimitado en el plan Premium y está limitado a un solo nodo en el plan Desarrollador.

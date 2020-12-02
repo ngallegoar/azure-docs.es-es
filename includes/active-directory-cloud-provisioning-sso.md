@@ -5,12 +5,12 @@ ms.subservice: cloud-provisioning
 ms.topic: include
 ms.date: 10/16/2019
 ms.author: billmath
-ms.openlocfilehash: 3aa1571b46938b03f556fa124d3f0a2a70f2c5c3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6d95e40623f17a39145778a2fc067dccc68fd872
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79504330"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95556190"
 ---
 ## <a name="steps-to-enable-single-sign-on"></a>Pasos para habilitar el inicio de sesión único
 El aprovisionamiento en la nube funciona con el inicio de sesión único.  Actualmente no hay ninguna opción para habilitar el inicio de sesión único (SSO) cuando se instala el agente; sin embargo, puede usar los pasos siguientes para habilitar el inicio de sesión único y usarlo. 
@@ -23,7 +23,7 @@ El aprovisionamiento en la nube funciona con el inicio de sesión único.  Actua
 
 ### <a name="step-2-import-the-seamless-sso-powershell-module"></a>Paso 2: Importación del módulo de PowerShell de SSO de conexión directa
 
-1. Descargue e instale [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview).
+1. Descargue e instale [Azure AD PowerShell](/powershell/azure/active-directory/overview).
 2. Examine la carpeta `%programfiles%\Microsoft Azure Active Directory Connect`.
 3. Importe el módulo de PowerShell de SSO de conexión directa mediante este comando: `Import-Module .\AzureADSSO.psd1`.
 

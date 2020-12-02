@@ -4,12 +4,12 @@ ms.service: storage
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: tamram
-ms.openlocfilehash: fe4ecc237b56575f99844d3ec074225fadb69d3c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eeea7b1fed0c2a1f805e21b4dec9ec3cad7fc976
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67673515"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95996833"
 ---
 ## <a name="configure-your-application-to-access-azure-storage"></a>Configuración de la aplicación para obtener acceso a Azure Storage
 Hay dos maneras para autenticar una aplicación para tener acceso a los servicios de almacenamiento:
@@ -49,5 +49,4 @@ El siguiente ejemplo muestra cómo usar el Explorador de Microsoft Azure Storage
    
    `"SharedAccessSignature=sv=2015-04-05&ss=b&srt=sco&sp=rw&se=2016-07-21T18%3A00%3A00Z&sig=3ABdLOJZosCp0o491T%2BqZGKIhafF1nlM3MzESDDD3Gg%3D;BlobEndpoint=https://youraccount.blob.core.windows.net"`
 
-Como puede ver, cuando usa una SAS, no expone su clave de cuenta en la aplicación. Para obtener más información sobre SAS y los procedimientos de uso recomendados, consulte [Firmas de acceso compartido: Descripción del modelo SAS](../articles/storage/common/storage-dotnet-shared-access-signature-part-1.md).
-
+Como puede ver, cuando usa una SAS, no expone su clave de cuenta en la aplicación. Para obtener más información sobre SAS y los procedimientos de uso recomendados, consulte [Firmas de acceso compartido: Descripción del modelo SAS](../articles/storage/common/storage-sas-overview.md).

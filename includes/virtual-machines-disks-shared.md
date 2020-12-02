@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/14/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 7831eaaa478a3f28ff158d5c9599abaf8a107c15
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 74c77356df4f35461a8b9f1459712cdcf7f77cbf
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94684439"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95562576"
 ---
 Los discos compartidos de Azure son una nueva característica de Azure Managed Disks que permite adjuntar un disco administrado en varias máquinas virtuales (VM) al mismo tiempo. Si adjunta un disco administrado en varias VM, podrá implementar nuevas aplicaciones en clúster o migrar las existentes a Azure.
 
@@ -41,7 +41,7 @@ Los discos compartidos admiten varios sistemas operativos. Consulte las seccione
 
 ### <a name="windows"></a>Windows
 
-Los discos compartidos de Azure se admiten en Windows Server 2008 y versiones más recientes. La mayoría de los clústeres basados en Windows se compilan en WSFC, que controla toda la infraestructura central de la comunicación del nodo de clúster, lo que permite que las aplicaciones aprovechen los patrones de acceso en paralelo. WSFC habilita tanto las opciones basadas en CSV como las que no están basadas en CSV en función de la versión de Windows Server. Para obtener más información, consulte [Creación de un clúster de conmutación por error](https://docs.microsoft.com/windows-server/failover-clustering/create-failover-cluster).
+Los discos compartidos de Azure se admiten en Windows Server 2008 y versiones más recientes. La mayoría de los clústeres basados en Windows se compilan en WSFC, que controla toda la infraestructura central de la comunicación del nodo de clúster, lo que permite que las aplicaciones aprovechen los patrones de acceso en paralelo. WSFC habilita tanto las opciones basadas en CSV como las que no están basadas en CSV en función de la versión de Windows Server. Para obtener más información, consulte [Creación de un clúster de conmutación por error](/windows-server/failover-clustering/create-failover-cluster).
 
 Entre las aplicaciones populares que se ejecutan en WSFC se incluyen:
 

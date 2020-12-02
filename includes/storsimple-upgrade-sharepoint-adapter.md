@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: b2dec95e0258933b50d4437f1cb317639b62883d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3467a5d5daa300f82c7b81641ab7e262259d9285
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67186358"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95561723"
 ---
 ### <a name="upgrade-sharepoint-2010-to-sharepoint-2013-and-then-install-the-storsomple-adapter-for-sharepoint"></a>Actualización de SharePoint 2010 a SharePoint 2013 e instalación del Adaptador de StorSimple para SharePoint
 > [!IMPORTANT]
@@ -20,7 +20,7 @@ ms.locfileid: "67186358"
 #### <a name="to-upgrade-sharepoint-2010-to-sharepoint-2013-and-then-install-the-adapter"></a>Para actualizar SharePoint 2010 a SharePoint 2013 y, a continuación, instalar el adaptador
 1. En la granja de SharePoint 2010, anote la ruta de acceso de almacenamiento de blobs para los blobs externalizados y las bases de datos de contenido para las que RBS está habilitado. 
 2. Instale y configure la nueva granja de SharePoint 2013. 
-3. Mueva las bases de datos, aplicaciones y colecciones de sitios de la granja SharePoint 2010 a la nueva granja de SharePoint 2013. Para obtener instrucciones, vaya a [Información general del proceso de actualización a SharePoint 2013](https://technet.microsoft.com/library/cc262483.aspx).
+3. Mueva las bases de datos, aplicaciones y colecciones de sitios de la granja SharePoint 2010 a la nueva granja de SharePoint 2013. Para obtener instrucciones, vaya a [Información general del proceso de actualización a SharePoint 2013](/SharePoint/upgrade-and-update/overview-of-the-upgrade-process).
 4. Instale el adaptador de StorSimple para SharePoint en una nueva granja. Vaya a [Instalación del adaptador de StorSimple para SharePoint](#install-the-storsimple-adapter-for-sharepoint) para ver los procedimientos.
 5. Con la información que anotó en el paso 1, habilite RBS para el mismo conjunto de bases de datos de contenido y proporcione la misma ruta de almacén de blobs que se usó en la instalación de SharePoint 2010. Vaya a [Configuración de RBS](#configure-rbs) para ver los procedimientos. Después de completar este paso, los archivos anteriormente externalizados deben ser accesibles desde la nueva granja. 
 
@@ -29,7 +29,7 @@ ms.locfileid: "67186358"
 > Debe programar esta actualización para que se produzca durante una ventana de mantenimiento planeada por las razones siguientes:
 > 
 > * El contenido anteriormente externalizado no estará disponible hasta que se vuelva a instalar el adaptador.
-> * Cualquier contenido cargado en el sitio después de desinstalar la versión anterior del adaptador de StorSimple para SharePoint, pero antes de instalar la nueva versión, se almacenará en la base de datos de contenido. Necesitará mover ese contenido al dispositivo de StorSimple después de instalar el nuevo adaptador. Puede usar el cmdlet de Microsoft `RBS Migrate()` PowerShell incluido con SharePoint para migrar el contenido. Para obtener más información, vea [migrar contenido dentro o fuera de RBS](https://technet.microsoft.com/library/ff628255.aspx). 
+> * Cualquier contenido cargado en el sitio después de desinstalar la versión anterior del adaptador de StorSimple para SharePoint, pero antes de instalar la nueva versión, se almacenará en la base de datos de contenido. Necesitará mover ese contenido al dispositivo de StorSimple después de instalar el nuevo adaptador. Puede usar el cmdlet de Microsoft `RBS Migrate()` PowerShell incluido con SharePoint para migrar el contenido. Para obtener más información, vea [migrar contenido dentro o fuera de RBS](/previous-versions/office/sharepoint-foundation-2010/ff628255(v=office.14)). 
 > 
 > 
 
@@ -41,4 +41,3 @@ ms.locfileid: "67186358"
    > 
    > 
 2. Instale el nuevo adaptador de StorSimple para SharePoint. El nuevo adaptador reconocerá automáticamente las bases de datos de contenido que se hayan habilitado o deshabilitados para RBS y usará la configuración anterior.
-

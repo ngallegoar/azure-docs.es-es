@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 09c4420647043fccc408631fec75854667923721
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8a442b5de7a256dd8bcf47da741bd41894709c3a
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74085278"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95558045"
 ---
 El diagnóstico de problemas con un servicio en la nube de Microsoft Azure requiere la recopilación de archivos de registro del servicio en máquinas virtuales cuando se producen los problemas. Puede usar la extensión AzureLogCollector a petición para realizar una recopilación única de registros provenientes de una o más máquinas virtuales del servicio en la nube (desde roles web y roles de trabajo) y transferir los archivos recopilados a una cuenta de almacenamiento de Azure, sin iniciar sesión de manera remota en ninguna de las máquinas virtuales.
 
@@ -44,7 +44,7 @@ En ambos modos de recopilación, pueden especificarse carpetas de recopilación 
 * Azure PowerShell. Para obtener instrucciones de instalación, vea [Instalación de Azure PowerShell](/powershell/azure/install-az-ps).
 
 ## <a name="add-the-extension"></a>Adición de la extensión
-Puede usar los cmdlets de [Microsoft Azure PowerShell](https://msdn.microsoft.com/library/dn495240.aspx) o las [API de REST de Service Management](https://msdn.microsoft.com/library/ee460799.aspx) para agregar la extensión AzureLogCollector.
+Puede usar los cmdlets de [Microsoft Azure PowerShell](/previous-versions/azure/dn495240(v=azure.100)) o las [API de REST de Service Management](/previous-versions/azure/ee460799(v=azure.100)) para agregar la extensión AzureLogCollector.
 
 Para Cloud Services, se puede usar el cmdlet de Azure Powershell existente, **Set-AzureServiceExtension**, para habilitar la extensión en instancias del rol del servicio en la nube. Cada vez que esta extensión se habilita a través de este cmdlet, se desencadena la recopilación de registros en las instancias del rol seleccionado de los roles seleccionados.
 
@@ -528,4 +528,3 @@ else
 
 ## <a name="next-steps"></a>Pasos siguientes
 Ahora puede examinar o copiar los registros desde una sola ubicación.
-

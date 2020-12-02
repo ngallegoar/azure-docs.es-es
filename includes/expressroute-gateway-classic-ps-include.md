@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/13/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 70ac106995324c758bde942d12191a01e3457e6e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c0c05eb88df27ba9e71c0f61bad75457d893a7ce
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67186049"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95554129"
 ---
 > [!NOTE]
 > Estos ejemplos no se aplican a configuraciones coexistentes de S2S y ExpressRoute.
@@ -25,7 +25,7 @@ Al agregar una puerta de enlace a una red virtual mediante el modelo de recursos
 
 ### <a name="download-the-network-configuration-file"></a>Descarga del archivo de configuración de red
 
-1. Siga los pasos descritos en el artículo [Archivo de configuración de red](../articles/virtual-network/virtual-networks-using-network-configuration-file.md) para descargar el archivo de configuración de red. Abra el archivo con un editor de texto.
+1. Siga los pasos descritos en el artículo [Archivo de configuración de red](/previous-versions/azure/virtual-network/virtual-networks-using-network-configuration-file) para descargar el archivo de configuración de red. Abra el archivo con un editor de texto.
 2. Agregue un sitio de red local al archivo. Puede usar cualquier prefijo de dirección válido. Puede agregar cualquier dirección IP válida para la puerta de enlace VPN. Los valores de dirección de esta sección no se usan para las operaciones de ExpressRoute, pero son necesarios para la validación del archivo. En el ejemplo, "branch1" es el nombre del sitio. Puede usar otro nombre, pero asegúrese de usar el mismo valor en la sección de puerta de enlace del archivo.
 
    ```

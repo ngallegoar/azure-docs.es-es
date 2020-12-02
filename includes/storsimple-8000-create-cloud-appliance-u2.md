@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 1522bb133c7d8f877a334e47bf7929c533ea3465
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 8b827a80059cecadd7b76263f13dd4a0d141fc7a
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93375806"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95561101"
 ---
 #### <a name="to-create-a-cloud-appliance"></a>Creación de una aplicación en la nube
 
@@ -33,8 +33,7 @@ ms.locfileid: "93375806"
    7. Active la casilla para indicar que sabe que los datos almacenados en la aplicación en la nube estarán hospedados en un centro de datos de Microsoft.
        * Cuando se utiliza solo un dispositivo físico, la clave de cifrado se mantiene con el dispositivo; por lo tanto, Microsoft no podrá descifrarla.
 
-       * Cuando se utiliza una aplicación en la nube, la clave de cifrado y la clave de descifrado se almacenan en Microsoft Azure. Para más información, consulte las [consideraciones de seguridad para utilizar una aplicación en la nube](../articles/storsimple/storsimple-security.md).
+       * Cuando se utiliza una aplicación en la nube, la clave de cifrado y la clave de descifrado se almacenan en Microsoft Azure. Para más información, consulte las [consideraciones de seguridad para utilizar una aplicación en la nube](../articles/storsimple/storsimple-8000-security.md).
    8. Haga clic en **Crear** para aprovisionar la aplicación en la nube. El dispositivo puede tardar unos 30 minutos en aprovisionar. Recibirá una notificación cuando la aplicación en la nube se haya creado correctamente. Vaya a la hoja Dispositivos y la lista de dispositivos se actualizará y mostrará la aplicación en la nube. El estado de la aplicación es **Listo para configurar**.
       
       ![Estado listo para configurar de StorSimple Cloud Appliance](./media/storsimple-8000-create-cloud-appliance-u2/sca-create3.png)
-

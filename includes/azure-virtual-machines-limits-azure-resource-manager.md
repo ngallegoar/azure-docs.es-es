@@ -4,20 +4,20 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 02/10/2020
 ms.author: cynthn
-ms.openlocfilehash: 651027ffd63a376ff0b8595636ece4c8f39c86e8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a9c830025b9ce6c93bf106a8348b0f9dc6521582
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82615948"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95562213"
 ---
 | Resource | Límite |
 | --- | --- |
-| Máquinas virtuales por [suscripción](../articles/billing-buy-sign-up-azure-subscription.md) |25 000<sup>1</sup> por región. |
-| Total de núcleos de máquina virtual por [suscripción](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> por región. Póngase en contacto con el soporte técnico para aumentar el límite. |
-| Total de núcleos de máquina virtual de Azure Spot por [suscripción](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> por región. Póngase en contacto con el soporte técnico para aumentar el límite. |
-| Máquina virtual por serie, como Dv2 y F, núcleos por [suscripción](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> por región. Póngase en contacto con el soporte técnico para aumentar el límite. |
-| [Conjuntos de disponibilidad](../articles/virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) por suscripción |2500 por región. |
+| Máquinas virtuales por [suscripción](https://azure.microsoft.com/pricing/) |25 000<sup>1</sup> por región. |
+| Total de núcleos de máquina virtual por [suscripción](https://azure.microsoft.com/pricing/) |20<sup>1</sup> por región. Póngase en contacto con el soporte técnico para aumentar el límite. |
+| Total de núcleos de máquina virtual de Azure Spot por [suscripción](https://azure.microsoft.com/pricing/) |20<sup>1</sup> por región. Póngase en contacto con el soporte técnico para aumentar el límite. |
+| Máquina virtual por serie, como Dv2 y F, núcleos por [suscripción](https://azure.microsoft.com/pricing/) |20<sup>1</sup> por región. Póngase en contacto con el soporte técnico para aumentar el límite. |
+| [Conjuntos de disponibilidad](../articles/virtual-machines/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) por suscripción |2500 por región. |
 | Máquinas virtuales por conjunto de disponibilidad | 200 |
 | Certificados por suscripción |Ilimitado<sup>2</sup> |
 
@@ -28,4 +28,4 @@ ms.locfileid: "82615948"
 > [!NOTE]
 > Los núcleos de máquina virtual tienen un límite total regional. También tienen un límite para la serie regional por tamaño, como Dv2 y F. Estos límites se aplican por separado. Por ejemplo, considere una suscripción con un límite total de núcleos de máquinas virtuales de Este de EE. UU. de 30, un límite de núcleos de serie A de 30 y un límite de núcleos de serie D de 30. Esta suscripción puede implementar 30 máquinas virtuales A1 o 30 máquinas virtuales D1, o una combinación de ambas, con tal de que no supere un total de 30 núcleos. Ejemplo de una combinación es 10 máquinas virtuales A1 y 20 máquinas virtuales D1.  
 > <!-- -->
-> 
+>

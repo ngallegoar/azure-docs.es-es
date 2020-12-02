@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/25/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 6e0612a017650f0c6e4c9f63d9a5fd097b0b92c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 32978257c3e209dc78a29c6e8ae0d1c4ae016a5b
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89304089"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95558066"
 ---
 ## <a name="update-resources"></a>Actualización de recursos
 
@@ -36,7 +36,7 @@ Versión de la imagen:
 
 Si planea agregar regiones de réplica, no elimine la imagen administrada de origen. La imagen administrada de origen es necesaria para replicar la versión de la imagen a regiones adicionales. 
 
-Para actualizar la descripción de una galería, use [Update-AzGallery](https://docs.microsoft.com/powershell/module/az.compute/update-azgallery).
+Para actualizar la descripción de una galería, use [Update-AzGallery](/powershell/module/az.compute/update-azgallery).
 
 ```azurepowershell-interactive
 Update-AzGallery `
@@ -44,7 +44,7 @@ Update-AzGallery `
    -ResourceGroupName $resourceGroup.Name
 ```
 
-En este ejemplo se muestra cómo usar [Update-AzGalleryImageDefinition](https://docs.microsoft.com/powershell/module/az.compute/update-azgalleryimagedefinition) para actualizar la fecha de vencimiento de nuestra definición de imagen.
+En este ejemplo se muestra cómo usar [Update-AzGalleryImageDefinition](/powershell/module/az.compute/update-azgalleryimagedefinition) para actualizar la fecha de vencimiento de nuestra definición de imagen.
 
 ```azurepowershell-interactive
 Update-AzGalleryImageDefinition `
@@ -54,7 +54,7 @@ Update-AzGalleryImageDefinition `
    -EndOfLifeDate 01/01/2030
 ```
 
-En este ejemplo se muestra cómo usar [Update-AzGalleryImageVersion](https://docs.microsoft.com/powershell/module/az.compute/update-azgalleryimageversion) para impedir que esta versión de imagen se use como la imagen *más reciente*.
+En este ejemplo se muestra cómo usar [Update-AzGalleryImageVersion](/powershell/module/az.compute/update-azgalleryimageversion) para impedir que esta versión de imagen se use como la imagen *más reciente*.
 
 ```azurepowershell-interactive
 Update-AzGalleryImageVersion `
@@ -65,7 +65,7 @@ Update-AzGalleryImageVersion `
    -PublishingProfileExcludeFromLatest
 ```
 
-En este ejemplo se muestra cómo usar [Update-AzGalleryImageVersion](https://docs.microsoft.com/powershell/module/az.compute/update-azgalleryimageversion) para que esta versión de imagen se considere como imagen *más reciente*.
+En este ejemplo se muestra cómo usar [Update-AzGalleryImageVersion](/powershell/module/az.compute/update-azgalleryimageversion) para que esta versión de imagen se considere como imagen *más reciente*.
 
 ```azurepowershell-interactive
 Update-AzGalleryImageVersion `
@@ -103,4 +103,3 @@ Remove-AzGallery `
 
 Remove-AzResourceGroup -Name $resourceGroup
 ```
-

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/26/2020
 ms.author: rogara
 ms.custom: include file
-ms.openlocfilehash: a168b9f721cd9c3d4ab0e8b6a56b764fec3b1fe3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4773446ec0007ffbed99bc01939d1f92f5823d99
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91779130"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95563683"
 ---
 ## <a name="assign-access-permissions-to-an-identity"></a>Asignar permisos de acceso a una identidad
 
@@ -77,7 +77,7 @@ az role assignment create --role "<role-name>" --assignee <user-principal-name> 
 
 Después de asignar los permisos en los recursos compartidos con RBAC, debe asignar los permisos NTFS adecuados en las raíces, los directorios o los archivos. Considere los permisos de nivel de recurso compartido como el equipo selector de alto nivel que determina si un usuario puede acceder al recurso compartido. Mientras, los permisos NTFS actúan en un nivel más granular para determinar qué operaciones puede realizar el usuario en el directorio o archivo.
 
-Azure Files admite el conjunto completo de permisos NTFS básicos y avanzados. Puede ver y configurar los permisos NTFS en los directorios y los archivos de un recurso compartido de archivos de Azure; para ello, monte el recurso compartido y, a continuación, utilice el Explorador de archivos de Windows o ejecute el comando [icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls) o [Set-ACL](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-acl) de Windows. 
+Azure Files admite el conjunto completo de permisos NTFS básicos y avanzados. Puede ver y configurar los permisos NTFS en los directorios y los archivos de un recurso compartido de archivos de Azure; para ello, monte el recurso compartido y, a continuación, utilice el Explorador de archivos de Windows o ejecute el comando [icacls](/windows-server/administration/windows-commands/icacls) o [Set-ACL](/powershell/module/microsoft.powershell.security/set-acl) de Windows. 
 
 Para configurar NTFS con permisos de superusuario, debe montar el recurso compartido con la clave de la cuenta de almacenamiento de la máquina virtual unida al dominio. Siga las instrucciones de la sección siguiente para montar un recurso compartido de archivos de Azure desde el símbolo del sistema y para configurar los permisos NTFS en consecuencia.
 
@@ -108,7 +108,7 @@ else
 
 ```
 
-Si tiene problemas para conectarse a Azure Files, consulte [la herramienta de solución de problemas publicada para solucionar los errores de montaje de Azure Files en Windows](https://azure.microsoft.com/blog/new-troubleshooting-diagnostics-for-azure-files-mounting-errors-on-windows/). También proporcionamos una [guía](https://docs.microsoft.com/azure/storage/files/storage-files-faq#on-premises-access) para solucionar aquellos escenarios en los que el puerto 445 está bloqueado. 
+Si tiene problemas para conectarse a Azure Files, consulte [la herramienta de solución de problemas publicada para solucionar los errores de montaje de Azure Files en Windows](https://azure.microsoft.com/blog/new-troubleshooting-diagnostics-for-azure-files-mounting-errors-on-windows/). También proporcionamos una [guía](../articles/storage/files/storage-files-faq.md#on-premises-access) para solucionar aquellos escenarios en los que el puerto 445 está bloqueado. 
 
 
 ### <a name="configure-ntfs-permissions-with-windows-file-explorer"></a>Configuración de permisos NTFS con el Explorador de archivos de Windows
@@ -126,13 +126,13 @@ Utilice el Explorador de archivos de Windows para conceder permisos completos pa
 
 ### <a name="configure-ntfs-permissions-with-icacls"></a>Configurar los permisos NTFS con icacls
 
-Utilice el siguiente comando de Windows para conceder permisos completos para todos los directorios y archivos en el recurso compartido de archivos, incluido el directorio raíz. No olvide reemplazar los valores del marcador de posición en el ejemplo por los propios.
+Utilice el siguiente comando de Windows para conceder permisos completos para todos los directorios y archivos en el recurso compartido de archivos, incluido el directorio raíz. No olvide reemplazar los valores del marcador de posición en el ejemplo por los suyos propios.
 
 ```
 icacls <mounted-drive-letter>: /grant <user-email>:(f)
 ```
 
-Para más información sobre cómo usar icacls para establecer los permisos de NTFS y sobre los distintos tipos de permisos admitidos, consulte [la referencia de línea de comandos de icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls).
+Para más información sobre cómo usar icacls para establecer los permisos de NTFS y sobre los distintos tipos de permisos admitidos, consulte [la referencia de línea de comandos de icacls](/windows-server/administration/windows-commands/icacls).
 
 ## <a name="mount-a-file-share-from-a-domain-joined-vm"></a>Montar un recurso compartido de archivos desde una máquina virtual unida al dominio
 
@@ -142,7 +142,7 @@ Inicie sesión en la máquina virtual con la identidad de Azure AD a la que se 
 
 ![Captura de pantalla que muestra la pantalla Inicio de sesión de Azure AD para la autenticación de usuario](media/storage-files-aad-permissions-and-mounting/azure-active-directory-authentication-dialog.png)
 
-Use el comando siguiente para montar el recurso compartido de archivos de Azure. Reemplace los valores del marcador de posición por los propios. Como ya se ha autenticado, no es preciso que especifique la clave de la cuenta de almacenamiento ni las credenciales de AD DS local o de Azure AD DS. La experiencia de inicio de sesión único se admite para la autenticación con AD DS local o Azure AD DS. Si tiene problemas al montar con las credenciales de AD DS, consulte [Solución de problemas de Azure Files en Windows](https://docs.microsoft.com/azure/storage/files/storage-troubleshoot-windows-file-connection-problems) para obtener una guía.
+Use el comando siguiente para montar el recurso compartido de archivos de Azure. Reemplace los valores del marcador de posición por los suyos propios. Como ya se ha autenticado, no es preciso que especifique la clave de la cuenta de almacenamiento ni las credenciales de AD DS local o de Azure AD DS. La experiencia de inicio de sesión único se admite para la autenticación con AD DS local o Azure AD DS. Si tiene problemas al montar con las credenciales de AD DS, consulte [Solución de problemas de Azure Files en Windows](../articles/storage/files/storage-troubleshoot-windows-file-connection-problems.md) para obtener una guía.
 
 ```
 $connectTestResult = Test-NetConnection -ComputerName <storage-account-name>.file.core.windows.net -Port 445
