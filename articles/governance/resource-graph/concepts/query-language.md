@@ -1,14 +1,14 @@
 ---
 title: Descripción del lenguaje de consultas
 description: Describe las tablas de Resource Graph y los tipos de datos, los operadores y las funciones de Kusto disponibles que se pueden usar con Azure Resource Graph.
-ms.date: 10/28/2020
+ms.date: 11/18/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7c3ad55a0f1af623211852c02aabd37560c00bc6
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 34aaaa60ed9d757cc1a63ffaebb2225900cff61f
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92926094"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966690"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Información del lenguaje de consulta de Azure Resource Graph
 
@@ -24,24 +24,24 @@ En este artículo se tratan los componentes de idioma admitidos por Resource Gra
 
 ## <a name="resource-graph-tables"></a>Tablas de Resource Graph
 
-Resource Graph proporciona varias tablas para los datos que almacena sobre los tipos de recursos de Azure Resource Manager y sus propiedades. Estas tablas se pueden utilizar con los operadores `join` o `union` para obtener propiedades de tipos de recursos relacionados. Esta es la lista de tablas disponibles en Resource Graph:
+Resource Graph proporciona varias tablas para los datos que almacena sobre los tipos de recursos de Azure Resource Manager y sus propiedades. Algunas tablas se pueden utilizar con los operadores `join` o `union` para obtener propiedades de tipos de recursos relacionados. Esta es la lista de tablas disponibles en Resource Graph:
 
-|Tablas de Resource Graph |Descripción |
+|Tabla de Resource Graph |¿Tiene capacidad de `join`? |Descripción |
 |---|---|
-|Recursos |La tabla predeterminada, si no se ha definido ninguna en la consulta. La mayoría de los tipos de recursos y propiedades de Resource Manager están aquí. |
-|ResourceContainers |Incluye los datos y los tipos de recursos de suscripción (en versión preliminar: `Microsoft.Resources/subscriptions`) y grupo de recursos (`Microsoft.Resources/subscriptions/resourcegroups`). |
-|AdvisorResources |Incluye recursos _relacionados_ con `Microsoft.Advisor`. |
-|AlertsManagementResources |Incluye recursos _relacionados_ con `Microsoft.AlertsManagement`. |
-|GuestConfigurationResources |Incluye recursos _relacionados_ con `Microsoft.GuestConfiguration`. |
-|MaintenanceResources |Incluye recursos _relacionados_ con `Microsoft.Maintenance`. |
-|PolicyResources |Incluye recursos _relacionados_ con `Microsoft.PolicyInsights`. ( **Versión preliminar** )|
-|SecurityResources |Incluye recursos _relacionados_ con `Microsoft.Security`. |
-|ServiceHealthResources |Incluye recursos _relacionados_ con `Microsoft.ResourceHealth`. |
+|Recursos |Sí |La tabla predeterminada, si no se ha definido ninguna en la consulta. La mayoría de los tipos de recursos y propiedades de Resource Manager están aquí. |
+|ResourceContainers |Sí |Incluye los datos y los tipos de recursos de suscripción (en versión preliminar: `Microsoft.Resources/subscriptions`) y grupo de recursos (`Microsoft.Resources/subscriptions/resourcegroups`). |
+|AdvisorResources |No |Incluye recursos _relacionados_ con `Microsoft.Advisor`. |
+|AlertsManagementResources |No |Incluye recursos _relacionados_ con `Microsoft.AlertsManagement`. |
+|GuestConfigurationResources |No |Incluye recursos _relacionados_ con `Microsoft.GuestConfiguration`. |
+|MaintenanceResources |No |Incluye recursos _relacionados_ con `Microsoft.Maintenance`. |
+|PolicyResources |No |Incluye recursos _relacionados_ con `Microsoft.PolicyInsights`. (**Versión preliminar**)|
+|SecurityResources |No |Incluye recursos _relacionados_ con `Microsoft.Security`. |
+|ServiceHealthResources |No |Incluye recursos _relacionados_ con `Microsoft.ResourceHealth`. |
 
 Para obtener una lista completa, incluidos los tipos de recursos, consulte [Referencia: tablas y tipos de recursos admitidos](../reference/supported-tables-resources.md).
 
 > [!NOTE]
-> _Recursos_ es la tabla predeterminada. Al consultar la tabla _Recursos_ , no es necesario proporcionar el nombre de la tabla a menos que se utilicen `join` o `union`. Sin embargo, el procedimiento recomendado es incluir siempre la tabla inicial en la consulta.
+> _Recursos_ es la tabla predeterminada. Al consultar la tabla _Recursos_, no es necesario proporcionar el nombre de la tabla a menos que se utilicen `join` o `union`. Sin embargo, el procedimiento recomendado es incluir siempre la tabla inicial en la consulta.
 
 Use Azure Resource Graph en el portal para detectar qué tipos de recursos están disponibles en cada tabla. Como alternativa, utilice una consulta como `<tableName> | distinct type` para obtener una lista de los tipos de recursos que admite la tabla de Resource Graph que existe en su entorno.
 
@@ -53,7 +53,7 @@ Resources
 | limit 1
 ```
 
-En la consulta siguiente se muestra un uso más complejo de `join`. La consulta limita la tabla combinada a los recursos de suscripciones y con `project` para incluir solo el campo original _subscriptionId_ y el campo _name_ con el nombre cambiado a _SubName_. El cambio de nombre del campo evita `join` se agregue como _name1_ , ya que el campo ya existe en _Resources_ (Recursos). La tabla original se filtra por `where` y el `project` siguiente incluye columnas de ambas tablas. El resultado de la consulta es un solo almacén de claves que muestra su tipo, su nombre y el nombre de la suscripción en que se encuentra.
+En la consulta siguiente se muestra un uso más complejo de `join`. La consulta limita la tabla combinada a los recursos de suscripciones y con `project` para incluir solo el campo original _subscriptionId_ y el campo _name_ con el nombre cambiado a _SubName_. El cambio de nombre del campo evita `join` se agregue como _name1_, ya que el campo ya existe en _Resources_ (Recursos). La tabla original se filtra por `where` y el `project` siguiente incluye columnas de ambas tablas. El resultado de la consulta es un solo almacén de claves que muestra su tipo, su nombre y el nombre de la suscripción en que se encuentra.
 
 ```kusto
 Resources
@@ -68,7 +68,7 @@ Resources
 
 ## <a name="extended-properties-preview"></a><a name="extended-properties"></a>Propiedades extendidas (versión preliminar)
 
-Como característica _en vista previa_ , algunos de los tipos de recursos de Resource Graph tienen propiedades adicionales relacionadas con el tipo que se pueden consultar de manera adicional a las propiedades proporcionadas por Azure Resource Manager. Este conjunto de valores, conocido como _propiedades extendidas_ , existe en un tipo de recurso compatible con `properties.extended`. Para ver qué tipos de recursos tienen _propiedades extendidas_ , use la siguiente consulta:
+Como característica _en vista previa_, algunos de los tipos de recursos de Resource Graph tienen propiedades adicionales relacionadas con el tipo que se pueden consultar de manera adicional a las propiedades proporcionadas por Azure Resource Manager. Este conjunto de valores, conocido como _propiedades extendidas_, existe en un tipo de recurso compatible con `properties.extended`. Para ver qué tipos de recursos tienen _propiedades extendidas_, use la siguiente consulta:
 
 ```kusto
 Resources
@@ -125,7 +125,7 @@ Esta es la lista de operadores tabulares de KQL admitidos por Resource Graph con
 |[count](/azure/kusto/query/countoperator) |[Contador de almacenes de claves](../samples/starter.md#count-keyvaults) | |
 |[distinct](/azure/kusto/query/distinctoperator) |[Show distinct values for a specific alias](../samples/starter.md#distinct-alias-values) | |
 |[extend](/azure/kusto/query/extendoperator) |[Count virtual machines by OS type](../samples/starter.md#count-os) | |
-|[join](/azure/kusto/query/joinoperator) |[Almacén de claves con el nombre de la suscripción](../samples/advanced.md#join) |Tipos de combinación admitidos: [innerunique](/azure/kusto/query/joinoperator#default-join-flavor), [inner](/azure/kusto/query/joinoperator#inner-join), [leftouter](/azure/kusto/query/joinoperator#left-outer-join). Límite de 3 `join` en una sola consulta. No se permiten las estrategias de combinación personalizadas, como la combinación de difusión. Se puede usar en una sola tabla o entre las tablas _Resources_ y _ResourceContainers_. |
+|[join](/azure/kusto/query/joinoperator) |[Almacén de claves con el nombre de la suscripción](../samples/advanced.md#join) |Tipos de combinación admitidos: [innerunique](/azure/kusto/query/joinoperator#default-join-flavor), [inner](/azure/kusto/query/joinoperator#inner-join), [leftouter](/azure/kusto/query/joinoperator#left-outer-join). Límite de 3 `join` en una sola consulta. No se permiten las estrategias de combinación personalizadas, como la combinación de difusión. Para conocer las tablas que pueden usar `join`, consulte [Tablas de Resource Graph](#resource-graph-tables). |
 |[limit](/azure/kusto/query/limitoperator) |[List all public IP addresses](../samples/starter.md#list-publicip) |Sinónimo de `take`. No funciona con [Skip](./work-with-data.md#skipping-records). |
 |[mvexpand](/azure/kusto/query/mvexpandoperator) | | Operador heredado, use `mv-expand` en su lugar. Máximo de _RowLimit_ de 400. El valor predeterminado es 128. |
 |[mv-expand](/azure/kusto/query/mvexpandoperator) |[Enumeración de Cosmos DB con ubicaciones de escritura concretas](../samples/advanced.md#mvexpand-cosmosdb) |Máximo de _RowLimit_ de 400. El valor predeterminado es 128. |
@@ -141,10 +141,10 @@ Esta es la lista de operadores tabulares de KQL admitidos por Resource Graph con
 
 ## <a name="query-scope"></a>Ámbito de la consulta
 
-El ámbito de las suscripciones desde las que una consulta devuelve los recursos depende del método de acceso a Resource Graph. La CLI de Azure y Azure PowerShell rellenan la lista de suscripciones que se van a incluir en la solicitud, en función del contexto del usuario autorizado. Cada lista de suscripciones se puede definir manualmente con las **suscripciones** y los parámetros de **suscripción** , respectivamente.
+El ámbito de las suscripciones desde las que una consulta devuelve los recursos depende del método de acceso a Resource Graph. La CLI de Azure y Azure PowerShell rellenan la lista de suscripciones que se van a incluir en la solicitud, en función del contexto del usuario autorizado. Cada lista de suscripciones se puede definir manualmente con las **suscripciones** y los parámetros de **suscripción**, respectivamente.
 En la API de REST y en todos los demás SDK, la lista de suscripciones en las que se incluyen los recursos debe definirse explícitamente como parte de la solicitud.
 
-Como **versión preliminar** , la versión de API de REST `2020-04-01-preview` agrega una propiedad para limitar el ámbito de la consulta a un [grupo de administración](../../management-groups/overview.md). Esta API de versión preliminar también hace que la propiedad de suscripción sea opcional. Si no se define un grupo de administración o una lista de suscripciones, el ámbito de la consulta comprenderá todos los recursos, incluidos los recursos delegados de [Azure Lighthouse](../../../lighthouse/concepts/azure-delegated-resource-management.md), a los que puede acceder el usuario autenticado. La nueva propiedad `managementGroupId` toma el id. del grupo de administración, que es diferente del nombre del grupo de administración. Cuando se especifica `managementGroupId`, se incluyen los recursos de las primeras 5000 suscripciones de la jerarquía de grupos de administración especificada. `managementGroupId` no se puede usar al mismo tiempo que `subscriptions`.
+Como **versión preliminar**, la versión de API de REST `2020-04-01-preview` agrega una propiedad para limitar el ámbito de la consulta a un [grupo de administración](../../management-groups/overview.md). Esta API de versión preliminar también hace que la propiedad de suscripción sea opcional. Si no se define un grupo de administración o una lista de suscripciones, el ámbito de la consulta comprenderá todos los recursos, incluidos los recursos delegados de [Azure Lighthouse](../../../lighthouse/concepts/azure-delegated-resource-management.md), a los que puede acceder el usuario autenticado. La nueva propiedad `managementGroupId` toma el id. del grupo de administración, que es diferente del nombre del grupo de administración. Cuando se especifica `managementGroupId`, se incluyen los recursos de las primeras 5000 suscripciones de la jerarquía de grupos de administración especificada. `managementGroupId` no se puede usar al mismo tiempo que `subscriptions`.
 
 Ejemplo: Consulte todos los recursos de la jerarquía del grupo de administración denominado "Mi grupo de administración" que cuenta con el id. "myMG".
 
@@ -169,7 +169,7 @@ Algunos nombres de propiedad, como los que incluyen `.` o `$`, debe encapsularse
 
 - `.` -Encapsule el nombre de propiedad como en: `['propertyname.withaperiod']`
   
-  Consulta de ejemplo que encapsula la propiedad _odata.type_ :
+  Consulta de ejemplo que encapsula la propiedad _odata.type_:
 
   ```kusto
   where type=~'Microsoft.Insights/alertRules' | project name, properties.condition.['odata.type']

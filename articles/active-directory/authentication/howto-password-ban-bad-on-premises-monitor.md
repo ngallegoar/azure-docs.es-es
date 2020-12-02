@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 315dfcb10b11278401d6cc0abd42b40b5f55f72a
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 6efcadf85816bb6aa014893bb9b20476a0701990
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91968368"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94886760"
 ---
 # <a name="monitor-and-review-logs-for-on-premises-azure-ad-password-protection-environments"></a>Supervisión y revisión de los registros de los entornos de protección con contraseña de Azure AD local
 
@@ -70,11 +70,15 @@ Los principales eventos relacionados con la validación de contraseñas son los 
 |Error (debido a la directiva de contraseñas del cliente)| 10016, 30002| 10017, 30003|
 |Error (debido a la directiva de contraseñas de Microsoft)| 10016, 30004| 10017, 30005|
 |Error (debido a las directivas de Microsoft y de cliente combinadas)| 10016, 30026| 10017, 30027|
+|Error (debido a un nombre de usuario)| 10016, 30021| 10017, 30022|
 |Superó la fase de solo auditoría (la directiva de contraseñas del cliente habría generado errores)| 10024, 30008| 10025, 30007|
 |Superó la fase de solo auditoría (la directiva de contraseñas de Microsoft habría generado errores)| 10024, 30010| 10025, 30009|
 |Superó la fase de solo auditoría (las directivas de contraseña de Microsoft y del cliente combinadas habrían generado errores)| 10024, 30028| 10025, 30029|
+|Superó la fase de solo auditoría (se habría generado un error debido a un nombre de usuario)| 10016, 30024| 10017, 30023|
 
 Los casos expuestos en la tabla anterior que hacen referencia a "directivas combinadas" hacen referencia a situaciones en las que se detectó que la contraseña de un usuario contenía al menos un token tanto de la lista de contraseñas prohibidas de Microsoft como de la lista de contraseñas prohibidas del cliente.
+
+Los casos de la tabla anterior donde aparece "nombre de usuario" hacen referencia a situaciones en las que se encontró que la contraseña de un usuario contenía el nombre de cuenta del usuario o uno de los nombres descriptivos del usuario. Cualquiera de los dos escenarios hará que se rechace la contraseña del usuario cuando la directiva se establezca en Forzar, o que se supere si la directiva está establecida en modo Auditar.
 
 Cuando un par de eventos se registran juntos, ambos se asocian de manera explícita al tener el mismo parámetro CorrelationId.
 

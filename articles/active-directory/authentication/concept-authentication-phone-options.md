@@ -5,23 +5,23 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 11/13/2020
+ms.date: 11/18/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 65c8baa101df5e24780e5e68b5a21b86985608a6
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 4510dac833d0576273472b6f925d546b55257614
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94628125"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94886811"
 ---
 # <a name="authentication-methods-in-azure-active-directory---phone-options"></a>Métodos de autenticación en Azure Active Directory: opciones de teléfono
 
 En el caso de la autenticación directa mediante mensajes de texto, puede consultar [Configuración y habilitación de los usuarios para la autenticación basada en SMS mediante Azure Active Directory (versión preliminar)](howto-authentication-sms-signin.md). El inicio de sesión basado en SMS es ideal para los trabajadores de primera línea. Con el inicio de sesión basado en SMS, los usuarios no necesitan conocer un nombre de usuario y una contraseña para acceder a las aplicaciones y servicios. En su lugar, el usuario escribe su número de teléfono móvil registrado, recibe un mensaje de texto con un código de verificación, y escribe el código en la interfaz de inicio de sesión.
 
-Los usuarios también pueden verificarse mediante su teléfono móvil o teléfono de la oficina como forma secundaria de autenticación con Azure Multi-Factor Authentication o el autoservicio de restablecimiento de contraseña (SSPR).
+Los usuarios también pueden verificarse mediante su teléfono móvil o teléfono de la oficina como forma secundaria de autenticación con Multi-Factor Authentication de Azure AD o el autoservicio de restablecimiento de contraseña (SSPR).
 
 Para funcionar correctamente, los números de teléfono deben tener el formato *+códigoPaís númeroTeléfono*, *por ejemplo: +1 4251234567*.
 
@@ -32,32 +32,32 @@ Para funcionar correctamente, los números de teléfono deben tener el formato *
 
 ## <a name="mobile-phone-verification"></a>Verificación por teléfono móvil
 
-En el caso de Azure Multi-Factor Authentication o SSPR, los usuarios pueden elegir recibir un mensaje de texto con un código de verificación para acceder a la interfaz de inicio de sesión, o recibir una llamada telefónica.
+En el caso de Multi-Factor Authentication de Azure AD o SSPR, los usuarios pueden elegir recibir un mensaje de texto con un código de verificación para acceder a la interfaz de inicio de sesión, o recibir una llamada telefónica.
 
 Si los usuarios no quieren que su número de teléfono móvil sea visible en el directorio, pero quieren usarlo para restablecer la contraseña, los administradores no deben rellenar el número de teléfono en el directorio. En su lugar, los usuarios deben rellenar el atributo **Teléfono de autenticación** mediante el registro de información de seguridad combinado en [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo). Los administradores pueden ver esta información en el perfil del usuario, pero no se publica en ningún otro lugar.
 
 :::image type="content" source="media/concept-authentication-methods/user-authentication-methods.png" alt-text="Captura de pantalla de Azure Portal, que muestra los métodos de autenticación con un número de teléfono rellenado":::
 
-Microsoft no garantiza la entrega rápida y coherente de Azure Multi-Factor Authentication por SMS o llamada de voz en el mismo número. Por el interés de los usuarios, podemos agregar o quitar códigos cortos cuando lo estimemos oportuno en tanto realicemos ajustes de enrutamiento para mejorar la capacidad de entrega de SMS. Microsoft no admite códigos cortos para países o regiones que no sean Estados Unidos y Canadá.
+Microsoft no garantiza la entrega rápida y coherente de Multi-Factor Authentication de Azure AD por SMS o llamada de voz en el mismo número. Por el interés de los usuarios, podemos agregar o quitar códigos cortos cuando lo estimemos oportuno en tanto realicemos ajustes de enrutamiento para mejorar la capacidad de entrega de SMS. Microsoft no admite códigos cortos para países o regiones que no sean Estados Unidos y Canadá.
 
 ### <a name="text-message-verification"></a>Verificación por mensaje de texto
 
-Con la verificación por mensajes de texto durante el autoservicio de restablecimiento de contraseña o Azure Multi-Factor Authentication, se envía un SMS con un código de verificación al número de teléfono móvil. Para completar el proceso de inicio de sesión, el código de verificación entregado debe introducirse en la interfaz de inicio de sesión.
+Con la verificación por mensajes de texto durante el autoservicio de restablecimiento de contraseña (SSPR) o Multi-Factor Authentication de Azure AD, se envía un SMS con un código de verificación al número de teléfono móvil. Para completar el proceso de inicio de sesión, el código de verificación entregado debe introducirse en la interfaz de inicio de sesión.
 
 ### <a name="phone-call-verification"></a>Verificación por llamada telefónica
 
-Con la verificación por llamada telefónica durante el autoservicio de restablecimiento de contraseña o Azure Multi-Factor Authentication, se hace una llamada de voz automatizada al número de teléfono registrado por el usuario. Para completar el proceso de inicio de sesión, se le pide al usuario que presione # en el teclado.
+Con la verificación por llamada telefónica durante el autoservicio de restablecimiento de contraseña (SSPR) o Multi-Factor Authentication de Azure AD, se hace una llamada de voz automatizada al número de teléfono registrado por el usuario. Para completar el proceso de inicio de sesión, se le pide al usuario que presione # en el teclado.
 
 ## <a name="office-phone-verification"></a>Verificación por teléfono de la oficina
 
-Con la verificación por llamada telefónica durante el autoservicio de restablecimiento de contraseña o Azure Multi-Factor Authentication, se hace una llamada de voz automatizada al número de teléfono registrado por el usuario. Para completar el proceso de inicio de sesión, se le pide al usuario que presione # en el teclado.
+Con la verificación por llamada telefónica durante el autoservicio de restablecimiento de contraseña (SSPR) o Multi-Factor Authentication de Azure AD, se hace una llamada de voz automatizada al número de teléfono registrado por el usuario. Para completar el proceso de inicio de sesión, se le pide al usuario que presione # en el teclado.
 
 ## <a name="troubleshooting-phone-options"></a>Solución de problemas de las opciones de teléfono
 
 Si tiene problemas con la autenticación telefónica en Azure AD, revise los siguientes pasos de solución de problemas:
 
 * Mensajes de error "Ha alcanzado el límite de llamadas de verificación" o "Ha alcanzado el límite de códigos de verificación de texto" durante el inicio de sesión
-   * Use la aplicación Microsoft Authenticator o el código de verificación para completar la autenticación o vuelva a intentarlo más adelante.
+   * Microsoft puede limitar los intentos de autenticación repetidos que realiza el mismo usuario en un breve período de tiempo. Esta limitación no se aplica a Microsoft Authenticator ni al código de verificación. Si ha alcanzado estos límites, puede usar la aplicación Authenticator, el código de verificación o intentar iniciar sesión de nuevo en unos minutos.
 * Identificador de llamada bloqueado en un solo dispositivo.
    * Revise los números bloqueados configurados en el dispositivo.
 * Número de teléfono incorrecto o código de país o región incorrecto, o confusión entre el número telefónico personal y el número telefónico del trabajo.
@@ -75,11 +75,11 @@ Si tiene problemas con la autenticación telefónica en Azure AD, revise los si
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para comenzar, consulte el [tutorial del autoservicio de restablecimiento de contraseña][tutorial-sspr] y [Azure Multi-Factor Authentication][tutorial-azure-mfa].
+Para comenzar, consulte el [tutorial del autoservicio de restablecimiento de contraseña][tutorial-sspr] y [Azure AD Multi-Factor Authentication][tutorial-azure-mfa].
 
 Para obtener más información sobre los conceptos del SSPR, consulte [Funcionamiento: Autoservicio de restablecimiento de contraseña de Azure AD][concept-sspr].
 
-Para obtener más información sobre los conceptos de MFA, consulte [Funcionamiento: Azure Multi-Factor Authentication][concept-mfa].
+Para más información sobre los conceptos de MFA, consulte [Funcionamiento: Multi-Factor Authentication de Azure AD][concept-mfa].
 
 Más información sobre la configuración de métodos de autenticación con la [Versión beta de la API REST Microsoft Graph API](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta&preserve-view=true).
 

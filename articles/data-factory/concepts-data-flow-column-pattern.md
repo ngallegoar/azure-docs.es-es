@@ -6,13 +6,13 @@ ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 09/16/2020
-ms.openlocfilehash: dab065f4d2b025fa15966d81b66b41acb12c54b3
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.date: 11/17/2020
+ms.openlocfilehash: 68c211608cfceedaa9d13a595be6d1e5de17f1d5
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93027149"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94845013"
 ---
 # <a name="using-column-patterns-in-mapping-data-flow"></a>Uso de patrones de columnas en el flujo de datos de asignación
 
@@ -23,7 +23,7 @@ Varias transformaciones de flujo de datos de asignación permiten hacer referenc
 * Si los campos de origen de entrada cambian a menudo, como en el caso de columnas que cambian en los archivos de texto o bases de datos NoSQL. Este escenario se conoce como [desfase de esquema](concepts-data-flow-schema-drift.md).
 * Si desea realizar una operación común en un grupo grande de columnas. Por ejemplo, si desea convertir cada columna que contiene "total" en el nombre de columna en un valor doble.
 
-Los patrones de columna están disponibles actualmente en las transformaciones de columna derivada, de agregado, de selección y de receptor.
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4Iui1]
 
 ## <a name="column-patterns-in-derived-column-and-aggregate"></a>Patrones de columna en columna derivada y de agregado
 
@@ -42,6 +42,12 @@ El patrón de columna anterior coincide con cada columna de tipo de datos doble 
 Para comprobar que la condición de coincidencia es correcta, puede validar el esquema de salida de las columnas definidas en la pestaña **Inspeccionar** u obtener una instantánea de los datos en la pestaña **Vista previa de los datos**. 
 
 ![Captura de pantalla que muestra la pestaña Output schema (Esquema de salida).](media/data-flow/columnpattern3.png "Patrones de columnas")
+
+### <a name="hierarchical-pattern-matching"></a>Coincidencia de patrones jerárquica
+
+También puede crear una coincidencia de patrones dentro en estructuras jerárquicas complejas. Expanda la sección `Each MoviesStruct that matches` en la que se le solicitará cada jerarquía en el flujo de datos. Después, puede crear patrones de coincidencia para las propiedades dentro de la jerarquía elegida.
+
+![La captura de pantalla muestra el patrón de columna en jerarquías.](media/data-flow/patterns-hierarchy.png "Patrones de columnas en jerarquías")
 
 ## <a name="rule-based-mapping-in-select-and-sink"></a>Asignación basada en reglas en selección y receptor
 
@@ -77,7 +83,7 @@ En el ejemplo anterior se hace coincidir con todas las subcolumnas de la columna
 
 ## <a name="pattern-matching-expression-values"></a>Valores de expresión de coincidencia de patrones.
 
-* `$$` traduce al nombre o valor de cada coincidencia en tiempo de ejecución
+* `$$` se traduce al nombre o valor de cada coincidencia en tiempo de ejecución. Piense en `$$` como equivalente a `this`.
 * `name` representa el nombre de cada columna de entrada
 * `type` representa el tipo de datos de cada columna de entrada
 * `stream` representa el nombre asociado a cada secuencia o transformación del flujo

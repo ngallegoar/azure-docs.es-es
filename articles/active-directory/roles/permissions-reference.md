@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6dd88f6e8eb2ce95c1aa68c63f3d14a14e079d19
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 2cdf89fa3281e070d6b1ac762d30d7c391f4126f
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93396522"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94963647"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Permisos de roles de administrador en Azure Active Directory
 
@@ -707,10 +707,11 @@ Acceso total para administrar los dispositivos de Azure AD.
 | **Acciones** | **Descripción** |
 | --- | --- |
 | microsoft.directory/auditLogs/allProperties/read | Lee todas las propiedades (incluidas las propiedades con privilegios) en auditLogs en Azure Active Directory. |
-| microsoft.directory/devices/bitLockerRecoveryKeys/read | Lee la propiedad devices.bitLockerRecoveryKeys en Azure Active Directory. |
+| microsoft.directory/bitlockerKeys/key/read | Lea objetos y propiedades de clave de BitLocker (incluida la clave de recuperación) en Azure Active Directory. |
 | microsoft.directory/devices/delete | Elimina dispositivos en Azure Active Directory. |
 | microsoft.directory/devices/disable | Deshabilita dispositivos en Azure Active Directory. |
 | microsoft.directory/devices/enable | Habilita dispositivos en Azure Active Directory. |
+| microsoft.directory/devices/extensionAttributes/update | Actualice todos los valores de la propiedad devices.extensionAttributes en Azure Active Directory. |
 | microsoft.directory/signInReports/allProperties/read | Lee todas las propiedades (incluidas las propiedades con privilegios) en signInReports en Azure Active Directory. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Leer y configurar Azure Service Health. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Leer y configurar Service Health para Microsoft 365. |
@@ -731,6 +732,7 @@ Puede administrar todos los aspectos de los servicios de Azure AD y Microsoft qu
 | microsoft.directory/applications/allProperties/allTasks | Crea y elimina aplicaciones, y lee y actualiza todas las propiedades en Azure Active Directory. |
 | microsoft.directory/appRoleAssignments/allProperties/allTasks | Crea y elimina elementos appRoleAssignments, y lee y actualiza todas las propiedades en Azure Active Directory. |
 | microsoft.directory/auditLogs/allProperties/read | Lee todas las propiedades (incluidas las propiedades con privilegios) en auditLogs en Azure Active Directory. |
+| microsoft.directory/bitlockerKeys/key/read | Lea objetos y propiedades de clave de BitLocker (incluida la clave de recuperación) en Azure Active Directory. |
 | microsoft.directory/contacts/allProperties/allTasks | Crea y elimina contactos, y lee y actualiza todas las propiedades en Azure Active Directory. |
 | microsoft.directory/contracts/allProperties/allTasks | Crea y elimina contratos, y lee y actualiza todas las propiedades en Azure Active Directory. |
 | microsoft.directory/devices/allProperties/allTasks | Crea y elimina dispositivos, y lee y actualiza todas las propiedades en Azure Active Directory. |
@@ -1087,6 +1089,7 @@ Puede leer los mismos elementos que un administrador global, pero no puede edita
 | microsoft.directory/applications/basic/read    | Lee las propiedades básicas de las aplicaciones en Azure Active Directory. |
 | microsoft.directory/applications/owners/read    | Lee la propiedad applications.owners en Azure Active Directory. |
 | microsoft.directory/applications/policies/read    | Leer la propiedad applications.policies en Azure Active Directory. |
+| microsoft.directory/bitlockerKeys/key/read | Lea objetos y propiedades de clave de BitLocker (incluida la clave de recuperación) en Azure Active Directory. |
 | microsoft.directory/contacts/basic/read    | Lee las propiedades básicas de los contactos en Azure Active Directory. |
 | microsoft.directory/contacts/memberOf/read    | Lee la propiedad contacts.memberOf en Azure Active Directory. |
 | microsoft.directory/contracts/basic/read    | Lee las propiedades básicas en los contratos de Azure Active Directory. |
@@ -1267,13 +1270,16 @@ Puede administrar todos los aspectos del producto Intune.
 
 | **Acciones** | **Descripción** |
 | --- | --- |
+| microsoft.directory/bitlockerKeys/key/read | Lea objetos y propiedades de clave de BitLocker (incluida la clave de recuperación) en Azure Active Directory. |
 | microsoft.directory/contacts/basic/update | Actualiza las propiedades básicas de los contactos en Azure Active Directory. |
 | microsoft.directory/contacts/create | Crea contactos en Azure Active Directory. |
 | microsoft.directory/contacts/delete | Elimina los contactos en Azure Active Directory. |
 | microsoft.directory/devices/basic/update | Actualiza las propiedades básicas en los dispositivos de Azure Active Directory. |
-| microsoft.directory/devices/bitLockerRecoveryKeys/read | Lee la propiedad devices.bitLockerRecoveryKeys en Azure Active Directory. |
 | microsoft.directory/devices/create | Crea dispositivos en Azure Active Directory. |
 | microsoft.directory/devices/delete | Elimina dispositivos en Azure Active Directory. |
+| microsoft.directory/devices/disable | Deshabilita dispositivos en Azure Active Directory. |
+| microsoft.directory/devices/enable | Habilita dispositivos en Azure Active Directory. |
+| microsoft.directory/devices/extensionAttributes/update | Actualice todos los valores de la propiedad devices.extensionAttributes en Azure Active Directory. |
 | microsoft.directory/devices/registeredOwners/update | Actualiza la propiedad devices.registeredOwners en Azure Active Directory. |
 | microsoft.directory/devices/registeredUsers/update | Actualiza la propiedad devices.registeredUsers en Azure Active Directory. |
 | microsoft.directory/groups/appRoleAssignments/update | Actualiza la propiedad groups.appRoleAssignments en Azure Active Directory. |
@@ -1513,7 +1519,7 @@ Puede administrar todos los aspectos del producto Power BI.
 
 ### <a name="power-platform-administrator-permissions"></a>Permisos de administrador de Power Platform
 
-Puede crear y administrar todos los aspectos de Microsoft Dynamics 365, PowerApps y Microsoft Flow. 
+Puede crear y administrar todos los aspectos de Microsoft Dynamics 365, PowerApps y Power Automate.
 
 > [!NOTE]
 > Este rol tiene permisos adicionales fuera de Azure Active Directory. Para más información, vea la descripción del rol anterior.
@@ -1524,7 +1530,7 @@ Puede crear y administrar todos los aspectos de Microsoft Dynamics 365, PowerA
 | microsoft.azure.serviceHealth/allEntities/allTasks | Leer y configurar Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Crear y administrar solicitudes de soporte técnico de Azure para servicios de nivel de directorio. |
 | microsoft.dynamics365/allEntities/allTasks | Administra todos los aspectos de Dynamics 365. |
-| microsoft.flow/allEntities/allTasks | Administra todos los aspectos de Microsoft Flow. |
+| microsoft.flow/allEntities/allTasks | Administra todos los aspectos de Power Automate. |
 | microsoft.powerApps/allEntities/allTasks | Administra todos los aspectos de PowerApps. |
 | microsoft.office365.webPortal/allEntities/basic/read | Lee las propiedades básicas de todos los recursos en microsoft.office365.webPortal. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Leer y configurar Service Health para Microsoft 365. |
@@ -1654,9 +1660,9 @@ Puede leer la información y los informes de seguridad, así como administrar la
 | --- | --- |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Leer y configurar Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Crear y administrar solicitudes de soporte técnico de Azure para servicios de nivel de directorio. |
+| microsoft.directory/bitlockerKeys/key/read | Lea objetos y propiedades de clave de BitLocker (incluida la clave de recuperación) en Azure Active Directory. |
 | microsoft.directory/applications/policies/update | Actualiza la propiedad applications.policies en Azure Active Directory. |
 | microsoft.directory/auditLogs/allProperties/read | Lee todas las propiedades (incluidas las propiedades con privilegios) en auditLogs en Azure Active Directory. |
-| microsoft.directory/devices/bitLockerRecoveryKeys/read | Lee la propiedad devices.bitLockerRecoveryKeys en Azure Active Directory. |
 | microsoft.directory/identityProtection/allProperties/read | Lee todos los recursos en microsoft.aad.identityProtection. |
 | microsoft.directory/identityProtection/allProperties/update | Actualiza todos los recursos en microsoft.aad.identityProtection. |
 | microsoft.directory/policies/basic/update | Actualiza las propiedades básicas en las directivas de Azure Active Directory. |
@@ -1706,7 +1712,7 @@ Puede leer la información y los informes de seguridad de Azure AD y Microsoft�
 | **Acciones** | **Descripción** |
 | --- | --- |
 | microsoft.directory/auditLogs/allProperties/read | Lee todas las propiedades (incluidas las propiedades con privilegios) en auditLogs en Azure Active Directory. |
-| microsoft.directory/devices/bitLockerRecoveryKeys/read | Lee la propiedad devices.bitLockerRecoveryKeys en Azure Active Directory. |
+| microsoft.directory/bitlockerKeys/key/read | Lea objetos y propiedades de clave de BitLocker (incluida la clave de recuperación) en Azure Active Directory. |
 | microsoft.directory/policies/conditionalAccess/basic/read | Lee la propiedad policies.conditionalAccess en Azure Active Directory. |
 | microsoft.directory/signInReports/allProperties/read | Lee todas las propiedades (incluidas las propiedades con privilegios) en signInReports en Azure Active Directory. |
 | microsoft.aad.identityProtection/allEntities/read | Lee todos los recursos en microsoft.aad.identityProtection. |
@@ -1991,7 +1997,7 @@ Administradores de dispositivos | Obsoleto | [Documentación de roles en desuso]
 Usuarios de dispositivos | Obsoleto | [Documentación de roles en desuso](permissions-reference.md#deprecated-roles)
 Cuentas de sincronización de directorios | No se muestra porque no debe usarse | [Documentación de cuentas de sincronización de directorios](permissions-reference.md#directory-synchronization-accounts)
 Escritores de directorios | No se muestra porque no debe usarse | [Documentación de escritores de directorios](permissions-reference.md#directory-writers)
-Usuario invitado | No se muestra porque no debe usarse  | N/D
+Usuario invitado | No se muestra porque no se puede usar  | N/D
 Administrador de servicios de Lync | Administrador de Skype Empresarial | [Refleja la personalización de marca del producto actual](permissions-reference.md#role-template-ids)
 Soporte técnico de asociado de nivel 1 | No se muestra porque no debe usarse | [Documentación de soporte técnico para asociados de nivel 1](permissions-reference.md#partner-tier1-support)
 Soporte técnico de asociado de nivel 2 | No se muestra porque no debe usarse | [Documentación de soporte técnico para asociados de nivel 2](permissions-reference.md#partner-tier2-support)

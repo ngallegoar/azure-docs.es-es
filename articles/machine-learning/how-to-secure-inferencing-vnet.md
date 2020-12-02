@@ -11,12 +11,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 10/23/2020
 ms.custom: contperfq4, tracking-python, contperfq1, devx-track-azurecli
-ms.openlocfilehash: 6508db654cd27ca4b3844f6037f13fb504173e11
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 3bd4d328c6b0b73a51f325adde988c8f0988ea8a
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93361172"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94873818"
 ---
 # <a name="secure-an-azure-machine-learning-inferencing-environment-with-virtual-networks"></a>Protección de un entorno de inferencia de Azure Machine Learning con redes virtuales
 
@@ -68,16 +68,16 @@ Para agregar AKS en una red virtual a su área de trabajo, siga los pasos siguie
 
 1. Seleccione __Clústeres de inferencia__ en el centro y, después, seleccione __+__ .
 
-1. En el cuadro de diálogo __Nuevo clúster de inferencia__ , seleccione __Avanzado__ en __Configuración de red__.
+1. En el cuadro de diálogo __Nuevo clúster de inferencia__, seleccione __Avanzado__ en __Configuración de red__.
 
 1. Para configurar este recurso de proceso para que use una red virtual, realice las acciones siguientes:
 
-    1. En la lista desplegable __Grupo de recursos__ , seleccione el grupo de recursos que contiene la red virtual.
-    1. En la lista desplegable __Red virtual__ , seleccione la red que contiene la subred.
-    1. En la lista desplegable __Subred__ , seleccione la subred.
-    1. En el cuadro __Intervalo de direcciones del servicio Kubernetes__ , escriba el intervalo de direcciones de servicio de Kubernetes. Este intervalo de direcciones utiliza un intervalo de IP de notación CIDR (enrutamiento entre dominios sin clases) para definir las direcciones IP que están disponibles para el clúster. No debe superponerse con ningún intervalo IP de subred (por ejemplo, 10.0.0.0/16).
-    1. En el cuadro __Dirección IP del servicio DNS de Kubernetes__ , escriba la dirección IP del servicio DNS de Kubernetes. Esta dirección IP se asigna al servicio DNS de Kubernetes. Debe estar dentro del intervalo de direcciones del servicio Kubernetes (por ejemplo, 10.0.0.10).
-    1. En el cuadro __Dirección de puente de Docker__ , escriba la dirección del puente de Docker. Esta dirección IP se asigna al puente de Docker. No debe estar en ningún intervalo IP de subred o en el intervalo de direcciones del servicio Kubernetes (por ejemplo, 172.17.0.1/16).
+    1. En la lista desplegable __Grupo de recursos__, seleccione el grupo de recursos que contiene la red virtual.
+    1. En la lista desplegable __Red virtual__, seleccione la red que contiene la subred.
+    1. En la lista desplegable __Subred__, seleccione la subred.
+    1. En el cuadro __Intervalo de direcciones del servicio Kubernetes__, escriba el intervalo de direcciones de servicio de Kubernetes. Este intervalo de direcciones utiliza un intervalo de IP de notación CIDR (enrutamiento entre dominios sin clases) para definir las direcciones IP que están disponibles para el clúster. No debe superponerse con ningún intervalo IP de subred (por ejemplo, 10.0.0.0/16).
+    1. En el cuadro __Dirección IP del servicio DNS de Kubernetes__, escriba la dirección IP del servicio DNS de Kubernetes. Esta dirección IP se asigna al servicio DNS de Kubernetes. Debe estar dentro del intervalo de direcciones del servicio Kubernetes (por ejemplo, 10.0.0.10).
+    1. En el cuadro __Dirección de puente de Docker__, escriba la dirección del puente de Docker. Esta dirección IP se asigna al puente de Docker. No debe estar en ningún intervalo IP de subred o en el intervalo de direcciones del servicio Kubernetes (por ejemplo, 172.17.0.1/16).
 
    ![Azure Machine Learning: Configuración de la red virtual del Proceso de Machine Learning](./media/how-to-enable-virtual-network/aks-virtual-network-screen.png)
 
@@ -115,6 +115,8 @@ aks_target = ComputeTarget.create(workspace=ws,
 
 Cuando finalice el proceso de creación, puede ejecutar una inferencia, o puntuación de modelos, en un clúster de AKS detrás de una red virtual. Para más información, consulte [Implementación en AKS](how-to-deploy-and-where.md).
 
+Para más información sobre el uso del control de acceso basado en rol con Kubernetes, consulte [Uso de Azure RBAC para la autorización de Kubernetes (versión preliminar)](../aks/manage-azure-rbac.md).
+
 ## <a name="network-contributor-role"></a>Rol de colaborador de red
 
 > [!IMPORTANT]
@@ -122,7 +124,7 @@ Cuando finalice el proceso de creación, puede ejecutar una inferencia, o puntua
 >
 > Para agregar la identidad como colaborador de red, siga estos pasos:
 
-1. Para buscar la entidad de servicio o el id. de identidad administrada para AKS, use los siguientes comandos de la CLI de Azure. Reemplace `<aks-cluster-name>` por el nombre del clúster. Reemplace `<resource-group-name>` por el nombre del grupo de recursos que _contiene el clúster de AKS_ :
+1. Para buscar la entidad de servicio o el id. de identidad administrada para AKS, use los siguientes comandos de la CLI de Azure. Reemplace `<aks-cluster-name>` por el nombre del clúster. Reemplace `<resource-group-name>` por el nombre del grupo de recursos que _contiene el clúster de AKS_:
 
     ```azurecli-interactive
     az aks show -n <aks-cluster-name> --resource-group <resource-group-name> --query servicePrincipalProfile.clientId
@@ -151,8 +153,8 @@ Para más información sobre el uso del equilibrador de carga interno con AKS, c
 
 Hay dos métodos para aislar el tráfico hacia y desde el clúster de AKS a la red virtual:
 
-* __Clúster privado de AKS__ : este enfoque usa Azure Private Link para proteger las comunicaciones con el clúster para las operaciones de implementación y administración.
-* __Equilibrador de carga interno de AKS__ : Este enfoque configura el punto de conexión de las implementaciones en AKS para usar una dirección IP privada en la red virtual.
+* __Clúster privado de AKS__: este enfoque usa Azure Private Link para proteger las comunicaciones con el clúster para las operaciones de implementación y administración.
+* __Equilibrador de carga interno de AKS__: Este enfoque configura el punto de conexión de las implementaciones en AKS para usar una dirección IP privada en la red virtual.
 
 > [!WARNING]
 > El equilibrador de carga interno no funciona con un clúster de AKS que usa kubenet. Si quiere usar un equilibrador de carga interno y un clúster de AKS privado al mismo tiempo, configure el clúster de AKS privado con Azure Container Networking Interface (CNI). Para obtener más información, consulte [Configuración de redes de Azure CNI en Azure Kubernetes Service](../aks/configure-azure-cni.md).
@@ -265,7 +267,7 @@ A fin de usar ACI en una red virtual para su área de trabajo, siga los pasos si
 
 ## <a name="limit-outbound-connectivity-from-the-virtual-network"></a> Limitación de la conectividad saliente de la red virtual
 
-Si no quiere usar las reglas de salida predeterminadas y quiere limitar el acceso de salida de la red virtual, debe permitir el acceso a Azure Container Registry. Por ejemplo, asegúrese de que los grupos de seguridad de red (NSG) contienen una regla que permita el acceso a la etiqueta de servicio __AzureContainerRegistry.RegionName__ , donde {RegionName} es el nombre de una región de Azure.
+Si no quiere usar las reglas de salida predeterminadas y quiere limitar el acceso de salida de la red virtual, debe permitir el acceso a Azure Container Registry. Por ejemplo, asegúrese de que los grupos de seguridad de red (NSG) contienen una regla que permita el acceso a la etiqueta de servicio __AzureContainerRegistry.RegionName__, donde {RegionName} es el nombre de una región de Azure.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

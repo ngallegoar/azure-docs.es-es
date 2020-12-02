@@ -4,18 +4,18 @@ description: Recupere los registros del módulo de IoT Edge y cárguelos en Azur
 author: v-tcassi
 manager: philmea
 ms.author: v-tcassi
-ms.date: 09/14/2020
+ms.date: 11/12/2020
 ms.topic: conceptual
 ms.reviewer: veyalla
 ms.service: iot-edge
 ms.custom: devx-track-azurecli
 services: iot-edge
-ms.openlocfilehash: 64264028706c1493f687f032a7ec39e69188bd45
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 97cdc4ad0b1d5e7dfb6642fa0163f810be5d7171
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92171921"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966928"
 ---
 # <a name="retrieve-logs-from-iot-edge-deployments"></a>Recuperación de registros de implementaciones de IoT Edge
 
@@ -141,6 +141,14 @@ az iot hub invoke-module-method \
 
 Use el método directo **UploadModuleLogs** para enviar los registros solicitados a un contenedor de Azure Blob Storage especificado.
 
+<!-- 1.2.0 -->
+::: moniker range=">=iotedge-2020-11"
+
+> [!NOTE]
+> Si desea cargar registros desde un dispositivo detrás de un dispositivo de puerta de enlace, debe tener los [módulos de proxy de API y de almacenamiento de blobs](how-to-configure-api-proxy-module.md) configurados en el dispositivo de nivel superior. Estos módulos enrutan los registros desde el dispositivo de nivel inferior a través del dispositivo de puerta de enlace al almacenamiento en la nube.
+
+::: moniker-end
+
 Este método acepta una carga JSON similar a **GetModuleLogs**, con la adición de la clave "sasUrl":
 
 ```json
@@ -260,6 +268,14 @@ En Azure Portal, invoque el método con el nombre de método `UploadModuleLogs` 
 ## <a name="upload-support-bundle-diagnostics"></a>Cargar diagnóstico de conjunto de soporte
 
 Use el método directo **UploadSupportBundle** para agrupar y cargar un archivo ZIP de registros del módulo de IoT Edge en un contenedor de Azure Blob Storage disponible. Este método directo ejecuta el comando [`iotedge support-bundle`](./troubleshoot.md#gather-debug-information-with-support-bundle-command) en el dispositivo IoT Edge para obtener los registros.
+
+<!-- 1.2.0 -->
+::: moniker range=">=iotedge-2020-11"
+
+> [!NOTE]
+> Si desea cargar registros desde un dispositivo detrás de un dispositivo de puerta de enlace, debe tener los [módulos de proxy de API y de almacenamiento de blobs](how-to-configure-api-proxy-module.md) configurados en el dispositivo de nivel superior. Estos módulos enrutan los registros desde el dispositivo de nivel inferior a través del dispositivo de puerta de enlace al almacenamiento en la nube.
+
+::: moniker-end
 
 Este método acepta una carga JSON con el siguiente esquema:
 

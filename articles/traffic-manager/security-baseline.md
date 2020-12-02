@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 9ed6a57dadb70daed9cdf02421b91d310b4b0f07
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d4523319c04703c04a293471124329512e31a265
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91631467"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94964684"
 ---
 # <a name="azure-security-baseline-for-azure-traffic-manager"></a>Línea de base de seguridad de Azure para Azure Traffic Manager
 
@@ -270,7 +270,7 @@ Para simplificar este proceso, cree una configuración de diagnóstico para las 
 
 En Resource Manager, pueden agregarse puntos de conexión de cualquier suscripción al Administrador de tráfico, siempre y cuando la persona que configura el perfil de este servicio tenga acceso de lectura al punto de conexión.
 
-Azure Traffic Manager tiene un rol RBAC de Azure predefinido llamado "Colaborador de Azure Traffic Manager", que se puede asignar a los usuarios.
+Azure Traffic Manager tiene un rol de Azure predefinido llamado "Colaborador de Traffic Manager", que se puede asignar a los usuarios.
 
 - [Incorporación o eliminación de asignaciones de roles de Azure con Azure Portal](../role-based-access-control/role-assignments-portal.md)
 
@@ -386,7 +386,7 @@ También puede crear definiciones de Azure Policy personalizadas para restringir
 
 ### <a name="611-limit-users-ability-to-interact-with-azure-resource-manager"></a>6.11: Limitación de la capacidad de los usuarios para interactuar con Azure Resource Manager
 
-**Instrucciones**: Configure el acceso condicional de Azure para limitar la capacidad de los usuarios de interactuar con Azure Resource Manager configurando "Bloquear acceso" en la aplicación Microsoft Azure Management.
+**Guía**: Configure el acceso condicional de Azure para limitar la capacidad de los usuarios de interactuar con Azure Resource Manager configurando "Bloquear acceso" en la aplicación Microsoft Azure Management.
 
 - [Configuración del acceso condicional para bloquear el acceso a Azure Resource Manager](../role-based-access-control/conditional-access-azure-management.md)
 

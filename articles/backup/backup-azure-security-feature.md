@@ -4,12 +4,12 @@ description: Aprenda a usar las características de seguridad de Azure Backup pa
 ms.reviewer: utraghuv
 ms.topic: conceptual
 ms.date: 06/08/2017
-ms.openlocfilehash: 5a408dc07e83e790a63f8a252d4ed3f84bf66be4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8c671b1b54b937f518f7179bb6940f31a28a78d4
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89181687"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94841025"
 ---
 # <a name="security-features-to-help-protect-hybrid-backups-that-use-azure-backup"></a>Características de seguridad para proteger copias de seguridad híbridas mediante Azure Backup
 
@@ -48,10 +48,10 @@ Si va a crear un almacén de Recovery Services, puede usar todas las caracterís
     ![Captura de pantalla de propiedades del almacén de Recovery Services](./media/backup-azure-security-feature/security-settings-update.png)
 
     El vínculo de actualización abre el panel **Configuración de seguridad**, que proporciona un resumen de las características y le permite habilitarlas.
-5. En el menú desplegable **Have you configured Azure Multi-Factor Authentication?** (¿Ha configurado Azure Multi-Factor Authentication?), seleccione un valor para confirmar que ha habilitado [Azure Multi-Factor Authentication](../active-directory/authentication/concept-mfa-howitworks.md). Si está habilitado, se le pedirá que realice la autenticación desde otro dispositivo (por ejemplo, un teléfono móvil) al iniciar sesión en Azure Portal.
+5. En el menú desplegable **Have you configured Azure AD Multi-Factor Authentication?** (¿Ha configurado Multi-Factor Authentication de Azure AD?), seleccione un valor para confirmar que ha habilitado [Multi-Factor Authentication de Azure AD](../active-directory/authentication/concept-mfa-howitworks.md). Si está habilitado, se le pedirá que realice la autenticación desde otro dispositivo (por ejemplo, un teléfono móvil) al iniciar sesión en Azure Portal.
 
-   Al realizar operaciones críticas en Backup, debe especificar un PIN de seguridad, disponible en Azure Portal. Al habilitar Azure Multi-Factor Authentication, se agrega una capa de seguridad. Solo los usuarios autorizados con credenciales de Azure válidas y autenticados desde un segundo dispositivo pueden tener acceso a Azure Portal.
-6. Para guardar la configuración de seguridad, seleccione **Habilitar** y seleccione **Guardar**. Solo se puede seleccionar **Habilitar** después de seleccionar un valor en la lista **Have you configured Azure Multi-Factor Authentication?** (¿Ha configurado Azure Multi-Factor Authentication?) del paso anterior.
+   Al realizar operaciones críticas en Backup, debe especificar un PIN de seguridad, disponible en Azure Portal. Al habilitar Multi-Factor Authentication de Azure AD, se agrega una capa de seguridad. Solo los usuarios autorizados con credenciales de Azure válidas y autenticados desde un segundo dispositivo pueden tener acceso a Azure Portal.
+6. Para guardar la configuración de seguridad, seleccione **Habilitar** y seleccione **Guardar**. Solo se puede seleccionar **Habilitar** después de seleccionar un valor en la lista **Have you configured Azure AD Multi-Factor Authentication?** (¿Ha configurado Multi-Factor Authentication de Azure AD?) del paso anterior.
 
     ![Captura de pantalla de configuración de seguridad](./media/backup-azure-security-feature/enable-security-settings-dpm-update.png)
 

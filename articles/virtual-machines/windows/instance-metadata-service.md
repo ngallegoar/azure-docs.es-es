@@ -11,12 +11,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2020
 ms.author: sukumari
 ms.reviewer: azmetadatadev
-ms.openlocfilehash: 49840c2591bc1a991920b00aec020d4f652c9a50
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 1de04a9486103af65deb6ca3b653b9efa6707716
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168399"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967081"
 ---
 # <a name="azure-instance-metadata-service"></a>Servicio de metadatos de instancia de Azure
 
@@ -47,7 +47,7 @@ A continuación se muestra el código de ejemplo para recuperar todos los metada
 **Solicitud**
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http://169.254.169.254/metadata/instance?api-version=2020-06-01 | ConvertTo-Json
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http://169.254.169.254/metadata/instance?api-version=2020-09-01 | ConvertTo-Json
 ```
 > [!NOTE]
 > La marca `-NoProxy` solo está disponible en PowerShell 6 o una versión posterior. Puede omitir la marca si no tiene una configuración de proxy.
@@ -62,9 +62,15 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http:/
     "compute": {
         "azEnvironment": "AZUREPUBLICCLOUD",
         "isHostCompatibilityLayerVm": "true",
+        "licenseType":  "Windows_Client",
         "location": "westus",
         "name": "examplevmname",
         "offer": "Windows",
+        "osProfile": {
+            "adminUsername": "admin",
+            "computerName": "examplevmname",
+            "disablePasswordAuthentication": "true"
+        },
         "osType": "linux",
         "placementGroupId": "f67c14ab-e92c-408c-ae2d-da15866ec79a",
         "plan": {
@@ -85,7 +91,7 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http:/
         ],
         "publisher": "RDFE-Test-Microsoft-Windows-Server-Group",
         "resourceGroupName": "macikgo-test-may-23",
-        "resourceId": "/subscriptions/8d10da13-8125-4ba9-a717-bf7490507b3d/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/virtualMachines/examplevmname",
+        "resourceId": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/virtualMachines/examplevmname",
         "securityProfile": {
             "secureBootEnabled": "true",
             "virtualTpmEnabled": "false"
@@ -101,7 +107,7 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http:/
                 },
                 "lun": "0",
                 "managedDisk": {
-                    "id": "/subscriptions/8d10da13-8125-4ba9-a717-bf7490507b3d/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampledatadiskname",
+                    "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampledatadiskname",
                     "storageAccountType": "Standard_LRS"
                 },
                 "name": "exampledatadiskname",
@@ -131,7 +137,7 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http:/
                     "uri": ""
                 },
                 "managedDisk": {
-                    "id": "/subscriptions/8d10da13-8125-4ba9-a717-bf7490507b3d/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampleosdiskname",
+                    "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampleosdiskname",
                     "storageAccountType": "Standard_LRS"
                 },
                 "name": "exampleosdiskname",
@@ -142,13 +148,32 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http:/
                 "writeAcceleratorEnabled": "false"
             }
         },
-        "subscriptionId": "8d10da13-8125-4ba9-a717-bf7490507b3d",
+        "subscriptionId": "xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
         "tags": "baz:bash;foo:bar",
         "version": "15.05.22",
         "vmId": "02aab8a4-74ef-476e-8182-f6d2ba4166a6",
         "vmScaleSetName": "crpteste9vflji9",
         "vmSize": "Standard_A3",
         "zone": ""
+    },
+    "network": {
+        "interface": [{
+            "ipv4": {
+               "ipAddress": [{
+                    "privateIpAddress": "10.144.133.132",
+                    "publicIpAddress": ""
+                }],
+                "subnet": [{
+                    "address": "10.144.133.128",
+                    "prefix": "26"
+                }]
+            },
+            "ipv6": {
+                "ipAddress": [
+                 ]
+            },
+            "macAddress": "0011AAFFBB22"
+        }]
     }
 }
 ```
@@ -197,8 +222,12 @@ Las versiones de la API admitidas son:
 - 2019-08-15
 - 2019-11-01
 - 2020-06-01
+- 2020-07-15
+- 01-09-2020
+- 2020-10-01
 
-Tenga en cuenta que cuando se lanza una nueva versión, se tarda un tiempo en implementarse en todas las regiones.
+> [!NOTE]
+> La versión 2020-10-01 se está implementando actualmente y puede que aún no esté disponible en todas las regiones.
 
 A medida que se agreguen versiones más recientes, todavía se podrá acceder a las versiones anteriores por motivos de compatibilidad si los scripts tienen dependencias en formatos de datos específicos.
 
@@ -219,9 +248,9 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http:/
 {
     "error": "Bad request. api-version was not specified in the request. For more information refer to aka.ms/azureimds",
     "newest-versions": [
-        "2018-10-01",
-        "2018-04-02",
-        "2018-02-01"
+        "2020-10-01",
+        "2020-09-01",
+        "2020-07-15"
     ]
 }
 ```
@@ -246,9 +275,13 @@ data | Descripción | Versión de introducción
 azEnvironment | Entorno de Azure donde se está ejecutando la máquina virtual | 2018-10-01
 customData | Esta funcionalidad actualmente está deshabilitada. Esta documentación se actualizará cuando esté disponible | 01-02-2019
 isHostCompatibilityLayerVm | Identifica si la máquina virtual se ejecuta en el nivel de compatibilidad del host. | 2020-06-01
+licenseType | Tipo de licencia para la [Ventaja híbrida de Azure](https://azure.microsoft.com/pricing/hybrid-benefit). Tenga en cuenta que esto solo está presente para las VM habilitadas para AHB. | 01-09-2020
 ubicación | La región de Azure donde se ejecuta la máquina virtual | 2017-04-02
 name | Nombre de la máquina virtual | 2017-04-02
 offer | Ofrece información de la imagen de la máquina virtual y solo está presente para imágenes implementadas desde la galería de imágenes de Azure. | 2017-04-02
+osProfile.adminUsername | Especifica el nombre de la cuenta de administrador. | 2020-07-15
+osProfile.computerName | Especifica el nombre del equipo. | 2020-07-15
+osProfile.disablePasswordAuthentication | Especifica si se deshabilita la autenticación de contraseña. Tenga en cuenta que esto solo está presente para las VM Linux. | 2020-10-01
 osType | Linux o Windows | 2017-04-02
 placementGroupId | [Grupo de selección de ubicación](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) de su conjunto de escalado de máquina virtual | 2017-08-01
 plan | [Plan](/rest/api/compute/virtualmachines/createorupdate#plan) que contiene el nombre, el producto y el editor de una máquina virtual si es una imagen de Azure Marketplace | 2018-04-02
@@ -313,7 +346,7 @@ Como proveedor de servicios, es posible que reciba una llamada de soporte técni
 **Solicitud**
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http://169.254.169.254/metadata/instance/compute?api-version=2019-06-01
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http://169.254.169.254/metadata/instance/compute?api-version=2020-09-01
 ```
 
 **Respuesta**
@@ -323,86 +356,101 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http:/
 
 ```json
 {
-    "azEnvironment": "AzurePublicCloud",
-    "customData": "",
-    "location": "centralus",
-    "name": "negasonic",
-    "offer": "lampstack",
-    "osType": "Linux",
-    "placementGroupId": "",
-    "plan": {
-        "name": "5-6",
-        "product": "lampstack",
-        "publisher": "bitnami"
+    "azEnvironment": "AZUREPUBLICCLOUD",
+    "isHostCompatibilityLayerVm": "true",
+    "licenseType":  "Windows_Client",
+    "location": "westus",
+    "name": "examplevmname",
+    "offer": "Windows",
+    "osProfile": {
+        "adminUsername": "admin",
+        "computerName": "examplevmname",
+        "disablePasswordAuthentication": "true"
     },
-    "platformFaultDomain": "0",
-    "platformUpdateDomain": "0",
-    "provider": "Microsoft.Compute",
-    "publicKeys": [],
-    "publisher": "bitnami",
-    "resourceGroupName": "myrg",
-    "resourceId": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/myrg/providers/Microsoft.Compute/virtualMachines/negasonic",
-    "sku": "5-6",
+    "osType": "linux",
+    "placementGroupId": "f67c14ab-e92c-408c-ae2d-da15866ec79a",
+    "plan": {
+        "name": "planName",
+        "product": "planProduct",
+        "publisher": "planPublisher"
+    },
+    "platformFaultDomain": "36",
+    "platformUpdateDomain": "42",
+    "publicKeys": [{
+            "keyData": "ssh-rsa 0",
+            "path": "/home/user/.ssh/authorized_keys0"
+        },
+        {
+            "keyData": "ssh-rsa 1",
+            "path": "/home/user/.ssh/authorized_keys1"
+        }
+    ],
+    "publisher": "RDFE-Test-Microsoft-Windows-Server-Group",
+    "resourceGroupName": "macikgo-test-may-23",
+    "resourceId": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/virtualMachines/examplevmname",
+    "securityProfile": {
+        "secureBootEnabled": "true",
+        "virtualTpmEnabled": "false"
+    },
+    "sku": "Windows-Server-2012-R2-Datacenter",
     "storageProfile": {
-        "dataDisks": [
-          {
+        "dataDisks": [{
             "caching": "None",
             "createOption": "Empty",
             "diskSizeGB": "1024",
             "image": {
-              "uri": ""
+                "uri": ""
             },
             "lun": "0",
             "managedDisk": {
-              "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampledatadiskname",
-              "storageAccountType": "Standard_LRS"
+                "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampledatadiskname",
+                "storageAccountType": "Standard_LRS"
             },
             "name": "exampledatadiskname",
             "vhd": {
-              "uri": ""
+                "uri": ""
             },
             "writeAcceleratorEnabled": "false"
-          }
-        ],
+        }],
         "imageReference": {
-          "id": "",
-          "offer": "UbuntuServer",
-          "publisher": "Canonical",
-          "sku": "16.04.0-LTS",
-          "version": "latest"
+            "id": "",
+            "offer": "UbuntuServer",
+            "publisher": "Canonical",
+            "sku": "16.04.0-LTS",
+            "version": "latest"
         },
         "osDisk": {
-          "caching": "ReadWrite",
-          "createOption": "FromImage",
-          "diskSizeGB": "30",
-          "diffDiskSettings": {
-            "option": "Local"
-          },
-          "encryptionSettings": {
-            "enabled": "false"
-          },
-          "image": {
-            "uri": ""
-          },
-          "managedDisk": {
-            "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampleosdiskname",
-            "storageAccountType": "Standard_LRS"
-          },
-          "name": "exampleosdiskname",
-          "osType": "Linux",
-          "vhd": {
-            "uri": ""
-          },
-          "writeAcceleratorEnabled": "false"
+            "caching": "ReadWrite",
+            "createOption": "FromImage",
+            "diskSizeGB": "30",
+            "diffDiskSettings": {
+                "option": "Local"
+            },
+            "encryptionSettings": {
+                "enabled": "false"
+            },
+            "image": {
+                "uri": ""
+            },
+            "managedDisk": {
+                "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampleosdiskname",
+                "storageAccountType": "Standard_LRS"
+            },
+            "name": "exampleosdiskname",
+            "osType": "Linux",
+            "vhd": {
+                "uri": ""
+            },
+            "writeAcceleratorEnabled": "false"
         }
     },
     "subscriptionId": "xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
-    "tags": "Department:IT;Environment:Test;Role:WebRole",
-    "version": "7.1.1902271506",
-    "vmId": "13f56399-bd52-4150-9748-7190aae1ff21",
-    "vmScaleSetName": "",
-    "vmSize": "Standard_A1_v2",
-    "zone": "1"
+    "tags": "baz:bash;foo:bar",
+    "version": "15.05.22",
+    "vmId": "02aab8a4-74ef-476e-8182-f6d2ba4166a6",
+    "vmScaleSetName": "crpteste9vflji9",
+    "vmSize": "Standard_A3",
+    "zone": ""
 }
 ```
 
@@ -690,15 +738,16 @@ Nonce es una cadena opcional de 10 dígitos. Si no se proporciona, IMDS devuelv
 El blob de firma es una versión con la firma [pkcs7](https://aka.ms/pkcs7) del documento. Contiene el certificado usado para firmar junto con los detalles específicos de una determinada máquina virtual. En el caso de las máquinas virtuales de ARM, se incluye vmld, sku, nonce, subscriptionId y timeStamp para la creación y expiración del documento y la información del plan sobre la imagen. La información del plan solo se rellena para las imágenes de Azure Marketplace. En el caso de las máquinas virtuales clásicas (no ARM), solo se garantiza que se rellena vmId. El certificado se puede extraer de la respuesta y usarse para validar que la respuesta es válida y viene de Azure.
 El documento contiene estos campos:
 
-data | Descripción
------|------------
-valor de seguridad | Una cadena que se puede proporcionar de manera opcional con la solicitud. Si no se suministró ninguna clave nonce, se usa la marca de tiempo UTC actual
-plan | El [plan de imagen de Azure Marketplace](/rest/api/compute/virtualmachines/createorupdate#plan). Contiene el identificador de plan (nombre), la oferta o imagen de producto (producto) y el identificador de publicador (publicador).
-timestamp/createdOn | La marca de tiempo UTC para el momento en que se creó el documento firmado
-timestamp/expiresOn | La marca de tiempo UTC para el momento en que expira el documento firmado
-vmId |  [Identificador único](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) para la máquina virtual.
-subscriptionId | Suscripción de Azure para la máquina virtual publicada con fecha `2019-04-30`
-sku | SKU específica de la imagen de VM, presentada en `2019-11-01`
+data | Descripción | Versión de introducción
+-----|-------------|-----------------------
+licenseType | Tipo de licencia para la [Ventaja híbrida de Azure](https://azure.microsoft.com/pricing/hybrid-benefit). Tenga en cuenta que esto solo está presente para las VM habilitadas para AHB. | 01-09-2020
+valor de seguridad | Una cadena que se puede proporcionar de manera opcional con la solicitud. Si no se suministró ninguna clave nonce, se usa la marca de tiempo UTC actual | 2018-10-01
+plan | El [plan de imagen de Azure Marketplace](/rest/api/compute/virtualmachines/createorupdate#plan). Contiene el identificador de plan (nombre), la oferta o imagen de producto (producto) y el identificador de publicador (publicador). | 2018-10-01
+timestamp/createdOn | La marca de tiempo UTC para el momento en que se creó el documento firmado | 2018-20-01
+timestamp/expiresOn | La marca de tiempo UTC para el momento en que expira el documento firmado | 2018-10-01
+vmId |  [Identificador único](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) para la máquina virtual. | 2018-10-01
+subscriptionId | Suscripción de Azure para la máquina virtual | 2019-04-30
+sku | SKU específica de la imagen de VM | 2019-11-01
 
 > [!NOTE]
 > En el caso de las máquinas virtuales clásicas (no ARM), solo se garantiza que se rellena vmId.
@@ -709,7 +758,7 @@ Los proveedores de Marketplace desean asegurarse de que su software tiene licenc
 
 ```powershell
 # Get the signature
-$attestedDoc = Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http://169.254.169.254/metadata/attested/document?api-version=2019-04-30
+$attestedDoc = Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http://169.254.169.254/metadata/attested/document?api-version=2020-09-01
 # Decode the signature
 $signature = [System.Convert]::FromBase64String($attestedDoc.signature)
 ```
@@ -856,7 +905,7 @@ Código de estado HTTP | Motivo
 1. Obtengo el error `400 Bad Request, Required metadata header not specified`. ¿Qué significa?
    * El servicio de metadatos de instancia requiere que el encabezado `Metadata: true` se transmita en la solicitud. Transmitir este encabezado en la llamada de REST permite tener acceso al servicio de metadatos de instancia.
 1. ¿Por qué no recibo información de proceso de mi máquina virtual?
-   * Actualmente el servicio de metadatos de instancia solo admite instancias creadas con Azure Resource Manager. En el futuro, es posible que se agregue compatibilidad para máquinas virtuales de servicio en la nube.
+   * Actualmente el servicio de metadatos de instancia solo admite instancias creadas con Azure Resource Manager.
 1. Creé mi máquina virtual mediante Azure Resource Manager hace un tiempo. ¿Por qué no veo la información de metadatos de proceso?
    * En el caso de las máquinas virtuales que se crearon después de septiembre de 2016, agregue una [etiqueta](../../azure-resource-manager/management/tag-resources.md) para empezar a ver los metadatos de proceso. En el caso de máquinas virtuales anteriores (creadas antes de septiembre de 2016), agregue o quite extensiones o discos de datos a las instancias de la máquina virtual para actualizar los metadatos.
 1. No veo todos los datos rellenados para la nueva versión

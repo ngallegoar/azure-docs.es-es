@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/07/2020
 ms.author: blehr
-ms.custom: references_regions
-ms.openlocfilehash: a1bd303390626eaea71e588e325fedbd2d8fa4b9
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.custom: references_regions , devx-track-azurecli
+ms.openlocfilehash: 0c248149694c2bf66b8c94e9c0a29a8f7da9f4e4
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94353363"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843747"
 ---
 # <a name="upgrade-public-ip-addresses"></a>Actualización de direcciones IP públicas
 
@@ -148,24 +148,14 @@ Se crea un grupo de recursos en Azure Resource Manager con el nombre de la direc
 
 ## <a name="limitations"></a>Limitaciones
 
-* Actualmente, esta funcionalidad solo está disponible en las siguientes regiones:<br>
-Centro-Oeste de EE. UU.<br>
-Centro-Norte de EE. UU<br>
-Oeste de EE. UU.<br>
-Oeste de EE. UU. 2<br>
-Este de Noruega<br>
-Norte de Sudáfrica<br>
-Este de EE. UU.<br>
-Norte de Europa<br>
-Centro de Corea del Sur<br>
-India central<br>
-Este de EE. UU. 2<br>
-Norte de Suiza<br>
-India occidental<br>
-Norte de Alemania<br>
-Centro de Canadá<br>
-Sur de Francia<br>
-India occidental
+* Actualmente, esta funcionalidad no está disponible en las siguientes regiones:<br>
+US Gov - Virginia<br>
+US DoD (este)<br>
+US DoD (centro)<br>
+Este de China<br>
+Este de China 2<br>
+Norte de China<br>
+Norte de China 2
 
 * Para actualizar una dirección IP pública básica, no se puede asociar con ningún recurso de Azure.  Examine [esta página](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address#view-modify-settings-for-or-delete-a-public-ip-address) para más información sobre cómo desasociar las direcciones IP públicas.  Del mismo modo, para migrar una dirección IP reservada, no se puede asociar con ningún servicio en la nube.  Revise [esta página](https://docs.microsoft.com/azure/virtual-network/remove-public-ip-address-vm) para más información sobre cómo desasociar direcciones IP reservadas.  
 * Las direcciones IP públicas actualizadas de la SKU de nivel básico a estándar seguirán sin tener [zonas de disponibilidad](https://docs.microsoft.com/azure/availability-zones/az-overview?toc=/azure/virtual-network/toc.json#availability-zones) y, por lo tanto, no se pueden asociar a un recurso de Azure con redundancia de zona o zonal.  Tenga en cuenta que esto solo se aplica a las regiones que ofrecen zonas de disponibilidad.

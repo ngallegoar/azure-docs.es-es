@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 078b24e7fc3668e9b5832f0bfa46024db9b33848
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: c154952d41db742c4d33899094a49a65fae72f26
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91965563"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94840107"
 ---
 # <a name="self-service-password-reset-frequently-asked-questions"></a>Preguntas frecuentes sobre el autoservicio de restablecimiento de contraseña
 
@@ -38,7 +38,7 @@ Estas preguntas más frecuentes se dividen en las siguientes secciones:
 
   > **R:** Sí. Siempre que el restablecimiento de contraseña esté habilitado y los usuarios cuenten con licencia, pueden ir al portal de registro de restablecimiento de contraseña (https://aka.ms/ssprsetup) para registrar su información de autenticación. Los usuarios también pueden registrarse a través del Panel de acceso (https://myapps.microsoft.com). Para ello, deben seleccionar su imagen de perfil y, después, **Perfil** y la opción  **Registrarme para restablecer la contraseña**.
   >
-  > Si habilita el [registro combinado](concept-registration-mfa-sspr-combined.md), los usuarios pueden registrarse tanto en SSPR como en Azure Multi-Factor Authentication al mismo tiempo.
+  > Si habilita el [registro combinado](concept-registration-mfa-sspr-combined.md), los usuarios pueden registrarse tanto en SSPR como en Multi-Factor Authentication de Azure AD al mismo tiempo.
 * **P:  Si habilito el restablecimiento de contraseña de un grupo y decido habilitarla para todo el mundo, ¿deben volver a registrarse mis usuarios?**
 
   > **R:** No. No es necesario que los usuarios cuyos datos de autenticación estén rellenados vuelvan a registrarse.

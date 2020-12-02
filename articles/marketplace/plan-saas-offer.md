@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/30/2020
-ms.openlocfilehash: 5a646f7f42a2af8dcf15f7b7b2cd700e159fe88d
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: 9034757539a3dfd8b5e43e97ec518479da396456
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94734402"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94917552"
 ---
 # <a name="how-to-plan-a-saas-offer-for-the-commercial-marketplace"></a>Planeamiento de una oferta de SaaS en el marketplace comercial
 
@@ -104,7 +104,26 @@ Puede agregar o modificar una conexión CRM en cualquier momento durante o despu
 
 ## <a name="selecting-an-online-store"></a>Selección de una tienda en línea
 
-Al publicar una oferta de SaaS, se mostrará en Microsoft AppSource, Azure Marketplace o ambos. Cada tienda en línea atiende los requisitos únicos de cada cliente. AppSource es para soluciones empresariales y Azure Marketplace para soluciones de TI. El tipo de oferta, las funcionalidades de transacción y la categoría determinarán dónde se publicará la oferta. Las categorías y subcategorías se asignan a cada tienda en línea en función del tipo de solución. Para obtener información detallada acerca de cómo enumerar las opciones que admiten las tiendas en línea, consulte [Opciones de lista y precios de las tiendas en línea](determine-your-listing-type.md#listing-and-pricing-options-by-online-store). Para obtener más información sobre categorías y subcategorías, consulte [Categorías y subcategorías en Marketplace comercial](categories.md).
+Al publicar una oferta de SaaS, se mostrará en Microsoft AppSource, Azure Marketplace o ambos. Cada tienda en línea atiende los requisitos únicos de cada cliente. AppSource es para soluciones empresariales y Azure Marketplace para soluciones de TI. El tipo de oferta, las funcionalidades de transacción y la categoría determinarán dónde se publicará la oferta. Las categorías y subcategorías se asignan a cada tienda en línea en función del tipo de solución. 
+
+Si la oferta de SaaS se encuentra en *ambas* categorías; es decir, es una solución de TI (Azure Marketplace) y una solución empresarial (AppSource), seleccione una categoría y una subcategoría aplicable a cada tienda en línea. Las ofertas publicadas en ambas tiendas en línea deben tener una propuesta de valor como solución de TI *y* como solución empresarial.
+
+> [!IMPORTANT]
+> Las ofertas de SaaS con [facturación medida](partner-center-portal/saas-metered-billing.md) están disponibles a través de Azure Marketplace y Azure Portal. Las ofertas de SaaS con planes privados exclusivamente están disponibles en Azure Portal.
+
+| Facturación de uso medido | Plan público | Plan privado | Disponible en: |
+|---|---|---|---|
+| Sí             | Sí         | No           | Azure Marketplace y Azure Portal |
+| Sí             | Sí         | Sí          | Azure Marketplace y Azure Portal* |
+| Sí             | No          | Sí          | Azure Portal solamente |
+| No              | No          | Sí          | Azure Portal solamente |
+|||||
+
+&#42; El plan privado de la oferta solo estará disponible en Azure Portal.
+
+Por ejemplo, una oferta con facturación de uso medido y un plan privado solo (ningún plan público) lo comprarán los clientes en Azure Portal. Obtenga más información sobre [Ofertas privadas en el marketplace comercial de Microsoft](private-offers.md).
+
+Para obtener información detallada acerca de cómo enumerar las opciones que admiten las tiendas en línea, consulte [Opciones de lista y precios de las tiendas en línea](determine-your-listing-type.md#listing-and-pricing-options-by-online-store). Para obtener más información sobre categorías y subcategorías, consulte [Categorías y subcategorías en Marketplace comercial](categories.md).
 
 ## <a name="legal-contracts"></a>Contratos legales
 

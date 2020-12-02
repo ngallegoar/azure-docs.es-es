@@ -10,12 +10,12 @@ ms.topic: troubleshooting
 ms.date: 08/13/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: c1b51792c86cfce15fa718040dfcbcc13997ee26
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 87ea77540e5fcaac0c4231403473d25ebae46aac
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85384964"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94840260"
 ---
 # <a name="troubleshoot-azure-ad-b2c-custom-policies-and-identity-experience-framework"></a>Solución de problemas de directivas personalizadas de Azure AD B2C y el marco de experiencia de identidad
 
@@ -64,7 +64,7 @@ Entre los errores de validación habituales se incluyen los que se indican a con
 
 * Use [Fiddler](https://www.telerik.com/fiddler) para realizar un seguimiento del intercambio de mensajes entre su explorador cliente y Azure AD B2C. Puede ayudarle a detectar un error en el recorrido del usuario en los pasos de la orquestación.
 
-* Use [Application Insights](troubleshoot-with-application-insights.md) en **modo de desarrollo** para realizar un seguimiento de la actividad de su recorrido del usuario en el marco de experiencia de identidad. En el **modo de desarrollo**, es posible observar el intercambio de notificaciones entre Identity Experience Framework y los diversos proveedores de notificaciones definidos por perfiles técnicos, como proveedores de identidades, servicios de basados en API, el directorio de usuario de Azure AD B2C y otros servicios como Azure Multi-Factor Authentication.
+* Use [Application Insights](troubleshoot-with-application-insights.md) en **modo de desarrollo** para realizar un seguimiento de la actividad de su recorrido del usuario en el marco de experiencia de identidad. En el **modo de desarrollo**, es posible observar el intercambio de notificaciones entre Identity Experience Framework y los diversos proveedores de notificaciones definidos por perfiles técnicos, como proveedores de identidades, servicios de basados en API, el directorio de usuario de Azure AD B2C y otros servicios como Multi-Factor Authentication de Azure AD.
 
 ## <a name="recommended-practices"></a>Procedimientos recomendados
 

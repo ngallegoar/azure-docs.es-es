@@ -2,14 +2,14 @@
 title: Uso de Shared Image Gallery para crear un grupo de imágenes personalizadas
 description: Los grupos de imágenes personalizadas son una manera eficaz de configurar los nodos de proceso para ejecutar las cargas de trabajo de Batch.
 ms.topic: conceptual
-ms.date: 09/15/2020
+ms.date: 11/18/2020
 ms.custom: devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 4a41e8345bdb4c4e8761debe8e6b39f8588f5a8c
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: c24da435540f62a793620fe6005d176ce10c7b05
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92745529"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94917790"
 ---
 # <a name="use-the-shared-image-gallery-to-create-a-custom-image-pool"></a>Uso de Shared Image Gallery para crear un grupo de imágenes personalizadas
 
@@ -40,7 +40,7 @@ El uso de una imagen de Shared Image configurada para su escenario puede proporc
 
 - **Una cuenta de Azure Batch** Para crear una cuenta de Batch, consulte las guías de inicio rápido de Batch con [Azure Portal](quick-create-portal.md) o la [CLI de Azure](quick-create-cli.md).
 
-- **Una imagen de Shared Image Gallery** . Para crear una imagen de Shared Image Gallery, debe tener o crear un recurso de imagen administrada. La imagen debe crearse desde instantáneas del disco del sistema operativo de la máquina virtual y, opcionalmente, de sus discos de datos conectados.
+- **Una imagen de Shared Image Gallery**. Para crear una imagen de Shared Image Gallery, debe tener o crear un recurso de imagen administrada. La imagen debe crearse desde instantáneas del disco del sistema operativo de la máquina virtual y, opcionalmente, de sus discos de datos conectados.
 
 > [!NOTE]
 > Si la imagen compartida no está en la misma suscripción que la cuenta de Batch, debe [registrar el proveedor de recursos Microsoft.Batch](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider) para esa suscripción. Las dos suscripciones deben estar en el mismo inquilino de Azure AD.
@@ -73,6 +73,7 @@ Si va a crear una máquina virtual para la imagen, use una imagen propia de Azur
 - No instale extensiones de Azure, como la extensión de script personalizado, en la máquina virtual. Si la imagen contiene una extensión preinstalada, Azure podría experimentar problemas al implementar el grupo de Batch.
 - Cuando use discos de datos conectados, debe montar y dar formato a los discos desde una máquina virtual para usarlos.
 - Asegúrese de que la imagen del sistema operativo base que proporcione usa la unidad temporal predeterminada. El agente de nodo de Batch actualmente espera la unidad temporal predeterminada.
+- Asegúrese de que el disco del sistema operativo no esté cifrado.
 - Una vez que la máquina virtual está en ejecución, conéctese a ella a través de RDP (para Windows) o SSH (para Linux). Instale el software necesario o copie los datos deseados.  
 
 ### <a name="create-a-vm-snapshot"></a>Creación de una instantánea de máquina virtual
@@ -208,9 +209,9 @@ Use los pasos siguientes para crear un grupo a partir de una imagen compartida e
 1. Abra [Azure Portal](https://portal.azure.com).
 1. Vaya a **Cuentas de Batch** y seleccione su cuenta.
 1. Seleccione **Grupos** y, luego, **Agregar** para crear un grupo.
-1. En la sección **Tipo de imagen** , seleccione **Shared Image Gallery** .
+1. En la sección **Tipo de imagen**, seleccione **Shared Image Gallery**.
 1. Complete el resto de secciones con información sobre la imagen administrada.
-1. Seleccione **Aceptar** .
+1. Seleccione **Aceptar**.
 
 ![Cree un grupo a partir de una imagen compartida con el portal.](media/batch-sig-images/create-custom-pool.png)
 
@@ -218,7 +219,7 @@ Use los pasos siguientes para crear un grupo a partir de una imagen compartida e
 
 Si tiene previsto crear un grupo con cientos o miles de VM o más mediante una imagen de Shared Image, use la siguiente guía.
 
-- **Números de réplicas de Shared Image Gallery.**  Para cada grupo con hasta 600 instancias, se recomienda conservar al menos una réplica. Por ejemplo, si va a crear un grupo con 3000 VM, debe mantener al menos cinco réplicas de la imagen. Siempre se recomienda mantener más réplicas que las indicadas por los requisitos mínimos para un mejor rendimiento.
+- **Números de réplicas de Shared Image Gallery.**  Para cada grupo con hasta 300 instancias, se recomienda conservar al menos una réplica. Por ejemplo, si va a crear un grupo con 3000 VM, debe mantener al menos 10 réplicas de la imagen. Siempre se recomienda mantener más réplicas que las indicadas por los requisitos mínimos para un mejor rendimiento.
 
 - **Tiempo de espera del cambio de tamaño.** Si el grupo contiene un número de nodos fijo (no se escala automáticamente), aumente la propiedad `resizeTimeout` del grupo en función de su tamaño. Por cada 1000 VM, el tiempo de espera del cambio de tamaño recomendado es de al menos 15 minutos. Por ejemplo, el tiempo de espera del cambio de tamaño recomendado para un grupo con 2000 VM es de al menos 30 minutos.
 

@@ -10,12 +10,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/27/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4b3256591c0aa2536fd42bcdbb2ef339fc1d5c48
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 3ceead297ea726e256d806c08c22810b39296793
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93356814"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94917178"
 ---
 # <a name="how-to-use-azuresearchdocuments-in-a-c-net-application"></a>Uso de Azure.Search.Documents en una aplicación de .NET con C#
 
@@ -231,6 +231,22 @@ private static void WriteDocuments(SearchResults<Hotel> searchResults)
 }
 ```
 
+Un enfoque alternativo consiste en agregar campos a un índice directamente. En el ejemplo siguiente se muestran solo unos pocos campos.
+
+   ```csharp
+    SearchIndex index = new SearchIndex(indexName)
+    {
+        Fields =
+            {
+                new SimpleField("hotelId", SearchFieldDataType.String) { IsKey = true, IsFilterable = true, IsSortable = true },
+                new SearchableField("hotelName") { IsFilterable = true, IsSortable = true },
+                new SearchableField("hotelCategory") { IsFilterable = true, IsSortable = true },
+                new SimpleField("baseRate", SearchFieldDataType.Int32) { IsFilterable = true, IsSortable = true },
+                new SimpleField("lastRenovationDate", SearchFieldDataType.DateTimeOffset) { IsFilterable = true, IsSortable = true }
+            }
+    };
+   ```
+
 ### <a name="field-definitions"></a>Definiciones de campo
 
 El modelo de datos de .NET y su esquema de índice correspondiente deben dar cabida a la experiencia de búsqueda que quiera proporcionar al usuario final. Cada objeto de nivel superior en .NET, como un documento de búsqueda en un índice de búsqueda, corresponde a un resultado de búsqueda que aparecería en la interfaz de usuario. Por ejemplo, en una aplicación de búsqueda de alojamiento, puede que los usuarios finales quieran realizar búsquedas por nombre de hotel, por las características del hotel o por las características de una habitación determinada. 
@@ -436,7 +452,7 @@ UploadDocuments(searchClient);
 
 ## <a name="run-queries"></a>Ejecutar consultas
 
-En primer lugar, configure un `SearchClient` que lea el punto de conexión de búsqueda y la clave de API de consulta de **appsettings.json** :
+En primer lugar, configure un `SearchClient` que lea el punto de conexión de búsqueda y la clave de API de consulta de **appsettings.json**:
 
 ```csharp
 private static SearchClient CreateSearchClientForQueries(string indexName, IConfigurationRoot configuration)

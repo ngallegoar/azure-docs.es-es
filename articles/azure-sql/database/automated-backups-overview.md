@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: shkale-msft
 ms.author: shkale
 ms.reviewer: mathoma, stevestein, danil
-ms.date: 10/30/2020
-ms.openlocfilehash: a97e39314b4dc15a360a01408f183a3f9a19c76f
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.date: 11/18/2020
+ms.openlocfilehash: c6754e6f0e3f0d6208bd34c96c8bc473429c943c
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93131367"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94917909"
 ---
 # <a name="automated-backups---azure-sql-database--sql-managed-instance"></a>Copias de seguridad automatizadas - Azure SQL Database e Instancia administrada de SQL
 
@@ -36,9 +36,9 @@ Cuando una base de datos se restaura, el servicio averigua qué copia de segurid
 
 ### <a name="backup-storage-redundancy"></a>Redundancia del almacenamiento de copia de seguridad
 
-De forma predeterminada, SQL Database y SQL Managed Instance almacenan datos en [blobs de almacenamiento](../../storage/common/storage-redundancy.md) de redundancia geográfica (RA-GRS) que se replican en una [región emparejada](../../best-practices-availability-paired-regions.md). Esto ayuda a proteger frente a interrupciones que afectan al almacenamiento de copia de seguridad en la región primaria y permiten restaurar el servidor en una región diferente en caso de desastre. 
+De forma predeterminada, SQL Database y SQL Managed Instance almacenan datos en [blobs de almacenamiento](../../storage/common/storage-redundancy.md) de redundancia geográfica que se replican en una [región emparejada](../../best-practices-availability-paired-regions.md). Esto ayuda a proteger frente a interrupciones que afectan al almacenamiento de copia de seguridad en la región primaria y permiten restaurar el servidor en una región diferente en caso de desastre. 
 
-La opción de configurar la redundancia del almacenamiento de copia de seguridad ofrece la flexibilidad de elegir entre blobs de almacenamiento con redundancia local, con redundancia de zona o con redundancia geográfica para las instancias de SQL Managed Instance o SQL Database. Para asegurarse de que los datos permanecen dentro de la misma región donde se implementa la instancia administrada o la base de datos SQL, puede cambiar la opción predeterminada de almacenamiento con redundancia geográfica y configurar blobs de almacenamiento con redundancia local (LRS) o con redundancia de zona (ZRS) para las copias de seguridad. Los mecanismos de redundancia de Storage almacenan varias copias de los datos, con el fin de protegerlos de eventos planeados y no planeados, como errores transitorios del hardware, interrupciones del suministro eléctrico o cortes de la red, y desastres naturales masivos. La redundancia de copia de seguridad establecida se aplica a la configuración de retención de la copia de seguridad a corto plazo que se usa para la restauración a un momento dado (PITR) y la configuración de retención a largo plazo que se usa para copias de seguridad a largo plazo (LTR). 
+La opción de configurar la redundancia del almacenamiento de copia de seguridad ofrece la flexibilidad de elegir entre blobs de almacenamiento con redundancia local, con redundancia de zona o con redundancia geográfica para las instancias de SQL Managed Instance o SQL Database. Para asegurarse de que los datos permanecen dentro de la misma región donde se implementa la instancia administrada o la base de datos SQL, puede cambiar la opción predeterminada de almacenamiento de copia de seguridad con redundancia geográfica y configurar blobs de almacenamiento con redundancia local o con redundancia de zona para las copias de seguridad. Los mecanismos de redundancia de Storage almacenan varias copias de los datos, con el fin de protegerlos de eventos planeados y no planeados, como errores transitorios del hardware, interrupciones del suministro eléctrico o cortes de la red, y desastres naturales masivos. La redundancia de copia de seguridad establecida se aplica a la configuración de retención de la copia de seguridad a corto plazo que se usa para la restauración a un momento dado (PITR) y la configuración de retención a largo plazo que se usa para copias de seguridad a largo plazo (LTR). 
 
 En el caso de una instancia de SQL Database, la redundancia del almacenamiento de copia de seguridad se puede configurar al crear la base de datos o se puede actualizar para una base de datos existente; los cambios realizados en una base de datos existente solo se aplican a las copias de seguridad futuras. Una vez actualizada la redundancia del almacenamiento de copia de seguridad de una base de datos existente, los cambios pueden tardar hasta 48 horas en aplicarse. Tenga en cuenta que la restauración geográfica se deshabilita en cuanto se actualiza una base de datos para usar almacenamiento con redundancia local o de zona. 
 
@@ -179,9 +179,9 @@ Puede supervisar el consumo total de almacenamiento de copia de seguridad para c
 ### <a name="backup-storage-redundancy"></a>Redundancia del almacenamiento de copia de seguridad
 
 La redundancia del almacenamiento de copia de seguridad afecta a los costos de copia de seguridad de la siguiente manera:
-- Precio LRS = x
-- Precio ZRS = 1,25x
-- Precio RA-GRS = 2x
+- precio con redundancia local = x
+- precio con redundancia de zona = 1,25x
+- precio con redundancia geográfica = 2x
 
 Para más información sobre los precios de almacenamiento de copia de seguridad, visite la página de [Precios de Azure SQL Database](https://azure.microsoft.com/pricing/details/sql-database/single/) y la página de [Precios de Azure SQL Managed Instance](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/).
 
@@ -373,7 +373,7 @@ Para más información, consulte [API REST de retención de Backup](/rest/api/sq
 > [!NOTE]
 > La redundancia de almacenamiento configurable para copias de seguridad de SQL Managed Instance solo se puede especificar durante el proceso de creación de la instancia administrada. Una vez que se ha aprovisionado el recurso, no se puede cambiar la opción de redundancia del almacenamiento de copia de seguridad. En el caso de SQL Database, la versión preliminar pública de esta característica está disponible de momento en la región Sur de Brasil y con carácter general en la región Sudeste de Asia de Azure. 
 
-La redundancia del almacenamiento de copia de seguridad de una instancia administrada se puede configurar solo durante la creación de la instancia. En el caso de SQL Database se puede establecer al crear la base de datos o se puede actualizar para una base de datos existente. El valor predeterminado es Almacenamiento con redundancia geográfica (RA-GRS). Para conocer las diferencias de precios entre el almacenamiento de copia de seguridad con redundancia local (LRS), con redundancia de zona (ZRS) y con redundancia geográfica (RA-GRS), visite la [página de precios de Azure SQL Managed Instance](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/).
+La redundancia del almacenamiento de copia de seguridad de una instancia administrada se puede configurar solo durante la creación de la instancia. En el caso de SQL Database se puede establecer al crear la base de datos o se puede actualizar para una base de datos existente. El valor predeterminado es el almacenamiento con redundancia geográfica. Para conocer las diferencias de precios entre el almacenamiento de copia de seguridad con redundancia local, con redundancia de zona y con redundancia geográfica, visite la [página de precios de Azure SQL Managed Instance](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/).
 
 ### <a name="configure-backup-storage-redundancy-by-using-the-azure-portal"></a>Configuración de la redundancia del almacenamiento de copia de seguridad mediante Azure Portal
 
@@ -384,7 +384,7 @@ En Azure Portal, puede configurar la redundancia del almacenamiento de copia de 
 
 #### <a name="sql-managed-instance"></a>[Instancia administrada de SQL](#tab/managed-instance)
 
-En Azure Portal, la opción para cambiar la redundancia del almacenamiento de copia de seguridad se encuentra en la hoja **Proceso y almacenamiento** , a la que se puede tener acceso desde la opción **Configurar instancia administrada** de la pestaña **Datos básicos** al crear la instancia de SQL Managed Instance.
+En Azure Portal, la opción para cambiar la redundancia del almacenamiento de copia de seguridad se encuentra en la hoja **Proceso y almacenamiento**, a la que se puede tener acceso desde la opción **Configurar instancia administrada** de la pestaña **Datos básicos** al crear la instancia de SQL Managed Instance.
 ![Abrir hoja de configuración Proceso y almacenamiento](./media/automated-backups-overview/open-configuration-blade-managedinstance.png)
 
 Busque la opción para seleccionar la redundancia del almacenamiento de copia de seguridad en la hoja **Proceso y almacenamiento**.

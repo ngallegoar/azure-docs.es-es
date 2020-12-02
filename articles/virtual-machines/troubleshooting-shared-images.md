@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 10/27/2020
 ms.author: olayemio
 ms.reviewer: cynthn
-ms.openlocfilehash: b77132a12475a66c099f5d38c04e8b58f7b839a7
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: d15f58a2d87483e8e2fd6711481bfe8866ca1548
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94504856"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94920617"
 ---
 # <a name="troubleshoot-shared-image-galleries-in-azure"></a>Solución de problemas de las galerías de imágenes compartidas de Azure
 
@@ -70,14 +70,14 @@ Si tiene problemas al realizar cualquier operación en galerías de imágenes co
 **Causa**: El nombre <imageDefinitionName\> termina con un punto o un guion bajo.  
 **Solución alternativa**: Elija un nombre para la definición de imagen que cumpla las condiciones siguientes: 
 - Tiene un límite de 80 caracteres.
-- Contiene solo letras del alfabeto inglés, números, caracteres de subrayado y puntos.
+- Contiene solo letras del alfabeto inglés, números, caracteres de subrayado, guiones y puntos.
 - Comienza y termina con letras o números en inglés.
 
 *El nombre de entidad <imageDefinitionName\> no es válido de acuerdo con su regla de validación: ^[^\_\\W][\\w-.\_]{0,79}(?<![-.])$"* .  
 **Causa**: El nombre <imageDefinitionName\> termina con un punto o un guion bajo.  
 **Solución alternativa**: Elija un nombre para la definición de imagen que cumpla las condiciones siguientes: 
 - Tiene un límite de 80 caracteres.
-- Contiene solo letras del alfabeto inglés, números, caracteres de subrayado y puntos.
+- Contiene solo letras del alfabeto inglés, números, caracteres de subrayado, guiones y puntos.
 - Comienza y termina con letras o números en inglés.
 
 *El nombre del recurso galleryImage.properties.identifier.<property\> no es válido. No puede estar vacío. Los caracteres permitidos son letras mayúsculas o minúsculas, números, guiones (-), puntos (.), guiones bajos (\_). No se permite que los nombres finalicen con un punto (.). La longitud del nombre no puede superar <number\> caracteres.* .  

@@ -6,12 +6,12 @@ ms.author: ambhatna
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/21/2020
-ms.openlocfilehash: c85624d9eced3130a1c7b99943095688beee62bd
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: ff197f8add65782a594d64661ffecdaced4598c2
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93417595"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94919631"
 ---
 # <a name="planned-maintenance-notification-in-azure-database-for-mysql---single-server"></a>Notificación de mantenimiento planeado en Azure Database for MySQL: servidor único
 
@@ -78,7 +78,7 @@ Un error transitorio es un error que se solucionará automáticamente. Durante e
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para cualquier pregunta o sugerencia que pueda tener con respecto al uso de Azure Database for MySQL, envíe un correo electrónico al equipo de Azure Database for MySQL en *AskAzureDBforMySQL@service.microsoft.com* .
+- Para cualquier pregunta o sugerencia que pueda tener con respecto al uso de Azure Database for MySQL, envíe un correo electrónico al equipo de Azure Database for MySQL en AskAzureDBforMySQL@service.microsoft.com.
 - Consulte [How to set up alerts](howto-alert-on-metric.md) (Configuración de alertas) para obtener instrucciones sobre cómo crear una alerta en una métrica.
 - [Solución de problemas de conexión a Azure Database for MySQL: servidor único](howto-troubleshoot-common-connection-issues.md)
 - [Control de los errores transitorios y conexión eficaz a Azure Database for MySQL: servidor único](concepts-connectivity.md)

@@ -14,12 +14,12 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-js
-ms.openlocfilehash: d32f39daeb66990d99915e8bbcca5dd637d4f914
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c6ea238edd68413646dda59b22d1c0dc2557d57e
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91296270"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94916838"
 ---
 # <a name="connect-to-media-services-v3-api---nodejs"></a>Conexión a la API de Media Services v3: Node.js
 
@@ -40,6 +40,8 @@ En este artículo se muestra cómo conectar con el SDK de node.js de Azure Medi
 1. Cree un archivo package.json con el editor que prefiera.
 1. Abra el archivo y pegue el siguiente código:
 
+   Asegúrese de obtener la versión más reciente del [SDK de Azure Media Services para JavaScript](https://www.npmjs.com/package/@azure/arm-mediaservices).
+
 ```json
 {
   "name": "media-services-node-sample",
@@ -47,7 +49,7 @@ En este artículo se muestra cómo conectar con el SDK de node.js de Azure Medi
   "description": "",
   "main": "./index.js",
   "dependencies": {
-    "azure-arm-mediaservices": "^4.1.0",
+    "azure-arm-mediaservices": "^8.0.0",
     "azure-storage": "^2.8.0",
     "ms-rest": "^2.3.3",
     "ms-rest-azure": "^2.5.5"

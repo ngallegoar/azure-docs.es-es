@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 03/09/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, data4ml
-ms.openlocfilehash: 496a38e43c7bd624c42f5c7a43ad9cf16f85d166
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 8c9beaca0fb3ee7881559ffcc955f171bc2ddd7b
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94579579"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94886454"
 ---
 # <a name="version-and-track-datasets-in-experiments"></a>Versión y seguimiento de conjuntos de valores en experimentos
 
@@ -153,7 +153,7 @@ prep_step = PythonScriptStep(script_name="prepare.py",
 
 <a name="track"></a>
 
-## <a name="track-datas-in-your-experiments"></a>Seguimiento de los datos de los experimentos
+## <a name="track-data-in-your-experiments"></a>Seguimiento de los datos de los experimentos
 
 Azure Machine Learning realiza un seguimiento de los datos a lo largo del experimento como conjuntos de datos de entrada y salida.  
 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: a866a225da87c22a3a276a5d59b8e86f1f955cae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 34eeeed2b3c44336cd4aa1219d54b1811c6988f5
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91856201"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94952325"
 ---
 # <a name="compare-storage-options-for-use-with-azure-hdinsight-clusters"></a>Comparación de opciones de almacenamiento para los clústeres de Azure HDInsight
 
@@ -36,6 +36,8 @@ En la tabla siguiente se resumen los servicios de Azure Storage que son compatib
 |Azure Storage| Uso general v1 | Object | Blob | Estándar | N/D | All | All |
 |Azure Storage| Blob Storage** | Object | Blob en bloques | Estándar | Frecuente, esporádico, archivo | All | All |
 |Azure Data Lake Storage Gen1| N/D | Jerárquico (sistema de archivos) | N/D | N/D | N/D | Solo 3.6 | Todos excepto HBase |
+|Azure Storage| Blob en bloques| Object | Blob en bloques | Premium | N/D| 3.6+ | Solo HBase con escrituras aceleradas|
+|Azure Data Lake Storage Gen2| Blob en bloques| Jerárquico (sistema de archivos) | Blob en bloques | Premium | N/D| 3.6+ | Solo HBase con escrituras aceleradas|
 
 **Para los clústeres de HDInsight, solo las cuentas de almacenamiento secundarias pueden ser de tipo BlobStorage; Blob en páginas no es una opción de almacenamiento admitida.
 

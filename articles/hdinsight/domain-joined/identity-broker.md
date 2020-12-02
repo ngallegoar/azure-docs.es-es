@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 11/03/2020
-ms.openlocfilehash: df4faf367951402914abb03285498e0da6f3105f
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 9a2bda0a526c307ae17d8415f6f24423ddf51b63
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93337683"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94917773"
 ---
 # <a name="azure-hdinsight-id-broker-hib"></a>Agente de identidad de Azure HDInsight (HIB)
 
@@ -137,6 +137,25 @@ curl -k -v -H "Authorization: Bearer Access_TOKEN" -H "Content-Type: application
 ``` 
 
 Para utilizar Beeline y Livy, también puede seguir los códigos de ejemplo proporcionados [aquí](https://github.com/Azure-Samples/hdinsight-enterprise-security/tree/main/HIB/HIBSamples) a fin de configurar el cliente para que use OAuth y se conecte al clúster.
+
+## <a name="faq"></a>Preguntas más frecuentes
+### <a name="what-app-is-created-by-hdinsight-in-aad"></a>¿Qué aplicación crea HDInsight en AAD?
+Para cada clúster, se registrará una aplicación de terceros en AAD con el URI del clúster como identifierUri (por ejemplo, https://clustername.azurehdinsight.net ).
+
+### <a name="why-are-users-prompted-for-consent-before-using-hib-enabled-clusters"></a>¿Por qué se solicita consentimiento a los usuarios antes de usar los clústeres habilitados para HIB?
+En AAD, se requiere consentimiento para todas las aplicaciones de terceros a fin de que estas puedan autenticar a los usuarios o acceder a los datos.
+
+### <a name="can-the-consent-be-approved-programatically"></a>¿Se puede aprobar el consentimiento mediante programación?
+La API de Microsoft Graph le permite automatizar el consentimiento, consulte la [documentación de la API](https://docs.microsoft.com/graph/api/resources/oauth2permissiongrant?view=graph-rest-1.0). La secuencia para automatizar el consentimiento es la siguiente:
+
+* Registre una aplicación y conceda permisos Application.ReadWrite.All a la aplicación para acceder a Microsoft Graph.
+* Una vez creado un clúster, consulte la aplicación de clúster basada en el URI del identificador.
+* Registre el consentimiento para la aplicación.
+
+Cuando se elimina el clúster, HDInsight elimina la aplicación y no es necesario borrar ningún consentimiento.
+
+ 
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

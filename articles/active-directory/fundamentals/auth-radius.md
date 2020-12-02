@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 155b359c109de948ab9b9d6862ef7507ee76f619
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 7ec8062eb864c877b0f3659ca2dd8f103e935071
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94576819"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836791"
 ---
 # <a name="radius-authentication-with-azure-active-directory"></a>Autenticación RADIUS con Azure Active Directory
 
@@ -26,7 +26,7 @@ El Servicio de autenticación remota telefónica de usuario (RADIUS) es un prot
 
 Microsoft Windows Server tiene un rol denominado Servidor de directivas de redes (NPS), que puede actuar como servidor RADIUS y admitir la autenticación RADIUS.
 
-Azure Active Directory (Azure AD) permite la autenticación multifactor con sistemas basados en RADIUS. Si un cliente quiere aplicar Azure Multi-Factor Authentication a cualquiera de las cargas de trabajo de RADIUS mencionadas anteriormente, puede instalar la extensión NPS de Azure Multi-Factor Authentication en su servidor NPS de Windows. 
+Azure Active Directory (Azure AD) permite la autenticación multifactor con sistemas basados en RADIUS. Si un cliente quiere aplicar Multi-Factor Authentication de Azure AD a cualquiera de las cargas de trabajo de RADIUS mencionadas anteriormente, puede instalar la extensión NPS de Multi-Factor Authentication de Azure AD en su servidor NPS de Windows. 
 
 El servidor NPS de Windows autentica las credenciales de un usuario frente a Active Directory y, a continuación, envía la solicitud de Multi-Factor Authentication a Azure. A continuación, el usuario recibe un desafío en su autenticador móvil. Una vez que se resuelve correctamente, se permite que la aplicación cliente se conecte al servicio. 
 
@@ -40,7 +40,7 @@ Debe agregar Multi-Factor Authentication a aplicaciones como:
 * Cualquier otra que dependa del protocolo RADIUS para autenticar a los usuarios en el servicio. 
 
 > [!NOTE]
-> En lugar de depender de RADIUS y la extensión NPS de Azure Multi-Factor Authentication para aplicar Azure Multi-Factor Authentication a las cargas de trabajo de VPN, se recomienda actualizar la VPN a SAML y federar directamente la VPN con Azure AD. Esto proporciona a la VPN el amplio espectro de protección de Azure AD, como el acceso condicional, Multi-Factor Authentication, el cumplimiento de los dispositivos y Identity Protection.
+> En lugar de depender de RADIUS y la extensión NPS de Multi-Factor Authentication de Azure AD para aplicar Multi-Factor Authentication de Azure AD a las cargas de trabajo de VPN, se recomienda actualizar la VPN a SAML y federar directamente la VPN con Azure AD. Esto proporciona a la VPN el amplio espectro de protección de Azure AD, como el acceso condicional, Multi-Factor Authentication, el cumplimiento de los dispositivos y Identity Protection.
 
 ![Diagrama de arquitectura](./media/authentication-patterns/radius-auth.png)
 
@@ -51,19 +51,19 @@ Debe agregar Multi-Factor Authentication a aplicaciones como:
 
 * **Cliente RADIUS**: Convierte las solicitudes de la aplicación cliente y las envía al servidor RADIUS que tiene instalada la extensión NPS.
 
-* **Servidor RADIUS**: Se conecta con Active Directory para realizar la autenticación principal de la solicitud RADIUS. Cuando se completa correctamente, pasa la solicitud a la extensión NPS de Azure Multi-Factor Authentication.
+* **Servidor RADIUS**: Se conecta con Active Directory para realizar la autenticación principal de la solicitud RADIUS. Cuando se completa correctamente, pasa la solicitud a la extensión NPS de Multi-Factor Authentication de Azure AD.
 
-* **Extensión NPS**: Desencadena una solicitud para Azure Multi-Factor Authentication para la autenticación secundaria. Si se realiza correctamente, la extensión NPS completa la solicitud de autenticación al entregar al servidor RADIUS los tokens de seguridad que incluyen la notificación de Multi-Factor Authentication, emitida por el servicio de token de seguridad de Azure.
+* **Extensión NPS**: desencadena una solicitud para Multi-Factor Authentication de Azure AD para la autenticación secundaria. Si se realiza correctamente, la extensión NPS completa la solicitud de autenticación al entregar al servidor RADIUS los tokens de seguridad que incluyen la notificación de Multi-Factor Authentication, emitida por el servicio de token de seguridad de Azure.
 
-* **Azure Multi-Factor Authentication**: Se comunica con Azure AD para recuperar los detalles del usuario y realiza la autenticación secundaria con un método de comprobación configurado para el usuario.
+* **Multi-Factor Authentication de Azure AD**: Se comunica con Azure AD para recuperar los detalles del usuario y realiza la autenticación secundaria con un método de comprobación configurado para el usuario.
 
 ## <a name="implement-radius-with-azure-ad"></a>Implementación de RADIUS con Azure AD 
 
-* [Entrega de funcionalidades de Azure Multi-Factor Authentication mediante NPS](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-nps-extension) 
+* [Entrega de funcionalidades de Multi-Factor Authentication de Azure AD mediante NPS](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-nps-extension) 
 
-* [Configuración de la extensión NPS de Azure Multi-Factor Authentication](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-nps-extension-advanced) 
+* [Configuración de la extensión NPS de Multi-Factor Authentication de Azure AD](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-nps-extension-advanced) 
 
-* [VPN con Azure Multi-Factor Authentication mediante la extensión NPS](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-nps-extension-vpn) 
+* [VPN con Multi-Factor Authentication de Azure AD mediante la extensión NPS](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-nps-extension-vpn) 
 
   
 ‎ 

@@ -11,12 +11,12 @@ ms.date: 10/12/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: e1e300f2e18d7103cde374c5eba6877602ac3721
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: dbfeefc14059785ba82cbf245a60e5e72759db76
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91961228"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94840413"
 ---
 # <a name="web-sign-in-with-openid-connect-in-azure-active-directory-b2c"></a>Inicio de sesión web con OpenID Connect en Azure Active Directory B2C
 
@@ -124,7 +124,7 @@ También hay otras validaciones que deberá llevar a cabo. Las validaciones se d
 
 - Asegurarse de que la organización o el usuario se han registrado en la aplicación.
 - Asegurarse de que el usuario tiene la autorización o los privilegios adecuados.
-- Asegurarse de que se haya producido un determinado nivel de autenticación, como Azure Multi-Factor Authentication.
+- Asegurarse de que se haya producido un determinado nivel de autenticación, como Multi-Factor Authentication de Azure AD.
 
 Cuando haya validado el token de identificador, podrá iniciar una sesión con el usuario. Puede usar las notificaciones del token de identificador para obtener información sobre el usuario en la aplicación. Entre los usos de esta información se incluye la visualización, los registros y la autorización.
 

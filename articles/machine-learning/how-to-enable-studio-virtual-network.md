@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 10/21/2020
 ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: 7cdd70a44a090b03a3f11626805565469c7c04e7
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: df4d777ad78240b3ca84c51152b37861c4ccc486
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94554672"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94960009"
 ---
 # <a name="use-azure-machine-learning-studio-in-an-azure-virtual-network"></a>Habilitación de Azure Machine Learning Studio en una Azure Virtual Network
 
@@ -90,7 +90,7 @@ Azure Machine Learning usa [almacenes de datos](concept-data.md#datastores) para
 1. En la configuración del almacén de datos, seleccione __Sí__ para __Permitir que Azure Machine Learning Service acceda al almacenamiento mediante la identidad administrada del área de trabajo__.
 
 
-En estos pasos se agrega la identidad administrada del área de trabajo como __Lector__ al servicio de almacenamiento mediante el control de acceso basado en recursos de Azure (RBAC de Azure). El acceso __Lector__ permite que el área de trabajo recupere la configuración del firewall y se asegura de que los datos no salgan de la red virtual.
+En estos pasos se agrega la identidad administrada del área de trabajo como __Lector__ al servicio de almacenamiento mediante el control de acceso basado en roles de Azure (Azure RBAC). El acceso __Lector__ permite que el área de trabajo recupere la configuración del firewall y se asegura de que los datos no salgan de la red virtual.
 
 > [!NOTE]
 > Estos cambios pueden tardar hasta 10 minutos en surtir efecto.

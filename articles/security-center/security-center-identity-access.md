@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/08/2020
 ms.author: memildin
-ms.openlocfilehash: 575c139a3b417eb9429695d3ea6be26bf5625de5
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 12e5a6db7257678b3d4d14d7583a1a30da0d3a87
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371076"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967149"
 ---
 # <a name="monitor-identity-and-access"></a>Supervisión de la identidad y el acceso
 
@@ -30,9 +30,9 @@ Con la supervisión de las actividades y la configuración relacionada con la id
 
 Azure Security Center tiene dos controles de seguridad dedicados para asegurarse de que cumple los requisitos de identidad y seguridad de la organización: 
 
- - **Administración del acceso y los permisos** : le recomendamos que adopte el [modelo de acceso con privilegios mínimos](/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models) y que se asegure de conceder a los usuarios solo el acceso necesario para que puedan realizar sus tareas. Este control también incluye recomendaciones para implementar el [control de acceso basado en roles (RBAC)](../role-based-access-control/overview.md) para controlar el acceso a los recursos.
+ - **Administración del acceso y los permisos**: le recomendamos que adopte el [modelo de acceso con privilegios mínimos](/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models) y que se asegure de conceder a los usuarios solo el acceso necesario para que puedan realizar sus tareas. Este control también incluye recomendaciones para implementar el [control de acceso basado en roles de Azure (Azure RBAC)](../role-based-access-control/overview.md) para controlar el acceso a los recursos.
  
- - **Habilitación de MFA** : con [MFA](https://www.microsoft.com/security/business/identity/mfa) habilitada, las cuentas son más seguras y los usuarios podrán seguir autenticándose en casi cualquier aplicación con inicio de sesión único.
+ - **Habilitación de MFA**: con [MFA](https://www.microsoft.com/security/business/identity/mfa) habilitada, las cuentas son más seguras y los usuarios podrán seguir autenticándose en casi cualquier aplicación con inicio de sesión único.
 
 ### <a name="example-recommendations-for-identity-and-access"></a>Ejemplos de recomendaciones de identidad y acceso
 
@@ -52,7 +52,7 @@ Existen algunas limitaciones para las protecciones de acceso e identidad de Secu
 
 - Las recomendaciones de identidad no están disponibles para las suscripciones con más de 600 cuentas. En tales casos, estas recomendaciones se enumerarán en "evaluaciones no disponibles".
 - Las recomendaciones de identidad no están disponibles para los agentes de administración del asociado del Proveedor de soluciones en la nube (CSP).
-- Las recomendaciones de identidad no identifican las cuentas que se administran con un sistema de Privileged Identity Management (PIM). Si usa una herramienta de PIM, puede ver resultados inexactos en el control **Administrar el acceso y los permisos** .
+- Las recomendaciones de identidad no identifican las cuentas que se administran con un sistema de Privileged Identity Management (PIM). Si usa una herramienta de PIM, puede ver resultados inexactos en el control **Administrar el acceso y los permisos**.
 
 ## <a name="multi-factor-authentication-mfa-and-azure-active-directory"></a>Multi-Factor Authentication (MFA) y Azure Active Directory 
 
@@ -65,11 +65,11 @@ Habilitar MFA requiere [permisos de inquilino de Azure Active Directory (AD)](..
 
 Para ver qué cuentas no tienen MFA habilitado, use la siguiente consulta de Azure Resource Graph. La consulta devuelve todas los recursos (cuentas) incorrectos de la recomendación "MFA debe estar habilitado en las cuentas con permisos de propietario en la suscripción". 
 
-1. Abra **Azure Resource Graph Explorer** .
+1. Abra **Azure Resource Graph Explorer**.
 
     :::image type="content" source="./media/security-center-identity-access/opening-resource-graph-explorer.png" alt-text="Inicio de la página de recomendaciones de Azure Resource Graph Explorer**" :::
 
-1. Escriba la siguiente consulta y seleccione **Ejecutar consulta** .
+1. Escriba la siguiente consulta y seleccione **Ejecutar consulta**.
 
     ```kusto
     securityresources

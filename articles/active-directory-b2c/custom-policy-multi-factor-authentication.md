@@ -11,16 +11,16 @@ ms.date: 10/15/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e328caa80a0e63f68f2563bc91a6405341ad064e
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 39d23313f9d00ef48f64327dd10356a91b9d13b7
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92102075"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94951900"
 ---
 # <a name="enable-multi-factor-authentication-in-azure-active-directory-b2c"></a>Habilitación de la autenticación multifactor en Azure Active Directory B2C
 
-Azure Active Directory B2C (Azure AD B2C) se integra directamente con [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md) de forma que puede agregar una segunda capa de seguridad a las experiencias de registro e inicio de sesión en las aplicaciones. La autenticación multifactor se habilita sin necesidad de escribir una sola línea de código. Aunque haya creado flujos de usuario de registro e inicio de sesión, puede habilitar la autenticación multifactor.
+Azure Active Directory B2C (Azure AD B2C) se integra directamente con [Azure AD Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md) de forma que puede agregar una segunda capa de seguridad a las experiencias de registro e inicio de sesión en las aplicaciones. La autenticación multifactor se habilita sin necesidad de escribir una sola línea de código. Aunque haya creado flujos de usuario de registro e inicio de sesión, puede habilitar la autenticación multifactor.
 
 Esta característica ayuda a las aplicaciones a tratar escenarios como los siguientes:
 
@@ -31,16 +31,13 @@ Esta característica ayuda a las aplicaciones a tratar escenarios como los sigui
 
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com)
 1. Use el filtro **Directorio y suscripción** del menú superior para seleccionar el directorio que contiene el inquilino de Azure AD B2C.
-1. En el menú de la izquierda, seleccione **Azure AD B2C** . O bien, seleccione **Todos los servicios** y busque y seleccione **Azure AD B2C** .
-1. Seleccione **Flujos de usuario** .
-1. Seleccione el flujo de usuario para el que quiere habilitar MFA. Por ejemplo, *B2C_1_signinsignup* .
-1. Seleccione **Propiedades** .
-1. En la sección **Autenticación multifactor** , seleccione el valor de **MFA method** (Método de MFA) deseado y, a continuación, en **MFA enforcement** (Aplicación de MFA), seleccione **Always On** o **[Condicional](conditional-access-user-flow.md) (recomendado)** . Para Condicional, cree una [directiva de acceso condicional](conditional-access-identity-protection-setup.md) y especifique las aplicaciones a las que desea que se aplique. 
+1. En el menú de la izquierda, seleccione **Azure AD B2C**. O bien, seleccione **Todos los servicios** y busque y seleccione **Azure AD B2C**.
+1. Seleccione **Flujos de usuario**.
+1. Seleccione el flujo de usuario para el que quiere habilitar MFA. Por ejemplo, *B2C_1_signinsignup*.
+1. Seleccione **Propiedades**.
+1. En la sección **Autenticación multifactor**, seleccione el valor de **MFA method** (Método de MFA) deseado y, a continuación, en **MFA enforcement** (Aplicación de MFA), seleccione **Always On** o **[Condicional](conditional-access-user-flow.md) (recomendado)** . Para Condicional, cree una [directiva de acceso condicional](conditional-access-identity-protection-setup.md) y especifique las aplicaciones a las que desea que se aplique. 
 1. Seleccione Guardar. MFA ahora está habilitado para este flujo de usuario.
 
 Puede usar **Ejecutar flujo de usuario** para comprobar la experiencia. Considere el siguiente escenario:
 
 Se crea una cuenta de cliente en el inquilino antes de que se produzca el paso de autenticación multifactor. Durante el paso, se pide al cliente que proporcione un número de teléfono y que lo compruebe. Si la comprobación es satisfactoria, el número de teléfono se asocia a la cuenta para usarlo más adelante. Incluso si el cliente cancela o abandona, se le puede pedir que compruebe de nuevo un número de teléfono durante el siguiente inicio de sesión con la autenticación multifactor habilitada.
-
-
-

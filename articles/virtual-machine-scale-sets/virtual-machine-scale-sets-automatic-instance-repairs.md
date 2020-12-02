@@ -9,12 +9,12 @@ ms.subservice: availability
 ms.date: 02/28/2020
 ms.reviewer: jushiman
 ms.custom: avverma, devx-track-azurecli
-ms.openlocfilehash: 383895f2cb5983abd68bfca67d2c8361ee094ea1
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: ae508754775d4eb622d8e91ef58eb0d6e1c45692
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92744847"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94889021"
 ---
 # <a name="automatic-instance-repairs-for-azure-virtual-machine-scale-sets"></a>Reparaciones automáticas de instancias para conjuntos de escalado de máquinas virtuales de Azure
 
@@ -36,9 +36,9 @@ Antes de habilitar la directiva de reparaciones automáticas de instancias, aseg
 
 En el caso de las instancias marcadas con el estado "Incorrecto", el conjunto de escalado desencadena las reparaciones automáticas. Asegúrese de que el punto de conexión de la aplicación está configurado correctamente antes de habilitar la directiva de reparaciones automáticas para evitar reparaciones de instancias no intencionadas mientras se configura el punto de conexión.
 
-**Habilitación del grupo de selección de ubicación único**
+**Número máximo de instancias del conjunto de escalado**
 
-Esta característica solo está disponible para conjuntos de escalado implementados como grupo de selección de ubicación único. La propiedad *singlePlacementGroup* debe establecerse en *true* para que el conjunto de escalado use la característica de reparaciones automáticas de instancias. Más información acerca de los [grupos de selección de ubicación](./virtual-machine-scale-sets-placement-groups.md#placement-groups).
+Esta característica solo está disponible para conjuntos de escalado que tienen 200 instancias como máximo. El conjunto de escalado se puede implementar como un solo grupo de selección de ubicación o un grupo de varias ubicaciones; sin embargo, el recuento de instancias no puede ser superior a 200 si está habilitada la reparación automática de instancias para el conjunto de escalado.
 
 **Versión de API**
 
@@ -54,7 +54,7 @@ Esta característica no se admite actualmente para los conjuntos de escalado de 
 
 ## <a name="how-do-automatic-instance-repairs-work"></a>¿Cómo funciona la reparación automática de instancias?
 
-La característica de reparación automática de instancias se basa en la supervisión del estado de las instancias individuales de un conjunto de escalado. Las instancias de máquina virtual de un conjunto de escalado se pueden configurar para emitir el estado de mantenimiento de la aplicación mediante la [extensión de estado de aplicación](./virtual-machine-scale-sets-health-extension.md) o los [sondeos de estado del equilibrador de carga](../load-balancer/load-balancer-custom-probe-overview.md). Si una instancia se encuentra en un estado incorrecto, el conjunto de escalado realiza la acción de reparación eliminando la instancia incorrecta y creando una nueva para reemplazarla. El modelo de conjunto de escalado de máquinas virtuales más reciente se usa para crear la nueva instancia. Esta característica se puede habilitar en el modelo de conjunto de escalado de máquinas virtuales mediante el objeto *automaticRepairsPolicy* .
+La característica de reparación automática de instancias se basa en la supervisión del estado de las instancias individuales de un conjunto de escalado. Las instancias de máquina virtual de un conjunto de escalado se pueden configurar para emitir el estado de mantenimiento de la aplicación mediante la [extensión de estado de aplicación](./virtual-machine-scale-sets-health-extension.md) o los [sondeos de estado del equilibrador de carga](../load-balancer/load-balancer-custom-probe-overview.md). Si una instancia se encuentra en un estado incorrecto, el conjunto de escalado realiza la acción de reparación eliminando la instancia incorrecta y creando una nueva para reemplazarla. El modelo de conjunto de escalado de máquinas virtuales más reciente se usa para crear la nueva instancia. Esta característica se puede habilitar en el modelo de conjunto de escalado de máquinas virtuales mediante el objeto *automaticRepairsPolicy*.
 
 ### <a name="batching"></a>Lotes
 
@@ -62,13 +62,13 @@ Las operaciones de reparaciones automáticas de instancias se realizan en lotes.
 
 ### <a name="grace-period"></a>Período de gracia
 
-Cuando una instancia pasa por una operación de cambio de estado debido a una acción PUT, PATCH o POST realizada en el conjunto de escalado (por ejemplo, restablecimiento de la imagen, reimplementación, actualización, etc.), se realiza cualquier acción de reparación en esa instancia solo después de esperar el período de gracia. El período de gracia es la cantidad de tiempo que se permite que la instancia vuelva al estado correcto. El período de gracia se inicia después de que se haya completado el cambio de estado. Esto ayuda a evitar cualquier operación de reparación prematura o accidental. El período de gracia se respeta para cualquier instancia recién creada en el conjunto de escalado (incluido el creado como resultado de la operación de reparación). El período de gracia se especifica en minutos en formato ISO 8601 y se puede establecer mediante la propiedad *automaticRepairsPolicy.gracePeriod* . El período de gracia puede oscilar entre 30 minutos y 90 minutos, y tiene un valor predeterminado de 30 minutos.
+Cuando una instancia pasa por una operación de cambio de estado debido a una acción PUT, PATCH o POST realizada en el conjunto de escalado (por ejemplo, restablecimiento de la imagen, reimplementación, actualización, etc.), se realiza cualquier acción de reparación en esa instancia solo después de esperar el período de gracia. El período de gracia es la cantidad de tiempo que se permite que la instancia vuelva al estado correcto. El período de gracia se inicia después de que se haya completado el cambio de estado. Esto ayuda a evitar cualquier operación de reparación prematura o accidental. El período de gracia se respeta para cualquier instancia recién creada en el conjunto de escalado (incluido el creado como resultado de la operación de reparación). El período de gracia se especifica en minutos en formato ISO 8601 y se puede establecer mediante la propiedad *automaticRepairsPolicy.gracePeriod*. El período de gracia puede oscilar entre 30 minutos y 90 minutos, y tiene un valor predeterminado de 30 minutos.
 
 ### <a name="suspension-of-repairs"></a>Suspensión de reparaciones 
 
-Los conjuntos de escalado de máquinas virtuales proporcionan la capacidad de suspender temporalmente la reparación automática de instancias si es necesario. El parámetro *serviceState* para las reparaciones automáticas en la propiedad *orchestrationServices* en la vista de instancias del conjunto de escalado de máquinas virtuales muestra el estado actual de las reparaciones automáticas. Cuando un conjunto de escalado participa en reparaciones automáticas, el valor del parámetro *serviceState* se establece en *Running* . Cuando se suspenden las reparaciones automáticas para un conjunto de escalado, el parámetro *serviceState* se establece en *Suspended* . Si se define *automaticRepairsPolicy* en un conjunto de escalado, pero la característica de reparaciones automática no está habilitada, el parámetro *serviceState* se establece en *Not Running* .
+Los conjuntos de escalado de máquinas virtuales proporcionan la capacidad de suspender temporalmente la reparación automática de instancias si es necesario. El parámetro *serviceState* para las reparaciones automáticas en la propiedad *orchestrationServices* en la vista de instancias del conjunto de escalado de máquinas virtuales muestra el estado actual de las reparaciones automáticas. Cuando un conjunto de escalado participa en reparaciones automáticas, el valor del parámetro *serviceState* se establece en *Running*. Cuando se suspenden las reparaciones automáticas para un conjunto de escalado, el parámetro *serviceState* se establece en *Suspended*. Si se define *automaticRepairsPolicy* en un conjunto de escalado, pero la característica de reparaciones automática no está habilitada, el parámetro *serviceState* se establece en *Not Running*.
 
-Si las instancias que se acaban de crear para reemplazar a las que tienen un estado incorrecto en un conjunto de escalado siguen siendo incorrectas incluso después de realizar varias veces las operaciones de reparación, como medida de seguridad, la plataforma actualiza el parámetro *serviceState* para las reparaciones automáticas a *Suspended* . Puede reanudar de nuevo las reparaciones automáticas si establece el valor de *serviceState* para las reparaciones automáticas en *Running* . En la sección sobre [visualización y actualización del estado del servicio de la directiva de reparaciones automáticas](#viewing-and-updating-the-service-state-of-automatic-instance-repairs-policy) encontrará instrucciones detalladas para su conjunto de escalado. 
+Si las instancias que se acaban de crear para reemplazar a las que tienen un estado incorrecto en un conjunto de escalado siguen siendo incorrectas incluso después de realizar varias veces las operaciones de reparación, como medida de seguridad, la plataforma actualiza el parámetro *serviceState* para las reparaciones automáticas a *Suspended*. Puede reanudar de nuevo las reparaciones automáticas si establece el valor de *serviceState* para las reparaciones automáticas en *Running*. En la sección sobre [visualización y actualización del estado del servicio de la directiva de reparaciones automáticas](#viewing-and-updating-the-service-state-of-automatic-instance-repairs-policy) encontrará instrucciones detalladas para su conjunto de escalado. 
 
 El proceso de reparaciones automáticas de instancias funciona de la siguiente manera:
 
@@ -80,7 +80,7 @@ El proceso de reparaciones automáticas de instancias funciona de la siguiente m
 
 ## <a name="instance-protection-and-automatic-repairs"></a>Protección de instancias y reparaciones automáticas
 
-Si una instancia de un conjunto de escalado está protegida por la aplicación de una de las [directivas de protección](./virtual-machine-scale-sets-instance-protection.md), las reparaciones automáticas no se realizan en esa instancia. Esto se aplica a ambas directivas de protección: *Proteger de la reducción horizontal* y *Proteger frente a acciones del conjunto de escalado* . 
+Si una instancia de un conjunto de escalado está protegida por la aplicación de una de las [directivas de protección](./virtual-machine-scale-sets-instance-protection.md), las reparaciones automáticas no se realizan en esa instancia. Esto se aplica a ambas directivas de protección: *Proteger de la reducción horizontal* y *Proteger frente a acciones del conjunto de escalado*. 
 
 ## <a name="terminatenotificationandautomaticrepairs"></a>Notificación de finalización y reparaciones automáticas
 
@@ -96,15 +96,15 @@ También puede usar esta [plantilla de inicio rápido](https://github.com/Azure/
  
 Los pasos siguientes permiten habilitar la directiva de reparaciones automáticas al crear un nuevo conjunto de escalado.
  
-1. Vaya a **Conjuntos de escalado de máquinas virtuales** .
+1. Vaya a **Conjuntos de escalado de máquinas virtuales**.
 1. Seleccione **+ Agregar** para crear un nuevo conjunto de escalado.
-1. Vaya a la pestaña **Mantenimiento** . 
-1. Busque la sección **Mantenimiento** .
-1. Habilite la opción **Supervisar el mantenimiento de la aplicación** .
-1. Busque la sección **Directiva de reparación automática** .
-1. **Active** la opción **Reparación automática** .
+1. Vaya a la pestaña **Mantenimiento**. 
+1. Busque la sección **Mantenimiento**.
+1. Habilite la opción **Supervisar el mantenimiento de la aplicación**.
+1. Busque la sección **Directiva de reparación automática**.
+1. **Active** la opción **Reparación automática**.
 1. En **Período de gracia (min)** , especifique el período de gracia en minutos; los valores permitidos están comprendidos entre 30 y 90 minutos. 
-1. Cuando haya terminado de crear el nuevo conjunto de escalado, seleccione el botón **Revisar y crear** .
+1. Cuando haya terminado de crear el nuevo conjunto de escalado, seleccione el botón **Revisar y crear**.
 
 ### <a name="rest-api"></a>API DE REST
 
@@ -156,7 +156,7 @@ az vmss create \
   --automatic-repairs-grace-period 30
 ```
 
-En el ejemplo anterior se usa un equilibrador de carga y un sondeo de mantenimiento existentes para supervisar el estado de mantenimiento de las aplicaciones en las instancias. Si, en su lugar, prefiere usar una extensión de estado de aplicación para la supervisión, puede crear un conjunto de escalado, configurar la extensión de estado de aplicación y, a continuación, habilitar la directiva de reparaciones automáticas de instancias mediante *az vmss update* , como se explica en la sección siguiente.
+En el ejemplo anterior se usa un equilibrador de carga y un sondeo de mantenimiento existentes para supervisar el estado de mantenimiento de las aplicaciones en las instancias. Si, en su lugar, prefiere usar una extensión de estado de aplicación para la supervisión, puede crear un conjunto de escalado, configurar la extensión de estado de aplicación y, a continuación, habilitar la directiva de reparaciones automáticas de instancias mediante *az vmss update*, como se explica en la sección siguiente.
 
 ## <a name="enabling-automatic-repairs-policy-when-updating-an-existing-scale-set"></a>Habilitación de la directiva de reparaciones automáticas al actualizar un conjunto de escalado existente
 
@@ -169,12 +169,12 @@ Después de actualizar el modelo de un conjunto de escalado existente, asegúres
 Puede modificar la directiva de reparaciones automáticas de un conjunto de escalado existente a través de Azure Portal. 
  
 1. Vaya a un conjunto de escalado de máquinas virtuales existente.
-1. En **Configuración** en el menú de la izquierda, seleccione **Mantenimiento y reparación** .
-1. Habilite la opción **Supervisar el mantenimiento de la aplicación** .
-1. Busque la sección **Directiva de reparación automática** .
-1. **Active** la opción **Reparación automática** .
+1. En **Configuración** en el menú de la izquierda, seleccione **Mantenimiento y reparación**.
+1. Habilite la opción **Supervisar el mantenimiento de la aplicación**.
+1. Busque la sección **Directiva de reparación automática**.
+1. **Active** la opción **Reparación automática**.
 1. En **Período de gracia (min)** , especifique el período de gracia en minutos; los valores permitidos están comprendidos entre 30 y 90 minutos. 
-1. Cuando finalice, seleccione **Guardar** . 
+1. Cuando finalice, seleccione **Guardar**. 
 
 ### <a name="rest-api"></a>API DE REST
 
@@ -223,7 +223,7 @@ az vmss update \
 
 ### <a name="rest-api"></a>API DE REST 
 
-Use [Get Instance View](/rest/api/compute/virtualmachinescalesets/getinstanceview) con la API versión 2019-12-01 o superior para conjuntos de escalado de máquinas virtuales para ver el parámetro *serviceState* para las reparaciones automáticas en la propiedad *orchestrationServices* . 
+Use [Get Instance View](/rest/api/compute/virtualmachinescalesets/getinstanceview) con la API versión 2019-12-01 o superior para conjuntos de escalado de máquinas virtuales para ver el parámetro *serviceState* para las reparaciones automáticas en la propiedad *orchestrationServices*. 
 
 ```http
 GET '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/instanceView?api-version=2019-12-01'
@@ -303,13 +303,13 @@ Set-AzVmssOrchestrationServiceState `
 
 Si recibe un error de "BadRequest" con un mensaje que indica que "No se pudo encontrar el miembro 'automaticRepairsPolicy' en el objeto de tipo 'properties'", compruebe la versión de la API usada para el conjunto de escalado de máquinas virtuales. Se requiere la versión 2018-10-01 de la API o una posterior para esta característica.
 
-**La instancia no se repara incluso cuando la directiva está habilitada** .
+**La instancia no se repara incluso cuando la directiva está habilitada**.
 
 La instancia puede estar en el período de gracia. Esta es la cantidad de tiempo que hay que esperar después de cualquier cambio de estado en la instancia antes de realizar reparaciones. Esto es para evitar reparaciones prematuras o accidentales. La acción de reparar debe realizarse una vez completado el período de gracia de la instancia.
 
 **Visualización del estado de mantenimiento de la aplicación para instancias del conjunto de escalado**
 
-Puede usar [Get Instance View API](/rest/api/compute/virtualmachinescalesetvms/getinstanceview) para las instancias de un conjunto de escalado de máquinas virtuales para ver el estado de mantenimiento de la aplicación. Con Azure PowerShell, puede usar el cmdlet [Get-AzVmssVM](/powershell/module/az.compute/get-azvmssvm) con la marca *-InstanceView* . El estado de mantenimiento de la aplicación se proporciona en la propiedad *vmHealth* .
+Puede usar [Get Instance View API](/rest/api/compute/virtualmachinescalesetvms/getinstanceview) para las instancias de un conjunto de escalado de máquinas virtuales para ver el estado de mantenimiento de la aplicación. Con Azure PowerShell, puede usar el cmdlet [Get-AzVmssVM](/powershell/module/az.compute/get-azvmssvm) con la marca *-InstanceView*. El estado de mantenimiento de la aplicación se proporciona en la propiedad *vmHealth*.
 
 En Azure Portal, también puede ver el estado de mantenimiento. Vaya a un conjunto de escalado existente, seleccione **Instancias** en el menú de la izquierda y examine la columna **Estado de mantenimiento** para ver el estado de mantenimiento de cada instancia del conjunto de escalado. 
 

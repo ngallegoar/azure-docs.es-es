@@ -12,17 +12,18 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 02/11/2019
-ms.openlocfilehash: 41f3505388e72fba15277067a94cf4e473008f20
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: fab52fcea03a2f65c868cfac27f8a8cef115b2be
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790430"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94917654"
 ---
 # <a name="sql-server-database-migration-to-azure-sql-database"></a>Migración de una base de datos de SQL Server a Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-En este artículo se describen los principales métodos para migrar una base de datos de SQL Server 2005 o posterior a Azure SQL Database. Para información sobre cómo migrar a Azure SQL Managed Instance, consulte [Migración de una instancia de SQL Server a Azure SQL Managed Instance](../managed-instance/migrate-to-instance-from-sql-server.md). Para obtener información sobre la migración desde otras plataformas, vea [Guía de Azure Database Migration](https://datamigration.microsoft.com/).
+En este artículo se describen los principales métodos para migrar una base de datos de SQL Server 2005 o posterior a Azure SQL Database. Para información sobre cómo migrar a Azure SQL Managed Instance, consulte [Migración de una instancia de SQL Server a Azure SQL Managed Instance](../migration-guides/managed-instance/sql-server-to-managed-instance-overview.md). Para obtener instrucciones sobre cómo elegir las opciones de migración y las herramientas que se van a migrar a Azure SQL, consulte [Migración a Azure SQL](../migration-guides/index.yml).
+
 
 ## <a name="migrate-to-a-single-database-or-a-pooled-database"></a>Migración a una base de datos única o a una base de datos agrupada
 

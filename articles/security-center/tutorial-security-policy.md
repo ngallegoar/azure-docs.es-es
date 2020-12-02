@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 5aa6906f7f06e109342d81db6171773a68642e0c
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 76695d4d8dbc3e3a6b04b89b8f34e41b83a92963
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92342287"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965194"
 ---
 # <a name="working-with-security-policies"></a>Uso de directivas de seguridad
 
@@ -46,7 +46,7 @@ Para ver las directivas de seguridad de Security Center:
 
 1. En el panel de **Security Center**, seleccione **Directiva de seguridad**.
 
-    :::image type="content" source="./media/security-center-policies/security-center-policy-mgt.png" alt-text="Página Administración de directivas&quot;:::
+    :::image type="content" source="./media/security-center-policies/security-center-policy-mgt.png" alt-text="Página Administración de directivas":::
 
    En la pantalla **Administración de directivas**, puede ver el número de grupos de administración, suscripciones y áreas de trabajo, así como la estructura del grupo de administración.
 
@@ -57,7 +57,7 @@ Para ver las directivas de seguridad de Security Center:
    ![página de directiva](./media/tutorial-security-policy/security-policy-page.png)
 
     > [!NOTE]
-    > Si hay una etiqueta &quot;MG Inherited" junto a la directiva predeterminada, significa que la directiva se ha asignado a un grupo de administración y que la ha heredado la suscripción que está viendo.
+    > Si hay una etiqueta "MG Inherited" junto a la directiva predeterminada, significa que la directiva se ha asignado a un grupo de administración y que la ha heredado la suscripción que está viendo.
 
 
 1. Elija entre las opciones disponibles en esta página:
@@ -68,18 +68,7 @@ Para ver las directivas de seguridad de Security Center:
 
     1. Para ver y editar la directiva predeterminada, seleccione **Ver directivas vigentes** y continúe tal como se describe a continuación. 
 
-        :::image type="content" source="./media/security-center-policies/policy-screen.png" alt-text="Página Administración de directivas&quot;:::
-
-   En la pantalla **Administración de directivas**, puede ver el número de grupos de administración, suscripciones y áreas de trabajo, así como la estructura del grupo de administración.
-
-1. Seleccione el grupo de administración o la suscripción cuyas directivas desea ver.
-
-1. Aparecerá la página de directiva de seguridad de la suscripción o el grupo de administración. Esta muestra las directivas disponibles y asignadas.
-
-   ![página de directiva](./media/tutorial-security-policy/security-policy-page.png)
-
-    > [!NOTE]
-    > Si hay una etiqueta &quot;MG Inherited":::
+        :::image type="content" source="./media/security-center-policies/policy-screen.png" alt-text="Pantalla Directiva efectiva":::
 
        La pantalla de **directiva de seguridad** refleja las acciones que realizaron las directivas asignadas en el grupo de administración o la suscripción que seleccionó.
        
@@ -97,7 +86,7 @@ Para ver las directivas de seguridad de Security Center:
 
 Puede editar directivas de seguridad mediante el portal de Azure Policy, la API REST o con Windows PowerShell.
 
-Security Center usa el control de acceso basado en rol (RBAC), que proporciona roles integrados que puede asignar a usuarios, grupos y servicios de Azure. Cuando un usuario abre Security Center, solo ve la información relacionada con los recursos a los que puede tener acceso. Esto significa que a los usuarios se les asigna el rol de *propietario*, *colaborador* o *lector* para la suscripción del recurso. También hay dos roles de Security Center específicos:
+Security Center usa el control de acceso basado en roles de Azure (Azure RBAC), que proporciona roles integrados que puede asignar a usuarios, grupos y servicios de Azure. Cuando un usuario abre Security Center, solo ve la información relacionada con los recursos a los que puede tener acceso. Esto significa que a los usuarios se les asigna el rol de *propietario*, *colaborador* o *lector* para la suscripción del recurso. También hay dos roles de Security Center específicos:
 
 - **Lector de seguridad**: tiene derechos para ver elementos de Security Center como recomendaciones, alertas, directiva y estado. No se pueden realizar cambios.
 - **Administrador de seguridad**: tiene los mismos derechos de visualización que el *lector de seguridad*. También se puede actualizar la directiva de seguridad y descartar alertas.
@@ -120,7 +109,7 @@ Para más información sobre las recomendaciones, consulte [Administración de l
    > [!NOTE]
    > Recuerde que un grupo de administración aplica sus directivas a sus suscripciones. Por lo tanto, si deshabilita la directiva de una suscripción y la suscripción pertenece a un grupo de administración que todavía usa la misma directiva, seguirá recibiendo las recomendaciones de la directiva. La directiva se seguirá aplicando desde el nivel de administración y las recomendaciones se seguirán generando.
 
-1. Seleccione**Ver directiva efectiva**.
+1. Seleccione **Ver directiva efectiva**.
 
    ![visualización de directiva](./media/tutorial-security-policy/view-effective-policy.png)
 

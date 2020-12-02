@@ -8,15 +8,15 @@ ms.subservice: core
 ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
-ms.date: 03/05/2020
+ms.date: 11/18/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-azurecli
-ms.openlocfilehash: a9b68b2d4298c5e692782e529bae9a9df6359953
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.openlocfilehash: 97017e104ecff38ebf4e475fb5f6ae42707ef10e
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94331165"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94919597"
 ---
 # <a name="use-tls-to-secure-a-web-service-through-azure-machine-learning"></a>Uso de TLS para proteger un servicio web con Azure Machine Learning
 
@@ -86,6 +86,9 @@ Cuando se implementa en AKS, puede crear un nuevo clúster de AKS o asociar uno 
 - Si se conecta a un clúster existente, se usa **[AksCompute.attach_configuration()](/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py&preserve-view=true#&preserve-view=trueattach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none-)** . Ambos devuelven un objeto de configuración que tiene un método **enable_ssl**.
 
 El método **enable_ssl** puede usar un certificado proporcionado por Microsoft o que adquiera.
+
+> [!WARNING]
+> Si el clúster de AKS se configura con un equilibrador de carga interno, __no se admite__ el uso de un certificado proporcionado por Microsoft. El uso de un certificado proporcionado por Microsoft requiere un recurso de IP pública en Azure, que no está disponible para AKS cuando se configura para el equilibrador de carga interno.
 
   * Cuando se usa un certificado de Microsoft, debe usar el parámetro *leaf_domain_label*. Este parámetro genera el nombre DNS para el servicio. Por ejemplo, el valor "contoso" crea el nombre de dominio "contoso\<six-random-characters>.\<azureregion>.cloudapp.azure.com", donde \<azureregion> es la región que contiene el servicio. Si lo desea, puede usar el parámetro *overwrite_existing_domain* para sobrescribir el *leaf_domain_label* existente.
 
@@ -159,7 +162,8 @@ Después, debe actualizar el DNS para que apunte al servicio web.
 
   > [!WARNING]
   > Si ha usado *leaf_domain_label* para crear el servicio mediante un certificado de Microsoft, no actualice manualmente el valor DNS para el clúster. El valor debe establecerse automáticamente.
-
+  >
+  > Si el clúster de AKS se configura con un equilibrador de carga interno, __no se admite__ el uso de un certificado proporcionado por Microsoft (estableciendo *leaf_domain_label*). El uso de un certificado proporcionado por Microsoft requiere un recurso de IP pública en Azure, que no está disponible para AKS cuando se configura para el equilibrador de carga interno.
   Actualice el DNS de la Dirección IP pública del clúster de AKS en la pestaña **Configuración** debajo de **Configuración** en el panel izquierdo. (Vea la siguiente imagen). La dirección IP pública es uno de los tipos de recurso creados bajo el grupo de recursos que contiene los nodos del agente de AKS y otros recursos de red.
 
   [![Azure Machine Learning: Protección de servicios web con TLS](./media/how-to-secure-web-service/aks-public-ip-address.png)](./media/how-to-secure-web-service/aks-public-ip-address-expanded.png)

@@ -4,15 +4,15 @@ description: Descubra cómo utilizar desencadenadores de temporizador en Azure F
 author: craigshoemaker
 ms.assetid: d2f013d1-f458-42ae-baf8-1810138118ac
 ms.topic: reference
-ms.date: 09/08/2018
+ms.date: 11/18/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 6423ec481c65155b511e398885b4954522bbb376
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: 0d9852659801040d64fe4143f024fd52ffec16ee
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93025908"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94874090"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Desencadenador de temporizador para Azure Functions
 
@@ -56,7 +56,7 @@ public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, ILogger
 
 En el ejemplo siguiente se muestra un enlace de desencadenador de temporizador en un archivo *function.json* y una [función de script de C#](functions-reference-csharp.md) que usa el enlace. La función escribe un registro que indica si esta invocación de función se debe a una repetición de la programación no ejecutada. El objeto [`TimerInfo`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs) se pasa a la función.
 
-Estos son los datos de enlace del archivo *function.json* :
+Estos son los datos de enlace del archivo *function.json*:
 
 ```json
 {
@@ -99,7 +99,7 @@ public void keepAlive(
 
 En el ejemplo siguiente se muestra un enlace de desencadenador de temporizador en un archivo *function.json* y una [función de JavaScript](functions-reference-node.md) que usa el enlace. La función escribe un registro que indica si esta invocación de función se debe a una repetición de la programación no ejecutada. Un [objeto de temporizador](#usage) se pasa a la función.
 
-Estos son los datos de enlace del archivo *function.json* :
+Estos son los datos de enlace del archivo *function.json*:
 
 ```json
 {
@@ -165,7 +165,7 @@ Una instancia del [objeto de temporizador](#usage) se pasa como primer argumento
 
 En el ejemplo siguiente se usa un enlace de desencadenador de temporizador cuya configuración se describe en el archivo *function.json*. La [función de Python](functions-reference-python.md) real que usa el enlace se describe en el archivo *__init__.py*. El objeto pasado a la función es de tipo [azure.functions.TimerRequest](/python/api/azure-functions/azure.functions.timerrequest). La lógica de la función escribe en los registros para indicar si la invocación actual se debe a una repetición de la programación no ejecutada.
 
-Estos son los datos de enlace del archivo *function.json* :
+Estos son los datos de enlace del archivo *function.json*:
 
 ```json
 {
@@ -299,11 +299,11 @@ Cada campo puede tener uno de los siguientes tipos de valores:
 
 |Tipo  |Ejemplo  |Cuándo se desencadena  |
 |---------|---------|---------|
-|Un valor específico |<nobr>"0 5 * * * *"</nobr>|A las hh:05:00, donde hh es cada hora (una vez por hora)|
-|Todos los valores (`*`)|<nobr>"0 * 5 * * *"</nobr>|A las 5:mm: 00 cada día, donde mm es cada minuto de la hora (60 veces al día)|
-|Un intervalo (operador `-`)|<nobr>"5-7 * * * * *"</nobr>|A las hh:mm:05, hh:mm:06 y hh:mm:07, donde hh:mm es cada minuto de cada hora (tres veces por minuto)|
-|Un conjunto de valores (operador `,`)|<nobr>"5,8,10 * * * * *"</nobr>|A las hh:mm:05, hh:mm:08 y hh:mm:10, donde hh:mm es cada minuto de cada hora (tres veces por minuto)|
-|Un valor de intervalo (operador `/`)|<nobr>"0 */5 * * * *"</nobr>|A las hh:00:00,las hh:05:00, las hh:10:00 y así sucesivamente hasta las hh:55:00, donde hh es cada hora (doce veces por hora)|
+|Un valor específico |<nobr>`0 5 * * * *`</nobr>| Una vez cada hora del día en el minuto 5 de cada hora |
+|Todos los valores (`*`)|<nobr>`0 * 5 * * *`</nobr>| En cada minuto de la hora, a partir de la hora 5 |
+|Un intervalo (operador `-`)|<nobr>`5-7 * * * * *`</nobr>| Tres veces en un minuto: en los segundos del 5 al 7 durante cada minuto de cada hora de cada día |
+|Un conjunto de valores (operador `,`)|<nobr>`5,8,10 * * * * *`</nobr>| Tres veces en un minuto: en los segundos 5, 8 y 10 durante cada minuto de cada hora de cada día |
+|Un valor de intervalo (operador `/`)|<nobr>`0 */5 * * * *`</nobr>| 12 veces en una hora: en el segundo 0 de cada quinto minuto de cada hora de cada día |
 
 [!INCLUDE [functions-cron-expressions-months-days](../../includes/functions-cron-expressions-months-days.md)]
 
@@ -311,18 +311,18 @@ Cada campo puede tener uno de los siguientes tipos de valores:
 
 Estos son algunos ejemplos de expresiones NCRONTAB que puede usar para el desencadenador de temporizador en Azure Functions.
 
-|Ejemplo|Cuándo se desencadena  |
-|---------|---------|
-|`"0 */5 * * * *"`|Una vez cada cinco minutos|
-|`"0 0 * * * *"`|Una vez al principio de cada hora|
-|`"0 0 */2 * * *"`|Una vez cada dos horas|
-|`"0 0 9-17 * * *"`|Una vez cada hora de 9 a. m. a 5 p. m.|
-|`"0 30 9 * * *"`|A las 9:30 a. m. todos los días|
-|`"0 30 9 * * 1-5"`|A las 9:30 a. m. cada día de la semana|
-|`"0 30 9 * Jan Mon"`|A las 9:30 a. m. todos los lunes en enero|
+| Ejemplo            | Cuándo se desencadena                     |
+|--------------------|------------------------------------|
+| `0 */5 * * * *`    | Una vez cada cinco minutos            |
+| `0 0 * * * *`      | Una vez al principio de cada hora      |
+| `0 0 */2 * * *`    | Una vez cada dos horas               |
+| `0 0 9-17 * * *`   | Una vez cada hora de 9 a. m. a 5 p. m.  |
+| `0 30 9 * * *`     | A las 9:30 a. m. todos los días               |
+| `0 30 9 * * 1-5`   | A las 9:30 a. m. cada día de la semana           |
+| `0 30 9 * Jan Mon` | A las 9:30 a. m. todos los lunes en enero |
 
 > [!NOTE]
-> La expresión NCRONTAB requiere el formato de **seis campos**. No se admiten expresiones Cron de cinco campos en Azure.
+> La expresión NCRONTAB requiere el formato de **seis campos**. La posición del sexto campo es un valor para los segundos que se coloca al principio de la expresión. No se admiten expresiones Cron de cinco campos en Azure.
 
 ### <a name="ncrontab-time-zones"></a>Zonas horarias de NCRONTAB
 

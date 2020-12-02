@@ -6,12 +6,12 @@ ms.author: ambhatna
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/21/2020
-ms.openlocfilehash: 1ed2929dc5dc79c30f2a9583966e32d81b63ba2e
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 0691411f57944f8203120ec2a6ed19013135458c
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487915"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94920260"
 ---
 # <a name="planned-maintenance-notification-in-azure-database-for-postgresql---single-server"></a>Notificación de mantenimiento planeado en Azure Database for PostgreSQL: servidor único
 
@@ -48,12 +48,12 @@ Puede comprobar la notificación de mantenimiento planeado en Azure Portal, o bi
 
 1. En [Azure Portal](https://portal.azure.com), seleccione **Mantenimiento del servicio**.
 2. Seleccione la pestaña **Mantenimiento planeado**.
-3. Seleccione los valores de **Suscripción** , **Región y **Servicio** para los que quiera comprobar la notificación de mantenimiento planeado. 
+3. Seleccione los valores de **Suscripción**, **Región y **Servicio** para los que quiera comprobar la notificación de mantenimiento planeado. 
    
 ### <a name="to-receive-planned-maintenance-notification"></a>Para recibir una notificación de mantenimiento planeado
 
 1. En el [portal](https://portal.azure.com), seleccione **Estado del servicio**.
-2. En la sección **Alertas** , seleccione **Alertas de estado**.
+2. En la sección **Alertas**, seleccione **Alertas de estado**.
 3. Seleccione **+ Añadir alerta de Service Health** y rellene los campos.
 4. Rellene los campos obligatorios. 
 5. Elija la opción de **Tipo de evento** y elija **Mantenimiento planeado** o **Seleccionar todo**.
@@ -61,7 +61,7 @@ Puede comprobar la notificación de mantenimiento planeado en Azure Portal, o bi
 7. Asegúrese de que Habilitar regla tras la creación esté establecido en Sí.
 8. Seleccione **Crear regla de alertas** para completar la alerta.
 
-Para conocer los pasos detallados sobre cómo crear **alertas de Service Health** , consulte [Creación de alertas del registro de actividad en notificaciones del servicio](../service-health/alerts-activity-log-service-notifications-portal.md).
+Para conocer los pasos detallados sobre cómo crear **alertas de Service Health**, consulte [Creación de alertas del registro de actividad en notificaciones del servicio](../service-health/alerts-activity-log-service-notifications-portal.md).
 
 ## <a name="can-i-cancel-or-postpone-planned-maintenance"></a>¿Se puede cancelar o posponer el mantenimiento planeado?
 
@@ -78,7 +78,7 @@ Un error transitorio es un error que se solucionará automáticamente. Durante e
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para cualquier pregunta o sugerencia que pueda tener con respecto al uso de Azure Database for PostgreSQL, envíe un correo electrónico al equipo de Azure Database for PostgreSQL en *AskAzureDBforMySQL@service.microsoft.com* .
+- Para cualquier pregunta o sugerencia que pueda tener con respecto al uso de Azure Database for PostgreSQL, envíe un correo electrónico al equipo de Azure Database for PostgreSQL en AskAzureDBforPostgreSQL@service.microsoft.com.
 - Consulte [How to set up alerts](howto-alert-on-metric.md) (Configuración de alertas) para obtener instrucciones sobre cómo crear una alerta en una métrica.
 - [Solución de problemas de conexión a Azure Database for PostgreSQL (único servidor)](howto-troubleshoot-common-connection-issues.md)
 - [Control de los errores transitorios y conexión eficaz a Azure Database for PostgreSQL: servidor único](concepts-connectivity.md)

@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 06/25/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: f7d89942ad5209b854b8df486ad3e59a3976edfc
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 6f62675d27310a15c434baba8e3451a3cd81f058
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91259058"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94953532"
 ---
 # <a name="tutorial-for-configuring-typingdna-with-azure-active-directory-b2c"></a>Tutorial para configurar TypingDNA con Azure Active Directory B2C
 
 En este tutorial, aprenderá a integrar una aplicación de pago en línea de ejemplo en Azure Active Directory B2C con la aplicación TypingDNA. Mediante el uso de la aplicación TypingDNA, los clientes de Azure AD B2C pueden cumplir los requisitos para las transacciones de la [Directiva de servicios de pago 2](https://www.typingdna.com/use-cases/sca-strong-customer-authentication) (PSD2) a través de una dinámica de pulsaciones de teclas y la sólida autenticación del cliente. Obtenga más información sobre TypingDNA [aquí](https://www.typingdna.com/).
 
- Azure AD B2C usa las tecnologías de TypingDNA para capturar las características de escritura de los usuarios, y luego grabarlas y analizarlas para familiarizarse con cada autenticación. De este modo se agrega una capa de protección frente a los riesgos de una autenticación y se evalúan los niveles de los mismos. Azure AD B2C puede invocar otros mecanismos para aumentar la confianza de que el usuario es quien dice ser, invocando Azure MFA, forzando la verificación del correo electrónico o cualquier otra lógica personalizada para el escenario.
+ Azure AD B2C usa las tecnologías de TypingDNA para capturar las características de escritura de los usuarios, y luego grabarlas y analizarlas para familiarizarse con cada autenticación. De este modo se agrega una capa de protección frente a los riesgos de una autenticación y se evalúan los niveles de los mismos. Azure AD B2C puede recurrir a otros mecanismos para aumentar la confianza de que el usuario es quien dice ser: invocar MFA de Azure AD, forzar la verificación del correo electrónico o cualquier otra lógica personalizada para el escenario.
 
 >[!NOTE]
 > Esta directiva de ejemplo se basa en el paquete de inicio [SocialAndLocalAccountsWithMfa](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/SocialAndLocalAccountsWithMfa).
@@ -36,7 +36,7 @@ En este tutorial, aprenderá a integrar una aplicación de pago en línea de eje
 
 2. Cuando el usuario envía la página, la biblioteca de TypingDNA procesará las características de la escritura del usuario. Después, inserte la información en un campo de texto oculto que Azure AD B2C ha representado. Este campo se oculta con CSS.  
 
-    El [ejemplo contiene archivos HTML](https://github.com/azure-ad-b2c/partner-integrations/blob/master/samples/TypingDNA/source-code/selfAssertedSignUp.cshtml) con las modificaciones de JavaScript y CSS, y se hace referencia a ellos en las definiciones de contenido de `api.selfasserted.tdnasignin` y `api.selfasserted.tdnasignup`. Consulte [Hospedaje del contenido de la página](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-ui-customization#hosting-the-page-content) para hospedar los archivos HTML.
+    El [ejemplo contiene archivos HTML](https://github.com/azure-ad-b2c/partner-integrations/blob/master/samples/TypingDNA/source-code/selfAssertedSignUp.cshtml) con las modificaciones de JavaScript y CSS, y se hace referencia a ellos en las definiciones de contenido de `api.selfasserted.tdnasignin` y `api.selfasserted.tdnasignup`. Consulte [Hospedaje del contenido de la página](./custom-policy-ui-customization.md#hosting-the-page-content) para hospedar los archivos HTML.
 
 3. Azure AD B2C tiene ahora el patrón de escritura en el contenedor de notificaciones cuando el usuario envía sus credenciales. Debe llamar a una API (suya) para pasar estos datos al punto de conexión de la API de REST de TypingDNA. Esta API se incluye en el [ejemplo (typingDNA-API-Interface)](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/TypingDNA/source-code/TypingDNA-API-Interface).
 4. A continuación, la API de capa intermedia pasa los datos del patrón de escritura a la API de REST de TypingDNA. Al registrarse, se llama al punto de conexión de [comprobar usuario](https://api.typingdna.com/index.html#api-API_Services-GetUser) para confirmar que el usuario no existe y, a continuación, se llama al punto de conexión de [guardar patrón](https://api.typingdna.com/index.html#api-API_Services-saveUserPattern) para guardar el primer patrón de escritura del usuario.
@@ -113,7 +113,7 @@ Estos umbrales deben ajustarse al caso de uso.
 
 - Una vez que la API haya evaluado el elemento `net_score`, debe devolver una notificación booleana a B2C, `promptMFA`.
 
-- La notificación `promptMFA` se usa dentro de una condición previa para ejecutar de forma condicional Azure MFA.
+- La notificación `promptMFA` se usa dentro de una condición previa para ejecutar de forma condicional MFA de Azure AD.
 
 ```xml
 
@@ -160,7 +160,7 @@ Estos umbrales deben ajustarse al caso de uso.
 
 1. Hospede [TypingDNA-API-Interface](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/TypingDNA/source-code/TypingDNA-API-Interface) en el proveedor de hospedaje que prefiera.
 2. Reemplace todas las instancias de `apiKey` y `apiSecret` en la solución [TypingDNA-API-Interface](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/TypingDNA/source-code/TypingDNA-API-Interface) por las credenciales del panel de TypingDNA.
-3. Hospede los archivos HTML en el proveedor que prefiera siguiendo los requisitos de CORS [aquí](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-ui-customization#3-configure-cors)
+3. Hospede los archivos HTML en el proveedor que prefiera siguiendo los requisitos de CORS [aquí](./custom-policy-ui-customization.md#3-configure-cors)
 4. Reemplace los elementos LoadURI de las definiciones de contenido `api.selfasserted.tdnasignup` y `api.selfasserted.tdnasignin` en el archivo `TrustFrameworkExtensions.xml` por el URI de los archivos HTML hospedados, respectivamente.
 5. Cree una clave de directiva B2C en el marco de la experiencia de identidad en la hoja de Azure AD de **Azure Portal**. Use la opción `Generate` y asigne a esta clave el nombre `tdnaHashedId`.
 6. Reemplazo de TenantId en los archivos de directiva
@@ -194,6 +194,6 @@ Estos umbrales deben ajustarse al caso de uso.
 
 Para más información, consulte los artículos siguientes:
 
-- [Directivas personalizadas de AAD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview)
+- [Directivas personalizadas de AAD B2C](./custom-policy-overview.md)
 
-- [Introducción a las directivas personalizadas en AAD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications)
+- [Introducción a las directivas personalizadas en AAD B2C](./custom-policy-get-started.md?tabs=applications)

@@ -3,12 +3,12 @@ title: 'Agente de Microsoft Azure Recovery Services (MARS): Preguntas frecuente
 description: Responde las preguntas habituales acerca de la realización de copias de seguridad de archivos y carpetas con Azure Backup.
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.openlocfilehash: 9fb9e3993d6f56833e43a4d451c0865b7fd732d3
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 1edfaed99e60409774496c5ae75df8be99a8fe1f
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92172513"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94917365"
 ---
 # <a name="frequently-asked-questions---microsoft-azure-recovery-services-mars-agent"></a>Preguntas más frecuentes: agente de Microsoft Azure Recovery Services (MARS)
 
@@ -71,6 +71,10 @@ Sí. El agente de MARS convierte los datos desduplicados en datos normales cuand
 ### <a name="do-i-need-administrator-permissions-to-install-and-configure-the-mars-agent"></a>¿Necesito permisos de administrador para instalar y configurar el agente de MARS?
 
 Sí, la instalación del agente de MARS y la configuración de las copias de seguridad mediante la consola de MARS necesitan que el usuario sea un administrador local del servidor protegido.
+
+### <a name="what-is-the-impact-on-mars-agent-backups-of-transferring-the-vault-subscription-to-a-different-azure-ad-directory"></a>¿Cuál es el impacto en las copias de seguridad del agente de MARS de la transferencia de la suscripción del almacén a un directorio de Azure AD diferente?
+
+El cambio de directorio de Azure AD no afectará a las copias de seguridad del agente de MARS. 
 
 ## <a name="manage-backups"></a>Administración de copias de seguridad
 

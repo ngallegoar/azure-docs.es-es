@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: wachegha
 ms.custom: devx-track-js
-ms.openlocfilehash: 0e90c023fa74711246c2e6e69eb576695e86a457
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: e0af8e0674a15c98fadbedfa42f735d269b3de2b
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93128511"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94920498"
 ---
 # <a name="add-an-api-to-azure-static-web-apps-preview-with-azure-functions"></a>Incorporación de una API en la versión preliminar de Azure Static Web Apps con Azure Functions
 
@@ -33,7 +33,7 @@ Puede agregar API sin servidor a Azure Static Web Apps a través de la integraci
 En los pasos siguientes se muestra cómo crear un nuevo repositorio y clonar los archivos en el equipo.
 
 1. Asegúrese de que ha iniciado sesión en GitHub y, a continuación, vaya a https://github.com/staticwebdev/vanilla-basic/generate para crear un nuevo repositorio.
-1. En el cuadro _Nombre del repositorio_ , escriba **my-vanilla-api**.
+1. En el cuadro _Nombre del repositorio_, escriba **my-vanilla-api**.
 1. Haga clic en **Create repository from template** (Crear repositorio a partir de plantilla).
 
    :::image type="content" source="media/add-api/create-repository.png" alt-text="Creación de un nuevo repositorio a partir de vanilla-basic":::
@@ -51,7 +51,7 @@ Una vez creado el proyecto, copie la dirección URL en el explorador del nuevo r
 
 A continuación, cree un proyecto de Azure Functions como la API de la aplicación. 
 
-1. Dentro del proyecto _my-vanilla-api_ , cree una subcarpeta denominada **api**.
+1. Dentro del proyecto _my-vanilla-api_, cree una subcarpeta denominada **api**.
 1. Presione **F1** para abrir la paleta de comandos.
 1. Escriba **Azure Functions: Crear nuevo proyecto...**
 1. Presione **Entrar**.
@@ -63,10 +63,10 @@ A continuación, cree un proyecto de Azure Functions como la API de la aplicaci�
 
 1. Escriba la siguiente información cuando se le indique:
 
-    - _Seleccione un lenguaje_ : Elija **JavaScript**.
-    - _Seleccione una plantilla para la primera función del proyecto_ : Elija **desencadenador HTTP**.
-    - _Especifique un nombre de función_ : escriba **GetMessage**.
-    - _Nivel de autorización_ : Elija **Anonymous** (anónimo), que permite que cualquiera llame al punto de conexión de la función.
+    - _Seleccione un lenguaje_: Elija **JavaScript**.
+    - _Seleccione una plantilla para la primera función del proyecto_: Elija **desencadenador HTTP**.
+    - _Especifique un nombre de función_: escriba **GetMessage**.
+    - _Nivel de autorización_: Elija **Anonymous** (anónimo), que permite que cualquiera llame al punto de conexión de la función.
         - Para obtener información sobre los niveles de autorización, consulte [Claves de autorización](../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys).
 
 Visual Studio Code genera un proyecto de Azure Functions con una función de desencadenador de HTTP.
@@ -235,7 +235,9 @@ A continuación, agregue la configuración específica de la aplicación.
 1. Seleccione su _organización_ preferida.
 1. Seleccione **my-vanilla-api** del menú desplegable _Repositorio_.
 1. Seleccione **master** en el menú desplegable _Rama_.
-1. Haga clic en el botón **Siguiente: Compilar >** para editar la configuración de compilación.
+1. Seleccione el marco de su elección para la configuración de compilación en la lista desplegable de _valores prestablecidos de compilación_
+
+ > Estos campos reflejarán la estructura de proyecto predeterminada del tipo de aplicación. Cambie los valores para que se adapten a su aplicación.
 
 A continuación, agregue los siguientes detalles de compilación.
 
@@ -245,7 +247,7 @@ A continuación, agregue los siguientes detalles de compilación.
 1. Haga clic en **Revisar + crear**.
 1. Haga clic en el botón **Crear**.
 
-    Una vez que haga clic en el botón _Crear_ , Azure realizará dos acciones. En primer lugar, se crean los servicios en la nube subyacentes para admitir la aplicación. Después, un proceso en segundo plano comienza a compilar e implementar la aplicación.
+    Una vez que haga clic en el botón _Crear_, Azure realizará dos acciones. En primer lugar, se crean los servicios en la nube subyacentes para admitir la aplicación. Después, un proceso en segundo plano comienza a compilar e implementar la aplicación.
 
 1. Haga clic en el botón **Ir al recurso** para acceder a la página _Información general_ de la aplicación web.
 
@@ -265,7 +267,7 @@ Si no quiere conservar esta aplicación para usos adicionales, puede usar los pa
 1. En la barra de búsqueda de la parte superior, escriba **Grupos de recursos**.
 1. Haga clic en **Grupos de recursos**.
 1. Seleccione **myResourceGroup**.
-1. En la página _myResourceGroup_ , asegúrese de que los recursos enumerados sean los que desea eliminar.
+1. En la página _myResourceGroup_, asegúrese de que los recursos enumerados sean los que desea eliminar.
 1. Seleccionar **Eliminar**
 1. Escriba **myResourceGroup** en el cuadro de texto.
 1. Seleccione **Eliminar**.

@@ -11,22 +11,22 @@ ms.date: 05/06/2018
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: b7cc772e2a2e44a72af5e47a794c8b0f36aa9786
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d9bdf7258296b82e65e03f6b8af8021b9a7be0f0
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85387650"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94952478"
 ---
 # <a name="manage-user-data-in-azure-active-directory-b2c"></a>Administración de los datos de usuarios en Azure Active Directory B2C
 
- En este artículo se describe cómo se pueden administrar los datos de usuario en Azure Active Directory B2C (Azure AD B2C) mediante las operaciones proporcionadas por [Microsoft Graph API](https://docs.microsoft.com/graph/use-the-api). La administración de datos de usuario incluye eliminar o exportar datos de registros de auditoría.
+ En este artículo se describe cómo se pueden administrar los datos de usuario en Azure Active Directory B2C (Azure AD B2C) mediante las operaciones proporcionadas por [Microsoft Graph API](/graph/use-the-api). La administración de datos de usuario incluye eliminar o exportar datos de registros de auditoría.
 
 [!INCLUDE [gdpr-intro-sentence.md](../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="delete-user-data"></a>Eliminación de los datos de usuario
 
-Los datos de usuario se almacenan en el directorio de Azure AD B2C y en los registros de auditoría. Todos los datos de auditoría del usuario se conservan durante un período de 7 días en Azure AD B2C. Si quiere eliminar los datos de usuario dentro de esos 7 días, puede usar la operación [Eliminar un usuario](https://docs.microsoft.com/graph/api/user-delete). Se requiere una operación DELETE para cada uno de los inquilinos de Azure AD B2C donde puedan residir los datos.
+Los datos de usuario se almacenan en el directorio de Azure AD B2C y en los registros de auditoría. Todos los datos de auditoría del usuario se conservan durante un período de 7 días en Azure AD B2C. Si quiere eliminar los datos de usuario dentro de esos 7 días, puede usar la operación [Eliminar un usuario](/graph/api/user-delete). Se requiere una operación DELETE para cada uno de los inquilinos de Azure AD B2C donde puedan residir los datos.
 
 A cada usuario en Azure AD B2C se le asigna un identificador de objeto. El identificador de objeto proporciona un identificador inequívoco, que puede usar para eliminar datos de usuario en Azure AD B2C. Según la arquitectura, el identificador de objeto puede ser un identificador de correlación útil a través de otros servicios, como bases de datos de administración de relación con los clientes, finanzas y marketing.
 
@@ -52,7 +52,7 @@ Los datos de usuario de Azure AD B2C están limitados a:
 
 En el siguiente ejemplo de un flujo de datos de exportación, los pasos que se describen como realizados por la aplicación también pueden realizarse mediante un proceso de back-end o por un usuario con un rol de administrador en el directorio:
 
-1. El usuario inicia sesión en la aplicación. Azure AD B2C exige la autenticación con autenticación multifactor de Azure si es necesario.
+1. El usuario inicia sesión en la aplicación. Azure AD B2C exige la autenticación con Azure AD Multi-Factor Authentication si es necesario.
 2. La aplicación usa las credenciales de usuario para llamar a una operación de Microsoft Graph API para recuperar los atributos del usuario. Microsoft Graph API proporciona los datos del atributo en formato JSON. Según el esquema, puede establecer el contenido del token de id. para incluir todos los datos personales sobre un usuario.
 3. La aplicación recupera la actividad de auditoría del usuario. Microsoft Graph API proporciona los datos del evento a la aplicación.
 4. La aplicación agrega los datos y los pone a disposición del usuario.

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/06/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 4362b579b7f01570a2b5fd072bf53ad495797cd8
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: fb91a490083629101470565a630b659c090e071b
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92783783"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843373"
 ---
 # <a name="use-customer-managed-keys-in-azure-key-vault-for-importexport-service"></a>Uso de claves administradas por el cliente en Azure Key Vault para el servicio Import/Export
 
@@ -33,7 +33,7 @@ Antes de comenzar, asegúrese de que:
     - [Creación de un trabajo de importación para archivos](storage-import-export-data-to-files.md).
     - [Creación de un trabajo de exportación para blobs](storage-import-export-data-from-blobs.md).
 
-2. Tiene una instancia existente de Azure Key Vault con una clave en ella, que puede usar para proteger su clave de BitLocker. Para obtener información sobre cómo crear un almacén de claves mediante Azure Portal, consulte [Inicio rápido: Establecimiento y recuperación de un secreto de Azure Key Vault mediante Azure Portal](../../key-vault/secrets/quick-create-portal.md).
+2. Tiene una instancia existente de Azure Key Vault con una clave en ella, que puede usar para proteger su clave de BitLocker. Para obtener información sobre cómo crear un almacén de claves mediante Azure Portal, consulte [Inicio rápido: Creación de una instancia de Azure Key Vault mediante Azure Portal](../../key-vault/general/quick-create-portal.md).
 
     - **Eliminación temporal** y **No purgar** se han establecido en la instancia existente de Key Vault. Estas propiedades no están habilitadas de forma predeterminada. Para habilitar estas propiedades, consulte las secciones **Habilitación de la eliminación temporal** y **Habilitación de la protección de purgas** en cualquiera de los siguientes artículos:
 
@@ -52,7 +52,7 @@ La configuración de la clave administrada por el cliente para el servicio Impor
 
     ![Elección de una opción de cifrado](./media/storage-import-export-encryption-key-portal/encryption-key-1.png)
 
-3. En la hoja **Cifrado** , puede ver y copiar la clave de BitLocker del dispositivo. En **Tipo de cifrado** , puede elegir cómo desea proteger la clave de BitLocker. De forma predeterminada, se usa una clave administrada por Microsoft.
+3. En la hoja **Cifrado**, puede ver y copiar la clave de BitLocker del dispositivo. En **Tipo de cifrado**, puede elegir cómo desea proteger la clave de BitLocker. De forma predeterminada, se usa una clave administrada por Microsoft.
 
     ![Visualización de la clave de BitLocker](./media/storage-import-export-encryption-key-portal/encryption-key-2.png)
 
@@ -60,11 +60,11 @@ La configuración de la clave administrada por el cliente para el servicio Impor
 
     ![Selección de una clave administrada por el cliente](./media/storage-import-export-encryption-key-portal/encryption-key-3.png)
 
-5. En la hoja **Seleccionar clave en Azure Key Vault** , la suscripción se rellena automáticamente. Para **Almacén de claves** , puede seleccionar un almacén de claves existente de la lista desplegable.
+5. En la hoja **Seleccionar clave en Azure Key Vault**, la suscripción se rellena automáticamente. Para **Almacén de claves**, puede seleccionar un almacén de claves existente de la lista desplegable.
 
     ![Selección o creación de una instancia de Azure Key Vault](./media/storage-import-export-encryption-key-portal/encryption-key-4.png)
 
-6. También puede seleccionar **Crear nuevo** para crear un nuevo almacén de claves. En la hoja **Crear el almacén de claves** , escriba el grupo de recursos y el nombre del almacén de claves. Acepte todos los otros valores predeterminados. Seleccione **Revisar + crear**.
+6. También puede seleccionar **Crear nuevo** para crear un nuevo almacén de claves. En la hoja **Crear el almacén de claves**, escriba el grupo de recursos y el nombre del almacén de claves. Acepte todos los otros valores predeterminados. Seleccione **Revisar + crear**.
 
     ![Creación de una nueva instancia de Azure Key Vault](./media/storage-import-export-encryption-key-portal/encryption-key-5.png)
 
@@ -72,7 +72,7 @@ La configuración de la clave administrada por el cliente para el servicio Impor
 
     ![Crear una instancia de Azure Key Vault](./media/storage-import-export-encryption-key-portal/encryption-key-6.png)
 
-8. En la hoja **Seleccionar clave en Azure Key Vault** , puede seleccionar una clave del almacén de claves existente.
+8. En la hoja **Seleccionar clave en Azure Key Vault**, puede seleccionar una clave del almacén de claves existente.
 
 9. Si creó un nuevo almacén de claves, seleccione **Crear nuevo** para crear una clave. El tamaño de la clave RSA puede ser de 2048 o superior.
 
@@ -88,7 +88,7 @@ La configuración de la clave administrada por el cliente para el servicio Impor
 
     ![Nueva clave creada en el almacén de claves](./media/storage-import-export-encryption-key-portal/encryption-key-9.png)
 
-En la hoja **Cifrado** , puede ver el almacén de claves y la clave seleccionados para la clave administrada por el cliente.
+En la hoja **Cifrado**, puede ver el almacén de claves y la clave seleccionados para la clave administrada por el cliente.
 
 > [!IMPORTANT]
 > Solo puede deshabilitar las claves administradas por Microsoft y pasar a claves administradas por el cliente en cualquier fase del trabajo de importación y exportación. Sin embargo, no se puede deshabilitar la clave administrada por el cliente una vez que la ha creado.

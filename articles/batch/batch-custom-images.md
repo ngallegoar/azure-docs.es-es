@@ -2,17 +2,17 @@
 title: Uso de una imagen administrada para crear un grupo de imágenes personalizadas
 description: Cree un grupo de imágenes personalizadas de Batch a partir de una imagen administrada para aprovisionar nodos de ejecución con el software y los datos para su aplicación.
 ms.topic: conceptual
-ms.date: 07/01/2020
-ms.openlocfilehash: 45bf0f8b3cb335b7025ff06189bf6bc4e0a896ad
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/18/2020
+ms.openlocfilehash: 0a357a1d8a22341297f3bee73fb0867fb03f374f
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85851285"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94916583"
 ---
 # <a name="use-a-managed-image-to-create-a-custom-image-pool"></a>Uso de una imagen administrada para crear un grupo de imágenes personalizadas
 
-Para crear un grupo de imágenes personalizadas para las máquinas virtuales (VM) del grupo de Batch, puede usar una imagen administrada para crear una [imagen de Shared Image Gallery](batch-sig-images.md). También se admite el uso de una imagen administrada, pero solo para las versiones de API hasta el 1 de agosto de 2019 inclusive. 
+Para crear un grupo de imágenes personalizadas para las máquinas virtuales (VM) del grupo de Batch, puede usar una imagen administrada para crear una [imagen de Shared Image Gallery](batch-sig-images.md). También se admite el uso de una imagen administrada, pero solo para las versiones de API hasta el 1 de agosto de 2019 inclusive.
 
 > [!IMPORTANT]
 > En la mayoría de los casos, debe crear imágenes personalizadas mediante Shared Image Gallery. Con Shared Image Gallery, puede aprovisionar grupos más rápido, escalar cantidades más grandes de VM y mejorar la confiabilidad al aprovisionar las VM. Para más información, consulte [Uso de Shared Image Gallery para crear un grupo personalizado](batch-sig-images.md).
@@ -49,6 +49,7 @@ Si va a crear una máquina virtual para la imagen, use una imagen propia de Azur
 - No instale extensiones de Azure, como la extensión de script personalizado, en la máquina virtual. Si la imagen contiene una extensión preinstalada, Azure podría experimentar problemas al implementar el grupo de Batch.
 - Cuando use discos de datos conectados, debe montar y dar formato a los discos desde una máquina virtual para usarlos.
 - Asegúrese de que la imagen del sistema operativo base que proporcione usa la unidad temporal predeterminada. El agente de nodo de Batch actualmente espera la unidad temporal predeterminada.
+- Asegúrese de que el disco del sistema operativo no esté cifrado.
 - Una vez que la máquina virtual está en ejecución, conéctese a ella a través de RDP (para Windows) o SSH (para Linux). Instale el software necesario o copie los datos deseados.  
 
 ### <a name="create-a-vm-snapshot"></a>Creación de una instantánea de máquina virtual

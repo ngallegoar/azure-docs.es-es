@@ -11,17 +11,17 @@ author: bonova
 ms.author: bonova
 ms.reviewer: ''
 ms.date: 07/11/2019
-ms.openlocfilehash: 7e7775f289e0221862d11c585ae85a5b0bc6cc27
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 2761b97e595f5e11b00e75cd778ee269b12bfcae
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92788557"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94917807"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-managed-instance"></a>Migración de una instancia de SQL Server a Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-En este artículo se describen los métodos para migrar una instancia de SQL Server 2005 o versiones posteriores a [Instancia administrada de Azure SQL](sql-managed-instance-paas-overview.md). Para obtener información sobre cómo migrar a una base de datos única o a un grupo elástico, consulte [Migración a SQL Database](../database/migrate-to-database-from-sql-server.md). Para obtener información sobre la migración desde otras plataformas, vea [Guía de Azure Database Migration](https://datamigration.microsoft.com/).
+En este artículo se describen los métodos para migrar una instancia de SQL Server 2005 o versiones posteriores a [Instancia administrada de Azure SQL](sql-managed-instance-paas-overview.md). Para obtener información sobre cómo migrar a una base de datos única o a un grupo elástico, consulte [Información general sobre la migración: SQL Server a SQL Database](../migration-guides/database/sql-server-to-sql-database-overview.md). Para obtener información sobre la migración desde otras plataformas e instrucciones sobre herramientas y opciones, consulte [Migración a Azure SQL](../migration-guides/index.yml).
 
 > [!NOTE]
 > Si desea empezar rápidamente y probar Azure SQL Managed Instance, puede ir a la [guía de inicio rápido](quickstart-content-reference-guide.md) en lugar de a esta página.

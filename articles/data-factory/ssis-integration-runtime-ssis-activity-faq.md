@@ -11,12 +11,12 @@ ms.reviewer: sawinark
 manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 04/15/2019
-ms.openlocfilehash: 4c817194bbe0e4cf211992920bad9deb40bf05f4
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: b4902e1fb7a2a181d3d5b2ce2ac6d1d458500fce
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92632216"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844189"
 ---
 # <a name="troubleshoot-package-execution-in-the-ssis-integration-runtime"></a>Solución de problemas de ejecución de paquetes en SSIS Integration Runtime
 
@@ -38,7 +38,7 @@ Estas son las posibles causas y las acciones recomendadas:
 * El origen o el destino de los datos está sobrecargado. Compruebe la carga en el origen o el destino de los datos y observe si tiene suficiente capacidad. Por ejemplo, si usa Azure SQL Database, considere la posibilidad de escalar verticalmente si es probable que el tiempo de espera de la base de datos se agote.
 * La red entre SSIS Integration Runtime y el origen o el destino de los datos es inestable, especialmente si la conexión se realiza entre regiones o entre un entorno local y Azure. Para aplicar el patrón de reintento en el paquete de SSIS, siga estos pasos:
   * Compruebe que los paquetes de SSIS se pueden volver a ejecutar en caso de error sin efectos secundarios (por ejemplo, pérdida o duplicación de datos).
-  * Configure las opciones **Reintentar** e **Intervalo de reintentos** de la actividad **Ejecutar paquete de SSIS**  en la pestaña **General** . ![Establecimiento de propiedades en la pestaña General](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-general.png)
+  * Configure las opciones **Reintentar** e **Intervalo de reintentos** de la actividad **Ejecutar paquete de SSIS**  en la pestaña **General**. ![Establecimiento de propiedades en la pestaña General](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-general.png)
   * Para un componente de origen o destino ADO.NET y OLE DB, establezca **ConnectRetryCount** y **ConnectRetryInterval** en el administrador de conexiones en el paquete de SSIS o la actividad de SSIS.
 
 ### <a name="error-message-ado-net-source-has-failed-to-acquire-the-connection--with-a-network-related-or-instance-specific-error-occurred-while-establishing-a-connection-to-sql-server-the-server-was-not-found-or-was-not-accessible"></a>Mensaje de error: "El origen ADO NET no pudo adquirir la conexión «...»" con "Se produjo un error relacionado con la red o específico de una instancia al establecer una conexión con SQL Server. No se detectó el servidor o no estaba accesible."
@@ -108,7 +108,7 @@ Si se ejecutan muchos paquetes en paralelo en SSIS Integration Runtime, este err
 El error se debe, principalmente, a un problema temporal. Intente volver a realizar la ejecución del paquete. Para aplicar el patrón de reintento en el paquete de SSIS, siga estos pasos:
 
 * Compruebe que los paquetes de SSIS se pueden volver a ejecutar en caso de error sin efectos secundarios (por ejemplo, pérdida o duplicación de datos).
-* Configure las opciones **Reintentar** e **Intervalo de reintentos** de la actividad **Ejecutar paquete de SSIS**  en la pestaña **General** . ![Establecimiento de propiedades en la pestaña General](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-general.png)
+* Configure las opciones **Reintentar** e **Intervalo de reintentos** de la actividad **Ejecutar paquete de SSIS**  en la pestaña **General**. ![Establecimiento de propiedades en la pestaña General](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-general.png)
 * Para un componente de origen o destino ADO.NET y OLE DB, establezca **ConnectRetryCount** y **ConnectRetryInterval** en el administrador de conexiones en el paquete de SSIS o la actividad de SSIS.
 
 ### <a name="error-message-there-is-no-active-worker"></a>Mensaje de error: "No hay ningún trabajo activo".
@@ -121,14 +121,14 @@ Este error se produce cuando SSIS Integration Runtime no puede acceder al almace
 
 ### <a name="error-message-microsoft-ole-db-provider-for-analysis-services-hresult-0x80004005-description-com-error-com-error-mscorlib-exception-has-been-thrown-by-the-target-of-an-invocation"></a>Mensaje de error: "Proveedor OLE DB de Microsoft para Analysis Services. "Hresult: 0x80004005 Descripción:" Error de COM: Error de COM: mscorlib; Se produjo una excepción en el destino de la invocación"
 
-Una posible causa es que el nombre de usuario o la contraseña con Azure Multi-Factor Authentication habilitado esté configurado para la autenticación de Azure Analysis Services. Esta autenticación no se admite en SSIS Integration Runtime. Intente usar una entidad de servicio para la autenticación de Azure Analysis Services:
+Una posible causa es que el nombre de usuario o la contraseña con Multi-Factor Authentication de Azure AD habilitado esté configurado para la autenticación de Azure Analysis Services. Esta autenticación no se admite en SSIS Integration Runtime. Intente usar una entidad de servicio para la autenticación de Azure Analysis Services:
 
 1. Prepare una entidad de servicio como se describe en [Automatización con entidades de servicio](../analysis-services/analysis-services-service-principal.md).
-2. En el Administrador de conexiones, configure **Usar un nombre de usuario y contraseña específicos** : defina **AppID** como nombre de usuario y **clientSecret** como contraseña.
+2. En el Administrador de conexiones, configure **Usar un nombre de usuario y contraseña específicos**: defina **AppID** como nombre de usuario y **clientSecret** como contraseña.
 
 ### <a name="error-message-adonet-source-has-failed-to-acquire-the-connection-guid-with-the-following-error-message-login-failed-for-user-nt-authorityanonymous-logon-when-using-a-managed-identity"></a>Mensaje de error: "ADONET Source has failed to acquire the connection {GUID} with the following error message: Login failed for user 'NT AUTHORITY\ANONYMOUS LOGON'" (El origen de ADONET no ha podido adquirir la conexión {GUID} con el siguiente mensaje de error: error de inicio de sesión para el usuario "NT AUTHORITY\ANONYMOUS LOGON")
 
-Asegúrese de no configurar el método de autenticación del administrador de conexiones como **Autenticación de contraseña de Active Directory** cuando el parámetro *ConnectUsingManagedIdentity* sea **True** . Puede configurarlo como **Autenticación de SQL** , que se ignora si *ConnectUsingManagedIdentity* está definido.
+Asegúrese de no configurar el método de autenticación del administrador de conexiones como **Autenticación de contraseña de Active Directory** cuando el parámetro *ConnectUsingManagedIdentity* sea **True** . Puede configurarlo como **Autenticación de SQL**, que se ignora si *ConnectUsingManagedIdentity* está definido.
 
 ### <a name="error-message-0xc020801f-at--odata-source--cannot-acquire-a-managed-connection-from-the-run-time-connection-manager"></a>Mensaje de error: "0xC020801F at ..., Origen de OData [...]: No se puede adquirir una conexión administrada del administrador de conexiones en tiempo de ejecución"
 
@@ -179,7 +179,7 @@ Estas son las posibles causas y las acciones recomendadas:
   * Para obtener información sobre cómo establecer el número de nodos y la ejecución en paralelo máxima por nodo, vea [Creación de una instancia de Azure-SSIS Integration Runtime en Azure Data Factory](create-azure-ssis-integration-runtime.md).
 * SSIS Integration Runtime se ha detenido o su estado es incorrecto. Para obtener información sobre cómo comprobar el estado y los errores de SSIS Integration Runtime, vea [Azure-SSIS Integration Runtime](monitor-integration-runtime.md#azure-ssis-integration-runtime).
 
-También es recomendable definir un tiempo de expiración en la pestaña **General** : ![Definir propiedades en la pestaña General](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-general.png).
+También es recomendable definir un tiempo de expiración en la pestaña **General**: ![Definir propiedades en la pestaña General](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-general.png).
 
 ### <a name="poor-performance-in-package-execution"></a>Rendimiento deficiente en la ejecución del paquete
 

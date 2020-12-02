@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 09/29/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python,contperfq1, automl
-ms.openlocfilehash: b49b9f710a98495342687c4ce1dc702078b27246
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: f4546433f5bd20e2f001d6d868d8adfb4b9bf8c0
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94535340"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94920379"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configuración de experimentos de ML automatizado en Python
 
@@ -130,26 +130,24 @@ Estos son algunos ejemplos:
 1. Experimento de clasificación con AUC ponderado como métrica principal con los minutos de tiempo de espera del experimento establecidos en 30 minutos y 2 iteraciones de validación cruzada.
 
    ```python
-       automl_classifier=AutoMLConfig(
-       task='classification',
-       primary_metric='AUC_weighted',
-       experiment_timeout_minutes=30,
-       blocked_models=['XGBoostClassifier'],
-       training_data=train_data,
-       label_column_name=label,
-       n_cross_validations=2)
+       automl_classifier=AutoMLConfig(task='classification',
+                                      primary_metric='AUC_weighted',
+                                      experiment_timeout_minutes=30,
+                                      blocked_models=['XGBoostClassifier'],
+                                      training_data=train_data,
+                                      label_column_name=label,
+                                      n_cross_validations=2)
    ```
 1. A continuación se incluye un ejemplo de un conjunto de experimentos de regresión que finaliza después de 60 minutos con 5 iteraciones de validación cruzada.
 
    ```python
-      automl_regressor = AutoMLConfig(
-      task='regression',
-      experiment_timeout_minutes=60,
-      allowed_models=['KNN'],
-      primary_metric='r2_score',
-      training_data=train_data,
-      label_column_name=label,
-      n_cross_validations=5)
+      automl_regressor = AutoMLConfig(task='regression',
+                                      experiment_timeout_minutes=60,
+                                      allowed_models=['KNN'],
+                                      primary_metric='r2_score',
+                                      training_data=train_data,
+                                      label_column_name=label,
+                                      n_cross_validations=5)
    ```
 
 
@@ -301,6 +299,18 @@ automl_classifier = AutoMLConfig(
         )
 ```
 
+<a name="exit"></a> 
+
+### <a name="exit-criteria"></a>Exit criteria (Criterios de salida)
+
+Hay algunas opciones que puede definir en el AutoMLConfig para finalizar el experimento.
+
+|Criterios| description
+|----|----
+Sin criterio | Si no se define ningún parámetro de salida, el experimento continúa hasta que no se realice ningún progreso adicional en la métrica principal.
+Transcurrido&nbsp;un&nbsp;tiempo&nbsp;determinado&nbsp;| Use `experiment_timeout_minutes` en la configuración para definir el tiempo, en minutos, en que el experimento debe seguir ejecutándose. <br><br> Para ayudar a evitar errores de tiempo de espera del experimento, hay un mínimo de 15 minutos o 60 minutos si el tamaño de fila por columna es superior a 10 millones.
+Una&nbsp;vez&nbsp;alcanzada&nbsp;una&nbsp;puntuación| El uso de `experiment_exit_score` completará el experimento una vez alcanzada una puntuación de métrica principal especificada.
+
 ## <a name="run-experiment"></a>Ejecutar experimento
 
 Para una instancia de ML automatizado, se crea un objeto `Experiment`, que es un objeto con nombre en un objeto `Workspace` que se usa para ejecutar experimentos.
@@ -327,17 +337,15 @@ run = experiment.submit(automl_config, show_output=True)
 >Las dependencias se instalan por primera vez en una máquina nueva.  El resultado puede tardar hasta 10 minutos en mostrarse.
 >Establecer `show_output` en `True` genera un resultado que se muestra en la consola.
 
- <a name="exit"></a> 
+### <a name="multiple-child-runs-on-clusters"></a>Varias ejecuciones secundarias en clústeres
 
-### <a name="exit-criteria"></a>Exit criteria (Criterios de salida)
+Las ejecuciones secundarias de experimentos de aprendizaje automático automatizado se pueden realizar en un clúster que ya está ejecutando otro experimento. Sin embargo, el tiempo depende del número de nodos que tenga el clúster y de si esos nodos están disponibles para ejecutar un experimento diferente.
 
-Hay unas cuantas opciones que puede definir para finalizar el experimento.
+Cada nodo del clúster actúa como una máquina virtual (VM) individual que puede realizar una sola ejecución de entrenamiento; en el caso del aprendizaje automático automatizado, esto significa una ejecución secundaria. Si todos los nodos están ocupados, el nuevo experimento se pone en cola. Sin embargo, si hay nodos libres, el nuevo experimento ejecutará las ejecuciones secundarias de aprendizaje automático automatizado en paralelo en los nodos o máquinas virtuales disponibles.
 
-|Criterios| description
-|----|----
-Sin criterio | Si no se define ningún parámetro de salida, el experimento continúa hasta que no se realice ningún progreso adicional en la métrica principal.
-Transcurrido&nbsp;un&nbsp;tiempo&nbsp;determinado&nbsp;| Use `experiment_timeout_minutes` en la configuración para definir el tiempo, en minutos, en que el experimento debe seguir ejecutándose. <br><br> Para ayudar a evitar errores de tiempo de espera del experimento, hay un mínimo de 15 minutos o 60 minutos si el tamaño de fila por columna es superior a 10 millones.
-Una&nbsp;vez&nbsp;alcanzada&nbsp;una&nbsp;puntuación| El uso de `experiment_exit_score` completará el experimento una vez alcanzada una puntuación de métrica principal especificada.
+Para ayudar a administrar las ejecuciones secundarias y cuándo se pueden realizar, se recomienda crear un clúster dedicado por experimento y hacer coincidir el número de `max_concurrent_iterations` del experimento con el número de nodos del clúster. De esta manera, se usan todos los nodos del clúster al mismo tiempo con el número de ejecuciones o iteraciones secundarias simultáneas que se desee.
+
+Configure `max_concurrent_iterations` en el objeto `AutoMLConfig`. Si no se configura, solo se permite de forma predeterminada una ejecución o iteración secundaria simultánea en cada experimento.  
 
 ## <a name="explore-models-and-metrics"></a>Exploración de modelos y métricas
 
@@ -348,7 +356,7 @@ Consulte [Evaluación de los resultados de los experimentos de aprendizaje autom
 Para obtener un resumen de la caracterización y comprender las características que se agregaron a un modelo determinado, consulte [Transparencia de caracterización](how-to-configure-auto-features.md#featurization-transparency). 
 
 > [!NOTE]
-> Los algoritmos que el aprendizaje automático automatizado emplea llevan inherente la aleatoriedad, que puede provocar una ligera variación en la puntuación de las métricas finales de modelos recomendados, como la precisión. El aprendizaje automático automatizado también realiza operaciones en datos, como la división de la prueba de entrenamiento, la división de la validación de entrenamiento o la validación cruzada cuando es necesario. Por lo tanto, si ejecuta un experimento con las mismas opciones de configuración y métricas principales varias veces, es probable que vea una variación en las puntuaciones de las métricas finales de los experimentos debido a estos factores. 
+> Los algoritmos que el aprendizaje automático automatizado emplea llevan inherente la aleatoriedad, que puede provocar una ligera variación en la puntuación de las métricas finales del modelo recomendado, como la precisión. El aprendizaje automático automatizado también realiza operaciones en datos, como la división de la prueba de entrenamiento, la división de la validación de entrenamiento o la validación cruzada cuando es necesario. Por lo tanto, si ejecuta un experimento con las mismas opciones de configuración y métricas principales varias veces, es probable que vea una variación en las puntuaciones de las métricas finales de los experimentos debido a estos factores. 
 
 ## <a name="register-and-deploy-models"></a>Registro e implementación de modelos
 

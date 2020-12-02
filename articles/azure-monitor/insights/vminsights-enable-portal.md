@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: ba6ae9262fb0e55c53e1b1421c075e555fae8d98
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 55e5ff2af62c903efeab5c4932eae0c9dc9b535c
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87328032"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842318"
 ---
 # <a name="enable-azure-monitor-for-single-virtual-machine-or-virtual-machine-scale-set-in-the-azure-portal"></a>Habilitar Azure Monitor para VM para una sola máquina virtual o un conjunto de escalado de máquinas virtuales mediante Azure Portal
 En este artículo se describe cómo habilitar Azure Monitor para VM para una máquina virtual o un conjunto de escalado de máquinas virtuales mediante Azure Portal. Este procedimiento se puede usar para:
@@ -27,7 +27,7 @@ En este artículo se describe cómo habilitar Azure Monitor para VM para una má
 
 ## <a name="enable-azure-monitor-for-vms"></a>Habilitar Azure Monitor para VM
 
-En el Azure Portal, seleccione **Máquinas virtuales**, **Conjuntos de escalado de máquinas virtuales** o **Máquinas: Azure Arc** y seleccione un recurso de la lista. En la sección **Supervisión** del menú, seleccione **Insights** y, a continuación, **Habilitar**. En el ejemplo siguiente, se muestra una máquina virtual de Azure, pero el menú es similar para el conjunto de escalado de máquinas virtuales o Azure Arc.
+En Azure Portal, seleccione **Máquinas virtuales**, **Conjuntos de escalado de máquinas virtuales** o **Servidores: Azure Arc** y seleccione un recurso de la lista. En la sección **Supervisión** del menú, seleccione **Insights** y, a continuación, **Habilitar**. En el ejemplo siguiente, se muestra una máquina virtual de Azure, pero el menú es similar para el conjunto de escalado de máquinas virtuales o Azure Arc.
 
 ![Habilitar Azure Monitor para VM para una máquina virtual](media/vminsights-enable-single-vm/enable-vminsights-vm-portal.png)
 

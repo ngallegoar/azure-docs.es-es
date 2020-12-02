@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/12/2020
-ms.openlocfilehash: a75dd24769a4f1af018981ffcec279afc2a88b5a
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: f7980ca7bc6f23c383ea013c2b017b3bd61e2d25
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94682425"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842301"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Conectar productos o servicios de ITSM con el Conector de Administración de servicios de TI
 En este artículo se proporciona información sobre cómo configurar la conexión entre los productos y servicios de ITSM y el Conector de Administración de servicios de TI (ITSMC) en Log Analytics para administrar de forma centralizada los elementos de trabajo. Para obtener más información sobre ITSMC, vea [Información general](./itsmc-overview.md).
@@ -41,6 +41,7 @@ Asegúrese de que se cumplen los siguientes requisitos previos:
 - Conexión híbrida creada y configurada Más información: [Configuración de la conexión híbrida](#configure-the-hybrid-connection).
 - Versiones admitidas de Service Manager:  2012 R2 o 2016.
 - Rol de usuario:  [operador avanzado](/previous-versions/system-center/service-manager-2010-sp1/ff461054(v=technet.10)).
+- Actualmente, las alertas que se envían desde Azure Monitor se pueden crear en incidentes de System Center Service Manager.
 
 > [!NOTE]
 > 

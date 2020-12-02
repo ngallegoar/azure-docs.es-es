@@ -3,18 +3,18 @@ title: Integración y administración de las operaciones de seguridad y Microsof
 description: Mejore la protección, detección y respuesta frente amenazas de su aplicación con Microsoft Graph Security y Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-author: preetikr
+author: ecfan
 ms.author: preetikr
 ms.reviewer: v-ching, estfan, logicappspm
 ms.topic: article
 ms.date: 02/21/2020
 tags: connectors
-ms.openlocfilehash: 0f121caddc6b629920479a34bef7b284dea117a4
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: a83cd68df2f1d722517d6239bf6959075860d0b8
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677496"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888545"
 ---
 # <a name="improve-threat-protection-by-integrating-security-operations-with-microsoft-graph-security--azure-logic-apps"></a>Mejore la protección frente a amenazas mediante la integración de las operaciones de seguridad con Microsoft Graph Security y Azure Logic Apps.
 
@@ -30,7 +30,7 @@ Con [Azure Logic Apps](../logic-apps/logic-apps-overview.md) y el conector [Micr
 
 El flujo de trabajo de la aplicación lógica puede usar acciones que obtengan respuestas del conector Microsoft Graph Security y permitir que esa salida esté disponible para otras acciones del flujo de trabajo. También puede tener otras acciones en el flujo de trabajo mediante la salida de las acciones del conector Microsoft Graph Security. Por ejemplo, si recibe alertas de gravedad alta a través del conector Microsoft Graph Security, puede enviar esas alertas en un mensaje de correo electrónico mediante el conector de Outlook. 
 
-Para más información sobre Microsoft Graph Security, consulte la [introducción a Microsoft Graph Security API](/graph/security-concept-overview). Si no está familiarizado con las aplicaciones lógicas, consulte [¿Qué es Azure Logic Apps?](../logic-apps/logic-apps-overview.md) Si busca Microsoft Flow o PowerApps, consulte [¿Qué es Flow?](https://flow.microsoft.com/) o [¿Qué es PowerApps?](https://powerapps.microsoft.com/)
+Para más información sobre Microsoft Graph Security, consulte la [introducción a Microsoft Graph Security API](/graph/security-concept-overview). Si no está familiarizado con las aplicaciones lógicas, consulte [¿Qué es Azure Logic Apps?](../logic-apps/logic-apps-overview.md) Si está buscando Power Automate o PowerApps, consulte [¿Qué es Power Automate?](https://flow.microsoft.com/) o [¿Qué es Power Apps?](https://powerapps.microsoft.com/)
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -94,7 +94,7 @@ En este ejemplo se muestra cómo iniciar un flujo de trabajo de aplicaciones ló
    | Propiedad | Propiedad (JSON) | Obligatorio | Tipo | Descripción |
    |----------|-----------------|----------|------|-------------|
    | **Intervalo** | `interval` | Sí | Entero | Entero positivo que describe la frecuencia con la que se ejecuta el flujo de trabajo. Estos son los intervalos mínimo y máximo: <p><p>- Mes: 1-16 meses <br>- Día: 1-500 días <br>- Hora: 1-12 000 horas <br>- Minuto: 1-72 000 minutos <br>- Segundo: 1-9 999 999 segundos <p>Por ejemplo, si el intervalo es 6 y la frecuencia es "month", la periodicidad es cada 6 meses. |
-   | **Frecuencia** | `frequency` | Sí | String | Unidad de tiempo que se usa para la periodicidad: **Segundo** , **Minuto** , **Hora** , **Día** , **Semana** o **Mes** |
+   | **Frecuencia** | `frequency` | Sí | String | Unidad de tiempo que se usa para la periodicidad: **Segundo**, **Minuto**, **Hora**, **Día**, **Semana** o **Mes** |
    | **Zona horaria** | `timeZone` | No | String | Solo se aplica cuando se especifica una hora de inicio porque este desencadenador no acepta [diferencia horaria con UTC](https://en.wikipedia.org/wiki/UTC_offset). Seleccione la zona horaria que desea aplicar. |
    | **Hora de inicio** | `startTime` | No | String | Proporcione una fecha y hora de inicio en este formato: <p><p>AAAA-MM-DDThh:mm:ss si selecciona una zona horaria <p>O bien <p>AAAA-MM-DDThh:mm:ssZ si no selecciona una zona horaria <p>Por ejemplo, si desea la fecha del 18 de septiembre de 2017 a las 14:00, especifique "2017-09-18T14:00:00" y seleccione una zona horaria, como la hora estándar del Pacífico. O bien, especifique "2017-09-18T14:00:00Z" sin una zona horaria. <p>**Nota:** Esta hora de inicio tiene un máximo de 49 años en el futuro y debe seguir la [especificación de fecha y hora ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) en [formato de fecha y hora UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), pero sin una [diferencia horaria con UTC](https://en.wikipedia.org/wiki/UTC_offset). Si no se selecciona una zona horaria, debe agregar la letra "Z" al final sin espacios. Esta "Z" se refiere al equivalente de [hora náutica](https://en.wikipedia.org/wiki/Nautical_time). <p>Para las programaciones simples, la hora de inicio es la primera aparición, mientras que para programaciones complejas, el desencadenador no se activa antes de la hora de inicio. [ *¿De qué formas puedo usar la fecha y hora de inicio?*](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time) |
    ||||||

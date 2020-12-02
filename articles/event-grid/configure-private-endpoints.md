@@ -2,14 +2,14 @@
 title: Configuración de puntos de conexión privados para temas o dominios de Azure Event Grid
 description: En este artículo se describe cómo configurar los puntos de conexión privados para los temas o dominios de Azure Event Grid.
 ms.topic: how-to
-ms.date: 07/07/2020
+ms.date: 11/18/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: e2e164d55f61f7a08e689aea106eac678b553c82
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: f8e0cfc0a850ae15ea6d03ff6ca8b90003adbfc9
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91324151"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94916987"
 ---
 # <a name="configure-private-endpoints-for-azure-event-grid-topics-or-domains"></a>Configuración de puntos de conexión privados para temas o dominios de Azure Event Grid
 Puede usar [puntos de conexión privados](../private-link/private-endpoint-overview.md) para permitir la entrada de eventos directamente desde su red virtual a sus temas y dominios de forma segura a través de un [vínculo privado](../private-link/private-link-overview.md) sin tener que ir a la red pública de Internet. El punto de conexión privado usa una dirección IP del espacio de direcciones de la red virtual para el tema o dominio. Para más información conceptual, consulte [Seguridad de las redes](network-security.md).
@@ -108,7 +108,7 @@ Puede rechazar un punto de conexión privado que tenga el estado Pendiente o Apr
 
 1. Seleccione el **punto de conexión privado** que desea rechazar y seleccione **Rechazar** en la barra de herramientas.
 
-    ![Captura de pantalla que muestra "Redes: conexiones de punto de conexión privado (versión preliminar)" con la opción "Rechazar" seleccionada.](./media/configure-private-endpoints/reject-button.png)
+    ![Captura de pantalla que muestra "Redes: conexiones de punto de conexión privado" con la opción "Rechazar" seleccionada.](./media/configure-private-endpoints/reject-button.png)
 1. En el cuadro de diálogo **Rechazo de la conexión**, escriba un comentario (opcional), y seleccione **Sí**. 
 
     ![Punto de conexión privado: rechazo](./media/configure-private-endpoints/reject.png)
@@ -121,7 +121,7 @@ Puede rechazar un punto de conexión privado que tenga el estado Pendiente o Apr
 
 
 ## <a name="use-azure-cli"></a>Uso de CLI de Azure
-Para crear un punto de conexión privado, use el método [az network private-endpoint create](/cli/azure/network/private-endpoint?view=azure-cli-latest#az-network-private-endpoint-create) que se indica en el siguiente ejemplo:
+Para crear un punto de conexión privado, use el método [az network private-endpoint create](/cli/azure/network/private-endpoint?#az-network-private-endpoint-create) que se indica en el siguiente ejemplo:
 
 ```azurecli-interactive
 az network private-endpoint create \
@@ -135,12 +135,12 @@ az network private-endpoint create \
     --group-ids topic
 ```
 
-Para obtener descripciones de los parámetros utilizados en el ejemplo, consulte la documentación de [az network private-endpoint create](/cli/azure/network/private-endpoint?view=azure-cli-latest#az-network-private-endpoint-create). Tenga en cuenta los siguientes puntos de este ejemplo: 
+Para obtener descripciones de los parámetros utilizados en el ejemplo, consulte la documentación de [az network private-endpoint create](/cli/azure/network/private-endpoint?#az-network-private-endpoint-create). Tenga en cuenta los siguientes puntos de este ejemplo: 
 
 - Para `private-connection-resource-id`, especifique el identificador del recurso del **tema** o **dominio**. En el ejemplo anterior se utiliza el tipo "tema".
 - Para `group-ids`, especifique `topic` o `domain`. En el ejemplo anterior, se usa `topic`. 
 
-Para eliminar un punto de conexión privado, use el método [az network private-endpoint delete](/cli/azure/network/private-endpoint?view=azure-cli-latest#az-network-private-endpoint-delete) que se indica en el siguiente ejemplo:
+Para eliminar un punto de conexión privado, use el método [az network private-endpoint delete](/cli/azure/network/private-endpoint?#az-network-private-endpoint-delete) que se indica en el siguiente ejemplo:
 
 ```azurecli-interactive
 az network private-endpoint delete --resource-group <RESOURECE GROUP NAME> --name <PRIVATE ENDPOINT NAME>
@@ -165,7 +165,7 @@ az extension add -n eventgrid
 ```
 
 ### <a name="create-a-private-endpoint"></a>Creación de un punto de conexión privado
-Para crear un punto de conexión privado, use el método [az network private-endpoint create](/cli/azure/network/private-endpoint?view=azure-cli-latest#az-network-private-endpoint-create) que se indica en el siguiente ejemplo:
+Para crear un punto de conexión privado, use el método [az network private-endpoint create](/cli/azure/network/private-endpoint?#az-network-private-endpoint-create) que se indica en el siguiente ejemplo:
 
 ```azurecli-interactive
 az network private-endpoint create \
@@ -179,12 +179,12 @@ az network private-endpoint create \
     --group-ids topic
 ```
 
-Para obtener descripciones de los parámetros utilizados en el ejemplo, consulte la documentación de [az network private-endpoint create](/cli/azure/network/private-endpoint?view=azure-cli-latest#az-network-private-endpoint-create). Tenga en cuenta los siguientes puntos de este ejemplo: 
+Para obtener descripciones de los parámetros utilizados en el ejemplo, consulte la documentación de [az network private-endpoint create](/cli/azure/network/private-endpoint?#az-network-private-endpoint-create). Tenga en cuenta los siguientes puntos de este ejemplo: 
 
 - Para `private-connection-resource-id`, especifique el identificador del recurso del **tema** o **dominio**. En el ejemplo anterior se utiliza el tipo "tema".
 - Para `group-ids`, especifique `topic` o `domain`. En el ejemplo anterior, se usa `topic`. 
 
-Para eliminar un punto de conexión privado, use el método [az network private-endpoint delete](/cli/azure/network/private-endpoint?view=azure-cli-latest#az-network-private-endpoint-delete) que se indica en el siguiente ejemplo:
+Para eliminar un punto de conexión privado, use el método [az network private-endpoint delete](/cli/azure/network/private-endpoint?#az-network-private-endpoint-delete) que se indica en el siguiente ejemplo:
 
 ```azurecli-interactive
 az network private-endpoint delete --resource-group <RESOURECE GROUP NAME> --name <PRIVATE ENDPOINT NAME>

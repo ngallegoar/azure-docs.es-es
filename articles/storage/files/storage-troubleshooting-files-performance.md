@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 11/16/2020
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 6e4eb37477a335ae93b9982692c238d05c81000b
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: a49dbdace01396656c3114df0bc0d4589aff57c1
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94660294"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94916498"
 ---
 # <a name="troubleshoot-azure-file-shares-performance-issues"></a>Solución de problemas de rendimiento de recursos compartidos de archivos de Azure
 
@@ -196,7 +196,7 @@ Cambios recientes en la configuración de SMB multicanal sin volver a montar.
 
 ### <a name="cause"></a>Causa  
 
-La notificación de cambio de un número alto de archivos en recursos compartidos de archivos puede producir latencias altas significativas. Esto suele ocurrir con sitios web hospedados en recursos compartidos de archivos con una estructura de directorios anidada profunda. Un escenario típico es la aplicación web hospedada en IIS donde se configura la notificación de cambio de archivos para cada directorio en la configuración predeterminada. Cada cambio (ReadDirectoryChangesW) en el recurso compartido en el que está registrado el cliente SMB envía una notificación de cambio desde el servicio de archivos al cliente, que usa recursos del sistema, y el problema empeora con el número de cambios. Esto puede dar lugar a una limitación de recursos compartidos y, por tanto, a una mayor latencia del lado cliente. 
+La notificación de cambio de un número alto de archivos en recursos compartidos de archivos puede producir latencias altas significativas. Esto suele ocurrir con sitios web hospedados en recursos compartidos de archivos con una estructura de directorios anidada profunda. Un escenario típico es la aplicación web hospedada en IIS donde se configura la notificación de cambio de archivos para cada directorio en la configuración predeterminada. Cada cambio ([ReadDirectoryChangesW](https://docs.microsoft.com/windows/win32/api/winbase/nf-winbase-readdirectorychangesw)) en el recurso compartido en el que está registrado el cliente SMB envía una notificación de cambio desde el servicio de archivos al cliente, que usa recursos del sistema, y el problema empeora con el número de cambios. Esto puede dar lugar a una limitación de recursos compartidos y, por tanto, a una mayor latencia del lado cliente. 
 
 Para confirmarlo, puede usar las métricas de Azure en el portal: 
 
@@ -213,10 +213,8 @@ Para confirmarlo, puede usar las métricas de Azure en el portal:
     - Actualice el intervalo de sondeo del proceso de trabajo de IIS (W3WP) a 0 estableciendo `HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\W3SVC\Parameters\ConfigPollMilliSeconds ` en el registro y reinicie el proceso W3WP. Para obtener más información acerca de esta configuración, vea las [claves de registro comunes que utilizan muchas partes de IIS](/troubleshoot/iis/use-registry-keys#registry-keys-that-apply-to-iis-worker-process-w3wp).
 - Aumente la frecuencia del intervalo de sondeo de notificación de cambio de archivos para reducir el volumen.
     - Actualice el intervalo de sondeo del proceso de trabajo W3WP a un valor mayor (por ejemplo, 10 o 30 minutos) en función de sus requisitos. Establezca `HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\W3SVC\Parameters\ConfigPollMilliSeconds ` [en el del registro](/troubleshoot/iis/use-registry-keys#registry-keys-that-apply-to-iis-worker-process-w3wp) y reinicie el proceso W3WP.
-- Si el directorio físico asignado del sitio web tiene una estructura de directorios anidada, puede intentar limitar el ámbito de notificación de cambio de archivos para reducir el volumen de notificaciones.
-    - De forma predeterminada, IIS usa la configuración de los archivos Web.config del directorio físico al que se asigna el directorio virtual, así como en los directorios secundarios de ese directorio físico. Si no desea usar los archivos Web.config de los directorios secundarios, especifique false para el atributo allowSubDirConfig en el directorio virtual. Se pueden encontrar más detalles [aquí](/iis/get-started/planning-your-iis-architecture/understanding-sites-applications-and-virtual-directories-on-iis#virtual-directories). 
-
-Establezca el valor "allowSubDirConfig" del directorio virtual de IIS en el archivo Web.config en false para excluir los directorios secundarios físicos asignados del ámbito.  
+- Si el directorio físico asignado del sitio web tiene una estructura de directorios anidada, puede intentar limitar el ámbito de notificación de cambio de archivos para reducir el volumen de notificaciones. De forma predeterminada, IIS usa la configuración de los archivos Web.config del directorio físico al que se asigna el directorio virtual, así como en los directorios secundarios de ese directorio físico. Si no desea usar los archivos Web.config de los directorios secundarios, especifique false para el atributo allowSubDirConfig en el directorio virtual. Se pueden encontrar más detalles [aquí](/iis/get-started/planning-your-iis-architecture/understanding-sites-applications-and-virtual-directories-on-iis#virtual-directories). 
+    - Establezca el valor "allowSubDirConfig" del directorio virtual de IIS en el archivo Web.config en *false* para excluir los directorios secundarios físicos asignados del ámbito.  
 
 ## <a name="how-to-create-an-alert-if-a-file-share-is-throttled"></a>Creación de una alerta si un recurso compartido de archivos se limita
 

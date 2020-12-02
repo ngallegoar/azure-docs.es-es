@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/12/2020
+ms.date: 11/17/2020
 ms.author: alkohli
-ms.openlocfilehash: e67b507baf1c3271a7fe32318597722e52fd3890
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: de41bd030ea73ac68bfac5fbfbd03ae14cf7980f
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90891374"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94874243"
 ---
 # <a name="certificate-requirements"></a>Requisitos de certificados
 
@@ -30,12 +30,13 @@ Los requisitos de emisión de certificados son los siguientes:
 * El campo *Emitido para:* del certificado no debe ser el mismo que su campo *Emitido por:* , excepto para los certificados de CA raíz.
 
 
-
 ## <a name="certificate-algorithms"></a>Algoritmos de certificados
 
 Los algoritmos de certificados deben tener los siguientes requisitos:
 
 * Los certificados no deben usar el algoritmo de claves RSA.
+
+* Solamente se admiten los certificados RSA con proveedor de servicios criptográficos RSA/Schannel de Microsoft.
 
 * El algoritmo de firma de certificados no puede ser SHA1.
 
@@ -53,7 +54,7 @@ Los certificados deben tener los siguientes requisitos de nombre del firmante y 
 
 * Al crear un certificado de punto de conexión, use la tabla siguiente:
 
-    |Tipo |Nombre del firmante (SN)  |Nombre alternativo del firmante (SAN)  |Ejemplo de nombre del firmante |
+    |Tipo |Nombre del firmante (SN)  |Nombre alternativo del firmante (SAN)  |Ejemplo de nombre de firmante |
     |---------|---------|---------|---------|
     |Azure Resource Manager|`management.<Device name>.<Dns Domain>`|`login.<Device name>.<Dns Domain>`<br>`management.<Device name>.<Dns Domain>`|`management.mydevice1.microsoftdatabox.com` |
     |Blob Storage|`*.blob.<Device name>.<Dns Domain>`|`*.blob.< Device name>.<Dns Domain>`|`*.blob.mydevice1.microsoftdatabox.com` |
@@ -81,6 +82,8 @@ Los certificados PFX instalados en el dispositivo Azure Stack Edge Pro deben cum
 * Las contraseñas para todos los archivos PFX de certificado deben ser las mismas en el momento de la implementación si usa la herramienta Azure Stack Readiness Checker. Para más información, consulte [Creación de certificados para Azure Stack Edge Pro con la herramienta Azure Stack Hub Readiness Checker](azure-stack-edge-j-series-create-certificates-tool.md).
 
 * La contraseña para el archivo PFX de certificado tiene que ser una contraseña compleja. Tome nota de esta contraseña, ya que se usa como parámetro de implementación.
+
+* Use solamente certificados RSA con proveedor de servicios criptográficos RSA/Schannel de Microsoft.
 
 Para obtener más información, consulte [Exportación de certificados PFX con una clave privada](azure-stack-edge-j-series-manage-certificates.md#export-certificates-as-pfx-format-with-private-key).
 

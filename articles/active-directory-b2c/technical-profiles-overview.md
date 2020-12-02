@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 09/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 7417e2d39371066a5c5e8576040cbe22e7632043
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d61471e07dda8fcf0c715dcffe85ad3e39ed8ac3
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90562883"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94840379"
 ---
 # <a name="about-technical-profiles-in-azure-active-directory-b2c-custom-policies"></a>Acerca de los perfiles técnicos en las directivas personalizadas de Azure Active Directory B2C
 
@@ -30,7 +30,7 @@ Un perfil técnico posibilita estos tipos de escenarios:
 
 - [Application Insights](application-insights-technical-profile.md): envía datos de eventos a [Application Insights](../azure-monitor/app/app-insights-overview.md).
 - [Azure Active Directory](active-directory-technical-profile.md): proporciona compatibilidad para la administración de usuarios de Azure Active Directory B2C.
-- [Azure Multi-Factor Authentication](multi-factor-auth-technical-profile.md): proporciona compatibilidad para verificar un número de teléfono mediante Azure Multi-Factor Authentication (MFA). 
+- [Multi-Factor Authentication de Azure AD](multi-factor-auth-technical-profile.md): proporciona compatibilidad para verificar un número de teléfono mediante Multi-Factor Authentication (MFA) de Azure AD. 
 - [Transformación de notificaciones](claims-transformation-technical-profile.md): llamada a transformaciones de notificaciones de salida para manipular los valores de notificaciones, validar las notificaciones o establecer valores predeterminados para un conjunto de notificaciones de salida.
 - [Sugerencia de token de identificador](id-token-hint.md): valida la firma, el nombre del emisor y la audiencia del token JWT `id_token_hint` y extrae la notificación del token de entrada.
 - [Emisor de tokens de JWT](jwt-issuer-technical-profile.md): emite un token de JWT que se devuelve a la aplicación de usuario de confianza.

@@ -5,24 +5,28 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: deli, logicappspm
 ms.topic: article
-ms.date: 05/14/2019
+ms.date: 11/19/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: f339ae4ff1ea90929ce7811efe002f5860f7b47d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 589420d96a3a6dfcc1c17a1b204765022b1ce412
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91269342"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94916651"
 ---
 # <a name="add-and-run-code-snippets-by-using-inline-code-in-azure-logic-apps"></a>Adición y ejecución de fragmentos de código mediante código en línea en Azure Logic Apps
 
 Si desea ejecutar un fragmento de código dentro de su aplicación lógica, puede agregar la acción **Código en línea** integrada como un paso en el flujo de trabajo de la aplicación lógica. Esta acción funciona mejor si desea ejecutar código que se adapta a este escenario:
 
 * Se ejecuta en JavaScript. Próximamente más lenguajes.
+
 * Termina de ejecutarse en cinco segundos o menos.
+
 * Administra datos de hasta 50 MB de tamaño.
+
 * No es necesario trabajar con [acciones de **variables**](../logic-apps/logic-apps-create-variables-store-values.md), ya que aún no están permitidas.
-* Usa la versión 8.11.1 de Node.js. Para más información, consulte [Objetos integrados estándar](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects). 
+
+* Usa la versión 8.11.1 de Node.js. Para más información, consulte [Objetos integrados estándar](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects).
 
   > [!NOTE]
   > La función `require()` no es compatible con la acción **Código en línea** para la ejecución de JavaScript.
@@ -41,7 +45,7 @@ En este artículo, la aplicación lógica de ejemplo se desencadena cuando un nu
 
    La aplicación lógica de ejemplo en este tema usa este desencadenador de Office 365 Outlook: **Cuando llega un nuevo correo electrónico**
 
-* Una [cuenta de integración](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) vinculada a la aplicación lógica.
+* Una [cuenta de integración](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) vinculada a la aplicación lógica. Si no quiere crear o usar una cuenta de integración, pruebe a crear una aplicación lógica en Azure Portal mediante el nuevo tipo de recurso de **Logic Apps (versión preliminar**) o en Visual Studio Code mediante la nueva [extensión de Azure Logic Apps (versión preliminar)](../logic-apps/create-stateful-stateless-workflows-visual-studio-code.md).
 
   > [!NOTE]
   > Asegúrese de usar una cuenta de integración adecuada para su caso de uso o escenario. Por ejemplo, las cuentas de integración de [nivel gratuito](../logic-apps/logic-apps-pricing.md#integration-accounts) están diseñadas solo para escenarios y cargas de trabajo exploratorias, no para escenarios de producción, están limitadas en el uso y el rendimiento, y no se admiten en un contrato de nivel de servicio (SLA). Otros niveles implican costos, pero incluyen compatibilidad con el contrato de nivel de servicio, ofrecen más rendimiento y tienen límites más altos. Obtenga más información sobre los [niveles](../logic-apps/logic-apps-pricing.md#integration-accounts) de la cuenta de integración, los [precios](https://azure.microsoft.com/pricing/details/logic-apps/) y los [límites](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits).
@@ -68,7 +72,7 @@ En este artículo, la aplicación lógica de ejemplo se desencadena cuando un nu
 
    ![Acción Código en línea con código de ejemplo predeterminado](./media/logic-apps-add-run-inline-code/inline-code-action-default.png)
 
-1. En el cuadro **Código**, elimine el código de ejemplo y escriba el código que desee ejecutar. Escriba el código que colocaría dentro de un método, pero sin definir la firma del método. 
+1. En el cuadro **Código**, elimine el código de ejemplo y escriba el código que desee ejecutar. Escriba el código que colocaría dentro de un método, pero sin definir la firma del método.
 
    Al escribir una palabra clave reconocida, aparece la lista de Autocompletar para que pueda seleccionar entre las palabras clave disponibles, por ejemplo:
 
@@ -84,8 +88,7 @@ En este artículo, la aplicación lógica de ejemplo se desencadena cuando un nu
 
    ![Selección del resultado](./media/logic-apps-add-run-inline-code/inline-code-example-select-outputs.png)
 
-   En el cuadro **Código**, el fragmento puede usar el objeto `workflowContext` de solo lectura como entrada. Este objeto tiene subpropiedades que proporcionan al código acceso a los resultados de los desencadenadores y acciones anteriores en el flujo de trabajo.
-   Para más información, consulte esta sección más adelante en este tema: [Referencia a los resultados de desencadenadores y acciones en el código](#workflowcontext).
+   En el cuadro **Código**, el fragmento puede usar el objeto `workflowContext` de solo lectura como entrada. Este objeto tiene subpropiedades que proporcionan al código acceso a los resultados de los desencadenadores y acciones anteriores en el flujo de trabajo. Para más información, consulte esta sección más adelante en este tema: [Referencia a los resultados de desencadenadores y acciones en el código](#workflowcontext).
 
    > [!NOTE]
    >
@@ -97,8 +100,7 @@ En este artículo, la aplicación lógica de ejemplo se desencadena cuando un nu
    > `// Incorrect`</br>
    > `workflowContext.actions.my.action.name.body`
 
-   La acción de código en línea no requiere una instrucción `return`, pero los resultados de una instrucción `return` están disponibles como referencia en acciones posteriores mediante el token **Result**. 
-   Por ejemplo, el fragmento de código devuelve el resultado mediante una llamada a la función `match()`, que busca coincidencias en el cuerpo del correo electrónico con la expresión regular. La acción **Redactar** usa el token **Result** para hacer referencia a los resultados de la acción de código en línea y crea un solo resultado.
+   La acción de código en línea no requiere una instrucción `return`, pero los resultados de una instrucción `return` están disponibles como referencia en acciones posteriores mediante el token **Result**. Por ejemplo, el fragmento de código devuelve el resultado mediante una llamada a la función `match()`, que busca coincidencias en el cuerpo del correo electrónico con la expresión regular. La acción **Redactar** usa el token **Result** para hacer referencia a los resultados de la acción de código en línea y crea un solo resultado.
 
    ![Aplicación lógica terminada](./media/logic-apps-add-run-inline-code/inline-code-complete-example.png)
 
@@ -247,7 +249,7 @@ Si selecciona **Acciones**, se le preguntará qué acciones desea agregar. Sin e
 
   `My.Action.Name`
 
-1. En la barra de herramientas del diseñador, elija **Vista Código**y busque dentro del atributo `actions` el nombre de acción.
+1. En la barra de herramientas del diseñador, elija **Vista Código** y busque dentro del atributo `actions` el nombre de acción.
 
    Por ejemplo, `Send_approval_email_` es el nombre JSON de la acción **Enviar correo electrónico de aprobación**.
 

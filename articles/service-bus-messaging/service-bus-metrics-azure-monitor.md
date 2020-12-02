@@ -2,13 +2,13 @@
 title: Métricas de Azure Service Bus en Azure Monitor | Microsoft Docs
 description: En este artículo se explica cómo usar Azure Monitor para supervisar las entidades de Service Bus (colas, temas y suscripciones).
 ms.topic: article
-ms.date: 09/30/2020
-ms.openlocfilehash: 169edb651a59302d0ea1245fd48787404dd3e555
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/18/2020
+ms.openlocfilehash: 1f8bd9484bf2a2106818da1d6e4ef21e937d2ac3
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91598133"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94916889"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor"></a>Métricas de Azure Service Bus en Azure Monitor
 
@@ -23,7 +23,7 @@ Azure Monitor proporciona interfaces de usuario unificadas para la supervisión 
 
 Azure Monitor proporciona varias maneras de tener acceso a las métricas. Puede acceder a las métricas desde [Azure Portal](https://portal.azure.com) o usar las API de Azure Monitor (REST y .NET) y soluciones de análisis como los registros de Azure Monitor y Event Hubs. Para más información, consulte [Métricas en Azure Monitor](../azure-monitor/platform/data-platform-metrics.md).
 
-De forma predeterminada, las métricas están habilitadas y puede acceder a datos de los últimos 30 días. Si es necesario conservar los datos durante un periodo mayor, se pueden archivar en una cuenta de Azure Storage. Este valor se configura en la [configuración de diagnóstico](../azure-monitor/platform/diagnostic-settings.md) de Azure Monitor.
+De forma predeterminada, las métricas están habilitadas y puede acceder a datos de los últimos 30 días. Si es necesario conservar los datos durante un período mayor, se pueden archivar los datos de las métricas en una cuenta de Azure Storage. Este valor se configura en la [configuración de diagnóstico](../azure-monitor/platform/diagnostic-settings.md) de Azure Monitor.
 
 ## <a name="access-metrics-in-the-portal"></a>Acceso a métricas del portal
 
@@ -31,7 +31,7 @@ Una vez transcurrido un tiempo, las métricas se pueden supervisar en [Azure Por
 
 ![Captura de pantalla de la página Monitor: Métricas (versión preliminar) en Azure Portal.][1]
 
-También puede tener acceso a las métricas directamente a través del espacio de nombres. Para ello, seleccione el espacio de nombres y, después, haga clic en **Métricas**. Para mostrar las métricas filtradas según el ámbito de la entidad, seleccione la entidad y, luego, haga clic en **Métricas**.
+También puede tener acceso a las métricas directamente a través del espacio de nombres. Para ello, seleccione el espacio de nombres y, después, seleccione **Métricas**. Para mostrar las métricas filtradas según el ámbito de la entidad, seleccione la entidad y, luego, seleccione **Métricas**.
 
 ![Captura de pantalla de la página Monitor: Métricas (versión preliminar) filtrada para el ámbito de la entidad.][2]
 
@@ -80,20 +80,18 @@ Los dos tipos de errores siguientes se clasifican como errores de usuario:
 | Mensajes activos| Recuento de mensajes activos de una cola/tema. <br/><br/> Unidad: Count <br/> Tipo de agregación: Average <br/> Dimensión: Nombre de entidad |
 | Mensajes fallidos| Recuento de mensajes fallidos de una cola/tema. <br/><br/> Unidad: Count <br/> Tipo de agregación: Average <br/>Dimensión: Nombre de entidad |
 | Mensajes programados| Recuento de mensajes programados de una cola/tema. <br/><br/> Unidad: Count <br/> Tipo de agregación: Average  <br/> Dimensión: Nombre de entidad |
+| Mensajes completados| Recuento de mensajes completados de una cola o tema. <br/><br/> Unidad: Count <br/> Tipo de agregación: Average <br/> Dimensión: Nombre de entidad |
+| Mensajes abandonados| Recuento de mensajes abandonados de una cola o tema. <br/><br/> Unidad: Count <br/> Tipo de agregación: Average <br/> Dimensión: Nombre de entidad |
 | Size | Tamaño de una entidad (cola o tema) en bytes. <br/><br/>Unidad: Count <br/>Tipo de agregación: Average <br/>Dimensión: Nombre de entidad | 
 
 > [!NOTE]
-> Los valores de las métricas siguientes son valores de un momento dado. Es posible que los mensajes entrantes que se consumieron inmediatamente después de ese momento dado no se reflejen en estas métricas. 
-> - error de Hadoop
-> - Mensajes activos 
-> - Mensajes fallidos 
-> - Mensajes programados 
+> Los valores de mensajes, activos, fallidos, programados, completados y abandonados son valores de un momento dado. Es posible que los mensajes entrantes que se consumieron inmediatamente después de ese momento dado no se reflejen en estas métricas. 
 
 ## <a name="connection-metrics"></a>Métricas de conexión
 
 | Nombre de la métrica | Descripción |
 | ------------------- | ----------------- |
-|Conexiones activas|Número de conexiones activas en un espacio de nombres, así como en una entidad en el espacio de nombres. El valor de esta métrica es un valor de un momento dado. Es posible que las conexiones que estaban activas inmediatamente después de ese momento dado no se reflejen en esta métrica.<br/><br/> Unidad: Count <br/> Tipo de agregación: Total <br/> Dimensión: Nombre de entidad|
+|Conexiones activas|Número de conexiones activas en un espacio de nombres y en una entidad en el espacio de nombres. El valor de esta métrica es un valor de un momento dado. Es posible que las conexiones que estaban activas inmediatamente después de ese momento dado no se reflejen en esta métrica.<br/><br/> Unidad: Count <br/> Tipo de agregación: Total <br/> Dimensión: Nombre de entidad|
 |Conexiones abiertas |Número de conexiones abiertas.<br/><br/> Unidad: Count <br/> Tipo de agregación: Total <br/> Dimensión: Nombre de entidad|
 |Conexiones cerradas |Número de conexiones cerradas.<br/><br/> Unidad: Count <br/> Tipo de agregación: Total <br/> Dimensión: Nombre de entidad|
 

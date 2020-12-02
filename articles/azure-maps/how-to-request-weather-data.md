@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: b5db19a6549e7e4675213973554ff18bf46dda1e
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 3e0dce10d582006ab8c1dabf6d4b3efc82d8f39f
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92915372"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94957119"
 ---
 # <a name="request-real-time-and-forecasted-weather-data-using-azure-maps-weather-services"></a>Solicitud de datos meteorológicos en tiempo real y previsiones mediante los servicios meteorológicos de Azure Maps
 
@@ -28,7 +28,13 @@ Aprenderá a:
 * Solicitar previsiones por hora mediante [Get Hourly Forecast API](https://docs.microsoft.com/rest/api/maps/weather/gethourlyforecastpreview).
 * Solicitar previsiones minuto a minuto mediante [Get Minute Forecast API](https://docs.microsoft.com/rest/api/maps/weather/getminuteforecastpreview).
 
-## <a name="prerequisites"></a>Requisitos previos
+Este vídeo proporciona una introducción a los servicios meteorológicos de Azure Maps con ejemplos de llamadas de REST.
+
+<br/>
+
+<iframe src="https://channel9.msdn.com/Shows/Internet-of-Things-Show/Azure-Maps-Weather-services-for-developers/player" width="960" height="540" allowFullScreen frameBorder="0" title="Servicios meteorológicos de Azure Maps para desarrolladores: vídeo de Microsoft Channel 9"></iframe>
+
+## <a name="prerequisites"></a>Prerrequisitos
 
 1. [Cree una cuenta de Azure Maps](quick-demo-map-app.md#create-an-azure-maps-account).
 2. [Obtenga una clave de suscripción principal](quick-demo-map-app.md#get-the-primary-key-for-your-account), también conocida como clave principal o clave de suscripción. Para más información sobre la autenticación en Azure Maps, consulte [Administración de la autenticación en Azure Maps](./how-to-manage-authentication.md).

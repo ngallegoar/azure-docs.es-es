@@ -1,14 +1,14 @@
 ---
-title: Desarrollo y ejecución de funciones de Azure de forma local
-description: Aprenda a codificar y probar funciones de Azure en la máquina local antes de ejecutarlas en Azure Functions.
+title: Desarrollo y ejecución de Azure Functions de forma local
+description: Aprenda a codificar y probar las funciones de Azure Functions en la máquina local antes de ejecutarlas en Azure Functions.
 ms.topic: conceptual
 ms.date: 09/04/2018
-ms.openlocfilehash: e8af075f39cf25e39e5098d3c6aa27cac9018d2f
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: c011dff9f43de59d3f08445a7bbd5387b27563ad
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422950"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94920039"
 ---
 # <a name="code-and-test-azure-functions-locally"></a>Codificación y comprobación de las funciones de Azure Functions en un entorno local
 

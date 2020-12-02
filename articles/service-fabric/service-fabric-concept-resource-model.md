@@ -4,12 +4,12 @@ description: En este artículo se proporciona información general sobre la admi
 ms.topic: conceptual
 ms.date: 10/21/2019
 ms.custom: sfrev
-ms.openlocfilehash: 3968fde0222dcee8047e7490dba78879ab6110e2
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 886b7d6b40bebf6234064b0627017db1d8cfe31f
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94681693"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888834"
 ---
 # <a name="service-fabric-application-resource-model"></a>Modelo de recurso de aplicación de Service Fabric
 
@@ -91,6 +91,7 @@ La aplicación de ejemplo contiene [plantillas de Azure Resource Manager](https:
 >
 >
 
+
 | Parámetro              | Descripción                                 | Ejemplo                                                      | Comentarios                                                     |
 | ---------------------- | ------------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | clusterName            | Nombre del clúster en el cual se realiza la implementación | sf-cluster123                                                |                                                              |
@@ -137,6 +138,11 @@ New-AzResourceGroupDeployment -ResourceGroupName "sf-cluster-rg" -TemplateParame
 ```
 
 ## <a name="upgrade-the-service-fabric-application-by-using-resource-manager"></a>Actualización de la aplicación de Service Fabric mediante Resource Manager
+
+
+> [!IMPORTANT]
+> Cualquier servicio implementado a través de la definición de JSON de ARM se debe quitar de la sección DefaultServices del archivo ApplicationManifest.xml correspondiente.
+
 
 Cualquier aplicación implementada en un clúster de Service Fabric se puede actualizar por una de estas razones:
 

@@ -6,12 +6,12 @@ ms.author: ambhatna
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 10/21/2020
-ms.openlocfilehash: 2ce6959cf025d2e29f0ee3dfb3b29b3eaf5d4221
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 1c9ae694fefcede599331d5d57a298bda4739f53
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490839"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94920532"
 ---
 # <a name="planned-maintenance-notification-in-azure-database-for-mariadb"></a>Notificación de mantenimiento planeado en Azure Database for MariaDB
 
@@ -21,7 +21,7 @@ Obtenga información sobre cómo prepararse para eventos de mantenimiento planea
 
 El servicio Azure Database for MariaDB aplica automáticamente revisiones al hardware, sistema operativo y motor de base de datos subyacentes. La revisión incluye nuevas características de servicio, seguridad y actualizaciones de software. Para el motor de MariaDB, las actualizaciones de versiones secundarias son automáticas y se incluyen como parte del ciclo de aplicación de revisión. No se requiere ninguna acción del usuario ni opciones de configuración para la aplicación de revisión. La revisión se prueba exhaustivamente y se implementa mediante procedimientos de implementación seguros.
 
-Un mantenimiento planeado es una ventana de mantenimiento durante la que estas actualizaciones del servicio se implementan en los servidores de una región de Azure concreta. Durante el mantenimiento planeado, se crea un evento de notificación para informar a los clientes cuándo se implementa la actualización del servicio en la región de Azure en la que se hospedan sus servidores. La duración mínima entre dos mantenimientos planeados es de 30 días. Recibirá una notificación de la siguiente ventana de mantenimiento con 72 horas de antelación.
+Un mantenimiento planeado es una ventana de mantenimiento durante la que estas actualizaciones del servicio se implementan en los servidores de una región de Azure concreta. Durante el mantenimiento planeado, se crea un evento de notificación para informar a los clientes de cuándo se implementa la actualización del servicio en la región de Azure en la que se hospedan sus servidores. La duración mínima entre dos mantenimientos planeados es de 30 días. Recibirá una notificación de la siguiente ventana de mantenimiento con 72 horas de antelación.
 
 ## <a name="planned-maintenance---duration-and-customer-impact"></a>Mantenimiento planeado: duración e impacto en el cliente
 
@@ -48,12 +48,12 @@ Puede comprobar la notificación de mantenimiento planeado en Azure Portal, o bi
 
 1. En [Azure Portal](https://portal.azure.com), seleccione **Mantenimiento del servicio**.
 2. Seleccione la pestaña **Mantenimiento planeado**.
-3. Seleccione los valores de **Suscripción** , **Región y **Servicio** para los que quiera comprobar la notificación de mantenimiento planeado. 
+3. Seleccione los valores de **Suscripción**, **Región y **Servicio** para los que quiera comprobar la notificación de mantenimiento planeado. 
    
 ### <a name="to-receive-planned-maintenance-notification"></a>Para recibir una notificación de mantenimiento planeado
 
 1. En el [portal](https://portal.azure.com), seleccione **Estado del servicio**.
-2. En la sección **Alertas** , seleccione **Alertas de estado**.
+2. En la sección **Alertas**, seleccione **Alertas de estado**.
 3. Seleccione **+ Añadir alerta de Service Health** y rellene los campos.
 4. Rellene los campos obligatorios. 
 5. Elija la opción de **Tipo de evento** y elija **Mantenimiento planeado** o **Seleccionar todo**.
@@ -61,7 +61,7 @@ Puede comprobar la notificación de mantenimiento planeado en Azure Portal, o bi
 7. Asegúrese de que Habilitar regla tras la creación esté establecido en Sí.
 8. Seleccione **Crear regla de alertas** para completar la alerta.
 
-Para conocer los pasos detallados sobre cómo crear **alertas de Service Health** , consulte [Creación de alertas del registro de actividad en notificaciones del servicio](../service-health/alerts-activity-log-service-notifications.md).
+Para conocer los pasos detallados sobre cómo crear **alertas de Service Health**, consulte [Creación de alertas del registro de actividad en notificaciones del servicio](../service-health/alerts-activity-log-service-notifications.md).
 
 ## <a name="can-i-cancel-or-postpone-planned-maintenance"></a>¿Se puede cancelar o posponer el mantenimiento planeado?
 
@@ -78,7 +78,7 @@ Un error transitorio es un error que se solucionará automáticamente. Durante e
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para cualquier pregunta o sugerencia que pueda tener con respecto al uso de Azure Database for MariaDB, envíe un correo electrónico al equipo de Azure Database for MariaDB en *AskAzureDBforMySQL@service.microsoft.com* .
+- Para cualquier pregunta o sugerencia que pueda tener con respecto al uso de Azure Database for MariaDB, envíe un correo electrónico al equipo de Azure Database for MariaDB en AskAzureDBforMariaDB@service.microsoft.com.
 - Consulte [How to set up alerts](howto-alert-metric.md) (Configuración de alertas) para obtener instrucciones sobre cómo crear una alerta en una métrica.
 - [Solución de problemas de conexión a Azure Database for MariaDB](howto-troubleshoot-common-connection-issues.md)
 - [Control de los errores transitorios y conexión eficaz a Azure Database for MariaDB](concepts-connectivity.md)
