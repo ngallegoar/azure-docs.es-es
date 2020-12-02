@@ -7,12 +7,12 @@ ms.topic: article
 author: trkeya
 ms.author: trkeya
 ms.date: 06/19/2020
-ms.openlocfilehash: 304e1ab475213bde2644c8241905408ade5672ed
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 193e7bd78046a1d73cb55171c15c9cb6a7278297
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94489971"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96490047"
 ---
 # <a name="what-is-a-test-drive"></a>¿Qué es una versión de prueba?
 
@@ -24,7 +24,7 @@ Asimismo, los clientes también podrán usar una versión de prueba. Al permitir
 
 Las versiones de prueba son instancias administradas que inician la solución o aplicación a petición para los clientes que la solicitan. Una vez asignada una instancia de la versión de prueba, el cliente podrá usarla durante un período establecido. Una vez finalizado ese período, se elimina para que otro cliente pueda usarla.
 
-Como publicador, puede administrar y configurar las opciones de la versión de prueba en el Centro de partners. Los detalles de la configuración técnica varían según el tipo de oferta. Para obtener instrucciones detalladas, consulte la [Configuración técnica de la versión de prueba](https://docs.microsoft.com/azure/marketplace/test-drive-technical-configuration).
+Como publicador, puede administrar y configurar las opciones de la versión de prueba en el Centro de partners. Los detalles de la configuración técnica varían según el tipo de oferta. Para obtener instrucciones detalladas, consulte la [Configuración técnica de la versión de prueba](./test-drive-technical-configuration.md).
 
 Los clientes potenciales detectan la versión de prueba como una CTA de la oferta en [AppSource](https://appsource.microsoft.com/en-US/). Proporcionan su información de contacto y aceptan los términos y la directiva de privacidad de la oferta; a continuación, obtienen acceso al entorno preconfigurado para probarlo durante un período de tiempo fijo. Los clientes reciben una evaluación gratuita práctica y guiada de las principales características y ventajas del producto y, a cambio, usted obtiene un valioso cliente potencial.
 
@@ -43,7 +43,7 @@ Hay diferentes versiones de prueba disponibles en el marketplace comercial para 
 - Aplicación lógica (solo en modo de soporte técnico)
 - Power BI
 
-Para obtener más información sobre la configuración de una de estas versiones de prueba, consulte [Configuración técnica de la versión de prueba](https://docs.microsoft.com/azure/marketplace/test-drive-technical-configuration). 
+Para obtener más información sobre la configuración de una de estas versiones de prueba, consulte [Configuración técnica de la versión de prueba](./test-drive-technical-configuration.md). 
 
 ### <a name="azure-resource-manager-test-drive"></a>Versión de prueba de Azure Resource Manager
 
@@ -65,7 +65,7 @@ Una versión de prueba hospedada elimina la complejidad de la configuración ya 
 
 ### <a name="logic-app-test-drive"></a>Versión de prueba de aplicación lógica
 
-Este tipo de versión de prueba no lo hospeda Microsoft y usa plantillas Azure Resource Manager (ARM) para los tipos de oferta de Dynamics AX/CRM. Tendrá que ejecutar la plantilla de ARM para crear los recursos necesarios en su suscripción de Azure. La versión de prueba de la aplicación lógica solo está disponible en el modo de compatibilidad y Microsoft no la recomienda. Para obtener más información sobre la configuración de la versión de prueba de una aplicación lógica, consulte [Configuración técnica de la versión de prueba](https://docs.microsoft.com/azure/marketplace/test-drive-technical-configuration).
+Este tipo de versión de prueba no lo hospeda Microsoft y usa plantillas Azure Resource Manager (ARM) para los tipos de oferta de Dynamics AX/CRM. Tendrá que ejecutar la plantilla de ARM para crear los recursos necesarios en su suscripción de Azure. La versión de prueba de la aplicación lógica solo está disponible en el modo de compatibilidad y Microsoft no la recomienda. Para obtener más información sobre la configuración de la versión de prueba de una aplicación lógica, consulte [Configuración técnica de la versión de prueba](./test-drive-technical-configuration.md).
 
 ### <a name="power-bi-test-drive"></a>Versión de prueba de Power BI
 

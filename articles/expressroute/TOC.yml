@@ -162,6 +162,8 @@
           href: expressroute-howto-coexist-resource-manager.md
         - name: Creación de una puerta de enlace de red virtual con redundancia de zona en zonas de disponibilidad de Azure
           href: ../vpn-gateway/create-zone-redundant-vnet-gateway.md?toc=%2fazure%2fexpressroute%2ftoc.json
+    - name: Planificación y administración de costos
+      href: plan-manage-cost.md
     - name: Paso del modelo clásico al de Resource Manager
       items:
         - name: Movimiento de un circuito del portal clásico a Resource Manager

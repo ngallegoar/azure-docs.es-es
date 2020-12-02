@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: jrasnick, sstein
+ms.reviewer: wiassaf, sstein
 ms.date: 09/30/2020
-ms.openlocfilehash: 2e5ab1f07473a2572f7fb228139da8670fd6269c
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 3d28cf1a89ff455cfbed26aad234607ec8cd7e63
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790362"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96490574"
 ---
 # <a name="monitoring-and-performance-tuning-in-azure-sql-database-and-azure-sql-managed-instance"></a>Supervisión y ajuste del rendimiento en Azure SQL Database e Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -38,7 +38,7 @@ En Azure Portal, Azure SQL Database e Instancia administrada de Azure SQL permit
 
 ### <a name="azure-sql-database-and-azure-sql-managed-instance-resource-monitoring"></a>Supervisión de recursos de Azure SQL Database e Instancia administrada de Azure SQL
 
-Puede supervisar rápidamente las siguientes métricas de recursos en Azure Portal en la vista **Métricas** . Estas métricas le permiten ver si una base de datos está llegando al 100 % del procesador, la memoria o los recursos de E/S. Un porcentaje alto de DTU o del procesador, así como un porcentaje alto de E/S, indican que la carga de trabajo podría necesitar más recursos de CPU o de E/S. También puede indicar consultas que deben optimizarse.
+Puede supervisar rápidamente las siguientes métricas de recursos en Azure Portal en la vista **Métricas**. Estas métricas le permiten ver si una base de datos está llegando al 100 % del procesador, la memoria o los recursos de E/S. Un porcentaje alto de DTU o del procesador, así como un porcentaje alto de E/S, indican que la carga de trabajo podría necesitar más recursos de CPU o de E/S. También puede indicar consultas que deben optimizarse.
 
   ![Métricas de los recursos](./media/monitor-tune-overview/resource-metrics.png)
 

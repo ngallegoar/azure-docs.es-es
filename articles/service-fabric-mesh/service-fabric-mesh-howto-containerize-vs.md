@@ -5,12 +5,12 @@ author: georgewallace
 ms.author: gwallace
 ms.date: 11/08/2018
 ms.topic: conceptual
-ms.openlocfilehash: 0f236292fff0d0e806e6eec32e1e058cbf67545c
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 2fb6aa7d7c655a1ba4b44dabc33e32ce04ae458f
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93144484"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96489282"
 ---
 # <a name="containerize-an-existing-net-app-for-service-fabric-mesh"></a>Inclusión de una aplicación .NET existente en un contenedor para Service Fabric Mesh
 
@@ -33,7 +33,7 @@ Abra la aplicación a la que desea agregar la compatibilidad con la orquestació
 
 Si desea probar un ejemplo, puede utilizar el ejemplo de código [eShop](https://github.com/MikkelHegn/ContainersSFLab). En el resto de este artículo se asumirá que estamos usando ese proyecto, aunque puede aplicar estos pasos a su propio proyecto.
 
-Obtenga una copia del proyecto **eShop** :
+Obtenga una copia del proyecto **eShop**:
 
 ```git
 git clone https://github.com/MikkelHegn/ContainersSFLab.git
@@ -45,7 +45,7 @@ Una vez descargado, en Visual Studio 2017 abra **ContainersSFLab\eShopLegacyWebF
  
 Agregue compatibilidad con la orquestación de contenedores a un proyecto ASP.NET o de consola existente mediante las herramientas de Service Fabric Mesh de la siguiente manera:
 
-En el explorador de soluciones de Visual Studio, haga clic con el botón derecho en el nombre del proyecto (en el ejemplo, **eShopLegacyWebForms** ) y, después, elija **Agregar** > **Compatibilidad con el orquestador de contenedores**.
+En el explorador de soluciones de Visual Studio, haga clic con el botón derecho en el nombre del proyecto (en el ejemplo, **eShopLegacyWebForms**) y, después, elija **Agregar** > **Compatibilidad con el orquestador de contenedores**.
 Se muestra el cuadro de diálogo **Agregar compatibilidad con el orquestador de contenedores**.
 
 ![Cuadro de diálogo Agregar orquestador de contenedores de Visual Studio](./media/service-fabric-mesh-howto-containerize-vs/add-container-orchestration-support.png)
@@ -54,7 +54,7 @@ Seleccione **Service Fabric Mesh** en el menú desplegable y, a continuación, h
 
 
 >[!NOTE]
-> Desde el 2 de noviembre de 2020, [se aplican límites de frecuencia de descarga](https://docs.docker.com/docker-hub/download-rate-limit/) a las solicitudes anónimas y autenticadas a Docker Hub desde las cuentas del plan gratuito de Docker. Estos se aplican por la dirección IP. Para obtener más información, consulte [Autenticación con Docker Hub](https://docs.microsoft.com/azure/container-registry/buffer-gate-public-content#authenticate-with-docker-hub).
+> Desde el 2 de noviembre de 2020, [se aplican límites de frecuencia de descarga](https://docs.docker.com/docker-hub/download-rate-limit/) a las solicitudes anónimas y autenticadas a Docker Hub desde las cuentas del plan gratuito de Docker. Estos se aplican por la dirección IP. Para obtener más información, consulte [Autenticación con Docker Hub](../container-registry/buffer-gate-public-content.md#authenticate-with-docker-hub).
 >
 > Para evitar la limitación de frecuencia, asegúrese de que el texto predeterminado `FROM microsoft/aspnet:4.7.2-windowsservercore-1803 AS base` de su archivo Dockerfile se reemplaza por `FROM mcr.microsoft.com/dotnet/framework/aspnet:4.7.2-windowsservercore-1803 AS base`.
 

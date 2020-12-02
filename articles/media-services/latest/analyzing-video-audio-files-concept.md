@@ -12,12 +12,12 @@ ms.workload: ''
 ms.topic: conceptual
 ms.date: 10/21/2020
 ms.author: inhenkel
-ms.openlocfilehash: c00af3a128685dfbd2435b65fe4d00107ca22ba4
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: f4784cc2e1b0276caf8326df8fad93b12f0d551d
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94744364"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96490081"
 ---
 # <a name="analyze-video-and-audio-files-with-azure-media-services"></a>Análisis de archivos de audio y vídeo con Azure Media Services
 
@@ -45,9 +45,9 @@ Media Services admite actualmente los siguientes valores preestablecidos de anal
 |**Nombre del valor preestablecido**|**Escenario**|**Detalles**|
 |---|---|---|
 |[AudioAnalyzerPreset](/rest/api/media/transforms/createorupdate#audioanalyzerpreset)|Análisis de audio estándar|El valor predeterminado aplica un conjunto predefinido de operaciones de análisis basadas en inteligencia artificial, incluida la transcripción de voz. Actualmente, este valor admite el procesamiento de contenido con una sola pista de audio que contiene la voz en un solo idioma. Puede especificar el idioma para la carga de audio en la entrada con el formato BCP-47 de "etiqueta de idioma-región". Los idiomas admitidos son inglés ("en-US" y "en-GB"), español ("es-ES" y "es-MX"), francés ("fr-FR"), italiano ("it-IT"), japonés ("ja-JP"), portugués ("pt-BR"), chino ("zh-CN"), alemán ("de-DE"), árabe ("ar-EG"), ruso ("ru-RU"), hindi ("hi-IN") y coreano ("ko-KR").<br/><br/> Si el idioma no se especifica o se establece en NULL, la detección automática de idioma elige el primer idioma detectado y continúa con el idioma seleccionado lo que dure el archivo. La función de detección automática de idioma admite actualmente inglés, chino, francés, alemán, italiano, japonés, español, ruso y portugués. Una vez detectado el primer idioma seleccionado, no se admite el cambio dinámico entre idiomas. La característica de detección automática de idioma funciona mejor con grabaciones de audio con voz claramente perceptible. Si con la detección automática del idioma no se encuentra el idioma, se usará el inglés para la transcripción.|
-|[AudioAnalyzerPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#audioanalyzerpreset)|Análisis de audio básico|Este modo realiza la transcripción de voz a texto y la generación de un archivo de subtítulos VTT. La salida de este modo incluye un archivo JSON de información, que incluye solo las palabras clave, la transcripción y la información de tiempo. La detección automática de idioma y la diarización de los altavoces no se incluyen en este modo. La lista de idiomas admitidos está disponible [aquí](https://go.microsoft.com/fwlink/?linkid=2109463)|
-|[VideoAnalyzerPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#videoanalyzerpreset)|Análisis de audio y vídeo|Extrae información (metadatos enriquecidos) de audio y vídeo y genera como salida un archivo en formato JSON. Puede especificar si desea solo extraer información de audio al procesar un archivo de vídeo. Para más información, consulte [Análisis de vídeo](analyze-videos-tutorial-with-api.md).|
-|[FaceDetectorPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#facedetectorpreset)|Detección de caras presentes en el vídeo|Describe la configuración que se usará al analizar un vídeo con el fin de detectar todas las caras presentes.|
+|[AudioAnalyzerPreset](/rest/api/media/transforms/createorupdate#audioanalyzerpreset)|Análisis de audio básico|Este modo realiza la transcripción de voz a texto y la generación de un archivo de subtítulos VTT. La salida de este modo incluye un archivo JSON de información, que incluye solo las palabras clave, la transcripción y la información de tiempo. La detección automática de idioma y la diarización de los altavoces no se incluyen en este modo. La lista de idiomas admitidos está disponible [aquí](#built-in-presets)|
+|[VideoAnalyzerPreset](/rest/api/media/transforms/createorupdate#videoanalyzerpreset)|Análisis de audio y vídeo|Extrae información (metadatos enriquecidos) de audio y vídeo y genera como salida un archivo en formato JSON. Puede especificar si desea solo extraer información de audio al procesar un archivo de vídeo. Para más información, consulte [Análisis de vídeo](analyze-videos-tutorial-with-api.md).|
+|[FaceDetectorPreset](/rest/api/media/transforms/createorupdate#facedetectorpreset)|Detección de caras presentes en el vídeo|Describe la configuración que se usará al analizar un vídeo con el fin de detectar todas las caras presentes.|
 
 ### <a name="audioanalyzerpreset-standard-mode"></a>Modo estándar de AudioAnalyzerPreset
 

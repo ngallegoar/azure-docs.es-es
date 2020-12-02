@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: troubleshooting
 author: danimir
 ms.author: danil
-ms.reviewer: jrasnik, sstein
+ms.reviewer: wiassaf, sstein
 ms.date: 06/12/2020
-ms.openlocfilehash: 4837b905f4e65b5513f1dbf693af9815b5696a4a
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: c42db1445c939069f334d04ea26d54cdb843c336
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92782967"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96488840"
 ---
 # <a name="troubleshoot-azure-sql-database-and-azure-sql-managed-instance-performance-issues-with-intelligent-insights"></a>Solucione con Intelligent Insights los problemas de rendimiento de Azure SQL Database e Instancia administrada de Azure SQL.
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -210,7 +210,7 @@ Considere la posibilidad de usar [Información de rendimiento de consultas](quer
 
 Este patrón de rendimiento detectable indica una degradación del rendimiento de la carga de trabajo en la que se identifican consultas con un rendimiento deficiente en comparación con la base de referencia de carga de trabajo de los últimos 7 días.
 
-En este caso, el sistema no puede clasificar las consultas con un rendimiento deficiente en cualquier otra categoría de rendimiento detectable estándar, pero detectó la estadística de espera responsable de la regresión. Por lo tanto, las considera consultas con *estadísticas de espera aumentada* , donde también se expone la estadística de espera aumentada responsable de la regresión.
+En este caso, el sistema no puede clasificar las consultas con un rendimiento deficiente en cualquier otra categoría de rendimiento detectable estándar, pero detectó la estadística de espera responsable de la regresión. Por lo tanto, las considera consultas con *estadísticas de espera aumentada*, donde también se expone la estadística de espera aumentada responsable de la regresión.
 
 ### <a name="troubleshooting"></a>Solución de problemas
 

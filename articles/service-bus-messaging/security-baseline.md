@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: a6d4e7f4ca7288b36f6801b9ddb362b7e936862d
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 9dda02e483f3437237837a9b3b8bdcbcf84fcd1d
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843628"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96489605"
 ---
 # <a name="azure-security-baseline-for-service-bus"></a>Base de referencia de seguridad de Azure para Service Bus
 
@@ -60,7 +60,7 @@ Use Azure Security Center y siga las recomendaciones de protección de redes par
 
 **Guía**: habilite el estándar de DDoS Protection en las redes virtuales asociadas a los espacios de nombres de Service Bus para protegerse de los ataques por denegación de servicio distribuidos (DDoS). Use la inteligencia sobre amenazas integrada de Azure Security Center para denegar las comunicaciones con direcciones IP malintencionadas conocidas o no utilizadas.
 
-- [Configuración de la protección contra DDoS](../virtual-network/manage-ddos-protection.md)
+- [Configuración de la protección contra DDoS](../ddos-protection/manage-ddos-protection.md)
 
 - [Inteligencia sobre amenazas integrada de Azure Security Center](../security-center/azure-defender.md)
 
@@ -197,7 +197,7 @@ Puede usar Azure PowerShell o la CLI de Azure para buscar o realizar acciones en
 
 **Guía**: analice y supervise los registros en busca de comportamientos anómalos y revise periódicamente los resultados relacionados con las entidades de Service Bus. Use Azure Monitor para revisar los registros y realizar consultas en los datos de los registros relacionados con Service Bus.
 
-- [Más información sobre el área de trabajo de Log Analytics](../azure-monitor/log-query/get-started-portal.md)
+- [Más información sobre el área de trabajo de Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md)
 
 - [Procedimiento para realizar consultas personalizadas en Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
 

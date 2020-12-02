@@ -342,7 +342,7 @@
 - name: Problemas en migraciones y traslados
   items:
     - name: Preguntas frecuentes sobre la migración de Azure Resource Manager (ASM a ARM)
-      href: ../windows/migration-classic-resource-manager-overview.md
+      href: ../migration-classic-resource-manager-overview.md
 - name: Mantenimiento planeado
   items:
     - name: Información general

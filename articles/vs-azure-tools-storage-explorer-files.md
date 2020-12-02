@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/09/2017
 ms.author: cawa
-ms.openlocfilehash: f9a828b78dc5ba6bdbc77e22daa75be4182015f0
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: 84f6473c25a5be11eeda7cd2b311d93a7226a78c
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95805694"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96488398"
 ---
 # <a name="using-storage-explorer-with-azure-file-storage"></a>Uso del Explorador de Storage con Azure File Storage
 
@@ -31,7 +31,7 @@ Para completar los pasos de este artículo, necesitará:
 
 - [Descarga e instalación del Explorador de Storage](https://www.storageexplorer.com/)
 
-- [Conectarse a una cuenta o a un servicio de almacenamiento de Azure](/azure/vs-azure-tools-storage-manage-with-storage-explorer#connect-to-a-storage-account-or-service)
+- [Conectarse a una cuenta o a un servicio de almacenamiento de Azure](./vs-azure-tools-storage-manage-with-storage-explorer.md#connect-to-a-storage-account-or-service)
 
 ## <a name="create-a-file-share"></a>Creación de un recurso compartido de archivos
 
@@ -47,7 +47,7 @@ Los siguientes pasos muestran cómo crear un recurso compartido de archivos en e
 
     ![Creación un recurso compartido de archivos](media/vs-azure-tools-storage-explorer-files/image1.png)
 
-1. Aparecerá un cuadro de texto debajo de la carpeta **Recursos compartidos de archivos**. Escriba el nombre del recurso compartido de archivos. Para ver una lista de reglas y restricciones en la nomenclatura de recursos compartidos de archivos, consulte la sección [Reglas de nomenclatura de recursos compartidos](/azure/storage/storage-dotnet-how-to-use-blobs).
+1. Aparecerá un cuadro de texto debajo de la carpeta **Recursos compartidos de archivos**. Escriba el nombre del recurso compartido de archivos. Para ver una lista de reglas y restricciones en la nomenclatura de recursos compartidos de archivos, consulte la sección [Reglas de nomenclatura de recursos compartidos](./storage/blobs/storage-quickstart-blobs-dotnet.md).
 
     ![Nomenclatura de recurso compartido](media/vs-azure-tools-storage-explorer-files/image2.png)
 
@@ -77,7 +77,7 @@ Los siguientes pasos muestran cómo ver el contenido de recurso compartido de ar
 
 ## <a name="delete-a-file-share"></a>Eliminación de un recurso compartido de archivos
 
-Los recursos compartidos de archivos se pueden crear y eliminar fácilmente si fuera necesario. (para ver cómo eliminar los archivos individuales, consulte la sección [Administración de archivos en un recurso compartido de archivos](/azure/vs-azure-tools-storage-explorer-blobs#managing-blobs-in-a-blob-container)).
+Los recursos compartidos de archivos se pueden crear y eliminar fácilmente si fuera necesario. (para ver cómo eliminar los archivos individuales, consulte la sección [Administración de archivos en un recurso compartido de archivos](./vs-azure-tools-storage-explorer-blobs.md#managing-blobs-in-a-blob-container)).
 
 Los siguientes pasos muestran cómo eliminar un recurso compartido de archivos en el Explorador de Storage:
 
@@ -97,7 +97,7 @@ Los siguientes pasos muestran cómo eliminar un recurso compartido de archivos e
 
 ## <a name="copy-a-file-share"></a>Copia de un recurso compartido de archivos
 
-El Explorador de Storage permite copiar un recurso compartido de archivos en el Portapapeles y, después, pegarlo en otra cuenta de almacenamiento. (para ver cómo copiar los archivos individuales, consulte la sección [Administración de archivos en un recurso compartido de archivos](/azure/vs-azure-tools-storage-explorer-blobs#managing-blobs-in-a-blob-container)).
+El Explorador de Storage permite copiar un recurso compartido de archivos en el Portapapeles y, después, pegarlo en otra cuenta de almacenamiento. (para ver cómo copiar los archivos individuales, consulte la sección [Administración de archivos en un recurso compartido de archivos](./vs-azure-tools-storage-explorer-blobs.md#managing-blobs-in-a-blob-container)).
 
 Los siguientes pasos muestran cómo copiar un recurso compartido de archivos de una cuenta de almacenamiento a otra.
 
@@ -117,7 +117,7 @@ Los siguientes pasos muestran cómo copiar un recurso compartido de archivos de 
 
 ## <a name="get-the-sas-for-a-file-share"></a>Obtención de la SAS de un recurso compartido de archivos
 
-Una [firma de acceso compartido (SAS)](/azure/storage/storage-dotnet-shared-access-signature-part-1) ofrece acceso delegado a los recursos en la cuenta de almacenamiento. Esto significa que puede conceder permisos limitados de los clientes a objetos en su cuenta de almacenamiento durante un período específico y con un conjunto determinado de permisos sin tener que compartir las claves de acceso a las cuentas.
+Una [firma de acceso compartido (SAS)](./storage/common/storage-sas-overview.md) ofrece acceso delegado a los recursos en la cuenta de almacenamiento. Esto significa que puede conceder permisos limitados de los clientes a objetos en su cuenta de almacenamiento durante un período específico y con un conjunto determinado de permisos sin tener que compartir las claves de acceso a las cuentas.
 
 Los siguientes pasos muestran cómo crear una SAS para un recurso compartido de archivos:+
 

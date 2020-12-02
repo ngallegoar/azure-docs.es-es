@@ -8,17 +8,17 @@ ms.topic: article
 ms.author: terrylan
 manager: rkarlin
 ms.date: 09/15/2020
-ms.openlocfilehash: 52cb5ac5423aac0599ba2827667ee670dde286a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 01232aa101e2964354acfbeb6cea341a0da33ca6
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91331665"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96489899"
 ---
 # <a name="customer-lockbox-for-microsoft-azure"></a>Caja de seguridad del cliente de Microsoft Azure
 
 > [!NOTE]
-> Para usar esta característica, su organización debe tener un [plan de soporte técnico de Azure](https://azure.microsoft.com/support/plans/) con un nivel mínimo de tipo**Desarrollador**.
+> Para usar esta característica, su organización debe tener un [plan de soporte técnico de Azure](https://azure.microsoft.com/support/plans/) con un nivel mínimo de tipo **Desarrollador**.
 
 La Caja de seguridad del cliente de Microsoft Azure proporciona una interfaz para los clientes y así permitirles revisar y aprobar o rechazar las solicitudes de acceso de datos de cliente. Se utiliza en casos donde un ingeniero de Microsoft necesita obtener acceso a los datos del cliente durante una solicitud de soporte técnico.
 
@@ -64,7 +64,7 @@ La Caja de seguridad del cliente está actualmente habilitada para poder acceder
 - Conjunto de escalado de máquinas virtuales: Windows y Linux
 
 > [!NOTE]
-> Las instancias del modelo clásico de IaaS no son compatibles con la Caja de seguridad del cliente. Si tiene cargas de trabajo ejecutándose en instancias del modelo clásico de IaaS, le recomendamos que las migre de los modelos de implementación Classic a Resource Manager. Para obtener más información, consulte [Migración compatible con la plataforma de recursos de IaaS del modelo clásico al de Azure Resource Manager](../../virtual-machines/windows/migration-classic-resource-manager-overview.md)
+> Las instancias del modelo clásico de IaaS no son compatibles con la Caja de seguridad del cliente. Si tiene cargas de trabajo ejecutándose en instancias del modelo clásico de IaaS, le recomendamos que las migre de los modelos de implementación Classic a Resource Manager. Para obtener más información, consulte [Migración compatible con la plataforma de recursos de IaaS del modelo clásico al de Azure Resource Manager](../../virtual-machines/migration-classic-resource-manager-overview.md)
 
 #### <a name="detailed-audit-logs"></a>Registros de auditoría detallados
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.date: 11/13/2020
 ms.author: v-mibufo
-ms.openlocfilehash: eb4e0a246d6a33c3fad5f44b99a37997e4462f05
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 18622d60f3a33658fadfd28c53c93a07b4b438a9
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94663380"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96488653"
 ---
 # <a name="windows-stop-error---hardware-malfunction"></a>Error de detención de Windows: error de funcionamiento del hardware
 
@@ -63,7 +63,7 @@ Esta pantalla aparecerá cuando el sistema operativo invitado no se haya configu
     ```
     REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1 /f
     ```
-    [Visualización de más información sobre el comando REG ADD](https://docs.microsoft.com/windows-server/administration/windows-commands/reg-add)
+    [Visualización de más información sobre el comando REG ADD](/windows-server/administration/windows-commands/reg-add)
 4. *(Opcional)* Configure la recopilación de volcado de memoria:
 
     ```
@@ -77,13 +77,13 @@ Esta pantalla aparecerá cuando el sistema operativo invitado no se haya configu
     BCDEDIT /ems {current} on, or bcdedit /ems '{current}' on if you are using PowerShell
     BCDEDIT /emssettings EMSPORT:1 EMSBAUDRATE:115200 
     ```
-    [Visualización de más información sobre el comando BCDEDIT](https://docs.microsoft.com/windows-server/administration/windows-commands/bcdedit)
+    [Visualización de más información sobre el comando BCDEDIT](/windows-server/administration/windows-commands/bcdedit)
 6. Reinicie la máquina virtual con el comando siguiente:
 
     ```
     SHUTDOWN /r /t 0 /f 
     ```
-    [Visualización de más información sobre el comando SHUTDOWN](https://docs.microsoft.com/windows-server/administration/windows-commands/shutdown)
+    [Visualización de más información sobre el comando SHUTDOWN](/windows-server/administration/windows-commands/shutdown)
 
 > [!IMPORTANT]
 > Ahora se debería haber solucionado ya el problema.
