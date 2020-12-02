@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 62bc309bf20186654cb32fb84fb1a07667405ab0
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: f3f66209b2d0a1bae18364e38790c237952e729f
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94950812"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96458263"
 ---
 # <a name="azure-security-baseline-for-azure-machine-learning"></a>Base de referencia de seguridad de Azure Machine Learning
 
@@ -241,7 +241,7 @@ También puede habilitar e incorporar datos en Azure Sentinel o en una herramien
 
 - [Incorporación de Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-- [Introducción a las consultas de Log Analytics](../azure-monitor/log-query/get-started-portal.md)
+- [Introducción a las consultas de Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md)
 
 - [Procedimiento para realizar consultas personalizadas en Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
 

@@ -11,12 +11,12 @@ ms.date: 09/23/2020
 ms.topic: conceptual
 ms.reviewer: larryfr
 ms.custom: deploy, devx-track-azurecli
-ms.openlocfilehash: cfa40332c45eac23d062b83bb789c25f1906ae24
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: b47b8f9d9429f38fb8b5da6d8f9083736f230fcb
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94831640"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96458281"
 ---
 # <a name="high-performance-serving-with-triton-inference-server-preview"></a>Servicio de alto rendimiento con Triton Inference Server (versión preliminar) 
 
@@ -53,7 +53,7 @@ Antes de intentar usar Triton para su propio modelo, es importante comprender c�
 
 ### <a name="setting-the-number-of-workers"></a>Establecimiento del número de trabajos
 
-Para establecer el número de trabajos de la implementación, establezca la variable de entorno `WORKER_COUNT`. Suponiendo que tiene un objeto [Environment](https://docs.microsoft.compython/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py&preserve-view=true) denominado `env`, puede hacer lo siguiente:
+Para establecer el número de trabajos de la implementación, establezca la variable de entorno `WORKER_COUNT`. Suponiendo que tiene un objeto [Environment](/python/api/azureml-core/azureml.core.environment.environment?preserve-view=true&view=azure-ml-py) denominado `env`, puede hacer lo siguiente:
 
 ```{py}
 env.environment_variables["WORKER_COUNT"] = "1"

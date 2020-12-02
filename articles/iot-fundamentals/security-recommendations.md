@@ -12,12 +12,12 @@ ms.custom:
 - security-recommendations
 - amqp
 - mqtt
-ms.openlocfilehash: 5a7fc2a5a5a6be7695fa816f28e3cdf61c5839f2
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: a1de3a71253b1a82b4423bff279fbf3f7e378da4
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92208282"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96457606"
 ---
 # <a name="security-recommendations-for-azure-internet-of-things-iot-deployment"></a>Recomendaciones de seguridad para la implementación de Azure Internet of Things (IoT)
 
@@ -63,8 +63,8 @@ Algunas de las recomendaciones incluidas en este artículo se pueden supervisar 
 | Recomendación | Comentarios | Compatible con ASC |
 |-|----|--|
 | Supervisión del acceso no autorizado a los dispositivos |  Use la característica de registro del sistema operativo para supervisar las posibles vulneraciones de seguridad o alteraciones físicas del dispositivo o sus puertos. | - |
-| Supervisión de la solución de IoT desde la nube | Supervise el estado general de la solución de IoT Hub mediante las [métricas de Azure Monitor](../iot-hub/iot-hub-metrics.md). | - |
-| Configuración de diagnósticos | Para vigilar sus operaciones de cerca, registre los eventos de la solución y, a continuación, envíe los registros de diagnóstico a Azure Monitor para visualizar mejor el rendimiento. Consulte [Supervisión y diagnóstico de problemas en el centro de IoT](../iot-hub/iot-hub-monitor-resource-health.md) para obtener más información. | - |
+| Supervisión de la solución de IoT desde la nube | Supervise el estado general de la solución de IoT Hub mediante las [métricas de Azure Monitor](../iot-hub/monitor-iot-hub.md). | - |
+| Configuración de diagnósticos | Para vigilar sus operaciones de cerca, registre los eventos de la solución y, a continuación, envíe los registros de diagnóstico a Azure Monitor para visualizar mejor el rendimiento. Consulte [Supervisión y diagnóstico de problemas en el centro de IoT](../iot-hub/monitor-iot-hub.md) para obtener más información. | - |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

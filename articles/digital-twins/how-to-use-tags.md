@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 59f68909e2f3704fea5c38e3f1535f5996b284ab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c2620b52c426871b0ec85e3db237be2d373d42f1
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87095405"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96458707"
 ---
 # <a name="add-tags-to-digital-twins"></a>Incorporación de etiquetas a gemelos digitales 
 
@@ -69,13 +69,13 @@ Una vez que se han agregado etiquetas a gemelos digitales, estas se pueden usar 
 Esta es una consulta para obtener todos los gemelos etiquetados como "red": 
 
 ```sql
-select * from digitaltwins where is_defined(tags.red) 
+SELECT * FROM digitaltwins WHERE is_defined(tags.red) 
 ```
 
 También puede combinar etiquetas para consultas más complejas. Esta es una consulta para obtener todos los gemelos etiquetados como "round" y no "red": 
 
 ```sql
-select * from digitaltwins where not is_defined(tags.red) and is_defined(tags.round) 
+SELECT * FROM digitaltwins WHERE NOT is_defined(tags.red) AND is_defined(tags.round) 
 ```
 
 ## <a name="value-tags"></a>Etiquetas de valor 
@@ -127,13 +127,13 @@ Al igual que con las etiquetas de marcador, puede usar etiquetas de valor para f
 En el ejemplo anterior, `red` se usa como etiqueta de marcador. Esta es una consulta para obtener todos los gemelos etiquetados como "red": 
 
 ```sql
-select * from digitaltwins where is_defined(tags.red) 
+SELECT * FROM digitaltwins WHERE is_defined(tags.red) 
 ```
 
 Esta es una consulta para obtener todas las entidades que son "small" (etiqueta de valor) y no "red": 
 
 ```sql
-select * from digitaltwins where not is_defined(tags.red) and tags.size = 'small' 
+SELECT * FROM digitaltwins WHERE NOT is_defined(tags.red) AND tags.size = 'small' 
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
