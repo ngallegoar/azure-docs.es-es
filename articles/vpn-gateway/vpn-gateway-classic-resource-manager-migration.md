@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/06/2020
 ms.author: amsriva
-ms.openlocfilehash: b9154b124f89a8b672c58d5e7bce28c0833e8a8c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c9d7fb8be1894ffa5f8c35e16e1ed3aa0949b3ff
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84988038"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96488211"
 ---
 # <a name="vpn-gateway-classic-to-resource-manager-migration"></a>Migración de VPN Gateway (clásico) a Resource Manager
 Las instancias de VPN Gateway ahora se pueden migrar del modelo de implementación clásica al de Resource Manager. Puede leer más información sobre las [características y ventajas](../azure-resource-manager/management/overview.md) de Azure Resource Manager. En este artículo, se explica cómo migrar desde implementaciones clásicas al nuevo modelo basado en Resource Manager. 
 
-Las instancias de VPN Gateway se migran como parte de la migración de red virtual del modelo clásico al de Resource Manager. Esta migración se realiza con una red virtual cada vez. No se necesita nada más en cuanto a herramientas o requisitos previos para la migración. Los pasos de migración son idénticos a los de la migración de red virtual existente y están documentados en la [página de migración de recursos de IaaS](../virtual-machines/windows/migration-classic-resource-manager-ps.md). No existe ningún tiempo de inactividad para la ruta de acceso de datos durante la migración y, por tanto, las cargas de trabajo existentes seguirán funcionando sin que se pierda la conectividad local durante la migración. La dirección IP pública asociada a la puerta de enlace de VPN no cambia durante el proceso de migración. Esto significa que no tendrá que volver a configurar el enrutador local una vez completada la migración.  
+Las instancias de VPN Gateway se migran como parte de la migración de red virtual del modelo clásico al de Resource Manager. Esta migración se realiza con una red virtual cada vez. No se necesita nada más en cuanto a herramientas o requisitos previos para la migración. Los pasos de migración son idénticos a los de la migración de red virtual existente y están documentados en la [página de migración de recursos de IaaS](../virtual-machines/migration-classic-resource-manager-ps.md). No existe ningún tiempo de inactividad para la ruta de acceso de datos durante la migración y, por tanto, las cargas de trabajo existentes seguirán funcionando sin que se pierda la conectividad local durante la migración. La dirección IP pública asociada a la puerta de enlace de VPN no cambia durante el proceso de migración. Esto significa que no tendrá que volver a configurar el enrutador local una vez completada la migración.  
 
 El modelo en Resource Manager es diferente del modelo clásico y se compone de puertas de enlace de red virtual, puertas de enlace de red local y recursos de conexión. Estos representan la puerta de enlace de VPN en sí y el sitio local representa el espacio de direcciones local y la conectividad entre ambos respectivamente. Una vez completada la migración, las puertas de enlace no estarán disponibles en el modelo clásico y todas las operaciones de administración en puertas de enlace de red virtual, puertas de enlace de red local y objetos de conexión se deben llevar a cabo mediante el modelo de Resource Manager.
 
@@ -66,5 +66,4 @@ Puesto que se transforma la conectividad de red virtual a red virtual sin necesi
 * Establezca una conexión explícita desde la red virtual afectada hacia la puerta de enlace de red local que representa la ubicación local. Esto también podría requerir que se cambie la configuración del enrutador local para crear y configurar el túnel IPsec.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Después de leer sobre la compatibilidad con la migración de puerta de enlace de VPN, vaya a la página sobre la [migración de recursos de IaaS admitida por la plataforma del modelo clásico al de Resource Manager](../virtual-machines/windows/migration-classic-resource-manager-ps.md) para empezar.
-
+Después de leer sobre la compatibilidad con la migración de puerta de enlace de VPN, vaya a la página sobre la [migración de recursos de IaaS admitida por la plataforma del modelo clásico al de Resource Manager](../virtual-machines/migration-classic-resource-manager-ps.md) para empezar.

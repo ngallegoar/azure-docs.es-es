@@ -4,19 +4,19 @@ description: Descubra cómo crear un archivo de conexión de datos de Office par
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/30/2019
+ms.date: 12/01/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 039783fc10fb08523dc81e13b5f6f456fa8d0c97
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 8fa657f3b343cdf49723dc68601bb1c9513ff504
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92014773"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96487344"
 ---
 # <a name="create-an-office-data-connection-file"></a>Creación de un archivo de conexión de datos de Office
 
-La información de este artículo describe cómo crear un archivo de conexión de datos de Office para conectarse a un servidor de Azure Analysis Services desde el número de versión 16.0.7369.2117, o cualquier otro anterior, de Excel 2016, o bien desde Excel 2013. También se requiere un [proveedor de MSOLAP.7](/analysis-services/client-libraries?view=azure-analysis-services-current) actualizado.
+La información de este artículo describe cómo crear un archivo de conexión de datos de Office para conectarse a un servidor de Azure Analysis Services desde el número de versión 16.0.7369.2117, o cualquier otro anterior, de Excel 2016, o bien desde Excel 2013. También se requiere un [proveedor de MSOLAP.7](/analysis-services/client-libraries?view=azure-analysis-services-current&preserve-view=true) actualizado.
 
 
 1. Copie el siguiente archivo de conexión de ejemplo y péguelo en un editor de texto. 

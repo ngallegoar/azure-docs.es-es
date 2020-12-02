@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 11/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6fedefccf57364e690415542114030ba7ce12b49
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 3f02c90dd6c751909434f3f2af9b8eb81ee1c4b9
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91974098"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96488381"
 ---
 # <a name="azure-disk-encryption-for-windows-virtual-machines-faq"></a>Preguntas más frecuentes sobre Azure Disk Encryption para máquinas virtuales Windows
 
@@ -55,15 +55,15 @@ No. Azure Disk Encryption solo cifra volúmenes montados.
 
 ## <a name="what-is-storage-server-side-encryption"></a>¿Qué es el cifrado del lado servidor de almacenamiento?
 
-El cifrado del lado servidor de almacenamiento cifra Azure Managed Disks en Azure Storage. Los discos administrados se cifran de manera predeterminada con el cifrado del lado servidor con una clave administrada por la plataforma (desde el 10 de junio de 2017). Puede administrar el cifrado de discos administrados con sus propias claves mediante la especificación de una clave administrada por el cliente. Para obtener más información, consulte [Cifrado del lado servidor de Azure Managed Disks](disk-encryption.md).
+El cifrado del lado servidor de almacenamiento cifra Azure Managed Disks en Azure Storage. Los discos administrados se cifran de manera predeterminada con el cifrado del lado servidor con una clave administrada por la plataforma (desde el 10 de junio de 2017). Puede administrar el cifrado de discos administrados con sus propias claves mediante la especificación de una clave administrada por el cliente. Para obtener más información, consulte [Cifrado del lado servidor de Azure Managed Disks](../disk-encryption.md).
  
 ## <a name="how-is-azure-disk-encryption-different-from-storage-server-side-encryption-with-customer-managed-key-and-when-should-i-use-each-solution"></a>¿Cuál es diferencia entre Azure Disk Encryption y el cifrado del lado servidor de almacenamiento con la clave administrada por el cliente y cuándo debo usar cada solución?
 
 Azure Disk Encryption proporciona cifrado de un extremo a otro para el disco del sistema operativo, los discos de datos y el disco temporal con una clave administrada por el cliente.
 
 - Si los requisitos incluyen el cifrado de todos los elementos anteriores y el cifrado de un extremo a otro, use Azure Disk Encryption. 
-- Si los requisitos incluyen el cifrado solo de datos en reposo con la clave administrada por el cliente, use el [cifrado del lado servidor con las claves administradas por el cliente](disk-encryption.md). No se puede cifrar un disco con Azure Disk Encryption y el cifrado del lado servidor de almacenamiento con claves administradas por el cliente.
-- Si usa un escenario que se ha mencionado en los [escenarios no compatibles con Windows](disk-encryption-windows.md#unsupported-scenarios), considere la posibilidad de usar el [cifrado del lado servidor con las claves administradas por el cliente](disk-encryption.md). 
+- Si los requisitos incluyen el cifrado solo de datos en reposo con la clave administrada por el cliente, use el [cifrado del lado servidor con las claves administradas por el cliente](../disk-encryption.md). No se puede cifrar un disco con Azure Disk Encryption y el cifrado del lado servidor de almacenamiento con claves administradas por el cliente.
+- Si usa un escenario que se ha mencionado en los [escenarios no compatibles con Windows](disk-encryption-windows.md#unsupported-scenarios), considere la posibilidad de usar el [cifrado del lado servidor con las claves administradas por el cliente](../disk-encryption.md). 
 - Si la directiva de la organización permite cifrar contenido en reposo con una clave administrada por Azure, no es necesario realizar ninguna acción: el contenido se cifra de manera predeterminada. En el caso de los discos administrados, el contenido del almacenamiento se cifra de manera predeterminada con el cifrado del lado servidor con una clave administrada por la plataforma. El servicio de Azure Storage administra la clave. 
 
 ## <a name="how-do-i-rotate-secrets-or-encryption-keys"></a>¿Cómo se pueden rotar los secretos o las claves de cifrado?

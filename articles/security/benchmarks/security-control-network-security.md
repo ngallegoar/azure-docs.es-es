@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: bd69f239a1c65040c44da776186ab8d955f5e333
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 3a232f8e8c35e265a8243ac79e465c03f6b9650e
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94693196"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96487871"
 ---
 # <a name="security-control-network-security"></a>Control de seguridad: Seguridad de redes
 
@@ -76,7 +76,7 @@ Use el acceso de red Just-in-Time de Azure Security Center para configurar los N
 
 Use la protección de redes adaptativa de Azure Security Center para recomendar configuraciones de NSG que limiten los puertos y las direcciones IP de origen según el tráfico real y la inteligencia sobre amenazas.
 
-- [Configuración de la protección contra DDoS](../../virtual-network/manage-ddos-protection.md)
+- [Configuración de la protección contra DDoS](../../ddos-protection/manage-ddos-protection.md)
 
 - [Implementación de Azure Firewall](../../firewall/tutorial-firewall-deploy-portal.md)
 

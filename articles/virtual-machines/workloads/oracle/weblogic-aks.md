@@ -8,18 +8,18 @@ ms.topic: article
 ms.date: 10/28/2020
 ms.author: rezar
 ms.reviewer: cynthn
-ms.openlocfilehash: a57d5a00fad9a17e01b96ebdf395fb7a4b857935
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: cf44ad8d81656248329d993d86e9922dc4985258
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94968696"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96486681"
 ---
 # <a name="what-are-solutions-for-running-oracle-weblogic-server-on-the-azure-kubernetes-service"></a>¿Cuáles son las soluciones para ejecutar Oracle WebLogic Server en Azure Kubernetes Service?
 
 En esta página se describen las soluciones para ejecutar Oracle WebLogic Server (WLS) en Azure Kubernetes Service (AKS). Oracle y Microsoft conjuntamente desarrollan estas soluciones y les prestan soporte técnico.
 
-También es posible ejecutar WebLogic Server en Azure Virtual Machines. Las soluciones para ello se describen en [este artículo de Microsoft](/azure/virtual-machines/workloads/oracle/oracle-weblogic).
+También es posible ejecutar WebLogic Server en Azure Virtual Machines. Las soluciones para ello se describen en [este artículo de Microsoft](./oracle-weblogic.md).
 
 WebLogic Server es un servidor de aplicaciones Java líder en el que se ejecutan algunas de las aplicaciones de Java de empresa más fundamentales de todo el mundo. WebLogic Server constituye la base de middleware para el conjunto de software de Oracle. Oracle y Microsoft están comprometidos con ofrecer a los clientes de WebLogic Server la posibilidad y flexibilidad de ejecutar cargas de trabajo en Azure como una plataforma de nube líder.
 

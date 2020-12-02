@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 05/30/2019
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 8b7490723d3930a151abf1d3f72bb957e02e5988
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: d88792f50e0e79dd0313694cf979761054551eac
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91975508"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96487531"
 ---
 # <a name="migrate-azure-vms-to-managed-disks-in-azure"></a>Migración de VM de Azure a Managed Disks en Azure
 
@@ -27,7 +27,7 @@ Puede migrar a Managed Disks en los escenarios siguientes:
 |---------|---------|
 |Conversión de VM independientes y VM de un conjunto de disponibilidad para establecer discos administrados     |[Conversión de VM para usar discos administrados](convert-unmanaged-to-managed-disks.md)         |
 |Conversión de una sola máquina virtual del modelo clásico a Resource Manager en discos administrados     |[Creación de una VM desde un disco duro virtual clásico](create-vm-specialized-portal.md)         |
-|Conversión de todas las máquinas virtuales de una red virtual desde el modelo clásico a Resource Manager en discos administrados     |[Migración de recursos de IaaS desde el modelo clásico a Resource Manager](migration-classic-resource-manager-ps.md) y luego [Conversión de una VM desde discos no administrados a discos administrados](convert-unmanaged-to-managed-disks.md)         |
+|Conversión de todas las máquinas virtuales de una red virtual desde el modelo clásico a Resource Manager en discos administrados     |[Migración de recursos de IaaS desde el modelo clásico a Resource Manager](../migration-classic-resource-manager-ps.md) y luego [Conversión de una VM desde discos no administrados a discos administrados](convert-unmanaged-to-managed-disks.md)         |
 |Actualización de las máquinas virtuales con discos no administrados estándar a máquinas virtuales con discos administrados prémium     | En primer lugar, [convierta una máquina virtual Windows con discos no administrados a discos administrados](convert-unmanaged-to-managed-disks.md). Después, [actualice el tipo de almacenamiento de un disco administrado](convert-disk-storage.md).         |
 
 [!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]

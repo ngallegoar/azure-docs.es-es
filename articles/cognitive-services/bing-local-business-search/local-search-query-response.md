@@ -10,19 +10,19 @@ ms.subservice: bing-local-business
 ms.topic: conceptual
 ms.date: 06/26/2018
 ms.author: rosh
-ms.openlocfilehash: 8e26d128fea7208206be8a7329522f8202051215
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 70a33774ac82312660d887fb86f7e2a482c30a0c
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93095414"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96487174"
 ---
 # <a name="sending-and-using-bing-local-business-search-api-queries-and-responses"></a>Envío y uso de consultas y respuestas de Bing Local Business Search API
 
 > [!WARNING]
-> Bing Search APIs se mueve de Cognitive Services a Bing Search Services. A partir del **30 de octubre de 2020** , las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](https://aka.ms/cogsvcs/bingmove).
+> Bing Search APIs se mueve de Cognitive Services a Bing Search Services. A partir del **30 de octubre de 2020**, las nuevas instancias de Bing Search deben aprovisionarse siguiendo el proceso documentado [aquí](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 > El aprovisionamiento de Bing Search APIs con Cognitive Services será posible durante los próximos tres años o hasta que finalice el Contrato Enterprise, lo que suceda primero.
-> Puede encontrar instrucciones sobre la migración en [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
+> Puede encontrar instrucciones sobre la migración en [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 Puede obtener resultados locales de Bing Local Business Search API si envía una consulta de búsqueda a su punto de conexión e incluye el encabezado `Ocp-Apim-Subscription-Key`, que es obligatorio. Junto con los [encabezados](local-search-reference.md#headers) y los [parámetros](local-search-reference.md#query-parameters) disponibles, las búsquedas se pueden personalizar mediante la especificación de [límites geográficos](specify-geographic-search.md) para el área de búsqueda y las [categorías](local-search-query-response.md) de lugares devueltos.
 
