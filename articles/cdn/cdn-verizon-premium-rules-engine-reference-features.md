@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 06/02/2020
 ms.author: allensu
 ms.openlocfilehash: 0ea4f167b992ccfbc4156ac06c8f636d2ef4a355
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84343207"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96020422"
 ---
 # <a name="azure-cdn-from-verizon-premium-rules-engine-features"></a>Características del motor de reglas de Azure CDN de Verizon Premium
 
@@ -59,7 +59,7 @@ Estas características están diseñadas para personalizar cuándo y cómo se al
 | [Limitación de ancho de banda](https://docs.vdms.com/cdn/Content/HRE/F/Bandwidth-Throttling.htm) | Limita el ancho de banda para la respuesta de nuestros servidores perimetrales. |
 | [Omisión de la memoria caché](https://docs.vdms.com/cdn/Content/HRE/F/Bypass-Cache.htm) | Determina si la solicitud puede aprovechar nuestra tecnología de almacenamiento en caché. |
 | [Tratamiento de encabezados Cache-Control](https://docs.vdms.com/cdn/Content/HRE/F/Cache-Control-Header-Treatment.htm) |  Controla la generación de encabezados Cache-Control mediante el servidor perimetral cuando está activa la característica Max-Age externa. |
-| [Cadena de consulta de clave de caché](https://docs.vdms.com/cdn/Content/HRE/F/Cache-Key-Query-String.htm) | Determina si la **clave de caché*** incluirá o excluirá los parámetros de cadena de consulta asociados a una solicitud. <br> _* Una ruta de acceso relativa que identifica de forma única un recurso para el almacenamiento en caché.  Nuestros servidores perimetrales usan esta ruta de acceso relativa al comprobar el contenido almacenado en caché.  De forma predeterminada, una clave de caché no contendrá parámetros de cadena de consulta._ |
+| [Cadena de consulta de clave de caché](https://docs.vdms.com/cdn/Content/HRE/F/Cache-Key-Query-String.htm) | Determina si la **clave de caché** incluirá o excluirá los parámetros de cadena de consulta asociados a una solicitud. <br> *Una ruta de acceso relativa que identifica de forma única un recurso con fines de almacenamiento en caché.  Nuestros servidores perimetrales usan esta ruta de acceso relativa al comprobar el contenido almacenado en caché.  De forma predeterminada, una clave de caché no contendrá parámetros de cadena de consulta. |
 | [Reescritura de clave de caché](https://docs.vdms.com/cdn/Content/HRE/F/Cache-Key-Rewrite.htm) | Reescribe la clave de caché asociada a una solicitud. |
 | [Relleno de la memoria caché completa](https://docs.vdms.com/cdn/Content/HRE/F/Complete-Cache-Fill.htm) | Determina lo que ocurre cuando una solicitud tiene como resultado un error de caché parcial en un servidor perimetral. |
 | [Comprimir tipos de archivo](https://docs.vdms.com/cdn/Content/HRE/F/Compress-File-Types.htm) | Define los formatos de archivo que se van a comprimir en el servidor. | 

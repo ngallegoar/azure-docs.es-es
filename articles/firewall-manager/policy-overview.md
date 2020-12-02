@@ -5,18 +5,18 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: conceptual
-ms.date: 08/28/2020
+ms.date: 11/24/2020
 ms.author: victorh
-ms.openlocfilehash: 34134f2c790851d34db7b5327aa76350d54d137d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 73a07af0fa98adf66d6104f1ab545d31a0cfd6d7
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89075470"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95802026"
 ---
 # <a name="azure-firewall-manager-policy-overview"></a>Información general sobre la directiva de Azure Firewall Manager
 
-Directiva de firewall es un recurso de Azure que contiene NAT, red y colecciones de reglas de aplicación así como valores de inteligencia sobre amenazas. Es un recurso global que se puede utilizar en varias instancias de Azure Firewall en centros virtuales protegidos y redes virtuales de centros. Las directivas funcionan entre regiones y suscripciones.
+Una directiva de firewall es un recurso de Azure que contiene colecciones de reglas de NAT, red y aplicación, así como valores de configuración de inteligencia sobre amenazas. Es un recurso global que se puede utilizar en varias instancias de Azure Firewall en centros virtuales protegidos y redes virtuales de centros. Las directivas funcionan entre regiones y suscripciones.
 
 ![Directiva de Azure Firewall Manager](media/policy-overview/policy-overview.png)
 

@@ -8,12 +8,12 @@ ms.date: 11/02/2020
 author: parthpandyaMSFT
 ms.author: parthp
 ms.custom: contperfq2
-ms.openlocfilehash: e15937797077e3fa46a12e726a3ce690c3979cbd
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: ccdc87d03181bad1aba4dd362a651fa42381343a
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94628788"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95542293"
 ---
 # <a name="create-a-commercial-marketplace-account-in-partner-center"></a>Creación de una cuenta de Marketplace comercial en el Centro de partners
 
@@ -67,7 +67,7 @@ El perfil de publicador incluye el nombre de su compañía y el identificador de
 
     Una vez inscrito, se le dirigirá a la página de introducción al marketplace comercial. La cuenta del marketplace comercial se muestra en el panel izquierdo.
 
-1. Para comprobar que la cuenta del marketplace comercial aparece como registrada, seleccione **Configuración** (icono de engranaje) en la esquina superior derecha > **Configuración de desarrollador** > **Programas**.
+1. Para comprobar que la cuenta del marketplace comercial aparece como registrada, seleccione **Configuración** (icono de engranaje) en la esquina superior derecha > **Configuración de cuenta** > **Programas**.
 
 Ha creado una cuenta del marketplace comercial en el Centro de partners. Vaya a [Incorporación de nuevos publicadores al programa del marketplace comercial](#add-new-publishers-to-the-commercial-marketplace-program).
 
@@ -91,7 +91,7 @@ Cuando se usa la cuenta de Microsoft Partner Network, esta vincula el dominio de
 > Debe tener un rol de **administrador de cuenta** o **administrador global** para iniciar sesión en Microsoft Partner Network.
 
 1. Inicie sesión en el [Centro de partners](https://partner.microsoft.com/dashboard/) con la cuenta de Microsoft Partner Network.
-1. Seleccione **Configuración** > **Configuración de desarrollador** > **Programas** > **Introducción**.
+1. Seleccione **Configuración** > **Configuración de cuenta** > **Programas** > **Introducción**.
 
    Microsoft Partner Network detecta la suscripción y muestra el panel **Publisher profile** (Perfil de publicador).
 
@@ -103,7 +103,7 @@ Cuando se usa la cuenta de Microsoft Partner Network, esta vincula el dominio de
 
     Una vez inscrito, se le dirigirá a la página de introducción al marketplace comercial. La cuenta del marketplace comercial se muestra en el panel izquierdo.
 
-1. Para comprobar que la cuenta del marketplace comercial aparece como registrada, seleccione **Configuración** > **Configuración de desarrollador** > **Programas**.
+1. Para comprobar que la cuenta del marketplace comercial aparece como registrada, seleccione **Configuración** > **Configuración de cuenta** > **Programas**.
 
 Ha creado una cuenta del marketplace comercial en el Centro de partners. Vaya a [Incorporación de nuevos publicadores al programa del marketplace comercial](#add-new-publishers-to-the-commercial-marketplace-program).
 
@@ -119,7 +119,7 @@ Ha creado una cuenta del marketplace comercial en el Centro de partners. Vaya a 
 Al registrarse en el programa del marketplace comercial con la misma cuenta que en el programa de desarrolladores, puede ver las inscripciones existentes en los programas en el panel izquierdo del Centro de partners.
 
 1. Inicie sesión en el [Centro de partners](https://partner.microsoft.com/dashboard/) con la cuenta existente.
-1. Seleccione **Configuración** > **Configuración del desarrollador** > **Programas** > **Introducción** y escriba la dirección de correo electrónico del trabajo.
+1. Seleccione **Configuración** > **Configuración de cuenta** > **Programas** > **Introducción** y escriba la dirección de correo electrónico del trabajo.
 1. Rellene los detalles en la página del **perfil de publicador**.
 2. Lea los términos y condiciones del [contrato de publicador de Microsoft](https://go.microsoft.com/fwlink/?LinkID=699560) y, a continuación, seleccione **Aceptar y continuar** para completar la inscripción.
 
@@ -128,7 +128,7 @@ Al registrarse en el programa del marketplace comercial con la misma cuenta que 
 
     Una vez inscrito, se le dirigirá a la página de introducción al marketplace comercial. La cuenta del marketplace comercial se muestra en el panel izquierdo.
 
-1. Para comprobar que la cuenta del marketplace comercial aparece como registrada, seleccione **Configuración** > **Configuración de desarrollador** > **Programas**.
+1. Para comprobar que la cuenta del marketplace comercial aparece como registrada, seleccione **Configuración** > **Configuración de cuenta** > **Programas**.
 
 Ha creado una cuenta del marketplace comercial en el Centro de partners. Para obtener ayuda con la incorporación de publicadores, vea [Incorporación de nuevos publicadores al programa del marketplace comercial](#add-new-publishers-to-the-commercial-marketplace-program).
 
@@ -142,7 +142,7 @@ El contrato de publicación y la información de perfil de empresa se trasladan 
 
 ## <a name="add-new-publishers-to-the-commercial-marketplace-program"></a>Incorporación de nuevos publicadores al programa del marketplace comercial
 
-Una organización puede tener varios publicadores asociados con una cuenta de marketplace comercial. Un usuario existente puede agregar más publicadores después de iniciar sesión en el Centro de partners. Para ello, debe seleccionar **Configuración** > **Configuración de desarrollador** > **Publicador** > **Agregar publicador**.
+Una organización puede tener varios publicadores asociados con una cuenta de marketplace comercial. Un usuario existente puede agregar más publicadores después de iniciar sesión en el Centro de partners seleccionando **Configuración** > **Configuración de cuenta** > **Perfil de la organización** > **Identificadores** > **Agregar publicador**.
 
 >[!NOTE]
 >Antes de agregar uno nuevo, revise la lista de publicadores existentes. Para hacerlo, inicie sesión en el Centro de partners y seleccione **Configuración de cuenta** > **Publicadores**.

@@ -4,12 +4,12 @@ description: En este artículo se describe cómo puede interrumpir la supervisi�
 ms.topic: conceptual
 ms.date: 08/19/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: af5f49dfe5e668f39f105a62ad20858e273b34cb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 15ec102632258870745f510a98773f70242118be
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87489493"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96011649"
 ---
 # <a name="how-to-stop-monitoring-your-azure-kubernetes-service-aks-with-azure-monitor-for-containers"></a>Cómo detener la supervisión de Azure Kubernetes Service (AKS) con Azure Monitor para contenedores
 
@@ -35,7 +35,7 @@ Si no conoce el concepto de implementación de recursos mediante una plantilla, 
 * [Implementación de recursos con plantillas de Resource Manager y la CLI de Azure](../../azure-resource-manager/templates/deploy-cli.md)
 
 >[!NOTE]
->La plantilla debe implementarse en el mismo grupo de recursos que el clúster. Si omite cualquier otra propiedad o complemento al usar esta plantilla, puede dar lugar a su retirada del clúster. Por ejemplo, *enableRBAC* para las directivas RBAC implementadas en el clúster o *aksResourceTagValues* si se especifican etiquetas para el clúster AKS.  
+>La plantilla debe implementarse en el mismo grupo de recursos que el clúster. Si omite cualquier otra propiedad o complemento al usar esta plantilla, puede dar lugar a su retirada del clúster. Por ejemplo, *enableRBAC* para las directivas RBAC de Kubernetes implementadas en el clúster o *aksResourceTagValues* si se especifican etiquetas para el clúster de AKS.  
 >
 
 Si decide usar la CLI de Azure, primero debe instalar y usar la CLI localmente. Debe ejecuta la versión 2.0.27 de la CLI de Azure, o cualquier versión posterior. Para identificar la versión, ejecute `az --version`. Si necesita instalar o actualizar la CLI de Azure, consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli).

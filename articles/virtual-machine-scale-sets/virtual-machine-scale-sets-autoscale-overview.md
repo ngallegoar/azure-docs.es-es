@@ -9,12 +9,12 @@ ms.subservice: autoscale
 ms.date: 06/30/2020
 ms.reviewer: jushiman
 ms.custom: avverma
-ms.openlocfilehash: dd042b28035b5e9a4b18041d6c1a81f77cfd4ea7
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 092b95845ed033ac0705e325fc6535739088848f
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "86527411"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888800"
 ---
 # <a name="overview-of-autoscale-with-azure-virtual-machine-scale-sets"></a>Introducción a los registros de escalado automático con conjuntos de escalado de máquinas virtuales de Azure
 Un conjunto de escalado de máquinas virtuales de Azure puede aumentar o reducir automáticamente el número de instancias de máquinas virtuales que ejecutan la aplicación. Este comportamiento automatizado y elástico reduce la sobrecarga de administración para supervisar y optimizar el rendimiento de la aplicación. Puede crear reglas que definan el rendimiento aceptable para una experiencia positiva del cliente. Al cumplirse esos umbrales definidos, las reglas de escalado automático actúan para ajustar la capacidad del conjunto de escalado. También puede programar eventos para aumentar o reducir automáticamente la capacidad del conjunto de escalado en determinados momentos. En este artículo se proporciona información general de las métricas de rendimiento que están disponibles y las acciones que puede realizar el escalado automático.
@@ -22,6 +22,9 @@ Un conjunto de escalado de máquinas virtuales de Azure puede aumentar o reducir
 
 ## <a name="benefits-of-autoscale"></a>Ventajas del escalado automático
 Si aumenta la demanda de la aplicación, la carga de las instancias de máquina virtual del conjunto de escalado aumenta. Si este aumento de la carga es continuado, en lugar de ser algo puntual, puede configurar reglas de escalado automático para aumentar el número de instancias de máquina virtual en el conjunto de escalado.
+
+> [!NOTE]
+> Al usar la reparación automática de instancias para el conjunto de escalado, el número máximo de instancias del conjunto de escalado puede ser 200. Más información sobre las [reparaciones automáticas de instancias](./virtual-machine-scale-sets-automatic-instance-repairs.md).
 
 Cuando se crean estas instancias de máquina virtual y se implementan las aplicaciones, el conjunto de escalado empieza a distribuir el tráfico entre ellas mediante el equilibrador de carga. Puede controlar qué métricas se deben supervisar como, por ejemplo, la CPU o la memoria, cuánto tiempo debe cumplir la carga de la aplicación un límite determinado y cuántas instancias de máquinas virtuales se deben agregar al conjunto de escalado.
 
@@ -72,7 +75,7 @@ Al crear reglas de escalado automático para supervisar una métrica especificad
 
 | Tipo de agregación |
 |------------------|
-| Average          |
+| Media          |
 | Mínima          |
 | Máxima          |
 | Total            |
@@ -81,7 +84,7 @@ Al crear reglas de escalado automático para supervisar una métrica especificad
 
 A continuación, las reglas de escalado automático se desencadenan al compararse las métricas con su umbral definido con uno de los siguientes operadores:
 
-| Operator                 |
+| Operador                 |
 |--------------------------|
 | Mayor que             |
 | Mayor o igual que |

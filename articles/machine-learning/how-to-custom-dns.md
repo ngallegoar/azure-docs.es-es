@@ -8,19 +8,19 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
-ms.date: 11/13/2020
+ms.date: 11/20/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: e3d95be52215b03a30dc4b5c7f251357f163b24a
-ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
+ms.openlocfilehash: c67dcbbe2ca6dea533260f59831556c4338374ba
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94616100"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95012991"
 ---
 # <a name="how-to-use-your-workspace-with-a-custom-dns-server"></a>Uso de un área de trabajo con un servidor DNS personalizado
 
-Al usar Azure Machine Learning con una red virtual, hay [varias maneras de controlar la resolución de nombres DNS](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md). De manera predeterminada, Azure controla automáticamente la resolución de nombres para el área de trabajo y el punto de conexión privado. Si, en cambio, _usa su propio servidor DNS personalizado_, debe crear manualmente entradas DNS para el área de trabajo.
+Al usar un área de trabajo de Azure Machine Learning con un punto de conexión privado, hay [varias maneras de controlar la resolución de nombres DNS](../private-link/private-endpoint-dns.md). De manera predeterminada, Azure controla automáticamente la resolución de nombres para el área de trabajo y el punto de conexión privado. Si, en cambio, _usa su propio servidor DNS personalizado_, debe crear manualmente entradas DNS para el área de trabajo.
 
 > [!IMPORTANT]
 > En este artículo solo se explica cómo buscar el nombre de dominio completo (FQDN) y las direcciones IP para estas entradas; NO se proporciona información sobre cómo configurar los registros DNS para estos elementos. Consulte la documentación del software de DNS para obtener información sobre cómo agregar registros.
@@ -33,6 +33,8 @@ Al usar Azure Machine Learning con una red virtual, hay [varias maneras de contr
 
 - Familiaridad con el uso del [aislamiento de red durante el entrenamiento e inferencia](./how-to-network-security-overview.md).
 
+- Familiaridad con la [configuración de la zona DNS de puntos de conexión privados de Azure](../private-link/private-endpoint-dns.md).
+
 - De manera opcional, la [CLI de Azure](/cli/azure/install-azure-cli) o [Azure PowerShell](/powershell/azure/install-az-ps).
 
 ## <a name="find-the-ip-addresses"></a>Búsqueda de direcciones IP
@@ -43,7 +45,7 @@ La lista siguiente contiene los nombres de dominio completos (FQDN) que usa el 
 * `<workspace-GUID>.workspace.<region>.experiments.azureml.net`
 * `<workspace-GUID>.workspace.<region>.modelmanagement.azureml.net`
 * `<workspace-GUID>.workspace.<region>.aether.ms`
-* `ml-<workspace-name>-<region>-<workspace-guid>.notebooks.azure.ml`
+* `ml-<workspace-name>-<region>-<workspace-guid>.notebooks.azure.net`
 * Si crea una instancia de proceso, también debe agregar una entrada para `<instance-name>.<region>.instances.azureml.ms` con la dirección IP privada del punto de conexión privado del área de trabajo.
 
     > [!NOTE]

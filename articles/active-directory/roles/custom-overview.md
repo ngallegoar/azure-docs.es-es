@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: deb030a708f2df5d95d2261304bb506c4fa5dcc6
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 0785d8070a60ae7594ea0b182a0238bf6b4b6a58
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93378506"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95899469"
 ---
 # <a name="custom-administrator-roles-in-azure-active-directory-preview"></a>Roles de administrador personalizados en Azure Active Directory (versión preliminar)
 
@@ -34,7 +34,7 @@ La concesión de permisos mediante roles personalizados de Azure AD es un proce
 
 Cuando haya creado la definición de roles, puede asignarla a un usuario mediante la creación de una asignación de roles. Una asignación de roles concede al usuario los permisos de una definición de roles en un ámbito específico. Este proceso de dos pasos permite crear una sola definición de roles y asignarla muchas veces en distintos ámbitos. Un ámbito define el conjunto de recursos de Azure AD a los que tiene acceso el miembro del rol. El ámbito más común es el de toda la organización. Un rol personalizado se puede asignar en el ámbito de toda la organización, lo que significa que el miembro del rol tiene los permisos de rol en todos los recursos de la organización. También se puede asignar un rol personalizado en un ámbito de objeto. Un ejemplo del ámbito de objeto sería una aplicación única. Se puede asignar el mismo rol a un usuario en todas las aplicaciones de la organización y, luego, a otro usuario que solo tenga un ámbito de la aplicación de informes de gastos de Contoso.  
 
-Los roles personalizados e integrados de Azure AD funcionan sobre conceptos parecidos al [control de acceso basado en rol de Azure (Azure RBAC)](../../active-directory-b2c/overview.md). La [diferencia entre estos dos sistemas de control de acceso basado en rol](../../role-based-access-control/rbac-and-directory-admin-roles.md) es que RBAC de Azure controla el acceso a los recursos de Azure (como máquinas virtuales o almacenamiento) mediante la administración de recursos de Azure, mientras que los roles personalizados de Azure AD controlan el acceso a los recursos de Azure AD mediante Graph API. Ambos sistemas aprovechan el concepto de definiciones de roles y asignaciones de roles. Los permisos de RBAC de Azure AD no se pueden incluir en los roles Azure RBAC y viceversa.
+Los roles personalizados e integrados de Azure AD funcionan sobre conceptos parecidos al [control de acceso basado en rol de Azure (Azure RBAC)](../../active-directory-b2c/overview.md). La [diferencia entre estos dos sistemas de control de acceso basado en rol](../../role-based-access-control/rbac-and-directory-admin-roles.md) es que RBAC de Azure controla el acceso a los recursos de Azure (como máquinas virtuales o almacenamiento) mediante la administración de recursos de Azure, mientras que los roles personalizados de Azure AD controlan el acceso a los recursos de Azure AD mediante Graph API. Ambos sistemas aprovechan el concepto de definiciones de roles y asignaciones de roles. Los permisos de RBAC de Azure AD no se pueden incluir en los roles de Azure y viceversa.
 
 ### <a name="how-azure-ad-determines-if-a-user-has-access-to-a-resource"></a>Cómo determina Azure AD si un usuario tiene acceso a un recurso
 

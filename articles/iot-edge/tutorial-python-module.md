@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Creación del módulo personalizado de Python: Azure IoT Edge | Microsoft Docs'
+title: 'Tutorial: Personalización del módulo de Python mediante Azure IoT Edge'
 description: En este tutorial, se explica cómo se crea un módulo IoT Edge con código Python y cómo se implementa en un dispositivo perimetral.
 services: iot-edge
 author: kgremban
@@ -10,12 +10,12 @@ ms.date: 08/04/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 1cc3db32650891c5f95be05267541f93ca49218e
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 402b61bb0845532d601e9f5dcaaf55eacce685d1
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047971"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94959380"
 ---
 # <a name="tutorial-develop-and-deploy-a-python-iot-edge-module-for-linux-devices"></a>Tutorial: Desarrollo e implementación de un módulo de Python de IoT Edge para dispositivos Linux
 
@@ -34,7 +34,7 @@ El módulo IoT Edge que creó en este tutorial filtra lo datos sobre la temperat
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="solution-scope"></a>Ámbito de la solución
+## <a name="prerequisites"></a>Requisitos previos
 
 Este tutorial muestra cómo desarrollar un módulo en **Python** mediante **Visual Studio Code** y cómo se implementa en un **dispositivo Linux**. IoT Edge no admite módulos de Python para dispositivos Windows.
 
@@ -44,8 +44,6 @@ Utilice la tabla siguiente si desea conocer las opciones para desarrollar e impl
 | - | ------------------ | ------------------ |
 | **Linux AMD64** | ![Usar VS Code para los módulos de Python en Linux AMD64](./media/tutorial-c-module/green-check.png) |  |
 | **Linux ARM32** | ![Usar VS Code para los módulos de Python en Linux ARM32](./media/tutorial-c-module/green-check.png) |  |
-
-## <a name="prerequisites"></a>Prerrequisitos
 
 Antes de comenzar este tutorial, debe haber realizado el anterior para configurar el entorno de desarrollo de contenedores de Linux: [Desarrollo de módulos IoT Edge para dispositivos Linux](tutorial-develop-for-linux.md). Al completar ese tutorial, se deben cumplir los siguientes requisitos previos:
 

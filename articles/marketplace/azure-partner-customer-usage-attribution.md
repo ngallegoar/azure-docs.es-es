@@ -8,12 +8,12 @@ author: vikrambmsft
 ms.author: vikramb
 ms.date: 11/4/2020
 ms.custom: devx-track-terraform
-ms.openlocfilehash: 2c2b7de65e7ac22ebe648ce98633d5ae88818324
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 3728fdd07172f2402ddb1dc7434ddb1993b984b1
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94628397"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95999882"
 ---
 # <a name="commercial-marketplace-partner-and-customer-usage-attribution"></a>Atribución de uso de partners y clientes de marketplace comercial
 
@@ -251,11 +251,7 @@ foreach ($deployment in $deployments){
 
 ## <a name="report"></a>Informe
 
-Puede encontrar el informe de atribución de uso del cliente en el panel del Centro de partners ([https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure](https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure)). Para ver el informe, tendrá que iniciar sesión con las credenciales del Centro de asociados. Si tiene problemas con los informes o el inicio de sesión, cree una solicitud de soporte técnico siguiendo las instrucciones de la sección de soporte técnico de Get.
-
-Elija Tracked Templates (Plantillas en seguimiento) en la lista desplegable de Partner Association Type (Tipo de asociación del asociado) para ver el informe.
-
-![Informe de la atribución de uso del cliente](media/marketplace-publishers-guide/customer-usage-attribution-report.png)
+Puede encontrar el informe de atribución de uso del cliente en el panel del Centro de partners ([https://partner.microsoft.com/dashboard/partnerinsights/analytics/overview](https://partner.microsoft.com/dashboard/partnerinsights/analytics/overview)). Para ver el informe, tendrá que iniciar sesión con las credenciales del Centro de asociados. Si tiene algún problema con el informe o el inicio de sesión, cree una [solicitud de soporte técnico](#get-support).
 
 ## <a name="notify-your-customers"></a>Notificación a los clientes
 

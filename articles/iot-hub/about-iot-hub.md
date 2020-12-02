@@ -13,12 +13,12 @@ ms.custom:
 - 'role: System Architecture'
 ms.service: iot-hub
 services: iot-hub
-ms.openlocfilehash: aaf803d463e03f2de7814fed4b20a0b4312fa1ef
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 7f1acc44a80d5ef70145997698a928e6f9ce0d48
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148841"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888885"
 ---
 # <a name="what-is-azure-iot-hub"></a>¿Qué es Azure IoT Hub?
 
@@ -120,11 +120,17 @@ Cada suscripción de Azure tiene límites de cuota predeterminados para impedir 
 
 * [IoT Hub throttling and you](https://azure.microsoft.com/blog/iot-hub-throttling-and-you/) (Limitación de IoT Hub)
 
+## <a name="iot-hub-on-azure-stack-hub-preview"></a>IoT Hub en Azure Stack Hub (versión preliminar)
+
+IoT Hub en Azure Stack Hub (versión preliminar) permite crear soluciones de IoT híbridas. IoT Hub es un servicio administrado que actúa como centro de conectividad de mensajes para las comunicaciones bidireccionales entre la aplicación de IoT y los dispositivos que administra. Puede usar IoT Hub en Azure Stack Hub para compilar soluciones de IoT con comunicaciones confiables y seguras entre los dispositivos IoT y las soluciones del entorno local.
+
+IoT Hub en Azure Stack Hub es gratuito durante la versión preliminar pública. Para más información, consulte [Introducción a IoT Hub en Azure Stack Hub](/azure-stack/operator/iot-hub-rp-overview).
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para probar una solución de IoT de un extremo a otro, consulte los siguientes inicios rápidos de IoT Hub:
 
-* [Inicio rápido: Enviar telemetría desde un dispositivo a IoT Hub](quickstart-send-telemetry-node.md)
+* [Quickstart: Send telemetry from a device to an IoT hub](quickstart-send-telemetry-node.md) (Inicio rápido: enviar telemetría desde un dispositivo a IoT Hub)
 
 Para más información sobre las distintas formas en que puede compilar e implementar soluciones de IoT con IoT de Azure, visite:
 

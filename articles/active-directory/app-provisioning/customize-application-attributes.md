@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/10/2020
 ms.author: kenwith
-ms.openlocfilehash: 42ec826ab95363c2599be541fe451473be5ca08d
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: f65fb37a4cc6640bc998af1c56e7852cccaba234
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94441960"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94955534"
 ---
 # <a name="tutorial---customize-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Tutorial: Personalización de las asignaciones de atributos de aprovisionamiento de usuarios para aplicaciones SaaS en Azure Active Directory
 
@@ -202,7 +202,7 @@ Use los pasos siguientes para aprovisionar roles para un usuario para la aplicac
   - **Cosas que hay que tener en cuenta**
     - Asegúrese de que no se asignen varios roles a un usuario. No se puede garantizar el rol que se va a aprovisionar.
     
-  - **Salida del ejemplo** 
+  - **Solicitud de ejemplo (POST)** 
 
    ```json
     {
@@ -226,6 +226,21 @@ Use los pasos siguientes para aprovisionar roles para un usuario para la aplicac
    }
    ```
   
+  - **Salida de ejemplo (PATCH)** 
+    
+   ```
+   "Operations": [
+   {
+   "op": "Add",
+   "path": "roles",
+   "value": [
+   {
+   "value": "{\"id\":\"06b07648-ecfe-589f-9d2f-6325724a46ee\",\"value\":\"25\",\"displayName\":\"Role1234\"}"
+   }
+   ]
+   ```  
+El formato de la solicitud es diferente entre PATCH y POST. Para asegurarse de que los mensajes POST y PATCH se envían en el mismo formato, puede usar la marca de características descrita [aquí](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-config-problem-scim-compatibility#flags-to-alter-the-scim-behavior). 
+
 - **AppRoleAssignmentsComplex** 
   - **Cuándo se debe usar:** use la expresión AppRoleAssignmentsComplex para aprovisionar varios roles para un usuario. 
   - **Cómo se configura:** edite la lista de atributos admitidos como se explica arriba para incluir un nuevo atributo para los roles: 

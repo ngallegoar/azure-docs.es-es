@@ -12,17 +12,20 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/25/2018
+ms.date: 11/23/2020
 ms.author: damendo
 ms.custom: mvc
-ms.openlocfilehash: acdaf2318c3082db876ed9c69b704d3d00cd4c90
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2da675f0836dbb10ce5227e7e93e98d706cc5c64
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76834661"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95544809"
 ---
 # <a name="tutorial-monitor-network-communication-between-two-virtual-machines-using-the-azure-portal"></a>Tutorial: supervisar la comunicación de red entre dos máquinas virtuales mediante Azure Portal
+
+> [!NOTE]
+> Este tutorial trata sobre Connection Monitor (clásico). Pruebe la versión nueva y mejorada de [Connection Monitor](connection-monitor-overview.md) para aprovechar la supervisión mejorada de la conectividad.
 
 La comunicación correcta entre una máquina virtual (VM) y un punto de conexión, como otra máquina virtual, puede ser crítica para una organización. En ocasiones, se introducen cambios de configuración que pueden interrumpir la comunicación. En este tutorial, aprenderá a:
 
@@ -33,6 +36,8 @@ La comunicación correcta entre una máquina virtual (VM) y un punto de conexió
 > * Diagnosticar un problema de comunicación entre dos VM y aprender a resolverlo
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
+
+
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
@@ -63,7 +68,7 @@ Cree dos VM.
     ![Extensión del agente de Network Watcher](./media/connection-monitor/nw-agent-extension.png)
 
 6. En **Network Watcher Agent for Windows** (Agente de Network Watcher para Windows), seleccione **Crear**; en **Instalar extensión** seleccione **Aceptar** y, a continuación, en **Extensiones**, seleccione **Aceptar**.
-7. Acepte los valores predeterminados de los **valores de configuración** restantes y seleccione **Aceptar** .
+7. Acepte los valores predeterminados de los **valores de configuración** restantes y seleccione **Aceptar**.
 8. En **Crear** de la página **Resumen**, seleccione **Crear** para iniciar la implementación de la máquina virtual.
 
 ### <a name="create-the-second-vm"></a>Creación de la segunda máquina virtual
@@ -108,7 +113,7 @@ Cree un monitor de conexión para supervisar la comunicación a través del puer
 
     ![Monitores de conexión](./media/connection-monitor/connection-monitors.png)
 
-2. Seleccione el monitor con el nombre **myVm1-myVm2(22)** , tal y como se muestra en la imagen anterior, para ver los detalles del monitor que se muestran en la siguiente imagen:
+2. Seleccione el monitor con el nombre **myVm1-myVm2(22)**, tal y como se muestra en la imagen anterior, para ver los detalles del monitor que se muestran en la siguiente imagen:
 
     ![Detalles del monitor](./media/connection-monitor/vm-monitor.png)
 
@@ -116,7 +121,7 @@ Cree un monitor de conexión para supervisar la comunicación a través del puer
 
     | Elemento                     | Value                      | Detalles                                                     |
     | ---------                | ---------                  |--------                                                     |
-    | Status                   | Accesible                  | Le permite saber si el punto de conexión es accesible o no.|
+    | Estado                   | Accesible                  | Le permite saber si el punto de conexión es accesible o no.|
     | AVG. ROUND-TRIP          | Le permite conocer el tiempo de ida y vuelta para hacer la conexión, en milisegundos. El monitor de conexión sondea la conexión cada 60 segundos, por lo que puede controlar la latencia a lo largo del tiempo.                                         |
     | Hops                     | El monitor de conexión le permite conocer los saltos entre los dos puntos de conexión. En este ejemplo, la conexión se realiza entre dos VM de la misma red virtual, por lo que solo hay un salto, a la dirección IP 10.0.0.5. Si algún sistema existente o ruta personalizada redirige el tráfico entre las VM a través de una puerta de enlace de VPN o una aplicación virtual de red, por ejemplo, se enumeran saltos adicionales.                                                                                                                         |
     | STATUS                   | Las marcas de verificación verdes de cada punto de conexión le indican que el estado de cada punto de conexión es correcto.    ||
@@ -129,7 +134,7 @@ Las alertas se crean mediante reglas de alertas en Azure Monitor y pueden ejecut
 2. Haga clic en **Seleccionar destino** y, a continuación, seleccione los recursos que desea establecer como destino. Seleccione la **Suscripción** y establezca el **Tipo de recurso** para filtrar hasta encontrar el monitor de conexión que desea usar.
 
     ![pantalla de alerta con el destino seleccionado](./media/connection-monitor/set-alert-rule.png)
-1. Una vez haya seleccionado un recurso de destino, seleccione **Agregar criterios**. Network Watcher tiene [métricas sobre las que puede crear alertas](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts#metrics-and-dimensions-supported). Establezca **Señales disponibles** en las métricas ProbesFailedPercent y AverageRoundtripMs:
+1. Una vez haya seleccionado un recurso de destino, seleccione **Agregar criterios**. Network Watcher tiene [métricas sobre las que puede crear alertas](../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported). Establezca **Señales disponibles** en las métricas ProbesFailedPercent y AverageRoundtripMs:
 
     ![página de alertas con señales seleccionadas](./media/connection-monitor/set-alert-signals.png)
 1. Rellene los detalles de la alerta, como el nombre de la regla de alertas, la descripción y la gravedad. También puede agregar un grupo de acciones a la alerta para automatizar y personalizar la respuesta de la alerta.

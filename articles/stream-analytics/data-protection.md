@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 09/23/2020
-ms.openlocfilehash: e823322803958f092cee3b6d77e6a0ca7bc6e3f2
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 72566987068729efef4310ce145c30584c4895b0
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93074257"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011411"
 ---
 # <a name="data-protection-in-azure-stream-analytics"></a>Protección de datos en Azure Stream Analytics 
 
@@ -73,7 +73,7 @@ Siga estos pasos para configurar su cuenta de almacenamiento para recursos de da
 
    ![Configuración de una cuenta de almacenamiento de datos privados](./media/data-protection/storage-account-create.png)
 
-## <a name="private-data-assets-that-are-stored"></a>Recursos de datos privados que se almacenan
+## <a name="private-data-assets-that-are-stored-by-stream-analytics"></a>Recursos de datos privados que almacena Stream Analytics
 
 Todos aquellos datos privados que se deban conservar mediante Stream Analytics se almacenan en su cuenta de almacenamiento. Estos son algunos ejemplos de recursos de datos privados: 
 

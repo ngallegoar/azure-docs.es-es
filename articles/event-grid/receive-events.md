@@ -2,14 +2,14 @@
 title: Recepción de eventos de Azure Event Grid en un punto de conexión de HTTP
 description: Describe cómo validar un punto de conexión HTTP y luego recibir y deserializar eventos procedentes de Azure Event Grid.
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 11/19/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 42cf237f0c2fbe091307625fde70613ab9173b0c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 75c80fb85d39298f1130537971bc700897c039d0
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91326480"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "96023738"
 ---
 # <a name="receive-events-to-an-http-endpoint"></a>Recepción de eventos en un punto de conexión de HTTP
 
@@ -140,9 +140,11 @@ Pruebe la función de la respuesta de validación pegando el evento de ejemplo e
 }]
 ```
 
-Al hacer clic en Ejecutar, el resultado debería ser 200 OK y `{"ValidationResponse":"512d38b6-c7b8-40c8-89fe-f46f9e9622b6"}` en el cuerpo:
+Al hacer clic en Ejecutar, el resultado debería ser 200 OK y `{"validationResponse":"512d38b6-c7b8-40c8-89fe-f46f9e9622b6"}` en el cuerpo:
 
-![respuesta de validación](./media/receive-events/validation-response.png)
+:::image type="content" source="./media/receive-events/validation-request.png" alt-text="Solicitud de validación":::
+
+:::image type="content" source="./media/receive-events/validation-output.png" alt-text="Resultados de la validación":::
 
 ## <a name="handle-blob-storage-events"></a>Control de eventos de Blob Storage
 
@@ -394,6 +396,8 @@ Por último, pruebe que la función ahora pueda controlar el tipo de evento pers
 ```
 
 También puede probar esta funcionalidad en vivo mediante el [envío de un evento personalizado con CURL desde Portal](./custom-event-quickstart-portal.md) o [la publicación en un tema personalizado](./post-to-custom-topic.md) con cualquier servicio o aplicación que pueda ejecutar POST en un punto de conexión, como [Postman](https://www.getpostman.com/). Cree un tema y una suscripción a eventos personalizados con el punto de conexión establecido como dirección URL de la función.
+
+[!INCLUDE [event-grid-message-headers](../../includes/event-grid-message-headers.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 

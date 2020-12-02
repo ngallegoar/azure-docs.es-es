@@ -7,12 +7,12 @@ ms.topic: article
 author: vikrambmsft
 ms.author: vikramb
 ms.date: 07/01/2020
-ms.openlocfilehash: 0bb5dccfc99a693ec89ed08ac31b77eb16442f73
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: fdd8c752e8cf610ef3c32e1af91b3ad6454c0813
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129973"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95971700"
 ---
 # <a name="private-offers-in-the-microsoft-commercial-marketplace"></a>Ofertas privadas en el marketplace comercial de Microsoft
 
@@ -35,13 +35,15 @@ Las ofertas privadas ya están disponibles para las ofertas de Virtual Machines,
 
 ## <a name="creating-private-offers-using-plans"></a>Creación de ofertas privadas mediante planes
 
-Para las *ofertas nuevas o existentes con planes públicos* , los editores pueden crear fácilmente variaciones privadas nuevas si crean planes nuevos (anteriormente denominados "SKU") y los marcan como privados. Cada oferta puede tener hasta 45 planes privados.
+Para las *ofertas nuevas o existentes con planes públicos*, los editores pueden crear fácilmente variaciones privadas nuevas si crean planes nuevos (anteriormente denominados "SKU") y los marcan como privados. Cada oferta puede tener hasta 45 planes privados.
 
 <!--- [Private SKUs]() --->
 
 Los planes privados son componentes de una oferta y solo clientes específicos pueden verlos y comprarlos. Los planes privados pueden volver a usar las imágenes base o metadatos de la oferta ya publicados para un plan público. Esta opción permite que los editores creen múltiples variaciones privadas de una oferta pública sin tener que publicar varias versiones de la misma imagen base y metadatos de oferta. Solo en el caso de las ofertas de Virtual Machines y Azure, cuando un plan privado comparte una imagen base con un plan público, los cambios que se hacen en la imagen base de la oferta se propagan a todos los planes, tanto públicos como privados, que usan esa imagen base.
 
-En el caso de las *ofertas nuevas que solo incluyen planes privados* , los editores pueden crear sus ofertas como cualquier otra oferta y, luego, marcar los planes como privados. Los clientes que no estén asociados con la oferta no podrán detectar ni acceder a través del marketplace comercial de Microsoft o [Azure Portal](https://azure.microsoft.com/features/azure-portal/) a las ofertas que solo tienen planes privados.
+En el caso de las *ofertas nuevas que solo incluyen planes privados*, los editores pueden crear sus ofertas como cualquier otra oferta y, luego, marcar los planes como privados. Los clientes que no estén asociados con la oferta no podrán detectar ni acceder a través del marketplace comercial de Microsoft o [Azure Portal](https://azure.microsoft.com/features/azure-portal/) a las ofertas que solo tienen planes privados.
+
+Los planes privados están disponibles para la versión global de Azure y Azure Government.
 
 >[!NOTE]
 >Una oferta que solo contenga planes privados no será visible en el catálogo público de Azure Marketplace ni AppSource.
@@ -51,6 +53,9 @@ En el caso de las *ofertas nuevas que solo incluyen planes privados* , los edito
 Tanto para las ofertas privadas nuevas como existentes, los editores pueden seleccionar clientes específicos mediante el uso de identificadores de suscripción. Los editores que usan una oferta de Virtual Machines o Aplicación de Azure pueden restringir la disponibilidad de un plan privado a un identificador de suscripción individual de Azure o cargar un archivo .csv con hasta 20 000 identificadores de suscripción de Azure. Cuando se usa una oferta privada de Aplicación de SaaS, los anunciantes pueden asociar un identificador de inquilino para restringir la disponibilidad de un plan privado, ya sea con el enfoque manual o mediante la carga del archivo .csv.
 
 Una vez que se certifica o publica una oferta, los clientes se pueden actualizar o quitar del plan en cuestión de minutos mediante la característica de sincronización de suscripciones privadas. Esta funcionalidad permite que los editores actualicen rápida y sencillamente la lista de clientes a los que se presenta el plan privado sin que sea necesario volver a certificar ni a publicar la oferta.
+
+>[!NOTE]
+>Aplicabilidad de Azure Gov: Las ofertas privadas (o con más precisión: planes privados) están disponibles para Azure Gov como cualquier otra oferta. Un plan también puede cambiarse de privado a público y viceversa. El control sobre qué nube estará disponible la oferta quedará en manos del asociado y se puede configurar a través del Centro de Partners. 
 
 ## <a name="deploying-private-offers"></a>Implementación de las ofertas privadas
 

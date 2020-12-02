@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 06/12/2020
 ms.reviewer: jeking
-ms.openlocfilehash: 908bf21d2fe101731b11e3a8ad783f17728c8ed3
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: e289bea6b1a23f1622ced62656164d9865303298
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677338"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95912831"
 ---
 # <a name="quickstart-analyze-data-with-databricks"></a>Inicio rápido: Análisis de datos con Databricks
 
@@ -23,7 +23,7 @@ En este inicio rápido, va a ejecutar un trabajo de Apache Spark con Azure Datab
 
 * Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-* El nombre de la cuenta de almacenamiento de Azure Data Lake Gen2. [Creación de una cuenta de Azure Storage](data-lake-storage-quickstart-create-account.md).
+* Una cuenta de almacenamiento con la característica de espacio de nombres jerárquico habilitada. Para crear una, consulte [Creación de una cuenta de almacenamiento para su uso con Azure Data Lake Storage Gen2 habilitado](create-data-lake-storage-account.md).
 
 * El identificador de inquilino, el identificador de aplicación y la contraseña de una entidad de servicio de Azure con un rol asignado de **colaborador de datos de blobs de almacenamiento**. [Cree una entidad de servicio](../../active-directory/develop/howto-create-service-principal-portal.md).
 
@@ -38,7 +38,7 @@ En esta sección, creará un área de trabajo de Azure Databricks mediante Azure
 
     ![Databricks en Azure Portal](./media/data-lake-storage-quickstart-create-databricks-account/azure-databricks-on-portal.png "Databricks de Azure Portal")
 
-2. En **Azure Databricks Service** , proporcione los valores para crear un área de trabajo de Databricks.
+2. En **Azure Databricks Service**, proporcione los valores para crear un área de trabajo de Databricks.
 
     ![Creación de un área de trabajo de Azure Databricks](./media/data-lake-storage-quickstart-create-databricks-account/create-databricks-workspace.png "Creación de un área de trabajo de Azure Databricks")
 
@@ -64,7 +64,7 @@ En esta sección, creará un área de trabajo de Azure Databricks mediante Azure
 
     ![Databricks en Azure](./media/data-lake-storage-quickstart-create-databricks-account/databricks-on-azure.png "Databricks en Azure")
 
-3. En la página **Nuevo clúster** , proporcione los valores para crear un clúster.
+3. En la página **Nuevo clúster**, proporcione los valores para crear un clúster.
 
     ![Creación de clústeres de Spark para Databricks en Azure](./media/data-lake-storage-quickstart-create-databricks-account/create-databricks-spark-cluster.png "Creación de clústeres de Spark para Databricks en Azure")
 
@@ -162,13 +162,13 @@ Realice las siguientes tareas para ejecutar un trabajo de Spark SQL en los datos
 
     ![Datos JSON de ejemplo](./media/data-lake-storage-quickstart-create-databricks-account/databricks-sample-csv-data.png "Datos JSON de ejemplo")
 
-    Entre otros detalles, los datos de ejemplo capturan el género de la audiencia de un canal de radio (nombre de columna, **género** ) y si su suscripción es gratis o de pago (nombre de columna, **nivel** ).
+    Entre otros detalles, los datos de ejemplo capturan el género de la audiencia de un canal de radio (nombre de columna, **género**) y si su suscripción es gratis o de pago (nombre de columna, **nivel**).
 
 4. Ahora cree una representación visual de estos datos para mostrar para cada género, cuántos usuarios tienen cuentas gratis y cuántas son de suscriptores pagados. En la parte inferior de la salida tabular, haga clic en el icono **Gráfico de barras** y, a continuación, haga clic en **Opciones de trazado**.
 
     ![Creación de un gráfico de barras](./media/data-lake-storage-quickstart-create-databricks-account/create-plots-databricks-notebook.png "Creación de un gráfico de barras")
 
-5. En **Personalizar trazado** , arrastre y coloque los valores como se muestra en la captura de pantalla.
+5. En **Personalizar trazado**, arrastre y coloque los valores como se muestra en la captura de pantalla.
 
     ![Captura de pantalla que muestra la pantalla Customize Plot (Personalizar trazado) y los valores que se pueden arrastrar y colocar.](./media/data-lake-storage-quickstart-create-databricks-account/databricks-notebook-customize-plot.png "Personalización del gráfico de barras")
 
@@ -198,7 +198,7 @@ En este artículo, ha creado un clúster de Spark en Azure Databricks y ha ejecu
 Vaya al siguiente artículo para aprender cómo realizar una operación ETL (extraer, transformar y cargar datos) mediante Azure Databricks.
 
 > [!div class="nextstepaction"]
->[Extracción, transformación y carga de datos mediante Azure Databricks](../../azure-databricks/databricks-extract-load-sql-data-warehouse.md).
+>[Extracción, transformación y carga de datos mediante Azure Databricks](/azure/databricks/scenarios/databricks-extract-load-sql-data-warehouse).
 
 - Para aprender a importar datos de otros orígenes en Azure Databricks, consulte [Orígenes de datos de Spark](https://docs.azuredatabricks.net/spark/latest/data-sources/index.html).
 

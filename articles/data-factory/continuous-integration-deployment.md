@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: b31931af7b8d1442a66333622a23d017ab7fb5a9
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 93aeb088f82cae6dde215792e399997b592a5c14
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658696"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96003980"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Integración y entrega continuas en Azure Data Factory
 
@@ -636,6 +636,14 @@ Si implementa una factoría en producción y se da cuenta de que hay un error qu
 Vea el siguiente vídeo de un tutorial detallado sobre cómo corregir de modo urgente los entornos. 
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4I7fi]
+
+## <a name="exposure-control-and-feature-flags"></a>Control de exposición y marcas de características
+
+Cuando se trabaja en equipo, hay casos en los que se puedan combinar los cambios, pero no quiere que se ejecuten en entornos con privilegios elevados como PROD y QA. Para abordar este escenario, el equipo de ADF recomienda [el concepto de DevOps de uso de marcas de características](https://docs.microsoft.com/azure/devops/migrate/phase-features-with-feature-flags?view=azure-devops). En ADF, puede combinar [parámetros globales](author-global-parameters.md) y la [actividad de condición if](control-flow-if-condition-activity.md) para ocultar conjuntos de lógica basados en estas marcas de entorno.
+
+Para información sobre cómo configurar una marca de características, vea el siguiente tutorial en vídeo:
+
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4IxdW]
 
 ## <a name="best-practices-for-cicd"></a>Procedimientos recomendados para CI/CD
 

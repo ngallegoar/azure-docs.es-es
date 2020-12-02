@@ -8,12 +8,12 @@ ms.service: cognitive-search
 ms.topic: overview
 ms.date: 11/12/2020
 ms.custom: references_regions
-ms.openlocfilehash: 4c1284c13d1516ac4061319287adb64ab7e14ff5
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 73902cf53d9995f7dfc1991e3b7ed7c7c469bf2a
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94579477"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026668"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Novedades de Azure Cognitive Search
 
@@ -23,7 +23,7 @@ Conozca las novedades del servicio. Marque esta página para mantenerse actualiz
 
 |Característica&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Category | Descripción | Disponibilidad  |
 |------------------------------|----------|-------------|---------------|
-|[cifrado de claves administradas por el cliente sobre indexadores, orígenes de datos y conjuntos de aptitudes](search-security-manage-encryption-keys.md) | Seguridad | Esta adición extiende el cifrado administrado por el cliente a toda la gama de recursos creados y administrados por un servicio de búsqueda. Recuerde que la compatibilidad con CMK agrega un nivel de cifrado adicional sobre el cifrado básico que realiza y administra Microsoft. | Disponible con carácter general mediante la API REST versión = 2020-06-30 |  
+|[Cifrado de claves administradas por el cliente sobre indexadores, orígenes de datos y conjuntos de aptitudes](search-security-manage-encryption-keys.md) | Seguridad | Esta adición extiende el cifrado administrado por el cliente a toda la gama de recursos creados y administrados por un servicio de búsqueda. Recuerde que la compatibilidad con las claves administradas por el cliente supone un nivel de cifrado adicional sobre el cifrado básico que realiza y administra Microsoft. | Disponible con carácter general mediante la API REST versión = 2020-06-30 |  
 
 ## <a name="september-2020"></a>Septiembre de 2020
 
@@ -41,7 +41,7 @@ Cree una identidad para un servicio de búsqueda en Azure Active Directory y, a 
 
 |Característica&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Category | Descripción | Disponibilidad  |
 |---------|------------------|-------------|---------------|
-| [doble cifrado](search-security-overview.md#encryption) | Seguridad | Habilite el cifrado doble en la capa de almacenamiento. Para ello, debe configurar el cifrado de clave administrada por el cliente (CMK) en los nuevos servicios de búsqueda. Cree un servicio, [configure las claves administradas por el cliente y aplíquelas ](search-security-manage-encryption-keys.md) a índices o mapas de sinónimos, y benefíciese del cifrado doble en ese contenido. | Disponible con carácter general en todos los servicios de búsqueda creados después del 1 de agosto de 2020 en estas regiones: Oeste de EE. UU. 2, este de EE. UU., centro-sur de EE. UU., US Gov Virginia y US Gov Arizona. Use el portal, las API REST de administración o los SDK para crear el servicio. |
+| [doble cifrado](search-security-overview.md#encryption) | Seguridad | Habilite el cifrado doble en la capa de almacenamiento. Para ello, debe configurar el cifrado de claves administradas por el cliente en los nuevos servicios de búsqueda. Cree un servicio, [configure las claves administradas por el cliente y aplíquelas ](search-security-manage-encryption-keys.md) a índices o mapas de sinónimos, y benefíciese del cifrado doble en ese contenido. | Disponible con carácter general en todos los servicios de búsqueda creados después del 1 de agosto de 2020 en estas regiones: Oeste de EE. UU. 2, este de EE. UU., centro-sur de EE. UU., US Gov Virginia y US Gov Arizona. Use el portal, las API REST de administración o los SDK para crear el servicio. |
 
 ## <a name="july-2020"></a>Julio de 2020
 

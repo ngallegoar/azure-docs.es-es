@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 15026c378c4c399915e99b0910f1e6518f5adfc8
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: c8ed791fc9496e67acdcfbfafddad9170ac47535
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151865"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95522590"
 ---
 # <a name="azure-security-baseline-for-azure-monitor"></a>Línea de base de seguridad de Azure para Azure Monitor
 
@@ -324,7 +324,7 @@ También puede habilitar el acceso Just-in-Time/Just-Enough usando roles de Azur
 
 ### <a name="42-isolate-systems-storing-or-processing-sensitive-information"></a>4.2: Aislamiento de los sistemas que almacenan o procesan información confidencial
 
-**Guía**: Implemente el aislamiento mediante suscripciones independientes y grupos de administración para dominios de seguridad individuales, como el tipo de entorno y el nivel de confidencialidad de los datos. Puede restringir el nivel de acceso a los recursos de Azure Monitor y los recursos relacionados que necesitan sus aplicaciones y entornos empresariales. Puede regular el acceso a los recursos de Azure Monitor mediante el control de acceso basado en roles de Azure Active Directory.
+**Guía**: Implemente el aislamiento mediante suscripciones independientes y grupos de administración para dominios de seguridad individuales, como el tipo de entorno y el nivel de confidencialidad de los datos. Puede restringir el nivel de acceso a los recursos de Azure Monitor y los recursos relacionados que necesitan sus aplicaciones y entornos empresariales. Puede controlar el acceso a los recursos de Azure Monitor a través del control de acceso basado en roles de Azure.
 
 - [Creación de suscripciones adicionales de Azure](../cost-management-billing/manage/create-subscription.md)
 
@@ -359,9 +359,9 @@ En el caso de la plataforma subyacente administrada por Microsoft, Microsoft tra
 
 **Responsabilidad**: Compartido
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4.6: Uso del control de acceso basado en rol para controlar el acceso a los recursos
+### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4.6: Uso del control de acceso basado en roles para controlar el acceso a los recursos
 
-**Guía**: Utilice el control de acceso basado en roles (RBAC) de Azure para administrar el acceso a Azure Monitor.
+**Guía**: Utilice el control de acceso basado en roles (Azure RBAC) de Azure para administrar el acceso a Azure Monitor.
 
 - [Roles, permisos y seguridad en Azure Monitor](platform/roles-permissions-security.md)
 
@@ -685,7 +685,7 @@ Use la detección de amenazas de Azure Security Center para los servicios de dat
 
 ### <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9.4: Garantía de la protección de las copias de seguridad y las claves administradas por el cliente
 
-**Guía**: Use Azure DevOps para almacenar y administrar de forma segura el código, como directivas personalizadas de Azure y plantillas de Azure Resource Manager. Para proteger los recursos que administra en Azure DevOps, puede conceder o denegar permisos a usuarios específicos, grupos de seguridad integrados o grupos definidos en Azure Active Directory (Azure AD) si se integran con Azure DevOps, o en Active Directory si se integran con TFS.   Use el control de acceso basado en roles para proteger las claves administradas por el cliente. 
+**Guía**: Use Azure DevOps para almacenar y administrar de forma segura el código, como directivas personalizadas de Azure y plantillas de Azure Resource Manager. Para proteger los recursos que administra en Azure DevOps, puede conceder o denegar permisos a usuarios específicos, grupos de seguridad integrados o grupos definidos en Azure Active Directory (Azure AD) si se integran con Azure DevOps, o en Active Directory si se integran con TFS.   Use el control de acceso basado en roles de Azure para proteger las claves administradas por el cliente. 
 
 Además, habilite la eliminación temporal y la protección de purga en Key Vault para proteger las claves contra la eliminación accidental o malintencionada. Si Azure Storage se usa para almacenar las plantillas de Azure Resource Manager, habilite la eliminación temporal para guardar y recuperar los datos cuando se eliminen blobs o instantáneas de blobs. 
 

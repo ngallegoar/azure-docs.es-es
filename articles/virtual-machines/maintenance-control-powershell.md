@@ -5,18 +5,18 @@ author: cynthn
 ms.service: virtual-machines
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 01/31/2020
+ms.date: 11/19/2020
 ms.author: cynthn
-ms.openlocfilehash: efd35cfe2660f4597ec0c95dc29bcb4b839da680
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 2cc935e81e867609159b5c150b6ee7c346bb9f8e
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91306946"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026155"
 ---
 # <a name="control-updates-with-maintenance-control-and-azure-powershell"></a>Control de las actualizaciones con el control de mantenimiento y Azure PowerShell
 
-El control de mantenimiento le permite decidir cuándo se aplican las actualizaciones a las máquinas virtuales aisladas y los hosts dedicados de Azure. En este tema se tratan las opciones de Azure PowerShell para el control de mantenimiento. Para más información sobre las ventajas de usar el control de mantenimiento, sus limitaciones y otras opciones de administración, consulte el artículo sobre la [administración de las actualizaciones de las distintas plataformas con control de mantenimiento](maintenance-control.md).
+El control de mantenimiento permite decidir cuándo aplicar las actualizaciones de plataforma a la infraestructura de host de las máquinas virtuales aisladas y los hosts dedicados de Azure. En este tema se tratan las opciones de Azure PowerShell para el control de mantenimiento. Para más información sobre las ventajas de usar el control de mantenimiento, sus limitaciones y otras opciones de administración, consulte el artículo sobre la [administración de las actualizaciones de las distintas plataformas con control de mantenimiento](maintenance-control.md).
  
 ## <a name="enable-the-powershell-module"></a>Habilitación del módulo de PowerShell
 
@@ -67,15 +67,9 @@ Puede consultar las configuraciones de mantenimiento disponibles mediante [Get-A
 Get-AzMaintenanceConfiguration | Format-Table -Property Name,Id
 ```
 
-### <a name="create-a-maintenance-configuration-with-scheduled-window-in-preview"></a>Creación de una configuración de mantenimiento con una ventana programada (en versión preliminar)
+### <a name="create-a-maintenance-configuration-with-scheduled-window"></a>Creación de una configuración de mantenimiento con una ventana programada
 
-
-> [!IMPORTANT]
-> La característica de ventana programada se encuentra actualmente en versión preliminar pública.
-> Esta versión preliminar se ofrece sin contrato de nivel de servicio y no es aconsejable usarla para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
-> Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-Use New-AzMaintenanceConfiguration para crear una configuración de mantenimiento con una ventana programada en que Azure aplicará las actualizaciones en los recursos. En este ejemplo se crea una configuración de mantenimiento denominada myConfig con una ventana programada de 5 horas el cuarto lunes de cada mes. Una vez que cree una ventana programada, ya no tendrá que aplicar las actualizaciones manualmente.
+También puede declarar una ventana programada cuando Azure vaya a aplicar las actualizaciones en los recursos. En este ejemplo se crea una configuración de mantenimiento denominada myConfig con una ventana programada de 5 horas el cuarto lunes de cada mes. Una vez que cree una ventana programada, ya no tendrá que aplicar las actualizaciones manualmente.
 
 ```azurepowershell-interactive
 $config = New-AzMaintenanceConfiguration `
@@ -91,8 +85,11 @@ $config = New-AzMaintenanceConfiguration `
 > [!IMPORTANT]
 > La **duración** del mantenimiento debe ser de *2 horas* o más. La **periodicidad** del mantenimiento debe establecerse en al menos una vez en 35 días.
 
-La **periodicidad** del mantenimiento puede expresarse como programaciones diarias, semanales o mensuales. Ejemplos de programación diaria son recurEvery: Day, recurEvery: 3Days. Ejemplos de programación semanal son recurEvery: 3Weeks, recurEvery: Week Saturday,Sunday. Ejemplos de programación mensual son recurEvery: Month day23,day24, recurEvery: Month Last Sunday, recurEvery: Month Fourth Monday.
-
+La **periodicidad** del mantenimiento puede expresarse como programaciones diarias, semanales o mensuales. Ejemplos:
+ - **daily**- RecurEvery "Day" **o** "3Days" 
+ - **weekly**- RecurEvery "3Weeks" **o** "Week Saturday,Sunday" 
+ - **monthly**- RecurEvery "Month day23,day24" **o** "Month Last Sunday" **o** "Month Fourth Monday"  
+      
 
 ## <a name="assign-the-configuration"></a>Asignación de la configuración
 

@@ -12,18 +12,18 @@ manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 2c056bd4d5fa9037ce00588269c0da2937ff57ff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c26cbf55c1e3883605d4c65659511af20cf02c7f
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90705340"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996685"
 ---
 # <a name="what-are-security-defaults"></a>¿Cuáles son los valores de seguridad predeterminados?
 
 La administración de la seguridad puede resultar difícil porque los ataques comunes relacionados con la identidad, como la difusión o reproducción de contraseñas y la suplantación de identidad, se están volviendo cada vez más populares. Los valores predeterminados de seguridad facilitan la protección de la organización frente a estos ataques con opciones de configuración de seguridad preconfiguradas:
 
-- Exigir que todos los usuarios se registren en Azure Multi-Factor Authentication.
+- Exigir que todos los usuarios se registren en Azure AD Multi-Factor Authentication.
 - Requerir que los administradores realicen la autenticación multifactor.
 - Bloquear los protocolos de autenticación heredados.
 - Exigir a los usuarios que realicen la autenticación multifactor cuando sea necesario.
@@ -52,13 +52,13 @@ Microsoft pone los valores de seguridad predeterminados a disposición de todos 
 
 ### <a name="unified-multi-factor-authentication-registration"></a>Registro unificado de Multi-Factor Authentication
 
-Todos los usuarios del inquilino deben registrarse para la autenticación multifactor (MFA) en la forma del servicio Azure Multi-Factor Authentication. Los usuarios tendrán 14 días para registrarse en Azure Multi-Factor Authentication con la aplicación Microsoft Authenticator. Una vez transcurridos los 14 días, el usuario no podrá iniciar sesión hasta que se complete el registro. El período de 14 días de un usuario comienza después del primer inicio de sesión interactivo correcto después de habilitar los valores de seguridad predeterminados.
+Todos los usuarios del inquilino deben registrarse para la autenticación multifactor (MFA) en la forma del servicio Azure AD Multi-Factor Authentication. Los usuarios tendrán 14 días para registrarse en Azure AD Multi-Factor Authentication con la aplicación Microsoft Authenticator. Una vez transcurridos los 14 días, el usuario no podrá iniciar sesión hasta que se complete el registro. El período de 14 días de un usuario comienza después del primer inicio de sesión interactivo correcto después de habilitar los valores de seguridad predeterminados.
 
 ### <a name="protecting-administrators"></a>Protección de los administradores
 
 Los usuarios con acceso a cuentas con privilegios tienen un mayor acceso a su entorno. Dadas las facultades de estas cuentas, debe tratarlas con un cuidado especial. Un método común para mejorar la protección de las cuentas con privilegios es exigir una forma de verificación de la cuenta más estricta para iniciar sesión. En Azure AD, puede exigir el uso de Multi-Factor Authentication para conseguir una verificación de cuentas más estricta.
 
-Una vez finalizado el registro con Azure Multi-Factor Authentication, los nueve roles de administrador de Azure AD siguientes deberán realizar una autenticación adicional cada vez que inicien sesión:
+Una vez finalizado el registro con Azure AD Multi-Factor Authentication, los nueve roles de administrador de Azure AD siguientes deberán realizar una autenticación adicional cada vez que inicien sesión:
 
 - Administrador global
 - Administrador de SharePoint
@@ -120,7 +120,7 @@ A continuación, se muestran consideraciones adicionales relacionadas con la imp
 
 ### <a name="authentication-methods"></a>Métodos de autenticación
 
-Los valores predeterminados de seguridad permiten el registro y el uso de Azure Multi-Factor Authentication **mediante el uso exclusivo de la aplicación Microsoft Authenticator con notificaciones**. El acceso condicional permite el uso de cualquier método de autenticación que el administrador decida habilitar.
+Estos valores predeterminados de seguridad gratis permiten el registro y el uso de Azure AD Multi-Factor Authentication **solo mediante la aplicación Microsoft Authenticator con notificaciones**. El acceso condicional permite el uso de cualquier método de autenticación que el administrador decida habilitar.
 
 | Método | Valores predeterminados de seguridad | Acceso condicional |
 | --- | --- | --- |
@@ -128,14 +128,14 @@ Los valores predeterminados de seguridad permiten el registro y el uso de Azure 
 | Código de verificación de aplicación móvil o token de hardware | X** | X |
 | Mensaje de texto al teléfono |   | X |
 | Llamada al teléfono |   | X |
-| Contraseñas de aplicación |   | X*** |
+| Contraseñas de aplicación |   | X**_ |
 
-- ** Los usuarios pueden usar códigos de verificación de la aplicación Microsoft Authenticator, pero solo pueden registrarse mediante la opción de notificación.
-- *** Las contraseñas de aplicación solo están disponibles en MFA por usuario con escenarios de autenticación heredados si las habilitan los administradores.
+- _* Los usuarios pueden utilizar códigos de verificación de la aplicación Microsoft Authenticator, pero solo pueden registrarse mediante la opción de notificación.
+- **_ Las contraseñas de aplicación solo están disponibles en MFA por usuario con escenarios de autenticación heredados solo si las habilitan los administradores.
 
 ### <a name="disabled-mfa-status"></a>Estado de MFA deshabilitado
 
-Si su organización es un usuario anterior de Azure Multi-Factor Authentication basado en usuarios, no se alarme si no ve usuarios con el estado **Habilitado** o **Aplicado** en la página de estado de Microsoft Azure Multi-Factor Authentication. **Deshabilitado** es el estado adecuado para los usuarios que usan valores predeterminados de seguridad o Azure Multi-Factor Authentication basado en el acceso condicional.
+Si su organización es un usuario anterior de Azure AD Multi-Factor Authentication basado en usuarios, no se alarme si no ve usuarios con el estado _ *Habilitado** o **Aplicado** en la página de estado de Multi-Factor Authentication. **Deshabilitado** es el estado adecuado para los usuarios que utilizan valores predeterminados de seguridad o Azure AD Multi-Factor Authentication basado en el acceso condicional.
 
 ### <a name="conditional-access"></a>Acceso condicional
 
@@ -149,7 +149,7 @@ Estas son las guías paso a paso sobre cómo se puede usar el acceso condicional
 - [Exigir autenticación multifactor para la administración de Azure](../conditional-access/howto-conditional-access-policy-azure-management.md)
 - [Bloquear la autenticación heredada](../conditional-access/howto-conditional-access-policy-block-legacy.md)
 - [Exigir autenticación multifactor para todos los usuarios](../conditional-access/howto-conditional-access-policy-all-users-mfa.md)
-- [Requerir el registro de Azure MFA](../identity-protection/howto-identity-protection-configure-mfa-policy.md): Requiere Azure AD Identity Protection como parte de Azure AD Premium P2.
+- [Requerir registro de Azure AD MFA](../identity-protection/howto-identity-protection-configure-mfa-policy.md): requiere Azure AD Identity Protection como parte de Azure AD Premium P2.
 
 ## <a name="enabling-security-defaults"></a>Habilitación de los valores de seguridad predeterminados
 

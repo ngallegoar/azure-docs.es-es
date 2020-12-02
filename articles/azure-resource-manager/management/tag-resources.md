@@ -2,14 +2,14 @@
 title: Etiquetado de recursos, grupos de recursos y suscripciones para una organización lógica
 description: Muestra cómo aplicar etiquetas para organizar los recursos de Azure para la facturación y administración.
 ms.topic: conceptual
-ms.date: 07/27/2020
+ms.date: 11/20/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 3ffcb4a0f2f5dc64b165fcdec03f7c3ced258cc1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9e9ef96a712e5ac2ba483170fb8ef9c89115b4f8
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90086766"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95972575"
 ---
 # <a name="use-tags-to-organize-your-azure-resources-and-management-hierarchy"></a>Uso de etiquetas para organizar los recursos de Azure y la jerarquía de administración
 
@@ -240,107 +240,200 @@ Remove-AzTag -ResourceId "/subscriptions/$subscription"
 
 ### <a name="apply-tags"></a>Aplicación de etiquetas
 
-Al agregar etiquetas a un grupo de recursos o recurso, puede sobrescribir las etiquetas existentes o agregar nuevas etiquetas a las etiquetas existentes.
+La CLI de Azure ofrece dos comandos para aplicar etiquetas: [az tag create](/cli/azure/tag#az_tag_create) y [az tag update](/cli/azure/tag#az_tag_update). Debe tener la CLI de Azure 2.10.0 o una versión posterior. Puede consultar su versión con `az version`. Para actualizar o instalar, consulte [Instalación de CLI de Azure](/cli/azure/install-azure-cli).
 
-Para sobrescribir las etiquetas en un recurso, use:
+**az tag create** reemplaza todas las etiquetas en el recurso, el grupo de recursos o la suscripción. Al llamar al comando, pase el id. de recurso de la entidad que desea etiquetar.
 
-```azurecli-interactive
-az resource tag --tags 'Dept=IT' 'Environment=Test' -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks"
-```
-
-Para anexar una etiqueta a las etiquetas existentes en un recurso, use:
+En el ejemplo siguiente se aplica un conjunto de etiquetas a una cuenta de almacenamiento:
 
 ```azurecli-interactive
-az resource update --set tags.'Status'='Approved' -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks"
+resource=$(az resource show -g demoGroup -n demoStorage --resource-type Microsoft.Storage/storageAccounts --query "id" --output tsv)
+az tag create --resource-id $resource --tags Dept=Finance Status=Normal
 ```
 
-Para sobrescribir las etiquetas existentes en un grupo de recursos, use:
+Cuando se complete el comando, observe que el recurso tiene dos etiquetas.
+
+```output
+"properties": {
+  "tags": {
+    "Dept": "Finance",
+    "Status": "Normal"
+  }
+},
+```
+
+Si vuelve a ejecutar el comando, pero esta vez con etiquetas diferentes, observe que se quitaron las etiquetas anteriores.
 
 ```azurecli-interactive
-az group update -n examplegroup --tags 'Environment=Test' 'Dept=IT'
+az tag create --resource-id $resource --tags Team=Compliance Environment=Production
 ```
 
-Para anexar una etiqueta a las etiquetas existentes en un grupo de recursos, use:
+```output
+"properties": {
+  "tags": {
+    "Environment": "Production",
+    "Team": "Compliance"
+  }
+},
+```
+
+Para agregar etiquetas a un recurso que ya tiene etiquetas, use **az tag update**. Establezca el parámetro **--operation** en **Merge**.
 
 ```azurecli-interactive
-az group update -n examplegroup --set tags.'Status'='Approved'
+az tag update --resource-id $resource --operation Merge --tags Dept=Finance Status=Normal
 ```
 
-Actualmente, la CLI de Azure no tiene un comando para aplicar etiquetas a las suscripciones. Sin embargo, puede usar la CLI para implementar una plantilla de ARM que aplique las etiquetas a una suscripción. Consulte [Aplicación de etiquetas a grupos de recursos o suscripciones](#apply-tags-to-resource-groups-or-subscriptions).
+Observe que las dos etiquetas nuevas se agregaron a las dos etiquetas existentes.
+
+```output
+"properties": {
+  "tags": {
+    "Dept": "Finance",
+    "Environment": "Production",
+    "Status": "Normal",
+    "Team": "Compliance"
+  }
+},
+```
+
+Cada nombre de etiqueta solo puede tener un valor. Si proporciona un valor nuevo para una etiqueta, el valor anterior se reemplaza incluso si se usa la operación de combinación. En el ejemplo siguiente se cambia la etiqueta Status (Estado) de Normal a Green (Verde).
+
+```azurecli-interactive
+az tag update --resource-id $resource --operation Merge --tags Status=Green
+```
+
+```output
+"properties": {
+  "tags": {
+    "Dept": "Finance",
+    "Environment": "Production",
+    "Status": "Green",
+    "Team": "Compliance"
+  }
+},
+```
+
+Al establecer el parámetro **--operation** en **Replace**, el nuevo conjunto de etiquetas reemplaza a las etiquetas existentes.
+
+```azurecli-interactive
+az tag update --resource-id $resource --operation Replace --tags Project=ECommerce CostCenter=00123 Team=Web
+```
+
+Solo las etiquetas nuevas siguen en el recurso.
+
+```output
+"properties": {
+  "tags": {
+    "CostCenter": "00123",
+    "Project": "ECommerce",
+    "Team": "Web"
+  }
+},
+```
+
+Los mismos comandos también funcionan con grupos de recursos o suscripciones. Puede pasar el identificador del grupo de recursos o de la suscripción que quiere etiquetar.
+
+Para agregar un nuevo conjunto de etiquetas a un grupo de recursos, use:
+
+```azurecli-interactive
+group=$(az group show -n demoGroup --query id --output tsv)
+az tag create --resource-id $group --tags Dept=Finance Status=Normal
+```
+
+Para actualizar las etiquetas de un grupo de recursos, use:
+
+```azurecli-interactive
+az tag update --resource-id $group --operation Merge --tags CostCenter=00123 Environment=Production
+```
+
+Para agregar un nuevo conjunto de etiquetas a una suscripción, use:
+
+```azurecli-interactive
+sub=$(az account show --subscription "Demo Subscription" --query id --output tsv)
+az tag create --resource-id /subscriptions/$sub --tags CostCenter=00123 Environment=Dev
+```
+
+Para actualizar las etiquetas de una suscripción, use:
+
+```azurecli-interactive
+az tag update --resource-id /subscriptions/$sub --operation Merge --tags Team="Web Apps"
+```
 
 ### <a name="list-tags"></a>Lista de etiquetas
 
-Para ver las etiquetas existentes de un recurso, use:
+Para obtener las etiquetas de un recurso, un grupo de recursos o una suscripción, use el comando [az tag list](/cli/azure/tag#az_tag_list) y pase el id. de recurso de la entidad.
+
+Para ver las etiquetas de un recurso, use:
 
 ```azurecli-interactive
-az resource show -n examplevnet -g examplegroup --resource-type "Microsoft.Network/virtualNetworks" --query tags
+resource=$(az resource show -g demoGroup -n demoStorage --resource-type Microsoft.Storage/storageAccounts --query "id" --output tsv)
+az tag list --resource-id $resource
 ```
 
-Para ver las etiquetas existentes de un grupo de recursos, use:
+Para ver las etiquetas de un grupo de recursos, use:
 
 ```azurecli-interactive
-az group show -n examplegroup --query tags
+group=$(az group show -n demoGroup --query id --output tsv)
+az tag list --resource-id $group
 ```
 
-Ese script devuelve el siguiente formato:
+Para ver las etiquetas de una suscripción, use:
 
-```json
-{
-  "Dept"        : "IT",
-  "Environment" : "Test"
-}
+```azurecli-interactive
+sub=$(az account show --subscription "Demo Subscription" --query id --output tsv)
+az tag list --resource-id /subscriptions/$sub
 ```
 
 ### <a name="list-by-tag"></a>Enumerar por etiqueta
 
-Para obtener todos los recursos que tengan una etiqueta y un valor particulares, use `az resource list`:
+Para obtener recursos que tengan un nombre y valor de etiqueta específicos, use:
 
 ```azurecli-interactive
-az resource list --tag Dept=Finance
+az resource list --tag CostCenter=00123 --query [].name
 ```
 
-Para obtener grupos de recursos que tengan una etiqueta específica, use `az group list`:
+Para obtener recursos que tengan un nombre de etiqueta específico y cualquier valor de etiqueta, use:
 
 ```azurecli-interactive
-az group list --tag Dept=IT
+az resource list --tag Team --query [].name
+```
+
+Para obtener grupos de recursos que tengan un nombre y valor de etiqueta específicos, use:
+
+```azurecli-interactive
+az group list --tag Dept=Finance
+```
+
+### <a name="remove-tags"></a>Eliminación de etiquetas
+
+Para quitar etiquetas específicas, use **az tag update** y establezca **--operation** en **Delete**. Pase las etiquetas que quiere eliminar.
+
+```azurecli-interactive
+az tag update --resource-id $resource --operation Delete --tags Project=ECommerce Team=Web
+```
+
+Se quitan las etiquetas especificadas.
+
+```output
+"properties": {
+  "tags": {
+    "CostCenter": "00123"
+  }
+},
+```
+
+Para quitar todas las etiquetas, use el comando [az tag delete](/cli/azure/tag#az_tag_delete).
+
+```azurecli-interactive
+az tag delete --resource-id $resource
 ```
 
 ### <a name="handling-spaces"></a>Control de los espacios
 
-Si los nombres o valores de etiqueta incluyen espacios, debe realizar un par de pasos adicionales. 
-
-Los parámetros `--tags` de la CLI de Azure pueden aceptar una cadena que conste de una matriz de cadenas. En el ejemplo siguiente se sobrescriben las etiquetas de un grupo de recursos en el que las etiquetas tienen espacios y guiones: 
+Si los nombres o valores de etiqueta incluyen espacios, escríbalos entre comillas dobles.
 
 ```azurecli-interactive
-TAGS=("Cost Center=Finance-1222" "Location=West US")
-az group update --name examplegroup --tags "${TAGS[@]}"
-```
-
-Puede usar la misma sintaxis al crear o actualizar un grupo de recursos o recursos con el parámetro `--tags`.
-
-Para actualizar las etiquetas con el parámetro `--set`, debe pasar la clave y el valor como una cadena. En el ejemplo siguiente se anexa una sola etiqueta a un grupo de recursos:
-
-```azurecli-interactive
-TAG="Cost Center='Account-56'"
-az group update --name examplegroup --set tags."$TAG"
-```
-
-En este caso, el valor de la etiqueta se marca con comillas simples porque el valor contiene un guion.
-
-También puede tener que aplicar etiquetas a muchos recursos. En el ejemplo siguiente se aplican todas las etiquetas de un grupo de recursos a sus recursos cuando las etiquetas pueden contener espacios:
-
-```azurecli-interactive
-jsontags=$(az group show --name examplegroup --query tags -o json)
-tags=$(echo $jsontags | tr -d '{}"' | sed 's/: /=/g' | sed "s/\"/'/g" | sed 's/, /,/g' | sed 's/ *$//g' | sed 's/^ *//g')
-origIFS=$IFS
-IFS=','
-read -a tagarr <<< "$tags"
-resourceids=$(az resource list -g examplegroup --query [].id --output tsv)
-for id in $resourceids
-do
-  az resource tag --tags "${tagarr[@]}" --id $id
-done
-IFS=$origIFS
+az tag update --resource-id $group --operation Merge --tags "Cost Center"=Finance-1222 Location="West US"
 ```
 
 ## <a name="templates"></a>Plantillas

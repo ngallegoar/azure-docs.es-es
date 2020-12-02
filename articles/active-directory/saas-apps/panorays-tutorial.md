@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/03/2020
 ms.author: jeedes
-ms.openlocfilehash: 9dacbfacdbb9a1ecc103b0cec224d861b42b1576
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 3e4d3145263b4b0379f85dea86d075480935a28c
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94369700"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96029360"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-panorays"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Panorays
 
@@ -75,18 +75,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-1. En la sección **Configuración básica de SAML**, el usuario no tiene que realizar ningún paso porque la aplicación ya se ha integrado previamente con Azure.
-
-1. Haga clic en **Establecer direcciones URL adicionales** y siga este paso si desea configurar la aplicación en el modo iniciado por **SP**:
-
-    En el cuadro de texto **Dirección URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón:
-
-    | URL de inicio de sesión |
-    |--------------|
-    | `https://www.panoraysapp.com` |
-    | `https://auth.panoraysapp.com` |
-
-1. Haga clic en **Save**(Guardar).
+1. En la sección **Configuración básica de SAML**, la aplicación está preconfigurada y las direcciones URL necesarias ya se han rellenado previamente con Azure. El usuario debe guardar la configuración, para lo que debe hacer clic en el botón Guardar.
 
 1. La aplicación Panorays espera las aserciones de SAML en un formato específico, lo cual requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token SAML. En la siguiente captura de pantalla se muestra la lista de atributos predeterminados, donde a **Unique User Identifier** (Identificador de usuario único) se le ha asignado **user.userprincipalname**. La aplicación Panorays espera que a **Unique User Identifier** (Identificador de usuario único) se le haya asignado **user.mail**, por lo que se debe editar la asignación de atributos. Para ello, haga clic en el icono **Edit** (Editar) y cambie la asignación de atributos.
 
@@ -134,9 +123,7 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 #### <a name="sp-initiated"></a>Iniciado por SP:
 
-1. Haga clic en **Probar esta aplicación** en Azure Portal. Esto le redirigirá a la dirección URL de inicio de sesión de Panorays, donde podrá iniciar el flujo de inicio de sesión.  
-
-1. Vaya directamente a la dirección URL de inicio de sesión de Panorays e inicie el flujo de inicio de sesión desde allí.
+Acceda directamente a la [dirección URL de inicio de sesión de Panorays](https://www.panoraysapp.com) y comience el flujo de inicio de sesión desde ahí.
 
 #### <a name="idp-initiated"></a>Iniciado por IDP:
 

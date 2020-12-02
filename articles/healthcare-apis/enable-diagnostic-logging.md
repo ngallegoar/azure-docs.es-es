@@ -1,5 +1,5 @@
 ---
-title: Habilitación del registro de diagnóstico en Azure API for FHIR®
+title: Habilitación del registro de diagnóstico en Azure API for FHIR
 description: En este artículo se explica cómo habilitar el registro de diagnóstico en Azure API for FHIR®
 services: healthcare-apis
 ms.service: healthcare-apis
@@ -9,19 +9,19 @@ ms.reviewer: dseven
 ms.author: cavoeg
 author: CaitlinV39
 ms.date: 11/01/2019
-ms.openlocfilehash: 262509df98b93c7902d83f90756872a16d84198f
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 54119585d4f1377b60b85fbad01fe90f097a304f
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93398137"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95905181"
 ---
-# <a name="enable-diagnostic-logging-in-azure-api-for-fhir"></a>Habilitación del registro de diagnóstico en Azure API for FHIR®
+# <a name="enable-diagnostic-logging-in-azure-api-for-fhir"></a>Habilitación del registro de diagnóstico en Azure API for FHIR
 
-En este artículo aprenderá a habilitar el registro de diagnóstico en Azure API for FHIR® y podrá revisar algunas consultas de ejemplo para estos registros. El acceso a los registros de diagnóstico es esencial para cualquier servicio del sector sanitario en el que el cumplimiento de los requisitos normativos (como HIPAA) es imprescindible. La característica de Azure API for FHIR® que habilita los registros de diagnóstico es [**Configuración de diagnóstico**](../azure-monitor/platform/diagnostic-settings.md) en Azure Portal. 
+En este artículo aprenderá a habilitar el registro de diagnóstico en Azure API for FHIR y podrá revisar algunas consultas de ejemplo de estos registros. El acceso a los registros de diagnóstico es esencial para cualquier servicio del sector sanitario en el que el cumplimiento de los requisitos normativos (como HIPAA) es imprescindible. La característica de Azure API for FHIR que permite los registros de diagnóstico es [**Configuración de diagnóstico**](../azure-monitor/platform/diagnostic-settings.md) de Azure Portal. 
 
 ## <a name="enable-audit-logs"></a>Habilitación de los registros de auditoría
-1. Para habilitar el registro de diagnóstico en Azure API for FHIR®, seleccione el servicio Azure API for FHIR® en Azure Portal. 
+1. Para habilitar el registro de diagnóstico en Azure API for FHIR, seleccione el servicio Azure API for FHIR en Azure Portal. 
 2. Vaya a **Configuración de diagnóstico** 
 ![Diagnostic settings](media/diagnostic-logging/diagnostic-settings-screen.png). 
 
@@ -35,9 +35,12 @@ En este artículo aprenderá a habilitar el registro de diagnóstico en Azure AP
     2. **Transmitir a un centro de eventos** para la ingesta en un servicio de terceros o una solución de análisis personalizado. Tendrá que crear un espacio de nombres de centro de eventos y una directiva de centro de eventos para poder configurar este paso.
     3. **Transmitir al área de trabajo de Log Analytics** en Azure Monitor. Tendrá que crear el área de trabajo de Log Analytics para poder seleccionar esta opción.
 
-6. Seleccione **AuditLogs** y las métricas que desee capturar.
+6. Seleccione **AuditLogs** y las métricas que quiera capturar. Si usa el Conector de Azure IoT para FHIR, asegúrese de seleccionar las métricas **Errors, Traffic, and Latency** (Errores, tráfico y latencia). 
 
-7. Haga clic en Guardar
+   :::image type="content" source="media/iot-metrics-export/diagnostic-setting-add.png" alt-text="IoT Connector2" lightbox="media/iot-metrics-export/diagnostic-setting-add.png":::
+
+7. Seleccione **Guardar**.
+
 
 > [!Note] 
 > Los primeros registros pueden tardar hasta quince minutos en mostrarse en Log Analytics.  
@@ -45,7 +48,7 @@ En este artículo aprenderá a habilitar el registro de diagnóstico en Azure AP
 Para más información sobre cómo trabajar con los registros de diagnóstico, consulte la [documentación del registro de recursos de Azure](../azure-monitor/platform/platform-logs-overview.md).
 
 ## <a name="audit-log-details"></a>Detalles del registro de auditoría
-En este momento, el servicio Azure API for FHIR® devuelve los campos siguientes en el registro de auditoría: 
+En este momento, el servicio Azure API for FHIR devuelve los campos siguientes en el registro de auditoría: 
 
 |Nombre del campo  |Tipo  |Notas  |
 |---------|---------|---------|
@@ -60,7 +63,7 @@ En este momento, el servicio Azure API for FHIR® devuelve los campos siguientes
 |OperationDuration|Int|El tiempo que se tardó en completar esta solicitud en segundos
 |OperationName|String| Describe el tipo de operación (por ejemplo, actualizar o tipo de búsqueda)
 |RequestUri|String|URI de solicitud 
-|ResultType|String|Los valores disponibles actualmente son **Started** , **Succeeded** o **Failed**
+|ResultType|String|Los valores disponibles actualmente son **Started**, **Succeeded** o **Failed**
 |StatusCode|Int|El código de estado HTTP. (por ejemplo, 200) 
 |TimeGenerated|DateTime|Fecha y hora del evento|
 |Propiedades|String| Describe las propiedades de fhirResourceType
@@ -73,21 +76,21 @@ En este momento, el servicio Azure API for FHIR® devuelve los campos siguientes
 
 Estas son algunas consultas básicas de Application Insights que puede utilizar para explorar los datos de registro.
 
-Ejecute esta consulta para ver los **cien registros más recientes** :
+Ejecute esta consulta para ver los **cien registros más recientes**:
 
 ```Application Insights
 MicrosoftHealthcareApisAuditLogs
 | limit 100
 ```
 
-Ejecute esta consulta para agrupar las operaciones por **tipo de recurso de FHIR** :
+Ejecute esta consulta para agrupar las operaciones por **tipo de recurso de FHIR**:
 
 ```Application Insights
 MicrosoftHealthcareApisAuditLogs 
 | summarize count() by FhirResourceType
 ```
 
-Ejecute esta consulta para obtener todos los **resultados con errores** :
+Ejecute esta consulta para obtener todos los **resultados con errores**:
 
 ```Application Insights
 MicrosoftHealthcareApisAuditLogs 
@@ -95,12 +98,12 @@ MicrosoftHealthcareApisAuditLogs
 ```
 
 ## <a name="conclusion"></a>Conclusión 
-Tener acceso a los registros de diagnóstico es esencial para supervisar un servicio y proporcionar informes de cumplimiento. Azure API for FHIR® le permite realizar estas acciones a través de registros de diagnóstico. 
+Tener acceso a los registros de diagnóstico es esencial para supervisar un servicio y proporcionar informes de cumplimiento. Azure API for FHIR le permite realizar estas acciones mediante registros de diagnóstico. 
  
-FHIR® es la marca registrada de HL7 y se usa con su permiso.
+FHIR es la marca registrada de HL7 y se usa con su permiso.
 
 ## <a name="next-steps"></a>Pasos siguientes
-En este artículo, aprendió a habilitar los registros de auditoría para Azure API for FHIR®. A continuación, obtenga información sobre otras valores adicionales que puede configurar en Azure API for FHIR.
+En este artículo, aprendió a habilitar los registros de auditoría para Azure API for FHIR. A continuación, obtenga información sobre otras valores adicionales que puede configurar en Azure API for FHIR.
  
 >[!div class="nextstepaction"]
 >[Configuración adicional](azure-api-for-fhir-additional-settings.md)

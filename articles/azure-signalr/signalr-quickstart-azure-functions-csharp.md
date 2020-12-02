@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.custom: devx-track-csharp
 ms.date: 09/25/2020
 ms.author: zhshang
-ms.openlocfilehash: be26fdafe0a8a52669fe41fd5514c808f10df745
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 1f28058a766144ada3326b3ee4ce09ca503d1896
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91369134"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94873886"
 ---
 # <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-c"></a>Inicio rápido: Creación de un salón de chat con Azure Functions y SignalR Service mediante C\#
 
@@ -27,21 +27,21 @@ También puede ejecutar este tutorial en la línea de comandos (macOS, Windows o
 
 Si no tiene una suscripción de Azure, [cree una gratuita](https://azure.microsoft.com/free/dotnet) antes de comenzar.
 
-[¿Tiene problemas? Háganoslo saber.](https://aka.ms/asrs/qscsharp)
+¿Tiene problemas? Consulte la [guía de solución de problemas](signalr-howto-troubleshoot-guide.md) o [póngase en contacto con nosotros](https://aka.ms/asrs/qscsharp).
 
 ## <a name="log-in-to-azure"></a>Inicio de sesión en Azure
 
 Inicie sesión en Azure Portal en <https://portal.azure.com/> con su cuenta de Azure.
 
-[¿Tiene problemas? Háganoslo saber.](https://aka.ms/asrs/qscsharp)
+¿Tiene problemas? Consulte la [guía de solución de problemas](signalr-howto-troubleshoot-guide.md) o [póngase en contacto con nosotros](https://aka.ms/asrs/qscsharp).
 
 [!INCLUDE [Create instance](includes/signalr-quickstart-create-instance.md)]
 
-[¿Tiene problemas? Háganoslo saber.](https://aka.ms/asrs/qscsharp)
+¿Tiene problemas? Consulte la [guía de solución de problemas](signalr-howto-troubleshoot-guide.md) o [póngase en contacto con nosotros](https://aka.ms/asrs/qscsharp).
 
 [!INCLUDE [Clone application](includes/signalr-quickstart-clone-application.md)]
 
-[¿Tiene problemas? Háganoslo saber.](https://aka.ms/asrs/qscsharp)
+¿Tiene problemas? Consulte la [guía de solución de problemas](signalr-howto-troubleshoot-guide.md) o [póngase en contacto con nosotros](https://aka.ms/asrs/qscsharp).
 
 ## <a name="configure-and-run-the-azure-function-app"></a>Configuración y ejecución de la aplicación Azure Function
 
@@ -75,15 +75,15 @@ Inicie sesión en Azure Portal en <https://portal.azure.com/> con su cuenta de A
         ```bash
         func start
         ```
-[¿Tiene problemas? Háganoslo saber.](https://aka.ms/asrs/qscsharp)
+¿Tiene problemas? Consulte la [guía de solución de problemas](signalr-howto-troubleshoot-guide.md) o [póngase en contacto con nosotros](https://aka.ms/asrs/qscsharp).
 
 [!INCLUDE [Run web application](includes/signalr-quickstart-run-web-application.md)]
 
-[¿Tiene problemas? Háganoslo saber.](https://aka.ms/asrs/qscsharp)
+¿Tiene problemas? Consulte la [guía de solución de problemas](signalr-howto-troubleshoot-guide.md) o [póngase en contacto con nosotros](https://aka.ms/asrs/qscsharp).
 
 [!INCLUDE [Cleanup](includes/signalr-quickstart-cleanup.md)]
 
-[¿Tiene problemas? Háganoslo saber.](https://aka.ms/asrs/qscsharp)
+¿Tiene problemas? Consulte la [guía de solución de problemas](signalr-howto-troubleshoot-guide.md) o [póngase en contacto con nosotros](https://aka.ms/asrs/qscsharp).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -92,4 +92,3 @@ En este inicio rápido, ha compilado y ejecutado una aplicación sin servidor en
 > [!div class="nextstepaction"]
 > [Desarrollo de Azure Functions con Visual Studio](../azure-functions/functions-develop-vs.md)
 
-[¿Tiene problemas? Háganoslo saber.](https://aka.ms/asrs/qscsharp)

@@ -7,12 +7,12 @@ ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 53304f14286577bf0bc25b2a66442286527c5140
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0a7f5ec0231612a2cee2a9435144c886527c228e
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90972431"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95014482"
 ---
 # <a name="tutorial-create-a-connected-waste-management-application-in-iot-central"></a>Tutorial: Creación de una aplicación de administración de residuos conectada en IoT Central
 
@@ -92,18 +92,18 @@ Como desarrollador, puede crear y personalizar las vistas del panel para los ope
 
 El panel consta de diferentes tipos de iconos:
 
-* ***Icono de imagen del servicio Wide World Waste***: el primer icono del panel es un icono de imagen de un servicio de residuos ficticio, "Wide World Waste". Puede personalizar el icono y colocar su propia imagen o quitarlo. 
+* ***Icono de imagen del servicio Wide World Waste** _: el primer icono del panel es un icono de imagen de un servicio de residuos ficticio, "Wide World Waste". Puede personalizar el icono y colocar su propia imagen o quitarlo. 
 
-* ***Icono de imagen de Waste bin***: puede usar iconos de imagen y contenido para crear una representación visual del dispositivo que se va a supervisar junto con un texto descriptivo. 
+_ ***Icono de imagen de cubo de basura** _: puede usar iconos de imagen y contenido para crear una representación visual del dispositivo que se va a supervisar junto con un texto descriptivo. 
 
-* ***Icono de KPI de nivel de llenado***: el icono muestra un valor devuelto por un sensor *Fill level* (Nivel de llenado) de un cubo de basura. *Fill level* (Nivel de llenado) y otros sensores como *Odor meter* (Medidor de olor) o *Weight* (Peso) de un cubo de basura se pueden supervisar de forma remota. Un operador puede tomar medidas, como enviar el camión de la basura. 
+_ ***Icono de KPI de nivel de llenado** _: el icono muestra un valor devuelto por un sensor de nivel de llenado de un cubo de basura. *Fill level* (Nivel de llenado) y otros sensores como *Odor meter* (Medidor de olor) o *Weight* (Peso) de un cubo de basura se pueden supervisar de forma remota. Un operador puede tomar medidas, como enviar el camión de la basura. 
 
-*  ***Waste monitoring area map***: el mapa usa Azure Maps, que puede configurar directamente en Azure IoT Central. El icono de mapa muestra la ubicación del dispositivo. Intente mantener el puntero sobre el mapa y pruebe los controles: acercar, alejar o ampliar.
+*  ***Mapa de área de supervisión de residuos** _: el mapa usa Azure Maps, que se puede configurar directamente en Azure IoT Central. El icono de mapa muestra la ubicación del dispositivo. Intente mantener el puntero sobre el mapa y pruebe los controles: acercar, alejar o ampliar.
 
      ![Mapa del panel de administración de residuos conectada](./media/tutorial-connectedwastemanagement/connectedwastemanagement-dashboard-map.png)
 
 
-* ***Gráfico de barras de Fill, odor, weight level**: puede visualizar uno o varios datos de telemetría de los dispositivos en un gráfico de barras. También puede expandir este gráfico.  
+_ ***Gráfico de barras de nivel de llenado, olor y peso**: puede visualizar uno o varios datos de telemetría de los dispositivos en un gráfico de barras. También puede expandir este gráfico.  
 
   ![Gráfico de barras del panel de administración de residuos conectada](./media/tutorial-connectedwastemanagement/connectedwastemanagement-dashboard-barchart.png)
 
@@ -197,7 +197,7 @@ La aplicación **Administración de residuos conectada** tiene dos dispositivos 
 
 ## <a name="explore-and-configure-rules"></a>Exploración y configuración de reglas
 
-En Azure IoT Central puede crear reglas para supervisar automáticamente la telemetría de los dispositivos y desencadenar acciones cuando se cumplan una o varias condiciones. Las acciones pueden incluir el envío de notificaciones por correo electrónico, el desencadenamiento de una acción de Microsoft Flow o una acción de webhook para enviar datos a otros servicios.
+En Azure IoT Central puede crear reglas para supervisar automáticamente la telemetría de los dispositivos y desencadenar acciones cuando se cumplan una o varias condiciones. Las acciones pueden incluir el envío de notificaciones por correo electrónico, el desencadenamiento de una acción de Power Automate o una acción de webhook para enviar datos a otros servicios.
 
 La aplicación **Administración de residuos conectada** tiene cuatro reglas de ejemplo.
 

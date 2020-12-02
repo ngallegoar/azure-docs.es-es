@@ -17,12 +17,12 @@ ms.date: 11/05/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 98b9a2da11ad32e35704a49cfcf1788f95276dda
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: bc5f902d75084d649f211d589e53041f1eb37f0e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93393462"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96012721"
 ---
 # <a name="how-long-does-azure-ad-store-reporting-data"></a>¿Durante cuánto tiempo Azure AD almacena los datos de informes?
 
@@ -65,7 +65,7 @@ En el caso de las señales de seguridad, el proceso de recopilación se inicia c
 | :--                    | :--           | :--                 | :--                 |
 | Registros de auditoría             | 7 días        | 30 días             | 30 días             |
 | Inicios de sesión               | 7 días        | 30 días             | 30 días             |
-| Uso de Azure MFA        | 30 días       | 30 días             | 30 días             |
+| Uso de MFA de Azure AD        | 30 días       | 30 días             | 30 días             |
 
 Puede conservar los datos de actividad de auditoría e inicio de sesión durante un tiempo mayor que el período de retención predeterminado que se ha descrito anteriormente si los enruta a una cuenta de almacenamiento de Azure con Azure Monitor. Para obtener más información, consulte [Archivado de registros de Azure AD en una cuenta de Azure Storage](quickstart-azure-monitor-route-logs-to-storage-account.md).
 

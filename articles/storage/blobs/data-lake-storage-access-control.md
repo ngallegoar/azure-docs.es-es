@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/16/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 80c27613ad3956d565b858b02ed32ac13af3a62c
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 485b23d9b7ebac4f7d183239d035fbd53b09f4ee
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92320474"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017696"
 ---
 # <a name="access-control-lists-acls-in-azure-data-lake-storage-gen2"></a>Listas de control de acceso en Azure Data Lake Storage Gen2
 
@@ -23,7 +23,7 @@ Azure Data Lake Storage Gen2 implementa un modelo de control de acceso compa
 
 ## <a name="about-acls"></a>Acerca de las listas de control de acceso
 
-Puede asociar una [entidad de seguridad](https://docs.microsoft.com/azure/role-based-access-control/overview#security-principal) a un nivel de acceso de archivos y directorios. Estas asociaciones se capturan en una *lista de control de acceso (ACL)* . Cada archivo y directorio de la cuenta de almacenamiento tiene una lista de control de acceso. Cuando una entidad de seguridad intenta realizar una operación en un archivo o directorio, una comprobación de ACL determina si esa entidad de seguridad (usuario, grupo, entidad de servicio o identidad administrada) tiene el nivel de permiso adecuado para llevarla a cabo.
+Puede asociar una [entidad de seguridad](../../role-based-access-control/overview.md#security-principal) a un nivel de acceso de archivos y directorios. Estas asociaciones se capturan en una *lista de control de acceso (ACL)* . Cada archivo y directorio de la cuenta de almacenamiento tiene una lista de control de acceso. Cuando una entidad de seguridad intenta realizar una operación en un archivo o directorio, una comprobación de ACL determina si esa entidad de seguridad (usuario, grupo, entidad de servicio o identidad administrada) tiene el nivel de permiso adecuado para llevarla a cabo.
 
 > [!NOTE]
 > Las ACL solo se aplican a las entidades de seguridad del mismo inquilino y no se aplican a los usuarios que usan la autenticación de tokens de clave compartida o de firma de acceso compartido (SAS). Esto se debe a que no hay ninguna identidad asociada al autor de la llamada y, por lo tanto, no se puede realizar la autorización basada en permisos de la entidad de seguridad.  
@@ -40,14 +40,14 @@ Para establecer permisos en el nivel de archivo y de directorio, consulte cualqu
 |Python|[Uso de Python para administrar directorios, archivos y ACL en Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-python.md#manage-access-control-lists-acls)|
 |PowerShell|[Uso de PowerShell para administrar directorios, archivos y ACL en Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-powershell.md#manage-access-control-lists-acls)|
 |Azure CLI|[Uso de la CLI de Azure para administrar directorios, archivos y ACL en Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-cli.md#manage-access-control-lists-acls)|
-|API DE REST |[Ruta de acceso: Actualización](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/path/update)|
+|API DE REST |[Ruta de acceso: Actualización](/rest/api/storageservices/datalakestoragegen2/path/update)|
 
 > [!IMPORTANT]
-> Si la entidad de seguridad es una entidad de *servicio* , es importante que utilice el identificador de objeto de la entidad de servicio en lugar del identificador de objeto del registro de aplicación relacionado. Para obtener el identificador de objeto de la entidad de servicio abra la CLI de Azure y, a continuación, use este comando: `az ad sp show --id <Your App ID> --query objectId`. No olvide reemplazar el marcador de posición `<Your App ID>` por el identificador de aplicación del registro de aplicación.
+> Si la entidad de seguridad es una entidad de *servicio*, es importante que utilice el identificador de objeto de la entidad de servicio en lugar del identificador de objeto del registro de aplicación relacionado. Para obtener el identificador de objeto de la entidad de servicio abra la CLI de Azure y, a continuación, use este comando: `az ad sp show --id <Your App ID> --query objectId`. No olvide reemplazar el marcador de posición `<Your App ID>` por el identificador de aplicación del registro de aplicación.
 
 ## <a name="types-of-acls"></a>Tipos de ACL
 
-Hay dos tipos de listas de control de acceso: *ACL de acceso* y *ACL predeterminadas* .
+Hay dos tipos de listas de control de acceso: *ACL de acceso* y *ACL predeterminadas*.
 
 las ACL de acceso controlan el acceso a un objeto. Tanto archivos como directorios tienen ACL de acceso.
 
@@ -60,7 +60,7 @@ Tanto las ACL de acceso como las ACL predeterminadas tienen la misma estructura.
 
 ## <a name="levels-of-permission"></a>Niveles de permiso
 
-Los permisos de un objeto de contenedor son **lectura** , **escritura** y **ejecución** , y se pueden usar en archivos y directorios, como se muestra en la tabla siguiente:
+Los permisos de un objeto de contenedor son **lectura**, **escritura** y **ejecución**, y se pueden usar en archivos y directorios, como se muestra en la tabla siguiente:
 
 |            |    Archivo     |   Directorio |
 |------------|-------------|----------|
@@ -73,7 +73,7 @@ Los permisos de un objeto de contenedor son **lectura** , **escritura** y **ejec
 
 ### <a name="short-forms-for-permissions"></a>Formas abreviadas de los permisos
 
-**RWX** se usa para indicar **Lectura + Escritura + Ejecución** . Existe un formato numérico más condensado en el que **Lectura = 4** , **Escritura = 2** y **Ejecución = 1** , y su suma representa los permisos. A continuación se muestran algunos ejemplos.
+**RWX** se usa para indicar **Lectura + Escritura + Ejecución**. Existe un formato numérico más condensado en el que **Lectura = 4**, **Escritura = 2** y **Ejecución = 1**, y su suma representa los permisos. A continuación se muestran algunos ejemplos.
 
 | Formato numérico | Formato abreviado |      Qué significa     |
 |--------------|------------|------------------------|
@@ -88,11 +88,12 @@ En el modelo de estilo de POSIX usado por Data Lake Storage Gen2, los permisos d
 
 ## <a name="common-scenarios-related-to-acl-permissions"></a>Escenarios comunes relacionados con los permisos de ACL
 
-En la tabla siguiente se muestran las entradas de ACL necesarias para permitir que una entidad de seguridad realice las operaciones indicadas en la columna **Operación** . 
+En la tabla siguiente se muestran las entradas de ACL necesarias para permitir que una entidad de seguridad realice las operaciones indicadas en la columna **Operación**. 
 
-La tabla incluye columnas que representan cada nivel de una jerarquía de directorios ficticia. Hay columnas para el directorio raíz del contenedor (`\`), un subdirectorio denominado **Oregón** , un subdirectorio del directorio Oregón denominado **Portland** y un archivo de texto en el directorio Portland denominado **Data.txt** . 
+La tabla incluye columnas que representan cada nivel de una jerarquía de directorios ficticia. Hay columnas para el directorio raíz del contenedor (`\`), un subdirectorio denominado **Oregón**, un subdirectorio del directorio Oregón denominado **Portland** y un archivo de texto en el directorio Portland denominado **Data.txt**. 
 
-> [Importante] En esta tabla se supone que **solo** está usando listas de control de acceso y no hay ninguna asignación de roles RBAC de Azure. Para consultar una tabla similar que combina RBAC de Azure junto con las ACL, consulte [Tabla de permisos: combinación de RBAC de Azure y ACL](data-lake-storage-access-control-model.md#permissions-table-combining-azure-rbac-and-acl).
+> [!IMPORTANT]
+> En esta tabla se supone que **solo** se usan listas de control de acceso sin asignaciones de roles de Azure. Para consultar una tabla similar que combina RBAC de Azure junto con las ACL, consulte [Tabla de permisos: combinación de RBAC de Azure y ACL](data-lake-storage-access-control-model.md#permissions-table-combining-azure-rbac-and-acl).
 
 |    Operación             |    /    | Oregón/ | Portland/ | Data.txt     |
 |--------------------------|---------|----------|-----------|--------------|
@@ -119,7 +120,7 @@ Todos los archivos y directorios tienen permisos distintos para estas identidade
 - Identidades administradas designadas
 - Los restantes usuarios
 
-Las identidades de usuarios y grupos son las identidades de Azure Active Directory (Azure AD). Por tanto, a menos que se indique lo contrario, un *usuario* , en el contexto de Data Lake Storage Gen2, puede referirse a un usuario, a una entidad de servicio, a una identidad administrada o a un grupo de seguridad de Azure AD.
+Las identidades de usuarios y grupos son las identidades de Azure Active Directory (Azure AD). Por tanto, a menos que se indique lo contrario, un *usuario*, en el contexto de Data Lake Storage Gen2, puede referirse a un usuario, a una entidad de servicio, a una identidad administrada o a un grupo de seguridad de Azure AD.
 
 ### <a name="the-owning-user"></a>El usuario propietario
 
@@ -133,11 +134,11 @@ El usuario que creó el elemento es automáticamente el usuario propietario del 
 
 ### <a name="the-owning-group"></a>El grupo propietario
 
-En las ACL de POSIX, todos los usuarios están asociados a un *grupo principal* . Por ejemplo, el usuario "Alice" puede pertenecer al grupo "finance". Alice puede pertenecer a varios grupos, pero uno de ellos siempre se designa como su grupo principal. En POSIX, cuando Alice crea un archivo, el grupo propietario de dicho archivo se establece como su grupo principal, que en este caso es "finance". De lo contrario, el grupo propietario se comporta de forma similar a los permisos asignados para otros usuarios o grupos.
+En las ACL de POSIX, todos los usuarios están asociados a un *grupo principal*. Por ejemplo, el usuario "Alice" puede pertenecer al grupo "finance". Alice puede pertenecer a varios grupos, pero uno de ellos siempre se designa como su grupo principal. En POSIX, cuando Alice crea un archivo, el grupo propietario de dicho archivo se establece como su grupo principal, que en este caso es "finance". De lo contrario, el grupo propietario se comporta de forma similar a los permisos asignados para otros usuarios o grupos.
 
 #### <a name="assigning-the-owning-group-for-a-new-file-or-directory"></a>Asignar el grupo propietario de un nuevo archivo o directorio
 
-* **Caso 1** : El directorio raíz "/". Este directorio se crea cuando se crea un sistema de archivos de Data Lake Storage Gen2. En este caso, el grupo propietario se establece en el usuario que creó el contenedor, en caso de que se haya realizado con OAuth. Si el contenedor se crea con una clave compartida, una SAS de cuenta o una SAS de servicio, el propietario y el grupo propietario se establecen en **$superuser** .
+* **Caso 1**: El directorio raíz "/". Este directorio se crea cuando se crea un sistema de archivos de Data Lake Storage Gen2. En este caso, el grupo propietario se establece en el usuario que creó el contenedor, en caso de que se haya realizado con OAuth. Si el contenedor se crea con una clave compartida, una SAS de cuenta o una SAS de servicio, el propietario y el grupo propietario se establecen en **$superuser**.
 * **Caso 2** (cada dos casos): cuando se crea un nuevo elemento, se copia el grupo propietario del directorio primario.
 
 #### <a name="changing-the-owning-group"></a>Cambiar el grupo propietario
@@ -224,7 +225,7 @@ Cuando se crea un archivo o directorio en un directorio existente, la ACL predet
 
 ### <a name="umask"></a>umask
 
-Al crear un archivo o directorio, se usa umask para modificar cómo se establecen las ACL predeterminadas en el elemento secundario. umask es un valor de 9 bits en los directorios principales que contiene un valor RWX para **usuario propietario** , **grupo propietario** y **otro** .
+Al crear un archivo o directorio, se usa umask para modificar cómo se establecen las ACL predeterminadas en el elemento secundario. umask es un valor de 9 bits en los directorios principales que contiene un valor RWX para **usuario propietario**, **grupo propietario** y **otro**.
 
 El valor de umask para Azure Data Lake Storage Gen2 es una constante establecida en 007. Este valor se convierte en:
 
@@ -270,7 +271,7 @@ Si el espacio de nombres jerárquico está DESACTIVADO, las reglas de autorizaci
 
 Para obtener información sobre cómo el sistema evalúa las listas de control de acceso y los roles RBAC de Azure en conjunto para tomar decisiones relacionadas con la autorización para los recursos de cuentas de almacenamiento, consulte [Evaluación de los permisos](data-lake-storage-access-control-model.md#how-permissions-are-evaluated).
 
-### <a name="what-are-the-limits-for-azure-rbac-role-assignments-and-acl-entries"></a>¿Cuáles son los límites de las asignaciones de roles RBAC de Azure y las entradas de ACL?
+### <a name="what-are-the-limits-for-azure-role-assignments-and-acl-entries"></a>¿Cuáles son los límites de las asignaciones de roles de Azure y las entradas de ACL?
 
 En la tabla siguiente se proporciona una vista resumida de los límites que se deben tener en cuenta al usar RBAC de Azure para administrar los permisos "generales" (permisos que se aplican a las cuentas de almacenamiento o los contenedores) y usar ACL para administrar permisos "específicos" (permisos que se aplican a archivos y directorios). Use grupos de seguridad para las asignaciones de ACL. Mediante el uso de los grupos, es menos probable que supere el número máximo de asignaciones de roles por suscripción y el número máximo de entradas de ACL por archivo o directorio. 
 
@@ -324,13 +325,13 @@ az ad sp show --id 18218b12-1895-43e9-ad80-6e8fc1ea88ce --query objectId
 
 Se mostrará OID.
 
-Cuando tenga el OID correcto de la entidad de servicio, vaya a la página **Administrar acceso** del Explorador de Azure Storage para agregar el OID y asignar los permisos adecuados para este. No olvide seleccionar **Guardar** .
+Cuando tenga el OID correcto de la entidad de servicio, vaya a la página **Administrar acceso** del Explorador de Azure Storage para agregar el OID y asignar los permisos adecuados para este. No olvide seleccionar **Guardar**.
 
 ### <a name="can-i-set-the-acl-of-a-container"></a>¿Se puede establecer la ACL de un contenedor?
 
 No. Un contenedor no tiene una ACL. Sin embargo, puede establecer la ACL del directorio raíz del contenedor. Cada contenedor tiene un directorio raíz, que comparte el mismo nombre que el contenedor. Por ejemplo, si el contenedor se denomina `my-container`, el directorio raíz se denomina `myContainer/`. 
 
-La API REST de Azure Storage contiene una operación denominada [Set Container ACL](https://docs.microsoft.com/rest/api/storageservices/set-container-acl) (Establecer ACL del contenedor), pero esa operación no se puede usar para establecer la ACL de un contenedor ni del directorio raíz de un contenedor; se usa para indicar si los blobs de un contenedor [permiten el acceso público](anonymous-read-access-configure.md). 
+La API REST de Azure Storage contiene una operación denominada [Set Container ACL](/rest/api/storageservices/set-container-acl) (Establecer ACL del contenedor), pero esa operación no se puede usar para establecer la ACL de un contenedor ni del directorio raíz de un contenedor; se usa para indicar si los blobs de un contenedor [permiten el acceso público](anonymous-read-access-configure.md). 
 
 ### <a name="where-can-i-learn-more-about-posix-access-control-model"></a>¿Dónde puedo obtener más información sobre el modelo de control de acceso POSIX?
 

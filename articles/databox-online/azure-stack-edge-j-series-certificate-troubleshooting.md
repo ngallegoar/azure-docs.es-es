@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: troubleshooting
-ms.date: 09/29/2020
+ms.date: 11/20/2020
 ms.author: alkohli
-ms.openlocfilehash: f0f9dfa6e3d6ae02f66ac71f62586953cb21517e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a4848f5e8b542d80b382abe39f4882a26e0f534c
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91568359"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015687"
 ---
 # <a name="troubleshooting-certificate-errors"></a>Solución de problemas de certificados
 
@@ -46,6 +46,7 @@ En la tabla siguiente, se muestran errores comunes relacionados con los certific
 | CertificateManagement_MissingServerOid | El certificado con el nombre de firmante {0} no tiene ningún OID de autenticación del servidor. Compruebe las propiedades del certificado y, si es necesario, agregue un nuevo certificado.|
 | CertificateManagement_NameMismatch | El tipo de certificado no coincide. Ámbito esperado: {0}, ámbito encontrado {1}. Cargue el certificado adecuado.|
 | CertificateManagement_NoPrivateKeyPresent | El certificado con el nombre de firmante {0} no tiene ninguna clave privada presente. Cargue un certificado. pfx con una clave privada.|
+| CertificateManagement_NoRSACryptoPrivateKey | No se puede acceder a la clave privada del certificado con el nombre de sujeto {0}. Asegúrese de que usa un certificado compatible. Solo es compatible el Proveedor de servicios criptográficos de Microsoft RSA/SChannel. |
 | CertificateManagement_NotSelfSignedCertificate | El certificado con el nombre de firmante {0} no está autofirmado. Los certificados raíz deben estar autofirmados |
 | CertificateManagement_NotSupportedOnVirtualAppliance | Esta operación no puede realizarse en el dispositivo virtual. Este error indica que la firma solo tendrá lugar si Azure Data Box Gateway se ejecuta en el dispositivo Tactical Cloud. Este error se produce cuando el dispositivo se administra mediante Windows PowerShell.|
 | CertificateManagement_SelfSignedCertificate | El certificado con el nombre de firmante {0} está autofirmado. Cargue un certificado que esté correctamente firmado.|
@@ -57,6 +58,7 @@ En la tabla siguiente, se muestran errores comunes relacionados con los certific
 | CertificateImportFailure | No se importó el certificado con la huella digital {0} en el nodo {1}. Si el persiste el problema, póngase en contacto con el Soporte técnico de Microsoft. |
 | CertificateApplyFailure | No se aplicó el certificado con la huella digital {0} en el nodo {1}. Si el persiste el problema, póngase en contacto con el Soporte técnico de Microsoft.|
 | NodeNotReachable | No se pudo validar el certificado en {0}. Compruebe el estado del software y el hardware del sistema.|
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

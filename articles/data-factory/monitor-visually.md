@@ -10,12 +10,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: ecb066c7269217af3f8cc84e0f59ab29b4b39a9e
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.openlocfilehash: 45ebd793d96ed8cf0edf88d5631353fb6cd6a982
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94331619"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "96008776"
 ---
 # <a name="visually-monitor-azure-data-factory"></a>Supervise visualmente Azure Data Factory
 
@@ -62,7 +62,7 @@ Para obtener una vista detallada de las ejecuciones de actividades individuales 
 
 La vista de lista muestra ejecuciones de actividad correspondiente a cada ejecución de canalización. Mantenga el puntero sobre la ejecución de actividad específica para obtener información específica sobre la ejecución, como la entrada JSON, la salida JSON y las experiencias detalladas de supervisión específicas de la actividad.
 
-![Vista de lista para supervisar las ejecuciones de actividad](media/monitor-visually/activity-runs.png)
+![Hay información sobre SalesAnalyticsMLPipeline, seguida de una lista de ejecuciones de actividad.](media/monitor-visually/activity-runs.png)
 
 | **Nombre de la columna** | **Descripción** |
 | --- | --- |
@@ -79,7 +79,7 @@ La vista de lista muestra ejecuciones de actividad correspondiente a cada ejecuc
 
 Si se produce un error en una actividad, puede ver el mensaje de error detallado al hacer clic en el icono de la columna Error. 
 
-![Vista de lista para supervisar las ejecuciones de actividad](media/monitor-visually/activity-run-error.png)
+![Aparece una notificación con los detalles del error, que incluye el código de error, el tipo de error y los detalles del error.](media/monitor-visually/activity-run-error.png)
 
 ### <a name="promote-user-properties-to-monitor"></a>Promocionar las propiedades de usuario para supervisar
 

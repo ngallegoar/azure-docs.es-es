@@ -9,23 +9,24 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ec7337ad798d586cb93bd13e60ead1ef9f2a4abe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f0695af6922182aa8be7acfb4b0a931bed35ef7d
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91857255"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94959312"
 ---
 # <a name="tutorial-send-data-via-transparent-gateway"></a>Tutorial: Envío de datos mediante una puerta de enlace transparente
-
-> [!NOTE]
-> Este artículo forma parte de un tutorial sobre el uso de Azure Machine Learning en IoT Edge. Si ha llegado directamente a este artículo, le recomendamos que comience con el [primer el artículo](tutorial-machine-learning-edge-01-intro.md) de la serie para obtener los mejores resultados.
 
 En este artículo usaremos de nuevo la máquina virtual de desarrollo como un dispositivo simulado. Sin embargo, en lugar de enviar datos directamente a IoT Hub, el dispositivo envía los datos al dispositivo de IoT Edge configurado como puerta de enlace transparente.
 
 Supervisamos el funcionamiento del dispositivo de IoT Edge mientras el dispositivo simulado envía datos. Una vez que el dispositivo termina de ejecutarse, nos centramos en los datos en nuestra cuenta de almacenamiento para validar que todo haya funcionado según lo previsto.
 
 Normalmente, este paso está a cargo de un desarrollador de nube o de dispositivo.
+
+## <a name="prerequisites"></a>Requisitos previos
+
+Este artículo forma parte de un tutorial sobre el uso de Azure Machine Learning en IoT Edge. Cada artículo de la serie se basa en el trabajo del artículo anterior. Si ha llegado a este artículo directamente, visite el [primer artículo](tutorial-machine-learning-edge-01-intro.md) de la serie.
 
 ## <a name="review-device-harness"></a>Revisar DeviceHarness
 

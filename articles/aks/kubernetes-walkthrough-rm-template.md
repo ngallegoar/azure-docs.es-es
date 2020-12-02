@@ -5,12 +5,12 @@ services: container-service
 ms.topic: quickstart
 ms.date: 09/11/2020
 ms.custom: mvc,subject-armqs, devx-track-azurecli
-ms.openlocfilehash: f0ef1c32035eed26c0717364bda030b6b7662b3e
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 271913a731a2bdf5af94885b5fe4027c0334853c
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92740282"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94887508"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-an-arm-template"></a>Inicio rápido: Implementación de un clúster de Azure Kubernetes Service (AKS) mediante una plantilla de ARM
 
@@ -22,23 +22,21 @@ Azure Kubernetes Service (AKS) es un servicio de Kubernetes administrado que le 
 
 En esta guía rápida se presupone un conocimiento básico de los conceptos de Kubernetes. Para más información, consulte [Conceptos básicos de Kubernetes de Azure Kubernetes Service (AKS)][kubernetes-concepts].
 
-Si su entorno cumple los requisitos previos y está familiarizado con el uso de plantillas de Resource Manager, seleccione el botón **Implementar en Azure** . La plantilla se abrirá en Azure Portal.
+Si su entorno cumple los requisitos previos y está familiarizado con el uso de plantillas de Resource Manager, seleccione el botón **Implementar en Azure**. La plantilla se abrirá en Azure Portal.
 
 [![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-aks%2Fazuredeploy.json)
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-Si decide instalar y usar la CLI localmente, para este inicio rápido es preciso ejecutar la CLI de Azure versión 2.0.61 o posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure][azure-cli-install].
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+- En este artículo se necesita la versión 2.0.61 de la CLI de Azure, o cualquier versión posterior. Si usa Azure Cloud Shell, ya está instalada la versión más reciente.
 
-Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
-
-Para crear un clúster de AKS con una plantilla de Resource Manager, proporcione una clave pública SSH y la entidad de servicio de Azure Active Directory. También puede usar una [identidad administrada](use-managed-identity.md) en lugar de una entidad de servicio para permisos. Si necesita cualquiera de estos recursos, consulte la sección siguiente: en caso contrario, vaya a la sección [Revisión de la plantilla](#review-the-template).
+- Para crear un clúster de AKS con una plantilla de Resource Manager, proporcione una clave pública SSH y la entidad de servicio de Azure Active Directory. También puede usar una [identidad administrada](use-managed-identity.md) en lugar de una entidad de servicio para permisos. Si necesita cualquiera de estos recursos, consulte la sección siguiente: en caso contrario, vaya a la sección [Revisión de la plantilla](#review-the-template).
 
 ### <a name="create-an-ssh-key-pair"></a>Creación de un par de claves SSH
 
-Para acceder a los nodos de AKS, conéctese mediante un par de claves SSH. Use el comando `ssh-keygen` para generar archivos de clave pública y privada SSH. De forma predeterminada, estos archivos se crean en el directorio *~/.ssh* . Si existe un par de claves SSH con el mismo nombre en la ubicación escogida, estos archivos se sobrescriben.
+Para acceder a los nodos de AKS, conéctese mediante un par de claves SSH. Use el comando `ssh-keygen` para generar archivos de clave pública y privada SSH. De forma predeterminada, estos archivos se crean en el directorio *~/.ssh*. Si existe un par de claves SSH con el mismo nombre en la ubicación escogida, estos archivos se sobrescriben.
 
 Vaya a [https://shell.azure.com](https://shell.azure.com) para abrir Cloud Shell en el explorador.
 
@@ -70,7 +68,7 @@ La salida es similar a la del ejemplo siguiente:
 }
 ```
 
-Anote el valor de *appId* y *password* . Estos valores se usan en los pasos siguientes.
+Anote el valor de *appId* y *password*. Estos valores se usan en los pasos siguientes.
 
 ## <a name="review-the-template"></a>Revisión de la plantilla
 
@@ -88,22 +86,22 @@ Para más ejemplos de AKS, consulte el sitio de [plantillas de inicio rápido de
 
 2. Seleccione o escriba los siguientes valores.
 
-    Para este inicio rápido, deje los valores predeterminados de *Tamaño del disco del SO GB* , *Número de agentes* , *Tamaño de VM del agente* , *Tipo de SO* y *Versión de Kubernetes* . Proporcione sus propios valores para los siguientes parámetros de plantilla:
+    Para este inicio rápido, deje los valores predeterminados de *Tamaño del disco del SO GB*, *Número de agentes*, *Tamaño de VM del agente*, *Tipo de SO* y *Versión de Kubernetes*. Proporcione sus propios valores para los siguientes parámetros de plantilla:
 
-    * **Suscripción** : Seleccione una suscripción de Azure.
-    * **Grupo de recursos** : Seleccione **Crear nuevo** . Escriba un nombre único para el grupo de recursos, como *myResourceGroup* , y elija **Aceptar** .
-    * **Ubicación** : seleccione una ubicación, como **Este de EE. UU** .
-    * **Nombre del clúster** : escriba un nombre único para el clúster de AKS, como *myAKSCluster* .
-    * **Prefijo de DNS** : escriba un prefijo DNS único para el clúster, como *myakscluster* .
-    * **Linux Admin Username** (Nombre de usuario administrador de Linux): escriba un nombre de usuario para conectarse mediante SSH, como *azureuser* .
-    * **SSH RSA Public Key** (Clave pública SSH RSA): copie y pegue la parte *pública* del par de claves SSH (de forma predeterminada, el contenido de *~/.ssh/id_rsa.pub* ).
-    * **Identificador de cliente de la entidad de servicio** : copie y pegue el valor de *appId* del servicio en la entidad de seguridad desde el comando `az ad sp create-for-rbac`.
-    * **Secreto de cliente de la entidad de servicio** : copie y pegue el valor de *password* del servicio en la entidad de seguridad desde el comando `az ad sp create-for-rbac`.
-    * **Acepto los términos y condiciones anteriores** : active esta casilla para indicar su conformidad.
+    * **Suscripción**: Seleccione una suscripción de Azure.
+    * **Grupo de recursos**: Seleccione **Crear nuevo**. Escriba un nombre único para el grupo de recursos, como *myResourceGroup*, y elija **Aceptar**.
+    * **Ubicación**: seleccione una ubicación, como **Este de EE. UU**.
+    * **Nombre del clúster**: escriba un nombre único para el clúster de AKS, como *myAKSCluster*.
+    * **Prefijo de DNS**: escriba un prefijo DNS único para el clúster, como *myakscluster*.
+    * **Linux Admin Username** (Nombre de usuario administrador de Linux): escriba un nombre de usuario para conectarse mediante SSH, como *azureuser*.
+    * **SSH RSA Public Key** (Clave pública SSH RSA): copie y pegue la parte *pública* del par de claves SSH (de forma predeterminada, el contenido de *~/.ssh/id_rsa.pub*).
+    * **Identificador de cliente de la entidad de servicio**: copie y pegue el valor de *appId* del servicio en la entidad de seguridad desde el comando `az ad sp create-for-rbac`.
+    * **Secreto de cliente de la entidad de servicio**: copie y pegue el valor de *password* del servicio en la entidad de seguridad desde el comando `az ad sp create-for-rbac`.
+    * **Acepto los términos y condiciones anteriores**: active esta casilla para indicar su conformidad.
 
     ![Plantilla de Resource Manager para la creación de un clúster de Azure Kubernetes Service en el portal](./media/kubernetes-walkthrough-rm-template/create-aks-cluster-using-template-portal.png)
 
-3. Seleccione **Comprar** .
+3. Seleccione **Comprar**.
 
 El clúster de AKS tarda unos minutos en crearse. Espere a que el clúster se implemente correctamente para pasar al siguiente paso.
 
@@ -129,7 +127,7 @@ Para comprobar la conexión al clúster, use el comando [kubectl get][kubectl-ge
 kubectl get nodes
 ```
 
-La salida del siguiente ejemplo muestra los nodos creados en los pasos anteriores. Asegúrese de que el estado de los nodos sea *Listo* :
+La salida del siguiente ejemplo muestra los nodos creados en los pasos anteriores. Asegúrese de que el estado de los nodos sea *Listo*:
 
 ```output
 NAME                       STATUS   ROLES   AGE     VERSION
@@ -257,7 +255,7 @@ Para supervisar el progreso, utilice el comando [kubectl get service][kubectl-ge
 kubectl get service azure-vote-front --watch
 ```
 
-En un primer momento, el parámetro *EXTERNAL-IP* del servicio *azure-vote-front* se muestra como *pendiente* .
+En un primer momento, el parámetro *EXTERNAL-IP* del servicio *azure-vote-front* se muestra como *pendiente*.
 
 ```output
 NAME               TYPE           CLUSTER-IP   EXTERNAL-IP   PORT(S)        AGE

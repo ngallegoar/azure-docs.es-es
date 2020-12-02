@@ -3,12 +3,12 @@ title: Base de referencia de seguridad de Azure para Azure DevTest Labs
 description: Base de referencia de seguridad de Azure para Azure DevTest Labs
 ms.topic: conceptual
 ms.date: 07/23/2020
-ms.openlocfilehash: 98f6ce7eee799b1baf29782d7eca11d62cf62353
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 64e5ac46fbeb71706f7b1ae2d3682260e3cbc651
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207298"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95993659"
 ---
 # <a name="azure-security-baseline-for-azure-devtest-labs"></a>Base de referencia de seguridad de Azure para Azure DevTest Labs
 
@@ -62,7 +62,7 @@ Para más información, consulte los siguientes artículos.
 **Responsabilidad:** Customer
 
 ### <a name="25-configure-security-log-storage-retention"></a>2.5: Configuración de la retención del almacenamiento de registros de seguridad
-***Guía:** en Azure Monitor, establezca el período de retención de registro para las áreas de trabajo de Log Analytics asociadas a las instancias de Azure DevTest Labs según las normativas de cumplimiento de su organización.
+**_Guía:_* en Azure Monitor, establezca el período de retención de registro para las áreas de trabajo de Log Analytics asociadas a las instancias de Azure DevTest Labs según las normativas de cumplimiento de su organización.
 
 Para más información, consulte el artículo siguiente: [Establecimiento de parámetros de retención de registros](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
 
@@ -175,9 +175,9 @@ Además, para ayudarle a realizar un seguimiento de las cuentas administrativas 
 - [Procedimiento para habilitar la MFA en Azure](../active-directory/authentication/howto-mfa-getstarted.md)  
 - [Supervisión de la identidad y el acceso en Azure Security Center](../security-center/security-center-identity-access.md)
 
-**Supervisión de Azure Security Center:** * sí
+**Supervisión de Azure Security Center:** : sí
 
-**Responsabilidad:** Customer
+*Responsabilidad:* cliente
 
 
 ### <a name="36-use-dedicated-machines-privileged-access-workstations-for-all-administrative-tasks"></a>3.6: Use máquinas dedicadas (estaciones de trabajo de acceso con privilegios) para todas las tareas administrativas
@@ -387,7 +387,7 @@ Microsoft realiza la administración de vulnerabilidades en los recursos subyace
 **Responsabilidad:** Customer
 
 ### <a name="53-deploy-automated-third-party-software-patch-management-solution"></a>5.3: Implemente una solución automatizada de administración de revisiones de software de terceros
-***Guía:*** como administrador del laboratorio, puede usar [artefactos de DevTest Labs](add-artifact-vm.md) para automatizar las actualizaciones de las imágenes personalizadas de laboratorio, incluidas las revisiones de seguridad y otras actualizaciones. 
+**_Guía:_* Como administrador del laboratorio, puede usar [artefactos de DevTest Labs](add-artifact-vm.md) para automatizar las actualizaciones de las imágenes personalizadas del laboratorio, incluidas las revisiones de seguridad y otras actualizaciones. 
 
 Obtenga más información sobre un [generador de imágenes de DevTest Labs](image-factory-create.md) es una solución de configuración como código que crea y distribuye imágenes de forma automática y periódica con todas las configuraciones deseadas. 
 
@@ -396,7 +396,7 @@ Como administrador de la suscripción, también puede usar la solución Azure Up
 - [Solución Update Management de Azure](../automation/update-management/update-mgmt-overview.md)
 - [Administración de actualizaciones y revisiones para las máquinas virtuales](../automation/update-management/update-mgmt-overview.md)
 
-**Supervisión de Azure Security Center:** No aplicable
+*Supervisión de Azure Security Center:* : no aplicable
 
 **Responsabilidad:** Customer
 
@@ -692,7 +692,7 @@ Además, las imágenes de máquinas virtuales de Azure Marketplace que publica M
 
 - [Configuración de identidades administradas para implementar entornos de Azure Resource Manager en DevTest Labs](use-managed-identities-environments.md)
 - [Configuración de identidades administradas para implementar máquinas virtuales en DevTest Labs](enable-managed-identities-lab-vms.md)
-- [Creación de un almacén de claves](../key-vault/secrets/quick-create-portal.md)
+- [Creación de un almacén de claves](../key-vault/general/quick-create-portal.md)
 - [Autenticación en Key Vault](../key-vault/general/authentication.md)
 - [Asignación de una directiva de acceso de Key Vault](../key-vault/general/assign-access-policy-portal.md)
 

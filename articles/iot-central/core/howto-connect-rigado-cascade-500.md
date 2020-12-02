@@ -11,11 +11,11 @@ ms.author: avneets
 author: avneet723
 ms.date: 11/27/2019
 ms.openlocfilehash: 0000e7690ab92f469a7417e82cb375c524e0b343
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90016850"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96014769"
 ---
 # <a name="connect-a-rigado-cascade-500-gateway-device-to-your-azure-iot-central-application"></a>Conexión de un dispositivo de puerta de enlace Rigado Cascade 500 a la aplicación de Azure IoT Central
 
@@ -41,15 +41,15 @@ Para incorporar un dispositivo de puerta de enlace Cascade 500 a la instancia de
 
 Para agregar una plantilla de dispositivo Cascade 500, siga estos pasos: 
 
-1. Vaya a la pestaña ***Device Templates*** (Plantillas de dispositivo) en el panel izquierdo y seleccione **+ New** (+ Nuevo): ![Creación de una plantilla de dispositivo](./media/howto-connect-rigado-cascade-500/device-template-new.png)
-1. La página ofrece una opción para ***crear una plantilla personalizada*** o ***usar una plantilla de dispositivo preconfigurada***.
+1. Vaya a la pestaña ***Plantillas de dispositivo** _ en el panel izquierdo y seleccione _*+ Nueva**: ![Creación de una plantilla de dispositivo](./media/howto-connect-rigado-cascade-500/device-template-new.png)
+1. La página le brinda la opción de **_crear una plantilla personalizada_* _ o _*_usar una plantilla de dispositivo preconfigurada_*_
 1. Seleccione la plantilla de dispositivo C500 en la lista de plantillas de dispositivo preconfiguradas, como se muestra a continuación: ![Selección de la plantilla de dispositivo C500](./media/howto-connect-rigado-cascade-500/device-template-preconfigured.png)
-1. Seleccione ***Siguiente: Customize*** (Personalizar) para continuar con el paso siguiente. 
-1. En la siguiente pantalla, seleccione ***Create*** (Crear) para incorporar la plantilla de dispositivo C500 a la aplicación IoT Central.
+1. Seleccione _*_Siguiente: Personalizar_*_ para continuar con el paso siguiente. 
+1. En la siguiente pantalla, seleccione _*_Crear_*_ para incorporar la plantilla de dispositivo C500 a la aplicación IoT Central.
 
 ## <a name="retrieve-application-connection-details"></a>Recuperación de los detalles de conexión de la aplicación
 
-Ahora deberá recuperar los valores de **Scope ID** (Id. de ámbito) y **Primary key** (Clave principal) para la aplicación de Azure IoT Central a fin de conectar el dispositivo Cascade 500. 
+Ahora deberá recuperar los valores de _ *Scope ID** (Id. de ámbito) y **Primary key** (Clave principal) para la aplicación de Azure IoT Central para conectar el dispositivo Cascade 500. 
 
 1. Vaya a **Administration** (Administración) en el panel izquierdo y haga clic en **Device connection** (Conexión del dispositivo). 
 2. Anote el valor de **Scope ID** (Id. de ámbito) de la aplicación de IoT Central.

@@ -13,16 +13,16 @@ ms.subservice: pim
 ms.date: 09/16/2020
 ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 69884b9e07172e9b25f4c14884be8713da23cbdb
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: e0e230a975748fe2f737c4b8fe8491887351d387
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369835"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96004677"
 ---
 # <a name="assign-azure-ad-roles-in-privileged-identity-management"></a>Asignación de roles de Azure AD en Privileged Identity Management
 
-Con Azure Active Directory (Azure AD), un administrador global puede realizar asignaciones de roles de administrador de Azure AD **permanentes** . Estas asignaciones de roles se pueden crear mediante [Azure Portal](../roles/permissions-reference.md) o mediante [comandos de PowerShell](/powershell/module/azuread#directory_roles).
+Con Azure Active Directory (Azure AD), un administrador global puede realizar asignaciones de roles de administrador de Azure AD **permanentes**. Estas asignaciones de roles se pueden crear mediante [Azure Portal](../roles/permissions-reference.md) o mediante [comandos de PowerShell](/powershell/module/azuread#directory_roles).
 
 El servicio Azure AD Privileged Identity Management (PIM) permite también a los administradores de roles con privilegios realizar asignaciones de roles de administrador permanentes. Además, los administradores de rol con privilegios pueden hacer que los usuarios sean **aptos** para roles de administrador de Azure AD. Un administrador apto puede activar el rol cuando lo necesite y, cuando termina, sus permisos caducan.
 
@@ -31,7 +31,7 @@ El servicio Azure AD Privileged Identity Management (PIM) permite también a lo
 Desde noviembre de 2019, la parte de roles de Azure AD de Privileged Identity Management se está actualizando a una nueva versión que coincide con las experiencias de los roles de recursos de Azure. Esta actualización introduce características adicionales y [cambios en la API existente](azure-ad-roles-features.md#api-changes). Mientras se implementa la nueva versión, los procedimientos que seguirá en este artículo dependerán de la versión de Privileged Identity Management que tenga actualmente. Siga los pasos de esta sección para determinar la versión de Privileged Identity Management que tiene. Cuando averigüe la versión de Privileged Identity Management, puede seleccionar los procedimientos de este artículo que coincidan con esa versión.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/) con un usuario que tenga el rol [Administrador de roles con privilegios](../roles/permissions-reference.md#privileged-role-administrator).
-1. Abra **Azure AD Privileged Identity Management** . Si tiene un banner en la parte superior de la página de introducción, siga las instrucciones de la pestaña **Nueva versión** de este artículo. De lo contrario, siga las instrucciones de la pestaña **Versión anterior** .
+1. Abra **Azure AD Privileged Identity Management**. Si tiene un banner en la parte superior de la página de introducción, siga las instrucciones de la pestaña **Nueva versión** de este artículo. De lo contrario, siga las instrucciones de la pestaña **Versión anterior**.
 
   [![Selección de Azure AD > Privileged Identity Management](media/pim-how-to-add-role-to-user/pim-new-version.png)](media/pim-how-to-add-role-to-user/pim-new-version.png#lightbox)
 
@@ -45,23 +45,23 @@ Siga estos pasos para hacer que un usuario sea elegible para un rol de administr
 
     Para información sobre cómo conceder acceso a otro administrador para gestionar Privileged Identity Management, consulte [Concesión de acceso a otros administradores para administrar Privileged Identity Management](pim-how-to-give-access-to-pim.md).
 
-1. Abra **Azure AD Privileged Identity Management** .
+1. Abra **Azure AD Privileged Identity Management**.
 
-1. Seleccione **Roles de Azure AD** .
+1. Seleccione **Roles de Azure AD**.
 
 1. Seleccione **Roles** para ver la lista de roles de los permisos de Azure AD.
 
     ![Captura de pantalla de la página "Roles" con la acción "Agregar asignaciones" seleccionada.](./media/pim-how-to-add-role-to-user/roles-list.png)
 
-1. Seleccione **Agregar asignaciones** para abrir la página **Agregar asignaciones** .
+1. Seleccione **Agregar asignaciones** para abrir la página **Agregar asignaciones**.
 
-1. Elija **Seleccionar un rol** para abrir la página **Seleccionar un rol** .
+1. Elija **Seleccionar un rol** para abrir la página **Seleccionar un rol**.
 
     ![Panel Nueva asignación](./media/pim-how-to-add-role-to-user/select-role.png)
 
-1. Seleccione el rol que desea asignar, seleccione un miembro al que desee asignar el rol y luego, seleccione **Siguiente** .
+1. Seleccione el rol que desea asignar, seleccione un miembro al que desee asignar el rol y luego, seleccione **Siguiente**.
 
-1. En la lista **Tipo de asignación** en el panel **Configuración de pertenencia** , seleccione **Apto** o **Activo** .
+1. En la lista **Tipo de asignación** en el panel **Configuración de pertenencia**, seleccione **Apto** o **Activo**.
 
     - Las asignaciones tipo **Apto** requieren que el miembro del rol realice una acción para usar el rol. Entre las acciones se puede incluir realizar una comprobación de autenticación multifactor (MFA), proporcionar una justificación de negocios o solicitar la aprobación de los aprobadores designados.
 
@@ -81,17 +81,17 @@ Para determinados roles, el ámbito de los permisos concedidos se puede restring
 
 1. Inicie sesión en el [centro de administración de Azure Active Directory](https://aad.portal.azure.com) con permisos de administrador de roles con privilegios.
 
-1. Seleccione **Azure Active Directory** > **Roles y administradores** .
+1. Seleccione **Azure Active Directory** > **Roles y administradores**.
 
-1. Seleccione el rol **Administrador de usuarios** .
+1. Seleccione el rol **Administrador de usuarios**.
 
     ![El comando Agregar asignación está disponible cuando se abre un rol en el portal.](./media/pim-how-to-add-role-to-user/add-assignment.png)
 
-1. Seleccione **Agregar asignaciones** .
+1. Seleccione **Agregar asignaciones**.
 
     ![Cuando un rol admite la restricción de ámbito, puede seleccionar un ámbito.](./media/pim-how-to-add-role-to-user/add-scope.png)
 
-1. En la página **Agregar asignaciones** , puede hacer lo siguiente:
+1. En la página **Agregar asignaciones**, puede hacer lo siguiente:
 
    - Seleccionar el usuario o el grupo que se va a asignar al rol
    - Seleccionar el ámbito del rol (en este caso, unidades administrativas)
@@ -103,15 +103,15 @@ Para más información sobre la creación de unidades administrativas, consulte 
 
 Siga estos pasos para actualizar o quiotar una asignación de roles existente.
 
-1. Abra **Azure AD Privileged Identity Management** .
+1. Abra **Azure AD Privileged Identity Management**.
 
-1. Seleccione **Roles de Azure AD** .
+1. Seleccione **Roles de Azure AD**.
 
 1. Seleccione **Roles** para ver la lista de roles de Azure AD.
 
 1. Seleccione el rol que quiera actualizar o quitar.
 
-1. Busque la asignación de roles en las pestañas **Roles elegibles** o **Roles activos** .
+1. Busque la asignación de roles en las pestañas **Roles elegibles** o **Roles activos**.
 
     ![Actualizar o quitar la asignación de roles](./media/pim-how-to-add-role-to-user/remove-update-assignments.png)
 
@@ -123,21 +123,21 @@ Siga estos pasos para actualizar o quiotar una asignación de roles existente.
 
 Siga estos pasos para hacer que un usuario sea elegible para un rol de administrador de Azure AD.
 
-1. Seleccione **Roles** o **Miembros** .
+1. Seleccione **Roles** o **Miembros**.
 
     ![Apertura de roles de Azure AD](./media/pim-how-to-add-role-to-user/pim-directory-roles.png)
 
-1. Seleccione **Agregar miembro** para abrir **Agregar miembros administrados** .
+1. Seleccione **Agregar miembro** para abrir **Agregar miembros administrados**.
 
-1. Seleccione **Seleccionar un rol** , seleccione un rol que desee administrar y luego **Seleccionar** .
+1. Seleccione **Seleccionar un rol**, seleccione un rol que desee administrar y luego **Seleccionar**.
 
     ![Seleccione un rol.](./media/pim-how-to-add-role-to-user/pim-select-a-role.png)
 
-1. Seleccione **Seleccionar miembros** , seleccione los usuarios que desea asignar al rol y, a continuación, **Seleccionar** .
+1. Seleccione **Seleccionar miembros**, seleccione los usuarios que desea asignar al rol y, a continuación, **Seleccionar**.
 
     ![Selección de un usuario o un grupo para la asignación](./media/pim-how-to-add-role-to-user/pim-select-members.png)
 
-1. En **Agregar miembros administrados** , seleccione **Aceptar** para agregar el usuario al rol.
+1. En **Agregar miembros administrados**, seleccione **Aceptar** para agregar el usuario al rol.
 
 1. En la lista de roles, seleccione el que acaba de asignar para ver la lista de miembros.
 
@@ -147,27 +147,27 @@ Siga estos pasos para hacer que un usuario sea elegible para un rol de administr
 
 1. Ahora que el usuario es apto para el rol, hágale saber que puede activarlo de acuerdo con las instrucciones que se describen en [Activación de mis roles de Azure AD en Privileged Identity Management](pim-how-to-activate-role.md).
 
-    Se pide a los administradores válidos que se registren en Azure Multi-Factor Authentication durante la activación. Si un usuario no puede registrarse en MFA o usa una cuenta de Microsoft (como @outlook.com), deberá establecerlo como permanente en todos sus roles.
+    Se pide a los administradores elegibles que se registren en Azure AD Multi-Factor Authentication durante la activación. Si un usuario no puede registrarse en MFA o usa una cuenta de Microsoft (como @outlook.com), deberá establecerlo como permanente en todos sus roles.
 
 ## <a name="make-a-role-assignment-permanent"></a>Hacer que una asignación de roles sea permanente
 
 De forma predeterminada, los nuevos usuarios solo son *aptos* para un rol de administrador de Azure AD. Siga estos pasos si desea hacer que una asignación de roles sea permanente.
 
-1. Abra **Azure AD Privileged Identity Management** .
+1. Abra **Azure AD Privileged Identity Management**.
 
-1. Seleccione **Roles de Azure AD** .
+1. Seleccione **Roles de Azure AD**.
 
-1. Seleccione **Miembros** .
+1. Seleccione **Miembros**.
 
     ![Lista de miembros](./media/pim-how-to-add-role-to-user/pim-directory-role-list-members.png)
 
 1. Seleccione en un rol **Apto** que desee convertir en permanente.
 
-1. Seleccione **Más** y, después, seleccione **Establecer como permanente** .
+1. Seleccione **Más** y, después, seleccione **Establecer como permanente**.
 
     ![Hacer que una asignación de roles sea permanente](./media/pim-how-to-add-role-to-user/pim-make-perm.png)
 
-    El rol aparece ahora como **permanente** .
+    El rol aparece ahora como **permanente**.
 
     ![Lista de miembros con el cambio permanente](./media/pim-how-to-add-role-to-user/pim-directory-role-list-members-permanent.png)
 
@@ -177,21 +177,21 @@ Puede quitar a los usuarios de las asignaciones de roles, pero asegúrese de que
 
 Siga estos pasos para quitar a un usuario específico de un rol de administrador de Azure AD.
 
-1. Abra **Azure AD Privileged Identity Management** .
+1. Abra **Azure AD Privileged Identity Management**.
 
-1. Seleccione **Roles de Azure AD** .
+1. Seleccione **Roles de Azure AD**.
 
-1. Seleccione **Miembros** .
+1. Seleccione **Miembros**.
 
     ![Lista de miembros](./media/pim-how-to-add-role-to-user/pim-directory-role-list-members.png)
 
 1. Seleccione una asignación de roles que desee quitar.
 
-1. Seleccione **Más** y, después, elija **Quitar** .
+1. Seleccione **Más** y, después, elija **Quitar**.
 
     ![Quitar un rol](./media/pim-how-to-add-role-to-user/pim-remove-role.png)
 
-1. En el mensaje que le pide confirmación, seleccione **Sí** .
+1. En el mensaje que le pide confirmación, seleccione **Sí**.
 
     ![Confirmación de la eliminación](./media/pim-how-to-add-role-to-user/pim-remove-role-confirm.png)
 
@@ -205,7 +205,7 @@ Siga estos pasos para asignar el rol de administrador de acceso de usuario a la 
 
 1. Inicie sesión en Azure Portal como administrador global.
 
-1. Elija **Todos los servicios** y, después, **Suscripciones** .
+1. Elija **Todos los servicios** y, después, **Suscripciones**.
 
 1. Elija su suscripción.
 
@@ -215,13 +215,13 @@ Siga estos pasos para asignar el rol de administrador de acceso de usuario a la 
 
    ![Hoja Control de acceso (IAM) para una suscripción](./media/pim-how-to-add-role-to-user/ms-pim-access-control.png)
 
-1. Compruebe si la entidad de servicio **MS PIM** tiene asignado el rol **Administrador de acceso de usuario** .
+1. Compruebe si la entidad de servicio **MS PIM** tiene asignado el rol **Administrador de acceso de usuario**.
 
-1. En caso contrario, elija **Agregar asignación de roles** para abrir el panel **Agregar asignación de roles** .
+1. En caso contrario, elija **Agregar asignación de roles** para abrir el panel **Agregar asignación de roles**.
 
-1. En la lista desplegable **Rol** , seleccione el rol **Administrador de acceso de usuario** .
+1. En la lista desplegable **Rol**, seleccione el rol **Administrador de acceso de usuario**.
 
-1. En la lista **Seleccionar** , busque y seleccione la entidad de servicio **MS PIM** .
+1. En la lista **Seleccionar**, busque y seleccione la entidad de servicio **MS PIM**.
 
    ![Panel Agregar asignación de roles: adición de permisos para la entidad de servicio MS-PIM](./media/pim-how-to-add-role-to-user/ms-pim-add-permissions.png)
 

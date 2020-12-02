@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 11/24/2019
 ms.author: vilibert
 ms.openlocfilehash: 390443874ea63a8661ef8baea627015fcf679719
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167923"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002704"
 ---
 # <a name="troubleshooting-a-linux-vm-when-there-is-no-access-to-the-azure-serial-console-and-the-disk-layout-is-using-lvm-logical-volume-manager"></a>Solución de problemas de una VM de Linux cuando no se tiene acceso a la consola serie de Azure y el diseño de disco usa LVM (Administrador de volúmenes lógicos)
 
@@ -29,26 +29,26 @@ Esta guía de solución de problemas es útil en escenarios en los que una VM de
 
 Haga una instantánea de la VM con afectada. 
 
-La instantánea se adjuntará a una VM de **rescate** . Siga las instrucciones [aquí](../linux/snapshot-copy-managed-disk.md#use-azure-portal) sobre cómo hacer una **instantánea** .
+La instantánea se adjuntará a una VM de **rescate**. Siga las instrucciones [aquí](../linux/snapshot-copy-managed-disk.md#use-azure-portal) sobre cómo hacer una **instantánea**.
 
 ## <a name="create-a-rescue-vm"></a>Cree una VM de rescate
 Normalmente, se recomienda usar una VM de rescate de la misma versión o de un sistema operativo similar. Use la misma **región** y **grupo de recursos** de la VM afectada.
 
 ## <a name="connect-to-the-rescue-vm"></a>Conexión a la VM de rescate
-Conéctese mediante SSH a la VM de **rescate** . Eleve los privilegios y conviértase en un super usuario usando lo siguiente:
+Conéctese mediante SSH a la VM de **rescate**. Eleve los privilegios y conviértase en un super usuario usando lo siguiente:
 
 `sudo su -`
 
 ## <a name="attach-the-disk"></a>Adjuntar el disco
 Conecte un disco a la VM de **rescate** creada a partir de la instantánea tomada previamente.
 
-Azure Portal > seleccione la VM de **rescate** -> **Discos** 
+Azure Portal > seleccione la VM de **rescate**-> **Discos** 
 
 ![Creación de disco](./media/chroot-logical-volume-manager/create-disk-from-snap.png)
 
 Rellene los campos. Asigne un nombre al nuevo disco, seleccione el mismo grupo de recursos que la instantánea, la VM afectada y la VM de rescate.
 
-El **tipo de origen** es **Instantánea** .
+El **tipo de origen** es **Instantánea**.
 La **instantánea de origen** es el nombre de la **instantánea** que se creó anteriormente.
 
 ![crear disco 2](./media/chroot-logical-volume-manager/create-disk-from-snap-2.png)
@@ -61,13 +61,13 @@ Ejecute el comando **fdisk-l** para comprobar que se ha adjuntado el disco de in
 
 `fdisk -l`
 
-En la mayoría de los escenarios, el disco de instantáneas adjunto se verá como **/dev/sdc** y mostrará dos particiones **/dev/sdc1** y **/dev/sdc2** .
+En la mayoría de los escenarios, el disco de instantáneas adjunto se verá como **/dev/sdc** y mostrará dos particiones **/dev/sdc1** y **/dev/sdc2**.
 
 ![Fdisk](./media/chroot-logical-volume-manager/fdisk-output-sdc.png)
 
-El **\*** indica una partición de inicio, ya que ambas particiones se van a montar.
+El asterisco *\** _ indica una partición de inicio y se deben montar ambas particiones.
 
-Ejecute el comando **lsblk** para ver los LVM de la VM afectada.
+Ejecute el comando _ *lsblk** para ver los LVM de la máquina virtual afectada.
 
 `lsblk`
 
@@ -75,7 +75,7 @@ Ejecute el comando **lsblk** para ver los LVM de la VM afectada.
 
 
 Compruebe si se muestran LVM de la VM afectada.
-Si no es así, use los comandos siguientes para habilitarlos y volver a ejecutar **lsblk** .
+Si no es así, use los comandos siguientes para habilitarlos y volver a ejecutar **lsblk**.
 Asegúrese de que los LVM del disco adjunto sean visibles antes de continuar.
 
 ```
@@ -106,7 +106,7 @@ Monte la partición que tiene la **marca de inicio** establecida en /rescue/boot
 mount /dev/sdc1 /rescue/boot
 `
 
-Compruebe que los sistemas de archivos del disco adjunto se montan correctamente mediante el comando **lsblk** .
+Compruebe que los sistemas de archivos del disco adjunto se montan correctamente mediante el comando **lsblk**.
 
 ![Ejecute lsblk](./media/chroot-logical-volume-manager/lsblk-output-1.png)
 
@@ -129,16 +129,16 @@ Obtenga acceso a **chroot** y podrá realizar varias correcciones; tenga en cuen
 
 Si se produce un error como el siguiente:
 
-**chroot: no se pudo ejecutar el comando "/bin/bash": no se encontró el archivo o directorio** ,
+**chroot: no se pudo ejecutar el comando "/bin/bash": no se encontró el archivo o directorio**,
 
-intente montar el volumen lógico **usr** .
+intente montar el volumen lógico **usr**.
 
 `
 mount  /dev/mapper/rootvg-usrlv /rescue/usr
 `
 
 > [!TIP]
-> Al ejecutar comandos en un entorno de **chroot** , tenga en cuenta que se ejecutan en el disco del sistema operativo adjunto y no en el de la VM de **rescate** local. 
+> Al ejecutar comandos en un entorno de **chroot**, tenga en cuenta que se ejecutan en el disco del sistema operativo adjunto y no en el de la VM de **rescate** local. 
 
 Los comandos se pueden usar para instalar, quitar y actualizar software. Solucionar problemas de VM para corregir errores.
 
@@ -213,7 +213,7 @@ Si no se ha podido obtener acceso a la consola serie de Azure, compruebe los par
 
 ### <a name="example-4---kernel-loading-with-problematic-lvm-swap-volume"></a>Ejemplo 4: carga del kernel con un volumen de intercambio LVM problemático
 
-Es posible que una máquina virtual no arranque completamente y caiga en el símbolo del sistema de **Dracut** .
+Es posible que una máquina virtual no arranque completamente y caiga en el símbolo del sistema de **Dracut**.
 Puede encontrar más detalles sobre el error en la consola serie de Azure o ir a Azure Portal -> Diagnósticos de arranque -> Registro serie
 
 
@@ -262,7 +262,7 @@ El disco estará ahora disponible, gracias a lo cual podrá intercambiarlo con e
 Vaya a Azure Portal y busque la VM con errores; a continuación, seleccione **Discos** -> **Intercambiar disco del sistema operativo**
 ![Intercambiar disco](./media/chroot-logical-volume-manager/swap-disk.png). 
 
-Complete los campos para **elegir disco** , que será wl disco de instantánea que se desasoció en el paso anterior. También es necesario escribir el nombre de la VM afectada; a continuación, seleccione **Aceptar** .
+Complete los campos para **elegir disco**, que será wl disco de instantánea que se desasoció en el paso anterior. También es necesario escribir el nombre de la VM afectada; a continuación, seleccione **Aceptar**.
 
 ![Nuevo disco del sistema operativo](./media/chroot-logical-volume-manager/new-osdisk.png) 
 

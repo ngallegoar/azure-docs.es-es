@@ -2,17 +2,17 @@
 title: Solución de problemas de un entorno de ejecución de integración autohospedado en Azure Data Factory
 description: Conozca cómo solucionar problemas del entorno de ejecución de integración autohospedado en Azure Data Factory.
 services: data-factory
-author: nabhishek
+author: lrtoyou1223
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 10/29/2020
+ms.date: 11/17/2020
 ms.author: lle
-ms.openlocfilehash: ca8d359638d97f77377f02d47d824fa216acdcc8
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 93c35828444ec93a974769ed3a2f1981c0ec4368
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92928117"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96013467"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>Solución de problemas del entorno de ejecución de integración autohospedado
 
@@ -26,7 +26,7 @@ En el caso de las actividades con error que se ejecutan en IR autohospedado o IR
 
 1. Vaya a la página **Ejecuciones de actividad**.
 
-1. En la columna **ERROR** , haga clic en el botón siguiente.
+1. En la columna **ERROR**, haga clic en el botón siguiente.
 
     ![Página Ejecuciones de actividad](media/self-hosted-integration-runtime-troubleshoot-guide/activity-runs-page.png)
 
@@ -34,7 +34,7 @@ En el caso de las actividades con error que se ejecutan en IR autohospedado o IR
 
     ![Enviar registros](media/self-hosted-integration-runtime-troubleshoot-guide/send-logs.png)
 
-1. Puede elegir los registros que desea enviar. Par *IR autohospedado* , puede cargar los registros relacionados con la actividad con errores o todos los registros del nodo de IR autohospedado. Para *IR compartido* , solo puede cargar los registros relacionados con la actividad con errores.
+1. Puede elegir los registros que desea enviar. Par *IR autohospedado*, puede cargar los registros relacionados con la actividad con errores o todos los registros del nodo de IR autohospedado. Para *IR compartido*, solo puede cargar los registros relacionados con la actividad con errores.
 
     ![Elección de registros](media/self-hosted-integration-runtime-troubleshoot-guide/choose-logs.png)
 
@@ -48,11 +48,26 @@ En el caso de las actividades con error que se ejecutan en IR autohospedado o IR
 
 ## <a name="self-hosted-ir-general-failure-or-error"></a>Error general de IR autohospedado
 
+### <a name="out-of-memory-issue"></a>Problema de memoria agotada
+
+#### <a name="symptoms"></a>Síntomas
+
+El problema de "OutOfMemoryException" se produce cuando se intenta ejecutar una actividad de búsqueda con un entorno de ejecución de integración vinculado o autohospedado.
+
+#### <a name="cause"></a>Causa
+
+La nueva actividad puede encontrarse con el problema de OOM (OutOfMemory) si la máquina del entorno de ejecución de integración hace un uso elevado de memoria en ese momento. El problema puede deberse a la ejecución de actividades simultáneas a gran escala, y el error es así intencionadamente.
+
+#### <a name="resolution"></a>Solución
+
+Compruebe el uso de recursos y la ejecución de actividades simultáneas en el nodo del entorno de ejecución de integración. Ajuste el tiempo interno y del desencadenador de las ejecuciones de actividad para evitar demasiadas ejecuciones simultáneas en el mismo nodo del entorno de ejecución de integración.
+
+
 ### <a name="tlsssl-certificate-issue"></a>Problema de certificado TLS/SSL
 
 #### <a name="symptoms"></a>Síntomas
 
-Al intentar habilitar el certificado TLS/SSL (avanzado) desde **Configuration Manager de IR autohospedado** -> **Acceso remoto desde la intranet** , después de seleccionar el certificado TLS/SSL, se muestra el siguiente error:
+Al intentar habilitar el certificado TLS/SSL (avanzado) desde **Configuration Manager de IR autohospedado** -> **Acceso remoto desde la intranet**, después de seleccionar el certificado TLS/SSL, se muestra el siguiente error:
 
 `Remote access settings are invalid. Identity check failed for outgoing message. The expected DNS identity of the remote endpoint was ‘abc.microsoft.com’ but the remote endpoint provided DNS claim ‘microsoft.com’. If this is a legitimate remote endpoint, you can fix the problem by explicitly specifying DNS identity ‘microsoft.com’ as the Identity property of EndpointAddress when creating channel proxy.`
 
@@ -65,7 +80,7 @@ Este es un problema conocido en WCF: La validación TLS/SSL de WCF solo comprueb
 #### <a name="resolution"></a>Solución
 
 El certificado comodín es compatible con IR autohospedado de Azure Data Factory v2. Este problema se produce normalmente porque el certificado SSL no es correcto. El último nombre de DNS en SAN debe ser válido. Siga los pasos que se indican a continuación para comprobarlo. 
-1.  Abra la consola de administración y compruebe el *asunto* y el *nombre alternativo del firmante* en los detalles del certificado. En el caso anterior, por ejemplo, el último elemento de *nombre alternativo del firmante* , que es "Nombre de DNS = microsoft.com.com", no es legítimo.
+1.  Abra la consola de administración y compruebe el *asunto* y el *nombre alternativo del firmante* en los detalles del certificado. En el caso anterior, por ejemplo, el último elemento de *nombre alternativo del firmante*, que es "Nombre de DNS = microsoft.com.com", no es legítimo.
 2.  Póngase en contacto con la empresa del problema del certificado para quitar el nombre DNS incorrecto.
 
 ### <a name="concurrent-jobs-limit-issue"></a>Problema de límite de trabajos simultáneos
@@ -210,7 +225,7 @@ Si no se cumple ninguna de las causas anteriores, puede ir a la carpeta *%progra
 
 #### <a name="symptoms"></a>Síntomas
 
-Después de crear IR autohospedados para los almacenes de datos de origen y de destino, querrá conectar los dos IR juntos para finalizar una copia. Si los almacenes de datos están configurados en redes virtuales diferentes o no pueden entender el mecanismo de puerta de enlace, se producirán errores como: *no se encuentra el controlador de origen en el IR de destino* ; *el origen no puede tener acceso al IR de destino*.
+Después de crear IR autohospedados para los almacenes de datos de origen y de destino, querrá conectar los dos IR juntos para finalizar una copia. Si los almacenes de datos están configurados en redes virtuales diferentes o no pueden entender el mecanismo de puerta de enlace, se producirán errores como: *no se encuentra el controlador de origen en el IR de destino*; *el origen no puede tener acceso al IR de destino*.
  
 #### <a name="cause"></a>Causa
 
@@ -288,7 +303,7 @@ Vaya al registro de eventos de Integration Runtime para comprobar el error.
 
 ![Registro de eventos de IR](media/self-hosted-integration-runtime-troubleshoot-guide/ir-event-log.png)
 
-Si el error se muestra como en el ejemplo anterior, *UnauthorizedAccessException* , siga las instrucciones siguientes:
+Si el error se muestra como en el ejemplo anterior, *UnauthorizedAccessException*, siga las instrucciones siguientes:
 
 
 1. Compruebe la cuenta del servicio de inicio de sesión de *DIAHostService* en el panel del servicio de Windows.
@@ -305,7 +320,7 @@ Si el error se muestra como en el ejemplo anterior, *UnauthorizedAccessException
         1. Realice una desinstalación limpia de la instancia de IR autohospedado actual.
         1. Instale los bits de IR autohospedado.
         1. Siga las instrucciones siguientes para cambiar la cuenta de servicio: 
-            1. Vaya a la carpeta de instalación de IR autohospedado y cambie a la carpeta: *Microsoft Integration Runtime\4.0\Shared*.
+            1. Vaya a la carpeta de instalación del entorno de ejecución de integración autohospedado y cambie a la carpeta: *Microsoft Integration Runtime\4.0\Shared*.
             1. Inicie una línea de comandos con privilegio elevado. Reemplace *\<user>* y *\<password>* por su propio nombre de usuario y contraseña y, a continuación, ejecute el comando siguiente:
                        
                 ```
@@ -325,7 +340,7 @@ Si el error se muestra como en el ejemplo anterior, *UnauthorizedAccessException
             1. Puede utilizar un usuario local o de dominio para la cuenta de inicio de sesión del servicio de IR.            
         1. Registre Integration Runtime.
 
-Si el error se muestra del siguiente modo: *No se pudo iniciar el "servicio de Integration Runtime" (DIAHostService). Compruebe que dispone de suficientes privilegios para iniciar servicios del sistema* , siga las instrucciones siguientes:
+Si el error se muestra del siguiente modo: *No se pudo iniciar el "servicio de Integration Runtime" (DIAHostService). Compruebe que dispone de suficientes privilegios para iniciar servicios del sistema*, siga las instrucciones siguientes:
 
 1. Compruebe la cuenta del servicio de inicio de sesión de *DIAHostService* en el panel del servicio de Windows.
    
@@ -351,7 +366,7 @@ No se encontró el botón **Registrar** en la interfaz de usuario de Configurati
 
 #### <a name="cause"></a>Causa
 
-Desde el lanzamiento de *Integration Runtime 3.0* , se ha quitado el botón **Registrar** en un nodo de Integration Runtime existente para habilitar un entorno más limpio y seguro. Si un nodo se ha registrado en alguna instancia de Integration Runtime (ya sea en línea o no), para volver a registrarlo en otra instancia de Integration Runtime, debe desinstalar el nodo anterior y, a continuación, instalar y registrar el nodo.
+Desde el lanzamiento de *Integration Runtime 3.0*, se ha quitado el botón **Registrar** en un nodo de Integration Runtime existente para habilitar un entorno más limpio y seguro. Si un nodo se ha registrado en alguna instancia de Integration Runtime (ya sea en línea o no), para volver a registrarlo en otra instancia de Integration Runtime, debe desinstalar el nodo anterior y, a continuación, instalar y registrar el nodo.
 
 #### <a name="resolution"></a>Solución
 
@@ -404,6 +419,47 @@ La instalación depende del servicio de Windows Installer. Hay diferentes motivo
 - Algunos archivos del sistema o registros se tocan de forma no intencionada.
 
 
+### <a name="ir-service-account-failed-to-fetch-certificate-access"></a>La cuenta de servicio del entorno de ejecución de integración no pudo capturar el acceso al certificado
+
+#### <a name="symptoms"></a>Síntomas
+
+Al instalar el entorno de ejecución de integración autohospedado mediante el administrador de configuración de Microsoft Integration Runtime, se genera un certificado con una CA de confianza. No se pudo aplicar el certificado para cifrar la comunicación entre dos nodos. 
+
+La información de error se muestra de la manera siguiente: 
+
+`Failed to change Intranet communication encryption mode: Failed to grant Integration Runtime service account the access of to the certificate 'XXXXXXXXXX'. Error code 103`
+
+![No se pudo conceder acceso al certificado de la cuenta de servicio del entorno de ejecución de integración](media/self-hosted-integration-runtime-troubleshoot-guide/integration-runtime-service-account-certificate-error.png)
+
+#### <a name="cause"></a>Causa
+
+El certificado usa KSP (proveedor de almacenamiento de claves), que todavía no se admite. Por el momento, SHIR solo admite el certificado CSP (proveedor de servicios criptográficos).
+
+#### <a name="resolution"></a>Resolución
+
+En este caso, se recomienda el certificado CSP.
+
+**Solución 1:** Ejecute el comando siguiente para importar el certificado:
+
+```
+Certutil.exe -CSP "CSP or KSP" -ImportPFX FILENAME.pfx 
+```
+
+![Uso de certutil](media/self-hosted-integration-runtime-troubleshoot-guide/use-certutil.png)
+
+**Solución 2:** Conversión de certificados:
+
+openssl pkcs12 -in .\xxxx.pfx -out .\xxxx_new.pem -password pass: *\<EnterPassword>*
+
+openssl pkcs12 -export -in .\xxxx_new.pem -out xxxx_new.pfx
+
+Antes y después de la conversión:
+
+![Antes del cambio de certificado](media/self-hosted-integration-runtime-troubleshoot-guide/before-certificate-change.png)
+
+![Después del cambio de certificado](media/self-hosted-integration-runtime-troubleshoot-guide/after-certificate-change.png)
+
+
 ## <a name="self-hosted-ir-connectivity-issues"></a>Problemas de conectividad de IR autohospedado
 
 ### <a name="self-hosted-integration-runtime-cant-connect-to-cloud-service"></a>El entorno de ejecución de integración autohospedado no puede conectarse al servicio en la nube.
@@ -416,7 +472,7 @@ La instalación depende del servicio de Windows Installer. Hay diferentes motivo
 
 El entorno de ejecución de integración autohospedado no puede conectarse al servicio Data Factory (back-end). Este problema se debe normalmente a la configuración de red en el firewall.
 
-#### <a name="resolution"></a>Solución
+#### <a name="resolution"></a>Resolución
 
 1. Compruebe si el servicio de entorno de ejecución de integración está en ejecución.
     
@@ -476,15 +532,15 @@ La respuesta esperada es la siguiente:
 
 #### <a name="cause"></a>Causa 
 
-El nodo de tiempo de ejecución integrado autohospedado podría tener un estado **inactivo** , como se muestra en la siguiente captura de pantalla:
+El nodo de tiempo de ejecución integrado autohospedado podría tener un estado **inactivo**, como se muestra en la siguiente captura de pantalla:
 
 ![Nodo de IR autohospedado inactivo](media/self-hosted-integration-runtime-troubleshoot-guide/inactive-self-hosted-ir-node.png)
 
 Este comportamiento se produce cuando los nodos no pueden comunicarse entre sí.
 
-#### <a name="resolution"></a>Solución
+#### <a name="resolution"></a>Resolución
 
-1. Inicie sesión en la máquina virtual hospedada en el nodo. En **Registros de aplicaciones y servicios** > **Integration Runtime** , abra el visor de eventos y filtre todos los registros de errores.
+1. Inicie sesión en la máquina virtual hospedada en el nodo. En **Registros de aplicaciones y servicios** > **Integration Runtime**, abra el visor de eventos y filtre todos los registros de errores.
 
 1. Compruebe si el registro de errores contiene el error siguiente: 
     
@@ -569,7 +625,7 @@ Profundice en el análisis con el seguimiento de netmon.
  
     *Paquete de red del sistema Linux A con TTL 64 -> B TTL 64 menos 1 = 63 -> C TTL 63 menos 1 = 62 -> TTL 62 menos 1 = 61 IR autohospedado*
 
-- En una situación idónea, el valor TTL será 128, lo que significa que el sistema Windows ejecuta la instancia de Data Factory. Como se muestra en el ejemplo siguiente, *128 – 107 = 21 saltos* , lo que significa que se han enviado 21 saltos para el paquete desde Data Factory a IR autohospedado durante el protocolo de enlace TCP 3.
+- En una situación idónea, el valor TTL será 128, lo que significa que el sistema Windows ejecuta la instancia de Data Factory. Como se muestra en el ejemplo siguiente, *128 – 107 = 21 saltos*, lo que significa que se han enviado 21 saltos para el paquete desde Data Factory a IR autohospedado durante el protocolo de enlace TCP 3.
  
     ![TTL 107](media/self-hosted-integration-runtime-troubleshoot-guide/ttl-107.png)
 
@@ -587,11 +643,11 @@ Al intentar conectarse mediante telnet **8.8.8.8 888** con el seguimiento de net
 ![seguimiento de netmon 2](media/self-hosted-integration-runtime-troubleshoot-guide/netmon-trace-2.png)
  
 
-Esto significa que no puede establecer una conexión TCP con el lado servidor  **8.8.8.8** en función del puerto  **888** , por lo que verá dos paquetes **SynReTransmit** adicionales. Como el origen **SELF-HOST2** no ha podido establecer la conexión con  **8.8.8.8** en el primer paquete, seguirá intentándolo.
+Esto significa que no puede establecer una conexión TCP con el lado servidor **8.8.8.8** en función del puerto **888**, por lo que verá dos paquetes **SynReTransmit** adicionales. Como el origen **SELF-HOST2** no ha podido establecer la conexión con **8.8.8.8** en el primer paquete, seguirá intentándolo.
 
 > [!TIP]
 > - Puede hacer clic en **Cargar filtro** -> **Filtro estándar** -> **Direcciones** -> **Direcciones IPv4**.
-> - Escriba **Dirección IPv4 = = 8.8.8.8** como filtro y haga clic en **Aplicar**. Después, solo verá la comunicación desde el equipo local al destino  **8.8.8.8**.
+> - Escriba **Dirección IPv4 = = 8.8.8.8** como filtro y haga clic en **Aplicar**. Después, solo verá la comunicación desde el equipo local al destino **8.8.8.8**.
 
 ![direcciones de filtro 1](media/self-hosted-integration-runtime-troubleshoot-guide/filter-addresses-1.png)
         
@@ -599,7 +655,7 @@ Esto significa que no puede establecer una conexión TCP con el lado servidor  
 
 En el ejemplo siguiente se muestra el aspecto que tendría un escenario correcto. 
 
-- Si Telnet  **8.8.8.8 53** funciona correctamente sin ningún problema, puede ver el protocolo de enlace TCP 3 y, después, la sesión finaliza con el protocolo de enlace TCP 4.
+- Si Telnet **8.8.8.8 53** funciona correctamente sin ningún problema, puede ver el protocolo de enlace TCP 3 y, después, la sesión finaliza con el protocolo de enlace TCP 4.
 
     ![Escenario de ejemplo correcto 1](media/self-hosted-integration-runtime-troubleshoot-guide/good-scenario-1.png)
      
@@ -675,7 +731,7 @@ Este problema se debe a dos motivos:
 - La entidad de certificación raíz del certificado de servidor del servicio ADF no es de confianza en el equipo donde está instalado SHIR. 
 - Usa un proxy en el entorno y el certificado de servidor del servicio ADF se sustituye por el proxy, mientras que el certificado de servidor reemplazado no es de confianza para el equipo en el que está instalado SHIR.
 
-#### <a name="solution"></a>Solución
+#### <a name="resolution"></a>Resolución
 
 - Para el motivo 1, asegúrese de que el certificado de servidor de ADF y su cadena de certificados son de confianza para el equipo en el que está instalado SHIR.
 - Para el motivo 2, confíe en la entidad de certificación raíz reemplazada en el equipo con SHIR, o bien configure el proxy para que no reemplace el certificado de servidor de ADF.
@@ -688,6 +744,7 @@ Se va a implementar un nuevo certificado SSL, que está firmado por DigiCert; co
   ![DigiCert Global Root G2](media/self-hosted-integration-runtime-troubleshoot-guide/trusted-root-ca-check.png)
 
 En caso contrario, puede descargarlo [aquí](http://cacerts.digicert.com/DigiCertGlobalRootG2.crt ). 
+
 
 ## <a name="self-hosted-ir-sharing"></a>Uso compartido del entorno de ejecución de integración autohospedado
 

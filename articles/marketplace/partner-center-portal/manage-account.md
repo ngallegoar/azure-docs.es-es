@@ -7,12 +7,12 @@ ms.topic: article
 author: parthpandyaMSFT
 ms.author: parthp
 ms.date: 11/02/2020
-ms.openlocfilehash: a9d2c10d665af6899ec79312353676467a623735
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 8b372cc0fc19c6bf163d9d4e61cde6ce74cb3f28
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94628890"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95538393"
 ---
 # <a name="manage-your-commercial-marketplace-account-in-partner-center"></a>Administración de la cuenta de marketplace comercial en el Centro de partners
 
@@ -34,17 +34,19 @@ En este artículo, se analizará en profundidad cómo administrar su cuenta del 
 ## <a name="access-your-account-settings"></a>Acceso a la configuración de cuenta
 
 Si aún no lo ha hecho, usted (o el administrador de la organización) deben acceder a la [configuración de la cuenta](https://partner.microsoft.com/dashboard/account/management) del Centro de partners para:
+
 - Confirmar el estado de comprobación de la cuenta de su empresa.
-- Confirmar los id. de Symantec, vendedor, Microsoft Partner Network (MPN) y anunciante, junto con la información de contacto, como el contacto del aprobador y el vendedor de la empresa.
+- Confirmar los identificadores de Symantec, vendedor, Microsoft Partner Network (MPN) y anunciante, junto con la información de contacto, como el contacto del aprobador y el vendedor de la empresa.
 - Crear las cuentas de usuario de todos los que vayan a usar su cuenta empresarial en el Centro de partners.
 
-### <a name="open-developer-settings"></a>Abrir configuración de desarrollador
+### <a name="open-account-settings"></a>Apertura de la configuración de cuenta
 
-En el [panel del marketplace comercial](https://partner.microsoft.com/dashboard/commercial-marketplace) del Centro de partners, seleccione **Configuración** (icono de engranaje) en la esquina superior derecha y, luego, **Developer settings** (Configuración de desarrollador).
+En el [panel del marketplace comercial](https://partner.microsoft.com/dashboard/commercial-marketplace) del Centro de partners, seleccione **Configuración** (icono de engranaje) en la esquina superior derecha y, luego, **Configuración de cuenta**.
 
 ![Menú Configuración de cuenta del Centro de partners](./media/dashboard-developer-settings.png)
 
 En **Configuración de la cuenta** puede ver:
+
 - **Detalles de la cuenta**: tipo de cuenta y estado de la misma
 - **Identificadores del editor**: identificador del vendedor, del usuario y del editor, inquilinos de Azure AD, etc.
 - **Información de contacto**: nombre para mostrar del anunciante y nombre de contacto, correo electrónico, teléfono y dirección del vendedor.

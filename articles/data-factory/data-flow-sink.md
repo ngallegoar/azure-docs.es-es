@@ -4,17 +4,16 @@ description: Aprenda a configurar una transformación de receptor en el flujo de
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
-manager: anandsub
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 11/02/2020
-ms.openlocfilehash: 2e26028c47e8c96f8c1adabc468ee6f03e3cb19c
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.date: 11/17/2020
+ms.openlocfilehash: fa048473f0f285b793dad88c7defdb6189ca1ccd
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427316"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023013"
 ---
 # <a name="sink-transformation-in-mapping-data-flow"></a>Transformación de receptor en el flujo de datos de asignación
 
@@ -69,10 +68,6 @@ En el siguiente vídeo se explican varias opciones de receptor diferentes para l
 
 **Validar esquema**: Si se selecciona que se valide el esquema, se producirá un error en el flujo de datos si no se encuentra ninguna columna del esquema de origen entrante en la proyección de origen o si los tipos de datos no coinciden. Use esta opción para exigir que los datos de origen cumplan el contrato de la proyección definida. Es útil en escenarios de origen de base de datos para indicar que los nombres o los tipos de columna han cambiado.
 
-**Usar TempDB:** De manera predeterminada, Data Factory utilizará una tabla temporal global para almacenar los datos como parte del proceso de carga. También puede desactivar la opción "Usar TempDB" y, en su lugar, pedir a Data Factory que almacene la tabla de almacenamiento temporal en una base de datos de usuario que se encuentra en la base de datos que se utiliza para este receptor.
-
-![Usar TempDB](media/data-flow/tempdb.png "Uso de TempDB")
-
 ## <a name="cache-sink"></a>Receptor de caché
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4HKt1]
@@ -109,9 +104,18 @@ De forma predeterminada, los datos se escriben en varios receptores en un orden 
 
 ![Ordenación de receptores personalizada](media/data-flow/cache-2.png "Ordenación de receptores personalizados")
 
+## <a name="error-row-handling"></a>Control de filas de errores
+
+Al escribir en bases de datos, puede producirse un error en determinadas filas de datos debido a las restricciones establecidas por el destino. De forma predeterminada, la ejecución de un flujo de datos no funcionará al recibir el primer error. En algunos conectores, puede optar por **Continuar en caso de error**, que permite que el flujo de datos se complete, aunque haya filas individuales con errores. Actualmente, esta funcionalidad solo está disponible en Azure SQL Database. Para más información, consulte [Control de filas de error en Azure SQL DB](connector-azure-sql-database.md#error-row-handling).
+
+A continuación, se muestra un tutorial en vídeo sobre cómo usar el control de filas de error de base de datos automáticamente en la transformación del receptor.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4IWne]
+
 ## <a name="data-preview-in-sink"></a>Vista previa de los datos en el receptor
 
 Al obtener una vista previa de los datos en un clúster de depuración, no se escribirá ningún dato en el receptor. Se devolverá una instantánea de la apariencia de los datos, pero no se escribirá nada en el destino. Para probar la escritura de datos en el receptor, ejecute una depuración de canalización desde el lienzo de canalización.
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 Ahora que ha creado el flujo de datos, agregue una [actividad de Data Flow a la canalización](concepts-data-flow-overview.md).

@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: vamahtan
 ms.author: vamahtan
-ms.date: 11/17/2020
-ms.openlocfilehash: 730178d974ba95db968332ac669f701486b513bd
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.date: 11/20/2020
+ms.openlocfilehash: 9d6970331024ea0cd08e890cc62507d9eb230678
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94738533"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95016340"
 ---
 # <a name="co-sell-partner-engagement"></a>Participación de asociados de venta conjunta
 
@@ -85,6 +85,13 @@ Comience el recorrido de venta conjunta directamente en el Centro de partners a 
         :::image type="content" source="media/co-sell/co-sell-request-review.png" alt-text="Esta imagen muestra la lista desplegable de CED para solicitar una revisión de venta conjunta.":::
 
     CED se pondrá en contacto con usted para completar el proceso.
+
+## <a name="see-your-offers-co-sell-status"></a>Consulta del estado de la venta conjunta de su oferta
+
+En el caso de las ofertas con la opción de [venta conjunta en el Centro de partners](./partner-center-portal/commercial-marketplace-co-sell.md), puede ver el estado actual de la oferta en la página de información general de la oferta:
+
+ :::image type="content" source="media/co-sell/co-sell-status.png" alt-text="En esta imagen se muestra el estado actual de la venta conjunta de ofertas":::.
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -16,12 +16,12 @@ ms.date: 07/19/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e794b66341d4e7c478fd526107cc35c7c745fa7f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fe92f761ac0b16da7c3cc3c69c1fa4b00f4e7579
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85358334"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996600"
 ---
 # <a name="azure-active-directory-pass-through-authentication-technical-deep-dive"></a>Autenticación de paso a través de Azure Active Directory: Inmersión técnica profunda
 En este artículo se ofrece información general sobre el funcionamiento de la autenticación de paso a través de Azure Active Directory (Azure AD). Si desea información técnica y de seguridad detallada, consulte el artículo [Análisis a fondo de la seguridad](how-to-connect-pta-security-deep-dive.md).
@@ -43,7 +43,7 @@ Cuando un usuario intenta iniciar sesión en una aplicación protegida mediante 
 8. El agente valida el nombre de usuario y la contraseña en Active Directory mediante las API de Windows, que es un mecanismo similar al que se usa en Servicios de federación de Active Directory (AD FS). El nombre de usuario puede ser el nombre de usuario predeterminado local (normalmente, `userPrincipalName`) u otro atributo (conocido como `Alternate ID`) configurado en Azure AD Connect.
 9. El controlador de dominio (DC) de Active Directory local evalúa la solicitud y devuelve la respuesta adecuada (correcto, error, contraseña expirada o bloqueo de usuario) al agente.
 10. El agente de autenticación, a su vez, devuelve esta respuesta a Azure AD.
-11. Azure AD evalúa la respuesta y responde al usuario según corresponda. Por ejemplo, Azure AD inicia la sesión del usuario inmediatamente o envía una solicitud a Azure Multi-Factor Authentication.
+11. Azure AD evalúa la respuesta y responde al usuario según corresponda. Por ejemplo, Azure AD inicia la sesión del usuario inmediatamente o envía una solicitud a Azure AD Multi-Factor Authentication.
 12. Si el inicio de sesión del usuario se realiza correctamente, el usuario puede acceder a la aplicación.
 
 En el diagrama siguiente se ilustran todos los componentes y los pasos implicados:

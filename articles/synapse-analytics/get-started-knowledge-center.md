@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 11/16/2020
-ms.openlocfilehash: 57213e228359fd6c201d501d3bb75f7267054277
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 0314f5e55a476cd1cd1f8a31bd918e0ebb64c75f
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94685433"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95254245"
 ---
 # <a name="explore-the-synapse-knowledge-center"></a>Exploración del Centro de conocimientos de Synapse
 
@@ -33,8 +33,8 @@ Elija cualquier método y abra el **Centro de conocimientos**.
 ## <a name="overview"></a>Información general
 
 El **Centro de conocimientos** le permite hacer tres cosas:
-* **Usar ejemplos inmediatamente**. Esta opción está optimizada para ver el análisis en acción lo más rápido posible. Si quiere un ejemplo rápido de cómo funciona Synapse, elija esta opción.
-* **Examinar ejemplo disponible**. Esta opción le permite vincular conjuntos de datos de ejemplo y agregar código de ejemplo en forma de scripts de SQL, cuadernos y canalizaciones.
+* **Usar ejemplos inmediatamente**. Si quiere un ejemplo rápido de cómo funciona Synapse, elija esta opción.
+* **Examinar la galería**. Esta opción le permite vincular conjuntos de datos de ejemplo y agregar código de ejemplo en forma de scripts de SQL, cuadernos y canalizaciones.
 * **Visita por Synapse Studio**. Esta opción le permite realizar una breve visita por las partes básicas de Synapse Studio. Resulta útil si nunca ha usado Synapse Studio.
 
 ## <a name="exploring-blob-storage-with-serverless-sql-pool"></a>Exploración del almacenamiento de blobs con un grupo de SQL sin servidor
@@ -47,7 +47,7 @@ El **Centro de conocimientos** le permite hacer tres cosas:
 1. Haga clic en Ejecutar. Se ejecutará el texto seleccionado.
 
 ## <a name="loading-more-nyc-taxi-data"></a>Carga de más datos de taxis de Nueva York
-1. Vaya al **Centro de conocimientos**, haga clic en **Examinar ejemplos disponibles**. 
+1. Vaya al **Centro de conocimiento** y haga clic en **Examinar la galería**. 
 1. Seleccione la pestaña **Scripts de SQL** en la parte superior.
 1. Seleccione **Carga de conjunto de datos de taxis de Nueva York**
 1. En **Entradas**, elija **Seleccione un grupo existente** y seleccione **SQLDB1**.

@@ -10,12 +10,12 @@ services: iot-central
 ms.custom:
 - mvc
 - device-developer
-ms.openlocfilehash: 39ce436cd59447b2b6f8d9f88deaab80b00dd639
-ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
+ms.openlocfilehash: 82818c8db326889079948cd2b32b2ed0be6ab50d
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91812359"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94990761"
 ---
 # <a name="iot-central-device-development-overview"></a>Introducción al desarrollo de dispositivos IoT Central
 
@@ -72,7 +72,7 @@ Para más información, consulte [Conexión a Azure IoT Central](./concepts-get-
 
 ### <a name="security"></a>Seguridad
 
-La conexión entre un dispositivo y la aplicación IoT Central está protegida mediante [firmas de acceso compartido](./concepts-get-connected.md#connect-devices-at-scale-using-sas) o [certificados X.509](./concepts-get-connected.md#connect-devices-using-x509-certificates) estándar del sector.
+La conexión entre un dispositivo y la aplicación IoT Central está protegida mediante [firmas de acceso compartido](./concepts-get-connected.md#sas-group-enrollment) o [certificados X.509](./concepts-get-connected.md#x509-group-enrollment) estándar del sector.
 
 ### <a name="communication-protocols"></a>Protocolos de comunicación
 
@@ -80,12 +80,58 @@ Los protocolos de comunicación que un dispositivo puede usar para conectarse a 
 
 ## <a name="implement-the-device"></a>Implementación del dispositivo
 
+Una plantilla de dispositivo IoT Central incluye un _modelo_ que especifica los comportamientos que debe implementar un dispositivo de ese tipo. Estos comportamientos incluyen telemetría, propiedades y comandos.
+
+> [!TIP]
+> Puede exportar el modelo desde IoT Central como un archivo JSON de [lenguaje de definición de Digital Twins (DTDL) v2](https://github.com/Azure/opendigitaltwins-dtdl).
+
+Cada modelo tiene un _identificador de modelo de dispositivo gemelo_ (DTMI) único, como `dtmi:com:example:Thermostat;1`. Cuando un dispositivo se conecta a IoT Central, envía el DTMI del modelo que implementa. A continuación, IoT Central puede asociar la plantilla de dispositivo correcta con el dispositivo.
+
+[IoT Plug and Play](../../iot-pnp/overview-iot-plug-and-play.md) define un conjunto de convenciones que un dispositivo debe seguir cuando implementa un modelo DTDL.
+
+Los [SDK de dispositivos IoT de Azure](#languages-and-sdks) incluyen compatibilidad con las convenciones de IoT Plug and Play.
+
+### <a name="device-model"></a>Modelo de dispositivo
+
+Un modelo de dispositivo se define mediante [DTDL](https://github.com/Azure/opendigitaltwins-dtdl). Este lenguaje le permite definir:
+
+- La telemetría que envía el dispositivo. La definición incluye el nombre y el tipo de datos de la telemetría. Por ejemplo, un dispositivo envía telemetría de temperatura como un valor double.
+- Las propiedades que el dispositivo notifica a IoT Central. Una definición de propiedad incluye su nombre y tipo de datos. Por ejemplo, un dispositivo informa del estado de una válvula como un valor booleano.
+- Las propiedades que el dispositivo puede recibir desde IoT Central. Opcionalmente, puede marcar una propiedad como grabable. Por ejemplo, IoT Central envía una temperatura de destino como un valor double a un dispositivo.
+- Los comandos a los que responde el dispositivo. La definición incluye el nombre del comando y los nombres y tipos de datos de todos los parámetros. Por ejemplo, un dispositivo responde a un comando de reinicio que especifica la cantidad de segundos que hay que esperar antes de reiniciar.
+
+Un modelo de DTDL puede ser _sin componentes_ o de _varios componentes_:
+
+- Modelo sin componentes: Un modelo sencillo no utiliza componentes insertados o en cascada. Toda la telemetría, las propiedades y los comandos se definen en un único _componente predeterminado_. Para ver un ejemplo, consulte el modelo de [termostato](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/Thermostat.json).
+- Modelo de varios componentes: Un modelo más complejo que incluye dos o más componentes. Estos componentes incluyen un único componente predeterminado y uno o más componentes anidados adicionales. Para ver un ejemplo, consulte el modelo de [controlador de temperatura](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json).
+
+Para más información, consulte [Componentes de los modelos de IoT Plug and Play](../../iot-pnp/concepts-components.md).
+
+### <a name="conventions"></a>Convenciones
+
+Un dispositivo debe seguir las convenciones de IoT Plug and Play cuando intercambia datos con IoT Central. Entre las convenciones se incluyen las siguientes:
+
+- Enviar el DTMI cuando se conecte a IoT Central.
+- Enviar cargas y metadatos JSON con formato correcto a IoT Central.
+- Responder correctamente a comandos y propiedades grabables desde IoT Central.
+- Seguir las convenciones de nomenclatura para los comandos de componentes.
+
+> [!NOTE]
+> En la actualidad, IoT Central no es completamente compatible con los tipos de datos **Array** y **Geospatial** de DTDL.
+
+Para más información sobre el formato de los mensajes JSON que un dispositivo intercambia con IoT Central, consulte [Cargas de telemetría, propiedades y comandos](concepts-telemetry-properties-commands.md).
+
+Para más información sobre las convenciones de IoT Plug and Play, consulte [Convenciones de IoT Plug and Play](../../iot-pnp/concepts-convention.md).
+
+### <a name="device-sdks"></a>SDK de dispositivo
+
 Use uno de los [SDK de dispositivo Azure IoT](#languages-and-sdks) para implementar el comportamiento del dispositivo. El código debe:
 
 - Registrar el dispositivo en DPS y usar la información de DPS para conectarse al centro de IoT Hub interno en la aplicación IoT Central.
-- Enviar telemetría en el formato que especifica la plantilla de dispositivo en IoT Central. IoT Central usa la plantilla de dispositivo para determinar cómo utilizar la telemetría para las visualizaciones y el análisis.
-- Sincronizar los valores de propiedad entre el dispositivo e IoT Central. La plantilla de dispositivo especifica los nombres de propiedad y los tipos de datos de modo que IoT Central pueda mostrar la información.
-- Implementar controladores de comandos para los comandos especificados en la plantilla de dispositivo. La plantilla de dispositivo especifica los nombres de comandos y los parámetros que el dispositivo debe usar.
+- Anunciar el DTMI del modelo que el dispositivo implementa.
+- Enviar telemetría en el formato que especifica el modelo de dispositivo. IoT Central usa el modelo de la plantilla de dispositivo para determinar cómo utilizar la telemetría para las visualizaciones y el análisis.
+- Sincronizar los valores de propiedad entre el dispositivo e IoT Central. El modelo especifica los nombres de propiedad y los tipos de datos de modo que IoT Central pueda mostrar la información.
+- Implementar controladores de comandos para los comandos especificados en el modelo. El modelo especifica los nombres de comandos y los parámetros que el dispositivo debe usar.
 
 Para obtener más información sobre el rol de las plantillas de dispositivo, consulte [¿Qué son las plantillas de dispositivo?](./concepts-device-templates.md)
 

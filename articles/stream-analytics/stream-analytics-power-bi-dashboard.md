@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 11/16/2020
-ms.openlocfilehash: 6dd855695a155e924f7c46bdb17449c5e6504ca6
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: 4e3f31442c5fa645e27a640d8facf86aed20aa75
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94745367"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006702"
 ---
 # <a name="stream-analytics-and-power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>Stream Analytics y Power BI: panel de análisis en tiempo real de flujo de datos
 
@@ -221,7 +221,7 @@ Con esta configuración, se puede cambiar la consulta original a la siguiente:
 ```
 
 ### <a name="renew-authorization"></a>Renovar la autorización
-Si la contraseña ha cambiado desde que se creó o autenticó por última vez el trabajo, tendrá que volver a autenticar la cuenta de Power BI. Si Azure Multi-Factor Authentication se configura en el inquilino de Azure Active Directory (Azure AD), también debe renovar la autorización de Power BI cada dos semanas. Si no se renueva, podrían aparecer síntomas, como la ausencia de salida del trabajo o un `Authenticate user error` en los registros de operaciones.
+Si la contraseña ha cambiado desde que se creó o autenticó por última vez el trabajo, tendrá que volver a autenticar la cuenta de Power BI. Si Azure AD Multi-Factor Authentication se configura en el inquilino de Azure Active Directory (Azure AD), también debe renovar la autorización de Power BI cada dos semanas. Si no se renueva, podrían aparecer síntomas, como la ausencia de salida del trabajo o un `Authenticate user error` en los registros de operaciones.
 
 De forma similar, si un trabajo intenta iniciarse después de que el token haya caducado, se producirá un error y no se iniciará. Para resolver este problema, detenga el trabajo en ejecución y vaya a la salida de Power BI. A fin de evitar que se pierdan datos, seleccione el vínculo **Renovar autorización** y reinicie el trabajo desde la **Hora de la última detención**.
 

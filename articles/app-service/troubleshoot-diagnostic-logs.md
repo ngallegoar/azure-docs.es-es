@@ -5,12 +5,12 @@ ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
 ms.topic: article
 ms.date: 09/17/2019
 ms.custom: devx-track-csharp, seodec18, devx-track-azurecli
-ms.openlocfilehash: 7b27aae712843ece27fd61927c4bfecff00399fa
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 99a3c9a9c26eebe8dfdf11baf718fd13f7539607
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92747024"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025283"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Habilitar el registro de diagnósticos para las aplicaciones de Azure App Service
 ## <a name="overview"></a>Información general
@@ -25,7 +25,7 @@ En este artículo se usa [Azure Portal](https://portal.azure.com) y la CLI de Az
 
 |Tipo|Plataforma|Location|Descripción|
 |-|-|-|-|
-| Registro de aplicaciones | Windows, Linux | Sistema de archivos de App Service o blobs de Azure Storage | Registra los mensajes generados por el código de aplicación. Los mensajes se pueden generar en el marco web que elija o directamente desde el código de aplicación mediante el patrón de registro estándar del lenguaje. A cada mensaje se le asigna una de las siguientes categorías: **Crítico** , **Error** , **Advertencia** , **Información** , **Depuración** y **Seguimiento** . Puede seleccionar el grado de detalle que quiere que tenga el registro; para ello, establezca el nivel de gravedad al habilitar el registro de la aplicación.|
+| Registro de aplicaciones | Windows, Linux | Sistema de archivos de App Service o blobs de Azure Storage | Registra los mensajes generados por el código de aplicación. Los mensajes se pueden generar en el marco web que elija o directamente desde el código de aplicación mediante el patrón de registro estándar del lenguaje. A cada mensaje se le asigna una de las siguientes categorías: **Crítico**, **Error**, **Advertencia**, **Información**, **Depuración** y **Seguimiento**. Puede seleccionar el grado de detalle que quiere que tenga el registro; para ello, establezca el nivel de gravedad al habilitar el registro de la aplicación.|
 | Registro del servidor web| Windows | Sistema de archivos de App Service o blobs de Azure Storage| Datos de solicitud HTTP sin procesar en el [formato de archivo de registro extendido W3C](/windows/desktop/Http/w3c-logging). Cada mensaje de registro incluye datos como el método HTTP, el URI del recurso, la dirección IP del cliente, el puerto del cliente, el agente de usuario, el código de respuesta, etc. |
 | Mensajes de error detallados| Windows | Sistema de archivos de App Service | Copias de las páginas de error *.htm* que se habrían enviado al explorador del cliente. Por motivos de seguridad, no se deben enviar páginas de error detalladas a los clientes en producción, pero App Service puede guardar la página de error cada vez que se produzca un error de aplicación que tenga el código HTTP 400 o superior. La página puede contener información útil para determinar por qué el servidor devuelve el código de error. |
 | Seguimiento de solicitudes con error | Windows | Sistema de archivos de App Service | Información de seguimiento detallada sobre las solicitudes con error, lo que incluye un seguimiento de los componentes de IIS usados para procesar la solicitud y el tiempo dedicado a cada componente. Resulta útil si desea mejorar el rendimiento del sitio o aislar un error HTTP específico. Se genera una carpeta para cada solicitud con error, que contiene el archivo de registro XML y la hoja de estilos XSL con la que ver el archivo de registro. |
@@ -42,18 +42,18 @@ En este artículo se usa [Azure Portal](https://portal.azure.com) y la CLI de Az
 > [!NOTE]
 > El registro de aplicaciones para Blob Storage solo puede usar cuentas de almacenamiento de la misma región que App Service.
 
-Para habilitar el registro de aplicaciones para aplicaciones Windows, en [Azure Portal](https://portal.azure.com), vaya a la aplicación y seleccione **Registros de App Service** .
+Para habilitar el registro de aplicaciones para aplicaciones Windows, en [Azure Portal](https://portal.azure.com), vaya a la aplicación y seleccione **Registros de App Service**.
 
 Seleccione **Activado** en **Registro de la aplicación (sistema de archivos)** o **Registro de la aplicación (Blob)** , o en ambos. 
 
-La opción **Sistema de archivos** es para fines de depuración temporales y se desactiva en 12 horas. La opción **Blob** es para el registro a largo plazo y necesita un contenedor de almacenamiento de blobs en el que escribir los registros.  La opción **Blob** también incluye información adicional en los mensajes de registro, como el identificador de la instancia de máquina virtual de origen del mensaje de registro (`InstanceId`), el identificador de subproceso (`Tid`) y una marca de tiempo más pormenorizada ( [`EventTickCount`](/dotnet/api/system.datetime.ticks)).
+La opción **Sistema de archivos** es para fines de depuración temporales y se desactiva en 12 horas. La opción **Blob** es para el registro a largo plazo y necesita un contenedor de almacenamiento de blobs en el que escribir los registros.  La opción **Blob** también incluye información adicional en los mensajes de registro, como el identificador de la instancia de máquina virtual de origen del mensaje de registro (`InstanceId`), el identificador de subproceso (`Tid`) y una marca de tiempo más pormenorizada ([`EventTickCount`](/dotnet/api/system.datetime.ticks)).
 
 > [!NOTE]
 > Actualmente, solo los registros de aplicación de .NET pueden escribirse en el almacenamiento de blobs. Los registros de aplicaciones de Java, PHP, Node.js y Python solo se pueden almacenar en el sistema de archivos de App Service (sin modificaciones de código para escribir registros en almacenamiento externo).
 >
 > Además, si [regenera las claves de acceso de su cuenta de almacenamiento](../storage/common/storage-account-create.md), deberá restablecer la configuración de registro correspondiente para usar las claves de acceso actualizadas. Para ello, siga estos pasos:
 >
-> 1. En la pestaña **Configurar** , establezca la característica de registro correspondiente de **Desactivar** . Guarde la configuración.
+> 1. En la pestaña **Configurar**, establezca la característica de registro correspondiente de **Desactivar**. Guarde la configuración.
 > 2. Vuelva a habilitar el registro en el blob de la cuenta de almacenamiento. Guarde la configuración.
 >
 >
@@ -68,41 +68,41 @@ Seleccione el nivel o el **nivel** de detalle que quiere registrar. En la tabla 
 |**Información** | Información, Advertencia, Error, Crítico|
 |**Detallado** | Seguimiento, Depurar, Información, Advertencia, Error, Crítico (todas las categorías) |
 
-Cuando termine, seleccione **Guardar** .
+Cuando termine, seleccione **Guardar**.
 
 ## <a name="enable-application-logging-linuxcontainer"></a>Habilitación del registro de aplicaciones (Linux o contenedor)
 
-Para habilitar el registro de aplicaciones para aplicaciones Linux o aplicaciones de contenedor personalizadas, en [Azure Portal](https://portal.azure.com), vaya a la aplicación y seleccione **Registros de App Service** .
+Para habilitar el registro de aplicaciones para aplicaciones Linux o aplicaciones de contenedor personalizadas, en [Azure Portal](https://portal.azure.com), vaya a la aplicación y seleccione **Registros de App Service**.
 
-En **Registro de aplicaciones** , seleccione **Sistema de archivos** .
+En **Registro de aplicaciones**, seleccione **Sistema de archivos**.
 
 En **Cuota (MB)** , especifique la cuota de disco para los registros de aplicaciones. En **Período de retención (días)** , establezca el número de días que se deben conservar los registros.
 
-Cuando termine, seleccione **Guardar** .
+Cuando termine, seleccione **Guardar**.
 
 ## <a name="enable-web-server-logging"></a>Habilitar el registro de servidor web
 
-Para habilitar el registro de servidor web para las aplicaciones Windows, en [Azure Portal](https://portal.azure.com), vaya a la aplicación y seleccione **Registros de App Service** .
+Para habilitar el registro de servidor web para las aplicaciones Windows, en [Azure Portal](https://portal.azure.com), vaya a la aplicación y seleccione **Registros de App Service**.
 
-Para el **registro de servidor web** , seleccione **Almacenamiento** para almacenar los registros en Blob Storage, o **Sistema de archivos** para almacenar los registros en el sistema de archivos de App Service. 
+Para el **registro de servidor web**, seleccione **Almacenamiento** para almacenar los registros en Blob Storage, o **Sistema de archivos** para almacenar los registros en el sistema de archivos de App Service. 
 
 En **Período de retención (días)** , establezca el número de días que se deben conservar los registros.
 
 > [!NOTE]
 > Si se [regeneran las claves de acceso de su cuenta de almacenamiento](../storage/common/storage-account-create.md), deberá restablecer la configuración de registro correspondiente para usar las claves actualizadas. Para ello, siga estos pasos:
 >
-> 1. En la pestaña **Configurar** , establezca la característica de registro correspondiente de **Desactivar** . Guarde la configuración.
+> 1. En la pestaña **Configurar**, establezca la característica de registro correspondiente de **Desactivar**. Guarde la configuración.
 > 2. Vuelva a habilitar el registro en el blob de la cuenta de almacenamiento. Guarde la configuración.
 >
 >
 
-Cuando termine, seleccione **Guardar** .
+Cuando termine, seleccione **Guardar**.
 
 ## <a name="log-detailed-errors"></a>Registro de errores detallados
 
-Para guardar la página de error o el seguimiento de las solicitudes con error para las aplicaciones Windows, en [Azure Portal](https://portal.azure.com), vaya a la aplicación y seleccione **Registros de App Service** .
+Para guardar la página de error o el seguimiento de las solicitudes con error para las aplicaciones Windows, en [Azure Portal](https://portal.azure.com), vaya a la aplicación y seleccione **Registros de App Service**.
 
-En **Registro de error detallado** o **Error del seguimiento de solicitudes** , seleccione **Activado** , y, luego, elija **Guardar** .
+En **Registro de error detallado** o **Error del seguimiento de solicitudes**, seleccione **Activado**, y, luego, elija **Guardar**.
 
 Ambos tipos de registros se almacenan en el sistema de archivos de App Service. Se conservan hasta 50 errores (archivos o carpetas). Cuando el número de archivos HTML supera este límite, se eliminan automáticamente los 26 errores más antiguos.
 
@@ -128,7 +128,7 @@ Antes de transmitir registros en tiempo real, habilite el tipo de registro que q
 
 ### <a name="in-azure-portal"></a>En Azure Portal
 
-Para transmitir registros, en [Azure Portal](https://portal.azure.com), vaya a la aplicación y seleccione **Secuencia de registro** . 
+Para transmitir registros, en [Azure Portal](https://portal.azure.com), vaya a la aplicación y seleccione **Secuencia de registro**. 
 
 ### <a name="in-cloud-shell"></a>En Cloud Shell
 
@@ -162,7 +162,7 @@ En el caso de los registros almacenados en el sistema de archivos de App Service
 - Aplicaciones Linux o de contenedor: `https://<app-name>.scm.azurewebsites.net/api/logs/docker/zip`
 - Aplicaciones Windows: `https://<app-name>.scm.azurewebsites.net/api/dump`
 
-En el caso de las aplicaciones Linux o de contenedor, el archivo ZIP contiene registros de salida de la consola para el host de Docker y el contenedor de Docker. En el caso de las aplicaciones escaladas horizontalmente, el archivo ZIP contiene un conjunto de registros para cada instancia. En el sistema de archivos de App Service, estos archivos de registro son el contenido del directorio */home/LogFiles* .
+En el caso de las aplicaciones Linux o de contenedor, el archivo ZIP contiene registros de salida de la consola para el host de Docker y el contenedor de Docker. En el caso de las aplicaciones escaladas horizontalmente, el archivo ZIP contiene un conjunto de registros para cada instancia. En el sistema de archivos de App Service, estos archivos de registro son el contenido del directorio */home/LogFiles*.
 
 En el caso de las aplicaciones Windows, el archivo ZIP incluye el contenido del directorio *D:\Home\LogFiles* en el sistema de archivos de App Service. Tiene la siguiente estructura:
 
@@ -170,7 +170,7 @@ En el caso de las aplicaciones Windows, el archivo ZIP incluye el contenido del 
 |-|-|-|
 | **Registros de aplicaciones** |*/LogFiles/Application/* | Contiene uno o varios archivos de texto. El formato de los mensajes de registro depende del proveedor de registro que se use. |
 | **Seguimiento de solicitudes con error** | */LogFiles/W3SVC#########/* | Contiene archivos XML y un archivo XSL. Puede ver los archivos XML con formato en el explorador. |
-| **Registros de errores detallados** | */LogFiles/DetailedErrors/* | Contiene archivos de error HTM. Puede ver los archivos HTM en el explorador.<br/>Otra manera sencilla de ver los seguimientos de las solicitudes con error consiste en ir a la página de la aplicación en el portal. En el menú izquierdo, seleccione **Diagnosticar y solucionar problemas** , busque **registros de seguimiento de solicitudes erróneas** y haga clic en el icono para examinar y ver el seguimiento que desee. |
+| **Registros de errores detallados** | */LogFiles/DetailedErrors/* | Contiene archivos de error HTM. Puede ver los archivos HTM en el explorador.<br/>Otra manera sencilla de ver los seguimientos de las solicitudes con error consiste en ir a la página de la aplicación en el portal. En el menú izquierdo, seleccione **Diagnosticar y solucionar problemas**, busque **registros de seguimiento de solicitudes erróneas** y haga clic en el icono para examinar y ver el seguimiento que desee. |
 | **Registros de servidor web** | */LogFiles/http/RawLogs/* | Contiene archivos de texto con [formato de archivo de registro extendido W3C](/windows/desktop/Http/w3c-logging). Esta información se puede leer con un editor de texto o una utilidad como [Log Parser](https://go.microsoft.com/fwlink/?LinkId=246619).<br/>App Service no admite los campos `s-computername`, `s-ip` ni `cs-version`. |
 | **Registros de implementación** | */LogFiles/Git/* y */deployments/* | Contienen registros generados por los procesos de implementación internos, así como registros para implementaciones de Git. |
 
@@ -187,14 +187,16 @@ En la tabla siguiente se muestran las descripciones y los tipos de registros adm
 
 | Tipo de registro | Windows | Contenedor de Windows | Linux | Contenedor Linux | Descripción |
 |-|-|-|-|-|-|
-| AppServiceConsoleLogs | TBA | TBA | Sí | Sí | Salida estándar y error estándar |
-| AppServiceHTTPLogs | Sí | TBA | Sí | Sí | Registros de servidor web |
+| AppServiceConsoleLogs | Java SE y Tomcat | Sí | Sí | Sí | Salida estándar y error estándar |
+| AppServiceHTTPLogs | Sí | Sí | Sí | Sí | Registros de servidor web |
 | AppServiceEnvironmentPlatformLogs | Sí | N/D | Sí | Sí | App Service Environment: escalado, cambios de configuración y registros de estado|
-| AppServiceAuditLogs | Sí | TBA | Sí | Sí | Actividad de inicio de sesión a través de FTP y KUDU |
-| AppServiceFileAuditLogs | Sí | TBA | TBA | TBA | Cambios de archivo realizados en el contenido del sitio; solo disponible para el nivel Premium y versiones posteriores |
-| AppServiceAppLogs | ASP .NET | TBA | Java SE y Tomcat | Java SE y Tomcat | Registros de aplicación |
-| AppServiceIPSecAuditLogs  | Sí | TBA | Sí | Sí | Solicitudes de reglas IP |
-| AppServicePlatformLogs  | TBA | TBA | Sí | Sí | Registros de operación de contenedor |
+| AppServiceAuditLogs | Sí | Sí | Sí | Sí | Actividad de inicio de sesión a través de FTP y KUDU |
+| AppServiceFileAuditLogs | Sí | Sí | TBA | TBA | Cambios de archivo realizados en el contenido del sitio; solo disponible para el nivel Premium y versiones posteriores |
+| AppServiceAppLogs | ASP .NET | ASP .NET | Imágenes preparadas de Java SE y Tomcat <sup>1</sup> | Imágenes preparadas de Java SE y Tomcat <sup>1</sup> | Registros de aplicación |
+| AppServiceIPSecAuditLogs  | Sí | Sí | Sí | Sí | Solicitudes de reglas IP |
+| AppServicePlatformLogs  | TBA | Sí | Sí | Sí | Registros de operación de contenedor |
+
+<sup>1</sup> Para las aplicaciones Java SE, agregue "$WEBSITE _AZMON_PREVIEW_ENABLED" a la configuración de la aplicación y establézcala en 1 o en true.
 
 ## <a name="next-steps"></a><a name="nextsteps"></a> Pasos siguientes
 * [Consulta de registros con Azure Monitor](../azure-monitor/log-query/log-query-overview.md)

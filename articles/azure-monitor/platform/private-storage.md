@@ -6,16 +6,16 @@ ms.topic: conceptual
 author: noakup
 ms.author: noakuper
 ms.date: 09/03/2020
-ms.openlocfilehash: a487e6989792c63aaf5baf9ddb3875df549561a4
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 7cb427c83345a4603c6fe7727c1cc42c1943c456
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92143984"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95908258"
 ---
 # <a name="using-customer-managed-storage-accounts-in-azure-monitor-log-analytics"></a>Uso de cuentas de almacenamiento administradas por el cliente en Log Analytics de Azure Monitor
 
-Log Analytics se basa en Azure Storage en diversos escenarios. Normalmente, este uso se administra automáticamente. Sin embargo, en algunos casos es necesario proporcionar y administrar la propia cuenta de almacenamiento, también denominada cuenta de almacenamiento administrada por el cliente. En este documento se detalla el uso del almacenamiento administrado por el cliente para la ingesta de registros de WAD/LAD, los escenarios específicos de Private Link y el cifrado de CMK. 
+Log Analytics se basa en Azure Storage en diversos escenarios. Normalmente, este uso se administra automáticamente. Sin embargo, en algunos casos es necesario proporcionar y administrar la propia cuenta de almacenamiento, también denominada cuenta de almacenamiento administrada por el cliente. En este documento se detalla el uso del almacenamiento administrado por el cliente para la ingesta de registros de WAD/LAD, los escenarios específicos de Private Link y el cifrado de clave administrada por el cliente (CMK). 
 
 > [!NOTE]
 > Se recomienda no depender del contenido que Log Analytics carga en el almacenamiento administrado por el cliente, dado que el formato y el contenido pueden cambiar.

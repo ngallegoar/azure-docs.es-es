@@ -3,17 +3,16 @@ title: 'Tutorial: Creación y administración de reglas en la aplicación de Azu
 description: En este tutorial se muestra cómo las reglas de Azure IoT Central le permiten supervisar los dispositivos casi en tiempo real e invocar automáticamente acciones, como el envío de correo electrónico, cuando la regla se desencadena.
 author: dominicbetts
 ms.author: dobett
-ms.date: 04/06/2020
+ms.date: 11/16/2020
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-manager: philmea
-ms.openlocfilehash: 555da74da65f3b1897a276cf819a263334cfa053
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6d49e3585460c95ca931f497a63cbc281aed1db1
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80999053"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94991020"
 ---
 # <a name="tutorial-create-a-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Tutorial: Creación de una regla y configuración de las notificaciones en la aplicación de Azure IoT Central
 
@@ -21,9 +20,9 @@ ms.locfileid: "80999053"
 
 Puede usar Azure IoT Central para supervisar de forma remota los dispositivos conectados. Las reglas de Azure IoT Central le permiten supervisar los dispositivos casi en tiempo real e invocar acciones automáticamente, como el envío de correo electrónico. En este artículo se explica cómo crear reglas para supervisar los datos de telemetría enviados por el dispositivo.
 
-Los dispositivos usan la telemetría para enviar datos numéricos. Cuando los datos de telemetría del dispositivo seleccionado superan un umbral especificado, se desencadena una regla.
+Los dispositivos usan la telemetría para enviar datos numéricos. Cuando los datos de telemetría seleccionados superan un umbral especificado, se desencadena una regla.
 
-En este tutorial se crea una regla que envía un mensaje de correo electrónico cuando la temperatura de un dispositivo de sensor ambiental simulado supera los 70 &deg;F.
+En este tutorial se crea una regla que envía un mensaje de correo electrónico cuando la temperatura de un dispositivo de sensor simulado supera los 70&deg; F.
 
 En este tutorial, aprenderá a:
 
@@ -34,25 +33,25 @@ En este tutorial, aprenderá a:
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-Antes de comenzar, complete los inicios rápidos [Creación de una aplicación de Azure IoT Central](./quick-deploy-iot-central.md) e [Incorporación de un dispositivo simulado a la aplicación de IoT Central](./quick-create-simulated-device.md) para crear la plantilla de dispositivo **MXChip IoT DevKit** con la que va a trabajar.
+Antes de comenzar, complete los inicios rápidos [Creación de una aplicación de Azure IoT Central](./quick-deploy-iot-central.md) y [Adición de un dispositivo simulado a una aplicación de IoT Central](./quick-create-simulated-device.md) para crear la plantilla de dispositivo **Sensor Controller** con la que va a trabajar.
 
 ## <a name="create-a-rule"></a>Crear una regla
 
-Para crear una regla de telemetría, la plantilla de dispositivo debe incluir al menos un valor de telemetría. En este tutorial se usa un dispositivo **MXChip IoT DevKit** simulado que envía datos de telemetría de temperatura y humedad. Ha agregado esta plantilla de dispositivo y creado un dispositivo simulado en el inicio rápido [Incorporación de un dispositivo simulado a la aplicación de IoT Central](./quick-create-simulated-device.md). La regla supervisa la temperatura notificada por el dispositivo y envía un correo electrónico cada vez que sube de 70 grados.
+Para crear una regla de telemetría, la plantilla de dispositivo debe incluir al menos un valor de telemetría. En este tutorial se usa un dispositivo **Sensor Controller** simulado que envía datos de telemetría de temperatura y humedad. Ha agregado esta plantilla de dispositivo y creado un dispositivo simulado en el inicio rápido [Incorporación de un dispositivo simulado a la aplicación de IoT Central](./quick-create-simulated-device.md). La regla supervisa la temperatura notificada por el dispositivo y envía un correo electrónico cada vez que sube de 70 grados.
 
 1. En el panel izquierdo, seleccione **Rules** (Reglas).
 
 1. Si aún no ha creado ninguna regla, consulte la siguiente pantalla:
 
-    ![No hay ninguna regla todavía](media/tutorial-create-telemetry-rules/rules-landing-page1.png)
+    :::image type="content" source="media/tutorial-create-telemetry-rules/rules-landing-page.png" alt-text="Captura de pantalla que muestra la lista vacía de reglas":::
 
-1. Seleccione **+** para agregar una nueva regla.
+1. Seleccione **+ Nuevo** para agregar una regla nueva.
 
 1. Escriba el nombre _Temperature monitor_ para identificar la regla y presione Entrar.
 
-1. Seleccione la plantilla de dispositivo **MXChip IoT DevKit**. De forma predeterminada, la regla se aplica automáticamente a todos los dispositivos asociados con la plantilla de dispositivo. Para filtrar un subconjunto de los dispositivos, seleccione **+ Filter** (+ Filtro) y use las propiedades de dispositivo para identificar los dispositivos. Para deshabilitar la regla, alterne el botón **Enabled/Disabled** (Habilitado/Deshabilitado) del encabezado de la regla:
+1. Seleccione la plantilla de dispositivo **Sensor Controller**. De forma predeterminada, la regla se aplica automáticamente a todos los dispositivos asociados con la plantilla de dispositivo. Para filtrar un subconjunto de los dispositivos, seleccione **+ Filter** (+ Filtro) y use las propiedades de dispositivo para identificar los dispositivos. Para deshabilitar la regla, alterne el botón **Habilitado/Deshabilitado**:
 
-    ![Filtros y habilitación](media/tutorial-create-telemetry-rules/device-filters.png)
+    :::image type="content" source="media/tutorial-create-telemetry-rules/device-filters.png" alt-text="Captura de pantalla que muestra la selección de la plantilla de dispositivo en la definición de la regla":::
 
 ### <a name="configure-the-rule-conditions"></a>Configuración de las condiciones de la regla
 
@@ -62,14 +61,14 @@ Las condiciones definen los criterios que la regla supervisa. En este tutorial, 
 
 1. A continuación, elija **Is greater than** (Es mayor que) como **Operator** (Operador) y escriba _70_ en **Value** (Valor).
 
-    ![Condición](media/tutorial-create-telemetry-rules/condition-filled-out1.png)
+    :::image type="content" source="media/tutorial-create-telemetry-rules/condition-filled-out.png" alt-text="Captura de pantalla que muestra la condición de temperatura de la regla":::
 
 1. Opcionalmente, puede establecer un valor de **Time aggregation** (Agregación de tiempo). Al seleccionar una agregación de tiempo, también debe seleccionar un tipo de agregación, como la media o la suma, en la lista desplegable de agregación.
 
     * Sin la agregación, la regla se desencadena para cada punto de datos de telemetría que cumple la condición. Por ejemplo, si configura la regla para desencadenarse cuando la temperatura está por encima de 70, la regla se desencadena casi al instante cuando la temperatura del dispositivo supere este valor.
     * Con la agregación, la regla se desencadena si el valor agregado de los puntos de datos de telemetría de la ventana de tiempo cumple la condición. Por ejemplo, si configura la regla para desencadenarse cuando la temperatura sea superior a 70 con una agregación de tiempo media de 10 minutos, la regla se desencadena cuando el dispositivo informa de una temperatura media por encima de 70, calculada a lo largo de un intervalo de 10 minutos.
 
-     ![Condición agregada](media/tutorial-create-telemetry-rules/aggregate-condition-filled-out1.png)
+    :::image type="content" source="media/tutorial-create-telemetry-rules/aggregate-condition-filled-out.png" alt-text="Captura de pantalla que muestra la condición de agregado rellenada":::
 
 Puede agregar varias condiciones a una regla seleccionando **+ Condition** (+ Condición). Cuando se especifican varias condiciones, deben cumplirse todas ellas para que la regla se desencadene. Cada condición está unida por una cláusula `AND` implícita. Si usa la agregación de tiempo con varias condiciones, se deben agregar todos los valores de telemetría.
 
@@ -84,7 +83,7 @@ Después de definir la condición, configure las acciones que deben llevarse a c
     > [!NOTE]
     > Solo se envían mensajes de correo electrónico a los usuarios que se han agregado a la aplicación y han iniciado sesión al menos una vez. Obtenga más información sobre la [administración de usuarios](howto-administer.md) en Azure IoT Central.
 
-   ![Configuración de acción](media/tutorial-create-telemetry-rules/configure-action1.png)
+    :::image type="content" source="media/tutorial-create-telemetry-rules/configure-action.png" alt-text="Captura de pantalla que muestra la acción de correo electrónico para la regla":::
 
 1. Para guardar la acción, elija **Listo**. Puede agregar varias acciones a una regla.
 
@@ -92,7 +91,7 @@ Después de definir la condición, configure las acciones que deben llevarse a c
 
 Después de un tiempo, recibirá un mensaje de correo electrónico cuando se desencadene la regla:
 
-![Correo electrónico de ejemplo](media/tutorial-create-telemetry-rules/email.png)
+:::image type="content" source="media/tutorial-create-telemetry-rules/email.png" alt-text="Captura de pantalla que muestra el correo electrónico de notificación":::
 
 ## <a name="delete-a-rule"></a>Eliminar una regla
 

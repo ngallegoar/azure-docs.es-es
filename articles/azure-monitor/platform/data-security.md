@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/04/2019
-ms.openlocfilehash: ef34dbfd3af326dbf2d82e09a4c5c8c8e4a91a84
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/11/2020
+ms.openlocfilehash: 5aa379f6601bc324bd08c53f251b2097141eec69
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87319803"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95911641"
 ---
 # <a name="log-analytics-data-security"></a>Seguridad de datos de Log Analytics
 Este documento está diseñado para proporcionar información específica sobre Log Analytics, que es una característica de Azure Monitor, para complementar la información que se halla en el [Centro de confianza de Azure](https://www.microsoft.com/en-us/trust-center?rtc=1).  
@@ -26,6 +26,12 @@ El servicio Log Analytics administra sus datos basados en la nube de forma segur
 * Administración de incidentes
 * Cumplimiento normativo
 * Certificaciones de estándares de seguridad
+
+También puede usar características de seguridad adicionales integradas en Azure Monitor y Log Analytics. Estas características requieren la administración de más administradores. 
+* Claves administradas por el cliente (seguridad)
+* Almacenamiento privado de Azure
+* Redes de Private Link 
+* Límites de acceso de soporte técnico establecidos por la Caja de seguridad de Azure
 
 Póngase en contacto con nosotros si tiene preguntas, sugerencias o problemas acerca de la siguiente información, incluidas nuestras directivas de seguridad en [Opciones de soporte técnico de Azure](https://azure.microsoft.com/support/options/).
 
@@ -170,6 +176,15 @@ El período de retención de los datos recopilados que se almacenan en la base d
 
 ## <a name="4-use-log-analytics-to-access-the-data"></a>4. Uso de Log Analytics para acceder a los datos
 Para acceder al área de trabajo de Log Analytics puede iniciar sesión en Azure Portal mediante la cuenta de la organización o la cuenta Microsoft configurada anteriormente. Todo el tráfico que circula entre el portal y el servicio Log Analytics se envía por un canal seguro HTTPS. Al usar el portal, se genera un identificador de sesión en el cliente del usuario (explorador web) y los datos se almacenan en una caché local hasta que finalice la sesión. Cuando termina, se elimina la memoria caché. Las cookies del cliente, que no contienen información de identificación personal, no se quitan automáticamente. Las de sesión se marcan con HTTPOnly y se protegen. Después de un periodo de inactividad predeterminado, se termina la sesión de Azure Portal.
+
+
+## <a name="additional-security-features"></a>Características de seguridad adicionales
+Puede usar estas características de seguridad adicionales para proteger aún más su entorno de Azure Monitor o Log Analytics. Estas características requieren la administración de más administradores. 
+- [Claves administradas por el cliente (seguridad)](customer-managed-keys.md): puede usar claves administradas por el cliente para cifrar los datos que se envían a las áreas de trabajo de Log Analytics. Se requiere el uso de Azure Key Vault. 
+- [Almacenamiento privado o administrado por el cliente](private-storage.md): administre su cuenta de almacenamiento con cifrado personal e indique a Log Analytics que la use para almacenar los datos de supervisión. 
+- [Redes de Private Link](private-link-security.md): Azure Private Link le permite vincular de forma segura los servicios PaaS de Azure (incluido Azure Monitor) a la red virtual con puntos de conexión privados. 
+- [Caja de seguridad del cliente de Azure](/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-preview): proporciona una interfaz para los clientes que les permite revisar y aprobar o rechazar las solicitudes de acceso a los datos de clientes. Se utiliza en casos donde un ingeniero de Microsoft necesita obtener acceso a los datos del cliente durante una solicitud de soporte técnico.
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Aprenda a recopilar datos con Log Analytics para las máquinas virtuales de Azure con la [guía de inicio rápido de máquinas virtuales de Azure](../learn/quick-collect-azurevm.md).  

@@ -15,12 +15,12 @@ ms.date: 01/01/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d8458fc11f5e836e290c593d3ad4983f44e6abf6
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 4ded81389fae5954c0e488f634945b4f1c1fe4c8
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370379"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96009048"
 ---
 # <a name="configure-azure-resource-role-settings-in-privileged-identity-management"></a>Configurar las opciones del rol de recursos de Azure en Privileged Identity Management
 
@@ -32,7 +32,7 @@ Siga estos pasos para abrir la configuración de un rol de recursos de Azure.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/) con un usuario en el rol [Administrador de roles con privilegios](../roles/permissions-reference.md#privileged-role-administrator).
 
-1. Abra **Azure AD Privileged Identity Management** .
+1. Abra **Azure AD Privileged Identity Management**.
 
 1. Seleccione **Azure resources** (Recursos de Azure).
 
@@ -40,7 +40,7 @@ Siga estos pasos para abrir la configuración de un rol de recursos de Azure.
 
     ![Página de recursos de Azure que muestra los recursos que se pueden administrar](./media/pim-resource-roles-configure-role-settings/resources-list.png)
 
-1. Seleccione **Configuración de rol** .
+1. Seleccione **Configuración de rol**.
 
     ![Página de configuración de roles que muestra los roles de recursos de Azure](./media/pim-resource-roles-configure-role-settings/resources-role-settings.png)
 
@@ -48,7 +48,7 @@ Siga estos pasos para abrir la configuración de un rol de recursos de Azure.
 
     ![Página de detalles de configuración de roles que muestra varias opciones de asignación y activación](./media/pim-resource-roles-configure-role-settings/resources-role-setting-details.png)
 
-1. Seleccione **Editar** para abrir el panel **Configuración de rol** . La primera pestaña le permite actualizar la configuración de la activación del rol en Privileged Identity Management.
+1. Seleccione **Editar** para abrir el panel **Configuración de rol**. La primera pestaña le permite actualizar la configuración de la activación del rol en Privileged Identity Management.
 
     ![Página Editar configuración de rol con la pestaña Activación abierta](./media/pim-resource-roles-configure-role-settings/role-settings-activation-tab.png)
 
@@ -76,14 +76,14 @@ Siga estos pasos para abrir la configuración de un rol de recursos de Azure.
 
 Puede elegir entre dos opciones de duración de asignación para cada tipo de asignación (Apto y Activo) cuando se configuran las opciones para un rol. Estas opciones se convierten en la duración máxima predeterminada cuando se asigna un usuario al rol en Privileged Identity Management.
 
-Puede elegir uno de estas opciones de duración de asignación tipo **Apto** :
+Puede elegir uno de estas opciones de duración de asignación tipo **Apto**:
 
 | | |
 | --- | --- |
 | **Permitir asignación elegible permanente** | Los administradores de recursos pueden asignar una asignación válida permanente. |
 | **Hacer que las asignaciones elegibles expiren después de** | Los administradores de recursos pueden requerir que todas las asignaciones elegibles tengan una fecha de inicio y finalización especificada. |
 
-Además, puede elegir una de estas opciones de duración de asignación tipo **Activo** :
+Además, puede elegir una de estas opciones de duración de asignación tipo **Activo**:
 
 | | |
 | --- | --- |
@@ -95,19 +95,19 @@ Además, puede elegir una de estas opciones de duración de asignación tipo **A
 
 ## <a name="require-multi-factor-authentication"></a>Requerir autenticación multifactor
 
-Privileged Identity Management proporciona la aplicación opcional de Azure Multi-Factor Authentication para dos escenarios distintos.
+Privileged Identity Management proporciona el cumplimiento opcional de Azure AD Multi-Factor Authentication en dos escenarios distintos.
 
 ### <a name="require-multi-factor-authentication-on-active-assignment"></a>Requerir autenticación multifactor para las asignaciones activas
 
 En algunos casos, es posible que quiera asignar un usuario o un grupo a un rol durante un breve período de tiempo (por ejemplo, un día). En este caso, no es necesario que los usuarios asignados soliciten la activación. En este escenario, Privileged Identity Management no puede exigir la autenticación multifactor cuando el usuario usa su asignación de roles, porque ya está activa en el rol desde el momento en que se asignan.
 
-Para asegurarse de que el administrador de recursos que realiza la asignación es quien dicen ser, puede exigir la autenticación multifactor en la asignación activa; para ello, active la casilla **Requerir autenticación multifactor en la asignación activa** .
+Para asegurarse de que el administrador de recursos que realiza la asignación es quien dicen ser, puede exigir la autenticación multifactor en la asignación activa; para ello, active la casilla **Requerir autenticación multifactor en la asignación activa**.
 
 ### <a name="require-multi-factor-authentication-on-activation"></a>Requerir Multi-Factor Authentication durante la activación
 
-Puede requerir que los usuarios que son aptos para un rol demuestren quién están usando Azure Multi-Factor Authentication antes de que se puedan activar. La autenticación multifactor garantiza que el usuario sea quien dice ser con certeza razonable. Aplicar esta opción protege los recursos críticos en situaciones en las que es posible que la cuenta de usuario se haya puesto en peligro.
+Puede exigir que los usuarios que sean elegibles para un rol demuestren quiénes están usando Azure AD Multi-Factor Authentication antes de que se puedan activar. La autenticación multifactor garantiza que el usuario sea quien dice ser con certeza razonable. Aplicar esta opción protege los recursos críticos en situaciones en las que es posible que la cuenta de usuario se haya puesto en peligro.
 
-Para requerir la autenticación multifactor antes de la activación, active la casilla **Requerir autenticación multifactor en activación** .
+Para requerir la autenticación multifactor antes de la activación, active la casilla **Requerir autenticación multifactor en activación**.
 
 Para obtener más información, consulte [Autenticación multifactor y Privileged Identity Management](pim-how-to-require-mfa.md).
 
@@ -117,19 +117,19 @@ Use control deslizante **Duración máxima de la activación (horas)** para esta
 
 ## <a name="require-justification"></a>Requerir justificación
 
-Puede requerir que los usuarios escriban una justificación empresarial cuando se activen. Para requerir justificación, active la casilla **Requerir justificación para las asignaciones activas** o la casilla **Requerir justificación en las activaciones** .
+Puede requerir que los usuarios escriban una justificación empresarial cuando se activen. Para requerir justificación, active la casilla **Requerir justificación para las asignaciones activas** o la casilla **Requerir justificación en las activaciones**.
 
 ## <a name="require-approval-to-activate"></a>Solicitud de aprobación para activar
 
 Si desea solicitar aprobación para activar un rol, siga estos pasos.
 
-1. Active la casilla **Se requiere aprobación para activar** .
+1. Active la casilla **Se requiere aprobación para activar**.
 
-1. Elija **Seleccionar aprobadores** para abrir la página **Seleccionar un miembro o grupo** .
+1. Elija **Seleccionar aprobadores** para abrir la página **Seleccionar un miembro o grupo**.
 
     ![Seleccionar un panel de usuarios o grupos para seleccionar aprobadores](./media/pim-resource-roles-configure-role-settings/resources-role-settings-select-approvers.png)
 
-1. Seleccione al menos un usuario o grupo y, luego, haga clic en **Seleccionar** . Puede agregar cualquier combinación de usuarios y grupos. Debe seleccionar al menos un aprobador. No hay aprobadores predeterminados.
+1. Seleccione al menos un usuario o grupo y, luego, haga clic en **Seleccionar**. Puede agregar cualquier combinación de usuarios y grupos. Debe seleccionar al menos un aprobador. No hay aprobadores predeterminados.
 
     Su elección aparecerá en la lista de aprobadores seleccionados.
 

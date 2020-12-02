@@ -9,12 +9,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 10/02/2020
-ms.openlocfilehash: bab74a1db04bb557aa6604fe76c05ba3d087f8c0
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: d231de8e262194cd7dda2462a3f54d7d531eb63c
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94540797"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95542089"
 ---
 # <a name="monitoring-azure-machine-learning-data-reference"></a>Supervisión de la referencia de datos de Azure Machine Learning
 
@@ -79,7 +79,7 @@ Azure Machine Learning tiene las siguientes dimensiones asociadas a sus métrica
 
 | Dimensión | Descripción |
 | ---- | ---- |
-| Cluster Name | Nombre de la instancia de proceso. Está disponible para todas las métricas de la cuota. |
+| Cluster Name | El nombre del recurso de clúster de proceso. Está disponible para todas las métricas de la cuota. |
 | Nombre de familia de VM | El nombre de la familia de máquinas virtuales que usa el clúster. Está disponible para el porcentaje de uso de la cuota. |
 | Prioridad de VM | La prioridad de la VM. Está disponible para el porcentaje de uso de la cuota.
 | CreatedTime | Solo está disponible para los elementos CpuUtilization y GpuUtilization. |

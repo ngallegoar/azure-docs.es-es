@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/18/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, cc996988-fb4f-47, devx-track-python
-ms.openlocfilehash: 1d86009d593ef7e594ec2981132bcfb856569c31
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 087073437fe9d6159422799c04ce095c0aae5eca
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91317232"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "96001259"
 ---
 # <a name="azure-queue-storage-output-bindings-for-azure-functions"></a>Enlaces de salida de Azure Queue Storage para Azure Functions
 
@@ -100,6 +100,24 @@ public static void Run(
 }
 ```
 
+# <a name="java"></a>[Java](#tab/java)
+
+ En el ejemplo siguiente se muestra una función de Java que crea un mensaje de cola cuando una solicitud HTTP la desencadena.
+
+```java
+@FunctionName("httpToQueue")
+@QueueOutput(name = "item", queueName = "myqueue-items", connection = "MyStorageConnectionAppSetting")
+ public String pushToQueue(
+     @HttpTrigger(name = "request", methods = {HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS)
+     final String message,
+     @HttpOutput(name = "response") final OutputBinding<String> result) {
+       result.setValue(message + " has been added.");
+       return message;
+ }
+```
+
+En la [biblioteca en tiempo de ejecución de funciones de Java](/java/api/overview/azure/functions/runtime), utilice la anotación `@QueueOutput` en los parámetros cuyo valor se escribiría en Queue Storage.  El tipo de parámetro debe ser `OutputBinding<T>`, donde `T` es cualquier tipo nativo de Java de un POJO.
+
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 En el ejemplo siguiente se muestra un enlace de desencadenador HTTP de un archivo *function.json* y una [función de JavaScript](functions-reference-node.md) que usa el enlace. La función crea un elemento de cola para cada una de las solicitudes HTTP recibidas.
@@ -149,6 +167,79 @@ module.exports = function(context) {
     context.bindings.myQueueItem = ["message 1","message 2"];
     context.done();
 };
+```
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+En los siguientes ejemplos de código se muestra cómo generar un mensaje de la cola desde una función desencadenada por HTTP. La sección de configuración con el valor de `type` de `queue` define el enlace de salida.
+
+```json
+{
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "Request",
+      "methods": [
+        "get",
+        "post"
+      ]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "Response"
+    },
+    {
+      "type": "queue",
+      "direction": "out",
+      "name": "Msg",
+      "queueName": "outqueue",
+      "connection": "MyStorageConnectionAppSetting"
+    }
+  ]
+}
+```
+
+Con esta configuración de enlace, una función de PowerShell puede crear un mensaje de cola mediante `Push-OutputBinding`. En este ejemplo, se crea un mensaje a partir de una cadena de consulta o un parámetro de cuerpo.
+
+```powershell
+using namespace System.Net
+
+# Input bindings are passed in via param block.
+param($Request, $TriggerMetadata)
+
+# Write to the Azure Functions log stream.
+Write-Host "PowerShell HTTP trigger function processed a request."
+
+# Interact with query parameters or the body of the request.
+$message = $Request.Query.Message
+Push-OutputBinding -Name Msg -Value $message
+Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{
+    StatusCode = 200
+    Body = "OK"
+})
+```
+
+Para enviar varios mensajes a la vez, defina una matriz de mensajes y utilice `Push-OutputBinding` para enviar mensajes al enlace de salida de la cola.
+
+```powershell
+using namespace System.Net
+
+# Input bindings are passed in via param block.
+param($Request, $TriggerMetadata)
+
+# Write to the Azure Functions log stream.
+Write-Host "PowerShell HTTP trigger function processed a request."
+
+# Interact with query parameters or the body of the request.
+$message = @("message1", "message2")
+Push-OutputBinding -Name Msg -Value $message
+Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{
+    StatusCode = 200
+    Body = "OK"
+})
 ```
 
 # <a name="python"></a>[Python](#tab/python)
@@ -214,24 +305,6 @@ def main(req: func.HttpRequest, msg: func.Out[typing.List[str]]) -> func.HttpRes
     return 'OK'
 ```
 
-# <a name="java"></a>[Java](#tab/java)
-
- En el ejemplo siguiente se muestra una función de Java que crea un mensaje de cola cuando una solicitud HTTP la desencadena.
-
-```java
-@FunctionName("httpToQueue")
-@QueueOutput(name = "item", queueName = "myqueue-items", connection = "MyStorageConnectionAppSetting")
- public String pushToQueue(
-     @HttpTrigger(name = "request", methods = {HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS)
-     final String message,
-     @HttpOutput(name = "response") final OutputBinding<String> result) {
-       result.setValue(message + " has been added.");
-       return message;
- }
-```
-
-En la [biblioteca en tiempo de ejecución de funciones de Java](/java/api/overview/azure/functions/runtime), utilice la anotación `@QueueOutput` en los parámetros cuyo valor se escribiría en Queue Storage.  El tipo de parámetro debe ser `OutputBinding<T>`, donde `T` es cualquier tipo nativo de Java de un POJO.
-
 ---
 
 ## <a name="attributes-and-annotations"></a>Atributos y anotaciones
@@ -270,14 +343,6 @@ Puede usar el atributo `StorageAccount` para especificar la cuenta de almacenami
 
 El script de C# no admite atributos.
 
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
-
-JavaScript no admite atributos.
-
-# <a name="python"></a>[Python](#tab/python)
-
-Python no admite atributos.
-
 # <a name="java"></a>[Java](#tab/java)
 
 La anotación `QueueOutput` permite escribir un mensaje como la salida de una función. En el ejemplo siguiente se muestra una función desencadenada mediante HTTP que crea un mensaje de cola.
@@ -308,6 +373,18 @@ public class HttpTriggerQueueOutput {
 |`connection` | Apunta a la cadena de conexión de la cuenta de almacenamiento. |
 
 El parámetro asociado a la anotación `QueueOutput` tiene como tipo una instancia de [OutputBinding\<T\>](https://github.com/Azure/azure-functions-java-library/blob/master/src/main/java/com/microsoft/azure/functions/OutputBinding.java).
+
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
+
+JavaScript no admite atributos.
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+PowerShell no admite atributos.
+
+# <a name="python"></a>[Python](#tab/python)
+
+Python no admite atributos.
 
 ---
 
@@ -359,18 +436,6 @@ En C# y script de C#, escriba varios mensajes de cola mediante uno de los siguie
 * `ICollector<T>` o `IAsyncCollector<T>`
 * [CloudQueue](/dotnet/api/microsoft.azure.storage.queue.cloudqueue)
 
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
-
-El elemento de la cola de salida está disponible mediante `context.bindings.<NAME>`, donde `<NAME>` coincide con el nombre definido en *function.json*. Puede usar una cadena o un objeto JSON serializable para la carga del elemento de cola.
-
-# <a name="python"></a>[Python](#tab/python)
-
-Hay dos opciones para la generación de un mensaje de cola desde una función:
-
-- **Valor devuelto**: Establezca la propiedad `name` de *function.json* en `$return`. Con esta configuración, el valor devuelto de la función se conserva como un mensaje de Queue Storage.
-
-- **Imperativa**: Pase un valor al método [set](/python/api/azure-functions/azure.functions.out?view=azure-python#set-val--t-----none) del parámetro declarado como tipo [Out](/python/api/azure-functions/azure.functions.out?view=azure-python). El valor pasado a `set` se conserva como un mensaje de Queue Storage.
-
 # <a name="java"></a>[Java](#tab/java)
 
 Hay dos opciones para generar un mensaje de cola desde una función mediante la anotación [QueueOutput](/java/api/com.microsoft.azure.functions.annotation.queueoutput):
@@ -378,6 +443,22 @@ Hay dos opciones para generar un mensaje de cola desde una función mediante la 
 - **Valor devuelto**: Al aplicar la anotación a la propia función, el valor devuelto de la función se conserva como un mensaje de cola.
 
 - **Imperativa**: Para establecer explícitamente el valor del mensaje, aplique la anotación a un parámetro específico del tipo [`OutputBinding<T>`](/java/api/com.microsoft.azure.functions.outputbinding), donde `T` es un POJO o cualquier tipo de Java nativo. Con esta configuración, al pasar un valor al método `setValue` se conserva el valor como un mensaje de cola.
+
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
+
+El elemento de la cola de salida está disponible mediante `context.bindings.<NAME>`, donde `<NAME>` coincide con el nombre definido en *function.json*. Puede usar una cadena o un objeto JSON serializable para la carga del elemento de cola.
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+La salida al mensaje de la cola está disponible a través de `Push-OutputBinding`, donde se pasan argumentos que coinciden con el nombre designado por el parámetro `name` del enlace en el archivo *function.json*.
+
+# <a name="python"></a>[Python](#tab/python)
+
+Hay dos opciones para la generación de un mensaje de cola desde una función:
+
+- **Valor devuelto**: Establezca la propiedad `name` de *function.json* en `$return`. Con esta configuración, el valor devuelto de la función se conserva como un mensaje de Queue Storage.
+
+- **Imperativa**: Pase un valor al método [set](/python/api/azure-functions/azure.functions.out?view=azure-python&preserve-view=true#set-val--t-----none) del parámetro declarado como tipo [Out](/python/api/azure-functions/azure.functions.out?view=azure-python&preserve-view=true). El valor pasado a `set` se conserva como un mensaje de Queue Storage.
 
 ---
 

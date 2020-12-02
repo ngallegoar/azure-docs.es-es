@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 07/02/2020
 ms.author: memildin
-ms.openlocfilehash: 2edaf6dd139ed4612b91d3a19c3d1398d5afdec1
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 446abd8cca14c0c1c27458ef86cee4400252e3b0
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92340366"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965211"
 ---
 # <a name="permissions-in-azure-security-center"></a>Permisos en Azure Security Center
 
@@ -56,7 +56,7 @@ En la siguiente tabla se muestran los roles y las acciones permitidas en Securit
 >
 
 ## <a name="next-steps"></a>Pasos siguientes
-En este artículo se ha explicado cómo Security Center usa RBAC para asignar permisos a los usuarios e identifica las acciones permitidas para cada rol. Ahora que ya está familiarizado con las asignaciones de roles necesarios para supervisar el estado de seguridad de su suscripción, editar directivas de seguridad y aplicar recomendaciones, aprenderá los siguientes conceptos:
+En este artículo se ha explicado cómo Security Center usa RBAC de Azure para asignar permisos a los usuarios e identifica las acciones permitidas para cada rol. Ahora que ya está familiarizado con las asignaciones de roles necesarios para supervisar el estado de seguridad de su suscripción, editar directivas de seguridad y aplicar recomendaciones, aprenderá los siguientes conceptos:
 
 - [Establecer directivas de seguridad en Security Center](tutorial-security-policy.md)
 - [Administrar recomendaciones de seguridad en Security Center](security-center-recommendations.md)

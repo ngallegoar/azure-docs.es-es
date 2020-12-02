@@ -1,6 +1,6 @@
 ---
-title: 'VPN con Azure MFA con la extensión de NPS: Azure Active Directory'
-description: Integración de la infraestructura de VPN con Azure MFA utilizando la extensión Servidor de directivas de redes para Microsoft Azure.
+title: 'VPN con de Azure AD MFA mediante la extensión NPS: Azure Active Directory'
+description: Integración de la infraestructura de VPN con Azure AD MFA mediante la extensión Servidor de directivas de redes para Microsoft Azure.
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c7243857db9a3726bb42815ac4c9eef661f52e47
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 73fa82c3f162b546517ce40ef1447c002351d5b4
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964730"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994475"
 ---
-# <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Integración de la infraestructura de VPN con Azure MFA utilizando la extensión Servidor de directivas de redes para Azure
+# <a name="integrate-your-vpn-infrastructure-with-azure-ad-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Integración de la infraestructura de VPN con Azure AD MFA mediante la extensión Servidor de directivas de redes para Azure
 
-La extensión Servidor de directivas de redes (NPS) para Azure permite a las organizaciones proteger la autenticación de cliente del Servicio de autenticación remota telefónica de usuario (RADIUS) utilizando la autenticación basada en la nube [Azure Multi-Factor Authentication (MFA)](howto-mfaserver-nps-rdg.md), que proporciona verificación en dos pasos.
+La extensión Servidor de directivas de redes (NPS) para Azure permite a las organizaciones proteger la autenticación de cliente del Servicio de autenticación remota telefónica de usuario (RADIUS) mediante la autenticación basada en la nube de [Azure AD Multi-Factor Authentication (MFA)](howto-mfaserver-nps-rdg.md), que proporciona una verificación en dos pasos.
 
 En este artículo se proporcionan instrucciones para la integración de la infraestructura NPS con Azure MFA con la extensión NPS para Azure. Este proceso permite la verificación en dos pasos segura para los usuarios que intentan conectarse a la red mediante una VPN.
 
@@ -43,7 +43,7 @@ El rol Servicios de acceso y directivas de redes da a las organizaciones la posi
 * Proporcionar una forma de aplicar la autenticación y autorización para el acceso a puntos de acceso inalámbricos 802.1x y conmutadores Ethernet.
   Vea [Servidor de directivas de redes](/windows-server/networking/technologies/nps/nps-top) para más información.
 
-Para mejorar la seguridad y proporcionar un nivel elevado de cumplimiento, las organizaciones pueden integrar NPS con Azure Multi-Factor Authentication para asegurarse de que los usuarios utilizan la verificación en dos pasos para conectarse al puerto virtual en el servidor VPN. Para tener acceso, los usuarios deben proporcionar su combinación de nombre de usuario y contraseña y otra información que tengan bajo su control. Esta información debe ser de confianza y difícil de duplicar. Puede incluir un número de teléfono móvil, un número de teléfono fijo o una aplicación en un dispositivo móvil.
+Para mejorar la seguridad y proporcionar un nivel elevado de cumplimiento, las organizaciones pueden integrar NPS con Azure AD Multi-Factor Authentication para asegurarse de que los usuarios utilizan la verificación en dos pasos para conectarse al puerto virtual en el servidor VPN. Para tener acceso, los usuarios deben proporcionar su combinación de nombre de usuario y contraseña y otra información que tengan bajo su control. Esta información debe ser de confianza y difícil de duplicar. Puede incluir un número de teléfono móvil, un número de teléfono fijo o una aplicación en un dispositivo móvil.
 
 Antes de la disponibilidad de la extensión NPS para Azure, los clientes que querían implementar la verificación en dos pasos para entornos integrados de NPS y MFA tenían que configurar y mantener un servidor independiente de MFA en un entorno local tal. Este tipo de autenticación la ofrecen la pPuerta de enlace de Escritorio remoto y el Servidor Azure Multi-Factor Authentication con RADIUS.
 
@@ -66,9 +66,9 @@ Cuando la extensión NPS para Azure está integrada con NPS, el flujo de una aut
 1. El servidor VPN recibe una solicitud de autenticación de un usuario de VPN que incluye el nombre de usuario y la contraseña para conectarse a un recurso, como una sesión de Escritorio remoto.
 2. Actuando como un cliente RADIUS, el servidor VPN convierte la solicitud en un mensaje de *solicitud de acceso* RADIUS y lo envía (con una contraseña cifrada) al servidor RADIUS donde está instalada la extensión NPS.
 3. La combinación de nombre de usuario y contraseña se verifica en Active Directory. Si el nombre de usuario o la contraseña son incorrectos, el servidor RADIUS envía un mensaje de *rechazo de acceso*.
-4. Si se cumplen todas las condiciones especificadas en la solicitud de conexión NPS y las directivas de red (por ejemplo, la hora del día o restricciones por pertenencia a un grupo), la extensión NPS desencadena una solicitud de autenticación secundaria con Azure Multi-Factor Authentication.
-5. Azure Multi-Factor Authentication se comunica con Azure Active Directory, recupera los detalles del usuario y realiza la autenticación secundaria con el método configurado por el usuario (llamada al móvil, mensaje de texto o aplicación móvil).
-6. Cuando el desafío de MFA es correcto, Azure Multi-Factor Authentication comunica el resultado a la extensión NPS.
+4. Si se cumplen todas las condiciones especificadas en la solicitud de conexión NPS y las directivas de red (por ejemplo, la hora del día o restricciones por pertenencia a un grupo), la extensión NPS desencadena una solicitud de autenticación secundaria con Azure AD Multi-Factor Authentication.
+5. Azure AD Multi-Factor Authentication se comunica con Azure Active Directory, recupera los detalles del usuario y realiza la autenticación secundaria con el método configurado por el usuario (llamada al móvil, mensaje de texto o aplicación móvil).
+6. Cuando el desafío de MFA se supera correctamente, Azure AD Multi-Factor Authentication comunica el resultado a la extensión NPS.
 7. Después de que el intento de conexión se autentica y autoriza, el servidor NPS donde está instalada la extensión envía un mensaje de *aceptación de acceso* RADIUS al servidor VPN (cliente RADIUS).
 8. Se concede acceso al usuario al puerto virtual en el servidor VPN y se establece un túnel VPN cifrado.
 
@@ -78,7 +78,7 @@ En esta sección se detallan los requisitos previos que hay que cumplir antes de
 
 * Infraestructura de VPN
 * Rol Servicios de acceso y directivas de redes
-* Licencia de Azure Multi-Factor Authentication
+* Licencia de Azure AD Multi-Factor Authentication
 * Software de Windows Server
 * Bibliotecas
 * Azure Active Directory (Azure AD) sincronizado con Active Directory local
@@ -96,9 +96,9 @@ El rol Servicios de acceso y directivas de redes proporciona la funcionalidad de
 
 Para obtener información sobre cómo instalar el servicio de rol Servicios de acceso y directivas de redes en Windows Server 2012 o posterior, vea [Install a NAP Health Policy Server](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd296890(v=ws.10)) (Instalación de un servidor de directivas de mantenimiento de NAP). NAP está en desuso en Windows Server 2016. Para obtener una descripción de las prácticas recomendadas para NPS, incluida la recomendación de instalar NPS en un controlador de dominio, vea [Best practices for NPS](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771746(v=ws.10)) (Procedimientos recomendados para NPS).
 
-### <a name="azure-mfa-license"></a>Licencia de Azure MFA
+### <a name="azure-ad-mfa-license"></a>Licencia de Azure AD MFA
 
-Se requiere una licencia para Azure Multi-Factor Authentication, que está disponible a través de una licencia independiente de Azure AD Premium, Enterprise Mobility + Security o Multi-Factor Authentication. Las licencias basadas en el consumo para Azure MFA, como las licencias por usuario o por autenticación no son compatibles con la extensión de NPS. Para más información, consulte [Cómo obtener Azure Multi-Factor Authentication](concept-mfa-licensing.md). Para realizar pruebas, puede usar una suscripción de evaluación.
+Se requiere una licencia para Azure AD Multi-Factor Authentication, que está disponible mediante una licencia independiente de Azure AD Premium, Enterprise Mobility + Security o Multi-Factor Authentication. Las licencias basadas en el consumo de Azure AD MFA, como las licencias por usuario o por autenticación, no son compatibles con la extensión NPS. Para más información, consulte el artículo sobre [cómo obtener Azure AD Multi-Factor Authentication](concept-mfa-licensing.md). Para realizar pruebas, puede usar una suscripción de evaluación.
 
 ### <a name="windows-server-software"></a>Software de Windows Server
 
@@ -302,7 +302,7 @@ Para solucionar estos problemas, un lugar ideal para comenzar es examinar los re
 
 ## <a name="configure-multi-factor-authentication"></a>Configuración de Multi-Factor Authentication
 
-Para obtener ayuda para configurar los usuarios para Multi-Factor Authentication, consulte los artículos [Planear una implementación de Azure Multi-Factor Authentication basada en la nube](howto-mfa-getstarted.md#create-conditional-access-policy) y [Configuración de mi cuenta para la verificación en dos pasos](../user-help/multi-factor-authentication-end-user-first-time.md).
+Para obtener ayuda a fin de configurar los usuarios para Multi-Factor Authentication, consulte los artículos sobre [planeación de una implementación del servicio en la nube Azure AD Multi-Factor Authentication](howto-mfa-getstarted.md#create-conditional-access-policy) y [configuración de mi cuenta para la verificación en dos pasos](../user-help/multi-factor-authentication-end-user-first-time.md).
 
 ## <a name="install-and-configure-the-nps-extension"></a>Instalación y configuración de la extensión NPS
 
@@ -312,17 +312,17 @@ Esta sección proporciona instrucciones para configurar la VPN para usar MFA par
 > La clave del registro REQUIRE_USER_MATCH distingue mayúsculas de minúsculas. Todos los valores se deben expresar en mayúsculas.
 >
 
-Una vez que instale y configure la extensión NPS, toda la autenticación de cliente basada en RADIUS procesada por este servidor debe usar MFA. Si todos los usuarios VPN no están inscritos en Azure Multi-Factor Authentication, puede realizar una de las siguientes acciones:
+Una vez que instale y configure la extensión NPS, toda la autenticación de cliente basada en RADIUS procesada por este servidor debe usar MFA. Si todos los usuarios de VPN no están inscritos en Azure AD Multi-Factor Authentication, puede realizar una de las siguientes acciones:
 
 * Configurar otro servidor RADIUS para autenticar a usuarios que no están configurados para usar MFA.
 
-* Crear una entrada del Registro que permite a los usuarios proporcionar un segundo factor de autenticación si están inscritos en Azure Multi-Factor Authentication.
+* Crear una entrada del Registro que permite a los usuarios proporcionar un segundo factor de autenticación si están inscritos en Azure AD Multi-Factor Authentication.
 
 Cree un nuevo valor de cadena denominado _REQUIRE_USER_MATCH in HKLM\SOFTWARE\Microsoft\AzureMfa_ y establezca el valor como *TRUE* o *FALSE*.
 
 ![Configuración Requerir coincidencia de usuario](./media/howto-mfa-nps-extension-vpn/image34.png)
 
-Si el valor se establece en *TRUE* o está en blanco, todas las solicitudes de autenticación están sujetas a un desafío MFA. Si el valor se establece en *FALSE*, se emiten desafíos MFA únicamente a los usuarios que están inscritos en Azure Multi-Factor Autenticación. Use solo el valor *FALSE* en las pruebas o en entornos de producción durante un período de incorporación.
+Si el valor se establece en *TRUE* o está en blanco, todas las solicitudes de autenticación están sujetas a un desafío MFA. Si el valor se establece en *FALSE*, se emiten desafíos MFA solo a los usuarios que están inscritos en Azure AD Multi-Factor Authentication. Use solo el valor *FALSE* en las pruebas o en entornos de producción durante un período de incorporación.
 
 
 
@@ -346,11 +346,11 @@ La extensión NPS debe instalarse en un servidor que tenga el rol Servicios de a
 
 3. En el servidor NPS, haga doble clic en **NpsExtnForAzureMfaInstaller.exe** y, si se le solicita, seleccione **Ejecutar**.
 
-4. En la ventana **Extensión NPS para Azure MFA**, revise los términos de licencia de software, seleccione la casilla **Acepto los términos y condiciones de licencia** y después seleccione **Instalar**.
+4. En la ventana **NPS Extension For Azure AD MFA Setup** (Extensión NPS para la configuración de Azure AD MFA), revise los términos de licencia de software, seleccione la casilla **Acepto los términos y condiciones de licencia** y después seleccione **Instalar**.
 
-    ![Ventana "Extensión NPS para Azure MFA"](./media/howto-mfa-nps-extension-vpn/image36.png)
+    ![Ventana "NPS Extension for Azure AD MFA Setup" (Extensión NPS para la configuración de Azure AD MFA)](./media/howto-mfa-nps-extension-vpn/image36.png)
 
-5. En la ventana de instalación de **Extensión NPS para Azure MFA**, seleccione **Cerrar**.  
+5. En la ventana de instalación de **NPS Extension For Azure AD MFA Setup** (Extensión NPS para la configuración de Azure AD MFA), seleccione **Cerrar**.  
 
     ![Ventana de confirmación "La instalación se realizó correctamente"](./media/howto-mfa-nps-extension-vpn/image37.png)
 
@@ -402,7 +402,7 @@ Para verificar la configuración, debe establecer una conexión VPN nueva con el
 
 ![Ventana de VPN en la configuración de Windows](./media/howto-mfa-nps-extension-vpn/image42.png)
 
-Si se autentica correctamente con el método de verificación secundario configurado previamente en Azure MFA, se conecta al recurso. Sin embargo, si la autenticación secundaria no se realiza correctamente, se deniega el acceso al recurso.
+Si se autentica correctamente con el método de verificación secundario configurado previamente en Azure AD MFA, se conectará al recurso. Sin embargo, si la autenticación secundaria no se realiza correctamente, se deniega el acceso al recurso.
 
 En el ejemplo siguiente, la aplicación Microsoft Authenticator en un dispositivo Windows Phone proporciona la autenticación secundaria:
 
@@ -424,7 +424,7 @@ También puede ver el registro de seguridad o la vista personalizada de Servicio
 
 ![Ejemplo de registro del Servidor de directivas de redes](./media/howto-mfa-nps-extension-vpn/image45.png)
 
-En el servidor donde instaló la extensión NPS para Azure Multi-Factor Authentication, puede encontrar registros de aplicación del Visor de eventos específicos de la extensión en *Application and Services Logs\Microsoft\AzureMfa*.
+En el servidor donde ha instalado la extensión NPS para Azure AD Multi-Factor Authentication, puede encontrar registros de aplicación del Visor de eventos específicos de la extensión en *Application and Services Logs\Microsoft\AzureMfa*.
 
 ```powershell
 Get-WinEvent -Logname Security | where {$_.ID -eq '6272'} | FL
@@ -436,15 +436,15 @@ Get-WinEvent -Logname Security | where {$_.ID -eq '6272'} | FL
 
 Si la configuración no funciona según lo esperado, verifique que el usuario está configurado para usar MFA para empezar a solucionar problemas. Haga que el usuario se conecte a [Azure Portal](https://portal.azure.com). Si al usuario se le solicita la autenticación secundaria y se puede autenticar correctamente, puede descartar una configuración incorrecta de MFA.
 
-Si MFA funciona para el usuario, debe revisar los registros pertinentes del Visor de eventos. Se incluyen los registros de eventos de seguridad, los registros operativos de la puerta de enlace y los registros de Azure Multi-Factor Authentication descritos en la sección anterior.
+Si MFA funciona para el usuario, debe revisar los registros pertinentes del Visor de eventos. Se incluyen los registros de eventos de seguridad, los registros operativos de la puerta de enlace y los registros de Azure AD Multi-Factor Authentication descritos en la sección anterior.
 
 A continuación, se muestra un ejemplo de un registro de seguridad que muestra un evento de inicio de sesión con errores (identificador de evento 6273):
 
 ![Registro de seguridad que muestra un evento de inicio de sesión con error](./media/howto-mfa-nps-extension-vpn/image47.png)
 
-A continuación, se muestra un evento relacionado del registro de Azure Multi-Factor Authentication:
+A continuación, se muestra un evento relacionado del registro de Azure AD Multi-Factor Authentication:
 
-![Registros de Azure Multi-Factor Authentication](./media/howto-mfa-nps-extension-vpn/image48.png)
+![Registros de Azure AD Multi-Factor Authentication](./media/howto-mfa-nps-extension-vpn/image48.png)
 
 Para realizar opciones avanzadas de solución de problemas, consulte los archivos de registro de formato de la base de datos de NPS donde está instalado el servicio NPS. Estos archivos de registro se crean en la carpeta _%SystemRoot%\System32\Logs_ como archivos de texto delimitado por comas. Para obtener una descripción de estos archivos de registro, vea [Interpret NPS Database Format Log Files](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771748(v=ws.10)) (Interpretación de los archivos de registro de formato de la base de datos de NPS).
 
@@ -456,11 +456,11 @@ Para más opciones de solución de problemas, puede utilizar un analizador de pr
 
 ![Analizador de mensajes de Microsoft que muestra el tráfico filtrado](./media/howto-mfa-nps-extension-vpn/image50.png)
 
-Para más información, consulte [Integración de la infraestructura NPS existente con Azure Multi-Factor Authentication](howto-mfa-nps-extension.md).
+Para más información, consulte [Integración de la infraestructura existente de Servidor de directivas de redes (NPS) con Azure AD Multi-Factor Authentication](howto-mfa-nps-extension.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Obtener Azure Multi-Factor Authentication](concept-mfa-licensing.md)
+[Obtención de Azure AD Multi-Factor Authentication](concept-mfa-licensing.md)
 
 [Puerta de enlace de Escritorio remoto y Servidor Azure Multi-Factor Authentication con RADIUS](howto-mfaserver-nps-rdg.md)
 

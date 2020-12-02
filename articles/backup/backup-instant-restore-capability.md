@@ -4,12 +4,12 @@ description: Funcionalidad de restauración instantánea de Azure y preguntas fr
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: 95de22d8493181f098e480afc4f319c44c633e42
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 147fadc92429157ed2f9ba3eb68297a3e1d08d24
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173915"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "96014455"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Rendimiento mejorado de la copia de seguridad y la restauración con la funcionalidad de restauración instantánea de Azure Backup
 
@@ -117,3 +117,8 @@ Si el punto de recuperación tiene una instantánea y es el más reciente dispon
 ### <a name="i-dont-need-instant-restore-functionality-can-it-be-disabled"></a>No necesito la característica de restauración instantánea. ¿Se puede deshabilitar?
 
 La característica de restauración instantánea está habilitada para todos los usuarios y no se puede deshabilitar. Puede reducir la retención de instantáneas a un mínimo de un día.
+
+### <a name="is-it-safe-to-restart-the-vm-during-the-transfer-process-which-can-take-many-hours-will-restarting-the-vm-interrupt-or-slow-down-the-transfer"></a>¿Es seguro reiniciar la máquina virtual durante el proceso de transferencia (que puede tardar muchas horas)? ¿Reiniciar la máquina virtual interrumpirá o ralentizará la transferencia?
+
+Sí, es seguro, y no hay ningún efecto sobre la velocidad de transferencia de datos.
+

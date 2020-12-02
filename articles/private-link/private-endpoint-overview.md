@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: allensu
-ms.openlocfilehash: 6fd20cd9e3172d6ce80d2c18c2cfa41fcc044929
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 8021d659c144bfb68c2714f1680b6ad27a51b56a
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92508036"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95522352"
 ---
 # <a name="what-is-azure-private-endpoint"></a>¿Qué es un punto de conexión privado de Azure?
 
@@ -28,9 +28,9 @@ Un punto de conexión privado de Azure es una interfaz de red que le conecta de 
 |Subnet    |  Subred para implementar y asignar direcciones IP privadas de una red virtual. Para conocer los requisitos de subred, consulte la sección Limitaciones de este artículo.         |
 |Recurso de vínculo privado    |   El recurso de vínculo privado al que conectarse mediante el identificador o el alias del recurso, de la lista de tipos disponibles. Se generará un identificador de red único para todo el tráfico enviado a este recurso.       |
 |Subrecurso de destino   |      Subrecurso que se va a conectar. Cada tipo de recurso de vínculo privado tiene diferentes opciones para seleccionar según las preferencias.    |
-|Método de aprobación de conexión    |  Automático o manual. Según los permisos del control de acceso basado en rol (RBAC), el punto de conexión privado se puede aprobar automáticamente. Si intenta conectarse a un recurso de vínculo privado sin RBAC, use el método manual para permitir que el propietario del recurso apruebe la conexión.        |
+|Método de aprobación de conexión    |  Automático o manual. Según los permisos del control de acceso basado en roles de Azure (Azure RBAC), el punto de conexión privado se puede aprobar automáticamente. Si intenta conectarse a un recurso de vínculo privado sin Azure RBAC, use el método manual para permitir que el propietario del recurso apruebe la conexión.        |
 |Mensaje de solicitud     |  Puede especificar un mensaje para que las conexiones solicitadas se aprueben manualmente. Este mensaje se puede usar para identificar una solicitud específica.        |
-|Estado de conexión   |   Propiedad de solo lectura que especifica si el punto de conexión privado está activo. Solo los puntos de conexión privados en un estado aprobado se pueden usar para enviar tráfico. Estados adicionales disponibles: <br>-**Aprobado** : La conexión se aprobó de forma automática o manual y está lista para usarse.</br><br>-**Pendiente** : La conexión se creó manualmente y está pendiente de aprobación por parte del propietario del recurso de vínculo privado.</br><br>-**Rechazado** : El propietario del recurso de vínculo privado rechazó la conexión.</br><br>-**Desconectado** : El propietario del recurso de vínculo privado quitó la conexión. El punto de conexión privado se vuelve informativo y debe eliminarse para la limpieza. </br>|
+|Estado de conexión   |   Propiedad de solo lectura que especifica si el punto de conexión privado está activo. Solo los puntos de conexión privados en un estado aprobado se pueden usar para enviar tráfico. Estados adicionales disponibles: <br>-**Aprobado**: La conexión se aprobó de forma automática o manual y está lista para usarse.</br><br>-**Pendiente**: La conexión se creó manualmente y está pendiente de aprobación por parte del propietario del recurso de vínculo privado.</br><br>-**Rechazado**: El propietario del recurso de vínculo privado rechazó la conexión.</br><br>-**Desconectado**: El propietario del recurso de vínculo privado quitó la conexión. El punto de conexión privado se vuelve informativo y debe eliminarse para la limpieza. </br>|
 
 Estos son algunos detalles importantes acerca de los puntos de conexión privados: 
 - El punto de conexión privado permite la conectividad entre los consumidores de la misma red virtual, las redes virtuales emparejadas de forma regional, las redes virtuales emparejadas de forma global y las instalaciones locales que usan [VPN](https://azure.microsoft.com/services/vpn-gateway/) o [Express Route](https://azure.microsoft.com/services/expressroute/) y servicios con la tecnología Private Link.
@@ -45,9 +45,9 @@ Estos son algunos detalles importantes acerca de los puntos de conexión privado
  
 - Se pueden crear varios puntos de conexión privados mediante el mismo recurso de vínculo privado. En el caso de una sola red que use una configuración de servidor DNS común, el procedimiento recomendado es usar un único punto de conexión privado para un recurso de vínculo privado determinado para evitar entradas duplicadas o conflictos en la resolución de DNS. 
  
-- Se pueden crear varios puntos de conexión privados en la misma subred o en subredes diferentes dentro de la misma red virtual. Existen límites en cuanto al número de puntos de conexión privados que se pueden crear en una suscripción. Para más información, consulte el artículo acerca de los  [límites de Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits).
+- Se pueden crear varios puntos de conexión privados en la misma subred o en subredes diferentes dentro de la misma red virtual. Existen límites en cuanto al número de puntos de conexión privados que se pueden crear en una suscripción. Para más información, consulte el artículo acerca de los  [límites de Azure](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits).
 
-- La suscripción del recurso de vínculo privado también se debe registrar con el proveedor de recursos Micosoft.Network. Para más información, consulte  [Proveedores de recursos de Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types).
+- La suscripción del recurso de vínculo privado también se debe registrar con el proveedor de recursos Micosoft.Network. Para más información, consulte  [Proveedores de recursos de Azure](../azure-resource-manager/management/resource-providers-and-types.md).
 
  
 ## <a name="private-link-resource"></a>Recurso de vínculo privado 
@@ -136,7 +136,7 @@ En la tabla siguiente se incluye una lista de las limitaciones conocidas al usar
 - [Creación de un punto de conexión privado para SQL Database mediante Azure Portal](create-private-endpoint-portal.md)
 - [Creación de un punto de conexión privado para SQL Database mediante PowerShell](create-private-endpoint-powershell.md)
 - [Creación de un punto de conexión privado para SQL Database mediante la CLI](create-private-endpoint-cli.md)
-- [Creación de un punto de conexión privado para la cuenta de almacenamiento mediante el portal](create-private-endpoint-storage-portal.md)
+- [Creación de un punto de conexión privado para la cuenta de almacenamiento mediante el portal](./tutorial-private-endpoint-storage-portal.md)
 - [Creación de un punto de conexión privado para la cuenta de Azure Cosmos mediante el portal](../cosmos-db/how-to-configure-private-endpoints.md)
 - [Creación del propio servicio Private Link con Azure PowerShell](create-private-link-service-powershell.md)
 - [Creación de un servicio Private Link propio para Azure Database for PostgreSQL: servidor único con el portal](../postgresql/howto-configure-privatelink-portal.md)

@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: e153c873305cc128ce97ae7c6a907a8f592f8b32
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: e8decbe22f869573bf7a2221099d2bc30c00fc8a
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93357477"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888851"
 ---
 # <a name="quickstart-handle-sms-events"></a>Inicio rápido: Control de eventos SMS
 
@@ -24,7 +24,7 @@ Para empezar con Azure Communication Services, use Azure Event Grid para adminis
 
 ## <a name="about-azure-event-grid"></a>Acerca de Azure Event Grid
 
-[Azure Event Grid](https://docs.microsoft.com/azure/event-grid/overview) es un servicio de eventos basado en la nube. En este artículo, aprenderá a suscribirse a [eventos de servicios de comunicación](../../concepts/event-handling.md) y a desencadenar un evento para ver el resultado. Por lo general, se envían eventos a un punto de conexión que procesa los datos del evento y realiza acciones. En este artículo, los eventos se envían a una aplicación web que recopila y muestra los mensajes.
+[Azure Event Grid](../../../event-grid/overview.md) es un servicio de eventos basado en la nube. En este artículo, aprenderá a suscribirse a [eventos de servicios de comunicación](../../concepts/event-handling.md) y a desencadenar un evento para ver el resultado. Por lo general, se envían eventos a un punto de conexión que procesa los datos del evento y realiza acciones. En este artículo, los eventos se envían a una aplicación web que recopila y muestra los mensajes.
 
 ## <a name="prerequisites"></a>Requisitos previos
 - Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
@@ -49,7 +49,7 @@ Puede tardar unos instantes en finalizarse el registro. Seleccione **Actualizar*
 
 ### <a name="event-grid-viewer-deployment"></a>Implementación del visor de Event Grid
 
-En esta guía de inicio rápido, usaremos el [ejemplo de visor de Azure Event Grid](https://docs.microsoft.com/samples/azure-samples/azure-event-grid-viewer/azure-event-grid-viewer/) para ver eventos prácticamente en tiempo real. Esto proporcionará al usuario la experiencia de una fuente en tiempo real. Además, la carga útil de cada evento debe estar disponible también para su inspección.  
+En esta guía de inicio rápido, usaremos el [ejemplo de visor de Azure Event Grid](/samples/azure-samples/azure-event-grid-viewer/azure-event-grid-viewer/) para ver eventos prácticamente en tiempo real. Esto proporcionará al usuario la experiencia de una fuente en tiempo real. Además, la carga útil de cada evento debe estar disponible también para su inspección.  
 
 ## <a name="subscribe-to-the-sms-events-using-web-hooks"></a>Suscripción a eventos SMS mediante webhooks
 
@@ -63,7 +63,7 @@ En la página **Crear suscripción de eventos**, escriba un **Nombre** para la s
 
 Se puede suscribir a eventos específicos para indicar a Event Grid los eventos SMS de los que quiere realizar un seguimiento y el lugar al que deben enviarse. Seleccione los eventos a los que le gustaría suscribirse en el menú desplegable. En el caso de SMS, tendrá la opción de elegir `SMS Received` y `SMS Delivery Report Received`. 
 
-Si se le pide que proporcione un **nombre de tema del sistema**, no dude en proporcionar un identificador único que pueda usar opcionalmente para filtrar los eventos una vez emitidos.
+Si se le pide que proporcione un **nombre del tema del sistema**, puede proporcionar una cadena única. Este campo no afecta en modo alguno a la experiencia y se usa para telemetría interna.
 
 Consulte la lista completa de [eventos admitidos en Azure Communication Services](../../concepts/event-handling.md).
 
@@ -75,7 +75,7 @@ En **Webhook**, seleccione **Tipo de punto de conexión**.
 
 En **Punto de conexión**, haga clic en **Seleccione un punto de conexión** y escriba la dirección URL de la aplicación web.
 
-En este caso, se usará la dirección URL del [ejemplo de visor de Azure Event Grid](https://docs.microsoft.com/samples/azure-samples/azure-event-grid-viewer/azure-event-grid-viewer/) configurado anteriormente en la guía de inicio rápido. La dirección URL del ejemplo tendrá el formato: `https://{{site-name}}.azurewebsites.net/api/updates`.
+En este caso, se usará la dirección URL del [ejemplo de visor de Azure Event Grid](/samples/azure-samples/azure-event-grid-viewer/azure-event-grid-viewer/) configurado anteriormente en la guía de inicio rápido. La dirección URL del ejemplo tendrá el formato: `https://{{site-name}}.azurewebsites.net/api/updates`.
 
 Seleccione **Confirmar selección**.
 
@@ -94,7 +94,7 @@ Consulte la lista completa de [eventos admitidos en Azure Communication Services
 
 ### <a name="receiving-sms-events"></a>Recepción de eventos SMS
 
-Cuando complete cualquiera de las acciones anteriores, observará que los eventos `SMS Received` y `SMS Delivery Report Received` se han enviado al punto de conexión. Estos eventos se mostrarán en el [ejemplo de visor de Azure Event Grid](https://docs.microsoft.com/samples/azure-samples/azure-event-grid-viewer/azure-event-grid-viewer/) que configuramos al principio. Puede presionar el icono de ojo situado junto al evento para ver toda la carga útil. Este será el aspecto de los eventos:
+Cuando complete cualquiera de las acciones anteriores, observará que los eventos `SMS Received` y `SMS Delivery Report Received` se han enviado al punto de conexión. Estos eventos se mostrarán en el [ejemplo de visor de Azure Event Grid](/samples/azure-samples/azure-event-grid-viewer/azure-event-grid-viewer/) que configuramos al principio. Puede presionar el icono de ojo situado junto al evento para ver toda la carga útil. Este será el aspecto de los eventos:
 
 :::image type="content" source="./media/handle-sms-events/sms-received.png" alt-text="Captura de pantalla que muestra el esquema de Event Grid para un evento recibido de SMS.":::
 
@@ -116,4 +116,4 @@ En este tutorial, ha aprendido a utilizar eventos SMS. Puede recibir mensajes SM
 Puede que también le interese:
 
  - [Más información sobre los conceptos de control de eventos](../../concepts/event-handling.md)
- - [Información sobre Event Grid](https://docs.microsoft.com/azure/event-grid/overview)
+ - [Información sobre Event Grid](../../../event-grid/overview.md)

@@ -7,12 +7,12 @@ ms.date: 08/11/2020
 ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 3b7c9b51bad45bb348f70c8b0e433404b49b5aac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6e6c090c02798103a30cc68f2ca28e8c4f7f2f17
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91761369"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "96004269"
 ---
 # <a name="set-up-your-environment-for-the-iot-plug-and-play-quickstarts-and-tutorials"></a>Configuración del entorno para los tutoriales y las guías de inicio rápido de IoT Plug and Play
 
@@ -143,4 +143,4 @@ az group delete --name my-pnp-resourcegroup
 Ahora que ha configurado el entorno, puede probar una de las guías de inicio rápido o tutoriales, como:
 
 > [!div class="nextstepaction"]
-> [Conexión de una aplicación de dispositivo IoT Plug and Play de ejemplo a IoT Hub (Node.js)](quickstart-connect-device-node.md)
+> [Conexión de una aplicación de dispositivo IoT Plug and Play de ejemplo a IoT Hub](quickstart-connect-device.md)

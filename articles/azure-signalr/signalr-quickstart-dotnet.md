@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.custom: devx-track-csharp
 ms.date: 09/28/2020
 ms.author: zhshang
-ms.openlocfilehash: da91a5a7c077eb14d12a711b8b308d7045c88f4a
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: c39ef505b0cea0ad0c03b81683db8441077cd0d2
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150985"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94874549"
 ---
 # <a name="quickstart-create-a-chat-room-with-aspnet-and-signalr-service"></a>Inicio rápido: Creación de un salón de chat con ASP.NET y SignalR Service
 
@@ -32,13 +32,13 @@ En esta guía de inicio rápido, obtendrá información sobre cómo empezar a tr
 * [.NET 4.6.1](https://www.microsoft.com/net/download/windows)
 * [ASP.NET SignalR 2.4.1](https://www.nuget.org/packages/Microsoft.AspNet.SignalR/)
 
-[¿Tiene problemas? Háganoslo saber.](https://aka.ms/asrs/qsnet)
+¿Tiene problemas? Consulte la [guía de solución de problemas](signalr-howto-troubleshoot-guide.md) o [póngase en contacto con nosotros](https://aka.ms/asrs/qsnet).
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
 Inicie sesión en [Azure Portal](https://portal.azure.com/) con su cuenta de Azure.
 
-[¿Tiene problemas? Háganoslo saber.](https://aka.ms/asrs/qsnet)
+¿Tiene problemas? Consulte la [guía de solución de problemas](signalr-howto-troubleshoot-guide.md) o [póngase en contacto con nosotros](https://aka.ms/asrs/qsnet).
 
 [!INCLUDE [Create instance](includes/signalr-quickstart-create-instance.md)]
 
@@ -46,7 +46,7 @@ El modo *sin servidor* no es compatible para aplicaciones de ASP.NET SignalR. Us
 
 También puede crear los recursos de Azure utilizados en esta guía de inicio rápido con la [creación de un script de SignalR Service](scripts/signalr-cli-create-service.md).
 
-[¿Tiene problemas? Háganoslo saber.](https://aka.ms/asrs/qsnet)
+¿Tiene problemas? Consulte la [guía de solución de problemas](signalr-howto-troubleshoot-guide.md) o [póngase en contacto con nosotros](https://aka.ms/asrs/qsnet).
 
 ## <a name="clone-the-sample-application"></a>Clonación de la aplicación de ejemplo
 
@@ -60,7 +60,7 @@ Mientras se implementa el servicio, pasaremos a trabajar con el código. Clone l
     git clone https://github.com/aspnet/AzureSignalR-samples.git
     ```
 
-[¿Tiene problemas? Háganoslo saber.](https://aka.ms/asrs/qsnet)
+¿Tiene problemas? Consulte la [guía de solución de problemas](signalr-howto-troubleshoot-guide.md) o [póngase en contacto con nosotros](https://aka.ms/asrs/qsnet).
 
 ## <a name="configure-and-run-chat-room-web-app"></a>Configuración y ejecución de una aplicación web de salón de chat
 
@@ -106,7 +106,7 @@ Mientras se implementa el servicio, pasaremos a trabajar con el código. Clone l
 
 1. Presione <kbd>F5</kbd> para ejecutar el proyecto en modo de depuración. Puede observar que la aplicación se ejecuta localmente. En lugar de que la propia aplicación hospede una instancia de SignalR en tiempo de ejecución, ahora se conecta a Azure SignalR Service.
 
-[¿Tiene problemas? Háganoslo saber.](https://aka.ms/asrs/qsnet)
+¿Tiene problemas? Consulte la [guía de solución de problemas](signalr-howto-troubleshoot-guide.md) o [póngase en contacto con nosotros](https://aka.ms/asrs/qsnet).
 
 [!INCLUDE [Cleanup](includes/signalr-quickstart-cleanup.md)]
 
@@ -121,7 +121,7 @@ Escriba el nombre del grupo de recursos en el cuadro de texto **Filtrar por nomb
 
 Transcurridos unos instantes, el grupo de recursos y todos los recursos que contiene se eliminan.
 
-[¿Tiene problemas? Háganoslo saber.](https://aka.ms/asrs/qsnet)
+¿Tiene problemas? Consulte la [guía de solución de problemas](signalr-howto-troubleshoot-guide.md) o [póngase en contacto con nosotros](https://aka.ms/asrs/qsnet).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -129,5 +129,3 @@ En esta guía de inicio rápido, ha creado un recurso de Azure SignalR Service y
 
 > [!div class="nextstepaction"]
 > [Azure SignalR Service con ASP.NET Core](./signalr-quickstart-dotnet-core.md)
-
-[¿Tiene problemas? Háganoslo saber.](https://aka.ms/asrs/qsnet)

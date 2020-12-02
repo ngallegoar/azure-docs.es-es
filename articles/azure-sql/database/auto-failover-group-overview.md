@@ -5,19 +5,19 @@ description: Los grupos de conmutación por error automática permiten administr
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: high-availability
-ms.custom: sqldbrb=2
+ms.custom: sqldbrb=2, devx-track-azurecli
 ms.devlang: ''
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 11/16/2020
-ms.openlocfilehash: 35856a0d414e288fcd184164733e9430a6bee296
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 0d2248b9c0a289f5e4f9f2f8e987365ab58c49c0
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94653749"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94988551"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Uso de grupos de conmutación por error automática para permitir la conmutación por error de varias bases de datos de manera transparente y coordinada
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -142,15 +142,15 @@ Los permisos para un grupo de conmutación por error se administran a través de
 
 ### <a name="create-failover-group"></a>Creación de un grupo de conmutación por error
 
-Para crear un grupo de conmutación por error, necesita acceso de escritura RBAC a los servidores principales y secundarios, así como a todas las bases de datos del grupo de conmutación por error. Para una Instancia administrada de SQL, necesita acceso de escritura RBAC tanto a la instancia principal como a la secundaria de Instancia administrada de SQL, pero los permisos para las bases de datos individuales no son relevantes, puesto que no pueden agregarse bases de datos individuales de Instancia administrada de SQL a un grupo de conmutación por error ni eliminarse de este.
+Para crear un grupo de conmutación por error, necesita acceso de escritura de Azure RBAC a los servidores principales y secundarios, así como a todas las bases de datos del grupo de conmutación por error. Para una Instancia administrada de SQL, necesita acceso de escritura de Azure RBAC tanto a la instancia principal como a la secundaria de SQL Managed Instance, pero los permisos para las bases de datos individuales no son relevantes, puesto que no pueden agregarse bases de datos individuales de SQL Managed Instance a un grupo de conmutación por error ni eliminarse de este.
 
 ### <a name="update-a-failover-group"></a>Actualización de un grupo de conmutación por error
 
-Para actualizar un grupo de conmutación por error, necesita acceso de escritura RBAC para el grupo de conmutación por error y para todas las bases de datos del servidor principal actual o instancia administrada.  
+Para actualizar un grupo de conmutación por error, necesita acceso de escritura de Azure RBAC para el grupo de conmutación por error y para todas las bases de datos del servidor principal actual o instancia administrada.  
 
 ### <a name="fail-over-a-failover-group"></a>Conmutación por error de un grupo de conmutación por error
 
-Para conmutar por error un grupo de conmutación por error, necesita acceso de escritura RBAC para el grupo de conmutación por error del nuevo servidor principal o instancia administrada.
+Para conmutar por error un grupo de conmutación por error, necesita acceso de escritura de Azure RBAC para el grupo de conmutación por error del nuevo servidor principal o instancia administrada.
 
 ## <a name="best-practices-for-sql-database"></a>Procedimientos recomendados para SQL Database
 
@@ -409,7 +409,7 @@ Tenga en cuenta las siguientes limitaciones:
 
 ## <a name="programmatically-managing-failover-groups"></a>Administración mediante programación de grupos de conmutación por error
 
-Como se ha mencionado antes, los grupos de conmutación automática por error y la replicación geográfica activa también pueden administrarse mediante programación con Azure PowerShell y la API REST. En las tablas siguientes se describe el conjunto de comandos disponibles. La replicación geográfica activa incluye un conjunto de API de Azure Resource Manager para la administración, en el que se incluyen la [API REST de Azure SQL Database](/rest/api/sql/) y los [cmdlets de Azure PowerShell](/powershell/azure/). Estas API requieren que se usen grupos de recursos y admiten la seguridad basada en roles (RBAC). Para más información sobre cómo implementar los roles de acceso, consulte [Control de acceso basado en roles de Azure (Azure RBAC)](../../role-based-access-control/overview.md).
+Como se ha mencionado antes, los grupos de conmutación automática por error y la replicación geográfica activa también pueden administrarse mediante programación con Azure PowerShell y la API REST. En las tablas siguientes se describe el conjunto de comandos disponibles. La replicación geográfica activa incluye un conjunto de API de Azure Resource Manager para la administración, en el que se incluyen la [API REST de Azure SQL Database](/rest/api/sql/) y los [cmdlets de Azure PowerShell](/powershell/azure/). Estas API requieren que se usen grupos de recursos y admiten el control de acceso basado en rol de Azure (Azure RBAC). Para más información sobre cómo implementar los roles de acceso, consulte [Control de acceso basado en roles de Azure (Azure RBAC)](../../role-based-access-control/overview.md).
 
 ### <a name="manage-sql-database-failover"></a>Administración de la conmutación por error de SQL Database
 

@@ -5,16 +5,16 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/03/2020
+ms.date: 11/17/2020
 ms.author: normesta
 ms.reviewer: prishet
-ms.custom: devx-track-csharp
-ms.openlocfilehash: 2ab554f45de30bb676d2933a4a1268b6831ae4f5
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.custom: devx-track-csharp, devx-track-azurecli
+ms.openlocfilehash: 380d2615f62de52474b1d4316dec1dab63e5f0d5
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94659927"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95912338"
 ---
 # <a name="set-access-control-lists-acls-recursively-for-azure-data-lake-storage-gen2"></a>Establecimiento de listas de control de acceso (ACL) de forma recursiva para Azure Data Lake Storage Gen2
 
@@ -30,11 +30,11 @@ La herencia de ACL ya está disponible para los nuevos elementos secundarios que
 
 - Los permisos correctos para ejecutar el proceso de ACL recursivo. El permiso correcto incluye una de las siguientes opciones: 
 
-  - Una [entidad de seguridad](https://docs.microsoft.com/azure/role-based-access-control/overview#security-principal) aprovisionada de Azure Active Directory a la que se ha asignado el rol [Propietario de datos de blobs de almacenamiento](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) en el ámbito del contenedor de destino, el grupo de recursos primario o la suscripción.   
+  - Una [entidad de seguridad](../../role-based-access-control/overview.md#security-principal) aprovisionada de Azure Active Directory a la que se ha asignado el rol [Propietario de datos de blobs de almacenamiento](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) en el ámbito del contenedor de destino, el grupo de recursos primario o la suscripción.   
 
   - El usuario propietario del contenedor o directorio de destino al que va a aplicar el proceso de ACL recursivo. Esto incluye todos los elementos secundarios del contenedor o directorio de destino. 
 
-- Una descripción de cómo se aplican las ACL a los directorios y archivos. Consulte [Control de acceso en Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control). 
+- Una descripción de cómo se aplican las ACL a los directorios y archivos. Consulte [Control de acceso en Azure Data Lake Storage Gen2](./data-lake-storage-access-control.md). 
 
 Consulte la sección **Configurar su proyecto** de este artículo para ver la guía de instalación de PowerShell, el SDK de .NET y el SDK de Python.
 
@@ -50,7 +50,7 @@ Instale las bibliotecas necesarias.
    echo $PSVersionTable.PSVersion.ToString() 
    ```
     
-   Para actualizar la versión de PowerShell, vea [Actualización de Windows PowerShell existente](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell).
+   Para actualizar la versión de PowerShell, vea [Actualización de Windows PowerShell existente](/powershell/scripting/install/installing-windows-powershell).
     
 2. Instale el módulo **Az.Storage**.
 
@@ -58,18 +58,18 @@ Instale las bibliotecas necesarias.
    Install-Module Az.Storage -Repository PSGallery -Force  
    ```
 
-   Para más información sobre cómo instalar módulos de PowerShell, vea [Instalación del módulo de Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
+   Para más información sobre cómo instalar módulos de PowerShell, vea [Instalación del módulo de Azure PowerShell](/powershell/azure/install-az-ps).
 
 ### <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
-1. Abra [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) o, si ha [instalado](https://docs.microsoft.com/cli/azure/install-azure-cli) la CLI de Azure localmente, abra una aplicación de consola de comandos como Windows PowerShell.
+1. Abra [Azure Cloud Shell](../../cloud-shell/overview.md) o, si ha [instalado](/cli/azure/install-azure-cli) la CLI de Azure localmente, abra una aplicación de consola de comandos como Windows PowerShell.
 
 2. Use el comando siguiente para verificar que la versión de la CLI de Azure que ha instalado sea `2.14.0` o posterior.
 
    ```azurecli
     az --version
    ```
-   Si la versión de la CLI de Azure es anterior a `2.14.0`, instale una versión posterior. Consulte [Instalación de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+   Si la versión de la CLI de Azure es anterior a `2.14.0`, instale una versión posterior. Consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli).
 
 ### <a name="net"></a>[.NET](#tab/dotnet)
 
@@ -201,7 +201,7 @@ $ctx = $storageAccount.Context
 
    En caso contrario, abra una página del explorador en [https://aka.ms/devicelogin](https://aka.ms/devicelogin) y escriba el código de autorización que se muestra en el terminal. Inicie sesión con las credenciales de su cuenta en el explorador.
 
-   Para obtener más información sobre los distintos métodos de autenticación, consulte [Autorización del acceso a los datos de blobs o colas con la CLI de Azure](../common/authorize-data-operations-cli.md).
+   Para obtener más información sobre los distintos métodos de autenticación, consulte [Autorización del acceso a los datos de blobs o colas con la CLI de Azure](./authorize-data-operations-cli.md).
 
 2. Si su identidad se asocia a más de una suscripción, establezca su suscripción activa en la suscripción de la cuenta de almacenamiento que hospedará el sitio web estático.
 
@@ -212,11 +212,11 @@ $ctx = $storageAccount.Context
    Reemplace el valor de marcador de posición `<subscription-id>` por el identificador de la suscripción.
 
 > [!NOTE]
-> En el ejemplo que se presenta en este artículo se muestra la autorización de Azure Active Directory (AD). Para obtener más información sobre los métodos de autorización, consulte [Autorización del acceso a los datos de blobs o colas con la CLI de Azure](../common/authorize-data-operations-cli.md).
+> En el ejemplo que se presenta en este artículo se muestra la autorización de Azure Active Directory (AD). Para obtener más información sobre los métodos de autorización, consulte [Autorización del acceso a los datos de blobs o colas con la CLI de Azure](./authorize-data-operations-cli.md).
 
 ### <a name="net"></a>[.NET](#tab/dotnet)
 
-Para usar los fragmentos de código de este artículo, tiene que crear una instancia de [DataLakeServiceClient](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.datalakeserviceclient) que represente la cuenta de almacenamiento.
+Para usar los fragmentos de código de este artículo, tiene que crear una instancia de [DataLakeServiceClient](/dotnet/api/azure.storage.files.datalake.datalakeserviceclient) que represente la cuenta de almacenamiento.
 
 #### <a name="connect-by-using-azure-active-directory-ad"></a>Conexión con Azure Active Directory (AD)
 
@@ -235,7 +235,7 @@ Obtenga un identificador de cliente, un secreto de cliente y un identificador de
 |[Propietario de datos de blobs de almacenamiento](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner)|Todos los directorios y archivos de la cuenta.|
 |[Colaborador de datos de blobs de almacenamiento](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor)|Solo los directorios y archivos que pertenecen a la entidad de seguridad.|
 
-En este ejemplo se crea una instancia de [DataLakeServiceClient](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.datalakeserviceclient?) con un identificador de cliente, un secreto de cliente y un identificador de inquilino.  
+En este ejemplo se crea una instancia de [DataLakeServiceClient](/dotnet/api/azure.storage.files.datalake.datalakeserviceclient) con un identificador de cliente, un secreto de cliente y un identificador de inquilino.  
 
 ```cs
 public void GetDataLakeServiceClient(ref DataLakeServiceClient dataLakeServiceClient, 
@@ -256,7 +256,7 @@ public void GetDataLakeServiceClient(ref DataLakeServiceClient dataLakeServiceCl
 
 Este método es la manera más sencilla de conectarse a una cuenta. 
 
-En este ejemplo se crea una instancia de [DataLakeServiceClient](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.datalakeserviceclient?) con una clave de cuenta.
+En este ejemplo se crea una instancia de [DataLakeServiceClient](/dotnet/api/azure.storage.files.datalake.datalakeserviceclient) con una clave de cuenta.
 
 ```cs
 public void GetDataLakeServiceClient(ref DataLakeServiceClient dataLakeServiceClient,
@@ -386,9 +386,11 @@ except Exception as e:
 
 ## <a name="set-an-acl-recursively"></a>Establecimiento de una ACL de forma recursiva
 
-Cuando *establece* una ACL, debe **reemplazar** toda la ACL, incluidas todas sus entradas. Si quiere cambiar el nivel de permiso de una entidad de seguridad o agregar una nueva entidad de seguridad a la ACL sin que esto afecte a otras entradas existentes, debe *actualizar* la ACL en su lugar. Para actualizar una ACL en lugar de reemplazarla, consulte la sección [Actualizar una ACL de forma recursiva](#update-an-acl-recursively) de este artículo.   
+Cuando *establece* una ACL, debe **reemplazar** toda la ACL, incluidas todas sus entradas. Si quiere cambiar el nivel de permiso de una entidad de seguridad o agregar una nueva entidad de seguridad a la ACL sin que esto afecte a otras entradas existentes, debe *actualizar* la ACL en su lugar. Para actualizar una ACL en lugar de reemplazarla, consulte la sección [Actualizar una ACL de forma recursiva](#update-an-acl-recursively) de este artículo.  
 
-Esta sección contiene ejemplos de cómo establecer una ACL. 
+Si elige *establecer* la lista de control de acceso, debe agregar una entrada para el usuario propietario, otra para el grupo propietario y una tercera para los demás usuarios. Para más información sobre el usuario propietario, el grupo propietario y el resto de usuarios, consulte [Usuarios e identidades](data-lake-storage-access-control.md#users-and-identities). 
+
+Esta sección contiene ejemplos de cómo establecer una lista de control de acceso.
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -413,11 +415,11 @@ Set-AzDataLakeGen2AclRecursive -Context $ctx -FileSystem $filesystemName -Path $
 > [!NOTE]
 > Si desea establecer una entrada de la ACL **predeterminada**, use el parámetro **-DefaultScope** cuando ejecute el comando **Set-AzDataLakeGen2ItemAclObject**. Por ejemplo: `$acl = set-AzDataLakeGen2ItemAclObject -AccessControlType user -Permission rwx -DefaultScope`.
 
-Para ver un ejemplo que establezca ACL de forma recursiva en lotes especificando un tamaño de lote, consulte el artículo de referencia [Set-AzDataLakeGen2AclRecursive](https://docs.microsoft.com/powershell/module/az.storage/set-azdatalakegen2aclrecursive).
+Para ver un ejemplo que establezca ACL de forma recursiva en lotes especificando un tamaño de lote, consulte el artículo de referencia [Set-AzDataLakeGen2AclRecursive](/powershell/module/az.storage/set-azdatalakegen2aclrecursive).
 
 ### <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
-Establezca una ACL de forma recursiva mediante el comando [az storage fs access set-recursive](https://docs.microsoft.com/cli/azure/storage/fs/access#az_storage_fs_access_set_recursive).
+Establezca una ACL de forma recursiva mediante el comando [az storage fs access set-recursive](/cli/azure/storage/fs/access#az_storage_fs_access_set_recursive).
 
 En este ejemplo se establece la ACL de un directorio denominado `my-parent-directory`. En estas entradas se concede al usuario propietario permisos de lectura, escritura y ejecución, permisos solo de lectura y ejecución al grupo propietario, y ningún permiso al resto. La última entrada de ACL de este ejemplo proporciona a un usuario específico con el identificador de objeto "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" permisos de lectura y ejecución.
 
@@ -606,11 +608,11 @@ Update-AzDataLakeGen2AclRecursive -Context $ctx -FileSystem $filesystemName -Pat
 > [!NOTE]
 > Si desea actualizar una entrada de la ACL **predeterminada**, use el parámetro **-DefaultScope** cuando ejecute el comando **Set-AzDataLakeGen2ItemAclObject**. Por ejemplo: `$acl = set-AzDataLakeGen2ItemAclObject -AccessControlType user -EntityId $userID -Permission rwx -DefaultScope`.
 
-Para ver un ejemplo que actualice ACL de forma recursiva en lotes especificando un tamaño de lote, consulte el artículo de referencia [Update-AzDataLakeGen2AclRecursive](https://docs.microsoft.com/powershell/module/az.storage/update-azdatalakegen2aclrecursive).
+Para ver un ejemplo que actualice ACL de forma recursiva en lotes especificando un tamaño de lote, consulte el artículo de referencia [Update-AzDataLakeGen2AclRecursive](/powershell/module/az.storage/update-azdatalakegen2aclrecursive).
 
 ### <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
-Actualice una ACL de forma recursiva mediante el comando [az storage fs access update-recursive](https://docs.microsoft.com/cli/azure/storage/fs/access#az_storage_fs_access_update_recursive). 
+Actualice una ACL de forma recursiva mediante el comando [az storage fs access update-recursive](/cli/azure/storage/fs/access#az_storage_fs_access_update_recursive). 
 
 En este ejemplo se actualiza una entrada de ACL con permiso de escritura. 
 
@@ -747,11 +749,11 @@ Remove-AzDataLakeGen2AclRecursive -Context $ctx -FileSystem $filesystemName  -Ac
 > [!NOTE]
 > Si desea quitar una entrada de la ACL **predeterminada**, use el parámetro **-DefaultScope** cuando ejecute el comando **Set-AzDataLakeGen2ItemAclObject**. Por ejemplo: `$acl = set-AzDataLakeGen2ItemAclObject -AccessControlType user -EntityId $userID -Permission "---" -DefaultScope`.
 
-Para ver un ejemplo que quite ACL de forma recursiva en lotes especificando un tamaño de lote, consulte el artículo de referencia [Remove-AzDataLakeGen2AclRecursive](https://docs.microsoft.com/powershell/module/az.storage/remove-azdatalakegen2aclrecursive).
+Para ver un ejemplo que quite ACL de forma recursiva en lotes especificando un tamaño de lote, consulte el artículo de referencia [Remove-AzDataLakeGen2AclRecursive](/powershell/module/az.storage/remove-azdatalakegen2aclrecursive).
 
 ### <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
-Quite las entradas de ACL mediante el comando [az storage fs access remove-recursive](https://docs.microsoft.com/cli/azure/storage/fs/access#az_storage_fs_access_remove_recursive). 
+Quite las entradas de ACL mediante el comando [az storage fs access remove-recursive](/cli/azure/storage/fs/access#az_storage_fs_access_remove_recursive). 
 
 En este ejemplo se quita una entrada de ACL del directorio raíz del contenedor.  
 
@@ -878,7 +880,7 @@ $result
 
 ```
 
-Para ver un ejemplo que establezca ACL de forma recursiva en lotes especificando un tamaño de lote, consulte el artículo de referencia [Set-AzDataLakeGen2AclRecursive](https://docs.microsoft.com/powershell/module/az.storage/set-azdatalakegen2aclrecursive).
+Para ver un ejemplo que establezca ACL de forma recursiva en lotes especificando un tamaño de lote, consulte el artículo de referencia [Set-AzDataLakeGen2AclRecursive](/powershell/module/az.storage/set-azdatalakegen2aclrecursive).
 
 ### <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
@@ -1003,7 +1005,7 @@ echo "TotalFailureCount: `t`t`t`t`t$($result.TotalFailureCount)"
 echo "FailedEntries:"$($result.FailedEntries | ft) 
 ```
 
-Para ver un ejemplo que establezca ACL de forma recursiva en lotes especificando un tamaño de lote, consulte el artículo de referencia [Set-AzDataLakeGen2AclRecursive](https://docs.microsoft.com/powershell/module/az.storage/set-azdatalakegen2aclrecursive).
+Para ver un ejemplo que establezca ACL de forma recursiva en lotes especificando un tamaño de lote, consulte el artículo de referencia [Set-AzDataLakeGen2AclRecursive](/powershell/module/az.storage/set-azdatalakegen2aclrecursive).
 
 ### <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
@@ -1113,11 +1115,11 @@ Esta sección contiene vínculos a bibliotecas y ejemplos de código.
 #### <a name="libraries"></a>Bibliotecas
 
 - [PowerShell](https://www.powershellgallery.com/packages/Az.Storage/3.0.0)
-- [CLI de Azure](https://docs.microsoft.com/cli/azure/storage/fs/access)
+- [CLI de Azure](/cli/azure/storage/fs/access)
 - [.NET](https://pkgs.dev.azure.com/azure-sdk/public/_packaging/azure-sdk-for-net/nuget/v3/index.json)
 - [Java](/java/api/overview/azure/storage-file-datalake-readme)
 - [Python](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Frecursiveaclpr.blob.core.windows.net%2Fprivatedrop%2Fazure_storage_file_datalake-12.1.0b99-py2.py3-none-any.whl%3Fsv%3D2019-02-02%26st%3D2020-08-24T07%253A47%253A01Z%26se%3D2021-08-25T07%253A47%253A00Z%26sr%3Db%26sp%3Dr%26sig%3DH1XYw4FTLJse%252BYQ%252BfamVL21UPVIKRnnh2mfudA%252BfI0I%253D&data=02%7C01%7Cnormesta%40microsoft.com%7C95a5966d938a4902560e08d84912fe32%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637339693209725909&sdata=acv4KWZdzkITw1lP0%2FiA3lZuW7NF5JObjY26IXttfGI%3D&reserved=0)
-- [REST](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/path/update)
+- [REST](/rest/api/storageservices/datalakestoragegen2/path/update)
 
 #### <a name="code-samples"></a>Ejemplos de código
 
@@ -1125,7 +1127,7 @@ Esta sección contiene vínculos a bibliotecas y ejemplos de código.
 
 - CLI de Azure: [Ejemplo](https://github.com/Azure/azure-cli/blob/2a55a5350696a3a93a13f364f2104ec8bc82cdd3/src/azure-cli/azure/cli/command_modules/storage/docs/ADLS%20Gen2.md)
 
-- NET: [Léame](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Frecursiveaclpr.blob.core.windows.net%2Fprivatedrop%2FREADME%2520for%2520net%3Fsv%3D2019-02-02%26st%3D2020-08-25T23%253A20%253A42Z%26se%3D2021-08-26T23%253A20%253A00Z%26sr%3Db%26sp%3Dr%26sig%3DKrnHvasHoSoVeUyr2g%252FSc2aDVW3De4A%252Fvx0lFWZs494%253D&data=02%7C01%7Cnormesta%40microsoft.com%7Cda902e4fe6c24e6a07d908d8494fd4bd%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637339954503767961&sdata=gd%2B2LphTtDFVb7pZko9rkGO9OG%2FVvmeXprHB9IOEYXE%3D&reserved=0) | [Ejemplo](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Frecursiveaclpr.blob.core.windows.net%2Fprivatedrop%2FRecursive-Acl-Sample-Net.zip%3Fsv%3D2019-02-02%26st%3D2020-08-24T07%253A45%253A28Z%26se%3D2021-09-25T07%253A45%253A00Z%26sr%3Db%26sp%3Dr%26sig%3D2GI3f0KaKMZbTi89AgtyGg%252BJePgNSsHKCL68V6I5W3s%253D&data=02%7C01%7Cnormesta%40microsoft.com%7C6eae76c57d224fb6de8908d848525330%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637338865714571853&sdata=%2FWom8iI3DSDMSw%2FfYvAaQ69zbAoqXNTQ39Q9yVMnASA%3D&reserved=0)
+- NET: [Léame](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Frecursiveaclpr.blob.core.windows.net%2Fprivatedrop%2FREADME%2520for%2520net%3Fsv%3D2019-02-02%26st%3D2020-08-25T23%253A20%253A42Z%26se%3D2021-08-26T23%253A20%253A00Z%26sr%3Db%26sp%3Dr%26sig%3DKrnHvasHoSoVeUyr2g%2fSc2aDVW3De4A%2fvx0lFWZs494%253D&data=02%7C01%7Cnormesta%40microsoft.com%7Cda902e4fe6c24e6a07d908d8494fd4bd%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637339954503767961&sdata=gd%2B2LphTtDFVb7pZko9rkGO9OG%2FVvmeXprHB9IOEYXE%3D&reserved=0) | [Ejemplo](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Frecursiveaclpr.blob.core.windows.net%2Fprivatedrop%2FRecursive-Acl-Sample-Net.zip%3Fsv%3D2019-02-02%26st%3D2020-08-24T07%253A45%253A28Z%26se%3D2021-09-25T07%253A45%253A00Z%26sr%3Db%26sp%3Dr%26sig%3D2GI3f0KaKMZbTi89AgtyGg%252BJePgNSsHKCL68V6I5W3s%253D&data=02%7C01%7Cnormesta%40microsoft.com%7C6eae76c57d224fb6de8908d848525330%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637338865714571853&sdata=%2FWom8iI3DSDMSw%2FfYvAaQ69zbAoqXNTQ39Q9yVMnASA%3D&reserved=0)
 
 - Python: [Léame](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Frecursiveaclpr.blob.core.windows.net%2Fprivatedrop%2FREADME%2520for%2520python%3Fsv%3D2019-02-02%26st%3D2020-08-25T23%253A21%253A47Z%26se%3D2021-08-26T23%253A21%253A00Z%26sr%3Db%26sp%3Dr%26sig%3DRq6Bl5lXrtYk79thy8wX7UTbjyd2f%252B6xzVBFFVYbdYg%253D&data=02%7C01%7Cnormesta%40microsoft.com%7Cda902e4fe6c24e6a07d908d8494fd4bd%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637339954503777915&sdata=3e46Lp2miOHj755Gh0odH3M0%2BdTF3loGCCBENrulVTM%3D&reserved=0) | [Ejemplo](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-file-datalake/samples/datalake_samples_access_control_recursive.py)
 
@@ -1139,7 +1141,7 @@ Se puede producir un error de tiempo de ejecución por muchos motivos (por ejemp
 
 #### <a name="handling-permission-errors-403"></a>Manejo de errores de permisos (403)
 
-Si experimenta una excepción de control de acceso al ejecutar un proceso de ACL recursivo, es posible que la [entidad de seguridad](https://docs.microsoft.com/azure/role-based-access-control/overview#security-principal) de AD no tenga permisos suficientes para aplicar una ACL a uno o varios de los elementos secundarios de la jerarquía de directorios. Cuando se produce un error de permiso, el proceso se detiene y se proporciona un token de continuación. Repare el problema de permisos y, después, use el token de continuación para procesar el conjunto de datos restante. Los directorios y archivos que ya se han procesado correctamente no tendrán que procesarse de nuevo. También puede optar por reiniciar el proceso de ACL recursivo. Las ACL se pueden volver a aplicar a los elementos sin provocar ningún efecto negativo. 
+Si experimenta una excepción de control de acceso al ejecutar un proceso de ACL recursivo, es posible que la [entidad de seguridad](../../role-based-access-control/overview.md#security-principal) de AD no tenga permisos suficientes para aplicar una ACL a uno o varios de los elementos secundarios de la jerarquía de directorios. Cuando se produce un error de permiso, el proceso se detiene y se proporciona un token de continuación. Repare el problema de permisos y, después, use el token de continuación para procesar el conjunto de datos restante. Los directorios y archivos que ya se han procesado correctamente no tendrán que procesarse de nuevo. También puede optar por reiniciar el proceso de ACL recursivo. Las ACL se pueden volver a aplicar a los elementos sin provocar ningún efecto negativo. 
 
 #### <a name="credentials"></a>Credenciales 
 
@@ -1151,11 +1153,9 @@ Para reducir la latencia, se recomienda ejecutar el proceso de ACL recursivo en 
 
 #### <a name="acl-limits"></a>Límites de ACL
 
-El número máximo de ACL que puede aplicar a un directorio o archivo es de 32 ACL de acceso y 32 ACL predeterminadas. Para más información, consulte [Control de acceso en Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
+El número máximo de ACL que puede aplicar a un directorio o archivo es de 32 ACL de acceso y 32 ACL predeterminadas. Para más información, consulte [Control de acceso en Azure Data Lake Storage Gen2](./data-lake-storage-access-control.md).
 
 ## <a name="see-also"></a>Consulte también
 
-- [Control de acceso en Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control)
+- [Control de acceso en Azure Data Lake Storage Gen2](./data-lake-storage-access-control.md)
 - [Problemas conocidos](data-lake-storage-known-issues.md)
-
-

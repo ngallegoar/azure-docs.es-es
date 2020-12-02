@@ -2,13 +2,13 @@
 title: Estructura y sintaxis de plantillas
 description: Describe la estructura y las propiedades de plantillas de Azure Resource Manager mediante la sintaxis declarativa de JSON.
 ms.topic: conceptual
-ms.date: 06/22/2020
-ms.openlocfilehash: ae2c5a5fe1440c3adbae475cd4c7652a3b01c285
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/24/2020
+ms.openlocfilehash: b7cf30741cfd2b85046f64fddf01c414676a97e4
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86116546"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95911505"
 ---
 # <a name="understand-the-structure-and-syntax-of-arm-templates"></a>Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager
 
@@ -45,6 +45,62 @@ En la estructura más simple, una plantilla tiene los siguientes elementos:
 | [outputs](#outputs) |No |Valores que se devuelven después de la implementación. |
 
 Cada elemento tiene propiedades que puede configurar. En este artículo se describen las secciones de la plantilla con más detalle.
+
+## <a name="data-types"></a>Tipos de datos
+
+Dentro de una plantilla de Resource Manager, puede usar estos tipos de datos:
+
+* string
+* securestring
+* int
+* bool
+* object
+* secureObject
+* array
+
+En la plantilla siguiente se muestra el formato de los tipos de datos. Cada tipo tiene un valor predeterminado en el formato correcto.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "stringParameter": {
+      "type": "string",
+      "defaultValue": "option 1"
+    },
+    "intParameter": {
+      "type": "int",
+      "defaultValue": 1
+    },
+    "boolParameter": {
+        "type": "bool",
+        "defaultValue": true
+    },
+    "objectParameter": {
+      "type": "object",
+      "defaultValue": {
+        "one": "a",
+        "two": "b"
+      }
+    },
+    "arrayParameter": {
+      "type": "array",
+      "defaultValue": [ 1, 2, 3 ]
+    }
+  },
+  "resources": [],
+  "outputs": {}
+}
+```
+
+La cadena segura usa el mismo formato que la cadena y el objeto seguro usa el mismo formato que el objeto. Cuando se establece un parámetro en una cadena segura o un objeto seguro, el valor del parámetro no se guarda en el historial de implementaciones y no se registra. Sin embargo, si establece ese valor seguro en una propiedad que no espera un valor seguro, el valor no está protegido. Por ejemplo, si establece una cadena segura en una etiqueta, ese valor se almacena como texto sin formato. Use cadenas seguras para contraseñas y secretos.
+
+En el caso de los enteros pasados como parámetros en línea, el intervalo de valores puede estar limitado por el SDK o la herramienta de línea de comandos que use para la implementación. Por ejemplo, al usar PowerShell para implementar una plantilla, los tipos de enteros pueden oscilar entre -2 147 483 648 y 2 147 483 647. Para evitar esta limitación, especifique valores enteros grandes en un [archivo de parámetros](parameter-files.md). Los tipos de recursos aplican sus propios límites para las propiedades de enteros.
+
+Al especificar valores booleanos y enteros en la plantilla, no incluya el valor entre comillas. Los valores de cadena inicial y final se incluyen entre comillas dobles.
+
+Los objetos comienzan con una llave de apertura y terminan con una llave de cierre. Las matrices comienzan con un corchete de apertura y terminan con un corchete de cierre.
 
 ## <a name="parameters"></a>Parámetros
 
@@ -83,21 +139,9 @@ Las propiedades disponibles para un parámetro son:
 
 Para ejemplos de cómo usar los parámetros, consulte [Parámetros en plantillas de Azure Resource Manager](template-parameters.md).
 
-### <a name="data-types"></a>Tipos de datos
-
-En el caso de los enteros pasados como parámetros en línea, el intervalo de valores puede estar limitado por el SDK o la herramienta de línea de comandos que use para la implementación. Por ejemplo, al usar PowerShell para implementar una plantilla, los tipos de enteros pueden oscilar entre -2 147 483 648 y 2 147 483 647. Para evitar esta limitación, especifique valores enteros grandes en un [archivo de parámetros](parameter-files.md). Los tipos de recursos aplican sus propios límites para las propiedades de enteros.
-
-Al especificar valores booleanos y enteros en la plantilla, no incluya el valor entre comillas. Los valores de cadena inicial y final se incluyen entre comillas dobles.
-
-Los objetos comienzan con una llave de apertura y terminan con una llave de cierre. Las matrices comienzan con un corchete de apertura y terminan con un corchete de cierre.
-
-Cuando se establece un parámetro en una cadena segura o un objeto seguro, el valor del parámetro no se guarda en el historial de implementaciones y no se registra. Sin embargo, si establece ese valor seguro en una propiedad que no espera un valor seguro, el valor no está protegido. Por ejemplo, si establece una cadena segura en una etiqueta, ese valor se almacena como texto sin formato. Use cadenas seguras para contraseñas y secretos.
-
-Para obtener ejemplos de tipos de datos de formato, consulte [Formatos de tipo de parámetro](parameter-files.md#parameter-type-formats).
-
 ## <a name="variables"></a>variables
 
-En la sección de variables, se crean valores que pueden usarse en toda la plantilla. No es necesario definir las variables, pero a menudo simplifican la plantilla reduciendo expresiones complejas.
+En la sección de variables, se crean valores que pueden usarse en toda la plantilla. No es necesario definir las variables, pero a menudo simplifican la plantilla reduciendo expresiones complejas. El formato de cada variable coincide con uno de los [tipos de datos](#data-types).
 
 En el ejemplo siguiente se muestran las opciones disponibles para definir una variable:
 

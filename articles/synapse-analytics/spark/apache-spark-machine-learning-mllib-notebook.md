@@ -9,18 +9,18 @@ ms.topic: tutorial
 ms.subservice: machine-learning
 ms.date: 04/15/2020
 ms.author: euang
-ms.openlocfilehash: d7c5bd2d1918ecebe2d2aabc213de43e7cdb1fef
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 595b3a57594401df6b61db1fcf8ee16be98ef364
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93306982"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95900435"
 ---
 # <a name="tutorial-build-a-machine-learning-app-with-apache-spark-mllib-and-azure-synapse-analytics"></a>Tutorial: Compilación de una aplicación de aprendizaje automático con MLlib de Apache Spark y Azure Synapse Analytics
 
 En este artículo, aprenderá a usar [MLlib](https://spark.apache.org/mllib/) de Apache Spark para crear una aplicación de aprendizaje automático para efectuar análisis predictivos simples en un conjunto de datos abierto de Azure. Spark proporciona bibliotecas de aprendizaje automático integradas. En este ejemplo se usa la *clasificación* a través de la regresión logística.
 
-MLlib es una biblioteca básica de Spark que proporciona varias utilidades que resultan prácticas para las tareas de aprendizaje automático, como utilidades adecuadas para:
+SparkML y MLlib son bibliotecas básicas de Spark que proporcionan varias utilidades que resultan prácticas para las tareas de aprendizaje automático, incluidas las utilidades adecuadas para:
 
 - clasificación
 - Regresión
@@ -31,9 +31,9 @@ MLlib es una biblioteca básica de Spark que proporciona varias utilidades que r
 
 ## <a name="understand-classification-and-logistic-regression"></a>Comprensión de la clasificación y la regresión logística
 
-*Clasificación* , una tarea habitual en el aprendizaje automático, es el proceso de ordenación de datos de entrada en categorías. El trabajo de averiguar cómo asignar *etiquetas* a las entradas de datos que se proporcionen lo realiza un algoritmo de clasificación. Por ejemplo, piense en un algoritmo de aprendizaje automático que acepta información bursátil como entrada y divide las existencias en dos categorías: acciones que se deberían vender y acciones que se deberían conservar.
+*Clasificación*, una tarea habitual en el aprendizaje automático, es el proceso de ordenación de datos de entrada en categorías. El trabajo de averiguar cómo asignar *etiquetas* a las entradas de datos que se proporcionen lo realiza un algoritmo de clasificación. Por ejemplo, piense en un algoritmo de aprendizaje automático que acepta información bursátil como entrada y divide las existencias en dos categorías: acciones que se deberían vender y acciones que se deberían conservar.
 
-La *regresión logística* es un algoritmo que puede usar para la clasificación. La API de regresión logística de Spark es útil para la *clasificación binaria* , o para la clasificación de datos de entrada en uno de los dos grupos. Para obtener más información acerca de la regresión logística, consulte [Wikipedia](https://en.wikipedia.org/wiki/Logistic_regression).
+La *regresión logística* es un algoritmo que puede usar para la clasificación. La API de regresión logística de Spark es útil para la *clasificación binaria*, o para la clasificación de datos de entrada en uno de los dos grupos. Para obtener más información acerca de la regresión logística, consulte [Wikipedia](https://en.wikipedia.org/wiki/Logistic_regression).
 
 En resumen, el proceso de regresión logística genera una *función logística* que se puede usar para predecir la probabilidad de que un vector de entrada pertenezca a un grupo o al otro.
 
@@ -46,10 +46,10 @@ En este ejemplo, se usa Spark para realizar un análisis predictivo de los datos
 
 En los pasos siguientes, desarrollará un modelo para predecir si una carrera determinada incluye propina o no.
 
-## <a name="create-an-apache-spark-mllib-machine-learning-app"></a>Creación de una aplicación de aprendizaje automático de Apache Spark MLlib
+## <a name="create-an-apache-spark--machine-learning-model"></a>Creación de un modelo de aprendizaje automático de Apache Spark
 
 1. Cree un cuaderno con el kernel de PySpark. Para obtener las instrucciones, consulte [Creación un cuaderno](../quickstart-apache-spark-notebook.md#create-a-notebook).
-2. Importe los tipos necesarios para esta aplicación. Copie y pegue el código siguiente en una celda vacía y, a continuación, presione **Mayús+Entrar** , o ejecute la celda con el icono de reproducción azul situado a la izquierda del código.
+2. Importe los tipos necesarios para esta aplicación. Copie y pegue el código siguiente en una celda vacía y, a continuación, presione **Mayús+Entrar**, o ejecute la celda con el icono de reproducción azul situado a la izquierda del código.
 
     ```python
     import matplotlib.pyplot as plt
@@ -110,44 +110,6 @@ La creación de una vista o tabla temporal ofrece diferentes rutas de acceso a l
 sampled_taxi_df.createOrReplaceTempView("nytaxi")
 ```
 
-## <a name="understand-the-data"></a>Comprensión de los datos
-
-Normalmente, pasaría por una fase de *análisis de datos exploratorios* (EDA) en este momento para comprender los datos. El código siguiente muestra tres visualizaciones diferentes de los datos relacionados con las propinas, que llevan a conclusiones sobre el estado y la calidad de los datos.
-
-```python
-# The charting package needs a Pandas dataframe or numpy array do the conversion
-sampled_taxi_pd_df = sampled_taxi_df.toPandas()
-
-# Look at tips by amount count histogram
-ax1 = sampled_taxi_pd_df['tipAmount'].plot(kind='hist', bins=25, facecolor='lightblue')
-ax1.set_title('Tip amount distribution')
-ax1.set_xlabel('Tip Amount ($)')
-ax1.set_ylabel('Counts')
-plt.suptitle('')
-plt.show()
-
-# How many passengers tipped by various amounts
-ax2 = sampled_taxi_pd_df.boxplot(column=['tipAmount'], by=['passengerCount'])
-ax2.set_title('Tip amount by Passenger count')
-ax2.set_xlabel('Passenger count')
-ax2.set_ylabel('Tip Amount ($)')
-plt.suptitle('')
-plt.show()
-
-# Look at the relationship between fare and tip amounts
-ax = sampled_taxi_pd_df.plot(kind='scatter', x= 'fareAmount', y = 'tipAmount', c='blue', alpha = 0.10, s=2.5*(sampled_taxi_pd_df['passengerCount']))
-ax.set_title('Tip amount by Fare amount')
-ax.set_xlabel('Fare Amount ($)')
-ax.set_ylabel('Tip Amount ($)')
-plt.axis([-2, 80, -2, 20])
-plt.suptitle('')
-plt.show()
-```
-
-![Histograma](./media/apache-spark-machine-learning-mllib-notebook/apache-spark-mllib-eda-histogram.png)
-![Gráfico de cajas y bigotes](./media/apache-spark-machine-learning-mllib-notebook/apache-spark-mllib-eda-box-whisker.png)
-![Gráfico de dispersión](./media/apache-spark-machine-learning-mllib-notebook/apache-spark-mllib-eda-scatter.png)
-
 ## <a name="prepare-the-data"></a>Preparación de los datos
 
 Los datos en su formato sin procesar no suelen ser adecuados para pasar directamente a un modelo. Se debe realizar una serie de acciones en los datos para llevarlos a un estado en el que el modelo pueda consumirlos.
@@ -193,7 +155,7 @@ taxi_featurised_df = taxi_df.select('totalAmount', 'fareAmount', 'tipAmount', 'p
 
 ## <a name="create-a-logistic-regression-model"></a>Crear un modelo de regresión logística
 
-La última tarea consiste en convertir los datos etiquetados a un formato que se pueda analizar con la regresión logística. La entrada a un algoritmo de regresión logística debe ser un conjunto de *pares de vector de etiqueta-característica* , donde el *vector de característica* es un vector de números que representa el punto de entrada. Por lo tanto, es necesario convertir las columnas de categorías en números. Las columnas `trafficTimeBins` y `weekdayString` se deben convertir en representaciones de enteros. Hay varios enfoques para realizar la conversión, pero el enfoque que se realiza en este ejemplo es *OneHotEncoding* , un enfoque común.
+La última tarea consiste en convertir los datos etiquetados a un formato que se pueda analizar con la regresión logística. La entrada a un algoritmo de regresión logística debe ser un conjunto de *pares de vector de etiqueta-característica*, donde el *vector de característica* es un vector de números que representa el punto de entrada. Por lo tanto, es necesario convertir las columnas de categorías en números. Las columnas `trafficTimeBins` y `weekdayString` se deben convertir en representaciones de enteros. Hay varios enfoques para realizar la conversión, pero el enfoque que se realiza en este ejemplo es *OneHotEncoding*, un enfoque común.
 
 ```python
 # Since the sample uses an algorithm that only works with numeric features, convert them so they can be consumed
@@ -272,7 +234,7 @@ plt.ylabel('True Positive Rate')
 plt.show()
 ```
 
-![Curva ROC para el modelo de propinas de regresión logística](./media/apache-spark-machine-learning-mllib-notebook/apache-spark-mllib-nyctaxi-roc.png "Curva ROC para el modelo de propinas de regresión logística")
+![Curva ROC para el modelo de propinas de regresión logística](./media/apache-spark-machine-learning-mllib-notebook/nyc-taxi-roc.png)
 
 ## <a name="shut-down-the-spark-instance"></a>Apagado de la instancia de Spark
 

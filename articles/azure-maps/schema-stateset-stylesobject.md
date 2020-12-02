@@ -1,29 +1,35 @@
 ---
-title: StylesObject para Azure Maps dinámico
-description: Guía de referencia del esquema JSON y la sintaxis del elemento StylesObject utilizado para la creación en Azure Maps dinámico.
+title: Guía de referencia del esquema de StylesObject para Azure Maps dinámico
+description: Guía de referencia de la sintaxis y el esquema de StylesObject para Azure Maps dinámico
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 06/19/2020
+ms.date: 11/20/2020
 ms.topic: reference
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 8eb4e49e6c0e3f011015d40b8eca036d5218674c
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: f6bc4c62febf24dee790ac6136b1661426d4d619
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92891706"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95536955"
 ---
-# <a name="stylesobject-schema-reference-guide-for-dynamic-maps"></a>Guía de referencia del esquema de StylesObject para mapas dinámicos
+# <a name="stylesobject-schema-reference-guide-for-dynamic-maps"></a>Guía de referencia del esquema de StylesObject para Azure Maps dinámico
 
-Este artículo es una guía de referencia del esquema JSON y la sintaxis del elemento `StylesObject`. `StylesObject` es una matriz de objetos `StyleObject` que representa los estilos del conjunto de estados. Use la [característica Servicio de estado](/rest/api/maps/featurestate) de Azure Maps Creator para aplicar los estilos del conjunto de estados a las características de los datos de mapas de interiores. Una vez que haya creado los estilos del conjunto de estados y los haya asociado con las características del mapa de interiores, puede usarlos para crear mapas de interiores dinámicos. Para más información sobre la creación de mapas de interiores dinámicos, consulte [Implementación de estilos dinámicos para mapas de interiores de Creator](indoor-map-dynamic-styling.md).
+ `StylesObject` es una matriz de objetos `StyleObject` que representa los estilos del conjunto de estados. Use la [característica Servicio de estado](/rest/api/maps/featurestate) de Azure Maps Creator para aplicar los estilos del conjunto de estados a las características de los datos de mapas de interiores. Una vez que haya creado los estilos del conjunto de estados y los haya asociado con las características del mapa de interiores, puede usarlos para crear mapas de interiores dinámicos. Para más información sobre la creación de mapas de interiores dinámicos, consulte [Implementación de estilos dinámicos para mapas de interiores de Creator](indoor-map-dynamic-styling.md).
 
 ## <a name="styleobject"></a>StyleObject
 
-Un objeto `StyleObject` es de tipo [`BooleanTypeStyleRule`](#booleantypestylerule) o [`NumericTypeStyleRule`](#numerictypestylerule).
+`StyleObject` es una de las siguientes reglas de estilo:
 
-El siguiente código JSON muestra un elemento `BooleanTypeStyleRule` llamado `occupied` y un elemento `NumericTypeStyleRule` llamado `temperature`.
+ * [`BooleanTypeStyleRule`](#booleantypestylerule)
+ * [`NumericTypeStyleRule`](#numerictypestylerule)
+ * [`StringTypeStyleRule`](#stringtypestylerule)
+
+El código JSON siguiente muestra el uso de ejemplo de cada uno de los tres tipos de estilo.  `BooleanTypeStyleRule` se utiliza para determinar el estilo dinámico de las características cuya propiedad `occupied` es true y false.  `NumericTypeStyleRule` se utiliza para determinar el estilo de las características cuya propiedad `temperature` se encuentra dentro de un intervalo determinado. Por último, `StringTypeStyleRule` se usa para hacer coincidir estilos específicos con `meetingType`.
+
+
 
 ```json
  "styles": [
@@ -56,6 +62,18 @@ El siguiente código JSON muestra un elemento `BooleanTypeStyleRule` llamado `oc
               "color": "#eba834"
             }
         ]
+    },
+    {
+      "keyname": "meetingType",
+      "type": "string",
+      "rules": [
+        {
+          "private": "#FF0000",
+          "confidential": "#FF00AA",
+          "allHands": "#00FF00",
+          "brownBag": "#964B00"
+        }
+      ]
     }
 ]
 ```
@@ -108,7 +126,7 @@ En el siguiente código JSON de ejemplo, ambos intervalos contendrán True cuand
 
 ### <a name="rangeobject"></a>RangeObject
 
-`RangeObject` define un valor de intervalo numérico de un objeto [`NumberRuleObject`](#numberruleobject). Para que el valor de *estado* entre en el intervalo, todas las condiciones definidas deben ser verdaderas. 
+`RangeObject` define un valor de intervalo numérico de un objeto [`NumberRuleObject`](#numberruleobject). Para que el valor de *estado* entre en el intervalo, todas las condiciones definidas deben ser verdaderas.
 
 | Propiedad | Tipo | Descripción | Obligatorio |
 |-----------|----------|-------------|-------------|
@@ -144,13 +162,55 @@ El siguiente código JSON muestra un *estado* de tipo `NumericTypeStyleRule` lla
 }
 ```
 
+## <a name="stringtypestylerule"></a>StringTypeStyleRule
+
+Un elemento `StringTypeStyleRule` es un objeto [`StyleObject`](#styleobject) y consta de las siguientes propiedades:
+
+| Propiedad | Tipo | Descripción | Obligatorio |
+|-----------|----------|-------------|-------------|
+| `keyName` | string |  *Estado* o nombre de la propiedad dinámica.  `keyName` debe ser único dentro de una matriz de `StyleObject`.| Sí |
+| `type` | string |El valor es "string". | Sí |
+| `rules` | [`StringRuleObject`](#stringruleobject)[]| Matriz de N número de valores de *estado*.| Sí |
+
+### <a name="stringruleobject"></a>StringRuleObject
+
+`StringRuleObject` consta de hasta N números de valores de estado que son los posibles valores de cadena de la propiedad de una característica. Si el valor de propiedad de la característica no coincide con ninguno de los valores de estado definidos, esa característica no tendrá un estilo dinámico. Si se proporcionan valores de estado duplicados, el primero tiene prioridad.
+
+La coincidencia de valores de cadena distingue entre mayúsculas y minúsculas.
+
+| Propiedad | Tipo | Descripción | Obligatorio |
+|-----------|----------|-------------|-------------|
+| `stateValue1` | string | El color cuando la cadena de valor es stateValue1. | No |
+| `stateValue2` | string | El color cuando la cadena de valor es stateValue. | No |
+| `stateValueN` | string | El color cuando la cadena de valor es stateValueN. | No |
+
+### <a name="example-of-stringtypestylerule"></a>Ejemplo de StringTypeStyleRule
+
+El siguiente JSON muestra una regla `StringTypeStyleRule` que define los estilos asociados a tipos de reuniones concretos.
+
+```json
+    {
+      "keyname": "meetingType",
+      "type": "string",
+      "rules": [
+        {
+          "private": "#FF0000",
+          "confidential": "#FF00AA",
+          "allHands": "#00FF00",
+          "brownBag": "#964B00"
+        }
+      ]
+    }
+
+```
+
 ## <a name="booleantypestylerule"></a>BooleanTypeStyleRule
 
 Un elemento `BooleanTypeStyleRule` es un objeto [`StyleObject`](#styleobject) y consta de las siguientes propiedades:
 
 | Propiedad | Tipo | Descripción | Obligatorio |
 |-----------|----------|-------------|-------------|
-| `keyName` | string |  *Estado* o nombre de la propiedad dinámica.  `keyName` debe ser único dentro de una matriz de estilos.| Sí |
+| `keyName` | string |  *Estado* o nombre de la propiedad dinámica.  `keyName` debe ser único dentro de una matriz de elementos `StyleObject`.| Sí |
 | `type` | string |El valor es "booleano". | Sí |
 | `rules` | [`BooleanRuleObject`](#booleanruleobject)[1]| Un par booleano con colores para los valores de *estado* `true` y `false`.| Sí |
 

@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seodec18,seoapr2020, contperfq2
 ms.date: 10/30/2020
-ms.openlocfilehash: ed2ce13ab10c09dc738e522566742078819e8341
-ms.sourcegitcommit: 8ad5761333b53e85c8c4dabee40eaf497430db70
+ms.openlocfilehash: 4c0d12e4c37476b9ae71962251105ef92aa39120
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2020
-ms.locfileid: "93148395"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96004286"
 ---
 # <a name="configure-hdinsight-clusters-for-active-directory-integration-with-enterprise-security-package"></a>Configuración de clústeres de HDInsight para la integración de Active Directory con Enterprise Security Package
 
@@ -50,7 +50,7 @@ El nombre de dominio que utilice con Azure AD DS debe tener 39 caracteres com
 
 Puede elegir sincronizar solo los grupos que necesitan acceder a los clústeres de HDInsight. Esta opción de sincronizar solo determinados grupos se conoce como *sincronización con ámbito*. Para obtener instrucciones, consulte [Configuración de la sincronización con ámbito desde Azure AD con un dominio administrado](../../active-directory-domain-services/scoped-synchronization.md).
 
-Al habilitar LDAP seguro, coloque el nombre de dominio en el nombre del firmante. Y el nombre alternativo del firmante en el certificado. Si el nombre de dominio es *contoso100.onmicrosoft.com* , asegúrese de que ese nombre exacto existe en el nombre del firmante y el nombre alternativo del firmante del certificado. Para más información, consulte [Configuración de LDAP seguro para un dominio administrado de Azure AD DS](../../active-directory-domain-services/tutorial-configure-ldaps.md).
+Al habilitar LDAP seguro, coloque el nombre de dominio en el nombre del firmante. Y el nombre alternativo del firmante en el certificado. Si el nombre de dominio es *contoso100.onmicrosoft.com*, asegúrese de que ese nombre exacto existe en el nombre del firmante y el nombre alternativo del firmante del certificado. Para más información, consulte [Configuración de LDAP seguro para un dominio administrado de Azure AD DS](../../active-directory-domain-services/tutorial-configure-ldaps.md).
 
 En el ejemplo siguiente se crea un certificado autofirmado. El nombre de dominio *contoso100.onmicrosoft.com* se encuentra en `Subject` (nombre del firmante) y `DnsName` (nombre alternativo del firmante).
 
@@ -62,7 +62,7 @@ New-SelfSignedCertificate -Subject contoso100.onmicrosoft.com `
 ```
 
 > [!NOTE]  
-> Solo los administradores de inquilinos tienen los privilegios para habilitar Azure AD DS. Si el almacenamiento del clúster es Azure Data Lake Storage Gen1 o Gen2, debe deshabilitar Azure Multi-Factor Authentication solo para los usuarios que necesitarán acceder al clúster mediante la autenticación básica de Kerberos.
+> Solo los administradores de inquilinos tienen los privilegios para habilitar Azure AD DS. Si el almacenamiento del clúster es Azure Data Lake Storage Gen1 o Gen2, debe deshabilitar Azure AD Multi-Factor Authentication solo para los usuarios que necesiten acceder al clúster mediante la autenticación básica de Kerberos.
 >
 > Puede usar direcciones [IP de confianza](../../active-directory/authentication/howto-mfa-mfasettings.md#trusted-ips) o el [acceso condicional](../../active-directory/conditional-access/overview.md) para deshabilitar Multi-Factor Authentication para usuarios concretos *solo* cuando estos accedan al intervalo de IP de la red virtual del clúster de HDInsight. Si usa el acceso condicional, asegúrese de que el punto de conexión de servicio de Active Directory esté habilitado en la red virtual de HDInsight.
 >
@@ -103,7 +103,7 @@ Habilite Azure AD DS. Después, se ejecuta un servidor local del Sistema de no
 
 ![Localizar las direcciones IP de los servidores DNS locales](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-aadds-dns1.png)
 
-Cambie la configuración de los servidores DNS en la red virtual de Azure AD DS. Para usar estas direcciones IP personalizadas, seleccione **Servidores DNS** en la categoría **Configuración**. Después, seleccione la opción **Personalizado** , escriba la primera dirección IP en el cuadro de texto y seleccione **Guardar**. Agregue más direcciones IP siguiendo los mismos pasos.
+Cambie la configuración de los servidores DNS en la red virtual de Azure AD DS. Para usar estas direcciones IP personalizadas, seleccione **Servidores DNS** en la categoría **Configuración**. Después, seleccione la opción **Personalizado**, escriba la primera dirección IP en el cuadro de texto y seleccione **Guardar**. Agregue más direcciones IP siguiendo los mismos pasos.
 
 ![Actualización de la configuración de DNS de la red virtual](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-aadds-vnet-configuration.png)
 
@@ -136,11 +136,11 @@ Una vez que habilite ESP, se detectarán y validarán las configuraciones errón
 
 Si crea un clúster de HDInsight mediante ESP, debe proporcionar los siguientes parámetros:
 
-* **Usuario administrador de clúster** : elija un administrador para el clúster desde su instancia sincronizada de Azure AD DS. Esta cuenta de dominio ya debe estar sincronizada y disponible en Azure AD DS.
+* **Usuario administrador de clúster**: elija un administrador para el clúster desde su instancia sincronizada de Azure AD DS. Esta cuenta de dominio ya debe estar sincronizada y disponible en Azure AD DS.
 
-* **Grupos de acceso de clúster** : los grupos de seguridad cuyos usuarios desea sincronizar con el clúster y que tengan acceso a este deben estar disponibles en Azure AD DS. Un ejemplo es el grupo HiveUsers. Para más información consulte [Creación de un grupo y adición de miembros en Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
+* **Grupos de acceso de clúster**: los grupos de seguridad cuyos usuarios desea sincronizar con el clúster y que tengan acceso a este deben estar disponibles en Azure AD DS. Un ejemplo es el grupo HiveUsers. Para más información consulte [Creación de un grupo y adición de miembros en Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
-* **Dirección URL de LDAPS** : Un ejemplo es `ldaps://contoso.com:636`.
+* **Dirección URL de LDAPS**: Un ejemplo es `ldaps://contoso.com:636`.
 
 La identidad administrada que se ha creado se puede elegir en la lista desplegable **Identidad administrada asignada por el usuario** al crear un nuevo clúster.
 

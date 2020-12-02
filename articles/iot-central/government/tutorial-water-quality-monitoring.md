@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: a80fe998c1ab241e35bee195b927846e264dec59
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 07f0e66888eaa909dfce14924e9186bcb9b876b4
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90972360"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95014499"
 ---
 # <a name="tutorial-create-a-water-quality-monitoring-application-in-azure-iot-central"></a>Tutorial: Creación de una aplicación de supervisión de la calidad del agua en Azure IoT Central
 
@@ -188,7 +188,7 @@ En la pestaña **Devices** (Dispositivos), seleccione **+ New** )+ Nuevo) para a
 
 ## <a name="explore-and-configure-rules"></a>Exploración y configuración de reglas
 
-En Azure IoT Central, puede crear reglas que supervisen automáticamente la telemetría del dispositivo. Estas reglas desencadenan una acción cuando se cumple cualquiera de sus condiciones. Una posible acción es enviar notificaciones por correo electrónico. Otras posibilidades incluyen una acción de Microsoft Flow o una acción de webhook para enviar datos a otros servicios.
+En Azure IoT Central, puede crear reglas que supervisen automáticamente la telemetría del dispositivo. Estas reglas desencadenan una acción cuando se cumple cualquiera de sus condiciones. Una posible acción es enviar notificaciones por correo electrónico. Otras posibilidades incluyen una acción de Power Automate o una acción de webhook para enviar datos a otros servicios.
 
 La aplicación de supervisión de la calidad del agua que ha creado tiene dos reglas preconfiguradas.
 

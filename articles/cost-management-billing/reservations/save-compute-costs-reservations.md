@@ -6,14 +6,14 @@ ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: overview
-ms.date: 10/01/2020
+ms.date: 11/18/2020
 ms.author: banders
-ms.openlocfilehash: 5aeb9046b8901580e4de37b1735a2d2dddd42fce
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: eef19a6c421a64c3951d35eea78ea84f7e7d97b2
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147462"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94887219"
 ---
 # <a name="what-are-azure-reservations"></a>¿Qué es Azure Reservations?
 
@@ -90,7 +90,7 @@ Para más información, consulte [Autoservicio de intercambios y reembolsos de r
 - **Instancia reservada de máquina virtual**: una reserva solo cubre el costo de proceso de máquina virtual. No cubre los cargos por software adicional, redes de Windows ni almacenamiento.
 - **Capacidad reservada de Azure Storage**: una reserva cubre la capacidad de almacenamiento de las cuentas de almacenamiento estándar para el almacenamiento de blobs o el almacenamiento de Azure Data Lake Gen2. La reserva no cubre las tasas de ancho de banda o de transacción.
 - **Capacidad reservada de Azure Cosmos DB**: una reserva abarca el rendimiento aprovisionado de los recursos. No cubre los cargos de almacenamiento y redes.
-- **Núcleo virtual reservado de SQL Database**: solo se incluyen con una reserva los costos de proceso. La licencia de SQL se factura por separado.
+- **Núcleo virtual reservado para SQL Database**: abarca tanto SQL Managed Instance como la base de datos única o el grupo elástico de SQL Database. los únicos costos que se incluyen con las reservas son los costos de proceso. La licencia de SQL se factura por separado. 
 - **Azure Synapse Analytics**: las reservas cubren el uso de unidades de almacenamiento de datos de proceso. Sin embargo, no cubren los cargos de almacenamiento o de red asociados con el uso de Azure Synapse Analytics.
 - **Azure Databricks**: una reserva solo cubre el uso de DBU. Otros cargos, tales como proceso, almacenamiento y redes, se aplican por separado.
 - **Impuesto sobre el timbre de App Service**: una reserva cubre el uso del timbre. No se aplica a los trabajos, por lo que los demás recursos asociados con el timbre se cobran por separado.

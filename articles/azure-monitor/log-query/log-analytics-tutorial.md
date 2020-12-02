@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 10/07/2020
-ms.openlocfilehash: bd6ba091b3715741af929613600a59511e7cdb0b
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 16292999bf8c01615a9125ffaa9f93fc4b2a8ec2
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94495428"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95756220"
 ---
 # <a name="log-analytics-tutorial"></a>Tutorial de Log Analytics
 Log Analytics es una herramienta de Azure Portal que se usa para editar y ejecutar consultas de registros en los datos que se recopilan en los registros de Azure Monitor, y analizar los resultados de forma interactiva. Puede usar consultas de Log Analytics para recuperar registros que coincidan con determinados criterios, identificar tendencias, analizar patrones y proporcionar una gran variedad de información sobre los datos. 
@@ -23,7 +23,7 @@ Este tutorial le guía por la interfaz de Log Analytics, le permite comenzar con
 > * Escribir y ejecutar consultas sencillas, y modificar el intervalo de tiempo de las consultas
 > * Filtrar, ordenar y agrupar los resultados de las consultas
 > * Ver, modificar y compartir los objetos visuales de los resultados de las consultas
-> * Guardar, cargar, exportar y copiar consultas y resultados
+> * Cargar, exportar y copiar consultas y resultados
 
 > [!IMPORTANT]
 > En este tutorial se usan características de Log Analytics para crear y ejecutar una consulta en lugar de trabajar con la propia consulta. Aprovechará las características de Log Analytics para crear una consulta y usar otra consulta de ejemplo. Cuando esté listo para obtener información sobre la sintaxis de las consultas e iniciar la edición directa de la propia consulta, consulte el [tutorial del lenguaje de consulta de Kusto](/azure/data-explorer/kusto/query/tutorial?pivots=azuremonitor). Este tutorial le guía a través de varias consultas de ejemplo que puede editar y ejecutar en Log Analytics, aprovechando algunas de las características que aprenderá en este tutorial.

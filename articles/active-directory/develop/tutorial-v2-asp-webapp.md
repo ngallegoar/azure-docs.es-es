@@ -12,16 +12,16 @@ ms.workload: identity
 ms.date: 08/28/2019
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40
-ms.openlocfilehash: 9ff43202bdace577024413c9cc177de2997a0ad5
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.openlocfilehash: 0dad7add63102d462a2111f1ecf12ae43dae123c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91627965"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996192"
 ---
 # <a name="tutorial-add-sign-in-to-microsoft-to-an-aspnet-web-app"></a>Tutorial: Adición del inicio de sesión en Microsoft a una aplicación web ASP.NET
 
-Esta guía muestra cómo implementar el inicio de sesión en Microsoft a través de una solución ASP.NET MVC mediante una aplicación basada en explorador web tradicional y OpenID Connect.
+En este tutorial, creará una aplicación web MVC de ASP.NET que inicia la sesión de usuario mediante el middleware Open Web Interface for .NET (OWIN) y la Plataforma de identidad de Microsoft.
 
 Cuando haya completado esta guía, la aplicación podrá aceptar inicios de sesión de cuentas personales de outlook.com y live.com. Además, tanto las cuentas profesionales como las educativas de cualquier empresa u organización que esté integrada con la Plataforma de identidad de Microsoft podrán iniciar sesión en la aplicación.
 
@@ -188,7 +188,7 @@ Para crear un controlador que exponga los métodos de inicio de sesión y cierre
 1.  Haga clic con el botón derecho en la carpeta **Controladores** y seleccione **Agregar** > **Controlador**.
 2.  Seleccione **Controlador MVC (versión .NET): vacío**.
 3.  Seleccione **Agregar**.
-4.  Asígnele el nombre**HomeController** y, después, seleccione **Agregar**.
+4.  Asígnele el nombre **HomeController** y, después, seleccione **Agregar**.
 5.  Agregue referencias de OWIN a la clase:
 
     ```csharp

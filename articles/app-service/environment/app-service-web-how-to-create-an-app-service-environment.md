@@ -8,11 +8,11 @@ ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 543050bc899c257c4ad5e0d0c399a1de6f0f58f2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86220582"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005219"
 ---
 # <a name="how-to-create-an-app-service-environment-v1"></a>Creación de una instancia de App Service Environment v1 
 
@@ -36,7 +36,7 @@ Es importante ser consciente de las cosas que no se pueden cambiar. Los aspectos
 Al seleccionar una red virtual y especificar una subred, asegúrese de que es lo suficientemente grande como para alojar el crecimiento futuro. 
 
 ### <a name="creating-an-app-service-environment-v1"></a>Creación de una instancia de App Service Environment v1
-Para crear una instancia de App Service Environment v1, puede buscar ***App Service Environment v1*** en Azure Marketplace o a través de **Crear un recurso** -> **Web y móvil** -> **App Service Environment**. Para crear una instancia de ASEv1:
+Para crear una instancia de App Service Environment v1, puede buscar **App Service Environment v1** en Azure Marketplace o ir a *Crear un recurso* -> **Web y móvil** -> **App Service Environment**. Para crear una instancia de ASEv1:
 
 1. Proporcione el nombre de su ASE. El nombre que especifique para la instancia de ASE se usará en las aplicaciones creadas en esta. Si el nombre de la instancia de ASE es appsvcenvdemo, el nombre del subdominio será: *appsvcenvdemo.p.azurewebsites.net*. Por tanto, si creó una aplicación llamada *mytestapp*, se podría obtener acceso a ella en *mytestapp.appsvcenvdemo.p.azurewebsites.net*. No puede usar espacios en blanco en el nombre del ASE. Si utiliza caracteres en mayúsculas en el nombre, el nombre de dominio será la versión en minúsculas total de ese nombre. Si usa un ILB, el nombre de la instancia de ASE no se usa en su subdominio, sino que se indica explícitamente durante la creación de dicha instancia.
    

@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Creación de una aplicación web protegida en Azure App Service | Azure'
-description: En este tutorial aprenderá a crear una aplicación web con Azure App Service, habilitar la autenticación, llamar a Azure Storage y llamar a Microsoft Graph.
+title: 'Tutorial: Creación de una aplicación web segura en Azure App Service | Azure'
+description: En este tutorial aprenderá a compilar una aplicación web con Azure App Service, habilitar la autenticación, llamar a Azure Storage y llamar a Microsoft Graph.
 services: active-directory, app-service-web, storage, microsoft-graph
 author: rwike77
 manager: CelesteDG
@@ -10,23 +10,23 @@ ms.workload: identity
 ms.date: 11/09/2020
 ms.author: ryanwi
 ms.reviewer: stsoneff
-ms.openlocfilehash: fcddf99c3a4c53fe25db1ed653983e8ddac0edb7
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: ef7782c68746d4c20df5a9ae5e27ffca3e60efbe
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94428434"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024133"
 ---
 # <a name="tutorial-enable-authentication-in-app-service-and-access-storage-and-microsoft-graph"></a>Tutorial: Habilitación de la autenticación en App Service y acceso a Storage y a Microsoft Graph
 
 En este tutorial se describe un escenario de aplicación común en el que aprenderá a:
 
-- [(A) Configurar la autenticación para una aplicación web](scenario-secure-app-authentication-app-service.md) y limitar el acceso a los usuarios de su organización.
-- [(B) Acceder de forma segura a Azure Storage](scenario-secure-app-access-storage.md) en nombre de la aplicación web mediante identidades administradas.
-- (C) Acceder a datos en Microsoft Graph [en nombre del usuario con la sesión iniciada](scenario-secure-app-access-microsoft-graph-as-user.md) o [en nombre de la aplicación web](scenario-secure-app-access-microsoft-graph-as-app.md) mediante identidades administradas.
+- [Configurar la autenticación para una aplicación web](scenario-secure-app-authentication-app-service.md) y limitar el acceso solo a los usuarios de su organización. Vea A en el diagrama.
+- [Establecer el acceso de forma segura a Azure Storage](scenario-secure-app-access-storage.md) para la aplicación web mediante identidades administradas. Vea B en el diagrama.
+- Establecer el acceso a los datos en Microsoft Graph [para el usuario con la sesión iniciada](scenario-secure-app-access-microsoft-graph-as-user.md) o [para la aplicación web](scenario-secure-app-access-microsoft-graph-as-app.md) mediante identidades administradas. Vea C en el diagrama.
 - [Limpie los recursos](scenario-secure-app-clean-up-resources.md) que creó para este tutorial.
 
-:::image type="content" source="./media/scenario-secure-app-overview/web-app.svg" alt-text="Escenarios de aplicaciones en la Plataforma de identidad de Microsoft" border="false":::
+:::image type="content" source="./media/scenario-secure-app-overview/web-app.svg" alt-text="Diagrama que muestra los escenarios de aplicaciones en la Plataforma de identidad de Microsoft." border="false":::
 
 Para empezar, obtenga información sobre cómo habilitar la autenticación para una aplicación web.
 

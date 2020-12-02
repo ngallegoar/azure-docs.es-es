@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: overview
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 45c0108ed87dd5264b9192f5dd69e0198bd59fc1
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 66f077028b9f9f7a7644a318d4447eeaaab19e98
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289776"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94919937"
 ---
 # <a name="about-azure-key-vault-certificates"></a>Acerca de los certificados de Azure Key Vault
 
@@ -44,8 +44,17 @@ Cuando se crea un certificado de Key Vault, este se puede recuperar desde el sec
 
 La clave direccionable cobra más relevancia con los certificados de Key Vault no exportables. Las operaciones de la clave de Key Vault direccionable se asignan desde el campo *keyusage* de la directiva del certificado de Key Vault utilizada para crear el certificado de Key Vault.  
 
+Tipos de pares de claves que se admiten para los certificados
+
  - Tipos de clave permitidos: RSA, RSA-HSM, EC, EC-HSM, Oct (se enumeran [aquí](/rest/api/keyvault/createcertificate/createcertificate#jsonwebkeytype)). Exportable solo se permite con RSA y EC. Las claves HSM serían no exportables.
 
+|Tipo de clave|Acerca de|Seguridad|
+|--|--|--|
+|**RSA**| clave RSA "protegida con software"|FIPS 140-2 nivel 1|
+|**RSA-HSM**| Clave RSA "protegida con HSM" (solo SKU Premium)|HSM validados con FIPS 140-2 nivel 2|
+|**EC**| clave de curva elíptica "protegida con software"|FIPS 140-2 nivel 1|
+|**EC-HSM**| Clave de curva elíptica "protegida con HSM" (solo SKU Premium)|HSM validados con FIPS 140-2 nivel 2|
+|||
 
 ## <a name="certificate-attributes-and-tags"></a>Etiquetas y atributos de certificado
 
@@ -57,14 +66,14 @@ Los atributos del certificado se reflejan en los atributos de la clave y el secr
 
 Un certificado de Key Vault tiene los siguientes atributos:  
 
--   *enabled* : booleano, opcional, el valor predeterminado es **true**. Se puede especificar para indicar si se pueden recuperar los datos del certificado como secreto o es operativo como una clave. Se usa también junto con *nbf* y *exp* cuando se produce una operación entre *nbf* y *exp* , solo se permitirá si enabled se establece en true. Las operaciones fuera de la franja entre *nbf* y *exp* se deniegan automáticamente.  
+-   *enabled*: booleano, opcional, el valor predeterminado es **true**. Se puede especificar para indicar si se pueden recuperar los datos del certificado como secreto o es operativo como una clave. Se usa también junto con *nbf* y *exp* cuando se produce una operación entre *nbf* y *exp*, solo se permitirá si enabled se establece en true. Las operaciones fuera de la franja entre *nbf* y *exp* se deniegan automáticamente.  
 
 Existen atributos de solo lectura adicionales que se incluyen en la respuesta:
 
--   *created* : tipo IntDate, indica cuándo se creó esta versión del certificado.  
--   *updated* : tipo IntDate, indica cuándo se modificó esta versión del certificado.  
--   *exp* : tipo IntDate, contiene el valor de la fecha de expiración del certificado X.509.  
--   *nbf* : tipo IntDate, contiene el valor de la fecha del certificado X.509.  
+-   *created*: tipo IntDate, indica cuándo se creó esta versión del certificado.  
+-   *updated*: tipo IntDate, indica cuándo se modificó esta versión del certificado.  
+-   *exp*: tipo IntDate, contiene el valor de la fecha de expiración del certificado X.509.  
+-   *nbf*: tipo IntDate, contiene el valor de la fecha del certificado X.509.  
 
 > [!Note] 
 > Si un certificado de Key Vault expira, la clave y el secreto direccionables dejan de funcionar.  

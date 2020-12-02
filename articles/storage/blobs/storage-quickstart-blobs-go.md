@@ -7,12 +7,12 @@ ms.date: 11/14/2018
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: f4016349e354c84e9e096ac6d5072a4870e9ef29
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: bf0e868e9ee746da1dfe1b03403d21f7edb3bd5e
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "68726454"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95544656"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-go"></a>Inicio rápido: Carga, descarga y enumeración de blobs mediante Go
 
@@ -108,7 +108,7 @@ Lo primero que hay que hacer es crear las referencias a los objetos ContainerURL
 Una vez que disponga del objeto ContainerURL, puede crear una instancia del objeto **BlobURL** que apunte a un blob y realizar operaciones como cargar, descargar y copiar.
 
 > [!IMPORTANT]
-> Los nombres de contenedor deben estar en minúsculas. Para más información sobre la nomenclatura de contenedores y blobs, consulte [Naming and Referencing Containers, Blobs, and Metadata](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata) (Asignación de nombres y referencia a contenedores, blobs y metadatos).
+> Los nombres de contenedor deben estar en minúsculas. Para más información sobre la nomenclatura de contenedores y blobs, consulte [Naming and Referencing Containers, Blobs, and Metadata](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata) (Asignación de nombres y referencia a contenedores, blobs y metadatos).
 
 En esta sección, creará un nuevo contenedor. El contenedor se denomina **quickstartblobs-[random string]** . 
 
@@ -149,9 +149,9 @@ Blob Storage admite blobs en bloques, blobs en anexos y blobs en páginas. Los b
 
 Para cargar un archivo en un blob, abra el archivo con **os.Open**. Luego puede cargar el archivo en la ruta de acceso especificada mediante una de las API REST: Upload (PutBlob), StageBlock/CommitBlockList (PutBlock/PutBlockList). 
 
-Como alternativa, el SDK ofrece [API de alto nivel](https://github.com/Azure/azure-storage-blob-go/blob/master/azblob/highlevel.go) que se basan en las API de REST de bajo nivel. Por ejemplo, la función ***UploadFileToBlockBlob*** utiliza las operaciones de StageBlock (PutBlock) para cargar simultáneamente un archivo en fragmentos para optimizar el rendimiento. Si el archivo tiene menos de 256 MB, usa Upload (PutBlob) para completar la transferencia en una sola transacción.
+Como alternativa, el SDK ofrece [API de alto nivel](https://github.com/Azure/azure-storage-blob-go/blob/master/azblob/highlevel.go) que se basan en las API de REST de bajo nivel. Por ejemplo, la función **_UploadFileToBlockBlob_* _ utiliza las operaciones de StageBlock (PutBlock) para cargar simultáneamente un archivo en fragmentos para optimizar el rendimiento. Si el archivo tiene menos de 256 MB, usa Upload (PutBlob) para completar la transferencia en una sola transacción.
 
-En el ejemplo siguiente se carga el archivo en el contenedor denominado **quickstartblobs-[randomstring]** .
+En el ejemplo siguiente se carga el archivo en el contenedor denominado _*quickstartblobs-[randomstring]**.
 
 ```go
 // Create a file to test the upload and download.

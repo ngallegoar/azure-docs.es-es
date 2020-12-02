@@ -9,12 +9,12 @@ ms.topic: reference
 ms.author: jmartens
 author: j-martens
 ms.date: 09/10/2020
-ms.openlocfilehash: 54b15d5865b1abb0d624628ed4b5c9892ab04d41
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 53a30f92adaf25d87897e98834cda2d5f92b874c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94542140"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96012278"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notas de la versión de Azure Machine Learning
 
@@ -210,7 +210,7 @@ Obtenga más información sobre el [etiquetado de segmentación de instancias de
     + Se actualizaron la documentación y los ejemplos de cuaderno de MLflow para AzureML. 
     + Nueva compatibilidad de proyectos de MLflow con back-end de AzureML.
     + Compatibilidad del registro de modelos de MLflow.
-    + Incorporación de compatibilidad con RBAC para las operaciones de AzureML-MLflow. 
+    + Incorporación de compatibilidad con Azure RBAC para las operaciones de AzureML-MLflow 
     
   + **azureml-pipeline-core**
     + Se ha mejorado la documentación de los métodos PipelineOutputFileDataset.parse_*.

@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 10/30/2020
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: 60d3607a543cac5b8ce71819eb60394d8b8827bf
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.openlocfilehash: d99ed9304612d5c1d3cbdc56a76cee751f2a4d3f
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94331125"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017940"
 ---
 # <a name="virtual-network-service-tags"></a>Etiquetas de servicio de red virtual
 <a name="network-service-tags"></a>
@@ -64,6 +64,7 @@ De forma predeterminada, las etiquetas de servicio reflejan los intervalos de to
 | **AzureDataExplorerManagement** | Administración de Azure Data Explorer. | Entrada | No | No |
 | **AzureDataLake** | Azure Data Lake Storage Gen1. | Salida | No | Sí |
 | **AzureDevSpaces** | Azure Dev Spaces. | Salida | No | No |
+| **AzureDevOps** | Azure Dev Ops.<br/><br/>*Nota: Esta etiqueta no se puede configurar actualmente desde Azure Portal*| Entrada | No | Sí |
 | **AzureDigitalTwins** | Azure Digital Twins.<br/><br/>*Nota:* Esta etiqueta o las direcciones IP que abarca se pueden utilizar para restringir el acceso a los puntos de conexión configurados para rutas de eventos. *Esta etiqueta no se puede configurar actualmente mediante Azure Portal* | Entrada | No | Sí |
 | **AzureEventGrid** | Azure Event Grid. | Ambos | No | No |
 | **AzureFrontDoor.Frontend** <br/> **AzureFrontDoor.Backend** <br/> **AzureFrontDoor.FirstParty**  | Azure Front Door. | Ambos | No | No |

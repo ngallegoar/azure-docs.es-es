@@ -8,19 +8,20 @@ ms.date: 3/12/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 99a0805239ee2437ad6ec9ceb40cf45496a07850
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 3a3518ba68c9474fc4a34390e6fd9a7d1e88f6c6
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047665"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94959601"
 ---
 # <a name="tutorial-set-up-an-environment-for-machine-learning-on-iot-edge"></a>Tutorial: Configuración de un entorno de aprendizaje automático en IoT Edge
 
-> [!NOTE]
-> Este artículo forma parte de un tutorial sobre el uso de Azure Machine Learning en IoT Edge. Si ha llegado directamente a este artículo, le recomendamos que comience con el [primer el artículo](tutorial-machine-learning-edge-01-intro.md) de la serie para obtener los mejores resultados.
-
 Este artículo le ayuda a preparar un entorno para el desarrollo y la implementación. En primer lugar, configure una máquina de desarrollo con todas las herramientas que necesita. A continuación, cree los recursos en la nube necesarios en Azure.
+
+## <a name="prerequisites"></a>Requisitos previos
+
+Este artículo forma parte de un tutorial sobre el uso de Azure Machine Learning en IoT Edge. Cada artículo de la serie se basa en el trabajo del artículo anterior. Si ha llegado a este artículo directamente, visite el [primer artículo](tutorial-machine-learning-edge-01-intro.md) de la serie.
 
 ## <a name="set-up-the-development-vm"></a>Configuración de la máquina virtual de desarrollo
 
@@ -173,7 +174,7 @@ En esta sección, use un script para crear un centro de IoT de Azure y una cuent
     * Se le pedirá que inicie sesión en Azure.
     * El script confirma la información para crear su cuenta de IoT Hub y Storage. Presione **y** o **ENTRAR** para continuar.
 
-El script tarda dos minutos en ejecutarse. Cuando haya finalizado, el script genera el nombre de la cuenta de almacenamiento y del centro de IoT.
+El script tarda unos dos minutos en ejecutarse. Cuando haya finalizado, el script genera el nombre de la cuenta de almacenamiento y del centro de IoT.
 
 ## <a name="review-route-to-storage-in-iot-hub"></a>Revisión de la ruta al almacenamiento en IoT Hub
 

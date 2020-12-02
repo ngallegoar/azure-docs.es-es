@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: overview
 ms.date: 11/13/2020
 ms.author: matjazl
-ms.openlocfilehash: 3bb168cf3f642d22096c54b3f35c7833afaff769
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: 386003d7dae80e086f523b2cebe61aa0eee7b89e
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94635150"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95527826"
 ---
 # <a name="what-is-azure-api-for-fhirreg"></a>¿Qué es Azure API for FHIR&reg;?
 
@@ -108,4 +108,4 @@ Para probar el conector de Azure IoT para FHIR, consulte el inicio rápido en el
 >[!div class="nextstepaction"]
 >[Implementación del conector de Azure IoT para FHIR](iot-fhir-portal-quickstart.md)
 
-*En Azure Portal, el conector de Azure IoT para FHIR se conoce como conector de IoT (versión preliminar). FHIR es una marca registrada de HL7 y se usa con el permiso de HL7. 
+*En Azure Portal, el Conector de Azure IoT para FHIR se conoce como Conector de IoT (versión preliminar). FHIR es una marca registrada de HL7 y se usa con el permiso de HL7. 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/21/2020
-ms.openlocfilehash: 406371325ddf8b555ede481582e19635b85abe49
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 10a2ae71d8c26d82a4a730bab3ba16e7c62d1243
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461573"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95911743"
 ---
 # <a name="collect-custom-logs-with-log-analytics-agent-in-azure-monitor"></a>Recopilación de registros personalizados con el agente de Log Analytics en Azure Monitor
 
@@ -30,6 +30,7 @@ Los archivos de registro que se van a recopilar deben cumplir los criterios sigu
 
 - El archivo de registro no debe permitir el registro circular o la rotación de registros, donde el archivo se sobrescribe con nuevas entradas.
 - El archivo de registro debe utilizar la codificación ASCII o UTF-8.  No se admiten otros formatos, como UTF-16.
+- En Linux, la conversión de zona horaria no se admite con las marcas de tiempo de los registros.
 
 >[!NOTE]
 > Si hay entradas duplicadas en el archivo de registro, Azure Monitor las recopila. Pero los resultados de la consulta serán incoherentes cuando los resultados del filtro muestren más eventos que el recuento de resultados. Es importante que valide el registro para determinar si la aplicación que crea está causando este comportamiento y solucionarlo si es posible antes de crear la definición de la colección de registros personalizada.  
@@ -73,7 +74,7 @@ Si se usa un delimitador de marca de tiempo, la propiedad TimeGenerated de cada 
 ### <a name="step-3-add-log-collection-paths"></a>Paso 3. Incorporación de rutas de recopilación de registros
 Debe definir una o más rutas de acceso en el agente para colocar el registro personalizado.  Puede proporcionar un nombre y una ruta de acceso específicos para el archivo de registro, o bien puede especificar una ruta de acceso con un carácter comodín para el nombre. Esto admite aplicaciones que crean un archivo nuevo cada día o cuando un archivo alcanza un tamaño determinado. También puede proporcionar varias rutas de acceso para un solo archivo de registro.
 
-Por ejemplo, una aplicación puede crear un archivo de registro cada día con la fecha incluida en el nombre, como registro20100316.txt. Un patrón para dicho registro podría ser *registro\*.txt* , que se aplicará a cualquier archivo de registro que siga el esquema de asignación de nombres de la aplicación.
+Por ejemplo, una aplicación puede crear un archivo de registro cada día con la fecha incluida en el nombre, como registro20100316.txt. Un patrón para dicho registro podría ser *registro\*.txt*, que se aplicará a cualquier archivo de registro que siga el esquema de asignación de nombres de la aplicación.
 
 La tabla siguiente proporciona ejemplos de patrones válidos para especificar diferentes archivos de registro.
 

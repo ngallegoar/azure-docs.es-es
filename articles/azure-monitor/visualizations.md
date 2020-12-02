@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/17/2020
-ms.openlocfilehash: 4c9f74f5a9950a299b34e22c1e86dd91f8c82364
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f9f95a5e85ec4eebf82cca707476750595331d73
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90983604"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95522675"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Visualizar datos de Azure Monitor
 En este artículo se proporciona un resumen de los métodos disponibles para visualizar los datos de métricas y de registro almacenados en Azure Monitor.
@@ -49,7 +49,7 @@ Este es un tutorial en vídeo sobre la creación de paneles.
 - Integración profunda en Azure. Las visualizaciones se pueden anclar a paneles desde varias páginas de Azure, que incluyen el Explorador de métricas, Log Analytics y Application Insights.
 - Es compatible con las métricas y los registros.
 - Puede combinar datos de varios orígenes, incluidos los resultados del [Explorador de métricas](platform/metrics-charts.md), las [consultas del registro](log-query/log-query-overview.md) y los [mapas](app/app-map.md), y la disponibilidad de Application Insights.
-- Opción de paneles personales o compartidos. Integrado con la [autenticación basada en roles (RBAC)](../role-based-access-control/overview.md) de Azure.
+- Opción de paneles personales o compartidos. Esta actualización también se integra con los [controles de acceso basado en roles (Azure RBAC) de Azure](../role-based-access-control/overview.md).
 - Actualización automática. Las métricas se actualizan según el intervalo de tiempo con un mínimo de cinco minutos. Registra la actualización cada hora, con una opción de actualización manual a petición mediante un clic en el icono "Actualizar" en una visualización determinada o mediante la actualización del panel completo.
 - Paneles de métricas parametrizadas con marca de tiempo y parámetros personalizados.
 - Opciones de diseño flexibles.

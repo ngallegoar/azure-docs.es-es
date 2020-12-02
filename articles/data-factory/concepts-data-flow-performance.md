@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
-ms.date: 08/12/2020
-ms.openlocfilehash: 055cdf7b6cec12eb8c3e7fde891d155b831a6523
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.date: 11/24/2020
+ms.openlocfilehash: cc06f12317f5e30721452e07bd4dc5f50dfdb7ec
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637877"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96022367"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Guía de optimización y rendimiento de la asignación de instancias de Data Flow
 
@@ -87,6 +87,12 @@ Si conoce bien la cardinalidad de los datos, la creación de particiones clave p
 > [!TIP]
 > Al establecer manualmente el esquema de partición, los datos se reordenan y se pueden perder las ventajas del optimizador de Spark. Como procedimiento recomendado, conviene no establecer manualmente las particiones a menos que sea necesario hacerlo.
 
+## <a name="logging-level"></a>Nivel de registro
+
+Si no es necesario que cada ejecución de canalización de las actividades de flujo de datos anote completamente todos los registros de telemetría detallados, tiene la opción de establecer el nivel de registro en "básico" o "ninguno". Al ejecutar los flujos de datos en modo "detallado" (valor predeterminado), está solicitando a ADF que registre la actividad por completo en cada nivel de partición individual durante la transformación de los datos. Esta puede ser una operación costosa; por tanto, habilitar solo el modo detallado al solucionar problemas puede mejorar el flujo de datos y el rendimiento de la canalización en general. El modo "básico" solo registrará las duraciones de las transformaciones, mientras que "ninguno" solo proporcionará un resumen de las duraciones.
+
+![Nivel de registro](media/data-flow/logging.png "Establecimiento del nivel de registro")
+
 ## <a name="optimizing-the-azure-integration-runtime"></a><a name="ir"></a> Optimización de Azure Integration Runtime
 
 Los flujos de datos se ejecutan en clústeres de Spark que se activan en tiempo de ejecución. La configuración del clúster que se usa se define en el entorno de ejecución de integración (IR) de la actividad. Hay tres consideraciones de rendimiento que se deben tener en cuenta a la hora de definir el entorno de ejecución de integración: el tipo de clúster, el tamaño del clúster y el período de vida.
@@ -99,7 +105,7 @@ Hay tres opciones disponibles para la activación del tipo de clúster de Spark:
 
 Los clústeres de **uso general** son la selección predeterminada y resultan la opción idónea en la mayoría de las cargas de trabajo de flujo de datos. Suelen ofrecer el mejor equilibrio entre rendimiento y costo.
 
-Si el flujo de datos tiene muchas combinaciones y búsquedas, puede que desee usar un clúster **optimizado para memoria** . Los clústeres optimizados para memoria pueden almacenar más datos en memoria y reducirán los errores de memoria insuficiente que puedan aparecer. Son los más caros por núcleo, pero también tienden a generar canalizaciones más correctas. Si aparecen errores de memoria insuficiente al ejecutar los flujos de datos, cambie a una configuración de Azure IR optimizada para memoria. 
+Si el flujo de datos tiene muchas combinaciones y búsquedas, puede que desee usar un clúster **optimizado para memoria**. Los clústeres optimizados para memoria pueden almacenar más datos en memoria y reducirán los errores de memoria insuficiente que puedan aparecer. Son los más caros por núcleo, pero también tienden a generar canalizaciones más correctas. Si aparecen errores de memoria insuficiente al ejecutar los flujos de datos, cambie a una configuración de Azure IR optimizada para memoria. 
 
 Los clústeres **optimizados para proceso** no son idóneos para flujos de trabajo de ETL y el equipo de Azure Data Factory no los recomienda para la mayoría de las cargas de trabajo de producción. En el caso de transformaciones de datos más sencillas, sin un uso intensivo de memoria, como el filtrado de datos o la incorporación de columnas derivadas, se pueden usar los clústeres optimizados para proceso, con un precio más barato por núcleo.
 
@@ -155,7 +161,7 @@ Azure SQL Database tiene una opción única de creación de particiones denomina
 
 #### <a name="isolation-level"></a>Nivel de aislamiento
 
-El nivel de aislamiento de la lectura en un sistema de origen de Azure SQL afecta al rendimiento. La opción "Read uncommitted" (Lectura no confirmada) proporcionará el rendimiento más rápido y evitará bloqueos de base de datos. Para obtener más información acerca de los niveles de aislamiento de SQL, consulte [Descripción de los niveles de aislamiento](/sql/connect/jdbc/understanding-isolation-levels?view=sql-server-ver15).
+El nivel de aislamiento de la lectura en un sistema de origen de Azure SQL afecta al rendimiento. La opción "Read uncommitted" (Lectura no confirmada) proporcionará el rendimiento más rápido y evitará bloqueos de base de datos. Para obtener más información acerca de los niveles de aislamiento de SQL, consulte [Descripción de los niveles de aislamiento](https://docs.microsoft.com/sql/connect/jdbc/understanding-isolation-levels).
 
 #### <a name="read-using-query"></a>Lectura mediante consulta
 
@@ -163,7 +169,7 @@ Puede leer de Azure SQL Database mediante una tabla o una consulta SQL. Si está
 
 ### <a name="azure-synapse-analytics-sources"></a>Orígenes de Azure Synapse Analytics
 
-Cuando se usa Azure Synapse Analytics, las opciones de origen incluyen un valor denominado **Enable staging** (Habilitar almacenamiento provisional). Este valor permite que ADF lea de Synapse mediante [PolyBase](/sql/relational-databases/polybase/polybase-guide?view=sql-server-ver15), lo que mejora en gran medida el rendimiento de lectura. La habilitación de PolyBase requiere que especifique una ubicación de almacenamiento provisional en Azure Blob Storage o Azure Data Lake Storage gen2 en la configuración de la actividad de flujo de datos.
+Cuando se usa Azure Synapse Analytics, las opciones de origen incluyen un valor denominado **Enable staging** (Habilitar almacenamiento provisional). Este valor permite que ADF lea de Synapse mediante ```Polybase```, lo que mejora en gran medida el rendimiento de lectura. La habilitación de ```Polybase``` requiere que especifique una ubicación de almacenamiento provisional de Azure Blob Storage o Azure Data Lake Storage Gen2 en la configuración de la actividad del flujo de datos.
 
 ![Enable staging](media/data-flow/enable-staging.png "Enable staging (Permitir almacenamiento provisional)") (Habilitar almacenamiento provisional)
 
@@ -183,6 +189,10 @@ Cuando los flujos de datos escriben en los receptores, la creación de particion
 
 En el caso de Azure SQL Database, la creación de particiones predeterminada debería funcionar en la mayoría de los casos. Existe la posibilidad de que el receptor pueda tener demasiadas particiones para que la base de datos SQL pueda administrarlas. Si ve que este puede ser el caso, reduzca el número de particiones que salen del receptor de SQL Database.
 
+#### <a name="impact-of-error-row-handling-to-performance"></a>Efecto del control de filas de error sobre el rendimiento
+
+Cuando se habilita el control de filas de error ("continuar en caso de error") en la transformación del receptor, ADF realiza un paso adicional antes de escribir las filas compatibles en la tabla de destino. Este paso adicional tendrá una pequeña penalización en el rendimiento que puede estar en torno al 5 %, a lo que se suma una pequeña reducción adicional del rendimiento si establece también la opción con las filas incompatibles en un archivo de registro.
+
 #### <a name="disabling-indexes-using-a-sql-script"></a>Deshabilitación de índices mediante un script SQL
 
 Deshabilitar los índices antes de una carga en una base de datos SQL puede mejorar considerablemente el rendimiento de la escritura en la tabla. Ejecute el siguiente comando antes de escribir en el receptor de SQL.
@@ -198,7 +208,7 @@ En los flujos de datos de asignación, ambos se pueden ejecutar de forma nativa 
 ![Deshabilitación de índices](media/data-flow/disable-indexes-sql.png "Deshabilitación de índices")
 
 > [!WARNING]
-> Cuando se deshabilitan los índices, el flujo de datos toma de hecho el control sobre una base de datos y es poco probable que las consultas se realicen correctamente en este caso. Como resultado, se desencadenan muchos trabajos ETL en medio de la noche para evitar este conflicto. Para obtener más información, consulte las [restricciones que conlleva deshabilitar los índices](/sql/relational-databases/indexes/disable-indexes-and-constraints?view=sql-server-ver15).
+> Cuando se deshabilitan los índices, el flujo de datos toma de hecho el control sobre una base de datos y es poco probable que las consultas se realicen correctamente en este caso. Como resultado, se desencadenan muchos trabajos ETL en medio de la noche para evitar este conflicto. Para obtener más información, consulte las [restricciones que conlleva deshabilitar los índices](https://docs.microsoft.com/sql/relational-databases/indexes/disable-indexes-and-constraints).
 
 #### <a name="scaling-up-your-database"></a>Escalado vertical de la base de datos
 
@@ -240,7 +250,6 @@ Al escribir en CosmosDB, la modificación de la capacidad de proceso y del tama�
 
 **Write throughput budget** (Presupuesto de capacidad de proceso de escritura): use un valor que sea menor que el total de RU por minuto. Si tiene un flujo de datos con un número elevado de particiones de Spark y establece un presupuesto de capacidad de proceso, habrá más equilibrio entre las particiones.
 
-
 ## <a name="optimizing-transformations"></a>Optimización de transformaciones
 
 ### <a name="optimizing-joins-exists-and-lookups"></a>Optimización de transformaciones de tipo Combinación, Existe y Búsqueda
@@ -249,7 +258,7 @@ Al escribir en CosmosDB, la modificación de la capacidad de proceso y del tama�
 
 En las transformaciones de tipo Combinación, Búsqueda y Existe, cuando uno o ambos flujos de datos son lo suficientemente pequeños como para caber en la memoria del nodo de trabajo, puede optimizar el rendimiento si habilita la opción **Broadcast** (Difusión). La difusión consiste en enviar tramas de datos pequeñas a todos los nodos del clúster. Esto permite que el motor de Spark realice una combinación sin reordenar los datos del flujo grande. De forma predeterminada, el motor de Spark decidirá automáticamente si difundir o no un lado de una combinación. Si está familiarizado con los datos de entrada y sabe que un flujo será significativamente menor que el otro, puede seleccionar la opción de difusión **Fixed** (Fija). La difusión fija fuerza a Spark a difundir el flujo seleccionado. 
 
-Si el tamaño de los datos difundidos es demasiado grande para el nodo de Spark, puede aparecer un error de memoria insuficiente. Para evitar estos errores, utilice los clústeres **optimizados para memoria** . Si hay tiempos de espera de difusión durante las ejecuciones de flujo de datos, puede desactivar la optimización de difusión. Sin embargo, esto dará lugar a flujos de datos con un rendimiento más lento.
+Si el tamaño de los datos difundidos es demasiado grande para el nodo de Spark, puede aparecer un error de memoria insuficiente. Para evitar estos errores, utilice los clústeres **optimizados para memoria**. Si hay tiempos de espera de difusión durante las ejecuciones de flujo de datos, puede desactivar la optimización de difusión. Sin embargo, esto dará lugar a flujos de datos con un rendimiento más lento.
 
 ![Optimización de la transformación de combinación](media/data-flow/joinoptimize.png "Optimización de la combinación")
 

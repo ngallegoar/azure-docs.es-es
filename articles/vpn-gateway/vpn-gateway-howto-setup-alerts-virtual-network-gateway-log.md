@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 09/03/2020
+ms.date: 11/18/2020
 ms.author: alzam
-ms.openlocfilehash: e2451796cb99f57501ed74aba1dc7a3077b51881
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1f10799ab32b6cb26a8b3b5b343f65b960d71357
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89441619"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96007008"
 ---
 # <a name="set-up-alerts-on-resource-log-events-from-vpn-gateway"></a>Configuración de alertas de eventos de registro de recursos de VPN Gateway
 
@@ -20,20 +20,20 @@ En este artículo se le ayuda a configurar alertas basadas en eventos de registr
 
 Los siguientes registros de recursos están disponibles en Azure:
 
-|***Nombre*** | ***Descripción*** |
+|***Nombre** _ | _*_Descripción_*_ |
 |---        | ---               |
 |GatewayDiagnosticLog | Contiene los registros de recursos para los eventos de configuración de puerta de enlace, los cambios principales y los eventos de mantenimiento |
 |TunnelDiagnosticLog | Contiene los eventos de cambio del estado del túnel. Los eventos de conexión/desconexión del túnel tienen un motivo resumido para el cambio de estado si es aplicable |
 |RouteDiagnosticLog | Registra los cambios en rutas estáticas y eventos BGP que se producen en la puerta de enlace |
 |IKEDiagnosticLog | Registra mensajes de control de IKE y eventos en la puerta de enlace |
-|P2SDiagnosticLog | Registra mensajes de control de punto a sitio y eventos en la puerta de enlace. La información del origen de conexión se proporciona solo para conexiones IKEv2 |
+|P2SDiagnosticLog | Registra mensajes de control de punto a sitio y eventos en la puerta de enlace. La información del origen de conexión se proporciona solo para conexiones IKEv2 y OpenVPN |
 
 ## <a name="set-up-alerts-in-the-azure-portal"></a><a name="setup"></a>Configuración de alertas en Azure Portal
 
 Los pasos del ejemplo siguiente crean una alerta para un evento de desconexión que implica un túnel VPN de sitio a sitio:
 
 
-1. En Azure Portal, seleccione **Log Analytics** en **Todos los servicios** y seleccione **Áreas de trabajo de Log Analytics**.
+1. En Azure Portal, busque _ *Log Analytics** en **Todos los servicios** y seleccione **Áreas de trabajo de Log Analytics**.
 
    ![Selecciones para acceder a las áreas de trabajo de Log Analytics](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert0.png "Crear")
 

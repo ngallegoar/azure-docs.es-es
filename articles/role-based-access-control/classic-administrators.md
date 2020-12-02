@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/22/2020
+ms.date: 11/24/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: d61d49fdd90f1f916141ca636e2c2a4dbe0b9bcd
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 935c0bf76e298ab1e2e4d25fab8685ac4ce617db
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94657752"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95916225"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Administradores de la suscripción clásica de Azure
 
@@ -99,25 +99,25 @@ Para información donde se comparan los usuarios miembros y los usuarios invitad
 
 Solo el administrador de cuenta puede cambiar el administrador de servicios de una suscripción. De forma predeterminada, al registrarse en una suscripción de Azure, el administrador de servicios es también el administrador de cuenta. El usuario con el rol de administrador de cuenta no tiene acceso a Azure Portal. El usuario con el rol de administrador de servicios tiene acceso total a Azure Portal. Si el administrador de cuenta y el administrador de servicios son el mismo usuario y cambia el administrador de servicios a otro usuario distinto, el administrador de cuenta pierde el acceso a Azure Portal. Sin embargo, el administrador de cuenta siempre puede usar el Centro de cuentas para cambiar el administrador de servicio de nuevo a sí mismo.
 
-Siga estos pasos para cambiar el administrador de servicios en el **Centro de cuentas**.
-
-### <a name="account-center"></a>Centro de cuentas
+Siga estos pasos para cambiar el administrador de servicios en Azure Portal.
 
 1. Asegúrese de que el escenario sea compatible mediante la comprobación de las [limitaciones para cambiar de administrador de servicios](#limitations-for-changing-the-service-administrator).
 
-1. Inicie sesión en el [Centro de cuentas](https://account.windowsazure.com/subscriptions) como administrador de cuenta.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) como administrador de la cuenta.
 
-1. Haga clic en una suscripción.
+1. Abra [Suscripciones](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) y seleccione una suscripción.
 
-1. En la parte derecha, haga clic en **Editar detalles de suscripción**.
+1. En el panel de navegación izquierdo, haga clic en **Propiedades**.
 
-    ![Captura de pantalla que muestra el botón Editar suscripción en el Centro de cuentas](./media/classic-administrators/editsub.png)
+1. Haga clic en **Service Admin**(Administrador del servicios).
 
-1. En el cuadro **ADMINISTRADOR DE SERVICIOS** , escriba la dirección de correo electrónico del nuevo administrador de servicios.
+    ![Captura de pantalla que muestra las propiedades de una suscripción en Azure Portal](./media/classic-administrators/service-admin.png)
 
-    ![Captura de pantalla que muestra el cuadro para cambiar el correo electrónico del administrador de servicios](./media/classic-administrators/change-service-admin.png)
+1. En la página **Edit service admin** (Editar administrador de servicios) escriba la dirección de correo electrónico del nuevo administrador de servicios.
 
-1. Haga clic en la marca de verificación para guardar el cambio.
+    ![Captura de pantalla que muestra la página Edit service admin (Editar administrador de servicios)](./media/classic-administrators/service-admin-edit.png)
+
+1. Haga clic en **Aceptar** para guardar el cambio.
 
 ### <a name="limitations-for-changing-the-service-administrator"></a>Limitaciones para cambiar el administrador de servicios
 
@@ -142,7 +142,7 @@ Siga estos pasos para ver el administrador de cuenta.
 
 1. Abra [Suscripciones](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) y seleccione una suscripción.
 
-1. Haga clic en **Propiedades**.
+1. En el panel de navegación izquierdo, haga clic en **Propiedades**.
 
     El administrador de cuenta de la suscripción se muestra en el cuadro **Administrador de cuenta**.
 

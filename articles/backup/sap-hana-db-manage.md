@@ -3,12 +3,12 @@ title: Administración de bases de datos de SAP HANA con copia de seguridad en m
 description: En este artículo, aprenderá las tareas comunes para administrar y supervisar las bases de datos de SAP HANA que se ejecutan en máquinas virtuales de Azure.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: e257aa7771f6f76a4d53f16255c2f3cbb80c8967
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4c8dc80c7b48217e40d5325b75752e21174ecaae
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89377461"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95811960"
 ---
 # <a name="manage-and-monitor-backed-up-sap-hana-databases"></a>Administración y supervisión de bases de datos de SAP HANA de las que se ha realizado copia de seguridad
 
@@ -86,20 +86,39 @@ Estas copias de seguridad a petición también se mostrarán en la lista de punt
 
 Las restauraciones desencadenadas a partir de clientes nativos de HANA (mediante **Backint**) para restaurar en la misma máquina pueden [supervisarse](#monitor-manual-backup-jobs-in-the-portal) desde la página **Trabajos de copia de seguridad**.
 
-### <a name="run-sap-hana-native-client-backup-on-a-database-with-azure-backup-enabled"></a>Ejecución de una copia de seguridad del cliente nativo de SAP HANA en una base de datos con Azure Backup habilitado
+### <a name="run-sap-hana-native-client-backup-to-local-disk-on-a-database-with-azure-backup-enabled"></a>Ejecución de una copia de seguridad del cliente nativo de SAP HANA en el disco local de una base de datos con Azure Backup habilitado
 
 Si quiere hacer una copia de seguridad local (mediante HANA Studio/Cockpit) de una base de datos de la que se está haciendo una copia de seguridad con Azure Backup, haga lo siguiente:
 
 1. Espere a que finalicen las copias de seguridad completas o de registro de la base de datos. Compruebe el estado en SAP HANA Studio o Cockpit.
-2. Inhabilite las copias de seguridad de registros y establezca el catálogo de copias de seguridad al sistema de archivos de la base de datos pertinente.
-3. Para ello, haga doble clic en **systemdb** > **Configuración** > **Seleccionar base de datos** > **Filtro (registro)** .
-4. Establezca **enable_auto_log_backup** en **No**.
-5. Establezca **log_backup_using_backint** en **False**.
-6. A continuación, haga una copia de seguridad completa a petición de la base de datos.
-7. Espere a que finalicen la copia de seguridad completa y la copia de seguridad de catálogos.
-8. Revierta la configuración anterior a las opciones de Azure:
-   * Establezca **enable_auto_log_backup** en **Sí**.
-   * Establezca **log_backup_using_backint** en **True**.
+2. para la base de datos pertinente
+    1. Anule los parámetros de BackInt. Para ello, haga doble clic en **systemdb** > **Configuración** > **Seleccionar base de datos** > **Filtro (registro)** .
+        * enable_auto_log_backup: No
+        * log_backup_using_backint: False
+        * catalog_backup_using_backint:False
+3. A continuación, haga una copia de seguridad completa a petición de la base de datos
+4. e invierta los pasos. Para la misma base de referencia pertinente mencionada anteriormente,
+    1. vuelva a habilitar los parámetros de BackInt
+        1. catalog_backup_using_backint:True
+        1. log_backup_using_backint: True
+        1. enable_auto_log_backup: Sí
+
+### <a name="manage-or-clean-up-the-hana-catalog-for-a-database-with-azure-backup-enabled"></a>Administre o limpie el catálogo de HANA para una base de datos con Azure Backup habilitado
+
+Si desea editar o limpiar el catálogo de copias de seguridad, haga lo siguiente:
+
+1. Espere a que finalicen las copias de seguridad completas o de registro de la base de datos. Compruebe el estado en SAP HANA Studio o Cockpit.
+2. para la base de datos pertinente
+    1. Anule los parámetros de BackInt. Para ello, haga doble clic en **systemdb** > **Configuración** > **Seleccionar base de datos** > **Filtro (registro)** .
+        * enable_auto_log_backup: No
+        * log_backup_using_backint: False
+        * catalog_backup_using_backint:False
+3. Edite el catálogo y quite las entradas anteriores
+4. e invierta los pasos. Para la misma base de referencia pertinente mencionada anteriormente,
+    1. vuelva a habilitar los parámetros de BackInt
+        1. catalog_backup_using_backint:True
+        1. log_backup_using_backint: True
+        1. enable_auto_log_backup: Sí
 
 ### <a name="change-policy"></a>Cambiar la directiva
 
@@ -217,6 +236,10 @@ Obtenga información sobre cómo continuar con la copia de seguridad de una base
 ### <a name="upgrading-from-sdc-to-mdc-without-a-sid-change"></a>Actualización de SDC a MDC sin un cambio de SID
 
 Sepa cómo continuar con la copia de seguridad de una base de datos SAP HANA cuyo [SID no haya cambiado después de la actualización de SDC a MDC](backup-azure-sap-hana-database-troubleshoot.md#sdc-to-mdc-upgrade-with-no-change-in-sid).
+
+### <a name="upgrading-to-a-new-version-in-either-sdc-or-mdc"></a>Actualización a una nueva versión en SDC o MDC
+
+Obtenga información sobre cómo continuar con la copia de seguridad de una base de datos SAP HANA [cuya versión está actualizada](backup-azure-sap-hana-database-troubleshoot.md#sdc-version-upgrade-or-mdc-version-upgrade-on-the-same-vm).
 
 ### <a name="unregister-an-sap-hana-instance"></a>Anulación del registro de una instancia de SAP HANA
 

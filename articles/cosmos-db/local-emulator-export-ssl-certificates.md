@@ -1,23 +1,23 @@
 ---
 title: Exportación de los certificados del Emulador de Azure Cosmos DB
-description: Obtenga información sobre cómo exportar el certificado del emulador de Azure Cosmos DB para su uso con aplicaciones en Java, Python y Node.js Los certificados se deben exportar y usar para los lenguajes y entornos de runtime que no usan el almacén de certificados de Windows.
+description: Aprenda a exportar el certificado del emulador de Azure Cosmos DB para usarlo con aplicaciones de Java, Python y Node.js. Los certificados se deben exportar y usar para los lenguajes y entornos de runtime que no usan el almacén de certificados de Windows.
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 09/17/2020
 author: deborahc
 ms.author: dech
 ms.custom: devx-track-python, devx-track-java, contperfq1
-ms.openlocfilehash: 79e2b58ea342c9449faba108881c65d0bd8de856
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 23d9c6730857cf4ed7f8b8062d5529bedd8e2740
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93085809"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95997178"
 ---
 # <a name="export-the-azure-cosmos-db-emulator-certificates-for-use-with-java-python-and-nodejs-apps"></a>Exportación de los certificados del emulador de Azure Cosmos DB para su uso con aplicaciones en Java, Python y Node.js
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-El emulador de Azure Cosmos DB proporciona un entorno local que emula el servicio Azure Cosmos DB con fines de desarrollo. El emulador de Azure Cosmos solo admite la comunicación segura a través de conexiones TLS.
+El Emulador de Azure Cosmos DB proporciona un entorno local que emula el servicio de Azure Cosmos DB con fines de desarrollo. El emulador de Azure Cosmos solo admite la comunicación segura a través de conexiones TLS.
 
 Los certificados del emulador local de Azure Cosmos DB se generan la primera vez que ejecuta el emulador. Hay dos certificados. Uno de ellos se usa para conectarse al emulador local, y el otro se usa para administrar el cifrado predeterminado de los datos del emulador en el emulador. El certificado que desea exportar es el certificado de conexión con el nombre descriptivo "DocumentDBEmulatorCertificate".
 
@@ -97,7 +97,7 @@ Al conectarse al emulador desde los SDK de Node.js, se deshabilita la verificaci
 
 ## <a name="rotate-emulator-certificates"></a>Rotación de certificados del emulador
 
-Para forzar la regeneración de los certificados del emulador, puede seleccionar **Restablecer datos** del emulador de Azure Cosmos DB que se ejecuta en la bandeja de Windows. Tenga en cuenta que esta acción también borrará todos los datos almacenados localmente por el emulador.
+Para forzar la regeneración de los certificados del emulador, puede seleccionar **Reset Data** (Restablecer datos) en el emulador de Azure Cosmos DB que se ejecuta en la bandeja de Windows. Tenga en cuenta que esta acción también borrará todos los datos almacenados localmente por el emulador.
 
 :::image type="content" source="./media/local-emulator-export-ssl-certificates/database-local-emulator-reset-data.png" alt-text="Restablecimiento de datos en el emulador local de Azure Cosmos DB":::
 

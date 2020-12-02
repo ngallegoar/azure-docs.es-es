@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
 ms.custom: contperfq1
-ms.openlocfilehash: edcc94050880544a6c2de54ff27f833f1c60f99f
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: f18f1184f921aca4f2c1e33ac00dcf14c63b24eb
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94683652"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95893365"
 ---
 # <a name="azure-ea-portal-administration"></a>Administración del portal del Contrato Enterprise de Azure
 
@@ -146,7 +146,7 @@ Antes de realizar la transferencia de la propiedad debe conocer estas directivas
 - Cuando se realizan transferencias de suscripciones o de la propiedad de cuentas entre dos identificadores de organización que se encuentran en el mismo inquilino, se conservan tanto las directivas de Azure RBAC como los roles de administrador y coadministrador de servicios existentes.
 - Las transferencias de suscripciones o de propiedad de cuentas entre inquilinos provocan la pérdida no solo de las directivas de Azure RBAC, sino también de las asignaciones de roles.
 - Las directivas y los roles de administrador no se transfieren entre los distintos directorios. Los administradores de servicios se actualizan al propietario de la cuenta de destino.
-- Para evitar la pérdida tanto de las directivas RBAC como de las asignaciones de roles al transferir la suscripción entre inquilinos, asegúrese de que la casilla **Move the subscriptions to the recipient’s Azure AD tenant** (Mover las suscripciones al inquilino de Azure AD del destinatario) no está **seleccionada**. De esta forma, se conservarán los servicios, los roles de RBAC y las directivas del inquilino de Azure AD actual y solo se transferirá la propiedad de facturación de la cuenta.  
+- Para evitar la pérdida tanto de las directivas de Azure RBAC como de las asignaciones de roles al transferir la suscripción de un inquilino a otro, asegúrese de que la casilla **Move the subscriptions to the recipient’s Azure AD tenant** (Mover las suscripciones al inquilino de Azure AD del destinatario) no está **seleccionada**. De esta forma, se conservarán los servicios, los roles de Azure RBAC y las directivas del inquilino de Azure AD actual y solo se transferirán la propiedad de facturación de la cuenta.  
     :::image type="content" source="./media/ea-portal-administration/unselected-checkbox-move-subscriptions-to-recipients-tenant.png" alt-text="Imagen que muestra la casilla no seleccionada, con el fin de que se puedan mover las suscripciones al inquilino de Azure AD" lightbox="./media/ea-portal-administration/unselected-checkbox-move-subscriptions-to-recipients-tenant.png" :::
 
 
@@ -282,7 +282,7 @@ El portal del Contrato Enterprise de Azure le ayuda a administrar los costos y e
 
 Cada rol tiene un nivel de acceso y autoridad diferente.
 
-Para más información sobre los roles de usuario, consulte [Roles de usuario de empresa](https://docs.microsoft.com/azure/manage/understand-ea-roles#enterprise-user-roles).
+Para más información sobre los roles de usuario, consulte [Roles de usuario de empresa](/azure/cost-management-billing/manage/understand-ea-roles#enterprise-user-roles).
 
 ## <a name="add-an-azure-ea-account"></a>Adición de una cuenta del Contrato Enterprise de Azure
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 49f3e082969b7483601088cd976d8cc30d500017
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 366d68be1a7f115980973015e363da6095876754
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92367472"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95997637"
 ---
 # <a name="how-to-configure-and-enable-risk-policies"></a>Instrucciones: Configuración y habilitación de directivas de riesgo
 
@@ -33,15 +33,15 @@ Ambas directivas se ocupan de automatizar la respuesta a las detecciones de ries
 
 ## <a name="prerequisites"></a>Prerrequisitos 
 
-Si su organización desea permitir que los usuarios corrijan por sí mismos los riesgos cuando se detecten, los usuarios deben estar registrados para el autoservicio de restablecimiento de contraseña y Azure Multi-Factor Authentication. Se recomienda [habilitar la experiencia de registro de información de seguridad combinada](../authentication/howto-registration-mfa-sspr-combined.md) para obtener la mejor experiencia. Al permitir a los usuarios que se ocupen por sí mismos de solucionar los problemas, se les otorga un estado productivo en el que no es necesaria la intervención del administrador. Los administradores todavía pueden ver estos eventos e investigarlos después del hecho. 
+Si su organización desea permitir que los usuarios corrijan por sí mismos los riesgos cuando se detecten, estos deben estar registrados para el autoservicio de restablecimiento de contraseña y en Azure AD Multi-Factor Authentication. Se recomienda [habilitar la experiencia de registro de información de seguridad combinada](../authentication/howto-registration-mfa-sspr-combined.md) para obtener la mejor experiencia. Al permitir a los usuarios que se ocupen por sí mismos de solucionar los problemas, se les otorga un estado productivo en el que no es necesaria la intervención del administrador. Los administradores todavía pueden ver estos eventos e investigarlos después del hecho. 
 
 ## <a name="choosing-acceptable-risk-levels"></a>Elección de niveles de riesgo aceptables
 
 Las organizaciones deben decidir el nivel de riesgo que están dispuestos a aceptar para equilibrar la experiencia del usuario y la postura de seguridad. 
 
-La recomendación de Microsoft es establecer el umbral de la directiva de riesgo de usuario en **Alto** y la directiva de riesgo de inicio de sesión en **Medio y superior** .
+La recomendación de Microsoft es establecer el umbral de la directiva de riesgo de usuario en **Alto** y la directiva de riesgo de inicio de sesión en **Medio y superior**.
 
-Elegir un umbral **Alto** reduce el número de veces que una directiva se desencadena y minimiza el impacto en los usuarios. Sin embargo, excluye de la directiva las detecciones de riesgo **Bajo** y **Medio** , por lo que es posible que no impida que un atacante aproveche una identidad en peligro. Seleccionar un umbral **Bajo** presenta interrupciones adicionales para el usuario, pero aumenta el control de la seguridad.
+Elegir un umbral **Alto** reduce el número de veces que una directiva se desencadena y minimiza el impacto en los usuarios. Sin embargo, excluye de la directiva las detecciones de riesgo **Bajo** y **Medio**, por lo que es posible que no impida que un atacante aproveche una identidad en peligro. Seleccionar un umbral **Bajo** presenta interrupciones adicionales para el usuario, pero aumenta el control de la seguridad.
 
 ## <a name="exclusions"></a>Exclusiones
 
@@ -54,29 +54,29 @@ Identity Protection usa las [ubicaciones de red](../conditional-access/location-
 Para habilitar las directivas de riesgo de usuario e inicio de sesión, complete los pasos siguientes.
 
 1. Acceda a [Azure Portal](https://portal.azure.com).
-1. Vaya a **Azure Active Directory** > **Seguridad** > **Identity Protection** > **Información general** .
-1. Seleccione **Directiva de riesgo de usuario** .
+1. Vaya a **Azure Active Directory** > **Seguridad** > **Identity Protection** > **Información general**.
+1. Seleccione **Directiva de riesgo de usuario**.
    1. En **Asignaciones**
-      1. **Usuarios** : elija **Todos los usuarios** o **Seleccionar individuos y grupos** si limita el lanzamiento.
+      1. **Usuarios**: elija **Todos los usuarios** o **Seleccionar individuos y grupos** si limita el lanzamiento.
          1. Opcionalmente, puede optar por excluir usuarios de la directiva.
-      1. **Condiciones** - **Riesgo de usuario** : la recomendación de Microsoft es establecer esta opción en **Alto** .
+      1. **Condiciones** - **Riesgo de usuario**: la recomendación de Microsoft es establecer esta opción en **Alto**.
    1. En **Controles**
-      1. **Acceso** : la recomendación de Microsoft es **Permitir el acceso** y **Requerir cambio de contraseña** .
+      1. **Acceso**: la recomendación de Microsoft es **Permitir el acceso** y **Requerir cambio de contraseña**.
    1. **Aplicar directiva** - **Activado**
-   1. **Guardar** : esta acción le devolverá a la página **Información general** .
-1. Seleccione **Directiva de riesgo de inicio de sesión** .
+   1. **Guardar**: esta acción le devolverá a la página **Información general**.
+1. Seleccione **Directiva de riesgo de inicio de sesión**.
    1. En **Asignaciones**
-      1. **Usuarios** : elija **Todos los usuarios** o **Seleccionar individuos y grupos** si limita el lanzamiento.
+      1. **Usuarios**: elija **Todos los usuarios** o **Seleccionar individuos y grupos** si limita el lanzamiento.
          1. Opcionalmente, puede optar por excluir usuarios de la directiva.
-      1. **Condiciones** - **Riesgo de inicio de sesión** : la recomendación de Microsoft es establecer esta opción en **Medio y superior** .
+      1. **Condiciones** - **Riesgo de inicio de sesión**: la recomendación de Microsoft es establecer esta opción en **Medio y superior**.
    1. En **Controles**
-      1. **Acceso** : la recomendación de Microsoft es **Permitir el acceso** y **Requerir autenticación multifactor** .
+      1. **Acceso**: la recomendación de Microsoft es **Permitir el acceso** y **Requerir autenticación multifactor**.
    1. **Aplicar directiva** - **Activado**
    1. **Guardar**
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Habilitación de la directiva de registro de autenticación multifactor de Azure](howto-identity-protection-configure-mfa-policy.md)
+- [Habilitación de la directiva de registro de Azure AD Multi-Factor Authentication](howto-identity-protection-configure-mfa-policy.md)
 
 - [¿Qué es el riesgo?](concept-identity-protection-risks.md)
 

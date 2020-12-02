@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 09/30/2020
+ms.date: 11/23/2020
 ms.author: victorh
-ms.openlocfilehash: 00a84fbf694a58128712abf806ff12df96f0e5e9
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.openlocfilehash: 84ecea7764ddf48d68c983eaa5bccbac5f332d9b
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91596682"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95489701"
 ---
 # <a name="what-is-azure-firewall-manager"></a>¿Qué es Azure Firewall Manager?
 
@@ -89,7 +89,8 @@ Azure Firewall Manager presenta los siguientes problemas conocidos:
 |Las reglas de aplicación generan un error en un centro seguro con DNS personalizado (versión preliminar) configurado.|DNS personalizado (versión preliminar) no funciona en las implementaciones de concentrador seguro y en las implementaciones de red virtual de concentrador donde está habilitada la tunelización forzada.|Se está investigando la solución.|
 |La versión Estándar de DDoS Protection no es compatible con los centros virtuales protegidos|La versión Estándar de DDoS Protection no se integra con las vWAN.|Investigando|
 |Los registros de actividad no son totalmente compatibles|La directiva de firewall no admite actualmente registros de actividad.|Investigando|
-|Configuración de intervalos de direcciones IP privadas de SNAT|Los [valores de intervalo IP privado](../firewall/snat-private-range.md) se omiten si está configurada una directiva de Azure Firewall. Se usa el comportamiento predeterminado de Azure Firewall, de modo que no se aplica SNAT en las reglas de red cuando la dirección IP de destino es un intervalo de direcciones IP privadas, de acuerdo con la normativa [RFC 1918 de IANA](https://tools.ietf.org/html/rfc1918).|Investigando
+|Configuración de intervalos de direcciones IP privadas de SNAT|Los [valores de intervalo IP privado](../firewall/snat-private-range.md) se omiten si está configurada una directiva de Azure Firewall. Se usa el comportamiento predeterminado de Azure Firewall, de modo que no se aplica SNAT en las reglas de red cuando la dirección IP de destino es un intervalo de direcciones IP privadas, de acuerdo con la normativa [RFC 1918 de IANA](https://tools.ietf.org/html/rfc1918).|Investigando|
+|Algunas configuraciones de firewall no se migran cuando se migra el firewall para usar la directiva de firewall|Las zonas de disponibilidad y las direcciones privadas SNAT no se migran al migrar a la directiva de Azure Firewall.|Investigando| 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

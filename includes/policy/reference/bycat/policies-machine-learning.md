@@ -2,19 +2,19 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 10/20/2020
+ms.date: 11/20/2020
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 30e599fa274bac8b8700d366c7102dcf64a5ad09
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: ec1bb2b21e1ac4d24f4643ae85a790b3bc2a147a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92311933"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001036"
 ---
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[Las áreas de trabajo de Azure Machine Learning deben cifrarse con una clave administrada por el cliente (CMK)](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fba769a63-b8cc-4b2d-abf6-ac33c7204be8). |Evalúe las áreas de trabajo de Azure Machine Learning que no tienen el cifrado habilitado con claves administradas por el cliente (CMK). Las claves administradas por el cliente agregan una capa de seguridad adicional a las áreas de trabajo. Para más información, visite [https://aka.ms/azureml-workspaces-cmk](https://aka.ms/azureml-workspaces-cmk). |Audit, Deny, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Machine%20Learning/Workspace_CMKEnabled_Audit.json) |
+|[Las áreas de trabajo de Azure Machine Learning deben cifrarse con una clave administrada por el cliente (CMK)](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fba769a63-b8cc-4b2d-abf6-ac33c7204be8). |Evalúe las áreas de trabajo de Azure Machine Learning que no tienen el cifrado habilitado con claves administradas por el cliente (CMK). Las claves administradas por el cliente agregan una capa de seguridad adicional a las áreas de trabajo. Para más información, visite [https://aka.ms/azureml-workspaces-cmk](https://aka.ms/azureml-workspaces-cmk). |Audit, Deny, Disabled |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Machine%20Learning/Workspace_CMKEnabled_Audit.json) |
 |[Las áreas de trabajo de Azure Machine Learning deben usar un vínculo privado](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F40cec1dd-a100-4920-b15b-3024fe8901ab). |Evalúe las áreas de trabajo de Azure Machine Learning que no tengan al menos una conexión de punto de conexión privado aprobada. Los clientes de una red virtual pueden acceder de forma segura a los recursos que tengan conexiones de punto de conexión privadas mediante vínculos privados. Para más información, visite [https://aka.ms/azureml-workspaces-privatelink](https://aka.ms/azureml-workspaces-privatelink). |Audit, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Machine%20Learning/Workspace_PrivateLinkEnabled_Audit.json) |
 |[Configurar los autores de módulos permitidos para los procesos especificados de Azure Machine Learning](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F53c70b02-63dd-11ea-bc55-0242ac130003). |Esta directiva ayuda a proporcionar a los autores de módulos permitidos en los procesos de Azure Machine Learning especificados y se pueden asignar en el área de trabajo. Para más información, visite [https://aka.ms/amlpolicydoc](https://aka.ms/amlpolicydoc). |enforceSetting, deshabilitado |[1.0.1-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Machine%20Learning/AllowedModuleAuthors_EnforceSetting.json) |
 |[Configurar los paquetes de Python permitidos para los procesos especificados de Azure Machine Learning](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F77eeea86-7e81-4a7d-9067-de844d096752). | Esta directiva ayuda a proporcionar los paquetes de Python permitidos en los procesos de Azure Machine Learning especificados y se pueden asignar en el área de trabajo. Para más información, visite [https://aka.ms/amlpolicydoc](https://aka.ms/amlpolicydoc). |enforceSetting, deshabilitado |[1.0.0-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Machine%20Learning/AllowedPythonPackageChannels_EnforceSetting.json) |

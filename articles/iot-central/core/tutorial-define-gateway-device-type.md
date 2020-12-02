@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 58e481e34d9f798b73b72b114b071cf035c3319f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f95df6fb74071dc16814f11fb48521f984c89778
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90967910"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995529"
 ---
 # <a name="tutorial---define-a-new-iot-gateway-device-type-in-your-azure-iot-central-application"></a>Tutorial: Definición de un nuevo tipo de dispositivo de puerta de enlace de IoT en la aplicación de Azure IoT Central
 
@@ -51,11 +51,11 @@ Para crear una plantilla para un dispositivo con **sensor S1**:
 
 1. En la página **Revisar**, seleccione **Crear** para agregar la plantilla de dispositivo a la aplicación. 
 
-Para crear una plantilla para un dispositivo con **sensor de ocupación RS40**:
+Para crear una plantilla de dispositivo para el dispositivo **_Sensor de ocupación RS40_*:
 
 1. Seleccione **Device Templates** (Plantillas de dispositivo) en el panel izquierdo. A continuación, seleccione **+** para empezar a agregar la plantilla.
 
-1. Desplácese hacia abajo hasta que vea el icono del dispositivo con el ***sensor de ocupación RS40**. Seleccione el icono y, a continuación, seleccione **Siguiente: Customize** (Personalizar)
+1. Desplácese hacia abajo hasta que vea el icono del dispositivo **_Sensor de ocupación RS40_*. Seleccione el icono y, a continuación, seleccione **Siguiente: Customize** (Personalizar)
 
 1. En la página **Revisar**, seleccione **Crear** para agregar la plantilla de dispositivo a la aplicación. 
 
@@ -142,7 +142,7 @@ Para publicar la plantilla de dispositivo de puerta de enlace:
 
 3. En el cuadro de diálogo **Publish a Device Template** (Publicar una plantilla de dispositivo), elija **Publicar**.
 
-Una vez publicada una plantilla de dispositivo, es visible en la página **Devices** (Dispositivos) y para el operador. En una plantilla de dispositivo publicada, no se puede editar un modelo de funcionalidad del dispositivo sin crear una versión. Sin embargo, puede hacer actualizaciones en las propiedades de la nube, las personalizaciones y las vistas en una plantilla de dispositivo publicada. Estas actualizaciones no hacen que se cree una nueva versión. Después de realizar los cambios, seleccione **Publish** (Publicar) para enviar esos cambios al operador.
+Una vez publicada una plantilla de dispositivo, es visible en la página **Devices** (Dispositivos) y para el operador. En una plantilla de dispositivo publicada no se puede editar un modelo de dispositivo sin crear una versión. Sin embargo, puede hacer actualizaciones en las propiedades de la nube, las personalizaciones y las vistas en una plantilla de dispositivo publicada. Estas actualizaciones no hacen que se cree una nueva versión. Después de realizar los cambios, seleccione **Publish** (Publicar) para enviar esos cambios al operador.
 
 ## <a name="create-the-simulated-devices"></a>Creación de los dispositivos simulados
 

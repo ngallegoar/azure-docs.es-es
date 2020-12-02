@@ -13,11 +13,11 @@ ms.author: srbozovi
 ms.reviewer: sstein, bonova
 ms.date: 02/22/2019
 ms.openlocfilehash: 156a4c74eea24b20c28df88be85cb32c0ebe2981
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91617649"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96012464"
 ---
 # <a name="determine-required-subnet-size--range-for-azure-sql-managed-instance"></a>Determinación del tamaño e intervalo de subred necesarios para Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -52,14 +52,14 @@ Ajuste el tamaño de la subred según las necesidades futuras de implementación
 
 GP = de uso general; BC = crítico para la empresa; VC = clúster virtual
 
-| **Generación del hardware** | **Plan de tarifa** | **Uso de Azure** | **Uso de clústeres virtuales** | **Uso de instancias** | **Total*** |
+| **Generación del hardware** | **Plan de tarifa** | **Uso de Azure** | **Uso de clústeres virtuales** | **Uso de instancias** | **Total** |
 | --- | --- | --- | --- | --- | --- |
 | Gen4 | GP | 5 | 1 | 5 | 11 |
 | Gen4 | BC | 5 | 1 | 5 | 11 |
 | Gen5 | GP | 5 | 6 | 3 | 14 |
 | Gen5 | BC | 5 | 6 | 5 | 16 |
 
-  \* El total de columnas muestra el número de direcciones que se usarán al implementar una instancia en la subred. Cada instancia adicional en la subred agrega el número de direcciones representadas con la columna Uso de instancias. Las direcciones representadas con la columna Uso de Azure se comparten entre varios clústeres virtuales, mientras que las representadas con la columna Uso de clústeres virtuales se comparten entre las instancias colocadas en ese clúster virtual.
+  \_ El total de columnas muestra el número de direcciones que se usarán al implementar una instancia en la subred. Cada instancia adicional en la subred agrega el número de direcciones representadas con la columna Uso de instancias. Las direcciones representadas con la columna Uso de Azure se comparten entre varios clústeres virtuales, mientras que las representadas con la columna Uso de clústeres virtuales se comparten entre las instancias colocadas en ese clúster virtual.
 
 Para la operación de actualización normalmente es necesario cambiar el tamaño del clúster virtual. En algunos casos, para la operación de actualización será necesario crear clústeres virtuales (para obtener más detalles, consulte el [artículo sobre operaciones de administración](sql-managed-instance-paas-overview.md#management-operations)). En el caso de la creación de un clúster virtual, el número de direcciones adicionales necesario es igual al número de direcciones representado por la columna Uso de clústeres virtuales sumado con las direcciones necesarias para las instancias colocadas en el clúster virtual (columna Uso de instancias).
 
@@ -74,12 +74,12 @@ Como se ha mencionado antes, en algunas circunstancias, para la operación de ac
 
 Durante la operación de escalado, las instancias necesitan capacidad de IP adicional temporal, que depende del plan de tarifa y la generación del hardware
 
-| **Generación del hardware** | **Plan de tarifa** | **Escenario** | **Direcciones adicionales*** |
+| **Generación del hardware** | **Plan de tarifa** | **Escenario** | **Direcciones adicionales** |
 | --- | --- | --- | --- |
 | Gen4 | GP o BC | Escalado de núcleos virtuales | 5 |
 | Gen4 | GP o BC | Escalado de almacenamiento | 5 |
 | Gen4 | GP o BC | Cambio de GP a BC o de BC a GP | 5 |
-| Gen4 | GP | Cambio a Gen5* | 9 |
+| Gen4 | GP | Cambio a Gen5 | 9 |
 | Gen4 | BC | Cambio a Gen5* | 11 |
 | Gen5 | GP | Escalado de núcleos virtuales | 3 |
 | Gen5 | GP | Escalado de almacenamiento | 0 |

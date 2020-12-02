@@ -17,12 +17,12 @@ ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ms.custom: contperfq1
-ms.openlocfilehash: 3f52b8d4e56ec854f93940ea77f09c3dff1d362e
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 423a879889402d5d3df70a7fadae6451c8418238
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93096009"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95743164"
 ---
 # <a name="what-are-azure-ad-access-reviews"></a>¿Qué son las revisiones de acceso de Azure AD?
 
@@ -74,10 +74,18 @@ Dependiendo de lo que quiera revisar, creará la revisión de acceso en Revision
 
 El directorio debe tener al menos tantas licencias de Azure AD Premium P2 como número de empleados que vayan a realizar las siguientes tareas:
 
-- Usuarios miembros e invitados asignados como revisores
-- Usuarios miembros e invitados que realizan una autorrevisión
-- Propietarios de grupos que realizan una revisión de acceso
-- Propietarios de aplicaciones que realizan una revisión de acceso
+-   Usuarios miembros asignados como revisores
+-   Usuarios miembros que realizan una autorrevisión
+-   Usuarios miembros como propietarios de grupos que realizan una revisión de acceso
+-   Usuarios miembros como propietarios de aplicaciones que realizan una revisión de acceso
+
+En el caso de los usuarios invitados, las necesidades de licencia dependerán del modelo de licencias que esté usando. Sin embargo, las actividades de los usuarios invitados siguientes se consideran uso de Azure AD Premium P2:
+
+-   Usuarios invitados asignados como revisores
+-   Usuarios invitados que realizan una autorrevisión
+-   Usuarios invitados como propietarios de grupos que realizan una revisión de acceso
+-   Usuarios invitados como propietarios de aplicaciones que realizan una revisión de acceso
+
 
 Las licencias de Azure AD Premium P2 **no** son necesarias para los usuarios con los roles Administrador global o Administrador de usuarios que configuran revisiones de acceso, realizan configuraciones o aplican las decisiones a partir de los resultados de las revisiones.
 

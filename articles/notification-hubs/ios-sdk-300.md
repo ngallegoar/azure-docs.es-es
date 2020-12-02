@@ -9,11 +9,11 @@ ms.service: notification-hubs
 ms.reviewer: thsomasu
 ms.lastreviewed: 06/01/2020
 ms.openlocfilehash: 25f18eb0f55560b7abd250b8511b2e250ea55852
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91250443"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001344"
 ---
 # <a name="tutorial-send-push-notifications-to-ios-apps-using-azure-notification-hubs-version-300-preview1"></a>Tutorial: Envío de notificaciones push a aplicaciones iOS mediante Azure Notification Hubs (versión 3.0.0, versión preliminar 1)
 
@@ -43,25 +43,25 @@ Antes de continuar, asegúrese de seguir el tutorial anterior sobre cómo empeza
 
 ## <a name="connect-your-ios-app-to-notification-hubs"></a>Conexión de la aplicación iOS a Notification Hubs
 
-1. En Xcode, cree un nuevo proyecto iOS y seleccione la plantilla **Single View Application** (Aplicación de vista única).
+1. En XCode, cree un nuevo proyecto iOS y seleccione la plantilla **Single View Application** (Aplicación de vista sencilla).
 
    :::image type="content" source="media/ios-sdk/image1.png" alt-text="Seleccionar plantilla":::
 
-2. Al configurar las opciones para el nuevo proyecto, asegúrese de usar el mismo **nombre de producto** e **identificador de organización** que usó al establecer el identificador de agrupación en el portal para desarrolladores de Apple.
+2. Al configurar las opciones para su nuevo proyecto, asegúrese de usar el **nombre de producto** y el **identificador de organización** que usó al establecer el identificador de conjunto en el portal de desarrollo de Apple.
 
-3. En Project Navigator (Explorador de proyectos), seleccione el nombre del proyecto en **Targets** (Destinos) y, a continuación, seleccione la pestaña **Signing & Capabilities** (Firma y funcionalidades). Asegúrese de seleccionar el **equipo** adecuado para la cuenta de desarrollador de Apple. XCode debe desplegar automáticamente el perfil de aprovisionamiento que creó anteriormente según en el identificador del conjunto.
+3. En Project Navigator (Explorador de proyectos), seleccione el nombre del proyecto en **Targets** (Destinos) y, a continuación, seleccione la pestaña **Signing & Capabilities** (Firma y funcionalidades). Asegúrese de seleccionar el **equipo** adecuado para la cuenta de desarrollador de Apple. XCode debe desplegar automáticamente el perfil de aprovisionamiento que creó anteriormente según en el identificador del conjunto.
 
-   Si no ve el nuevo perfil de aprovisionamiento que creó en Xcode, intente actualizar los perfiles de la identidad de firma. Haga clic en **Xcode** en la barra de menús, en **Preferences** (Preferencias), en la pestaña **Account** (Cuenta), en el botón **View Details** (Ver detalles), en la identidad de firma y, por último, en el botón Refresh (Actualizar) en la esquina inferior derecha.
+   Si no ve el nuevo perfil de aprovisionamiento que creó en Xcode, intente actualizar los perfiles de la identidad de firma. Haga clic en **Xcode** en la barra de menús, en **Preferences** (Preferencias), en la pestaña **Account** (Cuenta), en el botón **View Details** (Ver detalles), en la identidad de firma y, por último, en el botón Refresh (Actualizar) en la esquina inferior derecha.
 
-   :::image type="content" source="media/ios-sdk/image2.png" alt-text="Seleccionar plantilla":::
+   :::image type="content" source="media/ios-sdk/image2.png" alt-text="Ver detalles":::
 
-4. En la pestaña **Signing & Capabilities** (Firma y funcionalidades), seleccione **+ Capability** (Funcionalidad). Haga doble clic en **Push Notifications** (Notificaciones push) para habilitarla.
+4. En la pestaña **Signing & Capabilities** (Firma y funcionalidades), seleccione **+ Capability** (Funcionalidad). Haga doble clic en **Push Notifications** (Notificaciones push) para habilitarla.
 
-   :::image type="content" source="media/ios-sdk/image3.png" alt-text="Seleccionar plantilla":::
+   :::image type="content" source="media/ios-sdk/image3.png" alt-text="Funcionalidad":::
 
 5. Agregue los módulos de SDK de Azure Notification Hubs.
 
-   Puede integrar el SDK de Azure Notification Hubs en su aplicación mediante [Cocoapods](https://cocoapods.org/) o agregando manualmente los archivos binarios al proyecto.
+   Puede integrar el SDK de Azure Notification Hubs en la aplicación mediante [Cocoapods](https://cocoapods.org/) o mediante la adición manual de los archivos binarios al proyecto.
 
    - Integración a través de Cocoapods: agregue las siguientes dependencias al podfile para incluir el SDK de Azure Notification Hubs en la aplicación:
 
@@ -77,13 +77,13 @@ Antes de continuar, asegúrese de seguir el tutorial anterior sobre cómo empeza
 
       Puede realizar la integración mediante la copia de los archivos binarios en el proyecto, como se indica a continuación:
 
-        - Descargue el marco del [SDK de Azure Notification Hubs](https://github.com/Azure/azure-notificationhubs-iOS/releases/) proporcionado como archivo ZIP y descomprímalo.
+        - Descargue el marco [SDK de Azure Notification Hubs](https://github.com/Azure/azure-notificationhubs-iOS/releases/) proporcionado como archivo ZIP y descomprímalo.
 
-        - En Xcode, haga clic con el botón derecho en el proyecto y haga clic en la opción **Add Files to** (Agregar archivos a) para agregar la carpeta **WindowsAzureMessaging.framework** al proyecto de Xcode. Seleccione **Options** (Opciones) y asegúrese de que **Copy items if needed** (Copiar elementos si es necesario) esté seleccionado. A continuación, haga clic en **Add** (Agregar).
+        - En XCode, haga clic con el botón derecho en el proyecto y haga clic en la opción **Add Files to** (Agregar archivos a) para agregar la carpeta **WindowsAzureMessaging.framework** al proyecto de XCode. Seleccione **Options** (Opciones) y asegúrese de que **Copy items if needed** (Copiar elementos si es necesario) esté seleccionado. A continuación, haga clic en **Add** (Agregar).
 
-          :::image type="content" source="media/ios-sdk/image4.png" alt-text="Seleccionar plantilla":::
+          :::image type="content" source="media/ios-sdk/image4.png" alt-text="Agregar marco":::
 
-6. Agregue un nuevo archivo de encabezado denominado **Constants.h** al proyecto. Para ello, haga clic con el botón derecho en el nombre del proyecto y seleccione **New File...** (Nuevo archivo...). A continuación, seleccione **Header File** (Archivo de encabezado). Este archivo contiene las constantes del Centro de notificaciones. A continuación, seleccione  **Siguiente**. Asigne al archivo el nombre **Constants.h**.
+6. Agregue un nuevo archivo de encabezado al proyecto denominado **Constants.h**. Para ello, haga clic con el botón derecho en el nombre del proyecto y seleccione **New File...** (Nuevo archivo...). A continuación, seleccione **Header File** (Archivo de encabezado). Este archivo contiene las constantes del Centro de notificaciones. Luego, seleccione **Siguiente**. Asigne al archivo el nombre de **Constants.h**.
 
 7. Agregue el siguiente código al archivo Constants.h:
 
@@ -96,21 +96,27 @@ Antes de continuar, asegúrese de seguir el tutorial anterior sobre cómo empeza
    #endif /* Constants_h */
    ```
 
-8. Agregue el archivo de implementación para Constants.h. Para ello, haga clic con el botón derecho en el nombre del proyecto y seleccione **New File...** (Nuevo archivo...). Seleccione **Objective-C File** (Archivo de Objective-C) y, a continuación, seleccione **Next** (Siguiente). Asigne al archivo el nombre **Constants.m**.
+8. Agregue el archivo de implementación para Constants.h. Para ello, haga clic con el botón derecho en el nombre del proyecto y seleccione **New File...** (Nuevo archivo...). Seleccione **Objective-C File** (Archivo de Objective-C) y, a continuación, seleccione **Next** (Siguiente). Asigne al archivo el nombre de **Constants.m**.
 
-   :::image type="content" source="media/ios-sdk/image5.png" alt-text="Seleccionar plantilla"
+   :::image type="content" source="media/ios-sdk/image5.png" alt-text="Agregar el archivo de implementación":::
+
+9. Abra el archivo **Constants.m** y reemplace el contenido por el código siguiente. Reemplace los marcadores de posición de literal de cadena `NotificationHubConnectionString` y `NotificationHubConnectionString` por el nombre del centro de conectividad y por **DefaultListenSharedAccessSignature** respectivamente, tal como se obtuvo anteriormente en el portal:
+
+   ```objc
+   #import <Foundation/Foundation.h>
+   #import "Constants.h"
 
    NSString* const NHInfoConnectionString = @"NotificationHubConnectionString";
    NSString* const NHInfoHubName = @"NotificationHubName";NSString* const NHUserDefaultTags = @"notification_tags";
    ```
 
-10. En el archivo **AppDelegate.h** del proyecto, agregue la siguiente instrucción `import`:
+10. En el archivo **AppDelegate.h** del proyecto, agregue la siguiente instrucción `import`:
 
     ```objc
     #import "Constants.h"
     ```
 
-11. En el mismo archivo **AppDelegate.m**, reemplace todo el código después de `didFinishLaunchingWithOptions` por el código siguiente:
+11. En el mismo archivo **AppDelegate.m**, reemplace todo el código después de `didFinishLaunchingWithOptions` por el código siguiente:
 
     ```objc
     // Tells the delegate that the app successfully registered with Apple Push Notification service (APNs).
@@ -153,11 +159,11 @@ Antes de continuar, asegúrese de seguir el tutorial anterior sobre cómo empeza
     @end
     ```
 
-    Este código establece la conexión con el centro de notificaciones usando la información de conexión que especificó en **Constants.h**. Luego, proporciona el token del dispositivo al centro de notificaciones para que este pueda enviar notificaciones.
+    Este código se conecta al centro de notificaciones usando la información de conexión que especificó en **Constants.h**. Luego, proporciona el token del dispositivo al centro de notificaciones para que este pueda enviar notificaciones.
 
 ### <a name="create-notificationdetailviewcontroller-header-file"></a>Crear el archivo de encabezado NotificationDetailViewController
 
-1. Al igual que en las instrucciones anteriores, agregue otro archivo de encabezado denominado **NotificationDetailViewController.h**. Reemplace el contenido del nuevo archivo de encabezado por el código siguiente:
+1. Al igual que en las instrucciones anteriores, agregue otro archivo de encabezado llamado **NotificationDetailViewController.h**. Reemplace el contenido del nuevo archivo de encabezado por el código siguiente:
 
    ```objc
    #import <UIKit/UIKit.h>
@@ -179,7 +185,7 @@ Antes de continuar, asegúrese de seguir el tutorial anterior sobre cómo empeza
    NS_ASSUME_NONNULL_END
    ```
 
-2. Agregue el archivo de implementación **NotificationDetailViewController.m**. Reemplace el contenido del archivo por el código siguiente, que implementa los métodos UIViewController:
+2. Agregue el archivo de implementación **NotificationDetailViewController.m**. Reemplace el contenido del archivo por el código siguiente, que implementa los métodos UIViewController:
 
    ```objc
    #import "NotificationDetailViewController.h"
@@ -244,20 +250,20 @@ Antes de continuar, asegúrese de seguir el tutorial anterior sobre cómo empeza
 
 ### <a name="viewcontroller"></a>ViewController
 
-1. En el archivo **ViewController.h** del proyecto, agregue las instrucciones `import` siguientes:
+1. En el archivo **ViewController.h** del proyecto, agregue las siguientes instrucciones `import`:
 
    ```objc
    #import <WindowsAzureMessaging/WindowsAzureMessaging.h>
    #import <UserNotifications/UserNotifications.h>
    ```
 
-2. También en **ViewController.h**, agregue la siguiente declaración de propiedad después de la declaración de `@interface`:
+2. También en **ViewController.h**, agregue la siguiente declaración de propiedad después de la declaración de `@interface`:
 
    ```objc
    @property (strong, nonatomic) IBOutlet UITextField *tagsTextField;
    ```
 
-3. En el archivo de implementación **ViewController.m** del proyecto, reemplace su contenido por el código siguiente:
+3. En el archivo de implementación **ViewController.m** del proyecto, reemplace el contenido del archivo por el código siguiente:
 
    ```objc
    #import "ViewController.h"
@@ -303,32 +309,32 @@ Antes de continuar, asegúrese de seguir el tutorial anterior sobre cómo empeza
 
 ## <a name="send-test-push-notifications"></a>Prueba de envío de las notificaciones push
 
-Puede probar a recibir notificaciones en la aplicación con la opción **Envío de prueba**  de [Azure Portal](https://portal.azure.com/). Envía una notificación push de prueba al dispositivo.
+Puede probar de recibir notificaciones en la aplicación con la opción **Envío de prueba** en [Azure Portal](https://portal.azure.com/). Envía una notificación push de prueba al dispositivo.
 
-:::image type="content" source="media/ios-sdk/image6.png" alt-text="Seleccionar plantilla":::
+:::image type="content" source="media/ios-sdk/image6.png" alt-text="Enviar prueba":::
 
 Las notificaciones push se envían normalmente en un servicio back-end como Mobile Apps o ASP.NET mediante una biblioteca compatible. Si no hay disponible ninguna biblioteca para su back-end, también puede usar la API REST directamente para enviar mensajes de notificación.
 
 A continuación, presentamos una lista de algunos otros tutoriales que podría interesarle revisar para enviar notificaciones:
 
-- Azure Mobile Apps: Para ver un ejemplo de cómo enviar notificaciones desde un back-end de Mobile Apps integrado con Notification Hubs, consulte [Incorporación de notificaciones push a la aplicación iOS](/previous-versions/azure/app-service-mobile/app-service-mobile-ios-get-started-push).
-- ASP.NET:  [Uso de Notification Hubs para enviar notificaciones push a los usuarios](notification-hubs-aspnet-backend-ios-apple-apns-notification.md).
-- SDK de Java para Azure Notification Hubs: Consulte [Uso de Notification Hubs desde Java](notification-hubs-java-push-notification-tutorial.md) para enviar notificaciones desde Java. Esto se probó en Eclipse para el desarrollo de Android.
-- PHP: [Uso de Notification Hubs desde PHP](notification-hubs-php-push-notification-tutorial.md).
+- Azure Mobile Apps: Para ver un ejemplo de cómo enviar notificaciones desde un back-end de Mobile Apps con Notification Hubs, consulte [Incorporación de notificaciones push a la aplicación iOS](/previous-versions/azure/app-service-mobile/app-service-mobile-ios-get-started-push).
+- ASP.NET: [Uso de Notification Hubs para enviar notificaciones push a los usuarios](notification-hubs-aspnet-backend-ios-apple-apns-notification.md).
+- SDK de Java para Azure Notification Hubs: consulte [Uso de Notification Hubs desde Java](notification-hubs-java-push-notification-tutorial.md) para enviar notificaciones desde Java. Esto se probó en Eclipse para el desarrollo de Android.
+- PHP: [Uso de Notification Hubs desde PHP](notification-hubs-php-push-notification-tutorial.md).
 
 ## <a name="verify-that-your-app-receives-push-notifications"></a>Compruebe que la aplicación recibe notificaciones push
 
 Para probar las notificaciones push en iOS, debe implementar la aplicación en un dispositivo iOS físico. No puede enviar notificaciones push de Apple con el simulador de iOS.
 
-1. Ejecute la aplicación y compruebe que el registro se realiza correctamente, luego presione **OK** (Aceptar).
+1. Ejecute la aplicación y compruebe que el registro se realiza correctamente, luego presione **OK**(Aceptar).
 
-   :::image type="content" source="media/ios-sdk/image7.png" alt-text="Seleccionar plantilla":::
+   :::image type="content" source="media/ios-sdk/image7.png" alt-text="Registro":::
 
-2. Después, envíe una notificación push de prueba desde [Azure Portal](https://portal.azure.com/), como se ha descrito en la sección anterior.
+2. Después, envíe una notificación push de prueba desde [Azure Portal](https://portal.azure.com/), como se ha descrito en la sección anterior.
 
 3. La notificación push se envía a todos los dispositivos registrados para recibir las notificaciones del centro de notificaciones indicado.
 
-   :::image type="content" source="media/ios-sdk/image8.png" alt-text="Seleccionar plantilla":::
+   :::image type="content" source="media/ios-sdk/image8.png" alt-text="Envío de prueba":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

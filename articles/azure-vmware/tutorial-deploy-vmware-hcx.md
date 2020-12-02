@@ -3,18 +3,21 @@ title: 'Tutorial: implementación y configuración de VMware HCX'
 description: Aprenda a implementar y configurar una solución VMware HCX para la nube privada de Azure VMware Solution.
 ms.topic: tutorial
 ms.date: 11/18/2020
-ms.openlocfilehash: 57bcf1bd3023e56f6a64b5d82d8f1fc90be9dd47
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: afb5c653ce7c4b4a453a4031c5664042357de6c0
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94888749"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95999641"
 ---
 # <a name="deploy-and-configure-vmware-hcx"></a>Implementación y configuración de VMware HCX
 
 En este artículo se muestra cómo implementar y configurar el conector local de VMware HCX para la nube privada de Azure VMware Solution. Con VMware HCX, es posible migrar las cargas de trabajo de VMware a Azure VMware Solution y a otros sitios conectados mediante varios tipos de migración. Dado que Azure VMware Solution implementa y configura el Administrador de la nube de HCX, debe descargar, activar y configurar el conector de HCX en el centro de datos de VMware local.
 
 El conector avanzado de VMware HCX está implementado previamente en Azure VMware Solution. Admite hasta tres conexiones de sitio (de local a la nube o de nube a nube). Si necesita más de tres conexiones de sitio, envíe una [solicitud de soporte técnico](https://portal.azure.com/#create/Microsoft.Support) para habilitar el complemento [VMware HCX Enterprise](https://cloud.vmware.com/community/2019/08/08/introducing-hcx-enterprise/). El complemento está actualmente en versión preliminar. 
+
+>[!Note]
+>Aunque la herramienta con los valores máximos de configuración de VMware describe el número máximo de pares de sitios entre el conector local y el Administrador de la nube como 25, las licencias lo limitan a 3 para Advanced Edition y a 10 para Enterprise Edition.
 
 >[!NOTE]
 >VMware HCX Enterprise está disponible con Azure VMware Solution como un servicio en versión preliminar. Es gratuito y está sujeto a los términos y condiciones de un servicio en versión preliminar. Una vez que el servicio VMware HCX Enterprise esté disponible de forma general, recibirá un aviso de que en 30 días va a cambiar la facturación. También tendrá la opción de desactivar o no participar en el servicio. No hay ninguna ruta de degradación sencilla de VMware HCX Enterprise a VMware HCX Advanced. Si decide cambiar de versión, tendrá que volver a implementarlo, lo que supondrá un tiempo de inactividad.

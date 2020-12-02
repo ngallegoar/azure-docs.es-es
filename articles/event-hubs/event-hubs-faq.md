@@ -3,12 +3,12 @@ title: Preguntas más frecuentes sobre Azure Event Hubs | Microsoft Docs
 description: En este artículo se proporciona una lista de las preguntas más frecuentes (P+F) acerca de Azure Event Hubs y sus respuestas.
 ms.topic: article
 ms.date: 10/27/2020
-ms.openlocfilehash: 3b55521c9f90192891b450e3e161607a334c3a00
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: c756d0bccd9b2ad303bd97d3bfb7aed8b0b82b09
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92909716"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "96002804"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Preguntas frecuentes sobre Event Hubs
 
@@ -58,70 +58,7 @@ Event Hubs emite métricas exhaustivas que proporcionan el estado de los recurso
 ### <a name="where-does-azure-event-hubs-store-customer-data"></a><a name="in-region-data-residency"></a>¿Dónde se almacenan los datos de los clientes en Azure Event Hubs?
 Azure Event Hubs almacena datos de los clientes. Event Hubs almacena estos datos automáticamente en una sola región, por lo que este servicio satisface los requisitos de residencia de datos de la región, incluidos los especificados en el [centro de confianza](https://azuredatacentermap.azurewebsites.net/).
 
-### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>¿Qué puertos es necesario abrir en el firewall? 
-Puede usar los siguientes protocolos con Azure Service Bus para enviar y recibir mensajes:
-
-- AMQP
-- HTTP
-- Apache Kafka
-
-Consulte en la siguiente tabla los puertos de salida que se deben abrir para usar estos protocolos para comunicarse con Azure Event Hubs. 
-
-| Protocolo | Puertos | Detalles | 
-| -------- | ----- | ------- | 
-| AMQP | 5671 y 5672 | Consulte la [guía del protocolo AMQP](../service-bus-messaging/service-bus-amqp-protocol-guide.md) | 
-| HTTP, HTTPS | 80, 443 |  |
-| Kafka | 9093 | Consulte [Uso de Azure Event Hubs desde aplicaciones de Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md)
-
-### <a name="what-ip-addresses-do-i-need-to-allow"></a>¿Qué direcciones IP tengo que permitir?
-Para buscar las direcciones IP correctas para agregar a la lista de permitidas para las conexiones, siga estos pasos:
-
-1. Ejecute el siguiente comando desde el símbolo del sistema: 
-
-    ```
-    nslookup <YourNamespaceName>.servicebus.windows.net
-    ```
-2. Anote la dirección IP devuelta en `Non-authoritative answer`. 
-
-Si usa la **redundancia de zona** para el espacio de nombres, deberá realizar algunos pasos adicionales: 
-
-1. En primer lugar, ejecute nslookup en el espacio de nombres.
-
-    ```
-    nslookup <yournamespace>.servicebus.windows.net
-    ```
-2. Anote el nombre de la sección **respuesta no autoritativa** , que se encuentra en uno de los siguientes formatos: 
-
-    ```
-    <name>-s1.cloudapp.net
-    <name>-s2.cloudapp.net
-    <name>-s3.cloudapp.net
-    ```
-3. Ejecute nslookup para cada uno con los sufijos s1, s2 y s3 para obtener las direcciones IP de las tres instancias que se ejecutan en tres zonas de disponibilidad. 
-
-    > [!NOTE]
-    > La dirección IP devuelta por el comando `nslookup` no es una dirección IP estática. Sin embargo, permanece constante hasta que la implementación subyacente se elimine o se mueva a otro clúster.
-
-### <a name="where-can-i-find-client-ip-sending-or-receiving-messages-to-my-namespace"></a>¿Dónde puedo encontrar la IP de cliente que envía o recibe mensajes en mi espacio de nombres?
-En primer lugar, habilite el [filtrado de IP](event-hubs-ip-filtering.md) en el espacio de nombres. 
-
-A continuación, habilite los registros de diagnóstico para [eventos de conexión de red virtual de Event Hubs](event-hubs-diagnostic-logs.md#event-hubs-virtual-network-connection-event-schema) siguiendo las instrucciones indicadas en [Habilitar registros de diagnóstico](event-hubs-diagnostic-logs.md#enable-diagnostic-logs). Verá la dirección IP para la que se deniega la conexión.
-
-```json
-{
-    "SubscriptionId": "0000000-0000-0000-0000-000000000000",
-    "NamespaceName": "namespace-name",
-    "IPAddress": "1.2.3.4",
-    "Action": "Deny Connection",
-    "Reason": "IPAddress doesn't belong to a subnet with Service Endpoint enabled.",
-    "Count": "65",
-    "ResourceId": "/subscriptions/0000000-0000-0000-0000-000000000000/resourcegroups/testrg/providers/microsoft.eventhub/namespaces/namespace-name",
-    "Category": "EventHubVNetConnectionEvent"
-}
-```
-
-> [!IMPORTANT]
-> Los registros de red virtual solo se generan si el espacio de nombres permite el acceso desde **direcciones IP específicas** (reglas de filtro de IP). Si no desea restringir el acceso al espacio de nombres mediante estas características y desea obtener registros de red virtual para realizar el seguimiento de las direcciones IP de los clientes que se conectan al espacio de nombres de Event Hubs, puede usar la siguiente alternativa: Habilite el filtrado de IP y agregue el intervalo IPv4 direccionable total (1.0.0.0/1 - 255.0.0.0/1). Event Hubs no admite los intervalos de direcciones IPv6. 
+[!INCLUDE [event-hubs-connectivity](../../includes/event-hubs-connectivity.md)]
 
 ## <a name="apache-kafka-integration"></a>Integración de Apache Kafka
 
@@ -148,7 +85,7 @@ security.protocol=SASL_SSL
 sasl.mechanism=PLAIN
 sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="Endpoint=sb://dummynamespace.servicebus.windows.net/;SharedAccessKeyName=DummyAccessKeyName;SharedAccessKey=XXXXXXXXXXXXXXXXXXXXX";
 ```
-Nota: Si sasl.jaas.config no es una configuración compatible con su marco, busque las configuraciones que se usan para establecer el nombre de usuario y contraseña SASL y úselas en su lugar. Establezca el nombre de usuario para $ConnectionString y la contraseña para la cadena de conexión de Event Hubs.
+Nota: Si sasl.jaas.config no es una configuración admitida en su marco, busque las configuraciones que se usan para establecer el nombre de usuario y la contraseña de SASL y úselas en su lugar. Establezca el nombre de usuario para $ConnectionString y la contraseña para la cadena de conexión de Event Hubs.
 
 ### <a name="what-is-the-messageevent-size-for-event-hubs"></a>¿Cuál es el tamaño de mensaje o evento de Event Hubs?
 El tamaño máximo de mensaje permitido en Event Hubs es 1 MB.
@@ -191,11 +128,11 @@ Las cuotas de entrada y de salida se aplican por separado, por lo que ningún re
 
 Al crear un espacio de nombres de nivel Básico o Estándar en Azure Portal, puede seleccionar hasta 20 unidades de procesamiento para el espacio de nombres. Para elevarlo a **exactamente** 40 unidades de procesamiento, envíe una [solicitud de soporte técnico](../azure-portal/supportability/how-to-create-azure-support-request.md).  
 
-1. En la página **Espacio de nombres del bus de eventos** , seleccione **Nueva solicitud de soporte técnico** en el menú de la izquierda. 
-1. En la página **Nueva solicitud de soporte técnico** , siga estos pasos:
-    1. En el campo **Resumen** , describa el problema en pocas palabras. 
-    1. Para **Tipo de problema** , seleccione **Cuota**. 
-    1. En el campo **Subtipo de problema** , seleccione **Solicitud de aumento o disminución de las unidades de procesamiento**. 
+1. En la página **Espacio de nombres del bus de eventos**, seleccione **Nueva solicitud de soporte técnico** en el menú de la izquierda. 
+1. En la página **Nueva solicitud de soporte técnico**, siga estos pasos:
+    1. En el campo **Resumen**, describa el problema en pocas palabras. 
+    1. Para **Tipo de problema**, seleccione **Cuota**. 
+    1. En el campo **Subtipo de problema**, seleccione **Solicitud de aumento o disminución de las unidades de procesamiento**. 
     
         :::image type="content" source="./media/event-hubs-faq/support-request-throughput-units.png" alt-text="Página de solicitud de soporte técnico":::
 
@@ -227,11 +164,11 @@ Pero si tiene un modelo en el que su aplicación tiene afinidad con una partici�
 ### <a name="increase-partitions"></a>Aumento de particiones
 Puede enviar una solicitud de soporte técnico para solicitar que el número de particiones aumente a 40 (exacto). 
 
-1. En la página **Espacio de nombres del bus de eventos** , seleccione **Nueva solicitud de soporte técnico** en el menú de la izquierda. 
-1. En la página **Nueva solicitud de soporte técnico** , siga estos pasos:
-    1. En el campo **Resumen** , describa el problema en pocas palabras. 
-    1. Para **Tipo de problema** , seleccione **Cuota**. 
-    1. En el campo **Subtipo de problema** , seleccione **Solicitud de cambio de partición**. 
+1. En la página **Espacio de nombres del bus de eventos**, seleccione **Nueva solicitud de soporte técnico** en el menú de la izquierda. 
+1. En la página **Nueva solicitud de soporte técnico**, siga estos pasos:
+    1. En el campo **Resumen**, describa el problema en pocas palabras. 
+    1. Para **Tipo de problema**, seleccione **Cuota**. 
+    1. En el campo **Subtipo de problema**, seleccione **Solicitud de cambio de partición**. 
     
         :::image type="content" source="./media/event-hubs-faq/support-request-increase-partitions.png" alt-text="Aumentar el recuento de particiones":::
 
@@ -257,7 +194,7 @@ El tamaño total de todos los eventos almacenados, incluida la sobrecarga intern
 
 Cada evento enviado a un centro de eventos cuenta como mensaje facturable. Un *evento de entrada* se define como una unidad de datos que es menor o igual que 64 KB. Cualquier evento que tenga un tamaño menor o igual que 64 KB se considera un evento facturable. Si el evento es mayor de 64 KB, el número de eventos facturables se calcula según el tamaño del evento, en múltiplos de 64 KB. Por ejemplo, un evento de 8 KB enviado al centro de eventos se factura como un evento, pero un mensaje de 96 KB enviado al centro de eventos se factura como dos eventos.
 
-Los eventos consumidos en un centro de eventos, así como las operaciones de administración y las llamadas de control (como los puntos de comprobación), no se cuentan como eventos de entrada facturables, pero se acumulan hasta llegar a la asignación de unidades de procesamiento.
+Los eventos consumidos en un centro de eventos, así como las operaciones de administración y las llamadas de control (como los puntos de comprobación), no se cuentan como eventos de entrada facturables, pero se acumulan hasta llegar a las unidades de procesamiento permitidas.
 
 ### <a name="do-brokered-connection-charges-apply-to-event-hubs"></a>¿Los cargos por conexión desacoplada se aplican a Event Hubs?
 
@@ -299,13 +236,13 @@ Para más información sobre nuestro SLA, consulte la página [Acuerdos de nivel
 ## <a name="azure-stack-hub"></a>Azure Stack Hub
 
 ### <a name="how-can-i-target-a-specific-version-of-azure-storage-sdk-when-using-azure-blob-storage-as-a-checkpoint-store"></a>¿Cómo se puede establecer como destino una versión específica del SDK de Azure Storage cuando se usa Azure Blob Storage como un almacén de puntos de comprobación?
-Si ejecuta este código en Azure Stack Hub, experimentará errores en tiempo de ejecución a menos que tenga como destino una versión específica de la API de Storage. Esto se debe a que el SDK de Event Hubs usa la API de Azure Storage más reciente disponible en Azure, que puede que no esté disponible en la plataforma de Azure Stack Hub. Azure Stack Hub puede admitir una versión diferente del SDK de Storage Blob que las que suelen estar disponibles en Azure. Si usa Azure Blob Storage como almacén de puntos de control, compruebe la [versión de la API de Azure Storage admitida para la compilación de Azure Stack Hub](/azure-stack/user/azure-stack-acs-differences?#api-version) y establezca esa versión como destino en el código. 
+Si ejecuta este código en Azure Stack Hub, experimentará errores en tiempo de ejecución a menos que tenga como destino una versión específica de la API de Storage. Esto se debe a que el SDK de Event Hubs usa la API de Azure Storage más reciente disponible en Azure, que puede que no esté disponible en la plataforma de Azure Stack Hub. Azure Stack Hub puede admitir una versión diferente del SDK de Storage Blob que las que suelen estar disponibles en Azure. Si usa Azure Blob Storage como almacén de puntos de comprobación, confirme la [versión de la API de Azure Storage admitida para la compilación de Azure Stack Hub](/azure-stack/user/azure-stack-acs-differences?#api-version) y establezca esa versión como destino en el código. 
 
-Por ejemplo, si trabaja en la versión 2005 de Azure Stack Hub, la versión más reciente disponible para el servicio Storage es la 2019-02-02. De forma predeterminada, la biblioteca de cliente del SDK de Event Hubs usa la versión más reciente disponible en Azure (2019-07-07 en el momento de la versión del SDK). En este caso, además de seguir los pasos de esta sección, también tendrá que agregar código para usar como destino la versión 2019-02-02 de la API del servicio de almacenamiento. Para ver un ejemplo de cómo establecer como destino una versión específica de la API de Storage, vea los ejemplos de C#, Java, Python y JavaScript/TypeScript.  
+Por ejemplo, si trabaja en la versión 2005 de Azure Stack Hub, la versión más reciente disponible para el servicio Storage es la 2019-02-02. De forma predeterminada, la biblioteca de cliente del SDK de Event Hubs usa la versión más reciente disponible en Azure (2019-07-07 en el momento de la versión del SDK). En este caso, además de seguir los pasos de esta sección, también tendrá que agregar código para usar como destino la versión 2019-02-02 de la API del servicio Storage. Para ver un ejemplo de cómo establecer como destino una versión específica de la API de Storage, vea los ejemplos de C#, Java, Python y JavaScript/TypeScript.  
 
 Para obtener un ejemplo de cómo establecer como destino una versión específica de la API de Storage, vea los ejemplos siguientes en GitHub: 
 
-- [.NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/Sample10_RunningWithDifferentStorageVersion.cs)
+- [.NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/)
 - [Java](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/src/samples/java/com/azure/messaging/eventhubs/checkpointstore/blob/EventProcessorWithCustomStorageVersion.java)
 - Python: [sincrónico](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob/samples/receive_events_using_checkpoint_store_storage_api_version.py), [asincrónico](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob-aio/samples/receive_events_using_checkpoint_store_storage_api_version_async.py)
 - [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/javascript/receiveEventsWithApiSpecificStorage.js) y [TypeScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/typescript/src/receiveEventsWithApiSpecificStorage.ts)

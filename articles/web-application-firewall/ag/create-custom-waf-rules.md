@@ -6,20 +6,22 @@ services: web-application-firewall
 ms.topic: article
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 11/14/2019
+ms.date: 11/20/2020
 ms.author: victorh
-ms.openlocfilehash: bfa6690c636e15fa933f50698cd81359600b5c05
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f164418c29e9838928f3d03519342ebef40e16e7
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77368305"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015704"
 ---
 # <a name="create-and-use-web-application-firewall-v2-custom-rules-on-application-gateway"></a>Creación y uso de reglas personalizadas de Firewall de aplicaciones web v2 en Application Gateway
 
 El Firewall de aplicaciones web (WAF) v2 de Azure Application Gateway proporciona protección para las aplicaciones web. Esta protección la proporciona el conjunto de reglas básico (CRS) Proyecto de seguridad de aplicación web abierta (OWASP). En algunos casos, es posible que necesite crear reglas personalizadas propias para satisfacer necesidades concretas. Para más información sobre las reglas personalizadas de WAF, vea [Reglas personalizadas para el firewall de aplicaciones web](custom-waf-rules-overview.md).
 
 En este artículo se muestran algunas reglas personalizadas de ejemplo que puede crear y usar con el firewall de aplicaciones web v2. Para obtener información sobre cómo implementar un WAF con una regla personalizada mediante Azure PowerShell, vea [Configuración de reglas personalizadas del firewall de aplicaciones web con Azure PowerShell](configure-waf-custom-rules.md).
+
+Los fragmentos de código JSON que se muestran en este artículo se derivan de un recurso [ApplicationGatewayWebApplicationFirewallPolicies](/templates/microsoft.network/applicationgatewaywebapplicationfirewallpolicies).
 
 >[!NOTE]
 > Si la puerta de enlace de aplicaciones no usa el nivel WAF, la opción para actualizar la puerta de enlace de aplicaciones al nivel WAF aparece en el panel derecho.

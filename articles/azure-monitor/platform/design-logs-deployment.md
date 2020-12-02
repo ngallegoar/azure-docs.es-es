@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/20/2019
-ms.openlocfilehash: 21da883867da41e81ed1787faa0ebe0e6dd25d99
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 034f2b3884d732487a9f7aff4d14740691983885
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107885"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95536785"
 ---
 # <a name="designing-your-azure-monitor-logs-deployment"></a>Diseño de la implementación de registros de Azure Monitor
 
@@ -60,7 +60,7 @@ Si usa System Center Operations Manager 2012 R2, o cualquier versión posterior:
 
 ## <a name="access-control-overview"></a>Introducción al control de acceso
 
-Con el control de acceso basado en rol (RBAC) puede conceder a los usuarios y grupos solo la cantidad de acceso que necesitan para trabajar con los datos de supervisión en un área de trabajo. Esto le permite alinearse con el modelo de funcionamiento de la organización de TI mediante el uso de una sola área de trabajo para almacenar los datos recopilados habilitada en todos los recursos. Por ejemplo, puede conceder acceso al equipo responsable de los servicios de infraestructura hospedados en máquinas virtuales (VM) de Azure y, como consecuencia, este equipo solo tendrá acceso a los registros que hayan generados las máquinas virtuales. Esto sigue nuestro nuevo modelo de registro del contexto de recursos. La base de este modelo es que cada entrada de registro que emite un recurso de Azure se asocia automáticamente con este recurso. Los registros se reenvían a un área de trabajo central que respeta el ámbito y el RBAC en función de los recursos.
+Con el control de acceso basado en roles de Azure (Azure RBAC) puede conceder a los usuarios y grupos solo la cantidad de acceso que necesitan para trabajar con los datos de supervisión en un área de trabajo. Esto le permite alinearse con el modelo de funcionamiento de la organización de TI mediante el uso de una sola área de trabajo para almacenar los datos recopilados habilitada en todos los recursos. Por ejemplo, puede conceder acceso al equipo responsable de los servicios de infraestructura hospedados en máquinas virtuales (VM) de Azure y, como consecuencia, este equipo solo tendrá acceso a los registros que hayan generados las máquinas virtuales. Esto sigue nuestro nuevo modelo de registro del contexto de recursos. La base de este modelo es que cada entrada de registro que emite un recurso de Azure se asocia automáticamente con este recurso. Los registros se reenvían a un área de trabajo central que respeta el ámbito y Azure RBAC en función de los recursos.
 
 Los datos a los que un usuario tiene acceso vienen determinados por una combinación de factores que se enumeran en la tabla siguiente. Cada uno se describe en las secciones siguientes.
 
@@ -69,7 +69,7 @@ Los datos a los que un usuario tiene acceso vienen determinados por una combinac
 | [Modo de acceso](#access-mode) | Método que utiliza el usuario para acceder al área de trabajo.  Define el ámbito de los datos disponibles y el modo de control de acceso que se aplica. |
 | [Modo de control de acceso](#access-control-mode) | Configuración en el área de trabajo que define si los permisos se aplican en el nivel de área de trabajo o recurso. |
 | [Permisos](manage-access.md) | Permisos aplicados a individuales o grupos de usuarios para el área de trabajo o el recurso. Define los datos a los que el usuario tendrá acceso. |
-| [RBAC de nivel de tabla](manage-access.md#table-level-rbac) | Permisos granulares opcionales que se aplican a todos los usuarios independientemente de su modo de acceso o su modo de control de acceso. Define a qué tipos de datos puede tener acceso un usuario. |
+| [Permiso de Azure RBAC de nivel de tabla](manage-access.md#table-level-azure-rbac) | Permisos granulares opcionales que se aplican a todos los usuarios independientemente de su modo de acceso o su modo de control de acceso. Define a qué tipos de datos puede tener acceso un usuario. |
 
 ## <a name="access-mode"></a>Modo de acceso
 
@@ -81,7 +81,7 @@ Los usuarios tienen dos opciones para acceder a los datos:
 
     ![Contexto de Log Analytics desde el área de trabajo](./media/design-logs-deployment/query-from-workspace.png)
 
-* **Contexto del recurso**: al acceder al área de trabajo para un recurso, un grupo de recursos o una suscripción determinados (por ejemplo, cuando se selecciona **Registros** en un menú de recursos de Azure Portal), puede ver los registros solo de los recursos de todas las tablas a las que tiene acceso. Las consultas de este modo se limitan solo a los datos asociados a ese recurso. Este modo también permite el RBAC pormenorizado.
+* **Contexto del recurso**: al acceder al área de trabajo para un recurso, un grupo de recursos o una suscripción determinados (por ejemplo, cuando se selecciona **Registros** en un menú de recursos de Azure Portal), puede ver los registros solo de los recursos de todas las tablas a las que tiene acceso. Las consultas de este modo se limitan solo a los datos asociados a ese recurso. Este modo también permite Azure RBAC pormenorizado.
 
     ![Contexto de Log Analytics desde un recurso](./media/design-logs-deployment/query-from-resource.png)
 
@@ -103,22 +103,22 @@ En la tabla siguiente se resumen los modos de acceso:
 |:---|:---|:---|
 | ¿Para quién está pensado cada modelo? | Administración central. Los administradores que tienen que configurar colecciones de datos y los usuarios que necesitan acceder a una amplia variedad de recursos. También lo requieren actualmente los usuarios que necesitan acceder a registros de recursos fuera de Azure. | Equipos de la aplicación. Los administradores de los recursos de Azure que se están supervisando. |
 | ¿Qué requiere un usuario para ver los registros? | Permisos para el área de trabajo. Vea los **permisos del área de trabajo** en [Administración del acceso mediante los permisos del área de trabajo](manage-access.md#manage-access-using-workspace-permissions). | Acceso de lectura al recurso. Vea los **permisos de los recursos** en [Administración del acceso mediante los permisos de Azure](manage-access.md#manage-access-using-azure-permissions). Los permisos pueden ser heredados (por ejemplo, del grupo de recursos que los contenga) o son asignados directamente al recurso. Se asignará automáticamente el permiso a los registros para el recurso. |
-| ¿Qué es el ámbito de los permisos? | Área de trabajo. Los usuarios con acceso al área de trabajo pueden consultar todos los registros de esa área de trabajo desde las tablas para las que tengan permisos. Consulte [Control de acceso a la tabla](manage-access.md#table-level-rbac) | Recurso de Azure. Un usuario puede consultar los registros de recursos, grupos de recursos o suscripciones específicos a los que tenga acceso desde cualquier área de trabajo, pero no puede consultar los registros de otros recursos. |
+| ¿Qué es el ámbito de los permisos? | Área de trabajo. Los usuarios con acceso al área de trabajo pueden consultar todos los registros de esa área de trabajo desde las tablas para las que tengan permisos. Consulte [Control de acceso a la tabla](manage-access.md#table-level-azure-rbac) | Recurso de Azure. Un usuario puede consultar los registros de recursos, grupos de recursos o suscripciones específicos a los que tenga acceso desde cualquier área de trabajo, pero no puede consultar los registros de otros recursos. |
 | ¿Cómo puede el usuario acceder a los registros de acceso? | <ul><li>Inicie **Registros** en el menú de **Azure Monitor**.</li></ul> <ul><li>Inicie **Registros** desde **Áreas de trabajo de Log Analytics**.</li></ul> <ul><li>Desde [Libros](../visualizations.md#workbooks) de Azure Monitor.</li></ul> | <ul><li>Inicie **Registros** en el menú para el recurso de Azure</li></ul> <ul><li>Inicie **Registros** en el menú de **Azure Monitor**.</li></ul> <ul><li>Inicie **Registros** desde **Áreas de trabajo de Log Analytics**.</li></ul> <ul><li>Desde [Libros](../visualizations.md#workbooks) de Azure Monitor.</li></ul> |
 
 ## <a name="access-control-mode"></a>Modo de control de acceso
 
 *Modo de control de acceso* es un valor que se encuentra en todas las áreas de trabajo y que define cómo se determinan los permisos para el área de trabajo.
 
-* **Requerir permisos de área de trabajo**: este modo de control no admite RBAC granular. Para que un usuario pueda acceder al área de trabajo, debe tener permisos en el área de trabajo o en tablas específicas.
+* **Requerir permisos de área de trabajo**: este modo de control no admite Azure RBAC granular. Para que un usuario pueda acceder al área de trabajo, debe tener permisos en el área de trabajo o en tablas específicas.
 
     Si un usuario accede al área de trabajo en el modo de contexto del área de trabajo, tendrá acceso a todos los datos de todas las tablas a las que se le haya concedido acceso. Si un usuario accede al área de trabajo en el modo de contexto del recurso, tendrá acceso solo a los datos de ese recurso en todas las tablas a las que se le haya concedido acceso.
 
     Se trata de la configuración predeterminada para todas las áreas de trabajo creadas antes de marzo de 2019.
 
-* **Usar permisos de recurso o de área de trabajo**: este modo de control permite RBAC granular. A los usuarios se les puede conceder acceso solo a los datos asociados a los recursos que pueden ver mediante la asignación del permiso `read` de Azure. 
+* **Usar permisos de recurso o de área de trabajo**: este modo de control permite Azure RBAC granular. A los usuarios se les puede conceder acceso solo a los datos asociados a los recursos que pueden ver mediante la asignación del permiso `read` de Azure. 
 
-    Cuando un usuario accede al área de trabajo en modo contexto del área de trabajo, se aplican los permisos del área de trabajo. Cuando un usuario accede al área de trabajo en modo contexto del recurso, solo se comprueban los permisos de los recursos y se omiten los del área de trabajo. Para habilitar RBAC para un usuario, quítelos de los permisos del área de trabajo y permita que sus permisos de recursos sean reconocidos.
+    Cuando un usuario accede al área de trabajo en modo contexto del área de trabajo, se aplican los permisos del área de trabajo. Cuando un usuario accede al área de trabajo en modo contexto del recurso, solo se comprueban los permisos de los recursos y se omiten los del área de trabajo. Para habilitar Azure RBAC para un usuario, quítelos de los permisos del área de trabajo y permita que sus permisos de recursos sean reconocidos.
 
     Se trata de la configuración predeterminada para todas las áreas de trabajo creadas después de marzo de 2019.
 

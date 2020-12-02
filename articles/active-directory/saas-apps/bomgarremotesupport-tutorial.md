@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/30/2019
+ms.date: 11/12/2020
 ms.author: jeedes
-ms.openlocfilehash: f5839b5df4cdaf4abf863587b5f84f87aa63b5a0
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: c11d8aaa578006c7dbd96b457399df5b17fd9bd8
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92456932"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95915057"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-beyondtrust-remote-support"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con BeyondTrust Remote Support
 
@@ -26,9 +26,7 @@ En este tutorial aprenderá a integrar BeyondTrust Remote Support con Azure Act
 * Permitir que los usuarios inicien sesión automáticamente en BeyondTrust Remote Support con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -46,18 +44,18 @@ En este tutorial, va a configurar y probar el inicio de sesión único de Azure�
 
 Para configurar la integración de BeyondTrust Remote Support en Azure AD, es preciso agregarla desde la galería a la lista de aplicaciones SaaS administradas.
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta personal, profesional o educativa de Microsoft.
-1. En el panel de navegación de la izquierda, seleccione el servicio **Azure Active Directory** .
-1. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones** .
-1. Para agregar una nueva aplicación, seleccione **Nueva aplicación** .
-1. En la sección **Agregar desde la galería** , escriba **BeyondTrust Remote Support** en el cuadro de búsqueda.
+1. Inicie sesión en Azure Portal con una cuenta personal, profesional o educativa de Microsoft.
+1. En el panel de navegación de la izquierda, seleccione el servicio **Azure Active Directory**.
+1. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones**.
+1. Para agregar una nueva aplicación, seleccione **Nueva aplicación**.
+1. En la sección **Agregar desde la galería**, escriba **BeyondTrust Remote Support** en el cuadro de búsqueda.
 1. Seleccione **BeyondTrust Remote Support** en el panel de resultados y agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-beyondtrust-remote-support"></a>Configuración y prueba del inicio de sesión único de Azure AD para BeyondTrust Remote Support
 
-Configure y pruebe el inicio de sesión único de Azure AD con BeyondTrust Remote Support mediante un usuario de prueba llamado **B.Simon** . Para que el inicio de sesión único funcione, es necesario establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de BeyondTrust Remote Support.
+Configure y pruebe el inicio de sesión único de Azure AD con BeyondTrust Remote Support mediante un usuario de prueba llamado **B.Simon**. Para que el inicio de sesión único funcione, es necesario establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de BeyondTrust Remote Support.
 
-Para configurar y probar el inicio de sesión único de Azure AD con BeyondTrust Remote Support, es preciso completar los siguientes bloques de creación:
+Para configurar y probar el inicio de sesión único de Azure AD con BeyondTrust Remote Support, lleve a cabo los siguientes pasos:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
     * **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
@@ -70,19 +68,19 @@ Para configurar y probar el inicio de sesión único de Azure AD con BeyondTrus
 
 Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azure Portal.
 
-1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **BeyondTrust Remote Support** , busque la sección **Administrar** y seleccione **Inicio de sesión único** .
-1. En la página **Seleccione un método de inicio de sesión único** , elija **SAML** .
-1. En la página **Configurar el inicio de sesión único con SAML** , haga clic en el icono de edición o con forma de lápiz para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración.
+1. En Azure Portal, en la página de integración de aplicaciones de **BeyondTrust Remote Support**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
+1. En la página **Seleccione un método de inicio de sesión único**, elija **SAML**.
+1. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono de edición o con forma de lápiz para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración.
 
    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-1. En la sección **Configuración básica de SAML** , especifique los valores de los siguientes campos:
+1. En la sección **Configuración básica de SAML**, especifique los valores de los siguientes campos:
 
-    a. En el cuadro de texto **URL de inicio de sesión** , escriba una dirección URL con el siguiente patrón: `https://<HOSTNAME>.bomgar.com/saml`
+    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<HOSTNAME>.bomgar.com/saml`
 
-    b. En el cuadro de texto **Identificador** , escriba una dirección URL con el siguiente patrón: `https://<HOSTNAME>.bomgar.com`
+    b. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://<HOSTNAME>.bomgar.com`
 
-    c. En el cuadro de texto **URL de respuesta** , escriba una dirección URL con el siguiente patrón: `https://<HOSTNAME>.bomgar.com/saml/sso`
+    c. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<HOSTNAME>.bomgar.com/saml/sso`
 
     > [!NOTE]
     > Estos valores no son reales. Actualícelos con la dirección URL de inicio de sesión, el identificador y la dirección URL de respuesta reales. Estos valores se explican más adelante en el tutorial.
@@ -95,23 +93,22 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
     | Nombre |  Atributo de origen|
     | ---------------| ----------|
-    | Nombre de pila | user.givenname |
-    | Dirección de correo electrónico | user.mail |
-    | Nombre | user.userprincipalname |
     | Nombre de usuario | user.userprincipalname |
+    | Nombre | user.givenname |
+    | Apellidos | user.surname |
+    | Email | user.mail |
     | Grupos | user.groups |
-    | Identificador de usuario único | user.userprincipalname |
 
     > [!NOTE]
     > Al asignar grupos de Azure AD para la aplicación BeyondTrust Remote Support, la opción "Grupos devueltos en la notificación" deberá modificarse de Ninguno a SecurityGroup. Los grupos se importarán en la aplicación con sus identificadores de objeto. El identificador de objeto del grupo de Azure AD se encuentra al comprobar las propiedades en la interfaz de Azure Active Directory. Esto será necesario para hacer referencia a los grupos de Azure AD y asignar estos a las directivas de grupo correctas.
 
-1. Al establecer el identificador de usuario único, este valor debe establecerse en NameID-Format: **Persistente** . Es necesario que este sea un identificador persistente para identificar correctamente y asociar al usuario a las directivas de grupo correctas para los permisos. Haga clic en el icono de edición para abrir el cuadro de diálogo **Atributos y reclamaciones del usuario** para editar el valor de identificador de usuario único.
+1. Al establecer el identificador de usuario único, este valor debe establecerse en NameID-Format: **Persistente**. Es necesario que este sea un identificador persistente para identificar correctamente y asociar al usuario a las directivas de grupo correctas para los permisos. Haga clic en el icono de edición para abrir el cuadro de diálogo **Atributos y reclamaciones del usuario** para editar el valor de identificador de usuario único.
 
-1. En la sección **Administración de la notificación** , haga clic en **Elija el formato del identificador de nombre** , establezca el valor en **Persistente** y haga clic en **Guardar** .
+1. En la sección **Administración de la notificación**, haga clic en **Elija el formato del identificador de nombre**, establezca el valor en **Persistente** y haga clic en **Guardar**.
 
     ![Atributos y reclamaciones del usuario](./media/bomgarremotesupport-tutorial/attribute-unique-user-identifier.png)
 
-1. En la página **Configurar el inicio de sesión único con SAML** , en la sección **Certificado de firma de SAML** , busque **XML de metadatos de federación** y seleccione **Descargar** para descargar el certificado y guardarlo en su equipo.
+1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **XML de metadatos de federación** y seleccione **Descargar** para descargar el certificado y guardarlo en su equipo.
 
     ![Vínculo de descarga del certificado](common/metadataxml.png)
 
@@ -123,78 +120,77 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 En esta sección, va a crear un usuario de prueba llamado B.Simon en Azure Portal.
 
-1. En el panel izquierdo de Azure Portal, seleccione **Azure Active Directory** , **Usuarios** y **Todos los usuarios** .
+1. En el panel izquierdo de Azure Portal, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
 1. Seleccione **Nuevo usuario** en la parte superior de la pantalla.
-1. En las propiedades del **usuario** , siga estos pasos:
-   1. En el campo **Nombre** , escriba `B.Simon`.  
-   1. En el campo **Nombre de usuario** , escriba username@companydomain.extension. Por ejemplo, `B.Simon@contoso.com`.
-   1. Active la casilla **Show password** (Mostrar contraseña) y, después, anote el valor que se muestra en el cuadro **Contraseña** .
-   1. Haga clic en **Crear** .
+1. En las propiedades del **usuario**, siga estos pasos:
+   1. En el campo **Nombre**, escriba `B.Simon`.  
+   1. En el campo **Nombre de usuario**, escriba username@companydomain.extension. Por ejemplo, `B.Simon@contoso.com`.
+   1. Active la casilla **Show password** (Mostrar contraseña) y, después, anote el valor que se muestra en el cuadro **Contraseña**.
+   1. Haga clic en **Crear**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
 En esta sección va a permitir que B.Simon acceda a BeyondTrust Remote Support mediante el inicio de sesión único de Azure.
 
-1. En Azure Portal, seleccione sucesivamente **Aplicaciones empresariales** y **Todas las aplicaciones** .
-1. En la lista de aplicaciones, seleccione **BeyondTrust Remote Support** .
-1. En la página de información general de la aplicación, busque la sección **Administrar** y seleccione **Usuarios y grupos** .
-
-   ![Vínculo "Usuarios y grupos"](common/users-groups-blade.png)
-
-1. Seleccione **Agregar usuario** . A continuación, en el cuadro de diálogo **Agregar asignación** , seleccione **Usuarios y grupos** .
-
-    ![Vínculo de Agregar usuario](common/add-assign-user.png)
-
-1. En el cuadro de diálogo **Usuarios y grupos** , seleccione **B.Simon** de la lista de usuarios y haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
-1. Si espera que haya un valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol** , seleccione en la lista el rol adecuado para el usuario y haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
-1. En el cuadro de diálogo **Agregar asignación** , haga clic en el botón **Asignar** .
+1. En Azure Portal, seleccione sucesivamente **Aplicaciones empresariales** y **Todas las aplicaciones**.
+1. En la lista de aplicaciones, seleccione **BeyondTrust Remote Support**.
+1. En la página de información general de la aplicación, busque la sección **Administrar** y seleccione **Usuarios y grupos**.
+1. Seleccione **Agregar usuario**. A continuación, en el cuadro de diálogo **Agregar asignación**, seleccione **Usuarios y grupos**.
+1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **B.Simon** de la lista de usuarios y haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
+1. Si espera que se asigne un rol a los usuarios, puede seleccionarlo en la lista desplegable **Seleccionar un rol**. Si no se ha configurado ningún rol para esta aplicación, verá seleccionado el rol "Acceso predeterminado".
+1. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
 
 ## <a name="configure-beyondtrust-remote-support-sso"></a>Configuración del inicio de sesión único en BeyondTrust Remote Support
 
 1. En otra ventana del explorador web, inicie sesión en el inquilino de BeyondTrust Remote Support como administrador.
 
-1. Haga clic en el menú **STATUS** (ESTADO) y copie los valores de **identifier** (Identificador), **Reply URL** (URL de respuesta) y **Sign on URL** (URL de inicio de sesión), y úselos en la sección **Configuración básica de SAML** de Azure Portal.
-
-    ![Captura de pantalla que muestra el menú Estado de BeyondTrust Remote Support para recopilar esta información.](./media/bomgarremotesupport-tutorial/config-url-values.png)
-
-1. Vaya a la interfaz /login de BeyondTrust Remote Support de `https://support.example.com/login`, donde **support.example.com** es el nombre de host principal de su dispositivo, y realice la autenticación con sus credenciales administrativas.
-
 1. Vaya a **Users & Security** > **Security Providers** (Usuarios y seguridad > Proveedores de seguridad).
 
-1. En el menú desplegable, seleccione **SAML** y haga clic en el botón **Create Provider** (Crear proveedor).
+1. Haga clic en el icono **Edit** (Editar) en **SAML Providers** (Proveedores de SAML).
 
-1. En la sección Identity Provider Settings (Configuración del proveedor de identidades) hay una opción para cargar los metadatos del proveedor de identidades. Busque el archivo XML de metadatos que ha descargado de Azure Portal y haga clic en el botón **Upload** (Cargar). Los valores de **Entity ID** (Id. de entidad), **Single Sign-On Service URL** (URL de servicio de inicio de sesión único) y el certificado se cargarán automáticamente y **Protocol Binding** (Enlace de protocolo) deberá cambiarse a **HTTP POST** . Consulte la captura de pantalla siguiente:
+    ![Icono de edición de proveedores de SAML](./media/bomgarremotesupport-tutorial/saml-providers.png)
 
-    ![Captura de pantalla que muestra la sección Configuración del proveedor de identidades para realizar estas acciones.](./media/bomgarremotesupport-tutorial/config-uploadfile.png)
+1. Expanda la sección **Service Provider Settings** (Configuración del proveedor de servicios).
+
+1. Haga clic en **Download Service Provider Metadata** (Descargar metadatos del proveedor de servicios) o bien copie los valores de **Entity ID** (Id. de entidad) y **ACS URL** (URL de ACS) y use estos valores en la sección **Configuración básica de SAML** de Azure Portal.
+
+    ![Descarga de metadatos del proveedor de servicios](./media/bomgarremotesupport-tutorial/service-provider-metadata.png)
+
+
+1. En la sección Identity Provider Settings (Configuración del proveedor de identidad), haga clic en **Upload Identity Provider Metadata** (Cargar metadatos del proveedor de identidades) y busque el archivo XML de metadatos que ha descargado de Azure Portal.
+
+1.  Los valores de **Entity ID** (Id. de entidad), **Single Sign-On Service URL** (URL de servicio de inicio de sesión único) y **Server Certificate** (Certificado de servidor) se cargarán automáticamente; **SSO URL Protocol Binding** (Enlace de protocolo de URL de inicio de sesión único) deberá cambiarse a **HTTP POST**.
+
+    ![Captura de pantalla que muestra la sección Configuración del proveedor de identidades para realizar estas acciones.](./media/bomgarremotesupport-tutorial/identity-provider.png)
+
+1. Haga clic en **Guardar**.
 
 ### <a name="create-beyondtrust-remote-support-test-user"></a>Creación de un usuario de prueba en BeyondTrust Remote Support
 
 Aquí se configurarán las opciones de aprovisionamiento de usuarios. Se hará referencia a los valores de esta sección desde la sección **Atributos y reclamaciones del usuario** de Azure Portal. Los hemos configurado como los valores predeterminados que ya se han importado en el momento de la creación; no obstante, se pueden personalizar.
 
-![Captura de pantalla que muestra User Provision Settings (Configurar aprovisionamiento de usuarios) para configurar los valores de los usuarios.](./media/bomgarremotesupport-tutorial/config-user1.png)
+![Captura de pantalla que muestra User Provision Settings (Configurar aprovisionamiento de usuarios) para configurar los valores de los usuarios.](./media/bomgarremotesupport-tutorial/user-attribute.png)
 
 > [!NOTE]
 > Los grupos y el atributo e-mail no son necesarios para esta implementación. Si utiliza grupos de Azure AD y los asigna a las directivas de grupo de BeyondTrust Remote Support para los permisos, será necesario hacer referencia al identificador de objeto del grupo a través de sus propiedades en Azure Portal y colocarlo en la sección "Available Groups" (Grupos disponibles). Cuando haya terminado, el identificador de objeto o el grupo de AD estarán ya disponibles para su asignación a una directiva de grupo para los permisos.
 
 ![Captura de pantalla que muestra la sección IT (TI) con Membership type (Tipo de pertenencia), Source (Origen), Type (Tipo) y Object ID (Id. de objeto).](./media/bomgarremotesupport-tutorial/config-user2.png)
 
-![Captura de pantalla muestra la página Basic Settings (Configuración básica) de una directiva de grupo.](./media/bomgarremotesupport-tutorial/config-user3.png)
+![Captura de pantalla muestra la página Basic Settings (Configuración básica) de una directiva de grupo.](./media/bomgarremotesupport-tutorial/group-policy.png)
 
 > [!NOTE]
 > Como alternativa, se puede establecer una directiva de grupo predeterminada en el proveedor de seguridad SAML2. Al definir esta opción, se asignarán los permisos especificados en la directiva de grupo a todos los usuarios que se autentiquen mediante SAML. La directiva General Members (Miembros generales) está incluida en BeyondTrust Remote Support/Privileged Remote Access (Acceso privilegiado remoto) con permisos limitados y se puede usar para probar la autenticación y asignar usuarios a las directivas correctas. Los usuarios no se rellenarán en la lista de usuarios de SAML2 a través de /login > Users & Security (Usuarios y seguridad) hasta el primer intento de autenticación correcto. Puede encontrar más información sobre las directivas de grupo en el vínculo siguiente: `https://www.beyondtrust.com/docs/remote-support/getting-started/admin/group-policies.htm`
 
 ## <a name="test-sso"></a>Prueba de SSO
 
-En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
+En esta sección, probará la configuración de inicio de sesión único de Azure AD con las siguientes opciones. 
 
-Al hacer clic en el icono de BeyondTrust Remote Support en el panel de acceso, debería iniciar sesión automáticamente en la versión de BeyondTrust Remote Support en la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/my-apps-portal-end-user-access.md).
+* Haga clic en **Probar esta aplicación** en Azure Portal. Esta acción le redirigirá a la dirección URL de inicio de sesión de BeyondTrust Remote Support, donde puede iniciar el flujo de inicio de sesión. 
 
-## <a name="additional-resources"></a>Recursos adicionales
+* Vaya directamente a la dirección URL de inicio de sesión de BeyondTrust Remote Support e inicie el flujo de inicio de sesión desde allí.
 
-- [Lista de tutoriales acerca de cómo integrar aplicaciones SaaS con Azure Active Directory](./tutorial-list.md)
+* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de BeyondTrust Remote Support en Mis aplicaciones, se le redirigirá a la dirección URL de inicio de sesión de BeyondTrust Remote Support. Para más información acerca del portal Mis aplicaciones, consulte [Introducción a Mis aplicaciones](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-- [¿Qué es el acceso a las aplicaciones y el inicio de sesión único con Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
+## <a name="next-steps"></a>Pasos siguientes
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](../conditional-access/overview.md)
-
-- [Prueba de BeyondTrust Remote Support con Azure AD](https://aad.portal.azure.com/)
+Una vez que haya configurado BeyondTrust Remote Support, puede aplicar controles de sesión, que protegen a su organización, en tiempo real, frente a la filtración e infiltración de información confidencial. Los controles de sesión proceden del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad).

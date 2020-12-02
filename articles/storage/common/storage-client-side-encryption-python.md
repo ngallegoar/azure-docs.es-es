@@ -12,11 +12,11 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.openlocfilehash: 511166e156591562b2120b58cc420f3fccd1d8c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84804899"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008944"
 ---
 # <a name="client-side-encryption-with-python"></a>Cifrado en el lado de cliente con Python
 
@@ -54,7 +54,7 @@ El descifrado mediante la técnica de sobres funciona de la siguiente manera:
 La biblioteca de cliente de almacenamiento usa [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) para cifrar los datos del usuario. En concreto, emplea el modo [Cipher Block Chaining (CBC)](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) con AES. Cada servicio funciona de forma ligeramente diferente, por lo que describiremos aquí cada uno de ellos.
 
 ### <a name="blobs"></a>Datos BLOB
-La biblioteca de cliente solo admite actualmente el cifrado de blobs completos. En concreto, se admite el cifrado cuando los usuarios emplean los métodos **create**\*. En el caso de las descargas, se admiten tanto las descargas de intervalo como las completas, y está disponible la paralelización tanto de la carga como de la descarga.
+La biblioteca de cliente solo admite actualmente el cifrado de blobs completos. En concreto, se admite el cifrado cuando los usuarios emplean los métodos **create** _. En el caso de las descargas, se admiten tanto las descargas de intervalo como las completas, y está disponible la paralelización tanto de la carga como de la descarga.
 
 Durante el cifrado, la biblioteca de cliente generará un vector de inicialización (IV) aleatorio de 16 bytes, junto con una clave de cifrado de contenido (CEK) aleatoria de 32 bytes, y realiza el cifrado de sobres de los datos de blob con esta información. Posteriormente, la CEK encapsulada y algunos metadatos de cifrado adicionales se almacenan como metadatos de blob junto con el objeto blob cifrado en el servicio.
 
@@ -63,9 +63,9 @@ Durante el cifrado, la biblioteca de cliente generará un vector de inicializaci
 > 
 > 
 
-Descargar un blob cifrado implica recuperar el contenido del blob completo mediante los cómodos métodos **get**\*. La CEK encapsulada se desencapsula y se utiliza junto con el vector de inicialización (que se almacena como metadatos de blob, en este caso) para devolver los datos descifrados a los usuarios.
+La descarga de un blob cifrado implica recuperar el contenido del blob completo mediante los cómodos métodos _*get**_ . La CEK encapsulada se desencapsula y se utiliza junto con el vector de inicialización (que se almacena como metadatos de blob, en este caso) para devolver los datos descifrados a los usuarios.
 
-Descargar un intervalo arbitrario (métodos **get**\* con parámetros de intervalo transferidos) en el blob cifrado implica ajustar el intervalo proporcionado por los usuarios para obtener una pequeña cantidad de datos adicionales que pueden usarse para descifrar correctamente el intervalo solicitado.
+La descarga de un intervalo arbitrario (métodos _*get**_ con parámetros de intervalo transferidos) en el blob cifrado implica ajustar el intervalo proporcionado por los usuarios para obtener una pequeña cantidad de datos adicionales que pueden usarse para descifrar correctamente el intervalo solicitado.
 
 Los blobs en bloques y los blobs en páginas solo se pueden cifrar y descifrar usando este esquema. Actualmente, no se admite el cifrado de blobs en anexos.
 
@@ -114,7 +114,7 @@ Tenga en cuenta que las entidades se cifran en cuanto se insertan en el lote con
 > [!IMPORTANT]
 > Tenga en cuenta estos puntos importantes al usar el cifrado del lado del cliente:
 > 
-> * Al leer desde un blob cifrado o escribir en él, utilice comandos de carga completa del blob y comandos de descarga de blobs de intervalo/completos. Evite escribir en un blob cifrado mediante operaciones de protocolo, como Colocar bloque, Colocar lista de bloque, Escribir páginas o Borrar páginas; de lo contrario, puede dañar el objeto blob cifrado y que no sea legible.
+> _ Al leer desde un blob cifrado o escribir en él, utilice comandos de carga completa del blob y comandos de descarga de blobs de intervalo/completos. Evite escribir en un blob cifrado mediante operaciones de protocolo, como Colocar bloque, Colocar lista de bloque, Escribir páginas o Borrar páginas; de lo contrario, puede dañar el objeto blob cifrado y que no sea legible.
 > * Para las tablas, existe una restricción similar. Tenga cuidado de no actualizar propiedades cifradas sin actualizar los metadatos de cifrado.
 > * Si establece los metadatos en el objeto blob cifrado, puede sobrescribir los metadatos relacionados con el cifrado necesarios para el descifrado, ya que el establecimiento de metadatos no es aditivo. Esto también se aplica a las instantáneas: evite la especificación de metadatos durante la creación de una instantánea de un blob cifrado. Si se deben establecer metadatos, asegúrese de llamar primero al método **get_blob_metadata**, para así obtener los metadatos de cifrado actuales y evitar las escrituras simultáneas mientras estos se establecen.
 > * Habilite la marca **require_encryption** en el objeto de servicio para los usuarios que deban trabajar solo con datos cifrados. Vea a continuación para obtener más información.

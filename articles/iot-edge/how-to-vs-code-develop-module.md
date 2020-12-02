@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.service: iot-edge
 ms.custom: devx-track-js
 ms.openlocfilehash: ebc12e6d64d015267497497bebc22c8586adf999
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92043738"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995920"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-modules-for-azure-iot-edge"></a>Uso de Visual Studio Code para desarrollar y depurar módulos para Azure IoT Edge
 
@@ -160,7 +160,7 @@ Para configurar e iniciar el simulador, ejecute el comando **Azure IoT Edge: Sta
 
 1. Prepare el entorno de depuración según los requisitos de su lenguaje de desarrollo, establezca un punto de interrupción en el módulo y seleccione la configuración de depuración para usar:
    - **C#**
-     - En el terminal integrado de Visual Studio Code, cambie el directorio a la carpeta con su ***&lt;nombre de módulo&gt;*** y después ejecute el siguiente comando para compilar la aplicación de .Net Core.
+     - En el terminal integrado de Visual Studio Code, cambie el directorio a la carpeta **_&lt;nombre del módulo&gt;_* _ y ejecute el siguiente comando para compilar la aplicación de .NET Core.
 
        ```cmd
        dotnet build
@@ -168,13 +168,13 @@ Para configurar e iniciar el simulador, ejecute el comando **Azure IoT Edge: Sta
 
      - Abra el archivo `Program.cs` y agregue un punto de interrupción.
 
-     - Vaya a la vista Depuración de Visual Studio Code seleccionando **Vista > Depurar**. Seleccione la configuración de depuración ***&lt;nombre del módulo&gt;* Local Debug (.NET Core)** en la lista desplegable.
+     - Vaya a la vista Depuración de Visual Studio Code, para lo que debe seleccionar _*Vista > Depuración**. Seleccione la configuración de depuración **_ &lt;nombre del módulo&gt;_ Local Debug (.NET Core) en la lista desplegable.
 
         > [!NOTE]
         > Si su `TargetFramework` de .Net Core no es coherente con la ruta de acceso del programa en `launch.json`, deberá actualizar manualmente la ruta de acceso del programa en `launch.json` para que coincida con el `TargetFramework` en el archivo .csproj para que Visual Studio Code pueda iniciar correctamente este programa.
 
    - **Node.js**
-     - En el terminal integrado de Visual Studio Code, cambie el directorio a la carpeta ***&lt;nombre del módulo&gt;*** y después ejecute el siguiente comando para instalar paquetes Node.
+     - En el terminal integrado de Visual Studio Code, cambie el directorio a la carpeta *_&lt;nombre del módulo&gt;_* _ y después ejecute el siguiente comando para instalar paquetes Node.
 
        ```cmd
        npm install
@@ -182,11 +182,11 @@ Para configurar e iniciar el simulador, ejecute el comando **Azure IoT Edge: Sta
 
      - Abra el archivo `app.js` y agregue un punto de interrupción.
 
-     - Vaya a la vista Depuración de Visual Studio Code seleccionando **Vista > Depurar**. Seleccione la configuración de depuración ***&lt;nombre del módulo&gt;* Local Debug (Node.js)** en la lista desplegable.
+     - Vaya a la vista Depuración de Visual Studio Code, para lo que debe seleccionar _*Vista > Depuración**. Seleccione la configuración de depuración **_ &lt;nombre del módulo&gt;_ Local Debug (.NET Core) en la lista desplegable.
    - **Java**
      - Abra el archivo `App.java` y agregue un punto de interrupción.
 
-     - Vaya a la vista Depuración de Visual Studio Code seleccionando **Vista > Depurar**. Seleccione la configuración de depuración ***&lt;nombre del módulo&gt;* Local Debug (Java)** en la lista desplegable.
+     - Vaya a la vista Depuración de Visual Studio Code seleccionando **Vista > Depurar**. Seleccione la configuración de depuración **_&lt;nombre del módulo&gt;_ Local Debug (Java)** en la lista desplegable.
 
 1. Haga clic en **Iniciar depuración** o presione **F5** para iniciar la sesión de depuración.
 
@@ -234,7 +234,7 @@ En el equipo de desarrollo, puede iniciar un simulador de IoT Edge en lugar de i
 
    ![Inspección de variables](media/how-to-vs-code-develop-module/view-log.png)
 
-1. Vaya a la vista Depuración de Visual Studio Code y seleccione el archivo de configuración de depuración del módulo. El nombre de la opción de depuración debe ser similar a ***&lt;nombre del módulo&gt;* Remote Debug**
+1. Vaya a la vista Depuración de Visual Studio Code y seleccione el archivo de configuración de depuración del módulo. El nombre de la opción de depuración debe ser similar a **_&lt;nombre del módulo&gt;_ Remote Debug**
 
 1. Haga clic en **Iniciar depuración** o presione **F5**. Seleccione el proceso al que desea asociarlo.
 
@@ -322,13 +322,13 @@ Puede omitir esta sección si los módulos se ejecutan en el mismo equipo que Vi
 
   - Asegúrese de que el módulo en el equipo que se va a depurar está ejecutándose y está listo para adjuntar los depuradores, y de que el puerto 9229 es accesible externamente. Puede comprobarlo abriendo `http://<target-machine-IP>:9229/json` en la máquina que se va a depurar. Esta dirección URL debe mostrar información sobre el módulo Node.js que se quiere depurar.
   
-  - En el equipo de desarrollo, abra Visual Studio Code y, después, edite el archivo `launch.json` para que el valor de la dirección del perfil ***&lt;nombre del módulo&gt;* Remote Debug (Node.js)** (o el perfil ***&lt;nombre del módulo&gt;* Remote Debug [Node js en un contenedor Windows]** si el módulo se está ejecutando como un contenedor Windows) sea la dirección IP de la máquina que se va a depurar.
+  - En el equipo de desarrollo, abra Visual Studio Code y, después, edite el archivo `launch.json` para que el valor de la dirección del perfil **_&lt;nombre del módulo&gt;_ Remote Debug (Node.js)** (o el perfil **_&lt;nombre del módulo&gt;_ Remote Debug [Node js en un contenedor Windows]** si el módulo se está ejecutando como un contenedor Windows) sea la dirección IP de la máquina que se va a depurar.
 
 - **Java**
 
   - Compile un túnel SSH para la máquina que se quiere depurar con la ejecución de `ssh -f <username>@<target-machine> -L 5005:127.0.0.1:5005 -N`.
   
-  - En el equipo de desarrollo, abra Visual Studio Code y edite el perfil ***&lt;nombre del módulo&gt;* Remote Debug (Java)** en `launch.json` para que pueda adjuntar al equipo de destino. Para más información sobre cómo editar `launch.json` y depurar Java con Visual Studio Code, consulte la sección sobre [cómo configurar el depurador](https://code.visualstudio.com/docs/java/java-debugging#_configuration).
+  - En el equipo de desarrollo, abra Visual Studio Code y edite el perfil **_&lt;nombre del módulo&gt;_ Remote Debug (Java)** en `launch.json` para que pueda adjuntar al equipo de destino. Para más información sobre cómo editar `launch.json` y depurar Java con Visual Studio Code, consulte la sección sobre [cómo configurar el depurador](https://code.visualstudio.com/docs/java/java-debugging#_configuration).
 
 - **Python**
 
@@ -336,11 +336,11 @@ Puede omitir esta sección si los módulos se ejecutan en el mismo equipo que Vi
 
   - En el código `ptvsd.enable_attach(('0.0.0.0', 5678))` que insertó anteriormente en `main.py`, cambie **0.0.0.0** a la dirección IP de la máquina que quiere depurar. Compile, inserte y vuelva a implementar los módulos de IoT Edge.
 
-  - En el equipo de desarrollo, abra Visual Studio Code y, después, edite `launch.json` para que el valor `host` del perfil ***&lt;nombre del módulo&gt;* Remote Debug (Python)** use la dirección IP de la máquina de destino en lugar de `localhost`.
+  - En el equipo de desarrollo, abra Visual Studio Code y, después, edite `launch.json` para que el valor `host` del perfil **_&lt;nombre del módulo&gt;_ Remote Debug (Python)** use la dirección IP de la máquina de destino en lugar de `localhost`.
 
 ### <a name="debug-your-module"></a>Depuración del módulo
 
-1. En la vista Depuración de Visual Studio Code seleccione el archivo de configuración de depuración del módulo. El nombre de la opción de depuración debe ser similar a ***&lt;nombre del módulo&gt;* Remote Debug**
+1. En la vista Depuración de Visual Studio Code seleccione el archivo de configuración de depuración del módulo. El nombre de la opción de depuración debe ser similar a **_&lt;nombre del módulo&gt;_ Remote Debug**
 
 1. Abra el archivo del módulo para su lenguaje de desarrollo y agregue un punto de interrupción:
 

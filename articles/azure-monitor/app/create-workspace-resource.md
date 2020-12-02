@@ -3,18 +3,18 @@ title: Creación de nuevos recursos basados en área de trabajo de Application I
 description: Obtenga información sobre los pasos necesarios para habilitar los nuevos recursos basados en área de trabajo de Application Insights de Azure Monitor.
 ms.topic: conceptual
 ms.date: 10/06/2020
-ms.openlocfilehash: 9b91e5065729bee6af3f8018c36930e132eb1a15
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: ecbac02bcb4d9b4f0db36eab854a91366c774d6c
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91945420"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95536921"
 ---
 # <a name="workspace-based-application-insights-resources"></a>Recursos de Application Insights basados en áreas de trabajo
 
 Los recursos basados en área de trabajo permiten la integración completa entre Application Insights y Log Analytics. Ahora puede optar por enviar la telemetría de Application Insights a un área de trabajo común de Log Analytics, lo que permite el acceso completo a todas las características de Log Analytics a la vez que se mantienen los registros de aplicación, infraestructura y plataforma en una única ubicación consolidada.
 
-Esto también permite el control de acceso basado en rol (RBAC) común en los recursos y elimina la necesidad de consultas entre aplicaciones y áreas de trabajo.
+Esto también permite el control de acceso basado en roles de Azure (Azure RBAC) común en los recursos y elimina la necesidad de consultas entre aplicaciones y áreas de trabajo.
 
 > [!NOTE]
 > La ingesta de datos y la retención de recursos de Application Insights basados en área de trabajo se facturan por medio del área de trabajo de Log Analytics en la que se encuentran los datos. [Más información]( ./pricing.md#workspace-based-application-insights) sobre la facturación de recursos de Application Insights basados en área de trabajo.
@@ -207,7 +207,7 @@ La funcionalidad de exportación continua heredada no es compatible con los recu
 
 > [!NOTE]
 > Actualmente no se cobran cargos adicionales por la exportación de telemetría. La información de precios de esta característica estará disponible en la [página de precios de Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).  Antes del inicio de la facturación, se enviarán las notificaciones. Si decide seguir usando <feature name> después del período de aviso, se le facturará según la tarifa aplicable. 
- 
+ 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

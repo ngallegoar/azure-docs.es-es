@@ -4,12 +4,12 @@ description: Aprenda rápidamente a crear un registro de contenedor privado de D
 ms.topic: quickstart
 ms.date: 06/12/2020
 ms.custom: seodec18, H1Hack27Feb2017, mvc, devx-track-azurecli
-ms.openlocfilehash: f4e69616d30c6a7b853c5cc854adee147ebde206
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 226e50aec8f7c76a1b4c81d1a07d57583059ef0e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87486551"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96020082"
 ---
 # <a name="quickstart-create-a-private-container-registry-using-the-azure-cli"></a>Inicio rápido: Creación de un registro de contenedor privado con la CLI de Azure
 
@@ -69,10 +69,16 @@ Tome nota de `loginServer` en la salida, que es el nombre de registro completo (
 
 ## <a name="log-in-to-registry"></a>Iniciar sesión en el registro
 
-Antes de insertar y extraer imágenes de contenedor, debe iniciar sesión en el registro. Para ello, utilice el comando [az acr login][az-acr-login].
+Antes de insertar y extraer imágenes de contenedor, debe iniciar sesión en el registro. Para ello, utilice el comando [az acr login][az-acr-login]. Especifique solo el nombre del registro al iniciar sesión con la CLI de Azure. No use el nombre del servidor de inicio de sesión, que incluye un sufijo de dominio como `azurecr.io`. 
 
 ```azurecli
 az acr login --name <registry-name>
+```
+
+Ejemplo:
+
+```azurecli
+az acr login --name mycontainerregistry
 ```
 
 El comando devolverá un mensaje `Login Succeeded` una vez completado.

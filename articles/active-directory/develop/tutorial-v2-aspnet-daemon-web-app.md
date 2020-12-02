@@ -12,16 +12,18 @@ ms.workload: identity
 ms.date: 12/10/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: 72b72959f7b5c89bfad4495c8534de5dfaaefe8b
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.openlocfilehash: 031ee9a6d945d923279fd3025c32212c3ead98ed
+ms.sourcegitcommit: 1d366d72357db47feaea20c54004dc4467391364
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91611102"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95406606"
 ---
 # <a name="tutorial-build-a-multi-tenant-daemon-that-uses-the-microsoft-identity-platform"></a>Tutorial: Creación de un demonio multiinquilino que usa la plataforma de identidad de Microsoft
 
-En este tutorial, aprenderá a usar la plataforma de identidad de Microsoft para acceder a los datos de los clientes empresariales de Microsoft en un proceso no interactivo de larga duración. El demonio de ejemplo usa la [concesión de credenciales de cliente de OAuth2](v2-oauth2-client-creds-grant-flow.md) para adquirir el token de acceso. A continuación, utiliza el token para llamar a [Microsoft Graph](https://graph.microsoft.io) y acceder a los datos de la organización.
+En este tutorial, descargará y ejecutará una aplicación web de demonio de ASP.NET que muestra el uso de la concesión de credenciales de cliente de OAuth 2.0 para obtener un token de acceso para llamar a Microsoft Graph API.
+
+En este tutorial:
 
 > [!div class="checklist"]
 > * Integración de una aplicación de demonio con la Plataforma de identidad de Microsoft

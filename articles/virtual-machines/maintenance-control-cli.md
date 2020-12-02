@@ -5,18 +5,18 @@ author: cynthn
 ms.service: virtual-machines
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 04/20/2020
+ms.date: 11/20/2020
 ms.author: cynthn
-ms.openlocfilehash: 67e33732574d2a6c173675d5adf0a7d1c2050688
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d94cd649df9da6b36ac484d4fc1e6acef7a21bb7
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90528183"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026172"
 ---
 # <a name="control-updates-with-maintenance-control-and-the-azure-cli"></a>Control de las actualizaciones con el control de mantenimiento y la CLI de Azure
 
-El control de mantenimiento le permite decidir cuándo se aplican las actualizaciones a las máquinas virtuales aisladas y los hosts dedicados de Azure. En este tema se tratan las opciones de la CLI de Azure para el control de mantenimiento. Para más información sobre las ventajas de usar el control de mantenimiento, sus limitaciones y otras opciones de administración, consulte el artículo sobre la [administración de las actualizaciones de las distintas plataformas con control de mantenimiento](maintenance-control.md).
+El control de mantenimiento permite decidir cuándo aplicar las actualizaciones de plataforma a la infraestructura de host de las máquinas virtuales aisladas y los hosts dedicados de Azure. En este tema se tratan las opciones de la CLI de Azure para el control de mantenimiento. Para más información sobre las ventajas de usar el control de mantenimiento, sus limitaciones y otras opciones de administración, consulte el artículo sobre la [administración de las actualizaciones de las distintas plataformas con control de mantenimiento](maintenance-control.md).
 
 ## <a name="create-a-maintenance-configuration"></a>Creación de una configuración de mantenimiento
 
@@ -28,14 +28,14 @@ az group create \
    --name myMaintenanceRG
 az maintenance configuration create \
    -g myMaintenanceRG \
-   --name myConfig \
-   --maintenanceScope host\
+   --resource-name myConfig \
+   --maintenance-scope host\
    --location eastus
 ```
 
 Copie el identificador de configuración de la salida para usarlo más adelante.
 
-El uso de `--maintenanceScope host` garantiza que la configuración de mantenimiento se utiliza para controlar las actualizaciones del host.
+El uso de `--maintenance-scope host` garantiza que la configuración de mantenimiento se utiliza para controlar las actualizaciones de la infraestructura de host.
 
 Si intenta crear una configuración con el mismo nombre, pero en una ubicación diferente, obtendrá un error. Los nombres de configuración deben ser únicos dentro de su grupo de recursos.
 
@@ -44,6 +44,30 @@ Puede consultar las configuraciones de mantenimiento disponibles mediante `az ma
 ```azurecli-interactive
 az maintenance configuration list --query "[].{Name:name, ID:id}" -o table 
 ```
+
+### <a name="create-a-maintenance-configuration-with-scheduled-window"></a>Creación de una configuración de mantenimiento con una ventana programada
+También puede declarar una ventana programada cuando Azure vaya a aplicar las actualizaciones en los recursos. En este ejemplo se crea una configuración de mantenimiento denominada myConfig con una ventana programada de 5 horas el cuarto lunes de cada mes. Una vez que cree una ventana programada, ya no tendrá que aplicar las actualizaciones manualmente.
+
+```azurecli-interactive
+az maintenance configuration create \
+   -g myMaintenanceRG \
+   --resource-name myConfig \
+   --maintenance-scope host \
+   --location eastus \
+   --maintenance-window-duration "05:00" \
+   --maintenance-window-recur-every "Month Fourth Monday" \
+   --maintenance-window-start-date-time "2020-12-30 08:00" \
+   --maintenance-window-time-zone "Pacific Standard Time"
+```
+
+> [!IMPORTANT]
+> La **duración** del mantenimiento debe ser de *2 horas* o más. La **periodicidad** del mantenimiento debe establecerse en al menos una vez en 35 días.
+
+La periodicidad del mantenimiento puede expresarse como programaciones diarias, semanales o mensuales. Ejemplos:
+- **daily**- maintenance-window-recur-every: "Day" **o** "3Days"
+- **weekly**- maintenance-window-recur-every: "3Weeks" **o** "Week Saturday,Sunday"
+- **monthly**- maintenance-window-recur-every: "Month day23,day24" **o** "Month Last Sunday" **o** "Month Fourth Monday"
+
 
 ## <a name="assign-the-configuration"></a>Asignación de la configuración
 
@@ -251,7 +275,7 @@ Use `az maintenance configuration delete` para eliminar una configuración de ma
 az maintenance configuration delete \
    --subscription 1111abcd-1a11-1a2b-1a12-123456789abc \
    -g myResourceGroup \
-   --name myConfig
+   --resource-name myConfig
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes

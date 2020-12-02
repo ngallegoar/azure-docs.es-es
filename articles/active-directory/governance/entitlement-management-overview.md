@@ -12,17 +12,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.subservice: compliance
-ms.date: 09/30/2020
+ms.date: 11/23/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 ms.custom: contperfq1
-ms.openlocfilehash: 24e514208683d540f08818020238090583a1bc42
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 163947268d79a0297eef3f3f6e97187a0aef6994
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92362474"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95738149"
 ---
 # <a name="what-is-azure-ad-entitlement-management"></a>¿Qué es la administración de derechos de Azure AD?
 
@@ -66,7 +66,7 @@ También puede leer los [escenarios comunes](entitlement-management-scenarios.md
 
 ## <a name="what-are-access-packages-and-what-resources-can-i-manage-with-them"></a>¿Qué son los paquetes de acceso y qué recursos puedo administrar con ellos?
 
-La administración de derechos introduce en Azure AD el concepto de un *paquete de acceso* . Un paquete de acceso es una agrupación de todos los recursos con el acceso que necesita un usuario para trabajar en un proyecto o realizar su tarea. Los paquetes de acceso se utilizan para controlar el acceso de los empleados internos y también de los usuarios de fuera de la organización.
+La administración de derechos introduce en Azure AD el concepto de un *paquete de acceso*. Un paquete de acceso es una agrupación de todos los recursos con el acceso que necesita un usuario para trabajar en un proyecto o realizar su tarea. Los paquetes de acceso se utilizan para controlar el acceso de los empleados internos y también de los usuarios de fuera de la organización.
 
  Estos son los tipos de recursos para los que puede administrar el acceso del usuario con la administración de derechos:
 
@@ -85,7 +85,7 @@ También puede controlar el acceso a otros recursos que dependen de los grupos d
 
 Con un paquete de acceso, un administrador o un administrador de paquetes de acceso delegado enumera los recursos (grupos, aplicaciones y sitios) y los roles que los usuarios necesitan para esos recursos.
 
-Los paquetes de acceso también incluyen una o varias *directivas* . Una directiva define las reglas o barreras para la asignación al paquete de acceso. Cada directiva puede usarse para garantizar que solo los usuarios adecuados puedan solicitar acceso, que haya aprobadores para su solicitud y que el acceso a esos recursos sea por tiempo limitado y expire si no se ha renovado.
+Los paquetes de acceso también incluyen una o varias *directivas*. Una directiva define las reglas o barreras para la asignación al paquete de acceso. Cada directiva puede usarse para garantizar que solo los usuarios adecuados puedan solicitar acceso, que haya aprobadores para su solicitud y que el acceso a esos recursos sea por tiempo limitado y expire si no se ha renovado.
 
 ![Paquete de acceso y directivas](./media/entitlement-management-overview/elm-overview-access-package.png)
 
@@ -113,7 +113,7 @@ Los paquetes de acceso no reemplazan a otros mecanismos de asignación de acceso
 
 ## <a name="how-do-i-delegate-access"></a>¿Cómo se delega el acceso?
 
- Los paquetes de acceso se definen en contenedores llamados *catálogos* .  Puede tener un único catálogo para todos los paquetes de acceso o puede designar a personas para que creen o posean sus propios catálogos. Un administrador puede agregar recursos a cualquier catálogo, pero una persona que no sea administrador solo puede agregar a un catálogo los recursos que posea. El propietario de un catálogo puede agregar a otros usuarios como copropietarios del catálogo o como administradores de paquetes de acceso.  Estos escenarios se describen con más detalle en el artículo [Delegación y roles en la administración de derechos de Azure AD](entitlement-management-delegate.md).
+ Los paquetes de acceso se definen en contenedores llamados *catálogos*.  Puede tener un único catálogo para todos los paquetes de acceso o puede designar a personas para que creen o posean sus propios catálogos. Un administrador puede agregar recursos a cualquier catálogo, pero una persona que no sea administrador solo puede agregar a un catálogo los recursos que posea. El propietario de un catálogo puede agregar a otros usuarios como copropietarios del catálogo o como administradores de paquetes de acceso.  Estos escenarios se describen con más detalle en el artículo [Delegación y roles en la administración de derechos de Azure AD](entitlement-management-delegate.md).
 
 ## <a name="summary-of-terminology"></a>Resumen de la terminología
 
@@ -144,17 +144,22 @@ Las nubes especializadas, como Azure Alemania y Azure China 21Vianet, no están 
 Asegúrese de que el directorio tenga al menos tantas licencias de Azure AD Premium P2 como usted:
 
 - Usuarios miembros que **pueden** solicitar un paquete de acceso.
-- Usuarios miembros e invitados que solicitan un paquete de acceso.
-- Usuarios miembros e invitados que aprueban solicitudes para un paquete de acceso.
-- Usuarios miembros e invitados que tengan una asignación directa a un paquete de acceso.
+- Usuarios miembros que <u>solicitan</u> un paquete de acceso.
+- Usuarios miembros que <u>aprueban solicitudes</u> para un paquete de acceso.
+- Usuarios miembros que <u>revisan asignaciones</u> para un paquete de acceso. 
+- Usuarios miembros que tienen una <u>asignación directa</u> a un paquete de acceso.
+
+En el caso de los usuarios invitados, las necesidades de licencia dependerán del [modelo de licencias](../external-identities/external-identities-pricing.md) que esté usando. Sin embargo, las actividades de los usuarios invitados siguientes se consideran uso de Azure AD Premium P2:
+- Usuarios invitados que <u>solicitan</u> un paquete de acceso. 
+- Usuarios invitados que <u>aprueban solicitudes</u> para un paquete de acceso.
+- Usuarios invitados que <u>revisan asignaciones</u> para un paquete de acceso.
+- Usuarios invitados que tienen una <u>asignación directa</u> a un paquete de acceso. 
 
 Las licencias de Azure AD Premium P2 **no** son necesarias para las tareas siguientes:
 
 - No se requiere ninguna licencia para usuarios con el rol de administrador global que configuran los catálogos iniciales, paquetes de acceso y directivas, y delegan tareas administrativas en otros usuarios.
 - No se requiere ninguna licencia para usuarios en los que se han delegado tareas administrativas, como el creador de catálogos, el propietario de catálogos y el administrador de paquetes de acceso.
 - No se requiere ninguna licencia para invitados que **pueden** solicitar paquetes de acceso, pero **no** solicitan un paquete de acceso.
-
-Los precios de Azure AD External Identities (usuario invitado) se basan en los usuarios activos mensuales (MAU), que es el recuento de usuarios únicos con actividad de autenticación en un mes natural. Este modelo reemplaza el modelo de facturación con una relación 1:5, que permitía hasta cinco usuarios invitados para cada licencia Premium de Azure AD del inquilino. Cuando el inquilino está vinculado a una suscripción y usa las características de identidades externas para colaborar con los usuarios invitados, se le facturará automáticamente mediante el modelo de facturación basado en MAU. Para más información, consulte el modelo de facturación para [Azure AD External Identities](../external-identities/external-identities-pricing.md).
 
 Para más información sobre las licencias, consulte [Asignación o eliminación de licencias mediante el portal de Azure Active Directory](../fundamentals/license-users-groups.md).
 

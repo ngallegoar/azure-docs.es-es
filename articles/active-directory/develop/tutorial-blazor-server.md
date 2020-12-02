@@ -8,20 +8,20 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.date: 09/15/2020
-ms.openlocfilehash: aaf716b4ac4c49f1d852e917ba818a10ecb541c4
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: d499a0e7d3ca7933632b52d5edbd8094a29dbcaa
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94628040"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94979902"
 ---
 # <a name="tutorial-create-a-blazor-server-app-that-uses-the-microsoft-identity-platform-for-authentication"></a>Tutorial: Creación de una aplicación Blazor Server que usa la plataforma de identidad de Microsoft para la autenticación
 
-El servidor Blazor ofrece compatibilidad con el hospedaje de componentes de Razor en el servidor en una aplicación ASP.NET Core. En este tutorial, aprenderá a implementar la autenticación y a recuperar datos de Microsoft Graph en una aplicación Blazor Server por medio de la plataforma de identidad de Microsoft y del registro de la aplicación en Azure Active Directory (Azure AD).
+En este tutorial, va a crear una aplicación de Blazor Server que inicia la sesión de usuario y obtiene datos de Microsoft Graph mediante la Plataforma de identidad de Microsoft y el registro de la aplicación en Azure Active Directory (Azure AD).
 
 También hay disponible un tutorial para [Blazor WASM](tutorial-blazor-webassembly.md).
 
-En este tutorial, aprenderá a:
+En este tutorial:
 
 > [!div class="checklist"]
 > * Crear una nueva aplicación Blazor Server configurada para usar Azure Active Directory (Azure AD) para la autenticación.

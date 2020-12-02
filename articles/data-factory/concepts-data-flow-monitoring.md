@@ -7,13 +7,13 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/19/2020
-ms.openlocfilehash: a9636e7227671cd5a8ed31904e6bc27782d3bd6a
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.date: 11/22/2020
+ms.openlocfilehash: 9ca5ea5cdebe297af5081ae6e219935c56ba942e
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93025840"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96004892"
 ---
 # <a name="monitor-data-flows"></a>Supervisión de flujos de datos
 
@@ -81,6 +81,16 @@ También puede ver el tiempo detallado del paso de transformación de cada parti
 
 Cuando seleccione un icono de transformación del receptor en el mapa, el panel deslizante de la derecha mostrará un punto de datos adicional denominado "Tiempo de posprocesamiento" en la parte inferior. Esta es la cantidad de tiempo que se dedica a ejecutar el trabajo en el clúster de Spark *después* de cargar, transformar y escribir los datos. Esta cantidad puede incluir el cierre de grupos de conexiones, el apagado de controladores, la eliminación de archivos, la fusión de archivos, etc. Al realizar acciones en el flujo como "migrar archivos" y "enviar a un solo archivo", es probable que se muestre un aumento en el valor de tiempo de posprocesamiento.
   
+## <a name="error-rows"></a>Filas de error
+
+La habilitación del control de filas de error en el receptor de flujo de datos se reflejará en la salida de supervisión. Cuando se establece el receptor en "report success on error" (notificar éxito cuando hay error), la salida de supervisión mostrará el número de filas correctas y con error al hacer clic en el nodo de supervisión de receptores.
+
+![La captura de pantalla muestra las filas de error.](media/data-flow/error-row-2.png "Error Row Monitoring Success (Éxito de supervisión de filas)")
+
+Al seleccionar "report failure on error" (informar de error en caso de error), la misma salida solo se mostrará en el texto de salida de la supervisión de la actividad. Esto se debe a que la actividad de flujo de datos devolverá un error de ejecución y la vista de supervisión detallada no estará disponible.
+
+![Captura de pantalla que muestra las filas de error en la actividad.](media/data-flow/error-rows-4.png "Error Row Monitoring Failure (Error de supervisión de filas)")
+
 ## <a name="monitor-icons"></a>Iconos de supervisión
 
 Este icono significa que los datos de transformación se almacenaron en caché en el clúster, por lo que los intervalos y la ruta de acceso de ejecución se han tenido en cuenta:

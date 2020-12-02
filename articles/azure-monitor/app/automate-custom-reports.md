@@ -4,12 +4,12 @@ description: Automatizar informes personalizados diarios, semanales o mensuales 
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.reviewer: sdash
-ms.openlocfilehash: f35b7cbde7b719a91b23b19481ab704c445485cb
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: d465666ce5d631a234644d1adc85afcf6e3c1e27
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91827732"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010612"
 ---
 # <a name="automate-custom-reports-with-azure-application-insights-data"></a>Automatizar informes personalizados con datos de Azure Application Insights
 
@@ -31,7 +31,7 @@ Cada empresa tiene sus necesidades de informes únicas, como:
 
 Puede [consultar mediante programación datos de Application Insights](https://dev.applicationinsights.io/) para generar informes personalizados en una programación. Las opciones siguientes pueden ayudarle a empezar rápidamente:
 
-* [Automatizar informes con Microsoft Flow](../platform/logicapp-flow-connector.md)
+* [Automatización de informes con Power Automate](../platform/logicapp-flow-connector.md)
 * [Automatizar informes con Logic Apps](automate-with-logic-apps.md)
 * Use la plantilla "Resumen programado de Application Insights" de [Azure Functions](../../azure-functions/functions-create-first-azure-function.md) en el escenario Supervisión. Esta función usa SendGrid para enviar el correo electrónico. 
 

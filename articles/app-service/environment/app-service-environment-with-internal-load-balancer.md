@@ -8,11 +8,11 @@ ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: c4e5dedf2075a2e13cc91c5eed2c0f03ba498b97
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88962560"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021527"
 ---
 # <a name="using-an-internal-load-balancer-with-an-app-service-environment"></a>Uso de un equilibrador de carga interno con un entorno de App Service
 
@@ -58,12 +58,12 @@ Apenas hay diferencias entre crear un ASE con un ILB y del modo habitual. Para u
 
 En el panel de la red virtual, hay una opción de configuración de redes virtuales que permite seleccionar entre una VIP externa o interna. El valor predeterminado es Externa. Si lo ha establecido en Externa, el ASE utilizará una dirección VIP accesible desde Internet. Si selecciona Interna, el ASE se configura con un ILB en una dirección IP de su red virtual. 
 
-Después de seleccionar Interna, no podrá agregar más direcciones IP al ASE y, en su lugar, tendrá que proporcionar el subdominio del ASE. En un ASE con una dirección VIP externa, se usa el nombre del ASE en el subdominio para las aplicaciones creadas en dicho ASE. Si el ASE se llama ***contosotest*** y la aplicación de dicho ASE se llama ***mytest***, el subdominio tendría el formato ***contosotest.p.azurewebsites.net*** y la dirección URL de dicha aplicación sería ***mytest.contosotest.p.azurewebsites.net***. Si establece el valor de VIP Type (Tipo de dirección VIP) en Interna, el nombre del ASE no se utilizará en el subdominio de dicho ASE. En este caso, especifique expresamente el subdominio. Si el subdominio es ***contoso.corp.net*** y crea una aplicación en dicho ASE llamada ***timereporting***, la dirección URL de dicha aplicación sería ***timereporting.contoso.corp.net***.
+Después de seleccionar Interna, no podrá agregar más direcciones IP al ASE y, en su lugar, tendrá que proporcionar el subdominio del ASE. En un ASE con una dirección VIP externa, se usa el nombre del ASE en el subdominio para las aplicaciones creadas en dicho ASE. Si el ASE se llama **_contosotest_* y la aplicación de dicho ASE se llama _*_mytest_*_, el subdominio tendrá el formato _*_contosotest.p.azurewebsites.net_*_ y la dirección URL de dicha aplicación será _*_mytest.contosotest.p.azurewebsites.net_*_ . Si establece el valor de VIP Type (Tipo de dirección VIP) en Interna, el nombre del ASE no se utilizará en el subdominio de dicho ASE. En este caso, especifique expresamente el subdominio. Si el subdominio es _*_contoso.corp.net_*_ y crea una aplicación en dicho ASE llamada _*_timereporting_*_, la dirección URL de dicha aplicación será _*_timereporting.contoso.corp.net_*_.
 
 ## <a name="apps-in-an-ilb-ase"></a>Aplicaciones en un ASE con un ILB
 En un ASE con un ILB, las aplicaciones se crean de la misma forma que en un ASE sin equilibrador de carga. 
 
-1. En Azure Portal, seleccione **Crear un recurso -> Web y móvil -> Web** o bien **Móvil** o **Aplicación de API**.
+1. En Azure Portal, seleccione *Crear un recurso -> Web y móvil -> Web* o bien **Móvil** o **Aplicación de API**.
 2. Escriba el nombre de la aplicación.
 3. Seleccione su suscripción.
 4. Seleccione o cree un grupo de recursos.

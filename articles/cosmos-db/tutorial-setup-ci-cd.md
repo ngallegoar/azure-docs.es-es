@@ -8,19 +8,19 @@ ms.date: 01/28/2020
 ms.author: dech
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2b74198f83ef972540038269d83048bfd1adda62
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: a5b8842718aa2d9f90ac06283abc5fe2fdd925cb
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93073900"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95997008"
 ---
-# <a name="set-up-a-cicd-pipeline-with-the-azure-cosmos-db-emulator-build-task-in-azure-devops"></a>Configuración de una canalización de CI/CD con la tarea de compilación del emulador de Azure Cosmos DB en Azure DevOps
+# <a name="set-up-a-cicd-pipeline-with-the-azure-cosmos-db-emulator-build-task-in-azure-devops"></a>Configuración de una canalización de CI/CD con la tarea de compilación del emulador de Azure Cosmos DB en Azure DevOps
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-El emulador de Azure Cosmos DB proporciona un entorno local que emula el servicio Azure Cosmos DB con fines de desarrollo. Dicho emulador permite desarrollar y probar aplicaciones localmente sin necesidad de crear una suscripción a Azure ni incurrir en gastos. 
+El Emulador de Azure Cosmos DB proporciona un entorno local que emula el servicio de Azure Cosmos DB con fines de desarrollo. Dicho emulador permite desarrollar y probar aplicaciones localmente sin necesidad de crear una suscripción a Azure ni incurrir en gastos. 
 
-La tarea de compilación del emulador de Azure Cosmos DB para Azure DevOps permite hacer lo mismo en un entorno de integración continua. Con la tarea de compilación, se pueden realizar pruebas en el emulador como parte de los flujos de trabajo de compilación y publicación. La tarea pone en marcha un contenedor de Docker con el emulador ya en ejecución y proporciona un punto de conexión que puede utilizar el resto de la definición de compilación. Puede crear e inicie tantas instancias del emulador como sea necesario, y cada una de ellas se ejecuta en un contenedor independiente. 
+La tarea de compilación del emulador de Azure Cosmos DB para Azure DevOps permite hacer lo mismo en un entorno de integración continua. Con la tarea de compilación, se pueden realizar pruebas en el emulador como parte de los flujos de trabajo de compilación y publicación. La tarea pone en marcha un contenedor de Docker con el emulador ya en ejecución y proporciona un punto de conexión que puede utilizar el resto de la definición de compilación. Puede crear e inicie tantas instancias del emulador como sea necesario, y cada una de ellas se ejecuta en un contenedor independiente. 
 
 En este artículo se muestra cómo configurar una canalización de integración continua en Azure DevOps para una aplicación de ASP.NET que usa la tarea de compilación del emulador de Cosmos DB para realizar las pruebas. Puede usar un enfoque similar para configurar una canalización de CI para una aplicación Node.js o Python. 
 
@@ -45,7 +45,7 @@ Ahora que la extensión está instalada, inicie sesión en la organización de A
 
    :::image type="content" source="./media/tutorial-setup-ci-cd/CreateNewBuildDef_1.png" alt-text="Crear una canalización de compilación":::
 
-2. Seleccione el elemento **origen** que desee, el **Proyecto de equipo** , el **Repositorio** y la **Rama predeterminada para compilaciones manuales y programadas**. Después de elegir las opciones necesarias, seleccione **Continuar**.
+2. Seleccione el elemento **origen** que desee, el **Proyecto de equipo**, el **Repositorio** y la **Rama predeterminada para compilaciones manuales y programadas**. Después de elegir las opciones necesarias, seleccione **Continuar**.
 
    :::image type="content" source="./media/tutorial-setup-ci-cd/CreateNewBuildDef_2.png" alt-text="Seleccionar el proyecto de equipo, el repositorio y la rama de la canalización de compilación":::
 
@@ -158,7 +158,7 @@ namespace todo.Tests
 }
 ```
 
-Vaya a las opciones de ejecución de la tarea Visual Studio Test. En la opción **Archivo de configuración** , especifique que las pruebas se configuran mediante el archivo **.runsettings**. En la opción **Reemplazar parámetros de serie de pruebas** , agregue `-endpoint $(CosmosDbEmulator.Endpoint)`. Al hacerlo, configurará la tarea para hacer referencia al punto de conexión de la tarea de compilación del emulador, en lugar de al definido en el archivo **.runsettings**.  
+Vaya a las opciones de ejecución de la tarea Visual Studio Test. En la opción **Archivo de configuración**, especifique que las pruebas se configuran mediante el archivo **.runsettings**. En la opción **Reemplazar parámetros de serie de pruebas**, agregue `-endpoint $(CosmosDbEmulator.Endpoint)`. Al hacerlo, configurará la tarea para hacer referencia al punto de conexión de la tarea de compilación del emulador, en lugar de al definido en el archivo **.runsettings**.  
 
 :::image type="content" source="./media/tutorial-setup-ci-cd/addExtension_5.png" alt-text="Reemplazar la variable del punto de conexión por el punto de conexión de la tarea de compilación del emulador":::
 

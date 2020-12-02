@@ -7,16 +7,16 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: sumi
-ms.openlocfilehash: a6bbb2abe24eba96fd2c55b7aaf15ccd8ae33530
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 27dba675f82c4d34ec793cf492c18b293a6c8c77
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87760961"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95544265"
 ---
 # <a name="what-is-azure-private-link-service"></a>¿Qué es el servicio Azure Private Link?
 
-El servicio Azure Private Link es la referencia a su propio servicio que usa la tecnología de Azure Private Link. El servicio que se ejecuta de forma subyacente a [Azure Standard Load Balancer](../load-balancer/load-balancer-standard-overview.md) se puede habilitar para el acceso a Private Link de modo que los consumidores del servicio puedan tener acceso a este de forma privada desde sus propias redes virtuales. Sus clientes pueden crear un punto de conexión privado dentro de su red virtual y asignarlo a este servicio. En este artículo se explican conceptos relacionados con el lado del proveedor de servicios. 
+El servicio Azure Private Link es la referencia a su propio servicio que usa la tecnología de Azure Private Link. El servicio que se ejecuta de forma subyacente a [Azure Standard Load Balancer](../load-balancer/load-balancer-overview.md) se puede habilitar para el acceso a Private Link de modo que los consumidores del servicio puedan tener acceso a este de forma privada desde sus propias redes virtuales. Sus clientes pueden crear un punto de conexión privado dentro de su red virtual y asignarlo a este servicio. En este artículo se explican conceptos relacionados con el lado del proveedor de servicios. 
 
 :::image type="content" source="./media/private-link-service-overview/consumer-provider-endpoint.png" alt-text="Flujo de trabajo del servicio Private Link" border="true":::
 
@@ -57,7 +57,7 @@ Un servicio Private Link especifica las siguientes propiedades:
 |---------|---------|
 |Estado de aprovisionamiento (provisioningState)  |Una propiedad de solo lectura que muestra el estado de aprovisionamiento actual del servicio Private Link. Los estados de aprovisionamiento aplicables son: "Eliminando; Error; Correcto; Actualizando". Si el estado de aprovisionamiento es "Correcto", ha aprovisionado correctamente su servicio Private Link.        |
 |Alias (alias)     | Alias es una cadena de solo lectura única global para su servicio. Le ayuda a enmascarar los datos del cliente para su servicio y, al mismo tiempo, crea un nombre fácil de compartir para este. Al crear un servicio Private Link, Azure genera el alias para su servicio, el cual puede compartir con sus clientes. Sus clientes pueden usar este alias para solicitar una conexión a su servicio.          |
-|Visibilidad (visibility)     | Visibilidad es la propiedad que controla la configuración de exposición para su servicio Private Link. Los proveedores de servicios pueden elegir limitar la exposición a su servicio a suscripciones con permisos de control de acceso basado en rol (RBAC), un conjunto restringido de suscripciones, o todas las suscripciones de Azure.          |
+|Visibilidad (visibility)     | Visibilidad es la propiedad que controla la configuración de exposición para su servicio Private Link. Los proveedores de servicios pueden elegir limitar la exposición a su servicio a suscripciones con permisos de control de acceso basado en roles de Azure (Azure RBAC), un conjunto restringido de suscripciones, o todas las suscripciones de Azure.          |
 |Aprobación automática (autoApproval)    |   Aprobación automática controla el acceso automatizado al servicio Private Link. Las suscripciones especificadas en la lista de aprobación automática se aprueban automáticamente al solicitarse una conexión desde puntos de conexión privados de esas suscripciones.          |
 |Configuración de IP de front-end de Load Balancer (loadBalancerFrontendIpConfigurations)    |    El servicio Private Link está asociado a la dirección IP de front-end de una instancia de Standard Load Balancer. Todo el tráfico destinado al servicio alcanzará el front-end de SLB. Puede configurar las reglas de SLB para dirigir este tráfico a grupos de back-end adecuados donde se ejecutan sus aplicaciones. Las configuraciones de IP de front-end de Load Balancer son distintas de las configuraciones de IP de NAT.      |
 |Configuración de IP de NAT (ipConfigurations)    |    Esta propiedad hace referencia a la configuración de IP de NAT (traducción de direcciones de red) para el servicio Private Link. La IP de NAT se puede elegir desde cualquier subred de la red virtual de un proveedor de servicios. El servicio Private Link realiza traducciones de direcciones de red del lado del destino en el tráfico de Private Link. Esto garantiza que no haya ningún conflicto de IP entre el espacio de direcciones de origen (lado del consumidor) y destino (proveedor de servicios). En el lado de destino (lado del proveedor de servicios), la dirección IP de NAT se mostrará como IP de origen para todos los paquetes recibidos por su servicio e IP de destino para todos los paquetes enviados por su servicio.       |
@@ -76,7 +76,7 @@ Un servicio Private Link especifica las siguientes propiedades:
  
 - Se puede tener acceso a un solo servicio Private Link desde varios puntos de conexión privados pertenecientes a diferentes redes virtuales, suscripciones o inquilinos de Active Directory. La conexión se establece a través de un flujo de trabajo de conexión. 
  
-- Pueden crearse varios servicios Private Link en la misma instancia de Standard Load Balancer mediante diferentes configuraciones de IP de front-end. Existen límites en cuanto al número de servicios Private Link que puede crear por Standard Load Balancer y por suscripción. Para más información, consulte el artículo acerca de los  [límites de Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits).
+- Pueden crearse varios servicios Private Link en la misma instancia de Standard Load Balancer mediante diferentes configuraciones de IP de front-end. Existen límites en cuanto al número de servicios Private Link que puede crear por Standard Load Balancer y por suscripción. Para más información, consulte el artículo acerca de los  [límites de Azure](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits).
  
 - El servicio Private Link puede tener más de una configuración de IP de NAT vinculada a él. Elegir más de una configuración de IP de NAT puede ayudar a los proveedores de servicios a escalar. Actualmente, los proveedores de servicios pueden asignar hasta ocho direcciones de IP de NAT por servicio Private Link. Con cada dirección IP de NAT, puede asignar más puertos para sus conexiones TCP y, por tanto, escalar horizontalmente. Tras agregar varias direcciones IP de NAT a un servicio Private Link, no puede eliminar las direcciones IP de NAT. Esto se realiza para garantizar que las conexiones activas no se vean afectadas durante la eliminación de las direcciones IP de NAT.
 
@@ -95,7 +95,7 @@ Alias completo:  *Prefix*. {GUID}.*region*.azure.privatelinkservice
 
 ## <a name="control-service-exposure"></a>Exposición del servicio de control
 
-El servicio Private Link le proporciona opciones para controlar la exposición de su servicio a través de la configuración "Visibilidad". Puede hacer que el servicio sea privado para su consumo desde las diversas redes virtuales que posee (solo los permisos de RBAC), restringir la exposición a un conjunto limitado de suscripciones de su confianza o hacer que sea público para que todas las suscripciones de Azure puedan solicitar conexiones en el servicio Private Link. Su configuración de visibilidad decide si un consumidor puede conectarse a su servicio o no. 
+El servicio Private Link le proporciona opciones para controlar la exposición de su servicio a través de la configuración "Visibilidad". Puede hacer que el servicio sea privado para su consumo desde las diversas redes virtuales que posee (solo los permisos de Azure RBAC), restringir la exposición a un conjunto limitado de suscripciones de su confianza o hacer que sea público para que todas las suscripciones de Azure puedan solicitar conexiones en el servicio Private Link. Su configuración de visibilidad decide si un consumidor puede conectarse a su servicio o no. 
 
 ## <a name="control-service-access"></a>Acceso al servicio de control
 

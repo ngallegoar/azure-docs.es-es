@@ -1,18 +1,18 @@
 ---
 title: Formato Common Data Model
 description: Transformación de datos mediante el sistema de metadatos de Common Data Model
-author: djpmsft
+author: kromerm
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 10/13/2020
-ms.author: daperlov
-ms.openlocfilehash: 452aa3406ac09dd8342d8ade0b56b126067b7582
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.date: 11/20/2020
+ms.author: makromer
+ms.openlocfilehash: 7fc3a63f841a88451746d088a527a41d756e711f
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636415"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015178"
 ---
 # <a name="common-data-model-format-in-azure-data-factory"></a>Formato de Common Data Model en Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -52,7 +52,11 @@ En la tabla siguiente se enumeran las propiedades que admite un origen CDM. Pued
 | Entidad Corpus | Ruta de acceso a la referencia de entidad | sí | String | Entidad |
 | No permitir que se encuentren archivos | Si es true, no se devuelve un error si no se encuentra ningún archivo. | no | `true` o `false` | ignoreNoFilesFound |
 
-Si la definición de la entidad que quiere usar en la transformación de origen se encuentra en el mismo directorio que la carpeta de datos, puede anular la selección de "Use entity from corpus" (Usar entidad del corpus) y, simplemente, escribir la entidad que quiere usar como referencia.
+Al seleccionar "Referencia de entidad" en las transformaciones de origen y receptor, puede seleccionar entre estas tres opciones para la ubicación de la referencia de entidad:
+
+* La opción local usa la entidad definida en el archivo de manifiesto que el ADF usa.
+* La opción personalizada le pedirá que apunte a un archivo de manifiesto de entidad diferente del archivo de manifiesto que el ADF usa.
+* La opción estándar usará una referencia de entidad de la biblioteca estándar de entidades CDM mantenidas en ```Github```.
 
 ### <a name="sink-settings"></a>Configuración del receptor
 
@@ -71,7 +75,7 @@ Si la definición de la entidad que quiere usar en la transformación de origen 
 
 #### <a name="import-schema"></a>Importar esquema
 
-CDM solo está disponible como un conjunto de datos insertado y, de forma predeterminada, no tiene un esquema asociado. Para obtener los metadatos de columna, haga clic en el botón **Importar esquema** en la pestaña **Proyección** . Esto le permitirá hacer referencia a los nombres de columna y los tipos de datos especificados por corpus. Para importar el esquema, una [sesión de depuración de flujo de datos](concepts-data-flow-debug-mode.md) debe estar activa y debe tener un archivo de definición de entidad CDM existente al que apuntar.
+CDM solo está disponible como un conjunto de datos insertado y, de forma predeterminada, no tiene un esquema asociado. Para obtener los metadatos de columna, haga clic en el botón **Importar esquema** en la pestaña **Proyección**. Esto le permitirá hacer referencia a los nombres de columna y los tipos de datos especificados por corpus. Para importar el esquema, una [sesión de depuración de flujo de datos](concepts-data-flow-debug-mode.md) debe estar activa y debe tener un archivo de definición de entidad CDM existente al que apuntar.
 
 Al asignar columnas de flujo de datos a las propiedades de entidad en la transformación del receptor, haga clic en la pestaña "Asignación" y seleccione "Importar esquema". ADF leerá la referencia a la entidad a la que apunta en las opciones del receptor, permitiéndole asignar al esquema CDM de destino.
 
@@ -112,7 +116,7 @@ source(output(
 
 ### <a name="sink-properties"></a>Propiedades del receptor
 
-En la tabla siguiente se enumeran las propiedades que admite un receptor CDM. Puede editar estas propiedades en la pestaña **Configuración** .
+En la tabla siguiente se enumeran las propiedades que admite un receptor CDM. Puede editar estas propiedades en la pestaña **Configuración**.
 
 | Nombre | Descripción | Obligatorio | Valores permitidos | Propiedad de script de flujo de datos |
 | ---- | ----------- | -------- | -------------- | ---------------- |

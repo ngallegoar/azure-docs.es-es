@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Accesos de la aplicación web a Microsoft Graph como usuario | Azure'
-description: En este tutorial, aprenderá a acceder a los datos en Microsoft Graph en nombre de un usuario con la sesión iniciada.
+description: En este tutorial, aprenderá a establecer el acceso a los datos en Microsoft Graph para un usuario con la sesión iniciada.
 services: microsoft-graph, app-service-web
 author: rwike77
 manager: CelesteDG
@@ -10,27 +10,27 @@ ms.workload: identity
 ms.date: 11/09/2020
 ms.author: ryanwi
 ms.reviewer: stsoneff
-ms.openlocfilehash: ef007f045a5c53bf70f6d042167c157ab3f4decc
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: d3706c26d9b15e9ea607996ace222b29ccd84458
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94428380"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95999661"
 ---
-# <a name="tutorial-access-microsoft-graph-from-a-secured-app-as-the-user"></a>Tutorial: Acceso a Microsoft Graph desde una aplicación protegida como usuario
+# <a name="tutorial-access-microsoft-graph-from-a-secured-app-as-the-user"></a>Tutorial: Acceso a Microsoft Graph desde una aplicación segura como usuario
 
 Aprenda a acceder a Microsoft Graph desde una aplicación web que se ejecuta en Azure App Service.
 
-:::image type="content" alt-text="Acceso a Microsoft Graph" source="./media/scenario-secure-app-access-microsoft-graph/web-app-access-graph.svg" border="false":::
+:::image type="content" alt-text="Diagrama que muestra el acceso a Microsoft Graph." source="./media/scenario-secure-app-access-microsoft-graph/web-app-access-graph.svg" border="false":::
 
-Quiere agregar acceso a Microsoft Graph desde la aplicación web y realizar alguna acción como el usuario que ha iniciado sesión. En esta sección se describe cómo conceder permisos delegados a la aplicación web y cómo obtener la información de perfil del usuario con la sesión iniciada desde Azure Active Directory.
+Quiere agregar acceso a Microsoft Graph desde la aplicación web y realizar alguna acción como el usuario que ha iniciado sesión. En esta sección se describe cómo conceder permisos delegados a la aplicación web y cómo obtener la información de perfil del usuario con la sesión iniciada desde Azure Active Directory (Azure AD).
 
 En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
 >
 > * Conceder permisos delegados a una aplicación web
-> * Llamar a Microsoft Graph desde una aplicación web en nombre del usuario que ha iniciado sesión
+> * Llamar a Microsoft Graph desde una aplicación web para el usuario que ha iniciado sesión
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -40,54 +40,55 @@ En este tutorial, aprenderá a:
 
 ## <a name="grant-front-end-access-to-call-microsoft-graph"></a>Concesión de acceso de front-end para llamar a Microsoft Graph
 
-Ahora que ha habilitado la autenticación y la autorización en la aplicación web, esta se registra con la plataforma de identidad de Microsoft y se respalda mediante una aplicación de Azure AD. En este paso, concederá a la aplicación web permisos para acceder a Microsoft Graph en nombre del usuario. (Técnicamente, asignará a la aplicación de Azure AD de la aplicación web los permisos para acceder a la aplicación de AD de Microsoft Graph en nombre del usuario).
+Ahora que ha habilitado la autenticación y la autorización en la aplicación web, esta se registra con la plataforma de identidad de Microsoft y se respalda mediante una aplicación de Azure AD. En este paso, concederá a la aplicación web permisos para acceder a Microsoft Graph para el usuario (técnicamente, asignará a la aplicación de Azure AD de la aplicación web los permisos para acceder a la aplicación de Azure AD de Microsoft Graph para el usuario).
 
-En el menú de [Azure Portal](https://portal.azure.com), seleccione **Azure Active Directory** o busque y seleccione Azure Active Directory desde cualquier página.
+En el menú de [Azure Portal](https://portal.azure.com), seleccione **Azure Active Directory** o busque y seleccione **Azure Active Directory** desde cualquier página.
 
-Seleccione **Registros de aplicaciones** > **Aplicaciones propias** > **View all applications in this directory** (Ver todas las aplicaciones de este directorio). Seleccione el nombre de la aplicación web y, después, seleccione **Permisos de API**.
+Seleccione **Registros de aplicaciones** > **Aplicaciones propias** > **View all applications in this directory** (Ver todas las aplicaciones de este directorio). Seleccione el nombre de la aplicación web y, después, **Permisos de API**.
 
-Seleccione **Agregar un permiso**, seleccione las API de Microsoft y Microsoft Graph.
+Seleccione **Agregar un permiso**; después, seleccione las API de Microsoft y Microsoft Graph.
 
-Seleccione **Permisos delegados** y, después, **User.Read** en la lista.  Haga clic en **Agregar permisos**.
+Seleccione **Permisos delegados** y, después, **User.Read** en la lista. Seleccione **Agregar permisos**.
 
 ## <a name="configure-app-service-to-return-a-usable-access-token"></a>Configuración de App Service para devolver un token de acceso que se pueda usar
 
-La aplicación web ya tiene los permisos necesarios para acceder a Microsoft Graph como usuario con la sesión iniciada. En este paso, configurará la autenticación y autorización de App Service para proporcionarle un token de acceso que se pueda usar para acceder a Microsoft Graph. En este paso, necesitará el identificador del cliente o aplicación del servicio de bajada (Microsoft Graph). *00000003-0000-0000-c000-000000000000* es el identificador de la aplicación Microsoft Graph.
+La aplicación web ya tiene los permisos necesarios para acceder a Microsoft Graph como usuario con la sesión iniciada. En este paso, configurará la autenticación y autorización de App Service para proporcionarle un token de acceso que se pueda usar para acceder a Microsoft Graph. En este paso, necesitará el identificador del cliente o aplicación del servicio de bajada (Microsoft Graph). El identificador de la aplicación para Microsoft Graph es *00000003-0000-0000-c000-000000000000*.
 
 > [!IMPORTANT]
 > Si no configura App Service para que devuelva un token de acceso utilizable, recibirá un error ```CompactToken parsing failed with error code: 80049217``` al llamar a Microsoft Graph API en el código.
 
-Vaya a [Azure Resource Explorer](https://resources.azure.com/) y, mediante el árbol de recursos, busque la aplicación web.  La dirección URL del recurso debe ser similar a `https://resources.azure.com/subscriptions/subscription-id/resourceGroups/SecureWebApp/providers/Microsoft.Web/sites/SecureWebApp20200915115914`.
+Vaya a [Azure Resource Explorer](https://resources.azure.com/) y, mediante el árbol de recursos, busque la aplicación web. La dirección URL del recurso debe ser similar a `https://resources.azure.com/subscriptions/subscription-id/resourceGroups/SecureWebApp/providers/Microsoft.Web/sites/SecureWebApp20200915115914`.
 
-Se abre ahora Azure Resource Explorer con la aplicación web seleccionada en el árbol de recursos. En la parte superior de la página, haga clic en **Read/Write** (Lectura/escritura) para permitir la edición de los recursos de Azure.
+Se abre ahora Azure Resource Explorer con la aplicación web seleccionada en el árbol de recursos. En la parte superior de la página, seleccione **Read/Write** (Lectura/escritura) para permitir la edición de los recursos de Azure.
 
 En el explorador izquierdo, explore en profundidad hasta **config** > **authsettings**.
 
-En la vista **authsettings**, haga clic en **Edit** (Editar). Establezca ```additionalLoginParams``` en la siguiente cadena JSON, utilizando el identificador de cliente que copió.
+En la vista **authsettings**, seleccione **Editar**. Establezca ```additionalLoginParams``` en la siguiente cadena JSON, utilizando el identificador de cliente que copió.
 
 ```json
 "additionalLoginParams": ["response_type=code id_token","resource=00000003-0000-0000-c000-000000000000"],
 ```
 
-Haga clic en **PUT** para guardar la configuración. Puede que esta configuración tarde varios minutos en surtir efecto.  La aplicación web ya está configurada para acceder a Microsoft Graph con un token de acceso adecuado.  Si no lo hace, Microsoft Graph devuelve un error que indica que el formato del token compacto no es correcto.
+Seleccione **PUT** para guardar la configuración. Puede que esta configuración tarde varios minutos en surtir efecto. La aplicación web ya está configurada para acceder a Microsoft Graph con un token de acceso adecuado. Si no lo hace, Microsoft Graph devuelve un error que indica que el formato del token compacto no es correcto.
 
 ## <a name="call-microsoft-graph-net"></a>Llamada a Microsoft Graph (.NET)
 
-La aplicación web dispone ahora de los permisos necesarios y también agrega el identificador de cliente de Microsoft Graph a los parámetros de inicio de sesión. Mediante la [biblioteca Microsoft.Identity.Web](https://github.com/AzureAD/microsoft-identity-web/), la aplicación web obtiene un token de acceso para la autenticación con Microsoft Graph. En la versión 1.2.0 y versiones posteriores, la biblioteca Microsoft.Identity.Web se integra con el módulo de autenticación y autorización de App Service y se puede ejecutar junto con este.  Microsoft.Identity.Web detecta que la aplicación web se hospeda en App Services y obtiene el token de acceso del módulo de autenticación y autorización de App Services.  Después, el token de acceso se pasa a las solicitudes autenticadas con Microsoft Graph API.
+La aplicación web dispone ahora de los permisos necesarios y también agrega el identificador de cliente de Microsoft Graph a los parámetros de inicio de sesión. Mediante la [biblioteca Microsoft.Identity.Web](https://github.com/AzureAD/microsoft-identity-web/), la aplicación web obtiene un token de acceso para la autenticación con Microsoft Graph. En la versión 1.2.0 y versiones posteriores, la biblioteca Microsoft.Identity.Web se integra con el módulo de autenticación y autorización de App Service y se puede ejecutar junto con este. Microsoft.Identity.Web detecta que la aplicación web se hospeda en App Service y obtiene el token de acceso del módulo de autenticación y autorización de App Service. Después, el token de acceso se pasa a las solicitudes autenticadas con Microsoft Graph API.
 
 > [!NOTE]
-> La biblioteca Microsoft.Identity.Web no es necesaria en la aplicación web para la autenticación o autorización básicas, ni para autenticar solicitudes con Microsoft Graph.  Es posible [llamar de forma segura a las API de bajada](tutorial-auth-aad.md#call-api-securely-from-server-code) solo con el módulo de autenticación y autorización de App Service habilitado.  
-> Sin embargo, este módulo está diseñado para escenarios de autenticación más básicos.  Para escenarios más complejos (por ejemplo, el control de notificaciones personalizadas), necesita la biblioteca Microsoft.Identity.Web o la [biblioteca de autenticación de Microsoft](/azure/active-directory/develop/msal-overview). Hay un poco más de trabajo de configuración al principio, pero la biblioteca Microsoft.Identity.Web se puede ejecutar junto con el módulo de autenticación y autorización de App Service.  Más adelante, cuando la aplicación web necesite trabajar con escenarios más complejos, puede deshabilitar el módulo de autenticación y autorización de App Service y la biblioteca Microsoft.Identity.Web ya formará parte de la aplicación.
+> La biblioteca Microsoft.Identity.Web no es necesaria en la aplicación web para la autenticación o autorización básicas, ni para autenticar solicitudes con Microsoft Graph. Es posible [llamar de forma segura a las API de bajada](tutorial-auth-aad.md#call-api-securely-from-server-code) solo con el módulo de autenticación y autorización de App Service habilitado.
+> 
+> Sin embargo, este módulo está diseñado para escenarios de autenticación más básicos. Para escenarios más complejos (por ejemplo, el control de notificaciones personalizadas), necesita la biblioteca Microsoft.Identity.Web o la [biblioteca de autenticación de Microsoft](/azure/active-directory/develop/msal-overview). Hay un poco más de trabajo de configuración al principio, pero la biblioteca Microsoft.Identity.Web se puede ejecutar junto con el módulo de autenticación y autorización de App Service. Más adelante, cuando la aplicación web necesite trabajar con escenarios más complejos, puede deshabilitar el módulo de autenticación y autorización de App Service y la biblioteca Microsoft.Identity.Web ya formará parte de la aplicación.
 
 ### <a name="install-client-library-packages"></a>Instalación de los paquetes de biblioteca cliente
 
-Instale los paquetes NuGet de [Microsoft.Identity.Web](https://www.nuget.org/packages/Microsoft.Identity.Web/) y [Microsoft.Graph](https://www.nuget.org/packages/Microsoft.Graph) en el proyecto mediante la interfaz de la línea de comandos de .NET Core o la consola del administrador de paquetes en Visual Studio.
+Instale los paquetes NuGet [Microsoft.Identity.Web](https://www.nuget.org/packages/Microsoft.Identity.Web/) y [Microsoft.Graph](https://www.nuget.org/packages/Microsoft.Graph) en el proyecto mediante la interfaz de la línea de comandos de .NET Core o la Consola del Administrador de paquetes en Visual Studio.
 
 # <a name="command-line"></a>[Línea de comandos](#tab/command-line)
 
 Abra una línea de comandos y cambie al directorio que contiene el archivo del proyecto.
 
-Ejecute los comandos de instalación:
+Ejecute los comandos de instalación.
 
 ```dotnetcli
 dotnet add package Microsoft.Graph
@@ -96,9 +97,10 @@ dotnet add package Microsoft.Identity.Web
 ```
 
 # <a name="package-manager"></a>[Administrador de paquetes](#tab/package-manager)
+
 Abra el proyecto o la solución en Visual Studio y abra la consola mediante **Herramientas** > **Administrador de paquetes NuGet** > **Consola del Administrador de paquetes**.
 
-Ejecute los comandos de instalación:
+Ejecute los comandos de instalación.
 ```powershell
 Install-Package Microsoft.Graph
 
@@ -109,7 +111,7 @@ Install-Package Microsoft.Identity.Web
 
 ### <a name="startupcs"></a>Startup.cs
 
-En el archivo *Startup.cs*, el método ```AddMicrosoftIdentityWebApp``` permite agregar Microsoft.Identity.Web a la aplicación web.  El método ```AddMicrosoftGraph``` agrega compatibilidad con Microsoft Graph.
+En el archivo *Startup.cs*, el método ```AddMicrosoftIdentityWebApp``` permite agregar Microsoft.Identity.Web a la aplicación web. El método ```AddMicrosoftGraph``` agrega compatibilidad con Microsoft Graph.
 
 ```csharp
 using Microsoft.AspNetCore.Builder;
@@ -140,7 +142,7 @@ public class Startup
 
 ### <a name="appsettingsjson"></a>appsettings.json
 
-*AzureAd* especifica la configuración de la biblioteca Microsoft.Identity.Web.  En [Azure Portal](https://portal.azure.com), seleccione **Azure Active Directory** en el menú del portal y seleccione **Registros de aplicaciones**. Seleccione el registro de aplicaciones que se creó al habilitar el módulo de autenticación y autorización de App Service (el registro de aplicaciones debe tener el mismo nombre que la aplicación web).  Puede encontrar el identificador de inquilino y el identificador de cliente en la página de información general del registro de aplicaciones.  El nombre de dominio se puede encontrar en la página de información general de Azure Active Directory del inquilino.
+*AzureAd* especifica la configuración de la biblioteca Microsoft.Identity.Web. En [Azure Portal](https://portal.azure.com), seleccione **Azure Active Directory** en el menú del portal y, después, **Registros de aplicaciones**. Seleccione el registro de aplicaciones creado al habilitar el módulo de autenticación y autorización de App Service; este registro debe tener el mismo nombre que la aplicación web. Puede encontrar el identificador de inquilino y el identificador de cliente en la página de información general del registro de aplicaciones. El nombre de dominio se puede encontrar en la página de información general de Azure AD del inquilino.
 
 *Graph* especifica el punto de conexión de Microsoft Graph y los ámbitos iniciales que necesita la aplicación.
 
@@ -173,7 +175,7 @@ public class Startup
 
 ### <a name="indexcshtmlcs"></a>Index.cshtml.cs
 
-En el ejemplo siguiente se muestra cómo llamar a Microsoft Graph como el usuario con la sesión iniciada y cómo obtener la información del usuario.  El objeto ```GraphServiceClient``` se ha insertado en el controlador y la biblioteca Microsoft.Identity.Web ha configurado la autenticación.
+En el ejemplo siguiente se muestra cómo llamar a Microsoft Graph como el usuario con la sesión iniciada y cómo obtener la información del usuario. El objeto ```GraphServiceClient``` se ha insertado en el controlador y la biblioteca Microsoft.Identity.Web ha configurado la autenticación.
 
 ```csharp
 using System.Threading.Tasks;
@@ -221,7 +223,7 @@ public class IndexModel : PageModel
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Si ya ha terminado con este tutorial y ya no necesita la aplicación web o los recursos asociados, [elimine los recursos que creó](scenario-secure-app-clean-up-resources.md).
+Si ya ha terminado con este tutorial y no necesita la aplicación web ni los recursos asociados, [elimine los recursos que creó](scenario-secure-app-clean-up-resources.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -230,7 +232,7 @@ En este tutorial, ha aprendido a:
 > [!div class="checklist"]
 >
 > * Conceder permisos delegados a una aplicación web
-> * Llamar a Microsoft Graph desde una aplicación web en nombre del usuario que ha iniciado sesión
+> * Llamar a Microsoft Graph desde una aplicación web para el usuario que ha iniciado sesión
 
 > [!div class="nextstepaction"]
 > [App Service accede a Microsoft Graph como aplicación](scenario-secure-app-access-microsoft-graph-as-app.md)

@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: genemi, jrasnick, vanto
 ms.date: 06/26/2019
-ms.openlocfilehash: 4be3f8c6cd416743c2d1118cf2de01073c3022ff
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 25c2157a8de237d0ec66caa72d59c810d419ac76
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790498"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94989129"
 ---
 # <a name="dns-alias-for-azure-sql-database"></a>Alias DNS en Azure SQL Database
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -61,7 +61,7 @@ Las siguientes propiedades se aplican a todos los alias DNS del servidor:
   - Cuando se quita un servidor, el sistema de Azure también quita todos los alias DNS que hagan referencia a él.
 - *No enlazado a ninguna región:* los alias DNS no están enlazados a ninguna región. Los alias DNS pueden actualizarse para que hagan referencia a un servidor que resida en cualquier región geográfica.
   - Sin embargo, cuando se actualiza un alias para que haga referencia a otro servidor, ambos servidores deben existir en la misma *suscripción* de Azure.
-- *Permisos:* para administrar un alias DNS, el usuario debe tener permisos de *colaborador de servidor* u otros superiores. Para más información, consulte [Introducción al control de acceso basado en roles en Azure Portal](../../role-based-access-control/overview.md).
+- *Permisos:* para administrar un alias DNS, el usuario debe tener permisos de *colaborador de servidor* u otros superiores. Para más información, vea la [introducción al control de acceso basado en rol de Azure en Azure Portal](../../role-based-access-control/overview.md).
 
 ## <a name="manage-your-dns-aliases"></a>Administración de los alias DNS
 

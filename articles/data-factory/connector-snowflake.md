@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/28/2020
-ms.openlocfilehash: 5bb5599c6ab6e630e0f26c6d4a13e9c9af8a15a7
-ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
+ms.date: 11/24/2020
+ms.openlocfilehash: c0d0e3154360d787bfc2072c5ae1fe878fa1d138
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91405180"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96003671"
 ---
 # <a name="copy-and-transform-data-in-snowflake-by-using-azure-data-factory"></a>Copia y transformación de datos en Snowflake mediante Azure Data Factory
 
@@ -36,8 +36,6 @@ Para la actividad de copia, este conector Snowflake admite las siguientes funcio
 
 - Copie los datos de Snowflake que usan el comando [COPY into [ubicación]](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html) de Snowflake para lograr el mejor rendimiento.
 - Copie los datos a Snowflake que aprovechan el comando [ [tabla]](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html) de Snowflake para lograr el mejor rendimiento. Es compatible con Snowflake en Azure. 
-
-Snowflake como receptor no se admite cuando se usa el área de trabajo de Azure Synapse Analytics.
 
 ## <a name="get-started"></a>Introducción
 
@@ -152,8 +150,8 @@ Para copiar datos desde Snowflake, en la sección **source** de la actividad de 
 | type                         | La propiedad type del origen de la actividad de copia debe establecerse en **SnowflakeSource**. | Sí      |
 | Query          | Especifica la consulta SQL para leer datos de Snowflake. Si los nombres del esquema, la tabla y las columnas contienen minúsculas, indique el identificador de objeto en la consulta, por ejemplo, `select * from "schema"."myTable"`.<br>No se admite la ejecución de procedimientos almacenados. | No       |
 | exportSettings | Configuración avanzada utilizada para recuperar datos de Snowflake. Se pueden configurar los parámetros que admite el comando COPY into que Data Factory pasará al invocar la instrucción. | No       |
-| ***En`exportSettings`:*** |  |  |
-| type | El tipo de comando de exportación, establecido en **SnowflakeExportCopyCommand**. | Sí |
+| ***En `exportSettings`:** _ |  |  |
+| type | El tipo de comando de exportación, establecido en SnowflakeExportCopyCommand. | Sí |
 | additionalCopyOptions | Opciones de copia adicionales, proporcionadas como un diccionario de pares clave-valor. Ejemplos: MAX_FILE_SIZE, OVERWRITE. Para obtener más información consulte el documento sobre las [opciones de copia de Snowflake](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html#copy-options-copyoptions). | No |
 | additionalFormatOptions | Opciones adicionales de formato de archivo que se proporcionan al comando COPY como un diccionario de pares clave-valor. Ejemplos: DATE_FORMAT, TIME_FORMAT, TIMESTAMP_FORMAT. Para obtener más información consulte [opciones de tipo de formato de Snowflake](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html#format-type-options-formattypeoptions). | No |
 
@@ -283,8 +281,8 @@ Para copiar datos a Snowflake, se admiten las siguientes propiedades en la secci
 | type              | La propiedad type del receptor de la actividad de copia se establece en **SnowflakeSink**. | Sí                                           |
 | preCopyScript     | Especifique una consulta SQL para que la actividad de copia se ejecute antes de escribir datos en Snowflake en cada ejecución. Esta propiedad se usa para limpiar los datos cargados previamente. | No                                            |
 | importSettings | Configuración avanzada utilizada para escribir datos en Snowflake. Se pueden configurar los parámetros que admite el comando COPY into que Data Factory pasará al invocar la instrucción. | No |
-| ***En`importSettings`:*** |                                                              |  |
-| type | El tipo de comando de importación, establecido en **SnowflakeImportCopyCommand**. | Sí |
+| **_En `importSettings`:_* _ |                                                              |  |
+| type | El tipo de comando de importación, establecido en SnowflakeImportCopyCommand. | Sí |
 | additionalCopyOptions | Opciones de copia adicionales, proporcionadas como un diccionario de pares clave-valor. Ejemplos: ON_ERROR, FORCE, LOAD_UNCERTAIN_FILES. Para obtener más información, consulte el documento sobre las [opciones de copia de Snowflake](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html#copy-options-copyoptions). | No |
 | additionalFormatOptions | Opciones de formato de archivo adicionales que se proporcionan al comando COPY, que se proporciona como un diccionario de pares clave-valor. Ejemplos: DATE_FORMAT, TIME_FORMAT, TIMESTAMP_FORMAT. Para obtener más información consulte [opciones de tipo de formato de Snowflake](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html#format-type-options-formattypeoptions). | No |
 

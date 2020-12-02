@@ -12,17 +12,18 @@ ms.workload: identity
 ms.date: 07/17/2020
 ms.author: hahamil
 ms.custom: aaddev, devx-track-js
-ms.openlocfilehash: 01169f3e73fb1d6ddf0ecaf4958c6121cb21c295
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 6b8a9cbfd3e7057f0d85d5f4e19fea3aa4fbe90b
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92216137"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94980225"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-app-spa-using-auth-code-flow"></a>Tutorial: Inicio de sesión de usuarios y llamada a Microsoft Graph API desde una aplicación de página única (SPA) de JavaScript mediante un flujo de código de autorización
 
-En este tutorial se muestra cómo crear una aplicación de página única (SPA) de JavaScript que usa la biblioteca de autenticación de Microsoft (MSAL) para JavaScript v2.0 para lo siguiente:
+En este tutorial, creará una aplicación de página única (SPA) de JavaScript que inicia la sesión de los usuarios y llama a Microsoft Graph mediante el flujo de código de autorización con PKCE. La aplicación de página única que cree usa la biblioteca de autenticación de Microsoft (MSAL) para JavaScript v2.0.
 
+En este tutorial:
 > [!div class="checklist"]
 > * Realización del flujo de código de autorización de OAuth 2.0 con PKCE
 > * Inicio de sesión en cuentas personales, profesionales y educativas de Microsoft
@@ -619,23 +620,23 @@ Ha completado la creación de la aplicación y ya está listo para iniciar el se
 
 Cuando el explorador haya cargado el archivo *index.html*, seleccione **Iniciar sesión**. Se le pedirá que inicie sesión con el punto de conexión de la plataforma de identidad de Microsoft:
 
-:::image type="content" source="media/tutorial-v2-javascript-auth-code/spa-01-signin-dialog.png" alt-text="Diagrama que muestra el flujo de código de autorización para una aplicación de página única":::
+:::image type="content" source="media/tutorial-v2-javascript-auth-code/spa-01-signin-dialog.png" alt-text="Explorador web que muestra el cuadro de diálogo de inicio de sesión":::
 
 ### <a name="provide-consent-for-application-access"></a>Consentimiento para el acceso a la aplicación
 
 La primera vez que inicie sesión en la aplicación, se le pedirá que le conceda acceso a su perfil e inicie su sesión:
 
-:::image type="content" source="media/tutorial-v2-javascript-auth-code/spa-02-consent-dialog.png" alt-text="Diagrama que muestra el flujo de código de autorización para una aplicación de página única":::
+:::image type="content" source="media/tutorial-v2-javascript-auth-code/spa-02-consent-dialog.png" alt-text="Cuadro de diálogo de contenido que se muestra en el explorador web":::
 
 Si da su consentimiento a los permisos solicitados, las aplicaciones web muestran el nombre de usuario, lo que significa que el inicio de sesión se ha realizado correctamente:
 
-:::image type="content" source="media/tutorial-v2-javascript-auth-code/spa-03-signed-in.png" alt-text="Diagrama que muestra el flujo de código de autorización para una aplicación de página única":::
+:::image type="content" source="media/tutorial-v2-javascript-auth-code/spa-03-signed-in.png" alt-text="Resultados de un inicio de sesión correcto en el explorador web":::
 
 ### <a name="call-the-graph-api"></a>Llamada a Graph API
 
 Después de iniciar sesión, seleccione **Ver perfil** para ver la información de perfil de usuario devuelta en la respuesta de la llamada a Microsoft Graph API:
 
-:::image type="content" source="media/tutorial-v2-javascript-auth-code/spa-04-see-profile.png" alt-text="Diagrama que muestra el flujo de código de autorización para una aplicación de página única":::
+:::image type="content" source="media/tutorial-v2-javascript-auth-code/spa-04-see-profile.png" alt-text="Información de perfil de Microsoft Graph que se muestra en el explorador":::
 
 ### <a name="more-information-about-scopes-and-delegated-permissions"></a>Más información sobre los ámbitos y permisos delegados
 

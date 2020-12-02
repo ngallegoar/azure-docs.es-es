@@ -8,12 +8,12 @@ ms.service: private-link
 ms.topic: quickstart
 ms.date: 02/03/2020
 ms.author: allensu
-ms.openlocfilehash: 0d873401d377a03581a319769604f3d976f365be
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 5b7bc8be89068f0d3cf6722c36ae7fd5cc560736
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87927245"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96012125"
 ---
 # <a name="quickstart-create-a-private-link-service-by-using-the-azure-portal"></a>Inicio rápido: Creación de un servicio Private Link mediante Azure Portal
 
@@ -182,4 +182,4 @@ Cuando haya terminado de usar el servicio Private Link, elimine el grupo de recu
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este inicio rápido, ha creado un equilibrador de carga interno de Azure y un servicio Private Link. También puede aprender a [crear un punto de conexión privado desde Azure Portal](https://docs.microsoft.com/azure/private-link/create-private-endpoint-portal).
+En este inicio rápido, ha creado un equilibrador de carga interno de Azure y un servicio Private Link. También puede aprender a [crear un punto de conexión privado desde Azure Portal](./create-private-endpoint-portal.md).

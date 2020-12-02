@@ -10,12 +10,12 @@ ms.date: 08/20/2020
 ms.topic: include
 ms.custom: include file
 ms.author: chrwhit
-ms.openlocfilehash: 76aae596c145c736ae75e65f7f72fdbdcead5919
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: cb8e6934125630590a337ed7bf7f4c81b2b73bb3
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91779283"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94915334"
 ---
 Para empezar a usar Azure Communication Services, utilice la biblioteca cliente de SMS de Java de Communication Services para enviar mensajes SMS.
 
@@ -28,10 +28,10 @@ Este inicio rápido supone un pequeño costo en su cuenta de Azure.
 ## <a name="prerequisites"></a>Requisitos previos
 
 - Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [Kit de desarrollo de Java (JDK)](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable&preserve-view=true), versión 8 o posterior.
+- [Kit de desarrollo de Java (JDK)](/java/azure/jdk/?preserve-view=true&view=azure-java-stable), versión 8 o posterior.
 - [Apache Maven](https://maven.apache.org/download.cgi).
-- Recurso activo de Communication Services y una cadena de conexión. [Cree un recurso de Communication Services](../../create-communication-resource.md).
-- Número de teléfono habilitado para SMS. [Obtención de un número de teléfono](../get-phone-number.md).
+- Un recurso activo de Communication Services y una cadena de conexión. [Cree un recurso de Communication Services](../../create-communication-resource.md).
+- Un número de teléfono habilitado para SMS. [Obtención de un número de teléfono](../get-phone-number.md).
 
 ### <a name="prerequisite-check"></a>Comprobación de requisitos previos
 
@@ -58,7 +58,7 @@ Abra el archivo **pom.xml** en el editor de texto. Agregue el siguiente elemento
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-communication-sms</artifactId>
-    <version>1.0.0-beta.2</version>
+    <version>1.0.0-beta.3</version>
 </dependency>
 ```
 
@@ -85,7 +85,6 @@ import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.azure.communication.common.CommunicationClientCredential;
 import com.azure.communication.common.PhoneNumber;
 import com.azure.communication.sms.SmsClient;
 import com.azure.communication.sms.SmsClientBuilder;
@@ -113,7 +112,6 @@ Las clases e interfaces siguientes controlan algunas de las características pri
 | SmsClientBuilder              | Esta clase crea SmsClient. Se proporciona con el punto de conexión, la credencial y un cliente HTTP. |
 | SmsClient                    | Esta clase es necesaria para la funcionalidad de los SMS, que se utiliza para enviar mensajes SMS.                |
 | SendSmsResponse               | Esta clase contiene la respuesta del servicio SMS.                                          |
-| CommunicationClientCredential | Esta clase controla las solicitudes de firmas.                                                            |
 | PhoneNumber                   | Esta clase contiene información sobre el número de teléfono.
 
 ## <a name="authenticate-the-client"></a>Autenticar el cliente
@@ -123,20 +121,32 @@ Cree una instancia de `SmsClient` con su cadena de conexión. El código siguien
 Agregue el código siguiente al método `main`:
 
 ```java
+// Your can find your endpoint and access key from your resource in the Azure Portal
+String endpoint = "https://<RESOURCE_NAME>.communication.azure.com";
+String accessKey = "SECRET";
+
 // Create an HttpClient builder of your choice and customize it
 HttpClient httpClient = new NettyAsyncHttpClientBuilder().build();
-
-CommunicationClientCredential credential = new CommunicationClientCredential(accessKey);
 
 // Configure and build a new SmsClient
 SmsClient client = new SmsClientBuilder()
     .endpoint(endpoint)
-    .credential(credential)
+    .accessKey(accessKey)
     .httpClient(httpClient)
     .buildClient();
 ```
 
-Puede inicializar el cliente con cualquier cliente HTTP personalizado que implemente la interfaz `com.azure.core.http.HttpClient`. En el código anterior se muestra el uso del [cliente HTTP Netty de Azure Core](https://docs.microsoft.com/java/api/overview/azure/core-http-netty-readme?view=azure-java-stable&preserve-view=true) proporcionado por `azure-core`.
+Puede inicializar el cliente con cualquier cliente HTTP personalizado que implemente la interfaz `com.azure.core.http.HttpClient`. En el código anterior se muestra el uso del [cliente HTTP Netty de Azure Core](/java/api/overview/azure/core-http-netty-readme?preserve-view=true&view=azure-java-stable) proporcionado por `azure-core`.
+
+También puede proporcionar toda la cadena de conexión mediante la función connectionString() en lugar de proporcionar el punto de conexión y la clave de acceso. 
+```java
+// Your can find your connection string from your resource in the Azure Portal
+String connectionString = "<connection_string>";
+SmsClient client = new SmsClientBuilder()
+    .connectionString(connectionString)
+    .httpClient(httpClient)
+    .buildClient();
+```
 
 ## <a name="send-an-sms-message"></a>Enviar un mensaje SMS
 
@@ -163,7 +173,7 @@ System.out.println("MessageId: " + response.getMessageId());
 
 Debe reemplazar `<leased-phone-number>` por un número de teléfono habilitado para SMS asociado al recurso de Communication Services y `<to-phone-number>` por el número de teléfono al que quiere enviar un mensaje.
 
-El parámetro `enableDeliveryReport` es un parámetro opcional que puede usar para configurar los informes de entrega. Esto resulta útil para aquellos escenarios en los que desee emitir eventos cuando se entreguen mensajes SMS. Consulte la guía de inicio rápido [Controlar eventos SMS](../handle-sms-events.md) a fin de configurar los informes de entrega para los mensajes SMS.
+El parámetro `enableDeliveryReport` es un parámetro opcional que puede usar para configurar los informes de entrega. Resulta útil para los escenarios en los que quiere emitir eventos cuando se entregan mensajes SMS. Consulte el inicio rápido [Control de eventos SMS](../handle-sms-events.md) a fin de configurar los informes de entrega para los mensajes SMS.
 
 <!--todo: the signature of the `sendMessage` method changes when configuring delivery reporting. Need to confirm that this is how our client library is to be used.-->
 

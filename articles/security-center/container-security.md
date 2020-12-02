@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 6b57428aeba702dc8cf06ec4ae7984854a94ac7a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7265195f9614928a2150a56a780ea7b36bc2e266
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91449171"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96030873"
 ---
 # <a name="container-security-in-security-center"></a>Seguridad de los contenedores en Security Center
 
@@ -78,11 +78,11 @@ Para obtener información sobre las recomendaciones pertinentes de Security Cent
 
 ###  <a name="workload-protection-best-practices-using-kubernetes-admission-control"></a>Procedimientos recomendados de protección de cargas de trabajo con el control de admisión de Kubernetes
 
-Instale el **complemento de Azure Policy para Kubernetes** para obtener un conjunto de recomendaciones para proteger las cargas de trabajo de los contenedores de Kubernetes.
+Para obtener un conjunto de recomendaciones para proteger las cargas de trabajo de los contenedores Kubernetes, instale el **complemento de Azure Policy para Kubernetes**. También puede implementar automáticamente este complemento tal y como se explica en [Habilitar el aprovisionamiento automático de extensiones](security-center-enable-data-collection.md#enable-auto-provisioning-of-extensions). Cuando el aprovisionamiento automático del complemento esté establecido en "activado", la extensión se habilitará de forma predeterminada en todos los clústeres existentes y futuros (que cumplan los requisitos de instalación del complemento).
 
 Como se explica en [esta página de Azure Policy para Kubernetes](../governance/policy/concepts/policy-for-kubernetes.md), el complemento extiende el webhook de controlador de admisión de código abierto [Gatekeeper v3](https://github.com/open-policy-agent/gatekeeper)  de  [Open Policy Agent](https://www.openpolicyagent.org/). Los controladores de admisión de Kubernetes son complementos que exigen el uso de los clústeres. El complemento se registra como un webhook en el control de admisión de Kubernetes y permite aplicar las implementaciones a escala y las medidas de seguridad en los clústeres de una manera centralizada y coherente. 
 
-Una vez instalado el complemento en el clúster de AKS, todas las solicitudes al servidor de la API de Kubernetes se supervisarán según el conjunto predefinido de procedimientos recomendados antes de que se guarden en el clúster. Después, puede realizar la configurar para **aplicar** los procedimientos recomendados y exigirlos para futuras cargas de trabajo. 
+Con el complemento en el clúster de AKS, todas las solicitudes al servidor de la API de Kubernetes se supervisarán según el conjunto predefinido de procedimientos recomendados antes de que se guarden en el clúster. Después, puede realizar la configurar para **aplicar** los procedimientos recomendados y exigirlos para futuras cargas de trabajo. 
 
 Por ejemplo, puede exigir que no se creen los contenedores con privilegios y que se bloqueen las solicitudes futuras para este fin.
 

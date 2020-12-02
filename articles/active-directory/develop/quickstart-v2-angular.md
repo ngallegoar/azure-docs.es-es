@@ -12,16 +12,16 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 03/18/2020
 ms.author: janutter
-ms.openlocfilehash: 643e3bcd50258e2b5e7f52646f231485f950d677
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: 72d9aefcdda5d224b256c6e969b7a75259a97005
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94515552"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95750780"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-an-angular-single-page-application"></a>Inicio rápido: Inicio de sesión de usuarios y obtención de un token de acceso en un aplicación de página única de Angular
 
-En este inicio rápido descargará y ejecutará un código de ejemplo que muestra cómo una aplicación de página única de Angular puede realizar el inicio de sesión de usuarios y llamar a Microsoft Graph API. En el ejemplo de código también se muestra cómo obtener un token de acceso para llamar a Microsoft Graph API o a cualquier API web.
+En este inicio rápido descargará y ejecutará un código de ejemplo que muestra cómo una aplicación de página única de Angular puede realizar el inicio de sesión de usuarios y llamar a Microsoft Graph API. En el ejemplo de código se muestra cómo obtener un token de acceso para llamar a Microsoft Graph API o a cualquier API web.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 

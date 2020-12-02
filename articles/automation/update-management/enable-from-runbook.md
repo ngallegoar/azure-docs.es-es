@@ -3,14 +3,14 @@ title: Habilitación de Update Management de Azure Automation desde un runbook
 description: En este artículo se indica cómo habilitar Update Management desde un runbook.
 services: automation
 ms.topic: conceptual
-ms.date: 09/30/2020
+ms.date: 11/24/2020
 ms.custom: mvc
-ms.openlocfilehash: ec102015355e3312f5dc15fa526fa543da75e0de
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 5a9f12a823a22bfb48ccb4482d3402464aa77fea
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92221837"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95908374"
 ---
 # <a name="enable-update-management-from-a-runbook"></a>Habilitación de Update Management desde un runbook
 
@@ -34,7 +34,7 @@ Este método usa dos runbooks:
     * *LASolutionSubscriptionId*: id. de la suscripción donde se encuentra el área de trabajo de Log Analytics.
     * *LASolutionWorkspaceId*: id. del área de trabajo de Log Analytics vinculada a su cuenta de Automation.
 
-    Estas variables se usan para configurar el área de trabajo de la VM incorporada. Si no se especifican, el script busca primero cualquier VM incorporada en Update Management en la suscripción, seguida de la suscripción en la que se encuentra la cuenta de Automation y otras suscripciones a las que tiene acceso la cuenta de usuario. Si no se configura correctamente, las máquinas podrían incorporarse a un área de trabajo de Log Analytics aleatoria.
+    Estas variables se usan para configurar el área de trabajo de la máquina virtual incorporada, y debe crearlas manualmente. Si no se especifican, el script busca primero cualquier VM incorporada en Update Management en la suscripción, seguida de la suscripción en la que se encuentra la cuenta de Automation y otras suscripciones a las que tiene acceso la cuenta de usuario. Si no se configura correctamente, las máquinas podrían incorporarse a un área de trabajo de Log Analytics aleatoria.
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
@@ -52,7 +52,7 @@ Inicie sesión en [Azure Portal](https://portal.azure.com).
 
 ## <a name="install-and-update-modules"></a>Instalar y actualizar módulos
 
-Para habilitar de forma correcta Update Management para las VM con el runbook, es necesario actualizar a los módulos de Azure más recientes e importar el módulo [Az.OperationalInsights](/powershell/module/az.operationalinsights).
+Para habilitar de forma correcta Update Management para las máquinas virtuales con el runbook, es necesario actualizar a los módulos de Azure más recientes e importar el módulo [AzureRM.OperationalInsights](/powershell/module/azurerm.operationalinsights).
 
 1. En la cuenta de Automation, seleccione **Módulos** en **Recursos compartidos**.
 
@@ -66,9 +66,9 @@ Para habilitar de forma correcta Update Management para las VM con el runbook, e
 
 5. Seleccione **Examinar la galería** para abrir la galería de módulos.
 
-6. Busque `Az.OperationalInsights` e importe este módulo en la cuenta de Automation.
+6. Busque `AzureRM.OperationalInsights` e importe este módulo en la cuenta de Automation.
 
-    ![Importar el módulo OperationalInsights](media/enable-from-runbook/import-operational-insights-module.png)
+    ![Importar el módulo OperationalInsights](media/enable-from-runbook/import-operational-insights-module-azurerm.png)
 
 ## <a name="select-azure-vm-to-manage"></a>Selección de la máquina virtual de Azure que se va a administrar
 

@@ -10,12 +10,12 @@ author: peterclu
 ms.date: 05/05/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: cf4b321425ccaae877c2ff5c9b54f429d95a3515
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: b9966d4d9ab0a37f5484ec9eb9b7e2472a6b41dc
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93312307"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95012907"
 ---
 # <a name="reinforcement-learning-preview-with-azure-machine-learning"></a>Aprendizaje de refuerzo (versión preliminar) con Azure Machine Learning
 
@@ -52,7 +52,7 @@ Ejecute este código en cualquiera de los siguientes entornos. Le recomendamos q
     - Instale el [SDK de Azure Machine Learning](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py).
     - Instale el [SDK de Azure Machine Learning](/python/api/azureml-contrib-reinforcementlearning/?preserve-view=true&view=azure-ml-py): `pip install --upgrade azureml-contrib-reinforcementlearning`.
     - Cree un [archivo de configuración del área de trabajo](how-to-configure-environment.md#workspace).
-    - Ejecute el [cuaderno de configuración](https://aka.ms/azure-rl-env-setup) de la red virtual para abrir los puertos de red que se usan para el aprendizaje de refuerzo distribuido.
+    - Ejecute la red virtual para abrir los puertos de red que se usan para el aprendizaje de refuerzo distribuido.
 
 
 ## <a name="how-to-train-a-pong-playing-agent"></a>Cómo entrenar a un agente para que juegue a Pong

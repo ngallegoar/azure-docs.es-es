@@ -6,12 +6,12 @@ ms.topic: overview
 author: bwren
 ms.author: bwren
 ms.date: 11/11/2020
-ms.openlocfilehash: 18222573956f5ff3e9c617602902374b114328da
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 4fa00bffc35c4ed67ce70751c8882b74ad6b01a1
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555624"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95534507"
 ---
 # <a name="whats-new-in-azure-monitor-documentation"></a>Novedades en la documentación de Azure Monitor
 
@@ -296,7 +296,7 @@ Artículos nuevos y actualizados desde la reestructuración del contenido de Azu
 
 ### <a name="logs"></a>Registros
 - [Eliminación y recuperación de un área de trabajo de Azure Log Analytics](platform/delete-workspace.md). Incorporación de un comando de PowerShell. Actualización de Solución de problemas.
-- [Administración de áreas de trabajo de Log Analytics en Azure Monitor](platform/manage-access.md). Incorporación de ejemplo para tablas no permitidas en la sección RBAC.
+- [Administración de áreas de trabajo de Log Analytics en Azure Monitor](platform/manage-access.md). Incorporación de ejemplo para tablas no permitidas en la sección de RBAC de Azure.
 - [Administración del uso y los costos con los registros de Azure Monitor](platform/manage-cost-storage.md). Detalles adicionales sobre el cálculo del tamaño de los datos. Se actualizó la configuración de alertas de volumen de datos. Detalles sobre los datos de seguridad recopilados por Azure Sentinel. Aclaración sobre el límite de datos.
 - [Uso de Azure Monitor Logs con Azure Logic Apps y Power Automate](platform/logicapp-flow-connector.md): se han agregado límites del conector.
 
@@ -571,7 +571,7 @@ Actualizaciones múltiples como parte de la reescritura del contenido de la exte
 
 #### <a name="azure-monitor-for-containers"></a>Azure Monitor para contenedores
 
-- [Integración de Azure Active Directory con Azure Kubernetes Service](../aks/azure-ad-integration-cli.md): se ha agregado una nota para crear una aplicación cliente que admita clústeres habilitados para RBAC con el fin de admitir Azure Monitor para contenedores.
+- [Integración de Azure Active Directory con Azure Kubernetes Service](../aks/azure-ad-integration-cli.md): se ha agregado una nota para crear una aplicación cliente que admita clústeres habilitados para RBAC de Kubernetes con el fin de admitir Azure Monitor para contenedores.
 
 #### <a name="azure-monitor-for-vms"></a>Azure Monitor para máquinas virtuales
 

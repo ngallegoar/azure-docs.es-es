@@ -13,16 +13,16 @@ ms.date: 1/15/2020
 ms.author: hahamil
 ms.reviewer: brandwe
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 2aa786f78d3e730bb351d1fa84b0c7fbb32d6786
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.openlocfilehash: 981d3a0c5d01d70625fc0d022318c5bc866f23a0
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91611238"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95756407"
 ---
 # <a name="tutorial-use-shared-device-mode-in-your-android-application"></a>Tutorial: Uso del modo de dispositivo compartido en la aplicación Android
 
-En este tutorial se proporcionan instrucciones para desarrolladores y administradores de inquilinos para configurar y admitir el modo de dispositivo compartido para una aplicación Android.
+En este tutorial, los desarrolladores de Android y los administradores de inquilinos de Azure Active Directory (Azure AD) obtendrán información sobre el código, la aplicación Authenticator y la configuración del inquilino necesaria para habilitar el modo de dispositivo compartido para una aplicación para Android.
 
 En este tutorial, aprenderá a:
 
@@ -226,7 +226,7 @@ Para más información sobre cómo hacerlo, consulte [Registro de la aplicación
 
 Debe seleccionar **Make this change for me** (Realizar este cambio) y, a continuación, proporcionar los valores que el inicio rápido solicita en Azure Portal. Una vez hecho esto, se generarán todos los archivos de configuración necesarios.
 
-:::image type="content" source="media/tutorial-v2-shared-device-mode/config-info.png" alt-text="Inicio rápido para la configuración de la página de la aplicación Android en Azure Portal":::
+:::image type="content" source="media/tutorial-v2-shared-device-mode/config-info.png" alt-text="Inicio rápido para la configuración de la página del proyecto en Azure Portal":::
 
 ## <a name="set-up-a-tenant"></a>Configuración de un inquilino
 
@@ -242,25 +242,25 @@ Descargue la aplicación Microsoft Authenticator de Google Play. Si ya ha descar
 
 Inicie la aplicación Authenticator y vaya a la página principal de la cuenta. Una vez que vea la página **Agregar cuenta**, estará listo para compartir el dispositivo.
 
-:::image type="content" source="media/tutorial-v2-shared-device-mode/authenticator-add-account.png" alt-text="Inicio rápido para la configuración de la página de la aplicación Android en Azure Portal":::
+:::image type="content" source="media/tutorial-v2-shared-device-mode/authenticator-add-account.png" alt-text="Pantalla Agregar cuenta de Authenticator":::
 
 Vaya al panel **Configuración** con la barra de menús del lado derecho. Seleccione **Registro del dispositivo** en **Cuentas profesionales y educativas**.
 
-:::image type="content" source="media/tutorial-v2-shared-device-mode/authenticator-settings.png" alt-text="Inicio rápido para la configuración de la página de la aplicación Android en Azure Portal":::
+:::image type="content" source="media/tutorial-v2-shared-device-mode/authenticator-settings.png" alt-text="Pantalla de configuración de Authenticator":::
 
 Al hacer clic en este botón, se le pedirá que autorice el acceso a los contactos del dispositivo. Esto se debe a la integración de la cuenta de Android en el dispositivo. Elija **permitir**.
 
-:::image type="content" source="media/tutorial-v2-shared-device-mode/authenticator-allow-screen.png" alt-text="Inicio rápido para la configuración de la página de la aplicación Android en Azure Portal":::
+:::image type="content" source="media/tutorial-v2-shared-device-mode/authenticator-allow-screen.png" alt-text="Pantalla de confirmación de acceso de Authenticator":::
 
 El administrador de dispositivos en la nube debe escribir su correo electrónico de la organización en **Registro como dispositivo compartido**. A continuación, haga clic en el botón **Registrar como dispositivo compartido** y escriba sus credenciales.
 
-:::image type="content" source="media/tutorial-v2-shared-device-mode/register-device.png" alt-text="Inicio rápido para la configuración de la página de la aplicación Android en Azure Portal":::
+:::image type="content" source="media/tutorial-v2-shared-device-mode/register-device.png" alt-text="Pantalla de registro de dispositivos en la aplicación":::
 
-:::image type="content" source="media/tutorial-v2-shared-device-mode/sign-in.png" alt-text="Inicio rápido para la configuración de la página de la aplicación Android en Azure Portal":::
+:::image type="content" source="media/tutorial-v2-shared-device-mode/sign-in.png" alt-text="Captura de pantalla de la aplicación que muestra la página de inicio de sesión de Microsoft":::
 
 El dispositivo ya está en modo compartido.
 
-:::image type="content" source="media/tutorial-v2-shared-device-mode/shared-device-mode-screen.png" alt-text="Inicio rápido para la configuración de la página de la aplicación Android en Azure Portal":::
+:::image type="content" source="media/tutorial-v2-shared-device-mode/shared-device-mode-screen.png" alt-text="Pantalla de la aplicación que muestra el modo de dispositivo compartido habilitado":::
 
  Cualquier inicio y cierre de sesión en el dispositivo será global, lo que significa que se aplicará a todas las aplicaciones que estén integradas con MSAL y Microsoft Authenticator en el dispositivo. Ahora puede implementar aplicaciones en el dispositivo que usen las características del modo de dispositivo compartido.
 
@@ -268,13 +268,13 @@ El dispositivo ya está en modo compartido.
 
 Una vez que haya colocado un dispositivo en modo compartido, será conocido para la organización y se realizará su seguimiento en el inquilino de esta. Puede ver los dispositivos compartidos si examina el **tipo de combinación** en la hoja de Azure Active Directory de Azure Portal.
 
-:::image type="content" source="media/tutorial-v2-shared-device-mode/registered-device-screen.png" alt-text="Inicio rápido para la configuración de la página de la aplicación Android en Azure Portal":::
+:::image type="content" source="media/tutorial-v2-shared-device-mode/registered-device-screen.png" alt-text="Panel Todos los dispositivos en Azure Portal":::
 
 ## <a name="running-the-sample-app"></a>Ejecución de la aplicación de ejemplo
 
 El ejemplo es una aplicación sencilla que llamará a la instancia de Graph API de la organización. En la primera ejecución, se le pedirá su consentimiento ya que la aplicación es nueva en la cuenta de empleado.
 
-:::image type="content" source="media/tutorial-v2-shared-device-mode/run-app-permissions-requested.png" alt-text="Inicio rápido para la configuración de la página de la aplicación Android en Azure Portal":::
+:::image type="content" source="media/tutorial-v2-shared-device-mode/run-app-permissions-requested.png" alt-text="Pantalla de información de configuración de la aplicación":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/01/2020
+ms.date: 11/22/2020
 ms.author: memildin
-ms.openlocfilehash: 3cc64d2721f73da36fdc4fce009cccb5fdfd6b6b
-ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
+ms.openlocfilehash: 6d001e638b00cace1dd81d9631f498a911ca19a4
+ms.sourcegitcommit: 5ae2f32951474ae9e46c0d46f104eda95f7c5a06
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94372700"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "96014608"
 ---
 # <a name="security-alerts---a-reference-guide"></a>Alertas de seguridad: una guía de referencia
 
@@ -160,6 +160,9 @@ En la parte inferior de esta página, hay una tabla que describe la cadena de el
 |**Aprovechamiento de la vulnerabilidad de Xorg [se ha detectado varias veces].**|El análisis de datos del host en %{Compromised Host} detectó el usuario de Xorg con argumentos sospechosos. Los atacantes pueden utilizar esta técnica en los intentos de escalación de privilegios. Este comportamiento se ha detectado [x] veces en la actualidad en las siguientes máquinas: [nombres de las máquinas].|-|Media|
 |**Se ha detectado un demonio de Docker expuesto**|Los registros de la máquina indican que el demonio de Docker (dockerd) expone un socket TCP. De manera predeterminada, la configuración de Docker no usa cifrado ni autenticación cuando un socket TCP está habilitado. Permite que cualquiera con acceso al puerto pertinente pueda obtener acceso total al demonio de Docker.|-|Media|
 |**Error en el ataque por fuerza bruta de SSH**|Se detectaron ataques por fuerza bruta con errores de los siguientes atacantes: %{Attackers}. Los atacantes intentaban acceder al host con los siguientes nombres de usuario: %{Accounts used on failed sign in to host attempts}.|-|Media|
+| **Se detectó un comportamiento de ataque sin archivos**<br>(AppServices_FilelessAttackBehaviorDetection)| La memoria del proceso especificado a continuación contiene comportamientos utilizados habitualmente por ataques sin archivos.<br>Los comportamientos específicos incluyen: {list of observed behaviors}                                                                                                                                                                                                                                                                                                                             | Ejecución                             | Media   |
+| **Se detectó una técnica de ataque sin archivos**<br>(VM_FilelessAttackTechnique.Linux)| La memoria del proceso especificado a continuación contiene una evidencia de una técnica de ataque sin archivos: Los atacantes usan los ataques sin archivos para ejecutar código y evitar ser detectados por el software de seguridad.<br>Los comportamientos específicos incluyen: {list of observed behaviors}                                                                                                                                                                                                                            | Ejecución                             | Alto     |
+| **Se ha detectado un kit de herramientas de ataque sin archivos**<br>(VM_FilelessAttackToolkit.Linux)| La memoria del proceso especificado a continuación contiene un kit de herramientas de ataque sin archivos: {ToolKitName}. Los kits de herramientas de ataque sin archivos no tienen presencia en el sistema de archivos, lo que dificulta la detección mediante el software antivirus tradicional.<br>Los comportamientos específicos incluyen: {list of observed behaviors}                                                                                                                                                                                    | DefenseEvasion, ejecución             | Alto     |
 |**Se detectó una ejecución de archivos oculta.**|El análisis de datos del host indica que %{user name} ejecutó un archivo oculto. Esta actividad podría indicar una actividad legítima o que un host se encuentra en peligro.|-|Informativo|
 |**Se detectaron indicadores asociados al kit de herramientas de DDOS. [Se ha detectado varias veces].**|El análisis de datos del host en %{Compromised Host} detectó nombres de archivo que forman parte de un kit de herramientas asociado con malware capaz de iniciar ataques DDoS, de abrir puertos y servicios y de tener un control total sobre el sistema infectado. También se podría tratar de una actividad legítima. Este comportamiento se ha detectado [x] veces en la actualidad en las siguientes máquinas: [nombres de las máquinas].|-|Media|
 |**Se detectaron indicadores asociados al kit de herramientas de DDOS.**|El análisis de datos del host en %{Compromised Host} detectó nombres de archivo que forman parte de un kit de herramientas asociado con malware capaz de iniciar ataques DDoS, de abrir puertos y servicios y de tener un control total sobre el sistema infectado. También se podría tratar de una actividad legítima.|-|Media|

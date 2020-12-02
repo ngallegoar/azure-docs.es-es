@@ -10,12 +10,12 @@ author: markjones-msft
 ms.author: markjon
 ms.reviewer: mathoma
 ms.date: 11/06/2020
-ms.openlocfilehash: 64334b17060879a2e587b13b062c81e86df33831
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: a910edfbbe1ad07dca806026396c506f7e90e6e7
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94743446"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95019439"
 ---
 # <a name="migration-overview-sql-server-to-sql-server-on-azure-vms"></a>Información general sobre la migración: De SQL Server a SQL Server en VM de Azure
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlvm.md)]
@@ -57,6 +57,8 @@ El enfoque adecuado para su empresa normalmente depende de los siguientes factor
 - Ciclo de vida de compatibilidad de los productos existentes
 - Ventana de tiempo de inactividad de la aplicación durante la migración
 
+:::image type="content" source="media/sql-server-to-sql-on-azure-vm-individual-databases-guide/virtual-machine-migration-downtime.png" alt-text="tiempo de inactividad de la migración de máquina virtual":::
+
 En la tabla siguiente se describen las diferencias entre las dos estrategias de migración:
 <br />
 
@@ -73,7 +75,7 @@ En la tabla siguiente se detallan los métodos disponibles para la estrategia de
 
 |**Método** | **Versión de origen mínima** | **Versión de destino mínima** | **Restricción del tamaño de copia de seguridad de origen** |  **Notas** |
 | --- | --- | --- | --- | --- |
-| [Azure Migrate](../../../migrate/index.yml) | SQL Server 2008 SP4| SQL Server 2008 SP4| [Límite de almacenamiento de máquina virtual de Azure](https://azure.microsoft.com/documentation/articles/azure-resource-manager/management/azure-subscription-service-limits/) |  Instancia de SQL Server existente que se va a migrar tal cual a la instancia de SQL Server en una VM de Azure. Puede escalar cargas de trabajo de migración de hasta 35 000 VM. <br /><br /> Los servidores de origen permanecen en línea y atienden las solicitudes durante la sincronización de datos del servidor, lo que minimiza el tiempo de inactividad. <br /><br /> **Automatización y scripts**: [Scripts de Azure Site Recovery](../../../migrate/how-to-migrate-at-scale.md) y [Ejemplo de migración y planeación escaladas de Azure](/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-scale)|
+| [Azure Migrate](../../../migrate/index.yml) | SQL Server 2008 SP4| SQL Server 2008 SP4| [Límite de almacenamiento de máquina virtual de Azure](https://azure.microsoft.com/documentation/articles/azure-resource-manager/management/azure-subscription-service-limits/) |  Instancia de SQL Server existente que se va a migrar tal cual a la instancia de SQL Server en una VM de Azure. Puede escalar cargas de trabajo de migración de hasta 35 000 VM. <br /><br /> Los servidores de origen permanecen en línea y atienden las solicitudes durante la sincronización de datos del servidor, lo que minimiza el tiempo de inactividad. <br /><br /> **Automatización y scripts**: [Scripts de Azure Site Recovery](../../../migrate/how-to-migrate-at-scale.md) y [Ejemplo de migración y planeación escaladas de Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-scale)|
 
 ## <a name="migrate"></a>Migrar  
 
@@ -138,7 +140,7 @@ Para empezar a migrar las bases de datos de SQL Server a SQL Server en VM de Azu
    - [Calculadora del costo total de propiedad de Azure](https://azure.microsoft.com/pricing/tco/calculator/) 
 
 
-- Para obtener más información sobre el marco y el ciclo de adopción de las migraciones en la nube, consulte:
+- Para más información sobre el marco y el ciclo de adopción de las migraciones en la nube, consulte:
    -  [Cloud Adoption Framework para Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-scale)
    -  [Procedimientos recomendados para la gestión de los costos y los ajustes de tamaño de las cargas de trabajo migradas a Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/migrate-best-practices-costs) 
 
@@ -148,4 +150,4 @@ Para empezar a migrar las bases de datos de SQL Server a SQL Server en VM de Azu
 
 
 - Para evaluar el nivel de acceso de la aplicación, consulte [Data Access Migration Toolkit (versión preliminar)](https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit)
-- Para obtener más información sobre cómo realizar pruebas A/B de nivel de acceso a datos, consulte [Asistente para experimentación con bases de datos](/sql/dea/database-experimentation-assistant-overview).
+- Para más información sobre cómo realizar pruebas A/B en la capa de acceso a datos, consulte [Información general del Asistente para experimentación con bases de datos](/sql/dea/database-experimentation-assistant-overview).

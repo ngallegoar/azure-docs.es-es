@@ -1,34 +1,26 @@
 ---
-title: 'Tutorial: Uso de un grupo de SQL sin servidor (versión preliminar) para analizar Azure Open Datasets en Azure Synapse Studio (versión preliminar)'
-description: Este tutorial le mostrará cómo realizar con facilidad el análisis de datos exploratorios mediante la combinación de diferentes Azure Open Datasets mediante un grupo de SQL sin servidor (versión preliminar) y visualizar los resultados en Azure Synapse Studio.
+title: 'Tutorial: Exploración y análisis de lagos de datos con Synapse SQL sin servidor'
+description: En este tutorial, aprenderá a ejecutar fácilmente análisis de datos exploratorios con diferentes conjuntos de datos de Azure Open Datasets utilizando un grupo de SQL sin servidor (versión preliminar). Después, aprenderá a visualizar los resultados en la característica Synapse Studio de Azure Synapse Analytics.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: sql
-ms.date: 04/15/2020
+ms.date: 11/20/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 84fc49df2838a66969b449dee5b416c2a0f86f86
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: af6fc75b5de22fc77313932ca17ce695e889dad3
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94685926"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95238026"
 ---
-# <a name="tutorial-use-serverless-sql-pool-to-analyze-azure-open-datasets-and-visualize-the-results-in-azure-synapse-studio"></a>Tutorial: Uso de un grupo de SQL sin servidor para analizar Azure Open Datasets y visualizar los resultados en Azure Synapse Studio
+# <a name="tutorial-explore-and-analyze-data-lakes-with-serverless-sql-pool-preview"></a>Tutorial: Exploración y análisis de lagos de datos con un grupo de SQL sin servidor (versión preliminar)
 
-En este tutorial, aprenderá a realizar análisis de datos exploratorios mediante la combinación de diferentes instancias de Azure Open Datasets mediante un grupo de SQL sin servidor y, después, la visualización de los resultados en Azure Synapse Studio.
+En este tutorial, aprenderá a realizar análisis de datos exploratorios. Combinará diferentes conjuntos de datos de Azure Open Datasets utilizando un grupo de SQL sin servidor. A continuación, visualizará los resultados en la característica Synapse Studio de Azure Synapse Analytics.
 
-En concreto, se analiza el [conjunto de datos de taxis de Nueva York (NYC)](https://azure.microsoft.com/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/) que incluye:
-
-- Fechas y horas de recogida y llegada a destino.
-- Ubicaciones de recogida y llegada a destino. 
-- Distancias de la carrera.
-- Tarifas desglosadas.
-- Tipos de tarifa.
-- Formas de pago. 
-- Recuentos de pasajeros indicados por el conductor.
+La función OPENROWSET (BULK...) permite acceder a archivos en Azure Storage. La función [OPENROWSET](develop-openrowset.md) lee el contenido de un origen de datos remoto (por ejemplo, un archivo) y lo devuelve en forma de un conjunto de filas.
 
 ## <a name="automatic-schema-inference"></a>Inferencia automática del esquema
 
@@ -44,9 +36,15 @@ SELECT TOP 100 * FROM
     ) AS [nyc]
 ```
 
-El fragmento a continuación muestra el resultado para los datos de los taxis de Nueva York:
+El [conjunto de datos New York City (NYC) Taxi](https://azure.microsoft.com/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/) contiene:
 
-![Fragmento del resultado de datos de taxis de Nueva York](./media/tutorial-data-analyst/1.png)
+- Fechas y horas de recogida y llegada a destino.
+- Ubicaciones de recogida y llegada a destino. 
+- Distancias de la carrera.
+- Tarifas desglosadas.
+- Tipos de tarifa.
+- Formas de pago. 
+- Recuentos de pasajeros indicados por el conductor.
 
 Del mismo modo, puede consultar el conjunto de datos de los días festivos locales y nacionales mediante la siguiente consulta:
 
@@ -57,10 +55,6 @@ SELECT TOP 100 * FROM
         FORMAT='PARQUET'
     ) AS [holidays]
 ```
-
-El siguiente fragmento muestra el resultado para el conjunto de datos de los días festivos locales y nacionales:
-
-![Fragmento del resultado de conjunto de datos de festivos locales y nacionales](./media/tutorial-data-analyst/2.png)
 
 Por último, también puede consultar el conjunto de datos meteorológicos mediante la siguiente consulta:
 
@@ -74,11 +68,10 @@ FROM
     ) AS [weather]
 ```
 
-El siguiente fragmento muestra el resultado para el conjunto de datos meteorológicos:
-
-![Fragmento del resultado del conjunto de datos meteorológicos](./media/tutorial-data-analyst/3.png)
-
-Puede obtener más información sobre el significado de las columnas individuales en las descripciones de los conjuntos de datos de [taxis de Nueva York](https://azure.microsoft.com/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/), [días festivos](https://azure.microsoft.com/services/open-datasets/catalog/public-holidays/) y [datos meteorológicos](https://azure.microsoft.com/services/open-datasets/catalog/noaa-integrated-surface-data/).
+Puede ver más detalles sobre el significado de cada una de las columnas individuales de las descripciones de los siguientes conjuntos de datos: 
+- [NYC Taxi](https://azure.microsoft.com/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/)
+- [Días festivos públicos](https://azure.microsoft.com/services/open-datasets/catalog/public-holidays/)
+- [Weather Data](https://azure.microsoft.com/services/open-datasets/catalog/noaa-integrated-surface-data/)
 
 ## <a name="time-series-seasonality-and-outlier-analysis"></a>Análisis de series temporales, estacionalidad y valores atípicos
 
@@ -100,13 +93,13 @@ ORDER BY 1 ASC
 
 El fragmento a continuación muestra el resultado para el número anual de carreras de taxi:
 
-![Fragmento del resultado del número anual de carreras de taxi](./media/tutorial-data-analyst/4.png)
+![Fragmento del resultado del número anual de carreras de taxi](./media/tutorial-data-analyst/yearly-taxi-rides.png)
 
 Los datos se pueden visualizar en Synapse Studio realizando un cambio de la vista de **Tabla** a la de **Gráfico**. Puede elegir entre diferentes tipos de gráficos: **de área**, **de barras**, **de columnas**, **de líneas**, **circular** y **de dispersión**. En este caso, vamos a trazar el gráfico **de columnas** con la columna de **Categoría** establecida en **current_year**:
 
-![Gráfico de columnas que muestra las carreras por año](./media/tutorial-data-analyst/5.png)
+![Gráfico de columnas que muestra las carreras por año](./media/tutorial-data-analyst/column-chart-rides-year.png)
 
-A partir de esta visualización, se puede ver claramente una tendencia a la disminución en el número de carreras a lo largo de los años. Posiblemente, esta disminución se debe al aumento de la popularidad de las empresas de uso compartido de vehículos.
+En esta visualización, puede ver una tendencia descendente en el número de carreras con el paso de los años. Posiblemente, esta disminución se debe al aumento de la popularidad de las empresas de uso compartido de vehículos.
 
 > [!NOTE]
 > En el momento de escribir este tutorial, los datos de 2019 están incompletos. Como resultado, hay una gran caída en el número de carreras de ese año.
@@ -129,15 +122,15 @@ ORDER BY 1 ASC
 
 El fragmento siguiente muestra el resultado de esta consulta:
 
-![Fragmento del resultado del número diario de carreras para 2016](./media/tutorial-data-analyst/6.png)
+![Fragmento del resultado del número diario de carreras para 2016](./media/tutorial-data-analyst/daily-rides.png)
 
 De nuevo, puede visualizar los datos fácilmente trazando el gráfico de **columnas** con la columna de **Categoría** establecida en **current_day** y la columna de **Leyenda (series)** establecida en **rides_per_day**.
 
-![Gráfico de columnas que muestra el número diario de carreras para 2016](./media/tutorial-data-analyst/7.png)
+![Gráfico de columnas que muestra el número diario de carreras para 2016](./media/tutorial-data-analyst/column-chart-daily-rides.png)
 
 En el gráfico trazado, puede ver que hay un patrón semanal, con los sábados como día de máxima actividad. Durante los meses de verano, hay menos carreras de taxi debido al período de vacaciones. Observe igualmente que hay algunas reducciones significativas en el número de carreras de taxi sin un patrón claro de cuándo y por qué se producen.
 
-A continuación, vamos a ver si esas reducciones pueden estar correlacionadas con los festivos locales y nacionales. Para ello, uniremos el conjunto de datos de carreras de los taxis de Nueva York con el conjunto de datos de días festivos locales y nacionales:
+A continuación, vamos a ver si este descenso de las carreras está relacionado con las días festivos. Para determinar si hay alguna relación, podemos combinar el conjunto de datos de las carreras, NYC Taxi, con el conjunto de datos Public Holidays:
 
 ```sql
 WITH taxi_rides AS
@@ -172,11 +165,11 @@ LEFT OUTER JOIN public_holidays p on t.current_day = p.date
 ORDER BY current_day ASC
 ```
 
-![Visualización de los resultados de los conjuntos de datos de carreras de taxi de Nueva York y días festivos locales y nacionales](./media/tutorial-data-analyst/8.png)
+![Visualización de los resultados de los conjuntos de datos de carreras de taxi de Nueva York y días festivos locales y nacionales](./media/tutorial-data-analyst/rides-public-holidays.png)
 
 Esta vez, queremos resaltar el número de carreras de taxi durante los días festivos locales y nacionales. Para ello, elegiremos **none** en la columna de **Categoría** y **rides_per_day** y **holiday** como columnas de **Leyenda (series)** .
 
-![Gráfico trazado del número de carreras de taxi durante los días festivos locales y nacionales](./media/tutorial-data-analyst/9.png)
+![Gráfico trazado del número de carreras de taxi durante los días festivos locales y nacionales](./media/tutorial-data-analyst/plot-chart-public-holidays.png)
 
 En el gráfico trazado, puede ver que durante los días festivos locales y nacionales, el número de carreras de taxi es inferior. Todavía hay una gran reducción no explicada el 23 de enero. Vamos a comprobar el tiempo en Nueva York en ese día consultando el conjunto de datos meteorológicos:
 
@@ -205,7 +198,7 @@ FROM
 WHERE countryorregion = 'US' AND CAST([datetime] AS DATE) = '2016-01-23' AND stationname = 'JOHN F KENNEDY INTERNATIONAL AIRPORT'
 ```
 
-![Visualización del resultado del conjunto de datos meteorológico](./media/tutorial-data-analyst/10.png)
+![Visualización del resultado del conjunto de datos meteorológico](./media/tutorial-data-analyst/weather-data-set-visualization.png)
 
 Los resultados de la consulta indican que la reducción del número de viajes de taxi se debió a:
 
@@ -218,4 +211,6 @@ En este tutorial se ha mostrado la forma en que un analista de datos puede reali
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para aprender a conectar un grupo de SQL sin servidor a Power BI Desktop y crear informes, consulte el artículo [Conexión de un grupo de SQL sin servidor a Power BI Desktop y creación de informes](tutorial-connect-power-bi-desktop.md).
+
+Para más información sobre el uso de tablas externas en los grupos de SQL sin servidor, consulte [Uso de tablas externas con Synapse SQL](develop-tables-external-tables.md?tabs=sql-pool).
  

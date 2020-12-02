@@ -7,34 +7,34 @@ manager: craigg
 ms.service: synapse-analytics
 ms.subservice: sql-dw
 ms.topic: conceptual
-ms.date: 09/06/2018
+ms.date: 11/20/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: fa5025e0a2bd260adeb23b4ab7c4d5f8bd83a43a
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: 041751b5b23dbb3153f1ae638303579a860c0e5b
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93026809"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95020170"
 ---
-# <a name="how-to-monitor-the-gen2-cache"></a>Cómo supervisar la caché de Gen2
+# <a name="how-to-monitor-the-adaptive-cache"></a>Supervisión de la memoria caché adaptable
 
-En este artículo se describe cómo supervisar y solucionar problemas de rendimiento lento de las consultas determinando si la carga de trabajo aprovecha de forma óptima la caché de Gen2.
+En este artículo se describe cómo supervisar y solucionar problemas de rendimiento lento de las consultas determinando si la carga de trabajo aprovecha de forma óptima la memoria caché adaptable de los grupos de SQL dedicados.
 
-La arquitectura de almacenamiento Gen2 organiza de forma automática por niveles los segmentos de almacén de columnas consultados con más frecuencia en una memoria caché que reside en discos SSD basados en NVMe diseñados para almacenes de datos de Gen2. El aumento de rendimiento se consigue cuando las consultas recuperan segmentos que se encuentran en la caché.
+La arquitectura de almacenamiento de grupos de SQL dedicados organiza de forma automática por niveles los segmentos de almacén de columnas consultados con más frecuencia en una memoria caché que reside en discos SSD basados en NVMe. El aumento de rendimiento se consigue cuando las consultas recuperan segmentos que se encuentran en la caché.
  
 ## <a name="troubleshoot-using-the-azure-portal"></a>Solución de problemas mediante Azure Portal
 
-Puede usar a Azure Monitor para ver las métricas de caché de Gen2 para solucionar los problemas de rendimiento de las consultas. En primera lugar, vaya a Azure Portal y haga clic en **Supervisar** , **Métricas** y **+ Seleccionar un ámbito** :
+Puede usar a Azure Monitor para ver las métricas de caché para solucionar los problemas de rendimiento de las consultas. En primera lugar, vaya a Azure Portal y haga clic en **Supervisar**, **Métricas** y **+ Seleccionar un ámbito**:
 
 ![Captura de pantalla en la que se muestra la opción Seleccionar un ámbito seleccionada en Métricas en Azure Portal.](./media/sql-data-warehouse-how-to-monitor-cache/cache-0.png)
 
-Use las barras desplegable y de búsqueda para buscar el almacenamiento de datos. Luego seleccione Aplicar.
+Use las barras desplegable y de búsqueda para buscar el grupo de SQL dedicado. Luego seleccione Aplicar.
 
 ![Captura de pantalla en la que se muestra el panel Seleccionar un ámbito donde puede seleccionar el almacenamiento de datos.](./media/sql-data-warehouse-how-to-monitor-cache/cache-1.png)
 
-Las métricas clave para solucionar problemas de la caché de Gen2 son **Porcentaje de aciertos de caché** y **Porcentaje de caché usada**. Seleccione **Porcentaje de aciertos de caché** y luego use el botón **Agregar métrica** para agregar **Porcentaje de caché usada**. 
+Las métricas clave para solucionar problemas de la caché son **Porcentaje de aciertos de caché** y **Porcentaje de caché usada**. Seleccione **Porcentaje de aciertos de caché** y luego use el botón **Agregar métrica** para agregar **Porcentaje de caché usada**. 
 
 ![Métricas de caché](./media/sql-data-warehouse-how-to-monitor-cache/cache-2.png)
 

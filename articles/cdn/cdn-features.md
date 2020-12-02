@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 11/15/2019
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: f1ea8d16a441230323b4f0213229d223a0b035bc
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 8dbf3b5de4b908eb831158b73b2b17472bc4895e
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92778649"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95020970"
 ---
 # <a name="what-are-the-comparisons-between-azure-cdn-product-features"></a>¿Cuál es la comparación entre las características de los productos de Azure CDN?
 
@@ -23,7 +23,7 @@ Azure Content Delivery Network (CDN) incluye cuatro productos:
 * **Azure CDN Estándar de Microsoft**
 * **Azure CDN Estándar de Akamai**
 * **Azure CDN estándar de Verizon**
-* **Azure CDN prémium de Verizon** . 
+* **Azure CDN prémium de Verizon**. 
 
 En la tabla siguiente se comparan las características disponibles con cada producto.
 
@@ -72,11 +72,11 @@ En la tabla siguiente se comparan las características disponibles con cada prod
 | Fácil integración con los servicios de Azure, como [Storage](cdn-create-a-storage-account-with-cdn.md), [Web Apps](cdn-add-to-web-app.md) y [Media Services](../media-services/previous/media-services-portal-manage-streaming-endpoints.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | Se puede administrar mediante la [API REST](/rest/api/cdn/), [.NET](cdn-app-dev-net.md), [Node.js](cdn-app-dev-node.md) o [PowerShell](cdn-manage-powershell.md).  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Tipos MIME de compresión](./cdn-improve-performance.md)  |Solo predeterminado |Configurable |Configurable  |Configurable  |
-| Codificaciones de compresión  |gzip, brotli |gzip |gzip, deflate, bzip2, brotili  |gzip, deflate, bzip2, brotili  |
+| Codificaciones de compresión  |gzip, brotli |gzip |gzip, deflate, bzip2, brotli  |gzip, deflate, bzip2, brotli  |
 
 ## <a name="migration"></a>Migración
 
-Para obtener información sobre cómo migrar un perfil de **Azure CDN Estándar de Verizon** a **Azure CDN Premium de Verizon** , consulte [Migración de un perfil de Azure CDN Estándar de Verizon a Premium de Verizon](cdn-migrate.md). 
+Para obtener información sobre cómo migrar un perfil de **Azure CDN Estándar de Verizon** a **Azure CDN Premium de Verizon**, consulte [Migración de un perfil de Azure CDN Estándar de Verizon a Premium de Verizon](cdn-migrate.md). 
 
 > [!NOTE]
 > Aunque hay una ruta de acceso de actualización de la versión estándar a la prémium de Verizon, en este momento no hay ningún mecanismo de conversión entre otros productos.

@@ -8,17 +8,14 @@ ms.date: 1/20/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: c40f7d988f2b5f206f42eae787efcdce786948a8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ef6e86bbb55a2c51779f2dcf60f802ce549516cb
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91857085"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94959686"
 ---
 # <a name="tutorial-generate-simulated-device-data"></a>Tutorial: Generación de datos de dispositivos simulados
-
-> [!NOTE]
-> Este artículo forma parte de un tutorial sobre el uso de Azure Machine Learning en IoT Edge. Si ha llegado directamente a este artículo, le recomendamos que comience con el [primer el artículo](tutorial-machine-learning-edge-01-intro.md) de la serie para obtener los mejores resultados.
 
 En este artículo, se usan datos de entrenamiento de aprendizaje automático para simular un dispositivo que envía datos de telemetría a Azure IoT Hub. Tal y como se indica en la introducción, este tutorial usa el [conjunto de datos de simulación de degradación del motor de turbofán](https://c3.nasa.gov/dashlink/resources/139/) para simular datos de un conjunto de motores de avión para entrenamiento y pruebas.
 
@@ -45,6 +42,10 @@ El proyecto DeviceHarness es un proyecto de .NET Core escrito en C# que consta d
 Las tareas descritas en este artículo deberían tardar unos 20 minutos en completarse.
 
 En un contexto real, el trabajo de este paso seguramente lo realizarían desarrolladores de dispositivos y desarrolladores de nube.
+
+## <a name="prerequisites"></a>Requisitos previos
+
+Este artículo forma parte de un tutorial sobre el uso de Azure Machine Learning en IoT Edge. Cada artículo de la serie se basa en el trabajo del artículo anterior. Si ha llegado a este artículo directamente, visite el [primer artículo](tutorial-machine-learning-edge-01-intro.md) de la serie.
 
 ## <a name="configure-visual-studio-code-and-build-deviceharness-project"></a>Configuración de Visual Studio Code y compilación del proyecto DeviceHarness
 

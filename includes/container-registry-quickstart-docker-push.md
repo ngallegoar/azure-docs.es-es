@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/04/2020
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 16c1dec9e52be98e5b4e0103a583bdc219bc2417
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 6a16106495e584c9acbc02d380242df665f35ce5
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88031822"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96020025"
 ---
 ## <a name="push-image-to-registry"></a>Insertar la imagen en el registro
 
@@ -23,7 +23,7 @@ Para insertar una imagen en Azure Container Registry, primero debe tener una ima
 docker pull hello-world
 ```
 
-Para poder insertar una imagen en el registro, debe etiquetarla con el nombre completo del servidor de inicio de sesión del registro. El nombre del servidor de inicio de sesión tiene el formato *\<registry-name\>.azurecr.io* (todo en minúscula); por ejemplo, *mycontainerregistry.azurecr.io*.
+Para poder insertar una imagen en el registro, debe etiquetarla con el nombre completo del servidor de inicio de sesión del registro. El nombre del servidor de inicio de sesión tiene el formato *\<registry-name\>.azurecr.io* (debe estar todo en minúscula); por ejemplo, *mycontainerregistry.azurecr.io*.
 
 Etiquete la imagen mediante el comando [docker tag][docker-tag]. Reemplace `<login-server>` por el nombre del servidor de inicio de sesión de la instancia de ACR.
 

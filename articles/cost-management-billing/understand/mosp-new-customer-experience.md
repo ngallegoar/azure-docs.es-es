@@ -8,12 +8,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/03/2020
 ms.author: banders
-ms.openlocfilehash: 0b3cf0c705048d37d422d62b77dc7d94c5ae13bd
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 7bec455b804d1f4b13ab7e13677092077214a121
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92149389"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965857"
 ---
 # <a name="get-started-with-your-updated-azure-billing-account"></a>Introducción a la cuenta de facturación de Azure actualizada
 
@@ -42,7 +42,7 @@ Cuando la cuenta se actualiza, se crea automáticamente un perfil de facturació
 
 Los roles en los perfiles de facturación tienen permisos para ver y administrar las facturas y los métodos de pago. Esos roles se deben asignar a los usuarios que pagan facturas, como miembros del equipo de contabilidad de una organización. Para más información, consulte [Tareas y roles del perfil de facturación](../manage/understand-mca-roles.md#billing-profile-roles-and-tasks). 
 
-Cuando se actualiza una cuenta, en todas las suscripciones en las que haya otorgado permisos a otros usuarios para [ver las facturas](download-azure-invoice.md#allow-others-to-download-the-your-subscription-invoice), a los usuarios que tengan un rol de Azure RBAC de propietario, colaborador, lector o lector de facturación se les da el rol de lector en el perfil de facturación respectivo.
+Cuando se actualiza una cuenta, en todas las suscripciones en las que haya otorgado permisos a otros usuarios para [ver las facturas](download-azure-invoice.md#allow-others-to-download-the-your-subscription-invoice), a los usuarios que tengan un rol de Azure de propietario, colaborador, lector o lector de facturación se les concede el rol de lector en el perfil de facturación correspondiente.
 
 ## <a name="invoice-sections"></a>Secciones de la factura
 

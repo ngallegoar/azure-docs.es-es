@@ -9,13 +9,13 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
-ms.date: 10/07/2020
-ms.openlocfilehash: 862d2a93058c63dbfad1db49346edcbfe3c02ad1
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.date: 11/21/2020
+ms.openlocfilehash: 42b586062378c59b66ca945880bf723418264071
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94592454"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95241937"
 ---
 # <a name="creating-a-synapse-workspace"></a>Creación de un área de trabajo de Synapse
 
@@ -65,9 +65,9 @@ Los grupos de SQL dedicados consumen recursos facturables mientras están activo
 
 El grupo de Spark indica a Azure Synapse el número de recursos de Spark que se van a usar. Solo paga por los recursos que utiliza. Al dejar de usar el grupo de forma activa, los recursos agotarán el tiempo de espera y se reciclarán automáticamente.
 
-## <a name="the-serverless-sql-pool"></a>El grupo de SQL sin servidor
+## <a name="the-built-in-serverless-sql-pool"></a>El grupo de SQL sin servidor integrado
 
-Todas las áreas de trabajo incluyen un grupo precompilado llamado **Built-in**. Este grupo no se puede eliminar. El grupo de SQL sin servidor permite trabajar con SQL sin tener que crear ni pensar en la administración de un grupo de SQL sin servidor en Azure Synapse. A diferencia de los grupos de SQL dedicados, la facturación de los grupos de SQL sin servidor se basa en la cantidad de datos que se examinan para ejecutar la consulta (no en el número de recursos usados para ello).
+Todas las áreas de trabajo incluyen un grupo de SQL sin servidor prediseñado llamado **Built-in**. Este grupo no se puede eliminar. Los grupos de SQL sin servidor permiten usar SQL sin necesidad de reservar capacidad con grupos de SQL dedicados. A diferencia de los grupos de SQL dedicados, la facturación de los grupos de SQL sin servidor se basa en la cantidad de datos que se examinan para ejecutar la consulta (no en la capacidad asignada al grupo).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

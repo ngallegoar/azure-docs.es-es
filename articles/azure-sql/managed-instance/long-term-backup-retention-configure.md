@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 04/29/2020
-ms.openlocfilehash: 8b0d6665b440516d29cc9aeb0b6e50f509528574
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: ec193eab02d937e9d93b8632fa171fec8227d6c2
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92503443"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94987531"
 ---
 # <a name="manage-azure-sql-managed-instance-long-term-backup-retention-powershell"></a>Administración de la retención de copias de seguridad a largo plazo de la instancia administrada de Azure SQL (PowerShell)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -30,7 +30,7 @@ En las siguientes secciones se explica cómo usar PowerShell para configurar la 
 
 ## <a name="azure-roles-to-manage-long-term-retention"></a>Roles de Azure para administrar la retención a largo plazo
 
-En **Get-AzSqlInstanceDatabaseLongTermRetentionBackup** y **Restore-AzSqlInstanceDatabase** , deberá tener uno de los siguientes roles:
+En **Get-AzSqlInstanceDatabaseLongTermRetentionBackup** y **Restore-AzSqlInstanceDatabase**, deberá tener uno de los siguientes roles:
 
 - Rol de propietario de la suscripción o
 - rol de colaborador de instancia administrada o
@@ -39,7 +39,7 @@ En **Get-AzSqlInstanceDatabaseLongTermRetentionBackup** y **Restore-AzSqlInstanc
   - `Microsoft.Sql/locations/longTermRetentionManagedInstances/longTermRetentionManagedInstanceBackups/read`
   - `Microsoft.Sql/locations/longTermRetentionManagedInstances/longTermRetentionDatabases/longTermRetentionManagedInstanceBackups/read`
 
-En **Remove-AzSqlInstanceDatabaseLongTermRetentionBackup** , deberá tener uno de los roles siguientes:
+En **Remove-AzSqlInstanceDatabaseLongTermRetentionBackup**, deberá tener uno de los roles siguientes:
 
 - Rol de propietario de la suscripción o
 - Rol personalizado con el permiso siguiente:
@@ -48,7 +48,7 @@ En **Remove-AzSqlInstanceDatabaseLongTermRetentionBackup** , deberá tener uno d
 > [!NOTE]
 > El rol de colaborador de instancia administrada no tiene permiso para eliminar las copias de seguridad de LTR.
 
-Se pueden conceder permisos RBAC en el ámbito de la *suscripción* o del *grupo de recursos*. Sin embargo, para acceder a las copias de seguridad de LTR que pertenecen a una instancia descartada, se debe conceder el permiso en el ámbito de la *suscripción* de dicha instancia.
+Se pueden conceder permisos de Azure RBAC en el ámbito de la *suscripción* o del *grupo de recursos*. Sin embargo, para acceder a las copias de seguridad de LTR que pertenecen a una instancia descartada, se debe conceder el permiso en el ámbito de la *suscripción* de dicha instancia.
 
 - `Microsoft.Sql/locations/longTermRetentionManagedInstances/longTermRetentionDatabases/longTermRetentionManagedInstanceBackups/delete`
 

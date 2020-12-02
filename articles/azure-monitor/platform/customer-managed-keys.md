@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
-ms.date: 11/09/2020
-ms.openlocfilehash: 62621a36955808ec3f2c796681fe660e6e8524bc
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.date: 11/18/2020
+ms.openlocfilehash: 7bfd951d7cec27e0b8264aaabf9bc3a17875256a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94443388"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000732"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Clave administrada por el cliente de Azure Monitor 
 
@@ -23,9 +23,11 @@ Se recomienda revisar la sección [Limitaciones y restricciones](#limitationsand
 
 [El cifrado en reposo](../../security/fundamentals/encryption-atrest.md) es un requisito común de privacidad y seguridad en las organizaciones. Puede dejar que Azure administre por completo el cifrado en reposo, mientras dispone de varias opciones para administrar minuciosamente el cifrado o las claves de cifrado.
 
-Azure Monitor garantiza que todos los datos y las consultas guardadas se cifren en reposo mediante claves administradas por Microsoft (MMK). Azure Monitor también proporciona una opción para el cifrado mediante su propia clave que está almacenada en [Azure Key Vault](../../key-vault/general/overview.md) y Azure Storage usa para el cifrado de datos. La clave se puede [proteger mediante software o con módulos de seguridad de hardware (HSM)](../../key-vault/general/overview.md). El uso del cifrado de Azure Monitor es idéntico a la forma en que funciona el [cifrado de Azure Storage](../../storage/common/storage-service-encryption.md#about-azure-storage-encryption).
+Azure Monitor garantiza que todos los datos y las consultas guardadas se cifren en reposo mediante claves administradas por Microsoft (MMK). Azure Monitor también proporciona una opción para el cifrado con su propia clave que se almacena en [Azure Key Vault](../../key-vault/general/overview.md) y le otorga el control para revocar el acceso a los datos en cualquier momento. El uso del cifrado de Azure Monitor es idéntico a la forma en que funciona el [cifrado de Azure Storage](../../storage/common/storage-service-encryption.md#about-azure-storage-encryption).
 
-La capacidad de clave administrada por el cliente se proporciona en clústeres de Log Analytics dedicados. Permite proteger los datos con el control de la [Caja de seguridad](#customer-lockbox-preview) y proporciona el control para revocar el acceso a los datos en cualquier momento. Los datos ingeridos en los últimos 14 días también se conservan en la memoria caché activa (respaldada por SSD) para un funcionamiento eficaz del motor de consultas. Estos datos permanecen cifrados con las claves de Microsoft, independientemente de la configuración de clave administrada por el cliente, pero el control sobre los datos de SSD se adhiere a la [revocación de claves](#key-revocation). Estamos trabajando para que los datos de SSD se cifren con una clave administrada por el cliente en la primera mitad de 2021.
+La clave administrada por el cliente se entrega en clústeres de Log Analytics dedicados que proporcionan un mayor nivel de protección y control. Los datos ingeridos en clústeres dedicados se cifran dos veces: una en el nivel de servicio mediante claves administradas por Microsoft o claves administradas por el cliente, y otra en el nivel de infraestructura mediante dos algoritmos de cifrado y dos claves diferentes. El [cifrado doble](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) sirve de protección en caso de que uno de los algoritmos o claves de cifrado puedan estar en peligro. En este caso, la capa adicional de cifrado también protege los datos. El clúster dedicado también le permite proteger los datos con un control de [Caja de seguridad](#customer-lockbox-preview).
+
+Los datos ingeridos en los últimos 14 días también se conservan en la memoria caché activa (respaldada por SSD) para un funcionamiento eficaz del motor de consultas. Estos datos permanecen cifrados con las claves de Microsoft, con independencia de la configuración de la clave administrada por el cliente, pero el control sobre los datos de SSD se ciñe a la [revocación de claves](#key-revocation). Estamos trabajando para cifrar los datos de SSD con una clave administrada por el cliente en la primera mitad de 2021.
 
 El [modelo de precios de los clústeres de Log Analytics](./manage-cost-storage.md#log-analytics-dedicated-clusters) usa reservas de capacidad a partir de un nivel de 1000 GB/día.
 
@@ -34,12 +36,12 @@ El [modelo de precios de los clústeres de Log Analytics](./manage-cost-storage.
 
 ## <a name="how-customer-managed-key-works-in-azure-monitor"></a>Funcionamiento de las claves administradas por el cliente en Azure Monitor
 
-Azure Monitor aprovecha la identidad administrada asignada por el sistema para conceder acceso a su instancia de Azure Key Vault. La identidad administrada asignada por el sistema solo se puede asociar a un único recurso de Azure, mientras que la identidad del clúster de Log Analytics se admite en el nivel de clúster, lo que indica que la capacidad de la clave administrada por el cliente se entrega en un clúster de Log Analytics dedicado. Para admitir la clave administrada por el cliente en varias áreas de trabajo, un nuevo recurso de *clúster* de Log Analytics debe funcionar como una conexión de identidad intermedia entre la instancia de Key Vault y las áreas de trabajo de Log Analytics. El almacenamiento de clúster de Log Analytics usa la identidad administrada que \'está asociada al recurso de *clúster* para autenticar el acceso y acceder a Azure Key Vault mediante Azure Active Directory. 
+Azure Monitor aprovecha la identidad administrada asignada por el sistema para conceder acceso a su instancia de Azure Key Vault. La identidad administrada asignada por el sistema solo se puede asociar a un único recurso de Azure, mientras que la identidad del clúster de Log Analytics se admite en el nivel de clúster, lo que indica que la capacidad de la clave administrada por el cliente se entrega en un clúster de Log Analytics dedicado. Para admitir la clave administrada por el cliente en varias áreas de trabajo, un nuevo recurso de *clúster* de Log Analytics funciona como una conexión de identidad intermedia entre la instancia de Key Vault y las áreas de trabajo de Log Analytics. El almacenamiento de clúster de Log Analytics usa la identidad administrada que \'está asociada al recurso de *clúster* para autenticar el acceso y acceder a Azure Key Vault mediante Azure Active Directory. 
 
 Después de la configuración, los datos ingeridos en las áreas de trabajo vinculadas asociadas a su clúster dedicado se cifran con la clave en Key Vault. Puede desvincular las áreas de trabajo del clúster en cualquier momento. Después, los nuevos datos se introducen en el almacenamiento de Log Analytics y se cifran con la clave de Microsoft, mientras que puede consultar los datos nuevos y antiguos sin problemas.
 
 
-![Información general de la clave administrada por el cliente](media/customer-managed-keys/cmk-overview.png)
+![Introducción a la clave administrada por el cliente](media/customer-managed-keys/cmk-overview.png)
 
 1. Key Vault
 2. Recurso *Clúster* de Log Analytics que tiene una identidad administrada con permisos para Key Vault: la identidad se admite en el nivel del almacenamiento de clúster dedicado de Log Analytics
@@ -62,7 +64,7 @@ Se aplican las reglas siguientes:
 - Esta KEK nunca abandona su instancia de Key Vault y, en el caso de una clave de HSM, nunca abandona el hardware.
 - Azure Storage usa la identidad administrada que está asociada al recurso *Clúster* para autenticar el acceso y acceder a Azure Key Vault mediante Azure Active Directory.
 
-## <a name="customer-managed-key-provisioning-procedure"></a>Procedimiento de aprovisionamiento de claves administradas por el cliente
+## <a name="customer-managed-key-provisioning-procedure"></a>Procedimiento de aprovisionamiento de la clave administrada por el cliente
 
 1. Registro de la suscripción para permitir la creación de clústeres
 1. Creación de una instancia de Azure Key Vault y almacenamiento de la clave
@@ -70,86 +72,27 @@ Se aplican las reglas siguientes:
 1. Concesión de permisos a la instancia de Key Vault
 1. Vinculación de áreas de trabajo de Log Analytics
 
-La configuración de las claves administradas por el cliente no se admite en Azure Portal y el aprovisionamiento se realiza mediante [PowerShell](https://docs.microsoft.com/powershell/module/az.operationalinsights/), la [CLI](https://docs.microsoft.com/cli/azure/monitor/log-analytics) o solicitudes [REST](https://docs.microsoft.com/rest/api/loganalytics/).
+La configuración de la clave administrada por el cliente no se admite en Azure Portal y el aprovisionamiento se realiza mediante [PowerShell](https://docs.microsoft.com/powershell/module/az.operationalinsights/), la [CLI](https://docs.microsoft.com/cli/azure/monitor/log-analytics) o solicitudes [REST](https://docs.microsoft.com/rest/api/loganalytics/).
 
 ### <a name="asynchronous-operations-and-status-check"></a>Operaciones asincrónicas y comprobación de estado
 
-Algunos de los pasos de configuración se ejecutan de forma asincrónica porque no se pueden completar rápidamente. Cuando se utilizan solicitudes REST en la configuración, la respuesta devuelve inicialmente un código de estado HTTP 200 (Correcto) y un encabezado con la propiedad *Azure-AsyncOperation* cuando se acepta:
+Algunos de los pasos de configuración se ejecutan de forma asincrónica porque no se pueden completar rápidamente. Cuando se utiliza REST, la respuesta devuelve inicialmente un código de estado HTTP 200 (Correcto) y un encabezado con la propiedad *Azure-AsyncOperation* cuando se acepta:
 ```json
 "Azure-AsyncOperation": "https://management.azure.com/subscriptions/subscription-id/providers/Microsoft.OperationalInsights/locations/region-name/operationStatuses/operation-id?api-version=2020-08-01"
 ```
 
-A continuación, puede comprobar el estado de la operación asincrónica mediante el envío de una solicitud GET al valor del encabezado *Azure-AsyncOperation*:
+Puede obtener el estado de la operación asincrónica si envía una solicitud GET al valor del encabezado *Azure-AsyncOperation*:
 ```rst
 GET https://management.azure.com/subscriptions/subscription-id/providers/microsoft.operationalInsights/locations/region-name/operationstatuses/operation-id?api-version=2020-08-01
 Authorization: Bearer <token>
 ```
 
-La respuesta contiene información sobre la operación y su *Estado*. Puede tener uno de los valores siguientes:
-
-La operación está en curso.
-```json
-{
-    "id": "Azure-AsyncOperation URL value from the GET operation",
-    "name": "operation-id", 
-    "status" : "InProgress", 
-    "startTime": "2017-01-06T20:56:36.002812+00:00",
-}
-```
-
-Operación de actualización de identificador de clave en curso
-```json
-{
-    "id": "Azure-AsyncOperation URL value from the GET operation",
-    "name": "operation-id", 
-    "status" : "Updating", 
-    "startTime": "2017-01-06T20:56:36.002812+00:00",
-    "endTime": "2017-01-06T20:56:56.002812+00:00",
-}
-```
-
-La eliminación del clúster está en curso: cuando se elimina un clúster que tiene áreas de trabajo vinculadas, la operación de desvinculación se realiza para cada una de las áreas de trabajo de forma asincrónica y la operación puede tardar cierto tiempo.
-Esto no es relevante cuando se elimina un clúster sin ningún área de trabajo asociada; en este caso, el clúster se elimina inmediatamente.
-```json
-{
-    "id": "Azure-AsyncOperation URL value from the GET operation",
-    "name": "operation-id", 
-    "status" : "Deleting", 
-    "startTime": "2017-01-06T20:56:36.002812+00:00",
-    "endTime": "2017-01-06T20:56:56.002812+00:00",
-}
-```
-
-Operación completada.
-```json
-{
-    "id": "Azure-AsyncOperation URL value from the GET operation",
-    "name": "operation-id", 
-    "status" : "Succeeded", 
-    "startTime": "2017-01-06T20:56:36.002812+00:00",
-    "endTime": "2017-01-06T20:56:56.002812+00:00",
-}
-```
-
-Error en la operación.
-```json
-{
-    "id": "Azure-AsyncOperation URL value from the GET operation",
-    "name": "operation-id", 
-    "status" : "Failed", 
-    "startTime": "2017-01-06T20:56:36.002812+00:00",
-    "endTime": "2017-01-06T20:56:56.002812+00:00",
-    "error" : { 
-        "code": "error-code",  
-        "message": "error-message" 
-    }
-}
-```
+El valor de `status` en la respuesta puede ser uno de las siguientes: "EnCurso", "Actualizando", "Eliminando", "Correcto" o "Incorrecto", incluido el código de error.
 
 ### <a name="allowing-subscription"></a>Habilitación de la suscripción
 
 > [!IMPORTANT]
-> La capacidad de claves administradas por el cliente es regional. La instancia de Azure Key Vault, el clúster y las áreas de trabajo de Log Analytics vinculadas deben estar en la misma región, pero pueden estar en distintas suscripciones.
+> La funcionalidad de la clave administradas por el cliente es regional. La instancia de Azure Key Vault, el clúster y las áreas de trabajo de Log Analytics vinculadas deben estar en la misma región, pero pueden estar en distintas suscripciones.
 
 ### <a name="storing-encryption-key-kek"></a>Almacenamiento de la clave de cifrado de claves (KEK)
 
@@ -281,20 +224,20 @@ Storage sondeará periódicamente su instancia de Key Vault para intentar desenc
 
 ## <a name="key-rotation"></a>Rotación de claves
 
-La rotación de claves administradas por el cliente necesita una actualización explícita del clúster con la nueva versión de la clave en Azure Key Vault. Siga las instrucciones que aparecen en el paso "Actualización del clúster con detalles del identificador de clave". Si no actualiza los detalles del identificador de clave en el clúster, el almacenamiento de clúster de Log Analytics seguirá usando la clave anterior para cifrado. Si deshabilita o elimina la clave anterior antes de actualizar la nueva clave en el clúster, obtendrá el estado de [revocación de clave](#key-revocation).
+La rotación de la clave administrada por el cliente necesita una actualización explícita al clúster con la nueva versión de la clave en Azure Key Vault. Siga las instrucciones que aparecen en el paso "Actualización del clúster con detalles del identificador de clave". Si no actualiza los detalles del identificador de clave en el clúster, el almacenamiento de clúster de Log Analytics seguirá usando la clave anterior para cifrado. Si deshabilita o elimina la clave anterior antes de actualizar la nueva clave en el clúster, obtendrá el estado de [revocación de clave](#key-revocation).
 
 Se puede acceder a todos los datos después de la operación de rotación de claves, incluidos los datos ingeridos antes y después de la rotación, ya que todos los datos permanecen cifrados mediante la clave de cifrado de cuenta (AEK), mientras que la AEK ahora se cifra con la nueva versión de la clave de cifrado de claves (KEK).
 
-## <a name="customer-managed-key-for-queries"></a>Clave administrada para las consultas
+## <a name="customer-managed-key-for-queries"></a>Clave administrada por el cliente en las consultas
 
-El lenguaje de consulta utilizado en Log Analytics es expresivo y puede contener información confidencial en los comentarios que se agregan a las consultas o en la sintaxis de la consulta. Algunas organizaciones requieren que dicha información se mantenga protegida como parte de la directiva de claves administradas por el cliente y debe guardar las consultas cifradas con su clave. Azure Monitor le permite almacenar consultas de *búsquedas guardadas* y de *alertas del registro* cifradas con su clave en su propia cuenta de almacenamiento cuando se conecta al área de trabajo. 
+El lenguaje de consulta utilizado en Log Analytics es expresivo y puede contener información confidencial en los comentarios que se agregan a las consultas o en la sintaxis de la consulta. Algunas organizaciones requieren que dicha información se mantenga protegida como parte de la directiva de la clave administrada por el cliente y debe guardar las consultas cifradas con su clave. Azure Monitor le permite almacenar consultas de *búsquedas guardadas* y de *alertas del registro* cifradas con su clave en su propia cuenta de almacenamiento cuando se conecta al área de trabajo. 
 
 > [!NOTE]
-> Las consultas de Log Analytics se pueden guardar en varios almacenes según el escenario usado. Las consultas permanecen cifradas con la clave de Microsoft (MMK) en los escenarios siguientes, independientemente de la configuración de claves administradas por el cliente: Libros en Azure Monitor, paneles de Azure, Azure Logic Apps, Azure Notebooks y runbooks de automatización.
+> Las consultas de Log Analytics se pueden guardar en varios almacenes según el escenario usado. Las consultas permanecen cifradas con la clave de Microsoft (MMK) en los escenarios siguientes, con independencia de la configuración de la clave administrada por el cliente: Libros en Azure Monitor, paneles de Azure, Azure Logic Apps, Azure Notebooks y runbooks de automatización.
 
 Cuando traiga su propio almacenamiento (BYOS) y lo asocie a su área de trabajo, el servicio carga consultas de *búsquedas guardadas* y de *alertas del registro* en la cuenta de almacenamiento. Esto significa que puede controlar la cuenta de almacenamiento y la [directiva de cifrado en reposo](../../storage/common/customer-managed-keys-overview.md) con la misma clave que se usa para cifrar los datos en el clúster de Log Analytics o con una clave diferente. Sin embargo, será responsable de los costos asociados a esa cuenta de almacenamiento. 
 
-**Consideraciones antes de establecer la clave administrada por el cliente para las consultas**
+**Consideraciones antes de establecer la clave administrada por el cliente en las consultas**
 * Debe tener permisos de "escritura" en el área de trabajo y la cuenta de almacenamiento.
 * Asegúrese de crear la cuenta de almacenamiento en la misma región en la que se encuentra el área de trabajo de Log Analytics.
 * Las *búsquedas guardadas* en el almacenamiento se consideran artefactos de servicio y su formato puede cambiar.
@@ -374,7 +317,7 @@ En Azure Monitor, tiene este control sobre los datos en las áreas de trabajo vi
 
 Más información sobre [Caja de seguridad del cliente de Microsoft Azure](../../security/fundamentals/customer-lockbox-overview.md)
 
-## <a name="customer-managed-key-operations"></a>Operaciones de claves administradas por el cliente
+## <a name="customer-managed-key-operations"></a>Operaciones de la clave administrada por el cliente
 
 - **Obtención de todos los clústeres de un grupo de recursos**
   
@@ -546,7 +489,7 @@ Más información sobre [Caja de seguridad del cliente de Microsoft Azure](../..
 
 ## <a name="limitations-and-constraints"></a>Limitaciones y restricciones
 
-- La clave administrada por el cliente es compatible con un clúster de Log Analytics dedicado y es adecuada para los clientes que envían 1 TB al día o más.
+- La clave administrada por el cliente se admite en clústeres de Log Analytics dedicados y es adecuada para los clientes que envían 1 TB al día o más.
 
 - El número máximo de clústeres por región y suscripción es 2.
 
@@ -556,7 +499,7 @@ Más información sobre [Caja de seguridad del cliente de Microsoft Azure](../..
 
 - La vinculación de área de trabajo al clúster SOLO se debe llevar a cabo después de comprobar que se completó el aprovisionamiento del clúster de Log Analytics. Los datos que se envíen al área de trabajo antes de que se complete el aprovisionamiento se eliminarán y no se podrán recuperar.
 
-- El cifrado de claves administradas por el cliente se aplica a los datos ingeridos después del momento de la configuración. Los datos que se ingieren antes de la configuración, permanecen cifrados con la clave de Microsoft. Puede consultar fácilmente los datos ingeridos antes y después de la configuración de claves administradas por el cliente.
+- El cifrado de la clave administrada por el cliente se aplica a los datos recién ingeridos después del tiempo de configuración. Los datos que se ingieren antes de la configuración, permanecen cifrados con la clave de Microsoft. Puede consultar fácilmente los datos ingeridos antes y después de la configuración de la clave administrada por el cliente.
 
 - La instancia de Azure Key Vault debe configurarse como recuperable. Las siguientes propiedades no están habilitadas de forma predeterminada y deben configurarse mediante la CLI o PowerShell:<br>
   - [eliminación temporal](../../key-vault/general/soft-delete-overview.md)
@@ -575,7 +518,7 @@ Más información sobre [Caja de seguridad del cliente de Microsoft Azure](../..
     
   - En el caso de los errores de conexión transitorios (tiempos de espera, errores de conexión, problemas de DNS), Storage permite que las claves permanezcan en la memoria caché durante un período de tiempo más prolongado; así es más fácil resolver pequeños problemas de disponibilidad. Las funciones de consulta e ingesta continúan sin interrupción.
     
-  - La falta de disponibilidad de un sitio activo durante unos 30 minutos hará que la cuenta de Storage deje de estar disponible. La función de consulta no está disponible y los datos ingeridos se copian en caché durante varias horas mediante la clave de Microsoft para evitar la pérdida de datos. Cuando se restaura el acceso a Key Vault, la consulta está disponible y los datos copiados en caché temporalmente se ingieren en el almacén de datos y se cifran con la clave administrada por el cliente.
+  - La falta de disponibilidad de un sitio activo durante unos 30 minutos hará que la cuenta de Storage deje de estar disponible. La función de consulta no está disponible y los datos ingeridos se copian en caché durante varias horas mediante la clave de Microsoft para evitar la pérdida de datos. Cuando se restaura el acceso a Key Vault, la consulta está disponible y los datos almacenados en caché temporalmente se ingieren en el almacén de datos y se cifran con la clave administrada por el cliente.
 
   - Frecuencia de acceso a Key Vault: la frecuencia con la que Azure Monitor Storage accede a Key Vault para las operaciones de encapsulado y desencapsulado es de entre 6 y 60 segundos.
 
@@ -595,7 +538,7 @@ Más información sobre [Caja de seguridad del cliente de Microsoft Azure](../..
   1. Cuando se utiliza REST, copie el valor de la dirección URL de Azure-AsyncOperation de la respuesta y siga la [comprobación del estado de operaciones asincrónicas](#asynchronous-operations-and-status-check).
   2. Envíe una solicitud GET al clúster o al área de trabajo y observe la respuesta. Por ejemplo, un área de trabajo desvinculada no tendrá el elemento *clusterResourceId* en la sección *features*.
 
-- Para obtener soporte técnico y ayuda relacionada con la clave administrada por el cliente, use sus contactos en Microsoft.
+- El [cifrado doble](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) se configura automáticamente para los clústeres creados a partir de octubre de 2020, que es cuando esta funcionalidad se encontraba en la región. Si crea un clúster y recibe un error que dice que la región no admite el cifrado doble para clústeres, puede crear el clúster, pero con el cifrado doble deshabilitado. Una vez creado el clúster, no se puede habilitar ni deshabilitar. Para crear un clúster cuando el cifrado doble no se admite en la región, agregue `"properties": {"isDoubleEncryptionEnabled": false}` en el cuerpo de la solicitud de REST.
 
 - Mensajes de error
   
@@ -603,7 +546,7 @@ Más información sobre [Caja de seguridad del cliente de Microsoft Azure](../..
   -  400: El nombre del clúster no es válido. El nombre del clúster puede contener los caracteres a-z, A-Z, 0-9 y una longitud de 3 a 63.
   -  400: El cuerpo de la solicitud es NULL o tiene un formato incorrecto.
   -  400: El nombre de SKU no es válido. Establezca el nombre de SKU en capacityReservation.
-  -  400: Se proporcionó Capacity, pero la SKU no es capacityReservation. Establezca el nombre de la SKU en capacityReservation.
+  -  400: Se proporcionó Capacity, pero la SKU no es capacityReservation. Establezca el nombre de SKU en capacityReservation.
   -  400: Falta Capacity en la SKU. Establezca el valor de Capacity en 1000 o más en incrementos de 100 (GB).
   -  400: Capacity en la SKU no está en el rango. Debe ser 1000 como mínimo y hasta la capacidad máxima permitida que está disponible en "Uso y costos estimados" en el área de trabajo.
   -  400: Capacity está bloqueado durante 30 días. Se permite la reducción de la capacidad 30 días después de la actualización.

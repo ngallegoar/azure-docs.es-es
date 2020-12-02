@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/18/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, cc996988-fb4f-47, devx-track-python
-ms.openlocfilehash: 26f0006ad2b26757e335ba1819c2b82ba519f8cc
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 95560801d4132735435e4d45e8a588476636ec38
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491450"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "96001242"
 ---
 # <a name="azure-queue-storage-trigger-for-azure-functions"></a>Desencadenador de Azure Queue Storage para Azure Functions
 
@@ -19,7 +19,7 @@ El desencadenador de Queue Storage ejecuta una función a medida que se agregan 
 
 ## <a name="encoding"></a>Encoding
 
-Las funciones esperan una cadena codificada en *base64*. Cualquier ajuste al tipo de codificación (para preparar los datos como una cadena codificada en *base64* ) debe implementarse en el servicio de llamada.
+Las funciones esperan una cadena codificada en *base64*. Cualquier ajuste al tipo de codificación (para preparar los datos como una cadena codificada en *base64*) debe implementarse en el servicio de llamada.
 
 ## <a name="example"></a>Ejemplo
 
@@ -46,7 +46,7 @@ public static class QueueFunctions
 
 En el ejemplo siguiente se muestra un enlace de desencadenador de cola de un archivo *function.json* y código de [script de C# (.csx)](functions-reference-csharp.md) que usa el enlace. La función sondea la cola `myqueue-items` y escribe un registro cada vez que se procesa un elemento de cola.
 
-Este es el archivo *function.json* :
+Este es el archivo *function.json*:
 
 ```json
 {
@@ -97,11 +97,27 @@ public static void Run(CloudQueueMessage myQueueItem,
 
 En la sección acerca del [uso](#usage) se explica `myQueueItem`, que recibe el nombre de la propiedad `name` de function.json.  En la [sección de metadatos del mensaje](#message-metadata) se explican el resto de variables que se muestran.
 
+# <a name="java"></a>[Java](#tab/java)
+
+En el siguiente ejemplo de Java se muestra una función de desencadenador de cola de almacenamiento que registra el mensaje desencadenado que se pone en la cola `myqueuename`.
+
+ ```java
+ @FunctionName("queueprocessor")
+ public void run(
+    @QueueTrigger(name = "msg",
+                   queueName = "myqueuename",
+                   connection = "myconnvarname") String message,
+     final ExecutionContext context
+ ) {
+     context.getLogger().info(message);
+ }
+ ```
+
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 En el ejemplo siguiente se muestra un enlace de desencadenador de cola de un archivo *function.json* y una [función de JavaScript](functions-reference-node.md) que usa el enlace. La función sondea la cola `myqueue-items` y escribe un registro cada vez que se procesa un elemento de cola.
 
-Este es el archivo *function.json* :
+Este es el archivo *function.json*:
 
 ```json
 {
@@ -142,11 +158,47 @@ module.exports = async function (context, message) {
 
 En la sección acerca del [uso](#usage) se explica `myQueueItem`, que recibe el nombre de la propiedad `name` de function.json.  En la [sección de metadatos del mensaje](#message-metadata) se explican el resto de variables que se muestran.
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+En el ejemplo siguiente se muestra cómo leer un mensaje en cola pasado a una función a través de un desencadenador.
+
+Un desencadenador de cola de almacenamiento se define en el archivo *function.json*, donde `type` se establece en `queueTrigger`.
+
+```json
+{
+  "bindings": [
+    {
+      "name": "QueueItem",
+      "type": "queueTrigger",
+      "direction": "in",
+      "queueName": "messages",
+      "connection": "MyStorageConnectionAppSetting"
+    }
+  ]
+}
+```
+
+El código del archivo *Run.ps1* declara un parámetro como `$QueueItem`, que permite leer el mensaje de la cola en la función.
+
+```powershell
+# Input bindings are passed in via param block.
+param([string] $QueueItem, $TriggerMetadata)
+
+# Write out the queue message and metadata to the information log.
+Write-Host "PowerShell queue trigger function processed work item: $QueueItem"
+Write-Host "Queue item expiration time: $($TriggerMetadata.ExpirationTime)"
+Write-Host "Queue item insertion time: $($TriggerMetadata.InsertionTime)"
+Write-Host "Queue item next visible time: $($TriggerMetadata.NextVisibleTime)"
+Write-Host "ID: $($TriggerMetadata.Id)"
+Write-Host "Pop receipt: $($TriggerMetadata.PopReceipt)"
+Write-Host "Dequeue count: $($TriggerMetadata.DequeueCount)"
+```
+
 # <a name="python"></a>[Python](#tab/python)
 
 En el ejemplo siguiente se muestra cómo leer un mensaje en cola pasado a una función a través de un desencadenador.
 
-Un desencadenador de cola de almacenamiento se define en *function.json* , donde *type* está establecido en `queueTrigger`.
+Un desencadenador de cola de almacenamiento se define en *function.json*, donde *type* está establecido en `queueTrigger`.
 
 ```json
 {
@@ -189,22 +241,6 @@ def main(msg: func.QueueMessage):
 
     logging.info(result)
 ```
-
-# <a name="java"></a>[Java](#tab/java)
-
-En el siguiente ejemplo de Java se muestra una función de desencadenador de cola de almacenamiento que registra el mensaje desencadenado que se pone en la cola `myqueuename`.
-
- ```java
- @FunctionName("queueprocessor")
- public void run(
-    @QueueTrigger(name = "msg",
-                   queueName = "myqueuename",
-                   connection = "myconnvarname") String message,
-     final ExecutionContext context
- ) {
-     context.getLogger().info(message);
- }
- ```
 
  ---
 
@@ -270,14 +306,6 @@ La cuenta de almacenamiento que se debe usar se determina en el orden siguiente:
 
 El script de C# no admite atributos.
 
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
-
-JavaScript no admite atributos.
-
-# <a name="python"></a>[Python](#tab/python)
-
-Python no admite atributos.
-
 # <a name="java"></a>[Java](#tab/java)
 
 La anotación `QueueTrigger` proporciona acceso a la cola que desencadena la función. En el ejemplo siguiente, el mensaje de la cola se hace disponible para la función mediante el parámetro `message`.
@@ -305,6 +333,18 @@ public class QueueTriggerDemo {
 |`queueName`  | Declara el nombre de la cola en la cuenta de almacenamiento. |
 |`connection` | Apunta a la cadena de conexión de la cuenta de almacenamiento. |
 
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
+
+JavaScript no admite atributos.
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+PowerShell no admite atributos.
+
+# <a name="python"></a>[Python](#tab/python)
+
+Python no admite atributos.
+
 ---
 
 ## <a name="configuration"></a>Configuración
@@ -327,7 +367,7 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 
 Acceda a los datos de mensaje mediante un parámetro de método, como `string paramName`. Puede enlazar a cualquiera de los siguientes tipos:
 
-* Objeto: el entorno de tiempo de ejecución de Functions deserializa una carga JSON en una instancia de una clase arbitraria definida en el código. 
+* Objeto: el entorno de tiempo de ejecución de Functions deserializa una carga JSON en una instancia de una clase arbitraria definida en el código.
 * `string`
 * `byte[]`
 * [CloudQueueMessage]
@@ -345,17 +385,21 @@ Acceda a los datos de mensaje mediante un parámetro de método, como `string pa
 
 Si intenta enlazar a `CloudQueueMessage` y obtiene un mensaje de error, asegúrese de que tiene una referencia a [la versión correcta del SDK de Storage](functions-bindings-storage-queue.md#azure-storage-sdk-version-in-functions-1x).
 
+# <a name="java"></a>[Java](#tab/java)
+
+La anotación [QueueTrigger](/java/api/com.microsoft.azure.functions.annotation.queuetrigger?view=azure-java-stable&preserve-view=true) proporciona acceso al mensaje de la cola que desencadenó la función.
+
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 La carga del elemento de cola está disponible mediante `context.bindings.<NAME>`, donde `<NAME>` coincide con el nombre definido en *function.json*. Si la carga es JSON, el valor se deserializa en un objeto.
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+Acceda al mensaje de la cola a través de un parámetro de cadena que coincida con el nombre designado por el parámetro `name` del enlace en el archivo *function.json*.
+
 # <a name="python"></a>[Python](#tab/python)
 
-Puede acceder al mensaje de la cola mediante un parámetro de tipo [QueueMessage](/python/api/azure-functions/azure.functions.queuemessage?view=azure-python).
-
-# <a name="java"></a>[Java](#tab/java)
-
-La anotación [QueueTrigger](/java/api/com.microsoft.azure.functions.annotation.queuetrigger?view=azure-java-stable) proporciona acceso al mensaje de la cola que desencadenó la función.
+Puede acceder al mensaje de la cola mediante un parámetro de tipo [QueueMessage](/python/api/azure-functions/azure.functions.queuemessage?view=azure-python&preserve-view=true).
 
 ---
 

@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 11/16/2020
 ms.author: kevin
 ms.reviewer: jrasnick
-ms.openlocfilehash: 3b32e7a1df0dbbf4d43a73f1e3e409a904ab88a3
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 8d70a45b89142f6f9c6990fdbb4b79751c82275f
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94660090"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95237483"
 ---
 # <a name="quickstart-bulk-loading-with-synapse-sql"></a>Inicio rápido: Carga masiva con Synapse SQL
 
@@ -39,8 +39,9 @@ Ahora puede cargar datos de forma masiva fácilmente mediante grupos de SQL dedi
 
 ### <a name="steps"></a>Pasos
 
-1. Seleccione en el panel Source storage location (Ubicación de almacenamiento de origen) la cuenta de almacenamiento y el archivo o la carpeta desde donde se va a realizar la carga. El asistente intentará detectar automáticamente los archivos Parquet. Si no se puede confirmar el tipo de archivo Parquet, se usará de forma predeterminada el formato de texto delimitado (CSV). 
-   ![Seleccionar una ubicación de origen](./sql/media/bulk-load/bulk-load-source-location.png)
+1. Seleccione en el panel Source storage location (Ubicación de almacenamiento de origen) la cuenta de almacenamiento y el archivo o la carpeta desde donde se va a realizar la carga. El asistente intentará detectar automáticamente los archivos Parquet. Si no se puede confirmar el tipo de archivo Parquet, se usará de forma predeterminada el formato de texto delimitado (CSV).
+
+   ![Selección de la ubicación de origen](./sql/media/bulk-load/bulk-load-source-location.png)
 
 2. Seleccione la configuración del formato de archivo, incluida la cuenta de almacenamiento en la que desea escribir las filas rechazadas (archivo de error). Actualmente solo se admiten archivos .csv y Parquet.
 

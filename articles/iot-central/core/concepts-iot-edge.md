@@ -10,12 +10,12 @@ services: iot-central
 ms.custom:
 - device-developer
 - iot-edge
-ms.openlocfilehash: 5c51649e742f6e314e0e324ae19c38f1a83b02ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4c4248246be845aa8608aac8b8a3ce761ea1ef86
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90016867"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96004779"
 ---
 # <a name="connect-azure-iot-edge-devices-to-an-azure-iot-central-application"></a>Conexión de dispositivos de Azure IoT Edge a una aplicación de Azure IoT Central
 
@@ -63,9 +63,9 @@ En Azure IoT Central, puede importar un manifiesto de implementación para crear
 
 IoT Central modela un dispositivo IoT Edge de la siguiente manera:
 
-* Cada plantilla de dispositivo de IoT Edge tiene un modelo de funcionalidad del dispositivo.
+* Cada plantilla de dispositivo de IoT Edge tiene un modelo de dispositivo.
 * Para cada módulo personalizado incluido en el manifiesto de implementación, se genera un modelo de funcionalidad del módulo.
-* Se establece una relación entre cada modelo de funcionalidad del módulo y un modelo de funcionalidad del dispositivo.
+* Se establece una relación entre cada modelo de funcionalidad del módulo y un modelo de dispositivo.
 * Un modelo de funcionalidad del módulo implementa interfaces de módulo.
 * Cada interfaz del módulo contiene datos de telemetría, propiedades y comandos.
 
@@ -73,7 +73,7 @@ IoT Central modela un dispositivo IoT Edge de la siguiente manera:
 
 ## <a name="iot-edge-gateway-devices"></a>Dispositivos de puerta de enlace de IoT Edge
 
-Si seleccionó un dispositivo de IoT Edge como dispositivo de puerta de enlace, puede agregar relaciones de nivel inferior a los modelos de funcionalidad de los dispositivos que desea conectar a él.
+Si seleccionó un dispositivo de IoT Edge como dispositivo de puerta de enlace, puede agregar relaciones de nivel inferior a los modelos de los dispositivos que desea conectar a él.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

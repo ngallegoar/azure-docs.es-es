@@ -12,16 +12,16 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: b82193fda64f2cf265c879c5cda9141be1b576f8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0408d43fe897882fe09f6dd61a22d46349f2978e
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91627897"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95974398"
 ---
 # <a name="tutorial-call-the-microsoft-graph-api-from-a-windows-desktop-app"></a>Tutorial: Llamada a Microsoft Graph API desde una aplicación de escritorio de Windows
 
-En esta guía se muestra cómo una aplicación nativa de Windows Desktop .NET (XAML) utiliza un token de acceso para llamar a Microsoft Graph API. La aplicación también puede acceder a otras API que requieren tokens de acceso de la Plataforma de identidad de Microsoft.
+En este tutorial, creará una aplicación nativa de .NET para escritorio de Windows (XAML) que inicia la sesión de usuario y obtiene un token de acceso para llamar a Microsoft Graph API. 
 
 Cuando haya completado la guía, la aplicación podrá llamar a una API protegida que usa cuentas personales (lo que incluye outlook.com, live.com y otras). La aplicación también usa cuentas profesionales y educativas de cualquier empresa y organización que utilice Azure Active Directory.
 
@@ -35,7 +35,7 @@ En este tutorial, aprenderá a:
 > * Agregar código para llamar a Microsoft Graph API
 > * Prueba de la aplicación
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * [Visual Studio 2019](https://visualstudio.microsoft.com/vs/)
 

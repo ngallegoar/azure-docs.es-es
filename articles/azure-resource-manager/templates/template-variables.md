@@ -2,19 +2,21 @@
 title: Variables en plantillas
 description: Se describe cómo definir variables en una plantilla de Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 09/05/2019
-ms.openlocfilehash: cf135959d30702ea58b7a1d4fdd82625a39245d2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/24/2020
+ms.openlocfilehash: 7758451747503cb8c42566dc081a91f84bafa375
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75476166"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95916010"
 ---
 # <a name="variables-in-azure-resource-manager-template"></a>Variables en una plantilla de Azure Resource Manager
 
 En este artículo se describe cómo definir y usar variables en una plantilla de Azure Resource Manager. Las variables se utilizan para simplificar la plantilla. En lugar de repetir expresiones complicadas en toda la plantilla, defina una variable que contenga la expresión complicada. A continuación, haga referencia a esa variable en toda la plantilla tanto como sea necesario.
 
 Resource Manager resuelve las variables antes de iniciar las operaciones de implementación. Siempre que la variable se use en la plantilla, Resource Manager la reemplaza por el valor resuelto.
+
+El formato de cada variable debe coincidir con uno de los [tipos de datos](template-syntax.md#data-types).
 
 ## <a name="define-variable"></a>Definición de la variable
 

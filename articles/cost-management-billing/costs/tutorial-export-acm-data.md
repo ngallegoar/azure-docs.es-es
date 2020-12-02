@@ -3,18 +3,18 @@ title: 'Tutorial: Creación y administración de datos exportados desde Azure Co
 description: En este artículo se muestra cómo crear y administrar datos de Azure Cost Management para utilizarlos en sistemas externos.
 author: bandersmsft
 ms.author: banders
-ms.date: 08/05/2020
+ms.date: 11/20/2020
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: 6ef5a457bac7b384dc1b4349b1782a752c41ea26
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: dcf9b925e7f0ce691a5a50850a30f723d48ec50b
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91447614"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "96007229"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>Tutorial: Creación y administración de datos exportados
 
@@ -50,6 +50,8 @@ Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azur
 
 ## <a name="create-a-daily-export"></a>Creación de una exportación diaria
 
+### <a name="portal"></a>[Portal](#tab/azure-portal)
+
 Para crear o ver una exportación de datos o programar una exportación, abra el ámbito deseado en Azure Portal y seleccione **Análisis de costos** en el menú. Por ejemplo, vaya a **Suscripciones**, seleccione una suscripción de la lista y **Análisis de costos**, en el menú. En la parte superior de la página Análisis de costos, seleccione **Configuración** y, después, **Exportaciones**.
 
 > [!NOTE]
@@ -62,7 +64,7 @@ Para crear o ver una exportación de datos o programar una exportación, abra el
     - **Amortized cost (Usage and Purchases)** (Costo amortizado [uso y compras]): seleccione esta opción para exportar los costos amortizados para compras como las reservas de Azure.
 1. En **Tipo de exportación**, seleccione una de estas opciones:
     - **Exportación diaria de costos desde ese mes hasta la fecha actual**: genera un archivo de exportación diariamente de los costos desde un mes hasta la fecha. Se agregan los datos más recientes de las exportaciones diarias anteriores.
-    - **Exportación semanal de los costos para los últimos 7 días**: crea una exportación semanal de los costos de los últimos siete días, a partir de la fecha de inicio seleccionada.  
+    - **Exportación semanal de los costos para los últimos siete días**: crea una exportación semanal de los costos de los últimos siete días, a partir de la fecha de inicio seleccionada.  
     - **Monthly export of last month's costs** (Exportación mensual de los costos del mes pasado): proporciona una exportación de los costos del último mes, en comparación con el mes actual en el que crea la exportación. En el futuro, la programación ejecuta una exportación el quinto día de cada mes con los costos de los meses anteriores.  
     - **One-time export** (Exportación una sola vez): permite elegir un intervalo de fechas para la exportación del historial de datos a Azure Blob Storage. Puede exportar un máximo de 90 días del historial de costos a partir del día que elija. Esta exportación se ejecuta de inmediato y está disponible en la cuenta de almacenamiento en un plazo de dos horas.  
         En función del tipo de exportación, elija una fecha de inicio o elija una fecha en los campos **Desde** y **Hasta**.
@@ -77,11 +79,81 @@ La nueva exportación aparece en la lista de exportaciones. De forma predetermin
 
 Al principio, la exportación puede tardar entre 12 y 24 horas en ejecutarse. Sin embargo, pueden pasar aún más tiempo para que se muestren los datos en los archivos exportados.
 
+### <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+
+Empiece por preparar el entorno para la CLI de Azure:
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+1. Después de iniciar sesión, para ver las exportaciones actuales, use el comando [az costmanagement export list](/cli/azure/ext/costmanagement/costmanagement/export#ext_costmanagement_az_costmanagement_export_list):
+
+   ```azurecli
+   az costmanagement export list --scope "subscriptions/00000000-0000-0000-0000-000000000000"
+   ```
+
+   >[!NOTE]
+   >
+   >* Además de las suscripciones, puede crear exportaciones en grupo de recursos y grupos de administración. Para más información sobre los ámbitos, consulte [Descripción y uso de ámbitos](understand-work-scopes.md).
+   >* Cuando haya iniciado sesión como asociado en el ámbito de la cuenta de facturación o en el inquilino de un cliente, podrá exportar los datos a una cuenta de Azure Storage vinculada a su cuenta de almacenamiento de asociado. Sin embargo, debe tener una suscripción activa en el inquilino de CSP.
+
+1. Cree un grupo de recursos o use uno existente. Para crear un grupo de recursos, use el comando [az group create](/cli/azure/group#az_group_create):
+
+   ```azurecli
+   az group create --name TreyNetwork --location "East US"
+   ```
+
+1. Cree una cuenta de almacenamiento para recibir las exportaciones o use una existente. Para crear una cuenta de almacenamiento, use el comando [az storage account create](/cli/azure/storage/account#az_storage_account_create):
+
+   ```azurecli
+   az storage account create --resource-group TreyNetwork --name cmdemo
+   ```
+
+1. Ejecute el comando [az costmanagement export create](/cli/azure/ext/costmanagement/costmanagement/export#ext_costmanagement_az_costmanagement_export_create) para crear la exportación:
+
+   ```azurecli
+   az costmanagement export create --name DemoExport --type ActualCost \
+   --scope "subscriptions/00000000-0000-0000-0000-000000000000" --storage-account-id cmdemo \
+   --storage-container democontainer --timeframe MonthToDate --recurrence Daily \
+   --recurrence-period from="2020-06-01T00:00:00Z" to="2020-10-31T00:00:00Z" \
+   --schedule-status Active --storage-directory demodirectory
+   ```
+
+   Para el parámetro **--type**, puede elegir `ActualCost`, `AmortizedCost` o `Usage`.
+
+   En este ejemplo se usa `MonthToDate`. La exportación crea un archivo de exportación diariamente para los costos mensuales hasta la fecha. Se agregan los datos más recientes de las exportaciones diarias anteriores de este mes.
+
+1. Para ver los detalles de la operación de exportación, use el comando [az costmanagement export show](/cli/azure/ext/costmanagement/costmanagement/export#ext_costmanagement_az_costmanagement_export_show):
+
+   ```azurecli
+   az costmanagement export show --name DemoExport \
+      --scope "subscriptions/00000000-0000-0000-0000-000000000000"
+   ```
+
+1. Actualice una exportación mediante el comando [az costmanagement export update](/cli/azure/ext/costmanagement/costmanagement/export#ext_costmanagement_az_costmanagement_export_update):
+
+   ```azurecli
+   az costmanagement export update --name DemoExport 
+      --scope "subscriptions/00000000-0000-0000-0000-000000000000" --storage-directory demodirectory02
+   ```
+
+   En este ejemplo se cambia el directorio de salida.
+
+>[!NOTE]
+>Al principio, la exportación puede tardar entre 12 y 24 horas en ejecutarse. Sin embargo, los datos pueden tardar más en mostrarse en los archivos exportados.
+
+Puede eliminar una exportación mediante el comando [az costmanagement export delete](/cli/azure/ext/costmanagement/costmanagement/export#ext_costmanagement_az_costmanagement_export_delete):
+
+```azurecli
+az costmanagement export delete --name DemoExport --scope "subscriptions/00000000-0000-0000-0000-000000000000"
+```
+
+---
+
 ### <a name="export-schedule"></a>Programación de las exportaciones
 
 Las exportaciones programadas se ven afectadas por la hora y el día de la semana en que se crearon inicialmente. Al crear una exportación programada, esta se ejecuta con la misma frecuencia las veces siguientes. Por ejemplo, en el caso de una exportación diaria de los costos de un mes hasta la fecha con una frecuencia diaria, la exportación se ejecuta todos los días. Pasa lo mismo con una exportación semanal, se ejecuta cada semana, el mismo día en el que fue programada. No se garantiza el tiempo de entrega exacto de la exportación y los datos exportados están disponibles en un plazo de cuatro horas a partir del tiempo de ejecución.
 
-Cada exportación crea un archivo, por lo que las exportaciones anteriores no se sobrescriben.
+Cada exportación crea un nuevo archivo, por lo que las exportaciones anteriores no se sobrescriben.
 
 #### <a name="create-an-export-for-multiple-subscriptions"></a>Creación de una exportación para varias suscripciones
 
@@ -91,9 +163,9 @@ No se admiten las exportaciones de grupos de administración de otros tipos de s
 
 1. Si aún no ha creado un grupo de administración, hágalo y asígnele suscripciones.
 1. En análisis de costos, establezca el ámbito en el grupo de administración y seleccione **Select this management group** (Seleccionar este grupo de administración).  
-    :::image type="content" source="./media/tutorial-export-acm-data/management-group-scope.png" alt-text="Ejemplo de exportación nueva" lightbox="./media/tutorial-export-acm-data/management-group-scope.png":::
+    :::image type="content" source="./media/tutorial-export-acm-data/management-group-scope.png" alt-text="Ejemplo en el que se muestra la opción Select this management group (Seleccionar este grupo de administración)" lightbox="./media/tutorial-export-acm-data/management-group-scope.png":::
 1. Cree una exportación en el ámbito para obtener datos de administración de costos para las suscripciones en el grupo de administración.  
-    :::image type="content" source="./media/tutorial-export-acm-data/new-export-management-group-scope.png" alt-text="Ejemplo de exportación nueva":::
+    :::image type="content" source="./media/tutorial-export-acm-data/new-export-management-group-scope.png" alt-text="Ejemplo en el que se muestra la opción de crear una exportación con un ámbito de grupo de administración":::
 
 ## <a name="verify-that-data-is-collected"></a>Comprobación de que se han recopilado los datos
 
@@ -117,7 +189,7 @@ También puede descargar el archivo CSV exportado en Azure Portal. En los pasos 
 
 1. En el análisis de costos, seleccione **Configuración** y, después, **Exportaciones**.
 1. En la lista de exportaciones, seleccione la cuenta de almacenamiento para una exportación.
-1. En la cuenta de almacenamiento, haga clic en **Contenedores**.
+1. En la cuenta de almacenamiento, seleccione **Contenedores**.
 1. En la lista de contenedores, seleccione uno de ellos.
 1. Desplácese por los directorios y los blobs de almacenamiento hasta la fecha que desee.
 1. Seleccione el archivo CSV y, después, seleccione **Descargar**.
@@ -128,11 +200,11 @@ También puede descargar el archivo CSV exportado en Azure Portal. En los pasos 
 
 Para ver el historial de ejecución de una exportación programada, seleccione cualquier exportación individual en la página de la lista de exportaciones. Esta página también proporciona acceso rápido para ver el tiempo de ejecución de las exportaciones anteriores y la próxima vez que se va a ejecutar la exportación. En este ejemplo se muestra el historial de ejecución.
 
-:::image type="content" source="./media/tutorial-export-acm-data/run-history.png" alt-text="Ejemplo de exportación nueva":::
+:::image type="content" source="./media/tutorial-export-acm-data/run-history.png" alt-text="Captura de pantalla que muestra el panel de exportaciones.":::
 
 Seleccione una exportación para ver su historial de ejecución.
 
-:::image type="content" source="./media/tutorial-export-acm-data/single-export-run-history.png" alt-text="Ejemplo de exportación nueva":::
+:::image type="content" source="./media/tutorial-export-acm-data/single-export-run-history.png" alt-text="Captura de pantalla que muestra el historial de ejecución de una exportación.":::
 
 ## <a name="access-exported-data-from-other-systems"></a>Acceso a los datos exportados desde otros sistemas
 

@@ -3,18 +3,17 @@ title: 'Inicio rápido: Supervisión de dispositivos en Azure IoT Central'
 description: 'Inicio rápido: Como operador, aprenda a usar una aplicación de Azure IoT Central para supervisar los dispositivos.'
 author: dominicbetts
 ms.author: dobett
-ms.date: 02/12/2020
+ms.date: 11/16/2020
 ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-manager: philmea
-ms.openlocfilehash: af5683bf253e26ab928e46059f9af9d2ab8af3bd
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e4485e4f8e873b1b49dc3d6df72eb04a1cbe8c17
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90987341"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94992783"
 ---
 # <a name="quickstart-use-azure-iot-central-to-monitor-your-devices"></a>Inicio rápido: Uso de Azure IoT Central para supervisar los dispositivos
 
@@ -28,29 +27,29 @@ Antes de comenzar, debe completar los tres inicios rápidos anteriores: [Crear u
 
 ## <a name="receive-a-notification"></a>Recibir una notificación
 
-Azure IoT Central envía notificaciones acerca de los dispositivos como mensajes de correo electrónico. El generador ha agregado una regla para enviar una notificación cuando la temperatura del sensor de cualquier dispositivo conectado supera un umbral. Compruebe los correos electrónicos enviados a la cuenta que el desarrollador ha elegido para recibir notificaciones.
+Azure IoT Central envía notificaciones acerca de los dispositivos como mensajes de correo electrónico. Como creador, ha agregado una regla para enviar una notificación al operador cuando la humedad del sensor de cualquier dispositivo conectado supere un umbral. Como operador, comprueba los mensajes de correo electrónico en busca de notificaciones.
 
 Abra el mensaje de correo electrónico que recibió al final del inicio rápido [Configurar reglas y acciones para el dispositivo](quick-configure-rules.md). En el correo electrónico, seleccione el vínculo al dispositivo:
 
-![Correo electrónico de notificación de alerta](media/quick-monitor-devices/email.png)
+:::image type="content" source="media/quick-monitor-devices/email.png" alt-text="Captura de pantalla que muestra un correo electrónico de notificación.":::
 
 Se abre en el explorador la vista **Información general** del dispositivo simulado que creó en los inicios rápidos anteriores:
 
-![Dispositivo que desencadenó el mensaje de correo electrónico de notificación](media/quick-monitor-devices/dashboard.png)
+:::image type="content" source="media/quick-monitor-devices/dashboard.png" alt-text="Captura de pantalla que muestra la información general del dispositivo que desencadenó la notificación.":::
 
 ## <a name="investigate-an-issue"></a>Investigar un problema
 
 Los operadores pueden ver información acerca del dispositivo en las vistas **Información general**, **Acerca de** y **Comandos**. El generador ha creado una vista **Administrar dispositivo** en la que se puede editar la información del dispositivo y establecer sus propiedades.
 
-El gráfico del panel muestra un trazado de la temperatura del dispositivo. Decide que la temperatura del dispositivo es demasiado alta.
+El gráfico del panel muestra un trazado de la humedad del dispositivo. El usuario decide que la humedad del dispositivo es demasiada.
 
 ## <a name="remediate-an-issue"></a>Corregir un problema
 
 Para realizar cualquier cambio en el dispositivo, use la página **Administrar dispositivo**.
 
-Cambie **Velocidad del ventilador** a 500 para enfriar el dispositivo. Elija **Guardar** para actualizar el dispositivo. Cuando el dispositivo confirma el cambio en la configuración, el estado del valor cambia a **sincronizado**:
+Cambie **Target temperature** (Temperatura objetivo) a 80 para que el dispositivo esté caliente y reduzca la humedad. Elija **Guardar** para actualizar el dispositivo. Cuando el dispositivo confirma el cambio en la configuración, el estado del valor cambia a **sincronizado**:
 
-![Actualización de la configuración](media/quick-monitor-devices/change-settings.png)
+:::image type="content" source="media/quick-monitor-devices/change-settings.png" alt-text="Captura de pantalla que muestra la configuración de temperatura objetivo actualizada para el dispositivo.":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

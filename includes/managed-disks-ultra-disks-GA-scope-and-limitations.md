@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/28/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: eeda43b972e30c573743c8c59f75cfae61d7ee85
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 26a5537496d9e881ece135437c403baf4a4fd67c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94413151"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016646"
 ---
 Por ahora, los discos Ultra tienen limitaciones adicionales, como se indica a continuación:
 
@@ -67,7 +67,7 @@ En la tabla siguiente se describen las regiones en las que los discos Ultra Disk
     - [Mv2](../articles/virtual-machines/workloads/sap/hana-vm-operations-storage.md)
 - No todos los tamaños de máquina virtual están disponibles en todas las regiones admitidas con discos Ultra.
 - Solo están disponibles como discos de datos. 
-- Compatibilidad de forma predeterminada con el tamaño de sector físico de 4 k. El tamaño de sector de 512E se puede encontrar como una oferta disponible con carácter general, pero debe [registrarse en ella](https://aka.ms/ultradisk512e). La mayoría de las aplicaciones son compatibles con los tamaños de sector de 4 k, pero algunas requieren tamaños de sector de 512 bytes. Un ejemplo sería Oracle Database, que requiere la versión 12.2 o posterior para admitir los discos nativos de 4 k. En las versiones anteriores de Oracle DB, se requiere un tamaño de sector de 512 bytes.
+- Compatibilidad de forma predeterminada con el tamaño de sector físico de 4 k. El tamaño de sector 512E se puede obtener como oferta disponible con carácter general (no se requiere registro), pero para acceder a él actualmente hay que usar la CLI o PowerShell. La mayoría de las aplicaciones son compatibles con los tamaños de sector de 4 k, pero algunas requieren tamaños de sector de 512 bytes. Un ejemplo sería Oracle Database, que requiere la versión 12.2 o posterior para admitir los discos nativos de 4 k. En las versiones anteriores de Oracle DB, se requiere un tamaño de sector de 512 bytes.
 - Solo pueden crearse como discos vacíos.
 - Actualmente, no se admiten instantáneas de disco, imágenes de máquinas virtuales, conjuntos de disponibilidad, instancias de Azure Dedicated Host ni Azure Disk Encryption.
 - Actualmente, no se admite la integración con Azure Backup o Azure Site Recovery.

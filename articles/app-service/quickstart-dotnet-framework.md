@@ -3,14 +3,14 @@ title: 'Inicio rápido: Creación de una aplicación de ASP.NET en C#'
 description: Aprenda a ejecutar aplicaciones web en Azure App Service mediante la implementación de la plantilla de aplicaciones web ASP.NET de C# predeterminada desde Visual Studio.
 ms.assetid: 04a1becf-7756-4d4e-92d8-d9471c263d23
 ms.topic: quickstart
-ms.date: 08/06/2020
+ms.date: 11/20/2020
 ms.custom: devx-track-csharp, mvc, devcenter, seodec18
-ms.openlocfilehash: 5bf774f2b5cf4a6275dc04248aadfd9a94f5122d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a4f7ba288bc27d6079deea9caf0ea315a55d0745
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88212558"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96004109"
 ---
 # <a name="create-an-aspnet-framework-web-app-in-azure"></a>Creación de una aplicación web de ASP.NET Framework en Azure
 
@@ -20,7 +20,7 @@ En este inicio rápido se muestra cómo implementar su primera aplicación web A
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para completar este tutorial, instale <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2019</a> con la carga de trabajo de **ASP.NET y desarrollo web**.
 
@@ -55,20 +55,21 @@ Cree una aplicación web ASP.NET siguiendo estos pasos:
 
 1. En **Explorador de soluciones**, haga clic con el botón derecho en el proyecto **myFirstAzureWebApp** y seleccione **Publicar**.
 
-1. Elija **App Service** y seleccione **Crear perfil**.
+1. En **Publicar**, seleccione **Azure** y haga clic en **Siguiente**.
 
-   ![Publicar desde la página de información general del proyecto](./media/quickstart-dotnet-framework/publish-app-framework-vs2019.png)
+1. Seleccione **Azure App Service (Windows)** y haga clic en **Siguiente**.
 
-1. En **App Service Create new** (App Service - Crear nuevo), las opciones dependen de si ya ha iniciado sesión en Azure y de si tiene una cuenta de Visual Studio vinculada a una cuenta de Azure. Seleccione **Agregar una cuenta** o **Iniciar sesión** para iniciar sesión en la suscripción de Azure. Si ya ha iniciado sesión, seleccione la cuenta que desee.
+   <!-- ![Publish from project overview page](./media/quickstart-dotnet-framework/publish-app-framework-vs2019.png) -->
 
-   > [!NOTE]
-   > Si ya ha iniciado sesión, no seleccione **Crear** todavía.
-   >
-   >
+1. Las opciones dependen de si ya ha iniciado sesión en Azure y de si tiene una cuenta de Visual Studio vinculada a una cuenta de Azure. Seleccione **Agregar una cuenta** o **Iniciar sesión** para iniciar sesión en la suscripción de Azure. Si ya ha iniciado sesión, seleccione la cuenta que desee.
 
    ![Inicio de sesión en Azure](./media/quickstart-dotnet-framework/sign-in-azure-framework-vs2019.png)
 
    [!INCLUDE [resource group intro text](../../includes/resource-group.md)]
+
+1. A la derecha de **App Service instances** (Instancias de App Service), haga clic en **+** .
+
+   ![Nueva aplicación de App Service](./media/quickstart-dotnet-framework/publish-new-app-service.png)
 
 1. En **Grupo de recursos**, seleccione **Nuevo**.
 
@@ -78,7 +79,7 @@ Cree una aplicación web ASP.NET siguiendo estos pasos:
 
 1. En **Plan de hospedaje**, seleccione **Nuevo**.
 
-1. En el cuadro de diálogo **Configurar un plan de hospedaje**, escriba los valores en la tabla siguiente y, después, seleccione **Aceptar**.
+1. En el cuadro de diálogo **Plan de hospedaje**, escriba los valores en la tabla siguiente y, después, seleccione **Aceptar**.
 
    | Configuración | Valor sugerido | Descripción |
    |-|-|-|
@@ -90,11 +91,13 @@ Cree una aplicación web ASP.NET siguiendo estos pasos:
 
 1. En **Nombre**, escriba un nombre de aplicación único que incluya solo los caracteres válidos, que son `a-z`, `A-Z`, `0-9` y `-`. Puede aceptar el nombre único generado automáticamente. La dirección URL de la aplicación web es `http://<app-name>.azurewebsites.net`, donde `<app-name>` es el nombre de la aplicación.
 
-2. Seleccione **Crear** para comenzar a crear los recursos de Azure.
+2. Seleccione **Crear** para crear los recursos de Azure.
 
    ![Configuración del nombre de la aplicación](./media/quickstart-dotnet-framework/web-app-name-framework-vs2019.png)
 
     Una vez finalizado el asistente, los recursos de Azure se crean automáticamente y ya puede publicarlos.
+
+3. Seleccione **Finalizar** para cerrar el asistente.
 
 3. En la página **Publicar**, haga clic en **Publicar**. Visual Studio compila, empaqueta y publica la aplicación en Azure y, luego, la inicia en el explorador predeterminado.
 

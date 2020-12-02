@@ -7,12 +7,12 @@ ms.service: cache
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 10/28/2020
-ms.openlocfilehash: bd5e05f38d34199d9012c52ca3fdad33af231aad
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 95f6e2cf7803ff0b152f33c08f170725b5a0e94e
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93127992"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95795664"
 ---
 # <a name="quickstart-create-an-enterprise-tier-cache-preview"></a>Inicio rápido: Creación de una memoria caché con el nivel Enterprise (versión preliminar)
 
@@ -22,16 +22,16 @@ Los niveles Enterprise de Azure Cache for Redis proporcionan una instancia de [R
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-Necesitará una suscripción a Azure antes de empezar. En caso de no tener ninguna, [cree una cuenta gratuita](https://azure.microsoft.com/free/) primero.
+Necesitará una suscripción a Azure antes de empezar. Si aún no la tiene, cree una [cuenta](https://azure.microsoft.com/). Para más información, consulte [Requisitos del nivel Enterprise](cache-overview.md#enterprise-tier-requirements).
 
 ## <a name="create-a-cache"></a>Creación de una caché
 1. Para crear una caché, inicie sesión en Azure Portal mediante el vínculo de la invitación a la versión preliminar y seleccione **Crear un recurso**.
 
-1. En la página **Nuevo** , seleccione **Base de datos** y, a continuación, seleccione **Azure Cache for Redis**.
+1. En la página **Nuevo**, seleccione **Base de datos** y, a continuación, seleccione **Azure Cache for Redis**.
    
    :::image type="content" source="media/cache-create/new-cache-menu.png" alt-text="Selección de Azure Cache for Redis":::
    
-1. En la página **Nueva instancia de Redis Cache** , configure las opciones de la nueva caché.
+1. En la página **Nueva instancia de Redis Cache**, configure las opciones de la nueva caché.
    
    | Configuración      | Valor sugerido  | Descripción |
    | ------------ |  ------- | -------------------------------------------------- |
@@ -71,7 +71,7 @@ Necesitará una suscripción a Azure antes de empezar. En caso de no tener ningu
 
 1. Revise la configuración y haga clic en **Crear**.
    
-   La caché tarda un tiempo en crearse. Puede supervisar el progreso en la página **Información general** de Azure Cache for Redis. Cuando **Estado** se muestra como **En ejecución** , la memoria caché está lista para su uso.
+   La caché tarda un tiempo en crearse. Puede supervisar el progreso en la página **Información general** de Azure Cache for Redis. Cuando **Estado** se muestra como **En ejecución**, la memoria caché está lista para su uso.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

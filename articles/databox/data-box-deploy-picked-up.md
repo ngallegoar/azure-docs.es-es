@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 09/30/2020
+ms.date: 11/19/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 72575725c0924b8ec5f9466f4ffbba86bf071db4
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.openlocfilehash: 28637f35294e9c70cbf0e96fb2cdcb1853d2ba39
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91631549"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94992733"
 ---
 ::: zone target="docs"
 
@@ -47,7 +47,7 @@ En este tutorial, aprenderá sobre temas como:
 Antes de comenzar, asegúrese de que:
 
 * Ha completado el [Tutorial: Copia de datos a Azure Data Box y comprobación de](data-box-deploy-copy-data.md).
-* Los trabajos de copia se han completado y no aparece ningún error en la página **Conectar y copiar** . Preparación para el envío no se pueden ejecutar si los trabajos de copia están en curso o hay errores en la página **Conectar y copiar** .
+* Los trabajos de copia se han completado y no aparece ningún error en la página **Conectar y copiar**. Preparación para el envío no se pueden ejecutar si los trabajos de copia están en curso o hay errores en la página **Conectar y copiar**.
 
 ## <a name="prepare-to-ship"></a>Preparación para el envío
 
@@ -106,12 +106,6 @@ Una vez que se completa la carga en Azure, Data Box elimina los datos de los dis
 
 ::: zone-end
 
-::: zone target="docs"
-
-[!INCLUDE [data-box-verify-upload-return](../../includes/data-box-verify-upload-return.md)]
-
-::: zone-end
-
 ## <a name="australia"></a>[Australia](#tab/in-australia)
 
 Los centros de datos de Azure en Australia tienen una notificación de seguridad adicional. Todos los envíos entrantes deben tener una notificación avanzada. Realice los pasos siguientes si el envío se realiza en Australia.
@@ -131,12 +125,6 @@ Los centros de datos de Azure en Australia tienen una notificación de seguridad
 ## <a name="erasure-of-data-from-data-box"></a>Eliminación de datos de Data Box
 
 Una vez que se completa la carga en Azure, Data Box elimina los datos de los discos según las [directrices de la revisión 1 de NIST SP 800-88](https://csrc.nist.gov/News/2014/Released-SP-800-88-Revision-1,-Guidelines-for-Medi).
-
-::: zone-end
-
-::: zone target="docs"
-
-[!INCLUDE [data-box-verify-upload-return](../../includes/data-box-verify-upload-return.md)]
 
 ::: zone-end
 
@@ -182,12 +170,6 @@ Una vez que se completa la carga en Azure, Data Box elimina los datos de los dis
 
 ::: zone-end
 
-::: zone target="docs"
-
-[!INCLUDE [data-box-verify-upload-return](../../includes/data-box-verify-upload-return.md)]
-
-::: zone-end
-
 ## <a name="singapore"></a>[Singapur](#tab/in-singapore)
 
 1. Conserve la caja original utilizada para devolver el dispositivo.
@@ -223,33 +205,33 @@ Una vez que se completa la carga en Azure, Data Box elimina los datos de los dis
 
 ::: zone-end
 
-::: zone target="docs"
-
-[!INCLUDE [data-box-verify-upload-return](../../includes/data-box-verify-upload-return.md)]
-
-::: zone-end
-
 ## <a name="south-africa"></a>[Sudáfrica](#tab/in-sa)
 
 1. Empaquete el dispositivo para el envío de devolución en la caja original.
 2. Enrolle y coloque de forma segura el cable de alimentación que se suministró junto con el dispositivo en la parte posterior del mismo.
-3. Para reservar una recogida con DHL:
+3. Anote el número de seguimiento (que se muestra como número de referencia en la página **Preparación para el envío** de la interfaz de usuario web local de Data Box). Estará disponible cuando el paso "Preparación para el envío" se haya completado correctamente. Descargue la etiqueta de envío de esta página y péguela en la caja de embalaje.
+4. Solicite un código de devolución de Operations (Operaciones) de Azure Data Box. Se requiere un código de devolución para entregar el paquete al centro de datos. Envíe un correo electrónico a [adbops@microsoft.com](mailto:adbops@microsoft.com). Anote este código en la etiqueta de envío junto a la dirección de devolución para que esté claramente visible.
+5. Reserve una recogida con DHL; para ello, elija una de las siguientes opciones:
+ 
+   * Vaya a [DHL Express South Africa, **Schedule a Pickup**](https://mydhl.express.dhl/za/en/schedule-pickup.html#/schedule-pickup#label-reference) (Programar recogida) para reservar una recogida en línea.
+   * Envíe un correo electrónico a [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com) mediante la siguiente plantilla:
 
-    * Llame al centro de contacto del servicio de atención al cliente, el número +27(0) 11 9213600, seleccione la opción 1 y especifique el número de la hoja de ruta.
-    * La llamada debe realizarse antes de las 2:00 p.m. para programar una recogida.
-    * Envíe un correo electrónico a [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com) mediante la siguiente plantilla:
+     ```output
+     To: Priority.Support@dhl.com
+     Subject: Pickup request for Microsoft Azure
+     Body: Need pick up for the below shipment
+       *  DHL tracking number: (reference number/waybill number)
+       *  Requested pickup date: yyyy/mm/dd;time:HH MM
+       *  Shipper contact: (company name)
+       *  Contact person: 
+       *  Phone number: 
+       *  Full physical address: 
+       *  Item to be collected: Azure Dt
+     ```
 
-    ```output
-    To: Priority.Support@dhl.com
-    Subject: Pickup request for Microsoft Azure
-    Body: Need pick up for the below shipment
-      *  DHL tracking number (reference number/waybill number)
-      *  Requested pickup date: yyyy/mm/dd;time:HH MM
-    ```
+    * También puede dejar el paquete en el punto de servicio de DHL más cercano.
 
-    * Como alternativa, puede dejar el paquete en el punto de servicio de DHL más cercano.
-
-4. Si experimenta algún problema, envíe un correo electrónico a [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com) con los detalles del mismo y mencione el nombre del pedido en el asunto. También puede llamar al +27(0)119213902.
+6. Si surge algún problema, envíe un correo electrónico a [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com) con los detalles del mismo y mencione el nombre del pedido en el asunto. También puede llamar al +27(0)119213902.
 
 ::: zone target="chromeless"
 
@@ -263,17 +245,11 @@ Una vez que se completa la carga en Azure, Data Box elimina los datos de los dis
 
 ::: zone-end
 
-::: zone target="docs"
-
-[!INCLUDE [data-box-verify-upload-return](../../includes/data-box-verify-upload-return.md)]
-
-::: zone-end
-
 ## <a name="hong-kong"></a>[RAE de Hong Kong](#tab/in-hk)
 
 1. Empaquete el dispositivo para el envío de devolución en la caja original.
 2. Enrolle y coloque de forma segura el cable de alimentación que se suministró junto con el dispositivo en la parte posterior del mismo.
-3. Llame a la línea directa de **Quantium Solutions** , al número **(852) 2318 1213** , en horario de oficina (de 9 a 18 horas de lunes a viernes).  
+3. Llame a la línea directa de **Quantium Solutions** en el número **(852) 2318 1213** durante el horario de oficina (de 9 a 18 horas de lunes a viernes).  
 4. Indique Recogida de Microsoft Azure, el número de referencia y el número de seguimiento (encima de código de barras) en la etiqueta de envío de devolución para concertar la recogida.
 5. Recibirá una confirmación verbal para la organización de la recogida. Si el mensajero no realiza la recogida, llame a la línea directa de Quantium Solutions para buscar otra fecha.
 6. Después de reservar una recogida con Quantium, comparta la confirmación con [Microsoft Data Box Operations Asia](mailto:adbo@microsoft.com) con la siguiente plantilla:
@@ -301,12 +277,6 @@ Si encuentra algún problema, envíe un correo electrónico a Data Box Operation
 ## <a name="erasure-of-data-from-data-box"></a>Eliminación de datos de Data Box
  
 Una vez que se completa la carga en Azure, Data Box elimina los datos de los discos según las [directrices de la revisión 1 de NIST SP 800-88](https://csrc.nist.gov/News/2014/Released-SP-800-88-Revision-1,-Guidelines-for-Medi).
-
-::: zone-end
-
-::: zone target="docs"
-
-[!INCLUDE [data-box-verify-upload-return](../../includes/data-box-verify-upload-return.md)]
 
 ::: zone-end
 
@@ -369,8 +339,6 @@ Si usa Data Box en Gobierno de EE. UU., Japón, Singapur, Corea, India, Sudáfri
 
 ::: zone target="chromeless"
 
----
-
 ## <a name="verify-data-upload-to-azure"></a>Comprobación de la carga de datos en Azure
 
 [!INCLUDE [data-box-verify-upload](../../includes/data-box-verify-upload.md)]
@@ -381,7 +349,11 @@ Una vez que se completa la carga en Azure, Data Box elimina los datos de los dis
 
 ::: zone-end
 
+---
+
 ::: zone target="docs"
+
+## <a name="verify-data-upload-to-azure"></a>Comprobación de la carga de datos en Azure
 
 [!INCLUDE [data-box-verify-upload-return](../../includes/data-box-verify-upload-return.md)]
 

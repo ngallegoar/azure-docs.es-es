@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.author: makromer
-ms.date: 10/28/2020
-ms.openlocfilehash: 753d72b31e4f813d0e7abbbd223e050fd3390411
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.date: 11/24/2020
+ms.openlocfilehash: c436d75384c527ba7666cd2e6e780b9d8a93eae2
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92910770"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96003960"
 ---
 # <a name="data-flow-activity-in-azure-data-factory"></a>Actividad de Data Flow en Azure Data Factory
 
@@ -37,6 +37,7 @@ Utilice la actividad de Data Flow para transformar y trasladar datos a través d
          "coreCount": 8,
          "computeType": "General"
       },
+      "traceLevel": "Fine",
       "staging": {
           "linkedService": {
               "referenceName": "MyStagingLinkedService",
@@ -62,6 +63,7 @@ compute.coreCount | Número de núcleos utilizados en el clúster de Spark. Solo
 compute.computeType | Tipo de proceso utilizado en el clúster de Spark. Solo se puede especificar si se usa la resolución automática de Azure Integration Runtime | "General", "ComputeOptimized", "MemoryOptimized" | No
 staging.linkedService | Si utiliza un origen o un receptor de Azure Synapse Analytics, especifique la cuenta de almacenamiento que se utilizará como almacenamiento provisional de PolyBase.<br/><br/>Si Azure Storage está configurado con el punto de conexión de servicio de red virtual, tiene que utilizar la autenticación de identidad administrada con la opción para permitir el servicio de Microsoft de confianza habilitada en la cuenta de almacenamiento; consulte [Efectos del uso de puntos de conexión de servicio de la red virtual con Azure Storage](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Obtenga también información sobre las configuraciones necesarias para [Azure Blob](connector-azure-blob-storage.md#managed-identity) y [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#managed-identity) respectivamente.<br/> | LinkedServiceReference | Solo si el flujo de datos lee o escribe en una instancia de Azure Synapse Analytics.
 staging.folderPath | Si usa un origen o un receptor de Azure Synapse Analytics, es la ruta de la carpeta de la cuenta de almacenamiento de blobs que se utiliza como almacenamiento provisional de PolyBase. | String | Solo si el flujo de datos lee o escribe en una instancia de Azure Synapse Analytics.
+traceLevel | Establecimiento del nivel de registro de la ejecución de actividades de flujo de datos | Fino, Grueso, Ninguno | No
 
 ![Ejecución de flujo de datos](media/data-flow/activity-data-flow.png "Ejecución de flujo de datos")
 
@@ -87,6 +89,12 @@ En el caso de las ejecuciones de canalización, el clúster que se utiliza es de
 ### <a name="polybase"></a>PolyBase
 
 Si utiliza un origen o un receptor de Azure Synapse Analytics (anteriormente, SQL Data Warehouse), debe elegir una ubicación de almacenamiento provisional para la carga por lotes de PolyBase. PolyBase utiliza la carga por lotes en lugar de cargar los datos fila a fila. PolyBase reduce considerablemente el tiempo de carga en Azure Synapse Analytics.
+
+## <a name="logging-level"></a>Nivel de registro
+
+Si no es necesario que cada ejecución de canalización de las actividades de flujo de datos anote completamente todos los registros de telemetría detallados, tiene la opción de establecer el nivel de registro en "básico" o "ninguno". Al ejecutar los flujos de datos en modo "detallado" (valor predeterminado), está solicitando a ADF que registre la actividad por completo en cada nivel de partición individual durante la transformación de los datos. Esta puede ser una operación costosa; por tanto, habilitar solo el modo detallado al solucionar problemas puede mejorar el flujo de datos y el rendimiento de la canalización en general. El modo "básico" solo registrará las duraciones de las transformaciones, mientras que "ninguno" solo proporcionará un resumen de las duraciones.
+
+![Nivel de registro](media/data-flow/logging.png "Establecimiento del nivel de registro")
 
 ## <a name="parameterizing-data-flows"></a>Flujos de datos con parámetros
 

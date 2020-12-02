@@ -4,12 +4,12 @@ description: Más información sobre el servicio de Azure Migrate
 ms.topic: overview
 ms.date: 04/15/2020
 ms.custom: mvc
-ms.openlocfilehash: 48447959f0a60baf8802a9939612bf0d536c2557
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 5a003fc740d08c24af301a6c7ad06cc342530c56
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92314762"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95746887"
 ---
 # <a name="about-azure-migrate"></a>Acerca de Azure Migrate
 
@@ -18,7 +18,7 @@ En este artículo se proporciona una rápida descripción general del servicio A
 Azure Migrate proporciona un centro centralizado para evaluar y migrar a Azure servidores, infraestructuras, aplicaciones y datos locales. Ofrece lo siguiente:
 
 - **Plataforma de migración unificada**: un único portal para iniciar, ejecutar y realizar un seguimiento de la migración a Azure.
-- **Rango de herramientas**: Rango de herramientas para la evaluación y migración Las herramientas de Azure Migrate incluyen Server Assessment y Azure Migrate: Server Migration. Azure Migrate también se integra con otros servicios y herramientas de Azure, así como con ofertas de proveedores de software independientes (ISV).
+- **Rango de herramientas**: Rango de herramientas para la evaluación y migración Las herramientas de Azure Migrate incluyen Azure Migrate: Server Assessment y Azure Migrate: Server Migration. Azure Migrate también se integra con otros servicios y herramientas de Azure, así como con ofertas de proveedores de software independientes (ISV).
 - **Evaluación y migración** En el centro de Azure Migrate, puede evaluar y migrar:
     - **Servidores**: evalúe servidores locales y mígrelos a máquinas virtuales de Azure o Azure VMware Solution (AVS, versión preliminar).
     - **Bases de datos**: Evalúe bases de datos locales y mígrelas a Azure SQL Database o a una instancia administrada de SQL.
@@ -82,9 +82,9 @@ Azure Migrate: La herramienta Server Migration le ayuda a migrar a Azure:
 
 **Migrar** | **Detalles**
 --- | ---
-Máquinas virtuales de VMware locales | Migre máquinas virtuales a Azure mediante la migración basada en agente o sin agente.<br/><br/> Para la migración sin agente, Server Migration usa un dispositivo de Azure Migrate que se implementa en el entorno local. Es el mismo tipo de dispositivo que se usa para Server Assessment.<br/><br/> En el caso de la migración basada en agente, Server Assessment usa un dispositivo de replicación.
-VM de Hyper-V locales | Migre máquinas virtuales a Azure.<br/><br/> Server Assessment usa agentes de proveedor instalados en el host de Hyper-V para la migración.
-Servidores físicos locales | Es posible migrar máquinas físicas a Azure. También se pueden migrar otras máquinas1 virtualizadas y máquinas virtuales de otras nubes públicas, si se tratan como máquinas virtuales con el fin de realizar la migración. | Server Assessment usa un dispositivo de replicación para la migración.
+Máquinas virtuales de VMware locales | Migre máquinas virtuales a Azure mediante la migración basada en agente o sin agente.<br/><br/> Para la migración sin agente, Server Migration usa el mismo dispositivo de Azure Migrate que también puede usar Server Assessment para la detección y la evaluación de máquinas virtuales de VMware.<br/><br/> En el caso de la migración basada en agente, Server Migration usa un dispositivo de replicación.
+VM de Hyper-V locales | Migre máquinas virtuales a Azure.<br/><br/> Server Migration usa agentes de proveedor instalados en el host de Hyper-V para la migración.
+Servidores físicos locales | Es posible migrar máquinas físicas a Azure. También se pueden migrar otras máquinas virtualizadas y máquinas virtuales de otras nubes públicas, si se tratan como servidores físicos con el fin de realizar la migración. | Server Migration usa un dispositivo de replicación para la migración.
 
 
 ## <a name="selecting-assessment-and-migration-tools"></a>Selección de herramientas de valoración y migración
