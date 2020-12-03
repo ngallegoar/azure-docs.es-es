@@ -1,20 +1,20 @@
 ---
-title: 'Tutorial: Configuración de la escalabilidad automática para aplicaciones de microservicios'
+title: Configuración de la escalabilidad automática para aplicaciones de microservicios
 description: En este artículo se describe cómo configurar el escalado automático en las aplicaciones mediante Azure Portal o la CLI de Azure.
 author: MikeDodaro
 ms.author: brendm
 ms.service: spring-cloud
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 07/22/2020
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 6023d1ebd27ebaccacfce85ce0f49b7ef87e17ad
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: d59d5de0d98380be215747c7daa33721fcebf33c
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92742664"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96533832"
 ---
-# <a name="tutorial-set-up-autoscale-for-microservice-applications"></a>Tutorial: Configuración de la escalabilidad automática para aplicaciones de microservicios
+# <a name="set-up-autoscale-for-microservice-applications"></a>Configuración de la escalabilidad automática para aplicaciones de microservicios
 
 **Este artículo se aplica a:** ✔️ Java ✔️ C#
 
@@ -34,7 +34,7 @@ Para seguir estos procedimientos, necesita:
 2. Vaya a la página **Información general** de Azure Spring Cloud.
 3. Seleccione el grupo de recursos que contiene el servicio.
 4. En el menú del panel de navegación izquierdo, seleccione la pestaña **Apps** (Aplicaciones) en **Settings** (Configuración).
-5. Seleccione la aplicación para la que desea configurar la escalabilidad automática. En este ejemplo, seleccione la aplicación llamada **demo** . A continuación, verá la página **Overview** (Información general) de la aplicación.
+5. Seleccione la aplicación para la que desea configurar la escalabilidad automática. En este ejemplo, seleccione la aplicación llamada **demo**. A continuación, verá la página **Overview** (Información general) de la aplicación.
 6. En el menú del panel de navegación izquierdo, Vaya a la pestaña **Scale out** (Escalar horizontalmente) en **Settings** (Configuración).
 7. Seleccione la implementación en que desea configurar la escalabilidad automática. Debería ver las opciones de Escalabilidad automática en la sección siguiente.
 
@@ -66,7 +66,7 @@ También se pueden establecer los modos de escalabilidad automática mediante el
 
 ## <a name="upgrade-to-the-standard-tier"></a>Actualización al nivel Estándar
 
-Si está en el nivel Básico y se le imponen uno o varios de estos limites, puede realizar la actualización al nivel Estándar. Para ello, vaya al menú **Plan de tarifa** , para lo que antes debe seleccionar la columna del nivel *Estándar* y, después, hacer clic en el botón **Actualizar** .
+Si está en el nivel Básico y se le imponen uno o varios de estos limites, puede realizar la actualización al nivel Estándar. Para ello, vaya al menú **Plan de tarifa**, para lo que antes debe seleccionar la columna del nivel *Estándar* y, después, hacer clic en el botón **Actualizar**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
