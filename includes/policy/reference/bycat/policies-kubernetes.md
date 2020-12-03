@@ -2,20 +2,20 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 10/20/2020
+ms.date: 11/20/2020
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: e83e5fdd0d8797377407e27614e98c348b008164
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 1333fd582af5aad041c4a0575a6ad3d0468ea306
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92312194"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "96007895"
 ---
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[El complemento Azure Policy para Kubernetes Service (AKS) debería estar instalado y habilitado en sus clústeres](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0a15ec92-a229-4763-bb14-0ea34a568f8d) |El complemento Azure Policy para Kubernetes Service (AKS) amplía Gatekeeper v3, un webhook del controlador de admisión de Open Policy Agent (OPA), para aplicar imposiciones y medidas de seguridad a escala en los clústeres de forma centralizada y coherente. |Audit, Disabled |[1.0.1-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes/AKS_AzurePolicyAddOn_Audit.json) |
-|[Implementación del complemento de Azure Policy en clústeres de Azure Kubernetes Service](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa8eff44f-8c92-45c3-a3fb-9880802d67a7) |Use el complemento de Azure Policy para administrar e informar sobre el estado de cumplimiento de los clústeres de Azure Kubernetes Service (AKS). Para más información, vea [https://aka.ms/akspolicydoc](https://aka.ms/akspolicydoc). |deployIfNotExists |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes/AKS_AzurePolicyAddOn_Deploy.json) |
+|[Implementación del complemento de Azure Policy en los clústeres de Azure Kubernetes Service](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa8eff44f-8c92-45c3-a3fb-9880802d67a7) |Use el complemento de Azure Policy para administrar e informar sobre el estado de cumplimiento de los clústeres de Azure Kubernetes Service (AKS). Para más información, vea [https://aka.ms/akspolicydoc](https://aka.ms/akspolicydoc). |deployIfNotExists |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes/AKS_AzurePolicyAddOn_Deploy.json) |
 |[Implementar GitOps en el clúster de Kubernetes](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1d61c4d2-aef2-432b-87fc-7f96b019b7e1) |Esta directiva implementa un objeto "sourceControlConfiguration" en los clústeres de Kubernetes para garantizar que los clústeres obtienen su origen de veracidad del repositorio Git definido. Para instrucciones sobre el uso de esta directiva, visite [https://aka.ms/K8sGitOpsPolicy](https://aka.ms/K8sGitOpsPolicy). |DeployIfNotExists |[1.0.0-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes/Deploy-GitOps-to-Kubernetes-cluster_DINE.json) |
 |[No permitir contenedores con privilegios en el clúster de Kubernetes](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F95edb821-ddaf-4404-9732-666045e056b4) |Esta directiva no permite la creación de contenedores privilegiados en un clúster de Kubernetes. Esta directiva está disponible con carácter general para Kubernetes Service (AKS) y en versión preliminar para el motor de AKS y Kubernetes con Azure Arc habilitado. Para instrucciones sobre el uso de esta directiva, visite [https://aka.ms/kubepolicydoc](https://aka.ms/kubepolicydoc). |audit, deny, disabled |[4.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes/ContainerNoPrivilege.json) |
 |[Exigir la entrada de HTTPS en el clúster de Kubernetes](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1a5b4dca-0b6f-4cf5-907c-56316bc1bf3d) |Esta directiva requiere la entrada de HTTPS en un clúster de Kubernetes. Esta directiva está disponible con carácter general para Kubernetes Service (AKS) y en versión preliminar para el motor de AKS y Kubernetes con Azure Arc habilitado. Para instrucciones sobre el uso de esta directiva, visite [https://aka.ms/kubepolicydoc](https://aka.ms/kubepolicydoc). |audit, deny, disabled |[4.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes/IngressHttpsOnly.json) |
