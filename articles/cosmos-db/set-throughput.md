@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/10/2020
-ms.openlocfilehash: 0dc55f4d77fde48590b1fbf206ed988e8fb9ec0e
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 4fea027663b55e87822eae1fd0cdb2d67dbc630b
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94490277"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96170837"
 ---
 # <a name="introduction-to-provisioned-throughput-in-azure-cosmos-db"></a>Introducción al rendimiento aprovisionado en Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -65,7 +65,7 @@ Todos los contenedores creados en una base de datos con rendimiento aprovisionad
 
 Si la carga de trabajo en una partición lógica consume más que el rendimiento que se asignó a una partición lógica específica, las operaciones tendrán una velocidad limitada. Cuando se produce una limitación de velocidad, puede aumentar el rendimiento de toda la base de datos o volver a intentar las operaciones. Para más información sobre las particiones, consulte [Particiones lógicas](partitioning-overview.md).
 
-Los contenedores de una base de datos de rendimiento compartido comparten el rendimiento (RU/s) asignado a dicha base de datos. Puede tener hasta cuatro contenedores con un mínimo de 400 RU/s en la base de datos. Con el rendimiento aprovisionado estándar (manual), cada nuevo contenedor después de los cuatro primeros requerirá un mínimo de 100 RU/s adicionales. Por ejemplo, si tiene una base de datos de rendimiento compartido con ocho contenedores, el mínimo de RU/s en la base de datos será de 800 RU/s. Con el rendimiento aprovisionado de escalabilidad automática, puede tener hasta 25 contenedores en una base de datos con 4000 RU/s como máximo de escalabilidad automática (escalas entre 400 y 4000 RU/s).
+Los contenedores de una base de datos de rendimiento compartido comparten el rendimiento (RU/s) asignado a dicha base de datos. Con el rendimiento aprovisionado (manual) estándar, puede tener hasta 25 contenedores con un mínimo de 400 RU/s en la base de datos. Con el rendimiento aprovisionado de escalabilidad automática, puede tener hasta 25 contenedores en una base de datos con 4000 RU/s como máximo de escalabilidad automática (escalas entre 400 y 4000 RU/s).
 
 > [!NOTE]
 > En febrero de 2020, se presentó un cambio que permite tener un máximo de 25 contenedores en una base de datos de rendimiento compartida, lo que permite el uso compartido del rendimiento entre los contenedores. Después de los primeros 25 contenedores, solo puede agregar más a la base de datos si están [aprovisionados con un rendimiento dedicado](#set-throughput-on-a-database-and-a-container), que es independiente del rendimiento compartido de la base de datos.<br>
@@ -111,7 +111,6 @@ El valor mínimo real de RU/s puede variar en función de la configuración de l
 * 400 RU/s 
 * Almacenamiento actual en GB * 10 RU/s (a menos que el contenedor o la base de datos contengan más de 1 TB de datos, consulte nuestro [programa de almacenamiento alto y rendimiento bajo](#high-storage-low-throughput-program)).
 * El mayor valor de RU/s aprovisionado en la base de datos o el contenedor / 100
-* Número de contenedores * 100 RU/s (solo base de datos de rendimiento compartido)
 
 ### <a name="changing-the-provisioned-throughput"></a>Cambio del rendimiento aprovisionado
 
@@ -138,7 +137,7 @@ Puede usar [métricas de Azure Monitor](monitor-cosmos-db.md#view-operation-leve
 
 Tal y como se describe en la sección [Rendimiento aprovisionado actual](#current-provisioned-throughput) anterior, el rendimiento mínimo que se puede aprovisionar en un contenedor o en una base de datos depende de una serie de factores. Uno de ellos es la cantidad de datos almacenados actualmente, ya que Azure Cosmos DB aplica un rendimiento mínimo de 10 RU/s por GB de almacenamiento.
 
-Esto puede ser un problema en situaciones en las que necesite almacenar grandes cantidades de datos, pero que tengan requisitos de rendimiento bajo en comparación. Para adaptarse mejor a estos escenarios, Azure Cosmos DB ha introducido un **programa de "almacenamiento alto y bajo rendimiento"** que reduce la restricción de RU/s por GB de 10 a 1 en las cuentas válidas.
+Esto puede ser un problema en situaciones en las que necesite almacenar grandes cantidades de datos, pero que tengan requisitos de rendimiento bajo en comparación. Para adaptarse mejor a estos escenarios, Azure Cosmos DB ha presentado un **programa de "almacenamiento alto y bajo rendimiento"** que reduce la restricción de RU/s por GB en las cuentas válidas.
 
 En este momento, debe tener al menos un contenedor o una base de datos de rendimiento compartido que contenga más de 1 TB de datos en su cuenta para que sea válido. Para unirse a este programa y evaluar su idoneidad total, todo lo que tiene que hacer es cumplimentar [esta encuesta](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRzBPrdEMjvxPuDm8fCLUtXpUREdDU0pCR0lVVFY5T1lRVEhWNUZITUJGMC4u). El equipo de Azure Cosmos DB realizará un seguimiento y continuará con la incorporación.
 
@@ -147,8 +146,8 @@ En esta tabla se muestra una comparación entre el aprovisionamiento del rendimi
 
 |**Parámetro**  |**Rendimiento estándar (manual) en una base de datos**  |**Rendimiento estándar (manual) en un contenedor**|**Rendimiento de escalabilidad automática en una base de datos** | **Rendimiento de escalabilidad automática en un contenedor**|
 |---------|---------|---------|---------|---------|
-|Punto de entrada (mínimo de RU/s) |400 RU/s. Después de los cuatro primeros contenedores, cada contenedor adicional requiere un mínimo de 100 RU/s.</li> |400| Escalabilidad automática entre 400 y 4000 RU/s. Puede tener hasta 25 contenedores sin un mínimo de RU/s por contenedor</li> | Escalabilidad automática entre 400 y 4000 RU/s.|
-|Mínimo de RU/s por contenedor|100|400|--|Escalabilidad automática entre 400 y 4000 RU/s|
+|Punto de entrada (mínimo de RU/s) |400 RU/s. Puede tener hasta 25 contenedores sin un mínimo de RU/s por contenedor.</li> |400| Escalabilidad automática entre 400 y 4000 RU/s. Puede tener hasta 25 contenedores sin un mínimo de RU/s por contenedor.</li> | Escalabilidad automática entre 400 y 4000 RU/s.|
+|Mínimo de RU/s por contenedor|--|400|--|Escalabilidad automática entre 400 y 4000 RU/s|
 |Número máximo de RU|Ilimitado, en la base de datos.|Ilimitado, en el contenedor.|Ilimitado, en la base de datos.|Ilimitado, en el contenedor.
 |RU asignadas o disponibles para un contenedor específico|Sin garantías. Las RU asignadas a un contenedor determinado dependen de las propiedades. Las propiedades pueden ser la elección de las claves de partición de contenedores que comparten el rendimiento, la distribución de la carga de trabajo y el número de contenedores. |Todas las RU configuradas en el contenedor se reservan exclusivamente para el contenedor.|Sin garantías. Las RU asignadas a un contenedor determinado dependen de las propiedades. Las propiedades pueden ser la elección de las claves de partición de contenedores que comparten el rendimiento, la distribución de la carga de trabajo y el número de contenedores. |Todas las RU configuradas en el contenedor se reservan exclusivamente para el contenedor.|
 |Almacenamiento máximo de un contenedor|Sin límite.|Sin límite|Sin límite|Sin límite|
