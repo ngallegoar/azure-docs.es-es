@@ -9,7 +9,7 @@
           href: azure-stack-edge-gpu-overview.md
     - name: Guías de inicio rápido
       items:
-        - name: Primeros pasos
+        - name: Introducción
           href: azure-stack-edge-gpu-quickstart.md
     - name: Tutoriales
       items:
@@ -49,7 +49,105 @@
               href: azure-stack-edge-gpu-technical-specifications-compliance.md
             - name: Especificaciones del cable de alimentación
               href: azure-stack-edge-technical-specifications-power-cords-regional.md
-        - name: Descripción de Kubernetes (versión preliminar)
+- name: Azure Stack Edge Pro R
+  items:
+    - name: Información general
+      items:
+        - name: ¿Qué es Azure Stack Edge Pro R?
+          href: azure-stack-edge-j-series-overview.md
+    - name: Conceptos
+      items:
+        - name: Seguridad lista
+          href: azure-stack-edge-pro-r-safety.md
+        - name: Revisión de los requisitos
+          href: azure-stack-edge-pro-r-system-requirements.md
+        - name: Conocimiento de los límites
+          href: azure-stack-edge-pro-r-limits.md
+        - name: Introducción a la seguridad
+          href: azure-stack-edge-pro-r-security.md
+        - name: Revisión de especificaciones
+          href: azure-stack-edge-pro-r-technical-specifications-compliance.md
+    - name: Tutoriales
+      items:
+        - name: '0: Obtención de lista de comprobación'
+          href: azure-stack-edge-pro-r-deploy-checklist.md
+        - name: '1: Pedido, preparación'
+          href: azure-stack-edge-pro-r-deploy-prep.md
+        - name: '2: Instalación'
+          href: azure-stack-edge-pro-r-deploy-install.md
+        - name: '3: Conexión'
+          href: azure-stack-edge-pro-r-deploy-connect.md
+        - name: '4: Configuración de la red'
+          href: azure-stack-edge-pro-r-deploy-configure-network-compute-web-proxy.md
+        - name: '5: Configuración de dispositivo'
+          href: azure-stack-edge-pro-r-deploy-set-up-device-update-time.md
+        - name: '6: Configuración de la seguridad'
+          href: azure-stack-edge-pro-r-deploy-configure-certificates-vpn-encryption.md
+        - name: '7: Activación'
+          href: azure-stack-edge-pro-r-deploy-activate.md
+        - name: '8: Configuración de proceso'
+          href: azure-stack-edge-gpu-deploy-configure-compute.md
+    - name: Procedimientos
+      items:
+        - name: Configuración de VPN (versión preliminar)
+          items:
+            - name: Configuración mediante Azure PowerShell
+              href: azure-stack-edge-mini-r-configure-vpn-powershell.md
+            - name: Configuración para continuidad empresarial y recuperación ante desastres
+              href: azure-stack-edge-pro-r-configure-vpn-bcdr.md
+- name: Azure Stack Edge Mini R
+  items:
+    - name: Información general
+      items:
+        - name: ¿Qué es Azure Stack Edge Mini R?
+          href: azure-stack-edge-k-series-overview.md
+    - name: Conceptos
+      items:
+        - name: Seguridad lista
+          href: azure-stack-edge-mini-r-safety.md
+        - name: Revisión de los requisitos
+          href: azure-stack-edge-mini-r-system-requirements.md
+        - name: Conocimiento de los límites
+          href: azure-stack-edge-mini-r-limits.md
+        - name: Introducción a la seguridad
+          href: azure-stack-edge-pro-r-security.md
+        - name: Revisión de especificaciones
+          href: azure-stack-edge-mini-r-technical-specifications-compliance.md
+    - name: Tutoriales
+      items:
+        - name: '0: Obtención de lista de comprobación'
+          href: azure-stack-edge-mini-r-deploy-checklist.md
+        - name: '1: Pedido, preparación'
+          href: azure-stack-edge-mini-r-deploy-prep.md
+        - name: '2: Instalación'
+          href: azure-stack-edge-mini-r-deploy-install.md
+        - name: '3: Conexión'
+          href: azure-stack-edge-mini-r-deploy-connect.md
+        - name: '4: Configuración de la red'
+          href: azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy.md
+        - name: '5: Configuración de dispositivo'
+          href: azure-stack-edge-mini-r-deploy-set-up-device-update-time.md
+        - name: '6: Configuración de la seguridad'
+          href: azure-stack-edge-mini-r-deploy-configure-certificates-vpn-encryption.md
+        - name: '7: Activación'
+          href: azure-stack-edge-mini-r-deploy-activate.md
+        - name: '8: Configuración de proceso'
+          href: azure-stack-edge-gpu-deploy-configure-compute.md
+    - name: Procedimientos
+      items:
+        - name: Configuración de VPN (versión preliminar)
+          items:
+            - name: Configuración mediante Azure PowerShell
+              href: azure-stack-edge-mini-r-configure-vpn-powershell.md
+            - name: Configuración para continuidad empresarial y recuperación ante desastres
+              href: azure-stack-edge-pro-r-configure-vpn-bcdr.md
+        - name: Administración de Wi-Fi
+          href: azure-stack-edge-mini-r-manage-wifi.md
+- name: "Uso compartido de GPU Pro, Pro\_R y Mini\_R"
+  items:
+    - name: Conceptos compartidos
+      items:
+        - name: Descripción de Kubernetes
           items:
             - name: ¿Qué es Kubernetes?
               href: azure-stack-edge-gpu-kubernetes-overview.md
@@ -63,7 +161,9 @@
               href: azure-stack-edge-gpu-kubernetes-workload-management.md
         - name: Ver integración de Key Vault
           href: azure-stack-edge-gpu-activation-key-vault.md
-    - name: Procedimientos
+        - name: Habilitación del registro proactivo
+          href: azure-stack-edge-gpu-proactive-log-collection.md
+    - name: Procedimientos compartidos
       items:
         - name: Implementación de ejemplos de IoT Edge
           items:
@@ -73,12 +173,14 @@
               href: azure-stack-edge-gpu-deploy-sample-module.md
             - name: Módulo GPU a través de Marketplace
               href: azure-stack-edge-gpu-deploy-sample-module-marketplace.md
-        - name: Implementación de cargas de trabajo de Kubernetes (versión preliminar)
+        - name: Implementación de cargas de trabajo de Kubernetes
           items:
             - name: A través de kubectl
               items:
                 - name: Acceso a clústeres de Kubernetes
                   href: azure-stack-edge-gpu-create-kubernetes-cluster.md
+                - name: Aceleración de proceso
+                  href: azure-stack-edge-gpu-deploy-compute-acceleration.md
                 - name: Aplicación sin estado
                   href: azure-stack-edge-j-series-deploy-stateless-application-kubernetes.md
                 - name: Aplicación con estado con aprovisionamiento estático
@@ -107,6 +209,8 @@
               href: azure-stack-edge-j-series-configure-tls-settings.md
         - name: Implementación de máquinas virtuales (versión preliminar)
           items:
+            - name: 'Implementación de máquinas virtuales: Azure Portal'
+              href: azure-stack-edge-gpu-deploy-virtual-machine-portal.md
             - name: 'Implementación de máquinas virtuales: plantillas'
               href: azure-stack-edge-gpu-deploy-virtual-machine-templates.md
             - name: 'Implementación de máquinas virtuales: cmdlets de Azure PowerShell'
@@ -129,6 +233,8 @@
               href: azure-stack-edge-j-series-certificate-troubleshooting.md
         - name: Administración del proceso perimetral
           href: azure-stack-edge-j-series-manage-compute.md
+        - name: Administración del registro de contenedor de Edge
+          href: azure-stack-edge-gpu-edge-container-registry.md
         - name: Administración de puerta de enlace de almacenamiento
           items:
             - name: 'Adición, conexión a recurso compartido'
@@ -165,6 +271,8 @@
               href: azure-stack-edge-monitor.md
             - name: Uso del panel de Kubernetes
               href: azure-stack-edge-gpu-monitor-kubernetes-dashboard.md
+            - name: Uso de Azure Monitor
+              href: azure-stack-edge-gpu-enable-azure-monitor.md
         - name: Solución de problemas
           items:
             - name: Problemas del dispositivo
@@ -175,13 +283,15 @@
               href: azure-stack-edge-gpu-troubleshoot-activation.md
             - name: Ponerse en contacto con el servicio de soporte técnico de Microsoft
               href: azure-stack-edge-contact-microsoft-support.md
-    - name: Notas de la versión
+    - name: Notas de la versión compartidas
       items:
-        - name: '2009: disponibilidad general'
+        - name: '2011: actual'
+          href: azure-stack-edge-gpu-2011-release-notes.md
+        - name: 2010
           href: azure-stack-edge-gpu-2009-release-notes.md
-        - name: '2008: versión preliminar'
+        - name: 2008
           href: azure-stack-edge-gpu-2008-release-notes.md
-    - name: Referencia
+    - name: Referencia compartida
       items:
         - name: 'Rol de IoT Edge mediante API, SDK y PowerShell'
           href: azure-stack-edge-gpu-iot-edge-api-update.md
@@ -279,18 +389,6 @@
           href: /rest/api/databoxedgegateway
         - name: .NET SDK
           href: /dotnet/api/overview/azure/databoxedge/databoxgateway?view=azure-dotnet
-- name: Azure Stack Edge Pro R
-  items:
-    - name: Información general
-      items:
-        - name: ¿Qué es Azure Stack Edge Pro R?
-          href: azure-stack-edge-j-series-overview.md
-- name: Azure Stack Edge Mini R
-  items:
-    - name: Información general
-      items:
-        - name: ¿Qué es Azure Stack Edge Mini R?
-          href: azure-stack-edge-k-series-overview.md
 - name: Data Box Gateway
   items:
     - name: Información general

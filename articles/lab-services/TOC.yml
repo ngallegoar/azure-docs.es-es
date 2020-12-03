@@ -6,7 +6,7 @@
       href: lab-services-overview.md
 - name: Guías de inicio rápido
   items:
-    - name: Primeros pasos
+    - name: Introducción
       href: get-started-manage-labs.md
 - name: Tutoriales
   items:
@@ -20,11 +20,11 @@
       href: tutorial-track-usage.md
 - name: Conceptos
   items:
-    - name: Introducción a los laboratorios educativos
+    - name: Introducción a los laboratorios
       href: classroom-labs-overview.md
-    - name: Conceptos de laboratorios educativos
+    - name: Conceptos los laboratorios
       href: classroom-labs-concepts.md
-    - name: Aspectos básicos de la arquitectura de los laboratorios educativos
+    - name: Aspectos básicos de la arquitectura de los laboratorios
       href: classroom-labs-fundamentals.md
     - name: Límites de capacidad
       href: capacity-limits.md
@@ -36,7 +36,7 @@
           href: classroom-labs-scenarios.md
         - name: Uso de servicios de laboratorio para hackathon
           href: hackathon-labs.md
-        - name: 'Laboratorios educativos: tipos de clase'
+        - name: 'laboratorios: tipos de clases'
           items:
             - name: Información general sobre tipos de clase
               href: class-types.md
@@ -112,9 +112,9 @@
           href: lab-account-owner-support-information.md
         - name: Carga de una imagen compartida en Shared Image Gallery
           href: upload-custom-image-shared-image-gallery.md
-    - name: Creación y configuración de laboratorios educativos (formador)
+    - name: Creación y configuración de laboratorios (formador)
       items:
-        - name: Creación y administración de laboratorios educativos
+        - name: Creación y administración de laboratorios
           href: how-to-manage-classroom-labs.md
         - name: Uso del panel
           href: use-dashboard.md
@@ -150,9 +150,9 @@
           href: lab-creator-support-information.md
         - name: Acceso a las máquinas virtuales de los alumnos desde la vista del formador
           href: instructor-access-virtual-machines.md
-    - name: Conexión a máquinas virtuales de laboratorios educativos (alumno)
+    - name: Conexión a máquinas virtuales de laboratorios (alumno)
       items:
-        - name: Acceso a laboratorios educativos
+        - name: Laboratorios de acceso
           href: how-to-use-classroom-lab.md
         - name: Conexión a máquinas virtuales Linux
           href: how-to-use-remote-desktop-linux-student.md

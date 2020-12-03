@@ -2,8 +2,10 @@
   href: index.yml
 - name: Información general
   items:
-    - name: Roles de Azure AD
+    - name: ¿Qué es Azure AD RBAC?
       href: custom-overview.md
+    - name: "Descripción de los roles de Azure\_AD"
+      href: concept-understand-roles.md
 - name: Guías de inicio rápido
   items:
     - name: Creación de registros de aplicaciones ilimitadas
@@ -50,8 +52,6 @@
     - name: Roles personalizados
       expanded: true
       items:
-        - name: Introducción a los roles personalizados
-          href: custom-overview.md
         - name: Crear un rol personalizado
           href: custom-create.md
         - name: Visualización de las asignaciones de roles personalizados

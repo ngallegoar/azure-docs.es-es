@@ -9,7 +9,7 @@
 - name: Guías de inicio rápido
   expanded: true
   items:
-    - name: Creación de un clúster de AKS
+    - name: Implementación de un clúster de AKS
       expanded: true
       items:
         - name: Uso de la CLI de Azure
@@ -252,6 +252,8 @@
           href: kubernetes-service-principal.md
         - name: Uso de identidades administradas
           href: use-managed-identity.md
+        - name: Uso de la identidad de pod de AAD (versión preliminar)
+          href: use-azure-ad-pod-identity.md
         - name: Limitación del acceso al archivo de configuración de clúster
           href: control-kubeconfig-access.md
         - name: Protección del tráfico de pod con directivas de red

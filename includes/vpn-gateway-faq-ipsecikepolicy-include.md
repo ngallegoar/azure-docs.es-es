@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 12/05/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 754a47b3692847957de7f3d666f4dc09dc309d25
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6684c4269f14b91ded651dadff3f0a2e0878a4f2
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91025397"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96025907"
 ---
 ### <a name="is-custom-ipsecike-policy-supported-on-all-azure-vpn-gateway-skus"></a>¿Se admite la directiva de IPsec o IKE personalizada en todas las SKU de Azure VPN Gateway?
 La directiva de IPsec o IKE personalizada se admite en todas las SKU de Azure, excepto la SKU básica.
 
 ### <a name="how-many-policies-can-i-specify-on-a-connection"></a>¿Cuántas directivas puedo especificar en una conexión?
-Solo se puede especificar ***una*** combinación de directivas para una conexión dada.
+No puede especificar más de ***una** _ combinación de directivas para una conexión dada.
 
 ### <a name="can-i-specify-a-partial-policy-on-a-connection-for-example-only-ike-algorithms-but-not-ipsec"></a>¿Se puede especificar una directiva parcial en una conexión? (por ejemplo, solo algoritmos IKE, pero no IPsec)
 No, es preciso especificar todos los algoritmos y parámetros de IKE (modo principal) e IPsec (modo rápido). No se permite la especificación de una directiva parcial.
@@ -27,7 +27,7 @@ No, es preciso especificar todos los algoritmos y parámetros de IKE (modo princ
 ### <a name="what-are-the-algorithms-and-key-strengths-supported-in-the-custom-policy"></a>¿Cuáles son los algoritmos y los niveles de las claves que se admiten en la directiva personalizada?
 En la tabla siguiente se enumeran los algoritmos criptográficos y los niveles de las claves admitidos que pueden configurar los clientes. Es preciso seleccionar una opción en cada campo.
 
-| **IPsec o IKEv2**  | **Opciones**                                                                   |
+| _ *IPsec/IKEv2**  | **Opciones**                                                                   |
 | ---              | ---                                                                           |
 | Cifrado IKEv2 | AES256, AES192, AES128, DES3, DES                                             |
 | Integridad de IKEv2  | SHA384, SHA256, SHA1, MD5                                                     |
@@ -107,7 +107,7 @@ El tiempo de espera de DPD predeterminado es de 45 segundos. Se puede especifica
 No. La directiva de IPsec o IKE solo funciona en conexiones entre redes virtuales a través de las puertas de enlace de VPN de Azure y VPN de S2S.
 
 ### <a name="how-do-i-create-connections-with-ikev1-or-ikev2-protocol-type"></a>Creación de conexiones con el tipo de protocolo IKEv1 o IKEv2
-Se pueden crear conexiones IKEv1 en todas las SKU de tipo VPN RouteBased, excepto la SKU básica, SKU estándar y otras [SKU heredadas](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-skus-legacy#gwsku). Puede especificar un tipo de protocolo de conexión IKEv1 o IKEv2 al crear conexiones. Si no especifica un tipo de protocolo de conexión, se utiliza IKEv2 como opción predeterminada cuando proceda. Para más información, consulte la documentación del [cmdlet de PowerShell](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworkgatewayconnection?). Para los tipos de SKU y la compatibilidad con IKEv1 y IKEv2, consulte [Conexión de puertas de enlace a dispositivos VPN basados en directivas](../articles/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md).
+Se pueden crear conexiones IKEv1 en todas las SKU de tipo VPN RouteBased, excepto la SKU básica, SKU estándar y otras [SKU heredadas](../articles/vpn-gateway/vpn-gateway-about-skus-legacy.md#gwsku). Puede especificar un tipo de protocolo de conexión IKEv1 o IKEv2 al crear conexiones. Si no especifica un tipo de protocolo de conexión, se utiliza IKEv2 como opción predeterminada cuando proceda. Para más información, consulte la documentación del [cmdlet de PowerShell](/powershell/module/az.network/new-azvirtualnetworkgatewayconnection). Para los tipos de SKU y la compatibilidad con IKEv1 y IKEv2, consulte [Conexión de puertas de enlace a dispositivos VPN basados en directivas](../articles/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md).
 
 ### <a name="is-transit-between-between-ikev1-and-ikev2-connections-allowed"></a>¿Se permite el tránsito entre las conexiones IKEv1 y IKEv2?
 Sí. Se admite el tránsito entre conexiones IKEv1 e IKEv2.

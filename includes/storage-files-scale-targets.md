@@ -2,14 +2,14 @@
 author: roygara
 ms.service: storage
 ms.topic: include
-ms.date: 05/06/2019
+ms.date: 09/16/2020
 ms.author: rogarana
-ms.openlocfilehash: a71762010984928b93c19c7256c2ba4f0fe0f64b
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: e7b7fae094ad15bc1732778b6a4a3259fb4dd3b5
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94504097"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96025889"
 ---
 | Resource | Recursos compartidos de archivos estándar\* | Recursos compartidos de archivos Prémium |
 |----------|---------------|------------------------------------------|
@@ -27,6 +27,7 @@ ms.locfileid: "94504097"
 | Longitud máxima del nombre de objeto (archivos y directorios) | 2048 caracteres | 2048 caracteres |
 | Número máximo de componentes de la ruta de acceso (en la ruta de acceso \A\B\C\D, cada letra es un componente) | 255 caracteres | 255 caracteres |
 | Límite de vínculo físico (solo NFS) | N/D | 178 |
+| Número máximo de canales de SMB multicanal | N/D | 4 |
 
 \* Los límites de los recursos compartidos de archivos estándar se aplican a los tres niveles disponibles para dichos recursos: optimizado para transacciones, acceso frecuente y acceso esporádico.
 
