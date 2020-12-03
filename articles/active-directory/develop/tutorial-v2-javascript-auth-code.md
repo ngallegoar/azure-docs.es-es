@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/17/2020
 ms.author: hahamil
 ms.custom: aaddev, devx-track-js
-ms.openlocfilehash: 6b8a9cbfd3e7057f0d85d5f4e19fea3aa4fbe90b
-ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
+ms.openlocfilehash: 79fe821e2da494ab8c9e4cb407e2c2b025f75568
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94980225"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96169110"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-app-spa-using-auth-code-flow"></a>Tutorial: Inicio de sesión de usuarios y llamada a Microsoft Graph API desde una aplicación de página única (SPA) de JavaScript mediante un flujo de código de autorización
 
@@ -351,7 +351,7 @@ Modifique los valores de la sección `graphConfig` como se describe aquí:
 
 - `Enter_the_Graph_Endpoint_Here` es la instancia de Microsoft Graph API con la que la aplicación debe comunicarse.
   - En el caso del punto de conexión de Microsoft Graph API **global**, reemplace ambas instancias de esta cadena por `https://graph.microsoft.com`.
-  - Para obtener información sobre los puntos de conexión en las implementaciones de nubes **nacionales**, consulte [Implementaciones de nube nacionales](https://docs.microsoft.com/graph/deployments) en la documentación de Microsoft Graph.
+  - Para obtener información sobre los puntos de conexión en las implementaciones de nubes **nacionales**, consulte [Implementaciones de nube nacionales](/graph/deployments) en la documentación de Microsoft Graph.
 
 Los valores `graphMeEndpoint` y `graphMailEndpoint` de *graphConfig.js* deben ser similares a los siguientes si usa el punto de conexión global:
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/14/2020
 ms.author: markvi
 ms.custom: include file
-ms.openlocfilehash: b0bc51fcd3a56af2f836377da736af3a1976463e
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 7100a28479e6c9b5e36a36e6400622793e4cd13b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93135672"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006987"
 ---
 La habilitación de una identidad administrada asignada por el sistema es una experiencia de un solo clic. Puede habilitarla durante la creación de una máquina virtual o en las propiedades de una máquina virtual existente.
 
@@ -24,4 +24,4 @@ La habilitación de una identidad administrada asignada por el sistema es una ex
 
 1. [Iniciar sesión en Azure Portal](https://portal.azure.com)
 
-2. [Crear una máquina virtual que tenga habilitada la identidad asignada por el sistema](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#system-assigned-managed-identity)
+2. [Crear una máquina virtual que tenga habilitada la identidad asignada por el sistema](../articles/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#system-assigned-managed-identity)
