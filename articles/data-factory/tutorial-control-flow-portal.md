@@ -2,8 +2,8 @@
 title: Actividades de bifurcación y encadenamiento en una canalización mediante Azure Portal
 description: Obtenga información sobre cómo controlar el flujo de datos en la canalización de Azure Data Factory mediante Azure Portal.
 services: data-factory
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: anandsub
 ms.reviewer: maghan
 ms.service: data-factory
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/11/2018
-ms.openlocfilehash: b1b766e3cb337151c5ca9b35e2040a2a47124151
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dc82cfdc4e5a063e7c5cb833b617da58023d1ba6
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91568544"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96497459"
 ---
 # <a name="branching-and-chaining-activities-in-an-azure-data-factory-pipeline-using-the-azure-portal"></a>Bifurcación y encadenamiento de actividades en una canalización de Azure Data Factory mediante Azure Portal
 
@@ -144,8 +144,8 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 3. Seleccione la **suscripción** de Azure donde desea crear la factoría de datos.
 4. Para el **grupo de recursos**, realice uno de los siguientes pasos:
 
-      - Seleccione en primer lugar **Usar existente**y después un grupo de recursos de la lista desplegable.
-      - Seleccione **Crear nuevo**y escriba el nombre de un grupo de recursos.   
+      - Seleccione en primer lugar **Usar existente** y después un grupo de recursos de la lista desplegable.
+      - Seleccione **Crear nuevo** y escriba el nombre de un grupo de recursos.   
          
         Para obtener más información sobre los grupos de recursos, consulte [Uso de grupos de recursos para administrar los recursos de Azure](../azure-resource-manager/management/overview.md).  
 4. Seleccione **V2** para la **versión**.

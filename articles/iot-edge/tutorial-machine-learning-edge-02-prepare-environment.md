@@ -8,12 +8,12 @@ ms.date: 3/12/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 3a3518ba68c9474fc4a34390e6fd9a7d1e88f6c6
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: f261db8d40e1a1cc1737ff6a3f5c50da661b73e6
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94959601"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96433473"
 ---
 # <a name="tutorial-set-up-an-environment-for-machine-learning-on-iot-edge"></a>Tutorial: Configuración de un entorno de aprendizaje automático en IoT Edge
 
@@ -39,7 +39,7 @@ La máquina virtual de desarrollo se configurará con:
 * [SDK de .NET Core](https://dotnet.microsoft.com/)
 * [Python 3](https://www.python.org/)
 * [Visual Studio Code](https://code.visualstudio.com/)
-* [Azure PowerShell](/powershell/azure/?view=azps-1.1.0)
+* [Azure PowerShell](/powershell/azure/)
 * [Extensiones de VS Code](https://marketplace.visualstudio.com/search?target=VSCode)
   * [Herramientas de Azure IoT](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
   * [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
@@ -83,7 +83,7 @@ La máquina virtual tarda unos 30 minutos en crearse y configurarse.
 
    El script se ejecuta durante varios minutos mientras realiza los pasos siguientes:
 
-    1. Instala el [módulo Az de Azure PowerShell](/powershell/azure/new-azureps-module-az?view=azps-1.1.0).
+    1. Instala el [módulo Az de Azure PowerShell](/powershell/azure/new-azureps-module-az).
     1. Le pide que inicie sesión en Azure.
     1. Confirma la información necesaria para crear la máquina virtual. Presione **y** o **ENTRAR** para continuar.
     1. Crea el grupo de recursos, en caso de que no exista.

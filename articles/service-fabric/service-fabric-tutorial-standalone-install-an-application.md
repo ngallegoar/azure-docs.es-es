@@ -4,12 +4,12 @@ description: En este tutorial aprenderá a instalar una aplicación en el clúst
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
-ms.openlocfilehash: 0b35bd02af5e1c90cac2e94d31dfca2344f3cc85
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ae946321b34f12c816a717db4a3d07f57feefe52
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91840632"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96485367"
 ---
 # <a name="tutorial-deploy-an-application-on-your-service-fabric-standalone-cluster"></a>Tutorial: implementación de una aplicación en el clúster de Service Fabric independiente
 
@@ -50,7 +50,7 @@ Una vez descargada la aplicación, puede implementarla en un clúster directamen
 
 4. Haga clic con el botón derecho en el proyecto de aplicación `Voting` en el Explorador de soluciones y elija **Publicar**
 
-5. Seleccione el **Punto de conexión** en la lista desplegable y escriba el nombre DNS público de uno de los nodos del clúster.  Por ejemplo, `ec2-34-215-183-77.us-west-2.compute.amazonaws.com:19000`. En Azure no se establece un nombre de dominio completo (FQDN) automáticamente, pero fácilmente [se establece en la página Información general de la máquina virtual](../virtual-machines/linux/portal-create-fqdn.md).
+5. Seleccione el **Punto de conexión** en la lista desplegable y escriba el nombre DNS público de uno de los nodos del clúster.  Por ejemplo, `ec2-34-215-183-77.us-west-2.compute.amazonaws.com:19000`. En Azure no se establece un nombre de dominio completo (FQDN) automáticamente, pero fácilmente [se establece en la página Información general de la máquina virtual](../virtual-machines/create-fqdn.md).
 
 6. Abra su explorador preferido y escriba la dirección del clúster (el punto de conexión, esta aplicación implementa en el puerto 8080, por ejemplo, ec2-34-215-183-77.us-west-2.compute.amazonaws.com:8080).
 

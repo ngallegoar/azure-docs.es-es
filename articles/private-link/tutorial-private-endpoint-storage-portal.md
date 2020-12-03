@@ -7,12 +7,12 @@ ms.author: allensu
 ms.service: private-link
 ms.topic: tutorial
 ms.date: 9/25/2020
-ms.openlocfilehash: 97795b2a693b68d1bd73a00f7b3e5ee3d4679545
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: eefef0eb61df9aa0597206b537f3d58e8b8b3213
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95522131"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96484828"
 ---
 # <a name="tutorial-connect-to-a-storage-account-using-an-azure-private-endpoint"></a>Tutorial: Conexión a una cuenta de almacenamiento mediante un punto de conexión privado de Azure
 
@@ -98,7 +98,7 @@ En esta sección, creará una máquina virtual que se utilizará para probar el 
    
 2. En **Crear una máquina virtual**, escriba o seleccione los valores en la pestaña **Básico**:
 
-    | Configuración | Valor                                          |
+    | Configuración | Value                                          |
     |-----------------------|----------------------------------|
     | **Detalles del proyecto** |  |
     | Suscripción | Selección de su suscripción a Azure |
@@ -119,7 +119,7 @@ En esta sección, creará una máquina virtual que se utilizará para probar el 
   
 4. En la pestaña Redes, seleccione o escriba:
 
-    | Configuración | Valor |
+    | Configuración | Value |
     |-|-|
     | **Interfaz de red** |  |
     | Virtual network | **myVNet** |
@@ -140,7 +140,7 @@ En esta sección, creará una cuenta de almacenamiento y configurará el punto d
 
 2. En la pestaña **Aspectos básicos** de la página **Crear cuenta de almacenamiento**, escriba o seleccione la información siguiente:
 
-    | Configuración | Valor                                          |
+    | Configuración | Value                                          |
     |-----------------------|----------------------------------|
     | **Detalles del proyecto** |  |
     | Suscripción | Selección de su suscripción a Azure |
@@ -160,7 +160,7 @@ En esta sección, creará una cuenta de almacenamiento y configurará el punto d
 
 6. En **Crear un punto de conexión privado**, escriba o seleccione la siguiente información:
 
-    | Configuración | Valor                                          |
+    | Configuración | Value                                          |
     |-----------------------|----------------------------------|
     | Suscripción | Selección de su suscripción a Azure |
     | Grupo de recursos | Seleccione **myResourceGroup**. |
@@ -222,7 +222,7 @@ En esta sección, utilizará la máquina virtual creada en el paso anterior para
 
     Se devuelve una dirección IP privada de **10.1.0.5** para el nombre de la cuenta de almacenamiento.  Esta dirección se encuentra en la subred de la red virtual que creó anteriormente.
 
-9. Instale el [Explorador de Microsoft Azure Storage](../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows&toc=%252fazure%252fstorage%252fblobs%252ftoc.json) en la máquina virtual.
+9. Instale el [Explorador de Microsoft Azure Storage](../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows&toc=%2fazure%2fstorage%2fblobs%2ftoc.json) en la máquina virtual.
 
 10. Seleccione **Finalizar** después de instalar el **Explorador de Microsoft Azure Storage**.  Deje activada la casilla para abrir la aplicación.
 

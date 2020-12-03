@@ -13,12 +13,12 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 10/11/2017
 ms.author: routlaw
-ms.openlocfilehash: 48fc9f7e021ba5158182344ddfdba3c8eafaf781
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 54ef051b7d8778e2eecd85bef2e57b62239ba114
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94659223"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96435321"
 ---
 # <a name="install-the-elastic-stack-on-an-azure-vm"></a>Instalación de Elastic Stack en una máquina virtual de Azure
 
@@ -35,9 +35,9 @@ En este tutorial, aprenderá a:
 
  Esta implementación es adecuada para el desarrollo básico con Elastic Stack. Para más información acerca de Elastic Stack, incluidas recomendaciones para un entorno de producción, consulte la [documentación de Elastic](https://www.elastic.co/guide/index.html) y [Azure Architecture Center](/azure/architecture/elasticsearch/).
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
-Si decide instalar y usar la CLI localmente, para este tutorial es preciso que ejecute la CLI de Azure versión 2.0.4 o posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure]( /cli/azure/install-azure-cli). 
+- En este artículo se necesita la versión 2.0.4 de la CLI de Azure, o cualquier versión posterior. Si usa Azure Cloud Shell, ya está instalada la versión más reciente.
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 

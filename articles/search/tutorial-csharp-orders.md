@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 10/02/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 5fe8bf70374a2eec639a0a9365f7d227cf259d06
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.openlocfilehash: 5a55a330f6f4fefb86f2c056cd0ca3b2ba5f4b29
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91667255"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499601"
 ---
 # <a name="tutorial-order-search-results-using-the-net-sdk"></a>Tutorial: Ordenación de los resultados de búsqueda mediante el SDK de .NET
 
@@ -965,7 +965,7 @@ Veamos tres ejemplos de perfiles de puntuación y consideremos cómo cada uno _d
 
 ### <a name="resources"></a>Recursos
 
-Para más información, consulte el siguiente tema [Incorporación de perfiles de puntuación a un índice de Azure Cognitive Search](/azure/search/index-add-scoring-profiles).
+Para más información, consulte el siguiente tema [Incorporación de perfiles de puntuación a un índice de Azure Cognitive Search](./index-add-scoring-profiles.md).
 
 ## <a name="takeaways"></a>Puntos clave
 

@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 01/11/2019
 ms.author: gwallace
 ms.custom: mvc, devcenter, devx-track-azurecli
-ms.openlocfilehash: b02c16c63d83fc33be5512d26eafb0ca0d6c9b98
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 54ac7b27ada62a969dd40428fd9a753bb5a99530
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93145895"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499839"
 ---
 # <a name="tutorial-deploy-an-application-to-service-fabric-mesh-using-a-template"></a>Tutorial: implementar una aplicación en Service Fabric Mesh mediante una plantilla
 
@@ -107,7 +107,7 @@ Para insertar una imagen en una instancia de ACR, primero debe tener una imagen 
 >[!NOTE]
 > Desde el 2 de noviembre de 2020, [se aplican límites de frecuencia de descarga](https://docs.docker.com/docker-hub/download-rate-limit/) a las solicitudes anónimas y autenticadas a Docker Hub desde las cuentas del plan gratuito de Docker. Estos se aplican por la dirección IP. 
 > 
-> Estos comandos utilizan imágenes públicas de Docker Hub. Tenga en cuenta que puede tener una limitación de frecuencia. Para obtener más información, consulte [Autenticación con Docker Hub](https://docs.microsoft.com/azure/container-registry/buffer-gate-public-content#authenticate-with-docker-hub).
+> Estos comandos utilizan imágenes públicas de Docker Hub. Tenga en cuenta que puede tener una limitación de frecuencia. Para obtener más información, consulte [Autenticación con Docker Hub](../container-registry/buffer-gate-public-content.md#authenticate-with-docker-hub).
 
 Extraiga las imágenes de Windows:
 

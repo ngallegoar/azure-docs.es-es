@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 08/28/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to add and connect to shares on Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: cd288926e6f7a3f454be2788479b5c9d414b167a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 68cac756a3c84d0360d475a4bf88a392e3961f1d
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91440287"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96447558"
 ---
 # <a name="tutorial-transfer-data-via-shares-with-azure-stack-edge-pro-gpu"></a>Tutorial: Transferencia de datos a través de recursos compartidos de Azure Stack Edge Pro con GPU
 
@@ -66,7 +66,7 @@ Para crear un recurso compartido, realice el procedimiento siguiente:
     El tipo de servicio que seleccione dependerá del formato que quiere que usen los datos en Azure. En este ejemplo, como queremos almacenar los datos como blobs en bloques en Azure, seleccionamos **Blob en bloques**. Si selecciona **Blob en páginas**, asegúrese de que los datos tienen una alineación de 512 bytes. Por ejemplo, un VHDX siempre tiene una alineación de 512 bytes.
 
    > [!IMPORTANT]
-   > Asegúrese de que la cuenta de Azure Storage que usa no tiene directivas de inmutabilidad establecidas si la usa con un dispositivo de Azure Stack Edge Pro o Data Box Gateway. Para más información, consulte [Establecimiento y administración de directivas de inmutabilidad para el almacenamiento de blobs](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage).
+   > Asegúrese de que la cuenta de Azure Storage que usa no tiene directivas de inmutabilidad establecidas si la usa con un dispositivo de Azure Stack Edge Pro o Data Box Gateway. Para más información, consulte [Establecimiento y administración de directivas de inmutabilidad para el almacenamiento de blobs](../storage/blobs/storage-blob-immutability-policies-manage.md).
 
     e. Cree un nuevo contenedor de blobs o use uno ya existente de la lista desplegable. Si crea un contenedor de blobs, proporcione un nombre para este. Si todavía no existe un contenedor, se crea en la cuenta de almacenamiento con el nombre del recurso compartido recién creado.
    
@@ -198,5 +198,3 @@ Para aprender a transformar los datos mediante Azure Stack Edge Pro, pase al sig
 
 > [!div class="nextstepaction"]
 > [Transformación de datos con Azure Stack Edge Pro](./azure-stack-edge-j-series-deploy-configure-compute.md)
-
-

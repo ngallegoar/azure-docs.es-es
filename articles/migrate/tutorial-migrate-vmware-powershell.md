@@ -7,12 +7,12 @@ manager: bsiva
 ms.topic: tutorial
 ms.date: 10/1/2020
 ms.author: rahugup
-ms.openlocfilehash: 185979fcc0eeaebbe1c3b09d74050e05899737af
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 3cd8d29a498a6a00fa8fff679afc969b339934b1
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93376806"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96494348"
 ---
 # <a name="migrate-vmware-vms-to-azure-agentless---powershell"></a>Migración de máquinas virtuales de VMware a Azure (sin agente): PowerShell
 
@@ -38,7 +38,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 Antes de comenzar este tutorial, debe:
 
 1. [Complete el tutorial de detección](tutorial-discover-vmware.md) para preparar Azure y VMware para la migración.
-2. Se recomienda completar el segundo tutorial para [evaluar las máquinas virtuales de VMware](tutorial-assess-vmware.md) antes de migrarlas a Azure.
+2. Se recomienda completar el segundo tutorial para [evaluar las máquinas virtuales de VMware](./tutorial-assess-vmware-azure-vm.md) antes de migrarlas a Azure.
 3. Tiene el módulo `Az` de Azure PowerShell. Si necesita instalar o actualizar Azure PowerShell, siga esta [guía para instalar y configurar Azure PowerShell](/powershell/azure/install-az-ps).
 
 ## <a name="install-azure-migrate-powershell-module"></a>Instalación del módulo de PowerShell de Azure Migrate
@@ -480,11 +480,8 @@ Write-Output $StopReplicationJob.State
     - Mantenga las cargas de trabajo en ejecución y disponibles continuamente mediante la replicación de máquinas virtuales de Azure en una región secundaria con Site Recovery. [Más información](../site-recovery/azure-to-azure-tutorial-enable-replication.md).
 - Para aumentar la seguridad:
     - Bloquee y limite el acceso de tráfico de entrada con la [administración Just-In-Time de Azure Security Center](../security-center/security-center-just-in-time.md).
-    - Restrinja el tráfico de red a los puntos de conexión de administración con [grupos de seguridad de red](../virtual-network/security-overview.md).
+    - Restrinja el tráfico de red a los puntos de conexión de administración con [grupos de seguridad de red](../virtual-network/network-security-groups-overview.md).
     - Implemente [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md) para ayudar a proteger discos y datos frente al robo y acceso no autorizado.
     - Obtenga más información sobre la [protección de recursos IaaS](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/) y visite [Azure Security Center](https://azure.microsoft.com/services/security-center/).
 - Para supervisión y administración:
 -  Considere la posibilidad de implementar [Azure Cost Management](../cost-management-billing/cloudyn/overview.md) para supervisar el gasto y el uso de recursos.
-
-
-

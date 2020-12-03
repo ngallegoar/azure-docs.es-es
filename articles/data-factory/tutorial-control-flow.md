@@ -2,8 +2,8 @@
 title: Bifurcación de la canalización de Azure Data Factory
 description: Obtenga información sobre cómo controlar el flujo de datos en Azure Data Factory mediante la bifurcación y el encadenamiento de actividades.
 services: data-factory
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: anandsub
 ms.reviewer: maghan
 ms.service: data-factory
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 9/27/2019
-ms.openlocfilehash: 0a6fc68ddcb86c7ba768f59519cfb4273d381fab
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: ab7d17ee61d733483b6d3573e9bd69b1628c7940
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637707"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96496966"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Actividades de bifurcación y encadenamiento en una canalización de Data Factory
 
@@ -73,14 +73,14 @@ Cree una aplicación tal como se describe en [Creación de una aplicación de Az
 Cree una aplicación de consola .NET de C#:
 
 1. Inicie Visual Studio y seleccione **Crear un proyecto**.
-1. En **Crear un proyecto** , elija **Aplicación de consola (.NET Framework)** para C# y seleccione **Siguiente**.
+1. En **Crear un proyecto**, elija **Aplicación de consola (.NET Framework)** para C# y seleccione **Siguiente**.
 1. Asigne al proyecto el nombre *ADFv2BranchTutorial*.
 1. Seleccione **Versión de .NET 4.5.2** o superior y, a continuación, seleccione **Crear**.
 
 ### <a name="install-nuget-packages"></a>Instalación de paquetes NuGet
 
 1. Seleccione **Herramientas** > **Administrador de paquetes NuGet** > **Consola del Administrador de paquetes**.
-1. En la **Consola del Administrador de paquetes** , ejecute los comandos siguientes para instalar los paquetes. Consulte el [paquete NuGet Microsoft.Azure.Management.DataFactory](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactory/) para ver los detalles.
+1. En la **Consola del Administrador de paquetes**, ejecute los comandos siguientes para instalar los paquetes. Consulte el [paquete NuGet Microsoft.Azure.Management.DataFactory](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactory/) para ver los detalles.
 
    ```powershell
    Install-Package Microsoft.Azure.Management.DataFactory
@@ -148,7 +148,7 @@ Cree una aplicación de consola .NET de C#:
 
 ### <a name="create-a-data-factory"></a>Crear una factoría de datos
 
-1. Agregue un método `CreateOrUpdateDataFactory` al archivo *Program.cs* :
+1. Agregue un método `CreateOrUpdateDataFactory` al archivo *Program.cs*:
 
    ```csharp
    static Factory CreateOrUpdateDataFactory(DataFactoryManagementClient client)
@@ -181,7 +181,7 @@ Cree una aplicación de consola .NET de C#:
 
 ## <a name="create-an-azure-storage-linked-service"></a>Creación de un servicio vinculado de Azure Storage
 
-1. Agregue un método `StorageLinkedServiceDefinition` al archivo *Program.cs* :
+1. Agregue un método `StorageLinkedServiceDefinition` al archivo *Program.cs*:
 
    ```csharp
    static LinkedServiceResource StorageLinkedServiceDefinition(DataFactoryManagementClient client)
@@ -213,7 +213,7 @@ En esta sección se crean dos conjuntos de datos: uno para el origen y otro para
 
 Agregue un método que cree un *conjunto de datos de blob de Azure*. Para más información acerca de las propiedades admitidas y sus detalles, consulte [Propiedades del conjunto de datos de blob de Azure](connector-azure-blob-storage.md#dataset-properties).
 
-Agregue un método `SourceBlobDatasetDefinition` al archivo *Program.cs* :
+Agregue un método `SourceBlobDatasetDefinition` al archivo *Program.cs*:
 
 ```csharp
 static DatasetResource SourceBlobDatasetDefinition(DataFactoryManagementClient client)
@@ -240,7 +240,7 @@ Tenga en cuenta el uso de los parámetros en *FolderPath*. `sourceBlobContainer`
 
 ### <a name="create-a-dataset-for-a-sink-azure-blob"></a>Creación de un conjunto de datos para un blob de Azure receptor
 
-1. Agregue un método `SourceBlobDatasetDefinition` al archivo *Program.cs* :
+1. Agregue un método `SourceBlobDatasetDefinition` al archivo *Program.cs*:
 
    ```csharp
    static DatasetResource SinkBlobDatasetDefinition(DataFactoryManagementClient client)
@@ -336,7 +336,7 @@ El flujo de trabajo tiene un aspecto similar al del ejemplo siguiente:
 
 Este contenido JSON se corresponde con la clase `EmailRequest` creada en la sección anterior.
 
-Agregue una acción `Office 365 Outlook – Send an email`. Para la acción **Enviar un correo electrónico** , personalice el formato del correo electrónico. Para ello, use las propiedades que se pasan en el esquema JSON del **Cuerpo** de solicitud. Este es un ejemplo:
+Agregue una acción `Office 365 Outlook – Send an email`. Para la acción **Enviar un correo electrónico**, personalice el formato del correo electrónico. Para ello, use las propiedades que se pasan en el esquema JSON del **Cuerpo** de solicitud. Este es un ejemplo:
 
 ![Diseñador de aplicación lógica: acción de envío de correo electrónico](media/tutorial-control-flow/customize-send-email-action.png)
 
@@ -597,7 +597,7 @@ Compile y ejecute su programa para desencadenar una ejecución de canalización.
 
 Compile e inicie la aplicación y, a continuación, compruebe la ejecución de la canalización.
 
-La aplicación muestra el progreso de la creación de la factoría de datos, el servicio vinculado, los conjuntos de datos, la canalización y la ejecución de la canalización. A continuación, comprueba el estado de la ejecución de canalización. Espere hasta que vea los detalles de ejecución de actividad de copia con el tamaño de los datos leídos/escritos. A continuación, use herramientas como el Explorador de Azure Storage para comprobar que los blobs se copian a *outputBlobPath* desde *inputBlobPath* , como se especificó en las variables.
+La aplicación muestra el progreso de la creación de la factoría de datos, el servicio vinculado, los conjuntos de datos, la canalización y la ejecución de la canalización. A continuación, comprueba el estado de la ejecución de canalización. Espere hasta que vea los detalles de ejecución de actividad de copia con el tamaño de los datos leídos/escritos. A continuación, use herramientas como el Explorador de Azure Storage para comprobar que los blobs se copian a *outputBlobPath* desde *inputBlobPath*, como se especificó en las variables.
 
 La salida debe ser similar al siguiente ejemplo:
 

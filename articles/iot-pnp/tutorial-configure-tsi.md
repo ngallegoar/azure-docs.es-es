@@ -7,16 +7,16 @@ ms.date: 10/14/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: ca2319a78fb4c0c720a21e97944d5b75ada9d008
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: ad5c6f205fc832eb125e52b4135990fc58742e62
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96015033"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96453248"
 ---
 # <a name="preview-tutorial-create-and-connect-to-time-series-insights-gen2-to-store-visualize-and-analyze-iot-plug-and-play-device-telemetry"></a>Tutorial de la versión preliminar: Creación de un entorno de Time Series Insights Gen2 y conexión a este para almacenar, visualizar y analizar la telemetría de dispositivos IoT Plug and Play
 
-En este tutorial, aprenderá a crear y configurar correctamente un entorno de [Azure Time Series Insights Gen2](https://docs.microsoft.com/azure/time-series-insights/overview-what-is-tsi) (TSI) para integrarlo con su solución IoT Plug and Play. Con TSI, puede recopilar, procesar, almacenar, consultar y visualizar datos de serie temporal en la escala de Internet de las cosas (IoT).
+En este tutorial, aprenderá a crear y configurar correctamente un entorno de [Azure Time Series Insights Gen2](../time-series-insights/overview-what-is-tsi.md) (TSI) para integrarlo con su solución IoT Plug and Play. Con TSI, puede recopilar, procesar, almacenar, consultar y visualizar datos de serie temporal en la escala de Internet de las cosas (IoT).
 
 En primer lugar, se aprovisiona un entorno de TSI y se conecta el centro de IoT como origen de eventos de transmisión. Luego, se trabaja en la sincronización del modelo para crear el [modelo de serie temporal](../time-series-insights/concepts-model-overview.md) según los archivos del modelo de ejemplo del [lenguaje de definición de Digital Twins (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl) que se usaron para los dispositivos de controlador de temperatura y termostato.
 
@@ -39,7 +39,7 @@ Para evitar el requisito de instalar la CLI de Azure localmente, puede usar Azur
 
 ## <a name="prepare-your-event-source"></a>Preparación del origen del evento
 
-El centro de IoT que creó anteriormente será el [origen de eventos](https://docs.microsoft.com/azure/time-series-insights/concepts-streaming-ingestion-event-sources) del entorno de TSI.
+El centro de IoT que creó anteriormente será el [origen de eventos](../time-series-insights/concepts-streaming-ingestion-event-sources.md) del entorno de TSI.
 
 > [!IMPORTANT]
 > Deshabilite las rutas de IoT Hub existentes. Existe un problema conocido que surge cuando se usa un centro de IoT como origen de eventos de TSI con [enrutamiento](../iot-hub/iot-hub-devguide-messages-d2c.md#routing-endpoints) configurado. Deshabilite temporalmente los puntos de conexión de enrutamiento; cuando el centro de IoT esté conectado a TSI, podrá volver a habilitarlos.
@@ -67,7 +67,7 @@ En esta sección se describe cómo aprovisionar el entorno de Azure Time Series 
 
 El siguiente comando:
 
-* Crea una cuenta de almacenamiento de Azure para el [almacenamiento en frío](https://docs.microsoft.com/azure/time-series-insights/concepts-storage#cold-store) del entorno, diseñado para la retención a largo plazo y el análisis de los datos históricos.
+* Crea una cuenta de almacenamiento de Azure para el [almacenamiento en frío](../time-series-insights/concepts-storage.md#cold-store) del entorno, diseñado para la retención a largo plazo y el análisis de los datos históricos.
   * Sustituya `mytsicoldstore` por un nombre único para la cuenta de almacenamiento en frío.
 * Crea un entorno de Azure Time Series Insights Gen2, que incluye almacenamiento intermedio, con un período de retención de siete días, y almacenamiento en frío, para una retención infinita.
   * Reemplace `my-tsi-env` por un nombre único para el entorno de TSI.

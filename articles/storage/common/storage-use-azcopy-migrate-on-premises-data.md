@@ -8,12 +8,12 @@ ms.date: 05/14/2019
 ms.author: normesta
 ms.reviewer: seguler
 ms.subservice: common
-ms.openlocfilehash: 154a7b17fc09c55e83b65eef8d479904c36e87eb
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: eddee58d70cf621bd6c82d54fe75434f4e596d9e
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791195"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498173"
 ---
 #  <a name="tutorial-migrate-on-premises-data-to-cloud-storage-with-azcopy"></a>Tutorial: Migración de datos locales a un almacenamiento en la nube con AzCopy
 
@@ -176,7 +176,7 @@ Para asegurarse de que la tarea programada o el trabajo cron se ejecutan correct
 
 Para más información sobre las formas de mover datos locales a Azure Storage y viceversa, siga este vínculo:
 
-* [Movimiento de datos hacia Azure Storage y desde este](./storage-choose-data-transfer-solution.md?toc=%252fazure%252fstorage%252ffiles%252ftoc.json)  
+* [Movimiento de datos hacia Azure Storage y desde este](./storage-choose-data-transfer-solution.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)  
 
 Para más información sobre AzCopy, consulte cualquiera de estos artículos:
 

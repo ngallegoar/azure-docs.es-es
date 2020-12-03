@@ -12,12 +12,12 @@ ms.custom:
 - mqtt
 - devx-track-azurecli
 - devx-track-csharp
-ms.openlocfilehash: d59e37cdcb6f530b08e980cf75d8834aed332252
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: a16dbeedc2362f4a263d59a673dbb4358f7ba034
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93315198"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436494"
 ---
 # <a name="tutorial-set-up-and-use-metrics-and-logs-with-an-iot-hub"></a>Tutorial: Configuración y uso de métricas y registros con un centro de IoT
 
@@ -42,9 +42,9 @@ En este tutorial se realizan las siguientes tareas:
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Suscripción a Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
+- Suscripción a Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-* Necesita el SDK de .NET Core 2.1, o una versión posterior, en la máquina de desarrollo. Puede descargar el SDK de .NET Core para varias plataformas desde [.NET](https://www.microsoft.com/net/download/all).
+- Necesita el SDK de .NET Core 2.1, o una versión posterior, en la máquina de desarrollo. Puede descargar el SDK de .NET Core para varias plataformas desde [.NET](https://www.microsoft.com/net/download/all).
 
   Puede verificar la versión actual de C# en el equipo de desarrollo con el comando siguiente:
 
@@ -52,11 +52,11 @@ En este tutorial se realizan las siguientes tareas:
   dotnet --version
   ```
 
-* Una cuenta de correo electrónico capaz de recibir correo electrónico.
+- Una cuenta de correo electrónico capaz de recibir correo electrónico.
 
-* Asegúrese de que está abierto el puerto 8883 del firewall. En el dispositivos de ejemplo de este tutorial se usa el protocolo MQTT, que se comunica mediante el puerto 8883. Este puerto puede estar bloqueado en algunos entornos de red corporativos y educativos. Para más información y para saber cómo solucionar este problema, consulte el artículo sobre la [conexión a IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+- Asegúrese de que está abierto el puerto 8883 del firewall. En el dispositivos de ejemplo de este tutorial se usa el protocolo MQTT, que se comunica mediante el puerto 8883. Este puerto puede estar bloqueado en algunos entornos de red corporativos y educativos. Para más información y para saber cómo solucionar este problema, consulte el artículo sobre la [conexión a IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 ## <a name="set-up-resources"></a>Configuración de recursos
 

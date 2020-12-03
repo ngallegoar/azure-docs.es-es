@@ -3,12 +3,12 @@ title: 'Tutorial de grabación de vídeo basada en eventos en la nube y reproduc
 description: En este tutorial, obtendrá información sobre cómo usar Azure Live Video Analytics en Azure IoT Edge para realizar una grabación de vídeo basada en eventos en la nube y reproducirla desde la nube.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: 03c97854673b369db9fe1cb026161a1e81a6bf31
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 84f6ef813fb1b2cc425e096212010717d0561aef
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93346662"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498309"
 ---
 # <a name="tutorial-event-based-video-recording-to-the-cloud-and-playback-from-the-cloud"></a>Tutorial: Grabación de vídeo basada en eventos en la nube y reproducción desde la nube
 
@@ -52,7 +52,7 @@ Al final de estos pasos, tendrá los recursos de Azure correspondientes implemen
 * Azure IoT Hub
 * Cuenta de Azure Storage
 * Cuenta de Azure Media Services
-* Máquina virtual Linux en Azure, con el [entorno de ejecución de Azure IoT Edge](../../iot-edge/how-to-install-iot-edge-linux.md) instalado
+* Máquina virtual Linux en Azure, con el [entorno de ejecución de Azure IoT Edge](../../iot-edge/how-to-install-iot-edge.md) instalado
 
 ## <a name="concepts"></a>Conceptos
 
@@ -424,4 +424,4 @@ Si va a probar los otros tutoriales, debe mantener los recursos creados. En caso
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Use una [cámara IP](https://en.wikipedia.org/wiki/IP_camera) compatible con RTSP en lugar de utilizar el simulador RTSP. Puede buscar cámaras IP con compatibilidad con RTSP en la página de productos [compatibles con ONVIF](https://www.onvif.org/conformant-products/), buscando dispositivos que cumplan con los perfiles G, S o T.
-* Use un dispositivo Linux AMD64 o x64 (en lugar de usar una máquina virtual Linux de Azure). El dispositivo debe estar en la misma red que la cámara IP. Siga las instrucciones de [Instalación del entorno de ejecución de Azure IoT Edge en Linux](../../iot-edge/how-to-install-iot-edge-linux.md). A continuación, siga las instrucciones de la guía de inicio rápido [Implementación del primer módulo IoT Edge en un dispositivo virtual Linux](../../iot-edge/quickstart-linux.md) para registrar el dispositivo en Azure IoT Hub.
+* Use un dispositivo Linux AMD64 o x64 (en lugar de usar una máquina virtual Linux de Azure). El dispositivo debe estar en la misma red que la cámara IP. Siga las instrucciones de [Instalación del entorno de ejecución de Azure IoT Edge en Linux](../../iot-edge/how-to-install-iot-edge.md). A continuación, siga las instrucciones de la guía de inicio rápido [Implementación del primer módulo IoT Edge en un dispositivo virtual Linux](../../iot-edge/quickstart-linux.md) para registrar el dispositivo en Azure IoT Hub.

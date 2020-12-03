@@ -7,12 +7,12 @@ ms.author: allensu
 ms.service: private-link
 ms.topic: tutorial
 ms.date: 9/25/2020
-ms.openlocfilehash: a544d0c5fafbdaf9d272fed552fb38eda613292f
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: c9866ac2c14e4deb29326ffdd1a93a7d8eae1ea3
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95522148"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96484811"
 ---
 # <a name="tutorial-connect-to-an-azure-cosmos-account-using-an-azure-private-endpoint"></a>Tutorial: Conexión a una cuenta de Azure Cosmos mediante un punto de conexión privado de Azure
 
@@ -97,7 +97,7 @@ En esta sección, creará una máquina virtual que se utilizará para probar el 
    
 2. En **Crear una máquina virtual**, escriba o seleccione los valores en la pestaña **Básico**:
 
-    | Configuración | Valor                                          |
+    | Configuración | Value                                          |
     |-----------------------|----------------------------------|
     | **Detalles del proyecto** |  |
     | Suscripción | Selección de su suscripción a Azure |
@@ -118,7 +118,7 @@ En esta sección, creará una máquina virtual que se utilizará para probar el 
   
 4. En la pestaña Redes, seleccione o escriba:
 
-    | Configuración | Valor |
+    | Configuración | Value |
     |-|-|
     | **Interfaz de red** |  |
     | Virtual network | **myVNet** |
@@ -139,7 +139,7 @@ En esta sección creará una cuenta de Cosmos DB y configurará el punto de con
 
 2. En la pestaña **Aspectos básicos** de la página **Crear cuenta de Cosmos DB**, escriba o seleccione la información siguiente:
 
-    | Parámetro | Valor                                          |
+    | Parámetro | Value                                          |
     |-----------------------|----------------------------------|
     | **Detalles del proyecto** |  |
     | Suscripción | Seleccione su suscripción a Azure. |
@@ -169,7 +169,7 @@ En esta sección creará una cuenta de Cosmos DB y configurará el punto de con
 
 6. En **Crear un punto de conexión privado**, escriba o seleccione la siguiente información:
 
-    | Configuración | Valor                                          |
+    | Configuración | Value                                          |
     |-----------------------|----------------------------------|
     | Suscripción | Selección de su suscripción a Azure |
     | Grupo de recursos | Seleccione **myResourceGroup**. |
@@ -199,7 +199,7 @@ En esta sección creará una cuenta de Cosmos DB y configurará el punto de con
 
 4. En **Agregar contenedor**, escriba o seleccione la siguiente información:
 
-    | Parámetro | Valor |
+    | Parámetro | Value |
     | ------- | ----- |
     | Identificador de base de datos | Deje el valor **Crear nuevo** predeterminado. </br> Escriba **mydatabaseid** en el cuadro de texto. |
     | Rendimiento (400-100 000 RU/s) | Deje el valor **Manual** predeterminado. </br> Escriba **400** en el cuadro de texto. |
@@ -248,7 +248,7 @@ En esta sección utilizará la máquina virtual creada en el paso anterior para 
 
     Se devuelve una dirección IP privada de **10.1.0.5** para el nombre de la cuenta de Cosmos DB.  Esta dirección se encuentra en la subred de la red virtual que creó anteriormente.
 
-9. Instale el [Explorador de Microsoft Azure Storage](../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows&toc=%252fazure%252fstorage%252fblobs%252ftoc.json) en la máquina virtual.
+9. Instale el [Explorador de Microsoft Azure Storage](../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows&toc=%2fazure%2fstorage%2fblobs%2ftoc.json) en la máquina virtual.
 
 10. Seleccione **Finalizar** después de instalar el **Explorador de Microsoft Azure Storage**.  Deje activada la casilla para abrir la aplicación.
 

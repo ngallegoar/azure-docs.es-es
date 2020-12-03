@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to add and connect to shares on Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: aeb5bceca11f595c1582596aeea401fe5f9b239f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 64fe65019a66013323b1c6d27055051badb47cee
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90883469"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350320"
 ---
 # <a name="tutorial-transfer-data-with-azure-stack-edge-pro"></a>Tutorial: Transferencia de datos con Azure Stack Edge Pro
 
@@ -62,7 +62,7 @@ Para crear un recurso compartido, realice el procedimiento siguiente:
     c. Proporcione una cuenta de almacenamiento donde residirá el recurso compartido. 
 
     > [!IMPORTANT]
-    > Asegúrese de que la cuenta de Azure Storage que usa no tiene directivas de inmutabilidad establecidas si la usa con un dispositivo de Azure Stack Edge Pro o Data Box Gateway. Para más información, consulte [Establecimiento y administración de directivas de inmutabilidad para el almacenamiento de blobs](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage).
+    > Asegúrese de que la cuenta de Azure Storage que usa no tiene directivas de inmutabilidad establecidas si la usa con un dispositivo de Azure Stack Edge Pro o Data Box Gateway. Para más información, consulte [Establecimiento y administración de directivas de inmutabilidad para el almacenamiento de blobs](../storage/blobs/storage-blob-immutability-policies-manage.md).
     
     d. En la lista desplegable **Servicio de almacenamiento**, seleccione **Blob en bloques**, **Blob en páginas** o **Archivos**.  
     El tipo de servicio que seleccione dependerá del formato que quiere que usen los datos en Azure. En este ejemplo, como queremos almacenar los datos como blobs en bloques en Azure, seleccionamos **Blob en bloques**. Si selecciona **Blob en páginas**, asegúrese de que los datos tienen una alineación de 512 bytes. Por ejemplo, un VHDX siempre tiene una alineación de 512 bytes.
@@ -162,5 +162,3 @@ Para aprender a transformar los datos mediante Azure Stack Edge Pro, pase al sig
 
 > [!div class="nextstepaction"]
 > [Transformación de datos con Azure Stack Edge Pro](./azure-stack-edge-deploy-configure-compute.md)
-
-

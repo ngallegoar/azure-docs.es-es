@@ -6,12 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: tutorial
 ms.date: 10/18/2020
-ms.openlocfilehash: 93bbd84c25f02ac1653a46ebb4a70c1dfa90c744
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: c8a5b682e2ac4879d2181bdb069cf554bad512d9
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94686393"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498292"
 ---
 # <a name="tutorial-use-customer-managed-keys-or-byok-with-media-services-rest-api"></a>Tutorial: Uso de claves administradas por el cliente o BYOK con la API REST de Media Services
 
@@ -43,8 +43,8 @@ Si no tiene ninguna suscripción a Azure, [cree una cuenta de evaluación gratui
 
 ### <a name="register-a-service-principal-with-the-needed-permissions"></a>Registro de una entidad de servicio con los permisos necesarios
 
-1. [Cree una entidad de servicio](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
-1. Vaya a [Opción 2: Creación de un secreto de aplicación](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#authentication-two-options) para obtener el secreto de la entidad de servicio.
+1. [Cree una entidad de servicio](../../active-directory/develop/howto-create-service-principal-portal.md).
+1. Vaya a [Opción 2: Creación de un secreto de aplicación](../../active-directory/develop/howto-create-service-principal-portal.md#authentication-two-options) para obtener el secreto de la entidad de servicio.
 
    > [!IMPORTANT]
    >Copie y guarde el secreto para usarlo más tarde. Después de salir de la página del secreto en el portal, no se podrá acceder al secreto.

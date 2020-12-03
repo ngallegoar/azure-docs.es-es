@@ -5,13 +5,13 @@ author: cherylmc
 ms.author: cherylmc
 ms.service: vpn-gateway
 ms.topic: tutorial
-ms.date: 10/23/2020
-ms.openlocfilehash: 74000322372652b90e0d0db07d687f8e57c4f88e
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.date: 12/01/2020
+ms.openlocfilehash: e2df34b7897ee2543d967d147317859ab26971e9
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92518252"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96510497"
 ---
 # <a name="tutorial-create-and-manage-a-vpn-gateway-using-azure-portal"></a>Tutorial: Creación y administración de una puerta de enlace de VPN mediante Azure Portal
 
@@ -28,7 +28,7 @@ En este tutorial, aprenderá a:
 
 En el siguiente diagrama se muestran la red virtual y la puerta de enlace de VPN creadas como parte de este tutorial.
 
-:::image type="content" source="./media/tutorial-create-gateway-portal/gateway-diagram.png" alt-text="Diagrama de VNET y VPN Gateway":::
+:::image type="content" source="./media/tutorial-create-gateway-portal/gateway-diagram.png" alt-text="Diagrama de VNet y VPN Gateway":::
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -61,9 +61,9 @@ Cree una puerta de enlace de red virtual con los siguientes valores:
 * **Generación:** Generación 1
 * **Red virtual:** VNet1
 * **Intervalo de direcciones de subred de puerta de enlace:** 10.1.255.0/27
-* **Dirección IP pública** : Crear nuevo
+* **Dirección IP pública**: Crear nuevo
 * **Dirección IP pública:** VNet1GWpip
-* **Habilitación del modo activo-activo:** Disabled
+* **Habilitar el modo activo-activo:** Disabled
 * **Configuración de BGP:** Disabled
 
 [!INCLUDE [Create a vpn gateway](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]

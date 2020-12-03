@@ -4,12 +4,12 @@ description: Creación de una función de PowerShell sin servidor desencadenada 
 ms.topic: tutorial
 ms.date: 06/10/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: ec4b2273f6be6ea4aabed2b660e0b7553f861d0d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7b94d583ca26b88d093810528d3193f20d765f1d
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89072050"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349255"
 ---
 # <a name="tutorial-use-an-http-triggered-azure-function-to-create-a-container-group"></a>Tutorial: Uso de una función de Azure desencadenada por HTTP para crear un grupo de contenedores
 
@@ -27,13 +27,13 @@ Aprenderá a:
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para saber cuáles son los requisitos previos para instalar y usar Visual Studio Code con la extensión de Azure Functions en su sistema operativo, consulte [Creación de su primera función en Azure con Visual Studio Code](../azure-functions/functions-create-first-function-vs-code.md?pivots=programming-language-powershell#configure-your-environment).
+Para saber cuáles son los requisitos previos para instalar y usar Visual Studio Code con la extensión de Azure Functions en su sistema operativo, consulte [Creación de su primera función en Azure con Visual Studio Code](../azure-functions/create-first-function-vs-code-csharp.md?pivots=programming-language-powershell#configure-your-environment).
 
 En los pasos adicionales de este artículo se usa Azure PowerShell. Si necesita instalar o actualizar, consulte [Instalación de Azure PowerShell][azure-powershell-install] e [Inicio de sesión en Azure](/powershell/azure/get-started-azureps#sign-in-to-azure).
 
 ## <a name="create-a-basic-powershell-function"></a>Creación de una función básica de PowerShell
 
-Siga los pasos de [Creación de la primera función de PowerShell en Azure](../azure-functions/functions-create-first-function-vs-code.md?pivots=programming-language-powershell) para crear una función de PowerShell mediante la plantilla Desencadenador de HTTP. Use el nombre predeterminado de la función de Azure, **HttpTrigger**. Como se muestra en el inicio rápido, pruebe la función localmente y publique el proyecto en una aplicación de funciones en Azure. Este ejemplo es una función básica desencadenada por HTTP que devuelve una cadena de texto. En pasos posteriores de este artículo, se modificará la función para crear un grupo de contenedores.
+Siga los pasos de [Creación de la primera función de PowerShell en Azure](../azure-functions/create-first-function-vs-code-csharp.md?pivots=programming-language-powershell) para crear una función de PowerShell mediante la plantilla Desencadenador de HTTP. Use el nombre predeterminado de la función de Azure, **HttpTrigger**. Como se muestra en el inicio rápido, pruebe la función localmente y publique el proyecto en una aplicación de funciones en Azure. Este ejemplo es una función básica desencadenada por HTTP que devuelve una cadena de texto. En pasos posteriores de este artículo, se modificará la función para crear un grupo de contenedores.
 
 En este artículo se supone que publica el proyecto con el nombre *myfunctionapp* en un grupo de recursos de Azure al que se asigna nombre automáticamente según el nombre de la aplicación de funciones (también *myfunctionapp*). Más adelante tendrá que sustituir tanto el nombre único de la aplicación de funciones como el nombre del grupo de recursos.
 

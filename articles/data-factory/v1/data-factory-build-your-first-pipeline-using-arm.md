@@ -3,20 +3,20 @@ title: Compilación de la primera factoría de datos (plantilla de Resource Mana
 description: En este tutorial, creará una canalización de Azure Data Factory de ejemplo con la plantilla de Azure Resource Manager.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/22/2018
-ms.openlocfilehash: 414271c269e72b942195d541a6192911e1ea0217
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ce8710cb8f1cf49752f95340d931ddd79d43ec35
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91566455"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96496388"
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-azure-resource-manager-template"></a>Tutorial: Compilación de la primera Data Factory de Azure con la plantilla de Azure Resource Manager
 > [!div class="op_single_selector"]
@@ -439,7 +439,7 @@ Tenga en cuenta los siguientes puntos:
 * Puede usar **su propio clúster de HDInsight** en lugar de usar un clúster de HDInsight a petición. Para más información, consulte [Servicio vinculado de HDInsight de Azure](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) .
 * El clúster de HDInsight crea un **contenedor predeterminado** en el almacenamiento de blobs que especificó en JSON (**linkedServiceName**). HDInsight no elimina este contenedor cuando se elimina el clúster. Este comportamiento es así por diseño. Con el servicio vinculado de HDInsight a petición se crea un clúster de HDInsight cada vez tenga que procesarse un segmento, a menos que haya un clúster existente activo (**timeToLive**), que se elimina cuando finaliza el procesamiento.
   
-    A medida que se procesen más segmentos, verá numerosos contenedores en su Almacenamiento de blobs de Azure. Si no los necesita para solucionar problemas de trabajos, puede eliminarlos para reducir el costo de almacenamiento. Los nombres de estos contenedores siguen este patrón: "adf**nombredefactoría dedatos**-**nombredelserviciovinculado**-marcadefechayhora". Use herramientas como el [Explorador de Microsoft Azure Storage](https://storageexplorer.com/) para eliminar contenedores de Azure Blob Storage.
+    A medida que se procesen más segmentos, verá numerosos contenedores en su Almacenamiento de blobs de Azure. Si no los necesita para solucionar problemas de trabajos, puede eliminarlos para reducir el costo de almacenamiento. Los nombres de estos contenedores siguen este patrón: "adf **nombredefactoría dedatos**-**nombredelserviciovinculado**-marcadefechayhora". Use herramientas como el [Explorador de Microsoft Azure Storage](https://storageexplorer.com/) para eliminar contenedores de Azure Blob Storage.
 
 Para más información, consulte la sección [Servicio vinculado a petición de HDInsight de Azure](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) .
 
