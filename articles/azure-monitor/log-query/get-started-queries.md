@@ -6,17 +6,17 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 10/24/2019
-ms.openlocfilehash: 8b3b6a41da6e3100739da920472d582711d1e9b1
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: a949c9b34e299e0dc4eccbb62f4b4ebb38d6ccb9
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95024388"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186718"
 ---
 # <a name="get-started-with-log-queries-in-azure-monitor"></a>Introducción a las consultas de registro en Azure Monitor
 
 > [!NOTE]
-> Puede trabajar en este ejercicio en su propio entorno si va a recopilar datos de al menos una máquina virtual. Si no es así, use nuestro [entorno de demostración](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring_Logs/DemoLogsBlade), que incluye gran cantidad de datos de ejemplo.  Si ya sabe cómo realizar consultas en KQL, pero solo necesita crear rápidamente consultas útiles basadas en tipos de recursos, vea el [panel de consultas de ejemplo guardado](saved-queries.md).
+> Puede trabajar en este ejercicio en su propio entorno si va a recopilar datos de al menos una máquina virtual. Si no es así, use nuestro [entorno de demostración](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring_Logs/DemoLogsBlade), que incluye gran cantidad de datos de ejemplo.  Si ya sabe cómo realizar consultas en KQL, pero solo necesita crear rápidamente consultas útiles basadas en tipos de recursos, vea el [panel de consultas de ejemplo guardado](./example-queries.md).
 
 En este tutorial aprenderá a escribir consultas de registro en Azure Monitor. Le mostrará cómo:
 
@@ -28,7 +28,7 @@ En este tutorial aprenderá a escribir consultas de registro en Azure Monitor. L
 - Definir y usar campos personalizados
 - Agregar y agrupar los resultados
 
-Para obtener un tutorial sobre el uso de Log Analytics en Azure Portal, consulte [Introducción a Log Analytics de Azure Monitor](get-started-portal.md).<br>
+Para obtener un tutorial sobre el uso de Log Analytics en Azure Portal, consulte [Introducción a Log Analytics de Azure Monitor](./log-analytics-tutorial.md).<br>
 Para más información sobre las consultas de registro en Azure Monitor, consulte [Introducción a las consultas de registro en Azure Monitor](log-query-overview.md).
 
 Siga con una versión en vídeo de este tutorial:

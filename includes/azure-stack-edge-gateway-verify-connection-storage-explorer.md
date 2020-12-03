@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 12/02/2019
 ms.author: alkohli
 ms.openlocfilehash: 203c977fe9109cd8b2b6de561e975e20aacf700e
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93376103"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185575"
 ---
 Si es la primera vez que usa el Explorador de Storage, deberá realizar los pasos siguientes.
 

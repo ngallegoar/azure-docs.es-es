@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/28/2020
 ms.author: jeedes
-ms.openlocfilehash: e5f5baca5f092dac23be69d6e0361e3945b33346
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: e018d0460945a0d256c189a851c4824ce61442e3
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93133333"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96180360"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-appsec-flow-sso"></a>Tutorial: Integración de inicio de sesión único (SSO) de Azure Active Directory con AppSec Flow SSO
 
@@ -121,10 +121,8 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 1. Haga clic en Probar esta aplicación en Azure Portal y debería iniciar sesión automáticamente en la instancia de AppSec Flow SSO para la que configuró el inicio de sesión único.
 
-1. Puede usar el Panel de acceso de Microsoft. Al hacer clic en el icono de AppSec Flow SSO en el Panel de acceso, debería iniciar sesión automáticamente en la instancia de AppSec Flow SSO para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+1. Puede usar el Panel de acceso de Microsoft. Al hacer clic en el icono de AppSec Flow SSO en el Panel de acceso, debería iniciar sesión automáticamente en la instancia de AppSec Flow SSO para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez configurado AppSec Flow SSO, puede aplicar el control de sesión que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
-
+Una vez configurado AppSec Flow SSO, puede aplicar el control de sesión que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

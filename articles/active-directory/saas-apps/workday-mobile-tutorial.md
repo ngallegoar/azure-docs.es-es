@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/31/2020
 ms.author: jeedes
-ms.openlocfilehash: e706649957bf427cd577d7995fb9ce104c687f4b
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: ef1ca41f54a15554a04fa3edf608bb13f5fb3398
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93378999"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182026"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-workday-mobile-application"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con la aplicación móvil Workday
 
@@ -33,13 +33,13 @@ En este tutorial aprenderá a integrar Azure Active Directory (Azure AD), el ac
 Primeros pasos:
 
 * Integre Workday con Azure AD.
-* Lea [Integración del inicio de sesión único (SSO) de Azure Active Directory con Workday](https://docs.microsoft.com/azure/active-directory/saas-apps/workday-tutorial).
+* Lea [Integración del inicio de sesión único (SSO) de Azure Active Directory con Workday](./workday-tutorial.md).
 
 ## <a name="scenario-description"></a>Descripción del escenario
 
 En este tutorial configurará y probará las directivas de acceso condicional de Azure AD e Intune con la aplicación móvil Workday.
 
-Para habilitar el inicio de sesión único (SSO), puede configurar la aplicación federada Workday con Azure AD. Para más información, consulte [Integración del inicio de sesión único (SSO) de Azure Active Directory con Workday](https://docs.microsoft.com/azure/active-directory/saas-apps/workday-tutorial).
+Para habilitar el inicio de sesión único (SSO), puede configurar la aplicación federada Workday con Azure AD. Para más información, consulte [Integración del inicio de sesión único (SSO) de Azure Active Directory con Workday](./workday-tutorial.md).
 
 > [!NOTE] 
 > Workday no es compatible con las directivas de protección de la aplicación de Intune. Debe usar la administración de dispositivos móviles para utilizar el acceso condicional.
@@ -182,4 +182,3 @@ Para asegurarse de que los dispositivos iOS solo pueden iniciar sesión mediante
 6. En **Plataforma**, seleccione **Android**.
 7. En **Associated App** (Aplicación asociada), elija la aplicación Workday para Android que ha agregado.
 8. Seleccione **Opciones de configuración**. En **Formato de opciones de configuración**, seleccione **Enter JSON Data** (Escribir datos JSON).
-

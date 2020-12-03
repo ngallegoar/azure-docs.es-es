@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/13/2020
 ms.author: jeedes
-ms.openlocfilehash: ef49a8a3ac1779071a4d4906bfd053530063102d
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: b70c50e7c2900f884dd4d91c6650205bc626326e
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94984471"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96178048"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-keeper-password-manager--digital-vault"></a>Tutorial: Integración de Azure Active Directory con Keeper Password Manager & Digital Vault
 
@@ -157,7 +157,7 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 * También es posible acceder directamente a la URL de inicio de sesión de la aplicación e iniciar sesión desde ahí.
 
-* Puede usar el Panel de acceso de Microsoft. Al seleccionar el icono de **Keeper Password Manager & Digital Vault** en el panel de acceso, se le redirigirá a la dirección URL de inicio de sesión de la aplicación. Para más información acerca del panel de acceso, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Mis aplicaciones](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* Puede usar el Panel de acceso de Microsoft. Al seleccionar el icono de **Keeper Password Manager & Digital Vault** en el panel de acceso, se le redirigirá a la dirección URL de inicio de sesión de la aplicación. Para más información acerca del panel de acceso, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Mis aplicaciones](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## <a name="next-steps"></a>Pasos siguientes

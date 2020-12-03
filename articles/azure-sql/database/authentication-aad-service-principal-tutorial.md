@@ -9,12 +9,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 10/21/2020
-ms.openlocfilehash: 6231e4631c19aa3595fa85ca0aa7997861de65a3
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: e068ad01c07af4e5833399c0053da3362cd6aaa6
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675030"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185647"
 ---
 # <a name="tutorial-create-azure-ad-users-using-azure-ad-applications"></a>Tutorial: Creación de usuarios de Azure AD mediante aplicaciones de Azure AD
 
@@ -44,7 +44,7 @@ En este tutorial, aprenderá a:
 
 ## <a name="assign-an-identity-to-the-azure-sql-logical-server"></a>Asignación de una identidad al servidor lógico de Azure SQL
 
-1. Conéctese a Azure Active Directory. Tendrá que buscar el identificador de inquilino. Para encontrarlo, vaya a [Azure Portal](https://portal.azure.com) y vaya al recurso de **Azure Active Directory**. En el panel **Información general** , debería ver el **Id. de inquilino**. Ejecute el siguiente comando de PowerShell:
+1. Conéctese a Azure Active Directory. Tendrá que buscar el identificador de inquilino. Para encontrarlo, vaya a [Azure Portal](https://portal.azure.com) y vaya al recurso de **Azure Active Directory**. En el panel **Información general**, debería ver el **Id. de inquilino**. Ejecute el siguiente comando de PowerShell:
 
     - Remplace `<TenantId>` por su **identificador de inquilino**.
 
@@ -82,7 +82,7 @@ En este tutorial, aprenderá a:
 
 1. También puede comprobar la identidad si va a [Azure Portal](https://portal.azure.com).
 
-    - En el recurso de **Azure Active Directory** , vaya a **Aplicaciones empresariales**. Escriba el nombre del servidor lógico de SQL. Verá que tiene un **identificador de objeto** asociado al recurso.
+    - En el recurso de **Azure Active Directory**, vaya a **Aplicaciones empresariales**. Escriba el nombre del servidor lógico de SQL. Verá que tiene un **identificador de objeto** asociado al recurso.
     
     :::image type="content" source="media/authentication-aad-service-principals-tutorial/enterprise-applications-object-id.png" alt-text="object-id":::
 
@@ -95,7 +95,7 @@ Para conceder el permiso necesario, ejecute el siguiente script.
 > [!NOTE] 
 > Este script debe ejecutarlo un rol `Global Administrator` o `Privileged Roles Administrator` de Azure AD.
 >
-> En la **versión preliminar pública** , puede asignar el rol `Directory Readers` a un grupo en Azure AD. A continuación, los propietarios del grupo pueden agregar la identidad administrada como miembro de este grupo, lo que omitiría la necesidad de que un usuario `Global Administrator` o `Privileged Roles Administrator` concedieran el rol `Directory Readers`. Para más información sobre esta característica, consulte [Rol Lectores de directorio en Azure Active Directory de Azure SQL](authentication-aad-directory-readers-role.md).
+> En la **versión preliminar pública**, puede asignar el rol `Directory Readers` a un grupo en Azure AD. A continuación, los propietarios del grupo pueden agregar la identidad administrada como miembro de este grupo, lo que omitiría la necesidad de que un usuario `Global Administrator` o `Privileged Roles Administrator` concedieran el rol `Directory Readers`. Para más información sobre esta característica, consulte [Rol Lectores de directorio en Azure Active Directory de Azure SQL](authentication-aad-directory-readers-role.md).
 
 - Reemplace `<TenantId>` por el valor de `TenantId` recopilado anteriormente.
 - Reemplace `<server name>` por el nombre del servidor lógico de SQL. Si el nombre del servidor es `myserver.database.windows.net`, reemplace `<server name>` por `myserver`.
@@ -169,7 +169,7 @@ Para más información sobre un enfoque similar para establecer el permiso **Lec
 
 2. También tendrá que crear un secreto de cliente para iniciar sesión. Siga esta guía para [cargar un certificado o crear un secreto para iniciar sesión](../../active-directory/develop/howto-create-service-principal-portal.md#authentication-two-options).
 
-3. Anote la siguiente información del registro de aplicación. Debe estar disponible en el panel **Información general** :
+3. Anote la siguiente información del registro de aplicación. Debe estar disponible en el panel **Información general**:
     - **Identificador de la aplicación**
     - **Identificador de inquilino** debe ser el mismo que antes.
 
@@ -179,7 +179,7 @@ Para más información sobre cómo crear una aplicación de Azure AD, consulte 
 
 ### <a name="permissions-required-to-set-or-unset-the-azure-ad-admin"></a>Permisos necesarios para establecer o anular el administrador de Azure AD
 
-Para que la entidad de servicio establezca o anule un administrador de Azure AD para Azure SQL, es necesario un permiso de API adicional. El permiso de API de aplicación [Directory.Read.All](https://docs.microsoft.com/graph/permissions-reference#application-permissions-18) se deberá agregar a la aplicación en Azure AD.
+Para que la entidad de servicio establezca o anule un administrador de Azure AD para Azure SQL, es necesario un permiso de API adicional. El permiso de API de aplicación [Directory.Read.All](/graph/permissions-reference#application-permissions-18) se deberá agregar a la aplicación en Azure AD.
 
 :::image type="content" source="media/authentication-aad-service-principals-tutorial/aad-directory-reader-all-permissions.png" alt-text="Permisos de Directory.Reader.All en Azure AD":::
 
@@ -199,7 +199,7 @@ Una vez creada una entidad de servicio en Azure AD, cree el usuario en SQL Dat
     GO
     ```
 
-2. Conceda el permiso `db_owner` a *AppSP* , que permite al usuario crear otros usuarios de Azure AD en la base de datos.
+2. Conceda el permiso `db_owner` a *AppSP*, que permite al usuario crear otros usuarios de Azure AD en la base de datos.
 
     ```sql
     EXEC sp_addrolemember 'db_owner', [AppSP]

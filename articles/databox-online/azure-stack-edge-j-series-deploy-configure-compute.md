@@ -10,11 +10,11 @@ ms.date: 08/28/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro so I can use it to transform the data before sending it to Azure.
 ms.openlocfilehash: 75428b28095b0e425a1670caffcf960aa6ae58f6
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94504478"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185511"
 ---
 # <a name="tutorial-transform-data-with-azure-stack-edge-pro"></a>Tutorial: Transformación de datos con Azure Stack Edge Pro
 
@@ -45,15 +45,15 @@ Antes de configurar un rol de proceso en el dispositivo de Azure Stack Edge Pro,
 
 Para configurar el proceso en Azure Stack Edge Pro, creará un recurso de IoT Hub.
 
-1. En la instancia de Azure Portal del recurso de Azure Stack Edge, vaya a **Información general**. En el panel derecho, en el icono **Proceso** , seleccione **Comenzar**.
+1. En la instancia de Azure Portal del recurso de Azure Stack Edge, vaya a **Información general**. En el panel derecho, en el icono **Proceso**, seleccione **Comenzar**.
 
     ![Introducción al proceso](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-1.png)
 
-2. En el icono **Configurar el proceso de Edge** , seleccione **Configurar proceso**.
+2. En el icono **Configurar el proceso de Edge**, seleccione **Configurar proceso**.
 
     ![Configurar el proceso](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-2.png)
 
-3. En la hoja **Configurar el proceso de Edge** , escriba lo siguiente:
+3. En la hoja **Configurar el proceso de Edge**, escriba lo siguiente:
 
    
     |Campo  |Value  |
@@ -88,9 +88,9 @@ En este tutorial, se realizará una implementación sencilla con dos recursos co
 
         ![Icono Agregar recursos compartidos](./media/azure-stack-edge-j-series-deploy-configure-compute/add-share-1.png) 
 
-    3. En la hoja **Agregar recurso compartido** , proporcione el nombre del recurso compartido y seleccione el tipo de recurso compartido.
+    3. En la hoja **Agregar recurso compartido**, proporcione el nombre del recurso compartido y seleccione el tipo de recurso compartido.
     4. Para montar el recurso compartido perimetral, active la casilla **Usar el recurso compartido con el proceso perimetral**.
-    5. Seleccione la **cuenta de almacenamiento** , el **servicio de almacenamiento** , un usuario existente y, luego, **Crear**.
+    5. Seleccione la **cuenta de almacenamiento**, el **servicio de almacenamiento**, un usuario existente y, luego, **Crear**.
 
         ![Agregar un recurso compartido perimetral](./media/azure-stack-edge-j-series-deploy-configure-compute/add-edge-share-1.png) 
 
@@ -121,8 +121,8 @@ Puede agregar un módulo personalizado o uno creado previamente. No hay módulos
 
 En esta sección, agregará un módulo personalizado al dispositivo de IoT Edge que creó en [Desarrollo de un módulo C# para Azure Stack Edge Pro](azure-stack-edge-j-series-create-iot-edge-module.md). Este módulo personalizado toma los archivos de un recurso compartido local perimetral del dispositivo perimetral y los mueve a un recurso compartido perimetral (nube) del dispositivo. A continuación, el recurso compartido en la nube inserta los archivos en la cuenta de Azure Storage asociada con este.
 
-1. Vaya a **Proceso perimetral > Comenzar**. En el icono **Agregar módulos** , seleccione el tipo de escenario como **simple**. Seleccione **Agregar**.
-2. En la hoja **Configurar y agregar módulo** , escriba los valores siguientes:
+1. Vaya a **Proceso perimetral > Comenzar**. En el icono **Agregar módulos**, seleccione el tipo de escenario como **simple**. Seleccione **Agregar**.
+2. En la hoja **Configurar y agregar módulo**, escriba los valores siguientes:
 
     
     |Campo  |Value  |

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/09/2020
 ms.author: jeedes
-ms.openlocfilehash: 9bebb11c3a1162a0a7b72140f7d3812f86f793ce
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: 9272114dd472717e59680b40c07d8435dea19682
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95791358"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96181975"
 ---
 # <a name="tutorial-integrate-azure-ad-single-sign-on-sso-with-netsuite"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure AD con NetSuite
 
@@ -253,7 +253,7 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 - Haga clic en Probar esta aplicación en Azure Portal. Se debería iniciar sesión automáticamente en la instancia de NetSuite para la que configuró el inicio de sesión único.
 
-- Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de NetSuite en Mis aplicaciones, se debería iniciar sesión automáticamente en la instancia de NetSuite para la que configuró el inicio de sesión único. Para más información acerca del portal Mis aplicaciones, consulte [Introducción a Mis aplicaciones](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+- Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de NetSuite en Mis aplicaciones, se debería iniciar sesión automáticamente en la instancia de NetSuite para la que configuró el inicio de sesión único. Para más información acerca del portal Mis aplicaciones, consulte [Introducción a Mis aplicaciones](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## <a name="next-steps"></a>Pasos siguientes

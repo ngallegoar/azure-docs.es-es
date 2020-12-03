@@ -12,11 +12,11 @@ ms.author: dobett
 author: dominicbetts
 ms.date: 11/12/2019
 ms.openlocfilehash: f00448f19cc0a2118477a9527005548fea25537e
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91651452"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187279"
 ---
 # <a name="tutorial-export-data-from-azure-iot-central-and-visualize-insights-in-power-bi"></a>Tutorial: Exportación de datos desde Azure IoT Central y visualización de información en Power BI
 
@@ -417,7 +417,7 @@ Para agregar la lógica al diseño de la aplicación lógica, seleccione **Vista
     * Seleccione **In-store analytics - checkout** (Análisis en tienda: finalización de la compra) como el área de trabajo.
     * Seleccione **Sensor de ocupación** como el conjunto de datos.
     * Seleccione **RealTimeData** como la tabla.
-    * Seleccione **Agregar nuevo parámetro** y, a continuación, seleccione los campos **Timestamp**, **Queue Length 1**y **Queue Length 2**.
+    * Seleccione **Agregar nuevo parámetro** y, a continuación, seleccione los campos **Timestamp**, **Queue Length 1** y **Queue Length 2**.
     * Seleccione el campo **Timestamp** y, después, seleccione **x-opt-enqueuedtime** de la lista **Contenido dinámico**.
     * Seleccione el campo **Queue Length 1** y, a continuación, seleccione **Ver más** junto a **Analizar telemetría**. A continuación, seleccione **count1**.
     * Seleccione el campo **Queue Length 2** y, a continuación, seleccione **Ver más** junto a **Analizar telemetría**. A continuación, seleccione **count2**.

@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 01/03/2020
 ms.author: jeedes
 ms.openlocfilehash: d9c9ac87e655cf9178d58f04b502f7e781d1fef7
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92520547"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96181418"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-spotinst"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Spotinst
 
@@ -39,22 +39,22 @@ Para empezar, necesita los siguientes elementos:
 
 En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
-* Spotinst admite el inicio de sesión único iniciado por **SP e IDP** .
+* Spotinst admite el inicio de sesión único iniciado por **SP e IDP**.
 
 ## <a name="adding-spotinst-from-the-gallery"></a>Incorporación de Spotinst desde la galería
 
 Para configurar la integración de Spotinst en Azure AD, es preciso agregar Spotinst desde la galería a la lista de aplicaciones SaaS administradas.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta personal, profesional o educativa de Microsoft.
-1. En el panel de navegación de la izquierda, seleccione el servicio **Azure Active Directory** .
-1. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones** .
-1. Para agregar una nueva aplicación, seleccione **Nueva aplicación** .
-1. En la sección **Agregar desde la galería** , escriba **Spotinst** en el cuadro de búsqueda.
+1. En el panel de navegación de la izquierda, seleccione el servicio **Azure Active Directory**.
+1. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones**.
+1. Para agregar una nueva aplicación, seleccione **Nueva aplicación**.
+1. En la sección **Agregar desde la galería**, escriba **Spotinst** en el cuadro de búsqueda.
 1. Seleccione **Spotinst** en el panel de resultados y agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-spotinst"></a>Configuración y prueba del inicio de sesión único de Azure AD para Spotinst
 
-Configure y pruebe el inicio de sesión único de Azure AD con Spotinst mediante un usuario de prueba llamado **B.Simon** . Para que el inicio de sesión único funcione, es preciso establecer una relación de vinculación entre un usuario de Azure AD y el usuario relacionado de Spotinst.
+Configure y pruebe el inicio de sesión único de Azure AD con Spotinst mediante un usuario de prueba llamado **B.Simon**. Para que el inicio de sesión único funcione, es preciso establecer una relación de vinculación entre un usuario de Azure AD y el usuario relacionado de Spotinst.
 
 Para configurar y probar el inicio de sesión único de Azure AD con Spotinst, complete los siguientes bloques de creación:
 
@@ -69,19 +69,19 @@ Para configurar y probar el inicio de sesión único de Azure AD con Spotinst, 
 
 Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azure Portal.
 
-1. En [Azure Portal](https://portal.azure.com/), en la página de integración de aplicaciones de **Spotinst** , busque la sección **Administrar** y seleccione **Inicio de sesión único** .
-1. En la página **Seleccione un método de inicio de sesión único** , elija **SAML** .
-1. En la página **Configurar el inicio de sesión único con SAML** , haga clic en el icono de edición o con forma de lápiz para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración.
+1. En [Azure Portal](https://portal.azure.com/), en la página de integración de aplicaciones de **Spotinst**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
+1. En la página **Seleccione un método de inicio de sesión único**, elija **SAML**.
+1. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono de edición o con forma de lápiz para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración.
 
    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-1. En la sección **Configuración básica de SAML** , si desea configurar la aplicación en modo iniciado por IDP, complete estos pasos:
+1. En la sección **Configuración básica de SAML**, si desea configurar la aplicación en modo iniciado por IDP, complete estos pasos:
 
    1. Asegúrese de que la **URL de respuesta** esté establecida en https://console.spotinst.com/auth/saml.
-   1. En **Estado de la retransmisión** , escriba el identificador de la organización de Spotinst, que también puede confirmar en la pestaña **SSO** .
+   1. En **Estado de la retransmisión**, escriba el identificador de la organización de Spotinst, que también puede confirmar en la pestaña **SSO**.
    1. La **dirección URL de inicio de sesión** debe estar vacía.
 
-1. Haga clic en **Save** (Guardar).
+1. Haga clic en **Save**(Guardar).
 
 1. La aplicación Spotinst espera las aserciones de SAML en un formato específico, que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token de SAML. La siguiente captura de muestra la lista de atributos predeterminados.
 
@@ -95,11 +95,11 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
     | Nombre | user.givenname |
     | Apellidos | user.surname |
 
-1. En la página **Configurar el inicio de sesión único con SAML** , en la sección **Certificado de firma de SAML** , busque **XML de metadatos de federación** y seleccione **Descargar** para descargar el certificado y guardarlo en su equipo.
+1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **XML de metadatos de federación** y seleccione **Descargar** para descargar el certificado y guardarlo en su equipo.
 
     ![Vínculo de descarga del certificado](common/metadataxml.png)
 
-1. En la sección **Configurar Spotinst** , copie las direcciones URL que necesite.
+1. En la sección **Configurar Spotinst**, copie las direcciones URL que necesite.
 
     ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
 
@@ -107,37 +107,37 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 En esta sección, va a crear un usuario de prueba llamado B.Simon en Azure Portal.
 
-1. En el panel izquierdo de Azure Portal, seleccione **Azure Active Directory** , **Usuarios** y **Todos los usuarios** .
+1. En el panel izquierdo de Azure Portal, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
 1. Seleccione **Nuevo usuario** en la parte superior de la pantalla.
-1. En las propiedades del **usuario** , siga estos pasos:
-   1. En el campo **Nombre** , escriba `B.Simon`.  
-   1. En el campo **Nombre de usuario** , escriba username@companydomain.extension. Por ejemplo, `B.Simon@contoso.com`.
-   1. Active la casilla **Show password** (Mostrar contraseña) y, después, anote el valor que se muestra en el cuadro **Contraseña** .
-   1. Haga clic en **Crear** .
+1. En las propiedades del **usuario**, siga estos pasos:
+   1. En el campo **Nombre**, escriba `B.Simon`.  
+   1. En el campo **Nombre de usuario**, escriba username@companydomain.extension. Por ejemplo, `B.Simon@contoso.com`.
+   1. Active la casilla **Show password** (Mostrar contraseña) y, después, anote el valor que se muestra en el cuadro **Contraseña**.
+   1. Haga clic en **Crear**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
 En esta sección va a permitir que B.Simon acceda a Spotinst mediante el inicio de sesión único de Azure.
 
-1. En Azure Portal, seleccione sucesivamente **Aplicaciones empresariales** y **Todas las aplicaciones** .
-1. En la lista de aplicaciones, seleccione **Spotinst** .
-1. En la página de información general de la aplicación, busque la sección **Administrar** y seleccione **Usuarios y grupos** .
+1. En Azure Portal, seleccione sucesivamente **Aplicaciones empresariales** y **Todas las aplicaciones**.
+1. En la lista de aplicaciones, seleccione **Spotinst**.
+1. En la página de información general de la aplicación, busque la sección **Administrar** y seleccione **Usuarios y grupos**.
 
    ![Vínculo "Usuarios y grupos"](common/users-groups-blade.png)
 
-1. Seleccione **Agregar usuario** . A continuación, en el cuadro de diálogo **Agregar asignación** , seleccione **Usuarios y grupos** .
+1. Seleccione **Agregar usuario**. A continuación, en el cuadro de diálogo **Agregar asignación**, seleccione **Usuarios y grupos**.
 
     ![Vínculo de Agregar usuario](common/add-assign-user.png)
 
-1. En el cuadro de diálogo **Usuarios y grupos** , seleccione **B.Simon** de la lista de usuarios y haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
-1. Si espera que haya un valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol** , seleccione en la lista el rol adecuado para el usuario y haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
-1. En el cuadro de diálogo **Agregar asignación** , haga clic en el botón **Asignar** .
+1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **B.Simon** de la lista de usuarios y haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
+1. Si espera que haya un valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol**, seleccione en la lista el rol adecuado para el usuario y haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
+1. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
 
 ## <a name="configure-spotinst-sso"></a>Configuración del inicio de sesión único de Spotinst
 
 1. En otra ventana del explorador web, inicie sesión en Spotinst como administrador de seguridad.
 
-2. Haga clic en el **icono de usuario** en la parte superior derecha de la pantalla y haga clic en **Configuración** .
+2. Haga clic en el **icono de usuario** en la parte superior derecha de la pantalla y haga clic en **Configuración**.
 
     ![Captura de pantalla que muestra la configuración seleccionada en el icono de usuario.](./media/spotinst-tutorial/tutorial_spotinst_settings.png)
 
@@ -149,21 +149,21 @@ En esta sección va a permitir que B.Simon acceda a Spotinst mediante el inicio 
 
     b. Haga clic en **EXAMINAR** para cargar el archivo XML de metadatos que descargó de Azure Portal.
 
-    c. Haga clic en **GUARDAR** .
+    c. Haga clic en **GUARDAR**.
 
 ### <a name="create-spotinst-test-user"></a>Creación de un usuario de prueba de Spotinst
 
 El objetivo de esta sección es crear un usuario de prueba llamado Britta Simon en Spotinst.
 
-1. Si ha configurado la aplicación en modo iniciado por **SP** , realice los siguientes pasos:
+1. Si ha configurado la aplicación en modo iniciado por **SP**, realice los siguientes pasos:
 
    a. En otra ventana del explorador web, inicie sesión en Spotinst como administrador de seguridad.
 
-   b. Haga clic en el **icono de usuario** en la parte superior derecha de la pantalla y haga clic en **Configuración** .
+   b. Haga clic en el **icono de usuario** en la parte superior derecha de la pantalla y haga clic en **Configuración**.
 
     ![Captura de pantalla que muestra la configuración seleccionada en el icono de usuario.](./media/spotinst-tutorial/tutorial_spotinst_settings.png)
 
-    c. Haga clic en **Usuarios** y seleccione **Agregar usuario** .
+    c. Haga clic en **Usuarios** y seleccione **Agregar usuario**.
 
     ![Captura de pantalla que muestra la opción para agregar usuario seleccionada en Usuarios.](./media/spotinst-tutorial/adduser1.png)
 
@@ -171,13 +171,13 @@ El objetivo de esta sección es crear un usuario de prueba llamado Britta Simon 
 
     ![Captura de pantalla que muestra la sección para agregar usuario, donde puede especificar los valores descritos.](./media/spotinst-tutorial/adduser2.png)
 
-    * En el cuadro de texto **Nombre completo** , escriba el nombre completo del usuario, por ejemplo, **BrittaSimon** .
+    * En el cuadro de texto **Nombre completo**, escriba el nombre completo del usuario, por ejemplo, **BrittaSimon**.
 
-    * En el cuadro de texto **Correo electrónico** , escriba la dirección de correo electrónico del usuario, en este caso, `brittasimon\@contoso.com`.
+    * En el cuadro de texto **Correo electrónico**, escriba la dirección de correo electrónico del usuario, en este caso, `brittasimon\@contoso.com`.
 
-    * Seleccione los detalles específicos de su organización para el **rol de la organización, el rol de cuenta y las cuentas** .
+    * Seleccione los detalles específicos de su organización para el **rol de la organización, el rol de cuenta y las cuentas**.
 
-2. Si ha configurado la aplicación en el modo iniciado por **IDP** , no debe realizar ninguna acción en esta sección. Spotinst admite el aprovisionamiento Just-In-Time, que está habilitado de forma predeterminada. Al intentar acceder a Spotinst, se crea un nuevo usuario, en caso de que no exista.
+2. Si ha configurado la aplicación en el modo iniciado por **IDP**, no debe realizar ninguna acción en esta sección. Spotinst admite el aprovisionamiento Just-In-Time, que está habilitado de forma predeterminada. Al intentar acceder a Spotinst, se crea un nuevo usuario, en caso de que no exista.
 
 ## <a name="test-sso"></a>Prueba de SSO 
 

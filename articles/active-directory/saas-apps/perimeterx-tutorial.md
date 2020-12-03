@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/27/2020
 ms.author: jeedes
-ms.openlocfilehash: b8538031570d201e57186930b713816821848bc1
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 29ffaaa1b1b6efbcd5523a76018c92645e13d187
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93133297"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96181805"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-perimeterx"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con PerimeterX
 
@@ -156,11 +156,9 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 1. Haga clic en Probar esta aplicación en Azure Portal; debería iniciar sesión automáticamente en la instancia de PerimeterX para la que ha configurado el inicio de sesión único.
 
-1. Puede usar el Panel de acceso de Microsoft. Al hacer clic en el icono de PerimeterX en el panel de acceso, debería iniciar sesión automáticamente en la versión de PerimeterX para la que ha configurado el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+1. Puede usar el Panel de acceso de Microsoft. Al hacer clic en el icono de PerimeterX en el panel de acceso, debería iniciar sesión automáticamente en la versión de PerimeterX para la que ha configurado el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez configurado PerimeterX, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
-
+Una vez configurado PerimeterX, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

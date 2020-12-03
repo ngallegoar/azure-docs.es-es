@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 07/16/2020
 ms.author: jeedes
 ms.openlocfilehash: 822e28402d0b7829b835ad03a3b3cf7d05c3d343
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92455817"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96181010"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-integration-with-cloud-academy---sso"></a>Tutorial: Integración del inicio de sesión único de Azure Active Directory con Cloud Academy - SSO
 
@@ -48,16 +48,16 @@ Una vez configurado Cloud Academy - SSO, puede aplicar el control de sesión, qu
 Para configurar la integración de Cloud Academy - SSO en Azure AD, es preciso agregar Cloud Academy - SSO desde la galería a la lista de aplicaciones SaaS administradas:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta profesional o educativa o con una cuenta Microsoft personal.
-1. En el panel izquierdo, seleccione **Azure Active Directory** .
-1. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones** .
-1. Para agregar una aplicación, seleccione **Nueva aplicación** .
-1. En la sección **Agregar desde la galería** , escriba **Cloud Academy - SSO** en el cuadro de búsqueda.
+1. En el panel izquierdo, seleccione **Azure Active Directory**.
+1. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones**.
+1. Para agregar una aplicación, seleccione **Nueva aplicación**.
+1. En la sección **Agregar desde la galería**, escriba **Cloud Academy - SSO** en el cuadro de búsqueda.
 1. Seleccione **Cloud Academy - SSO** en el panel de resultados y, a continuación, agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
 
 
 ## <a name="configure-and-test-azure-ad-sso-for-cloud-academy---sso"></a>Configuración y prueba del inicio de sesión único de Azure AD SSO para Cloud Academy - SSO
 
-Configure y pruebe el inicio de sesión único de Azure AD con Cloud Academy - SSO mediante un usuario de prueba llamado **B.Simon** . Para que el inicio de sesión único funcione, es necesario establecer una relación de vinculación entre un usuario de Azure AD y el usuario correspondiente de Cloud Academy - SSO.
+Configure y pruebe el inicio de sesión único de Azure AD con Cloud Academy - SSO mediante un usuario de prueba llamado **B.Simon**. Para que el inicio de sesión único funcione, es necesario establecer una relación de vinculación entre un usuario de Azure AD y el usuario correspondiente de Cloud Academy - SSO.
 
 Para configurar y probar el inicio de sesión único de Azure AD con Cloud Academy - SSO, complete los siguientes pasos generales:
 
@@ -72,15 +72,15 @@ Para configurar y probar el inicio de sesión único de Azure AD con Cloud Acad
 
 Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azure Portal:
 
-1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **Cloud Academy - SSO** , busque la sección **Administrar** y seleccione **Inicio de sesión único** .
-1. En la página **Seleccione un método de inicio de sesión único** , elija **SAML** .
-1. En la página **Configuración del inicio de sesión único con SAML** , seleccione el botón de lápiz para **Configuración básica de SAML** para editar la configuración:
+1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **Cloud Academy - SSO**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
+1. En la página **Seleccione un método de inicio de sesión único**, elija **SAML**.
+1. En la página **Configuración del inicio de sesión único con SAML**, seleccione el botón de lápiz para **Configuración básica de SAML** para editar la configuración:
 
    ![Captura de pantalla que muestra el botón de lápiz para editar la configuración básica de SAML.](common/edit-urls.png)
 
-1. En la sección **Configuración básica de SAML** , en el cuadro de texto **URL de inicio de sesión** , escriba `https://cloudacademy.com/login/enterprise/`.
+1. En la sección **Configuración básica de SAML**, en el cuadro de texto **URL de inicio de sesión**, escriba `https://cloudacademy.com/login/enterprise/`.
 
-1. En la página **Configuración del inicio de sesión único con SAML** , en la sección **Certificado de firma de SAML** , seleccione el botón de copia para copiar la **Dirección URL de metadatos de federación de aplicación** . Guarde la dirección URL.
+1. En la página **Configuración del inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, seleccione el botón de copia para copiar la **Dirección URL de metadatos de federación de aplicación**. Guarde la dirección URL.
 
     ![Captura de pantalla del botón de copia para el campo Dirección URL de metadatos de federación de aplicación.](common/copy-metadataurl.png)
 
@@ -88,31 +88,31 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 En esta sección, se crea un usuario llamado B.Simon en Azure Portal.
 
-1. En el panel izquierdo de Azure Portal, seleccione **Azure Active Directory** . Seleccione **Usuarios** y, a continuación, seleccione **Todos los usuarios** .
+1. En el panel izquierdo de Azure Portal, seleccione **Azure Active Directory**. Seleccione **Usuarios** y, a continuación, seleccione **Todos los usuarios**.
 1. Seleccione **Nuevo usuario** en la parte superior de la pantalla.
-1. En las propiedades de **usuario** , realice estos pasos:
-   1. En el cuadro **Nombre** , escriba **B.Simon** .  
-   1. En el cuadro **Nombre de usuario** , escriba \<username>@\<companydomain>.\<extension>. Por ejemplo, `B.Simon@contoso.com`.
-   1. Seleccione **Mostrar contraseña** y, a continuación, anote el valor que se muestra en el cuadro **Contraseña** .
-   1. Seleccione **Crear** .
+1. En las propiedades de **usuario**, realice estos pasos:
+   1. En el cuadro **Nombre**, escriba **B.Simon**.  
+   1. En el cuadro **Nombre de usuario**, escriba \<username>@\<companydomain>.\<extension>. Por ejemplo, `B.Simon@contoso.com`.
+   1. Seleccione **Mostrar contraseña** y, a continuación, anote el valor que se muestra en el cuadro **Contraseña**.
+   1. Seleccione **Crear**.
 
 ### <a name="grant-access-to-the-test-user"></a>Concesión de acceso al usuario de prueba
 
 En esta sección, va a permitir que B.Simon acceda a Cloud Academy - SSO mediante el inicio de sesión único de Azure.
 
-1. En Azure Portal, seleccione **Aplicaciones empresariales** y, a continuación, seleccione **Todas las aplicaciones** .
-1. En la lista de aplicaciones, seleccione **Cloud Academy - SSO** .
-1. En la sección **Administrar** de la página de información general de la aplicación, seleccione **Usuarios y grupos** :
+1. En Azure Portal, seleccione **Aplicaciones empresariales** y, a continuación, seleccione **Todas las aplicaciones**.
+1. En la lista de aplicaciones, seleccione **Cloud Academy - SSO**.
+1. En la sección **Administrar** de la página de información general de la aplicación, seleccione **Usuarios y grupos**:
 
    ![Captura de pantalla que muestra la opción Usuarios y grupos.](common/users-groups-blade.png)
 
-1. Seleccione **Agregar usuario** y, a continuación, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación** :
+1. Seleccione **Agregar usuario** y, a continuación, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**:
 
     ![Captura de pantalla que muestra el botón Agregar usuario.](common/add-assign-user.png)
 
-1. En el cuadro de diálogo **Usuarios y grupos** , seleccione **B.Simon** en la lista **Usuarios** y haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
-1. Si espera algún valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol** , seleccione el rol adecuado para el usuario en la lista. Haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
-1. En el cuadro de diálogo **Agregar asignación** , seleccione **Asignar** .
+1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **B.Simon** en la lista **Usuarios** y haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
+1. Si espera algún valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol**, seleccione el rol adecuado para el usuario en la lista. Haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
+1. En el cuadro de diálogo **Agregar asignación**, seleccione **Asignar**.
 
 ## <a name="configure-single-sign-on-for-cloud-academy"></a>Configuración del inicio de sesión único para Cloud Academy
 
@@ -122,7 +122,7 @@ En esta sección, va a permitir que B.Simon acceda a Cloud Academy - SSO mediant
 
     ![Captura de pantalla que muestra la opción Configuración e integraciones.](./media/cloud-academy-sso-tutorial/config-1.PNG)
 
-1. En la página **Settings & integraciones** (Configuración e integraciones), en la pestaña **Integrations** (Integraciones), seleccione la tarjeta **SSO** :
+1. En la página **Settings & integraciones** (Configuración e integraciones), en la pestaña **Integrations** (Integraciones), seleccione la tarjeta **SSO**:
 
     ![Captura de pantalla que muestra la tarjeta SSO en la pestaña de integraciones.](./media/cloud-academy-sso-tutorial/config-2.PNG)
 
@@ -138,7 +138,7 @@ En esta sección, va a permitir que B.Simon acceda a Cloud Academy - SSO mediant
 
     d. En el cuadro de texto **Name ID Format** (Formato del identificador de nombre), mantenga el valor predeterminado: `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified`.
 
-1. Seleccione **Guardar** .
+1. Seleccione **Guardar**.
 
     > [!NOTE]
     > Para más información sobre cómo configurar Cloud Academy - SSO, consulte [Configuración del inicio de sesión único](https://support.cloudacademy.com/hc/articles/360043908452-Setting-Up-Single-Sign-On).
