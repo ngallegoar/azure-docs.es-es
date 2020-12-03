@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 11/04/2019
 ms.author: karler
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: c5510a66f48007d629d23a96d17205b489ab6a5c
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: aa9e7612a5b3b9655b0c1981fbba87645526b3a2
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95999134"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327209"
 ---
 # <a name="tutorial-create-a-function-in-java-with-an-event-hub-trigger-and-an-azure-cosmos-db-output-binding"></a>Tutorial: Creación de una función en Java con un desencadenador de centro de eventos y un enlace de salida de Azure Cosmos DB
 
@@ -61,7 +61,9 @@ Si no está usando Cloud Shell, deberá usar la CLI de Azure de forma local para
 
 A continuación, cree algunas variables de entorno para los nombres y ubicación de los recursos que va a crear. Use los comandos siguientes y reemplace los marcadores de posición `<value>` por los valores de su elección. Los valores deben cumplir con las [reglas y restricciones de nomenclatura para los recursos de Azure](/azure/architecture/best-practices/resource-naming). Para la variable `LOCATION`, use uno de los valores generados por el comando `az functionapp list-consumption-locations`.
 
-```azurecli-interactive
+# <a name="bash"></a>[Bash](#tab/bash)
+
+```bash
 RESOURCE_GROUP=<value>
 EVENT_HUB_NAMESPACE=<value>
 EVENT_HUB_NAME=<value>
@@ -72,6 +74,21 @@ FUNCTION_APP=<value>
 LOCATION=<value>
 ```
 
+# <a name="cmd"></a>[Cmd](#tab/cmd)
+
+```cmd
+set RESOURCE_GROUP=<value>
+set EVENT_HUB_NAMESPACE=<value>
+set EVENT_HUB_NAME=<value>
+set EVENT_HUB_AUTHORIZATION_RULE=<value>
+set COSMOS_DB_ACCOUNT=<value>
+set STORAGE_ACCOUNT=<value>
+set FUNCTION_APP=<value>
+set LOCATION=<value>
+```
+
+---
+
 En el resto de este tutorial se usan estas variables. Tenga en cuenta que estas variables se conservan solo mientras dure la sesión actual de la CLI de Azure o Cloud Shell. Tendrá que volver a ejecutar estos comandos si usa una ventana de terminal local diferente o se agota el tiempo de espera de la sesión de Cloud Shell.
 
 ### <a name="create-a-resource-group"></a>Crear un grupo de recursos
@@ -80,15 +97,29 @@ Azure usa grupos de recursos para recopilar todos los recursos relacionados en s
 
 Use el siguiente comando para crear un grupo de recursos:
 
+# <a name="bash"></a>[Bash](#tab/bash)
+
 ```azurecli-interactive
 az group create \
     --name $RESOURCE_GROUP \
     --location $LOCATION
 ```
 
+# <a name="cmd"></a>[Cmd](#tab/cmd)
+
+```azurecli
+az group create ^
+    --name %RESOURCE_GROUP% ^
+    --location %LOCATION%
+```
+
+---
+
 ### <a name="create-an-event-hub"></a>Creación de un centro de eventos
 
 A continuación, cree un espacio de nombres de Azure Event Hubs, un centro de eventos y una regla de autorización mediante los siguientes comandos:
+
+# <a name="bash"></a>[Bash](#tab/bash)
 
 ```azurecli-interactive
 az eventhubs namespace create \
@@ -107,33 +138,78 @@ az eventhubs eventhub authorization-rule create \
     --rights Listen Send
 ```
 
+# <a name="cmd"></a>[Cmd](#tab/cmd)
+
+```azurecli
+az eventhubs namespace create ^
+    --resource-group %RESOURCE_GROUP% ^
+    --name %EVENT_HUB_NAMESPACE%
+az eventhubs eventhub create ^
+    --resource-group %RESOURCE_GROUP% ^
+    --name %EVENT_HUB_NAME% ^
+    --namespace-name %EVENT_HUB_NAMESPACE% ^
+    --message-retention 1
+az eventhubs eventhub authorization-rule create ^
+    --resource-group %RESOURCE_GROUP% ^
+    --name %EVENT_HUB_AUTHORIZATION_RULE% ^
+    --eventhub-name %EVENT_HUB_NAME% ^
+    --namespace-name %EVENT_HUB_NAMESPACE% ^
+    --rights Listen Send
+```
+
+---
+
 El espacio de nombres de Event Hubs contiene el al centro de eventos real y su regla de autorización. La regla de autorización permite que las funciones envíen mensajes al centro y escuchen los eventos correspondientes. Una función envía mensajes que representan datos de telemetría. Otra función escucha los eventos, analiza los datos de evento y almacena los resultados en Azure Cosmos DB.
 
 ### <a name="create-an-azure-cosmos-db"></a>Creación de una base de datos de Azure Cosmos DB
 
 A continuación, cree una cuenta, una base de datos y una colección de Azure Cosmos DB con los siguientes comandos:
 
+# <a name="bash"></a>[Bash](#tab/bash)
+
 ```azurecli-interactive
 az cosmosdb create \
     --resource-group $RESOURCE_GROUP \
     --name $COSMOS_DB_ACCOUNT
-az cosmosdb database create \
-    --resource-group-name $RESOURCE_GROUP \
-    --name $COSMOS_DB_ACCOUNT \
-    --db-name TelemetryDb
-az cosmosdb collection create \
-    --resource-group-name $RESOURCE_GROUP \
-    --name $COSMOS_DB_ACCOUNT \
-    --collection-name TelemetryInfo \
-    --db-name TelemetryDb \
+az cosmosdb sql database create \
+    --resource-group $RESOURCE_GROUP \
+    --account-name $COSMOS_DB_ACCOUNT \
+    --name TelemetryDb
+az cosmosdb sql container create \
+    --resource-group $RESOURCE_GROUP \
+    --account-name $COSMOS_DB_ACCOUNT \
+    --database-name TelemetryDb \
+    --name TelemetryInfo \
     --partition-key-path '/temperatureStatus'
 ```
+
+# <a name="cmd"></a>[Cmd](#tab/cmd)
+
+```azurecli
+az cosmosdb create ^
+    --resource-group %RESOURCE_GROUP% ^
+    --name %COSMOS_DB_ACCOUNT%
+az cosmosdb sql database create ^
+    --resource-group %RESOURCE_GROUP% ^
+    --account-name %COSMOS_DB_ACCOUNT% ^
+    --name TelemetryDb
+az cosmosdb sql container create ^
+    --resource-group %RESOURCE_GROUP% ^
+    --account-name %COSMOS_DB_ACCOUNT% ^
+    --database-name TelemetryDb ^
+    --name TelemetryInfo ^
+    --partition-key-path "/temperatureStatus"
+```
+
+---
 
 El valor `partition-key-path` particiona los datos en función del valor `temperatureStatus` de cada elemento. La clave de partición permite que Cosmos DB aumente el rendimiento al dividir los datos en subconjuntos distintos a los que puede tener acceso de forma independiente.
 
 ### <a name="create-a-storage-account-and-function-app"></a>Creación de una cuenta de almacenamiento y una aplicación de funciones
 
 A continuación, cree una cuenta de Azure Storage (que es necesaria en Azure Functions) y luego cree la aplicación de funciones. Use los comandos siguientes:
+
+# <a name="bash"></a>[Bash](#tab/bash)
 
 ```azurecli-interactive
 az storage account create \
@@ -145,8 +221,27 @@ az functionapp create \
     --name $FUNCTION_APP \
     --storage-account $STORAGE_ACCOUNT \
     --consumption-plan-location $LOCATION \
-    --runtime java
+    --runtime java \
+    --functions-version 2
 ```
+
+# <a name="cmd"></a>[Cmd](#tab/cmd)
+
+```azurecli
+az storage account create ^
+    --resource-group %RESOURCE_GROUP% ^
+    --name %STORAGE_ACCOUNT% ^
+    --sku Standard_LRS
+az functionapp create ^
+    --resource-group %RESOURCE_GROUP% ^
+    --name %FUNCTION_APP% ^
+    --storage-account %STORAGE_ACCOUNT% ^
+    --consumption-plan-location %LOCATION% ^
+    --runtime java ^
+    --functions-version 2
+```
+
+---
 
 Cuando el comando `az functionapp create` crea la aplicación de funciones, también crea un recurso de Application Insights con el mismo nombre. La aplicación de funciones se configura automáticamente con un valor denominado `APPINSIGHTS_INSTRUMENTATIONKEY` que la conecta a Application Insights. Puede ver los datos de telemetría de la aplicación después de implementar las funciones en Azure, como se describe más adelante en este tutorial.
 
@@ -157,6 +252,8 @@ La aplicación de funciones tendrá que acceder a los demás recursos para funci
 ### <a name="retrieve-resource-connection-strings"></a>Recuperación de las cadenas de conexión de recurso
 
 Use los siguientes comandos para recuperar las cadenas de conexión del almacenamiento, el centro de eventos y Cosmos DB y guárdelas en variables de entorno:
+
+# <a name="bash"></a>[Bash](#tab/bash)
 
 ```azurecli-interactive
 AZURE_WEB_JOBS_STORAGE=$( \
@@ -184,11 +281,40 @@ COSMOS_DB_CONNECTION_STRING=$( \
 echo $COSMOS_DB_CONNECTION_STRING
 ```
 
+# <a name="cmd"></a>[Cmd](#tab/cmd)
+
+```azurecli
+FOR /F "delims=" %X IN (' ^
+    az storage account show-connection-string ^
+        --name %STORAGE_ACCOUNT% ^
+        --query connectionString ^
+        --output tsv') DO SET AZURE_WEB_JOBS_STORAGE=%X
+FOR /F "delims=" %X IN (' ^
+    az eventhubs eventhub authorization-rule keys list ^
+        --resource-group %RESOURCE_GROUP% ^
+        --name %EVENT_HUB_AUTHORIZATION_RULE% ^
+        --eventhub-name %EVENT_HUB_NAME% ^
+        --namespace-name %EVENT_HUB_NAMESPACE% ^
+        --query primaryConnectionString ^
+        --output tsv') DO SET EVENT_HUB_CONNECTION_STRING=%X
+FOR /F "delims=" %X IN (' ^
+    az cosmosdb keys list ^
+        --resource-group %RESOURCE_GROUP% ^
+        --name %COSMOS_DB_ACCOUNT% ^
+        --type connection-strings ^
+        --query connectionStrings[0].connectionString ^
+        --output tsv') DO SET COSMOS_DB_CONNECTION_STRING=%X
+```
+
+---
+
 Estas variables se establecen en valores recuperados de comandos de la CLI de Azure. Cada comando usa una consulta JMESPath para extraer la cadena de conexión de la carga útil JSON devuelta. Las cadenas de conexión también se muestran mediante `echo` para que pueda confirmar que se recuperaron correctamente.
 
 ### <a name="update-your-function-app-settings"></a>Actualización de la configuración de la aplicación de funciones
 
 A continuación, use el siguiente comando para transferir los valores de la cadena de conexión a la configuración de la aplicación en la cuenta de Azure Functions:
+
+# <a name="bash"></a>[Bash](#tab/bash)
 
 ```azurecli-interactive
 az functionapp config appsettings set \
@@ -200,6 +326,20 @@ az functionapp config appsettings set \
         CosmosDBConnectionString=$COSMOS_DB_CONNECTION_STRING
 ```
 
+# <a name="cmd"></a>[Cmd](#tab/cmd)
+
+```azurecli
+az functionapp config appsettings set ^
+    --resource-group %RESOURCE_GROUP% ^
+    --name %FUNCTION_APP% ^
+    --settings ^
+        AzureWebJobsStorage=%AZURE_WEB_JOBS_STORAGE% ^
+        EventHubConnectionString=%EVENT_HUB_CONNECTION_STRING% ^
+        CosmosDBConnectionString=%COSMOS_DB_CONNECTION_STRING%
+```
+
+---
+
 Ahora se han creado y configurado los recursos de Azure para funcionar correctamente.
 
 ## <a name="create-and-test-your-functions"></a>Creación y prueba de las funciones
@@ -208,14 +348,27 @@ A continuación, creará un proyecto en el equipo local, le agregará código Ja
 
 Si usó Cloud Shell para crear los recursos, no se conectará a Azure de forma local. En este caso, use el comando `az login` para iniciar el proceso de inicio de sesión basado en el explorador. A continuación, si es necesario, establezca la suscripción predeterminada con `az account set --subscription` seguido del Id. de la suscripción. Por último, ejecute los siguientes comandos para volver a crear algunas variables de entorno en el equipo local. Reemplace los marcadores de posición `<value>` con los mismos valores que usó anteriormente.
 
+# <a name="bash"></a>[Bash](#tab/bash)
+
 ```bash
 RESOURCE_GROUP=<value>
 FUNCTION_APP=<value>
 ```
 
+# <a name="cmd"></a>[Cmd](#tab/cmd)
+
+```cmd
+set RESOURCE_GROUP=<value>
+set FUNCTION_APP=<value>
+```
+
+---
+
 ### <a name="create-a-local-functions-project"></a>Creación de un proyecto local de Functions
 
 Use el siguiente comando de Maven para crear un proyecto de funciones y agregar las dependencias necesarias.
+
+# <a name="bash"></a>[Bash](#tab/bash)
 
 ```bash
 mvn archetype:generate --batch-mode \
@@ -227,6 +380,20 @@ mvn archetype:generate --batch-mode \
     -DartifactId=telemetry-functions
 ```
 
+# <a name="cmd"></a>[Cmd](#tab/cmd)
+
+```cmd
+mvn archetype:generate --batch-mode ^
+    -DarchetypeGroupId=com.microsoft.azure ^
+    -DarchetypeArtifactId=azure-functions-archetype ^
+    -DappName=%FUNCTION_APP% ^
+    -DresourceGroup=%RESOURCE_GROUP% ^
+    -DgroupId=com.example ^
+    -DartifactId=telemetry-functions
+```
+
+---
+
 Este comando genera varios archivos dentro de una carpeta de `telemetry-functions`:
 
 * Un archivo `pom.xml` para su uso con Maven.
@@ -237,18 +404,39 @@ Este comando genera varios archivos dentro de una carpeta de `telemetry-function
 
 Para evitar errores de compilación, debe eliminar los archivos de prueba. Ejecute los siguientes comandos para ir a la nueva carpeta del proyecto y eliminar la carpeta de pruebas:
 
+# <a name="bash"></a>[Bash](#tab/bash)
+
 ```bash
 cd telemetry-functions
 rm -r src/test
 ```
 
+# <a name="cmd"></a>[Cmd](#tab/cmd)
+
+```cmd
+cd telemetry-functions
+rmdir /s /q src\test
+```
+
+---
+
 ### <a name="retrieve-your-function-app-settings-for-local-use"></a>Recuperación de la configuración de la aplicación de funciones para uso local
 
 En el caso de las pruebas locales, el proyecto de funciones necesitará las cadenas de conexión que agregó a la aplicación de funciones en Azure previamente en este tutorial. Use el siguiente comando de Azure Functions Core Tools, que recupera todas las opciones de configuración de la aplicación de funciones almacenadas en la nube y las agrega al archivo de `local.settings.json`:
 
+# <a name="bash"></a>[Bash](#tab/bash)
+
 ```bash
 func azure functionapp fetch-app-settings $FUNCTION_APP
 ```
+
+# <a name="cmd"></a>[Cmd](#tab/cmd)
+
+```cmd
+func azure functionapp fetch-app-settings %FUNCTION_APP%
+```
+
+---
 
 ### <a name="add-java-code"></a>Adición de código Java
 
@@ -394,10 +582,21 @@ Ahora puede compilar y ejecutar las funciones de forma local y ver cómo los dat
 
 Use los siguientes comandos de Maven para compilar y ejecutar las funciones:
 
+# <a name="bash"></a>[Bash](#tab/bash)
+
 ```bash
 mvn clean package
 mvn azure-functions:run
 ```
+
+# <a name="cmd"></a>[Cmd](#tab/cmd)
+
+```cmd
+mvn clean package
+mvn azure-functions:run
+```
+
+---
 
 Después de algunos mensajes de compilación e inicio, verá una salida similar al ejemplo siguiente cada vez que se ejecuten las funciones:
 
@@ -422,9 +621,19 @@ Por último, puede implementar la aplicación en Azure y comprobar que sigue fun
 
 Implemente el proyecto en Azure mediante el siguiente comando:
 
+# <a name="bash"></a>[Bash](#tab/bash)
+
 ```bash
 mvn azure-functions:deploy
 ```
+
+# <a name="cmd"></a>[Cmd](#tab/cmd)
+
+```cmd
+mvn azure-functions:deploy
+```
+
+---
 
 Ahora, las funciones se ejecutan en Azure y continúan acumulando datos en su instancia de Azure Cosmos DB. Puede ver la aplicación de funciones implementada en Azure Portal y ver los datos de telemetría de la aplicación a través del recurso de Application Insights conectado, tal como se muestra en las siguientes capturas de pantallas:
 
@@ -440,9 +649,19 @@ Ahora, las funciones se ejecutan en Azure y continúan acumulando datos en su in
 
 Cuando haya terminado con los recursos de Azure que creó en este tutorial, puede eliminarlos con el siguiente comando:
 
+# <a name="bash"></a>[Bash](#tab/bash)
+
 ```azurecli-interactive
 az group delete --name $RESOURCE_GROUP
 ```
+
+# <a name="cmd"></a>[Cmd](#tab/cmd)
+
+```azurecli
+az group delete --name %RESOURCE_GROUP%
+```
+
+---
 
 ## <a name="next-steps"></a>Pasos siguientes
 

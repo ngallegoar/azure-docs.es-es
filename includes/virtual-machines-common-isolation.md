@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/05/2020
 ms.author: sttsinar
 ms.custom: include file
-ms.openlocfilehash: 3d65b574fc1479d000d347020823166a4d4b968b
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: bd31152c6742271658cf4fd7ac2a5e2957651c84
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94410585"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96478262"
 ---
 Azure Compute ofrece tamaños de máquinas virtuales que están aislados para un tipo concreto de hardware y dedicados a un solo cliente. Los tamaños aislados viven y funcionan en una generación de hardware específica y quedarán en desuso cuando se retire la generación de hardware.
 
@@ -25,24 +25,27 @@ Además, dado que las VM de tamaño aislado son más grandes, los clientes puede
 Las ofertas de máquinas virtuales aisladas actuales incluyen:
 * Standard_E64is_v3
 * Standard_E64i_v3
+* Standard_E80ids_v4
+* Standard_E80is_v4
 * Standard_M128ms
 * Standard_GS5
 * Standard_G5
 * Standard_F72s_v2
 
+
 > [!NOTE]
-> Los tamaños de VM aislados tienen una duración limitada de hardware. Vea los detalles a continuación.
+> Los tamaños de VM aislados tienen una duración limitada de hardware. Vea los detalles a continuación
 
 ## <a name="deprecation-of-isolated-vm-sizes"></a>Desuso de los tamaños de VM aislados
 
-Como los tamaños de VM aislados son tamaños vinculados al hardware, Azure proporcionará recordatorios doce meses antes de que los tamaños estén oficialmente en desuso.  Azure también ofrecerá un tamaño aislado actualizado en la siguiente versión de hardware a la que el cliente podría considerar trasladar su carga de trabajo.
+Como los tamaños de VM aislados son tamaños vinculados al hardware, Azure proporcionará recordatorios 12 meses antes de que los tamaños estén oficialmente en desuso.  Azure también ofrecerá un tamaño aislado actualizado en la siguiente versión de hardware a la que el cliente podría considerar trasladar su carga de trabajo.
 
 | Size | Fecha de retirada del aislamiento | 
 | --- | --- |
 | Standard_DS15_v2<sup>1</sup> | 15 de mayo de 2020 |
 | Standard_D15_v2<sup>1</sup>  | 15 de mayo de 2020 |
 
-<sup>1</sup>  Para obtener más información sobre los programas de retirada de aislamiento Standard_DS15_v2 y Standard_D15_v2, consulte las preguntas más frecuentes.
+<sup>1</sup>  Para obtener más información sobre los programas de retirada de aislamiento Standard_DS15_v2 y Standard_D15_v2, consulte las preguntas frecuentes.
 
 
 ## <a name="faq"></a>Preguntas más frecuentes
@@ -56,7 +59,7 @@ Como los tamaños de VM aislados son tamaños vinculados al hardware, Azure prop
 **R.** : No
 
 ### <a name="q-when-are-the-other-isolated-sizes-going-to-retire"></a>P: ¿Cuándo se van a retirar los otros tamaños aislados?
-**R.** : Se enviarán recordatorios doce meses antes de que el tamaño aislado esté oficialmente en desuso.
+**R.** : Se enviarán recordatorios 12 meses antes de que el tamaño aislado esté oficialmente en desuso.
 
 ### <a name="q-im-an-azure-service-fabric-customer-relying-on-the-silver-or-gold-durability-tiers-does-this-change-impact-me"></a>P: Soy un cliente de Azure Service Fabric que se basa en los niveles de durabilidad Silver o Gold. ¿Me afectará este cambio?
 **R.** : No. Las garantías proporcionadas por los [niveles de durabilidad](../articles/service-fabric/service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster) de Service Fabric seguirán funcionando incluso después de este cambio. Si necesita aislamiento de hardware físico por otras razones, es posible que tenga que realizar una de las acciones descritas anteriormente. 

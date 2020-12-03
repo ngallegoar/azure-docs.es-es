@@ -17,7 +17,7 @@
       items:
         - name: Uso de blobs
           items:
-            - name: Azure portal
+            - name: Azure Portal
               href: storage-quickstart-blobs-portal.md
             - name: Explorador de Storage
               href: storage-quickstart-blobs-storage-explorer.md
@@ -205,8 +205,6 @@
                   href: scalability-targets-premium-page-blobs.md
                 - name: Proveedor de recursos de Storage
                   href: ../common/scalability-targets-resource-provider.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Simultaneidad
-          href: ../common/storage-concurrency.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Búsqueda y comprensión de datos de blobs
           items:
             - name: Uso de etiquetas de índice de blobs para administrar y buscar datos de blob
@@ -457,6 +455,8 @@
               href: ../common/last-sync-time-get.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Iniciación de la conmutación por error de la cuenta
               href: ../common/storage-initiate-account-failover.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Administración de la simultaneidad
+          href: concurrency-manage.md
         - name: Uso de un emulador de almacenamiento
           items:
             - name: Uso del emulador de código abierto Azurite

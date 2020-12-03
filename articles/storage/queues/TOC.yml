@@ -9,7 +9,7 @@
   items:
     - name: Administración de colas sin código
       items:
-        - name: Azure portal
+        - name: Azure Portal
           href: storage-quickstart-queues-portal.md
     - name: Desarrollo con colas
       items:
@@ -94,8 +94,6 @@
               href: ../common/scalability-targets-resource-provider.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
         - name: Lista de comprobación de rendimiento y escalabilidad
           href: storage-performance-checklist.md
-    - name: Simultaneidad
-      href: ../common/storage-concurrency.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Supervisión y solución de problemas
       items:
         - name: Supervisión de Queue Storage
