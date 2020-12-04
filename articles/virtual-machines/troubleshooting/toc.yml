@@ -39,6 +39,8 @@
       href: restart-resize-error-troubleshooting.md
     - name: 'Reinicio, apagado o detención de servicios'
       href: boot-error-troubleshoot-windows.md
+    - name: Problemas con un disco de sistema operativo completo en una máquina virtual Linux
+      href: os-disk-full-linux.md
 - name: Reinicio inesperado
   items:
     - name: Reinicios inesperados de las máquinas virtuales con discos duros virtuales conectados
@@ -198,13 +200,13 @@
           items:
             - name: PowerShell
               href: troubleshoot-recovery-disks-windows.md
-            - name: Azure portal
+            - name: Azure Portal
               href: troubleshoot-recovery-disks-portal-windows.md
         - name: Linux
           items:
             - name: CLI
               href: troubleshoot-recovery-disks-linux.md
-            - name: Azure portal
+            - name: Azure Portal
               href: troubleshoot-recovery-disks-portal-linux.md
         - name: Se cambian los nombres de dispositivos
           href: troubleshoot-device-names-problems.md

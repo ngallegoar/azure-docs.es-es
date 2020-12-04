@@ -123,7 +123,7 @@
         - name: Recursos de Cosmos DB
           expanded: true
           items:
-            - name: Azure portal
+            - name: Azure Portal
               href: create-cosmosdb-resources-portal.md
             - name: Plantilla ARM
               displayName: Resource Manager
@@ -1305,7 +1305,7 @@
           href: tutorial-setup-ci-cd.md
         - name: Uso del Explorador de Azure Storage
           href: storage-explorer.md
-        - name: Uso del Explorador de Azure Cosmos
+        - name: "Uso de Explorador de Azure Cosmos\_DB"
           href: data-explorer.md
     - name: Analytics y BI con Azure Synapse Link
       items:

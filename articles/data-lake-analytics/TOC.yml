@@ -8,7 +8,7 @@
       href: data-lake-analytics-whats-new.md
 - name: Introducción
   items:
-    - name: Azure portal
+    - name: Azure Portal
       href: data-lake-analytics-get-started-portal.md
     - name: Visual Studio
       href: data-lake-analytics-data-lake-tools-get-started.md
@@ -31,7 +31,7 @@
   items:
     - name: Administración con Data Lake Analytics
       items:
-        - name: Azure portal
+        - name: Azure Portal
           href: data-lake-analytics-manage-use-portal.md
         - name: Línea de comandos
           items:
@@ -68,7 +68,7 @@
             - name: Aspectos básicos
               href: data-lake-analytics-u-sql-get-started.md
             - name: Referencia de lenguaje
-              href: /u-sql/
+              href: 'https://docs.microsoft.com/u-sql'
             - name: Catálogo
               href: data-lake-analytics-u-sql-catalog.md
             - name: Operadores definidos por el usuario
@@ -79,8 +79,6 @@
               href: data-lake-analytics-u-sql-r-extensions.md
             - name: Extensiones cognitivas
               href: data-lake-analytics-u-sql-cognitive.md
-            - name: Guía de programación
-              href: data-lake-analytics-u-sql-programmability-guide.md
         - name: Visual Studio
           items:
             - name: Instalar
@@ -115,6 +113,28 @@
               href: data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md
             - name: Ejecución y depuración local
               href: data-lake-tools-for-vscode-local-run-and-debug.md
+        - name: Guía de programación
+          items:
+            - name: Introducción a la guía de programación
+              href: data-lake-analytics-u-sql-programmability-guide.md
+            - name: 'Guía de programación: UDT y UDAGG'
+              href: data-lake-analytics-u-sql-programmability-guide-UDT-AGG.md
+            - name: 'Guía de programación: UDO'
+              items:
+                - name: Introducción a los objetos definidos por el usuario
+                  href: data-lake-analytics-u-sql-programmability-guide-UDO.md
+                - name: Uso de extractor definido por el usuario
+                  href: data-lake-analytics-u-sql-programmability-guide-extractor.md
+                - name: Uso de outputter definido por el usuario
+                  href: data-lake-analytics-u-sql-programmability-guide-outputter.md
+                - name: Uso de procesador definido por el usuario
+                  href: data-lake-analytics-u-sql-programmability-guide-processor.md
+                - name: Uso de aplicador definido por el usuario
+                  href: data-lake-analytics-u-sql-programmability-guide-applier.md
+                - name: Uso de combinador definido por el usuario
+                  href: data-lake-analytics-u-sql-programmability-guide-combiner.md
+                - name: Uso de reductor definido por el usuario
+                  href: data-lake-analytics-u-sql-programmability-guide-reducer.md
     - name: Programación de trabajos de U-SQL
       items:
         - name: Programación de trabajos con SSIS
