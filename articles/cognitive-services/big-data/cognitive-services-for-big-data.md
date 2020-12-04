@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: overview
 ms.date: 07/09/2020
 ms.author: marhamil
-ms.openlocfilehash: 1b08925db12edffdaf5c85f1fa6f5934a412d81f
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: aaade03edbbb109656fb7371a063cdc2512c5a20
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94363313"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461626"
 ---
 # <a name="azure-cognitive-services-for-big-data"></a>Azure Cognitive Services para macrodatos
 
@@ -84,11 +84,11 @@ Cognitive Services para macrodatos requiere Apache Spark. Hay varias plataformas
 
 ### <a name="azure-synapse-analytics"></a>Azure Synapse Analytics
 
-[Azure Synapse Analytics](/azure/databricks/data/data-sources/azure/synapse-analytics) (antes SQL Data Warehouse) es el almacenamiento de datos empresarial que utiliza procesamiento paralelo masivo. Con Synapse Analytics, puede ejecutar rápidamente consultas complejas en petabytes de datos. Azure Synapse Analytics proporciona grupos de Spark administrados para ejecutar trabajos de Spark con una interfaz de Jupyter Notebook intuitiva.
+[Azure Synapse Analytics](/azure/databricks/data/data-sources/azure/synapse-analytics) es el almacenamiento de datos empresarial que utiliza procesamiento paralelo masivo. Con Synapse Analytics, puede ejecutar rápidamente consultas complejas en petabytes de datos. Azure Synapse Analytics proporciona grupos de Spark administrados para ejecutar trabajos de Spark con una interfaz de Jupyter Notebook intuitiva.
 
 ### <a name="azure-kubernetes-service"></a>Azure Kubernetes Service
 
-[Azure Kubernetes Service (AKS)](../../aks/index.yml) organiza los contenedores de Docker y las aplicaciones distribuidas a escalas masivas. AKS es una oferta de Kubernetes administrada que simplifica el uso de Kubernetes en Azure. Kubernetes puede permitir el control pormenorizado de la escala, la latencia y la red de Cognitive Services. Sin embargo, se recomienda usar Azure Databricks o Synapse Analytics si no está familiarizado con Apache Spark.
+[Azure Kubernetes Service (AKS)](../../aks/index.yml) organiza los contenedores de Docker y las aplicaciones distribuidas a escalas masivas. AKS es una oferta de Kubernetes administrada que simplifica el uso de Kubernetes en Azure. Kubernetes puede permitir el control pormenorizado de la escala, la latencia y la red de Cognitive Services. Sin embargo, se recomienda usar Azure Databricks o Azure Synapse Analytics si no está familiarizado con Apache Spark.
 
 ### <a name="data-connectors"></a>Conectores de datos
 

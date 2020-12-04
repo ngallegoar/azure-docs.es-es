@@ -1,18 +1,18 @@
 ---
-title: 'Inicio rápido: Consulta de predicciones con el explorador: LUIS'
-description: En este inicio rápido, usará una aplicación de LUIS disponible públicamente para determinar la intención de un usuario a partir de texto conversacional en un explorador.
+title: 'Consulta de predicciones mediante un explorador: LUIS'
+description: En este artículo, usará una aplicación de LUIS disponible públicamente para determinar la intención de un usuario a partir de texto conversacional en un explorador.
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: quickstart
-ms.date: 04/21/2020
-ms.openlocfilehash: ce7544bee32586aa4cdeeb7f47a84744194db5da
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.topic: conceptual
+ms.date: 11/30/2020
+ms.openlocfilehash: 6aa681c8ea60cb57ac3e6d143c60cc46bc057719
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91316280"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436919"
 ---
-# <a name="quickstart-query-prediction-runtime-with-user-text"></a>Inicio rápido: Consulta del entorno de ejecución de predicción con texto del usuario
+# <a name="how-to-query-the-prediction-runtime-with-user-text"></a>Consulta del entorno de ejecución de predicción con texto del usuario
 
 Para entender lo que devuelve un punto de conexión de predicción de LUIS, vea un resultado de predicción en un explorador web.
 

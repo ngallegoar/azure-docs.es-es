@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom: devx-track-python
-ms.openlocfilehash: 8a7812bfcbedc8307557b4fb0623cb8a72913419
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 5c58742bd04f21ea501fde95798245c81442e24c
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95743045"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96501182"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-python"></a>Inicio rápido: Detección de caras en una imagen mediante Face REST API y Python
 
@@ -36,7 +36,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="run-the-jupyter-notebook"></a>Ejecutar Jupyter Notebook
 
-Puede ejecutar esta guía de inicio rápido como una instancia de Jupyter Notebook en [MyBinder](https://mybinder.org). Para iniciar Binder, seleccione el botón siguiente. Después, siga las instrucciones del Notebook.
+Puede ejecutar este inicio rápido como una instancia de Jupyter Notebook en [MyBinder](https://mybinder.org). Para iniciar Binder, seleccione el botón siguiente. Después, siga las instrucciones del Notebook.
 
 [![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=FaceAPI.ipynb)
 

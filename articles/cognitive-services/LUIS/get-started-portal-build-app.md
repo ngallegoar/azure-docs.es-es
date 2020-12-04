@@ -4,13 +4,13 @@ description: En este inicio rápido creará las partes básicas de una aplicaci�
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 05/19/2020
-ms.openlocfilehash: 74866c65111fae9e6fb3b79d9b59819b14b03c16
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.date: 11/30/2020
+ms.openlocfilehash: a5443dce9fc8bc028232f66f45b537a46858f35a
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93131486"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436681"
 ---
 # <a name="quickstart-create-a-new-app-in-the-luis-portal"></a>Inicio rápido: Creación de una aplicación en el portal de LUIS
 
@@ -20,13 +20,13 @@ En este inicio rápido, compilará una nueva aplicación en el portal de LUIS. E
 
 ## <a name="create-an-app"></a>Creación de una aplicación
 
-Para crear una aplicación, haga clic en **+ Nueva aplicación**. 
+Para crear una aplicación, seleccione **+ Nueva aplicación**. 
 
 En la ventana que aparece, escriba la siguiente información:
 
 |Nombre  |Descripción  |
 |---------|---------|
-|Nombre     | El nombre de la aplicación. Por ejemplo, "home automation". Necesario.        |
+|Nombre     | Un nombre para la aplicación. Por ejemplo, "home automation". Necesario.        |
 |culture     | El idioma que la aplicación entiende y habla. Necesario.   |
 |Description | La descripción de la aplicación. Opcional.
 |Recurso de predicción | El recurso de predicción que recibirá las consultas. Opcional. |
@@ -63,7 +63,7 @@ Para crear intenciones, complete los siguientes pasos:
 
 Agregue expresiones de ejemplo después de crear las intenciones. Las expresiones de ejemplo son texto que un usuario escribe en un bot de chat o en otra aplicación cliente. Asignan la intención del texto del usuario a una intención de LUIS. Para esta intención `FindForm` de la aplicación de ejemplo, las expresiones de ejemplo incluirán el número de formulario. La aplicación cliente necesita el número de formulario para satisfacer la solicitud del usuario, por lo que es importante incluirlo en la expresión.
 
-En la página **Intenciones** de `FindForm`, agregue las siguientes expresiones del ejemplo en **Expresión de ejemplo** , 
+En la página **Intenciones** de `FindForm`, agregue las siguientes expresiones del ejemplo en **Expresión de ejemplo**, 
 
 |#|Expresiones de ejemplo|
 |--|--|
@@ -155,7 +155,7 @@ Use el panel de **prueba** interactiva en el portal de LUIS para validar que la 
    > [!div class="mx-imgBorder"]
    > ![Captura de pantalla de la prueba de una nueva expresión en el panel de prueba](./media/get-started-portal-build-app/test-new-utterance.png)
 
-   La intención de predicción con mayor puntuación es **FindForm** , con un nivel de confianza superior al 90 % (0,977). Se extrae la entidad **FormNumber** con un valor de hrf-234098.
+   La intención de predicción con mayor puntuación es **FindForm**, con un nivel de confianza superior al 90 % (0,977). Se extrae la entidad **FormNumber** con un valor de hrf-234098.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

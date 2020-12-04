@@ -11,12 +11,12 @@ ms.date: 09/30/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: procesamiento de documentos
-ms.openlocfilehash: 5df8ced885768308369599d94c5734fa0620c507
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 7671d8d58ffbd0fca444eefe53c46c99a4e76d37
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360877"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "96009337"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Entrenamiento de un modelo de Form Recognizer con etiquetas mediante la herramienta de etiquetado de ejemplo
 
@@ -42,8 +42,17 @@ Para completar este inicio rápido, debe cumplir los siguientes requisitos:
 
 Para probar la herramienta de etiquetado de ejemplo de Form Recognizer en línea, vaya al [sitio web de FOTT](https://fott-preview.azurewebsites.net/).
 
+# <a name="v20"></a>[v2.0](#tab/v2-0)
 > [!div class="nextstepaction"]
-> [Herramienta de etiquetado de ejemplo de Form Recognizer](https://fott-preview.azurewebsites.net/)
+> [Uso de modelos precompilados](https://fott.azurewebsites.net/)
+
+# <a name="v21-preview"></a>[Versión preliminar v2.1](#tab/v2-1)
+> [!div class="nextstepaction"]
+> [Uso de modelos precompilados](https://fott-preview.azurewebsites.net/)
+
+---
+
+Necesitará una suscripción de Azure ([cree una gratis](https://azure.microsoft.com/free/cognitive-services)) y un punto de conexión de [recursos de Form Recognizer](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer), así como la clave para probar el servicio Form Recognizer. 
 
 
 ## <a name="set-up-the-sample-labeling-tool"></a>Configuración de la herramienta de etiquetado de ejemplo
@@ -68,8 +77,6 @@ Usará el motor de Docker para ejecutar la herramienta de etiquetado de ejemplo.
 
 
 
-
-
 1. Obtenga el contenedor de la herramienta de etiquetado de ejemplo con el comando `docker pull`.
 
     # <a name="v20"></a>[v2.0](#tab/v2-0)    
@@ -78,7 +85,7 @@ Usará el motor de Docker para ejecutar la herramienta de etiquetado de ejemplo.
     ```
     # <a name="v21-preview"></a>[Versión preliminar v2.1](#tab/v2-1)    
     ```
-    docker pull mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:2.1.012970002-amd64-preview
+    docker pull mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest-preview
     ```
 
     ---
@@ -91,7 +98,7 @@ Usará el motor de Docker para ejecutar la herramienta de etiquetado de ejemplo.
     ```
     # <a name="v21-preview"></a>[Versión preliminar v2.1](#tab/v2-1)    
     ```
-    docker run -it -p 3000:80 mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:2.1.012970002-amd64-preview eula=accept    
+    docker run -it -p 3000:80 mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest-preview eula=accept    
     ```
 
     --- 
@@ -193,7 +200,7 @@ A continuación, creará etiquetas y las aplicará a los elementos de texto que 
    1. Haga clic en **+** para crear una nueva etiqueta.
    1. Escriba el nombre de la etiqueta.
    1. Presione Entrar para guardar la etiqueta.
-1. En el editor principal, haga clic para seleccionar las palabras en los elementos de texto resaltados. En la _versión preliminar v2.1_, también puede hacer clic para seleccionar _marcas de selección_ como botones de radio y casillas de verificación como pares clave-valor. Form Recognizer identificará si la marca de selección está "activada" o "desactivada" como el valor.
+1. En el editor principal, haga clic para seleccionar las palabras en los elementos de texto resaltados. En la versión preliminar _v2.1 preview.2_, también puede hacer clic para seleccionar _marcas de selección_ como botones de radio y casillas de verificación como pares clave-valor. Form Recognizer identificará si la marca de selección está "activada" o "desactivada" como el valor.
 1. Haga clic en la etiqueta que desea aplicar o presione la tecla correspondiente del teclado. Las teclas numéricas se asignan como teclas de acceso rápido para las diez primeras etiquetas. Puede volver a ordenar las etiquetas con los iconos de flecha arriba y abajo del panel del editor de etiquetas.
     > [!Tip]
     > Tenga en cuenta las siguientes sugerencias cuando vaya a etiquetar los formularios.

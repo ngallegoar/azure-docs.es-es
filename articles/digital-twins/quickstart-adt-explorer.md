@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 9/24/2020
 ms.topic: quickstart
 ms.service: digital-twins
-ms.openlocfilehash: d203cb5ccef90fd09659ba64b7bcbc8b9be9e47a
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: d42a32e236eb73f2aa9f2f61d9708314783564dd
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94358106"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187311"
 ---
 # <a name="quickstart---explore-a-sample-azure-digital-twins-scenario-using-adt-explorer"></a>Inicio rápido: Exploración de un escenario de Azure Digital Twins de ejemplo con ADT Explorer
 
@@ -66,6 +66,7 @@ De lo contrario, puede instalar la CLI de Azure local con estos pasos:
 1. Siga el proceso que se describe en [este vínculo de instalación](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) para completar la instalación correspondiente a su sistema operativo.
 1. Abra una ventana de la consola en la máquina.
 1. Ejecute `az login` y siga los avisos de autenticación para iniciar sesión en su cuenta de Azure.
+1. Posible último paso: si usa varias suscripciones de Azure en esta cuenta, establezca el contexto de autenticación en la suscripción de Azure que contiene la instancia de Azure Digital Twins. Para eso, ejecute `az account set --subscription "<your-subscription-name-or-ID>"` (el nombre o el valor del identificador de la suscripción servirán).
 
 Después iniciar sesión, ADT Explorer seleccionará las credenciales de Azure automáticamente al ejecutarlo en la sección siguiente.
 
@@ -90,7 +91,7 @@ Abra una ventana de la consola en la ubicación de la carpeta **Azure_Digital_Tw
 
    :::image type="content" source="media/quickstart-adt-explorer/sign-in.png" alt-text="Explorador de ADT con el icono de inicio de sesión resaltado cerca de la parte superior de la ventana. El icono muestra una silueta simple de una persona superpuesta con la silueta de una llave." lightbox="media/quickstart-adt-explorer/sign-in.png":::
 
-1. Escriba la dirección URL de la instancia de Azure Digital Twins que recopiló en la sección [Requisitos previos](#prerequisites), con el formato *https://{nombre de host de instancia}* .
+1. Escriba la dirección URL de la instancia de Azure Digital Twins que recopiló anteriormente en la sección [Configuración de una instancia de Azure Digital Twins](#set-up-an-azure-digital-twins-instance), con el formato *https://{nombre de host de instancia}* .
 
 >[!NOTE]
 > Puede revisar o editar esta información en cualquier momento; solo tiene que seleccionar el mismo icono para volver a abrir el cuadro **Sign In** (Iniciar sesión). Mantendrá los valores que ha especificado.
