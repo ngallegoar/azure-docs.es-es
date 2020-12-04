@@ -145,7 +145,11 @@
     - name: Administración de emparejamientos
       items:
         - name: Habilitar y deshabilitar emparejamientos
-          href: expressroute-howto-reset-peering.md
+          items:
+            - name: Azure portal
+              href: expressroute-howto-reset-peering-portal.md
+            - name: Azure PowerShell
+              href: expressroute-howto-reset-peering.md
         - name: Cambio de emparejamiento público a emparejamiento de Microsoft
           href: how-to-move-peering.md
     - name: Cifrado del tráfico en circuitos
