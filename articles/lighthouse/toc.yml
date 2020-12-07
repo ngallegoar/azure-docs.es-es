@@ -54,12 +54,18 @@
     - name: Vínculo a su identificador de asociado
       displayName: 'partner earned credit, pec, mpn'
       href: ./how-to/partner-earned-credit.md
+    - name: Actualización de una delegación
+      displayName: upgrade
+      href: ./how-to/update-delegation.md
     - name: Quitar el acceso a una delegación
       displayName: 'delete, undelegate'
       href: ./how-to/remove-delegation.md
     - name: Integración de Azure Arc
       displayName: 'server, kubernetes, hybrid, infrastructure'
       href: ./how-to/manage-hybrid-infrastructure-arc.md
+    - name: Integración de Azure Migrate
+      displayName: 'migration, project, on-prem'
+      href: ./how-to/migration-at-scale.md
     - name: Integración de Azure Monitor
       items:
         - name: Uso de registros de Azure Monitor a escala

@@ -1055,6 +1055,8 @@
                   href: virtual-machines/windows/azure-key-vault-integration-configure.md
                 - name: Migración del almacenamiento a UltraSSD
                   href: virtual-machines/windows/storage-migrate-to-ultradisk.md
+                - name: Habilitación de la valoración de vulnerabilidades de SQL
+                  href: virtual-machines/windows/sql-vulnerability-assessment-enable.md
                 - name: Instalación de la extensión Agente de IaaS de SQL
                   displayName: 'resource provider, registration, sql vm rp'
                   items:

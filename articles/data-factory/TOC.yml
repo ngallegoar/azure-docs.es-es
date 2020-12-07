@@ -145,6 +145,10 @@
           href: tutorial-deploy-ssis-packages-azure-powershell.md
         - name: Unión a una red virtual
           href: tutorial-deploy-ssis-virtual-network.md
+    - name: Linaje
+      items:
+        - name: Inserción de datos de linaje de Data Factory en Azure Purview
+          href: turorial-push-lineage-to-purview.md
     - name: Laboratorios integrales
       items:
         - name: Integración de datos mediante factoría de datos y uso compartido de datos
@@ -688,6 +692,10 @@
           href: how-to-create-tumbling-window-trigger.md
         - name: Creación de una dependencia de un desencadenador de ventana de saltos de tamaño constante
           href: tumbling-window-trigger-dependency.md
+    - name: Linaje
+      items:
+        - name: Conexión de Data Factory a Azure Purview
+          href: connect-data-factory-to-azure-purview.md
     - name: Escenarios
       items:
         - name: Migración de datos para Data Lake y EDW
