@@ -890,8 +890,6 @@
               items:
                 - name: Diagnósticos detallados para servicios y aplicaciones web
                   href: app/devops.md
-                - name: Supervisar el rendimiento de aplicaciones web
-                  href: app/web-monitor-performance.md
                 - name: 'Separación de desarrollo, prueba y producción'
                   href: app/separate-resources.md
                 - name: ¿Cómo ... en Application Insights?

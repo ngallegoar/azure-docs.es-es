@@ -99,14 +99,16 @@ items:
               - name: Instancia administrada de Azure SQL Database
                 href: register-scan-azure-sql-database-managed-instance.md
                 displayName: Register and scan Azure SQL DB Managed Instance
-              - name: "Azure\_Synapse\_Analytics"
+              - name: Azure Synapse Analytics
                 href: register-scan-azure-synapse-analytics.md
+              - name: SQL Server local
+                href: register-scan-on-premises-sql-server.md
               - name: "Inquilino de Power\_BI: Azure Portal"
                 href: register-scan-power-bi-tenant.md
               - name: "Inquilino de Power\_BI: PowerShell"
                 href: powershell-register-scan-power-bi.md
-              - name: SQL Server local
-                href: register-scan-on-premises-sql-server.md
+              - name: Teradata
+                href: register-scan-teradata-source.md
       - name: Glosario empresarial
         items:
           - name: 'Creación, importación y exportación de términos del glosario'
@@ -127,7 +129,7 @@ items:
             href: how-to-browse-catalog.md
           - name: Búsqueda en Data Catalog
             href: how-to-search-catalog.md
-      - name: Linaje
+      - name: Lineage
         items:
           - name: Guía de usuario de Lineage
             href: catalog-lineage-user-guide.md
