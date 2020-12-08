@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 09/28/2020
 ms.author: aahi
 keywords: entorno local, Docker, contenedor
-ms.openlocfilehash: c65a81d9daed85b5bf056d24949e36ec227c19c6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 778fe388ae3db68d836384299a8a1c7c06e31f41
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91460992"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "96001817"
 ---
 # <a name="install-and-run-docker-containers-for-luis"></a>Instalación y ejecución de contenedores de Docker para LUIS
 
@@ -92,7 +92,7 @@ Una vez que el contenedor esté en el [equipo host](#the-host-computer), utilice
 1. [Ejecute el contenedor](#run-the-container-with-docker-run) con la configuración de facturación y el _montaje de entrada_. Hay más [ejemplos](luis-container-configuration.md#example-docker-run-commands) del comando `docker run` disponibles.
 1. [Consulte el punto de conexión de predicción del contenedor](#query-the-containers-prediction-endpoint).
 1. Cuando haya terminado con el contenedor, [importe los registros de punto de conexión](#import-the-endpoint-logs-for-active-learning) desde la salida de montaje en el portal de LUIS y [detenga](#stop-the-container) el contenedor.
-1. En el portal de LUIS, utilice el [aprendizaje activo ](luis-how-to-review-endpoint-utterances.md) de la página sobre la **revisión de expresiones de puntos de conexión** para mejorar la aplicación.
+1. En el portal de LUIS, utilice el [aprendizaje activo](luis-how-to-review-endpoint-utterances.md) de la página sobre la **revisión de expresiones de puntos de conexión** para mejorar la aplicación.
 
 La aplicación que se ejecuta en el contenedor no se puede modificar. Con el fin de cambiar la aplicación en el contenedor, debe cambiar la aplicación en el servicio LUIS con el portal de [LUIS](https://www.luis.ai) o usar las [API de creación](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f) de LUIS. Después de realizar el entrenamiento o la publicación, descargue un nuevo paquete y ejecute de nuevo el contenedor.
 
@@ -281,7 +281,7 @@ Los parámetros de consulta determinan cómo y qué se devuelve en la respuesta 
 |`staging`|boolean|Si está establecido en true, devuelve la consulta a partir de los resultados del entorno de ensayo. |
 |`log`|boolean|Registra las consultas, lo que puede utilizarse después para el [aprendizaje activo](luis-how-to-review-endpoint-utterances.md). El valor predeterminado es true.|
 
-***
+**_
 
 ### <a name="query-the-luis-app"></a>Consulta de la aplicación de LUIS
 
@@ -299,7 +299,7 @@ curl -G \
 "http://localhost:5000/luis/v3.0/apps/{APP_ID}/slots/production/predict"
 ```
 
-Para realizar consultas en el entorno de **ensayo**, reemplace `production` en la ruta por `staging`:
+Para realizar consultas en el entorno de *almacenamiento provisional** reemplace `production` en la ruta por `staging`:
 
 `http://localhost:5000/luis/v3.0/apps/{APP_ID}/slots/staging/predict`
 
@@ -335,7 +335,7 @@ curl -X GET \
 ```
 El nombre de la versión tiene un máximo de 10 caracteres y solamente contiene los caracteres que se permiten en las direcciones URL.
 
-***
+**_
 
 ## <a name="import-the-endpoint-logs-for-active-learning"></a>Importación de los registros de punto de conexión para el aprendizaje activo
 
@@ -346,11 +346,11 @@ En la siguiente ubicación, se muestra la estructura anidada de directorios de l
 /output/luis/{INSTANCE_ID}/
 ```
 
-En el portal de LUIS, seleccione la aplicación y la opción **Import endpoint logs** (Importar registros de puntos de conexión) para cargar estos registros.
+En el portal de LUIS, seleccione la aplicación y la opción *Import endpoint logs** (Importar registros de puntos de conexión) para cargar estos registros.
 
 ![Importación de los archivos de registro del contenedor para el aprendizaje activo](./media/luis-container-how-to/upload-endpoint-log-files.png)
 
-Después de cargar el registro, [revise las expresiones del punto de conexión](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-review-endpoint-utterances) en el portal de LUIS.
+Después de cargar el registro, [revise las expresiones del punto de conexión](./luis-concept-review-endpoint-utterances.md) en el portal de LUIS.
 
 <!--  ## Validate container is running -->
 

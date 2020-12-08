@@ -10,16 +10,16 @@ ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: mbullwin
-ms.openlocfilehash: de8d5d8e9fc5ce1df05cfd4c67ef146760e2c7e9
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: fb6eaf44967732d3a41ea92b0896540a40f694e3
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92043177"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184729"
 ---
 # <a name="how-to-manage-your-data-feeds"></a>Procedimientos: Administración de las fuentes de distribución de datos
 
-Obtenga información sobre cómo administrar las fuentes de distribución de datos incorporadas a Metrics Advisor. En este artículo se explica paso a paso cómo administrar fuentes de distribución de datos en Metrics Monitor.
+Obtenga información sobre cómo administrar las fuentes de distribución de datos incorporadas a Metrics Advisor. En este artículo se explica paso a paso cómo administrar fuentes de distribución de datos en Metrics Advisor.
 
 ## <a name="edit-a-data-feed"></a>Edición de una fuente de distribución de datos
 
@@ -106,7 +106,7 @@ Las opciones son:
 
 Las plantillas de vínculo de acción se usan para predefinir direcciones URL HTTP accionables, que constan de los marcadores de posición `%datafeed`, `%metric`, `%timestamp`, `%detect_config`y `%tagset`. Puede usar la plantilla para redirigir de una anomalía o un incidente a una dirección URL específica para explorarla en profundidad.
 
-:::image type="content" source="../media/action-link-template.png" alt-text="Reposición de la fuente de distribución de datos" lightbox="../media/action-link-template.png":::
+:::image type="content" source="../media/action-link-template.png" alt-text="Plantilla de vínculo de acción" lightbox="../media/action-link-template.png":::
 
 Una vez que haya rellenado el vínculo de acción, haga clic en **Go to action link** (Ir al vínculo de acción) en la opción de acción de la lista de incidentes y en el menú contextual del árbol de incidentes. Reemplace los marcadores de posición de la plantilla de vínculo de acción con los valores correspondientes de la anomalía o el incidente.
 

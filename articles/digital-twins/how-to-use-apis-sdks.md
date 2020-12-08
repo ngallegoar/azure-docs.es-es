@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: d349d07a66b21766ea529661c2f27d0c76ea4d3b
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: cac0d8cb8a910b735454c9270060364cab2db5fb
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95024728"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187245"
 ---
 # <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Uso de las API y los SDK de Azure Digital Twins
 
@@ -20,7 +20,7 @@ Azure Digital Twins incluye las **API de plano de control** y las **API de plano
 * Las API de plano de control son las API de [Azure Resource Manager (ARM)](../azure-resource-manager/management/overview.md) y cubren las operaciones de administración de recursos como la creación y eliminación de la instancia. 
 * Las API de plano de datos son las API de Azure Digital Twins y se usan para operaciones de administración de datos, como la administración de modelos, gemelos y el grafo.
 
-En este artículo se proporciona información general sobre las API disponibles y los métodos para interactuar con ellas. Puede usar las API REST directamente con las instancias de Swagger asociadas o mediante un SDK.
+En este artículo se proporciona información general sobre las API disponibles y los métodos para interactuar con ellas. Puede usar las API REST directamente con las instancias de Swagger asociadas (mediante una herramienta como [Postman](how-to-use-postman.md)) o mediante un SDK.
 
 ## <a name="overview-control-plane-apis"></a>Información general: API de plano de control
 
@@ -32,7 +32,7 @@ Para usar las API de plano de control:
 * Para llamar a las API directamente, haga referencia al Swagger más reciente en la [carpeta Swagger del plano de control](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins). Este repositorio también incluye una carpeta de ejemplos que muestran el uso.
 * Actualmente puede acceder a los SDK para las API de control en...
   - [ **.NET (C#)**](https://www.nuget.org/packages/Microsoft.Azure.Management.DigitalTwins/) ([referencia [generada automáticamente]](/dotnet/api/overview/azure/digitaltwins/management?view=azure-dotnet&preserve-view=true)) ([código fuente](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Microsoft.Azure.Management.DigitalTwins))
-  - [**Java**](https://search.maven.org/artifact/com.microsoft.azure.digitaltwins.v2020_10_31/azure-mgmt-digitaltwins/1.0.0/jar) ([referencia [generada automáticamente]](/java/api/overview/azure/digitaltwins?view=azure-java-stable)) ([código fuente](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins/mgmt-v2020_10_31))
+  - [**Java**](https://search.maven.org/artifact/com.microsoft.azure.digitaltwins.v2020_10_31/azure-mgmt-digitaltwins/1.0.0/jar) ([referencia [generada automáticamente]](/java/api/overview/azure/digitaltwins?view=azure-java-stable&preserve-view=true)) ([código fuente](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins/mgmt-v2020_10_31))
   - [**JavaScript**](https://www.npmjs.com/package/@azure/arm-digitaltwins) ([código fuente](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/digitaltwins/arm-digitaltwins))
   - [**Python**](https://pypi.org/project/azure-mgmt-digitaltwins/) ([código fuente](https://github.com/Azure/azure-sdk-for-python/tree/release/v3/sdk/digitaltwins/azure-mgmt-digitaltwins))
   - [**Go**](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/digitaltwins/mgmt/2020-10-31/digitaltwins) ([código fuente](https://github.com/Azure/azure-sdk-for-go/tree/master/services/digitaltwins/mgmt/2020-10-31/digitaltwins))
@@ -279,6 +279,7 @@ client.UpdateDigitalTwin("myTwin", updateTwinData);
 
 En la lista siguiente se proporcionan detalles adicionales y directrices generales para usar las API y los SDK.
 
+* Puede usar una herramienta de prueba de REST de HTTP como Postman para realizar llamadas directas a las API de Azure Digital Twins. Para más información sobre este proceso, consulte [*Procedimiento: Realización de solicitudes con Postman*](how-to-use-postman.md).
 * Para usar el SDK, cree una instancia de la clase `DigitalTwinsClient`. El constructor requiere credenciales que se pueden obtener con una variedad de métodos de autenticación en el paquete de `Azure.Identity`. Para más información sobre `Azure.Identity`, consulte la [documentación del espacio de nombres](/dotnet/api/azure.identity?preserve-view=true&view=azure-dotnet). 
 * Es posible que encuentre útil `InteractiveBrowserCredential` al comenzar, pero hay muchas otras opciones, incluidas las credenciales para la [identidad administrada](/dotnet/api/azure.identity.interactivebrowsercredential?preserve-view=true&view=azure-dotnet), que probablemente va a usar para autenticar las [funciones de Azure configuradas con MSI](../app-service/overview-managed-identity.md?tabs=dotnet) en Azure Digital Twins. Para más información sobre `InteractiveBrowserCredential`, consulte la [documentación de la clase](/dotnet/api/azure.identity.interactivebrowsercredential?preserve-view=true&view=azure-dotnet).
 * Todas las llamadas de API de servicio se exponen como funciones miembro en la clase `DigitalTwinsClient`.
@@ -303,8 +304,8 @@ Desde aquí, puede ver las métricas de la instancia y crear vistas personalizad
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Vea cómo usar las API para configurar una instancia de Azure Digital Twins y realizar la autenticación:
-* [*Procedimiento: Configuración de una instancia y autenticación*](how-to-set-up-instance-cli.md)
+Vea cómo se hacen solicitudes directas a las API mediante Postman:
+* [*Procedimiento: Realización de solicitudes con Postman*](how-to-use-postman.md)
 
-O bien, siga los pasos para crear una aplicación cliente como la que se usa en este tutorial:
+O bien, practique el uso del SDK de .NET mediante la creación de una aplicación cliente con este tutorial:
 * [*Tutorial: Programación de una aplicación cliente*](tutorial-code.md)

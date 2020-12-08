@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: pafarley
-ms.openlocfilehash: d98f2390be3b3f4b3770125185cb33daa5ff6371
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: e2d87d4322ac6b91a19a4775c23ceec75d528030
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93143646"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325339"
 ---
 # <a name="content-moderation-reviews-workflows-and-jobs"></a>Revisiones, flujos de trabajo y trabajos de moderación de contenido
 
@@ -26,13 +26,13 @@ Content Moderator combina la moderación automática con funcionalidades de int
 En una revisión, el contenido se carga en la herramienta de revisión. Para verlo, haga clic en su tipo de contenido en la pestaña **Review** (Revisar) en el panel. En la pantalla de revisión, puede modificar las etiquetas aplicadas y aplicar sus propias etiquetas personalizadas según corresponda. Cuando se envía una revisión, los resultados se envían a un punto de conexión de devolución de llamada especificado y el contenido se quita del sitio.
 
 > [!div class="mx-imgBorder"]
-> ![Sitio de la herramienta de revisión con la pestaña Review (Revisar) seleccionada](./Review-Tool-user-Guide/images/review-tab.png)
+> ![El menú desplegable Review (Revisar) está resaltado. Muestra estos tipos de contenido: imagen, texto y vídeo.](./Review-Tool-user-Guide/images/review-tab.png)
 
 ### <a name="manage-reviews"></a>Administración de revisiones
 
 En el panel, vaya a **Admin** -> **Manage Reviews** (Administración > Administrar revisiones) para ver la pantalla de administración. Aquí puede ver una lista de todas las revisiones (pendientes y completadas).
 
-El botón **Acciones** , con tres puntos, de cada revisión permite ir a la pantalla de revisiones o inspeccionar el historial de esa revisión.
+El botón **Acciones**, con tres puntos, de cada revisión permite ir a la pantalla de revisiones o inspeccionar el historial de esa revisión.
 
 > [!div class="mx-imgBorder"]
 > ![Sitio web de la herramienta de revisión, en la pantalla Review (Revisión)](./Review-Tool-user-Guide/images/manage-reviews.png)
@@ -40,7 +40,7 @@ El botón **Acciones** , con tres puntos, de cada revisión permite ir a la pant
 Use la barra de herramientas de **búsqueda** para ordenar las revisiones por diversas categorías, como el estado de la revisión, las etiquetas, el tipo de contenido, los subequipos, los usuarios asignados y la fecha de creación o modificación.
 
 > [!div class="mx-imgBorder"]
-> ![Sitio de la herramienta de revisión con la pestaña Review (Revisar) seleccionada](./Review-Tool-user-Guide/images/review-search.png)
+> ![Se muestra la barra de herramientas de búsqueda. Tiene varios cuadros combinados para especificar criterios de búsqueda, como el estado de la revisión y las etiquetas.](./Review-Tool-user-Guide/images/review-search.png)
 
 Consulte la [guía de la herramienta de revisión](./review-tool-user-guide/review-moderated-images.md) para empezar a crear revisiones o la [guía de la API REST](./try-review-api-review.md) si quiere aprender a hacerlo mediante programación.
 
@@ -55,7 +55,7 @@ Para ver los flujos de trabajo existentes, vaya a la [herramienta de revisión](
 > [!div class="mx-imgBorder"]
 > ![Flujo de trabajo predeterminado](images/default-workflow-list.png)
 
-Los flujos de trabajo se definen como cadenas JSON, lo que hace que sean accesibles mediante programación. Si selecciona la opción **Editar** del flujo de trabajo y luego selecciona la pestaña **JSON** , verá una expresión JSON similar a la siguiente:
+Los flujos de trabajo se definen como cadenas JSON, lo que hace que sean accesibles mediante programación. Si selecciona la opción **Editar** del flujo de trabajo y luego selecciona la pestaña **JSON**, verá una expresión JSON similar a la siguiente:
 
 ```json
 {

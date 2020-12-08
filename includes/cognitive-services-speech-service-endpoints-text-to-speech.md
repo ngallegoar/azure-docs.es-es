@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/06/2019
 ms.author: wolfma
-ms.openlocfilehash: a1de313245e826511a7e9c864165ac44bcb48530
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 650ce0cc9586118b30593767c6a3ddb92f494ac3
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80234207"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95972666"
 ---
 ### <a name="standard-and-neural-voices"></a>Voces estándares y neuronales
 
@@ -37,6 +37,9 @@ Utilice esta tabla para determinar la disponibilidad de las voces estándar y ne
 | Oeste de Europa | `https://westeurope.tts.speech.microsoft.com/cognitiveservices/v1` | Sí | Sí |
 | Oeste de EE. UU. | `https://westus.tts.speech.microsoft.com/cognitiveservices/v1` | Sí | No |
 | Oeste de EE. UU. 2 | `https://westus2.tts.speech.microsoft.com/cognitiveservices/v1` | Sí | Sí |
+
+> [!TIP]
+> Las [voces en versión preliminar](../articles/cognitive-services/Speech-Service/language-support.md#neural-voices-in-preview) solo están disponibles en estas tres regiones: Este de EE. UU., Oeste de Europa y Sudeste de Asia.
 
 ### <a name="custom-voices"></a>Voces personalizadas
 

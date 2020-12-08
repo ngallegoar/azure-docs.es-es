@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 10/22/2020
+ms.date: 11/23/2020
 ms.author: aahi
 ms.custom: seodec18
-ms.openlocfilehash: 5094bd4aa5ac68c24f284cfb74e410fbdf089af7
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 0539f37fe15f68d8bfd47bf426333f9d5c67c37d
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677181"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96006886"
 ---
 # <a name="configure-read-ocr-docker-containers"></a>Configuración de contenedores OCR de Read en Docker
 
@@ -46,7 +46,7 @@ La opción de configuración `ApiKey` especifica la clave de recurso de Azure `C
 
 Este valor se puede encontrar en el siguiente lugar:
 
-* Azure Portal: Administración de recursos de **Cognitivas Services** , en **Claves** .
+* Azure Portal: Administración de recursos de **Cognitivas Services**, en **Claves**.
 
 ## <a name="applicationinsights-setting"></a>Opción de configuración ApplicationInsights
 
@@ -58,7 +58,7 @@ La opción de configuración `Billing` especifica el URI del punto de conexión 
 
 Este valor se puede encontrar en el siguiente lugar:
 
-* Azure Portal: Información general de **Cognitivas Services** , con la etiqueta `Endpoint`
+* Azure Portal: Información general de **Cognitivas Services**, con la etiqueta `Endpoint`
 
 No olvide agregar la ruta `vision/v1.0` al URI de punto de conexión, tal como se muestra en la tabla siguiente. 
 
@@ -99,10 +99,10 @@ La sintaxis exacta de la ubicación de montaje del host varía según el sistema
 
 Los ejemplos siguientes usan las opciones de configuración para ilustrar cómo escribir y usar comandos `docker run`.  Una vez que se está ejecutando, el contenedor continúa ejecutándose hasta que lo [detenga](computer-vision-how-to-install-containers.md#stop-the-container).
 
-* **Carácter de continuación de línea** : Los comandos de Docker de las secciones siguientes usan la barra diagonal inversa (`\`) como un carácter de continuación de línea. Puede quitarla o reemplazarla en función de los requisitos del sistema operativo del host. 
-* **Orden de los argumentos** : No cambie el orden de los argumentos a menos que esté muy familiarizado con los contenedores de Docker.
+* **Carácter de continuación de línea**: Los comandos de Docker de las secciones siguientes usan la barra diagonal inversa (`\`) como un carácter de continuación de línea. Puede quitarla o reemplazarla en función de los requisitos del sistema operativo del host. 
+* **Orden de los argumentos**: No cambie el orden de los argumentos a menos que esté muy familiarizado con los contenedores de Docker.
 
-Reemplace { _argument_name_ } por sus propios valores:
+Reemplace {_argument_name_} por sus propios valores:
 
 | Marcador de posición | Value | Formato o ejemplo |
 |-------------|-------|---|
@@ -120,13 +120,13 @@ Reemplace { _argument_name_ } por sus propios valores:
 Los siguientes ejemplos de Docker son del contenedor Lectura.
 
 
-# <a name="version-31-preview"></a>[Versión 3.1: versión preliminar](#tab/version-3-1)
+# <a name="version-32-preview"></a>[Versión 3.2-preview](#tab/version-3-2)
 
 ### <a name="basic-example"></a>Ejemplo básico
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
-mcr.microsoft.com/azure-cognitive-services/vision/read:3.1-preview \
+mcr.microsoft.com/azure-cognitive-services/vision/read:3.2-preview.1 \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
@@ -137,7 +137,7 @@ ApiKey={API_KEY}
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
-mcr.microsoft.com/azure-cognitive-services/vision/read:3.1-preview \
+mcr.microsoft.com/azure-cognitive-services/vision/read:3.2-preview.1 \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}

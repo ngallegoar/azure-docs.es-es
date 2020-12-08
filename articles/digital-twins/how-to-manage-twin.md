@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 9e00e0e5a34eecd6974e8919ce0d0e16f48757f3
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: ba444a497fa4fccab6b8dec1fadb3383420e4d49
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94540976"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452962"
 ---
 # <a name="manage-digital-twins"></a>Administración de Digital Twins
 
@@ -99,7 +99,7 @@ Puede acceder a los detalles de cualquier gemelo digital mediante una llamada al
 ```csharp
 object result = await client.GetDigitalTwin(id);
 ```
-Esta llamada devuelve los datos del gemelo en forma de un tipo de objeto fuertemente tipado, como `BasicDigitalTwin`. Este es un ejemplo de cómo se usa para ver los detalles del gemelo:
+Esta llamada devuelve los datos del gemelo en forma de un tipo de objeto fuertemente tipado, como `BasicDigitalTwin`. `BasicDigitalTwin` es una clase auxiliar de serialización que se incluye con el SDK, que devolverá los metadatos y las propiedades de gemelos principales en formato analizado previamente. Este es un ejemplo de cómo se usa para ver los detalles del gemelo:
 
 ```csharp
 Response<BasicDigitalTwin> twin = client.GetDigitalTwin("myRoomId");
@@ -176,21 +176,7 @@ Las propiedades definidas del gemelo digital se devuelven como propiedades de ni
     - Estado de sincronización de cada propiedad grabable. Esto es útil principalmente para los dispositivos, donde es posible que el servicio y el dispositivo tengan estados divergentes (por ejemplo, cuando un dispositivo está sin conexión). Actualmente, esta propiedad solo se aplica a dispositivos físicos conectados a IoT Hub. Los datos de la sección de metadatos permiten comprender el estado completo de una propiedad, así como las últimas marcas de tiempo modificadas. Para obtener más información sobre el estado de sincronización, consulte [este tutorial de IoT Hub](../iot-hub/tutorial-device-twins.md) sobre la sincronización del estado del dispositivo.
     - Metadatos específicos del servicio, como de IoT Hub o Azure Digital Twins. 
 
-Puede analizar el JSON devuelto para el gemelo mediante una biblioteca de análisis de JSON de su elección, como `System.Text.Json`.
-
-También puede usar la clase auxiliar de serialización `BasicDigitalTwin` que se incluye con el SDK, que devolverá los metadatos y las propiedades de gemelos principales en formato analizado previamente. Este es un ejemplo:
-
-```csharp
-Response<BasicDigitalTwin> twin = client.GetDigitalTwin(twin_Id);
-Console.WriteLine($"Model id: {twin.Metadata.ModelId}");
-foreach (string prop in twin.Contents.Keys)
-{
-    if (twin.Contents.TryGetValue(prop, out object value))
-        Console.WriteLine($"Property '{prop}': {value}");
-}
-```
-
-Puede obtener más información sobre las clases auxiliares de serialización en [*Procedimiento: las API y los SDK de Azure Digital Twins*](how-to-use-apis-sdks.md).
+Para más información sobre las clases auxiliares de serialización como `BasicDigitalTwin`, consulte [*Procedimiento: Uso de las API y los SDK de Azure Digital Twins*](how-to-use-apis-sdks.md).
 
 ## <a name="view-all-digital-twins"></a>Visualización de todos los gemelos digitales
 

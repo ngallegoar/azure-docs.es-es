@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: pafarley
-ms.openlocfilehash: 10ae9e1356cea954435d15441d74f4f86a804578
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 929aed28df2725ccde62c348a18ef7b41334e233
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95893987"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96172136"
 ---
 # <a name="whats-new-in-form-recognizer"></a>Novedades en Form Recognizer
 
@@ -37,6 +37,7 @@ El servicio Form Recognizer se actualiza de forma continuada. Use este artículo
  
   > [Más información sobre la extracción de Layout](concept-layout.md)
 
+- **Actualización de biblioteca cliente**: las [bibliotecas cliente](quickstarts/client-library.md) para .NET, Python, Java y JavaScript han entrado en Disponibilidad general.
 - **Nuevo idioma admitido (** japonés): ahora se admite el siguiente idiomas nuevos para `AnalyzeLayout` y `AnalyzeCustomForm`: japonés (`ja`). [Compatibilidad con idiomas](language-support.md)
 - **Indicación de estilo de línea de texto (manuscrito/otros) (solo idiomas romance)** : Form Recognizer ahora genera un objeto `appearance` que clasifica si cada línea de texto tiene estilo manuscrito o no, junto con una puntuación de confianza. Esta característica solo es compatible con los idiomas derivados del latín.
 - **Mejoras en la calidad**: mejoras en la extracción, lo que incluye mejoras en la extracción de dígitos individuales.
@@ -47,7 +48,7 @@ El servicio Form Recognizer se actualiza de forma continuada. Use este artículo
   ![Ejemplo de FOTT](./media/ui-preview.jpg)
   
 - **Bucle de comentarios**: si se usa la herramienta de etiquetado de ejemplo para analizar archivos, ahora también se puede agregar al conjunto de entrenamiento, ajustar las tablas si fuera necesario y entrenar para mejorar el modelo.
-- **Etiquetado automático de documentos**: etiqueta automáticamente documentos adicionales en función de documentos ya etiquetados existentes en el proyecto. 
+- **Etiquetado automático de documentos**: etiqueta automáticamente documentos adicionales en función de documentos ya etiquetados existentes en el proyecto.
 
 ## <a name="august-2020"></a>Agosto de 2020
 

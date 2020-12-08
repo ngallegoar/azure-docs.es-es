@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 07/20/2020
 ms.author: pafarley
-ms.openlocfilehash: 392cc06c6e0bce7ec2304da61033fc508d940bbb
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 079d5ea0259a436100b81489043b71a81ec1a330
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93143764"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327226"
 ---
 # <a name="video-moderation-with-the-review-tool"></a>Moderación de vídeo con la herramienta de revisión
 
@@ -26,7 +26,7 @@ Utilice la [moderación de vídeo](video-moderation-api.md) asistida por máquin
 En el panel, seleccione cualquiera de las colas de revisión en el tipo de contenido de vídeo. Se iniciará una revisión y se abrirá la página de moderación de contenido de vídeo.
 
 > [!div class="mx-imgBorder"]
-> ![Vista detallada de la moderación de vídeo en la herramienta de revisión](./Review-Tool-User-Guide/images/video-moderation-detailed.png)
+> ![En Content Moderator (versión preliminar), el control deslizante está resaltado y establecido en 4 revisiones. Los conmutadores Blur All (Desenfocar todo) y Black and white (Blanco y negro) están resaltados y ambos están activados.](./Review-Tool-User-Guide/images/video-moderation-detailed.png)
 
 ### <a name="review-count"></a>Recuento de revisiones
 
@@ -55,7 +55,7 @@ En la vista **Detail** (Detalle), el panel derecho mostrará varias pestañas qu
 * Seleccione la pestaña **History** (Historial) para ver el historial de la revisión, por ejemplo, cuándo se creó y cómo se modificó.
 
 > [!div class="mx-imgBorder"]
-> ![Botón de etiquetas en masa de moderación de vídeo](./Review-Tool-User-Guide/images/video-moderation-video-details.png)
+> ![El panel derecho está resaltado y la pestaña Notas está seleccionada. Hay un área de prueba con la etiqueta Agregar una nota.](./Review-Tool-User-Guide/images/video-moderation-video-details.png)
 
 ## <a name="apply-moderation-tags"></a>Aplicación de etiquetas de moderación
 
@@ -66,7 +66,7 @@ La tarea principal de una revisión de vídeo es aplicar o quitar etiquetas de m
 La barra de herramientas **Bulk Tags** (Etiquetas en masa) le permite agregar etiquetas a varios vídeos seleccionados a la vez. Seleccione uno o varios vídeos y, luego, elija las etiquetas que quiere aplicar y haga clic en **Submit** (Enviar). 
 
 > [!div class="mx-imgBorder"]
-> ![Botón de etiquetas en masa de moderación de vídeo](./Review-Tool-User-Guide/images/video-moderation-bulk-tags.png)
+> ![El botón + está resaltado en el panel Bulk Tags (Etiquetas en masa).](./Review-Tool-User-Guide/images/video-moderation-bulk-tags.png)
 
 
 ### <a name="key-frame-tagging"></a>Etiquetado de fotogramas clave
@@ -77,7 +77,7 @@ También puede agregar etiquetas de moderación a fotogramas clave específicos.
 > Si el servicio no puede extraer fotogramas clave, en el panel de iconos de fotogramas clave se muestra **No frames available** (No hay fotogramas disponibles) y la opción para seleccionarlos estará atenuada. En este caso, solo puede aplicar etiquetas al vídeo en su conjunto mediante el botón **Video tags +** (Etiquetas de vídeo +).
 
 > [!div class="mx-imgBorder"]
-> ![Vista detallada de la moderación de vídeo en la herramienta de revisión](./Review-Tool-User-Guide/images/video-moderation-tagging-options.png)
+> ![Se muestran el panel de iconos, reproductor de vídeo, panel de etiquetas de fotogramas clave y los paneles de etiquetas de vídeo. Los botones Keyframe tags + (Etiquetas de fotogramas clave +) y Video tags + (Etiquetas de vídeos +) están resaltados.](./Review-Tool-User-Guide/images/video-moderation-tagging-options.png)
 
 ## <a name="put-a-review-on-hold"></a>Puesta en espera de una revisión
 
@@ -86,7 +86,7 @@ El botón **Hold** (En espera) situado en la parte inferior del panel de vídeo 
 Para ver los vídeos en espera, haga clic en el botón **Hold** (En espera) en la parte superior de la pantalla. El panel Hold (En espera) aparece a la derecha. Aquí, puede seleccionar varias revisiones en espera y liberarlas de nuevo a la cola, o bien establecer su fecha de expiración. Transcurrida la cantidad de tiempo preconfigurada, las revisiones en espera se liberan de nuevo a la cola. Seleccione **Save** (Guardar) para empezar a contar desde la fecha de expiración actualmente seleccionada.
 
 > [!div class="mx-imgBorder"]
-> ![Vista detallada de la moderación de vídeo en la herramienta de revisión](./Review-Tool-User-Guide/images/video-moderation-hold.png)
+> ![En el panel del vídeo, el botón Hold (En espera) está resaltado. En la parte inferior del panel, el cuadro combinado Hold Time (Tiempo en espera) está resaltado, junto con los botones Release (Liberar) y Save (Guardar).](./Review-Tool-User-Guide/images/video-moderation-hold.png)
 
 ## <a name="submit-a-review"></a>Envío de una revisión
 
@@ -94,7 +94,7 @@ Después de aplicar las etiquetas, seleccione el botón **Submit** (Enviar) en l
 
 ## <a name="limbo-state"></a>Estado de limbo
 
-Una vez que se ha enviado una revisión, el vídeo se mueve al estado **Limbo** , que puede ver seleccionando el botón **Limbo** en la parte superior de la pantalla. Los vídeos permanecen en el estado de limbo durante una cantidad de tiempo preconfigurada (que puede cambiar en el menú de la parte inferior) o hasta que se revisan de nuevo o se envían manualmente.
+Una vez que se ha enviado una revisión, el vídeo se mueve al estado **Limbo**, que puede ver seleccionando el botón **Limbo** en la parte superior de la pantalla. Los vídeos permanecen en el estado de limbo durante una cantidad de tiempo preconfigurada (que puede cambiar en el menú de la parte inferior) o hasta que se revisan de nuevo o se envían manualmente.
 
 Una vez que expira el estado de limbo de los vídeos, sus revisiones se marcan como completas.
 
