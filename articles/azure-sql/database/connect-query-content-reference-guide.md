@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/29/2020
-ms.openlocfilehash: 4cc345eda8a8d51fb61cbbbd5cf0bf84633ccf0b
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: e25469e23358ade32e050bed0818338dc290e71f
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92676094"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451383"
 ---
 # <a name="azure-sql-database-and-azure-sql-managed-instance-connect-and-query-articles"></a>Artículos acerca de la consulta y la conexión a Azure SQL Database e Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -29,7 +29,7 @@ En el documento siguiente se incluyen vínculos a ejemplos de Azure que muestran
 | Guía de inicio rápido | Descripción |
 |---|---|
 |[SQL Server Management Studio](connect-query-ssms.md)|Este inicio rápido muestra cómo usar SSMS para conectarse a una base de datos y, posteriormente, usar instrucciones Transact-SQL para consultar, insertar, actualizar y eliminar datos en la base de datos.|
-|[Azure Data Studio](/sql/azure-data-studio/quickstart-sql-database?toc=%252fazure%252fsql-database%252ftoc.json)|Este inicio rápido muestra cómo usar Azure Data Studio para conectarse a una base de datos y luego usar instrucciones Transact-SQL (T-SQL) para crear el elemento TutorialDB empleado en los tutoriales de Azure Data Studio.|
+|[Azure Data Studio](/sql/azure-data-studio/quickstart-sql-database?toc=%2fazure%2fsql-database%2ftoc.json)|Este inicio rápido muestra cómo usar Azure Data Studio para conectarse a una base de datos y luego usar instrucciones Transact-SQL (T-SQL) para crear el elemento TutorialDB empleado en los tutoriales de Azure Data Studio.|
 |[Azure Portal](connect-query-portal.md)|Este inicio rápido muestra cómo usar el Editor de consultas para conectarse a una base de datos (solo Azure SQL Database) y, después, usar instrucciones Transact-SQL para realizar consultas en datos, insertarlos, actualizarlos y eliminarlos de la base de datos.|
 |[Visual Studio Code](connect-query-vscode.md)|Este inicio rápido muestra cómo usar Visual Studio Code para conectarse a una base de datos y después usar las instrucciones Transact-SQL para consultar, insertar, actualizar y eliminar datos en la base de datos.|
 |[.NET con Visual Studio](connect-query-dotnet-visual-studio.md)|Este inicio rápido muestra cómo usar .NET Framework para crear un programa en C# con Visual Studio que se conecte a una base de datos y que use instrucciones Transact-SQL para consultar los datos.|
@@ -60,7 +60,7 @@ Puede que los controladores que no son de Microsoft no usen TLS de forma predete
 
 Puede usar varias bibliotecas y marcos para conectarse a Azure SQL Database o Instancia administrada de Azure SQL. Vea nuestros [tutoriales de introducción](https://aka.ms/sqldev) para iniciarse rápidamente en los lenguajes de programación como C#, Java, Node.js, PHP y Python. A continuación, compile una aplicación mediante el uso de SQL Server en Linux o Windows o Docker en macOS.
 
-En la siguiente tabla se enumeran las bibliotecas de conectividad o *controladores* que las aplicaciones cliente pueden utilizar desde una variedad de lenguajes para conectarse y que usan SQL Server de forma local o en la nube. Puede utilizarlas en Linux, Windows o Docker y usarlas para conectarse a Azure SQL Database, Azure SQL Managed Instance y Azure Synapse Analytics (anteriormente SQL Data Warehouse).
+En la siguiente tabla se enumeran las bibliotecas de conectividad o *controladores* que las aplicaciones cliente pueden utilizar desde una variedad de lenguajes para conectarse y que usan SQL Server de forma local o en la nube. Puede utilizarlas en Linux, Windows o Docker y usarlas para conectarse a Azure SQL Database, Azure SQL Managed Instance y Azure Synapse Analytics.
 
 | Idioma | Plataforma | Recursos adicionales | Descargar | Introducción |
 | :-- | :-- | :-- | :-- | :-- |

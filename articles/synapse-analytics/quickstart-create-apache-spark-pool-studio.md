@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Creación de un grupo de Apache Spark sin servidor (versión preliminar) mediante Synapse Studio'
+title: 'Inicio rápido: Creación de un grupo de Apache Spark sin servidor mediante Synapse Studio'
 description: Siga los pasos de esta guía para crear un grupo de Apache Spark sin servidor mediante Synapse Studio.
 services: synapse-analytics
 author: saveenr
@@ -9,14 +9,14 @@ ms.subservice: spark
 ms.date: 10/16/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: 313ad0c620fe06158e96c208ae265702134b58d1
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: d280e96b354f38a86545ed5f6bcaa6c9a314c46b
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324181"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462039"
 ---
-# <a name="quickstart-create-a-serverless-apache-spark-pool-preview-using-synapse-studio"></a>Inicio rápido: Creación de un grupo de Apache Spark sin servidor (versión preliminar) mediante Synapse Studio
+# <a name="quickstart-create-a-serverless-apache-spark-pool-using-synapse-studio"></a>Inicio rápido: Creación de un grupo de Apache Spark sin servidor mediante Synapse Studio
 
 Azure Synapse Analytics ofrece varios motores de análisis que ayudan a ingerir, transformar, modelar, analizar y servir datos. Los grupos de Apache Spark ofrecen funcionalidades de proceso de macrodatos de código abierto. Después de crear un grupo de Apache Spark en el área de trabajo de Synapse, los datos se pueden cargar, modelar, procesar y servir para obtener información.  
 
@@ -100,7 +100,7 @@ Siga los pasos que se indican a continuación para eliminar el grupo de Apache S
 Si está seguro de que quiere eliminar el grupo de Apache Spark, haga lo siguiente:
 
 1. Vaya a los grupos de Apache Spark en el centro de administración de Synapse Studio.
-1. Seleccione los puntos suspensivos que aparecen al lado del grupo de Apache que se va a eliminar (en este caso, **contosospark** ) para mostrar los comandos del grupo de Apache Spark.
+1. Seleccione los puntos suspensivos que aparecen al lado del grupo de Apache que se va a eliminar (en este caso, **contosospark**) para mostrar los comandos del grupo de Apache Spark.
 
     ![Lista de grupos de Apache Spark, con el grupo creado recientemente seleccionado.](media/quickstart-create-apache-spark-pool/create-spark-pool-studio-29.png)
 

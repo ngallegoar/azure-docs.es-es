@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: certificates
 ms.topic: quickstart
 ms.custom: devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 05b1ea8e6daa9fae0588535534c4a8be45ab91d5
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: d9fdfc89c8c02749fdf677ad119f1eed5a4b1fa2
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93285252"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185188"
 ---
 # <a name="quickstart-azure-key-vault-certificate-client-library-for-python"></a>Inicio rápido: Biblioteca cliente de certificados de Azure Key Vault para Python
 
@@ -70,10 +70,10 @@ En este inicio rápido se usa la biblioteca de identidades de Azure con la CLI d
 
 ### <a name="grant-access-to-your-key-vault"></a>Concesión de acceso al almacén de claves
 
-Creación de una directiva de acceso para el almacén de claves que conceda permiso mediante secreto a la cuenta de usuario
+Cree una directiva de acceso para el almacén de claves que conceda permiso de certificado a la cuenta de usuario.
 
 ```console
-az keyvault set-policy --name <YourKeyVaultName> --upn user@domain.com --secret-permissions delete get list set
+az keyvault set-policy --name <YourKeyVaultName> --upn user@domain.com --certificate-permissions delete get list create
 ```
 
 #### <a name="set-environment-variables"></a>Establecimiento de variables de entorno

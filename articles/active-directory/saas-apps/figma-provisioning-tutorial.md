@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/12/2019
 ms.author: zhchia
-ms.openlocfilehash: 789dafc61c89515f4b2ef64933262252d1232f16
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: ec509cc04db87602b3e29230253d9b363a5e30d5
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357035"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353925"
 ---
 # <a name="tutorial-configure-figma-for-automatic-user-provisioning"></a>Tutorial: Configuración de Figma para el aprovisionamiento automático de usuarios
 
@@ -87,7 +87,7 @@ Para configurar Figma para el aprovisionamiento automático de usuarios con Azur
 
     ![Botón Nueva aplicación](common/add-new-app.png)
 
-4. En el cuadro de búsqueda, escriba **Figma** , seleccione **Figma** en el panel de resultados y luego haga clic en el botón **Agregar** para agregar la aplicación.
+4. En el cuadro de búsqueda, escriba **Figma**, seleccione **Figma** en el panel de resultados y luego haga clic en el botón **Agregar** para agregar la aplicación.
 
     ![Figma en la lista de resultados](common/search-new-app.png)
 
@@ -116,17 +116,17 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Captura de pantalla de la lista desplegable Modo de aprovisionamiento con la opción Automático seleccionada.](common/provisioning-automatic.png)
 
-5. En la sección **Credenciales de administrador** , escriba `https://www.figma.com/scim/v2/<TenantID>` en **URL de inquilino** , donde **TenantID** es el valor que se ha recuperado anteriormente desde Figma. Escriba el valor **Token de API** en **Token secreto**. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a Figma. Si la conexión no se establece, asegúrese de que la cuenta de Figma tiene permisos de administrador y pruebe de nuevo.
+5. En la sección **Credenciales de administrador**, escriba `https://www.figma.com/scim/v2/<TenantID>` en **URL de inquilino**, donde **TenantID** es el valor que se ha recuperado anteriormente desde Figma. Escriba el valor **Token de API** en **Token secreto**. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a Figma. Si la conexión no se establece, asegúrese de que la cuenta de Figma tiene permisos de administrador y pruebe de nuevo.
 
     ![URL de inquilino + Token](common/provisioning-testconnection-tenanturltoken.png)
 
-8. En el campo **Correo electrónico de notificación** , escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
+8. En el campo **Correo electrónico de notificación**, escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
 
     ![Correo electrónico de notificación](common/provisioning-notification-email.png)
 
-9. Haga clic en **Save** (Guardar).
+9. Haga clic en **Save**(Guardar).
 
-10. En la sección **Asignaciones** , seleccione **Sincronizar usuarios de Azure Active Directory con Figma**.
+10. En la sección **Asignaciones**, seleccione **Sincronizar usuarios de Azure Active Directory con Figma**.
 
     ![Figma: Asignaciones de usuario](media/Figma-provisioning-tutorial/figma05.png)
 
@@ -136,11 +136,11 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
 12. Para configurar filtros de ámbito, consulte las siguientes instrucciones, que se proporcionan en el artículo [Aprovisionamiento de aplicaciones basado en atributos con filtros de ámbito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-13. Para habilitar el servicio de aprovisionamiento de Azure AD para Figma, cambie **Estado de aprovisionamiento** a **Activado** en la sección **Configuración**.
+13. Para habilitar el servicio de aprovisionamiento de Azure AD para Figma, cambie **Estado de aprovisionamiento** a **Activado** en la sección **Configuración**.
 
     ![Estado de aprovisionamiento activado](common/provisioning-toggle-on.png)
 
-14. Seleccione los valores deseados en **Ámbito** , en la sección **Configuración** , para definir los usuarios o grupos que quiere aprovisionar en Figma.
+14. Seleccione los valores deseados en **Ámbito**, en la sección **Configuración**, para definir los usuarios o grupos que quiere aprovisionar en Figma.
 
     ![Ámbito del aprovisionamiento](common/provisioning-scope.png)
 

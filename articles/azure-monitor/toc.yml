@@ -133,7 +133,7 @@
           href: app/data-retention-privacy.md
     - name: Alertas
       items:
-        - name: Introducción
+        - name: Información general
           href: platform/alerts-overview.md
         - name: Alertas de métricas
           href: platform/alerts-metric-overview.md
@@ -274,6 +274,8 @@
                   href: log-query/resource-expression.md
                 - name: Unificación de los recursos de datos de la aplicación
                   href: log-query/unify-app-resource-data.md
+                - name: Introducción a la consulta de servicios entre Azure Monitor y Azure Data Explorer
+                  href: platform/azure-data-explorer-monitor-cross-service-query.md
                 - name: Consulta de Azure Data Explorer desde Azure Monitor
                   href: platform/azure-monitor-data-explorer-proxy.md
         - name: Exportación de datos
@@ -384,7 +386,7 @@
               href: insights/solution-agenthealth.md
         - name: Extensión de Diagnósticos de Azure
           items:
-            - name: Introducción
+            - name: Información general
               href: platform/diagnostics-extension-overview.md
             - name: Windows
               displayname: diagnostics extension

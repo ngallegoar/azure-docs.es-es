@@ -8,12 +8,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
-ms.openlocfilehash: b138b3eb52a0bfb6dca2ec6fdf0b855223bab698
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 1f4d0d5c2d5442d14d68922c4d0c27b45b2b841e
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94984454"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96324727"
 ---
 # <a name="tag-images-in-a-labeling-project"></a>Etiquetado de imágenes en un proyecto de etiquetado 
 
@@ -119,7 +119,7 @@ No se puede cambiar la etiqueta de un rectángulo de selección existente. Si as
 
 De forma predeterminada, puede editar los rectángulos de selección existentes. La herramienta **Bloquear/desbloquear regiones**![Bloquear/desbloquear regiones](./media/how-to-label-images/lock-bounding-boxes-tool.png) o "L" alterna ese comportamiento. Si las regiones están bloqueadas, solo puede cambiar la forma o la ubicación de un nuevo rectángulo de selección.
 
-Use la herramienta **Manipulación de regiones**![Herramienta Manipulación de regiones](./media/how-to-label-images/regions-tool.png) o "M" para ajustar un cuadro de límite existente. Arrastre los bordes o esquinas para ajustar la forma. Haga clic en el interior para poder arrastrar todo el rectángulo de selección. Si no puede editar una región, es probable que haya activado la herramienta **Bloquear/desbloquear regiones**.
+Use la herramienta de **manipulación de regiones** ![Este es el icono de la herramienta de manipulación de regiones: cuatro flechas que señalan hacia afuera desde el centro, hacia arriba, hacia la derecha, hacia abajo y a la izquierda.](./media/how-to-label-images/regions-tool.png) o pulse "M" para ajustar un rectángulo de selección existente. Arrastre los bordes o esquinas para ajustar la forma. Haga clic en el interior para poder arrastrar todo el rectángulo de selección. Si no puede editar una región, es probable que haya activado la herramienta **Bloquear/desbloquear regiones**.
 
 Use la herramienta **Cuadro basado en plantilla**![Herramienta Cuadro de plantilla](./media/how-to-label-images/template-box-tool.png) o "T" para crear varios cuadros de límite del mismo tamaño. Si la imagen no tiene rectángulos de selección y activa los recuadros basados en plantillas, la herramienta generará cuadros de 50 por 50 píxeles. Si crea un rectángulo de selección y, a continuación, activa los rectángulos basados en plantillas, los nuevos rectángulos de selección tendrán el tamaño del último rectángulo. Se puede cambiar el tamaño de los cuadros basados en plantillas después de la selección de ubicación. Al cambiar el tamaño de un rectángulo basado en una plantilla, solo se cambia el tamaño de ese rectángulo en concreto.
 
@@ -143,7 +143,7 @@ Si quiere cambiar la etiqueta de un polígono, seleccione la herramienta **Move 
 
 Puede editar los polígonos existentes. La herramienta **Lock/unlock regions** (Bloquear o desbloquear regiones) ![Edición de polígonos con la herramienta Lock/unlock regions (Bloquear o desbloquear regiones)](./media/how-to-label-images/lock-bounding-boxes-tool.png) o la "L" alterna este comportamiento. Si las regiones están bloqueadas, solo puede cambiar la forma o la ubicación de un nuevo polígono.
 
-Use la herramienta **Add or remove polygon points** (Agregar o quitar puntos del polígono) ![Herramienta Add or remove polygon points (Agregar o quitar puntos del polígono)](./media/how-to-label-images/add-remove-points-tool.png) o la "U" para ajustar un polígono existente. Haga clic en el polígono para agregar o quitar un punto. Si no puede editar una región, es probable que haya activado la herramienta **Bloquear/desbloquear regiones**.
+Use la herramienta **Add or remove polygon points** (Agregar o eliminar puntos del polígono) ![Herramienta para agregar o eliminar puntos del polígono.](./media/how-to-label-images/add-remove-points-tool.png) o pulse "U" para ajustar un polígono existente. Haga clic en el polígono para agregar o quitar un punto. Si no puede editar una región, es probable que haya activado la herramienta **Bloquear/desbloquear regiones**.
 
 Para eliminar *todos* los polígonos de la imagen actual, seleccione la herramienta **Delete all regions** (Eliminar todas las regiones) ![Herramienta Delete all regions (Eliminar todas las regiones)](./media/how-to-label-images/delete-regions-tool.png).
 

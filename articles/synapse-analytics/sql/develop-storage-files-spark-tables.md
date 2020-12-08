@@ -1,6 +1,6 @@
 ---
-title: Sincronización de Apache Spark para las definiciones de tablas externas en el grupo de SQL sin servidor (versión preliminar)
-description: Información general sobre cómo consultar tablas de Spark mediante el grupo de SQL sin servidor (versión preliminar)
+title: Sincronización de Apache Spark para las definiciones de tablas externas en un grupo de SQL sin servidor
+description: Información general sobre cómo consultar tablas de Spark mediante un grupo de SQL sin servidor
 services: synapse-analytics
 author: julieMSFT
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: ea4e7cd009be8a78faa0dcfab44371a350b6a200
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 057a69881b8b407e5d75fa3510ca1c3eb1830bc7
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93315828"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96446499"
 ---
-# <a name="synchronize-apache-spark-for-azure-synapse-external-table-definitions-in-serverless-sql-pool-preview"></a>Sincronización de Apache Spark para las definiciones de tablas externas de Azure Synapse en el grupo de SQL sin servidor (versión preliminar)
+# <a name="synchronize-apache-spark-for-azure-synapse-external-table-definitions-in-serverless-sql-pool"></a>Sincronización de Apache Spark para las definiciones de tablas externas de Azure Synapse en un grupo de SQL sin servidor
 
-El grupo de SQL sin servidor (versión preliminar) puede sincronizar automáticamente los metadatos de Apache Spark. Se creará una base de datos del grupo de SQL sin servidor para cada base de datos que exista en los grupos de Apache Spark sin servidor (versión preliminar). 
+El grupo de SQL sin servidor puede sincronizar automáticamente los metadatos desde Apache Spark. Se creará una base de datos de grupo de SQL sin servidor para cada base de datos que exista en los grupos de Apache Spark sin servidor. 
 
 Para cada tabla externa de Spark con formato Parquet y ubicada en Azure Storage, se crea una tabla externa en una base de datos del grupo de SQL sin servidor. Gracias a ello, puede apagar los grupos de Spark y seguir consultando las tablas externas de Spark desde el grupo de SQL sin servidor.
 

@@ -1,5 +1,5 @@
 ---
-title: Creación de un grupo de SQL mediante una plantilla de Azure Resource Manager
+title: Creación de un grupo de SQL dedicado (antes SQL DW) mediante una plantilla de Azure Resource Manager
 description: Aprenda a crear un grupo de SQL de Azure Synapse Analytics mediante una plantilla de Azure Resource Manager.
 services: azure-resource-manager
 author: julieMSFT
@@ -8,16 +8,16 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: jrasnick
 ms.date: 06/09/2020
-ms.openlocfilehash: 29d4e4d696b34aa493714c870ebb466f491c47fe
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 70adb7409c44a79345a192df173a1a073cc9b7dd
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88641881"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460736"
 ---
-# <a name="quickstart-create-an-azure-synapse-analytics-sql-pool-by-using-an-arm-template"></a>Inicio rápido: Creación de un grupo de SQL de Azure Synapse Analytics mediante una plantilla de Resource Manager
+# <a name="quickstart-create-an-azure-synapse-analytics-dedicated-sql-pool-formerly-sql-dw-by-using-an-arm-template"></a>Inicio rápido: Creación de un grupo de SQL dedicado de Azure Synapse Analytics (antes SQL DW) mediante una plantilla de Resource Manager
 
-Esta plantilla de Azure Resource Manager creará un grupo de SQL de Azure Synapse Analytics con la tecnología Cifrado de datos transparente habilitada. El grupo de SQL de Synapse hace referencia a las características de almacenamiento de datos empresariales que están disponibles con carácter general en Azure Synapse.
+Esta plantilla de Azure Resource Manager creará un grupo de SQL dedicado (antes SQL DW) con la tecnología Cifrado de datos transparente habilitada. Un grupo de SQL dedicado (antes SQL DW) hace referencia a las características de almacenamiento de datos empresariales que están disponibles con carácter general en Azure Synapse.
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -25,7 +25,7 @@ Si su entorno cumple los requisitos previos y está familiarizado con el uso de 
 
 [![Implementación en Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-sql-data-warehouse-transparent-encryption-create%2Fazuredeploy.json)
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
@@ -41,7 +41,7 @@ La plantilla define un recurso:
 
 ## <a name="deploy-the-template"></a>Implementación de la plantilla
 
-1. Seleccione la imagen siguiente para iniciar sesión en Azure y abrir la plantilla. Esta plantilla crea un grupo de Synapse SQL.
+1. Seleccione la imagen siguiente para iniciar sesión en Azure y abrir la plantilla. Esta plantilla crea un grupo de SQL dedicado (antes SQL DW).
    
    [![Implementación en Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-sql-data-warehouse-transparent-encryption-create%2Fazuredeploy.json)
 
@@ -53,7 +53,7 @@ La plantilla define un recurso:
    * **Nombre del servidor de SQL Server**: acepte el predeterminado o escriba un nombre nuevo para el servidor de SQL Server.
    * **Inicio de sesión de administrador de SQL**: escriba el nombre de usuario del administrador del servidor de SQL Server.
    * **Contraseña de administrador de SQL**: escriba la contraseña del administrador del servidor de SQL Server.
-   * **Nombre del almacenamiento de datos**: escriba un nombre de grupo de SQL.
+   * **Nombre del almacenamiento de datos**: Escriba un nombre de grupo de SQL dedicado.
    * **Cifrado de datos transparente**: acepte el valor predeterminado, habilitado. 
    * **Objetivo de nivel de servicio**: acepte el valor predeterminado, DW400c.
    * **Ubicación**: acepte la ubicación predeterminada del grupo de recursos.
@@ -67,7 +67,7 @@ Puede usar Azure Portal para comprobar los recursos implementados, o bien usar u
 # <a name="cli"></a>[CLI](#tab/CLI)
 
 ```azurecli-interactive
-echo "Enter the resource group where your Synapse SQL pool exists:" &&
+echo "Enter the resource group where your dedicated SQL pool (formerly SQL DW) exists:" &&
 read resourcegroupName &&
 az resource list --resource-group $resourcegroupName 
 ```
@@ -75,7 +75,7 @@ az resource list --resource-group $resourcegroupName
 # <a name="powershell"></a>[PowerShell](#tab/PowerShell)
 
 ```azurepowershell-interactive
-$resourceGroupName = Read-Host -Prompt "Enter the resource group name where your SQL pool account exists"
+$resourceGroupName = Read-Host -Prompt "Enter the resource group name where your dedicated SQL pool (formerly SQL DW) account exists"
 (Get-AzResource -ResourceType "Microsoft.Sql/servers/databases" -ResourceGroupName $resourceGroupName).Name
  Write-Host "Press [ENTER] to continue..."
 ```
@@ -107,7 +107,7 @@ Write-Host "Press [ENTER] to continue..."
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este inicio rápido, ha creado un grupo de SQL de Azure Synapse Analytics mediante una plantilla de Resource Manager y ha validado la implementación. Para más información sobre Azure Synapse Analytics y Azure Resource Manager, consulte los artículos siguientes.
+En este inicio rápido, ha creado un grupo de SQL dedicado (antes SQL DW) mediante una plantilla de Resource Manager y ha validado la implementación. Para más información sobre Azure Synapse Analytics y Azure Resource Manager, consulte los artículos siguientes.
 
 - Lea la [introducción a Azure Synapse Analytics](sql-data-warehouse-overview-what-is.md)
 - Obtenga más información sobre [Azure Resource Manager](../../azure-resource-manager/management/overview.md).

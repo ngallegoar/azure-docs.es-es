@@ -9,17 +9,16 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: 946435175ea5cd366103bc1254bae0d9afe0926e
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 62cecc011980c2d11e6f99895c90b0ced744039a
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325805"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325356"
 ---
 # <a name="tutorial-1-predict-credit-risk---azure-machine-learning-studio-classic"></a>Tutorial 1: Predicción del riesgo crediticio en Azure Machine Learning Studio (clásico)
 
-**SE APLICA A:**  ![yes](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clásico)   ![no ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
-
+**SE APLICA A:**  ![Esta es una marca de verificación, lo que significa que este artículo se aplica a Machine Learning Studio (clásico).](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clásico)   ![Esta es una X, lo que significa que este artículo se aplica a Azure Machine Learning.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 [!INCLUDE [Designer notice](../../../includes/designer-notice.md)]
 
@@ -65,7 +64,7 @@ Una vez haya creado el área de trabajo, abra Machine Learning Studio (clásico)
 > [!TIP]
 > Si es el propietario del área de trabajo, puede compartir los experimentos en los que esté trabajando invitando a otros al área. Para ello, en Machine Learning Studio (clásico), vaya a la página **SETTINGS** (CONFIGURACIÓN). Solo necesita la cuenta Microsoft o la cuenta de organización de cada usuario.
 > 
-> En la página **CONFIGURACIÓN** , haga clic en **USUARIOS** y, después, haga clic en **INVITE MORE USERS** (INVITAR A MÁS USUARIOS) en la parte inferior de la ventana.
+> En la página **CONFIGURACIÓN**, haga clic en **USUARIOS** y, después, haga clic en **INVITE MORE USERS** (INVITAR A MÁS USUARIOS) en la parte inferior de la ventana.
 > 
 
 ## <a name="upload-existing-data"></a><a name="upload"></a>Carga de datos existentes
@@ -75,7 +74,7 @@ Para desarrollar un modelo de predicción de riesgo de crédito, se necesitan da
 
 Usaremos el archivo llamado **german.data**. Descargue este archivo en la unidad de disco duro local.  
 
-El conjunto de datos **german.data** contiene filas de 20 variables para 1000 solicitantes de crédito. Estas 20 variables representan el conjunto de características (el *vector de características* ) del conjunto de datos que proporciona características de identificación de cada solicitante de crédito. Una columna adicional en cada fila representa el riesgo de crédito calculado del solicitante, donde 700 solicitantes se identificaron como de bajo riesgo y 300 como de alto riesgo.
+El conjunto de datos **german.data** contiene filas de 20 variables para 1000 solicitantes de crédito. Estas 20 variables representan el conjunto de características (el *vector de características*) del conjunto de datos que proporciona características de identificación de cada solicitante de crédito. Una columna adicional en cada fila representa el riesgo de crédito calculado del solicitante, donde 700 solicitantes se identificaron como de bajo riesgo y 300 como de alto riesgo.
 
 El sitio web de UCI proporciona una descripción de los atributos del vector de características de estos datos. Entre estos datos figuran la información financiera, el historial de crédito, el estado de empleo y la información personal. A cada solicitante se le ha dado una calificación binaria para indicar si son de riesgo de crédito alto o bajo. 
 
@@ -119,7 +118,7 @@ Una vez que los datos se han convertido al formato CSV, hay que cargarlos en Mac
 
 1. Abra la página principal de Machine Learning Studio (clásico) ([https://studio.azureml.net](https://studio.azureml.net)). 
 
-2. Haga clic en el ![menú](./media/tutorial-part1-credit-risk/menu.png) de la esquina superior izquierda de la ventana, haga clic en **Azure Machine Learning** , seleccione **Studio** e inicie sesión.
+2. Haga clic en el menú ![Este es el icono del menú: tres líneas apiladas.](./media/tutorial-part1-credit-risk/menu.png) de la esquina superior izquierda de la ventana, haga clic en **Azure Machine Learning**, seleccione **Studio** e inicie sesión.
 
 3. Haga clic en **+NUEVO** en la parte inferior de la página.
 
@@ -129,7 +128,7 @@ Una vez que los datos se han convertido al formato CSV, hay que cargarlos en Mac
 
     ![Adición de un conjunto de datos desde un archivo local](./media/tutorial-part1-credit-risk/add-dataset.png)
 
-6. En el diálogo **Cargar un nuevo conjunto de datos** , haga clic en Examinar y busque el archivo **german.csv** que ha creado.
+6. En el diálogo **Cargar un nuevo conjunto de datos**, haga clic en Examinar y busque el archivo **german.csv** que ha creado.
 
 7. Escriba un nombre para el conjunto de datos. En este tutorial, se denominará "UCI German Credit Card Data".
 
@@ -207,7 +206,7 @@ Para usar [Edit Metadata][edit-metadata] (Editar metadatos), especifique primero
 
 1. Seleccione [Edit Metadata][edit-metadata] (Editar metadatos) y, en el panel **Propiedades** a la derecha del lienzo, haga clic en **Launch column selector** (Iniciar el selector de columnas).
 
-1. En el cuadro de diálogo **Seleccionar columnas** , elija todas las filas de **Columnas disponibles** y haga clic en > para moverlas a **Columnas seleccionadas**.
+1. En el cuadro de diálogo **Seleccionar columnas**, elija todas las filas de **Columnas disponibles** y haga clic en > para moverlas a **Columnas seleccionadas**.
    El cuadro de diálogo debe ser similar al siguiente:
 
    ![Selector de columnas con todas las columnas seleccionadas](./media/tutorial-part1-credit-risk/select-columns.png)
@@ -215,7 +214,7 @@ Para usar [Edit Metadata][edit-metadata] (Editar metadatos), especifique primero
 
 1. Haga clic en la marca de verificación **Aceptar**.
 
-1. En el panel **Propiedades** , busque el parámetro **Nuevo nombre de columna**. En este campo, escriba la lista de nombres de las 21 columnas del conjunto de datos, separadas por comas y en el orden de las columnas. Puede obtener los nombres de las columnas en la documentación del conjunto de datos en el sitio web de UCI o, para mayor comodidad, puede copiar y pegar la siguiente lista:  
+1. En el panel **Propiedades**, busque el parámetro **Nuevo nombre de columna**. En este campo, escriba la lista de nombres de las 21 columnas del conjunto de datos, separadas por comas y en el orden de las columnas. Puede obtener los nombres de las columnas en la documentación del conjunto de datos en el sitio web de UCI o, para mayor comodidad, puede copiar y pegar la siguiente lista:  
 
    ```   
    Status of checking account, Duration in months, Credit history, Purpose, Credit amount, Savings account/bond, Present employment since, Installment rate in percentage of disposable income, Personal status and sex, Other debtors, Present residence since, Property, Age in years, Other installment plans, Housing, Number of existing credits, Job, Number of people providing maintenance for, Telephone, Foreign worker, Credit risk  
@@ -239,7 +238,7 @@ Para ello, se usa el módulo [Split Data][split] (Dividir datos).
 
 1. Busque el módulo [Split Data][split] (Dividir datos), arrástrelo al lienzo y conéctelo al módulo [Edit Metadata][edit-metadata] (Editar metadatos).
 
-1. De manera predeterminada, la proporción de división es 0,5 y se establece el parámetro **División aleatoria** . Esto significa que una mitad aleatoria de los datos sale por un puerto del módulo [Split Data][split] (Dividir datos) y la otra mitad, por el otro. Puede cambiar estos parámetros, así como el parámetro **Valor de inicialización aleatorio** , para cambiar la división entre datos de entrenamiento y de prueba. En este ejemplo, se dejan tal cual.
+1. De manera predeterminada, la proporción de división es 0,5 y se establece el parámetro **División aleatoria** . Esto significa que una mitad aleatoria de los datos sale por un puerto del módulo [Split Data][split] (Dividir datos) y la otra mitad, por el otro. Puede cambiar estos parámetros, así como el parámetro **Valor de inicialización aleatorio**, para cambiar la división entre datos de entrenamiento y de prueba. En este ejemplo, se dejan tal cual.
    
    > [!TIP]
    > La propiedad **Fraction of rows in the first output dataset** (Fracción de filas del primer conjunto de datos de salida) determina la cantidad de datos que salen a través del puerto de salida de la *izquierda*. Por ejemplo, si establece la proporción en 0,7, el 70 % de los datos sale por el puerto de la izquierda y el 30 % por el puerto de la derecha.  
@@ -260,7 +259,7 @@ Podemos conseguir esta replicación mediante el código R:
 
 1. Haga doble clic en el módulo [Execute R Script][execute-r-script] (Ejecutar script R) y escriba el comentario "Establecer ajuste de costos".
 
-1. En el panel **Propiedades** , elimine el texto predeterminado del parámetro **Script R** y escriba este script:
+1. En el panel **Propiedades**, elimine el texto predeterminado del parámetro **Script R** y escriba este script:
    
     ```r
     dataset1 <- maml.mapInputPort(1)

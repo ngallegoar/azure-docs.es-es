@@ -1,17 +1,17 @@
 ---
-ms.openlocfilehash: 67d90836c382728f989ab2cb4fde4d81bac9eb25
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 5fa8377b3cdddb2818c04c5a75e347ff73dc07d8
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88691184"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96509331"
 ---
 Este tutorial requiere los siguientes recursos de Azure:
 
 * IoT Hub
 * Cuenta de almacenamiento
 * Cuenta de Azure Media Services
-* Máquina virtual Linux en Azure, con el [entorno de ejecución de Azure IoT Edge](../../../../../iot-edge/how-to-install-iot-edge-linux.md) instalado
+* Máquina virtual Linux en Azure, con el [entorno de ejecución de Azure IoT Edge](../../../../../iot-edge/how-to-install-iot-edge.md) instalado
 
 Para este inicio rápido, se recomienda usar el [script de configuración de recursos de Live Video Analytics](https://github.com/Azure/live-video-analytics/tree/master/edge/setup) para implementar los recursos necesarios en su suscripción de Azure. Para hacerlo, siga estos pasos:
 
@@ -29,10 +29,9 @@ Para este inicio rápido, se recomienda usar el [script de configuración de rec
     Si el script finaliza correctamente, debería ver todos los recursos necesarios en su suscripción.
 1. Después de que finalice el script, seleccione las llaves para exponer la estructura de carpetas. Verá algunos archivos en el directorio *~/clouddrive/lva-sample*. Archivos de interés en este inicio rápido:
 
-     * ***~/clouddrive/lva-sample/edge-deployment/.env***: este archivo contiene las propiedades que utiliza Visual Studio Code para implementar módulos en un dispositivo perimetral.
-     * ***~/clouddrive/lva-sample/appsetting.json***: Visual Studio Code utiliza este archivo para ejecutar el código de ejemplo.
+     * * **~/clouddrive/lva-sample/edge-deployment/.env**: este archivo contiene las propiedades que utiliza Visual Studio Code para implementar módulos en un dispositivo perimetral.
+     ***~/clouddrive/lva-sample/appsetting.json***: Visual Studio Code utiliza este archivo para ejecutar el código de ejemplo.
      
     Necesitará estos archivos al configurar el entorno de desarrollo en Visual Studio Code en la sección siguiente. Es posible que desee copiarlos en un archivo local por el momento.
     
     ![Configuración de la aplicación](../../../media/quickstarts/clouddrive.png)
-    

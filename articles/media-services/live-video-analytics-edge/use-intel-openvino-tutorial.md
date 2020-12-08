@@ -4,12 +4,12 @@ description: En este tutorial, se usará un servidor de modelos de IA proporcion
 ms.topic: tutorial
 ms.date: 09/08/2020
 titleSuffix: Azure
-ms.openlocfilehash: d03737f43ee719b72860e7ffeff076e3f156cade
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: a15984917b854a9f3e2dbc80dd0775989c80bf81
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91776347"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483685"
 ---
 # <a name="tutorial-analyze-live-video-by-using-openvino-model-server--ai-extension-from-intel"></a>Tutorial: Análisis de vídeo en directo mediante la extensión OpenVINO™ Model Server – AI de Intel 
 
@@ -84,11 +84,11 @@ Como parte de los requisitos previos, ha descargado el código de ejemplo en una
 
 1. Vaya a la carpeta *src/cloud-to-device-console-app*. Aquí verá tanto su archivo *appsettings.json* como otros archivos:
 
-    * ***c2d-console-app.csproj***: el archivo de proyecto de Visual Studio Code.
-    * ***operations.json***: una lista de las operaciones que desea que ejecute el programa.
-    * ***Program.cs***: el código del programa de ejemplo. Este código:
+    * ***c2d-console-app.csproj** _: archivo del proyecto de Visual Studio Code.
+    _ ***operations.json** _: lista de las operaciones que desea que ejecute el programa.
+    _ ***Program.cs** _: código del programa de ejemplo. Este código:
 
-        * Carga la configuración de la aplicación.
+        _ Carga la configuración de la aplicación.
         * Invoca los métodos directos que expone el módulo Live Video Analytics en IoT Edge. Puede usar el módulo para analizar secuencias de vídeo en directo mediante la invocación de sus [métodos directos](direct-methods.md).
         * Se pone en pausa para que pueda examinar la salida del programa en la ventana **TERMINAL** y los eventos generados por el módulo en la ventana **SALIDA**.
         * Invoca los métodos directos para limpiar los recursos.
@@ -145,10 +145,38 @@ Si abre la [topología del grafo](https://raw.githubusercontent.com/Azure/live-v
 1. Haga clic con el botón derecho y seleccione la **Configuración de la extensión**.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="Información general" (Mostrar mensaje detallado).
+    > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="Configuración de la extensión":::
+1. Busque y habilite "Show Verbose Message" (Mostrar mensaje detallado).
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="Información general"
+    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="Show Verbose Message"::: (Mostrar mensaje detallado)
+1. Para iniciar una sesión de depuración, seleccione la tecla F5. Verá mensajes impresos en la ventana **TERMINAL**.
+1. El código de *operations.json* comienza con llamadas a los métodos directos `GraphTopologyList` y `GraphInstanceList`. Si ha limpiado los recursos tras haber completado los inicios rápidos anteriores, este proceso devolverá listas vacías y, después, se pausará. Para continuar, seleccione la tecla Entrar.
+
+    La ventana **TERMINAL** muestra el siguiente conjunto de llamadas al método directo:
+
+     * Una llamada a `GraphTopologySet` que utiliza la instancia anterior de `topologyUrl`.
+     * Una llamada a `GraphInstanceSet` que usa el cuerpo siguiente:
+
+         ```
+         {
+           "@apiVersion": "1.0",
+           "name": "Sample-Graph-1",
+           "properties": {
+             "topologyName": "InferencingWithOpenVINO",
+             "description": "Sample graph description",
+             "parameters": [
+               {
+                 "name": "rtspUrl",
+                 "value": "rtsp://rtspsim:554/media/lots_015.mkv"
+               },
+               {
+                 "name": "rtspUserName",
+                 "value": "testuser"
+               },
+               {
+                 "name": "rtspPassword",
+                 "value": "testpassword"
                }
              ]
            }
@@ -364,4 +392,4 @@ Si su intención es probar otros inicios rápidos o tutoriales, conserve los rec
 Revise los desafíos adicionales para los usuarios avanzados:
 
 * Use una [cámara IP](https://en.wikipedia.org/wiki/IP_camera) que sea compatible con RTSP, en lugar de utilizar el simulador RTSP. Puede buscar cámaras IP compatibles con RTSP en la página de [productos compatibles con ONVIF](https://www.onvif.org/conformant-products/). Busque dispositivos que se ajusten a los perfiles G, S o T.
-* Use un dispositivo Linux AMD64 o x64, en lugar de una máquina virtual Linux de Azure. El dispositivo debe estar en la misma red que la cámara IP. Puede seguir las instrucciones que aparecen en [Instalación del entorno de ejecución de Azure IoT Edge en Linux](../../iot-edge/how-to-install-iot-edge-linux.md). Luego, registre el dispositivo en Azure IoT Hub, para lo que debe seguir las instrucciones que se encuentran en [Implementación del primer módulo IoT Edge en un dispositivo virtual Linux](../../iot-edge/quickstart-linux.md).
+* Use un dispositivo Linux AMD64 o x64, en lugar de una máquina virtual Linux de Azure. El dispositivo debe estar en la misma red que la cámara IP. Puede seguir las instrucciones que aparecen en [Instalación del entorno de ejecución de Azure IoT Edge en Linux](../../iot-edge/how-to-install-iot-edge.md). Luego, registre el dispositivo en Azure IoT Hub, para lo que debe seguir las instrucciones que se encuentran en [Implementación del primer módulo IoT Edge en un dispositivo virtual Linux](../../iot-edge/quickstart-linux.md).

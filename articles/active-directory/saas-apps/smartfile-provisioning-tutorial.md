@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: fca18a58ccb8d4e2f10b5db606ad01a97c2d5bac
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 03c7efd390d4714680ed2ccd54d297b8137aaafc
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94359942"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348677"
 ---
 # <a name="tutorial-configure-smartfile-for-automatic-user-provisioning"></a>Tutorial: Configuración de SmartFile para el aprovisionamiento automático de usuarios
 
@@ -80,7 +80,7 @@ Para configurar SmartFile para el aprovisionamiento automático de usuarios con 
 
     ![Botón Nueva aplicación](common/add-new-app.png)
 
-4. En el cuadro de búsqueda, escriba **SmartFile** , seleccione **SmartFile** en el panel de resultados y luego haga clic en el botón **Agregar** para agregar la aplicación.
+4. En el cuadro de búsqueda, escriba **SmartFile**, seleccione **SmartFile** en el panel de resultados y luego haga clic en el botón **Agregar** para agregar la aplicación.
 
     ![SmartFile en la lista de resultados](common/search-new-app.png)
 
@@ -109,17 +109,17 @@ Esta sección le guiará por los pasos necesarios para configurar el servicio de
 
     ![Captura de pantalla de la lista desplegable Modo de aprovisionamiento con la opción Automático seleccionada.](common/provisioning-automatic.png)
 
-5.  En la sección **Credenciales de administrador** , escriba `https://<SmartFile sitename>.smartfile.com/ftp/scim` en la **URL de inquilino**. Un ejemplo podría tener un aspecto similar a `https://demo1test.smartfile.com/ftp/scim`. Escriba el valor **Token de portador** (ClaveDelProducto:ContraseñaDelProducto) que recuperó anteriormente en **Token secreto**. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a SmartFile. Si la conexión no se establece, asegúrese de que la cuenta de SmartFile tiene permisos de administrador e inténtelo de nuevo.
+5.  En la sección **Credenciales de administrador**, escriba `https://<SmartFile sitename>.smartfile.com/ftp/scim` en la **URL de inquilino**. Un ejemplo podría tener un aspecto similar a `https://demo1test.smartfile.com/ftp/scim`. Escriba el valor **Token de portador** (ClaveDelProducto:ContraseñaDelProducto) que recuperó anteriormente en **Token secreto**. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a SmartFile. Si la conexión no se establece, asegúrese de que la cuenta de SmartFile tiene permisos de administrador e inténtelo de nuevo.
 
     ![URL de inquilino + Token](common/provisioning-testconnection-tenanturltoken.png)
 
-6. En el campo **Correo electrónico de notificación** , escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
+6. En el campo **Correo electrónico de notificación**, escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
 
     ![Correo electrónico de notificación](common/provisioning-notification-email.png)
 
-7. Haga clic en **Save** (Guardar).
+7. Haga clic en **Save**(Guardar).
 
-8. En la sección **Asignaciones** , seleccione **Synchronize Azure Active Directory Users to SmartFile** (Sincronizar usuarios de Azure Active Directory con SmartFile).
+8. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Users to SmartFile** (Sincronizar usuarios de Azure Active Directory con SmartFile).
 
     ![Asignaciones de usuario de SmartFile](media/smartfile-provisioning-tutorial/usermapping.png)
 
@@ -127,7 +127,7 @@ Esta sección le guiará por los pasos necesarios para configurar el servicio de
 
     ![Atributos de usuario de SmartFile](media/smartfile-provisioning-tutorial/userattribute.png)
 
-10. En la sección **Asignaciones** , seleccione **Synchronize Azure Active Directory Groups to SmartFile** (Sincronizar grupos de Azure Active Directory con SmartFile).
+10. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Groups to SmartFile** (Sincronizar grupos de Azure Active Directory con SmartFile).
 
     ![Asignaciones de grupos de SmartFile](media/smartfile-provisioning-tutorial/groupmapping.png)
 
@@ -141,7 +141,7 @@ Esta sección le guiará por los pasos necesarios para configurar el servicio de
 
     ![Estado de aprovisionamiento activado](common/provisioning-toggle-on.png)
 
-14. Elija los valores deseados en **Ámbito** , en la sección **Configuración** , para definir los usuarios o grupos que desea que se aprovisionen en SmartFile.
+14. Elija los valores deseados en **Ámbito**, en la sección **Configuración**, para definir los usuarios o grupos que desea que se aprovisionen en SmartFile.
 
     ![Ámbito del aprovisionamiento](common/provisioning-scope.png)
 

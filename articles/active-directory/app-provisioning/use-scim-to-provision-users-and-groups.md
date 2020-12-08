@@ -12,12 +12,12 @@ ms.date: 09/15/2020
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: contperfq2
-ms.openlocfilehash: 5e2f323f705a891f06cee1d25779351d02a91572
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: ddce982f43a3c730d8c25527f4354983c36e89e8
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94695272"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96530842"
 ---
 # <a name="tutorial---build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>Tutorial: Creación de un punto de conexión SCIM y configuración del aprovisionamiento de usuarios con Azure AD
 
@@ -154,7 +154,7 @@ Dentro de la [especificación del protocolo SCIM 2.0](http://www.simplecloud.inf
 * Admitir la consulta de usuarios o grupos, según la sección [3.4.2 del protocolo SCIM](https://tools.ietf.org/html/rfc7644#section-3.4.2).  De forma predeterminada, los usuarios se recuperan por sus `id` y se consultan por sus `username` y `externalId`, y los grupos por su `displayName`.  
 * Admitir la consulta de usuarios por identificador y por administrador, según la sección 3.4.2 del protocolo SCIM.  
 * Admitir la consulta de grupos por Id. y miembro, según la sección 3.4.2 del protocolo SCIM.  
-* Admitir el filtro [excludedAttributes=members](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#get-group) al consultar el recurso de grupo, de acuerdo con la sección 3.4.2.5 del protocolo SCIM.
+* Admitir el filtro [excludedAttributes=members](#get-group) al consultar el recurso de grupo, de acuerdo con la sección 3.4.2.5 del protocolo SCIM.
 * Acepta un token de portador único para la autenticación y autorización de Azure AD para la aplicación.
 * Admite la eliminación temporal de un usuario `active=false` y la restauración del usuario `active=true` (el objeto de usuario debe devolverse en una solicitud tanto si el usuario está activo como si no). La única vez que no se debe devolver el usuario es cuando se elimina de forma permanente de la aplicación. 
 
@@ -199,29 +199,21 @@ Esta sección proporciona solicitudes SCIM de ejemplo emitidas por el cliente de
   - [Crear usuario](#create-user) ([Solicitud](#request) / [Respuesta](#response))
   - [Obtener usuario](#get-user) ([Solicitud](#request-1) / [Respuesta](#response-1))
   - [Obtener usuario por consulta](#get-user-by-query) ([Solicitud](#request-2) / [Respuesta](#response-2))
-  - [Obtener usuario por consulta: cero resultados](#get-user-by-query---zero-results) ([Solicitud](#request-3)
-/ [Respuesta](#response-3))
-  - [Actualizar usuario [propiedades con varios valores]](#update-user-multi-valued-properties) ([Solicitud](#request-4) /  [Respuesta](#response-4))
-  - [Actualizar usuario [propiedades con un solo valor]](#update-user-single-valued-properties) ([Solicitud](#request-5)
-/ [Respuesta](#response-5)) 
-  - [Deshabilitar usuario](#disable-user) ([Solicitud](#request-14) / 
-[Respuesta](#response-14))
-  - [Eliminar usuario](#delete-user) ([Solicitud](#request-6) / 
-[Respuesta](#response-6))
+  - [Obtener usuario por consulta: cero resultados](#get-user-by-query---zero-results) ([Solicitud](#request-3) / [Respuesta](#response-3))
+  - [Actualizar usuario [propiedades con varios valores]](#update-user-multi-valued-properties) ([Solicitud](#request-4) / [Respuesta](#response-4))
+  - [Actualizar usuario [propiedades con un solo valor]](#update-user-single-valued-properties) ([Solicitud](#request-5) / [Respuesta](#response-5)) 
+  - [Deshabilitar usuario](#disable-user) ([Solicitud](#request-14) / [Respuesta](#response-14))
+  - [Eliminar usuario](#delete-user) ([Solicitud](#request-6) / [Respuesta](#response-6))
 
 
 [Operaciones de grupo](#group-operations)
   - [Crear grupo](#create-group) ([Solicitud](#request-7) / [Respuesta](#response-7))
   - [Obtener grupo](#get-group) ([Solicitud](#request-8) / [Respuesta](#response-8))
   - [Obtener grupo por displayName](#get-group-by-displayname) ([Solicitud](#request-9) / [Respuesta](#response-9))
-  - [Actualizar grupo [Atributos no de miembro]](#update-group-non-member-attributes) ([Solicitud](#request-10) /
- [Respuesta](#response-10))
-  - [Actualizar grupo [Agregar miembros]](#update-group-add-members) ([Solicitud](#request-11) /
-[Respuesta](#response-11))
-  - [Actualizar grupo [Quitar miembros]](#update-group-remove-members) ( [Solicitud](#request-12) /
-[Respuesta](#response-12))
-  - [Eliminar grupo](#delete-group) ([Solicitud](#request-13) /
-[Respuesta](#response-13))
+  - [Actualizar grupo [Atributos no de miembro]](#update-group-non-member-attributes) ([Solicitud](#request-10) / [Respuesta](#response-10))
+  - [Actualizar grupo [Agregar miembros]](#update-group-add-members) ([Solicitud](#request-11) / [Respuesta](#response-11))
+  - [Actualizar grupo [Quitar miembros]](#update-group-remove-members) ([Solicitud](#request-12) / [Respuesta](#response-12))
+  - [Eliminar grupo](#delete-group) ([Solicitud](#request-13) / [Respuesta](#response-13))
 
 ### <a name="user-operations"></a>Operaciones de usuario
 
@@ -750,7 +742,7 @@ Barra mínima de conjuntos de cifrado TLS 1.2:
 - TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
 
 ### <a name="ip-ranges"></a>Intervalos IP
-El servicio de aprovisionamiento de Azure AD actualmente opera en los intervalos IP de AzureActiveDirectory, tal y como se muestra [aquí](https://www.microsoft.com/download/details.aspx?id=56519&WT.mc_id=rss_alldownloads_all). Puede agregar los intervalos IP que aparecen en la etiqueta AzureActiveDirectory para permitir el tráfico desde el servicio de aprovisionamiento de Azure AD a la aplicación. Tenga en cuenta que deberá revisar detenidamente la lista de intervalos de IP para direcciones procesadas. Una dirección como «40.126.25.32» podría aparecer en la lista de intervalos IP como «40.126.0.0/18». También puede recuperar la lista de intervalos IP mediante programación con el siguiente [API](/rest/api/virtualnetwork/servicetags/list).
+El servicio de aprovisionamiento de Azure AD actualmente opera en los intervalos IP de AzureActiveDirectory, tal y como se muestra [aquí](https://www.microsoft.com/download/details.aspx?id=56519&WT.mc_id=rss_alldownloads_all). Puede agregar los intervalos IP que aparecen en la etiqueta AzureActiveDirectory para permitir el tráfico desde el servicio de aprovisionamiento de Azure AD a la aplicación. Tenga en cuenta que deberá revisar detenidamente la lista de intervalos de IP para direcciones procesadas. Una dirección como «40.126.25.32» podría aparecer en la lista de intervalos IP como «40.126.0.0/18». También puede recuperar la lista de intervalos IP mediante programación con la siguiente [API](/rest/api/virtualnetwork/servicetags/list).
 
 ## <a name="step-3-build-a-scim-endpoint"></a>Paso 3: Cree un punto de conexión SCIM
 
@@ -1173,10 +1165,10 @@ Una vez que haya empezado el ciclo inicial, puede seleccionar **Registros de apr
 
 ## <a name="step-5-publish-your-application-to-the-azure-ad-application-gallery"></a>Paso 5: Publique la aplicación en la galería de aplicaciones de Azure AD
 
-Si va a crear una aplicación que usará más de un inquilino, puede hacer que esté disponible en la galería de aplicaciones de Azure AD. De este modo, facilitará a las organizaciones la detección de la aplicación y la configuración del aprovisionamiento. Publicar la aplicación en la galería de Azure AD y hacer que el aprovisionamiento esté disponible para otros usuarios es fácil. Consulte los pasos [aquí](../azuread-dev/howto-app-gallery-listing.md). Microsoft colaborará con usted a fin de integrar su aplicación en nuestra galería, probar su punto de conexión y publicar la [documentación](../saas-apps/tutorial-list.md) de incorporación de versiones para que los clientes la usen. 
+Si va a crear una aplicación que usará más de un inquilino, puede hacer que esté disponible en la galería de aplicaciones de Azure AD. De este modo, facilitará a las organizaciones la detección de la aplicación y la configuración del aprovisionamiento. Publicar la aplicación en la galería de Azure AD y hacer que el aprovisionamiento esté disponible para otros usuarios es fácil. Consulte los pasos [aquí](../develop/v2-howto-app-gallery-listing.md). Microsoft colaborará con usted a fin de integrar su aplicación en nuestra galería, probar su punto de conexión y publicar la [documentación](../saas-apps/tutorial-list.md) de incorporación de versiones para que los clientes la usen.
 
 ### <a name="gallery-onboarding-checklist"></a>Lista de comprobación de la incorporación a la galería
-Siga la lista de comprobación siguiente para asegurarse de que la aplicación se incorpora con rapidez y que los clientes tienen una experiencia de implementación sin problemas. La información se recopilará en el momento en que se incorpore a la galería. 
+Utilice la siguiente lista de comprobación para garantizar la rápida incorporación de la aplicación, y una experiencia de implementación fluida para los clientes. La información se recopilará en el momento en que se incorpore a la galería. 
 > [!div class="checklist"]
 > * Compatibilidad con un punto de conexión de grupo y de usuario de [SCIM 2.0 ](#step-2-understand-the-azure-ad-scim-implementation) (solo se requiere uno, pero se recomiendan los dos)
 > * Admitir al menos 25 solicitudes por segundo por inquilino para asegurarse de que los usuarios y grupos se aprovisionan y desaprovisionan sin retraso (obligatorio)
@@ -1248,3 +1240,4 @@ Para ayudar a impulsar el reconocimiento y la demanda de nuestra integración co
 * [Filtros de ámbito para el aprovisionamiento de usuarios](define-conditional-rules-for-provisioning-user-accounts.md)
 * [Notificaciones de aprovisionamiento de cuentas](user-provisioning.md)
 * [Lista de tutoriales sobre cómo integrar aplicaciones SaaS](../saas-apps/tutorial-list.md)
+

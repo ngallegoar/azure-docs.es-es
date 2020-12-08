@@ -1,20 +1,20 @@
 ---
 title: 'Creación de plantilla: Visual Studio Code'
-description: Use Visual Studio Code y la extensión de herramientas de Azure Resource Manager para trabajar con plantillas de Resource Manager.
+description: Use Visual Studio Code y la extensión de las herramientas de Azure Resource Manager para trabajar con las plantillas de Azure Resource Manager (plantillas de ARM).
 author: neilpeterson
 ms.date: 08/09/2020
 ms.topic: quickstart
 ms.author: nepeters
-ms.openlocfilehash: 5375fedcd05aefa5d23ee872325373ce631d43bb
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d8fd44a1e4c1ddfd78b2afa3280bb05c8fde91e3
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88034995"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350150"
 ---
-# <a name="quickstart-create-azure-resource-manager-templates-with-visual-studio-code"></a>Inicio rápido: Creación de plantillas de Azure Resource Manager con Visual Studio Code
+# <a name="quickstart-create-arm-templates-with-visual-studio-code"></a>Inicio rápido: Creación de plantillas de ARM mediante Visual Studio Code
 
-Las herramientas de Azure Resource Manager para Visual Studio Code proporcionan compatibilidad con lenguajes, fragmentos de código de los recursos y la finalización automática de los recursos. Además, ayudan a crear y validar plantillas de Azure Resource Manager. En este inicio rápido, usará la extensión para crear una plantilla de Azure Resource Manager desde cero. Al hacerlo, utilizará las funcionalidades de las extensiones, como los fragmentos de código de las plantillas de Resource Manager, la validación, las finalizaciones y la compatibilidad con archivos de parámetros.
+Las herramientas de Azure Resource Manager para Visual Studio Code proporcionan compatibilidad con lenguajes, fragmentos de código de los recursos y la finalización automática de los recursos. Además, ayudan a crear y validar plantillas de Azure Resource Manager (plantillas de ARM). En este inicio rápido usará la extensión para crear una plantilla de ARM desde cero. Al hacerlo, utilizará las funcionalidades de las extensiones, como los fragmentos de código de las plantillas de Resource Manager, la validación, las finalizaciones y la compatibilidad con archivos de parámetros.
 
 Para completar este inicio rápido, necesita [Visual Studio Code](https://code.visualstudio.com/) con la [extensión de herramientas de Azure Resource Manager](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) instalada. También necesita la [CLI de Azure](/cli/azure/?view=azure-cli-latest) o el [módulo de Azure PowerShell](/powershell/azure/new-azureps-module-az?view=azps-3.7.0) instalados y autenticados.
 
@@ -54,7 +54,7 @@ La tecla **TAB** se puede usar para recorrer las distintas propiedades configura
 
 ## <a name="completion-and-validation"></a>Finalización y validación
 
-Una de las funcionalidades más eficaces de la extensión es su integración con los esquemas de Azure. Estos esquemas proporcionan a la extensión funcionalidades de validación y finalización de recursos. Vamos a modificar la cuenta de almacenamiento para ver tanto la validación como la finalización en acción. 
+Una de las funcionalidades más eficaces de la extensión es su integración con los esquemas de Azure. Estos esquemas proporcionan a la extensión funcionalidades de validación y finalización de recursos. Vamos a modificar la cuenta de almacenamiento para ver tanto la validación como la finalización en acción.
 
 En primer lugar, actualice el tipo de cuenta de almacenamiento a un valor no válido, como `megaStorage`. Tenga en cuenta que esta acción genera una advertencia que indica que `megaStorage` no es un valor válido.
 
@@ -80,7 +80,7 @@ Los nombres de cuenta de Azure Storage tienen una longitud mínima de 3 caracter
 
 ![Imagen que muestra cómo se agregan minLength y maxLength a un parámetro de la plantilla de Resource Manager](./media/quickstart-create-templates-use-visual-studio-code/11.png)
 
-Ahora, en el recurso de almacenamiento, actualice la propiedad name para usar el parámetro. Para ello, quite el valor actual de la propiedad. Escriba una comilla doble y un corchete de apertura `[`, que genera una lista de funciones de la plantilla de Resource Manager. Seleccione *parameters* en la lista. 
+Ahora, en el recurso de almacenamiento, actualice la propiedad name para usar el parámetro. Para ello, quite el valor actual de la propiedad. Escriba una comilla doble y un corchete de apertura `[`, que genera una lista de funciones de la plantilla de Resource Manager. Seleccione *parameters* en la lista.
 
 ![Imagen que muestra la finalización automática cuando se usan parámetros en los recursos de plantilla de Resource Manager](./media/quickstart-create-templates-use-visual-studio-code/12.png)
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/14/2019
 ms.author: Zhchia
-ms.openlocfilehash: 1b992150f6013fd597a3e56b243bd6236289b710
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 5c42102c0704d7212411d6b86f4210ad8ecd885c
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94358004"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96347521"
 ---
 # <a name="tutorial-configure-soloinsight-cloudgate-sso-for-automatic-user-provisioning"></a>Tutorial: Configuración de Soloinsight-CloudGate SSO para el aprovisionamiento automático de usuarios
 
@@ -80,7 +80,7 @@ Antes de configurar Soloinsight-CloudGate SSO para el aprovisionamiento automát
 
     ![Botón Nueva aplicación](common/add-new-app.png)
 
-4. En el cuadro de búsqueda, escriba **Soloinsight-CloudGate SSO** , seleccione **Soloinsight-CloudGate SSO** en el panel de resultados y haga clic en el botón **Agregar** para agregar la aplicación.
+4. En el cuadro de búsqueda, escriba **Soloinsight-CloudGate SSO**, seleccione **Soloinsight-CloudGate SSO** en el panel de resultados y haga clic en el botón **Agregar** para agregar la aplicación.
 
     ![Soloinsight-CloudGate SSO en la lista de resultados](common/search-new-app.png)
 
@@ -109,17 +109,17 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Captura de pantalla de la lista desplegable Modo de aprovisionamiento con la opción Automático seleccionada.](common/provisioning-automatic.png)
 
-5. En la sección **Credenciales de administrador** , escriba `https://sigateway.com/scim/v2/sync/serviceproviderconfig` en la **URL de inquilino**. Escriba el valor **SCIM Authentication Token** (Token de autenticación de SCIM) recuperado anteriormente en **Token secreto**. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a Soloinsight-CloudGate SSO. Si la conexión no se establece, asegúrese de que la cuenta de Soloinsight-CloudGate SSO tenga permisos de administrador y pruebe de nuevo.
+5. En la sección **Credenciales de administrador**, escriba `https://sigateway.com/scim/v2/sync/serviceproviderconfig` en la **URL de inquilino**. Escriba el valor **SCIM Authentication Token** (Token de autenticación de SCIM) recuperado anteriormente en **Token secreto**. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a Soloinsight-CloudGate SSO. Si la conexión no se establece, asegúrese de que la cuenta de Soloinsight-CloudGate SSO tenga permisos de administrador y pruebe de nuevo.
 
     ![URL de inquilino + Token](common/provisioning-testconnection-tenanturltoken.png)
 
-6. En el campo **Correo electrónico de notificación** , escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
+6. En el campo **Correo electrónico de notificación**, escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
 
     ![Correo electrónico de notificación](common/provisioning-notification-email.png)
 
-7. Haga clic en **Save** (Guardar).
+7. Haga clic en **Save**(Guardar).
 
-8. En la sección **Asignaciones** , seleccione **Synchronize Azure Active Directory Users to Soloinsight-CloudGate SSO** (Sincronizar usuarios de Azure Active Directory con Soloinsight-CloudGate SSO).
+8. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Users to Soloinsight-CloudGate SSO** (Sincronizar usuarios de Azure Active Directory con Soloinsight-CloudGate SSO).
 
     ![Asignaciones de usuario de Soloinsight-CloudGate SSO](media/soloinsight-cloudgate-sso-provisioning-tutorial/usermappings.png)
 
@@ -127,7 +127,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Atributos de usuario de Soloinsight-CloudGate SSO](media/soloinsight-cloudgate-sso-provisioning-tutorial/userattributes.png)
 
-10. En la sección **Asignaciones** , seleccione **Synchronize Azure Active Directory Groups to Soloinsight-CloudGate SSO** (Sincronizar grupos de Azure Active Directory con Soloinsight-CloudGate SSO).
+10. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Groups to Soloinsight-CloudGate SSO** (Sincronizar grupos de Azure Active Directory con Soloinsight-CloudGate SSO).
 
     ![Asignaciones de grupos de Soloinsight-CloudGate SSO](media/soloinsight-cloudgate-sso-provisioning-tutorial/groupmappings.png)
 
@@ -141,7 +141,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Estado de aprovisionamiento activado](common/provisioning-toggle-on.png)
 
-14. Elija los valores deseados en **Ámbito** , en la sección **Configuración** , para definir los usuarios o grupos que quiere que se aprovisionen en Soloinsight-CloudGate SSO.
+14. Elija los valores deseados en **Ámbito**, en la sección **Configuración**, para definir los usuarios o grupos que quiere que se aprovisionen en Soloinsight-CloudGate SSO.
 
     ![Ámbito del aprovisionamiento](common/provisioning-scope.png)
 

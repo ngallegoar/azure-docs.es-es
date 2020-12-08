@@ -11,14 +11,14 @@ ms.date: 05/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 691cdcb525f8e9e3d1fb914372b9f62366f4bfba
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 4c761404ab5a95bc0189407cc97ce779b66356fe
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85213030"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460722"
 ---
-# <a name="quickstart-create-a-synapse-sql-pool-workload-classifier-using-the-azure-portal"></a>Inicio rápido: Creación de un clasificador de cargas de trabajo del grupo de Synapse SQL mediante Azure Portal
+# <a name="quickstart-create-a-dedicated-sql-pool-workload-classifier-using-the-azure-portal"></a>Inicio rápido: Creación de un clasificador de cargas de trabajo de grupo de SQL dedicado mediante Azure Portal
 
 En esta guía de inicio rápido, creará un [clasificador de cargas de trabajo](sql-data-warehouse-workload-classification.md) para asignar consultas a un grupo de cargas de trabajo.  El clasificador asignará solicitudes del `ELTLogin`usuario de SQL al `DataLoads`grupo de cargas de trabajo.   Consulte el tutorial [Inicio rápido: Configuración del aislamiento de cargas de trabajo](quickstart-configure-workload-isolation-portal.md) para crear el grupo de cargas de trabajo `DataLoads`.  En este tutorial se creará un clasificador de cargas de trabajo con la opción WLM_LABEL para facilitar la correcta clasificación de las solicitudes.  El clasificador asignará la `HIGH` [importancia de la carga de trabajo](sql-data-warehouse-workload-importance.md) a estas solicitudes también.
 
@@ -31,16 +31,16 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
 Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
 > [!NOTE]
-> La creación de una instancia del grupo de SQL en Azure Synapse Analytics puede dar lugar a un nuevo servicio facturable.  Para más información, consulte los [precios de Azure Synapse Analytics](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
+> La creación de una instancia de grupo de SQL dedicado en Azure Synapse Analytics puede dar lugar a un nuevo servicio facturable.  Para más información, consulte los [precios de Azure Synapse Analytics](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-En este inicio rápido se da por supuesto que ya tiene una instancia del grupo de SQL en Synapse SQL y que tiene permisos CONTROL DATABASE. Si tiene que crear una, consulte [Guía de inicio rápido: Creación de una instancia de Azure SQL Data Warehouse en Azure Portal, y realización de consultas en ella](create-data-warehouse-portal.md) para crear un almacenamiento de datos denominado **mySampleDataWarehouse**.
+En este inicio rápido se da por supuesto que ya tiene una instancia de grupo de SQL dedicado que tiene permisos CONTROL DATABASE. Si tiene que crear uno, use el artículo sobre la [creación y conexión desde el portal](create-data-warehouse-portal.md) para crear un grupo de SQL dedicado llamado **mySampleDataWarehouse**.
 <br><br>
 Existe un grupo de cargas de trabajo `DataLoads`.  Consulte el tutorial [Inicio rápido: Configuración del aislamiento de cargas de trabajo](quickstart-configure-workload-isolation-portal.md) para crear el grupo de cargas de trabajo.
 <br><br>
 >[!IMPORTANT] 
->Su grupo de SQL debe estar en línea para que se pueda configurar la administración de las cargas de trabajo. 
+>Su grupo de SQL dedicado debe estar en línea para que se pueda configurar la administración de las cargas de trabajo. 
 
 
 ## <a name="create-a-login-for-eltlogin"></a>Creación de un inicio de sesión para ELTLogin
@@ -72,18 +72,17 @@ END
 La clasificación permite enrutar solicitudes, en función de un conjunto de reglas, a un grupo de cargas de trabajo.  En el tutorial [Inicio rápido: Configuración del aislamiento de cargas de trabajo](quickstart-configure-workload-isolation-portal.md) se creó el grupo de cargas de trabajo `DataLoads`.  Ahora se creará un clasificador de cargas de trabajo para enrutar las consultas al grupo de cargas de trabajo `DataLoads`.
 
 
-1.  Haga clic en **Azure Synapse Analytics (formerly SQL DW)** a la izquierda de la página de Azure Portal.
-2.  Seleccione **mySampleDataWarehouse** en la página de **Azure Synapse Analytics (formerly SQL DW)** . Se abre el grupo de SQL.
-3.  Haga clic en **Administración de cargas de trabajos**.
+1.  Vaya a la página **mySampleDataWarehouse** del grupo de SQL dedicado.
+3.  Seleccione **Administración de cargas de trabajos**.
 
     ![Hacer clic en el menú](./media/quickstart-create-a-workload-classifier-portal/menu.png)
 
-4.  Haga clic en **Configuración y clasificadores** en el lado derecho del grupo de cargas de trabajo `DataLoads`.
+4.  Seleccione **Configuración y clasificadores** en el lado derecho del grupo de cargas de trabajo `DataLoads`.
 
     ![Haga clic en Crear.](./media/quickstart-create-a-workload-classifier-portal/settings-classifiers.png)
 
-5. Haga clic en **Clasificadores**.
-6. Haga clic en **Agregar clasificador**.
+5. Seleccione **No configurado** en la columna Clasificadores.
+6. Seleccione **+ Agregar clasificador**.
 
     ![Haga clic en Agregar](./media/quickstart-create-a-workload-classifier-portal/add-wc.png)
 
@@ -91,8 +90,8 @@ La clasificación permite enrutar solicitudes, en función de un conjunto de reg
 8.  Escriba `ELTLogin` en **Miembro**.
 9.  Elija `High` en **Importancia de la solicitud**.  *Opcional*, la importancia normal es el valor predeterminado.
 10. Escriba `fact_loads` en **Etiqueta**.
-11. Haga clic en **Agregar**.
-12. Haga clic en **Save**(Guardar).
+11. Seleccione **Agregar**.
+12. Seleccione **Guardar**.
 
     ![Hacer clic en Configurar](./media/quickstart-create-a-workload-classifier-portal/config-wc.png)
 
@@ -135,8 +134,6 @@ WHERE [label] = 'fact_loads'
 ORDER BY submit_time DESC
 ```
 
-
-
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
 Para eliminar el clasificador de cargas de trabajo `ELTLoginDataLoads` creado en este tutorial:
@@ -152,24 +149,20 @@ Para eliminar el clasificador de cargas de trabajo `ELTLoginDataLoads` creado en
 
     ![Haga clic en Guardar](./media/quickstart-create-a-workload-classifier-portal/delete-save-wc.png)
 
-Se le está cobrando por unidades de almacenamiento de datos y por los datos almacenados en el almacenamiento de datos. Estos recursos de proceso y de almacenamiento se facturan por separado.
+Se le cobra por las unidades de almacenamiento de datos y por los datos almacenados en el grupo de SQL dedicado. Estos recursos de proceso y de almacenamiento se facturan por separado.
 
-- Si desea conservar los datos de almacenamiento, puede pausar el proceso cuando no está utilizando el almacenamiento de datos. Si se hace una pausa en el proceso, solo se carga el almacenamiento de datos. Cuando esté listo para trabajar con los datos, reanude el proceso.
-- Si desea quitar cobros futuros, puede eliminar el almacenamiento de datos.
+- Si quiere conservar los datos en almacenamiento, puede pausar el proceso cuando no use el grupo de SQL dedicado. Si se hace una pausa en el proceso, solo se carga el almacenamiento de datos. Cuando esté listo para trabajar con los datos, reanude el proceso.
+- Si quiere eliminar cobros futuros, puede eliminar el grupo de SQL dedicado.
 
 Siga estos pasos para limpiar los recursos.
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) y seleccione el almacenamiento de datos.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) y seleccione el grupo de SQL dedicado.
 
     ![Limpieza de recursos](./media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
-2. Para pausar el proceso, seleccione el botón **Pausar**. Cuando el almacenamiento de datos se haya puesto en pausa, verá un botón **Iniciar**.  Para reanudar el proceso, seleccione **Iniciar**.
+2. Para pausar el proceso, seleccione el botón **Pausar**. Cuando el grupo de SQL dedicado esté en pausa, verá un botón **Iniciar**.  Para reanudar el proceso, seleccione **Iniciar**.
 
-3. Para quitar el almacenamiento de datos para que no se le cobre por proceso o almacenamiento, seleccione **Eliminar**.
-
-4. Para eliminar el servidor SQL que creó, seleccione **sqlpoolservername.database.windows.net** en la imagen anterior y seleccione **Eliminar**.  Debe tener cuidado con este procedimiento, ya que la eliminación del servidor elimina también todas las bases de datos asignadas al servidor.
-
-5. Para quitar el grupo de recursos, seleccione **myResourceGroup** y **Eliminar grupo de recursos**.
+3. Para quitar el grupo de SQL dedicado para que no se le cobre por proceso o almacenamiento, seleccione **Eliminar**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -13,12 +13,12 @@ ms.devlang: rest-api
 ms.topic: quickstart
 ms.date: 06/10/2019
 ms.author: jingwang
-ms.openlocfilehash: cececc8ba297057a372766381de0fd2c145815f2
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 48928c5c4f3a2787e8f00e4084daacf6a64f1ea7
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94358888"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461574"
 ---
 # <a name="quickstart-create-an-azure-data-factory-and-pipeline-by-using-the-rest-api"></a>Inicio rápido: Creación de una instancia de Azure Data Factory y una canalización mediante la API de REST
 
@@ -28,7 +28,7 @@ ms.locfileid: "94358888"
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Azure Data Factory es un servicio de integración de datos basado en la nube que le permite crear flujos de trabajo basados en datos en la nube a fin de coordinar y automatizar el movimiento y la transformación de datos. Mediante Azure Data Factory, se pueden crear y programar flujos de trabajo orientados a datos (llamados canalizaciones) que pueden ingerir datos de almacenes de datos dispares, procesar o transformar dichos datos mediante servicios de proceso, como Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics y Azure Machine Learning, y publicar los datos de salida en almacenes de datos como Azure Synapse Analytics (anteriormente SQL Data Warehouse) para que los consuman las aplicaciones de inteligencia empresarial (BI).
+Azure Data Factory es un servicio de integración de datos basado en la nube que le permite crear flujos de trabajo basados en datos en la nube a fin de coordinar y automatizar el movimiento y la transformación de datos. Mediante Azure Data Factory puede crear y programar flujos de trabajo orientados a datos (llamados canalizaciones) que ingieren datos de almacenes de datos dispares, procesan o transforman los datos mediante servicios de proceso, como Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics y Azure Machine Learning, y publican los datos de salida en almacenes de datos, como Azure Synapse Analytics, para que los consuman las aplicaciones de inteligencia empresarial (BI).
 
 En esta guía de inicio rápido se describe cómo usar la API de REST para crear una instancia de Azure Data Factory. La canalización de esta factoría de datos copia los datos de una ubicación a otra en una instancia de Azure Blob Storage.
 
@@ -42,7 +42,7 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
 * **Cuenta de Azure Storage**. El almacenamiento de blobs se puede usar como almacén de datos de **origen** y **receptor**. Si no tiene una cuenta de almacenamiento de Azure, consulte el artículo [Crear una cuenta de almacenamiento](../storage/common/storage-account-create.md) para ver los pasos para su creación.
 * Cree un **contenedor de blobs** en Blob Storage, cree una **carpeta** de entrada en el contenedor y cargue algunos archivos en la carpeta. Puede usar herramientas como el [Explorador de Azure Storage](https://azure.microsoft.com/features/storage-explorer/) para conectarse a Azure Blob Storage, crear un contenedor de blobs, cargar el archivo de entrada y comprobar el archivo de salida.
 * Instale **Azure PowerShell**. Siga las instrucciones de [Instalación y configuración de Azure PowerShell](/powershell/azure/install-Az-ps). Esta guía de inicio rápido usa PowerShell para invocar llamadas a la API de REST.
-* **Cree una aplicación en Azure Active Directory**. Para ello, siga [estas instrucciones](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal). Tome nota de los valores siguientes; los usará en pasos posteriores: **application ID** , **clientSecrets** y **tenant ID**. Asigne la aplicación al rol " **Colaborador** ".
+* **Cree una aplicación en Azure Active Directory**. Para ello, siga [estas instrucciones](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal). Tome nota de los valores siguientes; los usará en pasos posteriores:**application ID**, **clientSecrets** y **tenant ID**. Asigne la aplicación al rol "**Colaborador**".
 
 ## <a name="set-global-variables"></a>Definición de variables globales
 
@@ -117,7 +117,7 @@ Tenga en cuenta los siguientes puntos:
     ```
     Data factory name "ADFv2QuickStartDataFactory" is not available.
     ```
-* Para una lista de las regiones de Azure en las que Data Factory está disponible actualmente, seleccione las regiones que le interesen en la página siguiente y expanda **Análisis** para poder encontrar **Data Factory** : [Productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/). Los almacenes de datos (Azure Storage, Azure SQL Database, etc.) y los procesos (HDInsight, etc.) que usa la factoría de datos pueden encontrarse en otras regiones.
+* Para una lista de las regiones de Azure en las que Data Factory está disponible actualmente, seleccione las regiones que le interesen en la página siguiente y expanda **Análisis** para poder encontrar **Data Factory**: [Productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/). Los almacenes de datos (Azure Storage, Azure SQL Database, etc.) y los procesos (HDInsight, etc.) que usa la factoría de datos pueden encontrarse en otras regiones.
 
 Esta es la respuesta de ejemplo:
 
@@ -147,7 +147,7 @@ Esta es la respuesta de ejemplo:
 
 Los servicios vinculados se crean en una factoría de datos para vincular los almacenes de datos y los servicios de proceso con la factoría de datos. En esta guía de inicio rápido, basta con crear un servicio vinculado de Azure Storage como almacén de origen de copia y receptor. En el ejemplo, se denomina "AzureStorageLinkedService".
 
-Ejecute los comandos siguientes para crear un servicio vinculado denominado **AzureStorageLinkedService** :
+Ejecute los comandos siguientes para crear un servicio vinculado denominado **AzureStorageLinkedService**:
 
 Reemplace &lt;accountName&gt; y &lt;accountKey&gt; con el nombre y la clave de su cuenta de Azure Storage antes de ejecutar los comandos.
 

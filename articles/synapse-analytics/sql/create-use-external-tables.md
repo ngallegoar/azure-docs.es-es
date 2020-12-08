@@ -1,6 +1,6 @@
 ---
-title: Creación y uso de tablas externas en el grupo de SQL sin servidor (versión preliminar)
-description: En esta sección aprenderá a crear y usar tablas externas en el grupo de SQL sin servidor (versión preliminar).
+title: Creación y uso de tablas externas en un grupo de SQL sin servidor
+description: En esta sección, aprenderá a crear y usar tablas externas en un grupo de SQL sin servidor.
 services: synapse-analytics
 author: vvasic-msft
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: 0a52db131311d9956cf7217d910f22c3a4f07738
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 5dcd4b7b76752ca5396fc68afc8d4c8e4e1edca5
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93314728"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462310"
 ---
-# <a name="create-and-use-external-tables-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Creación y uso de tablas externas en el grupo de SQL sin servidor (versión preliminar) en Azure Synapse Analytics
+# <a name="create-and-use-external-tables-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Creación y uso de tablas externas mediante un grupo de SQL sin servidor en Azure Synapse Analytics
 
-En esta sección aprenderá a crear y usar [tablas externas](develop-tables-external-tables.md) en el grupo de SQL sin servidor (versión preliminar). Las tablas externas son útiles si se desea controlar el acceso a los datos externos en el grupo de SQL sin servidor y si se desea usar herramientas, como Power BI, junto con el grupo de SQL sin servidor. Las tablas externas pueden acceder a dos tipos de almacenamiento:
+En esta sección, aprenderá a crear y usar [tablas externas](develop-tables-external-tables.md) en un grupo de SQL sin servidor. Las tablas externas son útiles si se desea controlar el acceso a los datos externos en el grupo de SQL sin servidor y si se desea usar herramientas, como Power BI, junto con el grupo de SQL sin servidor. Las tablas externas pueden acceder a dos tipos de almacenamiento:
 - Almacenamiento público, en el que los usuarios acceden a archivos de almacenamiento público.
 - Almacenamiento protegido, en el que los usuarios acceden a los archivos de almacenamiento mediante una credencial de SAS, una identidad de Azure AD o una identidad administrada del área de trabajo de Synapse.
 

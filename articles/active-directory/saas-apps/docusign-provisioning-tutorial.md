@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/21/2020
 ms.author: jeedes
-ms.openlocfilehash: 185b61f77b275ed78050f5d8efb820c5333f6e1f
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: dc3f307a21b746981a84b1c0747c4b22c448541f
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94358582"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349912"
 ---
 # <a name="tutorial-configure-docusign-for-automatic-user-provisioning"></a>Tutorial: Configuración de DocuSign para el aprovisionamiento automático de usuarios
 
@@ -67,14 +67,14 @@ El objetivo de esta sección es describir cómo habilitar el aprovisionamiento d
 
     ![Captura de pantalla de la pestaña Aprovisionamiento de DocuSign en Azure Portal. El modo de aprovisionamiento se establece en Automático y Nombre de usuario de administrador, Contraseña y Probar conexión se resaltan.](./media/docusign-provisioning-tutorial/provisioning.png)
 
-1. En la sección **Credenciales de administrador** , proporcione los siguientes valores de configuración:
+1. En la sección **Credenciales de administrador**, proporcione los siguientes valores de configuración:
    
-    a. En el cuadro de texto **Nombre de usuario administrador** , escriba un nombre de cuenta de DocuSign que tenga asignado el perfil **Administrador del sistema** en DocuSign.com.
+    a. En el cuadro de texto **Nombre de usuario administrador**, escriba un nombre de cuenta de DocuSign que tenga asignado el perfil **Administrador del sistema** en DocuSign.com.
    
-    b. En el cuadro de texto **Contraseña de administrador** , escriba la contraseña de esta cuenta.
+    b. En el cuadro de texto **Contraseña de administrador**, escriba la contraseña de esta cuenta.
 
 > [!NOTE]
-> Si se ha configurado SSO y el aprovisionamiento de usuarios, las credenciales de autorización usadas para el aprovisionamiento deben estar configuradas para que funcionen tanto con SSO como con el formato Nombre de usuario/Contraseña.
+> Si se ha configurado el inicio de sesión único y el aprovisionamiento de usuarios, las credenciales de autorización usadas para el aprovisionamiento deben estar configuradas para funcionar tanto con el inicio de sesión único como con el nombre de usuario y contraseña.
 
 1. En Azure Portal, haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a la aplicación de DocuSign.
 
@@ -95,7 +95,7 @@ Esta acción inicia la sincronización inicial de todos los usuarios asignados a
 Para más información sobre cómo leer los registros de aprovisionamiento de Azure AD, consulte el tutorial de [Creación de informes sobre el aprovisionamiento automático de cuentas de usuario](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## <a name="troubleshooting-tips"></a>Sugerencias para la solución de problemas
-* El aprovisionamiento de un rol o perfil de permiso para un usuario de Docusign se puede realizar mediante una expresión en las asignaciones de atributos con las funciones [switch](https://docs.microsoft.com/azure/active-directory/app-provisioning/functions-for-customizing-application-data#switch) y [singleAppRoleAssignment](https://docs.microsoft.com/azure/active-directory/app-provisioning/functions-for-customizing-application-data#singleapproleassignment). Por ejemplo, la expresión siguiente aprovisionará el identificador "8032066" cuando un usuario tenga el rol "Administrador de DS" asignado en Azure AD. No se aprovisionará ningún perfil de permiso si el usuario no tiene asignado un rol en Azure AD. El identificador se puede recuperar en el portal de [DocuSign](https://support.docusign.com/articles/Default-settings-for-out-of-the-box-DocuSign-Permission-Profiles).
+* El aprovisionamiento de un rol o perfil de permiso para un usuario de Docusign se puede realizar mediante una expresión en las asignaciones de atributos con las funciones [switch](../app-provisioning/functions-for-customizing-application-data.md#switch) y [singleAppRoleAssignment](../app-provisioning/functions-for-customizing-application-data.md#singleapproleassignment). Por ejemplo, la expresión siguiente aprovisionará el identificador "8032066" cuando un usuario tenga el rol "Administrador de DS" asignado en Azure AD. No se aprovisionará ningún perfil de permiso si el usuario no tiene asignado un rol en Azure AD. El identificador se puede recuperar en el portal de [DocuSign](https://support.docusign.com/articles/Default-settings-for-out-of-the-box-DocuSign-Permission-Profiles).
 
 Switch(SingleAppRoleAssignment([appRoleAssignments])," ", "8032066", "DS Admin")
 

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: tutorial
 ms.date: 09/24/2020
 ms.author: caya
-ms.openlocfilehash: 3cae4591a5da53683c965d7c6ba3ec169249c87e
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 627d5b15a861c3d564cb4db33b366d3227092d37
+ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94566136"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96296274"
 ---
 # <a name="tutorial-enable-the-ingress-controller-add-on-preview-for-a-new-aks-cluster-with-a-new-application-gateway-instance"></a>Tutorial: Habilitar el complemento Controlador de entrada (versión preliminar) para un nuevo clúster de AKS con una nueva instancia de Application Gateway
 
@@ -34,19 +34,22 @@ En este tutorial, aprenderá a:
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
- - Este tutorial requiere la versión 2.0.4, o posterior, de la CLI de Azure. Si usa Azure Cloud Shell, ya está instalada la versión más reciente.
+ - Este tutorial requiere la versión 2.0.4, o posterior, de la CLI de Azure. Si usa Azure Cloud Shell, ya está instalada la versión más reciente. Si usa la CLI de Azure, tiene que instalar la extensión de la versión preliminar en la CLI con el siguiente comando, si no lo ha hecho ya:
+    ```azurecli-interactive
+    az extension add --name aks-preview
+    ```
 
- - Registre la marca de características de *AKS-IngressApplicationGatewayAddon* con el comando [az feature register](https://docs.microsoft.com/cli/azure/feature#az-feature-register), tal y como se muestra en el ejemplo siguiente. Solo tendrá que hacer esto una vez por cada suscripción mientras el complemento aún esté en versión preliminar.
+ - Registre la marca de características de *AKS-IngressApplicationGatewayAddon* con el comando [az feature register](/cli/azure/feature#az-feature-register), tal y como se muestra en el ejemplo siguiente. Solo tendrá que hacer esto una vez por cada suscripción mientras el complemento aún esté en versión preliminar.
     ```azurecli-interactive
     az feature register --name AKS-IngressApplicationGatewayAddon --namespace Microsoft.ContainerService
     ```
 
-   El estado puede tardar unos minutos en mostrar `Registered`. Puede comprobar el estado del registro con el comando [az feature list](https://docs.microsoft.com/cli/azure/feature#az-feature-register):
+   El estado puede tardar unos minutos en mostrar `Registered`. Puede comprobar el estado del registro con el comando [az feature list](/cli/azure/feature#az-feature-register):
     ```azurecli-interactive
     az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKS-IngressApplicationGatewayAddon')].{Name:name,State:properties.state}"
     ```
 
- - Cuando esté listo, actualice el registro del proveedor de recursos Microsoft.ContainerService con el comando [az provider register](https://docs.microsoft.com/cli/azure/provider#az-provider-register):
+ - Cuando esté listo, actualice el registro del proveedor de recursos Microsoft.ContainerService con el comando [az provider register](/cli/azure/provider#az-provider-register):
     ```azurecli-interactive
     az provider register --namespace Microsoft.ContainerService
     ```

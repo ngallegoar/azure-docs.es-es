@@ -4,16 +4,16 @@ description: Obtenga información sobre Azure Analysis Services, una plataforma 
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 10/19/2020
+ms.date: 12/01/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions
-ms.openlocfilehash: a05da5fae748e799d7965c51415956c2e2a524b1
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: e70d02c02ba9a3f14d1659851919fbccf71776d1
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92201518"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96487361"
 ---
 # <a name="what-is-azure-analysis-services"></a>¿Qué es Azure Analysis Services?
 
@@ -35,7 +35,7 @@ Azure Analysis Services se integra con muchos servicios de Azure lo que le permi
 
 ## <a name="the-right-tier-when-you-need-it"></a>El nivel correcto cuando lo necesite
 
-Azure Analysis Services está disponible en los niveles **Developer** , **Basic** y **Standard** . Dentro de cada nivel, los costos del plan varían según la potencia de procesamiento, las unidades de procesamiento de consultas (QPU) y el tamaño de la memoria. Cuando cree un servidor, seleccione un plan dentro de un nivel. Puede subir o bajar de plan dentro del mismo nivel o realizar la actualización a un nivel superior, pero no se puede cambiar de un nivel superior a uno inferior.
+Azure Analysis Services está disponible en los niveles **Developer**, **Basic** y **Standard**. Dentro de cada nivel, los costos del plan varían según la potencia de procesamiento, las unidades de procesamiento de consultas (QPU) y el tamaño de la memoria. Cuando cree un servidor, seleccione un plan dentro de un nivel. Puede subir o bajar de plan dentro del mismo nivel o realizar la actualización a un nivel superior, pero no se puede cambiar de un nivel superior a uno inferior.
 
 ### <a name="developer-tier"></a>Nivel Developer
 
@@ -145,7 +145,7 @@ Se admiten los modelos tabulares en los modos en memoria como DirectQuery. Los m
 
 La creación de particiones permite las cargas incrementales, aumenta la paralelización y reduce el consumo de memoria. Se admiten otras características de modelado de datos avanzadas, como las tablas calculadas, y todas las funciones de DAX. Los modelos en memoria se deben actualizar (procesar) para actualizar los datos almacenados en caché de orígenes de datos. Gracias a la compatibilidad con la entidad de servicio de Azure, las operaciones de actualización desatendidas que usan PowerShell, TOM, TMSL y REST ofrecen flexibilidad a la hora de asegurar que los datos del modelo están siempre actualizados. 
 
-El modo de DirectQuery * aprovecha la base de datos relacional de back-end para el almacenamiento y la ejecución de consultas. Se admiten conjuntos de datos extremadamente grandes en orígenes de datos de SQL Server, SQL Server Data Warehouse, Azure SQL Database, Azure Synapse Analytics (anteriormente SQL Data Warehouse), Oracle y Teradata individuales. Los conjuntos de datos de back-end pueden superar la memoria disponible de los recursos del servidor. No se necesitan escenarios de actualización de modelos de datos complejos. También hay algunas restricciones, como la limitación en los tipos de orígenes de datos o en las fórmulas de DAX y que no se admiten algunas características de modelado de datos avanzadas. Antes de determinar el modo más apropiado para usted, consulte [Modo DirectQuery](/analysis-services/tabular-models/directquery-mode-ssas-tabular).
+El modo de DirectQuery * aprovecha la base de datos relacional de back-end para el almacenamiento y la ejecución de consultas. Se admiten conjuntos de datos extremadamente grandes en orígenes de datos individuales de SQL Server, SQL Server Data Warehouse, Azure SQL Database, Azure Synapse Analytics, Oracle y Teradata. Los conjuntos de datos de back-end pueden superar la memoria disponible de los recursos del servidor. No se necesitan escenarios de actualización de modelos de datos complejos. También hay algunas restricciones, como la limitación en los tipos de orígenes de datos o en las fórmulas de DAX y que no se admiten algunas características de modelado de datos avanzadas. Antes de determinar el modo más apropiado para usted, consulte [Modo DirectQuery](/analysis-services/tabular-models/directquery-mode-ssas-tabular).
 
 \* La disponibilidad de las características depende de la capa.
 
@@ -160,7 +160,7 @@ Nivel de compatibilidad hace referencia a los comportamientos específicos de la
 
 ## <a name="your-data-is-secure"></a>Los datos están seguros
 
-Azure Analysis Services proporciona seguridad a los datos confidenciales a varios niveles. Como servicio de Azure, Analysis Services proporciona un nivel **Básico** de ataques de denegación de servicio distribuido (DDoS) habilitados automáticamente como parte de la plataforma Azure. Para más información, consulte [Introducción a Azure DDoS Protection estándar](../virtual-network/ddos-protection-overview.md). 
+Azure Analysis Services proporciona seguridad a los datos confidenciales a varios niveles. Como servicio de Azure, Analysis Services proporciona un nivel **Básico** de ataques de denegación de servicio distribuido (DDoS) habilitados automáticamente como parte de la plataforma Azure. Para más información, consulte [Introducción a Azure DDoS Protection estándar](../ddos-protection/ddos-protection-overview.md). 
 
 En el nivel de servidor, Analysis Services proporciona firewall, autenticación de Azure, roles del administrador de servidor y cifrado del lado del servidor. En el nivel de modelo de datos, los roles de usuario y la seguridad a nivel de fila y a nivel de objeto garantizan que los datos están seguros y los ver solo los usuarios que deben verlos.
 
@@ -243,7 +243,7 @@ Azure Analysis Services también admite el uso de [vistas de administración din
 
 Aquí se incluye documentación específica de Azure Analysis Services. Utilice la tabla de contenido del lado izquierdo de la pantalla del explorador para buscar artículos. 
 
-Dado que los modelos tabulares de Azure Analysis Services son muy parecidos a los de los conjuntos de datos de SQL Server Analysis Services y Power BI Premium, hay una amplia biblioteca de tutoriales de modelado de datos compartidos y artículos de referencia sobre desarrollo, conceptos y procedimientos en la [documentación de Analysis Services](/analysis-services/?view=azure-analysis-services-current). En los artículos de la documentación de Analysis Services también se indica si se aplican a Azure Analysis Services con el texto SE APLICA A debajo del título. También puede usar el selector de versión situado encima de la tabla de contenido para ver solo los artículos que se aplican a la plataforma que está usando.
+Dado que los modelos tabulares de Azure Analysis Services son muy parecidos a los de los conjuntos de datos de SQL Server Analysis Services y Power BI Premium, hay una amplia biblioteca de tutoriales de modelado de datos compartidos y artículos de referencia sobre desarrollo, conceptos y procedimientos en la [documentación de Analysis Services](/analysis-services/?view=azure-analysis-services-current&preserve-view=true). En los artículos de la documentación de Analysis Services también se indica si se aplican a Azure Analysis Services con el texto SE APLICA A debajo del título. También puede usar el selector de versión situado encima de la tabla de contenido para ver solo los artículos que se aplican a la plataforma que está usando.
 
 ![Documentación compartida](./media/analysis-services-overview/aas-overview-applies-to.png)
 

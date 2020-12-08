@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 3a523421c128ea26503c0848ad8fcf7d74636a04
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: bd8c5c31579ac22cd6c77dffd31103680e393f69
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92341336"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187177"
 ---
 # <a name="quickstart-setting-up-azure-security-center"></a>Inicio rápido: Configuración de Azure Security Center
 
@@ -37,7 +37,7 @@ Para habilitar Azure Defender en una suscripción, debe tener asignados los role
 
 1. Inicie sesión en el [Portal de Azure](https://azure.microsoft.com/features/azure-portal/).
 
-1. En el menú del portal, seleccione **Security Center** . 
+1. En el menú del portal, seleccione **Security Center**. 
 
     Se abre la página de información general de Security Center.
 
@@ -45,7 +45,7 @@ Para habilitar Azure Defender en una suscripción, debe tener asignados los role
 
 **Security Center - Información general** proporciona una vista unificada de la situación de seguridad de las cargas de trabajo de la nube híbrida, lo que le permite detectar y evaluar la seguridad de las cargas de trabajo e identificar y mitigar riesgos. Security Center habilita de forma automática y sin costo alguno cualquiera de las suscripciones de Azure que no fueran incorporadas previamente por usted o por otro usuario de la suscripción.
 
-Puede ver la lista de suscripciones y filtrarla, si hace clic en el elemento de menú **Suscripciones** . Security Center ajustará la pantalla para reflejar la postura de seguridad de las suscripciones seleccionadas. 
+Puede ver la lista de suscripciones y filtrarla, si hace clic en el elemento de menú **Suscripciones**. Security Center ajustará la pantalla para reflejar la postura de seguridad de las suscripciones seleccionadas. 
 
 A los pocos minutos de iniciar Security Center la primera vez, puede ver:
 
@@ -61,13 +61,13 @@ Si desea sacar el máximo provecho de Security Center, debe completar los pasos 
 
 Para seguir los inicios rápidos y tutoriales de Security Center, debe habilitar Azure Defender. Hay disponible una versión de evaluación gratuita de 30 días. Para más información, consulte la [página de precios](https://azure.microsoft.com/pricing/details/security-center/). 
 
-1. En la barra lateral de Security Center, seleccione **Introducción** .
+1. En la barra lateral de Security Center, seleccione **Introducción**.
 
-    :::image type="content" source="./media/security-center-get-started/get-started-upgrade-tab.png" alt-text="Panel de información general de Security Center"::: 
+    :::image type="content" source="./media/security-center-get-started/get-started-upgrade-tab.png" alt-text="Pestaña Actualizar de la página introducción"::: 
 
     La pestaña **Actualizar** muestra las suscripciones y áreas de trabajo aptas para la incorporación.
 
-1. En la lista **Selección de las áreas de trabajo en las que quiera habilitar Azure Defender** , seleccione las áreas de trabajo que desee actualizar.
+1. En la lista **Selección de las áreas de trabajo en las que quiera habilitar Azure Defender**, seleccione las áreas de trabajo que desee actualizar.
    - Si selecciona suscripciones y áreas de trabajo que no sean válidas para la evaluación, el paso siguiente las actualizará y se iniciarán los cargos.
    - Si selecciona un área de trabajo apta para una evaluación gratuita, el siguiente paso comenzará una evaluación gratuita.
 1. Seleccione **Actualizar** para habilitar Azure Defender.
@@ -79,12 +79,12 @@ Si el aprovisionamiento automático está habilitado, Security Center instala el
 
 Para habilitar el aprovisionamiento automático del agente de Log Analytics:
 
-1. En el menú de Security Center, seleccione **Precios y configuración** .
+1. En el menú de Security Center, seleccione **Precios y configuración**.
 1. Seleccione la suscripción correspondiente.
-1. En la página **Recopilación de datos** , establezca **Aprovisionamiento automático** en **Activado** .
-1. Seleccione **Guardar** .
+1. En la página **Recopilación de datos**, establezca **Aprovisionamiento automático** en **Activado**.
+1. Seleccione **Guardar**.
 
-    :::image type="content" source="./media/security-center-enable-data-collection/enable-automatic-provisioning.png" alt-text="Panel de información general de Security Center":::
+    :::image type="content" source="./media/security-center-enable-data-collection/enable-automatic-provisioning.png" alt-text="Habilitación del aprovisionamiento automático del agente de Log Analytics":::
 
 >[!TIP]
 > Si es necesario aprovisionar un área de trabajo, la instalación del agente puede tardar hasta 25 minutos.
@@ -92,7 +92,7 @@ Para habilitar el aprovisionamiento automático del agente de Log Analytics:
 Con el agente implementado en las máquinas, Security Center puede proporcionar recomendaciones adicionales relacionadas con el estado de actualización del sistema, las configuraciones de seguridad del sistema operativo y la protección de los puntos de conexión, así como generar alertas de seguridad adicionales.
 
 >[!NOTE]
-> Al establecer el aprovisionamiento automático en **Desactivado** , el agente de Log Analytics no se quita de las máquinas virtuales de Azure en las que ya se haya aprovisionado. La deshabilitación del aprovisionamiento automático limita la supervisión de seguridad de los recursos.
+> Al establecer el aprovisionamiento automático en **Desactivado**, el agente de Log Analytics no se quita de las máquinas virtuales de Azure en las que ya se haya aprovisionado. La deshabilitación del aprovisionamiento automático limita la supervisión de seguridad de los recursos.
 
 
 

@@ -9,12 +9,12 @@ ms.subservice: machine-learning
 ms.date: 06/30/2020
 ms.author: midesa
 ms.reviewer: jrasnick
-ms.openlocfilehash: e6708874fee3e15349b4389f1ecafa3d48a628dd
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: b2fbc74304cdb71d9cb3e1ea476af8c92eb99b7e
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95917194"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96458834"
 ---
 # <a name="tutorial-run-experiments-using-azure-automated-ml-and-apache-spark"></a>Tutorial: Ejecución de experimentos mediante el aprendizaje automático automatizado de Azure y Apache Spark
 
@@ -72,7 +72,7 @@ df = spark.read.parquet(wasbs_path)
 
 ```
 
-3. En función del tamaño del grupo de Spark (versión preliminar), los datos sin procesar pueden ser demasiado grandes o tardar demasiado para poder trabajar con ellos. Puede usar los filtros ```start_date``` y ```end_date``` para reducir el volumen de los datos. Este filtro devuelve un mes de datos. Una vez que se haya filtrado el dataframe, también ejecutará la función ```describe()``` en el dataframe nuevo para ver las estadísticas de resumen de cada campo. 
+3. En función del tamaño del grupo de Spark, los datos sin procesar pueden ser demasiado grandes o tardar demasiado para poder trabajar con ellos. Puede usar los filtros ```start_date``` y ```end_date``` para reducir el volumen de los datos. Este filtro devuelve un mes de datos. Una vez que se haya filtrado el dataframe, también ejecutará la función ```describe()``` en el dataframe nuevo para ver las estadísticas de resumen de cada campo. 
 
    Según las estadísticas de resumen, podemos ver que hay algunos valores irregulares y atípicos en los datos. Por ejemplo, las estadísticas muestran que la distancia recorrida mínima es menor que 0. Habrá que filtrar estos puntos de datos irregulares para que no aparezcan.
    

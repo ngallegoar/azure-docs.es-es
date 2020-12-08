@@ -4,12 +4,12 @@ description: Plantillas de Resource Manager para su uso con los almacenes de Rec
 ms.topic: sample
 ms.date: 01/31/2019
 ms.custom: mvc
-ms.openlocfilehash: 29a2499bfd3125cad98e72f7543bb9a29293f624
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a4c2f444cb821f7979571b9d777895a59450e7c2
+ms.sourcegitcommit: ac7029597b54419ca13238f36f48c053a4492cb6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88755201"
+ms.lasthandoff: 11/29/2020
+ms.locfileid: "96309586"
 ---
 # <a name="azure-resource-manager-templates-for-azure-backup"></a>Plantillas de Azure Resource Manager para Azure Backup
 
@@ -29,4 +29,6 @@ En la tabla siguiente se incluyen vínculos a las plantillas de Resource Manager
 | [Uso de los registros de Azure Monitor con Azure Backup](https://github.com/Azure/azure-quickstart-templates/tree/master/101-backup-oms-monitoring) | La plantilla implementa los registros de Azure Monitor con Azure Backup, lo cual le permite supervisar los trabajos de copia de seguridad y restauración, las alertas de copia de seguridad y el almacenamiento en la nube que se usa en los almacenes de Recovery Services.|  
 |**Instancia de copia de seguridad de SQL Server en Azure VM** |  |
 | [Instancia de copia de seguridad de SQL Server en Azure VM](https://github.com/Azure/azure-quickstart-templates/tree/master/101-recovery-services-vm-workload-backup) | La plantilla crea un almacén de Recovery Services y una directiva de copia de seguridad específica para la carga de trabajo. Registra la máquina virtual con el servicio Azure Backup y configura la protección en esa máquina virtual. Actualmente, solo funciona para las imágenes de la galería SQL. |
+|**Copia de seguridad de recursos compartidos de archivos de Azure** |  |
+| [Copia de seguridad de recursos compartidos de archivos de Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-recovery-services-backup-file-share) | Esta plantilla configura la protección para un recurso compartido de archivos de Azure existente al especificar los detalles correspondientes para la directiva de copia de seguridad y el almacén de Recovery Services. Opcionalmente, crea una directiva de copia de seguridad y un almacén de Recovery Services nuevos, y registra la cuenta de almacenamiento que contiene el recurso compartido de archivos en el almacén de Recovery Services. |
 |   |   |

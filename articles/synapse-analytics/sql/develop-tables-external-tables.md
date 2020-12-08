@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: a9f58a9cdf8dea9631443d499548f2aee61eda69
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: c2daef64b110e59da76d8342508c19c7f1b3cd08
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94553682"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452785"
 ---
 # <a name="use-external-tables-with-synapse-sql"></a>Uso de tablas externas con Synapse SQL
 
-Una tabla externa apunta a datos ubicados en Hadoop, Azure Storage Blob o Azure Data Lake Storage. Las tablas externas se usan para leer datos de archivos de Azure Storage o escribir datos en ellos. Con Synapse SQL se pueden usar tablas externas para leer y escribir datos en un grupo de SQL dedicado o sin servidor (versión preliminar).
+Una tabla externa apunta a datos ubicados en Hadoop, Azure Storage Blob o Azure Data Lake Storage. Las tablas externas se usan para leer datos de archivos de Azure Storage o escribir datos en ellos. Con Synapse SQL se pueden usar tablas externas para leer y escribir datos en un grupo de SQL dedicado o sin servidor.
 
 ## <a name="external-tables-in-dedicated-sql-pool-and-serverless-sql-pool"></a>Tablas externas en un grupo de SQL dedicado y en un grupo de SQL sin servidor
 

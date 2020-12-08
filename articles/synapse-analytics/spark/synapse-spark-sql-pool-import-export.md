@@ -1,30 +1,33 @@
 ---
-title: Importación y exportación de datos entre grupos de Apache Spark sin servidor (versión preliminar) y grupos de SQL
-description: En este artículo se proporciona información sobre cómo usar el conector personalizado para mover datos entre grupos de SQL dedicados y grupos de Apache Spark sin servidor (versión preliminar).
+title: Importación y exportación de datos entre grupos de Apache Spark sin servidor y grupos de SQL
+description: En este artículo se proporciona información sobre cómo usar el conector personalizado para mover datos entre grupos de SQL dedicados y grupos de Apache Spark sin servidor.
 services: synapse-analytics
 author: euangMS
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: spark
-ms.date: 04/15/2020
+ms.date: 11/19/2020
 ms.author: prgomata
 ms.reviewer: euang
-ms.openlocfilehash: ee82fbaa9687e064747908600c7e5c9017f8f1a9
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: e0bdfa4a451269e82b73194e921f9067d848868e
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323891"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96511090"
 ---
 # <a name="introduction"></a>Introducción
 
-El conector entre Azure Synapse Apache Spark y Synapse SQL está diseñado para transferir datos de forma eficaz entre los grupos de Apache Spark sin servidor (versión preliminar) y los grupos de SQL de Azure Synapse. El conector entre Azure Synapse Apache Spark y Synapse SQL solo funciona en grupos de SQL dedicados, no funciona con grupos de SQL sin servidor.
+El conector entre Azure Synapse Apache Spark y Synapse SQL está diseñado para transferir datos de forma eficaz entre grupos de Apache Spark sin servidor y grupos de SQL dedicados en Azure Synapse. El conector entre Azure Synapse Apache Spark y Synapse SQL solo funciona en grupos de SQL dedicados, no funciona con grupos de SQL sin servidor.
+
+> [!WARNING]
+> El nombre de la función **sqlanalytics()** se ha cambiado a **synapsesql()** . La función sqlanalytics continuará funcionando, pero quedará en desuso.  Para evitar alguna interrupción en el futuro, cambie todas las referencias de **sqlanalytics()** a **synapsesql()** .
 
 ## <a name="design"></a>Diseño
 
 La transferencia de datos entre grupos de Spark y grupos de SQL se puede realizar mediante JDBC. Sin embargo, dados dos sistemas distribuidos, como grupos de SQL y de Spark, JDBC tiende a convertirse en un cuello de botella con la transferencia de datos serie.
 
-El conector entre el grupo de Azure Synapse Apache Spark y Synapse SQL es una implementación de origen de datos para Apache Spark. Utiliza Azure Data Lake Storage Gen2 y Polybase en los grupos de SQL dedicados para transferir datos de forma eficaz entre el clúster de Spark y la instancia de Synapse SQL.
+El conector entre el grupo de Azure Synapse Apache Spark y Synapse SQL es una implementación de origen de datos para Apache Spark. Utiliza Azure Data Lake Storage Gen2 y Polybase en los grupos de SQL dedicados para transferir datos de forma eficaz entre el clúster de Spark y la instancia de SQL dedicada de Synapse.
 
 ![Arquitectura del conector](./media/synapse-spark-sqlpool-import-export/arch1.png)
 
@@ -37,6 +40,8 @@ Por esta razón, no es necesario crear credenciales ni especificarlas en la API 
 ## <a name="constraints"></a>Restricciones
 
 - Este conector solo funciona en Scala.
+- Con PySpark, consulte los detalles en la sección [Uso de Python](#use-pyspark-with-the-connector).
+- Este conector no admite la consulta de vistas SQL.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -80,7 +85,7 @@ Las instrucciones de importación no son necesarias, ya que se importan previame
 #### <a name="read-api"></a>Read API
 
 ```scala
-val df = spark.read.sqlanalytics("<DBName>.<Schema>.<TableName>")
+val df = spark.read.synapsesql("<DBName>.<Schema>.<TableName>")
 ```
 
 La API anterior funciona tanto con tablas internas (administradas) como externas en el grupo de SQL.
@@ -88,7 +93,7 @@ La API anterior funciona tanto con tablas internas (administradas) como externas
 #### <a name="write-api"></a>Write API
 
 ```scala
-df.write.sqlanalytics("<DBName>.<Schema>.<TableName>", <TableType>)
+df.write.synapsesql("<DBName>.<Schema>.<TableName>", <TableType>)
 ```
 
 Write API crea la tabla en el grupo de SQL dedicado y, después, invoca a Polybase para cargar los datos.  La tabla no debe existir en el grupo de SQL dedicado o se devolverá un error que indica que "Ya hay un objeto llamado..."
@@ -101,7 +106,7 @@ Valores de TableType
 Tabla administrada del grupo de SQL
 
 ```scala
-df.write.sqlanalytics("<DBName>.<Schema>.<TableName>", Constants.INTERNAL)
+df.write.synapsesql("<DBName>.<Schema>.<TableName>", Constants.INTERNAL)
 ```
 
 Tabla externa del grupo de SQL
@@ -130,7 +135,7 @@ Si se utiliza la autenticación de paso a través de Azure Active Directory en l
 df.write.
     option(Constants.DATA_SOURCE, <DataSourceName>).
     option(Constants.FILE_FORMAT, <FileFormatName>).
-    sqlanalytics("<DBName>.<Schema>.<TableName>", Constants.EXTERNAL)
+    synapsesql("<DBName>.<Schema>.<TableName>", Constants.EXTERNAL)
 
 ```
 
@@ -149,7 +154,7 @@ df.write.
 ```scala
 val df = spark.read.
 option(Constants.SERVER, "samplews.database.windows.net").
-sqlanalytics("<DBName>.<Schema>.<TableName>")
+synapsesql("<DBName>.<Schema>.<TableName>")
 ```
 
 #### <a name="write-api"></a>Write API
@@ -157,7 +162,7 @@ sqlanalytics("<DBName>.<Schema>.<TableName>")
 ```scala
 df.write.
 option(Constants.SERVER, "samplews.database.windows.net").
-sqlanalytics("<DBName>.<Schema>.<TableName>", <TableType>)
+synapsesql("<DBName>.<Schema>.<TableName>", <TableType>)
 ```
 
 ### <a name="use-sql-auth-instead-of-azure-ad"></a>Uso de la autenticación de SQL en lugar de Azure AD
@@ -171,7 +176,7 @@ val df = spark.read.
 option(Constants.SERVER, "samplews.database.windows.net").
 option(Constants.USER, <SQLServer Login UserName>).
 option(Constants.PASSWORD, <SQLServer Login Password>).
-sqlanalytics("<DBName>.<Schema>.<TableName>")
+synapsesql("<DBName>.<Schema>.<TableName>")
 ```
 
 #### <a name="write-api"></a>Write API
@@ -181,10 +186,10 @@ df.write.
 option(Constants.SERVER, "samplews.database.windows.net").
 option(Constants.USER, <SQLServer Login UserName>).
 option(Constants.PASSWORD, <SQLServer Login Password>).
-sqlanalytics("<DBName>.<Schema>.<TableName>", <TableType>)
+synapsesql("<DBName>.<Schema>.<TableName>", <TableType>)
 ```
 
-### <a name="use-the-pyspark-connector"></a>Uso del conector de PySpark
+### <a name="use-pyspark-with-the-connector"></a>Uso de PySpark con el conector
 
 > [!NOTE]
 > Este ejemplo está pensado únicamente para la experiencia del cuaderno.
@@ -203,7 +208,7 @@ Ejecute una celda de Scala en el cuaderno de PySpark mediante magics:
 %%spark
 val scala_df = spark.sqlContext.sql ("select * from pysparkdftemptable")
 
-scala_df.write.sqlanalytics("sqlpool.dbo.PySparkTable", Constants.INTERNAL)
+scala_df.write.synapsesql("sqlpool.dbo.PySparkTable", Constants.INTERNAL)
 ```
 
 Del mismo modo, en el escenario de lectura, lea los datos mediante Scala y escríbalos en una tabla temporal, y use Spark SQL en PySpark para consultar la tabla temporal en una trama de datos.
@@ -234,6 +239,7 @@ Para modificar los permisos que faltan para otros usuarios es preciso ser propie
 
 > [!IMPORTANT]
 > Asegúrese de no seleccionar "predeterminado" si no tiene previsto hacerlo.
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

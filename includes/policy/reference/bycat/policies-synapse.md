@@ -1,0 +1,21 @@
+---
+author: DCtheGeek
+ms.service: azure-policy
+ms.topic: include
+ms.date: 11/20/2020
+ms.author: dacoulte
+ms.custom: generated
+ms.openlocfilehash: fb5f6dbb410a15bf88fccc1ed3f9c3ca0f830c70
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "96007981"
+---
+|Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
+|---|---|---|---|
+|[Las áreas de trabajo de Azure Synapse deben usar claves administradas por el cliente para cifrar los datos en reposo.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff7d52b2d-e161-4dfa-a82b-55e564167385) |Use claves administradas por el cliente para controlar el cifrado en reposo de los datos almacenados en las áreas de trabajo de Azure Synapse. Las claves administradas por el cliente también proporcionan cifrado doble, ya que agregan una segunda capa de cifrado a partir del cifrado predeterminado que se creó mediante las claves administradas por el servicio. |Audit, Deny, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Synapse/SynapseWorkspaceCMK_Audit.json) |
+|[Se deben quitar las reglas de firewall de IP en las áreas de trabajo de Azure Synapse.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F56fd377d-098c-4f02-8406-81eb055902b8) |La eliminación de todas las reglas de firewall de IP mejora la seguridad al garantizar que solo se puede acceder a su área de trabajo de Azure Synapse desde un punto de conexión privado. Esta configuración audita la creación de reglas de firewall que permiten el acceso a la red pública en el área de trabajo. |Audit, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Synapse/SynapseWorkspaceFirewallRules_Audit.json) |
+|[La red virtual del área de trabajo administrada en las áreas de trabajo de Azure Synapse debe estar habilitada.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F2d9dbfa3-927b-4cf0-9d0f-08747f971650) |La habilitación de una red virtual en el área de trabajo administrada garantiza el aislamiento por red de esta última respecto a las demás. La integración de datos y los recursos de Spark implementados en esta red virtual también proporcionan aislamiento de nivel de usuario para las actividades de Spark. |Audit, Deny, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Synapse/SynapseWorkspaceManagedVnet_Audit.json) |
+|[Las conexiones de punto de conexión privado en áreas de trabajo de Azure Synapse deben estar habilitadas.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F72d11df1-dd8a-41f7-8925-b05b960ebafc) |Los puntos de conexión privados se pueden configurar para la conexión privada a un área de trabajo de Azure Synapse. Se utiliza para exigir un canal de comunicación seguro en el área de trabajo de Azure Synapse. |Audit, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Synapse/SynapseWorkspaceUsePrivateLinks_Audit.json) |
+|[Los puntos de conexión privados que administra Synapse solo deben conectarse a recursos de inquilinos aprobados de Azure Active Directory](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3a003702-13d2-4679-941b-937e58c443f0) |Proteja su área de trabajo de Synapse. Para ello, permita solo conexiones a los recursos de los inquilinos de Azure Active Directory (Azure AD) aprobados. Los inquilinos de Azure AD aprobados se pueden definir durante la asignación de la directiva. |Audit, Disabled, Deny |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Synapse/Workspace_DataExfiltrationPrevention_Deny.json) |

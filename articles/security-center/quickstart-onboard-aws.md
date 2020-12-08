@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 3a2de9b167fcbe9dc603d33fd816e70d5c3705e5
-ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
+ms.openlocfilehash: 7aa65cb8e37ce48a59c276fdf2631f75397d3236
+ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94372785"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96122510"
 ---
 #  <a name="connect-your-aws-accounts-to-azure-security-center"></a>Conexión de las cuentas de AWS a Azure Security Center
 
@@ -66,8 +66,8 @@ En la captura de pantalla siguiente puede ver que se muestran cuentas de AWS en 
 
 Hay dos maneras de permitir que Security Center se autentique en AWS:
 
-- **Crear un rol IAM para Security Center** : este es el método más seguro y es el que se recomienda.
-- **Usuario de AWS para Security Center** : opción menos segura si no tiene IAM habilitado.
+- **Crear un rol IAM para Security Center**: este es el método más seguro y es el que se recomienda.
+- **Usuario de AWS para Security Center**: opción menos segura si no tiene IAM habilitado.
 
 #### <a name="create-an-iam-role-for-security-center"></a>Creación de un rol IAM para Security Center
 1. En la consola de Amazon Web Services, en **Security, Identity & Compliance** (Seguridad, identidad y cumplimiento), seleccione **IAM**.
@@ -77,7 +77,7 @@ Hay dos maneras de permitir que Security Center se autentique en AWS:
 1. Seleccione **Another AWS account** (Otra cuenta de AWS).
 1. Escriba la siguiente información:
 
-    - **Account ID** (Id. de cuenta): escriba el identificador de la cuenta Microsoft ( **158177204117** ) que aparece en la página del conector de AWS en Security Center.
+    - **Account ID** (Id. de cuenta): escriba el identificador de la cuenta Microsoft (**158177204117**) que aparece en la página del conector de AWS en Security Center.
     - **Require External ID** (Requerir id. externo): esta opción debe estar seleccionada.
     - **External ID** (Id. externo): escriba el identificador de suscripción que se muestra en la página del conector de AWS en Security Center. 
 
@@ -142,7 +142,7 @@ Para automatizar las tareas entre los recursos de AWS, se requiere el administra
 
         - Seleccione **Credentials** (Credenciales) y pegue la **clave de acceso** y la **clave secreta** del archivo .csv que guardó en [Creación de un usuario de AWS para Security Center](#create-an-aws-user-for-security-center).
 1. Seleccione **Next** (Siguiente).
-1. Configure las opciones de la pestaña **Configuración de Azure Arc** :
+1. Configure las opciones de la pestaña **Configuración de Azure Arc**:
 
     Security Center detecta las instancias de EC2 en la cuenta de AWS conectada y usa SSM para incorporarlas a Azure Arc. 
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 2792d5cc65e08a23a333deebdb24c0fd869446c3
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: ff859e7d77fd19cd006cf45a6faa737297fdb9a1
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94352921"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349646"
 ---
 # <a name="tutorial-configure-rfpio-for-automatic-user-provisioning"></a>Tutorial: Configuración de RFPIO para el aprovisionamiento automático de usuarios
 
@@ -68,7 +68,7 @@ Antes de configurar RFPIO para el aprovisionamiento automático de usuarios con 
 
     ![Captura de pantalla de la sección de SCIM con la opción GENERAR TOKEN DE API DE SCIM resaltada.](media/rfpio-provisioning-tutorial/generate.png)
 
-5.  Guarde el **token de API de SCIM** , ya que este token no volverá a mostrarse por motivos de seguridad. Este valor se escribirá en el campo **Token secreto** de la pestaña Aprovisionamiento en la aplicación RFPIO en Azure Portal.
+5.  Guarde el **token de API de SCIM**, ya que este token no volverá a mostrarse por motivos de seguridad. Este valor se escribirá en el campo **Token secreto** de la pestaña Aprovisionamiento en la aplicación RFPIO en Azure Portal.
 
     ![Captura de pantalla de la sección SCIM con el cuadro de diálogo de advertencia que aparece después de seleccionar ENVIAR.](media/rfpio-provisioning-tutorial/auth.png)
 
@@ -90,7 +90,7 @@ Para configurar RFPIO para el aprovisionamiento automático de usuarios con Azur
 
     ![Botón Nueva aplicación](common/add-new-app.png)
 
-4. En el cuadro de búsqueda, escriba **RFPIO** , seleccione **RFPIO** en el panel de resultados y luego haga clic en el botón **Agregar** para agregar la aplicación.
+4. En el cuadro de búsqueda, escriba **RFPIO**, seleccione **RFPIO** en el panel de resultados y luego haga clic en el botón **Agregar** para agregar la aplicación.
 
     ![RFPIO en la lista de resultados](common/search-new-app.png)
 
@@ -119,17 +119,17 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Captura de pantalla de la lista desplegable Modo de aprovisionamiento con la opción Automático seleccionada.](common/provisioning-automatic.png)
 
-5. En la sección **Credenciales de administrador** , escriba `https://<RFPIO tenant instance>.rfpio.com/rfpserver/scim/v2 ` en la **URL de inquilino**. Un valor de ejemplo es `https://Azure-test1.rfpio.com/rfpserver/scim/v2`. Escriba el valor del **token de API de SCIM** recuperado anteriormente en **Token secreto**. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a RFPIO. Si la conexión no se establece, asegúrese de que la cuenta de RFPIO tiene permisos de administrador e inténtelo de nuevo.
+5. En la sección **Credenciales de administrador**, escriba `https://<RFPIO tenant instance>.rfpio.com/rfpserver/scim/v2 ` en la **URL de inquilino**. Un valor de ejemplo es `https://Azure-test1.rfpio.com/rfpserver/scim/v2`. Escriba el valor del **token de API de SCIM** recuperado anteriormente en **Token secreto**. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a RFPIO. Si la conexión no se establece, asegúrese de que la cuenta de RFPIO tiene permisos de administrador e inténtelo de nuevo.
 
     ![URL de inquilino + Token](common/provisioning-testconnection-tenanturltoken.png)
 
-6. En el campo **Correo electrónico de notificación** , escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
+6. En el campo **Correo electrónico de notificación**, escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
 
     ![Correo electrónico de notificación](common/provisioning-notification-email.png)
 
-7. Haga clic en **Save** (Guardar).
+7. Haga clic en **Save**(Guardar).
 
-8. En la sección **Asignaciones** , seleccione **Synchronize Azure Active Directory Users to RFPIO** (Sincronizar usuarios de Azure Active Directory con RFPIO).
+8. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Users to RFPIO** (Sincronizar usuarios de Azure Active Directory con RFPIO).
 
     ![Asignaciones de usuario de RFPIO](media/rfpio-provisioning-tutorial/usermapping.png)
 
@@ -143,7 +143,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Estado de aprovisionamiento activado](common/provisioning-toggle-on.png)
 
-12. Seleccione los valores deseados en **Ámbito** , en la sección **Configuración** , para definir los usuarios o grupos que quiere aprovisionar en RFPIO.
+12. Seleccione los valores deseados en **Ámbito**, en la sección **Configuración**, para definir los usuarios o grupos que quiere aprovisionar en RFPIO.
 
     ![Ámbito del aprovisionamiento](common/provisioning-scope.png)
 

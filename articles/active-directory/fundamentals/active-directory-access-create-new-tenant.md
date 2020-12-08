@@ -12,12 +12,12 @@ ms.date: 09/10/2018
 ms.author: ajburnle
 ms.custom: it-pro, seodec18, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2c7225adcfe970d17f8f86afdd15e36e2ba76de3
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: eeea88d8c21ba754fbeadbb24891126b639616c7
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91287022"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96437247"
 ---
 # <a name="quickstart-create-a-new-tenant-in-azure-active-directory"></a>Inicio rápido: Creación de un inquilino en Azure Active Directory
 Puede hacer todas las tareas administrativas mediante el portal de Azure Active Directory (Azure AD), incluida la creación de un inquilino para su organización. 
@@ -33,37 +33,41 @@ Después de iniciar sesión en Azure Portal, puede crear un inquilino para su or
 
 1. Inicie sesión en la instancia de [Azure Portal](https://portal.azure.com/) de la organización.
 
-1. En el menú de Azure Portal, seleccione **Crear un recurso**.  
+1. En el menú de Azure Portal, seleccione **Azure Active Directory**.  
 
-    ![Página Crear un recurso de Azure Active Directory](media/active-directory-access-create-new-tenant/azure-ad-portal.png)
+    <kbd>![Azure Active Directory: página de información general sobre la creación de un inquilino](media/active-directory-access-create-new-tenant/azure-ad-portal.png)</kbd>  
 
-1. Busque y seleccione **Azure Active Directory**.
+1. Seleccione **Create a tenant** (Crear un inquilino).
 
-    Aparece la página **Crear directorio**.
+1. En la pestaña Conceptos básicos, seleccione el tipo de inquilino que desea crear, **Azure Active Directory** o **Azure Active Directory (B2C)** .
 
-    ![Página Crear de Azure Active Directory](media/active-directory-access-create-new-tenant/azure-ad-create-new-tenant.png)
+1. Seleccione **Siguiente: Configuration** (Siguiente: Configuración) para pasar a la pestaña Configuración.
 
-1.  En la página **Crear directorio**, escriba la información siguiente:
+    <kbd>![Azure Active Directory: pestaña de configuración de la página de creación de un inquilino](media/active-directory-access-create-new-tenant/azure-ad-create-new-tenant.png)</kbd>
+
+1.  En la pestaña Configuración, escriba la siguiente información:
     
-    - Escriba _Contoso_ en el cuadro **Nombre de la organización**.
+    - _Contoso Organization_ en el cuadro **Nombre de organización**.
 
-    - Escriba _Contoso_ en el cuadro **Nombre de dominio inicial**.
+    - _Contosoorg_ en el cuadro **Nombre de dominio inicial**.
 
     - Deje la opción _Estados Unidos_ en el cuadro **País o región**.
 
-1. Seleccione **Crear**.
+1. Seleccione **Siguiente: Revisar y crear**. Revise la información que ha escrito y, si es correcta, seleccione **Crear**.
+
+    <kbd>![Azure Active Directory: página de revisión y creación del inquilino](media/active-directory-access-create-new-tenant/azure-ad-review.png)</kbd>
 
 El nuevo inquilino se crea con el dominio contoso.onmicrosoft.com.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 Si no va a seguir usando esta aplicación, puede eliminar el inquilino mediante los siguientes pasos:
 
-- Asegúrese de que ha iniciado sesión en el directorio que desea eliminar mediante el filtro **Directorio + suscripción** de Azure Portal y cambie al directorio de destino, si es necesario.
+- Asegúrese de que ha iniciado sesión en el directorio que desea eliminar mediante el filtro **Directorio y suscripción** de Azure Portal y cambie al directorio de destino, si es necesario.
 - Seleccione **Azure Active Directory** y, después, en la página **Contoso - Información general**, seleccione **Eliminar directorio**.
 
     El inquilino y su información asociada se eliminarán.
 
-    ![Página de información general con el botón para eliminar directorio resaltado](media/active-directory-access-create-new-tenant/azure-ad-delete-new-tenant.png)
+    <kbd>![Página de información general con el botón para eliminar directorio resaltado](media/active-directory-access-create-new-tenant/azure-ad-delete-new-tenant.png)</kbd>
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Para cambiar o agregar nombres de dominio adicionales, vea [Incorporación de su nombre de dominio personalizado a Azure Active Directory](add-custom-domain.md).

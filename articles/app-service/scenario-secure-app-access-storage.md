@@ -7,15 +7,16 @@ manager: CelesteDG
 ms.service: app-service-web
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 11/09/2020
+ms.date: 11/30/2020
 ms.author: ryanwi
 ms.reviewer: stsoneff
-ms.openlocfilehash: 250e95b33b985aedcc1b1537f57338d29e848451
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.custom: azureday1
+ms.openlocfilehash: 72b1d4fe864c23c0ac065e47d96ab0c78866defa
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "96020218"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96435848"
 ---
 # <a name="tutorial-access-azure-storage-from-a-web-app"></a>Tutorial: Acceso a Azure Storage desde una aplicación web
 
@@ -23,7 +24,7 @@ Aprenda a establecer el acceso a Azure Storage para una aplicación web (no para
 
 :::image type="content" alt-text="Diagrama que muestra cómo obtener acceso a Storage." source="./media/scenario-secure-app-access-storage/web-app-access-storage.svg" border="false":::
 
-Puede que desee agregar acceso al plano de datos de Azure (Azure Storage, Azure SQL Database, Azure Key Vault u otros servicios) desde la aplicación web. Podría usar una clave compartida, pero tendría que preocuparse de la seguridad operativa de quién puede crear, implementar y administrar el secreto. También es posible que la clave pudiera insertarse en GitHub, donde los hackers saben cómo buscar. Una manera más segura de dar acceso a los datos a la aplicación web es usar [identidades administradas](/azure/active-directory/managed-identities-azure-resources/overview).
+Puede que desee agregar acceso al plano de datos de Azure (Azure Storage, Azure SQL Database, Azure Key Vault u otros servicios) desde la aplicación web. Podría usar una clave compartida, pero tendría que preocuparse de la seguridad operativa de quién puede crear, implementar y administrar el secreto. También es posible que la clave pudiera insertarse en GitHub, donde los hackers saben cómo buscar. Una manera más segura de dar acceso a los datos a la aplicación web es usar [identidades administradas](../active-directory/managed-identities-azure-resources/overview.md).
 
 Una identidad administrada de Azure Active Directory (Azure AD) permite a App Service acceder a los recursos a través del control de acceso basado en roles, sin necesidad de credenciales de aplicación. Después de asignar una identidad administrada a la aplicación web, Azure se encarga de la creación y distribución de un certificado. Los usuarios no tienen que preocuparse de administrar secretos ni credenciales de aplicaciones.
 
@@ -210,6 +211,8 @@ az role assignment create --assignee $spID --role 'Storage Blob Data Contributor
 ## <a name="access-blob-storage-net"></a>Acceso a Blob Storage (.NET)
 
 Para obtener una credencial de token que el código pueda usar para autorizar solicitudes para Azure Storage, se utiliza la clase [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential). Cree una instancia de la clase [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential), que usa la identidad administrada para capturar los tokens y asociarlos al cliente del servicio. En el ejemplo de código siguiente se obtiene la credencial de token autenticada y se usa para crear un objeto de cliente del servicio que, luego, carga un nuevo blob.
+
+Para ver este código como parte de una aplicación de ejemplo, consulte el [ejemplo en GitHub](https://github.com/Azure-Samples/ms-identity-easyauth-dotnet-storage-graphapi/tree/main/1-WebApp-storage-managed-identity).
 
 ### <a name="install-client-library-packages"></a>Instalación de los paquetes de biblioteca cliente
 

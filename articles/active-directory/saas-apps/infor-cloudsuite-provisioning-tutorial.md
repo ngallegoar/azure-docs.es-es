@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/14/2019
 ms.author: Zhchia
-ms.openlocfilehash: a62afa9469caa886d86814036017427c0cc0d193
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 8fdd2c8a326fbdc68d1aec65377f4c465c5ee4c1
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357443"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353908"
 ---
 # <a name="tutorial-configure-infor-cloudsuite-for-automatic-user-provisioning"></a>Tutorial: Configuración de Infor CloudSuite para aprovisionar usuarios automáticamente
 
@@ -126,17 +126,17 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Captura de pantalla de la lista desplegable Modo de aprovisionamiento con la opción Automático seleccionada.](common/provisioning-automatic.png)
 
-5. En la sección **Credenciales de administrador** , escriba `https://mingle-t20b-scim.mingle.awsdev.infor.com/INFORSTS_TST/v2/scim` en la **URL de inquilino**. Escriba el valor del token de portador recuperado anteriormente en **Token secreto**. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a Infor CloudSuite. Si la conexión no se establece, asegúrese de que la cuenta de Infor CloudSuite tiene permisos de administrador e inténtelo de nuevo.
+5. En la sección **Credenciales de administrador**, escriba `https://mingle-t20b-scim.mingle.awsdev.infor.com/INFORSTS_TST/v2/scim` en la **URL de inquilino**. Escriba el valor del token de portador recuperado anteriormente en **Token secreto**. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a Infor CloudSuite. Si la conexión no se establece, asegúrese de que la cuenta de Infor CloudSuite tiene permisos de administrador e inténtelo de nuevo.
 
     ![URL de inquilino + Token](common/provisioning-testconnection-tenanturltoken.png)
 
-6. En el campo **Correo electrónico de notificación** , escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
+6. En el campo **Correo electrónico de notificación**, escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
 
     ![Correo electrónico de notificación](common/provisioning-notification-email.png)
 
-7. Haga clic en **Save** (Guardar).
+7. Haga clic en **Save**(Guardar).
 
-8. En la sección **Asignaciones** , seleccione **Synchronize Azure Active Directory Users to Infor CloudSuite** (Sincronizar usuarios de Azure Active Directory con Infor CloudSuite).
+8. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Users to Infor CloudSuite** (Sincronizar usuarios de Azure Active Directory con Infor CloudSuite).
 
     ![Asignaciones de usuarios de Infor CloudSuite](media/infor-cloudsuite-provisioning-tutorial/usermappings.png)
 
@@ -144,7 +144,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Atributos de usuario de Infor CloudSuite](media/infor-cloudsuite-provisioning-tutorial/userattributes.png)
 
-10. En la sección **Asignaciones** , seleccione **Synchronize Azure Active Directory Groups to Infor CloudSuite** (Sincronizar grupos de Azure Active Directory con Infor CloudSuite).
+10. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Groups to Infor CloudSuite** (Sincronizar grupos de Azure Active Directory con Infor CloudSuite).
 
     ![Asignaciones de grupos de Infor CloudSuite](media/infor-cloudsuite-provisioning-tutorial/groupmappings.png)
 
@@ -158,7 +158,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Estado de aprovisionamiento activado](common/provisioning-toggle-on.png)
 
-14. Elija los valores deseados en **Ámbito** , en la sección **Configuración** , para definir los usuarios o grupos que quiere que se aprovisionen en Infor CloudSuite.
+14. Elija los valores deseados en **Ámbito**, en la sección **Configuración**, para definir los usuarios o grupos que quiere que se aprovisionen en Infor CloudSuite.
 
     ![Ámbito del aprovisionamiento](common/provisioning-scope.png)
 

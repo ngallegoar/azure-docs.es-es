@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/21/2020
-ms.openlocfilehash: 093d470052a639ad3d4e819d08fad7c34b547d44
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 0bd6300f4b9dbcf76b5447a0fb58502b7aebf311
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789512"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451427"
 ---
 # <a name="what-is-azure-sql-database"></a>¿Qué es Azure SQL Database?
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -26,7 +26,7 @@ Azure SQL Database es un motor de base de datos de plataforma como servicio (Paa
 
 Con Azure SQL Database, puede crear una capa de almacenamiento de datos de gran rendimiento y disponibilidad para las aplicaciones y las soluciones de Azure. SQL Database puede ser la opción adecuada para una variedad de aplicaciones modernas en la nube, porque le permite procesar tanto datos relacionales como [estructuras no relacionales](../multi-model-features.md), por ejemplo, grafos, JSON, elementos espaciales y XML.
 
-Azure SQL Database se basa en la versión estable más reciente del [motor de base de datos de Microsoft SQL Server](/sql/sql-server/sql-server-technical-documentation?toc=%252fazure%252fsql-database%252ftoc.json). Puede usar características avanzadas de procesamiento de consultas, como las [tecnologías en memoria de alto rendimiento](../in-memory-oltp-overview.md) y el [procesamiento de consultas inteligente](/sql/relational-databases/performance/intelligent-query-processing?toc=%252fazure%252fsql-database%252ftoc.json). De hecho, las funcionalidades más recientes de SQL Server se publican primero en SQL Database y, después, en el propio SQL Server. Las funcionalidades de SQL Server más recientes se obtienen sin costo alguno mediante revisiones o actualizaciones, y se han probado en millones de bases de datos. 
+Azure SQL Database se basa en la versión estable más reciente del [motor de base de datos de Microsoft SQL Server](/sql/sql-server/sql-server-technical-documentation?toc=%2fazure%2fsql-database%2ftoc.json). Puede usar características avanzadas de procesamiento de consultas, como las [tecnologías en memoria de alto rendimiento](../in-memory-oltp-overview.md) y el [procesamiento de consultas inteligente](/sql/relational-databases/performance/intelligent-query-processing?toc=%2fazure%2fsql-database%2ftoc.json). De hecho, las funcionalidades más recientes de SQL Server se publican primero en SQL Database y, después, en el propio SQL Server. Las funcionalidades de SQL Server más recientes se obtienen sin costo alguno mediante revisiones o actualizaciones, y se han probado en millones de bases de datos. 
 
 SQL Database le permite definir y escalar fácilmente el rendimiento de dos modelos de compra diferentes: un [modelo de compra basado en el núcleo virtual](service-tiers-vcore.md) y un [modelo de compra basado en DTU](service-tiers-dtu.md). SQL Database es un servicio totalmente administrado que ofrece alta disponibilidad, copias de seguridad y otras operaciones de mantenimiento comunes. Microsoft controla todas las revisiones y actualizaciones del código de sistema operativo y SQL. No hace falta administrar la infraestructura subyacente.
 
@@ -37,7 +37,7 @@ Si no está familiarizado con Azure SQL Database, consulte el vídeo de *introdu
 
 Azure SQL Database proporciona las opciones de implementación siguientes para una base de datos:
 
-- Una [base de datos única](single-database-overview.md) representa una base de datos aislada totalmente administrada. Puede usar esta opción si tiene aplicaciones y microservicios modernos en la nube que necesitan un único origen de datos confiable. Una base de datos única es similar a una [base de datos independiente](/sql/relational-databases/databases/contained-databases?toc=%252fazure%252fsql-database%252ftoc.json) del [motor de base de datos de SQL Server](/sql/sql-server/sql-server-technical-documentation?toc=%252fazure%252fsql-database%252ftoc.json).
+- Una [base de datos única](single-database-overview.md) representa una base de datos aislada totalmente administrada. Puede usar esta opción si tiene aplicaciones y microservicios modernos en la nube que necesitan un único origen de datos confiable. Una base de datos única es similar a una [base de datos independiente](/sql/relational-databases/databases/contained-databases?toc=%2fazure%2fsql-database%2ftoc.json) del [motor de base de datos de SQL Server](/sql/sql-server/sql-server-technical-documentation?toc=%2fazure%2fsql-database%2ftoc.json).
 - El [grupo elástico](elastic-pool-overview.md) es una colección de [bases de datos únicas](single-database-overview.md) con un conjunto compartido de recursos, como la CPU o la memoria. Las bases de datos únicas se pueden mover dentro y fuera de un grupo elástico.
 
 > [!IMPORTANT]
@@ -53,7 +53,7 @@ Puede definir la cantidad de recursos asignados.
 
 Puede compilar su primera aplicación en una base de datos pequeña de bajo costo mensual, en el nivel de servicio de uso general. Después, puede cambiar en cualquier momento el nivel de servicio, manualmente o mediante programación, por el nivel de servicio crítico para la empresa, para satisfacer las necesidades de su solución. El rendimiento se puede ajustar sin que la aplicación o los clientes sufran ningún tipo de inactividad. La escalabilidad dinámica permite a la base de datos responder de manera transparente a los cambiantes requisitos de recursos. Solo paga por los recursos que necesite cuando los necesite.
 
-La *escalabilidad dinámica* es diferente de la *escalabilidad automática* . El escalado automático se produce al escalarse un servicio automáticamente en función de determinados criterios, mientras la escalabilidad dinámica permite el escalado manual sin tiempo de inactividad. La opción de base de datos única admite la escalabilidad dinámica manual, pero no la escalabilidad automática. Para disfrutar de una experiencia más automatizada, considere el uso de grupos elásticos, que permiten que las bases de datos compartan recursos en un grupo en función de las necesidades individuales de las bases de datos. Otra opción es usar scripts que pueden ayudar a automatizar la escalabilidad de una base de datos única. Consulte [Uso de PowerShell para supervisar y escalar una sola base de datos SQL](scripts/monitor-and-scale-database-powershell.md) encontrará un ejemplo.
+La *escalabilidad dinámica* es diferente de la *escalabilidad automática*. El escalado automático se produce al escalarse un servicio automáticamente en función de determinados criterios, mientras la escalabilidad dinámica permite el escalado manual sin tiempo de inactividad. La opción de base de datos única admite la escalabilidad dinámica manual, pero no la escalabilidad automática. Para disfrutar de una experiencia más automatizada, considere el uso de grupos elásticos, que permiten que las bases de datos compartan recursos en un grupo en función de las necesidades individuales de las bases de datos. Otra opción es usar scripts que pueden ayudar a automatizar la escalabilidad de una base de datos única. Consulte [Uso de PowerShell para supervisar y escalar una sola base de datos SQL](scripts/monitor-and-scale-database-powershell.md) encontrará un ejemplo.
 
 ### <a name="purchasing-models"></a>Modelos de compra
 
@@ -96,9 +96,9 @@ El [Almacén de consultas](/sql/relational-databases/performance/best-practice-w
 
 Azure proporciona herramientas integradas de [supervisión del rendimiento](performance-guidance.md) y [alertas](alerts-insights-configure-portal.md), junto con clasificaciones de rendimiento, que le permiten supervisar fácilmente el estado de miles de bases de datos. Con estas herramientas, puede evaluar rápidamente la repercusión que tiene escalar o reducir verticalmente en función de sus necesidades de rendimiento actuales o proyectadas. Además, SQL Database puede [emitir métricas y registros de recurso](metrics-diagnostic-telemetry-logging-streaming-export-configure.md) para facilitar la supervisión. SQL Database se puede configurar para que almacene el uso de recursos, los trabajadores y sesiones, y la conectividad en uno de estos recursos de Azure:
 
-- **Azure Storage** : para archivar grandes cantidades de datos de telemetría a un pequeño precio.
-- **Azure Event Hubs** : para integrar la telemetría de SQL Database con una solución de supervisión personalizada o canalizaciones activas.
-- **Registros de Azure Monitor** : para contar con una solución de supervisión integrada con funcionalidades de informes, alertas y mitigación.
+- **Azure Storage**: para archivar grandes cantidades de datos de telemetría a un pequeño precio.
+- **Azure Event Hubs**: para integrar la telemetría de SQL Database con una solución de supervisión personalizada o canalizaciones activas.
+- **Registros de Azure Monitor**: para contar con una solución de supervisión integrada con funcionalidades de informes, alertas y mitigación.
 
 ![Diagrama de la arquitectura de supervisión de Azure](./media/sql-database-paas-overview/architecture.png)
 
@@ -149,8 +149,8 @@ Muchos de nuestros asociados que ejecutan [aplicaciones SaaS multiinquilino](saa
 
 Hay dos aspectos del ajuste automático [disponibles en SQL Database](automatic-tuning-overview.md):
 
-- **Administración automática de índices** : Identifica tanto los índices que se deben agregar a la base de datos como los que se deben quitar.
-- **Corrección automática de planes** : identifica los planes problemáticos y corrige los problemas de rendimiento de los planes de SQL.
+- **Administración automática de índices**: Identifica tanto los índices que se deben agregar a la base de datos como los que se deben quitar.
+- **Corrección automática de planes**: identifica los planes problemáticos y corrige los problemas de rendimiento de los planes de SQL.
 
 ### <a name="adaptive-query-processing"></a>Procesamiento de consultas adaptable
 
@@ -200,7 +200,7 @@ SQL Database facilita la creación y el mantenimiento de aplicaciones y aumenta 
 |[Azure Data Studio](/sql/azure-data-studio/)|herramienta de base de datos multiplataforma que se ejecuta en Windows, macOS y Linux.|
 |[SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)|aplicación cliente gratuita que se puede descargar para administrar cualquier infraestructura de SQL, desde SQL Server hasta SQL Database.|
 |[Herramientas de datos de SQL Server](/sql/ssdt/download-sql-server-data-tools-ssdt)|aplicación cliente gratuita que se puede descargar para desarrollar bases de datos relacionales de SQL Server, bases de datos de Azure SQL Database, paquetes de Integration Services, modelos de datos de Analysis Services e informes de Reporting Services.|
-|[Visual Studio Code](https://code.visualstudio.com/docs)|editor de código abierto gratuito que se puede descargar para Windows, macOS y Linux. Admite extensiones, como la [extensión mssql](https://aka.ms/mssql-marketplace) para consultar Microsoft SQL Server, Azure SQL Database y Azure Synapse Analytics (antes Azure SQL Data Warehouse).|
+|[Visual Studio Code](https://code.visualstudio.com/docs)|editor de código abierto gratuito que se puede descargar para Windows, macOS y Linux. Admite extensiones como [extensión mssql](https://aka.ms/mssql-marketplace) para realizar consultas en Microsoft SQL Server, Azure SQL Database y Azure Synapse Analytics.|
 
 SQL Database admite la compilación de aplicaciones con Python, Java, Node.js, PHP, Ruby y .NET en macOS, Linux y Windows. SQL Database admite las mismas [bibliotecas de conexiones](connect-query-content-reference-guide.md#libraries) como SQL Server.
 

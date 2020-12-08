@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: d29fa6454839b0c34830374282b8abb5fa6e4c51
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 8df7a2ecd2a6732a011267eb0efe00e8eaf2bef4
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93313406"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96458752"
 ---
 # <a name="apache-spark-in-azure-synapse-analytics-core-concepts"></a>Conceptos básicos de Apache Spark en Azure Synapse Analytics
 
@@ -22,15 +22,15 @@ Apache Spark es una plataforma de procesamiento paralelo que admite el procesami
 
 Azure Synapse facilita la creación y configuración de funcionalidades de Spark en Azure. Azure Synapse proporciona una implementación diferente de las funcionalidades de Spark que se documentan aquí.
 
-## <a name="spark-pools-preview"></a>Grupos de Spark (versión preliminar)
+## <a name="spark-pools"></a>Grupos de Spark
 
-Se crea un grupo de Apache Spark sin servidor (versión preliminar) en Azure Portal. Es la definición de un grupo de Spark que, cuando se crean instancias, se utiliza para crear una instancia de Spark que procesa datos. Cuando se crea un grupo de Spark, solo existe como metadatos; no se consumen, ejecutan ni cobran recursos. Un grupo de Spark tiene una serie de propiedades que controlan las características de una instancia de Spark. Estas características incluyen, entre otras, el nombre, el tamaño, el comportamiento de escalado y el período de vida.
+Se crea un grupo de Apache Spark sin servidor en Azure Portal. Es la definición de un grupo de Spark que, cuando se crean instancias, se utiliza para crear una instancia de Spark que procesa datos. Cuando se crea un grupo de Spark, solo existe como metadatos; no se consumen, ejecutan ni cobran recursos. Un grupo de Spark tiene una serie de propiedades que controlan las características de una instancia de Spark. Estas características incluyen, entre otras, el nombre, el tamaño, el comportamiento de escalado y el período de vida.
 
 Dado que no hay ningún costo de recursos asociado a la creación de grupos de Spark, se puede crear cualquier cantidad de ellos con cualquier número de configuraciones diferentes. Los permisos también se pueden aplicar a los grupos de Spark, lo que permite a los usuarios acceder a algunos y a otros no.
 
 Un procedimiento recomendado consiste en crear grupos de Spark más pequeños que se puedan usar para el desarrollo y la depuración y, después, otros más grandes para ejecutar cargas de trabajo de producción.
 
-Puede consultar cómo crear un grupo de Spark y ver todas sus propiedades en [Introducción a los grupos de Spark en Synapse Analytics](../quickstart-create-apache-spark-pool-portal.md).
+Puede consultar cómo crear un grupo de Spark y ver todas sus propiedades en [Introducción a los grupos de Spark en Azure Synapse Analytics](../quickstart-create-apache-spark-pool-portal.md).
 
 ## <a name="spark-instances"></a>Instancias de Spark
 

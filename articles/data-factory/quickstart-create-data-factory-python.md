@@ -3,8 +3,8 @@ title: 'Inicio rápido: Creación de una instancia de Azure Data Factory con Pyt
 description: Use una instancia de Data Factory para copiar los datos de una ubicación de Azure Blob Storage a otra.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
@@ -13,12 +13,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 01/22/2018
 ms.custom: seo-python-october2019, devx-track-python
-ms.openlocfilehash: e511b8b5505f1fa8713d81d0ce959df32ef28503
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 1ebeae8e16acf4ca2b82270cc6ec40151794ad58
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96013333"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96497340"
 ---
 # <a name="quickstart-create-a-data-factory-and-pipeline-using-python"></a>Inicio rápido: Creación de una factoría de datos y una canalización con Python
 
@@ -32,7 +32,7 @@ En este inicio rápido, se crea una factoría de datos mediante Python. La canal
 
 Azure Data Factory es un servicio de integración de datos basado en la nube que le permite crear flujos de trabajo basados en datos, con el fin de coordinar y automatizar el movimiento y la transformación de datos. Mediante Azure Data Factory se pueden crear y programar flujos de trabajo basados en datos, llamados canalizaciones.
 
-Las canalizaciones pueden ingerir datos de distintos almacenes de datos. Las canalizaciones procesan o transforman los datos mediante servicios de proceso como Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics y Azure Machine Learning. Las canalizaciones publican los datos de salida en almacenes de datos como Azure Synapse Analytics (anteriormente Azure SQL Data Warehouse) para las aplicaciones de inteligencia empresarial.
+Las canalizaciones pueden ingerir datos de distintos almacenes de datos. Las canalizaciones procesan o transforman los datos mediante servicios de proceso como Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics y Azure Machine Learning. Las canalizaciones publican datos de salida en almacenes de datos como Azure Synapse Analytics para las aplicaciones de inteligencia empresarial.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 

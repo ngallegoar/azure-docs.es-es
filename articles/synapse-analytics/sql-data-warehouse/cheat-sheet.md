@@ -1,6 +1,6 @@
 ---
-title: Hoja de referencia rápida de Azure Synapse Analytics (anteriormente SQL Data Warehouse)
-description: Encuentre vínculos y procedimientos recomendados para crear rápidamente soluciones de Azure Synapse Analytics (anteriormente SQL Data Warehouse).
+title: Hoja de referencia rápida de un grupo de SQL dedicado (anteriormente SQL DW)
+description: Encuentre vínculos y procedimientos recomendados para crear rápidamente un grupo de SQL dedicado (anteriormente SQL DW) en Azure Synapse Analytics.
 services: synapse-analytics
 author: mlee3gsd
 manager: craigg
@@ -10,18 +10,18 @@ ms.subservice: sql-dw
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 648f06ef1af5d6dce9fa3583c6358d3bd173f209
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: a236cf99d3131e83619cfab06e8ec028938a87ba
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93319672"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96454625"
 ---
-# <a name="cheat-sheet-for-azure-synapse-analytics-formerly-sql-dw"></a>Hoja de referencia rápida de Azure Synapse Analytics (anteriormente SQL Data Warehouse)
+# <a name="cheat-sheet-for-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytic"></a>Hoja de referencia rápida de un grupo de SQL dedicado (anteriormente SQL DW) en Azure Synapse Analytics
 
-En esta hoja de referencia rápida, se proporcionan sugerencias útiles y procedimientos recomendados para la creación de soluciones de Azure Synapse.
+En esta hoja de referencia, se proporcionan sugerencias útiles y procedimientos recomendados para la creación de soluciones de un grupo de SQL dedicado (anteriormente SQL DW).
 
-En el gráfico siguiente se muestra el proceso de diseño de un almacenamiento de datos:
+En el gráfico siguiente se muestra el proceso de diseño de un almacenamiento de datos con un grupo de SQL dedicado (anteriormente SQL DW):
 
 ![Boceto](./media/cheat-sheet/picture-flow.png)
 
@@ -121,13 +121,13 @@ Los grupos de recursos se utilizan como para asignar memoria a las consultas. Si
 
 Si observa que las consultas tardan demasiado tiempo, compruebe que los usuarios no se ejecutan en clases de recursos grandes. Las clases de recursos grande consumen mucho espacio de simultaneidad y pueden enviar a otras consultas a la cola.
 
-Por último, cuando se usa Gen2 del [grupo de SQL](sql-data-warehouse-overview-what-is.md#dedicated-sql-pool-in-azure-synapse), cada clase de recurso obtiene 2,5 veces más memoria que Gen1.
+Por último, si se usa la segunda generación del [grupo de SQL dedicado (anteriormente SQL DW)](sql-data-warehouse-overview-what-is.md), cada clase de recurso obtiene 2,5 veces más memoria que en el caso de la primera generación.
 
 Aprenda más sobre cómo trabajar con [clases de recursos y simultaneidad](resource-classes-for-workload-management.md).
 
 ## <a name="lower-your-cost"></a>Reducción de los costos
 
-Una de las características principales de Azure Synapse es la posibilidad de [administrar los recursos de proceso](sql-data-warehouse-manage-compute-overview.md). Puede pausar el grupo de SQL cuando no esté en uso, lo que detiene la facturación de los recursos de proceso. Puede escalar los recursos para satisfacer la demanda de rendimiento. Para realizar una pausa, use [Azure Portal](pause-and-resume-compute-portal.md) o [PowerShell](pause-and-resume-compute-powershell.md). Para realizar el escalado, use [Azure Portal](quickstart-scale-compute-portal.md), [Powershell](quickstart-scale-compute-powershell.md), [T-SQL](quickstart-scale-compute-tsql.md) o una [REST API](sql-data-warehouse-manage-compute-rest-api.md#scale-compute).
+Una de las características principales de Azure Synapse es la posibilidad de [administrar los recursos de proceso](sql-data-warehouse-manage-compute-overview.md). Si un grupo de SQL dedicado (anteriormente SQL DW) no se usa, se puede poner en pausa, lo que interrumpe la facturación de los recursos de proceso. Puede escalar los recursos para satisfacer la demanda de rendimiento. Para realizar una pausa, use [Azure Portal](pause-and-resume-compute-portal.md) o [PowerShell](pause-and-resume-compute-powershell.md). Para realizar el escalado, use [Azure Portal](quickstart-scale-compute-portal.md), [PowerShell](quickstart-scale-compute-powershell.md), [T-SQL](quickstart-scale-compute-tsql.md) o una [API REST](sql-data-warehouse-manage-compute-rest-api.md#scale-compute).
 
 Realice el escalado automático ahora, en el momento que quiera con Azure Functions:
 
@@ -137,8 +137,8 @@ Realice el escalado automático ahora, en el momento que quiera con Azure Functi
 
 Se recomienda considerar la posibilidad de una arquitectura hub-and-spoke (concentrador y radio) con SQL Database y Azure Analysis Services. Esta solución puede proporcionar el aislamiento de la carga de trabajo entre diferentes grupos de usuarios, al tiempo que se aprovechan algunas características de seguridad avanzadas de SQL Database y Azure Analysis Services. También es una manera de proporcionar simultaneidad ilimitada a los usuarios.
 
-Obtenga más información sobre las [arquitecturas típicas que se benefician de Azure Synapse](https://blogs.msdn.microsoft.com/sqlcat/20../../common-isv-application-patterns-using-azure-sql-data-warehouse/).
+Más información sobre las [arquitecturas típicas que utilizan un grupo de SQL dedicado (anteriormente SQL DW) en Azure Synapse Analytics](https://blogs.msdn.microsoft.com/sqlcat/20../../common-isv-application-patterns-using-azure-sql-data-warehouse/).
 
-Implemente con un clic sus radios en bases de datos SQL desde el grupo de SQL:
+Implemente con un clic sus radios en bases de datos SQL desde un grupo de SQL dedicado (anteriormente SQL DW):
 
 [![Imagen que muestra un botón con la etiqueta "Implementar en Azure".](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://ms.portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FMicrosoft%2Fsql-data-warehouse-samples%2Fmaster%2Farm-templates%2FsqlDwSpokeDbTemplate%2Fazuredeploy.json)

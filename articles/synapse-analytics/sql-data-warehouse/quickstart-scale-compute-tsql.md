@@ -1,6 +1,6 @@
 ---
-title: 'Inicio rápido: Escalado de proceso en Azure Synapse Analytics: T-SQL'
-description: Escale un proceso en Azure Synapse Analytics con T-SQL y SQL Server Management Studio (SSMS). Escale horizontalmente un proceso para aumentar el rendimiento, o bien revierta la escalabilidad del proceso para ahorrar costos.
+title: 'Inicio rápido: Escalado del proceso en un grupo de SQL dedicado (anteriormente SQL DW): T-SQL'
+description: Escale un proceso en un grupo de SQL dedicado (anteriormente SQL DW) mediante T-SQL y SQL Server Management Studio (SSMS). Escale horizontalmente un proceso para aumentar el rendimiento, o bien revierta la escalabilidad del proceso para ahorrar costos.
 services: synapse-analytics
 author: Antvgski
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 04/17/2018
 ms.author: anvang
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: d11474a3f3b5d8c314f67260fddbbe0a98fe5196
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: 37033e3c5f388d1a55a122899114914e661565f6
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91569906"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460234"
 ---
-# <a name="quickstart-scale-compute-in-azure-synapse-analytics-using-t-sql"></a>Inicio rápido: Escalado de proceso en Azure Synapse Analytics mediante T-SQL
+# <a name="quickstart-scale-compute-for-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics-using-t-sql"></a>Inicio rápido: Escalado del proceso en un grupo de SQL dedicado (anteriormente SQL DW) en Azure Synapse Analytics mediante T-SQL
 
-Escale proceso en Azure Synapse Analytics (anteriormente SQL DW) mediante T-SQL y SQL Server Management Studio (SSMS). [Escale horizontalmente un proceso](sql-data-warehouse-manage-compute-overview.md) para aumentar el rendimiento, o bien revierta la escalabilidad del proceso para ahorrar costos.
+Escale un proceso en un grupo de SQL dedicado (anteriormente SQL DW) mediante T-SQL y SQL Server Management Studio (SSMS). [Escale horizontalmente un proceso](sql-data-warehouse-manage-compute-overview.md) para aumentar el rendimiento, o bien revierta la escalabilidad del proceso para ahorrar costos.
 
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
@@ -28,9 +28,9 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
 
 Descargue e instale la versión más reciente de [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SSMS).
 
-## <a name="create-a-data-warehouse"></a>Creación del almacenamiento de datos
+## <a name="create-a-dedicated-sql-pool-formerly-sql-dw"></a>Creación de un grupo de SQL dedicado (anteriormente SQL DW)
 
-Use [Guía de inicio rápido: Creación de una instancia de Azure SQL Data Warehouse en Azure Portal, y realización de consultas en ella](create-data-warehouse-portal.md) para crear un almacenamiento de datos denominado **mySampleDataWarehouse**. Complete el inicio rápido para asegurarse de que dispone de una regla de firewall y puede conectarse al almacenamiento de datos desde SQL Server Management Studio.
+Use [Inicio rápido: Creación y conexión: Azure Portal](create-data-warehouse-portal.md) para crear un grupo de SQL dedicado (anteriormente almacenamiento de datos denominado SQL DW) llamado **mySampleDataWarehouse**. Complete el inicio rápido para asegurarse de que dispone de una regla de firewall y que puede conectarse a un grupo de SQL dedicado (anteriormente SQL DW) desde SQL Server Management Studio.
 
 ## <a name="connect-to-the-server-as-server-admin"></a>Conexión al servidor como administrador del mismo
 
@@ -58,9 +58,9 @@ En esta sección se usa [SQL Server Management Studio](/sql/ssms/download-sql-se
 
 ## <a name="view-service-objective"></a>Visualización del objetivo del servicio
 
-La configuración del objetivo del servicio contiene el número de unidades del almacenamiento de datos.
+El valor del objetivo del servicio contiene el número de unidades del almacenamiento de datos para el grupo de SQL dedicado (anteriormente SQL DW).
 
-Para ver las unidades actuales del almacenamiento de datos:
+Para ver las actuales unidades de almacenamiento de datos de un grupo de SQL dedicado (anteriormente SQL DW):
 
 1. En la conexión a **mySampleDataWarehouseservername.database.windows.net**, expanda **Bases de datos del sistema**.
 2. Haga clic con el botón derecho en **maestra** y luego seleccione **Nueva consulta**. Se abrirá una nueva ventana de consulta.
@@ -85,7 +85,7 @@ Para ver las unidades actuales del almacenamiento de datos:
 
 ## <a name="scale-compute"></a>Escalado de proceso
 
-En Azure Synapse, puede aumentar o reducir los recursos de proceso mediante el ajuste de las unidades de almacenamiento de datos. En [Guía de inicio rápido: Creación de una instancia de Azure SQL Data Warehouse en Azure Portal, y realización de consultas en ella](create-data-warehouse-portal.md) creó **mySampleDataWarehouse** y lo inició con 400 DWU. En los siguientes pasos se ajustan las DWU para **mySampleDataWarehouse**.
+En un grupo de SQL dedicado (anteriormente SQL DW), se pueden aumentar o disminuir los recursos de procesos mediante el ajuste de las unidades de almacenamiento de datos. En [Guía de inicio rápido: Creación de una instancia de Azure SQL Data Warehouse en Azure Portal, y realización de consultas en ella](create-data-warehouse-portal.md) creó **mySampleDataWarehouse** y lo inició con 400 DWU. En los siguientes pasos se ajustan las DWU para **mySampleDataWarehouse**.
 
 Para cambiar las unidades de almacenamiento de datos:
 
@@ -130,13 +130,13 @@ Para sondear el estado de cambio del objeto de servicio:
 
     ![Estado de la operación](./media/quickstart-scale-compute-tsql/polling-output.png)
 
-## <a name="check-data-warehouse-state"></a>Comprobar el estado del almacenamiento de datos
+## <a name="check-dedicated-sql-pool-formerly-sql-dw-state"></a>Comprobación del estado de un grupo de SQL dedicado (anteriormente SQL DW)
 
-Cuando se pausa un almacenamiento de datos, no podrá conectarse a este con T-SQL. Para ver el estado actual del almacenamiento de datos, puede usar un cmdlet de PowerShell. Para obtener un ejemplo, vea la sección sobre la [comprobación del estado del almacenamiento de datos con Powershell](quickstart-scale-compute-powershell.md#check-data-warehouse-state).
+Cuando un grupo de SQL dedicado (anteriormente SQL DW) está en pausa, no es posible conectarse a él con T-SQL. Para ver el estado actual del grupo de SQL dedicado (anteriormente SQL DW), se puede usar un cmdlet de PowerShell. Para obtener un ejemplo, vea [Comprobación del estado de un grupo de SQL dedicado (anteriormente SQL DW): PowerShell](quickstart-scale-compute-powershell.md#check-data-warehouse-state).
 
 ## <a name="check-operation-status"></a>Comprobación del estado de la operación
 
-Para devolver información sobre diversas operaciones de administración en Azure Synapse, ejecute la siguiente consulta en la DMV [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). Por ejemplo, devuelve la operación y su estado, que será IN_PROGRESS o COMPLETED.
+Para devolver información sobre varias operaciones de administración de un grupo de SQL dedicado (anteriormente SQL DW), ejecute la siguiente consulta en la vista de administración dinámica [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). Por ejemplo, devuelve la operación y su estado, que será IN_PROGRESS o COMPLETED.
 
 ```sql
 SELECT *
@@ -150,7 +150,7 @@ AND
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ya ha aprendido a escalar procesos para el almacenamiento de datos. Para más información sobre Azure Synapse, siga el tutorial para la carga de datos.
+Ya ha aprendido a escalar el proceso de un grupo de SQL dedicado (anteriormente SQL DW). Para más información sobre Azure Synapse, pase al tutorial en el que se indica cómo cargar datos.
 
 > [!div class="nextstepaction"]
->[Carga de datos en Azure Synapse Analytics](load-data-from-azure-blob-storage-using-polybase.md)
+>[Carga de datos en un grupo de SQL dedicado](load-data-from-azure-blob-storage-using-polybase.md)

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 1/11/2019
 ms.author: jeedes
-ms.openlocfilehash: ad6a4d075ea861068ad0c929d92cd2f12efa6121
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 78324cfa58a8ac015b085052bdec7e3793befc1b
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92516114"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348456"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-signagelive"></a>Tutorial: Integración de Azure Active Directory con Signagelive
 
@@ -86,28 +86,28 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
 Para configurar el inicio de sesión único de Azure AD con Signagelive, siga los pasos que se indican a continuación:
 
-1. En [Azure Portal](https://portal.azure.com/), en la página de integración de aplicaciones de **Signagelive** , seleccione **Inicio de sesión único**.
+1. En [Azure Portal](https://portal.azure.com/), en la página de integración de aplicaciones de **Signagelive**, seleccione **Inicio de sesión único**.
 
     ![Vínculo Configurar inicio de sesión único](common/select-sso.png)
 
-2. En el cuadro de diálogo **Seleccionar un método de inicio de sesión único** , seleccione el modo **SAML** para habilitar el inicio de sesión único.
+2. En el cuadro de diálogo **Seleccionar un método de inicio de sesión único**, seleccione el modo **SAML** para habilitar el inicio de sesión único.
 
     ![Modo de selección de inicio de sesión único](common/select-saml-option.png)
 
-3. En la página **Configurar el inicio de sesión único con SAML** , seleccione **Editar** para abrir el cuadro de diálogo **Configuración básica de SAML**.
+3. En la página **Configurar el inicio de sesión único con SAML**, seleccione **Editar** para abrir el cuadro de diálogo **Configuración básica de SAML**.
 
     ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-4. En la sección **Configuración básica de SAML** , siga los pasos que se indican a continuación:
+4. En la sección **Configuración básica de SAML**, siga los pasos que se indican a continuación:
 
     ![Información de dominio y direcciones URL de inicio de sesión único de Signagelive](common/sp-signonurl.png)
 
-    En el cuadro **URL de inicio de sesión** , escriba una dirección URL con el siguiente formato: `https://login.signagelive.com/sso/<ORGANIZATIONALUNITNAME>`
+    En el cuadro **URL de inicio de sesión**, escriba una dirección URL con el siguiente formato: `https://login.signagelive.com/sso/<ORGANIZATIONALUNITNAME>`
 
     > [!NOTE]
-    > Este valor no es real. Actualícelo con la dirección URL de inicio de sesión real. Póngase en contacto con el [equipo de soporte técnico de Signagelive](mailto:support@signagelive.com) para obtener este valor. También puede hacer referencia a los patrones de la sección **Configuración básica de SAML** de Azure Portal.
+    > Este valor no es real. Actualícelo con la dirección URL de inicio de sesión real. Para obtener este valor, póngase en contacto con el [equipo de soporte técnico de Signagelive](mailto:support@signagelive.com). También puede hacer referencia a los patrones de la sección **Configuración básica de SAML** de Azure Portal.
 
-5. En la página **Configurar el inicio de sesión único con SAML** , en la sección **Certificado de firma de SAML** , seleccione **Descargar** para descargar el **certificado (sin procesar)** de las opciones proporcionadas según sus requisitos. Luego, guárdelo en el equipo.
+5. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, seleccione **Descargar** para descargar el **certificado (sin procesar)** de las opciones proporcionadas según sus requisitos. Luego, guárdelo en el equipo.
 
     ![Vínculo de descarga del certificado](common/certificateraw.png)
 
@@ -129,7 +129,7 @@ Para configurar el inicio de sesión único en Signagelive, envíe el **certific
 
 El objetivo de esta sección es crear un usuario de prueba en Azure Portal llamado "Britta Simon".
 
-1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory** , **Usuarios** y **Todos los usuarios**.
+1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
 
     ![Vínculos "Usuarios y grupos" y "Todos los usuarios"](common/users.png)
 
@@ -137,13 +137,13 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Botón Nuevo usuario](common/new-user.png)
 
-3. En el cuadro de diálogo **Usuario** , siga los pasos que se indican a continuación.
+3. En el cuadro de diálogo **Usuario**, siga los pasos que se indican a continuación.
 
     ![Cuadro de diálogo Usuario](common/user-properties.png)
 
-    a. En el campo **Nombre** , escriba **BrittaSimon**.
+    a. En el campo **Nombre**, escriba **BrittaSimon**.
   
-    b. En el campo **Nombre de usuario** , escriba "brittasimon@yourcompanydomain.extension". Por ejemplo, en este caso, podría escribir "BrittaSimon@contoso.com".
+    b. En el campo **Nombre de usuario**, escriba "brittasimon@yourcompanydomain.extension". Por ejemplo, en este caso, podría escribir "BrittaSimon@contoso.com".
 
     c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.
 
@@ -153,7 +153,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
 En esta sección, concederá a Britta Simon acceso a Signagelive para que use el inicio de sesión único de Azure.
 
-1. En Azure Portal, seleccione **Aplicaciones empresariales** , **Todas las aplicaciones** y, después, **Signagelive**.
+1. En Azure Portal, seleccione **Aplicaciones empresariales**, **Todas las aplicaciones** y, después, **Signagelive**.
 
     ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
@@ -165,15 +165,15 @@ En esta sección, concederá a Britta Simon acceso a Signagelive para que use el
 
     ![Vínculo "Usuarios y grupos"](common/users-groups-blade.png)
 
-4. Seleccione el botón **Agregar usuario**. Después, en el cuadro de diálogo **Agregar asignación** , seleccione **Usuarios y grupos**.
+4. Seleccione el botón **Agregar usuario**. Después, en el cuadro de diálogo **Agregar asignación**, seleccione **Usuarios y grupos**.
 
     ![Panel Agregar asignación](common/add-assign-user.png)
 
-5. En el cuadro de diálogo **Usuarios y grupos** , en la lista **Usuarios** seleccione **Britta Simon**. A continuación, haga clic en el botón **Seleccionar** situado en la parte inferior de la pantalla.
+5. En el cuadro de diálogo **Usuarios y grupos**, en la lista **Usuarios** seleccione **Britta Simon**. A continuación, haga clic en el botón **Seleccionar** situado en la parte inferior de la pantalla.
 
-6. Si espera algún valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol** , seleccione el rol adecuado para el usuario en la lista. A continuación, haga clic en el botón **Seleccionar** situado en la parte inferior de la pantalla.
+6. Si espera algún valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol**, seleccione el rol adecuado para el usuario en la lista. A continuación, haga clic en el botón **Seleccionar** situado en la parte inferior de la pantalla.
 
-7. En el cuadro de diálogo **Agregar asignación** , haga clic en el botón **Asignar**.
+7. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
 
 ### <a name="create-a-signagelive-test-user"></a>Creación de un usuario de prueba de Signagelive
 

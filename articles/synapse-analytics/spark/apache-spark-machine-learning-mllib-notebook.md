@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.subservice: machine-learning
 ms.date: 04/15/2020
 ms.author: euang
-ms.openlocfilehash: 595b3a57594401df6b61db1fcf8ee16be98ef364
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 50429696c4cbe10c4723f6d4bb9c9499d9b775c5
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95900435"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96450416"
 ---
 # <a name="tutorial-build-a-machine-learning-app-with-apache-spark-mllib-and-azure-synapse-analytics"></a>Tutorial: Compilación de una aplicación de aprendizaje automático con MLlib de Apache Spark y Azure Synapse Analytics
 
@@ -71,7 +71,7 @@ En los pasos siguientes, desarrollará un modelo para predecir si una carrera de
 
 Dado que los datos sin procesar están en formato de Parquet, puede usar el contexto de Spark para extraer el archivo a la memoria como dataframe directamente. Aunque el código siguiente usa las opciones predeterminadas, es posible forzar la asignación de tipos de datos y otros atributos de esquema, de ser necesario.
 
-1. Ejecute las líneas siguientes para crear un dataframe de Spark pegando el código en una nueva celda. Se recuperan los datos a través de Open Datasets API. La extracción de todos estos datos genera aproximadamente 1500 millones de filas. En función del tamaño del grupo de Apache Spark sin servidor (versión preliminar), los datos sin procesar pueden ser demasiado grandes o tardar demasiado para poder trabajar con ellos. Puede filtrar estos datos hasta algo más pequeño. En el ejemplo de código siguiente se usa start_date y end_date para aplicar un filtro que devuelve un mes único de datos.
+1. Ejecute las líneas siguientes para crear un dataframe de Spark pegando el código en una nueva celda. Se recuperan los datos a través de Open Datasets API. La extracción de todos estos datos genera aproximadamente 1500 millones de filas. En función del tamaño del grupo de Apache Spark sin servidor, los datos sin procesar pueden ser demasiado grandes o tardar demasiado para poder trabajar con ellos. Puede filtrar estos datos hasta algo más pequeño. En el ejemplo de código siguiente se usa start_date y end_date para aplicar un filtro que devuelve un mes único de datos.
 
     ```python
     from azureml.opendatasets import NycTlcYellow

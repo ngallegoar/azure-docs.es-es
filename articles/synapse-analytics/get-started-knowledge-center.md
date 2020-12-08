@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 11/16/2020
-ms.openlocfilehash: 0314f5e55a476cd1cd1f8a31bd918e0ebb64c75f
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 611d2163e242d7851398821344c3ed595df364cb
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95254245"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460266"
 ---
 # <a name="explore-the-synapse-knowledge-center"></a>Exploración del Centro de conocimientos de Synapse
 
@@ -55,6 +55,9 @@ El **Centro de conocimientos** le permite hacer tres cosas:
 1. Aparecerá un nuevo script de SQL.
 1. Haga clic en **Ejecutar**
 1. Se crearán varias tablas para todos los datos de taxi de Nueva York y se cargarán con el comando T-SQL COPY.
+
+    > [!NOTE] 
+    > Al utilizar la galería de ejemplo para el script de SQL con un grupo de SQL dedicado (anteriormente SQL DW), solo podrá usar un grupo de SQL dedicado existente (anteriormente SQL DW).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Exploración y análisis de lagos de datos con Synapse SQL sin servidor'
-description: En este tutorial, aprenderá a ejecutar fácilmente análisis de datos exploratorios con diferentes conjuntos de datos de Azure Open Datasets utilizando un grupo de SQL sin servidor (versión preliminar). Después, aprenderá a visualizar los resultados en la característica Synapse Studio de Azure Synapse Analytics.
+title: 'Tutorial: Uso de un grupo de SQL sin servidor para analizar Azure Open Datasets en Azure Synapse Studio'
+description: Este tutorial le mostrará cómo realizar con facilidad el análisis de datos exploratorios mediante la combinación de diferentes instancias de Azure Open Datasets con un grupo de SQL sin servidor y visualizar los resultados en Azure Synapse Studio.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,14 +9,14 @@ ms.subservice: sql
 ms.date: 11/20/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: af6fc75b5de22fc77313932ca17ce695e889dad3
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 7b2d4953b3a42c5d66fca4a67b4a6d0f13700a35
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95238026"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96459129"
 ---
-# <a name="tutorial-explore-and-analyze-data-lakes-with-serverless-sql-pool-preview"></a>Tutorial: Exploración y análisis de lagos de datos con un grupo de SQL sin servidor (versión preliminar)
+# <a name="tutorial-explore-and-analyze-data-lakes-with-serverless-sql-pool"></a>Tutorial: Exploración y análisis de lagos de datos con un grupo de SQL sin servidor
 
 En este tutorial, aprenderá a realizar análisis de datos exploratorios. Combinará diferentes conjuntos de datos de Azure Open Datasets utilizando un grupo de SQL sin servidor. A continuación, visualizará los resultados en la característica Synapse Studio de Azure Synapse Analytics.
 

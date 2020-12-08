@@ -8,14 +8,14 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 00920f30061832bd1d685f04113a63781df718b4
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: b605c2c9f3c7468d0fe1f2cccd8c3602c556714b
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93313685"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96501080"
 ---
-# <a name="azure-synapse-analytics-managed-virtual-network-preview"></a>Red virtual administrada de Azure Synapse Analytics (versión preliminar)
+# <a name="azure-synapse-analytics-managed-virtual-network"></a>Red virtual administrada de Azure Synapse Analytics
 
 En este artículo se explica la red virtual administrada en Azure Synapse Analytics.
 
@@ -52,8 +52,6 @@ Si deja la casilla desactivada, el área de trabajo no tendrá asociada ninguna 
 
 ![Habilitar una red virtual de área de trabajo administrada](./media/synapse-workspace-managed-vnet/enable-managed-vnet-1.png)
 
->[!NOTE]
->Todo el tráfico saliente de la red virtual del área de trabajo administrada, excepto el que atraviese puntos de conexión privados administrados, se bloqueará en el futuro. Se recomienda crear puntos de conexión privados administrados para conectarse a todos los orígenes de datos de Azure que se encuentren fuera del área de trabajo. 
 
 Para comprobar si el área de trabajo de Azure Synapse está asociada a una red virtual de área de trabajo administrada, seleccione **Información general** en Azure Portal.
 

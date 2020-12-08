@@ -1,6 +1,6 @@
 ---
-title: Uso de OPENROWSET en el grupo de SQL sin servidor (versión preliminar)
-description: En este artículo se describe la sintaxis de OPENROWSET en el grupo de SQL sin servidor (versión preliminar) y se explica cómo usar los argumentos.
+title: Uso de OPENROWSET en un grupo de SQL sin servidor
+description: En este artículo se describe la sintaxis de OPENROWSET en un grupo de SQL sin servidor y se explica cómo usar los argumentos.
 services: synapse-analytics
 author: filippopovic
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2458b5f3f0c0091bb6ec24e62a1d5614e4e1ecd8
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 97ee6c17d62a924686e3e4f4717d7bb7f4375988
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94888596"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96446673"
 ---
-# <a name="how-to-use-openrowset-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Uso de OPENROWSET con el grupo de SQL sin servidor (versión preliminar) en Azure Synapse Analytics
+# <a name="how-to-use-openrowset-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Uso de OPENROWSET con un grupo de SQL sin servidor en Azure Synapse Analytics
 
-La función `OPENROWSET(BULK...)` permite acceder a archivos en Azure Storage. La función `OPENROWSET` lee el contenido de un origen de datos remoto (por ejemplo, un archivo) y devuelve el contenido como un conjunto de filas. En el recurso del grupo de SQL sin servidor (versión preliminar), para acceder al proveedor de conjuntos de filas BULK de OPENROWSET se llama a la función OPENROWSET y se especifica la opción BULK.  
+La función `OPENROWSET(BULK...)` permite acceder a archivos en Azure Storage. La función `OPENROWSET` lee el contenido de un origen de datos remoto (por ejemplo, un archivo) y devuelve el contenido como un conjunto de filas. En el recurso del grupo de SQL sin servidor, para acceder al proveedor de conjuntos de filas BULK de OPENROWSET se llama a la función OPENROWSET y se especifica la opción BULK.  
 
 Se puede hacer referencia a la función `OPENROWSET` en la cláusula `FROM` de una consulta como si fuera un nombre de tabla `OPENROWSET`. Admite operaciones masivas a través de un proveedor integrado BULK que permite que los datos se lean y se devuelvan en forma de conjunto de filas.
 
@@ -147,7 +147,7 @@ En el ejemplo siguiente, si unstructured_data_path = `https://mystorageaccount.d
 
 La cláusula WITH le permite especificar las columnas que desea leer de los archivos.
 
-- En el caso de los archivos de datos con la extensión .csv, para leer todas las columnas, especifique los nombres de columna y sus tipos de datos. Si desea un subconjunto de columnas, use números ordinales para seleccionar las columnas en los archivos de datos de origen por ordinal. Las columnas se enlazarán por la designación ordinal. 
+- En el caso de los archivos de datos con la extensión .csv, para leer todas las columnas, especifique los nombres de columna y sus tipos de datos. Si desea un subconjunto de columnas, use números ordinales para seleccionar las columnas en los archivos de datos de origen por ordinal. Las columnas se enlazarán por la designación ordinal. Si se usa HEADER_ROW = TRUE, el enlace de columna se realiza por nombre de columna, no por posición ordinal.
     > [!TIP]
     > También puede omitir la cláusula WITH para los archivos .csv. Los tipos de datos se infieren automáticamente a partir del contenido del archivo. Puede usar el argumento HEADER_ROW para especificar que existe una fila de encabezado, en cuyo caso los nombres de columna se leerán de ella. Para más información, consulte [Detección automática del esquema](#automatic-schema-discovery).
     
@@ -231,7 +231,7 @@ Detalles de la versión 2.0 del analizador de CSV:
 
 HEADER_ROW = { TRUE | FALSE }
 
-Especifica si el archivo .csv contiene una fila de encabezado. El valor predeterminado es FALSE. Se admite en PARSER_VERSION='2.0'. Si es TRUE, los nombres de columna se leerán de la primera fila según el argumento FIRSTROW.
+Especifica si el archivo .csv contiene una fila de encabezado. El valor predeterminado es FALSE. Se admite en PARSER_VERSION='2.0'. Si es TRUE, los nombres de columna se leerán de la primera fila según el argumento FIRSTROW. Si es TRUE y el esquema se especifica mediante WITH, el enlace de los nombres de columna se realizará por nombre de columna, no por posiciones ordinales.
 
 DATAFILETYPE = { 'char' | 'widechar' }
 

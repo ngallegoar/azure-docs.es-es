@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/28/2020
 ms.author: sudbalas
-ms.openlocfilehash: aea5f0428fe55c0dae3734e196008cbc26a974b9
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: d66fe736936963e601aad7cba7bdaa94f0c3ec3f
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94576231"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96518454"
 ---
 # <a name="azure-key-vault-availability-and-redundancy"></a>Redundancia y disponibilidad de Azure Key Vault
 
@@ -23,11 +23,13 @@ Azure Key Vault tiene varias capas de redundancia para garantizar la disponibili
 > [!NOTE]
 > Esta guía se aplica a los almacenes. Los grupos de HSM administrados usan un modelo diferente de alta disponibilidad y recuperación ante desastres. Para más información, consulte [Guía de recuperación ante desastres de HSM administrado](../managed-hsm/disaster-recovery-guide.md).
 
-El contenido del almacén de claves se replica dentro de la región y en una región secundaria que se encuentre a una distancia mínima de 241 km pero dentro de la misma ubicación geográfica para mantener una alta durabilidad de las claves y los secretos. Consulte [Regiones emparejadas de Azure](../../best-practices-availability-paired-regions.md) para más información sobre pares de regiones específicas. La excepción al modelo de regiones emparejadas es Sur de Brasil, que solo permite la opción de mantener los datos residentes en la región Sur de Brasil. Sur de Brasil usa el almacenamiento con redundancia local (LRS) para replicar los datos tres veces dentro de la misma ubicación o región.   
+El contenido del almacén de claves se replica dentro de la región y en una región secundaria que se encuentre a una distancia mínima de 241 km pero dentro de la misma ubicación geográfica para mantener una alta durabilidad de las claves y los secretos. Consulte [Regiones emparejadas de Azure](../../best-practices-availability-paired-regions.md) para más información sobre pares de regiones específicas. La excepción al modelo de regiones emparejadas es Sur de Brasil, que solo permite la opción de mantener los datos residentes en la región Sur de Brasil. Sur de Brasil usa el almacenamiento con redundancia de zona (ZRS) para replicar los datos tres veces dentro de la misma ubicación o región.   
 
 Si se produce un error en algún componente individual dentro del servicio del almacén de claves, los componentes alternativos de la región se encargan de atender la solicitud para garantizar que no se pierde funcionalidad. No es necesario realizar ninguna acción para iniciar este proceso, ya que se realiza automáticamente y es transparente para el usuario.
 
-En el caso excepcional de que toda una región de Azure pase a estar no disponible, las solicitudes efectuadas a Azure Key Vault de esa región se enrutarán automáticamente (un proceso conocido como *conmutación por error*) a una región secundaria. Cuando la región primaria vuelva a estar disponible, las solicitudes se enrutarán a ella nuevamente (*conmutación por recuperación*). Conviene insistir en que no es necesaria ninguna acción, ya que este proceso se realiza automáticamente.
+En el caso excepcional de que toda una región de Azure pase a estar no disponible, las solicitudes efectuadas a Azure Key Vault de esa región se enrutarán automáticamente (un proceso conocido como *conmutación por error*) a una región secundaria excepto en el caso de la región Sur de Brasil. Cuando la región primaria vuelva a estar disponible, las solicitudes se enrutarán a ella nuevamente (*conmutación por recuperación*). Conviene insistir en que no es necesaria ninguna acción, ya que este proceso se realiza automáticamente.
+
+En la región Sur de Brasil, debe planear la recuperación de los almacenes de claves de Azure en un escenario de error de región. Para realizar una copia de seguridad y restaurar el almacén de claves de Azure en una región de su elección, complete los pasos que se detallan en [Copia de seguridad de Azure Key Vault](backup.md). 
 
 En este diseño de alta disponibilidad, Azure Key Vault no requiere ningún tiempo de inactividad para las actividades de mantenimiento.
 

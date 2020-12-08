@@ -10,16 +10,16 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 11/17/2020
-ms.openlocfilehash: f55e266b548ea3b43a50d9500a427dfe1199b73f
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: b1339a0ab5be9004643cf2e9f86203eba9a2cc72
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94699770"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96445059"
 ---
 # <a name="get-started-with-azure-synapse-analytics"></a>Introducción a Azure Synapse Analytics
 
-Este tutorial es una guía paso a paso de las principales áreas de características de Azure Synapse Analytics. El tutorial es un punto de partida ideal para alguien que desee un paseo guiado por los escenarios principales de Azure Synapse Analytics. Después de seguir los pasos del tutorial, tendrá un área de trabajo de Synapse totalmente funcional en la que podrá empezar a analizar datos mediante un grupo de SQL dedicado, un grupo de SQL sin servidor o Apache Spark.
+Este tutorial es una guía paso a paso de las principales áreas de características de Azure Synapse Analytics. El tutorial es un punto de partida ideal para alguien que desee un paseo guiado por los escenarios principales de Azure Synapse Analytics. Después de seguir los pasos en el tutorial, tendrá un área de trabajo de Synapse. En este tutorial también se incluyen los pasos para [habilitar un área de trabajo para el grupo de SQL dedicado (anteriormente SQL DW)](./sql-data-warehouse/workspace-connected-create.md). Una vez creada el área de trabajo, puede comenzar a analizar los datos mediante un grupo de SQL dedicado, un grupo de SQL sin servidor o un grupo de Apache Spark sin servidor.
 
 Siga los pasos *por orden* como se muestra a continuación para realizar un paseo guiado por muchas de las funcionalidades y aprender a ejercitar las características principales.
 

@@ -5,14 +5,14 @@ author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: overview
-ms.date: 07/26/2019
+ms.date: 11/25/2020
 ms.author: sngun
-ms.openlocfilehash: 9f44279e47de737bd23fcd0266b7fb73e6245b13
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 98b1db18b72aad0c68f2faee031cc040a2a1f369
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93096060"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96181244"
 ---
 # <a name="introduction-to-azure-cosmos-db-table-api"></a>Introducción a Azure Cosmos DB: Table API
 [!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
@@ -26,6 +26,9 @@ ms.locfileid: "93096060"
 * Indexación secundaria automática.
 
 Las aplicaciones escritas para Azure Table Storage pueden migrarse a Azure Cosmos DB mediante la API Table sin realizar ningún cambio en el código y pueden sacar provecho de las funcionalidades premium. Table API tiene SDK de cliente disponibles para .NET, Java, Python y Node.js.
+
+> [!NOTE]
+> El [modo de capacidad sin servidor](serverless.md) ahora está disponible en Table API de Azure Cosmos DB.
 
 > [!IMPORTANT]
 > El SDK de .NET Framework [Microsoft.Azure.CosmosDB.Table](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table) se encuentra en modo de mantenimiento y dejará de utilizarse pronto. Actualice a la nueva biblioteca de .NET Standard [Microsoft.Azure.Cosmos.Table](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table) para continuar recibiendo las últimas características compatibles con Table API.

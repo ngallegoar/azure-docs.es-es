@@ -9,20 +9,20 @@ ms.topic: quickstart
 ms.date: 11/16/2020
 ms.author: kevin
 ms.reviewer: jrasnick
-ms.openlocfilehash: 8d70a45b89142f6f9c6990fdbb4b79751c82275f
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 312c57c103bf733bc72c5de1d22ab3239d5b5e96
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95237483"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96484717"
 ---
 # <a name="quickstart-bulk-loading-with-synapse-sql"></a>Inicio rápido: Carga masiva con Synapse SQL
 
-La carga de datos nunca ha sido más fácil que cuando se usa el Asistente para carga masiva en Synapse Studio. Este asistente le guiará a través de la creación de un script de T-SQL con la [instrucción COPY](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true) para cargar datos de forma masiva. 
+La carga de datos es sencilla con el Asistente para la carga masiva en Synapse Studio. Este asistente le guiará a través de la creación de un script de T-SQL con la [instrucción COPY](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true) para cargar datos de forma masiva. 
 
 ## <a name="entry-points-to-the-bulk-load-wizard"></a>Puntos de entrada al Asistente para carga masiva
 
-Ahora puede cargar datos de forma masiva fácilmente mediante grupos de SQL dedicados. Solo tiene que hacer clic con el botón derecho en las siguientes áreas en Synapse Studio:
+Puede cargar datos de forma masiva fácilmente mediante grupos de SQL dedicados. Solo debe hacer clic con el botón derecho en las siguientes áreas en Synapse Studio:
 
 - Un archivo o una carpeta de una cuenta de Azure Storage asociada al área de trabajo ![Hacer clic con el botón derecho en un archivo o una carpeta de una cuenta de almacenamiento](./sql/media/bulk-load/bulk-load-entry-point-0.png)
 

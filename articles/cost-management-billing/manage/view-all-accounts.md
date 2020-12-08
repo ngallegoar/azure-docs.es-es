@@ -6,14 +6,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 11/30/2020
 ms.author: banders
-ms.openlocfilehash: 0049efda603532099cc9bf24dc9d9411b5aaa389
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 3df6b694f3a40cef17c6e0114464ad4aa2fa30ce
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132132"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96344341"
 ---
 # <a name="billing-accounts-and-scopes-in-the-azure-portal"></a>Cuentas de facturación y ámbitos en Azure Portal
 
@@ -33,6 +33,12 @@ Para determinar el tipo de la cuenta de facturación, consulte [Comprobación de
 
 ## <a name="scopes-for-billing-accounts"></a>Ámbitos para las cuentas de facturación
 Un ámbito es un nodo dentro de una cuenta de facturación que los usuarios utilizan para ver y administrar la facturación. Es donde se administran los datos de facturación, los pagos, las facturas y realizar la administración de cuentas generales.
+
+Si no tiene acceso para ver o administrar cuentas de facturación, es probable que no tenga permiso para acceder a ellas. Puede pedir al administrador de la cuenta de facturación que le conceda acceso. Para más información, consulte los siguientes artículos.
+
+- [Acceso a Microsoft Online Services Program](manage-billing-access.md)
+- [Acceso a Contrato de cliente de Microsoft](understand-mca-roles.md)
+- [Acceso a Contrato Enterprise](understand-ea-roles.md)
 
 ### <a name="microsoft-online-services-program"></a>Microsoft Online Services Program
 

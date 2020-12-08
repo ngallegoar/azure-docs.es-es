@@ -1,6 +1,6 @@
 ---
 title: Modelo de metadatos compartidos
-description: Azure Synapse Analytics permite que los diferentes motores de las áreas de trabajo de cálculo compartan bases de datos y tablas entre sus grupos de Apache Spark sin servidor (versión preliminar), el grupo de SQL sin servidor (versión preliminar) y los grupos de SQL dedicados.
+description: Azure Synapse Analytics permite que los diferentes motores de cálculo de áreas de trabajo compartan bases de datos y tablas entre sus grupos de Apache Spark sin servidor y los grupos de SQL sin servidor y dedicados.
 services: synapse-analytics
 author: MikeRys
 ms.service: synapse-analytics
@@ -9,18 +9,16 @@ ms.subservice: metadata
 ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
-ms.openlocfilehash: 64c19f3331be8ffda433207da88ebf22c546ee4e
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: b10b6f011fa7daee4094f0cc7b819d36127fedcd
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324662"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460343"
 ---
 # <a name="azure-synapse-analytics-shared-metadata"></a>Metadatos compartidos de Azure Synapse Analytics
 
-Azure Synapse Analytics permite que los diferentes motores de las áreas de trabajo de cálculo compartan bases de datos y tablas entre sus grupos de Apache Spark sin servidor (versión preliminar) y el grupo de SQL sin servidor (versión preliminar).
-
-[!INCLUDE [preview](../includes/note-preview.md)]
+Azure Synapse Analytics permite que los diferentes motores de cálculo de áreas de trabajo compartan bases de datos y tablas entre sus grupos de Apache Spark sin servidor y el grupo de SQL sin servidor.
 
 El uso compartido es compatible con el llamado modelo de almacenamiento de datos moderno y proporciona a los motores de SQL del área de trabajo acceso a las bases de datos y las tablas creadas con Spark. También permite que los motores de SQL creen sus propios objetos que no se comparten con los demás motores.
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/19/2019
 ms.author: Zhchia
-ms.openlocfilehash: 717500050aff89964ff959a4741aed01533ada70
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 886d6ff1d3437a9d45bdabc68b2bf3ab8cdaa3ef
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357137"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349997"
 ---
 # <a name="tutorial-configure-blink-for-automatic-user-provisioning"></a>Tutorial: Configuración de Blink para el aprovisionamiento automático de usuarios
 
@@ -72,7 +72,7 @@ Antes de configurar Blink para el aprovisionamiento automático de usuarios con 
 
     ![Botón Nueva aplicación](common/add-new-app.png)
 
-4. En el cuadro de búsqueda, escriba **Blink** , seleccione **Blink** en el panel de resultados y luego haga clic en el botón **Agregar** para agregar la aplicación.
+4. En el cuadro de búsqueda, escriba **Blink**, seleccione **Blink** en el panel de resultados y luego haga clic en el botón **Agregar** para agregar la aplicación.
 
     ![Blink en la lista de resultados](common/search-new-app.png)
 
@@ -101,17 +101,17 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Captura de pantalla de la lista desplegable Modo de aprovisionamiento con la opción Automático seleccionada.](common/provisioning-automatic.png)
 
-5. En la sección **Credenciales de administrador** , escriba `https://api.joinblink.com/scim` en la **URL de inquilino**. Escriba el valor **SCIM Authentication Token** (Token de autenticación de SCIM) recuperado anteriormente en **Token secreto**. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a Blink. Si la conexión no se establece, asegúrese de que la cuenta de Blink tiene permisos de administrador y pruebe de nuevo.
+5. En la sección **Credenciales de administrador**, escriba `https://api.joinblink.com/scim` en la **URL de inquilino**. Escriba el valor **SCIM Authentication Token** (Token de autenticación de SCIM) recuperado anteriormente en **Token secreto**. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a Blink. Si la conexión no se establece, asegúrese de que la cuenta de Blink tiene permisos de administrador y pruebe de nuevo.
 
     ![URL de inquilino + Token](common/provisioning-testconnection-tenanturltoken.png)
 
-6. En el campo **Correo electrónico de notificación** , escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
+6. En el campo **Correo electrónico de notificación**, escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
 
     ![Correo electrónico de notificación](common/provisioning-notification-email.png)
 
-7. Haga clic en **Save** (Guardar).
+7. Haga clic en **Save**(Guardar).
 
-8. En la sección **Asignaciones** , seleccione **Synchronize Azure Active Directory Users to Box** (Sincronizar usuarios de Azure Active Directory con Blink).
+8. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Users to Box** (Sincronizar usuarios de Azure Active Directory con Blink).
 
     ![Asignaciones de usuarios de Blink](media/blink-provisioning-tutorial/User_mappings.png)
 
@@ -125,7 +125,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Estado de aprovisionamiento activado](common/provisioning-toggle-on.png)
 
-12. Elija los valores deseados en **Ámbito** , en la sección **Configuración** , para definir los usuarios que desea que se aprovisionen en Blink.
+12. Elija los valores deseados en **Ámbito**, en la sección **Configuración**, para definir los usuarios que desea que se aprovisionen en Blink.
 
     ![Ámbito del aprovisionamiento](common/provisioning-scope.png)
 

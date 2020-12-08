@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/30/2018
-ms.openlocfilehash: 262c54c3eb47c8539dce89c01f32c7feb1884b7c
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 800592b7a8b263fea2883fdd3e030f78f72647dd
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92792742"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96459916"
 ---
 # <a name="run-ad-hoc-analytics-queries-across-multiple-databases-azure-sql-database"></a>Ejecución de consultas de análisis ad hoc entre varias bases de datos (Azure SQL Database)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -47,7 +47,7 @@ Las aplicaciones SaaS pueden analizar la ingente cantidad de datos del inquilino
 
 Es fácil obtener acceso a estos datos en una sola base de datos multiinquilino, pero no es tan fácil cuando se distribuyen a escala en miles de bases de datos. Un enfoque es usar la [consulta elástica](elastic-query-overview.md), que permite consultas en un conjunto distribuido de bases de datos con un esquema común. Estas bases de datos se pueden distribuir en distintos grupos de recursos y suscripciones. No obstante, un mismo inicio de sesión debe tener acceso para extraer datos de todas las bases de datos. La consulta elástica usa una única base de datos *principal* en la que se definen tablas externas que reflejan tablas o vistas en las bases de datos (de inquilino) distribuidas. Las consultas que se envían a esta base de datos principal se compilan para producir un plan de consulta distribuido, con partes de la consulta aplicadas en las bases de datos de inquilino según sea necesario. La consulta elástica usa el mapa de particiones de la base de datos del catálogo para determinar la ubicación de todas las bases de datos de inquilino. La configuración y la consulta son sencillas y utilizan [Transact-SQL](/sql/t-sql/language-reference) estándar; además, admiten consultas ad hoc desde herramientas como Power BI y Excel.
 
-Mediante la distribución de las consultas en las bases de datos de inquilino, la consulta elástica proporciona una visión inmediata de los datos de producción activos. Sin embargo, como la consulta elástica puede extraer los datos de muchas bases de datos, la latencia de las consultas a veces puede ser mayor que las consultas equivalentes enviadas a una sola base de datos multiinquilino. Asegúrese de diseñar las consultas para minimizar los datos que se devuelven. La consulta elástica a menudo resulta más apropiada para consultar pequeñas cantidades de datos en tiempo real, en lugar de generar informes o consultas de análisis complejos o usados con frecuencia. Si las consultas no funcionan correctamente, examine el [plan de ejecución](/sql/relational-databases/performance/display-an-actual-execution-plan) para ver qué parte de la consulta se ha transferido a la base de datos remota. Y evalúe cuántos datos se devuelven. Las consultas que requieren un procesamiento analítico complejo se pueden atender mejor si se guardan los datos de inquilino extraídos en una base de datos optimizada para las consultas de análisis. SQL Database y Azure Synapse Analytics (anteriormente, SQL Data Warehouse) podrían hospedar este tipo de base de datos de análisis.
+Mediante la distribución de las consultas en las bases de datos de inquilino, la consulta elástica proporciona una visión inmediata de los datos de producción activos. Sin embargo, como la consulta elástica puede extraer los datos de muchas bases de datos, la latencia de las consultas a veces puede ser mayor que las consultas equivalentes enviadas a una sola base de datos multiinquilino. Asegúrese de diseñar las consultas para minimizar los datos que se devuelven. La consulta elástica a menudo resulta más apropiada para consultar pequeñas cantidades de datos en tiempo real, en lugar de generar informes o consultas de análisis complejos o usados con frecuencia. Si las consultas no funcionan correctamente, examine el [plan de ejecución](/sql/relational-databases/performance/display-an-actual-execution-plan) para ver qué parte de la consulta se ha transferido a la base de datos remota. Y evalúe cuántos datos se devuelven. Las consultas que requieren un procesamiento analítico complejo se pueden atender mejor si se guardan los datos de inquilino extraídos en una base de datos optimizada para las consultas de análisis. SQL Database y Azure Synapse Analytics podrían hospedar este tipo de base de datos de análisis.
 
 Este patrón de análisis se explica en el [tutorial sobre el análisis de inquilinos](saas-multitenantdb-tenant-analytics.md).
 
@@ -59,9 +59,9 @@ Los scripts y el código fuente de la aplicación SaaS de base de datos multiinq
 
 Para ejecutar consultas en un conjunto de datos más interesante, ejecute el generador de entradas para crear datos de ventas de entradas.
 
-1. En *PowerShell ISE* , abra el script ...\\Learning Modules\\Operational Analytics\\Adhoc Reporting\\*Demo-AdhocReporting.ps1* y establezca los valores siguientes:
+1. En *PowerShell ISE*, abra el script ...\\Learning Modules\\Operational Analytics\\Adhoc Reporting\\*Demo-AdhocReporting.ps1* y establezca los valores siguientes:
    * **$DemoScenario** = 1, **Purchase tickets for events at all venues** (comprar entradas para eventos de todas las ubicaciones).
-2. Presione **F5** para ejecutar el script y generar datos de ventas de entradas. Mientras se ejecuta el script, siga con los pasos de este tutorial. Los datos de entradas se consultan en la sección *Ejecución de consultas distribuidas ad hoc* , de modo que espere a que el generador de entradas finalice.
+2. Presione **F5** para ejecutar el script y generar datos de ventas de entradas. Mientras se ejecuta el script, siga con los pasos de este tutorial. Los datos de entradas se consultan en la sección *Ejecución de consultas distribuidas ad hoc*, de modo que espere a que el generador de entradas finalice.
 
 ## <a name="explore-the-tenant-tables"></a>Exploración de las tablas de inquilino 
 
@@ -71,12 +71,12 @@ Para lograr este patrón, todas las tablas de inquilinos incluyen una columna *V
 
 ## <a name="deploy-the-database-used-for-ad-hoc-distributed-queries"></a>Implementación de la base de datos usada para las consultas distribuidas ad hoc
 
-En este ejercicio se implementa la base de datos *adhocreporting* . Esta es la base de datos principal que contendrá el esquema utilizado para realizar consultas en todas las bases de datos de inquilino. La base de datos se implementa en el servidor de catálogo existente, que es el utilizado para todas las bases de datos relacionadas con la administración en la aplicación de ejemplo.
+En este ejercicio se implementa la base de datos *adhocreporting*. Esta es la base de datos principal que contendrá el esquema utilizado para realizar consultas en todas las bases de datos de inquilino. La base de datos se implementa en el servidor de catálogo existente, que es el utilizado para todas las bases de datos relacionadas con la administración en la aplicación de ejemplo.
 
 1. Abra ...\\Learning Modules\\Operational Analytics\\Adhoc Reporting\\*Demo-AdhocReporting.ps1* en *PowerShell ISE* y establezca los valores siguientes:
-   * **$DemoScenario** = 2, **Implementación de una base de datos de análisis ad hoc** .
+   * **$DemoScenario** = 2, **Implementación de una base de datos de análisis ad hoc**.
 
-2. Presione **F5** para ejecutar el script y crear la base de datos *adhocreporting* .
+2. Presione **F5** para ejecutar el script y crear la base de datos *adhocreporting*.
 
 En la siguiente sección, se agrega el esquema a la base de datos de modo que se pueda usar para ejecutar consultas distribuidas.
 
@@ -84,7 +84,7 @@ En la siguiente sección, se agrega el esquema a la base de datos de modo que se
 
 En este ejercicio se agrega el esquema (el origen de datos externo y las definiciones de tabla externas) a la base de datos de notificaciones ad hoc que permite realizar consultas en todas las bases de datos de inquilino.
 
-1. Abra SQL Server Management Studio y conéctese a la base de datos de notificaciones ad hoc que creó en el paso anterior. El nombre de la base de datos será *adhocreporting* .
+1. Abra SQL Server Management Studio y conéctese a la base de datos de notificaciones ad hoc que creó en el paso anterior. El nombre de la base de datos será *adhocreporting*.
 2. Abra ...\Learning Modules\Operational Analytics\Adhoc Reporting\ *Initialize-AdhocReportingDB.sql* en SSMS.
 3. Revise el script SQL y tenga en cuenta lo siguiente:
 
@@ -100,13 +100,13 @@ En este ejercicio se agrega el esquema (el origen de datos externo y las definic
 
     ![crear tablas externas](./media/saas-multitenantdb-adhoc-reporting/external-tables.png)
 
-   La tabla local *VenueTypes* que se crea y rellena. Esta tabla de datos de referencia es común en todas las bases de datos de inquilino, por lo que se puede representar como una tabla local y rellenarse con los datos comunes. En algunas consultas, así se puede reducir la cantidad de datos movidos entre las bases de datos de inquilino y la base de datos *adhocreporting* .
+   La tabla local *VenueTypes* que se crea y rellena. Esta tabla de datos de referencia es común en todas las bases de datos de inquilino, por lo que se puede representar como una tabla local y rellenarse con los datos comunes. En algunas consultas, así se puede reducir la cantidad de datos movidos entre las bases de datos de inquilino y la base de datos *adhocreporting*.
 
     ![crear tabla](./media/saas-multitenantdb-adhoc-reporting/create-table.png)
 
    Si incluye tablas de referencia de esta manera, asegúrese de actualizar el esquema de tabla y los datos cada vez que actualice las bases de datos de inquilino.
 
-4. Presione **F5** para ejecutar el script e inicializar la base de datos *adhocreporting* . 
+4. Presione **F5** para ejecutar el script e inicializar la base de datos *adhocreporting*. 
 
 Ahora puede ejecutar consultas distribuidas y recopilar información de todos los inquilinos.
 
@@ -116,10 +116,10 @@ Ahora que la base de datos *adhocreporting* está configurada, continúe y ejecu
 
 Al inspeccionar el plan de ejecución, mantenga el mouse sobre los iconos de plan para obtener más información. 
 
-1. En *SSMS* , abra ...\\Learning Modules\\Operational Analytics\\Adhoc Reporting\\*Demo-AdhocReportingQueries.sql* .
-2. Asegúrese de que está conectado a la base de datos **adhocreporting** .
-3. Seleccione el menú **Consulta** y haga clic en **Incluir plan de ejecución real** .
-4. Resalte la consulta *Which venues are currently registered?* (¿Qué ubicaciones están registradas actualmente?) y presione **F5** .
+1. En *SSMS*, abra ...\\Learning Modules\\Operational Analytics\\Adhoc Reporting\\*Demo-AdhocReportingQueries.sql*.
+2. Asegúrese de que está conectado a la base de datos **adhocreporting**.
+3. Seleccione el menú **Consulta** y haga clic en **Incluir plan de ejecución real**.
+4. Resalte la consulta *Which venues are currently registered?* (¿Qué ubicaciones están registradas actualmente?) y presione **F5**.
 
    La consulta devuelve la lista de ubicaciones completa e ilustra lo rápido y fácil que es realizar consultas en todos los inquilinos y devolver los datos de cada uno.
 
@@ -127,15 +127,15 @@ Al inspeccionar el plan de ejecución, mantenga el mouse sobre los iconos de pla
 
    ![SELECT * FROM dbo.Venues](./media/saas-multitenantdb-adhoc-reporting/query1-plan.png)
 
-5. Seleccione la siguiente consulta y presione **F5** .
+5. Seleccione la siguiente consulta y presione **F5**.
 
-   Esta consulta combina datos de las bases de datos de inquilino y de la tabla local *VenueTypes* (local porque es una tabla de la base de datos *adhocreporting* ).
+   Esta consulta combina datos de las bases de datos de inquilino y de la tabla local *VenueTypes* (local porque es una tabla de la base de datos *adhocreporting*).
 
    Inspeccione el plan y compruebe que la mayor parte del costo es la consulta remota, ya que se consulta la información de ubicación de cada inquilino (dbo.Venues) y, a continuación, se realiza una combinación rápida local con la tabla local *VenueTypes* para mostrar el nombre descriptivo.
 
    ![Combinación de datos remotos y locales](./media/saas-multitenantdb-adhoc-reporting/query2-plan.png)
 
-6. Ahora seleccione la consulta *On which day were the most tickets sold?* (¿Qué día se vendieron más entradas?) y presione **F5** .
+6. Ahora seleccione la consulta *On which day were the most tickets sold?* (¿Qué día se vendieron más entradas?) y presione **F5**.
 
    Esta consulta hace una combinación y una agregación un poco más complejas. Es importante tener en cuenta que la mayor parte del procesamiento se realiza de forma remota y, una vez más, se devuelven solo las filas que se necesitan, una única fila para el recuento total diario de ventas de entradas de cada ubicación.
 

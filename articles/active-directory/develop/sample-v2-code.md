@@ -12,12 +12,12 @@ ms.date: 11/04/2020
 ms.author: marsma
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: de25aafcfefee195e8d674c60ebdbaf79cb1ae10
-ms.sourcegitcommit: 1d366d72357db47feaea20c54004dc4467391364
+ms.openlocfilehash: a3f2eb8fe3da9b272c5fe61ef5dd66726cf7764d
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95406907"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348446"
 ---
 # <a name="microsoft-identity-platform-code-samples-v20-endpoint"></a>Ejemplos de código de la Plataforma de identidad de Microsoft (punto de conexión v2.0)
 
@@ -48,6 +48,7 @@ En estos ejemplos se muestra cómo escribir una aplicación de página única pr
 | ![Esta imagen muestra el logotipo de React](media/sample-v2-code/logo_react.png) [React (MSAL.js)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-core)| SPA llama a su propia API web que, a su vez, llama a Microsoft Graph.  | [ms-identity-javascript-react-spa-dotnetcore-webapi-obo](https://github.com/Azure-Samples/ms-identity-javascript-react-spa-dotnetcore-webapi-obo) |
 | ![Esta imagen muestra el logotipo de JavaScript](media/sample-v2-code/logo_js.png) [JavaScript (MSAL.js)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser) | SPA llama a su propia API web que, a su vez, llama a Microsoft Graph.  | [ms-identity-javascript-tutorial-chapter4-obo](https://github.com/Azure-Samples/ms-identity-javascript-tutorial/tree/main/4-AdvancedGrants/4-1-call-api-graph) |
 | ![Esta imagen muestra el logotipo de Angular](media/sample-v2-code/logo_angular.png) [Angular (MSAL-Angular)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular) | SPA llama a la API Web personalizada con roles de aplicación y grupos de seguridad |[ms-identity-javascript-angular-spa-dotnetcore-webapi-roles-groups](https://github.com/Azure-Samples/ms-identity-javascript-angular-spa-dotnetcore-webapi-roles-groups) |
+| ![Esta imagen muestra el logotipo de Blazor](media/sample-v2-code/logo-blazor.png) [Blazor WebAssembly (MSAL-JS)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser) | Tutorial de Blazor WebAssembly sobre cómo iniciar la sesión de los usuarios y llamar a las API mediante Azure Active Directory |[ms-identity-blazor-wasm](https://github.com/Azure-Samples/ms-identity-blazor-wasm) |
 
 ## <a name="web-applications"></a>Aplicaciones web
 
@@ -64,7 +65,7 @@ Los ejemplos siguientes ilustran las aplicaciones web que inician la sesión de 
 | ![Esta imagen muestra el logotipo de Python](media/sample-v2-code/logo_python.png)  | Tutorial de inicio de sesión para los usuarios de la [aplicación web Python Flask](https://github.com/Azure-Samples/ms-identity-python-flask-tutorial/blob/main/README.md)                   | Tutorial de inicio de sesión para los usuarios de la [aplicación web Python Flask](https://github.com/Azure-Samples/ms-identity-python-flask-tutorial/blob/main/README.md) y llamada a Graph |
 | ![Esta imagen muestra el logotipo de Python](media/sample-v2-code/logo_python.png)  | La [aplicación web Python Flask](https://github.com/Azure-Samples/ms-identity-b2c-python-flask-webapp-authentication/blob/main/README.md) inicia la sesión de los con B2C                    |  |
 | ![Esta imagen muestra el logotipo de Ruby](media/sample-v2-code/logo_ruby.png) |                   | [msgraph-training-rubyrailsapp](https://github.com/microsoftgraph/msgraph-training-rubyrailsapp) |
-
+| ![Esta imagen muestra el logotipo de Blazor.](media/sample-v2-code/logo-blazor.png)</p>Servidor Blazor | [Tutorial de inicio de sesión de los usuarios de la aplicación Blazor Server](https://github.com/Azure-Samples/ms-identity-blazor-server/tree/main/WebApp-OIDC) | [Llamadas a Microsoft Graph de la aplicación Blazor Server](https://github.com/Azure-Samples/ms-identity-blazor-server/tree/main/WebApp-graph-user/Call-MSGraph)</p>Tutorial de Chapterwise: [La aplicación Blazor Server inicia la sesión de los usuarios y llama a las API con Azure Active Directory](https://github.com/Azure-Samples/ms-identity-blazor-server) |
 
 ## <a name="desktop-and-mobile-public-client-apps"></a>Aplicaciones de escritorio y móviles de cliente público
 

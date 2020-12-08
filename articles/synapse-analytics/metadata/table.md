@@ -1,6 +1,6 @@
 ---
 title: Tablas de metadatos compartidos
-description: Azure Synapse Analytics proporciona un modelo de metadatos compartido en el que la creación de una tabla en el grupo de Apache Spark sin servidor hará que sea accesible desde el grupo de SQL sin servidor (versión preliminar) y el grupo de SQL dedicado sin duplicar los datos.
+description: Azure Synapse Analytics proporciona un modelo de metadatos compartido en el que la creación de una tabla en el grupo de Apache Spark sin servidor hará que sea accesible desde el grupo de SQL sin servidor y el grupo de SQL dedicado sin duplicar los datos.
 services: sql-data-warehouse
 author: MikeRys
 ms.service: synapse-analytics
@@ -10,18 +10,17 @@ ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f269217908bea4b5e8ef3c0004a9cec9d5d682c7
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 9ee18edd563d94a85dedf48b7a4d6df394c09707
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93314534"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461377"
 ---
 # <a name="azure-synapse-analytics-shared-metadata-tables"></a>Tablas de metadatos compartidos de Azure Synapse Analytics
 
-[!INCLUDE [synapse-analytics-preview-terms](../../../includes/synapse-analytics-preview-terms.md)]
 
-Azure Synapse Analytics permite que los diferentes motores de cálculo de áreas de trabajo compartan bases de datos y tablas con el respaldo de Parquet entre sus grupos de Apache Spark (versión preliminar) y el grupo de SQL sin servidor (versión preliminar).
+Azure Synapse Analytics permite que los diferentes motores de cálculo de áreas de trabajo compartan bases de datos y tablas con respaldo de Parquet entre sus grupos de Apache Spark y el grupo de SQL sin servidor.
 
 Una vez creada una base de datos con un trabajo de Spark, puede crear en ella, mediante Spark, tablas que usen Parquet como formato de almacenamiento. Estas tablas estarán disponibles de forma inmediata para que cualquiera de los grupos de Spark del área de trabajo de Azure Synapse realice consultas en ellas. También se pueden usar desde cualquiera de los trabajos de Spark sujetos a permisos.
 

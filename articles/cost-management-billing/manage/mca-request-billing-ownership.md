@@ -6,14 +6,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 08/20/2020
+ms.date: 11/30/2020
 ms.author: banders
-ms.openlocfilehash: 2aae71836a4eaba845e4752edf708607977763fa
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 8c3ab3f4f9bc56e9651a98e5c011cad65f21fd9d
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96014300"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348998"
 ---
 # <a name="get-billing-ownership-of-azure-subscriptions-from-other-accounts"></a>Obtención de la propiedad de la facturación de las suscripciones a Azure de otras cuentas
 
@@ -28,7 +28,7 @@ Para solicitar la propiedad de la facturación, debe ser **propietario de la sec
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) como propietario o colaborador de la sección de factura de una cuenta de facturación para un contrato de cliente de Microsoft.
 1. Busque **Administración de costos + facturación**.  
     ![Captura de pantalla que muestra la búsqueda en Azure Portal de Administración de costos + facturación](./media/mca-request-billing-ownership/billing-search-cost-management-billing.png)
-1. En la página de ámbitos de facturación, seleccione la cuenta de facturación que se utilizará para pagar el uso de las suscripciones. La cuenta de facturación será del tipo **Contrato de cliente de Microsoft**.  
+1. En la página de ámbitos de facturación, seleccione **Ámbitos de facturación** y, después, la cuenta de facturación que se utilizará para pagar el uso de las suscripciones. La cuenta de facturación será del tipo **Contrato de cliente de Microsoft**.  
     [![Captura de pantalla que muestra la búsqueda en Azure Portal de Administración de costos + facturación](./media/mca-request-billing-ownership/list-of-scopes.png)](./media/mca-request-billing-ownership/list-of-scopes.png#lightbox)
     > [!NOTE]
     > Azure Portal recuerda el último ámbito de facturación al que tiene acceso y muestra el ámbito la próxima vez que llega a la página Administración de costos + facturación. No verá la página de ámbitos de facturación si ha visitado Administración de costos y facturación anteriormente. Si es así, compruebe que se encuentra en el [ámbito correcto](#check-for-access). En caso contrario, [cambie el ámbito](view-all-accounts.md#switch-billing-scope-in-the-azure-portal) para seleccionar la cuenta de facturación de un Contrato de cliente de Microsoft.

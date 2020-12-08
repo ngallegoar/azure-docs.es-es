@@ -1,18 +1,18 @@
 ---
 title: Integración de datos mediante Azure Data Factory y Azure Data Share
 description: Copie, transforme y comparta datos mediante Azure Data Factory y Azure Data Share.
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 01/08/2020
-ms.openlocfilehash: 11f4e7c50acc8256722949a50760c574d3b9d9e9
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 0a578f1edb51efd5f0905e663d42bf5a6fbfc783
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93318248"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96489061"
 ---
 # <a name="data-integration-using-azure-data-factory-and-azure-data-share"></a>Integración de datos mediante Azure Data Factory y Azure Data Share
 
@@ -22,23 +22,23 @@ A medida que los clientes se embarcan en sus modernos proyectos de almacenamient
 
 Desde la habilitación de procesos de ETL/ELT sin código hasta la creación de una vista completa de los datos, las mejoras en Azure Data Factory permitirán a los ingenieros de datos aportar de forma segura más datos y, por tanto, más valor a la empresa. Azure Data Share permitirá compartir datos entre negocios de una manera controlada.
 
-En este taller usará Azure Data Factory (ADF) para la ingesta de datos de Azure SQL Database en Azure Data Lake Storage Gen2 (ADLS Gen2). Cuando ya disponga de los datos en el lago, los transformará mediante flujos de datos de asignación, el servicio de transformación nativo de Azure Data Factory, y los recibirá en Azure Synapse Analytics (anteriormente SQL DW). A continuación, compartirá la tabla que incluye los datos transformados junto con algunos datos adicionales mediante Azure Data Share. 
+En este taller usará Azure Data Factory (ADF) para la ingesta de datos de Azure SQL Database en Azure Data Lake Storage Gen2 (ADLS Gen2). Cuando ya disponga de los datos en el lago, los transformará mediante flujos de datos de asignación, el servicio de transformación nativo de Azure Data Factory, y los recibirá en Azure Synapse Analytics. A continuación, compartirá la tabla que incluye los datos transformados junto con algunos datos adicionales mediante Azure Data Share. 
 
 En este laboratorio se usan datos de taxis de la ciudad de Nueva York. Para importarlos en la base de datos de SQL Database, descargue el [archivo taxi-data.bacpac](https://github.com/djpmsft/ADF_Labs/blob/master/sample-data/taxi-data.bacpac).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* **Suscripción de Azure** : Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
+* **Suscripción de Azure**: Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-* **Azure SQL Database** : si no tiene una base de datos de SQL, aprenda a [crear una cuenta de Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md?tabs=azure-portal).
+* **Azure SQL Database**: si no tiene una base de datos de SQL, aprenda a [crear una cuenta de Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md?tabs=azure-portal).
 
-* **Cuenta de almacenamiento de Azure Data Lake Storage Gen2** : si no la tiene, aprenda a [crear una cuenta de almacenamiento de ADLS Gen2](../storage/common/storage-account-create.md).
+* **Cuenta de almacenamiento de Azure Data Lake Storage Gen2**: si no la tiene, aprenda a [crear una cuenta de almacenamiento de ADLS Gen2](../storage/common/storage-account-create.md).
 
 * **Azure Synapse Analytics (anteriormente SQL DW)** : si no la tiene, aprenda a [crear una instancia de Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md).
 
-* **Azure Data Factory** : si no la ha creado, consulte cómo [crear una factoría de datos](./quickstart-create-data-factory-portal.md).
+* **Azure Data Factory**: si no la ha creado, consulte cómo [crear una factoría de datos](./quickstart-create-data-factory-portal.md).
 
-* **Azure Data Share** : si no lo ha creado, consulte cómo [crear un recurso compartido de datos](../data-share/share-your-data.md#create-a-data-share-account).
+* **Azure Data Share**: si no lo ha creado, consulte cómo [crear un recurso compartido de datos](../data-share/share-your-data.md#create-a-data-share-account).
 
 ## <a name="set-up-your-azure-data-factory-environment"></a>Configuración del entorno de Azure Data Factory
 
@@ -143,7 +143,7 @@ Ha creado correctamente el conjunto de datos de origen. Asegúrese de que la con
 1. Busque **Azure Data Lake Storage Gen2** y haga clic en Continue (Continuar).
 
     ![Copia en el portal 8](media/lab-data-flow-data-share/copy8.png)
-1. En el panel de selección de formato, elija **DelimitedText** , ya que escribe en un archivo CSV. Haga clic en Continue (Continuar).
+1. En el panel de selección de formato, elija **DelimitedText**, ya que escribe en un archivo CSV. Haga clic en Continue (Continuar).
 
     ![Copia en el portal 9](media/lab-data-flow-data-share/copy9.png)
 1. Asigne el nombre "TripDataCSV" al conjunto de datos del receptor. Seleccione "ADLSGen2" como servicio vinculado. Indique dónde desea escribir el archivo CSV. Por ejemplo, puede escribir los datos en el archivo `trip-data.csv` del contenedor `staging-container`. Establezca **First row as header** (Primera fila como encabezado) en verdadero, ya que desea que los datos de salida tengan encabezados. Puesto que todavía no existe ningún archivo en el destino, establezca **Import schema** (Importar esquema) en **None** (Ninguno). Haga clic en OK (Aceptar) cuando haya finalizado.
@@ -308,7 +308,7 @@ Ya ha completado la parte de Azure Data Factory de este laboratorio. Publique lo
 
 ## <a name="share-data-using-azure-data-share"></a>Uso compartido de datos mediante Azure Data Share
 
-En esta sección aprenderá a configurar un nuevo recurso compartido de datos mediante Azure Portal. Esto implicará la creación de un nuevo recurso compartido de datos que contendrá conjuntos de datos de Azure Data Lake Store Gen2 y Azure Synapse Analytics (anteriormente SQL Data Warehouse). Después, configurará una programación de instantáneas, que proporcionará a los consumidores de datos una opción para actualizar automáticamente los datos que se compartan con ellos. A continuación, invitará a los destinatarios al recurso compartido de datos. 
+En esta sección aprenderá a configurar un nuevo recurso compartido de datos mediante Azure Portal. Esto implicará la creación de un nuevo recurso compartido de datos que contendrá conjuntos de datos de Azure Data Lake Store Gen2 y Azure Synapse Analytics. Después, configurará una programación de instantáneas, que proporcionará a los consumidores de datos una opción para actualizar automáticamente los datos que se compartan con ellos. A continuación, invitará a los destinatarios al recurso compartido de datos. 
 
 Después de crear el recurso compartido de datos, cambiará su papel y se convertirá en el *consumidor de datos*. Como consumidor de datos, pasará por el flujo de aceptación de una invitación al recurso compartido de datos, la configuración de la ubicación donde quiere recibir los datos y la asignación de los conjuntos de datos a diferentes ubicaciones de almacenamiento. A continuación, desencadenará una instantánea que copiará los datos compartidos en el destino especificado. 
 
@@ -328,11 +328,11 @@ Después de crear el recurso compartido de datos, cambiará su papel y se conver
 
 1. Seleccione **+ Crear** para comenzar a configurar el nuevo recurso compartido de datos. 
 
-1. En **Nombre del recurso compartido** , especifique un nombre de su elección. Este es el nombre del recurso compartido que verá el consumidor de datos; por tanto, asegúrese de darle un nombre descriptivo como, por ejemplo, TaxiData.
+1. En **Nombre del recurso compartido**, especifique un nombre de su elección. Este es el nombre del recurso compartido que verá el consumidor de datos; por tanto, asegúrese de darle un nombre descriptivo como, por ejemplo, TaxiData.
 
-1. En **Descripción** , incluya una frase que describa el contenido del recurso compartido de datos. Este recurso contendrá datos de carreras de taxis de todo el mundo, guardados en una serie de almacenes entre los que se incluyen Azure Synapse Analytics y Azure Data Lake Store. 
+1. En **Descripción**, incluya una frase que describa el contenido del recurso compartido de datos. Este recurso contendrá datos de carreras de taxis de todo el mundo, guardados en una serie de almacenes entre los que se incluyen Azure Synapse Analytics y Azure Data Lake Store. 
 
-1. En **Condiciones de uso** , especifique un conjunto de condiciones que le gustaría que el consumidor de datos aceptase. Algunos ejemplos pueden ser "No distribuya estos datos fuera de la organización" o "Consulte el contrato legal". 
+1. En **Condiciones de uso**, especifique un conjunto de condiciones que le gustaría que el consumidor de datos aceptase. Algunos ejemplos pueden ser "No distribuya estos datos fuera de la organización" o "Consulte el contrato legal". 
 
     ![Detalles del recurso compartido](media/lab-data-flow-data-share/ads-details.png)
 
@@ -342,7 +342,7 @@ Después de crear el recurso compartido de datos, cambiará su papel y se conver
 
     ![Agregar el conjunto de datos 1](media/lab-data-flow-data-share/add-dataset.png)
 
-1. Seleccione **Azure Synapse Analytics** (anteriormente SQL Data Warehouse) para elegir la tabla de la instancia de Azure Synapse Analytics en la que se descargaron las transformaciones de ADF.
+1. Seleccione **Azure Synapse Analytics** para elegir la tabla de la instancia de Azure Synapse Analytics en la que se descargaron las transformaciones de ADF.
 
     ![Agregar conjunto de datos de SQL](media/lab-data-flow-data-share/add-dataset-sql.png)
 
@@ -468,7 +468,7 @@ Es posible que se le pida que seleccione una suscripción. Asegúrese de selecci
     
     (Opcional) Puede elegir si recibe los datos en el lago de datos en formato CSV o Parquet. 
 
-1. Junto a **Tipo de datos de destino** , seleccione Azure SQL Database. 
+1. Junto a **Tipo de datos de destino**, seleccione Azure SQL Database. 
 
 1. Seleccione la suscripción, el grupo de recursos y la cuenta de almacenamiento con los que ha estado trabajando. 
 

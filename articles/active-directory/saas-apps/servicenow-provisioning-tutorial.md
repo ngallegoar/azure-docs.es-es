@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/10/2019
 ms.author: jeedes
-ms.openlocfilehash: fe2d09315dcb2a0958f8a1b8efe7532c64c111d8
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 5894a57e6495ca02002c8f32b893e696c7f5679b
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94966554"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350711"
 ---
 # <a name="tutorial-configure-servicenow-for-automatic-user-provisioning"></a>Tutorial: Configuración de ServiceNow para el aprovisionamiento automático de usuarios
 
@@ -36,7 +36,7 @@ En este tutorial, se describen los pasos que debe realizar en ServiceNow y Azure
 En el escenario descrito en este tutorial se supone que ya cuenta con los requisitos previos siguientes:
 
 * [Un inquilino de Azure AD](../develop/quickstart-create-new-tenant.md) 
-* Una cuenta de usuario en Azure AD con [permiso](../users-groups-roles/directory-assign-admin-roles.md) para configurar el aprovisionamiento (por ejemplo, Administrador de aplicaciones, Administrador de aplicaciones en la nube, Propietario de la aplicación o Administrador global). 
+* Una cuenta de usuario en Azure AD con [permiso](../roles/permissions-reference.md) para configurar el aprovisionamiento (por ejemplo, Administrador de aplicaciones, Administrador de aplicaciones en la nube, Propietario de la aplicación o Administrador global). 
 * Una [instancia de ServiceNow](https://www.servicenow.com/) de Calgary o superior
 * Una [instancia de ServiceNow Express](https://www.servicenow.com/) de Helsinki o superior
 * Una cuenta de usuario de ServiceNow con el rol de administrador

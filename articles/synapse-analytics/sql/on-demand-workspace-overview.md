@@ -1,5 +1,5 @@
 ---
-title: Grupo de SQL sin servidor (versión preliminar)
+title: Grupo de SQL sin servidor
 description: Obtenga información sobre el grupo de SQL sin servidor en Azure Synapse Analytics.
 services: synapse analytics
 author: filippopovic
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: e0d47567c3bc0b05c47efafa3bdc8b297a7bdbea
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 34ce36f0ff348f896b7c2ea680c113b5e9e4ea09
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93306873"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96463165"
 ---
-# <a name="serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Grupo de SQL sin servidor (versión preliminar) en Azure Synapse Analytics 
+# <a name="serverless-sql-pool-in-azure-synapse-analytics"></a>Grupo de SQL sin servidor en Azure Synapse Analytics 
 
-Todas las áreas de trabajo de Azure Synapse Analytics (versión preliminar) incluyen puntos de conexión de un grupo de SQL sin servidor (versión preliminar) que puede usar para consultar datos del lago.
+Todas las áreas de trabajo de Azure Synapse Analytics incluyen puntos de conexión de grupo de SQL sin servidor que pueden usarse para consultar datos del lago.
 
 Un grupo de SQL sin servidor es un servicio de consulta de los datos del lago de datos. Le permite acceder a los datos mediante las siguientes funcionalidades:
  
@@ -123,7 +123,7 @@ La autenticación del grupo de SQL sin servidor hace referencia a cómo prueban 
 
   Este método de autenticación utiliza un nombre de usuario y una contraseña.
 
-- **Autenticación con Azure Active Directory** :
+- **Autenticación con Azure Active Directory**:
 
   Este método de autenticación usa identidades administradas por Azure Active Directory. Se puede habilitar la autenticación multifactor para los usuarios de Azure AD. Use la autenticación de Active Directory (seguridad integrada) [siempre que sea posible](/sql/relational-databases/security/choose-an-authentication-mode?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
 

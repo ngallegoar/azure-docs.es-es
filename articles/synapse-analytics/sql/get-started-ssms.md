@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 4239b5400e919621dfff001ca7e6cb9de1626658
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: da698a1a8d91273321d4633abd683a06cb4cf403
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94686215"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451633"
 ---
 # <a name="connect-to-synapse-sql-with-sql-server-management-studio-ssms"></a>Conexión a Synapse SQL con SQL Server Management Studio (SSMS)
 > [!div class="op_single_selector"]
@@ -26,9 +26,9 @@ ms.locfileid: "94686215"
 > 
 > 
 
-Puede usar [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) para conectarse y realizar consultas a Synapse SQL en Azure Synapse Analytics con los recursos del grupo de SQL sin servidor (versión preliminar) o del grupo de SQL dedicado. 
+Puede usar [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) para conectarse y realizar consultas a Synapse SQL en Azure Synapse Analytics con los recursos del grupo de SQL sin servidor o del grupo de SQL dedicado. 
 
-### <a name="supported-tools-for-serverless-sql-pool-preview"></a>Herramientas admitidas en el grupo de SQL sin servidor (versión preliminar)
+### <a name="supported-tools-for-serverless-sql-pool"></a>Herramientas admitidas en el grupo de SQL sin servidor
 
 [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio) es totalmente compatible a partir de la versión 1.18.0. SSMS es parcialmente compatible a partir de la versión 18.5, que solo se puede usar para establecer conexión y realizar consultas.
 
@@ -63,7 +63,7 @@ Para conectarse a Synapse SQL mediante el grupo de SQL dedicado, siga estos paso
     ![Explore AdventureWorksDW 1](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/explore-tables.png)
 
 
-### <a name="serverless-sql-pool-preview"></a>Grupo de SQL sin servidor (versión preliminar)
+### <a name="serverless-sql-pool"></a>Grupo de SQL sin servidor
 
 Para conectarse a Synapse SQL mediante el grupo de SQL sin servidor, siga estos pasos: 
 

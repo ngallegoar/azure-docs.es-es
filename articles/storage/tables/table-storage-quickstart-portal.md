@@ -8,12 +8,12 @@ ms.author: tamram
 ms.topic: quickstart
 ms.date: 12/02/2019
 ms.subservice: tables
-ms.openlocfilehash: d592dd6ac705d0f1a0b3ed55e115d06023b0a511
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 93c6cb0f61185457ef0684d2a1ba691a0534aa13
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88236274"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96326784"
 ---
 # <a name="quickstart-create-an-azure-storage-table-in-the-azure-portal"></a>Guía de inicio rápido: Creación de una tabla de Azure Storage en Azure Portal 
 
@@ -31,15 +31,15 @@ Ahora puede usar el servicio Table service en Azure Portal para crear una tabla.
 
 1. Haga clic en Introducción > Tablas.
 
-   ![Azure Portal](media/table-storage-quickstart-portal/table-storage-quickstart-01.png)
+   ![En vmamcgestorage, una cuenta de almacenamiento, se resalta la pestaña Información general. En el panel Información general, en Servicios, se resalta Tablas.](media/table-storage-quickstart-portal/table-storage-quickstart-01.png)
 
 2. Haga clic en **+ Tabla**.
 
-   ![Azure Portal](media/table-storage-quickstart-portal/table-storage-quickstart-02.png)
+   ![En Table service para vmamcgestorage, se resalta la opción + Tabla.](media/table-storage-quickstart-portal/table-storage-quickstart-02.png)
 
 3. Escriba un nombre para la tabla en el cuadro **Nombre de la tabla** y, a continuación, haga clic en **Aceptar**. 
 
-   ![Azure Portal](media/table-storage-quickstart-portal/table-storage-quickstart-03.png)
+   ![En la pestaña Agregar tabla de Table service, en Nombre de tabla, aparece MyTable y está resaltada. El botón Aceptar está seleccionado y resaltado.](media/table-storage-quickstart-portal/table-storage-quickstart-03.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

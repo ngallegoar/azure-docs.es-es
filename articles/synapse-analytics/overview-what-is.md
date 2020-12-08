@@ -9,16 +9,14 @@ ms.subservice: overview
 ms.date: 10/28/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2052e27cde3427986dbf7784dcd5dbb179c5b209
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: c315dae7e5f02f112dfdfbec02e1ebaaa5e48a9f
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94380936"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96445777"
 ---
-# <a name="what-is-azure-synapse-analytics-workspaces-preview"></a>¿Qué es Azure Synapse Analytics (versión preliminar para área de trabajo)?
-
-[!INCLUDE [preview](includes/note-preview.md)]
+# <a name="what-is-azure-synapse-analytics"></a>¿Qué es Azure Synapse Analytics?
 
 El análisis empresarial debe trabajar a gran escala en cualquier tipo de datos, ya sean sin procesar, refinados o muy seleccionados. Esto suele requerir que las empresas combinen tecnologías de macrodatos y almacenamiento de datos en canalizaciones de datos complejas que trabajan con datos de almacenes relacionales y lagos de datos. Estos tipos de soluciones son difíciles de compilar, mantener y proteger. Su complejidad retrasa la entrega de la información que la empresa necesita.
 
@@ -53,7 +51,7 @@ Azure Synapse elimina las barreras de la tecnología tradicionales entre el uso 
 
 ### <a name="built-in-data-integration-via-pipelines"></a>Integración de datos integrada a través de canalizaciones
 
-Azure Synapse incluye el mismo motor de integración de datos y experiencias que Azure Data Factory, lo que permite crear canalizaciones de ELT a escala enriquecidas sin tener que salir de Synapse Analytics.
+Azure Synapse incluye el mismo motor de integración de datos y experiencias que Azure Data Factory, lo que permite crear canalizaciones de ELT a escala enriquecidas sin tener que salir de Azure Synapse Analytics.
 
 * Ingesta de datos de más de 90 orígenes de datos
 * ETL sin código con actividades de flujo de datos

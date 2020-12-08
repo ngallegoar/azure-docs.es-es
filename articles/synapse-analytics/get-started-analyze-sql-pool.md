@@ -10,16 +10,16 @@ ms.service: synapse-analytics
 ms.subservice: sql
 ms.topic: tutorial
 ms.date: 11/17/2020
-ms.openlocfilehash: ae7b15bf2e2efd72184110a105f68815516569ab
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 9014469ca063ca52be0965ecbd4e8b21709d10a0
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843917"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96455157"
 ---
 # <a name="analyze-data-with-dedicated-sql-pools"></a>Análisis de datos con grupos de SQL dedicados
 
-Azure Synapse Analytics le ofrece la funcionalidad de analizar datos con un grupo de SQL dedicado. En este tutorial, usará los datos de NYC Taxi para explorar las capacidades de un grupo de SQL dedicado.
+Azure Synapse Analytics le ofrece la funcionalidad de analizar datos con un grupo de SQL dedicado. En este tutorial usará los datos de NYC Taxi para explorar las funcionalidades de un grupo de SQL dedicado.
 
 ## <a name="load-the-nyc-taxi-data-into-sqlpool1"></a>Carga de los datos NYC Taxi en SQLPOOL1
 
@@ -94,8 +94,9 @@ Azure Synapse Analytics le ofrece la funcionalidad de analizar datos con un grup
 
     En esta consulta se muestra la relación entre las distancias recorridas totales y la distancia media recorrida, y el número de pasajeros.
 1. En la ventana de resultados del script de SQL, cambie el valor de **View** (Vista) a **Chart** (Gráfico) para ver los resultados en un gráfico de líneas.
-
-
+    
+    > [!NOTE]
+    > Un área de trabajo habilitada para un grupo de SQL dedicado (anteriormente SQL DW) se identifica mediante la información sobre herramientas del centro de datos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

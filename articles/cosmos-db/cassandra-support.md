@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 09/14/2020
-ms.openlocfilehash: ecf4229c95ff9103cd27fd161fdd19c9e7a0f76b
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: 8c51450fb6ce5c381784e6aaf9b1a66c3c4ff153
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94636969"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96188554"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Características de Apache Cassandra admitidas por Cassandra API de Azure Cosmos DB 
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
@@ -205,7 +205,7 @@ Cassandra API de Azure Cosmos DB es una plataforma de servicio administrada. No 
 
 ## <a name="hosted-cql-shell-preview"></a>Shell de CQL hospedado (versión preliminar)
 
-Puede abrir un shell de Cassandra nativo hospedado (CQLSH v5.0.1) directamente desde el Explorador de datos en [Azure Portal](data-explorer.md) o el [Explorador de Azure Cosmos](https://cosmos.azure.com/). Antes de habilitar el shell de CQL, debe [habilitar la característica Notebooks](enable-notebooks.md) en su cuenta (si aún no está habilitada, se le pedirá que lo haga al hacer clic en `Open Cassandra Shell`). Compruebe la nota resaltada en [Habilitación de Notebooks para las cuentas de Azure Cosmos DB](enable-notebooks.md) para ver las regiones de Azure admitidas.
+Puede abrir un shell de Cassandra nativo hospedado (CQLSH v5.0.1) directamente desde el Explorador de datos en [Azure Portal](data-explorer.md) o el [Explorador de Azure Cosmos DB](https://cosmos.azure.com/). Antes de habilitar el shell de CQL, debe [habilitar la característica Notebooks](enable-notebooks.md) en su cuenta (si aún no está habilitada, se le pedirá que lo haga al hacer clic en `Open Cassandra Shell`). Compruebe la nota resaltada en [Habilitación de Notebooks para las cuentas de Azure Cosmos DB](enable-notebooks.md) para ver las regiones de Azure admitidas.
 
 :::image type="content" source="./media/cassandra-support/cqlsh.png" alt-text="Abrir CQLSH":::
 

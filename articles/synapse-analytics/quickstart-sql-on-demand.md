@@ -1,6 +1,6 @@
 ---
 title: 'Inicio rápido: Uso de grupos de SQL sin servidor'
-description: En este inicio rápido, verá y aprenderá lo fácil que es consultar varios tipos de archivos mediante un grupo de SQL sin servidor (versión preliminar).
+description: En este inicio rápido, verá y aprenderá lo fácil que es consultar varios tipos de archivos mediante un grupo de SQL sin servidor.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 270942392e028964c7e9b1c110e4d9f118bd4953
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: e75bab664bdd0d6a4ac898905226c9956f62b4ff
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94682985"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96450512"
 ---
 # <a name="quickstart-use-serverless-sql-pool"></a>Inicio rápido: Uso de grupos de SQL sin servidor
 
-El grupo de SQL sin servidor de Synapse (versión preliminar) es un servicio de consulta sin servidor que permite ejecutar consultas SQL en archivos colocados en Azure Storage. En este inicio rápido, aprenderá a consultar varios tipos de archivos mediante un grupo de SQL sin servidor. Los formatos admitidos se enumeran en [OPENROWSET](sql/develop-openrowset.md).
+El grupo de SQL sin servidor de Synapse es un servicio de consulta sin servidor que permite ejecutar consultas SQL en archivos colocados en Azure Storage. En este inicio rápido, aprenderá a consultar varios tipos de archivos mediante un grupo de SQL sin servidor. Los formatos admitidos se enumeran en [OPENROWSET](sql/develop-openrowset.md).
 
 Este inicio rápido muestra cómo realizar consultas en: archivos CSV, Apache Parquet y JSON.
 

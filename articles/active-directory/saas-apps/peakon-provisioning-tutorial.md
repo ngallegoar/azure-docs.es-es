@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/28/2019
 ms.author: zhchia
-ms.openlocfilehash: 5fc5045643c9baf67b61d45188c8a2b6ccbc5c23
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: c04bbd5459690262b484582e807569b965a0439b
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94359823"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349895"
 ---
 # <a name="tutorial-configure-peakon-for-automatic-user-provisioning"></a>Tutorial: Configurar Peakon para el aprovisionamiento automático de usuarios
 
@@ -82,7 +82,7 @@ Para configurar Peakon para el aprovisionamiento automático de usuarios con Azu
 
     ![Botón Nueva aplicación](common/add-new-app.png)
 
-4. En el cuadro de búsqueda, escriba **Peakon** , seleccione **Peakon** en el panel de resultados y luego haga clic en el botón **Agregar** para agregar la aplicación.
+4. En el cuadro de búsqueda, escriba **Peakon**, seleccione **Peakon** en el panel de resultados y luego haga clic en el botón **Agregar** para agregar la aplicación.
 
     ![Peakon en la lista de resultados](common/search-new-app.png)
 
@@ -111,17 +111,17 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Captura de pantalla de la lista desplegable Modo de aprovisionamiento con la opción Automático seleccionada.](common/provisioning-automatic.png)
 
-5. En la sección **Credenciales de administrador** , escriba los valores de **SCIM 2.0 URL** y **Token de portador de OAuth** recuperados anteriormente en **URL de inquilino** y **Token secreto** respectivamente. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a Peakon. Si la conexión no se establece, asegúrese de que la cuenta de Peakon tiene permisos de administrador y pruebe otra vez.
+5. En la sección **Credenciales de administrador**, escriba los valores de **SCIM 2.0 URL** y **Token de portador de OAuth** recuperados anteriormente en **URL de inquilino** y **Token secreto** respectivamente. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a Peakon. Si la conexión no se establece, asegúrese de que la cuenta de Peakon tiene permisos de administrador y pruebe otra vez.
 
     ![URL de inquilino + Token](common/provisioning-testconnection-tenanturltoken.png)
 
-7. En el campo **Correo electrónico de notificación** , escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
+7. En el campo **Correo electrónico de notificación**, escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
 
     ![Correo electrónico de notificación](common/provisioning-notification-email.png)
 
-8. Haga clic en **Save** (Guardar).
+8. Haga clic en **Save**(Guardar).
 
-9. En la sección **Asignaciones** , seleccione **Synchronize Azure Active Directory Users to Peakon** (Sincronizar usuarios de Azure Active Directory con Peakon).
+9. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Users to Peakon** (Sincronizar usuarios de Azure Active Directory con Peakon).
 
     ![Peakon: Asignaciones de usuario](media/Peakon-provisioning-tutorial/Peakon-user-mappings.png)
 

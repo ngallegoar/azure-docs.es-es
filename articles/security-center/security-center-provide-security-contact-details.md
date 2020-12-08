@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/07/2020
+ms.date: 12/01/2020
 ms.author: memildin
-ms.openlocfilehash: 6b54f02b39e233dcf35f0d18682ca102883d76c3
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 85dffd4d96a78bab9dd890d9ad37572f3e524f06
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791875"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96487939"
 ---
 # <a name="configure-email-notifications-for-security-alerts"></a>Configuración de notificaciones de alertas de seguridad por correo electrónico 
 
@@ -26,14 +26,14 @@ Las alertas de seguridad deben llegar a las personas adecuadas de la organizaci�
 
 Para definir sus propias preferencias para los correos electrónicos de notificación, la página de configuración **Notificaciones por correo electrónico** de Azure Defender le permite elegir:
 
-- **_A quién_ se debe notificar** : se pueden enviar mensajes de correo electrónico a usuarios individuales o a cualquier persona con un rol de Azure especificado para una suscripción. 
-- **_Qué_ se les debe notificar** : modifique los niveles de gravedad para los que Defender debe enviar notificaciones.
+- **_A quién_ se debe notificar**: se pueden enviar mensajes de correo electrónico a usuarios individuales o a cualquier persona con un rol de Azure especificado para una suscripción. 
+- **_Qué_ se les debe notificar**: modifique los niveles de gravedad para los que Defender debe enviar notificaciones.
 
 Para evitar un exceso de alertas, Security Center limita el volumen de correos salientes. Para cada suscripción, Security Center envía:
 
-- un máximo de **cuatro** correos electrónicos al día para alertas de **gravedad alta**
-- un máximo de **dos** correos electrónicos al día para alertas de **gravedad media**
-- un máximo de **un** correo electrónico al día para alertas de **gravedad baja**
+- un máximo de un correo electrónico cada **6 horas** (4 correos electrónicos al día) para alertas de **gravedad alta**.
+- un máximo de un correo electrónico cada **12 horas** (2 correos electrónicos al día) para alertas de **gravedad media**.
+- un máximo de un correo electrónico cada **24 horas** (1 correo electrónico al día) para alertas de **gravedad baja**.
 
 :::image type="content" source="./media/security-center-provide-security-contacts/email-notification-settings.png" alt-text="Configuración de los detalles de los contactos que recibirán correos electrónicos sobre las alertas de seguridad" :::
  
@@ -62,10 +62,9 @@ Puede enviar notificaciones por correo electrónico a individuos o a todos los u
 1. Seleccione **Guardar** para aplicar la información de contacto de seguridad a su suscripción.
 
 
-## <a name="next-steps"></a>Pasos siguientes
-
+## <a name="see-also"></a>Consulte también
 Para más información sobre las alertas de seguridad, consulte las siguientes páginas:
 
 - [Alertas de seguridad: una guía de referencia](alerts-reference.md): obtenga información sobre las alertas de seguridad que puede ver en el módulo de protección contra amenazas de Azure Defender.
 - [Administración y respuesta a las alertas de seguridad en Azure Defender](security-center-managing-and-responding-alerts.md): aprenda a administrar y responder a alertas de seguridad.
-- [Automatización de las respuestas a los desencadenadores de Security Center](workflow-automation.md): use la automatización para responder a los desencadenadores de Security Center con una lógica de notificación personalizada
+- [Automatización de flujos de trabajo](workflow-automation.md): automatice respuestas a alertas con lógica de notificación personalizada

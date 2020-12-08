@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/02/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to install Azure Stack Edge Pro in datacenter so I can use it to transfer data to Azure.
-ms.openlocfilehash: ba903793844e44b26931a70183860c983adaf18a
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: 52f0bcbb332b5d5e47440accff9d9895dcef7056
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91743410"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96449362"
 ---
 # <a name="tutorial-install-azure-stack-edge-pro-with-gpu"></a>Tutorial: Instalación de Azure Stack Edge Pro con GPU
 
@@ -228,7 +228,7 @@ Realice los pasos siguientes para realizar el cableado de los cables de alimenta
 7. Conecte uno o varios de los PUERTOS 2, 3, 4, 5 o 6 a la red del centro de datos o Internet.
 
     - Si conecta el PUERTO 2, utilice el cable de red RJ-45 de 1 GbE.
-    - Para las interfaces de red de 10/25 GbE, use cables de cobre SFP+.
+    - Para las interfaces de red de 10/25 GbE, use cables de cobre SFP+ o fibra. Si usa fibra, utilice un adaptador de óptico a SFP.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

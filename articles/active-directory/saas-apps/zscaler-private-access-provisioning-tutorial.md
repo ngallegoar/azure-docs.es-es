@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/07/2019
 ms.author: Zhchia
-ms.openlocfilehash: a93e2a88201f32ed99698f2bfbab631c81ed8b35
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: da3ad4f70e0cc41fe95327eb74093c1471c877bd
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357715"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351578"
 ---
 # <a name="tutorial-configure-zscaler-private-access-zpa-for-automatic-user-provisioning"></a>Tutorial: configuración de Zscaler Private Access (ZPA) para el aprovisionamiento automático de usuarios
 
@@ -78,7 +78,7 @@ Antes de configurar y habilitar el aprovisionamiento automático de usuarios, de
 
     ![Creación de un token en Zscaler Private Access (ZPA)](media/zscaler-private-access-provisioning-tutorial/token.png)
 
-8.  Para buscar la **URL de inquilino** , vaya a **Administración > Configuración de IdP**. Haga clic en el nombre de la configuración de IdP recién agregada que aparece en la página.
+8.  Para buscar la **URL de inquilino**, vaya a **Administración > Configuración de IdP**. Haga clic en el nombre de la configuración de IdP recién agregada que aparece en la página.
 
     ![Nombre de IdP de Zscaler Private Access (ZPA)](media/zscaler-private-access-provisioning-tutorial/idpname.png)
 
@@ -137,17 +137,17 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Captura de pantalla de la lista desplegable Modo de aprovisionamiento con la opción Automático seleccionada.](common/provisioning-automatic.png)
 
-5. En la sección **Credenciales de administrador** , escriba el valor del **Punto de conexión de proveedor de servicios de SCIM** recuperado anteriormente en **Dirección URL del inquilino**. Escriba el valor del **token de portador** recuperado anteriormente en **Token secreto**. Haga clic en **Prueba de conexión** para asegurarse de que Azure AD puede conectarse a Zscaler Private Access (ZPA). Si la conexión no se establece, asegúrese de que la cuenta de Zscaler Private Access (ZPA) tiene permisos de administrador y pruebe de nuevo.
+5. En la sección **Credenciales de administrador**, escriba el valor del **Punto de conexión de proveedor de servicios de SCIM** recuperado anteriormente en **Dirección URL del inquilino**. Escriba el valor del **token de portador** recuperado anteriormente en **Token secreto**. Haga clic en **Prueba de conexión** para asegurarse de que Azure AD puede conectarse a Zscaler Private Access (ZPA). Si la conexión no se establece, asegúrese de que la cuenta de Zscaler Private Access (ZPA) tiene permisos de administrador y pruebe de nuevo.
 
     ![URL de inquilino + Token](common/provisioning-testconnection-tenanturltoken.png)
 
-6. En el campo **Correo electrónico de notificación** , escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
+6. En el campo **Correo electrónico de notificación**, escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
 
     ![Correo electrónico de notificación](common/provisioning-notification-email.png)
 
-7. Haga clic en **Save** (Guardar).
+7. Haga clic en **Save**(Guardar).
 
-8. En la sección **Asignaciones** , seleccione **Sincronizar usuarios de Azure Active Directory con Zscaler Private Access (ZPA)** .
+8. En la sección **Asignaciones**, seleccione **Sincronizar usuarios de Azure Active Directory con Zscaler Private Access (ZPA)** .
 
     ![Asignaciones de usuario de Zscaler Private Access (ZPA)](media/zscaler-private-access-provisioning-tutorial/usermappings.png)
 
@@ -155,7 +155,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Atributos de usuario de Zscaler Private Access (ZPA)](media/zscaler-private-access-provisioning-tutorial/userattributes.png)
 
-10. En la sección **Asignaciones** , seleccione **Sincronizar grupos de Azure Active Directory con Zscaler Private Access (ZPA)** .
+10. En la sección **Asignaciones**, seleccione **Sincronizar grupos de Azure Active Directory con Zscaler Private Access (ZPA)** .
 
     ![Asignaciones de grupo de Zscaler Private Access (ZPA)](media/zscaler-private-access-provisioning-tutorial/groupmappings.png)
 
@@ -169,7 +169,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Estado de aprovisionamiento activado](common/provisioning-toggle-on.png)
 
-14. Elija los valores deseados en **Ámbito** , en la sección **Configuración** , para definir los usuarios o grupos que quiere que se aprovisionen en Zscaler Private Access (ZPA).
+14. Elija los valores deseados en **Ámbito**, en la sección **Configuración**, para definir los usuarios o grupos que quiere que se aprovisionen en Zscaler Private Access (ZPA).
 
     ![Ámbito del aprovisionamiento](common/provisioning-scope.png)
 

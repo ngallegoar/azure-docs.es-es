@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: d587c4dbdd8f46d6e098ff96f464d456fffc9ccf
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: ad880b7c23c687530a79ca1123474e94c923e150
+ms.sourcegitcommit: b849ecdc8aa97337299b0f09970b7810c59cd044
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95529995"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96310398"
 ---
 # <a name="introduction-to-azure-defender-for-container-registries"></a>Introducción a Azure Defender para registros de contenedor
 
@@ -85,6 +85,8 @@ Sí. Si tiene una necesidad organizativa de omitir un resultado, en lugar de cor
 
 [Aprenda a crear reglas para deshabilitar los resultados desde la herramienta integrada de valoración de vulnerabilidades](defender-for-container-registries-usage.md#disable-specific-findings-preview).
 
+### <a name="why-is-security-center-alerting-me-to-vulnerabilities-about-an-image-that-isnt-in-my-registry"></a>¿Por qué me está avisando Security Center de las vulnerabilidades de una imagen que no está en mi registro?
+Security Center proporciona evaluaciones de vulnerabilidades de cada imagen que se inserta o se extrae en un registro. Algunas imágenes pueden volver a usar etiquetas de una imagen que ya se ha examinado. Por ejemplo, puede reasignar la etiqueta "Más reciente" cada vez que se agrega una imagen a un código hash. En esos casos, la imagen "antigua" todavía existe en el registro y es posible que todavía se pueda extraer mediante su código hash. Si la imagen tiene resultados de seguridad y se extrae, mostrará vulnerabilidades de seguridad.
 
 
 ## <a name="next-steps"></a>Pasos siguientes

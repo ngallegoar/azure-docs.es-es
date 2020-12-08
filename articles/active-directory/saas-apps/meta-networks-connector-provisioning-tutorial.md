@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/01/2019
 ms.author: Zhchia
-ms.openlocfilehash: ac41fb5ed6fd1e46719fcc39ccaf5b29375e7410
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: b6a8f192cd26639431cc9fcb6b43e1bc5e8e2843
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94359908"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353636"
 ---
 # <a name="tutorial-configure-meta-networks-connector-for-automatic-user-provisioning"></a>Tutorial: Configuración de Meta Networks Connector para el aprovisionamiento automático de usuarios
 
@@ -74,7 +74,7 @@ Antes de configurar y habilitar el aprovisionamiento automático de usuarios, de
 
     ![Agregar IdP de Meta Networks Connector](media/meta-networks-connector-provisioning-tutorial/newidp.png)
 
-7.  En la página **Configuración de IdP** , puede asignar un **Nombre** a la configuración del IdP y elegir un **Icono**.
+7.  En la página **Configuración de IdP**, puede asignar un **Nombre** a la configuración del IdP y elegir un **Icono**.
 
     ![Nombre de IdP de Meta Networks Connector](media/meta-networks-connector-provisioning-tutorial/idpname.png)
 
@@ -106,7 +106,7 @@ Antes de configurar Meta Networks Connector para el aprovisionamiento automátic
 
     ![Botón Nueva aplicación](common/add-new-app.png)
 
-4. En el cuadro de búsqueda, escriba **Meta Networks Connector** , seleccione **Meta Networks Connector** en el panel de resultados y haga clic en el botón **Agregar** para agregar la aplicación.
+4. En el cuadro de búsqueda, escriba **Meta Networks Connector**, seleccione **Meta Networks Connector** en el panel de resultados y haga clic en el botón **Agregar** para agregar la aplicación.
 
     ![Meta Networks Connector en la lista de resultados](common/search-new-app.png)
 
@@ -135,17 +135,17 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Captura de pantalla de la lista desplegable Modo de aprovisionamiento con la opción Automático seleccionada.](common/provisioning-automatic.png)
 
-5. En la sección **Credenciales de administrador** , escriba `https://api.metanetworks.com/v1/scim/<IdP ID>` en la **URL de inquilino**. Escriba el valor **SCIM Authentication Token** (Token de autenticación de SCIM) recuperado anteriormente en **Token secreto**. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a Meta Networks Connector. Si la conexión no se establece, asegúrese de que la cuenta de Meta Networks Connector tenga permisos de administrador y pruebe otra vez.
+5. En la sección **Credenciales de administrador**, escriba `https://api.metanetworks.com/v1/scim/<IdP ID>` en la **URL de inquilino**. Escriba el valor **SCIM Authentication Token** (Token de autenticación de SCIM) recuperado anteriormente en **Token secreto**. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a Meta Networks Connector. Si la conexión no se establece, asegúrese de que la cuenta de Meta Networks Connector tenga permisos de administrador y pruebe otra vez.
 
     ![URL de inquilino + Token](common/provisioning-testconnection-tenanturltoken.png)
 
-6. En el campo **Correo electrónico de notificación** , escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
+6. En el campo **Correo electrónico de notificación**, escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
 
     ![Correo electrónico de notificación](common/provisioning-notification-email.png)
 
-7. Haga clic en **Save** (Guardar).
+7. Haga clic en **Save**(Guardar).
 
-8. En la sección **Asignaciones** , seleccione **Synchronize Azure Active Directory Users to Meta Networks Connector** (Sincronizar usuarios de Azure Active Directory con Meta Networks Connector).
+8. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Users to Meta Networks Connector** (Sincronizar usuarios de Azure Active Directory con Meta Networks Connector).
 
     ![Asignaciones de usuario de Meta Networks Connector](media/meta-networks-connector-provisioning-tutorial/usermappings.png)
 
@@ -153,7 +153,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Atributos de usuario de Meta Networks Connector](media/meta-networks-connector-provisioning-tutorial/userattributes.png)
 
-10. En la sección **Asignaciones** , seleccione **Synchronize Azure Active Directory Groups to Meta Networks Connector** (Sincronizar grupos de Azure Active Directory con Meta Networks Connector).
+10. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Groups to Meta Networks Connector** (Sincronizar grupos de Azure Active Directory con Meta Networks Connector).
 
     ![Asignaciones de grupo de Meta Networks Connector](media/meta-networks-connector-provisioning-tutorial/groupmappings.png)
 
@@ -167,7 +167,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Estado de aprovisionamiento activado](common/provisioning-toggle-on.png)
 
-14. Defina los usuarios o grupos que quiere que se aprovisionen en Meta Networks Connector; para ello, elija los valores deseados en **Ámbito** , en la sección **Configuración**.
+14. Defina los usuarios o grupos que quiere que se aprovisionen en Meta Networks Connector; para ello, elija los valores deseados en **Ámbito**, en la sección **Configuración**.
 
     ![Ámbito del aprovisionamiento](common/provisioning-scope.png)
 

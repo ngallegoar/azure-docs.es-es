@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: tutorial
 ms.date: 06/17/2020
 ms.author: sebansal
-ms.openlocfilehash: c8f11f17c9e110509dcbcda291194f9b8d928c50
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 6d66648680aa14baa53372732df52a6c247a0117
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658968"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483770"
 ---
 # <a name="creating-and-merging-csr-in-key-vault"></a>Creación y combinación de solicitudes de firma de certificado en Key Vault
 
@@ -42,12 +42,14 @@ Los pasos siguientes le ayudarán a crear un certificado procedente de entidades
 
 
 
-1.  En primer lugar, **cree la directiva de certificados**. Key Vault no inscribirá ni renovará el certificado del emisor en nombre del usuario, ya que la entidad de certificación elegida en este escenario no es compatible y, por lo tanto, el valor de IssuerName se establece en Unknown.
+1. En primer lugar, **cree la directiva de certificados**. Key Vault no inscribirá ni renovará el certificado del emisor en nombre del usuario, ya que la entidad de certificación elegida en este escenario no es compatible y, por lo tanto, el valor de IssuerName se establece en Unknown.
 
-    ```azurepowershell
-    $policy = New-AzKeyVaultCertificatePolicy -SubjectName "CN=www.contosoHRApp.com" -ValidityInMonths 1  -IssuerName Unknown
-    ```
-
+   ```azurepowershell
+   $policy = New-AzKeyVaultCertificatePolicy -SubjectName "CN=www.contosoHRApp.com" -ValidityInMonths 1  -IssuerName Unknown
+   ```
+    
+   > [!NOTE]
+   > Si utiliza un nombre distintivo relativo (RDN) que tiene una coma (,) en el valor, use comillas simples y encapsule el valor que contiene el carácter especial entre comillas dobles. Ejemplo: `$policy = New-AzKeyVaultCertificatePolicy -SubjectName 'OU="Docs,Contoso",DC=Contoso,CN=www.contosoHRApp.com' -ValidityInMonths 1  -IssuerName Unknown`. En este ejemplo, el valor `OU` se lee como **Docs, Contoso**. Este formato funciona con todos los valores que contienen una coma.
 
 2. Cree una **solicitud de firma de certificado**.
 
@@ -56,7 +58,7 @@ Los pasos siguientes le ayudarán a crear un certificado procedente de entidades
    $csr.CertificateSigningRequest
    ```
 
-3. Obtenga la **solicitud de CSR firmada por la entidad de certificación**. `$certificateOperation.CertificateSigningRequest` es la solicitud de firma de certificado codificada en base4. Puede tomar este blob y volcarlo en el sitio web de solicitud de certificados del emisor. Este paso varía entre las diferentes entidades de certificación, por lo que es preferible localizar las instrucciones de la entidad específica sobre cómo ejecutarlo. También puede usar herramientas como certreq u openssl para obtener la solicitud de certificado firmada y completar el proceso de generación de un certificado.
+3. Obtenga la **solicitud de CSR firmada por la entidad de certificación**. `$csr.CertificateSigningRequest` es la solicitud de firma de certificado codificada en base4. Puede tomar este blob y volcarlo en el sitio web de solicitud de certificados del emisor. Este paso varía entre las diferentes entidades de certificación, por lo que es preferible localizar las instrucciones de la entidad específica sobre cómo ejecutarlo. También puede usar herramientas como certreq u openssl para obtener la solicitud de certificado firmada y completar el proceso de generación de un certificado.
 
 
 4. **Combine la solicitud firmada** en Key Vault. Después de que el emisor haya firmado la solicitud de certificado, puede recuperar el certificado firmado y combinarlo con el par de claves pública y privada inicial creado en Azure Key Vault.
@@ -79,15 +81,23 @@ Los pasos siguientes le ayudarán a crear un certificado procedente de entidades
     - **Asunto**: `"CN=www.contosoHRApp.com"`.
     - Seleccione los demás valores como desee. Haga clic en **Crear**.
 
-    ![Propiedades del certificado](../media/certificates/create-csr-merge-csr/create-certificate.png)
+    ![Propiedades del certificado](../media/certificates/create-csr-merge-csr/create-certificate.png)  
+
+
 6.  Verá que ahora se ha agregado el certificado en la lista Certificados. Seleccione este nuevo certificado que acaba de crear. El estado actual del certificado será "deshabilitado", ya que aún no ha sido emitido por la entidad de certificación.
 7. Haga clic en la pestaña **Operación de certificados** y seleccione **Descargar CSR**.
- ![Captura de pantalla que resalta el botón Descargar CSR.](../media/certificates/create-csr-merge-csr/download-csr.png)
 
+   ![Captura de pantalla que resalta el botón Descargar CSR.](../media/certificates/create-csr-merge-csr/download-csr.png)
+ 
 8.  Envíe el archivo .crs a la entidad de certificación para que se firme la solicitud.
 9.  Una vez que la entidad de certificación firme la solicitud, devuelva el archivo de certificado para **combinar la solicitud firmada** en la misma pantalla Operación de certificados.
 
-La solicitud de certificado se ha combinado correctamente.
+La solicitud de certificado ahora se ha combinado correctamente.
+
+> [!NOTE]
+> Si los valores de RDN tienen comas, también puede agregarlos en el campo **Firmante** rodeando el valor entre comillas dobles, como se muestra en el paso 4.
+> Entrada de ejemplo para "Firmante": `DC=Contoso,OU="Docs,Contoso",CN=www.contosoHRApp.com` En este ejemplo, el RDN `OU` contiene un valor con una coma en el nombre. La salida resultante para `OU` es **Docs, Contoso**.
+
 
 ## <a name="adding-more-information-to-csr"></a>Incorporación de más información a CSR
 
@@ -102,8 +112,8 @@ Ejemplo
     ```SubjectName="CN = docs.microsoft.com, OU = Microsoft Corporation, O = Microsoft Corporation, L = Redmond, S = WA, C = US"
     ```
 
->[!Note]
->Si solicita un certificado de validación de dominio (DV) con todos esos detalles en el CSR, puede que la CA rechace la solicitud porque no pueda validar toda la información contenida en la misma. Si solicita un certificado de validación de organización (OV), sería más adecuado agregar toda esa información en el CSR.
+> [!NOTE]
+> Si solicita un certificado de validación de dominio (DV) con todos esos detalles en el CSR, puede que la CA rechace la solicitud porque no pueda validar toda la información contenida en la misma. Si solicita un certificado de validación de organización (OV), sería más adecuado agregar toda esa información en el CSR.
 
 
 ## <a name="troubleshoot"></a>Solución de problemas
@@ -116,6 +126,8 @@ Ejemplo
 - Si el certificado emitido se encuentra en el estado "deshabilitado" en Azure Portal, consulte la pantalla **Operación de certificados** y revise el mensaje de error sobre ese certificado.
 
 Para más información, consulte las [operaciones con certificados en la referencia de la API REST de Key Vault](/rest/api/keyvault). Para obtener información sobre cómo establecer permisos, vea [Almacenes: crear o actualizar](/rest/api/keyvault/vaults/createorupdate) y [Almacenes: actualizar directiva de acceso](/rest/api/keyvault/vaults/updateaccesspolicy).
+
+- **Tipo de error "El nombre del firmante proporcionado no es un nombre X500 válido".** Este error se puede producir si ha incluido algún carácter especial en los valores de SubjectName. Consulte las notas en Azure Portal y las instrucciones de PowerShell, respectivamente. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

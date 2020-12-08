@@ -1,6 +1,6 @@
 ---
 title: Base de datos compartida
-description: Azure Synapse Analytics proporciona un modelo de metadatos compartido en el que la creación de una base de datos en el grupo de Apache Spark sin servidor hará que sea accesible desde su grupo de SQL sin servidor (versión preliminar) y los motores del grupo de SQL.
+description: Azure Synapse Analytics proporciona un modelo de metadatos compartido en el que la creación de una base de datos en un grupo de Apache Spark sin servidor hará que sea accesible desde su grupo de SQL sin servidor y los motores del grupo de SQL.
 services: synapse-analytics
 author: MikeRys
 ms.service: synapse-analytics
@@ -10,20 +10,18 @@ ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e17eb44a5f4f4aace9ce9d541b8218b35db0f5d3
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 14ae8b8670db53761d085bc019711e829633601b
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93317833"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451813"
 ---
 # <a name="azure-synapse-analytics-shared-database"></a>Base de datos compartida de Azure Synapse Analytics
 
-Azure Synapse Analytics permite que los diferentes motores de las áreas de trabajo de cálculo compartan bases de datos y tablas entre sus grupos de Apache Spark (versión preliminar) y el motor del grupo de SQL sin servidor (versión preliminar).
+Azure Synapse Analytics permite que los diferentes motores de cálculo de áreas de trabajo compartan bases de datos y tablas entre sus grupos de Apache Spark sin servidor y el grupo de SQL sin servidor.
 
-[!INCLUDE [synapse-analytics-preview-terms](../../../includes/synapse-analytics-preview-terms.md)]
-
-Una base de datos creada con un trabajo de Spark será visible con el mismo nombre en todos los grupos de Spark (versión preliminar) actuales y futuros del área de trabajo, incluido el motor del grupo de SQL sin servidor.
+Una base de datos creada con un trabajo de Spark será visible con el mismo nombre en todos los grupos de Spark actuales y futuros del área de trabajo, incluido el motor del grupo de SQL sin servidor.
 
 La base de datos predeterminada de Spark, llamada `default`, también estará visible en el contexto del grupo de SQL sin servidor como una base de datos llamada `default`.
 

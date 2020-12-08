@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 65a77dfaab0bf99207fd27a35d67a12532056476
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a63cd95fdcee7c9ed0c49ba41b4d7e7e6de8f4bf
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89442946"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96458738"
 ---
 # <a name="quickstart-create-a-workload-classifier-using-t-sql"></a>Inicio rápido: Creación un clasificador de carga de trabajo mediante T-SQL
 
@@ -25,13 +25,13 @@ En este inicio rápido creará un clasificador de carga de trabajo rápidamente 
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
 > [!NOTE]
-> La creación de una instancia del grupo de SQL de Synapse en Azure Synapse Analytics puede dar lugar a un nuevo servicio facturable.  Para más información, consulte los [precios de Azure Synapse Analytics](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
+> La creación de una instancia de grupo de SQL dedicado en Azure Synapse Analytics puede dar lugar a un nuevo servicio facturable.  Para más información, consulte los [precios de Azure Synapse Analytics](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
 >
 >
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-En este inicio rápido se da por supuesto que ya ha aprovisionado un grupo de Synapse SQL en Azure Synapse Analytics y que tiene los permisos CONTROL DATABASE. Si tiene que crear una, consulte [Guía de inicio rápido: Creación de una instancia de Azure SQL Data Warehouse en Azure Portal, y realización de consultas en ella](create-data-warehouse-portal.md) para crear un almacenamiento de datos denominado **mySampleDataWarehouse**.
+En este inicio rápido se da por supuesto que ya ha aprovisionado un grupo de SQL dedicado en Azure Synapse Analytics y que tiene los permisos CONTROL DATABASE. Si tiene que crearlo, siga las instrucciones del artículo sobre la [creación y conexión desde Azure Portal](create-data-warehouse-portal.md) para crear un grupo de SQL dedicado llamado **mySampleDataWarehouse**.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
 
@@ -87,27 +87,23 @@ DROP USER [TheCEO]
 ;
 ```
 
-Se le está cobrando por unidades de almacenamiento de datos y por los datos almacenados en el almacenamiento de datos. Estos recursos de proceso y de almacenamiento se facturan por separado.
+Se le cobra por las unidades de almacenamiento de datos y por los datos almacenados en el grupo de SQL dedicado. Estos recursos de proceso y de almacenamiento se facturan por separado.
 
-- Si desea conservar los datos de almacenamiento, puede pausar el proceso cuando no está utilizando el almacenamiento de datos. Si se hace una pausa en el proceso, solo se carga el almacenamiento de datos. Cuando esté listo para trabajar con los datos, reanude el proceso.
-- Si desea quitar cobros futuros, puede eliminar el almacenamiento de datos.
+- Si quiere conservar los datos en el almacenamiento, puede pausar el proceso cuando no use el grupo de SQL dedicado. Si se hace una pausa en el proceso, solo se carga el almacenamiento de datos. Cuando esté listo para trabajar con los datos, reanude el proceso.
+- Si quiere eliminar cobros futuros, puede eliminar el grupo de SQL dedicado.
 
 Siga estos pasos para limpiar los recursos.
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) y seleccione el almacenamiento de datos.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) y seleccione el grupo de SQL dedicado.
 
     ![Limpieza de recursos](./media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
-2. Para pausar el proceso, seleccione el botón **Pausar**. Cuando el almacenamiento de datos se haya puesto en pausa, verá un botón **Iniciar**.  Para reanudar el proceso, seleccione **Iniciar**.
+2. Para pausar el proceso, seleccione el botón **Pausar**. Cuando el grupo de SQL dedicado esté en pausa, verá un botón **Iniciar**.  Para reanudar el proceso, seleccione **Iniciar**.
 
-3. Para quitar el almacenamiento de datos para que no se le cobre por proceso o almacenamiento, seleccione **Eliminar**.
-
-4. Para eliminar el servidor SQL que creó, seleccione **mynewserver-20180430.database.windows.net** en la imagen anterior y seleccione **Eliminar**.  Debe tener cuidado con este procedimiento, ya que la eliminación del servidor elimina también todas las bases de datos asignadas al servidor.
-
-5. Para quitar el grupo de recursos, seleccione **myResourceGroup** y **Eliminar grupo de recursos**.
+3. Para quitar el grupo de SQL dedicado para que no se le cobre por proceso o almacenamiento, seleccione **Eliminar**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Ahora ha creado un clasificador de carga de trabajo. Ejecute algunas consultas como TheCEO para ver cómo responden. Consulte [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) para ver las consultas y la importancia asignada.
-- Para más información sobre la administración de cargas de trabajo de SQL de Synapse, consulte [Importancia de la carga de trabajo](sql-data-warehouse-workload-importance.md) y [Clasificación de la carga de trabajo](sql-data-warehouse-workload-classification.md).
+- Para más información sobre la administración de cargas de trabajo de un grupo de SQL dedicado, consulte [Importancia de la carga de trabajo](sql-data-warehouse-workload-importance.md) y [Clasificación de la carga de trabajo](sql-data-warehouse-workload-classification.md).
 - Consulte los artículos de procedimientos para [configurar la importancia de la carga de trabajo](sql-data-warehouse-how-to-configure-workload-importance.md) y sobre cómo [administrar y supervisar la administración de la carga de trabajo](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md).

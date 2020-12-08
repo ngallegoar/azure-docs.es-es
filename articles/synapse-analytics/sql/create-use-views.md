@@ -1,6 +1,6 @@
 ---
-title: Creación y uso de vistas en el grupo de SQL sin servidor (versión preliminar)
-description: En esta sección, aprenderá a crear y usar vistas para encapsular consultas del grupo de SQL sin servidor (versión preliminar). Las vistas le permitirán volver a usar esas consultas. Las vistas también son necesarias si se desea usar herramientas, como Power BI, junto con el grupo de SQL sin servidor.
+title: Creación y uso de vistas en un grupo de SQL sin servidor
+description: En esta sección, aprenderá a crear y usar vistas para encapsular consultas de un grupo de SQL sin servidor. Las vistas le permitirán volver a usar esas consultas. Las vistas también son necesarias si se desea usar herramientas, como Power BI, junto con el grupo de SQL sin servidor.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 302cf97db7c1d2ba489a84b6be912816d20f6091
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 0948c7c82d7577bae07057bff9d1be4d7e09f978
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94685569"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462290"
 ---
-# <a name="create-and-use-views-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Creación y uso de vistas en el grupo de SQL sin servidor (versión preliminar) en Azure Synapse Analytics
+# <a name="create-and-use-views-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Creación y uso de vistas mediante un grupo de SQL sin servidor en Azure Synapse Analytics
 
-En esta sección, aprenderá a crear y usar vistas para encapsular consultas del grupo de SQL sin servidor (versión preliminar). Las vistas le permitirán volver a usar esas consultas. Las vistas también son necesarias si se desea usar herramientas, como Power BI, junto con el grupo de SQL sin servidor.
+En esta sección, aprenderá a crear y usar vistas para encapsular consultas de un grupo de SQL sin servidor. Las vistas le permitirán volver a usar esas consultas. Las vistas también son necesarias si se desea usar herramientas, como Power BI, junto con el grupo de SQL sin servidor.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 

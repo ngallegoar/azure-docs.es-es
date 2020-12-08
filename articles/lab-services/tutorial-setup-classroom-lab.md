@@ -3,12 +3,12 @@ title: Configuración de un laboratorio con Azure Lab Services | Microsoft Docs
 description: En este tutorial, va a usar Azure Lab Services para configurar un laboratorio de clase con las máquinas virtuales que van a utilizar los alumnos de su clase.
 ms.topic: tutorial
 ms.date: 06/26/2020
-ms.openlocfilehash: 1155646d31ddb8a0a3abce025acde5c4cb645f54
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8981a03b53b1cfb67b03d89f8a1468511d9b1b93
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91336741"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96434862"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>Tutorial: Configuración de un laboratorio educativo 
 En este tutorial, se va a configurar un laboratorio de clase con las máquinas virtuales que van a utilizar los estudiantes de la clase.  
@@ -116,7 +116,7 @@ Cree un evento programado para el laboratorio de modo que las máquinas virtuale
     
     ![Programación en el calendario](./media/how-to-create-schedules/schedule-calendar.png)
 
-    Para más información sobre la creación y administración de programaciones para una clase, consulte [Creación y administración de programaciones para laboratorios educativos](how-to-create-schedules.md).
+    Para más información sobre la creación y administración de programaciones para una clase, consulte [Creación y administración de programaciones para laboratorios](how-to-create-schedules.md).
 
 
 ## <a name="add-users-to-the-lab"></a>Incorporación de usuarios al laboratorio

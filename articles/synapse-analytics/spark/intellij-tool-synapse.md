@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Azure Toolkit for IntelliJ (aplicación Spark)'
-description: 'Tutorial: Uso de Azure Toolkit for IntelliJ para desarrollar aplicaciones Spark escritas en Scala y enviarlas a un grupo de Apache Spark sin servidor (versión preliminar).'
+description: 'Tutorial: Uso de Azure Toolkit for IntelliJ para desarrollar aplicaciones Spark escritas en Scala y enviarlas a un grupo de Apache Spark sin servidor.'
 services: synapse-analytics
 author: hrasheed-msft
 ms.author: jejiang
@@ -9,16 +9,16 @@ ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
 ms.date: 04/15/2020
-ms.openlocfilehash: 5a9fcf3e13c2f86a11e9626be486a585ec659044
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 75cc23df41741a95e87ad64d168aea4fa4f45733
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96013775"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451056"
 ---
 # <a name="tutorial-create-an-apache-spark-application-with-intellij-using-a-synapse-workspace"></a>Tutorial: Creación de una aplicación Apache Spark con IntelliJ mediante un área de trabajo de Synapse
 
-En este tutorial se muestra cómo usar el complemento de Azure Toolkit for IntelliJ para desarrollar aplicaciones Apache Spark escritas en [Scala](https://www.scala-lang.org/) y enviarlas a continuación a un grupo de Apache Spark sin servidor (versión preliminar) directamente desde el entorno de desarrollo integrado (IDE) de IntelliJ. Puede usar el complemento de varias maneras:
+En este tutorial se muestra cómo usar el complemento de Azure Toolkit for IntelliJ para desarrollar aplicaciones Apache Spark escritas en [Scala](https://www.scala-lang.org/) y enviarlas a continuación a un grupo de Apache Spark sin servidor directamente desde el entorno de desarrollo integrado (IDE) de IntelliJ. Puede usar el complemento de varias maneras:
 
 - Desarrollar y enviar una aplicación Spark en Scala a un grupo de Spark.
 - Acceder a los recursos de los grupos de Spark.

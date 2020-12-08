@@ -9,12 +9,12 @@ ms.subservice: workspace
 ms.date: 09/03/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: fa7faf64e1889ef2d1abe644f23f0be363709a6b
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: fb7672a0d7bdd14415a51f2296c281e92cf5542a
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322712"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96450653"
 ---
 # <a name="quickstart-create-a-synapse-workspace"></a>Inicio rápido: Creación de un área de trabajo de Synapse
 En este inicio rápido se describe cómo crear un área de trabajo de Azure Synapse mediante Azure Portal.
@@ -22,9 +22,9 @@ En este inicio rápido se describe cómo crear un área de trabajo de Azure Syna
 ## <a name="create-a-synapse-workspace"></a>Creación de un área de trabajo de Synapse
 
 1. Abra [Azure Portal](https://portal.azure.com) y, en la parte superior, busque **Synapse**.
-1. En los resultados de la búsqueda, en **Servicios** , seleccione **Azure Synapse Analytics (versión preliminar de las áreas de trabajo)** .
+1. En los resultados de la búsqueda, en **Servicios**, seleccione **Azure Synapse Analytics**.
 1. Seleccione **Agregar** para crear un área de trabajo.
-1. En la pestaña **Datos básicos** , asigne un nombre único al área de trabajo. Usaremos **mysworkspace** en este documento.
+1. En la pestaña **Datos básicos**, asigne un nombre único al área de trabajo. Usaremos **mysworkspace** en este documento.
 1. Necesita una cuenta de ADLSGEN2 para crear un área de trabajo. La opción más sencilla para crear una nueva. Si desea volver a usar una existente, deberá realizar alguna configuración adicional. 
 1. OPCIÓN 1 Creación de una nueva cuenta de ADLSGEN2 
     1. En **Select Data Lake Storage Gen 2** (Seleccionar Data Lake Storage Gen 2), haga clic en **Crear nuevo** y asígnele el nombre **contosolake**.
@@ -33,14 +33,17 @@ En este inicio rápido se describe cómo crear un área de trabajo de Azure Syna
 1. El área de trabajo de Azure Synapse usará esta cuenta de almacenamiento como su cuenta de almacenamiento "principal" y el contenedor para almacenar los datos del área de trabajo. El área de trabajo almacena datos en tablas de Apache Spark. Almacena los registros de aplicaciones de Spark en una carpeta denominada **/synapse/workspacename**.
 1. Seleccione **Revisar y crear** > **Crear**. El área de trabajo estará lista en unos minutos.
 
+> [!NOTE]
+> Después de crear el área de trabajo de Azure Synapse, no se podrá mover a otro inquilino de Azure Active Directory. Si lo hace mediante la migración de suscripciones u otras acciones, puede perder el acceso a los artefactos del área de trabajo.  
+
 ## <a name="open-synapse-studio"></a>Abrir Synapse Studio
 
 Una vez creada el área de trabajo de Azure Synapse, hay dos maneras de abrir Synapse Studio:
 
-* Abrir el área de trabajo de Synapse en [Azure Portal](https://portal.azure.com). En la parte superior de la sección **Información general** , seleccione **Iniciar Synapse Studio**.
+* Abrir el área de trabajo de Synapse en [Azure Portal](https://portal.azure.com). En la parte superior de la sección **Información general**, seleccione **Iniciar Synapse Studio**.
 * Vaya a `https://web.azuresynapse.net` e inicie sesión en el área de trabajo.
 
-## <a name="prepare-an-existing-storage-account-for-use-with-synapse-analytics"></a>Preparación de una cuenta de almacenamiento existente para su uso con Synapse Analytics
+## <a name="prepare-an-existing-storage-account-for-use-with-azure-synapse-analytics"></a>Preparación de una cuenta de almacenamiento existente para su uso con Azure Synapse Analytics
 
 1. Abra [Azure Portal](https://portal.azure.com).
 1. Navegue a una cuenta de almacenamiento de ADLSGEN2 existente.

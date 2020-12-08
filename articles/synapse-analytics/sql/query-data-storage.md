@@ -1,6 +1,6 @@
 ---
-title: Consulta del almacenamiento de datos con el grupo de SQL sin servidor (versión preliminar)
-description: En este artículo se describe cómo consultar Azure Storage mediante el recurso del grupo de SQL sin servidor (versión preliminar) en Azure Synapse Analytics.
+title: Consulta del almacenamiento de datos con el grupo de SQL sin servidor
+description: En este artículo se describe cómo consultar Azure Storage mediante el recurso del grupo de SQL sin servidor en Azure Synapse Analytics.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: c7a8fb63f775a76342849957f070861fd200a9d3
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 967250cf29d1f0248f296cb545a764bd8e611773
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95998930"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462654"
 ---
-# <a name="query-storage-files-with-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Consulta de archivos del almacenamiento con el grupo de SQL sin servidor (versión preliminar) en Azure Synapse Analytics
+# <a name="query-storage-files-with-serverless-sql-pool-in-azure-synapse-analytics"></a>Consulta de archivos del almacenamiento con el grupo de SQL sin servidor en Azure Synapse Analytics
 
-El grupo de SQL sin servidor (versión preliminar) permite consultar los datos del lago de datos. Ofrece un área expuesta de consultas de T-SQL que admite consultas de datos semiestructurados y no estructurados. Para realizar consultas, se admiten los siguientes aspectos de T-SQL:
+El grupo de SQL sin servidor permite consultar los datos del lago de datos. Ofrece un área expuesta de consultas de T-SQL que admite consultas de datos semiestructurados y no estructurados. Para realizar consultas, se admiten los siguientes aspectos de T-SQL:
 
 - Área expuesta [SELECT](/sql/t-sql/queries/select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) completa, que incluye la mayoría de los [operadores y funciones de SQL](overview-features.md).
 - CREATE EXTERNAL TABLE AS SELECT ([CETAS](develop-tables-cetas.md)) crea una [tabla externa](develop-tables-external-tables.md) y, después, exporta en paralelo los resultados de una instrucción SELECT de Transact-SQL a Azure Storage.
@@ -47,7 +47,7 @@ Para consultar los datos de origen con formato Parquet, use FORMAT = 'PARQUET'
 ```syntaxsql
 SELECT * FROM
 OPENROWSET( BULK N'https://myaccount.dfs.core.windows.net//mycontainer/mysubfolder/data.parquet', FORMAT = 'PARQUET') 
-WITH (C1 int, C2 varchar(20), C3 as varchar(max)) as rows
+WITH (C1 int, C2 varchar(20), C3 varchar(max)) as rows
 ```
 
 Para ver ejemplos de su uso, lea el artículo en el que se explica cómo [consultar archivos con formato Parquet](query-parquet-files.md).
@@ -59,7 +59,7 @@ Para consultar los datos de origen con formato CSV, use FORMAT = 'CSV'. Cuando c
 ```sql
 SELECT * FROM
 OPENROWSET( BULK N'https://myaccount.dfs.core.windows.net/mycontainer/mysubfolder/data.csv', FORMAT = 'CSV', PARSER_VERSION='2.0') 
-WITH (C1 int, C2 varchar(20), C3 as varchar(max)) as rows
+WITH (C1 int, C2 varchar(20), C3 varchar(max)) as rows
 ```
 
 Hay algunas opciones adicionales que se pueden usar para ajustar las reglas de análisis al formato CSV personalizado:
@@ -85,7 +85,7 @@ OPENROWSET( BULK N'https://myaccount.dfs.core.windows.net/mycontainer/mysubfolde
 WITH (
       C1 int, 
       C2 varchar(20),
-      C3 as varchar(max)
+      C3 varchar(max)
 ) as rows
 ```
 
@@ -222,7 +222,7 @@ Puede obtener más información sobre cómo consultar varios tipos de datos medi
 ### <a name="tools"></a>Herramientas
 
 Las herramientas necesarias para emitir consultas:
-    - Azure Synapse Studio (versión preliminar)
+    - Azure Synapse Studio 
     - Azure Data Studio
     - SQL Server Management Studio
 

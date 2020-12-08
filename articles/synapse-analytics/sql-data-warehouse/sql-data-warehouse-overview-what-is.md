@@ -1,6 +1,6 @@
 ---
-title: ¿Qué es Azure Synapse Analytics (anteriormente SQL Data Warehouse)?
-description: Azure Synapse Analytics (anteriormente SQL Data Warehouse) es un servicio de análisis ilimitado que reúne el almacenamiento de datos empresariales y el análisis de macrodatos.
+title: ¿Qué es un grupo de SQL dedicado (anteriormente SQL DW)?
+description: Un grupo de SQL dedicado (anteriormente SQL DW) en Azure Synapse Analytics es la funcionalidad de almacenamiento de datos empresariales de Azure Synapse Analytics.
 services: synapse-analytics
 author: mlee3gsd
 manager: craigg
@@ -10,37 +10,30 @@ ms.subservice: sql-dw
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 8840791c7b18d1efa499c2826a6eaf041a6da787
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 2f9ab6dacde0259905368d8a0cb788dde77bbfb2
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93317482"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96453630"
 ---
-# <a name="what-is-azure-synapse-analytics-formerly-sql-dw"></a>¿Qué es Azure Synapse Analytics (anteriormente SQL Data Warehouse)?
+# <a name="what-is-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>¿Qué es un grupo de SQL dedicado (anteriormente SQL DW) en Azure Synapse Analytics?
+
+Azure Synapse Analytics es un servicio de análisis que engloba el almacenamiento de datos empresariales y el análisis de macrodatos. Un grupo de SQL dedicado (anteriormente SQL DW) hace referencia a las características de almacenamiento de datos empresariales que están disponibles en Azure Synapse Analytics.
+
+
+
+![Un grupo de SQL dedicado (anteriormente SQL DW) en relación con Azure Synapse](./media/sql-data-warehouse-overview-what-is/dedicated-sql-pool.png)
+
+
+
+Un grupo de SQL dedicado (anteriormente SQL DW) representa una colección de recursos de análisis que se aprovisionan al usar Synapse SQL. El tamaño de un grupo de SQL dedicado (anteriormente SQL DW) se determina mediante las unidades de almacenamiento de datos (DWU).
+
+Una vez que se crea un grupo de SQL dedicado, puede importar macrodatos con consultas T-SQL de [PolyBase](/sql/relational-databases/polybase/polybase-guide?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) simples y, después, usar la potencia del motor de consultas distribuidas para realizar un análisis de alto rendimiento. Al realizar la integración y el análisis de los datos, el grupo de SQL dedicado (anteriormente SQL DW) pasará a ser la versión única de certeza con la que puede contar su empresa para obtener información.
 
 > [!NOTE]
->Explore la [documentación de Azure Synapse (versión preliminar de áreas de trabajo)](../overview-what-is.md).
->
-
-Azure Synapse es un servicio de análisis que engloba el almacenamiento de datos empresariales y el análisis de macrodatos. Le ofrece la libertad de consultar los datos como prefiera, ya sea a petición sin servidor o con recursos aprovisionados, a escala. Azure Synapse reúne estos dos mundos con una experiencia unificada para ingerir, preparar, administrar y servir datos para las necesidades inmediatas de inteligencia empresarial y aprendizaje automático.
-
-Azure Synapse tiene cuatro componentes:
-
-- SQL de Synapse: Análisis basado en T-SQL completo: disponible con carácter general
-  - Grupo de SQL dedicado (pago por DWU aprovisionado)
-  - Grupo de SQL sin servidor (pago por TB procesado) (versión preliminar)
-- Spark: profunda integración con Apache Spark (versión preliminar)
-- Canalizaciones de Synapse: integración de datos híbridos (versión preliminar)
-- Studio: Experiencia de usuario unificada (versión preliminar)
-
-## <a name="dedicated-sql-pool-in-azure-synapse"></a>Grupo de SQL dedicado en Azure Synapse
-
-El grupo de SQL dedicado hace referencia a las características de almacenamiento de datos empresariales que están disponibles con carácter general en Azure Synapse.
-
-El grupo de SQL dedicado representa una colección de recursos de análisis que se aprovisionan al usar Synapse SQL. El tamaño de un grupo de SQL dedicado se determina mediante las unidades de almacenamiento de datos (DWU).
-
-Importe macrodatos con consultas T-SQL de [PolyBase](/sql/relational-databases/polybase/polybase-guide?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) simples y, después, use la potencia del motor de consultas distribuidas para realizar un análisis de alto rendimiento. Al realizar la integración y el análisis de los datos, Synapse SQL pasará a ser la versión única de certeza con la que puede contar su empresa para obtener información. 
+>Explore la [documentación de Azure Synapse Analytics](../overview-what-is.md).
+> 
 
 ## <a name="key-component-of-a-big-data-solution"></a>Componente clave de una solución de macrodatos
 
@@ -48,9 +41,9 @@ El almacenamiento de datos un componente clave de una solución de macrodatos de
 
 ![Solución de almacenamiento de datos](./media/sql-data-warehouse-overview-what-is/data-warehouse-solution.png)
 
-En una solución de datos en la nube, los datos provenientes de varios orígenes se ingieren en almacenes de macrodatos. Una vez que están en un almacén de macrodatos, Hadoop, y Spark y los algoritmos de aprendizaje automático preparan y entrenan los datos. Cuando los datos están listos para el análisis complejo, el grupo de SQL dedicado usa PolyBase para consultar los almacenes de macrodatos. PolyBase usa las consultas T-SQL estándar para llevar los datos a tablas del grupo de SQL dedicado.
+En una solución de datos en la nube, los datos provenientes de varios orígenes se ingieren en almacenes de macrodatos. Una vez que están en un almacén de macrodatos, Hadoop, y Spark y los algoritmos de aprendizaje automático preparan y entrenan los datos. Cuando los datos están listos para el análisis complejo, el grupo de SQL dedicado usa PolyBase para consultar los almacenes de macrodatos. PolyBase usa las consultas T-SQL estándar para llevar los datos a tablas del grupo de SQL dedicado (anteriormente SQL DW).
 
-El grupo de SQL dedicado almacena los datos en tablas relacionales con almacenamiento en columnas. Este formato reduce considerablemente los costos de almacenamiento de datos y mejora el rendimiento de las consultas. Una vez que los datos están almacenados, se pueden realizar análisis a gran escala. En comparación con los sistemas de bases de datos tradicionales, las consultas de análisis finalizan en segundos, en lugar de minutos, o en horas, en lugar de días.
+El grupo de SQL dedicado (anteriormente SQL DW) almacena los datos en tablas relacionales con almacenamiento en columnas. Este formato reduce considerablemente los costos de almacenamiento de datos y mejora el rendimiento de las consultas. Una vez que los datos están almacenados, se pueden realizar análisis a gran escala. En comparación con los sistemas de bases de datos tradicionales, las consultas de análisis finalizan en segundos, en lugar de minutos, o en horas, en lugar de días.
 
 Los resultados del análisis pueden ir a aplicaciones o bases de datos de informes mundiales. En ellas, los analistas empresariales pueden obtener información útil para tomar decisiones empresariales bien informadas.
 

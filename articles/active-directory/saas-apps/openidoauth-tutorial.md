@@ -12,20 +12,20 @@ ms.topic: tutorial
 ms.date: 05/30/2019
 ms.author: jeedes
 ms.custom: has-adal-ref
-ms.openlocfilehash: ce4cccba678a934780dc987f1441ea658a70f8eb
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 17d78b4d6db9e65868995d8ea7835a0d911e8589
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996615"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348708"
 ---
 # <a name="configure-an-openidoauth-application-from-the-azure-ad-app-gallery"></a>Configuración de una aplicación OpenID/OAuth desde la galería de aplicaciones de Azure AD
 
 ## <a name="process-of-adding-an-openid-application-from-the-gallery"></a>Proceso de adición de una aplicación OpenID desde la galería
 
-1. En el panel izquierdo de [Azure Portal](https://portal.azure.com), seleccione **Azure Active Directory**.
+1. En [Azure Portal](https://portal.azure.com), seleccione **Azure Active Directory**.
 
-    ![Botón Azure Active Directory](common/select-azuread.png))
+    ![Botón Azure Active Directory](common/select-azuread.png)
 
 2. Vaya a **Aplicaciones empresariales** > **Todas las aplicaciones**.
 
@@ -39,17 +39,23 @@ ms.locfileid: "91996615"
 
     ![Openid en la lista de resultados](common/search-new-app.png)
 
-    > [!NOTE]
-    > Para las aplicaciones OpenID Connect y OAuth, el botón **Agregar** está deshabilitado de forma predeterminada. Aquí, el administrador de inquilinos debe seleccionar el botón de registro y proporcionar el consentimiento a la aplicación. La aplicación se agrega entonces al inquilino del cliente, donde puede configurar lo que desee. No es necesario agregar la aplicación de forma explícita.
+
+1. En la página Nombre de aplicación, haga clic en el botón **Registrarse**.
 
     ![Botón Agregar](./media/openidoauth-tutorial/addbutton.png)
 
-5. Cuando seleccione el vínculo de registro, se le redirigirá a la página de Azure Active Directory (Azure AD) para que indique las credenciales de inicio de sesión.
+    > [!NOTE]
+    > Aquí, el administrador de inquilinos debe seleccionar el botón de registro y proporcionar el consentimiento a la aplicación. La aplicación se agrega entonces al inquilino del cliente, donde puede configurar lo que desee. No es necesario agregar la aplicación de forma explícita.
+
+5. Se le redirigirá a la página de inicio de sesión de la aplicación o a la página de Azure Active Directory (Azure AD) para que proporcione las credenciales de inicio de sesión.
 
 6. Una vez autenticado correctamente, acepte el consentimiento de la página de consentimiento. A continuación, aparece la página de inicio de la aplicación.
 
     > [!NOTE]
     > Puede agregar solo una instancia de la aplicación. Si ya ha agregado una y ha intentado proporcionar el consentimiento de nuevo, no se agregará otra vez en el inquilino. Por tanto, como es lógico, solo puede usar una instancia de la aplicación en el inquilino.
+
+1. Consulte el siguiente vídeo sobre cómo agregar una aplicación OpenID desde la galería.
+    >[!VIDEO https://www.microsoft.com/videoplayer/embed/RE4HoNI]
 
 ## <a name="authentication-flow-using-openid-connect"></a>Flujo de autenticación con OpenID Connect
 
@@ -151,3 +157,7 @@ Un administrador de inquilinos puede deshabilitar la posibilidad de que los usua
 El parámetro *prompt=admin_consent* también se puede utilizar en las aplicaciones que solicitan permisos que no requieren el consentimiento del administrador. Por ejemplo, una aplicación que requiere una experiencia en la que el administrador del inquilino se "registra" una vez y no se solicita a otros usuarios que den su consentimiento a partir de entonces.
 
 Imagine que una aplicación requiere el consentimiento del administrador y un administrador inicia sesión sin que se envíe el parámetro *prompt=admin_consent*. Cuando el administrador dé correctamente su consentimiento a la aplicación, solo se aplicará para su cuenta de usuario. Los usuarios normales seguirán sin poder iniciar sesión ni dar su consentimiento a la aplicación. Esta característica resulta útil si desea brindar al administrador de inquilinos la posibilidad de explorar su aplicación antes de permitir el acceso a otros usuarios.
+
+## <a name="next-steps"></a>Pasos siguientes
+
+[Configuración del inicio de sesión único (SSO) basado en OIDC de una aplicación en el inquilino de Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/manage-apps/add-application-portal-setup-oidc-sso)

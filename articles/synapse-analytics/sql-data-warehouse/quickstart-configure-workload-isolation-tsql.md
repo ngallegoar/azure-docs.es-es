@@ -11,14 +11,14 @@ ms.date: 04/27/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 9132c9609961053e7f60344dc387b2a8d01bd6b9
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ae21368269a2c098b4e35bf83b8c9fdf2749a297
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85212996"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460554"
 ---
-# <a name="quickstart-configure-workload-isolation-using-t-sql"></a>Inicio rápido: configuración del aislamiento de carga de trabajo mediante T-SQL
+# <a name="quickstart-configure-workload-isolation-in-a-dedicated-sql-pool-using-t-sql"></a>Inicio rápido: Configuración del aislamiento de la carga de trabajo en un grupo de SQL dedicado mediante T-SQL
 
 En esta guía de inicio rápido, creará rápidamente un grupo de cargas de trabajo y un clasificador para reservar recursos para la carga de datos. El grupo de cargas de trabajo asignará un 20 % de los recursos del sistema a cargas de datos.  El clasificador de cargas de trabajo asignará solicitudes al grupo de cargas de trabajo de las cargas de datos.  Con un aislamiento del 20 % para las cargas de datos, se garantiza que los recursos cumplirán con los Acuerdos de Nivel de Servicio.
 
@@ -29,7 +29,7 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-En este inicio rápido se da por supuesto que ya tiene una instancia de Synapse SQL en Azure Synapse y que tiene permisos CONTROL DATABASE. Si tiene que crear una, consulte [Guía de inicio rápido: Creación de una instancia de Azure SQL Data Warehouse en Azure Portal, y realización de consultas en ella](create-data-warehouse-portal.md) para crear un almacenamiento de datos denominado **mySampleDataWarehouse**.
+En este inicio rápido se da por supuesto que ya tiene una instancia de Synapse SQL en Azure Synapse y que tiene permisos CONTROL DATABASE. Si tiene que crear uno, use el artículo sobre la [creación y conexión desde el portal](create-data-warehouse-portal.md) para crear un grupo de SQL dedicado llamado **mySampleDataWarehouse**.
 
 ## <a name="create-login-for-dataloads"></a>Creación del inicio de sesión para cargas de datos
 
@@ -103,10 +103,10 @@ DROP USER [ELTLogin]
 ;
 ```
 
-Se le está cobrando por unidades de almacenamiento de datos y por los datos almacenados en el almacenamiento de datos. Estos recursos de proceso y de almacenamiento se facturan por separado.
+Se le cobra por las unidades de almacenamiento de datos y por los datos almacenados en el grupo de SQL dedicado. Estos recursos de proceso y de almacenamiento se facturan por separado.
 
-- Si quiere conservar los datos en almacenamiento, puede pausar el proceso cuando no use el grupo de SQL. Si se hace una pausa en el proceso, solo se carga el almacenamiento de datos. Cuando esté listo para trabajar con los datos, reanude el proceso.
-- Si desea quitar cobros futuros, puede eliminar el almacenamiento de datos.
+- Si quiere conservar los datos en el almacenamiento, puede pausar el proceso cuando no use el grupo de SQL dedicado. Si se hace una pausa en el proceso, solo se carga el almacenamiento de datos. Cuando esté listo para trabajar con los datos, reanude el proceso.
+- Si quiere eliminar cobros futuros, puede eliminar el grupo de SQL dedicado.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

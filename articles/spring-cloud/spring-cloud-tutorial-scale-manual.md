@@ -1,24 +1,24 @@
 ---
-title: 'Tutorial: Escalado de una aplicación en Azure Spring Cloud | Microsoft Docs'
+title: Escalado de una aplicación en Azure Spring Cloud | Microsoft Docs
 description: Aprenda a escalar una aplicación con Azure Spring Cloud en Azure Portal
 ms.service: spring-cloud
-ms.topic: tutorial
+ms.topic: how-to
 ms.author: brendm
 author: bmitchell287
 ms.date: 10/06/2019
 ms.custom: devx-track-java
-ms.openlocfilehash: 33d25edafa9249300406365699930ded1c8ec75b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5632f9a6126615255306cc89425bd08a9ffa9753
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90906844"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96531809"
 ---
-# <a name="tutorial-scale-an-application-in-azure-spring-cloud"></a>Tutorial: Escalado de una aplicación en Azure Spring Cloud
+# <a name="scale-an-application-in-azure-spring-cloud"></a>Escalado de una aplicación en Azure Spring Cloud
 
 **Este artículo se aplica a:** ✔️ Java ✔️ C#
 
-En este tutorial se muestra cómo escalar cualquier aplicación de microservicios mediante el panel de Azure Spring Cloud de Azure Portal.
+Esta documentación describe cómo escalar cualquier aplicación de microservicios mediante el panel de Azure Spring Cloud en Azure Portal.
 
 Escale y reduzca verticalmente la aplicación mediante la modificación de su número de CPU virtuales (vCPU) y la cantidad de memoria. Escale y reduzca horizontalmente la aplicación mediante la modificación de su número de instancias.
 
@@ -67,7 +67,7 @@ Si está en el nivel Básico y se le imponen una o varias de estas [limitaciones
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial ha aprendido a escalar manualmente una aplicación de Azure Spring Cloud. Para información sobre cómo supervisar una aplicación mediante la configuración de alertas, continúe con el siguiente tutorial.
+En este ejemplo se ha explicado cómo escalar manualmente una aplicación de Azure Spring Cloud. Para aprender a supervisar una aplicación mediante la configuración de alertas, consulte [Configuración de la escalabilidad automática](spring-cloud-tutorial-setup-autoscale.md).
 
 > [!div class="nextstepaction"]
 > [Aprenda a configurar las alertas](spring-cloud-tutorial-alerts-action-groups.md)

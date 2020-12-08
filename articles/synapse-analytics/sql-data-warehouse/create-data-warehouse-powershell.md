@@ -1,6 +1,6 @@
 ---
-title: 'Inicio rápido: Creación de un grupo de Synapse SQL con Azure PowerShell'
-description: Cree rápidamente un grupo de Synapse SQL con una regla de firewall de nivel de servidor mediante Azure PowerShell.
+title: 'Inicio rápido: Creación de un grupo de SQL dedicado (anteriormente SQL DW) con Azure PowerShell'
+description: Cree rápidamente un grupo de SQL dedicado (anteriormente SQL DW) con una regla de firewall de nivel de servidor mediante Azure PowerShell.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,23 +11,23 @@ ms.date: 4/11/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse    , devx-track-azurepowershell
-ms.openlocfilehash: 5408944f16509f83c30b9ee066d6f0a93dab95f0
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 0ce94b62d67048896cdf7355043ec2dde7f2df79
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91567662"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96456588"
 ---
-# <a name="quickstart-create-a-synapse-sql-pool-with-azure-powershell"></a>Inicio rápido: Creación de un grupo de Synapse SQL con Azure PowerShell
+# <a name="quickstart-create-a-dedicated-sql-pool-formerly-sql-dw-with-azure-powershell"></a>Inicio rápido: Creación de un grupo de SQL dedicado (anteriormente SQL DW) con Azure PowerShell
 
-Cree un grupo de SQL de Synapse (almacenamiento de datos) en Azure Synapse Analytics mediante Azure PowerShell.
+Cree un grupo de SQL dedicado (anteriormente SQL DW) en Azure Synapse Analytics mediante Azure PowerShell.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
 > [!IMPORTANT]
-> La creación de un grupo de SQL puede dar lugar a un nuevo servicio facturable.  Para más información, consulte los [precios de Azure Synapse Analytics](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
+> La creación de un grupo de SQL dedicado (anteriormente SQL DW) puede dar lugar a un nuevo servicio facturable.  Para más información, consulte los [precios de Azure Synapse Analytics](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -93,7 +93,7 @@ New-AzSqlServer -ResourceGroupName $resourcegroupname `
 
 ## <a name="configure-a-server-level-firewall-rule"></a>Configuración de una regla de firewall de nivel de servidor
 
-Para crear una [regla de firewall de nivel de servidor](../../azure-sql/database/firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json), ejecute el comando [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). Una regla de firewall de nivel de servidor permite a una aplicación externa, como SQL Server Management Studio, o la utilidad SQLCMD, conectarse a un grupo de SQL a través del firewall del servicio del grupo de SQL.
+Para crear una [regla de firewall de nivel de servidor](../../azure-sql/database/firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json), ejecute el comando [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). Las reglas de firewall a nivel de servidor permiten a una aplicación externa, como SQL Server Management Studio o la utilidad SQLCMD, conectarse a un grupo de SQL dedicado (anteriormente SQL DW) a través del firewall del servicio grupo de SQL dedicado.
 
 En el ejemplo siguiente, el firewall está abierto solo para otros recursos de Azure. Para habilitar la conectividad externa, cambie la dirección IP a una dirección apropiada para su entorno. Para abrir todas las direcciones IP, utilice 0.0.0.0 como la dirección IP inicial y 255.255.255.255 como la dirección final.
 
@@ -107,9 +107,9 @@ New-AzSqlServerFirewallRule -ResourceGroupName $resourcegroupname `
 > Los puntos de conexión de SQL se comunican a través del puerto 1433. Si intenta conectarse desde dentro de una red corporativa, es posible que el firewall de la red no permita el tráfico de salida a través del puerto 1433. Si es así, no podrá conectarse al servidor a menos que el departamento de TI abra el puerto 1433.
 >
 
-## <a name="create-a-sql-pool"></a>Creación de un grupo de SQL
+## <a name="create-a-dedicated-sql-pool-formerly-sql-dw"></a>Creación de un grupo de SQL dedicado (anteriormente SQL DW)
 
-En el siguiente ejemplo se crea un grupo de SQL mediante las variables definidas anteriormente.  Especifica el objetivo del servicio como DW100c, que es un punto de partida de bajo costo para el grupo de SQL.
+En el siguiente ejemplo se crea un grupo de SQL dedicado (anteriormente SQL DW) mediante las variables definidas anteriormente.  Especifica el objetivo del servicio como DW100c, que es un punto de partida de bajo costo para un grupo de SQL dedicado (anteriormente SQL DW).
 
 ```Powershell
 New-AzSqlDatabase `
@@ -125,10 +125,10 @@ New-AzSqlDatabase `
 Los parámetros obligatorios son:
 
 * **RequestedServiceObjectiveName**: la cantidad de [unidades de almacenamiento de datos](what-is-a-data-warehouse-unit-dwu-cdwu.md) que solicita. Si se aumenta esta cantidad, aumentará el costo de proceso. Para ver una lista de los valores compatibles, consulte los [límites de memoria y simultaneidad](memory-concurrency-limits.md).
-* **DatabaseName**: el nombre del grupo de SQL que se crea.
+* **DatabaseName**: El nombre del grupo de SQL dedicado (anteriormente SQL DW) que va a crear.
 * **ServerName**: el nombre del servidor que se usa para la creación.
 * **ResourceGroupName**: el grupo de recursos que está usando. Para buscar grupos de recursos que estén disponibles en su suscripción, use Get-AzureResource.
-* **Edición**: debe ser "DataWarehouse" para crear un grupo de SQL.
+* **Edición**: Debe ser "DataWarehouse" para crear un grupo de SQL dedicado (anteriormente SQL DW).
 
 Los parámetros opcionales son:
 
@@ -151,4 +151,4 @@ Remove-AzResourceGroup -ResourceGroupName $resourcegroupname
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ya ha creado un grupo de SQL, una regla de firewall y la ha conectado al grupo de SQL. Para más información, diríjase al artículo [Carga de datos en un grupo de SQL](load-data-from-azure-blob-storage-using-polybase.md).
+Ya ha creado un grupo de SQL dedicado (anteriormente SQL DW) y una regla de firewall, y se ha conectado a su grupo de SQL dedicado. Para más información, vaya al artículo [Carga de datos en un grupo de SQL dedicado](load-data-from-azure-blob-storage-using-polybase.md).

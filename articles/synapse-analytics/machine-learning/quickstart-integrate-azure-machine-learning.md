@@ -9,16 +9,16 @@ ms.reviewer: jrasnick, garye
 ms.date: 09/25/2020
 author: nelgson
 ms.author: negust
-ms.openlocfilehash: 2597aa1f0589fea75af0a3ac41244e3718d5eb3e
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: a5d84b936679cdd5ebd5bec4938d6db7fcb641e7
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93307955"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96455509"
 ---
 # <a name="quickstart-create-a-new-azure-machine-learning-linked-service-in-synapse"></a>Inicio rápido: Creación de un servicio vinculado de Azure Machine Learning en Synapse
 
-En este inicio rápido, vinculará un área de trabajo de Synapse Analytics a un área de trabajo de Azure Machine Learning. La vinculación de estas áreas de trabajo permite aprovechar Azure Machine Learning en diversas experiencias de Synapse.
+En este inicio rápido, vinculará un área de trabajo de Azure Synapse Analytics a un área de trabajo de Azure Machine Learning. La vinculación de estas áreas de trabajo permite aprovechar Azure Machine Learning en diversas experiencias de Synapse.
 
 Por ejemplo, el vínculo a un área de trabajo de Azure Machine Learning permite estas experiencias:
 
@@ -60,7 +60,7 @@ Con este paso se creará una nueva entidad de servicio. Si desea usar una entida
 
 ## <a name="create-a-linked-service"></a>Creación de un servicio vinculado
 
-1. En el área de trabajo de Synapse en la que desea crear el nuevo servicio vinculado de Azure Machine Learning, vaya a **Administración** -> **Servicio vinculado** , cree un nuevo servicio vinculado con el tipo "Azure Machine Learning".
+1. En el área de trabajo de Synapse en la que desea crear el nuevo servicio vinculado de Azure Machine Learning, vaya a **Administración** -> **Servicio vinculado**, cree un nuevo servicio vinculado con el tipo "Azure Machine Learning".
 
    ![Creación de un servicio vinculado](media/quickstart-integrate-azure-machine-learning/quickstart-integrate-azure-machine-learning-create-linked-service-00a.png)
 
@@ -80,4 +80,4 @@ Con este paso se creará una nueva entidad de servicio. Si desea usar una entida
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Tutorial: Asistente para puntuación de modelos de Machine Learning: grupo de SQL dedicado](tutorial-sql-pool-model-scoring-wizard.md)
-- [Funcionalidades de aprendizaje automático en Azure Synapse Analytics (vista previa de áreas de trabajo)](what-is-machine-learning.md)
+- [Funcionalidades de Machine Learning en Azure Synapse Analytics](what-is-machine-learning.md)

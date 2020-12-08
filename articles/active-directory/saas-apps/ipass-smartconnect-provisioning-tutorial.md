@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 397aab743da25da3882c66d0fdf32c4c4d202586
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: fa9723b466045ebe7b932f837e0fa7c45c898b6b
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357001"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353891"
 ---
 # <a name="tutorial-configure-ipass-smartconnect-for-automatic-user-provisioning"></a>Tutorial: Configuración de iPass SmartConnect para aprovisionar usuarios automáticamente
 
@@ -73,7 +73,7 @@ Para configurar Smartsheet para el aprovisionamiento automático de usuarios con
 
     ![Botón Nueva aplicación](common/add-new-app.png)
 
-4. En el cuadro de búsqueda, escriba **iPass SmartConnect** , seleccione **iPass SmartConnect** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
+4. En el cuadro de búsqueda, escriba **iPass SmartConnect**, seleccione **iPass SmartConnect** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
 
     ![iPass SmartConnect en la lista de resultados](common/search-new-app.png)
 
@@ -102,17 +102,17 @@ Esta sección le guiará por los pasos necesarios para configurar el servicio de
 
     ![Captura de pantalla de la lista desplegable Modo de aprovisionamiento con la opción Automático seleccionada.](common/provisioning-automatic.png)
 
-5. En la sección **Credenciales de administrador** , escriba `https://openmobile.ipass.com/moservices/scim/v1` en la **URL de inquilino**. Escriba el token de portador recuperado anteriormente en el **token secreto**. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a iPass SmartConnect. Si se produce un error en la conexión, asegúrese de que la cuenta de iPass SmartConnect tiene permisos de administrador y vuelva a intentarlo.
+5. En la sección **Credenciales de administrador**, escriba `https://openmobile.ipass.com/moservices/scim/v1` en la **URL de inquilino**. Escriba el token de portador recuperado anteriormente en el **token secreto**. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a iPass SmartConnect. Si se produce un error en la conexión, asegúrese de que la cuenta de iPass SmartConnect tiene permisos de administrador y vuelva a intentarlo.
 
     ![URL de inquilino + Token](common/provisioning-testconnection-tenanturltoken.png)
 
-6. En el campo **Correo electrónico de notificación** , escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
+6. En el campo **Correo electrónico de notificación**, escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
 
     ![Correo electrónico de notificación](common/provisioning-notification-email.png)
 
-7. Haga clic en **Save** (Guardar).
+7. Haga clic en **Save**(Guardar).
 
-8. En la sección **Asignaciones** , seleccione **Synchronize Azure Active Directory Users to iPass SmartConnect** (Sincronizar los usuarios de Azure Active Directory para iPass SmartConnect).
+8. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Users to iPass SmartConnect** (Sincronizar los usuarios de Azure Active Directory para iPass SmartConnect).
 
     :::image type="content" source="media/ipass-smartconnect-provisioning-tutorial/usermapping.png" alt-text="Captura de pantalla de la sección Asignaciones. En el nombre, está visible la sincronización de usuarios de Azure Active Directory con iPass SmartConnect." border="false":::
 
@@ -127,7 +127,7 @@ Esta sección le guiará por los pasos necesarios para configurar el servicio de
 
     ![Estado de aprovisionamiento activado](common/provisioning-toggle-on.png)
 
-12. Elija los valores deseados en **Ámbito** , en la sección **Configuración** , para definir los usuarios o grupos que quiere que se aprovisionen en iPass SmartConnect.
+12. Elija los valores deseados en **Ámbito**, en la sección **Configuración**, para definir los usuarios o grupos que quiere que se aprovisionen en iPass SmartConnect.
 
     ![Ámbito del aprovisionamiento](common/provisioning-scope.png)
 

@@ -4,12 +4,12 @@ description: En este artículo se describe cómo migrar máquinas virtuales de A
 ms.topic: tutorial
 ms.date: 08/19/2020
 ms.custom: MVC
-ms.openlocfilehash: 62bfad2cc92e7af61a10360878ebaa3093897e97
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 12785d1e65caf11b24102d2a9c186fe0adcb1fd3
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92310739"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96302654"
 ---
 # <a name="discover-assess-and-migrate-amazon-web-services-aws-vms-to-azure"></a>Detección, evaluación y migración de máquinas virtuales de Amazon Web Services (AWS) a Azure
 
@@ -77,7 +77,7 @@ Prepare Azure para la migración con Azure Migrate: Herramienta de migración de
 
 **Task** | **Detalles**
 --- | ---
-**Crear un proyecto de Azure Migrate** | La cuenta de Azure necesita permisos de colaborador o propietario para crear un proyecto.
+**Crear un proyecto de Azure Migrate** | La cuenta de Azure necesita permisos de colaborador o propietario para [crear un proyecto](https://docs.microsoft.com/azure/migrate/create-manage-projects).
 **Comprobación de los permisos de la cuenta de Azure** | Su cuenta de Azure necesita permisos para crear una máquina virtual y escribir en un disco administrado de Azure.
 
 ### <a name="assign-permissions-to-create-project"></a>Asignación de permisos para crear un proyecto
@@ -125,30 +125,6 @@ Para prepararse para la implementación del dispositivo, siga estos pasos:
 
 - El dispositivo de replicación usa MySQL. Revise las [opciones](migrate-replication-appliance.md#mysql-installation) para instalar MySQL en el dispositivo.
 - Revise las direcciones URL de Azure necesarias para que el dispositivo de replicación acceda a las nubes [públicas](migrate-replication-appliance.md#url-access) y [gubernamentales](migrate-replication-appliance.md#azure-government-url-access).
-
-## <a name="add-the-server-migration-tool"></a>Incorporación de la herramienta Server Migration
-
-Configure un proyecto de Azure Migrate y, luego, agréguele la herramienta Server Migration.
-
-1. En Azure Portal > **Todos los servicios**, busque **Azure Migrate**.
-2. En **Servicios**, seleccione **Azure Migrate**.
-3. En **Información general**, haga clic en **Evaluar y migrar servidores**.
-4. En **Detectar, evaluar y migrar servidores**, haga clic en **Evaluar y migrar servidores**.
-
-    ![Detección y evaluación de servidores](./media/tutorial-migrate-physical-virtual-machines/assess-migrate.png)
-
-5. En **Detectar, evaluar y migrar servidores**, haga clic en **Agregar herramientas**.
-6. En **Migrar proyecto**, seleccione la suscripción a Azure y cree un grupo de recursos, en caso de que no lo tenga.
-7. En **Detalles del proyecto**, especifique el nombre del proyecto y la zona geográfica en la que quiere crearlo; después, haga clic en **Siguiente**. Revise las zonas geográficas admitidas para nubes [públicas](migrate-support-matrix.md#supported-geographies-public-cloud) y [nubes gubernamentales](migrate-support-matrix.md#supported-geographies-azure-government).
-    - La geografía del proyecto solo se utiliza para almacenar los metadatos que se recopilan de las máquinas de AWS.
-    - Al realizar una migración se puede seleccionar cualquier región de destino.
-
-    ![Crear un proyecto de Azure Migrate](./media/tutorial-migrate-physical-virtual-machines/migrate-project.png)
-
-8. En **Seleccione una herramienta de evaluación**, seleccione **Omitir por ahora la adición de una herramienta de evaluación** > **Siguiente**.
-9. En **Seleccione una herramienta de migración**, seleccione **Azure Migrate: Migración del servidor** > **Siguiente**.
-10. En **Revisar y agregar herramientas**, revise la configuración y haga clic en **Agregar herramientas**.
-11. Después de agregar la herramienta, aparece en el proyecto de Azure Migrate > **Servidores** > **Herramientas de migración**.
 
 ## <a name="set-up-the-replication-appliance"></a>Configuración del dispositivo de replicación
 

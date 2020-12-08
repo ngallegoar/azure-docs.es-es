@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 08/23/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 766837cacb4ef2acf874c2872b347b6d35633faa
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 862fa839c56746042c072ae3100832fb2b78451a
+ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94701004"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96296936"
 ---
 # <a name="source-control-integration-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Integración del control de código fuente para el grupo de SQL dedicado en Azure Synapse Analytics
 
@@ -38,11 +38,13 @@ En este tutorial se describe cómo integrar el proyecto de base de datos de SQL�
    ![Administrar conexiones](./media/sql-data-warehouse-source-control-integration/2-manage-connections.png "Administración de conexiones")
 
 3. Conéctese al proyecto seleccionando **Administrar conexiones** y, después, **Conectarse a un proyecto**.
- ![Connect1](./media/sql-data-warehouse-source-control-integration/3-connect-project.png "Conectar")
+ 
+    ![Connect1](./media/sql-data-warehouse-source-control-integration/3-connect-project.png "Conectar")
 
 
 4. Busque el proyecto que creó en el paso uno y seleccione **Conectar**.
-![Connect2](./media/sql-data-warehouse-source-control-integration/3.5-connect.png "Conectar")
+ 
+    ![Connect2](./media/sql-data-warehouse-source-control-integration/3.5-connect.png "Conectar")
 
 
 3. Clone el repositorio de Azure DevOps del proyecto en la máquina local.
@@ -85,7 +87,7 @@ Para más información sobre cómo conectar proyectos mediante Visual Studio, co
 
    ![Verify](./media/sql-data-warehouse-source-control-integration/10-verify-column-change-pushed.png "Comprobar los cambios")
 
-4. (**Opcional**) Use Comparación de esquemas y actualice los cambios en el almacenamiento de datos de destino mediante SSDT para asegurarse de que las definiciones de los objetos del repositorio de Azure Repos y del repositorio local reflejan el almacenamiento de datos.
+4. (**Opcional**) Use Comparación de esquemas y actualice los cambios en el grupo de SQL dedicado de destino mediante SSDT para asegurarse de que las definiciones de los objetos del repositorio de Azure Repos y del repositorio local reflejan el grupo de SQL dedicado.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

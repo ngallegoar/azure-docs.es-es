@@ -9,16 +9,16 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: 1a78142ded7be46bdc06c49d6e0a26ef8b266300
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 0e3bbb2532340664d0fc54b29bea3ef3af75f9b6
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93318393"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96459161"
 ---
 # <a name="synapse-sql-resource-consumption"></a>Consumo de recursos de Synapse SQL
 
-En este artículo se describen los modelos de consumo de recursos de Synapse SQL (versión preliminar).
+En este artículo se describen los modelos de consumo de recursos de Synapse SQL.
 
 ## <a name="serverless-sql-pool"></a>Grupo de SQL sin servidor
 
@@ -100,7 +100,7 @@ Un grupo de SQL es un sistema de escalado horizontal que puede aprovisionar gran
 
 Para cambiar las unidades de almacenamiento de datos es necesario disponer de los permisos descritos en [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
 
-Los roles integrados de Azure, como Colaborador de SQL DB y Colaborador de SQL Server, pueden cambiar la configuración de DWU.
+Los roles integrados de Azure, como Colaborador de SQL DB y Colaborador de SQL Server, pueden cambiar la configuración de DWU.
 
 #### <a name="view-current-dwu-settings"></a>Ver la configuración de DWU actual
 
@@ -127,7 +127,7 @@ Para cambiar DWU:
 
 1. Abra [Azure Portal](https://portal.azure.com), abra la base de datos y seleccione **Escalar**.
 
-2. En **Escalar** , mueva el control deslizante izquierdo o derecho para cambiar el valor de DWU.
+2. En **Escalar**, mueva el control deslizante izquierdo o derecho para cambiar el valor de DWU.
 
 3. Seleccione **Guardar**. Aparece un mensaje de confirmación. Seleccione **Sí** para confirmar o **No** para cancelar.
 

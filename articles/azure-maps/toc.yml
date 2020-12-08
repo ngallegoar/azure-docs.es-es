@@ -87,10 +87,12 @@
       href: supported-map-styles.md
     - name: Niveles de zoom y cuadrícula de mosaico
       href: zoom-levels-and-tile-grid.md
-    - name: Estructura de datos de Mobility Service
+    - name: Servicios de movilidad
       href: mobility-service-data-structure.md
-    - name: Conceptos del servicio meteorológico
+    - name: Conceptos de servicios Weather
       href: weather-services-concepts.md
+    - name: Preguntas frecuentes de servicios Weather
+      href: weather-services-faq.md
 - name: Guías paso a paso
   items:
     - name: Administración de cuentas de Maps

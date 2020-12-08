@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/12/2019
 ms.author: Zhchia
-ms.openlocfilehash: 6ef4558cc0cbbacb372fc4a4c2b52859517a2635
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 83af1c3bc323546534613e6ff99c731010b103d7
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94353533"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352140"
 ---
 # <a name="tutorial-configure-robin-for-automatic-user-provisioning"></a>Tutorial: Configuración de Robin para el aprovisionamiento automático de usuarios
 
@@ -80,7 +80,7 @@ Antes de configurar Robin para el aprovisionamiento automático de usuarios con 
 
     ![Botón Nueva aplicación](common/add-new-app.png)
 
-4. En el cuadro de búsqueda, escriba **Robin** , seleccione **Robin** en el panel de resultados y luego haga clic en el botón **Agregar** para agregar la aplicación.
+4. En el cuadro de búsqueda, escriba **Robin**, seleccione **Robin** en el panel de resultados y luego haga clic en el botón **Agregar** para agregar la aplicación.
 
     ![Robin en la lista de resultados](common/search-new-app.png)
 
@@ -109,17 +109,17 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Captura de pantalla de la lista desplegable Modo de aprovisionamiento con la opción Automático seleccionada.](common/provisioning-automatic.png)
 
-5. En la sección **Credenciales de administrador** , escriba `https://api.robinpowered.com/v1.0/scim-2` en la **URL de inquilino**. Escriba el valor **SCIM Authentication Token** (Token de autenticación de SCIM) recuperado anteriormente en **Token secreto**. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a Robin. Si la conexión no se establece, asegúrese de que la cuenta de Robin tiene permisos de administrador e inténtelo de nuevo.
+5. En la sección **Credenciales de administrador**, escriba `https://api.robinpowered.com/v1.0/scim-2` en la **URL de inquilino**. Escriba el valor **SCIM Authentication Token** (Token de autenticación de SCIM) recuperado anteriormente en **Token secreto**. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a Robin. Si la conexión no se establece, asegúrese de que la cuenta de Robin tiene permisos de administrador e inténtelo de nuevo.
 
     ![URL de inquilino + Token](common/provisioning-testconnection-tenanturltoken.png)
 
-6. En el campo **Correo electrónico de notificación** , escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
+6. En el campo **Correo electrónico de notificación**, escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
 
     ![Correo electrónico de notificación](common/provisioning-notification-email.png)
 
-7. Haga clic en **Save** (Guardar).
+7. Haga clic en **Save**(Guardar).
 
-8. En la sección **Asignaciones** , seleccione **Synchronize Azure Active Directory Users to Robin** (Sincronizar usuarios de Azure Active Directory con Robin).
+8. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Users to Robin** (Sincronizar usuarios de Azure Active Directory con Robin).
 
     ![Asignaciones de usuario de Robin Powered](media/robin-provisioning-tutorial/robin-user-mapping.png)
 
@@ -127,7 +127,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Atributos de usuario de Robin Powered](media/robin-provisioning-tutorial/robin-user-attribute-mapping.png)
 
-10. En la sección **Asignaciones** , seleccione **Synchronize Azure Active Directory Groups to Robin** (Sincronizar grupos de Azure Active Directory con Robin).
+10. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Groups to Robin** (Sincronizar grupos de Azure Active Directory con Robin).
 
     ![Asignaciones de grupos de Robin Powered](media/robin-provisioning-tutorial/robin-group-mapping.png)
 
@@ -141,7 +141,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Estado de aprovisionamiento activado](common/provisioning-toggle-on.png)
 
-14. Seleccione los valores deseados en **Ámbito** , en la sección **Configuración** , para definir los usuarios o grupos que quiere aprovisionar en Robin.
+14. Seleccione los valores deseados en **Ámbito**, en la sección **Configuración**, para definir los usuarios o grupos que quiere aprovisionar en Robin.
 
     ![Ámbito del aprovisionamiento](common/provisioning-scope.png)
 

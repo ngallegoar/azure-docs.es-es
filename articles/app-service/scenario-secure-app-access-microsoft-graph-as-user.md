@@ -7,15 +7,16 @@ manager: CelesteDG
 ms.service: app-service-web
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 11/09/2020
+ms.date: 11/30/2020
 ms.author: ryanwi
 ms.reviewer: stsoneff
-ms.openlocfilehash: d3706c26d9b15e9ea607996ace222b29ccd84458
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.custom: azureday1
+ms.openlocfilehash: e07ec17a4e14f0099d82bd444f2ee8d37abe9908
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95999661"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96435015"
 ---
 # <a name="tutorial-access-microsoft-graph-from-a-secured-app-as-the-user"></a>Tutorial: Acceso a Microsoft Graph desde una aplicación segura como usuario
 
@@ -75,10 +76,12 @@ Seleccione **PUT** para guardar la configuración. Puede que esta configuración
 
 La aplicación web dispone ahora de los permisos necesarios y también agrega el identificador de cliente de Microsoft Graph a los parámetros de inicio de sesión. Mediante la [biblioteca Microsoft.Identity.Web](https://github.com/AzureAD/microsoft-identity-web/), la aplicación web obtiene un token de acceso para la autenticación con Microsoft Graph. En la versión 1.2.0 y versiones posteriores, la biblioteca Microsoft.Identity.Web se integra con el módulo de autenticación y autorización de App Service y se puede ejecutar junto con este. Microsoft.Identity.Web detecta que la aplicación web se hospeda en App Service y obtiene el token de acceso del módulo de autenticación y autorización de App Service. Después, el token de acceso se pasa a las solicitudes autenticadas con Microsoft Graph API.
 
+Para ver este código como parte de una aplicación de ejemplo, consulte el [ejemplo en GitHub](https://github.com/Azure-Samples/ms-identity-easyauth-dotnet-storage-graphapi/tree/main/2-WebApp-graphapi-on-behalf).
+
 > [!NOTE]
 > La biblioteca Microsoft.Identity.Web no es necesaria en la aplicación web para la autenticación o autorización básicas, ni para autenticar solicitudes con Microsoft Graph. Es posible [llamar de forma segura a las API de bajada](tutorial-auth-aad.md#call-api-securely-from-server-code) solo con el módulo de autenticación y autorización de App Service habilitado.
 > 
-> Sin embargo, este módulo está diseñado para escenarios de autenticación más básicos. Para escenarios más complejos (por ejemplo, el control de notificaciones personalizadas), necesita la biblioteca Microsoft.Identity.Web o la [biblioteca de autenticación de Microsoft](/azure/active-directory/develop/msal-overview). Hay un poco más de trabajo de configuración al principio, pero la biblioteca Microsoft.Identity.Web se puede ejecutar junto con el módulo de autenticación y autorización de App Service. Más adelante, cuando la aplicación web necesite trabajar con escenarios más complejos, puede deshabilitar el módulo de autenticación y autorización de App Service y la biblioteca Microsoft.Identity.Web ya formará parte de la aplicación.
+> Sin embargo, este módulo está diseñado para escenarios de autenticación más básicos. Para escenarios más complejos (por ejemplo, el control de notificaciones personalizadas), necesita la biblioteca Microsoft.Identity.Web o la [biblioteca de autenticación de Microsoft](../active-directory/develop/msal-overview.md). Hay un poco más de trabajo de configuración al principio, pero la biblioteca Microsoft.Identity.Web se puede ejecutar junto con el módulo de autenticación y autorización de App Service. Más adelante, cuando la aplicación web necesite trabajar con escenarios más complejos, puede deshabilitar el módulo de autenticación y autorización de App Service y la biblioteca Microsoft.Identity.Web ya formará parte de la aplicación.
 
 ### <a name="install-client-library-packages"></a>Instalación de los paquetes de biblioteca cliente
 

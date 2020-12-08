@@ -10,17 +10,17 @@ ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 0897ca35dd5ae1b7209a36aee4bd5335d4ea4d25
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 2ff2d9708642c347a829de290d45849d8629807f
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94681540"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462358"
 ---
 # <a name="connect-to-synapse-sql"></a>Conexión a Synapse SQL
 Conéctese a la funcionalidad de Synapse SQL en Azure Synapse Analytics.
 
-## <a name="supported-tools-for-serverless-sql-pool-preview"></a>Herramientas admitidas en el grupo de SQL sin servidor (versión preliminar)
+## <a name="supported-tools-for-serverless-sql-pool"></a>Herramientas admitidas en el grupo de SQL sin servidor
 
 [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio) es totalmente compatible a partir de la versión 1.18.0. SSMS es parcialmente compatible a partir de la versión 18.5, que solo se puede usar para establecer conexión y realizar consultas.
 

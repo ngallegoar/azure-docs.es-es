@@ -3,17 +3,17 @@ title: Introducción a Azure IoT Central | Microsoft Docs
 description: Azure IoT Central es una plataforma de aplicaciones de IoT que simplifica la creación de soluciones de IoT y ayuda a reducir la carga y el costo de las operaciones de administración de IoT y el desarrollo. En este artículo se proporciona información general sobre las características de Azure IoT Central.
 author: dominicbetts
 ms.author: dobett
-ms.date: 12/10/2019
+ms.date: 11/23/2020
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: b62a0da7074676787b7e1c0182ca7588b83cdbe0
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 55f187781a0f11417b0c918034dcfe3362be4468
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94985049"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96457661"
 ---
 # <a name="what-is-azure-iot-central"></a>¿Qué es Azure IoT Central?
 
@@ -137,7 +137,7 @@ Las aplicaciones IoT Central están totalmente hospedadas por Microsoft, lo que 
 Para crear aplicaciones de IoT Central se puede usar una evaluación gratuita de 7 días, o bien un plan de precios estándar.
 
 - Las aplicaciones que se crean mediante el plan *gratuito* no tienen costo durante siete días y admiten un máximo de cinco dispositivos. En cualquier momento antes de que expiren puede convertirlas para que usen un plan de precios estándar.
-- Las aplicaciones que se crean con un plan *estándar* se facturan por dispositivo y se puede elegir el plan de precios **Estándar 1** o **Estándar 2**, y los dos primeros dispositivos son gratis. Más información sobre los [precios de IoT Central](https://aka.ms/iotcentral-pricing).
+- Las aplicaciones que se crean con un plan *estándar* se facturan por dispositivo, y se puede elegir entre un plan de precios **Estándar 0**, **Estándar 1** o **Estándar 2**, siendo gratis los dos primeros dispositivos. Más información sobre los [precios de IoT Central](https://aka.ms/iotcentral-pricing).
 
 ## <a name="quotas"></a>Cuotas
 
@@ -157,7 +157,7 @@ Cada suscripción de Azure tiene cuotas predeterminadas que pueden afectar al á
 Ahora que tiene una visión general de IoT Central, estos son los siguientes pasos sugeridos:
 
 - Conocer las [tecnologías y servicios de Azure disponibles para crear soluciones de IoT](../../iot-fundamentals/iot-services-and-technologies.md).
-- Si es un desarrollador de dispositivos y desea profundizar en algún código, el paso siguiente que se sugiere se indica en [Creación y conexión de un aplicación cliente a una aplicación de Azure IoT Central](./tutorial-connect-device-nodejs.md).
+- Si es un desarrollador de dispositivos y desea profundizar en algún código, el paso siguiente que se sugiere se indica en [Creación y conexión de un aplicación cliente a una aplicación de Azure IoT Central](./tutorial-connect-device.md).
 - Familiarizarse con la [interfaz de usuario de Azure IoT Central](overview-iot-central-tour.md).
 - [Crear una aplicación de Azure IoT Central](quick-deploy-iot-central.md) para empezar a trabajar.
 - Más información sobre cómo [conectar un dispositivo de Azure IoT Edge](./tutorial-add-edge-as-leaf-device.md).

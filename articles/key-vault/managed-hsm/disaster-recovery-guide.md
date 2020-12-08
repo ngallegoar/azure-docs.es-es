@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: ambapat
-ms.openlocfilehash: 08c1b415ac075429a9bc89098233fffb8c25b710
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 69a0272061d8518119114e8fe7b023c889639844
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94369263"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96171570"
 ---
 # <a name="managed-hsm-disaster-recovery"></a>Recuperación ante desastres de Managed HSM
 
@@ -35,7 +35,7 @@ Estos son los pasos del procedimiento de recuperación ante desastres:
 1. Realice una copia de seguridad del nuevo HSM. Se requiere una copia de seguridad antes de cualquier restauración, incluso cuando el HSM está vacío. Las copias de seguridad permiten una reversión sencilla.
 1. Restaure la copia de seguridad de HSM reciente del HSM de origen.
 
-El contenido del almacén de claves se replica dentro de la región y en una región secundaria que se encuentre a una distancia mínima de 241 km pero dentro de la misma ubicación geográfica. Esta característica mantiene la durabilidad de las claves y los secretos. Consulte el artículo sobre las [regiones emparejadas de Azure](../../best-practices-availability-paired-regions.md) para obtener más información sobre pares de regiones específicas.
+Estos pasos le permitirán replicar manualmente el contenido del HSM en otra región. El nombre del HSM (y el identificador URI del punto de conexión de servicio) serán diferentes, por lo que es posible que tenga que cambiar la configuración de la aplicación para usar estas claves desde otra ubicación.
 
 ## <a name="create-a-new-managed-hsm"></a>Creación de un nuevo HSM administrado
 
@@ -48,7 +48,7 @@ Para crear un recurso de HSM administrado, es preciso que proporcione lo siguien
 - La ubicación de Azure.
 - Una lista de administradores iniciales.
 
-En el ejemplo siguiente se crea un HSM denominado **ContosoMHSM** , en el grupo de recursos **ContosoResourceGroup** , que reside en la ubicación **Este de EE. UU. 2** , con **el usuario actual con sesión iniciada** como único administrador.
+En el ejemplo siguiente se crea un HSM denominado **ContosoMHSM**, en el grupo de recursos **ContosoResourceGroup**, que reside en la ubicación **Este de EE. UU. 2**, con **el usuario actual con sesión iniciada** como único administrador.
 
 ```azurecli-interactive
 oid=$(az ad signed-in-user show --query objectId -o tsv)
@@ -60,8 +60,8 @@ az keyvault create --hsm-name "ContosoMHSM" --resource-group "ContosoResourceGro
 
 La salida de este comando muestra las propiedades del HSM administrado que ha creado. Las dos propiedades más importantes son:
 
-* **name** : en el ejemplo, el nombre es ContosoMHSM. Usará este nombre para otros comandos de Key Vault.
-* **hsmUri** : en el ejemplo, el URI es "https://contosohsm.managedhsm.azure.net". Las aplicaciones que utilizan el HSM a través de su API REST deben usar este identificador URI.
+* **name**: en el ejemplo, el nombre es ContosoMHSM. Usará este nombre para otros comandos de Key Vault.
+* **hsmUri**: en el ejemplo, el URI es "https://contosohsm.managedhsm.azure.net". Las aplicaciones que utilizan el HSM a través de su API REST deben usar este identificador URI.
 
 Su cuenta de Azure ahora está autorizada para realizar operaciones en este HSM administrado. Hasta ahora, nadie más está autorizado.
 
@@ -86,7 +86,7 @@ El comando `az keyvault security-domain upload` realiza las siguientes operacion
 - Crea un blob de carga del dominio de seguridad cifrado con la clave de intercambio del dominio de seguridad que descargó en el paso anterior.
 - Carga el blob de carga del dominio de seguridad en el HSM para completar la recuperación del dominio de seguridad.
 
-En el ejemplo siguiente, se usa el dominio de seguridad de **ContosoMHSM** , la segunda de las claves privadas correspondientes, y lo cargamos en **ContosoMHSM2** , que está esperando a recibir un dominio de seguridad. 
+En el ejemplo siguiente, se usa el dominio de seguridad de **ContosoMHSM**, la segunda de las claves privadas correspondientes, y lo cargamos en **ContosoMHSM2**, que está esperando a recibir un dominio de seguridad. 
 
 ```azurecli-interactive
 az keyvault security-domain upload --hsm-name ContosoMHSM2 --sd-exchange-key ContosoMHSM-SDE.cer --sd-file ContosoMHSM-SD.json --sd-wrapping-keys cert_0.key cert_1.key

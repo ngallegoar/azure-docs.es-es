@@ -9,16 +9,16 @@ ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: quickstart
 ms.date: 10/16/2020
-ms.openlocfilehash: b20f2ce88695cb68de496d126c5e3cd52f9eb6c8
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 38b0f23a44a16125726e7810b2045d244a2e6b06
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93316143"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96454649"
 ---
 # <a name="quickstart-create-a-serverless-apache-spark-pool-in-azure-synapse-analytics-using-web-tools"></a>Inicio rápido: Creación de un grupo de Apache Spark sin servidor en Azure Synapse Analytics mediante herramientas web
 
-En este inicio rápido, aprenderá a crear un grupo de Apache Spark sin servidor (versión preliminar) en Azure Synapse mediante herramientas web. Luego, aprenderá a conectarse al grupo de Apache Spark y a ejecutar consultas SQL de Spark en archivos y tablas. Apache Spark permite el análisis rápido de datos y procesamiento de clústeres con el procesamiento en memoria. Para información sobre Spark en Azure Synapse, consulte [Introducción: Apache Spark en Azure Synapse](./spark/apache-spark-overview.md).
+En este inicio rápido, aprenderá a crear un grupo de Apache Spark sin servidor en Azure Synapse mediante herramientas web. Luego, aprenderá a conectarse al grupo de Apache Spark y a ejecutar consultas SQL de Spark en archivos y tablas. Apache Spark permite el análisis rápido de datos y procesamiento de clústeres con el procesamiento en memoria. Para información sobre Spark en Azure Synapse, consulte [Introducción: Apache Spark en Azure Synapse](./spark/apache-spark-overview.md).
 
 > [!IMPORTANT]
 > La facturación de las instancias de Spark se prorratea por minuto, tanto si se usan como si no. Asegúrese de cerrar la instancia de Spark después de que haya terminado de usarla, o configure un breve tiempo de espera. Para obtener más información, consulte la sección **Limpieza de recursos** de este artículo.
@@ -124,7 +124,7 @@ SQL (Lenguaje de consulta estructurado) es el lenguaje más común y ampliamente
 
    ![Salida del gráfico en Azure Synapse Spark](./media/quickstart-apache-spark-notebook/spark-get-started-query-chart-output.png "Salida del gráfico en Azure Synapse Spark")
 
-10. Es posible obtener la misma experiencia de ejecutar SQL, pero sin tener que cambiar de lenguaje. Para ello, reemplace la celda de SQL anterior por esta celda de PySpark; la experiencia de salida es la misma porque se usa el comando **display** :
+10. Es posible obtener la misma experiencia de ejecutar SQL, pero sin tener que cambiar de lenguaje. Para ello, reemplace la celda de SQL anterior por esta celda de PySpark; la experiencia de salida es la misma porque se usa el comando **display**:
 
     ```python
     display(spark.sql('SELECT * FROM demo_df'))

@@ -9,16 +9,14 @@ ms.reviewer: jrasnick, garye
 ms.date: 09/25/2020
 author: nelgson
 ms.author: negust
-ms.openlocfilehash: 382ba871f95b3b36c3f819de8d582ba2c5dc358a
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 20f095a058434c36373c30ed2a633db12643814d
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93316093"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96448279"
 ---
-# <a name="machine-learning-capabilities-in-azure-synapse-analytics-workspaces-preview"></a>Funcionalidades de aprendizaje automático en Azure Synapse Analytics (vista previa de áreas de trabajo)
-
-[!INCLUDE [preview](../includes/note-preview.md)]
+# <a name="machine-learning-capabilities-in-azure-synapse-analytics"></a>Funcionalidades de Machine Learning en Azure Synapse Analytics
 
 Azure Synapse Analytics ofrece distintas funcionalidades de aprendizaje automático. En este artículo se proporciona información general sobre cómo se puede aplicar el aprendizaje automático en el contexto de Azure Synapse.
 
@@ -48,11 +46,11 @@ Gracias a [Azure Data Factory](/azure/data-factory/introduction), una parte inte
 
 Una parte importante del proceso de aprendizaje automático es comprender los datos mediante la exploración y las visualizaciones.
 
-En función de dónde se almacenen los datos, Synapse ofrece un conjunto diferente de herramientas para explorar y prepararlos para el análisis y el aprendizaje automático. Una de las formas más rápidas de empezar a trabajar con la exploración de datos es usar grupos sin servidor de Synapse SQL o Apache Spark directamente en los datos del lago de datos.
+En función de dónde se almacenen los datos, Synapse ofrece un conjunto diferente de herramientas para explorar y prepararlos para el análisis y el aprendizaje automático. Una de las maneras más rápidas de empezar a trabajar con la exploración de datos es usar Apache Spark o grupos de SQL sin servidor directamente sobre los datos del lago de datos.
 
 * [Apache Spark para Azure Synapse](../spark/apache-spark-overview.md) ofrece funcionalidades para transformar, preparar y explorar los datos a escala. Estos grupos de Spark ofrecen herramientas como PySpark/Python, Scala y .NET para el procesamiento de datos a escala. La experiencia de exploración de datos se puede mejorar con eficaces bibliotecas de visualización para ayudar a comprender mejor los datos. [Obtenga más información sobre cómo explorar y visualizar datos en Synapse con Spark](../get-started-analyze-spark.md).
 
-* Los [grupos sin servidor de Synapse SQL](../sql/on-demand-workspace-overview.md) ofrecen una manera de explorar los datos mediante TSQL directamente en el lago de datos. Los grupos sin servidor de Synapse SQL también ofrecen algunas visualizaciones integradas en Synapse Studio. [Obtenga más información sobre cómo explorar datos con grupos sin servidor de Synapse SQL](../get-started-analyze-sql-on-demand.md).
+* Los [grupos de SQL sin servidor](../sql/on-demand-workspace-overview.md) ofrecen una manera de explorar los datos mediante TSQL directamente sobre el lago de datos. Los grupos de SQL sin servidor también ofrecen algunas visualizaciones integradas en Synapse Studio. [Aprenda a explorar datos con grupos de SQL sin servidor](../get-started-analyze-sql-on-demand.md).
 
 ### <a name="modeling"></a>Modelado
 

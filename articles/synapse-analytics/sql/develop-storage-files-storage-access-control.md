@@ -1,6 +1,6 @@
 ---
-title: Control del acceso a la cuenta de almacenamiento para el grupo de SQL sin servidor (versión preliminar)
-description: Describe el modo en que el grupo de SQL sin servidor (versión preliminar) accede a Azure Storage y cómo puede controlar el acceso al almacenamiento para el grupo de SQL sin servidor en Azure Synapse Analytics.
+title: Control del acceso a la cuenta de almacenamiento para el grupo de SQL sin servidor
+description: Se describe el modo en que el grupo de SQL sin servidor accede a Azure Storage y cómo puede controlar su acceso al almacenamiento en Azure Synapse Analytics.
 services: synapse-analytics
 author: filippopovic
 ms.service: synapse-analytics
@@ -9,18 +9,18 @@ ms.subservice: sql
 ms.date: 06/11/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 958f371a0018d20331e73d0eabba9354614d121c
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 631aaf3c6a99e093f6ed59089f7ce99803f3f054
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93315732"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96446623"
 ---
-# <a name="control-storage-account-access-for-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Control del acceso a la cuenta de almacenamiento para el grupo de SQL sin servidor (versión preliminar) en Azure Synapse Analytics
+# <a name="control-storage-account-access-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Control del acceso a la cuenta de almacenamiento del grupo de SQL sin servidor en Azure Synapse Analytics
 
 Una consulta del grupo de SQL sin servidor lee los archivos directamente desde Azure Storage. Los permisos para tener acceso a los archivos en Azure Storage se controlan en dos niveles:
-- **Nivel de almacenamiento** : el usuario debe tener permiso de acceso a los archivos de almacenamiento subyacentes. El administrador de almacenamiento debe permitir que la entidad de seguridad de Azure AD lea y escriba archivos o que genere una clave SAS que se usará para acceder al almacenamiento.
-- **Nivel de servicio de SQL** : el usuario debe tener permiso de `SELECT` para leer los datos de la [tabla externa](develop-tables-external-tables.md) o permiso de `ADMINISTER BULK ADMIN` para ejecutar `OPENROWSET`, así como el permiso para usar las credenciales que se usarán para tener acceso al almacenamiento.
+- **Nivel de almacenamiento**: el usuario debe tener permiso de acceso a los archivos de almacenamiento subyacentes. El administrador de almacenamiento debe permitir que la entidad de seguridad de Azure AD lea y escriba archivos o que genere una clave SAS que se usará para acceder al almacenamiento.
+- **Nivel de servicio de SQL**: el usuario debe tener permiso de `SELECT` para leer los datos de la [tabla externa](develop-tables-external-tables.md) o permiso de `ADMINISTER BULK ADMIN` para ejecutar `OPENROWSET`, así como el permiso para usar las credenciales que se usarán para tener acceso al almacenamiento.
 
 En este artículo se describen los tipos de credenciales que puede usar y cómo se realiza la búsqueda de credenciales para los usuarios de SQL y Azure AD.
 
@@ -33,7 +33,7 @@ Un usuario que haya iniciado sesión en un grupo de SQL sin servidor debe estar 
 
 ### <a name="user-identity"></a>[Identidad de usuario](#tab/user-identity)
 
-La **identidad de usuario** , conocida también como "paso a través de Azure AD", es un tipo de autorización en el que se usa la identidad del usuario de Azure AD que inició sesión en el grupo de SQL sin servidor para autorizar el acceso a los datos. Antes de acceder a los datos, el administrador de Azure Storage debe conceder permisos al usuario de Azure AD. Como se indica en la tabla siguiente, no se admite para el tipo de usuario de SQL.
+La **identidad de usuario**, conocida también como "paso a través de Azure AD", es un tipo de autorización en el que se usa la identidad del usuario de Azure AD que inició sesión en el grupo de SQL sin servidor para autorizar el acceso a los datos. Antes de acceder a los datos, el administrador de Azure Storage debe conceder permisos al usuario de Azure AD. Como se indica en la tabla siguiente, no se admite para el tipo de usuario de SQL.
 
 > [!IMPORTANT]
 > Debe tener un rol de Propietario, Colaborador o Lector de datos de un blob de almacenamiento para usar su identidad para acceder a los datos.
@@ -144,7 +144,7 @@ Los usuarios de SQL no pueden utilizar la autenticación de Azure AD para acced
 
 El script siguiente crea una credencial de nivel de servidor que puede usar la función `OPENROWSET` para tener acceso a cualquier archivo de Azure Storage mediante el token de SAS. Cree esta credencial para habilitar la entidad de seguridad de SQL que ejecuta la función `OPENROWSET` para leer archivos protegidos con clave SAS en la instancia de Azure Storage que coincida con la dirección URL del nombre de la credencial.
 
-Reemplace < *mystorageaccountname* > por el nombre de la cuenta de almacenamiento real y < *mystorageaccountcontainername* > por el nombre real del contenedor:
+Reemplace <*mystorageaccountname*> por el nombre de la cuenta de almacenamiento real y <*mystorageaccountcontainername*> por el nombre real del contenedor:
 
 ```sql
 CREATE CREDENTIAL [https://<storage_account>.dfs.core.windows.net/<container>]

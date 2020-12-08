@@ -7,15 +7,16 @@ manager: CelesteDG
 ms.service: app-service-web
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 11/09/2020
+ms.date: 11/30/2020
 ms.author: ryanwi
 ms.reviewer: stsoneff
-ms.openlocfilehash: a7b8ca309bf5710ddbd88413935bef5e97a1ed9f
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.custom: azureday1
+ms.openlocfilehash: facc6a4ab8344f9f72fc7abc27433c18ab435504
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95999678"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436545"
 ---
 # <a name="tutorial-access-microsoft-graph-from-a-secured-app-as-the-app"></a>Tutorial: Acceso a Microsoft Graph desde una aplicación protegida como aplicación
 
@@ -23,7 +24,7 @@ Aprenda a acceder a Microsoft Graph desde una aplicación web que se ejecuta en 
 
 :::image type="content" alt-text="Diagrama que muestra el acceso a Microsoft Graph." source="./media/scenario-secure-app-access-microsoft-graph/web-app-access-graph.svg" border="false":::
 
-Quiere llamar a Microsoft Graph para la aplicación web. Una manera segura de dar acceso a los datos a la aplicación web es usar una [identidad administrada asignada por el sistema](/azure/active-directory/managed-identities-azure-resources/overview). Una identidad administrada de Azure Active Directory permite a App Service acceder a los recursos a través del control de acceso basado en roles, sin necesidad de credenciales de aplicación. Después de asignar una identidad administrada a la aplicación web, Azure se encarga de la creación y distribución de un certificado. No tiene que preocuparse de administrar secretos ni credenciales de aplicaciones.
+Quiere llamar a Microsoft Graph para la aplicación web. Una manera segura de dar acceso a los datos a la aplicación web es usar una [identidad administrada asignada por el sistema](../active-directory/managed-identities-azure-resources/overview.md). Una identidad administrada de Azure Active Directory permite a App Service acceder a los recursos a través del control de acceso basado en roles, sin necesidad de credenciales de aplicación. Después de asignar una identidad administrada a la aplicación web, Azure se encarga de la creación y distribución de un certificado. No tiene que preocuparse de administrar secretos ni credenciales de aplicaciones.
 
 En este tutorial, aprenderá a:
 
@@ -120,6 +121,8 @@ En **Información general**, seleccione **Permisos**; verá los permisos agregad
 ## <a name="call-microsoft-graph-net"></a>Llamada a Microsoft Graph (.NET)
 
 Para obtener una credencial de token que el código pueda usar para autorizar solicitudes para Microsoft Graph, se utiliza la clase [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential). Cree una instancia de la clase [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential), que usa la identidad administrada para capturar los tokens y asociarlos al cliente del servicio. En el ejemplo de código siguiente se obtiene la credencial de token autenticada y se usa para crear un objeto de cliente del servicio que, luego, obtiene los usuarios del grupo.
+
+Para ver este código como parte de una aplicación de ejemplo, consulte el [ejemplo en GitHub](https://github.com/Azure-Samples/ms-identity-easyauth-dotnet-storage-graphapi/tree/main/3-WebApp-graphapi-managed-identity).
 
 ### <a name="install-the-microsoftgraph-client-library-package"></a>Instalación del paquete de la biblioteca cliente Microsoft.Graph
 

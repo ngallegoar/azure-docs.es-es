@@ -1,6 +1,6 @@
 ---
 title: Conexión a Synapse SQL mediante sqlcmd
-description: Use la utilidad de línea de comandos sqlcmd para conectarse tanto al grupo de SQL sin servidor (versión preliminar) como al grupo de SQL dedicado y realizar consultas en ellos.
+description: Use la utilidad de línea de comandos sqlcmd para conectarse tanto al grupo de SQL sin servidor como al grupo de SQL dedicado y realizar consultas en ellos.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,23 +9,23 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 43fae026f91e4430fbce0d01141a86a913db089d
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 88ee95789bdc1c6ee9884a021067318caab203d4
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94686147"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451647"
 ---
 # <a name="connect-to-synapse-sql-with-sqlcmd"></a>Conexión a Synapse SQL mediante sqlcmd
 
 > [!div class="op_single_selector"]
-> * [Azure Data Studio (versión preliminar)](get-started-azure-data-studio.md)
+> * [Azure Data Studio](get-started-azure-data-studio.md)
 > * [Power BI](get-started-power-bi-professional.md)
 > * [Visual Studio](../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 > * [sqlcmd](../sql/get-started-connect-sqlcmd.md)
 > * [SSMS](get-started-ssms.md)
 
-Con la utilidad de línea de comandos [sqlcmd](/sql/tools/sqlcmd-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) puede conectarse tanto al grupo de SQL sin servidor (versión preliminar) como al grupo de SQL dedicado en Synapse SQL, así como realizar consultas en ellos.  
+Con la utilidad de línea de comandos [sqlcmd](/sql/tools/sqlcmd-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) puede conectarse tanto al grupo de SQL sin servidor como al grupo de SQL dedicado en Synapse SQL, así como realizar consultas en ellos.  
 
 ## <a name="1-connect"></a>1. Conectar
 Para empezar a trabajar con [sqlcmd](/sql/tools/sqlcmd-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest), abra el símbolo del sistema y escriba **sqlcmd** seguido de la cadena de conexión de la base de datos de Synapse SQL. La cadena de conexión requiere los siguientes parámetros:

@@ -1,6 +1,6 @@
 ---
-title: Acceso a los archivos del almacenamiento en el grupo de SQL sin servidor (versión preliminar)
-description: Describe la consulta de archivos del almacenamiento con el grupo de SQL sin servidor (versión preliminar) en Azure Synapse Analytics.
+title: Acceso a los archivos del almacenamiento en un grupo de SQL sin servidor
+description: Se describe la consulta de archivos de almacenamiento con un grupo de SQL sin servidor en Azure Synapse Analytics.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,14 +9,14 @@ ms.subservice: sql
 ms.date: 04/19/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 64148cd8fd467be6a5f09ee723e230bdc8181d2d
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 82a4ded3a64a8a8bbc62f99a8854eb6d2b5f0d0b
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94685688"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96446586"
 ---
-# <a name="access-external-storage-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Acceso al almacenamiento externo con el grupo de SQL sin servidor (versión preliminar) en Azure Synapse Analytics
+# <a name="access-external-storage-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Acceso a almacenamiento externo con un grupo de SQL sin servidor en Azure Synapse Analytics
 
 En este documento se describe la forma en que los usuarios pueden leer datos de los archivos almacenados en Azure Storage en el grupo de SQL sin servidor. Los usuarios tienen las siguientes opciones para acceder al almacenamiento:
 

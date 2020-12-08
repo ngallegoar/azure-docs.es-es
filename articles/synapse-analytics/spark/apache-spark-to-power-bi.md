@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: tutorial
 ms.date: 11/16/2020
-ms.openlocfilehash: ea8fcb602f49dec61187260e08d3ccd1b148cee8
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 791cab369dcbf9cab8d1256377cfee4a433c21b9
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95918958"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96450890"
 ---
 # <a name="tutorial-create-a-power-bi-report-using-apache-spark-and-azure-synapse-analytics"></a>Tutorial: Creación de un informe de Power BI con Apache Spark y Azure Synapse Analytics
 
@@ -69,9 +69,12 @@ En este ejemplo, va a utilizar Spark para realizar algunos análisis de los dato
                                     & (filtered_df.paymentType.isin({"1", "2"})))
     ```
 4. Por último, guardaremos la trama de datos utilizando el método ```saveAsTable``` de Apache Spark. Esto le permitirá realizar consultas posteriormente y conectarse a la misma tabla utilizando grupos de SQL sin servidor.
+  ```python
+     taxi_df.write.mode("overwrite").saveAsTable("NycTlcTutorial.nyctaxi")
+  ```
    
 ## <a name="query-data-using-serverless-sql-pools"></a>Consulta de datos mediante grupos de SQL sin servidor
-Azure Synapse Analytics permite que los diferentes motores de las áreas de trabajo de cálculo compartan bases de datos y tablas entre sus grupos de Apache Spark sin servidor (versión preliminar) y el grupo de SQL sin servidor (versión preliminar). Esto se realiza mediante la funcionalidad de [administración de metadatos compartidos](../metadata/overview.md) de Synapse. Como resultado, las bases de datos creadas por Spark y las tablas con formato Parquet se vuelven visibles en el grupo de SQL sin servidor del área de trabajo.
+Azure Synapse Analytics permite que los diferentes motores de cálculo de áreas de trabajo compartan bases de datos y tablas entre sus grupos de Apache Spark sin servidor y el grupo de SQL sin servidor. Esto se realiza mediante la funcionalidad de [administración de metadatos compartidos](../metadata/overview.md) de Synapse. Como resultado, las bases de datos creadas por Spark y las tablas con formato Parquet se vuelven visibles en el grupo de SQL sin servidor del área de trabajo.
 
 Para consultar la tabla de Apache Spark con el grupo de SQL sin servidor:
    1. Una vez que haya guardado la tabla de Apache Spark, cambie a la pestaña **data** (datos).

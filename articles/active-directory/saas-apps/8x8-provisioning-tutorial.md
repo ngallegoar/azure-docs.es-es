@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/15/2020
 ms.author: Zhchia
-ms.openlocfilehash: 0ed56d200c2b5a472dbf93d45ad25156ea02a884
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 90e3464ac9ddf1e839c3a731f79ac2c0771c37ea
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96181159"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96532713"
 ---
 # <a name="tutorial-configure-8x8-for-automatic-user-provisioning"></a>Tutorial: Configuración de 8x8 para el aprovisionamiento automático de usuarios
 
@@ -50,17 +50,17 @@ Esta sección le guía por los pasos para configurar 8x8 para asistir el aprovis
 
 ### <a name="to-configure-a-user-provisioning-access-token-in-8x8-configuration-manager"></a>Para configurar un token de acceso de aprovisionamiento de usuarios en 8x8 Configuration Manager:
 
-1. Inicie sesión en [Configuration Manager](https://vo-cm.8x8.com). Seleccione **Administración de identidades**.
+1. Iniciar sesión en la [Consola de administración](https://admin.8x8.com). Seleccione **Administración de identidades**.
 
-   ![Administración de identidades](./media/8x8-provisioning-tutorial/8x8-identity-management.png)
+   ![Administración](./media/8x8-provisioning-tutorial/8x8-identity-management.png)
 
 2. Haga clic en el vínculo **Mostrar información de aprovisionamiento de usuarios** para generar un token.
 
-   ![Mostrar aprovisionamiento de usuarios](./media/8x8-provisioning-tutorial/8x8-show-user-provisioning.png)
+   ![Presentación](./media/8x8-provisioning-tutorial/8x8-show-user-provisioning.png)
 
 3. Copie los valores de **dirección URL de 8x8** y **Token de API de 8x8**. Estos valores se escribirán en los campos **Dirección URL de inquilino** y **Token secreto**, respectivamente, de la pestaña Aprovisionamiento de la aplicación 8x8 en Azure Portal.
 
-   ![Copiar dirección URL y token](./media/8x8-provisioning-tutorial/8x8-copy-url-token.png)
+   ![Token](./media/8x8-provisioning-tutorial/8x8-copy-url-token.png)
 
 ## <a name="step-3-add-8x8-from-the-azure-ad-application-gallery"></a>Paso 3. Adición de 8x8 desde la galería de aplicaciones de Azure AD
 

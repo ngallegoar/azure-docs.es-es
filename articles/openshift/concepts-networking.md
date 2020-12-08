@@ -5,32 +5,28 @@ author: sakthi-vetrivel
 ms.author: suvetriv
 ms.topic: tutorial
 ms.service: container-service
-ms.date: 06/22/2020
-ms.openlocfilehash: 3417b59d0be9e285f8793ef598abb7f98bda7549
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.date: 11/23/2020
+ms.openlocfilehash: 2d9169e836b5819756e716c64ed9d41094f08c5e
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95527996"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96512378"
 ---
-# <a name="networking-in-azure-red-hat-on-openshift-4"></a>Redes en Red Hat OpenShift en Azure 4
+# <a name="network-concepts-for-azure-red-hat-openshift-aro"></a>Conceptos de red de Red Hat OpenShift en Azure (ARO)
 
-En esta guía se describe una introducción a las redes en clústeres de Red Hat OpenShift en Azure 4, junto con un diagrama y una lista de puntos de conexión importantes.
-
-Para más información sobre los conceptos básicos de las redes de OpenShift, consulte [Documentación de redes de Red Hat OpenShift en Azure 4](https://docs.openshift.com/aro/4/networking/understanding-networking.html).
-
-## <a name="networking-concepts-in-azure-red-hat-openshift"></a>Conceptos de redes en Red Hat OpenShift en Azure
+En esta guía se describe una introducción a las redes en clústeres de Red Hat OpenShift en Azure en OpenShift 4, junto con un diagrama y una lista de puntos de conexión importantes. Para más información sobre los conceptos básicos de las redes de OpenShift, consulte [Documentación de redes de Red Hat OpenShift en Azure 4](https://docs.openshift.com/aro/4/networking/understanding-networking.html).
 
 ![Diagrama de redes de Red Hat OpenShift en Azure 4](./media/concepts-networking/aro4-networking-diagram.png)
 
-Al implementar Red Hat OpenShift en Azure 4, todo el clúster se encuentra dentro de una red virtual. Dentro de esta red virtual, los nodos principales y los nodos de trabajo tienen su propia subred. Cada subred utiliza un equilibrador de carga interno y público.
+Al implementar Red Hat OpenShift en Azure 4, todo el clúster se encuentra dentro de una red virtual. Dentro de esta red virtual, los nodos principales y los nodos de trabajo tienen su propia subred. Cada subred usa un equilibrador de carga interno y un equilibrador de carga público.
 
-## <a name="explanation-of-endpoints"></a>Explicación de los puntos de conexión
+## <a name="networking-components"></a>Componentes de red
 
-En la lista siguiente se describen los puntos de conexión más importantes de un clúster de Red Hat OpenShift en Azure.
+En la lista siguiente se describen los componentes de redes más importantes de un clúster de Red Hat OpenShift en Azure.
 
 * **aro-pls**
-    * Se trata de un punto de conexión de Azure Private Link, usado por Microsoft y los ingenieros de confiabilidad de sitios de Red Hat para ayudar a administrar el clúster.
+    * Es un punto de conexión de Azure Private Link, usado por los ingenieros de confiabilidad de sitios de Microsoft y Red Hat para administrar el clúster.
 * **aro-internal-lb**
     * Este punto de conexión equilibra el tráfico al servidor de la API. Para este equilibrador de carga, los nodos maestros se encuentran en el grupo de back-end.
 * **aro-public-lb**
@@ -38,50 +34,42 @@ En la lista siguiente se describen los puntos de conexión más importantes de u
 * **aro-internal**
     * Este punto de conexión equilibra el tráfico de servicio interno. Para este equilibrador de carga, los nodos de trabajo se encuentran en el grupo de back-end.
     * Este equilibrador de carga no se crea de forma predeterminada. Este equilibrador de carga se crea una vez que se crea un servicio de tipo equilibrador de carga con las anotaciones correctas. Por ejemplo: service.beta.kubernetes.io/azure-load-balancer-internal: "true".
-* **Directivas de red (entrada)**
-    * Se admiten como parte del SDN de OpenShift.
-    * Habilitado de forma predeterminada, cumplimiento realizado por los clientes.
-    * Compatible con NetworkPolicy v1, sin embargo, todavía no se admiten los tipos de "salida e IPBlock".
-    * **aro**
-    * Este punto de conexión equilibra el tráfico al servidor de la API. Para este equilibrador de carga, los nodos maestros se encuentran en el grupo de back-end.
-  * **aro-internal-lb**
+* **aro-internal-lb**
     * Este punto de conexión se usa para cualquier tráfico público. Al crear una aplicación y una ruta, esta es la ruta para el tráfico de entrada.
     * Este equilibrador de carga también cubre la conectividad de salida a Internet desde cualquier pod que se ejecute en los nodos de trabajo mediante reglas de salida de Azure Load Balancer.
         * Actualmente no se pueden configurar las reglas de salida. Se asignan 1024 puertos TCP a cada nodo.
         * DisableOutboundSnat no está configurada en las reglas del equilibrador de carga, por lo que los pods podrían obtener como dirección IP de salida cualquier dirección IP pública configurada en este ALB.
         * Como consecuencia de los dos puntos anteriores, la única manera de agregar puertos SNAT efímeros es agregar a ARO servicios públicos de tipo equilibrador de carga.
-* **Directivas de red (salida)**
-    * Las directivas de salida se admiten mediante la característica de firewall de salida en OpenShift.
-    * Solo una por espacio de nombres o proyecto.
-    * No se admiten directivas de salida en el espacio de nombres "default" (predeterminado).
-    * Las reglas de la directiva de salida se evalúan por orden (de la primera a la última).
-    * **aro-outbound-pip**
-        * Este punto de conexión actúa como una dirección IP pública (PIP) para los nodos de trabajo.
-        * Este punto de conexión permite a los servicios agregar a una lista de permitidos una dirección IP específica que procede de un clúster de Red Hat OpenShift en Azure.
-* **aro-node-nsg**
-    * Cuando se expone un servicio, la API crea una regla en este grupo de seguridad de red para que el tráfico fluya por los nodos y tenga acceso a ellos.
+* **aro-outbound-pip**
+    * Este punto de conexión actúa como una dirección IP pública (PIP) para los nodos de trabajo.
+    * Este punto de conexión permite a los servicios agregar a una lista de permitidos una dirección IP específica que procede de un clúster de Red Hat OpenShift en Azure.
+* **aro-nsg**
+    * Cuando se expone un servicio, la API crea una regla en este grupo de seguridad de red para que el tráfico fluya y tenga acceso al plano de control y los nodos.
     * De forma predeterminada, este grupo de seguridad de red permite todo el tráfico de salida. Actualmente, el tráfico de salida solo se puede restringir al plano de control de Red Hat OpenShift en Azure.
 * **aro-controlplane-nsg**
-    * Este punto de conexión solo permite que el tráfico entre por el puerto 6443 para los nodos maestros.
+  * Este punto de conexión solo permite que el tráfico entre por el puerto 6443 para los nodos maestros.
 * **Azure Container Registry**
-    * Se trata de un registro de contenedor que Microsoft proporciona y utiliza internamente.
+    * Se trata de un registro de contenedor que Microsoft proporciona y utiliza internamente. Este registro es de solo lectura y no está pensado para que lo utilicen los usuarios de Red Hat OpenShift en Azure.
         * Este registro proporciona las imágenes de la plataforma del host y los componentes del clúster. Por ejemplo, los contenedores de supervisión o registro.
-        * No está diseñado para que lo usen los clientes de Red Hat OpenShift en Azure.  
-        * Solo lectura.
         * Las conexiones a este registro se producen mediante el punto de conexión de servicio (conectividad interna entre los servicios de Azure).
         * Este registro interno no está disponible fuera del clúster de forma predeterminada.
 * **Private Link**
-    * Permite la conectividad de red desde el plano de administración hasta un clúster para su administración.
-    * Para los ingenieros de confiabilidad de sitios de Microsoft y Red Hat para ayudar a administrar el clúster.
+    * Permite la conectividad de red desde el plano de administración en un clúster para que los ingenieros de confiabilidad de sitios de Microsoft y Red Hat ayuden a administrar el clúster.
+
+## <a name="networking-policies"></a>Directivas de redes
+
+* **Entrada**: la directiva de redes de entrada se admite como parte de [OpenShift SDN](https://docs.openshift.com/container-platform/4.5/networking/openshift_sdn/about-openshift-sdn.html). Esta directiva de red está habilitada de forma predeterminada y los usuarios llevan a cabo la aplicación. Aunque la directiva de red de entrada es compatible con V1 NetworkPolicy, no se admiten la salida ni los tipos IPBlock.
+
+* **Salida**: las directivas de red de salida se admiten mediante la característica de [firewall de salida](https://docs.openshift.com/container-platform/4.5/networking/openshift_sdn/configuring-egress-firewall.html) de OpenShift. Solo hay una directiva de salida por espacio de nombres o proyecto. Las directivas de salida no se admiten en el espacio de nombres "default" (predeterminado) y se evalúan en orden (de la primera a la última).
 
 ## <a name="networking-basics-in-openshift"></a>Aspectos básicos de las redes en OpenShift
 
-Las redes definidas por software (SDN) de OpenShift se usan para configurar una red de superposición mediante Open vSwitch (OVS), una implementación de OpenFlow basada en la especificación de la interfaz de red del contenedor (CNI). SDN admite distintos complementos y la directiva de red es el complemento que se usa en Red Hat OpenShift en Azure 4. SDN administra toda la comunicación de red, por lo que no se necesitan rutas adicionales en las redes virtuales para lograr la comunicación entre pod y pod.
+Las redes definidas por software [(SDN)](https://docs.openshift.com/container-platform/4.5/networking/openshift_sdn/about-openshift-sdn.html) de OpenShift se usan para configurar una red de superposición mediante Open vSwitch [(OVS)](https://www.openvswitch.org/), una implementación de OpenFlow basada en la especificación de la interfaz de red del contenedor (CNI). SDN admite distintos complementos: la directiva de red es el complemento que se usa en Red Hat OpenShift en Azure 4. SDN administra toda la comunicación de red, por lo que no se necesitan rutas adicionales en las redes virtuales para lograr la comunicación entre pod y pod.
 
-## <a name="azure-red-hat-openshift-networking-specifics"></a>Características específicas de las redes en Red Hat OpenShift en Azure
+## <a name="networking--for-azure-red-hat-openshift"></a>Redes para Red Hat OpenShift en Azure
 
-Las siguientes características son específicas de Red Hat OpenShift en Azure:
-* Se admite que traiga su propia red virtual.
+Las siguientes características de redes son específicas de Red Hat OpenShift en Azure:
+* Los usuarios pueden crear su clúster de ARO en una red virtual existente o crear una red virtual al crear su clúster de ARO.
 * Se pueden configurar los CIDR de la red de servicio y los pods.
 * Los nodos y los maestros se encuentran en subredes diferentes.
 * Las subredes de la red virtual de los nodos y los maestros deben ser /27 como mínimo.
@@ -92,7 +80,7 @@ Las siguientes características son específicas de Red Hat OpenShift en Azure:
 
 ## <a name="network-settings"></a>Configuración de red
 
-La siguiente configuración de red está disponible en Red Hat OpenShift en Azure 4:
+La siguiente configuración de red está disponible para los clústeres de Red Hat OpenShift en Azure 4:
 
 * **Visibilidad de la API**: establezca la visibilidad de la API mediante la ejecución del [comando az aro create](tutorial-create-cluster.md#create-the-cluster).
     * "Público": el servidor de la API es accesible para redes externas.
@@ -102,14 +90,25 @@ La siguiente configuración de red está disponible en Red Hat OpenShift en Azur
     * Las rutas "privadas" se establecerán de forma predeterminada en el equilibrador de carga interno (se puede cambiar).
 
 ## <a name="network-security-groups"></a>Grupos de seguridad de red
-Los grupos de seguridad de red se crearán en el grupo de recursos del nodo, que está bloqueado. Los grupos de seguridad de red se asignan directamente a las subredes, no a las NIC del nodo. Los grupos de seguridad de red son inmutables, lo que significa que no tiene permisos para cambiarlos. 
+Los grupos de seguridad de red se crean en el grupo de recursos del nodo, que está bloqueado para los usuarios. Los grupos de seguridad de red se asignan directamente a las subredes, no a las NIC del nodo. Los grupos de seguridad de red son inmutables y los usuarios no tienen permisos para cambiarlos.
 
-Sin embargo, con un servidor de API visible públicamente, no puede crear grupos de seguridad de red y asignarlos a las NIC.
+Con un servidor de API visible públicamente, no puede crear grupos de seguridad de red y asignarlos a las NIC.
 
 ## <a name="domain-forwarding"></a>Reenvío de dominios
-Red Hat OpenShift en Azure usa CoreDNS. Se puede configurar el reenvío de dominios (consulte la documentación sobre [Uso del reenvío de DNS](https://docs.openshift.com/aro/4/networking/dns-operator.html#nw-dns-forward_dns-operator) para más información).
+Red Hat OpenShift en Azure usa CoreDNS. Se puede configurar el reenvío de dominios. No puede traer su propio sistema DNS a las redes virtuales. Para más información, consulte la documentación sobre [Uso del reenvío de DNS](https://docs.openshift.com/aro/4/networking/dns-operator.html#nw-dns-forward_dns-operator).
 
-Actualmente, no puede traer su propio sistema DNS a las redes virtuales.
+## <a name="whats-new-in-openshift-45"></a>Novedades de OpenShift 4.5
 
+Con la compatibilidad de OpenShift 4.5, Red Hat OpenShift en Azure presenta algunos cambios importantes en la arquitectura. Estos cambios solo se aplican a los clústeres recién creados que ejecutan OpenShift 4.5. El proceso de actualización no modificará la arquitectura de redes en los clústeres existentes que se han actualizado a OpenShift 4.5. Los usuarios deberán volver a crear los clústeres para usar esta nueva arquitectura.
 
+![Diagrama de redes de Red Hat OpenShift en Azure 4.5](./media/concepts-networking/aro-4-5-networking-diagram.png)
+
+Como se incluye en el diagrama anterior, observará algunos cambios:
+* Anteriormente, ARO usaba dos equilibradores de carga públicos: uno para el servidor de API y otro para el grupo de nodos de trabajo. Con esta actualización de la arquitectura, se ha consolidado en un solo equilibrador de carga. 
+* Para reducir la complejidad, se han eliminado los recursos de dirección IP externos dedicados.
+* El plano de control de ARO ahora comparte el mismo grupo de seguridad de red que los nodos de trabajo de ARO.
+
+Para más información sobre OpenShift 4.5, consulte [Notas de la versión de OpenShift 4.5](https://docs.openshift.com/container-platform/4.5/release_notes/ocp-4-5-release-notes.html).
+
+## <a name="next-steps"></a>Pasos siguientes
 Para más información sobre el tráfico de salida y lo que admite Red Hat OpenShift en Azure para la salida, consulte la documentación de [compatibilidad de directivas](support-policies-v4.md).

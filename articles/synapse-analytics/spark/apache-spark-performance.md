@@ -9,14 +9,14 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: bb64fb3c9e25e629a0bcb36fe60fd5ae2d7fc906
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: b94ece73d5f9dc9b8343e45fb1f616599b9a1c1f
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368611"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96450928"
 ---
-# <a name="optimize-apache-spark-jobs-preview-in-azure-synapse-analytics"></a>Optimización de trabajos de Apache Spark (versión preliminar) en Azure Synapse Analytics
+# <a name="optimize-apache-spark-jobs-in-azure-synapse-analytics"></a>Optimización de trabajos de Apache Spark en Azure Synapse Analytics
 
 Aprenda a optimizar una configuración de los clústeres de [Apache Spark](https://spark.apache.org/) para su carga de trabajo específica.  La mayor dificultad es la presión de memoria, debido a las configuraciones inadecuadas (en especial, al tamaño incorrecto de los ejecutores), las operaciones de ejecución prolongada y las tareas que dan lugar a operaciones cartesianas. Los trabajos se pueden acelerar con el almacenamiento en caché adecuado y permitiendo la [asimetría de datos](#optimize-joins-and-shuffles). Para obtener el mejor rendimiento, supervise y revise las ejecuciones de trabajos de Spark de ejecución prolongada y que consumen muchos recursos.
 
@@ -52,7 +52,7 @@ Las versiones anteriores de Spark usan RDD para abstraer datos; Spark 1.3 y 1.
 
 Spark admite muchos formatos, como csv, json, xml, parquet, orc y avro. Spark se puede ampliar para la compatibilidad con muchos más formatos con orígenes de datos externos; para más información, consulte los [paquetes de Apache Spark](https://spark-packages.org).
 
-El mejor formato para el rendimiento es parquet con *compresión eficiente* , que es el valor predeterminado en Spark 2.x. Parquet almacena datos en formato de columnas y está muy optimizado en Spark. Además, la *compresión eficiente* puede dar lugar a archivos más grandes que la compresión con GZIP. Debido a la naturaleza divisible de esos archivos, se descomprimen más rápido.
+El mejor formato para el rendimiento es parquet con *compresión eficiente*, que es el valor predeterminado en Spark 2.x. Parquet almacena datos en formato de columnas y está muy optimizado en Spark. Además, la *compresión eficiente* puede dar lugar a archivos más grandes que la compresión con GZIP. Debido a la naturaleza divisible de esos archivos, se descomprimen más rápido.
 
 ## <a name="use-the-cache"></a>Uso de la caché
 

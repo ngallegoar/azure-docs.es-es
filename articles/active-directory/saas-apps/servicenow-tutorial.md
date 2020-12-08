@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/09/2020
 ms.author: jeedes
-ms.openlocfilehash: 3413e594179cdca0704cb5db7908276b7502e719
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 7a15248300150c9b79c4678701f81fac923d56a3
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96004762"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353619"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-servicenow"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con ServiceNow
 
@@ -25,6 +25,8 @@ En este tutorial, aprenderá a integrar ServiceNow con Azure Active Directory (A
 * Controlar en Azure AD quién tiene acceso a ServiceNow.
 * Permitir que los usuarios inicien sesión automáticamente en ServiceNow con sus cuentas de Azure AD.
 * Administrar sus cuentas en una ubicación central: Azure Portal.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4Jao6]
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -104,7 +106,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
     d. En el cuadro **URL de cierre de sesión**, escriba una dirección URL con el siguiente patrón: `https://<instancename>.service-now.com/navpage.do`.
 
     > [!NOTE]
-    > Si se agrega "/" en el valor del identificador, quítelo manualmente.
+    > Si se ha agregado "/" en el valor del identificador, quítelo manualmente.
 
     > [!NOTE]
     > Estos valores no son reales. Tiene que actualizarlos con la dirección URL de inicio de sesión, la dirección URL de respuesta, la dirección URL de cierre de sesión y el identificador reales. Esto se explica más adelante en el tutorial. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
@@ -175,7 +177,7 @@ En esta sección, va a permitir que B. Simon acceda a ServiceNow mediante el in
     d. En el cuadro **URL de cierre de sesión**, escriba una dirección URL con el siguiente patrón: `https://<instancename>.service-now.com/navpage.do`.
     
     > [!NOTE]
-    > Si se agrega "/" en el valor del identificador, quítelo manualmente.
+    > Si se ha agregado "/" en el valor del identificador, quítelo manualmente.
 
     > [!NOTE]
     > Estos valores no son reales. Tiene que actualizarlos con la dirección URL de inicio de sesión, la dirección URL de respuesta, la dirección URL de cierre de sesión y el identificador reales. Esto se explica más adelante en el tutorial. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
@@ -478,5 +480,4 @@ Al seleccionar en el icono de ServiceNow del panel de acceso, debería iniciar s
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez configurado ServiceNow, puede aplicar controles de sesión, que protegen contra la filtración y la infiltración de la información confidencial de la organización en tiempo real. Los controles de sesión proceden del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad).
-
+Una vez configurado ServiceNow, puede aplicar controles de sesión, que protegen contra la filtración y la infiltración de la información confidencial de la organización en tiempo real. Los controles de sesión proceden del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).

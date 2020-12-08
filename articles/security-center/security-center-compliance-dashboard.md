@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/11/2020
 ms.author: memildin
-ms.openlocfilehash: 3108dd32b9d7338e418a1d10684115ad7265702e
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: bbc36dbb2a17d379d31a9a235898500aea36247d
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951203"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96533917"
 ---
 # <a name="tutorial-improve-your-regulatory-compliance"></a>Tutorial: Mejora del cumplimiento normativo
 
@@ -34,7 +34,10 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-Para recorrer las características descritas en este tutorial, [Azure Defender](azure-defender.md) debe estar habilitado. Puede probar Azure Defender gratis durante 30 días.
+Para recorrer las características descritas en este tutorial:
+
+- [Azure Defender](azure-defender.md) debe estar habilitado. Puede probar Azure Defender gratis durante 30 días.
+- Debe haber iniciado sesión con una cuenta que tenga acceso de lectura a los datos de cumplimiento de directivas (**Lector de seguridad** no es suficiente). El rol **Lector global** para la suscripción funcionará. Como mínimo, necesitará tener asignados los roles **Colaborador de directivas de recursos** y **Administrador de seguridad**.
 
 ##  <a name="assess-your-regulatory-compliance"></a>Mejora del cumplimiento de reglamentaciones
 
@@ -54,13 +57,13 @@ En la parte superior de la pantalla se ve un panel con información general acer
 
 1. Seleccione la pestaña de la norma que le interese (1). Verá las suscripciones en las que se aplica la norma (2) y la lista de todos los controles de esa norma (3). Para sabe qué controles se pueden aplicar, puede ver los detalles de las valoraciones aprobadas y suspendidas asociadas a ese control (4) y la cantidad de recursos afectados (5). Algunos controles aparecen atenuados, no tienen valoraciones de Security Center asociadas. Compruebe los requisitos de estos y valórelos en su entorno. Es posible que algunos de ellos estén relacionados con los procesos y no sean técnicos.
 
-    :::image type="content" source="./media/security-center-compliance-dashboard/compliance-drilldown.png" alt-text="Panel de cumplimiento normativo":::
+    :::image type="content" source="./media/security-center-compliance-dashboard/compliance-drilldown.png" alt-text="Exploración de los detalles de cumplimiento con una norma específica":::
 
 1. Para generar y descargar un informe en PDF que resuma su estado actual de cumplimiento de un estándar concreto, haga clic en **Download report** (Descargar informe).
 
-    El informe proporciona un resumen de alto nivel del estado de cumplimiento del estándar seleccionado, para lo que usa los datos de las evaluaciones de Security Center, y se organiza según los controles de dicho estándar concreto. El informe se puede compartir con las partes interesadas competentes y puede servir para proporcionar evidencia a los auditores internos y externos.
+    El informe proporciona un resumen de alto nivel del estado de cumplimiento del estándar seleccionado, para lo que usa los datos de las evaluaciones de Security Center, y se organiza según los controles de dicho estándar concreto. El informe se puede compartir con las partes interesadas competentes y puede proporcionar evidencia a los auditores internos y externos.
 
-    :::image type="content" source="./media/security-center-compliance-dashboard/download-report.png" alt-text="Panel de cumplimiento normativo":::
+    :::image type="content" source="./media/security-center-compliance-dashboard/download-report.png" alt-text="Descarga del informe de cumplimiento":::
 
 ## <a name="improve-your-compliance-posture"></a>Mejora de su estado de cumplimiento de la norma
 
@@ -70,11 +73,11 @@ Con toda la información del panel de cumplimiento normativo puede mejorar su si
 
 1.  Puede seleccionar un recurso concreto para ver más detalles y resolver la recomendación del mismo. <br>Por ejemplo, en **Azure CIS 1.1.0 (New) standard** (Norma de Azure CIS 1.1.0 [Nueva]), puede seleccionar la recomendación **El cifrado de disco se debe aplicar en las máquinas virtuales**.
 
-    :::image type="content" source="./media/security-center-compliance-dashboard/sample-recommendation.png" alt-text="Panel de cumplimiento normativo":::
+    :::image type="content" source="./media/security-center-compliance-dashboard/sample-recommendation.png" alt-text="Al seleccionar una recomendación de una norma se va directamente a la página de detalles de la recomendación.":::
 
 1. En este ejemplo, al seleccionar **Realizar acción** en la página de detalles de la recomendación, llegará a las páginas de la máquina virtual de Azure de Azure Portal, donde puede abrir la pestaña **Seguridad** y habilitar el cifrado:
 
-    :::image type="content" source="./media/security-center-compliance-dashboard/encrypting-vm-disks.png" alt-text="Panel de cumplimiento normativo":::
+    :::image type="content" source="./media/security-center-compliance-dashboard/encrypting-vm-disks.png" alt-text="Botón Realizar acción en la página de detalles de la recomendación que conduce a las opciones de corrección":::
 
     Para más información sobre cómo aplicar las recomendaciones, consulte [Implementación de recomendaciones de seguridad en Azure Security Center](security-center-recommendations.md).
 
