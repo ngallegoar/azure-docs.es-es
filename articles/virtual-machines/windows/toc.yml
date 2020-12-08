@@ -54,7 +54,7 @@
 - name: Conceptos
   items:
     - name: Imágenes
-      href: shared-image-galleries.md
+      href: ../shared-image-galleries.md
     - name: Azure Resource Manager
       href: ../../azure-resource-manager/management/overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
       items:
@@ -419,7 +419,7 @@
         - name: Generador de imágenes (versión preliminar)
           items:
             - name: Información general
-              href: ../linux/image-builder-overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+              href: ../image-builder-overview.md
             - name: Uso de Image Builder
               items:
                 - name: CLI
@@ -789,7 +789,7 @@
           items:
             - name: Azure PowerShell
               href: attach-disk-ps.md
-            - name: Azure Portal
+            - name: Azure portal
               href: attach-managed-disk-portal.md
         - name: 'Cambio del nivel del disco: PowerShell/CLI'
           href: ../disks-performance-tiers.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
@@ -867,7 +867,7 @@
           href: ../../virtual-network/quick-create-portal.md?bc=/azure/virtual-machines/windows/breadcrumb/toc.json&toc=/azure/virtual-machines/windows/toc.json
         - name: Apertura de puertos a una máquina virtual
           items:
-            - name: Azure Portal
+            - name: Azure portal
               href: nsg-quickstart-portal.md
             - name: Azure PowerShell
               href: nsg-quickstart-powershell.md

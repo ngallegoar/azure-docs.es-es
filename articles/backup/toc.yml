@@ -66,6 +66,8 @@
           href: sap-hana-backup-support-matrix.md
         - name: Matriz de compatibilidad de copia de seguridad de recursos compartidos de archivos de Azure
           href: azure-file-share-support-matrix.md
+        - name: Controladores de dominio de Active Directory
+          href: active-directory-backup-restore.md
         - name: Referencias de almacén de máquina virtual admitidas en Azure Policy
           href: backup-azure-policy-supported-skus.md
     - name: Preguntas más frecuentes

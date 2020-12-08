@@ -10,12 +10,12 @@ metadata:
   author: cherylmc
   ms.author: cherylmc
   ms.date: 08/28/2019
-  ms.openlocfilehash: 4e01ee4a4dc065e88bf69bc8347867cdea9108cf
-  ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+  ms.openlocfilehash: 8619e0948cc08d06d27a09864bbff13ad6ad3791
+  ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 11/17/2020
-  ms.locfileid: "94660566"
+  ms.lasthandoff: 12/07/2020
+  ms.locfileid: "96780338"
 landingContent:
 - title: Acerca de VPN Gateway
   linkLists:
@@ -38,12 +38,12 @@ landingContent:
   - linkListType: tutorial
     links:
     - text: Creación y administración de una instancia de VPN Gateway
-      url: vpn-gateway-tutorial-create-gateway-powershell.md
+      url: tutorial-create-gateway-portal.md
+    - text: Creación de una conexión VPN de sitio a sitio
+      url: tutorial-site-to-site-portal.md
   - linkListType: how-to-guide
     links:
-    - text: Creación de una conexión de sitio a sitio
-      url: vpn-gateway-howto-site-to-site-resource-manager-portal.md
-    - text: Creación de una conexión de punto a sitio
+    - text: Creación de una conexión VPN de punto a sitio
       url: vpn-gateway-howto-point-to-site-resource-manager-portal.md
 - title: Dispositivos VPN
   linkLists:
@@ -63,10 +63,10 @@ landingContent:
     links:
     - text: Opciones de configuración de la puerta de enlace
       url: vpn-gateway-about-vpn-gateway-settings.md
-    - text: Enrutamiento de punto a sitio
-      url: vpn-gateway-about-point-to-site-routing.md
     - text: SKU de puerta de enlace
       url: vpn-gateway-about-vpn-gateway-settings.md#gwsku
+    - text: Enrutamiento de punto a sitio
+      url: vpn-gateway-about-point-to-site-routing.md
   - linkListType: how-to-guide
     links:
     - text: Comprobación de una instancia de VPN Gateway
@@ -89,7 +89,7 @@ landingContent:
   linkLists:
   - linkListType: reference
     links:
-    - text: CLI de Azure
+    - text: Azure CLI
       url: /cli/azure/network/vnet-gateway
     - text: Azure PowerShell
       url: /powershell/module/az.network#vpn
