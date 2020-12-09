@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/06/2020
-ms.openlocfilehash: a915b5a348e3167d2cf81906b19abd9850584ce9
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 694f501efc565ed498c1c8d8e2e38326277e8605
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96460971"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621423"
 ---
 # <a name="plan-an-azure-managed-application-for-an-azure-application-offer"></a>Planeamiento de una aplicación administrada de Azure para una oferta de Aplicación de Azure
 
@@ -90,7 +90,7 @@ Los precios establecidos en USD (USD = dólares de Estados Unidos) se convierten
 El acceso JIT permite solicitar acceso con privilegios elevados a recursos de la aplicación administrada con fines de solución de problemas o mantenimiento. Siempre tendrá acceso de solo lectura a los recursos, pero puede tener mayor acceso durante un período de tiempo específico. Para obtener más información, consulte [Habilitación y solicitud de acceso Just-In-Time para Azure Managed Applications](../azure-resource-manager/managed-applications/request-just-in-time-access.md).
 
 > [!NOTE]
-> Asegúrese de actualizar el archivo `createUiDefinition.json` para que se admita esta característica.
+> Asegúrese de actualizar su archivo `createUiDefinition.json` para admitir esta característica.
 
 ## <a name="deployment-mode"></a>Modo de implementación
 

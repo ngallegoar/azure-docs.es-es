@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4075cb71cb4dae7ac506c16e3987070cfa10bb09
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: faa334c21e23ecddad287846d34aaf0d72af66cc
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95919118"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602191"
 ---
 # <a name="build-resilience-with-device-states"></a>Aumento de la resistencia con estados de dispositivos
 
@@ -44,7 +44,7 @@ Cuando se usa un PRT para solicitar acceso a una aplicación, sus notificaciones
 
 * En el caso de los dispositivos iOS y Android de propiedad personal o de la empresa, implemente la [aplicación Microsoft Authenticator](../user-help/user-help-auth-app-overview.md). Además de las funcionalidades de inicio de sesión con autenticación multifactor y sin contraseña, la aplicación Microsoft Authenticator habilitará el inicio de sesión único en la aplicación nativa a través de la [autenticación con intermediación](../develop/brokered-auth.md) con menos solicitudes de autenticación para los usuarios finales.
 
-* En el caso de los dispositivos iOS y Android de propiedad personal o de la empresa, use la [administración de aplicaciones móviles](https://docs.microsoft.com/mem/intune/apps/app-management.md) para tener acceso de forma segura a los recursos de la empresa con menos solicitudes de autenticación. 
+* En el caso de los dispositivos iOS y Android de propiedad personal o de la empresa, use la [administración de aplicaciones móviles](https://docs.microsoft.com/mem/intune/apps/app-management) para tener acceso de forma segura a los recursos de la empresa con menos solicitudes de autenticación. 
 
 * [Use el complemento de Microsoft Enterprise SSO para dispositivos Apple (versión preliminar)](../develop/apple-sso-plugin.md). Esto registra el dispositivo y proporciona SSO en todas las aplicaciones de Azure AD nativas y del explorador. 
 
@@ -59,11 +59,11 @@ Recursos de resistencia para administradores y arquitectos
 
 * [Aumento de la resistencia en la autenticación híbrida](resilience-in-hybrid.md)
 
-* [Aumento de la resistencia en el acceso a la aplicación con Application Proxy](resilience-on-premises-access.md)
+* [Aumento de la resistencia en el acceso a las aplicaciones con Application Proxy](resilience-on-premises-access.md)
 
 
 Recursos de resistencia para desarrolladores
 
-* [Aumento de la resistencia IAM en las aplicaciones](resilience-app-development-overview.md)
+* [Aumento de la resistencia de IAM en las aplicaciones](resilience-app-development-overview.md)
 
 * [Aumento de la resistencia en los sistemas CIAM](resilience-b2c.md)

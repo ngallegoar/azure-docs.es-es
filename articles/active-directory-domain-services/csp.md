@@ -2,20 +2,20 @@
 title: Azure AD Domain Services para proveedores de soluciones en la nube | Microsoft Docs
 description: Aprenda a habilitar y administrar dominios administrados de Azure Active Directory Domain Services para proveedores de soluciones en la nube de Azure.
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 ms.assetid: 56ccb219-11b2-4e43-9f07-5a76e3cd8da8
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/09/2020
-ms.author: joflore
-ms.openlocfilehash: fae04d929be7ae6f266ff136b4fbd90f7d8a4e02
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: justinha
+ms.openlocfilehash: d8edafff9b6534e5f1ce1c4581595ee187dfd432
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91960973"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96619906"
 ---
 # <a name="azure-active-directory-domain-services-deployment-and-management-for-azure-cloud-solution-providers"></a>Implementación y administración de Azure Active Directory Domain Services para proveedores de soluciones en la nube de Azure
 
@@ -27,7 +27,7 @@ El siguiente diagrama ilustra cómo funciona el modelo de CSP en un nivel superi
 
 ![Información general sobre el modelo de CSP](./media/csp/csp_model_overview.png)
 
-El inquilino del asociado de CSP tiene tres grupos de agentes especiales: agentes de *administración*, agentes del *departamento de soporte técnic*o y agentes de *ventas*.
+El inquilino del asociado de CSP tiene tres grupos de agentes especiales: agentes de *administración*, agentes del *departamento de soporte técnic* o y agentes de *ventas*.
 
 El grupo de agentes de *administración* se asigna al rol de administrador de inquilinos en el inquilino de Azure AD de Contoso. Como resultado, un usuario que pertenezca al grupo de agentes de administración del asociado de CSP tiene privilegios de administrador de inquilinos en el inquilino de Azure AD de Contoso.
 

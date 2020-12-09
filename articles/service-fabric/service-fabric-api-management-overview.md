@@ -1,16 +1,14 @@
 ---
 title: Introducción a Service Fabric con API Management
 description: Este artículo es una introducción al uso de Azure API Management como puerta de enlace para las aplicaciones de Service Fabric.
-author: vturecek
 ms.topic: conceptual
 ms.date: 06/22/2017
-ms.author: vturecek
-ms.openlocfilehash: 8cbec0b4b28574bfbe46516de54f1b8a3fad7ce2
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 32f47d62cc9dda7cc88421dbf616bf69ffe152fc
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92091141"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96575693"
 ---
 # <a name="service-fabric-with-azure-api-management-overview"></a>Información general de Service Fabric con Azure API Management
 
@@ -86,7 +84,7 @@ En este ejemplo, se crea una nueva instancia de servicio sin estado para cada us
 
 ## <a name="send-traffic-to-multiple-stateful-services"></a>Envío de tráfico a varios servicios con estado
 
-De forma similar al ejemplo de servicio sin estado, una operación de API Management puede asignar solicitudes a más de una instancia de servicio **con estado** , en cuyo caso también podría tener que realizar una resolución de partición para cada instancia de servicio con estado.
+De forma similar al ejemplo de servicio sin estado, una operación de API Management puede asignar solicitudes a más de una instancia de servicio **con estado**, en cuyo caso también podría tener que realizar una resolución de partición para cada instancia de servicio con estado.
 
 Para lograr esto, una operación de API Management contiene una directiva de procesamiento de entrada con un back-end de Service Fabric que se asigna a una instancia de servicio con estado en el back-end de Service Fabric basándose en los valores recuperados de la solicitud HTTP entrante. Además de asignar una solicitud a la instancia de servicio específica, la solicitud también se puede asignar a una partición específica dentro de la instancia de servicio y, opcionalmente, a la réplica principal o a una réplica secundaria aleatoria dentro de la partición.
 

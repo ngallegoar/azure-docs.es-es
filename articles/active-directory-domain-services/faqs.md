@@ -2,7 +2,7 @@
 title: Preguntas más frecuentes sobre Azure AD Domain Services | Microsoft Docs
 description: Lea y comprenda algunas de las preguntas más frecuentes sobre la configuración, la administración y la disponibilidad de Azure Active Directory Domain Services
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.assetid: 48731820-9e8c-4ec2-95e8-83dba1e58775
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 09/30/2020
-ms.author: joflore
-ms.openlocfilehash: 07d2d71c13cd054dec46b6eaa9f07079c8cec63b
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: justinha
+ms.openlocfilehash: e4e7a64b9f9d7283de728216934854f4ef8f8fd1
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91962299"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96619740"
 ---
 # <a name="frequently-asked-questions-faqs-about-azure-active-directory-ad-domain-services"></a>Preguntas más frecuentes (P+F) sobre Azure Active Directory (AD) Domain Services
 
@@ -122,7 +122,7 @@ La duración predeterminada de la contraseña en un dominio administrado de Azur
 
 Además, la directiva de contraseñas de Azure AD para *DisablePasswordExpiration* se sincroniza con un dominio administrado. Cuando *DisablePasswordExpiration* se aplica a un usuario en Azure AD, el valor de *UserAccountControl* para el usuario sincronizado en el dominio administrado indica *DONT_EXPIRE_PASSWORD*.
 
-Cuando los usuarios restablecen su contraseña en Azure AD, se aplica el atributo *forceChangePasswordNextSignIn = True*. Este atributo lo sincroniza un dominio administrado en Azure AD. Cuando el dominio administrado detecta que *forceChangePasswordNextSignIn* se ha establecido para un usuario sincronizado en Azure AD, el atributo*pwdLastSet* del dominio administrado se establece en *0*, lo que invalida la contraseña establecida actualmente.
+Cuando los usuarios restablecen su contraseña en Azure AD, se aplica el atributo *forceChangePasswordNextSignIn = True*. Este atributo lo sincroniza un dominio administrado en Azure AD. Cuando el dominio administrado detecta que *forceChangePasswordNextSignIn* se ha establecido para un usuario sincronizado en Azure AD, el atributo *pwdLastSet* del dominio administrado se establece en *0*, lo que invalida la contraseña establecida actualmente.
 
 ### <a name="does-azure-ad-domain-services-provide-ad-account-lockout-protection"></a>¿Azure AD Domain Services proporciona protección de bloqueo de cuentas de AD?
 Sí. Tras escribir una contraseña incorrecta del dominio administrado cinco veces en un lapso de dos minutos, la cuenta de usuario quedará bloqueada durante 30 minutos. Pasados los 30 minutos, la cuenta de usuario se desbloqueará automáticamente. Los intentos no válidos de escribir la contraseña del dominio administrado no provocarán el bloqueo de la cuenta de usuario en Azure AD. La cuenta de usuario solo se bloqueará en el dominio administrado de Azure AD Domain Services. Para obtener más información [Directivas de bloqueo de cuenta y contraseña en dominios administrados](password-policy.md).

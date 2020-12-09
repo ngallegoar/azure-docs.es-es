@@ -2,20 +2,20 @@
 title: Conceptos del bosque de recursos en Azure AD Domain Services | Microsoft Docs
 description: Obtenga información sobre qué es un bosque de recursos en Azure Active Directory Domain Services y cómo beneficia a su organización en un entorno híbrido con opciones de autenticación de usuario limitadas o problemas de seguridad.
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/06/2020
-ms.author: joflore
-ms.openlocfilehash: 1f8c09e7e260d22aa6864327d6a890ef3beaa039
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: justinha
+ms.openlocfilehash: 79cf408bcb9060c247b97e6a81204c5a5517d384
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91962520"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96620008"
 ---
 # <a name="resource-forest-concepts-and-features-for-azure-active-directory-domain-services"></a>Conceptos y características del bosque de recursos en Azure Active Directory Domain Services
 

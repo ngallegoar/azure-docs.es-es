@@ -1,20 +1,20 @@
 ---
 title: Creación de un bosque de recursos de Azure AD Domain Services mediante Azure PowerShell | Microsoft Docs
 description: En este artículo, aprenderá a crear y configurar un bosque de recursos de Azure Active Directory Domain Services y un bosque de salida para un entorno de Active Directory Domain Services local mediante Azure PowerShell.
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/27/2020
-ms.author: joflore
-ms.openlocfilehash: 32ec3eface215330aba9e40b46e45b97b5c07091
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.author: justinha
+ms.openlocfilehash: ebfc2476b7955b926f86094de03973155386eb8f
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93041106"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96619974"
 ---
 # <a name="create-an-azure-active-directory-domain-services-resource-forest-and-outbound-forest-trust-to-an-on-premises-domain-using-azure-powershell"></a>Cree un bosque de recursos de Azure Active Directory Domain Services y una confianza de bosque de salida en un dominio local mediante Azure PowerShell
 
@@ -221,7 +221,7 @@ Add-AaddsResourceForestTrust `
 Para resolver correctamente el dominio administrado desde el entorno local, quizá tenga que agregar reenviadores a los servidores DNS existentes. Si no ha configurado el entorno local para comunicarse con el dominio administrado, complete los pasos siguientes desde una estación de trabajo de administración para el dominio de AD DS local:
 
 1. Seleccione **Inicio | Herramientas administrativas | DNS**.
-1. Haga clic con el botón derecho en el servidor DNS, como *myAD01* , y seleccione **Propiedades**.
+1. Haga clic con el botón derecho en el servidor DNS, como *myAD01*, y seleccione **Propiedades**.
 1. Elija **Reenviadores** y, después, **Editar** para agregar reenviadores adicionales.
 1. Agregue las direcciones IP del dominio administrado, como *10.0.1.4* y *10.0.1.5*.
 1. En un símbolo del sistema local, valide la resolución de nombres mediante el valor **nslookup** correspondiente al nombre de dominio del bosque de recursos del dominio administrado. Por ejemplo, `Nslookup aaddscontoso.com` debe devolver las dos direcciones IP del bosque de recursos del dominio administrado.
@@ -233,7 +233,7 @@ El dominio de AD DS local necesita una confianza de bosque de entrada para el d
 Para configurar la confianza de entrada en el dominio de AD DS local, complete los pasos siguientes desde una estación de trabajo de administración para el dominio de AD DS local:
 
 1. Seleccione **Inicio | Herramientas administrativas | Dominios y confianzas de Active Directory**.
-1. Haga clic derecho en el dominio, como *onprem.contoso.com* , y seleccione **Propiedades**.
+1. Haga clic derecho en el dominio, como *onprem.contoso.com*, y seleccione **Propiedades**.
 1. Elija la pestaña **Confianzas** y, a continuación, **Nueva confianza**.
 1. Escriba el nombre del dominio administrado, como *aaddscontoso.com* y, a continuación, seleccione **Siguiente**.
 1. Seleccione la opción para crear una **Confianza de bosque** y, a continuación, para crear una confianza **Unidireccional: de entrada**.
@@ -290,7 +290,7 @@ Con la VM de Windows Server unida al bosque de recursos del dominio administrado
 
 1. Abra **Configuración de Windows** y busque y seleccione **Centro de redes y recursos compartidos**.
 1. Elija la opción **Cambiar configuración de uso compartido avanzado**.
-1. En **Perfil de dominio** , seleccione **Activar el uso compartido de archivos e impresoras** y, a continuación, **Guardar cambios**.
+1. En **Perfil de dominio**, seleccione **Activar el uso compartido de archivos e impresoras** y, a continuación, **Guardar cambios**.
 1. Cierre el **Centro de redes y recursos compartidos**.
 
 #### <a name="create-a-security-group-and-add-members"></a>Creación de un grupo de seguridad e incorporación de miembros
@@ -299,10 +299,10 @@ Con la VM de Windows Server unida al bosque de recursos del dominio administrado
 1. Haga clic derecho en el nombre de dominio, elija **Nuevo** y después seleccione **Unidad organizativa**.
 1. En el cuadro de nombre, escriba *LocalObjects* y seleccione **Aceptar**.
 1. Seleccione y haga clic con el botón derecho en **LocalObjects** en el panel de navegación. Seleccione **Nuevo** y, a continuación, **Grupo**.
-1. Escriba *FileServerAccess* en el cuadro **Nombre de grupo**. En **Ámbito de grupo** , seleccione **Dominio local** y, a continuación, elija **Aceptar**.
-1. En el panel de contenido, haga doble clic en **FileServerAccess**. Seleccione **Miembros** , elija **Agregar** y, a continuación, seleccione **Ubicaciones**.
+1. Escriba *FileServerAccess* en el cuadro **Nombre de grupo**. En **Ámbito de grupo**, seleccione **Dominio local** y, a continuación, elija **Aceptar**.
+1. En el panel de contenido, haga doble clic en **FileServerAccess**. Seleccione **Miembros**, elija **Agregar** y, a continuación, seleccione **Ubicaciones**.
 1. Seleccione el entorno local de Active Directory en la vista **Ubicación** y, a continuación, elija **Aceptar**.
-1. Escriba *Usuarios del dominio* en el cuadro **Escriba los nombres de objeto que desea seleccionar**. Seleccione **Comprobar nombres** , proporcione las credenciales del entorno local de Active Directory y, a continuación, seleccione **Aceptar**.
+1. Escriba *Usuarios del dominio* en el cuadro **Escriba los nombres de objeto que desea seleccionar**. Seleccione **Comprobar nombres**, proporcione las credenciales del entorno local de Active Directory y, a continuación, seleccione **Aceptar**.
 
     > [!NOTE]
     > Debe especificar las credenciales porque la relación de confianza solo es unidireccional. Esto implica que los usuarios del dominio administrado no pueden obtener acceso a los recursos ni buscar usuarios o grupos en el dominio de confianza (local).
@@ -314,18 +314,18 @@ Con la VM de Windows Server unida al bosque de recursos del dominio administrado
 1. En la VM de Windows Server unida al bosque de recursos del dominio administrado, cree una carpeta y proporcione un nombre como *CrossForestShare*.
 1. Haga clic con el botón derecho en la carpeta y elija **Propiedades**.
 1. Seleccione la pestaña **Seguridad** y después **Editar**.
-1. En el cuadro de diálogo *Permisos para CrossForestShare* , seleccione **Agregar**.
+1. En el cuadro de diálogo *Permisos para CrossForestShare*, seleccione **Agregar**.
 1. Escriba *FileServerAccess* en **Escriba los nombres de objeto que desea seleccionar** y, a continuación, seleccione **Aceptar**.
-1. Seleccione *FileServerAccess* de la lista **Nombres de grupos o usuarios**. En la lista **Permisos para FileServerAccess** , elija *Permitir* para los permisos **Modificar** y **Escribir** y después seleccione **Aceptar**.
+1. Seleccione *FileServerAccess* de la lista **Nombres de grupos o usuarios**. En la lista **Permisos para FileServerAccess**, elija *Permitir* para los permisos **Modificar** y **Escribir** y después seleccione **Aceptar**.
 1. Seleccione la pestaña **Compartir** y después elija **Uso compartido avanzado...**
-1. Elija **Compartir esta carpeta** y escriba un nombre fácil de recordar para el recurso compartido de archivos en **Nombre del recurso compartido** , como *CrossForestShare*.
-1. Seleccione **Permisos**. En la lista **Permisos para todos** , elija **Permitir** para el permiso **Cambiar**.
+1. Elija **Compartir esta carpeta** y escriba un nombre fácil de recordar para el recurso compartido de archivos en **Nombre del recurso compartido**, como *CrossForestShare*.
+1. Seleccione **Permisos**. En la lista **Permisos para todos**, elija **Permitir** para el permiso **Cambiar**.
 1. Seleccione **Aceptar** dos veces y, a continuación, **Cerrar**.
 
 #### <a name="validate-cross-forest-authentication-to-a-resource"></a>Validación de la autenticación entre bosques en un recurso
 
 1. Inicie sesión en un equipo Windows unido a su entorno local de Active Directory mediante una cuenta de usuario del entorno local de Active Directory.
-1. Con el **Explorador de Windows** , conéctese al recurso compartido que creó. Para ello, use el nombre de host completo y el recurso compartido, como en `\\fs1.aaddscontoso.com\CrossforestShare`.
+1. Con el **Explorador de Windows**, conéctese al recurso compartido que creó. Para ello, use el nombre de host completo y el recurso compartido, como en `\\fs1.aaddscontoso.com\CrossforestShare`.
 1. Para validar el permiso de escritura, haga clic con el botón derecho en la carpeta, elija **Nuevo** y después seleccione **Documento de texto**. Use el nombre predeterminado **Nuevo documento de texto**.
 
     Si los permisos de escritura están configurados correctamente, se crea un nuevo documento de texto. Los pasos siguientes abrirán, editarán y eliminarán el archivo según corresponda.
@@ -388,7 +388,7 @@ Si ya no necesita la confianza de bosque de salida unidireccional desde el domin
 Para quitar la confianza de entrada unidireccional del bosque de AD DS local, conéctese a un equipo de administración que tenga acceso al bosque de AD DS local y realice los pasos siguientes:
 
 1. Seleccione **Inicio | Herramientas administrativas | Dominios y confianzas de Active Directory**.
-1. Haga clic derecho en el dominio, como *onprem.contoso.com* , y seleccione **Propiedades**.
+1. Haga clic derecho en el dominio, como *onprem.contoso.com*, y seleccione **Propiedades**.
 1. Elija la pestaña **Confianzas** y, a continuación, seleccione la confianza entrante existente en el bosque de dominio administrado.
 1. Seleccione **Quitar** y confirme que quiere quitar la confianza entrante.
 

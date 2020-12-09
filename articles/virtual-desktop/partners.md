@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 09/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: bf314510a8569a825ccd309ec855e3ff186bba86
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 7a1b178450a1aa06db07d7b1ef525f7f781db9ef
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95023384"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602825"
 ---
 # <a name="windows-virtual-desktop-partner-integrations"></a>Integraciones de partners de Windows Virtual Desktop
 
@@ -114,7 +114,7 @@ deviceTRUST es un proveedor de servicios de valor añadido de Windows Virtual 
 
 deviceTRUST extiende el valor de Windows Virtual Desktop con su tecnología de seguridad contextual. deviceTRUST habilita el acceso condicional para un acceso a Windows Virtual Desktop seguro, un acceso a la aplicación condicional en Windows Virtual Desktop y para aplicar directivas de Windows Virtual Desktop condicionales sin ninguna infraestructura adicional. El uso de deviceTRUST habilita un área de trabajo móvil y flexible que cumple todos los requisitos de seguridad, de cumplimiento y reglamentarios.
 
-- [Ir al sitio web del asociado](https://devicetrust.com/wvd).
+- [Ir al sitio web del asociado](https://devicetrust.com/).
 
 ## <a name="ekran-system"></a>Ekran System
 

@@ -2,20 +2,20 @@
 title: Unión de una máquina virtual SLE a Azure AD Domain Services | Microsoft Docs
 description: Aprenda a configurar y unir una máquina virtual SUSE Linux Enterprise a un dominio administrado de Azure AD Domain Services.
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 08/12/2020
-ms.author: joflore
-ms.openlocfilehash: 607d3bc8eca3bd969f0f47ca95923040fb22591e
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.author: justinha
+ms.openlocfilehash: f2f421d95dfc376aed373c718198db33a870d9dc
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92275864"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96619613"
 ---
 # <a name="join-a-suse-linux-enterprise-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain"></a>Unión de una máquina virtual SUSE Linux Enterprise a un dominio administrado de Azure Active Directory Domain Services
 
@@ -60,7 +60,7 @@ Para asegurarse de que el nombre de host de la máquina virtual está configurad
 sudo vi /etc/hosts
 ```
 
-En el archivo *hosts* , actualice la dirección *localhost* . En el ejemplo siguiente:
+En el archivo *hosts*, actualice la dirección *localhost*. En el ejemplo siguiente:
 
 * *aaddscontoso.com* es el nombre de dominio DNS del dominio administrado.
 * *linux-q2gr* es el nombre de host de la máquina virtual SLE que se va a unir al dominio administrado.
@@ -85,13 +85,13 @@ Para unirse al dominio administrado mediante **SSSD** y el módulo *User Logon M
 
 1. Abra YaST.
 
-1. Para usar correctamente la detección automática de DNS más adelante, configure las direcciones IP del dominio administrado (el *servidor de Active Directory* ) como servidor de nombres para el cliente.
+1. Para usar correctamente la detección automática de DNS más adelante, configure las direcciones IP del dominio administrado (el *servidor de Active Directory*) como servidor de nombres para el cliente.
 
     En YaST, seleccione **System > Network Settings** (Sistema > Configuración de red).
 
-1. Seleccione la pestaña *Hostname/DNS* (Nombre de host/DNS) y, a continuación, escriba las direcciones IP del dominio administrado en el cuadro de texto *Name Server 1* (Servidor de nombres 1). Estas direcciones IP se muestran en la ventana *Propiedades* de Azure Portal del dominio administrado, como *10.0.2.4* y *10.0.2.5* .
+1. Seleccione la pestaña *Hostname/DNS* (Nombre de host/DNS) y, a continuación, escriba las direcciones IP del dominio administrado en el cuadro de texto *Name Server 1* (Servidor de nombres 1). Estas direcciones IP se muestran en la ventana *Propiedades* de Azure Portal del dominio administrado, como *10.0.2.4* y *10.0.2.5*.
 
-    Agregue sus propias direcciones IP de dominio administrado y, después, seleccione **Aceptar** .
+    Agregue sus propias direcciones IP de dominio administrado y, después, seleccione **Aceptar**.
 
 1. En la ventana principal de YaST, elija *Network Services* > *User Logon Management* (Servicios de red > Administración de inicio de sesión del usuario).
 
@@ -99,19 +99,19 @@ Para unirse al dominio administrado mediante **SSSD** y el módulo *User Logon M
 
     ![Captura de pantalla de ejemplo de la ventana de administración de inicio de sesión de usuario en YaST](./media/join-suse-linux-vm/overview-window.png)
 
-    Para empezar la edición, seleccione **Cambiar configuración** .
+    Para empezar la edición, seleccione **Cambiar configuración**.
 
 Para unir la máquina virtual a un dominio administrado, realice los siguientes pasos:
 
-1. En el cuadro de diálogo, seleccione **Agregar dominio** .
+1. En el cuadro de diálogo, seleccione **Agregar dominio**.
 
 1. Especifique el *Nombre de dominio* correcto, como *aaddscontoso.com* y, a continuación, especifique los servicios que se usarán para la autenticación y los datos de identidad. Seleccione *Microsoft Active Directory* para ambos.
 
     Asegúrese de que la opción *Enable the domain* (Habilitar el dominio) está seleccionada.
 
-1. Cuando esté preparado, seleccione **Aceptar** .
+1. Cuando esté preparado, seleccione **Aceptar**.
 
-1. Acepte la configuración predeterminada en el siguiente cuadro de diálogo y, a continuación, seleccione **Aceptar** .
+1. Acepte la configuración predeterminada en el siguiente cuadro de diálogo y, a continuación, seleccione **Aceptar**.
 
 1. La máquina virtual instala el software adicional necesario y, a continuación, comprueba si el dominio administrado está disponible.
 
@@ -123,9 +123,9 @@ Para unir la máquina virtual a un dominio administrado, realice los siguientes 
 
     Para asegurarse de que el dominio actual está habilitado para Samba, active *Overwrite Samba configuration to work with this AD* (Sobrescribir la configuración de Samba para que funcione con este AD).
 
-1. Para inscribirse, seleccione **Aceptar** .
+1. Para inscribirse, seleccione **Aceptar**.
 
-1. Se muestra un mensaje para confirmar que se ha inscrito correctamente. Para finalizar, seleccione **Aceptar** .
+1. Se muestra un mensaje para confirmar que se ha inscrito correctamente. Para finalizar, seleccione **Aceptar**.
 
 Después de inscribir la máquina virtual en el dominio administrado, configure el cliente mediante *Manage Domain User Logon* (Administrar inicio de sesión de usuario de dominio), como se muestra en la siguiente captura de pantalla de ejemplo:
 
@@ -137,13 +137,13 @@ Después de inscribir la máquina virtual en el dominio administrado, configure 
 
 1. Para permitir que los usuarios del dominio administrado tengan directorios particulares en la máquina virtual, active la casilla *Create Home Directories* (Crear directorios particulares).
 
-1. En la barra lateral, seleccione **Service Options › Name switch** (Opciones de servicio › Cambio de nombre) y, a continuación, *Extended Options* (Opciones extendidas). En esa ventana, seleccione *fallback_homedir* u *override_homedir* y, a continuación, seleccione **Agregar** .
+1. En la barra lateral, seleccione **Service Options › Name switch** (Opciones de servicio › Cambio de nombre) y, a continuación, *Extended Options* (Opciones extendidas). En esa ventana, seleccione *fallback_homedir* u *override_homedir* y, a continuación, seleccione **Agregar**.
 
-1. Especifique un valor para la ubicación del directorio particular. Para que los directorios particulares sigan el formato */home/USER_NAME* , use */home/%u* . Para obtener más información sobre las posibles variables, vea la página man sssd.conf (`man 5 sssd.conf`), sección *override_homedir* .
+1. Especifique un valor para la ubicación del directorio particular. Para que los directorios particulares sigan el formato */home/USER_NAME*, use */home/%u*. Para obtener más información sobre las posibles variables, vea la página man sssd.conf (`man 5 sssd.conf`), sección *override_homedir*.
 
-1. Seleccione **Aceptar** .
+1. Seleccione **Aceptar**.
 
-1. Seleccione **Aceptar** para guardar los cambios. Después, asegúrese de que los valores mostrados ahora son correctos. Para salir del cuadro de diálogo, seleccione **Cancelar** .
+1. Seleccione **Aceptar** para guardar los cambios. Después, asegúrese de que los valores mostrados ahora son correctos. Para salir del cuadro de diálogo, seleccione **Cancelar**.
 
 1. Si piensa ejecutar SSSD y Winbind simultáneamente (por ejemplo, cuando se une a través de SSSD, pero después ejecuta un servidor de archivos Samba), la opción de *método de Kerberos* de Samba debe establecerse en *secrets and keytab* en smb.conf. La opción SSSD *ad_update_samba_machine_account_password* debe establecerse también en *true* en sssd.conf. Estas opciones impiden que el archivo keytab del sistema deje de estar sincronizado.
 
@@ -153,7 +153,7 @@ Para unirse al dominio administrado mediante **windbind** y el módulo *Windows 
 
 1. En YaST, seleccione **Network Services > Windows Domain Membership** (Servicios de red > Pertenencia a dominio de Windows).
 
-1. Escriba el dominio al que desea unirse en *Domain or Workgroup* (Dominio o grupo de trabajo) de la pantalla *Windows Domain Membership* (Pertenencia a dominio de Windows). Escriba el nombre de dominio administrado como, por ejemplo, *aaddscontoso.com* .
+1. Escriba el dominio al que desea unirse en *Domain or Workgroup* (Dominio o grupo de trabajo) de la pantalla *Windows Domain Membership* (Pertenencia a dominio de Windows). Escriba el nombre de dominio administrado como, por ejemplo, *aaddscontoso.com*.
 
     ![Captura de pantalla de ejemplo de la ventana de pertenencia a dominio de Windows en YaST](./media/join-suse-linux-vm/samba-client-window.png)
 
@@ -165,11 +165,11 @@ Para unirse al dominio administrado mediante **windbind** y el módulo *Windows 
 
 1. Si desea cambiar los rangos de UID y GID para los usuarios y grupos de Samba, seleccione *Expert Settings* (Configuración de experto).
 
-1. Configure la sincronización de la hora de NTP (protocolo de tiempo de redes) para el dominio administrado seleccionando *NTP Configuration* (Configuración de NTP). Escriba las direcciones IP del dominio administrado. Estas direcciones IP se muestran en la ventana *Propiedades* de Azure Portal del dominio administrado, como *10.0.2.4* y *10.0.2.5* .
+1. Configure la sincronización de la hora de NTP (protocolo de tiempo de redes) para el dominio administrado seleccionando *NTP Configuration* (Configuración de NTP). Escriba las direcciones IP del dominio administrado. Estas direcciones IP se muestran en la ventana *Propiedades* de Azure Portal del dominio administrado, como *10.0.2.4* y *10.0.2.5*.
 
 1. Seleccione **Aceptar** y confirme la unión al dominio cuando se le solicite.
 
-1. Proporcione la contraseña de un administrador en el dominio administrado y seleccione **Aceptar** .
+1. Proporcione la contraseña de un administrador en el dominio administrado y seleccione **Aceptar**.
 
     ![Captura de pantalla de ejemplo del mensaje de cuadro de diálogo de autenticación al unir una máquina virtual SLE al dominio administrado](./media/join-suse-linux-vm/domain-join-authentication-prompt.png)
 
@@ -177,7 +177,7 @@ Una vez que se ha unido al dominio administrado, puede iniciar sesión en él de
 
 ## <a name="join-vm-to-the-managed-domain-using-winbind-from-the-yast-command-line-interface"></a>Unión de una máquina virtual al dominio administrado mediante Windbind desde la interfaz de la línea de comandos de YaST
 
-Para unirse al dominio administrado mediante **windbind** y la *interfaz de la línea de comandos de YaST* :
+Para unirse al dominio administrado mediante **windbind** y la *interfaz de la línea de comandos de YaST*:
 
 * Únase al dominio:
 
@@ -322,7 +322,7 @@ De forma predeterminada, los usuarios solo pueden iniciar sesión en una máquin
 
 ## <a name="grant-the-aad-dc-administrators-group-sudo-privileges"></a>Conceda privilegios de sudo al grupo "Administradores de controlador de dominio de AAD"
 
-Para conceder privilegios administrativos a los miembros del grupo *Administradores de controlador de dominio de AAD* en la máquina virtual SLE, puede agregar una entrada a */etc/sudoers* . Una vez agregada, los miembros del grupo *Administradores de controlador de dominio de AAD* pueden usar el comando `sudo` en la máquina virtual SLE.
+Para conceder privilegios administrativos a los miembros del grupo *Administradores de controlador de dominio de AAD* en la máquina virtual SLE, puede agregar una entrada a */etc/sudoers*. Una vez agregada, los miembros del grupo *Administradores de controlador de dominio de AAD* pueden usar el comando `sudo` en la máquina virtual SLE.
 
 1. Abra el archivo *sudoers* para editarlo:
 
@@ -330,7 +330,7 @@ Para conceder privilegios administrativos a los miembros del grupo *Administrado
     sudo visudo
     ```
 
-1. Agregue la siguiente entrada al final del archivo */etc/sudoers* . El grupo *Administradores del controlador de dominio de AAD* contiene un espacio en blanco en el nombre, por lo que debe incluir el carácter de escape de barra diagonal inversa en el nombre del grupo. Agregue su propio nombre de dominio, por ejemplo, *aaddscontoso.com* :
+1. Agregue la siguiente entrada al final del archivo */etc/sudoers*. El grupo *Administradores del controlador de dominio de AAD* contiene un espacio en blanco en el nombre, por lo que debe incluir el carácter de escape de barra diagonal inversa en el nombre del grupo. Agregue su propio nombre de dominio, por ejemplo, *aaddscontoso.com*:
 
     ```console
     # Add 'AAD DC Administrators' group members as admins.
@@ -343,7 +343,7 @@ Para conceder privilegios administrativos a los miembros del grupo *Administrado
 
 Para comprobar que la VM se ha unido correctamente al dominio administrado, inicie una nueva conexión SSH con una cuenta de usuario de dominio. Confirme que se ha creado un directorio particular y que se ha aplicado la pertenencia a grupos del dominio.
 
-1. Cree una nueva conexión SSH desde la consola. Use una cuenta de dominio que pertenezca al dominio administrado mediante el comando `ssh -l` como, por ejemplo, `contosoadmin@aaddscontoso.com` y, a continuación, escriba la dirección de la máquina virtual, por ejemplo: *linux-q2gr.aaddscontoso.com* . Si usa Azure Cloud Shell, use la dirección IP pública de la máquina virtual en lugar del nombre DNS interno.
+1. Cree una nueva conexión SSH desde la consola. Use una cuenta de dominio que pertenezca al dominio administrado mediante el comando `ssh -l` como, por ejemplo, `contosoadmin@aaddscontoso.com` y, a continuación, escriba la dirección de la máquina virtual, por ejemplo: *linux-q2gr.aaddscontoso.com*. Si usa Azure Cloud Shell, use la dirección IP pública de la máquina virtual en lugar del nombre DNS interno.
 
     ```console
     ssh -l contosoadmin@AADDSCONTOSO.com linux-q2gr.aaddscontoso.com
@@ -365,7 +365,7 @@ Para comprobar que la VM se ha unido correctamente al dominio administrado, inic
 
     Debería ver las pertenencias a grupos del dominio administrado.
 
-4. Si ha iniciado sesión en la máquina virtual como miembro del grupo *Administradores del controlador de dominio de AAD* , compruebe que puede usar correctamente el comando `sudo`:
+4. Si ha iniciado sesión en la máquina virtual como miembro del grupo *Administradores del controlador de dominio de AAD*, compruebe que puede usar correctamente el comando `sudo`:
 
     ```console
     sudo zypper update

@@ -2,22 +2,22 @@
 title: archivo de inclusión
 description: archivo de inclusión
 services: container-service
-author: dlepow
+author: mlearned
 ms.service: container-service
 ms.topic: include
 ms.date: 11/22/2019
-ms.author: danlep
+ms.author: mlearned
 ms.custom: include file
-ms.openlocfilehash: 32edd880e5e455393e60c87f4f963d71a3e59a20
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: a42bba1b6524825aa571e4c18319b61b97829792
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96026317"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96584517"
 ---
 | Resource | Límite |
 | --- | :--- |
-| Número máximo de clústeres por suscripción | 100 |
+| Número máximo de clústeres por suscripción | 1000 |
 | Número máximo de nodos por clúster con los conjuntos de disponibilidad de máquina virtual y el SKU básico de Load Balancer  | 100 |
 | Número máximo de nodos por clúster con Virtual Machine Scale Sets y el [SKU estándar de Load Balancer][standard-load-balancer] | 1000 (100 nodos por [grupo de nodos][node-pool]) |
 | Número máximo de pods por nodo: [Redes básicas][basic-networking] con Kubenet | 110 |

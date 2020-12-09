@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 07/09/2020
-ms.openlocfilehash: 2e4a09ba07a5fa5eb3a5af7aa88e092feb3e7efc
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 000f8a1457298901dcfc94bc5e0923e94ba35dc7
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487983"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96620909"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql--hyperscale-citus"></a>Extensiones de PostgreSQL en Azure Database for PostgreSQL - Hiperescala (Citus)
 
@@ -35,8 +35,8 @@ En las tablas siguientes se enumeran las extensiones estándar de PostgreSQL que
 > |---|---|
 > | [citext](https://www.postgresql.org/docs/current/static/citext.html) | Proporciona un tipo de cadena de caracteres que no distingue entre mayúsculas y minúsculas. |
 > | [cube](https://www.postgresql.org/docs/current/static/cube.html) | Proporciona un tipo de datos para los cubos multidimensionales. |
-> | [hstore](https://www.postgresql.org/docs/current/static/hstore.html) | Proporciona un tipo de datos para almacenar conjuntos de pares clave-valor. |
 > | [hll](https://github.com/citusdata/postgresql-hll) | Proporciona una estructura de datos HyperLogLog. |
+> | [hstore](https://www.postgresql.org/docs/current/static/hstore.html) | Proporciona un tipo de datos para almacenar conjuntos de pares clave-valor. |
 > | [isn](https://www.postgresql.org/docs/current/static/isn.html) | Proporciona tipos de datos para los estándares internacionales de numeración de productos. |
 > | [lo](https://www.postgresql.org/docs/current/lo.html) | Mantenimiento de objetos grandes. |
 > | [ltree](https://www.postgresql.org/docs/current/static/ltree.html) | Proporciona un tipo de datos para las estructuras de árbol jerárquicas. |
@@ -65,9 +65,9 @@ En las tablas siguientes se enumeran las extensiones estándar de PostgreSQL que
 > | [intagg](https://www.postgresql.org/docs/current/intagg.html) | El agregador y enumerador de enteros (obsoleto). |
 > | [intarray](https://www.postgresql.org/docs/current/static/intarray.html) | Proporciona funciones y operadores para manipular matrices de enteros sin valores nulos. |
 > | [moddatetime](https://www.postgresql.org/docs/current/contrib-spi.html#id-1.11.7.45.9) | Funciones para el seguimiento de la hora de última modificación. |
-> | [pgcrypto](https://www.postgresql.org/docs/current/static/pgcrypto.html) | Proporciona funciones de cifrado. |
 > | [pg\_partman](https://pgxn.org/dist/pg_partman/doc/pg_partman.html) | Administra las tablas con particiones por hora o identificador. |
 > | [pg\_trgm](https://www.postgresql.org/docs/current/static/pgtrgm.html) | Proporciona funciones y operadores para determinar la similitud del texto alfanumérico basado en la coincidencia de trigrama. |
+> | [pgcrypto](https://www.postgresql.org/docs/current/static/pgcrypto.html) | Proporciona funciones de cifrado. |
 > | [refint](https://www.postgresql.org/docs/current/contrib-spi.html#id-1.11.7.45.5) | Funciones para implementar la integridad referencial (obsoleto). |
 > | session\_analytics | Funciones para realizar consultas a matrices hstore. |
 > | [tablefunc](https://www.postgresql.org/docs/current/static/tablefunc.html) | Proporciona funciones que manipulan la totalidad del contenido de las tablas, incluidas tablas de referencias cruzadas. |
@@ -81,7 +81,6 @@ En las tablas siguientes se enumeran las extensiones estándar de PostgreSQL que
 > | **Extensión** | **Descripción** |
 > |---|---|
 > | [citus](https://github.com/citusdata/citus) | Base de datos distribuida de Citus. |
-> | shard\_rebalancer | Volver a equilibrar los datos con seguridad en un grupo de servidores en el caso de adición o eliminación del nodo. |
 
 ### <a name="index-types-extensions"></a>Extensiones de tipos de índices
 
@@ -106,6 +105,7 @@ En las tablas siguientes se enumeran las extensiones estándar de PostgreSQL que
 > |---|---|
 > | [adminpack](https://www.postgresql.org/docs/current/adminpack.html) | Funciones administrativas para PostgreSQL. |
 > | [amcheck](https://www.postgresql.org/docs/current/amcheck.html) | Funciones de comprobación de la integridad de la relación. |
+> | [dblink](https://www.postgresql.org/docs/current/dblink.html) | Módulo que admite conexiones a otras bases de datos de PostgreSQL desde una sesión de base de datos. Consulte la sección "dblink y postgres_fdw" para información sobre esta extensión. |
 > | [file\_fdw](https://www.postgresql.org/docs/current/file-fdw.html) | Contenedor de datos externo para el acceso de archivos planos. |
 > | [pageinspect](https://www.postgresql.org/docs/current/pageinspect.html) | Inspeccione el contenido de páginas de bases de datos a un nivel bajo. |
 > | [pg\_buffercache](https://www.postgresql.org/docs/current/static/pgbuffercache.html) | Proporciona un medio para examinar lo que sucede en la caché del búfer compartido en tiempo real. |
@@ -120,8 +120,6 @@ En las tablas siguientes se enumeran las extensiones estándar de PostgreSQL que
 > | [sslinfo](https://www.postgresql.org/docs/current/sslinfo.html) | Información sobre los certificados TLS/SSL. |
 > | [tsm\_system\_rows](https://www.postgresql.org/docs/current/tsm-system-rows.html) | Método TABLESAMPLE que acepta el número de filas como un límite. |
 > | [tsm\_system\_time](https://www.postgresql.org/docs/current/tsm-system-time.html) | Método TABLESAMPLE que acepta el tiempo en milisegundos como un límite. |
-> | [hypopg](https://hypopg.readthedocs.io/en/latest/) | Proporciona un medio de creación de índices hipotéticos que no consume CPU ni disco. |
-> | [dblink](https://www.postgresql.org/docs/current/dblink.html) | Módulo que admite conexiones a otras bases de datos de PostgreSQL desde una sesión de base de datos. Consulte la sección "dblink y postgres_fdw" para información sobre esta extensión. |
 > | [xml2](https://www.postgresql.org/docs/current/xml2.html) | Consulta de XPath y XSLT. |
 
 

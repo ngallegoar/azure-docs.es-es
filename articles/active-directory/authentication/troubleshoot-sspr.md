@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: troubleshooting
 ms.date: 08/26/2020
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9e661bd24acbb15ced9f5bb0a0fba7eec51eae06
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 7099de23b825fa7af203dff9696bb53e23a099c8
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92363545"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96741123"
 ---
 # <a name="troubleshoot-self-service-password-reset-in-azure-active-directory"></a>Solución de problemas del autoservicio de restablecimiento de contraseña en Azure Active Directory
 
@@ -38,7 +38,7 @@ Para asignar una licencia a la cuenta de administrador en cuestión, siga los pa
 
 Muchos elementos de la interfaz de usuario están ocultos hasta que se necesitan. Asegúrese de que la opción está habilitada antes de buscar las opciones de configuración específicas.
 
-### <a name="i-dont-see-the-on-premises-integration-tab"></a>No veo la pestaña **Integración local** .
+### <a name="i-dont-see-the-on-premises-integration-tab"></a>No veo la pestaña **Integración local**.
 
 La escritura diferida de contraseñas local solo es visible si ha descargado Azure AD Connect y ha configurado la característica.
 
@@ -68,7 +68,7 @@ Si los usuarios tienen problemas para registrarse en SSPR, revise los siguientes
 
 Puede habilitar SSPR para todos los usuarios, para ninguno o para grupos de usuarios seleccionados. Actualmente solo se puede habilitar un grupo de Azure AD para SSPR mediante Azure Portal. Como parte de una implementación más amplia del autoservicio de restablecimiento de contraseña, se admiten los grupos anidados. Asegúrese de que los usuarios de los grupos que elija tienen asignadas las licencias correspondientes.
 
-En Azure Portal, cambie la configuración de **Se habilitó el restablecimiento de contraseña del autoservicio** a *Seleccionados* o *Todos* y, luego, elija **Guardar** .
+En Azure Portal, cambie la configuración de **Se habilitó el restablecimiento de contraseña del autoservicio** a *Seleccionados* o *Todos* y, luego, elija **Guardar**.
 
 ### <a name="the-user-doesnt-have-an-azure-ad-license-assigned-the-user-may-see-an-error-that-reports-your-administrator-has-not-enabled-you-to-use-this-feature"></a>El usuario no tiene asignada una licencia de Azure AD. El usuario puede ver un error que indica que el administrador no le permite usar esta característica.
 
@@ -86,7 +86,7 @@ Si usted o sus usuarios tienen problemas con el uso de SSPR, revise los siguient
 
 | Error | Solución |
 | --- | --- |
-| El directorio no está habilitado para el restablecimiento de contraseña. | En Azure Portal, cambie la configuración de **Se habilitó el restablecimiento de contraseña del autoservicio** a *Seleccionados* o *Todos* y, luego, elija **Guardar** . |
+| El directorio no está habilitado para el restablecimiento de contraseña. | En Azure Portal, cambie la configuración de **Se habilitó el restablecimiento de contraseña del autoservicio** a *Seleccionados* o *Todos* y, luego, elija **Guardar**. |
 | El usuario no tiene asignada una licencia de Azure AD. | Esto puede ocurrir si no ha asignado una licencia de Azure AD al usuario deseado. Para asignar una licencia a la cuenta de administrador en cuestión, siga los pasos para [asignar, comprobar y resolver problemas con las licencias](../enterprise-users/licensing-groups-assign.md#step-1-assign-the-required-licenses). |
 | El directorio está habilitado para restablecer la contraseña, pero falta la información de autenticación del usuario o es incorrecta. | Asegúrese de que el usuario haya creado correctamente los datos de contacto en el directorio. Para obtener más información, consulte los [Datos usados en el autoservicio de restablecimiento de contraseña de Azure AD](howto-sspr-authenticationdata.md). |
 | El directorio está habilitado para restablecer la contraseña, pero el usuario tiene solo una parte de los datos de contacto en el archivo cuando la directiva está configurada para requerir dos métodos de verificación. | Asegúrese de que el usuario tenga al menos dos métodos de contacto configurados correctamente. Un ejemplo es tener tanto un número de teléfono móvil *como* un número de teléfono de trabajo. |
@@ -127,22 +127,22 @@ Si no encuentra la respuesta a un problema, nuestros equipos de soporte técnico
 
 Para que reciba la ayuda apropiada, le pedimos que proporcione la mayor cantidad de detalles posible al abrir una incidencia. Estos detalles incluyen los siguientes:
 
-* **Descripción general del error** : ¿Cuál es el error? ¿Qué comportamiento observó? ¿Cómo podemos reproducir el error? Proporcione tantos detalles como sea posible.
-* **Página** : ¿en qué página estaba cuando se detectó el error? Incluya la dirección URL, si es posible, y una captura de pantalla de la página.
-* **Código de soporte técnico** : ¿qué código de soporte técnico se generó cuando el usuario vio el error?
+* **Descripción general del error**: ¿Cuál es el error? ¿Qué comportamiento observó? ¿Cómo podemos reproducir el error? Proporcione tantos detalles como sea posible.
+* **Página**: ¿en qué página estaba cuando se detectó el error? Incluya la dirección URL, si es posible, y una captura de pantalla de la página.
+* **Código de soporte técnico**: ¿qué código de soporte técnico se generó cuando el usuario vio el error?
    * Para encontrarlo, reproduzca el error, seleccione el vínculo **Código de soporte técnico** en la parte inferior de la pantalla y envíe al ingeniero de soporte técnico el GUID resultante.
 
     :::image type="content" source="./media/troubleshoot-sspr-writeback/view-support-code.png" alt-text="El código de soporte técnico se encuentra en la parte inferior derecha de la ventana del explorador web.":::
 
   * Si se encuentra en una página sin código de soporte en la parte inferior, seleccione F12, busque el SID y el CID, y envíe estos dos resultados al ingeniero de soporte.
-* **Fecha, hora y zona horaria** : incluya la fecha y la hora precisas (incluida la *zona horaria* ) en que se produjo el error.
-* **Id. de usuario** : ¿quién fue el usuario que vio el error? Un ejemplo es *usuario\@contoso.com* .
+* **Fecha, hora y zona horaria**: incluya la fecha y la hora precisas (incluida la *zona horaria*) en que se produjo el error.
+* **Id. de usuario**: ¿quién fue el usuario que vio el error? Un ejemplo es *usuario\@contoso.com*.
    * ¿Es un usuario federado?
    * ¿Es un usuario de autenticación de paso a través?
    * ¿Es un usuario con sincronización de hash de contraseña?
    * ¿Es un usuario solo de nube?
-* **Licencia** : ¿el usuario tiene asignada una licencia de Azure AD?
-* **Registro de eventos de aplicación** : si usa la escritura diferida de contraseñas y el error se produce en la infraestructura local, incluya una copia comprimida del registro de eventos de la aplicación desde el servidor de Azure AD Connect.
+* **Licencia**: ¿el usuario tiene asignada una licencia de Azure AD?
+* **Registro de eventos de aplicación**: si usa la escritura diferida de contraseñas y el error se produce en la infraestructura local, incluya una copia comprimida del registro de eventos de la aplicación desde el servidor de Azure AD Connect.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

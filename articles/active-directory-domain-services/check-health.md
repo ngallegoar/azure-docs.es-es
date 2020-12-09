@@ -2,7 +2,7 @@
 title: Comprobación del estado de Azure Active Directory Domain Services | Microsoft Docs
 description: Obtenga información sobre cómo comprobar el estado de un dominio administrado de Azure Active Directory Domain Services (Azure AD DS) y comprender los mensajes de estado mediante Azure Portal.
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.assetid: 8999eec3-f9da-40b3-997a-7a2587911e96
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/06/2020
-ms.author: joflore
-ms.openlocfilehash: bf65657ea60e94f167bfbb6585026702b64e9658
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: justinha
+ms.openlocfilehash: 92cc6157c590d3e05b4002e0f071c08e4ec23a16
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91962741"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96620331"
 ---
 # <a name="check-the-health-of-an-azure-active-directory-domain-services-managed-domain"></a>Comprobación del estado de un dominio administrado de Azure Active Directory Domain Services
 
@@ -47,7 +47,7 @@ El estado en la parte superior derecha indica el estado general del dominio admi
 
 ## <a name="understand-monitors-and-alerts"></a>Descripción de los monitores y las alertas
 
-El estado de mantenimiento de un dominio administrado muestra dos tipos de información: *monitores*y *alertas*. Los monitores muestran la hora a la que se completaron las tareas en segundo plano básicas. Las alertas proporcionan información o sugerencias para mejorar la estabilidad del dominio administrado.
+El estado de mantenimiento de un dominio administrado muestra dos tipos de información: *monitores* y *alertas*. Los monitores muestran la hora a la que se completaron las tareas en segundo plano básicas. Las alertas proporcionan información o sugerencias para mejorar la estabilidad del dominio administrado.
 
 ### <a name="monitors"></a>Monitores
 

@@ -3,13 +3,15 @@ title: 'Incorporación del argumento de JVM: Application Insights en Java de Azu
 description: Incorporación del argumento de JVM para Application Insights en Java de Azure Monitor
 ms.topic: conceptual
 ms.date: 04/16/2020
+author: MS-jgol
 ms.custom: devx-track-java
-ms.openlocfilehash: 3c9c38d4173413310b715e05c9dcfb9c15be9d4f
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.author: jgol
+ms.openlocfilehash: e665bf734d2141081796f7810eed02eff3b5c5ad
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93377640"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96601108"
 ---
 # <a name="adding-the-jvm-arg-for-azure-monitor-application-insights-java"></a>Incorporación del argumento de JVM para Application Insights en Java de Azure Monitor
 

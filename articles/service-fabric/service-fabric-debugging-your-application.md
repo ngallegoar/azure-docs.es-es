@@ -1,17 +1,15 @@
 ---
 title: Depuración de la aplicación en Visual Studio
 description: Mejore la confiabilidad y el rendimiento de los servicios mediante su desarrollo y depuración en Visual Studio en un clúster de desarrollo local.
-author: vturecek
 ms.topic: conceptual
 ms.date: 11/02/2017
-ms.author: vturecek
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 35c4875ca9bf3165fff84164eb3bb7ebe44cf932
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 0b7d08d610c883240abedc66c55abba64a74c8e3
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093402"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96576322"
 ---
 # <a name="debug-your-service-fabric-application-by-using-visual-studio"></a>Depurar la aplicación de Service Fabric con Visual Studio
 > [!div class="op_single_selector"]
@@ -24,7 +22,7 @@ ms.locfileid: "92093402"
 Puede ahorrar tiempo y dinero implementando y depurando su aplicación de Service Fabric de Azure en un clúster de desarrollo del equipo local. Visual Studio 2019 o 2015 pueden implementar la aplicación en el clúster local y conectar automáticamente el depurador a todas las instancias de la aplicación. Visual Studio se debe ejecutar como administrador para conectarse al depurador.
 
 1. Inicie un clúster de desarrollo local siguiendo los pasos descritos en [Configurar el entorno de desarrollo de Service Fabric](service-fabric-get-started.md).
-2. Presione **F5** o haga clic en **Depurar** > **Iniciar depuración** .
+2. Presione **F5** o haga clic en **Depurar** > **Iniciar depuración**.
    
     ![Captura de pantalla que muestra el menú Depurar.][startdebugging]
 3. Establezca puntos de interrupción en el código y recorra la aplicación haciendo clic en los comandos del menú **Depurar** .
@@ -36,7 +34,7 @@ Puede ahorrar tiempo y dinero implementando y depurando su aplicación de Servic
 4. La ventana **Eventos de diagnóstico** se abrirá automáticamente para que pueda ver los eventos de diagnóstico en tiempo real.
    
     ![Ver eventos de diagnóstico en tiempo real][diagnosticevents]
-5. También puede abrir la ventana **Eventos de diagnóstico** en Cloud Explorer.  En **Service Fabric** , haga clic con el botón derecho en cualquier nodo y elija **Ver seguimientos en streaming** .
+5. También puede abrir la ventana **Eventos de diagnóstico** en Cloud Explorer.  En **Service Fabric**, haga clic con el botón derecho en cualquier nodo y elija **Ver seguimientos en streaming**.
    
     ![Abrir la ventana de eventos de diagnóstico][viewdiagnosticevents]
    
@@ -72,7 +70,7 @@ Si las aplicaciones de Service Fabric se están ejecutando en un clúster de Ser
 > [!WARNING]
 > La depuración remota está diseñada para escenarios de desarrollo y pruebas y no para su uso en entornos de producción, debido al impacto en las aplicaciones en ejecución.
 
-1. Vaya al clúster en **Cloud Explorer** . Haga clic con el botón derecho y elija **Habilitar depuración** .
+1. Vaya al clúster en **Cloud Explorer**. Haga clic con el botón derecho y elija **Habilitar depuración**.
    
     ![Habilitar la depuración remota][enableremotedebugging]
    
@@ -80,7 +78,7 @@ Si las aplicaciones de Service Fabric se están ejecutando en un clúster de Ser
 2. Haga clic con el botón derecho en el nodo de clúster en **Cloud Explorer** y elija **Adjuntar depurador**
    
     ![Asociar depurador][attachdebugger]
-3. En el cuadro de diálogo **Asociar al proceso** , elija el proceso que quiere depurar y haga clic en **Adjuntar**
+3. En el cuadro de diálogo **Asociar al proceso**, elija el proceso que quiere depurar y haga clic en **Adjuntar**
    
     ![Elegir proceso][chooseprocess]
    
@@ -116,12 +114,12 @@ También puede trasmitir seguimientos directamente desde un nodo de clúster rem
 > Los seguimientos en streaming están concebidos para escenarios de desarrollo y pruebas y no para su uso en entornos de producción, debido al impacto en las aplicaciones en ejecución.
 > En un escenario de producción, debe depender del reenvío de eventos mediante Diagnósticos de Azure.
 
-1. Vaya al clúster en **Cloud Explorer** . Haga clic con el botón derecho y elija **Habilitar seguimientos en streaming** .
+1. Vaya al clúster en **Cloud Explorer**. Haga clic con el botón derecho y elija **Habilitar seguimientos en streaming**.
    
     ![Habilitar seguimientos en streaming remotos][enablestreamingtraces]
    
     Esta acción iniciará el proceso de habilitar la extensión de seguimientos en streaming en los nodos del clúster, así como las configuraciones de red necesarias.
-2. Expanda el elemento **Nodos** en **Cloud Explorer** , haga clic con el botón derecho en el nodo desde el que desea transmitir seguimientos y elija **Ver seguimientos en streaming**
+2. Expanda el elemento **Nodos** en **Cloud Explorer**, haga clic con el botón derecho en el nodo desde el que desea transmitir seguimientos y elija **Ver seguimientos en streaming**
    
     ![Ver seguimientos en streaming remotos][viewremotestreamingtraces]
    

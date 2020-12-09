@@ -12,12 +12,12 @@ manager: mflasko
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
 ms.date: 11/06/2020
-ms.openlocfilehash: 1885dd76a94a7a4a6b91c67735103350c473ba44
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: bc5d2cad7b4fbf1871d2c02dc91db30daf55e855
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93378438"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96600734"
 ---
 # <a name="customize-the-setup-for-an-azure-ssis-integration-runtime"></a>Personalización de la instalación en una instancia de Azure-SSIS Integration Runtime
 
@@ -311,7 +311,7 @@ Para ver y reutilizar algunos ejemplos de instalaciones personalizadas estándar
 
       * Una carpeta *ORACLE ENTERPRISE*, que contiene un script de instalación personalizada (*main.cmd*) y el archivo de configuración de instalación silenciosa (*client.rsp*) para instalar los conectores de Oracle y el controlador de OCI en cada nodo de Enterprise Edition de Azure-SSIS IR. Esta instalación permite usar el Administrador de conexiones, el origen y el destino de Oracle para conectarse al servidor de Oracle. 
       
-        Primero, descargue Microsoft Connectors v5.0 para Oracle (*AttunitySSISOraAdaptersSetup.msi* y *AttunitySSISOraAdaptersSetup64.msi*) del [Centro de descarga de Microsoft](https://www.microsoft.com/en-us/download/details.aspx?id=55179) y el cliente de Oracle más reciente (por ejemplo, *winx64_12102_client.zip*) desde [Oracle](https://www.oracle.com/technetwork/database/enterprise-edition/downloads/database12c-win64-download-2297732.html). A continuación, cárguelos todos juntos con *main.cmd* y *client.rsp* en el contenedor. Si usa TNS para conectarse a Oracle, también debe descargar *tnsnames.ora*, editarlo y cargarlo en el contenedor. De esta manera, se puede copiar en la carpeta de instalación de Oracle durante la instalación.
+        Primero, descargue Microsoft Connectors v5.0 para Oracle (*AttunitySSISOraAdaptersSetup.msi* y *AttunitySSISOraAdaptersSetup64.msi*) del [Centro de descarga de Microsoft](https://www.microsoft.com/en-us/download/details.aspx?id=55179) y el cliente de Oracle más reciente (por ejemplo, *winx64_12102_client.zip*) desde [Oracle](https://www.oracle.com/database/technologies/oracle19c-windows-downloads.html). A continuación, cárguelos todos juntos con *main.cmd* y *client.rsp* en el contenedor. Si usa TNS para conectarse a Oracle, también debe descargar *tnsnames.ora*, editarlo y cargarlo en el contenedor. De esta manera, se puede copiar en la carpeta de instalación de Oracle durante la instalación.
 
       * Una carpeta *ORACLE STANDARD ADO.NET*, que contiene un script de instalación personalizada (*main.cmd*) para instalar el controlador ODP.NET de Oracle en cada nodo de Azure-SSIS-IR. Esta instalación permite usar el Administrador de conexiones, el origen y el destino de ADO.NET para conectarse al servidor de Oracle. 
       

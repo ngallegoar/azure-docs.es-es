@@ -3,12 +3,12 @@ title: Prueba unitaria de Azure Durable Functions
 description: Obtenga información sobre cómo ejecutar una prueba unitaria de Durable Functions.
 ms.topic: conceptual
 ms.date: 11/03/2019
-ms.openlocfilehash: 86733f8b5b80799bad3e52c643ed27465dfc7641
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7786a0a2e2d31086e1938b70e63fe2374e16fe7f
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74231221"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96601363"
 ---
 # <a name="durable-functions-unit-testing"></a>Prueba unitaria de Durable Functions
 
@@ -25,7 +25,7 @@ Los ejemplos que aparecen en este artículo requieren conocer los siguientes con
 
 * Funciones duraderas
 
-* [xUnit](https://xunit.github.io/): marco de pruebas
+* [xUnit](https://github.com/xunit/xunit): marco de pruebas
 
 * [moq](https://github.com/moq/moq4): marco de simulación
 
@@ -179,6 +179,6 @@ Y las pruebas unitarias comprobarán el formato de la salida. Las pruebas unitar
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Más información sobre xUnit](https://xunit.github.io/docs/getting-started-dotnet-core)
+> [Más información sobre xUnit](https://xunit.net/docs/getting-started/netcore/cmdline)
 > 
 > [Más información sobre moq](https://github.com/Moq/moq4/wiki/Quickstart)

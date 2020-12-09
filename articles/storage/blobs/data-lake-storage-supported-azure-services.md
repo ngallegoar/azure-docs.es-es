@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: e96fa932185a6689c360fe86d519a45581059118
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 66efc02990c958ba056b6e678cdbf2815f10078c
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95912644"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96600394"
 ---
 # <a name="azure-services-that-support-azure-data-lake-storage-gen2"></a>Servicios de Azure que admiten Azure Data Lake Storage Gen2
 
@@ -26,7 +26,7 @@ En esta tabla se enumeran los servicios de Azure que puede usar con Azure Data L
 > [!NOTE]
 > El nivel de compatibilidad solo se refiere al modo en que se admite el servicio con Data Lake Storage Gen 2.
 
-|Servicio de Azure |Nivel de compatibilidad |Azure AD |Clave compartida| Artículos relacionados |
+|Servicio de Azure |Nivel de compatibilidad |Azure AD |Clave compartida| Artículos relacionados |
 |---------------|-------------------|---|---|---|
 |Azure Data Factory|Disponibilidad general|Sí|Sí|[Carga de datos en Azure Data Lake Storage Gen2 con Azure Data Factory](../../data-factory/load-azure-data-lake-storage-gen2.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |Azure Databricks|Disponibilidad general|Sí|Sí|[Uso con Azure Databricks](https://docs.azuredatabricks.net/data/data-sources/azure/azure-datalake-gen2.html) <br> [Inicio rápido: Análisis de datos en Azure Data Lake Storage Gen2 con Azure Databricks](data-lake-storage-quickstart-create-databricks-account.md) <br>[Tutorial: Extracción, transformación y carga de datos mediante Azure Databricks](/azure/databricks/scenarios/databricks-extract-load-sql-data-warehouse) <br>[Tutorial: Acceso a los datos de Azure Data Lake Storage Gen2 con Azure Databricks mediante Spark](data-lake-storage-use-databricks-spark.md)|
@@ -37,13 +37,14 @@ En esta tabla se enumeran los servicios de Azure que puede usar con Azure Data L
 |Azure Stream Analytics|Disponibilidad general|Sí|Sí|[Inicio rápido: Creación de un trabajo de Stream Analytics mediante Azure Portal](../../stream-analytics/stream-analytics-quick-create-portal.md) <br> [Salida a Azure Data Lake Gen2](../../stream-analytics/stream-analytics-define-outputs.md)|
 |Data Box|Disponibilidad general|No|Sí|[Uso de Azure Data Box para migrar datos de un almacén HDFS local a Azure Storage](data-lake-storage-migrate-on-premises-hdfs-cluster.md)|
 |HDInsight |Disponibilidad general|Sí|Sí|[Uso de Data Lake Storage Gen2 con clústeres de Azure HDInsight](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)<br>[Uso de la CLI de HDFS con Data Lake Storage Gen2](data-lake-storage-use-hdfs-data-lake-storage.md) <br>[Tutorial: Extracción, transformación y carga de datos mediante Apache Hive en Azure HDInsight](data-lake-storage-tutorial-extract-transform-load-hive.md)|
-|IoT Hub |Disponibilidad general|No|Sí|[Uso del enrutamiento de mensajes de IoT Hub para enviar mensajes del dispositivo a la nube a distintos puntos de conexión](../../iot-hub/iot-hub-devguide-messages-d2c.md)|
+|IoT Hub |Disponibilidad general|Sí|Sí|[Uso del enrutamiento de mensajes de IoT Hub para enviar mensajes del dispositivo a la nube a distintos puntos de conexión](../../iot-hub/iot-hub-devguide-messages-d2c.md)|
 |Power BI|Disponibilidad general|Sí|Sí|[Análisis de datos en Data Lake Storage Gen2 mediante Power BI](/power-query/connectors/datalakestorage)|
-|Azure Synapse Analytics (anteriormente SQL Data Warehouse)|Disponibilidad general|Sí|Sí|[Uso con Azure Synapse Analytics (antes SQL Data Warehouse)](../../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
-|SQL Server Integration Services (SSIS)|Disponibilidad general|Sí|Sí|[Administrador de conexiones de Azure Storage](/sql/integration-services/connection-manager/azure-storage-connection-manager?view=sql-server-2017)|
+|Azure Synapse Analytics (anteriormente SQL Data Warehouse)|Disponibilidad general|Sí|Sí|[Uso con Azure Synapse Analytics](../../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
+|SQL Server Integration Services (SSIS)|Disponibilidad general|Sí|Sí|[Administrador de conexiones de Azure Storage](/sql/integration-services/connection-manager/azure-storage-connection-manager)|
 |Explorador de datos de Azure|Disponibilidad general|Sí|Sí|[Consulta de datos en Azure Data Lake con Azure Data Explorer](/azure/data-explorer/data-lake-query-data)|
 |Azure Cognitive Search|Versión preliminar|Sí|Sí|[Indexación y búsqueda de documentos de Azure Data Lake Storage Gen2 (versión preliminar)](../../search/search-howto-index-azure-data-lake-storage.md)|
 |Azure Content Delivery Network|Todavía no se admite|No aplicable|No aplicable|[Indexación y búsqueda de documentos de Azure Data Lake Storage Gen2 (versión preliminar)](../../cdn/cdn-overview.md)|
+|Azure SQL Database|Todavía no se admite|No aplicable|No aplicable|[¿Qué es Azure SQL Database?](/azure/azure-sql/database/sql-database-paas-overview.md)|
 
 ## <a name="see-also"></a>Consulte también
 

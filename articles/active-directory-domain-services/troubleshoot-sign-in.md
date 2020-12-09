@@ -2,20 +2,20 @@
 title: Solución de problemas de inicio de sesión en Azure AD Domain Services | Microsoft Docs
 description: Aprenda a solucionar problemas y errores comunes del inicio de sesión en Azure Active Directory Domain Services.
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/06/2020
-ms.author: joflore
-ms.openlocfilehash: 9343af5b29289a152db84e64f81fa8ca74ce7bc3
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: justinha
+ms.openlocfilehash: 85b261b8754f35c7705690d15671144b858c0a43
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91967399"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96618576"
 ---
 # <a name="troubleshoot-account-sign-in-problems-with-an-azure-active-directory-domain-services-managed-domain"></a>Solución de problemas del inicio de sesión de cuentas con un dominio administrado de Azure Active Directory Domain Services
 

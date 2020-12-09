@@ -9,15 +9,15 @@ ms.author: roastala
 author: rastala
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 01/09/2020
+ms.date: 12/04/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 0da4127960450a13b64ec23908b4a4fd4c69bd7e
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: ec006636ed7e975b696aa32300b32089e3209bb5
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94542021"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96600479"
 ---
 # <a name="start-monitor-and-cancel-training-runs-in-python"></a>Inicio, supervisión y cancelación de las ejecuciones de entrenamiento en Python
 
@@ -278,7 +278,7 @@ Para crear muchas ejecuciones secundarias de forma eficaz, use el método [`crea
 
 ### <a name="submit-child-runs"></a>Envío de ejecuciones secundarias
 
-Las ejecuciones secundarias también se pueden enviar desde una ejecución principal. Esto le permite crear jerarquías de ejecuciones primarias y secundarias. 
+Las ejecuciones secundarias también se pueden enviar desde una ejecución principal. Esto le permite crear jerarquías de ejecuciones primarias y secundarias. No se puede crear una ejecución secundaria sin elemento primario: aunque la ejecución primaria no hace más que iniciar ejecuciones secundarias, sigue siendo necesario crear la jerarquía. El estado de todas las ejecuciones es independiente: un elemento primario puede estar en el estado `"Completed"` correcto aunque una o varias ejecuciones secundarias se hayan cancelado o hayan dado error.  
 
 Es posible que desee que las ejecuciones secundarias utilicen una configuración de ejecución diferente de la ejecución primaria. Por ejemplo, puede utilizar una configuración menos potente basada en CPU para el elemento primario, mientras usa configuraciones basadas en GPU para los elementos secundarios. Otro deseo habitual es pasar a cada ejecución secundaria argumentos y datos distintos. Para personalizar una ejecución secundaria, cree un objeto de `ScriptRunConfig` para la ejecución secundaria. El código que se muestra a continuación hace lo siguiente:
 
@@ -327,6 +327,24 @@ Para consultar las ejecuciones secundarias de un elemento primario específico, 
 ```python
 print(parent_run.get_children())
 ```
+
+### <a name="log-to-parent-or-root-run"></a>Registro en la ejecución primaria o raíz
+
+Puede usar el campo `Run.parent` para acceder a la ejecución que inició la ejecución secundaria actual. Un caso de uso común para esto es cuando desea consolidar los resultados del registro en un único lugar. Tenga en cuenta que las ejecuciones secundarias se ejecutan de forma asincrónica y no hay ninguna garantía de ordenación o sincronización más allá de la capacidad del elemento primario de esperar a que se completen las ejecuciones secundarias.
+
+```python
+# in child (or even grandchild) run
+
+def root_run(self : Run) -> Run :
+    if self.parent is None : 
+        return self
+    return root_run(self.parent)
+
+current_child_run = Run.get_context()
+root_run(current_child_run).log("MyMetric", f"Data from child run {current_child_run.id}")
+
+```
+
 
 ## <a name="tag-and-find-runs"></a>Etiquetado y búsqueda de ejecuciones
 

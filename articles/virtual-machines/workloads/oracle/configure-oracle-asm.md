@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/02/2018
 ms.author: kegorman
 ms.reviewer: cynthn
-ms.openlocfilehash: e5593d530891e39404e0b9760861f2f22ae333d3
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 6f0b58374ae3eb972993b544117d8cbb98371ce5
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96000001"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602621"
 ---
 # <a name="set-up-oracle-asm-on-an-azure-linux-virtual-machine"></a>Configuración de ASM de Oracle en una máquina virtual Linux en Azure  
 
@@ -345,7 +345,7 @@ Para este tutorial, el usuario predeterminado es *grid* y el grupo predeterminad
 
 Para descargar y preparar el software Oracle Grid Infrastructure, complete los pasos siguientes:
 
-1. Descargue Oracle Grid Infrastructure de la [página de descargas de ASM de Oracle](https://www.oracle.com/technetwork/database/enterprise-edition/downloads/database12c-linux-download-2240591.html). 
+1. Descargue Oracle Grid Infrastructure de la [página de descargas de ASM de Oracle](https://www.oracle.com/database/technologies/oracle19c-linux-downloads.html). 
 
    Bajo el título de la descarga **Oracle Database 12c Release 1 Grid Infrastructure (12.1.0.2.0) for Linux x86-64** descargue los dos archivos .zip.
 

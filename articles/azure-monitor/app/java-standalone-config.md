@@ -3,13 +3,15 @@ title: 'Opciones de configuración: Application Insights Java de Azure Monitor'
 description: Opciones de configuración de Application Insights Java de Azure Monitor
 ms.topic: conceptual
 ms.date: 11/04/2020
+author: MS-jgol
 ms.custom: devx-track-java
-ms.openlocfilehash: b703a708af564b9dafc8c1409333a2cfed6d2653
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.author: jgol
+ms.openlocfilehash: e9240253b385a0b53868c5a8a79c751c2f7c09c0
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427707"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96601091"
 ---
 # <a name="configuration-options-for-azure-monitor-application-insights-java"></a>Opciones de configuración de Application Insights Java de Azure Monitor
 
@@ -173,7 +175,7 @@ Esta característica se encuentra en su versión preliminar.
 
 Permite configurar reglas que se aplicarán a la telemetría de solicitudes, dependencias y seguimientos; por ejemplo:
  * Enmascarar datos confidenciales
- * Agregar dimensiones personalizadas condicionalmente
+ * Agregan dimensiones personalizadas condicionalmente
  * Actualizar el nombre de telemetría que se usa para la agregación y visualización
 
 Para obtener más información, consulte la documentación del [procesador de telemetría](./java-standalone-telemetry-processors.md).
@@ -200,7 +202,7 @@ También puede establecer el umbral mediante la variable de entorno `APPLICATION
 
 A continuación se muestran los valores `level` válidos que puede especificar en el archivo `applicationinsights.json` y cómo se corresponden con los niveles de registro en diferentes plataformas de registro:
 
-| level             | Log4j  | Logback | JUL     |
+| Nivel             | Log4j  | Logback | JUL     |
 |-------------------|--------|---------|---------|
 | Apagado               | Apagado    | Apagado     | Apagado     |
 | FATAL             | FATAL  | ERROR   | SEVERE  |
@@ -336,7 +338,7 @@ Configure opciones específicas en función de sus necesidades.
       "enabled": true
     }
   },
-  "httpProxy": {
+  "proxy": {
   },
   "preview": {
     "processors": [

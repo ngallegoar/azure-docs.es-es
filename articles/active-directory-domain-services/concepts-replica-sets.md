@@ -2,20 +2,20 @@
 title: Conceptos sobre los conjuntos de réplicas de Azure AD Domain Services | Microsoft Docs
 description: Conozca qué conjuntos de réplicas se encuentran en Azure Active Directory Domain Services y cómo proporcionan redundancia a las aplicaciones que necesitan servicios de identidad.
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/16/2020
-ms.author: joflore
-ms.openlocfilehash: 499f4df303993d97ebb4eb38de98828b085aff00
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: justinha
+ms.openlocfilehash: 5359a955ea97b559b7e3d244bfb6c4fb09e8681b
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91961075"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96620042"
 ---
 # <a name="replica-sets-concepts-and-features-for-azure-active-directory-domain-services-preview"></a>Conceptos y características de los conjuntos de réplicas de Azure Active Directory Domain Services (versión preliminar)
 
