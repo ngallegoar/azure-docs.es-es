@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 03/03/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: 906adb5b9535ee66fd7bc4a22c5c30a86b561547
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 383bdaebaa8a1795a9bfddb7da23e172aea111a0
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92910260"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96762941"
 ---
 # <a name="authentication-flows-and-application-scenarios"></a>Flujos de autenticación y escenarios de aplicaciones
 
@@ -42,8 +42,8 @@ En las secciones siguientes se describen las categorías de aplicaciones.
 
 Los escenarios de autenticación implican dos actividades:
 
-- **Adquisición de tokens de seguridad para una API web protegida** : se recomienda usar [bibliotecas cliente compatibles con Microsoft](reference-v2-libraries.md#microsoft-supported-client-libraries) para adquirir tokens. En concreto, se recomienda la familia de la Biblioteca de autenticación de Microsoft (MSAL).
-- **Protección de una API web o una aplicación web** : un reto a la hora de proteger estos recursos es validar el token de seguridad. En algunas plataformas, Microsoft ofrece [bibliotecas de middleware](reference-v2-libraries.md#microsoft-supported-server-middleware-libraries).
+- **Adquisición de tokens de seguridad para una API web protegida**: se recomienda usar [bibliotecas cliente compatibles con Microsoft](reference-v2-libraries.md#microsoft-supported-client-libraries) para adquirir tokens. En concreto, se recomienda la familia de la Biblioteca de autenticación de Microsoft (MSAL).
+- **Protección de una API web o una aplicación web**: un reto a la hora de proteger estos recursos es validar el token de seguridad. En algunas plataformas, Microsoft ofrece [bibliotecas de middleware](reference-v2-libraries.md#microsoft-supported-server-middleware-libraries).
 
 ### <a name="with-users-or-without-users"></a>Con usuarios o sin usuarios
 
@@ -59,14 +59,14 @@ Sin embargo, también hay aplicaciones de demonio. En estos escenarios, las apli
 
 Hay varios tipos de aplicaciones que pueden adquirir tokens de seguridad. Estas aplicaciones tienden a dividirse en las tres categorías siguientes. Cada se usa con diferentes bibliotecas y objetos.
 
-- **Aplicaciones de página única** : también conocidas como SPA, son aplicaciones web en las que los tokens son adquiridos por una aplicación de JavaScript o TypeScript que se ejecuta en el explorador. Muchas aplicaciones modernas tienen una aplicación de página única en el front-end, que está escrita principalmente en JavaScript. A menudo, la aplicación usa un marco como Angular, React o Vue. MSAL.js es la única biblioteca de autenticación de Microsoft que admite aplicaciones de página única.
+- **Aplicaciones de página única**: también conocidas como SPA, son aplicaciones web en las que los tokens son adquiridos por una aplicación de JavaScript o TypeScript que se ejecuta en el explorador. Muchas aplicaciones modernas tienen una aplicación de página única en el front-end, que está escrita principalmente en JavaScript. A menudo, la aplicación usa un marco como Angular, React o Vue. MSAL.js es la única biblioteca de autenticación de Microsoft que admite aplicaciones de página única.
 
-- **Aplicaciones cliente públicas** : las aplicaciones de esta categoría, como los tipos siguientes, siempre inician la sesión de los usuarios:
+- **Aplicaciones cliente públicas**: las aplicaciones de esta categoría, como los tipos siguientes, siempre inician la sesión de los usuarios:
   - Aplicaciones de escritorio que llaman a API web en nombre de los usuarios que han iniciado sesión
   - Aplicaciones móviles
   - Aplicaciones que se ejecutan en dispositivos sin explorador, como las que se ejecutan en IoT
   
-- **Aplicaciones cliente confidenciales** : las aplicaciones de esta categoría incluyen:
+- **Aplicaciones cliente confidenciales**: las aplicaciones de esta categoría incluyen:
   - Aplicaciones web que llaman a una API web
   - API web que llaman a una API web
   - Aplicaciones de demonio, incluso cuando se implementan como servicio de consola, como un demonio de Linux o un servicio de Windows
@@ -243,7 +243,7 @@ Los escenarios que implican la adquisición de tokens también se asignan a fluj
   <tr>
    <td><a href="scenario-desktop-acquire-token.md#command-line-tool-without-a-web-browser"><img alt="Browserless application" src="media/scenarios/device-code-flow-app.svg"></a></td>
    <td><a href="v2-oauth2-device-code.md">Código del dispositivo</a></td>
-   <td>Cuentas profesionales o educativas</td>
+   <td>Cuentas profesionales o educativas, cuentas personales y Azure AD B2C</td>
  </tr>
 
  <tr>

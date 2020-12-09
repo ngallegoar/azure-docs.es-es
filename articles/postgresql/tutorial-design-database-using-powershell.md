@@ -8,12 +8,12 @@ ms.devlang: azurepowershell
 ms.topic: tutorial
 ms.date: 06/08/2020
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: 70edf224494fdf1395d59d1c591d0369b9b20557
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: cf84a8abcc0f1c890a51bf07056ac31d37107e53
+ms.sourcegitcommit: 003ac3b45abcdb05dc4406661aca067ece84389f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96018093"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96749120"
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql---single-server-using-powershell"></a>Tutorial: Diseño de una instancia de Azure Database for PostgreSQL: servidor único con PowerShell
 
@@ -35,7 +35,7 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
 Si decide usar PowerShell de forma local, para este artículo es preciso que instale el módulo Az PowerShell y que se conecte a su cuenta de Azure con el cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount). Para más información sobre cómo instalar el módulo Az PowerShell, consulte [Instalación de Azure PowerShell](/powershell/azure/install-az-ps).
 
 > [!IMPORTANT]
-> Mientras el módulo Az.PostgreSql PowerShell se encuentre en versión preliminar, debe instalarlo por separado del módulo Az PowerShell mediante el siguiente comando: `Install-Module -Name Az.PostgreSql -AllowPrerelease`.
+> Mientras el módulo Az.PostgreSql PowerShell se encuentre en versión preliminar, debe instalarlo por separado del módulo Az PowerShell con el siguiente comando: `Install-Module -Name Az.PostgreSql -AllowPrerelease`.
 > Una vez que el módulo Az.PostgreSql PowerShell esté disponible con carácter general, formará parte de las futuras versiones del módulo Az PowerShell y estará disponible de forma nativa en Azure Cloud Shell.
 
 Si esta es la primera vez que usa el servicio Azure Database for PostgreSQL, debe registrar el proveedor de recursos **Microsoft.DBforPostgreSQL**.
@@ -100,7 +100,7 @@ New-AzPostgreSqlFirewallRule -Name AllowMyIP -ResourceGroupName myresourcegroup 
 ```
 
 > [!NOTE]
-> Las conexiones a Azure Database for PostgreSQL se comunican a través del puerto 3306. Si intenta conectarse desde una red corporativa, es posible que no se permita el tráfico saliente a través del puerto 3306. En este escenario, solo podrá conectarse al servidor si el departamento de TI abre el puerto 3306.
+> Las conexiones a Azure Database for PostgreSQL se comunican a través del puerto 5432. Si intenta conectarse desde una red corporativa, es posible que no se permita el tráfico saliente a través del puerto 5432. En este escenario, solo podrá conectarse al servidor si el departamento de TI abre el puerto 5432.
 
 ## <a name="get-the-connection-information"></a>Obtención de la información de conexión
 

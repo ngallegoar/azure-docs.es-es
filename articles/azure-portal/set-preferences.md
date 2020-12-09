@@ -1,20 +1,15 @@
 ---
-title: Administración de las preferencias y la configuración de Azure Portal | Microsoft Docs
+title: Administración de las preferencias y la configuración de Azure Portal
 description: Puede cambiar la configuración predeterminada de Azure Portal para que se ajuste a sus propias preferencias. La configuración incluye el tiempo de espera de la sesión inactiva, la vista predeterminada, el modo de menú, el contraste, el tema, las notificaciones y la configuración de los formatos regionales y de idioma
-services: azure-portal
 keywords: tiempo de espera, idioma, regional
-author: mgblythe
-ms.author: mblythe
 ms.date: 08/05/2020
 ms.topic: how-to
-ms.service: azure-portal
-manager: mtillman
-ms.openlocfilehash: 0f94f694163ba836091e522a29f73cabd64e22b5
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 07dd3eb5cb132adf87852f29d867be772294d189
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93145946"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745645"
 ---
 # <a name="manage-azure-portal-settings-and-preferences"></a>Administración de las preferencias y la configuración de Azure Portal
 
@@ -44,7 +39,7 @@ Puede cambiar la página que se abre de forma predeterminada cuando inicia sesi�
 
 - No se puede personalizar el **Inicio**.  Muestra accesos directos a los servicios populares de Azure y enumera los recursos usados recientemente. También proporcionamos vínculos útiles a recursos como Microsoft Learn y el mapa de ruta de Azure.
 
-- Los paneles se pueden personalizar para crear un área de trabajo diseñada solo para usted. Por ejemplo, puede crear un panel que sea proyecto, tarea o rol centrado. Si selecciona **Panel** , la vista predeterminada irá al panel usado más recientemente. Para obtener más información, consulte [Creación y uso compartido de paneles en Azure Portal](azure-portal-dashboards.md).
+- Los paneles se pueden personalizar para crear un área de trabajo diseñada solo para usted. Por ejemplo, puede crear un panel que sea proyecto, tarea o rol centrado. Si selecciona **Panel**, la vista predeterminada irá al panel usado más recientemente. Para obtener más información, consulte [Creación y uso compartido de paneles en Azure Portal](azure-portal-dashboards.md).
 
 ## <a name="choose-a-portal-menu-mode"></a>Elija un modo de menú del portal
 
@@ -52,7 +47,7 @@ El modo predeterminado del menú del portal controla cuánto espacio ocupa el me
 
 ![Captura de pantalla que muestra cómo establecer el modo predeterminado para el menú del portal.](./media/set-preferences/menu-mode.png)
 
-- Cuando el menú del portal está en modo de control **flotante** , se oculta hasta que lo necesite. Seleccione el icono de menú para abrir o cerrar el menú.
+- Cuando el menú del portal está en modo de control **flotante**, se oculta hasta que lo necesite. Seleccione el icono de menú para abrir o cerrar el menú.
 
 - Si elige **modo de acoplado** en el menú del portal, siempre estará visible. Puede contraer el menú para proporcionar más espacio de trabajo.
 
@@ -104,7 +99,7 @@ Si es un administrador global y quiere aplicar un valor de tiempo de expiración
 
     ![Captura de pantalla en la que se muestra la configuración del portal con el texto del vínculo resaltado](./media/set-preferences/settings-admin.png)
 
-1. En la página **Configurar el tiempo de espera de inactividad del nivel de directorio** , seleccione **Habilitar el tiempo de espera de inactividad del nivel de directorio para Azure Portal** para activar la opción.
+1. En la página **Configurar el tiempo de espera de inactividad del nivel de directorio**, seleccione **Habilitar el tiempo de espera de inactividad del nivel de directorio para Azure Portal** para activar la opción.
 
 1. A continuación, escriba las **horas** y los **minutos** de tiempo máximo que un usuario puede estar inactivo antes de que su sesión se cierre de forma automática.
 

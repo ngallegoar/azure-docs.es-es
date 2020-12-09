@@ -125,10 +125,12 @@
       items:
         - name: Creación de un flujo
           items:
-            - name: Registro o inicio de sesión
-              href: tutorial-create-user-flows.md
+            - name: Creación de flujos de usuario
+              href: create-user-flow.md
             - name: Credenciales de contraseña del propietario del recurso
               href: configure-ropc.md
+            - name: Configuración de la autenticación con teléfono
+              href: phone-authentication-user-flows.md
             - name: Configuración del restablecimiento de contraseña de autoservicio
               href: user-flow-self-service-password-reset.md
         - name: Adición de acceso condicional

@@ -4,12 +4,12 @@ description: Application Insights realiza un análisis inteligente de la telemet
 ms.topic: conceptual
 ms.date: 05/04/2017
 ms.reviewer: antonfr
-ms.openlocfilehash: 28a32c714618a3b6b0c3126d8060295f134ddc7c
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: ead71a5ac6e2cfa0df6654c7ba9aa7b5b9238d04
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186242"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763781"
 ---
 # <a name="smart-detection---performance-anomalies"></a>Detección inteligente: anomalías de rendimiento
 
@@ -99,7 +99,7 @@ Tenga en cuenta los parámetros del problema. Si es dependiente de la ubicación
 
 Abra la hoja de métricas del navegador. La visualización segmentada del tiempo de carga de página del explorador muestra en qué se va el tiempo. 
 
-* Si el **tiempo de solicitud de envío** es alto, o bien el servidor responde con lentitud o la solicitud es un envío con una gran cantidad de datos. Mire las [métricas de rendimiento](./web-monitor-performance.md#metrics) para investigar los tiempos de respuesta.
+* Si el **tiempo de solicitud de envío** es alto, o bien el servidor responde con lentitud o la solicitud es un envío con una gran cantidad de datos. Mire las [métricas de rendimiento](./performance-counters.md) para investigar los tiempos de respuesta.
 * Configure el [seguimiento de dependencias](./asp-net-dependencies.md) para ver si la lentitud se debe a los servicios externos o a su base de datos.
 * Si predomina la **recepción de respuesta** , la página y sus elementos dependientes (JavaScript, CSS, imágenes y demás, excluyendo los datos cargados de forma asincrónica) son largos. Configure una [prueba de disponibilidad](./monitor-web-app-availability.md), y asegúrese de establecer la opción de cargar los elementos dependientes. Cuando obtenga algunos resultados, abra el detalle de un resultado y expándalo para ver los tiempos de carga de los distintos archivos.
 * Un **Tiempo de procesamiento del cliente** alto sugiere que los scripts se ejecutan con lentitud. Si el motivo no es obvio, considere la posibilidad de agregar algún código de control de tiempo y enviar las horas en llamadas de trackMetric.

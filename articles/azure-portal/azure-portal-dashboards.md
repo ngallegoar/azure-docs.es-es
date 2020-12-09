@@ -1,24 +1,15 @@
 ---
 title: Creación y uso compartido de paneles en Azure Portal
 description: En este artículo se describe cómo crear, personalizar, publicar y compartir paneles en Azure Portal.
-services: azure-portal
-documentationcenter: ''
-author: sewatson
-manager: mtillman
 ms.assetid: ff422f36-47d2-409b-8a19-02e24b03ffe7
-ms.service: azure-portal
-ms.devlang: NA
 ms.topic: how-to
-ms.tgt_pltfrm: NA
-ms.workload: na
 ms.date: 03/23/2020
-ms.author: mblythe
-ms.openlocfilehash: b4241e51f186ea973702562ab27bb7f13a77de57
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 10c322c9d9d18f7b79a4419bd9efa2e366a5b7c3
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92089492"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745832"
 ---
 # <a name="create-and-share-dashboards-in-the-azure-portal"></a>Creación y uso compartido de paneles en Azure Portal
 
@@ -32,15 +23,15 @@ En este ejemplo, se crea un nuevo panel privado y se le asigna un nombre. Para c
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 
-1. En el menú de Azure Portal, seleccione **Panel** . Es posible que la vista predeterminada ya esté definida en el panel.
+1. En el menú de Azure Portal, seleccione **Panel**. Es posible que la vista predeterminada ya esté definida en el panel.
 
     ![Apertura del panel](./media/azure-portal-dashboards/portal-menu-dashboard.png)
 
-1. Seleccione **Nuevo panel** .
+1. Seleccione **Nuevo panel**.
 
     ![Captura de pantalla del nuevo panel](./media/azure-portal-dashboards/create-new-dashboard.png)
 
-    Esta acción abre la **Galería de iconos** , desde la que podrá seleccionar los iconos, y una cuadrícula vacía, desde donde podrá organizarlos.
+    Esta acción abre la **Galería de iconos**, desde la que podrá seleccionar los iconos, y una cuadrícula vacía, desde donde podrá organizarlos.
 
     ![Captura de pantalla de la galería de iconos y la cuadrícula vacía](./media/azure-portal-dashboards/dashboard-name.png)
 
@@ -89,7 +80,7 @@ Para cambiar el tamaño de un icono o para reorganizar los iconos de un panel, s
 
 ### <a name="additional-tile-configuration"></a>Configuración de iconos adicional
 
-Puede que sea necesario configurar adicionalmente algunos iconos para que muestren la información necesaria. Por ejemplo, el icono **Gráfico de métricas** debe configurarse para mostrar una métrica de **Azure Monitor** . También puede personalizar los datos del icono para invalidar la configuración de tiempo predeterminada del panel.
+Puede que sea necesario configurar adicionalmente algunos iconos para que muestren la información necesaria. Por ejemplo, el icono **Gráfico de métricas** debe configurarse para mostrar una métrica de **Azure Monitor**. También puede personalizar los datos del icono para invalidar la configuración de tiempo predeterminada del panel.
 
 Cualquier icono que necesite configuración muestra el banner **Configurar icono** hasta que se personaliza. Para personalizar el icono:
 
@@ -110,7 +101,7 @@ Los datos del panel muestran automáticamente la actividad de las últimas 24 h
 
     ![Captura de pantalla del menú contextual del icono](./media/azure-portal-dashboards/dashboard-customize-tile-data.png)
 
-1. Active la casilla para **Anular la configuración de tiempo del panel en el nivel de icono** .
+1. Active la casilla para **Anular la configuración de tiempo del panel en el nivel de icono**.
 
     ![Captura de pantalla del cuadro de diálogo para configurar las opciones de tiempo del icono](./media/azure-portal-dashboards/dashboard-override-time-settings.png)
 
@@ -118,13 +109,13 @@ Los datos del panel muestran automáticamente la actividad de las últimas 24 h
 
 1. Elija la granularidad de tiempo que se mostrará. Puede mostrar incrementos de entre un minuto y un mes.
 
-1. Seleccione **Aplicar** .
+1. Seleccione **Aplicar**.
 
 ## <a name="delete-a-tile"></a>Eliminar un icono
 
 Para quitar un icono de un panel, siga estos pasos:
 
-* Seleccione el menú contextual en la esquina superior derecha del icono y, a continuación, seleccione **Quitar del panel** . O bien,
+* Seleccione el menú contextual en la esquina superior derecha del icono y, a continuación, seleccione **Quitar del panel**. O bien,
 
 * Seleccione ![icono de edición](./media/azure-portal-dashboards/dashboard-edit-icon.png) **Editar** para acceder al modo de personalización. Mantenga el puntero en la esquina superior derecha del icono y, a continuación, seleccione el icono de eliminación ![icono de eliminación](./media/azure-portal-dashboards/dashboard-delete-icon.png) para quitar el icono del panel.
 
@@ -136,7 +127,7 @@ Para usar un panel existente como plantilla para uno nuevo, siga estos pasos:
 
 1. Asegúrese de que la vista de panel muestra el panel que quiere copiar.
 
-1. En el encabezado de página, seleccione ![icono para clonar](./media/azure-portal-dashboards/dashboard-clone.png) **Clonar** .
+1. En el encabezado de página, seleccione ![icono para clonar](./media/azure-portal-dashboards/dashboard-clone.png) **Clonar**.
 
 1. Se abre una copia del panel denominada **Clon de** *nombre del panel* en modo de edición. Utilice los pasos anteriores de este artículo para cambiar el nombre del panel y personalizarlo.
 
@@ -152,11 +143,11 @@ Para buscar y abrir un panel compartido, siga estos pasos:
 
 1. Realice la selección a partir de la lista de paneles que se muestra. Si no se muestra el panel que desea abrir:
 
-    1. seleccione **Examinar todos los paneles** .
+    1. seleccione **Examinar todos los paneles**.
 
         ![Captura de pantalla del menú de selección del panel](./media/azure-portal-dashboards/dashboard-browse.png)
 
-    1. En el campo **Tipo** , seleccione **Paneles compartidos** .
+    1. En el campo **Tipo**, seleccione **Paneles compartidos**.
 
         ![Captura de pantalla del menú de selección de todos los paneles](./media/azure-portal-dashboards/dashboard-browse-all.png)
 
@@ -172,7 +163,7 @@ Para eliminar permanentemente un panel privado o compartido, siga estos pasos:
 
 1. Seleccione ![icono de eliminación](./media/azure-portal-dashboards/dashboard-delete-icon.png) **Eliminar** en el encabezado de página.
 
-1. Para un panel privado, seleccione **Aceptar** en el cuadro de diálogo de confirmación para quitar el panel. Para un panel compartido, en el cuadro de diálogo de confirmación, active la casilla para confirmar que otros usuarios ya no podrán ver el panel publicado. Después, seleccione **Aceptar** .
+1. Para un panel privado, seleccione **Aceptar** en el cuadro de diálogo de confirmación para quitar el panel. Para un panel compartido, en el cuadro de diálogo de confirmación, active la casilla para confirmar que otros usuarios ya no podrán ver el panel publicado. Después, seleccione **Aceptar**.
 
     ![Captura de pantalla de confirmación de eliminación](./media/azure-portal-dashboards/dashboard-delete-dash.png)
 

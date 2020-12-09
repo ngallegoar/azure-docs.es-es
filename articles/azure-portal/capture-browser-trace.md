@@ -1,20 +1,14 @@
 ---
-title: Captura de un seguimiento del explorador para solucionar problemas | Microsoft Docs
+title: Captura de un seguimiento del explorador para solucionar problemas
 description: Capture la información de red desde un seguimiento del explorador para ayudar a solucionar problemas con Azure Portal.
-services: azure-portal
-keywords: ''
-author: mgblythe
-ms.author: mblythe
 ms.date: 05/11/2020
 ms.topic: troubleshooting
-ms.service: azure-portal
-manager: mtillman
-ms.openlocfilehash: aac7357939ab2d14949c967630840ed6d267d251
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 504a32fb63022f97e8049c7c1ccc7721bbac31ab
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93145742"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746002"
 ---
 # <a name="capture-a-browser-trace-for-troubleshooting"></a>Captura de un seguimiento del explorador para solucionar problemas
 
@@ -38,7 +32,7 @@ Google Chrome y Microsoft Edge (Chromium) se basan en el [proyecto de código ab
 
           ![Captura de pantalla que resalta la opción Conservar registro en la pestaña Red.](media/capture-browser-trace/chromium-network-preserve-log.png)
 
-    1. Seleccione la pestaña **Consola** , seleccione **Configuración de la consola** y, a continuación, seleccione **Conservar registro**. Vuelva a seleccionar **Configuración de la consola** para cerrar el panel de configuración.
+    1. Seleccione la pestaña **Consola**, seleccione **Configuración de la consola** y, a continuación, seleccione **Conservar registro**. Vuelva a seleccionar **Configuración de la consola** para cerrar el panel de configuración.
 
           ![Captura de pantalla que resalta la opción Conservar registro en la pestaña Consola.](media/capture-browser-trace/chromium-console-preserve-log.png)
 
@@ -184,7 +178,7 @@ En los pasos siguientes se muestra cómo usar las herramientas de desarrollo en 
 
           ![Captura de pantalla que resalta la opción Conservar los registros.](media/capture-browser-trace/firefox-network-persist-logs.png)
 
-    1. Seleccione la pestaña **Consola** , seleccione **Configuración de la consola** y, después, **Conservar los registros**.
+    1. Seleccione la pestaña **Consola**, seleccione **Configuración de la consola** y, después, **Conservar los registros**.
 
           ![Captura de pantalla de "Conservar los registros"](media/capture-browser-trace/firefox-console-persist-logs.png)
 

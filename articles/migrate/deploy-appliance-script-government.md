@@ -1,14 +1,17 @@
 ---
 title: Configuración de un dispositivo de Azure Migrate en Azure Government
 description: Aprenda a configurar un dispositivo de Azure Migrate en Azure Government
-ms.topic: article
+author: vikram1988
+ms.author: vibansa
+ms.manager: abhemraj
+ms.topic: how-to
 ms.date: 04/16/2020
-ms.openlocfilehash: 1060bda13cc593980850bc6563555cf5dd4b7fd9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f31211c4448ad5bbe8d839b2ec86b0b61970f568
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91450021"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96752199"
 ---
 # <a name="set-up-an-appliance-in-azure-government"></a>Configuración de una aplicación en Azure Government 
 
@@ -158,7 +161,7 @@ Compruebe que el archivo comprimido es seguro, antes de implementarlo.
 
 3. Compruebe la versión más reciente del dispositivo y el valor hash:
 
-    **Escenario** | **Descargar*** | **Valor del código hash**
+    **Escenario** | **Descargar*** | *Valor hash**
     --- | --- | ---
     Físico (85 MB) | [La versión más reciente](https://go.microsoft.com/fwlink/?linkid=2140338) | cfed44bb52c9ab3024a628dc7a5d0df8c624f156ec1ecc3507116bae330b257f
           

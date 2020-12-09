@@ -1,15 +1,17 @@
 ---
 title: Compatibilidad para la migración de servidores físicos en Azure Migrate
 description: Obtenga más información sobre la compatibilidad para la migración de servidores físicos en Azure Migrate.
+author: rahulg1190
+ms.author: rahugup
+ms.manager: bsiva
 ms.topic: conceptual
-ms.custom: fasttrack-edit
 ms.date: 06/14/2020
-ms.openlocfilehash: 95456298b3275c83152115d700a4539cab2d2a67
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c549cae0b7bdc5e237ec3cf704a1ead53db91449
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91318167"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96754035"
 ---
 # <a name="support-matrix-for-physical-server-migration"></a>Matriz de compatibilidad para la migración de servidores físicos
 

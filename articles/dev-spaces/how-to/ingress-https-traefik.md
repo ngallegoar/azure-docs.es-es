@@ -6,12 +6,12 @@ ms.topic: conceptual
 description: Aprenda a configurar Azure Dev Spaces para usar un controlador de entrada de Traefik personalizado y configurar HTTPS con ese controlador de entrada.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores, Helm, service mesh, enrutamiento de service mesh, kubectl, k8s
 ms.custom: devx-track-js, devx-track-azurecli
-ms.openlocfilehash: 2dcb549078f1f0f5f7168960864d564fd0c169fc
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: d19dc409f4d57a114b5937e6ce3718315e550a08
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94636833"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763594"
 ---
 # <a name="use-a-custom-traefik-ingress-controller-and-configure-https"></a>Uso de un controlador de entrada de Traefik personalizado y configuración de HTTPS
 
@@ -47,7 +47,7 @@ aks-nodepool1-12345678-vmssfedcba   Ready    agent   13m    v1.14.1
 Agregue el [repositorio Helm estable oficial][helm-stable-repo], que contiene el gráfico de Traefik del controlador de entrada de Helm.
 
 ```console
-helm repo add stable https://kubernetes-charts.storage.googleapis.com/
+helm repo add stable https://charts.helm.sh/stable
 ```
 
 Cree un espacio de nombres Kubernetes para el controlador de entrada de Traefik e instálelo mediante `helm`.
@@ -375,7 +375,7 @@ Más información sobre cómo funciona Azure Dev Spaces.
 [az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
 [az-network-dns-record-set-a-add-record]: /cli/azure/network/dns/record-set/a?view=azure-cli-latest#az-network-dns-record-set-a-add-record
 [az-network-dns-record-set-a-remove-record]: /cli/azure/network/dns/record-set/a?view=azure-cli-latest#az-network-dns-record-set-a-remove-record
-[custom-domain]: ../../app-service/manage-custom-dns-buy-domain.md#buy-the-domain
+[custom-domain]: ../../app-service/manage-custom-dns-buy-domain.md#buy-an-app-service-domain
 [dns-zone]: ../../dns/dns-getstarted-cli.md
 [azds-yaml]: https://github.com/Azure/dev-spaces/blob/master/samples/BikeSharingApp/BikeSharingWeb/azds.yaml
 [azure-account-create]: https://azure.microsoft.com/free

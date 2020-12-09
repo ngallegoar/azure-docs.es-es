@@ -1,20 +1,15 @@
 ---
-title: Creación de una solicitud de soporte técnico de Azure | Microsoft Docs
+title: Creación de una solicitud de soporte técnico de Azure
 description: Los clientes que necesiten asistencia pueden usar Azure Portal para buscar soluciones de autoservicio y para crear y administrar solicitudes de soporte técnico.
-services: Azure Supportability
-author: mgblythe
-manager: scotthit
 ms.assetid: fd6841ea-c1d5-4bb7-86bd-0c708d193b89
-ms.service: azure-supportability
 ms.topic: how-to
 ms.date: 06/25/2020
-ms.author: mblythe
-ms.openlocfilehash: f937b03b2f838f69f56a4b132d0ea7a7e298b532
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 11ca7925ce1664b5586ab8ec0fb523a2d562ee80
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92372130"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745594"
 ---
 # <a name="create-an-azure-support-request"></a>Creación de una solicitud de soporte técnico de Azure
 
@@ -29,9 +24,9 @@ Azure le permite crear y administrar solicitudes de soporte técnico, también c
 
 La experiencia de solicitud de soporte técnico se centra en tres objetivos principales:
 
-* **Optimizada** : hacer que el soporte técnico y la solución de problemas sean fáciles de encontrar y simplificar el envío de una solicitud de soporte técnico.
-* **Integrada** : puede abrir con facilidad una solicitud de soporte técnico para un problema con un recurso de Azure, sin necesidad de cambiar de contexto.
-* **Eficaz** : recopile la información clave que necesita el ingeniero de soporte técnico para resolver el problema de forma eficaz.
+* **Optimizada**: hacer que el soporte técnico y la solución de problemas sean fáciles de encontrar y simplificar el envío de una solicitud de soporte técnico.
+* **Integrada**: puede abrir con facilidad una solicitud de soporte técnico para un problema con un recurso de Azure, sin necesidad de cambiar de contexto.
+* **Eficaz**: recopile la información clave que necesita el ingeniero de soporte técnico para resolver el problema de forma eficaz.
 
 Azure proporciona soporte ilimitado para la administración de suscripciones, lo que incluye facturación, ajustes de cuota y transferencias de cuentas. Para obtener soporte técnico, necesita un plan de soporte técnico. Para más información, consulte [Comparar planes de soporte técnico](https://azure.microsoft.com/support/plans).
 
@@ -47,11 +42,11 @@ Para crear una solicitud de soporte técnico, debe ser un [propietario](../../ro
 
 Para iniciar una solicitud de soporte técnico desde cualquier lugar de Azure Portal:
 
-1. Seleccione el signo **?** en el encabezado global. Luego seleccione **Ayuda y soporte técnico** .
+1. Seleccione el signo **?** en el encabezado global. Luego seleccione **Ayuda y soporte técnico**.
 
    ![Ayuda y soporte técnico](./media/how-to-create-azure-support-request/helpandsupportnewlower.png)
 
-1. Seleccione **Nueva solicitud de soporte técnico** . Siga las indicaciones para proporcionar información sobre el problema. Sugeriremos algunas soluciones posibles, recopilaremos los detalles del problema y le ayudaremos a enviar y realizar el seguimiento de la solicitud de soporte técnico.
+1. Seleccione **Nueva solicitud de soporte técnico**. Siga las indicaciones para proporcionar información sobre el problema. Sugeriremos algunas soluciones posibles, recopilaremos los detalles del problema y le ayudaremos a enviar y realizar el seguimiento de la solicitud de soporte técnico.
 
    ![Nueva solicitud de soporte técnico](./media/how-to-create-azure-support-request/newsupportrequest2lower.png)
 
@@ -59,7 +54,7 @@ Para iniciar una solicitud de soporte técnico desde cualquier lugar de Azure Po
 
 Para iniciar una solicitud de soporte técnico en el contexto del recurso con el que está trabajando actualmente:
 
-1. En el menú de recursos, en la sección **Soporte técnico y solución de problemas** , seleccione **Nueva solicitud de soporte técnico** .
+1. En el menú de recursos, en la sección **Soporte técnico y solución de problemas**, seleccione **Nueva solicitud de soporte técnico**.
 
    ![En contexto](./media/how-to-create-azure-support-request/incontext2lower.png)
 
@@ -73,7 +68,7 @@ Le guiaremos a través de algunos pasos para recopilar información sobre el pro
 
 En el primer paso del proceso de solicitud de soporte técnico se recopila información básica sobre el problema y el plan de soporte técnico.
 
-En la pestaña **Datos básicos** de **Nueva solicitud de soporte técnico** , use los selectores para empezar a contarnos el problema. En primer lugar, identificará algunas categorías generales para el tipo de problema y elegirá la suscripción relacionada. Seleccione el servicio; por ejemplo, **Máquina virtual que ejecuta Windows** . Seleccione el recurso, por ejemplo, el nombre de la máquina virtual. Describa el problema con sus propias palabras y, a continuación, seleccione **Tipo de problema** y **Subtipo de problema** para proporcionar información más específica.
+En la pestaña **Datos básicos** de **Nueva solicitud de soporte técnico**, use los selectores para empezar a contarnos el problema. En primer lugar, identificará algunas categorías generales para el tipo de problema y elegirá la suscripción relacionada. Seleccione el servicio; por ejemplo, **Máquina virtual que ejecuta Windows**. Seleccione el recurso, por ejemplo, el nombre de la máquina virtual. Describa el problema con sus propias palabras y, a continuación, seleccione **Tipo de problema** y **Subtipo de problema** para proporcionar información más específica.
 
 ![Hoja Básico](./media/how-to-create-azure-support-request/basics2lower.png)
 
@@ -87,7 +82,7 @@ A continuación, recopilaremos información adicional sobre el problema. Proporc
 
 1. Si es posible, indíquenos cuándo se inició el problema y los pasos para reproducirlo. Puede cargar un archivo, como un archivo de registro o una salida de diagnósticos. Para obtener más información sobre las cargas de archivos, consulte [Instrucciones de carga de archivos](how-to-manage-azure-support-request.md#file-upload-guidelines).
 
-1. Una vez que tenemos toda la información sobre el problema, puede elegir cómo obtener soporte técnico. En la sección **Método de soporte técnico** de **Detalles** , seleccione la gravedad del impacto. El nivel de gravedad máximo depende de su [plan de soporte técnico](https://azure.microsoft.com/support/plans).
+1. Una vez que tenemos toda la información sobre el problema, puede elegir cómo obtener soporte técnico. En la sección **Método de soporte técnico** de **Detalles**, seleccione la gravedad del impacto. El nivel de gravedad máximo depende de su [plan de soporte técnico](https://azure.microsoft.com/support/plans).
 
     La opción **Compartir información de diagnóstico** está seleccionada de forma predeterminada. Esto permite al soporte técnico de Azure recopilar [información de diagnóstico](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/) de los recursos de Azure. En algunos casos, hay una segunda pregunta que no está seleccionada de forma predeterminada, como solicitar acceso a la memoria de una máquina virtual.
 
@@ -97,7 +92,7 @@ A continuación, recopilaremos información adicional sobre el problema. Proporc
 
 ### <a name="review--create"></a>Revisar y crear
 
-Complete toda la información necesaria en cada pestaña y, a continuación, seleccione **Revisar y crear** . Compruebe los detalles que va a enviar al servicio de soporte técnico. Vuelva a cualquier pestaña para realizar un cambio si es necesario. Cuando esté satisfecho con la solicitud de soporte técnico, seleccione **Crear** .
+Complete toda la información necesaria en cada pestaña y, a continuación, seleccione **Revisar y crear**. Compruebe los detalles que va a enviar al servicio de soporte técnico. Vuelva a cualquier pestaña para realizar un cambio si es necesario. Cuando esté satisfecho con la solicitud de soporte técnico, seleccione **Crear**.
 
 Un ingeniero de soporte técnico se pondrá en contacto con usted mediante el método que haya indicado. Consulte [Ámbito de soporte técnico y capacidad de respuesta](https://azure.microsoft.com/support/plans/response/) para obtener información sobre los tiempos de respuesta inicial.
 

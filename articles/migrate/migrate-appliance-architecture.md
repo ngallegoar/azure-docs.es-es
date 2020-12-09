@@ -1,14 +1,17 @@
 ---
 title: Arquitectura del dispositivo de Azure Migrate
 description: Proporciona información general sobre el dispositivo de Azure Migrate usado en la evaluación y migración del servidor.
+author: vikram1988
+ms.author: vibansa
+ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 06/09/2020
-ms.openlocfilehash: d38796d4c4a1149d096f5bb06f7a11bc71b33cc5
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 42d4a722be25eec4b3e27012350346018fdba0f3
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92428165"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96754120"
 ---
 # <a name="azure-migrate-appliance-architecture"></a>Arquitectura del dispositivo de Azure Migrate
 
@@ -29,12 +32,12 @@ El dispositivo Azure Migrate se usa en los escenarios siguientes.
 
 El dispositivo tiene una serie de componentes.
 
-- **Aplicación de administración** : una aplicación web para la entrada del usuario durante la implementación del dispositivo. Se usa a la hora de evaluar las máquinas para su migración a Azure.
-- **Agente de detección** : un agente que reúne los datos de configuración de la máquina. Se usa a la hora de evaluar las máquinas para su migración a Azure. 
-- **Agente recopilador** : un agente que recopila datos de rendimiento. Se usa a la hora de evaluar las máquinas para su migración a Azure.
+- **Aplicación de administración**: una aplicación web para la entrada del usuario durante la implementación del dispositivo. Se usa a la hora de evaluar las máquinas para su migración a Azure.
+- **Agente de detección**: un agente que reúne los datos de configuración de la máquina. Se usa a la hora de evaluar las máquinas para su migración a Azure. 
+- **Agente recopilador**: un agente que recopila datos de rendimiento. Se usa a la hora de evaluar las máquinas para su migración a Azure.
 - **Agente de recuperación de datos (DRA)** : organiza la replicación de VM y coordina la comunicación entre las máquinas replicadas y Azure. Solo se usa al replicar máquinas virtuales de VMware en Azure mediante la migración sin agentes.
-- **Puerta de enlace** : Envía los datos replicados a Azure. Solo se usa al replicar máquinas virtuales de VMware en Azure mediante la migración sin agentes.
-- **Servicio de actualización automática** : actualiza los componentes del dispositivo (se ejecuta cada 24 horas).
+- **Puerta de enlace**: Envía los datos replicados a Azure. Solo se usa al replicar máquinas virtuales de VMware en Azure mediante la migración sin agentes.
+- **Servicio de actualización automática**: actualiza los componentes del dispositivo (se ejecuta cada 24 horas).
 
 
 
@@ -66,20 +69,20 @@ Los datos recopilados por el cliente para todos los escenarios de implementació
 
 El dispositivo se comunica con instancias de vCenter Server y hosts o clústeres de Hyper-V mediante el siguiente proceso.
 
-1. **Inicio de la detección** :
+1. **Inicio de la detección**:
     - Cuando inicia la detección en el dispositivo de Hyper-V, se comunica con los hosts de Hyper-V en el puerto 5985 (HTTP) de WinRM.
     - Al iniciar la detección en el dispositivo de VMware, se comunica con vCenter Server en el puerto TCP 443 de forma predeterminada. Si vCenter Server escucha en otro puerto, puede configurarlo en la aplicación web del dispositivo.
-2. **Recopilación de metadatos y datos de rendimiento** :
+2. **Recopilación de metadatos y datos de rendimiento**:
     - El dispositivo usa una sesión del Modelo de información común (CIM) para recopilar datos de VM de Hyper-V del host de Hyper-V en el puerto 5985.
     - De forma predeterminada, el dispositivo se comunica con el puerto 443 para recopilar datos de VM de VMware de vCenter Server.
-3. **Envío de datos** : El dispositivo envía los datos recopilados a Azure Migrate Server Assessment y Azure Migrate Server Migration a través del puerto SSL 443. El dispositivo puede conectarse a Azure a través de Internet o mediante ExpressRoute (se requiere el emparejamiento de Microsoft).
+3. **Envío de datos**: El dispositivo envía los datos recopilados a Azure Migrate Server Assessment y Azure Migrate Server Migration a través del puerto SSL 443. El dispositivo puede conectarse a Azure a través de Internet o mediante ExpressRoute (se requiere el emparejamiento de Microsoft).
     - Para los datos de rendimiento, el dispositivo recopila los datos de uso en tiempo real.
         - Los datos de rendimiento se recopilan cada 20 segundos para VMware, y cada 30 segundos para Hyper-V, para cada métrica de rendimiento.
         - Los datos recopilados se acumulan para crear un único punto de datos durante 10 minutos.
         - El valor de uso máximo se selecciona desde todos los puntos de datos a 20/30 segundos, y se envía a Azure para el cálculo de evaluación.
         - Según el valor de percentil especificado en las propiedades de evaluación (50/90/95/99), los puntos a diez minutos se clasifican en orden ascendente, y el valor de percentil adecuado se usa para calcular la evaluación.
     - Para Server Migration, el dispositivo empieza a recopilar datos de VM y los replica en Azure.
-4. **Evaluación y migración** : Ahora puede crear evaluaciones a partir de los metadatos recopilados por el dispositivo mediante Azure Migrate Server Assessment. Además, también puede empezar a migrar VM de VMware mediante Azure Migrate Server Migration para orquestar la replicación de VM sin agente.
+4. **Evaluación y migración**: Ahora puede crear evaluaciones a partir de los metadatos recopilados por el dispositivo mediante Azure Migrate Server Assessment. Además, también puede empezar a migrar VM de VMware mediante Azure Migrate Server Migration para orquestar la replicación de VM sin agente.
 
 ## <a name="appliance-upgrades"></a>Actualizaciones del dispositivo
 

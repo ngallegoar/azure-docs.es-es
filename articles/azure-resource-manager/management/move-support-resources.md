@@ -2,13 +2,13 @@
 title: Compatibilidad con la operación de traslado por tipo de recurso
 description: Enumera los tipos de recursos de Azure que se pueden trasladar a un nuevo grupo de recursos o suscripción.
 ms.topic: conceptual
-ms.date: 11/06/2020
-ms.openlocfilehash: 5b71c991136533096604c8a35af7989a227b6d2a
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.date: 12/07/2020
+ms.openlocfilehash: 226686e51c8b59b6963609a95a2cb3c2cc03d621
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94364236"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96781001"
 ---
 # <a name="move-operation-support-for-resources"></a>Compatibilidad con la operación de traslado para recursos
 
@@ -759,7 +759,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 ## <a name="microsoftdatabricks"></a>Microsoft.Databricks
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription |
+> | Tipo de recurso | Resource group | Suscripción |
 > | ------------- | ----------- | ---------- |
 > | workspaces | No | No |
 
@@ -1026,7 +1026,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | Tipo de recurso | Resource group | Suscripción |
 > | ------------- | ----------- | ---------- |
 > | hanainstances | No | No |
-> | sapmonitors | Sí | Sí |
+> | sapmonitors | No | No |
 
 ## <a name="microsofthardwaresecuritymodules"></a>Microsoft.HardwareSecurityModules
 

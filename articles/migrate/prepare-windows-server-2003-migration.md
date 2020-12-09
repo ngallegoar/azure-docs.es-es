@@ -1,14 +1,17 @@
 ---
 title: Preparación de los servidores de Windows Server 2003 para la migración con Azure Migrate
 description: Obtenga información sobre cómo preparar de los servidores de Windows Server 2003 para la migración con Azure Migrate.
+author: rahulg1190
+ms.author: rahugup
+ms.manager: bsiva
 ms.topic: how-to
 ms.date: 05/27/2020
-ms.openlocfilehash: 350eab98a2b40d5ca1382bbfc24245e7cb47b48e
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: f8d3dea970d07d951467a44661e12000ba413f72
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93146848"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96753761"
 ---
 # <a name="prepare-windows-server-2003-machines-for-migration"></a>Preparación de las máquinas de Windows Server 2003 para la migración
 
@@ -43,7 +46,7 @@ Antes de la migración, compruebe si los servicios de integración de Hyper-V es
 3. Copie la carpeta de instalación en la máquina virtual de VMware.
 4. En la línea de comandos de la máquina virtual, ejecute ```gpedit.msc```.
 5. Abra **Configuración del equipo** > **Configuración de Windows** > **Scripts (inicio o apagado)** .
-6. En **Inicio** > **Agregar** > **Nombre del script** , escriba la dirección de setup.exe.
+6. En **Inicio** > **Agregar** > **Nombre del script**, escriba la dirección de setup.exe.
 7. Después de la migración a Azure, el script se ejecuta la primera vez que se inicia la máquina virtual de Azure.
 8. Reinicie manualmente la máquina virtual de Azure. Aparece un elemento emergente en los diagnósticos de arranque para indicar que es necesario un reinicio.
 9. Después de ejecutar el script e instalar los servicios de integración de Hyper-V en la máquina virtual de Azure, puede quitar el script del inicio.

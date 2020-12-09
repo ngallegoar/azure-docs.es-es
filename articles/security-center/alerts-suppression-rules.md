@@ -1,6 +1,6 @@
 ---
 title: Uso de reglas de eliminación de alertas para eliminar falsos positivos u otras alertas de seguridad no deseadas en Azure Security Center.
-description: En este artículo se explica cómo usar las reglas de eliminación de Azure Security Center para ocultar las alertas de Azure Defender no deseadas.
+description: En este artículo se explica cómo usar las reglas de eliminación de Azure Security Center para ocultar las alertas de seguridad no deseadas
 author: memildin
 manager: rkarlin
 services: security-center
@@ -8,12 +8,12 @@ ms.author: memildin
 ms.date: 09/10/2020
 ms.service: security-center
 ms.topic: how-to
-ms.openlocfilehash: b954d6ed29074aa9261611f0d1bb79b5917d03f2
-ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
+ms.openlocfilehash: 1ca2ded69b0279a60d8ed83cf310a58dadf1a337
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94372666"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96751995"
 ---
 # <a name="suppress-alerts-from-azure-defender"></a>Eliminación de alertas de Azure Defender
 
@@ -23,7 +23,7 @@ En esta página se explica cómo usar reglas de eliminación de alertas para eli
 
 |Aspecto|Detalles|
 |----|:----|
-|Estado de la versión:|Versión preliminar<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)] |
+|Estado de la versión:| Disponibilidad general |
 |Precios:|Gratuito<br>(La mayoría de las alertas de seguridad solo están disponibles con Azure Defender).|
 |Roles y permisos necesarios:|Los roles de **Administrador de seguridad** y **Propietario** pueden crear o eliminar reglas.<br>Los roles de **Lector de seguridad** y **Lector** pueden ver las reglas.|
 |Nubes:|![Sí](./media/icons/yes-icon.png) Nubes comerciales<br>![Sí](./media/icons/yes-icon.png) Nacionales o soberanas (US Gov, China Gov, otros gobiernos)|
@@ -60,7 +60,7 @@ Para crear una regla directamente en Azure Portal:
 
 1. En la página de alertas de seguridad de Security Center:
 
-    - Busque la alerta específica que ya no desee ver y, en el menú de puntos suspensivos (...) de la alerta, seleccione **Crear regla de eliminación** :
+    - Busque la alerta específica que ya no desee ver y, en el menú de puntos suspensivos (...) de la alerta, seleccione **Crear regla de eliminación**:
 
         [![Opción **Crear regla de eliminación**](media/alerts-suppression-rules/auto-dismiss-future-option.png)](media/alerts-suppression-rules/auto-dismiss-future-option.png#lightbox)
 
@@ -70,17 +70,17 @@ Para crear una regla directamente en Azure Portal:
 
 1. En el panel de la nueva regla de eliminación, escriba los detalles de la nueva regla.
     - La regla puede descartar la alerta en **todos los recursos** para que no reciba ninguna alerta como esta en el futuro.     
-    - La regla puede descartar la alerta **según criterios específicos** : cuando se refiere a una dirección IP, un nombre de proceso, una cuenta de usuario, un recurso de Azure o una ubicación específicos.
+    - La regla puede descartar la alerta **según criterios específicos**: cuando se refiere a una dirección IP, un nombre de proceso, una cuenta de usuario, un recurso de Azure o una ubicación específicos.
 
     > [!TIP]
-    > Si abrió la página de la nueva regla desde una alerta concreta, la alerta y la suscripción se configurarán de forma automática en la nueva regla. Si ha usado el vínculo **Crear nueva regla de eliminación** , las suscripciones seleccionadas coincidirán con el filtro actual del portal.
+    > Si abrió la página de la nueva regla desde una alerta concreta, la alerta y la suscripción se configurarán de forma automática en la nueva regla. Si ha usado el vínculo **Crear nueva regla de eliminación**, las suscripciones seleccionadas coincidirán con el filtro actual del portal.
 
     [![Panel de creación de regla de eliminación](media/alerts-suppression-rules/new-suppression-rule-pane.png)](media/alerts-suppression-rules/new-suppression-rule-pane.png#lightbox)
 1. Escriba los detalles de la regla:
-    - **Nombre** : un nombre para la regla. Los nombres de las reglas deben comenzar por una letra o un número, tener entre 2 y 50 caracteres, y no contener símbolos, excepto guiones (-) o guiones bajos (_). 
-    - **Estado** : puede ser Habilitado o Deshabilitado.
-    - **Motivo** : seleccione uno de los motivos incluidos u "otro" si ninguno de ellos se adapta a sus necesidades.
-    - **Fecha de expiración** : una fecha y hora de finalización para la regla. Las reglas se pueden ejecutar hasta seis meses.
+    - **Nombre**: un nombre para la regla. Los nombres de las reglas deben comenzar por una letra o un número, tener entre 2 y 50 caracteres, y no contener símbolos, excepto guiones (-) o guiones bajos (_). 
+    - **Estado**: puede ser Habilitado o Deshabilitado.
+    - **Motivo**: seleccione uno de los motivos incluidos u "otro" si ninguno de ellos se adapta a sus necesidades.
+    - **Fecha de expiración**: una fecha y hora de finalización para la regla. Las reglas se pueden ejecutar hasta seis meses.
 1. Si lo desea, pruebe la regla con el botón **Simular** para ver el número de alertas que se habrían descartado si esta regla hubiera estado activa.
 1. Guarde la regla. 
 
@@ -127,7 +127,7 @@ Puede crear, ver o eliminar reglas de eliminación de alertas a través de la AP
 
 Los métodos HTTP pertinentes para la eliminación de reglas en la API REST son:
 
-- **PUT** : para crear o actualizar una regla de eliminación en una suscripción especificada.
+- **PUT**: para crear o actualizar una regla de eliminación en una suscripción especificada.
 
 - **GET**.
 
@@ -137,7 +137,7 @@ Los métodos HTTP pertinentes para la eliminación de reglas en la API REST son:
 
     - Para simular el efecto de una regla de eliminación todavía en la fase de diseño. Esta llamada identifica qué alertas existentes se habrían descartado si la regla hubiera estado activa.
 
-- **DELETE** : elimina una regla existente (pero no cambia el estado de las alertas que ya ha descartado).
+- **DELETE**: elimina una regla existente (pero no cambia el estado de las alertas que ya ha descartado).
 
 Para obtener información completa y ejemplos de uso, consulte la [documentación de la API](/rest/api/securitycenter/). 
 

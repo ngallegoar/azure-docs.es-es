@@ -4,12 +4,12 @@ description: Disponibilidad de recursos de proceso y memoria para el servicio Az
 ms.topic: article
 ms.date: 04/27/2020
 ms.custom: references_regions
-ms.openlocfilehash: 2a833c93c80d932305f47b6e292e5e5df4d0cb95
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 8651a1cc2c2ba41e2c28e9f63dc78c091a6af61d
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94576621"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763900"
 ---
 # <a name="resource-availability-for-azure-container-instances-in-azure-regions"></a>Disponibilidad de recursos para Azure Container Instances en las regiones de Azure
 
@@ -81,9 +81,9 @@ Las siguientes regiones y recursos máximos están disponibles para los grupos d
 
 | Region | Número máximo de CPU de 1B/2B | Máximo de memoria (GB) de 1B/2B |Número máximo de CPU de 3B | Máximo de memoria (GB) de 3B | Almacenamiento (GB) |
 | -------- | :---: | :---: | :----: | :-----: | :-------: |
-| Este de Australia | 2 | 8 | 2 | 3,5 | 20 |
+| Este de Australia | 2 | 8 | 2 | 8 | 20 |
 | Sur de Brasil | 4 | 16 | 4 | 16 | 20 |
-| Centro de Canadá | 2 | 3,5 | 2 | 3,5 | 20 |
+| Centro de Canadá | 2 | 8 | 2 | 3,5 | 20 |
 | Centro de la India | 2 | 3,5 | 2 | 3,5 | 20 |
 | Centro de EE. UU. | 2 | 3,5 | 2 | 3,5 | 20 |
 | Este de Asia | 2 | 3,5 | 2 | 3,5 | 20 |
@@ -92,15 +92,15 @@ Las siguientes regiones y recursos máximos están disponibles para los grupos d
 | Japón Oriental | 4 | 16 | 4 | 16 | 20 |
 | Centro de Corea del Sur | 4 | 16 | 4 | 16 | 20 |
 | Centro-Norte de EE. UU | 4 | 16 | 4 | 16 | 20 |
-| Norte de Europa | 2 | 3,5 | 2 | 8 | 20 |
-| Centro-sur de EE. UU. | 2 | 3,5 | 2 | 3,5 | 20 |
+| Norte de Europa | 2 | 8 | 2 | 8 | 20 |
+| Centro-sur de EE. UU. | 2 | 3,5 | 2 | 8 | 20 |
 | Sudeste de Asia | N/D | N/D | 2 | 3,5 | 20 |
 | Sur de la India | 2 | 3,5 | 2 | 3,5 | 20 |
 | Sur de Reino Unido | 2 | 8 | 2 | 3,5 | 20 |
-| Centro-Oeste de EE. UU. | 4 | 16 | 4 | 16 | 20 |
+| Centro-Oeste de EE. UU. | 4 | 16 | 2 | 8 | 20 |
 | Oeste de Europa | 4 | 16 | 4 | 16 | 20 |
 | Oeste de EE. UU. | 4 | 16 | 2 | 8 | 20 |
-| Oeste de EE. UU. 2 | 2 | 3,5 | 2 | 3,5 | 20 |
+| Oeste de EE. UU. 2 | 2 | 8 | 2 | 3,5 | 20 |
 
 
 ### <a name="windows-server-2019-ltsc"></a>Windows Server 2019 LTSC

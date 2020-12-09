@@ -2,13 +2,16 @@
 title: Análisis de dependencias en Azure Migrate Server Assessment
 description: Se describe cómo usar el análisis de dependencias para realizar evaluaciones mediante Azure Migrate Server Assessment.
 ms.topic: conceptual
+author: vineetvikram
+ms.author: vivikram
+ms.manager: abhemraj
 ms.date: 09/15/2020
-ms.openlocfilehash: a284d549f13595e0ce8a5d06cc017602e559b648
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1f198d47191e7893e74b072ae8fd10546e3a6ee7
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90530257"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96752216"
 ---
 # <a name="dependency-analysis"></a>Análisis de dependencias
 

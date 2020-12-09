@@ -188,15 +188,15 @@
               href: manage/pay-by-invoice.md
             - name: Creación de suscripciones adicionales
               href: manage/create-subscription.md
-            - name: Creación de suscripciones al Contrato Enterprise mediante programación con la API más reciente
+            - name: 'Creación de suscripciones de EA: REST'
               href: manage/programmatically-create-subscription-enterprise-agreement.md
-            - name: Creación de suscripciones a MCA mediante programación con la API más reciente
+            - name: 'Creación de suscripciones de MCA: REST'
               href: manage/programmatically-create-subscription-microsoft-customer-agreement.md
-            - name: Creación de suscripciones a MPA mediante programación con la API más reciente
+            - name: 'Creación de suscripciones de MPA: REST'
               href: manage/programmatically-create-subscription-microsoft-partner-agreement.md
-            - name: Creación de suscripciones mediante programación con una plantilla de Resource Manager
+            - name: 'Creación de suscripciones: plantillas de Resource Manager'
               href: manage/create-subscription-template.md
-            - name: Creación de suscripciones mediante programación con la API de versión preliminar antigua
+            - name: 'Creación de suscripciones: REST en versión preliminar'
               href: manage/programmatically-create-subscription-preview.md
             - name: Concesión de acceso para crear suscripciones de EA
               href: manage/grant-access-to-create-subscription.md

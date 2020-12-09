@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: df0620308fab2e813fe3802dc7effb9dc1ce226c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 17bdae658c7095c44a7ae9f30fd85a6c45bf1546
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91285390"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96779981"
 ---
 # <a name="scale-out-your-azure-arc-enabled-postgresql-hyperscale-server-group-by-adding-more-worker-nodes"></a>Escalado horizontal del grupo de servidores de Hiperescala de PostgreSQL habilitada para Azure Arc mediante la adición de más nodos de trabajo
 En este documento se explica cómo escalar horizontalmente un grupo de servidores de Hiperescala de PostgreSQL habilitada para Azure Arc mediante un escenario. **Si no quiere seguir la explicación a través del escenario y solo quiere leer sobre cómo escalar horizontalmente, vaya al apartado [Escalado horizontal](#scale-out)** .
@@ -252,5 +252,4 @@ Anote el tiempo de ejecución.
  > \* En los documentos anteriores, omita las secciones **Inicio de sesión en Azure Portal** y **Creación de una instancia de Azure Database for PostgreSQL: Hiperescala (Citus)** . Aplique los pasos restantes en la implementación de Azure Arc. Esas secciones son específicas de Hiperescala (Citus) de Azure Database for PostgreSQL que se ofrece como un servicio PaaS en la nube de Azure, pero las demás partes de los documentos se aplican directamente a Hiperescala de PostgreSQL habilitada para Azure Arc.
 
 - [Conceptos de almacenamiento de Kubernetes y configuración de almacenamiento](storage-configuration.md)
-- [Expansión de notificaciones de volúmenes persistentes](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#expanding-persistent-volumes-claims)
 - [Modelo de recursos de Kubernetes](https://github.com/kubernetes/community/blob/master/contributors/design-proposals/scheduling/resources.md#resource-quantities)

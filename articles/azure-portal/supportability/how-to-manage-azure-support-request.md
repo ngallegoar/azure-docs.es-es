@@ -1,19 +1,16 @@
 ---
 title: Administración de una solicitud de soporte técnico de Azure
 description: Describe cómo ver solicitudes de soporte técnico, enviar mensajes, cambiar el nivel de gravedad de las solicitudes, compartir información de diagnóstico con el soporte técnico de Azure, volver a abrir una solicitud de soporte técnico cerrada y cargar archivos.
-author: mgblythe
 tags: billing
 ms.assetid: 86697fdf-3499-4cab-ab3f-10d40d3c1f70
-ms.service: azure-supportability
 ms.topic: how-to
 ms.date: 06/30/2020
-ms.author: mblythe
-ms.openlocfilehash: f3b4806bf46750d74a54f68bd2ab58e402e75091
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a9dd703dc0a3f5e8f85b1022fa2a71ff9a8c295d
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85852191"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745577"
 ---
 # <a name="manage-an-azure-support-request"></a>Administración de una solicitud de soporte técnico de Azure
 
@@ -45,17 +42,17 @@ En esta página, puede buscar, filtrar y ordenar solicitudes de soporte técnico
 
 1. En la página **Solicitud de soporte técnico**, seleccione **Cambiar**.
 
-    :::image type="content" source="media/how-to-manage-azure-support-request/change-severity.png" alt-text="Todas las solicitudes de soporte técnico":::
+    :::image type="content" source="media/how-to-manage-azure-support-request/change-severity.png" alt-text="Cambiar la gravedad de la solicitud de soporte técnico":::
 
 1. Azure Portal muestra una de dos pantallas, en función de si la solicitud ya está asignada a un ingeniero de soporte técnico:
 
     - Si no se ha asignado la solicitud, verá una pantalla similar a la siguiente. Seleccione un nivel de gravedad nuevo y, a continuación, seleccione **Cambiar**.
 
-        :::image type="content" source="media/how-to-manage-azure-support-request/unassigned-can-change-severity.png" alt-text="Todas las solicitudes de soporte técnico":::
+        :::image type="content" source="media/how-to-manage-azure-support-request/unassigned-can-change-severity.png" alt-text="Seleccionar un nivel de gravedad nuevo":::
 
     - Si se ha asignado la solicitud, verá una pantalla similar a la siguiente. Seleccione **Aceptar** y, a continuación, cree un [nuevo mensaje](#send-a-message) para solicitar un cambio en el nivel de gravedad.
 
-        :::image type="content" source="media/how-to-manage-azure-support-request/assigned-cant-change-severity.png" alt-text="Todas las solicitudes de soporte técnico":::
+        :::image type="content" source="media/how-to-manage-azure-support-request/assigned-cant-change-severity.png" alt-text="No se puede seleccionar un nuevo nivel de gravedad":::
 
 ## <a name="share-diagnostic-information-with-azure-support"></a>Compartir información de diagnóstico con el soporte técnico de Azure
 
@@ -69,7 +66,7 @@ Al crear una solicitud de soporte técnico, la opción **Compartir información 
     
     1. En la página **Solicitud de soporte técnico**, seleccione **Conceder permiso** y, a continuación, **Sí** y **Aceptar**.
     
-        :::image type="content" source="media/how-to-manage-azure-support-request/grant-permission-manage.png" alt-text="Todas las solicitudes de soporte técnico":::
+        :::image type="content" source="media/how-to-manage-azure-support-request/grant-permission-manage.png" alt-text="Conceder permisos para la información de diagnóstico":::
 
 ## <a name="upload-files"></a>Carga de archivos
 
@@ -79,7 +76,7 @@ Puede usar la opción de carga de archivos para cargar archivos de diagnóstico 
 
 1. En la página **Solicitud de soporte técnico**, busque el archivo y seleccione **Cargar**. Repita el proceso si tiene varios archivos.
 
-    :::image type="content" source="media/how-to-manage-azure-support-request/file-upload.png" alt-text="Todas las solicitudes de soporte técnico":::.
+    :::image type="content" source="media/how-to-manage-azure-support-request/file-upload.png" alt-text="Carga de un archivo":::.
 
 ### <a name="file-upload-guidelines"></a>Instrucciones de carga de archivos
 

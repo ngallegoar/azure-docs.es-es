@@ -6,17 +6,17 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/16/2020
+ms.date: 12/07/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 19262441df87b96bbb43a010ca47861ec2b236d3
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 852375cc7948fc7f6bd106380b3194f2dc84b8ca
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488765"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96778927"
 ---
 # <a name="use-powershell-to-assign-an-azure-role-for-access-to-blob-and-queue-data"></a>Uso de PowerShell para asignar un rol de Azure para el acceso a datos de blobs y colas
 
@@ -60,6 +60,9 @@ Storage Queue Data Reader                 Allows for read access to Azure Storag
 
 Para asignar un rol de Azure a una entidad de seguridad, use el comando [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment). El formato del comando puede variar en función del ámbito de la asignación. Para ejecutar el comando, debe tener asignado el rol de propietario o colaborador en el ámbito correspondiente. Los ejemplos siguientes muestran cómo asignar un rol a un usuario en varios ámbitos, pero puede usar el mismo comando para asignar un rol a cualquier entidad de seguridad.
 
+> [!NOTE]
+> Al crear una cuenta de Azure Storage, no se le asignan automáticamente permisos para tener acceso a datos a través de Azure AD. Tiene que asignarse a sí mismo de forma explícita un rol de Azure para Azure Storage. Puede asignarlo al nivel de su suscripción, grupo de recursos, cuenta de almacenamiento o un contenedor o cola.
+
 ### <a name="container-scope"></a>Ámbito de contenedor
 
 Para asignar un rol cuyo ámbito es un contenedor, especifique una cadena que contenga el ámbito del contenedor en el parámetro `--scope`. El ámbito de un contenedor tiene este formato:
@@ -68,7 +71,7 @@ Para asignar un rol cuyo ámbito es un contenedor, especifique una cadena que co
 /subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/blobServices/default/containers/<container-name>
 ```
 
-En el siguiente ejemplo se asigna el rol **Colaborador de datos de Storage Blob** a un usuario y el ámbito se establece un contenedor denominado *sample-container* . Asegúrese de reemplazar los valores de ejemplo y los valores de marcador de posición entre corchetes angulares por los suyos propios: 
+En el siguiente ejemplo se asigna el rol **Colaborador de datos de Storage Blob** a un usuario y el ámbito se establece un contenedor denominado *sample-container*. Asegúrese de reemplazar los valores de ejemplo y los valores de marcador de posición entre corchetes angulares por los suyos propios: 
 
 ```powershell
 New-AzRoleAssignment -SignInName <email> `
@@ -84,7 +87,7 @@ Para asignar un rol cuyo ámbito es una cola, especifique una cadena que conteng
 /subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/queueServices/default/queues/<queue-name>
 ```
 
-En el siguiente ejemplo se asigna el rol **Colaborador de datos de la cola de Storage Blob** a un usuario y el ámbito se establece una cola denominada *sample-queue* . Asegúrese de reemplazar los valores de ejemplo y los valores de marcador de posición entre corchetes angulares por los suyos propios: 
+En el siguiente ejemplo se asigna el rol **Colaborador de datos de la cola de Storage Blob** a un usuario y el ámbito se establece una cola denominada *sample-queue*. Asegúrese de reemplazar los valores de ejemplo y los valores de marcador de posición entre corchetes angulares por los suyos propios: 
 
 ```powershell
 New-AzRoleAssignment -SignInName <email> `

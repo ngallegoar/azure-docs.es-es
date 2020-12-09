@@ -1,17 +1,17 @@
 ---
 title: Creación de una valoración de VM de Azure con la herramienta de valoración de servidores de Azure Migrate | Microsoft Docs
 description: En este artículo se describe cómo crear una valoración de VM de Azure con la herramienta de valoración de servidores de Azure Migrate.
-author: rayne-wiselman
-ms.service: azure-migrate
-ms.topic: article
+author: rashi-ms
+ms.author: rajosh
+ms.manager: abhemraj
+ms.topic: how-to
 ms.date: 07/15/2019
-ms.author: raynew
-ms.openlocfilehash: 534619ace09b4e11934062a591adf8d9ab6f77ad
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: cc7101c61db8f0863c3a16b1c17f04188f9bee4e
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96500808"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96754307"
 ---
 # <a name="create-an-azure-vm-assessment"></a>Creación de una valoración de máquina virtual de Azure
 

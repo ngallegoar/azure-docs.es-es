@@ -6,24 +6,25 @@ documentationcenter: ''
 author: curtand
 manager: daveba
 ms.service: active-directory
+ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
-ms.date: 11/15/2020
+ms.date: 12/02/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2a1f970a97616fbc38a2f5d274998596992d4a45
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 7a25caa3b59d242b8dcc8a52e1a5d684815cf7bf
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95522080"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96547787"
 ---
 # <a name="create-or-update-a-dynamic-group-in-azure-active-directory"></a>Creación o actualización de un grupo dinámico en Azure Active Directory
 
 En Azure Active Directory (Azure AD), puede usar reglas para determinar la pertenencia a grupos según las propiedades de usuario o dispositivo. En este artículo se explica cómo configurar una regla para un grupo dinámico en Azure Portal.
-La pertenencia dinámica es compatible con grupos de seguridad o grupos de Microsoft 365. Cuando se aplica una regla de pertenencia a grupos, se evalúan los atributos de usuario y dispositivo para ver si coinciden con la regla de pertenencia. Cuando cambian los atributos de un usuario o dispositivo, se procesan todos los cambios de pertenencia de las reglas de grupo dinámico de la organización. Los usuarios y dispositivos se agregan o quitan si cumplen las condiciones de un grupo. Los grupos de seguridad se pueden aplicar a dispositivos o usuarios, pero los grupos de Office 365 solo pueden ser grupos de usuarios. El uso de grupos dinámicos requiere la licencia de Azure AD Premium P1. Consulte [Reglas de pertenencia dinámica a grupos](https://docs.microsoft.com/azure/active-directory/enterprise-users/groups-dynamic-membership) para obtener más información. 
+La pertenencia dinámica es compatible con grupos de seguridad o grupos de Microsoft 365. Cuando se aplica una regla de pertenencia a grupos, se evalúan los atributos de usuario y dispositivo para ver si coinciden con la regla de pertenencia. Cuando cambian los atributos de un usuario o dispositivo, se procesan todos los cambios de pertenencia de las reglas de grupo dinámico de la organización. Los usuarios y dispositivos se agregan o quitan si cumplen las condiciones de un grupo. Los grupos de seguridad se pueden aplicar a dispositivos o usuarios, pero los grupos de Office 365 solo pueden ser grupos de usuarios. El uso de grupos dinámicos requiere una licencia Premium P1 de Azure AD. Consulte [Reglas de pertenencia dinámica a grupos](./groups-dynamic-membership.md) para obtener más información. 
 
 ## <a name="rule-builder-in-the-azure-portal"></a>Generador de reglas en Azure Portal
 

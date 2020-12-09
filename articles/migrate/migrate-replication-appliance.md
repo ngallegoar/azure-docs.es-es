@@ -1,14 +1,17 @@
 ---
 title: Dispositivo de replicación con Azure Migrate
 description: Obtenga más información sobre el dispositivo de replicación de Azure Migrate para la migración de VMware basada en agente.
+author: anvar-ms
+ms.author: anvar
+ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 01/30/2020
-ms.openlocfilehash: af9e45e47c2f0645d81a571161f15f7d69cfec61
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ec277bcc3e361561f54e72c54526d65487c113b4
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90532127"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96754103"
 ---
 # <a name="replication-appliance"></a>Dispositivo de replicación
 

@@ -1,14 +1,17 @@
 ---
 title: Evaluación de grandes cantidades de máquinas virtuales de VMware para la migración a Azure con Azure Migrate
-description: Describe cómo evaluar grandes cantidades de máquinas virtuales de VMware para la migración a Azure mediante el servicio Azure Migrate.
+description: Describe cómo evaluar grandes cantidades de VM de VMware para su migración a Azure mediante el servicio Azure Migrate.
+author: rashi-ms
+ms.author: rajosh
+ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 03/23/2020
-ms.openlocfilehash: 0be7a7ea4afc400787456533689fe00b1db1c116
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 206df399736dbd3b5d1d52531a249bbd37646514
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96492937"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96753678"
 ---
 # <a name="assess-large-numbers-of-vmware-vms-for-migration-to-azure"></a>Evaluación de grandes cantidades de VM de VMware para la migración a Azure
 
