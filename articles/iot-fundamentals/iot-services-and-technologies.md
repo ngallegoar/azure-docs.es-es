@@ -7,20 +7,19 @@ services: iot-fundamentals
 ms.topic: conceptual
 ms.date: 01/15/2020
 ms.author: dobett
-ms.openlocfilehash: 0678b2c36d341b2bc2bd9be755b9a6213acdd462
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 0cd98705d2d6947ff766f528e4e92f1e51bcc42d
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92206091"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96852819"
 ---
 # <a name="what-azure-technologies-and-services-can-you-use-to-create-iot-solutions"></a>¿Qué tecnologías y servicios de Azure puede usar para crear soluciones de IoT?
 
 Las tecnologías y los servicios de IoT de Azure ofrecen opciones para crear una amplia variedad de soluciones de IoT que permitan la transformación digital de cualquier organización. Por ejemplo, puede:
 
-- Use [Azure IoT Central](https://apps.azureiotcentral.com), que es una plataforma administrada de aplicaciones de IoT, para compilar e implementar soluciones de IoT seguras de nivel empresarial. IoT Central incluye una colección de plantillas de aplicación específicas de un sector, como el de venta al por menor y el de asistencia sanitaria, para acelerar el proceso de desarrollo de la solución.
-- Extienda la base del código fuente abierto de un [acelerador de soluciones](https://www.azureiotsolutions.com) de IoT de Azure para implementar un escenario de IoT común, como la supervisión remota o el mantenimiento predictivo.
-- Use los servicios de la plataforma IoT de Azure, como [Azure IoT Hub](../iot-hub/about-iot-hub.md), y los [SDK de dispositivo IoT de Azure](../iot-hub/iot-hub-devguide-sdks.md) para crear una solución de IoT personalizada desde cero.
+* Use [Azure IoT Central](https://apps.azureiotcentral.com), que es una plataforma administrada de aplicaciones de IoT, para compilar e implementar soluciones de IoT seguras de nivel empresarial. IoT Central incluye una colección de plantillas de aplicación específicas de un sector, como el de venta al por menor y el de asistencia sanitaria, para acelerar el proceso de desarrollo de la solución.
+* Use los servicios de la plataforma IoT de Azure, como [Azure IoT Hub](../iot-hub/about-iot-hub.md), y los [SDK de dispositivo IoT de Azure](../iot-hub/iot-hub-devguide-sdks.md) para crear una solución de IoT personalizada desde cero.
 
 ![Tecnologías, servicios y soluciones de IoT de Azure](./media/iot-services-and-technologies/iot-technologies-services.png)
 
@@ -40,10 +39,8 @@ Los [aceleradores de soluciones de IoT de Azure](https://www.azureiotsolutions.c
 
 Los aceleradores de soluciones de IoT de Azure proporcionan un alto nivel de control sobre cualquier solución de IoT. Los aceleradores de soluciones incluyen soluciones precompiladas para escenarios de IoT comunes que se pueden implementar en una suscripción de Azure en cuestión de minutos. Estos escenarios incluyen:
 
-  - Supervisión remota
-  - Fábrica conectada
-  - Mantenimiento predictivo
-  - Simulación de dispositivos
+* Fábrica conectada
+* Simulación de dispositivos
 
 La base del código fuente abierto para todos los aceleradores de soluciones está disponible en GitHub. Descargue el código para personalizar un acelerador de la solución, con el fin de que satisfaga sus requisitos específicos de IoT.
 
@@ -92,4 +89,3 @@ Para disfrutar de una experiencia práctica, pruebe uno de los inicios rápidos:
 
 - [Creación de una aplicación de Azure IoT Central](../iot-central/core/quick-deploy-iot-central.md)
 - [Send telemetry from a device to an IoT hub](../iot-hub/quickstart-send-telemetry-cli.md) (Envío de telemetría de un dispositivo a IoT Hub)
-- [Prueba de una solución de supervisión remota basada en la nube](../iot-accelerators/quickstart-remote-monitoring-deploy.md)
