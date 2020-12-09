@@ -3,13 +3,12 @@ title: Actualización de un clúster de Azure Service Fabric
 description: 'Aprenda a actualizar la versión o la configuración de un clúster de Azure Service Fabric: establecimiento del modo de actualización del clúster, la actualización de certificados, la adición de puertos de la aplicación, la creación de revisiones del sistema operativo y lo que puede esperar cuando se realizan las actualizaciones.'
 ms.topic: conceptual
 ms.date: 11/12/2018
-ms.custom: sfrev
-ms.openlocfilehash: d92ac90e0e41d534231bafbe991a05764dbee07d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 028c91f85a6e318f7ea686c1bcd50262eb7c6bf1
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82789562"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96571035"
 ---
 # <a name="upgrading-and-updating-an-azure-service-fabric-cluster"></a>Actualización de un clúster de Azure Service Fabric
 

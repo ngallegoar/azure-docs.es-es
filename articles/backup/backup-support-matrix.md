@@ -4,12 +4,12 @@ description: Proporciona un resumen de opciones de compatibilidad y limitaciones
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.custom: references_regions
-ms.openlocfilehash: ae2eb97f214204b813564b6373c4e9dc176f483c
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 70a81b42ad2fb417902a627afb1651d572844648
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555443"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96548518"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Matriz de compatibilidad para Azure Backup
 
@@ -150,7 +150,7 @@ Azure Backup ha agregado la característica Restauración entre regiones para re
 
 | Tipo de administración de copias de seguridad | Compatible                                                    | Regiones admitidas |
 | ---------------------- | ------------------------------------------------------------ | ----------------- |
-| Azure VM               | Sí.   Se admite para las máquinas virtuales cifradas y las máquinas virtuales con discos de menos de 4 TB. | Todas las regiones públicas de Azure y nubes soberanas.  |
+| Azure VM               | Sí.   Se admite para las máquinas virtuales cifradas y las máquinas virtuales con discos de menos de 4 TB. | Todas las regiones públicas de Azure.  |
 | SQL/SAP HANA | Sí                                                          | Todas las regiones públicas, excepto Francia |
 | Agente de MARS/local  | No                                                           | N/D               |
 | AFS (recursos compartidos de archivos de Azure)                 | No                                                           | N/D               |

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: e4da0b288bca2517e4e0f58569215709a5f71a5e
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: af9a86613b3aa29cc01b5ef0daa1f3854940deaf
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 12/02/2020
-ms.locfileid: "96487769"
+ms.locfileid: "96534070"
 ---
 # <a name="security-control-v2-governance-and-strategy"></a>Control de seguridad V2: Gobernanza y estrategia
 
@@ -45,11 +45,11 @@ Esta estrategia debe incluir instrucciones, directivas y estándares documentado
 - Normas criptográficas adecuadas
 
 Para más información, consulte las siguientes referencias:
-- [Recomendación para la arquitectura de seguridad de Azure: almacenamiento, datos y cifrado](/azure/architecture/framework/security/storage-data-encryption?amp;bc=%2fsecurity%2fcompass%2fbreadcrumb%2ftoc.json&toc=%2fsecurity%2fcompass%2ftoc.json)
+- [Recomendación para la arquitectura de seguridad de Azure: almacenamiento, datos y cifrado](/azure/architecture/framework/security/storage-data-encryption?bc=%2fsecurity%2fcompass%2fbreadcrumb%2ftoc.json&toc=%2fsecurity%2fcompass%2ftoc.json)
 
 - [Aspectos básicos de la seguridad de Azure: seguridad, cifrado y almacenamiento de datos de Azure](../fundamentals/encryption-overview.md)
 
-- [Cloud Adoption Framework: procedimientos recomendados de cifrado y seguridad de los datos de Azure](../fundamentals/data-encryption-best-practices.md?amp;bc=%2fazure%2fcloud-adoption-framework%2f_bread%2ftoc.json&toc=%2fazure%2fcloud-adoption-framework%2ftoc.json)
+- [Cloud Adoption Framework: procedimientos recomendados de cifrado y seguridad de los datos de Azure](../fundamentals/data-encryption-best-practices.md?bc=%2fazure%2fcloud-adoption-framework%2f_bread%2ftoc.json&toc=%2fazure%2fcloud-adoption-framework%2ftoc.json)
 
 - [Azure Security Benchmark: administración de recursos](security-controls-v2-asset-management.md)
 
@@ -87,7 +87,7 @@ Asegúrese de que la estrategia de segmentación se implementa de forma coherent
 
 ## <a name="gs-3-define-security-posture-management-strategy"></a>GS-3: Definición de la estrategia de administración de la posición de seguridad
 
-| Identificador de Azure | Identificadores de CIS Controls v7.1 | Identificadores de NIST SP800-53 r4 |
+| Identificador de Azure | Identificadores de CIS Controls v7.1 | Identificadores de NIST SP800-53 r4 |
 |--|--|--|--|
 | GS-3 | 20, 3, 5 | RA, CM, SC |
 
@@ -103,7 +103,7 @@ Mida y mitigue continuamente los riesgos de los recursos individuales y el entor
 
 ## <a name="gs-4-align-organization-roles-responsibilities-and-accountabilities"></a>GS-4: Alineación de los roles y responsabilidades de la organización
 
-| Identificador de Azure | Identificadores de CIS Controls v7.1 | Identificadores de NIST SP800-53 r4 |
+| Identificador de Azure | Identificadores de CIS Controls v7.1 | Identificadores de NIST SP800-53 r4 |
 |--|--|--|--|
 | GS-4 | N/D | PL, PM |
 
@@ -123,7 +123,7 @@ Asegúrese de documentar y comunicar una estrategia clara para los roles y las r
 
 ## <a name="gs-5-define-network-security-strategy"></a>GS-5: Definición de la estrategia de seguridad de red
 
-| Identificador de Azure | Identificadores de CIS Controls v7.1 | Identificadores de NIST SP800-53 r4 |
+| Identificador de Azure | Identificadores de CIS Controls v7.1 | Identificadores de NIST SP800-53 r4 |
 |--|--|--|--|
 | GS-5 | 9 | CA, SC |
 
@@ -161,7 +161,7 @@ Para más información, consulte las siguientes referencias:
 
 ## <a name="gs-6-define-identity-and-privileged-access-strategy"></a>GS-6: Definición de la estrategia de acceso con privilegios e identidades
 
-| Identificador de Azure | Identificadores de CIS Controls v7.1 | Identificadores de NIST SP800-53 r4 |
+| Identificador de Azure | Identificadores de CIS Controls v7.1 | Identificadores de NIST SP800-53 r4 |
 |--|--|--|--|
 | GS-6 | 16, 4 | AC, AU, SC |
 
@@ -197,7 +197,7 @@ Para más información, consulte las siguientes referencias:
 
 ## <a name="gs-7-define-logging-and-threat-response-strategy"></a>GS-7: Definición de la estrategia de registro y respuesta a amenazas
 
-| Identificador de Azure | Identificadores de CIS Controls v7.1 | Identificadores de NIST SP800-53 r4 |
+| Identificador de Azure | Identificadores de CIS Controls v7.1 | Identificadores de NIST SP800-53 r4 |
 |--|--|--|--|
 | GS-7 | 19 | IR, AU, RA, SC |
 
@@ -238,7 +238,7 @@ Para más información, consulte las siguientes referencias:
 
 ## <a name="gs-8-define-backup-and-recovery-strategy"></a>GS-8: Definición de la estrategia de copia de seguridad y recuperación
 
-| Identificador de Azure | Identificadores de CIS Controls v7.1 | Identificadores de NIST SP800-53 r4 |
+| Identificador de Azure | Identificadores de CIS Controls v7.1 | Identificadores de NIST SP800-53 r4 |
 |--|--|--|--|
 | GS-8 | 10 | CP |
 

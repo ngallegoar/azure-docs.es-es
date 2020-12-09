@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: how-to
 author: aamalvea
 ms.author: aamalvea
-ms.reviewer: jrasnik, sstein
+ms.reviewer: wiassaf, sstein
 ms.date: 05/04/2020
-ms.openlocfilehash: 64bef8a1cd4353ed9602c36cf728a0d727458251
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 86ac0f64a6a797b1bc702597ed30e6417f2efe14
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675141"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500978"
 ---
 # <a name="create-alerts-for-azure-sql-database-and-azure-synapse-analytics-using-the-azure-portal"></a>Creación de alertas para Azure SQL Database y Azure Synapse Analytics mediante Azure Portal
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -24,7 +24,7 @@ ms.locfileid: "92675141"
 
 ## <a name="overview"></a>Información general
 
-En este artículo se muestra cómo configurar alertas para bases de datos en Azure SQL Database y Azure Synapse Analytics (anteriormente SQL Data Warehouse) desde Azure Portal. Las alertas pueden enviarle un correo electrónico o llamar a un webhook cuando alguna métrica (por ejemplo, el tamaño de la base de datos o el uso de la CPU) alcanza el umbral.
+En este artículo se muestra cómo configurar alertas para bases de datos en Azure SQL Database y Azure Synapse Analytics desde Azure Portal. Las alertas pueden enviarle un correo electrónico o llamar a un webhook cuando alguna métrica (por ejemplo, el tamaño de la base de datos o el uso de la CPU) alcanza el umbral.
 
 > [!NOTE]
 > Para obtener instrucciones específicas para Instancia administrada de Azure SQL, consulte [Creación de alertas para Instancia administrada de Azure SQL](../managed-instance/alerts-create.md).
@@ -59,11 +59,11 @@ Puede obtener información sobre las reglas de alerta y configurarlas mediante:
 
 4. En la sección **Condition** (Condición), haga clic en **Add** (Agregar).
   ![Definir condición](./media/alerts-insights-configure-portal/create-rule.png)
-5. En la página **Configurar lógica de señal** , seleccione una señal.
+5. En la página **Configurar lógica de señal**, seleccione una señal.
   ![Selección de una señal](./media/alerts-insights-configure-portal/select-signal.png)
-6. Después de seleccionar una señal, como **Porcentaje de CPU** , aparece la página **Configurar lógica de señal** .
+6. Después de seleccionar una señal, como **Porcentaje de CPU**, aparece la página **Configurar lógica de señal**.
   ![Configurar lógica de señal](./media/alerts-insights-configure-portal/configure-signal-logic.png)
-7. En esta página, configure el tipo de umbral, operador, tipo de agregación, valor de umbral, granularidad de agregación y frecuencia de evaluación. A continuación, haga clic en **Hecho** .
+7. En esta página, configure el tipo de umbral, operador, tipo de agregación, valor de umbral, granularidad de agregación y frecuencia de evaluación. A continuación, haga clic en **Hecho**.
 8. En **Create rule** (Crear regla), seleccione un **grupo de acciones** existente o créelo. Un grupo de acciones le permite definir la acción que se va a realizar cuando se produce una condición de alerta.
   ![Definir un grupo de acciones](./media/alerts-insights-configure-portal/action-group.png)
 

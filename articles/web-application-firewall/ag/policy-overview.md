@@ -7,21 +7,16 @@ author: winthrop28
 ms.service: web-application-firewall
 ms.date: 11/20/2020
 ms.author: victorh
-ms.openlocfilehash: b546b043b856fd6ec69acd63fd69a01c48d0553b
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 59ca0b85ba2aff29bdb2ad3379c1054041d2b4cb
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94990132"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96518743"
 ---
 # <a name="azure-web-application-firewall-waf-policy-overview"></a>Introducción a las directivas de firewall de aplicaciones web (WAF) de Azure
 
 Las directivas de firewall de aplicaciones web contienen todas las configuraciones y opciones de WAF. Esto incluye exclusiones, reglas personalizadas o reglas administradas, entre otras. Después, estas directivas se asocian a una puerta de enlace de aplicaciones (global), un cliente de escucha (por sitio) o una regla basada en ruta de acceso (por URI) para que surtan efecto.
-
-> [!NOTE]
-> Las directivas de firewall de aplicaciones web (WAF) de Azure por URI se encuentran en versión preliminar pública.
-> 
-> Esta versión preliminar pública se proporciona sin un acuerdo de nivel de servicio y no debe usarse para cargas de trabajo de producción. Puede que algunas características no se admitan, que tengan funcionalidades limitadas o que no estén disponibles en todas las ubicaciones de Azure. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 No hay límite en el número de directivas que puede crear. Cuando se crea una directiva, se debe asociar a una puerta de enlace de aplicaciones para que surta efecto. Se puede asociar a cualquier combinación de puertas de enlace de aplicaciones, clientes de escucha y reglas basadas en rutas de acceso.
 

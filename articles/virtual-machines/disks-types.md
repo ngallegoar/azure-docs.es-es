@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 0a6b6196888aedfd6aa60c9395ff27611907661a
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 1a7e8e71e26af241d16095a5fa1e6a02a7e3d4c2
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94413152"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500774"
 ---
 # <a name="what-disk-types-are-available-in-azure"></a>¿Qué tipos de disco están disponibles en Azure?
 
@@ -82,9 +82,9 @@ Cuando se aprovisiona un disco de Premium Storage, a diferencia de Standard Stor
 
 ## <a name="bursting"></a>Creación de ráfagas
 
-Los tamaños de SSD Premium más pequeños que P30 ahora ofrecen una ráfaga de disco y pueden aumentar los IOPS por disco en hasta 3500 y el ancho de banda en hasta 170 Mbps. La creación de ráfagas está automatizada y funciona de acuerdo con un sistema de crédito. Los créditos se acumulan automáticamente en un depósito de ráfagas cuando el tráfico del disco está por debajo del objetivo de rendimiento aprovisionado y los créditos se consumen automáticamente cuando el tráfico supera el destino, hasta el límite máximo de ráfagas. El límite máximo de ráfagas define el límite superior de IOPS y Bandwidth del disco, incluso si tiene créditos de ráfagas para consumir. La ráfaga de disco proporciona una tolerancia mejorada a cambios imprevisibles en los patrones de E/S. Puede aprovecharla mejor en el arranque del disco del sistema operativo y las aplicaciones con tráfico de picos.    
+Los tamaños de SSD Premium más pequeños que P30 ahora ofrecen una expansión de disco y pueden aumentar los IOPS por disco en hasta 3500 y el ancho de banda en hasta 170 MB/s. La creación de ráfagas está automatizada y funciona de acuerdo con un sistema de crédito. Los créditos se acumulan automáticamente en un depósito de ráfagas cuando el tráfico del disco está por debajo del objetivo de rendimiento aprovisionado y los créditos se consumen automáticamente cuando el tráfico supera el destino, hasta el límite máximo de ráfagas. El límite máximo de ráfagas define el límite superior de IOPS y Bandwidth del disco, incluso si tiene créditos de ráfagas para consumir. La ráfaga de disco proporciona una tolerancia mejorada a cambios imprevisibles en los patrones de E/S. Puede aprovecharla mejor en el arranque del disco del sistema operativo y las aplicaciones con tráfico de picos.    
 
-La compatibilidad con ráfagas de discos se habilitará en las nuevas implementaciones de los tamaños de disco aplicables de forma predeterminada, sin necesidad de que intervenga el usuario. En el caso de los discos existentes de tamaños aplicables, puede habilitar la ráfaga con cualquiera de estas dos opciones: desasociar y volver a adjuntar el disco, o detener y reiniciar la VM conectada. Todos los tamaños de disco aplicables de la ráfaga comenzarán con un cubo de crédito de ráfaga completo cuando el disco esté conectado a una máquina virtual que admita una duración máxima en el límite máximo de ráfaga de 30 minutos. Para obtener más información sobre el aumento del trabajo de ráfagas en discos de Azure, consulte [Creación de ráfagas SSD Premium](linux/disk-bursting.md). 
+La compatibilidad con ráfagas de discos se habilitará en las nuevas implementaciones de los tamaños de disco aplicables de forma predeterminada, sin necesidad de que intervenga el usuario. En el caso de los discos existentes de tamaños aplicables, puede habilitar la ráfaga con cualquiera de estas dos opciones: desasociar y volver a adjuntar el disco, o detener y reiniciar la VM conectada. Todos los tamaños de disco aplicables de la ráfaga comenzarán con un cubo de crédito de ráfaga completo cuando el disco esté conectado a una máquina virtual que admita una duración máxima en el límite máximo de ráfaga de 30 minutos. Para obtener más información sobre el aumento del trabajo de ráfagas en discos de Azure, consulte [Creación de ráfagas SSD Premium](./disk-bursting.md). 
 
 ### <a name="transactions"></a>Transacciones
 

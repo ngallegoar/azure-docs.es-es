@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/21/2020
-ms.openlocfilehash: 1e71d3883b8dacefa9b501ee3a9a0533d5c7d515
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.date: 12/02/2020
+ms.openlocfilehash: 57b4b6f3f49e9b82ada4b37c8e2de0697781e063
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94592675"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96510597"
 ---
 # <a name="execute-r-script-module"></a>Módulo Execute R Script
 
@@ -78,25 +78,27 @@ azureml_main <- function(dataframe1, dataframe2){
  > [!NOTE]
  > Antes de instalar un paquete, compruebe si ya existe para no repetir una instalación. La repetición de instalaciones pueden hacer que se agote el tiempo de espera de las solicitudes de servicio web.     
 
+## <a name="access-to-registered-dataset"></a>Acceso al conjunto de datos registrado
+
+Puede consultar el siguiente código de ejemplo para acceder a los [conjuntos de datos registrados](../how-to-create-register-datasets.md) en el área de trabajo:
+
+```R
+azureml_main <- function(dataframe1, dataframe2){
+  print("R script run.")
+  run = get_current_run()
+  ws = run$experiment$workspace
+  dataset = azureml$core$dataset$Dataset$get_by_name(ws, "YOUR DATASET NAME")
+  dataframe2 <- dataset$to_pandas_dataframe()
+  # Return datasets as a Named List
+  return(list(dataset1=dataframe1, dataset2=dataframe2))
+}
+```
+
 ## <a name="uploading-files"></a>Carga de archivos
 El módulo Execute R Script (Ejecutar script R) admite la carga de archivos mediante el SDK de R de Azure Machine Learning.
 
 En el ejemplo siguiente se muestra cómo cargar un archivo de imagen en Execute R Script (Ejecutar script R):
 ```R
-
-# R version: 3.5.1
-# The script MUST contain a function named azureml_main,
-# which is the entry point for this module.
-
-# Note that functions dependent on the X11 library,
-# such as "View," are not supported because the X11 library
-# is not preinstalled.
-
-# The entry point function MUST have two input arguments.
-# If the input port is not connected, the corresponding
-# dataframe argument will be null.
-#   Param<dataframe1>: a R DataFrame
-#   Param<dataframe2>: a R DataFrame
 azureml_main <- function(dataframe1, dataframe2){
   print("R script run.")
 
@@ -118,22 +120,6 @@ Una vez que termina la ejecución de la canalización, se puede obtener una vist
 
 > [!div class="mx-imgBorder"]
 > ![Vista previa de la imagen cargada](media/module/upload-image-in-r-script.png)
-
-## <a name="access-to-registered-dataset"></a>Acceso al conjunto de datos registrado
-
-Puede consultar el siguiente código de ejemplo para acceder a los [conjuntos de datos registrados](../how-to-create-register-datasets.md) en el área de trabajo:
-
-```R
-    azureml_main <- function(dataframe1, dataframe2){
-  print("R script run.")
-  run = get_current_run()
-  ws = run$experiment$workspace
-  dataset = azureml$core$dataset$Dataset$get_by_name(ws, "YOUR DATASET NAME")
-  dataframe2 <- dataset$to_pandas_dataframe()
-  # Return datasets as a Named List
-  return(list(dataset1=dataframe1, dataset2=dataframe2))
-}
-```
 
 ## <a name="how-to-configure-execute-r-script"></a>Procedimiento para configurar Ejecutar script R
 

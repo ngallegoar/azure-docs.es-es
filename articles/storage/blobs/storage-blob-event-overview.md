@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: dineshm
-ms.openlocfilehash: e67a323e03ae8ac0a0e34df1f7cc1ee4fe0901d3
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 00a7a081f29458ae81d8d8ea4dd8f7abef42f78f
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95901509"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96519015"
 ---
 # <a name="reacting-to-blob-storage-events"></a>Reacción ante eventos de Blob Storage
 
@@ -58,7 +58,7 @@ Consulte el artículo del [Esquema de eventos para Blob Storage](../../event-gri
 
 ## <a name="filtering-events"></a>Filtrado de eventos
 
-Los [eventos de blob se pueden filtrar](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest) por el tipo de evento, el nombre del contenedor o el nombre del objeto que se creó o eliminó. Los filtros de Event Grid coinciden con el principio o el final del asunto para que los eventos con un asunto coincidente se envíen al suscriptor.
+Los [eventos de blob se pueden filtrar](/cli/azure/eventgrid/event-subscription) por el tipo de evento, el nombre del contenedor o el nombre del objeto que se creó o eliminó. Los filtros de Event Grid coinciden con el principio o el final del asunto para que los eventos con un asunto coincidente se envíen al suscriptor.
 
 Para más información sobre cómo aplicar filtros, consulte el artículo de [Filtrado de eventos para Event Grid](../../event-grid/how-to-filter-events.md).
 
@@ -96,7 +96,7 @@ Las aplicaciones que controlan los eventos de Blob Storage deben seguir algunas 
 > [!div class="checklist"]
 > * Dado que se pueden configurar varias suscripciones para enrutar eventos al mismo controlador de eventos, es importante no asumir que los eventos provienen de un origen determinado, sino comprobar el tema del mensaje para asegurarse de que proviene de la cuenta de almacenamiento esperable.
 > * De igual forma, compruebe que eventType es uno de los que está preparado para procesar y no asuma que todos los eventos que reciba van a ser los tipos que espera.
-> * Dado que los mensajes pueden llegar con cierto retraso, utilice los campos de etag para saber si la información acerca de los objetos sigue estando actualizada. Para obtener información sobre cómo usar el campo de etag, consulte [Administración de la simultaneidad en Blob Storage](../common/storage-concurrency.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#managing-concurrency-in-blob-storage). 
+> * Dado que los mensajes pueden llegar con cierto retraso, utilice los campos de etag para saber si la información acerca de los objetos sigue estando actualizada. Para obtener información sobre cómo usar el campo de etag, consulte [Administración de la simultaneidad en Blob Storage](../common/storage-concurrency.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#managing-concurrency-in-blob-storage).
 > * Dado que los mensajes pueden llegar desordenados, utilice los campos del secuenciador para conocer el orden de los eventos en cualquier objeto determinado. El campo del secuenciador es un valor de cadena que representa la secuencia lógica de eventos para cualquier nombre de blob concreto. Puede usar una comparación de cadenas estándar para conocer la secuencia relativa de dos eventos que estén en el mismo nombre de blob.
 > * Los eventos de almacenamiento garantizan la entrega a los suscriptores al menos una vez, lo que garantiza que se emiten todos los mensajes. Sin embargo, debido a los reintentos o a la disponibilidad de las suscripciones, en algunas ocasiones se pueden generar mensajes duplicados. Para más información sobre la entrega de los mensajes y los reintentos de entrega, consulte [Entrega y reintento de entrega de mensajes de Event Grid](../../event-grid/delivery-and-retry.md).
 > * Utilice el campo blobType para saber qué tipo de operaciones se permiten en el blob y qué tipos de bibliotecas de cliente se deben usar para acceder al blob. Los valores válidos son `BlockBlob` o `PageBlob`. 

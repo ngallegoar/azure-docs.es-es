@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/17/2020
-ms.openlocfilehash: 244408cc512a51683ecb3c062113170b1c7f4781
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 6e0f3d318cc462b03151d5a4935ae318df46e2c5
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499567"
+ms.locfileid: "96510563"
 ---
 # <a name="python-code-samples-for-azure-cognitive-search"></a>Ejemplos de código de Python de Azure Cognitive Search
 
@@ -25,7 +25,7 @@ Obtenga información sobre los ejemplos de código de Python que muestran las ca
 | [Azure-Samples/azure-search-python-samples](https://github.com/Azure-Samples/azure-search-python-samples) | Ejemplos de código que acompañan a artículos paso a paso, incluido [Inicio rápido: Creación de un índice de Azure Cognitive Search en Python](search-get-started-python.md).|
 
 > [!Tip]
-> Pruebe el [Explorador de ejemplos](/samples/browse/?languages=csharp&products=azure-cognitive-search) para buscar ejemplos de código de Microsoft en Github, filtrados por producto, servicio y lenguaje.
+> Pruebe el [Explorador de ejemplos](/samples/browse/?languages=python&products=azure-cognitive-search) para buscar ejemplos de código de Microsoft en Github, filtrados por producto, servicio y lenguaje.
 
 ## <a name="python-sdk-samples"></a>Ejemplos de SDK de Python
 

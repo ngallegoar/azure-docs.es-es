@@ -8,12 +8,12 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/15/2020
-ms.openlocfilehash: f1d8715fcadeda5ccd1a98192a70939b0c359c88
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b5a893ee1923ba4b2bec53b20fb164337bd65902
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84976683"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96558120"
 ---
 # <a name="skillset-concepts-in-azure-cognitive-search"></a>Conceptos de conjunto de aptitudes en Azure Cognitive Search
 
@@ -222,8 +222,6 @@ El método del conformador es más detallado que la forma en línea, pero garant
 Para ampliar el ejemplo, puede optar por quitar la forma en línea y usar una aptitud de conformador para crear un nuevo nodo para las frases clave. Para crear una forma proyectada en tres tablas, es decir `hotelReviewsDocument`, `hotelReviewsPages`, y `hotelReviewsKeyPhrases`, se describen las dos opciones en las secciones siguientes.
 
 #### <a name="shaper-skill-and-projection"></a>Aptitud de conformador y proyección
-
-Este 
 
 > [!Note]
 > Algunas de las columnas de la tabla de documentos se han quitado de este ejemplo para mayor simplicidad.

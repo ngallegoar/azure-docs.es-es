@@ -5,14 +5,14 @@ services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 01/10/2020
+ms.date: 12/02/2020
 ms.author: yushwang
-ms.openlocfilehash: a77ee3c4301d278f98b571402514663dcfc9ca52
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 47d14c5ee7f6c4816bf15351e9cb28a2aaa72b4c
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94657931"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96546852"
 ---
 # <a name="about-cryptographic-requirements-and-azure-vpn-gateways"></a>Acerca de los requisitos criptográficos y las puertas de enlace de VPN de Azure
 
@@ -29,6 +29,8 @@ Cuando las conexiones IKEv1 e IKEv2 se aplican a la misma instancia de VPN Gatew
 ## <a name="about-ipsec-and-ike-policy-parameters-for-azure-vpn-gateways"></a>Acerca de los parámetros de la directiva de IPsec e IKE para puertas de enlace de VPN de Azure
 
 El protocolo IPsec e IKE estándar admite una gran variedad de algoritmos criptográficos en diversas combinaciones. Si no solicita una combinación específica de algoritmos y parámetros criptográficos, las instancias de Azure VPN Gateway usan un conjunto de propuestas predeterminadas. Los conjuntos de directivas predeterminados se eligieron para maximizar la interoperabilidad con una amplia gama de dispositivos VPN de terceros en las configuraciones predeterminadas. Como resultado, las directivas y el número de propuestas no pueden cubrir todas las posibles combinaciones de algoritmos criptográficos disponibles y puntos fuertes clave.
+
+### <a name="default-policy"></a>Directiva predeterminada
 
 La directiva predeterminada establecida para Azure VPN Gateway se muestra en el artículo: [Acerca de los dispositivos VPN y los parámetros de IPsec/IKE para conexiones de VPN Gateway de sitio a sitio](vpn-gateway-about-vpn-devices.md).
 

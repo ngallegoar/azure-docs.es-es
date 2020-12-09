@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/12/2019
 ms.author: cynthn;kareni
 ms.custom: include file
-ms.openlocfilehash: 6668d9753d0b93ab907d37cdeff8315f488cff7a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a9146099951aba223a7b201c1613e1ec0ba617d4
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "73935878"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96509222"
 ---
 **Última actualización del documento**: 12 de noviembre 2019 10:00 h PST.
 
@@ -21,9 +21,9 @@ La divulgación de una [nueva clase de vulnerabilidades de CPU](https://portal.m
 
 Microsoft ha implementado mitigaciones en todos nuestros servicios en la nube. La infraestructura que ejecuta Azure y aísla las cargas de trabajo de los clientes entre sí está protegida. Esto significa que un atacante potencial que use la misma infraestructura no puede atacar su aplicación mediante estas vulnerabilidades.
 
-Azure utiliza un [mantenimiento con conservación de memoria](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates#maintenance-that-doesnt-require-a-reboot) siempre que es posible para minimizar el impacto en el cliente y eliminar la necesidad de reinicios. Azure seguirá utilizando estos métodos al realizar actualizaciones del host en todo el sistema y proteger a los clientes.
+Azure utiliza un [mantenimiento con conservación de memoria](../articles/virtual-machines/maintenance-and-updates.md?bc=%2fazure%2fvirtual-machines%2fwindows%2fbreadcrumb%2ftoc.json%252c%2fazure%2fvirtual-machines%2fwindows%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json%253ftoc%253d%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#maintenance-that-doesnt-require-a-reboot) siempre que es posible para minimizar el impacto en el cliente y eliminar la necesidad de reinicios. Azure seguirá utilizando estos métodos al realizar actualizaciones del host en todo el sistema y proteger a los clientes.
 
-Encontrará más información acerca de cómo integrar la seguridad en todos los aspectos de Azure en el sitio de [documentación de Azure Security Center](https://docs.microsoft.com/azure/security/). 
+Encontrará más información acerca de cómo integrar la seguridad en todos los aspectos de Azure en el sitio de [documentación de Azure Security Center](../articles/security/index.yml). 
 
 > [!NOTE] 
 > Desde que este documento se publicó por primera vez, se han divulgado varias variantes de esta clase de vulnerabilidad. Microsoft continúa realizando grandes esfuerzos por proteger a nuestros clientes y proporcionarles orientación. Esta página se actualizará a medida que se publiquen más correcciones. 
@@ -43,7 +43,7 @@ Aunque no se necesita una actualización del sistema operativo para aislar de ot
 
 | Oferta | Acción recomendada  |
 |----------|---------------------|
-| Azure Cloud Services  | Habilite las [actualizaciones automáticas](https://docs.microsoft.com/azure/cloud-services/cloud-services-how-to-configure-portal) o asegúrese de que está ejecutando la versión más reciente del sistema operativo invitado. |
+| Azure Cloud Services  | Habilite las [actualizaciones automáticas](../articles/cloud-services/cloud-services-how-to-configure-portal.md) o asegúrese de que está ejecutando la versión más reciente del sistema operativo invitado. |
 | Máquinas virtuales Linux en Azure | Instale las actualizaciones de su proveedor de sistema operativo. Para más información, consulte [Linux](#linux) más adelante en este documento. |
 | Máquinas virtuales Windows en Azure  | Instale las últimas actualizaciones acumulativas de seguridad.
 | Otros servicios PaaS de Azure | No es necesaria ninguna acción para los clientes que usan estos servicios. Azure mantiene actualizadas las versiones de sistema operativo de forma automática. |
@@ -72,7 +72,7 @@ Puede habilitar características de seguridad adicionales en la máquina virtual
 El sistema operativo de destino debe estar actualizado para habilitar estas características de seguridad adicionales. Aunque hay habilitadas numerosas mitigaciones del canal lateral de ejecución especulativa de forma predeterminada, las características adicionales que se describen aquí deben habilitarse manualmente y pueden afectar al rendimiento. 
 
 
-**Paso 1: deshabilite la característica de hyper-threading en la máquina virtual**. Los clientes que ejecutan código que no es de confianza en una máquina virtual de hyper-threading deben deshabilitarlo o pasar a un tamaño de máquina virtual que no sea hyper-threading. Remítase a [este documento](https://docs.microsoft.com/azure/virtual-machines/windows/acu) para obtener una lista de tamaños de máquina virtual de hyper-threading (donde la proporción de vCPU a Core es 2:1). Para comprobar si la máquina virtual tiene habilitada la característica de hyper-threading, consulte el siguiente script mediante la línea de comandos de Windows desde la máquina virtual.
+**Paso 1: deshabilite la característica de hyper-threading en la máquina virtual**. Los clientes que ejecutan código que no es de confianza en una máquina virtual de hyper-threading deben deshabilitarlo o pasar a un tamaño de máquina virtual que no sea hyper-threading. Remítase a [este documento](../articles/virtual-machines/acu.md) para obtener una lista de tamaños de máquina virtual de hyper-threading (donde la proporción de vCPU a Core es 2:1). Para comprobar si la máquina virtual tiene habilitada la característica de hyper-threading, consulte el siguiente script mediante la línea de comandos de Windows desde la máquina virtual.
 
 Escriba `wmic` para especificar la interfaz interactiva. A continuación, escriba lo siguiente para ver la cantidad de procesadores físicos y lógicos en la máquina virtual.
 
@@ -108,10 +108,10 @@ Si el resultado muestra `MDS mitigation is enabled: False`, [póngase en contact
 **Paso 3**: Para habilitar la compatibilidad del sistema operativo con la copia paralela de direcciones virtuales de kernel (KVAS) y la inserción de destino de rama (BTI), siga las instrucciones de [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) para habilitar las protecciones con las claves del Registro de `Session Manager`. Es necesario reiniciar.
 
 
-**Paso 4**: Para las implementaciones que usan la [virtualización anidada](https://docs.microsoft.com/azure/virtual-machines/windows/nested-virtualization) (solo D3 y E3): Estas instrucciones se aplican dentro de la máquina virtual que se va a usar como un host de Hyper-V.
+**Paso 4**: Para las implementaciones que usan la [virtualización anidada](../articles/virtual-machines/windows/nested-virtualization.md) (solo D3 y E3): Estas instrucciones se aplican dentro de la máquina virtual que se va a usar como un host de Hyper-V.
 
 1.  Siga las instrucciones descritas en el artículo [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) para habilitar las protecciones mediante las claves del Registro `MinVmVersionForCpuBasedMitigations`.
-2.  Establezca el tipo de programador del hipervisor en `Core` mediante las instrucciones descritas [aquí](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-scheduler-types).
+2.  Establezca el tipo de programador del hipervisor en `Core` mediante las instrucciones descritas [aquí](/windows-server/virtualization/hyper-v/manage/manage-hyper-v-scheduler-types).
 
 
 ### <a name="linux"></a>Linux
@@ -119,7 +119,7 @@ Si el resultado muestra `MDS mitigation is enabled: False`, [póngase en contact
 <a name="linux"></a>Se requiere que el sistema operativo de destino esté completamente actualizado para habilitar el conjunto de características de seguridad adicionales. Algunas de las mitigaciones estarán habilitadas de forma predeterminada. La siguiente sección describe las características que están desactivadas de forma predeterminada y sujetas a la compatibilidad de hardware (microcódigo). La habilitación de estas características puede afectar al rendimiento. Consulte la documentación del proveedor de su sistema operativo para más instrucciones
 
 
-**Paso 1: deshabilite la característica de hyper-threading en la máquina virtual**. Los clientes que ejecutan código que no es de confianza en una máquina virtual de hyper-threading deben deshabilitarlo o pasar a una máquina virtual que no sea hyper-threading.  Remítase a [este documento](https://docs.microsoft.com/azure/virtual-machines/linux/acu) para obtener una lista de tamaños de máquina virtual de hyper-threading (donde la proporción de vCPU a Core es 2:1). Para comprobar si está ejecutando una máquina virtual de hyper-threading, ejecute el comando `lscpu` en la máquina virtual de Linux. 
+**Paso 1: deshabilite la característica de hyper-threading en la máquina virtual**. Los clientes que ejecutan código que no es de confianza en una máquina virtual de hyper-threading deben deshabilitarlo o pasar a una máquina virtual que no sea hyper-threading.  Remítase a [este documento](../articles/virtual-machines/acu.md) para obtener una lista de tamaños de máquina virtual de hyper-threading (donde la proporción de vCPU a Core es 2:1). Para comprobar si está ejecutando una máquina virtual de hyper-threading, ejecute el comando `lscpu` en la máquina virtual de Linux. 
 
 Si `Thread(s) per core = 2`, el hyper-threading se ha habilitado. 
 
@@ -179,11 +179,3 @@ Este artículo proporciona instrucciones para los siguientes ataques de canal la
 
 Anulación asincrónica de transacciones de Extensiones de sincronización transaccional (Intel® TSX):  
 - [CVE-2019-11135](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2019-11135): asincrónica de transacciones de TSX (TAA)
-
-
-
-
-
-
-
-

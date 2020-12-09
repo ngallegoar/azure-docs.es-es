@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/10/2020
 ms.author: curtand
 ms.custom: include file
-ms.openlocfilehash: 5ac49491d8cb8fc81fe01d6f3d0d85456b190ed9
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 47d994a572d2fb0a76e1b6a713b61b70cccbd659
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94329598"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96509236"
 ---
 Estas son las restricciones de uso y otros límites de servicio para el servicio Azure Active Directory (Azure AD).
 
@@ -30,4 +30,4 @@ Estas son las restricciones de uso y otros límites de servicio para el servicio
 | Panel de acceso |No hay límite en el número de aplicaciones que se pueden ver en el Panel de acceso por usuario, independientemente de las licencias que se hayan asignado.  |
 | Informes | Se puede ver o descargar en cualquier informe un máximo de 1.000 filas. Los datos adicionales se truncan. |
 | Unidades administrativas | Un recurso de Azure AD puede ser un miembro de como máximo 30 unidades administrativas. |
-| Roles y permisos de Azure AD | <ul><li>En una organización de Azure AD se puede crear un máximo de 30 [roles personalizados de Azure AD](https://docs.microsoft.com/azure/active-directory//users-groups-roles/roles-custom-overview?context=azure/active-directory/users-groups-roles/context/ugr-context).</li><li>No se puede agregar un grupo como [propietario del grupo](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context#object-ownership).</li><li>La capacidad de un usuario para leer la información del inquilino de otros usuarios solo puede restringirse mediante el modificador de Azure AD para toda la organización para deshabilitar el acceso de todos los usuarios no administradores a toda la información del inquilino (no es recomendable). Para más información, consulte [Restricción de los permisos predeterminados de los usuarios miembros](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context#to-restrict-the-default-permissions-for-member-users).</li><li>Pueden pasar hasta 15 minutos o el cierre o inicio de sesión antes de que surtan efecto las adiciones y revocaciones de los miembros del rol de administrador.</li></ul> |
+| Roles y permisos de Azure AD | <ul><li>En una organización de Azure AD se puede crear un máximo de 30 [roles personalizados de Azure AD](/azure/active-directory//users-groups-roles/roles-custom-overview?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context).</li><li>No se puede agregar un grupo como [propietario del grupo](../articles/active-directory/fundamentals/users-default-permissions.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context#object-ownership).</li><li>La capacidad de un usuario para leer la información del inquilino de otros usuarios solo puede restringirse mediante el modificador de Azure AD para toda la organización para deshabilitar el acceso de todos los usuarios no administradores a toda la información del inquilino (no es recomendable). Para más información, consulte [Restricción de los permisos predeterminados de los usuarios miembros](../articles/active-directory/fundamentals/users-default-permissions.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context#restrict-member-users-default-permissions).</li><li>Pueden pasar hasta 15 minutos o el cierre o inicio de sesión antes de que surtan efecto las adiciones y revocaciones de los miembros del rol de administrador.</li></ul> |

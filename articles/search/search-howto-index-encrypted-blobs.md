@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/02/2020
-ms.openlocfilehash: f0295c27f1d193b0dcd7829a11b4aabe0edb659b
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 4bab8def514df21d948d67f3cfba846c43917be2
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93286337"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96530942"
 ---
 # <a name="how-to-index-encrypted-blobs-using-blob-indexers-and-skillsets-in-azure-cognitive-search"></a>Indexación de blobs cifrados mediante indexadores de blobs y conjuntos de aptitudes en Azure Cognitive Search
 
@@ -36,7 +36,7 @@ En este ejemplo se da por supuesto que ha cargado los archivos en Azure Blob Sto
 
 + [Almacenamiento de Azure](https://azure.microsoft.com/services/storage/)
 + [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) en la misma suscripción que Azure Cognitive Search. El almacén de claves debe tener la **eliminación temporal** y la **protección contra purgas** habilitada.
-+ [Azure Cognitive Search](search-create-service-portal.md) en un [nivel de servicio facturable](search-sku-tier.md#tiers) (básico o superior, en cualquier región).
++ [Azure Cognitive Search](search-create-service-portal.md) en un [nivel de servicio facturable](search-sku-tier.md#tier-descriptions) (básico o superior, en cualquier región).
 + [Función de Azure](https://azure.microsoft.com/services/functions/)
 + [Aplicación de escritorio Postman](https://www.getpostman.com/)
 
@@ -52,7 +52,7 @@ A nivel operativo, la aptitud DecryptBlobFile toma la dirección URL y el token 
 
 1. Seleccione **la suscripción en la que existe la instancia de Azure Key Vault** (esta guía no funcionará si selecciona otra suscripción) y seleccione un grupo de recursos existente o cree uno (si lo crea, también tendrá que seleccionar una región para implementarlo).
 
-1. Seleccione **Revisar y crear** , asegúrese de que está de acuerdo con los términos y, luego, seleccione **Crear** para implementar Azure Functions.
+1. Seleccione **Revisar y crear**, asegúrese de que está de acuerdo con los términos y, luego, seleccione **Crear** para implementar Azure Functions.
 
     ![Plantilla de Resource Manager en Azure Portal](media/indexing-encrypted-blob-files/arm-template.jpg "Plantilla de Resource Manager en Azure Portal")
 
@@ -60,11 +60,11 @@ A nivel operativo, la aptitud DecryptBlobFile toma la dirección URL y el token 
 
 1. Vaya a la instancia de Azure Key Vault en Azure Portal. [Cree una directiva de acceso](../key-vault/general/assign-access-policy-portal.md) en Azure Key Vault que conceda acceso mediante clave a la aptitud personalizada.
  
-    1. En **Configuración** , seleccione **Directivas de acceso** y, después, **Agregar directiva de acceso**.
+    1. En **Configuración**, seleccione **Directivas de acceso** y, después, **Agregar directiva de acceso**.
      
        ![Agregar directiva de acceso en Keyvault](media/indexing-encrypted-blob-files/keyvault-access-policies.jpg "Directivas de acceso de Keyvault")
 
-    1. En **Configurar desde plantilla** , seleccione **Azure Data Lake Storage o Azure Storage**.
+    1. En **Configurar desde plantilla**, seleccione **Azure Data Lake Storage o Azure Storage**.
 
     1. En el caso de la entidad de seguridad, seleccione la instancia de Azure Functions que ha implementado. Para buscarla, use el prefijo de recurso que se usó para crearla en el paso 2, que tiene un valor de prefijo predeterminado de **psdbf-function-app**.
 
@@ -82,7 +82,7 @@ A nivel operativo, la aptitud DecryptBlobFile toma la dirección URL y el token 
     
         ![Dirección URL de la función](media/indexing-encrypted-blob-files/function-uri.jpg "Dónde encontrar la dirección URL de Azure Functions")
 
-    1. El código de la clave del host y, para encontrarlo, es preciso desplazarse a **Claves de la aplicación** , hacer clic para mostrar la clave **predeterminada** y copiar el valor.
+    1. El código de la clave del host y, para encontrarlo, es preciso desplazarse a **Claves de la aplicación**, hacer clic para mostrar la clave **predeterminada** y copiar el valor.
      
         ![Código de clave de host de función](media/indexing-encrypted-blob-files/function-host-key.jpg "Dónde encontrar el código de la clave de host de Azure Functions")
 
@@ -102,7 +102,7 @@ Al igual que con Azure Functions, dedique un momento a recopilar la clave de adm
 
 1. [Inicie sesión en Azure Portal](https://portal.azure.com/) y, en la página **Información general** del servicio de búsqueda, obtenga el nombre del servicio de búsqueda. Para confirmar el nombre del servicio, revise la dirección URL del punto de conexión. Si la dirección URL del punto de conexión fuera `https://mydemo.search.windows.net`, el nombre del servicio sería `mydemo`.
 
-2. En **Configuración** > **Claves** , obtenga una clave de administrador para tener derechos completos en el servicio. Se proporcionan dos claves de administrador intercambiables para lograr la continuidad empresarial, por si necesitara sustituir una de ellas. Puede usar la clave principal o secundaria en las solicitudes para agregar, modificar y eliminar objetos.
+2. En **Configuración** > **Claves**, obtenga una clave de administrador para tener derechos completos en el servicio. Se proporcionan dos claves de administrador intercambiables para lograr la continuidad empresarial, por si necesitara sustituir una de ellas. Puede usar la clave principal o secundaria en las solicitudes para agregar, modificar y eliminar objetos.
 
    ![Obtención del nombre del servicio y las claves de consulta y administrador](media/search-get-started-javascript/service-name-and-keys.png)
 
@@ -128,29 +128,28 @@ Para obtener el valor de `admin-key`, use la clave de API de administrador de Az
 
 ![Pestaña de variables de la aplicación Postman](media/indexing-encrypted-blob-files/postman-variables-window.jpg "Ventana de variables de Postman")
 
-
 | Variable    | Dónde obtenerla |
 |-------------|-----------------|
 | `admin-key` | En la página **Claves** del servicio Azure Cognitive Search.  |
-| `search-service-name` | Nombre del servicio Azure Cognitive Search. La dirección URL es `https://{{search-service-name}}.search.windows.net`. | 
-| `storage-connection-string` | En la cuenta de almacenamiento, en la pestaña **Claves de acceso** , seleccione **key1** > **Cadena de conexión**. | 
-| `storage-container-name` | El nombre del contenedor de blobs que tiene los archivos cifrados que se van a indexar. | 
-| `function-uri` |  En Azure Functions, en **Essentials** , en la página principal. | 
-| `function-code` | En Azure Functions es preciso desplazarse a **Claves de la aplicación** , hacer clic para mostrar la clave **predeterminada** y copiar el valor. | 
+| `search-service-name` | Nombre del servicio Azure Cognitive Search. La dirección URL es `https://{{search-service-name}}.search.windows.net`. |
+| `storage-connection-string` | En la cuenta de almacenamiento, en la pestaña **Claves de acceso**, seleccione **key1** > **Cadena de conexión**. |
+| `storage-container-name` | El nombre del contenedor de blobs que tiene los archivos cifrados que se van a indexar. |
+| `function-uri` |  En Azure Functions, en **Essentials**, en la página principal. |
+| `function-code` | En Azure Functions es preciso desplazarse a **Claves de la aplicación**, hacer clic para mostrar la clave **predeterminada** y copiar el valor. |
 | `api-version` | Déjela como **2020-06-30**. |
-| `datasource-name` | Déjela como **encrypted-blobs-ds**. | 
-| `index-name` | Déjela como **encrypted-blobs-idx**. | 
-| `skillset-name` | Déjela como **encrypted-blobs-ss**. | 
-| `indexer-name` | Déjela como **encrypted-blobs-ixr**. | 
+| `datasource-name` | Déjela como **encrypted-blobs-ds**. |
+| `index-name` | Déjela como **encrypted-blobs-idx**. |
+| `skillset-name` | Déjela como **encrypted-blobs-ss**. |
+| `indexer-name` | Déjela como **encrypted-blobs-ixr**. |
 
 ### <a name="review-the-request-collection-in-postman"></a>Revisión de la colección de solicitudes en Postman
 
-Cuando ejecute esta guía, debe generar cuatro solicitudes HTTP: 
+Cuando ejecute esta guía, debe generar cuatro solicitudes HTTP:
 
-- **Una solicitud PUT para crear el índice** : este índice contiene los datos que usa y devuelve Azure Cognitive Search.
-- **Una solicitud POST para crear el origen de datos** : Este origen de datos conecta su servicio Azure Cognitive Search a su cuenta de almacenamiento y, por lo tanto, a los archivos de blob cifrados. 
-- **Una solicitud PUT para crear el conjunto de aptitudes** : El conjunto de aptitudes especifica la definición de la aptitud personalizada de Azure Functions que descifrará los datos del archivo de blob y [DocumentExtractionSkill](cognitive-search-skill-document-extraction.md) para extraer el texto de cada documento una vez que se ha descifrado.
-- **Una solicitud PUT para crear el indexador** : Al ejecutar el indexador, se leen los datos, se aplica el conjunto de aptitudes y se almacenan los resultados. Debe ejecutar esta solicitud en último lugar.
+- **Una solicitud PUT para crear el índice**: este índice contiene los datos que usa y devuelve Azure Cognitive Search.
+- **Una solicitud POST para crear el origen de datos**: Este origen de datos conecta su servicio Azure Cognitive Search a su cuenta de almacenamiento y, por lo tanto, a los archivos de blob cifrados. 
+- **Una solicitud PUT para crear el conjunto de aptitudes**: El conjunto de aptitudes especifica la definición de la aptitud personalizada de Azure Functions que descifrará los datos del archivo de blob y [DocumentExtractionSkill](cognitive-search-skill-document-extraction.md) para extraer el texto de cada documento una vez que se ha descifrado.
+- **Una solicitud PUT para crear el indexador**: Al ejecutar el indexador, se leen los datos, se aplica el conjunto de aptitudes y se almacenan los resultados. Debe ejecutar esta solicitud en último lugar.
 
 El [código fuente](https://github.com/Azure-Samples/azure-search-postman-samples/blob/master/index-encrypted-blobs/Index%20encrypted%20Blob%20files.postman_collection.json) contiene una recopilación de Postman que tiene las cuatro solicitudes, así como algunas solicitudes de seguimiento útiles. Para generar las solicitudes, en Postman, seleccione la pestaña de las solicitudes y, después, seleccione **Enviar** para cada una de ellas.
 

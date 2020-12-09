@@ -9,12 +9,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 06/11/2020
 ms.reviewer: sngun
-ms.openlocfilehash: b33524acd09cbf565127dc81ef2b5bfa16b4504d
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 6bbf87689b577eda7de491744156e63eaa3b440c
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93339774"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96546886"
 ---
 # <a name="migrate-your-application-to-use-the-azure-cosmos-db-java-sdk-v4"></a>Migración de la aplicación para usar el SDK de Azure Cosmos DB para Java v4
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -46,9 +46,9 @@ A continuación se enumeran las diferencias de implementación clave entre los d
 
 ### <a name="rxjava-is-replaced-with-reactor-in-azure-cosmos-db-java-sdk-versions-3xx-and-40"></a>RxJava se reemplaza por reactor en el SDK de Azure Cosmos DB para Java versiones 3.x. x y 4.0
 
-Si no está familiarizado con la programación asincrónica o la programación reactiva, consulte la [Guía de patrones reactores](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-pattern-guide.md) para ver una introducción a la programación asincrónica y el reactor del proyecto. Esta guía puede ser útil si ha estado usando el SDK de Azure Cosmos DB para Java sincrónico 2.x.x o la API del SDK de Azure Cosmos DB para Java sincrónico 3.x.x en el pasado.
+Si no está familiarizado con la programación asincrónica o la programación reactiva, consulte la [Guía de patrones reactores](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/reactor-pattern-guide.md) para ver una introducción a la programación asincrónica y el reactor del proyecto. Esta guía puede ser útil si ha estado usando el SDK de Azure Cosmos DB para Java sincrónico 2.x.x o la API del SDK de Azure Cosmos DB para Java sincrónico 3.x.x en el pasado.
 
-Si ha usado el SDK de Azure Cosmos DB para Java asincrónico 2.x.x y tiene previsto migrar al SDK de 4.0, consulte la guía [Reactor vs RxJava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-rxjava-guide.md) para obtener instrucciones sobre cómo convertir el código RxJava para usar el reactor.
+Si ha usado el SDK de Azure Cosmos DB para Java asincrónico 2.x.x y tiene previsto migrar al SDK de 4.0, consulte la guía [Reactor vs RxJava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/reactor-rxjava-guide.md) para obtener instrucciones sobre cómo convertir el código RxJava para usar el reactor.
 
 ### <a name="azure-cosmos-db-java-sdk-v4-has-direct-connectivity-mode-in-both-async-and-sync-apis"></a>El SDK de Azure Cosmos DB para Java v4 tiene el modo de conectividad directa en las API asincrónica y de sincronización
 
@@ -376,5 +376,5 @@ SalesOrder salesOrder = new SalesOrder(
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Creación de una aplicación Java](create-sql-api-java.md) para administrar los datos de SQL API de Azure Cosmos DB mediante el SDK V4
-* Más información sobre los [SDK de Java basados en reactores](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-pattern-guide.md)
-* Más información sobre la conversión de código asincrónico de RxJava en código asincrónico de reactor con la [Guía de reactor vs RxJava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-rxjava-guide.md)
+* Más información sobre los [SDK de Java basados en reactores](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/reactor-pattern-guide.md)
+* Más información sobre la conversión de código asincrónico de RxJava en código asincrónico de reactor con la [Guía de reactor vs RxJava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/reactor-rxjava-guide.md)

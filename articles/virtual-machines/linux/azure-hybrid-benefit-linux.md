@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: mathapli
-ms.openlocfilehash: 1459c80c857a436c8369d3ebe89794e0b69c33b1
-ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
+ms.openlocfilehash: f4dce87533927eebef792987b87d148e6a5268b4
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94980888"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500621"
 ---
 # <a name="azure-hybrid-benefit--how-it-applies-for-linux-virtual-machines"></a>Ventaja híbrida de Azure: cómo se aplica a las máquinas virtuales Linux
 
@@ -147,7 +147,7 @@ A. Lamentablemente, no. Si intenta especificar un tipo de licencia que no coinci
 
 A. El registro de la suscripción a Red Hat Cloud Access puede tardar un tiempo en propagarse de Red Hat a Azure. Si sigue viendo el error después de un día laborable, póngase en contacto con Soporte técnico de Microsoft.
 
-*P: Implementé una máquina virtual con una "imagen maestra" de BYOS de RHEL. ¿Puedo convertir la facturación de estas imágenes de BYOS a Pago por uso?*
+*P: Implementé una máquina virtual con una "imagen maestra" de BYOS de RHEL. ¿Puedo convertir la facturación de estas imágenes de BYOS a PAYG?*
 
 A. Lamentablemente, no. La Ventaja híbrida de Azure admite la conversión solo en imágenes de Pago por uso.
 
@@ -155,9 +155,13 @@ A. Lamentablemente, no. La Ventaja híbrida de Azure admite la conversión solo 
 
 A. Lamentablemente, no. La Ventaja híbrida de Azure admite la conversión solo en imágenes de Pago por uso.
 
-*P: Cargué mi propia imagen de RHEL desde el entorno local (a través de ASR o de otro modo) hasta Azure. ¿Puedo convertir la facturación de estas imágenes de BYOS a PAYG?*
+*P: Cargué en Azure mi propia imagen de RHEL desde el entorno local (mediante Azure Migrate, ASR o de otro modo). ¿Puedo convertir la facturación de estas imágenes de BYOS a PAYG?*
 
 A. Lamentablemente, no. La funcionalidad de la Ventaja híbrida de Azure solo está disponible actualmente para las imágenes de Marketplace de RHEL y SLES. 
+
+*P: Cargué en Azure mi propia imagen de RHEL desde el entorno local (mediante Azure Migrate, ASR o de otro modo). ¿Debo hacer algo para beneficiarme de la Ventaja híbrida de Azure?*
+
+A. No. Las imágenes de RHEL que se cargan ya se consideran BYOS, y solo se cobran los costos de la infraestructura de Azure. Usted es responsable de los costos de las suscripciones de RHEL, de la misma forma que con los entornos locales. 
 
 *P: ¿Puedo usar la Ventaja híbrida de Azure en máquinas virtuales implementadas a partir de imágenes SAP de Marketplace de RHEL y SLES?*
 
@@ -184,4 +188,4 @@ En esta sección se incluye una lista de problemas comunes que se pueden encontr
 | "The action could not be completed because our records show that you have not successfully enabled Red Hat Cloud Access on your Azure subscription…" (No se pudo completar la acción porque nuestros registros muestran que no ha habilitado correctamente Red Hat Cloud Access en la suscripción a Azure…) | Para usar la ventaja con VM de RHEL, primero debe registrar las suscripciones de Azure en Red Hat Cloud Access. Visite este vínculo para obtener más información sobre cómo registrar las suscripciones de Azure en Red Hat Cloud Access.
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Aprenda a crear y actualizar máquinas virtuales y a agregar tipos de licencia (RHEL_BYOS, SLES_BYOS) para Ventaja híbrida de Azure con la [CLI de Azure aquí.](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest&preserve-view=true)
+* Aprenda a crear y actualizar máquinas virtuales y a agregar tipos de licencia (RHEL_BYOS, SLES_BYOS) para Ventaja híbrida de Azure con la [CLI de Azure aquí.](/cli/azure/vm?preserve-view=true&view=azure-cli-latest)

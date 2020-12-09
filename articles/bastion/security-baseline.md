@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 85638d2ef3499ca71057879852eb582b950b7e2c
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 7849027c704c8b8d7d36a33cd58c84566ce96da3
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96325694"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96530959"
 ---
 # <a name="azure-security-baseline-for-azure-bastion"></a>Línea de base de seguridad de Azure para Azure Bastion
 
@@ -155,7 +155,7 @@ El cliente también puede usar diferentes directivas de control de acceso basado
 
 **Guía**: Azure Bastion usa el control de acceso basado en roles (Azure RBAC) con el fin de aislar el acceso a los sistemas críticos para la empresa restringiendo las cuentas a las que se concede acceso para conectarse a determinadas máquinas virtuales. Asegúrese de seguir el principio de privilegios mínimos para que los usuarios solo tengan los permisos necesarios para realizar sus tareas específicas.
 
-Asegúrese de restringir también el acceso a los sistemas de administración, identidad y seguridad que tienen acceso administrativo a los recursos críticos para la empresa, como controladores de dominio (DC) de Active Directory, herramientas de seguridad y herramientas de administración del sistema con agentes instalados en sistemas críticos para la empresa. Los atacantes que ponen en peligro estos sistemas de administración y seguridad pueden convertirlos inmediatamente en un arma para poner en peligro los recursos críticos para la empresa.
+Asegúrese de restringir también el acceso a los sistemas de administración, identidad y seguridad que tienen acceso administrativo a los recursos críticos para la empresa, como controladores de dominio (DC) de Active Directory, herramientas de seguridad y herramientas de administración del sistema con agentes instalados en sistemas críticos para la empresa. Los atacantes que ponen en peligro estos sistemas de administración y seguridad pueden convertirlos inmediatamente en un arma para poner en peligro los recursos críticos para la empresa.
 
 Para garantizar un control de acceso coherente, todos los tipos de control de acceso se deben alinear con la estrategia de segmentación de la empresa.
 
@@ -300,7 +300,7 @@ Nota: Es posible que se requieran permisos adicionales para obtener visibilidad 
 
 - [Eliminación de la desconexión forzada de una sesión remota](session-monitoring.md#view)
 
-- [CLI de red de Azure](/powershell/module/az.network/?amp;preserve-view=true&view=azps-5.1.0#networking)
+- [CLI de red de Azure](/powershell/module/az.network/?preserve-view=true&view=azps-5.1.0#networking)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -527,7 +527,7 @@ Adicionalmente, marque los recursos con etiquetas y cree un sistema de nomenclat
 
 **Guía**: Defina e implemente configuraciones de seguridad estándar para Azure Bastion con Azure Policy. Use alias de Azure Policy en el espacio de nombres "Microsoft.Network" para crear directivas personalizadas con el fin de auditar o aplicar la configuración de red de Azure Bastion. Los clientes también pueden establecer configuraciones seguras usando Azure Blueprints o las plantillas de ARM para implementar recursos de Bastion de forma segura y coherente.
 
-- [Visualización de los alias de Azure Policy disponibles](/powershell/module/az.resources/get-azpolicyalias?amp;preserve-view=true&view=azps-4.8.0)
+- [Visualización de los alias de Azure Policy disponibles](/powershell/module/az.resources/get-azpolicyalias?preserve-view=true&view=azps-4.8.0)
 
 - [Configuración y administración de Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -543,7 +543,7 @@ Adicionalmente, marque los recursos con etiquetas y cree un sistema de nomenclat
 
 **Guía**: Defina e implemente configuraciones de seguridad estándar para Azure Bastion con Azure Policy. Use alias de Azure Policy en el espacio de nombres "Microsoft.Network" para crear directivas personalizadas con el fin de auditar o aplicar la configuración de red de Bastion.
 
-- [Visualización de los alias de Azure Policy disponibles](/powershell/module/az.resources/get-azpolicyalias?amp;preserve-view=true&view=azps-4.8.0)
+- [Visualización de los alias de Azure Policy disponibles](/powershell/module/az.resources/get-azpolicyalias?preserve-view=true&view=azps-4.8.0)
 
 - [Configuración y administración de Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -594,11 +594,11 @@ Esta estrategia debe incluir instrucciones, directivas y estándares documentado
 -   Normas criptográficas adecuadas
 
 Para más información, consulte las siguientes referencias:
-- [Recomendación para la arquitectura de seguridad de Azure: almacenamiento, datos y cifrado](/azure/architecture/framework/security/storage-data-encryption?amp;bc=%2fsecurity%2fcompass%2fbreadcrumb%2ftoc.json&toc=%2fsecurity%2fcompass%2ftoc.json)
+- [Recomendación para la arquitectura de seguridad de Azure: almacenamiento, datos y cifrado](/azure/architecture/framework/security/storage-data-encryption?bc=%2fsecurity%2fcompass%2fbreadcrumb%2ftoc.json&toc=%2fsecurity%2fcompass%2ftoc.json)
 
 - [Aspectos básicos de la seguridad de Azure: seguridad, cifrado y almacenamiento de datos de Azure](../security/fundamentals/encryption-overview.md)
 
-- [Cloud Adoption Framework: procedimientos recomendados de cifrado y seguridad de los datos de Azure](../security/fundamentals/data-encryption-best-practices.md?amp;bc=%2fazure%2fcloud-adoption-framework%2f_bread%2ftoc.json&toc=%2fazure%2fcloud-adoption-framework%2ftoc.json)
+- [Cloud Adoption Framework: procedimientos recomendados de cifrado y seguridad de los datos de Azure](../security/fundamentals/data-encryption-best-practices.md?bc=%2fazure%2fcloud-adoption-framework%2f_bread%2ftoc.json&toc=%2fazure%2fcloud-adoption-framework%2ftoc.json)
 
 - [Azure Security Benchmark: administración de recursos](/azure/security/benchmarks/security-controls-v2-asset-management)
 

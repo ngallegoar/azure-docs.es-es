@@ -1,6 +1,6 @@
 ---
 title: Puntos de restauración definidos por el usuario
-description: Cómo crear un punto de restauración para el grupo de SQL dedicado.
+description: Cómo crear un punto de restauración para el grupo de SQL dedicado (anteriormente SQL DW).
 services: synapse-analytics
 author: anumjs
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 07/03/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 9d7266e0b84ae57682ddcfe7195be9574a702c74
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 097a3132208eee98b3f95291e414263e637bc265
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93313248"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96545594"
 ---
-# <a name="user-defined-restore-points-for-a-dedicated-sql-pool-in-azure-synapse-analytics"></a>Puntos de restauración definidos por el usuario para un grupo de SQL dedicado en Azure Synapse Analytics
+# <a name="user-defined-restore-points-for-a-dedicated-sql-pool-formerly-sql-dw"></a>Puntos de restauración definidos por el usuario para el grupo de SQL dedicado (anteriormente SQL DW).
 
-En este artículo, aprenderá a crear un punto de restauración definido por el usuario para un grupo de SQL dedicado en Azure Synapse Analytics mediante PowerShell y Azure Portal.
+En este artículo, aprenderá a crear un punto de restauración definido por el usuario para un grupo de SQL dedicado (anteriormente SQL DW) en Azure Synapse Analytics, mediante PowerShell y Azure Portal.
 
 ## <a name="create-user-defined-restore-points-through-powershell"></a>Creación de puntos de restauración definidos por el usuario mediante PowerShell
 
@@ -53,7 +53,7 @@ New-AzSqlDatabaseRestorePoint -ResourceGroupName $ResourceGroupName -ServerName 
 
 ```Powershell
 # List all restore points
-Get-AzSqlDatabaseRestorePoints -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName $DatabaseName
+Get-AzSqlDatabaseRestorePoint -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName $DatabaseName
 ```
 
 ## <a name="create-user-defined-restore-points-through-the-azure-portal"></a>Creación de puntos de restauración definidos por el usuario mediante Azure Portal
@@ -62,9 +62,9 @@ Los puntos de restauración definidos por el usuario también se pueden crear me
 
 1. Inicie sesión en su cuenta de [Azure Portal](https://portal.azure.com/).
 
-2. Vaya al grupo de SQL dedicado para el que quiere crear un punto de restauración.
+2. Vaya al grupo de SQL dedicado (anteriormente SQL DW) para el que quiere crear un punto de restauración.
 
-3. Seleccione **Información general** en el panel izquierdo y seleccione **Nuevo punto de restauración**. Si el botón Nuevo punto de restauración no está habilitado, asegúrese de que el grupo de SQL dedicado no está en pausa.
+3. Seleccione **Información general** en el panel izquierdo y seleccione **Nuevo punto de restauración**. Si el botón Nuevo punto de restauración no está habilitado, asegúrese de que el grupo de SQL dedicado (anteriormente SQL DW) no esté en pausa.
 
     ![Nuevo punto de restauración](./media/sql-data-warehouse-restore-points/creating-restore-point-01.png)
 
@@ -74,7 +74,6 @@ Los puntos de restauración definidos por el usuario también se pueden crear me
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Restauración de un grupo de SQL dedicado](sql-data-warehouse-restore-active-paused-dw.md)
-- [Restauración de un grupo de SQL dedicado eliminado](sql-data-warehouse-restore-deleted-dw.md)
-- [Restauración desde una copia de seguridad geográfica para un grupo de SQL dedicado](sql-data-warehouse-restore-from-geo-backup.md)
-
+- [Restauración de un grupo de SQL dedicado existente (anteriormente SQL DW)](sql-data-warehouse-restore-active-paused-dw.md)
+- [Restauración de un grupo de SQL dedicado eliminado (anteriormente SQL DW)](sql-data-warehouse-restore-deleted-dw.md)
+- [Restauración desde una copia de seguridad geográfica para un grupo de SQL dedicado (anteriormente SQL DW)](sql-data-warehouse-restore-from-geo-backup.md)

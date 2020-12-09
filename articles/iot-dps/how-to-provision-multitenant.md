@@ -7,12 +7,12 @@ ms.date: 04/10/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: bcdda8d1bd08a26dcdbec294be88fd4540670596
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d0c132d1aa7a37dc8e7620352bb7b9a078d79a09
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90531430"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96571613"
 ---
 # <a name="how-to-provision-for-multitenancy"></a>Cómo aprovisionar para el multiinquilinato 
 
@@ -38,11 +38,8 @@ En este artículo, se usa un ejemplo de dispositivo simulado del [SDK de C para 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Finalización de la guía de inicio rápido [Configuración de Azure IoT Hub Device Provisioning Service con Azure Portal](./quick-setup-auto-provision.md).
-
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
+- Finalización de la guía de inicio rápido [Configuración de Azure IoT Hub Device Provisioning Service con Azure Portal](./quick-setup-auto-provision.md).
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 ## <a name="create-two-regional-iot-hubs"></a>Creación de dos centros de IoT regionales
 

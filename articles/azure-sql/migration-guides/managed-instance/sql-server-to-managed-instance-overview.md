@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: 2241049e5c3cb5039a73c0f7637f7e3553d2e227
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 878d59445dde839ca9e702ac0c49af676e48a42f
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96326886"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96531197"
 ---
 # <a name="migration-overview-sql-server-to-sql-managed-instance"></a>Información general sobre la migración: SQL Server a Instancia administrada de SQL
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -63,7 +63,7 @@ Algunas directrices generales que le ayudarán a elegir el nivel de servicio ade
 Puede seleccionar recursos de almacenamiento y proceso durante la implementación y, posteriormente, cambiarlos con [Azure Portal](../../database/scale-resources.md) sin provocar tiempo de inactividad de la aplicación. 
 
 > [!IMPORTANT]
-> Cualquier discrepancia en los [requisitos de red virtual de instancia administrada](../../managed-instance/connectivity-architecture-overview.md#network-requirements) puede impedir la creación de nuevas instancias o el uso de las existentes. Obtenga más información acerca de la [creación de redes nuevas](../../managed-instance/virtual-network-subnet-create-arm-template.md?branch=release-ignite-arc-data) y la [configuración de las existentes](../../managed-instance/vnet-existing-add-subnet.md?branch=release-ignite-arc-data) . 
+> Cualquier discrepancia en los [requisitos de red virtual de instancia administrada](../../managed-instance/connectivity-architecture-overview.md#network-requirements) puede impedir la creación de nuevas instancias o el uso de las existentes. Obtenga más información acerca de la [creación de redes nuevas](../../managed-instance/virtual-network-subnet-create-arm-template.md) y la [configuración de las existentes](../../managed-instance/vnet-existing-add-subnet.md?branch=release-ignite-arc-data) . 
 
 ### <a name="sql-server-vm-alternative"></a>Alternativa a las VM con SQL Server
 
@@ -226,10 +226,10 @@ Para empezar a migrar SQL Server a Azure SQL Managed Instance, consulte la [guí
    - [Calculadora del costo total de propiedad de Azure](https://azure.microsoft.com/pricing/tco/calculator/) 
 
 
-- Para obtener más información sobre el marco y el ciclo de adopción de las migraciones en la nube, consulte:
+- Para más información sobre el marco y el ciclo de adopción de las migraciones en la nube, consulte:
    -  [Cloud Adoption Framework para Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-scale)
    -  [Procedimientos recomendados para la gestión de los costos y los ajustes de tamaño de las cargas de trabajo migradas a Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/migrate-best-practices-costs) 
 
 
 - Para evaluar el nivel de acceso de la aplicación, consulte [Data Access Migration Toolkit (versión preliminar)](https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit)
-- Para obtener más información sobre cómo realizar pruebas A/B de capa de acceso a datos, consulte [Asistente para experimentación con bases de datos](/sql/dea/database-experimentation-assistant-overview).
+- Para más información sobre cómo realizar pruebas A/B en la capa de acceso a datos, consulte [Información general del Asistente para experimentación con bases de datos](/sql/dea/database-experimentation-assistant-overview).

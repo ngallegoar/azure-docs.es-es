@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/30/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 59d318b3e30b10d73e620a6b0793384dda80ef08
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: d841d3b922a5edd0257934566207187ae031c1b5
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96184066"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96532183"
 ---
 # <a name="azure-security-baseline-for-azure-resource-manager"></a>Línea de base de seguridad de Azure para Azure Resource Manager
 
@@ -91,9 +91,9 @@ También puede habilitar e incorporar datos en Azure Sentinel o en una herramien
 
 **Guía**: El control de acceso basado en roles de Azure (RBAC) permite administrar el acceso a los recursos de Azure a través de las asignaciones de roles. Puede asignar estos roles a usuarios, grupos de entidades de servicio e identidades administradas. Hay roles integrados predefinidos para determinados recursos, y estos roles se pueden inventariar o consultar mediante herramientas, como la CLI de Azure, Azure PowerShell o el Azure Portal.
 
-- [Obtención de un rol de directorio en Azure AD con PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?amp;preserve-view=true&view=azureadps-2.0)
+- [Obtención de un rol de directorio en Azure AD con PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?preserve-view=true&view=azureadps-2.0)
 
-- [Obtención de los miembros de un rol de directorio en Azure AD con PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?amp;preserve-view=true&view=azureadps-2.0)
+- [Obtención de los miembros de un rol de directorio en Azure AD con PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?preserve-view=true&view=azureadps-2.0)
 
 **Supervisión de Azure Security Center**: Sí
 
@@ -279,7 +279,7 @@ Aunque los recursos clásicos de Azure se pueden detectar a través de Azure Res
 
 - [Creación de consultas con Azure Resource Graph](../../governance/resource-graph/first-query-portal.md)
 
-- [Visualización de las suscripciones de Azure](/powershell/module/az.accounts/get-azsubscription?amp;preserve-view=true&view=azps-4.8.0)
+- [Visualización de las suscripciones de Azure](/powershell/module/az.accounts/get-azsubscription?preserve-view=true&view=azps-4.8.0)
 
 - [Descripción de Azure RBAC](../../role-based-access-control/overview.md)
 
@@ -387,7 +387,7 @@ Azure Resource Manager tiene la capacidad de exportar la plantilla en notación 
 
 También puede usar las recomendaciones de Azure Security Center como línea de base de configuración segura para los recursos de Azure.
 
-- [Visualización de los alias de Azure Policy disponibles](/powershell/module/az.resources/get-azpolicyalias?amp;preserve-view=true&view=azps-4.8.0)
+- [Visualización de los alias de Azure Policy disponibles](/powershell/module/az.resources/get-azpolicyalias?preserve-view=true&view=azps-4.8.0)
 
 - [Tutorial: Creación y administración de directivas para aplicar el cumplimiento](../../governance/policy/tutorials/create-and-manage.md)
 
@@ -421,7 +421,7 @@ Como administrador, también puede que tenga que bloquear una suscripción, un g
 
 **Guía**: Use Azure DevOps para almacenar y administrar de forma segura el código, como definiciones de Azure Policy personalizadas, plantillas de Azure Resource Manager y scripts de Desired State Configuration. Para acceder a los recursos que administra en Azure DevOps, puede conceder o denegar permisos a usuarios específicos, grupos de seguridad integrados o grupos definidos en Azure Active Directory (Azure AD) si se integran con Azure DevOps, o Active Directory si se integran con TFS.
 
-- [Almacenamiento de código en Azure DevOps](/azure/devops/repos/git/gitworkflow?amp;preserve-view=true&view=azure-devops)
+- [Almacenamiento de código en Azure DevOps](/azure/devops/repos/git/gitworkflow?preserve-view=true&view=azure-devops)
 
 - [Acerca de los permisos y los grupos en Azure DevOps](/azure/devops/organizations/security/about-permissions)
 
@@ -483,7 +483,7 @@ Implemente el escáner de credenciales para identificar las credenciales en el c
 
 **Guía**: Use Azure DevOps para almacenar y administrar de forma segura el código, como definiciones de Azure Policy personalizadas, plantillas de Azure Resource Manager y scripts de Desired State Configuration. Para acceder a los recursos que administra en Azure DevOps, puede conceder o denegar permisos a usuarios específicos, grupos de seguridad integrados o grupos definidos en Azure Active Directory (Azure AD) si se integran con Azure DevOps, o Active Directory si se integran con TFS.
 
-- [Almacenamiento de código en Azure DevOps](/azure/devops/repos/git/gitworkflow?amp;preserve-view=true&view=azure-devops)
+- [Almacenamiento de código en Azure DevOps](/azure/devops/repos/git/gitworkflow?preserve-view=true&view=azure-devops)
 
 - [Acerca de los permisos y los grupos en Azure DevOps](/azure/devops/organizations/security/about-permissions)
 

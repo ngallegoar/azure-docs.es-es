@@ -1,7 +1,7 @@
 ---
 title: Novedades de Azure Active Directory de negocio a cliente (B2C)
 description: Documentación nueva y actualizada de Azure Active Directory de negocio a cliente (B2C).
-ms.date: 11/10/2020
+ms.date: 12/03/2020
 ms.service: active-directory
 ms.subservice: B2C
 ms.topic: reference
@@ -9,16 +9,23 @@ ms.workload: identity
 ms.author: kenwith
 author: kenwith
 manager: CelesteDG
-ms.openlocfilehash: f89537d1e221ecc9a871343e863f021723965239
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 4c204ec33604ff5edd1551f9728c28e3dcab9a61
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94550032"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96571086"
 ---
 # <a name="azure-active-directory-b2c-whats-new"></a>Azure Active Directory B2C: Novedades
 
 Novedades de la documentación de Azure Active Directory B2C. En este artículo se enumeran los documentos nuevos que se han agregado y los que han tenido actualizaciones importantes en los últimos tres meses. Para conocer las novedades del servicio B2C, consulte [Novedades de Azure Active Directory](../active-directory/fundamentals/whats-new.md).
+
+## <a name="november-2020"></a>Noviembre de 2020
+
+### <a name="updated-articles"></a>Artículos actualizados
+- [Supervisión de Azure AD B2C con Azure Monitor](azure-monitor.md)
+- [Tutorial: Habilitación de la autenticación en una aplicación de página única mediante Azure AD B2C](tutorial-single-page-app.md)
+
 
 ## <a name="october-2020"></a>Octubre de 2020
 

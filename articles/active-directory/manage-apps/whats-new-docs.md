@@ -1,7 +1,7 @@
 ---
 title: Novedades de la administración de aplicaciones en Azure Active Directory
 description: Documentación nueva y actualizada sobre la administración de aplicaciones de Azure Active Directory.
-ms.date: 11/05/2020
+ms.date: 12/03/2020
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: reference
@@ -9,16 +9,26 @@ ms.workload: identity
 ms.author: kenwith
 author: kenwith
 manager: CelesteDG
-ms.openlocfilehash: 10861438334bc804d1b1e4b9a669280f7e09ffde
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 38602482f1a25f212829342fe691d7bb75666d31
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94654016"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96571018"
 ---
 # <a name="azure-active-directory-application-management-whats-new"></a>Administración de aplicaciones en Azure Active Directory: Novedades
 
 Le damos la bienvenida a las novedades sobre la documentación de administración de aplicaciones de Azure Active Directory. En este artículo se enumeran los documentos nuevos que se han agregado y los que han tenido actualizaciones importantes en los últimos tres meses. Para conocer las novedades del servicio de administración de aplicaciones, consulte [Novedades de Azure Active Directory](../fundamentals/whats-new.md).
+
+## <a name="november-2020"></a>Noviembre de 2020
+
+### <a name="new-articles"></a>Artículos nuevos
+- [Inicio de sesión único basado en encabezados para aplicaciones locales con App Proxy de Azure AD (versión preliminar)](application-proxy-configure-single-sign-on-with-headers.md)
+
+### <a name="updated-articles"></a>Artículos actualizados
+- [Administración de aplicaciones en Azure Active Directory: Novedades](whats-new-docs.md)
+- [Problemas al iniciar sesión en aplicaciones configuradas con inicio de sesión único basado en SAML](application-sign-in-problem-federated-sso-gallery.md)
+
 
 ## <a name="october-2020"></a>Octubre de 2020
 

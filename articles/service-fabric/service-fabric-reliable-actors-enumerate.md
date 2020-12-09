@@ -1,17 +1,15 @@
 ---
 title: Enumeración de actores en Azure Service Fabric
 description: Obtenga información sobre la enumeración de Reliable Actors y sus metadatos en una aplicación de Azure Service Fabric mediante ejemplos.
-author: vturecek
 ms.topic: conceptual
 ms.date: 03/19/2018
-ms.author: vturecek
 ms.custom: devx-track-csharp
-ms.openlocfilehash: dd3a61db32fb8e442beb42bd45c88da8559a29dd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 11742d1a1c0837588e7122ee615f3f7929aae363
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89016655"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96571358"
 ---
 # <a name="enumerate-service-fabric-reliable-actors"></a>Enumerar Reliable Actors de Service Fabric
 El servicio Reliable Actors permite que un cliente enumere los metadatos sobre los actores que el servicio hospeda. Debido a que el servicio de actor es un servicio con estado particionado, la enumeración se realiza por partición. Dado que cada partición puede contener muchos actores, la enumeración se devuelve como un conjunto de resultados paginados. Las páginas entran en bucle hasta que se leen todas. El siguiente ejemplo muestra cómo crear una lista de todos los actores activos en una partición de un servicio de actor:

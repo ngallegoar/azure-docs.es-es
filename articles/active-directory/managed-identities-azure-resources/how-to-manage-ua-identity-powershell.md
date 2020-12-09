@@ -12,19 +12,17 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/16/2018
+ms.date: 12/02/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8649c9faf3905e69232cdc15bbba6607abe3e9c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 636f40f0c425c25dfe7f41f1f404afc90ed5ba56
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90969507"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96548229"
 ---
 # <a name="create-list-or-delete-a-user-assigned-managed-identity-using-azure-powershell"></a>Creación, enumeración y eliminación de una identidad administrada asignada por el usuario con Azure PowerShell
-
-[!INCLUDE [preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
 
 Las identidades administradas de los recursos de Azure proporcionan a los servicios de Azure una identidad administrada en Azure Active Directory. Puede usar esta identidad para autenticar a cualquier servicio que admita la autenticación de Azure AD, sin necesidad de tener credenciales en el código. 
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/21/2020
-ms.openlocfilehash: 54e7a781ba9ed3cd4b53e1028c4a3bb79c256aed
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 533d4a83ea73b98e26a57febc077a607bcb25465
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96012619"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96532315"
 ---
 # <a name="collect-windows-and-linux-performance-data-sources-with-log-analytics-agent"></a>Recopilación de orígenes de datos de rendimiento de Windows y Linux con el agente de Log Analytics
 Los contadores de rendimiento de Windows y Linux ofrecen información acerca del rendimiento de los componentes de hardware, los sistemas operativos y las aplicaciones.  Azure Monitor puede recopilar contadores de rendimiento de los agentes de Log Analytics a intervalos frecuentes para el análisis casi en tiempo real (NRT), además de agregar datos de rendimiento para el análisis a más largo plazo y la creación de informes.
@@ -50,15 +50,14 @@ Siga este procedimiento para agregar un nuevo contador de rendimiento de Windows
 
 ### <a name="linux-performance-counters"></a>Contadores de rendimiento de Linux
 
-![Configuración de contadores de rendimiento de Linux](media/data-sources-performance-counters/configure-linux.png)
+![Configuración de contadores de rendimiento de Linux](media/data-sources-performance-counters/configure-linux-1.png)
 
 Siga este procedimiento para agregar un nuevo contador de rendimiento de Linux para recopilar.
 
-1. De forma predeterminada, todos los cambios realizados en la configuración se insertan automáticamente en todos los agentes.  En el caso de los agentes de Linux, se envía un archivo de configuración al recopilador de datos Fluentd.  Si desea modificar este archivo manualmente en cada agente de Linux, desactive la casilla *Aplicar la configuración que aparece a continuación a mis máquinas con Linux*.
-2. Escriba el nombre del contador en el cuadro de texto con el formato *objeto(instancia)\contador*.  Cuando empiece a escribir, aparece una lista de contadores comunes coincidentes.  Puede seleccionar un contador de la lista o escribir uno propio.  
-3. Haga clic en **+** o presione **ENTRAR** para agregar el contador a la lista de contadores del objeto.
-4. Todos los contadores de un objeto usan el mismo valor en **Intervalo de ejemplo**.  El valor predeterminado es 10 segundos.  Este valor se puede cambiar por otro mayor, siempre que no supere los 1800 segundos (30 minutos), en caso de que se desee reducir los requisitos de almacenamiento de los datos de rendimiento recopilados.
-5. Cuando haya terminado de agregar contadores, haga clic en el botón **Guardar** de la parte superior de la pantalla para guardar la configuración.
+1. Escriba el nombre del contador en el cuadro de texto con el formato *objeto(instancia)\contador*.  Cuando empiece a escribir, aparece una lista de contadores comunes coincidentes.  Puede seleccionar un contador de la lista o escribir uno propio.  
+1. Haga clic en **+** o presione **ENTRAR** para agregar el contador a la lista de contadores del objeto.
+1. Todos los contadores de un objeto usan el mismo valor en **Intervalo de ejemplo**.  El valor predeterminado es 10 segundos.  Este valor se puede cambiar por otro mayor, siempre que no supere los 1800 segundos (30 minutos), en caso de que se desee reducir los requisitos de almacenamiento de los datos de rendimiento recopilados.
+1. Cuando haya terminado de agregar contadores, haga clic en el botón **Guardar** de la parte superior de la pantalla para guardar la configuración.
 
 #### <a name="configure-linux-performance-counters-in-configuration-file"></a>Configuración de contadores de rendimiento de Linux en el archivo de configuración
 En lugar de configurar los contadores de rendimiento de Linux mediante Azure Portal, tiene la opción de editar archivos de configuración en el agente de Linux.  Las métricas de rendimiento para recopilar se controlan mediante la configuración en **/etc/opt/microsoft/omsagent/\<workspace id\>/conf/omsagent.conf**.

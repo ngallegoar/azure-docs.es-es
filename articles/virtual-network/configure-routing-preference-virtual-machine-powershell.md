@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/18/2020
+ms.date: 12/01/2020
 ms.author: mnayak
-ms.openlocfilehash: 2002e4a11a2accbbc639c200372c393b8dc2f228
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 65f5b27ecc7b526c4b3e4f5ed62ac90149df1ce1
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84707538"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96510614"
 ---
 # <a name="configure-routing-preference-for-a-vm-using-azure-powershell"></a>Configuración de la preferencia de enrutamiento de una VM mediante Azure PowerShell
 
@@ -28,12 +28,6 @@ En este artículo se muestra cómo crear una máquina virtual con una dirección
 > [!IMPORTANT]
 > La preferencia de enrutamiento se encuentra actualmente en versión preliminar pública.
 > Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-## <a name="register-the-feature-for-your-subscription"></a>Registro de la característica de la suscripción
-La característica de preferencias de enrutamiento se encuentra actualmente en versión preliminar. Registre de la característica de la suscripción tal como se muestra a continuación:
-```azurepowershell
-Register-AzProviderFeature -FeatureName AllowRoutingPreferenceFeature -ProviderNamespace Microsoft.Network
-```
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 1. Si usa Cloud Shell, continúe al paso 2. Abra una sesión de comandos e inicie sesión en Azure con `Connect-AzAccount`.

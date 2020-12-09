@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/07/2019
 ms.author: mlottner
-ms.openlocfilehash: d97fa4c3c57f6f0dcc5c55b76d839308156c40fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 75c6841b7fed354843b955a971f02946be349a02
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90932312"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96548892"
 ---
 # <a name="azure-defender-for-iot-baseline-and-custom-checks"></a>Comprobaciones personalizadas y línea de base de Azure Defender para IoT
 
@@ -63,7 +63,7 @@ Para configurar las comprobaciones personalizadas de línea de base:
 ## <a name="baseline-custom-check-properties"></a>Propiedades de comprobación personalizada de línea de base
 
 | Nombre| Status | Valores válidos| Valores predeterminados| Descripción |
-|----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|---------------|
+|------|-----|------|-----|-----|
 |baselineCustomChecksEnabled|Obligatorio: true |Valores válidos:  **Boolean** |Valor predeterminado: **false** |Intervalo de tiempo máximo antes de que los mensajes de prioridad alta se envíen.|
 |baselineCustomChecksFilePath |Obligatorio: true|Valores válidos:  **String**, **NULL** |Valor predeterminado: **null** |Ruta de acceso completa de la configuración de XML de línea de base|
 |baselineCustomChecksFileHash |Obligatorio: true|Valores válidos:  **String**, **NULL** |Valor predeterminado: **null** |`sha256sum` del archivo de configuración XML. Use la [referencia sha256sum](https://linux.die.net/man/1/sha256sum) para obtener información adicional. |

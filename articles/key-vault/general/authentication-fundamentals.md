@@ -7,12 +7,12 @@ ms.date: 09/25/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.openlocfilehash: 30c26fcc48b1051944c181c0d24ae9e3c89ce477
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 6de0fc52ae265a47ca7f52d46e5f44b74c1277aa
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94565830"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96530925"
 ---
 # <a name="key-vault-authentication-fundamentals"></a>Aspectos básicos de la autenticación de Key Vault
 
@@ -116,8 +116,6 @@ Las asignaciones de roles de Key Vault son un conjunto de asignaciones de roles 
 * Los permisos de Azure RBAC se pueden administrar a escala, lo que permite a los usuarios tener estos roles asignados en un nivel de suscripción, grupo de recursos o almacén de claves individual. Asimismo, un usuario tendrá permisos de plano de datos en todos los almacenes de claves del ámbito de la asignación de Azure RBAC. Esto elimina la necesidad de asignar permisos de directiva de acceso individuales por usuario o aplicación por almacén de claves.
 
 * Los permisos de Azure RBAC son compatibles con Privileged Identity Management o PIM. Esto le permite configurar controles de acceso de tipo Just-in-Time para roles con privilegios, como el administrador de Key Vault. Esta es una práctica recomendada de seguridad y sigue el principio de privilegios mínimos al eliminar el acceso permanente a los almacenes de claves.
-
-* Los permisos de Azure RBAC son compatibles con los permisos granulares por objeto, por lo que puede restringir a un usuario para que solo realice operaciones en algunos de los objetos del almacén de claves. Gracias a esto, varias aplicaciones pueden compartir un único almacén de claves mientras se sigue aislando el acceso entre las aplicaciones.
 
 Para obtener más información sobre Azure RBAC para Key Vault, consulte los siguientes documentos:
 

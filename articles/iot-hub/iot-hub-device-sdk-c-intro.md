@@ -13,16 +13,19 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: 24f1332e940929cff6aeb6a0d5d3c43e28d36f22
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 9b870e21ffd5c6a8261b6731b939b5dff558256d
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92149176"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96501199"
 ---
 # <a name="azure-iot-device-sdk-for-c"></a>SDK de dispositivo IoT de Azure para C
 
 **SDK de dispositivo IoT de Azure para C** es un conjunto de bibliotecas diseñadas para simplificar el proceso de envío y recepción de mensajes desde el servicio **Azure IoT Hub**. Hay distintas variantes del SDK, cada una dirigida a una plataforma concreta, pero este artículo describe el **SDK de dispositivo IoT de Azure para C**.
+
+> [!NOTE]
+> El SDK de C insertado es una alternativa para los dispositivos restringidos que admite el enfoque traiga su propia red (BYON). Los desarrolladores de IoT tienen la libertad de utilizar el cliente de MQTT, TLS y el socket de su elección para crear una solución de dispositivo. [Obtenga más información sobre el SDK de C insertado](https://github.com/Azure/azure-sdk-for-c/tree/master/sdk/docs/iot).
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/13/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 4516bb9c426355de1fa2ce19befddef896a2de3e
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 5e84a679f0bc26b701dc1d51db3605c452675ea3
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93338108"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96545288"
 ---
 # <a name="string-functions-azure-cosmos-db"></a>Funciones de cadena (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -54,4 +54,4 @@ Las siguientes funciones escalares realizan una operación sobre un valor de ent
 - [Funciones del sistema (Azure Cosmos DB)](sql-query-system-functions.md)
 - [Introducción a Azure Cosmos DB](introduction.md)
 - [Funciones definidas por el usuario](sql-query-udfs.md)
-- [Aggregates](sql-query-aggregates.md) (Agregados)
+- [Aggregates](sql-query-aggregate-functions.md) (Agregados)

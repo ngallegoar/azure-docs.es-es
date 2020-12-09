@@ -1,16 +1,14 @@
 ---
 title: Visualización del clúster mediante Azure Service Fabric Explorer
 description: Service Fabric Explorer es una aplicación para inspeccionar y administrar nodos y aplicaciones en la nube en un clúster de Microsoft Azure Service Fabric.
-author: mikkelhegn
 ms.topic: conceptual
 ms.date: 01/24/2019
-ms.author: mikhegn
-ms.openlocfilehash: 5627aa614a7e2819b6f3cc1401c8458552e57219
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: a45aff305f97610cb2660c2e3f4b4427b905d7d4
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93085180"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96574062"
 ---
 # <a name="visualize-your-cluster-with-service-fabric-explorer"></a>Visualización del clúster mediante el Explorador de Service Fabric
 

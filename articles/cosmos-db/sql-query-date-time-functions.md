@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/18/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: d8b6e932f4cd5f4119d93f3fed7db524f65cbc1f
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: cfa81b6ec5f10218a70de6b9b55e502d87898194
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93338958"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96549188"
 ---
 # <a name="date-and-time-functions-azure-cosmos-db"></a>Funciones de fecha y hora (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -46,4 +46,4 @@ Las siguientes funciones permiten manipular fácilmente valores DateTime, de mar
 - [Funciones del sistema (Azure Cosmos DB)](sql-query-system-functions.md)
 - [Introducción a Azure Cosmos DB](introduction.md)
 - [Funciones definidas por el usuario](sql-query-udfs.md)
-- [Aggregates](sql-query-aggregates.md) (Agregados)
+- [Aggregates](sql-query-aggregate-functions.md) (Agregados)

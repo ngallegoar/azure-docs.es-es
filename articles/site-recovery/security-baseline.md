@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/26/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: f6d17b007fcccd87aed17a9ec3ca039b9559ab6d
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 860bc9440547a4c62336ccc573859ec56b3400b5
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 12/02/2020
-ms.locfileid: "96492240"
+ms.locfileid: "96533866"
 ---
 # <a name="azure-security-baseline-for-site-recovery"></a>Base de referencia de seguridad de Azure para Site Recovery
 
@@ -164,9 +164,9 @@ Visualice y consulte los resultados del registro y configure alertas para realiz
 
 **Guía**: No se asignan roles de manera predeterminada. Deben asignarse explícitamente según las necesidades de la empresa. Las asignaciones de roles se pueden comprobar con PowerShell, la CLI o Azure Active Directory (Azure AD) para detectar las cuentas que son miembros de los grupos administrativos.
 
-- [Obtención de un rol de directorio en Azure AD con PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?amp;preserve-view=true&view=azureadps-2.0)
+- [Obtención de un rol de directorio en Azure AD con PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?preserve-view=true&view=azureadps-2.0)
 
-- [Obtención de los miembros de un rol de directorio en Azure AD con PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?amp;preserve-view=true&view=azureadps-2.0)
+- [Obtención de los miembros de un rol de directorio en Azure AD con PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?preserve-view=true&view=azureadps-2.0)
 
 **Supervisión de Azure Security Center**: Sí
 
@@ -431,7 +431,7 @@ Aunque los recursos clásicos de Azure se pueden detectar a través de Resource 
 
 - [Creación de consultas con Azure Graph](../governance/resource-graph/first-query-portal.md)
 
-- [Visualización de las suscripciones de Azure](/powershell/module/az.accounts/get-azsubscription?amp;preserve-view=true&view=azps-4.8.0)
+- [Visualización de las suscripciones de Azure](/powershell/module/az.accounts/get-azsubscription?preserve-view=true&view=azps-4.8.0)
 
 - [Descripción de Azure RBAC](../role-based-access-control/overview.md)
 
@@ -530,7 +530,7 @@ Comprender cómo se crean y administran las directivas en Azure es importante pa
 **Instrucciones**: Defina e implemente configuraciones de seguridad estándar para el almacén de Recovery Services con Azure Policy. 
 
 Use alias de Azure Policy en el espacio de nombres "Microsoft.RecoveryServices" para crear directivas personalizadas con el fin de auditar o aplicar la configuración de los recursos de almacenes de Recovery Services del servicio Site Recovery.
-- [Visualización de los alias de Azure Policy disponibles](/powershell/module/az.resources/get-azpolicyalias?amp;preserve-view=true&view=azps-4.8.0)
+- [Visualización de los alias de Azure Policy disponibles](/powershell/module/az.resources/get-azpolicyalias?preserve-view=true&view=azps-4.8.0)
 
 - [Configuración y administración de Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -553,9 +553,9 @@ Use alias de Azure Policy en el espacio de nombres "Microsoft.RecoveryServices" 
 
 **Guía**: elija Azure Repos para almacenar y administrar código de manera segura si usa definiciones personalizadas de Azure Policy para los almacenes de Recovery Services y los recursos relacionados.
 
-- [Almacenamiento de código en Azure DevOps](/azure/devops/repos/git/gitworkflow?amp;preserve-view=true&view=azure-devops)
+- [Almacenamiento de código en Azure DevOps](/azure/devops/repos/git/gitworkflow?preserve-view=true&view=azure-devops)
 
-- [Documentación de Azure Repos](/azure/devops/repos/?amp;preserve-view=true&view=azure-devops)
+- [Documentación de Azure Repos](/azure/devops/repos/?preserve-view=true&view=azure-devops)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -656,7 +656,7 @@ Todos los recursos de almacenamiento utilizados por los metadatos de los servici
 
 Esto se encuentra fuera del ámbito del cliente y el equipo de Site Recovery se encarga internamente. El cliente puede crear una copia de seguridad de las claves de Key Vault en Azure.
 
-- [Creación de una copia de seguridad de las claves del almacén de claves en Azure](/powershell/module/az.keyvault/backup-azkeyvaultkey?amp;preserve-view=true&view=azps-4.8.0)
+- [Creación de una copia de seguridad de las claves del almacén de claves en Azure](/powershell/module/az.keyvault/backup-azkeyvaultkey?preserve-view=true&view=azps-4.8.0)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -666,7 +666,7 @@ Esto se encuentra fuera del ámbito del cliente y el equipo de Site Recovery se 
 
 **Guía**: pruebe periódicamente las restauraciones de la copia de seguridad de las claves administradas por el cliente.
 
-- [Restauración de las claves del almacén de claves en Azure](/powershell/module/az.keyvault/restore-azkeyvaultkey?amp;preserve-view=true&view=azps-4.8.0)
+- [Restauración de las claves del almacén de claves en Azure](/powershell/module/az.keyvault/restore-azkeyvaultkey?preserve-view=true&view=azps-4.8.0)
 
 **Supervisión de Azure Security Center**: No aplicable
 
