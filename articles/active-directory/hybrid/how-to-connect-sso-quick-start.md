@@ -16,12 +16,12 @@ ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fde2052078e0131e720411f91aa8ae7484338252
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 40d77f4ebb897884f03377e6d9f1243a6d436766
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91295032"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500213"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quickstart"></a>Inicio de sesión único de conexión directa de Azure Active Directory: Guía de inicio rápido
 
@@ -107,7 +107,7 @@ Puede implementar el inicio de sesión único de conexión directa gradualmente 
 Además, tiene que habilitar a una configuración de directiva de zona de intranet denominada **Permitir actualizaciones en la barra de estado a través de script** mediante la directiva de grupo. 
 
 >[!NOTE]
-> Las siguientes instrucciones solo funcionan en Internet Explorer y Google Chrome en Windows (si comparte el mismo conjunto de direcciones URL de sitios de confianza que Internet Explorer). Lea la sección siguiente para obtener instrucciones acerca de cómo configurar Mozilla Firefox y Google Chrome en macOS.
+> Las siguientes instrucciones solo funcionan en Internet Explorer, Microsoft Edge y Google Chrome en Windows (si comparte el mismo conjunto de direcciones URL de sitios de confianza que Internet Explorer). Lea la sección siguiente para obtener instrucciones acerca de cómo configurar Mozilla Firefox y Google Chrome en macOS.
 
 ### <a name="why-do-you-need-to-modify-users-intranet-zone-settings"></a>¿Por qué es necesario modificar la configuración de zona de Intranet de los usuarios?
 
@@ -124,7 +124,7 @@ Hay dos formas de modificar la configuración de zona de intranet de los usuario
 
 1. Abra la herramienta Editor de administración de directivas de grupo.
 2. Edite la directiva de grupo que se aplica a algunos o todos los usuarios. En este ejemplo se usa la **directiva de dominio predeterminada**.
-3. Vaya a **Configuración de usuario** > **Directiva** > **Plantillas administrativas** > **Componentes de Windows** > **Internet Explorer** > **Panel de control de Internet** > **Página de seguridad**. A continuación, seleccione **Lista de asignación de sitio a zona**.
+3. Vaya a **Configuración de usuario** > **Directivas** > **Plantillas administrativas** > **Componentes de Windows** > **Internet Explorer** > **Panel de control de Internet** > **Página de seguridad**. A continuación, seleccione **Lista de asignación de sitio a zona**.
     ![Captura de pantalla que muestra la "Página de seguridad" con la opción "Lista de asignación de sitio a zona" seleccionada.](./media/how-to-connect-sso-quick-start/sso6.png)
 4. Habilite la directiva y escriba los valores siguientes en el cuadro de diálogo:
    - **Nombre de valor**: dirección URL de Azure AD a la que se reenvían los vales de Kerberos.
@@ -144,7 +144,7 @@ Hay dos formas de modificar la configuración de zona de intranet de los usuario
 
     ![Captura de pantalla que muestra la ventana "Mostrar contenido" con una asignación de zona seleccionada.](./media/how-to-connect-sso-quick-start/sso7.png)
 
-6. Vaya a **Configuración de usuario** > **Directiva** > **Plantillas administrativas** > **Componentes de Windows** > **Internet Explorer** > **Panel de control de Internet** > **Página de seguridad** > **Zona Intranet**. Después, seleccione **Permitir actualizaciones en la barra de estado a través de script**.
+6. Vaya a **Configuración de usuario** > **Directivas** > **Plantillas administrativas** > **Componentes de Windows** > **Internet Explorer** > **Panel de control de Internet** > **Página de seguridad** > **Zona Intranet**. Después, seleccione **Permitir actualizaciones en la barra de estado a través de script**.
 
     ![Captura de pantalla que muestra la página "Zona de intranet" con la opción "Permitir actualizaciones en la barra de estado a través de script" seleccionada.](./media/how-to-connect-sso-quick-start/sso11.png)
 
@@ -161,10 +161,10 @@ Hay dos formas de modificar la configuración de zona de intranet de los usuario
     ![Captura de pantalla que muestra las opciones "Registro" y "Elemento del registro" seleccionadas.](./media/how-to-connect-sso-quick-start/sso15.png)
 
 4. Escriba los siguientes valores en los campos apropiados y haga clic en **Aceptar**.
-   - **Ruta de acceso de la clave**: ***Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains\microsoftazuread-sso.com\autologon***
-   - **Nombre de valor**: ***https***.
-   - **Tipo de valor**: ***REG_DWORD***
-   - **Información del valor**: ***00000001***
+   - **Ruta de acceso de la clave**: **_Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains\microsoftazuread-sso.com\autologon_* _
+   - _*Nombre de valor**: **_https_*_
+   - _*Tipo de valor**: **_REG_DWORD_*_
+   - _*Información del valor**: **_00000001_*_
  
      ![Captura de pantalla que muestra la ventana "Nuevas propiedades de Registro".](./media/how-to-connect-sso-quick-start/sso16.png)
  
@@ -176,7 +176,7 @@ Hay dos formas de modificar la configuración de zona de intranet de los usuario
 
 Mozilla Firefox no realiza automáticamente la autenticación Kerberos. Cada usuario debe agregar manualmente la dirección URL de Azure AD a su configuración de Firefox mediante estos pasos:
 1. Ejecute Firefox y escriba `about:config` en la barra de direcciones. Descarte las notificaciones que vea.
-2. Busque la preferencia **network.negotiate-auth.trusted-URI**. Esta preferencia enumera los sitios de confianza de Firefox para la autenticación Kerberos.
+2. Busque la preferencia _ *network.negotiate-auth.trusted-uris**. Esta preferencia enumera los sitios de confianza de Firefox para la autenticación Kerberos.
 3. Haga clic con el botón derecho y seleccione **Modificar**.
 4. Escriba `https://autologon.microsoftazuread-sso.com` en el campo.
 5. Seleccione **Aceptar** y después vuelva a abrir el explorador.

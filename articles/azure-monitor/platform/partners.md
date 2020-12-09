@@ -4,12 +4,12 @@ description: Obtenga información sobre los asociados de Azure Monitor y sobre c
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: d603e130d4e65667edb34121a4c89b7b0e02b819
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: 6e707e77f4618d71cb2fa3f32b05895b97658f76
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94636748"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500247"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Integraciones de asociados de Azure Monitor
 
@@ -310,6 +310,20 @@ Sumo Logic es un servicio de análisis de datos de máquinas seguro y nativo en 
 Turbonomic ofrece automatización de cargas de trabajo en nubes híbridas, ya que optimiza simultáneamente el rendimiento, costo y cumplimiento en tiempo real. Turbonomic ayuda a aumentar la elasticidad del estado de Azure de las organizaciones mediante la optimización continua del estado para garantizar que las aplicaciones obtienen constantemente los recursos que necesitan para cumplir su Acuerdo de Nivel de Servicio y nada más en relación con el proceso, el almacenamiento y la red para la capa de IaaS y PaaS. Las organizaciones pueden simular migraciones, escalar cargas de trabajo correctamente y retirar recursos del centro de datos para realizar responsablemente la migración a Azure de forma puntual y sin salirse del presupuesto, al mismo tiempo que se garantizan el rendimiento y el cumplimiento. Turbonomic es un producto controlado por API y se ejecuta como una VM sin agente en Azure y en local.
 
 [Introducción a Turbonomic](https://turbonomic.com/)
+
+## <a name="partner-tools-with-event-hub-integration"></a>Integración de herramientas de asociados con Event Hubs
+
+El uso de Azure Monitor para enrutar los datos de supervisión a una instancia de Azure Event Hubs facilita la integración con algunas herramientas externas de SIEM y de supervisión. Se sabe que los siguientes asociados ofrecen integración mediante Event Hubs. 
+
+| Herramienta | Hospedado en Azure | Descripción |
+|:---|:---| :---|
+|  IBM QRadar | No | Los protocolos Microsoft Azure DSM y Microsoft Azure Even Hub se pueden descargar en el sitio web de [el sitio web de soporte técnico de IBM](https://www.ibm.com/support). Encontrará más información acerca de la integración con Azure en [Configuración de QRadar DSM](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0). |
+| Splunk | No | El [complemento de Microsoft Azure para Splunk](https://splunkbase.splunk.com/app/3757/) está disponible en Splunkbase y es un proyecto de código abierto. <br><br> Si no puede instalar un complemento en la instancia de Splunk (por ejemplo, si usa un proxy o si se ejecuta en Splunk Cloud), puede reenviar estos eventos al recopilador de eventos de HTTP de Splunk mediante [esta función de Azure para Splunk](https://github.com/Microsoft/AzureFunctionforSplunkVS) que desencadenan los nuevos mensajes del centro de eventos. |
+| sumologic | No | Las instrucciones para configurar SumoLogic para consumir datos de un centro de eventos están disponibles en [Recopilar registros para la aplicación Azure Audit desde el centro de eventos](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure-Audit/02Collect-Logs-for-Azure-Audit-from-Event-Hub). |
+| ArcSight | No | El conector inteligente ArcSight de Azure Event Hubs está disponible como parte de [esta colección de conectores inteligentes de ArcSight](https://community.softwaregrp.com/t5/Discussions/Announcing-General-Availability-of-ArcSight-Smart-Connectors-7/m-p/1671852). |
+| Servidor de Syslog | No | Si quiere transmitir datos de Azure Monitor directamente a un servidor syslog, puede usar una solución [basada en una función de Azure](https://github.com/miguelangelopereira/azuremonitor2syslog/).
+| LogRhythm | No| Las instrucciones necesarias para configurar LogRhythm con el fin de recopilar registros de un centro de eventos están disponibles [aquí](https://logrhythm.com/six-tips-for-securing-your-azure-cloud-environment/). 
+|Logz.io | Sí | Para más información, consulte [Introducción a la supervisión y el registro con Logz.io para aplicaciones Java que se ejecutan en Azure](/azure/developer/java/fundamentals/java-get-started-with-logzio).
 
 
 ## <a name="next-steps"></a>Pasos siguientes

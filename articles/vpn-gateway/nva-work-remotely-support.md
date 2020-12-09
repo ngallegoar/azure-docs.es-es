@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: scottnap
-ms.openlocfilehash: beb59674d678ed9c61c9ee0b425da7032794ca64
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 70b5732e1293e35127a19fbe736d8562056a870b
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94660617"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499686"
 ---
 # <a name="working-remotely-network-virtual-appliance-nva-considerations-for-remote-work"></a>Trabajo de forma remota: Consideraciones sobre el trabajo remoto en la aplicación virtual de red (NVA)
 
@@ -64,3 +64,6 @@ La mayoría de los asociados de NVA importantes han publicado guías sobre cómo
 [Fortinet COVID-19 Updates for Customers and Partners](https://www.fortinet.com/covid-19.html "Fortinet: Actualizaciones sobre la COVID-19 para clientes y asociados") (Fortinet: Actualizaciones sobre la COVID-19 para clientes y asociados)
 
 [Palo Alto Networks COVID-19 Response Center](https://live.paloaltonetworks.com/t5/COVID-19-Response-Center/ct-p/COVID-19_Response_Center "Palo Alto Networks: Centro de respuesta frente a la COVID-19") (Palo Alto Networks: Centro de respuesta frente a la COVID-19)
+
+[Kemp habilita el trabajo remoto y la experiencia de la aplicación AlwaysOn para la continuidad empresarial](https://kemptechnologies.com/remote-work-always-on-application-experience-business-continuity/ "Kemp habilita el trabajo remoto y la experiencia de la aplicación AlwaysOn para la continuidad empresarial")
+

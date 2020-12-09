@@ -4,15 +4,15 @@ description: Aprenda a conectarse a un servidor de Azure Analysis Services media
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 03/30/2020
+ms.date: 12/01/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 4658a4c05aac7932d8a99c3511f21024f19fbe47
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: fccb919a7eac79080fefeac70326b8aa7a967622
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92013736"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499477"
 ---
 # <a name="connect-with-excel"></a>Conexión con Excel
 
@@ -26,7 +26,7 @@ La cuenta con la que inicie sesión debe pertenecer a un rol de base de datos mo
 
 La conexión a un servidor en Excel se admite mediante Obtener datos en Excel 2016 y versiones posteriores. No se admite la conexión mediante el Asistente para importar tablas en Power Pivot. 
 
-1. En la cinta **Datos** de Excel, haga clic en **Obtener datos externos** > **Desde otros orígenes** > **Desde Analysis Services**.
+1. En la cinta **Datos** de Excel, haga clic en **Obtener datos** > **Desde base de datos** > **Desde Analysis Services**.
 
 2. En el Asistente para conexión de datos, en **Nombre del servidor**, escriba el nombre del servidor incluidos el protocolo y el URI. Por ejemplo, asazure://westcentralus.asazure.windows.net/advworks. Luego, en **Credenciales de inicio de sesión**, seleccione **Utilizar el nombre de usuario y la contraseña siguientes** y escriba el nombre de usuario de la organización (por ejemplo, nancy@adventureworks.com) y la contraseña.
 
@@ -42,5 +42,5 @@ La conexión a un servidor en Excel se admite mediante Obtener datos en Excel 20
 
 ## <a name="see-also"></a>Consulte también
 
-[Bibliotecas de cliente](/analysis-services/client-libraries?view=azure-analysis-services-current)   
+[Bibliotecas de cliente](/analysis-services/client-libraries?view=azure-analysis-services-current&preserve-view=true)   
 [Administración del servidor](analysis-services-manage.md)

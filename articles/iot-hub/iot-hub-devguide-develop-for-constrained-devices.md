@@ -10,12 +10,12 @@ ms.author: robinsh
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 9010ff582f05e81e17e280e20f180ceccf0e746f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5a43eb2537ebc09ffcb524a4426d7a8c9bec560b
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81733200"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500009"
 ---
 # <a name="develop-for-constrained-devices-using-azure-iot-c-sdk"></a>Desarrollo para dispositivos restringidos con los SDK para C de Azure IoT
 
@@ -30,7 +30,10 @@ El SDK para C está disponible en forma de paquete desde apt-get, NuGet y MBED. 
 
 Compile el SDK para C para dispositivos restringidos.
 
-### <a name="prerequisites"></a>Prerequisites
+> [!NOTE]
+> El SDK de C insertado es una alternativa para los dispositivos restringidos que admite el enfoque traiga su propia red (BYON). Los desarrolladores de IoT tienen la libertad de utilizar el cliente de MQTT, TLS y el socket de su elección para crear una solución de dispositivo. [Obtenga más información sobre el SDK de C insertado](https://github.com/Azure/azure-sdk-for-c/tree/master/sdk/docs/iot).
+
+### <a name="prerequisites"></a>Requisitos previos
 
 Siga esta [guía de configuración del SDK para C](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) para preparar el entorno de desarrollo para la compilación del SDK para C. Antes de llegar al paso de compilación con cmake, puede invocar cmake con marcas para eliminar las características no utilizadas.
 
@@ -85,5 +88,5 @@ Otro conjunto de API sin el índice _LL_ se denomina capa de comodidad, en las q
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para más información acerca de la arquitectura del SDK de Azure IoT para C:
--    [Código fuente del SDK de Azure IoT para C](https://github.com/Azure/azure-iot-sdk-c/)
+-    [Código fuente del SDK de C para Azure IoT](https://github.com/Azure/azure-iot-sdk-c/)
 -    [Introducción al SDK de dispositivo IoT de Azure para C](iot-hub-device-sdk-c-intro.md)

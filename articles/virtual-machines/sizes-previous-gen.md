@@ -6,14 +6,14 @@ ms.subservice: sizes
 author: mimckitt
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 10/02/2020
+ms.date: 11/01/2020
 ms.author: mimckitt
-ms.openlocfilehash: 45bcfdb544d3951feb40a821b601ce60ecc0feaf
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 90bc98d63b45e43c9325eed4fe019b18f52d0de8
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93356780"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500298"
 ---
 # <a name="previous-generations-of-virtual-machine-sizes"></a>Generaciones anteriores de tamaños de máquina virtual
 
@@ -161,7 +161,7 @@ Los tamaños A8-A11 los de la serie H también se conocen como *instancias de pr
 <sup>1</sup>Para las aplicaciones MPI, la red de back-end RDMA dedicada está habilitada por la red InfiniBand FDR, que ofrece una latencia sumamente baja y un alto ancho de banda.  
 
 > [!NOTE]
-> Está previsto que las VM A8-A11 se retiren en 3/2021. Se recomienda encarecidamente no crear ninguna máquina virtual A8-A11 nueva. Migre todas las máquinas virtuales A8-A11 existentes a tamaños de máquina virtual de informática de alto rendimiento más recientes y eficaces, como H, HB, HC, HBv2, así como tamaños de máquina virtual de proceso de uso general, como D, E y F, para obtener un mejor rendimiento del precio. Para obtener más información, consulte la [guía de migración de HPC](https://azure.microsoft.com/resources/hpc-migration-guide/).
+> Está [previsto que las VM A8-A11 se retiren en marzo de 2021](https://azure.microsoft.com/updates/a8-a11-azure-virtual-machine-sizes-will-be-retired-on-march-1-2021/). Se recomienda encarecidamente no crear ninguna máquina virtual A8-A11 nueva. Migre todas las máquinas virtuales A8-A11 existentes a tamaños de máquina virtual de informática de alto rendimiento más recientes y eficaces, como H, HB, HC, HBv2, así como tamaños de máquina virtual de proceso de uso general, como D, E y F, para obtener un mejor rendimiento del precio. Para obtener más información, consulte la [guía de migración de HPC](https://azure.microsoft.com/resources/hpc-migration-guide/).
 
 <br>
 
@@ -224,7 +224,7 @@ La serie DC usa la última generación de procesadores Intel XEON E-2176G de 3,7
 
 > [!IMPORTANT]
 >
-> Las VM de la serie DC son [VM de 2.ª generación](./linux/generation-2.md#creating-a-generation-2-vm) y solo admiten imágenes de `Gen2`.
+> Las VM de la serie DC son [VM de 2.ª generación](./generation-2.md#creating-a-generation-2-vm) y solo admiten imágenes de `Gen2`.
 
 
 ### <a name="ds-series"></a>Serie DS  

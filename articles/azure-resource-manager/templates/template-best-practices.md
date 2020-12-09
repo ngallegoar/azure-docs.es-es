@@ -2,13 +2,13 @@
 title: Procedimientos recomendados para las plantillas
 description: En este artículo se describen los enfoques recomendados para la creación de plantillas de Azure Resource Manager. Se ofrecen sugerencias para evitar problemas comunes al usar las plantillas.
 ms.topic: conceptual
-ms.date: 07/10/2020
-ms.openlocfilehash: 1121c66e0bcd7de39afd5bea85866fd9ad007ce4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 12/01/2020
+ms.openlocfilehash: c62bde8fc8cfc79330d13b7b2ff4f778dadf1339
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87809262"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96497986"
 ---
 # <a name="arm-template-best-practices"></a>Procedimientos recomendados para plantilla de Resource Manager
 
@@ -87,8 +87,6 @@ La información en esta sección puede ser útil cuando se trabaja con [parámet
    },
    ```
 
-* Evite usar un parámetro en la versión de API de un tipo de recurso. Las propiedades y los valores de los recursos pueden variar en función del número de la versión. La función IntelliSense en un editor de código no puede determinar el esquema correcto si la versión de API se establece como un parámetro. En lugar de ello, debe codificar de forma rígida la versión de la API en la plantilla.
-
 * Use `allowedValues` con moderación. Úselo solo cuando deba asegurarse de que algunos valores no están incluidos en las opciones permitidas. Si usa `allowedValues` de forma demasiado amplia, podría bloquear implementaciones válidas al no mantener actualizada la lista.
 
 * Cuando un nombre de parámetro en la plantilla coincide con un parámetro en el comando de PowerShell de implementación, Resource Manager resuelve este conflicto de nomenclatura agregando el postfijo **FromTemplate** al parámetro de plantilla. Por ejemplo, si incluye un parámetro llamado **ResourceGroupName** en la plantilla, entra en conflicto con el parámetro **ResourceGroupName** del cmdlet [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment). Durante la implementación, se le pide que proporcione un valor para **ResourceGroupNameFromTemplate**.
@@ -146,8 +144,6 @@ La siguiente información puede ser útil cuando se trabaja con [variables](temp
 
 * Use variables para los valores que construya a partir de una organización compleja de funciones de plantilla. La plantilla es más fácil de leer cuando la expresión compleja aparece solo en las variables.
 
-* No use variables para `apiVersion` en un recurso. La versión de API determina el esquema del recurso. A menudo, no se puede cambiar la versión sin cambiar las propiedades del recurso.
-
 * No se puede usar la función [reference](template-functions-resource.md#reference) en la sección **variables** de la plantilla. La función **reference** deriva su valor desde el estado de tiempo de ejecución del recurso. Sin embargo, las variables se resuelven durante el análisis inicial de la plantilla. Construya valores que requieran la función **reference** directamente en las secciones **resources** u **outputs** de la plantilla.
 
 * Incluya variables para los nombres de recursos que deben ser únicos.
@@ -155,6 +151,16 @@ La siguiente información puede ser útil cuando se trabaja con [variables](temp
 * Use un [bucle de copia en variables](copy-variables.md) para crear un patrón repetido de objetos JSON.
 
 * Quite las variables no utilizadas.
+
+## <a name="api-version"></a>Versión de API
+
+Establezca la propiedad `apiVersion` en una versión de API codificada de forma rígida para el tipo de recurso. Al crear una plantilla, se recomienda usar la última versión de la API para un tipo de recurso. Para determinar los valores disponibles, consulte la [referencia de plantilla](/azure/templates/).
+
+Cuando la plantilla funciona según lo previsto, se recomienda seguir usando la misma versión de la API. Al usar la misma versión de la API, no tiene que preocuparse de los cambios importantes que se pueden introducir en versiones posteriores.
+
+Evite usar un parámetro en la versión de API. Las propiedades y los valores de los recursos pueden variar en función de la versión de API. La función IntelliSense en un editor de código no puede determinar el esquema correcto si la versión de API se establece como un parámetro. Si pasa una versión de API que no coincide con las propiedades de la plantilla, se producirá un error en la implementación.
+
+No use variables para la versión de API. En concreto, no use la [función de proveedores](template-functions-resource.md#providers) para obtener las versiones de API de forma dinámica durante la implementación. La versión de la API recuperada de forma dinámica podría no coincidir con las propiedades de la plantilla.
 
 ## <a name="resource-dependencies"></a>Dependencias de recursos
 

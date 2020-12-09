@@ -1,20 +1,20 @@
 ---
 title: Estructura y sintaxis de plantillas
-description: Describe la estructura y las propiedades de plantillas de Azure Resource Manager mediante la sintaxis declarativa de JSON.
+description: Describe la estructura y las propiedades de plantillas de Azure Resource Manager (plantillas de ARM) mediante la sintaxis declarativa de JSON.
 ms.topic: conceptual
-ms.date: 11/24/2020
-ms.openlocfilehash: b7cf30741cfd2b85046f64fddf01c414676a97e4
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.date: 12/01/2020
+ms.openlocfilehash: ce36d725b3844fcd4c8d43a9f044423611d44fbd
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95911505"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96497884"
 ---
 # <a name="understand-the-structure-and-syntax-of-arm-templates"></a>Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager
 
-En este artículo se describe la estructura de una plantilla de Azure Resource Manager (ARM). Presenta las distintas secciones de una plantilla y las propiedades que están disponibles en esas secciones.
+En este artículo se describe la estructura de una plantilla de Azure Resource Manager (plantilla de ARM). Presenta las distintas secciones de una plantilla y las propiedades que están disponibles en esas secciones.
 
-Este artículo está destinado a los usuarios que ya estén familiarizados con las plantillas de Azure Resource Manager. Proporciona información detallada sobre la estructura de la plantilla. Para obtener un tutorial paso a paso que le guíe en el proceso de creación de una plantilla, consulte [Tutorial: Creación e implementación de la primera plantilla de Azure Resource Manager](template-tutorial-create-first-template.md).
+Este artículo está destinado a los usuarios que ya estén familiarizados con las plantillas de Azure Resource Manager. Proporciona información detallada sobre la estructura de la plantilla. Para obtener un tutorial paso a paso que le guíe en el proceso de creación de una plantilla, consulte [Tutorial: Creación e implementación de su primera plantilla de Resource Manager](template-tutorial-create-first-template.md).
 
 ## <a name="template-format"></a>Formato de plantilla
 
@@ -137,7 +137,7 @@ Las propiedades disponibles para un parámetro son:
 | maxLength |No |Longitud máxima de los parámetros de tipo cadena, cadena segura y matriz; este valor es inclusivo. |
 | description |No |Descripción del parámetro que se muestra a los usuarios a través del portal. Para más información, consulte [Comentarios en plantillas](#comments). |
 
-Para ejemplos de cómo usar los parámetros, consulte [Parámetros en plantillas de Azure Resource Manager](template-parameters.md).
+Para ejemplos de cómo usar los parámetros, ve [Parámetros en plantillas de ARM](template-parameters.md).
 
 ## <a name="variables"></a>variables
 
@@ -172,7 +172,7 @@ En el ejemplo siguiente se muestran las opciones disponibles para definir una va
 
 Si desea información sobre el uso de `copy` para crear varios valores para una variable, consulte [Iteración de variables](copy-variables.md).
 
-Para ejemplos de cómo usar las variables, consulte [Variables en plantillas de Azure Resource Manager](template-variables.md).
+Para ejemplos de cómo usar las variables, vea [Variables en plantillas de ARM](template-variables.md).
 
 ## <a name="functions"></a>Functions
 
@@ -217,7 +217,7 @@ Al definir una función de usuario, hay algunas restricciones:
 | tipo de salida |Sí |Tipo del valor de salida. Los valores de salida admiten los mismos tipos que los parámetros de entrada de función. |
 | valor de salida |Sí |Expresión de lenguaje de plantilla que se evalúa y devuelve desde la función. |
 
-Para ejemplos de cómo usar las funciones personalizadas, consulte [Funciones definidas por el usuario de la plantilla de Azure Resource Manager](template-user-defined-functions.md).
+Para ejemplos de cómo usar las funciones personalizadas, vea [Funciones definidas por el usuario de la plantilla de ARM](template-user-defined-functions.md).
 
 ## <a name="resources"></a>Recursos
 
@@ -283,11 +283,11 @@ Defina recursos con la siguiente estructura:
 |:--- |:--- |:--- |
 | condición | No | Valor booleano que indica si el recurso se aprovisionará durante esta implementación. Si es `true`, el recurso se crea durante la implementación. Si es `false`, el recurso se omite para esta implementación. Consulte [condition](conditional-resource-deployment.md). |
 | type |Sí |Tipo de recurso. Este valor es una combinación del espacio de nombres del proveedor de recursos y el tipo de recurso (como **Microsoft.Storage/storageAccounts**). Para determinar los valores disponibles, consulte la [referencia de plantilla](/azure/templates/). Para un recurso secundario, el formato del tipo depende de si está anidado dentro del recurso primario o se ha definido fuera del recurso primario. Consulte [Establecimiento del nombre y el tipo de recursos secundarios](child-resource-name-type.md). |
-| apiVersion |Sí |Versión de la API de REST que debe usar para crear el recurso. Para determinar los valores disponibles, consulte la [referencia de plantilla](/azure/templates/). |
+| apiVersion |Sí |Versión de la API de REST que debe usar para crear el recurso. Al crear una plantilla, establezca este valor en la última versión del recurso que va a implementar. Siempre que la plantilla funcione según sea necesario, siga usando la misma versión de la API. Al seguir usando la misma versión de la API, se minimiza el riesgo de que una nueva versión de la API cambie el funcionamiento de la plantilla. Considere la posibilidad de actualizar la versión de la API solo cuando desee usar una característica nueva que se presenta en una versión posterior. Para determinar los valores disponibles, consulte la [referencia de plantilla](/azure/templates/). |
 | name |Sí |Nombre del recurso. El nombre debe cumplir las restricciones de componente URI definidas en RFC3986. Los servicios de Azure que exponen el nombre del recurso a partes externas validan el nombre para asegurarse de que no es un intento de suplantar otra identidad. Para un recurso secundario, el formato del nombre depende de si está anidado dentro del recurso primario o se ha definido fuera del recurso primario. Consulte [Establecimiento del nombre y el tipo de recursos secundarios](child-resource-name-type.md). |
 | comments |No |Notas para documentar los recursos de la plantilla. Para más información, consulte [Comentarios en plantillas](template-syntax.md#comments). |
 | ubicación |Varía |Ubicaciones geográficas compatibles del recurso proporcionado. Puede seleccionar cualquiera de las ubicaciones disponibles, pero normalmente tiene sentido elegir aquella que esté más cerca de los usuarios. Normalmente, también tiene sentido colocar los recursos que interactúan entre sí en la misma región. La mayoría de los tipos de recursos requieren una ubicación, pero algunos (por ejemplo, una asignación de roles) no la necesitan. Consulte [Establecimiento de la ubicación del recurso](resource-location.md). |
-| dependsOn |No |Recursos que se deben implementar antes de implementar este. Resource Manager evalúa las dependencias entre recursos y los implementa en su orden correcto. Cuando no hay recursos dependientes entre sí, se implementan en paralelo. El valor puede ser una lista separada por comas de nombres de recursos o identificadores de recursos únicos. Solo los recursos de lista que se implementan en esta plantilla. Deben existir los recursos que no estén definidos en esta plantilla. Evite agregar dependencias innecesarias, ya que pueden ralentizar la implementación y crear dependencias circulares. Para obtener instrucciones sobre la configuración de dependencias, consulte [Definición de dependencias en plantillas de Azure Resource Manager](define-resource-dependency.md). |
+| dependsOn |No |Recursos que se deben implementar antes de implementar este. Resource Manager evalúa las dependencias entre recursos y los implementa en su orden correcto. Cuando no hay recursos dependientes entre sí, se implementan en paralelo. El valor puede ser una lista separada por comas de nombres de recursos o identificadores de recursos únicos. Solo los recursos de lista que se implementan en esta plantilla. Deben existir los recursos que no estén definidos en esta plantilla. Evite agregar dependencias innecesarias, ya que pueden ralentizar la implementación y crear dependencias circulares. Para obtener instrucciones sobre cómo establecer dependencias, vea [Definición del orden de implementación de recursos en plantillas de Azure Resource Manager](define-resource-dependency.md). |
 | etiquetas |No |Etiquetas asociadas al recurso. Aplique etiquetas para organizar de forma lógica los recursos en su suscripción. |
 | sku | No | Algunos recursos permiten valores que definen la SKU que se va a implementar. Por ejemplo, puede especificar el tipo de redundancia para una cuenta de almacenamiento. |
 | kind | No | Algunos recursos permiten un valor que define el tipo de recurso que va a implementar. Por ejemplo, puede especificar el tipo de instancia de Cosmos DB que va a crear. |
@@ -322,9 +322,9 @@ En el ejemplo siguiente se muestra la estructura de una definición de salida:
 | condición |No | Valor booleano que indica si se va a devolver este valor de salida. Si es `true`, el valor se incluye en la salida de la implementación. Si es `false`, el recurso se omite en esta implementación. Si no se especifica, el valor predeterminado es `true`. |
 | type |Sí |Tipo del valor de salida. Los valores de salida admiten los mismos tipos que los parámetros de entrada de plantilla. Si especifica **securestring** para el tipo de salida, el valor no se muestra en el historial de implementación y no se puede recuperar desde otra plantilla. Para usar un valor de secreto en más de una plantilla, almacene el secreto en un almacén de claves y haga referencia al secreto en el archivo de parámetros. Para más información, consulte [Uso de Azure Key Vault para pasar el valor de parámetro seguro durante la implementación](key-vault-parameter.md). |
 | value |No |Expresión de lenguaje de plantilla que se evaluará y devolverá como valor de salida. Especifique **value** o **copy**. |
-| copy |No | Se usa para devolver más de un valor para una salida. Especifique **value** o **copy**. Para más información, consulte [Iteración de salida en plantillas de Azure Resource Manager](copy-outputs.md). |
+| copy |No | Se usa para devolver más de un valor para una salida. Especifique **value** o **copy**. Para más información, vea [Iteración de salida en plantillas de ARM](copy-outputs.md). |
 
-Para ejemplos sobre cómo usar las salidas, consulte [Salidas en una plantilla de Azure Resource Manager](template-outputs.md).
+Para ejemplos sobre cómo usar las salidas, vea [Salidas en una plantilla de ARM](template-outputs.md).
 
 <a id="comments"></a>
 
@@ -351,7 +351,7 @@ Para los comentarios en línea, puede usar `//` o `/* ... */`, pero esta sintaxi
   ],
 ```
 
-En Visual Studio Code, la [extensión de herramientas de Azure Resource Manager](quickstart-create-templates-use-visual-studio-code.md) puede detectar automáticamente una plantilla de Resource Manager y cambiar el modo de lenguaje en consecuencia. Si ve **Plantilla de Azure Resource Manager** en la esquina inferior derecha de VS Code, puede usar los comentarios en línea. Los comentarios insertados ya no están marcados como no válidos.
+En Visual Studio Code, la [extensión de herramientas de Azure Resource Manager](quickstart-create-templates-use-visual-studio-code.md) puede detectar automáticamente una plantilla de ARM y cambiar el modo de lenguaje. Si ve **Plantilla de Azure Resource Manager** en la esquina inferior derecha de VS Code, puede usar los comentarios en línea. Los comentarios insertados ya no están marcados como no válidos.
 
 ![Modo de plantillas de Azure Resource Manager en Visual Studio Code](./media/template-syntax/resource-manager-template-editor-mode.png)
 
@@ -453,7 +453,7 @@ Para implementar plantillas con cadenas de varias líneas mediante la CLI de Azu
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Para ver plantillas completas de muchos tipos diferentes de soluciones, consulte [Plantillas de inicio rápido de Azure](https://azure.microsoft.com/documentation/templates/).
-* Para obtener información detallada sobre las funciones que se pueden usar dentro de una plantilla, consulte [Funciones de plantilla de Azure Resource Manager](template-functions.md).
-* Para combinar varias plantillas durante la implementación, consulte [Uso de plantillas vinculadas con Azure Resource Manager](linked-templates.md).
-* Para más recomendaciones sobre creación de platillas, consulte [Azure Resource Manager template best practices](template-best-practices.md) (Procedimientos recomendados para plantillas de Azure Resource Manager).
+* Para obtener información detallada sobre las funciones que se pueden usar dentro de una plantilla, vea [Funciones de plantilla de ARM](template-functions.md).
+* Para combinar varias plantillas durante la implementación, vea [Uso de plantillas vinculadas y anidadas al implementar recursos de Azure](linked-templates.md).
+* Para recomendaciones sobre la creación de platillas, consulte [Procedimientos recomendados de plantillas de ARM](template-best-practices.md).
 * Para obtener respuestas a preguntas comunes, consulte [Preguntas más frecuentes sobre las plantillas de ARM](frequently-asked-questions.md).

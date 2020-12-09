@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ad45d5f0e313c06619fa9c998515e434de957ea
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 08c4020fc03f89b2c583a2458c70e18ecbbe0ba1
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95997569"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498071"
 ---
 # <a name="redirect-hard-coded-links-for-apps-published-with-azure-ad-application-proxy"></a>Redirección de los vínculos codificados de manera rígida para las aplicaciones publicadas con Azure AD Application Proxy
 
@@ -86,28 +86,28 @@ Hay dos tipos comunes de vínculos internos en aplicaciones locales:
 - **Vínculos internos relativos** que apuntan a un recurso compartido en una estructura de archivos local como `/claims/claims.html`. Estos vínculos funcionan automáticamente en aplicaciones que se publican mediante el Proxy de aplicación y siguen funcionando con o sin traducción de vínculos. 
 - **Vínculos internos codificados de manera rígida** a otras aplicaciones locales como `http://expenses`, o archivos publicados como `http://expenses/logo.jpg`. La característica de traducción de vínculos funciona en vínculos internos codificados de manera rígida y los modifica para que apunten a las direcciones URL por las que deben pasar los usuarios remotos.
 
-La lista completa de etiquetas de código HTML para las que el proxy de aplicación admite la traducción de vínculos es la siguiente:
-* a
-* audio
-* base
-* botón
-* div
-* embed
-* form
-* frame
-* head
-* html
-* iframe
-* img
-* input
-* link
-* menuitem
-* meta
-* object
-* script
-* source
-* track
-* video
+La lista completa de atributos de las etiquetas de código HTML para las que el proxy de aplicación admite la traducción de vínculos es la siguiente:
+* a (href)
+* audio (src)
+* base (href)
+* button (formaction)
+* div (data-background, style, data-src)
+* embed (src)
+* form (action)
+* frame (src)
+* head (profile)
+* html (manifest)
+* iframe (longdesc, src)
+* img (longdesc, src)
+* input (formaction, src, value)
+* link (href)
+* menuitem (icon)
+* meta (content)
+* object (archive, data, codebase)
+* script (src)
+* source (src)
+* track (src)
+* video (src, poster)
 
 Además, también se traduce el atributo URL en CSS.
 

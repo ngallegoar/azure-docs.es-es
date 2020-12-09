@@ -3,20 +3,20 @@ title: Ejecución y desencadenadores de canalización en Azure Data Factory
 description: En este artículo se indica cómo ejecutar una canalización de Azure Data Factory a petición o mediante la creación de un desencadenador.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/05/2018
-ms.openlocfilehash: 73934521cc68dc8ec2e28f29e35df833651915d2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c72538de8aba60ce7ed880561b55773c22737f97
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83997016"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498632"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Ejecución y desencadenadores de canalización en Azure Data Factory
 
@@ -179,7 +179,7 @@ Las canalizaciones y los desencadenadores tienen una relación de varios a vario
 ## <a name="schedule-trigger"></a>Desencadenador de programación
 Un desencadenador de programación ejecuta canalizaciones según una programación de reloj. Este desencadenador admite opciones de calendario periódicas y avanzadas. Por ejemplo, el desencadenador admite intervalos como "semanal" o "lunes a las 5:00 p. m. y jueves a las 9:00 p. m". El desencadenador de programación es flexible porque el patrón de conjunto de datos es independiente y el desencadenador no distingue entre datos de series temporales y datos de series no temporales.
 
-Para más información sobre los desencadenadores de programación y ejemplos, consulte [Creación de un desencadenador de programación](how-to-create-schedule-trigger.md).
+Para más información sobre los desencadenadores de programación y ejemplos, vea [Creación de un desencadenador que ejecuta una canalización en una programación](how-to-create-schedule-trigger.md).
 
 ## <a name="schedule-trigger-definition"></a>Definición de desencadenador de programación
 Cuando se crea un desencadenador de programación, debe especificar la programación y periodicidad mediante una definición de JSON.
@@ -239,7 +239,7 @@ En la tabla siguiente se muestra información general de los elementos del esque
 | --- | --- |
 | **startTime** | Valor de fecha y hora. Para las programaciones básicas, se aplica el valor de la propiedad **startTime** al primer caso. Para las programaciones complejas, el desencadenador no se inicia antes del valor de **startTime** especificado. |
 | **endTime** | Fecha y hora de finalización para el desencadenador. El desencadenador no se ejecuta después de la fecha y hora de finalización especificadas. El valor de la propiedad no puede estar en el pasado. <!-- This property is optional. --> |
-| **timeZone** | La zona horaria Actualmente, solo se admite la zona horaria UTC. |
+| **timeZone** | La zona horaria Para obtener una lista de zonas horarias admitidas, vea [Creación de un desencadenador que ejecuta una canalización en una programación](how-to-create-schedule-trigger.md#time-zone-option). |
 | **recurrence** | Objeto que especifica las reglas de periodicidad para el desencadenador. El objeto recurrence admite los elementos **frequency**, **interval**, **endTime**, **count** y **schedule**. Cuando se define un objeto recurrence, es necesario el elemento **frequency**. Los demás elementos del objeto recurrence son opcionales. |
 | **frequency** | Unidad de frecuencia a la que se repite el desencadenador. Los valores admitidos son "minute", "hour", "day", "week" y "month". |
 | **interval** | Entero positivo que indica el intervalo para el valor **frequency**. El valor **frequency** determina la frecuencia con la que se ejecuta el desencadenador. Por ejemplo, si **interval** es 3 y **frequency** es “week”, el desencadenador se repite cada tres semanas. |
