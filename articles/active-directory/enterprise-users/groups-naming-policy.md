@@ -6,19 +6,20 @@ documentationcenter: ''
 author: curtand
 manager: daveba
 ms.service: active-directory
+ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
-ms.date: 11/15/2020
+ms.date: 12/02/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 458fbdf4cdfa40da871d34a62101020330c79265
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: a4c1c30e4651136ada7264cad8ff4d3921c3aeeb
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95488800"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96547923"
 ---
 # <a name="enforce-a-naming-policy-on-microsoft-365-groups-in-azure-active-directory"></a>Aplicación de una directiva de nomenclatura en los grupos de Microsoft 365 en Azure Active Directory
 
@@ -47,7 +48,7 @@ Los prefijos y sufijos pueden contener caracteres especiales que se admiten en e
 
 #### <a name="fixed-strings"></a>Cadenas fijas
 
-Puede usar cadenas para que sea más fácil examinar y diferenciar grupos en la lista global de direcciones y en los vínculos de navegación izquierdos de las cargas de trabajo de grupo. Algunos de los prefijos comunes son palabras clave como "Grp\_Name", "\#Name", "\_Name".
+Puede usar cadenas para que sea más fácil examinar y diferenciar grupos en la lista global de direcciones y en los vínculos de navegación izquierdos de las cargas de trabajo de grupo. Algunos de los prefijos comunes son palabras clave como "Grp\_Name", "\#Name" y "\_Name".
 
 #### <a name="user-attributes"></a>Atributos de usuario
 
@@ -79,7 +80,6 @@ Algunos administradores pueden quedar excluidos de estas directivas, en todas la
 - Soporte técnico de asociado de nivel 1
 - Soporte técnico de asociado de nivel 2
 - Administrador de usuarios
-- Escritores de directorios
 
 ## <a name="configure-naming-policy-in-azure-portal"></a>Configuración de la directiva de nomenclatura en Azure Portal
 
