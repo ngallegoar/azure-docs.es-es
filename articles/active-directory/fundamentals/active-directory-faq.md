@@ -13,12 +13,12 @@ ms.date: 11/12/2018
 ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: db8774d6868d55c7d040b1894c4a14d989cb2702
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 4a8fcb14ac397791822c3a9065275dbfb2b3b7dd
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371875"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96860429"
 ---
 # <a name="frequently-asked-questions-about-azure-active-directory"></a>Preguntas más frecuentes sobre Azure Active Directory
 Azure Active Directory (Azure AD) es una completa solución de identidad como servicio (IDaaS) que abarca todos los aspectos de la identidad, la administración de acceso y la seguridad.
@@ -130,7 +130,7 @@ Para los usuarios de Microsoft 365, el administrador puede restablecer la contr
 Para las cuentas de Azure AD, los administradores pueden restablecer las contraseñas mediante uno de los siguientes procedimientos:
 
 - [Restablecimiento de cuentas en Azure Portal](active-directory-users-reset-password-azure-portal.md)
-- [Uso de PowerShell](/powershell/module/msonline/set-msoluserpassword?view=azureadps-1.0)
+- [Uso de PowerShell](/powershell/module/msonline/set-msoluserpassword)
 
 
 ---

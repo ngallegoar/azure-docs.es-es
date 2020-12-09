@@ -5,14 +5,14 @@ author: kromerm
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 11/20/2020
+ms.date: 12/07/2020
 ms.author: makromer
-ms.openlocfilehash: 7fc3a63f841a88451746d088a527a41d756e711f
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: e3152f1dff4a80ce3ae8bd121215ceb2595b9ee2
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95015178"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96854015"
 ---
 # <a name="common-data-model-format-in-azure-data-factory"></a>Formato de Common Data Model en Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -20,9 +20,6 @@ ms.locfileid: "95015178"
 El sistema de metadatos de Common Data Model (CDM) permite que los datos y su significado se compartan fácilmente entre las aplicaciones y los procesos empresariales. Para obtener más información, consulte la información general de [Common Data Model](/common-data-model/).
 
 En Azure Data Factory, los usuarios pueden transformar datos las entidades CDM tanto en model.json como en formato de manifiesto almacenadas en [Azure Data Lake Store Gen2](connector-azure-data-lake-storage.md) (ADLS Gen2) mediante flujo de datos de asignación. También puede recibir datos en formato CDM mediante referencias de entidad CDM que van a colocar los datos en formato CSV o Parquet en las carpetas con particiones. 
-
-> [!NOTE]
-> El conector de formato de Common Data Model (CDM) para flujos de datos de ADF está disponible actualmente como vista previa pública.
 
 ## <a name="mapping-data-flow-properties"></a>Propiedades de Asignación de instancias de Data Flow
 
@@ -88,7 +85,6 @@ Al asignar columnas de flujo de datos a las propiedades de entidad en la transfo
 2. Busque las propiedades partitions.Location 
 3. Cambie "blob.core.windows.net" a "dfs.core.windows.net"
 4. Corrija cualquier codificación "% 2F" de la dirección URL a "/"
- 
 
 ### <a name="cdm-source-data-flow-script-example"></a>Ejemplo de script de flujo de datos del origen de CDM
 

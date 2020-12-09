@@ -15,12 +15,12 @@ ms.date: 01/15/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d9470e9af38fdd814f5059538656e6a3dbb8e3a7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e015f7937db6788aa4473a8a04434121299901e9
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89279319"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861789"
 ---
 # <a name="azure-ad-connect-sync-understanding-users-groups-and-contacts"></a>Sincronización de Azure AD Connect: descripción de usuarios, grupos y contactos
 Hay diversas razones por las que podría interesarle tener varios bosques de Active Directory y hay diversas topologías de implementación. Los modelos comunes incluyen una implementación cuenta-recurso y bosques sincronizados de lista global de direcciones tras una fusión y adquisición. Sin embargo, aunque existan modelos puros, los modelos híbridos también son comunes. La configuración predeterminada de Azure AD Connect no da por supuesto ningún modelo en particular, pero en función de cómo se haya seleccionado la coincidencia de usuarios en la guía de instalación, pueden observarse comportamientos diferentes.
@@ -41,7 +41,7 @@ Puntos importantes para tener en cuenta durante la sincronización de grupos de 
 
 * Azure AD Connect no admite la sincronización de [pertenencias de grupo principal](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771489(v=ws.11)) a Azure AD.
 
-* Azure AD Connect no admite la sincronización de [pertenencias de grupo de distribución dinámico](/Exchange/recipients/dynamic-distribution-groups/dynamic-distribution-groups?view=exchserver-2019) a Azure AD.
+* Azure AD Connect no admite la sincronización de [pertenencias de grupo de distribución dinámico](/Exchange/recipients/dynamic-distribution-groups/dynamic-distribution-groups) a Azure AD.
 
 * Para sincronizar un grupo de Active Directory a Azure AD como un grupo habilitado para correo electrónico:
 

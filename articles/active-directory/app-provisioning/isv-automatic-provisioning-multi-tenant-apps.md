@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/23/2019
 ms.author: kenwith
 ms.reviewer: zhchia
-ms.openlocfilehash: 9cb3d8f39d83e27755b1e8982dfe3b807c431413
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: d4c6c5b51e00f7f2ed7e29c27aa8e8bb88a2ea94
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92069728"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861365"
 ---
 # <a name="enable-automatic-user-provisioning-for-your-multi-tenant-application"></a>Habilitar el aprovisionamiento automático de usuarios para aplicaciones multiinquilino
 
@@ -89,7 +89,7 @@ Para obtener más información sobre cómo usa el servicio de aprovisionamiento 
 
 ## <a name="microsoft-graph-for-provisioning"></a>Microsoft Graph para el aprovisionamiento
 
-Cuando usa Microsoft Graph para el aprovisionamiento, tiene acceso a todos los datos de usuario enriquecidos disponibles en Graph. Además de los detalles de los usuarios y grupos, también puede obtener información adicional como los roles del usuario, el administrador y los informes directos, los dispositivos propios y registrados y cientos de otras partes de datos disponibles en [Microsoft Graph](/graph/api/overview?view=graph-rest-1.0). 
+Cuando usa Microsoft Graph para el aprovisionamiento, tiene acceso a todos los datos de usuario enriquecidos disponibles en Graph. Además de los detalles de los usuarios y grupos, también puede obtener información adicional como los roles del usuario, el administrador y los informes directos, los dispositivos propios y registrados y cientos de otras partes de datos disponibles en [Microsoft Graph](/graph/api/overview). 
 
 Más de 15 millones de organizaciones y el 90 % de las compañías de la lista Fortune 500 usan Azure AD a la vez que se suscriben a servicios en la nube de Microsoft como Microsoft 365, Microsoft Azure o Enterprise Mobility Suite. Puede usar Microsoft Graph para integrar su aplicación con flujos de trabajo administrativos, como la incorporación (y finalización de contratos) de empleados, el mantenimiento de los perfiles y muchas cosas más. 
 

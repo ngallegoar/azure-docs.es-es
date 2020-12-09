@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 06/08/2020
 ms.author: kenwith
-ms.openlocfilehash: 1765c6a7d19a11730567acd5e41deebc0a20cec2
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 88d004836d5311fc3a971df81a3dc6e6ab605ca9
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95993999"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861398"
 ---
 # <a name="attribute-based-application-provisioning-with-scoping-filters"></a>Aprovisionamiento de aplicaciones basado en atributos con filtros de ámbito
 El objetivo de este artículo es explicar cómo usar filtros de ámbito para definir reglas basadas en atributos que determinarán qué usuarios se aprovisionarán en una aplicación.
@@ -94,7 +94,7 @@ Los filtros de ámbito se configuran como parte de las asignaciones de atributos
    
    j. **Greater_Than_OR_EQUALS.** La cláusula devuelve "true" si el atributo evaluado es mayor o igual que el valor. El valor especificado en el filtro de ámbito debe ser un entero y el atributo del usuario debe ser un entero [0, 1, 2,...]. 
    
-   k. **Includes.** La cláusula devuelve "true" si el atributo que se evalúa contiene el valor de la cadena (distingue entre mayúsculas y minúsculas) como se describe [aquí](/dotnet/api/system.string.contains?view=netframework-4.8). 
+   k. **Includes.** La cláusula devuelve "true" si el atributo que se evalúa contiene el valor de la cadena (distingue entre mayúsculas y minúsculas) como se describe [aquí](/dotnet/api/system.string.contains). 
 
 
 >[!IMPORTANT] 

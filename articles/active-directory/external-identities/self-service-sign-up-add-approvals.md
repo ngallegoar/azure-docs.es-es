@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e46dabc665d383279a12fc6bd8eb67475d88a2ea
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 82f0408b7e46493f6c3ec62d48a992e87f196f78
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896079"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96860616"
 ---
 # <a name="add-a-custom-approval-workflow-to-self-service-sign-up"></a>Adición de un flujo de trabajo de aprobaciones personalizado al registro de autoservicio
 
@@ -32,7 +32,7 @@ En este artículo se proporciona un ejemplo de cómo realizar la integración co
 Debe registrar el sistema de aprobación como una aplicación en el inquilino de Azure AD para que pueda autenticarse en Azure AD y tener permiso para crear usuarios. Obtenga más información en [Aspectos básicos de autorización y autenticación de Microsoft Graph](/graph/auth/auth-concepts).
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) como administrador de Azure AD.
-2. En **Servicios de Azure** , seleccione **Azure Active Directory**.
+2. En **Servicios de Azure**, seleccione **Azure Active Directory**.
 3. En el menú de la izquierda, seleccione **Registros de aplicaciones** y luego **Nuevo registro**.
 4. Escriba un **Nombre** para la aplicación; por ejemplo, _Sign-up Approvals_.
 
@@ -42,14 +42,14 @@ Debe registrar el sistema de aprobación como una aplicación en el inquilino de
 
    ![Captura de pantalla en la que se resalta el botón Registrar.](media/self-service-sign-up-add-approvals/register-approvals-app.png)
 
-6. En **Administrar** , en el menú de la izquierda, seleccione **Permisos de API** y, después, **Agregar un permiso**.
-7. En la página **Solicitud de permisos de API** , seleccione **Microsoft Graph** y, después, **Permisos de la aplicación**.
-8. En **Seleccionar permisos** , expanda **Usuario** y, después, seleccione la casilla **User.ReadWrite.All**. Este permiso permite al sistema de aprobación crear el usuario tras su aprobación. Seleccione **Agregar permisos**.
+6. En **Administrar**, en el menú de la izquierda, seleccione **Permisos de API** y, después, **Agregar un permiso**.
+7. En la página **Solicitud de permisos de API**, seleccione **Microsoft Graph** y, después, **Permisos de la aplicación**.
+8. En **Seleccionar permisos**, expanda **Usuario** y, después, seleccione la casilla **User.ReadWrite.All**. Este permiso permite al sistema de aprobación crear el usuario tras su aprobación. Seleccione **Agregar permisos**.
 
    ![Página de registro de una aplicación](media/self-service-sign-up-add-approvals/request-api-permissions.png)
 
-9. En la página **Permisos de API** , seleccione **Conceder consentimiento de administrador para (nombre del inquilino)** y, después, seleccione **Sí**.
-10. En **Administrar** , en el menú de la izquierda, seleccione **Certificados y secretos** y luego **Nuevo secreto de cliente**.
+9. En la página **Permisos de API**, seleccione **Conceder consentimiento de administrador para (nombre del inquilino)** y, después, seleccione **Sí**.
+10. En **Administrar**, en el menú de la izquierda, seleccione **Certificados y secretos** y luego **Nuevo secreto de cliente**.
 11. Escriba una **Descripción** para el secreto, por ejemplo, _Secreto de cliente de aprobaciones_ y seleccione la duración para la **Expiración** del secreto de cliente. A continuación, seleccione **Agregar**.
 12. Copie el valor del secreto de cliente.
 
@@ -76,13 +76,13 @@ Para crear estos conectores, siga los pasos descritos en [Creación de un conect
 Ahora, agregará los conectores de API a un flujo de usuario de registro de autoservicio con estos pasos:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/) como administrador de Azure AD.
-2. En **Servicios de Azure** , seleccione **Azure Active Directory**.
+2. En **Servicios de Azure**, seleccione **Azure Active Directory**.
 3. En el menú de la izquierda, seleccione **External Identities**.
 4. Seleccione **Flujos de usuario (versión preliminar)** y, después, seleccione el flujo de usuario para el que desea habilitar el conector de API.
 5. Seleccione **Conectores de API** y, después, seleccione los puntos de conexión de API que desea invocar en los pasos siguientes del flujo de usuario:
 
-   - **Después de iniciar sesión con un proveedor de identidades** : seleccione el conector de API del estado de aprobación; por ejemplo, _Check approval status_.
-   - **Antes de crear el usuario** : seleccione el conector de API de solicitud de aprobación; por ejemplo, _Request approval_.
+   - **Después de iniciar sesión con un proveedor de identidades**: seleccione el conector de API del estado de aprobación; por ejemplo, _Check approval status_.
+   - **Antes de crear el usuario**: seleccione el conector de API de solicitud de aprobación; por ejemplo, _Request approval_.
 
    ![Adición de API al flujo de usuario](./media/self-service-sign-up-add-approvals/api-connectors-user-flow-api.png)
 
@@ -270,7 +270,7 @@ Después de obtener la aprobación manual, el sistema de aprobación personaliza
 > [!IMPORTANT]
 > El sistema de aprobación debe comprobar explícitamente que `identities`, `identities[0]` y `identities[0].issuer` están presentes y que `identities[0].issuer` es igual a "facebook"' o "google" para usar este método.
 
-Si el usuario ha iniciado sesión con una cuenta de Google o Facebook, puede usar la [API de creación de usuarios](/graph/api/user-post-users?tabs=http&view=graph-rest-1.0).
+Si el usuario ha iniciado sesión con una cuenta de Google o Facebook, puede usar la [API de creación de usuarios](/graph/api/user-post-users?tabs=http).
 
 1. El sistema de aprobación recibe la solicitud HTTP del flujo de usuario.
 
@@ -330,7 +330,7 @@ Content-type: application/json
 
 ### <a name="for-a-federated-azure-active-directory-user"></a>Para un usuario de Azure Active Directory federado
 
-Si un usuario inicia sesión con una cuenta de Azure Active Directory federada, debe usar la [API de invitación](/graph/api/invitation-post?view=graph-rest-1.0) para crear el usuario y, opcionalmente, la [API de actualización de usuario](/graph/api/user-update?view=graph-rest-1.0) para asignar más atributos al usuario.
+Si un usuario inicia sesión con una cuenta de Azure Active Directory federada, debe usar la [API de invitación](/graph/api/invitation-post) para crear el usuario y, opcionalmente, la [API de actualización de usuario](/graph/api/user-update) para asignar más atributos al usuario.
 
 1. El sistema de aprobación recibe la solicitud HTTP del flujo de usuario.
 

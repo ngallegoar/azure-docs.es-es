@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e85f36f1b970a4848ee132fe37bd1b0f4f4fdc82
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: d8bc1a96109eda9cc2ee1f86cec892cc5ce9308d
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94489529"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96860327"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Procedimientos: Bloqueo de la autenticación heredada en Azure AD con acceso condicional   
 
@@ -119,7 +119,7 @@ Puede seleccionar todos los controles de concesión disponibles para la condici�
 
 ### <a name="sharepoint-online-and-b2b-guest-users"></a>Usuarios invitados de SharePoint Online y B2B
 
-Para bloquear el acceso de usuarios B2B a través de la autenticación heredada a SharePoint Online, las organizaciones deben deshabilitar la autenticación heredada en SharePoint con el comando `Set-SPOTenant` de PowerShell y establecer el parámetro `-LegacyAuthProtocolsEnabled` en `$false`. Puede encontrar más información sobre la configuración de este parámetro en el documento de referencia de PowerShell para SharePoint con respecto a [Set-SPOTenant](/powershell/module/sharepoint-online/set-spotenant?view=sharepoint-ps).
+Para bloquear el acceso de usuarios B2B a través de la autenticación heredada a SharePoint Online, las organizaciones deben deshabilitar la autenticación heredada en SharePoint con el comando `Set-SPOTenant` de PowerShell y establecer el parámetro `-LegacyAuthProtocolsEnabled` en `$false`. Puede encontrar más información sobre la configuración de este parámetro en el documento de referencia de PowerShell para SharePoint con respecto a [Set-SPOTenant](/powershell/module/sharepoint-online/set-spotenant).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

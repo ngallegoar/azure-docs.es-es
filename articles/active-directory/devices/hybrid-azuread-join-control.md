@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66b216e5e511d2d80378ee7e2d124dccbc7abcb7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 38754b9e349e27afcff58dac27a616e3e4fb5319
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85252719"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96860939"
 ---
 # <a name="controlled-validation-of-hybrid-azure-ad-join"></a>Validación controlada de la unión a Azure AD híbrido
 
@@ -82,7 +82,7 @@ Use el ejemplo siguiente para crear un objeto de directiva de grupo (GPO) y conf
 Si utiliza AD FS, primero deberá configurar el SCP del cliente mediante las instrucciones mencionadas anteriormente mediante la vinculación del GPO a los servidores de AD FS. El objeto SCP define el origen de autoridad de los objetos del dispositivo. Puede ser local o Azure AD. Cuando el SCP del cliente se configura para AD FS, el origen de los objetos del dispositivo se establece como Azure AD.
 
 > [!NOTE]
-> Si no pudo configurar SCP en el cliente en los servidores de AD FS, el origen de las identidades de los dispositivos se considerará local. ADFS comenzará a eliminar los objetos de dispositivo del directorio local después del período estipulado definido en el atributo "MaximumInactiveDays" del registro de dispositivos de ADFS. Los objetos del registro de dispositivos de ADFS se pueden encontrar con el [cmdlet Get-AdfsDeviceRegistration](/powershell/module/adfs/get-adfsdeviceregistration?view=win10-ps).
+> Si no pudo configurar SCP en el cliente en los servidores de AD FS, el origen de las identidades de los dispositivos se considerará local. ADFS comenzará a eliminar los objetos de dispositivo del directorio local después del período estipulado definido en el atributo "MaximumInactiveDays" del registro de dispositivos de ADFS. Los objetos del registro de dispositivos de ADFS se pueden encontrar con el [cmdlet Get-AdfsDeviceRegistration](/powershell/module/adfs/get-adfsdeviceregistration).
 
 ## <a name="controlled-validation-of-hybrid-azure-ad-join-on-windows-down-level-devices"></a>Validación controlada de la unión a Azure AD híbrido en dispositivos Windows de nivel inferior
 

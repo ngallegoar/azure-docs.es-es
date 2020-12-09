@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2eb656e46ce5e26fca5ae5c094f9b8bb85819caa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d33b419e0f24201d661ad0f5f1373022ea6e9e9f
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89275783"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861755"
 ---
 # <a name="azure-ad-connect-sync-handling-largeobject-errors-caused-by-usercertificate-attribute"></a>Sincronización de Azure AD Connect: Control de errores LargeObject causados por el atributo userCertificate
 
@@ -49,7 +49,7 @@ Hasta que se resuelva el error LargeObject, no se pueden exportar a Azure AD otr
  * Reduzca el número de valores de certificado en el objeto de AD local (15 o menos) mediante la eliminación de los valores que ya no están en uso por su organización. Esto es adecuado si el sobredimensionamiento del atributo está causado por los certificados expirados o sin usar. Puede usar [el script de PowerShell disponible aquí](https://gallery.technet.microsoft.com/Remove-Expired-Certificates-0517e34f) para buscar, hacer una copia de seguridad y eliminar certificados expirados en el AD local. Antes de eliminar los certificados, se recomienda que los compruebe con los administradores de infraestructura de clave pública de su organización.
 
  * Configure Azure AD Connect para que el atributo userCertificate no se exporte a Azure AD. En general, no se recomienda esta opción ya que el atributo lo puede usar Microsoft Online Services para habilitar escenarios concretos. En concreto:
-    * El atributo userCertificate del objeto de usuario lo usan los clientes de Outlook y Exchange Online para el cifrado y la firma de mensajes. Para más información sobre esta característica, consulte el artículo [S/MIME para la firma y el cifrado de mensajes](/microsoft-365/security/office-365-security/s-mime-for-message-signing-and-encryption?view=o365-worldwide).
+    * El atributo userCertificate del objeto de usuario lo usan los clientes de Outlook y Exchange Online para el cifrado y la firma de mensajes. Para más información sobre esta característica, consulte el artículo [S/MIME para la firma y el cifrado de mensajes](/microsoft-365/security/office-365-security/s-mime-for-message-signing-and-encryption).
 
     * El atributo userCertificate del objeto Computer lo utiliza Azure AD para permitir que dispositivos unidos a un dominio de Windows 10 local se conecten a Azure AD. Para más información sobre esta característica, consulte el artículo [Experiencias de conexión de dispositivos unidos a un dominio a Azure AD para Windows 10](../devices/hybrid-azuread-join-plan.md).
 

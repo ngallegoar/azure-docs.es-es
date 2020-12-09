@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e1e1bbdfe1cb83f9b479861840081cd0bb138957
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: bb134a2fb784e02f5e00c9e88ab0df1794489e0c
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92441885"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96860599"
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>Elementos del correo electrónico de invitación para la colaboración B2B: Azure Active Directory
 
@@ -69,7 +69,7 @@ El pie de página contiene más información sobre la invitación que se envía.
 
 ### <a name="blocking-an-organization-unsubscribing"></a>Bloqueo de una organización (cancelación de suscripción)
 
-En la invitación de una organización, el pie de página contiene una opción para **bloquear las invitaciones futuras** . Un usuario invitado puede seleccionar este vínculo para bloquear cualquier invitación futura de la organización. Esta acción también agrega la organización a la lista de suscripciones canceladas del usuario en [https://invitations.microsoft.com/unsubscribe/manage](https://invitations.microsoft.com/unsubscribe/manage).
+En la invitación de una organización, el pie de página contiene una opción para **bloquear las invitaciones futuras**. Un usuario invitado puede seleccionar este vínculo para bloquear cualquier invitación futura de la organización. Esta acción también agrega la organización a la lista de suscripciones canceladas del usuario en [https://invitations.microsoft.com/unsubscribe/manage](https://invitations.microsoft.com/unsubscribe/manage).
 
 ### <a name="viewing-organizations-youve-blocked"></a>Visualización de las organizaciones que ha bloqueado
 
@@ -79,14 +79,14 @@ Un usuario invitado puede seguir estos pasos para ver o exportar las organizacio
 2. Escriba su correo electrónico y siga los pasos de inicio de sesión para la autenticación de código de acceso de un solo uso de correo electrónico.
 3. Puede ver las organizaciones que ha bloqueado o exportar los nombres mediante copiar y pegar.
    > [!NOTE]
-   > Si desea permitir que una organización que ha bloqueado le invite de nuevo, puede elegir la organización y seleccionar **Siguiente** .
+   > Si desea permitir que una organización que ha bloqueado le invite de nuevo, puede elegir la organización y seleccionar **Siguiente**.
 
 ## <a name="how-the-language-is-determined"></a>Cómo se determina el idioma
 
 Las opciones siguientes determinan el idioma que el usuario invitado ve en el correo electrónico de invitación. Estas opciones de configuración se muestran en el siguiente orden de prioridad. Si una opción no está configurada, la siguiente de la lista será la que determine el idioma.
 
-- La propiedad **messageLanguage** del objeto [guestUserMessageInfo](/graph/api/resources/invitedusermessageinfo?view=graph-rest-1.0), si se usa la API para crear una invitación.
--   La propiedad **preferredLanguage** especificada en el [objeto de usuario](/graph/api/resources/user?view=graph-rest-1.0) del invitado.
+- La propiedad **messageLanguage** del objeto [guestUserMessageInfo](/graph/api/resources/invitedusermessageinfo), si se usa la API para crear una invitación.
+-   La propiedad **preferredLanguage** especificada en el [objeto de usuario](/graph/api/resources/user) del invitado.
 -   El **idioma de notificación** establecido en las propiedades del inquilino principal del usuario invitado (solo para inquilinos de Azure AD).
 -   El **idioma de notificación** establecido en las propiedades del inquilino del recurso.
 

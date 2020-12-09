@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 706fa1666dc327955294fb350b673aed40d6bf48
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: b7519b6c7e1f3381be77b9a0734ddda250228e7d
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95520669"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96860310"
 ---
 # <a name="continuous-access-evaluation"></a>Evaluación continua de acceso
 
@@ -28,7 +28,7 @@ La respuesta oportuna a las infracciones de las directivas o a los problemas de 
 
 La implementación inicial de la evaluación continua de acceso se centra en Exchange, Teams y SharePoint Online.
 
-Para preparar las aplicaciones para el uso de CAE, consulte [Uso de las API habilitadas para la evaluación continua de acceso en las aplicaciones](/develop/app-resilience-continuous-access-evaluation.md).
+Para preparar las aplicaciones para el uso de CAE, consulte [Uso de las API habilitadas para la evaluación continua de acceso en las aplicaciones](/azure/active-directory/develop/app-resilience-continuous-access-evaluation).
 
 ### <a name="key-benefits"></a>Ventajas principales
 
@@ -105,7 +105,7 @@ Si no usa clientes compatibles con CAE, la vigencia del token de acceso predeter
 
 1. Un cliente compatible con CAE presenta credenciales o un token de actualización a Azure AD para solicitar un token de acceso para algún recurso.
 1. Se devuelve un token de acceso junto con otros artefactos al cliente.
-1. El administrador [revoca explícitamente todos los tokens de actualización de un usuario](/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0). Se enviará un evento de revocación al proveedor de recursos desde Azure AD.
+1. El administrador [revoca explícitamente todos los tokens de actualización de un usuario](/powershell/module/azuread/revoke-azureaduserallrefreshtoken). Se enviará un evento de revocación al proveedor de recursos desde Azure AD.
 1. Se presenta un token de acceso al proveedor de recursos. El proveedor de recursos evalúa la validez del token y comprueba si hay algún evento de revocación para el usuario. El proveedor de recursos utiliza esta información para decidir si se concede acceso al recurso.
 1. En este caso, el proveedor de recursos deniega el acceso y envía un error 401 y un desafío de notificaciones al cliente.
 1. El cliente compatible con CAE comprende el desafío de notificaciones 401+. Omite las cachés y vuelve al paso 1, enviando su token de actualización junto con el desafío de notificaciones de vuelta a Azure AD. A continuación, Azure AD volverá a evaluar todas las condiciones y solicitará al usuario que vuelva a autenticarse en este caso.

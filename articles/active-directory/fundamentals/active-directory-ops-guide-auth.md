@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: 5f529e6148463ae384791985659378cb9d0a5046
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 90e215ea445c8c700e351149e9c7a91d9a595252
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96168872"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96859528"
 ---
 # <a name="azure-active-directory-authentication-management-operations-reference-guide"></a>Guía de referencia de operaciones de administración de autenticación de Azure Active Directory
 
@@ -288,7 +288,7 @@ Si la autenticación heredada se usa ampliamente en su entorno, debe planear la 
 
 #### <a name="legacy-authentication-recommended-reading"></a>Lectura recomendada de la autenticación heredada
 
-- [Habilitar o deshabilitar el acceso POP3 o IMAP4 a los buzones de Exchange Server](/exchange/clients/pop3-and-imap4/configure-mailbox-access?view=exchserver-2019)
+- [Habilitar o deshabilitar el acceso POP3 o IMAP4 a los buzones de Exchange Server](/exchange/clients/pop3-and-imap4/configure-mailbox-access)
 
 ### <a name="consent-grants"></a>Otorgar consentimientos
 

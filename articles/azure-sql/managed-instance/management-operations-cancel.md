@@ -12,12 +12,12 @@ author: urosmil
 ms.author: urmilano
 ms.reviewer: sstein, bonova, MashaMSFT
 ms.date: 09/03/2020
-ms.openlocfilehash: 092981f9d74a3f9f18c491ca6cee539a29e73c83
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 342491178d55dacbdc68e6c9042623d381dff898
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92782508"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861551"
 ---
 # <a name="canceling-azure-sql-managed-instance-management-operations"></a>Cancelación de operaciones de administración de Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -55,13 +55,13 @@ Para cancelar operaciones de administración mediante Azure Portal, siga estos p
 
 1. Vaya a [Azure Portal](https://portal.azure.com).
 1. Vaya a la hoja de **información general** del servicio SQL Managed Instance. 
-1. Seleccione el cuadro **Notificación** que aparece junto a la operación en curso para abrir la página **Operación en curso** . 
+1. Seleccione el cuadro **Notificación** que aparece junto a la operación en curso para abrir la página **Operación en curso**. 
 
    :::image type="content" source="media/management-operations-cancel/open-ongoing-operation.png" alt-text="Seleccione el cuadro Operación en curso para abrir la página Operación en curso.":::
 
 1. Seleccione **Cancelar la operación** en la parte inferior de la página. 
 
-   :::image type="content" source="media/management-operations-cancel/cancel-operation.png" alt-text="Seleccione el cuadro Operación en curso para abrir la página Operación en curso.":::
+   :::image type="content" source="media/management-operations-cancel/cancel-operation.png" alt-text="Seleccione Cancelar para cancelar la operación.":::
 
 1. Confirme que quiere cancelar la operación. 
 
@@ -116,13 +116,12 @@ Para obtener una explicación detallada de los comandos, consulte [az sql mi op]
 
 ## <a name="canceled-deployment-request"></a>Solicitud de implementación cancelada
 
-Con la versión 2020-02-02 de la API, en cuanto se acepta la solicitud de creación de la instancia, la instancia comienza a existir como un recurso, independientemente del progreso del proceso de implementación (el estado de la instancia administrada es **de aprovisionamiento** ). Si cancela la solicitud de implementación de instancia (nueva creación de instancia), la instancia administrada pasará del estado **de aprovisionamiento** a **FailedToCreate** .
+Con la versión 2020-02-02 de la API, en cuanto se acepta la solicitud de creación de la instancia, la instancia comienza a existir como un recurso, independientemente del progreso del proceso de implementación (el estado de la instancia administrada es **de aprovisionamiento**). Si cancela la solicitud de implementación de instancia (nueva creación de instancia), la instancia administrada pasará del estado **de aprovisionamiento** a **FailedToCreate**.
 
 Las instancias que no se han podido crear todavía están presentes como recurso y: 
 
 - No se cobran
 - No cuentan a efectos de los límites de recursos (cuota de núcleo virtual o subred)
-- Conservan el nombre de instancia reservado: para implementar una instancia con el mismo nombre, elimine la instancia con errores para liberar el nombre
 
 
 > [!NOTE]

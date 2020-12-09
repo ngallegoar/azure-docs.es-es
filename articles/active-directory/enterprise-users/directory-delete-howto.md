@@ -6,19 +6,20 @@ documentationcenter: ''
 author: curtand
 manager: mtillman
 ms.service: active-directory
+ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
-ms.date: 11/15/2020
+ms.date: 12/02/2020
 ms.author: curtand
 ms.reviewer: addimitu
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: be40a3cea5aa7abfa257c4e5a2db61c514892dd5
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 2edc6fb98359c5360836bc369e5ae1928464df92
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95503646"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861037"
 ---
 # <a name="delete-a-tenant-in-azure-active-directory"></a>Eliminar un inquilino en Azure Active Directory
 
@@ -84,7 +85,7 @@ Puede colocar una suscripción en un estado **Desaprovisionado** para que se eli
 
    ![Eliminación del vínculo para eliminar la suscripción](./media/directory-delete-howto/delete-command.png)
 
-6. Seleccione **Delete subscription** (Eliminar suscripción) para eliminar la suscripción y acepte los términos y condiciones. Todos los datos se eliminarán permanentemente a los tres días. Puede [reactivar la suscripción](/office365/admin/subscriptions-and-billing/reactivate-your-subscription?view=o365-worldwide) durante el período de tres días, si cambia de opinión.
+6. Seleccione **Delete subscription** (Eliminar suscripción) para eliminar la suscripción y acepte los términos y condiciones. Todos los datos se eliminarán permanentemente a los tres días. Puede [reactivar la suscripción](/office365/admin/subscriptions-and-billing/reactivate-your-subscription) durante el período de tres días, si cambia de opinión.
   
    ![Lea detenidamente los términos y condiciones.](./media/directory-delete-howto/delete-terms.png)
 
@@ -96,7 +97,7 @@ Puede colocar una suscripción en un estado **Desaprovisionado** para que se eli
 
 ## <a name="i-have-a-trial-subscription-that-blocks-deletion"></a>Suscripción de prueba que bloquea la eliminación
 
-Hay [productos de registro de autoservicio](/office365/admin/misc/self-service-sign-up?view=o365-worldwide) como Microsoft Power BI, Rights Management Services, Microsoft Power Apps o Dynamics 365 en los que los usuarios individuales se pueden registrar mediante Microsoft 365, que también crea un usuario invitado para la autenticación en su organización de Azure AD. Para evitar la pérdida de datos, estos productos autoservicio bloquean las eliminaciones del directorio hasta que los productos se eliminen por completo desde la organización. Solo el administrador de Azure AD puede eliminarlos, si el usuario se ha registrado individualmente o se le asignó el producto.
+Hay [productos de registro de autoservicio](/office365/admin/misc/self-service-sign-up) como Microsoft Power BI, Rights Management Services, Microsoft Power Apps o Dynamics 365 en los que los usuarios individuales se pueden registrar mediante Microsoft 365, que también crea un usuario invitado para la autenticación en su organización de Azure AD. Para evitar la pérdida de datos, estos productos autoservicio bloquean las eliminaciones del directorio hasta que los productos se eliminen por completo desde la organización. Solo el administrador de Azure AD puede eliminarlos, si el usuario se ha registrado individualmente o se le asignó el producto.
 
 Hay dos tipos de productos de registro de autoservicio en función de cómo se asignen: 
 
@@ -105,9 +106,9 @@ Hay dos tipos de productos de registro de autoservicio en función de cómo se a
 
 Cuando inicie la eliminación del producto de suscripción de autoservicio, la acción eliminará permanentemente los datos y quitará todos los accesos de usuario al servicio. Los usuarios a los que se asignó la oferta individualmente o en el nivel de organización, no podrán iniciar sesión u obtener acceso a los datos existentes. Si desea evitar la pérdida de datos con un producto de suscripción de autoservicio como [paneles de Microsoft Power BI](/power-bi/service-export-to-pbix) o [configuración de directivas de Rights Management Services](/azure/information-protection/configure-policy#how-to-configure-the-azure-information-protection-policy), asegúrese de que se realiza una copia de seguridad de los datos y que se guarda en otro lugar.
 
-Para obtener más información sobre los productos y servicios de registro de autoservicio disponibles, consulte [Programas de autoservicio disponibles](/office365/admin/misc/self-service-sign-up?view=o365-worldwide#available-self-service-programs).
+Para obtener más información sobre los productos y servicios de registro de autoservicio disponibles, consulte [Programas de autoservicio disponibles](/office365/admin/misc/self-service-sign-up#available-self-service-programs).
 
-Para saber qué se puede esperar cuando una suscripción de Microsoft 365 de prueba expira (exceptuando el caso de licencias por volumen, el contrato Enterprise o de CSP/asociados de pago), consulte la tabla siguiente. Para obtener más información sobre la retención de datos de Microsoft 365 y el ciclo de vida de la suscripción, consulte [¿Qué pasa con mis datos y mi acceso cuando termina mi suscripción de Microsoft 365 para empresas?](/office365/admin/subscriptions-and-billing/what-if-my-subscription-expires?view=o365-worldwide).
+Para saber qué se puede esperar cuando una suscripción de Microsoft 365 de prueba expira (exceptuando el caso de licencias por volumen, el contrato Enterprise o de CSP/asociados de pago), consulte la tabla siguiente. Para obtener más información sobre la retención de datos de Microsoft 365 y el ciclo de vida de la suscripción, consulte [¿Qué pasa con mis datos y mi acceso cuando termina mi suscripción de Microsoft 365 para empresas?](/office365/admin/subscriptions-and-billing/what-if-my-subscription-expires).
 
 Estado del producto | data | Acceso a datos
 ------------- | ---- | --------------

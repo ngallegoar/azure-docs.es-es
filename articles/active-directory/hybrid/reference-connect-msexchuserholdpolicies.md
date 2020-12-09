@@ -14,18 +14,18 @@ ms.date: 09/15/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 24820949eb6762caf808c4420ede6f0f59184281
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 0fbda588d99de44c77118586519055a8fc474104
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94412602"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861772"
 ---
 # <a name="azure-ad-connect---msexchuserholdpolicies-and-cloudmsexchuserholdpolicies"></a>Azure AD Connect: msExchUserHoldPolicies y cloudMsExchUserHoldPolicies
 En el documento de referencia siguiente se describen estos atributos usados por Exchange y la manera adecuada de editar las reglas de sincronización predeterminadas.
 
 ## <a name="what-are-msexchuserholdpolicies-and-cloudmsexchuserholdpolicies"></a>¿Qué son msExchUserHoldPolicies y cloudMsExchUserHoldPolicies?
-Hay dos tipos de [suspensiones](/Exchange/policy-and-compliance/holds/holds?view=exchserver-2019) para una instancia de Exchange Server: suspensión por litigio y conservación local. Cuando se habilita la suspensión por litigio, todos los elementos del buzón se colocan en suspensión.  Una conservación local se usa para conservar solo los elementos que cumplen los criterios de una consulta de búsqueda que se ha definido mediante la herramienta eDiscovery local.
+Hay dos tipos de [suspensiones](/Exchange/policy-and-compliance/holds/holds) para una instancia de Exchange Server: suspensión por litigio y conservación local. Cuando se habilita la suspensión por litigio, todos los elementos del buzón se colocan en suspensión.  Una conservación local se usa para conservar solo los elementos que cumplen los criterios de una consulta de búsqueda que se ha definido mediante la herramienta eDiscovery local.
 
 Los atributos MsExchUserHoldPolcies y cloudMsExchUserHoldPolicies permiten a AD y Azure AD locales determinar qué usuarios están sujetos a una suspensión en función de si usan Exchange local o Exchange en línea.
 

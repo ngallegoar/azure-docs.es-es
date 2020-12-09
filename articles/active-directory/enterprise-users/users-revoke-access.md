@@ -3,21 +3,22 @@ title: Revocación del acceso de usuario en un emergencia de Azure Active Dire
 description: Revocación de todo el acceso de un usuario en Azure Active Directory
 services: active-directory
 ms.service: active-directory
+ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
 author: curtand
 ms.author: curtand
 manager: daveba
 ms.reviewer: krbain
-ms.date: 11/15/2020
+ms.date: 12/02/2020
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 491e4f996d91fe267593e36b7ff06200c91b93f8
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 826ca9fc20d8bbcf9a5f90ccc895b9f9867a6be1
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95490704"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96860582"
 ---
 # <a name="revoke-user-access-in-azure-active-directory"></a>Revocación del acceso de usuario en Azure Active Directory
 
@@ -59,13 +60,13 @@ Para un entorno híbrido con Active Directory local sincronizado con Azure Activ
 
 Como administrador de Active Directory, conéctese a la red local, abra PowerShell y realice las siguientes acciones:
 
-1. Deshabilite al usuario en Active Directory. Consulte [Disable-ADAccount](/powershell/module/addsadministration/disable-adaccount?view=win10-ps).
+1. Deshabilite al usuario en Active Directory. Consulte [Disable-ADAccount](/powershell/module/addsadministration/disable-adaccount).
 
     ```PowerShell
     Disable-ADAccount -Identity johndoe  
     ```
 
-1. Restablezca la contraseña del usuario dos veces en Active Directory. Consulte [Set-ADAccountPassword](/powershell/module/addsadministration/set-adaccountpassword?view=win10-ps).
+1. Restablezca la contraseña del usuario dos veces en Active Directory. Consulte [Set-ADAccountPassword](/powershell/module/addsadministration/set-adaccountpassword).
 
     > [!NOTE]
     > La razón para cambiar la contraseña de un usuario dos veces es mitigar el riesgo de ataques Pass-the-hash, especialmente si hay retrasos en la replicación de contraseñas local. Si puede suponer con seguridad que esta cuenta no está en peligro, puede restablecer la contraseña solo una vez.
@@ -82,18 +83,18 @@ Como administrador de Active Directory, conéctese a la red local, abra PowerShe
 
 Como administrador de Azure Active Directory, abra PowerShell, ejecute ``Connect-AzureAD`` y realice las siguientes acciones:
 
-1. Deshabilite al usuario en Azure AD. Consulte [Set-AzureADUser](/powershell/module/azuread/Set-AzureADUser?view=azureadps-2.0).
+1. Deshabilite al usuario en Azure AD. Consulte [Set-AzureADUser](/powershell/module/azuread/Set-AzureADUser).
 
     ```PowerShell
     Set-AzureADUser -ObjectId johndoe@contoso.com -AccountEnabled $false
     ```
-1. Revoque los tokens de actualización de Azure AD del usuario. Consulte [Revoke-AzureADUserAllRefreshToken](/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0).
+1. Revoque los tokens de actualización de Azure AD del usuario. Consulte [Revoke-AzureADUserAllRefreshToken](/powershell/module/azuread/revoke-azureaduserallrefreshtoken).
 
     ```PowerShell
     Revoke-AzureADUserAllRefreshToken -ObjectId johndoe@contoso.com
     ```
 
-1. Deshabilite los dispositivos del usuario. Consulte [Get-AzureADUserRegisteredDevice](/powershell/module/azuread/get-azureaduserregistereddevice?view=azureadps-2.0).
+1. Deshabilite los dispositivos del usuario. Consulte [Get-AzureADUserRegisteredDevice](/powershell/module/azuread/get-azureaduserregistereddevice).
 
     ```PowerShell
     Get-AzureADUserRegisteredDevice -ObjectId johndoe@contoso.com | Set-AzureADDevice -AccountEnabled $false

@@ -6,18 +6,18 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 10/05/2020
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: b1583307771dd58053128d71cb0ae5dd7e709f68
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: a53b193d16a2cefbde7877fd930e5fa73b0c6a36
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96174388"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861279"
 ---
 # <a name="password-policies-and-account-restrictions-in-azure-active-directory"></a>Restricciones de cuenta y directivas de contraseñas en Azure Active Directory
 
@@ -95,7 +95,7 @@ Una directiva de dos puertas requiere dos elementos de los datos de autenticaci�
 * Se ha configurado un dominio personalizado para el inquilino de Azure AD, como *contoso.com*; o
 * Azure AD Connect sincroniza identidades desde el directorio local
 
-Puede deshabilitar el uso de SSPR para las cuentas de administrador mediante el cmdlet de PowerShell [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0). El parámetro `-SelfServePasswordResetEnabled $False` deshabilita SSPR para los administradores.
+Puede deshabilitar el uso de SSPR para las cuentas de administrador mediante el cmdlet de PowerShell [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings). El parámetro `-SelfServePasswordResetEnabled $False` deshabilita SSPR para los administradores.
 
 ### <a name="exceptions"></a>Excepciones
 
@@ -107,7 +107,7 @@ Las directivas de una puerta necesitan información de autenticación, como una 
 
 ## <a name="password-expiration-policies"></a><a name="set-password-expiration-policies-in-azure-ad"></a>Directivas de expiración de contraseñas
 
-Un *administrador global* o un *administrador de usuarios* puede usar el módulo [Microsoft Azure AD para Windows PowerShell](/powershell/module/Azuread/?view=azureadps-2.0) al configurar las contraseñas de usuario para que no expiren.
+Un *administrador global* o un *administrador de usuarios* puede usar el módulo [Microsoft Azure AD para Windows PowerShell](/powershell/module/Azuread/) al configurar las contraseñas de usuario para que no expiren.
 
 También puede usar cmdlets de PowerShell para quitar la configuración de no expirar nunca o ver qué contraseñas de usuario están configuradas para que no expiren nunca.
 
@@ -118,13 +118,13 @@ Esta guía se aplica a otros proveedores (como Intune y Microsoft 365) que tamb
 
 ### <a name="set-or-check-the-password-policies-by-using-powershell"></a>Establecer o comprobar directivas de contraseña mediante PowerShell
 
-Para empezar, [descargue e instale el módulo de Azure AD PowerShell ](/powershell/module/Azuread/?view=azureadps-2.0) y [conéctelo al inquilino de Azure AD](/powershell/module/azuread/connect-azuread?view=azureadps-2.0#examples).
+Para empezar, [descargue e instale el módulo de Azure AD PowerShell ](/powershell/module/Azuread/) y [conéctelo al inquilino de Azure AD](/powershell/module/azuread/connect-azuread#examples).
 
 Una vez instalado el módulo, use los pasos a continuación para completar cada tarea según sea necesario.
 
 ### <a name="check-the-expiration-policy-for-a-password"></a>Comprobación de la directiva de expiración de una contraseña
 
-1. Abra un símbolo del sistema de PowerShell y [conéctese con su inquilino de Azure AD](/powershell/module/azuread/connect-azuread?view=azureadps-2.0#examples) mediante una cuenta de *administrador global* o *administrador de usuarios*.
+1. Abra un símbolo del sistema de PowerShell y [conéctese con su inquilino de Azure AD](/powershell/module/azuread/connect-azuread#examples) mediante una cuenta de *administrador global* o *administrador de usuarios*.
 1. Ejecute uno de los siguientes comandos para un usuario individual o para todos los usuarios:
 
    * Para ver si la contraseña de un solo usuario está configurada para no expirar nunca, ejecute el siguiente cmdlet. Reemplace `<user ID>` por el id. del usuario que quiere comprobar, como *driley\@contoso.onmicrosoft.com*:
@@ -141,7 +141,7 @@ Una vez instalado el módulo, use los pasos a continuación para completar cada 
 
 ### <a name="set-a-password-to-expire"></a>Configuración de una contraseña para que caduque
 
-1. Abra un símbolo del sistema de PowerShell y [conéctese con su inquilino de Azure AD](/powershell/module/azuread/connect-azuread?view=azureadps-2.0#examples) mediante una cuenta de *administrador global* o *administrador de usuarios*.
+1. Abra un símbolo del sistema de PowerShell y [conéctese con su inquilino de Azure AD](/powershell/module/azuread/connect-azuread#examples) mediante una cuenta de *administrador global* o *administrador de usuarios*.
 1. Ejecute uno de los siguientes comandos para un usuario individual o para todos los usuarios:
 
    * Para establecer la contraseña de un usuario para que expire, ejecute el cmdlet siguiente. Reemplace `<user ID>` por el id. del usuario que quiere comprobar, como *driley\@contoso.onmicrosoft.com*.
@@ -158,7 +158,7 @@ Una vez instalado el módulo, use los pasos a continuación para completar cada 
 
 ### <a name="set-a-password-to-never-expire"></a>Configure una contraseña para que no caduque nunca
 
-1. Abra un símbolo del sistema de PowerShell y [conéctese con su inquilino de Azure AD](/powershell/module/azuread/connect-azuread?view=azureadps-2.0#examples) mediante una cuenta de *administrador global* o *administrador de usuarios*.
+1. Abra un símbolo del sistema de PowerShell y [conéctese con su inquilino de Azure AD](/powershell/module/azuread/connect-azuread#examples) mediante una cuenta de *administrador global* o *administrador de usuarios*.
 1. Ejecute uno de los siguientes comandos para un usuario individual o para todos los usuarios:
 
    * Para establecer la contraseña de un usuario para que no expire nunca, ejecute el cmdlet siguiente. Reemplace `<user ID>` por el id. del usuario que quiere comprobar, como *driley\@contoso.onmicrosoft.com*.

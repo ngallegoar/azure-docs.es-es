@@ -13,12 +13,12 @@ ms.date: 05/07/2020
 ms.author: jeferrie
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: b683eaaf4c93ef0dcf74680e1e174e0f867a7041
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 8be41f3fcf4d32ee81d1290c6a50a27f2cd45ee7
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96173403"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96860973"
 ---
 # <a name="use-msalnet-to-sign-in-users-with-social-identities"></a>Use MSAL.NET para que los usuarios inicien sesión con identidades de redes sociales
 
@@ -165,7 +165,7 @@ Si las cosas cambian, proporcionaremos una actualización de esta [incidencia](h
 
 ### <a name="known-issue-with-azure-ad-b2c"></a>Problema conocido con Azure AD B2C
 
-MSAL.NET admite una [memoria caché de tokens](/dotnet/api/microsoft.identity.client.tokencache?view=azure-dotnet). La clave de la caché de tokens se basa en las notificaciones que devuelve el proveedor de identidades (IdP).
+MSAL.NET admite una [memoria caché de tokens](/dotnet/api/microsoft.identity.client.tokencache). La clave de la caché de tokens se basa en las notificaciones que devuelve el proveedor de identidades (IdP).
 
 Actualmente, MSAL.NET necesita dos notificaciones para generar una clave de caché de tokens:
 

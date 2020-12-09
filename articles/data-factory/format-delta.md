@@ -5,23 +5,20 @@ author: djpmsft
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 07/09/2020
+ms.date: 12/07/2020
 ms.author: daperlov
-ms.openlocfilehash: 3e1c5f3b360960779dd58c8c05b25885df81d2e9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 794c9a0768a7b649ce4fb123c85f6cc0120764c8
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91276530"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96854978"
 ---
 # <a name="delta-format-in-azure-data-factory"></a>Formato delta en Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 En este artículo se señala cómo copiar datos con un lago delta, como origen o destino, almacenado en [Azure Data Lake Store Gen2](connector-azure-data-lake-storage.md) o [Azure Blob Storage](connector-azure-blob-storage.md) con el formato delta. Este conector está disponible como [conjunto de datos en línea](data-flow-source.md#inline-datasets) en los flujos de datos de asignación como origen y receptor.
-
-> [!NOTE]
-> El conector de formato delta para flujos de datos de asignación está disponible actualmente como versión preliminar pública.
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4ALTs]
 
@@ -78,7 +75,7 @@ En la tabla siguiente se enumeran las propiedades que admite un receptor delta. 
 | Tipo de compresión | Tipo de compresión de la tabla delta | no | `bzip2`<br>`gzip`<br>`deflate`<br>`ZipDeflate`<br>`snappy`<br>`lz4` | compressionType |
 | Nivel de compresión | Elija si la compresión debe completarse tan pronto como sea posible, incluso si el archivo resultante debe comprimirse de forma óptima. | obligatorio si se especifica `compressedType` | `Optimal` o `Fastest` | compressionLevel |
 | Vacío | Especifique el umbral de retención en horas para versiones anteriores de la tabla. Un valor de 0 o menos toma el valor predeterminado de 30 días | sí | Entero | vacuum |
-| Método de actualización | Especifique qué operaciones de actualización se permiten en el lago delta. En el caso de los métodos que no sean insert, se requiere una transformación Alter row anterior para marcar las filas. | sí | `true` o `false` | deletable <br> insertable <br> updateable <br> upsertable |
+| Método de actualización | Especifique qué operaciones de actualización se permiten en el lago delta. En el caso de los métodos que no sean insert, se requiere una transformación Alter row anterior para marcar las filas. | sí | `true` o `false` | deletable <br> insertable <br> updateable <br> merge |
 
 ### <a name="delta-sink-script-example"></a>Ejemplo de script de receptor delta
 

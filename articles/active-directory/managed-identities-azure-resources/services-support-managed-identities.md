@@ -11,12 +11,12 @@ ms.subservice: msi
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: references_regions
-ms.openlocfilehash: c77f0e93e9f0084f335df39d2878871d66af0aac
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 2da0407f848b0795414b071b9e082c7ed60a633d
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96498037"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861891"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Servicios que admiten identidades administradas para recursos de Azure
 
@@ -45,8 +45,8 @@ Consulte la lista siguiente para configurar la identidad administrada para Azure
 
 | Tipo de identidad administrada | Regiones globales de Azure<br>con disponibilidad general | Azure Government | Azure Alemania | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| Asignado por el sistema | ![Disponible][check] | ![Disponible][check] | No disponible | No disponible |
-| Asignado por el usuario | ![Disponible][check] | ![Disponible][check]  | No disponible  | No disponible |
+| Asignado por el sistema | ![Disponible][check] | ![Disponible][check] | No disponible | ![Disponible][check] |
+| Asignado por el usuario | ![Disponible][check] | ![Disponible][check]  | No disponible  | ![Disponible][check] |
 
 Consulte la lista siguiente para configurar la identidad administrada para Azure App Configuration (en las regiones donde esté disponible):
 
@@ -252,7 +252,7 @@ Consulte la lista siguiente para configurar la identidad administrada para Azure
 
 - [Azure Portal](../../governance/policy/tutorials/create-and-manage.md#assign-a-policy)
 - [PowerShell](../../governance/policy/how-to/remediate-resources.md#create-managed-identity-with-powershell)
-- [CLI de Azure](/cli/azure/policy/assignment?view=azure-cli-latest#az-policy-assignment-create)
+- [CLI de Azure](/cli/azure/policy/assignment#az-policy-assignment-create)
 - [Plantillas del Administrador de recursos de Azure](/azure/templates/microsoft.authorization/policyassignments)
 - [REST](/rest/api/resources/policyassignments/create)
 
@@ -274,7 +274,7 @@ Consulte la siguiente lista para configurar la identidad administrada para las a
 
 | Tipo de identidad administrada | Regiones globales de Azure<br>con disponibilidad general | Azure Government | Azure Alemania | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| Asignado por el sistema | ![Disponible][check] | No disponible | No disponible | No disponible |
+| Asignado por el sistema | ![Disponible][check] | No disponible | No disponible | ![Disponible][check] |
 | Asignado por el usuario | No disponible | No disponible | No disponible | No disponible |
 
 

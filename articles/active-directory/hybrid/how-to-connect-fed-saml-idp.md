@@ -14,12 +14,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2cd95d01c9b49bb6002c00c805dc82dcf30941e3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 20088ccc79abe978eb5b3f1c98e958f6c26bcb86
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91295046"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861806"
 ---
 #  <a name="use-a-saml-20-identity-provider-idp-for-single-sign-on"></a>Uso de un proveedor de identidades (IdP) de SAML 2.0 para el inicio de sesión único
 
@@ -250,7 +250,7 @@ Antes de poder autenticar a los usuarios en Microsoft 365, debe aprovisionar Az
 
 Azure AD Connect se puede usar para aprovisionar a las entidades de seguridad en los dominios en Azure Active Directory desde el entorno local de Active Directory. Para más información, consulte [Integrate your on-premises directories with Azure Active Directory](whatis-hybrid-identity.md) (Integración de los directorios locales con Azure Active Directory).
 
-También se puede usar Windows PowerShell para automatizar la adición de nuevos usuarios a Azure AD y sincronizar los cambios desde el directorio local. Para usar los cmdlets de Windows PowerShell, debe descargar los [módulos de Azure Active Directory](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0).
+También se puede usar Windows PowerShell para automatizar la adición de nuevos usuarios a Azure AD y sincronizar los cambios desde el directorio local. Para usar los cmdlets de Windows PowerShell, debe descargar los [módulos de Azure Active Directory](/powershell/azure/active-directory/install-adv2).
 
 Este procedimiento muestra cómo agregar un único usuario a Azure AD.
 

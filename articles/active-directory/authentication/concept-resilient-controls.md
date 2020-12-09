@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 06/08/2020
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6b5b83d75df734c667c365f20fad2e1f62f997d7
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 95f70005f2c7f53833163dcd5f0d2ee89b3db37c
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95994288"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861296"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Crear una estrategia de administración de control de acceso resistente con Azure Active Directory
 
@@ -266,7 +266,7 @@ Deshaga los cambios realizados como parte del plan de contingencia activado una 
 3. Revierta los cambios realizados y documentados durante la interrupción.
 4. Si usa una cuenta de acceso de emergencia, no olvide volver a generar las credenciales y proteger físicamente la nueva información de credenciales como parte de los procedimientos de la cuenta de acceso de emergencia.
 5. Siga [evaluando todas las detecciones de riesgos notificadas](../reports-monitoring/concept-sign-ins.md) después de la interrupción para detectar actividad sospechosa.
-6. Revoque todos los tokens de actualización que se emitieron [mediante PowerShell](/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0) que tenían como destino un conjunto de usuarios. Revocar todos los tokens de actualización es importante para las cuentas con privilegios que se usaron durante la interrupción y hacerlo les obligará a volver autenticarse y cumplir con el control de las directivas restauradas.
+6. Revoque todos los tokens de actualización que se emitieron [mediante PowerShell](/powershell/module/azuread/revoke-azureaduserallrefreshtoken) que tenían como destino un conjunto de usuarios. Revocar todos los tokens de actualización es importante para las cuentas con privilegios que se usaron durante la interrupción y hacerlo les obligará a volver autenticarse y cumplir con el control de las directivas restauradas.
 
 ## <a name="emergency-options"></a>Opciones de emergencia
 
@@ -287,7 +287,7 @@ Si su organización usa directivas heredadas de MFA por usuario, puede considera
 * [Configuración de Servidor Azure Multi-Factor Authentication para aplicaciones web de IIS](./howto-mfaserver-iis.md)
 * [Administración de cuentas administrativas de acceso de emergencia en Azure AD](../roles/security-emergency-access.md)
 * [Inicio rápido: Configuración de ubicaciones con nombre en Azure Active Directory](../reports-monitoring/quickstart-configure-named-locations.md)
-  * [Set-MsolDomainFederationSettings](/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0)
+  * [Set-MsolDomainFederationSettings](/powershell/module/msonline/set-msoldomainfederationsettings)
 * [Planeamiento de la implementación de unión a Azure Active Directory híbrido](../devices/hybrid-azuread-join-plan.md)
 * [Guía de implementación de Windows Hello para empresas](/windows/security/identity-protection/hello-for-business/hello-deployment-guide)
   * [Password Guidance - Microsoft Research](https://research.microsoft.com/pubs/265143/microsoft_password_guidance.pdf) (Instrucciones de contraseñas: Microsoft Research)

@@ -12,12 +12,12 @@ ms.date: 07/23/2020
 ms.author: kenwith
 ms.reviewer: japere
 ms.custom: contperfq2
-ms.openlocfilehash: ef38c5364a0df1df63be825e2c46009174840b72
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: e9a03c82fd4bd79e7a47fa34ff7a69870c52f018
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658135"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96858389"
 ---
 # <a name="active-directory-azure-ad-application-proxy-frequently-asked-questions"></a>Preguntas más frecuentes sobre Active Directory (Azure AD) Application Proxy
 
@@ -204,5 +204,5 @@ Este escenario no se admite directamente. Pero tiene varias opciones para el mis
 1. Puede publicar las direcciones URL HTTP y HTTPS como aplicaciones independientes con un carácter comodín, pero deberá asignarles un dominio personalizado diferente. Esta configuración funcionará porque tiene direcciones URL externas diferentes.
 
 2. Puede publicar la dirección URL HTTPS a través de una aplicación con caracteres comodín. Publique las aplicaciones HTTP por separado mediante estos cmdlets de PowerShell de Application Proxy:
-   - [Administración de aplicaciones de Application Proxy](/powershell/module/azuread/?view=azureadps-2.0#application_proxy_application_management&preserve-view=true)
-   - [Administración de conectores de Application Proxy](/powershell/module/azuread/?view=azureadps-2.0#application_proxy_connector_management&preserve-view=true)
+   - [Administración de aplicaciones de Application Proxy](/powershell/module/azuread/#application_proxy_application_management&preserve-view=true)
+   - [Administración de conectores de Application Proxy](/powershell/module/azuread/#application_proxy_connector_management&preserve-view=true)
