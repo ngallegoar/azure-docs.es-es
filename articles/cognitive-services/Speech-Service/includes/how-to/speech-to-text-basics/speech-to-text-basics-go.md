@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/15/2020
 ms.author: trbye
-ms.openlocfilehash: f3a3d897d5cc5a22340dccf3aeeac8d52158a3a0
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: f87db54b43f0ece49b940521bea34737da676a31
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94424837"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96912147"
 ---
 Una de las características principales del servicio de voz es la capacidad para reconocer y transcribir la voz humana (que a menudo se denomina "conversión de voz en texto"). En este inicio rápido, aprenderá a usar el SDK de voz en sus aplicaciones y productos para realizar una conversión de voz en texto de alta calidad.
 
@@ -30,6 +30,8 @@ En primer lugar, deberá instalar el [SDK de Voz para Go](../../../quickstarts/s
 Use el siguiente ejemplo de código para ejecutar el reconocimiento de voz desde el micrófono del dispositivo predeterminado. Reemplace las variables `subscription` y `region` por sus claves de suscripción y región. Al ejecutar el script, se iniciará una sesión de reconocimiento en el micrófono y el texto de salida predeterminados.
 
 ```go
+package main
+
 import (
     "bufio"
     "fmt"
@@ -104,6 +106,8 @@ Vea los documentos de referencia para obtener información detallada sobre las c
 Use el ejemplo siguiente para ejecutar el reconocimiento de voz desde un archivo de audio. Reemplace las variables `subscription` y `region` por sus claves de suscripción y región. Además, reemplace la variable `file` por una ruta de acceso a un archivo .wav. Al ejecutar el script, se reconocerá la voz del archivo y se generará el resultado del texto.
 
 ```go
+package main
+
 import (
     "fmt"
     "time"

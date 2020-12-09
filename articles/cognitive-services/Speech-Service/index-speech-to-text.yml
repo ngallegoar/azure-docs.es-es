@@ -11,12 +11,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 03/19/2020
   ms.author: trbye
-  ms.openlocfilehash: e79798adf31a0d1e4f9880f0dac81ba27e33756d
-  ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+  ms.openlocfilehash: c4a765c14815015bcf70a4718fe8d189fe0d0c49
+  ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 12/02/2020
-  ms.locfileid: "96483878"
+  ms.lasthandoff: 12/05/2020
+  ms.locfileid: "96620966"
 landingContent:
 - title: Acerca de la conversión de voz en texto
   linkLists:
@@ -26,7 +26,7 @@ landingContent:
       url: speech-to-text.md
     - text: ¿Qué la conversión de voz en texto por lotes?
       url: batch-transcription.md
-    - text: ¿Qué es Habla personalizada?
+    - text: ¿Qué es Custom Speech?
       url: custom-speech-overview.md
     - text: Uso de la CLI de Voz para conversión de voz en texto sin código
       url: spx-overview.md
@@ -46,6 +46,8 @@ landingContent:
       url: ./custom-speech-overview.md
     - text: Uso de formatos de entrada de audio comprimidos
       url: how-to-use-codec-compressed-audio-input-streams.md
+    - text: Migración de la versión 2.0 a la versión 3.0
+      url: migrate-v2-to-v3.md
   - linkListType: tutorial
     links:
     - text: Mejora de la precisión con modelos de inquilino

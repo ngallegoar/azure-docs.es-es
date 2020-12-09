@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b2fb06c838de480bb73501307ab11cb3d6831921
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d9f80de5a18e27de4a9f8e85613e3c2eee6c111c
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88919325"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96853482"
 ---
 # <a name="create-video-reviews-using-net"></a>Creación de revisiones de vídeo con .NET
 
@@ -549,7 +549,3 @@ Por último, consulte la revisión de vídeo en su herramienta de revisión Cont
 ## <a name="next-steps"></a>Pasos siguientes
 
 Obtenga el [SDK de Content Moderator para .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) y la [solución de Visual Studio](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) para esta y otras guías de inicio rápido de Content Moderator para .NET.
-
-Vea cómo agregar [moderación de transcripciones](video-transcript-moderation-review-tutorial-dotnet.md) a la revisión de vídeo. 
-
-Consulte el tutorial detallado sobre cómo desarrollar una [solución completa de moderación de vídeo](video-transcript-moderation-review-tutorial-dotnet.md).

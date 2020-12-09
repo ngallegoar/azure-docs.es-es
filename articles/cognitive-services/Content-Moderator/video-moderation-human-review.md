@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 07/20/2020
 ms.author: pafarley
-ms.openlocfilehash: 079d5ea0259a436100b81489043b71a81ec1a330
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 05ece4d8ea24fb9da106ec3daa2cc1a63706dab9
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96327226"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96853505"
 ---
 # <a name="video-moderation-with-the-review-tool"></a>Moderación de vídeo con la herramienta de revisión
 
@@ -103,4 +103,3 @@ Una vez que expira el estado de limbo de los vídeos, sus revisiones se marcan c
 - Empiece con el [inicio rápido de moderación de vídeo](video-moderation-api.md).
 - Aprenda a generar [revisiones de vídeo](video-reviews-quickstart-dotnet.md) para los revisores humanos desde su salida moderada.
 - Agregue [revisiones de transcripción de vídeo](video-transcript-reviews-quickstart-dotnet.md) a las revisiones de vídeo.
-- Consulte el tutorial detallado sobre cómo desarrollar una [solución completa de moderación de vídeo](video-transcript-moderation-review-tutorial-dotnet.md).

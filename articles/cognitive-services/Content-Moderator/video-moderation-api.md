@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 05/18/2020
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: cd813c6db9d03b0b7c84497e5b44f6ecdb591437
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 4f98eac4305333ec7225c90da2777b7e02f050a0
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92912861"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96853539"
 ---
 # <a name="analyze-video-content-for-objectionable-material-in-c"></a>Análisis de contenido de vídeo para detectar material inapropiado en C#
 
@@ -37,11 +37,11 @@ Para suscribirse a ASM y crear una cuenta de almacenamiento de Azure asociada, s
 
 ### <a name="create-an-azure-active-directory-application"></a>Creación de una aplicación de Azure Active Directory
 
-Vaya a la nueva suscripción de AMS en Azure Portal y seleccione **Acceso de API** en el menú lateral. Seleccione **Connect to Azure Media Services with service principal** (Conectarse a Azure Media Services con la entidad de servicio). Anote el valor del campo **Punto de conexión de la API de REST** ; la necesitará más adelante.
+Vaya a la nueva suscripción de AMS en Azure Portal y seleccione **Acceso de API** en el menú lateral. Seleccione **Connect to Azure Media Services with service principal** (Conectarse a Azure Media Services con la entidad de servicio). Anote el valor del campo **Punto de conexión de la API de REST**; la necesitará más adelante.
 
-En la sección **Aplicación de Azure AD** , seleccione **Crear nueva** y asigne un nombre al nuevo registro de aplicación de Azure AD, por ejemplo "VideoModADApp". Haga clic en **Guardar** y espere unos minutos a que se configure la aplicación. A continuación, verá el nuevo registro de aplicación en la sección **Aplicación de Azure AD** de la página.
+En la sección **Aplicación de Azure AD**, seleccione **Crear nueva** y asigne un nombre al nuevo registro de aplicación de Azure AD, por ejemplo "VideoModADApp". Haga clic en **Guardar** y espere unos minutos a que se configure la aplicación. A continuación, verá el nuevo registro de aplicación en la sección **Aplicación de Azure AD** de la página.
 
-Seleccione el registro de aplicación y haga clic en el botón **Administrar aplicación** que hay debajo. Anote el valor del campo **Id. de aplicación** ; lo necesitará más adelante. Seleccione **Configuración** > **Claves** y escriba una descripción para una nueva clave (por ejemplo, "VideoModKey"). Haga clic en **Guardar** y, luego, observe el nuevo valor de clave. Copie esta cadena y guárdela en un lugar seguro.
+Seleccione el registro de aplicación y haga clic en el botón **Administrar aplicación** que hay debajo. Anote el valor del campo **Id. de aplicación**; lo necesitará más adelante. Seleccione **Configuración** > **Claves** y escriba una descripción para una nueva clave (por ejemplo, "VideoModKey"). Haga clic en **Guardar** y, luego, observe el nuevo valor de clave. Copie esta cadena y guárdela en un lugar seguro.
 
 Si desea un tutorial más detallado del proceso anterior, consulte [Introducción a la autenticación de Azure AD](../../media-services/previous/media-services-portal-get-started-with-aad.md).
 
@@ -57,7 +57,7 @@ Azure Media Services Explorer es un front-end fácil de usar de AMS. Úselo para
 
 1. En Visual Studio, cree un proyecto de **Aplicación de consola (.NET Framework)** y asígnele el nombre **VideoModeration**. 
 1. Si hay otros proyectos en la solución, seleccione este como proyecto de inicio único.
-1. Obtenga los paquetes NuGet requeridos. Haga clic con el botón derecho en el proyecto en el Explorador de soluciones y seleccione **Administrar paquetes NuGet** ; a continuación, busque e instale los siguientes paquetes:
+1. Obtenga los paquetes NuGet requeridos. Haga clic con el botón derecho en el proyecto en el Explorador de soluciones y seleccione **Administrar paquetes NuGet**; a continuación, busque e instale los siguientes paquetes:
     - windowsazure.mediaservices
     - windowsazure.mediaservices.extensions
 
@@ -365,9 +365,9 @@ static void StateChanged(object sender, JobStateChangedEventArgs e)
 Una vez completado el trabajo de moderación de contenido, analice la respuesta JSON. Esta consta de estos elementos:
 
 - Resumen de información del vídeo
-- **Capturas**  denominadas " **fragmentos** ".
-- **Fotogramas clave**  denominados " **eventos** " con una marca **reviewRecommended" (= true o false)"** basada en puntuaciones de tipo **Adultos** e **Inapropiado**.
-- Los valores **start** , **duration** , **totalDuration** y **timestamp** están entrecomillados. Divida con el valor **timescale** para obtener el número en segundos.
+- **Capturas**  denominadas "**fragmentos**".
+- **Fotogramas clave**  denominados "**eventos**" con una marca **reviewRecommended" (= true o false)"** basada en puntuaciones de tipo **Adultos** e **Inapropiado**.
+- Los valores **start**, **duration** , **totalDuration** y **timestamp** están entrecomillados. Divida con el valor **timescale** para obtener el número en segundos.
  
 > [!NOTE]
 > - `adultScore` representa la posible presencia y la puntuación de predicción de contenido que se pueda considerar sexualmente explícito o para adultos en ciertas situaciones.
@@ -430,9 +430,5 @@ Una vez completado el trabajo de moderación de contenido, analice la respuesta 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Obtenga información sobre cómo generar [reseñas de vídeos](video-reviews-quickstart-dotnet.md) desde la salida de moderación.
-
-Agregue la [moderación de transcripciones](video-transcript-moderation-review-tutorial-dotnet.md) a sus reseñas de vídeos.
-
-Consulte el tutorial detallado sobre cómo crear una [solución completa de moderación de vídeos y transcripciones ](video-transcript-moderation-review-tutorial-dotnet.md).
 
 [Descargue la solución de Visual Studio](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) para este y otras guías de inicio rápido de Content Moderator para .NET.
