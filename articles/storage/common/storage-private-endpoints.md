@@ -10,12 +10,12 @@ ms.date: 03/12/2020
 ms.author: santoshc
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 96e6b7a672e2967403626cb9ba7db87fc4dd795c
-ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
+ms.openlocfilehash: 0da970724a5d6f0ad42ba64939f316ec1ada855b
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94980208"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905560"
 ---
 # <a name="use-private-endpoints-for-azure-storage"></a>Uso de puntos de conexión privados para Azure Storage
 
@@ -125,10 +125,6 @@ Para más información sobre los precios, consulte [Precios de Azure Private Lin
 ## <a name="known-issues"></a>Problemas conocidos
 
 Tenga en cuenta los siguientes problemas conocidos relacionados con los puntos de conexión privados para Azure Storage.
-
-### <a name="copy-blob-support"></a>Compatibilidad de Copy Blob
-
-Si la cuenta de almacenamiento está protegida por un firewall y se tiene acceso a la cuenta a través de puntos de conexión privados, esa cuenta no puede servir como origen de una operación de [copia de blobs](/rest/api/storageservices/copy-blob).
 
 ### <a name="storage-access-constraints-for-clients-in-vnets-with-private-endpoints"></a>Restricciones de acceso al almacenamiento para los clientes de redes virtuales con puntos de conexión privados
 

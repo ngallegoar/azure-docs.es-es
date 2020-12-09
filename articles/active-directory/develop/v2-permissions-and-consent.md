@@ -12,12 +12,12 @@ ms.date: 09/23/2020
 ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur, marsma
 ms.custom: aaddev, fasttrack-edit, contperfq1, identityplatformtop40
-ms.openlocfilehash: 9c8a911bef5fb92f5bf9aa447e9e810a85317208
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 1b8b7b16a354fba482fcefe8f306f949f9a952ea
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95974160"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96902653"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Permisos y consentimiento en el punto de conexión de la Plataforma de identidad de Microsoft
 
@@ -304,7 +304,7 @@ Se abre una pantalla de consentimiento para todos los permisos registrados (si e
 
 ### <a name="client-credentials-grant-flow-and-default"></a>Flujo de concesión de credenciales de cliente y ./default
 
-`./default` también se utiliza cuando se solicitan permisos de aplicación (o *roles*) en una aplicación no interactiva, como una aplicación de demonio que usa el flujo de concesión de [credenciales de cliente](v2-oauth2-client-creds-grant-flow.md) para llamar a una API web.
+`/.default` también se utiliza cuando se solicitan permisos de aplicación (o *roles*) en una aplicación no interactiva, como una aplicación de demonio que usa el flujo de concesión de [credenciales de cliente](v2-oauth2-client-creds-grant-flow.md) para llamar a una API web.
 
 Para crear permisos de aplicación (roles) para una API web, consulte [Procedimientos: Agregar roles de aplicación en la aplicación y recibirlos en el token](howto-add-app-roles-in-azure-ad-apps.md).
 

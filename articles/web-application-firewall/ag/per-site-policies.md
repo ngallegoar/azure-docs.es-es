@@ -5,15 +5,15 @@ description: Obtenga información sobre cómo configurar directivas de firewall 
 services: web-application-firewall
 author: winthrop28
 ms.service: web-application-firewall
-ms.date: 09/16/2020
+ms.date: 12/08/2020
 ms.author: victorh
-ms.topic: conceptual
-ms.openlocfilehash: 3ac0540856d8cb8ccba6f1d176292d634d2dc80f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.topic: how-to
+ms.openlocfilehash: f282cfa6347dd6e6d591ac5cd8b1785e405c6c02
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91856609"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905985"
 ---
 # <a name="configure-per-site-waf-policies-using-azure-powershell"></a>Configuración de directivas de WAF por sitio mediante Azure PowerShell
 
@@ -28,7 +28,7 @@ En este artículo aprenderá a:
 * Configuración de la red
 * Creación de una directiva WAF
 * Crear una puerta de enlace de aplicaciones con WAF habilitado
-* Aplicación de la directiva de WAF globalmente, por sitio y por URI (versión preliminar)
+* Aplicación de la directiva de WAF globalmente, por sitio y por URI 
 * Crear un conjunto de escalado de máquinas virtuales
 * Crear una cuenta de almacenamiento y configurar los diagnósticos
 * Prueba de la puerta de enlace de aplicaciones
@@ -249,7 +249,7 @@ $appgw = New-AzApplicationGateway `
   -FirewallPolicy $wafPolicyGlobal
 ```
 
-### <a name="apply-a-per-uri-policy-preview"></a>Aplicación de una directiva por URI (versión preliminar)
+### <a name="apply-a-per-uri-policy"></a>Aplicación de una directiva por URI
 
 Para aplicar una directiva por URI, solo tiene que crear una nueva directiva y aplicarla a la configuración de la regla de ruta de acceso. 
 
